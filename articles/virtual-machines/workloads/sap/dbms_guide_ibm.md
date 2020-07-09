@@ -1,5 +1,5 @@
 ---
-title: Ibm Db2 Azure Virtual Machines DBMS implantação para carga de trabalho SAP [ Microsoft Docs
+title: IBM Db2 Azure Virtual Machines DBMS implantação para carga de trabalho SAP / Microsoft Docs
 description: Implementação em IBM DB2 do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
 services: virtual-machines-linux,virtual-machines-windows
 author: msjuergent
@@ -13,109 +13,108 @@ ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fb9d46adf63f9cd0f4b19e4eace0a2f4a7129226
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84022612"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementação em IBM DB2 do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
 
-Com o Microsoft Azure, pode migrar a sua aplicação SAP existente em execução no IBM Db2 para Linux, UNIX e Windows (LUW) para máquinas virtuais Azure. Com o SAP no IBM Db2 para luw, administradores e desenvolvedores ainda podem usar as mesmas ferramentas de desenvolvimento e administração, que estão disponíveis no local.
-Informações gerais sobre a execução da SAP Business Suite no IBM Db2 para luw podem ser encontradas na Rede Comunitária SAP (SCN) em <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html> .
+Com o Microsoft Azure, pode migrar a sua aplicação SAP existente em execução no IBM Db2 para linux, UNIX e Windows (LUW) para máquinas virtuais Azure. Com o SAP na IBM Db2 para a LUW, os administradores e desenvolvedores ainda podem usar as mesmas ferramentas de desenvolvimento e administração, que estão disponíveis no local.
+As informações gerais sobre a gestão do SAP Business Suite na IBM Db2 para a LUW podem ser encontradas na Rede Comunitária SAP (SCN) em <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html> .
 
-Para mais informações e atualizações sobre o SAP em Db2 para LUW on Azure, consulte SAP Nota [2233094]. 
+Para obter mais informações e atualizações sobre o SAP no Db2 para LUW on Azure, consulte a Nota [SAP 2233094]. 
 
-São vários artigos sobre carga de trabalho SAP no Azure lançados.  Recomenda-se começar na [carga de trabalho SAP em Azure - Começar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) e, em seguida, escolher a área de interesses
+São vários artigos sobre a carga de trabalho da SAP sobre o Azure lançados.  Recomenda-se começar na [carga de trabalho da SAP em Azure - Começar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) e, em seguida, escolher a área de interesses
 
-As seguintes notas SAP estão relacionadas com a SAP em Azure relativamente à área abrangida neste documento:
+As seguintes notas SAP estão relacionadas com a SAP on Azure relativamente à área abrangida pelo presente documento:
 
 | Número de nota | Título |
 | --- | --- |
 | [1928533] |Aplicações SAP em Azure: Produtos suportados e tipos de VM Azure |
-| [2015553] |SAP no Microsoft Azure: Apoiar pré-requisitos |
-| [1999351] |Resolução de problemas Monitorização Avançada do Azure para SAP |
-| [2178632] |Principais métricas de monitorização para SAP no Microsoft Azure |
+| [2015553] |SAP no Microsoft Azure: Pré-requisitos de suporte |
+| [1999351] |Resolução de problemas Monitorização do Azure Melhorado para SAP |
+| [2178632] |Principais métricas de monitorização do SAP no Microsoft Azure |
 | [1409604] |Virtualização no Windows: Monitorização melhorada |
-| [2191498] |SAP em Linux com Azure: Monitorização reforçada |
-| [2233094] |DB6: Aplicações SAP em Azure Utilizando O IBM DB2 para Linux, UNIX e Windows - Informações adicionais |
+| [2191498] |SAP on Linux com Azure: Monitorização Melhorada |
+| [2233094] |DB6: Aplicações SAP em Azure Usando o IBM DB2 para Linux, UNIX e Windows - Informações adicionais |
 | [2243692] |Linux no Microsoft Azure (IaaS) VM: Problemas de licença SAP |
 | [1984787] |SUSE LINUX Enterprise Server 12: Notas de instalação |
-| [2002167] |Red Hat Enterprise Linux 7.x: Instalação e upgrade |
+| [2002167] |Red Hat Enterprise Linux 7.x: Instalação e atualização |
 | [1597355] |Recomendação de espaço de troca para Linux |
 
-Como uma leitura de relações públicas deste documento, deve ter lido o documento Considerações para a implantação de [DBMS de Máquinas Virtuais Azure para carga de trabalho SAP,](dbms_guide_general.md) bem como outros guias na carga de [trabalho SAP sobre documentação Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+Como uma leitura pr-read a este documento, você deve ter lido o documento [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP,](dbms_guide_general.md) bem como outros guias na [carga de trabalho SAP sobre documentação Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
 
 
-## <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>IBM Db2 para Suporte à Versão Linux, UNIX e Windows
-O SAP no IBM Db2 para LUW no Microsoft Azure Virtual Machine Services é suportado a partir da versão 10.5 do Db2.
+## <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>IBM Db2 para Suporte a Versão Linux, UNIX e Windows
+SAP on IBM Db2 for LUW on Microsoft Azure Virtual Machine Services é suportado a partir da versão Db2 10.5.
 
-Para obter informações sobre produtos SAP suportados e tipos de VM Azure, consulte a Nota SAP [1928533 .]
+Para obter informações sobre produtos SAP suportados e tipos Azure VM, consulte a NOTA SAP [1928533].
 
-## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>IBM Db2 para Linhas de Configuração linux, UNIX e Windows para instalações SAP em VMs Azure
+## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>IBM Db2 para Diretrizes de Configuração de Linux, UNIX e Windows para instalações SAP em VMs Azure
 ### <a name="storage-configuration"></a>Configuração do Armazenamento
-Todos os ficheiros de base de dados devem ser armazenados no sistema de ficheiros NTFS com base em discos diretamente ligados. Estes discos são montados no Azure VM e estão baseados em Armazenamento BLOB de página Azure <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs> () ou discos geridos ( <https://docs.microsoft.com/azure/storage/storage-managed-disks-overview> ). Qualquer tipo de unidades de rede ou partilhas remotas, como os seguintes serviços de ficheiros Azure, **não** são suportados para ficheiros de base de dados: 
+Todos os ficheiros de base de dados devem ser armazenados no sistema de ficheiros NTFS com base em discos diretamente ligados. Estes discos são montados no Azure VM e estão baseados em Azure Page BLOB Storage <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs> () ou Discos Geridos <https://docs.microsoft.com/azure/storage/storage-managed-disks-overview> (). Qualquer tipo de unidades de rede ou partilhas remotas como os seguintes serviços de ficheiros Azure **NÃO** são suportados para ficheiros de base de dados: 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
 
-Utilizando discos baseados no Armazenamento BLOB da página Azure ou em discos geridos, as declarações feitas em Considerações para a implantação de [DBMS de Máquinas Virtuais Azure para carga de trabalho SAP](dbms_guide_general.md) aplicam-se também a implementações com o DBMS db2.
+Utilizando discos baseados em Armazenamento BLOB de Página Azure ou Discos Geridos, as declarações feitas em [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md) aplicam-se também a implementações com o Db2 DBMS.
 
-Como explicado anteriormente na parte geral do documento, existem quotas na produção de IOPS para discos Azure. As quotas exatas dependem do tipo VM utilizado. Uma lista de tipos vM com as suas quotas pode ser consultada [aqui (Linux)][virtual-machines-sizes-linux] e [aqui (Windows)][virtual-machines-sizes-windows].
+Tal como explicado anteriormente na parte geral do documento, existem quotas sobre a produção de IOPS para discos Azure. As quotas exatas dependem do tipo VM utilizado. Uma lista de tipos de VM com as suas quotas pode ser encontrada [aqui (Linux)][virtual-machines-sizes-linux] e [aqui (Windows)][virtual-machines-sizes-windows].
 
-Enquanto a quota atual do IOPS por disco for suficiente, é possível armazenar todos os ficheiros de base de dados num único disco montado. Ao passo que deve sempre separar os ficheiros de dados e os ficheiros de registo de transações em diferentes discos/VHDs.
+Enquanto a quota de IOPS por disco atual for suficiente, é possível armazenar todos os ficheiros da base de dados num único disco montado. Ao passo que deve sempre separar os ficheiros de dados e ficheiros de registo de transações em diferentes discos/VHDs.
 
-Para considerações de desempenho, consulte também o capítulo «Considerações de Segurança de Dados e Desempenho dos Diretores de Base de Dados» nos guias de instalação do SAP.
+Para considerações de desempenho, consulte também o capítulo "Considerações de Segurança de Dados e Desempenho para Diretórios de Bases de Dados" nos guias de instalação da SAP.
 
-Em alternativa, pode utilizar pools de armazenamento do Windows (apenas disponíveis no Windows Server 2012 ou superior) como descrito considerações para a [implementação de DBMS de Máquinas Virtuais Azure para a carga](dbms_guide_general.md) de trabalho Do SAP para criar um grande dispositivo lógico sobre vários discos.
+Em alternativa, pode utilizar os Pools de Armazenamento do Windows (apenas disponíveis no Windows Server 2012 e mais altos) como descrito [Considerações para a implementação de DBMS de Máquinas Virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md) para criar um grande dispositivo lógico em vários discos.
 
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-Para os discos que contenham os caminhos de armazenamento Db2 para os seus diretórios sapdata e saptmp, deve especificar um tamanho do sector do disco físico de 512 KB. Ao utilizar as piscinas de armazenamento do Windows, deve criar manualmente as piscinas de armazenamento através da interface da linha de comando utilizando o parâmetro `-LogicalSectorSizeDefault` . Para obter mais informações, consulte <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
+Para os discos que contêm os caminhos de armazenamento Db2 para os seus diretórios de sapdata e saptmp, deve especificar um tamanho do sector do disco físico de 512 KB. Ao utilizar piscinas de armazenamento do Windows, deve criar as piscinas de armazenamento manualmente através da interface da linha de comando utilizando o parâmetro `-LogicalSectorSizeDefault` . Para obter mais informações, consulte <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
-Para o Azure M-Series VM, a latência escrita nos registos de transações pode ser reduzida por fatores, em comparação com o desempenho do Armazenamento Azure Premium, quando se utiliza o Acelerador De Escrita Azure. Por isso, deve utilizar o Acelerador de Escrita Azure para os VHD(s) que formam o volume dos registos de transações Db2. Os detalhes podem ser lidos no documento [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
+Para o Azure M-Series VM, a escrita de latência nos registos de transações pode ser reduzida por fatores, em comparação com o desempenho do Azure Premium Storage, quando se utiliza o Acelerador de Escrita Azure. Assim, deve implantar o Acelerador de Escrita Azure para os VHD(s) que formam o volume para os registos de transações Db2. Os detalhes podem ser lidos no documento [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
 
 ### <a name="backuprestore"></a>Cópia de segurança/Restauro
-A funcionalidade de backup/restauro para O IBM Db2 para LUW é suportada da mesma forma que nos sistemas operativos padrão do Windows Server e hyper-V.
+A funcionalidade de backup/restauro para IBM Db2 para LUW é suportada da mesma forma que nos sistemas operativos padrão do Windows Server e Hiper-V.
 
-Tem de se certificar de que dispõe de uma estratégia de backup de base de dados válida. 
+Tem de se certificar de que tem uma estratégia de backup de bases de dados válida. 
 
-Tal como nas implementações de metal nu, o desempenho de backup/restauro depende de quantos volumes podem ser lidos em paralelo e qual a entrada desses volumes. Além disso, o consumo de CPU utilizado pela compressão de backup pode desempenhar um papel significativo em VMs com até oito fios de CPU. Portanto, pode-se assumir:
+Tal como nas implementações de metal nu, o desempenho de backup/restauro depende de quantos volumes podem ser lidos em paralelo e qual poderá ser a produção desses volumes. Além disso, o consumo de CPU utilizado pela compressão de backup pode desempenhar um papel significativo em VMs com até oito fios de CPU. Portanto, pode-se supor:
 
-* Quanto menor for o número de discos usados para armazenar os dispositivos de base de dados, menor é o aumento global da produção na leitura
-* Quanto menor for o número de fios de CPU no VM, mais grave é o impacto da compressão de cópia de segurança
-* Quanto menos alvos (Diretórios de Listras, discos) escrever em cópia de segurança, menor a entrada
+* Quanto menor for o número de discos utilizados para armazenar os dispositivos de base de dados, menor é a produção global na leitura
+* Quanto menor o número de fios de CPU no VM, mais grave o impacto da compressão de backup
+* Quanto menos alvos (Listras, discos) para escrever a cópia de segurança, menor a produção
 
-Para aumentar o número de alvos a escrever, duas opções podem ser usadas/combinadas dependendo das suas necessidades:
+Para aumentar o número de alvos a escrever, duas opções podem ser usadas/combinadas em função das suas necessidades:
 
-* Despir o volume de alvo de cópia de segurança sobre vários discos, a fim de melhorar a entrada do IOPS nesse volume listrado
+* Despojando o volume de alvo de backup sobre vários discos, a fim de melhorar a produção do IOPS nesse volume listrado
 * Usando mais de um diretório alvo para escrever o backup para
 
 >[!NOTE]
->O Db2 no Windows não suporta a tecnologia VsS do Windows. Como resultado, a cópia de segurança vm consistente da aplicação do Serviço de Backup Azure não pode ser alavancada para VMs onde o DB2 DBMS está implantado.
+>O Db2 no Windows não suporta a tecnologia VSS do Windows. Como resultado, a cópia de segurança VM consistente da Azure Backup Service não pode ser alavancada para VMs em que o DB2 DBMS é implantado.
 
 ### <a name="high-availability-and-disaster-recovery"></a>Elevada Disponibilidade e Recuperação Após Desastre
 O Microsoft Cluster Server (MSCS) não é suportado.
 
-A recuperação de desastres de alta disponibilidade db2 (HADR) é apoiada. Se as máquinas virtuais da configuração HA tiverem resolução de nomes de trabalho, a configuração em Azure não difere de qualquer configuração que seja feita no local. Não é aconselhável basear-se apenas na resolução ip.
+Db2 alta disponibilidade recuperação de desastres (HADR) é suportado. Se as máquinas virtuais da configuração HA tiverem resolução de nome de trabalho, a configuração em Azure não difere de qualquer configuração que seja feita no local. Não é aconselhável confiar apenas na resolução IP.
 
-Não utilize a Geo-Replicação para as contas de armazenamento que armazenam os discos de base de dados. Para mais informações, consulte o documento Considerações para a implantação de [DBMS de Máquinas Virtuais Azure para carga de trabalho SAP](dbms_guide_general.md). 
+Não utilize a Geo-Replicação para as contas de armazenamento que armazenam os discos de base de dados. Para obter mais informações, consulte o documento [Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md). 
 
 ### <a name="accelerated-networking"></a>Redes Aceleradas
-Para as implementações de Db2 no Windows, é altamente recomendado utilizar a funcionalidade Azure de Networking Acelerado, conforme descrito no documento [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Considere também as recomendações feitas em considerações para a [implantação de DBMS de Máquinas Virtuais Azure para carga de trabalho SAP](dbms_guide_general.md). 
+Para implementações Db2 no Windows, é altamente recomendado utilizar a funcionalidade Azure de Rede Acelerada, conforme descrito no documento [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Considere igualmente as recomendações feitas em [considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md). 
 
 
-### <a name="specifics-for-linux-deployments"></a>Especificidades para implementações linux
-Enquanto a quota atual do IOPS por disco for suficiente, é possível armazenar todos os ficheiros de base de dados num único disco. Ao passo que deve sempre separar os ficheiros de dados e os ficheiros de registo de transações em diferentes discos/VHDs.
+### <a name="specifics-for-linux-deployments"></a>Especificidades para implantações do Linux
+Enquanto a quota de IOPS atual por disco for suficiente, é possível armazenar todos os ficheiros de base de dados num único disco. Ao passo que deve sempre separar os ficheiros de dados e ficheiros de registo de transações em diferentes discos/VHDs.
 
-Alternativamente, se a entrada iOPS ou I/O de um único VHD Azure não for suficiente, pode utilizar LVM (Gestor de Volume Lógico) ou MDADM, conforme descrito no documento Considerações para a implantação de [DBMS de Máquinas Virtuais Azure para](dbms_guide_general.md) a carga de trabalho Do SAP para criar um grande dispositivo lógico sobre vários discos.
-Para os discos que contenham os caminhos de armazenamento Db2 para os seus diretórios sapdata e saptmp, deve especificar um tamanho do sector do disco físico de 512 KB.
+Alternativamente, se o resultado IOPS ou I/O de um único Azure VHD não for suficiente, pode utilizar o LVM (Logical Volume Manager) ou o MDADM, conforme descrito no documento [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md) para criar um grande dispositivo lógico sobre vários discos.
+Para os discos que contêm os caminhos de armazenamento Db2 para os seus diretórios de sapdata e saptmp, deve especificar um tamanho do sector do disco físico de 512 KB.
 
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
 
-### <a name="other"></a>Outro
-Todas as outras áreas gerais, como o Azure Availability Sets ou a monitorização SAP, aplicam-se como descrito no documento [Considerações para a implantação de DBMS de Máquinas Virtuais Azure para carga](dbms_guide_general.md) de trabalho SAP para implementações de VMs com a Base de Dados IBM também.
+### <a name="other"></a>Outros
+Todas as outras áreas gerais como os Conjuntos de Disponibilidade de Azure ou a monitorização SAP aplicam-se como descrito no documento [Considerações para a implantação de DBMS de máquinas virtuais Azure para](dbms_guide_general.md) a carga de trabalho SAP para implementações de VMs com a Base de Dados IBM também.
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830

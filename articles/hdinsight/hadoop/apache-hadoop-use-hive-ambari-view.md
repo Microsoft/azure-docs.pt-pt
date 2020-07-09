@@ -1,45 +1,45 @@
 ---
-title: Use a vista da colmeia Apache Ambari com apache Hadoop em Azure HDInsight
-description: Saiba como usar a Vista da Colmeia a partir do seu navegador web para submeter consultas da Hive. A Vista Hive faz parte do Ambari Web UI fornecido com o seu cluster HDInsight baseado em Linux.
+title: Use Apache Ambari Hive View com Apache Hadoop em Azure HDInsight
+description: Saiba como usar o Hive View a partir do seu navegador web para submeter consultas de Hive. O Hive View faz parte do Ambari Web UI fornecido com o seu cluster HDInsight baseado em Linux.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 832caaed0816e3dd7d177f634209dea42e5312c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6490292ef898e00c7677c829be41f3b06c638164
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192685"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076611"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utilizar a Vista do Apache Ambari Hive com o Apache Hadoop no HDInsight
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Aprenda a executar consultas da Hive usando a Visão da Colmeia Apache Ambari. O Hive View permite-lhe autor, otimizar e executar consultas da Hive a partir do seu navegador web.
+Aprenda a executar consultas de Colmeia usando Apache Ambari Hive View. O Hive View permite-lhe autorizar, otimizar e executar consultas de Hive a partir do seu navegador web.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Um aglomerado de Hadoop no HDInsight. Ver [Começar com HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
+Um aglomerado hadoop em HDInsight. Ver [Começar com HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
 ## <a name="run-a-hive-query"></a>Executar uma consulta do Hive
 
-1. A partir do [portal Azure,](https://portal.azure.com/)selecione o seu cluster.  Consulte a Lista e mostre instruções aos [agrupamentos.](../hdinsight-administer-use-portal-linux.md#showClusters) O cluster é aberto numa nova vista do portal.
+1. A partir do [portal Azure,](https://portal.azure.com/)selecione o seu cluster.  Consulte [lista e mostre os agrupamentos](../hdinsight-administer-use-portal-linux.md#showClusters) para obter instruções. O cluster é aberto numa nova vista de portal.
 
-1. A partir de **dashboards Cluster,** selecione **vistas Ambari**. Quando solicitado a autenticar, utilize o nome `admin`da conta de login do cluster (predefinido ) e a palavra-passe que forneceu quando criou o cluster. Também pode navegar `https://CLUSTERNAME.azurehdinsight.net/#/main/views` no seu `CLUSTERNAME` navegador onde está o nome do seu cluster.
+1. A partir **de dashboards cluster,** selecione **Ambari vistas**. Quando solicitado para autenticar, utilize o nome de conta e palavra-passe de login do cluster (predefinido) `admin` que forneceu quando criou o cluster. Você também pode navegar para `https://CLUSTERNAME.azurehdinsight.net/#/main/views` no seu navegador onde é o nome do seu `CLUSTERNAME` cluster.
 
-1. A partir da lista de pontos de vista, selecione __Hive View__.
+1. Na lista de pontos de vista, __selecione Hive View__.
 
-    ![Apache Ambari seleciona vista Apache Hive](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
+    ![Apache Ambari seleciona a vista apache hive](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
     A página de visualização da Colmeia é semelhante à seguinte imagem:
 
-    ![Imagem da folha de cálculo da consulta para a vista da Colmeia](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
+    ![Imagem da folha de consulta para a vista da Colmeia](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
 
-1. A partir do __separador Consulta,__ colá-cola as seguintes declarações da HiveQL na folha de cálculo:
+1. A partir do separador __Consulta,__ cole as seguintes declarações do HiveQL na folha de cálculo:
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -63,103 +63,103 @@ Um aglomerado de Hadoop no HDInsight. Ver [Começar com HDInsight no Linux](./ap
     |Declaração | Descrição |
     |---|---|
     |MESA DE LANÇAMENTO|Elimina a tabela e o ficheiro de dados, caso a tabela já exista.|
-    |CRIAR TABELA EXTERNA|Cria uma nova tabela "externa" na Colmeia. As tabelas externas armazenam apenas a definição de mesa na Colmeia. Os dados são deixados no local original.|
+    |CRIAR TABELA EXTERNA|Cria uma nova tabela "externa" na Colmeia. As mesas externas armazenam apenas a definição de tabela na Colmeia. Os dados são deixados no local original.|
     |FORMATO DE LINHA|Mostra como os dados são formatados. Neste caso, os campos em cada tronco são separados por um espaço.|
-    |LOCALIZAÇÃO ARMAZENADA COMO FICHEIRO DE TEXTO|Mostra onde os dados são armazenados, e que são armazenados como texto.|
+    |ARMAZENADO COMO LOCALIZAÇÃO DE FICHEIRO DE TEXTO|Mostra onde os dados são armazenados, e que é armazenado como texto.|
     |SELECIONAR|Seleciona uma contagem de todas as linhas onde a coluna t4 contém o valor [ERROR].|
 
    > [!IMPORTANT]  
-   > Deixe a seleção base de __dados__ __em padrão__. Os exemplos deste documento utilizam a base de dados predefinida incluída no HDInsight.
+   > Deixe a seleção __da Base de Dados__ __por defeito__. Os exemplos deste documento utilizam a base de dados padrão incluída no HDInsight.
 
-1. Para iniciar a consulta, selecione **Executar** abaixo da folha de cálculo. O botão fica laranja e o texto muda para **Parar**.
+1. Para iniciar a consulta, **selecione Executar** abaixo da folha de cálculo. O botão torna-se laranja e o texto muda para **Parar**.
 
-1. Depois de terminada a consulta, o separador **Resultados** apresenta os resultados da operação. O seguinte texto é o resultado da consulta:
+1. Depois de concluída a consulta, o separador **Resultados** apresenta os resultados da operação. O seguinte texto é o resultado da consulta:
 
         loglevel       count
         [ERROR]        3
 
-    Pode utilizar o separador **LOG** para visualizar as informações de registo que o trabalho criou.
+    Pode utilizar o **separador LOG** para visualizar as informações de registo que o trabalho criou.
 
    > [!TIP]  
-   > Faça o download ou economize resultados da caixa de diálogo drop-down das **Ações** no separador **Resultados.**
+   > Faça o download ou guarde os resultados da caixa de diálogo de lançamento **de Ações** no separador **Resultados.**
 
 ### <a name="visual-explain"></a>Explicação visual
 
-Para visualizar o plano de consulta, selecione o separador **Explicação Visual** abaixo da folha de cálculo.
+Para visualizar uma visualização do plano de consulta, selecione o **separador Explicação Visual** abaixo da folha de cálculo.
 
 A visão **de Explicação Visual** da consulta pode ser útil para entender o fluxo de consultas complexas.
 
 ### <a name="tez-ui"></a>Tez UI
 
-Para mostrar o Tez UI para a consulta, selecione o separador **Tez UI** abaixo da folha de cálculo.
+Para visualizar o UI Tez para a consulta, selecione o separador **Tez UI** abaixo da folha de cálculo.
 
 > [!IMPORTANT]  
-> Tez não é usado para resolver todas as consultas. Pode resolver muitas consultas sem usar o Tez.
+> Tez não é usado para resolver todas as consultas. Você pode resolver muitas consultas sem usar Tez.
 
 ## <a name="view-job-history"></a>Ver histórico de tarefas
 
-O separador __Jobs__ exibe um histórico de consultas da Hive.
+O separador __Jobs__ exibe uma história de consultas de Colmeia.
 
-![Apache Hive ver empregos tab histórico](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
+![Apache Hive ver empregos tab história](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
 
 ## <a name="database-tables"></a>Tabelas de bases de dados
 
-Pode utilizar o separador __Tabelas__ para trabalhar com as tabelas dentro de uma base de dados da Hive.
+Pode utilizar o separador __Tabelas__ para trabalhar com tabelas dentro de uma base de dados da Colmeia.
 
-![Imagem do separador de mesas apache hive](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
+![Imagem do separador tabelas apache colmeia](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
 
-## <a name="saved-queries"></a>Consultas guardadas
+## <a name="saved-queries"></a>Consultas salvas
 
-A partir do separador **Consulta,** você pode opcionalmente guardar consultas. Depois de guardar uma consulta, pode reutilizá-la a partir do separador __"Perguntas Guardadas".__
+A partir do separador **Consulta,** pode guardar opcionais consultas. Depois de guardar uma consulta, pode reutilizá-la a partir do separador __Consultas Salvas.__
 
-![Vistas de Apache Hive guardadas separador de consultas](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
+![Vistas apache Hive salvou separador de consultas](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
-> As consultas guardadas são armazenadas no armazenamento de cluster predefinido. Pode encontrar as consultas guardadas `/user/<username>/hive/scripts`no caminho. Estes são armazenados como `.hql` ficheiros de texto simples.
+> As consultas guardadas são armazenadas no armazenamento de cluster padrão. Pode encontrar as consultas guardadas no `/user/<username>/hive/scripts` caminho. Estes são armazenados como ficheiros de texto `.hql` simples.
 >
-> Se eliminar o cluster, mas manter o armazenamento, pode utilizar um utilitário como o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) ou o Data Lake Storage Explorer (do [Portal Azure)](https://portal.azure.com)para recuperar as consultas.
+> Se eliminar o cluster, mas mantiver o armazenamento, pode utilizar um utilitário como [O Explorador de Armazenamento de Azure](https://azure.microsoft.com/features/storage-explorer/) ou Data Lake Storage Explorer (do Portal [Azure)](https://portal.azure.com)para recuperar as consultas.
 
 ## <a name="user-defined-functions"></a>Funções definidas pelo utilizador
 
-Pode estender a Hive através de funções definidas pelo utilizador (UDF). Utilize uma UDF para implementar funcionalidade ou lógica que não seja facilmente modelada no HiveQL.
+Pode estender a Colmeia através de funções definidas pelo utilizador (UDF). Use um UDF para implementar funcionalidade ou lógica que não seja facilmente modelada no HiveQL.
 
-Declare e guarde um conjunto de UDFs utilizando o separador **UDF** no topo da Vista da Colmeia. Estes UDFs podem ser usados com o Editor de **Consulta.**
+Declare e guarde um conjunto de UDFs utilizando o separador **UDF** no topo da Hive View. Estes UDFs podem ser usados com o **Editor de Consulta.**
 
-![Apache Hive visualizar uDFs separador](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
+![Apache Hive ver ecrã do separador UDFs](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
-Um botão **inserção udfs** aparece na parte inferior do Editor de **Consulta**. Esta entrada apresenta uma lista de uDFs definido soro na Vista da Colmeia. A seleção de um UDF adiciona declarações da HiveQL à sua consulta para ativar a UDF.
+Um botão **insira o udfs** aparece na parte inferior do **Editor de Consulta**. Esta entrada apresenta uma lista de down-down dos UDFs definidos na Vista de Colmeia. A seleção de um UDF adiciona declarações de HiveQL à sua consulta para ativar o UDF.
 
-Por exemplo, se definiu uma UDF com as seguintes propriedades:
+Por exemplo, se definiu um UDF com as seguintes propriedades:
 
 * Nome do recurso: myudfs
 
-* Caminho de recursos: /myudfs.jar
+* Caminho do recurso: /myudfs.jar
 
-* Nome da UDF: myawesomeudf
+* Nome UDF: myawesomeudf
 
 * Nome da classe UDF: com.myudfs.Awesome
 
-A utilização do botão **Insert udfs** apresenta uma entrada chamada **myudfs,** com outra lista de drop-down para cada UDF definida para esse recurso. Neste caso, é **o meu incrível.** A seleção desta entrada adiciona o seguinte ao início da consulta:
+A utilização do botão **Insert udfs** exibe uma entrada denominada **myudfs,** com outra lista de descida para cada UDF definida para esse recurso. Neste caso, é **myawesomeudf.** A seleção desta entrada adiciona o seguinte ao início da consulta:
 
 ```hiveql
 add jar /myudfs.jar;
 create temporary function myawesomeudf as 'com.myudfs.Awesome';
 ```
 
-Em seguida, pode usar a UDF na sua consulta. Por exemplo, `SELECT myawesomeudf(name) FROM people;`.
+Em seguida, pode utilizar o UDF na sua consulta. Por exemplo, `SELECT myawesomeudf(name) FROM people;`.
 
-Para obter mais informações sobre a utilização de UDFs com Hive no HDInsight, consulte os seguintes artigos:
+Para obter mais informações sobre a utilização de UDFs com Hive em HDInsight, consulte os seguintes artigos:
 
-* [Usando Python com Apache Hive e Apache Pig em HDInsight](python-udf-hdinsight.md)
-* [Use uma Java UDF com Hive Apache em HDInsight](./apache-hadoop-hive-java-udf.md)
+* [Usando Python com Hive Apache e Porco Apache em HDInsight](python-udf-hdinsight.md)
+* [Use um Java UDF com Colmeia Apache em HDInsight](./apache-hadoop-hive-java-udf.md)
 
 ## <a name="hive-settings"></a>Configurações da colmeia
 
-Pode alterar várias definições da Colmeia, tais como alterar o motor de execução da Colmeia de Tez (o padrão) para MapReduce.
+Pode alterar várias definições de Hive, tais como alterar o motor de execução da Colmeia de Tez (o padrão) para MapReduce.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para informações gerais sobre a Hive no HDInsight:
+Para informações gerais sobre a Colmeia em HDInsight:
 
-* [Use a Colmeia Apache com Hadoop Apache no HDInsight](hdinsight-use-hive.md)
+* [Use a Colmeia Apache com Apache Hadoop em HDInsight](hdinsight-use-hive.md)
 * [Utilizar o cliente do Apache Beeline com o Apache Hive](apache-hadoop-use-hive-beeline.md)

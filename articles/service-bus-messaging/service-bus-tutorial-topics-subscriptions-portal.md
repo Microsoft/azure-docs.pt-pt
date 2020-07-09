@@ -1,20 +1,16 @@
 ---
-title: Atualizar inventário utilizando portal Azure e tópicos/subscrições
+title: Atualizar o inventário utilizando o portal Azure e tópicos/subscrições
 description: Neste tutorial, aprende a enviar e receber mensagens de um tópico e subscrição e como adicionar e utilizar regras de filtro utilizando .NET
-services: service-bus-messaging
 author: spelluru
-manager: timlt
 ms.author: spelluru
-ms.date: 01/21/2020
+ms.date: 06/23/2020
 ms.topic: tutorial
-ms.service: service-bus-messaging
-ms.custom: mvc
-ms.openlocfilehash: b6a3f38e0b83dc927a225c630b8178be1dc539ce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 77a8ef9c96219d2deb08126dc68eafe08d5262d4
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76310123"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341699"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: atualizar inventário utilizando o portal do Azure e tópicos/subscrições
 
@@ -32,7 +28,7 @@ Um exemplo deste cenário é uma atualização da variedade de inventário para 
 
 ![tópico](./media/service-bus-tutorial-topics-subscriptions-portal/about-service-bus-topic.png)
 
-Se não tiver uma subscrição Azure, pode criar uma [conta gratuita][] antes de começar.
+Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita][] antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -55,7 +51,7 @@ Cada [subscrição de um tópico](service-bus-messaging-overview.md#topics) pode
 
 Depois do aprovisionamento do espaço de nomes e tópico/subscrições e de ter as credenciais necessárias, está pronto para criar regras de filtro nas subscrições e enviar e receber mensagens. Pode examinar o código nesta [pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
-### <a name="send-and-receive-messages"></a>Enviar e receber mensagens
+## <a name="send-and-receive-messages"></a>Enviar e receber mensagens
 
 Para executar o código, faça o seguinte:
 
@@ -395,7 +391,7 @@ private async Task ReceiveMessages(string subscription)
 ```
 
 > [!NOTE]
-> Você pode gerir recursos de ônibus de serviço com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nome do Bus de Serviço e administram entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
+> Você pode gerir os recursos de Service Bus com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nomes de Service Bus e administram as entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -415,7 +411,7 @@ Avance para o próximo tutorial para saber mais sobre a utilização de capacida
 > [!div class="nextstepaction"]
 > [Atualizar inventário com o PowerShell e tópicos/subscrições](service-bus-tutorial-topics-subscriptions-powershell.md)
 
-[conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[conta livre]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 

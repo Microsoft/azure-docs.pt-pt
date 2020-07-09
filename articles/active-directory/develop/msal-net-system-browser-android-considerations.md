@@ -1,7 +1,7 @@
 ---
-title: Considerações do navegador do sistema Xamarin Android (MSAL.NET) / Azure
+title: Considerações do navegador do sistema Xamarin Android (MSAL.NET) Rio Azure
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre considerações para usar navegadores de sistema no Xamarin Android com a Microsoft Authentication Library para .NET (MSAL.NET).
+description: Saiba mais sobre considerações para utilizar navegadores de sistema no Xamarin Android com a Microsoft Authentication Library para .NET (MSAL.NET).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,21 +14,21 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8e37d443d75dccae8704bc1ff7856e1d24131766
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652706"
 ---
 #  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>Considerações do navegador do sistema Xamarin Android para usar MSAL.NET
 
 Este artigo discute o que deve considerar quando utiliza o navegador do sistema no Xamarin Android com a Microsoft Authentication Library para .NET (MSAL.NET).
 
-Começando com MSAL.NET pré-visualização 2.4.0, MSAL.NET suporta navegadores que não o Chrome. Já não é necessário que o Chrome seja instalado no dispositivo Android para autenticação.
+A partir de MSAL.NET 2.4.0 Preview, MSAL.NET suporta navegadores que não o Chrome. Já não é necessário que o Chrome seja instalado no dispositivo Android para autenticação.
 
 Recomendamos que utilize navegadores que suportem separadores personalizados. Aqui estão alguns exemplos destes navegadores:
 
-| Navegadores que têm suporte personalizado para abas | Nome do pacote |
+| Navegadores que têm suporte a separadores personalizados | Nome do pacote |
 |------| ------- |
 |Chrome | com.android.chrome|
 |Microsoft Edge | com.microsoft.emmx|
@@ -37,39 +37,39 @@ Recomendamos que utilize navegadores que suportem separadores personalizados. Aq
 |Rio Kiwi | com.kiwibrowser.browser|
 |Corajoso | com.brave.browser|
 
-Além de identificar os navegadores que oferecem suporte personalizado para separadores, os nossos testes indicam que alguns navegadores que não suportam separadores personalizados também funcionam para autenticação. Estes navegadores incluem Opera, Opera Mini, InBrowser e Maxthon. 
+Além de identificar navegadores que oferecem suporte a separadores personalizados, os nossos testes indicam que alguns navegadores que não suportam separadores personalizados também funcionam para autenticação. Estes navegadores incluem Opera, Opera Mini, InBrowser e Maxthon. 
 
 ## <a name="tested-devices-and-browsers"></a>Dispositivos e navegadores testados
-A tabela seguinte lista os dispositivos e navegadores que foram testados para compatibilidade de autenticação.
+A tabela que se segue lista os dispositivos e navegadores que foram testados para compatibilidade de autenticação.
 
 | Dispositivo | Browser     |  Resultado  | 
 | ------------- |:-------------:|:-----:|
 | Huawei/One+ | Chrome\* | Passe|
-| Huawei/One+ | Edge\* | Passe|
+| Huawei/One+ | Microsoft Edge\* | Passe|
 | Huawei/One+ | Firefox\* | Passe|
 | Huawei/One+ | Corajoso\* | Passe|
 | Um+ | Ecosia\* | Passe|
 | Um+ | Rio Kiwi\* | Passe|
 | Huawei/One+ | Ópera | Passe|
-| Huawei | ÓperaMini | Passe|
+| Huawei | OperaMini | Passe|
 | Huawei/One+ | InBrowser | Passe|
 | Um+ | Maxthon | Passe|
-| Huawei/One+ | DuckDuckGo | Autenticação cancelada do utilizador|
-| Huawei/One+ | UC Browser | Autenticação cancelada do utilizador|
+| Huawei/One+ | Pato-do-pato | Autenticação cancelada do utilizador|
+| Huawei/One+ | Navegador UC | Autenticação cancelada do utilizador|
 | Um+ | Golfinho | Autenticação cancelada do utilizador|
 | Um+ | Navegador CM | Autenticação cancelada do utilizador|
-| Huawei/One+ | Nenhum instalado | AndroidActivityNotFound exceção|
+| Huawei/One+ | Nenhum instalado | Exceção AndroidActivityNotFound|
 
 \*Suporta separadores personalizados
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-Se o utilizador não tiver navegador ativado no `AndroidActivityNotFound` dispositivo, MSAL.NET lançará uma exceção.  
-  - **Mitigação**: Peça ao utilizador que ative um navegador no seu dispositivo. Recomende um navegador que suporte separadores personalizados.
+Se o utilizador não tiver nenhum navegador ativado no dispositivo, MSAL.NET lançará uma `AndroidActivityNotFound` exceção.  
+  - **Mitigação:** Peça ao utilizador para ativar um browser no seu dispositivo. Recomendar um navegador que suporte separadores personalizados.
 
-Se a autenticação falhar (por exemplo, se a autenticação `AuthenticationCanceled MsalClientException`for lançada com duckDuckGo), MSAL.NET regressará . 
-  - **Problema de raiz**: Um navegador que suporta separadores personalizados não estava ativado no dispositivo. A autenticação foi lançada com um navegador que não conseguiu completar a autenticação. 
-  - **Mitigação**: Peça ao utilizador que ative um navegador no seu dispositivo. Recomende um navegador que suporte separadores personalizados.
+Se a autenticação falhar (por exemplo, se a autenticação for lançada com DuckDuckGo), MSAL.NET regressará `AuthenticationCanceled MsalClientException` . 
+  - **Problema de raiz**: Um navegador que suporta separadores personalizados não foi ativado no dispositivo. A autenticação foi lançada com um browser que não conseguiu completar a autenticação. 
+  - **Mitigação:** Peça ao utilizador para ativar um browser no seu dispositivo. Recomendar um navegador que suporte separadores personalizados.
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações e exemplos de código, consulte A Escolha entre um navegador web incorporado e um navegador de [sistema em Xamarin Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-uses-web-browser#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) e [Incrustado versus sistema web UI](msal-net-web-browsers.md#embedded-vs-system-web-ui).  
+Para obter mais informações e exemplos de código, consulte [Escolher entre um navegador web incorporado e um navegador de sistema no Xamarin Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-uses-web-browser#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) e Incorporado versus sistema web [UI](msal-net-web-browsers.md#embedded-vs-system-web-ui).  

@@ -1,66 +1,66 @@
 ---
-title: 'Crie um anfitrião do Bastião Azure: portal'
-description: Neste artigo, aprenda a criar um anfitrião do Azure Bastion usando o portal
+title: 'Criar um anfitrião Azure Bastion: portal'
+description: Neste artigo, aprenda a criar um hospedeiro Azure Bastion usando o portal
 services: bastion
 author: cherylmc
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1fa4b6a33b055f2042c9bf941a33ae03ead6ebde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d18d520419e77a225431d9c2a395f62411656537
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82148343"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744277"
 ---
-# <a name="create-an-azure-bastion-host-using-the-portal"></a>Crie um anfitrião do Bastião Azure usando o portal
+# <a name="create-an-azure-bastion-host-using-the-portal"></a>Criar um anfitrião Azure Bastion usando o portal
 
-Este artigo mostra-lhe como criar um anfitrião do Azure Bastion usando o portal Azure. Uma vez que você disponibiliza o serviço Azure Bastion na sua rede virtual, a experiência RDP/SSH sem emenda está disponível para todos os VMs na mesma rede virtual. A implantação do Azure Bastion é por rede virtual, não por subscrição/conta ou máquina virtual.
+Este artigo mostra-lhe como criar um hospedeiro Azure Bastion usando o portal Azure. Uma vez que fornece o serviço Azure Bastion na sua rede virtual, a experiência PDR/SSH sem costura está disponível para todos os VMs na mesma rede virtual. A implementação do Azure Bastion é por rede virtual, não por subscrição/conta ou máquina virtual.
 
-Pode criar um novo recurso de anfitrião de bastião no portal, quer especificando manualmente todas as definições, quer utilizando as definições que correspondem a um VM existente. Para criar um anfitrião de bastião utilizando as definições de VM, consulte o artigo [quickstart.](quickstart-host-portal.md) Opcionalmente, pode utilizar o [Azure PowerShell](bastion-create-host-powershell.md) para criar um anfitrião do Azure Bastion.
+Pode criar um novo recurso de anfitrião de bastião no portal, especificando manualmente todas as definições, quer utilizando as definições que correspondem a um VM existente. Para criar um hospedeiro de bastião utilizando as definições de VM, consulte o artigo [de arranque rápido.](quickstart-host-portal.md) Opcionalmente, pode utilizar [a Azure PowerShell](bastion-create-host-powershell.md) para criar um hospedeiro Azure Bastion.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
-A Bastião está disponível nas seguintes regiões públicas de Azure:
+O bastião está disponível nas seguintes regiões públicas do Azure:
 
 [!INCLUDE [available regions](../../includes/bastion-regions-include.md)]
 
-## <a name="create-a-bastion-host"></a><a name="createhost"></a>Criar um anfitrião do Bastion
+## <a name="create-a-bastion-host"></a><a name="createhost"></a>Criar um hospedeiro de bastião
 
 Esta secção ajuda-o a criar um novo recurso Azure Bastion a partir do portal Azure.
 
-1. No menu do [portal Azure](https://portal.azure.com) ou na página **Inicial,** selecione **Criar um recurso**.
+1. No menu [do portal Azure](https://portal.azure.com) ou na página **Inicial,** selecione **Criar um recurso**.
 
-1. Na página **Nova,** no campo *Search the Marketplace,* digite **Bastion,** em seguida, clique **em Entrar** para obter os resultados da pesquisa.
+1. Na página **Nova,** no campo *Procurar o Mercado,* **digitar Bastion,** clique em **Entrar** para obter os resultados da pesquisa.
 
-1. A partir dos resultados, clique em **Bastion**. Certifique-se de que a editora é *a Microsoft* e a categoria é *Networking*.
+1. A partir dos resultados, clique em **Bastion.** Certifique-se de que o editor é a *Microsoft* e a categoria é *Networking*.
 
-1. Na página **bastião,** clique **em Criar** para abrir a página **Criar um bastião.**
+1. Na página **Bastion,** clique em **Criar** para abrir a página **de bastião** Criar.
 
-1. Na página **Criar um bastião,** configure um novo recurso Bastião. Especifique as definições de configuração para o seu recurso Bastion.
+1. Na página **Criar um bastião,** configurar um novo recurso Bastonário. Especifique as definições de configuração para o seu recurso Bastion.
 
     ![criar um bastião](./media/bastion-create-host-portal/settings.png)
 
-    * **Subscrição**: A subscrição Azure que pretende utilizar para criar um novo recurso Bastião.
-    * **Grupo de Recursos**: O grupo de recursos Azure no qual será criado o novo recurso Bastion. Se não tiver um grupo de recursos existente, pode criar um novo.
-    * **Nome**: O nome do novo recurso Bastião
-    * **Região**: A região pública de Azure onde o recurso será criado.
-    * **Rede virtual**: A rede virtual em que o recurso Bastião será criado. Pode criar uma nova rede virtual no portal durante este processo, ou utilizar uma rede virtual existente. Se estiver a utilizar uma rede virtual existente, certifique-se de que a rede virtual existente tem espaço de endereço gratuito suficiente para acomodar os requisitos da subnet bastião.
-    * **Subnet**: A subrede na sua rede virtual onde o novo anfitrião bastião será implantado. A subnet será dedicada ao anfitrião bastião e deve ser nomeada como **AzureBastionSubnet.** Esta sub-rede deve ser pelo menos /27 ou maior.
+    * **Subscrição**: A subscrição Azure que pretende utilizar para criar um novo recurso Bastion.
+    * **Grupo de Recursos**: O grupo de recursos Azure no qual o novo recurso Bastion será criado. Se não tiver um grupo de recursos existente, pode criar um novo.
+    * **Nome**: O nome do novo recurso Bastion
+    * **Região**: Região Azure que o recurso será criado.
+    * **Rede virtual**: A rede virtual na qual o recurso Bastion será criado. Pode criar uma nova rede virtual no portal durante este processo ou utilizar uma rede virtual existente. Se estiver a utilizar uma rede virtual existente, certifique-se de que a rede virtual existente dispõe de espaço de endereço gratuito suficiente para acomodar os requisitos da sub-rede Bastion.
+    * **Sub-rede**: A sub-rede da sua rede virtual onde será implantado o novo anfitrião Bastion. A sub-rede será dedicada ao anfitrião do Bastião e deve ser nomeada como **AzureBastionSubnet**. Esta sub-rede deve ser pelo menos /27 ou maior.
     
-       **A AzureBastionSubnet** não suporta [rotas definidas](../virtual-network/virtual-networks-udr-overview.md#custom-routes)pelo utilizador, mas suporta grupos de segurança de [rede.](bastion-nsg.md)
-    * **Endereço IP público**: O IP público do recurso Bastião em que o RDP/SSH será acedido (sobre o porto 443). Crie um novo IP público, ou use um existente. O endereço IP público deve estar na mesma região que o recurso Bastião que está a criar.
-    * **Nome de endereço IP público**: O nome do endereço IP público.
-    * **Endereço IP público SKU**: Esta definição é pré-povoada por padrão para **a Norma**. O Azure Bastion utiliza/suporta apenas o IP Público Padrão SKU.
-    * **Atribuição**: Esta definição é prépovoada por padrão à **Estática**.
+       **A AzureBastionSubnet** não suporta [rotas definidas pelo utilizador,](../virtual-network/virtual-networks-udr-overview.md#custom-routes)mas suporta [grupos de segurança de rede.](bastion-nsg.md)
+    * **Endereço IP público**: O IP público do recurso Bastião no qual o PDR/SSH será acedido (sobre a porta 443). Crie um novo IP público, ou use um existente. O endereço IP público deve estar na mesma região que o recurso Bastion que está a criar.
+    * **Nome do endereço IP público**: O nome do recurso de endereço IP público.
+    * **Endereço IP público SKU**: Esta definição é pré-uto por defeito ao **Standard**. Azure Bastion utiliza/suporta apenas o SKU IP PÚBLICO Padrão.
+    * **Atribuição**: Esta definição é pré-uto por defeito à **Estática**.
 
-1. Quando terminar de especificar as definições, clique em **Rever + Criar**. Isto valida os valores. Uma vez que a validação passe, você pode iniciar o processo de criação.
+1. Quando terminar de especificar as definições, clique em **'Rever + Criar' (Revisão)** Isto valida os valores. Uma vez que a validação passe, você pode iniciar o processo de criação.
 1. Na página **Criar um bastião,** clique em **Criar**.
-1. Verá uma mensagem a dizer-lhe que a sua implantação está em andamento. O estado será exibido nesta página à medida que os recursos forem criados. Leva cerca de 5 minutos para que o recurso Bastião seja criado e implantado.
+1. Verá uma mensagem a dizer-lhe que a sua implantação está em curso. O estado será exibido nesta página à medida que os recursos forem criados. Leva cerca de 5 minutos para o recurso Bastion ser criado e implantado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Leia o [Bastião FAQ](bastion-faq.md) para obter informações adicionais.
+* Leia as [FAQ de Bastião](bastion-faq.md) para obter informações adicionais.
 
-* Para utilizar grupos de segurança de rede com a subnet Azure Bastion, consulte [Trabalhar com NSGs](bastion-nsg.md).
+* Para utilizar grupos de segurança de rede com a sub-rede Azure Bastion, consulte [Work with NSGs](bastion-nsg.md).

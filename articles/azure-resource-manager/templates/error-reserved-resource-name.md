@@ -1,13 +1,12 @@
 ---
 title: Erros de nome de recursos reservados
-description: Descreve como resolver erros ao fornecer um nome de recurso que inclui uma palavra reservada.
+description: Descreve como resolver erros ao fornecer um nome de recurso que inclua uma palavra reservada.
 ms.topic: troubleshooting
 ms.date: 11/08/2017
 ms.openlocfilehash: e76f4bf9bfee7de6e7523d69acf1388d2dd80e93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75477632"
 ---
 # <a name="resolve-reserved-resource-name-errors"></a>Resolver erros de nome de recursos reservados
@@ -16,7 +15,7 @@ Este artigo descreve o erro que encontra ao implementar um recurso que inclui um
 
 ## <a name="symptom"></a>Sintoma
 
-Ao implementar um recurso disponível através de um ponto final público, poderá receber o seguinte erro:
+Ao utilizar um recurso disponível através de um ponto final público, poderá receber o seguinte erro:
 
 ```
 Code=ReservedResourceName;
@@ -30,36 +29,36 @@ Os recursos que têm um ponto final público não podem usar palavras ou marcas 
 As seguintes palavras são reservadas:
 
 * ACESSO
-* AZURE
-* BING
+* RIO AZURE
+* RIO BING
 * BIZSPARK
 * BIZTALK
 * CORTANA
-* DIRETO
+* DIRECTX
 * DOTNET
 * DINÂMICA
 * EXCEL
 * TROCA
 * VANGUARDA
-* RANHURA
+* GROOVE
 * HOLOLENS
-* HYPERV
+* HIPERV
 * KINECT
-* LYNC
+* RIO LYNC
 * MSDN
 * O365
 * ESCRITÓRIO
 * ESCRITÓRIO365
 * ONEDRIVE
-* NOTA ÚNICA
-* PERSPETIVA
+* UMA NOTA
+* PERSPETIVAS
 * POWERPOINT
-* SHAREPOINT
+* PONTO DE PARTILHA
 * SKYPE
 * VISIO
-* ESTÚDIO VISUAL
+* VISUALSTUDIO
 
-As seguintes palavras não podem ser utilizadas como palavra inteira ou substring no nome:
+As seguintes palavras não podem ser utilizadas como uma palavra inteira ou um sub-cordão no nome:
 
 * LOGIN
 * MICROSOFT

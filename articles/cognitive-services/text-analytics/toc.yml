@@ -54,6 +54,8 @@
       href: concepts/text-offsets.md
     - name: Limites de dados
       href: concepts/data-limits.md
+    - name: Controlo de versões de modelos
+      href: concepts/model-versioning.md
 - name: Guias de procedimentos
   items:
     - name: Chamar a API de Análise de Texto
@@ -66,6 +68,8 @@
       href: How-tos/text-analytics-how-to-keyword-extraction.md
     - name: Reconhecimento de entidades nomeadas
       href: How-tos/text-analytics-how-to-entity-linking.md
+    - name: Análise de Texto para a Saúde
+      href: How-tos/text-analytics-for-health.md
     - name: Utilizar contentores
       items:
         - name: Instalar e executar contentores
@@ -76,6 +80,8 @@
           href: how-tos/text-analytics-how-to-use-container-instances.md
         - name: Utilizar o serviço do Kubernetes (AKS)
           href: how-tos/text-analytics-how-to-use-kubernetes-service.md
+    - name: Migrar para a versão 3 da API
+      href: migration-guide.md
 - name: Referência
   items:
     - name: Referência da CLI

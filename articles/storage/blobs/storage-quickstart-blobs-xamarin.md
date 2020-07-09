@@ -1,40 +1,40 @@
 ---
 title: 'Quickstart: Biblioteca de armazenamento Azure Blob v12 - Xamarin'
-description: Neste arranque rápido, aprende-se a usar a versão 12 da biblioteca de clientes de armazenamento Azure Blob com xamarin para criar um recipiente e uma bolha no armazenamento blob (objeto). Em seguida, você aprende a baixar a bolha para o seu dispositivo móvel, e como listar todas as bolhas num recipiente.
+description: Neste arranque rápido, aprende-se a usar a versão 12 da biblioteca de clientes de armazenamento Azure Blob com Xamarin para criar um recipiente e uma bolha no armazenamento blob (objeto). Em seguida, você aprende a baixar a bolha para o seu dispositivo móvel, e como listar todas as bolhas em um recipiente.
 author: codemillmatt
 ms.author: masoucou
 ms.date: 05/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: e0845e7cdc2ce6dc57ed5a18d263f117f0c2005c
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: c66766b39ae104cf4a031c3fd73c173e81d47fb8
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006245"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563487"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Quickstart: Biblioteca de clientes de armazenamento Azure Blob v12 com Xamarin
+# <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Quickstart: Azure Blob storage client library v12 com Xamarin
 
-Inicie-se com a biblioteca de clientes de armazenamento Azure Blob v12 com Xamarin. O Armazenamento de Blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. Siga os passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. O Armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados.
+Começa com a biblioteca de clientes de armazenamento Azure Blob v12 com Xamarin. O Armazenamento de Blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. Siga as medidas para instalar a embalagem e experimente o código de exemplo para tarefas básicas. O Armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados.
 
 Utilize a biblioteca de clientes de armazenamento Azure Blob v12 com Xamarin para:
 
 * Criar um contentor
-* Faça upload de uma bolha para o Armazenamento Azure
-* Liste todas as bolhas num recipiente
+* Faça o upload de uma bolha para o Azure Storage
+* Listar todas as bolhas em um recipiente
 * Descarregue a bolha para o seu dispositivo
 * Eliminar um contentor
 
-[Documentação de](/dotnet/api/azure.storage.blobs) | referência API Biblioteca[Código fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Sample](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
+[Documentação de](/dotnet/api/azure.storage.blobs)  |  referência da API [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)  |  [Amostra](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/)
+* Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
 * Conta de armazenamento Azure - [crie uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Estúdio Visual com [Desenvolvimento Móvel para .NET carga de trabalho](https://docs.microsoft.com/xamarin/get-started/installation/?pivots=windows) instalada ou Estúdio Visual para [Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
+* Estúdio Visual com [Desenvolvimento Móvel para carga de trabalho .NET](https://docs.microsoft.com/xamarin/get-started/installation/?pivots=windows) instalada ou Estúdio Visual para [Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
 
 ## <a name="setting-up"></a>Configuração
     
@@ -42,20 +42,20 @@ Esta secção acompanha-o através da preparação de um projeto para trabalhar 
     
 ### <a name="create-the-project"></a>Criar o projeto
 
-1. Open Visual Studio e criar uma app de formulários em branco.
+1. Abra o Estúdio Visual e crie uma App de Formulários Em Branco.
 1. Nome: BlobQuickstartV12
 
 ### <a name="install-the-package"></a>Instale o pacote
 
-1. Clique à direita na sua solução no painel do Solution Explorer e selecione **Gerir pacotes NuGet para solução**.
-1. Procure **azure.Storage.Blobs** e instale a versão mais recente estável em todos os projetos da sua solução.
+1. Clique com o botão direito na solução no painel Solution Explorer e selecione **Gerir pacotes nuget para solução.**
+1. Procure **Azure.Storage.Blobs** e instale a versão mais recente estável em todos os projetos na sua solução.
 
-### <a name="set-up-the-app-framework"></a>Configurar o quadro da aplicação
+### <a name="set-up-the-app-framework"></a>Configurar o quadro de aplicações
 
-Do diretório **BlobQuickstartV12:**
+Do **diretório BlobQuickstartV12:**
 
 1. Abra o ficheiro *MainPage.xaml* no seu editor
-1. Retire tudo `<ContentPage></ContentPage>` entre os elementos e substitua-o pelo seguinte:
+1. Remova tudo entre os `<ContentPage></ContentPage>` elementos e substitua-o pelo seguinte:
 
 ```xaml
 <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
@@ -74,7 +74,7 @@ Do diretório **BlobQuickstartV12:**
 
 ## <a name="object-model"></a>Modelo de objeto
 
-O armazenamento da Blob Azure está otimizado para armazenar quantidades massivas de dados não estruturados. Os dados não estruturados são dados que não seguem uma definição ou um modelo de dados em particular, como por exemplo, texto ou dados binários. O armazenamento blob oferece três tipos de recursos:
+O armazenamento Azure Blob está otimizado para armazenar quantidades massivas de dados não estruturados. Os dados não estruturados são dados que não seguem uma definição ou um modelo de dados em particular, como por exemplo, texto ou dados binários. O armazenamento blob oferece três tipos de recursos:
 
 * A conta de armazenamento
 * Um recipiente na conta de armazenamento
@@ -86,27 +86,27 @@ O diagrama seguinte mostra a relação entre estes recursos.
 
 Utilize as seguintes classes .NET para interagir com estes recursos:
 
-* [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): `BlobServiceClient` A classe permite-lhe manipular os recursos de Armazenamento Azure e os recipientes blob.
-* [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): `BlobContainerClient` A classe permite-lhe manipular os recipientes de armazenamento Azure e as suas bolhas.
-* [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): `BlobClient` A classe permite-lhe manipular bolhas de Armazenamento Azure.
-* [BlobDownloadInfo](/dotnet/api/azure.storage.blobs.models.blobdownloadinfo): `BlobDownloadInfo` A classe representa as propriedades e conteúdos devolvidos ao descarregar uma bolha.
+* [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): A `BlobServiceClient` classe permite-lhe manipular os recursos de armazenamento do Azure e os recipientes blob.
+* [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): A `BlobContainerClient` classe permite-lhe manipular os recipientes de armazenamento Azure e as suas bolhas.
+* [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): A `BlobClient` classe permite-lhe manipular as bolhas de armazenamento Azure.
+* [BlobDownloadInfo](/dotnet/api/azure.storage.blobs.models.blobdownloadinfo): A `BlobDownloadInfo` classe representa as propriedades e conteúdos devolvidos do download de uma bolha.
 
 ## <a name="code-examples"></a>Exemplos de código
 
-Estes snippets de código de exemplo mostram-lhe como executar as seguintes tarefas com a biblioteca de clientes de armazenamento Azure Blob para .NET numa aplicação Xamarin.Forms:
+Estes excertos de código de exemplo mostram-lhe como executar as seguintes tarefas com a biblioteca do cliente de armazenamento Azure Blob para .NET numa aplicação Xamarin.Forms:
 
 * [Criar variáveis de nível de classe](#create-class-level-variables)
 * [Criar um contentor](#create-a-container)
-* [Faça upload de bolhas para um recipiente](#upload-blobs-to-a-container)
+* [Carregar bolhas para um recipiente](#upload-blobs-to-a-container)
 * [Listar os blobs num contentor](#list-the-blobs-in-a-container)
 * [Transferir blobs](#download-blobs)
 * [Eliminar um contentor](#delete-a-container)
 
 ### <a name="create-class-level-variables"></a>Criar variáveis de nível de classe
 
-O código abaixo declara várias variáveis de nível de classe. Precisavam de comunicar com o armazenamento da Blob Azure durante todo o resto desta amostra.
+O código abaixo declara várias variáveis de nível de classe. Precisavam de comunicar ao armazenamento do Azure Blob durante todo o resto desta amostra.
 
-Estes são além da cadeia de ligação para a conta de armazenamento definida na secção de cordas de ligação de [armazenamento Configurar.](#configure-your-storage-connection-string)
+Estes são além do fio de ligação para a conta de armazenamento definida na secção de configuração da [sua ligação de armazenamento.](#configure-your-storage-connection-string)
 
 Adicione este código como variáveis de nível de classe dentro do ficheiro *MainPage.xaml.cs:*
 
@@ -121,14 +121,14 @@ BlobClient blobClient;
 
 ### <a name="create-a-container"></a>Criar um contentor
 
-Decida um nome para o novo contentor. O código abaixo anexa um valor GUID para o nome do recipiente para garantir que é único.
+Decida o nome do novo recipiente. O código abaixo anexa um valor GUID ao nome do recipiente para garantir que é único.
 
 > [!IMPORTANT]
 > Os nomes dos contentores têm de estar em minúscula. Para obter mais informações sobre a atribuição de nomes de contentores e blobs, veja [Nomenclatura e Referenciação de Contentores, Blobs e Metadados](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 Crie uma instância da classe [BlobServiceClient.](/dotnet/api/azure.storage.blobs.blobserviceclient) Em seguida, ligue para o método [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync) para criar o recipiente na sua conta de armazenamento.
 
-Adicione este código ao *ficheiro MainPage.xaml.cs:*
+Adicione este código ao ficheiro *MainPage.xaml.cs:*
 
 ```csharp
 protected async override void OnAppearing()
@@ -146,12 +146,12 @@ protected async override void OnAppearing()
 }
 ```
 
-### <a name="upload-blobs-to-a-container"></a>Faça upload de bolhas para um recipiente
+### <a name="upload-blobs-to-a-container"></a>Carregar bolhas para um recipiente
 
-O seguinte código snippet:
+O seguinte corte de código:
 
-1. Cria `MemoryStream` um texto.
-1. Envia o texto para um Blob, chamando a função [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) da classe [BlobContainerClient,](/dotnet/api/azure.storage.blobs.blobcontainerclient) `MemoryStream` passando-o tanto o nome de ficheiro definido como o de texto. Este método cria o blob, caso ainda não exista, ou substitui-o se o mesmo já existir.
+1. Cria um `MemoryStream` texto.
+1. Envia o texto para uma Blob chamando a função [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) da classe [BlobContainerClient,](/dotnet/api/azure.storage.blobs.blobcontainerclient) passando-o tanto no nome de ficheiro como no `MemoryStream` texto. Este método cria o blob, caso ainda não exista, ou substitui-o se o mesmo já existir.
 
 Adicione este código ao ficheiro *MainPage.xaml.cs:*
 
@@ -171,7 +171,7 @@ async void Upload_Clicked(object sender, EventArgs e)
 
 ### <a name="list-the-blobs-in-a-container"></a>Listar os blobs num contentor
 
-Enumera as bolhas no recipiente, chamando o método [GetBlobsAsync.](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) Neste caso, apenas uma bolha foi adicionada ao recipiente, pelo que a operação de listagem devolve apenas uma bolha.
+Enuncie as bolhas no recipiente chamando o método [GetBlobsAsync.](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) Neste caso, apenas uma bolha foi adicionada ao recipiente, pelo que a operação de listagem devolve apenas uma bolha.
 
 Adicione este código ao ficheiro *MainPage.xaml.cs:*
 
@@ -190,7 +190,7 @@ async void List_Clicked(object sender, EventArgs e)
 
 ### <a name="download-blobs"></a>Transferir blobs
 
-Descarregue a bolha anteriormente criada, ligando para o método [DownloadAsync.](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync) O código de `Stream` exemplo copia a `MemoryStream` representação da `StreamReader` bolha primeiro em a e depois para um modo que o texto pode ser exibido.
+Descarregue a bolha anteriormente criada chamando o método [DownloadAsync.](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync) O código de exemplo copia `Stream` primeiro a representação da bolha num `MemoryStream` e depois num para que o texto possa ser `StreamReader` exibido.
 
 Adicione este código ao ficheiro *MainPage.xaml.cs:*
 
@@ -217,9 +217,9 @@ async void Download_Clicked(object sender, EventArgs e)
 
 ### <a name="delete-a-container"></a>Eliminar um contentor
 
-O código que se segue limpa os recursos que a app criou eliminando todo o recipiente utilizando [o DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync).
+O seguinte código limpa os recursos que a aplicação criou através da eliminação de todo o recipiente utilizando [o DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync).
 
-A aplicação pede primeiro que confirme antes de apagar a bolha e o recipiente. Esta é uma boa oportunidade para verificar se os recursos foram corretamente criados, antes de serem eliminados.
+A aplicação primeiro solicita para confirmar antes de eliminar a bolha e o recipiente. Esta é uma boa oportunidade para verificar se os recursos foram criados corretamente, antes de serem eliminados.
 
 Adicione este código ao ficheiro *MainPage.xaml.cs:*
 
@@ -242,11 +242,11 @@ async void Delete_Clicked(object sender, EventArgs e)
 
 ## <a name="run-the-code"></a>Executar o código
 
-Quando a aplicação começar, criará primeiro o recipiente à medida que aparece. Em seguida, terá de clicar nos botões para fazer upload, listar, descarregar as bolhas e apagar o recipiente.
+Quando a aplicação começar, criará primeiro o recipiente como parece. Em seguida, terá de clicar nos botões para fazer upload, listar, descarregar as bolhas e apagar o recipiente.
 
-Para executar a aplicação no Windows premir F5. Para executar a aplicação em Mac pressione Cmd+Enter.
+Para executar a aplicação no Windows pressione F5. Para executar a aplicação no Mac pressione Cmd+Enter.
 
-A aplicação escreve para o ecrã depois de cada operação. A saída da aplicação é semelhante ao exemplo abaixo:
+A aplicação escreve para o ecrã após cada operação. A saída da aplicação é semelhante ao exemplo abaixo:
 
 ```output
 Container Created
@@ -263,12 +263,12 @@ Depois de verificar os valores, confirme a solicitação para apagar o recipient
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, aprendeu a carregar, descarregar e listar bolhas usando a biblioteca de clientes de armazenamento Azure Blob v12 com Xamarin.
+Neste quickstart, aprendeu a carregar, descarregar e listar bolhas usando a biblioteca de clientes de armazenamento Azure Blob v12 com Xamarin.
 
-Para ver aplicações de amostrade armazenamento Blob, continue a:
+Para ver as aplicações de amostra de armazenamento Blob, continue a:
 
 > [!div class="nextstepaction"]
-> [Amostra de Armazenamento Azure Blob SDK v12 Xamarin](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
+> [Amostra de SDK v12 Xamarin de armazenamento Azure Blob](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
 
-* Para tutoriais, amostras, arranques rápidos e outra documentação, visite [o Azure para programadores móveis.](/azure/mobile-apps)
-* Para saber mais sobre Xamarin, veja [Getting started with Xamarin](/xamarin/get-started/).
+* Para tutoriais, amostras, arranques rápidos e outra documentação, visite [a Azure para desenvolvedores móveis.](/azure/mobile-apps)
+* Para saber mais sobre Xamarin, consulte [Começar com Xamarin.](/xamarin/get-started/)

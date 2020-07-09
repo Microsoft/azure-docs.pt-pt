@@ -1,79 +1,85 @@
 ---
-title: Crie um membro do Serviço Blockchain Azure utilizando o modelo de Gestor de Recursos Azure
-description: Aprenda a criar um membro do Serviço Blockchain Azure utilizando o modelo do Gestor de Recursos Azure.
+title: Crie um membro do Serviço Azure Blockchain usando o modelo de Gestor de Recursos Azure
+description: Saiba como criar um membro do Serviço Azure Blockchain utilizando o modelo Azure Resource Manager.
 services: azure-resource-manager
 author: PatAltimore
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: patricka
-ms.date: 04/22/2020
-ms.openlocfilehash: db5cabd82ebfed3b1de7659e4b9450ccee0ff001
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/04/2020
+ms.openlocfilehash: 8eabb6806dee96871648ea419ba36d768d32a2ab
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82115300"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078171"
 ---
-# <a name="quickstart-create-an-azure-blockchain-service-member-using-an-azure-resource-manager-template"></a>Quickstart: Criar um membro do Serviço Azure Blockchain usando um modelo de Gestor de Recursos Azure
+# <a name="quickstart-create-an-azure-blockchain-service-member-using-an-arm-template"></a>Quickstart: Criar um membro do Serviço Azure Blockchain usando um modelo ARM
 
-Neste arranque rápido, você implementa um novo membro blockchain e consórcio no Azure Blockchain Service usando um modelo de Gestor de Recursos Azure.
-
-Um membro do Azure Blockchain Service é um nó blockchain numa rede privada de blockchain de consórcio. Ao fornecer um membro, pode criar ou aderir a uma rede de consórcios. Precisa de pelo menos um membro para uma rede de consórcios. O número de membros blockchain necessários pelos participantes depende do seu cenário. Os participantes do consórcio podem ter um ou mais membros blockchain ou podem partilhar membros com outros participantes. Para obter mais informações sobre consórcios, consulte [o consórcio Azure Blockchain Service](consortium.md).
+Neste quickstart, você implementa um novo membro blockchain e consórcio no Azure Blockchain Service usando um modelo de Gestor de Recursos Azure (modelo ARM). Um membro do Azure Blockchain Service é um nó blockchain numa rede de blockchain de consórcio privado. Ao providenciar um membro, pode criar ou aderir a uma rede de consórcios. Precisa de pelo menos um membro para uma rede de consórcios. O número de membros blockchain necessários pelos participantes depende do seu cenário. Os participantes do consórcio podem ter um ou mais membros blockchain ou podem partilhar membros com outros participantes. Para obter mais informações sobre consórcios, consulte [o consórcio Azure Blockchain Service](consortium.md).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+
+[![Implementar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-blockchain-asaservice%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Nenhum.
+Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="review-the-template"></a>Reveja o modelo
+## <a name="review-the-template"></a>Rever o modelo
 
-O modelo utilizado neste quickstart é de [modelos Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/blob/master/201-blockchain-asaservice/).
+O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/201-blockchain-asaservice/).
 
-[!code-json[<Azure Resource Manager template create blockchain member>](~/quickstart-templates/201-blockchain-asaservice/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/201-blockchain-asaservice/azuredeploy.json" range="1-84" highlight="52-80":::
 
-Recursos azure definidos no modelo:
+Recursos azuis definidos no modelo:
 
-* [**Microsoft.Blockchain/blockchainMembers**](https://docs.microsoft.com/azure/templates/microsoft.blockchain/blockchainmembers)
+* [**Microsoft.Blockchain/blockchainMembers**](/azure/templates/microsoft.blockchain/blockchainmembers)
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-1. Selecione o seguinte link para iniciar sessão no Azure e abra um modelo.
+1. Selecione o seguinte link para iniciar seduca e abra um modelo.
 
-    [![Implementar no Azure](./media/create-member-template/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-blockchain-asaservice%2Fazuredeploy.json)
+    [![Implementar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-blockchain-asaservice%2Fazuredeploy.json)
 
-1. Especifique as definições para o membro do Serviço Blockchain Azure.
+1. Especificar as definições para o membro do Serviço Azure Blockchain.
 
     Definição | Descrição
     --------|------------
     Subscrição | Selecione a subscrição Azure que pretende utilizar para o seu serviço. Se tiver várias subscrições, escolha a subscrição na qual o recurso é cobrado.
-    Grupo de recursos | Crie um novo nome de grupo de recursos ou escolha um existente a partir da sua subscrição.
-    Localização | Escolha um local para criar o membro. Todos os membros do consórcio devem estar no mesmo local. As localizações disponíveis para o destacamento são *a Europa Ocidental, Leste, Sudeste, Europa Ocidental, Noroeste da Europa, Westus2*e *Japãoeast.*
-    Nome do membro | Escolha um nome único para o membro do Serviço Azure Blockchain. O nome do membro blockchain só pode conter letras minúsculas e números. O primeiro caráter tem de ser uma letra. O valor deve ter entre 2 e 20 caracteres de comprimento.
+    Grupo de recursos | Crie um novo nome de grupo de recursos ou escolha um existente da sua subscrição.
+    Localização | Escolha um local para criar o membro. Todos os membros do consórcio devem estar no mesmo local. As localizações disponíveis para o destacamento são *westeurope, eastus, southeastasia, westeurope, northeurope, westus2*, e *japaneast.*
+    Nome do membro | Escolha um nome único para o membro do Serviço Azure Blockchain. O nome do membro blockchain só pode conter letras e números minúsculos. O primeiro caráter tem de ser uma letra. O valor deve ter entre 2 e 20 caracteres de comprimento.
     Nome do consórcio | Introduza um nome exclusivo. Para obter mais informações sobre consórcios, consulte [o consórcio Azure Blockchain Service](consortium.md).
-    Senha do membro | A palavra-passe da conta membro é usada para encriptar a chave privada da conta Ethereum que é criada para o seu membro. Utiliza a conta membro e a palavra-passe da conta membro para a gestão do consórcio.
-    Sku tier | O nível de preços para o seu novo serviço. Escolha entre os níveis **Standard** e **Basic.** Utilize o nível *Básico* para desenvolvimento, teste e prova de conceitos. Utilize o nível *Standard* para implementações de qualidade de produção. Também deve utilizar o nível *Standard* se estiver a utilizar o Gestor de Dados blockchain ou a enviar um elevado volume de transações privadas. A alteração do nível de preços entre a criação de base e a norma após a criação dos membros não é suportada.
+    Senha do membro | A palavra-passe da conta do membro é usada para encriptar a chave privada da conta Ethereum que é criada para o seu membro. Utilize a conta de membro e a palavra-passe da conta do membro para a gestão do consórcio.
+    Nível Sku | O nível de preços para o seu novo serviço. Escolha entre os níveis **Standard** e **Basic.** Utilize o nível *básico* para desenvolvimento, teste e prova de conceitos. Utilize o nível *Standard* para implantações de nível de produção. Também deve utilizar o nível *Standard* se estiver a utilizar o Blockchain Data Manager ou a enviar um grande volume de transações privadas. A alteração do nível de preços entre o básico e o padrão após a criação dos membros não é apoiada.
     Nome Sku | A configuração do nó e o custo do seu novo serviço.
 
-1. **Selecione Comprar** para implementar o modelo.
+1. Selecione **Comprar** para implementar o modelo.
 
-  O portal Azure é usado aqui para implementar o modelo. Também pode utilizar a API Azure PowerShell, Azure CLI e REST. Para aprender outros métodos de implementação, consulte [os modelos de implantação](../../azure-resource-manager/templates/deploy-powershell.md).
+  O portal Azure é usado aqui para implementar o modelo. Também pode utilizar a Azure PowerShell, Azure CLI e REST API. Para aprender outros métodos de implementação, consulte [os modelos de implementação](../../azure-resource-manager/templates/deploy-powershell.md).
+
+## <a name="review-deployed-resources"></a>Revisão dos recursos implantados
+
+Pode utilizar o portal Azure para visualizar detalhes do membro do Serviço Azure Blockchain implantado. No portal, aceda ao grupo de recursos que contém o seu membro do Serviço Azure Blockchain. Selecione o membro blockchain que criou.
+
+![Implementado Azure Blockchain Membro resumo detalhes no portal Azure](./media/create-member-template/deployed-member.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Pode utilizar o membro blockchain que criou para o próximo quickstart ou tutorial. Quando já não for necessário, pode eliminar os recursos eliminando o grupo de recursos que criou para o arranque rápido.
+Pode utilizar o membro blockchain que criou para o próximo quickstart ou tutorial. Quando já não é necessário, pode eliminar os recursos eliminando o grupo de recursos que criou para o arranque rápido.
 
 Para eliminar o grupo de recursos:
 
-1. No portal Azure, navegue para o **grupo Recurso** no painel de navegação à esquerda e selecione o grupo de recursos que pretende eliminar.
-2. Selecione **Eliminar grupo de recursos**. Verifique a eliminação inserindo o nome do grupo de recursos e selecione **Delete**.
+1. No portal Azure, navegue para o **grupo De recursos** no painel de navegação esquerdo e selecione o grupo de recursos que pretende eliminar.
+2. Selecione **Eliminar grupo de recursos**. Verifique a eliminação introduzindo o nome do grupo de recursos e selecione **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste arranque rápido, você implantou um membro do Serviço Azure Blockchain e um novo consórcio. Experimente o próximo quickstart a usar o Kit de Desenvolvimento Azure Blockchain para o Ethereum para ligar a um membro do Serviço Azure Blockchain.
+Neste quickstart, você lançou um membro do Azure Blockchain Service e um novo consórcio. Experimente o próximo quickstart para usar o Kit de Desenvolvimento Azure Blockchain para o Ethereum para se ligar a um membro do Serviço Azure Blockchain.
 
 > [!div class="nextstepaction"]
-> [Use o Código do Estúdio Visual para ligar ao Serviço Azure Blockchain](connect-vscode.md)
+> [Use código de estúdio visual para ligar ao Serviço Azure Blockchain](connect-vscode.md)

@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Obtenha a lista de línguas apoiadas - Tradutor'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, obtém-se uma lista de línguas suportadas para tradução, transliteração e procura de dicionário usando o Tradutor.
+description: Neste quickstart, você obtém uma lista de idiomas suportados para tradução, transliteração e procura de dicionário usando o Tradutor.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,17 +10,18 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.author: erhopf
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 5a398ea01faafd1566ed3b8300d17fcf89d918b1
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 0b2ab2c438abca9fda071f83adc18c234fbdb63e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83994141"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84606739"
 ---
-# <a name="quickstart-use-the-translator-to-get-a-list-of-supported-languages"></a>Quickstart: Use o Tradutor para obter uma lista de línguas suportadas
+# <a name="quickstart-use-the-translator-to-get-a-list-of-supported-languages"></a>Quickstart: Use o Tradutor para obter uma lista de línguas apoiadas
 
-Neste arranque rápido, obtém-se uma lista de línguas suportadas para tradução, transliteração e procura de dicionário usando o Tradutor.
+Neste quickstart, você obtém uma lista de idiomas suportados para tradução, transliteração e procura de dicionário usando o Tradutor.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/languages-csharp.md)]

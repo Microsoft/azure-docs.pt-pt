@@ -1,6 +1,6 @@
 ---
-title: Configure a extensão Azure MFA NPS - Diretório Ativo Azure
-description: Depois de instalar a extensão NPS, utilize estes passos para configuração avançada como a whitelisting IP e a substituição UPN.
+title: Configure a extensão Azure MFA NPS - Azure Ative Directory
+description: Depois de instalar a extensão NPS, utilize estes passos para uma configuração avançada como whitelisting IP e substituição UPN.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,47 +12,46 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34d92af88106151e7efba679c53c5b5bd1c07dcd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80653788"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opções de configuração avançada para a extensão NPS para Multi-Factor Authentication
 
-A extensão do Servidor de Política de Rede (NPS) estende as suas funcionalidades de autenticação azure multi-factor baseadas na nuvem para a sua infraestrutura no local. Este artigo assume que já tem a extensão instalada, e agora quer saber como personalizar a extensão para as suas necessidades. 
+A extensão do Network Policy Server (NPS) estende as suas funcionalidades de autenticação multi-factor Azure baseadas na nuvem na sua infraestrutura de instalações. Este artigo assume que já tem a extensão instalada, e agora quer saber como personalizar a extensão para as suas necessidades. 
 
-## <a name="alternate-login-id"></a>Id de login alternativo
+## <a name="alternate-login-id"></a>ID de login alternativo
 
-Uma vez que a extensão nps se liga tanto aos seus diretórios no local como às direções em nuvem, poderá encontrar um problema em que os nomes principais dos utilizadores no local (UPNs) não correspondem aos nomes na nuvem. Para resolver este problema, utilize iDs de login alternativos. 
+Uma vez que a extensão NPS se liga tanto aos seus locais como aos diretórios em nuvem, poderá encontrar um problema em que os seus nomes principais de utilizadores no local (UPNs) não correspondam aos nomes na nuvem. Para resolver este problema, utilize IDs de login alternativos. 
 
-Dentro da extensão NPS, pode designar um atributo de Diretório Ativo a ser utilizado no lugar da UPN para autenticação multi-factor Azure. Isto permite-lhe proteger os seus recursos no local com verificação em duas etapas sem modificar as suas UPNs no local. 
+Dentro da extensão NPS, pode designar um atributo Ative Directory a ser usado no lugar da UPN para autenticação multi-factor Azure. Isto permite-lhe proteger os seus recursos no local com verificação em duas etapas sem modificar as suas UPNs no local. 
 
-Para configurar iDs de login alternativos, vá e `HKLM\SOFTWARE\Microsoft\AzureMfa` edite os seguintes valores de registo:
+Para configurar iDs de login alternativos, vá `HKLM\SOFTWARE\Microsoft\AzureMfa` e edite os seguintes valores de registo:
 
-| Nome | Tipo | Valor predefinido | Descrição |
+| Name | Tipo | Valor predefinido | Descrição |
 | ---- | ---- | ------------- | ----------- |
-| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | string | Vazio | Designe o nome de Atributo de Diretório Ativo que pretende utilizar em vez da UPN. Este atributo é usado como atributo AlternateLoginId. Se este valor de registo for definido para um [atributo de Diretório Ativo válido](https://msdn.microsoft.com/library/ms675090.aspx) (por exemplo, mail ou displayName), então o valor do atributo é usado no lugar da UPN do utilizador para autenticação. Se este valor de registo estiver vazio ou não estiver configurado, o AlternateLoginId está desativado e a UPN do utilizador é utilizada para autenticação. |
-| LDAP_FORCE_GLOBAL_CATALOG | boolean | Falso | Utilize esta bandeira para forçar o uso do Catálogo Global para pesquisas LDAP ao procurar o AlternateLoginId. Configure um controlador de domínio como catálogo global, adicione o atributo AlternateLoginId ao Catálogo Global e, em seguida, ative esta bandeira. <br><br> Se LDAP_LOOKUP_FORESTS estiver configurado (não vazio), **esta bandeira é aplicada como verdadeira,** independentemente do valor da definição de registo. Neste caso, a extensão NPS exige que o Catálogo Global seja configurado com o atributo AlternateLoginId para cada floresta. |
-| LDAP_LOOKUP_FORESTS | string | Vazio | Forneça uma lista separada de florestas semi-cólon para procurar. Por exemplo, *contoso.com;foobar.com*. Se este valor de registo estiver configurado, a extensão NPS procura iterativamente todas as florestas na ordem em que foram listadas, e devolve o primeiro valor alternativo de sucesso. Se este valor de registo não estiver configurado, o lookup AlternateLoginId está confinado ao domínio atual.|
+| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | string | Vazio | Designe o nome do atributo Ative Directory que pretende utilizar em vez da UPN. Este atributo é utilizado como o atributo AlternateLoginId. Se este valor de registo for definido para um [atributo de Diretório Ativo válido](https://msdn.microsoft.com/library/ms675090.aspx) (por exemplo, nome de correio ou visualização), então o valor do atributo é utilizado no lugar da UPN do utilizador para autenticação. Se este valor de registo estiver vazio ou não estiver configurado, então o AlternateLoginId é desativado e o UPN do utilizador é utilizado para a autenticação. |
+| LDAP_FORCE_GLOBAL_CATALOG | boolean | Falso | Utilize esta bandeira para forçar a utilização do Catálogo Global para pesquisas LDAP ao procurar AlternateLoginId. Configure um controlador de domínio como catálogo global, adicione o atributo AlternateLoginId ao Catálogo Global e, em seguida, ative esta bandeira. <br><br> Se LDAP_LOOKUP_FORESTS estiver configurado (não vazio), **esta bandeira é aplicada como verdadeira,** independentemente do valor da definição do registo. Neste caso, a extensão NPS requer que o Catálogo Global seja configurado com o atributo AlternateLoginId para cada floresta. |
+| LDAP_LOOKUP_FORESTS | string | Vazio | Forneça uma lista separada de florestas semi-cólon para procurar. Por exemplo, *contoso.com;foobar.com*. Se este valor de registo for configurado, a extensão NPS pesquisa iterativamente todas as florestas na ordem em que foram listadas, e devolve o primeiro valor AlternativoLoginId bem sucedido. Se este valor de registo não estiver configurado, o lookup AlternateLoginId está confinado ao domínio atual.|
 
-Para resolver problemas com iDs de login alternativos, utilize os passos recomendados para [erros de identificação de login alternativos](howto-mfa-nps-extension-errors.md#alternate-login-id-errors).
+Para resolver problemas com IDs de login alternativos, utilize os passos recomendados para [erros de identificação de login alternativos](howto-mfa-nps-extension-errors.md#alternate-login-id-errors).
 
-## <a name="ip-exceptions"></a>Exceções ip
+## <a name="ip-exceptions"></a>Exceções IP
 
-Se necessitar de monitorizar a disponibilidade do servidor, como se os equilibradores de carga verificarem quais os servidores que estão a funcionar antes de enviar cargas de trabalho, não pretende que estas verificações sejam bloqueadas por pedidos de verificação. Em vez disso, crie uma lista de endereços IP que sabe que são usados por contas de serviço e desative os requisitos de autenticação multi-factor para essa lista.
+Se precisar monitorizar a disponibilidade do servidor, como se os equilibradores de carga verificarem quais os servidores que estão a funcionar antes de enviar cargas de trabalho, não pretende que estas verificações sejam bloqueadas por pedidos de verificação. Em vez disso, crie uma lista de endereços IP que sabe que são utilizados por contas de serviço e desative os requisitos de autenticação multi-factor para essa lista.
 
-Para configurar uma lista permitida `HKLM\SOFTWARE\Microsoft\AzureMfa` por IP, vá e configure o seguinte valor de registo:
+Para configurar uma lista permitida por IP, vá `HKLM\SOFTWARE\Microsoft\AzureMfa` e configuure o seguinte valor de registo:
 
-| Nome | Tipo | Valor predefinido | Descrição |
+| Name | Tipo | Valor predefinido | Descrição |
 | ---- | ---- | ------------- | ----------- |
-| IP_WHITELIST | string | Vazio | Forneça uma lista separada do ponto-de-semi-cólon dos endereços IP. Inclua os endereços IP das máquinas onde os pedidos de serviço são originados, como o servidor NAS/VPN. As gamas ip e as subredes não são suportadas. <br><br> Por exemplo, *10.0.0.1;10.0.0.2;10.0.0.3*.
+| IP_WHITELIST | string | Vazio | Forneça uma lista separada de endereços IP separados do ponto de separo. Inclua os endereços IP das máquinas de origem dos pedidos de serviço, como o servidor NAS/VPN. As gamas e sub-redes IP não são suportadas. <br><br> Por exemplo, *10.0.0.1;10.0.0.2;10.0.0.3*.
 
 > [!NOTE]
-> Esta chave de registo não é criada por predefinição pelo instalador e aparece um erro no registo AuthZOptCh quando o serviço é reiniciado. Este erro no registo pode ser ignorado, mas se esta chave de registo for criada e deixada vazia se não for necessária, a mensagem de erro não volta.
+> Esta chave de registo não é criada por padrão pelo instalador e aparece um erro no registo AuthZOptCh quando o serviço é reiniciado. Este erro no registo pode ser ignorado, mas se esta chave de registo for criada e deixada vazia se não for necessário, a mensagem de erro não volta.
 
-Quando um pedido vem de um endereço `IP_WHITELIST`IP que existe na verificação de duas etapas é ignorado. A lista IP é comparada com o endereço IP fornecido no atributo *ratNASIPAddress* do pedido RADIUS. Se um pedido radius chegar sem o atributo ratNASIPAddress, o seguinte aviso é registado: "P_WHITE_LIST_WARNING:IP Whitelist está a ser ignorado à medida que falta IP de origem no pedido DE RADIUS no atributo nasIpAddress."
+Quando um pedido é proveniente de um endereço IP que existe na verificação em `IP_WHITELIST` duas etapas é ignorado. A lista de IP é comparada com o endereço IP fornecido no atributo *ratNASIPAddress* do pedido RADIUS. Se um pedido RADIUS entrar sem o atributo ratNASIPAddress, regista-se o seguinte aviso: "P_WHITE_LIST_WARNING::IP Whitelist está a ser ignorado como o IP de origem está em falta no pedido de RADIUS no atributo NasIpAddress."
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Resolver mensagens de erro da extensão NPS para Multi-Factor Authentication do Azure](howto-mfa-nps-extension-errors.md)

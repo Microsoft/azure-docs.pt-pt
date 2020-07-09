@@ -5,12 +5,12 @@ ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: c16bd728fe81796d671762615ec8dc4ad6e1d87d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c7dc18d8186d7262154cc0718bb6ad77ebbb5d2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83123774"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829844"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Criar uma função acionada pelo Azure Cosmos DB
 
@@ -46,9 +46,9 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 ## <a name="create-azure-cosmos-db-trigger"></a>Criar acionador do Azure Cosmos DB
 
-1. Na sua aplicação de funções, selecione **Funções** do menu esquerdo e, em seguida, selecione **Adicionar** a partir do menu superior. 
+1. Na sua aplicação de funções, selecione **Funções** do menu esquerdo e, em seguida, **selecione Adicionar** no menu superior. 
 
-1. Na página **New Function,** introduza no campo de `cosmos` pesquisa e, em seguida, escolha o modelo de gatilho **Azure Cosmos DB.**
+1. Na página **Nova Função,** `cosmos` insira no campo de pesquisa e, em seguida, escolha o modelo **de gatilho DB Azure Cosmos.**
 
    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Página de funções no portal Azure":::
 
@@ -57,12 +57,12 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
     | Definição      | Valor sugerido  | Descrição                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Nova Função** | Aceitar o nome padrão | O nome da função. |
-    | **Ligação à conta do Cosmos DB** | Aceite o novo nome padrão | Selecione **New**, a **Conta base** de dados que criou anteriormente e, em seguida, **OK**. Esta ação cria uma definição de aplicação para a ligação da sua conta. Esta definição é utilizada pelo enlace para a ligação à base de dados. |
+    | **Nova Função** | Aceite o nome padrão | O nome da função. |
+    | **Ligação à conta do Cosmos DB** | Aceite o novo nome predefinido | Selecione **Novo**, a **Conta de Base de Dados** que criou anteriormente e, em seguida, **OK**. Esta ação cria uma definição de aplicação para a sua ligação à conta. Esta definição é utilizada pelo enlace para a ligação à base de dados. |
     | **Nome da base de dados** | Tarefas | Nome da base de dados que inclui a recolha a ser monitorizada. |
-    | **Nome da coleção** | Itens | Nome da coleção a ser monitorizada. |
+    | **Nome da coleção** | Itens | Nome da coleção a ser monitorizado. |
     | **Nome da coleção para concessões** | leases | Nome da coleção para armazenar os arrendamentos. |
-    | **Criar coleção de arrendamento se não existir** | Sim | Verifica a existência da coleção de arrendamento e cria-a automaticamente. |
+    | **Crie a coleção de arrendamento se não existir** | Sim | Verifica a existência da coleção de arrendamento e cria-a automaticamente. |
 
     :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Criar a função acionada do Azure Cosmos DB":::
 
@@ -70,15 +70,15 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
     Azure cria a função de gatilho Cosmos DB.
 
-1. Para visualizar o código de função baseado no modelo, selecione **Código + Teste**.
+1. Para exibir o código de função baseado no modelo, selecione **Código + Teste**.
 
     :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Modelo de função do Cosmos DB em C#":::
 
     Este modelo de função escreve o número de documentos e o primeiro ID de documento nos registos.
 
-Em seguida, ligue-se à sua conta Azure Cosmos DB e crie o recipiente na base de `Items` `Tasks` dados.
+Em seguida, ligue-se à sua conta DB Azure Cosmos e crie o `Items` recipiente na base de `Tasks` dados.
 
-## <a name="create-the-items-container"></a>Criar o recipiente de itens
+## <a name="create-the-items-container"></a>Criar o recipiente itens
 
 1. Abra uma segunda instância do [portal do Azure](https://portal.azure.com) num novo separador no browser.
 
@@ -88,38 +88,40 @@ Em seguida, ligue-se à sua conta Azure Cosmos DB e crie o recipiente na base de
 
 1. Escolha a sua conta do Azure Cosmos DB e, em seguida, selecione o **Data Explorer**. 
 
-1. Em **SQL API,** escolha a base de dados **de Tarefas** e selecione **Novo Recipiente**.
+1. Em **API SQL,** escolha a base de **dados Tarefas** e selecione **Novo Recipiente.**
 
     ![Criar um contentor](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container.png)
 
-1. No **Recipiente adicionar,** utilize as definições mostradas na tabela abaixo da imagem. 
+1. No **Add Container**, utilize as definições mostradas na tabela abaixo da imagem. 
 
-    ![Definir o recipiente de tarefas](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container2.png)
+    ![Definir o recipiente tarefas](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container2.png)
 
     | Definição|Valor sugerido|Descrição |
     | ---|---|--- |
-    | **ID da Base de Dados** | Tarefas |O nome da base de dados nova. Isto deve corresponder ao nome definido no enlace de função. |
-    | **ID do contentor** | Itens | O nome do novo contentor. Isto deve corresponder ao nome definido no enlace de função.  |
-    | **[Chave de partição](../cosmos-db/partition-data.md)** | /categoria|Uma chave de partição que distribui uniformemente os dados para cada partição. A seleção da chave de partição correta é importante para a criação de um recipiente performante. | 
+    | **ID de base de dados** | Tarefas |O nome da base de dados nova. Isto deve corresponder ao nome definido no enlace de função. |
+    | **ID do contentor** | Itens | O nome do novo recipiente. Isto deve corresponder ao nome definido no enlace de função.  |
+    | **[Chave de partição](../cosmos-db/partition-data.md)** | /categoria|Uma chave de partição que distribui uniformemente os dados para cada partição. A seleção da tecla de partição correta é importante para a criação de um recipiente performante. | 
     | **Débito** |400 RU| Utilize o valor predefinido. Se pretender reduzir a latência, pode aumentar o débito mais tarde. |    
 
-1. Clique **em OK** para criar o recipiente itens. Pode levar pouco tempo para o recipiente ser criado.
+1. Clique **em OK** para criar o recipiente Itens. Pode levar pouco tempo para o recipiente ser criado.
 
-Depois de existir o recipiente especificado na ligação de função, pode testar a função adicionando itens a este novo recipiente.
+Depois de existir o recipiente especificado na encadernação da função, pode testar a função adicionando itens a este novo recipiente.
 
 ## <a name="test-the-function"></a>Testar a função
 
-1. Expanda o novo recipiente de **itens** no Data Explorer, escolha **itens**e, em seguida, selecione **New Item**.
+1. Expandir o novo recipiente **de itens** no Data Explorer, escolher **Itens**e, em seguida, selecionar **Novo Item**.
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Criar um item no recipiente de itens":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Criar um item no recipiente itens":::
 
 1. Substitua o conteúdo do novo item pelo seguinte conteúdo e, em seguida, escolha **Guardar**.
 
-        {
-            "id": "task1",
-            "category": "general",
-            "description": "some task"
-        }
+    ```yaml
+    {
+        "id": "task1",
+        "category": "general",
+        "description": "some task"
+    }
+    ```
 
 1. Mude para o primeiro separador do browser que contém a função no portal. Expanda os registos de função e certifique-se de que o novo documento acionou a função. Veja se o valor do ID do documento `task1` está escrito nos registos. 
 
@@ -131,7 +133,7 @@ Depois de existir o recipiente especificado na ligação de função, pode testa
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Foi criada com uma função que é executada quando um documento é adicionado ou modificado no seu Azure Cosmos DB. Para obter mais informações sobre os acionadores do Azure Cosmos DB, veja [Enlaces do Cosmos DB das Funções do Azure](functions-bindings-cosmosdb.md).
 

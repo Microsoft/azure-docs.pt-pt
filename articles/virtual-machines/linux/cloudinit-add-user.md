@@ -1,25 +1,24 @@
 ---
 title: Use cloud-init para adicionar um utilizador a um Linux VM em Azure
-description: Como usar cloud-init para adicionar um utilizador a um VM Linux durante a criação com o Azure CLI
+description: Como utilizar o cloud-init para adicionar um utilizador a um Linux VM durante a criação com o CLI Azure
 author: rickstercdn
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: f1782bfe0c14e3b44703f89ec7f78590c1bb74c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969229"
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Use cloud-init para adicionar um utilizador a um Linux VM em Azure
-Este artigo mostra-lhe como usar [cloud-init](https://cloudinit.readthedocs.io) para adicionar um utilizador em conjuntos de escala de máquina virtual (VM) ou máquina virtual (VMSS) no tempo de provisionamento em Azure. Este guião de cloud-init funciona na primeira bota uma vez que os recursos foram aprovisionados pelo Azure. Para obter mais informações sobre como o cloud-init funciona de forma nativa em Azure e os distros linux suportados, consulte a [visão geral do cloud-init](using-cloud-init.md).
+Este artigo mostra-lhe como utilizar o [cloud-init](https://cloudinit.readthedocs.io) para adicionar um utilizador numa máquina virtual (VM) ou conjuntos de escala de máquina virtual (VMSS) no tempo de provisionamento em Azure. Este script cloud-init funciona na primeira bota uma vez que os recursos foram a provisionados por Azure. Para obter mais informações sobre como o cloud-init funciona de forma nativa em Azure e os distros de Linux suportados, consulte [a visão geral de cloud-init](using-cloud-init.md).
 
 ## <a name="add-a-user-to-a-vm-with-cloud-init"></a>Adicione um utilizador a um VM com cloud-init
-Uma das primeiras tarefas de qualquer novo VM Linux é adicionar um utilizador adicional para si mesmo para evitar o uso da *raiz*. As chaves SSH são as melhores práticas para segurança e usabilidade. As teclas são adicionadas ao ficheiro *~/.ssh/authorized_keys* com este script de init cloud-init.
+Uma das primeiras tarefas em qualquer novo Linux VM é adicionar um utilizador adicional para si mesmo para evitar o uso de *raiz*. As chaves SSH são as melhores práticas para a segurança e usabilidade. As teclas são adicionadas ao ficheiro *~/.ssh/authorized_keys* com este script de inibição de nuvem.
 
-Para adicionar um utilizador a um VM Linux, crie um ficheiro na sua concha atual chamada *cloud_init_add_user.txt* e colhe a seguinte configuração. Para este exemplo, crie o ficheiro na Cloud Shell e não na sua máquina local. Pode utilizar qualquer editor que desejar. Introduza `sensible-editor cloud_init_add_user.txt` para criar o ficheiro e ver uma lista dos editores disponíveis. Escolha #1 para usar o **editor nano.** Certifique-se de que todo o ficheiro cloud-init é copiado corretamente, especialmente a primeira linha.  Você precisa fornecer sua própria chave pública (como o conteúdo de *~/.ssh/id_rsa.pub*) para o valor de `ssh-authorized-keys:` - foi encurtado aqui para simplificar o exemplo.
+Para adicionar um utilizador a um Linux VM, crie um ficheiro na sua concha atual chamada *cloud_init_add_user.txt* e cole a seguinte configuração. Para este exemplo, crie o ficheiro na Cloud Shell e não na sua máquina local. Pode utilizar qualquer editor que desejar. Introduza `sensible-editor cloud_init_add_user.txt` para criar o ficheiro e ver uma lista dos editores disponíveis. Escolha #1 para usar o **nano** editor. Certifique-se de que todo o ficheiro cloud-init é copiado corretamente, especialmente a primeira linha.  Você precisa fornecer a sua própria chave pública (como o conteúdo de *~/.ssh/id_rsa.pub*) para o valor de `ssh-authorized-keys:` - foi encurtado aqui para simplificar o exemplo.
 
 ```yaml
 #cloud-config
@@ -33,15 +32,15 @@ users:
       - ssh-rsa AAAAB3<snip>
 ```
 > [!NOTE] 
-> O ficheiro #cloud-config `- default` inclui o parâmetro incluído. Isto irá anexar o utilizador ao utilizador administrativo existente criado durante o fornecimento. Se criar um utilizador `- default` sem o parâmetro - o utilizador de administração gerado automaticamente criado pela plataforma Azure seria substituído. 
+> O ficheiro #cloud-config inclui o `- default` parâmetro incluído. Isto irá anexar o utilizador, ao utilizador administrativo existente criado durante o provisionamento. Se criar um utilizador sem o `- default` parâmetro - o utilizador de administração gerado automaticamente criado pela plataforma Azure seria substituído. 
 
-Antes de implementar esta imagem, precisa criar um grupo de recursos com o [grupo AZ criar](/cli/azure/group) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
+Antes de implementar esta imagem, é necessário criar um grupo de recursos com o [grupo az criar](/cli/azure/group) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie um VM com [az vm criar](/cli/azure/vm) `--custom-data cloud_init_add_user.txt` e especificar o ficheiro cloud-init com o seguinte:
+Agora, crie um VM com [az vm criar](/cli/azure/vm) e especificar o ficheiro cloud-init com o `--custom-data cloud_init_add_user.txt` seguinte:
 
 ```azurecli-interactive 
 az vm create \
@@ -52,19 +51,19 @@ az vm create \
   --generate-ssh-keys 
 ```
 
-SSH para o endereço IP público do seu VM mostrado na saída do comando anterior. Insira o seu próprio **endereço público Da** seguinte forma:
+SSH para o endereço IP público do seu VM mostrado na saída do comando anterior. Insira o seu próprio **públicoIpAddress** da seguinte forma:
 
 ```bash
 ssh <publicIpAddress>
 ```
 
-Para confirmar que o seu utilizador foi adicionado ao VM e aos grupos especificados, veja o conteúdo do ficheiro */etc/grupo* da seguinte forma:
+Para confirmar que o seu utilizador foi adicionado ao VM e aos grupos especificados, consulte o conteúdo do ficheiro */etc/grupo* da seguinte forma:
 
 ```bash
 cat /etc/group
 ```
 
-A saída de exemplo que se segue mostra que o utilizador do ficheiro *cloud_init_add_user.txt* foi adicionado ao VM e ao grupo apropriado:
+A saída de exemplo a seguir mostra que o utilizador do ficheiro *cloud_init_add_user.txt* foi adicionado ao VM e ao grupo apropriado:
 
 ```bash
 root:x:0:
@@ -74,10 +73,10 @@ sudo:x:27:myadminuser
 myadminuser:x:1000:
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-Para obter exemplos adicionais de alterações de configuração, consulte o seguinte:
+## <a name="next-steps"></a>Próximos passos
+Para exemplos adicionais de alterações de configuração, consulte o seguinte:
  
-- [Adicione um utilizador linux adicional a um VM](cloudinit-add-user.md)
+- [Adicione um utilizador Linux adicional a um VM](cloudinit-add-user.md)
 - [Executar um gestor de pacotes para atualizar os pacotes existentes na primeira bota](cloudinit-update-vm.md)
-- [Alterar o nome de anfitrião local VM](cloudinit-update-vm-hostname.md) 
-- [Instale um pacote de aplicação, atualize ficheiros de configuração e injete chaves](tutorial-automate-vm-deployment.md)
+- [Alterar nome de anfitrião local VM](cloudinit-update-vm-hostname.md) 
+- [Instale um pacote de aplicações, atualize ficheiros de configuração e injete teclas](tutorial-automate-vm-deployment.md)

@@ -7,12 +7,12 @@
 - name: Guias de Início Rápido
   expanded: true
   items:
-    - name: Proteger o hub virtual
+    - name: Hub virtual seguro - modelo ARM
       displayName: Resource Manager
       href: quick-secure-virtual-hub.md
 - name: Tutoriais
   items:
-    - name: Proteger a WAN virtual - portal
+    - name: Proteger o seu hub virtual - portal
       href: secure-cloud-network.md
     - name: Proteger a rede virtual do hub - portal
       href: secure-hybrid-network.md
@@ -24,18 +24,26 @@
       href: secured-virtual-hub.md
     - name: Processo de implementação geral
       href: deployment-overview.md
-    - name: Parceiros de segurança fidedignos
+    - name: Fornecedores de parceiros de segurança
       href: trusted-security-partners.md
+    - name: Grupos IP
+      href: ip-groups.md
     - name: Lógica de processamento de regras
       href: rule-processing.md
     - name: Opções de arquitetura
       href: vhubs-and-vnets.md
+    - name: Definições das informações sobre ameaças
+      href: threat-intelligence-settings.md
+    - name: FQDN nas regras de rede
+      href: fqdn-filtering-network-rules.md
 - name: Guias de procedimentos
   items:
-    - name: Implementar parceiros de segurança fidedignos
+    - name: Implementar fornecedores de parceiros de segurança
       href: deploy-trusted-security-partner.md
     - name: Migrar para a política de Firewall - PowerShell
       href: migrate-to-policy.md
+    - name: Definições de DNS
+      href: dns-settings.md
 - name: Referência
   items:
     - name: CLI do Azure

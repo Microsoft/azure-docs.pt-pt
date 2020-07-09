@@ -1,6 +1,6 @@
 ---
-title: Até a atividade na Azure Data Factory
-description: A atividade Até executar um conjunto de atividades em loop até que a condição associada à atividade avalie o verdadeiro ou o tempo de saída.
+title: Até à atividade na Azure Data Factory
+description: A atividade Até executar um conjunto de atividades em loop até que a condição associada à atividade avalie a verdade ou o tempo de saída.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 63873a4f8301d3cb20488b02b32200f476922276
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417951"
 ---
-# <a name="until-activity-in-azure-data-factory"></a>Até a atividade na Azure Data Factory
+# <a name="until-activity-in-azure-data-factory"></a>Até à atividade na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A atividade Until disponibiliza a mesma funcionalidade que uma estrutura de ciclos do-until fornecem nas linguagens de programação. Executa um conjunto de atividades num ciclo até que a condição associada às atividades seja avaliada como verdadeira. Pode especificar um valor de tempo limite para a atividade Until no Data Factory. 
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 ```json
 {
@@ -51,23 +51,23 @@ A atividade Until disponibiliza a mesma funcionalidade que uma estrutura de cicl
 
 ```
 
-## <a name="type-properties"></a>Propriedades de tipo
+## <a name="type-properties"></a>Tipo de propriedades
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da `Until` atividade. | String | Sim
-tipo | Deve ser definido para **Até**. | String | Sim
-expression | Expressão que deve avaliar a verdade ou falsa | Expressão.  | Sim
-tempo limite | O ciclo de fazer até ao fim após o tempo especificado aqui. | Cadeia. `d.hh:mm:ss`(ou) `hh:mm:ss`. O valor predefinido é 7 dias. O valor máximo é: 90 dias. | Não
-Atividades | Conjunto de atividades que são executadas até que a expressão avalie para `true`. | Várias atividades. |  Sim
+name | O nome da `Until` atividade. | String | Yes
+tipo | Deve ser definido para **Até**. . | String | Yes
+expression | Expressão que deve avaliar a verdade ou falsa | A expressão.  | Yes
+tempo limite | O ciclo de fazer até ao fim após o tempo especificado aqui. | Cadeia. `d.hh:mm:ss`(ou) `hh:mm:ss` . . O valor predefinido é 7 dias. O valor máximo é: 90 dias. | No
+Atividades | Conjunto de atividades que são executadas até que a expressão avalie para `true` . | Um conjunto de atividades. |  Yes
 
 ## <a name="example-1"></a>Exemplo 1
 
 > [!NOTE]
-> Esta secção fornece definições JSON e amostra de comandos PowerShell para executar o gasoduto. Para um passeio com instruções passo a passo para criar um pipeline data Factory utilizando definições Azure PowerShell e JSON, consulte [tutorial: crie uma fábrica de dados utilizando a Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> Esta secção fornece definições JSON e comandos de amostra PowerShell para executar o gasoduto. Para uma passagem com instruções passo a passo para criar um oleoduto data factory utilizando definições Azure PowerShell e JSON, consulte tutorial: crie uma fábrica de [dados utilizando a Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="pipeline-with-until-activity"></a>Pipeline com até atividade
-Neste exemplo, o gasoduto tem duas atividades: **Até** e **esperar**. A atividade de espera aguarda o período de tempo especificado antes de executar a atividade web no loop. Para aprender sobre expressões e funções na Fábrica de Dados, consulte [a linguagem e funções](control-flow-expression-language-functions.md)de expressão. 
+Neste exemplo, o gasoduto tem duas atividades: **Até** e **Esperar.** A atividade de espera aguarda o período de tempo especificado antes de executar a atividade web no loop. Para conhecer expressões e funções na Data Factory, consulte [a linguagem e funções de expressão.](control-flow-expression-language-functions.md) 
 
 ```json
 {
@@ -118,9 +118,9 @@ Neste exemplo, o gasoduto tem duas atividades: **Até** e **esperar**. A ativida
 ```
 
 ## <a name="example-2"></a>Exemplo 2 
-O gasoduto desta amostra copia dados de uma pasta de entrada para uma pasta de saída em loop. O laço termina quando o valor do parâmetro de repetição está definido para falso ou passa-se após um minuto.   
+O pipeline desta amostra copia os dados de uma pasta de entrada para uma pasta de saída num loop. O laço termina quando o valor do parâmetro de repetição é definido como falso ou o tempo é desaudo após um minuto.   
 
-### <a name="pipeline-with-until-activity-adfv2quickstartpipelinejson"></a>Pipeline com Até atividade (Adfv2QuickStartPipeline.json)
+### <a name="pipeline-with-until-activity-adfv2quickstartpipelinejson"></a>Pipeline com até à atividade (Adfv2QuickStartPipeline.js)
 
 ```json
 {
@@ -193,7 +193,7 @@ O gasoduto desta amostra copia dados de uma pasta de entrada para uma pasta de s
 ```
 
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Serviço ligado ao armazenamento azure (AzureStorageLinkedService.json)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Serviço ligado a Azure Storage (AzureStorageLinkedService.jsligado)
 
 ```json
 {
@@ -207,8 +207,8 @@ O gasoduto desta amostra copia dados de uma pasta de entrada para uma pasta de s
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Conjunto de dados Azure Blob parametrizado (BlobDataset.json)
-O gasoduto define a **pastaCaminho** para o valor de **saídaPath1** ou **outputPath2** parâmetro do gasoduto. 
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Conjunto de dados parametrizado do Azure Blob (BlobDataset.jsligado)
+O pipeline define a **pastaPath** ao valor de **saídaPath1** ou **saída Parâmetro2** do pipeline. 
 
 ```json
 {
@@ -234,7 +234,7 @@ O gasoduto define a **pastaCaminho** para o valor de **saídaPath1** ou **output
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Parâmetro de gasoduto JSON (PipelineParameters.json)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Parâmetro de gasoduto JSON (PipelineParameters.jsligado)
 
 ```json
 {

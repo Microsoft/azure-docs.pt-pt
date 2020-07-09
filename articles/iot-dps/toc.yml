@@ -23,13 +23,15 @@
               href: quick-create-simulated-device-symm-key.md
             - name: Java
               href: quick-create-simulated-device-symmetric-key-java.md
+            - name: Python
+              href: quick-create-device-symmetric-key-python.md
         - name: "Atestado de certificado\_X.509"
           items:
             - name: C
               href: quick-create-simulated-device-x509.md
             - name: Java
               href: quick-create-simulated-device-x509-java.md
-            - name: 'C#'
+            - name: C#
               href: quick-create-simulated-device-x509-csharp.md
             - name: Node.js
               href: quick-create-simulated-device-x509-node.md
@@ -41,7 +43,7 @@
               href: quick-create-simulated-device.md
             - name: Java
               href: quick-create-simulated-device-tpm-java.md
-            - name: 'C#'
+            - name: C#
               href: quick-create-simulated-device-tpm-csharp.md
             - name: Node.js
               href: quick-create-simulated-device-tpm-node.md
@@ -53,7 +55,7 @@
           items:
             - name: Java
               href: quick-enroll-device-x509-java.md
-            - name: 'C#'
+            - name: C#
               href: quick-enroll-device-x509-csharp.md
             - name: Node.js
               href: quick-enroll-device-x509-node.md
@@ -63,7 +65,7 @@
           items:
             - name: Java
               href: quick-enroll-device-tpm-java.md
-            - name: 'C#'
+            - name: C#
               href: quick-enroll-device-tpm-csharp.md
             - name: Node.js
               href: quick-enroll-device-tpm-node.md
@@ -79,7 +81,7 @@
       items:
         - name: C
           href: tutorial-provision-device-to-hub.md
-        - name: 'C#'
+        - name: C#
           href: tutorial-net-provision-device-to-hub.md
     - name: 4 - Aprovisionar dispositivos para vários hubs
       href: tutorial-provision-multiple-hubs.md
@@ -95,6 +97,8 @@
       href: concepts-device.md
     - name: Segurança
       href: concepts-security.md
+    - name: Suporte de TLS
+      href: tls-support.md
     - name: Serviço
       href: concepts-service.md
     - name: Compreender os endereços IP do DPS
@@ -173,6 +177,8 @@
       href: 'https://github.com/Azure/azure-iot-sdk-java'
     - name: SDK do Azure IoT para .NET
       href: 'https://github.com/Azure/azure-iot-sdk-csharp'
+    - name: CLI do Azure
+      href: /cli/azure/azure-cli-reference-for-IoT
 - name: Recursos
   items:
     - name: Opções de suporte e ajuda
@@ -198,12 +204,12 @@
     - name: SDKs do Azure IoT
       items:
         - name: SDKs do Serviço de IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: SDKs do Dispositivo IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Exemplos de IoT do Azure
       items:
-        - name: 'C# (.NET)'
+        - name: C# (.NET)
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
         - name: Node.js
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
@@ -225,16 +231,12 @@
       href: 'https://github.com/Azure/azure-iot-explorer'
     - name: Ferramenta iothub-diagnostics
       href: 'https://github.com/Azure/iothub-diagnostics'
-    - name: Página de perguntas das Perguntas e Respostas da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-iot-hub.html'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
     - name: Calculadora de preços
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?product=iot-hub'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-iot-hub'
     - name: Estudos de caso técnicos
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: Vídeos

@@ -1,71 +1,70 @@
 ---
-title: Use o check de saúde do Gestor de Destacamento Azure
-description: Utilize um exame de saúde para mobilizar com segurança os recursos azure com o Gestor de Implantação azure.
+title: Use o cheque de saúde do Gestor de Implementação Azure
+description: Utilize o controlo de saúde para implementar com segurança os recursos da Azure com o Gestor de Implementação da Azure.
 author: mumian
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 765c73a3ab8d5fa8939abe597d0141b24b59ac52
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 3c7b74d31bc3c4e2276cd52c8e6450630dc99bcd
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76152482"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058032"
 ---
-# <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Utilize o exame de saúde no Gestor de Implantação do Azure (pré-visualização pública)
+# <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Use o cheque de saúde no Azure Deployment Manager (visualização pública)
 
-Saiba como integrar o health check no [Azure Deployment Manager](./deployment-manager-overview.md). Este tutorial baseia-se no Gestor de Implementação do [Use Azure com modelos](./deployment-manager-tutorial.md) de gestor de recursos tutorial. Tens de completar esse tutorial antes de avançares com este.
+Saiba como integrar o controlo de saúde no [Azure Deployment Manager](./deployment-manager-overview.md). Este tutorial é baseado no Gestor de Implementação do [Uso Azure com o tutorial de modelos de gestor de recursos.](./deployment-manager-tutorial.md) Tens de completar esse tutorial antes de prosseguires com este.
 
-No modelo de lançamento utilizado no [Use Azure Deployment Manager com modelos](./deployment-manager-tutorial.md)de Gestor de Recursos, usou um passo de espera. Neste tutorial, substitui-se o passo de espera por um passo de verificação de saúde.
+No modelo de lançamento utilizado no [Use Azure Deployment Manager com modelos de Gestor de Recursos,](./deployment-manager-tutorial.md)utilizou um passo de espera. Neste tutorial, substitui-se o passo de espera por um passo de verificação de saúde.
 
 > [!IMPORTANT]
-> Se a sua subscrição estiver marcada para a Canária testar novas funcionalidades do Azure, só pode utilizar o Gestor de Implantação Azure para se deslocar para as regiões canárias. 
+> Se a sua subscrição estiver marcada para o Canário para testar novas funcionalidades do Azure, só pode utilizar o Azure Deployment Manager para implantar nas regiões canárias. 
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar um simulador de serviço de verificação de saúde
-> * Reveja o modelo de lançamento
+> * Rever o modelo de lançamento
 > * Implementar a topologia
 > * Implementar o lançamento com um estado pouco saudável
-> * Verifique a implantação do lançamento
+> * Verifique a implementação do lançamento
 > * Implementar o lançamento com um estado saudável
-> * Verifique a implantação do lançamento
+> * Verifique a implementação do lançamento
 > * Limpar recursos
 
 Recursos adicionais:
 
-* Referência a API do Gestor de [Destacamento azure](https://docs.microsoft.com/rest/api/deploymentmanager/).
-* Uma amostra do Gestor de [Implantação Azure.](https://github.com/Azure-Samples/adm-quickstart)
+* Referência [Azure Deployment Manager REST API](/rest/api/deploymentmanager/).
+* [Uma amostra do Gestor de Implantação Azure](https://github.com/Azure-Samples/adm-quickstart).
 
-Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, precisa de:
 
-* Gestor de [implantação azure](./deployment-manager-tutorial.md)de uso completo com modelos de Gestor de Recursos .
+* Utilização completa [Do Gestor de Implementação Azure com modelos de Gestor de Recursos](./deployment-manager-tutorial.md).
 
-## <a name="install-the-artifacts"></a>Instale os artefactos
+## <a name="install-the-artifacts"></a>Instalar os artefactos
 
-Descarregue [os modelos e os artefactos](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) e desaperte-os localmente se ainda não o fez. E, em seguida, executar o script PowerShell encontrado em [Preparar os artefactos](./deployment-manager-tutorial.md#prepare-the-artifacts). O script cria um grupo de recursos, cria um recipiente de armazenamento, cria um recipiente de blob, carrega os ficheiros descarregados e, em seguida, cria um token SAS.
+Descarregue [os modelos e os artefactos](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) e desaperte-os localmente se não o tiver feito. E, em seguida, executar o script PowerShell encontrado na [Prepare os artefactos](./deployment-manager-tutorial.md#prepare-the-artifacts). O script cria um grupo de recursos, cria um recipiente de armazenamento, cria um recipiente blob, carrega os ficheiros descarregados e, em seguida, cria um token SAS.
 
-Faça uma cópia do URL com token SAS. Este URL é necessário para preencher um campo nos dois ficheiros de parâmetros, os ficheiros parâmetros da topologia e parâmetros do lançamento.
+Faça uma cópia do URL com ficha SAS. Este URL é necessário para preencher um campo nos dois ficheiros de parâmetros, os ficheiros parâmetros da topologia e parâmetros do lançamento.
 
-Abra CreateADMServiceTopology.Parameters.json e atualize os valores do **projetoNome** e **artefactoSourceSASLocation**.
+Abra CreateADMServiceTopology.Parameters.jse atualize os valores do **projectName** e **artefactoSourceSASLocation**.
 
-Abra CreateADMRollout.Parameters.parson e atualize os valores do **projetoNome** e **artefactoSourceSASLocation**.
+Abra CreateADMRollout.Parameters.jse atualize os valores do **projectName** e **artefactoSourceSASLocation**.
 
 ## <a name="create-a-health-check-service-simulator"></a>Criar um simulador de serviço de verificação de saúde
 
-Na produção, normalmente utiliza-se um ou mais fornecedores de monitorização. Para facilitar a integração em saúde o mais possível, a Microsoft tem trabalhado com algumas das principais empresas de monitorização da saúde para lhe fornecer uma solução simples de cópia/pasta para integrar os controlos de saúde com as suas implementações. Para obter uma lista destas empresas, consulte os prestadores de monitorização da [Saúde.](./deployment-manager-health-check.md#health-monitoring-providers) Para efeitos deste tutorial, cria uma [Função Azure](/azure/azure-functions/) para simular um serviço de monitorização da saúde. Esta função pega num código de estado e devolve o mesmo código. O modelo do Gestor de Implementação do Azure utiliza o código de estado para determinar como proceder com a implementação.
+Na produção, normalmente utiliza-se um ou mais fornecedores de monitorização. De forma a facilitar a integração na saúde, a Microsoft tem vindo a trabalhar com algumas das principais empresas de monitorização de saúde de serviços para lhe fornecer uma solução simples de cópia/pasta para integrar os controlos de saúde com as suas implementações. Para obter uma lista destas empresas, consulte [os prestadores de monitorização da saúde.](./deployment-manager-health-check.md#health-monitoring-providers) Para efeitos deste tutorial, cria uma [Função Azure](../../azure-functions/index.yml) para simular um serviço de monitorização de saúde. Esta função requer um código de estado e devolve o mesmo código. O seu modelo de Gestor de Implementação Azure utiliza o código de estado para determinar como proceder com a implementação.
 
-Os dois ficheiros seguintes são utilizados para a implementação da Função Azure. Não precisas de descarregar estes ficheiros para ver o tutorial.
+Os dois ficheiros seguintes são utilizados para a implantação da Função Azure. Não é preciso descarregar estes ficheiros para ver o tutorial.
 
-* Um modelo de [https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json)Gestor de Recursos localizado em . Implementa este modelo para criar uma Função Azure.
-* Um ficheiro postal do código fonte [https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip)da Função Azure, . Este zip chamado é chamado pelo modelo de Gestor de Recursos.
+* Um modelo de Gestor de Recursos localizado em [https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json) . Você implementa este modelo para criar uma Função Azure.
+* Um ficheiro postal do código-fonte da Função Azure, [https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip) . Este zip chamado é chamado pelo modelo de Gestor de Recursos.
 
-Para implementar a função Azure, selecione **Experimente-a** para abrir a concha azure cloud e, em seguida, colar o seguinte script na janela da concha.  Para colar o código, clique à direita na janela da concha e, em seguida, **selecione Pasta**.
+Para implantar a função Azure, selecione **Experimente-a** para abrir a casca da Nuvem Azure e, em seguida, cole o seguinte script na janela do invólucro.  Para colar o código, clique com o botão direito na janela da concha e, em seguida, **selecione Pasta**.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json" -projectName $projectName
@@ -73,21 +72,21 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 Para verificar e testar a função Azure:
 
-1. Abra o [portal Azure.](https://portal.azure.com)
+1. Abra o [portal Azure](https://portal.azure.com).
 1. Abra o grupo de recursos.  O nome padrão é o nome do projeto com **rg** anexado.
 1. Selecione o serviço de aplicações do grupo de recursos.  O nome padrão do serviço de aplicações é o nome do projeto com **webapp** anexado.
-1. Expandir **funções,** e, em seguida, selecionar **HttpTrigger1**.
+1. Expandir **funções**e, em seguida, selecionar **HttpTrigger1**.
 
-    ![Azure Deployment Manager verifica ção de saúde Função Azure](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
+    ![Azure Deployment Manager verifica saúde Azure Function](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
 
-1. ** &lt;Selecione /> Obtenha URL de função**.
-1. Selecione **Copiar** para copiar o URL para a área de redação.  O URL é semelhante a:
+1. Selecione ** &lt; /> Obtenha URL de função**.
+1. Selecione **Copy** para copiar o URL para a área de transferência.  O URL é semelhante a:
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/{healthStatus}?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
-    Substitua `{healthStatus}` no URL por um código de estado. Neste tutorial, use **insalubre** para testar o cenário pouco saudável, e use **saudável** ou **aviso** para testar o cenário saudável. Crie dois URLs, um com o estado pouco saudável, e o outro com um estado saudável. Por exemplo:
+    Substitua `{healthStatus}` no URL por um código de estado. Neste tutorial, use **insalubre** para testar o cenário pouco saudável, e use **saudável** ou **alerta** para testar o cenário saudável. Crie dois URLs, um com o estado pouco saudável, e o outro com estatuto saudável. Por exemplo:
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/unhealthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
@@ -96,17 +95,17 @@ Para verificar e testar a função Azure:
 
     Precisa de ambos os URLs para completar este tutorial.
 
-1. Para testar o simulador de monitorização da saúde, abra os URLs que criou no último passo.  Os resultados do estado pouco saudável devem ser semelhantes aos seguintes:
+1. Para testar o simulador de monitorização de saúde, abra os URLs que criou no último passo.  Os resultados do estado de saúde não saudáveis são semelhantes:
 
     ```
     Status: unhealthy
     ```
 
-## <a name="revise-the-rollout-template"></a>Reveja o modelo de lançamento
+## <a name="revise-the-rollout-template"></a>Rever o modelo de lançamento
 
 O objetivo desta secção é mostrar-lhe como incluir um passo de verificação de saúde no modelo de lançamento.
 
-1. Abra **CreateADMRollout.json** que criou no [Use Azure Deployment Manager com modelos](./deployment-manager-tutorial.md)de Gestor de Recursos . Este ficheiro JSON faz parte do download.  Veja [Pré-requisitos](#prerequisites).
+1. Abra **CreateADMRollout.jssobre** o que criou no Use [Azure Deployment Manager com modelos de Gestor de Recursos](./deployment-manager-tutorial.md). Este ficheiro JSON faz parte do download.  Veja [Pré-requisitos](#prerequisites).
 1. Adicione mais dois parâmetros:
 
     ```json
@@ -124,7 +123,7 @@ O objetivo desta secção é mostrar-lhe como incluir um passo de verificação 
     }
     ```
 
-1. Substitua a definição de recurso de passo de espera por uma definição de recurso de passo de verificação de saúde:
+1. Substitua a definição de recursos do passo de espera por uma definição de recursos de passo de verificação de saúde:
 
     ```json
     {
@@ -173,9 +172,9 @@ O objetivo desta secção é mostrar-lhe como incluir um passo de verificação 
     },
     ```
 
-    Com base na definição, o lançamento prossegue se o estado de saúde for *saudável* ou *aviso*.
+    Com base na definição, o lançamento prossegue se o estado de saúde for *saudável* ou *avisado.*
 
-1. Atualize o **depende** da definição de lançamento para incluir a etapa de verificação de saúde recentemente definida:
+1. Atualizar a **parte dependente** da definição de lançamento para incluir o novo passo de verificação de saúde definido:
 
     ```json
     "dependsOn": [
@@ -184,7 +183,7 @@ O objetivo desta secção é mostrar-lhe como incluir um passo de verificação 
     ],
     ```
 
-1. Atualizar **os grupos** para incluir o passo do exame de saúde. O **healthCheckStep** é chamado em **postDeploymentSteps** do **stepGroup2**. **passoGrupo3** e **stepGroup4** só são implantados se o estado saudável for *saudável* ou *aviso*.
+1. Atualizar **stepGroups** para incluir o passo de verificação de saúde. O **healthCheckStep** é chamado em **postDeploymentSteps** do **stepGroup2**. **o stepGroup3** e **o stepGroup4** só são implantados se o estado saudável for *saudável* ou *avisado*.
 
     ```json
     "stepGroups": [
@@ -222,15 +221,15 @@ O objetivo desta secção é mostrar-lhe como incluir um passo de verificação 
     ]
     ```
 
-    Se comparar a secção **stepGroup3** antes e depois de revista, esta secção depende agora do **stepGroup2**.  Isto é necessário quando o **stepGroup3** e os grupos de passo subsequentes dependem dos resultados da monitorização da saúde.
+    Se comparar a secção **stepGroup3** antes e depois de revista, esta secção depende agora do **passoGroup2**.  Isto é necessário quando o **grupo de intervenção** e os grupos de passo subsequente dependem dos resultados da monitorização da saúde.
 
-    A seguinte imagem ilustra as áreas modificadas e como é utilizada a etapa do exame de saúde:
+    A imagem que se segue ilustra as áreas modificadas e a forma como é utilizado o passo de verificação da saúde:
 
-    ![Modelo de verificação de saúde do Gestor de Destacamento azure](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-rollout-template.png)
+    ![Modelo de verificação de saúde do Gestor de Implementação de Azure](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-rollout-template.png)
 
 ## <a name="deploy-the-topology"></a>Implementar a topologia
 
-Execute o seguinte script PowerShell para implementar a topologia. Precisa do mesmo **CreateADMServiceTopology.json** e **CreateADMServiceTopology.Parameters.json** que usou no Gestor de [Implementação do Azure com modelos](./deployment-manager-tutorial.md)de Gestor de Recursos .
+Executar o seguinte script PowerShell para implantar a topologia. Você precisa do mesmo **CreateADMServiceTopology.jse** **CreateADMServiceTopology.Parameters.jsem** que usou no [Use Azure Deployment Manager com modelos de Gestor de Recursos](./deployment-manager-tutorial.md).
 
 ```azurepowershell
 # Create the service topology
@@ -248,7 +247,7 @@ Para ver os recursos, **Mostrar tipos ocultos** tem de estar selecionado.
 
 ## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>Implementar o lançamento com o estado pouco saudável
 
-Utilize o URL de estado pouco saudável que criou em Criar um simulador de serviço de [verificação de saúde](#create-a-health-check-service-simulator). Você precisa do **revisto CreateADMServiceTopology.json** e o mesmo **CreateADMServiceTopology.Parameters.json** que usou no Gestor de [Implementação de Azure use com modelos](./deployment-manager-tutorial.md)de Gestor de Recursos .
+Utilize o URL de estado pouco saudável que criou na [Criar um simulador de serviço de verificação de saúde](#create-a-health-check-service-simulator). Você precisa doCreateADMServiceTopology.jsrevisto **e** o mesmo **CreateADMServiceTopology.Parameters.jsem** que usou no Use [Azure Deployment Manager com modelos de Gestor de Recursos](./deployment-manager-tutorial.md).
 
 ```azurepowershell-interactive
 $healthCheckUrl = Read-Host -Prompt "Enter the health check Azure function URL"
@@ -265,7 +264,7 @@ New-AzResourceGroupDeployment `
 ```
 
 > [!NOTE]
-> `New-AzResourceGroupDeployment`é uma chamada assíncrona. A mensagem de sucesso significa apenas que a implantação começou com sucesso. Para verificar a `Get-AZDeploymentManagerRollout`implantação, utilize .  Veja o próximo procedimento.
+> `New-AzResourceGroupDeployment`é uma chamada assíncronea. A mensagem de sucesso significa apenas que a implantação começou com sucesso. Para verificar a implantação, utilize `Get-AZDeploymentManagerRollout` .  Veja o próximo procedimento.
 
 Para verificar o progresso do lançamento utilizando o seguinte script PowerShell:
 
@@ -340,15 +339,15 @@ Id                      : /subscriptions/<Subscription ID>/resourcegroups/myhc04
 Tags                    :
 ```
 
-Após a conclusão do lançamento, verá um grupo de recursos adicionais criado para os EUA Ocidentais.
+Após o lançamento estar concluído, verá um grupo de recursos adicional criado para os EUA Ocidentais.
 
 ## <a name="deploy-the-rollout-with-the-healthy-status"></a>Implementar o lançamento com o estado saudável
 
-Repita esta secção para recolocar o lançamento com o URL de estado saudável.  Após a conclusão do lançamento, verá mais um grupo de recursos criado para os EUA Orientais.
+Repita esta secção para recolocar o lançamento com o URL de estado saudável.  Após o lançamento estar concluído, verá mais um grupo de recursos criado para os EUA Orientais.
 
 ## <a name="verify-the-deployment"></a>Verificar a implementação
 
-1. Abra o [portal Azure.](https://portal.azure.com)
+1. Abra o [portal Azure](https://portal.azure.com).
 2. Navegue para as aplicações Web criadas recentemente, nos grupos de recursos novos que foram criados com a implementação do lançamento.
 3. Abra a aplicação Web num browser. Verifique a localização e a versão no ficheiro index.html.
 
@@ -356,17 +355,17 @@ Repita esta secção para recolocar o lançamento com o URL de estado saudável.
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos.
 
-1. A partir do portal Azure, selecione **Grupo Recurso** do menu esquerdo.
+1. A partir do portal Azure, selecione Grupo de **Recursos** do menu esquerdo.
 2. Utilize o campo **Filtrar por nome** para reduzir os grupos de recursos criados neste tutorial. Deverá haver entre 3 a 4.
 
-    * projectName>rg: contém os recursos do Gestor de Implantação. ** &lt;**
-    * projectName>ServiceWUSrg: contém os recursos definidos pelo ServiceWUS. ** &lt;**
-    * projectName>ServiceEUSrg: contém os recursos definidos pelo ServiceEUS. ** &lt;**
+    * ** &lt; projectName>rg**: contém os recursos do Gestor de Implantação.
+    * ** &lt; projectName>ServiceWUSrg:** contém os recursos definidos pelo ServiceWUS.
+    * ** &lt; projectName>ServiceEUSrg:** contém os recursos definidos pelo ServiceEUS.
     * O grupo de recursos da identidade gerida atribuída pelo utilizador.
 3. Selecione o nome do grupo de recursos.
-4. **Selecione Eliminar** o grupo de recursos do menu superior.
+4. **Selecione Eliminar o grupo** de recursos do menu superior.
 5. Repita os dois últimos passos para eliminar outros grupos de recursos criados neste tutorial.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste tutorial, aprendeu a usar a funcionalidade de verificação de saúde do Gestor de Implantação do Azure. Para saber mais, veja a [Documentação do Azure Resource Manager](/azure/azure-resource-manager/).
+Neste tutorial, aprendeu a usar a funcionalidade de verificação de saúde do Azure Deployment Manager. Para saber mais, veja a [Documentação do Azure Resource Manager](../index.yml).

@@ -1,7 +1,7 @@
 ---
-title: Política de gestão da Amostra API - Autorizar pedido utilizando um autorizador externo
+title: Política de gestão da Amostra API - Autorize o pedido utilizando o autoria externo
 titleSuffix: Azure API Management
-description: Amostra de política de gestão da API Azure - Demonstra como autoriza pedidos utilizando um autor externo que encapsula uma lógica de autenticação/autorização personalizada ou legado.
+description: Amostra de política de gestão da API - Demonstra como autorizar pedidos utilizando um autor externo que engloba uma lógica de autenticação/autorização personalizada ou legado.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,25 +14,24 @@ ms.topic: article
 ms.date: 06/06/2018
 ms.author: apimpm
 ms.openlocfilehash: 99bf1068042eb7ab0c43e2a683ca7116d2e426f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75442489"
 ---
 # <a name="authorize-requests-using-external-authorizer"></a>Autorizar pedidos com um autorizador externo
 
-Este artigo mostra uma amostra de política de gestão da API Azure que demonstra como garantir o acesso à API utilizando uma lógica de autenticação/autorização personalizada do autor externo. Para definir ou editar um código de política, siga os passos descritos no [set ou edite uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [amostras políticas.](../policy-samples.md)
+Este artigo mostra uma amostra de política de gestão da API Azure que demonstra como garantir o acesso da API utilizando um autor externo que encapsule a lógica de autenticação/autorização personalizada. Para definir ou editar um código de política, siga os passos descritos no [Conjunto ou edite uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [as amostras de política.](../policy-samples.md)
 
 ## <a name="policy"></a>Política
 
-Cola o código no bloco **de entrada.**
+Cole o código no bloco **de entrada.**
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Authorize requests using external authorizer.policy.xml)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as políticas da APIM:
 
 + [Políticas de restrições de acesso](../api-management-access-restriction-policies.md)
-+ [Amostras políticas](../policy-samples.md)
++ [Amostras de política](../policy-samples.md)

@@ -1,97 +1,97 @@
 ---
 title: Publicar app - LUIS
 titleSuffix: Azure Cognitive Services
-description: Quando terminar de construir e testar a sua aplicação ATIVE LUIS, disponibilize-a à sua aplicação de cliente publicando-a no ponto final.
+description: Quando terminar de construir e testar a sua aplicação LUIS ativa, disponibilize-a para a aplicação do seu cliente publicando-a no ponto final.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 954562f3f88276b5aef7dbd4e2237d180a4c2e40
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e9c8b607b1dc3f7f67ee1fdad353d15023318947
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653941"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340696"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publique a sua app ativa e treinada para um ponto final de encenação ou produção
 
-Quando terminar de construir, treinar e testar a sua aplicação ATIVE LUIS, disponibilize-a à sua aplicação de cliente publicando-a no ponto final.
+Quando terminar de construir, treinar e testar a sua aplicação LUIS ativa, disponibilize-a para a aplicação do seu cliente publicando-a no ponto final.
 
 ## <a name="publishing"></a>Publicar
-1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **De Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
+1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **de Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
 1. Abra a sua aplicação selecionando o seu nome na página **My Apps.**
-1. Para publicar no ponto final, **selecione Publicar** no painel superior, direito.
+1. Para publicar no ponto final, **selecione Publicar** no painel superior e direito.
 
     ![Publique botão em cima, barra de navegação direita](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
 
 1. Selecione as definições para o ponto final de previsão publicado e, em seguida, **selecione Publicar**.
 
-    ![Selecione publicar definições e, em seguida, selecione o botão Publicar](./media/luis-how-to-publish-app/publish-pop-up.png)
+    ![Selecione as definições de publicação e, em seguida, selecione Publicar botão](./media/luis-how-to-publish-app/publish-pop-up.png)
 
 ### <a name="publishing-slots"></a>Slots de publicação
 
 Selecione a ranhura correta quando a janela pop-up aparecer:
 
-* Teste
+* Processo de teste
 * Produção
 
 Ao utilizar ambas as ranhuras de publicação, isto permite-lhe ter duas versões diferentes da sua aplicação disponíveis nos pontos finais publicados ou a mesma versão em dois pontos finais diferentes.
 
 ### <a name="publishing-regions"></a>Regiões editoriais
 
-A aplicação é publicada em todas as regiões associadas aos recursos finais de previsão do LUIS adicionados no portal LUIS a partir da página **Gerir**  ->  **[Recursos Azure.](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)**
+A aplicação é publicada para todas as regiões associadas à previsão LUIS recursos adicionais no portal LUIS a partir da página **Manage**  ->  **[Azure Resources.](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)**
 
-Por exemplo, para uma aplicação criada na [www.luis.ai](https://www.luis.ai), se criar um recurso LUIS em duas regiões, **westus** e **eastus**- e adicioná-las à app como recursos, a app é publicada em ambas as regiões. Para mais informações sobre as regiões do LUIS, consulte [Regiões.](luis-reference-regions.md)
+Por exemplo, para uma app criada no [www.luis.ai](https://www.luis.ai)– se criar um recurso LUIS em duas regiões, **westus** e **eastus**– e adicioná-las à app como recursos, a app é publicada em ambas as regiões. Para obter mais informações sobre as regiões LUIS, consulte [Regiões.](luis-reference-regions.md)
 
 > [!TIP]
-> Existem 3 regiões autorais. Deve ser autor na região a que pretende publicar. Se precisa de publicar em todas as regiões, precisa de gerir o seu processo de autoria e o modelo treinado resultante em todas as 3 regiões autorais.
+> Existem 3 regiões de autoria. Deve ser autor na região a quem pretende publicar. Se precisar de publicar para todas as regiões, precisa de gerir o seu processo de autoria e o modelo treinado resultante em todas as 3 regiões de autoria.
 
 
-## <a name="configuring-publish-settings"></a>Configurar as definições de publicação
+## <a name="configuring-publish-settings"></a>Configurar configurações de publicação
 
-Depois de selecionar a ranhura, configure as definições de publicação para:
+Depois de selecionar a ranhura, configurar as definições de publicação para:
 
 * Análise de sentimentos
 * [Correção ortográfica](luis-tutorial-bing-spellcheck.md) - ponto final de previsão v2 apenas
-* Preparação do discurso
+* Escorva da fala
 
-Depois de publicar, estas definições estão disponíveis para revisão a partir da página de **definições** da secção **Gerir.** Pode alterar as definições com cada publicação. Se cancelar uma publicação, as alterações que efizemos durante a publicação também são canceladas.
+Depois de publicar, estas definições estão disponíveis para revisão a partir da página de definições de **'Publicar'** da secção **Manage.** Pode alterar as definições com cada publicação. Se cancelar uma publicação, quaisquer alterações que tenha feito durante a publicação também serão canceladas.
 
 ### <a name="when-your-app-is-published"></a>Quando a sua aplicação é publicada
 
 Quando a sua aplicação é publicada com sucesso, uma notificação de sucesso aparece no topo do navegador. A notificação também inclui um link para os pontos finais.
 
-Se precisar do URL do ponto final, selecione o link. Também pode chegar aos URLs de ponto final selecionando **Gerir** no menu superior e, em seguida, selecione **Os Recursos Azure** no menu esquerdo.
+Se precisar do URL do ponto final, selecione o link. Também pode chegar aos URLs de ponto final selecionando **Gerir** no menu superior e, em seguida, selecione **Azure Resources** no menu esquerdo.
 
 ## <a name="sentiment-analysis"></a>Análise de sentimentos
 
 <a name="enable-sentiment-analysis"></a>
 
-A análise de sentimento permite que a LUIS se integre com o [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para fornecer sentimento e análise de frases-chave.
+A análise de sentimento permite que a LUIS se integre com [a Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para fornecer análise de sentimento e frase-chave.
 
-Não tem de fornecer uma chave Text Analytics e não existe qualquer taxa de faturação para este serviço na sua conta Azure.
+Não tem de fornecer uma chave text Analytics e não existe qualquer taxa de faturação para este serviço na sua conta Azure.
 
-Os dados de sentimento são uma pontuação entre 1 e 0 indicando o sentimento positivo (mais próximo de 1) ou negativo (mais próximo de 0) dos dados. O rótulo de sentimento de `positive` , e é por cultura `neutral` `negative` apoiada. Atualmente, apenas o inglês suporta rótulos de sentimento.
+Os dados do sentimento são uma pontuação entre 1 e 0 indicando o sentimento positivo (mais próximo de 1) ou negativo (mais próximo de 0) dos dados. O rótulo de sentimento de `positive` , e é por cultura `neutral` `negative` apoiada. Atualmente, apenas o inglês suporta rótulos de sentimento.
 
-Para mais informações sobre a resposta do ponto final da JSON com análise de sentimento, consulte [a análise](luis-reference-prebuilt-sentiment.md) do sentimento
+Para obter mais informações sobre a resposta do ponto final da JSON com a análise do sentimento, consulte [a análise do Sentimento](luis-reference-prebuilt-sentiment.md)
 
 ## <a name="spelling-correction"></a>Correção ortográfica
 
 [!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
 
-As correções à ortografia são feitas antes da previsão de expressão do utilizador do LUIS. Pode ver quaisquer alterações na expressão original, incluindo ortografia, na resposta.
+As correções à ortografia são feitas antes da previsão da expressão do utilizador LUIS. Pode ver qualquer alteração à expressão original, incluindo a ortografia, na resposta.
 
-## <a name="speech-priming"></a>Preparação do discurso
+## <a name="speech-priming"></a>Escorva da fala
 
-A preparação da fala é o processo de utilização do modelo LUIS para os serviços de Fala antes da conversão do texto para a fala. Isto permite que o serviço de fala forneça a conversão da fala com mais precisão para o seu modelo. Isto permite aos pedidos e respostas do bot Speech e do LUIS num apelo, fazendo uma chamada de discurso e recebendo de volta uma resposta do LUIS. Proporciona menos latência em geral.
+O priming da fala é o processo de utilização do envio do modelo LUIS aos serviços de fala antes da conversão do texto para a fala. Isto permite que o serviço de fala forneça conversão de fala com mais precisão para o seu modelo. Isto permite que os pedidos e respostas do bot Speech e LUIS numa chamada, fazendo uma chamada de discurso e recebendo de volta uma resposta LUIS. Proporciona menos latência em geral.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Consulte [As teclas 'Gerir'](./luis-how-to-azure-subscription.md) as chaves para adicionar chaves à chave de subscrição Azure ao LUIS e como definir a tecla Bing Spell Check e incluir todas as intenções nos resultados.
-* Consulte [o Train e teste a sua aplicação](luis-interactive-test.md) para obter instruções sobre como testar a sua aplicação publicada na consola de teste.
+* Consulte [As teclas](./luis-how-to-azure-subscription.md) de gestão para adicionar teclas à chave de subscrição Azure ao LUIS e como definir a tecla Bing Spell Check e incluir todas as intenções nos resultados.
+* Consulte [Train e teste a sua aplicação](luis-interactive-test.md) para obter instruções sobre como testar a sua aplicação publicada na consola de teste.
 

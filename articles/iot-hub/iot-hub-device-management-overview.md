@@ -1,6 +1,6 @@
 ---
-title: Visão geral da gestão de dispositivos com o Azure IoT Hub [ Hub] Microsoft Docs
-description: Visão geral da gestão de dispositivos em Azure IoT Hu -- software de vida de dispositivos empresariais e padrões de gestão de dispositivos tais como, reboot, reset de fábrica, atualização de firmware, configuração, gémeos dispositivos, consultas, empregos.
+title: Visão geral da gestão de dispositivos com o Azure IoT Hub Microsoft Docs
+description: Visão geral da gestão de dispositivos em Azure IoT Hu -- ciclo de vida de dispositivos empresariais e padrões de gestão de dispositivos como, reboot, reset de fábrica, atualização de firmware, configuração, gémeos de dispositivo, consultas, empregos.
 author: bzurcher
 ms.service: iot-hub
 services: iot-hub
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: briz
 ms.openlocfilehash: bdc55af23568b5785a831e81f352400c728c902e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60400989"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Descrição geral da gestão de dispositivos com o Hub IoT
@@ -55,39 +55,39 @@ Dentro de cada uma destas cinco fases, existem vários requisitos de operador de
 
 * **Planear**: permitir aos operadores criarem um esquema de metadados de dispositivo que lhes possibilite, de forma fácil e precisa, consultarem e segmentarem um grupo de dispositivos para operações de gestão em massa. Pode utilizar os twins do dispositivo para armazenar metadados deste dispositivo sob a forma de etiquetas e propriedades.
   
-    *Continuar a ler:* 
+    *Continuar a ler*: 
     * [Introdução aos dispositivos duplos](iot-hub-node-node-twin-getstarted.md)
     * [Compreender os dispositivos duplos](iot-hub-devguide-device-twins.md)
     * [Como usar propriedades gémeas do dispositivo](tutorial-device-twins.md)
-    * [As melhores práticas para a configuração do dispositivo dentro de uma solução IoT](iot-hub-configuration-best-practices.md)
+    * [Melhores práticas para a configuração do dispositivo dentro de uma solução IoT](iot-hub-configuration-best-practices.md)
 
 * **Aprovisionar**: aprovisionar em segurança dispositivos novos no Hub IoT e permitir aos operadores descobrir imediatamente as capacidades dos dispositivos.  Utilize o registo de dispositivos do Hub para criar identidades e credenciais de dispositivos flexíveis e efetuar esta operação em massa através de uma tarefa. Crie dispositivos para comunicar as respetivas capacidades e condições através de propriedades dos dispositivos no twin do dispositivo.
   
-    *Continuar a ler:* 
+    *Continuar a ler*: 
     * [Gerir identidades do dispositivo](iot-hub-devguide-identity-registry.md)
-    * [Gestão a granel das identidades do dispositivo](iot-hub-bulk-identity-mgmt.md)
+    * [Gestão a granel das identidades dos dispositivos](iot-hub-bulk-identity-mgmt.md)
     * [Como usar propriedades gémeas do dispositivo](tutorial-device-twins.md)
-    * [As melhores práticas para a configuração do dispositivo dentro de uma solução IoT](iot-hub-configuration-best-practices.md)
+    * [Melhores práticas para a configuração do dispositivo dentro de uma solução IoT](iot-hub-configuration-best-practices.md)
     * [Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure](https://azure.microsoft.com/documentation/services/iot-dps)
 
 * **Configurar**: facilitar alterações de configuração e atualizações de firmware em massa nos dispositivos, preservando o estado de funcionamento e as segurança. Efetue estas operações de gestão de dispositivos em massa com as propriedades pretendidas ou com métodos diretos e tarefas de difusão.
   
-    *Continuar a ler:*
+    *Continuar a ler*:
     * [Como usar propriedades gémeas do dispositivo](tutorial-device-twins.md)
-    * [Configure e monitorize dispositivos IoT em escala](iot-hub-auto-device-config.md)
-    * [As melhores práticas para a configuração do dispositivo dentro de uma solução IoT](iot-hub-configuration-best-practices.md)
+    * [Configurar e monitorizar dispositivos IoT à escala](iot-hub-auto-device-config.md)
+    * [Melhores práticas para a configuração do dispositivo dentro de uma solução IoT](iot-hub-configuration-best-practices.md)
 
 * **Monitorizar**: monitorizar o estado de funcionamento geral da coleção de dispositivos, o estado de operações contínuas e alertar os operadores relativamente a problemas que possam precisar da atenção deles.  Aplique o twin do dispositivo para permitir aos dispositivos comunicarem as condições de funcionamento em tempo real e o estado das operações de atualização. Crie relatórios de dashboards eficientes que emitem os problemas mais imediatos com consultas twin do dispositivo.
   
-    *Continuar a ler:* 
+    *Continuar a ler*: 
     * [Como usar propriedades gémeas do dispositivo](tutorial-device-twins.md)
-    * [IoT Hub consulta linguagem para gémeos dispositivo, empregos e encaminhamento de mensagens](iot-hub-devguide-query-language.md)
-    * [Configure e monitorize dispositivos IoT em escala](iot-hub-auto-device-config.md)
-    * [As melhores práticas para a configuração do dispositivo dentro de uma solução IoT](iot-hub-configuration-best-practices.md)
+    * [IoT Hub linguagem de consulta para gémeos de dispositivo, empregos e encaminhamento de mensagens](iot-hub-devguide-query-language.md)
+    * [Configurar e monitorizar dispositivos IoT à escala](iot-hub-auto-device-config.md)
+    * [Melhores práticas para a configuração do dispositivo dentro de uma solução IoT](iot-hub-configuration-best-practices.md)
 
-* **Aposentar:** Substituir ou desativar dispositivos após uma falha, ciclo de atualização ou no final do tempo de vida útil.  Utilize o twin do dispositivo para manter informações do dispositivo se o dispositivo físico estiver a ser substituído, ou arquivar se estiver a ser retirado. Utilize o registo de identidades do Hub IoT para revogar de forma segura identidades e credenciais de dispositivos.
+* **Aposentar-se**: Substitua ou desative os dispositivos após uma avaria, ciclo de atualização ou no final do tempo de vida útil do serviço.  Utilize o twin do dispositivo para manter informações do dispositivo se o dispositivo físico estiver a ser substituído, ou arquivar se estiver a ser retirado. Utilize o registo de identidades do Hub IoT para revogar de forma segura identidades e credenciais de dispositivos.
   
-    *Continuar a ler:* 
+    *Continuar a ler*: 
     * [Como usar propriedades gémeas do dispositivo](tutorial-device-twins.md)
     * [Gerir identidades do dispositivo](iot-hub-devguide-identity-registry.md)
 
@@ -99,7 +99,7 @@ O Hub IoT permite o conjunto de padrões de gestão de dispositivos seguinte. Os
   
     ![Gráfico do padrão de reinício de gestão de dispositivos](./media/iot-hub-device-management-overview/reboot-pattern.png)
 
-* **Reset de fábrica**: A aplicação back-end informa o dispositivo através de um método direto que iniciou um reset de fábrica. O dispositivo utiliza as propriedades reportadas para atualizar o respetivo estado da reposição de fábrica.
+* **Reposição de Fábrica**: A aplicação back-end informa o dispositivo através de um método direto que iniciou um reset de fábrica. O dispositivo utiliza as propriedades reportadas para atualizar o respetivo estado da reposição de fábrica.
   
     ![Gráfico do padrão de reposição de fábrica de gestão de dispositivos](./media/iot-hub-device-management-overview/facreset-pattern.png)
 
@@ -107,11 +107,11 @@ O Hub IoT permite o conjunto de padrões de gestão de dispositivos seguinte. Os
   
     ![Gráfico do padrão de configuração de gestão de dispositivos](./media/iot-hub-device-management-overview/configuration-pattern.png)
 
-* **Atualização do firmware**: A aplicação back-end utiliza uma configuração automática de gestão de dispositivos para selecionar os dispositivos para receber a atualização, para dizer aos dispositivos onde encontrar a atualização e monitorizar o processo de atualização. O dispositivo inicia um processo multistep para descarregar, verificar e aplicar a imagem do firmware e, em seguida, reiniciar o dispositivo antes de voltar a ligar-se ao serviço IoT Hub. Ao longo do processo de vários passos, o dispositivo utiliza as propriedades reportadas para atualizar o respetivo progresso e estado.
+* **Atualização do Firmware**: A aplicação back-end utiliza uma configuração automática de gestão de dispositivos para selecionar os dispositivos para receber a atualização, para dizer aos dispositivos onde encontrar a atualização e monitorizar o processo de atualização. O dispositivo inicia um processo de várias etapas para descarregar, verificar e aplicar a imagem do firmware e, em seguida, reiniciar o dispositivo antes de voltar a ligar-se ao serviço IoT Hub. Ao longo do processo de vários passos, o dispositivo utiliza as propriedades reportadas para atualizar o respetivo progresso e estado.
   
     ![Gráfico do padrão de atualização de firmware de gestão de dispositivos](media/iot-hub-device-management-overview/fwupdate-pattern.png)
 
-* **Reportar o progresso e o estado**: A solução back end executa consultas duplas do dispositivo, através de um conjunto de dispositivos, para reportar sobre o estado e o progresso das ações em execução nos dispositivos.
+* **Reportando o progresso e o estado**: A solução traseira executa consultas gémeas do dispositivo, através de um conjunto de dispositivos, para informar sobre o estado e o progresso das ações em execução nos dispositivos.
   
     ![Gráfico do padrão de estado e progresso dos relatórios de gestão de dispositivos](./media/iot-hub-device-management-overview/report-progress-pattern.png)
 

@@ -1,84 +1,84 @@
 ---
-title: Co-venda de códigos estatais e províncias no Azure Marketplace
-description: Obtenha os códigos estatais e da província disponíveis ao fornecer informações de contacto na página de Co-venda da sua oferta no Azure Marketplace.
-author: dsindona
-ms.author: dsindona
+title: Co-vender códigos estatais e de província no Azure Marketplace
+description: Obtenha os códigos de estado e província disponíveis ao fornecer informações de contacto na página de Co-venda da sua oferta no Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: palanis-MSFT
+ms.author: palanis
 ms.date: 04/01/2020
-ms.openlocfilehash: a39cb5f49c9f038f567b7f3322b5962bc1dc9fc8
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 7dd28ab23894988a1ee193f2f8d72cb83b7aafe8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744709"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120522"
 ---
-# <a name="co-sell-state-and-province-codes-in-azure-marketplace"></a>Co-venda de códigos estatais e províncias no Azure Marketplace
+# <a name="co-sell-state-and-province-codes-in-azure-marketplace"></a>Co-vender códigos estatais e de província no Azure Marketplace
 
-Este artigo lista os códigos estatais e da província disponíveis ao fornecer informações de contacto na página de Co-venda da sua oferta. Se aplicável, utilize estes códigos para fornecer informações estatais/províncias ao [fornecer informações de contacto na página de Co-venda da sua oferta](commercial-marketplace-co-sell.md#contacts).
+Este artigo lista os códigos de estado e província disponíveis ao fornecer informações de contacto na página de Co-venda da sua oferta. Se aplicável, utilize estes códigos para fornecer informações de Estado/Província ao [fornecer informações de contacto na página de Co-venda da sua oferta.](commercial-marketplace-co-sell.md#contacts)
 
 ## <a name="us-states-and-territories"></a>Estados e territórios dos EUA
 
-|   Nome do Estado e do território          |   Código    |
+|   Nome do estado e do território          |   Código    |
 |-------------------------------------|-----------|
-| Alabama                             | US-AL     |
+| Alabama                             | EUA-AL     |
 | Alasca                              | US-AK     |
 | Arizona                             | EUA-AZ     |
 | Guarda                            | EUA-AR     |
-| Califórnia                          | US-CA     |
-| Colorado                            | US-CO     |
-| Connecticut                         | US-CT     |
-| Delaware                            | US-DE     |
+| Califórnia                          | EUA-CA     |
+| Colorado                            | EUA-CO     |
+| Connecticut                         | EUA-CT     |
+| Delaware                            | EUA-DE     |
 | Flórida                             | EUA-FL     |
-| Geórgia                             | US-GA     |
-| Havai                              | US-HI     |
-| Idaho                               | US-ID     |
-| Illinois                            | US-IL     |
-| Indiana                             | US-IN     |
+| Geórgia                             | EUA-GA     |
+| Havai                              | EUA-HI     |
+| Idaho                               | ID dos EUA     |
+| Illinois                            | EUA-IL     |
+| Indiana                             | EUA     |
 | Iowa                                | EUA-IA     |
-| Kansas                              | EUA-KS     |
-| Kentucky                            | US-KY     |
+| Kansas                              | US-KS     |
+| Kentucky                            | EUA-KY     |
 | Louisiana                           | EUA-LA     |
-| Maine                               | US-ME     |
+| Maine                               | EUA-ME     |
 | Maryland                            | US-MD     |
 | Massachusetts                       | EUA-MA     |
-| Michigan                            | US-MI     |
+| Michigan                            | EUA-MI     |
 | Minnesota                           | US-MN     |
-| Mississippi                         | US-MS     |
-| Missouri                            | US-MO     |
-| Montana                             | US-MT     |
-| Nebrasca                            | US-NE     |
-| Nevada                              | EUA-NV     |
-| New Hampshire                       | US-NH     |
-| Nova Jérsia                          | US-NJ     |
-| Novo México                          | EUA-NM     |
-| Nova Iorque                            | US-NY     |
-| Carolina do Norte                      | US-NC     |
-| Dakota do Norte                        | US-ND     |
+| Mississippi                         | EUA-MS     |
+| Missouri                            | EUA-MO     |
+| Montana                             | EUA-MT     |
+| Nebrasca                            | EUA-NE     |
+| Nevada                              | US-NV     |
+| New Hampshire                       | EUA-NH     |
+| Nova Jérsia                          | EUA-NJ     |
+| Novo México                          | US-NM     |
+| Nova Iorque                            | EUA-NY     |
+| Carolina do Norte                      | EUA-NC     |
+| Dakota do Norte                        | EUA-ND     |
 | Ohio                                | US-OH     |
-| Oklahoma                            | US-OK     |
-| Oregon                              | EUA-OU     |
-| Pensilvânia                        | US-PA     |
-| Rhode Island                        | US-RI     |
+| Oklahoma                            | EUA-OK     |
+| Oregon                              | EUA-OR     |
+| Pensilvânia                        | EUA-PA     |
+| Rhode Island                        | EUA-RI     |
 | Carolina do Sul                      | EUA-SC     |
 | Dakota do Sul                        | EUA-SD     |
 | Faro                           | US-TN     |
-| Texas                               | EUA-TX     |
-| Utah                                | US-UT     |
-| Vermont                             | EUA-VT     |
-| Virgínia                            | US-VA     |
-| Viseu                          | US-WA     |
-| Virgínia Ocidental                       | EUA-WV     |
-| Wisconsin                           | US-WI     |
+| Texas                               | US-TX     |
+| Utah                                | EUA-UT     |
+| Vermont                             | US-VT     |
+| Virgínia                            | EUA-VA     |
+| Viseu                          | EUA-WA     |
+| Virgínia Ocidental                       | US-WV     |
+| Wisconsin                           | EUA-WI     |
 | Wyoming                             | US-WY     |
-| District of Columbia                | US-DC     |
-| Samoa Americana                      | US-AS     |
-| Guame                                | US-GU     |
-| Ilhas Marianas do Norte            | US-MP     |
-| Porto Rico                         | US-PR     |
-| Ilhas Periféricas menores dos Estados Unidos | US-UM    |
-| Ilhas Virgens, E.U.A.                 | US-VI    |
+| District of Columbia                | EUA-DC     |
+| Samoa Americana                      | EUA-AS     |
+| Guame                                | EUA-GU     |
+| Ilhas Marianas do Norte            | EUA-MP     |
+| Porto Rico                         | EUA-PR     |
+| Ilhas Menores dos Estados Unidos | EUA-UM    |
+| Ilhas Virgens, E.U.A.                 | EUA-VI    |
 
 ## <a name="canadian-provinces-and-territories"></a>Províncias e territórios canadianos
 
@@ -101,7 +101,7 @@ Este artigo lista os códigos estatais e da província disponíveis ao fornecer 
 
 ## <a name="australian-states-and-territories"></a>Estados e territórios australianos
 
-|   Nome do Estado e do território          |   Código    |
+|   Nome do estado e do território          |   Código    |
 |-------------------------------------|-----------|
 | Nova Gales do Sul                     |  AU-NSW   |
 | Queensland                          |  AU-QLD   |
@@ -113,6 +113,6 @@ Este artigo lista os códigos estatais e da província disponíveis ao fornecer 
 | Território do Norte                  |  AU-NT    |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Conheça a [opção de co-venda no Partner Center](./commercial-marketplace-co-sell.md).
+- Saiba mais sobre a [opção de co-venda no Partner Center.](./commercial-marketplace-co-sell.md)

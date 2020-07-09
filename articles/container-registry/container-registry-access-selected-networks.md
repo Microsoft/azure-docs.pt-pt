@@ -1,36 +1,35 @@
 ---
 title: Configurar o acesso ao registo público
-description: Configure as regras ip para permitir o acesso a um registo de contentores Azure a partir de endereços IP públicos selecionados ou intervalos de endereços.
+description: Configurar regras IP para permitir o acesso a um registo de contentores Azure a partir de endereços IP públicos selecionados ou intervalos de endereços.
 ms.topic: article
 ms.date: 05/19/2020
 ms.openlocfilehash: dc0514fbe7d3e01914965cee5dc547172d4435a4
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83702085"
 ---
-# <a name="configure-public-ip-network-rules"></a>Configurar as regras da rede IP pública
+# <a name="configure-public-ip-network-rules"></a>Configurar regras públicas de rede IP
 
-Um registo de contentores Azure por padrão aceita ligações através da internet a partir de anfitriões em qualquer rede. Este artigo mostra como configurar o seu registo de contentores para permitir o acesso a partir de endereços IP públicos específicos ou intervalos de endereços. São fornecidos passos equivalentes utilizando o portal Azure CLI e Azure.
+Um registo de contentores Azure por padrão aceita ligações através da internet de anfitriões em qualquer rede. Este artigo mostra como configurar o seu registo de contentores para permitir o acesso a partir de apenas endereços IP públicos específicos ou intervalos de endereços. São fornecidos passos equivalentes utilizando o portal Azure CLI e Azure.
 
-As regras da rede IP estão configuradas no ponto final do registo público. As regras da rede IP não se aplicam a pontos finais privados configurados com [Private Link](container-registry-private-link.md)
+As regras da rede IP estão configuradas no ponto final do registo público. As regras da rede IP não se aplicam a pontos finais privados configurados com [Ligação Privada](container-registry-private-link.md)
 
-Configurar as regras de acesso IP está disponível no nível de serviço de registo de contentores **Premium.** Para obter informações sobre os níveis e limites de serviço de registo, consulte os níveis de registo de [contentores de Azure](container-registry-skus.md).
+As regras de acesso IP configurantes estão disponíveis no nível de serviço de registo de contentores **Premium.** Para obter informações sobre os níveis e limites do serviço de registo, consulte [os níveis de registo do contentor Azure](container-registry-skus.md).
 
 ## <a name="access-from-selected-public-network---cli"></a>Acesso a partir de rede pública selecionada - CLI
 
-### <a name="change-default-network-access-to-registry"></a>Alterar o acesso padrão da rede ao registo
+### <a name="change-default-network-access-to-registry"></a>Alterar o acesso da rede padrão ao registo
 
-Para limitar o acesso a uma rede pública selecionada, altere primeiro a ação predefinida para negar o acesso. Substitua o nome do seu registo no seguinte comando de [atualização az acr:][az-acr-update]
+Para limitar o acesso a uma rede pública selecionada, altere primeiro a ação padrão para negar o acesso. Substitua o nome do seu registo no seguinte comando [de atualização az acr:][az-acr-update]
 
 ```azurecli
 az acr update --name myContainerRegistry --default-action Deny
 ```
 
-### <a name="add-network-rule-to-registry"></a>Adicionar regra de rede ao registo
+### <a name="add-network-rule-to-registry"></a>Adicione a regra da rede ao registo
 
-Utilize o comando de adição de uma regra de [rede az acr][az-acr-network-rule-add] para adicionar uma regra de rede ao seu registo que permite o acesso a partir de um endereço ou intervalo IP público. Por exemplo, substitua o nome do registo de contentores e o endereço IP público de um VM numa rede virtual.
+Utilize o comando de adicionar a [regra de rede az acr][az-acr-network-rule-add] para adicionar uma regra de rede ao seu registo que permite o acesso a partir de um endereço ou alcance IP público. Por exemplo, substitua o nome do registo do contentor e o endereço IP público de um VM numa rede virtual.
 
 ```azurecli
 az acr network-rule add \
@@ -39,34 +38,34 @@ az acr network-rule add \
 ```
 
 > [!NOTE]
-> Depois de adicionar uma regra, leva alguns minutos para a regra fazer efeito.
+> Depois de adicionar uma regra, leva alguns minutos para que a regra faça efeito.
 
 ## <a name="access-from-selected-public-network---portal"></a>Acesso a partir de rede pública selecionada - portal
 
-1. No portal, navegue para o seu registo de contentores.
-1. Em **Definições,** selecione **Networking**.
-1. No separador **de acesso público,** selecione para permitir o acesso do público a partir de **redes Selecionadas**.
-1. Em **Firewall,** introduza um endereço IP público, como o endereço IP público de um VM numa rede virtual. Ou, insira uma gama de endereços na notação CIDR que contenha o endereço IP do VM.
+1. No portal, navegue para o registo do seu contentor.
+1. Em **Definições**, selecione **Networking**.
+1. No separador **de acesso público,** selecione para permitir o acesso público a partir de **redes Selecionadas.**
+1. Em **Firewall**, insira um endereço IP público, como o endereço IP público de um VM numa rede virtual. Ou introduza um intervalo de endereços na notação CIDR que contenha o endereço IP do VM.
 1. Selecione **Guardar**.
 
-![Configure a regra da firewall para o registo de contentores][acr-access-selected-networks]
+![Regra de firewall de configuração para registo de contentores][acr-access-selected-networks]
 
 > [!NOTE]
-> Depois de adicionar uma regra, leva alguns minutos para a regra fazer efeito.
+> Depois de adicionar uma regra, leva alguns minutos para que a regra faça efeito.
 
 > [!TIP]
-> Opcionalmente, permita o acesso ao registo a partir de um computador cliente local ou intervalo de endereçoIP. Para permitir este acesso, precisa do endereço IPv4 público do computador. Pode encontrar este endereço pesquisando "qual é o meu endereço IP" num navegador de Internet. O endereço IPv4 do cliente atual também aparece automaticamente quando configura as definições de firewall na página **de Rede** no portal.
+> Opcionalmente, permitir o acesso ao registo a partir de um computador cliente local ou alcance de endereço IP. Para permitir este acesso, precisa do endereço IPv4 público do computador. Você pode encontrar este endereço pesquisando "qual é o meu endereço IP" em um navegador de internet. O endereço IPv4 do cliente atual também aparece automaticamente quando configura as definições de firewall na página **de Networking** no portal.
 
 ## <a name="disable-public-network-access"></a>Desativar o acesso à rede pública
 
-Opcionalmente, desabilite o ponto final do registo. Desativar o ponto final do público sobrepõe-se a todas as configurações de firewall. Por exemplo, é melhor desativar o acesso público a um registo protegido numa rede virtual utilizando o [Private Link](container-registry-private-link.md).
+Opcionalmente, desative o ponto final público do registo. A desativação do ponto final público substitui todas as configurações de firewall. Por exemplo, é melhor desativar o acesso público a um registo protegido numa rede virtual utilizando [o Private Link](container-registry-private-link.md).
 
 ### <a name="disable-public-access---cli"></a>Desativar o acesso público - CLI
 
-Para desativar o acesso público utilizando o Azure CLI, execute a [atualização az acr][az-acr-update] e desative `--public-network-enabled` para `false` . 
+Para desativar o acesso público utilizando o Azure CLI, execute [a atualização az acr][az-acr-update] e desative `--public-network-enabled` para `false` . 
 
 > [!NOTE]
-> O `public-network-enabled` argumento requer O Azure CLI 2.6.0 ou mais tarde. 
+> O `public-network-enabled` argumento requer Azure CLI 2.6.0 ou mais tarde. 
 
 ```azurecli
 az acr update --name myContainerRegistry --public-network-enabled false
@@ -75,21 +74,21 @@ az acr update --name myContainerRegistry --public-network-enabled false
 ### <a name="disable-public-access---portal"></a>Desativar o acesso público - portal
 
 1. No portal, navegue para o registo do seu contentor e selecione **Definições > Networking**.
-1. No separador de **acesso público,** em **Permitir o acesso à rede pública,** selecione **Disabled**. Em seguida, selecione **Guardar**.
+1. No separador **de acesso público,** em **Permitir o acesso à rede pública,** selecione **Disabled**. Em seguida, selecione **Guardar**.
 
 ![Desativar o acesso público][acr-access-disabled]
 
 
 ## <a name="restore-public-network-access"></a>Restaurar o acesso à rede pública
 
-Para reativar o ponto final do público, atualize as definições de rede para permitir o acesso do público. Permitir que o ponto final do público sobrepõe todas as configurações de firewall. 
+Para voltar a ativar o ponto final público, atualize as definições de rede para permitir o acesso do público. Permitir que o ponto final público substitua todas as configurações de firewall. 
 
 ### <a name="restore-public-access---cli"></a>Restaurar o acesso público - CLI
 
-Executar [atualização az acr][az-acr-update] e definido `--public-network-enabled` para `true` . 
+Executar [a atualização az acr][az-acr-update] e definir `--public-network-enabled` para `true` . 
 
 > [!NOTE]
-> O `public-network-enabled` argumento requer O Azure CLI 2.6.0 ou mais tarde. 
+> O `public-network-enabled` argumento requer Azure CLI 2.6.0 ou mais tarde. 
 
 ```azurecli
 az acr update --name myContainerRegistry --public-network-enabled true
@@ -102,10 +101,10 @@ az acr update --name myContainerRegistry --public-network-enabled true
 
 ![Acesso público de todas as redes][acr-access-all-networks]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para restringir o acesso a um registo utilizando um ponto final privado numa rede virtual, consulte [o Configure Azure Private Link para um registo de contentores Azure](container-registry-private-link.md).
-* Se precisar de configurar regras de acesso ao registo por detrás de uma firewall de cliente, consulte [as regras do Configure para aceder a um registo de contentores Azure atrás](container-registry-firewall-access-rules.md)de uma firewall .
+* Para restringir o acesso a um registo utilizando um ponto final privado numa rede virtual, consulte o [Link Privado Configure Azure para um registo de contentores Azure](container-registry-private-link.md).
+* Se precisar de configurar regras de acesso ao registo por detrás de uma firewall do cliente, consulte [as regras de Configuração para aceder a um registo de contentores Azure atrás de uma firewall](container-registry-firewall-access-rules.md).
 
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az-acr-network-rule-add

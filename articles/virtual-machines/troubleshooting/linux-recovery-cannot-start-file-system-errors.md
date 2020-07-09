@@ -1,5 +1,5 @@
 ---
-title: Problemas de resolução de Problemas Linux VM iniciam problemas devido a erros no sistema de ficheiros Microsoft Docs
+title: Resolução de problemas Linux VM problemas de início devido a erros no sistema de ficheiros Microsoft Docs
 description: Explica porque é que o Linux VM não pode começar e como resolver o problema.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,15 +15,14 @@ ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
 ms.openlocfilehash: 455cb1e0067217be6edcf665e8c07e8fcd684ab5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76842406"
 ---
-# <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Problemas de resolução de problemas De Linux VM problemas de partida devido a erros no sistema de ficheiros
+# <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Resolução de problemas Linux VM problemas iniciais devido a erros no sistema de ficheiros
 
-Não é possível ligar-se a uma máquina virtual Azure Linux (VM) utilizando a Secure Shell (SSH). Quando executa a funcionalidade Boot Diagnostics no [portal Azure,](https://portal.azure.com/)vê entradas de registo que se assemelham aos seguintes exemplos.
+Não é possível ligar-se a uma máquina virtual Azure Linux (VM) utilizando a Secure Shell (SSH). Quando executar a funcionalidade 'Boot Diagnostics' no [portal Azure,](https://portal.azure.com/)vê entradas de registo que se assemelham aos seguintes exemplos.
 
 ## <a name="examples"></a>Exemplos
 
@@ -69,30 +68,30 @@ Checking all file systems.
 /dev/sde1 : clean, 51/67043328 files, 4259482/268173037 blocks
 ```
 
-Este problema pode ocorrer se o sistema de ficheiros não tiver sido desligado de forma limpa ou problemas relacionados com o armazenamento. Os problemas incluem erros de hardware ou software, problemas com controladores ou programas, erros de escrita, etc. É sempre importante ter uma cópia de segurança de dados críticos. As ferramentas que descrevem neste artigo podem ajudar a recuperar sistemas de ficheiros, mas é que a perda de dados ainda pode ocorrer.
+Este problema pode ocorrer se o sistema de ficheiros não tiver sido desligado de forma limpa ou problemas relacionados com o armazenamento. Os problemas incluem erros de hardware ou software, problemas com motoristas ou programas, erros de escrita, etc. É sempre importante ter uma cópia de segurança de dados críticos. As ferramentas que descrevem neste artigo podem ajudar a recuperar os sistemas de ficheiros, mas é a perda de dados ainda pode ocorrer.
 
-O Linux tem vários verificadores de sistemade ficheiros disponíveis. As mais comuns para as distribuições em Azure são: [FSCK,](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific) [E2FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific)e [Xfs_repair](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair).
+Linux tem vários verificadores do sistema de ficheiros disponíveis. As mais comuns para as distribuições em Azure são: [FSCK,](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific) [E2FSCK,](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific)e [Xfs_repair](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair).
 
 ## <a name="resolution"></a>Resolução
 
-Para resolver este problema, insera o VM no modo de emergência utilizando a [consola em série](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux) e utilize essa ferramenta para reparar o sistema de ficheiros. Se a consola em série não estiver ativada no seu VM ou não funcionar, consulte a secção [de reparação da secção de sem-activação VM](#repair-the-vm-offline) deste artigo.
+Para resolver este problema, insira o VM em modo de emergência utilizando a [consola em série](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux) e utilize essa ferramenta para reparar o sistema de ficheiros. Se a consola em série não estiver ativada no seu VM ou não funcionar, consulte a secção [offline VM](#repair-the-vm-offline) deste artigo.
 
 ## <a name="use-the-serial-console"></a>Utilizar a consola de série
 
 1. Ligue-se à consola em série.
 
    > [!Note]
-   > Para obter mais informações sobre a utilização da consola em série para o Linux, consulte:
-   > * [Utilize a consola em série para aceder ao MODO GRUB e ao modo de utilizador único](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
+   > Para obter mais informações sobre a utilização da consola em série para Linux, consulte:
+   > * [Utilize consola em série para aceder ao GRUB e ao modo de utilizador único](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
    > * [Utilize consola em série para chamadas SysRq e NMI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-nmi-sysrq)
 
-2. Selecione o botão de ícone Power e, em seguida, selecione Reiniciar VM. (Se a consola em série não estiver ativada ou não estiver ligada com sucesso, não verá o botão.)
+2. Selecione o botão de ícone de alimentação e, em seguida, selecione Restart VM. (Se a consola em série não estiver ativada ou não ligada com sucesso, não verá o botão.)
 
    ![IMAGEM](./media/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck/restart-vm.png)
 
-3. Insera o VM no modo de emergência.
+3. Iniciar o VM no modo de emergência.
 
-4. Introduza a palavra-passe da sua conta raiz para iniciar sessão no modo de emergência.
+4. Introduza a palavra-passe da sua conta de raiz para iniciar scontabilidade no modo de emergência.
 
 5. Utilize xfs_repair com a opção -n para detetar os erros no sistema de ficheiros. Na amostra seguinte, assumimos que a partição do sistema é /dev/sda1. Substitua-o pelo valor adequado para o seu VM:
 
@@ -106,14 +105,14 @@ Para resolver este problema, insera o VM no modo de emergência utilizando a [co
    xfs_repair /dev/sda1
    ```
 
-7. Se receber a mensagem de erro "ERROR: O sistema de ficheiros tem alterações valiosas de metadados num registo que precisa de ser reproduzido", criar um diretório temporário e montar o sistema de ficheiros:
+7. Se receber a mensagem de erro "ERROR: The filesystem has valuable medata changes in a log which need to changeed", crie um diretório temporário e monte o sistema de ficheiros:
 
    ```
    mkdir /temp
    mount /dev/sda1 /temp
    ```
 
-8. Se o disco não conseguir montar, execute o comando xfs_repair com a opção -L (zeroing de tronco de força):
+8. Se o disco não montar, executar o comando xfs_repair com a opção -L (fazer o zero do registo de força):
 
    ```
    xfs_repair /dev/sda1 -L
@@ -134,9 +133,9 @@ Para resolver este problema, insera o VM no modo de emergência utilizando a [co
 
 ## <a name="repair-the-vm-offline"></a>Reparar o VM offline
 
-1. Fixe o disco de sistema do VM como um disco de dados a um VM de recuperação (qualquer VM Linux em funcionamento). Para tal, pode utilizar [comandos CLI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) ou automatizar a configuração do VM de recuperação utilizando os comandos de [reparação VM](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
+1. Fixe o disco de sistema do VM como um disco de dados a um VM de recuperação (qualquer LM Linux em funcionamento). Para isso, pode utilizar [comandos CLI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) ou automatizar a configuração do VM de recuperação utilizando os [comandos de reparação VM](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
 
-2. Localize a etiqueta de acionamento do disco do sistema que anexou. Neste caso, assumimos que a etiqueta do disco do sistema que anexou é /dev/sdc1. Substitua-o pelo valor adequado para o seu VM.
+2. Localize a etiqueta de acionamento do disco de sistema que anexou. Neste caso, assumimos que a etiqueta do disco do sistema que anexou é /dev/sdc1. Substitua-o pelo valor adequado para o seu VM.
 
 3. Utilize xfs_repair com a opção -n para detetar os erros no sistema de ficheiros.
 
@@ -150,7 +149,7 @@ Para resolver este problema, insera o VM no modo de emergência utilizando a [co
    xfs_repair /dev/sdc1
    ```
 
-5. Se receber a mensagem de erro "ERROR: O sistema de ficheiros tem alterações valiosas de metadados num registo que precisa de ser reproduzido", criar um diretório temporário e montar o sistema de ficheiros:
+5. Se receber a mensagem de erro "ERROR: The filesystem has valuable medata changes in a log which need to changeed", crie um diretório temporário e monte o sistema de ficheiros:
 
    ```
    mkdir /temp
@@ -158,7 +157,7 @@ Para resolver este problema, insera o VM no modo de emergência utilizando a [co
    mount /dev/sdc1 /temp
    ```
 
-   Se o disco não conseguir montar, execute o comando xfs_repair com a opção -L (zeroing de tronco de força):
+   Se o disco não montar, executar o comando xfs_repair com a opção -L (fazer o zero do registo de força):
 
    ```
    xfs_repair /dev/sdc1 -L
@@ -172,12 +171,12 @@ Para resolver este problema, insera o VM no modo de emergência utilizando a [co
    XFS (sdc1): Ending clean mount
    ```
 
-7. Desmonte e desaperte o disco rígido virtual original e, em seguida, crie um VM a partir do disco original do sistema. Para tal, pode utilizar [comandos CLI](troubleshoot-recovery-disks-linux.md) ou comandos de [reparação VM](repair-linux-vm-using-azure-virtual-machine-repair-commands.md) se os utilizar para criar o VM de recuperação.
+7. Desmonte e desprete o disco rígido virtual original e, em seguida, crie um VM a partir do disco original do sistema. Para isso, pode utilizar [comandos CLI](troubleshoot-recovery-disks-linux.md) ou [comandos de reparação VM](repair-linux-vm-using-azure-virtual-machine-repair-commands.md) se os utilizar para criar o VM de recuperação.
 
 8. Verifique se o problema está resolvido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Resolução de problemas um VM Linux, ligando o disco OS a um VM de recuperação com o Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
+* [Resolução de problemas de um Linux VM, fixando o disco DE A uma VM de recuperação com o Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
 * [Utilizar o portal para anexar um disco de dados a uma VM do Linux](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal)
 

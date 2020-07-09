@@ -1,30 +1,29 @@
 ---
-title: Azure Stack Edge gestão de ações [ Azure Stack Edge] Microsoft Docs
+title: Gestão de ações da Azure Stack Edge Microsoft Docs
 description: Descreve como usar o portal Azure para gerir ações no seu Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: d64ecb32c783dcee08164856aa90a43d004894a8
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: 1aceb9d2fb1d9b5890bc0859d432bc1c5e7e4db4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82570294"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84339844"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge"></a>Utilize o portal Azure para gerir ações no seu Azure Stack Edge
 
-Este artigo descreve como gerir ações no seu Azure Stack Edge. Você pode gerir o Azure Stack Edge através do portal Azure ou através da UI web local. Utilize o portal Azure para adicionar, eliminar, atualizar ações ou sincronizar a chave de armazenamento para a conta de armazenamento associada às ações.
+Este artigo descreve como gerir ações no seu Azure Stack Edge. Pode gerir o Azure Stack Edge através do portal Azure ou através da UI web local. Utilize o portal Azure para adicionar, eliminar, atualizar ações ou sincronizar a chave de armazenamento para a conta de armazenamento associada às ações.
 
 ## <a name="about-shares"></a>Sobre as partilhas
 
-Para transferir dados para o Azure, precisa de criar ações no seu Azure Stack Edge. As ações que adiciona no dispositivo Azure Stack Edge podem ser ações locais ou partilhas que empurram dados para a nuvem.
+Para transferir dados para o Azure, precisa de criar ações no seu Azure Stack Edge. As ações que adiciona no dispositivo Azure Stack Edge podem ser ações locais ou partilhas que empurram os dados para a nuvem.
 
- - **Ações locais**: Utilize estas ações quando quiser que os dados sejam processados localmente no dispositivo.
- - **Ações**: Utilize estas ações quando pretender que os dados do dispositivo sejam automaticamente empurrados para a sua conta de armazenamento na nuvem. Todas as funções em nuvem, tais como as chaves de armazenamento **Refresh** e **Sync,** aplicam-se às ações.
+ - **Ações locais**: Utilize estas ações quando pretender que os dados sejam tratados localmente no dispositivo.
+ - **Ações**: Utilize estas ações quando pretender que os dados do dispositivo sejam automaticamente empurrados para a sua conta de armazenamento na nuvem. Todas as funções de cloud, tais como **as teclas de armazenamento** **Refresh** e Sync, aplicam-se às ações.
 
 Neste artigo, vai aprender a:
 
@@ -39,9 +38,9 @@ Neste artigo, vai aprender a:
 
 Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
-1. No portal Azure, vá ao seu recurso Azure Stack Edge e depois vá ao **Gateway > Shares**. Selecione **+ Adicione a parte** na barra de comando.
+1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá ao **Gateway > Shares**. **Selecione + Adicione a partilha** na barra de comando.
 
-    ![Selecione adicionar partilha](media/azure-stack-edge-manage-shares/add-share-1.png)
+    ![Selecione adicionar a partilha](media/azure-stack-edge-manage-shares/add-share-1.png)
 
 2. Em **Adicionar Partilha**, especifique as definições de partilha. Indique um nome exclusivo para a partilha.
     
@@ -51,10 +50,10 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
 4. Forneça uma **Conta de armazenamento** onde reside a partilha. É criado um contentor na conta de armazenamento com o nome da partilha, se o contentor ainda não existir. Se o contentor já existir, é utilizado o contentor existente.
 
-5. Na lista de dropdown, escolha o **serviço de Armazenamento** de blocos blob, page blob ou ficheiros. O tipo de serviço escolhido depende do formato no qual pretende que os dados residam no Azure. Por exemplo, neste caso, queremos que os dados residam como blocos blobs em Azure, daí selecionarmos **block Blob**. Se escolher o **Page Blob,** deve certificar-se de que os seus dados estão alinhados 512 bytes. Utilize a **blob página** para VHDs ou VHDX que estejam sempre 512 bytes alinhados.
+5. Na lista de dropdown, escolha o **serviço de Armazenamento** a partir de blob de bloco, blob de página ou ficheiros. O tipo de serviço escolhido depende do formato no qual pretende que os dados residam no Azure. Por exemplo, neste caso, queremos que os dados residam como blobs de bloco em Azure, daí **selecionarmos Block Blob**. Se escolher **o Page Blob,** deve certificar-se de que os seus dados estão alinhados com 512 bytes. Utilize **o blob page** para VHDs ou VHDX que estejam sempre alinhados com 512 bytes.
 
    > [!IMPORTANT]
-   > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge ou Data Box Gateway. Para mais informações, consulte definir e gerir as políticas de [imutabilidade para armazenamento de blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge ou Data Box Gateway. Para obter mais informações, consulte [Definir e gerir políticas de imutabilidade para armazenamento de bolhas](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 6. Este passo depende de estar a criar uma partilha SMB ou NFS.
    - **Se criar uma partilha SMB** - no campo **Utilizador local com todos os privilégios**, escolha **Criar novo** ou **Utilizar existente**. Se criar um novo utilizador local, forneça o **nome de utilizador**, a **palavra-passe** e, em seguida, confirme a palavra-passe. Esta ação atribui as permissões ao utilizador local. Depois de ter atribuído as permissões aqui, pode utilizar o Explorador de Ficheiros para modificar estas permissões.
@@ -66,15 +65,15 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
       ![Adicionar uma partilha NFS](media/azure-stack-edge-manage-shares/add-nfs-share.png)
 
-7. Para aceder facilmente às partilhas dos módulos de computação Edge, utilize o ponto de montagem local. Selecione **Utilize a parte com a computação Edge** para que a parte seja montada automaticamente após a sua criação. Quando esta opção é selecionada, o módulo Edge também pode usar a computação com o ponto de montagem local.
+7. Para aceder facilmente às ações dos módulos de computação Edge, utilize o ponto de montagem local. **Selecione Utilize a partilha com o cálculo Edge** para que a partilha seja montada automaticamente após a sua criação. Quando esta opção é selecionada, o módulo Edge também pode utilizar o cálculo com o ponto de montagem local.
 
 8. Clique em **Criar** para criar a partilha. Será notificado de que a criação da partilha está em curso. Depois de criar a partilha com as definições especificadas, o painel **Partilhas** é atualizado para refletir a nova partilha.
 
 ## <a name="add-a-local-share"></a>Adicione uma parte local
 
-1. No portal Azure, vá ao seu recurso Azure Stack Edge e depois vá ao **Gateway > Shares**. Selecione **+ Adicione a parte** na barra de comando.
+1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá ao **Gateway > Shares**. **Selecione + Adicione a partilha** na barra de comando.
 
-   ![Selecione adicionar partilha](media/azure-stack-edge-manage-shares/add-local-share-1.png)
+   ![Selecione adicionar a partilha](media/azure-stack-edge-manage-shares/add-local-share-1.png)
 
 2. Em **Adicionar Partilha**, especifique as definições de partilha. Indique um nome exclusivo para a partilha.
     
@@ -82,33 +81,33 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
 3. Selecione um **Tipo** para a partilha. O tipo pode ser **SMB** ou **NFS**, sendo que SMB é a predefinição. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux. Dependendo se escolher a partilha SMB ou NFS, as opções apresentadas são ligeiramente diferentes.
 
-4. Para aceder facilmente às partilhas dos módulos de computação Edge, utilize o ponto de montagem local. Selecione **Utilize a parte com a computação Edge** para que o módulo Edge possa utilizar a computação com o ponto de montagem local.
+4. Para aceder facilmente às ações dos módulos de computação Edge, utilize o ponto de montagem local. Selecione **Utilize a partilha com o cálculo Edge** para que o módulo Edge possa utilizar o cálculo com o ponto de montagem local.
 
-5. **Selecione Configure como ações locais edge**. Os dados em ações locais permanecerão localmente no dispositivo. Pode processar estes dados localmente.
+5. Selecione **Configurar como ações locais edge**. Os dados em ações locais permanecerão localmente no dispositivo. Pode processar estes dados localmente.
 
-6. No campo **de utilizadores locais de privilégio all,** escolha entre **Criar novo** ou **Utilizar existentes**.
+6. No campo de **utilizadores local de todos os privilégios,** escolha entre **criar novo** ou **utilizar existente.**
 
 7. Selecione **Criar**. 
 
-   ![Criar uma parte local](media/azure-stack-edge-manage-shares/add-local-share-2.png)
+   ![Criar ações locais](media/azure-stack-edge-manage-shares/add-local-share-2.png)
 
     Vê uma notificação de que a criação de ações está em curso. Depois de criar a partilha com as definições especificadas, o painel **Partilhas** é atualizado para refletir a nova partilha.
 
-   ![Ver atualizações Partilha a lâmina](media/azure-stack-edge-manage-shares/add-local-share-3.png)
+   ![Ver atualizações Partilhar lâmina](media/azure-stack-edge-manage-shares/add-local-share-3.png)
     
-    Selecione a parte para visualizar o ponto de montagem local para os módulos de computação Edge para esta partilha.
+    Selecione a partilha para ver o ponto de montagem local para os módulos de computação Edge para esta partilha.
 
-   ![Ver detalhes da partilha local](media/azure-stack-edge-manage-shares/add-local-share-4.png)
+   ![Ver detalhes de partilha local](media/azure-stack-edge-manage-shares/add-local-share-4.png)
 
 ## <a name="mount-a-share"></a>Monte uma parte
 
-Se criou uma parte antes de configurar a computação no seu dispositivo Azure Stack Edge, terá de montar a parte. Dê os seguintes passos para montar uma parte.
+Se criou uma parte antes de configurar o computamento no seu dispositivo Azure Stack Edge, terá de montar a partilha. Tome os seguintes passos para montar uma parte.
 
-1. No portal Azure, vá ao seu recurso Azure Stack Edge e depois vá ao **Gateway > Shares**. A partir da lista das ações, selecione a parte que pretende montar. A coluna **Utilizada para calcular** mostrará o estado de **desativado** para a parte selecionada.
+1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá ao **Gateway > Shares**. Na lista das ações, selecione a parte que pretende montar. A coluna **usada para cálculo** mostrará o estado de **desativado** para a parte selecionada.
 
    ![Selecionar partilha](media/azure-stack-edge-manage-shares/select-share-mount.png)
 
-2. **Selecione Mount**.
+2. Selecione **Mount**.
 
    ![Selecione montagem](media/azure-stack-edge-manage-shares/select-mount.png)
 
@@ -116,33 +115,33 @@ Se criou uma parte antes de configurar a computação no seu dispositivo Azure S
 
    ![Confirmar montagem](media/azure-stack-edge-manage-shares/confirm-mount.png)
 
-4. Depois de a parte ser montada, vá à lista de ações. Verá que a coluna **Usada para calcular** mostra o estado da partilha como **Ativado**.
+4. Depois de a parte ser montada, vá para a lista de ações. Verá que a coluna **Usada para cálculo** mostra o estado da partilha como **Ativado**.
 
    ![Partilhar montado](media/azure-stack-edge-manage-shares/share-mounted.png)
 
-5. Selecione novamente a parte para ver o ponto de montagem local para a parte. O módulo de computação de borda utiliza este ponto de montagem local para a partilha.
+5. Selecione a partilha novamente para ver o ponto de montagem local para a partilha. O módulo de computação Edge utiliza este ponto de montagem local para a partilha.
 
-   ![Ponto de montagem local para a partilha](media/azure-stack-edge-manage-shares/share-mountpoint.png)
+   ![Ponto de montagem local para a parte](media/azure-stack-edge-manage-shares/share-mountpoint.png)
 
-## <a name="unmount-a-share"></a>Desmontar uma parte
+## <a name="unmount-a-share"></a>Desmonte uma parte
 
 Faça os seguintes passos no portal Azure para desmontar uma parte.
 
-1. No portal Azure, vá ao seu recurso Azure Stack Edge e depois vá ao **Gateway > Shares**.
+1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá ao **Gateway > Shares**.
 
    ![Selecionar partilha](media/azure-stack-edge-manage-shares/select-share-unmount.png)
 
-2. A partir da lista das ações, selecione a parte que pretende desfazer. Certifique-se de que a partilha que desmonta não é utilizada por nenhum módulo. Se a parte for utilizada por um módulo, então verá problemas com o módulo correspondente. **Selecione Unmount**.
+2. Na lista das ações, selecione a parte que pretende desmontar. Certifique-se de que a parte que desmonta não é utilizada por nenhum módulo. Se a partilha for utilizada por um módulo, verá problemas com o módulo correspondente. Selecione **Desmonte**.
 
-   ![Selecione desmontar](media/azure-stack-edge-manage-shares/select-unmount.png)
+   ![Selecione desmonte](media/azure-stack-edge-manage-shares/select-unmount.png)
 
 3. Quando solicitado para confirmação, selecione **Sim**. Isto vai desmontar a parte.
 
-   ![Confirmar desmontar](media/azure-stack-edge-manage-shares/confirm-unmount.png)
+   ![Confirmar desmontagem](media/azure-stack-edge-manage-shares/confirm-unmount.png)
 
-4. Depois de a parte ser desmontada, vá à lista de ações. Verá que **a coluna usada para calcular** mostra o estado da partilha como **Desativado**.
+4. Depois de a parte não ser desmontada, vá para a lista de ações. Verá que a coluna **usada para computação** mostra o estado da partilha como **Desativada**.
 
-   ![Partilhar desmontado](media/azure-stack-edge-manage-shares/share-unmounted.png)
+   ![Partilha desmontada](media/azure-stack-edge-manage-shares/share-unmounted.png)
 
 ## <a name="delete-a-share"></a>Eliminar uma partilha
 
@@ -152,7 +151,7 @@ Efetue os seguintes passos no portal do Azure para eliminar uma partilha.
 
    ![Selecionar partilha](media/azure-stack-edge-manage-shares/delete-share-1.png)
 
-2. Clique em **Apagar**.
+2. Clique em **Eliminar**.
 
    ![Clicar em eliminar](media/azure-stack-edge-manage-shares/delete-share-2.png)
 
@@ -160,11 +159,11 @@ Efetue os seguintes passos no portal do Azure para eliminar uma partilha.
 
    ![Confirmar eliminação](media/azure-stack-edge-manage-shares/delete-share-3.png)
 
-A lista de atualizações de ações para refletir a eliminação.
+A lista de atualizações de ações para refletir a supressão.
 
 ## <a name="refresh-shares"></a>Atualizar partilhas
 
-A funcionalidade de atualização permite-lhe refrescar o conteúdo de uma parte. Quando atualiza uma partilha, é iniciada uma pesquisa para localizar todos os objetos do Azure, incluindo os blobs e ficheiros que foram adicionados à cloud desde a última atualização. Estes ficheiros adicionais são então descarregados para atualizar o conteúdo da partilha no dispositivo.
+A funcionalidade de atualização permite-lhe refrescar o conteúdo de uma partilha. Quando atualiza uma partilha, é iniciada uma pesquisa para localizar todos os objetos do Azure, incluindo os blobs e ficheiros que foram adicionados à cloud desde a última atualização. Estes ficheiros adicionais são depois descarregados para atualizar o conteúdo da partilha no dispositivo.
 
 > [!IMPORTANT]
 >
@@ -201,17 +200,17 @@ Efetue os seguintes passos no portal do Azure para sincronizar a chave de acesso
 
 1. Aceda a **Descrição Geral** no seu recurso. Na lista de partilhas, escolha e clique numa partilha associada à conta de armazenamento que precisa de sincronizar.
 
-    ![Selecione partilha com conta de armazenamento relevante](media/azure-stack-edge-manage-shares/sync-storage-key-1.png)
+    ![Selecione partilhar com conta de armazenamento relevante](media/azure-stack-edge-manage-shares/sync-storage-key-1.png)
 
 2. Clique em **Sincronizar chave de armazenamento**. Clique em **Sim** quando lhe for pedida a confirmação.
 
-     ![Selecione chave de armazenamento Sync](media/azure-stack-edge-manage-shares/sync-storage-key-2.png)
+     ![Selecione a chave de armazenamento sync](media/azure-stack-edge-manage-shares/sync-storage-key-2.png)
 
 3. Saia da caixa de diálogo depois de a sincronização estar concluída.
 
 >[!NOTE]
 > Apenas terá de efetuar este procedimento uma vez para uma conta de armazenamento fornecida. Não precisa de repetir esta ação para todas as partilhas associadas à mesma conta de armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [Gerir utilizadores através do portal do Azure](azure-stack-edge-manage-users.md).

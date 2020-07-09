@@ -1,41 +1,41 @@
 ---
-title: Utilize Azure AD e RBAC para clusters
+title: Use Azure AD e RBAC para clusters
 titleSuffix: Azure Kubernetes Service
-description: Saiba como utilizar a adesão do grupo Azure Ative Directory para restringir o acesso aos recursos de cluster utilizando o controlo de acesso baseado em papéis (RBAC) no Serviço Azure Kubernetes (AKS)
+description: Saiba como utilizar a adesão ao grupo Azure Ative Directory para restringir o acesso aos recursos de cluster utilizando o controlo de acesso baseado em funções (RBAC) no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.openlocfilehash: ad195085c049776bf0db418c57f2c72830f1adff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb48e4f72506a69969cae39810640d23d771bde3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80803574"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106089"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Controlar o acesso aos recursos de cluster utilizando o controlo de acesso baseado em funções e identidades do Azure Ative Directory no Serviço Azure Kubernetes
 
-O Serviço Azure Kubernetes (AKS) pode ser configurado para utilizar o Azure Ative Directory (AD) para autenticação do utilizador. Nesta configuração, você instindo um cluster AKS usando um símbolo de autenticação Azure AD. Também pode configurar o controlo de acesso baseado em funções da Kubernetes (RBAC) para limitar o acesso aos recursos de cluster baseados na identidade ou na adesão de um utilizador.
+O Serviço Azure Kubernetes (AKS) pode ser configurado para utilizar o Azure Ative Directory (AD) para a autenticação do utilizador. Nesta configuração, você insinua-se num cluster AKS usando um token de autenticação AD Azure. Também pode configurar o controlo de acesso baseado em funções (RBAC) para limitar o acesso a recursos de cluster baseados na identidade ou membro do grupo de um utilizador.
 
-Este artigo mostra-lhe como usar a adesão do grupo Azure AD para controlar o acesso a espaços de nome e recursos de cluster usando kubernetes RBAC em um cluster AKS. Grupos de exemplo e utilizadores são criados em Azure AD, então roles e RoleBindings são criados no cluster AKS para conceder as permissões apropriadas para criar e visualizar recursos.
+Este artigo mostra-lhe como usar a filiação do grupo AD Azure para controlar o acesso a espaços de nome e recursos de cluster usando o RBAC de Kubernetes num cluster AKS. Grupos de exemplo e utilizadores são criados em Azure AD, em seguida, Roles e RoleBindings são criados no cluster AKS para conceder as permissões apropriadas para criar e visualizar recursos.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
-Este artigo assume que você tem um cluster AKS existente habilitado com a integração de AD Azure. Se precisar de um cluster AKS, consulte [Integrate Azure Ative Directy com AKS][azure-ad-aks-cli].
+Este artigo pressupõe que você tem um cluster AKS existente habilitado com a integração AD AZure. Se precisar de um cluster AKS, consulte [o Diretório Ativo Integrado Azure com AKS][azure-ad-aks-cli].
 
-Precisa da versão Azure CLI 2.0.61 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
+Precisa da versão 2.0.61 do Azure CLI ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
 ## <a name="create-demo-groups-in-azure-ad"></a>Criar grupos de demonstração em Azure AD
 
-Neste artigo, vamos criar duas funções de utilizador que podem ser usadas para mostrar como kubernetes RBAC e Azure AD controlam o acesso aos recursos de cluster. São utilizadas duas funções exemplo seguem:
+Neste artigo, vamos criar duas funções de utilizador que podem ser usadas para mostrar como Kubernetes RBAC e Azure AD controlam o acesso aos recursos do cluster. São utilizadas as seguintes duas funções de exemplo:
 
 * **Desenvolvedor de aplicações**
     * Um utilizador chamado *aksdev* que faz parte do grupo *appdev.*
-* **Engenheiro de fiabilidade do local**
-    * Um utilizador chamado *akssre* que faz parte do grupo *opssre.*
+* **Engenheiro de fiabilidade do site**
+    * Um utilizador chamado *Akssre* que faz parte do grupo *opssre.*
 
-Em ambientes de produção, pode utilizar utilizadores e grupos existentes dentro de um inquilino da AD Azure.
+Em ambientes de produção, você pode usar utilizadores e grupos existentes dentro de um inquilino AZure AD.
 
-Primeiro, obtenha a identificação de recursos do seu cluster AKS usando o comando [az aks show.][az-aks-show] Atribuir o ID do recurso a uma variável chamada *AKS_ID* para que possa ser referenciado em comandos adicionais.
+Primeiro, obtenha a identificação de recursos do seu cluster AKS usando o comando [de show az aks.][az-aks-show] Atribua o ID do recurso a uma variável nomeada *AKS_ID* para que possa ser referenciado em comandos adicionais.
 
 ```azurecli-interactive
 AKS_ID=$(az aks show \
@@ -44,13 +44,13 @@ AKS_ID=$(az aks show \
     --query id -o tsv)
 ```
 
-Crie o primeiro grupo de exemplo em Azure AD para os desenvolvedores de aplicações que usam o [grupo az ad criar][az-ad-group-create] comando. O exemplo seguinte cria um grupo chamado *appdev:*
+Crie o primeiro grupo de exemplo em Azure AD para os desenvolvedores de aplicações que usam o [grupo az criar][az-ad-group-create] comando. O exemplo a seguir cria um grupo chamado *appdev:*
 
 ```azurecli-interactive
 APPDEV_ID=$(az ad group create --display-name appdev --mail-nickname appdev --query objectId -o tsv)
 ```
 
-Agora, crie uma atribuição de funções Azure para o grupo *appdev* usando a atribuição de [funções az criar][az-role-assignment-create] comando. Esta atribuição permite que qualquer `kubectl` membro do grupo utilize para interagir com um cluster AKS, concedendo-lhes a função de utilizador do Cluster de Serviço Sapateado *Azure Kubernetes*.
+Agora, crie uma atribuição de papel Azure para o grupo *appdev* usando a [atribuição de funções az criar][az-role-assignment-create] comando. Esta atribuição permite que qualquer membro do grupo `kubectl` interaja com um cluster AKS, concedendo-lhes o *Papel de Utilizador do Cluster de Serviço Azure Kubernetes*.
 
 ```azurecli-interactive
 az role assignment create \
@@ -60,15 +60,15 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Se receber um erro `Principal 35bfec9328bd4d8d9b54dea6dac57b82 does not exist in the directory a5443dcd-cd0e-494d-a387-3039b419f0d5.`como , espere alguns segundos para que o id de objeto `az role assignment create` do grupo Azure AD propague através do diretório, tente novamente o comando.
+> Se receber um erro como `Principal 35bfec9328bd4d8d9b54dea6dac57b82 does not exist in the directory a5443dcd-cd0e-494d-a387-3039b419f0d5.` , aguarde alguns segundos para que o ID do grupo Azure AD se propague através do diretório e tente novamente o `az role assignment create` comando.
 
-Crie um segundo grupo de exemplo, este para ASS chamado *opssre:*
+Crie um segundo grupo de exemplo, este para SREs nomeado *opssre*:
 
 ```azurecli-interactive
 OPSSRE_ID=$(az ad group create --display-name opssre --mail-nickname opssre --query objectId -o tsv)
 ```
 
-Mais uma vez, crie uma atribuição de funções azure para conceder aos membros do grupo a Função de Utilizador do Cluster de *ServiçoS Azure Kubernetes:*
+Mais uma vez, crie uma atribuição de papel Azure para conceder aos membros do grupo o *Azure Kubernetes Service Cluster User Role*:
 
 ```azurecli-interactive
 az role assignment create \
@@ -79,11 +79,11 @@ az role assignment create \
 
 ## <a name="create-demo-users-in-azure-ad"></a>Criar utilizadores de demonstração em Azure AD
 
-Com dois grupos de exemplo criados em Azure AD para os nossos desenvolvedores de aplicações e SREs, agora permite criar dois exemplos de utilizadores. Para testar a integração rBAC no final do artigo, você inscreveu-se no cluster AKS com estas contas.
+Com dois exemplos criados em Azure AD para os nossos desenvolvedores de aplicações e SREs, agora permite criar dois utilizadores exemplo. Para testar a integração do RBAC no final do artigo, inscreva-se no cluster AKS com estas contas.
 
-Crie a primeira conta de utilizador em Azure AD utilizando o [utilizador az ad criar][az-ad-user-create] comando.
+Crie a primeira conta de utilizador em Azure AD utilizando o [comando do utilizador az ad.][az-ad-user-create]
 
-O exemplo seguinte cria um utilizador com o nome de exibição *AKS Dev* e o nome principal do utilizador (UPN) de `aksdev@contoso.com`. Atualize a UPN para incluir um domínio verificado para o seu inquilino Azure AD (substitua *contoso.com* pelo seu próprio domínio) e forneça a sua própria credencial segura: `--password`
+O exemplo a seguir cria um utilizador com o nome de exibição *AKS Dev* e o nome principal do utilizador (UPN) de `aksdev@contoso.com` . Atualize a UPN para incluir um domínio verificado para o seu inquilino AZure AD (substitua *contoso.com* pelo seu próprio domínio) e forneça a sua própria `--password` credencial segura:
 
 ```azurecli-interactive
 AKSDEV_ID=$(az ad user create \
@@ -93,13 +93,13 @@ AKSDEV_ID=$(az ad user create \
   --query objectId -o tsv)
 ```
 
-Adicione agora o utilizador ao grupo *appdev* criado na secção anterior utilizando o comando de adição do membro do [grupo az ad:][az-ad-group-member-add]
+Adicione agora o utilizador ao grupo *appdev* criado na secção anterior utilizando o comando de adicionar membro do [grupo az:][az-ad-group-member-add]
 
 ```azurecli-interactive
 az ad group member add --group appdev --member-id $AKSDEV_ID
 ```
 
-Crie uma segunda conta de utilizador. O exemplo seguinte cria um utilizador com o nome de exibição *AKS SRE* e o nome principal do utilizador (UPN) de `akssre@contoso.com`. Mais uma vez, atualize a UPN para incluir um *contoso.com* domínio verificado para o seu inquilino `--password` Azure AD (substitua contoso.com pelo seu próprio domínio), e forneça a sua própria credencial segura:
+Criar uma segunda conta de utilizador. O exemplo a seguir cria um utilizador com o nome de exibição *AKS SRE* e o nome principal do utilizador (UPN) de `akssre@contoso.com` . Mais uma vez, atualize a UPN para incluir um domínio verificado para o seu inquilino AZure AD (substitua *contoso.com* pelo seu próprio domínio) e forneça a sua própria `--password` credencial segura:
 
 ```azurecli-interactive
 # Create a user for the SRE role
@@ -113,27 +113,27 @@ AKSSRE_ID=$(az ad user create \
 az ad group member add --group opssre --member-id $AKSSRE_ID
 ```
 
-## <a name="create-the-aks-cluster-resources-for-app-devs"></a>Criar os recursos de cluster AKS para devs de apps
+## <a name="create-the-aks-cluster-resources-for-app-devs"></a>Criar os recursos de cluster AKS para devs de aplicações
 
-Os grupos e utilizadores da AD Azure estão agora criados. Foram criadas atribuições de funções Azure para que os membros do grupo se conectassem a um cluster AKS como um utilizador regular. Agora, vamos configurar o cluster AKS para permitir que estes diferentes grupos tenham acesso a recursos específicos.
+Os grupos AD Azure e os utilizadores são agora criados. Foram criadas atribuições de funções Azure para que os membros do grupo se conectem a um cluster AKS como utilizador regular. Agora, vamos configurar o cluster AKS para permitir a estes diferentes grupos o acesso a recursos específicos.
 
-Primeiro, obtenha as credenciais de administração do cluster usando o comando [az aks get-credentials.][az-aks-get-credentials] Numa das seguintes secções, obtém-se as credenciais regulares de cluster de *utilizadores* para ver o fluxo de autenticação da AD Azure em ação.
+Primeiro, obtenha as credenciais de administrador de cluster usando o comando [az aks get-credentials.][az-aks-get-credentials] Numa das seguintes secções, obtém-se as credenciais regulares do cluster do *utilizador* para ver o fluxo de autenticação AD AZure em ação.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-Crie um espaço de nome no cluster AKS usando o [kubectl criar][kubectl-create] comando espaço de nome. O exemplo seguinte cria um nome *dev*nome:
+Crie um espaço de nome no cluster AKS usando o comando de espaço de [nome de criação de kubectl.][kubectl-create] O exemplo a seguir cria um *nome dev:*
 
 ```console
 kubectl create namespace dev
 ```
 
-Em Kubernetes, *as Funções* definem as permissões para conceder, e *as RoleBindings* aplicam-nas aos utilizadores ou grupos pretendidos. Estas atribuições podem ser aplicadas a um determinado espaço de nome, ou em todo o cluster. Para mais informações, consulte [a utilização da autorização RBAC][rbac-authorization].
+Em Kubernetes, *as funções* definem as permissões a conceder, e *os RoleBindings* aplicam-nas aos utilizadores ou grupos pretendidos. Estas atribuições podem ser aplicadas a um determinado espaço de nome, ou em todo o cluster. Para obter mais informações, consulte [a autorização do RBAC.][rbac-authorization]
 
-Primeiro, crie um papel para o espaço de nome de *v.* Este papel concede permissões completas ao espaço de nome. Em ambientes de produção, pode especificar mais permissões granulares para diferentes utilizadores ou grupos.
+Primeiro, crie um Papel para o espaço de nome *dev.* Esta função concede permissões completas ao espaço de nomes. Em ambientes de produção, pode especificar mais permissões granulares para diferentes utilizadores ou grupos.
 
-Crie um `role-dev-namespace.yaml` ficheiro nomeado e cola o seguinte manifesto YAML:
+Crie um ficheiro com o nome `role-dev-namespace.yaml` e cole o seguinte manifesto YAML:
 
 ```yaml
 kind: Role
@@ -152,19 +152,19 @@ rules:
   verbs: ["*"]
 ```
 
-Crie a Função utilizando o [kubectl aplique][kubectl-apply] o comando e especifique o nome de ficheiro do seu manifesto YAML:
+Crie a Função utilizando o comando [de aplicação de kubectl][kubectl-apply] e especifique o nome de ficheiro do seu manifesto YAML:
 
 ```console
 kubectl apply -f role-dev-namespace.yaml
 ```
 
-Em seguida, obtenha o ID de recursos para o grupo *appdev* usando o comando de [show de grupo az az.][az-ad-group-show] Este grupo é definido como tema de uma RoleBinding no próximo passo.
+Em seguida, obtenha o ID de recursos para o grupo *appdev* usando o comando [de show de grupo az ad.][az-ad-group-show] Este grupo é definido como tema de um RoleBinding no próximo passo.
 
 ```azurecli-interactive
 az ad group show --group appdev --query objectId -o tsv
 ```
 
-Agora, crie um RoleBinding para o grupo *appdev* usar o Papel anteriormente criado para acesso ao espaço de nome. Crie um `rolebinding-dev-namespace.yaml` ficheiro nomeado e cola o seguinte manifesto YAML. Na última linha, substitua o *grupoObjectId* pela saída id do objeto de grupo do comando anterior:
+Agora, crie um RoleBinding para o grupo *appdev* usar o Role anteriormente criado para o acesso ao espaço de nome. Crie um ficheiro com o nome `rolebinding-dev-namespace.yaml` e cole o seguinte manifesto YAML. Na última linha, substitua o *grupoObjectId* pela saída de ID do objeto de grupo do comando anterior:
 
 ```yaml
 kind: RoleBinding
@@ -182,23 +182,23 @@ subjects:
   name: groupObjectId
 ```
 
-Crie o RoleBinding utilizando o [kubectl aplique][kubectl-apply] o comando e especifique o nome de ficheiro do seu manifesto YAML:
+Crie o RoleBinding utilizando o comando [de aplicação de kubectl][kubectl-apply] e especifique o nome de ficheiro do seu manifesto YAML:
 
 ```console
 kubectl apply -f rolebinding-dev-namespace.yaml
 ```
 
-## <a name="create-the-aks-cluster-resources-for-sres"></a>Criar os recursos de cluster AKS para as SREs
+## <a name="create-the-aks-cluster-resources-for-sres"></a>Criar os recursos de cluster AKS para SREs
 
-Agora, repita os passos anteriores para criar um espaço de nome, role e RoleBinding para as SREs.
+Agora, repita os passos anteriores para criar um espaço de nome, role e roleBinding para as SREs.
 
-Em primeiro lugar, crie um espaço de nome para o *sre* usando o [kubectl criar][kubectl-create] comando espaço de nome:
+Primeiro, crie um espaço de nome para *sre* usando o comando de espaço de [nome de criação de kubectl:][kubectl-create]
 
 ```console
 kubectl create namespace sre
 ```
 
-Crie um `role-sre-namespace.yaml` ficheiro nomeado e cola o seguinte manifesto YAML:
+Crie um ficheiro com o nome `role-sre-namespace.yaml` e cole o seguinte manifesto YAML:
 
 ```yaml
 kind: Role
@@ -217,19 +217,19 @@ rules:
   verbs: ["*"]
 ```
 
-Crie a Função utilizando o [kubectl aplique][kubectl-apply] o comando e especifique o nome de ficheiro do seu manifesto YAML:
+Crie a Função utilizando o comando [de aplicação de kubectl][kubectl-apply] e especifique o nome de ficheiro do seu manifesto YAML:
 
 ```console
 kubectl apply -f role-sre-namespace.yaml
 ```
 
-Obtenha o ID de recursos para o grupo *opssre* usando o comando de [show de grupo az az:][az-ad-group-show]
+Obtenha o ID de recursos para o grupo *opssre* usando o comando [de show de grupo az ad:][az-ad-group-show]
 
 ```azurecli-interactive
 az ad group show --group opssre --query objectId -o tsv
 ```
 
-Crie um RoleBinding para o grupo *opssre* usar o Papel anteriormente criado para acesso ao espaço de nome. Crie um `rolebinding-sre-namespace.yaml` ficheiro nomeado e cola o seguinte manifesto YAML. Na última linha, substitua o *grupoObjectId* pela saída id do objeto de grupo do comando anterior:
+Crie um RoleBinding para o grupo *opssre* usar o Papel previamente criado para o acesso ao espaço de nome. Crie um ficheiro com o nome `rolebinding-sre-namespace.yaml` e cole o seguinte manifesto YAML. Na última linha, substitua o *grupoObjectId* pela saída de ID do objeto de grupo do comando anterior:
 
 ```yaml
 kind: RoleBinding
@@ -247,29 +247,29 @@ subjects:
   name: groupObjectId
 ```
 
-Crie o RoleBinding utilizando o [kubectl aplique][kubectl-apply] o comando e especifique o nome de ficheiro do seu manifesto YAML:
+Crie o RoleBinding utilizando o comando [de aplicação de kubectl][kubectl-apply] e especifique o nome de ficheiro do seu manifesto YAML:
 
 ```console
 kubectl apply -f rolebinding-sre-namespace.yaml
 ```
 
-## <a name="interact-with-cluster-resources-using-azure-ad-identities"></a>Interagir com recursos de cluster usando identidades azure AD
+## <a name="interact-with-cluster-resources-using-azure-ad-identities"></a>Interagir com os recursos do cluster utilizando identidades Azure AD
 
-Agora, vamos testar as permissões esperadas funcionam quando se cria e gere recursos num cluster AKS. Nestes exemplos, você agenda e vê cápsulas no espaço de nome atribuído do utilizador. Depois, tenta agendar e ver cápsulas fora do espaço de nome designado.
+Agora, vamos testar as permissões esperadas funcionam quando crias e geres recursos num cluster AKS. Nestes exemplos, você agenda e visualiza pods no espaço de nome atribuído pelo utilizador. Em seguida, você tenta agendar e visualizar cápsulas fora do espaço de nome atribuído.
 
-Primeiro, redefinir o contexto *kubeconfig* usando o comando [az aks get-credentials.][az-aks-get-credentials] Numa secção anterior, define o contexto utilizando as credenciais de administração do cluster. O utilizador de administração contorna o sinal de Anúncio Azure em solicitações. Sem `--admin` o parâmetro, aplica-se o contexto do utilizador que exige que todos os pedidos sejam autenticados utilizando a AD Azure.
+Em primeiro lugar, reinicie o contexto *kubeconfig* usando o comando [az aks get-credentials.][az-aks-get-credentials] Numa secção anterior, define-se o contexto utilizando as credenciais de administração do cluster. O utilizador administrativo ignora o sinal Azure AD em solicitações. Sem o `--admin` parâmetro, é aplicado o contexto do utilizador que requer que todos os pedidos sejam autenticados usando Azure AD.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --overwrite-existing
 ```
 
-Agende uma cápsula básica NGINX utilizando o comando [de execução kubectl][kubectl-run] no espaço de nome de *v:*
+Agende um pod NGINX básico utilizando o comando [de corrida de kubectl][kubectl-run] no espaço de nome *dev:*
 
 ```console
 kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace dev
 ```
 
-Como sinal em pronta, insira `appdev@contoso.com` as credenciais para a sua própria conta criadas no início do artigo. Uma vez assinado com sucesso, o token da `kubectl` conta está em cache para futuros comandos. O NGINX está programado com sucesso, como mostra a seguinte saída de exemplo:
+Como sinal em imediato, insira as credenciais para a sua própria `appdev@contoso.com` conta criada no início do artigo. Uma vez assinado com sucesso, o token da conta está em cache para futuros `kubectl` comandos. O NGINX está agendado com sucesso, como mostra a seguinte saída de exemplo:
 
 ```console
 $ kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace dev
@@ -279,13 +279,13 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 pod/nginx-dev created
 ```
 
-Agora use o [kubectl obter comando de cápsulas][kubectl-get] para ver cápsulas no espaço de nome *de v.*
+Agora use o [comando de pods de kubectl][kubectl-get] para visualizar cápsulas no espaço de nome *dev.*
 
 ```console
 kubectl get pods --namespace dev
 ```
 
-Como mostra a seguinte saída de exemplo, a cápsula NGINX está a *funcionar*com sucesso:
+Como mostrado na saída do exemplo seguinte, o pod NGINX está *a funcionar*com sucesso:
 
 ```console
 $ kubectl get pods --namespace dev
@@ -294,15 +294,15 @@ NAME        READY   STATUS    RESTARTS   AGE
 nginx-dev   1/1     Running   0          4m
 ```
 
-### <a name="create-and-view-cluster-resources-outside-of-the-assigned-namespace"></a>Criar e ver recursos de cluster fora do espaço de nome atribuído
+### <a name="create-and-view-cluster-resources-outside-of-the-assigned-namespace"></a>Criar e visualizar recursos de cluster fora do espaço de nome atribuído
 
-Agora tente ver cápsulas fora do espaço de nome *de v.* Use o [kubectl obter comando de casulos][kubectl-get] novamente, desta vez para ver `--all-namespaces` o seguinte:
+Agora tente ver cápsulas fora do espaço de nome *dev.* Use o [comando de pods de kubectl][kubectl-get] novamente, desta vez para ver `--all-namespaces` o seguinte:
 
 ```console
 kubectl get pods --all-namespaces
 ```
 
-A adesão ao grupo do utilizador não tem uma Função Kubernetes que permita esta ação, como mostra a seguinte saída de exemplo:
+A adesão do grupo do utilizador não tem um Papel Kubernetes que permita esta ação, como mostra a seguinte saída de exemplo:
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -310,7 +310,7 @@ $ kubectl get pods --all-namespaces
 Error from server (Forbidden): pods is forbidden: User "aksdev@contoso.com" cannot list resource "pods" in API group "" at the cluster scope
 ```
 
-Da mesma forma, tente agendar uma cápsula em diferentes espaços de nome, como o espaço de nome *sre.* A adesão ao grupo do utilizador não se alinha com uma Função Kubernetes e RoleBinding para conceder estas permissões, como mostra a seguinte saída de exemplo:
+Da mesma forma, tente agendar uma cápsula em diferentes espaços de nome, como o espaço de nome *sre.* A adesão do utilizador ao grupo não se alinha com um Papel e RoleBinding da Kubernetes para conceder estas permissões, como mostra a seguinte saída de exemplo:
 
 ```console
 $ kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace sre
@@ -318,24 +318,24 @@ $ kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace sre
 Error from server (Forbidden): pods is forbidden: User "aksdev@contoso.com" cannot create resource "pods" in API group "" in the namespace "sre"
 ```
 
-### <a name="test-the-sre-access-to-the-aks-cluster-resources"></a>Teste o acesso sre aos recursos de cluster AKS
+### <a name="test-the-sre-access-to-the-aks-cluster-resources"></a>Testar o acesso SRE aos recursos de cluster AKS
 
-Para confirmar que a nossa filiação no grupo Azure AD e kubernetes RBAC funcionam corretamente entre diferentes utilizadores e grupos, experimente os comandos anteriores quando assinado como utilizador *opssre.*
+Para confirmar que a nossa filiação ao grupo AZure AD e a NCC de Kubernetes funcionam corretamente entre diferentes utilizadores e grupos, experimente os comandos anteriores quando se inscrever como utilizador *do opssre.*
 
-Redefinir o contexto *kubeconfig* utilizando o comando [az aks get-credentials][az-aks-get-credentials] que limpa o símbolo de autenticação previamente cached para o utilizador *aksdev:*
+Reinicie o contexto *kubeconfig* utilizando o comando [az aks get-credentials][az-aks-get-credentials] que limpa o token de autenticação previamente em cache para o utilizador *aksdev:*
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --overwrite-existing
 ```
 
-Tente agendar e ver cápsulas no espaço de nome *sre* atribuído. Quando solicitado, inscreva-se `opssre@contoso.com` com as suas próprias credenciais criadas no início do artigo:
+Tente agendar e ver cápsulas no espaço de nome *sre* atribuído. Quando solicitado, inicie sedução com as suas `opssre@contoso.com` credenciais criadas no início do artigo:
 
 ```console
 kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace sre
 kubectl get pods --namespace sre
 ```
 
-Como mostra a saída de exemplo seguinte, pode criar e ver com sucesso as cápsulas:
+Como mostrado na saída do exemplo a seguir, pode criar e visualizar com sucesso as cápsulas:
 
 ```console
 $ kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace sre
@@ -350,14 +350,14 @@ NAME        READY   STATUS    RESTARTS   AGE
 nginx-sre   1/1     Running   0
 ```
 
-Agora, tente visualizar ou agendar cápsulas fora do espaço de nome SRE atribuído:
+Agora, tente visualizar ou agendar cápsulas fora do espaço de nome sRE atribuído:
 
 ```console
 kubectl get pods --all-namespaces
 kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace dev
 ```
 
-Estes `kubectl` comandos falham, como mostra a seguinte saída de exemplo. A filiação do grupo do utilizador e a Kubernetes Role and RoleBindings não concedem permissões para criar ou gestorde recursos em outros espaços de nome:
+Estes `kubectl` comandos falham, como mostra a saída do exemplo seguinte. A filiação do grupo do utilizador e a Kubernetes Role and RoleBindings não concedem permissões para criar ou gerenciar recursos em outros espaços de nome:
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -388,11 +388,11 @@ az ad group delete --group appdev
 az ad group delete --group opssre
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre como proteger os clusters kubernetes, consulte opções de [acesso e identidade para AKS)][rbac-authorization].
+Para obter mais informações sobre como proteger os clusters kubernetes, consulte [opções de Acesso e identidade para AKS)][rbac-authorization].
 
-Para obter as melhores práticas de controlo de identidade e recursos, consulte [as melhores práticas de autenticação e autorização no AKS.][operator-best-practices-identity]
+Para obter as melhores práticas em matéria de identidade e controlo de recursos, consulte [as melhores práticas de autenticação e autorização em AKS.][operator-best-practices-identity]
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
@@ -410,5 +410,5 @@ Para obter as melhores práticas de controlo de identidade e recursos, consulte 
 [az-ad-user-create]: /cli/azure/ad/user#az-ad-user-create
 [az-ad-group-member-add]: /cli/azure/ad/group/member#az-ad-group-member-add
 [az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show
-[rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
+[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md

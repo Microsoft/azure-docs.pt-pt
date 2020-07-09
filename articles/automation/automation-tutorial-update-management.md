@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 917a7ccbf17fdb1e2691f1a3a8368b40006f6d7b
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 79cffa7aedd0fc04dd4a747ef28bc67cacf37905
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170312"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84204893"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gerir atualizações e patches para os seus VMs Azure
 
@@ -61,7 +61,7 @@ Siga os passos abaixo para configurar alertas para informá-lo sobre o estado de
 
 5. Clique **em Adicionar a condição** para selecionar o sinal apropriado para a sua implementação de atualização. A tabela seguinte mostra os detalhes dos dois sinais disponíveis.
 
-    |Nome do sinal|Dimensões|Descrição
+    |Nome do sinal|Dimensões|Description
     |---|---|---|
     |`Total Update Deployment Runs`|- Nome de implementação de atualização<br>- Estado    |Alertas sobre o estado geral de uma implementação de atualização.|
     |`Total Update Deployment Machine Runs`|- Nome de implementação de atualização</br>- Estado</br>- Computador-alvo</br>- Atualizar o ID de execução de implementação    |Alertas sobre o estado de uma atualização direcionada a máquinas específicas.|
@@ -203,7 +203,7 @@ Quando a sua atualização estiver concluída, recebe o alerta especificado dura
 
 ![Configurar o grupo de ação de e-mail](./media/automation-tutorial-update-management/email-notification.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre configurações de âmbito, consulte [o âmbito de implementação da Gestão da Atualização de Limites](automation-scope-configurations-update-management.md).
 * Se necessitar de pesquisar registos armazenados no seu espaço de trabalho Log Analytics, consulte [as pesquisas de Registo nos registos do Azure Monitor](../log-analytics/log-analytics-log-searches.md).
@@ -211,4 +211,4 @@ Quando a sua atualização estiver concluída, recebe o alerta especificado dura
 * Para eliminar os seus VMs da Gestão de Atualização, consulte [remover VMs da Gestão de Atualização](automation-remove-vms-from-update-management.md).
 * Para resolver os erros gerais de Gestão de Atualização, consulte [problemas de Gestão de Atualização de Resolução de Problemas](troubleshoot/update-management.md).
 * Para resolver problemas com o agente de atualização do Windows, consulte [problemas de agente de atualização do Windows de resolução de resolução](troubleshoot/update-agent-issues.md)de problemas .
-* Para resolver problemas com o agente de atualização Linux, consulte[problemas de agente de atualização do Linux de resolução](troubleshoot/update-agent-issues-linux.md)de resolução de problemas .
+* Para resolver problemas com o agente de atualização Linux, consulte [problemas de agente de atualização do Linux de resolução](troubleshoot/update-agent-issues-linux.md)de resolução de problemas .

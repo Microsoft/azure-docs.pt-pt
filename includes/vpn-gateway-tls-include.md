@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,13 +9,13 @@ ms.date: 07/27/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0d5c3b55d20be19d4aeb92b82d6e44d417259a7b
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184085"
 ---
-1. Abra um pedido de comando com privilégios elevados clicando no **Comando Prompt** e selecionando Executar **como administrador**.
+1. Abra um pedido de comando com privilégios elevados clicando no **Comando Prompt** e selecionando Run **como administrador**.
 2. Execute os comandos seguintes na linha de comandos:
 
    ```
@@ -29,7 +29,7 @@ ms.locfileid: "67184085"
    * [KB3140245](https://www.catalog.update.microsoft.com/search.aspx?q=kb3140245)
    * [KB2977292](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2977292)
 
-4. Reiniciar o computador.
+4. Reinicie o computador.
 5. Ligue-se à VPN.
 
 > [!NOTE]

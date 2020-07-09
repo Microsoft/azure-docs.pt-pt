@@ -6,14 +6,14 @@ ms.author: banders
 tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.topic: quickstart
-ms.date: 04/22/2020
+ms.date: 06/10/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: de24895334ec4c864e6daae84a6aab47a47d7b9b
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: dc37039d6777a77f9de247808329930f1621ee82
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82103638"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686414"
 ---
 # <a name="quickstart-create-a-budget-with-an-azure-resource-manager-template"></a>Início Rápido: Criar um orçamento com um modelo do Azure Resource Manager
 
@@ -39,21 +39,23 @@ As seguintes permissões, ou âmbitos, do Azure são suportadas por subscrição
 
 Para obter mais informações sobre a atribuição da permissão para os dados do Cost Management, veja [Atribuir acesso aos dados do Cost Management](assign-access-acm-data.md).
 
-## <a name="review-the-template"></a>Rever o modelo
+## <a name="create-a-budget"></a>Criar um orçamento
+
+### <a name="review-the-template"></a>Rever o modelo
 
 O modelo utilizado neste início rápido pertence aos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/create-budget).
 
-:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json" range="1-146" highlight="110-139":::
 
 No modelo, está definido um recurso do Azure:
 
 * [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Crie um orçamento do Azure.
 
-## <a name="deploy-the-template"></a>Implementar o modelo
+### <a name="deploy-the-template"></a>Implementar o modelo
 
 1. Selecione a imagem seguinte para iniciar sessão no Azure e abrir um modelo. O modelo cria um orçamento.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcreate-budget%2Fazuredeploy.json"><img src="./media/quick-create-budget-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Implementar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcreate-budget%2Fazuredeploy.json)
 
 2. Selecione ou introduza os seguintes valores.
 
@@ -72,7 +74,7 @@ No modelo, está definido um recurso do Azure:
     * **Limiar**: introduza um valor de limiar para a notificação. É enviada uma notificação quando o custo exceder o limiar. É sempre uma percentagem e tem de ser entre 0 e 1000.
     * **E-mails de Contacto**: introduza uma lista de endereços de e-mail para enviar a notificação de orçamento quando o limiar for excedido. O formato esperado é `["user1@domain.com","user2@domain.com"]`.
     * **Funções de Contacto**: introduza a lista de funções de contacto para enviar a notificação de orçamento para quando o limiar for excedido. Os valores predefinidos são Proprietário, Contribuidor e Leitor. O formato esperado é `["Owner","Contributor","Reader"]`.
-    * **Grupos de Contacto**: introduza uma lista de grupos de ações para enviar a notificação de orçamento quando o limiar for excedido. É aceite uma matriz de cadeias. O formato esperado é `["Action Group Name1","Action Group Name2"]`. Se não quiser utilizar grupos de ações, introduza `[]`.
+    * **Grupos de Contacto**: introduza uma lista de IDs de recursos de grupos de ações, como URIs de recursos completos, para onde enviar a notificação de orçamento quando o limiar é excedido. É aceite uma matriz de cadeias. O formato esperado é `["action group resource ID1","action group resource ID2"]`. Se não quiser utilizar grupos de ações, introduza `[]`.
     * **Filtro de Recursos**: introduza uma lista de filtros para os recursos. O formato esperado é `["Resource Filter Name1","Resource Filter Name2"]`. Se não quiser aplicar um filtro, introduza `[]`. Se introduzir um filtro de recursos, também tem de introduzir os valores de **filtros de medidores**.
     * **Filtro de Medidores**: introduza uma lista de filtros em medidores, obrigatórios para orçamentos com a categoria **Utilização**. O formato esperado é `["Meter Filter Name1","Meter Filter Name2"]`. Se não introduziu um **filtro de recursos**, introduza `[]`.
     * **Aceito os termos e condições acima apresentados**: selecione.
@@ -97,6 +99,37 @@ az consumption budget list
 
 ```azurepowershell-interactive
 Get-AzConsumptionBudget
+```
+
+---
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando já não precisar de um orçamento, elimine-o através de um dos seguintes métodos:
+
+### <a name="azure-portal"></a>Portal do Azure
+
+Navegue até **Cost Management + Faturação** > selecione um âmbito de faturação > **Orçamentos** > selecione um orçamento > e, em seguida, selecione **Eliminar orçamento**.
+
+### <a name="command-line"></a>Linha de comandos
+
+Pode remover o orçamento com a CLI do Azure ou com o Azure PowerShell.
+
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter the budget name:" &&
+read budgetName &&
+az consumption budget delete --budget-name $budgetName &&
+echo "Press [ENTER] to continue ..."
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$budgetName = Read-Host -Prompt "Enter the budget name"
+Remove-AzConsumptionBudget -Name $budgetName
+Write-Host "Press [ENTER] to continue..."
 ```
 
 ---

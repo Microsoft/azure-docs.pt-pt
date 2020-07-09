@@ -1,10 +1,10 @@
 ---
-title: Ligar aplicação a instância gerida
+title: Ligue a sua aplicação a SQL Managed Instance
 titleSuffix: Azure SQL Managed Instance
-description: Este artigo discute como ligar a sua aplicação à Instância Gerida Azure SQL.
+description: Este artigo discute como ligar a sua aplicação à Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,106 +12,105 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 051d589ec13c1fa8642701fe94a361e1dfbe4aab
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: a5d002532adb043fa5196231964d5b6e2c81417c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044389"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706380"
 ---
-# <a name="connect-your-application-to-azure-sql-managed-instance"></a>Ligue a sua aplicação à Instância Gerida Azure SQL
+# <a name="connect-your-application-to-azure-sql-managed-instance"></a>Ligue a sua aplicação a Azure SQL Gestded Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Hoje tem várias opções ao decidir como e onde acolhe a sua candidatura.
+Hoje tem múltiplas opções ao decidir como e onde hospeda a sua aplicação.
 
-Pode optar por hospedar aplicações na nuvem, quer utilizando o Azure App Service, quer algumas das opções integradas da rede virtual (rede virtual) do Azure, como o Azure App Service Environment, a Virtual Machine, o Virtual Machine Scale set. Também pode ter a abordagem híbrida da nuvem e manter as suas aplicações no local.
+Pode optar por hospedar a aplicação na nuvem utilizando o Azure App Service ou algumas das opções integradas da rede virtual da Azure, como o Azure App Service Environment, as Máquinas Virtuais Azure e os conjuntos de escala de máquinas virtuais. Também pode fazer uma abordagem híbrida em nuvem e manter as suas aplicações no local.
 
-Qualquer que seja a escolha que fizer, pode ligá-la a uma Instância Gerida SQL. 
+Seja qual for a escolha que fizer, pode ligá-la ao Azure SQL Managed Instance. 
 
-![alta disponibilidade](./media/connect-application-instance/application-deployment-topologies.png)
+![Elevada disponibilidade](./media/connect-application-instance/application-deployment-topologies.png)
 
-Este artigo descreve como ligar uma aplicação ao Azure SQL Managed Instance em vários cenários de aplicação diferentes. 
+Este artigo descreve como ligar uma aplicação ao Azure SQL Managed Instance em vários cenários de aplicação diferentes. 
 
 ## <a name="connect-inside-the-same-vnet"></a>Ligar dentro do mesmo VNet
 
-Ligar uma aplicação dentro da mesma rede virtual que o SQL Managed Instance é o cenário mais simples. As máquinas virtuais dentro da rede virtual podem ligar-se diretamente, mesmo que estejam dentro de diferentes subredes. Isto significa que tudo o que precisa para ligar a aplicação dentro de um Ambiente de Aplicação Azure ou Máquina Virtual é definir a cadeia de ligação adequadamente.  
+Ligar uma aplicação dentro da mesma rede virtual que o SQL Managed Instance é o cenário mais simples. As máquinas virtuais dentro da rede virtual podem ligar-se umas às outras diretamente, mesmo que estejam dentro de diferentes sub-redes. Isto significa que tudo o que precisa para ligar uma aplicação dentro do App Service Environment ou uma máquina virtual é definir o fio de ligação adequadamente.  
 
-## <a name="connect-inside-a-different-vnet"></a>Conecte-se dentro de uma VNet diferente
+## <a name="connect-inside-a-different-vnet"></a>Conecte-se dentro de um VNet diferente
 
-Ligar uma aplicação quando reside numa rede virtual diferente, uma vez que a Instância Gerida sQL é um pouco mais complexa porque a SQL Managed Instance tem endereços IP privados na sua própria rede virtual. Para se ligar, uma aplicação precisa de acesso à rede virtual onde a SQL Managed Instance é implementada. Por isso, tem de fazer uma ligação entre a aplicação e a rede virtual SQL Managed Instance. As redes virtuais não têm de estar na mesma subscrição para que este cenário funcione.
+Ligar uma aplicação quando reside numa rede virtual diferente do SQL Managed Instance é um pouco mais complexo porque o SQL Managed Instance tem endereços IP privados na sua própria rede virtual. Para se conectar, uma aplicação precisa de acesso à rede virtual onde o SQL Managed Instance é implantado. Por isso, é necessário estabelecer uma ligação entre a aplicação e a rede virtual SQL Managed Instance. As redes virtuais não têm de estar na mesma subscrição para que este cenário funcione.
 
 Existem duas opções para ligar redes virtuais:
 
-- [Peering Azure VPN](../../virtual-network/virtual-network-peering-overview.md)
-- Gateway VNet-to-VNet VPN: ([Portal Azure,](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) [PowerShell,](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) [Azure CLI](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
+- [Azure VPN olhando](../../virtual-network/virtual-network-peering-overview.md)
+- Gateway VNet-to-VNet VPN[(portal Azure,](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) [PowerShell,](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) [Azure CLI](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
-O peering é preferível porque o peering utiliza a rede de espinha dorsal da Microsoft para que, do ponto de vista da conectividade, não haja uma diferença notável na latência entre máquinas virtuais na rede virtual e na mesma rede virtual. O epeering de rede virtual está limitado às redes da mesma região.  
+O peering é preferível porque utiliza a rede de espinha dorsal da Microsoft, por isso, do ponto de vista da conectividade, não há uma diferença notável na latência entre máquinas virtuais numa rede virtual esprevada e na mesma rede virtual. O espreitamento de rede virtual está limitado às redes da mesma região.  
 
 > [!IMPORTANT]
-> O cenário de peering de rede virtual para A Instância Gerida sQL está limitado às redes da mesma região devido aos [constrangimentos do peering da Rede Virtual Global.](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) Consulte também a secção relevante do artigo de [Perguntas Virtuais Azure frequentemente feitas](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obter mais detalhes. 
+> O cenário de observação da rede virtual para a SQL Managed Instance está limitado às redes da mesma região devido aos [constrangimentos do espreitamento da rede virtual global.](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) Consulte também a secção relevante das [Redes Virtuais Azure frequentemente fez perguntas](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) a artigo para mais detalhes. 
 
-## <a name="connect-from-on-premises"></a>Ligar a partir do local 
+## <a name="connect-from-on-premises"></a>Ligar a partir de instalações 
 
-Também pode ligar a sua aplicação no local à sua Instância Gerida SQL. A Instância Gerida sQL só pode ser acedida através de um endereço IP privado. Para aceder a partir do local, é necessário efazer uma ligação Site-a-Site entre a aplicação e a rede virtual SQL Managed Instance.
+Também pode ligar a sua aplicação no local à SQL Managed Instance. Sql Managed Instance só pode ser acedido através de um endereço IP privado. Para aceder a partir do local, é necessário fazer uma ligação site-to-site entre a aplicação e a rede virtual SQL Managed Instance.
 
-Existem duas opções como ligar as instalações à rede virtual Azure:
+Existem duas opções para como ligar no local a uma rede virtual Azure:
 
-- Ligação VPN site-to-site[(portal Azure,](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) [PowerShell,](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) [Azure CLI](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
-- [Conexão ExpressRoute](../../expressroute/expressroute-introduction.md)  
+- Ligação VPN local-a-local[(portal Azure,](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) [PowerShell,](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) [Azure CLI)](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+- [Ligação Azure ExpressRoute](../../expressroute/expressroute-introduction.md)  
 
-Se estabeleceu no local a ligação Azure com sucesso e não consegue estabelecer a ligação à SQL Managed Instance, verifique se a sua firewall tem ligação de saída aberta na porta SQL 1433, bem como 11000-11999 portas para reorientação.
+Se estabeleceu uma ligação no local para a Azure com sucesso e não pode estabelecer uma ligação com a SQL Managed Instance, verifique se a sua firewall tem uma ligação de saída aberta na porta SQL 1433, bem como a gama de portas 11000-11999 para reorientação.
 
-## <a name="connect-the-developers-box"></a>Ligar a caixa de desenvolvedores
+## <a name="connect-the-developer-box"></a>Ligue a caixa de desenvolvedores
 
-Também é possível ligar a sua caixa de desenvolvedores à Instância Gerida SQL. A Instância Gerida sQL só pode ser acedida através de um endereço IP privado para aceder a partir da sua caixa de desenvolvimento, primeiro precisa de fazer uma ligação entre a sua caixa de desenvolvimento e a rede virtual SQL Managed Instance. Para tal, configure uma ligação Ponto-a-Local a uma rede virtual utilizando a autenticação de certificado saqueado nativo azure. Para mais informações, consulte [configurar uma ligação ponto-a-local para ligar ao Azure SQL Managed Instance a partir do computador no local](point-to-site-p2s-configure.md).
+Também é possível ligar a sua caixa de desenvolvedor a SQL Managed Instance. A SQL Managed Instance só pode ser acedida através de um endereço IP privado, pelo que, para aceder a partir da sua caixa de desenvolvedores, primeiro tem de fazer uma ligação entre a sua caixa de desenvolvedores e a rede virtual SQL Managed Instance. Para tal, configurar uma ligação ponto-a-local a uma rede virtual utilizando a autenticação de certificado azure nativo. Para obter mais informações, consulte [configurar uma ligação ponto-a-local para ligar à Azure SQL Managed Instance a partir de um computador no local](point-to-site-p2s-configure.md).
 
-## <a name="connect-with-vnet-peering"></a>Conecte-se com o peering VNet
+## <a name="connect-with-vnet-peering"></a>Conecte-se com o espremiamento VNet
 
-Outro cenário implementado pelos clientes é onde um gateway VPN é instalado numa rede virtual separada e subscrição a partir daquele que acolhe a Instância Gerida SQL. As duas redes virtuais são então espumosas. O diagrama de arquitetura da amostra seguinte mostra como isto pode ser implementado.
+Outro cenário implementado pelos clientes é onde um gateway VPN é instalado numa rede virtual separada e subscrição do que hospeda a SQL Managed Instance. As duas redes virtuais são então espreitadas. O seguinte diagrama de arquitetura de amostra mostra como isto pode ser implementado.
 
-![virtual rede peering](./media/connect-application-instance/vnet-peering.png)
+![Peering de rede virtual](./media/connect-application-instance/vnet-peering.png)
 
-Uma vez configurada a infraestrutura básica, é necessário modificar alguma definição para que o Gateway VPN possa ver os endereços IP na rede virtual que acolhe a Instância Gerida SQL. Para isso, faça as seguintes alterações muito específicas sob as definições de **Peering**.
+Uma vez configurada a infraestrutura básica, precisa modificar algumas definições para que o gateway VPN possa ver os endereços IP na rede virtual que acolhe a SQL Managed Instance. Para tal, faça as seguintes alterações muito específicas nas **definições de Peering**.
 
-1. Na rede virtual que acolhe o gateway VPN, vá a **Peerings,** depois ao SQL Managed Instance especiou a ligação virtual da rede e, em seguida, clique em Permitir o **Gateway Transit**.
-2. Na rede virtual que acolhe o SQL Managed Instance, vá a **Peerings,** depois ao VPN Gateway peered conexão de rede virtual, e depois clique **em Utilizar gateways remotos**.
+1. Na rede virtual que acolhe o gateway VPN, vá a **Peerings,** vá à ligação de rede virtual esprevada para a SQL Managed Instance e, em seguida, clique em **Permitir o Trânsito de Gateway**.
+2. Na rede virtual que acolhe a SQL Managed Instance, vá a **Peerings,** vá à ligação de rede virtual esprevada para o gateway VPN e, em seguida, clique em **Utilizar gateways remotos**.
 
-## <a name="connect-azure-app-service"></a>Serviço de Aplicações Connect Azure 
+## <a name="connect-azure-app-service"></a>Ligue o Serviço de Aplicações Azure 
 
-Também pode ligar uma aplicação que é hospedada pelo Serviço de Aplicações Azure. A Instância Gerida sQL só pode ser acedida através de um endereço IP privado, pelo que, para aceder ao Serviço de Aplicações Azure, primeiro precisa de fazer uma ligação entre a aplicação e a rede virtual SQL Managed Instance. Ver [Integrar a sua aplicação com uma Rede Virtual Azure.](../../app-service/web-sites-integrate-with-vnet.md)  
+Também pode ligar uma aplicação que é hospedada pelo Azure App Service. A SQL Managed Instance só pode ser acedida através de um endereço IP privado, pelo que, para aceder ao mesmo a partir do Azure App Service, primeiro precisa de fazer uma ligação entre a aplicação e a rede virtual SQL Managed Instance. Ver [Integrar a sua aplicação com uma rede virtual Azure.](../../app-service/web-sites-integrate-with-vnet.md)  
 
-Para resolução de problemas, consulte as redes virtuais e aplicações de resolução de [problemas.](../../app-service/web-sites-integrate-with-vnet.md#troubleshooting) Se não for possível estabelecer uma ligação, tente [sincronizar a configuração de rede](azure-app-sync-network-configuration.md).
+Para a resolução de problemas, consulte [redes virtuais e aplicações de resolução de problemas.](../../app-service/web-sites-integrate-with-vnet.md#troubleshooting) Se não for possível estabelecer uma [ligação, tente sincronizar a configuração de rede](azure-app-sync-network-configuration.md).
 
-Um caso especial de ligação do Serviço de Aplicações Azure à SQL Managed Instance é quando integra o Azure App Service a uma rede com o SQL Managed Instance. Este caso requer a seguinte configuração a ser configurada:
+Um caso especial de ligação do Azure App Service à SQL Managed Instance é quando integra o Azure App Service a uma rede espreguiçadinha de uma rede virtual SQL Managed Instance. Este caso requer a configuração seguinte:
 
-- Rede virtual SQL Managed Instance NÃO deve ter gateway  
-- Rede virtual SQL Managed Instance deve ter `Use remote gateways` conjunto de opções
-- Rede virtual peered deve ter permitir opção de trânsito gateway definido
+- A rede virtual SQL Managed Instance NÃO deve ter um portal  
+- A rede virtual SQL Managed Instance deve ter o `Use remote gateways` conjunto de opções
+- A rede virtual esprevada deve ter o `Allow gateway transit` conjunto de opções
 
 Este cenário é ilustrado no seguinte diagrama:
 
 ![peering de aplicativo integrado](./media/connect-application-instance/integrated-app-peering.png)
 
 >[!NOTE]
->A funcionalidade de Integração de rede virtual não integra uma aplicação com uma rede virtual que tem um Gateway ExpressRoute. Mesmo que o ExpressRoute Gateway esteja configurado no modo de coexistência, a integração da rede virtual não funciona. Se precisar de aceder a recursos através de uma ligação ExpressRoute, então pode utilizar um App Service Environment, que funciona na sua rede virtual.
+>A funcionalidade de integração de rede virtual não integra uma aplicação com uma rede virtual que tenha um gateway ExpressRoute. Mesmo que o gateway ExpressRoute esteja configurado em modo de coexistência, a integração de rede virtual não funciona. Se precisar de aceder a recursos através de uma ligação ExpressRoute, então pode utilizar o App Service Environment, que funciona na sua rede virtual.
 
 ## <a name="troubleshooting-connectivity-issues"></a>Troubleshooting connectivity issues (Resolver problemas de conectividade)
 
-Para problemas de resolução de problemas de conectividade, reveja o seguinte:
+Para resolver problemas de conectividade, reveja o seguinte:
 
-- Se não conseguir ligar-se ao SQL Managed Instance a partir de uma máquina virtual Azure dentro da mesma rede virtual, mas subnet diferente, verifique se tem um Grupo de Segurança de Rede definido na subnet VM que pode estar a bloquear o acesso. Adicionalmente, abra a ligação de saída na porta SQL 1433, bem como portas na faixa 11000-11999, uma vez que estas são necessárias para a ligação através da redirecionamento dentro da fronteira Azure.
-- Certifique-se de que a Propagação do BGP está definida para **ativada** para a tabela de rotas associada à rede virtual.
-- Se utilizar o P2S VPN, verifique a configuração no portal Azure para ver se vê os **números Ingress/Egress.** Números não-zero indicam que o Azure está a encaminhar o tráfego de/para o local.
+- Se não conseguir ligar-se à SQL Managed Instance a partir de uma máquina virtual Azure dentro da mesma rede virtual, mas de uma sub-rede diferente, verifique se tem um Grupo de Segurança de Rede definido na sub-rede VM que pode estar a bloquear o acesso. Adicionalmente, a ligação de saída aberta na porta SQL 1433, bem como as portas da gama 11000-11999, uma vez que são necessárias para a ligação através da reorientação dentro do limite Azure.
+- Certifique-se de que a propagação do BGP está definida para **ativar** a tabela de rotas associada à rede virtual.
+- Se utilizar o P2S VPN, verifique a configuração no portal Azure para ver se vê os **números de Ingress/Egress.** Números não nulos indicam que o Azure está a encaminhar o tráfego de/para o local.
 
-   ![números de entrada/saída](./media/connect-application-instance/ingress-egress-numbers.png)
+   ![números de entradas/saídas](./media/connect-application-instance/ingress-egress-numbers.png)
 
-- Verifique se a máquina cliente (que está a executar o cliente VPN) tem entradas de rotas para todas as redes virtuais a que precisa de aceder. As rotas estão armazenadas em `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt` .
+- Verifique se a máquina do cliente (que está a executar o cliente VPN) tem entradas de rota para todas as redes virtuais a que necessita de aceder. As rotas estão armazenadas em `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt` .
 
    ![route.txt](./media/connect-application-instance/route-txt.png)
 
-   Como mostra esta imagem, existem duas entradas para cada rede virtual envolvida e uma terceira entrada para o ponto final VPN que está configurada no Portal.
+   Como mostrado nesta imagem, existem duas entradas para cada rede virtual envolvida e uma terceira entrada para o ponto final VPN que está configurado no portal.
 
-   Outra forma de verificar as rotas é através do seguinte comando. A saída mostra as rotas para as várias subredes:
+   Outra forma de verificar as rotas é através do seguinte comando. A saída mostra as rotas para as várias sub-redes:
 
    ```cmd
    C:\ >route print -4
@@ -135,17 +134,17 @@ Para problemas de resolução de problemas de conectividade, reveja o seguinte:
    None
    ```
 
-- Se utilizar o especte de rede virtual, certifique-se de que seguiu as instruções para a definição [Permitir o trânsito de gateway e utilizar gateways remotos](#connect-from-on-premises).
+- Se estiver a utilizar o espreitamento de rede virtual, certifique-se de que seguiu as instruções para definir [Allow Gateway Transit and Use Remote Gateways](#connect-from-on-premises).
 
-- Se utilizar uma rede virtual que pretende ligar uma aplicação hospedada ao Serviço de Aplicações Azure, e a rede virtual SQL Managed Instance tiver uma gama pública de endereços IP, certifique-se de que as definições de aplicação hospedadas permitem que o seu tráfego de saída seja encaminhado para redes IP públicas. Siga as instruções na Integração da [rede virtual Regional.](../../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
+- Se estiver a utilizar a rede virtual para ligar uma aplicação hospedada do Azure App Service e a rede virtual SQL Managed Instance tiver uma gama de endereços IP público, certifique-se de que as definições de aplicação hospedadas permitem que o tráfego de saída seja encaminhado para redes IP públicas. Siga as instruções de [integração regional da rede virtual.](../../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
 
-## <a name="required-versions-of-drivers-and-tools"></a>Versões necessárias de condutores e ferramentas
+## <a name="required-versions-of-drivers-and-tools"></a>Versões necessárias de motoristas e ferramentas
 
-Recomenda-se as seguintes versões mínimas das ferramentas e controladores se pretender ligar-se à Instância Gerida sQL:
+Recomenda-se as seguintes versões mínimas das ferramentas e dos condutores se pretender ligar-se à SQL Managed Instance:
 
 | Condutor/ferramenta | Versão |
 | --- | --- |
-|.NET Framework | 4.6.1 (ou .NET Core) |
+|.NET Framework | 4.6.1 (ou.NET Core) |
 |Controlador ODBC| v17 |
 |Controlador PHP| 5.2.0 |
 |Controlador JDBC| 6.4.0 |
@@ -156,5 +155,5 @@ Recomenda-se as seguintes versões mínimas das ferramentas e controladores se p
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Para obter informações sobre a Instância Gerida sQL, consulte o que é a Instância Gerida pela [SQL?](sql-managed-instance-paas-overview.md)
-- Para um tutorial que lhe mostre como criar uma nova Instância Gerida SQL, consulte [Create a SQL Managed Instance](instance-create-quickstart.md).
+- Para obter informações sobre a SQL Managed Instance, consulte [o que é a Sql Managed Instance?](sql-managed-instance-paas-overview.md)
+- Para um tutorial que lhe mostre como criar um novo exemplo gerido, consulte [Criar um caso gerido](instance-create-quickstart.md).

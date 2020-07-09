@@ -1,6 +1,6 @@
 ---
 title: Copiar dados do MySQL utilizando a Azure Data Factory
-description: Saiba sobre o conector MySQL na Azure Data Factory que permite copiar dados de uma base de dados MySQL para uma loja de dados suportada como um lavatório.
+description: Saiba mais sobre o conector MySQL na Azure Data Factory que permite copiar dados de uma base de dados MySQL para uma loja de dados suportada como pia.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 05/12/2020
 ms.author: jingwang
 ms.openlocfilehash: 9fbf4062304dda7112e89ecd4abd5288533f28ff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83635784"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiar dados do MySQL utilizando a Azure Data Factory
@@ -24,19 +23,19 @@ ms.locfileid: "83635784"
 > * [Versão atual](connector-mysql.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de uma base de dados MySQL. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de uma base de dados MySQL. Baseia-se no artigo [de visão geral](copy-activity-overview.md) da atividade de cópia que apresenta uma visão geral da atividade da cópia.
 
 >[!NOTE]
->Para copiar dados de ou para a Base de Dados Azure para o serviço [MySQL,](../mysql/overview.md) utilize a base de dados Azure especializada [para o conector MySQL](connector-azure-database-for-mysql.md).
+>Para copiar dados de ou para Azure Database para o serviço [MySQL,](../mysql/overview.md) utilize a [Base de Dados Azure especializada para o conector MySQL](connector-azure-database-for-mysql.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
 Este conector MySQL é suportado para as seguintes atividades:
 
-- [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/pia suportada](copy-activity-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)
 
-Pode copiar dados da base de dados MySQL para qualquer loja de dados suportada. Para obter uma lista de lojas de dados que são suportadas como fontes/pias pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
+Pode copiar dados da base de dados MySQL para qualquer loja de dados de lavatórios suportados. Para obter uma lista de lojas de dados suportadas como fontes/pias pela atividade de cópia, consulte a tabela [de lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
 Especificamente, este conector MySQL suporta a versão MySQL **5.6, 5.7 e 8.0**.
 
@@ -44,30 +43,30 @@ Especificamente, este conector MySQL suporta a versão MySQL **5.6, 5.7 e 8.0**.
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-O Tempo de Funcionamento de Integração fornece um controlador MySQL incorporado a partir da versão 3.7, pelo que não precisa de instalar manualmente qualquer controlador.
+O Tempo de Execução de Integração fornece um controlador MySQL incorporado a partir da versão 3.7, pelo que não precisa de instalar manualmente nenhum controlador.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades da Fábrica de Dados específicas do conector MySQL.
+As secções seguintes fornecem detalhes sobre propriedades que são usadas para definir entidades da Data Factory específicas do conector MySQL.
 
-## <a name="linked-service-properties"></a>Propriedades de serviço seletos
+## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 
 As seguintes propriedades são suportadas para o serviço ligado ao MySQL:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **MySql** | Sim |
-| conexãoString | Especifique as informações necessárias para se ligar à base de dados Azure para a instância MySQL.<br/> Também pode colocar palavra-passe no Cofre de Chaves Azure e retirar a `password` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no](store-credentials-in-key-vault.md) artigo do Cofre chave Azure com mais detalhes. | Sim |
-| connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não especificado, utiliza o tempo de funcionar de integração azure padrão. |Não |
+| conexãoStragem | Especifique as informações necessárias para ligar à Base de Dados Azure para a ocorrência do MySQL.<br/> Também pode colocar a palavra-passe no Cofre da Chave Azure e retirar a `password` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
 
-Uma corda de ligação típica é `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>` . Mais propriedades que pode definir no seu caso:
+Uma cadeia de ligação típica é `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>` . Mais propriedades que pode definir por seu caso:
 
 | Propriedade | Descrição | Opções | Necessário |
 |:--- |:--- |:--- |:--- |
-| SSLMode | Esta opção especifica se o condutor utiliza encriptação e verificação TLS ao ligar-se ao MySQL. Por exemplo,`SSLMode=<0/1/2/3/4>`| Desativado (0) / PREFERRED (1) **(Predefinido)** / EXIGIDO (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Não |
-| UseSystemTrustStore | Esta opção especifica se deve utilizar um certificado CA a partir da loja fiduciário do sistema, ou de um ficheiro PEM especificado. Por exemplo, `UseSystemTrustStore=<0/1>;`| Ativado (1) / Desativado (0) **(Predefinido)** | Não |
+| SSLMode | Esta opção especifica se o controlador utiliza encriptação e verificação TLS ao ligar-se ao MySQL. Por exemplo,`SSLMode=<0/1/2/3/4>`| DESATIVADO (0) / PREFERIDO (1) **(Predefinido)** / OBRIGATÓRIO (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Não |
+| UseSystemTrustStore | Esta opção especifica se deve utilizar um certificado de CA da loja de fidedignidade do sistema ou de um ficheiro PEM especificado. Por exemplo, `UseSystemTrustStore=<0/1>;`| Ativado (1) / Desativado (0) **(Predefinição)** | Não |
 
 **Exemplo:**
 
@@ -87,7 +86,7 @@ Uma corda de ligação típica é `Server=<server>;Port=<port>;Database=<databas
 }
 ```
 
-**Exemplo: palavra-passe de loja no Cofre de Chaves Azure**
+**Exemplo: armazenar senha em Azure Key Vault**
 
 ```json
 {
@@ -113,7 +112,7 @@ Uma corda de ligação típica é `Server=<server>;Port=<port>;Database=<databas
 }
 ```
 
-Se estava a utilizar o serviço de ligação MySQL com a seguinte carga útil, ainda é suportado como está, enquanto é sugerido que utilize o novo para a frente.
+Se você estava usando o serviço ligado MySQL com a seguinte carga útil, ele ainda é suportado como está, enquanto você é sugerido para usar o novo para a frente.
 
 **Carga útil anterior:**
 
@@ -141,14 +140,14 @@ Se estava a utilizar o serviço de ligação MySQL com a seguinte carga útil, a
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo conjuntos de [dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados MySQL.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [conjuntos de dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados MySQL.
 
-Para copiar dados do MySQL, são suportadas as seguintes propriedades:
+Para copiar dados do MySQL, as seguintes propriedades são suportadas:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do conjunto de dados deve ser definida para: **MySqlTable** | Sim |
-| tableName | Nome da tabela na base de dados MySQL. | Não (se for especificada a "consulta" na fonte de atividade) |
+| tableName | O nome da tabela na base de dados MySQL. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
 
@@ -168,19 +167,19 @@ Para copiar dados do MySQL, são suportadas as seguintes propriedades:
 }
 ```
 
-Se estiver a utilizar o conjunto de `RelationalTable` dados dactilografado, ainda é suportado como está, enquanto é sugerido que utilize o novo para a frente.
+Se estiver a utilizar `RelationalTable` conjunto de dados dactilografado, ainda é suportado como está, enquanto é sugerido que utilize o novo para a frente.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas por fonte mySQL.
+Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela fonte mySQL.
 
 ### <a name="mysql-as-source"></a>MySQL como fonte
 
-Para copiar dados do MySQL, as seguintes propriedades são suportadas na secção de **origem** da atividade de cópia:
+Para copiar dados do MySQL, as seguintes propriedades são suportadas na secção **fonte de origem** da atividade da cópia:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo da fonte de atividade de cópia deve ser definida para: **MySqlSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **MySqlSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
@@ -215,11 +214,11 @@ Para copiar dados do MySQL, as seguintes propriedades são suportadas na secçã
 ]
 ```
 
-Se estiver a usar `RelationalSource` a fonte dactilografada, continua a ser suportada como está, enquanto é sugerido que utilize o novo para a frente.
+Se estava a usar `RelationalSource` uma fonte dactilografada, ainda é suportada como está, enquanto é sugerido que utilize a nova que vai para a frente.
 
-## <a name="data-type-mapping-for-mysql"></a>Mapeamento de tipo de dados para MySQL
+## <a name="data-type-mapping-for-mysql"></a>Mapeamento do tipo de dados para o MySQL
 
-Ao copiar dados do MySQL, os seguintes mapeamentos são utilizados desde tipos de dados MySQL para tipos de dados provisórios da Azure Data Factory. Consulte [schema e mapeamentos](copy-activity-schema-and-type-mapping.md) de tipo de dados para saber como a atividade de cópia mapeia o esquema de origem e o tipo de dados para a pia.
+Ao copiar dados do MySQL, os seguintes mapeamentos são usados desde os tipos de dados do MySQL até aos tipos de dados provisórios da Azure Data Factory. Consulte [os mapeamentos de schema e tipo de dados](copy-activity-schema-and-type-mapping.md) para saber como a atividade da cópia mapeia o esquema de origem e o tipo de dados para a pia.
 
 | Tipo de dados MySQL | Tipo de dados provisórios da fábrica de dados |
 |:--- |:--- |
@@ -267,7 +266,7 @@ Ao copiar dados do MySQL, os seguintes mapeamentos são utilizados desde tipos d
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
-Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
+Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Azure Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).
+## <a name="next-steps"></a>Próximos passos
+Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

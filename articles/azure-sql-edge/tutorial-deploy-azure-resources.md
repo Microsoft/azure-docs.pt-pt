@@ -1,39 +1,40 @@
 ---
-title: Criar recursos para a implementação de um modelo ML no Azure SQL Edge
-description: Na primeira parte deste tutorial Azure SQL Edge em três partes para prever impurezas de minério de ferro, você vai instalar o software pré-requisito e configurar os recursos necessários do Azure para implementar um modelo de machine learning em Azure SQL Edge.
+title: Criar recursos para a implementação de um modelo ML em Azure SQL Edge
+description: Na primeira parte deste tutorial de três partes do Azure SQL Edge para prever impurezas de minério de ferro, instalará o software pré-requisito e configurará os recursos Azure necessários para a implementação de um modelo de aprendizagem automática em Azure SQL Edge.
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: tutorial
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: c74e402fa1faa883b1e456f11a8d9d7b1e750d27
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 8c17351c049ef419ab95f46a54aa9f8cc523f7cf
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772850"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887446"
 ---
-# <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Instale software e instale recursos para o tutorial
+# <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Instale software e crie recursos para o tutorial
 
-Neste tutorial em três partes, você vai criar um modelo de aprendizagem automática para prever impurezas de minério de ferro em percentagem de Sílica, e depois implementar o modelo em Azure SQL Edge. Na primeira parte, vai instalar o software necessário e implementar recursos Azure.
+Neste tutorial em três partes, você vai criar um modelo de aprendizagem automática para prever impurezas de minério de ferro em percentagem de Sílica, e depois implementar o modelo em Azure SQL Edge. Na primeira parte, instalará o software necessário e implementará os recursos da Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/)
+1. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
 2. Instale [python 3.6.8](https://www.python.org/downloads/release/python-368/).
       * Utilize o instalador executável Windows x86-x64
       * Adicione `python.exe` ao ambiente PATH transferências variáveis/). Pode encontrar o download em "Tools For Visual Studio 2019".
-3. Instale o [Microsoft ODBC Driver 17 para o Servidor SQL](https://www.microsoft.com/download/details.aspx?id=56567).
-4. Instalar o Estúdio de [Dados Azure](/sql/azure-data-studio/download-azure-data-studio/)
-5. Abra o Azure Data Studio e configure python para os cadernos.Para mais detalhes, consulte [Configure Python para cadernos](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks). Este passo pode levar vários minutos.
-6. Instale a versão mais recente do [Azure CLI.](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020) Os seguintes scripts exigem que a AZ PowerShell seja a versão mais recente (3.5.0, fev 2020).
+3. Instale [o Controlador Microsoft ODBC 17 para o SQL Server](https://www.microsoft.com/download/details.aspx?id=56567).
+4. Instalar [o Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
+5. Abra o Azure Data Studio e configuure Python para cadernos.Para mais detalhes, consulte [Configure Python para Cadernos.](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks) Este passo pode levar vários minutos.
+6. Instale a versão mais recente do [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020). Os seguintes scripts exigem que o AZ PowerShell seja a versão mais recente (3.5.0, fev 2020).
+7. Descarregue os ficheiros [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) e [AMD/ARM Docker Image](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/tar-files) que serão utilizados no tutorial.
 
-## <a name="deploy-azure-resources-using-powershell-script"></a>Implementar recursos Azure usando o Script PowerShell
+## <a name="deploy-azure-resources-using-powershell-script"></a>Implementar recursos Azure usando o PowerShell Script
 
-Implemente os recursos Azure exigidos por este tutorial Azure SQL Edge. Estes podem ser implantados através de um script PowerShell ou através do portal Azure. Este tutorial usa um script PowerShell.
+Implemente os recursos Azure exigidos por este tutorial Azure SQL Edge. Estes podem ser implantados utilizando um script PowerShell ou através do portal Azure. Este tutorial usa um script PowerShell.
 
 1. Importe os módulos necessários para executar o script PowerShell neste tutorial.
 
@@ -90,7 +91,7 @@ Implemente os recursos Azure exigidos por este tutorial Azure SQL Edge. Estes po
    az login
    ```
 
-5. Detete o ID de subscrição Azure.
+5. Desconfie do ID de assinatura Azure.
 
    ```powershell
    Select-AzSubscription -Subscription $SubscriptionName
@@ -112,7 +113,7 @@ Implemente os recursos Azure exigidos por este tutorial Azure SQL Edge. Estes po
    }
    ```
 
-7. Crie a conta de armazenamento e o recipiente da conta de armazenamento no grupo de recursos.
+7. Crie a conta de armazenamento e o recipiente de conta de armazenamento no grupo de recursos.
 
    ```powershell
    $sa = Get-AzStorageAccount -ResourceGroupName $ResourceGroup -Name $StorageAccountName 
@@ -130,7 +131,7 @@ Implemente os recursos Azure exigidos por este tutorial Azure SQL Edge. Estes po
    }
    ```
 
-8. Faça o upload do ficheiro de base de dados para a conta de `dacpac` armazenamento e gere um URL SAS para a bolha. **Tome nota do URL SAS para a bolha da base `dacpac` de dados.**
+8. Faça o upload do ficheiro de base de `dacpac` dados para a conta de armazenamento e gere um URL SAS para a bolha. **Tome nota do URL SAS para a bolha da base de `dacpac` dados.**
 
    ```powershell
    $file = Read-Host "Please Enter the location to the zipped Database DacPac file:"
@@ -240,7 +241,7 @@ Implemente os recursos Azure exigidos por este tutorial Azure SQL Edge. Estes po
     }
     ```
 
-14. Adicione um dispositivo Edge ao centro IoT. Este passo só cria a identidade digital do dispositivo.
+14. Adicione um dispositivo Edge ao hub IoT. Este passo apenas cria a identidade digital do dispositivo.
 
     ```powershell
     $deviceIdentity = Get-AzIotHubDevice -ResourceGroupName $ResourceGroup -IotHubName $IoTHubName -DeviceId $EdgeDeviceId
@@ -256,7 +257,7 @@ Implemente os recursos Azure exigidos por este tutorial Azure SQL Edge. Estes po
     $deviceIdentity = Get-AzIotHubDevice -ResourceGroupName $ResourceGroup -IotHubName $IoTHubName -DeviceId $EdgeDeviceId
     ```
 
-15. Obtenha a cadeia de ligação primária do dispositivo. Isto será necessário mais tarde para o VM. O comando seguinte utiliza o Azure CLI para as implantações.
+15. Obtenha a cadeia de ligação primária do dispositivo. Isto será necessário mais tarde para o VM. O seguinte comando utiliza o Azure CLI para implantações.
 
     ```powershell
     $deviceConnectionString = az iot hub device-identity show-connection-string --device-id $EdgeDeviceId --hub-name $IoTHubName --resource-group $ResourceGroup --subscription $SubscriptionName
@@ -264,14 +265,14 @@ Implemente os recursos Azure exigidos por este tutorial Azure SQL Edge. Estes po
     $connString
     ```
 
-16. Atualize a cadeia de ligação no ficheiro de configuração IoT Edge no dispositivo Edge. Os seguintes comandos utilizam o Azure CLI para as implantações.
+16. Atualize a cadeia de ligação no ficheiro de configuração IoT Edge no dispositivo Edge. Os seguintes comandos utilizam o Azure CLI para implantações.
 
     ```powershell
     $script = "/etc/iotedge/configedge.sh '" + $connString + "'"
     az vm run-command invoke -g $ResourceGroup -n $EdgeDeviceId  --command-id RunShellScript --script $script
     ```
 
-17. Crie um espaço de trabalho azure machine learning dentro do grupo de recursos.
+17. Crie um espaço de trabalho de aprendizagem automática Azure dentro do grupo de recursos.
 
     ```powershell
     az ml workspace create -w $MyWorkSpace -g $ResourceGroup

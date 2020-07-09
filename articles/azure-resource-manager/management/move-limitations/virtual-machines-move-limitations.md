@@ -1,69 +1,81 @@
 ---
-title: Move Os VMs Azure para um novo grupo de subscrição ou recursos
-description: Utilize o Gestor de Recursos Azure para mover máquinas virtuais para um novo grupo de recursos ou subscrição.
+title: Mover VMs Azure para novo grupo de subscrição ou recursos
+description: Utilize o Azure Resource Manager para mover máquinas virtuais para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: e5bd004b6619db9c9882b8e9e6005309317b8ca5
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.date: 07/06/2020
+ms.openlocfilehash: c85ec175d802a29de7a8a87ee7a51c0916762a5a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744643"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044554"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Mover orientação para máquinas virtuais
 
-Este artigo descreve os cenários que não são suportados atualmente e os passos para mover máquinas virtuais com backup.
+Este artigo descreve os cenários que não são suportados atualmente e os passos para mover máquinas virtuais com cópia de segurança.
 
 ## <a name="scenarios-not-supported"></a>Cenários não suportados
 
-Os seguintes cenários ainda não são suportados:
+Os seguintes cenários ainda não são apoiados:
 
-* Discos geridos em Zonas de Disponibilidade não podem ser movidos para uma subscrição diferente.
-* Conjuntos de escala de máquina virtual com balanceor de carga Padrão SKU ou IP público Padrão SKU não podem ser movidos.
-* As máquinas virtuais criadas a partir de recursos do Marketplace com planos anexados não podem ser movidas através de grupos de recursos ou subscrições. Desfore a máquina virtual na subscrição atual e volte a implantar-se na nova subscrição.
+* Os Discos Geridos em Zonas de Disponibilidade não podem ser transferidos para uma subscrição diferente.
+* Os conjuntos de balança de máquinas virtuais com o balanceador de carga SKU padrão ou o IP público standard SKU não podem ser movidos.
+* Máquinas virtuais criadas a partir de recursos do Marketplace com planos anexados não podem ser movidas através de grupos de recursos ou subscrições. Desavisar a máquina virtual na subscrição atual, e implementar novamente na nova subscrição.
 * As máquinas virtuais de uma rede virtual existente não podem ser transferidas para uma nova subscrição quando não está a mover todos os recursos da rede virtual.
-* Máquinas virtuais de baixa prioridade e conjuntos de escala de máquinas virtuais de baixa prioridade não podem ser movidos através de grupos de recursos ou subscrições.
+* Máquinas virtuais de baixa prioridade e conjuntos de escala de máquina virtual de baixa prioridade não podem ser movidos através de grupos de recursos ou subscrições.
 * As máquinas virtuais num conjunto de disponibilidade não podem ser movidas individualmente.
 
-## <a name="virtual-machines-with-azure-backup"></a>Máquinas virtuais com Backup Azure
+## <a name="azure-disk-encryption"></a>Encriptação do disco Azure
 
-Para mover máquinas virtuais configuradas com Cópia de Segurança Azure, tem de eliminar os pontos de restauro do cofre.
+Não é possível mover uma máquina virtual que esteja integrada com um cofre-chave para implementar [encriptação de disco Azure para VMs Linux](../../../virtual-machines/linux/disk-encryption-overview.md) ou [Encriptação de Disco Azure para VMs do Windows](../../../virtual-machines/windows/disk-encryption-overview.md). Para mover o VM, tem de desativar a encriptação.
 
-Se o [soft delete](../../../backup/backup-azure-security-feature-cloud.md) estiver ativado para a sua máquina virtual, não pode mover a máquina virtual enquanto esses pontos de restauro forem mantidos. Ou [desativa risa suavemente](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) ou espera 14 dias após a eliminação dos pontos de restauro.
+```azurecli-interactive
+az vm encryption disable --resource-group demoRG --name myVm1
+```
+
+```azurepowershell-interactive
+Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
+```
+
+## <a name="virtual-machines-with-azure-backup"></a>Máquinas virtuais com backup Azure
+
+Para mover máquinas virtuais configuradas com Azure Backup, deve eliminar os pontos de restauro do cofre.
+
+Se [a eliminação suave](../../../backup/backup-azure-security-feature-cloud.md) estiver ativada para a sua máquina virtual, não pode mover a máquina virtual enquanto estes pontos de restauro são mantidos. [Desative a eliminação suave](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) ou aguarde 14 dias após a eliminação dos pontos de restauro.
 
 ### <a name="portal"></a>Portal
 
-1. Pare temporariamente a cópia de segurança e guarde os dados de backup.
-2. Para mover máquinas virtuais configuradas com Backup Azure, faça os seguintes passos:
+1. Pare temporariamente a cópia de segurança e retenha os dados de backup.
+2. Para mover máquinas virtuais configuradas com backup Azure, faça os seguintes passos:
 
    1. Encontre a localização da sua máquina virtual.
-   2. Encontre um grupo de recursos `AzureBackupRG_<location of your VM>_1`com o seguinte padrão de nomeação: . Por exemplo, *AzureBackupRG_westus2_1*
-   3. No portal Azure, verifique **tipos de mostrar em oposição.**
-   4. Encontre o recurso com o tipo **Microsoft.Compute/restorePointCollections** que tem o padrão `AzureBackup_<name of your VM that you're trying to move>_###########`de nomeação .
-   5. Apague este recurso. Esta operação elimina apenas os pontos de recuperação instantâneas, não os dados de back-up no cofre.
+   2. Encontre um grupo de recursos com o seguinte padrão de nomeação: `AzureBackupRG_<location of your VM>_1` . Por exemplo, *AzureBackupRG_westus2_1*
+   3. No portal Azure, verifique **os tipos ocultos do Show**.
+   4. Encontre o recurso com o tipo **Microsoft.Compute/restorePointCollections** que tenha o padrão de nomeação `AzureBackup_<name of your VM that you're trying to move>_###########` .
+   5. Elimine este recurso. Esta operação elimina apenas os pontos de recuperação instantâneos, não os dados de retenção no cofre.
    6. Depois de concluída a operação de eliminação, pode mover a sua máquina virtual.
 
-3. Mova o VM para o grupo de recursos alvo.
-4. Retome a reserva.
+3. Mova o VM para o grupo de recursos-alvo.
+4. Retoma o apoio.
 
 ### <a name="powershell"></a>PowerShell
 
 * Encontre a localização da sua Máquina Virtual.
-* Encontre um grupo de recursos `AzureBackupRG_<location of your VM>_1` com o seguinte padrão de nomeação: por exemplo, AzureBackupRG_westus2_1
-* Se estiver no PowerShell, utilize o `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
-* Encontre o recurso `Microsoft.Compute/restorePointCollections` com tipo que tem o padrão de nomeação`AzureBackup_<name of your VM that you're trying to move>_###########`
-* Apague este recurso. Esta operação elimina apenas os pontos de recuperação instantâneas, não os dados de back-up no cofre.
+* Encontre um grupo de recursos com o seguinte padrão de nomeação: `AzureBackupRG_<location of your VM>_1` por exemplo, AzureBackupRG_westus2_1
+* Se em PowerShell, use o `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
+* Encontre o recurso com o tipo `Microsoft.Compute/restorePointCollections` que tem o padrão de nomeação`AzureBackup_<name of your VM that you're trying to move>_###########`
+* Elimine este recurso. Esta operação elimina apenas os pontos de recuperação instantâneos, não os dados de retenção no cofre.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
 * Encontre a localização da sua Máquina Virtual.
-* Encontre um grupo de recursos `AzureBackupRG_<location of your VM>_1` com o seguinte padrão de nomeação: por exemplo, AzureBackupRG_westus2_1
-* Se no CLI, use o`az resource list -g AzureBackupRG_<location of your VM>_1`
-* Encontre o recurso `Microsoft.Compute/restorePointCollections` com tipo que tem o padrão de nomeação`AzureBackup_<name of your VM that you're trying to move>_###########`
-* Apague este recurso. Esta operação elimina apenas os pontos de recuperação instantâneas, não os dados de back-up no cofre.
+* Encontre um grupo de recursos com o seguinte padrão de nomeação: `AzureBackupRG_<location of your VM>_1` por exemplo, AzureBackupRG_westus2_1
+* Se em CLI, usar o`az resource list -g AzureBackupRG_<location of your VM>_1`
+* Encontre o recurso com o tipo `Microsoft.Compute/restorePointCollections` que tem o padrão de nomeação`AzureBackup_<name of your VM that you're trying to move>_###########`
+* Elimine este recurso. Esta operação elimina apenas os pontos de recuperação instantâneos, não os dados de retenção no cofre.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para que os comandos movam recursos, consulte [mover recursos para um novo grupo de recursos ou subscrição](../move-resource-group-and-subscription.md).
+* Para que os comandos movimentem recursos, consulte [mover recursos para novo grupo de recursos ou subscrição](../move-resource-group-and-subscription.md).
 
-* Para obter informações sobre a deslocação de cofres do Serviço de Recuperação para backup, consulte [as limitações dos Serviços](../../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)de Recuperação .
+* Para obter informações sobre a movimentação de cofres do Serviço de Recuperação para cópia de segurança, consulte [as limitações dos Serviços de Recuperação](../../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).

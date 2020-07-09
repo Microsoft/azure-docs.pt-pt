@@ -36,6 +36,9 @@
           href: tutorial-desktop-app.md
         - name: Página única
           href: tutorial-single-page-app.md
+        - name: Python
+          href: tutorial-web-app-python.md
+          displayName: flask
     - name: Conceder acesso à API
       items:
         - name: ASP.NET
@@ -87,11 +90,11 @@
         - name: Registar um fornecedor de serviços SAML
           href: connect-with-saml-service-providers.md
           displayName: 'SP, RP, service provider, connect'
-        - name: Registar uma aplicação do Graph
+        - name: Registar uma aplicação do Microsoft Graph
           href: microsoft-graph-get-started.md
           displayName: 'migrate, migration, microsoft graph'
         - name: Adicionar uma aplicação de API Web
-          href: add-web-application.md
+          href: add-web-api-application.md
         - name: Adicionar uma aplicação cliente nativa
           href: add-native-application.md
         - name: iOS ObjC com a Autenticação da Aplicação
@@ -188,8 +191,12 @@
               displayName: 'ux, input, cors, html, css'
             - name: Personalizar idioma
               href: custom-policy-localization.md
-            - name: E-mail personalizado
-              href: custom-email.md
+            - name: Verificação personalizada do e-mail
+              items:
+                - name: Mailjet
+                  href: custom-email-mailjet.md
+                - name: SendGrid
+                  href: custom-email-sendgrid.md
               displayName: verification
             - name: Desativar a verificação do e-mail
               href: custom-policy-disable-email-verification.md
@@ -322,6 +329,8 @@
                     - name: Multi-Factor Authentication do Azure
                       href: multi-factor-auth-technical-profile.md
                       displayName: mfa
+                    - name: SSPR do Azure AD
+                      href: aad-sspr-technical-profile.md
                     - name: Transformação de afirmações
                       href: claims-transformation-technical-profile.md
                     - name: Emissor de tokens JWT
@@ -354,6 +363,22 @@
               href: relyingparty.md
             - name: Resoluções de afirmação
               href: claim-resolver-overview.md
+    - name: Integração de parceiros
+      items:
+        - name: Galeria de parceiros do Azure AD B2C
+          href: partner-gallery.md
+        - name: Arkose Labs
+          href: partner-arkose-labs.md
+        - name: IDology
+          href: partner-idology.md
+        - name: itsme
+          href: partner-itsme.md
+        - name: Trusona
+          href: partner-trusona.md
+        - name: Twilio
+          href: partner-twilio.md
+        - name: TypingDNA
+          href: partner-typingdna.md
     - name: Utilizar b2clogin.com
       items:
         - name: Descrição geral do b2clogin.com
@@ -397,6 +422,8 @@
           href: user-migration.md
 - name: Referência
   items:
+    - name: Registos de aplicações
+      href: app-registrations-training-guide.md
     - name: Modelo de faturação
       href: billing.md
     - name: Exemplos de código

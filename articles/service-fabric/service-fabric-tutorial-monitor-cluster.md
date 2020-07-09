@@ -1,33 +1,33 @@
 ---
 title: Monitorize um cluster de tecido de serviço em Azure
-description: Neste tutorial, aprende-se a monitorizar um cluster visualizando eventos de Tecido de Serviço, consultando as APIs da EventStore, monitorizando os contadores perf e visualizando relatórios de saúde.
+description: Neste tutorial, você aprende a monitorizar um cluster visualizando eventos de Service Fabric, consultando as APIs da EventStore, monitorizando contadores perf e visualizando relatórios de saúde.
 author: srrengar
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: ab58d622511e0d5793eb6df312bc3fd6dd15bfd6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 048161ec13edbd0cf474fb6598fdd9ff981077ae
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75376635"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611684"
 ---
-# <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutorial: Monitor a Service Fabric cluster in Azure
+# <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutorial: Monitorize um cluster de tecido de serviço em Azure
 
-A monitorização e diagnóstico são fundamentais para o desenvolvimento, teste e implantação de cargas de trabalho em qualquer ambiente de nuvem. Este tutorial é a segunda parte de uma série, e mostra-lhe como monitorizar e diagnosticar um cluster de Tecido de Serviço usando eventos, contadores de desempenho e relatórios de saúde.   Para mais informações, leia a visão geral sobre [a monitorização](service-fabric-diagnostics-overview.md#platform-cluster-monitoring) do cluster e [a monitorização das infraestruturas.](service-fabric-diagnostics-overview.md#infrastructure-performance-monitoring)
+A monitorização e os diagnósticos são fundamentais para o desenvolvimento, teste e implantação de cargas de trabalho em qualquer ambiente em nuvem. Este tutorial é a segunda parte de uma série, e mostra-lhe como monitorizar e diagnosticar um cluster de Tecidos de Serviço usando eventos, contadores de desempenho e relatórios de saúde.   Para mais informações, leia a visão geral sobre [a monitorização do cluster](service-fabric-diagnostics-overview.md#platform-cluster-monitoring) e a [monitorização das infraestruturas.](service-fabric-diagnostics-overview.md#infrastructure-performance-monitoring)
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Ver eventos de tecido de serviço
-> * Perguntas eventstore APIs para eventos de cluster
+> * Ver eventos de Tecido de Serviço
+> * Consultas EventStore APIs para eventos de cluster
 > * Monitorizar infraestruturas/recolher balcões perf
-> * Ver relatórios de saúde de cluster
+> * Ver relatórios de saúde do cluster
 
 Nesta série de tutoriais, ficará a saber como:
 > [!div class="checklist"]
-> * Criar um [cluster windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro em Azure usando um modelo
+> * Crie um [cluster windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro no Azure usando um modelo
 > * Monitorize um cluster
 > * [Reduzir ou aumentar um cluster horizontalmente](service-fabric-tutorial-scale-cluster.md)
 > * [Atualizar o tempo de execução de um cluster](service-fabric-tutorial-upgrade-cluster.md)
@@ -40,54 +40,54 @@ Nesta série de tutoriais, ficará a saber como:
 
 Antes de começar este tutorial:
 
-* Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Instale [a Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou [o Azure CLI](/cli/azure/install-azure-cli).
+* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Instale [a Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou [Azure CLI](/cli/azure/install-azure-cli).
 * Criar um [cluster windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro 
-* Recolha de [diagnósticos](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor) de configuração para o cluster
+* Coleção de [diagnósticos de](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor) configuração para o cluster
 * Ativar o [serviço EventStore](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureeventstore_anchor) no cluster
-* Configure [os registos do Monitor Azure e o agente Log Analytics](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureloganalytics_anchor) para o cluster
+* Configurar [registos do Monitor Azure e do agente Log Analytics](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureloganalytics_anchor) para o cluster
 
 ## <a name="view-service-fabric-events-using-azure-monitor-logs"></a>Ver eventos de tecido de serviço usando registos do Monitor Azure
 
-Os registos do Azure Monitor recolhem e analisam a telemetria a partir de aplicações e serviços hospedados na nuvem e fornecem ferramentas de análise para ajudá-lo a maximizar a sua disponibilidade e desempenho. Pode fazer consultas em registos do Monitor Azure para obter informações e resolver o que está a acontecer no seu cluster.
+Os registos do Azure Monitor recolhem e analisam a telemetria a partir de aplicações e serviços alojados na nuvem e fornecem ferramentas de análise para o ajudar a maximizar a sua disponibilidade e desempenho. Pode executar consultas nos registos do Azure Monitor para obter insights e resolver problemas do que está a acontecer no seu cluster.
 
-Para aceder à solução Service Fabric Analytics, vá ao [portal Azure](https://portal.azure.com) e selecione o grupo de recursos em que criou a solução Service Fabric Analytics.
+Para aceder à solução Service Fabric Analytics, vá ao [portal Azure](https://portal.azure.com) e selecione o grupo de recursos no qual criou a solução Service Fabric Analytics.
 
-Selecione o **recurso ServiceFabric (mysfomsworkspace)**.
+Selecione o **serviço de recursosFabric (mysfomsworkspace)**.
 
-Em **resumo,** você vê azulejos na forma de um gráfico para cada uma das soluções ativadas, incluindo uma para tecido de serviço. Clique no gráfico **de Tecido de Serviço** para continuar na solução Service Fabric Analytics.
+Em **Visão Geral** vê-se azulejos sob a forma de um gráfico para cada uma das soluções ativadas, incluindo uma para Tecido de Serviço. Clique no gráfico **de Tecido de Serviço** para continuar na solução Service Fabric Analytics.
 
-![Solução de tecido de serviço](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
+![Solução de Tecido de Serviço](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
 
-A imagem seguinte mostra a página inicial da solução Service Fabric Analytics. Esta página inicial fornece uma visão instantânea do que está a acontecer no seu cluster.
+A imagem a seguir mostra a página inicial da solução Service Fabric Analytics. Esta página inicial fornece uma visão instantânea do que está a acontecer no seu cluster.
 
-![Solução de tecido de serviço](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-solution.png)
+![Solução de Tecido de Serviço](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-solution.png)
 
- Se você permitiu diagnósticos sobre criação de cluster, você pode ver eventos para 
+ Se você ativou diagnósticos sobre a criação de cluster, você pode ver eventos para 
 
 * [Eventos de cluster de tecido de serviço](service-fabric-diagnostics-event-generation-operational.md)
-* [Eventos de modelos de programação de atores fiáveis](service-fabric-reliable-actors-diagnostics.md)
+* [Eventos de modelos de programação de atores confiáveis](service-fabric-reliable-actors-diagnostics.md)
 * [Eventos de modelos de programação de serviços fiáveis](service-fabric-reliable-services-diagnostics.md)
 
 >[!NOTE]
->Além dos eventos de Tecido de Serviço fora da caixa, eventos de sistema mais detalhados podem ser recolhidos [atualizando o config da sua extensão de diagnóstico](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
+>Além dos eventos de Tecido de Serviço fora da caixa, eventos de sistema mais detalhados podem ser recolhidos [atualizando a configuração da sua extensão de diagnóstico.](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)
 
-### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Ver Eventos de Tecido de Serviço, incluindo ações em nós
+### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Ver Eventos de Tecido de Serviço, incluindo ações em nos acenos
 
-Na página Análise de Tecidode Serviço, clique no gráfico para **Eventos**de Cluster .  Os registos de todos os eventos do sistema que foram recolhidos aparecem. Para referência, estes são do **WADServiceFabricSystemEventsTable** na conta de Armazenamento Azure, e da mesma forma os serviços confiáveis e eventos de atores que você vê a seguir são dessas tabelas respetivas.
+Na página Service Fabric Analytics, clique no gráfico para **eventos de cluster.**  Os registos de todos os eventos do sistema que foram recolhidos aparecem. Para referência, estes são do **WADServiceFabricSystemEventsTable** na conta de Armazenamento Azure, e da mesma forma os eventos de serviços e atores fiáveis que você vê a seguir são dessas respetivas tabelas.
     
 ![Canal Operacional de Consulta](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-events.png)
 
-A consulta usa a linguagem de consulta Kusto, que pode modificar para refinar o que procura. Por exemplo, para encontrar todas as ações tomadas em nós no cluster, você pode usar a seguinte consulta. Os iDs do evento utilizados abaixo encontram-se na referência de [eventos de canais operacionais](service-fabric-diagnostics-event-generation-operational.md).
+A consulta usa a linguagem de consulta Kusto, que você pode modificar para refinar o que você procura. Por exemplo, para encontrar todas as ações tomadas em nós no cluster, você pode usar a seguinte consulta. Os IDs do evento utilizados abaixo encontram-se na [referência de eventos](service-fabric-diagnostics-event-generation-operational.md)de canal operacional .
 
 ```kusto
 ServiceFabricOperationalEvent
 | where EventId < 25627 and EventId > 25619 
 ```
 
-A linguagem de consulta kusto é poderosa. Aqui estão outras perguntas úteis.
+A linguagem de consulta kusto é poderosa. Aqui estão outras consultas úteis.
 
-Crie uma tabela de pesquisa *ServiceFabricEvent* como função definida pelo utilizador, guardando a consulta como uma função com pseudónimoServiceFabricEvent:
+Crie uma tabela de pesquisa *ServiceFabricEvent* como função definida pelo utilizador, guardando a consulta em função do alias ServiceFabricEvent:
 
 ```kusto
 let ServiceFabricEvent = datatable(EventId: int, EventName: string)
@@ -100,7 +100,7 @@ let ServiceFabricEvent = datatable(EventId: int, EventName: string)
 ServiceFabricEvent
 ```
 
-Retorno dos eventos operacionais registados na última hora:
+Eventos operacionais de retorno registados na última hora:
 ```kusto
 ServiceFabricOperationalEvent
 | where TimeGenerated > ago(1h)
@@ -109,7 +109,7 @@ ServiceFabricOperationalEvent
 | sort by TimeGenerated
 ```
 
-Devolver eventos operacionais com EventId == 18604 e EventName == 'NodeDownOperacional':
+Retornar eventos operacionais com EventId == 18604 e EventName == 'NodeDownOperational':
 ```kusto
 ServiceFabricOperationalEvent
 | where EventId == 18604
@@ -117,15 +117,15 @@ ServiceFabricOperationalEvent
 | sort by TimeGenerated 
 ```
 
-Devolver eventos operacionais com EventId == 18604 e EventName == 'NodeUpOperational':
+Retornar eventos operacionais com EventId == 18604 e EventName == 'NodeUpOperational':
 ```kusto
 ServiceFabricOperationalEvent
 | where EventId == 18603
 | project EventId, EventName = 'NodeUpOperational', TaskName, Computer, EventMessage, TimeGenerated
 | sort by TimeGenerated 
 ``` 
- 
-Devoluções Relatórios de Saúde com Estado de Saúde == 3 (Erro) e extrair propriedades adicionais do campo EventMessage:
+
+Devoluções Relatórios de Saúde com HealthState == 3 (Erro) e extrair propriedades adicionais do campo EventMessage:
 
 ```kusto
 ServiceFabricOperationalEvent
@@ -150,7 +150,7 @@ ServiceFabricOperationalEvent
          StatefulReplica = extract(@"StatefulReplica=(\S+) ", 1, EventMessage, typeof(string))
 ```
 
-Devolva um gráfico de tempo de eventos com EventId != 17523:
+Devolva um gráfico de eventos com EventId != 17523:
 
 ```kusto
 ServiceFabricOperationalEvent
@@ -160,7 +160,7 @@ ServiceFabricOperationalEvent
 | render timechart 
 ```
 
-Obtenha eventos operacionais de Tecido de Serviço agregados com o serviço e o nó específicos:
+Obtenha eventos operacionais do Service Fabric agregados com o serviço e nó específicos:
 
 ```kusto
 ServiceFabricOperationalEvent
@@ -168,7 +168,7 @@ ServiceFabricOperationalEvent
 | summarize AggregatedValue = count() by ApplicationName, ServiceName, Computer 
 ```
 
-Renderizar a contagem de eventos de Tecido de Serviço por EventId / EventName utilizando uma consulta de recurso transversal:
+Torne a contagem de eventos de Tecido de Serviço por EventId / EventName usando uma consulta de recurso transversal:
 
 ```kusto
 app('PlunkoServiceFabricCluster').traces
@@ -183,19 +183,19 @@ app('PlunkoServiceFabricCluster').traces
 
 ### <a name="view-service-fabric-application-events"></a>Ver eventos de aplicação de tecido de serviço
 
-Pode ver eventos para serviços fiáveis e aplicações de atores fiáveis implantadas no cluster.  Na página análise de tecido de serviço, clique no gráfico para eventos de **aplicação**.
+Você pode ver eventos para os serviços confiáveis e aplicações de atores confiáveis implantados no cluster.  Na página Service Fabric Analytics, clique no gráfico para **Eventos de Aplicação.**
 
-Execute a seguinte consulta para ver eventos a partir das suas aplicações de serviços confiáveis:
+Executar a seguinte consulta para visualizar eventos a partir das suas aplicações de serviços confiáveis:
 ```kusto
 ServiceFabricReliableServiceEvent
 | sort by TimeGenerated desc
 ```
 
-Você pode ver diferentes eventos para quando o runasync de serviço é iniciado e concluído, o que normalmente acontece em implementações e upgrades.
+Pode ver diferentes eventos para quando o serviço `runasync` é iniciado e concluído, o que normalmente acontece em implementações e atualizações.
 
-![Serviço solução de tecido fiável Serviços fiáveis](media/service-fabric-tutorial-monitor-cluster/oms-reliable-services-events-selection.png)
+![Serviços fiáveis de solução de tecido de serviço](media/service-fabric-tutorial-monitor-cluster/oms-reliable-services-events-selection.png)
 
-Também pode encontrar eventos para o serviço fiável com ServiceName == "fabric:/Watchdog/WatchdogService":
+Também pode encontrar eventos para o serviço fiável com o ServiceName == "tecido:/Watchdog/WatchdogService":
 
 ```kusto
 ServiceFabricReliableServiceEvent
@@ -204,13 +204,13 @@ ServiceFabricReliableServiceEvent
 | order by TimeGenerated desc  
 ```
  
-Eventos de ator confiáveis podem ser vistos de forma semelhante:
+Eventos de atores fiáveis podem ser vistos de forma semelhante:
 
 ```kusto
 ServiceFabricReliableActorEvent
 | sort by TimeGenerated desc
 ```
-Para configurar eventos mais detalhados para `scheduledTransferKeywordFilter` atores fiáveis, pode alterar o config para a extensão de diagnóstico no modelo de cluster. Os detalhes sobre os valores para estes estão na [referência de eventos de atores fiáveis.](service-fabric-reliable-actors-diagnostics.md#keywords)
+Para configurar eventos mais detalhados para atores fiáveis, pode alterar `scheduledTransferKeywordFilter` o config para a extensão de diagnóstico no modelo de cluster. Os detalhes sobre os valores para estes estão na [referência de eventos de atores confiáveis.](service-fabric-reliable-actors-diagnostics.md#keywords)
 
 ```json
 "EtwEventSourceProviderConfiguration": [
@@ -224,25 +224,25 @@ Para configurar eventos mais detalhados para `scheduledTransferKeywordFilter` at
                 },
 ```
 
-## <a name="view-performance-counters-with-azure-monitor-logs"></a>Ver contadores de desempenho com registos do Monitor Azure
-Para visualizar contadores de desempenho, vá ao [portal Azure](https://portal.azure.com) e ao grupo de recursos em que criou a solução Service Fabric Analytics. 
+## <a name="view-performance-counters-with-azure-monitor-logs"></a>Ver contadores de desempenho com registos do Azure Monitor
+Para ver os contadores de desempenho, vá ao [portal Azure](https://portal.azure.com) e ao grupo de recursos em que criou a solução Service Fabric Analytics. 
 
-Selecione o **recurso ServiceFabric (mysfomsworkspace)**, em seguida, **log Analytics Workspace**, e, em seguida, **Definições Avançadas**.
+Selecione o **serviço de recursosFabric (mysfomsworkspace)** e, em seguida, **Log Analytics Workspace**, e, em seguida, **Configurações Avançadas**.
 
-Clique em **Dados**e, em seguida, clique em Contadores de **Desempenho do Windows**. Existe uma lista de contadores predefinidos que pode escolher para ativar e pode definir o intervalo para a recolha também. Também pode adicionar contadores de [desempenho adicionais](service-fabric-diagnostics-event-generation-perf.md) para recolher. O formato adequado é referenciado neste [artigo.](/windows/desktop/PerfCtrs/specifying-a-counter-path) Clique em **Guardar**e, em seguida, clique **em OK**.
+Clique em **Dados**e, em seguida, clique em **Contadores de Desempenho do Windows**. Há uma lista de contadores predefinidos que pode escolher para ativar e também pode definir o intervalo para recolha. Também pode adicionar [contadores de desempenho adicionais](service-fabric-diagnostics-event-generation-perf.md) para recolher. O formato adequado é referenciado neste [artigo.](/windows/desktop/PerfCtrs/specifying-a-counter-path) Clique **em Guardar**e, em seguida, clique em **OK**.
 
-Feche a lâmina de Definições Avançadas e selecione resumo do espaço de **trabalho** sob a rubrica **geral.** Para cada uma das soluções ativadas existe um azulejo gráfico, incluindo um para o Tecido de Serviço. Clique no gráfico **de Tecido de Serviço** para continuar na solução Service Fabric Analytics.
+Feche a lâmina de Definições Avançadas e selecione o resumo do **espaço de trabalho** na rubrica **Geral.** Para cada uma das soluções ativadas existe um azulejo gráfico, incluindo um para Tecido de Serviço. Clique no gráfico **de Tecido de Serviço** para continuar na solução Service Fabric Analytics.
 
-Existem azulejos gráficos para canais operacionais e eventos de serviços fiáveis. A representação gráfica dos dados que fluem para os contadores selecionados aparecerá sob **métricas**de nó . 
+Existem azulejos gráficos para canais operacionais e eventos de serviços fiáveis. A representação gráfica dos dados que fluem para os balcões selecionados aparecerá em **Métricas de Nó**. 
 
-Selecione o gráfico métrico do **recipiente** para ver detalhes adicionais. Também pode consultar dados de contra-desempenho semelhantes aos eventos de cluster e filtrar nos nós, contra-nome perf e valores usando a linguagem de consulta Kusto.
+Selecione o gráfico **métrico** do recipiente para ver detalhes adicionais. Também pode consultar dados de contador de desempenho semelhantes a eventos de cluster e filtrar nos nós, nome de contador perf e valores usando a linguagem de consulta Kusto.
 
 ## <a name="query-the-eventstore-service"></a>Consulta do serviço EventStore
-O [serviço EventStore](service-fabric-diagnostics-eventstore.md) fornece uma forma de compreender o estado do seu cluster ou cargas de trabalho num dado momento. A EventStore é um serviço de tecido de serviço imponente que mantém eventos do cluster. Os eventos são expostos através do [Service Fabric Explorer,](service-fabric-visualizing-your-cluster.md)REST e APIs. EventStore consulta o cluster diretamente para obter dados de diagnóstico em qualquer entidade do seu cluster Para ver uma lista completa de eventos disponíveis na EventStore, consulte [eventos de Tecido de Serviço](service-fabric-diagnostics-event-generation-operational.md).
+O [serviço EventStore](service-fabric-diagnostics-eventstore.md) fornece uma forma de entender o estado do seu cluster ou cargas de trabalho num dado momento. O EventStore é um serviço stateful Service Fabric que mantém eventos do cluster. Os eventos são expostos através do [Service Fabric Explorer,](service-fabric-visualizing-your-cluster.md)REST e APIs. O EventStore consulta o cluster diretamente para obter dados de diagnóstico em qualquer entidade do seu cluster Para ver uma lista completa de eventos disponíveis na Loja de Eventos, consulte [eventos de Tecido de Serviço.](service-fabric-diagnostics-event-generation-operational.md)
 
-As APIs da EventStore podem ser consultadas programáticamente utilizando a [biblioteca cliente do Tecido de Serviço](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
+As APIs da EventStore podem ser consultadas programáticamente utilizando a biblioteca do [cliente do Service Fabric.](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library)
 
-Aqui está um pedido de exemplo para todos os eventos de cluster entre 2018-04-03T18:00:00Z e 2018-04-04T18:00:00:00:00Z, através da função GetClusterEventListAsync.
+Aqui está um pedido de exemplo para todos os eventos de cluster entre 2018-04-03T18:00:00Z e 2018-04-04T18:00:00Z, através da função GetClusterEventListAsync.
 
 ```csharp
 var sfhttpClient = ServiceFabricClientFactory.Create(clusterUrl, settings);
@@ -255,7 +255,7 @@ var clstrEvents = sfhttpClient.EventsStore.GetClusterEventListAsync(
     .ToList();
 ```
 
-Eis outro exemplo que questiona a saúde do cluster e todos os eventos de nó em setembro de 2018 e os imprime.
+Aqui está outro exemplo que consulta a saúde do cluster e todos os eventos de nó em setembro de 2018 e os imprime.
 
 ```csharp
 const int timeoutSecs = 60;
@@ -295,18 +295,18 @@ foreach (var nodeEvent in nodesEvents)
 
 
 ## <a name="monitor-cluster-health"></a>Monitorizar a saúde do cluster
-O Service Fabric introduz um modelo de [saúde](service-fabric-health-introduction.md) com entidades de saúde em que componentes do sistema e cães de guarda podem reportar as condições locais que estão a monitorizar. A loja de [saúde](service-fabric-health-introduction.md#health-store) agrega todos os dados de saúde para determinar se as entidades são saudáveis.
+A Service Fabric introduz um [modelo de saúde](service-fabric-health-introduction.md) com entidades de saúde sobre as quais componentes do sistema e cães de guarda podem reportar as condições locais que estão a monitorizar. A [loja de saúde](service-fabric-health-introduction.md#health-store) agrega todos os dados de saúde para determinar se as entidades são saudáveis.
 
-O cluster é automaticamente povoado com relatórios de saúde enviados pelos componentes do sistema. Leia mais na [Use relatórios de saúde do sistema para resolução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
+O cluster é automaticamente povoado com relatórios de saúde enviados pelos componentes do sistema. Leia mais na [Use system health reports to troubleshoot](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
-Serviço Tecido expõe consultas de saúde para cada um dos tipos de [entidades](service-fabric-health-introduction.md#health-entities-and-hierarchy)suportadas . Podem ser acedidos através da API, utilizando métodos em [FabricClient.HealthManager,](/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet)PowerShell cmdlets e REST. Estas consultas devolvem informações completas sobre a saúde sobre a entidade: o estado de saúde agregado, eventos de saúde de entidades, estados de saúde infantil (quando aplicável), avaliações pouco saudáveis (quando a entidade não é saudável) e estatísticas de saúde infantil (quando aplicável).
+A Service Fabric expõe consultas de saúde para cada um dos tipos de [entidades](service-fabric-health-introduction.md#health-entities-and-hierarchy)suportadas. Podem ser acedidos através da API, utilizando métodos em [FabricClient.HealthManager,](/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet)PowerShell cmdlets e REST. Estas consultas devolvem informações completas sobre a saúde sobre a entidade: o estado de saúde agregado, os eventos de saúde das entidades, os estados de saúde infantil (quando aplicável), as avaliações pouco saudáveis (quando a entidade não é saudável) e as estatísticas de saúde das crianças (quando aplicável).
 
-### <a name="get-cluster-health"></a>Obter saúde de cluster
-O [Get-ServiceFabricClusterHealth cmdlet](/powershell/module/servicefabric/get-servicefabricclusterhealth) devolve a saúde da entidade cluster e contém os estados de saúde de aplicações e nós (crianças do cluster).  Em primeiro lugar, ligue-se ao cluster utilizando o [cmdlet Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps).
+### <a name="get-cluster-health"></a>Obtenha saúde de cluster
+O [Get-ServiceFabricClusterHealth cmdlet](/powershell/module/servicefabric/get-servicefabricclusterhealth) devolve a saúde da entidade do cluster e contém os estados de saúde das aplicações e nóns (crianças do cluster).  Em primeiro lugar, ligue-se ao cluster utilizando o [cmdlet Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps).
 
-O estado do cluster é de 11 nós, a aplicação do sistema e tecido:/Votação configurado como descrito.
+O estado do cluster é de 11 nós, a aplicação do sistema e o tecido:/Votação configurada como descrito.
 
-O exemplo que se segue obtém a saúde do cluster utilizando políticas de saúde padrão. Os 11 nós são saudáveis, mas o estado de saúde agregado do cluster é erro porque a aplicação de tecido:/Votação está em erro. Note como as avaliações pouco saudáveis fornecem detalhes sobre as condições que desencadearam a saúde agregada.
+O exemplo a seguir obtém a saúde do cluster utilizando políticas de saúde padrão. Os 11 nós são saudáveis, mas o estado de saúde agregado do cluster é Erro porque o tecido:/Aplicação de voto está em Erro. Note como as avaliações pouco saudáveis fornecem detalhes sobre as condições que desencadearam a saúde agregada.
 
 ```powershell
 Get-ServiceFabricClusterHealth
@@ -381,7 +381,7 @@ HealthStatistics        :
                           Application           : 0 Ok, 0 Warning, 1 Error
 ```
 
-O exemplo seguinte obtém a saúde do cluster utilizando uma política de aplicação personalizada. Filtra os resultados para obter apenas aplicações e nódosos em erro ou aviso. Neste exemplo, não são devolvidos nós, uma vez que são todos saudáveis. Apenas o tecido:/Aplicação de voto respeita o filtro de aplicações. Como a política personalizada especifica considerar os avisos como erros para a aplicação de tecido:/Votação, a aplicação é avaliada como por engano e o cluster também.
+O exemplo a seguir obtém a saúde do cluster utilizando uma política de aplicação personalizada. Filtra os resultados para obter apenas aplicações e nós por engano ou aviso. Neste exemplo, não são devolvidos nós, pois todos são saudáveis. Apenas o tecido:/A aplicação de voto respeita o filtro de aplicações. Como a política personalizada especifica considerar os avisos como erros para o tecido:/Aplicação de voto, a aplicação é avaliada como erro e assim é o cluster.
 
 ```powershell
 $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
@@ -453,19 +453,19 @@ ApplicationHealthStates :
 HealthEvents            : None
 ```
 
-### <a name="get-node-health"></a>Obter saúde nó
-O [Get-ServiceFabricNodeHealth cmdlet](/powershell/module/servicefabric/get-servicefabricnodehealth) devolve a saúde de uma entidade nódoa e contém os eventos de saúde relatados no nó. Em primeiro lugar, ligue-se ao cluster utilizando o [cmdlet Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps). O exemplo que se segue obtém a saúde de um nó específico utilizando políticas de saúde padrão:
+### <a name="get-node-health"></a>Obter saúde de nó
+O [Cmdlet Get-ServiceFabricNodeHealth](/powershell/module/servicefabric/get-servicefabricnodehealth) devolve a saúde de uma entidade nólafa e contém os eventos de saúde relatados no nó. Em primeiro lugar, ligue-se ao cluster utilizando o [cmdlet Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps). O exemplo a seguir obtém a saúde de um nó específico utilizando políticas de saúde predefinidos:
 
 ```powershell
 Get-ServiceFabricNodeHealth _nt1vm_3
 ```
 
-O exemplo que se segue obtém a saúde de todos os nós do agrupamento:
+O exemplo a seguir obtém a saúde de todos os nós do agrupamento:
 ```powershell
 Get-ServiceFabricNode | Get-ServiceFabricNodeHealth | select NodeName, AggregatedHealthState | ft -AutoSize
 ```
 
-### <a name="get-system-service-health"></a>Obter saúde do serviço de sistema 
+### <a name="get-system-service-health"></a>Obter saúde do serviço do sistema 
 
 Obtenha a saúde agregada dos serviços do sistema:
 
@@ -478,14 +478,14 @@ Get-ServiceFabricService -ApplicationName fabric:/System | Get-ServiceFabricServ
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Ver eventos de tecido de serviço
-> * Perguntas eventstore APIs para eventos de cluster
+> * Ver eventos de Tecido de Serviço
+> * Consultas EventStore APIs para eventos de cluster
 > * Monitorizar infraestruturas/recolher balcões perf
-> * Ver relatórios de saúde de cluster
+> * Ver relatórios de saúde do cluster
 
 Em seguida, avance para o seguinte tutorial para aprender a escalar um cluster.
 > [!div class="nextstepaction"]
-> [Escala rés um cluster](service-fabric-tutorial-scale-cluster.md)
+> [Escalar um aglomerado](service-fabric-tutorial-scale-cluster.md)
 
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
 [template]: https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json

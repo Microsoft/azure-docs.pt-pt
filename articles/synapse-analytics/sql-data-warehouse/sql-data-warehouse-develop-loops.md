@@ -1,42 +1,42 @@
 ---
-title: Usando loops T-SQL
-description: Dicas para o desenvolvimento de soluções utilizando loops T-SQL e substituindo os cursores na piscina SYnapse SQL.
+title: Usando laços T-SQL
+description: Dicas para o desenvolvimento de soluções utilizando laços T-SQL e substituindo cursores na piscina Synapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 72a39804931c0834233e91190aacffa8d35912df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 25dad01a54b6ffe08656379340f58e0fe70ec666
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633482"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213419"
 ---
-# <a name="using-t-sql-loops-in-synapse-sql-pool"></a>Usando loops T-SQL na piscina Synapse SQL
+# <a name="using-t-sql-loops-in-synapse-sql-pool"></a>Utilizando laços T-SQL na piscina Sinaapse SQL
 
-Incluídos neste artigo estão dicas para o desenvolvimento da solução de piscina SQL utilizando loops T-SQL e substituindo os cursores.
+Incluído neste artigo estão dicas para o desenvolvimento da solução de piscina SQL usando laços T-SQL e substituindo cursores.
 
-## <a name="purpose-of-while-loops"></a>Propósito dos loops WHILE
+## <a name="purpose-of-while-loops"></a>Finalidade dos ciclos DO WHILE
 
-A piscina Synapse SQL suporta o loop [WHILE](/sql/t-sql/language-elements/while-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para executar repetidamente blocos de declaração. Este loop WHILE continua enquanto as condições especificadas forem verdadeiras ou até que o código termine especificamente o loop usando a palavra-chave BREAK.
+A piscina Synapse SQL suporta o loop [WHILE](/sql/t-sql/language-elements/while-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para executar repetidamente blocos de declaração. Este laço WHILE continua enquanto as condições especificadas forem verdadeiras ou até que o código encerre especificamente o loop utilizando a palavra-chave BREAK.
 
-Os loops são úteis para substituir os cursores definidos no código SQL. Felizmente, quase todos os cursores que estão escritos no código SQL são da variedade de leitura rápida. Assim, loops WHILE são uma ótima alternativa para substituir os cursores.
+Os loops são úteis para substituir cursores definidos no código SQL. Felizmente, quase todos os cursores que estão escritos no código SQL são da variedade rápida e só de leitura. Assim, os loops ENQUANTO são uma ótima alternativa para substituir cursores.
 
 ## <a name="replacing-cursors-in-synapse-sql-pool"></a>Substituição de cursores na piscina Synapse SQL
 
-No entanto, antes de mergulhar na cabeça primeiro, deve perguntar a si mesmo a seguinte pergunta: "Será que este cursor pode ser reescrito para usar operações baseadas em set?"
+No entanto, antes de mergulhar de cabeça primeiro, deve perguntar a si mesmo a seguinte pergunta: "Poderia este cursor ser reescrito para usar operações baseadas em conjunto?"
 
-Em muitos casos, a resposta é sim e é frequentemente a melhor abordagem. Uma operação baseada em conjunto geralmente funciona mais rápido do que uma abordagem iterativa, linha a linha.
+Em muitos casos, a resposta é sim e é frequentemente a melhor abordagem. Uma operação baseada em conjunto realiza frequentemente mais rápido do que uma abordagem iterativa, linha a linha.
 
-Os cursores de leitura para a frente rápidos podem ser facilmente substituídos por uma construção em loop. O exemplo que se segue é simples. Este exemplo de código atualiza as estatísticas de cada tabela da base de dados. Ao iterar sobre as mesas no loop, cada comando executa em sequência.
+Cursores de leitura rápidos para a frente podem ser facilmente substituídos por uma construção em loop. O exemplo a seguir é simples. Este exemplo de código atualiza as estatísticas de cada tabela da base de dados. Ao iterar sobre as tabelas no loop, cada comando executa em sequência.
 
-Em primeiro lugar, crie uma tabela temporária contendo um número único de linha utilizado para identificar as declarações individuais:
+Primeiro, crie uma tabela temporária contendo um número de linha único usado para identificar as declarações individuais:
 
 ```sql
 CREATE TABLE #tbl
@@ -51,7 +51,7 @@ FROM    sys.tables
 ;
 ```
 
-Em segundo lugar, inicializar as variáveis necessárias para executar o ciclo:
+Em segundo lugar, inicialize as variáveis necessárias para executar o loop:
 
 ```sql
 DECLARE @nbr_statements INT = (SELECT COUNT(*) FROM #tbl)
@@ -59,7 +59,7 @@ DECLARE @nbr_statements INT = (SELECT COUNT(*) FROM #tbl)
 ;
 ```
 
-Agora, passe por cima de declarações executando-as uma de cada vez:
+Agora loop sobre declarações executando-as uma de cada vez:
 
 ```sql
 WHILE   @i <= @nbr_statements
@@ -76,6 +76,6 @@ Finalmente deixe cair a tabela temporária criada no primeiro passo
 DROP TABLE #tbl;
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter mais dicas de desenvolvimento, consulte a [visão geral do desenvolvimento.](sql-data-warehouse-overview-develop.md)
+Para obter mais dicas de desenvolvimento, consulte [a visão geral do desenvolvimento.](sql-data-warehouse-overview-develop.md)

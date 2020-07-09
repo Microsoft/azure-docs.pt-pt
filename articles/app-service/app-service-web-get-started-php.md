@@ -1,16 +1,16 @@
 ---
 title: 'QuickStart: Criar uma aplicação web PHP'
-description: Implemente o seu primeiro PHP Hello World para o Azure App Service em minutos. Implementa-se usando o Git, que é uma das muitas formas de se implementar para o App Service.
+description: Implemente o seu primeiro PHP Hello World para o Azure App Service em minutos. Você implementa usando Git, que é uma das muitas maneiras de implementar para o Serviço de Aplicações.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 05/25/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: d9ee9ac3abd7dada8e87bdf5a4385185933fc4ae
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: dbaf4055da4e526ecf1c431816038f14f52fd887
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847878"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906071"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Criar uma aplicação Web PHP no Azure
 
@@ -70,7 +70,7 @@ Na janela do terminal, prima **Ctrl+C** para sair do servidor Web.
 
 No Cloud Shell, crie uma aplicação Web no plano do Serviço de Aplicações `myAppServicePlan` com o comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). 
 
-No exemplo a seguir, substitua `<app-name>` com um nome de aplicação globalmente exclusivo (os carateres válidos são `a-z`, `0-9` e `-`). O runtime está definido como `PHP|7.0`. Para ver todos os tempos de corrida suportados, [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) corra. 
+No exemplo a seguir, substitua `<app-name>` com um nome de aplicação globalmente exclusivo (os carateres válidos são `a-z`, `0-9` e `-`). O runtime está definido como `PHP|7.0`. Para ver todos os tempos de execução suportados, [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) corra. 
 
 
 ```azurecli-interactive
@@ -80,7 +80,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.4" --deployment-local-git
 ```
 > [!NOTE]
-> O símbolo de stop-parsing, `(--%)` introduzido no PowerShell 3.0, direciona a PowerShell a abster-se de interpretar a entrada como comandos ou expressões PowerShell. 
+> O símbolo stop-parsing `(--%)` , introduzido no PowerShell 3.0, direciona a PowerShell para se abster de interpretar a entrada como comandos ou expressões powerShell. 
 >
 
 Quando a aplicação Web tiver sido criada, a CLI do Azure mostra informações semelhantes ao seguinte exemplo:
@@ -100,13 +100,13 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.s
 }
 </pre>
 
-Criou uma nova aplicação vazia, com a implementação de git habilitada.
+Criou uma nova aplicação web vazia, com implementação de git ativada.
 
 > [!NOTE]
 > O URL do Git remoto é apresentado na propriedade `deploymentLocalGitUrl`, com o formato `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Guarde este URL, uma vez que vai precisar dele mais tarde.
 >
 
-Navegue para a sua aplicação Web recentemente criada. Substitua _ &lt; o nome da aplicação>_ pelo nome único da aplicação criado no passo anterior.
+Navegue para a sua aplicação Web recentemente criada. Substitua _ &lt; o nome da aplicação>_ pelo nome de aplicação único criado no passo anterior.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -178,19 +178,19 @@ Depois de concluída a implementação, volte para a janela do browser aberta du
 
 ## <a name="manage-your-new-azure-app"></a>Gerencie a sua nova app Azure
 
-1. Aceda ao <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerir a aplicação Web que criou. Procure e selecione Serviços de **Aplicações**.
+1. Aceda ao <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerir a aplicação Web que criou. Procure e selecione **Serviços de Aplicações.**
 
-    ![Pesquisa de Serviços de Aplicações, portal Azure, criar app web PHP](media/app-service-web-get-started-php/navigate-to-app-services-in-the-azure-portal.png)
+    ![Pesquisa de Serviços de Aplicações, portal Azure, crie aplicação web PHP](media/app-service-web-get-started-php/navigate-to-app-services-in-the-azure-portal.png)
 
 2. Selecione o nome da sua aplicação Azure.
 
     ![Navegação do portal para a aplicação do Azure](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
-    Será exibida a página **de visão geral** da sua aplicação web. Aqui, pode executar tarefas básicas de gestão como **Navegar,** **Parar,** **Reiniciar**e **Excluir.**
+    A **página** geral da sua aplicação web será exibida. Aqui, pode executar tarefas básicas de gestão como **Browse,** **Stop,** **Restart**e **Delete**.
 
     ![Página Serviço de Aplicações no portal do Azure](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
 
-    O menu de aplicações web fornece diferentes opções para configurar a sua aplicação. 
+    O menu de aplicativos web fornece diferentes opções para configurar a sua aplicação. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
@@ -198,3 +198,6 @@ Depois de concluída a implementação, volte para a janela do browser aberta du
 
 > [!div class="nextstepaction"]
 > [PHP com MySQL](app-service-web-tutorial-php-mysql.md)
+
+> [!div class="nextstepaction"]
+> [Configure app PHP](configure-language-php.md)

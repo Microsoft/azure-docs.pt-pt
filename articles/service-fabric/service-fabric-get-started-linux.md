@@ -1,14 +1,14 @@
 ---
-title: Instale o seu ambiente de desenvolvimento em Linux
+title: Crie o seu ambiente de desenvolvimento no Linux
 description: Instale o runtime e o SDK e crie um cluster de desenvolvimento local no Linux. Depois de concluir esta configuração, estará pronto para criar aplicações.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 000d615d779ed14eb1698cf297075480a07c71ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cfc97a540ed8c4c17ca4030c45b16021b926d7c5
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193416"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854796"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar o ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Não é permitido instalar o SDK e o runtime do Service Fabric no Subsistema Win
 
 Estas versões do sistema operativo são suportadas para desenvolvimento.
 
-* Ubuntu 16.04 (`Xenial Xerus`)
+* Ubuntu 16.04 ( `Xenial Xerus` 18.04 `Bionic Beaver` )
 
     Certifique-se de que o pacote `apt-transport-https` está instalado.
          
@@ -60,46 +60,40 @@ Para instalar o SDK e o pacote de runtime associado através da ferramenta de li
 ### <a name="ubuntu"></a>Ubuntu
 
 1. Abra um terminal.
-2. Adicione o repositório do Service Fabric à lista de origens.
+
+2. Adicione o `dotnet` repo à sua lista de fontes correspondente à sua distribuição.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
-    ```
-
-3. Adicione o repositório `dotnet` à lista de origens.
-
-    ```bash
-    wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+    wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
     ```
 
-4. Adicione a chave nova do Gnu Privacy Guard (GnuPG ou GPG) ao porta-chaves do APT.
+3. Adicione a nova chave MS Open Tech Gnu Privacy Guard (GnuPG ou GPG) ao seu porta-chaves APT.
 
     ```bash
-    curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
+    sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
-5. Adicione a chave de GPG oficial do Docker ao porta-chaves do APT.
+4. Adicione a chave de GPG oficial do Docker ao porta-chaves do APT.
 
     ```bash
-    sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-6. Configure o repositório do Docker.
+5. Configure o repositório do Docker.
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. Adicione a Chave Azul JDK ao seu teclado APT e instale o seu repositório.
+6. Adicione a chave Azul JDK ao seu porta-chaves APT e configua o seu repositório.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
     sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
-8. Atualize as listas de pacotes com base nos repositórios adicionados recentemente.
+7. Atualize as listas de pacotes com base nos repositórios adicionados recentemente.
 
     ```bash
     sudo apt-get update
@@ -179,7 +173,7 @@ Inicie um cluster local após a conclusão da instalação.
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-2. Abra um navegador web e vá`http://localhost:19080/Explorer`ao Service Fabric **Explorer** ( ). Quando o cluster for iniciado, verá o dashboard do Service Fabric Explorer. Pode demorar alguns minutos até o cluster estar totalmente configurado. Se o browser falhar em abrir o URL ou se o Service Fabric Explorer não indicar que o sistema está preparado, aguarde alguns minutos e tente novamente.
+2. Abra um navegador web e vá ao **Service Fabric Explorer** `http://localhost:19080/Explorer` (). Quando o cluster for iniciado, verá o dashboard do Service Fabric Explorer. Pode demorar alguns minutos até o cluster estar totalmente configurado. Se o browser falhar em abrir o URL ou se o Service Fabric Explorer não indicar que o sistema está preparado, aguarde alguns minutos e tente novamente.
 
     ![Service Fabric Explorer no Linux][sfx-linux]
 
@@ -228,7 +222,7 @@ Instale o [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#linu
 
 ## <a name="set-up-java-development"></a>Configurar o desenvolvimento em Java
 
-Para construir serviços de tecido de serviço usando Java, instale gradle para executar tarefas de construção. Executar o comando abaixo para instalar Gradle. As bibliotecas Java do Service Fabric são extraídas do Maven.
+Para construir serviços de Tecido de Serviço utilizando a Java, instale Gradle para executar tarefas de construção. Executar o comando abaixo para instalar Gradle. As bibliotecas Java do Service Fabric são extraídas do Maven.
 
 
 * Ubuntu
@@ -261,11 +255,11 @@ Pode instalar o plug-in do Eclipse para o Service Fabric a partir do IDE do Ecli
 > 
 > No Ubuntu, é recomendável instalar diretamente a partir do site do Eclipse, em vez de utilizar um instalador de pacote (`apt` ou `apt-get`). Se o fizer, assegura que obtém a versão mais recente do Eclipse. Pode instalar o Eclipse IDE para Programadores de Java ou para Programadores de Java EE.
 
-1. No Eclipse, certifique-se de que tem instalado o Eclipse Neon ou posterior e a versão 2.2.1 do Buildship ou posterior. Verifique as versões dos componentes instalados selecionando **a Ajuda** > sobre detalhes de**instalação**do**Eclipse** > . Pode atualizar o Buildship com as instruções apresentadas em [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: Plug-ins do Eclipse para Gradle).
+1. No Eclipse, certifique-se de que tem instalado o Eclipse Neon ou posterior e a versão 2.2.1 do Buildship ou posterior. Verifique as versões dos componentes instalados selecionando Detalhes de **Instalação de Ajuda**Sobre  >  **Eclipse**  >  **.** Pode atualizar o Buildship com as instruções apresentadas em [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: Plug-ins do Eclipse para Gradle).
 
-2. Para instalar o plug-in do Tecido de Serviço, selecione **Ajuda a** > **instalar novo software**.
+2. Para instalar o plug-in do Tecido de Serviço, selecione **Ajuda a**instalar  >  **novos softwares**.
 
-3. No **Trabalho com** caixa, insira **https:\//dl.microsoft.com/eclipse**.
+3. No **Trabalho com** caixa, **insira https: \/ /dl.microsoft.com/eclipse**.
 
 4. Selecione **Adicionar**.
 
@@ -275,7 +269,7 @@ Pode instalar o plug-in do Eclipse para o Service Fabric a partir do IDE do Ecli
 
 6. Execute os passos de instalação. Em seguida, aceite o contrato de licença do utilizador final.
 
-Se já tiver o plug-in do Service Fabric para o Eclipse instalado, confirme que tem a versão mais recente. Verifique sese a **Ajuda** > sobre detalhes de**instalação****do Eclipse** > . Em seguida, procure o Tecido de Serviço na lista de plug-ins instalados. Selecione **Update** se estiver disponível uma versão mais recente.
+Se já tiver o plug-in do Service Fabric para o Eclipse instalado, confirme que tem a versão mais recente. Verifique selecionando **Ajuda**  >  **Sobre Detalhes de**  >  **Instalação do Eclipse**. Em seguida, procure o Tecido de Serviço na lista de plug-ins instalados. Selecione **Update** se estiver disponível uma versão mais recente.
 
 Para obter mais informações, veja [Plug-in do Service Fabric para desenvolvimento de aplicações Java de Eclipse](service-fabric-get-started-eclipse.md).
 
@@ -313,7 +307,7 @@ Para remover os SDKs do Service Fabric, execute os seguintes comandos.
     npm uninstall -g generator-azuresfguest
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar e implementar a sua primeira aplicação Java do Service Fabric no Linux com o Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Criar e implementar a sua primeira aplicação Java do Service Fabric no Linux com o Plug-in do Service Fabric para Eclipse](service-fabric-get-started-eclipse.md)

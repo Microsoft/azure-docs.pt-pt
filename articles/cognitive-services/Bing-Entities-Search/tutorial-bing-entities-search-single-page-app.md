@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Aplicação Web de página única da Pesquisa de Entidades do Bing'
 titleSuffix: Azure Cognitive Services
-description: Este tutorial mostra como usar a API de Pesquisa de Entidades Bing numa aplicação Web de uma página única.
+description: Este tutorial mostra como usar a API de Pesquisa de Entidade Bing numa aplicação Web de uma página única.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: d45b9a153b770dd10da9dd61e8a7b3d138345b8a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a376c5d223121774b6c707b3bdc8edce42649e42
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78943124"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800062"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicação Web de página única
 
@@ -58,7 +58,12 @@ Neste tutorial, só vamos abordar determinadas partes do código de origem. O c�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para acompanhar o tutorial, precisa de chaves de subscrição para a API de Pesquisa bing e API bing Maps. Se não as tiver, pode usar uma chave de [ensaio](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) e uma [chave básica do Bing Maps.](https://www.microsoft.com/maps/create-a-bing-maps-key)
+Para acompanhar o tutorial, precisa de chaves de subscrição para a API de Pesquisa de Bing e para a API do Bing Maps. 
+
+* Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Assim que tiver a sua assinatura Azure:
+  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Criar um recurso Bing Search "  target="_blank"> Crie um recurso de Pesquisa Bing no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Criar um recurso de Visão De Computador "  target="_blank"> Crie um recurso Bing Maps no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
 
 ## <a name="app-components"></a>Componentes da aplicação
 
@@ -86,11 +91,11 @@ O HTML também inclui as divisões (tags `<div>` de HTML) nas quais os resultado
 ## <a name="managing-subscription-keys"></a>Gerir as chaves de subscrição
 
 > [!NOTE]
-> Esta aplicação precisa de chaves de subscrição para a API de Pesquisa do Bing e para a API Mapas Bing. Pode utilizar uma [chave da Pesquisa do Bing de avaliação](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) e uma [chave dos Mapas Bing básica](https://www.microsoft.com/maps/create-a-bing-maps-key).
+> Esta aplicação precisa de chaves de subscrição para a API de Pesquisa do Bing e para a API Mapas Bing.
 
 Para evitar ter de incluir as chaves de subscrição da API de Pesquisa do Bing e da API Mapas Bing no código, armazenamo-las no armazenamento persistente do browser. Se uma das chaves não tiver sido armazenada, pedimo-la e armazenamo-la para utilização futura. Se a API rejeitar a chave mais tarde, invalidamos a chave armazenada e voltamos a pedi-la ao utilizador quando este fizer a sua próxima pesquisa.
 
-Definimos as funções `storeValue` e `retrieveValue` que utilizam o objeto `localStorage` (se for suportado pelo browser) ou um cookie. A nossa função `getSubscriptionKey()` utiliza essas funções para armazenar e obter a chave do utilizador. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+Definimos as funções `storeValue` e `retrieveValue` que utilizam o objeto `localStorage` (se for suportado pelo browser) ou um cookie. A nossa função `getSubscriptionKey()` utiliza essas funções para armazenar e obter a chave do utilizador. Pode utilizar o ponto final global abaixo ou o ponto final [personalizado subdomínio](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
 ```javascript
 // cookie names for data we store
@@ -167,7 +172,7 @@ Por exemplo, a funcionalidade SafeSearch pode ter o valor `strict`, `moderate` o
 
 ## <a name="obtaining-a-location"></a>Obter uma localização
 
-A API Bing [ `locationQuery` ](//msdn.microsoft.com/library/ff701711.aspx)Maps oferece um método , que usamos para encontrar a latitude e longitude do local em que o utilizador entra. Essas coordenadas são, depois, transmitidas à API de Pesquisa de Entidades do Bing com o pedido do utilizador. Os resultados da pesquisa dão prioridade às entidades e aos locais que estão perto da localização especificada.
+A API Bing Maps oferece um [ `locationQuery` método,](//msdn.microsoft.com/library/ff701711.aspx)que usamos para encontrar a latitude e longitude da localização em que o utilizador entra. Essas coordenadas são, depois, transmitidas à API de Pesquisa de Entidades do Bing com o pedido do utilizador. Os resultados da pesquisa dão prioridade às entidades e aos locais que estão perto da localização especificada.
 
 Não é possível aceder à API Mapas Bing com uma consulta `XMLHttpRequest` comum numa aplicação Web, porque o serviço não suporta consultas com diversas origens. Felizmente, suporta JSONP (o “P” significa “padded” ou “preenchido”). Uma resposta JSON é uma resposta JSON comum encapsulada numa chamada à função. O pedido é feito mediante a inserção de uma tag `<script>` no documento. (O carregamento de scripts não está sujeito às políticas de segurança do browser.)
 
@@ -394,7 +399,7 @@ Os erros são processados mediante a chamada de `renderErrorMessage()` com todos
 
 ## <a name="displaying-search-results"></a>Apresentar os resultados da pesquisa
 
-A API de Pesquisa de Entidades do Bing [requer que os resultados sejam apresentados numa ordem especificada](use-display-requirements.md). Uma vez que a API pode devolver dois tipos diferentes de respostas, iterar através da coleção `Entities` ou `Places` de nível superior na resposta JSON e apresentar esses resultados não é suficiente. (Se pretender apenas um tipo de resultado, utilize o parâmetro de consulta `responseFilter`.)
+A API de Pesquisa de Entidades do Bing [requer que os resultados sejam apresentados numa ordem especificada](use-display-requirements.md). Uma vez que a API pode devolver dois tipos diferentes de respostas, não é suficiente para iterar através do nível superior `Entities` ou recolha na resposta `Places` JSON e exibir esses resultados. (Se pretender apenas um tipo de resultado, utilize o parâmetro de consulta `responseFilter`.)
 
 Em vez disso, utilizamos a coleção `rankingResponse` nos resultados da pesquisa para ordenar os resultados a apresentar. Este objeto diz respeito aos itens nas coleções `Entitiess` e/ou `Places`.
 
@@ -520,7 +525,7 @@ A nossa função de compositor de entidades:
 
 As respostas das APIs de Pesquisa do Bing podem incluir um cabeçalho `X-MSEdge-ClientID`, o qual deve ser reenviado à API com os sucessivos pedidos. Se estiverem a ser utilizadas várias APIs de Pesquisa do Bing, deve ser utilizado o mesmo ID de cliente em todas as APIs, se possível.
 
-Fornecer o cabeçalho `X-MSEdge-ClientID` permite às APIs do Bing associarem todas as pesquisas de um determinado utilizador, o que tem duas importantes vantagens.
+Desde que o `X-MSEdge-ClientID` cabeçalho permita que as APIs de Bing associem todas as pesquisas de um utilizador, que têm dois benefícios importantes.
 
 Em primeiro lugar, permite que o motor de busca do Bing aplique um contexto passado às pesquisas para encontrar resultados que deixem o utilizador mais satisfeito. Se um utilizador tiver pesquisado termos relacionados com vela, por exemplo, uma pesquisa posterior pela palavra "cais" poderá devolver, preferencialmente, informações sobre cais onde se possa ancorar um barco à vela.
 
@@ -531,19 +536,22 @@ As políticas de segurança do browser (CORS) podem impedir que o cabeçalho `X-
 > [!NOTE]
 > Numa aplicação Web de produção, deve fazer o pedido no lado do servidor mesmo assim. Caso contrário, a chave da API de Pesquisa do Bing tem de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas com a sua chave de subscrição da API, mesmo os pedidos feitos por partes não autorizadas, pelo que é importante que não revele a sua chave.
 
-Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de um proxy deste tipo inclui um cabeçalho `Access-Control-Expose-Headers`, que adiciona os cabeçalhos das respostas à lista de permissões e os disponibiliza para o JavaScript.
+Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de tal proxy tem um `Access-Control-Expose-Headers` cabeçalho que permite listar cabeçalhos de resposta e os coloca disponíveis para JavaScript.
 
 É fácil instalar um proxy do CORS para permitir que a nossa aplicação de tutorial aceda ao cabeçalho do ID de cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, emita o comando seguinte numa janela de comando:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Depois, altere o ponto final da Pesquisa na Web do Bing no ficheiro HTML para:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Em seguida, altere o ponto de terminação Bing Web Search no ficheiro HTML para:\
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Por fim, inicie o proxy do CORS com o comando seguinte:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 

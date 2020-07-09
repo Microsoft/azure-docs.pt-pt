@@ -17,18 +17,18 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 68f575164487f726c2f6c7477ceacd731bb52b0f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b88a855f1f486a94bb591e3d2a72b49a9a8500db
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79241599"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709220"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Guia de Início Rápido: Diagnosticar um problema de filtro de tráfego de rede na máquina virtual com o portal do Azure
 
 Neste guia de início rápido, implemente uma máquina virtual (VM) e, em seguida, verifique as comunicações para um endereço IP e URL e de um endereço IP. Vai determinar a causa de uma falha de comunicação e aprender a resolvê-la.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -37,14 +37,14 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 ## <a name="create-a-vm"></a>Criar uma VM
 
 1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do portal do Azure.
-2. **Selecione Compute**, e, em seguida, selecione **O Datacenter do Windows Server 2016** ou uma versão do **Ubuntu Server**.
-3. Introduza, ou selecione, as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK:**
+2. **Selecione Compute**e, em seguida, selecione **o Centro de Dados do Windows Server 2016** ou uma versão do **Ubuntu Server**.
+3. Introduza ou selecione as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK**:
 
     |Definição|Valor|
     |---|---|
     |Nome|myVm|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
-    |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os requisitos de complexidade definidos.|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Criar novo** e introduza **myResourceGroup**.|
     |Localização| Selecione **E.U.A. Leste**.|
@@ -59,7 +59,7 @@ Para testar a comunicação de rede com o Observador de Rede, deve primeiro ativ
 
 ### <a name="enable-network-watcher"></a>Ativar o observador de rede
 
-Se já tiver um observador de rede ativado em pelo menos uma região, avance para [Utilizar a verificação do fluxo IP](#use-ip-flow-verify).
+Se já tiver um observador de rede ativado em pelo menos uma região, salte para o [fluxo IP de utilização verificar](#use-ip-flow-verify).
 
 1. No portal, selecione **Todos os serviços**. Na caixa **Filtro**, introduza *Observador de Rede*. Quando a opção **Observador de Rede** aparecer nos resultados, selecione-a.
 2. Ative um observador de rede na região E.U.A. Leste, uma vez que é a região onde a VM foi implementada num passo anterior. Selecione **Regiões**, para expandir e, em seguida, selecione **...** à direita de **E.U.A. Leste**, conforme apresentado na seguinte imagem:
@@ -98,19 +98,19 @@ Agora que sabe quais as regras de segurança que estão a permitir ou a recusar 
 
 ## <a name="view-details-of-a-security-rule"></a>Ver detalhes de uma regra de segurança
 
-1. Para determinar o motivo pelo qual as regras nos passos 3 a 5 de [Utilizar a verificação do fluxo IP](#use-ip-flow-verify) permitem ou recusam a comunicação, reveja as regras de segurança efetivas para a interface de rede na VM. Na caixa de pesquisa na parte superior do portal, introduza *myvm*. Quando a interface de rede **myvm** (ou qualquer que seja o nome da interface de rede) for apresentada nos resultados da pesquisa, selecione-a.
+1. Para determinar o motivo pelo qual as regras nos passos 3 a 5 de **Utilizar a verificação do fluxo IP** permitem ou recusam a comunicação, reveja as regras de segurança efetivas para a interface de rede na VM. Na caixa de pesquisa na parte superior do portal, introduza *myvm*. Quando a interface de rede **myvm** (ou qualquer que seja o nome da interface de rede) for apresentada nos resultados da pesquisa, selecione-a.
 2. Selecione **Regras de segurança efetivas** em **SUPORTE + RESOLUÇÃO DE PROBLEMAS**, conforme apresentado na seguinte imagem:
 
     ![Regras de segurança efetivas](./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png)
 
-    No passo 3 para [Utilizar a verificação do fluxo IP](#use-ip-flow-verify), aprendeu que o motivo pelo qual foi autorizada a comunicação se deve à regra **AllowInternetOutbound**. Pode ver na imagem anterior que o **DESTINO** para a regra é **Internet**. No entanto, não é claro como 13.107.21.200, o endereço testado no passo 3 de [Utilizar a verificação do fluxo IP](#use-ip-flow-verify), está relacionado com **Internet**.
+    No passo 3 para **Utilizar a verificação do fluxo IP**, aprendeu que o motivo pelo qual foi autorizada a comunicação se deve à regra **AllowInternetOutbound**. Pode ver na imagem anterior que o **DESTINO** para a regra é **Internet**. No entanto, não é claro como 13.107.21.200, o endereço testado no passo 3 de **Utilizar a verificação do fluxo IP**, está relacionado com **Internet**.
 3. Selecione a regra **AllowInternetOutBound** e, em seguida, selecione **Destino**, conforme apresentado na seguinte imagem:
 
     ![Prefixos de regra de segurança](./media/diagnose-vm-network-traffic-filtering-problem/security-rule-prefixes.png)
 
     Um dos prefixos na lista é **12.0.0.0/6**, que abrange o intervalo 12.0.0.1-15.255.255.254 de endereços IP. Uma vez que 13.107.21.200 está dentro desse intervalo de endereços, a regra **AllowInternetOutBound** permite o tráfego de saída. Além disso, não existem regras com prioridade superior (número inferior) apresentadas na imagem no passo 2 que substituam esta regra. Feche a caixa **Prefixos de endereço**. Para recusar comunicações de saída para 13.107.21.200, pode adicionar uma regra de segurança com uma prioridade mais elevada, que recusa a saída da porta 80 para o endereço IP.
-4. Quando executou a verificação de saída para 172.131.0.100 no passo 4 para [Utilizar a verificação do fluxo IP](#use-ip-flow-verify), aprendeu que a regra **DefaultOutboundDenyAll** recusou a comunicação. Essa regra equivale à regra **DenyAllOutBound** apresentada na imagem no passo 2, que especifica **0.0.0.0/0** como o **DESTINO**. Esta regra recusa a comunicação de saída para 172.131.0.100, porque o endereço não se encontra dentro do **DESTINO** de qualquer uma das outras **Regras de saída** apresentadas na imagem. Para permitir a comunicação de saída, pode adicionar uma regra de segurança com uma prioridade mais elevada, que permite o tráfego de saída para a porta 80 para o endereço 172.131.0.100.
-5. Quando executou a verificação de entrada de 172.131.0.100 no passo 5 de [Utilizar a verificação do fluxo IP](#use-ip-flow-verify), aprendeu que a regra **DefaultInboundDenyAll** recusou a comunicação. Essa regra equivale à regra **DenyAllInBound** apresentada na imagem no passo 2. A regra **DenyAllInBound** é imposta porque não existe nenhuma outra regra de prioridade superior que permita a entrada da porta 80 para a VM de 172.31.0.100. Para permitir a comunicação de entrada, pode adicionar uma regra de segurança com uma prioridade superior que permita a entrada da porta 80 de 172.31.0.100.
+4. Quando executou a verificação de saída para 172.131.0.100 no passo 4 para **Utilizar a verificação do fluxo IP**, aprendeu que a regra **DefaultOutboundDenyAll** recusou a comunicação. Essa regra equivale à regra **DenyAllOutBound** apresentada na imagem no passo 2, que especifica **0.0.0.0/0** como o **DESTINO**. Esta regra recusa a comunicação de saída para 172.131.0.100, porque o endereço não se encontra dentro do **DESTINO** de qualquer uma das outras **Regras de saída** apresentadas na imagem. Para permitir a comunicação de saída, pode adicionar uma regra de segurança com uma prioridade mais elevada, que permite o tráfego de saída para a porta 80 para o endereço 172.131.0.100.
+5. Quando executou a verificação de entrada de 172.131.0.100 no passo 5 de **Utilizar a verificação do fluxo IP**, aprendeu que a regra **DefaultInboundDenyAll** recusou a comunicação. Essa regra equivale à regra **DenyAllInBound** apresentada na imagem no passo 2. A regra **DenyAllInBound** é imposta porque não existe nenhuma outra regra de prioridade superior que permita a entrada da porta 80 para a VM de 172.31.0.100. Para permitir a comunicação de entrada, pode adicionar uma regra de segurança com uma prioridade superior que permita a entrada da porta 80 de 172.31.0.100.
 
 As verificações neste guia de início rápido testaram a configuração do Azure. Se as verificações devolverem os resultados esperados e continuar a ter problemas de rede, certifique-se de que não tem uma firewall entre a VM e o ponto final com o qual está a comunicar e que o sistema operativo na VM não tem uma firewall que esteja a permitir ou a recusar a comunicação.
 

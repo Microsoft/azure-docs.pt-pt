@@ -11,12 +11,12 @@ metadata:
   author: markingmyname
   ms.author: maghan
   ms.date: 10/02/2019
-  ms.openlocfilehash: 5e7c778eb3d5de197044cb51e35875399908d205
-  ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+  ms.openlocfilehash: fa9decd8a0b7424d040cab9dcd46b919bb4d7df5
+  ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83657225"
+  ms.lasthandoff: 06/20/2020
+  ms.locfileid: "85116235"
 landingContent:
 - title: Acerca do Azure Data Factory
   linkLists:
@@ -75,9 +75,9 @@ landingContent:
     - text: Copiar dados no local para a cloud
       url: /azure/data-factory/tutorial-hybrid-copy-data-tool
     - text: Copiar dados em massa
-      url: /azure/data-factory/
+      url: /azure/data-factory/tutorial-bulk-copy-portal
     - text: Copiar dados de forma incremental
-      url: /azure/data-factory/tutorial-create-azure-ssis-runtime-portal
+      url: /azure/data-factory/tutorial-incremental-copy-overview
     - text: Carregar o ADLS Gen2
       url: /azure/data-factory/load-azure-data-lake-storage-gen2
     - text: Carregar o SQL DW
@@ -108,7 +108,7 @@ landingContent:
   linkLists:
   - linkListType: overview
     links:
-    - text: Migrar pacotes do SSIS para uma instância gerida da Base de Dados SQL do Azure
+    - text: Migrar pacotes do SSIS para uma Instância Gerida do SQL no Azure
       url: /azure/data-factory/scenario-ssis-migration-ssisdb-mi
   - linkListType: tutorial
     links:

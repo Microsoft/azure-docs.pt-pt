@@ -1,28 +1,28 @@
 ---
-title: Como parar de monitorizar o seu cluster Azure Red Hat OpenShift v3 [ Microsoft Docs
-description: Este artigo descreve como pode parar de monitorizar o seu cluster Azure Red Hat OpenShift com o Monitor Azure para contentores.
+title: Como parar de monitorizar o seu azure Red Hat OpenShift v3 cluster Microsoft Docs
+description: Este artigo descreve como pode parar de monitorizar o seu cluster Azure Red Hat OpenShift com o Azure Monitor para contentores.
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: e1d3200af62ad185fa942fa2c8f7f3b4e6bfd89b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82196195"
 ---
-# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Como parar de monitorizar o seu cluster OpenShift v3 do seu chapéu vermelho Azure
+# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Como parar de monitorizar o seu cluster Azure Red Hat OpenShift v3
 
-Depois de ativar a monitorização do seu cluster Azure Red Hat OpenShift 3.x, pode parar de monitorizar o cluster com o Monitor Azure para obter contentores se decidir que já não o pretende monitorizar. Este artigo mostra como fazê-lo usando o modelo de Gestor de Recursos Azure fornecido.  
+Depois de ativar a monitorização do seu cluster 3.x do Chapéu Vermelho Azure, pode parar de monitorizar o cluster com o Azure Monitor para contentores se decidir que já não o quer monitorizar. Este artigo mostra como fazê-lo usando o modelo Azure Resource Manager fornecido.  
 
 ## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
 
-São fornecidos dois modelos do Gestor de Recursos Azure para apoiar a remoção dos recursos de solução de forma consistente e repetida no seu grupo de recursos. Um é um modelo JSON que especifica a configuração para parar de monitorizar e o outro contém valores de parâmetros que configura para especificar o ID de dispositivo de cluster OpenShift e a região azure em que o cluster está implantado.
+Fornecido são dois modelos Azure Resource Manager para suportar a remoção dos recursos da solução de forma consistente e repetida no seu grupo de recursos. Um é um modelo JSON especificando a configuração para parar a monitorização e o outro contém valores de parâmetros que configura para especificar o ID de recursos de cluster OpenShift e a região de Azure em que o cluster é implantado.
 
 Se não está familiarizado com o conceito de implantação de recursos usando um modelo, consulte:
-* [Implementar recursos com modelos do Resource Manager e do Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
-* [Implementar recursos com modelos de Gestor de Recursos e o Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
+* [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
+* [Implementar recursos com modelos de Gestor de Recursos e o CLI Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Se optar por utilizar o Azure CLI, primeiro necessita de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.65 ou mais tarde. Para identificar a `az --version`sua versão, corra. Se precisar de instalar ou atualizar o Azure CLI, consulte [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.65 ou posterior. Para identificar a sua versão, corra `az --version` . Se necessitar de instalar ou atualizar o Azure CLI, consulte [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-template"></a>Criar o modelo
 
@@ -65,9 +65,9 @@ Se optar por utilizar o Azure CLI, primeiro necessita de instalar e utilizar o C
     }
     ```
 
-2. Guarde este ficheiro como **OptOutTemplate.json** para uma pasta local.
+2. Guarde este ficheiro à medida **queOptOutTemplate.jsnuma** pasta local.
 
-3. Colhe a seguinte sintaxe JSON no seu ficheiro:
+3. Cole a seguinte sintaxe JSON no seu ficheiro:
 
     ```json
     {
@@ -88,13 +88,13 @@ Se optar por utilizar o Azure CLI, primeiro necessita de instalar e utilizar o C
 
     ![Página de propriedades de contentores](media/container-insights-optout-openshift/cluster-properties-page.png)
 
-5. Guarde este ficheiro como **OptOutParam.json** para uma pasta local.
+5. Guarde este ficheiro à medida **queOptOutParam.jsnuma** pasta local.
 
 6. Está pronto para implementar este modelo.
 
 ### <a name="remove-the-solution-using-azure-cli"></a>Remova a solução utilizando o Azure CLI
 
-Execute o seguinte comando com o Azure CLI no Linux para remover a solução e limpar a configuração do seu cluster.
+Execute o seguinte comando com O Azure CLI no Linux para remover a solução e limpar a configuração do seu cluster.
 
 ```azurecli
 az login   
@@ -102,17 +102,17 @@ az account set --subscription "Subscription Name"
 az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
 ```
 
-A mudança de configuração pode demorar alguns minutos a ser completada. Quando estiver concluída, uma mensagem semelhante à seguinte que inclui o resultado é devolvida:
+A alteração de configuração pode demorar alguns minutos a ser concluída. Quando estiver concluída, uma mensagem semelhante à seguinte que inclui o resultado é devolvida:
 
 ```output
 ProvisioningState       : Succeeded
 ```
 
-### <a name="remove-the-solution-using-powershell"></a>Remova a solução utilizando powerShell
+### <a name="remove-the-solution-using-powershell"></a>Remova a solução utilizando o PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Execute os seguintes comandos PowerShell na pasta que contém o modelo para remover a solução e limpar a configuração do seu cluster.    
+Execute os seguintes comandos PowerShell na pasta que contém o gabarito para remover a solução e limpar a configuração do seu cluster.    
 
 ```powershell
 Connect-AzAccount
@@ -120,7 +120,7 @@ Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
 ```
 
-A mudança de configuração pode demorar alguns minutos a ser completada. Quando estiver concluída, uma mensagem semelhante à seguinte que inclui o resultado é devolvida:
+A alteração de configuração pode demorar alguns minutos a ser concluída. Quando estiver concluída, uma mensagem semelhante à seguinte que inclui o resultado é devolvida:
 
 ```output
 ProvisioningState       : Succeeded
@@ -128,4 +128,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se o espaço de trabalho foi criado apenas para suportar a monitorização do cluster e já não for necessário, tem de o apagar manualmente. Se não estiver familiarizado com a forma de eliminar um espaço de trabalho, consulte [Delete a Azure Log Analytics workspace](../../log-analytics/log-analytics-manage-del-workspace.md).
+Se o espaço de trabalho foi criado apenas para suportar a monitorização do cluster e já não é necessário, tem de o eliminar manualmente. Se não estiver familiarizado com a forma de eliminar um espaço de trabalho, consulte [Eliminar um espaço de trabalho Azure Log Analytics](../../log-analytics/log-analytics-manage-del-workspace.md).

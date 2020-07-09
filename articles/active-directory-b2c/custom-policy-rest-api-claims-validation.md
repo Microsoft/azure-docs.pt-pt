@@ -1,43 +1,43 @@
 ---
-title: Rest API reclama trocas como validação
+title: REST API reclama trocas como validação
 titleSuffix: Azure AD B2C
-description: Um passeio para criar uma viagem de utilizador Azure AD B2C que interage com serviços RESTful.
+description: Uma passagem para a criação de uma viagem de utilizador Azure AD B2C que interage com os serviços RESTful.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a4902e96cd41a02953b6686b5d52d7912b27809f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6381f678979437fdfc10d2ea63a79ed347183e92
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80330823"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388923"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Walkthrough: Integrar rest API reclama trocas de créditos na sua viagem de utilizador Azure AD B2C para validar a entrada do utilizador
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Walkthrough: Integrar as trocas de reclamações da API REST na sua viagem de utilizador Azure AD B2C para validar a entrada do utilizador
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Quadro de Experiência de Identidade (IEF) que sustenta o Diretório Ativo Azure B2C (Azure AD B2C) permite aos desenvolvedores de identidade integrar uma interação com uma API RESTful numa viagem de utilizador.  No final desta passagem, poderá criar uma viagem de utilizador Azure AD AD B2C que interage com [serviços RESTful](custom-policy-rest-api-intro.md) para validar a entrada do utilizador.
+O Quadro de Experiência de Identidade (IEF) que sustenta o Azure Ative Directory B2C (Azure AD B2C) permite que os desenvolvedores de identidade integrem uma interação com uma API RESTful numa viagem de utilizador.  No final desta passagem, poderá criar uma viagem de utilizador Azure AD B2C que interage com [os serviços RESTful](custom-policy-rest-api-intro.md) para validar a entrada do utilizador.
 
-Neste cenário, vamos adicionar a capacidade para os utilizadores introduzirem um número de fidelização na página de inscrição do Azure AD B2C. Vamos validar se esta combinação de e-mail e número de fidelização está mapeada para um código promocional enviando estes dados para uma API REST. Se a API REST encontrar um código promocional para este utilizador, será devolvido ao Azure AD B2C. Finalmente, o código promocional será inserido nos pedidos simbólicos para o pedido de consumo.
+Neste cenário, adicionaremos a capacidade de os utilizadores introduzirem um número de fidelização na página de inscrição Azure AD B2C. Validaremos se esta combinação de e-mail e número de fidelização está mapeada para um código promocional enviando estes dados para uma API REST. Se a API REST encontrar um código promocional para este utilizador, será devolvido ao Azure AD B2C. Finalmente, o código promocional será inserido nos pedidos simbólicos para a aplicação a consumir.
 
-Você também pode projetar a interação como um passo de orquestração. Isto é adequado quando a API REST não irá validar os dados no ecrã e sempre devolver reclamações. Para mais informações, consulte [Walkthrough: Integrar rest API reclama trocas de reclamações na sua viagem de utilizador Azure AD B2C como passo de orquestração](custom-policy-rest-api-claims-exchange.md).
+Também pode projetar a interação como um passo de orquestração. Isto é adequado quando a API REST não validará dados no ecrã e sempre devolverá as reclamações. Para obter mais informações, consulte [Walkthrough: Integre as trocas de reclamações da API rest na sua jornada de utilizador Azure AD B2C como um passo de orquestração](custom-policy-rest-api-claims-exchange.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Complete os passos em [Get started com políticas personalizadas.](custom-policy-get-started.md) Você deve ter uma política personalizada de trabalho para se inscrever e iniciar sessão com contas locais.
-- Saiba como integrar as bolsas de [reclamações da API rest na sua política personalizada Azure AD B2C](custom-policy-rest-api-intro.md).
+- Complete os passos em [Começar com políticas personalizadas.](custom-policy-get-started.md) Você deve ter uma política personalizada de trabalho para se inscrever e iniciar s inscrição com contas locais.
+- Saiba como [integrar as reclamações da API REST na sua política personalizada Azure AD B2C.](custom-policy-rest-api-intro.md)
 
-## <a name="prepare-a-rest-api-endpoint"></a>Prepare um ponto final da API REST
+## <a name="prepare-a-rest-api-endpoint"></a>Preparar um ponto final da API REST
 
-Para este passe, você deve ter uma API REST que valida se um endereço de e-mail está registado no seu sistema back-end com um ID de fidelização. Se registado, a API REST deve devolver um código de promoção de registo, que o cliente pode usar para comprar bens dentro da sua aplicação. Caso contrário, a API REST deve devolver uma mensagem de erro HTTP 409: "Loyalty ID '{loyalty ID}' não está associada ao endereço de e-mail '{email}'.".
+Para este passo, você deve ter uma API REST que valida se um endereço de e-mail está registado no seu sistema back-end com um ID de fidelização. Se registada, a API REST deve devolver um código de promoção de registo, que o cliente pode utilizar para comprar bens dentro da sua aplicação. Caso contrário, a API REST deve devolver uma mensagem de erro HTTP 409: "Loyalty ID '{loyalty ID}} não está associada a endereço de e-mail '{email}'.".
 
-O seguinte código JSON ilustra os dados que o Azure AD B2C enviará para o seu ponto final REST API. 
+O seguinte código JSON ilustra os dados que a Azure AD B2C enviará para o seu ponto final REST API. 
 
 ```json
 {
@@ -47,7 +47,7 @@ O seguinte código JSON ilustra os dados que o Azure AD B2C enviará para o seu 
 }
 ```
 
-Uma vez que a sua API REST valida os dados, deve devolver um HTTP 200 (Ok), com os seguintes dados da JSON:
+Uma vez que a API REST valida os dados, deve devolver um HTTP 200 (Ok), com os seguintes dados JSON:
 
 ```json
 {
@@ -55,7 +55,7 @@ Uma vez que a sua API REST valida os dados, deve devolver um HTTP 200 (Ok), com 
 }
 ```
 
-Se a validação falhar, a API REST deve devolver um `userMessage` HTTP 409 (Conflito), com o elemento JSON. O IEF `userMessage` espera a alegação de que a API rest volta. Esta alegação será apresentada como uma corda ao utilizador se a validação falhar.
+Se a validação falhar, a API REST deve devolver um HTTP 409 (Conflito), com o `userMessage` elemento JSON. O IEF espera a `userMessage` alegação de que a API resta. Esta alegação será apresentada como um string ao utilizador se a validação falhar.
 
 ```json
 {
@@ -65,14 +65,14 @@ Se a validação falhar, a API REST deve devolver um `userMessage` HTTP 409 (Con
 }
 ```
 
-A configuração do ponto final da API REST está fora do âmbito deste artigo. Criámos uma amostra de [Funções Azure.](https://docs.microsoft.com/azure/azure-functions/functions-reference) Pode aceder ao código de função Completo do Azure no [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+A configuração do ponto final da API REST está fora do âmbito deste artigo. Criámos uma amostra [de Azure Functions.](https://docs.microsoft.com/azure/azure-functions/functions-reference) Pode aceder ao código de função Azure completo no [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## <a name="define-claims"></a>Definir reclamações
 
-Uma reclamação fornece armazenamento temporário de dados durante uma execução política Azure AD B2C. Pode declarar reclamações dentro da secção [de sinistros.](claimsschema.md) 
+Uma reclamação fornece armazenamento temporário de dados durante uma execução política Azure AD B2C. Pode declarar reclamações dentro da secção [de esquemas de reclamações.](claimsschema.md) 
 
-1. Abra o ficheiro de extensões da sua apólice. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
-1. Procure o elemento [BuildingBlocks.](buildingblocks.md) Se o elemento não existir, adicione-o.
+1. Abra o ficheiro de extensões da sua apólice. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
+1. Procure o elemento [Blocos de Construção.](buildingblocks.md) Se o elemento não existir, adicione-o.
 1. Localize o elemento [ClaimsSchema.](claimsschema.md) Se o elemento não existir, adicione-o.
 1. Adicione as seguintes reclamações ao elemento **ClaimsSchema.**  
 
@@ -93,9 +93,9 @@ Uma reclamação fornece armazenamento temporário de dados durante uma execuç�
 </ClaimType>
 ```
 
-## <a name="configure-the-restful-api-technical-profile"></a>Configure o perfil técnico restful DaPI 
+## <a name="configure-the-restful-api-technical-profile"></a>Configurar o perfil técnico restful da API 
 
-Um [perfil técnico restful](restful-technical-profile.md) fornece suporte para interfaceção com o seu próprio serviço RESTful. O Azure AD B2C envia dados para `InputClaims` o serviço RESTful `OutputClaims` numa recolha e recebe dados numa recolha. Encontre o elemento **ClaimsProviders** e adicione um novo fornecedor de sinistros da seguinte forma:
+Um [perfil técnico repousante](restful-technical-profile.md) fornece suporte para a interligagem ao seu próprio serviço RESTful. A Azure AD B2C envia dados para o serviço RESTful numa `InputClaims` recolha e recebe dados de volta numa `OutputClaims` recolha. Encontre o elemento **ClaimsProviders** e adicione um novo fornecedor de sinistros da seguinte forma:
 
 ```xml
 <ClaimsProvider>
@@ -128,15 +128,15 @@ Um [perfil técnico restful](restful-technical-profile.md) fornece suporte para 
 </ClaimsProvider>
 ```
 
-Neste exemplo, `userLanguage` o serviço REST será `lang` enviado para o serviço REST como dentro da carga útil JSON. O valor `userLanguage` da reclamação contém o ID atual do idioma do utilizador. Para mais informações, consulte a [reclamação](claim-resolver-overview.md).
+Neste exemplo, o `userLanguage` será enviado para o serviço REST como dentro da carga útil `lang` JSON. O valor da `userLanguage` reclamação contém o ID do idioma do utilizador atual. Para mais informações, consulte [a reclamação.](claim-resolver-overview.md)
 
-Os comentários `AuthenticationType` acima `AllowInsecureAuthInProduction` e especificar alterações que deve fazer quando se muda para um ambiente de produção. Para aprender a proteger as suas APIs RESTful para produção, consulte [Secure RESTful API](secure-rest-api.md).
+Os comentários acima `AuthenticationType` e `AllowInsecureAuthInProduction` especificam as alterações que deve fazer quando se muda para um ambiente de produção. Para aprender a proteger as suas APIs RESTful para produção, consulte [API Restful Secure](secure-rest-api.md).
 
 ## <a name="validate-the-user-input"></a>Validar a entrada do utilizador
 
-Para obter o número de fidelização do utilizador durante a inscrição, deve permitir que o utilizador introduza estes dados no ecrã. Adicione a alegação de saída **loyaltyId** à página de inscrição, adicionando-a ao elemento da secção de `OutputClaims` perfil técnico de inscrição existente. Especifique toda a lista de pedidos de saída para controlar a ordem que as reclamações são apresentadas no ecrã.  
+Para obter o número de fidelização do utilizador durante a inscrição, deve permitir ao utilizador introduzir estes dados no ecrã. Adicione a reivindicação de saída **loyaltyId** à página de inscrição adicionando-a ao elemento de perfil técnico de inscrição `OutputClaims` existente. Especifique toda a lista de pedidos de saída para controlar a ordem que as reclamações são apresentadas no ecrã.  
 
-Adicione a referência técnica de perfil de validação `REST-ValidateProfile`ao perfil técnico de inscrição, que chama a . O novo perfil técnico de validação `<ValidationTechnicalProfiles>` será adicionado ao topo da coleção definida na política de base. Este comportamento significa que só após validação bem sucedida, O Azure AD B2C passa a criar a conta no diretório.   
+Adicione a referência técnica de validação ao perfil técnico de inscrição, que chama de `REST-ValidateProfile` . O novo perfil técnico de validação será adicionado ao topo da `<ValidationTechnicalProfiles>` coleção definida na política de base. Este comportamento significa que só após validação bem sucedida, a Azure AD B2C avança para criar a conta no diretório.   
 
 1. Encontre o elemento **ClaimsProviders.** Adicione um novo fornecedor de sinistros da seguinte forma:
 
@@ -190,9 +190,9 @@ Adicione a referência técnica de perfil de validação `REST-ValidateProfile`a
     </ClaimsProvider>
     ```
 
-## <a name="include-a-claim-in-the-token"></a>Incluir uma reclamação no símbolo 
+## <a name="include-a-claim-in-the-token"></a>Incluir uma reclamação no token 
 
-Para devolver a reclamação de código promocional de volta à <em> `SocialAndLocalAccounts/` </em> aplicação do partido que depende, adicione uma reclamação de saída ao ficheiro. A alegação de saída permitirá que a reclamação seja adicionada ao símbolo após uma viagem bem sucedida do utilizador, e será enviada para a aplicação. Modifique o elemento de perfil técnico dentro `promoCode` da secção do partido de fiação para adicionar o como uma reivindicação de saída.
+Para devolver o pedido de código promocional à aplicação do partido, adicione uma reclamação de saída ao <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> ficheiro. A alegação de saída permitirá que a reclamação seja adicionada ao token após uma viagem bem sucedida do utilizador, e será enviada para a aplicação. Modifique o elemento de perfil técnico dentro da secção do partido dependente para adicionar o `promoCode` como uma reivindicação de saída.
  
 ```xml
 <RelyingParty>
@@ -215,19 +215,19 @@ Para devolver a reclamação de código promocional de volta à <em> `SocialAndL
 </RelyingParty>
 ```
 
-## <a name="test-the-custom-policy"></a>Testar a política personalizada
+## <a name="test-the-custom-policy"></a>Teste a política personalizada
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino Azure AD.
-1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione registos de **Aplicações**.
-1. Selecione Quadro de **Experiência de Identidade**.
-1. Selecione **'Upload Custom Policy**' e, em seguida, faça upload dos ficheiros de política que alterou: *TrustFrameworkExtensions.xml*, e *SignUpOrSignin.xml*. 
+1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD selecionando o filtro **de subscrição Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino Azure AD.
+1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **as inscrições da App.**
+1. Selecione **o Quadro de Experiência de Identidade.**
+1. Selecione **Carregar a Política Personalizada**e, em seguida, fazer o upload dos ficheiros de política que alterou: *TrustFrameworkExtensions.xml*e *SignUpOrSignin.xml*. 
 1. Selecione a política de inscrição ou de inscrição que fez o upload e clique no botão **Executar agora.**
-1. Deverá poder inscrever-se através de um endereço de e-mail.
-1. Clique no link **'Iniciar a sessão'.**
-1. No **ID de fidelização**, tipo 1234, e clique **em Continuar**. Neste momento, deve receber uma mensagem de erro de validação.
-1. Mude para outro valor e clique **em Continuar**.
-1. O símbolo enviado de volta `promoCode` para o seu pedido inclui a reclamação.
+1. Deverá inscrever-se através de um endereço de e-mail.
+1. Clique na ligação **de inscrição agora.**
+1. No **ID**de lealdade, tipo 1234, e clique **em Continuar.** Neste momento, deverá receber uma mensagem de erro de validação.
+1. Mude para outro valor e clique em **Continuar.**
+1. O token enviado de volta para o seu pedido inclui a `promoCode` reclamação.
 
 ```json
 {
@@ -253,10 +253,10 @@ Para devolver a reclamação de código promocional de volta à <em> `SocialAndL
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender a proteger as suas APIs, consulte os seguintes artigos:
 
-- [Walkthrough: Integrar rest API reclama trocas na sua jornada de utilizador Azure AD B2C como passo de orquestração](custom-policy-rest-api-claims-exchange.md)
+- [Walkthrough: Integrar as bolsas de reclamações da REST no seu Azure AD B2C como um passo de orquestração](custom-policy-rest-api-claims-exchange.md)
 - [Proteja a sua API RESTful](secure-rest-api.md)
 - [Referência: Perfil técnico RESTful](restful-technical-profile.md)

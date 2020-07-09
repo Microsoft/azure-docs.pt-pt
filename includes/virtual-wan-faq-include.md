@@ -1,70 +1,109 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 03/24/2020
+ms.date: 06/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 827a2d6dc8a3622c17cdbcdfb179a3ea0f434f6f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 98b82047c1744fbd63ecd3665e804e9d8f6c5221
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006477"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565965"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>O utilizador precisa de ter hub e falou com dispositivos SD-WAN/VPN para utilizar o Azure Virtual WAN?
 
-O VIRTUAL WAN fornece muitas funcionalidades incorporadas numa única vidraça de vidro, como conectividade VPN site/site-para-site, conectividade User/P2S, conectividade ExpressRoute, conectividade Rede Virtual, Interconectividade VPN ExpressRoute, VNET para VNET transitivo conectividade, Routing Centralizado, firewall Azure e segurança do gestor de firewall, Monitorização, Encriptação ExpressRoute e muitas outras capacidades. Não é preciso ter todos estes casos de utilização para começar a usar O WAN Virtual. Pode simplesmente começar com apenas um caso de uso. A arquitetura Virtual WAN é um hub e uma arquitetura falada com escala e desempenho integrado onde sucursais (dispositivos VPN/SD-WAN), utilizadores (Clientes Azure VPN, clientes openVPN ou IKEv2), circuitos ExpressRoute, Redes Virtuais servem de porta-voz esportivas ao Virtual Hub(s). Todos os hubs estão ligados em malha completa num Wan Virtual Standard, facilitando ao utilizador a utilização da espinha dorsal da Microsoft para qualquer (qualquer)conectividade (qualquer falado). Para o hub e falou com dispositivos SD-WAN/VPN, os utilizadores podem instalá-lo manualmente no portal Bluee Virtual WAN ou usar o CPE virtual WAN Partner (SD-WAN/VPN) para estabelecer conectividade com o Azure. Os parceiros virtuais wan fornecem automação para conectividade que é a capacidade de exportar a informação do dispositivo para o Azure, baixar a configuração Do Azure e estabelecer conectividade com o hub Bluee Virtual WAN. Para a conectividade Point-to-site/User VPN, apoiamos o [cliente Azure VPN,](https://go.microsoft.com/fwlink/?linkid=2117554)o cliente OpenVPN ou IKEv2. 
+O WAN virtual fornece muitas funcionalidades incorporadas num único painel de vidro, tais como conectividade VPN site/site-to-site, conectividade user/P2S, conectividade ExpressRoute, conectividade virtual, interconectividade VPN ExpressRoute, conectividade transitiva VNet-to-VNet, Encaminhamento Centralizado, Firewall Azure e Segurança do Gestor de Firewall, Monitorização, Encriptação ExpressRoute, e muitas outras capacidades. Não é preciso ter todos estes casos de utilização para começar a usar WAN Virtual. Pode começar com apenas um caso de uso. A arquitetura Virtual WAN é um hub e arquitetura falada com escala e performance construídas onde os balcões (dispositivos VPN/SD-WAN), utilizadores (Clientes Azure VPN, openVPN, ou IKEv2 Clients), circuitos ExpressRoute, Redes Virtuais servem como porta-vozes para o Virtual Hub(s). Todos os hubs estão ligados em malha completa num WAN Virtual Standard, facilitando o uso da espinha dorsal da Microsoft para qualquer conectividade (qualquer um falado). Para o hub e falou com dispositivos SD-WAN/VPN, os utilizadores podem instalá-lo manualmente no portal Azure Virtual WAN ou utilizar o Parceiro Virtual WAN CPE (SD-WAN/VPN) para configurar a conectividade com o Azure. Os parceiros VIRTUAIS WAN fornecem automatização para conectividade, que é a capacidade de exportar a informação do dispositivo para o Azure, baixar a configuração Azure e estabelecer conectividade com o hub Azure Virtual WAN. Para a conectividade Point-to-site/User VPN, apoiamos [o cliente Azure VPN,](https://go.microsoft.com/fwlink/?linkid=2117554)OpenVPN ou cliente IKEv2. 
 
-### <a name="what-client-does-the-azure-virtual-wan-user-vpn-point-to-site-support"></a>Qual é o suporte do utilizador Virtual WAN VPN (Ponto-a-local) do Azure Virtual WAN?
+### <a name="can-you-disable-fully-meshed-hubs-in-a-virtual-wan"></a>Pode desativar os centros totalmente malhados num WAN virtual?
 
-O Virtual WAN suporta [o cliente Azure VPN,](https://go.microsoft.com/fwlink/?linkid=2117554)o Cliente OpenVPN ou qualquer cliente IKEv2. A autenticação Azure AD é suportada com o Cliente Azure VPN.É necessário um mínimo de cliente do Windows 10 versão OS 17763.0 ou superior.  O(s) cliente(s) OpenVPN pode apoiar a autenticação baseada em certificados. Uma vez selecionado o auth baseado em cert no portal, você verá o ficheiro .ovpn para descarregar para o seu dispositivo. Tanto o certificado como o radius auth são suportados com IKEv2. 
+O WAN virtual vem em dois sabores: Básico e Standard. Em BASIC Virtual WAN, os centros não são malhados. Num WAN Virtual Standard, os hubs são misturados e automaticamente ligados quando o WAN virtual é configurado pela primeira vez. O utilizador não precisa de fazer nada específico. O utilizador também não tem de desativar ou permitir que a funcionalidade obtenha centros de malha. O WAN virtual fornece-lhe muitas opções de encaminhamento para orientar o tráfego entre qualquer porta-voz (VNet, VPN ou ExpressRoute). Proporciona a facilidade de centros totalmente malhados, bem como a flexibilidade do tráfego de encaminhamento de acordo com as suas necessidades. 
 
-### <a name="for-user-vpn-point-to-site--why-is-the-p2s-client-pool-split-into-two-routes"></a>Para o User VPN (Ponto-a-local)- Porque é que a piscina de clientes P2S está dividida em duas rotas?
+### <a name="how-are-availability-zones-and-resiliency-handled-in-virtual-wan"></a>Como são tratadas as Zonas de Disponibilidade e a resiliência em WAN Virtual?
 
-Cada gateway tem duas instâncias, a divisão acontece de modo que cada instância de gateway pode atribuir iPs de cliente de forma independente para clientes conectados e o tráfego da rede virtual é encaminhado de volta para a instância correta de gateway para evitar o salto de instância intergateway.
+Virtual WAN é uma coleção de hubs e serviços disponibilizados dentro do hub. O utilizador pode ter o maior número de wan virtuais pelas suas necessidades. Num hub virtual WAN, existem vários serviços como VPN, ExpressRoute etc. Cada um destes serviços é implantado numa região de Zonas de Disponibilidade, se a região apoiar Zonas de Disponibilidade. Se uma região se tornar uma Zona de Disponibilidade após a implantação inicial no hub, o utilizador pode recriar os gateways, o que irá desencadear uma implementação da Zona de Disponibilidade. Todos os gateways são a provisionados num centro como ativo, o que implica que há resiliência dentro de um centro. Os utilizadores podem ligar-se a vários centros se quiserem resiliência em todas as regiões. Embora o conceito de VIRTUAL WAN seja global, o recurso virtual WAN real é baseado em Gestor de Recursos e implantado regionalmente. Se a região wan virtual em si tiver um problema, todos os hubs nesse WAN virtual continuarão a funcionar como está, mas o utilizador não será capaz de criar novos hubs até que a região virtual WAN esteja disponível.
+
+### <a name="what-client-does-the-azure-virtual-wan-user-vpn-point-to-site-support"></a>Que cliente suporta o suporte do utilizador Azure Virtual WAN VPN (Ponto a local)?
+
+A WAN virtual suporta [o cliente Azure VPN,](https://go.microsoft.com/fwlink/?linkid=2117554)o Cliente OpenVPN ou qualquer cliente IKEv2. A autenticação AZure AD é suportada com O Cliente Azure VPN.É necessário um mínimo da versão OS do cliente Windows 10 17763.0 ou superior.  Os clientes(s) OpenVPN podem suportar a autenticação baseada em certificados. Assim que o auth baseado em cert for selecionado no gateway, verá o ficheiro *.ovpn* para descarregar no seu dispositivo. O IKEv2 suporta a autenticação do certificado e do RADIUS. 
+
+### <a name="for-user-vpn-point-to-site--why-is-the-p2s-client-pool-split-into-two-routes"></a>Para a VPN do utilizador (ponto a local)- Porque é que a piscina de clientes P2S está dividida em duas rotas?
+
+Cada gateway tem duas instâncias, a divisão acontece para que cada instância de gateway possa alocar iPs de clientes independentemente para clientes conectados e o tráfego da rede virtual é encaminhado de volta para a instância de gateway correta para evitar o lúpulo de instância inter-gateway.
 
 ### <a name="how-do-i-add-dns-servers-for-p2s-clients"></a>Como adiciono servidores DNS para clientes P2S?
 
-Existem duas opções para adicionar servidores DNS para os clientes P2S.
+Existem duas opções para adicionar servidores DNS para os clientes P2S. O primeiro método é preferido, uma vez que adiciona os servidores DNS personalizados ao gateway em vez do cliente.
 
-1. Abra um bilhete de suporte com a Microsoft e mande-os adicionar os seus servidores DNS ao hub
-2. Ou, se estiver a utilizar o Cliente VPN Azure para o Windows 10, pode modificar o ficheiro XML de perfil descarregado e adicionar os ** \<dnsservers \<>dnsserver>/dnsserver \<>\</dnsserver s>** tags antes de o importar.
+1. Utilize o seguinte script PowerShell para adicionar os servidores DNS personalizados. Substitua os valores para o seu ambiente.
 
-```
-<azvpnprofile>
-<clientconfig>
+   ```powershell
+   // Define variables
+   $rgName = "testRG1"
+   $virtualHubName = "virtualHub1"
+   $P2SvpnGatewayName = "testP2SVpnGateway1"
+   $vpnClientAddressSpaces = 
+   $vpnServerConfiguration1Name = "vpnServerConfig1"
+   $vpnClientAddressSpaces = New-Object string[] 2
+   $vpnClientAddressSpaces[0] = "192.168.2.0/24"
+   $vpnClientAddressSpaces[1] = "192.168.3.0/24"
+   $customDnsServers = New-Object string[] 2
+   $customDnsServers[0] = "7.7.7.7"
+   $customDnsServers[1] = "8.8.8.8"
+   $virtualHub = $virtualHub = Get-AzVirtualHub -ResourceGroupName $rgName -Name $virtualHubName
+   $vpnServerConfig1 = Get-AzVpnServerConfiguration -ResourceGroupName $rgName -Name $vpnServerConfiguration1Name
 
-    <dnsservers>
-        <dnsserver>x.x.x.x</dnsserver>
-        <dnsserver>y.y.y.y</dnsserver>
-    </dnsservers>
+   // Specify custom dns servers for P2SVpnGateway VirtualHub while creating gateway
+   createdP2SVpnGateway = New-AzP2sVpnGateway -ResourceGroupName $rgname -Name $P2SvpnGatewayName -VirtualHub $virtualHub -VpnGatewayScaleUnit 1 -VpnClientAddressPool $vpnClientAddressSpaces -VpnServerConfiguration $vpnServerConfig1 -CustomDnsServer $customDnsServers
+
+   // Specify custom dns servers for P2SVpnGateway VirtualHub while updating existing gateway
+   $P2SVpnGateway = Get-AzP2sVpnGateway -ResourceGroupName $rgName -Name $P2SvpnGatewayName
+   $updatedP2SVpnGateway = Update-AzP2sVpnGateway -ResourceGroupName $rgName -Name $P2SvpnGatewayName  -CustomDnsServer $customDnsServers 
+
+   // Re-generate Vpn profile either from PS/Portal for Vpn clients to have the specified dns servers
+   ```
+2. Ou, se estiver a utilizar o Cliente VPN Azure para o Windows 10, ** \<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers> ** pode modificar o perfil descarregado do ficheiro XML e adicionar as etiquetas antes de o importar.
+
+   ```powershell
+      <azvpnprofile>
+      <clientconfig>
+
+          <dnsservers>
+              <dnsserver>x.x.x.x</dnsserver>
+              <dnsserver>y.y.y.y</dnsserver>
+          </dnsservers>
     
-</clientconfig>
-</azvpnprofile>
-```
+      </clientconfig>
+      </azvpnprofile>
+   ```
 
-### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>Para o User VPN (Ponto-a-site)- quantos clientes são suportados?
+### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>Para a VPN do utilizador (ponto a local)- quantos clientes são suportados?
 
-Cada gateway VPN P2S do utilizador tem duas instâncias e cada instância suporta até certos utilizadores à medida que a unidade de escala muda. A unidade de escala 1-3 suporta 500 ligações, a unidade de escala 4-6 suporta 1000 ligações, a unidade de escala 7-12 suporta 5000 ligações e a unidade de escala 13-20 suporta até 10.000 ligações. Como exemplo, digamos que o utilizador escolhe uma unidade de escala. Cada unidade de escala implicaria uma porta ativa implantada e cada uma das instâncias (neste caso 2) suportaria até 500 ligações. Uma vez que pode obter 500 ligações * 2 por gateway, não significa que planeie 1000 em vez dos 500 para esta unidade de escala, pois os casos podem precisar de ser reparados durante os quais a conectividade para o extra 500 pode ser interrompida se ultrapassar a contagem de ligação recomendada. Além disso, certifique-se de planear o tempo de inatividade caso decida escalar para cima ou para baixo na unidade de escala ou alterar a configuração ponto-a-local no gateway VPN.
+Cada gateway P2S do Utilizador tem duas instâncias e cada instância suporta certos utilizadores à medida que a unidade de escala muda. A unidade de escala 1-3 suporta 500 ligações, a unidade de escala 4-6 suporta 1000 ligações, a unidade de escala 7-12 suporta 5000 ligações e a unidade de escala 13-20 suporta até 10.000 ligações. 
+
+Como exemplo, digamos que o utilizador escolhe uma unidade de escala de 1. Cada unidade de escala implicaria um gateway ativo implantado e cada uma das instâncias (neste caso 2) suportaria até 500 ligações. Uma vez que pode obter 500 ligações * 2 por gateway, não significa que planeie 1000 em vez dos 500 para esta unidade de escala. Podem ser necessários serviços durante os quais a conectividade para os 500 extras pode ser interrompida se ultrapassar a contagem de ligação recomendada. Além disso, certifique-se de planear o tempo de inatividade no caso de decidir escalar para cima ou para baixo na unidade de escala, ou alterar a configuração ponto-a-local no gateway VPN.
 
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Qual é a diferença entre um gateway de rede virtual Azure (VPN Gateway) e um gateway Azure Virtual WAN VPN?
 
-A WAN Virtual oferece conectividade site a site em grande escala e foi criada para débito, escalabilidade e facilidade de utilização. Quando liga um site a um gateway Virtual WAN VPN, é diferente de um gateway de rede virtual regular que utiliza um tipo de gateway 'VPN'. Da mesma forma, quando liga um circuito ExpressRoute a um hub Virtual WAN, utiliza um recurso diferente para o gateway ExpressRoute do que o gateway de rede virtual regular que utiliza o tipo de gateway 'ExpressRoute'. O WAN virtual suporta até 20 Gbps de produção agregada tanto para VPN como ExpressRoute. O WAN virtual também tem automação para a conectividade com um ecossistema de parceiros de dispositivos de ramificação CPE. Os dispositivos de ramificação CPE têm automatização incorporada que aprovisiona automaticamente e liga-se ao Azure Virtual WAN. Estes dispositivos estão disponíveis num ecossistema crescente de parceiros de SD-WAN e de VPN. Consulte a [Lista de Parceiros Preferenciais](../articles/virtual-wan/virtual-wan-locations-partners.md).
+A WAN Virtual oferece conectividade site a site em grande escala e foi criada para débito, escalabilidade e facilidade de utilização. Quando liga um site a um gateway Virtual WAN VPN, é diferente de um gateway de rede virtual regular que utiliza um tipo de gateway 'VPN'. Da mesma forma, quando liga um circuito ExpressRoute a um hub Virtual WAN, utiliza um recurso diferente para o gateway ExpressRoute do que o gateway de rede virtual regular que utiliza o tipo de gateway 'ExpressRoute'. 
 
-### <a name="how-is-virtual-wan-different-from-an-azure-virtual-network-gateway"></a>Como é que o Wan Virtual é diferente de um portal de rede virtual Azure?
+O WAN virtual suporta até 20 Gbps de produção agregada tanto para VPN como ExpressRoute. A WAN virtual também tem automatização para conectividade com um ecossistema de parceiros de dispositivos de filial CPE. Os dispositivos de filial CPE têm automatização incorporada que autoprovisione e conecta-se ao Azure Virtual WAN. Estes dispositivos estão disponíveis num ecossistema crescente de parceiros de SD-WAN e de VPN. Consulte a [Lista de Parceiros Preferidos.](../articles/virtual-wan/virtual-wan-locations-partners.md)
 
-Um gateway de rede virtual VPN está limitado a 30 túneis. Para as conexões, deve utilizar a WAN Virtual para uma VPN de grande escala. Pode ligar até 1.000 ligações de ramificação por região (centro virtual) com um agregado de 20 Gbps por hub. Uma ligação é um túnel ativo-ativo do dispositivo VPN no local para o hub virtual. Você pode ter um centro por região, o que significa que você pode conectar mais de 1.000 ramos através de centros.
+### <a name="how-is-virtual-wan-different-from-an-azure-virtual-network-gateway"></a>Como é que o VIRTUAL WAN é diferente de um gateway de rede virtual Azure?
 
-### <a name="what-is-a-virtual-wan-gateway-scale-unit"></a>O que é uma Unidade virtual de escala wan gateway
-Uma unidade de escala é uma unidade definida para escolher uma entrada agregada de um gateway no centro virtual. 1 unidade de escala de VPN = 500 Mbps . 1 unidade de escala da ExpressRoute = 2 Gbps. Exemplo: 10 unidade de escala de VPN implicaria 500 Mbps * 10 = 5 Gbps
+Uma VPN de gateway de rede virtual está limitada a 30 túneis. Para as conexões, deve utilizar a WAN Virtual para uma VPN de grande escala. Pode ligar até 1.000 ligações de ramificação por região (hub virtual) com um agregado de 20 Gbps por hub. Uma ligação é um túnel ativo-ativo do dispositivo VPN no local para o hub virtual. Você pode ter um hub por região, o que significa que você pode conectar mais de 1.000 ramos através de centros.
 
-### <a name="which-device-providers-virtual-wan-partners-are-supported"></a>Que fornecedores de dispositivos (parceiros Virtual WAN) são suportados?
+### <a name="what-is-a-virtual-wan-gateway-scale-unit"></a>O que é uma Unidade de Escala de Gateway VIRTUAL WAN
 
-Atualmente, muitos parceiros suportam a experiência de WAN Virtual totalmente automatizada. Para obter mais informações, veja [Parceiros de WAN Virtual](../articles/virtual-wan/virtual-wan-locations-partners.md). 
+Uma unidade de escala é uma unidade definida para escolher uma produção agregada de um gateway no centro virtual. 1 unidade de escala de VPN = 500 Mbps. 1 unidade de escala de ExpressRoute = 2 Gbps. Exemplo: 10 unidades de VPN à escala implicariam 500 Mbps * 10 = 5 Gbps
+
+### <a name="which-device-providers-virtual-wan-partners-are-supported"></a>Quais os fornecedores de dispositivos (parceiros VIRTUAIS WAN) são suportados?
+
+Atualmente, muitos parceiros suportam a experiência de WAN Virtual totalmente automatizada. Para obter mais informações, veja [Parceiros de WAN Virtual](../articles/virtual-wan/virtual-wan-locations-partners.md).
 
 ### <a name="what-are-the-virtual-wan-partner-automation-steps"></a>Quais são os passos de automatização dos parceiros da WAN Virtual?
 
@@ -72,154 +111,140 @@ Para obter os passos de automatização, veja [Automatização dos parceiros da 
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>Sou obrigado a utilizar um dispositivo de parceiro preferencial?
 
-Não. Pode utilizar qualquer dispositivo compatível com VPN que cumpra os requisitos para suporte de IPsec de IKEv2/IKEv1.
+Não. Pode utilizar qualquer dispositivo compatível com VPN que cumpra os requisitos para suporte de IPsec de IKEv2/IKEv1. A VIRTUAL WAN também tem soluções parceiras CPE que automatizam a conectividade com a Azure Virtual WAN, facilitando a configuração de ligações VPN IPsec em escala.
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>Como é que os parceiros de WAN Virtual automatizam a conectividade com a WAN Virtual do Azure?
 
-As soluções de conectividade definida pelo software gerem, normalmente, os respetivos dispositivos de ramo com um controlador ou um centro de aprovisionamento de dispositivos. O controlador pode utilizar APIs do Azure para automatizar a conectividade à WAN Virtual do Azure. A automatização inclui o upload de informações do ramo, o download da configuração Azure, a instalação de túneis IPSec em hubs Azure Virtual e a configuração automática da conectividade do dispositivo de ramificação para o Azure Virtual WAN. Quando se tem centenas de balcões, ligar-se utilizando parceiros virtuais DE WAN CPE é fácil porque a experiência de embarque tira a necessidade de configurar, configurar e gerir a conectividade IPsec em larga escala. Para mais informações, consulte a automatização de [parceiros Virtual WAN](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
+As soluções de conectividade definida pelo software gerem, normalmente, os respetivos dispositivos de ramo com um controlador ou um centro de aprovisionamento de dispositivos. O controlador pode utilizar APIs do Azure para automatizar a conectividade à WAN Virtual do Azure. A automatização inclui o upload de informações do ramo, o descarregamento da configuração Azure, a criação de túneis IPSec em centros virtuais Azure e a configuração automática da conectividade do dispositivo de ramo para Azure Virtual WAN. Quando se tem centenas de agências, a ligação utilizando parceiros VIRTUAIS WAN CPE é fácil porque a experiência de embarque retira a necessidade de configurar, configurar e gerir a conectividade IPsec em larga escala. Para obter mais informações, consulte [a automatização de parceiros Virtual WAN.](../articles/virtual-wan/virtual-wan-configure-automation-providers.md)
 
+### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>E se um dispositivo que estou a usar não estiver na lista de parceiros do Wan Virtual? Ainda posso usá-lo para ligar ao Azure Virtual WAN VPN?
 
-### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Como é que o Virtual WAN suporta dispositivos SD-WAN?
+Sim, desde que o dispositivo suporte iPsec IKEv1 ou IKEv2. Os parceiros WAN virtuais automatizam a conectividade do dispositivo para os pontos finais Azure VPN. Isto implica automatizar etapas como 'branch information upload', 'IPsec e configuração' e 'conectividade'. Uma vez que o seu dispositivo não é de um ecossistema parceiro Virtual WAN, terá de fazer o levantamento pesado de tomar manualmente a configuração Azure e atualizar o seu dispositivo para configurar a conectividade IPsec.
 
-Os parceiros virtuais WAN automatizam a conectividade IPsec com os pontos finais da VPN Azure. Se o parceiro Virtual WAN é um fornecedor SD-WAN, então está implícito que o controlador SD-WAN gere a automação e a conectividade IPsec com os pontos finais da VPN Azure. Se o dispositivo SD-WAN necessitar do seu próprio ponto final em vez do Azure VPN para qualquer funcionalidade sd-WAN proprietária, pode implantar o ponto final SD-WAN num Azure VNet e coexistir com o Azure Virtual WAN.
+### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>Como é que os novos parceiros que não estão listados na sua lista de parceiros de lançamento são incluídos?
 
-### <a name="does-virtual-wan-change-any-existing-connectivity-features"></a>A WAN Virtual altera funcionalidades de conectividade existentes?
+Todas as APIs wan virtuais estão abertas API. Pode ver a documentação [A automatização do parceiro Virtual WAN](../articles/virtual-wan/virtual-wan-configure-automation-providers.md) para avaliar a viabilidade técnica. Um parceiro ideal é o que tem um dispositivo que pode ser aprovisionado para a conectividade IKEv1 ou IKEv2 IPsec. Uma vez concluída a empresa o trabalho de automatização do seu dispositivo CPE com base nas diretrizes de automatização acima fornecidas, pode contactar azurevirtualwan@microsoft.com para ser listado aqui Conectividade através de [parceiros.]( ../articles/virtual-wan/virtual-wan-locations-partners.md#partners) Se é um cliente que gostaria que uma determinada solução da empresa fosse listada como um parceiro Virtual WAN, por favor contacte a empresa contacte a WAN Virtual enviando um e-mail para azurevirtualwan@microsoft.com .
 
-As funcionalidades de conectividade do Azure existentes não sofrem quaisquer alterações.
+### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Como é que o WAN virtual suporta dispositivos SD-WAN?
 
-### <a name="are-there-new-resource-manager-resources-available-for-virtual-wan"></a>Existem novos recursos do Resource Manager disponíveis para a WAN Virtual?
-  
-Sim, a WAN Virtual apresenta novos recursos do Resource Manager. Para obter mais informações, veja a [Descrição Geral](../articles/virtual-wan/virtual-wan-about.md).
+Os parceiros virtuais wan automatizam a conectividade IPsec para os pontos finais do Azure VPN. Se o parceiro Virtual WAN for um fornecedor SD-WAN, então está implícito que o controlador SD-WAN gere a automação e a conectividade IPsec com os pontos finais do Azure VPN. Se o dispositivo SD-WAN necessitar do seu próprio ponto final em vez de Azure VPN para qualquer funcionalidade proprietária da SD-WAN, pode implantar o ponto final SD-WAN num VNet Azure e coexistir com a Azure Virtual WAN.
 
-### <a name="how-many-vpn-devices-can-connect-to-a-single-hub"></a>Quantos dispositivos VPN podem ligar a um único hub?
+### <a name="how-many-vpn-devices-can-connect-to-a-single-hub"></a>Quantos dispositivos VPN podem ligar-se a um único hub?
 
-Até 1.000 ligações são suportadas por centro virtual. Cada ligação consiste em quatro ligações e cada ligação de ligação suporta dois túneis que se encontram numa configuração ativa. Os túneis terminam num hub virtual azure vpngateway.
+Até 1.000 ligações são suportadas por hub virtual. Cada ligação é constituída por quatro ligações e cada ligação suporta dois túneis que se encontram numa configuração ativa. Os túneis terminam num gateway VPN do hub virtual de Azure. As ligações representam a ligação física ISP no dispositivo branch/VPN.
+
+### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>O que é uma ligação de ramo ao Azure Virtual WAN?
+
+Uma ligação de um ramo ou dispositivo VPN para Azure Virtual WAN não passa de uma ligação VPN que liga virtualmente o Site VPN e o Gateway VPN Azure num hub virtual.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>O dispositivo VPN no local pode ser ligado a vários Hubs?
 
-Sim. O fluxo de tráfego, quando começa, é do dispositivo no local até à borda mais próxima da rede da Microsoft e, em seguida, ao centro virtual.
+Sim. O fluxo de tráfego, quando começa, é do dispositivo no local para a borda de rede mais próxima da Microsoft e, em seguida, para o centro virtual.
+
+### <a name="are-there-new-resource-manager-resources-available-for-virtual-wan"></a>Existem novos recursos do Resource Manager disponíveis para a WAN Virtual?
+  
+Sim, a VIRTUAL WAN tem novos recursos de Gestor de Recursos. Para obter mais informações, veja a [Descrição Geral](../articles/virtual-wan/virtual-wan-about.md).
 
 ### <a name="can-i-deploy-and-use-my-favorite-network-virtual-appliance-in-an-nva-vnet-with-azure-virtual-wan"></a>Posso implementar e utilizar a minha aplicação virtual de rede favorita (numa VNet de NVA) com a WAN Virtual do Azure?
 
-Sim, pode ligar a VNet da aplicação virtual de rede (NVA) favorita à WAN Virtual do Azure. Em primeiro lugar, ligue a VNet da aplicação de rede virtual ao hub com uma ligação de Rede Virtual do Hub. Em seguida, crie uma rota de hub virtual com um próximo salto apontando para o Aparelho Virtual. Pode aplicar várias rotas para a Tabela de Rota do Hub virtual. Quaisquer spokes ligados à VNet NVA têm de estar ligados adicionalmente ao hub virtual para garantir que as rotas de VNet do spoke são propagadas para sistemas no local.
+Sim, pode ligar a VNet da aplicação virtual de rede (NVA) favorita à WAN Virtual do Azure.
 
-### <a name="can-i-create-a-network-virtual-appliance-inside-the-virtual-hub"></a>Posso criar um Aparelho Virtual rede dentro do centro virtual?
+### <a name="can-i-create-a-network-virtual-appliance-inside-the-virtual-hub"></a>Posso criar um Aparelho Virtual de Rede dentro do centro virtual?
 
-Um aparelho virtual de rede (NVA) não pode ser implantado dentro de um centro virtual. No entanto, pode criá-lo num VNet falado que está ligado ao hub virtual e permitir uma rota no centro para direcionar o tráfego para o destino VNet através do endereço IP NVA (do NIC).
+Um aparelho virtual de rede (NVA) não pode ser implantado dentro de um centro virtual. No entanto, pode criá-lo num VNet falado que está ligado ao hub virtual e permitir o encaminhamento adequado para o tráfego direto de acordo com as suas necessidades.
 
-### <a name="can-a-spoke-vnet-have-a-virtual-network-gateway"></a>Um VNet falado pode ter um portal de rede virtual?
+### <a name="can-a-spoke-vnet-have-a-virtual-network-gateway"></a>Um VNet falado pode ter uma porta de entrada de rede virtual?
 
-Não. O VNet falado não pode ter um portal de rede virtual se estiver ligado ao centro virtual.
+Não. O VNet falado não pode ter uma porta de entrada de rede virtual se estiver ligado ao centro virtual.
 
-### <a name="is-there-support-for-bgp"></a>Existe suporte para BGP?
+### <a name="is-there-support-for-bgp-in-vpn-connectivity"></a>Existe apoio para o BGP na conectividade VPN?
 
-Sim, o BGP é suportado. Ao criar um site VPN, pode fornecer os parâmetros BGP nele. Isto implicará que quaisquer ligações criadas em Azure para esse site serão ativadas para o BGP. Além disso, se você tinha um VNet com um NVA, e se este NVA VNet foi ligado a um hub Virtual WAN, de forma a garantir que as rotas de um VNet NVA são publicitadas adequadamente, os porta-vozes ligados à NVA VNet devem desativar o BGP. Além disso, ligue estes VNets falados ao centro virtual VNet para garantir que as rotas VNet faladas são propagadas para sistemas no local.
-
-### <a name="can-i-direct-traffic-using-udr-in-the-virtual-hub"></a>Posso direcionar o tráfego com um UDR no hub virtual?
-
-Sim, pode direcionar o tráfego para um VNet usando uma mesa de rota de hub virtual. Isto permite-lhe definir rotas para vNets de destino em Azure através de um endereço IP específico (tipicamente do NVA NIC).
+Sim, o BGP é suportado. Quando criar um site VPN, pode fornecer os parâmetros BGP nele. Isto implicará que quaisquer ligações criadas em Azure para esse site serão ativadas para bGP.
 
 ### <a name="is-there-any-licensing-or-pricing-information-for-virtual-wan"></a>Existem informações de licenciamento ou de preços da WAN Virtual?
 
 Sim. Veja a página [Preços](https://azure.microsoft.com/pricing/details/virtual-wan/).
 
-### <a name="how-do-i-calculate-price-of-a-hub"></a>Como calculo o preço de um centro?
-
-* Pagaria pelos serviços no centro. Por exemplo, digamos que tem 10 balcões ou dispositivos no local que exigem a ligação ao Azure Virtual WAN implicaria a ligação aos pontos finais VPN no centro. Digamos que esta é VPN de 1 unidade de escala = 500 Mbps, isto é cobrado a $0.361/h. Cada ligação é cobrada a $0,05/h. Para 10 ligações, o custo total do serviço/hr seria $0.361 + $.5/hr. Aplicam-se os encargos com os dados relativos ao tráfego que sai do Azure.
-
-* Há uma carga adicional no centro. Veja a página [Preços](https://azure.microsoft.com/pricing/details/virtual-wan/).
-
-* Se tivesse o gateway ExpressRoute devido aos circuitos ExpressRoute que ligavam a um hub virtual, então pagaria pelo preço unitário de escala. Cada unidade de escala em ER é de 2 Gbps e cada unidade de ligação é carregada ao mesmo ritmo que a unidade vpn connection.
-
-* Se tivesse satisfeito VNETs ligados ao centro, ainda se aplicam as acusações nos VNETs spoke. 
-
-### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>Como é que os novos parceiros que não estão listados na sua lista de parceiros de lançamento são incluídos?
-
-Todas as APIs wan virtuais estão abertas a API. Pode ver a documentação para avaliar a viabilidade técnica. Se tiver alguma dúvida, envie azurevirtualwan@microsoft.comum e-mail para . Um parceiro ideal é o que tem um dispositivo que pode ser aprovisionado para a conectividade IKEv1 ou IKEv2 IPsec.
-
-### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>E se um dispositivo que estou a usar não estiver na lista de parceiros virtual wan? Ainda posso usá-lo para ligar à VPN Wan Virtual Do Azure?
-
-Sim, desde que o dispositivo suporte iPsec IKEv1 ou IKEv2. Os parceiros virtuais WAN automatizam a conectividade do dispositivo para os pontos finais da VPN Azure. Isto implica automatizar etapas como o "upload de informação de ramificação", "IPsec e configuração" e "conectividade". Uma vez que o seu dispositivo não é de um ecossistema parceiro Virtual WAN, terá de fazer o levantamento pesado da tomada manual da configuração Azure e atualizar o seu dispositivo para configurar a conectividade IPsec.
-
 ### <a name="is-it-possible-to-construct-azure-virtual-wan-with-a-resource-manager-template"></a>É possível construir uma WAN Virtual do Azure com um modelo do Resource Manager?
 
-Uma configuração simples de um WAN virtual com um hub e um vpnsite pode ser criado usando um [modelo de arranque rápido](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network). O WAN virtual é principalmente um serviço de REPOUSO ou portal.
+Uma configuração simples de um WAN Virtual com um hub e um vpnsite pode ser criada usando um [modelo de arranque rápido](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network). O WAN virtual é principalmente um serviço DE REST ou portal.
 
-### <a name="is-global-vnet-peering-supported-with-azure-virtual-wan"></a>O peering de VNet Global é suportado com a WAN Virtual do Azure? 
+### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other-v2v-transit"></a>Os VNets falados ligados a um hub virtual podem comunicar entre si (V2V Transit)?
 
-Pode ligar um VNet numa região diferente do seu WAN virtual.
-
-### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other-v2v-transit"></a>Os VNets falados podem comunicar entre si um centro virtual (V2V Transit)?
-
-Sim. O Standard Virtual WAN suporta a conectividade transitiva Vnet para Vnet através do centro virtual WAN a que os Vnets estão ligados. Na terminologia Virtual WAN, referimo-nos a estes caminhos como "trânsito virtual WAN VNet" para VNets ligados a um Virtual Wan Hub dentro de uma única região, e "trânsito global de WAN VNet" para VNets ligados através de múltiplos Centros VIRTUAIS WAN em duas ou mais regiões. O trânsito vNet suporta até 3 Gbps de entrada durante a pré-visualização pública. A produção expandir-se-á quando o trânsito global for a GA.
-
-NOTA: Atualmente, a pré-visualização do trânsito V2V requer que um GW VPN seja implantado num Hub Virtual para desencadear o lançamento dos elementos de encaminhamento. Este VPN GW não é utilizado para a via de trânsito V2V. Esta é uma limitação conhecida e será removida no momento do V2V GA. Pode eliminar o Gateway VPN no centro(s) depois de totalmente lançado, uma vez que não é necessário para a funcionalidade de trânsito V2V. 
-
-Para alguns cenários, os Vnets falados também podem ser diretamente espreitados uns com os outros usando o [Virtual Network Peering,](../articles/virtual-network/virtual-network-peering-overview.md) além do trânsito virtual wan VNet local ou global. Neste caso, a Vnet Peering tem precedência sobre a ligação transitiva através do centro virtual WAN. 
-
-### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>O que é uma ligação de ramo ao Azure Virtual WAN?
-
-Uma ligação de um dispositivo de ramificação para o Azure Virtual WAN suporta até quatro links. Uma ligação é a ligação de conectividade física na localização do ramo (por exemplo: ATT, Verizon, etc.). Cada ligação de ligação é composta por dois túneis IPsec ativos/ativos.
+Sim. O STANDARD Virtual WAN suporta a conectividade transitiva VNet-to-VNet através do hub VIRTUAL WAN a que os VNets estão ligados. Na terminologia virtual WAN, referimo-nos a estes caminhos como "trânsito virtual local de WAN VNet" para VNets ligados a um Centro De Wan Virtual dentro de uma única região, e "global de trânsito virtual WAN VNet" para VNets conectados através de múltiplos Hubs VIRTUAIS WAN em duas ou mais regiões. Para alguns cenários, os VNets falados também podem ser diretamente espreitados uns com os outros usando [o Virtual Network Peering,](../articles/virtual-network/virtual-network-peering-overview.md) além do trânsito virtual WAN VNet local ou global. Neste caso, o VNet Peering tem precedência sobre a ligação transitiva através do hub VIRTUAL WAN.
 
 ### <a name="is-branch-to-branch-connectivity-allowed-in-virtual-wan"></a>A conectividade entre ramificações é permitida na WAN Virtual?
 
-Sim, a conectividade entre ramificações está disponível na WAN Virtual para VPN e VPN para o ExpressRoute.
+Sim, a conectividade entre ramificações está disponível na WAN Virtual. O ramo é conceptualmente aplicável aos utilizadores VPN Site, ExpressRoute ou utilizadores point-to-site/user VPN. Permitir que o ramo seja ramificado é ativado por predefinição e pode ser localizado nas definições de configuração WAN. Isto permite que os balcões/utilizadores VPN se conectem a outros balcões VPN, bem como a conectividade de trânsito está ativada entre utilizadores VPN e ExpressRoute.
 
-### <a name="does-branch-to-branch-traffic-traverse-through-the-azure-virtual-wan"></a>O tráfego de ramificação a sucursal atravessa o Wan Virtual Azure?
+### <a name="does-branch-to-branch-traffic-traverse-through-the-azure-virtual-wan"></a>O tráfego de ramo-a-ramo atravessa o Azure Virtual WAN?
 
 Sim.
 
-### <a name="does-virtual-wan-require-expressroute-from-each-site"></a>O Virtual WAN requer a ExpressRoute de cada site?
+### <a name="does-virtual-wan-require-expressroute-from-each-site"></a>O WAN virtual requer o ExpressRoute de cada site?
 
-Não, a WAN Virtual não precisa do ExpressRoute de cada site. Utiliza conectividade padrão iPsec site-to-site através de links de internet do dispositivo para um hub Bluee Virtual WAN. Os sites podem estar ligados a uma rede de fornecedor através de um circuito do ExpressRoute. Para sites que estão ligados usando expressRoute em um hub virtual, os sites podem ter ramificação para ramificar fluxo de tráfego entre VPN e ExpressRoute.
+Não. O WAN virtual não requer o ExpressRoute de cada site. Os sites podem estar ligados a uma rede de fornecedor através de um circuito do ExpressRoute. Para sites que estão conectados usando ExpressRoute para um hub virtual, bem como IPsec VPN no mesmo hub, o hub virtual fornece conectividade de trânsito entre o utilizador VPN e ExpressRoute.
 
-### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>Há algum limite de débito de rede ao utilizar a WAN Virtual do Azure?
+### <a name="is-there-a-network-throughput-or-connection-limit-when-using-azure-virtual-wan"></a>Existe um limite de produção ou ligação de rede ao utilizar o Azure Virtual WAN?
 
-O número de balcões é limitado a 1000 ligações por hub/região e um total de 20 Gbps no centro. Pode ter 1 centro por região.
+A produção de rede é per serviço num hub WAN virtual. Enquanto você pode ter o número de WANs virtuais que você quiser, cada WAN Virtual permite 1 hub por região. Em cada hub, a produção agregada VPN é de até 20 Gbps, a produção agregada ExpressRoute é de até 20 Gbps e o rendimento agregado VPN/VPN do utilizador é de até 20 Gbps. O router em hub virtual suporta até 50 Gbps para fluxos de tráfego VNet-to-VNet e assume um total de 2000 VM de carga de trabalho em todos os VNets em centros VIRTUAIS WAN.
 
-### <a name="how-many-vpn-connections-does-a-virtual-wan-hub-support"></a>Quantas ligações VPN suporta um centro virtual WAN?
-
-Um hub Azure Virtual WAN pode suportar até 1.000 ligações S2S, 10.000 ligações P2S e 4 ligações ExpressRoute simultaneamente.
+Quando os Sites VPN se ligam a um hub, fazem-no com ligações. O WAN virtual suporta até 1000 ligações ou túneis 2000 IPsec por centro virtual. Quando os utilizadores remotos se ligam ao hub virtual, conectam-se ao gateway P2S VPN, que suporta até 10.000 utilizadores dependendo da unidade de escala (largura de banda) escolhida para o gateway P2S VPN no centro virtual.
 
 ### <a name="what-is-the-total-vpn-throughput-of-a-vpn-tunnel-and-a-connection"></a>Qual é a produção total de VPN de um túnel VPN e uma ligação?
 
-A produção total de VPN de um hub é de até 20 Gbps com base na unidade de escala escolhida. A entrada é partilhada por todas as ligações existentes. Cada túnel numa ligação pode suportar até 1 Gbps.
+A produção total de VPN de um hub é de até 20 Gbps com base na unidade de escala escolhida do gateway VPN. A produção é partilhada por todas as ligações existentes. Cada túnel numa ligação pode suportar até 1 Gbps.
 
-### <a name="i-dont-see-the-20-gbps-setting-for-the-virtual-hub-in-the-portal-how-do-i-configure-that"></a>Não vejo a definição de 20 Gbps para o centro virtual no portal. Como posso configurar isto?
+### <a name="i-dont-see-the-20-gbps-setting-for-the-virtual-hub-in-portal-how-do-i-configure-that"></a>Não vejo a definição de 20 Gbps para o centro virtual no portal. Como posso configurar isto?
 
-Navegue para o gateway VPN dentro de um hub no portal e clique na unidade de escala para alterá-la para a configuração apropriada.
+Navegue até ao gateway VPN dentro de um hub no portal e clique na unidade de escala para alterá-la para a definição apropriada.
 
-### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>O Virtual WAN permite que o dispositivo no local utilize vários ISPs em paralelo, ou é sempre um único túnel VPN?
-As soluções de dispositivos no local podem aplicar políticas de tráfego para orientar o tráfego através de vários túneis para O Azure.
+### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>O VIRTUAL WAN permite que o dispositivo no local utilize vários ISPs em paralelo, ou é sempre um único túnel VPN?
 
+As soluções de dispositivos no local podem aplicar políticas de tráfego para orientar o tráfego através de vários túneis para o hub Azure Virtual WAN (gateway VPN no centro virtual).
 
-### <a name="what-is-global-transit-architecture"></a>O que é a arquitetura global de trânsito?
+### <a name="what-is-global-transit-architecture"></a>O que é a arquitetura de trânsito global?
 
-Para obter informações sobre a arquitetura global de trânsito, consulte a arquitetura global da rede de trânsito e o [Wan Virtual.](../articles/virtual-wan/virtual-wan-global-transit-network-architecture.md)
+Para obter informações sobre a arquitetura global de trânsito, consulte [a arquitetura da rede de trânsito Global e a Virtual WAN.](../articles/virtual-wan/virtual-wan-global-transit-network-architecture.md)
 
 ### <a name="how-is-traffic-routed-on-the-azure-backbone"></a>Como é que o tráfego é encaminhado no backbone do Azure?
 
-O tráfego segue o padrão: dispositivo de ramificação ->dispositivo de >rede ISP->Microsoft >Microsoft DC (hub VNet)->dispositivo de ramificação de >ISP >
+O tráfego segue o padrão: dispositivo de ramo ->ISP->Microsoft rede edge->Microsoft edge->Microsoft DC (hub VNet)->dispositivo >de >de rede da Microsoft
 
 ### <a name="in-this-model-what-do-you-need-at-each-site-just-an-internet-connection"></a>Neste modelo, do que precisa em cada site? Apenas uma ligação à internet?
 
-Sim. Uma ligação à Internet e dispositivo físico que suporta o IPsec, de preferência dos [nossos parceiros integrados](../articles/virtual-wan/virtual-wan-locations-partners.md)de WAN Virtual. Opcionalmente, pode gerir manualmente a configuração e conectividade com o Azure a partir do seu dispositivo preferido.
+Sim. Uma ligação à Internet e dispositivo físico que suporta o IPsec, de preferência dos nossos [parceiros integrados virtual WAN.](../articles/virtual-wan/virtual-wan-locations-partners.md) Opcionalmente, pode gerir manualmente a configuração e conectividade com o Azure a partir do seu dispositivo preferido.
 
-### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>Como posso ativar a rota padrão (0.0.0.0/0) numa ligação (VPN, ExpressRoute ou Rede Virtual):
+### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>Como posso permitir a rota predefinidora (0.0.0.0/0) numa ligação (VPN, ExpressRoute ou Rede Virtual):
 
-Um hub virtual pode propagar uma rota padrão aprendida para uma ligação VPN/ExpressRoute de rede virtual/local-para-site se a bandeira estiver 'Activada' na ligação. Esta bandeira é visível quando o utilizador edita uma ligação de rede virtual, uma ligação VPN ou uma ligação ExpressRoute. Por predefinição, esta bandeira é desativada quando um local ou um circuito ExpressRoute está ligado a um hub. É ativado por padrão quando uma ligação de rede virtual é adicionada para ligar um VNet a um hub virtual. A rota padrão não tem origem no centro virtual WAN; a rota padrão é propagada se já for aprendida pelo centro virtual WAN como resultado da implantação de uma firewall no centro, ou se outro local conectado tiver um túnel forçado ativado.
+Um hub virtual pode propagar uma rota padrão aprendida para uma ligação VPN/ExpressRoute de rede virtual/local se a bandeira estiver 'Activada' na ligação. Esta bandeira é visível quando o utilizador edita uma ligação de rede virtual, uma ligação VPN ou uma ligação ExpressRoute. Por predefinição, esta bandeira é desativada quando um site ou um circuito ExpressRoute estão ligados a um hub. É ativado por padrão quando uma ligação de rede virtual é adicionada para ligar um VNet a um hub virtual. A rota predefinida não tem origem no hub Virtual WAN; a rota padrão é propagada se já for aprendida pelo hub Virtual WAN como resultado da implantação de uma firewall no centro, ou se outro site conectado tiver um túnel forçado habilitado.
 
-### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>Como é que o centro virtual num WAN virtual seleciona o melhor caminho para uma rota a partir de vários hubs
+### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>Como é que o hub virtual num WAN virtual seleciona o melhor caminho para uma rota a partir de vários hubs
 
-Se um Hub Virtual aprender a mesma rota a partir de múltiplos centros remotos, a ordem em que decide é a seguinte
-1) Rota Origin a) Rotas de rede – Prefixos VNET diretamente aprendidos pelos gateways do Hub Virtual b) Hub RouteTable (rotas configuradas estática) c) BGP d) Rotas InterHub
-2)  Métrica de rota : Virtual WAN prefere ExpressRoute em vez de VPN. Os pares expressRoute têm uma maior ponderação em comparação com o peer VPN
-3)  Comprimento do caminho AS
+Se um Virtual Hub aprender a mesma rota a partir de vários hubs remotos, a ordem pela qual decide é a seguinte:
 
-### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Existe suporte para o IPv6 em Wan Virtual?
+1. O prefixo mais longo.
+2. Rotas locais sobre o interhub.
+3. Rotas estáticas sobre o BGP: Isto está em contexto para a decisão que está a ser tomada pelo router Virtual Hub. No entanto, se o decisor for o gateway VPN onde um site anuncia rotas via BGP ou fornece prefixos de endereço estático, as rotas estáticas podem ser preferíveis nas rotas BGP.
+4. ExpressRoute (ER) sobre VPN: ER é preferido sobre VPN quando o contexto é um hub local. A conectividade de trânsito entre os circuitos ExpressRoute só está disponível através do Global Reach. Portanto, em cenários em que o circuito ExpressRoute está ligado a um hub e há outro circuito ExpressRoute ligado a um centro diferente com ligação VPN, a VPN pode ser preferível para cenários inter-hub.
+5. Comprimento do caminho as.
 
-O IPv6 não é suportado no centro virtual WAN e nas suas portas de entrada. Se tiver um VNET que tenha suporte IPv6 e gostaria de ligar o VNET ao Virtual WAN, este cenário também não é suportado. 
+### <a name="does-virtual-wan-hub-allow-connectivity-between-expressroute-circuits"></a>O hub VIRTUAL WAN permite a conectividade entre os circuitos ExpressRoute.
 
-### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Quais são as diferenças entre os tipos de WAN virtual (Básico e Standard)?
+O trânsito entre o ER-ER é sempre via Alcance Global. Gateways de hub virtuais são implantados nas regiões de DC ou Azure. Quando dois circuitos ExpressRoute se ligam via Alcance Global, não há necessidade de o tráfego vir dos routers de borda para o centro virtual DC.
 
-O tipo WAN 'Basic' permite criar um hub básico (SKU = Básico). Um tipo 'Standard' WAN permite criar um hub padrão (SKU = Standard). Os centros básicos limitam-se à funcionalidade VPN site-to-site. Os hubs standard permitem-lhe ter ExpressRoute, User VPN (P2S), centro de malha completa e trânsito VNet-to-VNet através dos hubs. Você paga uma taxa base de $0,25/h para centros padrão e uma taxa de processamento de dados para transitar através dos hubs durante a conectividade VNet-to-VNet, bem como processamento de dados para o hub para hub para tráfego hub. Para mais informações, consulte [As NWaNs virtuais Básicas e Standard](../articles/virtual-wan/virtual-wan-about.md#basicstandard). Para preços, consulte a página [de Preços.](https://azure.microsoft.com/pricing/details/virtual-wan/)
+### <a name="is-there-a-concept-of-weight-in-azure-virtual-wan-circuits-or-vpn-connections"></a>Existe um conceito de peso nos circuitos Azure Virtual WAN ou ligações VPN
+
+Quando vários circuitos ExpressRoute estão ligados a um hub virtual, o peso do encaminhamento na ligação fornece um mecanismo para que o ExpressRoute no centro virtual prefira um circuito em vez do outro. Não há mecanismo para definir um peso numa ligação VPN. O Azure prefere sempre uma ligação ExpressRoute em vez de uma ligação VPN dentro de um único hub.
+
+### <a name="when-two-hubs-hub-1-and-2-are-connected-and-there-is-an-expressroute-circuit-connected-as-a-bow-tie-to-both-the-hubs-what-is-the-path-for-a-vnet-connected-to-hub-1-to-reach-a-vnet-connected-in-hub-2"></a>Quando dois hubs (hub 1 e 2) estão ligados e há um circuito ExpressRoute ligado como um laço a ambos os centros, qual é o caminho para um VNet ligado ao hub 1 alcançar um VNet ligado no centro 2?
+
+O comportamento atual é preferir o caminho do circuito ExpressRoute em vez do hub-para-hub para a conectividade VNet-to-VNet. No entanto, isto não é encorajado numa configuração wan virtual. A equipa virtual wan está a trabalhar numa correção para permitir a preferência pelo hub-to-hub sobre o caminho ExpressRoute. A recomendação é que vários circuitos ExpressRoute (diferentes fornecedores) se conectem a um hub e utilizem a conectividade hub-to-hub fornecida pela Virtual WAN para fluxos de tráfego inter-região.
+
+### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Existe suporte para o IPv6 em VIRTUAL WAN?
+
+O IPv6 não é suportado no centro VIRTUAL WAN e nas suas portas de entrada. Se tem um VNet que tem suporte IPv6 e gostaria de ligar o VNet ao WAN Virtual, este cenário não está atualmente suportado.
+
+### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Quais são as diferenças entre os tipos de WAN Virtual (Básico e Standard)?
+
+Ver [WANs Virtuais Básicos e Padrão.](../articles/virtual-wan/virtual-wan-about.md#basicstandard) Para obter preços, consulte a página [de preços.](https://azure.microsoft.com/pricing/details/virtual-wan/)

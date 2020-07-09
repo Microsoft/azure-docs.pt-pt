@@ -1,37 +1,38 @@
 ---
 title: 'Quickstart: A sua primeira consulta python'
-description: Neste arranque rápido, siga os passos para ativar a biblioteca de Gráficos de Recursos para Python e faça a sua primeira consulta.
+description: Neste arranque rápido, siga os passos para ativar a biblioteca de Gráficos de Recurso para Python e executar a sua primeira consulta.
 ms.date: 05/27/2020
 ms.topic: quickstart
-ms.openlocfilehash: cbc545551c650ad3140cbd6a9b40ab7dee1c0f3f
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.custom: tracking-python
+ms.openlocfilehash: 58ba931f5d222df8d863a11a25af6563192ef453
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996147"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609952"
 ---
-# <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Quickstart: Execute a sua primeira consulta de gráfico de recursos usando Python
+# <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Quickstart: Executar a sua primeira consulta de Gráfico de Recurso usando Python
 
-O primeiro passo para a utilização do Gráfico de Recursos Azure é verificar se as bibliotecas necessárias para python estão instaladas. Este quickstart acompanha-o através do processo de adição das bibliotecas à sua instalação Python.
+O primeiro passo para a utilização do Azure Resource Graph é verificar se as bibliotecas necessárias para python estão instaladas. Este quickstart acompanha-o através do processo de adição das bibliotecas à sua instalação Python.
 
-No final deste processo, terá adicionado as bibliotecas à sua instalação Python e executará a sua primeira consulta de Resource Graph.
+No final deste processo, terá adicionado as bibliotecas à sua instalação Python e executou a sua primeira consulta de Gráfico de Recursos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="add-the-resource-graph-library"></a>Adicione a biblioteca de gráficos de recursos
+## <a name="add-the-resource-graph-library"></a>Adicione a biblioteca de Gráficos de Recursos
 
-Para permitir que python questione o Gráfico de Recursos Azure, a biblioteca deve ser adicionada. Esta biblioteca funciona onde a Python pode ser usada, incluindo [a batida no Windows 10](/windows/wsl/install-win10) ou instalada localmente.
+Para permitir que python consulta Azure Resource Graph, a biblioteca deve ser adicionada. Esta biblioteca funciona onde quer que python possa ser usado, incluindo [bash no Windows 10](/windows/wsl/install-win10) ou instalado localmente.
 
 1. Verifique se o último Python está instalado (pelo menos **3.8**). Se ainda não estiver instalado, descarregue-o em [Python.org](https://www.python.org/downloads/).
 
-1. Verifique se o mais recente Azure CLI está instalado (pelo menos **2.5.1**). Se ainda não estiver instalado, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli).
+1. Verifique se o último CLI do Azure está instalado (pelo menos **2.5.1**). Se ainda não estiver instalado, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
    > [!NOTE]
-   > O Azure CLI é necessário para permitir que a Python utilize a **autenticação baseada no CLI** nos seguintes exemplos. Para obter informações sobre outras opções, consulte [Authenticate utilizando as bibliotecas de gestão Azure para Python](/azure/developer/python/azure-sdk-authenticate).
+   > O Azure CLI é necessário para permitir que a Python utilize a **autenticação baseada** em CLI nos seguintes exemplos. Para obter informações sobre outras opções, consulte [Authenticate utilizando as bibliotecas de gestão Azure para Python.](/azure/developer/python/azure-sdk-authenticate)
 
 1. Autenticar através do Azure CLI.
 
@@ -39,7 +40,7 @@ Para permitir que python questione o Gráfico de Recursos Azure, a biblioteca de
    az login
    ```
 
-1. No seu ambiente de eleição Python, instale as bibliotecas necessárias para o Azure Resource Graph:
+1. No seu ambiente python de eleição, instale as bibliotecas necessárias para o Azure Resource Graph:
 
    ```bash
    # Add the Resource Graph library for Python
@@ -53,7 +54,7 @@ Para permitir que python questione o Gráfico de Recursos Azure, a biblioteca de
    ```
 
    > [!NOTE]
-   > Se a Python estiver instalada para todos os utilizadores, estes comandos devem ser executados a partir de uma consola elevada.
+   > Se o Python estiver instalado para todos os utilizadores, estes comandos devem ser executados a partir de uma consola elevada.
 
 1. Valide que as bibliotecas foram instaladas. `azure-mgmt-resourcegraph`deve ser **2.0.0** ou superior, `azure-mgmt-resource` deve ser **9.0.0** ou superior, e `azure-cli-core` deve ser **2.5.0** ou superior.
 
@@ -64,9 +65,9 @@ Para permitir que python questione o Gráfico de Recursos Azure, a biblioteca de
 
 ## <a name="run-your-first-resource-graph-query"></a>Executar a primeira consulta do Resource Graph
 
-Com as bibliotecas Python adicionadas ao seu ambiente de eleição, é hora de experimentar uma simples consulta de Gráfico de Recursos. A consulta devolve os primeiros cinco recursos Azure com o **Nome** e **O Tipo** de Recursos de cada recurso.
+Com as bibliotecas Python adicionadas ao seu ambiente de eleição, é hora de experimentar uma consulta simples de Gráfico de Recurso. A consulta devolve os primeiros cinco recursos Azure com o **Nome** e Tipo de **Recurso** de cada recurso.
 
-1. Execute a sua primeira consulta do Gráfico de Recursos Azure utilizando as bibliotecas instaladas e o `resources` método:
+1. Execute a sua primeira consulta de gráfico de recursos Azure utilizando as bibliotecas instaladas e o `resources` método:
 
    ```python
    # Import Azure Resource Graph library
@@ -107,16 +108,16 @@ Com as bibliotecas Python adicionadas ao seu ambiente de eleição, é hora de e
    > [!NOTE]
    > Como este exemplo de consulta não fornece um modificador de ordenação como `order by`, é provável que executar esta consulta várias vezes produza um conjunto diferente de recursos em cada pedido.
 
-1. Atualize a chamada `getresources` e altere a consulta para `order by` a propriedade **Nome:**
+1. Atualizar a chamada `getresources` e alterar a consulta para a propriedade `order by` **Nome:**
 
    ```python
    getresources("Resources | project name, type | limit 5 | order by name asc")
    ```
 
    > [!NOTE]
-   > Assim como na primeira consulta, é provável que executar esta consulta várias vezes produza um conjunto diferente de recursos em cada pedido. A ordem dos comandos da consulta é importante. Neste exemplo, `order by` vem depois de `limit`, Esta ordem de comando primeiro limita os resultados da consulta e, em seguida, ordena-os.
+   > Assim como na primeira consulta, é provável que executar esta consulta várias vezes produza um conjunto diferente de recursos em cada pedido. A ordem dos comandos da consulta é importante. Neste exemplo, `order by` vem depois de `limit`, Esta ordem de comando limita primeiro os resultados da consulta e depois ordena-os.
 
-1. Atualize a chamada `getresources` e altere a consulta para primeiro `order by` a propriedade **Nome** e, em seguida, para os `limit` cinco melhores resultados:
+1. Atualizar a chamada `getresources` e alterar a consulta para primeiro a propriedade `order by` **Nome** e, em seguida, para os `limit` cinco melhores resultados:
 
    ```python
    getresources("Resources | project name, type | order by name asc | limit 5")
@@ -135,7 +136,7 @@ pip uninstall azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core
 
 ## <a name="next-steps"></a>Próximos passos
 
-Neste arranque rápido, adicionou as bibliotecas do Resource Graph ao seu ambiente Python e executou a sua primeira consulta. Para saber mais sobre a linguagem do Graph de Recursos, continue na página de detalhes da linguagem da consulta.
+Neste arranque rápido, adicionou as bibliotecas de Gráficos de Recurso ao seu ambiente Python e executou a sua primeira consulta. Para saber mais sobre a linguagem Resource Graph, continue na página de detalhes da linguagem de consulta.
 
 > [!div class="nextstepaction"]
-> [Obtenha mais informações sobre a linguagem de consulta](./concepts/query-language.md)
+> [Obtenha mais informações sobre o idioma de consulta](./concepts/query-language.md)

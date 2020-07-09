@@ -1,8 +1,8 @@
 ---
-title: 'Azure AD Connect: Single Sign-On Seamless - Como funciona Microsoft Docs'
-description: Este artigo descreve como funciona a funcionalidade Single Sign-On do Diretório Ativo Azure.
+title: 'Azure AD Connect: Seamless Single Sign-On - Como funciona Microsoft Docs'
+description: Este artigo descreve como funciona a funcionalidade Azure Ative Directory Seamless Single Sign-On.
 services: active-directory
-keywords: o que é Azure AD Connect, instalar Diretório Ativo, componentes necessários para Azure AD, SSO, Sign-on Único
+keywords: o que é Azure AD Connect, instalar Ative Directory, componentes necessários para Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -11,91 +11,91 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd4743bc38c3b2b4b9495b33535b4b73f48d1372
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af5a9b5b5dd8eb6b6bec8440287918d1f8610064
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71176669"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357924"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Ative Directory Seamless Single Sign-On: Mergulho profundo técnico
+# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Ative Directory Single Sign-On: Mergulho profundo técnico
 
-Este artigo dá-lhe detalhes técnicos sobre como funciona a funcionalidade Azure Ative Directory Seamless Single Sign-On (Seamless SSO).
+Este artigo dá-lhe detalhes técnicos sobre como funciona a função Azure Ative Directory Single Sign-On (Seamless SSO).
 
-## <a name="how-does-seamless-sso-work"></a>Como funciona o SSO SSO sem emenda?
+## <a name="how-does-seamless-sso-work"></a>Como funciona o Seamless SSO?
 
 Esta secção tem três partes:
 
-1. A configuração da função SSO SSO sem emenda.
-2. Como uma única transação de sessão de utilizador num navegador web funciona com SSO Sso Sem emenda.
-3. Como uma única transação de login de utilizador num cliente nativo trabalha com O SSO Sso.
+1. A configuração da funcionalidade SSO sem emenda.
+2. Como uma única transação de insusição de utilizador num navegador web funciona com Seamless SSO.
+3. Como uma única transação de login de um único utilizador num cliente nativo funciona com a Seamless SSO.
 
-### <a name="how-does-set-up-work"></a>Como funciona a instalação?
+### <a name="how-does-set-up-work"></a>Como é que se instala o trabalho?
 
-O SSO sem emenda está ativado utilizando o Azure AD Connect, como mostrado [aqui](how-to-connect-sso-quick-start.md). Ao ativar a funcionalidade, ocorrem os seguintes passos:
+O SSO sem emenda está ativado utilizando o Azure AD Connect, como mostrado [aqui.](how-to-connect-sso-quick-start.md) Ao permitir a funcionalidade, ocorrem os seguintes passos:
 
-- Uma conta`AZUREADSSOACC`de computador () é criada no seu Diretório Ativo (AD) em cada floresta ad que sincroniza com Azure AD (utilizando Azure AD Connect).
-- Além disso, alguns nomes principais de serviço Kerberos (SPNs) são criados para serem usados durante o processo de entrada de AD Azure.
-- A chave de desencriptação Kerberos da conta de computador é partilhada de forma segura com a AD Azure. Se existirem múltiplas florestas adc, cada conta de computador terá a sua própria chave de desencriptação Kerberos única.
+- Uma conta de computador ( `AZUREADSSOACC` ) é criada no seu Ative Directy (AD) em cada floresta AD que sincroniza com Azure AD (usando Azure AD Connect).
+- Além disso, são criados vários nomes principais de serviço Kerberos (SPNs) para serem utilizados durante o processo de entrada de Azure AD.
+- A chave de desencriptação Kerberos da conta do computador é partilhada de forma segura com a Azure AD. Se existirem múltiplas florestas de AD, cada conta de computador terá a sua própria chave de desencriptação Kerberos única.
 
 >[!IMPORTANT]
-> A `AZUREADSSOACC` conta do computador precisa de ser fortemente protegida por razões de segurança. Apenas os Administradores de Domínio devem ser capazes de gerir a conta do computador. Certifique-se de que a delegação kerberos na conta do computador está desativada e que nenhuma outra conta no Diretório Ativo tem permissões de delegação na conta do `AZUREADSSOACC` computador. Guarde a conta do computador numa Unidade de Organização (OU) onde estejam a salvo de supressões acidentais e onde apenas os Administradores de Domínio tenham acesso. A chave de desencriptação Kerberos na conta do computador também deve ser tratada como sensível. Recomendamos vivamente que revire a chave de `AZUREADSSOACC` [desencriptação Kerberos](how-to-connect-sso-faq.md) da conta do computador pelo menos a cada 30 dias.
+> A `AZUREADSSOACC` conta do computador precisa de ser fortemente protegida por razões de segurança. Apenas os Administradores de Domínio devem ser capazes de gerir a conta do computador. Certifique-se de que a delegação kerberos na conta do computador está desativada e que nenhuma outra conta no Ative Directory tem permissões de delegação na `AZUREADSSOACC` conta do computador.. Guarde a conta do computador numa Unidade de Organização (OU) onde estão a salvo de supressões acidentais e onde apenas os Administradores de Domínio têm acesso. A chave de desencriptação Kerberos na conta do computador também deve ser tratada como sensível. Recomendamos vivamente que [revir a chave de desencriptação Kerberos](how-to-connect-sso-faq.md) da conta do `AZUREADSSOACC` computador pelo menos a cada 30 dias.
 
-Uma vez concluída a configuração, o SSO SSO sem emenda funciona da mesma forma que qualquer outro sign-in que utilize autenticação integrada do Windows (IWA).
+Uma vez concluída a configuração, o Seamless SSO funciona da mesma forma que qualquer outro sinal que utiliza a Autenticação Integrada do Windows (IWA).
 
-### <a name="how-does-sign-in-on-a-web-browser-with-seamless-sso-work"></a>Como funciona o sessão num navegador web com SSO SSO sem emenda?
+### <a name="how-does-sign-in-on-a-web-browser-with-seamless-sso-work"></a>Como funciona o s-in num navegador web com SSO sem emenda?
 
-O fluxo de entrada num navegador web é o seguinte:
+O fluxo de entrada de entrada num navegador web é o seguinte:
 
-1. O utilizador tenta aceder a uma aplicação web https://outlook.office365.com/owa/) (por exemplo, a App Web do Outlook - a partir de um dispositivo corporativo de domínio dentro da sua rede corporativa.
-2. Se o utilizador ainda não estiver inscrito, o utilizador é redirecionado para a página de entrada da AD Azure.
-3. Os tipos de utilizador no seu nome de utilizador na página de entrada de anúncios da AD Azure.
+1. O utilizador tenta aceder a uma aplicação web (por exemplo, a App Web Outlook - https://outlook.office365.com/owa/) a partir de um dispositivo corporativo de domínio dentro da sua rede corporativa.
+2. Se o utilizador ainda não tiver assinado, o utilizador é redirecionado para a página de insusição Azure.
+3. Os tipos de utilizador no seu nome de utilizador na página de entrada Azure AD.
 
    >[!NOTE]
-   >Para [determinadas aplicações,](./how-to-connect-sso-faq.md)os passos 2 & 3 são ignorados.
+   >Para [certas aplicações,](./how-to-connect-sso-faq.md)os passos 2 & 3 são ignorados.
 
 4. Utilizando o JavaScript em segundo plano, o Azure AD desafia o navegador, através de uma resposta não autorizada 401, para fornecer um bilhete Kerberos.
-5. O navegador, por sua vez, solicita um `AZUREADSSOACC` bilhete do Ative Directy para a conta de computador (que representa a Azure AD).
-6. O Ative Directory localiza a conta do computador e devolve um bilhete Kerberos ao navegador encriptado com o segredo da conta do computador.
-7. O navegador reencaminha o bilhete Kerberos que adquiriu do Ative Directory para o Azure AD.
-8. A Azure AD desencripta o bilhete Kerberos, que inclui a identidade do utilizador assinado no dispositivo corporativo, utilizando a chave previamente partilhada.
-9. Após avaliação, a Azure AD devolve um token à aplicação ou pede ao utilizador que execute provas adicionais, como a Autenticação multi-factor.
-10. Se o utilizador iniciar o seu registo, o utilizador poderá aceder à aplicação.
+5. O navegador, por sua vez, solicita um bilhete do Ative Directory para a `AZUREADSSOACC` conta do computador (que representa o Azure AD).
+6. Ative Directory localiza a conta do computador e devolve um bilhete Kerberos para o navegador encriptado com o segredo da conta do computador.
+7. O navegador remete o bilhete Kerberos que adquiriu do Ative Directory para a Azure AD.
+8. A Azure AD desencripta o bilhete Kerberos, que inclui a identidade do utilizador assinado no dispositivo corporativo, utilizando a chave anteriormente partilhada.
+9. Após avaliação, a Azure AD devolve um símbolo à aplicação ou pede ao utilizador para efetuar provas adicionais, como a Autenticação Multi-Factor.
+10. Se o pedido de sômed in do utilizador for bem sucedido, o utilizador poderá aceder à aplicação.
 
-O diagrama que se segue ilustra todos os componentes e passos envolvidos.
+O diagrama seguinte ilustra todos os componentes e os passos envolvidos.
 
-![Sem emenda single sign on - fluxo de aplicativo web](./media/how-to-connect-sso-how-it-works/sso2.png)
+![Sem emenda single sign on - Fluxo de aplicativo web](./media/how-to-connect-sso-how-it-works/sso2.png)
 
-O SSO sem emenda é oportunista, o que significa que se falhar, a experiência de entrada recai sobre o seu comportamento regular - ou seja, o utilizador precisa de introduzir a sua palavra-passe para iniciar sessão.
+O SSO sem emenda é oportunista, o que significa que, se falhar, a experiência de entrada recai sobre o seu comportamento regular - ou seja, o utilizador precisa de introduzir a sua palavra-passe para iniciar sessão.
 
-### <a name="how-does-sign-in-on-a-native-client-with-seamless-sso-work"></a>Como funciona o login num cliente nativo com SSO SSO sem emenda?
+### <a name="how-does-sign-in-on-a-native-client-with-seamless-sso-work"></a>Como funciona o login de um cliente nativo com SSO sem emenda?
 
 O fluxo de entrada num cliente nativo é o seguinte:
 
-1. O utilizador tenta aceder a uma aplicação nativa (por exemplo, ao cliente Outlook) a partir de um dispositivo corporativo de domínio dentro da sua rede corporativa.
-2. Se o utilizador ainda não estiver inscrito, a aplicação nativa recupera o nome de utilizador do utilizador da sessão windows do dispositivo.
-3. A aplicação envia o nome de utilizador para a AD Azure e recupera o ponto final do WS-Trust MEX do seu inquilino. Este ponto final wS-Trust é utilizado exclusivamente pela funcionalidade Seamless SSO, e não é uma implementação geral do protocolo WS-Trust sobre a AD Azure.
-4. A aplicação questiona então o ponto final do WS-Trust MEX para ver se o ponto final de autenticação integrado está disponível. O ponto final de autenticação integrado é utilizado exclusivamente pela funcionalidade Seamless SSO.
-5. Se o passo 4 for bem sucedido, um desafio Kerberos é emitido.
+1. O utilizador tenta aceder a uma aplicação nativa (por exemplo, o cliente Outlook) a partir de um dispositivo corporativo de domínio dentro da sua rede corporativa.
+2. Se o utilizador ainda não tiver assinado, a aplicação nativa recupera o nome de utilizador do utilizador a partir da sessão do Windows do dispositivo.
+3. A aplicação envia o nome de utilizador para Azure AD e recupera o ponto final do WS-Trust MEX do seu inquilino. Este ponto final WS-Trust é utilizado exclusivamente pela funcionalidade Seamless SSO, e não é uma implementação geral do protocolo WS-Trust em Azure AD.
+4. A aplicação consulta então o ponto final do WS-Trust MEX para ver se está disponível o ponto final de autenticação integrado. O ponto final de autenticação integrado é utilizado exclusivamente pela funcionalidade Seamless SSO.
+5. Se o passo 4 for bem sucedido, é emitido um desafio Kerberos.
 6. Se a aplicação conseguir recuperar o bilhete Kerberos, encaminha-o para o ponto final de autenticação integrado da Azure AD.
-7. A Azure AD desencripta o bilhete Kerberos e valida-o.
+7. A AZure AD desencripta o bilhete Kerberos e valida-o.
 8. A Azure AD assina o utilizador e emite um token SAML para a aplicação.
-9. A aplicação submete então o símbolo SAML ao ponto final de token OAuth2 da Azure AD.
-10. A Azure AD valida o símbolo SAML, e emite na app um token de acesso e um token de atualização para o recurso especificado, e um símbolo id.
+9. Em seguida, a aplicação submete o token SAML ao ponto final simbólico da Azure AD.
+10. O Azure AD valida o token SAML, e emite à app um token de acesso e um token de atualização para o recurso especificado, e um token de id.
 11. O utilizador tem acesso ao recurso da aplicação.
 
-O diagrama que se segue ilustra todos os componentes e passos envolvidos.
+O diagrama seguinte ilustra todos os componentes e os passos envolvidos.
 
 ![Sem emenda single sign on - fluxo de aplicativo nativo](./media/how-to-connect-sso-how-it-works/sso14.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [**Quick Start**](how-to-connect-sso-quick-start.md) - Prepare-se e execute Azure AD Seamless SSO.
+- [**Quick Start**](how-to-connect-sso-quick-start.md) - Levante-se e execute Azure AD Seamless SSO.
 - [**Perguntas frequentes**](how-to-connect-sso-faq.md) - Respostas a perguntas frequentes.
-- [**Troubleshoot**](tshoot-connect-sso.md) - Aprenda a resolver problemas comuns com a funcionalidade.
+- [**Resolução de problemas**](tshoot-connect-sso.md) - Aprenda a resolver problemas comuns com a funcionalidade.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - Para arquivar novos pedidos de funcionalidades.

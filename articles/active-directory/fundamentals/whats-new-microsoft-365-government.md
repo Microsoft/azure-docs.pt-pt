@@ -1,6 +1,6 @@
 ---
-title: Quais as novidades para o Azure AD no Governo Microsoft 365? | Microsoft Docs
-description: Saiba algumas alterações ao Azure Ative Directory (Azure AD) na instância de nuvem do Governo Microsoft 365, que poderá impactar-lhe.
+title: Quais as novidades para a Azure AD no Governo microsoft 365? | Microsoft Docs
+description: Saiba mais sobre algumas alterações ao Azure Ative Directory (Azure AD) na instância cloud do Governo microsoft 365, o que pode impactá-lo.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -14,61 +14,60 @@ ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48a7e5e810e509a97b6010218532f6e7dff0b73f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77425549"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Novidades para o Azure Ative Directory no Governo da Microsoft 365
 
-Fizemos algumas alterações ao Azure Ative Directory (Azure AD) na instância de nuvem do Governo Microsoft 365, que é aplicável aos clientes que utilizam os seguintes serviços:
+Fizemos algumas alterações ao Azure Ative Directory (Azure AD) na instância cloud do Governo da Microsoft 365, que é aplicável aos clientes que usam os seguintes serviços:
 
-- Governo Microsoft Azure
+- Governo microsoft Azure
 
-- Microsoft 365 Governo – GCC High
+- Microsoft 365 Government – GCC High
 
-- Microsoft 365 Governo - DoD
+- Microsoft 365 Governo – DoD
 
-Este artigo não se aplica aos clientes do Microsoft 365 Government – GCC.
+Este artigo não se aplica aos clientes microsoft 365 Government – GCC.
 
-## <a name="changes-to-the-initial-domain-name"></a>Alterações ao nome inicial do domínio
+## <a name="changes-to-the-initial-domain-name"></a>Alterações ao nome de domínio inicial
 
-Durante a inscrição inicial da sua organização para um serviço online do Governo Microsoft 365, foi-lhe pedido que escolhesse o nome de domínio da sua organização, `<your-domain-name>.onmicrosoft.com`. Se já tiver um nome de domínio com o sufixo .com, nada mudará.
+Durante a inscrição inicial da sua organização para um serviço online do Governo Microsoft 365, foi-lhe pedido que escolhesse o nome de domínio da sua `<your-domain-name>.onmicrosoft.com` organização, . Se já tiver um nome de domínio com o sufixo .com, nada mudará.
 
-No entanto, se estiver a inscrever-se num novo serviço do Governo Microsoft 365, será-lhe pedido que escolha um nome de domínio usando o `.us` sufixo. Então, vai `<your-domain-name>.onmicrosoft.us`ser.
+No entanto, se estiver a inscrever-se para um novo serviço do Governo Microsoft 365, será solicitado que escolha um nome de domínio usando o `.us` sufixo. Então, vai `<your-domain-name>.onmicrosoft.us` ser.
 
 >[!Note]
->Esta alteração não se aplica a nenhum cliente que seja gerido por fornecedores de serviços na nuvem (CSPs).
+>Esta alteração não se aplica a clientes que sejam geridos por prestadores de serviços na nuvem (CSPs).
 
 ## <a name="changes-to-portal-access"></a>Alterações no acesso ao portal
 
-Atualizámos os pontos finais do portal para o Governo microsoft Azure, o Governo microsoft 365 – GCC High e o Microsoft 365 Government – DoD, como mostra a tabela de [mapeamento Endpoint](#endpoint-mapping).
+Atualizámos os pontos finais do portal para o Governo do Microsoft Azure, o Governo microsoft 365 – GCC High e o Governo microsoft 365 – DoD, como mostra a [tabela de mapeamento endpoint](#endpoint-mapping).
 
-Anteriormente, os clientes podiam inscrever-se nos portais azure (portal.azure.com) e Office 365 (portal.office.com) em todo o mundo. Com esta atualização, os clientes devem agora assinar usando os portais específicos do Microsoft Azure Government, Microsoft 365 Government - GCC High e Microsoft 365 Government - DoD.
+Anteriormente, os clientes podiam inscrever-se usando os portais Azure (portal.azure.com) e Office 365 (portal.office.com). Com esta atualização, os clientes devem agora iniciar súbb pouco através dos portais específicos do Microsoft Azure Government, Microsoft 365 Government - GCC High e Microsoft 365 Government - DoD.
 
-## <a name="endpoint-mapping"></a>Mapeamento endpoint
+## <a name="endpoint-mapping"></a>Mapeamento de ponto final
 
-A tabela seguinte mostra os pontos finais para todos os clientes:
+A tabela a seguir mostra os pontos finais para todos os clientes:
 
-| Nome | Detalhes do ponto final |
+| Name | Detalhes do ponto final |
 |------|------------------|
-| Portals |Governo microsoft Azure:https://portal.azure.us<p>Microsoft 365 Governo – GCC High:https://portal.office365.us<p>Microsoft 365 Governo – DoD:https://portal.apps.mil |
-| Ponto final da Autoridade de Diretório Ativo Azure | https://login.microsoftonline.us |
-| Microsoft Graph API para o Governo Microsoft 365 - GCC High | https://graph.microsoft.us |
-| Microsoft Graph API para o Governo Microsoft 365 - DoD | https://dod-graph.microsoft.us |
-| Pontos finais dos serviços do Governo azure | Para mais detalhes, consulte o guia de [desenvolvimento do Governo Azure](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
-| Microsoft 365 Governo - Pontos finais do GCC | Para mais detalhes, consulte o [Office 365 U.S. Government GCC High endpoints](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
-| Microsoft 365 Governo - DoD | Para mais detalhes, consulte o [Office 365 U.S. Government DoD endpoints](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) |
+| Portals |Governo microsoft Azure:https://portal.azure.us<p>Microsoft 365 Government – GCC High:https://portal.office365.us<p>Microsoft 365 Governo – DoD:https://portal.apps.mil |
+| Ponta final da Autoridade de Direção Ativa da Azure | https://login.microsoftonline.us |
+| Microsoft Graph API para o Governo microsoft 365 - GCC High | https://graph.microsoft.us |
+| Microsoft Graph API para o Governo microsoft 365 - DoD | https://dod-graph.microsoft.us |
+| Pontos finais dos serviços do Governo de Azure | Para mais detalhes, consulte [o guia de desenvolvimento do Governo Azure](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
+| Microsoft 365 Government - GCC High endpoints | Para mais detalhes, consulte [o Office 365 U.S. Government GCC High endpoints](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
+| Microsoft 365 Governo - DoD | Para mais detalhes, consulte o [Office 365 U.S. Government DoD pontos finais](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, veja estes artigos:
 
 - [O que é o Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
 
-- [Atualização do ponto final da Autoridade aad do Governo de Azure](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/)
+- [A atualização de endpoint da Autoridade AAD do Governo de Azure](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/)
 
-- [Microsoft Graph termina pontos finais na nuvem do Governo dos EUA](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
+- [Pontos finais do Microsoft Graph na nuvem do governo dos EUA](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
 
-- [Escritório 365 Governo dos EUA GCC Alto e DoD](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)
+- [Office 365 US Government GCC High and DoD](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)

@@ -1,5 +1,5 @@
 ---
-title: Utilize o Código VS para ligar e consultar
+title: Use código de estúdio visual para ligar e consultar
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Saiba como ligar-se à Base de Dados Azure SQL ou à SQL Managed Instance on Azure utilizando o Código do Estúdio Visual. Em seguida, execute declarações do Transact-SQL (T-SQL) para consultar e editar dados.
 keywords: ligar à base de dados SQL
@@ -12,46 +12,46 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/25/2019
-ms.openlocfilehash: b67748a9bfb22eed4afb76c960f992a56c10e546
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 05/29/2020
+ms.openlocfilehash: e0554711aa6db436bc0c3076ec468555c47fff39
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054360"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267261"
 ---
-# <a name="quickstart-use-visual-studio-code-to-connect-and-query"></a>Quickstart: Use visual studio code para ligar e consultar 
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="quickstart-use-visual-studio-code-to-connect-and-query"></a>Quickstart: Use o Código do Estúdio Visual para ligar e consultar 
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-[Visual Studio Code](https://code.visualstudio.com/docs) é um editor de código gráfico para Linux, macOS e Windows. Suporta extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consulta do Microsoft SQL Server, Azure SQL Database, Azure SQL Managed Instance e Azure Synapse Analytics. Neste arranque rápido, utilizará o Código do Estúdio Visual para se ligar à Base de Dados Azure SQL ou à Instância Gerida azure SQL e, em seguida, executar declarações Transact-SQL para consultar, inserir, atualizar e eliminar dados.
+[Visual Studio Code](https://code.visualstudio.com/docs) é um editor de código gráfico para Linux, macOS e Windows. Suporta extensões, incluindo a [extensão de mssql](https://aka.ms/mssql-marketplace) para consulta de uma instância do SQL Server, Base de Dados Azure SQL, uma Instância Gerida Azure SQL e uma base de dados em Azure Synapse Analytics. Neste arranque rápido, utilizará o Código do Estúdio Visual para ligar à Base de Dados Azure SQL ou à Instância Gerida Azure SQL e, em seguida, executará declarações Transact-SQL para consultar, inserir, atualizar e apagar dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma base de dados Azure SQL ou Instância Gerida SQL. Pode utilizar um destes quickstarts para criar e, em seguida, configurar uma base de dados na Base de Dados Azure SQL:
+- Uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada. Pode utilizar um destes quickstarts para criar e, em seguida, configurar uma base de dados na Base de Dados Azure SQL:
 
-  || Base de Dados SQL do Azure | Instância Gerida do SQL |
+  || Base de Dados SQL do Azure | Instância Gerida do Azure SQL |
   |:--- |:--- |:---|
   | Criar| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) |
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) |
-  | Configurar | [Regra de firewall IP ao nível do servidor)](firewall-create-server-level-portal-quickstart.md)| [Conectividade a partir de um VM](../managed-instance/connect-vm-instance-configure.md)|
-  |||[Conectividade a partir do local](../managed-instance/point-to-site-p2s-configure.md)
+  | Configurar | [Regra de firewall IP de nível do servidor](firewall-create-server-level-portal-quickstart.md))| [Conectividade a partir de uma máquina virtual (VM)](../managed-instance/connect-vm-instance-configure.md)|
+  |||[Conectividade a partir de instalações](../managed-instance/point-to-site-p2s-configure.md)
   |Carregar dados|Obras de Aventura carregadas por quickstart|[Restaurar importadores mundiais](../managed-instance/restore-sample-database-quickstart.md)
-  |||Restaurar ou importar Obras de Aventura a partir do ficheiro [BACPAC](database-import.md) do [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Restaurar ou importar Obras de Aventura a partir de um ficheiro [BACPAC](database-import.md) do [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
-  > Os scripts deste artigo são escritos para usar a base de dados Adventure Works. Com uma Instância Gerida SQL, deve importar a base de dados da Adventure Works numa base de dados de instâncias ou modificar os scripts deste artigo para utilizar a base de dados dos Importadores do Mundo Largo.
+  > Os scripts deste artigo são escritos para usar a base de dados Adventure Works. Com uma SQL Managed Instance, você deve importar a base de dados Adventure Works em uma base de dados de casos ou modificar os scripts deste artigo para usar a base de dados de importadores do mundo amplo.
 
 ## <a name="install-visual-studio-code"></a>Instalar o Visual Studio Code
 
-Certifique-se de que instalou o mais recente [Código de Estúdio Visual](https://code.visualstudio.com/Download) e carregou a [extensão mssql](https://aka.ms/mssql-marketplace). Para obter orientações sobre a instalação da extensão mssql, consulte [Instalar o Código VS](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) e [msql para o Código do Estúdio Visual ](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
+Certifique-se de que instalou o mais recente [Código do Estúdio Visual](https://code.visualstudio.com/Download) e carregou a [extensão mssql](https://aka.ms/mssql-marketplace). Para obter orientações sobre a instalação da extensão mssql, consulte instalar o [Código do Estúdio Visual](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) e o [mssql para Código de Estúdio Visual ](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
-## <a name="configure-visual-studio-code"></a>Configure Código de estúdio visual
+## <a name="configure-visual-studio-code"></a>Código de estúdio visual configurar
 
 ### <a name="macos"></a>**macOS**
 
-Para o macOS, é necessário instalar o OpenSSL, que é um pré-requisito para o Núcleo .NET que a extensão mssql utiliza. Abra o terminal e introduza os comandos seguintes para instalar **brew**, **OpenSSL**.
+Para o macOS, é necessário instalar o OpenSSL, que é um pré-requisito para o .NET Core que a extensão mssql utiliza. Abra o terminal e introduza os comandos seguintes para instalar **brew**, **OpenSSL**.
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -70,60 +70,60 @@ Nenhuma configuração especial necessária.
 
 Nenhuma configuração especial necessária.
 
-## <a name="get-sql-server-connection-information"></a>Obtenha informações de ligação ao servidor SQL
+## <a name="get-server-connection-information"></a>Obtenha informações de ligação do servidor
 
-Obtenha as informações de ligação que precisa para ligar à Base de Dados Azure SQL. Necessitará do nome do servidor ou nome do anfitrião totalmente qualificado, nome da base de dados e informações de login para os próximos procedimentos.
+Obtenha a informação de ligação necessária para ligar à Base de Dados Azure SQL. Você precisará do nome do servidor totalmente qualificado ou nome de anfitrião, nome da base de dados e informações de login para os próximos procedimentos.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-2. Navegue para as bases de **dados SQL** ou página **SQL Managed Instances.**
+2. Navegue para as **bases de dados SQL** ou página **sql Managed Instances.**
 
-3. Na página **'Overview',** reveja o nome do servidor totalmente qualificado ao lado do **nome do Servidor** para a Base de Dados SQL ou o nome de servidor totalmente qualificado ao lado do **Host** para uma Instância Gerida sQL. Para copiar o nome do servidor ou o nome do anfitrião, paire sobre ele e selecione o ícone **Copiar.**
+3. Na página **'Vista Geral',** reveja o nome do servidor totalmente qualificado ao lado **do nome do Servidor** para base de dados SQL ou o nome do servidor totalmente qualificado ao lado do **Anfitrião** para uma Ocorrência Gerida SQL. Para copiar o nome do servidor ou o nome do anfitrião, paire sobre ele e selecione o ícone **Copy.**
 
 ## <a name="set-language-mode-to-sql"></a>Definir modo do idioma para SQL
 
-No Código do Estúdio Visual, detete o modo idioma para **SQL** para ativar comandos mssql e T-SQL IntelliSense.
+No Código do Estúdio Visual, deite o modo de linguagem para **SQL** para permitir comandos mssql e T-SQL IntelliSense.
 
 1. Abra uma nova janela do Visual Studio Code.
 
-2. Prima **Ctrl** + **N**. Abre-se um novo ficheiro de texto simples.
+2. Pressione **Ctrl** + **N**. Abre-se um novo ficheiro de texto simples.
 
 3. Selecione **Texto Simples** no canto inferior direito da barra de estado.
 
-4. No menu de drop-down do **modo de idioma Select** que abre, selecione **SQL**.
+4. No menu suspenso do **modo linguístico Select** que abre, selecione **SQL**.
 
 ## <a name="connect-to-your-database"></a>Ligar à base de dados
 
 Utilize o Código do Estúdio Visual para estabelecer uma ligação ao seu servidor.
 
 > [!IMPORTANT]
-> Antes de continuar, certifique-se de que tem o seu servidor e faça o sinal de informação. Assim que começar a introduzir as informações de perfil de ligação, se alterar o seu foco do Código do Estúdio Visual, terá de recomeçar a criar o perfil.
+> Antes de continuar, certifique-se de que tem o seu servidor e inscreva-se na informação. Assim que começar a introduzir as informações do perfil de ligação, se alterar o seu foco a partir do Código do Estúdio Visual, terá de reiniciar a criação do perfil.
 
 1. No Código do Estúdio Visual, prima **Ctrl+Shift+P** (ou **F1)** para abrir a Paleta de Comando.
 
-2. Selecione **MS SQL:Connect** and choose **Enter**.
+2. Selecione **MS SQL:Conecte-se** e escolha **Entrar.**
 
-3. Selecione Criar perfil de **ligação**.
+3. Selecione **Criar Perfil de Ligação**.
 
-4. Siga as instruções para especificar as propriedades de ligação do novo perfil. Depois de especificar cada valor, escolha **Entrar** para continuar.
+4. Siga as indicações para especificar as propriedades de ligação do novo perfil. Depois de especificar cada valor, escolha **Enter** para continuar.
 
    | Propriedade       | Valor sugerido | Descrição |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nome do servidor** | O nome de servidor completamente qualificado | Algo como: **mynewserver20170313.database.windows.net.** |
    | **Nome da base de dados** | mySampleDatabase | A base de dados para ligar. |
    | **Autenticação** | Início de sessão do SQL| Este tutorial utiliza a Autenticação SQL. |
-   | **Nome de utilizador** | Nome de utilizador | O nome de utilizador da conta de administração do servidor utilizada para criar o servidor. |
-   | **Palavra-passe (Início de Sessão do SQL)** | Palavra-passe | A palavra-passe da conta de administração do servidor usada para criar o servidor. |
+   | **Nome de utilizador** | Nome de utilizador | O nome de utilizador da conta de administração do servidor utilizado para criar o servidor. |
+   | **Palavra-passe (Início de Sessão do SQL)** | Palavra-passe | A palavra-passe da conta de administração do servidor utilizada para criar o servidor. |
    | **Guardar Palavra-passe?** | Sim ou Não | Selecione **Sim** se não quiser introduzir a palavra-passe de cada vez. |
-   | **Introduza um nome para este perfil** | Um nome de perfil, como **o mySampleProfile** | Um perfil guardado acelera a sua ligação em logins subsequentes. |
+   | **Introduza um nome para este perfil** | Um nome de perfil, como **mySampleProfile** | Um perfil guardado acelera a sua ligação em logins subsequentes. |
 
-   Se for bem sucedido, aparece uma notificação a dizer que o seu perfil é criado e conectado.
+   Se for bem sucedido, aparece uma notificação a dizer que o seu perfil está criado e conectado.
 
 ## <a name="query-data"></a>Consultar dados
 
-Executar a seguinte declaração [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL para consultar os 20 melhores produtos por categoria.
+Execute a seguinte declaração [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL para consultar os 20 melhores produtos por categoria.
 
-1. Na janela do editor, cola a seguinte consulta SQL.
+1. Na janela do editor, cole a seguinte consulta SQL.
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -132,13 +132,13 @@ Executar a seguinte declaração [SELECT](https://msdn.microsoft.com/library/ms1
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-2. Prima O Turno **Ctrl** + **Shift** + **E** para executar a consulta e exibir os resultados das `Product` tabelas e `ProductCategory` tabelas.
+2. Prima **Ctrl** + **Shift** + **E** para executar a consulta e mostrar os resultados das `Product` tabelas e `ProductCategory` tabelas.
 
     ![Consulta para recuperar dados de 2 tabelas](./media/connect-query-vscode/query.png)
 
 ## <a name="insert-data"></a>Inserir dados
 
-Executar a seguinte declaração [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL para adicionar um novo produto à `SalesLT.Product` tabela.
+Executar a seguinte declaração [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL para adicionar um novo produto na `SalesLT.Product` tabela.
 
 1. Substitua a consulta anterior por esta.
 
@@ -162,11 +162,11 @@ Executar a seguinte declaração [INSERT](https://msdn.microsoft.com/library/ms1
          ,GETDATE() );
    ```
 
-2. Prima **o Turno E ctrl**para inserir uma nova linha na + **Shift** + **E** `Product` tabela.
+2. Prima **Ctrl** + **Shift** + **E** para inserir uma nova linha na `Product` tabela.
 
 ## <a name="update-data"></a>Atualizar dados
 
-Executar a seguinte declaração de [Atualização](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL para atualizar o produto adicionado.
+Executar a seguinte [declaração DE UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL para atualizar o produto adicionado.
 
 1. Substitua a consulta anterior por esta:
 
@@ -176,7 +176,7 @@ Executar a seguinte declaração de [Atualização](https://msdn.microsoft.com/l
    WHERE Name = 'myNewProduct';
    ```
 
-2. Prima **o turno CTRL** + **Shift** + **E** para atualizar a linha especificada na `Product` tabela.
+2. Prima **Ctrl** + **Shift** + **E** para atualizar a linha especificada na `Product` tabela.
 
 ## <a name="delete-data"></a>Eliminar dados
 
@@ -189,10 +189,10 @@ Executar a seguinte declaração [DELETE](https://docs.microsoft.com/sql/t-sql/s
    WHERE Name = 'myNewProduct';
    ```
 
-2. Prima o turno **CTRL** + **Shift** + **E** para eliminar a linha especificada na `Product` tabela.
+2. Prima **Ctrl** + **Shift** + **E** para eliminar a linha especificada na `Product` tabela.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Para ligar e consultar utilizando o Estúdio de Gestão de Servidores SQL, consulte Quickstart: Use O Estúdio de Gestão de [Servidores SQL para se ligar a uma Base de Dados SQL Azure e dados de consulta](connect-query-ssms.md).
-- Para ligar e consultar utilizando o portal Azure, consulte [Quickstart: Use o editor de Consulta SQL no portal Azure para ligar e consultar dados](connect-query-portal.md).
+- Para ligar e consultar o SQL Server Management Studio, consulte [quickstart: Use SQL Server Management Studio para ligar a uma base de dados na Base de Dados Azure SQL e dados de consulta](connect-query-ssms.md).
+- Para ligar e consultar utilizando o portal Azure, consulte [Quickstart: Utilize o editor de consulta SQL no portal Azure para ligar e consultar dados](connect-query-portal.md).
 - Para ler um artigo de revista MSDN sobre a utilização do Visual Studio Code, veja [Create a database IDE with MSSQL extension blog post](https://msdn.microsoft.com/magazine/mt809115) (Criar uma base de dados IDE com a mensagem de blogue de extensão do MSSQL).

@@ -1,5 +1,5 @@
 ---
-title: Configure & gerir a referência do conteúdo
+title: Configurar & gerir referência de conteúdo
 description: Encontre uma referência de conteúdo que o ensine a configurar e gerir a Base de Dados Azure SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,22 +11,21 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/14/2020
-ms.openlocfilehash: 6f7c90791025f14e743a83693503fe235792c603
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: e5fd842e47c606c8f41aafe72253c1c4a1e885f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051956"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324403"
 ---
-# <a name="configure--manage-content-reference---azure-sql-database"></a>Configure & gerir referência de conteúdo - Base de Dados Azure SQL
+# <a name="configure-and-manage-content-reference---azure-sql-database"></a>Configurar e gerir referência de conteúdo - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Neste artigo pode encontrar uma referência de conteúdo de vários guias, scripts e explicações que podem ajudá-lo a gerir e configurar a sua Base de Dados Azure SQL. 
 
 ## <a name="load-data"></a>Carregar dados
 
-- [Migrar para base de dados SQL](migrate-to-database-from-sql-server.md)
-- Saiba como gerir a base de [dados SQL após](manage-data-after-migrating-to-database.md)a migração .
+- [Migrar para a Base de Dados SQL](migrate-to-database-from-sql-server.md)
+- Saiba como gerir a [Base de Dados SQL após a migração.](manage-data-after-migrating-to-database.md)
 - [Copiar uma Base de Dados](database-copy.md)
 - [Importar uma BD de um BACPAC](database-import.md)
 - [Exportar uma BD de um BACPAC](database-export.md)
@@ -35,35 +34,35 @@ Neste artigo pode encontrar uma referência de conteúdo de vários guias, scrip
 
 ## <a name="configure-features"></a>Configurar funcionalidades
 
-- [Configurar a autenticação do Azure AD](authentication-aad-configure.md)
-- [Configurar acesso condicional](conditional-access-configure.md)
-- [Autenticação multifator do AAD](authentication-mfa-ssms-overview.md)
-- [Configurar a autenticação multifator](authentication-mfa-ssms-configure.md)
+- [Configure Azure Ative Directory (Azure AD) auth](authentication-aad-configure.md)
+- [Configure acesso condicional](conditional-access-configure.md)
+- [Auth AD multi-factor Azure](authentication-mfa-ssms-overview.md)
+- [Configurar a autenticação multi-factor](authentication-mfa-ssms-configure.md)
 - [Configurar a política de retenção temporal](temporal-tables-retention-policy.md)
 - [Configurar o TDE com o BYOK](transparent-data-encryption-byok-configure.md)
 - [Rodar chaves BYOK de TDE](transparent-data-encryption-byok-key-rotation.md)
 - [Remover o protetor de TDE](transparent-data-encryption-byok-remove-tde-protector.md)
 - [Configurar o OLTP dentro da memória](../in-memory-oltp-configure.md)
-- [Configure Automação Azure](automation-manage.md)
+- [Configurar a azure Automation](automation-manage.md)
 - [Configure a replicação transacional](replication-to-sql-database.md) para replicar a sua data entre bases de dados.
-- [Configure](threat-detection-configure.md) a deteção de ameaças para permitir que a Base de Dados Azure SQL identifique atividades suspeitas como a Injeção SQL ou o acesso a partir de locais suspeitos.
-- [Configure](dynamic-data-masking-configure-portal.md) a máscara de dados dinâmicos para proteger os seus dados sensíveis.
-- [Configure](long-term-backup-retention-configure.md) a retenção de cópia de segurança para uma base de dados para manter as suas cópias de segurança no Armazenamento De Blob Azure. 
+- [Configure](threat-detection-configure.md) a deteção de ameaças para permitir que a Base de Dados Azure SQL identifique atividades suspeitas, como injeção de SQL ou acesso a locais suspeitos.
+- [Configure uma máscara dinâmica de dados](dynamic-data-masking-configure-portal.md) para proteger os seus dados sensíveis.
+- [Configure a retenção de backup](long-term-backup-retention-configure.md) para uma base de dados para manter as suas cópias de segurança no Azure Blob Storage. 
 - [Configure a geo-replicação](active-geo-replication-overview.md) para manter uma réplica da sua base de dados noutra região.
-- [Configure a segurança para geo-réplicas](active-geo-replication-security-configure.md).
+- [Configure a segurança para as geo-réplicas.](active-geo-replication-security-configure.md)
 
-## <a name="monitor-and-tune-your-database"></a>Monitorize e sintonize a sua base de dados
+## <a name="monitor-and-tune-your-database"></a>Monitorize e afina a sua base de dados
 
 - [Ajuste manual](performance-guidance.md)
 - [Utilizar DMVs para monitorizar o desempenho](monitoring-with-dmvs.md)
 - [Utilizar o Arquivo de consultas para monitorizar o desempenho](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
-- Ative a [sintonização automática](automatic-tuning-enable.md) para permitir que a Base de Dados Azure SQL otimize o desempenho da sua carga de trabalho.
-- [Ativar notificações de e-mail para afinação automática](automatic-tuning-email-notifications-configure.md) para obter informações sobre recomendações de afinação.
-- [Aplique recomendações](database-advisor-find-recommendations-portal.md) de desempenho e otimize a sua base de dados.
-- [Crie alertas](alerts-insights-configure-portal.md) para receber notificações da Base de Dados Azure SQL.
-- [Problemas de conectividade](troubleshoot-common-errors-issues.md) se notar alguns problemas de conectividade entre as aplicações e a base de dados. Também pode utilizar a Saúde dos [Recursos para problemas](resource-health-to-troubleshoot-connectivity.md)de conectividade.
+- [Ative a sintonização automática](automatic-tuning-enable.md) para permitir que a Base de Dados Azure SQL otimize o desempenho da sua carga de trabalho.
+- [Habilita notificações por e-mail para sintonização automática](automatic-tuning-email-notifications-configure.md) para obter informações sobre recomendações de sintonização.
+- [Aplique recomendações de desempenho](database-advisor-find-recommendations-portal.md) e otimize a sua base de dados.
+- [Crie alertas](alerts-insights-configure-portal.md) para obter notificações da Base de Dados Azure SQL.
+- [A conectividade de resolução de problemas](troubleshoot-common-errors-issues.md) se notar alguns problemas de conectividade entre as aplicações e a base de dados. Também pode utilizar [a Saúde dos Recursos para problemas de conectividade.](resource-health-to-troubleshoot-connectivity.md)
 - [Resolução de problemas de desempenho com o Intelligent Insights](intelligent-insights-troubleshoot-performance.md)
-- [Gerencie o espaço](file-space-manage.md) de ficheiros para monitorizar o uso do armazenamento na sua base de dados.
+- [Gerencie o espaço de ficheiros](file-space-manage.md) para monitorizar o uso do armazenamento na sua base de dados.
 - [Utilizar registo de diagnóstico do Intelligent Insights](intelligent-insights-use-diagnostics-log.md)
 - [Monitorizar o espaço OLTP dentro da memória](../in-memory-oltp-monitor-space.md)
 
@@ -75,9 +74,9 @@ Neste artigo pode encontrar uma referência de conteúdo de vários guias, scrip
 
 ## <a name="query-distributed-data"></a>Consultar dados distribuídos
 
-- [Consulta de dados verticalmente divididos](elastic-query-getting-started-vertical.md) em várias bases de dados.
-- [Relatório através do nível de dados escaldados.](elastic-query-horizontal-partitioning.md)
-- [Consulta através das mesas com diferentes schemas.](elastic-query-vertical-partitioning.md)
+- [Consulta dados divisórias verticalmente divididos](elastic-query-getting-started-vertical.md) em várias bases de dados.
+- [Relatório através do nível de dados escalonado](elastic-query-horizontal-partitioning.md).
+- [Consulta através de tabelas com esquemas diferentes.](elastic-query-vertical-partitioning.md)
 
 ### <a name="data-sync"></a>Sincronização de dados
 
@@ -90,31 +89,31 @@ Neste artigo pode encontrar uma referência de conteúdo de vários guias, scrip
 
 ## <a name="elastic-database-jobs"></a>Tarefas de Base de Dados Elástica
 
-- [Criar e gerir](elastic-jobs-powershell-create.md) Trabalhos de base de dados elásticos usando powerShell.
-- [Criar e gerir](elastic-jobs-tsql-create-manage.md) Trabalhos de base de dados elásticos usando Transact-SQL.
+- [Criar e gerir](elastic-jobs-powershell-create.md) Trabalhos de base de dados elásticos usando PowerShell.
+- [Criar e gerir](elastic-jobs-tsql-create-manage.md) Trabalhos de base de dados elásticos utilizando o Transact-SQL.
 - [Migrar do antigo trabalho elástico.](elastic-jobs-migrate.md)
 
 ## <a name="database-sharding"></a>Fragmentação de base de dados
 
-- Atualizar biblioteca de clientes de base de [dados elástica.](elastic-scale-upgrade-client-library.md)
-- [Criar uma aplicação de sharded](elastic-scale-get-started.md).
-- [Consulta de dados horizontalmente esfumaçados](elastic-query-getting-started.md).
-- Executar [consultas multi-fragmentos.](elastic-scale-multishard-querying.md)
-- [Mova dados fragmentos.](elastic-scale-configure-deploy-split-and-merge.md)
-- [Configure a segurança](elastic-scale-split-merge-security-configuration.md) nos fragmentos de base de dados.
+- [Atualizar biblioteca de clientes de base de dados elásticas.](elastic-scale-upgrade-client-library.md)
+- [Criar aplicativo sharded](elastic-scale-get-started.md).
+- [Consulta dados horizontalmente fragmentos](elastic-query-getting-started.md).
+- Executar [consultas multi-fragmentos](elastic-scale-multishard-querying.md).
+- [Mover dados fragmentos.](elastic-scale-configure-deploy-split-and-merge.md)
+- [Configure a segurança](elastic-scale-split-merge-security-configuration.md) em fragmentos de base de dados.
 - [Adicione um fragmento](elastic-scale-add-a-shard.md) ao conjunto atual de fragmentos de base de dados.
-- [Corrigir problemas](elastic-database-recovery-manager.md)no mapa do fragmento.
-- [Migrar DB espumoso.](elastic-convert-to-use-elastic-tools.md)
-- [Criar balcões.](elastic-database-perf-counters.md)
+- [Corrija problemas de mapa de fragmentos.](elastic-database-recovery-manager.md)
+- [Migrar DB de caco.](elastic-convert-to-use-elastic-tools.md)
+- [Criar balcões](elastic-database-perf-counters.md).
 - [Utilize](elastic-scale-use-entity-framework-applications-visual-studio.md) a estrutura da entidade para consultar dados fragmentos.
-- [Use](elastic-scale-working-with-dapper.md) a estrutura dapper para consultar dados fragmentos.
+- [Use a estrutura Dapper](elastic-scale-working-with-dapper.md) para consultar dados fragmentos.
 
 ## <a name="develop-applications"></a>Programar aplicações
 
 - [Conetividade](connect-query-content-reference-guide.md#libraries)
 - [Utilizar o Conector do Spark](spark-connector.md)
 - [Autenticar aplicação](application-authentication-get-client-id-keys.md)
-- [Utilize lotes para um melhor desempenho](../performance-improve-use-batching.md)
+- [Utilize o lote para um melhor desempenho](../performance-improve-use-batching.md)
 - [Orientações para conectividade](troubleshoot-common-connectivity-issues.md)
 - [Aliases DNS](dns-alias-overview.md)
 - [Configuração DNS pseudónimo PowerShell](dns-alias-powershell-create.md)
@@ -128,11 +127,12 @@ Neste artigo pode encontrar uma referência de conteúdo de vários guias, scrip
 - [Conceção para conjuntos elásticos](disaster-recovery-strategies-for-applications-with-elastic-pool.md)
 - [Conceber para atualizações da aplicação](manage-application-rolling-upgrade.md)
 
-### <a name="design-multi-tenant-saas-applications"></a>Design Aplicações SaaS multi-inquilinos
+### <a name="design-multi-tenant-software-as-a-service-saas-applications"></a>Design software multi-inquilino como um serviço (SaaS) aplicações
 
 - [Padrões de design de SaaS](saas-tenancy-app-design-patterns.md)
 - [Indexador de vídeos de SaaS](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
 - [Segurança de aplicação SaaS](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
 ## <a name="next-steps"></a>Próximos passos
-- Saiba mais sobre [guias de Como fazer para A Instância Gerida SQL](../managed-instance/how-to-content-reference-guide.md)
+
+- Saiba mais sobre [como fazer guias para Azure SQL Managed Instance](../managed-instance/how-to-content-reference-guide.md)

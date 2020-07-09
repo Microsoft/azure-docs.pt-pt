@@ -1,13 +1,13 @@
 ---
-title: 'Crie a sua primeira aplicação Azure Service Fabric no Linux usando C #'
-description: Aprenda a criar e implementar uma aplicação de Tecido de Serviço utilizando C# e .NET Core 2.0.
+title: 'Crie a sua primeira aplicação Azure Service Fabric em Linux usando C #'
+description: Saiba como criar e implementar uma aplicação de Tecido de Serviço utilizando C# e .NET Core 2.0.
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.openlocfilehash: 556d8dee4efd492fa98755f1ffd1cdc1c9887856
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82193654"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Criar a sua primeira aplicação do Azure Service Fabric
@@ -22,7 +22,7 @@ O Service Fabric disponibiliza SDKs para criar serviços no Linux em .NET Core e
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de que [configurou o seu ambiente de desenvolvimento do Linux](service-fabric-get-started-linux.md). Se estiver a utilizar o Mac OS X, pode [configurar um ambiente de uma caixa do Linux numa máquina virtual com Vagrant](service-fabric-get-started-mac.md).
 
-Também vai querer instalar o [ClI de Tecido de Serviço](service-fabric-cli.md)
+Também vai querer instalar o [CLI de Tecido de Serviço](service-fabric-cli.md)
 
 ### <a name="install-and-set-up-the-generators-for-c"></a>Instalar e configurar os geradores para C#
 O Service Fabric fornece ferramentas estruturais que o ajudam a criar aplicações do Service Fabric a partir de um terminal com os geradores de modelos Yeoman. Siga estes passos para configurar os geradores de modelos Yeoman do Service Fabric para C#:
@@ -89,7 +89,7 @@ Os parâmetros desses comandos encontram-se nos manifestos gerados dentro do pac
 Após a implementação da aplicação, abra um browser e navegue até [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) em `http://localhost:19080/Explorer`. Em seguida, expanda o nó **Aplicações** e repare que há, agora, uma entrada para o tipo de aplicação e outra para a primeira instância desse tipo.
 
 > [!IMPORTANT]
-> Para implementar a aplicação num cluster Linux seguro em Azure, é necessário configurar um certificado para validar a sua aplicação com o tempo de execução do Tecido de Serviço. Ao fazê-lo, os seus serviços fiáveis comunicam com as APIs de tempo de execução do Tecido de Serviço subjacentes. Para saber mais, consulte [a Configure uma aplicação De serviços fiáveis para executar em clusters Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Para implementar a aplicação num cluster Linux seguro em Azure, é necessário configurar um certificado para validar a sua aplicação com o tempo de execução do Service Fabric. Ao fazê-lo, os seus serviços Reliable Services comunicam com as APIs de execução do tecido de serviço subjacente. Para saber mais, consulte [configurar uma aplicação Reliable Services para executar em clusters Linux.](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Iniciar o cliente de teste e executar uma ativação pós-falha
@@ -97,7 +97,7 @@ Os projetos de ator não fazem nada só por si. Precisam de outro serviço ou cl
 
 1. Execute o script com o utilitário watch para ver o resultado do serviço de ator.
 
-   No caso de MAC OS X, é necessário copiar a pasta myactorsvcTestClient para o mesmo local dentro do contentor, executando os seguintes comandos adicionais.
+   No caso de MAC OS X, é necessário copiar a pasta myactorsvcSClient para o mesmo local dentro do contentor, executando os seguintes comandos adicionais.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home

@@ -1,6 +1,6 @@
 ---
-title: Construa uma aplicação web que chama APIs web - plataforma de identidade microsoft / Azure
-description: Saiba como construir uma aplicação web que chama APIs web (visão geral)
+title: Construa uma aplicação web que chame APIs web - plataforma de identidade microsoft / Rio Azure
+description: Saiba como construir uma aplicação web que chame APIs web (visão geral)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,15 +12,14 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 5af9e34baf6115e801fbfe35e6e3895e48b360e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881728"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Cenário: Uma aplicação web que chama APIs web
 
-Saiba como construir uma aplicação web que institu os utilizadores na plataforma de identidade da Microsoft e, em seguida, ligue para a web APIs em nome do utilizador inscrito.
+Saiba como construir uma aplicação web que inscreve os utilizadores na plataforma de identidade da Microsoft e, em seguida, ligue para APIs web em nome do utilizador inscrito.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,26 +32,26 @@ Este cenário pressupõe que já passou pelo seguinte cenário:
 
 ## <a name="overview"></a>Descrição geral
 
-Adiciona autenticação à sua aplicação web para que possa iniciar sessão de utilizadores e ligar para uma API web em nome do utilizador inscrito.
+Adiciona autenticação à sua aplicação web para que possa iniciar súpido e ligar para uma API web em nome do utilizador inscrito.
 
 ![Aplicação Web que chama as APIs Web](./media/scenario-webapp/web-app.svg)
 
-Aplicações web que ligam para apis web são aplicações confidenciais do cliente.
-É por isso que registam um segredo (uma palavra-passe de candidatura ou certificado) com o Azure Ative Directory (Azure AD). Este segredo é passado durante a chamada para a AD Azure para obter um símbolo.
+As aplicações web que chamam APIs web são aplicações confidenciais do cliente.
+É por isso que registam um segredo (uma senha de aplicação ou certificado) com o Azure Ative Directory (Azure AD). Este segredo é passado durante a chamada para Azure AD para obter um símbolo.
 
 ## <a name="specifics"></a>Especificidades
 
 > [!NOTE]
-> Adicionar sessão a uma aplicação web é proteger a própria aplicação web. Esta proteção é conseguida utilizando bibliotecas *de middleware,* e não a Microsoft Authentication Library (MSAL). O cenário anterior, [aplicação Web que assina nos utilizadores,](scenario-web-app-sign-user-overview.md)cobria esse assunto.
+> Adicionar o s-in a uma aplicação web é sobre proteger a própria aplicação web. Esta proteção é conseguida utilizando bibliotecas *de middleware,* não a Microsoft Authentication Library (MSAL). O cenário anterior, [a aplicação Web que assina nos utilizadores,](scenario-web-app-sign-user-overview.md)cobriu esse assunto.
 >
-> Este cenário abrange como chamar APIs web a partir de uma aplicação web. Tens de ter fichas de acesso para essas APIs web. Usa bibliotecas MSAL para adquirir estes tokens.
+> Este cenário abrange como chamar APIs web a partir de uma aplicação web. Tens de ter acesso a fichas para essas APIs web. Usas bibliotecas MSAL para adquirir estes tokens.
 
-O desenvolvimento para este cenário envolve estas tarefas específicas:
+O desenvolvimento deste cenário envolve estas tarefas específicas:
 
-- Durante o registo da [candidatura,](scenario-web-app-call-api-app-registration.md)deve fornecer uma resposta URI, segredo ou certificado a ser partilhado com a Azure AD. Se implementar a sua aplicação em vários locais, irá fornecer esta informação para cada local.
-- A configuração da [aplicação](scenario-web-app-call-api-app-configuration.md) deve fornecer as credenciais do cliente que foram partilhadas com a AD Azure durante o registo da candidatura.
+- Durante [o registo de pedidos,](scenario-web-app-call-api-app-registration.md)deve fornecer uma resposta URI, segredo ou certificado a ser partilhado com a Azure AD. Se implementar a sua aplicação em vários locais, fornecerá estas informações para cada local.
+- A configuração da [aplicação](scenario-web-app-call-api-app-configuration.md) deve fornecer as credenciais do cliente que foram partilhadas com a Azure AD durante o registo da candidatura.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Uma aplicação web que chama APIs web: Registo de aplicações](scenario-web-app-call-api-app-registration.md)

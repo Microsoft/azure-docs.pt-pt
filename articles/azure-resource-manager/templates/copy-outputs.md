@@ -1,22 +1,22 @@
 ---
-title: Definir múltiplas instâncias de um valor de saída
-description: Utilize a operação de cópia num modelo de Gestor de Recursos Azure para iterar várias vezes ao devolver um valor a partir de uma implementação.
+title: Definir vários casos de um valor de saída
+description: Utilize a operação de cópia num modelo do Gestor de Recursos Azure para iterar várias vezes ao devolver um valor de uma implementação.
 ms.topic: conceptual
 ms.date: 04/17/2020
 ms.openlocfilehash: 50c4b4b8f301ad88d3dfde98ace1aed4431693db
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583422"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Iteração de saída em modelos ARM
 
-Este artigo mostra-lhe como criar mais do que um valor para uma saída no seu modelo Degestor de Recursos Azure (ARM). Ao adicionar o elemento **de cópia** à secção de saídas do seu modelo, pode dinamicamente devolver uma série de itens durante a implementação.
+Este artigo mostra-lhe como criar mais do que um valor para uma saída no seu modelo Azure Resource Manager (ARM). Ao adicionar o elemento **de cópia** à secção de saídas do seu modelo, pode devolver dinamicamente uma série de itens durante a implementação.
 
-Também pode utilizar cópiacom [recursos,](copy-resources.md) [propriedades num recurso,](copy-properties.md)e [variáveis.](copy-variables.md)
+Também pode utilizar cópia com [recursos,](copy-resources.md) [propriedades num recurso,](copy-properties.md)e [variáveis.](copy-variables.md)
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 O elemento de cópia tem o seguinte formato geral:
 
@@ -27,26 +27,26 @@ O elemento de cópia tem o seguinte formato geral:
 }
 ```
 
-A propriedade **de contagem** especifica o número de iterações que deseja para o valor de saída.
+A **propriedade da contagem** especifica o número de iterações que deseja para o valor de saída.
 
-A propriedade **de entrada** especifica as propriedades que pretende repetir. Você cria uma variedade de elementos construídos a partir do valor na propriedade de **entrada.** Pode ser uma única propriedade (como uma corda), ou um objeto com várias propriedades.
+A **propriedade de entrada** especifica as propriedades que pretende repetir. Cria-se uma série de elementos construídos a partir do valor na propriedade **de entrada.** Pode ser uma única propriedade (como uma corda), ou um objeto com várias propriedades.
 
 ## <a name="copy-limits"></a>Limites de cópia
 
-A contagem não pode exceder 800.
+A contagem não pode ultrapassar os 800.
 
-A contagem não pode ser um número negativo. Pode ser zero se implementar o modelo com uma versão recente do Azure CLI, PowerShell ou REST API. Especificamente, deve usar:
+A contagem não pode ser um número negativo. Pode ser zero se implementar o modelo com uma versão recente de Azure CLI, PowerShell ou REST API. Especificamente, deve usar:
 
 * Azure PowerShell **2.6** ou mais tarde
 * Azure CLI **2.0.74** ou mais tarde
-* VERSÃO REST API **2019-05-10** ou mais tarde
-* [As implementações ligadas](linked-templates.md) devem utilizar a versão API **2019-05-10** ou posteriormente para o tipo de recurso de implantação
+* REST Versão API **2019-05-10** ou posterior
+* [As implementações ligadas](linked-templates.md) devem utilizar a versão API **2019-05-10** ou posterior para o tipo de recurso de implantação
 
-Versões anteriores de PowerShell, CLI e rest API não suportam zero para contagem.
+Versões anteriores de PowerShell, CLI e REST API não suportam zero para contar.
 
 ## <a name="outputs-iteration"></a>Iteração de saídas
 
-O exemplo seguinte cria um número variável de contas de armazenamento e devolve um ponto final para cada conta de armazenamento:
+O exemplo a seguir cria um número variável de contas de armazenamento e devolve um ponto final para cada conta de armazenamento:
 
 ```json
 {
@@ -166,11 +166,11 @@ O exemplo anterior devolve uma matriz com os seguintes valores:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para passar por um tutorial, consulte [Tutorial: crie múltiplas instâncias](template-tutorial-create-multiple-instances.md)de recursos utilizando modelos ARM .
-* Para outras utilizações do elemento cópia, consulte:
+* Para passar por um tutorial, consulte [Tutorial: crie múltiplas instâncias de recursos utilizando modelos ARM](template-tutorial-create-multiple-instances.md).
+* Para outras utilizações do elemento de cópia, consulte:
   * [Iteração de recursos em modelos ARM](copy-resources.md)
   * [Iteração de propriedade em modelos ARM](copy-properties.md)
   * [Iteração variável em modelos ARM](copy-variables.md)
-* Se quiser saber sobre as secções de um modelo, consulte [os modelos ARM autores](template-syntax.md).
-* Para aprender a implementar o seu modelo, consulte [implementar uma aplicação com modelo ARM](deploy-powershell.md).
+* Se quiser aprender sobre as secções de um modelo, consulte os [modelos de autoria DO ARM](template-syntax.md).
+* Para aprender a implementar o seu modelo, consulte [implementar uma aplicação com o modelo ARM](deploy-powershell.md).
 

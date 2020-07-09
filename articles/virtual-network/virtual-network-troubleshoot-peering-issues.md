@@ -16,205 +16,204 @@ ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
 ms.openlocfilehash: 9685c1739a00788a974c200ddabb8cc975696b62
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83587736"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Resolver problemas de peering de rede virtual
 
-Este guia de resolução de problemas fornece passos para ajudá-lo a resolver a maioria dos problemas de observação de [rede virtuais.](virtual-network-peering-overview.md)
+Este guia de resolução de problemas fornece medidas para ajudá-lo a resolver a maioria dos problemas [de observação de rede virtuais.](virtual-network-peering-overview.md)
 
-![Diagrama de peering de rede virtual](./media/virtual-network-troubleshoot-peering-issues/4489538_en_1.png)
+![Diagrama de observação de rede virtual](./media/virtual-network-troubleshoot-peering-issues/4489538_en_1.png)
 
-## <a name="configure-virtual-network-peering-between-two-virtual-networks"></a>Configure o peering da rede virtual entre duas redes virtuais
+## <a name="configure-virtual-network-peering-between-two-virtual-networks"></a>Configurar a rede virtual que espreita entre duas redes virtuais
 
-As redes virtuais estão na mesma subscrição ou em assinaturas diferentes?
+As redes virtuais estão na mesma subscrição ou em diferentes subscrições?
 
 ### <a name="the-virtual-networks-are-in-the-same-subscription"></a>As redes virtuais estão na mesma subscrição
 
-Para configurar o olhar de rede virtual para as redes virtuais que se encontram na mesma subscrição, utilize os métodos nos seguintes artigos:
+Para configurar a rede virtual que observa as redes virtuais que estão na mesma subscrição, utilize os métodos nos seguintes artigos:
 
-* Se as redes virtuais estiverem na *mesma região,* consulte [Criar um olhar.](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#create-a-peering)
-* Se as redes virtuais estiverem nas *diferentes regiões,* consulte o peering da [rede virtual.](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 
+* Se as redes virtuais estiverem na *mesma região,* consulte [Criar um espreitamento](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#create-a-peering).
+* Se as redes virtuais estiverem nas *diferentes regiões,* consulte [a rede Virtual a espreitar.](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 
 
 > [!Note]
 > A conectividade não funciona sobre a rede virtual global que procura os seguintes recursos: 
 >
-> * Máquinas virtuais (VMs) por trás do Equilíbrio de Carga Interna Básica (ILB) SKU
-> * Cache redis (usa Basic ILB SKU)
-> * Gateway de aplicação (utiliza Basic ILB SKU)
-> * Conjuntos de escala de máquina virtual (utiliza SKU Básico ILB)
-> * Clusters de tecido de serviço Azure (utiliza Basic ILB SKU)
-> * SQL Server Always On (usa Basic ILB SKU)
-> * Ambiente de serviço de aplicações Azure para PowerApps (usa Basic ILB SKU)
-> * Gestão aPI Azure (utiliza Basic ILB SKU)
-> * Serviços de Domínio de Diretório Ativo Azure (Azure AD DS) (utiliza Basic ILB SKU)
+> * Máquinas virtuais (VMs) por trás do balanceador de carga interna básico (ILB) SKU
+> * Cache Redis (usa Basic ILB SKU)
+> * Gateway de aplicações (utiliza Basic ILB SKU)
+> * Conjuntos de escala de máquina virtual (utiliza Basic ILB SKU)
+> * Aglomerados de tecido de serviço Azure (utiliza Basic ILB SKU)
+> * SQL Server Always On (utiliza SKU Básico ILB)
+> * Azure App Service Environment for PowerApps (utiliza O SKU Básico do ILB)
+> * Gestão AZURE API (utiliza O SKU Básico do ILB)
+> * Azure Ative Directory Domain Services (Azure AD DS) (utiliza SKU Básico ILB)
 
-Para obter mais informações, consulte os [requisitos e constrangimentos](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) do peering global.
+Para mais informações, consulte os [requisitos e constrangimentos](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) do persimento global.
 
-### <a name="the-virtual-networks-are-in-different-subscriptions-or-active-directory-tenants"></a>As redes virtuais estão em diferentes subscrições ou inquilinos do Diretório Ativo
+### <a name="the-virtual-networks-are-in-different-subscriptions-or-active-directory-tenants"></a>As redes virtuais estão em diferentes subscrições ou inquilinos do Ative Directory
 
-Para configurar o peering de rede virtual para redes virtuais em diferentes subscrições ou inquilinos de Diretório Ativo, consulte [Create peering em diferentes subscrições para o Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
+Para configurar a rede virtual que procura redes virtuais em diferentes subscrições ou inquilinos do Ative Directory, consulte [Criar espreitar em diferentes subscrições para o Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
 
 > [!Note]
-> Para configurar o peering da rede, deve ter permissões do Colaborador da **Rede** em ambas as subscrições. Para mais informações, consulte [permissões de peering](virtual-network-manage-peering.md#permissions).
+> Para configurar o espreitamento da rede, tem de ter permissões **de Network Contributor** em ambas as subscrições. Para obter mais informações, consulte [permissões de peering](virtual-network-manage-peering.md#permissions).
 
-## <a name="configure-virtual-network-peering-with-hub-spoke-topology-that-uses-on-premises-resources"></a>Configure a rede virtual olhando com topologia de centro-falado que usa recursos no local
+## <a name="configure-virtual-network-peering-with-hub-spoke-topology-that-uses-on-premises-resources"></a>Configure a rede virtual que observa com topologia falada por hub que utiliza recursos no local
 
-![Diagrama de rede virtual olhando com no local falado](./media/virtual-network-troubleshoot-peering-issues/4488712_en_1a.png)
+![Diagrama de rede virtual olhando com no local falou](./media/virtual-network-troubleshoot-peering-issues/4488712_en_1a.png)
 
-### <a name="for-a-site-to-site-connection-or-an-expressroute-connection"></a>Para uma ligação site-to-site ou uma ligação ExpressRoute
+### <a name="for-a-site-to-site-connection-or-an-expressroute-connection"></a>Para uma ligação site-a-local ou uma ligação ExpressRoute
 
-Siga os passos em: Configure o trânsito de [gateway VPN para o peering virtual da rede](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
+Siga os passos em: [Configurar o trânsito de gateway VPN para o olhar da rede virtual](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
 
-### <a name="for-point-to-site-connections"></a>Para ligações ponto-a-local
+### <a name="for-point-to-site-connections"></a>Para ligações ponto a local
 
-1. Siga os passos em: Configure o trânsito de [gateway VPN para o peering virtual da rede](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
-2. Depois de o peering de rede virtual ser estabelecido ou alterado, descarregue e reinstale o pacote ponto-a-site para que os clientes ponto-a-site obtem as rotas atualizadas para a rede virtual falada.
+1. Siga os passos em: [Configurar o trânsito de gateway VPN para o olhar da rede virtual](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
+2. Após o estomamento da rede virtual ser estabelecido ou alterado, descarregue e reinstale o pacote ponto-a-local para que os clientes ponto-a-local obtenham as rotas atualizadas para a rede virtual falada.
 
-## <a name="configure-virtual-network-peering-with-hub-spoke-topology-virtual-network"></a>Configure o peering da rede virtual com a rede virtual de topologia de centro-falado
+## <a name="configure-virtual-network-peering-with-hub-spoke-topology-virtual-network"></a>Configurar a rede virtual que espreita com a rede virtual de topologia de hub-spoke
 
 ![Diagrama de rede virtual olhando com uma rede virtual falada](./media/virtual-network-troubleshoot-peering-issues/4488712_en_1b.png)
 
 ### <a name="the-virtual-networks-are-in-the-same-region"></a>As redes virtuais estão na mesma região
 
 
-1. Na rede virtual hub, configure um aparelho virtual de rede (NVA).
-1. Nas redes virtuais faladas, têm rotas definidas pelo utilizador com o próximo tipo de lúpulo "aparelho virtual de rede" aplicado.
+1. Na rede virtual do hub, configurar um aparelho virtual de rede (NVA).
+1. Nas redes virtuais faladas, tenha rotas definidas pelo utilizador com o próximo tipo de lúpulo "aparelho virtual de rede" aplicado.
 
-Para mais informações, consulte [a correnção de serviço](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining).
+Para obter mais informações, consulte [o chaining de serviço.](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining)
 
 > [!Note]
 > Se necessitar de ajuda para configurar um NVA, [contacte o fornecedor NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 
-Para obter ajuda na resolução de problemas da configuração e encaminhamento do dispositivo NVA, consulte problemas de [aparelhos virtuais da Rede em Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva).
+Para obter ajuda na resolução de problemas da configuração e encaminhamento do dispositivo NVA, consulte [os problemas do aparelho virtual da Rede em Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva).
 
 ### <a name="the-virtual-networks-are-in-different-regions"></a>As redes virtuais estão em diferentes regiões
 
-O trânsito sobre o epeering global da rede virtual é agora apoiado. A conectividade não funciona sobre a rede virtual global que procura os seguintes recursos:
+O trânsito sobre o olhar global da rede virtual é agora suportado. A conectividade não funciona sobre a rede virtual global que procura os seguintes recursos:
 
 * VMs protegidas pelo SKU do ILB Básico
-* Cache redis (usa Basic ILB SKU)
-* Gateway de aplicação (utiliza Basic ILB SKU)
-* Conjuntos de escala (utiliza SKU Básico ILB)
+* Cache Redis (usa Basic ILB SKU)
+* Gateway de aplicações (utiliza Basic ILB SKU)
+* Conjuntos de escala (utiliza Basic ILB SKU)
 * Clusters do Service Fabric (utilizam o SKU do ILB Básico)
-* SQL Server Always On (usa Basic ILB SKU)
-* Ambiente de Serviço de Aplicativos (usa Basic ILB SKU)
+* SQL Server Always On (utiliza SKU Básico ILB)
+* Ambiente de Serviço de Aplicações (utiliza SKU Básico do ILB)
 * Gestão de API (utiliza o SKU do ILB Básico)
-* Azure AD DS (usa Basic ILB SKU)
+* Azure AD DS (utiliza SKU Básico ILB)
 
-Para saber mais sobre os requisitos e restrições globais de peering, consulte o [peering da rede virtual.](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints)
+Para saber mais sobre requisitos e restrições globais de espreitar, consulte [a rede Virtual a espreitar.](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints)
 
-## <a name="troubleshoot-a-connectivity-issue-between-two-peered-virtual-networks"></a>Problemas de resolução de um problema de conectividade entre duas redes virtuais peered
+## <a name="troubleshoot-a-connectivity-issue-between-two-peered-virtual-networks"></a>Resolver problemas num problema de conectividade entre duas redes virtuais espreitadas
 
-Inscreva-se no [portal Azure](https://portal.azure.com/) com uma conta que tenha as [funções e permissões necessárias.](virtual-network-manage-peering.md#permissions) Selecione a rede virtual, selecione **Peering**e, em seguida, verifique o campo **'Status'.** Qual é o estado?
+Inscreva-se no [portal Azure](https://portal.azure.com/) com uma conta que tenha as [funções e permissões necessárias.](virtual-network-manage-peering.md#permissions) Selecione a rede virtual, **selecione Peering**e, em seguida, verifique o campo **'Estado'.** Qual é a situação?
 
 ### <a name="the-peering-status-is-connected"></a>O estado de observação é "Conectado"
 
-Para resolver esta questão:
+Para resolver este problema:
 
 1. Verifique os fluxos de tráfego da rede:
 
-   Utilize a [ligação Troubleshoot](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-overview) e o [fluxo IP verificar](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) da fonte VM para o destino VM para determinar se existe um NSG ou UDR que está a causar interferência nos fluxos de tráfego.
+   Utilize [a resolução](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-overview) de problemas de ligação e o fluxo IP [verifiquem](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) da fonte VM para o destino VM para determinar se existe um NSG ou UDR que está a causar interferência nos fluxos de tráfego.
 
    Se estiver a usar uma firewall ou NVA: 
-   1. Documente os parâmetros UDR para que possa restaurá-los depois de este passo estar completo.
-   2. Retire o UDR da subnet VM de origem ou NIC que aponta para o NVA como o próximo salto. Verifique a conectividade da fonte VM diretamente para o destino que está a contornar a NVA. Se este passo não funcionar, consulte o resoluto de [problemas da NVA.](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva)
+   1. Documente os parâmetros UDR para que possa restaurá-los após este passo estar completo.
+   2. Retire o UDR da sub-rede VM de origem ou NIC que aponta para o NVA como o próximo salto. Verifique a conectividade desde a origem VM diretamente para o destino que está contornando a NVA. Se este passo não funcionar, consulte o [resolução de problemas da NVA.](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva)
 
-2. Pegue um rastreio de rede: 
-   1. Inicie um rastreio de rede no destino VM. Para windows, pode utilizar **Netsh**. Para o Linux, utilize **o TCPDump**.
-   2. Executar **TcpPing** ou **PsPing** da fonte para o IP de destino.
+2. Faça um rastreio de rede: 
+   1. Inicie um rastreio de rede no VM de destino. Para windows, pode utilizar **netsh**. Para Linux, utilize **o TCPDump**.
+   2. Executar **TcpPing** ou **PsPing** da fonte para o destino IP.
 
       Este é um exemplo de um comando **TcpPing:**`tcping64.exe -t <destination VM address> 3389`
 
    3. Depois de o **TcpPing** estar completo, pare o rastreio da rede no destino.
-   4. Se os pacotes chegarem da fonte, não há problema de networking. Examine tanto a firewall VM como a aplicação que escuta nessa porta para localizar o problema de configuração.
+   4. Se os pacotes chegarem da fonte, não há problema de rede. Examine tanto a firewall VM como a aplicação que ouve nessa porta para localizar o problema de configuração.
 
    > [!Note]
-   > Não é possível ligar-se aos seguintes tipos de recursos sobre o peering global da rede virtual (redes virtuais em diferentes regiões):
+   > Não é possível ligar-se aos seguintes tipos de recursos sobre o espreguite global da rede virtual (redes virtuais em diferentes regiões):
    >
    > * VMs protegidas pelo SKU do ILB Básico
-   > * Cache redis (usa Basic ILB SKU)
-   > * Gateway de aplicação (utiliza Basic ILB SKU)
-   > * Conjuntos de escala (utiliza SKU Básico ILB)
+   > * Cache Redis (usa Basic ILB SKU)
+   > * Gateway de aplicações (utiliza Basic ILB SKU)
+   > * Conjuntos de escala (utiliza Basic ILB SKU)
    > * Clusters do Service Fabric (utilizam o SKU do ILB Básico)
-   > * SQL Server Always On (usa Basic ILB SKU)
-   > * Ambiente de Serviço de Aplicativos (usa Basic ILB SKU)
+   > * SQL Server Always On (utiliza SKU Básico ILB)
+   > * Ambiente de Serviço de Aplicações (utiliza SKU Básico do ILB)
    > * Gestão de API (utiliza o SKU do ILB Básico)
-   > * Azure AD DS (usa Basic ILB SKU)
+   > * Azure AD DS (utiliza SKU Básico ILB)
 
-Para obter mais informações, consulte os [requisitos e constrangimentos](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) do peering global.
+Para mais informações, consulte os [requisitos e constrangimentos](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) do persimento global.
 
 ### <a name="the-peering-status-is-disconnected"></a>O estado de observação é "Desligado"
 
-Para resolver este problema, elimine o epeering de ambas as redes virtuais e, em seguida, recriá-los.
+Para resolver este problema, elimine o espreitamento de ambas as redes virtuais e, em seguida, reu crie-as.
 
-## <a name="troubleshoot-a-connectivity-issue-between-a-hub-spoke-virtual-network-and-an-on-premises-resource"></a>Problemas de resolução de um problema de conectividade entre uma rede virtual de hub-spoke e um recurso no local
+## <a name="troubleshoot-a-connectivity-issue-between-a-hub-spoke-virtual-network-and-an-on-premises-resource"></a>Resolver problemas num problema de conectividade entre uma rede virtual falada por hub e um recurso no local
 
-A sua rede utiliza um gateway NVA ou VPN de terceiros?
+A sua rede utiliza uma porta de entrada NVA ou VPN de terceiros?
 
-### <a name="my-network-uses-a-third-party-nva-or-vpn-gateway"></a>A minha rede usa um gateway NVA ou VPN de terceiros
+### <a name="my-network-uses-a-third-party-nva-or-vpn-gateway"></a>A minha rede usa uma porta de entrada NVA ou VPN de terceiros
 
-Para resolver problemas de conectividade que afetam um portal de porta de entrada de NVA ou VPN de terceiros, consulte os seguintes artigos:
+Para resolver problemas de conectividade que afetam um gateway de NVA ou VPN de terceiros, consulte os seguintes artigos:
 
-* [Atirador de problemas nVA](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva)
+* [Resolução de problemas NVA](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva)
 * [Encadeamento de serviços](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining)
 
-### <a name="my-network-does-not-use-a-third-party-nva-or-vpn-gateway"></a>A minha rede não utiliza um gateway NVA ou VPN de terceiros
+### <a name="my-network-does-not-use-a-third-party-nva-or-vpn-gateway"></a>A minha rede não usa uma porta de entrada NVA ou VPN de terceiros
 
-A rede virtual hub e a rede virtual falada têm um gateway VPN?
+A rede virtual do hub e a rede virtual falada têm uma porta de entrada VPN?
 
-#### <a name="both-the-hub-virtual-network-and-the-spoke-virtual-network-have-a-vpn-gateway"></a>Tanto a rede virtual hub como a rede virtual falada têm um gateway VPN
+#### <a name="both-the-hub-virtual-network-and-the-spoke-virtual-network-have-a-vpn-gateway"></a>Tanto a rede virtual do hub como a rede virtual falada têm uma porta de entrada VPN
 
 Usar um portal remoto não é suportado.
 
-Se a rede virtual falada já tiver um gateway VPN, a opção **use remote gateway** não é suportada na rede virtual falada. Isto deve-se a uma limitação virtual de observação de redes.
+Se a rede virtual falada já tiver um gateway VPN, a opção **Utilização de gateway remoto** não é suportada na rede virtual falada. Isto deve-se a uma limitação de espreitar rede virtual.
 
-#### <a name="both-the-hub-virtual-network-and-the-spoke-virtual-network-do-not-have-a-vpn-gateway"></a>Tanto a rede virtual hub como a rede virtual falada não têm um gateway VPN
+#### <a name="both-the-hub-virtual-network-and-the-spoke-virtual-network-do-not-have-a-vpn-gateway"></a>Tanto a rede virtual do hub como a rede virtual falada não têm uma porta de entrada VPN
 
 Para as ligações site-to-site ou Azure ExpressRoute, verifique as seguintes causas primárias de problemas de conectividade para a rede virtual remota a partir do local:
 
-* Na rede virtual que tem um portal, verifique se a caixa de verificação de **tráfego reencaminhada permitir** é selecionada.
-* Na rede virtual que não tem um portal, verifique se a caixa de verificação de **gateway remoto Use** é selecionada.
-* Mande o seu administrador de rede verificar os seus dispositivos no local para verificar se todos têm o espaço de endereço de rede virtual remoto adicionado.
+* Na rede virtual que tem um gateway, verifique se a caixa de verificação **de tráfego reencaminhada permite** ser selecionada.
+* Na rede virtual que não tem um gateway, verifique se a caixa **de verificação de gateway remoto** de Utilização está selecionada.
+* Que o administrador da rede verifique os seus dispositivos no local para verificar se todos têm o espaço de endereço de rede virtual remoto adicionado.
 
-Para ligações ponto-a-local:
+Para ligações ponto a local:
 
-* Na rede virtual que tem um portal, verifique se a caixa de verificação de **tráfego reencaminhada permitir** é selecionada.
-* Na rede virtual que não tem um portal, verifique se a caixa de verificação de **gateway remoto Use** é selecionada.
-* Faça o download e reinstalação do pacote de clientes ponto-a-site. As rotas de rede virtuais que são recentemente espreitadas não adicionam automaticamente rotas aos clientes ponto-a-site.
+* Na rede virtual que tem um gateway, verifique se a caixa de verificação **de tráfego reencaminhada permite** ser selecionada.
+* Na rede virtual que não tem um gateway, verifique se a caixa **de verificação de gateway remoto** de Utilização está selecionada.
+* Faça o download e reinstale o pacote de clientes ponto a local. As rotas de rede virtuais que são recentemente espreitadas não adicionam automaticamente rotas aos clientes ponto a local.
 
-## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-spoke-virtual-networks-in-the-same-region"></a>Problemas de resolução de um problema de conectividade de rede de hub-spoke entre redes virtuais faladas na mesma região
+## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-spoke-virtual-networks-in-the-same-region"></a>Resolução de problemas um problema de conectividade de rede falado entre redes virtuais faladas na mesma região
 
-Uma rede de hub deve incluir um NVA. Configure os UDRs em raios que tenham um conjunto NVA como o próximo salto, e permitam permitir o **tráfego encaminhada** na rede virtual do hub.
+Uma rede de hub deve incluir um NVA. Configure os UDRs em raios que têm um conjunto de NVA como o próximo salto, e permitem permitir o **tráfego reencaminhado** na rede virtual do hub.
 
-Para mais informações, consulte a corrente de [serviço](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining), e discuta estes requisitos com o [fornecedor nVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) à sua escolha.
+Para mais informações, consulte [acorrente de Serviço](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining)e discuta estes requisitos com o [fornecedor NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) à sua escolha.
 
-## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-spoke-virtual-networks-in-different-regions"></a>Problemas de resolução de um problema de conectividade de rede de centro-falado entre redes virtuais faladas em diferentes regiões
+## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-spoke-virtual-networks-in-different-regions"></a>Resolução de problemas um problema de conectividade de rede falado entre redes virtuais faladas em diferentes regiões
 
-O trânsito sobre o epeering global da rede virtual é agora apoiado. A conectividade não funciona sobre a rede virtual global que procura os seguintes recursos:
+O trânsito sobre o olhar global da rede virtual é agora suportado. A conectividade não funciona sobre a rede virtual global que procura os seguintes recursos:
 
 * VMs protegidas pelo SKU do ILB Básico
-* Cache redis (usa Basic ILB SKU)
-* Gateway de aplicação (utiliza Basic ILB SKU)
-* Conjuntos de escala (utiliza SKU Básico ILB)
+* Cache Redis (usa Basic ILB SKU)
+* Gateway de aplicações (utiliza Basic ILB SKU)
+* Conjuntos de escala (utiliza Basic ILB SKU)
 * Clusters do Service Fabric (utilizam o SKU do ILB Básico)
-* SQL Server Always On (usa Basic ILB SKU)
-* Ambiente de Serviço de Aplicativos (usa Basic ILB SKU)
+* SQL Server Always On (utiliza SKU Básico ILB)
+* Ambiente de Serviço de Aplicações (utiliza SKU Básico do ILB)
 * Gestão de API (utiliza o SKU do ILB Básico)
-* Azure AD DS (usa Basic ILB SKU)
+* Azure AD DS (utiliza SKU Básico ILB)
 
-Para mais informações, consulte os [requisitos e constrangimentos](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) do peering global e [diferentes topologias VPN](https://blogs.msdn.microsoft.com/igorpag/2016/02/11/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-v2/).
+Para mais informações, consulte os [requisitos e constrangimentos](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) do levantamento global e [das Diferentes Topologias VPN.](https://blogs.msdn.microsoft.com/igorpag/2016/02/11/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-v2/)
 
-## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-a-web-app-and-the-spoke-virtual-network"></a>Problemas de resolução de um problema de conectividade de rede de hub-spoke entre uma aplicação web e a rede virtual falada
+## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-a-web-app-and-the-spoke-virtual-network"></a>Resolução de problemas um problema de conectividade de rede falado por hub entre uma aplicação web e a rede virtual falada
 
-Para resolver esta questão:
+Para resolver este problema:
 
 1. Inicie sessão no Portal do Azure. 
-1. Na aplicação web, selecione **networking**, e, em seguida, selecione **VNet Integration**.
-1. Verifique se consegue ver a rede virtual remota. Introduza manualmente o espaço de endereços de rede virtual remota **(Sync Network** e **Add Routes).**
+1. Na aplicação web, selecione **networking**e, em seguida, selecione **VNet Integration**.
+1. Verifique se consegue ver a rede virtual remota. Introduza manualmente o espaço de endereço de rede virtual remota **(Sync Network** e **Add Routes).**
 
 Para obter mais informações, veja os seguintes artigos:
 
@@ -223,27 +222,27 @@ Para obter mais informações, veja os seguintes artigos:
 
 ## <a name="troubleshoot-a-virtual-network-peering-configuration-error-message"></a>Resolução de problemas uma mensagem de erro de configuração de rede virtual 
 
-### <a name="current-tenant-tenant-id-isnt-authorized-to-access-linked-subscription"></a>O inquilino atual `<TENANT ID>` não está autorizado a aceder à subscrição ligada
+### <a name="current-tenant-tenant-id-isnt-authorized-to-access-linked-subscription"></a>Inquilino atual `<TENANT ID>` não está autorizado a aceder a subscrição ligada
 
-Para resolver esta questão, consulte [Create peering - Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
+Para resolver este problema, consulte [Criar olhando - Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
 
 ### <a name="not-connected"></a>Não ligado
 
-Para resolver este problema, elimine o epeering de ambas as redes virtuais e, em seguida, recriá-los.
+Para resolver este problema, elimine o espreitamento de ambas as redes virtuais e, em seguida, recrie-os.
 
-### <a name="failed-to-peer-a-databricks-virtual-network"></a>Falhou em espiar uma rede virtual databricks
+### <a name="failed-to-peer-a-databricks-virtual-network"></a>Falhou em espreitar uma rede virtual Databricks
 
-Para resolver este problema, configure a rede virtual de observação sob **os Tijolos de Dados Do Azure**e, em seguida, especifique a rede virtual alvo utilizando o ID de **recurso**. Para obter mais informações, consulte a [rede virtual Peer a Databricks para uma rede virtual remota](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2).
+Para resolver este problema, configurar a rede virtual que espreita sob **a Azure Databricks**, e, em seguida, especificar a rede virtual alvo utilizando o **ID de recursos**. Para obter mais informações, consulte [a rede virtual Peer a Databricks para uma rede virtual remota.](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2)
 
-### <a name="the-remote-virtual-network-lacks-a-gateway"></a>A rede virtual remota carece de um portal
+### <a name="the-remote-virtual-network-lacks-a-gateway"></a>A rede virtual remota carece de uma porta de entrada
 
-Este problema ocorre quando você observa redes virtuais de diferentes inquilinos e mais tarde quer configurar `Use Remote Gateways` . Uma limitação do portal Azure é que não pode validar a presença de uma rede virtual de gateway na rede virtual de outro inquilino.
+Esta questão ocorre quando se observa redes virtuais de diferentes inquilinos e mais tarde quer `Use Remote Gateways` configurar. Uma limitação do portal Azure é que não pode validar a presença de uma porta de entrada de rede virtual na rede virtual de outro inquilino.
 
 Há duas formas de resolver a questão:
 
- * Elimine os pares e ative a `Use Remote Gateways` opção quando criar um novo epeering.
- * Utilize powerShell ou CLI, em vez do portal Azure, para ativar `Use Remote Gateways` .
+ * Elimine os olhos e ative a `Use Remote Gateways` opção quando criar um novo espreitamento.
+ * Utilize o PowerShell ou o CLI, em vez do portal Azure, para ativar `Use Remote Gateways` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Troubleshooting connectivity problems between Azure VMs](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms) (Resolver problemas de conectividade entre VMs do Azure)

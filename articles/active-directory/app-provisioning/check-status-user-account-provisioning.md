@@ -1,75 +1,74 @@
 ---
-title: Reportar fornecimento automático de conta de utilizador às aplicações SaaS
-description: Saiba como verificar o estado dos postos de trabalho de fornecimento automático de conta de utilizador e como resolver o fornecimento de utilizadores individuais.
+title: Reportar provisão automática de conta de utilizador às aplicações do SaaS
+description: Saiba como verificar o estado do fornecimento automático de postos de trabalho na conta de utilizador e como resolver o fornecimento de utilizadores individuais.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/09/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 102a0b60c917d5ee24177ac4b52e97fe72c343e7
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: a0c85226b5890fe0f5f2011110c1d7d20e3c2907
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593884"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782012"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatório sobre o provisionamento automático da conta de utilizador
 
-O Azure Ative Directory (Azure AD) inclui um serviço de [prestação](user-provisioning.md) de contas de utilizador que ajuda a automatizar o fornecimento de contas de utilizadores em aplicações SaaS e outros sistemas, para efeitos de gestão de ciclos de vida de identidade de ponta a ponta. A Azure AD suporta conectores de fornecimento de utilizadores pré-integrados para todas as aplicações e sistemas com tutoriais de provisionamento de utilizadores [aqui](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list).
+O Azure Ative Directory (Azure AD) inclui um serviço de [fornecimento de conta de utilizador](user-provisioning.md) que ajuda a automatizar o fornecimento de contas de utilizadores em aplicações SaaS e outros sistemas, para efeitos de gestão do ciclo de vida da identidade de ponta a ponta. A Azure AD suporta conectores pré-integrados de fornecimento de utilizadores para todas as aplicações e sistemas com tutoriais de fornecimento de utilizadores [aqui](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list).
 
-Este artigo descreve como verificar o estado do fornecimento de postos de trabalho após a sua criação e como resolver o fornecimento de utilizadores e grupos individuais.
+Este artigo descreve como verificar o estado do provisionamento de postos de trabalho após a sua criação e como resolver os problemas de provisionamento de utilizadores e grupos individuais.
 
 ## <a name="overview"></a>Descrição geral
 
-Os conectores de provisionamento são configurados e configurados através do [portal Azure,](https://portal.azure.com)seguindo a [documentação fornecida](../saas-apps/tutorial-list.md) para a aplicação apoiada. Uma vez configurados e em execução, os postos de trabalho de provisionamento podem ser reportados utilizando um de dois métodos:
+Os conectores de provisionamento são configurados e configurados através do [portal Azure,](https://portal.azure.com)seguindo a [documentação fornecida](../saas-apps/tutorial-list.md) para a aplicação suportada. Uma vez configurados e em funcionamento, os postos de trabalho de provisionamento podem ser comunicados através de um de dois métodos:
 
-* **Portal Azure** - Este artigo descreve principalmente a recuperação de informações de relatório do [portal Azure,](https://portal.azure.com)que fornece tanto um relatório resumo de fornecimento como registos de auditoria de fornecimento detalhado para uma determinada aplicação.
-* **Auditoria API** - Azure Ative Directory também fornece uma API de auditoria que permite a recuperação programática dos registos de auditoria de provisionamento detalhado. Consulte a referência da API de [auditoria do Azure Ative Diretório](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) para documentação específica para a utilização desta API. Embora este artigo não cubra especificamente a forma de utilizar a API, detalha os tipos de eventos de provisionamento que são registados no registo de auditoria.
+* **Portal Azure** - Este artigo descreve principalmente a obtenção de informações de relatórios do [portal Azure,](https://portal.azure.com)que fornece simultaneamente um relatório sumário de provisionamento, bem como registos de auditoria de provisionamento detalhado para uma determinada aplicação.
+* **A API de Auditoria** - Azure Ative Directy também fornece uma API de Auditoria que permite a recuperação programática dos registos de auditoria de provisionamento detalhado. Consulte [a referência da API de auditoria do Azure Ative Directory](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) para documentação específica da utilização desta API. Embora este artigo não cubra especificamente a forma de utilizar a API, detalha os tipos de eventos de provisionamento que são registados no registo de auditoria.
 
 ### <a name="definitions"></a>Definições
 
 Este artigo utiliza os seguintes termos, definidos abaixo:
 
-* **Sistema Fonte** - O repositório de utilizadores de que o serviço de fornecimento de AD Azure sincroniza. O Azure Ative Directory é o sistema de origem para a maioria dos conectores de provisionamento pré-integrados, no entanto existem algumas exceções (exemplo: Sincronização de entrada no dia de trabalho).
-* **Target System** - O repositório de utilizadores a que o serviço de fornecimento de AD Azure sincroniza. Esta é tipicamente uma aplicação SaaS (exemplos: Salesforce, ServiceNow, G Suite, Dropbox for Business), mas em alguns casos pode ser um sistema no local, como Ative Directory (exemplo: Sincronização de entrada no workday para Diretório Ativo).
+* **Sistema fonte** - O repositório de utilizadores de que o serviço de fornecimento AD AZure sincroniza. O Azure Ative Directory é o sistema de origem da maioria dos conectores de provisionamento pré-integrados, no entanto existem algumas exceções (exemplo: Sincronização de entrada de trabalho).
+* **Sistema Alvo** - O repositório de utilizadores a que o serviço de fornecimento AD AZure sincroniza. Esta é tipicamente uma aplicação SaaS (exemplos: Salesforce, ServiceNow, G Suite, Dropbox para Negócios), mas em alguns casos pode ser um sistema no local, como o Ative Directory (exemplo: Workday Inbound Synchronization to Ative Directory).
 
-## <a name="getting-provisioning-reports-from-the-azure-portal"></a>Obtendo relatórios de provisionamento do portal Azure
+## <a name="getting-provisioning-reports-from-the-azure-portal"></a>Obtenção de relatórios de provisionamento do portal Azure
 
-Para obter informações sobre o relatório de fornecimento para uma determinada aplicação, comece por lançar o [portal Azure](https://portal.azure.com) e **o Azure Ative Directory** &gt; **Enterprise Apps** &gt; **Provisioning (pré-visualização)** na secção **Atividade.** Também pode navegar na Aplicação da Empresa para a qual o fornecimento está configurado. Por exemplo, se estiver a fornecer utilizadores ao LinkedIn Elevate, a rota de navegação para os detalhes da aplicação é:
+Para obter informações de relatório de provisionamento para uma determinada aplicação, comece por lançar o [portal Azure](https://portal.azure.com) e **o Azure Ative Directory** &gt; **Enterprise Applications** &gt; **Registos de Provisionamento (pré-visualização)** na secção **Atividade.** Também pode navegar na Aplicação Enterprise para a qual o provisionamento está configurado. Por exemplo, se estiver a a provisionar utilizadores ao LinkedIn Elevate, o caminho de navegação para os detalhes da aplicação é:
 
 **Azure Ative Directory > Aplicações empresariais > todas as aplicações > LinkedIn Elevate**
 
-A partir daqui, pode aceder tanto à barra de provisão de progresso como aos registos de provisionamento, descritos abaixo.
+A partir daqui, pode aceder tanto à barra de provisão como aos registos de provisionamento, descritos abaixo.
 
-## <a name="provisioning-progress-bar"></a>Fornecimento de barra de progresso
+## <a name="provisioning-progress-bar"></a>Provisão de barras de progresso
 
-A barra de [provisão](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) de progresso é visível no separador **provisionamento** para determinada aplicação. Está localizado na secção **Estado atual** por baixo **das Definições,** e mostra o estado do ciclo inicial ou incremental atual. Esta secção também mostra:
+A [barra de provisão para progressos](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) é visível no **separador Provisioning** para a aplicação dada. Encontra-se na secção **Estado Atual** por baixo **das Definições**, e mostra o estado do ciclo inicial ou incremental atual. Esta secção também mostra:
 
-* O número total de utilizadores e/grupos que foram sincronizados e que estão atualmente em aberto para o fornecimento entre o sistema de origem e o sistema-alvo.
-* A última vez que a sincronização foi executada. As sincronizações ocorrem normalmente a cada 20-40 minutos, depois de um [ciclo inicial](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) ter terminado.
+* O número total de utilizadores e/grupos que foram sincronizados e estão atualmente em possibilidade de provisão entre o sistema de origem e o sistema-alvo.
+* A última vez que a sincronização foi executada. As sincronizações ocorrem normalmente a cada 20-40 minutos, depois de concluído um [ciclo inicial.](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental)
 * Se um [ciclo inicial](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) foi ou não concluído.
-* Se o processo de provisionamento foi ou não colocado em quarentena, e qual é a razão para o estado de quarentena (por exemplo, a falta de comunicação com o sistema-alvo devido a credenciais de administração inválidas).
+* Se o processo de provisionamento foi ou não colocado em quarentena, e qual a razão para o estado de quarentena (por exemplo, não comunicar com o sistema-alvo devido a credenciais de administração inválidas).
 
-O **Estado atual** deve ser o primeiro local que os administradores procuram verificar a saúde operacional do trabalho de provisionamento.
+O **Estado Atual** deve ser o primeiro local onde os administradores procuram verificar a saúde operacional do trabalho de a provisionamento.
 
  ![Relatório sumário](./media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
 
-## <a name="provisioning-logs-preview"></a>Registos de fornecimento (pré-visualização)
+## <a name="provisioning-logs-preview"></a>Registos de provisionamento (pré-visualização)
 
-Todas as atividades realizadas pelo serviço de provisionamento são registadas nos registos de [provisionamento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)da AD Azure. Pode aceder aos registos de fornecimento no portal Azure selecionando registos de provisionamento de &gt; **aplicações** &gt; de **diretório ativo azure** **(pré-visualização)** na secção **Atividade.** Pode pesquisar os dados de provisionamento com base no nome do utilizador ou no identificador no sistema de origem ou no sistema de destino. Para mais detalhes, consulte [os registos de provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Os tipos de eventos de atividade sessão incluem:
+Todas as atividades realizadas pelo serviço de fornecimento são registadas nos [registos de provisionamento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)Azure AD . Pode aceder aos registos de provisionamento no portal Azure selecionando registos de provisionamento de aplicações empresariais do **Azure Ative** &gt; **Enterprise Apps** &gt; **Directory (pré-visualização)** na secção **Atividade.** Pode pesquisar os dados de fornecimento com base no nome do utilizador ou do identificador no sistema de origem ou no sistema alvo. Para mais informações, consulte [registos de provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Os tipos de eventos de atividade registados incluem:
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-O relatório sumário de fornecimento e os registos de fornecimento desempenham um papel fundamental, ajudando os administradores a resolver em vários problemas o fornecimento de contas de utilizador.
+O relatório de provisionamento e os registos de provisionamento desempenham um papel fundamental, ajudando os administradores a resolverem vários problemas de provisionamento de contas de utilizador.
 
-Para obter orientações baseadas em cenários sobre como resolver o fornecimento automático de utilizadores, consulte problemas de configuração e fornecimento de [utilizadores a uma aplicação](../app-provisioning/application-provisioning-config-problem.md).
+Para obter orientações baseadas em cenários sobre como resolver o fornecimento automático de utilizadores, consulte [problemas de configuração e provisionamento dos utilizadores para uma aplicação](../app-provisioning/application-provisioning-config-problem.md).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](configure-automatic-user-provisioning-portal.md)
+* [Gestão do fornecimento de conta de utilizador para apps empresariais](configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)

@@ -1,28 +1,29 @@
 ---
 title: 'Tutorial: Tutorial de distribuição global Azure Cosmos DB para a API SQL'
-description: 'Tutorial: Aprenda a configurar a distribuição global da Azure Cosmos DB utilizando o SQL API com .NET, Java, Python e vários outros SDKs'
+description: 'Tutorial: Saiba como configurar a distribuição global do Azure Cosmos DB utilizando a API SQL com .NET, Java, Python e vários outros SDKs'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: ee648efde22e6bbef045b9d89b8d016e2e489f20
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: tracking-python
+ms.openlocfilehash: 15f5ac1da6d24feceed3a9106b990ae31e3571e3
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872978"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851607"
 ---
-# <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Tutorial: Criar distribuição global da Azure Cosmos DB utilizando a API SQL
+# <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Tutorial: Configurar a distribuição global da Azure Cosmos DB utilizando a API SQL
 
-Neste artigo, mostramos como usar o portal Azure para criar a distribuição global do Azure Cosmos DB e, em seguida, conectar-se usando a API SQL.
+Neste artigo, mostramos como usar o portal Azure para configurar a distribuição global Azure Cosmos DB e, em seguida, conectar usando o SQL API.
 
 Este artigo abrange as seguintes tarefas: 
 
 > [!div class="checklist"]
 > * Configurar a distribuição global com o portal do Azure
-> * Configure a distribuição global utilizando as [APIs SQL](sql-api-introduction.md)
+> * Configure a distribuição global usando as [APIs SQL](sql-api-introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
@@ -100,28 +101,26 @@ const client = new CosmosClient{ endpoint, key, connectionPolicy: { preferredLoc
 
 ## <a name="python-sdk"></a>SDK Python
 
-O seguinte código mostra como definir locais preferidos utilizando o Python SDK:
+O seguinte código mostra como definir locais preferenciais utilizando o Python SDK:
 
 ```python
-
 connectionPolicy = documents.ConnectionPolicy()
 connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe']
 client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connectionPolicy)
 
 ```
 
-## <a name="java-v4-sdk"></a>Java V4 SDK
+## <a name="java-v4-sdk"></a><a id="java4-preferred-locations"></a>Java V4 SDK
 
-O seguinte código mostra como definir locais preferidos utilizando o Java SDK:
+O seguinte código mostra como definir locais preferenciais utilizando o Java SDK:
 
-### <a id="java4-preferred-locations"></a>
-#### <a name="async"></a>[Async](#tab/api-async)
+# <a name="async"></a>[Async](#tab/api-async)
 
    [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Async API
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=TutorialGlobalDistributionPreferredLocationAsync)]
 
-#### <a name="sync"></a>[Sincronização](#tab/api-sync)
+# <a name="sync"></a>[Sincronização](#tab/api-sync)
 
    [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Sync API
 
@@ -130,47 +129,47 @@ O seguinte código mostra como definir locais preferidos utilizando o Java SDK:
 --- 
 
 ## <a name="rest"></a>REST
-Depois de uma conta de base de dados ter sido disponibilizada em várias regiões, os clientes podem consultar a respetiva disponibilidade ao efetuar um pedido GET no URI seguinte.
 
-    https://{databaseaccount}.documents.azure.com/
+Uma vez disponibilizada uma conta de base de dados em várias regiões, os clientes podem consultar a sua disponibilidade através da realização de um pedido GET sobre este URI`https://{databaseaccount}.documents.azure.com/`
 
 O serviço devolverá uma lista de regiões e os URIs de ponto final correspondentes do Azure Cosmos DB para as réplicas. A região de escrita atual será indicada na resposta. Em seguida, o cliente pode selecionar o ponto final adequado para obter todos os pedidos da API REST da seguinte forma.
 
 Resposta de exemplo
 
-    {
-        "_dbs": "//dbs/",
-        "media": "//media/",
-        "writableLocations": [
-            {
-                "Name": "West US",
-                "DatabaseAccountEndpoint": "https://globaldbexample-westus.documents.azure.com:443/"
-            }
-        ],
-        "readableLocations": [
-            {
-                "Name": "East US",
-                "DatabaseAccountEndpoint": "https://globaldbexample-eastus.documents.azure.com:443/"
-            }
-        ],
-        "MaxMediaStorageUsageInMB": 2048,
-        "MediaStorageUsageInMB": 0,
-        "ConsistencyPolicy": {
-            "defaultConsistencyLevel": "Session",
-            "maxStalenessPrefix": 100,
-            "maxIntervalInSeconds": 5
-        },
-        "addresses": "//addresses/",
-        "id": "globaldbexample",
-        "_rid": "globaldbexample.documents.azure.com",
-        "_self": "",
-        "_ts": 0,
-        "_etag": null
-    }
-
+```json
+{
+    "_dbs": "//dbs/",
+    "media": "//media/",
+    "writableLocations": [
+        {
+            "Name": "West US",
+            "DatabaseAccountEndpoint": "https://globaldbexample-westus.documents.azure.com:443/"
+        }
+    ],
+    "readableLocations": [
+        {
+            "Name": "East US",
+            "DatabaseAccountEndpoint": "https://globaldbexample-eastus.documents.azure.com:443/"
+        }
+    ],
+    "MaxMediaStorageUsageInMB": 2048,
+    "MediaStorageUsageInMB": 0,
+    "ConsistencyPolicy": {
+        "defaultConsistencyLevel": "Session",
+        "maxStalenessPrefix": 100,
+        "maxIntervalInSeconds": 5
+    },
+    "addresses": "//addresses/",
+    "id": "globaldbexample",
+    "_rid": "globaldbexample.documents.azure.com",
+    "_self": "",
+    "_ts": 0,
+    "_etag": null
+}
+```
 
 * Todos os pedidos PUT, POST e DELETE têm de ir para o URI de escrita indicado
-* Todos os GETs e outros pedidos de leitura (por exemplo consultas) podem ir para qualquer ponto final da escolha do cliente
+* Todos os GETs e outros pedidos apenas de leitura (por exemplo, consultas) podem ir para qualquer ponto final da escolha do cliente
 
 Os pedidos de escrita para regiões só de leitura falharão com o código de erro HTTP 403 ("Proibido").
 

@@ -1,6 +1,6 @@
 ---
 title: Envie métricas para a base de dados métrica do Monitor Azure utilizando a API REST
-description: Envie métricas personalizadas para um recurso Azure para a loja métrica Do Monitor Azure utilizando uma API REST
+description: Envie métricas personalizadas para um recurso Azure para a loja métrica Azure Monitor utilizando uma API REST
 author: anirudhcavale
 services: azure-monitor
 ms.topic: conceptual
@@ -8,34 +8,33 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 84709c022631543101889f784231158ebb96b6f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77662269"
 ---
-# <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Envie métricas personalizadas para um recurso Azure para a loja métrica Do Monitor Azure utilizando uma API REST
+# <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Envie métricas personalizadas para um recurso Azure para a loja métrica Azure Monitor utilizando uma API REST
 
-Este artigo mostra-lhe como enviar métricas personalizadas para os recursos do Azure para a loja de métricas Do Monitor Azure através de uma API REST. Depois das métricas estarem no Monitor Azure, pode fazer todas as coisas com elas que faz com métricas padrão. Exemplos são cartografar, alertar e encaminhar para outras ferramentas externas.  
+Este artigo mostra-lhe como enviar métricas personalizadas para recursos Azure para a loja de métricas Azure Monitor através de uma API REST. Depois de as métricas estarem no Azure Monitor, podes fazer todas as coisas com eles que fazes com as métricas padrão. Exemplos são o gráfico, o alerta e o encaminhamento para outras ferramentas externas.  
 
 >[!NOTE]  
->A API REST apenas permite o envio de métricas personalizadas para os recursos Azure. Para enviar métricas para recursos em diferentes ambientes ou no local, pode utilizar insights de [aplicação](../../azure-monitor/app/api-custom-events-metrics.md).    
+>A API REST apenas permite o envio de métricas personalizadas para recursos Azure. Para enviar métricas de recursos em diferentes ambientes ou no local, pode utilizar [o Application Insights](../../azure-monitor/app/api-custom-events-metrics.md).    
 
 
-## <a name="create-and-authorize-a-service-principal-to-emit-metrics"></a>Criar e autorizar um principal de serviço para emitir métricas 
+## <a name="create-and-authorize-a-service-principal-to-emit-metrics"></a>Criar e autorizar um principal de serviço a emitir métricas 
 
-Crie um diretor de serviço no seu inquilino de Diretório Ativo Azure utilizando as instruções encontradas na [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md). 
+Crie um diretor de serviço no seu inquilino Azure Ative Directory utilizando as instruções encontradas na [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md). 
 
-Note o seguinte durante este processo: 
+Observe o seguinte enquanto passa por este processo: 
 
 - Pode introduzir qualquer URL para o URL de entrada.  
 - Crie um novo segredo de cliente para esta aplicação.  
 - Guarde a chave e o ID do cliente para utilização em etapas posteriores.  
 
-Dê a app criada como parte do passo 1, Monitoring Metrics Publisher, permissões para o recurso contra o que pretende emitir métricas contra. Se planeia utilizar a app para emitir métricas personalizadas contra muitos recursos, pode conceder essas permissões ao nível de recursos ou subscrição. 
+Dê a app criada como parte do passo 1, Monitoring Metrics Publisher, permissões para o recurso contra o quais deseja emitir métricas. Se pretender utilizar a app para emitir métricas personalizadas contra muitos recursos, pode conceder essas permissões ao nível do grupo de recursos ou da subscrição. 
 
 ## <a name="get-an-authorization-token"></a>Obter um sinal de autorização
-Abra um pedido de comando e execute o seguinte comando:
+Abra um pedido de comando e executar o seguinte comando:
 
 ```shell
 curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step>" -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
@@ -44,9 +43,9 @@ Guarde o sinal de acesso da resposta.
 
 ![Ficha de acesso](./media/metrics-store-custom-rest-api/accesstoken.png)
 
-## <a name="emit-the-metric-via-the-rest-api"></a>Emita a métrica através da API REST 
+## <a name="emit-the-metric-via-the-rest-api"></a>Emite a métrica através da API REST 
 
-1. Colhe o seguinte JSON num ficheiro e guarde-o como **custommetric.json** no seu computador local. Atualize o parâmetro de tempo no ficheiro JSON: 
+1. Cole o JSON seguinte num ficheiro e guarde-o à medida ** quecustommetric.jsno** computador local. Atualize o parâmetro de tempo no ficheiro JSON: 
     
     ```json
     { 
@@ -76,24 +75,24 @@ Guarde o sinal de acesso da resposta.
     } 
     ``` 
 
-1. Na janela de solicitação do seu comando, publique os dados métricos: 
-   - **azureRegion.** Deve corresponder à região de implantação do recurso para o qual está a emitir métricas. 
-   - **recursoID**.  Identificação de recursos do recurso Azure contra o qual está a seguir a métrica.  
-   - **AccessToken**. Cola o símbolo que adquiriste anteriormente.
+1. Na janela de pedido de comando do seu comando, regisque os dados métricos: 
+   - **AzureRegion**. Deve coincidir com a região de implantação do recurso para o qual está a emitir métricas. 
+   - **resourceID**.  Identificação de recursos do recurso Azure contra o qual está a seguir a métrica.  
+   - **AccessToken**. Cole o símbolo que adquiriu anteriormente.
 
      ```Shell 
      curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
      ```
-1. Alterar a marca de tempo e os valores no ficheiro JSON. 
+1. Altere a hora e os valores no ficheiro JSON. 
 1. Repita os dois passos anteriores algumas vezes, para que tenha dados durante vários minutos.
 
 ## <a name="troubleshooting"></a>Resolução de problemas 
 Se receber uma mensagem de erro com alguma parte do processo, considere as seguintes informações de resolução de problemas:
 
 1. Não pode emitir métricas contra uma subscrição ou grupo de recursos como o seu recurso Azure. 
-1. Não se pode colocar uma métrica na loja com mais de 20 minutos de idade. A loja métrica está otimizada para alerta e gráfico em tempo real. 
+1. Não se pode pôr uma métrica na loja com mais de 20 minutos. A loja métrica está otimizada para alertar e fazer gráficos em tempo real. 
 2. O número de nomes de dimensão deve corresponder aos valores e vice-versa. Verifique os valores. 
-2. Pode sê-lo contra uma região que não suporta métricas personalizadas. Ver [regiões apoiadas.](../../azure-monitor/platform/metrics-custom-overview.md#supported-regions) 
+2. Pode estar a emitir métricas contra uma região que não suporta métricas personalizadas. Ver [regiões apoiadas.](../../azure-monitor/platform/metrics-custom-overview.md#supported-regions) 
 
 
 
@@ -101,21 +100,21 @@ Se receber uma mensagem de erro com alguma parte do processo, considere as segui
 
 1. Inicie sessão no Portal do Azure. 
 
-1. No menu à esquerda, selecione **Monitor**. 
+1. No menu da esquerda, selecione **Monitor**. 
 
-1. Na página **Monitor,** selecione **Métricas**. 
+1. Na página **Monitor,** selecione **Métricas.** 
 
    ![Selecione Métricas](./media/metrics-store-custom-rest-api/metrics.png) 
 
-1. Mude o período de agregação para **30 minutos**.  
+1. Altere o período de agregação para **durar 30 minutos**.  
 
-1. No menu de desistência de **recursos,** selecione o recurso contra o que emitia a métrica.  
+1. No menu suspenso de **recursos,** selecione o recurso contra o quais emitia a métrica.  
 
-1. No menu de lançamento dos espaços de **nome,** selecione **QueueProcessing**. 
+1. No menu drop-down dos **espaços de nome,** selecione **QueueProcessing**. 
 
-1. No menu de entrega de **métricas,** selecione **QueueDepth**.  
+1. No menu suspenso de **métricas,** selecione **QueueDepth**.  
 
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [métricas personalizadas.](../../azure-monitor/platform/metrics-custom-overview.md)
 

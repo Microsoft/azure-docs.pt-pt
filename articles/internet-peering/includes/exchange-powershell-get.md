@@ -1,7 +1,7 @@
 ---
-title: incluir ficheiro
+title: ficheiro de inclusão
 titleSuffix: Azure
-description: incluir ficheiro
+description: ficheiro de inclusão
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,19 +9,19 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 34a23ce76ed0e9285a686073e1cbeb95347f7b7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81678594"
 ---
-Para obter a lista de pares, executar o comando **Get-AzPeering.**
+Para obter a lista de espreitadores, faça o comando **Get-AzPeering.**
 
 ```powershell
 Get-AzPeering ResourceGroupName "PeeringResourceGroup" -Name "SeattleExchangePeering"
 ```
 
-Esta resposta de exemplo mostra quando o fornecimento de ponta a ponta foi concluído com sucesso.
+Esta resposta de exemplo mostra quando o provisionamento de ponta a ponta foi concluído com sucesso.
 
 ```powershell
     Name                     : SeattleExchangePeering

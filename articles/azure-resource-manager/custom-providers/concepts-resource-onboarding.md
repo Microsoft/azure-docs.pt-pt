@@ -1,43 +1,42 @@
 ---
 title: Integração de recursos
-description: Aprenda a executar recursos no embarque utilizando fornecedores personalizados azure para aplicar gestão ou configuração a outros tipos de recursos Azure.
+description: Aprenda a realizar o embarque de recursos utilizando fornecedores personalizados Azure para aplicar gestão ou configuração a outros tipos de recursos Azure.
 author: jjbfour
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: jobreen
 ms.openlocfilehash: 1846b036f12fe7e691021ec0248782cad946d9b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650412"
 ---
-# <a name="azure-custom-providers-resource-onboarding-overview"></a>Azure Custom Providers recursos sobre a visão geral do embarque
+# <a name="azure-custom-providers-resource-onboarding-overview"></a>Azure Custom Providers recurso onboarding overview
 
-O recurso Azure Custom Providers no embarque é um modelo de extensibility para tipos de recursos Azure. Permite-lhe aplicar operações ou gestão em todos os recursos azure existentes em escala. Para mais informações, consulte como os [fornecedores personalizados azure podem estender o Azure](overview.md). Este artigo descreve:
+O recurso Azure Custom Providers no embarque é um modelo de extensibilidade para tipos de recursos Azure. Permite aplicar operações ou gestão através dos recursos Azure existentes em escala. Para mais informações, consulte [como os Fornecedores Personalizados Azure podem estender o Azure](overview.md). Este artigo descreve:
 
-- Que recurso pode fazer.
-- Recursos sobre o básico de embarque e como usá-lo.
+- Que recurso a bordo pode fazer.
+- Recursos no embarque básico e como usá-lo.
 - Onde encontrar guias e amostras de código para começar.
 
 > [!IMPORTANT]
 > Os Fornecedores Personalizados estão atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não a recomendamos para cargas de trabalho de produção. Certas funcionalidades podem não ser suportadas ou ter capacidades limitadas.
-> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos para cargas de trabalho de produção. Certas funcionalidades podem não ser suportadas ou podem ter capacidades restritas.
+> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="what-can-resource-onboarding-do"></a>O que pode o recurso no embarque fazer?
+## <a name="what-can-resource-onboarding-do"></a>O que os recursos de bordo podem fazer?
 
-Semelhante aos recursos personalizados da [Azure Custom Providers,](./custom-providers-resources-endpoint-how-to.md)o recurso onboarding define um contrato que irá proxy "onboarding" pedidos para um ponto final. Ao contrário dos recursos personalizados, o embarque de recursos não cria um novo tipo de recursos. Em vez disso, permite a extensão dos tipos de recursos existentes. E o recurso funciona com a Política Azure, para que a gestão e a configuração de recursos possam ser feitas em escala. Alguns exemplos de fluxos de trabalho de bordo de recursos:
+À semelhança [dos recursos personalizados da Azure Custom Providers,](./custom-providers-resources-endpoint-how-to.md)o recurso onboarding define um contrato que irá recorrer a pedidos de "onboarding" para um ponto final. Ao contrário dos recursos personalizados, o recurso ao bordo não cria um novo tipo de recurso. Em vez disso, permite a extensão dos tipos de recursos existentes. E o embarque de recursos funciona com a Azure Policy, para que a gestão e configuração de recursos possam ser feitos em escala. Alguns exemplos de fluxos de trabalho de embarque de recursos:
 
-- Instale e gerencie as extensões da máquina virtual.
-- Faça upload e configure os incumprimentos nas contas de armazenamento do Azure.
-- Ativar as definições de diagnóstico de base em escala.
+- Instale e gere em extensões de máquinas virtuais.
+- Carregar e configurar incumprimentos nas contas de armazenamento Azure.
+- Ativar as definições de diagnóstico de base à escala.
 
-## <a name="resource-onboarding-basics"></a>Fundamentos de embarque de recursos
+## <a name="resource-onboarding-basics"></a>Básicos de embarque de recursos
 
-Configura o embarque de recursos através de Fornecedores Personalizados Azure utilizando os tipos de recursos microsoft.CustomProviders/resourceProviders e Microsoft.CustomProviders/associations. Para ativar o embarque de recursos para um fornecedor personalizado, durante o processo de configuração, criar um **recursoType** chamado "associações" com um **routtype** Type que inclua "Extensão". O Microsoft.CustomProviders/associations e Microsoft.CustomProviders/resourceProviders não precisam de pertencer ao mesmo grupo de recursos.
+Configura recursos no embarque através de fornecedores personalizados Azure utilizando os tipos de recursos microsoft.CustomProviders/resourceProviders e Microsoft.CustomProviders/associations. Para permitir o embarque de recursos para um fornecedor personalizado, durante o processo de configuração, crie um **recursoType** chamado "associações" com um **RoteamentoType** que inclua "Extensão". O Microsoft.CustomProviders/associations e o Microsoft.CustomProviders/resourceProviders não precisam de pertencer ao mesmo grupo de recursos.
 
-Aqui está uma amostra do fornecedor personalizado Azure:
+Aqui está uma amostra Azure fornecedor personalizado:
 
 ```JSON
 {
@@ -56,16 +55,16 @@ Aqui está uma amostra do fornecedor personalizado Azure:
 
 Propriedade | Necessário? | Descrição
 ---|---|---
-nome | Sim | O nome da definição de ponto final. Para o recurso onboarding, o nome deve ser "associações".
-routingType | Sim | Determina o tipo de contrato com o ponto final. Para o embarque de recursos, os tipos de **encaminhamento** válidos são "Proxy,Cache, Extension" e "Webhook,Cache,Extension".
-endpoint | Sim | O ponto final para encaminhar os pedidos para. Isto tratará da resposta e dos efeitos secundários do pedido.
+name | Sim | O nome da definição de ponto final. Para o recurso a bordo, o nome deve ser "associações".
+roteamentoType | Sim | Determina o tipo de contrato com o ponto final. Para o embarque de recursos, os tipos de **encaminhamento válidos** são "Proxy,Cache,Extension" e "Webhook,Cache,Extension".
+endpoint | Sim | O ponto final para encaminhar os pedidos para. Isto irá lidar com a resposta e quaisquer efeitos secundários do pedido.
 
-Depois de criar o fornecedor personalizado com o tipo de recursos das associações, pode direcionar-se para o uso da Microsoft.CustomProviders/associações. Microsoft.CustomProviders/associações é um recurso de extensão que pode estender qualquer outro recurso Azure. Quando for criada uma instância da Microsoft.CustomProviders/associações, será preciso um target de propriedade **ResourceId**, que deve ser um Microsoft.CustomProviders/resourceProviders ou Microsoft.Solutions/applications resource ID. Nestes casos, o pedido será encaminhado para o tipo de recursos das associações na instância Microsoft.CustomProviders/resourceProviders que criou.
+Depois de criar o fornecedor personalizado com o tipo de recurso de associações, pode ser alvo através do Microsoft.CustomProviders/associations. Microsoft.CustomProviders/associations é um recurso de extensão que pode estender qualquer outro recurso Azure. Quando um caso de Microsoft.CustomProviders/associations for criado, tomará um target de **propriedadeResourceId**, que deve ser um Microsoft.CustomProviders/resourceProviders ou Microsoft.Solutions/applications resource ID. Nestes casos, o pedido será encaminhado para o tipo de recurso das associações na instância Microsoft.CustomProviders/resourceProviders que criou.
 
 > [!NOTE]
-> Se um ID de recursos Microsoft.Solutions/applications for fornecido como o **targetResourceId,** deve haver um Microsoft.CustomProviders/resourceProviders implantados no grupo de recursos geridos com o nome "público".
+> Se um ID de recursos microsoft.Solutions/aplicações for fornecido como **o targetResourceId,** deve existir um Microsoft.CustomProviders/resourceProviders implantados no grupo de recursos geridos com o nome "público".
 
-Associação de Fornecedores Personalizados Da Amostra Azure:
+Associação de Fornecedores Personalizados Azure:
 
 ```JSON
 {
@@ -78,15 +77,15 @@ Associação de Fornecedores Personalizados Da Amostra Azure:
 
 Propriedade | Necessário? | Descrição
 ---|---|---
-targetResourceId | Sim | O ID de recursos do Microsoft.CustomProviders/resourceProviders ou Microsoft.Solutions/applications.
+targetResourceId | Sim | O ID de recursos dos Microsoft.CustomProviders/resourceProviders ou Microsoft.Solutions/applications.
 
-## <a name="how-to-use-resource-onboarding"></a>Como utilizar recursos no embarque
+## <a name="how-to-use-resource-onboarding"></a>Como utilizar recursos a bordo
 
-O recurso no embarque funciona alargando outros recursos com o recurso de extensão Microsoft.CustomProviders/associações. Na amostra seguinte, o pedido é feito para uma máquina virtual, mas qualquer recurso pode ser estendido.
+O embarque de recursos funciona através da extensão de outros recursos com o recurso de extensão Microsoft.CustomProviders/associations. Na amostra seguinte, o pedido é feito para uma máquina virtual, mas qualquer recurso pode ser estendido.
 
-Em primeiro lugar, é necessário criar um recurso personalizado para o fornecedor com um tipo de recurso de associações. Isto irá declarar o URL de callback que será usado quando for criado um recurso correspondente da Microsoft.CustomProviders/associações, que visa o fornecedor personalizado.
+Em primeiro lugar, é necessário criar um recurso de fornecedor personalizado com um tipo de recurso de associações. Isto irá declarar o URL de retorno que será utilizado quando for criado um recurso Microsoft.CustomProviders/associations, que visa o fornecedor personalizado.
 
-Sample Microsoft.CustomProviders/resourceProviders criam pedido:
+Amostra Microsoft.CustomProviders/resourceProviders criar pedido:
 
 ``` HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}?api-version=2018-09-01-preview
@@ -107,9 +106,9 @@ Content-Type: application/json
 }
 ```
 
-Depois de criar o fornecedor personalizado, pode direcionar outros recursos e aplicar os efeitos colaterais do fornecedor personalizado.
+Depois de criar o fornecedor personalizado, pode direcionar outros recursos e aplicar-lhes os efeitos secundários do fornecedor personalizado.
 
-Sample Microsoft.CustomProviders/associações criam pedido:
+Amostra Microsoft.CustomProviders/associations criar pedido:
 
 ``` HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}/providers/Microsoft.CustomProviders/associations/{associationName}?api-version=2018-09-01-preview
@@ -146,18 +145,18 @@ X-MS-CustomProviders-ExtendedResource: /subscriptions/{subscriptionId}/resourceG
 }
 ```
 
-O ponto final deve responder com `Content-Type` uma aplicação/json e um corpo de resposta JSON válido. Os campos que forem devolvidos sob o objeto de **propriedades** da JSON serão adicionados à resposta de retorno da associação.
+O ponto final deve responder com uma aplicação/json `Content-Type` e um organismo de resposta JSON válido. Os campos que são devolvidos sob o objeto de **propriedades** do JSON serão adicionados à resposta de retorno da associação.
 
 ## <a name="getting-help"></a>Obter ajuda
 
-Se tiver dúvidas sobre o desenvolvimento de Fornecedores de Recursos Personalizados Azure, tente perguntar-lhes sobre [o Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). Uma pergunta semelhante pode já ter sido respondida, por isso verifique primeiro antes de publicar. Adicione a ```azure-custom-providers``` etiqueta para obter uma resposta rápida!
+Se tiver dúvidas sobre o desenvolvimento de Fornecedores de Recursos Personalizados Azure, tente fazê-los no [Stack Overflow.](https://stackoverflow.com/questions/tagged/azure-custom-providers) Uma pergunta semelhante pode já ter sido respondida, por isso verifique primeiro antes de publicar. Adicione a etiqueta ```azure-custom-providers``` para obter uma resposta rápida!
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste artigo, aprendeu sobre fornecedores personalizados. Veja estes artigos para saber mais:
+Neste artigo, aprendeu sobre fornecedores personalizados. Consulte estes artigos para saber mais:
 
-- [Tutorial: Recurso a bordo com fornecedores personalizados](./tutorial-resource-onboarding.md)
+- [Tutorial: Embarque de recursos com fornecedores personalizados](./tutorial-resource-onboarding.md)
 - [Tutorial: Criar ações e recursos personalizados em Azure](./tutorial-get-started-with-custom-providers.md)
-- [Quickstart: Criar um fornecedor de recursos personalizados e implementar recursos personalizados](./create-custom-provider.md)
+- [Quickstart: Criar um fornecedor de recursos personalizado e implementar recursos personalizados](./create-custom-provider.md)
 - [Como: Adicionar ações personalizadas a uma API Azure REST](./custom-providers-action-endpoint-how-to.md)
 - [Como: Adicionar recursos personalizados a uma API Azure REST](./custom-providers-resources-endpoint-how-to.md)

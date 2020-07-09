@@ -7,12 +7,12 @@ ms.author: banders
 ms.date: 05/04/2020
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.openlocfilehash: f0d45c9dd8dc33226ca75fe34467a8695c8aae4d
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 77abfcf300decb3a19da4268d7feb7de1f41f3b5
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82778826"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743920"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Ligar um ID de parceiro às contas do Azure
 
@@ -160,4 +160,17 @@ Sim, pode ligar o ID de parceiro com o Azure Stack.
 **Como posso associar o meu ID de parceiro se a minha empresa utilizar o [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) para aceder aos recursos do cliente?**
 
 Se integrar clientes na gestão de recursos delegados do Azure mediante a [publicação de uma oferta de serviços geridos no Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers), o seu ID do MPN é adicionado automaticamente. Se [integrar clientes através da implementação de modelos do Azure Resource Manager](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer), terá de associar o ID do Microsoft Partner Network (MPN) a, pelo menos, uma conta de utilizador que tenha acesso a cada subscrição integrada. Tenha em conta que terá de fazer a associação no inquilino do seu fornecedor de serviço. Por motivos de simplicidade, recomendamos criar uma conta de principal de serviço no inquilino associado ao ID do MPN e conceder acesso de Leitor à mesma para cada cliente que integrar. Neste exemplo, é utilizada a função Leitor RBAC, uma das funções que não é elegível para o Crédito Ganho pelo Parceiro. Para obter mais informações sobre funções, veja [Funções e permissões para o crédito ganho pelo parceiro](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3QuW2).
+
+
+**Como posso explicar o Partner Admin Link (PAL) ao meu cliente?**
+
+O Partner Admin Link (PAL) permite à Microsoft identificar e reconhecer os parceiros que ajudam os clientes a alcançar os objetos empresariais e a retirar valor da cloud. Os clientes têm de, primeiro, dar acesso ao parceiro ao respetivo recurso do Azure. Depois de concedido o acesso, é associado o ID da Microsoft Partner Network (MPN IN) do parceiro. Essa associação ajuda a Microsoft a conhecer o ecossistema de fornecedores de serviços de TI e a refinar as ferramentas e os programas necessários para melhor apoiar os nossos clientes comuns.
+
+**Que dados são recolhidos pelo PAL?**
+
+A associação do PAL a credenciais já existentes não fornece dados novos dos clientes à Microsoft. Disponibiliza simplesmente a telemetria à Microsoft na qual o parceiro está ativamente envolvido num ambiente do Azure de um cliente. A Microsoft pode atribuir influência e receita consumida do Azure do ambiente do cliente à organização do parceiro com base nas permissões da conta (função RBAC) e no âmbito (Grupo de Gestão, Subscrição, Grupo de Recursos, Recurso) que o cliente dá ao parceiro. 
+
+**Esta associação afeta a segurança dos ambientes do Azure dos clientes?**
+
+A associação do PAL só adiciona o ID da MPN dos parceiros à credencial já aprovisionada e não altera nenhuma outra permissão (função RBAC) nem envia dados adicionais do serviço do Azure ao parceiro ou à Microsoft. 
 

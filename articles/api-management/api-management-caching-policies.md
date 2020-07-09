@@ -1,6 +1,6 @@
 ---
-title: Políticas de cache da Azure API Management Microsoft Docs
-description: Conheça as políticas de cache disponíveis para utilização na Azure API Management.
+title: Azure API Management política de caching Microsoft Docs
+description: Conheça as políticas de caching disponíveis para utilização na Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,30 +14,29 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: 06c4ede12f939e48973d3e0b502d90b848d199bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79280303"
 ---
 # <a name="api-management-caching-policies"></a>Políticas de colocação em cache da Gestão de API
-Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre a adição e configuração de políticas, consulte [Políticas na Gestão da API](https://go.microsoft.com/fwlink/?LinkID=398186).
+Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre políticas de adição e configuração, consulte [Políticas em Gestão de API.](https://go.microsoft.com/fwlink/?LinkID=398186)
 
-## <a name="caching-policies"></a><a name="CachingPolicies"></a>Políticas de caching
+## <a name="caching-policies"></a><a name="CachingPolicies"></a>Política de caching
 
-- Políticas de cache de resposta
-    - [Obtenha a partir da cache](api-management-caching-policies.md#GetFromCache) - Execute a cache procure e devolva uma resposta em cache válida quando disponível.
-    - [Armazenar em cache](api-management-caching-policies.md#StoreToCache) - Respostas caches de acordo com a configuração especificada de controlo de cache.
-- Políticas de cache de valor
+- Políticas de caching de resposta
+    - [Obter de cache](api-management-caching-policies.md#GetFromCache) - Execute cache olhar para cima e devolva uma resposta em cache válida quando disponível.
+    - [Armazenar para cache](api-management-caching-policies.md#StoreToCache) - Respostas caches de acordo com a configuração de controlo de cache especificada.
+- Políticas de caching de valor
     - [Obtenha valor a partir de cache](#GetFromCacheByKey) - Recupere um item em cache por chave.
-    - [Valor de loja em cache](#StoreToCacheByKey) - Guarde um item na cache por chave.
-    - [Retire o valor da cache](#RemoveCacheByKey) - Retire um item na cache por chave.
+    - [Valor da loja em cache](#StoreToCacheByKey) - Guarde um item na cache por chave.
+    - [Remover o valor da cache](#RemoveCacheByKey) - Remova um item na cache por chave.
 
-## <a name="get-from-cache"></a><a name="GetFromCache"></a>Obter da cache
-Utilize `cache-lookup` a política para realizar a procura de cache e devolva uma resposta em cache válida quando disponível. Esta política pode ser aplicada nos casos em que o conteúdo da resposta permanece estático durante um período de tempo. O cache de resposta reduz a largura de banda e os requisitos de processamento impostos no servidor web backend e reduz a latência percebida pelos consumidores de API.
+## <a name="get-from-cache"></a><a name="GetFromCache"></a>Obter de cache
+Utilize a `cache-lookup` política para efetuar cache olhar para cima e devolver uma resposta em cache válida quando disponível. Esta política pode ser aplicada nos casos em que o conteúdo da resposta permanece estático durante um período de tempo. O caching de resposta reduz a largura de banda e os requisitos de processamento impostos no servidor web backend e reduz a latência percebida pelos consumidores da API.
 
 > [!NOTE]
-> Esta política deve ter uma política de depósito correspondente [à cache.](api-management-caching-policies.md#StoreToCache)
+> Esta política deve ter uma loja correspondente à política [de cache.](api-management-caching-policies.md#StoreToCache)
 
 ### <a name="policy-statement"></a>Declaração política
 
@@ -76,7 +75,7 @@ Utilize `cache-lookup` a política para realizar a procura de cache e devolva um
 ```
 
 #### <a name="example-using-policy-expressions"></a>Exemplo usando expressões políticas
-Este exemplo mostra como configurar a duração da resposta da API Management que corresponde ao cache `Cache-Control` de resposta do serviço backend, conforme especificado pela diretiva do serviço apoiado. Para uma demonstração de configuração e utilização desta política, consulte [cloud cover Episódio 177: Mais Funcionalidades de Gestão aPI com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avance para as 25:25.
+Este exemplo mostra como configurar a duração da resposta da API Management que corresponda ao caching de resposta do serviço de backend, conforme especificado pela diretiva do serviço `Cache-Control` apoiado. Para uma demonstração de configuração e utilização desta política, consulte [cloud cover episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e fast-forward to 25:25.
 
 ```xml
 <!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->
@@ -96,38 +95,38 @@ Este exemplo mostra como configurar a duração da resposta da API Management qu
  />
 ```
 
-Para mais informações, consulte [expressões políticas](api-management-policy-expressions.md) e [variável de contexto.](api-management-policy-expressions.md#ContextVariables)
+Para obter mais informações, consulte [as expressões de política](api-management-policy-expressions.md) e a [variável Context.](api-management-policy-expressions.md#ContextVariables)
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Name|Descrição|Necessário|
 |----------|-----------------|--------------|
 |cache-lookup|Elemento de raiz.|Sim|
-|variar por cabeçalho|Inicie respostas de cache por valor de cabeçalho especificado, tais como Aceitar, Aceitar-Charset, Aceitar-Codificar, Aceitar-Linguagem, Autorização, Esperar, From, Anfitrião, If-Match.|Não|
-|varia-por-consulta-parâmetro|Inicie respostas de cache por valor de parâmetros de consulta especificados. Introduza um único ou múltiplo parâmetros. Use o ponto evíplo como separador. Se nenhum for especificado, todos os parâmetros de consulta são utilizados.|Não|
+|variar por cabeçalho|Comece a caching respostas por valor de cabeçalho especificado, tais como Aceitar, Aceitar Charset, Aceitar Codificar, Aceitar Linguagem, Autorização, Esperar, De, Anfitrião, If-Match.|Não|
+|variar por consulta-parâmetro|Comece a caching respostas por valor de parâmetros de consulta especificados. Introduza um único ou vários parâmetros. Use o ponto e vírgula como separador. Se nenhum for especificado, todos os parâmetros de consulta são utilizados.|Não|
 
 ### <a name="attributes"></a>Atributos
 
-| Nome                           | Descrição                                                                                                                                                                                                                                                                                                                                                 | Necessário | Predefinição           |
+| Name                           | Descrição                                                                                                                                                                                                                                                                                                                                                 | Necessário | Predefinição           |
 |--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| permitir-resposta privada-cache | Quando definido `true`para, permite o cache de pedidos que contenham um cabeçalho de Autorização.                                                                                                                                                                                                                                                                        | Não       | false             |
-| tipo de cache               | Escolha entre os seguintes valores do atributo:<br />- `internal`para utilizar o cache de gestão api incorporada,<br />- `external`utilizar a cache externa, tal como descrito na utilização de [um Cache Azure externo para Redis em Gestão aPI Azure,](api-management-howto-cache-external.md)<br />- `prefer-external`utilizar cache externa se estiver configurado ou interno cache de outra forma. | Não       | `prefer-external` |
-| a jusante-tipo caching        | Este atributo deve ser fixado num dos seguintes valores.<br /><br /> - nenhum - caching a jusante não é permitido.<br />- privado - caching privado a jusante é permitido.<br />- público - privado e partilhado caching a jusante é permitido.                                                                                                          | Não       | nenhuma              |
-| deve revlidar                | Quando o caching a jusante é ativado, este atributo liga ou desliga a `must-revalidate` diretiva relativa ao controlo de cache saquea em respostas de gateway.                                                                                                                                                                                                                      | Não       | true              |
-| variar por desenvolvedor              | Deset `true` para respostas cache por [chave de subscrição](https://docs.microsoft.com/azure/api-management/api-management-subscriptions).                                                                                                                                                                                                                                                                                                         | Sim      |         Falso          |
-| grupos variados por desenvolvedores       | Deset `true` para respostas cache por [grupo de utilizador](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Sim      |       Falso            |
+| permitir-resposta privada-caching | Quando definido `true` para , permite o caching de pedidos que contêm um cabeçalho de autorização.                                                                                                                                                                                                                                                                        | Não       | false             |
+| tipo caching               | Escolha entre os seguintes valores do atributo:<br />- `internal`para utilizar a cache de gestão da API incorporada,<br />- `external`utilizar a cache externa tal como descrito na [Utilização de uma cache Azure externa para redis na gestão API Azure](api-management-howto-cache-external.md),<br />- `prefer-external`utilizar cache externo se configurar ou cache interna de outra forma. | Não       | `prefer-external` |
+| a jusante-tipo de caching        | Este atributo deve ser definido para um dos seguintes valores.<br /><br /> - nenhum - não é permitido o caching a jusante.<br />- é permitido um caching privado a jusante.<br />- é permitido um caching público - privado e partilhado a jusante.                                                                                                          | Não       | nenhum              |
+| deve-revalidar                | Quando o cache a jusante é ativado, este atributo liga ou desliga a diretiva relativa ao controlo de `must-revalidate` caches em respostas de gateway.                                                                                                                                                                                                                      | Não       | true              |
+| variar por desenvolvedor              | Definir para `true` cache respostas por [chave de subscrição](https://docs.microsoft.com/azure/api-management/api-management-subscriptions).                                                                                                                                                                                                                                                                                                         | Sim      |         Falso          |
+| variar-por-desenvolvedor-grupos       | Configurar `true` para cache respostas por grupo de [utilizador](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Sim      |       Falso            |
 
 ### <a name="usage"></a>Utilização
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política.
+Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
 
 - **Secções políticas:** entrada
 - **Âmbitos de política:** todos os âmbitos
 
-## <a name="store-to-cache"></a><a name="StoreToCache"></a>Armazenar em cache
-A `cache-store` política caches respostas de acordo com as definições de cache especificadas. Esta política pode ser aplicada nos casos em que o conteúdo da resposta permanece estático durante um período de tempo. O cache de resposta reduz a largura de banda e os requisitos de processamento impostos no servidor web backend e reduz a latência percebida pelos consumidores de API.
+## <a name="store-to-cache"></a><a name="StoreToCache"></a>Armazenar para cache
+A `cache-store` política caches respostas de acordo com as definições de cache especificadas. Esta política pode ser aplicada nos casos em que o conteúdo da resposta permanece estático durante um período de tempo. O caching de resposta reduz a largura de banda e os requisitos de processamento impostos no servidor web backend e reduz a latência percebida pelos consumidores da API.
 
 > [!NOTE]
-> Esta política deve ter um Get correspondente da política [de cache.](api-management-caching-policies.md#GetFromCache)
+> Esta política deve ter uma política de obter correspondente da política [de cache.](api-management-caching-policies.md#GetFromCache)
 
 ### <a name="policy-statement"></a>Declaração política
 
@@ -155,7 +154,7 @@ A `cache-store` política caches respostas de acordo com as definições de cach
 ```
 
 #### <a name="example-using-policy-expressions"></a>Exemplo usando expressões políticas
-Este exemplo mostra como configurar a duração da resposta da API Management que corresponde ao cache `Cache-Control` de resposta do serviço backend, conforme especificado pela diretiva do serviço apoiado. Para uma demonstração de configuração e utilização desta política, consulte [cloud cover Episódio 177: Mais Funcionalidades de Gestão aPI com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avance para as 25:25.
+Este exemplo mostra como configurar a duração da resposta da API Management que corresponda ao caching de resposta do serviço de backend, conforme especificado pela diretiva do serviço `Cache-Control` apoiado. Para uma demonstração de configuração e utilização desta política, consulte [cloud cover episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e fast-forward to 25:25.
 
 ```xml
 <!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->
@@ -175,31 +174,31 @@ Este exemplo mostra como configurar a duração da resposta da API Management qu
  />
 ```
 
-Para mais informações, consulte [expressões políticas](api-management-policy-expressions.md) e [variável de contexto.](api-management-policy-expressions.md#ContextVariables)
+Para obter mais informações, consulte [as expressões de política](api-management-policy-expressions.md) e a [variável Context.](api-management-policy-expressions.md#ContextVariables)
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Name|Descrição|Necessário|
 |----------|-----------------|--------------|
 |cache-loja|Elemento de raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-| Nome             | Descrição                                                                                                                                                                                                                                                                                                                                                 | Necessário | Predefinição           |
+| Name             | Descrição                                                                                                                                                                                                                                                                                                                                                 | Necessário | Predefinição           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | duration         | Tempo de vida das entradas em cache, especificadas em segundos.                                                                                                                                                                                                                                                                                                   | Sim      | N/D               |
 
 ### <a name="usage"></a>Utilização
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política.
+Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
 
 - **Secções políticas:** saída
 - **Âmbitos de política:** todos os âmbitos
 
-## <a name="get-value-from-cache"></a><a name="GetFromCacheByKey"></a>Obter valor a partir de cache
-Utilize `cache-lookup-value` a política para realizar a procura em cache por chave e devolva um valor em cache. A chave pode ter um valor de cadeia arbitrário e é normalmente fornecida usando uma expressão política.
+## <a name="get-value-from-cache"></a><a name="GetFromCacheByKey"></a>Obtenha valor a partir de cache
+Utilize a `cache-lookup-value` política para efetuar a procura de cache por chave e devolva um valor em cache. A chave pode ter um valor de cadeia arbitrária e é normalmente fornecida usando uma expressão política.
 
 > [!NOTE]
-> Esta política deve ter um valor de loja correspondente na política [de cache.](#StoreToCacheByKey)
+> Esta política deve ter um valor de Loja correspondente na política [de cache.](#StoreToCacheByKey)
 
 ### <a name="policy-statement"></a>Declaração política
 
@@ -211,7 +210,7 @@ Utilize `cache-lookup-value` a política para realizar a procura em cache por ch
 ```
 
 ### <a name="example"></a>Exemplo
-Para mais informações e exemplos desta política, consulte O Cache personalizado [na Gestão da API Azure.](https://azure.microsoft.com/documentation/articles/api-management-sample-cache-by-key/)
+Para obter mais informações e exemplos desta política, consulte [o caching personalizado na Azure API Management.](https://azure.microsoft.com/documentation/articles/api-management-sample-cache-by-key/)
 
 ```xml
 <cache-lookup-value
@@ -222,30 +221,30 @@ Para mais informações e exemplos desta política, consulte O Cache personaliza
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Name|Descrição|Necessário|
 |----------|-----------------|--------------|
-|cache-lookup-valor|Elemento de raiz.|Sim|
+|cache-lookup-value|Elemento de raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-| Nome             | Descrição                                                                                                                                                                                                                                                                                                                                                 | Necessário | Predefinição           |
+| Name             | Descrição                                                                                                                                                                                                                                                                                                                                                 | Necessário | Predefinição           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| tipo de cache | Escolha entre os seguintes valores do atributo:<br />- `internal`para utilizar o cache de gestão api incorporada,<br />- `external`utilizar a cache externa, tal como descrito na utilização de [um Cache Azure externo para Redis em Gestão aPI Azure,](api-management-howto-cache-external.md)<br />- `prefer-external`utilizar cache externa se estiver configurado ou interno cache de outra forma. | Não       | `prefer-external` |
-| valor padrão    | Um valor que será atribuído à variável se a procura da chave cache resultar em falta. Se este atributo não `null` for especificado, é atribuído.                                                                                                                                                                                                           | Não       | `null`            |
+| tipo caching | Escolha entre os seguintes valores do atributo:<br />- `internal`para utilizar a cache de gestão da API incorporada,<br />- `external`utilizar a cache externa tal como descrito na [Utilização de uma cache Azure externa para redis na gestão API Azure](api-management-howto-cache-external.md),<br />- `prefer-external`utilizar cache externo se configurar ou cache interna de outra forma. | Não       | `prefer-external` |
+| valor por defeito    | Um valor que será atribuído à variável se o lookup da chave cache resultar numa falha. Se este atributo não for especificado, `null` é atribuído.                                                                                                                                                                                                           | Não       | `null`            |
 | key              | Valor chave cache para usar na procura.                                                                                                                                                                                                                                                                                                                       | Sim      | N/D               |
-| nome variável    | Nome da [variável](api-management-policy-expressions.md#ContextVariables) de contexto a que o valor procurado será atribuído, se a procura for bem sucedida. Se a procura resultar em falta, a variável `default-value` será atribuída `null`ao `default-value` valor do atributo ou , se o atributo for omitido.                                       | Sim      | N/D               |
+| nome variável    | Nome da [variável](api-management-policy-expressions.md#ContextVariables) de contexto a que o valor de procura será atribuído, se a pesquisa for bem sucedida. Se a procura resultar num erro, a variável será atribuída ao valor do `default-value` atributo `null` ou, se o `default-value` atributo for omitido.                                       | Sim      | N/D               |
 
 ### <a name="usage"></a>Utilização
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política.
+Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
 
 - **Secções políticas:** entrada, saída, backend, erro
 - **Âmbitos de política:** todos os âmbitos
 
 ## <a name="store-value-in-cache"></a><a name="StoreToCacheByKey"></a>Valor da loja em cache
-O `cache-store-value` armazenamento em cache executa por chave. A chave pode ter um valor de cadeia arbitrário e é normalmente fornecida usando uma expressão política.
+O `cache-store-value` armazenamento de cache executa por chave. A chave pode ter um valor de cadeia arbitrária e é normalmente fornecida usando uma expressão política.
 
 > [!NOTE]
-> Esta política deve ter um valor de obter correspondente da política [de cache.](#GetFromCacheByKey)
+> Esta política deve ter um [valor de obtém](#GetFromCacheByKey) correspondente da política cache.
 
 ### <a name="policy-statement"></a>Declaração política
 
@@ -254,7 +253,7 @@ O `cache-store-value` armazenamento em cache executa por chave. A chave pode ter
 ```
 
 ### <a name="example"></a>Exemplo
-Para mais informações e exemplos desta política, consulte O Cache personalizado [na Gestão da API Azure.](https://azure.microsoft.com/documentation/articles/api-management-sample-cache-by-key/)
+Para obter mais informações e exemplos desta política, consulte [o caching personalizado na Azure API Management.](https://azure.microsoft.com/documentation/articles/api-management-sample-cache-by-key/)
 
 ```xml
 <cache-store-value
@@ -265,26 +264,26 @@ Para mais informações e exemplos desta política, consulte O Cache personaliza
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Name|Descrição|Necessário|
 |----------|-----------------|--------------|
-|cache-store-valor|Elemento de raiz.|Sim|
+|valor da loja de cache|Elemento de raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-| Nome             | Descrição                                                                                                                                                                                                                                                                                                                                                 | Necessário | Predefinição           |
+| Name             | Descrição                                                                                                                                                                                                                                                                                                                                                 | Necessário | Predefinição           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| tipo de cache | Escolha entre os seguintes valores do atributo:<br />- `internal`para utilizar o cache de gestão api incorporada,<br />- `external`utilizar a cache externa, tal como descrito na utilização de [um Cache Azure externo para Redis em Gestão aPI Azure,](api-management-howto-cache-external.md)<br />- `prefer-external`utilizar cache externa se estiver configurado ou interno cache de outra forma. | Não       | `prefer-external` |
-| duration         | O valor será emcache para o valor de duração fornecido, especificado em segundos.                                                                                                                                                                                                                                                                                 | Sim      | N/D               |
-| key              | Chave cache o valor será armazenado abaixo.                                                                                                                                                                                                                                                                                                                   | Sim      | N/D               |
-| valor            | O valor a ser emcache.                                                                                                                                                                                                                                                                                                                                     | Sim      | N/D               |
+| tipo caching | Escolha entre os seguintes valores do atributo:<br />- `internal`para utilizar a cache de gestão da API incorporada,<br />- `external`utilizar a cache externa tal como descrito na [Utilização de uma cache Azure externa para redis na gestão API Azure](api-management-howto-cache-external.md),<br />- `prefer-external`utilizar cache externo se configurar ou cache interna de outra forma. | Não       | `prefer-external` |
+| duration         | O valor será em cache para o valor de duração fornecido, especificado em segundos.                                                                                                                                                                                                                                                                                 | Sim      | N/D               |
+| key              | Cache chave o valor será armazenado sob.                                                                                                                                                                                                                                                                                                                   | Sim      | N/D               |
+| valor            | O valor a ser em cache.                                                                                                                                                                                                                                                                                                                                     | Sim      | N/D               |
 ### <a name="usage"></a>Utilização
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política.
+Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
 
 - **Secções políticas:** entrada, saída, backend, erro
 - **Âmbitos de política:** todos os âmbitos
 
 ### <a name="remove-value-from-cache"></a><a name="RemoveCacheByKey"></a>Remover valor da cache
-O `cache-remove-value` fora de um item em cache identificado pela sua chave. A chave pode ter um valor de cadeia arbitrário e é normalmente fornecida usando uma expressão política.
+A `cache-remove-value` elimina um item em cache identificado pela sua chave. A chave pode ter um valor de cadeia arbitrária e é normalmente fornecida usando uma expressão política.
 
 #### <a name="policy-statement"></a>Declaração política
 
@@ -304,28 +303,28 @@ O `cache-remove-value` fora de um item em cache identificado pela sua chave. A c
 
 #### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Name|Descrição|Necessário|
 |----------|-----------------|--------------|
-|cache-remover-valor|Elemento de raiz.|Sim|
+|cache-remove-valor|Elemento de raiz.|Sim|
 
 #### <a name="attributes"></a>Atributos
 
-| Nome             | Descrição                                                                                                                                                                                                                                                                                                                                                 | Necessário | Predefinição           |
+| Name             | Descrição                                                                                                                                                                                                                                                                                                                                                 | Necessário | Predefinição           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| tipo de cache | Escolha entre os seguintes valores do atributo:<br />- `internal`para utilizar o cache de gestão api incorporada,<br />- `external`utilizar a cache externa, tal como descrito na utilização de [um Cache Azure externo para Redis em Gestão aPI Azure,](api-management-howto-cache-external.md)<br />- `prefer-external`utilizar cache externa se estiver configurado ou interno cache de outra forma. | Não       | `prefer-external` |
-| key              | A chave do valor previamente emcache a ser removido da cache.                                                                                                                                                                                                                                                                                        | Sim      | N/D               |
+| tipo caching | Escolha entre os seguintes valores do atributo:<br />- `internal`para utilizar a cache de gestão da API incorporada,<br />- `external`utilizar a cache externa tal como descrito na [Utilização de uma cache Azure externa para redis na gestão API Azure](api-management-howto-cache-external.md),<br />- `prefer-external`utilizar cache externo se configurar ou cache interna de outra forma. | Não       | `prefer-external` |
+| key              | A chave do valor anteriormente em cache a ser removida da cache.                                                                                                                                                                                                                                                                                        | Sim      | N/D               |
 
 #### <a name="usage"></a>Utilização
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de política.
+Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
 
 - **Secções políticas:** entrada, saída, backend, erro
 - **Âmbitos de política:** todos os âmbitos
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para mais informações que trabalhem com políticas, consulte:
+Para obter mais informações sobre as políticas, consulte:
 
-+ [Políticas em Gestão aPi](api-management-howto-policies.md)
-+ [Transforme APIs](transform-api.md)
-+ [Referência política](api-management-policy-reference.md) para uma lista completa de declarações políticas e suas configurações
-+ [Amostras políticas](policy-samples.md)
++ [Políticas em Gestão de API](api-management-howto-policies.md)
++ [Transformar APIs](transform-api.md)
++ [Referência política](api-management-policy-reference.md) para uma lista completa de declarações políticas e suas definições
++ [Amostras de política](policy-samples.md)

@@ -1,42 +1,42 @@
 ---
-title: Desloque recursos para o inquilino
-description: Descreve como implementar recursos no âmbito do inquilino num modelo de Gestor de Recursos Azure.
+title: Mobilizar recursos para inquilino
+description: Descreve como implantar recursos no âmbito do inquilino num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: d72b4a63e564732a9a4baaf8b8cd94d0f165e12a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/08/2020
+ms.openlocfilehash: 45541bcbea5a80e55dbc9f80e1eae8e17189bf6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653332"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945448"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Criar recursos ao nível dos inquilinos
 
-À medida que a sua organização amadurece, poderá ter de definir e atribuir [políticas](../../governance/policy/overview.md) ou [controlos de acesso baseados em papéis](../../role-based-access-control/overview.md) em todo o seu inquilino DaD Azure. Com modelos de nível de inquilino, você pode aplicar declarativamente políticas e atribuir papéis a nível global.
+À medida que a sua organização amadurece, poderá ter de definir e atribuir [políticas](../../governance/policy/overview.md) ou [controlos de acesso baseados em funções](../../role-based-access-control/overview.md) em todo o seu inquilino AZure AD. Com modelos de nível de inquilino, você pode declarativamente aplicar políticas e atribuir papéis a nível global.
 
 ## <a name="supported-resources"></a>Recursos suportados
 
-Pode implementar os seguintes tipos de recursos ao nível do arrendatário:
+Pode implementar os seguintes tipos de recursos ao nível do inquilino:
 
-* [implementações](/azure/templates/microsoft.resources/deployments) - para modelos aninhados que se desdobram em grupos de gestão ou subscrições.
+* [implementações](/azure/templates/microsoft.resources/deployments) - para modelos aninhados que se implantam em grupos de gestão ou subscrições.
 * [grupos de gestão](/azure/templates/microsoft.management/managementgroups)
-* [políticasAtribuis](/azure/templates/microsoft.authorization/policyassignments)
-* [definições políticas](/azure/templates/microsoft.authorization/policydefinitions)
-* [definições políticasSetDefinições](/azure/templates/microsoft.authorization/policysetdefinitions)
-* [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
-* [definições de papel](/azure/templates/microsoft.authorization/roledefinitions)
+* [políticasAssinsagens](/azure/templates/microsoft.authorization/policyassignments)
+* [políticasDefinições](/azure/templates/microsoft.authorization/policydefinitions)
+* [políticasSetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+* [papéAs de assinaturas](/azure/templates/microsoft.authorization/roleassignments)
+* [funçõesDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
 ### <a name="schema"></a>Esquema
 
-O esquema que usa para implantações de inquilinos é diferente do esquema para implantações de grupos de recursos.
+O esquema que você usa para implantações de inquilinos é diferente do esquema para implantações de grupos de recursos.
 
-Para os modelos, utilize:
+Para modelos, use:
 
 ```json
 https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#
 ```
 
-O esquema para um ficheiro de parâmetros é o mesmo para todos os âmbitos de implantação. Para ficheiros de parâmetros, utilize:
+O esquema para um ficheiro de parâmetro é o mesmo para todos os âmbitos de implantação. Para ficheiros de parâmetros, utilize:
 
 ```json
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
@@ -44,13 +44,13 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 ## <a name="required-access"></a>Acesso obrigatório
 
-O principal desdobramento do modelo deve ter permissões para criar recursos no âmbito do arrendatário. O principal deve ter permissão para executar as ações de implantação `Microsoft.Resources/deployments/*` e para criar os recursos definidos no modelo. Por exemplo, para criar um grupo de gestão, o diretor deve ter autorização do Contribuinte no âmbito do arrendatário. Para criar atribuições de funções, o diretor deve ter permissão do Proprietário.
+O principal que implementa o modelo deve ter permissões para criar recursos no âmbito do inquilino. O principal deve ter permissão para executar as ações de implantação ( `Microsoft.Resources/deployments/*` ) e para criar os recursos definidos no modelo. Por exemplo, para criar um grupo de gestão, o principal deve ter permissão do Contribuinte no âmbito do arrendatário. Para criar atribuições de funções, o principal deve ter permissão do Proprietário.
 
-O Administrador Global do Diretório Ativo Azure não tem automaticamente permissão para atribuir funções. Para permitir a implantação do modelo no âmbito do arrendatário, o Administrador Global deve fazer os seguintes passos:
+O Administrador Global do Diretório Ativo Azure não tem automaticamente permissão para atribuir funções. Para permitir a implementação do modelo no âmbito do inquilino, o Administrador Global deve fazer os seguintes passos:
 
-1. Elevar o acesso à conta para que o Administrador Global possa atribuir funções. Para mais informações, consulte [O Acesso Elevado para gerir todas as subscrições e grupos de gestão do Azure.](../../role-based-access-control/elevate-access-global-admin.md)
+1. Elevar o acesso à conta para que o Administrador Global possa atribuir funções. Para obter mais informações, consulte [o acesso elevate para gerir todas as subscrições e grupos de gestão da Azure.](../../role-based-access-control/elevate-access-global-admin.md)
 
-1. Atribuir proprietário ou colaborador ao principal que precisa de implementar os modelos.
+1. Atribua proprietário ou colaborador ao principal que precisa de implementar os modelos.
 
    ```azurepowershell-interactive
    New-AzRoleAssignment -SignInName "[userId]" -Scope "/" -RoleDefinitionName "Owner"
@@ -60,48 +60,48 @@ O Administrador Global do Diretório Ativo Azure não tem automaticamente permis
    az role assignment create --assignee "[userId]" --scope "/" --role "Owner"
    ```
 
-O diretor tem agora as permissões necessárias para implementar o modelo.
+O principal tem agora as permissões necessárias para implementar o modelo.
 
 ## <a name="deployment-commands"></a>Comandos de implantação
 
-Os comandos para destacamentos de inquilinos são diferentes dos comandos para implantações de grupos de recursos.
+Os comandos para implantações de inquilinos são diferentes dos comandos para implantações de grupos de recursos.
 
-Para o Azure CLI, utilize o inquilino de [implantação az criar:](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create)
+Para o Azure CLI, utilize [o inquilino de implantação az criar:](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create)
 
 ```azurecli-interactive
 az deployment tenant create \
   --name demoTenantDeployment \
   --location WestUS \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
-Para a Azure PowerShell, utilize [new-azTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
+Para a Azure PowerShell, utilize [o Novo AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
 ```azurepowershell-interactive
 New-AzTenantDeployment `
   -Name demoTenantDeployment `
   -Location "West US" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
-Para rest API, use [Implementações - Criar ou atualizar no âmbito](/rest/api/resources/deployments/createorupdateattenantscope)do inquilino .
+Para REST API, utilize [implementações - Crie ou atualize no âmbito do inquilino.](/rest/api/resources/deployments/createorupdateattenantscope)
 
 ## <a name="deployment-location-and-name"></a>Localização e nome de implantação
 
-Para implementações de nível de inquilino, você deve fornecer um local para a implementação. A localização da implantação é separada da localização dos recursos que implementa. O local de implementação especifica onde armazenar dados de implementação.
+Para implantações de nível de inquilino, você deve fornecer uma localização para a implantação. A localização da implantação é separada da localização dos recursos que implementa. A localização da implantação especifica onde armazenar dados de implantação.
 
-Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome padrão é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
+Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome predefinido é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo denominado **azuredeploy.jscria** um nome de implementação padrão de **azuredeploy**.
 
-Para cada nome de implantação, a localização é imutável. Não se pode criar uma implantação num local quando existe uma implantação existente com o mesmo nome num local diferente. Se obtê-lo o código de `InvalidDeploymentLocation` erro, utilize um nome diferente ou o mesmo local que a implementação anterior para esse nome.
+Para cada nome de implantação, a localização é imutável. Não é possível criar uma implantação num local quando há uma implantação existente com o mesmo nome num local diferente. Se obter o código de erro `InvalidDeploymentLocation` , utilize um nome diferente ou o mesmo local que a colocação anterior para esse nome.
 
-## <a name="use-template-functions"></a>Funções de modelo de utilização
+## <a name="use-template-functions"></a>Use funções de modelo
 
 Para as implementações de inquilinos, existem algumas considerações importantes ao utilizar funções de modelo:
 
-* A função de [recurso Group()](template-functions-resource.md#resourcegroup) **não** é suportada.
+* A função [grupo de recursos()](template-functions-resource.md#resourcegroup) **não** é suportada.
 * A função [de subscrição()](template-functions-resource.md#subscription) **não** é suportada.
-* As funções de [referência](template-functions-resource.md#reference) e [lista](template-functions-resource.md#list) são suportadas.
-* Utilize a função de [inquilinoResourceId()](template-functions-resource.md#tenantresourceid) para obter o ID de recursos que são implantados ao nível do arrendatário.
+* As funções [de referência](template-functions-resource.md#reference) e [lista são](template-functions-resource.md#list) suportadas.
+* Utilize a função [tenantResourceId()](template-functions-resource.md#tenantresourceid) para obter o ID de recursos que são implantados ao nível do inquilino.
 
   Por exemplo, para obter o ID de recurso para uma definição de política, use:
 
@@ -117,7 +117,7 @@ Para as implementações de inquilinos, existem algumas considerações importan
 
 ## <a name="create-management-group"></a>Criar grupo de gestão
 
-O [seguinte modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/new-mg) cria um grupo de gestão.
+O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/new-mg) cria um grupo de gestão.
 
 ```json
 {
@@ -141,9 +141,9 @@ O [seguinte modelo](https://github.com/Azure/azure-quickstart-templates/tree/mas
 }
 ```
 
-## <a name="assign-role"></a>Papel de atribuição
+## <a name="assign-role"></a>Atribuir papel
 
-O [seguinte modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/tenant-role-assignment) atribui um papel no âmbito do inquilino.
+O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/tenant-role-assignment) atribui uma função no âmbito do inquilino.
 
 ```json
 {
@@ -183,7 +183,7 @@ O [seguinte modelo](https://github.com/Azure/azure-quickstart-templates/tree/mas
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para aprender sobre a atribuição de funções, consulte [Gerir o acesso aos recursos do Azure utilizando modelos RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
-* Também pode implementar modelos ao [nível de subscrição](deploy-to-subscription.md) ou ao nível do grupo de [gestão.](deploy-to-management-group.md)
+* Para aprender sobre a atribuição de funções, consulte [Gerir o acesso aos recursos do Azure utilizando modelos de Gestor de Recursos RBAC e Azure](../../role-based-access-control/role-assignments-template.md).
+* Também pode implementar modelos ao [nível de subscrição](deploy-to-subscription.md) ou [ao nível do grupo de gestão.](deploy-to-management-group.md)

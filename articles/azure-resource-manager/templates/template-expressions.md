@@ -1,13 +1,13 @@
 ---
 title: Sintaxe de modelo e expressões
-description: Descreve a sintaxe declarativa da JSON para os modelos do Gestor de Recursos Azure.
+description: Descreve a sintaxe declarativa JSON para modelos do Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.openlocfilehash: baddedae1b918502e579d2ed230e0779960f45e7
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203833"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Sintaxe e expressões em modelos de Gestor de Recursos Azure
@@ -18,7 +18,7 @@ Uma expressão de modelo não pode exceder 24.576 caracteres.
 
 ## <a name="use-functions"></a>Utilizar funções
 
-O Azure Resource Manager fornece [funções](template-functions.md) que pode utilizar num modelo. O exemplo seguinte mostra uma expressão que utiliza uma função no valor padrão de um parâmetro:
+O Azure Resource Manager fornece [funções](template-functions.md) que pode usar num modelo. O exemplo a seguir mostra uma expressão que utiliza uma função no valor predefinido de um parâmetro:
 
 ```json
 "parameters": {
@@ -29,9 +29,9 @@ O Azure Resource Manager fornece [funções](template-functions.md) que pode uti
 },
 ```
 
-Dentro da expressão, a `resourceGroup()` sintaxe chama uma das funções que o Gestor de Recursos fornece para uso dentro de um modelo. Neste caso, é a função do [Grupo de Recursos.](template-functions-resource.md#resourcegroup) Tal como no JavaScript, as `functionName(arg1,arg2,arg3)`chamadas de função são formatadas como . A sintaxe `.location` recupera uma propriedade do objeto devolvido por essa função.
+Dentro da expressão, a sintaxe `resourceGroup()` chama uma das funções que o Gestor de Recursos fornece para ser usada dentro de um modelo. Neste caso, é a função grupo de [recursos.](template-functions-resource.md#resourcegroup) Tal como no JavaScript, as chamadas de função são formatadas como `functionName(arg1,arg2,arg3)` . A sintaxe `.location` recupera uma propriedade do objeto devolvido por essa função.
 
-As funções do modelo e os seus parâmetros são insensíveis aos casos. Por exemplo, o Gestor de Recursos resolve **variáveis ('var1')** e **VARIÁVEIs ('VAR1')** como as mesmas. Quando avaliada, a menos que a função modifica expressamente o caso (como o toUpper ou o toLower), a função preserva a caixa. Certos tipos de recursos podem ter requisitos de caso sem serem separados da forma como as funções são avaliadas.
+As funções do modelo e os seus parâmetros são insensíveis ao caso. Por exemplo, o Gestor de Recursos resolve **as variáveis ('var1')** e **as VARIÁVEIS('VAR1')** como as mesmas. Quando avaliada, a menos que a função modifie expressamente o caso (como toupper ou toLower), a função preserva o caso. Certos tipos de recursos podem ter requisitos de casos separados da forma como as funções são avaliadas.
 
 Para passar um valor de cadeia como parâmetro para uma função, utilize aspas únicas.
 
@@ -39,29 +39,29 @@ Para passar um valor de cadeia como parâmetro para uma função, utilize aspas 
 "name": "[concat('storage', uniqueString(resourceGroup().id))]"
 ```
 
-A maioria das funções funciona da mesma forma, quer seja implantada num grupo de recursos, subscrição, grupo de gestão ou inquilino. As seguintes funções têm restrições baseadas no âmbito:
+A maioria das funções funciona da mesma forma quer seja implantada num grupo de recursos, subscrição, grupo de gestão ou inquilino. As seguintes funções têm restrições baseadas no âmbito:
 
-* [recursosGroup](template-functions-resource.md#resourcegroup) - só pode ser utilizado em implantações para um grupo de recursos.
-* [recursosId](template-functions-resource.md#resourceid) - pode ser usado em qualquer âmbito, mas os parâmetros válidos mudam dependendo do âmbito.
-* [subscrição](template-functions-resource.md#subscription) - só pode ser utilizada em implantações para um grupo de recursos ou subscrição.
+* [resourceGroup](template-functions-resource.md#resourcegroup) - só pode ser utilizado em implementações para um grupo de recursos.
+* [resourceId](template-functions-resource.md#resourceid) - pode ser usado em qualquer âmbito, mas os parâmetros válidos mudam dependendo do âmbito.
+* [subscrição](template-functions-resource.md#subscription) - só pode ser usada em implementações para um grupo de recursos ou subscrição.
 
 ## <a name="escape-characters"></a>Personagens de fuga
 
-Para ter um início de `[` corda literal com `]`um suporte esquerdo e terminar com um suporte direito, mas `[[`não tê-lo interpretado como uma expressão, adicione um suporte extra para iniciar a corda com . Por exemplo, a variável:
+Para ter um arranque de corda literal com um suporte esquerdo `[` e terminar com um suporte direito , mas não o `]` interprete como uma expressão, adicione um suporte extra para iniciar a corda com `[[` . Por exemplo, a variável:
 
 ```json
 "demoVar1": "[[test value]"
 ```
 
-Resolve-se `[test value]`a.
+Resolve para `[test value]` .
 
-No entanto, se a corda literal não terminar com um suporte, não escape do primeiro suporte. Por exemplo, a variável:
+No entanto, se a corda literal não terminar com um suporte, não escape ao primeiro suporte. Por exemplo, a variável:
 
 ```json
 "demoVar2": "[test] value"
 ```
 
-Resolve-se `[test] value`a.
+Resolve para `[test] value` .
 
 Para escapar a citações duplas numa expressão, como adicionar um objeto JSON no modelo, use o backslash.
 
@@ -71,7 +71,7 @@ Para escapar a citações duplas numa expressão, como adicionar um objeto JSON 
 },
 ```
 
-Ao passar em valores de parâmetros, o uso de caracteres de fuga depende de onde o valor do parâmetro é especificado. Se definir um valor predefinido no modelo, precisa do suporte extra esquerdo.
+Ao passar em valores de parâmetros, a utilização de caracteres de fuga depende de onde o valor do parâmetro é especificado. Se definir um valor predefinido no modelo, precisa do suporte extra esquerdo.
 
 ```json
 {
@@ -93,21 +93,21 @@ Ao passar em valores de parâmetros, o uso de caracteres de fuga depende de onde
 }
 ```
 
-Se utilizar o valor predefinido, o modelo volta `[test value]`.
+Se utilizar o valor predefinido, o modelo retorna `[test value]` .
 
-No entanto, se passar em um valor de parâmetro através da linha de comando, os caracteres são interpretados literalmente. Implantação do modelo anterior com:
+No entanto, se passarmos num valor de parâmetro através da linha de comando, os caracteres são interpretados literalmente. Implantação do modelo anterior com:
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azuredeploy.json -demoParam1 "[[test value]"
 ```
 
-Devoluções. `[[test value]` Em vez disso, use:
+Devoluções `[[test value]` . Em vez disso, use:
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azuredeploy.json -demoParam1 "[test value]"
 ```
 
-A mesma formatação aplica-se ao passar valores a partir de um ficheiro de parâmetros. Os personagens são interpretados literalmente. Quando utilizado com o modelo anterior, o `[test value]`ficheiro do parâmetro seguinte devolve:
+A mesma formatação aplica-se ao passar valores a partir de um ficheiro de parâmetro. Os personagens são interpretados literalmente. Quando utilizado com o modelo anterior, o seguinte ficheiro de parâmetros `[test value]` devolve:
 
 ```json
 {
@@ -123,7 +123,7 @@ A mesma formatação aplica-se ao passar valores a partir de um ficheiro de par�
 
 ## <a name="null-values"></a>Valores nulos
 
-Para fixar um imóvel a nu, pode utilizar **nulo** ou **[json('null')]**. A [função json](template-functions-object.md#json) devolve um `null` objeto vazio quando fornece como parâmetro. Em ambos os casos, os modelos do Gestor de Recursos tratam-no como se a propriedade não estivesse presente.
+Para definir um imóvel para nulo, você pode usar **nulo** ou **[json('nun')]**. A [função json](template-functions-object.md#json) devolve um objeto vazio quando fornece `null` como parâmetro. Em ambos os casos, os modelos do Gestor de Recursos tratam-no como se a propriedade não estivesse presente.
 
 ```json
 "stringValue": null,
@@ -132,5 +132,5 @@ Para fixar um imóvel a nu, pode utilizar **nulo** ou **[json('null')]**. A [fun
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter a lista completa das funções do modelo, consulte as funções do modelo do Gestor de [Recursos do Azure](template-functions.md).
-* Para obter mais informações sobre ficheiros de modelos, consulte [Compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure](template-syntax.md).
+* Para obter a lista completa das funções do modelo, consulte as [funções do modelo do Gestor de Recursos Azure](template-functions.md).
+* Para obter mais informações sobre ficheiros de modelos, consulte [a estrutura e sintaxe dos modelos do Gestor de Recursos Azure](template-syntax.md).

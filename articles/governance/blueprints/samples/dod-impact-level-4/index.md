@@ -1,18 +1,20 @@
 ---
 title: Descrição geral do exemplo de esquema Impacto DoD Nível 4
 description: Descrição geral do exemplo Impacto DoD Nível 4. Este exemplo de esquema ajuda os clientes a avaliar controlos de Impacto DoD Nível 4 específicos.
-ms.date: 03/12/2020
+ms.date: 06/30/2020
 ms.topic: sample
-ms.openlocfilehash: a67dae5399d3e2e24c226c53f915b91e2524e735
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
-ms.translationtype: HT
+ms.openlocfilehash: 1c06cd738b9a63cb7a3ec14ef48bb8ae7c6dd6cb
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "79415381"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800397"
 ---
 # <a name="overview-of-the-dod-impact-level-4-blueprint-sample"></a>Descrição geral do exemplo de esquema Impacto DoD Nível 4
 
 O exemplo de esquema Impacto DoD Nível 4 (DoD IL4) fornece proteções de governação com o [Azure Policy](../../../policy/overview.md) que o ajudam a avaliar controlos de Impacto DoD Nível 4 específicos. Este esquema ajuda os clientes a implementar um conjunto essencial de políticas para qualquer arquitetura implementada no Azure que tenha de implementar controlos de Impacto DoD Nível 4. Para obter as informações mais recentes sobre quais os Serviços e Clouds do Azure que cumprem a autorização de Impacto DoD Nível 4, veja [Azure services by FedRAMP and DoD CC SRG audit scope](../../../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) (Serviços do Azure por âmbito de auditoria DoD CC SRG e FedRAMP).
+
+> [!NOTE]
+> Este exemplo de esquema está disponível no Azure Government.
 
 ## <a name="control-mapping"></a>Mapeamento de controlo
 
@@ -26,7 +28,7 @@ Analisou a descrição geral do exemplo de esquema Impacto DoD Nível 4. A segui
 > [Esquema Impacto DoD Nível 4 - Mapeamento de controlo](./control-mapping.md)
 > [Esquema Impacto DoD Nível 4 - Passos de implementação](./deploy.md)
 
-Artigos adicionais sobre esquemas e como utilizá-los:
+Artigos adicionais sobre esquemas e como os utilizar:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

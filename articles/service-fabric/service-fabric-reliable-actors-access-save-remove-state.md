@@ -1,34 +1,33 @@
 ---
-title: Gerir o estado do Tecido de Serviço Azure
-description: Aprenda sobre o acesso, a poupança e a remoção do estado para um Ator Fiável de Tecido de Serviço Azure, e considerações ao conceber uma aplicação.
+title: Gerir o estado do tecido de serviço Azure
+description: Saiba como aceder, economizar e remover o estado para um Azure Service Fabric Reliable Ator, e considerações ao desenhar uma aplicação.
 author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 788c337a37ec66c5aa1521c5cd9f2816ed7a8bf9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645638"
 ---
-# <a name="access-save-and-remove-reliable-actors-state"></a>Acesso, salvar e remover o estado de Atores Fiáveis
-[Os Atores Fiáveis](service-fabric-reliable-actors-introduction.md) são objetos de um fio único que podem encapsular a lógica e o estado e manter o estado de forma fiável. Cada instância de ator tem o seu próprio [gestor de estado](service-fabric-reliable-actors-state-management.md): uma estrutura de dados semelhante ao dicionário que armazena seguramente pares chave/valor. O gerente do Estado é um invólucro em torno de um provedor do estado. Pode usá-lo para armazenar dados independentemente da definição de [persistência.](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication)
+# <a name="access-save-and-remove-reliable-actors-state"></a>Acesso, salvamento e remoção do estado de Atores Fiáveis
+[Os Atores fiáveis](service-fabric-reliable-actors-introduction.md) são objetos de linha única que podem encapsular a lógica e o estado e manter o estado de forma fiável. Cada instância de ator tem o seu próprio [gestor estatal](service-fabric-reliable-actors-state-management.md): uma estrutura de dados semelhante a um dicionário que armazena de forma fiável os pares chave/valor. O gerente do Estado é um invólucro em torno de um fornecedor estatal. Pode usá-lo para armazenar dados independentemente da definição de [persistência.](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication)
 
-As chaves do gerente do estado devem ser cordas. Os valores são genéricos e podem ser de qualquer tipo, incluindo tipos personalizados. Os valores armazenados no gestor do Estado devem ser um contrato de dados, pois podem ser transmitidos através da rede a outros nós durante a replicação e podem ser escritos em disco, dependendo da persistência do estado de um ator.
+As chaves do gerente do estado devem ser cordas. Os valores são genéricos e podem ser qualquer tipo, incluindo tipos personalizados. Os valores armazenados no gestor do estado devem ser serializáveis por poderem ser transmitidos através da rede a outros nós durante a replicação e podem ser escritos em disco, dependendo da definição de persistência do estado de um ator.
 
-O gestor do Estado expõe métodos comuns de dicionário para gerir o estado, semelhantes aos encontrados no Dicionário Fiável.
+O gestor do estado expõe métodos de dicionário comuns para gerir o estado, semelhantes aos encontrados no Dicionário Fiável.
 
-Para obter informações, consulte [as melhores práticas na gestão](service-fabric-reliable-actors-state-management.md#best-practices)do estado do ator.
+Para obter informações, consulte [as melhores práticas na gestão do estado do ator.](service-fabric-reliable-actors-state-management.md#best-practices)
 
 ## <a name="access-state"></a>Estado de acesso
-O Estado é acedido através do gerente do Estado por chave. Os métodos de gerente de estado são todos assíncronos porque podem exigir i/O disco quando os atores persistiram. Após o primeiro acesso, os objetos do Estado são cached na memória. Repita as operações de acesso acedam diretamente a objetos da memória e regressem sincronizadamente sem incorrer em I/O do disco ou na sobrecarga de comutação de contexto assíncrona. Um objeto de Estado é removido da cache nos seguintes casos:
+O Estado é acedido através do gerente do estado por chave. Os métodos de gerente do Estado são todos assíncronos porque podem exigir e-mails de disco quando os atores têm permanecido estado. Após o primeiro acesso, os objetos do estado estão em cache na memória. Repita as operações de acesso aceder a objetos diretamente da memória e regressar sincronizadamente sem incorrer em disco I/O ou sobrecarga de comutação de contexto assíncrona. Um objeto de estado é removido da cache nos seguintes casos:
 
-* Um método de ator lança uma exceção não tratada depois de recuperar um objeto do gerente do estado.
-* Um ator é reativado, quer após ser desativado, quer após a falha.
-* As páginas do provedor do Estado dizem ao disco. Este comportamento depende da implementação do provedor do Estado. O fornecedor de `Persisted` estado padrão para a definição tem este comportamento.
+* Um método de ator lança uma exceção sem manipulação depois de recuperar um objeto do gerente do estado.
+* Um ator é reativado, seja depois de ter sido desativado ou após o fracasso.
+* As páginas do fornecedor do Estado dizem para o disco. Este comportamento depende da implementação do fornecedor estatal. O fornecedor estatal predefinido para a `Persisted` definição tem este comportamento.
 
-Pode recuperar o estado *Get* utilizando uma operação `KeyNotFoundException`padrão Get `NoSuchElementException`que atira (C#) ou (Java) se não existir uma entrada para a chave:
+Pode recuperar o estado utilizando uma operação standard *Get* que lança `KeyNotFoundException` (C#) ou `NoSuchElementException` (Java) se não existir uma entrada para a chave:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -103,10 +102,10 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-## <a name="save-state"></a>Salvar o estado
-Os métodos de recuperação do gestor do Estado devolvem uma referência a um objeto na memória local. Modificar este objeto apenas na memória local não faz com que seja guardado de forma duradoura. Quando um objeto é recuperado do gestor do Estado e modificado, este deve ser reinserido no gestor do Estado para ser guardado de forma duradoura.
+## <a name="save-state"></a>Salvar estado
+Os métodos de recuperação do gerente do estado devolvem uma referência a um objeto na memória local. Modificar este objeto apenas na memória local não faz com que seja guardado durão. Quando um objeto é recuperado do gerente do Estado e modificado, deve ser reinserido no gestor do Estado para ser salvo duravelmente.
 
-Pode inserir o estado utilizando um *Conjunto*incondicional, que é o equivalente à `dictionary["key"] = value` sintaxe:
+Pode inserir o estado utilizando um *conjunto*incondicional, que é o equivalente à `dictionary["key"] = value` sintaxe:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -139,7 +138,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Pode adicionar estado utilizando um método *Add.* Este método `InvalidOperationException`lança (C#) ou `IllegalStateException`(Java) quando tenta adicionar uma chave que já existe.
+Pode adicionar estado utilizando um método *Add.* Este método lança `InvalidOperationException` (C#) ou `IllegalStateException` (Java) quando tenta adicionar uma chave que já existe.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -215,9 +214,9 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-No final de um método de ator, o gestor do Estado salva automaticamente quaisquer valores que tenham sido adicionados ou modificados por uma operação de inserção ou atualização. Um "save" pode incluir persistir no disco e na replicação, dependendo das definições utilizadas. Os valores que não foram modificados não são persistentes nem replicados. Se não foram modificados valores, a operação de salvamento não faz nada. Se a poupança falhar, o estado modificado é descartado e o estado original é recarregado.
+No final de um método de ator, o gestor do estado guarda automaticamente quaisquer valores que tenham sido adicionados ou modificados por uma operação de inserção ou atualização. Um "save" pode incluir a persistência no disco e a replicação, dependendo das definições utilizadas. Os valores que não foram modificados não são persistidos ou replicados. Se não tiverem sido modificados valores, a operação de salvamento não faz nada. Se a poupança falhar, o estado modificado é descartado e o estado original é recarregado.
 
-Também pode salvar o estado `SaveStateAsync` manualmente, ligando para o método na base do ator:
+Também pode guardar o estado manualmente, chamando o `SaveStateAsync` método na base do ator:
 
 ```csharp
 async Task IMyActor.SetCountAsync(int count)
@@ -239,7 +238,7 @@ interface MyActor {
 ```
 
 ## <a name="remove-state"></a>Remover estado
-Pode remover o estado permanentemente do gerente do estado de um ator, ligando para o método *Remover.* Este método `KeyNotFoundException`lança (C#) ou `NoSuchElementException`(Java) quando tenta remover uma chave que não existe.
+Pode remover o estado permanentemente do gestor estatal de um ator, chamando o método *Remover.* Este método lança `KeyNotFoundException` (C#) ou `NoSuchElementException` (Java) quando tenta remover uma chave que não existe.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -315,8 +314,8 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-O estado que está armazenado em Atores Fiáveis deve ser serializado antes de ser escrito em disco e replicado para alta disponibilidade. Saiba mais sobre a serialização do [tipo Ator.](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+O estado que está armazenado em Reliable Actors deve ser serializado antes de ser escrito em disco e replicado para alta disponibilidade. Saiba mais sobre [a serialização do tipo ator.](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
-Em seguida, saiba mais sobre diagnósticos de [ator e monitorização de desempenho.](service-fabric-reliable-actors-diagnostics.md)
+Em seguida, saiba mais sobre [diagnósticos de ator e monitorização de desempenho.](service-fabric-reliable-actors-diagnostics.md)

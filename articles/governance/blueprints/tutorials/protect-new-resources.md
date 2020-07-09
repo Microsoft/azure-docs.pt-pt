@@ -1,62 +1,61 @@
 ---
-title: 'Tutorial: Proteja novos recursos com fechaduras'
-description: Neste tutorial, utiliza as opções de bloqueios de recursos do Azure Blueprints Leia Apenas e Não Elimine para proteger os recursos recém-implantados.
+title: 'Tutorial: Proteger novos recursos com fechaduras'
+description: Neste tutorial, utiliza as opções de bloqueio de recursos Azure Blueprints Leia Apenas e Não Elimine para proteger os recursos recém-implantados.
 ms.date: 05/06/2020
 ms.topic: tutorial
-ms.openlocfilehash: 90ffb0f5b8c1b6d3919b05abf778c5082bfee0dc
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 738c627d350c5e11b41a65d159cf2cc7de807334
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864169"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969646"
 ---
-# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Proteja novos recursos com fechaduras de recursos da Azure Blueprints
+# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Proteja novos recursos com bloqueios de recursos da Azure Blueprints
 
-Com [os bloqueios](../concepts/resource-locking.md)de recursos da Azure Blueprints, pode proteger os recursos recentemente implantados de serem adulterados, mesmo por uma conta com o papel _de Proprietário._ Pode adicionar esta proteção nas definições de plantas de recursos criados por um artefacto de modelo de Gestor de Recursos.
+Com [as fechaduras de recursos](../concepts/resource-locking.md)da Azure Blueprints, pode proteger os recursos recém-implantados de serem adulterados, mesmo através de uma conta com a função _Proprietário._ Pode adicionar esta proteção nas definições de recursos criados por um artefacto do Azure Resource Manager (modelo ARM).
 
 Neste tutorial, você completará estes passos:
 
 > [!div class="checklist"]
 > - Criar uma definição de planta
-> - Marque a sua definição de projeto como **Publicado**
-> - Atribuir a sua definição de projeto a uma subscrição existente
+> - Marque a definição do seu projeto como **Publicado**
+> - Atribua a sua definição de planta a uma subscrição existente
 > - Inspecione o novo grupo de recursos
 > - Desatribua a planta para remover as fechaduras
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
 ## <a name="create-a-blueprint-definition"></a>Criar uma definição de planta
 
 Primeiro, criar a definição de planta.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
 
-1. Na página **de início** de ficando à esquerda, selecione **Criar** sob criar **uma planta**.
+1. Na página **'Iniciar'** à esquerda, selecione **Criar** na **criação de uma planta**.
 
-1. Encontre a amostra da planta **em branco** no topo da página. Selecione **Começar com a planta em branco**.
+1. Encontre a amostra **de planta em branco** no topo da página. Selecione **Iniciar com a planta em branco**.
 
-1. Introduza esta informação no separador **Basics:**
+1. Introduza esta informação no separador **Básicos:**
 
-   - **Nome**da planta : Forneça um nome para a sua cópia da amostra de plantas. Para este tutorial, usaremos o nome **de armazenagem bloqueada.**
-   - **Descrição da planta**: Adicione uma descrição para a definição da planta. Utilização Para testar o bloqueio do **recurso de plantas em recursos implantados**.
-   - **Localização da definição**: Selecione o botão de elipse (...) e, em seguida, selecione o grupo de gestão ou subscrição para guardar a definição de projeto para.
+   - **Nome da planta**: Forneça um nome para a sua cópia da amostra de planta. Para este tutorial, usaremos o nome **de contagem de armazenamento bloqueado.**
+   - **Descrição da planta**: Adicione uma descrição para a definição da planta. Utilização **Para testar o bloqueio de recursos de plantas em recursos implantados**.
+   - **Localização de definição**: Selecione o botão de elipse (...) e, em seguida, selecione o grupo de gestão ou subscrição para guardar a definição do seu projeto para.
 
-1. Selecione o separador **Artefactos** na parte superior da página ou selecione **Seguinte: Artefactos** na parte inferior da página.
+1. Selecione o **separador Artefactos** na parte superior da página ou selecione **Seguinte: Artefactos** na parte inferior da página.
 
-1. Adicione um grupo de recursos ao nível da subscrição:
-   1. Selecione a linha **de artefacto adicionar** em **Subscrição**.
-   1. Selecione **Grupo de Recursos** sob o tipo de **Artefacto**.
-   1. Defino o nome do **ecrã do Artefacto** para **RGtoLock**.
-   1. Deixe as caixas de nome e **localização** do **Grupo de Recursos** em branco, mas certifique-se de que a caixa de verificação é selecionada em cada propriedade para torná-las **parâmetros dinâmicos**.
-   1. Selecione **Adicionar** para adicionar o artefacto à planta.
+1. Adicione um grupo de recursos ao nível de subscrição:
+   1. Selecione a linha **de artefacto adicionar** sob **subscrição.**
+   1. Selecione **Grupo de Recursos** sob o tipo **Artefacto**.
+   1. Desaveie o **nome de exibição do artefacto** para **RGtoLock**.
+   1. Deixe em branco as caixas de Nome e **Localização** **do Grupo de Recursos,** mas certifique-se de que a caixa de verificação está selecionada em cada propriedade para os tornar **parâmetros dinâmicos.**
+   1. **Selecione Adicionar** para adicionar o artefacto à planta.
 
 1. Adicione um modelo sob o grupo de recursos:
    1. Selecione a linha **de artefacto adicionar** sob a entrada **RGtoLock.**
-   1. Selecione **o modelo do Gestor de Recursos Azure** sob o tipo de **artefacto,** coloque o nome do **ecrã do artefacto** para **StorageAccount**, e deixe a **descrição** em branco.
-   1. No separador **Modelo,** cola o seguinte modelo de Gestor de Recursos na caixa do editor.
-      Depois de colar no modelo, selecione **Adicionar** para adicionar o artefacto à planta.
+   1. Selecione **o modelo do Gestor de Recursos Azure** sob o tipo De **artefacto,** desenhe **o nome do visor do artefacto** para o **StorageAccount**e deixe **a Descrição** em branco.
+   1. No **separador Modelo,** cole o modelo ARM a seguir na caixa do editor. Depois de colar no modelo, **selecione Adicione** para adicionar o artefacto à planta.
 
    ```json
    {
@@ -100,132 +99,132 @@ Primeiro, criar a definição de planta.
    }
    ```
 
-1. Selecione **Guardar Rascunho** na parte inferior da página.
+1. **Selecione Guardar o Projeto** na parte inferior da página.
 
-Este passo cria a definição de projeto no grupo de gestão selecionado ou subscrição.
+Este passo cria a definição de planta no grupo de gestão ou subscrição selecionados.
 
-Depois da definição de **planta De salvação ter sido bem sucedida,** a notificação do portal aparece, vá para o passo seguinte.
+Depois da **definição de projeto Desemundo a** notificação do portal ter sido bem sucedida, vá para o passo seguinte.
 
-## <a name="publish-the-blueprint-definition"></a>Publicar a definição de projeto
+## <a name="publish-the-blueprint-definition"></a>Publicar a definição de planta
 
-A sua definição de projeto foi agora criada no seu ambiente. É criado em modo **Draft** e deve ser publicado antes de ser atribuído e implantado.
+A sua definição de planta foi agora criada no seu ambiente. É criado no modo **Draft** e deve ser publicado antes de poder ser atribuído e implementado.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
 
-1. Selecione a página de **definições** de Blueprint à esquerda. Utilize os filtros para encontrar a definição de planta **de armazenamento bloqueado** e, em seguida, selecione-a.
+1. Selecione a página **de definições de Planta** à esquerda. Utilize os filtros para encontrar a definição de planta **de contagem de armazenamento bloqueado** e, em seguida, selecione-os.
 
-1. Selecione **Publicar a planta** no topo da página. No novo painel à direita, insira **1.0** como **versão**. Esta propriedade é útil se você fizer uma mudança mais tarde. Insira **as notas de alteração**, como a primeira versão publicada para bloquear os recursos implantados do **projeto.** Em seguida, **selecione Publicar** na parte inferior da página.
+1. **Selecione Publicar** a planta no topo da página. No novo painel à direita, insira **o 1.0** como **a Versão**. Esta propriedade é útil se você fizer uma mudança mais tarde. Introduza **notas de Alteração**, como a primeira versão publicada para bloquear recursos **implantados**. Em seguida, **selecione Publicar** na parte inferior da página.
 
-Este passo permite atribuir a planta a uma subscrição. Após a publicação da definição de projeto, ainda pode fazer alterações. Se fizer alterações, tem de publicar a definição com um novo valor de versão para acompanhar as diferenças entre versões da mesma definição de projeto.
+Este passo permite atribuir a planta a uma subscrição. Depois da definição do projeto ser publicada, ainda pode fazer alterações. Se fizer alterações, tem de publicar a definição com um novo valor de versão para rastrear as diferenças entre versões da mesma definição de projeto.
 
-Depois de a definição de projeto de **publicação ter sido bem sucedida,** a notificação do portal aparece, vá para o passo seguinte.
+Depois de aparecer **a definição de projeto de publicação que sucedeu** à notificação do portal, vá para o passo seguinte.
 
 ## <a name="assign-the-blueprint-definition"></a>Atribuir a definição de planta
 
-Após a publicação da definição de projeto, pode atribuí-la a uma subscrição dentro do grupo de gestão onde a guardou. Neste passo, fornece parâmetros para tornar cada implementação da definição de planta única.
+Após a publicação da definição de planta, pode atribuí-la a uma subscrição dentro do grupo de gestão onde a guardou. Neste passo, você fornece parâmetros para tornar cada implementação da definição de planta única.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
 
-1. Selecione a página de **definições** de Blueprint à esquerda. Utilize os filtros para encontrar a definição de planta **de armazenamento bloqueado** e, em seguida, selecione-a.
+1. Selecione a página **de definições de Planta** à esquerda. Utilize os filtros para encontrar a definição de planta **de contagem de armazenamento bloqueado** e, em seguida, selecione-os.
 
-1. Selecione **a planta de atribuição** na parte superior da página de definição de planta.
+1. Selecione Atribuir a **planta** no topo da página de definição de planta.
 
-1. Fornecer os valores do parâmetro para a atribuição do projeto:
+1. Fornecer os valores dos parâmetros para a atribuição do projeto:
 
    - **Noções básicas**
 
-     - **Subscrições**: Selecione uma ou mais subscrições que estão no grupo de gestão onde guardou a definição de projeto. Se selecionar mais do que uma subscrição, será criada uma atribuição para cada subscrição, utilizando os parâmetros em que entra.
-     - **Nome de atribuição**: O nome é pré-povoado com base no nome da definição de projeto. Queremos que esta missão represente o bloqueio do novo grupo de recursos, por isso altere o nome de atribuição para a **conta de armazenamento bloqueado-testa-testadesBPLocks**.
-     - **Localização**: Selecione uma região para criar a identidade gerida. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, consulte [identidades geridas para os recursos do Azure.](../../../active-directory/managed-identities-azure-resources/overview.md)
+     - **Subscrições**: Selecione uma ou mais das subscrições que estão no grupo de gestão onde guardou a definição do seu projeto. Se selecionar mais de uma subscrição, será criada uma atribuição para cada subscrição, utilizando os parâmetros introduzidos.
+     - **Nome da atribuição**: O nome é pré-povoado com base no nome da definição de planta. Queremos que esta atribuição represente o bloqueio do novo grupo de recursos, por isso altere o nome de atribuição para o relatório **de armazenamento bloqueado de atribuição-TestingBPLocks**.
+     - **Localização**: Selecione uma região para criar a identidade gerida. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, consulte [identidades geridas para recursos Azure.](../../../active-directory/managed-identities-azure-resources/overview.md)
        Para este tutorial, selecione **East US 2**.
-     - Versão de **definição**de planta : Selecione a versão **1.0** publicada da definição de projeto.
+     - **Versão de definição de planta**: Selecione a versão **1.0** publicada da definição de planta.
 
    - **Atribuição de bloqueio**
 
-     Selecione o modo de bloqueio de planta **"Ler Apenas".** Para obter mais informações, veja [bloqueio de recurso em esquemas](../concepts/resource-locking.md).
+     Selecione o modo de bloqueio de planta **Apenas de leitura.** Para obter mais informações, veja [bloqueio de recurso em esquemas](../concepts/resource-locking.md).
 
    - **Identidade Gerida**
 
-     Utilize a opção predefinida: **Sistema atribuído**. Para mais informações, consulte [identidades geridas.](../../../active-directory/managed-identities-azure-resources/overview.md)
+     Utilize a opção **predefinida: Sistema atribuído**. Para mais informações, consulte [identidades geridas.](../../../active-directory/managed-identities-azure-resources/overview.md)
 
-   - **Parâmetros de artefacto**
+   - **Parâmetros de artefactos**
 
-     Os parâmetros definidos nesta secção aplicam-se ao artefacto sob o qual são definidos. Estes parâmetros são [parâmetros dinâmicos](../concepts/parameters.md#dynamic-parameters) porque são definidos durante a atribuição da planta. Para cada artefacto, defina o valor do parâmetro para o que vê na coluna **Valor.**
+     Os parâmetros definidos nesta secção aplicam-se ao artefacto sob o qual são definidos. Estes parâmetros são [parâmetros dinâmicos](../concepts/parameters.md#dynamic-parameters) porque são definidos durante a atribuição da planta. Para cada artefacto, desa um valor de parâmetro para o que vê na coluna **Valor.**
 
-     |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Valor|Descrição|
+     |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Valor|Description|
      |-|-|-|-|-|
-     |Grupo de recursos RGtoLock|Grupo de recursos|Name|TestingBPLocks|Define o nome do novo grupo de recursos para aplicar fechaduras de plantas.|
-     |Grupo de recursos RGtoLock|Grupo de recursos|Localização|E.U.A.Oeste 2|Define a localização do novo grupo de recursos para aplicar fechaduras de plantas.|
-     |StorageAccount|Modelo do Resource Manager|armazenamentoAccountType (StorageAccount)|Standard_GRS|O armazém SKU. O valor predefinido é _Standard_LRS_.|
+     |Grupo de recursos RGtoLock|Grupo de recursos|Name|TestebPLocks|Define o nome do novo grupo de recursos para aplicar fechaduras de planta a.|
+     |Grupo de recursos RGtoLock|Grupo de recursos|Localização|E.U.A.Oeste 2|Define a localização do novo grupo de recursos para aplicar fechaduras de planta para.|
+     |StorageAccount|Modelo do Resource Manager|armazenamentoAccountType (Contagem de armazenamento)|Standard_GRS|O armazém SKU. O valor _predefinido_é Standard_LRS .|
 
-1. Depois de ter introduzido todos os parâmetros, selecione **Atribuir** na parte inferior da página.
+1. Depois de introduzir todos os parâmetros, **selecione Atribuir** na parte inferior da página.
 
-Este passo implanta os recursos definidos e configura a atribuição de **bloqueio**selecionada . Pode levar até 30 minutos para aplicar fechaduras de plantas.
+Este passo implementa os recursos definidos e configura a atribuição de **bloqueio**selecionada. Pode levar até 30 minutos para aplicar fechaduras de planta.
 
-Depois da definição de **planta de atribuição ter sido bem sucedida,** a notificação do portal aparece, vá para o passo seguinte.
+Depois de aparecer **a definição do projeto de atribuição de** notificação do portal, vá para o passo seguinte.
 
-## <a name="inspect-resources-deployed-by-the-assignment"></a>Inspecionar os recursos utilizados pela atribuição
+## <a name="inspect-resources-deployed-by-the-assignment"></a>Inspecione os recursos utilizados pela atribuição
 
-A atribuição cria o grupo de recursos _TestingBPLocks_ e a conta de armazenamento implementada pelo artefacto do modelo do Gestor de Recursos. O novo grupo de recursos e o estado de bloqueio selecionado são mostrados na página de detalhes da atribuição.
+A atribuição cria o grupo de recursos _TestingBPLocks_ e a conta de armazenamento implementada pelo artefacto do modelo ARM. O novo grupo de recursos e o estado de bloqueio selecionado são apresentados na página de detalhes da atribuição.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
 
-1. Selecione a página de **plantas atribuída** à esquerda. Utilize os filtros para encontrar a atribuição da área de armazenamento bloqueado de **atribuição de armazenamento-TestBPLocks** e, em seguida, selecione-a.
+1. Selecione a página **de plantas atribuídas** à esquerda. Utilize os filtros para encontrar a **atribuição de armazenamento bloqueado-contagem-TestingBPLocks** design e, em seguida, selecione-o.
 
-   A partir desta página, podemos ver que a atribuição foi bem sucedida e que os recursos foram implantados com o novo estado de bloqueio de plantas. Se a atribuição for atualizada, a **operação de atribuição** mostra detalhes sobre a implementação de cada versão de definição. Pode selecionar o grupo de recursos para abrir a página da propriedade.
+   A partir desta página, podemos ver que a atribuição foi bem sucedida e que os recursos foram implantados com o novo estado de bloqueio de plantas. Se a atribuição for atualizada, a **operação** de atribuição mostra detalhes sobre a implementação de cada versão de definição. Pode selecionar o grupo de recursos para abrir a página da propriedade.
 
 1. Selecione o grupo de recursos **TestingBPLocks.**
 
-1. Selecione a página de controlo de **acesso (IAM)** à esquerda. Em seguida, selecione o separador de **tarefas role.**
+1. Selecione a página **de controlo de acesso (IAM)** à esquerda. Em seguida, selecione o **separador Funções.**
 
-   Aqui vemos que a atribuição de área de _armazenamento bloqueado de atribuição de armazenamento-testeBPLocks_ tem a função _proprietário._ Tem este papel porque este papel foi usado para implantar e bloquear o grupo de recursos.
+   Aqui vemos que a _atribuição de armazenamento bloqueado-armazenamento-testingBPLocks_ design design tem a função _proprietário._ Tem este papel porque este papel foi usado para implantar e bloquear o grupo de recursos.
 
-1. Selecione o separador **de atribuições Negar.**
+1. Selecione o **separador Descoduções Desemacorar.**
 
-   A atribuição da planta criou uma [atribuição de negação](../../../role-based-access-control/deny-assignments.md) no grupo de recursos implantados para impor o modo de bloqueio de plantas **Read Only.** A atribuição de negação impede que alguém com direitos adequados sobre o separador de atribuições role atomar ações **específicas.** A atribuição de negação afeta _todos os princípios._
+   A atribuição da planta criou uma [atribuição de negação](../../../role-based-access-control/deny-assignments.md) no grupo de recursos implantado para impor o modo de bloqueio de planta **Read Only.** A atribuição de negação impede que alguém com direitos adequados no **separador de atribuições** de Função tome ações específicas. A atribuição de negação afeta _todos os principais._
 
-   Para obter informações sobre a exclusão de um diretor de uma atribuição de negação, consulte o bloqueio de recursos das [plantas.](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment)
+   Para obter informações sobre a exclusão de um principal de uma atribuição de negação, consulte [o bloqueio de recursos de plantas](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment).
 
 1. Selecione a atribuição de negação e, em seguida, selecione a página **Permissões Negadas** à esquerda.
 
-   A atribuição de negação está **\*** a impedir todas as operações com a configuração e **a configuração Action,** mas permite ler o acesso excluindo/ler ** \*** via **NotActions**.
+   A atribuição de negação está a impedir todas as operações com a **\*** configuração e **ação,** mas permite ler o acesso excluindo ** \* /ler** via **NotActions**.
 
-1. No portal Azure, selecione **TestingBPLocks - Controle de acesso (IAM)**. Em seguida, selecione a página **'Visão Geral'** à esquerda e, em seguida, o botão do **grupo de recursos Delete.** Introduza o nome **TestingBPLocks** para confirmar a eliminação e, em seguida, **selecione Apagar** na parte inferior do painel.
+1. No portal Azure, selecione **TestingBPLocks - Access control (IAM)**. Em seguida, selecione a página **'Vista Geral'** à esquerda e, em seguida, o botão **de grupo de recursos Delete.** Introduza o nome **TestingBPLocks** para confirmar a eliminação e, em seguida, **selecione Eliminar** na parte inferior do painel.
 
-   Notificação do portal **Apagar grupo de recursos TestingBPLocks falhados** aparece. O erro indica que, embora a sua conta tenha permissão para eliminar o grupo de recursos, o acesso é negado pela atribuição do projeto. Lembre-se que selecionamos o modo de bloqueio de plantas **Read Only** durante a atribuição da planta. O bloqueio da planta impede uma conta com permissão, mesmo _proprietário,_ de apagar o recurso. Para obter mais informações, veja [bloqueio de recurso em esquemas](../concepts/resource-locking.md).
+   A notificação do portal **Eliminar o grupo de recursos TestingBPLocks falhou.** O erro afirma que, embora a sua conta tenha permissão para eliminar o grupo de recursos, o acesso é negado pela atribuição do projeto. Lembre-se que selecionámos o modo de bloqueio de planta **Read Only** durante a atribuição da planta. O bloqueio da planta impede que uma conta com permissão, mesmo _proprietário,_ a supressão do recurso. Para obter mais informações, veja [bloqueio de recurso em esquemas](../concepts/resource-locking.md).
 
-Estas medidas mostram que os nossos recursos implantados estão agora protegidos com fechaduras de plantas que impedem a eliminação indesejada, mesmo a partir de uma conta que tem permissão para apagar os recursos.
+Estes passos mostram que os nossos recursos implantados estão agora protegidos com fechaduras de planta que impedem a eliminação indesejada, mesmo de uma conta que tem permissão para apagar os recursos.
 
-## <a name="unassign-the-blueprint"></a>Desatribua a planta
+## <a name="unassign-the-blueprint"></a>Unassign the blueprint
 
-O último passo é remover a atribuição da definição de projeto. Remover a atribuição não remove os artefactos associados.
+O último passo é remover a atribuição da definição de planta. Remover a missão não remove os artefactos associados.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
 
-1. Selecione a página de **plantas atribuída** à esquerda. Utilize os filtros para encontrar a atribuição da área de armazenamento bloqueado de **atribuição de armazenamento-TestBPLocks** e, em seguida, selecione-a.
+1. Selecione a página **de plantas atribuídas** à esquerda. Utilize os filtros para encontrar a **atribuição de armazenamento bloqueado-contagem-TestingBPLocks** design e, em seguida, selecione-o.
 
-1. Selecione a **planta Unassign** na parte superior da página. Leia o aviso na caixa de diálogo de confirmação e, em seguida, selecione **OK**.
+1. **Selecione a planta de adign** no topo da página. Leia o aviso na caixa de diálogo de confirmação e, em seguida, selecione **OK**.
 
-   Quando a atribuição da planta é removida, as fechaduras da planta também são removidas. Os recursos podem ser novamente eliminados por uma conta com permissões adequadas.
+   Quando a atribuição da planta é removida, as fechaduras da planta também são removidas. Os recursos podem ser novamente eliminados por uma conta com permissões apropriadas.
 
-1. Selecione **grupos de recursos** do menu Azure e, em seguida, selecione **TestingBPLocks**.
+1. Selecione **grupos** de recursos a partir do menu Azure e, em seguida, selecione **TestingBPLocks**.
 
-1. Selecione a página de controlo de **acesso (IAM)** à esquerda e, em seguida, selecione o separador de **atribuições de funções.**
+1. Selecione a página **de controlo de acesso (IAM)** à esquerda e, em seguida, selecione o **separador Atribuições de Função.**
 
-A segurança do grupo de recursos mostra que a atribuição de plantas já não tem acesso ao _Proprietário._
+A segurança do grupo de recursos mostra que a atribuição do projeto já não tem acesso _ao Proprietário._
 
-Depois da atribuição do **projeto de remoção ter sido bem sucedida,** a notificação do portal aparece, vá para o passo seguinte.
+Depois de aparecer a notificação do portal **de remoção do portal,** vá para o passo seguinte.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando terminar este tutorial, elimine estes recursos:
 
 - Grupo de recursos _TestingBPLocks_
-- Conta _de armazenamento bloqueado de_ definição de plantas
+- Definição de planta _contagem de armazenamento bloqueado_
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a proteger novos recursos implantados com plantas Azure. Para saber mais sobre as Plantas Azure, continue o artigo blueprint lifecycle.
+Neste tutorial, aprendeu a proteger novos recursos implantados com a Azure Blueprints. Para saber mais sobre a Azure Blueprints, continue para o artigo do ciclo de vida do projeto.
 
 > [!div class="nextstepaction"]
 > [Conheça o ciclo de vida da planta](../concepts/lifecycle.md)

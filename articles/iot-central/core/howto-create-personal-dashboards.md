@@ -1,5 +1,5 @@
 ---
-title: Crie dashboards pessoais Azure IoT Central [ Microsoft Docs
+title: Criar dashboards pessoais Azure IoT Central Microsoft Docs
 description: Como utilizador, aprenda a criar e gerir os seus dashboards pessoais.
 author: mavoge
 ms.author: mavoge
@@ -9,66 +9,65 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: f7dca7352a49e668231f64632371a445985e4de3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83634563"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Criar e gerir vários dashboards
 
-O **Dashboard** é a página que carrega quando navega pela primeira vez para a sua aplicação. Um **construtor** na sua aplicação define o dashboard de aplicação padrão para todos os utilizadores. Pode ainda criar o seu próprio painel de aplicações personalizado. Pode ter vários dashboards que exibem diferentes dados e alternam entre eles.
+O **Dashboard** é a página que carrega quando navega pela primeira vez para a sua aplicação. Um **construtor** na sua aplicação define o painel de aplicações predefinido para todos os utilizadores. Pode ainda criar o seu próprio painel de aplicações personalizado. Pode ter vários dashboards que exibem dados diferentes e alternam entre eles.
 
-Se for **administrador** da aplicação, também pode criar até 10 dashboards de nível de aplicação para partilhar com outros utilizadores da aplicação. Apenas **os administradores** têm a capacidade de criar, editar e eliminar os dashboards de nível de aplicação.  
+Se for **um administrador** da aplicação, também pode criar até 10 dashboards de nível de aplicação para compartilhar com outros utilizadores da aplicação. Apenas **os administradores** têm a capacidade de criar, editar e eliminar os dashboards de nível de aplicação.  
 
 ## <a name="create-dashboard"></a>Criar painel de instrumentos
 
-A imagem seguinte mostra o dashboard numa aplicação criada a partir do modelo de **aplicação personalizada.** Pode substituir o painel de aplicações predefinido por um dashboard pessoal, ou se for administrador, outro painel de instrumentos de nível de aplicação. Para isso, selecione **+ Novo** na parte superior à esquerda da página.
+A imagem que se segue mostra o painel de instrumentos numa aplicação criada a partir do modelo **de Aplicação Personalizada.** Pode substituir o painel de aplicações predefinido por um painel de instrumentos pessoal, ou se for administrador, outro painel de instrumentos de nível de aplicação. Para tal, selecione **+ Novo** no topo esquerdo da página.
 
 > [!div class="mx-imgBorder"]
-> ![Painel de instrumentos para aplicações com base no modelo "Aplicação Personalizada"](media/howto-create-personal-dashboards/dashboard-custom-app.png)
+> ![Painel de aplicações baseado no modelo "Aplicação Personalizada"](media/howto-create-personal-dashboards/dashboard-custom-app.png)
 
-Selecionar **+ Nova** abre o editor do dashboard. No editor, pode dar um nome ao seu painel de instrumentos e escolher artigos da biblioteca. A biblioteca contém os azulejos e os primitivos do painel que pode usar para personalizar o painel de instrumentos.
-
-> [!div class="mx-imgBorder"]
-> ![Biblioteca do painel de instrumentos](media/howto-create-personal-dashboards/dashboard-library.png)
-
-Se for **administrador** da aplicação, será-lhe dada a opção de criar um painel de instrumentos de nível pessoal ou um painel de instrumentos de nível de aplicação. Se criar um painel de instrumentos de nível pessoal, só poderá vê-lo. Se criar um painel de instrumentos de nível de aplicação, todos os utilizadores da aplicação poderão vê-lo. Depois de introduzir um título e selecionar o tipo de painel que pretende criar, pode guardar e adicionar azulejos mais tarde. Ou se estiver pronto agora e tiver adicionado um modelo de dispositivo e uma instância de dispositivo, pode ir em frente e criar o seu primeiro azulejo.  
+Selecionando **+ Novo** abre o editor do painel de instrumentos. No editor, pode dar um nome ao seu painel de instrumentos e escolher itens da biblioteca. A biblioteca contém os azulejos e os primitivos do painel de instrumentos que pode usar para personalizar o tablier.
 
 > [!div class="mx-imgBorder"]
-> ![Configurar detalhes do dispositivo" formulário com detalhes para temperatura](media/howto-create-personal-dashboards/device-details.png)
+> ![Biblioteca do painel](media/howto-create-personal-dashboards/dashboard-library.png)
 
-Por exemplo, pode adicionar um azulejo **telemetria** para a temperatura atual do dispositivo. Para tal:
-
-1. Selecione um modelo de **dispositivo**
-1. Selecione um dispositivo a partir de **Dispositivos** para o dispositivo que pretende ver num azulejo do painel de instrumentos. Em seguida, você verá uma lista das propriedades do dispositivo que pode ser usada no azulejo.
-1. Para criar o azulejo no painel de instrumentos, clique em **Temperatura** e arraste-o para a área do painel de instrumentos. Também pode clicar na caixa de verificação ao lado da **Temperatura** e clicar em **adicionar azulejos**. A imagem seguinte mostra a seleção de um modelo e dispositivo do dispositivo, criando um azulejo de Telemetria de Temperatura no painel de instrumentos.
-1. Selecione **Guardar** na parte superior esquerda para guardar as alterações no painel de instrumentos.
+Se for **um administrador** da aplicação, terá a opção de criar um dashboard de nível pessoal ou um painel de instrumentos de nível de aplicação. Se criar um dashboard de nível pessoal, só poderá vê-lo. Se criar um dashboard de nível de aplicação, todos os utilizadores da aplicação poderão vê-la. Depois de introduzir um título e selecionar o tipo de painel de instrumentos que pretende criar, pode guardar e adicionar azulejos mais tarde. Ou se estiver pronto agora e tiver adicionado um modelo de dispositivo e uma instância do dispositivo, pode ir em frente e criar o seu primeiro azulejo.  
 
 > [!div class="mx-imgBorder"]
-> ![Tab dashboard com detalhes para o azulejo temperatura](media/howto-create-personal-dashboards/temperature-tile-edit.png)
+> ![Configure detalhes do dispositivo" formulário com detalhes para temperatura](media/howto-create-personal-dashboards/device-details.png)
+
+Por exemplo, pode adicionar um **azulejo de telemetria** para a temperatura atual do dispositivo. Para tal:
+
+1. Selecione um **modelo de dispositivo**
+1. Selecione um dispositivo de **Dispositivos** para o dispositivo que pretende ver num azulejo do painel de instrumentos. Em seguida, verá uma lista das propriedades do dispositivo que podem ser usadas no azulejo.
+1. Para criar o azulejo no painel de instrumentos, clique na **Temperatura** e arraste-o para a área do painel de instrumentos. Também pode clicar na caixa de verificação ao lado **da Temperatura** e clicar em **adicionar azulejo**. A imagem que se segue mostra a seleção de um modelo e dispositivo do dispositivo do dispositivo, em seguida, criar um azulejo de telemetria de temperatura no painel de instrumentos.
+1. **Selecione Guarde** na parte superior esquerda para guardar as alterações no painel de instrumentos.
+
+> [!div class="mx-imgBorder"]
+> ![Separador do painel com detalhes para o azulejo de temperatura](media/howto-create-personal-dashboards/temperature-tile-edit.png)
 
 Agora, quando vê o seu painel pessoal, vê o novo azulejo com a definição **de temperatura** para o dispositivo:
 
 > [!div class="mx-imgBorder"]
-> ![Tab dashboard com detalhes para o azulejo temperatura](media/howto-create-personal-dashboards/temperature-tile-complete.png)
+> ![Separador do painel com detalhes para o azulejo de temperatura](media/howto-create-personal-dashboards/temperature-tile-complete.png)
 
 Você pode explorar outros tipos de azulejos na biblioteca para descobrir como personalizar ainda mais seus dashboards pessoais.
 
-Para saber mais sobre como usar azulejos em Azure IoT Central, consulte [Adicionar azulejos ao seu Dashboard](howto-add-tiles-to-your-dashboard.md).
+Para saber mais sobre como usar azulejos no Azure IoT Central, consulte [Adicionar Telhas ao seu Painel de Instrumentos](howto-add-tiles-to-your-dashboard.md).
 
 ## <a name="manage-dashboards"></a>Gerir dashboards
 
-Pode ter vários dashboards pessoais e alternar entre eles ou escolher entre um dos dashboards de aplicação padrão:
+Pode ter vários dashboards pessoais e alternar entre eles ou escolher entre um dos dashboards de aplicação predefinidos:
 
 > [!div class="mx-imgBorder"]
-> ![Alternar entre dashboards](media/howto-create-personal-dashboards/switch-dashboards.png)
+> ![Alternar entre tabliers](media/howto-create-personal-dashboards/switch-dashboards.png)
 
-Pode editar os seus dashboards pessoais e eliminar quaisquer painéis de que já não necessite. Se for **administrador,** também tem a capacidade de editar ou eliminar os dashboards de nível de aplicação.
+Pode editar os seus dashboards pessoais e eliminar os dashboards de que já não necessita. Se for **um administrador,** também tem a capacidade de editar ou eliminar dashboards de nível de aplicação.
 
 > [!div class="mx-imgBorder"]
-> ![Eliminar dashboards](media/howto-create-personal-dashboards/delete-dashboards.png)
+> ![Apagar dashboards](media/howto-create-personal-dashboards/delete-dashboards.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Agora que aprendeu a criar e gerir dashboards pessoais, pode [aprender a gerir as suas preferências](howto-manage-preferences.md)de candidatura.
+Agora que aprendeu a criar e gerir dashboards pessoais, pode [aprender a gerir as suas preferências de candidatura.](howto-manage-preferences.md)

@@ -1,6 +1,6 @@
 ---
-title: Preços da Concha da Nuvem Azure Microsoft Docs
-description: Visão geral dos preços da Casca de Nuvem Azure
+title: Preços da Azure Cloud Shell Microsoft Docs
+description: Visão geral dos preços da Azure Cloud Shell
 services: ''
 documentationcenter: ''
 author: maertendMSFT
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
 ms.openlocfilehash: 2834bc7d9456c1177bdd2c235b8211a1edde6e42
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60199419"
 ---
 # <a name="pricing"></a>Preços
-Bash in Cloud Shell e PowerShell em Cloud Shell estão sujeitos a informações abaixo.
+Bash in Cloud Shell e PowerShell in Cloud Shell estão sujeitos a informações abaixo.
 
-## <a name="compute-cost"></a>Custo da Computação
-A Azure Cloud Shell funciona numa máquina fornecida gratuitamente pelo Azure, mas requer uma partilha de ficheiros Azure para usar. 
+## <a name="compute-cost"></a>Custo de Computação
+A Azure Cloud Shell funciona numa máquina fornecida gratuitamente pela Azure, mas requer uma partilha de ficheiros Azure para usar. 
 
 ## <a name="storage-cost"></a>Custo de Armazenamento
-A Cloud Shell exige que seja montada uma nova ou existente partilha de Ficheiros Azure para persistir ficheiros em sessões. Armazenamento incorre em custos regulares.
+A Cloud Shell requer uma partilha de Ficheiros Azure novo ou existente para ser montada para persistir ficheiros em todas as sessões. O armazenamento incorre em custos regulares.
 
-Consulte aqui os custos dos [Ficheiros Azure.](https://azure.microsoft.com/pricing/details/storage/files/) 
+Consulte [aqui os custos dos Ficheiros Azure.](https://azure.microsoft.com/pricing/details/storage/files/) 

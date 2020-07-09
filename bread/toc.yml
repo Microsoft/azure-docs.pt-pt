@@ -54,6 +54,9 @@
         - name: Identity Governance
           tocHref: /azure/active-directory/governance/
           topicHref: /azure/active-directory/governance/
+        - name: Aprovisionamento de aplicações
+          tocHref: /azure/active-directory/app-provisioning/
+          topicHref: /azure/active-directory/app-provisioning/
         - name: Gestão de aplicações
           tocHref: /azure/active-directory/manage-apps/
           topicHref: /azure/active-directory/manage-apps/
@@ -438,9 +441,9 @@
     - name: BD do Cosmos
       tocHref: /azure/cosmos-db/
       topicHref: /azure/cosmos-db/
-    - name: Família do Data Box
-      tocHref: /azure/databox-family/
-      topicHref: /azure/databox-family/
+    - name: Armazenamento
+      tocHref: /azure/storage/
+      topicHref: /azure/storage/
       items:
         - name: Transferência offline do Data Box
           tocHref: /azure/databox/
@@ -463,9 +466,9 @@
     - name: HSM Dedicado
       tocHref: /azure/dedicated-hsm/
       topicHref: /azure/dedicated-hsm/
-    - name: Laboratório DevTest
-      tocHref: /azure/devtest-lab/
-      topicHref: /azure/devtest-lab/
+    - name: DevTest Labs
+      tocHref: /azure/devtest-labs/
+      topicHref: /azure/devtest-labs/
     - name: FXT Edge Filer
       tocHref: /azure/fxt-edge-filer/
       topicHref: /azure/fxt-edge-filer/
@@ -595,6 +598,9 @@
         - name: Media Player do Azure
           tocHref: /azure/media-services/azure-media-player/
           topicHref: /azure/media-services/azure-media-player/
+        - name: Live Video Analytics no IoT Edge
+          tocHref: /azure/media-services/live-video-analytics-edge/
+          topicHref: /azure/media-services/live-video-analytics-edge/
     - name: Serviços de mensagens
       tocHref: /azure/messaging-services/
       topicHref: /azure/messaging-services/
@@ -767,9 +773,26 @@
     - name: Synapse Analytics
       tocHref: /azure/synapse-analytics/
       topicHref: /azure/synapse-analytics/
-    - name: SQL Database
-      tocHref: /azure/sql-database/
-      topicHref: /azure/sql-database/
+    - name: SQL do Azure
+      tocHref: /azure/azure-sql/
+      topicHref: /azure/azure-sql/
+      items:
+        - name: SQL Database
+          tocHref: /azure/azure-sql/database
+          topicHref: /azure/azure-sql/database
+        - name: Instância Gerida do SQL
+          tocHref: /azure/azure-sql/managed-instance
+          topicHref: /azure/azure-sql/managed-instance
+        - name: SQL Server numa VM do Azure
+          tocHref: /azure/azure-sql/virtual-machines
+          topicHref: /azure/azure-sql/virtual-machines
+          items:
+            - name: Windows
+              tocHref: /azure/azure-sql/virtual-machines/windows
+              topicHref: /azure/azure-sql/virtual-machines/windows
+            - name: Linux
+              tocHref: /azure/azure-sql/virtual-machines/linux
+              topicHref: /azure/azure-sql/virtual-machines/linux
     - name: SQL do Azure no Edge
       tocHref: /azure/azure-sql-edge/
       topicHref: /azure/azure-sql-edge/

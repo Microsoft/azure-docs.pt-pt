@@ -1,9 +1,9 @@
 ---
-title: Implementar um Caso Gerido SQL para uma piscina de instância
+title: Implementar a SQL Managed Instance para uma piscina de exemplo
 titleSuffix: Azure SQL Managed Instance
-description: Este artigo descreve como criar e gerir piscinas de instância gerida sql Azure (pré-visualização).
+description: Este artigo descreve como criar e gerir piscinas Azure SQL Managed Instance (pré-visualização).
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -12,78 +12,77 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: c781e23b23f5dbaf8eba9efe4c27428ef35c7be1
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.openlocfilehash: 1461ba4ae0bea61b3a220c22144a31eade6cdf04
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84113632"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708812"
 ---
-# <a name="deploy-an-azure-sql-managed-instance-to-an-instance-pool"></a>Implementar um Azure SQL Managed Instance para uma piscina de instância
+# <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Implementar Azure SQL Gestd Instance para uma piscina de instância
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Este artigo fornece detalhes sobre como criar [piscinas](instance-pools-overview.md) de instância e implementar um Azure SQL Managed Instance para ele. 
+Este artigo fornece detalhes sobre como criar uma [piscina de instância](instance-pools-overview.md) e implementar Azure SQL Managed Instance para ele. 
 
-## <a name="instance-pool-operations"></a>Operações de piscina de exemplo
+## <a name="instance-pool-operations"></a>Caso operações de piscina
 
-O quadro seguinte mostra as operações disponíveis relacionadas com piscinas de exemplo e a sua disponibilidade no portal Azure e powerShell.
+A tabela a seguir mostra as operações disponíveis relacionadas com os pools de exemplo e a sua disponibilidade no portal Azure e no PowerShell.
 
 |Comando|Portal do Azure|PowerShell|
 |:---|:---|:---|
-|Criar conjunto de instância|Não|Sim|
-|Atualização piscina de instâncias (número limitado de propriedades)|Não |Sim |
-|Verifique o uso e propriedades da piscina de instâncias|Não|Sim |
-|Eliminar piscina de instâncias|Não|Sim|
-|Criar instância gerida SQL dentro da piscina de instância|Não|Sim|
-|Atualizar o uso de recursos de instância gerida sQL|Sim |Sim|
-|Verifique o uso e propriedades da Instância Gerida SQL|Sim|Sim|
-|Eliminar a Instância Gerida SQL da piscina|Sim|Sim|
-|Criar uma base de dados, por exemplo, dentro da piscina|Sim|Sim|
+|Criar uma piscina de exemplos|Não|Sim|
+|Atualizar uma piscina de instância (número limitado de propriedades)|Não |Sim |
+|Verifique uma instância de utilização da piscina e propriedades|Não|Sim |
+|Excluir uma piscina de instância|Não|Sim|
+|Criar um caso gerido dentro de uma piscina de exemplo|Não|Sim|
+|Atualizar o uso do recurso para uma instância gerida|Sim |Sim|
+|Verifique a utilização e as propriedades para uma instância gerida|Sim|Sim|
+|Apagar uma instância gerida da piscina|Sim|Sim|
+|Criar uma base de dados no caso dentro da piscina|Sim|Sim|
 |Eliminar uma base de dados da SQL Managed Instance|Sim|Sim|
 
-Comandos [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/) disponíveis
+Comandos [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/)disponíveis:
 
 |Cmdlet |Descrição |
 |:---|:---|
 |[New-AzSqlInstancePool](/powershell/module/az.sql/new-azsqlinstancepool/) | Cria uma piscina SQL Managed Instance. |
-|[Get-AzSqlInstancePool](/powershell/module/az.sql/get-azsqlinstancepool/) | Devolve informações sobre piscina de instâncias. |
-|[Set-AzSqlInstancePool](/powershell/module/az.sql/set-azsqlinstancepool/) | Define propriedades para uma piscina por exemplo em SQL Managed Instance. |
-|[Remover-AzSqlInstancePool](/powershell/module/az.sql/remove-azsqlinstancepool/) | Remove uma piscina de instância sQL managed Instance. |
+|[Get-AzSqlInstancePool](/powershell/module/az.sql/get-azsqlinstancepool/) | Devolve informações sobre uma piscina de casos. |
+|[Set-AzSqlInstancePool](/powershell/module/az.sql/set-azsqlinstancepool/) | Define propriedades para uma piscina de exemplo em SQL Managed Instance. |
+|[Remove-AzSqlInstancePool](/powershell/module/az.sql/remove-azsqlinstancepool/) | Remove uma piscina de exemplo em SQL Managed Instance. |
 |[Get-AzSqlInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | Devolve informações sobre o uso da piscina SQL Managed Instance. |
 
 
-Para utilizar o PowerShell, [instale a versão mais recente do PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell)e siga as instruções para [instalar o módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Para utilizar o PowerShell, [instale a versão mais recente do PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell)e siga as instruções para [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-Para operações relacionadas com casos tanto dentro de piscinas como em instâncias individuais, utilize os comandos de [instância geridos](api-references-create-manage-instance.md#powershell-create-and-manage-managed-instances)padrão, mas a propriedade de nome de *piscina deve* ser povoada quando utilizar estes comandos, por exemplo, numa piscina.
+Para operações relacionadas com casos tanto dentro de piscinas como instâncias individuais, utilize os comandos de [instância geridos](api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances)padrão, mas a propriedade de nome de *piscina deve* ser povoada quando se utilizam estes comandos, por exemplo, numa piscina.
 
 ## <a name="deployment-process"></a>Processo de implementação
 
-Para implantar um SQL Managed Instance numa piscina de instância, deve primeiro implantar a piscina de instância, que é uma operação de longa duração única em que a duração é a mesma que a implantação de uma [única instância criada numa subnet vazia](sql-managed-instance-paas-overview.md#management-operations). Depois disso, pode colocar instâncias geridas sQL na piscina, que é uma operação relativamente rápida que normalmente demora até cinco minutos. O parâmetro da piscina de exemplo deve ser explicitamente especificado como parte desta operação.
+Para implantar uma instância gerida num conjunto de instâncias, você deve primeiro implantar o pool de instância, que é uma operação de longa duração única em que a duração é a mesma que implantar uma [única instância criada numa sub-rede vazia](sql-managed-instance-paas-overview.md#management-operations). Depois disso, você pode colocar uma instância gerida na piscina, que é uma operação relativamente rápida que normalmente leva até cinco minutos. O parâmetro da piscina de instância deve ser explicitamente especificado como parte desta operação.
 
-Na pré-visualização pública, ambas as ações são suportadas apenas usando modelos powerShell e Resource Manager. A experiência do portal Azure não está disponível atualmente.
+Na pré-visualização pública, ambas as ações são suportadas apenas usando modelos powerShell e Azure Resource Manager. A experiência do portal Azure não está disponível atualmente.
 
-Depois de a Instância Gerida SQL ser implantada para uma piscina, *pode* utilizar o portal Azure para alterar as suas propriedades na página de nível de preços.
+Depois de uma instância gerida ser implantada numa piscina, *pode* utilizar o portal Azure para alterar as suas propriedades na página de nível de preços.
 
-## <a name="create-virtual-network-with-a-subnet"></a>Criar rede virtual com uma subnet 
+## <a name="create-a-virtual-network-with-a-subnet"></a>Criar uma rede virtual com uma sub-rede 
 
-Para colocar várias piscinas de instâncias dentro da mesma rede virtual, consulte os seguintes artigos:
+Para colocar várias piscinas de instância dentro da mesma rede virtual, consulte os seguintes artigos:
 
-- Determine o tamanho da [subnet VNet para uma instância gerida azure SQL](vnet-subnet-determine-size.md).
+- [Determine o tamanho da sub-rede VNet para Azure SQL Managed Instance](vnet-subnet-determine-size.md).
 - Crie uma nova rede virtual e sub-rede utilizando o modelo do [portal Azure](virtual-network-subnet-create-arm-template.md) ou siga as instruções para [preparar uma rede virtual existente](vnet-existing-add-subnet.md).
  
 
-## <a name="create-instance-pool"></a>Criar conjunto de instância 
+## <a name="create-an-instance-pool"></a>Criar uma piscina de exemplos 
 
-Depois de completar os passos anteriores, está pronto para criar uma piscina de instâncias.
+Depois de completar os passos anteriores, está pronto para criar uma piscina de exemplo.
 
-As seguintes restrições aplicam-se a piscinas de exemplo:
+As seguintes restrições aplicam-se aos agrupamentos de instância:
 
-- Apenas O Propósito Geral e a Gen5 estão disponíveis em pré-visualização pública.
-- O nome da piscina pode conter apenas minúsculas, números e hífen, e não pode começar com um hífen.
-- Se quiser utilizar o AHB (Azure Hybrid Benefit), é aplicado ao nível da piscina. Pode definir o tipo de licença durante a criação da piscina ou atualizá-lo a qualquer momento após a criação.
+- Apenas a General Purpose e a Gen5 estão disponíveis em visualização pública.
+- O nome da piscina pode conter apenas letras minúsculas, números e hífens, e não pode começar com um hífen.
+- Se quiser utilizar o Azure Hybrid Benefit, é aplicado ao nível da piscina. Pode definir o tipo de licença durante a criação da piscina ou atualizá-la a qualquer momento após a criação.
 
 > [!IMPORTANT]
-> A implantação de uma piscina de instâncias é uma operação de longa duração que demora aproximadamente 4,5 horas.
+> A implantação de uma piscina de exemplos é uma operação de longa duração que demora aproximadamente 4,5 horas.
 
 Para obter parâmetros de rede:
 
@@ -92,7 +91,7 @@ $virtualNetwork = Get-AzVirtualNetwork -Name "miPoolVirtualNetwork" -ResourceGro
 $subnet = Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork
 ```
 
-Para criar uma piscina de instâncias:
+Para criar uma piscina de exemplos:
 
 ```powershell
 $instancePool = New-AzSqlInstancePool `
@@ -107,19 +106,19 @@ $instancePool = New-AzSqlInstancePool `
 ```
 
 > [!IMPORTANT]
-> Como a implantação de uma piscina de instâncias é uma operação de longa duração, você precisa esperar até que termine antes de executar qualquer um dos seguintes passos neste artigo.
+> Como a implantação de uma piscina de instância é uma operação de longa duração, é necessário esperar até que esteja concluída antes de executar qualquer um dos seguintes passos neste artigo.
 
-## <a name="create-sql-managed-instance"></a>Criar Instância Gerida do SQL
+## <a name="create-a-managed-instance"></a>Criar uma instância gerida
 
-Após a implementação bem sucedida da piscina de instância, é hora de criar um SQL Managed Instance dentro dela.
+Após a implementação bem sucedida do pool de exemplos, é hora de criar uma instância gerida dentro dele.
 
-Para criar uma Instância Gerida SQL, execute o seguinte comando:
+Para criar uma instância gerida, execute o seguinte comando:
 
 ```powershell
 $instanceOne = $instancePool | New-AzSqlInstance -Name "mi-pool-name" -VCore 2 -StorageSizeInGB 256
 ```
 
-Implementar uma instância dentro de uma piscina leva alguns minutos. Após a criação da primeira instância, podem ser criadas instâncias adicionais:
+Colocar um caso dentro de uma piscina leva alguns minutos. Após a primeira instância ter sido criada, podem ser criados casos adicionais:
 
 ```powershell
 $instanceTwo = $instancePool | New-AzSqlInstance -Name "mi-pool-name" -VCore 4 -StorageSizeInGB 512
@@ -127,9 +126,9 @@ $instanceTwo = $instancePool | New-AzSqlInstance -Name "mi-pool-name" -VCore 4 -
 
 ## <a name="create-a-database"></a>Criar uma base de dados 
 
-Para criar e gerir bases de dados num Caso Gerido SQL que está dentro de uma piscina, use os comandos de instância única.
+Para criar e gerir bases de dados num caso gerido dentro de uma piscina, use os comandos de instância única.
 
-Para criar uma base de dados dentro de uma Instância Gerida SQL:
+Para criar uma base de dados dentro de uma instância gerida:
 
 ```powershell
 $poolinstancedb = New-AzSqlInstanceDatabase -Name "mipooldb1" -InstanceName "poolmi-001" -ResourceGroupName "myResourceGroup"
@@ -138,27 +137,27 @@ $poolinstancedb = New-AzSqlInstanceDatabase -Name "mipooldb1" -InstanceName "poo
 
 ## <a name="get-pool-usage"></a>Obtenha o uso da piscina 
  
-Para obter uma lista de instâncias dentro de uma piscina:
+Para obter uma lista de casos dentro de uma piscina:
 
 ```powershell
 $instancePool | Get-AzSqlInstance
 ```
 
 
-Para obter o uso de recursos de piscina:
+Para obter o uso do recurso de piscina:
 
 ```powershell
 $instancePool | Get-AzSqlInstancePoolUsage
 ```
 
 
-Para obter uma visão geral detalhada da piscina e instâncias no seu interior:
+Para obter uma visão detalhada da visão geral da piscina e instâncias no seu interior:
 
 ```powershell
 $instancePool | Get-AzSqlInstancePoolUsage –ExpandChildren
 ```
 
-Para enumerar as bases de dados num caso:
+Para listar as bases de dados num caso:
 
 ```powershell
 $databases = Get-AzSqlInstanceDatabase -InstanceName "pool-mi-001" -ResourceGroupName "resource-group-name"
@@ -166,14 +165,14 @@ $databases = Get-AzSqlInstanceDatabase -InstanceName "pool-mi-001" -ResourceGrou
 
 
 > [!NOTE]
-> Existe um limite de 100 bases de dados por piscina (não por exemplo).
+> Existe um limite de 100 bases de dados por pool (não por exemplo).
 
 
 ## <a name="scale"></a>Escala 
 
 
-Depois de povoar uma Instância Gerida SQL com bases de dados, pode atingir limites de instância no que diz respeito ao armazenamento ou desempenho. Nesse caso, se o uso da piscina não tiver sido ultrapassado, pode escalar a sua instância.
-Escalar um SQL Managed Instance dentro de uma piscina é uma operação que leva alguns minutos. O pré-requisito para a escala está disponível vCores e armazenamento no nível da piscina por exemplo.
+Depois de povoar um caso gerido com bases de dados, pode atingir limites de casos relativos ao armazenamento ou desempenho. Nesse caso, se o uso da piscina não tiver sido excedido, pode escalar o seu caso.
+Escalar um caso gerido dentro de uma piscina é uma operação que leva alguns minutos. O pré-requisito para a escala está disponível vCores e armazenamento no nível da piscina de exemplo.
 
 Para atualizar o número de vCores e tamanho de armazenamento:
 
@@ -190,16 +189,16 @@ $instance | Set-AzSqlInstance -StorageSizeInGB 1024 -InstancePoolName "mi-pool-n
 
 ## <a name="connect"></a>Ligar 
 
-Para ligar a uma Instância Gerida SQL numa piscina, são necessários os seguintes dois passos:
+Para se ligar a uma instância gerida numa piscina, são necessários os dois passos seguintes:
 
-1. [Ativar o ponto final do público, por exemplo.](#enable-public-endpoint)
-2. Adicione uma regra de entrada ao grupo de [segurança da rede (NSG)](#add-an-inbound-rule-to-the-network-security-group).
+1. [Ativar o ponto final público, por exemplo.](#enable-the-public-endpoint)
+2. [Adicione uma regra de entrada ao grupo de segurança da rede (NSG)](#add-an-inbound-rule-to-the-network-security-group).
 
-Depois de ambos os passos estarem completos, pode ligar-se à instância utilizando um endereço de ponto final público, porta e credenciais fornecidas durante a criação de exemplos. 
+Depois de ambos os passos estarem completos, pode ligar-se ao caso utilizando um endereço de ponto final público, porta e credenciais fornecidas durante a criação de exemplos. 
 
-### <a name="enable-public-endpoint"></a>Ativar o ponto final do público
+### <a name="enable-the-public-endpoint"></a>Ativar o ponto final público
 
-Permitir o ponto final do público, por exemplo, pode ser feito através do portal Azure ou utilizando o seguinte comando PowerShell:
+Permitir o ponto final público, por exemplo, pode ser feito através do portal Azure ou utilizando o seguinte comando PowerShell:
 
 
 ```powershell
@@ -210,24 +209,24 @@ Este parâmetro também pode ser definido durante a criação de exemplos.
 
 ### <a name="add-an-inbound-rule-to-the-network-security-group"></a>Adicione uma regra de entrada ao grupo de segurança da rede 
 
-Este passo pode ser feito através do portal Azure ou utilizando comandos PowerShell, e pode ser feito a qualquer momento após a subnet a configuração para a instância gerida.
+Este passo pode ser feito através do portal Azure ou utilizando comandos PowerShell, e pode ser feito a qualquer momento após a sub-rede estar preparada para a instância gerida.
 
-Para mais detalhes, consulte Permitir o [tráfego de pontos finais públicos no grupo de segurança da rede](public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group).
+Para mais informações, consulte [Permitir o tráfego de ponto final público no grupo de segurança da rede](public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group).
 
 
-## <a name="move-existing-single-instance-to-pool"></a>Mova a instância única existente para a piscina
+## <a name="move-an-existing-single-instance-to-a-pool"></a>Mova um único exemplo existente para uma piscina
  
-Mover instâncias dentro e fora de uma piscina é uma das limitações de pré-visualização pública. Uma saliência baseia-se na restauração pontual de bases de dados de um caso fora de uma piscina para um caso que já está em uma piscina. 
+Mover casos dentro e fora de uma piscina é uma das limitações de visualização pública. Uma solução conta com a restauração pontual de bases de dados de um caso fora de uma piscina para um caso que já está em uma piscina. 
 
-Ambos os casos devem estar na mesma subscrição e região. Atualmente, a restauração transversal e a restauração por assinatura cruzada não são suportadas.
+Ambas as instâncias devem estar na mesma subscrição e região. A restauração transversal e transversal não é atualmente suportada.
 
 Este processo tem um período de inatividade.
 
-Para mover bases de dados existentes:
+Para mover as bases de dados existentes:
 
-1. Pausa na sql Managed Instance de onde está a migrar.
-2. Gere scripts para criar bases de dados do sistema e executá-las na instância que está dentro da piscina de instâncias.
-3. Faça uma restauração pontual de cada base de dados, desde a instância única até à ocorrência na piscina.
+1. Faça uma pausa nas cargas de trabalho sobre o caso gerido de que está a migrar.
+2. Gere scripts para criar bases de dados do sistema e executá-las no caso que está dentro do conjunto de casos.
+3. Faça um restauro pontual de cada base de dados, desde a única instância até ao caso na piscina.
 
     ```powershell
     $resourceGroupName = "my resource group name"
@@ -250,14 +249,14 @@ Para mover bases de dados existentes:
 
 4. Aponte a sua aplicação para a nova instância e retome as suas cargas de trabalho.
 
-Se houver várias bases de dados, repita o processo para cada base de dados.
+Se existirem várias bases de dados, repita o processo para cada base de dados.
 
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Para obter uma lista de funcionalidades e comparação, consulte [as características comuns da SQL](../database/features-comparison.md).
-- Para obter mais informações sobre a configuração vNet, consulte a [configuração VNet de Instância Gerida sQL](connectivity-architecture-overview.md).
-- Para um arranque rápido que cria uma instância gerida e restaura uma base de dados a partir de um ficheiro de cópia de segurança, consulte [criar uma Instância Gerida SQL](instance-create-quickstart.md).
-- Para um tutorial utilizando o Serviço de Migração de Bases de Dados Azure (DMS) para migração, consulte a [migração sQL Managed Instance utilizando DMS](../../dms/tutorial-sql-server-to-managed-instance.md).
-- Para uma monitorização avançada do desempenho da base de dados SQL Managed Instance com inteligência incorporada de resolução de problemas, consulte [monitor Azure SQL Managed Instance utilizando o Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).
-- Para obter informações sobre preços, consulte os preços da [Instância Gerida sQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+- Para obter uma lista de funcionalidades e comparação, consulte [as características comuns sql](../database/features-comparison.md).
+- Para obter mais informações sobre a configuração VNet, consulte [a configuração VNet de instância gerida SQL](connectivity-architecture-overview.md).
+- Para um arranque rápido que cria uma instância gerida e restaura uma base de dados a partir de um ficheiro de backup, consulte [Criar uma instância gerida](instance-create-quickstart.md).
+- Para obter um tutorial sobre a utilização do Serviço de Migração da Base de Dados Azure para migração, consulte [a migração de instâncias geridas SQL utilizando o Serviço de Migração de Bases de Dados.](../../dms/tutorial-sql-server-to-managed-instance.md)
+- Para uma monitorização avançada do desempenho da base de dados SQL Managed Instance com inteligência incorporada para resolução de problemas, consulte [o Monitor Azure SQL Managed Instance utilizando a Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).
+- Para obter informações sobre preços, consulte [os preços da SQL Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).

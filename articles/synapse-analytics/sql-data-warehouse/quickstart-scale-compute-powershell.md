@@ -1,50 +1,50 @@
 ---
-title: Computação em escala para piscina Synapse SQL (Azure PowerShell)
-description: Pode escalar a computação para piscina Synapse SQL (armazém de dados) utilizando o Azure PowerShell.
+title: Cálculo de escala para piscina Sinaapse SQL (Azure PowerShell)
+description: Pode escalar o cálculo para a piscina SYNAPSE SQL (data warehouse) utilizando a Azure PowerShell.
 services: synapse-analytics
 author: Antvgski
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e3038617c6270acf9af295c910e9fd5c7dae2043
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 19548aa76d3dd08ebb8a1edd0cf726db6d458d67
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80633786"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212977"
 ---
-# <a name="quickstart-scale-compute-for-synapse-sql-pool-with-azure-powershell"></a>Quickstart: Scale compute for Synapse SQL pool com Azure PowerShell
+# <a name="quickstart-scale-compute-for-synapse-sql-pool-with-azure-powershell"></a>Quickstart: Computação em escala para piscina Sinaapse SQL com Azure PowerShell
 
-Pode escalar a computação para piscina Synapse SQL (armazém de dados) utilizando o Azure PowerShell. [Dimensionar a computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
+Pode escalar o cálculo para a piscina SYNAPSE SQL (data warehouse) utilizando a Azure PowerShell. [Dimensionar a computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
 
-Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Este quickstart assume que já tem uma piscina SQL que pode escalar. Se precisar de criar um, use [o Portal Create and Connect para](create-data-warehouse-portal.md) criar um pool SQL chamado **mySampleDataWarehouse**.
+Este quickstart assume que já tem uma piscina SQL que pode escalar. Se precisar de criar um, utilize o [portal Create and Connect -](create-data-warehouse-portal.md) para criar uma piscina SQL chamada **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão na subscrição do Azure utilizando o comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e siga as instruções no ecrã.
+Inicie sessão na sua subscrição Azure utilizando o comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e siga as instruções no ecrã.
 
 ```powershell
 Connect-AzAccount
 ```
 
-Para ver que subscrição está a utilizar, execute [a Subscrição Get-Az](/powershell/module/az.accounts/get-azsubscription?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Para ver qual a subscrição que está a utilizar, execute [a Subscrição Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Get-AzSubscription
 ```
 
-Se precisar de utilizar uma subscrição diferente da predefinida, execute o [Set-AzContext](/powershell/module/az.accounts/set-azcontext?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Se precisar de utilizar uma subscrição diferente do padrão, executar [Set-AzContext](/powershell/module/az.accounts/set-azcontext?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"
@@ -58,18 +58,18 @@ Siga estes passos para encontrar as informações de localização para o seu ar
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique em **Azure Synapse Analytics (anteriormente SQL DW)** na página de navegação esquerda do portal Azure.
-3. Selecione **mySampleDataWarehouse** da página **Azure Synapse Analytics (anteriormente SQL DW)** para abrir o armazém de dados.
+3. Selecione **mySampleDataWarehouse** a partir da página **Azure Synapse Analytics (anteriormente SQL DW)** para abrir o armazém de dados.
 
     ![O nome do servidor e grupo de recursos](./media/quickstart-scale-compute-powershell/locate-data-warehouse-information.png)
 
-4. Escreva o nome do armazém de dados, que vai ser utilizado como o nome da base de dados. Recorde-se que um armazém de dados é um tipo de base de dados. Anote também o nome do servidor e do grupo de recursos. Utilizará o nome do servidor e o nome do grupo de recursos na pausa e retomará os comandos.
-5. Utilize apenas a primeira parte do nome do servidor nos cmdlets PowerShell. Na imagem anterior, o nome completo do servidor é sqlpoolservername.database.windows.net. Utilizamos o **nome de servidor sqlpoolcomo** nome de servidor no cmdlet PowerShell.
+4. Escreva o nome do armazém de dados, que vai ser utilizado como o nome da base de dados. Recorde-se que um armazém de dados é um tipo de base de dados. Anote também o nome do servidor e do grupo de recursos. Utilizará o nome do servidor e o nome do grupo de recursos nos comandos de pausa e currículo.
+5. Utilize apenas a primeira parte do nome do servidor nos cmdlets PowerShell. Na imagem anterior, o nome completo do servidor é sqlpoolservername.database.windows.net. Usamos **o nome sqlpoolserver como** o nome do servidor no cmdlet PowerShell.
 
 ## <a name="scale-compute"></a>Dimensionar computação
 
-No pool SQL, pode aumentar ou diminuir os recursos computacionais ajustando unidades de armazém de dados. O [Criar e Ligar - portal](create-data-warehouse-portal.md) criou **mySampleDataWarehouse** e inicializou-o com 400 DWUs. Os seguintes passos ajustam as DWUs para **mySampleDataWarehouse**.
+Na piscina SQL, pode aumentar ou diminuir os recursos computativos ajustando as unidades de armazém de dados. O [Criar e Ligar - portal](create-data-warehouse-portal.md) criou **mySampleDataWarehouse** e inicializou-o com 400 DWUs. Os seguintes passos ajustam as DWUs para **mySampleDataWarehouse**.
 
-Para alterar as unidades de armazém de dados, utilize o [cmdlet Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell. O exemplo seguinte define as unidades de armazém de dados para DW300c para a base de dados **mySampleDataWarehouse**, que está hospedada no **grupo resourcegroup name** no **nome do servidor de**servidores do servidor .
+Para alterar as unidades de armazém de dados, utilize o [cmdlet PowerShell Set-AzSqlDatabase.](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) O exemplo a seguir define as unidades de armazém de dados para DW300c para a base de **dados mySampleDataWarehouse,** que está hospedada no **grupo de recursos** de recursos do grupo de recursos no nome de servidor **sqlpoolservername**.
 
 ```Powershell
 Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySampleDataWarehouse" -ServerName "sqlpoolservername" -RequestedServiceObjectiveName "DW300c"
@@ -77,7 +77,7 @@ Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySample
 
 ## <a name="check-data-warehouse-state"></a>Verifique o estado do armazém de dados
 
-Para ver o estado atual do armazém de dados, utilize o cmdlet [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell. Este cmdlet mostra o estado da base de dados **mySampleDataWarehouse** em nome de grupo de **recursos** do ResourceGroup e **sqlpoolservername.database.windows.net servidor**.
+Para ver o estado atual do armazém de dados, utilize o [cmdlet Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell. Este cmdlet mostra o estado da base de dados **mySampleDataWarehouse** no grupo de **recursos** do Grupo de Recursos e **sqlpoolservername.database.windows.net de**servidor .
 
 ```powershell
 $database = Get-AzSqlDatabase -ResourceGroupName resourcegroupname -ServerName sqlpoolservername -DatabaseName mySampleDataWarehouse
@@ -121,7 +121,7 @@ $database | Select-Object DatabaseName,Status
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora aprendeu a escalar a computação para piscina SQL. Para saber mais sobre o pool SQL, continue ao tutorial para carregar dados.
+Agora aprendeu a escalar a computação para a piscina SQL. Para saber mais sobre a piscina SQL, continue ao tutorial para carregar dados.
 
 > [!div class="nextstepaction"]
->[Carregue os dados num pool SQL](load-data-from-azure-blob-storage-using-polybase.md)
+>[Carregue os dados numa piscina SQL](load-data-from-azure-blob-storage-using-polybase.md)

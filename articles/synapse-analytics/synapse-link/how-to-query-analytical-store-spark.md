@@ -1,28 +1,28 @@
 ---
 title: Consulta Azure Cosmos DB Analytical Store (pré-visualização) com Apache Spark para Azure Synapse Analytics
-description: Como consultar azure Cosmos DB analítico com Apache Spark para Azure Synapse Analytics
+description: Como consultar a Azure Cosmos DB analítica com Apache Spark para Azure Synapse Analytics
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: synapse-link
 ms.date: 05/06/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c19a3f808b85ba9e34d3304251fe8acb21204ce
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 399aa00be3d585b1d37bab95d8108ee8a09a8791
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700196"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85195016"
 ---
 # <a name="query-azure-cosmos-db-analytical-store-preview-with-apache-spark-for-azure-synapse-analytics"></a>Consulta Azure Cosmos DB Analytical Store (pré-visualização) com Apache Spark para Azure Synapse Analytics
 
-Este artigo dá alguns exemplos de como pode interagir com a loja analítica a partir de gestos Synapse. Os gestos são visíveis quando clica à direita num recipiente. Com gestos, pode rapidamente gerar código e adaptá-lo às suas necessidades. Os gestos também são perfeitos para descobrir dados com um único clique.
+Este artigo dá exemplos sobre como você pode interagir com a loja analítica a partir de gestos da Sinapse. Os gestos são visíveis quando clica com o botão direito num contentor. Com os gestos, pode gerar rapidamente código e personalizá-lo de acordo com as suas necessidades. Os gestos também são perfeitos para detetar dados com um único clique.
 
 ## <a name="load-to-dataframe"></a>Carregar para DataFrame
 
-Neste passo, você vai ler dados da loja analítica Azure Cosmos DB num Spark DataFrame. Apresentará 10 linhas do DataFrame chamado ***df***. Uma vez que os seus dados estão no dataframe, pode realizar análises adicionais.
+Neste passo, você vai ler dados da loja analítica Azure Cosmos DB em um Spark DataFrame. Apresentará 10 linhas a partir do DataFrame chamado ***df***. Uma vez que os seus dados estão no dataframe, pode efetuar análises adicionais.
 
 Esta operação não afeta a loja transacional.
 
@@ -47,11 +47,11 @@ val df_olap = spark.read.format("cosmos.olap").
     load()
 ```
 
-## <a name="create-spark-table"></a>Criar mesa de faísca
+## <a name="create-spark-table"></a>Criar mesa spark
 
-Neste gesto, você vai criar uma mesa Spark apontando para o recipiente que selecionou. Esta operação não incorre em nenhum movimento de dados. Se decidir apagar essa tabela, o recipiente subjacente (e a correspondente loja analítica) não serão afetados. 
+Neste gesto, criará uma mesa Spark apontando para o recipiente que selecionou. Esta operação não incorre em nenhum movimento de dados. Se decidir apagar essa tabela, o recipiente subjacente (e a correspondente loja analítica) não será afetado. 
 
-Este cenário é conveniente reutilizar tabelas através de ferramentas de terceiros e fornecer acessibilidade aos dados para o tempo de execução.
+Este cenário é conveniente para reutilizar tabelas através de ferramentas de terceiros e fornecer acessibilidade aos dados para o tempo de funcionação.
 
 ```sql
 %%sql
@@ -63,9 +63,9 @@ create table call_center using cosmos.olap options (
 )
 ```
 
-## <a name="write-dataframe-to-container"></a>Escreva DataFrame para recipiente
+## <a name="write-dataframe-to-container"></a>Escreva DataFrame para o recipiente
 
-Neste gesto, escreverá uma moldura de dados num recipiente. Esta operação terá impacto no desempenho transacional e consumirá Unidades de Pedido. A utilização do desempenho transacional Da Azure Cosmos DB é ideal para escrever transações. Certifique-se de que substitui o **SEUDATAFRAME** pelo quadro de dados a que pretende reescrever.
+Neste gesto, você vai escrever um quadro de dados em um recipiente. Esta operação terá impacto no desempenho transacional e consumirá Unidades de Pedido. Usar o desempenho transacional da Azure Cosmos DB é ideal para escrever transações. Certifique-se de que substitui o **SEUDATAFRAME** pelo dataframe que pretende voltar a escrever.
 
 ```python
 # Write a Spark DataFrame into an Azure Cosmos DB container
@@ -94,8 +94,8 @@ df.write.format("cosmos.oltp").
     save()
 ```
 
-## <a name="load-streaming-dataframe-from-container"></a>Fluxo de carga DataFrame do recipiente
-Neste gesto, utilizará a capacidade de Streaming de Faíscas para carregar dados de um contentor para um quadro de dados. Os dados serão armazenados na conta principal do lago de dados (e sistema de ficheiros) que você ligou ao espaço de trabalho. 
+## <a name="load-streaming-dataframe-from-container"></a>Carregar o streaming de dados Do recipiente
+Neste gesto, utilizará a capacidade de Streaming spark para carregar dados de um recipiente para um dataframe. Os dados serão armazenados na conta principal do lago de dados (e sistema de ficheiros) que ligou ao espaço de trabalho. 
 
 Se a pasta */localReadCheckpointFolder* não for criada, será criada automaticamente. Esta operação terá impacto no desempenho transacional da Azure Cosmos DB.
 
@@ -128,8 +128,8 @@ val dfStream = spark.readStream.
     load()
 ```
 
-## <a name="write-streaming-dataframe-to-container"></a>Escreva streaming DataFrame para recipiente
-Neste gesto, irá escrever um quadro de dados de streaming no recipiente Azure Cosmos DB que selecionou. Se a pasta */localReadCheckpointFolder* não for criada, será criada automaticamente. Esta operação terá impacto no desempenho transacional da Azure Cosmos DB.
+## <a name="write-streaming-dataframe-to-container"></a>Escrever streaming DataFrame para contentor
+Neste gesto, irá escrever um dataframe de streaming no recipiente DB Azure Cosmos que selecionou. Se a pasta */localReadCheckpointFolder* não for criada, será criada automaticamente. Esta operação terá impacto no desempenho transacional da Azure Cosmos DB.
 
 ```python
 # To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
@@ -163,7 +163,7 @@ val query = dfStream.
 
 query.awaitTermination()
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba o que é apoiado entre Synapse e Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
-* [Ligue-se à Ligação Synapse para Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
+* [Saiba o que é suportado entre a Synapse e a Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
+* [Ligue-se à Synapse Link para Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)

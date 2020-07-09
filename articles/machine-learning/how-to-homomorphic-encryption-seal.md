@@ -1,47 +1,47 @@
 ---
-title: Implementar um serviço de inferência encriptada
+title: Implementar um serviço de inferenculação encriptado
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o Microsoft SEAL para implementar um serviço de previsão encriptado para classificação de imagem
+description: Saiba como usar o Microsoft SEAL para implementar um serviço de previsão encriptado para a classificação de imagem
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 05/18/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.openlocfilehash: b79ab513950f14cda98fc3113bb062b431ebd69e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.topic: how-to
+ms.custom: tracking-python
+ms.openlocfilehash: b92293973ac9b5027a9f1a10c2d19fd164c41e3f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664922"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560186"
 ---
-# <a name="how-to-deploy-an-encrypted-inferencing-web-service"></a>Como implementar um serviço web de inferência encriptada
+# <a name="how-to-deploy-an-encrypted-inferencing-web-service"></a>Como implementar um serviço web de inferenculação encriptado
 
-Aprenda a implementar um modelo de classificação de imagem como um serviço web de inferência encriptada em Instâncias de [Contentores Azure](https://docs.microsoft.com/azure/container-instances/) (ACI). O serviço web é uma imagem de contentor Docker que contém o modelo e a lógica de pontuação.
+Aprenda a implementar um modelo de classificação de imagem como um serviço web de inferenização encriptado em [Instâncias de Contentores Azure](https://docs.microsoft.com/azure/container-instances/) (ACI). O serviço web é uma imagem de recipiente Docker que contém a lógica do modelo e da pontuação.
 
-Neste guia, utiliza o serviço de Aprendizagem automática Azure para:
+Neste guia, utiliza o serviço Azure Machine Learning para:
 
 > [!div class="checklist"]
 > * Configure os seus ambientes
-> * Implementar serviço web de inferência encriptada
+> * Implementar serviço web de inferição encriptado
 > * Preparar dados de teste
 > * Fazer previsões encriptadas
 > * Limpar recursos
 
-O ACI é uma excelente solução para testar e compreender o fluxo de trabalho de implementação do modelo. Relativamente a implementação de produção dimensionáveis, considere utilizar o Azure Kubernetes Service. Para mais informações, veja [como implementar e onde.](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where)
+O ACI é uma excelente solução para testar e compreender o fluxo de trabalho de implementação do modelo. Relativamente a implementação de produção dimensionáveis, considere utilizar o Azure Kubernetes Service. Para mais informações, consulte [como implementar e onde.](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where)
 
-O método de encriptação utilizado nesta amostra é [a encriptação homomórfica.](https://github.com/Microsoft/SEAL#homomorphic-encryption) A encriptação homomórfica permite que as computações sejam feitas em dados encriptados sem exigir acesso a uma chave secreta (desencriptação). Os resultados dos cálculos são encriptados e só podem ser revelados pelo proprietário da chave secreta. 
+O método de encriptação utilizado nesta amostra é [encriptação homomórfica.](https://github.com/Microsoft/SEAL#homomorphic-encryption) A encriptação homomórfica permite que os cálculos sejam feitos em dados encriptados sem exigir o acesso a uma chave secreta (desencriptação). Os resultados dos cálculos são encriptados e só podem ser revelados pelo proprietário da chave secreta. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este guia assume que tem um modelo de classificação de imagem registado no Azure Machine Learning. Caso contrário, registe o modelo utilizando um [modelo pré-treinado](https://github.com/Azure/MachineLearningNotebooks/raw/master/tutorials/image-classification-mnist-data/sklearn_mnist_model.pkl) ou crie o seu próprio, completando o comboio um modelo de classificação de [imagem com tutorial de Aprendizagem automática Azure](tutorial-train-models-with-aml.md).
+Este guia pressupõe que tem um modelo de classificação de imagem registado no Azure Machine Learning. Caso contrário, registe o modelo utilizando um [modelo pré-treinado](https://github.com/Azure/MachineLearningNotebooks/raw/master/tutorials/image-classification-mnist-data/sklearn_mnist_model.pkl) ou crie o seu próprio, completando ao [comboio um modelo de classificação de imagem com tutorial de Aprendizagem automática Azure.](tutorial-train-models-with-aml.md)
 
-## <a name="configure-local-environment"></a>Configurar o ambiente local
+## <a name="configure-local-environment"></a>Configure o ambiente local
 
-Em um caderno jupyter
+Em um caderno Jupyter
 
-1. Importar os pacotes Python necessários para esta amostra.
+1. Importe os pacotes Python necessários para esta amostra.
 
     ```python
     %matplotlib inline
@@ -54,20 +54,20 @@ Em um caderno jupyter
     print("Azure ML SDK Version: ", azureml.core.VERSION)
     ```
 
-2. Instale a biblioteca de encriptação homomórfica para inferência segura.
+2. Instale uma biblioteca homomórfica para uma inferencção segura.
 
     > [!NOTE]
-    > O `encrypted-inference` pacote encontra-se atualmente em pré-visualização.
+    > O `encrypted-inference` pacote está atualmente em pré-visualização.
 
-    [`encrypted-inference`](https://pypi.org/project/encrypted-inference)é uma biblioteca que contém encadernações para inferência encriptada baseada no Seal do [Microsoft](https://github.com/Microsoft/SEAL).
+    [`encrypted-inference`](https://pypi.org/project/encrypted-inference)é uma biblioteca que contém encadernações para inferenculação encriptada com base no [Microsoft SEAL](https://github.com/Microsoft/SEAL).
 
     ```python
     !pip install encrypted-inference==0.9
     ```
 
-## <a name="configure-the-inferencing-environment"></a>Configure o ambiente de inferência
+## <a name="configure-the-inferencing-environment"></a>Configure o ambiente de inferenculação
 
-Crie um ambiente para inferência e adicione `encrypted-inference` pacote como dependência de conda.
+Crie um ambiente para inferenar e adicione `encrypted-inference` o pacote como uma dependência conda.
 
 ```python
 from azureml.core.environment import Environment
@@ -83,7 +83,7 @@ env.python.conda_dependencies = cd
 env.register(workspace = ws)
 ```
 
-## <a name="deploy-encrypted-inferencing-web-service"></a>Implementar serviço web de inferência encriptada
+## <a name="deploy-encrypted-inferencing-web-service"></a>Implementar serviço web de inferição encriptado
 
 Implemente o modelo como um serviço web hospedado no ACI.
 
@@ -95,12 +95,12 @@ Para criar o ambiente certo para o ACI, forneça o seguinte:
 
 ### <a name="create-scoring-script"></a>Criar o script de classificação
 
-Crie o script de pontuação `score.py` utilizado pelo serviço web para inferência.
+Crie o script de pontuação `score.py` utilizado pelo serviço web para inferenar.
 
 Tem de incluir duas funções obrigatórias no script de classificação:
 
 * A função `init()`, que, geralmente, carrega o modelo para um objeto global. Esta função só é executada uma vez, quando o contentor do Docker é iniciado.
-* A função `run(input_data)` utiliza o modelo para prever um valor com base nos dados de entrada. Regra geral, as entradas e as saídas da execução utilizam JSON para a serialização e a desserialização, mas são suportados outros formatos. A função adquire chaves públicas de encriptação homomórfica que são carregadas pelo chamador de serviço.
+* A função `run(input_data)` utiliza o modelo para prever um valor com base nos dados de entrada. Regra geral, as entradas e as saídas da execução utilizam JSON para a serialização e a desserialização, mas são suportados outros formatos. A função respende chaves públicas homomórficas baseadas em encriptação que são carregadas pelo chamador de serviço.
 
 ```python
 %%writefile score.py
@@ -163,10 +163,10 @@ Tempo estimado para completar: **cerca de 2-5 minutos**
 
 Configure a imagem e implemente. O código abaixo realiza estes passos:
 
-1. Criar objetos ambientais que contenham dependências necessárias pelo modelo utilizando o ficheiro ambiente ( `myenv.yml` )
-1. Criar uma configuração de inferência necessária para implementar o modelo como um serviço web utilizando:
+1. Criar objetos ambientais que contenham dependências necessárias pelo modelo utilizando o ficheiro ambiente `myenv.yml` ()
+1. Criar configuração de inferência necessária para implementar o modelo como um serviço web utilizando:
    * O ficheiro de classificação (`score.py`)
-   * Objeto ambiental criado no passo anterior
+   * Objeto ambiente criado no passo anterior
 1. Desloque o modelo para o recipiente ACI.
 1. Obtenha o ponto final HTTP do serviço Web.
 
@@ -234,7 +234,7 @@ Utilize o conjunto de dados de teste com o modelo para obter previsões.
 
 Para fazer previsões encriptadas:
 
-1. Crie um novo `EILinearRegressionClient` cliente baseado em encriptação homomórfica e chaves públicas.
+1. Crie um novo `EILinearRegressionClient` cliente homomórcórfico baseado em encriptação e chaves públicas.
 
     ```python
     from encrypted.inference.eiclient import EILinearRegressionClient
@@ -245,7 +245,7 @@ Para fazer previsões encriptadas:
     public_keys_blob, public_keys_data = edp.get_public_keys()
     ```
 
-1. Faça upload de encriptação homomórfica gerada chaves públicas para a loja de blob padrão do espaço de trabalho. Isto permitir-lhe-á partilhar as teclas com o servidor de inferência.
+1. O upload da encriptação homomórfica gerou chaves públicas para a loja de bolhas padrão do espaço de trabalho. Isto permitir-lhe-á partilhar as chaves com o servidor de inferência.
 
     ```python
     import azureml.core
@@ -280,7 +280,7 @@ Para fazer previsões encriptadas:
 
     ```
 
-1. Utilize a API do SDK para invocar o serviço e fornecer o conjunto de `run` dados de teste ao modelo para obter previsões. Precisamos enviar a corda de ligação para o armazenamento de bolhas onde as chaves públicas foram carregadas.
+1. Utilize a API da SDK `run` para invocar o serviço e fornecer o conjunto de dados de teste ao modelo para obter previsões. Precisamos enviar o fio de ligação para o armazenamento de bolhas onde as chaves públicas foram carregadas.
 
     ```python
     import json
@@ -326,4 +326,4 @@ Eliminar o serviço web criado nesta amostra:
 service.delete()
 ```
 
-Se já não planeia utilizar os recursos Azure que criou, apague-os. Isto impede que seja cobrado por recursos não utilizados que ainda estão em funcionamento. Consulte este guia sobre como [limpar os recursos](how-to-manage-workspace.md#clean-up-resources) para saber mais.
+Se já não planeias usar os recursos do Azure que criaste, apaga-os. Isto impede-o de ser cobrado por recursos não utetilizados que ainda estão em funcionamento. Consulte este guia sobre como [limpar recursos](how-to-manage-workspace.md#clean-up-resources) para saber mais.

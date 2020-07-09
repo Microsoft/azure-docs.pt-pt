@@ -1,30 +1,29 @@
 ---
-title: Gerar eventos de log a partir de uma aplicação .NET
-description: Saiba como adicionar a sessão de registo à sua aplicação .NET Service Fabric alojada num cluster Azure ou num cluster autónomo.
+title: Gere eventos de registo a partir de uma aplicação .NET
+description: Saiba como adicionar a registar-se na sua aplicação .NET Service Fabric hospedada num cluster Azure ou num cluster autónomo.
 author: srrengar
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: srrengar
 ms.openlocfilehash: 8c4721584e74bd7f7111c516f2d16bd190392bb5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614371"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Adicionar registos à sua aplicação do Service Fabric
 
-A sua aplicação deve fornecer informações suficientes para depura-la forense quando surgirem problemas. A exploração madeireira é uma das coisas mais importantes que pode adicionar à sua aplicação Service Fabric. Quando ocorre uma falha, uma boa exploração madeireira pode dar-lhe uma forma de investigar falhas. Ao analisar padrões de registo, poderá encontrar formas de melhorar o desempenho ou o design da sua aplicação. Este documento demonstra algumas opções de exploração madeireira diferentes.
+O seu pedido deve fornecer informações suficientes para depurá-la forensemente quando surgem problemas. O registo é uma das coisas mais importantes que pode adicionar à sua aplicação Service Fabric. Quando ocorre uma falha, uma boa exploração pode dar-lhe uma maneira de investigar falhas. Ao analisar padrões de registo, poderá encontrar formas de melhorar o desempenho ou design da sua aplicação. Este documento demonstra algumas opções diferentes de registo.
 
 ## <a name="eventflow"></a>Fluxo de Eventos
 
-A suíte [da biblioteca EventFlow](https://github.com/Azure/diagnostics-eventflow) permite que as aplicações definam quais os dados de diagnóstico a recolher e para onde devem ser saídas. Os dados de diagnóstico podem ser qualquer coisa, desde contadores de desempenho a vestígios de aplicações. Funciona no mesmo processo que a aplicação, pelo que a comunicação é minimizada. Para mais informações sobre o EventFlow e o Tecido de Serviço, consulte a agregação de eventos de tecido de [serviço Azure com EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md).
+O suíte [da biblioteca EventFlow](https://github.com/Azure/diagnostics-eventflow) permite que as aplicações definam quais os dados de diagnóstico a recolher e para onde devem ser outputados. Os dados de diagnóstico podem ser qualquer coisa, desde contadores de desempenho até rastreios de aplicações. Funciona no mesmo processo que a aplicação, por isso a sobrecarga de comunicação é minimizada. Para obter mais informações sobre o EventFlow e o Service Fabric, consulte [a agregação do Evento de Tecido de Serviço Azure com o EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md).
 
-### <a name="using-structured-eventsource-events"></a>Usando eventos estruturados EventSource
+### <a name="using-structured-eventsource-events"></a>Utilização de eventos estruturados EventSource
 
-Definir eventos de mensagens por caso de utilização permite-lhe embalar dados sobre o evento, no contexto do evento. Pode pesquisar e filtrar mais facilmente com base nos nomes ou valores das propriedades especificadas do evento. Estruturar a saída de instrumentação facilita a leitura, mas requer mais pensamento e tempo para definir um evento para cada caso de utilização. 
+Definir eventos de mensagens através do caso permite-lhe embalar dados sobre o evento, no contexto do evento. Pode pesquisar e filtrar mais facilmente com base nos nomes ou valores das propriedades do evento especificados. Estruturar a saída de instrumentação facilita a leitura, mas requer mais pensamento e tempo para definir um evento para cada caso de utilização. 
 
-Algumas definições de eventopodem ser partilhadas em toda a aplicação. Por exemplo, um evento de início ou paragem de métodos seria reutilizado em muitos serviços dentro de uma aplicação. Um serviço específico de domínio, como um sistema de encomendas, pode ter um evento **CreateOrder,** que tem o seu próprio evento único. Esta abordagem pode gerar muitos eventos, e potencialmente exigir coordenação de identificadores entre equipas de projeto. 
+Algumas definições de eventos podem ser partilhadas em toda a aplicação. Por exemplo, um evento de início ou paragem de métodos seria reutilizado em muitos serviços dentro de uma aplicação. Um serviço específico de domínio, como um sistema de encomendas, pode ter um evento **CreateOrder,** que tem o seu próprio evento único. Esta abordagem pode gerar muitos eventos, e potencialmente requer coordenação de identificadores através de equipas de projeto. 
 
 ```csharp
 [EventSource(Name = "MyCompany-VotingState-VotingStateService")]
@@ -57,9 +56,9 @@ internal sealed class ServiceEventSource : EventSource
 
 ```
 
-### <a name="using-eventsource-generically"></a>Usando o EventSource genericamente
+### <a name="using-eventsource-generically"></a>Utilizando o EventSource genericamente
 
-Como definir eventos específicos pode ser difícil, muitas pessoas definem alguns eventos com um conjunto comum de parâmetros que geralmente produzem a sua informação como uma corda. Grande parte do aspeto estruturado perde-se, e é mais difícil pesquisar e filtrar os resultados. Nesta abordagem, são definidos alguns eventos que normalmente correspondem aos níveis de exploração madeireira. O seguinte corte define uma mensagem de depuração e erro:
+Como definir eventos específicos pode ser difícil, muitas pessoas definem alguns eventos com um conjunto comum de parâmetros que geralmente desemogem a sua informação como uma corda. Grande parte do aspeto estruturado perde-se, e é mais difícil pesquisar e filtrar os resultados. Nesta abordagem, são definidos alguns eventos que normalmente correspondem aos níveis de exploração madeireira. O seguinte corte define uma depuragem e mensagem de erro:
 
 ```csharp
 [EventSource(Name = "MyCompany-VotingState-VotingStateService")]
@@ -90,13 +89,13 @@ internal sealed class ServiceEventSource : EventSource
 
 ```
 
-A utilização de um híbrido de instrumentação estruturada e genérica também pode funcionar bem. A instrumentação estruturada é utilizada para reportar erros e métricas. Eventos genéricos podem ser usados para a exploração madeireira detalhada que é consumida por engenheiros para resolução de problemas.
+A utilização de um híbrido de instrumentação estruturada e genérica também pode funcionar bem. A instrumentação estruturada é utilizada para reportar erros e métricas. Eventos genéricos podem ser usados para a exploração madeireira detalhada que é consumida pelos engenheiros para a resolução de problemas.
 
 ## <a name="microsoftextensionslogging"></a>Microsoft.Extensions.Logging
 
-O ASP.NET core logging[(Microsoft.Extensions.Logging NuGet package](https://www.nuget.org/packages/Microsoft.Extensions.Logging)) é uma estrutura de registo que fornece uma API de registo padrão para a sua aplicação. O suporte para outras extremidades de exploração pode ser ligado ao ASP.NET registo do Núcleo. Isto dá-lhe uma grande variedade de suporte para o login na sua aplicação é processado, sem ter que alterar muito código.
+O ASP.NET core logging[(Microsoft.Extensions.Logging NuGet )](https://www.nuget.org/packages/Microsoft.Extensions.Logging)é uma estrutura de registo que fornece uma API de registo padrão para a sua aplicação. O suporte para outros backends de registo pode ser ligado ASP.NET registo do Núcleo. Isto dá-lhe uma grande variedade de suporte para iniciar sessão na sua aplicação é processado, sem ter que alterar muito código.
 
-1. Adicione o pacote **Microsoft.Extensions.Logging** NuGet ao projeto que pretende instrumentar. Além disso, adicione quaisquer pacotes de fornecedores. Para mais informações, consulte [o Loglogging no núcleo ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+1. Adicione o pacote **Microsoft.Extensions.Logging** NuGet ao projeto que pretende instrumentar. Além disso, adicione quaisquer pacotes de fornecedor. Para obter mais informações, consulte [iniciar sessão no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 2. Adicione uma diretiva **de utilização** para **Microsoft.Extensions.Logging** no seu ficheiro de serviço.
 3. Defina uma variável privada dentro da sua classe de serviço.
 
@@ -121,24 +120,24 @@ O ASP.NET core logging[(Microsoft.Extensions.Logging NuGet package](https://www.
    _logger.LogInformation("{RequestName} {Duration}", "MyRequest", requestDuration);
    ```
 
-### <a name="using-other-logging-providers"></a>Utilização de outros fornecedores de exploração madeireira
+### <a name="using-other-logging-providers"></a>Utilizando outros fornecedores de exploração madeireira
 
-Alguns fornecedores de terceiros utilizam a abordagem descrita na secção anterior, incluindo [Serilog,](https://serilog.net/) [NLog](https://nlog-project.org/)e [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging). Pode ligar cada um destes a ASP.NET registo core, ou pode usá-los separadamente. O Serilog tem uma funcionalidade que enriquece todas as mensagens enviadas de um madeireiro. Esta funcionalidade pode ser útil para obter o nome, tipo e informação de partição do serviço. Para utilizar esta capacidade na infraestrutura ASP.NET Core, faça estes passos:
+Alguns fornecedores de terceiros utilizam a abordagem descrita na secção anterior, incluindo [Serilog](https://serilog.net/), [NLog](https://nlog-project.org/)e [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging). Pode ligar cada uma delas à ASP.NET registo do Núcleo, ou pode usá-las separadamente. Serilog tem uma característica que enriquece todas as mensagens enviadas de um madeireiro. Esta funcionalidade pode ser útil para obter informações sobre o nome, tipo e partição do serviço. Para utilizar esta capacidade na infraestrutura core ASP.NET, faça estes passos:
 
-1. Adicione os pacotes **Serilog**, **Serilog.Extensions.Logging,** **Serilog.Sinks.Literate**e **Serilog.Sinks.Observable** NuGet pacotes ao projeto. 
-2. Crie `LoggerConfiguration` uma e a instância de madeireiro.
+1. Adicione ao projeto os pacotes **Serilog**, **Serilog.Extensions.Logging,** **Serilog.Sinks.Literate**e **Serilog.Sinks.Observable** NuGet. 
+2. Criar um `LoggerConfiguration` e o caso do madeireiro.
 
    ```csharp
    Log.Logger = new LoggerConfiguration().WriteTo.LiterateConsole().CreateLogger();
    ```
 
-3. Adicione `Serilog.ILogger` um argumento ao construtor de serviços, e passe o recém-criado madeiro.
+3. Adicione um `Serilog.ILogger` argumento ao construtor de serviço, e passe o recém-criado madeirão.
 
    ```csharp
    ServiceRuntime.RegisterServiceAsync("StatelessType", context => new Stateless(context, Log.Logger)).GetAwaiter().GetResult();
    ```
 
-4. No construtor de serviços, cria enriquecedores de propriedades para **ServiceTypeName**, **ServiceName**, **PartitionId**, e **InstanceId**.
+4. No construtor de serviço, cria enriquecimentos de propriedades para **ServiceTypeName,** **ServiceName,** **PartitionId**e **InstanceId**.
 
    ```csharp
    public Stateless(StatelessServiceContext context, Serilog.ILogger serilog)
@@ -158,14 +157,14 @@ Alguns fornecedores de terceiros utilizam a abordagem descrita na secção anter
    }
    ```
 
-5. Instrumente o código como se estivesse a usar ASP.NET Core sem Serilog.
+5. Instrumento o código da mesma forma que estava a usar ASP.NET Core sem Serilog.
 
    >[!NOTE]
-   >Recomendamos que *não* utilize a `Log.Logger` estática com o exemplo anterior. O Serviço Tecido pode acolher várias instâncias do mesmo tipo de serviço num único processo. Se utilizar a `Log.Logger`estática, o último escritor dos enriquecedores de propriedades mostrará valores para todos os casos que estão em execução. Esta é uma das razões pelas quais a variável _logger é uma variável membro privado da classe de serviço. Além disso, `_logger` deve disponibilizar o código comum, que pode ser utilizado em todos os serviços.
+   >Recomendamos que *não* utilize a estática `Log.Logger` com o exemplo anterior. O Tecido de Serviço pode acolher várias instâncias do mesmo tipo de serviço dentro de um único processo. Se utilizar a `Log.Logger` estática, o último autor dos enriquecedores de imóveis mostrará valores para todos os casos que estão em execução. Esta é uma das razões pelas quais a variável _logger é uma variável de membro privado da classe de serviço. Além disso, deve disponibilizar o `_logger` código comum, que poderá ser utilizado em todos os serviços.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Leia mais informações sobre monitorização de [aplicações em Tecido de Serviço](service-fabric-diagnostics-event-generation-app.md).
+- Leia mais informações sobre [a monitorização de aplicações no Tecido de Serviço.](service-fabric-diagnostics-event-generation-app.md)
 - Leia sobre o registo com [o EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) e [o Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md).
 
 

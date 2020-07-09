@@ -1,24 +1,24 @@
 ---
 title: 'Quickstart: Traduzir discurso-texto - Serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, usará o SDK do discurso para traduzir interativamente o discurso de uma língua para a fala noutra língua.
+description: Neste arranque rápido, você usa o SDK do discurso para traduzir interativamente a fala de uma língua para a fala em outra língua.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two-with-js-spx
-ms.openlocfilehash: c6fff4ca8a28f8980e10c82393b77994d0ef9bdb
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 52cc56e8cb09456050daed7ae8aa10817a93a292
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715031"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391354"
 ---
-# <a name="quickstart-translate-speech-to-text"></a>Quickstart: Traduzir discurso-a-texto
+# <a name="quickstart-translate-speech-to-text"></a>Quickstart: Traduzir discurso-texto
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/translate-stt/header.md)]

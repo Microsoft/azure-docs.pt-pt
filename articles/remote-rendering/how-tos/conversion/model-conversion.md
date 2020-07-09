@@ -1,20 +1,20 @@
 ---
 title: Conversão de modelo
-description: Descreve o processo de conversão de um modelo para renderização
+description: Descreve o processo de conversão de um modelo de renderização
 author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 135c58a665779ffaad8750ffe618bdbe38639b66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db05c7a5a45221485ecb62c2c90d56be52d5ef48
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681496"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808616"
 ---
 # <a name="convert-models"></a>Converter modelos
 
-A Renderização Remota Azure permite-lhe renderizar modelos muito complexos. Para alcançar o máximo desempenho, os dados devem ser pré-processados para estarem num formato ideal. Dependendo da quantidade de dados, este passo pode demorar um pouco. Seria impraticável, se este tempo fosse gasto durante o carregamento de modelos. Além disso, seria um desperdício repetir este processo para várias sessões. Por estas razões, o serviço ARR fornece um serviço de *conversão*dedicado, que pode correr com antecedência.
+A renderização remota Azure permite-lhe tornar modelos muito complexos. Para obter o máximo desempenho, os dados devem ser pré-processados para estarem num formato ideal. Dependendo da quantidade de dados, este passo pode demorar um pouco. Seria impraticável se este tempo fosse gasto durante o carregamento de modelos. Além disso, seria um desperdício repetir este processo para várias sessões. Por estas razões, o serviço ARR oferece um serviço de *conversão*dedicado, que pode funcionar com antecedência.
 Uma vez convertido, um modelo pode ser carregado a partir de uma Conta de Armazenamento Azure.
 
 ## <a name="supported-source-formats"></a>Formatos de origem suportados
@@ -25,19 +25,24 @@ O serviço de conversão suporta estes formatos:
 - **GLTF** (versão 2.x)
 - **GLB** (versão 2.x)
 
-Existem pequenas diferenças entre os formatos no que diz respeito à conversão de propriedade material, tal como listado no mapeamento de materiais de capítulo [para formatos de modelos.](../../reference/material-mapping.md)
+Existem pequenas diferenças entre os formatos no que diz respeito à conversão de propriedade material, conforme listado no mapeamento de material do capítulo [para formatos de modelos.](../../reference/material-mapping.md)
 
 ## <a name="the-conversion-process"></a>O processo de conversão
 
-1. [Preparar dois recipientes de armazenamento Azure Blob:](blob-storage.md)um para entrada, um para a saída
-1. Faça upload do seu modelo para o recipiente de entrada (opcionalmente sob uma subpatia)
-1. Desencadear o processo de conversão através [da conversão do modelo REST API](conversion-rest-api.md)
-1. Sondagem o serviço para o progresso da conversão
+1. [Prepare dois recipientes de armazenamento Azure Blob:](blob-storage.md)um para entrada, um para saída
+1. Faça o upload do seu modelo para o recipiente de entrada (opcionalmente sob um subpatão)
+1. Desencadear o processo de conversão através [da API de conversão de modelo](conversion-rest-api.md)
+1. Sondagem do serviço para o progresso da conversão
 1. Uma vez terminado, carregue um modelo
-    - a partir de uma conta de armazenamento ligada (ver os passos "Conta de armazenamento de link" em [Criar uma Conta](../create-an-account.md#link-storage-accounts) para ligar a sua conta de armazenamento)
-    - ou fornecendo uma Assinatura de *Acesso Partilhado (SAS)*.
+    - a partir de uma conta de armazenamento ligada (ver os passos "Link storage accounts" na [Criar uma Conta](../create-an-account.md#link-storage-accounts) para ligar a sua conta de armazenamento)
+    - ou fornecendo uma *Assinatura de Acesso Partilhado (SAS)*.
 
-Todos os dados do modelo (entrada e saída) são armazenados no utilizador desde o armazenamento de blob Azure. A Renderização Remota Azure dá-lhe total controlo sobre a gestão de ativos.
+Todos os dados do modelo (entrada e saída) são armazenados no armazenamento de bolhas Azure fornecido pelo utilizador. A renderização remota Azure dá-lhe total controlo sobre a sua gestão de ativos.
+
+## <a name="pricing"></a>Preços
+
+Para obter informações sobre preços para conversão, consulte a página [de preços de renderização remota.](https://azure.microsoft.com/pricing/details/remote-rendering)
+
 
 ## <a name="conversion-parameters"></a>Parâmetros de conversão
 
@@ -45,10 +50,10 @@ Para as várias opções de conversão, consulte [este capítulo.](configure-mod
 
 ## <a name="examples"></a>Exemplos
 
-- [Quickstart: Converter um modelo para renderização](../../quickstarts/convert-model.md) é uma introdução passo a passo como converter um modelo.
-- [Exemplo, scripts PowerShell](../../samples/powershell-example-scripts.md), que demonstram a utilização do serviço de conversão, podem ser encontrados no [repositório](https://github.com/Azure/azure-remote-rendering) de amostras DE ARR na pasta *Scripts.*
+- [Quickstart: Converter um modelo de renderização](../../quickstarts/convert-model.md) é uma introdução passo a passo como converter um modelo.
+- [Os scripts Exemplo PowerShell](../../samples/powershell-example-scripts.md), que demonstram a utilização do serviço de conversão, podem ser encontrados no [repositório de amostras ARR](https://github.com/Azure/azure-remote-rendering) na pasta *Scripts.*
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Utilizar o Armazenamento de Blobs do Azure para conversão de modelos](blob-storage.md)
 - [A conversão do modelo REST API](conversion-rest-api.md)

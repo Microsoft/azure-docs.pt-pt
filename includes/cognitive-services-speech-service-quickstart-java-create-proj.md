@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 49aaf9c748d75df8ffbb2adcd80aa6b966f88680
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4fa32668faa72973f765a75d4edc3e4598b43652
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673191"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609321"
 ---
 1. Inicie o Eclipse.
 
@@ -17,25 +17,25 @@ ms.locfileid: "83673191"
 
    ![Captura de ecrã do Iniciador do Eclipse](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-01-create-new-eclipse-workspace.png)
 
-1. Dentro de momentos, é apresentada a janela principal do IDE do Eclipse. Feche o ecrã **welcome** se estiver presente.
+1. Dentro de momentos, é apresentada a janela principal do IDE do Eclipse. Feche o ecrã **Welcome** se estiver presente.
 
-1. A partir da barra de menueclipse, crie um novo projeto escolhendo **File**  >  **New**  >  **Project**.
+1. A partir da barra de menus Eclipse, crie um novo projeto escolhendo **File**  >  **New**  >  **Project**.
 
 1. Aparece a caixa de diálogo **Novo Projeto**. Selecione **Projeto Java** e selecione **Seguinte**.
 
    ![Captura de ecrã da caixa de diálogo Novo Projeto, com o Projeto Java realçado](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-02-select-wizard.png)
 
-1. O feiticeiro do **Projeto New Java** começa. No campo **Nome do projeto**, introduza **início rápido** e escolha **JavaSE-1.8** como o ambiente de execução. Selecione **Concluir**.
+1. O novo assistente **do Projeto Java** começa. No campo **Nome do projeto**, introduza **início rápido** e escolha **JavaSE-1.8** como o ambiente de execução. Selecione **Concluir**.
 
    ![Captura de ecrã do assistente Novo Projeto Java](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-03-create-java-project.png)
 
 1. Se a janela **Abrir Perspetiva Associada?** for apresentada, selecione **Abrir Perspetiva**.
 
-1. Na **Explorador de pacotes**, clique com o botão direito do rato no projeto **início rápido**. Escolha **Configure**  >  **Converter para Maven Project** a partir do menu de contexto.
+1. Na **Explorador de pacotes**, clique com o botão direito do rato no projeto **início rápido**. Escolha **Configurar**  >  **Converter para Projeto Maven** a partir do menu de contexto.
 
    ![Captura de ecrã do Explorador de pacotes](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-04-convert-to-maven-project.png)
 
-1. A janela **Criar Nova POM** é apresentada. No campo **Group Id,** insira *com.microsoft.cognitiveservices.speech.samples*, e no campo **Artifact Id,** entre em *quickstart*. Em seguida, selecione **Terminar**.
+1. A janela **Criar Nova POM** é apresentada. No campo Id do **grupo,** insira *com.microsoft.cognitiveservices.speech.samples,* e no campo **De Id artefacto,** entre em *quickstart*. Em seguida, **selecione Terminar**.
 
    ![Captura de ecrã da janela Criar nova POM](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-05-configure-maven-pom.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "83673191"
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#repositories)]
 
-   * Adicione também um `dependencies` elemento, com a versão 1.12.0 do Speech SDK como dependência:
+   * Adicione também um `dependencies` elemento, com a versão 1.12.1 do Speech SDK como dependência:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#dependencies)]
 

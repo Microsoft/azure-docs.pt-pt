@@ -1,24 +1,25 @@
 ---
-title: 'Quickstart: Criar e utilizar ciclo de aprendizagem com SDK - Personalizer'
-description: Este quickstart mostra-lhe como criar e gerir a sua base de conhecimento usando o SDK do cliente.
+title: 'Quickstart: Criar e utilizar o ciclo de aprendizagem com a SDK - Personalizer'
+description: Este quickstart mostra-lhe como criar e gerir a sua base de conhecimentos utilizando o cliente SDK.
 ms.topic: quickstart
 ms.date: 04/27/2020
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: c65be6c68372ffe92ffd942bf71d2b635ec2fd16
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d4706e93470134751ade5f16e46a4323fd690f94
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188882"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608643"
 ---
-# <a name="quickstart-personalizer-client-library"></a>Quickstart: Personalizer client library
+# <a name="quickstart-personalizer-client-library"></a>Quickstart: Biblioteca de clientes personalizado
 
-Exiba conteúdo personalizado neste quickstart com o serviço Personalizer.
+Exiba conteúdo personalizado neste quickstart com o serviço Personalizar.
 
-Começar com a biblioteca de clientes Personalizer. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
+Começa com a biblioteca de clientes Personalizer. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
 
  * Rank API - Seleciona o melhor item, a partir de ações, com base em informações em tempo real que fornece sobre conteúdo e contexto.
- * Reward API - Determina a pontuação de recompensa com base nas necessidades do seu negócio e, em seguida, envie-a para personalizer com esta API. Essa pontuação pode ser um único valor, como 1 para o bem, e 0 para o mal, ou um algoritmo que crias com base nas necessidades do teu negócio.
+ * Recompensa API - Você determina a pontuação da recompensa com base nas necessidades do seu negócio e, em seguida, envie-a para Personalizer com esta API. Essa pontuação pode ser um único valor, como 1 para o bem, e 0 para o mal, ou um algoritmo que crias com base nas necessidades do teu negócio.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# SDK](./includes/quickstart-sdk-csharp.md)]
@@ -34,12 +35,12 @@ Começar com a biblioteca de clientes Personalizer. Siga estes passos para insta
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos associados ao mesmo.
+Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 
 * [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 >[Como funciona o Personalizador](how-personalizer-works.md)
@@ -47,4 +48,4 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 * [O que é o Personalizador?](what-is-personalizer.md)
 * [Onde pode utilizar o Personalizador?](where-can-you-use-personalizer.md)
 * [Resolução de problemas](troubleshooting.md)
-* O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py).
+* O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py).

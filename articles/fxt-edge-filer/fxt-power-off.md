@@ -1,39 +1,39 @@
 ---
-title: Como desligar uma unidade microsoft Azure FXT Edge Filer
-description: Procedimentos para arranque e encerramento seguro de um nó De Arquivo de Borda Azure FXT
+title: Como desligar uma unidade de Ficheiros de Borda FXT do Microsoft Azure
+description: Procedimentos para arranque e encerramento seguro de um nó de Filete de Borda Azure FXT
 author: ekpgh
 ms.service: fxt-edge-filer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/01/2019
 ms.author: rohogue
-ms.openlocfilehash: 91445c4219abaa67385105f52515f52c87e2cf06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92364de82bc3de8229eced4ee02997a27afbde45
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72256000"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506417"
 ---
-# <a name="how-to-safely-power-off-azure-fxt-edge-filer-hardware"></a>Como desligar com segurança o hardware do Ficheiro de Borda Azure FXT
+# <a name="how-to-safely-power-off-azure-fxt-edge-filer-hardware"></a>Como desligar com segurança o hardware do Azure FXT Edge Filer
 
 Embora possa utilizar o botão de alimentação física para ligar um nó individual, não deve usá-lo para desligar a unidade em circunstâncias normais.
 
-Depois de um nó de Filer de Borda Azure FXT estar a ser utilizado como parte de um cluster, deve utilizar o software do painel de controlo de cluster para desligar o hardware. 
+Depois de um nó Azure FXT Edge Filer ser utilizado como parte de um cluster, deve utilizar o software do painel de controlo do cluster para desligar o hardware. 
 
 > [!NOTE] 
-> Para evitar possíveis perdas de dados ou corrupção, utilize sempre o software do Painel de Controlo para desligar um Ficheiro de Borda Azure FXT. Não utilize o botão de alimentação física para desligar a menos que lhe seja instruído pelo Microsoft Customer Service and Support.
+> Para evitar possíveis perdas de dados ou corrupção, utilize sempre o software do Painel de Controlo para desligar um Ficheiro de Borda Azure FXT. Não utilize o botão de alimentação física para desligar a menos que lhe seja instruído a fazê-lo pelo Serviço e Suporte ao Cliente da Microsoft.
 > 
 > Em caso de emergência elétrica, desligue os cabos de alimentação ou utilize o mecanismo de desconexão de eletricidade do seu centro de dados.
 
 ## <a name="shut-down-a-node-from-the-control-panel"></a>Desligue um nó do Painel de Controlo
 
-Siga estas instruções para desligar com segurança um nó de Ficheiro sinuoso Azure FXT Edge:
+Siga estas instruções para desligar com segurança um nó de filete de borda Azure FXT:
 
-1. Inscreva-se no Painel de Controlo do Cluster. (Instruções em [Abrir as páginas Definições)](fxt-cluster-create.md#open-the-settings-pages)
-1. Clique no separador **Definições** e, em seguida, carregue a página de nós do **Cluster** > **FXT.**
-1. Na lista de nós de agrupamento, encontre aquele que quer desligar. Clique no botão **Desligar** na sua coluna **Ações.** 
-1. Espere alguns momentos. O nó vai desligar-se e desligar-se.
+1. Inscreva-se no Painel de Controlo do Cluster. (Instruções em [Abrir as páginas De Definições)](fxt-cluster-create.md#open-the-settings-pages)
+1. Clique no **separador Definições** e, em seguida, carregue a página De Nodes **Cluster**  >  **FXT.**
+1. Na lista de nós de agrupamento, encontre o que quer desligar. Clique no botão **Desligar** na coluna **Ações.** 
+1. Espere um pouco. O nó desligar-se-á e desligar-se-á.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Conheça o estado dos LEDs e outros indicadores no estado do hardware do Ficheiro de [Borda Monitor Azure FXT](fxt-monitor.md).
-* Leia mais sobre as fontes de alimentação do Ficheiro de Borda Azure FXT nos cabos de [alimentação Connect](fxt-network-power.md#connect-power-cables).
+* Saiba mais sobre o estado dos LEDs e outros indicadores no estado de [hardware do Monitor Azure FXT Edge Filer](fxt-monitor.md).
+* Leia mais sobre fontes de alimentação do Azure FXT Edge Filer nos [cabos de alimentação Connect](fxt-network-power.md#connect-power-cables).

@@ -4,12 +4,12 @@ description: Saiba como instalar a extensão de Funções Duradouras para Funç�
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
-ms.openlocfilehash: a1d0e428da18d44705f4deaf6da3299957076d87
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 7eee3c36620d0cc9f5906e355b76e7418c61b477
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171400"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807966"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Criar Funções Duráveis utilizando o portal Azure
 
@@ -52,7 +52,7 @@ Se estiver a criar Funções Duradouras JavaScript, terá de instalar o [ `durab
     }
     ```
 
-   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Pacote de upload kudu.json":::
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Kudu carregar package.jsem":::
 
 4. Uma vez `package.json` carregado, executa o `npm install` comando a partir da Consola de Execução Remota kudu.
 
@@ -83,7 +83,7 @@ Se estiver a criar Funções Duradouras JavaScript, terá de instalar o [ `durab
 1. Utilize uma ferramenta HTTP como o Carteiro ou o CURL para enviar um pedido de POST para o URL que copiou. O exemplo a seguir é um comando cURL que envia um pedido DEM para a função durável:
 
     ```bash
-    curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence
+    curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence --header "Content-Length: 0"
     ```
 
     Neste exemplo, `{your-function-app-name}` é o domínio que é o nome da sua aplicação de função. A mensagem de resposta contém um conjunto de pontos finais URI que pode utilizar para monitorizar e gerir a execução, e que pode ser semelhante ao seguinte exemplo:

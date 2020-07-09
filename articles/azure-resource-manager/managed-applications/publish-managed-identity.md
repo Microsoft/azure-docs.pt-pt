@@ -1,40 +1,40 @@
 ---
 title: App gerida com Identidade Gerida
-description: Configure Aplicação Gerida com Identidade Gerida para a ligação aos recursos existentes, gestão de recursos Azure e fornecimento de identidade operacional para Registo de Atividades.
+description: Configure a Aplicação Gerida com Identidade Gerida para ligação aos recursos existentes, gestão de recursos Azure e disponibilização de identidade operacional para Registo de Atividades.
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
 ms.openlocfilehash: 277faa2d47df9fddd1762d90d9aa2fb5bf00d4df
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82508139"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Aplicação gerida azure com identidade gerida
 
 > [!NOTE]
-> O suporte de identidade gerido para aplicações geridas encontra-se atualmente em pré-visualização. Utilize a versão api 2018-09-01 para utilizar a Identidade Gerida.
+> O suporte de identidade gerido para aplicações geridas está atualmente em pré-visualização. Utilize a versão api de pré-visualização 2018-09-01 para utilizar a Identidade Gerida.
 
-Aprenda a configurar uma Aplicação Gerida para conter uma Identidade Gerida. A Identidade Gerida pode ser usada para permitir ao cliente conceder à Aplicação Gerida o acesso a recursos adicionais existentes. A identidade é gerida pela plataforma Azure e não o obriga a fornecer ou rodar quaisquer segredos. Para mais informações sobre identidades geridas no Azure Ative Directory (AAD), consulte [identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Saiba como configurar uma Aplicação Gerida para conter uma Identidade Gerida. A Identidade Gerida pode ser utilizada para permitir ao cliente conceder ao Cliente acesso à Aplicação Gerida a recursos adicionais existentes. A identidade é gerida pela plataforma Azure e não requer que forneça ou rode quaisquer segredos. Para obter mais sobre identidades geridas no Azure Ative Directory (AAD), consulte [identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-A sua aplicação pode ser concedida a dois tipos de identidades:
+O seu pedido pode ser concedido dois tipos de identidades:
 
-- Uma **identidade atribuída** ao sistema está ligada à sua aplicação e é eliminada se a sua aplicação for eliminada. Uma aplicação só pode ter uma identidade atribuída ao sistema.
-- Uma **identidade atribuída ao utilizador** é um recurso Azure autónomo que pode ser atribuído à sua aplicação. Uma aplicação pode ter várias identidades atribuídas ao utilizador.
+- Uma **identidade atribuída ao sistema** está ligada à sua aplicação e é eliminada se a sua aplicação for eliminada. Uma aplicação só pode ter uma identidade atribuída ao sistema.
+- Uma **identidade atribuída ao utilizador** é um recurso autónomo da Azure que pode ser atribuído à sua aplicação. Uma aplicação pode ter várias identidades atribuídas ao utilizador.
 
-## <a name="how-to-use-managed-identity"></a>Como usar a Identidade Gerida
+## <a name="how-to-use-managed-identity"></a>Como utilizar a Identidade Gerida
 
 A Identidade Gerida permite muitos cenários para Aplicações Geridas. Alguns cenários comuns que podem ser resolvidos são:
 
-- Implementação de uma Aplicação Gerida ligada aos recursos existentes do Azure. Um exemplo é a implementação de uma máquina virtual Azure (VM) dentro da Aplicação Gerida que está ligada a uma interface de [rede existente](../../virtual-network/virtual-network-network-interface-vm.md).
-- Concessão da Aplicação Gerida e do acesso da editora aos recursos Azure fora do **grupo de recursos geridos.**
-- Disponibilizando uma identidade operacional de Aplicações Geridas para Registo de Atividades e outros serviços dentro do Azure.
+- Implementação de uma Aplicação Gerida ligada aos recursos Azure existentes. Um exemplo é a implementação de uma máquina virtual Azure (VM) dentro da Aplicação Gerida que está ligada a uma [interface de rede existente.](../../virtual-network/virtual-network-network-interface-vm.md)
+- Conceder à Aplicação Gerida e ao acesso dos editores aos recursos da Azure fora do **grupo de recursos geridos.**
+- Fornecendo uma identidade operacional de Aplicações Geridas para Registo de Atividades e outros serviços dentro do Azure.
 
 ## <a name="adding-managed-identity"></a>Adicionar identidade gerida
 
-A criação de uma Aplicação Gerida com uma Identidade Gerida requer um imóvel adicional a ser definido no recurso Azure. O exemplo seguinte mostra uma propriedade **de identidade** de amostra:
+A criação de uma Aplicação Gerida com uma Identidade Gerida requer uma propriedade adicional a ser definida no recurso Azure. O exemplo a seguir mostra uma propriedade **de identidade** de amostra:
 
 ```json
 {
@@ -46,11 +46,11 @@ A criação de uma Aplicação Gerida com uma Identidade Gerida requer um imóve
 }
 ```
 
-Existem duas formas comuns de criar uma Aplicação Gerida com **identidade**: [CreateUIDefinition.json](./create-uidefinition-overview.md) e [modelos de Gestor de Recursos Azure](../templates/template-syntax.md). Para cenários simples de criação simples, a CreateUIDefinition deve ser usada para ativar a Identidade Gerida, porque proporciona uma experiência mais rica. No entanto, ao lidar com sistemas avançados ou complexos que requerem implementações automatizadas ou múltiplas de Aplicação Gerida, os modelos podem ser usados.
+Existem duas formas comuns de criar uma Aplicação Gerida com **identidade:** [CreateUIDefinition.jse](./create-uidefinition-overview.md) [modelos de Gestor de Recursos Azure](../templates/template-syntax.md). Para cenários simples de criação individual, a CreateUIDefinition deve ser usada para permitir a Identidade Gerida, pois proporciona uma experiência mais rica. No entanto, ao lidar com sistemas avançados ou complexos que requerem implementações automatizadas ou múltiplas de aplicações geridas, os modelos podem ser utilizados.
 
-### <a name="using-createuidefinition"></a>Usando a CreateuiDefinition
+### <a name="using-createuidefinition"></a>Utilização de CreateUIDefinition
 
-Uma Aplicação Gerida pode ser configurada com identidade gerida através do [CreateUIDefinition.json](./create-uidefinition-overview.md). Na [secção de saídas,](./create-uidefinition-overview.md#outputs)a chave `managedIdentity` pode ser usada para anular a propriedade de identidade do modelo de Aplicação Gerida. O fole da amostra permitirá a identidade atribuída ao **sistema** na Aplicação Gerida. Objetos de identidade mais complexos podem ser formados utilizando elementos CreateUIDefinition para pedir ao consumidor inputs. Estas inputs podem ser utilizadas para construir Aplicações Geridas com **identidade atribuída**ao utilizador .
+Uma Aplicação Gerida pode ser configurada com Identidade Gerida através do [CreateUIDefinition.jsem](./create-uidefinition-overview.md). Na [secção de saídas,](./create-uidefinition-overview.md#outputs)a chave `managedIdentity` pode ser usada para anular a propriedade identitária do modelo de Aplicação Gerida. O fole de amostra permitirá a identidade **atribuída ao sistema** na Aplicação Gerida. Objetos de identidade mais complexos podem ser formados usando elementos CreateUIDefinition para pedir ao consumidor entradas. Estas entradas podem ser utilizadas para construir Aplicações Geridas com **identidade atribuída ao utilizador.**
 
 ```json
 "outputs": {
@@ -58,17 +58,17 @@ Uma Aplicação Gerida pode ser configurada com identidade gerida através do [C
 }
 ```
 
-#### <a name="when-to-use-createuidefinition-for-managed-identity"></a>Quando utilizar a CreateUIDefinition para identidade gerida
+#### <a name="when-to-use-createuidefinition-for-managed-identity"></a>Quando utilizar a CriaUIDefinition para Identidade Gerida
 
-Abaixo estão algumas recomendações sobre quando usar CreateUIDefinition para permitir identidade gerida em aplicações geridas.
+Abaixo estão algumas recomendações sobre quando usar o CreateUIDefinition para permitir a identidade gerida em aplicações geridas.
 
-- A criação de Aplicação Gerida passa pelo portal ou mercado do Azure.
+- A criação de Aplicações Geridas passa pelo portal ou mercado Azure.
 - A Identidade Gerida requer uma entrada complexa do consumidor.
 - A Identidade Gerida é necessária na criação da Aplicação Gerida.
 
-#### <a name="managed-identity-createuidefinition-control"></a>Controlo de Definição de Definição de Identidade Gerida
+#### <a name="managed-identity-createuidefinition-control"></a>Controlo de identidade gerida CreateUIDefinition
 
-A CreateUIDefinition suporta um controlo de [identidade gerido](./microsoft-managedidentity-identityselector.md)incorporado .
+A CreateUIDefinition suporta um controlo de [identidade gerido](./microsoft-managedidentity-identityselector.md)incorporado.
 
 ```json
 {
@@ -124,25 +124,25 @@ A CreateUIDefinition suporta um controlo de [identidade gerido](./microsoft-mana
 }
 ```
 
-![Identidade Gerida CreateUIDefinition](./media/publish-managed-identity/msi-cuid.png)
+![Identidade gerida CriaUIDefinição](./media/publish-managed-identity/msi-cuid.png)
 
 ### <a name="using-azure-resource-manager-templates"></a>Utilizar modelos do Azure Resource Manager
 
 > [!NOTE]
-> Os modelos de aplicação gerida sumivelmente são gerados automaticamente para os clientes que passam pelo portal Azure criar experiência.
+> Os modelos de Aplicação Geridos no Mercado são gerados automaticamente para os clientes que passam pelo portal Azure criar experiência.
 > Para estes cenários, a `managedIdentity` chave de saída da CreateUIDefinition deve ser utilizada para a identidade ativada.
 
-A Identidade Gerida também pode ser ativada através de modelos de Gestor de Recursos Azure. O fole da amostra permitirá a identidade atribuída ao **sistema** na Aplicação Gerida. Objetos de identidade mais complexos podem ser formados usando parâmetros de modelo do Gestor de Recursos Azure para fornecer inputs. Estas inputs podem ser utilizadas para construir Aplicações Geridas com **identidade atribuída**ao utilizador .
+A Identidade Gerida também pode ser ativada através de modelos do Gestor de Recursos Azure. O fole de amostra permitirá a identidade **atribuída ao sistema** na Aplicação Gerida. Objetos de identidade mais complexos podem ser formados usando parâmetros do modelo do Gestor de Recursos Azure para fornecer entradas. Estas entradas podem ser utilizadas para construir Aplicações Geridas com **identidade atribuída ao utilizador.**
 
-#### <a name="when-to-use-azure-resource-manager-templates-for-managed-identity"></a>Quando usar modelos de Gestor de Recursos Azure para identidade gerida
+#### <a name="when-to-use-azure-resource-manager-templates-for-managed-identity"></a>Quando utilizar modelos de Gestor de Recursos Azure para identidade gerida
 
-Abaixo estão algumas recomendações sobre quando usar modelos de Gestor de Recursos Azure para permitir identidade gerida em aplicações geridas.
+Abaixo estão algumas recomendações sobre quando usar modelos do Gestor de Recursos Azure para permitir a identidade gerida em aplicações geridas.
 
 - As Aplicações Geridas podem ser implantadas programáticamente com base num modelo.
-- São necessárias atribuições de funções personalizadas para a Identidade Gerida para fornecer a Aplicação Gerida.
+- As atribuições de funções personalizadas para a Identidade Gerida são necessárias para fornecer a Aplicação Gerida.
 - A Aplicação Gerida não necessita do portal Azure e do fluxo de criação de mercado.
 
-#### <a name="systemassigned-template"></a>Modelo atribuído pelo sistema
+#### <a name="systemassigned-template"></a>Modelo de assinatura do sistema
 
 Um modelo básico de Gestor de Recursos Azure que implementa uma Aplicação Gerida com identidade **atribuída ao sistema.**
 
@@ -164,9 +164,9 @@ Um modelo básico de Gestor de Recursos Azure que implementa uma Aplicação Ger
 ]
 ```
 
-### <a name="userassigned-template"></a>Modelo UserAssigned
+### <a name="userassigned-template"></a>Modelo de assinatura do utilizador
 
-Um modelo básico de Gestor de Recursos Azure que implementa uma Aplicação Gerida com uma **identidade atribuída ao utilizador**.
+Um modelo básico de Gestor de Recursos Azure que implementa uma Aplicação Gerida com uma **identidade atribuída ao utilizador.**
 
 ```json
 "resources": [
@@ -195,24 +195,24 @@ Um modelo básico de Gestor de Recursos Azure que implementa uma Aplicação Ger
 ]
 ```
 
-## <a name="granting-access-to-azure-resources"></a>Concessão de acesso aos recursos azure
+## <a name="granting-access-to-azure-resources"></a>Concessão de acesso aos recursos da Azure
 
-Uma vez que uma Aplicação Gerida seja concedida uma identidade, pode ser-lhe concedido acesso aos recursos Azure existentes. Este processo pode ser feito através da interface de controlo de acesso (IAM) no portal Azure. O nome da Aplicação Gerida ou **identidade atribuída ao utilizador** pode ser pesquisado para adicionar uma atribuição de funções.
+Uma vez que um Pedido Gerido é concedido uma identidade, pode ser concedido acesso aos recursos Azure existentes. Este processo pode ser feito através da interface Access control (IAM) no portal Azure. O nome da Aplicação Gerida ou **identidade atribuída ao utilizador** pode ser pesquisado para adicionar uma atribuição de funções.
 
-![Adicionar atribuição de funções para Aplicação Gerida](./media/publish-managed-identity/identity-role-assignment.png)
+![Adicionar atribuição de função para aplicação gerida](./media/publish-managed-identity/identity-role-assignment.png)
 
-## <a name="linking-existing-azure-resources"></a>Ligação dos recursos azure existentes
+## <a name="linking-existing-azure-resources"></a>Ligação dos recursos Azure existentes
 
 > [!NOTE]
-> Uma **identidade atribuída** ao utilizador deve ser [configurada](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) antes de implementar a Aplicação Gerida. Além disso, a implantação de recursos ligados de Aplicações Geridas só é suportada para o tipo de **mercado.**
+> Uma **identidade atribuída ao utilizador** deve ser [configurada](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) antes de implementar a Aplicação Gerida. Além disso, a implementação de recursos ligados de Aplicações Geridas só é suportada para o tipo **de mercado.**
 
-A Identidade Gerida também pode ser usada para implementar uma Aplicação Gerida que requer acesso aos recursos existentes durante a sua implantação. Quando a Aplicação Gerida é aprovisionada pelo cliente, as **identidades atribuídas** ao utilizador podem ser adicionadas para fornecer autorizações adicionais à implementação **do modelo principal.**
+A Identidade Gerida também pode ser usada para implementar uma Aplicação Gerida que requer acesso aos recursos existentes durante a sua implantação. Quando a Aplicação Gerida é a forneciada pelo cliente, **as identidades atribuídas ao utilizador** podem ser adicionadas para fornecer autorizações adicionais à implantação principal **doTemplate.**
 
-### <a name="authoring-the-createuidefinition-with-a-linked-resource"></a>Autoria da CreateUIDefinition com um recurso ligado
+### <a name="authoring-the-createuidefinition-with-a-linked-resource"></a>Autoria da Criação deDefinição com um recurso ligado
 
 Ao associar a implementação da Aplicação Gerida aos recursos existentes, deve ser fornecido tanto o recurso Azure existente como uma **identidade atribuída ao utilizador** com a atribuição de funções aplicável nesse recurso.
 
- Uma amostra CreateUIDefinição que requer duas inputs: um ID de recurso de interface de rede e um ID de recurso de identidade atribuído pelo utilizador.
+ Uma amostra CreateUIDefinition que requer duas entradas: um ID de recurso de interface de rede e um ID de recursos de identidade atribuídos pelo utilizador.
 
 ```json
 {
@@ -260,13 +260,13 @@ Ao associar a implementação da Aplicação Gerida aos recursos existentes, dev
 }
 ```
 
-Este CreateUIDefinition.json gera uma experiência de utilizador que tem dois campos. O primeiro campo permite ao utilizador introduzir o ID de recurso Azure para o recurso que está ligado à implementação da Aplicação Gerida. A segunda é que um consumidor introduza o ID de recurso Azure de identidade atribuído ao **utilizador,** que tem acesso ao recurso Azure ligado. A experiência gerada seria como:
+Esta CreateUIDefinition.jsgera uma experiência de utilizador criar que tem dois campos. O primeiro campo permite ao utilizador introduzir no ID de recurso Azure para o recurso que está ligado à implementação da Aplicação Gerida. A segunda é que um consumidor introduza o ID de recurso Azure **atribuído ao utilizador,** que tem acesso ao recurso Azure ligado. A experiência gerada seria como:
 
-![Amostra CreateUIDefinição com duas inputs: um ID de recurso de interface de rede e um ID de recurso de identidade atribuído ao utilizador](./media/publish-managed-identity/network-interface-cuid.png)
+![Amostra CreateUIDefinition com duas entradas: um ID de recurso de interface de rede e um ID de recursos de identidade atribuídos pelo utilizador](./media/publish-managed-identity/network-interface-cuid.png)
 
-### <a name="authoring-the-maintemplate-with-a-linked-resource"></a>Autor do modelo principal com um recurso ligado
+### <a name="authoring-the-maintemplate-with-a-linked-resource"></a>Autoria do mainTemplate com um recurso ligado
 
-Além de atualizar a CreateUIDefinition, o modelo principal também precisa de ser atualizado para aceitar o id de recurso ligado. O modelo principal pode ser atualizado para aceitar a nova saída adicionando um novo parâmetro. Uma `managedIdentity` vez que a saída sobrepõe o valor no modelo de aplicação gerida gerada, não é passado para o modelo principal e não deve ser incluído na secção de parâmetros.
+Além de atualizar a CriaUIDefinition, o modelo principal também precisa de ser atualizado para aceitar o passado no ID de recursos ligados. O modelo principal pode ser atualizado para aceitar a nova saída adicionando um novo parâmetro. Uma vez que a `managedIdentity` saída sobrepõe o valor no modelo de aplicação gerida gerada, não é passado para o modelo principal e não deve ser incluído na secção de parâmetros.
 
 Um modelo principal de amostra que define o perfil de rede para uma interface de rede existente fornecida pela CreateUIDefinition.
 
@@ -300,17 +300,17 @@ Um modelo principal de amostra que define o perfil de rede para uma interface de
 }
 ```
 
-### <a name="consuming-the-managed-application-with-a-linked-resource"></a>Consumir a Aplicação Gerida com recurso ligado
+### <a name="consuming-the-managed-application-with-a-linked-resource"></a>Consumir a Aplicação Gerida com um recurso ligado
 
-Uma vez criado o pacote de Aplicação Gerida, a Aplicação Gerida pode ser consumida através do portal Azure. Antes de poder ser consumido, existem vários passos pré-requisitos.
+Uma vez criado o pacote Aplicação Gerida, a Aplicação Gerida pode ser consumida através do portal Azure. Antes de poder ser consumido, existem vários passos pré-requisitos.
 
-- Deve ser criada uma instância do recurso Azure ligado necessário.
-- A **identidade atribuída** ao utilizador deve ser criada e dada atribuição de [funções](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) ao recurso ligado.
-- O ID de recurso ligado existente e o ID de **identidade atribuído** ao utilizador são fornecidos à CreateUIDefinition.
+- Deve ser criado um caso do recurso Azure associado necessário.
+- A **identidade atribuída ao utilizador** deve ser criada e atribuída uma [função](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) ao recurso ligado.
+- O ID de recursos ligados existente e o ID **de identidade atribuído** ao utilizador são fornecidos à CreateUIDefinition.
 
-## <a name="accessing-the-managed-identity-token"></a>Acesso ao símbolo de identidade gerida
+## <a name="accessing-the-managed-identity-token"></a>Aceder ao token de identidade gerida
 
-O símbolo da Aplicação Gerida pode agora `listTokens` ser acedido através da api do inquilino da editora. Um pedido de exemplo pode parecer:
+O símbolo da Aplicação Gerida pode agora ser acedido através da `listTokens` API do arrendatário editor. Um pedido de exemplo pode parecer:
 
 ``` HTTP
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}/listTokens?api-version=2018-09-01-preview HTTP/1.1
@@ -325,13 +325,13 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 Solicitar parâmetros corporais:
 
-Parâmetro | Necessário | Descrição
+Parâmetro | Obrigatório | Descrição
 ---|---|---
-autorizaçãoAudience | *Não* | O APP ID URI do recurso alvo. É também `aud` a reivindicação (do público) do símbolo emitido. O valor padrãohttps://management.azure.com/é "
-userAssignedIdentidades | *Não* | A lista de identidades geridas pelo utilizador para recuperar um símbolo para. Se não especificado, `listTokens` devolverá o símbolo para a identidade gerida atribuída pelo sistema.
+autorizaçãoAudiência | *Não* | O ID URI da aplicação do recurso-alvo. É também a `aud` reivindicação (do público) do símbolo emitido. O valor padrão é https://management.azure.com/ "
+nomeações para assediadas do utilizador | *Não* | A lista de identidades geridas atribuídas pelo utilizador para recuperar um símbolo para. Se não for especificado, `listTokens` devolverá o símbolo para a identidade gerida atribuída pelo sistema.
 
 
-Uma resposta da amostra pode parecer:
+Uma resposta de amostra pode parecer:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -352,16 +352,16 @@ Content-Type: application/json
 }
 ```
 
-A resposta conterá uma série de `value` fichas sob a propriedade:
+A resposta conterá uma variedade de fichas sob a `value` propriedade:
 
 Parâmetro | Descrição
 ---|---
 access_token | O sinal de acesso solicitado.
-expires_in | O número de segundos em que o sinal de acesso será válido.
-expires_on | O tempo de espera quando o sinal de acesso expira. Isto é representado como o número de segundos da época.
-not_before | O tempo de espera quando o sinal de acesso faz efeito. Isto é representado como o número de segundos da época.
-autorizaçãoAudience | O `aud` (público) o sinal de acesso foi pedido. Isto é o mesmo que `listTokens` foi fornecido no pedido.
-resourceId | O ID de recurso Azure para o símbolo emitido. Este é ou o ID de aplicação gerido ou o ID de identidade atribuído pelo utilizador.
+expires_in | O número de segundos de acesso será válido.
+expires_on | O tempo de tempo quando a ficha de acesso expira. Isto é representado como o número de segundos da época.
+not_before | O tempo em que o token de acesso entra em vigor. Isto é representado como o número de segundos da época.
+autorizaçãoAudiência | O `aud` (público) o símbolo de acesso foi solicitado. Isto é o mesmo que foi fornecido no `listTokens` pedido.
+resourceId | O ID de recurso Azure para o token emitido. Este é o ID de aplicação gerido ou o ID de identidade atribuído pelo utilizador.
 token_type | O tipo de símbolo.
 
 ## <a name="next-steps"></a>Passos seguintes

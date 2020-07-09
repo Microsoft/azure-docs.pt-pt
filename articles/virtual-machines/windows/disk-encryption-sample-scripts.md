@@ -1,6 +1,6 @@
 ---
 title: Scripts de exemplo do Azure Disk Encryption
-description: Este artigo é o apêndice da encriptação do disco Microsoft Azure para VMs do Windows.
+description: Este artigo é o apêndice para a Encriptação do Disco Azure do Microsoft Azure para VMs windows.
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
@@ -8,20 +8,20 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: e5e0a970df680df43a7bd303636b3d81bda3e141
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a0bac96c3daa0d81786b1a3facf6ccd328cd579
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82085710"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076764"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Scripts de exemplo do Azure Disk Encryption 
 
-Este artigo fornece scripts de amostra para a preparação de VHDs pré-encriptados e outras tarefas.
+Este artigo fornece scripts de amostra para preparar VHDs pré-encriptados e outras tarefas.
 
  
 
-## <a name="list-vms-and-secrets"></a>Lista vMs e segredos
+## <a name="list-vms-and-secrets"></a>Lista de VMs e segredos
 
 Listar todos os VMs encriptados na sua subscrição:
 
@@ -30,80 +30,88 @@ $osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceG
 $dataVolEncrypted= {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
 Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
 ```
-Enumerar todos os segredos de encriptação do disco usados para encriptar VMs num cofre chave:
+Lista todos os segredos de encriptação do disco usados para encriptar VMs num cofre chave:
 
 ```azurepowershell-interactive
 Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
 ```
 
-## <a name="the-azure-disk-encryption-prerequisites-scripts"></a>A encriptação do disco azure pré-requisitos scripts
-Se já está familiarizado com os pré-requisitos para a encriptação do disco Azure, pode utilizar o pré-requisito de encriptação do [disco Azure PowerShell](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para um exemplo de utilização deste script PowerShell, consulte o [Encrypt a VM Quickstart](disk-encryption-powershell-quickstart.md). Pode remover os comentários de uma secção do script, a partir da linha 211, para encriptar todos os discos para VMs existentes num grupo de recursos existente. 
+## <a name="the-azure-disk-encryption-prerequisites-scripts"></a>A Encriptação do Disco Azure pré-requisitos scripts
+Se já estiver familiarizado com os pré-requisitos para encriptação do disco Azure, pode utilizar o [script Azure Disk Encryption pré-requisitos powerShell](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para um exemplo de utilização deste script PowerShell, consulte o [Crycrim a VM Quickstart](disk-encryption-powershell-quickstart.md). Pode remover os comentários de uma secção do script, a partir da linha 211, para encriptar todos os discos para VM existentes num grupo de recursos existente. 
 
-A tabela que se segue mostra quais os parâmetros que podem ser utilizados no script PowerShell: 
+A tabela a seguir mostra quais os parâmetros que podem ser utilizados no script PowerShell: 
 
 |Parâmetro|Descrição|Obrigatório?|
 |------|------|------|
 |$resourceGroupName| Nome do grupo de recursos a que pertence o KeyVault.  Um novo grupo de recursos com este nome será criado se não existir.| Verdadeiro|
-|$keyVaultName|Nome do KeyVault em que as chaves de encriptação devem ser colocadas. Um novo cofre com este nome será criado se não existir.| Verdadeiro|
+|$keyVaultName|Nome do KeyVault em que as chaves de encriptação devem ser colocadas. Um novo cofre com este nome será criado se um não existir.| Verdadeiro|
 |$location|Localização do KeyVault. Certifique-se de que os KeyVault e VMs a encriptar estão no mesmo local. Obtenha uma lista de localizações com `Get-AzLocation`.|Verdadeiro|
-|$subscriptionId|Identificador da assinatura Azure a utilizar.  Pode obter o seu ID de subscrição com `Get-AzSubscription`.|Verdadeiro|
-|$aadAppName|Nome da aplicação Azure AD que será usada para escrever segredos para keyVault. Será criada uma nova aplicação com este nome, caso ainda não exista. Se esta aplicação já existir, passe o parâmetro AadClientSecret para o script.|Falso|
-|$aadClientSecret|Segredo do cliente da aplicação Azure AD que foi criada anteriormente.|Falso|
-|$keyEncryptionKeyName|Nome da chave de encriptação opcional no KeyVault. Uma nova chave com este nome será criada se não existir.|Falso|
+|$subscriptionId|Identificador da assinatura Azure a ser usado.  Pode obter o seu ID de subscrição com `Get-AzSubscription`.|Verdadeiro|
+|$aadAppName|Nome da aplicação AD AZure que será usada para escrever segredos ao KeyVault. Será criada uma nova aplicação com este nome, caso ainda não exista. Se esta aplicação já existe, passe o parâmetro aadClientSecret para o script.|Falso|
+|$aadClientSecret|Segredo de cliente da aplicação AZure AD que foi criada anteriormente.|Falso|
+|$keyEncryptionKeyName|Nome da chave de encriptação opcional em KeyVault. Uma nova chave com este nome será criada se não existir.|Falso|
 
 ## <a name="resource-manager-templates"></a>Modelos do Resource Manager
 
-### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Criptografe ou desencriptar VMs sem uma aplicação Azure AD
+### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Criptografe ou desencriptar VMs sem uma aplicação AD AZure
 
-- [Ativar a encriptação do disco num VM Windows existente ou em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)  
-- [Desative a encriptação num VM windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad) 
+- [Ativar a encriptação do disco num VM do Windows existente ou em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)  
+- [Desative a encriptação num VM do Windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad) 
 
-### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Criptografe ou desencriptar VMs com uma aplicação Azure AD (versão anterior) 
+### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Criptografe ou desencriptar VMs com uma aplicação AD Azure (versão anterior) 
  
-- [Ativar a encriptação do disco num VM Windows existente ou em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)    
-- [Desative a encriptação num VM windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm) 
-- [Criar um novo disco gerido encriptado a partir de uma bolha vHD/armazenamento pré-encriptada](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
-    - Cria um novo disco gerido encriptado fornecido a um VHD pré-encriptado e às respetivas definições de encriptação
+- [Ativar a encriptação do disco num VM do Windows existente ou em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)    
+- [Desative a encriptação num VM do Windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm) 
+- [Criar um novo disco gerido encriptado a partir de uma bolha VHD/armazenamento pré-encriptado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
+    - Cria um novo disco gerido encriptado desde um VHD pré-encriptado e as suas definições de encriptação correspondentes
 
-## <a name="prepare-a-pre-encrypted-windows-vhd"></a>Prepare um VHD Windows pré-encriptado
-As secções que se seguem são necessárias para preparar um VHD Windows pré-encriptado para implementação como um VHD encriptado no Azure IaaS. Utilize as informações para preparar e iniciar um Novo VM do Windows (VHD) na Recuperação do Site Azure ou azure. Para obter mais informações sobre como preparar e carregar um VHD, consulte [o Upload de um VHD generalizado e use-o para criar novos VMs em Azure](upload-generalized-managed.md).
+## <a name="prepare-a-pre-encrypted-windows-vhd"></a>Preparar um Windows VHD pré-encriptado
+As secções que se seguem são necessárias para preparar um VHD do Windows pré-encriptado para implementação como um VHD encriptado em Azure IaaS. Utilize as informações para preparar e iniciar um VM (VHD) fresco do Windows na Recuperação ou Azure do Site Azure. Para obter mais informações sobre como preparar e carregar um VHD, consulte [o Upload a Generalized VHD e use-o para criar novos VMs em Azure](upload-generalized-managed.md).
 
-### <a name="update-group-policy-to-allow-non-tpm-for-os-protection"></a>Atualizar a política do grupo para permitir o não-TPM para a proteção do OS
-Configure a definição da política do grupo BitLocker,**Windows Components**a **encriptação bitLocker Drive,** que encontrará no âmbito da configuração > de**modelos administrativos** > de**configuração** > do **computador local.** Alterar esta definição para **unidades do** > sistema operativo**Requer autenticação adicional no arranque** > **Permitir O BitLocker sem um TPM compatível,** como mostra a seguinte figura:
+### <a name="update-group-policy-to-allow-non-tpm-for-os-protection"></a>Atualizar a política do grupo para permitir a proteção não-TPM para proteção de OS
+Configure a definição da política do grupo BitLocker **BitLocker,** que encontrará sob a configuração de modelos de **Local Computer Policy**  >  **configuração**de computador  >  **local,**  >  **componentes do Windows .** Alterar esta definição para **Unidades do Sistema Operativo**  >  **Requer a autenticação adicional no arranque**Permitir que o  >  **BitLocker sem um TPM compatível,** como mostra a seguinte figura:
 
 ![Microsoft Antimalware no Azure](../media/disk-encryption/disk-encryption-fig8.png)
 
-### <a name="install-bitlocker-feature-components"></a>Instalar componentes de funcionalidadebitLocker
-Para o Windows Server 2012 e posteriormente, utilize o seguinte comando:
+### <a name="install-bitlocker-feature-components"></a>Instalar componentes de funcionalidade BitLocker
+Para o Windows Server 2012 e mais tarde, utilize o seguinte comando:
 
-    dism /online /Enable-Feature /all /FeatureName:BitLocker /quiet /norestart
+```console
+dism /online /Enable-Feature /all /FeatureName:BitLocker /quiet /norestart
+```
 
 Para o Windows Server 2008 R2, utilize o seguinte comando:
 
-    ServerManagerCmd -install BitLockers
+```console
+ServerManagerCmd -install BitLockers
+```
 
-### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Prepare o volume de OS para bitLocker utilizando`bdehdcfg`
-Para comprimir a partição de S E e preparar a máquina para o BitLocker, execute o [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) se necessário:
+### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Prepare o volume de SO para BitLocker utilizando`bdehdcfg`
+Para comprimir a partição de SO e preparar a máquina para BitLocker, execute o [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) se necessário:
 
-    bdehdcfg -target c: shrink -quiet 
+```console
+bdehdcfg -target c: shrink -quiet 
+```
 
-### <a name="protect-the-os-volume-by-using-bitlocker"></a>Proteja o volume de OS utilizando o BitLocker
-Utilize [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) o comando para ativar a encriptação no volume da bota utilizando um protetor de teclas externo. Coloque também a tecla externa (ficheiro.bek) na unidade ou volume externos. A encriptação está ativada no volume de sistema/arranque após a próxima reinicialização.
+### <a name="protect-the-os-volume-by-using-bitlocker"></a>Proteja o volume de SO utilizando o BitLocker
+Utilize o [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) comando para ativar a encriptação no volume de arranque utilizando um protetor de teclas externo. Coloque também a chave externa (.ficheiro bek) na unidade ou volume externos. A encriptação é ativada no volume de sistema/arranque após o próximo reboot.
 
-    manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
-    reboot
+```console
+manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
+reboot
+```
 
 > [!NOTE]
-> Prepare o VM com um VHD de dados/recursos separado para obter a chave externa utilizando o BitLocker.
+> Prepare o VM com um VHD de dados/recursos separados para obter a chave externa utilizando o BitLocker.
 
 ## <a name="upload-encrypted-vhd-to-an-azure-storage-account"></a>Faça upload de VHD encriptado para uma conta de armazenamento Azure
-Depois de ativada a encriptação DM-Crypt, o VHD encriptado local precisa de ser enviado para a sua conta de armazenamento.
+Após a encriptação DM-Crypt ser ativada, o VHD encriptado local precisa de ser carregado para a sua conta de armazenamento.
 ```powershell
     Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
 
-## <a name="upload-the-secret-for-the-pre-encrypted-vm-to-your-key-vault"></a>Faça upload do segredo para o VM pré-encriptado para o seu cofre chave
-O segredo de encriptação do disco que obteve anteriormente deve ser carregado como um segredo no seu cofre chave.  Isto requer a concessão da permissão secreta definida e a permissão de chave de embrulho para a conta que irá carregar os segredos.
+## <a name="upload-the-secret-for-the-pre-encrypted-vm-to-your-key-vault"></a>Faça o upload do segredo para o VM pré-encriptado para o seu cofre de chaves
+O segredo de encriptação do disco que obteve anteriormente deve ser enviado como um segredo no cofre da sua chave.  Isto requer a concessão da permissão secreta definida e a permissão de invólucro para a conta que irá enviar os segredos.
 
 ```powershell 
 # Typically, account Id is the user principal name (in user@domain.com format)
@@ -122,7 +130,7 @@ Set-AzKeyVaultAccessPolicy -VaultName $kvname -UserPrincipalName $acctid -Permis
 ```
 
 ### <a name="disk-encryption-secret-not-encrypted-with-a-kek"></a>Segredo de encriptação de disco não encriptado com um KEK
-Para configurar o segredo no seu cofre de chaves, use [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). A frase de passe é codificada como uma corda base64 e depois enviada para o cofre da chave. Além disso, certifique-se de que as seguintes etiquetas são definidas quando criar o segredo no cofre da chave.
+Para configurar o segredo no seu cofre de chaves, utilize [o Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). A palavra-passe é codificada como uma corda base64 e depois enviada para o cofre da chave. Além disso, certifique-se de que as seguintes etiquetas são definidas quando criar o segredo no cofre da chave.
 
 ```powershell
 
@@ -139,10 +147,10 @@ Para configurar o segredo no seu cofre de chaves, use [Set-AzKeyVaultSecret](/po
 ```
 
 
-Utilize `$secretUrl` o passo seguinte para [fixar o disco OS sem utilizar](#without-using-a-kek)o KEK .
+Utilize o `$secretUrl` passo seguinte para fixar o disco DE SEM utilizar [KEK](#without-using-a-kek).
 
 ### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Segredo de encriptação de disco encriptado com um KEK
-Antes de enviar o segredo para o cofre da chave, pode encriptar opcionalmente utilizando uma chave de encriptação. Utilize a [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) de embrulho para encriptar primeiro o segredo utilizando a chave de encriptação da chave. A saída desta operação de embrulho é uma cadeia codificada por URL base64, que pode então carregar como segredo utilizando o [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
+Antes de enviar o segredo para o cofre da chave, pode criptografá-lo opcionalmente usando uma chave de encriptação. Utilize a [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) de embrulho para encriptar primeiro o segredo utilizando a chave de encriptação. A saída desta operação de embrulho é uma cadeia codificada de URL base64, que pode então carregar como um segredo usando o [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation
@@ -232,12 +240,12 @@ Antes de enviar o segredo para o cofre da chave, pode encriptar opcionalmente ut
     $secretUrl = $response.id
 ```
 
-Utilize `$KeyEncryptionKey` `$secretUrl` e no próximo passo para [a fixação do disco OS utilizando KEK](#using-a-kek).
+Utilize `$KeyEncryptionKey` e no passo seguinte para a `$secretUrl` [fixação do disco de sos utilizando KEK](#using-a-kek).
 
-##  <a name="specify-a-secret-url-when-you-attach-an-os-disk"></a>Especifique um URL secreto quando anexar um disco OS
+##  <a name="specify-a-secret-url-when-you-attach-an-os-disk"></a>Especifique um URL secreto quando anexar um disco DE
 
 ###  <a name="without-using-a-kek"></a>Sem usar um KEK
-Enquanto está a prender o disco de `$secretUrl`solo, tem de passar. O URL foi gerado na secção "Segredo de encriptação de disco não encriptado com um KEK".
+Enquanto está a prender o disco de so, tem de `$secretUrl` passar. O URL foi gerado no "Segredo de encriptação de disco não encriptado com uma secção KEK".
 ```powershell
     Set-AzVMOSDisk `
             -VM $VirtualMachine `
@@ -250,7 +258,7 @@ Enquanto está a prender o disco de `$secretUrl`solo, tem de passar. O URL foi g
             -DiskEncryptionKeyUrl $SecretUrl
 ```
 ### <a name="using-a-kek"></a>Usando um KEK
-Quando anexar o disco `$KeyEncryptionKey` `$secretUrl`OS, passe e . O URL foi gerado na secção "Segredo de encriptação do disco encriptado com um KEK".
+Quando ligar o disco DE, passe `$KeyEncryptionKey` e `$secretUrl` . O URL foi gerado no "Segredo de encriptação do disco encriptado com uma secção KEK".
 ```powershell
     Set-AzVMOSDisk `
             -VM $VirtualMachine `

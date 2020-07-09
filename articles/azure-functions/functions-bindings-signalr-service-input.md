@@ -1,30 +1,29 @@
 ---
-title: Ligação de entrada do serviço de sinalização de funções Azure
-description: Aprenda a devolver um URL de ponto final do serviço SignalR e aceda ao acesso em Funções Azure.
+title: Ligação de entrada de serviço signalr funções Azure
+description: Aprenda a devolver um URL de serviço signalR e aceda a token em Funções Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/20/2020
 ms.author: cshoe
 ms.openlocfilehash: 53d336aff3177a76c5e02266ffb8484bd9945119
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77530266"
 ---
-# <a name="signalr-service-input-binding-for-azure-functions"></a>Ligação de entrada do serviço SignalR para funções azure
+# <a name="signalr-service-input-binding-for-azure-functions"></a>Ligação de entrada de serviço SignalR para funções Azure
 
-Antes de um cliente poder ligar-se ao Serviço De Sinalização Azure, deve recuperar o URL final do ponto de serviço e um sinal de acesso válido. A ligação de entrada *SignalRConnectionInfo* produz o URL de ponto final do SignalR Service e um símbolo válido que é usado para ligar ao serviço. Como o símbolo é limitado no tempo e pode ser usado para autenticar um utilizador específico a uma ligação, não deve cache o símbolo ou partilhá-lo entre clientes. Um gatilho HTTP utilizando esta ligação pode ser usado pelos clientes para recuperar a informação de ligação.
+Antes de um cliente poder ligar-se ao Serviço Azure SignalR, deve recuperar o URL do ponto final de serviço e um token de acesso válido. A ligação de entrada *SignalRConnectionInfo* produz o URL do ponto final do Serviço SignalR e um token válido que é utilizado para ligar ao serviço. Como o token é limitado no tempo e pode ser usado para autenticar um utilizador específico numa ligação, não deve cache o token ou partilhá-lo entre os clientes. Um gatilho HTTP que utilize esta ligação pode ser utilizado pelos clientes para recuperar as informações de ligação.
 
-Para obter mais informações sobre como esta ligação é usada para criar uma função de "negociar" que pode ser consumida por um cliente SignalR SDK, consulte o artigo de desenvolvimento e configuração de [Funções Azure](../azure-signalr/signalr-concept-serverless-development-config.md) na documentação de conceitos do SignalR Service.
+Para obter mais informações sobre como esta ligação é usada para criar uma função de "negociação" que pode ser consumida por um cliente SignalR SDK, consulte o [artigo de desenvolvimento e configuração de Funções Azure](../azure-signalr/signalr-concept-serverless-development-config.md) na documentação de conceitos do Serviço SignalR.
 
-Para obter informações sobre os detalhes da configuração e configuração, consulte a [visão geral](functions-bindings-signalr-service.md).
+Para obter informações sobre detalhes de configuração e configuração, consulte a [visão geral](functions-bindings-signalr-service.md).
 
 ## <a name="example"></a>Exemplo
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que adquire informações de ligação SignalR utilizando a ligação de entrada e a devolve em HTTP.
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que adquire informações de ligação SignalR utilizando a ligação de entrada e a devolve através de HTTP.
 
 ```cs
 [FunctionName("negotiate")]
@@ -38,11 +37,11 @@ public static SignalRConnectionInfo Negotiate(
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-O exemplo seguinte mostra uma ligação de informação de ligação SignalR num ficheiro *function.json* e uma [função De Script C#](functions-reference-csharp.md) que utiliza a ligação para devolver as informações de ligação.
+O exemplo a seguir mostra uma ligação de informação signalR que liga numa *function.jsno* ficheiro e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação para devolver as informações de ligação.
 
-Aqui estão os dados vinculativos no ficheiro *fun.json:*
+Aqui estão os dados vinculativos do *function.jsem* arquivo:
 
-Função exemplo.json:
+Exemplo function.js:
 
 ```json
 {
@@ -54,7 +53,7 @@ Função exemplo.json:
 }
 ```
 
-Aqui está o código c# script:
+Aqui está o código do script C#:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -68,11 +67,11 @@ public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo c
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo seguinte mostra uma ligação de informação de ligação SignalR num ficheiro *function.json* e uma [função JavaScript](functions-reference-node.md) que utiliza a ligação para devolver as informações de ligação.
+O exemplo a seguir mostra uma ligação de informação signalR que liga uma *function.jsno* ficheiro e uma [função JavaScript](functions-reference-node.md) que utiliza a ligação para devolver as informações de ligação.
 
-Aqui estão os dados vinculativos no ficheiro *fun.json:*
+Aqui estão os dados vinculativos do *function.jsem* arquivo:
 
-Função exemplo.json:
+Exemplo function.js:
 
 ```json
 {
@@ -94,11 +93,11 @@ module.exports = async function (context, req, connectionInfo) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo seguinte mostra uma ligação de informação de ligação SignalR num ficheiro *function.json* e uma [função Python](functions-reference-python.md) que utiliza a ligação para devolver as informações de ligação.
+O exemplo a seguir mostra uma ligação de informação signalR que liga uma *function.jsno* ficheiro e uma [função Python](functions-reference-python.md) que utiliza a ligação para devolver as informações de ligação.
 
-Aqui estão os dados vinculativos no ficheiro *fun.json:*
+Aqui estão os dados vinculativos do *function.jsem* arquivo:
 
-Função exemplo.json:
+Exemplo function.js:
 
 ```json
 {
@@ -125,7 +124,7 @@ def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-O exemplo seguinte mostra uma [função Java](functions-reference-java.md) que adquire informações de ligação SignalR utilizando a ligação de entrada e a devolve em HTTP.
+O exemplo a seguir mostra uma [função Java](functions-reference-java.md) que adquire informações de ligação SignalR utilizando a ligação de entrada e a devolve através de HTTP.
 
 ```java
 @FunctionName("negotiate")
@@ -145,13 +144,13 @@ public SignalRConnectionInfo negotiate(
 
 ## <a name="authenticated-tokens"></a>Fichas autenticadas
 
-Se a função for desencadeada por um cliente autenticado, pode adicionar uma reclamação de ID do utilizador ao token gerado. Pode facilmente adicionar a autenticação a uma aplicação de função utilizando a [Autenticação do Serviço app](../app-service/overview-authentication-authorization.md).
+Se a função for desencadeada por um cliente autenticado, pode adicionar uma reclamação de ID do utilizador ao token gerado. Pode adicionar facilmente a autenticação a uma aplicação de função utilizando [a Autenticação do Serviço de Aplicações.](../app-service/overview-authentication-authorization.md)
 
-App Service Autenticação define cabeçalhos HTTP nomeados `x-ms-client-principal-id` e `x-ms-client-principal-name` que contêm o ID e o nome principal do cliente autenticado do utilizador, respectivamente.
+Conjuntos de autenticação de serviço de aplicações HTTP nomeados `x-ms-client-principal-id` e que contêm o `x-ms-client-principal-name` iD principal e nome do cliente autenticado, respectivamente.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Pode definir `UserId` a propriedade da ligação ao valor de `{headers.x-ms-client-principal-id}` um `{headers.x-ms-client-principal-name}`dos cabeçalhos utilizando uma [expressão vinculativa:](./functions-bindings-expressions-patterns.md)ou .
+Pode definir a `UserId` propriedade da ligação para o valor de um dos cabeçalhos utilizando uma [expressão de encadernação](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}` .
 
 ```cs
 [FunctionName("negotiate")]
@@ -168,9 +167,9 @@ public static SignalRConnectionInfo Negotiate(
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Pode definir `userId` a propriedade da ligação ao valor de `{headers.x-ms-client-principal-id}` um `{headers.x-ms-client-principal-name}`dos cabeçalhos utilizando uma [expressão vinculativa:](./functions-bindings-expressions-patterns.md)ou .
+Pode definir a `userId` propriedade da ligação para o valor de um dos cabeçalhos utilizando uma [expressão de encadernação](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}` .
 
-Função exemplo.json:
+Exemplo function.js:
 
 ```json
 {
@@ -183,7 +182,7 @@ Função exemplo.json:
 }
 ```
 
-Aqui está o código c# script:
+Aqui está o código do script C#:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -199,9 +198,9 @@ public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo c
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Pode definir `userId` a propriedade da ligação ao valor de `{headers.x-ms-client-principal-id}` um `{headers.x-ms-client-principal-name}`dos cabeçalhos utilizando uma [expressão vinculativa:](./functions-bindings-expressions-patterns.md)ou .
+Pode definir a `userId` propriedade da ligação para o valor de um dos cabeçalhos utilizando uma [expressão de encadernação](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}` .
 
-Função exemplo.json:
+Exemplo function.js:
 
 ```json
 {
@@ -226,9 +225,9 @@ module.exports = async function (context, req, connectionInfo) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Pode definir `userId` a propriedade da ligação ao valor de `{headers.x-ms-client-principal-id}` um `{headers.x-ms-client-principal-name}`dos cabeçalhos utilizando uma [expressão vinculativa:](./functions-bindings-expressions-patterns.md)ou .
+Pode definir a `userId` propriedade da ligação para o valor de um dos cabeçalhos utilizando uma [expressão de encadernação](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}` .
 
-Função exemplo.json:
+Exemplo function.js:
 
 ```json
 {
@@ -258,7 +257,7 @@ def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-Pode definir `userId` a propriedade da ligação ao valor de `{headers.x-ms-client-principal-id}` um `{headers.x-ms-client-principal-name}`dos cabeçalhos utilizando uma [expressão vinculativa:](./functions-bindings-expressions-patterns.md)ou .
+Pode definir a `userId` propriedade da ligação para o valor de um dos cabeçalhos utilizando uma [expressão de encadernação](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}` .
 
 ```java
 @FunctionName("negotiate")
@@ -277,6 +276,6 @@ public SignalRConnectionInfo negotiate(
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Enviar mensagens de serviço SignalR (encadernação de saída)](./functions-bindings-signalr-service-output.md) 
+- [Enviar mensagens de serviço SignalR (ligação de saída)](./functions-bindings-signalr-service-output.md) 

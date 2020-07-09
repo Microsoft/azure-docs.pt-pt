@@ -59,8 +59,6 @@
           href: ./hdinsight-selecting-vm-size.md
         - name: Planeamento da capacidade do cluster
           href: ./hdinsight-capacity-planning.md
-        - name: Pedir aumento da quota de núcleos de CPU
-          href: ./quota-increase-request.md
         - name: Melhores práticas de gestão de clusters
           href: ./cluster-management-best-practices.md
         - name: Disponibilidade e fiabilidade
@@ -169,6 +167,8 @@
                   href: ./optimize-hive-ambari.md
                 - name: Otimizar Apache Pig
                   href: ./optimize-pig-ambari.md
+            - name: Reiniciar nós de cluster
+              href: ./cluster-reboot-vm.md
             - name: Utilizar a API REST do Apache Ambari
               href: ./hdinsight-hadoop-manage-ambari-rest-api.md
             - name: Eliminar um cluster
@@ -221,10 +221,6 @@
               href: ./hadoop/apache-hadoop-visual-studio-tools-get-started.md
             - name: Ferramentas do Spark e do Hive para o VSCode
               href: ./hdinsight-for-vscode.md
-            - name: Ferramentas do HDInsight para IntelliJ com a Sandbox do Hortonworks
-              href: ./hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md
-            - name: Ferramentas do Data Lake com a Sandbox da Hortonworks
-              href: ./hdinsight-hadoop-emulator-visual-studio.md
         - name: Monitorização
           items:
             - name: Utilizar os registos do Azure Monitor
@@ -239,6 +235,8 @@
               href: ./cluster-availability-monitor-logs.md
         - name: Resolução de problemas
           items:
+            - name: Pedir aumento da quota de núcleos de CPU
+              href: ./quota-increase-request.md
             - name: Resolução de problemas de ações de script
               href: ./troubleshoot-script-action.md
             - name: Falhas na criação do recurso
@@ -414,7 +412,7 @@
               items:
                 - name: Utilizar com o Data Lake Storage
                   href: ./spark/apache-spark-use-with-data-lake-store.md
-                - name: Ligar à base de Dados SQL do Azure
+                - name: Ligar à Base de Dados SQL do Azure
                   href: ./spark/apache-spark-connect-to-sql-database.md
                 - name: Implementar uma arquitetura lambda com o Apache Spark e Cosmos DB
                   href: ../cosmos-db/lambda-architecture.md
@@ -430,8 +428,6 @@
               href: ./spark/apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
             - name: Falhas de tarefa do Apache Spark - InvalidClassException
               href: ./spark/apache-spark-troubleshoot-job-fails-invalidclassexception.md
-            - name: Tarefas do Apache Spark lentas - listStatus
-              href: ./spark/apache-spark-troubleshoot-job-slowness-liststatus.md
             - name: Tarefas de Apache Spark lentas – contentor de armazenamento
               href: ./spark/apache-spark-troubleshoot-job-slowness-container.md
             - name: Exceção IllegalArgumentException
@@ -501,7 +497,7 @@
                   href: ./hadoop/apache-hadoop-run-samples-linux.md
                 - name: Executar programas do MapReduce para o Apache Hadoop personalizados
                   href: ./hadoop/apache-hadoop-run-custom-programs.md
-                - name: 'Desenvolver programas MapReduce de transmissão em fluxo de C#'
+                - name: Desenvolver programas MapReduce de transmissão em fluxo de C#
                   href: ./hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md
                 - name: Desenvolver programas Java MapReduce
                   href: ./hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
@@ -725,8 +721,6 @@
               href: ./hbase/hbase-troubleshoot-pegged-cpu-region-server.md
             - name: Tempos limite com o comando “hbase hbck”
               href: ./hbase/hbase-troubleshoot-timeouts-hbase-hbck.md
-            - name: Resolução de problemas do Apache HBase
-              href: ./hbase/apache-troubleshoot-hbase.md
             - name: API REST para consultar o Apache HBase
               href: ./hbase/troubleshoot-rest-api.md
 - name: Interactive Query
@@ -758,7 +752,7 @@
           items:
             - name: Processar e analisar documentos JSON
               href: ./hadoop/using-json-in-hive.md
-            - name: 'Utilizar funções C# definidas pelo utilizador'
+            - name: Utilizar funções C# definidas pelo utilizador
               href: ./hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md
             - name: Utilizar o Python com o Apache Hive e o Apache Pig
               href: ./hadoop/python-udf-hdinsight.md
@@ -772,6 +766,8 @@
               href: ./hadoop/hdinsight-use-hive.md
             - name: Utilizar a Vista do Apache Hive
               href: ./hadoop/apache-hadoop-use-hive-ambari-view.md
+            - name: Ligar ao Apache Beeline
+              href: ./hadoop/connect-install-beeline.md
             - name: Utilizar o Apache Hive Beeline
               href: ./hadoop/apache-hadoop-use-hive-beeline.md
             - name: Utilizar o Grafana
@@ -891,7 +887,7 @@
                   href: ./storm/apache-storm-develop-java-topology.md
                 - name: Desenvolver topologias com Python
                   href: ./storm/apache-storm-develop-python-topology.md
-                - name: 'Desenvolver topologias com C#'
+                - name: Desenvolver topologias com C#
                   href: ./storm/apache-storm-develop-csharp-visual-studio-topology.md
                 - name: Guia de programação SCP.NET
                   href: ./storm/apache-storm-scp-programming-guide.md
@@ -899,7 +895,7 @@
                   href: ./storm/apache-storm-example-topology.md
             - name: Pipelines de transmissão em fluxo
               items:
-                - name: 'Hub de Eventos e Apache Storm (C# e Java)'
+                - name: Hub de Eventos e Apache Storm (C# e Java)
                   href: ./storm/apache-storm-develop-csharp-event-hub-topology.md
         - name: Gerir
           items:

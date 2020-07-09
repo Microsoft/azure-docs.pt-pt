@@ -1,77 +1,64 @@
 ---
-title: Funcionalidades de pré-visualização em REST API
+title: Lista de funcionalidades de pré-visualização
 titleSuffix: Azure Cognitive Search
-description: O serviço de pesquisa cognitiva Azure REST API Versão 2019-05-06-Preview inclui funcionalidades experimentais como a loja de conhecimento e o encado do indexante para enriquecimento incremental.
+description: As funcionalidades de pré-visualização são lançadas para que os clientes possam fornecer feedback sobre o seu design e utilidade. Este artigo é uma lista completa de todas as funcionalidades atualmente em pré-visualização.
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/11/2020
-ms.openlocfilehash: db941152186127302680b5e659e43cd2d82a8908
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: b0c6672dcc9340e727c36b0bcf03fc8a8b176a3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77162281"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830133"
 ---
-# <a name="preview-features-in-azure-cognitive-search"></a>Funcionalidades de pré-visualização na Pesquisa Cognitiva Azure
+# <a name="preview-features-in-azure-cognitive-search"></a>Funcionalidades de pré-visualização em Azure Cognitive Search
 
-Este artigo lista as funcionalidades atualmente em pré-visualização. As funcionalidades que transitam da pré-visualização para a disponibilidade geral são removidas desta lista. Pode consultar [atualizações](https://azure.microsoft.com/updates/?product=search) de serviço ou [O que há de novo](whats-new.md) para anúncios relativos à disponibilidade geral.
+Este artigo é uma lista completa de todas as funcionalidades que estão em pré-visualização para que possa determinar se as deve usar no código de produção. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Embora algumas funcionalidades de pré-visualização possam estar disponíveis no portal e no .NET SDK, o REST API tem sempre funcionalidades de pré-visualização.
+As funcionalidades de pré-visualização de que a transição para a disponibilidade geral são removidas desta lista. Se uma funcionalidade não estiver listada abaixo, pode presumir que está geralmente disponível. Para anúncios sobre disponibilidade geral, consulte [Atualizações de Serviço](https://azure.microsoft.com/updates/?product=search) ou [Novidades](whats-new.md).
 
-+ Para operações [**`2019-05-06-Preview`**](https://docs.microsoft.com/rest/api/searchservice/index-2019-05-06-preview) de pesquisa, é a versão de pré-visualização atual.
-+ Para operações [**`2019-10-01-Preview`**](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) de gestão, é a versão de pré-visualização atual.
+|Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
+|---------|------------------|-------------|---------------|
+| [**featuresOde parâmetro**](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/search-documents#featuresmode) | Relevância (pontuação) | Expansão da pontuação de relevância para incluir detalhes: por pontuação de semelhança de campo, por frequência de período de campo, e por número de campo de fichas únicas correspondidas. Pode consumir estes pontos de dados em [soluções de pontuação personalizadas.](https://github.com/Azure-Samples/search-ranking-tutorial) | Adicione este parâmetro de consulta utilizando [Documentos de Pesquisa (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) com versão api=2020-06-30-Preview ou 2019-05-06-Preview. |
+| [**Identidade de serviço gerida**](search-howto-managed-identities-data-sources.md) | Indexantes, segurança| Registe um serviço de pesquisa com o Azure Ative Directory para torná-lo um serviço de confiança e, em seguida, use permissões DE RBAC em fontes de dados Azure para permitir o acesso apenas de leitura por um indexante. | Aceda a esta capacidade quando utilizar o portal ou [criar fonte de dados (REST)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) com versão api=2020-06-30-Preview ou versão api=2019-05-06-Preview. |
+| [**Sessões de Debug**](cognitive-search-debug-session.md) | Portal, Enriquecimento de IA (skillset) | Um editor de skillset em sessão usado para investigar e resolver problemas com um skillset. As correções aplicadas durante uma sessão de depurar podem ser guardadas para um skillset no serviço. | Apenas portal, utilizando links de página média na página 'Vista Geral' para abrir uma sessão de depuração. |
+| [**Mancha nativa soft delete**](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) | Indexantes, bolhas Azure| O indexante de armazenamento Azure Blob na Azure Cognitive Search reconhecerá as bolhas que estão em estado de eliminação suave e removerá o documento de pesquisa correspondente durante a indexação. | Adicione esta definição de configuração usando [Criar Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) com versão api=2020-06-30-Preview ou versão api=2019-05-06-Preview. |
+| [**Competência de procura de entidade personalizada**](cognitive-search-skill-custom-entity-lookup.md ) | Enriquecimento de IA (skillset) | Uma habilidade cognitiva que procura texto a partir de uma lista personalizada, definida pelo utilizador de palavras e frases. Utilizando esta lista, rotula todos os documentos com quaisquer entidades correspondentes. A habilidade também suporta um grau de correspondência difusa que pode ser aplicada para encontrar fósforos que são semelhantes, mas não exatamente exatos. | Consulte esta habilidade de pré-visualização utilizando o editor skillset no portal ou [Create Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) com versão api=2020-06-30-Preview ou api-versão=2019-05-06-Preview. |
+| [**Competência de deteção pii**](cognitive-search-skill-pii-detection.md) | Enriquecimento de IA (skillset) | Uma habilidade cognitiva usada durante a indexação que extrai informações pessoalmente identificáveis de um texto de entrada e lhe dá a opção de mascar a partir desse texto de várias maneiras. | Consulte esta habilidade de pré-visualização utilizando o editor skillset no portal ou [Create Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) com versão api=2020-06-30-Preview ou api-versão=2019-05-06-Preview. |
+| [**Enriquecimento incremental**](cognitive-search-incremental-indexing-conceptual.md) | Configuração do indexante| Adiciona o caching a um pipeline de enriquecimento, permitindo-lhe reutilizar a saída existente se uma modificação direcionada, como uma atualização a um skillset ou outro objeto, não alterar o conteúdo. O caching aplica-se apenas a documentos enriquecidos produzidos por um skillset.| Adicione esta definição de configuração usando [Criar Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) com versão api=2020-06-30-Preview ou versão api=2019-05-06-Preview. |
+| [**Indexador Cosmos DB: MongoDB API, Gremlin API, Cassandra API**](search-howto-index-cosmosdb.md) | Fonte de dados indexante | Para cosmos DB, a SQL API está geralmente disponível, mas MongoDB, Gremlin e Cassandra APIs estão em pré-visualização. | Apenas para Gremlin e Cassandra, [inscreva-se primeiro](https://aka.ms/azure-cognitive-search/indexer-preview) para que o suporte possa ser ativado para a sua subscrição no backend. As fontes de dados mongoDB podem ser configuradas no portal. Caso contrário, a configuração da fonte de dados para as três APIs é suportada utilizando [criar fonte de dados (REST)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) com versão api=2020-06-30-Preview ou versão api=2019-05-06-Preview. |
+|  [**Indexador Azure Data Lake Storage Gen2**](search-howto-index-azure-data-lake-storage.md) | Fonte de dados indexante | Indexe conteúdo e metadados da Data Lake Storage Gen2.| É necessário [inscrever-se](https://aka.ms/azure-cognitive-search/indexer-preview) para que o suporte possa ser ativado para a sua subscrição no backend. Aceda a esta fonte de dados utilizando Criar Fonte de [Dados (REST)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) com versão api=2020-06-30-Preview ou versão api=2019-05-06-Preview. |
+| [**moreLikeThis**](search-more-like-this.md) | Consulta | Encontra documentos relevantes para um documento específico. Esta funcionalidade já esteve em pré-visualizações anteriores. | Adicione este parâmetro de consulta em chamadas [de Documentos de Busca (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) com versão api=2020-06-30-Preview, 2019-05-06-Preview, 2016-09-01-Preview ou 2017-11-11-Preview. |
 
-> [!IMPORTANT]
-> A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+## <a name="calling-preview-rest-apis"></a>Chamada pré-visualização REST APIs
 
-## <a name="ai-enrichment-features"></a>Características de enriquecimento de IA
+A Azure Cognitive Search sempre pré-lança funcionalidades experimentais através da API REST primeiro, depois através de versões pré-lançamento do .NET SDK.
 
-Explore as mais recentes melhorias no enriquecimento de IA através da [Pré-visualização Search API](https://docs.microsoft.com/rest/api/searchservice/index-2019-05-06-preview).
+As funcionalidades de pré-visualização estão disponíveis para testes e experimentação, com o objetivo de recolher feedback sobre o design e implementação de funcionalidades. Por esta razão, as funcionalidades de pré-visualização podem mudar ao longo do tempo, possivelmente de formas que rompem a retrocompatibilidade. Isto contrasta com as características de uma versão GA, que são estáveis e pouco prováveis de mudar, com exceção de pequenas correções e melhorias compatíveis com retro-retrocessições. Além disso, as funcionalidades de pré-visualização nem sempre o tornam num lançamento de GA.
 
-|||
-|-|-|
-| [Habilidade de procura de entidade personalizada (pré-visualização)](cognitive-search-skill-custom-entity-lookup.md ) | Uma habilidade cognitiva que procura texto a partir de uma lista personalizada e definida pelo utilizador de palavras e frases. Utilizando esta lista, rotula todos os documentos com quaisquer entidades correspondentes. A habilidade também suporta um grau de correspondência fuzzy que pode ser aplicado para encontrar fósforos que são semelhantes, mas não exatamente. | 
-| [Habilidade de deteção PII (pré-visualização)](cognitive-search-skill-pii-detection.md) | Uma habilidade cognitiva usada durante a indexação que extrai informações pessoalmente identificáveis de um texto de entrada e lhe dá a opção de a mascarar desse texto de várias maneiras.| 
-| [Enriquecimento incremental (pré-visualização)](cognitive-search-incremental-indexing-conceptual.md) | Adiciona cache a um pipeline de enriquecimento, permitindo-lhe reutilizar a saída existente se uma modificação direcionada, como uma atualização a um skillset ou outro objeto, não alterar o conteúdo. O caching aplica-se apenas a documentos enriquecidos produzidos por uma habilidade.| 
-| [Arquivo de dados de conhecimento (pré-visualização)](knowledge-store-concept-intro.md) | Um novo destino de um oleoduto de enriquecimento baseado em IA. A estrutura de dados físicos existe no armazenamento de Azure Blob e no armazenamento da mesa Azure, e é criada e povoada quando executa um indexante que tem uma habilidade cognitiva anexada. A definição de uma loja de conhecimentos em si é especificada dentro de uma definição de skillset. Dentro da definição da loja de conhecimento, você controla as estruturas físicas dos seus dados através de elementos de *projeção* que determinam como os dados são moldados, se os dados são armazenados em armazenamento de tabela ou armazenamento blob, e se existem múltiplas vistas.| 
+Embora algumas funcionalidades de pré-visualização possam estar disponíveis no portal e .NET SDK, a API REST tem sempre funcionalidades de pré-visualização.
 
-## <a name="indexing-and-query-features"></a>Características de indexação e consulta
++ Para operações de pesquisa, [**`2020-06-30-Preview`**](https://docs.microsoft.com/rest/api/searchservice/index-preview) é a versão atual de pré-visualização.
 
-As funcionalidades de pré-visualização do Indexer estão disponíveis na Pré-visualização Search API. 
++ Para operações de gestão, [**`2019-10-01-Preview`**](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) é a versão atual de pré-visualização.
 
-|||
-|-|-|
-| [Indexador do Cosmos DB](search-howto-index-cosmosdb.md) | Suporte para mongoDB API (pré-visualização), Gremlin API (pré-visualização) e Cassandra API (pré-visualização) tipos de API. | 
-|  [Indexador de armazenamento de lagos Azure Data Gen2 (pré-visualização)](search-howto-index-azure-data-lake-storage.md) | Conteúdo de índice e metadados do Data Lake Storage Gen2.| 
-| [maisLikeEste parâmetro de consulta (pré-visualização)](search-more-like-this.md) | Encontra documentos relevantes para um documento específico. Esta funcionalidade já esteve em pré-visualizações anteriores. | 
+As pré-visualizações mais antigas ainda estão operacionais, mas ficam velhas com o tempo. Se o seu código ligar `api-version=2019-05-06-Preview` `api-version=2016-09-01-Preview` `api-version=2017-11-11-Preview` ou, essas chamadas ainda forem válidas. No entanto, apenas a versão de pré-visualização mais recente é atualizada com melhorias. 
 
-## <a name="management-features"></a>Características de gestão
+A sintaxe de exemplo a seguir ilustra uma chamada para a versão API de pré-visualização.
 
-|||
-|-|-|
-| [Suporte private Endpoint](service-create-private-endpoint.md) | Pode criar uma rede virtual com um cliente seguro (como uma máquina virtual) e, em seguida, criar um serviço de pesquisa que utilize o Private Endpoint. |
-| Restrição de acesso IP | Utilizando [`api-version=2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) a API MANAGEMENT REST, pode criar um serviço que tem restrições nas quais os endereços IP são permitidos de acesso. |
+```HTTP
+GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2020-06-30-Preview
+```
 
-## <a name="earlier-preview-features"></a>Funcionalidades de pré-visualização anteriores
+O serviço Azure Cognitive Search está disponível em várias versões. Para mais informações, consulte as [versões API](search-api-versions.md).
 
-As funcionalidades anunciadas em pré-visualizações anteriores, caso não tenham transitado para a disponibilidade geral, ainda estão em pré-visualização pública. Se estiver a chamar uma API com uma versão api de pré-visualização `2019-05-06-Preview` anterior, pode continuar a usar essa versão ou mudar para sem alterações no comportamento esperado.
+## <a name="next-steps"></a>Próximos passos
 
-## <a name="how-to-call-a-preview-api"></a>Como chamar uma API de pré-visualização
-
-As pré-visualizações mais antigas ainda estão operacionais, mas tornam-se velhas com o tempo. Se o `api-version=2016-09-01-Preview` seu `api-version=2017-11-11-Preview`código ligar ou, essas chamadas ainda são válidas. No entanto, apenas a versão de pré-visualização mais recente é atualizada com melhorias. 
-
-O seguinte exemplo de sintaxe ilustra uma chamada para a versão API de pré-visualização.
-
-    GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2019-05-06-Preview
-
-O serviço de Pesquisa Cognitiva Azure está disponível em várias versões. Para mais informações, consulte [versões API](search-api-versions.md).
-
-## <a name="next-steps"></a>Passos seguintes
-
-Reveja a documentação de referência da API do Search REST. Se encontrar problemas, peça-nos ajuda no [StackOverflow](https://stackoverflow.com/) ou [suporte de contato](https://azure.microsoft.com/support/community/?product=search).
+Reveja a documentação de referência da API de pré-visualização de pré-visualização de pesquisa. Se encontrar problemas, peça-nos ajuda no [Stack Overflow](https://stackoverflow.com/) ou [no suporte de contacto.](https://azure.microsoft.com/support/community/?product=search)
 
 > [!div class="nextstepaction"]
-> [Serviço de pesquisa REFERÊNCIA REST API](https://docs.microsoft.com/rest/api/searchservice/)
+> [Referência de API do serviço de pesquisa REST (Pré-visualização)](https://docs.microsoft.com/rest/api/searchservice/index-preview)

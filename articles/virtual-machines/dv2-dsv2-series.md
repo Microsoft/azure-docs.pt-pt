@@ -1,26 +1,25 @@
 ---
-title: Série Dv2 e Dsv2 - Máquinas Virtuais Azure
+title: Série Dv2 e Dsv2 - Azure Virtual Machines
 description: Especificações para os VMs da série Dv2 e Dsv2.
-services: virtual-machines
 author: joelpelley
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: 808b14f118e842cb9e52d110075f92ba25a343c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: jushiman
+ms.openlocfilehash: 71d00da5cc0021aacbe849a541ff386cc6414ff2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78164428"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84694642"
 ---
 # <a name="dv2-and-dsv2-series"></a>Séries Dv2 e DSv2
 
-As séries Dv2 e Dsv2, uma continuação da série D original, apresentam um CPU mais potente e uma configuração ideal cpu-a-memória tornando-as adequadas para a maioria das cargas de trabalho de produção. A série Dv2 é cerca de 35% mais rápida que a série D. As séries Dv2 correm nos intel® Xeon® 8171M 2.1GHz (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), ou os processadores Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) com os processadores Intel Turbo Boost Technology 2.0. A série Dv2 tem as mesmas configurações de memória e disco da série D.
+A série Dv2 e Dsv2, uma continuação da série D original, apresenta um CPU mais potente e uma configuração de CPU-para-memória ideal, tornando-as adequadas para a maioria das cargas de trabalho de produção. A série Dv2 é cerca de 35% mais rápida que a série D. Série dv2 executada em Intel® Xeon® Platinum 8272CL (Lago cascata), Intel® Xeon® 8171M 2.1GHz (Skylake), Intel® Xeon® E 5-2673 v4 2.3 GHz (Broadwell), ou os processadores Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) com os processadores Intel Turbo Boost Technology 2.0. A série Dv2 tem as mesmas configurações de memória e disco da série D.
 
 ## <a name="dv2-series"></a>Série Dv2
 
-Os tamanhos da série Dv2 funcionam nos processadores Intel® Xeon® 8171M 2.1GHz (Skylake) ou nos processadores Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) ou na Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) com intel Turbo Boost Technology 2.0.
+Os tamanhos da série Dv2 são executados em Intel® Xeon® Platinum 8272CL (Lago cascata), Intel® Xeon® 8171M 2.1GHz (Skylake) ou no Intel® Xeon® <2> E5-2673 v4 2.3 GHz (Broadwell) ou os processadores Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) com Intel Turbo Boost Technology 2.0.
 
 ACU: 210-250
 
@@ -28,11 +27,11 @@ Armazenamento Premium: Não Suportado
 
 Caching de armazenamento premium: Não suportado
 
-Migração Ao Vivo: Apoiado
+Migração ao Vivo: Suportado
 
-Atualizações de preservação da memória: Suportado
+Atualizações de preservação da memória: Suportadas
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Entrada de armazenamento de temperatura máxima: IOPS/Ler MBps/Write MBps | Discos de dados máximos | Entrada: IOPS | Largura de banda de rede Max NICs/Esperado (Mbps) |
+| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Produção de armazenamento temporário máximo: IOPS/Read MBps/Write MBps | Discos de dados máximos | Produção: IOPS | Largura de banda de rede Max NICs/Expect (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_D1_v2 | 1  | 3.5 | 50  | 3000/46/23    | 4  | 4x500  | 2/750   |
 | Standard_D2_v2 | 2  | 7   | 100 | 6000/93/46    | 8  | 8x500  | 2/1500  |
@@ -42,7 +41,7 @@ Atualizações de preservação da memória: Suportado
 
 ## <a name="dsv2-series"></a>Série DSv2
 
-Os tamanhos da série DSv2 funcionam nos processadores Intel® Xeon® 8171M 2.1GHz (Skylake) ou nos processadores Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) ou na Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) com a Intel Turbo Boost Technology 2.0 e o armazenamento premium.
+Os tamanhos da série DSv2 funcionam na Intel® Xeon® Platinum 8272CL (Lago cascade), Intel® Xeon® 8171M 2.1GHz (Skylake) ou no Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) ou os processadores Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) com Intel Turbo Boost Technology 2.0 e usam armazenamento premium.
 
 ACU: 210-250
 
@@ -50,11 +49,11 @@ Armazenamento Premium: Suportado
 
 Caching de armazenamento premium: Suportado
 
-Migração Ao Vivo: Apoiado
+Migração ao Vivo: Suportado
 
-Atualizações de preservação da memória: Suportado
+Atualizações de preservação da memória: Suportadas
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Entrada de armazenamento em cache e temperatura máxima: IOPS/MBps (tamanho cache em GiB) | Potência de disco max uncached: IOPS/MBps | Largura de banda de rede Max NICs/Esperado (Mbps) |
+| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps (tamanho da cache em GiB) | Produção de disco não-abacatado por maxilar: IOPS/MBps | Largura de banda de rede Max NICs/Expect (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_DS1_v2 | 1  | 3.5 | 7   | 4  | 4000/32 (43)    | 3200/48   | 2/750   |
 | Standard_DS2_v2 | 2  | 7   | 14  | 8  | 8000/64 (86)    | 6400/96   | 2/1500  |
@@ -73,6 +72,6 @@ Atualizações de preservação da memória: Suportado
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre como as unidades de [computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho da computação em Azure SKUs.
+Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

@@ -1,6 +1,6 @@
 ---
-title: ARRAY_CONTAINS na linguagem de consulta do Azure Cosmos DB
-description: Saiba como a função do sistema SQL contém sQL em Azure Cosmos DB devolve uma Boolean indicando se a matriz contém o valor especificado
+title: ARRAY_CONTAINS na linguagem de consulta DB do Azure Cosmos
+description: Saiba como o sistema Array Contém SQL em Azure Cosmos DB devolve um Boolean indicando se a matriz contém o valor especificado
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 47fe20888aa546e414b268b30c2e03580750a040
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78303482"
 ---
 # <a name="array_contains-azure-cosmos-db"></a>ARRAY_CONTAINS (Azure Cosmos DB)
-Devolve uma Boolean indicando se a matriz contém o valor especificado. Pode verificar se há uma correspondência parcial ou completa de um objeto utilizando uma expressão booleana dentro do comando. 
+Devolve um Boolean indicando se a matriz contém o valor especificado. Pode verificar se há uma correspondência parcial ou completa de um objeto utilizando uma expressão booleana dentro do comando. 
 
 ## <a name="syntax"></a>Sintaxe
   
@@ -26,21 +25,21 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 ## <a name="arguments"></a>Argumentos
   
 *arr_expr*  
-   É a expressão da matriz a ser revistada.  
+   É a expressão de matriz a ser revistada.  
   
 *expr*  
    É a expressão a ser encontrada.  
 
 *bool_expr*  
-   É uma expressão booleana. Se avaliar como 'verdadeiro' e se o valor de pesquisa especificado for um objeto, o comando verifica uma correspondência parcial (o objeto de pesquisa é um subconjunto de um dos objetos). Se avaliar como 'falso', o comando verifica uma correspondência completa de todos os objetos dentro da matriz. O valor predefinido se não especificado é falso. 
+   É uma expressão booleana. Se avaliar a 'verdade' e se o valor de pesquisa especificado for um objeto, o comando verifica uma correspondência parcial (o objeto de pesquisa é um subconjunto de um dos objetos). Se avaliar a "falsa", o comando verifica uma correspondência completa de todos os objetos dentro da matriz. O valor predefinido se não especificado é falso. 
   
 ## <a name="return-types"></a>Tipos de retorno
   
-  Devolve um valor booleano.  
+  Devolve um valor Boolean.  
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte como verificar a `ARRAY_CONTAINS`adesão numa matriz utilizando .  
+  O exemplo a seguir como verificar a adesão numa matriz utilizando `ARRAY_CONTAINS` .  
   
 ```sql
 SELECT   
@@ -54,7 +53,7 @@ SELECT
 [{"b1": true, "b2": false}]  
 ```  
 
-O exemplo seguinte como verificar se há uma correspondência parcial de um JSON numa matriz utilizando ARRAY_CONTAINS.  
+O exemplo seguinte como verificar uma correspondência parcial de um JSON numa matriz utilizando ARRAY_CONTAINS.  
   
 ```sql
 SELECT  
@@ -75,10 +74,10 @@ SELECT
 
 ## <a name="remarks"></a>Observações
 
-Esta função do sistema beneficiará de um índice de [alcance](index-policy.md#includeexclude-strategy).
+Esta função do sistema beneficiará de um [índice de intervalo.](index-policy.md#includeexclude-strategy)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Funções de matriz Azure Cosmos DB](sql-query-array-functions.md)
-- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

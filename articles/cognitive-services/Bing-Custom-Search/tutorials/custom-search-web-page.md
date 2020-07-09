@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Criar uma página Web de pesquisa personalizada - Pesquisa Personalizada do Bing'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a configurar uma instância de pesquisa personalizada do Bing e integrá-la numa página web com este tutorial.
+description: Aprenda a configurar uma instância de pesquisa bing personalizada e integre-a numa página web com este tutorial.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: c7b41f77f8eb57c39489f1e5a69b0ac1c3c9c7d4
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: da1ada27b9420643f6f0b15f0986c245ba585acd
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78943916"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921934"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Criar uma página Web de Pesquisa Personalizada
 
-Saiba como a Pesquisa Personalizada do Bing lhe permite criar experiências de pesquisa personalizada dos tópicos que mais lhe interessam. Por exemplo, se for proprietário de um site de artes marciais que fornece uma experiência de pesquisa, pode-se especificar os domínios, subsites e páginas Web que o Bing pesquisa. Os seus utilizadores veem resultados de pesquisa personalizados de acordo com os conteúdos que lhes interessam, em vez de terem de percorrer resultados de pesquisa gerais que podem apresentar conteúdos irrelevantes. 
+Saiba como a Pesquisa Personalizada do Bing lhe permite criar experiências de pesquisa personalizada dos tópicos que mais lhe interessam. Por exemplo, se possuir um site de artes marciais que forneça uma experiência de pesquisa, pode especificar os domínios, sub-sites e páginas web que bing pesquisa. Os seus utilizadores veem resultados de pesquisa personalizados de acordo com os conteúdos que lhes interessam, em vez de terem de percorrer resultados de pesquisa gerais que podem apresentar conteúdos irrelevantes. 
 
 Este tutorial demonstra como configurar uma instância de pesquisa personalizada e integrá-la numa nova página Web.
 
@@ -34,8 +34,8 @@ As tarefas abrangidas são:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Para acompanhar o tutorial, necessita de uma chave de subscrição para a API de Pesquisa Personalizada do Bing.  Para obter uma chave, [Crie um recurso de pesquisa personalizada Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) no portal Azure. também pode usar uma chave de [ensaio.](https://azure.microsoft.com/try/cognitive-services)
-- Se ainda não tiver o Visual Studio 2017 ou posteriormente instalado, pode descarregar e utilizar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) **gratuito.**
+- Para acompanhar o tutorial, necessita de uma chave de subscrição para a API de Pesquisa Personalizada do Bing.  Para obter uma chave, [Crie um recurso de pesquisa personalizada Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) no portal Azure.
+- Se ainda não tiver o Visual Studio 2017 ou posteriormente **free** instalado, pode descarregar e utilizar a [Edição Comunitária visual 2019 gratuita do Visual Studio 2019.](https://www.visualstudio.com/downloads/)
 
 ## <a name="create-a-custom-search-instance"></a>Criar uma instância de pesquisa personalizada
 
@@ -45,9 +45,9 @@ Para criar uma instância de Pesquisa Personalizada do Bing:
   
 2. Navegue para o [portal](https://customsearch.ai) da pesquisa personalizada.  
   
-3. Inicie sessão no portal com uma conta Microsoft (MSA). Se não tiver um MSA, clique em **Criar uma conta Microsoft**. Se for a primeira vez que usa o portal, pedirá permissões para aceder aos seus dados. Clique **sim**.  
+3. Inicie sessão no portal com uma conta Microsoft (MSA). Se não tiver um MSA, clique em **Criar uma conta Microsoft**. Se for a primeira vez que utiliza o portal, irá pedir permissões para aceder aos seus dados. Clique **em Sim**.  
   
-4. Depois de iniciar sessão, clique em **Nova pesquisa personalizada**. Na **janela Criar uma nova janela** de instância de pesquisa personalizada, insira um nome significativo e descreva o tipo de conteúdo que a pesquisa retorna. Pode alterar o nome em qualquer altura.  
+4. Depois de iniciar sessão, clique em **Nova pesquisa personalizada**. Na janela Criar uma nova janela **de instância de pesquisa personalizada,** insira um nome que seja significativo e descreva o tipo de conteúdo que a pesquisa retorna. Pode alterar o nome em qualquer altura.  
   
    ![Captura de ecrã da caixa Criar uma nova instância de pesquisa personalizada](../media/newCustomSrch.png)  
   
@@ -60,11 +60,11 @@ Para criar uma instância de Pesquisa Personalizada do Bing:
 
 Para incluir os resultados de sites ou URLs específicos, adicione-os ao separador **Ativo**.
 
-1.       Na página **Configuração**, clique no separador **Ativo** e introduza o URL de um ou mais sites que queira incluir na sua pesquisa.
+1. Na página **Configuração**, clique no separador **Ativo** e introduza o URL de um ou mais sites que queira incluir na sua pesquisa.
 
     ![Captura de ecrã do separador Ativo do Editor de Definições](../media/customSrchEditor.png)
 
-2.       Para confirmar que a sua instância devolve resultados, introduza uma consulta no painel de pré-visualização no lado direito. O Bing só devolve resultados para sites públicos que lhe estejam indexados.
+2. Para confirmar que a sua instância devolve resultados, introduza uma consulta no painel de pré-visualização no lado direito. O Bing só devolve resultados para sites públicos que lhe estejam indexados.
 
 ## <a name="add-blocked-entries"></a>Adicionar entradas bloqueadas
 
@@ -79,7 +79,7 @@ Para excluir os resultados de sites ou URLs específicos, adicione-os ao separad
 
 ## <a name="add-pinned-entries"></a>Adicionar entradas afixadas
 
-Para fixar uma página web específica no topo dos resultados da pesquisa, adicione a página web e o termo de consulta ao separador **Pinned.** O separador **Pinned** contém uma lista de pares de prazos de página web e consulta que especificam a página web que aparece como o resultado superior para uma consulta específica. A página web só é fixada se a corda de consulta do utilizador corresponder à corda de consulta do pino com base na condição de correspondência do pino. Apenas as páginas Web indexadas serão apresentadas nas pesquisas. Veja [Definir a sua vista personalizada](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results) para obter mais informações.
+Para fixar uma página web específica no topo dos resultados de pesquisa, adicione a página web e o termo de consulta ao **separador Pinned.** O separador **Pinned** contém uma lista de pares de páginas web e de termo de consulta que especificam a página web que aparece como o resultado principal para uma consulta específica. A página web só é fixada se a cadeia de consulta do utilizador corresponder à cadeia de consulta do pino com base na condição de correspondência do pino. Apenas as páginas Web indexadas serão apresentadas nas pesquisas. Para mais informações, consulte [Definir a sua vista personalizada.](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results)
 
 1. Na página **Configuração**, clique no separador **Afixado** e introduza o termo de página Web e consulta da página Web a devolver como o melhor resultado.  
   
@@ -116,7 +116,7 @@ A Pesquisa Personalizada fornece uma IU alojada para compor a resposta JSON da s
 
    ![Captura de ecrã do passo de configurações avançadas da IU Alojada](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
-5. Selecione as chaves de subscrição nas listas pendentes. Em alternativa, pode introduzir a chave de subscrição manualmente. Para obter informações sobre como obter chaves, veja [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
+5. Selecione as chaves de subscrição nas listas pendentes. Em alternativa, pode introduzir a chave de subscrição manualmente.
   
    ![Captura de ecrã do passo de configurações adicionais da IU Alojada](./media/custom-search-hosted-ui-subscription-key.png)
 
@@ -130,7 +130,7 @@ Existem duas formas de consumir a IU alojada.
 - Opção 1: Integrar o fragmento de JavaScript fornecido na sua aplicação.
 - Opção 2: Utilizar o Ponto Final de HTML fornecido.
 
-O resto deste tutorial ilustra a **Opção 1: fragmento de Javascript**.  
+O restante deste tutorial ilustra **a Opção 1: JavaScript snippet**.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Configurar a sua solução do Visual Studio
 

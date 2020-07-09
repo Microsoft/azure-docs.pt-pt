@@ -1,39 +1,39 @@
 ---
-title: Access Azure Cosmos DB Cassandra API da Azure Databricks
-description: Este artigo abrange como trabalhar com a Azure Cosmos DB Cassandra API da Azure Databricks.
+title: Acesso Azure Cosmos DB Cassandra API da Azure Databricks
+description: Este artigo abrange como trabalhar com Azure Cosmos DB Cassandra API da Azure Databricks.
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: 37a06b19285c1196b5d87830ea176d4bd0d4eade
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30bd3187973de204f27a3be3862351550d6a56f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60894016"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260479"
 ---
-# <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Access Azure Cosmos DB Cassandra API dados da Azure Databricks
+# <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Acesso Azure Cosmos DB Cassandra Dados API da Azure Databricks
 
-Este artigo detalha como trabalhar com a Azure Cosmos DB Cassandra API da Spark on [Azure Databricks.](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks)
+Este artigo detalha como trabalhar com a Azure Cosmos DB Cassandra API da Spark on [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Provisão de uma conta API Da API da Azure Cosmos DB Cassandra](create-cassandra-dotnet.md#create-a-database-account)
+* [Provisão de uma conta Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md#create-a-database-account)
 
 * [Reveja os fundamentos da ligação à Azure Cosmos DB Cassandra API](cassandra-spark-generic.md)
 
-* [Provision um cluster de tijolos de dados Azure](../azure-databricks/quickstart-create-databricks-workspace-portal.md)
+* [Provisão de um cluster Azure Databricks](../azure-databricks/quickstart-create-databricks-workspace-portal.md)
 
 * [Reveja as amostras de código para trabalhar com a Cassandra API](cassandra-spark-generic.md#next-steps)
 
 * [Use cqlsh para validação se preferir](cassandra-spark-generic.md#connecting-to-azure-cosmos-db-cassandra-api-from-spark)
 
-* **Configuração de instância Cassandra API para conector Cassandra:**
+* **Configuração de instância da Cassandra API para conector Cassandra:**
 
-  O conector da Cassandra API exige que os detalhes da ligação de Cassandra sejam inicializados como parte do contexto de faísca. Quando lança um caderno Databricks, o contexto de faísca já está inicializado e não é aconselhável parar e reinicializá-lo. Uma solução é adicionar a configuração da instância Cassandra API a um nível de cluster, na configuração de faísca de cluster. Esta é uma atividade única por cluster. Adicione o seguinte código à configuração Spark como um par de valor chave separado do espaço:
+  O conector da API cassandra requer que os detalhes da ligação cassandra sejam inicializados como parte do contexto de faísca. Quando se lança um caderno Databricks, o contexto de faísca já está inicializado e não é aconselhável parar e reinitializá-lo. Uma solução é adicionar a configuração de instância da API cassandra a um nível de cluster, na configuração de faíscas de cluster. Esta é uma atividade única por cluster. Adicione o seguinte código à configuração Spark como um par de valor de chave separado do espaço:
  
   ```scala
   spark.cassandra.connection.host YOUR_COSMOSDB_ACCOUNT_NAME.cassandra.cosmosdb.azure.com
@@ -45,25 +45,25 @@ Este artigo detalha como trabalhar com a Azure Cosmos DB Cassandra API da Spark 
 
 ## <a name="add-the-required-dependencies"></a>Adicionar as dependências necessárias
 
-* **Conector Cassandra Spark:** - Para integrar a API da Azure Cosmos DB Cassandra com a Spark, o conector Cassandra deve ser ligado ao cluster Azure Databricks. Para fixar o cluster:
+* **Conector Cassandra Spark:** - Para integrar a Azure Cosmos DB Cassandra API com a Spark, o conector Cassandra deve ser ligado ao cluster Azure Databricks. Para fixar o cluster:
 
-  * Reveja a versão de tempo de execução databricks, a versão Spark. Em seguida, encontre as [coordenadas maven](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) que são compatíveis com o conector Cassandra Spark, e anexe-a ao cluster. Consulte o artigo ["Upload de um pacote Maven ou pacote Spark"](https://docs.databricks.com/user-guide/libraries.html) para anexar a biblioteca do conector ao cluster. Por exemplo, a coordenada Maven para "Databricks Runtime version 4.3", "Spark 2.3.1", e "Scala 2.11" é`spark-cassandra-connector_2.11-2.3.1`
+  * Reveja a versão de runtime databricks, a versão Spark. Em seguida, encontre as [coordenadas maven](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) compatíveis com o conector Cassandra Spark, e prenda-as ao cluster. Consulte o artigo ["Carregar um pacote Maven ou pacote Spark"](https://docs.databricks.com/user-guide/libraries.html) para anexar a biblioteca do conector ao cluster. Por exemplo, a coordenada maven para "Databricks Runtime versão 4.3", "Spark 2.3.1" e "Scala 2.11" é`spark-cassandra-connector_2.11-2.3.1`
 
-* Biblioteca específica da **Azure Cosmos DB Cassandra API:** - É necessária uma fábrica de ligação personalizada para configurar a política de retry desde o conector Cassandra Spark até à Azure Cosmos DB Cassandra API. Adicione `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0`as [coordenadas maven](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) para anexar a biblioteca ao cluster.
+* **Biblioteca específica da Azure Cosmos DB Cassandra:** - Uma fábrica de conexão personalizada é necessária para configurar a política de retripagem do conector Cassandra Spark para a Azure Cosmos DB Cassandra API. Adicione as `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0` [coordenadas maven](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) para anexar a biblioteca ao cluster.
 
 ## <a name="sample-notebooks"></a>Blocos de notas de exemplo
 
-Uma lista de cadernos de [amostras](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/notebooks/scala) Azure Databricks estão disponíveis no repo GitHub para você descarregar. Estas amostras incluem como ligar-se à API De Spark e realizar diferentes operações de CRUD nos dados. Também pode [importar todos os cadernos](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/dbc) para o seu espaço de trabalho de cluster Databricks e executá-lo. 
+Uma lista de cadernos de [amostras](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/notebooks/scala) de Azure Databricks estão disponíveis no gitHub repo para você baixar. Estas amostras incluem como ligar-se à Azure Cosmos DB Cassandra API da Spark e realizar diferentes operações crud nos dados. Você também pode [importar todos os cadernos](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/dbc) para o seu espaço de trabalho do cluster Databricks e executá-lo. 
 
-## <a name="accessing-azure-cosmos-db-cassandra-api-from-spark-scala-programs"></a>Acesso à Azure Cosmos DB Cassandra API dos programas Spark Scala
+## <a name="accessing-azure-cosmos-db-cassandra-api-from-spark-scala-programs"></a>Acesso a Azure Cosmos DB Cassandra API dos programas Spark Scala
 
-Os programas de faíscas a serem executados à medida que os processos automatizados em Azure Databricks são submetidos ao cluster utilizando o [spark-submit](https://spark.apache.org/docs/latest/submitting-applications.html)) e programados para executar através dos trabalhos de Azure Databricks.
+Os programas spark a serem executados como processos automatizados em Azure Databricks são submetidos ao cluster usando [o spark-submit](https://spark.apache.org/docs/latest/submitting-applications.html)) e programados para executar através dos trabalhos Azure Databricks.
 
-Seguem-se links para o ajudar a começar a construir programas Spark Scala para interagir com a API DB Cassandra da Azure Cosmos.
+Seguem-se links para o ajudar a começar a construir programas Spark Scala para interagir com a Azure Cosmos DB Cassandra API.
 * [Como ligar-se à Azure Cosmos DB Cassandra API de um programa Spark Scala](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/master/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
-* [Como executar um programa Spark Scala como um trabalho automatizado em Azure Databricks](https://docs.azuredatabricks.net/user-guide/jobs.html)
+* [Como executar um programa Spark Scala como um trabalho automatizado na Azure Databricks](https://docs.azuredatabricks.net/user-guide/jobs.html)
 * [Lista completa de amostras de código para trabalhar com a Cassandra API](cassandra-spark-generic.md#next-steps)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Começar a [criar uma conta de API para Cassandra do Azure Cosmos DB, uma base de dados e uma tabela](create-cassandra-api-account-java.md) com uma aplicação Java.

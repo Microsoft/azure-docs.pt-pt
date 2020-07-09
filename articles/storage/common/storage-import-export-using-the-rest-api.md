@@ -1,29 +1,29 @@
 ---
-title: Utilização do serviço de importação/exportação Azure REST API [ Microsoft Docs
-description: Saiba onde encontrar recursos para utilizar o serviço de importação/exportação Azure REST API, incluindo tanto o material de como e de referência.
+title: Utilizando o serviço Azure Import/Export REST API ; Microsoft Docs
+description: Saiba onde encontrar recursos para utilizar o serviço Azure Import/Export REST API, incluindo material de como fazer e referência.
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: 833b8c79fba57b7129092e084381c0671c396496
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ae80c00fd81d0966167d2adf00764a0b1089c163
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74978871"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514116"
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Utilizar a API REST do serviço Importar/Exportar do Azure
 
-O serviço de importação/exportação do Microsoft Azure expõe uma API REST para permitir o controlo programático de postos de trabalho de importação/exportação. Pode utilizar a API REST para realizar todas as operações de importação/exportação que pode realizar com o [portal Azure](https://portal.azure.com/). Além disso, pode utilizar a API REST para realizar determinadas operações granulares, tais como a consulta da percentagem de conclusão de um emprego, que não está atualmente disponível no portal Azure.
+O serviço Microsoft Azure Import/Export expõe uma API REST para permitir o controlo programático de postos de trabalho de importação/exportação. Pode utilizar a API REST para realizar todas as operações de importação/exportação que pode realizar com o [portal Azure.](https://portal.azure.com/) Além disso, pode utilizar a API REST para realizar determinadas operações granulares, como a consulta da conclusão percentual de um trabalho, que não está atualmente disponível no portal Azure.
 
-Consulte [a utilização do serviço de importação/exportação do Microsoft Azure para transferir dados para o Armazenamento Blob](../storage-import-export-service.md) para uma visão geral do serviço de importação/exportação e um tutorial que demonstre como usar o portal para criar e gerir postos de trabalho de importação e exportação.
+Consulte [a Utilização do serviço de importação/exportação do Microsoft Azure para transferir dados para](../storage-import-export-service.md) o Blob Storage para uma visão geral do serviço de importação/exportação e um tutorial que demonstra como usar o portal para criar e gerir postos de trabalho de importação e exportação.
 
 ## <a name="service-endpoints"></a>Pontos finais de serviço
 
-O serviço azure import/exportação é um fornecedor de recursos para o Gestor de Recursos Azure e fornece um conjunto de APIs REST no seguinte ponto final HTTPS para a gestão de postos de trabalho de importação/exportação:
+O serviço Azure Import/Export é um fornecedor de recursos para o Gestor de Recursos Azure e fornece um conjunto de APIs REST no seguinte ponto final HTTPS para a gestão de postos de trabalho de importação/exportação:
 
 ```
 https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ImportExport/jobs/<job-name>
@@ -31,9 +31,9 @@ https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<res
 
 ## <a name="versioning"></a>Controlo de versões
 
-Os pedidos ao serviço de importação/exportação devem especificar o parâmetro e definir o `api-version` seu valor para `2016-11-01`.
+Os pedidos ao serviço de importação/exportação devem especificar o parâmetro e definir o `api-version` seu valor para `2016-11-01` .
 
-## <a name="importexport-service-operations"></a>Operações de serviço de importação/exportação
+## <a name="importexport-service-operations"></a>Operações de serviços de importação/exportação
 
 [Criação de uma tarefa de importação](../storage-import-export-creating-an-import-job.md)
 
@@ -45,10 +45,10 @@ Os pedidos ao serviço de importação/exportação devem especificar o parâmet
 
 [Cancelar e eliminar tarefas](storage-import-export-cancelling-and-deleting-jobs.md)
 
-[Backing Up drive manifesta](../storage-import-export-backing-up-drive-manifests.md)
+[Manifestos de unidade de backup Up](../storage-import-export-backing-up-drive-manifests.md)
 
 [Recuperação de diagnósticos e erros para tarefas de Importação/Exportação](../storage-import-export-diagnostics-and-error-recovery.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Depósito importação/DESCANSO DE Exportação](/rest/api/storageimportexport)
+* [Importação de armazenamento/exportação DESE](/rest/api/storageimportexport)

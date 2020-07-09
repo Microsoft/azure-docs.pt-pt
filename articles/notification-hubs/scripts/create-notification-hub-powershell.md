@@ -1,5 +1,5 @@
 ---
-title: Criar um hub de notificação Azure utilizando a PowerShell [ Microsoft Docs
+title: Criar um centro de notificação Azure utilizando o PowerShell Microsoft Docs
 description: Saiba como usar um script PowerShell para criar um centro de notificação Azure.
 author: dimazaid
 manager: femila
@@ -13,15 +13,14 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: dimazaid
 ms.openlocfilehash: 01749e1ae5c29a7e77b2143939e25cf1ccd1aec2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76263983"
 ---
 # <a name="use-powershell-to-create-an-azure-notification-hub"></a>Use o PowerShell para criar um centro de notificação Azure
 
-Este script da amostra PowerShell cria um centro de notificação Azure de amostra. 
+Esta amostra O script PowerShell cria uma amostra do centro de notificação Azure. 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -29,7 +28,7 @@ Este script da amostra PowerShell cria um centro de notificação Azure de amost
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Subscrição Azure** - Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Subscrição Azure** - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -37,7 +36,7 @@ Este script da amostra PowerShell cria um centro de notificação Azure de amost
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
-Depois de executar o script da amostra, pode utilizar o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo:
+Depois de executar o script da amostra, pode utilizar o seguinte comando para remover o grupo de recursos e todos os recursos que lhe estão associados:
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
@@ -50,11 +49,11 @@ Este script utiliza os seguintes comandos:
 | Comando | Notas |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [New-AzNotificationHubsNamesNamespace](/powershell/module/az.notificationhubs/new-aznotificationhubsnamespace) | Cria um espaço de nome para o centro de notificação. |
-| [Novo AzNotificationHub](/powershell/module/az.notificationhubs/new-aznotificationhub) | Cria um centro de notificação. |
+| [Novo-AzNotificationHubsNamespace](/powershell/module/az.notificationhubs/new-aznotificationhubsnamespace) | Cria um espaço de nome para o centro de notificação. |
+| [New-AzNotificationHub](/powershell/module/az.notificationhubs/new-aznotificationhub) | Cria um centro de notificação. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).

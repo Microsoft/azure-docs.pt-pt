@@ -1,22 +1,22 @@
 ---
 title: Melhores práticas de isolamento de cluster
 titleSuffix: Azure Kubernetes Service
-description: Conheça as melhores práticas do operador de cluster para o isolamento no Serviço Azure Kubernetes (AKS)
+description: Conheça as melhores práticas do operador de cluster para isolamento no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 00643dc1699d1cbd47efd271738015ea05e895e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 12c65f3b4241d3e732c51acb6ffa95ff314efb50
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668344"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077771"
 ---
-# <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Boas práticas para o isolamento de clusters no Serviço Azure Kubernetes (AKS)
+# <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Melhores práticas para isolamento de clusters no Serviço Azure Kubernetes (AKS)
 
-Como gere clusters no Serviço Azure Kubernetes (AKS), muitas vezes precisa de isolar equipas e cargas de trabalho. A AKS proporciona flexibilidade na forma como pode gerir aglomerados multi-inquilinos e isolar recursos. Para maximizar o seu investimento em Kubernetes, estas características de vários arrendamentos e isolamento devem ser compreendidas e implementadas.
+À medida que gere clusters no Serviço Azure Kubernetes (AKS), muitas vezes precisa isolar equipas e cargas de trabalho. A AKS proporciona flexibilidade na forma como pode gerir clusters multi-inquilinos e isolar recursos. Para maximizar o seu investimento em Kubernetes, estas características de multi-arrendamento e isolamento devem ser compreendidas e implementadas.
 
-Este artigo de boas práticas centra-se no isolamento dos operadores de cluster. Neste artigo, vai aprender a:
+Este artigo de boas práticas centra-se no isolamento dos operadores de clusters. Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Plano para aglomerados multi-inquilinos e separação de recursos
@@ -24,42 +24,42 @@ Este artigo de boas práticas centra-se no isolamento dos operadores de cluster.
 
 ## <a name="design-clusters-for-multi-tenancy"></a>Clusters de design para multi-arrendamento
 
-O Kubernetes fornece funcionalidades que lhe permitem isolar logicamente equipas e cargas de trabalho no mesmo cluster. O objetivo deve ser fornecer o menor número de privilégios, orientados para os recursos necessários para cada equipa. Um [espaço de nome][k8s-namespaces] em Kubernetes cria um limite lógico de isolamento. As características e considerações adicionais da Kubernetes para o isolamento e o arrendamento multi-arrendamento incluem as seguintes áreas:
+O Kubernetes fornece funcionalidades que lhe permitem isolar logicamente equipas e cargas de trabalho no mesmo cluster. O objetivo deve ser fornecer o menor número de privilégios, orientados para os recursos necessários para cada equipa. Um [espaço de nome][k8s-namespaces] em Kubernetes cria um limite de isolamento lógico. As características e considerações adicionais de Kubernetes para isolamento e multi-arrendamento incluem as seguintes áreas:
 
-* **O agendamento** inclui a utilização de funcionalidades básicas, tais como quotas de recursos e orçamentos de disrupção de casulos. Para obter mais informações sobre estas funcionalidades, consulte [as melhores práticas para funcionalidades básicas de programadores no AKS][aks-best-practices-scheduler].
-  * As funcionalidades mais avançadas do programador incluem manchas e tolerâncias, selecionadores de nós, e afinidade do nó e pod ou anti-afinidade. Para obter mais informações sobre estas funcionalidades, consulte [as melhores práticas para funcionalidades avançadas de programadores em AKS][aks-best-practices-advanced-scheduler].
+* **O agendamento** inclui a utilização de funcionalidades básicas, tais como quotas de recursos e orçamentos de interrupção de cápsulas. Para obter mais informações sobre estas [funcionalidades, consulte as melhores práticas para funcionalidades básicas de programador em AKS][aks-best-practices-scheduler].
+  * As funcionalidades de programador mais avançadas incluem manchas e tolerâncias, seletores de nó, e afinidade de nó e pod ou anti-afinidade. Para obter mais informações sobre estas [funcionalidades, consulte as melhores práticas para funcionalidades avançadas de programadores em AKS][aks-best-practices-advanced-scheduler].
 * **A rede** inclui a utilização de políticas de rede para controlar o fluxo de tráfego dentro e fora das cápsulas.
-* **A autenticação e a autorização** incluem o utilizador do controlo de acesso baseado em papéis (RBAC) e integração do Diretório Ativo Azure (AD), identidades de pod e segredos no Cofre de Chaves Azure. Para obter mais informações sobre estas [funcionalidades, consulte as melhores práticas de autenticação e autorização no AKS.][aks-best-practices-identity]
-* **Os contentores** incluem políticas de segurança de pods, contextos de segurança do pod, digitalização de imagens e tempos de execução para vulnerabilidades. Envolve também a utilização de App Armor ou Seccomp (Secure Computing) para restringir o acesso do contentor ao nó subjacente.
+* **A autenticação e autorização** incluem o utilizador do controlo de acesso baseado em funções (RBAC) e a integração do Azure Ative Directory (AD), identidades de pod e segredos no Cofre da Chave Azure. Para obter mais informações sobre estas [funcionalidades, consulte as melhores práticas de autenticação e autorização em AKS.][aks-best-practices-identity]
+* **Os contentores** incluem o Add-on de Política Azure para a AKS para impor a segurança do casulo, o uso de contextos de segurança do pod e a digitalização de imagens e o tempo de execução de vulnerabilidades. Também envolve a utilização de App Armor ou Seccomp (Secure Computing) para restringir o acesso do contentor ao nó subjacente.
 
-## <a name="logically-isolate-clusters"></a>Grupos de isolados logicamente
+## <a name="logically-isolate-clusters"></a>Isolar logicamente aglomerados
 
-**Orientação de boas práticas** - Use o isolamento lógico para separar equipas e projetos. Tente minimizar o número de clusters de AKS físicos que implementa para isolar equipas ou aplicações.
+**Orientação de boas práticas** - Use o isolamento lógico para separar equipas e projetos. Tente minimizar o número de clusters AKS físicos que implementa para isolar equipas ou aplicações.
 
-Com isolamento lógico, um único cluster AKS pode ser usado para várias cargas de trabalho, equipas ou ambientes. Kubernetes [Namespaces][k8s-namespaces] formam o limite lógico de isolamento para cargas de trabalho e recursos.
+Com isolamento lógico, um único cluster AKS pode ser usado para várias cargas de trabalho, equipas ou ambientes. Kubernetes [Namespaces][k8s-namespaces] formam o limite de isolamento lógico para cargas de trabalho e recursos.
 
-![Isolamento lógico de um aglomerado kubernetes em AKS](media/operator-best-practices-cluster-isolation/logical-isolation.png)
+![Isolamento lógico de um aglomerado de Kubernetes em AKS](media/operator-best-practices-cluster-isolation/logical-isolation.png)
 
-A separação lógica dos aglomerados geralmente proporciona uma densidade de pod maior do que os aglomerados fisicamente isolados. Há menos capacidade de computação em excesso que fica inativa no aglomerado. Quando combinado com o autoescalador de cluster Kubernetes, pode escalar o número de nós para cima ou para baixo para satisfazer as exigências. Esta abordagem de boas práticas para autoscalcificar permite-lhe executar apenas o número de nós necessários e minimiza os custos.
+A separação lógica dos aglomerados geralmente proporciona uma densidade de vagem mais alta do que os aglomerados fisicamente isolados. Há menos capacidade de computação em excesso que fica inativo no cluster. Quando combinado com o autoescalador de cluster Kubernetes, pode escalar o número de nós para cima ou para baixo para satisfazer as exigências. Esta abordagem de boas práticas para a autoscalagem permite-lhe executar apenas o número de nós necessários e minimiza os custos.
 
-Os ambientes kubernetes, em AKS ou em qualquer outro lugar, não são completamente seguros para o uso hostil de multi-inquilinos. Num ambiente multi-inquilinos, vários inquilinos estão trabalhando numa infraestrutura comum e partilhada. Como resultado, se não for de confiança todos os inquilinos, é necessário fazer planos adicionais para evitar que um inquilino afete a segurança e o serviço de outro. Funcionalidades de segurança adicionais, como a Política de Segurança do *Pod* e os controlos de acesso baseados em funções mais finos (RBAC) para nós dificultam as explorações. No entanto, para uma verdadeira segurança quando se executam cargas de trabalho hostis de multi-inquilinos, um hipervisor é o único nível de segurança em que se deve confiar. O domínio de segurança de Kubernetes torna-se todo o cluster, não um nó individual. Para este tipo de cargas de trabalho hostis multi-inquilinos, você deve usar clusters fisicamente isolados.
+Os ambientes kubernetes, em AKS ou em qualquer outro lugar, não são completamente seguros para uso hostil de vários inquilinos. Num ambiente multi-inquilino, vários inquilinos estão trabalhando numa infraestrutura comum e partilhada. Como resultado, se não é de confiança a todos os inquilinos, você precisa fazer um planeamento adicional para evitar que um inquilino impacte a segurança e o serviço de outro. Funcionalidades de segurança adicionais, como a Política de *Segurança do Pod* e controlos de acesso baseados em papéis mais finos (RBAC) para nós dificultam as explorações. No entanto, para uma verdadeira segurança ao executar cargas de trabalho hostis de vários inquilinos, um hipervisor é o único nível de segurança em que deve confiar. O domínio de segurança de Kubernetes torna-se todo o cluster, não um nó individual. Para este tipo de cargas de trabalho hostis multi-inquilinos, você deve usar aglomerados fisicamente isolados.
 
-## <a name="physically-isolate-clusters"></a>Agrupamentos fisicamente isolados
+## <a name="physically-isolate-clusters"></a>Aglomerados fisicamente isolados
 
-**Orientação das melhores práticas** - Minimize o uso do isolamento físico para cada equipa ou implementação de aplicações separadas. Em vez disso, use o isolamento *lógico,* como discutido na secção anterior.
+**Orientação para as melhores práticas** - Minimize o uso do isolamento físico para cada equipa ou implementação de aplicações separadas. Em vez disso, utilize o isolamento *lógico,* como discutido na secção anterior.
 
-Uma abordagem comum para o isolamento do cluster é usar clusters AKS fisicamente separados. Neste modelo de isolamento, as equipas ou cargas de trabalho são atribuídos ao seu próprio cluster AKS. Esta abordagem muitas vezes parece ser a forma mais fácil de isolar cargas de trabalho ou equipas, mas adiciona gestão adicional e despesas financeiras. Agora tem de manter estes múltiplos clusters e tem de fornecer individualmente acesso e atribuir permissões. Também é cobrado por todos os nós individuais.
+Uma abordagem comum ao isolamento do cluster é usar aglomerados AKS fisicamente separados. Neste modelo de isolamento, as equipas ou cargas de trabalho são atribuídas ao seu próprio cluster AKS. Esta abordagem parece muitas vezes a forma mais fácil de isolar cargas de trabalho ou equipas, mas adiciona uma gestão adicional e despesas financeiras. Agora tem que manter estes múltiplos clusters, e tem que fornecer individualmente acesso e atribuir permissões. Também é cobrado por todos os nós individuais.
 
-![Isolamento físico de clusters kubernetes individuais em AKS](media/operator-best-practices-cluster-isolation/physical-isolation.png)
+![Isolamento físico de aglomerados individuais de Kubernetes em AKS](media/operator-best-practices-cluster-isolation/physical-isolation.png)
 
-Os aglomerados fisicamente separados geralmente têm uma baixa densidade de pod. Como cada equipa ou carga de trabalho tem o seu próprio cluster AKS, o cluster é muitas vezes sobre-aprovisionado com recursos computacionais. Muitas vezes, um pequeno número de cápsulas são programadas nesses nós. A capacidade não utilizada nos nódosos não pode ser usada para aplicações ou serviços em desenvolvimento por outras equipas. Estes recursos excedentários contribuem para os custos adicionais em clusters fisicamente separados.
+Os aglomerados fisicamente separados geralmente têm uma baixa densidade de vagem. Como cada equipa ou carga de trabalho tem o seu próprio cluster AKS, o cluster é muitas vezes sobre-a provisionado com recursos computativos. Muitas vezes, um pequeno número de cápsulas são programadas nesses nós. A capacidade não utilizada nos nós não pode ser utilizada para aplicações ou serviços em desenvolvimento por outras equipas. Estes recursos excedentários contribuem para os custos adicionais em agrupamentos fisicamente separados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Este artigo focou-se no isolamento do agrupamento. Para obter mais informações sobre operações de cluster no AKS, consulte as seguintes boas práticas:
+Este artigo focou-se no isolamento do aglomerado. Para obter mais informações sobre as operações de cluster em AKS, consulte as seguintes boas práticas:
 
 * [Funcionalidades básicas do programador Kubernetes][aks-best-practices-scheduler]
-* [Funcionalidades avançadas do programador kubernetes][aks-best-practices-advanced-scheduler]
+* [Recursos avançados do programador Kubernetes][aks-best-practices-advanced-scheduler]
 * [Autenticação e autorização][aks-best-practices-identity]
 
 <!-- EXTERNAL LINKS -->

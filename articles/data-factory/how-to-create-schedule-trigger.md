@@ -1,6 +1,6 @@
 ---
-title: Criar gatilhos de horário na Fábrica de Dados Azure
-description: Aprenda a criar um gatilho na Azure Data Factory que executa um pipeline em um horário.
+title: Criar gatilhos de horário na Azure Data Factory
+description: Saiba como criar um gatilho na Azure Data Factory que executa um oleoduto num horário.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -11,62 +11,62 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.openlocfilehash: a0a01dad5ae86cf20d57ade845326838f8fd686a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 360d01d01c163e494340c2da3182192dc15612a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641595"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560801"
 ---
-# <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um gatilho que executa um oleoduto em um horário
+# <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um gatilho que executa um oleoduto num horário
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo fornece informações sobre o gatilho do horário e os passos para criar, iniciar e monitorizar um gatilho de horário. Para outros tipos de gatilhos, consulte a [execução do gasoduto e os gatilhos](concepts-pipeline-execution-triggers.md).
+Este artigo fornece informações sobre o gatilho do horário e os passos para criar, iniciar e monitorizar um gatilho de agenda. Para outros tipos de gatilhos, consulte [a execução do Pipeline e os gatilhos](concepts-pipeline-execution-triggers.md).
 
-Ao criar um gatilho de horário, especifice um horário (data de início, recorrência, data de fim, etc.) para o gatilho e associe-se a um gasoduto. Os pipelines e os acionadores têm uma relação muitos para muitos. Múltiplos acionadores podem arrancar um pipeline individual. Um acionador único pode arrancar vários pipelines.
+Ao criar um gatilho de agenda, especifique um horário (data de início, recorrência, data de fim, etc.) para o gatilho e associado a um pipeline. Os pipelines e os acionadores têm uma relação muitos para muitos. Múltiplos acionadores podem arrancar um pipeline individual. Um acionador único pode arrancar vários pipelines.
 
-As seguintes secções fornecem passos para criar um gatilho de horário de diferentes maneiras. 
+As secções seguintes fornecem passos para criar um gatilho de horário de diferentes maneiras. 
 
 ## <a name="data-factory-ui"></a>IU do Data Factory
-Pode criar um gatilho de **horário** para agendar um gasoduto para funcionar periodicamente (hora, diariamente, etc.). 
+Pode criar um **gatilho de horário** para agendar um gasoduto para funcionar periodicamente (hora a hora, diariamente, etc.). 
 
 > [!NOTE]
-> Para uma completa passagem pela criação de um oleoduto e um gatilho de horário, que associa o gatilho ao oleoduto, e corre e monitoriza o gasoduto, consulte [Quickstart: crie uma fábrica](quickstart-create-data-factory-portal.md)de dados utilizando data Factory UI .
+> Para uma caminhada completa da criação de um oleoduto e de um gatilho de horário, que associa o gatilho ao oleoduto, e corre e monitoriza o gasoduto, consulte [Quickstart: crie uma fábrica de dados utilizando a Data Factory UI](quickstart-create-data-factory-portal.md).
 
-1. Mude para o separador **Editar,** mostrado com um símbolo de lápis. 
+1. Mude para o **separador Editar,** mostrado com um símbolo de lápis. 
 
     ![Mudar para o separador Editar](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
 
-1. Selecione **Trigger** no menu e, em seguida, selecione **New/Edit**. 
+1. Selecione **Trigger** no menu e, em seguida, selecione **Novo/Editar**. 
 
     ![Menu Novo acionador](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
 
-1. Na página **Adicionar Gatilhos,** selecione **Escolher o gatilho...** e, em seguida, selecione **+New**. 
+1. Na página **'Adicionar Gatilhos',** **selecione Escolha o gatilho...** e, em seguida, selecione **+New**. 
 
     ![Adicionar acionadores - acionador novo](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
 
-1. Na página **New Trigger,** faça os seguintes passos: 
+1. Na página **Novo Gatilho,** faça os seguintes passos: 
 
-    1. Confirme que **a Agenda** está selecionada para **Tipo**. 
-    1. Especifique a data de início do gatilho para a data de **início (UTC)**. Está definido para a data atual por defeito. 
-    1. Especifique **a recorrência** para o gatilho. Selecione um dos valores da lista de lançamentos (A cada minuto, hora, dia, semanal e mensal). Introduza o multiplicador na caixa de texto. Por exemplo, se pretender que o gatilho seja executado uma vez por cada 15 minutos, selecione **Cada Minuto**e introduza **15** na caixa de texto. 
-    1. Para o campo **Fim,** se não quiser especificar uma data de fim para o gatilho, selecione **No End**. Para especificar a data de fim da data, selecione **A Data**de Fim e especifique a data de fim e, em seguida, selecione **OK**. Nenhuma execução de pipeline tem custos associados. Se estiver a testar, é melhor garantir que o gasoduto seja acionado apenas algumas vezes. No entanto, certifique-se de que há tempo suficiente para o pipeline ser executado entre a hora de publicação e a hora de fim. O acionador só entra em vigor depois de publicar a solução no Data Factory e não quando guarda o acionador na IU.
+    1. Confirme que **o Horário** está selecionado para **tipo**. 
+    1. Especificar a data de início do gatilho para **a Data de Início (UTC)**. Está definido para a data atual por defeito. 
+    1. Especifique **a recorrência** para o gatilho. Selecione um dos valores da lista de drop-down (A cada minuto, hora, dia, semanal e mensal). Introduza o multiplicador na caixa de texto. Por exemplo, se pretender que o gatilho seja executado uma vez por cada 15 minutos, selecione **Cada Minuto**e introduza **15** na caixa de texto. 
+    1. Para o campo **Fim,** se não quiser especificar uma data de fim para o gatilho, selecione **No End**. Para especificar a data de fim, selecione **On Date**e especifique a hora de fim e, em seguida, selecione **OK**. Nenhuma execução de pipeline tem custos associados. Se estiver a testar, é melhor certificar-se de que o gasoduto é acionado apenas algumas vezes. No entanto, certifique-se de que há tempo suficiente para o pipeline ser executado entre a hora de publicação e a hora de fim. O acionador só entra em vigor depois de publicar a solução no Data Factory e não quando guarda o acionador na IU.
 
         ![Definições do acionador](./media/how-to-create-schedule-trigger/trigger-settings.png)
 
-1. Na janela **New Trigger,** selecione **Sim** na opção **Ativada** e, em seguida, selecione **OK**. Pode utilizar esta caixa de verificação para desativar o gatilho mais tarde. 
+1. Na janela **Novo Gatilho,** selecione **Sim** na opção **Ativada** e, em seguida, selecione **OK**. Pode utilizar esta caixa de verificação para desativar o gatilho mais tarde. 
 
     ![Definições do acionador - botão seguinte](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
 
-1. Na janela **New Trigger,** reveja a mensagem de aviso e, em seguida, selecione **OK**.
+1. Na janela **Novo Gatilho,** reveja a mensagem de aviso e, em seguida, selecione **OK**.
 
     ![Definições do acionador - botão concluir](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
 
-1. Selecione **Publicar tudo** para publicar as alterações na Data Factory. Até publicar as alterações na Data Factory, o gatilho não começa a acionar as operações do gasoduto. 
+1. **Selecione Publicar tudo** para publicar as alterações na Data Factory. Até publicar as alterações na Data Factory, o gatilho não começa a ativar o gasoduto. 
 
     ![Botão Publicar](./media/how-to-create-schedule-trigger/publish-2.png)
 
-1. Mude para o **separador** pipeline à esquerda e, em seguida, selecione **Refresh** para refrescar a lista. Verá o gasoduto ser acionado pelo gatilho programado. Repare nos valores na coluna **Acionado Por**. Se utilizar a opção **Trigger Now,** verá o gatilho manual ser executado na lista. 
+1. O Switch to the **Pipeline executa** o separador à esquerda e, em seguida, selecione **Refresh** para refrescar a lista. Verá o gasoduto ser acionado pelo gatilho programado. Repare nos valores na coluna **Acionado Por**. Se utilizar a opção **Trigger Now,** verá o gatilho manual ser executado na lista. 
 
     ![Monitorizar execuções acionadas](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 
@@ -78,12 +78,12 @@ Pode criar um gatilho de **horário** para agendar um gasoduto para funcionar pe
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Esta secção mostra-lhe como usar o Azure PowerShell para criar, iniciar e monitorizar um gatilho de horário. Para ver esta amostra a funcionar, primeiro passe pelo [Quickstart: Crie uma fábrica de dados utilizando o Azure PowerShell](quickstart-create-data-factory-powershell.md). Em seguida, adicione o seguinte código ao método principal, que cria e inicia um gatilho de horário que funciona a cada 15 minutos. O gatilho está associado a um pipeline chamado **Adfv2QuickStartPipeline** que cria como parte do Quickstart.
+Esta secção mostra-lhe como utilizar o Azure PowerShell para criar, iniciar e monitorizar um gatilho de agendamento. Para ver esta amostra a funcionar, passe primeiro [pelo Quickstart: Crie uma fábrica de dados utilizando a Azure PowerShell](quickstart-create-data-factory-powershell.md). Em seguida, adicione o seguinte código ao método principal, que cria e inicia um gatilho de agenda que funciona a cada 15 minutos. O gatilho está associado a um oleoduto chamado **Adfv2QuickStartPipeline** que cria como parte do Quickstart.
 
-1. Crie um ficheiro JSON chamado **MyTrigger.json** na pasta C:\ADFv2QuickStartPSH\ com o seguinte conteúdo:
+1. Crie um ficheiro JSON nomeado **MyTrigger.jsna** pasta C:\ADFv2QuickStartPSH\ com o seguinte conteúdo:
 
     > [!IMPORTANT]
-    > Antes de guardar o ficheiro JSON, detete o valor do elemento **startTime** para o tempo atual utc. Detete o valor do elemento **endTime** para uma hora depois do tempo atual utc.
+    > Antes de guardar o ficheiro JSON, desajei o valor do elemento **startTime** para o tempo UTC atual. Desajei o valor do elemento **endTime** para uma hora depois do tempo UTC atual.
 
     ```json   
     {
@@ -115,18 +115,18 @@ Esta secção mostra-lhe como usar o Azure PowerShell para criar, iniciar e moni
 
     No corte JSON:
     - O elemento **tipo** do gatilho está definido para "ScheduleTrigger".
-    - O elemento **de frequência** está definido para "Minuto" e o elemento **de intervalo** está definido para 15. Portanto, o gatilho funciona o gasoduto a cada 15 minutos entre os tempos de início e de fim.
-    - O elemento **tempo final** é uma hora após o valor do elemento tempo de **arranque.** Portanto, o gatilho funciona o gasoduto 15 minutos, 30 minutos e 45 minutos após a hora de início. Não se esqueça de atualizar a hora de início para a atual hora utc, e o tempo final para uma hora depois da hora de início. 
-    - O gatilho está associado ao gasoduto **Adfv2QuickStartPipeline.** Para associar vários oleodutos a um gatilho, adicione mais secções de **pipelineReference.**
-    - O gasoduto no Quickstart tem dois valores de **parâmetros:** **inputPath** e **outputPath**. Portanto, passa-se valores para estes parâmetros a partir do gatilho.
+    - O elemento **de frequência** é definido como "Minuto" e o elemento **intervalo** é definido para 15. Por isso, o gatilho aciona o gasoduto a cada 15 minutos entre os tempos de início e de fim.
+    - O elemento **endTime** é uma hora após o valor do elemento **startTime.** Portanto, o gatilho executa o gasoduto 15 minutos, 30 minutos e 45 minutos após a hora de início. Não se esqueça de atualizar a hora de início para a hora atual da UTC, e o tempo final para uma hora depois da hora de início. 
+    - O gatilho está associado ao gasoduto **Adfv2QuickStartPipeline.** Para associar vários oleodutos a um gatilho, adicione mais secções **de pipelineReference.**
+    - O gasoduto no Quickstart tem dois **parâmetros:** **inputPath** e **outputPath**. Portanto, você passa valores para estes parâmetros a partir do gatilho.
 
-1. Criar um gatilho utilizando o **cmdlet Set-AzDataFactoryV2Trigger:**
+1. Crie um gatilho utilizando o **cmdlet Set-AzDataFactoryV2Trigger:**
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-1. Confirme que o estado do gatilho é **interrompido** utilizando o cmdlet **Get-AzDataFactoryV2Trigger:**
+1. Confirme se o estado do gatilho é **interrompido** utilizando o cmdlet **Get-AzDataFactoryV2Trigger:**
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
@@ -138,23 +138,23 @@ Esta secção mostra-lhe como usar o Azure PowerShell para criar, iniciar e moni
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-1. Confirme que o estado do gatilho é **iniciado** utilizando o cmdlet **Get-AzDataFactoryV2Trigger:**
+1. Confirme se o estado do gatilho é **iniciado** utilizando o cmdlet **Get-AzDataFactoryV2Trigger:**
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-1.  Obtenha o gatilho em Azure PowerShell utilizando o cmdlet **Get-AzDataFactoryV2TriggerRun.** Para obter a informação sobre o gatilho, execute periodicamente o seguinte comando. Atualize os valores **TriggerRunStartedAfter** e **TriggerRunStartedBefore** para corresponder aos valores na definição do gatilho:
+1.  Obtenha o gatilho em Azure PowerShell utilizando o cmdlet **Get-AzDataFactoryV2TriggerRun.** Para obter a informação sobre o gatilho, execute o seguinte comando periodicamente. Atualize o **TriggerRunStartedAfter** e **TriggerRunStartedBeted Para** corresponder aos valores na definição do gatilho:
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
     
-    Para monitorizar as condutas do gatilho e as condutas de gasoduto saem no portal Azure, consulte o [gasoduto Monitor .](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)
+    Para monitorizar as correções do gatilho e o gasoduto funciona no portal Azure, consulte [o gasoduto Monitor](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 
 ## <a name="net-sdk"></a>SDK .NET
-Esta secção mostra-lhe como usar o SDK .NET para criar, iniciar e monitorizar um gatilho. Para ver esta amostra a funcionar, primeiro passe pelo [Quickstart: Crie uma fábrica de dados utilizando o .NET SDK](quickstart-create-data-factory-dot-net.md). Em seguida, adicione o seguinte código ao método principal, que cria e inicia um gatilho de horário que funciona a cada 15 minutos. O gatilho está associado a um pipeline chamado **Adfv2QuickStartPipeline** que cria como parte do Quickstart.
+Esta secção mostra-lhe como utilizar o .NET SDK para criar, iniciar e monitorizar um gatilho. Para ver esta amostra a funcionar, passe primeiro [pelo Quickstart: Crie uma fábrica de dados utilizando o .NET SDK](quickstart-create-data-factory-dot-net.md). Em seguida, adicione o seguinte código ao método principal, que cria e inicia um gatilho de agenda que funciona a cada 15 minutos. O gatilho está associado a um oleoduto chamado **Adfv2QuickStartPipeline** que cria como parte do Quickstart.
 
 Para criar e iniciar um gatilho de horário que funciona a cada 15 minutos, adicione o seguinte código ao método principal:
 
@@ -206,7 +206,7 @@ Para criar e iniciar um gatilho de horário que funciona a cada 15 minutos, adic
             client.Triggers.Start(resourceGroup, dataFactoryName, triggerName);
 ```
 
-Para monitorizar uma execução do gatilho, `Console.WriteLine` adicione o seguinte código antes da última declaração na amostra:
+Para monitorizar uma execução do gatilho, adicione o seguinte código antes da última `Console.WriteLine` declaração na amostra:
 
 ```csharp
             // Check that the trigger runs every 15 minutes
@@ -230,11 +230,11 @@ Para monitorizar uma execução do gatilho, `Console.WriteLine` adicione o segui
             }
 ```
 
-Para monitorizar as condutas do gatilho e as condutas de gasoduto saem no portal Azure, consulte o [gasoduto Monitor .](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)
+Para monitorizar as correções do gatilho e o gasoduto funciona no portal Azure, consulte [o gasoduto Monitor](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 
 ## <a name="python-sdk"></a>SDK Python
-Esta secção mostra-lhe como usar o SDK Python para criar, iniciar e monitorizar um gatilho. Para ver esta amostra a funcionar, primeiro passe pelo [Quickstart: Crie uma fábrica de dados utilizando o Python SDK](quickstart-create-data-factory-python.md). Em seguida, adicione o seguinte bloco de código após o bloco de código "monitoramento do pipeline executar" no script Python. Este código cria um gatilho de horário que funciona a cada 15 minutos entre os tempos de início e fim especificados. Atualize a **variável start_time** ao atual tempo utc, e a **variável end_time** para uma hora depois do tempo atual utc.
+Esta secção mostra-lhe como usar o Python SDK para criar, iniciar e monitorizar um gatilho. Para ver esta amostra a funcionar, passe primeiro [pelo Quickstart: Crie uma fábrica de dados utilizando o Python SDK](quickstart-create-data-factory-python.md). Em seguida, adicione o seguinte bloco de código após o bloco de código "monitorizar o gasoduto executar" na script Python. Este código cria um gatilho de programação que funciona a cada 15 minutos entre os tempos de início e fim especificados. Atualizar a **variável start_time** para o tempo utc atual, e a **variável end_time** para uma hora depois do tempo utc atual.
 
 ```python
     # Create a trigger
@@ -251,13 +251,13 @@ Esta secção mostra-lhe como usar o SDK Python para criar, iniciar e monitoriza
     adf_client.triggers.start(rg_name, df_name, tr_name)
 ```
 
-Para monitorizar as condutas do gatilho e as condutas de gasoduto saem no portal Azure, consulte o [gasoduto Monitor .](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)
+Para monitorizar as correções do gatilho e o gasoduto funciona no portal Azure, consulte [o gasoduto Monitor](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
-Pode utilizar um modelo de Gestor de Recursos Azure para criar um gatilho. Para obter instruções passo a passo, consulte Criar uma fábrica de [dados Azure utilizando um modelo](quickstart-create-data-factory-resource-manager-template.md)de Gestor de Recursos .  
+Pode utilizar um modelo de Gestor de Recursos Azure para criar um gatilho. Para obter instruções passo a passo, consulte Criar uma fábrica de [dados Azure utilizando um modelo de Gestor de Recursos](quickstart-create-data-factory-resource-manager-template.md).  
 
-## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Passe a hora de início do gatilho para um oleoduto
-A versão 1 da Azure Data Factory suporta a leitura ou a escrita de dados divididos utilizando as variáveis do sistema: **SliceStart,** **SliceEnd,** **WindowStart**, e **WindowEnd**. Na versão atual da Azure Data Factory, pode conseguir este comportamento utilizando um parâmetro de pipeline. A hora de início e a hora programada para o gatilho são definidas como o valor para o parâmetro do gasoduto. No exemplo seguinte, o tempo programado para o gatilho é passado como um valor para o parâmetro time do gasoduto **programado:**
+## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Passe o tempo de início do gatilho para um oleoduto
+A versão 1 da Azure Data Factory suporta a leitura ou a escrita de dados divididos utilizando as variáveis do sistema: **SliceStart,** **SliceEnd,** **WindowStart**e **WindowEnd**. Na versão atual da Azure Data Factory, pode alcançar este comportamento utilizando um parâmetro de pipeline. A hora de início e a hora programada para o gatilho são definidas como o valor para o parâmetro do pipeline. No exemplo seguinte, a hora programada para o gatilho é passada como um valor para o parâmetro de Pipeline **ProgramadoRunTime:**
 
 ```json
 "parameters": {
@@ -265,8 +265,8 @@ A versão 1 da Azure Data Factory suporta a leitura ou a escrita de dados dividi
 }
 ```
 
-## <a name="json-schema"></a>Esquema jSON
-A seguinte definição jSON mostra-lhe como criar um gatilho de horário com agendamento e recorrência:
+## <a name="json-schema"></a>Esquema JSON
+A seguinte definição de JSON mostra-lhe como criar um gatilho de agendamento com agendamento e recorrência:
 
 ```json
 {
@@ -316,7 +316,7 @@ A seguinte definição jSON mostra-lhe como criar um gatilho de horário com age
 >  A propriedade **parameters** é uma propriedade obrigatória do elemento **pipelines**. Se o seu pipeline não utiliza parâmetros, deve incluir uma definição JSON vazia para a propriedade **parameters**.
 
 
-### <a name="schema-overview"></a>Descrição geral do esquema
+### <a name="schema-overview"></a>Schema overview (Descrição geral do esquema)
 A tabela que se segue fornece uma descrição geral de alto nível dos principais elementos do esquema relacionados com a periodicidade e o agendamento de um acionador:
 
 | Propriedade JSON | Descrição |
@@ -327,7 +327,7 @@ A tabela que se segue fornece uma descrição geral de alto nível dos principai
 | **recorrência** | Um objeto de periodicidade que especifica as regras de periodicidade do acionador. O objeto de periodicidade suporta os elementos **frequency**, **interval**, **endTime**, **count** e **schedule**. Quando um objeto de periodicidade é definido, o elemento **frequency** é obrigatório. Os outros elementos do objeto de periodicidade são opcionais. |
 | **frequência** | A unidade que se refere à frequência com que o acionador voltar a ocorrer. Os valores suportados incluem "minute", "hour", "day", "week" e "month". |
 | **intervalo** | Um valor inteiro positivo que indica o intervalo do valor **frequency**, que determina o número de vezes que o acionador é executado. Por exemplo, se o valor de **interval** for 3 e o de **frequency** for "week", o acionador repete-se de três em três semanas. |
-| **agenda** | A agenda de periodicidade do acionador. Um acionador que tenha um valor **frequency** especificado modifica a respetiva periodicidade com base numa agenda de periodicidade. A propriedade **schedule** contém modificações da periodicidade baseadas em minutos, horas, dias de semana, dias do mês e número da semana.
+| **agendar** | A agenda de periodicidade do acionador. Um acionador que tenha um valor **frequency** especificado modifica a respetiva periodicidade com base numa agenda de periodicidade. A propriedade **schedule** contém modificações da periodicidade baseadas em minutos, horas, dias de semana, dias do mês e número da semana.
 
 
 ### <a name="schema-defaults-limits-and-examples"></a>Predefinições, limites e exemplos do esquema
@@ -338,17 +338,17 @@ A tabela que se segue fornece uma descrição geral de alto nível dos principai
 | **recorrência** | Objeto | Sim | Nenhuma | Objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **intervalo** | Número | Não | 1 | 1 a 1000 | `"interval":10` |
 | **endTime** | String | Sim | Nenhuma | Um valor de data/hora que representa uma hora no futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **agenda** | Objeto | Não | Nenhuma | Objeto da agenda | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **agendar** | Objeto | Não | Nenhuma | Objeto da agenda | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propriedade startTime
 A tabela que se segue mostra o modo como a propriedade **startTime** controla a execução de um acionador:
 
 | valor de startTime | Periodicidade sem agenda | Periodicidade com agenda |
 |:--- |:--- |:--- |
-| Hora de início no passado | Calcula a primeira hora de execução no futuro após a hora de início e é executada nessa hora.<br/><br/>Executa as execuções subsequentes com base no cálculo da última hora de execução.<br/><br/>Veja o exemplo a seguir à tabela. | O gatilho começa _o mais cedo que_ a hora de início especificada. A primeira ocorrência tem por base a agenda calculada a partir da hora de início.<br/><br/>Executa as execuções subsequentes com base na agenda de periodicidade. |
-| Hora de início no futuro ou no presente | É executada uma vez na hora de início especificada.<br/><br/>Executa as execuções subsequentes com base no cálculo da última hora de execução. | O acionador é iniciado _imediatamente a seguir _ à hora de início especificada. A primeira ocorrência tem por base a agenda calculada a partir da hora de início.<br/><br/>Executa as execuções subsequentes com base na agenda de periodicidade. |
+| Hora de início no passado | Calcula a primeira hora de execução no futuro após a hora de início e é executada nessa hora.<br/><br/>Executa as execuções subsequentes com base no cálculo da última hora de execução.<br/><br/>Veja o exemplo a seguir à tabela. | O acionador é iniciado _imediatamente a seguir _ à hora de início especificada. A primeira ocorrência tem por base a agenda calculada a partir da hora de início.<br/><br/>Executa as execuções subsequentes com base na agenda de periodicidade. |
+| Hora de início no futuro ou no presente | É executada uma vez na hora de início especificada.<br/><br/>Executa as execuções subsequentes com base no cálculo da última hora de execução. | O gatilho começa _o mais cedo_ que a hora de início especificada. A primeira ocorrência tem por base a agenda calculada a partir da hora de início.<br/><br/>Executa as execuções subsequentes com base na agenda de periodicidade. |
 
-Vejamos um exemplo do que acontece quando a hora de início (startTime) se situa no passado, com periodicidade, mas sem agenda. Parta do princípio de que a hora atual é `2017-04-08 13:00`, a hora de início é `2017-04-07 14:00` e a periodicidade é de dois em dois dias. (O valor **da recorrência** é definido definindo a propriedade de **frequência** para "dia" e a propriedade **de intervalo** para 2.) Note que o valor do tempo de **partida** está no passado e ocorre antes do tempo atual.
+Vejamos um exemplo do que acontece quando a hora de início (startTime) se situa no passado, com periodicidade, mas sem agenda. Parta do princípio de que a hora atual é `2017-04-08 13:00`, a hora de início é `2017-04-07 14:00` e a periodicidade é de dois em dois dias. (O valor **de recorrência** é definido definindo a propriedade **de frequência** para "dia" e a propriedade de **intervalo** para 2.) Note que o valor **startTime** está no passado e ocorre antes da hora atual.
 
 Nestas condições, a primeira execução é em `2017-04-09 at 14:00`. O motor do Scheduler calcula as ocorrências de execução a partir da hora de início. Quaisquer instâncias no passado são eliminadas. O motor utiliza a instância seguinte que ocorre no futuro. Neste cenário, a hora de início é `2017-04-07 at 2:00pm`, pelo que a instância seguinte é dali a dois dias a contar dessa hora, ou seja, `2017-04-09 at 2:00pm`.
 
@@ -371,7 +371,7 @@ A tabela seguinte descreve os elementos de **schedule** de forma detalhada:
 | **minutos** | Minutos da hora em que o acionador é executado. | <ul><li>Número inteiro</li><li>Matriz de números inteiros</li></ul>
 | **horas** | Horas do dia em que o acionador é executado. | <ul><li>Número inteiro</li><li>Matriz de números inteiros</li></ul> |
 | **weekDays** | Dias da semana em que o acionador é executado. O valor pode ser especificado com uma frequência semanal apenas. | <ul><li>Segunda-feira, terça-feira, quarta-feira, quinta-feira, sexta-feira, sábado, domingo</li><li>Matriz de valores de dia (o tamanho máximo da matriz é 7)</li><li>Os valores de dia não são sensíveis às maiúsculas e minúsculas</li></ul> |
-| **monthlyOccurrences** | Dias do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. | <ul><li>Conjunto de objetos `{ "day": day,  "occurrence": occurrence }` **mensais Ocorrência:** .</li><li>O atributo **day** é o dia da semana em que o acionador é executado. Por exemplo, uma propriedade **monthlyOccurrences** com um valor **day** igual a `{Sunday}` significa todos os domingos do mês. O atributo **day** é obrigatório.</li><li>O atributo **occurrence** é a ocorrência do valor **day** especificado durante o mês. Por exemplo, uma propriedade **monthlyOccurrences** com os valores **day** e **occurrence** iguais a `{Sunday, -1}` significa o último domingo do mês. O atributo **occurrence** é opcional.</li></ul> |
+| **monthlyOccurrences** | Dias do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. | <ul><li>Matriz de **objetos mensais de reincidência:** `{ "day": day,  "occurrence": occurrence }` .</li><li>O atributo **day** é o dia da semana em que o acionador é executado. Por exemplo, uma propriedade **monthlyOccurrences** com um valor **day** igual a `{Sunday}` significa todos os domingos do mês. O atributo **day** é obrigatório.</li><li>O atributo **occurrence** é a ocorrência do valor **day** especificado durante o mês. Por exemplo, uma propriedade **monthlyOccurrences** com os valores **day** e **occurrence** iguais a `{Sunday, -1}` significa o último domingo do mês. O atributo **occurrence** é opcional.</li></ul> |
 | **monthDays** | Dia do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. | <ul><li>Qualquer valor <= -1 e >= -31</li><li>Qualquer valor >= 1 e <= 31</li><li>Matriz de valores</li></ul> |
 
 
@@ -410,5 +410,5 @@ Os exemplos partem do princípio de que o valor **interval** é igual a 1 e que 
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Executar às 5:15, 5:45, 17:15 e 17:45 na terceira quarta-feira de cada mês. |
 
 
-## <a name="next-steps"></a>Passos seguintes
-Para obter informações detalhadas sobre os gatilhos, consulte a [execução do Gasoduto e os gatilhos](concepts-pipeline-execution-triggers.md#trigger-execution).
+## <a name="next-steps"></a>Próximos passos
+Para obter informações detalhadas sobre os gatilhos, consulte [a execução do Pipeline e os gatilhos](concepts-pipeline-execution-triggers.md#trigger-execution).

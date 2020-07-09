@@ -1,57 +1,56 @@
 ---
-title: Referência do esquema do webhook do registo
-description: Referência para a carga útil da JSON para pedidos de webhook num registo de contentores Azure, que são gerados quando os webhooks são ativados para empurrar ou apagar eventos
+title: Referência de esquema webhook de registo
+description: Referência para a carga útil JSON para pedidos de webhook num registo de contentores Azure, que são gerados quando os webhooks são ativados para empurrar ou apagar eventos
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: 8354ef9db24d5825238155ac567d5d829f9b0d7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74455971"
 ---
-# <a name="azure-container-registry-webhook-reference"></a>Referência webhook do registo de contentores azure
+# <a name="azure-container-registry-webhook-reference"></a>Referência webhook do registo de contentores Azure
 
-Pode [configurar webhooks](container-registry-webhook.md) para o seu registo de contentores que geram eventos quando certas ações são realizadas contra ele. Por exemplo, ativar os webhooks que são acionados quando uma imagem de contentor ou gráfico helm é empurrado para um registo, ou eliminado. Quando um webhook é acionado, o Registo de Contentores Azure emite um pedido HTTP ou HTTPS contendo informações sobre o evento para um ponto final que especifica. O seu ponto final pode então processar o webhook e agir em conformidade.
+Pode [configurar webhooks](container-registry-webhook.md) para o seu registo de contentores que geram eventos quando certas ações são realizadas contra ele. Por exemplo, ative os webhooks que são acionados quando uma imagem de contentor ou gráfico helm é empurrado para um registo, ou eliminado. Quando um webhook é acionado, o Registo do Contentor Azure emite um pedido HTTP ou HTTPS contendo informações sobre o evento para um ponto final que especifique. O seu ponto final pode então processar o webhook e agir em conformidade.
 
-As seguintes secções detalham o esquema dos pedidos de webhook gerados por eventos apoiados. As secções do evento contêm o esquema de carga útil para o tipo de evento, um pedido de exemplo de carga útil, e um ou mais comandos de exemplo que desencadeariam o webhook.
+As secções seguintes detalham o esquema dos pedidos do webhook gerados por eventos suportados. As secções do evento contêm o esquema de carga útil para o tipo de evento, um exemplo de pedido de carga útil, e um ou mais comandos de exemplo que desencadeariam o webhook.
 
-Para obter informações sobre a configuração dos webhooks para o seu registo de contentores Azure, consulte Utilização de webhooks do registo de [contentores Azure](container-registry-webhook.md).
+Para obter informações sobre a configuração de webhooks para o seu registo de contentores Azure, consulte [webhooks do Registo de Contentores Azure](container-registry-webhook.md).
 
 ## <a name="webhook-requests"></a>Pedidos webhook
 
-### <a name="http-request"></a>Pedido http
+### <a name="http-request"></a>Pedido HTTP
 
-Um webhook acionado `POST` faz um pedido http para o ponto final do URL que especificou quando configurao o webhook.
+Um webhook desencadeado faz um pedido HTTP `POST` para o ponto final url especificado quando configura o webhook.
 
 ### <a name="http-headers"></a>Cabeçalhos HTTP
 
-Os pedidos de `Content-Type` webhook incluem um `application/json` `Content-Type` de se não tiver especificado um cabeçalho personalizado para o seu webhook.
+Os pedidos webhook incluem um `Content-Type` de se não tiver especificado um `application/json` `Content-Type` cabeçalho personalizado para o seu webhook.
 
-Nenhum outro cabeçalho é adicionado ao pedido para além dos cabeçalhos personalizados que você poderia ter especificado para o webhook.
+Nenhum outro cabeçalho é adicionado ao pedido para além dos cabeçalhos personalizados que pode ter especificado para o webhook.
 
 ## <a name="push-event"></a>Evento push
 
-Webhook acionado quando uma imagem de recipiente é empurrada para um repositório.
+Webhook desencadeado quando uma imagem de recipiente é empurrada para um repositório.
 
-### <a name="push-event-payload"></a>Empurrar carga de evento
+### <a name="push-event-payload"></a>Empurrar carga útil do evento
 
 |Elemento|Tipo|Descrição|
 |-------------|----------|-----------|
 |`id`|String|A identificação do evento webhook.|
 |`timestamp`|DateTime|O momento em que o evento webhook foi desencadeado.|
 |`action`|String|A ação que desencadeou o evento webhook.|
-|[alvo](#target)|Tipo complexo|O alvo do evento que desencadeou o evento webhook.|
-|[pedido](#request)|Tipo complexo|O pedido que gerou o evento webhook.|
+|[alvo](#target)|Tipo Complexo|O alvo do evento que desencadeou o evento webhook.|
+|[pedido](#request)|Tipo Complexo|O pedido que gerou o evento webhook.|
 
 ### <a name="target"></a><a name="target"></a>alvo
 
 |Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
 |`mediaType`|String|O tipo MIME do objeto referenciado.|
-|`size`|Int32|O número de bytes do conteúdo. O mesmo que o campo length.|
-|`digest`|String|A digestão do conteúdo, tal como definida pela especificação do Registo V2 HTTP API.|
-|`length`|Int32|O número de bytes do conteúdo. O mesmo que o campo size.|
+|`size`|Int32|O número de bytes do conteúdo. O mesmo que o campo De Comprimento.|
+|`digest`|String|A digestão do conteúdo, tal como definido pela Especificação API HTTP do Registo V2.|
+|`length`|Int32|O número de bytes do conteúdo. O mesmo que o campo Size.|
 |`repository`|String|O nome do repositório.|
 |`tag`|String|O nome da etiqueta de imagem.|
 
@@ -62,7 +61,7 @@ Webhook acionado quando uma imagem de recipiente é empurrada para um repositór
 |`id`|String|A identificação do pedido que iniciou o evento.|
 |`host`|String|O nome de anfitrião acessível externamente da instância de registo, conforme especificado pelo cabeçalho do anfitrião HTTP sobre os pedidos de entrada.|
 |`method`|String|O método de pedido que gerou o evento.|
-|`useragent`|String|O cabeçalho do agente utilizador do pedido.|
+|`useragent`|String|O cabeçalho do agente de utilizador do pedido.|
 
 ### <a name="payload-example-image-push-event"></a>Exemplo de carga útil: evento de impulso de imagem
 
@@ -88,24 +87,24 @@ Webhook acionado quando uma imagem de recipiente é empurrada para um repositór
 }
 ```
 
-Exemplo [Comando CLI Docker](https://docs.docker.com/engine/reference/commandline/cli/) que desencadeia o webhook do evento de **impulso** de imagem:
+Exemplo Do comando [Do Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/) que desencadeia o webhook do evento **de impulso** de imagem:
 
 ```bash
 docker push myregistry.azurecr.io/hello-world:v1
 ```
 
-## <a name="chart-push-event"></a>Evento de push gráfico
+## <a name="chart-push-event"></a>Evento de push de gráficos
 
 Webhook desencadeado quando um gráfico helm é empurrado para um repositório.
 
-### <a name="chart-push-event-payload"></a>Carga útil do evento push gráfico
+### <a name="chart-push-event-payload"></a>Carga útil do evento push de gráfico
 
 |Elemento|Tipo|Descrição|
 |-------------|----------|-----------|
 |`id`|String|A identificação do evento webhook.|
 |`timestamp`|DateTime|O momento em que o evento webhook foi desencadeado.|
 |`action`|String|A ação que desencadeou o evento webhook.|
-|[alvo](#helm_target)|Tipo complexo|O alvo do evento que desencadeou o evento webhook.|
+|[alvo](#helm_target)|Tipo Complexo|O alvo do evento que desencadeou o evento webhook.|
 
 ### <a name="target"></a><a name="helm_target"></a>alvo
 
@@ -113,13 +112,13 @@ Webhook desencadeado quando um gráfico helm é empurrado para um repositório.
 |------------------|----------|-----------|
 |`mediaType`|String|O tipo MIME do objeto referenciado.|
 |`size`|Int32|O número de bytes do conteúdo.|
-|`digest`|String|A digestão do conteúdo, tal como definida pela especificação do Registo V2 HTTP API.|
+|`digest`|String|A digestão do conteúdo, tal como definido pela Especificação API HTTP do Registo V2.|
 |`repository`|String|O nome do repositório.|
-|`tag`|String|O nome da etiqueta da carta.|
-|`name`|String|O nome da ficha.|
+|`tag`|String|O nome da etiqueta de gráfico.|
+|`name`|String|O nome da carta.|
 |`version`|String|A versão do gráfico.|
 
-### <a name="payload-example-chart-push-event"></a>Exemplo de carga útil: gráfico push event
+### <a name="payload-example-chart-push-event"></a>Exemplo de carga útil: evento de push de gráficos
 
 ```JSON
 {
@@ -138,7 +137,7 @@ Webhook desencadeado quando um gráfico helm é empurrado para um repositório.
 }
 ```
 
-Exemplo [Comando AZURI CLI](/cli/azure/acr) que aciona o **webhook do** evento chart_push:
+Exemplo O comando [CLI do Azure](/cli/azure/acr) que desencadeia o webhook do evento **chart_push:**
 
 ```azurecli
 az acr helm push wordpress-5.4.0.tgz --name MyRegistry
@@ -146,24 +145,24 @@ az acr helm push wordpress-5.4.0.tgz --name MyRegistry
 
 ## <a name="delete-event"></a>Excluir evento
 
-Webhook desencadeado quando um repositório de imagem ou manifesto é eliminado. Não acionado quando uma etiqueta é apagada.
+Webhook desencadeado quando um repositório de imagem ou manifesto é eliminado. Não é acionado quando uma etiqueta é apagada.
 
-### <a name="delete-event-payload"></a>Eliminar a carga útil do evento
+### <a name="delete-event-payload"></a>Eliminar carga útil do evento
 
 |Elemento|Tipo|Descrição|
 |-------------|----------|-----------|
 |`id`|String|A identificação do evento webhook.|
 |`timestamp`|DateTime|O momento em que o evento webhook foi desencadeado.|
 |`action`|String|A ação que desencadeou o evento webhook.|
-|[alvo](#delete_target)|Tipo complexo|O alvo do evento que desencadeou o evento webhook.|
-|[pedido](#delete_request)|Tipo complexo|O pedido que gerou o evento webhook.|
+|[alvo](#delete_target)|Tipo Complexo|O alvo do evento que desencadeou o evento webhook.|
+|[pedido](#delete_request)|Tipo Complexo|O pedido que gerou o evento webhook.|
 
 ### <a name="target"></a><a name="delete_target"></a>alvo
 
 |Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
 |`mediaType`|String|O tipo MIME do objeto referenciado.|
-|`digest`|String|A digestão do conteúdo, tal como definida pela especificação do Registo V2 HTTP API.|
+|`digest`|String|A digestão do conteúdo, tal como definido pela Especificação API HTTP do Registo V2.|
 |`repository`|String|O nome do repositório.|
 
 ### <a name="request"></a><a name="delete_request"></a>pedido
@@ -173,9 +172,9 @@ Webhook desencadeado quando um repositório de imagem ou manifesto é eliminado.
 |`id`|String|A identificação do pedido que iniciou o evento.|
 |`host`|String|O nome de anfitrião acessível externamente da instância de registo, conforme especificado pelo cabeçalho do anfitrião HTTP sobre os pedidos de entrada.|
 |`method`|String|O método de pedido que gerou o evento.|
-|`useragent`|String|O cabeçalho do agente utilizador do pedido.|
+|`useragent`|String|O cabeçalho do agente de utilizador do pedido.|
 
-### <a name="payload-example-image-delete-event"></a>Exemplo de carga útil: imagem apagar evento
+### <a name="payload-example-image-delete-event"></a>Exemplo de carga útil: evento de eliminação de imagem
 
 ```JSON
 {
@@ -196,7 +195,7 @@ Webhook desencadeado quando um repositório de imagem ou manifesto é eliminado.
   }
 ```
 
-Exemplo De comandos [Azure CLI](/cli/azure/acr) que desencadeiam um webhook **de** evento:
+Exemplo [Azure CLI](/cli/azure/acr) comandos que desencadeiam um webhook de eventos **de exclusão:**
 
 ```azurecli
 # Delete repository
@@ -206,18 +205,18 @@ az acr repository delete --name MyRegistry --repository MyRepository
 az acr repository delete --name MyRegistry --image MyRepository:MyTag
 ```
 
-## <a name="chart-delete-event"></a>Gráfico apagar evento
+## <a name="chart-delete-event"></a>Evento de eliminação de gráficos
 
-Webhook acionado quando um gráfico de Helm ou repositório é eliminado. 
+Webhook desencadeado quando um gráfico de Helm ou repositório é eliminado. 
 
-### <a name="chart-delete-event-payload"></a>Gráfico eliminar a carga útil do evento
+### <a name="chart-delete-event-payload"></a>Gráfico eliminar carga útil do evento
 
 |Elemento|Tipo|Descrição|
 |-------------|----------|-----------|
 |`id`|String|A identificação do evento webhook.|
 |`timestamp`|DateTime|O momento em que o evento webhook foi desencadeado.|
 |`action`|String|A ação que desencadeou o evento webhook.|
-|[alvo](#chart_delete_target)|Tipo complexo|O alvo do evento que desencadeou o evento webhook.|
+|[alvo](#chart_delete_target)|Tipo Complexo|O alvo do evento que desencadeou o evento webhook.|
 
 ### <a name="target"></a><a name="chart_delete_target"></a>alvo
 
@@ -225,13 +224,13 @@ Webhook acionado quando um gráfico de Helm ou repositório é eliminado.
 |------------------|----------|-----------|
 |`mediaType`|String|O tipo MIME do objeto referenciado.|
 |`size`|Int32|O número de bytes do conteúdo.|
-|`digest`|String|A digestão do conteúdo, tal como definida pela especificação do Registo V2 HTTP API.|
+|`digest`|String|A digestão do conteúdo, tal como definido pela Especificação API HTTP do Registo V2.|
 |`repository`|String|O nome do repositório.|
-|`tag`|String|O nome da etiqueta da carta.|
-|`name`|String|O nome da ficha.|
+|`tag`|String|O nome da etiqueta de gráfico.|
+|`name`|String|O nome da carta.|
 |`version`|String|A versão do gráfico.|
 
-### <a name="payload-example-chart-delete-event"></a>Exemplo de carga útil: gráfico apagar evento
+### <a name="payload-example-chart-delete-event"></a>Exemplo de carga útil: evento de eliminação de gráficos
 
 ```JSON
 {
@@ -250,12 +249,12 @@ Webhook acionado quando um gráfico de Helm ou repositório é eliminado.
 }
 ```
 
-Exemplo [Comando AZURI CLI](/cli/azure/acr) que aciona o **webhook do** evento chart_delete:
+Exemplo O comando [CLI do Azure](/cli/azure/acr) que desencadeia o webhook do evento **chart_delete:**
 
 ```azurecli
 az acr helm delete wordpress --version 5.4.0 --name MyRegistry
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Utilização de webhooks de registo de contentores Azure](container-registry-webhook.md)
+[Usando webhooks de registo de contentores Azure](container-registry-webhook.md)

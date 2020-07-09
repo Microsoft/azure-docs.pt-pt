@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 4a947c01d63e3842ead91481e480024a54380144
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5a09d672f44ce8835571277ab35f7545c7f5f33e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "69015060"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058287"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introdução à entrega de conteúdos a pedido com o portal do Azure
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Este tutorial mostra os passos para implementar um serviço básico de entrega de conteúdos de vídeo a pedido com uma aplicação dos Serviços de Multimédia do Azure no portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 São necessários os itens seguintes para concluir o tutorial:
 
-* Uma conta do Azure. Para mais detalhes, consulte [o teste gratuito do Azure.](https://azure.microsoft.com/pricing/free-trial/) 
-* Uma conta dos Media Services. Para criar uma conta de Media Services, consulte [como criar uma conta de Media Services.](media-services-portal-create-account.md)
+* Uma conta do Azure. Para mais detalhes, consulte [o julgamento gratuito do Azure.](https://azure.microsoft.com/pricing/free-trial/) 
+* Uma conta dos Media Services. Para criar uma conta de Serviços de Comunicação, consulte [Como criar uma conta de Serviços de Mídia.](media-services-portal-create-account.md)
 
 Este tutorial inclui as seguintes tarefas:
 
@@ -52,7 +52,7 @@ Um dos cenários mais comuns quando se trabalha com os Serviços de Multimédia 
 Para iniciar o ponto final da transmissão em fluxo:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Selecione **Definições** > **Pontos finais de streaming**. 
+2. Selecione **Definições**  >  **Streaming pontos finais**. 
 3. Selecione o ponto final da transmissão em fluxo predefinido. A janela **DETALHES DO PONTO FINAL DE TRANSMISSÃO EM FLUXO PREDEFINIDO** é apresentada.
 4. Clique no ícone **Iniciar**.
 5. Selecione o botão **Guardar**.
@@ -61,7 +61,7 @@ Para iniciar o ponto final da transmissão em fluxo:
 Para transmitir vídeos em fluxo com os Serviços de Multimédia, tem de carregar os vídeos de origem, codificá-los em velocidades de transmissão múltiplas e publicar o resultado. O primeiro passo é abrangido nesta secção. 
 
 1. No [portal do Azure](https://portal.azure.com/) selecione a sua conta de Serviços de Multimédia do Azure.
-2. Selecione**Ativos**de **Definições** > . Em seguida, selecione o botão **Carregar**.
+2. Selecione **Settings**  >  **Configurações Ativos**. Em seguida, selecione o botão **Carregar**.
    
     ![Carregar ficheiros](./media/media-services-portal-vod-get-started/media-services-upload.png)
    
@@ -84,7 +84,7 @@ Para tirar partido do empacotamento dinâmico, tem de codificar o ficheiro de or
 Para codificar os seus conteúdos com o Media Encoder Standard no portal do Azure:
 
 1. No [portal do Azure](https://portal.azure.com/) selecione a sua conta de Serviços de Multimédia do Azure.
-2. Selecione**Ativos**de **Definições** > . Selecione o elemento que pretende codificar.
+2. Selecione **Settings**  >  **Configurações Ativos**. Selecione o elemento que pretende codificar.
 3. Selecione o botão **Codificar**.
 4. No painel **Codificar um elemento**, selecione o processador **Media Encoder Standard** e uma predefinição. Para obter informações sobre as predefinições, veja [Auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md) (Gerar automaticamente uma escala de velocidade de transmissão) e [Task presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Predefinições de tarefas para o Media Encoder Standard). É importante escolher a predefinição que funcionará melhor no seu vídeo de entrada. Por exemplo, se sabe que o seu vídeo de entrada tem uma resolução de 1920 &#215; 1080 pixels, pode escolher a predefinição **H264 Multiple Bitrate 1080p**. Se o vídeo for de baixa resolução (640 &#215; 360), não deve utilizar a predefinição **H264 Multiple Bitrate 1080p**.
    
@@ -106,19 +106,19 @@ Para fornecer ao seu utilizador um URL que ele possa utilizar para transmitir ou
 
 Para construir um URL de streaming HLS, apêndice *(formato=m3u8-aapl)* para o URL:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
+`{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)`
 
 Para compilar um URL de transmissão em fluxo que reproduza elementos de Smooth Streaming, utilize o formato de URL abaixo:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest
+`{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest`
 
 Para compilar um URL de transmissão em fluxo MPEG DASH, acrescente *(format=mpd-time-csf)* ao URL.
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
+`{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)`
 
 Os URLs de assinatura de acesso partilhado têm o formato seguinte:
 
-    {blob container name}/{asset name}/{file name}/{shared access signature}
+`{blob container name}/{asset name}/{file name}/{shared access signature}`
 
 > [!NOTE]
 > Os localizadores que foram criados no portal do Azure antes de março de 2015 têm uma data de expiração de dois anos.  
@@ -132,7 +132,7 @@ Para atualizar uma data de expiração num localizador, pode utilizar uma [API R
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Para utilizar o portal para publicar um elemento
 1. No [portal do Azure](https://portal.azure.com/) selecione a sua conta de Serviços de Multimédia do Azure.
-2. Selecione**Ativos**de **Definições** > . Selecione o elemento que pretende publicar.
+2. Selecione **Settings**  >  **Configurações Ativos**. Selecione o elemento que pretende publicar.
 3. Selecione o botão **Publicar**.
 4. Selecione o tipo de localizador.
 5. Selecione **Adicionar**.
@@ -157,5 +157,5 @@ São aplicáveis algumas considerações:
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

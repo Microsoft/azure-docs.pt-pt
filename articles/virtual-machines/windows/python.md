@@ -1,5 +1,5 @@
 ---
-title: Criar e gerir um Windows VM em Azure usando python
+title: Criar e gerir um Windows VM em Azure usando Python
 description: Aprenda a usar python para criar e gerir um Windows VM em Azure.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -7,16 +7,16 @@ ms.workload: infrastructure
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: b2172d44b4136b51c0ea459868ebd5b0572bb004
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: b5f8b0e8f22a476ad379b55275d79c2874966852
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82098073"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84551980"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Criar e gerir VMs windows em Azure usando Python
 
-Uma [Máquina Virtual Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) precisa de vários recursos azure de apoio. Este artigo abrange a criação, gestão e aeliminar recursos VM usando python. Saiba como:
+[Uma Máquina Virtual Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) precisa de vários recursos de suporte Azure. Este artigo abrange a criação, gestão e eliminação de recursos VM usando Python. Saiba como:
 
 > [!div class="checklist"]
 > * Criar um projeto do Visual Studio
@@ -31,21 +31,21 @@ Leva cerca de 20 minutos para fazer estes passos.
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
-1. Se ainda não o fez, instale [o Estúdio Visual.](https://docs.microsoft.com/visualstudio/install/install-visual-studio) Selecione o **desenvolvimento** python na página Workloads e, em seguida, clique em **Instalar**. No resumo, pode ver que **Python 3 64 bits (3.6.0)** é automaticamente selecionado para si. Se já instalou o Visual Studio, pode adicionar a carga de trabalho python utilizando o Visual Studio Launcher.
-2. Depois de instalar e iniciar o Estúdio Visual, clique em **File** > **New** > **Project**.
-3. Clique em **Modelos** > **Python** > **Python Application,** insira *myPythonProject* para o nome do projeto, selecione a localização do projeto e, em seguida, clique EM **OK**.
+1. Se ainda não o fez, instale [o Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selecione **o desenvolvimento python** na página Workloads e, em seguida, clique em **Instalar**. No resumo, pode ver que **python 3 64-bit (3.6.0)** é automaticamente selecionado para si. Se já instalou o Visual Studio, pode adicionar a carga de trabalho python utilizando o Lançador de Estúdio Visual.
+2. Depois de instalar e iniciar o Visual Studio, clique em **File**  >  **New**  >  **Project**.
+3. Clique **em Modelos**  >  **Python**  >  **Python Application,** insira *myPythonProject* para o nome do projeto, selecione a localização do projeto e, em seguida, clique **em OK**.
 
 ## <a name="install-packages"></a>Instalar pacotes
 
-1. No Solution Explorer, sob *o myPythonProject*, clique à direita **em Ambientes Python,** e depois selecione **Adicionar ambiente virtual**.
-2. No ecrã Add Virtual Environment, aceite o nome padrão do *env,* certifique-se de que *python 3.6 (64 bits)* é selecionado para o intérprete base e, em seguida, clique em **Criar**.
-3. Clique no ambiente *env* que criou, clique em **Instalar o Pacote Python,** *introduza azure* na caixa de pesquisa e, em seguida, prima Enter.
+1. No Solution Explorer, sob *o myPythonProject,* clique à direita **em Python Environments**e, em seguida, selecione **Adicionar ambiente virtual**.
+2. No ecrã Add Virtual Environment, aceite o nome padrão do *env,* certifique-se de que *Python 3.6 (64-bits)* é selecionado para o intérprete base e, em seguida, clique em **Criar**.
+3. Clique com o botão direito no ambiente *env* que criou, clique em **Instalar o Pacote Python,** *introduza* o azul na caixa de pesquisa e, em seguida, prima Enter.
 
-Deve ver nas janelas de saída que os pacotes de azul foram instalados com sucesso. 
+Deve ver nas janelas de saída que os pacotes azul foram instalados com sucesso. 
 
 ## <a name="create-credentials"></a>Criar credenciais
 
-Antes de iniciar este passo, certifique-se de que tem um diretor de serviço de [Diretório Ativo.](../../active-directory/develop/howto-create-service-principal-portal.md) Você também deve registar o ID da aplicação, a chave de autenticação, e o ID do inquilino que você precisa em um passo posterior.
+Antes de iniciar este passo, certifique-se de que tem um [diretor de serviço de Diretório Ativo.](../../active-directory/develop/howto-create-service-principal-portal.md) Você também deve registar o ID da aplicação, a chave de autenticação, e o ID do inquilino que você precisa em um passo posterior.
 
 1. Abra *myPythonProject.py* ficheiro que foi criado e, em seguida, adicione este código para permitir que a sua aplicação seja executada:
 
@@ -63,7 +63,7 @@ Antes de iniciar este passo, certifique-se de que tem um diretor de serviço de 
     from azure.mgmt.compute.models import DiskCreateOption
     ```
 
-3. Em seguida, no ficheiro .py, adicione variáveis após as declarações de importação para especificar valores comuns utilizados no código:
+3. Em seguida, no ficheiro .py, adicione variáveis após as declarações de importação para especificar os valores comuns utilizados no código:
    
     ```
     SUBSCRIPTION_ID = 'subscription-id'
@@ -72,9 +72,9 @@ Antes de iniciar este passo, certifique-se de que tem um diretor de serviço de 
     VM_NAME = 'myVM'
     ```
 
-    Substitua **o id de subscrição** pelo seu identificador de subscrição.
+    Substitua o **id de subscrição** pelo seu identificador de assinatura.
 
-4. Para criar as credenciais de Diretório Ativo que necessita para fazer pedidos, adicione esta função após as variáveis no ficheiro .py:
+4. Para criar as credenciais do Ative Directory que precisa de fazer pedidos, adicione esta função após as variáveis no ficheiro .py:
 
     ```python
     def get_credentials():
@@ -87,9 +87,9 @@ Antes de iniciar este passo, certifique-se de que tem um diretor de serviço de 
         return credentials
     ```
 
-    Substitua o **application-id,** a **chave de autenticação**e o **id do inquilino** com os valores que recolheu anteriormente quando criou o seu diretor de serviço de Diretório Ativo Azure.
+    Substitua **o id de aplicação,** **a chave de autenticação**e o **id do inquilino** pelos valores que recolheu anteriormente quando criou o seu diretor de serviço Azure Ative.
 
-5. Para ligar para a função que adicionou anteriormente, adicione este código sob a declaração **se** no final do ficheiro .py:
+5. Para ligar para a função que adicionou anteriormente, adicione este código ao abrigo da declaração **se** a declaração no final do ficheiro .py:
 
     ```python
     credentials = get_credentials()
@@ -99,7 +99,7 @@ Antes de iniciar este passo, certifique-se de que tem um diretor de serviço de 
  
 ### <a name="initialize-management-clients"></a>Inicializar clientes de gestão
 
-Os clientes de gestão são necessários para criar e gerir recursos usando o Python SDK em Azure. Para criar os clientes de gestão, adicione este código sob a declaração **se** em seguida no final do ficheiro .py:
+Os clientes de gestão são necessários para criar e gerir recursos usando o Python SDK em Azure. Para criar os clientes de gestão, adicione este código ao abrigo da declaração **se** a declaração no final do ficheiro .py:
 
 ```python
 resource_group_client = ResourceManagementClient(
@@ -131,14 +131,14 @@ Todos os recursos devem ser contidos num [grupo de recursos.](../../azure-resour
         )
     ```
 
-2. Para ligar para a função que adicionou anteriormente, adicione este código sob a declaração **se** no final do ficheiro .py:
+2. Para ligar para a função que adicionou anteriormente, adicione este código ao abrigo da declaração **se** a declaração no final do ficheiro .py:
 
     ```python
     create_resource_group(resource_group_client)
     input('Resource group created. Press enter to continue...')
     ```
 
-[Os conjuntos](tutorial-availability-sets.md) de disponibilidade facilitam a manutenção das máquinas virtuais utilizadas pela sua aplicação.
+[Os conjuntos de disponibilidade](tutorial-availability-sets.md) facilitam a manutenção das máquinas virtuais utilizadas pela sua aplicação.
 
 1. Para criar um conjunto de disponibilidade, adicione esta função após as variáveis no ficheiro .py:
    
@@ -156,7 +156,7 @@ Todos os recursos devem ser contidos num [grupo de recursos.](../../azure-resour
         )
     ```
 
-2. Para ligar para a função que adicionou anteriormente, adicione este código sob a declaração **se** no final do ficheiro .py:
+2. Para ligar para a função que adicionou anteriormente, adicione este código ao abrigo da declaração **se** a declaração no final do ficheiro .py:
 
     ```python
     create_availability_set(compute_client)
@@ -164,7 +164,7 @@ Todos os recursos devem ser contidos num [grupo de recursos.](../../azure-resour
     input('Availability set created. Press enter to continue...')
     ```
 
-É necessário um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) para comunicar com a máquina virtual.
+É necessário um [endereço IP público](../../virtual-network/public-ip-addresses.md) para comunicar com a máquina virtual.
 
 1. Para criar um endereço IP público para a máquina virtual, adicione esta função após as variáveis no ficheiro .py:
 
@@ -183,7 +183,7 @@ Todos os recursos devem ser contidos num [grupo de recursos.](../../azure-resour
         return creation_result.result()
     ```
 
-2. Para ligar para a função que adicionou anteriormente, adicione este código sob a declaração **se** no final do ficheiro .py:
+2. Para ligar para a função que adicionou anteriormente, adicione este código ao abrigo da declaração **se** a declaração no final do ficheiro .py:
 
     ```python
     creation_result = create_public_ip_address(network_client)
@@ -212,7 +212,7 @@ Uma máquina virtual deve estar numa sub-rede de uma [rede Virtual.](../../virtu
         return creation_result.result()
     ```
 
-2. Para ligar para a função que adicionou anteriormente, adicione este código sob a declaração **se** no final do ficheiro .py:
+2. Para ligar para a função que adicionou anteriormente, adicione este código ao abrigo da declaração **se** a declaração no final do ficheiro .py:
    
     ```python
     creation_result = create_vnet(network_client)
@@ -238,7 +238,7 @@ Uma máquina virtual deve estar numa sub-rede de uma [rede Virtual.](../../virtu
         return creation_result.result()
     ```
         
-4. Para ligar para a função que adicionou anteriormente, adicione este código sob a declaração **se** no final do ficheiro .py:
+4. Para ligar para a função que adicionou anteriormente, adicione este código ao abrigo da declaração **se** a declaração no final do ficheiro .py:
    
     ```python
     creation_result = create_subnet(network_client)
@@ -281,7 +281,7 @@ Uma máquina virtual precisa de uma interface de rede para comunicar na rede vir
         return creation_result.result()
     ```
 
-2. Para ligar para a função que adicionou anteriormente, adicione este código sob a declaração **se** no final do ficheiro .py:
+2. Para ligar para a função que adicionou anteriormente, adicione este código ao abrigo da declaração **se** a declaração no final do ficheiro .py:
 
     ```python
     creation_result = create_nic(network_client)
@@ -341,11 +341,11 @@ Agora que criou todos os recursos de apoio, pode criar uma máquina virtual.
     ```
 
     > [!NOTE]
-    > Este tutorial cria uma máquina virtual que executa uma versão do sistema operativo Windows Server. Para saber mais sobre a seleção de outras imagens, consulte [Navegar e selecione imagens de máquinas virtuais Azure com o Windows PowerShell e o Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > Este tutorial cria uma máquina virtual que executa uma versão do sistema operativo Windows Server. Para saber mais sobre a seleção de outras imagens, consulte [a Navigate e selecione imagens de máquinas virtuais Azure com o Windows PowerShell e o Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     > 
     > 
 
-2. Para ligar para a função que adicionou anteriormente, adicione este código sob a declaração **se** no final do ficheiro .py:
+2. Para ligar para a função que adicionou anteriormente, adicione este código ao abrigo da declaração **se** a declaração no final do ficheiro .py:
 
     ```python
     creation_result = create_vm(network_client, compute_client)
@@ -413,7 +413,7 @@ Durante o ciclo de vida de uma máquina virtual, poderá querer executar tarefas
             print("  code: ", stat.code)
             print("  displayStatus: ", stat.display_status)
     ```
-2. Para ligar para a função que adicionou anteriormente, adicione este código sob a declaração **se** no final do ficheiro .py:
+2. Para ligar para a função que adicionou anteriormente, adicione este código ao abrigo da declaração **se** a declaração no final do ficheiro .py:
 
     ```python
     get_vm(compute_client)
@@ -423,22 +423,22 @@ Durante o ciclo de vida de uma máquina virtual, poderá querer executar tarefas
 
 ### <a name="stop-the-vm"></a>Parar a VM
 
-Pode parar uma máquina virtual e manter todas as suas definições, mas continuar a ser carregada por ela, ou pode parar uma máquina virtual e desalocar-a. Quando uma máquina virtual é negociada, todos os recursos associados a ela também são deallocalizados e a faturação termina para ela.
+Pode parar uma máquina virtual e manter todas as suas definições, mas continuar a ser carregada por ela, ou pode parar uma máquina virtual e translocar a máquina. Quando uma máquina virtual é negociada, todos os recursos associados a ela também são translocados e a faturação termina para ela.
 
-1. Para parar a máquina virtual sem a locar, adicione esta função após as variáveis no ficheiro .py:
+1. Para parar a máquina virtual sem a fazer negóciolocado, adicione esta função após as variáveis no ficheiro .py:
 
     ```python
     def stop_vm(compute_client):
         compute_client.virtual_machines.power_off(GROUP_NAME, VM_NAME)
     ```
 
-    Se quiser desalojar a máquina virtual, altere a chamada power_off para este código:
+    Se quiser negociar a máquina virtual, altere a power_off ligue para este código:
 
     ```python
     compute_client.virtual_machines.deallocate(GROUP_NAME, VM_NAME)
     ```
 
-2. Para ligar para a função que adicionou anteriormente, adicione este código sob a declaração **se** no final do ficheiro .py:
+2. Para ligar para a função que adicionou anteriormente, adicione este código ao abrigo da declaração **se** a declaração no final do ficheiro .py:
 
     ```python
     stop_vm(compute_client)
@@ -454,7 +454,7 @@ Pode parar uma máquina virtual e manter todas as suas definições, mas continu
         compute_client.virtual_machines.start(GROUP_NAME, VM_NAME)
     ```
 
-2. Para ligar para a função que adicionou anteriormente, adicione este código sob a declaração **se** no final do ficheiro .py:
+2. Para ligar para a função que adicionou anteriormente, adicione este código ao abrigo da declaração **se** a declaração no final do ficheiro .py:
 
     ```python
     start_vm(compute_client)
@@ -463,7 +463,7 @@ Pode parar uma máquina virtual e manter todas as suas definições, mas continu
 
 ### <a name="resize-the-vm"></a>Redimensionar o VM
 
-Muitos aspetos de implantação devem ser considerados ao decidir sobre um tamanho para a sua máquina virtual. Para mais informações, consulte os tamanhos de [VM](sizes.md).
+Muitos aspetos da implementação devem ser considerados ao decidir sobre um tamanho para a sua máquina virtual. Para mais informações, consulte os [tamanhos de VM.](sizes.md)
 
 1. Para alterar o tamanho da máquina virtual, adicione esta função após as variáveis no ficheiro .py:
 
@@ -480,7 +480,7 @@ Muitos aspetos de implantação devem ser considerados ao decidir sobre um taman
     return update_result.result()
     ```
 
-2. Para ligar para a função que adicionou anteriormente, adicione este código sob a declaração **se** no final do ficheiro .py:
+2. Para ligar para a função que adicionou anteriormente, adicione este código ao abrigo da declaração **se** a declaração no final do ficheiro .py:
 
     ```python
     update_result = update_vm(compute_client)
@@ -491,7 +491,7 @@ Muitos aspetos de implantação devem ser considerados ao decidir sobre um taman
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Adicionar um disco de dados à VM
 
-As máquinas virtuais podem ter um ou mais discos de dados que são [armazenados](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) como VHDs.
+As máquinas virtuais podem ter um ou mais [discos de dados](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) que são armazenados como VHDs.
 
 1. Para adicionar um disco de dados à máquina virtual, adicione esta função após as variáveis no ficheiro .py: 
 
@@ -526,7 +526,7 @@ As máquinas virtuais podem ter um ou mais discos de dados que são [armazenados
         return add_result.result()
     ```
 
-2. Para ligar para a função que adicionou anteriormente, adicione este código sob a declaração **se** no final do ficheiro .py:
+2. Para ligar para a função que adicionou anteriormente, adicione este código ao abrigo da declaração **se** a declaração no final do ficheiro .py:
 
     ```python
     add_result = add_datadisk(compute_client)
@@ -537,7 +537,7 @@ As máquinas virtuais podem ter um ou mais discos de dados que são [armazenados
 
 ## <a name="delete-resources"></a>Eliminar recursos
 
-Como é cobrado pelos recursos utilizados no Azure, é sempre uma boa prática apagar recursos que já não são necessários. Se quiser eliminar as máquinas virtuais e todos os recursos de apoio, tudo o que tem de fazer é eliminar o grupo de recursos.
+Como é cobrado pelos recursos utilizados no Azure, é sempre uma boa prática apagar recursos que já não são necessários. Se pretender eliminar as máquinas virtuais e todos os recursos de suporte, tudo o que tem de fazer é eliminar o grupo de recursos.
 
 1. Para eliminar o grupo de recursos e todos os recursos, adicione esta função após as variáveis no ficheiro .py:
    
@@ -546,24 +546,24 @@ Como é cobrado pelos recursos utilizados no Azure, é sempre uma boa prática a
         resource_group_client.resource_groups.delete(GROUP_NAME)
     ```
 
-2. Para ligar para a função que adicionou anteriormente, adicione este código sob a declaração **se** no final do ficheiro .py:
+2. Para ligar para a função que adicionou anteriormente, adicione este código ao abrigo da declaração **se** a declaração no final do ficheiro .py:
    
     ```python
     delete_resources(resource_group_client)
     ```
 
-3. Poupe *myPythonProject.py.*
+3. Salve *myPythonProject.py.*
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-1. Para executar a aplicação da consola, clique em **Iniciar** em Estúdio Visual.
+1. Para executar a aplicação da consola, clique em **Iniciar** no Estúdio Visual.
 
-2. Pressione **Entrar** depois de devolvido o estado de cada recurso. Na informação sobre o estado, deve ver um estado de provisionamento **bem sucedido.** Depois da máquina virtual ser criada, tem a oportunidade de eliminar todos os recursos que cria. Antes de pressionar **Enter** para começar a apagar recursos, pode demorar alguns minutos a verificar a sua criação no portal Azure. Se tiver o portal Azure aberto, talvez tenha de refrescar a lâmina para ver novos recursos.  
+2. Prima **Introduza** após a reposição do estado de cada recurso. Na informação sobre o estado, deve ver um estado de provisionamento **bem sucedido.** Depois de a máquina virtual ser criada, tem a oportunidade de apagar todos os recursos que cria. Antes de pressionar **Enter** para começar a apagar recursos, pode demorar alguns minutos a verificar a sua criação no portal Azure. Se tiver o portal Azure aberto, poderá ter de refrescar a lâmina para ver novos recursos.  
 
-    Deve levar cerca de cinco minutos para que esta aplicação da consola decorra completamente do início ao fim. Pode levar alguns minutos após a aplicação ter terminado antes que todos os recursos e o grupo de recursos sejam eliminados.
+    Deve levar cerca de cinco minutos para que esta aplicação da consola corra completamente do início ao fim. Pode demorar vários minutos após o fim da aplicação antes de todos os recursos e o grupo de recursos serem eliminados.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Se ocorreram problemas com a implementação, um passo seguinte será ver [Troubleshooting resource group deployments with Azure portal (Resolução de problemas com implementações do grupo de recursos com o portal do Azure)](../../resource-manager-troubleshoot-deployments-portal.md)
 - Saiba mais sobre a [Biblioteca Azure Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)

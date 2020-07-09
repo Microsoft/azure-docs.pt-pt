@@ -1,25 +1,16 @@
 ---
-title: 'Quickstart: Envie eventos personalizados com Grid de Eventos e Azure CLI'
-description: Quickstart Use Azure Event Grid e Azure CLI para publicar um tópico personalizado, e subscrever eventos para esse tema. Os eventos são tratados por uma aplicação web.
-services: event-grid
-keywords: ''
-author: spelluru
-ms.author: spelluru
-ms.date: 11/05/2019
+title: 'Quickstart: Envie eventos personalizados com Grade de Eventos e CLI Azure'
+description: Quickstart Use Azure Event Grid e Azure CLI para publicar um tópico personalizado e subscrever eventos para esse tópico. Os eventos são tratados por uma aplicação web.
+ms.date: 07/07/2020
 ms.topic: quickstart
-ms.service: event-grid
-ms.custom:
-- seodec18
-- seo-javascript-september2019
-- seo-python-october2019
-ms.openlocfilehash: 4dbf3d2be04403d7cafac4ef9d4305c368da68b1
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ecf7e753df4f6fb3de6095ba295a07fd57b458cf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743073"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101729"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Quickstart: Rota eventos personalizados para web endpoint com Azure CLI e Grid de Eventos
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Quickstart: Encaminhe eventos personalizados para o ponto final da web com Azure CLI e Grade de Eventos
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, a CLI do Azure serve para criar um tópico personalizado, subscrever o tópico personalizado e acionar o evento para ver o resultado.
 
@@ -27,7 +18,7 @@ Normalmente, envia eventos para um ponto final que processa os dados de eventos 
 
 Quando tiver terminado, verá que os dados do evento foram enviados para a aplicação Web.
 
-![Ver resultados no Espectador da Grelha de Eventos Azure](./media/custom-event-quickstart/azure-event-grid-viewer-record-inserted-event.png)
+![Ver resultados no Azure Event Grid Viewer](./media/custom-event-quickstart/azure-event-grid-viewer-record-inserted-event.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -53,7 +44,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## <a name="create-a-custom-topic"></a>Criar um tópico personalizado
 
-Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual publica os eventos. O exemplo seguinte cria o tópico personalizado no seu grupo de recursos. Substitua `<your-topic-name>` por um nome exclusivo para o seu tópico. O nome do tópico personalizado deve ser exclusivo, porque faz parte da entrada DNS. Além disso, deve ser entre 3-50 caracteres e conter apenas valores a-z, A-Z, 0-9 e "-"
+Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual publica os eventos. O exemplo seguinte cria o tópico personalizado no seu grupo de recursos. Substitua `<your-topic-name>` por um nome exclusivo para o seu tópico. O nome do tópico personalizado deve ser exclusivo, porque faz parte da entrada DNS. Além disso, deve estar entre 3-50 caracteres e conter apenas valores a-z, A-Z, 0-9 e "-"
 
 ```azurecli-interactive
 topicname=<your-topic-name>
@@ -98,7 +89,7 @@ az eventgrid event-subscription create \
 
 Verifique a aplicação Web novamente e repare que um evento de validação de subscrição foi enviado para a mesma. Selecione o ícone do olho para expandir os dados do evento. O Event Grid envia o evento de validação para que o ponto final possa verificar que pretende receber dados de eventos. A aplicação Web inclui código para validar a subscrição.
 
-![Ver o evento de subscrição no Espectador da Grelha de Eventos Azure](./media/custom-event-quickstart/azure-event-grid-viewer-subscription-validation-event.png)
+![Ver o evento de subscrição no Azure Event Grid Viewer](./media/custom-event-quickstart/azure-event-grid-viewer-subscription-validation-event.png)
 
 
 ## <a name="send-an-event-to-your-custom-topic"></a>Enviar um evento para o tópico personalizado
@@ -149,7 +140,7 @@ Se quiser continuar a trabalhar com este evento ou com a aplicação de visualiz
 az group delete --name gridResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

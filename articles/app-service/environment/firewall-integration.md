@@ -1,116 +1,118 @@
 ---
-title: Bloquear o tráfego de saída
-description: Aprenda a integrar-se com o Azure Firewall para garantir o tráfego de saída de dentro de um ambiente de Serviço de Aplicações.
+title: Bloqueie o tráfego de saída
+description: Saiba como se integrar com o Azure Firewall para garantir o tráfego de saída dentro de um ambiente de Serviço de Aplicações.
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 4c25c64268b38e5929c73891f7c48e79b9b8593e
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.custom: seodec18, references_regions
+ms.openlocfilehash: 8e63c0678967a21a6b2763574e594a1a6c2ba25b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856040"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832989"
 ---
-# <a name="locking-down-an-app-service-environment"></a>Bloquear um ambiente de serviço de aplicações
+# <a name="locking-down-an-app-service-environment"></a>Bloqueando um Ambiente de Serviço de Aplicações
 
-O App Service Environment (ASE) tem uma série de dependências externas a que requer acesso para funcionar corretamente. A ASE vive na rede virtual Azure (VNet). Os clientes devem permitir o tráfego de dependência da ASE, o que é um problema para os clientes que querem bloquear todas as saídas do seu VNet.
+O Ambiente de Serviço de Aplicações (ASE) tem uma série de dependências externas a que necessita de acesso para funcionar corretamente. O ASE vive no cliente Azure Virtual Network (VNet). Os clientes devem permitir o tráfego de dependência da ASE, o que é um problema para os clientes que querem bloquear todas as saídas do seu VNet.
 
-Há uma série de pontos finais de entrada que são usados para gerir uma ASE. O tráfego de gestão de entrada não pode ser enviado através de um dispositivo de firewall. Os endereços de origem para este tráfego são conhecidos e são publicados no documento de endereços de gestão do [App Service Environment.](https://docs.microsoft.com/azure/app-service/environment/management-addresses) Existe também uma etiqueta de serviço chamada AppServiceManagement que pode ser usada com Grupos de Segurança de Rede (NSGs) para garantir o tráfego de entrada.
+Há uma série de pontos finais de entrada que são usados para gerir um ASE. O tráfego de gestão de entrada não pode ser enviado através de um dispositivo de firewall. Os endereços de origem para este tráfego são conhecidos e são publicados no documento de gestão de endereços de [gestão do App Service Environment.](https://docs.microsoft.com/azure/app-service/environment/management-addresses) Existe também uma Tag de Serviço chamada AppServiceManagement que pode ser usada com Grupos de Segurança de Rede (NSGs) para garantir o tráfego de entrada.
 
-As dependências de saída da ASE são quase inteiramente definidas com FQDNs, que não têm endereços estáticos por trás deles. A falta de endereços estáticos significa que os grupos de segurança da rede não podem ser utilizados para bloquear o tráfego de saída de uma ASE. Os endereços mudam com frequência suficiente para que não se possa estabelecer regras com base na resolução atual e usá-las para criar NSGs. 
+As dependências de saída da ASE são quase totalmente definidas com FQDNs, que não têm endereços estáticos por trás deles. A falta de endereços estáticos significa que os grupos de segurança da rede não podem ser utilizados para bloquear o tráfego de saída de um ASE. Os endereços mudam muitas vezes o suficiente para que não se possa estabelecer regras com base na resolução atual e usá-lo para criar NSGs. 
 
-A solução para assegurar endereços de saída encontra-se na utilização de um dispositivo de firewall que pode controlar o tráfego de saída com base em nomes de domínio. O Azure Firewall pode restringir o tráfego HTTP e HTTPS de saída com base no FQDN do destino.  
+A solução para garantir endereços de saída reside na utilização de um dispositivo de firewall que pode controlar o tráfego de saída com base em nomes de domínio. O Azure Firewall pode restringir o tráfego http e HTTPS de saída com base no FQDN do destino.  
 
 ## <a name="system-architecture"></a>Arquitetura do sistema
 
-A implantação de uma ASE com tráfego de saída através de um dispositivo de firewall requer a alteração das rotas na sub-rede ASE. As rotas funcionam a um nível IP. Se não tiver cuidado na definição das suas rotas, pode forçar o tráfego de resposta da TCP a fonte de outra morada. Quando o seu endereço de resposta é diferente do endereço para o que o tráfego foi enviado, o problema é chamado de encaminhamento assimétrico e quebrará o TCP.
+A implantação de um ASE com tráfego de saída através de um dispositivo de firewall requer a alteração de rotas na sub-rede ASE. As rotas operam a um nível de IP. Se não tiver cuidado na definição das suas rotas, pode forçar o tráfego de resposta da TCP a obter a partir de outro endereço. Quando o seu endereço de resposta é diferente do endereço para o qual o tráfego foi enviado, o problema é chamado de encaminhamento assimétrico e quebrará o TCP.
 
-Tem de haver rotas definidas para que o tráfego de entrada para a ASE possa responder da mesma forma que o tráfego entrou. As rotas devem ser definidas para pedidos de gestão de entrada e para pedidos de pedidos de entrada.
+Tem de haver vias definidas para que o tráfego de entrada para a ASE possa responder da mesma forma que o trânsito entrou. As rotas devem ser definidas para pedidos de gestão de entrada e para pedidos de pedidos de entrada.
 
 O tráfego de e para uma ASE deve respeitar as seguintes convenções
 
-* O tráfego para Azure SQL, Storage e Event Hub não são suportados com a utilização de um dispositivo de firewall. Este tráfego deve ser enviado diretamente para esses serviços. A forma de fazer isso acontecer é configurar os pontos finais do serviço para esses três serviços. 
-* Devem ser definidas as regras da tabela de rotas que enviam o tráfego de gestão de regresso de onde veio.
-* Devem ser definidas as regras da tabela de rotas que enviam o tráfego de aplicações de regresso de onde veio. 
-* Todo o tráfego que sai da ASE pode ser enviado para o seu dispositivo de firewall com uma regra de mesa de rota.
+* O tráfego para Azure SQL, Storage e Event Hub não são suportados com a utilização de um dispositivo de firewall. Este tráfego deve ser enviado diretamente para esses serviços. A forma de fazer isso acontecer é configurar os pontos finais de serviço para estes três serviços. 
+* As regras do quadro de rotas devem ser definidas que rememitim o tráfego de gestão de entrada de onde veio.
+* As regras do quadro de rotas devem ser definidas que enviem o tráfego de aplicação de entrada de volta de onde veio. 
+* Todo o tráfego que sai do ASE pode ser enviado para o seu dispositivo de firewall com uma regra de tabela de rota.
 
-![ASE com fluxo de ligação de firewall Azure][5]
+![ASE com fluxo de conexão Azure Firewall][5]
 
-## <a name="locking-down-inbound-management-traffic"></a>Bloquear o tráfego de gestão de entrada
+## <a name="locking-down-inbound-management-traffic"></a>Bloqueio do tráfego de gestão de entrada
 
-Se a sua sub-rede ASE ainda não tiver um NSG atribuído, crie um. Dentro do NSG, estabeleça a primeira regra para permitir o tráfego da etiqueta de serviço chamada AppServiceManagement nas portas 454, 455. A regra para permitir o acesso a partir da etiqueta AppServiceManagement é a única coisa que é necessária aos IPs públicos para gerir a sua ASE. Os endereços que estão por trás dessa Etiqueta de Serviço são usados apenas para administrar o Serviço de Aplicações Azure. O tráfego de gestão que flui através destas ligações é encriptado e protegido com certificados de autenticação. O tráfego típico neste canal inclui coisas como comandos iniciados pelo cliente e sondas de saúde. 
+Se a sua sub-rede ASE ainda não tiver um NSG atribuído, crie um. Dentro do NSG, detenda a primeira regra para permitir o tráfego a partir da Tag de Serviço chamada AppServiceManagement nas portas 454,455. A regra para permitir o acesso a partir da etiqueta AppServiceManagement é a única coisa que é necessária aos IPs públicos para gerir o seu ASE. Os endereços que estão por trás dessa Tag de Serviço são usados apenas para administrar o Serviço de Aplicações Azure. O tráfego de gestão que flui através destas ligações é encriptado e protegido com certificados de autenticação. O tráfego típico neste canal inclui coisas como comandos iniciados pelo cliente e sondas de saúde. 
 
-AsEs que são feitas através do portal com uma nova subnet são feitas com um NSG que contém a regra de permitir a etiqueta AppServiceManagement.  
+AsEs que são feitas através do portal com uma nova sub-rede são feitas com um NSG que contém a regra de permitir a etiqueta AppServiceManagement.  
 
-A Sua ASE também deve permitir pedidos de entrada a partir da etiqueta Balancer de carga na porta 16001. Os pedidos do Balancer de Carga na porta 16001 são manter os controlos vivos entre o Balancer de Carga e as extremidades dianteiras da ASE. Se a porta 16001 estiver bloqueada, a sua ASE não será saudável.
+O seu ASE também deve permitir pedidos de entrada a partir da etiqueta balanceador de carga na porta 16001. Os pedidos do Balanceador de Carga na porta 16001 são controlos vivos entre o Balançador de Carga e as extremidades dianteiras ASE. Se a porta 16001 estiver bloqueada, o seu ASE não ficará saudável.
 
-## <a name="configuring-azure-firewall-with-your-ase"></a>Configurar firewall azure com a sua ASE 
+## <a name="configuring-azure-firewall-with-your-ase"></a>Configurar firewall Azure com o seu ASE 
 
-Os passos para travar a saída da sua ASE existente com firewall Azure são:
+Os passos para bloquear a saída do seu ASE existente com a Azure Firewall são:
 
-1. Ative pontos finais de serviço para SQL, Storage e Event Hub na sua subnet ASE. Para ativar os pontos finais do serviço, entre no portal de rede > subnets e selecione Microsoft.EventHub, Microsoft.SQL e Microsoft.Storage from the Service endpoints dropdown. Quando tiver pontos finais de serviço habilitados ao Azure SQL, quaisquer dependências Azure SQL que as suas aplicações tenham devem ser configuradas com pontos finais de serviço também. 
+1. Ative os pontos finais do serviço para SQL, Storage e Event Hub na sua sub-rede ASE. Para ativar os pontos finais do serviço, entre no portal de rede > sub-redes e selecione Microsoft.EventHub, Microsoft.SQL e Microsoft.Storage a partir do dropdown dos pontos finais do Serviço. Quando tiver pontos finais de serviço ativados para o Azure SQL, quaisquer dependências Azure SQL que as suas aplicações tenham devem ser configuradas também com pontos finais de serviço. 
 
-   ![selecionar pontos finais de serviço][2]
+   ![selecione pontos finais de serviço][2]
   
-1. Crie uma subnet chamada AzureFirewallSubnet no VNet onde a sua ASE existe. Siga as instruções na [documentação da Firewall Azure](https://docs.microsoft.com/azure/firewall/) para criar o seu Firewall Azure.
+1. Crie uma sub-rede chamada AzureFirewallSubnet no VNet onde o seu ASE existe. Siga as instruções da [documentação Azure Firewall](https://docs.microsoft.com/azure/firewall/) para criar o seu Azure Firewall.
 
-1. A partir do Azure Firewall UI > Regras > coleção de regras de aplicação, selecione Adicionar a recolha de regras de aplicação. Forneça um nome, prioridade e definir permitir. Na secção de tags FQDN, forneça um nome, detete os endereços de origem para * e selecione a etiqueta FQDN do Serviço de Aplicações e a Atualização do Windows. 
+1. A partir da coleção de regras de > regras de aplicação Azure Firewall UI >, selecione a recolha de regras de aplicação Add. Forneça um nome, prioridade e definir Permitir. Na secção de tags FQDN, forneça um nome, desapedaça os endereços de origem para * e selecione a FQDN Tag FQDN do Ambiente de Aplicações e a Atualização do Windows. 
    
    ![Adicionar regra de aplicação][1]
    
-1. A partir do Azure Firewall UI > Rules > Network rule collection, selecione Adicionar coleção de regras de rede. Forneça um nome, prioridade e definir permitir. Na secção Regras sob endereços IP, forneça um nome, selecione um ptocol de **Qualquer,** conjunto * para endereços Fonte e Destino, e coloque as portas em 123. Esta regra permite que o sistema execute a sincronização do relógio utilizando o NTP. Crie outra regra da mesma forma para a porta 12000 para ajudar a triagem de quaisquer problemas do sistema. 
+1. A partir da coleção de regras de > regras > de rede de > de firewall Azure Firewall, selecione Add network rule collection. Forneça um nome, prioridade e definir Permitir. Na secção Regras nos endereços IP, forneça um nome, selecione um ptocol de **Qualquer**, definido * para endereços de Origem e Destino, e definir as portas para 123. Esta regra permite que o sistema execute sincronização do relógio utilizando NTP. Crie outra regra da mesma forma para o porto 12000 para ajudar a triagem de quaisquer problemas do sistema. 
 
    ![Adicionar regra de rede NTP][3]
    
-1. A partir do Azure Firewall UI > Rules > Network rule collection, selecione Adicionar coleção de regras de rede. Forneça um nome, prioridade e definir permitir. Na secção Regras sob etiquetas de serviço, forneça um nome, selecione um protocolo de **Qualquer,** set * para endereços Source, selecione uma etiqueta de serviço do AzureMonitor e coloque as portas em 80.443. Esta regra permite que o sistema forneça ao Monitor Azure informações sobre saúde e métricas.
+1. A partir da coleção de regras de > regras > de rede de > de firewall Azure Firewall, selecione Add network rule collection. Forneça um nome, prioridade e definir Permitir. Na secção Regras ao abrigo das Etiquetas de Serviço, forneça um nome, selecione um protocolo de **Qualquer**, definido * para endereços Source, selecione uma etiqueta de serviço do AzureMonitor e desaver as portas para 80.443. Esta regra permite ao sistema fornecer ao Monitor Azure informações sobre saúde e métricas.
 
-   ![Adicionar regra de rede de etiquetas de serviço NTP][6]
+   ![Adicione regra de rede de tag de serviço NTP][6]
    
-1. Crie uma tabela de rotas com os endereços de gestão dos endereços de [gestão]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) do App Service Environment com um próximo salto de Internet. As entradas da tabela de rotas são necessárias para evitar problemas de encaminhamento assimétricos. Adicione rotas para as dependências de endereçoip abaixo anotadas nas dependências de endereçoIP com um próximo lúpulo da Internet. Adicione uma rota de Aparelho Virtual à sua tabela de rotas para 0.0.0.0/0 com o próximo salto sendo o seu endereço IP privado Azure Firewall. 
+1. Crie uma tabela de rotas com os endereços de gestão de [app Service Environment]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) com um próximo salto de Internet. As entradas da tabela de rotas são necessárias para evitar problemas de encaminhamento assimétricos. Adicione rotas para as dependências de endereços IP anotados abaixo nas dependências de endereços IP com um próximo salto de Internet. Adicione uma rota de Aparelho Virtual à sua mesa de rota para 0.0.0.0/0 com o próximo lúpulo sendo o seu endereço IP privado Azure Firewall. 
 
    ![Criação de uma tabela de rotas][4]
    
-1. Atribua a tabela de rotas que criou à sua subnet ASE.
+1. Atribua a tabela de rotas que criou para a sua sub-rede ASE.
 
-#### <a name="deploying-your-ase-behind-a-firewall"></a>Implantando a sua ASE atrás de uma firewall
+#### <a name="deploying-your-ase-behind-a-firewall"></a>Implantar o seu ASE atrás de uma firewall
 
-Os passos para implantar a sua ASE atrás de uma firewall são os mesmos que configurar a sua ASE existente com uma Firewall Azure, exceto que terá de criar a sua subnet ASE e, em seguida, seguir os passos anteriores. Para criar a sua ASE numa subnet pré-existente, precisa de utilizar um modelo de Gestor de Recursos, tal como descrito no documento sobre a Criação da [Sua ASE com um modelo](https://docs.microsoft.com/azure/app-service/environment/create-from-template)de Gestor de Recursos .
+Os passos para implantar o seu ASE atrás de uma firewall são os mesmos que configurar o seu ASE existente com uma Firewall Azure, exceto que terá de criar a sua sub-rede ASE e, em seguida, seguir os passos anteriores. Para criar o seu ASE numa sub-rede pré-existente, tem de utilizar um modelo de Gestor de Recursos, conforme descrito no documento sobre a criação do [seu ASE com um modelo de Gestor de Recursos.](https://docs.microsoft.com/azure/app-service/environment/create-from-template)
 
-## <a name="application-traffic"></a>Tráfego de aplicação 
+## <a name="application-traffic"></a>Tráfego de aplicações 
 
-Os passos acima permitirão que a sua ASE funcione sem problemas. Ainda precisa configurar as coisas para acomodar as suas necessidades de aplicação. Existem dois problemas para aplicações numa ASE que está configurada com o Azure Firewall.  
+Os passos acima permitirão que o seu ASE funcione sem problemas. Você ainda precisa configurar coisas para acomodar as suas necessidades de aplicação. Existem dois problemas para aplicações num ASE que está configurado com Azure Firewall.  
 
-- As dependências de aplicação devem ser adicionadas ao Firewall Azure ou à tabela de rotas. 
-- Devem ser criadas rotas para o tráfego de aplicações para evitar problemas de encaminhamento assimétricos
+- As dependências de aplicações devem ser adicionadas à Firewall Azure ou à tabela de rotas. 
+- Devem ser criadas rotas para o tráfego de aplicações para evitar problemas de encaminhamento assimétrico
 
-Se as suas aplicações tiverem dependências, elas precisam de ser adicionadas à sua Firewall Azure. Criar regras de Aplicação para permitir regras de tráfego http/HTTPS e regras de rede para tudo o resto. 
+Se as suas aplicações tiverem dependências, elas têm de ser adicionadas ao seu Azure Firewall. Crie regras de aplicação para permitir o tráfego HTTP/HTTPS e as regras da Rede para tudo o resto. 
 
-Se souber do intervalo de endereços de onde virá o tráfego de pedido de pedido de pedido, pode adicioná-lo à tabela de rotas que é atribuída à sua subnet ASE. Se a gama de endereços for grande ou não especificada, então pode utilizar um aparelho de rede como o Gateway aplicação para lhe dar um endereço para adicionar à sua tabela de rotas. Para mais detalhes sobre a configuração de um Gateway de Aplicação com o seu ILB ASE, leia [Integrando o seu ILB ASE com um Gateway de Aplicação](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
+Se souber do intervalo de endereço de onde virá o tráfego de pedidos de aplicação, pode adicioná-lo à tabela de rotas que está atribuída à sua sub-rede ASE. Se a gama de endereços for grande ou não especificada, então pode utilizar um aparelho de rede como o Gateway de Aplicação para lhe dar um endereço para adicionar à sua tabela de rotas. Para mais detalhes sobre a configuração de um Gateway de aplicações com o seu ILB ASE, leia [integrando o seu ILB ASE com um Gateway de aplicações](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
 
-Esta utilização do Gateway de Aplicação é apenas um exemplo de como configurar o seu sistema. Se seguisse este caminho, teria de adicionar uma rota à tabela de rotas da rede ASE para que o tráfego de resposta enviado para o Gateway de Aplicação fosse diretamente para lá. 
+Esta utilização do Gateway de Aplicações é apenas um exemplo de como configurar o seu sistema. Se seguisse este caminho, teria de adicionar uma rota para a tabela de rotas da sub-rede ASE para que o tráfego de resposta enviado para o Gateway de Aplicação fosse diretamente para lá. 
 
 ## <a name="logging"></a>Registo 
 
-A Firewall Azure pode enviar registos para registos de Armazenamento Azure, Hub de Eventos ou Monitor Estoque. Para integrar a sua aplicação com qualquer destino suportado, vá ao portal Azure Firewall > Registos de Diagnóstico e ative os registos para o seu destino pretendido. Se integrar os registos do Monitor Azure, poderá ver o registo de registos de qualquer tráfego enviado para o Azure Firewall. Para ver o tráfego que está a ser negado, abra o seu portal de espaço de trabalho Log Analytics > Registos e introduza uma consulta como 
+O Azure Firewall pode enviar registos para registos Azure Storage, Event Hub ou Azure Monitor. Para integrar a sua aplicação com qualquer destino suportado, vá ao portal Azure Firewall > Registos de Diagnóstico e ative os registos para o destino pretendido. Se integrar-se com os registos do Azure Monitor, poderá ver a registar-se para qualquer tráfego enviado para a Firewall do Azure. Para ver o tráfego que está a ser negado, abra o seu portal de espaço de trabalho Log Analytics > Logs e insira uma consulta como 
 
-    AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
- 
-Integrar o seu Firewall Azure com registos Do Monitor Azure é útil quando se consegue obter uma aplicação a funcionar quando não se sabe de todas as dependências da aplicação. Pode saber mais sobre os registos do Monitor Azure a partir de dados de [registo do Analyze no Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+```kusto
+AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
+```
+
+A integração do seu Azure Firewall com registos Azure Monitor é útil quando se inicia uma aplicação a funcionar quando não tem conhecimento de todas as dependências da aplicação. Pode saber mais sobre os registos do Azure Monitor a partir de dados de [registo de análise no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
  
 ## <a name="dependencies"></a>Dependências
 
-As seguintes informações só são necessárias se pretender configurar um aparelho de firewall que não seja o Firewall Azure. 
+As seguintes informações só são necessárias se desejar configurar um aparelho de firewall que não seja o Azure Firewall. 
 
 - Os serviços de endpoint de serviço devem ser configurados com pontos finais de serviço.
-- As dependências do endereço IP destinam-se ao tráfego não HTTP/S (tanto o tráfego tCP como o uDP)
+- As dependências do endereço IP destinam-se ao tráfego não-HTTP/S (tráfego TCP e UDP)
 - Os pontos finais FQDN HTTP/HTTPS podem ser colocados no seu dispositivo de firewall.
-- Os pontos finais Wildcard HTTP/HTTPS são dependências que podem variar com a sua ASE com base numa série de qualificações. 
-- As dependências do Linux só são uma preocupação se estiver a implementar aplicações Linux na sua ASE. Se não estiver a implementar aplicações Linux na sua ASE, então estes endereços não precisam de ser adicionados à sua firewall. 
+- Os pontos finais wildcard HTTP/HTTPS são dependências que podem variar com o seu ASE com base em uma série de qualificações. 
+- As dependências do Linux só são uma preocupação se estiveres a implementar aplicações Linux no teu ASE. Se não estiver a implementar aplicações Linux no seu ASE, então estes endereços não precisam de ser adicionados à sua firewall. 
 
-#### <a name="service-endpoint-capable-dependencies"></a>Dependências de Endpoint de serviço 
+#### <a name="service-endpoint-capable-dependencies"></a>Dependências capazes de Endpoint de serviço 
 
 | Ponto Final |
 |----------|
@@ -118,12 +120,12 @@ As seguintes informações só são necessárias se pretender configurar um apar
 | Storage do Azure |
 | Hub de Eventos do Azure |
 
-#### <a name="ip-address-dependencies"></a>Dependências de endereçoip
+#### <a name="ip-address-dependencies"></a>Dependências de endereços IP
 
 | Ponto Final | Detalhes |
 |----------| ----- |
-| \*:123 | Verificação do relógio NTP. O tráfego é verificado em vários pontos finais no porto 123 |
-| \*:12000 | Esta porta é utilizada para uma monitorização do sistema. Se bloqueado, então algumas questões serão mais difíceis de triagem, mas a sua ASE continuará a operar |
+| \*:123 | Verificação do relógio NTP. O trânsito é verificado em vários pontos finais na porta 123 |
+| \*:12000 | Esta porta é utilizada para alguma monitorização do sistema. Se estiver bloqueado, então alguns problemas serão mais difíceis de triagem, mas o seu ASE continuará a operar |
 | 40.77.24.27:80 | Necessário para monitorizar e alertar sobre os problemas da ASE |
 | 40.77.24.27:443 | Necessário para monitorizar e alertar sobre os problemas da ASE |
 | 13.90.249.229:80 | Necessário para monitorizar e alertar sobre os problemas da ASE |
@@ -135,7 +137,7 @@ As seguintes informações só são necessárias se pretender configurar um apar
 
 Com uma Firewall Azure, obtém automaticamente tudo abaixo configurado com as tags FQDN. 
 
-#### <a name="fqdn-httphttps-dependencies"></a>Dependências fQDN HTTP/HTTPS 
+#### <a name="fqdn-httphttps-dependencies"></a>DEPENDÊNCIAS FQDN HTTP/HTTPS 
 
 | Ponto Final |
 |----------|
@@ -221,11 +223,11 @@ Com uma Firewall Azure, obtém automaticamente tudo abaixo configurado com as ta
 |ctldl.windowsupdate.com:80 |
 |ctldl.windowsupdate.com:443 |
 
-#### <a name="wildcard-httphttps-dependencies"></a>Dependências wildcard HTTP/HTTPS 
+#### <a name="wildcard-httphttps-dependencies"></a>Dependências de WILDCARD HTTP/HTTPS 
 
 | Ponto Final |
 |----------|
-|gr-Prod-\*.cloudapp.net:443 |
+|gr-Prod- \* .cloudapp.net:443 |
 | \*.management.azure.com:443 |
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
@@ -233,7 +235,7 @@ Com uma Firewall Azure, obtém automaticamente tudo abaixo configurado com as ta
 | \*.ctldl.windowsupdate.com:80 |
 | \*.ctldl.windowsupdate.com:443 |
 
-#### <a name="linux-dependencies"></a>Dependências linux 
+#### <a name="linux-dependencies"></a>Dependências de Linux 
 
 | Ponto Final |
 |----------|
@@ -248,6 +250,7 @@ Com uma Firewall Azure, obtém automaticamente tudo abaixo configurado com as ta
 |security.ubuntu.com:80 |
 | \*.cdn.mscr.io:443 |
 |mcr.microsoft.com:443 |
+|\*.data.mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |
 |packages.fluentbit.io:443 |
 |apt-mo.trafficmanager.net:80 |
@@ -263,19 +266,19 @@ Com uma Firewall Azure, obtém automaticamente tudo abaixo configurado com as ta
 |40.76.35.62:11371 |
 |104.215.95.108:11371 |
 
-## <a name="us-gov-dependencies"></a>Dependências de Gov dos EUA
+## <a name="us-gov-dependencies"></a>Dependências gov dos EUA
 
-Para as ASEs nas regiões norte-americanas Gov, siga as instruções na [Configuração da Firewall Azure com a sua](https://docs.microsoft.com/azure/app-service/environment/firewall-integration#configuring-azure-firewall-with-your-ase) secção ASE deste documento para configurar uma Firewall Azure com a sua ASE.
+Para as ASEs nas regiões gov dos EUA, siga as instruções na [Firewall Azure Configurante com a sua](https://docs.microsoft.com/azure/app-service/environment/firewall-integration#configuring-azure-firewall-with-your-ase) secção ASE deste documento para configurar uma Firewall Azure com o seu ASE.
 
-Se quiser utilizar um dispositivo diferente do Azure Firewall em US Gov 
+Se quiser usar um dispositivo diferente do Azure Firewall em US Gov 
 
 * Os serviços de endpoint de serviço devem ser configurados com pontos finais de serviço.
 * Os pontos finais FQDN HTTP/HTTPS podem ser colocados no seu dispositivo de firewall.
-* Os pontos finais Wildcard HTTP/HTTPS são dependências que podem variar com a sua ASE com base numa série de qualificações.
+* Os pontos finais wildcard HTTP/HTTPS são dependências que podem variar com o seu ASE com base em uma série de qualificações.
 
-O Linux não está disponível nas regiões norte-americanas gov e, portanto, não está listado como uma configuração opcional.
+O Linux não está disponível nas regiões gov dos EUA e, portanto, não está listado como uma configuração opcional.
 
-#### <a name="service-endpoint-capable-dependencies"></a>Dependências de Endpoint de serviço ####
+#### <a name="service-endpoint-capable-dependencies"></a>Dependências capazes de Endpoint de serviço ####
 
 | Ponto Final |
 |----------|
@@ -283,12 +286,12 @@ O Linux não está disponível nas regiões norte-americanas gov e, portanto, n�
 | Storage do Azure |
 | Hub de Eventos do Azure |
 
-#### <a name="ip-address-dependencies"></a>Dependências de endereçoip
+#### <a name="ip-address-dependencies"></a>Dependências de endereços IP
 
 | Ponto Final | Detalhes |
 |----------| ----- |
-| \*:123 | Verificação do relógio NTP. O tráfego é verificado em vários pontos finais no porto 123 |
-| \*:12000 | Esta porta é utilizada para uma monitorização do sistema. Se bloqueado, então algumas questões serão mais difíceis de triagem, mas a sua ASE continuará a operar |
+| \*:123 | Verificação do relógio NTP. O trânsito é verificado em vários pontos finais na porta 123 |
+| \*:12000 | Esta porta é utilizada para alguma monitorização do sistema. Se estiver bloqueado, então alguns problemas serão mais difíceis de triagem, mas o seu ASE continuará a operar |
 | 40.77.24.27:80 | Necessário para monitorizar e alertar sobre os problemas da ASE |
 | 40.77.24.27:443 | Necessário para monitorizar e alertar sobre os problemas da ASE |
 | 13.90.249.229:80 | Necessário para monitorizar e alertar sobre os problemas da ASE |

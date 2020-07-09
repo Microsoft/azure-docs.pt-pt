@@ -4,19 +4,19 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/30/2020
 ms.author: glenga
-ms.openlocfilehash: 44969063765099d350e21abfbd07792891443911
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f89383c1b7d0ccce82f35d91acbe1ff8c902db29
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80673160"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84448920"
 ---
 ::: zone pivot="programming-language-python"  
 ## <a name="create-and-activate-a-virtual-environment"></a><a name="create-venv"></a>Criar e ativar um ambiente virtual
 
-Numa pasta adequada, execute os seguintes comandos `.venv`para criar e ativar um ambiente virtual chamado . Certifique-se de que utiliza Python 3.8, 3.7 ou 3.6, que são suportados pelas Funções Azure.
+Numa pasta adequada, executar os seguintes comandos para criar e ativar um ambiente virtual chamado `.venv` . Certifique-se de que utiliza Python 3.8, 3.7 ou 3.6, que são suportados por Funções Azure.
 
-# <a name="bash"></a>[bash](#tab/bash)
+# <a name="bash"></a>[festa](#tab/bash)
 
 ```bash
 python -m venv .venv
@@ -26,7 +26,7 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 
-Se python não instalou o pacote de veado na sua distribuição Linux, execute o seguinte comando:
+Se python não instalou o pacote venv na sua distribuição Linux, execute o seguinte comando:
 
 ```bash
 sudo apt-get install python3-venv
@@ -54,5 +54,5 @@ py -m venv .venv
 
 ---
 
-Executa todos os comandos subsequentes neste ambiente virtual ativado. (Para sair do ambiente `deactivate`virtual, corra .)
+Você dirige todos os comandos subsequentes neste ambiente virtual ativado.   
 ::: zone-end

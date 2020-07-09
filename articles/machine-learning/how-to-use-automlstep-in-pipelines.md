@@ -1,54 +1,55 @@
 ---
 title: Utilizar ML automatizado em gasodutos ML
 titleSuffix: Azure Machine Learning
-description: O AutoMLStep permite-lhe utilizar machine learning automatizado nos seus pipelines.
+description: O AutoMLStep permite-lhe utilizar aprendizagem automática de máquinas nos seus oleodutos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: laobri
 author: lobrien
 manager: cgronlun
-ms.date: 04/28/2020
-ms.openlocfilehash: 9bf17512d0b14c7106101d98598e2914020afc7a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 06/15/2020
+ms.custom: tracking-python
+ms.openlocfilehash: f162aca8c30d890ecf662a88fb5f2182edb14c9e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298247"
 ---
-# <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Utilize ML automatizado num oleoduto azure de machine learning em Python
+# <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Utilize ML automatizado num oleoduto de aprendizagem de máquinas Azure em Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-A capacidade automática de ML da Azure Machine Learning ajuda-o a descobrir modelos de alto desempenho sem que realimplemente todas as abordagens possíveis. Combinado com os oleodutos Azure Machine Learning, pode criar fluxos de trabalho implantáveis que podem rapidamente descobrir o algoritmo que funciona melhor para os seus dados. Este artigo irá mostrar-lhe como aderir eficientemente a um passo de preparação de dados para um passo ml automatizado. Ml automatizado pode rapidamente descobrir o algoritmo que funciona melhor para os seus dados, ao mesmo tempo que o coloca na estrada para MLOps e modelar a operacionalização do ciclo de vida com os oleodutos.
+A capacidade automatizada de ML da Azure Machine Learning ajuda-o a descobrir modelos de alto desempenho sem que reimpliure todas as abordagens possíveis. Combinado com os oleodutos Azure Machine Learning, pode criar fluxos de trabalho implantáveis que podem rapidamente descobrir o algoritmo que funciona melhor para os seus dados. Este artigo irá mostrar-lhe como juntar eficientemente um passo de preparação de dados para um passo ML automatizado. ML automatizado pode rapidamente descobrir o algoritmo que funciona melhor para os seus dados, ao mesmo tempo que o coloca na estrada para MLOps e operacionalização de ciclo de vida modelo com oleodutos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
 
-* Uma área de trabalho do Azure Machine Learning. Consulte Criar um espaço de [trabalho de aprendizagem automática Azure](how-to-manage-workspace.md).  
+* Uma área de trabalho do Azure Machine Learning. Ver [Criar um espaço de trabalho de aprendizagem de máquinas Azure](how-to-manage-workspace.md).  
 
-* Familiaridade básica com as instalações [automatizadas](concept-automated-ml.md) de machine learning e [machine learning](concept-ml-pipelines.md) do Azure e sdK.
+* Familiaridade básica com as instalações automatizadas de [aprendizagem automática](concept-automated-ml.md) de máquinas e [máquinas de aprendizagem](concept-ml-pipelines.md) da Azure e SDK.
 
-## <a name="review-automated-mls-central-classes"></a>Rever as classes centrais automatizadas do ML
+## <a name="review-automated-mls-central-classes"></a>Rever as classes centrais automatizadas da ML
 
-Ml automatizado num oleoduto é `AutoMLStep` representado por um objeto. A `AutoMLStep` classe é uma `PipelineStep`subclasse de. Um gráfico `PipelineStep` de objetos define um `Pipeline`.
+ML automatizado num oleoduto é representado por um `AutoMLStep` objeto. A `AutoMLStep` classe é uma subclasse `PipelineStep` de. Um gráfico de `PipelineStep` objetos define um `Pipeline` .
 
-Há várias subclasses de `PipelineStep`. Além do `AutoMLStep`, este artigo `PythonScriptStep` mostrará um para preparação de dados e outro para o registo do modelo.
+Existem várias subclasses `PipelineStep` de. Além do `AutoMLStep` , este artigo mostrará um para a preparação de `PythonScriptStep` dados e outro para o registo do modelo.
 
-A forma preferida de _into_ mover os dados `Dataset` inicialmente para um oleoduto ML é com objetos. Para mover dados _entre_ passos, `PipelineData` o caminho preferido é com objetos. Para ser `AutoMLStep`utilizado, `PipelineData` o objeto deve `PipelineOutputTabularDataset` ser transformado num objeto. Para mais informações, consulte [os dados de entrada e saída dos gasodutos ML](how-to-move-data-in-out-of-pipelines.md).
+A forma preferida de mover inicialmente os dados _para_ um oleoduto ML é com `Dataset` objetos. Para mover dados _entre_ passos, o caminho preferido é com `PipelineData` objetos. Para ser `AutoMLStep` utilizado, o `PipelineData` objeto deve ser transformado num `PipelineOutputTabularDataset` objeto. Para obter mais informações, consulte [os dados de entrada e saída dos oleodutos ML](how-to-move-data-in-out-of-pipelines.md).
 
-O `AutoMLStep` é configurado `AutoMLConfig` através de um objeto. `AutoMLConfig`é uma classe flexível, como discutido em [Configure experiências automatizadas de ML em Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings). 
+O `AutoMLStep` é configurado através de um `AutoMLConfig` objeto. `AutoMLConfig`é uma classe flexível, como discutido em [Configure experiências automatizadas de ML em Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings). 
 
-Uma `Pipeline` corrida `Experiment`em um . O `Run` oleoduto tem, para cada `StepRun`passo, uma criança. As saídas do `StepRun` ML automatizado são as métricas de treino e o modelo de maior desempenho.
+Um `Pipeline` corre `Experiment` numa. O gasoduto `Run` tem, para cada passo, uma `StepRun` criança. As saídas do ML automatizado `StepRun` são as métricas de formação e o modelo de maior desempenho.
 
-Para tornar as coisas concretas, este artigo cria um simples oleoduto para uma tarefa de classificação. A tarefa é prever a sobrevivência do Titanic, mas não discutiremos os dados ou a tarefa a não ser de passagem.
+Para tornar as coisas concretas, este artigo cria um simples oleoduto para uma tarefa de classificação. A tarefa é prever a sobrevivência do Titanic, mas não discutiremos os dados ou tarefas a não ser de passagem.
 
 ## <a name="get-started"></a>Introdução
 
 ### <a name="retrieve-initial-dataset"></a>Recuperar o conjunto de dados inicial
 
-Muitas vezes, um fluxo de trabalho ML começa com dados de base pré-existentes. Este é um bom cenário para um conjunto de dados registado. Os conjuntos de dados são visíveis em todo o espaço de trabalho, versão de suporte e podem ser explorados interativamente. Existem muitas formas de criar e povoar um conjunto de dados, como discutido nos conjuntos de [dados Create Azure Machine Learning.](how-to-create-register-datasets.md) Uma vez que vamos usar o Python SDK para criar o nosso pipeline, use o SDK para descarregar dados de base e registá-lo com o nome 'titanic_ds'.
+Frequentemente, um fluxo de trabalho ML começa com dados de base pré-existentes. Este é um bom cenário para um conjunto de dados registado. Os conjuntos de dados são visíveis em todo o espaço de trabalho, na versão de suporte, e podem ser explorados interativamente. Existem muitas formas de criar e povoar um conjunto de dados, como discutido no [Create Azure Machine Learning datasets](how-to-create-register-datasets.md). Uma vez que vamos usar o Python SDK para criar o nosso oleoduto, use o SDK para descarregar dados de base e registá-lo com o nome 'titanic_ds'.
 
 ```python
 from azureml.core import Workspace, Dataset
@@ -68,11 +69,11 @@ if not 'titanic_ds' in ws.datasets.keys() :
 titanic_ds = Dataset.get_by_name(ws, 'titanic_ds')
 ```
 
-O código entra primeiro no espaço de trabalho Azure Machine Learning definido em **config.json** (para uma explicação, consulte [Tutorial: Começar a criar a sua primeira experiência ML com o Python SDK).](tutorial-1st-experiment-sdk-setup.md) Se já não há um `'titanic_ds'` conjunto de dados nomeado registado, então cria um. O código descarrega dados CSV da Web, `TabularDataset` utiliza-os para instantaneamente um e, em seguida, regista o conjunto de dados com o espaço de trabalho. Finalmente, a `Dataset.get_by_name()` função `Dataset` `titanic_ds`atribui a . 
+O código inicia sessão no espaço de trabalho Azure Machine Learning definido em **config.js** (para uma explicação, consulte [Tutorial: Começa a criar a tua primeira experiência ML com o Python SDK).](tutorial-1st-experiment-sdk-setup.md) Se já não existe um conjunto de dados `'titanic_ds'` nomeado registado, então cria um. O código descarrega dados de CSV a partir da Web, utiliza-os para instantaneamente a `TabularDataset` e, em seguida, regista o conjunto de dados com o espaço de trabalho. Finalmente, a função `Dataset.get_by_name()` atribui `Dataset` o a `titanic_ds` . 
 
 ### <a name="configure-your-storage-and-compute-target"></a>Configure o seu alvo de armazenamento e cálculo
 
-Os recursos adicionais que o gasoduto necessitará são de armazenamento e, em geral, os recursos computacionais da Azure Machine Learning. 
+Os recursos adicionais que o oleoduto necessitará são de armazenamento e, em geral, recursos de cálculo Azure Machine Learning. 
 
 ```python
 from azureml.core import Datastore
@@ -97,43 +98,52 @@ if not compute_name in ws.compute_targets :
 compute_target = ws.compute_targets[compute_name]
 ```
 
-Os dados intermédios entre a preparação de dados e a etapa automática de ML podem ser armazenados na `get_default_datastore()` loja `Workspace` de dados padrão do espaço de trabalho, pelo que não precisamos de fazer mais do que chamar o objeto. 
+Os dados intermédios entre a preparação de dados e o passo ML automatizado podem ser armazenados na loja de dados padrão do espaço de trabalho, pelo que não precisamos de fazer mais do que chamar `get_default_datastore()` o `Workspace` objeto. 
 
-Depois disso, o código verifica se `'cpu-cluster'` o objetivo de computação AML já existe. Caso contrário, especificamos que queremos um pequeno alvo de computação baseado em CPU. Se planeia utilizar as funcionalidades de aprendizagem profunda automatizadas do ML (por exemplo, a funcionalidade de texto com suporte dNN) deve escolher uma computação com forte suporte de GPU, conforme descrito em tamanhos de [máquina virtual otimizados](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu)de GPU . 
+Depois disso, o código verifica se o alvo de computação AML `'cpu-cluster'` já existe. Caso contrário, especificamos que queremos um pequeno alvo de computação baseado em CPU. Se planeia utilizar as funcionalidades automatizadas de aprendizagem profunda da ML (por exemplo, caracterização de texto com suporte DNN) deve escolher um cálculo com forte suporte gpu, como descrito nos [tamanhos de máquinas virtuais otimizados da GPU.](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu) 
 
-O código bloqueia até que o alvo seja provisionado e, em seguida, imprima alguns detalhes do alvo computacional recém-criado. Finalmente, o alvo computacional nomeado é recuperado do `compute_target`espaço de trabalho e atribuído a . 
+O código bloqueia até que o alvo seja a provisionado e, em seguida, imprime alguns detalhes do alvo de computação criado. Finalmente, o alvo de computação nomeado é recuperado do espaço de trabalho e atribuído a `compute_target` . 
 
-### <a name="configure-the-training-run"></a>Configure o treino
+### <a name="configure-the-training-run"></a>Configure a corrida de treino
 
-O próximo passo é garantir que o treino remoto tem todas as dependências que são necessárias pelas etapas de treino. As dependências e o contexto de tempo `RunConfiguration` de execução são definidos através da criação e configuração de um objeto. 
+O próximo passo é garantir que o treino remoto tenha todas as dependências que são exigidas pelas etapas de treino. As dependências e o contexto de tempo de execução são definidos através da criação e configuração de um `RunConfiguration` objeto. 
 
 ```python
 from azureml.core.runconfig import RunConfiguration
 from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core import Environment 
 
 aml_run_config = RunConfiguration()
 # Use just-specified compute target ("cpu-cluster")
 aml_run_config.target = compute_target
-aml_run_config.environment.python.user_managed_dependencies = False
 
-# Add some packages relied on by data prep step
-aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
-    conda_packages=['pandas','scikit-learn'], 
-    pip_packages=['azureml-sdk[automl,explain]', 'azureml-dataprep[fuse,pandas]'], 
-    pin_sdk_version=False)
+USE_CURATED_ENV = True
+if USE_CURATED_ENV :
+    curated_environment = Environment.get(workspace=ws, name="AzureML-Tutorial")
+    aml_run_config.environment = curated_environment
+else:
+    aml_run_config.environment.python.user_managed_dependencies = False
+    
+    # Add some packages relied on by data prep step
+    aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
+        conda_packages=['pandas','scikit-learn'], 
+        pip_packages=['azureml-sdk[automl,explain]', 'azureml-dataprep[fuse,pandas]'], 
+        pin_sdk_version=False)
 ```
+
+O código acima mostra duas opções para lidar com dependências. Como apresentado, `USE_CURATED_ENV = True` com, a configuração baseia-se num ambiente curado. Os ambientes curados são "pré-preparados" com bibliotecas interdependentes comuns e podem ser significativamente mais rápidos de colocar online. Ambientes curados têm imagens estivais pré-construídas no [Registo de Contentores da Microsoft.](https://hub.docker.com/publishers/microsoftowner) O caminho tomado se mudar `USE_CURATED_ENV` para `False` mostrar o padrão para definir explicitamente as suas dependências. Nesse cenário, será criada e registada uma nova imagem personalizada do Docker num Registo de Contentores Azure dentro do seu grupo de recursos (ver [Introdução aos registos privados de contentores Docker em Azure).](https://docs.microsoft.com/azure/container-registry/container-registry-intro) Construir e registar esta imagem pode demorar alguns minutos. 
 
 ## <a name="prepare-data-for-automated-machine-learning"></a>Preparar dados para aprendizagem automática de máquinas
 
 ### <a name="write-the-data-preparation-code"></a>Escreva o código de preparação de dados
 
-O conjunto de dados do Titanic de base consiste em dados numéricos e de texto mistos, faltando alguns valores. Para prepará-lo para aprendizagem automática de máquinas, o passo do gasoduto de preparação de dados:
+O conjunto de dados titânico de base consiste em dados numéricos e de texto mistos, faltando alguns valores. Para prepará-lo para a aprendizagem automática de máquinas, o passo do pipeline de preparação de dados:
 
 - Preencha os dados em falta com dados aleatórios ou uma categoria correspondente a "Desconhecido"
 - Transformar dados categóricos em inteiros
-- Largue colunas que não pretendemos usar
-- Divida os dados em conjuntos de treino e teste
-- Escreva os dados `PipelineData` transformados para os caminhos de saída
+- Derrube colunas que não pretendemos usar
+- Divida os dados em conjuntos de treino e testes
+- Escreva os dados transformados para os caminhos de `PipelineData` saída
 
 ```python
 %%writefile dataprep.py
@@ -199,19 +209,19 @@ pq.write_table(pa.Table.from_pandas(df), args.output_path)
 print(f"Wrote test to {args.output_path} and train to {args.output_path}")
 ```
 
-O código acima é um exemplo completo, mas mínimo, de preparação de dados para os dados do Titanic. O corte começa com um "comando mágico" jupyter para forrelá-lo para um ficheiro. Se não estiver a usar um caderno Jupyter, retire essa linha e crie o ficheiro manualmente.
+O corte de código acima é um exemplo completo, mas mínimo, de preparação de dados para os dados do Titanic. O snippet começa com um "comando mágico" do Jupyter para entregar o código a um ficheiro. Se não estiver a utilizar um caderno Jupyter, retire essa linha e crie o ficheiro manualmente.
 
-As `prepare_` várias funções no corte acima modificam a coluna relevante no conjunto de dados de entrada. Estas funções funcionam nos dados uma vez que `DataFrame` foram transformados num objeto Pandas. Em cada caso, os dados em falta são preenchidos com dados aleatórios representativos ou dados categóricos que indicam "Desconhecido". Os dados categóricos baseados em texto são mapeados para inteiros. As colunas já não necessárias são substituídas ou largadas. 
+As `prepare_` várias funções no snippet acima modificam a coluna relevante no conjunto de dados de entrada. Estas funções funcionam nos dados uma vez que foram transformados num `DataFrame` objeto pandas. Em cada caso, os dados em falta são preenchidos com dados aleatórios representativos ou dados categóricos que indicam "Desconhecido". Os dados categóricos baseados em texto são mapeados para inteiros. As colunas já não necessárias são substituídas ou abandonadas. 
 
-Depois de o código definir as funções de preparação de dados, o código analisa o argumento de entrada, que é o caminho para o qual queremos escrever os nossos dados. (Estes valores serão determinados por `PipelineData` objetos que serão discutidos no próximo passo.) O código recupera `'titanic_cs'` `Dataset`o registado, converte-o para um Pandas, `DataFrame`e chama as várias funções de preparação de dados. 
+Depois de o código definir as funções de preparação de dados, o código analisa o argumento de entrada, que é o caminho para o qual queremos escrever os nossos dados. (Estes valores serão determinados por `PipelineData` objetos que serão discutidos no próximo passo.) O código recupera o `'titanic_cs'` `Dataset` registrado, converte-o em pandas `DataFrame` , e chama as várias funções de preparação de dados. 
 
-Uma `output_path` vez que a `os.makedirs()` função é totalmente qualificada, a função é utilizada para preparar a estrutura do diretório. Neste ponto, pode `DataFrame.to_csv()` utilizar para escrever os dados de saída, mas os ficheiros Parquet são mais eficientes. Esta eficiência seria provavelmente irrelevante com um conjunto de dados tão `from_pandas()` `write_table()` pequeno, mas usar as funções do pacote `to_csv()` **PyArrow** são apenas mais algumas teclas do que .
+Uma vez que o `output_path` é totalmente qualificado, a função `os.makedirs()` é usada para preparar a estrutura do diretório. Neste momento, podes usar `DataFrame.to_csv()` para escrever os dados de saída, mas os ficheiros Parquet são mais eficientes. Esta eficiência seria provavelmente irrelevante com um conjunto de dados tão pequeno, mas usar as funções e funções do pacote **PyArrow** `from_pandas()` `write_table()` são apenas mais alguns toques de teclas do que `to_csv()` .
 
-Os ficheiros Parquet são apoiados de forma nativa pela etapa automática ml discutida abaixo, pelo que não é necessário um processamento especial para os consumir. 
+Os ficheiros parquet são suportados de forma nativa pelo passo automatizado de ML discutido abaixo, pelo que não é necessário um processamento especial para consumi-los. 
 
-### <a name="write-the-data-preparation-pipeline-step-pythonscriptstep"></a>Escreva o passo`PythonScriptStep`do gasoduto de preparação de dados ( )
+### <a name="write-the-data-preparation-pipeline-step-pythonscriptstep"></a>Escreva o passo do gasoduto de preparação de dados `PythonScriptStep` ()
 
-O código de preparação de dados `PythonScripStep` acima descrito deve estar associado a um objeto a utilizar com um gasoduto. O caminho para o qual a saída de preparação `PipelineData` de dados parquet é escrita é gerado por um objeto. Os recursos preparados anteriormente, `RunConfig`tais como `'titanic_ds' Dataset` o, `ComputeTarget`o , e os são usados para completar a especificação.
+O código de preparação de dados acima descrito deve ser associado a um `PythonScripStep` objeto a utilizar com um gasoduto. O caminho para o qual a saída de preparação de dados parquet é escrita é gerado por um `PipelineData` objeto. Os recursos preparados anteriormente, como `ComputeTarget` o , o , e os são `RunConfig` `'titanic_ds' Dataset` usados para completar a especificação.
 
 ```python
 from azureml.pipeline.core import PipelineData
@@ -232,15 +242,15 @@ dataprep_step = PythonScriptStep(
 )
 ```
 
-O `prepped_data_path` objeto é `PipelineOutputFileDataset`de tipo. Note que é especificado `arguments` tanto `outputs` nos argumentos como nos argumentos. Se rever o passo anterior, verá que dentro do código de `'--output_path'` preparação de dados, o valor do argumento é o caminho do ficheiro para o qual o ficheiro Parquet foi escrito. 
+O `prepped_data_path` objeto é do `PipelineOutputFileDataset` tipo. Note que está especificado tanto nos `arguments` `outputs` argumentos. Se rever o passo anterior, verá que dentro do código de preparação de dados, o valor do argumento é o caminho do `'--output_path'` ficheiro para o qual o ficheiro Parquet foi escrito. 
 
 ## <a name="train-with-automlstep"></a>Comboio com AutoMLStep
 
-Configurar um passo de pipeline `AutoMLConfig` ML automatizado é feito com a classe. Esta classe flexível é descrita em [experiências automatizadas](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train)de CONFIGURE ML em Python . A entrada e a saída de dados são os únicos aspetos de configuração que requerem uma atenção especial num gasoduto ML. A entrada e `AutoMLConfig` a saída para os gasodutos são discutidas em pormenor abaixo. Além dos dados, uma vantagem dos oleodutos ML é a capacidade de usar diferentes alvos computacionais para diferentes passos. Pode optar por utilizar `ComputeTarget` um processo ml mais potente apenas para o processo ml automatizado. Fazê-lo é tão simples como `RunConfiguration` atribuir `AutoMLConfig` um `run_configuration` mais poderoso ao parâmetro do objeto.
+Configurar um passo de gasoduto ML automatizado é feito com a `AutoMLConfig` classe. Esta classe flexível é descrita em [experiências de ML automatizadas Configure em Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train). A entrada e saída de dados são os únicos aspetos da configuração que requerem uma atenção especial num pipeline ML. A entrada e a saída para `AutoMLConfig` os oleodutos são discutidas em pormenor abaixo. Além dos dados, uma vantagem dos oleodutos ML é a capacidade de usar diferentes alvos de computação para diferentes etapas. Pode optar por utilizar um processo mais poderoso `ComputeTarget` apenas para o processo ML automatizado. Fazê-lo é tão simples como atribuir um mais poderoso `RunConfiguration` ao `AutoMLConfig` parâmetro do `run_configuration` objeto.
 
 ### <a name="send-data-to-automlstep"></a>Enviar dados para`AutoMLStep`
 
-Num gasoduto ML, os dados de `Dataset` entrada devem ser um objeto. A forma de mais desempenho é fornecer os `PipelineOutputTabularDataset` dados de entrada sob a forma de objetos. Cria-se um objeto desse `parse_parquet_files()` `parse_delimited_files()` tipo `PipelineOutputFileDataset`com ou `prepped_data_path` em a, como o objeto.
+Num gasoduto ML, os dados de entrada devem ser um `Dataset` objeto. A forma de maior desempenho é fornecer os dados de entrada sob a forma de `PipelineOutputTabularDataset` objetos. Cria-se um objeto desse tipo com o `parse_parquet_files()` ou sobre um , como o `parse_delimited_files()` `PipelineOutputFileDataset` `prepped_data_path` objeto.
 
 ```python
 # type(prepped_data_path) == PipelineOutputFileDataset
@@ -248,9 +258,9 @@ Num gasoduto ML, os dados de `Dataset` entrada devem ser um objeto. A forma de m
 prepped_data = prepped_data_path.parse_parquet_files(file_extension=None)
 ```
 
-O corte acima cria um `PipelineOutputTabularDataset` alto `PipelineOutputFileDataset` desempenho a partir da saída do passo de preparação de dados.
+O corte acima cria um alto desempenho `PipelineOutputTabularDataset` a partir da saída do passo de `PipelineOutputFileDataset` preparação de dados.
 
-Outra opção `Dataset` é utilizar objetos registados no espaço de trabalho:
+Outra opção é utilizar `Dataset` objetos registados no espaço de trabalho:
 
 ```python
 prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
@@ -262,16 +272,16 @@ Comparando as duas técnicas:
 |-|-|
 |`PipelineOutputTabularDataset`| Maior desempenho | 
 || Rota natural de`PipelineData` | 
-|| Os dados não são persistidos após a execução do gasoduto |
-|| [Técnica `PipelineOutputTabularDataset` de exibição de caderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) |
+|| Os dados não persistem após a execução do gasoduto |
+|| [Técnica de exibição de caderno `PipelineOutputTabularDataset`](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) |
 | Registado`Dataset` | Menor desempenho |
 | | Pode ser gerado de muitas maneiras | 
 | | Os dados persistem e são visíveis em todo o espaço de trabalho |
 | | [Caderno mostrando técnica registada `Dataset`](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/continuous-retraining/auto-ml-continuous-retraining.ipynb)
 
-### <a name="specify-automated-ml-outputs"></a>Especificar saídas automáticas de ML
+### <a name="specify-automated-ml-outputs"></a>Especificar saídas de ML automatizadas
 
-As saídas `AutoMLStep` do são as pontuações métricas finais do modelo de maior desempenho e desse próprio modelo. Para utilizar estas saídas em `PipelineData` etapas adicionais do gasoduto, prepare objetos para recebê-los.
+As saídas do `AutoMLStep` são as pontuações métricas finais do modelo de maior desempenho e do próprio modelo. Para utilizar estas saídas em etapas adicionais de gasoduto, prepare `PipelineData` os objetos para recebê-los.
 
 ```python
 from azureml.pipeline.core import TrainingOutput
@@ -286,11 +296,11 @@ model_data = PipelineData(name='best_model_data',
                            training_output=TrainingOutput(type='Model'))
 ```
 
-O corte acima cria `PipelineData` os dois objetos para as métricas e a saída do modelo. Cada um é nomeado, atribuído à loja de dados predefinida `type` recuperada anteriormente, e associado com o particular do `TrainingOutput` `AutoMLStep`. Como `pipeline_output_name` atribuímos `PipelineData` estes objetos, os seus valores estarão disponíveis não só a partir do passo do gasoduto individual, mas do oleoduto como um todo, como será discutido abaixo na secção "Examinar os resultados do gasoduto". 
+O corte acima cria os dois `PipelineData` objetos para as métricas e saída do modelo. Cada um é nomeado, atribuído à loja de dados predefinida recuperada anteriormente, e associada com a `type` particularidade `TrainingOutput` do `AutoMLStep` . Como atribuímos `pipeline_output_name` a estes `PipelineData` objetos, os seus valores estarão disponíveis não só a partir do passo do gasoduto individual, mas do gasoduto como um todo, como será discutido abaixo na secção "Examinar os resultados do gasoduto". 
 
 ### <a name="configure-and-create-the-automated-ml-pipeline-step"></a>Configure e crie o passo automatizado do gasoduto ML
 
-Uma vez definidas as inputs e saídas, `AutoMLConfig` `AutoMLStep`é hora de criar o e . Os detalhes da configuração dependerão da sua tarefa, conforme descrito em [Configure experiências ml automatizadas em Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train). Para a tarefa de classificação de sobrevivência do Titanic, o seguinte corte demonstra uma configuração simples.
+Uma vez definidas as entradas e saídas, é hora de criar o `AutoMLConfig` e `AutoMLStep` . Os detalhes da configuração dependerão da sua tarefa, conforme descrito em [experiências ML automatizadas de Configure em Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train). Para a tarefa de classificação de sobrevivência titânica, o seguinte corte demonstra uma configuração simples.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -320,33 +330,33 @@ train_step = AutoMLStep(name='AutoML_Classification',
     outputs=[metrics_data,model_data],
     allow_reuse=True)
 ```
-O corte mostra uma idioma `AutoMLConfig`comumente usada com . Os argumentos mais fluidos (hiperparâmetros)são especificados num dicionário separado, enquanto os valores menos `AutoMLConfig` propensos a mudar são especificados diretamente no construtor. Neste caso, `automl_settings` o especificar uma breve execução: a corrida para após apenas 2 iterações ou 15 minutos, o que vier primeiro.
+O snippet mostra uma idioma comumente usada com `AutoMLConfig` . Os argumentos mais fluidos (hiperparameter-ish) são especificados num dicionário separado, enquanto os valores menos propensos a alterar são especificados diretamente no `AutoMLConfig` construtor. Neste caso, `automl_settings` a especificação de uma breve execução: a corrida para após apenas 2 iterações ou 15 minutos, o que vier primeiro.
 
-O `automl_settings` dicionário é passado `AutoMLConfig` para o construtor como kwargs. Os outros parâmetros não são complexos:
+O `automl_settings` dicionário é passado para o construtor como `AutoMLConfig` kwargs. Os outros parâmetros não são complexos:
 
-- `task`é definido `classification` para este exemplo. Outros valores `regression` válidos são e`forecasting`
-- `path`e `debug_log` descrever o caminho para o projeto e um arquivo local para o qual informações depuração serão escritas 
-- `compute_target`é o previamente definido `compute_target` que, neste exemplo, é uma máquina baseada em CPU barata. Se estiver a usar as instalações de Deep Learning da AutoML, gostaria de alterar o alvo da computação para ser baseado em GPU
-- `featurization`está definido `auto`para . Mais detalhes podem ser encontrados na secção de Funcionalidade de [Dados](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#data-featurization) do documento automatizado de configuração ML 
-- `training_data`é definido `PipelineOutputTabularDataset` para os objetos feitos a partir das saídas do passo de preparação de dados 
+- `task`é definido `classification` para este exemplo. Outros valores válidos são `regression` e`forecasting`
+- `path`e `debug_log` descrever o caminho para o projeto e um arquivo local para o qual a informação de depurar será escrita 
+- `compute_target`é o previamente definido `compute_target` que, neste exemplo, é uma máquina barata baseada em CPU. Se estiver a utilizar as instalações de Deep Learning da AutoML, gostaria de alterar o objetivo de computação para ser baseado em GPU
+- `featurization`está definido para `auto` . Mais detalhes podem ser encontrados na secção de Exibição de [Dados](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#data-featurization) do documento de configuração automatizado de ML 
+- `training_data`é definido para os `PipelineOutputTabularDataset` objetos feitos a partir das saídas do passo de preparação de dados 
 - `label_column_name`indica que coluna estamos interessados em prever 
 
-O `AutoMLStep` próprio pega `AutoMLConfig` o e tem, `PipelineData` como saídas, os objetos criados para segurar as métricas e os dados do modelo. 
+O `AutoMLStep` próprio toma e `AutoMLConfig` tem, como saídas, os `PipelineData` objetos criados para segurar as métricas e os dados do modelo. 
 
 >[!Important]
-> Tem de `passthru_automl_config` `False` se `AutoMLStep` definir `PipelineOutputTabularDataset` se estiver a utilizar objetos para entrada.
+> Tem de definir `passthru_automl_config` se o seu está a usar `False` `AutoMLStep` `PipelineOutputTabularDataset` objetos para entrada.
 
-Neste exemplo, o processo ml automatizado realizará `training_data`validações cruzadas na . Pode controlar o número de validações `n_cross_validations` cruzadas com o argumento. Se já dividiu os seus dados de treino como parte `validation_data` dos `Dataset`seus passos de preparação de dados, pode definir os seus próprios .
+Neste exemplo, o processo automatizado de ML realizará validações cruzadas no `training_data` . Pode controlar o número de validações cruzadas com o `n_cross_validations` argumento. Se já dividiu os seus dados de treino como parte das suas etapas de preparação de dados, pode definir `validation_data` para os seus próprios `Dataset` .
 
-Pode ocasionalmente ver `X` a utilização de funcionalidades de dados e `y` de etiquetas de dados. Esta técnica é depreciada e `training_data` deve utilizar para a entrada. 
+Pode ocasionalmente ver a utilização `X` para funcionalidades de dados e `y` para etiquetas de dados. Esta técnica é depreciada e deve ser utilizada `training_data` para a entrada. 
 
-## <a name="register-the-model-generated-by-automated-ml"></a>Registe o modelo gerado por ML automatizado 
+## <a name="register-the-model-generated-by-automated-ml"></a>Registar o modelo gerado por ML automatizado 
 
-O último passo de um gasoduto ML básico é registar o modelo criado. Ao adicionar o modelo ao registo de modelos do espaço de trabalho, estará disponível no portal e poderá ser versão. Para registar o modelo, escreva outro `PythonScriptStep` que leve a `model_data` saída do `AutoMLStep`.
+O último passo de um gasoduto ML básico é registar o modelo criado. Ao adicionar o modelo ao registo de modelos do espaço de trabalho, estará disponível no portal e poderá ser lançado. Para registar o modelo, escreva outro `PythonScriptStep` que tire a saída do `model_data` `AutoMLStep` .
 
 ### <a name="write-the-code-to-register-the-model"></a>Escreva o código para registar o modelo
 
-Um modelo está `Workspace`registado em . Você provavelmente está `Workspace.from_config()` familiarizado com o uso para iniciar sessão no seu espaço de trabalho na sua máquina local, mas há outra maneira de obter o espaço de trabalho dentro de um oleoduto ML em execução. O `Run.get_context()` que recupera `Run`o ativo. Este `run` objeto fornece acesso a muitos `Workspace` objetos importantes, incluindo o usado aqui.
+Um modelo está registado num `Workspace` . Provavelmente está familiarizado com o uso `Workspace.from_config()` para iniciar sessão no seu espaço de trabalho na sua máquina local, mas há outra maneira de obter o espaço de trabalho dentro de um oleoduto ML em funcionamento. O `Run.get_context()` recupera o `Run` ativo. Este `run` objeto fornece acesso a muitos objetos importantes, incluindo o usado `Workspace` aqui.
 
 ```python
 %%writefile register_model.py
@@ -375,7 +385,7 @@ print("Registered version {0} of model {1}".format(model.version, model.name))
 
 ### <a name="write-the-pythonscriptstep-code"></a>Escreva o código PythonScriptStep
 
-O registo de `PythonScriptStep` modelos utiliza um `PipelineParameter` dos seus argumentos. Os parâmetros do gasoduto são argumentos para gasodutos que podem ser facilmente definidos no tempo de submissão de execução. Uma vez declarados, são aprovados como argumentos normais. 
+O modelo-registramento `PythonScriptStep` usa um para um dos seus `PipelineParameter` argumentos. Os parâmetros do gasoduto são argumentos para os gasodutos que podem ser facilmente definidos no tempo de execução. Uma vez declarados, são aprovados como argumentos normais. 
 
 ```python
 
@@ -395,7 +405,7 @@ register_step = PythonScriptStep(script_name="register_model.py",
 
 ## <a name="create-and-run-your-automated-ml-pipeline"></a>Crie e execute o seu pipeline ML automatizado
 
-Criar e executar um `AutoMLStep` oleoduto que contenha um não é diferente de um oleoduto normal. 
+Criar e executar um oleoduto que contenha um `AutoMLStep` não é diferente de um gasoduto normal. 
 
 ```python
 from azureml.pipeline.core import Pipeline
@@ -409,11 +419,11 @@ run = experiment.submit(pipeline, show_output=True)
 run.wait_for_completion()
 ```
 
-O código acima combina a preparação de dados, ml `Pipeline` automatizado e os passos de registo de modelos num objeto. Cria então `Experiment` um objeto. O `Experiment` construtor recuperará a experiência nomeada se ela existir ou criá-la se necessário. Submete-se `Pipeline` ao `Experiment`, criando `Run` um objeto que irá sincronicamente executar o oleoduto. A `wait_for_completion()` função bloqueia até que a execução esteja completa.
+O código acima combina a preparação de dados, ml automatizado e passos de registo de modelos em um `Pipeline` objeto. Em seguida, cria um `Experiment` objeto. O `Experiment` construtor recuperará a experiência nomeada se existir ou a criará se necessário. Submete-se `Pipeline` ao `Experiment` , criando um `Run` objeto que vai assíncroneamente executar o oleoduto. A `wait_for_completion()` função bloqueia até que a execução esteja concluída.
 
 ### <a name="examine-pipeline-results"></a>Examinar os resultados do gasoduto 
 
-Uma `run` vez concluído, pode `PipelineData` recuperar objetos que `pipeline_output_name`tenham sido atribuídos a . Pode descarregar os resultados e carregá-los para posterior processamento.  
+Uma vez `run` concluídos, pode recuperar `PipelineData` objetos que lhes tenham sido atribuídos `pipeline_output_name` um . Pode descarregar os resultados e carregá-los para posterior processamento.  
 
 ```python
 metrics_output_port = run.get_pipeline_output('metrics_output')
@@ -423,9 +433,9 @@ metrics_output_port.download('.', show_progress=True)
 model_output_port.download('.', show_progress=True)
 ```
 
-Os ficheiros descarregados são escritos para o subdiretório `azureml/{run.id}/`. O ficheiro de métricas é formado por JSON e pode ser convertido num quadro de dados pandas para exame.
+Os ficheiros descarregados são escritos para o subdiretório `azureml/{run.id}/` . O ficheiro métrico é formatado por JSON e pode ser convertido num dataframe pandas para exame.
 
-Para processamento local, poderá ser necessário instalar pacotes relevantes, como Pandas, Pickle, o AzureML SDK, etc. Para este exemplo, é provável que o melhor modelo encontrado por ML automatizado dependa do XGBoost.
+Para o processamento local, poderá ser necessário instalar pacotes relevantes, como pandas, pickles, AzureML SDK, etc. Para este exemplo, é provável que o melhor modelo encontrado pelo ML automatizado dependa do XGBoost.
 
 ```bash
 !pip install xgboost==0.90
@@ -445,9 +455,9 @@ df = pd.DataFrame(deserialized_metrics_output)
 df
 ```
 
-O código acima mostra que o ficheiro de métricas está a ser carregado a partir da sua localização na loja de dados Azure. Também pode carregá-lo a partir do ficheiro descarregado, como mostra o comentário. Uma vez desserializado e convertido num Pandas DataFrame, pode ver métricas detalhadas para cada uma das iterações do passo ML automatizado.
+O corte de código acima mostra o ficheiro de métricas a ser carregado a partir da sua localização na loja de dados Azure. Também pode carregá-lo a partir do ficheiro descarregado, como mostrado no comentário. Uma vez deserrializado e convertido num DataFrame pandas, pode ver métricas detalhadas para cada uma das iterações do passo ML automatizado.
 
-O ficheiro modelo pode ser `Model` desserializado num objeto que pode utilizar para inferência, análise de métricas adicionais, etc. 
+O ficheiro do modelo pode ser desseeralizado num `Model` objeto que pode usar para inferenizar, análise de métricas adicionais, etc. 
 
 ```python
 import pickle
@@ -461,13 +471,13 @@ with open(model_filename, "rb" ) as f:
 # ... inferencing code not shown ...
 ```
 
-Para obter mais informações sobre o carregamento e o trabalho com os modelos existentes, consulte [Utilize um modelo existente com o Azure Machine Learning.](how-to-deploy-existing-model.md)
+Para obter mais informações sobre o carregamento e o trabalho com os modelos existentes, consulte [Utilizar um modelo existente com Azure Machine Learning](how-to-deploy-existing-model.md).
 
-### <a name="download-the-results-of-an-automated-ml-run"></a>Descarregue os resultados de uma execução automática de ML
+### <a name="download-the-results-of-an-automated-ml-run"></a>Descarregue os resultados de uma corrida automática de ML
 
-Se tem acompanhado o artigo, terá um `run` objeto instantâneo. Mas também pode recuperar `Run` objetos `Workspace` completos `Experiment` a partir de um objeto.
+Se estiver a seguir o artigo, terá um objeto `run` instantâneo. Mas também pode recuperar `Run` objetos completos a partir de `Workspace` um `Experiment` objeto.
 
-O espaço de trabalho contém um registo completo de todas as suas experiências e execuções. Pode utilizar o portal para encontrar e descarregar as saídas de experiências ou usar código. Para aceder aos registos de uma corrida histórica, utilize o Azure Machine Learning para encontrar a identificação da corrida em que está interessado. Com essa identificação, pode `run` escolher o `Workspace` `Experiment`específico através do e .
+O espaço de trabalho contém um registo completo de todas as suas experiências e execuções. Pode utilizar o portal para encontrar e descarregar as saídas de experiências ou usar código. Para aceder aos registos de uma corrida histórica, use a Azure Machine Learning para encontrar o ID da corrida em que está interessado. Com esse ID, pode escolher o específico `run` através do `Workspace` `Experiment` e.
 
 ```python
 # Retrieved from Azure Machine Learning web UI
@@ -476,9 +486,9 @@ experiment = ws.experiments['titanic_automl']
 run = next(run for run in ex.get_runs() if run.id == run_id)
 ```
 
-Teria de mudar as cordas do código acima para as especificidades da sua execução histórica. O corte acima assume que atribuiu `ws` ao relevante `Workspace` com `from_config()`o normal . A experiência de interesse é diretamente recuperada `Run` e, em `run.id` seguida, o código encontra o interesse correspondendo ao valor.
+Teria que mudar as cordas do código acima para as especificidades da sua execução histórica. O corte acima assume que você atribuiu `ws` ao relevante com o normal `Workspace` `from_config()` . A experiência de interesse é diretamente recuperada e, em seguida, o código encontra o `Run` interesse correspondendo ao `run.id` valor.
 
-Uma vez `Run` que tenha um objeto, pode baixar as métricas e o modelo. 
+Uma vez que tenha um `Run` objeto, pode baixar as métricas e o modelo. 
 
 ```python
 automl_run = next(r for r in run.get_children() if r.name == 'AutoML_Classification')
@@ -490,13 +500,13 @@ metrics.get_port_data_reference().download('.')
 model.get_port_data_reference().download('.')
 ```
 
-Cada `Run` objeto `StepRun` contém objetos que contêm informações sobre o passo do gasoduto individual. O `run` é procurado `StepRun` pelo objeto `AutoMLStep`para o . As métricas e o modelo são recuperados utilizando os seus nomes predefinidos, que estão disponíveis mesmo que não passem `PipelineData` objetos para o `outputs` parâmetro da . `AutoMLStep` 
+Cada `Run` objeto contém `StepRun` objetos que contêm informações sobre o passo do gasoduto individual. `run`Procura-se o `StepRun` objeto `AutoMLStep` para. As métricas e o modelo são recuperados usando os seus nomes predefinidos, que estão disponíveis mesmo que não passe `PipelineData` objetos para o `outputs` parâmetro do `AutoMLStep` . 
 
-Finalmente, as métricas e modelos reais são descarregados para a sua máquina local, como foi discutido na secção "Examinar os resultados do gasoduto" acima.
+Finalmente, as métricas e o modelo reais são descarregados para a sua máquina local, como foi discutido na secção "Examine os resultados do pipeline" acima.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Execute este caderno Jupyter mostrando um [exemplo completo de ML automatizado em um oleoduto](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) que usa regressão para prever tarifas de táxi
-- [Criar experiências ml automatizadas sem código de escrita](how-to-use-automated-ml-for-ml-models.md)
+- Executar este caderno Jupyter mostrando um [exemplo completo de ML automatizado em um oleoduto](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) que usa regressão para prever tarifas de táxi
+- [Criar experiências automatizadas de ML sem código de escrita](how-to-use-automated-ml-for-ml-models.md)
 - Explore uma variedade de [cadernos Jupyter demonstrando ML automatizado](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
-- Leia sobre a integração do seu pipeline em [MLOps de ponta a ponta](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment#automate-the-ml-lifecycle) ou investigue o [repositório MLOps GitHub](https://github.com/Microsoft/MLOpspython) 
+- Leia sobre a integração do seu oleoduto em [MLOps de ponta a ponta](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment#automate-the-ml-lifecycle) ou investigue o [repositório MLOps GitHub](https://github.com/Microsoft/MLOpspython) 

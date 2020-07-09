@@ -1,6 +1,6 @@
 ---
-title: Mover dados de e para o Servidor SQL
-description: Saiba como mover dados para/a partir da base de dados do SQL Server que está no local ou num VM Azure utilizando a Azure Data Factory.
+title: Mover dados de e para o SQL Server
+description: Saiba como mover dados de/para a base de dados do SQL Server que esteja no local ou num VM Azure usando a Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5e4bbe1e6bd944787d47c5e3ed98de582c088a52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fe9a50b5557e6165835abf1df67f7486c260c1c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265769"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195925"
 ---
-# <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Mover dados de e para o SQL Server no local ou no IaaS (Azure VM) utilizando a Azure Data Factory
+# <a name="move-data-to-and-from-sql-server-using-azure-data-factory"></a>Mover dados de e para o SQL Server usando a Azure Data Factory
+
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](data-factory-sqlserver-connector.md)
 > * [Versão 2 (versão atual)](../connector-sql-server.md)
@@ -27,68 +27,68 @@ ms.locfileid: "79265769"
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o [conector SQL Server em V2](../connector-sql-server.md).
 
-Este artigo explica como usar a Atividade de Cópia na Fábrica de Dados Azure para mover dados de/para uma base de dados do SQL Server no local. Baseia-se no artigo Atividades do Movimento de [Dados,](data-factory-data-movement-activities.md) que apresenta uma visão geral do movimento de dados com a atividade de cópia.
+Este artigo explica como utilizar a Atividade de Cópia na Fábrica de Dados Azure para mover dados para/de uma base de dados do SQL Server. Baseia-se no artigo de Atividades de Movimento de [Dados,](data-factory-data-movement-activities.md) que apresenta uma visão geral do movimento de dados com a atividade da cópia.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="supported-scenarios"></a>Cenários suportados
-Pode copiar dados de uma base de **dados do SQL Server** para as seguintes lojas de dados:
+Pode copiar dados **de uma base de dados do SQL Server** para as seguintes lojas de dados:
 
 [!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
 
-Pode copiar dados das seguintes lojas de dados para uma base de **dados do SQL Server:**
+Pode copiar dados das seguintes lojas de dados **para uma base de dados do SQL Server:**
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
-## <a name="supported-sql-server-versions"></a>Versões SQL Server suportadas
-Este conector SQL Server suporta copiar dados de/para as seguintes versões de instância alojadas no local ou no Azure IaaS utilizando a autenticação SQL e a autenticação windows: SQL Server 2016, SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008, SQL Server 2008, SQL Server 2008, SQL Server 2008, SQL Server 2008, SQL Server 2008, SQL Server 2008, SQL Server 2005, SQL Server 2005, SQL Server 2005, SQL Server 2005, SQL Server 2005, SQL Server 2005, SQL Server 2008, SQL Server 2008, SQL Server 2005, SQL Server 2005, SQL Server 2005, SQL Server 20058, SQL Server 20058, SQL Server 2005, SQL Server 2005, SQL Server 2005, SQL Server 2005, S
+## <a name="supported-sql-server-versions"></a>Versões suportadas do SQL Server
+Este conector SQL Server suporta a cópia de/para as seguintes versões de instância hospedadas no local ou em Azure IaaS usando a autenticação SQL e a autenticação do Windows: SQL Server 2016, SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008, SQL Server 2005
 
-## <a name="enabling-connectivity"></a>Permitindo a conectividade
-Os conceitos e passos necessários para a ligação com o SQL Server hospedado no local ou em VMs Azure IaaS (Infraestrutura-as-a-Service) são os mesmos. Em ambos os casos, é necessário utilizar o Portal de Gestão de Dados para a conectividade.
+## <a name="enabling-connectivity"></a>Habilitação da conectividade
+Os conceitos e passos necessários para a ligação com o SQL Server hospedado no local ou em VMs Azure IaaS (Infra-estruturas-as-a-Service) são os mesmos. Em ambos os casos, você precisa usar o Data Management Gateway para conectividade.
 
-Consulte [os dados em movimento entre as localizações no local e](data-factory-move-data-between-onprem-and-cloud.md) o artigo em nuvem para saber sobre o Gateway de Gestão de Dados e instruções passo a passo sobre a configuração do portal. A criação de uma instância de gateway é um pré-requisito para a ligação com o Servidor SQL.
+Consulte [dados em movimento entre locais no local e](data-factory-move-data-between-onprem-and-cloud.md) artigo em nuvem para saber sobre o Gateway de Gestão de Dados e instruções passo a passo sobre a configuração do gateway. Configurar uma instância de gateway é um pré-requisito para a ligação com o SQL Server.
 
-Embora possa instalar o gateway na mesma máquina no local ou na mesma instância VM em nuvem como o SQL Server para um melhor desempenho, recomendamos que os instale em máquinas separadas. Ter o gateway e o SQL Server em máquinas separadas reduz a contenção de recursos.
+Enquanto pode instalar gateway na mesma máquina no local ou na nuvem de VM como o SQL Server para um melhor desempenho, recomendamos que os instale em máquinas separadas. Ter o gateway e o SQL Server em máquinas separadas reduz a contenção de recursos.
 
 ## <a name="getting-started"></a>Introdução
-Pode criar um pipeline com uma atividade de cópia que move dados de/para uma base de dados do SQL Server no local utilizando diferentes ferramentas/APIs.
+Pode criar um pipeline com uma atividade de cópia que move dados de/para uma base de dados do SQL Server utilizando diferentes ferramentas/APIs.
 
-A maneira mais fácil de criar um pipeline é utilizar o **Assistente de Cópia**. Ver [Tutorial: Crie um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um pipeline utilizando o assistente de dados Copy.
+A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard**. Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Estúdio Visual,** **Azure PowerShell,** **Modelo de Gestor de Recursos Azure,** **.NET API**e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um pipeline com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API**e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
 
-Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de sumidouro:
+Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
 1. Criar uma fábrica de **dados.** Uma fábrica de dados pode conter um ou mais oleodutos.
-2. Crie **serviços ligados** para ligar as lojas de dados de entrada e saída à sua fábrica de dados. Por exemplo, se estiver a copiar dados de uma base de dados do SQL Server para um armazenamento de blob Azure, cria dois serviços ligados para ligar a sua base de dados do SQL Server e a conta de armazenamento Azure à sua fábrica de dados. Para propriedades de serviço ligadas específicas à base de dados do SQL Server, consulte a secção de [propriedades de serviço ligadas.](#linked-service-properties)
-3. Crie **conjuntos** de dados para representar dados de entrada e saída para a operação de cópia. No exemplo mencionado no último passo, cria-se um conjunto de dados para especificar a tabela SQL na sua base de dados do SQL Server que contém os dados de entrada. E cria outro conjunto de dados para especificar o recipiente blob e a pasta que detém os dados copiados da base de dados do SQL Server. Para propriedades de conjunto de dados específicas da base de dados do Servidor SQL, consulte a secção de propriedades do conjunto de [dados.](#dataset-properties)
-4. Crie um **pipeline** com uma atividade de cópia que tome um conjunto de dados como entrada e um conjunto de dados como uma saída. No exemplo mencionado anteriormente, você usa o SqlSource como fonte e BlobSink como um lavatório para a atividade de cópia. Da mesma forma, se estiver a copiar do Armazenamento Azure Blob para a Base de Dados do Servidor SQL, utiliza o BlobSource e o SqlSink na atividade da cópia. Para copiar propriedades de atividade específicas para a Base de Dados do Servidor SQL, consulte a secção de propriedades de atividade de [cópia.](#copy-activity-properties) Para obter mais informações sobre como utilizar uma loja de dados como fonte ou pia, clique no link na secção anterior para a sua loja de dados.
+2. Crie **serviços ligados** para ligar as lojas de dados de entrada e saída à sua fábrica de dados. Por exemplo, se estiver a copiar dados de uma base de dados do SQL Server para um armazenamento de bolhas Azure, cria dois serviços ligados para ligar a sua base de dados sql Server e a conta de armazenamento Azure à sua fábrica de dados. Para propriedades de serviço ligadas específicas à base de dados do SQL Server, consulte a secção [de propriedades de serviços ligadas.](#linked-service-properties)
+3. Crie **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia. No exemplo mencionado no último passo, cria-se um conjunto de dados para especificar a tabela SQL na base de dados do SQL Server que contém os dados de entrada. E cria outro conjunto de dados para especificar o recipiente blob e a pasta que detém os dados copiados da base de dados do SQL Server. Para obter propriedades de conjunto de dados específicas da base de dados do SQL Server, consulte a secção [de propriedades do conjunto de dados.](#dataset-properties)
+4. Crie um **pipeline** com uma atividade de cópia que leva um conjunto de dados como entrada e um conjunto de dados como uma saída. No exemplo mencionado anteriormente, utiliza o SqlSource como fonte e o BlobSink como pia para a atividade da cópia. Da mesma forma, se estiver a copiar de Azure Blob Storage para SQL Server Database, utilize BlobSource e SqlSink na atividade de cópia. Para obter propriedades de atividade de cópia específicas da Base de Dados do Servidor SQL, consulte a secção [de propriedades da atividade de cópia.](#copy-activity-properties) Para obter mais informações sobre como utilizar uma loja de dados como fonte ou pia, clique no link na secção anterior para a sua loja de dados.
 
-Quando utiliza o assistente, as definições jSON para estas entidades da Fábrica de Dados (serviços ligados, conjuntos de dados e o pipeline) são automaticamente criadas para si. Quando utiliza ferramentas/APIs (exceto .NET API), define estas entidades da Fábrica de Dados utilizando o formato JSON. Para amostras com definições JSON para entidades da Fábrica de Dados que são usadas para copiar dados de/para uma base de dados do SQL Server no local, consulte a secção de [exemplos jSON](#json-examples-for-copying-data-from-and-to-sql-server) deste artigo.
+Quando utiliza o assistente, as definições de JSON para estas entidades da Data Factory (serviços ligados, conjuntos de dados e o pipeline) são automaticamente criadas para si. Quando utiliza ferramentas/APIs (exceto .NET API), define estas entidades da Data Factory utilizando o formato JSON. Para amostras com definições JSON para entidades da Data Factory que são usadas para copiar dados de/para uma base de dados do SQL Server, consulte a secção de [exemplos JSON](#json-examples-for-copying-data-from-and-to-sql-server) deste artigo.
 
-As seguintes secções fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades da Fábrica de Dados específicas do Servidor SQL:
+As seguintes secções fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades da Data Factory específicas do SQL Server:
 
-## <a name="linked-service-properties"></a>Propriedades de serviço seletos
-Cria um serviço ligado do tipo **OnPremisesSqlServer** para ligar uma base de dados do SQL Server ao local a uma fábrica de dados. A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado ao Servidor SQL no local.
+## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
+Cria um serviço de tipo ligado **OnPremisesSqlServer** para ligar uma base de dados do SQL Server a uma fábrica de dados. A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado ao SQL Server.
 
-A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado ao Servidor SQL.
+A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado ao SQL Server.
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade do tipo deve ser definida para: **OnPremisesSqlServer**. |Sim |
-| conexãoString |Especifique as informações de ligação Necessárias à base de dados do SQL Server no local utilizando a autenticação SQL ou a autenticação do Windows. |Sim |
-| nome gateway |Nome do portal que o serviço Data Factory deve utilizar para ligar à base de dados do SQL Server no local. |Sim |
-| o nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a Autenticação do Windows. Exemplo: **nome\\de utilizador do nome de domínio**. |Não |
+| tipo |A propriedade tipo deve ser definida para: **OnPremisesSqlServer**. |Sim |
+| conexãoStragem |Especifique a informação de ligação Desaquipeia as informações necessárias para ligar à base de dados do SQL Server utilizando a autenticação SQL ou a autenticação do Windows. |Sim |
+| gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados do SQL Server. |Sim |
+| o nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a Autenticação do Windows. Exemplo: **nome de utilizador do nome \\ de domínio**. |Não |
 | palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. |Não |
 
-Pode encriptar credenciais utilizando o cmdlet **New-AzDataFactoryEncryptValue** e utilizá-las na cadeia de ligação, como mostra o seguinte exemplo (propriedade**EncryptedCredential):**
+Pode encriptar credenciais utilizando o cmdlet **New-AzDataFactoryEncryptValue** e usá-las na cadeia de ligação, como mostrado no exemplo seguinte (Propriedade**Criptografada)**
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 ```
 
 ### <a name="samples"></a>Amostras
-**JSON para a utilização da autenticação SQL**
+**JSON para utilização de autenticação SQL**
 
 ```json
 {
@@ -103,9 +103,9 @@ Pode encriptar credenciais utilizando o cmdlet **New-AzDataFactoryEncryptValue**
     }
 }
 ```
-**JSON para usar a autenticação do Windows**
+**JSON para utilização de autenticação do Windows**
 
-O Portal de Gestão de Dados personificará a conta de utilizador especificada para se ligar à base de dados do SQL Server no local.
+O Data Management Gateway personificará a conta de utilizador especificada para se ligar à base de dados do SQL Server.
 
 ```json
 {
@@ -126,73 +126,73 @@ O Portal de Gestão de Dados personificará a conta de utilizador especificada p
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 Nas amostras, utilizou um conjunto de dados do tipo **SqlServerTable** para representar uma tabela numa base de dados do SQL Server.
 
-Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntode dados (SQL Server, Blob Azure, tabela Azure, etc.).
+Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criar conjuntos de dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (SQL Server, Azure blob, Azure table, etc.).
 
-A secção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção **TypeProperties** para o conjunto de dados do tipo **SqlServerTable** tem as seguintes propriedades:
+A secção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção **typeProperties** para o conjunto de dados do tipo **SqlServerTable** tem as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tableName |Nome da tabela ou vista na instância de Base de Dados do Servidor SQL a que o serviço ligado se refere. |Sim |
+| tableName |Nome da tabela ou visualização na página da Base de Dados do Servidor SQL a que o serviço ligado se refere. |Sim |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Se estiver a mover dados de uma base de dados do SQL Server, define o tipo de origem na atividade de cópia para **SqlSource**. Da mesma forma, se estiver a mover dados para uma base de dados do SQL Server, define o tipo de pia na atividade de cópia para **SqlSink**. Esta secção fornece uma lista de propriedades suportadas por SqlSource e SqlSink.
+Se estiver a mover dados de uma base de dados do SQL Server, define o tipo de origem na atividade de cópia para **SqlSource**. Da mesma forma, se estiver a transferir dados para uma base de dados do SQL Server, define o tipo de pia na atividade da cópia para **o SqlSink**. Esta secção fornece uma lista de propriedades suportadas por SqlSource e SqlSink.
 
-Para obter uma lista completa de secções & propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e políticas estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa das secções & propriedades disponíveis para definir atividades, consulte o artigo [Criar Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e políticas estão disponíveis para todos os tipos de atividades.
 
 > [!NOTE]
-> A Copy Activity leva apenas uma entrada e produz apenas uma saída.
+> A Atividade de Cópia leva apenas uma entrada e produz apenas uma saída.
 
-Considerando que as propriedades disponíveis na secção typeProperties da atividade variam com cada tipo de atividade. Para a atividade de Cópia, variam dependendo dos tipos de fontes e pias.
+Enquanto que as propriedades disponíveis na secção de tipos de atividade variam com cada tipo de atividade. Para a atividade copy, variam dependendo dos tipos de fontes e pias.
 
 ### <a name="sqlsource"></a>SqlSource
-Quando a fonte numa atividade de cópia é do tipo **SqlSource,** as seguintes propriedades estão disponíveis na secção **TypeProperties:**
+Quando a origem numa atividade de cópia é do tipo **SqlSource,** as seguintes propriedades estão disponíveis na secção **de tipos de propriedades:**
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Use a consulta personalizada para ler dados. |Fio de consulta SQL. Por exemplo: selecione * do MyTable. Pode fazer referência a várias tabelas da base de dados referenciada pelo conjunto de dados de entrada. Se não especificada, a declaração SQL que é executada: selecione a partir do MyTable. |Não |
-| sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê os dados da tabela de origem. |Nome do procedimento armazenado. A última declaração sQL deve ser uma declaração SELECT no procedimento armazenado. |Não |
-| parâmetros de procedimento saqueados |Parâmetros para o procedimento armazenado. |Nome/pares de valor. Os nomes e o invólucro dos parâmetros devem coincidir com os nomes e o invólucro dos parâmetros do procedimento armazenado. |Não |
+| sqlReaderQuery |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: selecione * do MyTable. Pode fazer referência a várias tabelas da base de dados referenciadas pelo conjunto de dados de entrada. Se não for especificado, a declaração SQL que é executada: selecione a partir do MyTable. |Não |
+| sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê dados da tabela de origem. |Nome do procedimento armazenado. A última declaração SQL deve ser uma declaração SELECT no procedimento armazenado. |Não |
+| parametrómetros de reserva armazenados |Parâmetros para o procedimento armazenado. |Pares de nomes/valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. |Não |
 
-Se o **sqlReaderQuery** for especificado para o SqlSource, a Atividade de Cópia executa esta consulta contra a fonte da Base de Dados do Servidor SQL para obter os dados.
+Se o **SqlReaderQuery** for especificado para o SqlSource, a Atividade de Cópia executa esta consulta com a fonte de Base de Dados do Servidor SQL para obter os dados.
 
-Em alternativa, pode especificar um procedimento armazenado especificando o nome de **procedimento sqlReaderStoredEdE** e **os parâmetros de procedimento armazenados** (se o procedimento armazenado tiver parâmetros).
+Em alternativa, pode especificar um procedimento armazenado especificando o **nome sqlReaderStoredProcedureName** e **os Computadores Deprocedures armazenados** (se o procedimento armazenado tiver parâmetros).
 
-Se não especificar o sqlReaderQuery ou o sqlReaderStoredProcedureName, as colunas definidas na secção de estrutura são usadas para construir uma consulta selecionada para ser executada contra a Base de Dados do Servidor SQL. Se a definição de conjunto de dados não tiver a estrutura, todas as colunas são selecionadas a partir da tabela.
+Se não especificar o sqlReaderQuery ou o sqlReaderStorStoredProcedureName, as colunas definidas na secção de estrutura são utilizadas para construir uma consulta selecionada para correr contra a Base de Dados do Servidor SQL. Se a definição de conjunto de dados não tiver a estrutura, todas as colunas são selecionadas a partir da tabela.
 
 > [!NOTE]
-> Quando utiliza o nome de **procedimento sqlReaderStored**, ainda precisa especificar um valor para a propriedade **tableName** no conjunto de dados JSON. No entanto, não há validações realizadas contra esta tabela.
+> Quando utilizar **o nome sqlReaderStoredProcedureName,** ainda precisa de especificar um valor para a propriedade **tableName** no conjunto de dados JSON. No entanto, não há validações feitas contra esta tabela.
 
 ### <a name="sqlsink"></a>SqlSink
-**A SqlSink** suporta as seguintes propriedades:
+**SqlSink** suporta as seguintes propriedades:
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| escreverBatchTimeout |Aguarde o tempo para que a operação de inserção do lote esteja concluída antes de sair. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
-| escreverBatchSize |Insere os dados na tabela SQL quando o tamanho do tampão atinge o writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
-| sqlWriterCleanupScript |Especifique a consulta para a Atividade de Cópia executar de tal forma que os dados de uma fatia específica são limpos. Para mais informações, consulte a secção [de cópias repetível.](#repeatable-copy) |Uma declaração de consulta. |Não |
-| sliceIdentifierColumnName |Especifique o nome da coluna para a Atividade de Cópia para preencher com identificador de fatias gerado automaticamente, que é usado para limpar dados de uma fatia específica quando reexecutado. Para mais informações, consulte a secção [de cópias repetível.](#repeatable-copy) |Nome da coluna de uma coluna com tipo de dados de binário(32). |Não |
-| sqlWriterStoredProcedureName |Nome do procedimento armazenado que define como aplicar dados de origem em tabela-alvo, por exemplo, fazer upserts ou transformar usando a sua própria lógica de negócio. <br/><br/>Note que este procedimento armazenado será **invocado por lote**. Se quiser fazer uma operação que só funciona uma vez e não tem nada a `sqlWriterCleanupScript` ver com dados de origem, por exemplo, eliminar/truncar, utilize a propriedade. |Nome do procedimento armazenado. |Não |
-| parâmetros de procedimento saqueados |Parâmetros para o procedimento armazenado. |Nome/pares de valor. Os nomes e o invólucro dos parâmetros devem coincidir com os nomes e o invólucro dos parâmetros do procedimento armazenado. |Não |
-| sqlWriterTableType |Especifique o nome do tipo de tabela a utilizar no procedimento armazenado. A atividade de cópia disponibiliza os dados disponíveis numa tabela temporária com este tipo de tabela. O código de procedimento armazenado pode então fundir os dados que estão a ser copiados com os dados existentes. |Um nome tipo de mesa. |Não |
+| escreverBatchTimeout |Tempo de espera para que o funcionamento do encaixe do lote esteja concluído antes de esgotar o tempo. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
+| escreverBatchSize |Insere dados na tabela SQL quando o tamanho do tampão atinge o writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
+| sqlWriterCleanUpScript |Especifique a consulta para a Atividade de Cópia para executar de modo a que os dados de uma fatia específica seja limpo. Para mais informações, consulte a secção [de cópias repetível.](#repeatable-copy) |Uma declaração de consulta. |Não |
+| sliceIdentifierColumnName |Especifique o nome da coluna para a Atividade de Cópia para preencher com identificador de fatias gerados automaticamente, que é utilizado para limpar dados de uma fatia específica quando se revesse. Para mais informações, consulte a secção [de cópias repetível.](#repeatable-copy) |Nome da coluna de uma coluna com tipo de dados binário (32). |Não |
+| sqlWriterStorEdProcedureName |Nome do procedimento armazenado que define como aplicar dados de origem em tabela-alvo, por exemplo, para fazer upserts ou transformar usando a sua própria lógica de negócio. <br/><br/>Note que este procedimento armazenado será **invocado por lote**. Se quiser fazer uma operação que só funciona uma vez e não tem nada a ver com dados de origem, por exemplo, apagar/truncar, utilize `sqlWriterCleanupScript` a propriedade. |Nome do procedimento armazenado. |Não |
+| parametrómetros de reserva armazenados |Parâmetros para o procedimento armazenado. |Pares de nomes/valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. |Não |
+| SqlWriterTableType |Especifique o nome do tipo de mesa a ser utilizado no procedimento armazenado. A atividade de cópia torna os dados disponíveis numa tabela temporária com este tipo de tabela. O código de procedimento armazenado pode então fundir os dados que estão a ser copiados com os dados existentes. |Um nome do tipo de mesa. |Não |
 
 
-## <a name="json-examples-for-copying-data-from-and-to-sql-server"></a>Exemplos jSON para copiar dados de e para SQL Server
-Os exemplos seguintes fornecem definições JSON de amostra que pode usar para criar um pipeline utilizando [o Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). As seguintes amostras mostram como copiar dados de e para o SQL Server e armazenamento de Blob Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer fonte para qualquer um dos lavatórios [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) indicados utilizando a Atividade de Cópia na Fábrica de Dados Azure.
+## <a name="json-examples-for-copying-data-from-and-to-sql-server"></a>Exemplos JSON para copiar dados de e para SQL Server
+Os exemplos a seguir fornecem definições JSON de amostra que pode usar para criar um oleoduto utilizando [o Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). As seguintes amostras mostram como copiar dados de e para o SQL Server e Azure Blob Storage. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes para qualquer um dos lavatórios [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) indicados usando a Atividade de Cópia na Fábrica de Dados Azure.
 
-## <a name="example-copy-data-from-sql-server-to-azure-blob"></a>Exemplo: Copiar dados do SQL Server para O Blob Azure
-A amostra que se segue mostra:
+## <a name="example-copy-data-from-sql-server-to-azure-blob"></a>Exemplo: Copiar dados do SQL Server para Azure Blob
+A seguinte amostra mostra:
 
 1. Um serviço ligado do tipo [OnPremisesSqlServer](#linked-service-properties).
-2. Um serviço ligado do tipo [AzureStorage.](data-factory-azure-blob-connector.md#linked-service-properties)
+2. Um serviço ligado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 3. Um conjunto de [dados](data-factory-create-datasets.md) de entrada do tipo [SqlServerTable](#dataset-properties).
-4. Um [conjunto](data-factory-create-datasets.md) de dados de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-5. O [gasoduto](data-factory-create-pipelines.md) com a atividade Copy que utiliza [o SqlSource](#copy-activity-properties) e o [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+4. Um conjunto de [dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. O [pipeline](data-factory-create-pipelines.md) com atividade Copy que utiliza [SqlSource](#copy-activity-properties) e [BlobSink.](data-factory-azure-blob-connector.md#copy-activity-properties)
 
-A amostra copia dados da série de tempo de uma tabela SQL Server para uma bolha Azure a cada hora. As propriedades JSON utilizadas nestas amostras são descritas em secções que seguem as amostras.
+A amostra copia os dados da série de tempo de uma tabela SQL Server para uma bolha Azure a cada hora. As propriedades JSON utilizadas nestas amostras são descritas em secções que seguem as amostras.
 
-Como primeiro passo, configurar o portal de gestão de dados. As instruções estão nos [dados em movimento entre os locais no local e](data-factory-move-data-between-onprem-and-cloud.md) o artigo em nuvem.
+Como primeiro passo, configurar o portal de gestão de dados. As instruções estão nos [dados móveis entre locais no local e](data-factory-move-data-between-onprem-and-cloud.md) artigo em nuvem.
 
-**Serviço ligado ao Servidor SQL**
+**Serviço ligado ao SQL Server**
 ```json
 {
   "Name": "SqlServerLinkedService",
@@ -218,11 +218,11 @@ Como primeiro passo, configurar o portal de gestão de dados. As instruções es
   }
 }
 ```
-**Conjunto de dados de entrada do Servidor SQL**
+**Conjunto de dados de entrada do SQL Server**
 
-A amostra pressupõe que criou uma tabela "MyTable" no SQL Server e contém uma coluna chamada "timestampcolumn" para dados da série time. Pode consultar várias tabelas dentro da mesma base de dados utilizando um único conjunto de dados, mas uma única tabela deve ser utilizada para o tipo de nome de dados do conjunto de dadosProperty.
+A amostra pressupõe que criou uma tabela "MyTable" no SQL Server e contém uma coluna chamada "timetampcolumn" para dados da série de tempo. Pode consultar várias tabelas dentro da mesma base de dados utilizando um único conjunto de dados, mas uma única tabela deve ser usada para a tabela datasetName TipoProperty.
 
-Definição "externa": "verdadeira" informa o serviço data Factory de que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade na fábrica de dados.
+Definição "externa": "verdadeiro" informa o serviço Data Factory que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade na fábrica de dados.
 
 ```json
 {
@@ -250,7 +250,7 @@ Definição "externa": "verdadeira" informa o serviço data Factory de que o con
 ```
 **Conjunto de dados dos Blobs do Azure**
 
-Os dados são escritos para uma nova bolha a cada hora (frequência: hora, intervalo: 1). O caminho da pasta para a bolha é avaliado dinamicamente com base no tempo de início da fatia que está a ser processada. O caminho da pasta utiliza partes ano, mês, dia e horas da hora de início.
+Os dados são escritos para uma nova bolha a cada hora (frequência: hora, intervalo: 1). O caminho da pasta para a bolha é avaliado dinamicamente com base na hora de início da fatia que está a ser processada. O caminho da pasta utiliza partes do ano, mês, dia e horas da hora de início.
 
 ```json
 {
@@ -307,9 +307,9 @@ Os dados são escritos para uma nova bolha a cada hora (frequência: hora, inter
   }
 }
 ```
-**Pipeline com atividade de Cópia**
+**Pipeline com atividade de Copy**
 
-O pipeline contém uma Atividade de Cópia que está configurada para utilizar estes conjuntos de dados de entrada e saída e está programado para funcionar a cada hora. Na definição JSON do gasoduto, o tipo de **origem** é definido para **SqlSource** e o tipo **de pia** é definido para **BlobSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados na última hora para copiar.
+O pipeline contém uma Atividade de Cópia que está configurada para utilizar estes conjuntos de dados de entrada e saída e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **SqlSource** e o tipo **de pia** é definido para **BlobSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados na hora passada para copiar.
 
 ```json
 {
@@ -357,24 +357,24 @@ O pipeline contém uma Atividade de Cópia que está configurada para utilizar e
   }
 }
 ```
-Neste exemplo, o **sqlReaderQuery** é especificado para o SqlSource. A Atividade de Cópia executa esta consulta contra a fonte da Base de Dados do Servidor SQL para obter os dados. Em alternativa, pode especificar um procedimento armazenado especificando o nome de **procedimento sqlReaderStoredEdE** e **os parâmetros de procedimento armazenados** (se o procedimento armazenado tiver parâmetros). O sqlReaderQuery pode fazer referência a várias tabelas dentro da base de dados referenciada pelo conjunto de dados de entrada. Não se limita apenas ao conjunto de tabelas como o conjunto de dados NameTypeProperty.
+Neste exemplo, **sqlReaderQuery** é especificado para o SqlSource. A Atividade de Cópia executa esta consulta com a fonte de Base de Dados do Servidor SQL para obter os dados. Em alternativa, pode especificar um procedimento armazenado especificando o **nome sqlReaderStoredProcedureName** e **os Computadores Deprocedures armazenados** (se o procedimento armazenado tiver parâmetros). O SqlReaderQuery pode fazer referência a várias tabelas dentro da base de dados referenciada pelo conjunto de dados de entrada. Não se limita apenas ao conjunto de tabelas como tabela Do nome de dadosProperty.
 
-Se não especificar o sqlReaderQuery ou sqlReaderStoredProcedureName, as colunas definidas na secção de estrutura são usadas para construir uma consulta selecionada para ser executada contra a Base de Dados do Servidor SQL. Se a definição de conjunto de dados não tiver a estrutura, todas as colunas são selecionadas a partir da tabela.
+Se não especificar sqlReaderQuery ou sqlReaderStorEdProcedureName, as colunas definidas na secção de estrutura são utilizadas para construir uma consulta selecionada para correr contra a Base de Dados do Servidor SQL. Se a definição de conjunto de dados não tiver a estrutura, todas as colunas são selecionadas a partir da tabela.
 
 Consulte a secção [Sql Source](#sqlsource) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) para obter a lista de propriedades suportadas por SqlSource e BlobSink.
 
 ## <a name="example-copy-data-from-azure-blob-to-sql-server"></a>Exemplo: Copiar dados de Azure Blob para SQL Server
-A amostra que se segue mostra:
+A seguinte amostra mostra:
 
 1. O serviço ligado do tipo [OnPremisesSqlServer](#linked-service-properties).
 2. O serviço ligado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 3. Um conjunto de [dados](data-factory-create-datasets.md) de entrada do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-4. Um [conjunto](data-factory-create-datasets.md) de dados de saída do tipo [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties).
-5. O [pipeline](data-factory-create-pipelines.md) com a atividade Copy que utiliza [blobSource](data-factory-azure-blob-connector.md#copy-activity-properties) e SqlSink.
+4. Um conjunto de [dados](data-factory-create-datasets.md) de saída do tipo [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties).
+5. O [pipeline](data-factory-create-pipelines.md) com atividade Copy que utiliza [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) e SqlSink.
 
-A amostra copia dados da série de tempo de uma bolha Azure para uma tabela SQL Server a cada hora. As propriedades JSON utilizadas nestas amostras são descritas em secções que seguem as amostras.
+A amostra copia os dados da série de tempo de uma bolha Azure para uma tabela sql server a cada hora. As propriedades JSON utilizadas nestas amostras são descritas em secções que seguem as amostras.
 
-**Serviço ligado ao Servidor SQL**
+**Serviço ligado ao SQL Server**
 
 ```json
 {
@@ -401,9 +401,9 @@ A amostra copia dados da série de tempo de uma bolha Azure para uma tabela SQL 
   }
 }
 ```
-**Conjunto de dados de entrada de Azure Blob**
+**Conjunto de dados de entrada Azure Blob**
 
-Os dados são recolhidos a partir de uma nova bolha a cada hora (frequência: hora, intervalo: 1). O caminho da pasta e o nome do ficheiro para a bolha são avaliados dinamicamente com base no tempo de início da fatia que está a ser processada. O caminho da pasta utiliza ano, mês e parte do dia da hora de início e o nome do ficheiro utiliza a parte da hora da hora de início. "externa": a definição "verdadeira" informa o serviço data Factory de que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade na fábrica de dados.
+Os dados são recolhidos a partir de uma nova bolha a cada hora (frequência: hora, intervalo: 1). O caminho da pasta e o nome do ficheiro para a bolha são avaliados dinamicamente com base na hora de início da fatia que está a ser processada. O percurso da pasta utiliza a parte do ano, mês e dia da hora de início e o nome do ficheiro utiliza a parte da hora da hora de início. Definição "externa": a definição "verdadeira" informa o serviço data Factory de que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade na fábrica de dados.
 
 ```json
 {
@@ -469,9 +469,9 @@ Os dados são recolhidos a partir de uma nova bolha a cada hora (frequência: ho
   }
 }
 ```
-**Conjunto de dados de saída do Servidor SQL**
+**Conjunto de dados de saída do SQL Server**
 
-A amostra copia dados para uma tabela chamada "MyTable" no Servidor SQL. Crie a tabela no SQL Server com o mesmo número de colunas que espera que o ficheiro Blob CSV contenha. Novas filas são adicionadas à mesa a cada hora.
+A amostra copia dados para uma tabela chamada "MyTable" no SQL Server. Crie a tabela no SQL Server com o mesmo número de colunas que espera que o ficheiro Blob CSV contenha. Novas filas são adicionadas à mesa a cada hora.
 
 ```json
 {
@@ -489,9 +489,9 @@ A amostra copia dados para uma tabela chamada "MyTable" no Servidor SQL. Crie a 
   }
 }
 ```
-**Pipeline com atividade de Cópia**
+**Pipeline com atividade de Copy**
 
-O pipeline contém uma Atividade de Cópia que está configurada para utilizar estes conjuntos de dados de entrada e saída e está programado para funcionar a cada hora. Na definição JSON do gasoduto, o tipo de **origem** é definido para **BlobSource** e o tipo **de pia** é definido para **SqlSink**.
+O pipeline contém uma Atividade de Cópia que está configurada para utilizar estes conjuntos de dados de entrada e saída e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **BlobSource** e o tipo **de pia** é definido para **SqlSink**.
 
 ```json
 {
@@ -541,26 +541,26 @@ O pipeline contém uma Atividade de Cópia que está configurada para utilizar e
 ```
 
 ## <a name="troubleshooting-connection-issues"></a>Resolução de problemas de ligação
-1. Configure o seu Servidor SQL para aceitar ligações remotas. Lance o Estúdio de **Gestão do Servidor SQL,** **servidor**de clique satislo, e clique em **Propriedades**. Selecione **Ligações** da lista e verifique **Permitir ligações remotas ao servidor**.
+1. Configure o seu SQL Server para aceitar ligações remotas. Lançar **SQL Server Management Studio,** servidor de clique **à**direita e clicar em **Propriedades**. Selecione **Ligações** da lista e verifique **Permitir ligações remotas ao servidor.**
 
     ![Ativar ligações remotas](./media/data-factory-sqlserver-connector/AllowRemoteConnections.png)
 
-    Consulte [a opção de configuração do servidor](https://msdn.microsoft.com/library/ms191464.aspx) de acesso remoto para obter passos detalhados.
-2. Lance o Gestor de Configuração do **Servidor SQL**. Expandir a configuração da **rede de servidores SQL** para a instância que deseja e selecionar **Protocolos para MSSQLSERVER**. Devia ver protocolos no painel certo. Ativar o TCP/IP clicando no **TCP/IP** e clicando em **Ativar**.
+    Consulte [a configuração da opção de configuração do servidor de acesso remoto](https://msdn.microsoft.com/library/ms191464.aspx) para obter etapas detalhadas.
+2. Lançar **gestor de configuração de servidor SQL**. Expanda a **configuração da rede de servidor SQL** para o caso que pretende e selecione **Protocolos para MSSQLSERVER**. Devias ver protocolos no painel direito. Ativar o TCP/IP clicando à direita **no TCP/IP** e clicando **em Ativar**.
 
     ![Ativar TCP/IP](./media/data-factory-sqlserver-connector/EnableTCPProptocol.png)
 
-    Consulte [ativar ou desativar um Protocolo](https://msdn.microsoft.com/library/ms191294.aspx) de Rede de Servidores para obter detalhes e formas alternativas de ativar o protocolo TCP/IP.
-3. Na mesma janela, clique duplo **no TCP/IP** para lançar a janela **TCP/IP Properties.**
-4. Mude para o separador **endereços IP.** Desloque-se para baixo para ver a secção **IPAll.** Note a **porta TCP**(o predefinido é **de 1433**).
+    Consulte [Ativar ou Desativar um Protocolo de Rede de Servidor](https://msdn.microsoft.com/library/ms191294.aspx) para obter detalhes e formas alternativas de ativar o protocolo TCP/IP.
+3. Na mesma janela, clique duas vezes em **TCP/IP** para lançar a janela **TCP/IP Properties.**
+4. Mude para o separador **endereços IP.** Desloque-se para baixo para ver a secção **IPAll.** Nota para baixo a **porta TCP**(padrão é **1433**).
 5. Crie uma **regra para o Windows Firewall** na máquina para permitir a entrada de tráfego através desta porta.
-6. **Verifique a ligação**: Para se ligar ao Servidor SQL utilizando um nome totalmente qualificado, utilize o Estúdio de Gestão de Servidores SQL de uma máquina diferente. Por exemplo:\<\>" máquina . \<domínio\>\<.corp.\>empresa .com,1433."
+6. **Verificar a ligação**: Para ligar ao SQL Server utilizando um nome totalmente qualificado, utilize o SQL Server Management Studio a partir de uma máquina diferente. Por exemplo: " \<machine\> \<domain\> . . . corp. \<company\> . com,1433.
 
    > [!IMPORTANT]
    > 
-   > Consulte os [dados entre as fontes no local e a nuvem com](data-factory-move-data-between-onprem-and-cloud.md) gateway de gestão de dados para obter informações detalhadas.
+   > Consulte [os dados de movimento entre as fontes no local e a nuvem com o Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) para obter informações detalhadas.
    > 
-   > Consulte problemas de [gateway de Troubleshoot](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para obter dicas sobre questões relacionadas com ligação a problemas/gateway.
+   > Consulte [os problemas de gateway de resolução de problemas](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para obter dicas sobre questões relacionadas com a ligação de resolução de problemas/gateways.
 
 
 ## <a name="identity-columns-in-the-target-database"></a>Colunas de identidade na base de dados alvo
@@ -586,9 +586,9 @@ create table dbo.TargetTbl
 )
 ```
 
-Reparem que a mesa-alvo tem uma coluna de identidade.
+Note que a tabela alvo tem uma coluna de identidade.
 
-**Definição jSON de data de origem**
+**Definição JSON do conjunto de dados de origem**
 
 ```json
 {
@@ -609,7 +609,7 @@ Reparem que a mesa-alvo tem uma coluna de identidade.
     }
 }
 ```
-**Definição jSON de data de destino**
+**Definição de conjunto de dados de destino JSON**
 
 ```json
 {
@@ -635,22 +635,22 @@ Reparem que a mesa-alvo tem uma coluna de identidade.
 }
 ```
 
-Note que como a sua fonte e tabela alvo têm esquemas diferentes (o alvo tem uma coluna adicional com identidade). Neste cenário, é necessário especificar a **propriedade da estrutura** na definição de conjunto de dados alvo, que não inclui a coluna de identidade.
+Note que como a sua origem e tabela alvo têm esquemas diferentes (o alvo tem uma coluna adicional com identidade). Neste cenário, é necessário especificar a propriedade da **estrutura** na definição de conjunto de dados-alvo, que não inclui a coluna de identidade.
 
 ## <a name="invoke-stored-procedure-from-sql-sink"></a>Invocar procedimento armazenado a partir de pia SQL
-Consulte o [procedimento armazenado invoke para o sumidouro SQL no](data-factory-invoke-stored-procedure-from-copy-activity.md) artigo de atividade de cópia, como exemplo, invocando um procedimento armazenado a partir de um lavatório SQL numa atividade de cópia de um gasoduto.
+Consulte [o procedimento de invocação para a pia SQL em](data-factory-invoke-stored-procedure-from-copy-activity.md) artigo de atividade de cópia para um exemplo de invocação de um procedimento armazenado da pia SQL numa atividade de cópia de um oleoduto.
 
-## <a name="type-mapping-for-sql-server"></a>Tipo de mapeamento para servidor SQL
-Conforme mencionado no artigo de atividades de movimento de [dados,](data-factory-data-movement-activities.md) a atividade Copy realiza conversões automáticas de tipos de origem para tipos de sink com a seguinte abordagem de 2 passos:
+## <a name="type-mapping-for-sql-server"></a>Mapeamento de tipo para servidor SQL
+Conforme mencionado no artigo [de atividades](data-factory-data-movement-activities.md) de movimento de dados, a atividade Copy realiza conversões automáticas de tipo de origem para tipos de pia com a seguinte abordagem de 2 etapas:
 
 1. Converter de tipos de origem nativa para .NET tipo
-2. Converter do tipo .NET para o tipo de pia nativa
+2. Converter de tipo .NET para tipo de pia nativa
 
-Ao mover dados para & do servidor SQL, os seguintes mapeamentos são utilizados do tipo SQL para o tipo .NET e vice-versa.
+Ao mover dados para & do servidor SQL, os seguintes mapeamentos são usados do tipo SQL para .NET tipo e vice-versa.
 
 O mapeamento é o mesmo que o Mapeamento do Tipo de Dados do Servidor SQL para ADO.NET.
 
-| Tipo de motor de base de dados do servidor SQL | Tipo de quadro .NET |
+| Tipo de motor de base de dados de servidor SQL | .NET Tipo de quadro |
 | --- | --- |
 | bigint |Int64 |
 | binary |Byte[] |
@@ -659,39 +659,39 @@ O mapeamento é o mesmo que o Mapeamento do Tipo de Dados do Servidor SQL para A
 | date |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
-| Datatimeoffset |DataTimeOffset |
+| Datatimeoff |Início de execução de tempo de data |
 | Decimal |Decimal |
-| Atributo FILESTREAM (varbinary(max)) |Byte[] |
+| Atributo FILESTREAM (varbinário(máx)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
 | int |Int32 |
 | dinheiro |Decimal |
 | nchar |String, Char[] |
-| ntexto |String, Char[] |
+| ntext |String, Char[] |
 | numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Único |
-| linhaversão |Byte[] |
-| tempo de data pequena |DateTime |
+| rowversão |Byte[] |
+| hora pequena |DateTime |
 | smallint |Int16 |
-| dinheiro pequeno |Decimal |
+| pequeno dinheiro |Decimal |
 | sql_variant |Objeto * |
 | texto |String, Char[] |
 | hora |TimeSpan |
 | carimbo de data/hora |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |GUID |
-| varbinary |Byte[] |
+| varbinário |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
 
 ## <a name="mapping-source-to-sink-columns"></a>Fonte de mapeamento para afundar colunas
-Para mapear colunas desde o conjunto de dados de origem até colunas a partir de conjunto de dados de sumidouro, consulte [colunas de conjunto de dados de mapeamento na Fábrica](data-factory-map-columns.md)de Dados Azure .
+Para mapear colunas de conjunto de dados de origem para colunas a partir do conjunto de dados da pia, consulte [as colunas de conjunto de dados de mapeamento na Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="repeatable-copy"></a>Cópia repetível
-Ao copiar dados para a Base de Dados do Servidor SQL, a atividade de cópia anexa os dados à tabela do lavatório por padrão. Para executar um UPSERT em vez disso, consulte a escrita repetível para o artigo [da SqlSink.](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink)
+Ao copiar dados para a Base de Dados do Servidor SQL, a atividade de cópia anexa os dados à tabela do lavatório por predefinição. Para realizar um UPSERT em vez disso, Consulte [a escrita repetível para o artigo da SqlSink.](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink)
 
-Ao copiar dados de lojas de dados relacionais, tenha em mente a repetível para evitar resultados não intencionais. Na Azure Data Factory, pode reproduzir uma fatia manualmente. Também pode configurar a política de retry para um conjunto de dados para que uma fatia seja reexecutada quando ocorre uma falha. Quando uma fatia é reexecutada de qualquer forma, você precisa ter certeza de que os mesmos dados são lidos, não importa quantas vezes uma fatia é executada. Ver [Leitura repetível a partir de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Ao copiar dados de lojas de dados relacionais, tenha em mente a repetibilidade para evitar resultados não intencionais. Na Azure Data Factory, pode repetir manualmente uma fatia. Também pode configurar a política de reagem para um conjunto de dados para que uma fatia seja re-executada quando ocorre uma falha. Quando uma fatia é reexame de qualquer forma, você precisa ter certeza de que os mesmos dados são lidos, não importa quantas vezes uma fatia é executada. Ver [leitura repetível de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
-## <a name="performance-and-tuning"></a>Desempenho e Afinação
-Consulte o [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) para conhecer os fatores-chave que impactam o desempenho do movimento de dados (Copy Activity) na Fábrica de Dados Do Azure e várias formas de o otimizar.
+## <a name="performance-and-tuning"></a>Performance e Afinação
+Consulte [copy Activity Performance & Guia de Afinação](data-factory-copy-activity-performance.md) para conhecer os fatores-chave que impactam o desempenho do movimento de dados (Copy Activity) na Azure Data Factory e várias formas de otimizá-lo.

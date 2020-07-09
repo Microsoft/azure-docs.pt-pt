@@ -1,26 +1,26 @@
 ---
-title: 'Tutorial: Criar uma aplicação web de uma página única usando a API de pesquisa de notícias bing'
+title: 'Tutorial: Criar uma aplicação web de uma página única utilizando a API de Pesquisa de Notícias Bing'
 titleSuffix: Azure Cognitive Services
-description: Utilize este tutorial para construir uma aplicação web de uma página única que pode enviar consultas de pesquisa para a API bing news, e exibir os resultados dentro da página web.
+description: Utilize este tutorial para construir uma aplicação web de uma página que possa enviar consultas de pesquisa para a API Bing News e exibir os resultados dentro da página web.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 03/05/2020
+ms.date: 06/23/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 801bfcf02174c5dd98d4c7231c674299ef411aff
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9721a00ef1f0df056b3300ababfee0d0d29bbddc
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78943123"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801279"
 ---
-# <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: Criar uma aplicação web de uma página única
+# <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: Criar uma aplicação web de uma página
 
-A API de Pesquisa de Notícias do Bing permite-lhe pesquisar na Web e obter resultados dos tipos de notícias relevantes para uma consulta de pesquisa. Neste tutorial, vamos compilar uma aplicação Web de página única que utiliza a API de Pesquisa de Notícias do Bing para apresentar resultados da pesquisa na página. A aplicação inclui componentes HTML, CSS e JavaScript. O código fonte desta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingNewsSearchApp.html).
+A API de Pesquisa de Notícias do Bing permite-lhe pesquisar na Web e obter resultados dos tipos de notícias relevantes para uma consulta de pesquisa. Neste tutorial, vamos compilar uma aplicação Web de página única que utiliza a API de Pesquisa de Notícias do Bing para apresentar resultados da pesquisa na página. A aplicação inclui componentes HTML, CSS e JavaScript. O código-fonte desta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingNewsSearchApp.html).
 
 <!-- Remove until we can replace it with sanitized copy
 ![Single-page Bing News Search app](media/news-search-singlepage.png)
@@ -43,8 +43,10 @@ A página do tutorial é completamente independente. Não utiliza arquiteturas, 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para acompanhar o tutorial, precisa de chaves de subscrição para a API de Pesquisa bing. Se não as tiver, pode usar uma chave de [ensaio](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) e uma [chave básica do Bing Maps.](https://www.microsoft.com/maps/create-a-bing-maps-key)
+Para acompanhar o tutorial, precisa de chaves de subscrição para a API de Pesquisa de Bing. Se não tiver isto, terá de criá-los:
 
+* Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Crie um recurso Bing Search crie um "  target="_blank"> recurso Bing Search no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
 
 ## <a name="app-components"></a>Componentes da aplicação
 Tal como qualquer aplicação Web de página única, esta aplicação de tutorial tem três partes:
@@ -67,7 +69,7 @@ O HTML também inclui as divisões (tags `<div>` de HTML) nas quais os resultado
 
 Para evitar ter de incluir a chave de subscrição da API de Pesquisa do Bing no código, armazenamo-la no armazenamento persistente do browser. Antes de a chave ser armazenada, pedimos a chave do utilizador. Se a API rejeitar a chave mais tarde, invalidamos a chave armazenada e voltamos a pedi-la ao utilizador.
 
-Definimos as funções `storeValue` e `retrieveValue` que utilizam o objeto `localStorage` (não suportada em todos os browsers) ou um cookie. A função `getSubscriptionKey()` utiliza essas funções para armazenar e obter a chave do utilizador. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+Definimos as funções `storeValue` e `retrieveValue` que utilizam o objeto `localStorage` (não suportada em todos os browsers) ou um cookie. A função `getSubscriptionKey()` utiliza essas funções para armazenar e obter a chave do utilizador. Pode utilizar o ponto final global abaixo ou o ponto final [personalizado subdomínio](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
 ``` javascript
 // Cookie names for data we store
@@ -107,7 +109,7 @@ A imagem abaixo mostra a caixa de texto da consulta e as opções que definem a 
 
 O formulário HTML inclui elementos com os nomes abaixo:
 
-|Elemento|Descrição|
+|Elemento|Description|
 |-|-|
 | `where` | Um menu pendente para selecionar o mercado (localização e idioma) utilizado para a pesquisa. |
 | `query` | O campo de texto no qual introduzir os termos da pesquisa. |
@@ -321,7 +323,7 @@ function renderResults(items) {
 ```
 A API de Pesquisa de Notícias do Bing devolve até quatro tipos diferentes de resultados relacionados, cada um no seu próprio objeto de nível superior. São:
 
-|Relação|Descrição|
+|Relação|Description|
 |-|-|
 |`pivotSuggestions`|Consultas que substituem uma palavra “pivô” na pesquisa original por outra diferente. Por exemplo, se procurar "flores vermelhas", uma palavra pivô poderá ser "vermelhas" e uma sugestão pivô "flores amarelas".|
 |`queryExpansions`|Consultas que reduzem a consulta original mediante a adição de mais termos. Por exemplo, se procurar "Microsoft Surface", uma expansão da consulta poderá ser "Microsoft Surface Pro".|
@@ -352,7 +354,7 @@ Uma função de compositor pode aceitar os seguintes parâmetros:
 
 Os parâmetros `index` e `count` podem ser utilizados para numerar os resultados, para gerar código HTML especial para o início ou o fim de uma coleção, para inserir quebras de linha após um determinado número de itens, etc. Se um compositor não precisar desta funcionalidade, não tem de aceitar estes dois parâmetros.
 
-O compositor `news` é mostrado no seguinte fragmento de JavaScript:
+O `news` renderizador é mostrado no seguinte excerto javaScript:
 ```javascript
     // render news story
     news: function (item) {
@@ -403,19 +405,22 @@ As políticas de segurança do browser (CORS) podem impedir que o cabeçalho `X-
 > [!NOTE]
 > Numa aplicação Web de produção, deve fazer o pedido no lado do servidor. Caso contrário, a chave da API de Pesquisa do Bing tem de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas com a sua chave de subscrição da API, mesmo os pedidos feitos por partes não autorizadas, pelo que é importante que não revele a sua chave.
 
-Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de tal `Access-Control-Expose-Headers` procuração tem um cabeçalho que permite cabeçalhos de resposta e os coloca à disposição do JavaScript.
+Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de tal proxy tem um `Access-Control-Expose-Headers` cabeçalho que permite cabeçalhos de resposta e os coloca disponíveis para JavaScript.
 
 É fácil instalar um proxy do CORS para permitir que a nossa aplicação de tutorial aceda ao cabeçalho do ID de cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, emita o comando seguinte numa janela de comando:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Depois, altere o ponto final da Pesquisa na Web do Bing no ficheiro HTML para:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Em seguida, altere o ponto de terminação Bing Web Search no ficheiro HTML para:\
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Por fim, inicie o proxy do CORS com o comando seguinte:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 

@@ -1,6 +1,6 @@
 ---
 title: Explorar dados no Team Data Science Process
-description: Explore dados em diferentes ambientes de armazenamento que são normalmente utilizados no Processo de Ciência de Dados da Equipa.
+description: Explore dados em diferentes ambientes de armazenamento que são normalmente utilizados no Processo de Ciência de Dados de Equipa.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,20 +12,19 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ca993fd6a449b2655b13da337875fa3f9f27cade
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721273"
 ---
 # <a name="explore-data-in-the-team-data-science-process"></a>Explorar dados no Team Data Science Process
 
-Explorar dados é um passo no Processo de Ciência de Dados da [Equipa.](overview.md)
+Explorar dados é um passo no [Processo de Ciência de Dados](overview.md)da Equipa.
 
-Os seguintes artigos descrevem como explorar dados em três ambientes de armazenamento diferentes que são normalmente usados no Processo de Ciência de Dados:
+Os seguintes artigos descrevem como explorar dados em três ambientes de armazenamento diferentes que são normalmente utilizados no Processo de Ciência de Dados:
 
-* Explore os dados do [contentor de blob Azure](explore-data-blob.md) utilizando o pacote [Pandas](https://pandas.pydata.org/) Python.
-* Explore os dados do [SQL Server](explore-data-sql-server.md) utilizando o SQL e utilizando uma linguagem de programação como a Python.
-* Explore os dados da [tabela hive](explore-data-hive-tables.md) usando consultas da Hive.
+* Explore os dados do [recipiente da bolha Azure](explore-data-blob.md) utilizando o pacote [Pandas](https://pandas.pydata.org/) Python.
+* Explore os dados [do SQL Server](explore-data-sql-server.md) utilizando o SQL e utilizando uma linguagem de programação como python.
+* Explore os dados [da tabela hive](explore-data-hive-tables.md) usando consultas de Hive.
 
-Além disso, o vídeo, [Preprocessing Data in Azure Machine Learning Studio,](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/)descreve os módulos comumente usados para limpar e transformar dados.
+Além disso, o vídeo, [Preprocessing Data in Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/), descreve os módulos comumente usados para limpar e transformar dados.

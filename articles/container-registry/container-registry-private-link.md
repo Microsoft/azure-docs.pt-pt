@@ -1,32 +1,31 @@
 ---
 title: Configurar link privado
-description: Criar um ponto final privado num registo de contentores e permitir o acesso a um link privado numa rede virtual local
+description: Crie um ponto final privado num registo de contentores e permita o acesso a uma ligação privada numa rede virtual local. O acesso a ligações privadas é uma característica do nível de serviço Premium.
 ms.topic: article
 ms.date: 05/19/2020
-ms.openlocfilehash: da51a35b66b793294f146c5a0a30b6a91d8aa01b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.openlocfilehash: f25f7b94a3008b829340cdaaed247d7ab1203c19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83850050"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84509343"
 ---
-# <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Configure Link Privado Azure para um registo de contentores Azure 
+# <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Configure Azure Private Link para um registo de contentores Azure 
 
-Limite o acesso a um registo atribuindo endereços IP privados da rede virtual aos pontos finais do registo utilizando o [Azure Private Link](../private-link/private-link-overview.md). O tráfego de rede entre os clientes da rede virtual e o registo atravessa a rede virtual e uma ligação privada na rede de espinha dorsal da Microsoft, eliminando a exposição da internet pública.
+Limitar o acesso a um registo atribuindo endereços IP privados de rede virtual aos pontos finais de registo utilizando [o Azure Private Link](../private-link/private-link-overview.md). O tráfego de rede entre os clientes da rede virtual e o registo atravessa a rede virtual e uma ligação privada na rede de espinha dorsal da Microsoft, eliminando a exposição da internet pública.
 
-Pode [configurar as definições de DNS](../private-link/private-endpoint-overview.md#dns-configuration) para o seu ponto final privado, de modo a que as definições se resolvam no endereço IP privado atribuído ao registo. Com a configuração dNS, os clientes e serviços na rede podem continuar a aceder ao registo com o nome de domínio totalmente qualificado do registo, como *myregistry.azurecr.io*.
+Pode [configurar as definições de DNS](../private-link/private-endpoint-overview.md#dns-configuration) para o seu ponto final privado, de modo a que as definições resolvam o endereço IP privado atribuído pelo registo. Com a configuração do DNS, os clientes e serviços na rede podem continuar a aceder ao registo no nome de domínio totalmente qualificado do registo, como *myregistry.azurecr.io*.
 
-Esta funcionalidade está disponível no nível de serviço de registo de contentores **Premium.** Para obter informações sobre os níveis e limites de serviço de registo, consulte os níveis de registo de [contentores de Azure](container-registry-skus.md).
+Esta funcionalidade está disponível no nível de serviço de registo de contentores **Premium.** Para obter informações sobre os níveis e limites do serviço de registo, consulte [os níveis de registo do contentor Azure](container-registry-skus.md).
 
 ## <a name="things-to-know"></a>Aspetos importantes
 
-* Atualmente, a digitalização de imagens utilizando o Azure Security Center não está disponível num registo configurado com um ponto final privado.
+* Atualmente, a digitalização de imagens usando o Azure Security Center não está disponível num registo configurado com um ponto final privado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Para utilizar os passos Do CLI Azure neste artigo, recomenda-se a versão 2.6.0 do Azure CLI. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli]. Ou correr em [Azure Cloud Shell.](../cloud-shell/quickstart.md)
-* Se ainda não tiver um registo de contentores, crie um (nível Premium necessário) e [importe](container-registry-import-images.md) uma imagem de amostra como `hello-world` o Docker Hub. Por exemplo, utilize o [portal Azure][quickstart-portal] ou o [Azure CLI][quickstart-cli] para criar um registo.
-* Para configurar o acesso ao registo utilizando um link privado numa subscrição azure diferente, é necessário registar o fornecedor de recursos para o Registo de Contentores Azure nessa subscrição. Por exemplo:
+* Para utilizar os passos Azure CLI neste artigo, recomenda-se a versão 2.6.0 do Azure CLI. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli]. Ou correr em [Azure Cloud Shell](../cloud-shell/quickstart.md).
+* Se ainda não tiver um registo de contentores, crie um (nível Premium necessário) e [importe](container-registry-import-images.md) uma imagem de amostra, como `hello-world` do Docker Hub. Por exemplo, utilize o [portal Azure][quickstart-portal] ou o [CLI Azure][quickstart-cli] para criar um registo.
+* Para configurar o acesso ao registo utilizando um link privado numa subscrição Azure diferente, é necessário registar o fornecedor de recursos do Registo de Contentores Azure nessa subscrição. Por exemplo:
 
   ```azurecli
   az account set --subscription <Name or ID of subscription of private link>
@@ -34,7 +33,7 @@ Esta funcionalidade está disponível no nível de serviço de registo de conten
   az provider register --namespace Microsoft.ContainerRegistry
   ``` 
 
-Os exemplos do Azure CLI neste artigo utilizam as seguintes variáveis ambientais. Substitua os valores adequados ao seu ambiente. Todos os exemplos são formatados para a concha bash:
+Os exemplos do Azure CLI neste artigo utilizam as seguintes variáveis ambientais. Valores de substituição adequados ao seu ambiente. Todos os exemplos são formatados para a concha bash:
 
 ```bash
 REGISTRY_NAME=<container-registry-name>
@@ -47,11 +46,11 @@ VM_NAME=<virtual-machine-name>
 
 ## <a name="set-up-private-link---cli"></a>Configurar link privado - CLI
 
-### <a name="get-network-and-subnet-names"></a>Obtenha nomes de rede e sub-rede
+### <a name="get-network-and-subnet-names"></a>Obtenha nomes de rede e sub-redes
 
-Se ainda não os tiver, precisará dos nomes de uma rede virtual e de uma sub-rede para configurar um link privado. Neste exemplo, utiliza a mesma sub-rede para o VM e o ponto final privado do registo. No entanto, em muitos cenários, você configuraria o ponto final numa sub-rede separada. 
+Se ainda não os tem, vai precisar dos nomes de uma rede virtual e de uma sub-rede para configurar um link privado. Neste exemplo, utiliza-se a mesma sub-rede para o VM e o ponto final privado do registo. No entanto, em muitos cenários, configuraria o ponto final numa sub-rede separada. 
 
-Quando cria um VM, o Azure por padrão cria uma rede virtual no mesmo grupo de recursos. O nome da rede virtual baseia-se no nome da máquina virtual. Por exemplo, se nomear a sua máquina virtual *myDockerVM,* o nome de rede virtual padrão é *myDockerVMVNET,* com uma sub-rede chamada *myDockerVMSubnet*. Desestabeleça estes valores em variáveis ambientais executando o comando da [lista vnet da rede Az:][az-network-vnet-list]
+Quando cria um VM, o Azure por padrão cria uma rede virtual no mesmo grupo de recursos. O nome da rede virtual baseia-se no nome da máquina virtual. Por exemplo, se nomear a sua máquina virtual *myDockerVM,* o nome de rede virtual padrão é *myDockerVMVNET,* com uma sub-rede chamada *myDockerVMSubnet*. Desaprova estes valores em variáveis ambientais executando o comando da [lista de vnets da rede az:][az-network-vnet-list]
 
 ```azurecli
 NETWORK_NAME=$(az network vnet list \
@@ -68,7 +67,7 @@ echo SUBNET_NAME=$SUBNET_NAME
 
 ### <a name="disable-network-policies-in-subnet"></a>Desativar as políticas de rede na sub-rede
 
-[Desativar as políticas](../private-link/disable-private-endpoint-network-policy.md) de rede, tais como grupos de segurança de rede na subnet para o ponto final privado. Atualize a configuração da sua subnet com [a az rede vnet atualização de sub-rede:][az-network-vnet-subnet-update]
+[Desativar políticas de rede,](../private-link/disable-private-endpoint-network-policy.md) tais como grupos de segurança de rede na sub-rede para o ponto final privado. Atualize a configuração da sub-rede com [a atualização da sub-rede de rede Az:][az-network-vnet-subnet-update]
 
 ```azurecli
 az network vnet subnet update \
@@ -78,11 +77,11 @@ az network vnet subnet update \
  --disable-private-endpoint-network-policies
 ```
 
-### <a name="configure-the-private-dns-zone"></a>Configure a zona privada de DNS
+### <a name="configure-the-private-dns-zone"></a>Configure a zona privada do DNS
 
-Crie uma zona privada de DNS para o domínio privado de registo de contentores Azure. Em etapas posteriores, cria registos DNS para o seu domínio de registo nesta zona DNS.
+Crie uma zona privada de DNS para o domínio privado do registo de contentores Azure. Em etapas posteriores, cria registos DNS para o seu domínio de registo nesta zona DE DNS.
 
-Para utilizar uma zona privada para anular a resolução padrão de DNS para o seu registo de contentores Azure, a zona deve ser nomeada **privatelink.azurecr.io**. Executar a seguinte zona de dns da [rede AZ criar][az-network-private-dns-zone-create] comando para criar a zona privada:
+Para utilizar uma zona privada para anular a resolução de DNS predefinida para o seu registo de contentores Azure, a zona deve ser nomeada **privatelink.azurecr.io**. Executar a seguinte [zona privada-dns da rede az criar][az-network-private-dns-zone-create] comando para criar a zona privada:
 
 ```azurecli
 az network private-dns zone create \
@@ -92,7 +91,7 @@ az network private-dns zone create \
 
 ### <a name="create-an-association-link"></a>Criar uma ligação de associação
 
-Executar a [rede az private-dns link vnet criar][az-network-private-dns-link-vnet-create] para associar a sua zona privada com a rede virtual. Este exemplo cria uma ligação chamada *myDNSLink*.
+Executar [a rede az rede private-dns link vnet criar][az-network-private-dns-link-vnet-create] para associar a sua zona privada com a rede virtual. Este exemplo cria um link chamado *myDNSLink*.
 
 ```azurecli
 az network private-dns link vnet create \
@@ -112,9 +111,9 @@ REGISTRY_ID=$(az acr show --name $REGISTRY_NAME \
   --query 'id' --output tsv)
 ```
 
-Executar a [rede az private-endpoint criar][az-network-private-endpoint-create] comando para criar o ponto final privado do registo.
+Executar o [ponto de terminação privado da rede az criar][az-network-private-endpoint-create] comando para criar o ponto final privado do registo.
 
-O exemplo seguinte cria o ponto final *myPrivateEndpoint* e a ligação de serviço *myConnection*. Para especificar um recurso de registo de contentores para o ponto final, `--group-ids registry` passe:
+O exemplo a seguir cria o ponto final *myPrivateEndpoint* e a ligação de serviço *myConnection*. Para especificar um recurso de registo de contentores para o ponto final, `--group-ids registry` passe:
 
 ```azurecli
 az network private-endpoint create \
@@ -129,7 +128,7 @@ az network private-endpoint create \
 
 ### <a name="get-private-ip-addresses"></a>Obtenha endereços IP privados
 
-Executar a [rede az private point show][az-network-private-endpoint-show] para consultar o ponto final para o ID da interface de rede:
+Executar [o show de pontos finais privados da rede Az][az-network-private-endpoint-show] para consultar o ponto final para o ID da interface de rede:
 
 ```azurecli
 NETWORK_INTERFACE_ID=$(az network private-endpoint show \
@@ -139,7 +138,7 @@ NETWORK_INTERFACE_ID=$(az network private-endpoint show \
   --output tsv)
 ```
 
-Associados à interface de rede neste exemplo estão dois endereços IP privados para o registo de contentores: um para o próprio registo e outro para o ponto final de dados do registo. Os seguintes comandos de exposição de [recursos az][az-resource-show] obtêm os endereços IP privados para o registo de contentores e o ponto final dos dados do registo:
+Associados à interface de rede neste exemplo estão dois endereços IP privados para o registo do contentor: um para o registo em si e outro para o ponto final de dados do registo. Os seguintes comandos [de demonstração de recursos az][az-resource-show] obtêm os endereços IP privados para o registo do contentor e o ponto final de dados do registo:
 
 ```azurecli
 PRIVATE_IP=$(az resource show \
@@ -156,16 +155,16 @@ DATA_ENDPOINT_PRIVATE_IP=$(az resource show \
 ```
 
 > [!NOTE]
-> Se o seu registo for [geo-replicado,](container-registry-geo-replication.md)consulta-se pelo ponto final adicional dos dados para cada réplica do registo.
+> Se o seu registo for [geo-replicado,](container-registry-geo-replication.md)consultar o ponto final de dados adicional para cada réplica de registo.
 
 ### <a name="create-dns-records-in-the-private-zone"></a>Criar registos DNS na zona privada
 
-Os seguintes comandos criam registos DNS na zona privada para o ponto final do registo e o seu ponto final de dados. Por exemplo, se tiver um registo chamado *myregistry* na região da *Europa Ocidental,* os nomes finais são `myregistry.azurecr.io` e `myregistry.westeurope.data.azurecr.io` . 
+Os seguintes comandos criam registos DNS na zona privada para o ponto final do registo e o seu ponto final de dados. Por exemplo, se tiver um registo chamado *miogressiário* na região de *Westeurope,* os nomes finais são `myregistry.azurecr.io` e `myregistry.westeurope.data.azurecr.io` . 
 
 > [!NOTE]
-> Se o seu registo for [geo-replicado,](container-registry-geo-replication.md)crie registos de DNS additonais para o IP final de cada réplica.
+> Se o seu registo for [geo-replicado,](container-registry-geo-replication.md)crie registos dns additonals para o ponto final de dados de cada réplica IP.
 
-Primeiro executar a [rede az private-dns estabeleceu uma criação][az-network-private-dns-record-set-a-create] para criar conjuntos de recordes vazios A para o ponto final do registo e ponto final de dados:
+Primeira execução [a az rede private-dns record-set uma criação][az-network-private-dns-record-set-a-create] para criar conjuntos de recordes vazios A para o ponto final de registo e ponto final de dados:
 
 ```azurecli
 az network private-dns record-set a create \
@@ -180,7 +179,7 @@ az network private-dns record-set a create \
   --resource-group $RESOURCE_GROUP
 ```
 
-Executar a [rede az private dns registr-set um][az-network-private-dns-record-set-a-add-record] comando de registo adicionais para criar os registos A para o ponto final do registo e ponto final de dados:
+Executar o [registo de registos da rede az private-dns][az-network-private-dns-record-set-a-add-record] para criar os registos A para o ponto final do registo e ponto final de dados:
 
 ```azurecli
 az network private-dns record-set a add-record \
@@ -201,13 +200,13 @@ O link privado está agora configurado e pronto a ser utilizado.
 
 ## <a name="set-up-private-link---portal"></a>Configurar link privado - portal
 
-Crie um link privado quando criar um registo, ou adicione um link privado a um registo existente. Os seguintes passos assumem que já tem uma rede virtual e uma subnet configurada com um VM para testes. Também pode [criar uma nova rede virtual e sub-rede.](../virtual-network/quick-create-portal.md)
+Crie um link privado quando criar um registo ou adicionar um link privado a um registo existente. Os seguintes passos pressupõem que já tem uma rede virtual e sub-rede configurada com um VM para testes. Também pode [criar uma nova rede virtual e uma sub-rede.](../virtual-network/quick-create-portal.md)
 
 ### <a name="create-a-private-endpoint---new-registry"></a>Criar um ponto final privado - novo registo
 
-1. Ao criar um registo no portal, no separador **Basics,** em **SKU,** selecione **Premium**.
-1. Selecione o separador **Networking.**
-1. Na **conectividade da rede,** selecione **ponto final privado**  >  **+ adicionar**.
+1. Ao criar um registo no portal, no **separador Básico,** no **SKU,** selecione **Premium**.
+1. Selecione o **separador 'Rede'.**
+1. Na **conectividade da rede**, selecione Private **endpoint**  >  **+ Add**.
 1. Insira ou selecione as seguintes informações:
 
     | Definição | Valor |
@@ -215,24 +214,24 @@ Crie um link privado quando criar um registo, ou adicione um link privado a um r
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Insira o nome de um grupo existente ou crie um novo.|
     | Name | Introduza um nome exclusivo. |
-    | Subrecurso |Selecione **registo**|
+    | Subresource |Selecione **registo**|
     | **Redes** | |
-    | Rede virtual| Selecione a rede virtual onde a sua máquina virtual está implantada, como o *myDockerVMVNET*. |
-    | Subrede | Selecione uma sub-rede, como o *myDockerVMSubnet* onde a sua máquina virtual está implantada. |
-    |**Integração Privada de DNS**||
-    |Integrar com zona privada de DNS |Selecione **Sim**. |
-    |Zona Privada de DNS |Selecione *(Novo) privatelink.azurecr.io* |
+    | Rede virtual| Selecione a rede virtual onde a sua máquina virtual está implantada, como *o myDockerVMVNET*. |
+    | Subrede | Selecione uma sub-rede, como *a myDockerVMSubnet* onde a sua máquina virtual está implantada. |
+    |**Integração privada de DNS**||
+    |Integrar-se com a zona privada de DNS |Selecione **Sim**. |
+    |Zona privada de DNS |Selecione *(Nova) privatelink.azurecr.io* |
     |||
-1. Configure as definições restantes do registo e, em seguida, selecione **Rever + Criar**.
+1. Configure as definições restantes do registo e, em seguida, selecione **Review + Create**.
 
   ![Criar registo com ponto final privado](./media/container-registry-private-link/private-link-create-portal.png)
 
 ### <a name="create-a-private-endpoint---existing-registry"></a>Criar um ponto final privado - registo existente
 
-1. No portal, navegue para o seu registo de contentores.
-1. Em **Definições,** selecione **Networking**.
-1. No separador **pontos finais privados,** **selecione + ponto final privado**.
-1. No separador **Basics,** introduza ou selecione as seguintes informações:
+1. No portal, navegue para o registo do seu contentor.
+1. Em **Definições**, selecione **Networking**.
+1. No **separador pontos finais privados,** selecione **+ ponto final privado**.
+1. No separador **Básicos, insira** ou selecione as seguintes informações:
 
     | Definição | Valor |
     | ------- | ----- |
@@ -250,9 +249,9 @@ Crie um link privado quando criar um registo, ou adicione um link privado a um r
     | ------- | ----- |
     |Método de ligação  | Selecione **Ligar a um recurso Azure no meu diretório**.|
     | Subscrição| Selecione a sua subscrição. |
-    | Tipo de recurso | Selecione **Microsoft.ContainerRegistry/registos**. |
+    | Tipo de recurso | Selecione **Microsoft.ContainerRegistry/registries**. |
     | Recurso |Selecione o nome do seu registo|
-    |Subrecurso-alvo |Selecione **registo**|
+    |Subresource-alvo |Selecione **registo**|
     |||
 7. Selecione **Seguinte: Configuração**.
 8. Insira ou selecione as informações:
@@ -260,23 +259,23 @@ Crie um link privado quando criar um registo, ou adicione um link privado a um r
     | Definição | Valor |
     | ------- | ----- |
     |**Redes**| |
-    | Rede virtual| Selecione a rede virtual onde a sua máquina virtual está implantada, como o *myDockerVMVNET*. |
-    | Subrede | Selecione uma sub-rede, como o *myDockerVMSubnet* onde a sua máquina virtual está implantada. |
-    |**Integração Privada de DNS**||
-    |Integrar com zona privada de DNS |Selecione **Sim**. |
-    |Zona Privada de DNS |Selecione *(Novo) privatelink.azurecr.io* |
+    | Rede virtual| Selecione a rede virtual onde a sua máquina virtual está implantada, como *o myDockerVMVNET*. |
+    | Subrede | Selecione uma sub-rede, como *a myDockerVMSubnet* onde a sua máquina virtual está implantada. |
+    |**Integração privada de DNS**||
+    |Integrar-se com a zona privada de DNS |Selecione **Sim**. |
+    |Zona privada de DNS |Selecione *(Nova) privatelink.azurecr.io* |
     |||
 
-1. Selecione **Rever + criar**. É levado para o **Review + criar** página onde o Azure valida a sua configuração. 
-2. Quando vir a **mensagem de validação passada,** selecione **Criar**.
+1. Selecione **Rever + criar**. É levado para a página **'Rever +' onde** o Azure valida a sua configuração. 
+2. Quando vir a mensagem **de validação passada,** selecione **Criar**.
 
 Após a criação do ponto final privado, as definições de DNS na zona privada aparecem na página **de pontos finais privados** no portal:
 
 1. No portal, navegue para o registo do seu contentor e selecione **Definições > Networking**.
-1. No separador **pontos finais privados,** selecione o ponto final privado que criou.
-1. Na página **'Visão Geral',** reveja as definições de link e as definições personalizadas de DNS.
+1. No **separador pontos finais privados,** selecione o ponto final privado que criou.
+1. Na página **'Vista Geral',** reveja as definições de link e as definições personalizadas de DNS.
 
-  ![Definições dNS de ponto final](./media/container-registry-private-link/private-endpoint-overview.png)
+  ![Definições de DNS de ponto final](./media/container-registry-private-link/private-endpoint-overview.png)
 
 O seu link privado está agora configurado e pronto a ser utilizado.
 
@@ -286,10 +285,10 @@ Para muitos cenários, desativar o acesso ao registo das redes públicas. Esta c
 
 ### <a name="disable-public-access---cli"></a>Desativar o acesso público - CLI
 
-Para desativar o acesso público utilizando o Azure CLI, execute a [atualização az acr][az-acr-update] e desative `--public-network-enabled` para `false` . 
+Para desativar o acesso público utilizando o Azure CLI, execute [a atualização az acr][az-acr-update] e desative `--public-network-enabled` para `false` . 
 
 > [!NOTE]
-> O `public-network-enabled` argumento requer O Azure CLI 2.6.0 ou mais tarde. 
+> O `public-network-enabled` argumento requer Azure CLI 2.6.0 ou mais tarde. 
 
 ```azurecli
 az acr update --name $REGISTRY_NAME --public-network-enabled false
@@ -299,13 +298,13 @@ az acr update --name $REGISTRY_NAME --public-network-enabled false
 ### <a name="disable-public-access---portal"></a>Desativar o acesso público - portal
 
 1. No portal, navegue para o registo do seu contentor e selecione **Definições > Networking**.
-1. No separador de **acesso público,** em **Permitir o acesso à rede pública,** selecione **Disabled**. Em seguida, selecione **Guardar**.
+1. No separador **de acesso público,** em **Permitir o acesso à rede pública,** selecione **Disabled**. Em seguida, selecione **Guardar**.
 
 ## <a name="validate-private-link-connection"></a>Validar a ligação de ligação privada
 
-Deve validar que os recursos dentro da subnet do ponto final privado se ligam ao seu registo sobre um endereço IP privado, e ter a integração correta da zona DNS privada.
+Deve validar que os recursos dentro da sub-rede do ponto final privado se conectam ao seu registo sobre um endereço IP privado, e tem a integração de zona de DNS privada correta.
 
-Para validar a ligação de ligação privada, SSH à máquina virtual que configura na rede virtual.
+Para validar a ligação de ligação privada, o SSH à máquina virtual que instalou na rede virtual.
 
 Executar o `nslookup` comando para resolver o endereço IP do seu registo sobre o link privado:
 
@@ -322,7 +321,7 @@ Name:   myregistry.privatelink.azurecr.io
 Address: 10.0.0.6
 ```
 
-Compare este resultado com o endereço IP público na `nslookup` produção para o mesmo registo sobre um ponto final público:
+Compare este resultado com o endereço IP público na `nslookup` produção para o mesmo registo em um ponto final público:
 
 ```console
 [...]
@@ -333,13 +332,13 @@ Address: 40.78.103.41
 
 ### <a name="registry-operations-over-private-link"></a>Operações de registo sobre ligação privada
 
-Verifique também se pode efetuar operações de registo a partir da máquina virtual na sub-rede. Faça uma ligação SSH à sua máquina virtual e faça [login az acr][az-acr-login] para iniciar sessão no seu registo. Dependendo da configuração do VM, poderá ter de pré-fixar os seguintes comandos com `sudo` .
+Verifique também se pode efetuar operações de registo a partir da máquina virtual na sub-rede. Faça uma ligação SSH à sua máquina virtual e faça [login az acr][az-acr-login] para iniciar sessão no seu registo. Dependendo da configuração VM, poderá ter de pré-afixar os seguintes comandos com `sudo` .
 
 ```bash
 az acr login --name $REGISTRY_NAME
 ```
 
-Efetuar operações de registo, de modo `docker pull` a retirar uma amostra de imagem do registo. Substitua `hello-world:v1` por uma imagem e etiqueta apropriadas para o seu registo, pré-fixada com o nome do servidor de login de registo (todas as minúsculas):
+Efetuar operações de registo, de modo `docker pull` a retirar uma imagem de amostra do registo. Substitua `hello-world:v1` por uma imagem e etiqueta apropriada para o seu registo, pré-fixado com o nome do servidor de login de registo (todos os minúsculos):
 
 ```bash
 docker pull myregistry.azurecr.io/hello-world:v1
@@ -347,39 +346,39 @@ docker pull myregistry.azurecr.io/hello-world:v1
 
 Docker puxa com sucesso a imagem para o VM.
 
-## <a name="manage-private-endpoint-connections"></a>Gerir ligações de ponto final privado
+## <a name="manage-private-endpoint-connections"></a>Gerir ligações privadas de ponto final
 
-Gerencie as ligações de ponto final privado de um registo utilizando o portal Azure, ou utilizando comandos no grupo de comando de [ligação az acr private-endpoint.][az-acr-private-endpoint-connection] As operações incluem aprovar, excluir, listar, rejeitar ou mostrar detalhes das ligações de ponto final privado de um registo.
+Gerir as ligações de ponto final privado de um registo utilizando o portal Azure, ou utilizando comandos no grupo de comando de [ligação az acr de ligação ao ponto privado.][az-acr-private-endpoint-connection] As operações incluem aprovar, eliminar, listar, rejeitar ou mostrar detalhes das ligações privadas de um registo.
 
-Por exemplo, para listar as ligações de ponto final privado de um registo, executar o comando da lista de ligação de [pontos privados az acr.][az-acr-private-endpoint-connection-list] Por exemplo:
+Por exemplo, para listar as ligações de ponto final privado de um registo, executar o comando [da lista de ligações az acr de extremidade privada.][az-acr-private-endpoint-connection-list] Por exemplo:
 
 ```azurecli
 az acr private-endpoint-connection list \
   --registry-name $REGISTRY_NAME 
 ```
 
-Quando cria uma ligação de ponto final privado utilizando as etapas deste artigo, o registo aceita automaticamente ligações de clientes e serviços que tenham permissões RBAC no registo. Pode configurar o ponto final para exigir a aprovação manual das ligações. Para obter informações sobre como aprovar e rejeitar ligações de ponto final privados, consulte [Gerir uma ligação de ponto final privado](../private-link/manage-private-endpoint.md).
+Quando configura uma ligação de ponto final privado utilizando os passos deste artigo, o registo aceita automaticamente ligações de clientes e serviços que tenham permissões de RBAC no registo. Pode configurar o ponto final para exigir a aprovação manual das ligações. Para obter informações sobre como aprovar e rejeitar ligações privadas de ponto final, consulte [Gerir uma Ligação de Pontos de Terminação Privadas](../private-link/manage-private-endpoint.md).
 
-## <a name="add-zone-records-for-replicas"></a>Adicione registos de zona para réplicas
+## <a name="add-zone-records-for-replicas"></a>Adicionar registos de zona para réplicas
 
-Como mostrado neste artigo, quando se adiciona uma ligação de ponto final privado a um registo, são criados registos de DNS na `privatelink.azurecr.io` zona para o registo e os seus pontos finais de dados nas regiões onde o registo é [replicado](container-registry-geo-replication.md). 
+Como mostrado neste artigo, quando se adiciona uma ligação privada de ponto final a um registo, os registos dns na `privatelink.azurecr.io` zona são criados para o registo e seus pontos finais de dados nas regiões onde o registo é [replicado](container-registry-geo-replication.md). 
 
-Se adicionar mais tarde uma nova réplica, terá de adicionar manualmente um novo registo de zona para o ponto final dos dados naquela região. Por exemplo, se criar uma réplica do *meu registo* na localidade do norte da *Europa,* adicione um recorde de zona para `myregistry.northeurope.data.azurecr.io` . Para passos, consulte [Create DNS registos na zona privada](#create-dns-records-in-the-private-zone) neste artigo.
+Se mais tarde adicionar uma nova réplica, tem de adicionar manualmente um novo registo de zona para o ponto final de dados nessa região. Por exemplo, se criar uma réplica de *miogitrismo* na localização *da northeurope,* adicione um registo de zona para `myregistry.northeurope.data.azurecr.io` . Para etapas, consulte [os registos do DNS na zona privada](#create-dns-records-in-the-private-zone) neste artigo.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se criou todos os recursos Do Azure no mesmo grupo de recursos e já não precisa deles, pode eliminar opcionalmente os recursos utilizando um único [grupo az eliminar](/cli/azure/group) o comando:
+Se criou todos os recursos Azure no mesmo grupo de recursos e já não precisa deles, pode eliminar opcionalmente os recursos utilizando um único comando [de eliminação do grupo AZ:](/cli/azure/group)
 
 ```azurecli
 az group delete --name $RESOURCE_GROUP
 ```
 
-Para limpar os seus recursos no portal, navegue para o seu grupo de recursos. Assim que o grupo de recursos estiver carregado, clique no **grupo de recursos Delete** para remover o grupo de recursos e os recursos armazenados lá.
+Para limpar os seus recursos no portal, navegue para o seu grupo de recursos. Assim que o grupo de recursos estiver carregado, clique no **grupo de recursos Delete** para remover o grupo de recursos e os recursos aí armazenados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para saber mais sobre o Private Link, consulte a documentação [do Link Privado Azure.](../private-link/private-link-overview.md)
-* Se precisar de configurar regras de acesso ao registo por detrás de uma firewall de cliente, consulte [as regras do Configure para aceder a um registo de contentores Azure atrás](container-registry-firewall-access-rules.md)de uma firewall .
+* Para saber mais sobre o Private Link, consulte a documentação do [Azure Private Link.](../private-link/private-link-overview.md)
+* Se precisar de configurar regras de acesso ao registo por detrás de uma firewall do cliente, consulte [as regras de Configuração para aceder a um registo de contentores Azure atrás de uma firewall](container-registry-firewall-access-rules.md).
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

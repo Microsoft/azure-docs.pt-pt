@@ -1,6 +1,6 @@
 ---
-title: Funcionalidades de segurança do Disco de Caixa de Dados do Microsoft Azure Microsoft Docs em dados
-description: Descreve as funcionalidades de segurança implementadas para o Disco de Caixa de Dados Do Azure, uma solução em nuvem que lhe permite transferir grandes quantidades de dados para o Azure
+title: Funcionalidades de segurança do Disco da Caixa de Dados do Microsoft Azure Microsoft Docs em dados
+description: Descreve funcionalidades de segurança implementadas para O Disco de Caixa de Dados Azure, uma solução em nuvem que lhe permite transferir grandes quantidades de dados para o Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,13 +9,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: alkohli
 ms.openlocfilehash: 59cce6d89bc863ad489a8ed37c7f284d3085c775
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79117290"
 ---
-# <a name="azure-data-box-disk-security-and-data-protection"></a>Segurança e proteção de dados do Disco de Caixa de Dados Azure
+# <a name="azure-data-box-disk-security-and-data-protection"></a>Segurança e proteção de dados da caixa de dados Azure
 
 Este artigo descreve as funcionalidades de segurança do Azure Data Box Disk que ajudam a proteger todos os componentes da solução Data Box e os respetivos dados armazenados. 
 
@@ -72,7 +71,7 @@ O Azure Data Box Disk recolhe e apresenta informações pessoais nas seguintes i
 
   - Nome do contacto
   - Número de telefone
-  - Email
+  - E-mail
   - Morada
   - Localidade
   - Código postal
@@ -89,7 +88,7 @@ O Azure Data Box Disk recolhe e apresenta informações pessoais nas seguintes i
 Para obter mais informações, reveja a política de privacidade da Microsoft no [Centro de Fidedignidade](https://www.microsoft.com/trustcenter).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja os [Requisitos do Data Box Disk](data-box-disk-system-requirements.md).
 - Compreenda os [Limites do Data Box Disk](data-box-disk-limits.md).

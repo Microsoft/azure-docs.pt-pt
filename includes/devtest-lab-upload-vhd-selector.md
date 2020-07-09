@@ -4,14 +4,14 @@ ms.service: devtest-lab
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
-ms.openlocfilehash: 2d4164037f9b61b911ce5caf60d4813d94f31dd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3af2b3476870afb508f05a4b9ce0b03153493cb8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67184685"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888273"
 ---
 > [!div class="op_single_selector"]
-> * [AzCopy](../articles/lab-services/devtest-lab-upload-vhd-using-azcopy.md)
-> * [Microsoft Azure Storage Explorer](../articles/lab-services/devtest-lab-upload-vhd-using-storage-explorer.md)
-> * [PowerShell](../articles/lab-services/devtest-lab-upload-vhd-using-powershell.md)
+> * [AzCopy](../articles/devtest-labs/devtest-lab-upload-vhd-using-azcopy.md)
+> * [Microsoft Azure Storage Explorer](../articles/devtest-labs/devtest-lab-upload-vhd-using-storage-explorer.md)
+> * [PowerShell](../articles/devtest-labs/devtest-lab-upload-vhd-using-powershell.md)

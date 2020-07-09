@@ -1,7 +1,7 @@
 ---
 title: Criar uma rede virtual - quickstart - Portal Azure
 titleSuffix: Azure Virtual Network
-description: 'Quickstart: Criar uma rede virtual no portal Azure. Estas redes permitem que os recursos do Azure, como os VMs, se comuniquem de forma segura entre si e com a internet.'
+description: 'Início rápido: Criar uma rede virtual no portal Azure. Estas redes permitem que os recursos do Azure, como os VMs, se comuniquem de forma segura entre si e com a internet.'
 author: KumudD
 tags: azure-resource-manager
 ms.service: virtual-network
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/05/2020
 ms.author: kumud
-ms.openlocfilehash: 1a1593566b8bdb72f322d64c1ee99c7018f49329
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dfeb9c6bc3dbe33881fc51ccb08a776b827dfe9c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240073"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082442"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Início Rápido: criar uma rede virtual com o Portal do Azure
 
-Neste arranque rápido, aprende-se a criar uma rede virtual utilizando o portal Azure. Implementa duas máquinas virtuais (VMs). Em seguida, comunica-se com segurança entre VMs e liga-se a VMs a partir da internet. Uma rede virtual é o bloco de construção fundamental para a sua rede privada em Azure. Permite que os recursos do Azure, como os VMs, se comuniquem de forma segura entre si e com a internet.
+Neste arranque rápido, aprende-se a criar uma rede virtual utilizando o portal Azure. Coloca-se duas máquinas virtuais (VMs). Em seguida, você comunica de forma segura entre VMs e conecta-se a VMs a partir da internet. Uma rede virtual é o bloco de construção fundamental para a sua rede privada em Azure. Permite que os recursos da Azure, como os VMs, se comuniquem de forma segura entre si e com a internet.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,24 +32,24 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-1. A partir do menu do portal Azure, selecione **Criar um recurso**. A partir do Mercado Azure, selecione > **rede virtual** **em rede.**
+1. A partir do menu do portal Azure, **selecione Criar um recurso**. A partir do Mercado Azure, **selecione rede**Virtual de Rede  >  **Virtual network**.
 
-1. Na **Create rede virtual,** introduza ou selecione esta informação:
+1. Na **Criar rede virtual,** insira ou selecione esta informação:
 
     | Definição | Valor |
     | ------- | ----- |
     | Subscrição | Selecione a sua subscrição.|
-    | Grupo de recursos | Selecione **Criar novo,** introduza *o meu Grupo de Recursos*e, em seguida, selecione **OK**. |
-    | Nome | Introduza *a minha Rede Virtual*. |
+    | Grupo de recursos | **Selecione Criar novo,** insira *o myResourceGroup*e, em seguida, selecione **OK**. |
+    | Name | Insira *a minha RedeTual*. |
     | Localização | Selecione **East US**.|
 
-1. Selecione **Seguinte: Endereços IP,** e para o espaço de **endereçoI4,** introduza *10.1.0.0/16*.
+1. Selecione **Seguinte: Endereços IP**, e para **o espaço de endereço IPv4**, insira *10.1.0.0/16*.
 
-1. **Selecione Adicionar sub-rede,** em seguida, introduza *a minha Subrede Virtual* para o nome **subnet** e *10.1.0.0/24* para a gama de **endereços Subnet**.
+1. **Selecione Adicionar a sub-rede**, em seguida, insira *myVirtualSubnet* para **o nome da sub-rede** e *10.1.0.0/24* para **intervalo de endereços sub-rede**.
 
-1. **Selecione Adicionar,** edepois selecione **Rever + criar**. Deixe o resto como padrão e selecione **Criar**.
+1. Selecione **Adicionar**e, em seguida, selecione **Rever + criar**. Deixe o resto como padrão e **selecione Criar**.
 
-1. Na **Create rede virtual,** selecione **Criar**.
+1. In **Create virtual network,** selecione **Create**.
 
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
@@ -57,11 +57,11 @@ Crie duas VMs na rede virtual:
 
 ### <a name="create-the-first-vm"></a>Criar a primeira VM
 
-1. A partir do menu do portal Azure, selecione **Criar um recurso**.
+1. A partir do menu do portal Azure, **selecione Criar um recurso**.
 
-1. A partir do Mercado Azure, selecione **Compute** > **Windows Server 2019 Datacenter**. Selecione **Criar**.
+1. A partir do Azure Marketplace, **selecione Compute**  >  **Windows Server 2019 Datacenter**. Selecione **Criar**.
 
-1. Em **Criar uma máquina virtual - Básicos,** insira ou selecione esta informação:
+1. Na **Criar uma máquina virtual - Básicos, insira**ou selecione esta informação:
 
     | Definição | Valor |
     | ------- | ----- |
@@ -69,92 +69,92 @@ Crie duas VMs na rede virtual:
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **myResourceGroup**. Criou este grupo de recursos na secção anterior. |
     | **Detalhes da instância** |  |
-    | Nome da máquina virtual | Insira *myVm1*. |
+    | Nome da máquina virtual | Insira *o myVm1*. |
     | Região | Selecione **East US**. |
-    | Opções de disponibilidade | Padrão para nenhum despedimento de **infraestrutura necessário**. |
-    | Imagem | Padrão para **Windows Server 2019 Datacenter**. |
-    | Tamanho | Predefinição do **Standard DS1 v2**. |
+    | Opções de disponibilidade | Incumprimento de **não necessidade de redundância de infraestrutura**. |
+    | Imagem | Padrão para **o Centro de Dados 2019 do Windows Server 2019**. |
+    | Tamanho | Predefinição para **Standard DS1 v2**. |
     | **Conta de administrador** |  |
-    | Nome de utilizador | Introduza um nome de utilizador à sua escolha. |
+    | Nome de utilizador | Insira um nome de utilizador à sua escolha. |
     | Palavra-passe | Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Confirmar Palavra-passe | Reintroduza a senha. |
+    | Confirmar Palavra-passe | Reintrodua senha. |
     | **Regras da porta de entrada** |  |
-    | Portos de entrada pública | **Selecione Permitir portas selecionadas**. |
+    | Portos de entrada pública | Selecione **Deixe as portas selecionadas.** |
     | Selecione portas de entrada | Insira *HTTP (80)* e *RDP (3389)*. |
     | **Poupe dinheiro** |  |
-    | Já tem uma licença do Windows? | Padrão para **Nº**. |
+    | Já tem uma licença do Windows? | Predefinição para **Nº**. |
 
 1. Selecione **Seguinte: Discos**.
 
-1. Em **Criar uma máquina virtual - Discos,** mantenha as predefinições e selecione **Seguinte: Networking**.
+1. Em **Criar uma máquina virtual - Discos**, mantenha as predefinições e selecione **Seguinte: Networking**.
 
-1. Em **Criar uma máquina virtual - Networking,** selecione esta informação:
+1. Na **Criação de uma máquina virtual - Networking,** selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
-    | Rede virtual | Padrão para **a minha Rede Virtual**. |
-    | Subrede | Predefinição para **myVirtualSubnet (10.1.0.0/24)**. |
-    | IP público | Padrão para **(novo) myVm-ip**. |
-    | Grupo de segurança da rede NIC | Padrão para **Básico**. |
-    | Portos de entrada pública | Predefinição para **permitir portas selecionadas**. |
-    | Selecione portas de entrada | Padrão para **HTTP** e **RDP**.
+    | Rede virtual | Predefinição da **minha Rede Virtual**. |
+    | Subrede | Predefinição **da myVirtualSubnet (10.1.0.0/24)**. |
+    | IP público | Predefinição para **(novo) myVm-ip**. |
+    | Grupo de segurança de rede NIC | Predefinição ao **Básico**. |
+    | Portos de entrada pública | Predefinição para **Permitir portas selecionadas**. |
+    | Selecione portas de entrada | Predefinição para **HTTP** e **RDP**.
 
 1. Selecione **Seguinte: Gestão**.
 
-1. Em **Criar uma máquina virtual - Gestão,** para conta de armazenamento de **diagnósticos,** selecione **Criar Novo**.
+1. In **Create a virtual machine - Management**, for **Diagnostics storage account**, select Create **New**.
 
-1. Na **conta de armazenamento Criar,** insira ou selecione estas informações:
+1. Na **conta de armazenamento,** insira ou selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
-    | Nome | Insira a *conta myvmstorage.* Se este nome for tomado, crie um nome único.|
-    | Tipo de conta | Padrão de **armazenamento (finalidade geral v1)**. |
-    | Desempenho | Padrão para **Standard**. |
-    | Replicação | Padrão para **armazenamento localmente redundante (LRS)**. |
+    | Nome | Insira *a conta myvmstorage.* Se este nome for tomado, crie um nome único.|
+    | Tipo de conta | Predefinição ao **Armazenamento (finalidade geral v1)**. |
+    | Desempenho | Predefinição da **Norma**. |
+    | Replicação | Predefinição do **armazenamento localmente redundante (LRS)**. |
 
-1. Selecione **OK,** em seguida, selecione **Rever + criar**. É levado para o **Review + criar** página onde o Azure valida a sua configuração.
+1. Selecione **OK,** em seguida, **selecione Review + create**. É levado para a página **'Rever +' onde** o Azure valida a sua configuração.
 
-1. Quando vir a **mensagem de validação passada,** selecione **Criar**.
+1. Quando vir a mensagem **de validação passada,** selecione **Criar**.
 
 ### <a name="create-the-second-vm"></a>Criar a segunda VM
 
 Repita o procedimento na secção anterior para criar outra máquina virtual.
 
 > [!IMPORTANT]
-> Para o nome da **máquina Virtual,** introduza *myVm2*.
+> Para o nome da **máquina Virtual,** insira *o myVm2*.
 >
-> Para a conta de **armazenamento de diagnóstico,** certifique-se de selecionar a **conta myvmstorage,** em vez de criar uma.
+> Para **a conta de armazenamento de diagnóstico,** certifique-se de selecionar a contagem de **myvmstorageac,** em vez de criar uma.
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ligar a uma VM a partir da Internet
 
-Depois de criar o *myVm1,* ligue-se à internet.
+Depois de criar *o myVm1,* ligue-se à internet.
 
 1. No portal Azure, procure e selecione *myVm1*.
 
-1. Selecione **Ligar,** depois **RDP**.
+1. Selecione **Connect**, em **seguida, RDP**.
 
     ![Ligar a uma máquina virtual](./media/quick-create-portal/connect-to-virtual-machine.png)
 
-    A página **Connect** abre.
+    A página **'Ligar'** abre.
 
-1. Selecione **Download RDP File**. O Azure cria um ficheiro Remote Desktop *(.rdp)* e transfere-o para o computador.
+1. Selecione **Download RDP File**. O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
 
 1. Abra o ficheiro RDP. Se lhe for pedido, selecione **Ligar**.
 
-1. Introduza o nome de utilizador e a palavra-passe especificado ao criar o VM.
+1. Introduza o nome de utilizador e a palavra-passe que especificou ao criar o VM.
 
     > [!NOTE]
-    > Pode ser necessário selecionar **Mais escolhas** > **Utilize uma conta diferente,** para especificar as credenciais que inseriu quando criou o VM.
+    > Poderá ter de selecionar **Mais escolhas**  >  **Utilize uma conta diferente**, para especificar as credenciais que introduziu quando criou o VM.
 
 1. Selecione **OK**.
 
-1. Pode receber um aviso de certificado quando iniciar a sua inscrição. Se receber um aviso de certificado, selecione **Sim** ou **Continue**.
+1. Pode receber um aviso de certificado quando iniciar sação. Se receber um aviso de certificado, selecione **Sim** ou **Continue**.
 
-1. Assim que o ambiente de trabalho vM aparecer, minimize-o para voltar ao seu ambiente de trabalho local.
+1. Assim que o ambiente de trabalho em VM aparecer, minimize-o para voltar ao seu ambiente de trabalho local.
 
 ## <a name="communicate-between-vms"></a>Comunicar entre VMs
 
-1. No Ambiente de Trabalho Remoto do *myVm1,* abra powerShell.
+1. No Ambiente de Trabalho Remoto do *myVm1,* abra o PowerShell.
 
 1. Introduza `ping myVm2`.
 
@@ -187,7 +187,7 @@ Depois de criar o *myVm1,* ligue-se à internet.
 
 1. Numa linha de comandos, introduza `ping myvm1`.
 
-    Vais ter de volta algo como esta mensagem:
+    Receberá uma mensagem destas:
 
     ```output
     Pinging myVm1.0v0zze1s0uiedpvtxz5z0r0cxg.bx.internal.cloudapp.net [10.1.0.4] with 32 bytes of data:
@@ -210,16 +210,19 @@ Depois de criar o *myVm1,* ligue-se à internet.
 
 Neste início rápido, criou uma rede virtual predefinida e duas VMs. Ligou-se a um VM da internet e comunicou-se de forma segura entre os dois VMs.
 
-Quando terminar a utilização da rede virtual e dos VMs, elimine o grupo de recursos e todos os recursos que contém:
+Quando terminar de usar a rede virtual e os VMs, elimine o grupo de recursos e todos os recursos que contém:
 
 1. Procure e selecione *myResourceGroup*.
 
 1. Selecione **Eliminar grupo de recursos**.
 
-1. Introduza *o myResourceGroup* para **ESCREVER O NOME DE GRUPO DE RECURSOS** e selecione **Eliminar**.
+1. Introduza *o myResourceGroup* para **type the RESOURCE GROUP NAME** e selecione **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para saber mais sobre as definições de rede virtual, consulte [Criar, alterar ou eliminar uma rede virtual](manage-virtual-network.md).
+Para saber mais sobre as definições de rede virtual, consulte [Criar, alterar ou eliminar uma rede virtual.](manage-virtual-network.md)
 
-Por padrão, o Azure permite uma comunicação segura entre VMs. O Azure só permite ligações remotas de ambiente de trabalho à entrada para VMs do Windows a partir da internet. Para saber mais sobre tipos de comunicações de rede VM, consulte o tráfego da [rede Filter](tutorial-filter-network-traffic.md).
+Por predefinição, o Azure permite uma comunicação segura entre VMs. O Azure só permite ligações remotas de ambiente de trabalho ao Windows VMs a partir da internet. Para saber mais sobre tipos de comunicações de rede VM, consulte [o tráfego da rede Filter](tutorial-filter-network-traffic.md).
+
+> [!NOTE] 
+> Os serviços da Azure custam dinheiro. A Azure Cost Management ajuda-o a definir orçamentos e a configurar alertas para manter os gastos sob controlo. Analise, gerencie e otimize os seus custos Azure com a Gestão de Custos. Para saber mais, consulte o [quickstart na análise dos seus custos.](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

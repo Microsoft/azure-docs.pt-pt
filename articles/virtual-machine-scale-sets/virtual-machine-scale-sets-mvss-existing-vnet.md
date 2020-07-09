@@ -1,5 +1,5 @@
 ---
-title: Referência a uma rede virtual existente em um modelo de conjunto de escala Azure
+title: Referência de uma rede virtual existente em um modelo de conjunto de escala Azure
 description: Saiba como adicionar uma rede virtual a um modelo de conjunto de escala de máquina virtual Azure existente
 author: ju-shim
 ms.author: jushiman
@@ -10,23 +10,22 @@ ms.date: 04/26/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: fab6e6742fa43e1e38ee661b67896ae4aa11b3ed
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83124827"
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Adicione referência a uma rede virtual existente num modelo de conjunto de escala Azure
 
-Este artigo mostra como modificar o [modelo de conjunto](virtual-machine-scale-sets-mvss-start.md) de escala básica para implantar numa rede virtual existente em vez de criar uma nova.
+Este artigo mostra como modificar o [modelo de conjunto de escala básica](virtual-machine-scale-sets-mvss-start.md) para implementar numa rede virtual existente em vez de criar um novo.
 
-## <a name="change-the-template-definition"></a>Alterar a definição do modelo
+## <a name="change-the-template-definition"></a>Alterar a definição de modelo
 
-Num [artigo anterior,](virtual-machine-scale-sets-mvss-start.md) tínhamos criado um modelo básico de conjunto de escala. Vamos agora usar esse modelo anterior e modificá-lo para criar um modelo que implemente uma escala definida numa rede virtual existente. 
+Num [artigo anterior](virtual-machine-scale-sets-mvss-start.md) tínhamos criado um modelo de conjunto de escala básica. Vamos agora usar esse modelo anterior e modificá-lo para criar um modelo que implementa uma escala definida numa rede virtual existente. 
 
-Primeiro, adicione um `subnetId` parâmetro. Esta cadeia é passada para a configuração do conjunto de escala, permitindo que o conjunto de escala identifique a sub-rede pré-criada para implantar máquinas virtuais. Esta corda deve ser da forma:`/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
+Primeiro, adicione um `subnetId` parâmetro. Esta cadeia é transmitida para a configuração do conjunto de escala, permitindo que a escala definida identifique a sub-rede pré-criada para implantar máquinas virtuais. Esta corda deve ser da forma:`/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
 
-Por exemplo, para implantar a escala definida numa rede virtual existente com `myvnet` nome, `mysubnet` subnet, grupo de `myrg` recursos, e `00000000-0000-0000-0000-000000000000` subscrição, o subnetId seria: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet` .
+Por exemplo, para implantar a escala definida numa rede virtual existente com `myvnet` nome, sub-rede, `mysubnet` grupo de recursos e `myrg` `00000000-0000-0000-0000-000000000000` subscrição, o subnetId seria: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet` .
 
 ```diff
      },
@@ -67,7 +66,7 @@ Em seguida, elimine o recurso de rede virtual da `resources` matriz, uma vez que
 -    },
 ```
 
-A rede virtual já existe antes de o modelo ser implementado, pelo que não há necessidade de especificar uma cláusula dependsOn da escala definida para a rede virtual. Eliminar as seguintes linhas:
+A rede virtual já existe antes do modelo ser implementado, pelo que não há necessidade de especificar uma cláusula dependOn da escala definida para a rede virtual. Eliminar as seguintes linhas:
 
 ```diff
      {
@@ -83,7 +82,7 @@ A rede virtual já existe antes de o modelo ser implementado, pelo que não há 
          "capacity": 2
 ```
 
-Por fim, passe no `subnetId` parâmetro definido pelo utilizador (em vez de utilizar para obter o ID de uma `resourceId` vnet na mesma implementação, que é o que o modelo de conjunto de escala viável básico faz).
+Por fim, passe o `subnetId` parâmetro definido pelo utilizador (em vez de utilizar para obter o `resourceId` ID de um vnet na mesma implementação, que é o que o modelo de conjunto de escala viável básico faz).
 
 ```diff
                        "name": "myIpConfig",
@@ -99,6 +98,6 @@ Por fim, passe no `subnetId` parâmetro definido pelo utilizador (em vez de util
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

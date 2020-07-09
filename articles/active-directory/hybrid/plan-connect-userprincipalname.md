@@ -1,6 +1,6 @@
 ---
 title: População UserPrincipalName do Azure AD
-description: O seguinte documento descreve como o atributo userprincipalname é povoado.
+description: O documento que se segue descreve como o atributo UserPrincipalName é preenchido.
 author: billmath
 ms.subservice: hybrid
 ms.author: billmath
@@ -11,171 +11,170 @@ ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c748df10e432e3bebbce0dc8cb39dd2101d52e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81680030"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>População UserPrincipalName do Azure AD
 
-Este artigo descreve como o atributo userprincipalname é povoado em Azure Ative Directory (Azure AD).
-O valor do atributo userPrincipalName é o nome de utilizador da AD Azure para as contas de utilizador.
+Este artigo descreve como o atributo UserPrincipalName é povoado no Azure Ative Directory (Azure AD).
+O valor do atributo UserPrincipalName é o nome de utilizador Azure AD para as contas do utilizador.
 
 ## <a name="upn-terminology"></a>Terminologia UPN
-Neste artigo é utilizada a seguinte terminologia:
+É utilizada neste artigo a seguinte terminologia:
 
 |Termo|Descrição|
 |-----|-----|
-|Domínio inicial|O domínio padrão (onmicrosoft.com) no Azure AD Tenant. Por exemplo, contoso.onmicrosoft.com.|
-|Endereço de encaminhamento de e-mail online da Microsoft (MOERA)|A Azure AD calcula o MOERA a partir do atributo Do AD NickName azure e do domínio inicial da AD Azure como &lt;MailNickName&gt;&#64;&lt;domínio&gt;inicial .|
-|No local correioNickName atributo|Um atributo em Diretório Ativo, do qual representa o pseudónimo de um utilizador numa organização de Intercâmbio.|
-|Atribuição de correio no local|Um atributo em Diretório Ativo, qual representa o endereço de e-mail de um utilizador|
-|Endereço SMTP Principal|O endereço de e-mail primário de um objeto de destinatário de troca. Por exemplo, sMTP:utilizador\@contoso.com.|
-|Id de login alternativo|Um atributo no local que não seja o UserPrincipalName, como o atributo de correio, utilizado para o início de sessão.|
+|Domínio inicial|O domínio predefinido (onmicrosoft.com) no Azure AD Tenant. Por exemplo, contoso.onmicrosoft.com.|
+|Microsoft Online Email Encaminhamento Endereço (MOERA)|A Azure AD calcula o MOERA a partir do atributo Azure AD MailNickName e do domínio inicial da AZure AD como &lt; MailNickName &gt;&#64;domínio inicial &lt; &gt; .|
+|Atributo De Correio no local NickName|Um atributo no Ative Directory, que representa o pseudónimo de um utilizador numa organização de Intercâmbio.|
+|Atributo de correio no local|Um atributo no Ative Directory, o valor do qual representa o endereço de e-mail de um utilizador|
+|Endereço SMTP Principal|O endereço de e-mail primário de um objeto do destinatário da Bolsa. Por exemplo, SMTP:user \@ contoso.com.|
+|ID de login alternativo|Um atributo no local que não seja o UserPrincipalName, como o atributo de correio, utilizado para o s-in.|
 
 ## <a name="what-is-userprincipalname"></a>O que é UserPrincipalName?
-UserPrincipalName é um atributo que é um nome de login ao estilo da Internet para um utilizador baseado no [RFC 822](https://www.ietf.org/rfc/rfc0822.txt)padrão da Internet . 
+UserPrincipalName é um atributo que é um nome de login estilo Internet para um utilizador baseado na norma de Internet [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). 
 
 ### <a name="upn-format"></a>Formato UPN
-A UPN é constituída por um prefixo UPN (nome da conta de utilizador) e um sufixo UPN (um nome de domínio DNS). O prefixo é unido ao sufixo\@usando o símbolo " . Por exemplo,\@"alguém example.com". A UPN deve ser única entre todos os objetos principais de segurança dentro de uma floresta de diretórios. 
+Um UPN é composto por um prefixo UPN (o nome da conta do utilizador) e um sufixo UPN (um nome de domínio DNS). O prefixo é associado ao sufixo usando o símbolo " \@ " Por exemplo, "alguém \@ example.com". Um UPN deve ser único entre todos os objetos principais de segurança dentro de uma floresta de diretórios. 
 
 ## <a name="upn-in-azure-ad"></a>UPN em Azure AD 
-A UPN é utilizada pela Azure AD para permitir que os utilizadores se inscrevam.  A UPN que um utilizador pode utilizar depende se o domínio foi verificado ou não.  Se o domínio tiver sido verificado, então um utilizador com esse sufixo será autorizado a iniciar sessão no Azure AD.  
+A UPN é utilizada pela Azure AD para permitir que os utilizadores se inscrevam.  A UPN que um utilizador pode usar depende se o domínio foi verificado ou não.  Se o domínio tiver sido verificado, então um utilizador com esse sufixo será autorizado a iniciar sing-in no Azure AD.  
 
-O atributo é sincronizado pela Azure AD Connect.  Durante a instalação, pode ver os domínios verificados e os que não o fizeram.
+O atributo é sincronizado pelo Azure AD Connect.  Durante a instalação, pode ver os domínios que foram verificados e os que não foram verificados.
 
    ![Domínios não verificados](./media/plan-connect-userprincipalname/unverifieddomain.png) 
 
-## <a name="alternate-login-id"></a>Id de login alternativo
-Em alguns ambientes, os utilizadores finais só podem estar cientes do seu endereço de e-mail e não da sua UPN.  A utilização de endereços de e-mail pode dever-se a uma política corporativa ou a uma dependência de aplicação de aplicações no local.
+## <a name="alternate-login-id"></a>ID de login alternativo
+Em alguns ambientes, os utilizadores finais só podem estar cientes do seu endereço de e-mail e não da sua UPN.  A utilização de endereço de e-mail pode dever-se a uma política corporativa ou a uma dependência de aplicações de linha de negócio no local.
 
-O ID de login alternativo permite configurar uma experiência de login onde os utilizadores podem iniciar sessão com um atributo diferente do seu UPN, como o correio.
+O ID de login alternativo permite-lhe configurar uma experiência de login onde os utilizadores podem iniciar sessão com um atributo diferente do seu UPN, como o correio.
 
-Para ativar o ID de login alternativo com o Azure AD, não são necessários passos de configuração adicionais quando utilizar o Azure AD Connect. ID alternativo pode ser configurado diretamente a partir do assistente. Consulte a configuração de entrada de AD Azure para os seus utilizadores na secção Sync. Sob o nome principal do **utilizador,** selecione o atributo para id de login alternativo.
+Para ativar o ID de login alternativo com Azure AD, não são necessários passos de configurações adicionais quando utilizar o Azure AD Connect. ID alternativo pode ser configurado diretamente a partir do assistente. Consulte a configuração de insusição AD do Azure para os seus utilizadores na secção Sync. No nome principal do **utilizador,** selecione o atributo para ID de login alternativo.
 
 ![Domínios não verificados](./media/plan-connect-userprincipalname/altloginid.png)  
 
-Para mais informações, consulte [Configure Alternate login ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) e [Azure AD configuração de login](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
+Para obter mais informações, consulte [configurar configuração de ID de login alternativo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) e [configuração de login AD Azure](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
 
-## <a name="non-verified-upn-suffix"></a>Sufixo UPN não verificado
-Se o atributo de nome de utilizador/identificação de login alternativo não for verificado com o Azure AD Tenant, então o valor do atributo do Nome principal do utilizador da AD Azure está definido para MOERA. A Azure AD calcula o MOERA a partir do atributo Azure AD MailNickName e do domínio inicial da AD Azure &lt;como&gt; MailNickName&#64;&lt;domínio&gt;inicial .
+## <a name="non-verified-upn-suffix"></a>Sufixo upn não verificado
+Se o atributo UserPrincipalName do Utilizador no local não for verificado com o Azure AD Tenant, então o valor do atributo AZURE AD UserPrincipalName é definido como MOERA. A Azure AD calcula o MOERA a partir do atributo Azure AD MailNickName e do domínio inicial Azure AD como &lt; MailNickName &gt;&#64;domínio inicial &lt; &gt; .
 
-## <a name="verified-upn-suffix"></a>Sufixo UPN verificado
-Se o atributo de nome principal/identificação de login alternativo for verificado com o Inquilino AD Azure, então o valor do atributo do Nome principal do Utilizador Da AD Azure será o mesmo que o atributo de identificação de userprincipalname/nome alternativo de login no local.
+## <a name="verified-upn-suffix"></a>Sufixo upn verificado
+Se o atributo UserPrincipalName do Utilizador no local for verificado com o Inquilino Azure AD, então o valor do atributo Azure AD UserPrincipalName será o mesmo que o atributo UserPrincipalName no local atribuído/Valor de ID de login alternativo.
 
-## <a name="azure-ad-mailnickname-attribute-value-calculation"></a>Cálculo do valor do atributo da AD Azure ADNickName
-Uma vez que o valor do atributo do Nome de Ad Azure pode ser definido para moera, é importante entender como é calculado o valor do atributo Do AD MailNickName, que é o prefixo MOERA.
+## <a name="azure-ad-mailnickname-attribute-value-calculation"></a>Azure AD MailNickName atribui cálculo de valor
+Uma vez que o valor do atributo Azure AD AD UserPrincipalName pode ser definido como MOERA, é importante entender como é calculado o valor do atributo Azure AD MailNickName, que é o prefixo MOERA.
 
-Quando um objeto de utilizador é sincronizado com um Inquilino AD Azure pela primeira vez, a Azure AD verifica os seguintes itens na ordem dada e define o valor do atributo MailNickName ao primeiro existente:
+Quando um objeto de utilizador é sincronizado com um Inquilino AD Azure pela primeira vez, a Azure AD verifica os seguintes itens na encomenda dada e define o valor de atributo MailNickName ao primeiro existente:
 
-- No local correioNickName atributo
+- Atributo De Correio no local NickName
 - Prefixo do endereço SMTP primário
 - Prefixo do atributo de correio no local
-- Prefixo do utilizador no localPrincipalName atribui/ID de login alternativo
-- Prefixo do endereço smtp secundário
+- Prefixo do utilizador no local Atributo PrencipalName/ID de login alternativo
+- Prefixo do endereço de smtp secundário
 
-Quando as atualizações a um objeto de utilizador são sincronizadas para o Inquilino AD Azure, a Azure AD atualiza o valor de atributo MailNickName apenas no caso de existir uma atualização para o valor de atributo do MailNickName no local.
+Quando as atualizações a um objeto de utilizador são sincronizadas com o Azure AD Tenant, a Azure AD atualiza o valor do atributo MailNickName apenas no caso de existir uma atualização para o valor de atributo do Correio No local.
 
 >[!IMPORTANT]
->A Azure AD recalcula o valor do atributo do UserPrincipalName apenas no caso de uma atualização ao atributo userprincipalname/valor de ID de login alternativo ser sincronizado para o Inquilino AD Azure. 
+>A Azure AD recalcula o valor do atributo UserPrincipalName apenas no caso de uma atualização ao atributo UserPrincipalName no local ser sincronizada com o Azure AD Tenant. 
 >
->Sempre que a AD Azure recalcula o atributo userprincipalname, também recalcula o MOERA. 
+>Sempre que a Azure AD recalcula o atributo UserPrincipalName, também recalcula o MOERA. 
 
 ## <a name="upn-scenarios"></a>Cenários UPN
-Seguem-se exemplos de como a UPN é calculada com base no cenário determinado.
+Seguem-se cenários de exemplo de como a UPN é calculada com base no cenário dado.
 
 ### <a name="scenario-1-non-verified-upn-suffix--initial-synchronization"></a>Cenário 1: Sufixo UPN não verificado – sincronização inicial
 
 ![Cenário1](./media/plan-connect-userprincipalname/example1.png)
 
 Objeto de utilizador no local:
-- mailNickName &lt;: não definido&gt;
-- proxyAddresses :SMTP:us1@contoso.com{ }
-- correio:us2@contoso.com
-- userPrincipalName :us3@contoso.com
+- mailNickName : &lt; não definido&gt;
+- ProxyAddresses : { SMTP:us1@contoso.com }
+- Correio:us2@contoso.com
+- nome do utilizadorPrincipal:us3@contoso.com
 
-Sincronizado o objeto de utilizador ao Azure AD Tenant pela primeira vez
-- Definir aatribuição de MailNickName Azure AD ao prefixo de endereço SMTP primário.
-- Desloque &lt;o&gt; MOERA para MailNickName&#64;&lt;domínio&gt;inicial .
-- Definir aatribuição de nome de utilizador ad ad azure ao MOERA.
+Sincronizado o objeto do utilizador para Azure AD Tenant pela primeira vez
+- Desajuste O prefixo do Correio Ad Azure Atribua ao prefixo primário do endereço SMTP.
+- Desabine o MOERA ao &lt; MailNickName &gt;&#64;domínio inicial &lt; &gt; .
+- Desconte o atributo Azure AD UserPrincipalName ao MOERA.
 
-Objeto de utilizador do Inquilino Azure AD:
+Objeto de utilizador Azure AD Tenant:
 - MailNickName : us1           
-- Nome principal do utilizador :us1@contoso.onmicrosoft.com
+- Nome do UtilizadorPrincipal:us1@contoso.onmicrosoft.com
 
 
-### <a name="scenario-2-non-verified-upn-suffix--set-on-premises-mailnickname-attribute"></a>Cenário 2: Sufixo UPN não verificado – definido no local mailNickName atributo
+### <a name="scenario-2-non-verified-upn-suffix--set-on-premises-mailnickname-attribute"></a>Cenário 2: Sufixo upn não verificado – definido no local e-mail AtributoNickName
 
 ![Cenário2](./media/plan-connect-userprincipalname/example2.png)
 
 Objeto de utilizador no local:
 - mailNickName : us4
-- proxyAddresses :SMTP:us1@contoso.com{ }
-- correio:us2@contoso.com
-- userPrincipalName :us3@contoso.com
+- ProxyAddresses : { SMTP:us1@contoso.com }
+- Correio:us2@contoso.com
+- nome do utilizadorPrincipal:us3@contoso.com
 
-Sincronizar a atualização no mail nickname no local atribuiao ao Inquilino AD Azure
-- Atualização Azure AD MailNickName atribui com atributo nickname no local.
-- Uma vez que não existe nenhuma atualização para o atributo do userPrincipalName no local, não existe qualquer alteração ao atributo do Nome principal do utilizador da AD Azure.
+Sincronizar atualização no correio de NickName atribuído ao Azure AD Tenant
+- Atualizar A azure AD MailNickName atributo com atributo de Correio no local NickName.
+- Como não existe nenhuma atualização para o atributo Do Nome Do Utilizador no Local, não existe qualquer alteração ao atributo Azure AD UserPrincipalName.
 
-Objeto de utilizador do Inquilino Azure AD:
+Objeto de utilizador Azure AD Tenant:
 - MailNickName : us4
-- Nome principal do utilizador :us1@contoso.onmicrosoft.com
+- Nome do UtilizadorPrincipal:us1@contoso.onmicrosoft.com
 
-### <a name="scenario-3-non-verified-upn-suffix--update-on-premises-userprincipalname-attribute"></a>Cenário 3: Sufixo UPN não verificado – atualização no local userPrincipalName atributo
+### <a name="scenario-3-non-verified-upn-suffix--update-on-premises-userprincipalname-attribute"></a>Cenário 3: Sufixo UPN não verificado – atributo de utilizador de atualização no local
 
-![Cenário3](./media/plan-connect-userprincipalname/example3.png)
+![Cenário 3](./media/plan-connect-userprincipalname/example3.png)
 
 Objeto de utilizador no local:
 - mailNickName : us4
-- proxyAddresses :SMTP:us1@contoso.com{ }
-- correio:us2@contoso.com
-- userPrincipalName :us5@contoso.com
+- ProxyAddresses : { SMTP:us1@contoso.com }
+- Correio:us2@contoso.com
+- nome do utilizadorPrincipal:us5@contoso.com
 
-Sincronizar a atualização sobre o utilizador no localPrincipalName atribui ao Inquilino AD Azure
-- Atualização no utilizador no localPrincipalName atributo desencadeia o recálculo do atribuidor MOERA e Azure AD UserPrincipalName.
-- Desloque &lt;o&gt; MOERA para MailNickName&#64;&lt;domínio&gt;inicial .
-- Definir aatribuição de nome de utilizador ad ad azure ao MOERA.
+Sincronizar atualização no utilizador no local Atribua o Nome Azure AD
+- A atualização no atributo Do utilizador No-In-In-InsPrincipalName desencadeia um recálculo do atributo MOERA e Azure AD UserPrincipalName.
+- Desabine o MOERA ao &lt; MailNickName &gt;&#64;domínio inicial &lt; &gt; .
+- Desconte o atributo Azure AD UserPrincipalName ao MOERA.
 
-Objeto de utilizador do Inquilino Azure AD:
+Objeto de utilizador Azure AD Tenant:
 - MailNickName : us4
-- Nome principal do utilizador :us4@contoso.onmicrosoft.com
+- Nome do UtilizadorPrincipal:us4@contoso.onmicrosoft.com
 
-### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Cenário 4: Sufixo UPN não verificado – endereço primário de SMTP e atributo de correio no local
+### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Cenário 4: Sufixo UPN não verificado – atualizar endereço SMTP primário e atributo de correio no local
 
 ![Cenário4](./media/plan-connect-userprincipalname/example4.png)
 
 Objeto de utilizador no local:
 - mailNickName : us4
-- proxyAddresses :SMTP:us6@contoso.com{ }
-- correio:us7@contoso.com
-- userPrincipalName :us5@contoso.com
+- ProxyAddresses : { SMTP:us6@contoso.com }
+- Correio:us7@contoso.com
+- nome do utilizadorPrincipal:us5@contoso.com
 
-Sincronizar a atualização do atributo de correio no local e o endereço SMTP primário ao Inquilino AD Azure
-- Após a sincronização inicial do objeto de utilizador, as atualizações para o atributo de correio no local e o endereço SMTP primário não afetarão o MailNickName Azure AD ou o atributo UserPrincipalName.
+Sincronizar atualização no atributo de correio no local e endereço SMTP primário para Azure AD Tenant
+- Após a sincronização inicial do objeto do utilizador, as atualizações ao atributo de correio no local e ao endereço SMTP primário não afetarão o Azure AD MailNickName ou o atributo UserPrincipalName.
 
-Objeto de utilizador do Inquilino Azure AD:
+Objeto de utilizador Azure AD Tenant:
 - MailNickName : us4
-- Nome principal do utilizador :us4@contoso.onmicrosoft.com
+- Nome do UtilizadorPrincipal:us4@contoso.onmicrosoft.com
 
-### <a name="scenario-5-verified-upn-suffix--update-on-premises-userprincipalname-attribute-suffix"></a>Cenário 5: Sufixo UPN verificado – atualização no local userPrincipalName atributo sufixo
+### <a name="scenario-5-verified-upn-suffix--update-on-premises-userprincipalname-attribute-suffix"></a>Cenário 5: Sufixo verificado da UPN – atualização no local do utilizadorPrincipalName atribui sufixo
 
 ![Cenário5](./media/plan-connect-userprincipalname/example5.png)
 
 Objeto de utilizador no local:
 - mailNickName : us4
-- proxyAddresses :SMTP:us6@contoso.com{ }
-- correio:us7@contoso.com
-- userPrincipalName :us5@verified.contoso.com
+- ProxyAddresses : { SMTP:us6@contoso.com }
+- Correio:us7@contoso.com
+- nome do utilizadorPrincipal:us5@verified.contoso.com
 
-Sincronizar a atualização sobre o utilizador no localPrincipalName atribui ao Inquilino AD Azure
-- Atualização no utilizador no localPrincipalName atributo desencadeia o recálculo do atributo do Nome principal do utilizador da AD Azure.
-- Definir aatribuição de nome de utilizador adato de adsônio a utilizador no local PrincipalName, uma vez que o sufixo UPN é verificado com o Inquilino AD Azure.
+Sincronizar atualização no utilizador no local Atribua o Nome principal ao Azure AD Tenant
+- A atualização no utilizador No local O atributo Do Nome Principal do Utilizador aciona um recálculo do atributo Azure AD UserPrincipalName.
+- Deteta a azure AD UserPrincipalName atributo ao utilizador no local Atribua o Nome Principal como o sufixo UPN é verificado com o Azure AD Tenant.
 
-Objeto de utilizador do Inquilino Azure AD:
+Objeto de utilizador Azure AD Tenant:
 - MailNickName : us4     
-- Nome principal do utilizador :us5@verified.contoso.com
+- Nome do UtilizadorPrincipal:us5@verified.contoso.com
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Integrar os diretórios no local com o Azure Active Directory](whatis-hybrid-identity.md)

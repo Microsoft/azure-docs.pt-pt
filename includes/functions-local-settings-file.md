@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
 ms.openlocfilehash: 1c2196f1f834002b76dbea555b54a5162655ec1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77205751"
 ---
 ## <a name="local-settings-file"></a>Ficheiro de definições locais
 
-O ficheiro local.settings.json armazena definições de aplicativos, cordas de ligação e configurações usadas pelas ferramentas de desenvolvimento locais. As definições no ficheiro local.settings.json são usadas apenas quando estiver a executar projetos localmente. O ficheiro de configurações locais tem esta estrutura:
+O local.settings.jsnas configurações de aplicações de lojas de ficheiros, cordas de ligação e configurações utilizadas pelas ferramentas de desenvolvimento local. As definições no local.settings.jsno ficheiro são usadas apenas quando se está a executar projetos localmente. O ficheiro de configurações locais tem esta estrutura:
 
 ```json
 {
@@ -35,16 +35,16 @@ O ficheiro local.settings.json armazena definições de aplicativos, cordas de l
 }
 ```
 
-Estas configurações são suportadas quando executa projetos localmente:
+Estas definições são suportadas quando executam projetos localmente:
 
 | Definição      | Descrição                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | Quando esta definição `true`estiver definida, todos os valores são encriptados com uma chave de máquina local. Usado `func settings` com comandos. O valor `false`predefinido é . |
-| **`Values`** | Conjunto de definições de aplicação e cordas de ligação usadas quando um projeto está em execução local. Estes pares de valor-chave (string string) correspondem às definições [`AzureWebJobsStorage`]de aplicação na sua aplicação de função em Azure, como . Muitos gatilhos e encadernações têm uma propriedade que `Connection` se refere a uma definição de aplicação de cordas de ligação, como para o [gatilho de armazenamento Blob](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#configuration). Para estas propriedades, necessita de uma `Values` definição de aplicação definida na matriz. <br/>[`AzureWebJobsStorage`]é uma definição de aplicação necessária para gatilhos que não o HTTP. <br/>A versão 2.x e superior do tempo`FUNCTIONS_WORKER_RUNTIME`de funcionamento das Funções requer a definição de [ ] ] que é gerada para o seu projeto pela Core Tools. <br/> Quando tiver o [emulador](../articles/storage/common/storage-use-emulator.md) de armazenamento Azure [`AzureWebJobsStorage`] `UseDevelopmentStorage=true`instalado localmente e definido para , core tools usa o emulador. O emulador é útil durante o desenvolvimento, mas deve testar com uma ligação de armazenamento real antes da implantação.<br/> Os valores devem ser cordas e não objetos Ou matrizes JSON. Definir nomes não pode`:`incluir um cólon`__`( ) ou um duplo sublinhado ( ). Estes caracteres são reservados pelo tempo de execução.  |
-| **`Host`** | As definições nesta secção personalizam o processo de hospedar funções quando executa projetos localmente. Estas configurações são separadas das definições host.json, que também se aplicam quando executa projetos em Azure. |
-| **`LocalHttpPort`** | Define a porta predefinida utilizada durante o`func host start` `func run`funcionamento do hospedeiro das Funções locais (e ). A `--port` opção de linha de comando tem precedência sobre esta definição. |
-| **`CORS`** | Define as origens permitidas para [a partilha de recursos de origem cruzada (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). As origens são fornecidas como uma lista separada de vírem sem espaços. O valor\*wildcard é suportado, o que permite pedidos de qualquer origem. |
-| **`CORSCredentials`** |  Quando definido `true`para, permite `withCredentials` pedidos. |
-| **`ConnectionStrings`** | Uma coleção. Não utilize esta coleção para as cordas de ligação utilizadas pelas suas encadernações de função. Esta coleção é utilizada apenas por estruturas que `ConnectionStrings` normalmente obtêm cordas de ligação da secção de um ficheiro de configuração, como o Quadro de [Entidades](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). As cordas de ligação neste objeto são adicionadas ao ambiente com o tipo de fornecedor de [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Os itens desta coleção não são publicados no Azure com outras definições de aplicações. Deve adicionar explicitamente estes `Connection strings` valores à recolha das definições da sua aplicação de função. Se estiver a [`SqlConnection`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) criar um código de funcionamento, deverá armazenar o valor de cadeia de ligação com as suas outras ligações nas Definições de **Aplicação** no portal. |
+| **`IsEncrypted`** | Quando esta definição está definida para `true` , todos os valores são encriptados com uma chave de máquina local. Usado com `func settings` comandos. O valor predefinido é `false` . |
+| **`Values`** | Conjunto de configurações de aplicações e cordas de conexão usadas quando um projeto está em execução local. Estes pares de valor-chave (string-string) correspondem às definições de aplicação na sua aplicação de função em Azure, como [`AzureWebJobsStorage`] . Muitos gatilhos e encadernações têm uma propriedade que se refere a uma definição de aplicação de cadeia de ligação, como `Connection` para o gatilho de armazenamento [Blob](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#configuration). Para estas propriedades, você precisa de uma definição de aplicação definida na `Values` matriz. <br/>[`AzureWebJobsStorage`]é uma definição de aplicação necessária para gatilhos diferentes de HTTP. <br/>A versão 2.x e superior do tempo de funcionamento das Funções requer a `FUNCTIONS_WORKER_RUNTIME` definição [ ] que é gerada para o seu projeto por Core Tools. <br/> Quando tiver o [emulador de armazenamento Azure](../articles/storage/common/storage-use-emulator.md) instalado localmente e definido [`AzureWebJobsStorage`] `UseDevelopmentStorage=true` para, a Core Tools utiliza o emulador. O emulador é útil durante o desenvolvimento, mas deve testar com uma ligação de armazenamento real antes de ser implantado.<br/> Os valores devem ser cordas e não objetos ou matrizes JSON. Definir nomes não pode incluir um cólon `:` () ou um duplo sublinhado `__` (). Estes caracteres são reservados pelo tempo de execução.  |
+| **`Host`** | As definições nesta secção personalizam o processo de anfitrião de Funções quando executar projetos localmente. Estas definições são separadas do host.jsnas definições, que também se aplicam quando executam projetos em Azure. |
+| **`LocalHttpPort`** | Define a porta predefinida utilizada quando executa o hospedeiro local de funções `func host start` (e `func run` . A `--port` opção de linha de comando tem precedência sobre esta definição. |
+| **`CORS`** | Define as origens permitidas para [a partilha de recursos de origem cruzada (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). As origens são fornecidas como uma lista separada por vírgula sem espaços. O valor wildcard é \* suportado, o que permite pedidos de qualquer origem. |
+| **`CORSCredentials`** |  Quando definido `true` para, permite `withCredentials` pedidos. |
+| **`ConnectionStrings`** | Uma coleção. Não utilize esta coleção para as cordas de ligação utilizadas pelas ligações da sua função. Esta coleção é utilizada apenas por quadros que normalmente obtêm cordas de ligação a partir `ConnectionStrings` da secção de um ficheiro de configuração, como o [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). As cadeias de ligação neste objeto são adicionadas ao ambiente com o tipo de fornecedor de [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Os itens desta coleção não são publicados no Azure com outras configurações de aplicações. Deve adicionar explicitamente estes valores à `Connection strings` recolha das definições da aplicação de função. Se estiver a criar um [`SqlConnection`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) código de função, deverá armazenar o valor da cadeia de ligação com as outras ligações nas **Definições de Aplicação** no portal. |
 
 ['AzureWebJobsStorage']: ../articles/azure-functions/functions-app-settings.md#azurewebjobsstorage

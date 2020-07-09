@@ -13,12 +13,15 @@
 - name: Guias de Início Rápido
   expanded: true
   items:
-    - name: 'Criar função durável - C#'
+    - name: Criar função durável - C#
       href: durable-functions-create-first-csharp.md
       displayName: 'get started, chaining'
     - name: Criar função durável - JavaScript
       displayName: 'get started, chaining'
       href: quickstart-js-vscode.md
+    - name: Criar função durável - Python
+      displayName: 'get started, chaining'
+      href: quickstart-python-vscode.md
 - name: Tutoriais
   items:
     - name: Encadeamento de funções
@@ -76,7 +79,7 @@
 - name: Referência
   items:
     - name: Definições de host.json
-      href: 'durable-functions-bindings.md#host-json'
+      href: durable-functions-bindings.md#host-json
     - name: Enlaces
       href: durable-functions-bindings.md
     - name: API HTTP

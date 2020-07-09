@@ -1,33 +1,32 @@
 ---
-title: Sinnyms C# exemplo
+title: Sinónimos C# exemplo
 titleSuffix: Azure Cognitive Search
-description: Neste exemplo C#, aprenda a adicionar a funcionalidade de sinónimos a um índice em Pesquisa Cognitiva Azure. Um mapa de sinónimos é uma lista de termos equivalentes. Campos com suporte ao sinónimo expandem consultas para incluir o termo fornecido pelo utilizador e todos os sinónimos relacionados.
+description: Neste exemplo C#, aprenda a adicionar a característica de sinónimos a um índice em Azure Cognitive Search. Um mapa de sinónimos é uma lista de termos equivalentes. Os campos com suporte sinónimo expandem as consultas para incluir o termo fornecido pelo utilizador e todos os sinónimos relacionados.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8cc085fd27004928babd7df305a4452d1b068f6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6232ba859c985929c9df0fb5020fb932611bbb40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72794242"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85079449"
 ---
-# <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Exemplo: Adicione sinónimos para pesquisa cognitiva azure em C #
+# <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Exemplo: Adicionar sinónimos para pesquisa cognitiva Azure em C #
 
 Os sinónimos expandem uma consulta, ao efetuar a correspondência em termos considerados semanticamente equivalentes ao termo introduzido. Por exemplo, poderá pretender que a palavra "carro" corresponda nos documentos que contêm os termos "automóvel" ou "veículo". 
 
-Na Pesquisa Cognitiva Azure, os sinónimos são definidos num *mapa sinónimo,* através de regras de *mapeamento* que associam termos equivalentes. Este exemplo cobre passos essenciais para adicionar e utilizar sinónimos com um índice existente. Saiba como:
+Na Pesquisa Cognitiva Azure, os sinónimos são definidos num mapa de sinónimos, através de *regras de mapeamento* que *associam*termos equivalentes. Este exemplo abrange os passos essenciais para a adição e utilização de sinónimos com um índice existente. Saiba como:
 
 > [!div class="checklist"]
-> * Crie um mapa sinónimo utilizando a classe [SynonymMap.](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) 
-> * Defino a propriedade [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) em campos que devem suportar a expansão da consulta através de sinónimos.
+> * Crie um mapa de sinónimos utilizando a classe [SynonymMap.](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) 
+> * Desafiem a propriedade [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) em campos que devem suportar a expansão da consulta através de sinónimos.
 
-Pode consultar um campo sinnonimamente habilitado como normalmente faria. Não é necessária uma sintaxe adicional de consulta para aceder a sinónimos.
+Pode consultar um campo com o objetivo de sinónimo, como normalmente faria. Não existe sintaxe de consulta adicional necessária para aceder a sinónimos.
 
-Pode criar vários mapas de sinónimos, publicá-los como um recurso amplo de serviços disponível para qualquer índice e, em seguida, referenciar o que irá utilizar ao nível do campo. Na hora da consulta, além de pesquisar um índice, a Pesquisa Cognitiva Azure faz uma pesquisa num mapa sinónimo, se um for especificado nos campos usados na consulta.
+Pode criar vários mapas de sinónimos, publicá-los como um recurso amplo de serviços disponível para qualquer índice e, em seguida, referenciar o que irá utilizar ao nível do campo. Na hora da consulta, além de pesquisar um índice, a Azure Cognitive Search faz uma pesquisa num mapa de sinónimo, se for especificado nos campos utilizados na consulta.
 
 > [!NOTE]
 > Os sinónimos podem ser criados programáticamente, mas não no portal. Se o suporte para sinónimos do portal do Azure for útil para si, forneça o seu feedback no [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
@@ -38,12 +37,12 @@ Os requisitos de tutorial incluem o seguinte:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Serviço de Pesquisa Cognitiva Azure](search-create-service-portal.md)
-* [Biblioteca Microsoft.Azure.Search.NET](https://aka.ms/search-sdk)
-* [Como utilizar a Pesquisa Cognitiva Azure a partir de uma aplicação .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+* [Biblioteca Microsoft.Azure.Search.NET](https://docs.microsoft.com/dotnet/api/overview/azure/search)
+* [Como utilizar a Azure Cognitive Search a partir de uma aplicação .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Descrição geral
 
-As consultas de antes e após demonstram o valor dos sinónimos. Neste exemplo, utilize uma aplicação de amostra que execute consultas e desemreta resultados num índice de amostra. A aplicação de exemplo cria um índice pequeno com o nome "hotéis" preenchido com dois documentos. A aplicação executa consultas de pesquisa com termos e expressões que não são apresentados no índice, ativa a funcionalidade de sinónimos e, em seguida, inicia as mesmas pesquisas novamente. O código abaixo demonstra o fluxo geral.
+As consultas de antes e após demonstram o valor dos sinónimos. Neste exemplo, utilize uma aplicação de amostra que execute consultas e devolva os resultados num índice de amostra. A aplicação de exemplo cria um índice pequeno com o nome "hotéis" preenchido com dois documentos. A aplicação executa consultas de pesquisa com termos e expressões que não são apresentados no índice, ativa a funcionalidade de sinónimos e, em seguida, inicia as mesmas pesquisas novamente. O código abaixo demonstra o fluxo geral.
 
 ```csharp
   static void Main(string[] args)
@@ -77,7 +76,7 @@ As consultas de antes e após demonstram o valor dos sinónimos. Neste exemplo, 
       Console.ReadKey();
   }
 ```
-Os passos para criar e povoar o índice de amostra supõem-se em [Como utilizar a Pesquisa Cognitiva Azure a partir de uma aplicação .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
+Os passos para criar e povoar o índice da amostra são explicados em [Como utilizar a Pesquisa Cognitiva Azure a partir de uma aplicação .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
 ## <a name="before-queries"></a>Consultas "antes"
 
@@ -128,7 +127,7 @@ A ativação dos sinónimos é um processo de dois passos. Em primeiro lugar, de
 
     serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
    ```
-   Um mapa de sinónimos tem de estar em conformidade para abrir o formato `solr` standard de origem. O formato é explicado em [Sinoniams em Pesquisa Cognitiva Azure](search-synonyms.md) sob a secção `Apache Solr synonym format`.
+   Um mapa de sinónimos tem de estar em conformidade para abrir o formato `solr` standard de origem. O formato é explicado em [Synonyms in Azure Cognitive Search](search-synonyms.md) sob a secção `Apache Solr synonym format` .
 
 2. Configure os campos pesquisáveis para utilizar o mapa de sinónimos na definição do índice. No `EnableSynonymsInHotelsIndex`, ativamos sinónimos em dois campos `category` e `tags`, ao definir a propriedade `synonymMaps` para o nome do mapa de sinónimos carregado recentemente.
    ```csharp
@@ -162,18 +161,18 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 ~~~
 A primeira consulta encontra o documento a partir da regra `five star=>luxury`. A segunda consulta expande a pesquisa com `internet,wifi` e a terceira com `hotel, motel` e `economy,inexpensive=>budget` ao encontrar os documentos que corresponderam.
 
-Adicionar sinónimos altera completamente a experiência de pesquisa. Neste exemplo, as consultas originais não conseguiram obter resultados significativos, mesmo que os documentos do nosso índice fossem relevantes. Ao ativar os sinónimos, podemos expandir um índice para incluir termos na utilização comum, sem alterações aos dados subjacentes no índice.
+Adicionar sinónimos altera completamente a experiência de pesquisa. Neste exemplo, as consultas originais não devolveram resultados significativos, embora os documentos do nosso índice fossem relevantes. Ao ativar os sinónimos, podemos expandir um índice para incluir termos na utilização comum, sem alterações aos dados subjacentes no índice.
 
 ## <a name="sample-application-source-code"></a>Código de origem da aplicação de exemplo
 Pode encontrar o código de origem completo da aplicação de exemplo utilizado nesta apresentação no [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-A forma mais rápida de limpar depois de um exemplo é apagando o grupo de recursos que contém o serviço de Pesquisa Cognitiva Azure. Pode eliminar o grupo de recursos agora para eliminar definitivamente tudo o que este contém. No portal, o nome do grupo de recursos está na página geral do serviço de Pesquisa Cognitiva Azure.
+A forma mais rápida de limpar depois de um exemplo é eliminando o grupo de recursos que contém o serviço de Pesquisa Cognitiva Azure. Pode eliminar o grupo de recursos agora para eliminar definitivamente tudo o que este contém. No portal, o nome do grupo de recursos está na página geral do serviço de Pesquisa Cognitiva Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Este exemplo demonstrou a funcionalidade de sinónimos no código C# para criar e postar regras de mapeamento e, em seguida, chamar o mapa de sinónimo numa consulta. Encontram-se mais informações na documentação de referência do [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e [API REST](https://docs.microsoft.com/rest/api/searchservice/).
+Este exemplo demonstrou a funcionalidade de sinónimos no código C# para criar e publicar regras de mapeamento e, em seguida, chamar o mapa de sinónimo numa consulta. Encontram-se mais informações na documentação de referência do [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e [API REST](https://docs.microsoft.com/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
 > [Como usar sinónimos em Pesquisa Cognitiva Azure](search-synonyms.md)

@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/26/2019
-  ms.openlocfilehash: 9d91baaec7f1bd0e365f86ea07174d6f9e32725c
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 06/29/2020
+  ms.openlocfilehash: d27bb0be6698a6b92c459143604ad2ebeb00b728
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "71341050"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85551876"
 landingContent:
 - title: Acerca da Governação do Azure
   linkLists:
@@ -37,3 +37,19 @@ landingContent:
       url: ./create.md
     - text: Gerir os seus recursos
       url: ./manage.md
+- title: Referência
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: CLI do Azure
+      url: /cli/azure/account/management-group
+    - text: Azure PowerShell
+      url: /powershell/module/az.resources/#resources
+    - text: SDK do Azure para .NET
+      url: /dotnet/api/overview/azure/managementgroups
+    - text: SDK do Azure para JavaScript
+      url: /javascript/api/@azure/arm-managementgroups/managementgroups
+    - text: REST
+      url: /rest/api/resources/managementgroups
+    - text: Modelos do Resource Manager
+      url: /azure/templates/microsoft.management/managementgroups

@@ -1,21 +1,20 @@
 ---
 title: Trabalhando com matrizes e objetos em Azure Cosmos DB
-description: Aprenda a sintaxe SQL para criar matrizes e objetos em Azure Cosmos DB. Este artigo também fornece alguns exemplos para realizar operações em objetos de matriz
+description: Aprenda a sintaxe SQL para criar matrizes e objetos em Azure Cosmos DB. Este artigo também fornece alguns exemplos para executar operações em objetos de matriz
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 5b2801b0a71f04803955e9d8bc18a97133019996
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79246555"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Trabalhando com matrizes e objetos em Azure Cosmos DB
 
-Uma característica chave da API Azure Cosmos DB SQL é a criação de matriz e objeto.
+Uma característica chave do Azure Cosmos DB SQL API é a criação de matrizes e objetos.
 
 ## <a name="arrays"></a>Matrizes
 
@@ -45,7 +44,7 @@ Os resultados são:
     ]
 ```
 
-Também pode usar a [expressão ARRAY](sql-query-subquery.md#array-expression) para construir uma matriz a partir dos resultados [do subquery.](sql-query-subquery.md) Esta consulta recebe todos os nomes distintos de crianças numa matriz.
+Também pode utilizar a [expressão ARRAY](sql-query-subquery.md#array-expression) para construir uma matriz a partir dos resultados [do subquery.](sql-query-subquery.md) Esta consulta obtém todos os nomes distintos de crianças numa matriz.
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
@@ -54,7 +53,7 @@ FROM f
 
 ## <a name="iteration"></a><a id="Iteration"></a>Iteração
 
-A SQL API fornece suporte para iterar sobre matrizes JSON, com uma nova construção adicionada através da [palavra-chave IN](sql-query-keywords.md#in) na fonte FROM. No seguinte exemplo:
+A API SQL fornece suporte para iterar sobre matrizes JSON, com uma nova construção adicionada através da [palavra-chave IN](sql-query-keywords.md#in) na fonte FROM. No seguinte exemplo:
 
 ```sql
     SELECT *
@@ -90,7 +89,7 @@ Os resultados são:
     ]
 ```
 
-A próxima consulta executa a iteração `children` no `Families` recipiente. A matriz de saída é diferente da consulta anterior. Este exemplo `children`divide-se e achata os resultados numa única matriz:  
+A consulta seguinte executa a iteração `children` no `Families` recipiente. A matriz de saída é diferente da consulta anterior. Este exemplo divide-se `children` e achata os resultados numa única matriz:  
 
 ```sql
     SELECT *
@@ -122,7 +121,7 @@ Os resultados são:
     ]
 ```
 
-Pode filtrar mais em cada entrada individual da matriz, como mostra o seguinte exemplo:
+Pode filtrar ainda mais cada entrada individual da matriz, como mostra o seguinte exemplo:
 
 ```sql
     SELECT c.givenName
@@ -138,7 +137,7 @@ Os resultados são:
     }]
 ```
 
-Também pode agregar-se sobre o resultado de uma iteração de matriz. Por exemplo, a seguinte consulta conta o número de crianças entre todas as famílias:
+Também pode agregar o resultado de uma iteração de matrizes. Por exemplo, a seguinte consulta conta o número de crianças entre todas as famílias:
 
 ```sql
     SELECT COUNT(child)
@@ -155,8 +154,8 @@ Os resultados são:
     ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Introdução](sql-query-getting-started.md)
-- [Amostras Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Amostras de Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Associações](sql-query-join.md)

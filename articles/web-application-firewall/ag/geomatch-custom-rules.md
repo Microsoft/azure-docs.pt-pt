@@ -1,6 +1,6 @@
 ---
-title: Regras personalizadas de Geomatch (WAF) Da Web Application Firewall (WAF)
-description: Este artigo é uma visão geral das regras personalizadas de geomatch da Web Application Firewall (WAF) no Gateway de Aplicações Azure.
+title: Azure Web Application Firewall (WAF) Regras personalizadas de geomatch
+description: Este artigo é uma visão geral das regras personalizadas de geomatch da Web Application Firewall (WAF) no Gateway de aplicações Azure.
 services: web-application-firewall
 ms.topic: article
 author: vhorne
@@ -8,24 +8,23 @@ ms.service: web-application-firewall
 ms.date: 01/31/2020
 ms.author: victorh
 ms.openlocfilehash: bdb115cf6d0f0aa2c55f6143015a323df6faa114
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83744291"
 ---
-# <a name="geomatch-custom-rules-preview"></a>Regras personalizadas de Geomatch (pré-visualização)
+# <a name="geomatch-custom-rules-preview"></a>Regras personalizadas geomatch (pré-visualização)
 
-As regras personalizadas permitem-lhe criar regras personalizadas de acordo com as necessidades exatas das suas aplicações e políticas de segurança. Agora, pode restringir o acesso às suas aplicações web por país/região. Como em todas as regras personalizadas, esta lógica pode ser agravada com outras regras para atender às necessidades da sua aplicação.
+As regras personalizadas permitem criar regras personalizadas de acordo com as necessidades exatas das suas aplicações e políticas de segurança. Agora, pode restringir o acesso às suas aplicações web por país/região. Tal como acontece com todas as regras personalizadas, esta lógica pode ser agravada com outras regras de acordo com as necessidades da sua aplicação.
 
-Para criar uma regra personalizada de geofiltração, basta selecionar a *Geo-localização* como o Match Type e, em seguida, selecionar o país/região ou países/regiões que pretende permitir/bloquear da sua aplicação. Veja [como criar regras personalizadas em Powershell](configure-waf-custom-rules.md) e mais exemplos de regras personalizadas (create-custom-waf-rules.md) para mais informações.
+Para criar uma regra personalizada de geo-filtragem, basta selecionar *Geolocalização* como o Tipo de Correspondência e, em seguida, selecione o país/região ou países/regiões que deseja permitir/bloquear a partir da sua aplicação. Veja [como criar regras personalizadas em Powershell](configure-waf-custom-rules.md) e exemplos de regras mais personalizados (create-custom-waf-rules.md) para obter mais informações.
 
 > [!IMPORTANT]
 > Esta pré-visualização pública é disponibilizada sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
 
 ## <a name="countryregion-codes"></a>Códigos país/região
 
-Se estiver a utilizar o operador Geomatch, os selecionadores podem ser um dos seguintes códigos de dois dígitos país/região. 
+Se estiver a utilizar o operador Geomatch, os selecionadores podem ser qualquer um dos seguintes códigos de dois dígitos país/região. 
 
 |Código país/região | Nome país/região |
 | ----- | ----- |
@@ -207,6 +206,6 @@ Se estiver a utilizar o operador Geomatch, os selecionadores podem ser um dos se
 | ZM | Zâmbia|
 | ZW | Zimbabué|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de aprender sobre regras personalizadas, [crie as suas próprias regras personalizadas.](create-custom-waf-rules.md)

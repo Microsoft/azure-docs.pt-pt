@@ -1,6 +1,6 @@
 ---
-title: ToString em linguagem de consulta de Azure Cosmos DB
-description: Saiba mais sobre a função do sistema SQL ToString in Azure Cosmos DB.
+title: ToString in Azure Cosmos DB linguagem de consulta
+description: Saiba mais sobre a função do sistema SQL ToString em Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,9 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 293449b1616e7124245d91c647177b958006009e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78304264"
 ---
 # <a name="tostring-azure-cosmos-db"></a>ToString (Azure Cosmos DB)
@@ -34,7 +33,7 @@ ToString(<expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo que `ToString` se segue mostra como se comporta em diferentes tipos.   
+  O exemplo a seguir mostra como `ToString` se comporta em diferentes tipos.   
   
 ```sql
 SELECT 
@@ -53,11 +52,11 @@ SELECT
 ```json
 [{"str1": "1", "str2": "Hello World", "str3": "NaN", "str4": "Infinity", "str5": "false", "str6": "0.1234", "str7": "false"}]  
 ```  
- Dada a seguinte entrada:
+ Dada a seguinte informação:
 ```json
 {"Products":[{"ProductID":1,"Weight":4,"WeightUnits":"lb"},{"ProductID":2,"Weight":32,"WeightUnits":"kg"},{"ProductID":3,"Weight":400,"WeightUnits":"g"},{"ProductID":4,"Weight":8999,"WeightUnits":"mg"}]}
 ```    
- O exemplo que `ToString` se segue mostra como `CONCAT`pode ser usado com outras funções de cadeia como .   
+ O exemplo a seguir mostra como `ToString` pode ser usado com outras funções de corda como `CONCAT` .   
  
 ```sql
 SELECT 
@@ -78,7 +77,7 @@ Dada a seguinte entrada.
 ```json
 {"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
 ```
-O exemplo que `ToString` se segue mostra como `REPLACE`pode ser usado com outras funções de cadeia como .   
+O exemplo a seguir mostra como `ToString` pode ser usado com outras funções de corda como `REPLACE` .   
 ```sql
 SELECT 
     n.id AS nutrientID,
@@ -99,8 +98,8 @@ Aqui está o conjunto de resultados.
 
 Esta função do sistema não utilizará o índice.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Funções de corda Azure Cosmos DB](sql-query-string-functions.md)
-- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

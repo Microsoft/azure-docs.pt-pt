@@ -1,23 +1,23 @@
 ---
 title: 'Quickstart: Criar uma planta com REST API'
-description: Neste arranque rápido, utiliza-se plantas Azure para criar, definir e implementar artefactos utilizando a API REST.
-ms.date: 02/26/2020
+description: Neste arranque rápido, utiliza-se a Azure Blueprints para criar, definir e implantar artefactos utilizando a API REST.
+ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: ec84e8396ad65aa01f73414b971f27bc95396e2f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e3cdf28cfe523e52aceefe20294042d28b98e1e2
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745102"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971203"
 ---
-# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Quickstart: Defina e atribua um projeto azure com API REST
+# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Quickstart: Definir e Atribuir uma Planta Azure com REST API
 
-Aprender a criar e atribuir esquemas permite a definição de padrões comuns para desenvolver configurações reutilizáveis e rapidamente implementáveis com base nos modelos do Resource Manager, política, segurança e muito mais. Neste tutorial, vai aprender a utilizar o Azure Blueprints para realizar algumas das tarefas comuns relacionadas com a criação, publicação e atribuição de um esquema na sua organização, tais como:
+Aprender a criar e atribuir plantas permite que a definição de padrões comuns desenvolva configurações reutilizáveis e rapidamente implantáveis com base em modelos de Gestor de Recursos Azure (modelos ARM), política, segurança e muito mais. Neste tutorial, vai aprender a utilizar o Azure Blueprints para realizar algumas das tarefas comuns relacionadas com a criação, publicação e atribuição de um esquema na sua organização, tais como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
-- Registe o fornecedor de `Microsoft.Blueprint` recursos. Para obter instruções, consulte [os fornecedores e tipos](../../azure-resource-manager/management/resource-providers-and-types.md)de recursos.
+- Registe o `Microsoft.Blueprint` fornecedor de recursos. Para obter instruções, consulte [fornecedores e tipos de recursos.](../../azure-resource-manager/management/resource-providers-and-types.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -25,7 +25,7 @@ Aprender a criar e atribuir esquemas permite a definição de padrões comuns pa
 
 Se não estiver familiarizado com a API REST, comece por rever a [Referência da API REST do Azure](/rest/api/azure/) para obter uma compreensão geral da API REST, especificamente o URI do pedido e o corpo do pedido. Este artigo utiliza estes conceitos para fornecer instruções para trabalhar com o Azure Blueprints e pressupõe um conhecimento prático dos mesmos. Ferramentas como o [ARMClient](https://github.com/projectkudu/ARMClient) e outras podem processar a autorização automaticamente e são recomendadas para iniciantes.
 
-Para as especificações das plantas azure, consulte [API](/rest/api/blueprints/).
+Para as especificações Azure Blueprints, consulte [Azure Blueprints REST API](/rest/api/blueprints/).
 
 ### <a name="rest-api-and-powershell"></a>API REST e PowerShell
 
@@ -52,18 +52,18 @@ Substitua `{subscriptionId}` na variável **$restUri** acima para obter informa�
 
 ## <a name="create-a-blueprint"></a>Criar um esquema
 
-O primeiro passo na definição de um padrão de conformidade é compor um esquema a partir dos recursos disponíveis. Vamos criar um esquema com o nome "MyBlueprint" para configurar as atribuições de função e política para a subscrição. Em seguida, vamos adicionar um grupo de recursos, um modelo do Resource Manager e uma atribuição de função no grupo de recursos.
+O primeiro passo na definição de um padrão de conformidade é compor um esquema a partir dos recursos disponíveis. Vamos criar um esquema com o nome "MyBlueprint" para configurar as atribuições de função e política para a subscrição. Em seguida, adicionaremos um grupo de recursos, um modelo ARM, e uma atribuição de papel no grupo de recursos.
 
 > [!NOTE]
 > Ao utilizar a API REST, o objeto _esquema_ é criado em primeiro lugar. Para cada _artefacto_ a adicionar que tenha parâmetros, os parâmetros precisam de ser definidos com antecedência no _esquema_ inicial.
 
 Em cada URI da API REST, existem variáveis que são utilizadas que precisa de substituir pelos seus próprios valores:
 
-- `{YourMG}`- Substitua com a identificação do seu grupo de gestão
+- `{YourMG}`- Substitua pelo ID do seu grupo de gestão
 - `{subscriptionId}` - substituir pelo ID da subscrição
 
 > [!NOTE]
-> As plantas também podem ser criadas ao nível da subscrição. Para ver um exemplo, consulte [criar uma planta no exemplo da subscrição](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
+> As plantas também podem ser criadas ao nível da subscrição. Para ver um exemplo, consulte [criar uma planta no exemplo da subscrição.](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint)
 
 1. Crie o objeto _esquema_ inicial. O **Corpo do Pedido** inclui propriedades sobre o esquema, grupos de recursos a criar e todos os parâmetros ao nível do esquema. Os parâmetros são definidos durante a atribuição e utilizados pelos artefactos adicionados nos passos posteriores.
 
@@ -124,7 +124,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      }
      ```
 
-1. Adicione a atribuição de função no momento da subscrição. O **Corpo do Pedido** define o _tipo_ de artefacto, as propriedades são alinhadas com o identificador de definição de função e as identidades do principal são transmitidas como uma matriz de valores. No exemplo abaixo, as identidades do principal a quem foi concedida a função especificada estão configuradas para um parâmetro que é definido durante a atribuição do esquema. Este exemplo utiliza o papel integrado do _Contribuinte_ com um GUID de `b24988ac-6180-42a0-ab88-20f7382dd24c` .
+1. Adicione a atribuição de função no momento da subscrição. O **Corpo do Pedido** define o _tipo_ de artefacto, as propriedades são alinhadas com o identificador de definição de função e as identidades do principal são transmitidas como uma matriz de valores. No exemplo abaixo, as identidades do principal a quem foi concedida a função especificada estão configuradas para um parâmetro que é definido durante a atribuição do esquema. Este exemplo utiliza o _papel de Contribuinte_ incorporado com um GUID de `b24988ac-6180-42a0-ab88-20f7382dd24c` .
 
    - URI da API REST
 
@@ -144,7 +144,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      }
      ```
 
-1. Adicione a atribuição de política no momento da subscrição. O **Corpo do Pedido** define o _tipo_ de artefacto, as propriedades que se alinham com uma definição de política ou iniciativa e configura a atribuição de política para utilizar os parâmetros de esquema definidos para configurar durante a atribuição do esquema. Este exemplo utiliza a etiqueta Apply e o _seu valor padrão para grupos_ de recursos integrados na política com um GUID de `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71` .
+1. Adicione a atribuição de política no momento da subscrição. O **Corpo do Pedido** define o _tipo_ de artefacto, as propriedades que se alinham com uma definição de política ou iniciativa e configura a atribuição de política para utilizar os parâmetros de esquema definidos para configurar durante a atribuição do esquema. Este exemplo utiliza a etiqueta Apply e o _seu valor padrão para grupos_ de recursos integrados com um GUID de `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71` .
 
    - URI da API REST
 
@@ -172,7 +172,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      }
      ```
 
-1. Adicione outra atribuição de política para a etiqueta de Armazenamento (reutilizando o parâmetro _storageAccountType_) na subscrição. Este artefacto de atribuição de política adicional demonstra que um parâmetro definido no esquema é utilizável por mais do que um artefacto. No exemplo, o **storageAccountType** é utilizado para definir uma etiqueta no grupo de recursos. Este valor apresenta informações sobre a conta de armazenamento que é criada no passo seguinte. Este exemplo utiliza a etiqueta Apply e o _seu valor padrão para grupos_ de recursos integrados na política com um GUID de `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71` .
+1. Adicione outra atribuição de política para a etiqueta de Armazenamento (reutilizando o parâmetro _storageAccountType_) na subscrição. Este artefacto de atribuição de política adicional demonstra que um parâmetro definido no esquema é utilizável por mais do que um artefacto. No exemplo, o **storageAccountType** é utilizado para definir uma etiqueta no grupo de recursos. Este valor apresenta informações sobre a conta de armazenamento que é criada no passo seguinte. Este exemplo utiliza a etiqueta Apply e o _seu valor padrão para grupos_ de recursos integrados com um GUID de `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71` .
 
    - URI da API REST
 
@@ -200,7 +200,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      }
      ```
 
-1. Adicione um modelo no grupo de recursos. O **Corpo do Pedido** para um modelo do Resource Manager inclui o componente JSON normal do modelo e define o grupo de recursos de destino com **properties.resourceGroup**. O modelo também reutiliza os parâmetros de esquema **storageAccountType**, **tagName** e **tagValue** ao passar cada um para o modelo. Os parâmetros de esquema são disponibilizados ao modelo através da definição de **properties.parameters** e, dentro do modelo JSON, esse par chave-valor é utilizado para injetar o valor. Os nomes dos parâmetros de esquema e modelo podem ser os mesmos, mas foram diferenciados para ilustrar como cada um deles passa do esquema para o artefacto de modelo.
+1. Adicione um modelo no grupo de recursos. O **Grupo de Pedidos** para um modelo ARM inclui o componente JSON normal do modelo e define o grupo de recursos-alvo com **properties.resourceGroup**. O modelo também reutiliza os parâmetros de esquema **storageAccountType**, **tagName** e **tagValue** ao passar cada um para o modelo. Os parâmetros de esquema são disponibilizados ao modelo através da definição de **properties.parameters** e, dentro do modelo JSON, esse par chave-valor é utilizado para injetar o valor. Os nomes dos parâmetros de esquema e modelo podem ser os mesmos, mas foram diferenciados para ilustrar como cada um deles passa do esquema para o artefacto de modelo.
 
    - URI da API REST
 
@@ -286,7 +286,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      }
      ```
 
-1. Adicione atribuição de função no grupo de recursos. À semelhança da entrada de atribuição de função anterior, o exemplo abaixo utiliza o identificador de definição para a função **Proprietário** e fornece-lhe um parâmetro diferente do esquema. Este exemplo utiliza o papel _do Proprietário_ incorporado com um GUID de `8e3af657-a8ff-443c-a75c-2fe8c4bcb635` .
+1. Adicione atribuição de função no grupo de recursos. À semelhança da entrada de atribuição de função anterior, o exemplo abaixo utiliza o identificador de definição para a função **Proprietário** e fornece-lhe um parâmetro diferente do esquema. Este exemplo utiliza a função incorporada _do Proprietário_ com um GUID de `8e3af657-a8ff-443c-a75c-2fe8c4bcb635` .
 
    - URI da API REST
 
@@ -325,11 +325,11 @@ Depois de um esquema ser publicado com a API REST, pode ser atribuído a uma sub
 
 Em cada URI da API REST, existem variáveis que são utilizadas que precisa de substituir pelos seus próprios valores:
 
-- `{tenantId}`- Substitua com a sua identificação de inquilino
-- `{YourMG}`- Substitua com a identificação do seu grupo de gestão
+- `{tenantId}`- Substitua-o pela sua ID do seu inquilino
+- `{YourMG}`- Substitua pelo ID do seu grupo de gestão
 - `{subscriptionId}` - substituir pelo ID da subscrição
 
-1. Forneça ao principal de serviço do Azure Blueprint a função **Proprietário** na subscrição de destino. O AppId é estático , `f71766dc-90d9-4b7d-bd9d-4499c4331c3f` mas o id principal do serviço varia de acordo com o inquilino. Pode pedir detalhes para o seu inquilino através da API REST seguinte. Utiliza a [Graph API do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tem uma autorização diferente.
+1. Forneça ao principal de serviço do Azure Blueprint a função **Proprietário** na subscrição de destino. O AppId é estático , `f71766dc-90d9-4b7d-bd9d-4499c4331c3f` mas o ID principal de serviço varia por inquilino. Pode pedir detalhes para o seu inquilino através da API REST seguinte. Utiliza a [Graph API do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tem uma autorização diferente.
 
    - URI da API REST
 
@@ -388,10 +388,10 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      }
      ```
 
-   - Identidade gerida atribuída ao utilizador
+   - Identidade gerida atribuída pelo utilizador
 
-     Uma atribuição de plantas também pode usar uma [identidade gerida atribuída pelo utilizador.](../../active-directory/managed-identities-azure-resources/overview.md)
-     Neste caso, a parte de **identidade** do órgão de pedido muda da seguinte forma. Substitua e com o nome do grupo de recursos e o nome da sua identidade gerida atribuída pelo `{yourRG}` `{userIdentity}` utilizador, respectivamente.
+     Uma atribuição de plantas também pode usar uma [identidade gerida atribuída pelo utilizador](../../active-directory/managed-identities-azure-resources/overview.md).
+     Neste caso, a parte **de identidade** do corpo solicitado muda da seguinte forma. Substitua `{yourRG}` e pelo nome do seu grupo de recursos e pelo nome da sua identidade gerida atribuída ao `{userIdentity}` utilizador, respectivamente.
 
      ```json
      "identity": {
@@ -406,7 +406,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      A **identidade gerida atribuída pelo utilizador** pode estar em qualquer grupo de subscrição e recursos a que o utilizador que atribui a planta tem permissões.
 
      > [!IMPORTANT]
-     > A Azure Blueprints não gere a identidade gerida atribuída pelo utilizador. Os utilizadores são responsáveis pela atribuição de funções e permissões suficientes ou a atribuição do projeto falhará.
+     > A Azure Blueprints não gere a identidade gerida atribuída pelo utilizador. Os utilizadores são responsáveis por atribuir funções e permissões suficientes ou a atribuição do projeto falhará.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -432,7 +432,7 @@ Para remover o próprio esquema, utilize a seguinte operação da API REST:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criou, atribuiu e removeu uma planta com rest API. Para saber mais sobre as Plantas Azure, continue o artigo blueprint lifecycle.
+Neste arranque rápido, criou, atribuiu e removeu uma planta com REST API. Para saber mais sobre a Azure Blueprints, continue para o artigo do ciclo de vida do projeto.
 
 > [!div class="nextstepaction"]
 > [Conheça o ciclo de vida da planta](./concepts/lifecycle.md)

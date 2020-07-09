@@ -1,52 +1,55 @@
 ---
-title: Adicionar serviço principal ao papel de administrador dos Serviços de Análise Azure [ Microsoft Docs
-description: Saiba como adicionar um serviço de automação principal ao papel de administração do servidor do Azure Analysis Services
+title: Adicione o principal do serviço à função de administrador dos Serviços de Análise Azure / Microsoft Docs
+description: Saiba como adicionar um principal de serviço de automação à função de administração de servidores Azure Analysis Services
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bc3e17ce5becf039703585167e1ef3aa825cf2ab
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 4ce23e9da84d01a288c1c37c6a6d884db2ed3969
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697526"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077563"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Adicione um principal de serviço à função de administrador do servidor 
 
- Para automatizar tarefas PowerShell não atendidas, um diretor de serviço deve ter privilégios de administrador de **servidor** no servidor serviços de análise sendo geridos. Este artigo descreve como adicionar um principal de serviço ao papel de administradores do servidor num servidor Azure AS. Pode fazê-lo usando o Estúdio de Gestão de Servidores SQL ou um modelo de Gestor de Recursos.
+ Para automatizar tarefas sem supervisão do PowerShell, um diretor de serviço deve ter privilégios de administrador de **servidores** no servidor de Serviços de Análise a ser gerido. Este artigo descreve como adicionar um principal de serviço à função de administradores do servidor num servidor Azure AS. Pode fazê-lo usando o SQL Server Management Studio ou um modelo de Gestor de Recursos. 
 
-## <a name="before-you-begin"></a>Antes de começar
-Antes de completar esta tarefa, deve ter um diretor de serviço registado no Diretório Ativo Azure.
+> [!NOTE]
+> Os princípios de serviço devem ser adicionados diretamente à função de administrador do servidor. Adicionar um principal de serviço a um grupo de segurança e, em seguida, adicionar que o grupo de segurança à função de administrador do servidor não é suportado. 
 
-[Criar o principal de serviço - Portal Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
+## <a name="before-you-begin"></a>Before you begin
+Antes de completar esta tarefa, deve ter um diretor de serviço registado no Azure Ative Directory.
+
+[Criar um principal de serviço – portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Criar principal de serviço - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="using-sql-server-management-studio"></a>Utilizar o SQL Server Management Studio
 
-Pode configurar administradores de servidores utilizando o Estúdio de Gestão de Servidores SQL (SSMS). Para completar esta tarefa, deve ter permissões de administrador de [servidor](analysis-services-server-admins.md) no servidor Azure AS. 
+Pode configurar administradores de servidores utilizando o SQL Server Management Studio (SSMS). Para completar esta tarefa, tem de ter permissões [de administrador de servidores](analysis-services-server-admins.md) no servidor Azure AS. 
 
 1. No SSMS, ligue-se ao seu servidor Azure AS.
-2. Na segurança das **propriedades do servidor,**  >  **Security**clique em **Adicionar**.
-3. Em **Selecione um Utilizador ou Grupo,** procure a sua aplicação registada pelo nome, selecione e, em seguida, clique em **Adicionar**.
+2. Na Segurança **das Propriedades do Servidor,**  >  **Security**clique em **Adicionar**.
+3. Em **Selecionar um Utilizador ou Grupo,** procure a sua aplicação registada pelo nome, selecione e, em seguida, clique em **Adicionar**.
 
-    ![Procurar conta principal de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
+    ![Pesquisa de conta principal de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
 
-4. Verifique o ID da conta principal do serviço e, em seguida, clique **ok**.
+4. Verifique o ID da conta principal do serviço e, em seguida, clique **em OK**.
     
-    ![Procurar conta principal de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
+    ![Pesquisa de conta principal de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
 ## <a name="using-a-resource-manager-template"></a>Utilizar um modelo do Resource Manager
 
-Também pode configurar os administradores do servidor implementando o servidor de Serviços de Análise utilizando um modelo de Gestor de Recursos Azure. A identidade que executa a implantação deve pertencer ao papel **de Contribuinte** para o recurso no Controlo de Acesso baseado em [Funções Azure (RBAC)](../role-based-access-control/overview.md).
+Também pode configurar administradores de servidores implantando o servidor Serviços de Análise utilizando um modelo de Gestor de Recursos Azure. A identidade que executa a implantação deve pertencer ao papel **de Contribuinte** para o recurso no [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md).
 
 > [!IMPORTANT]
 > O diretor de serviço deve ser adicionado utilizando o formato `app:{service-principal-client-id}@{azure-ad-tenant-id}` .
 
-O seguinte modelo de Gestor de Recursos implementa um servidor de Serviços de Análise com um principal de serviço especificado adicionado à função de Administração de Serviços de Análise:
+O modelo seguinte do Gestor de Recursos implementa um servidor de Serviços de Análise com um principal de serviço especificado adicionado à função de Administração de Serviços de Análise:
 
 ```json
 {
@@ -94,11 +97,11 @@ O seguinte modelo de Gestor de Recursos implementa um servidor de Serviços de A
 }
 ```
 
-## <a name="using-managed-identities"></a>Usando identidades geridas
+## <a name="using-managed-identities"></a>Utilização de identidades geridas
 
-Uma identidade gerida também pode ser adicionada à lista de Administradores de Serviços de Análise. Por exemplo, pode ter uma App Lógica com uma identidade gerida atribuída pelo sistema, e quer [conceder-lhe](../logic-apps/create-managed-service-identity.md)a capacidade de administrar o seu servidor de Serviços de Análise.
+Uma identidade gerida também pode ser adicionada à lista de Administradores de Serviços de Análise. Por exemplo, pode ter uma App Lógica com uma identidade gerida atribuída ao sistema , e pretende [conceder-lhe](../logic-apps/create-managed-service-identity.md)a capacidade de administrar o seu servidor de Serviços de Análise.
 
-Na maioria das partes do portal Azure e APIs, as identidades geridas são identificadas usando o seu principal de serviço ID. No entanto, os Serviços de Análise exigem que sejam identificados utilizando o ID do cliente. Para obter o ID do cliente para um diretor de serviço, pode utilizar o Azure CLI:
+Na maioria das partes do portal Azure e APIs, identidades geridas são identificadas usando o seu iD principal de serviço. No entanto, os Serviços de Análise exigem que sejam identificados utilizando a identificação do seu cliente. Para obter a ID do cliente para um principal de serviço, pode utilizar o Azure CLI:
 
 ```bash
 az ad sp show --id <ManagedIdentityServicePrincipalObjectId> --query appId -o tsv
@@ -114,7 +117,7 @@ Em seguida, pode utilizar este ID do cliente em conjunto com o ID do inquilino p
 
 ## <a name="related-information"></a>Informações relacionadas
 
-* [Descarregue o módulo PowerShell do servidor SQL](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
+* [Baixar módulo PowerShell do servidor SQL](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
 * [Baixar SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
 
 

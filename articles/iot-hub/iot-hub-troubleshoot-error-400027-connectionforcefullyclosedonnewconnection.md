@@ -1,6 +1,6 @@
 ---
-title: Problemas de resolução de problemas Erro do Hub Azure IoT 400027 ConnectionForcefullyClosedOnNewConnection
-description: Entenda como corrigir o erro 400027 ConnectionForcefullyClosedOnNewConnection
+title: Resolução de problemas Erro do Hub Azure IoT 400027 ConnectionForcefullyClosedOnNewConnection
+description: Entenda como corrigir erro 400027 ConnectionForcefullyClosedOnNewConnection
 author: jlian
 manager: briz
 ms.service: iot-hub
@@ -9,23 +9,22 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: f4949816f516c6a6b60cfda0602f458256370d40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76960532"
 ---
 # <a name="400027-connectionforcefullyclosedonnewconnection"></a>400027 ConnectionForcefullyClosedOnNewConnection
 
-Este artigo descreve as causas e soluções para **erros de Ligação400227 ConnectionForcefullyClosedOnNewConnection.**
+Este artigo descreve as causas e soluções para **400027 Erros de ConexãoForcedamenteClosedOnNewConnection.**
 
 ## <a name="symptoms"></a>Sintomas
 
-A operação de dispositivo-para-nuvem twin (como propriedades de leitura ou patch reportadas) ou a invocação do método direto falha com o código de erro **400027**.
+A sua operação de dois dispositivos para nuvem (como propriedades relatadas de leitura ou correção) ou invocação de método direto falha com o código de erro **400027**.
 
 ## <a name="cause"></a>Causa
 
-Outro cliente criou uma nova ligação ao IoT Hub usando as mesmas credenciais, pelo que o IoT Hub fechou a ligação anterior. O IoT Hub não permite que mais do que um cliente se conectem usando o mesmo conjunto de credenciais.
+Outro cliente criou uma nova ligação ao IoT Hub usando as mesmas credenciais, por isso o IoT Hub fechou a ligação anterior. O IoT Hub não permite que mais de um cliente se conecte usando o mesmo conjunto de credenciais.
 
 ## <a name="solution"></a>Solução
 

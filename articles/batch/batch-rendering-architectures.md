@@ -1,59 +1,58 @@
 ---
-title: Arquiteturas de referência de renderização azure
-description: Arquiteturas para usar O Lote Azure e outros serviços Azure para estender uma fazenda no local, explodindo até a nuvem
+title: Azure renderizando arquiteturas de referência
+description: Arquiteturas para usar Azure Batch e outros serviços Azure para estender uma fazenda no local, rebentando até a nuvem
 ms.date: 02/07/2019
 ms.topic: how-to
 ms.custom: seodec18
 ms.openlocfilehash: 784fd89c3dea88e25a2058713897c7a655c8a3af
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83726524"
 ---
-# <a name="reference-architectures-for-azure-rendering"></a>Arquiteturas de referência para renderização azure
+# <a name="reference-architectures-for-azure-rendering"></a>Arquiteturas de referência para renderização Azure
 
-Este artigo mostra diagramas de arquitetura de alto nível para cenários que se estendem, ou "burst", uma fazenda no local render a Azure. Os exemplos mostram diferentes opções para serviços de computação, networking e armazenamento Azure.
+Este artigo mostra diagramas de arquitetura de alto nível para cenários para estender, ou "rebentar", uma fazenda no local para Azure. Os exemplos mostram diferentes opções para os serviços de computação, networking e armazenamento do Azure.
 
 ## <a name="hybrid-with-nfs-or-cfs"></a>Híbrido com NFS ou CFS
 
-O diagrama seguinte mostra um cenário híbrido que inclui os seguintes serviços Azure:
+O diagrama a seguir mostra um cenário híbrido que inclui os seguintes serviços Azure:
 
-* **Compute** - Piscina de Lote Azure ou Conjunto de Escala de Máquina virtual.
+* **Compute** - Piscina Azure Batch ou Conjunto de Balanças de Máquinas Virtuais.
 
 * **Rede** - No local: Azure ExpressRoute ou VPN. Azure: Azure VNet.
 
-* **Armazenamento** - Ficheiros de entrada e saída: NFS ou CFS utilizando VMs Azure, sincronizados com armazenamento no local através do Azure File Sync ou RSync. Alternativamente: Avere vFXT para inserir ou passar ficheiros a partir de dispositivos NAS no local utilizando NFS.
+* **Armazenamento** - Ficheiros de entrada e saída: NFS ou CFS utilizando VMs Azure, sincronizados com armazenamento no local via Azure File Sync ou RSync. Alternativamente: Avere vFXT para inserir ou desapaalar ficheiros de dispositivos NAS no local utilizando NFS.
 
-  ![Cloud bursting - Híbrido com NFS ou CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
+  ![Rebentamento de nuvem - Híbrido com NFS ou CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 
 ## <a name="hybrid-with-blobfuse"></a>Híbrido com Blobfuse
 
-O diagrama seguinte mostra um cenário híbrido que inclui os seguintes serviços Azure:
+O diagrama a seguir mostra um cenário híbrido que inclui os seguintes serviços Azure:
 
-* **Compute** - Piscina de Lote Azure ou Conjunto de Escala de Máquina virtual.
+* **Compute** - Piscina Azure Batch ou Conjunto de Balanças de Máquinas Virtuais.
 
 * **Rede** - No local: Azure ExpressRoute ou VPN. Azure: Azure VNet.
 
-* **Armazenamento** - Ficheiros de entrada e saída: Armazenamento blob, montado para calcular recursos através de Azure Blobfuse.
+* **Armazenamento** - Ficheiros de entrada e saída: Armazenamento blob, montado para calcular recursos via Azure Blobfuse.
 
   ![Cloud bursting - Híbrido com Blobfuse](./media/batch-rendering-architectures/hybrid-blob-fuse.png)
 
 ## <a name="hybrid-compute-and-storage"></a>Computação híbrida e armazenamento
 
-O diagrama seguinte mostra um cenário híbrido totalmente conectado tanto para a computação como para o armazenamento e inclui os seguintes serviços Azure:
+O diagrama a seguir mostra um cenário híbrido totalmente ligado tanto para o cálculo como para o armazenamento e inclui os seguintes serviços Azure:
 
-* **Compute** - Piscina de Lote Azure ou Conjunto de Escala de Máquina virtual.
+* **Compute** - Piscina Azure Batch ou Conjunto de Balanças de Máquinas Virtuais.
 
 * **Rede** - No local: Azure ExpressRoute ou VPN. Azure: Azure VNet.
 
-* **Armazenamento** - Cross-premises: Avere vFXT. Arquivamento opcional de ficheiros no local através da Caixa de Dados Azure para o armazenamento blob, ou no local Avere FXT para aceleração nas.
+* **Armazenamento** - Cross-premis: Avere vFXT. Arquivo opcional de ficheiros no local através da Caixa de Dados Azure para o armazenamento blob, ou no local Avere FXT para aceleração do NAS.
 
-  ![Cloud bursting - Calculador híbrido e armazenamento](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
+  ![Rebentamento de nuvem - Computação híbrida e armazenamento](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 
 
 ## <a name="next-steps"></a>Próximos passos
 
-* Saiba mais sobre a utilização de [gestores render](batch-rendering-render-managers.md) com o Lote Azure.
+* Saiba mais sobre a utilização [de gestores de renderização](batch-rendering-render-managers.md) com a Azure Batch.
 
-* Saiba mais sobre as opções para [renderização em Azure.](batch-rendering-service.md)
+* Saiba mais sobre as opções de [renderização em Azure.](batch-rendering-service.md)

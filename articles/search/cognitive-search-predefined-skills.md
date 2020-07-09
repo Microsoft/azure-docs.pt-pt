@@ -1,59 +1,59 @@
 ---
 title: Processamento de texto e imagem incorporado durante a indexação
 titleSuffix: Azure Cognitive Search
-description: A extração de dados, a linguagem natural, as habilidades cognitivas de processamento de imagem adicionam semântica e estrutura ao conteúdo bruto num oleoduto de Pesquisa Cognitiva Azure.
+description: A extração de dados, a linguagem natural, as capacidades cognitivas de processamento de imagem adicionam semântica e estrutura ao conteúdo bruto num pipeline de Pesquisa Cognitiva Azure.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b1cf1750924ab8ea8afff6ac788683565433866b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 59d181d8f4c176a8fc00ac0fb8ab0216c6ae27f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81618015"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080041"
 ---
 # <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Competências cognitivas incorporadas para processamento de texto e imagem durante a indexação (Pesquisa Cognitiva Azure)
 
-Neste artigo, você aprende sobre as habilidades cognitivas fornecidas com Pesquisa Cognitiva Azure que você pode incluir em um skillset para extrair conteúdo e estrutura. Uma *habilidade cognitiva* é um módulo ou operação que transforma o conteúdo de alguma forma. Muitas vezes, é um componente que extrai dados ou infere a estrutura, e por isso aumenta a nossa compreensão dos dados de entrada. Quase sempre, a saída é baseada em texto. Uma *habilidade* é a coleção de habilidades que definem o gasoduto de enriquecimento. 
+Neste artigo, você aprende sobre as habilidades cognitivas fornecidas com a Azure Cognitive Search que você pode incluir em um skillset para extrair conteúdo e estrutura. Uma *habilidade cognitiva* é um módulo ou operação que transforma o conteúdo de alguma forma. Muitas vezes, é um componente que extrai dados ou infere a estrutura, e, portanto, aumenta a nossa compreensão dos dados de entrada. Quase sempre, a saída é baseada em texto. Um *skillset* é a coleção de competências que definem o oleoduto de enriquecimento. 
 
 > [!NOTE]
-> À medida que expande o âmbito aumentando a frequência do processamento, adicionando mais documentos, ou adicionando mais algoritmos de IA, terá de [anexar um recurso de Serviços Cognitivos faturados.](cognitive-search-attach-cognitive-services.md) As acusações acumulam-se quando se ligam para apis em Serviços Cognitivos, e para extração de imagem como parte da fase de quebra de documentos na Pesquisa Cognitiva Azure. Não há encargos para a extração de texto de documentos.
+> À medida que expande o âmbito, aumentando a frequência do processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, terá de [anexar um recurso de Serviços Cognitivos faturados.](cognitive-search-attach-cognitive-services.md) As taxas acumulam-se ao chamar APIs em Serviços Cognitivos, e para a extração de imagem como parte da fase de cracking de documentos em Azure Cognitive Search. Não há encargos para a extração de texto a partir de documentos.
 >
-> A execução de competências incorporadas é cobrada pelo preço de pagamento dos [Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. Os preços de extração de imagem são descritos na página de preços da [Pesquisa Cognitiva Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de competências incorporadas é cobrada pelo preço de pagamento dos [Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. Os preços de extração de imagem são descritos na [página de preços de Pesquisa Cognitiva Azure](https://azure.microsoft.com/pricing/details/search/).
 >
-> A funcionalidade de [enriquecimento incremental (pré-visualização)](cognitive-search-incremental-indexing-conceptual.md) permite-lhe fornecer uma cache que permite ao indexante ser mais eficiente em executar apenas as habilidades cognitivas necessárias se modificar a sua habilidade no futuro, poupando-lhe tempo e dinheiro.
+> A funcionalidade [de enriquecimento incremental (pré-visualização)](cognitive-search-incremental-indexing-conceptual.md) permite-lhe fornecer uma cache que permite ao indexante ser mais eficiente na execução apenas das capacidades cognitivas necessárias se modificar o seu skillset no futuro, poupando-lhe tempo e dinheiro.
 
 
 ## <a name="built-in-skills"></a>Competências incorporadas
 
-Várias competências são flexíveis naquilo que consomem ou produzem. Em geral, a maioria das competências baseia-se em modelos pré-treinados, o que significa que não pode treinar o modelo usando os seus próprios dados de treino. A tabela seguinte enumera e descreve as competências fornecidas pela Microsoft. 
+Várias competências são flexíveis naquilo que consomem ou produzem. Em geral, a maioria das habilidades baseia-se em modelos pré-treinados, o que significa que não se pode treinar o modelo usando os seus próprios dados de treino. A tabela a seguir enumera e descreve as competências fornecidas pela Microsoft. 
 
 | Habilidade | Descrição |
 |-------|-------------|
-|[Microsoft.Skills.Text.CustomEntityLookupSkill](cognitive-search-skill-custom-entity-lookup.md)| Procura texto a partir de uma lista personalizada e definida pelo utilizador de palavras e frases.|
-| [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md) | Esta habilidade usa um modelo pré-treinado para detetar frases importantes baseadas na colocação de termo, regras linguísticas, proximidade a outros termos, e quão incomum o termo é dentro dos dados de origem. |
-| [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | Esta habilidade utiliza um modelo pré-treinado para detetar que linguagem é usada (um ID de idioma por documento). Quando várias línguas são usadas nos mesmos segmentos de texto, a saída é o LCID da língua predominantemente utilizada.|
-| [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md) | Consolida o texto de uma coleção de campos num único campo.  |
-| [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | Esta habilidade utiliza um modelo pré-treinado para estabelecer entidades para um conjunto fixo de categorias: pessoas, localização, organização, e-mails, URLs, campos de data. |
-| [Microsoft.Skills.Text.PIIDetectionSkill](cognitive-search-skill-pii-detection.md)  | Esta habilidade utiliza um modelo pré-treinado para extrair informações pessoalmente identificáveis de um determinado texto. A habilidade também dá várias opções para mascarar as entidades PII detetadas no texto.  |
-| [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)  | Esta habilidade usa um modelo pré-treinado para obter um sentimento positivo ou negativo num registo por registo. O resultado é entre 0 e 1. Pontuações neutras ocorrem tanto para o caso nulo quando o sentimento não pode ser detetado, como para texto que é considerado neutro.  |
-| [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md) | Divide o texto em páginas para que possa enriquecer ou aumentar o conteúdo de forma incremental. |
-| [Microsoft.Skills.Text.TranslationSkill](cognitive-search-skill-text-translation.md) | Esta habilidade usa um modelo pré-treinado para traduzir o texto de entrada numa variedade de idiomas para casos de normalização ou de utilização de localização. |
-| [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | Esta habilidade usa um algoritmo de deteção de imagem para identificar o conteúdo de uma imagem e gerar uma descrição de texto. |
-| [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | Reconhecimento ótico de carácter. |
+|[Microsoft.Skills.text.customentityLookupSkill](cognitive-search-skill-custom-entity-lookup.md)| Procura texto a partir de uma lista personalizada de palavras e frases definida pelo utilizador.|
+| [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md) | Esta habilidade usa um modelo pré-treinado para detetar frases importantes com base na colocação de termo, regras linguísticas, proximidade a outros termos, e quão incomum o termo é dentro dos dados de origem. |
+| [Microsoft.Skills.Text.LanguageDetectionskill](cognitive-search-skill-language-detection.md)  | Esta habilidade utiliza um modelo pré-treinado para detetar qual a língua utilizada (um ID de idioma por documento). Quando várias línguas são usadas dentro dos mesmos segmentos de texto, a saída é o LCID da língua predominantemente usada.|
+| [Microsoft.Skills.text.mergeSkill](cognitive-search-skill-textmerger.md) | Consolida o texto de uma coleção de campos num único campo.  |
+| [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | Esta habilidade utiliza um modelo pré-treinado para estabelecer entidades para um conjunto fixo de categorias: pessoas, localização, organização, e-mails, URLs, campos de datas. |
+| [Microsoft.Skills.Text.PIIDetectionskill](cognitive-search-skill-pii-detection.md)  | Esta habilidade utiliza um modelo pré-treinado para extrair informações pessoalmente identificáveis a partir de um determinado texto. A habilidade também dá várias opções para mascarar as entidades de informação pessoalmente identificáveis detetadas no texto.  |
+| [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)  | Esta habilidade usa um modelo pré-treinado para obter sentimentos positivos ou negativos numa base recorde. A pontuação é entre 0 e 1. As pontuações neutras ocorrem tanto para o caso nulo quando o sentimento não pode ser detetado, como para texto que é considerado neutro.  |
+| [Microsoft.Skills.text.splitSkill](cognitive-search-skill-textsplit.md) | Divide o texto em páginas para que possa enriquecer ou aumentar o conteúdo gradualmente. |
+| [Microsoft.Skills.text.translationskill](cognitive-search-skill-text-translation.md) | Esta habilidade utiliza um modelo pré-treinado para traduzir o texto de entrada numa variedade de idiomas para casos de normalização ou localização. |
+| [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | Esta habilidade utiliza um algoritmo de deteção de imagem para identificar o conteúdo de uma imagem e gerar uma descrição de texto. |
+| [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | Reconhecimento de caracteres óticos. |
 | [Microsoft.Skills.Util.ConditionalSkill](cognitive-search-skill-conditional.md) | Permite filtrar, atribuir um valor predefinido e fundir dados com base numa condição.|
 | [Microsoft.Skills.Util.DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) | Extrai conteúdo de um ficheiro dentro do gasoduto de enriquecimento. |
-| [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md) | Mapeie a saída para um tipo complexo (um tipo de dados multi-partes, que pode ser usado para um nome completo, um endereço multi-linhas, ou uma combinação de apelido e um identificador pessoal.) |
-| [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | Permite a extebilidade de um oleoduto de enriquecimento de IA fazendo uma chamada http para uma API web personalizada |
+| [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md) | Mapeia a saída para um tipo complexo (um tipo de dados multi-partes, que pode ser usado para um nome completo, um endereço multi-linha, ou uma combinação de apelido e um identificador pessoal.) |
+| [Microsoft.Skills.custom.webapiskill](cognitive-search-custom-skill-web-api.md) | Permite a extensibilidade de um oleoduto de enriquecimento de IA fazendo uma chamada HTTP para uma API web personalizada |
+| [Microsoft.Skills.custom.AmlSkill](cognitive-search-aml-skill.md) | Permite a extensibilidade de um oleoduto de enriquecimento de IA com um modelo de Aprendizagem automática Azure |
 
 
-Para obter orientações sobre a criação de uma [habilidade personalizada,](cognitive-search-custom-skill-web-api.md)consulte [Como definir uma interface personalizada](cognitive-search-custom-skill-interface.md) e exemplo: Criar uma habilidade personalizada para enriquecimento de [IA](cognitive-search-create-custom-skill-example.md).
+Para obter orientações sobre a criação de uma [habilidade personalizada,](cognitive-search-custom-skill-web-api.md)consulte [Como definir uma interface personalizada](cognitive-search-custom-skill-interface.md) e [Exemplo: Criar uma habilidade personalizada para enriquecimento de IA](cognitive-search-create-custom-skill-example.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
-+ [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)
++ [Como definir um skillset](cognitive-search-defining-skillset.md)
 + [Definição de interface de habilidades personalizadas](cognitive-search-custom-skill-interface.md)
 + [Tutorial: Indexação enriquecida com IA](cognitive-search-tutorial-blob.md)

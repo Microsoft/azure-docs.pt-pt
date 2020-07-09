@@ -1,32 +1,32 @@
 ---
 title: Otimizar o processamento de dados para Apache Spark - Azure HDInsight
-description: Saiba como escolher as operações mais eficientes para processar os seus dados no Apache Spark com o Azure HDInsight.
+description: Saiba como escolher as operações mais eficientes para processar os seus dados sobre Apache Spark com Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 1e48573c2b73c10f10f665b5b91759d54d79acdd
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 021999e1757993eea4bbfe3aec0bd68049a37e42
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83791065"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737670"
 ---
-# <a name="data-processing-optimization"></a>Otimização do processamento de dados
+# <a name="data-processing-optimization-for-apache-spark"></a>Otimização de processamento de dados para Apache Spark
 
 Este artigo discute como otimizar a configuração do seu cluster Apache Spark para melhor desempenho no Azure HDInsight.
 
 ## <a name="overview"></a>Descrição geral
 
-Se tiver empregos lentos num Join or Shuffle, a causa é provavelmente *desvirtuada*por dados . A distorção de dados é assimetria nos dados do seu trabalho. Por exemplo, um trabalho de mapa pode levar 20 segundos. Mas gerir um trabalho onde os dados são unidos ou baralhados leva horas. Para corrigir o enviesamento dos dados, deve salgar toda a chave ou utilizar um *sal isolado* para apenas um subconjunto de teclas. Se estiver a utilizar um sal isolado, deve filtrar ainda mais para isolar o seu subconjunto de chaves salgadas no mapa. Outra opção é introduzir uma coluna de balde e pré-agregar em baldes primeiro.
+Se tiver trabalhos lentos num Join ou Shuffle, a causa é provavelmente *distorcer dados.* O distorce de dados é assimetria nos dados do seu trabalho. Por exemplo, um trabalho de mapa pode demorar 20 segundos. Mas gerir um trabalho onde os dados são unidos ou baralhados leva horas. Para corrigir o distorcer de dados, deve salgar toda a tecla ou utilizar um *sal isolado* para apenas alguns subconjuntos de teclas. Se estiver a utilizar um sal isolado, deve filtrar ainda mais o subconjunto de teclas salgadas em juntas de mapa. Outra opção é introduzir uma coluna de balde e pré-agregar primeiro em baldes.
 
-Outro fator que causa a juntas lentas pode ser o tipo de união. Por padrão, a Spark utiliza o tipo de `SortMerge` união. Este tipo de adesão é mais adequado para grandes conjuntos de dados. Mas, de outra forma, é computacionalmente caro porque primeiro deve separar os lados esquerdo e direito dos dados antes de os fundir.
+Outro fator que causa a junção lenta pode ser o tipo de junção. Por predefinição, a Spark utiliza o `SortMerge` tipo de junção. Este tipo de junção é mais adequado para grandes conjuntos de dados. Mas é de outra forma computacionalmente caro porque deve primeiro separar os lados esquerdo e direito dos dados antes de os fundir.
 
-Uma `Broadcast` adesão é mais adequada para conjuntos de dados menores, ou onde um lado da junta é muito menor do que o outro lado. Este tipo de união transmite um lado para todos os executores, e assim requer mais memória para transmissões em geral.
+Uma `Broadcast` junção é mais adequada para conjuntos de dados menores, ou onde um lado da junta é muito menor do que o outro lado. Este tipo de junção transmite um lado para todos os executores, e assim requer mais memória para transmissões em geral.
 
-Pode alterar o tipo de união na sua configuração definindo, ou pode definir uma dica de `spark.sql.autoBroadcastJoinThreshold` união utilizando as APIs dataFrame `dataframe.join(broadcast(df2))` ().
+Pode alterar o tipo de junção na sua configuração definindo `spark.sql.autoBroadcastJoinThreshold` , ou pode definir uma sugestão de junção utilizando as APIs dataframe `dataframe.join(broadcast(df2))` ().
 
 ```scala
 // Option 1
@@ -41,31 +41,31 @@ df1.join(broadcast(df2), Seq("PK")).
 sql("SELECT col1, col2 FROM V_JOIN")
 ```
 
-Se estáa usando mesas baldes, então tem um terceiro tipo de adesão, o `Merge` juntamo. Um conjunto de dados pré-dividido e pré-ordenado salta a fase de classificação cara de uma `SortMerge` adesão.
+Se estiver a usar mesas de balde, então tem um terceiro tipo de junção, a `Merge` junção. Um conjunto de dados pré-dividido e pré-classificado corretamente irá saltar a fase de classificação cara a partir de uma `SortMerge` junção.
 
-A ordem de adesão importa, particularmente em consultas mais complexas. Comece com as juntas mais seletivas. Além disso, move-se que aumenta o número de linhas após agregações quando possível.
+A ordem de junção importa, particularmente em consultas mais complexas. Comece com as juntas mais seletivas. Além disso, mova-se junta-se que aumente o número de filas após agregações, quando possível.
 
-Para gerir o paralelismo para uniões cartesianas, pode adicionar estruturas aninhadas, janelas e talvez saltar um ou mais passos no seu Spark Job.
+Para gerir o paralelismo para a cartesia, pode adicionar estruturas aninhadas, janelas e talvez saltar um ou mais passos no seu Spark Job.
 
-## <a name="optimize-job-execution"></a>Otimizar a execução de emprego
+## <a name="optimize-job-execution"></a>Otimizar a execução de tarefas
 
-* Cache conforme necessário, por exemplo, se utilizar os dados duas vezes, em seguida, cache-os.
-* Transmita variáveis a todos os executores. As variáveis só são serializadas uma vez, resultando em procurações mais rápidas.
-* Utilize a piscina de rosca no condutor, o que resulta numa operação mais rápida para muitas tarefas.
+* Cache, se necessário, por exemplo, se utilizar os dados duas vezes, em seguida, cache-os.
+* Variáveis de transmissão a todos os executores. As variáveis só são serializadas uma vez, resultando em procuras mais rápidas.
+* Utilize a piscina de rosca no controlador, o que resulta numa operação mais rápida para muitas tarefas.
 
-Monitorize regularmente os seus trabalhos de funcionamento para problemas de desempenho. Se precisar de mais informações sobre certas questões, considere uma das seguintes ferramentas de perfis de desempenho:
+Monitorize regularmente os seus trabalhos de funcionamento para problemas de desempenho. Se precisar de mais informações sobre determinadas questões, considere uma das seguintes ferramentas de perfis de desempenho:
 
-* [A Ferramenta Intel PAL](https://github.com/intel-hadoop/PAT) monitoriza o CPU, o armazenamento e a largura de banda da rede.
-* [Oracle Java 8 Perfis de Controlo](https://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) de Missão Spark e código executor.
+* [A Ferramenta Intel PAL](https://github.com/intel-hadoop/PAT) monitoriza o uso de CPU, armazenamento e largura de banda de rede.
+* [Oracle Java 8 Mission Control](https://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) perfis Spark e código executor.
 
-A chave para o desempenho da consulta Spark 2.x é o motor Tungsten, que depende da geração de códigos em toda a fase. Em alguns casos, a geração de códigos em fase inteira pode ser desativada. Por exemplo, se utilizar um tipo não mutável () na expressão de `string` agregação, `SortAggregate` aparece em vez de `HashAggregate` . Por exemplo, para um melhor desempenho, tente o seguinte e, em seguida, reativar a geração de códigos:
+A chave para o desempenho da consulta Spark 2.x é o motor Tungsten, que depende da geração de códigos em todo o estágio. Em alguns casos, a geração de códigos em todo o estágio pode ser desativada. Por exemplo, se utilizar um tipo não mutável `string` () na expressão de agregação, `SortAggregate` aparece em vez de `HashAggregate` . Por exemplo, para um melhor desempenho, experimente o seguinte e, em seguida, reeguir a geração de código:
 
 ```sql
 MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Otimizar o armazenamento de dados para a Apache Spark](optimize-data-storage.md)
+* [Otimizar o armazenamento de dados para Apache Spark](optimize-data-storage.md)
 * [Otimizar o uso da memória para Apache Spark](optimize-memory-usage.md)
 * [Otimizar a configuração do cluster para Apache Spark](optimize-cluster-configuration.md)

@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: aahi
-ms.openlocfilehash: 4656d8116ddd2e618adad97aeea576e88bc8785f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: aeb326bbc14dd2c44a0d3ab250bb611a6b8f6b0f
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78899581"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85805382"
 ---
-Use este quickstart para fazer a sua primeira pesquisa de imagem usando a biblioteca de clientes Bing Image Search, que é um invólucro para a API e contém as mesmas funcionalidades. Esta aplicação Java simples envia uma consulta de pesquisa de imagens, analisa a resposta JSON e apresenta o URL da primeira imagem devolvida.
+Utilize este quickstart para fazer a sua primeira pesquisa de imagem utilizando a biblioteca do cliente Bing Image Search, que é um invólucro para a API e contém as mesmas funcionalidades. Esta aplicação Java simples envia uma consulta de pesquisa de imagens, analisa a resposta JSON e apresenta o URL da primeira imagem devolvida.
 
 O código fonte deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch/Quickstart) com processamento de erros e anotações de código adicionais.
 
@@ -39,7 +39,7 @@ Instale as dependências da biblioteca do cliente Bing Image Search utilizando M
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Crie um novo projeto Java no seu IDE ou editor favorito, e adicione as seguintes importações à implementação da sua classe:
+1. Crie um novo projeto Java no seu IDE ou editor favorito e adicione as seguintes importações à sua implementação de classe:
 
     ```java
     import com.microsoft.azure.cognitiveservices.search.imagesearch.BingImageSearchAPI;
@@ -57,7 +57,7 @@ Instale as dependências da biblioteca do cliente Bing Image Search utilizando M
     BingImageSearchAPI client = BingImageSearchManager.authenticate(subscriptionKey);
     ```
 
-## <a name="send-a-search-request-to-the-api"></a>Envie um pedido de pesquisa à API
+## <a name="send-a-search-request-to-the-api"></a>Enviar um pedido de pesquisa à API
 
 1. Utilize `bingImages().search()` para enviar o pedido HTTP que contém a consulta de pesquisa. Guarde a resposta como `ImagesModel`.
 
@@ -71,7 +71,7 @@ Instale as dependências da biblioteca do cliente Bing Image Search utilizando M
 ## <a name="parse-and-view-the-result"></a>Analisar e ver o resultado
 
 Analise os resultados da imagem devolvidos na resposta.
-Se a resposta contiver resultados de pesquisa, guarde o primeiro resultado e imprima os seus dados, tais como um URL de miniatura, o URL original, juntamente com o número total de imagens devolvidas.  
+Se a resposta contiver resultados de pesquisa, guarde o primeiro resultado e imprima os seus detalhes, tais como um URL de miniatura, o URL original, juntamente com o número total de imagens devolvidas.  
 
 ```java
 if (imageResults != null && imageResults.value().size() > 0) {
@@ -93,11 +93,10 @@ else {
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) (Tutorial de aplicação de página única da Pesquisa de Imagens do Bing)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [O que é a Pesquisa de Imagens do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Experimentar uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Obter uma chave de acesso aos Serviços Cognitivos gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
 * [Amostras de Java para o SDK dos Serviços Cognitivos do Azure](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
-* [Documentação de Serviços Cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services)
+* [Documentação dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
 * [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

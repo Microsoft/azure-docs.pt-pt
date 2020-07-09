@@ -1,6 +1,6 @@
 ---
-title: Como instalar e utilizar as vistas de análise de registos [ Microsoft Docs
-description: Saiba como instalar e utilizar as vistas de análise de registo para o Diretório Ativo Azure
+title: Como instalar e utilizar as vistas de análise de registos ! Microsoft Docs
+description: Saiba como instalar e utilizar as vistas de análise de registo para o Azure Ative Directory
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -17,61 +17,61 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b17026e4cfbe69e36c8e459aa259fe16b1c9d80d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 116c0d5becaea1ca6d488bbf7c94674934d4f7c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74014424"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608199"
 ---
-# <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instale e utilize as vistas de análise de registo para o Diretório Ativo Azure
+# <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instale e utilize as vistas de análise de registo para o Azure Ative Directory
 
-As vistas de análise de registo sonícola sonâmlo do Azure Ative Directory ajudam-no a analisar e pesquisar os registos de atividade do Azure AD no seu inquilino Azure AD. Os registos de atividade da Azure AD incluem:
+As vistas de análise de registo de registo do Azure Ative Informação ajudam-no a analisar e a pesquisar os registos de atividades da AD Azure no seu inquilino Azure AD. Os registos de atividades da AD Azure incluem:
 
-* Registos de [auditoria:](concept-audit-logs.md) O relatório de atividade de registos de auditoria dá-lhe acesso ao histórico de todas as tarefas que são realizadas no seu inquilino.
-* Registos de login: Com o relatório de atividade de início de [sessão,](concept-sign-ins.md)pode determinar quem executou as tarefas que são reportadas nos registos de auditoria.
+* Registos de auditoria: O relatório de [atividade dos registos](concept-audit-logs.md) de auditoria dá-lhe acesso ao histórico de todas as tarefas realizadas no seu inquilino.
+* Registos de início de sessão: Com o [relatório de atividade de inscrição,](concept-sign-ins.md)pode determinar quem executou as tarefas que são reportadas nos registos de auditoria.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para utilizar as vistas de análise de registo, precisa de:
 
-* Um espaço de trabalho log Analytics na sua subscrição Azure. Aprenda a criar um espaço de [trabalho log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
-* Primeiro, complete os passos para encaminhar os registos de atividade da [AD Azure para o seu espaço](howto-integrate-activity-logs-with-log-analytics.md)de trabalho Log Analytics .
-* Descarregue as vistas do [repositório GitHub](https://aka.ms/AADLogAnalyticsviews) para o seu computador local.
+* Um espaço de trabalho Log Analytics na sua subscrição Azure. Saiba como [criar um espaço de trabalho Log Analytics.](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)
+* Em primeiro lugar, complete os passos para [encaminhar os registos de atividade azure AD para o seu espaço de trabalho Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
+* Faça o download das vistas do [repositório GitHub](https://aka.ms/AADLogAnalyticsviews) para o seu computador local.
 
 ## <a name="install-the-log-analytics-views"></a>Instale as vistas de análise de registo
 
-1. Navegue para o seu espaço de trabalho Log Analytics. Para isso, navegue primeiro para o [portal Azure](https://portal.azure.com) e selecione **Todos os serviços.** Escreva **o Log Analytics** na caixa de texto e selecione espaços de trabalho de Log **Analytics**. Selecione o espaço de trabalho para o quais encaminhou os registos de atividade, como parte dos pré-requisitos.
-2. Selecione **'Ver Designer',** selecione **Importar** e, em seguida, selecione **Escolher Ficheiro** para importar as vistas do seu computador local.
-3. Selecione as vistas que descarregou a partir dos pré-requisitos e selecione **Guardar** para salvar a importação. Faça isto para a vista de Eventos de Provisionamento de **Conta Azure AD** e a vista **Eventos de Entrada.**
+1. Navegue para o seu espaço de trabalho Log Analytics. Para isso, navegue primeiro para o [portal Azure](https://portal.azure.com) e selecione **Todos os serviços**. Digite **'Registar Analytics'** na caixa de texto e selecione **log analytics espaços de trabalho**. Selecione o espaço de trabalho para onde encaminhou os registos de atividade, como parte dos pré-requisitos.
+2. Selecione **Ver Designer,** selecione **Importar** e, em seguida, **selecione Choose File** para importar as vistas do seu computador local.
+3. Selecione as vistas que descarregou a partir dos pré-requisitos e **selecione Guardar** para salvar a importação. Faça-o para a vista **Azure AD Account Provisioning Events** e a vista **Eventos de Inscrição.**
 
 ## <a name="use-the-views"></a>Use as vistas
 
-1. Navegue para o seu espaço de trabalho Log Analytics. Para isso, navegue primeiro para o [portal Azure](https://portal.azure.com) e selecione **Todos os serviços.** Escreva **o Log Analytics** na caixa de texto e selecione espaços de trabalho de Log **Analytics**. Selecione o espaço de trabalho para o quais encaminhou os registos de atividade, como parte dos pré-requisitos.
+1. Navegue para o seu espaço de trabalho Log Analytics. Para isso, navegue primeiro para o [portal Azure](https://portal.azure.com) e selecione **Todos os serviços**. Digite **'Registar Analytics'** na caixa de texto e selecione **log analytics espaços de trabalho**. Selecione o espaço de trabalho para onde encaminhou os registos de atividade, como parte dos pré-requisitos.
 
-2. Uma vez no espaço de trabalho, selecione **Workspace Resumo**. Deve ver as seguintes três pontos de vista:
+2. Uma vez no espaço de trabalho, selecione **Workspace Summary**. Deve ver as seguintes três vistas:
 
-    * Eventos de Provisionamento de **Conta AD Azure**: Esta visão mostra relatórios relacionados com a atividade de fornecimento de auditoria, tais como o número de novos utilizadores aprovisionados e falhas de provisionamento, número de utilizadores atualizados e falhas de atualização e o número de utilizadores desprovisionados e correspondentes falhas.    
-    * **Eventos de inscrição**: Esta visão mostra os relatórios mais relevantes relacionados com a monitorização da atividade de inscrição, tais como inscrições por aplicação, utilizador, dispositivo, bem como uma visão sumária que rastreia o número de inscrições ao longo do tempo.
+    * **Eventos de Provisionamento de Conta AZure AD**: Esta visão mostra relatórios relacionados com a atividade de provisionamento de auditoria, tais como o número de novos utilizadores a provisionados e falhas de provisionamento, o número de utilizadores atualizados e as falhas de atualização e o número de utilizadores desavisionados e falhas correspondentes.    
+    * **Eventos de início de**sposição : Esta vista mostra os relatórios mais relevantes relacionados com a monitorização da atividade de início de sposição, tais como inserções por aplicação, utilizador, dispositivo, bem como uma visão sumária que rastreia o número de ins-ins ao longo do tempo.
 
-3. Selecione qualquer uma destas vistas para entrar nos relatórios individuais. Também pode definir alertas sobre qualquer um dos parâmetros do relatório. Por exemplo, vamos alertar para cada vez que há um erro de inscrição. Para isso, primeiro selecione a visualização de **Eventos de Início** de Sessão, selecione **erros de início de hora** e, em seguida, selecione **Analytics** para abrir a página de detalhes, com a consulta real por trás do relatório. 
+3. Selecione qualquer uma destas vistas para saltar para os relatórios individuais. Também pode definir alertas em qualquer um dos parâmetros do relatório. Por exemplo, vamos alertar para cada vez que há um erro de inscrição. Para isso, selecione primeiro a visualização **de Eventos de Início,** selecione **erros de início de sômbro** ao longo do tempo e, em seguida, selecione **Analytics** para abrir a página de detalhes, com a consulta real por trás do relatório. 
 
     ![Detalhes](./media/howto-install-use-log-analytics-views/details.png)
 
 
-4. Selecione **'Definir Alerta'** e, em seguida, selecione Sempre que a pesquisa de **registo personalizada &lt;estiver indefinida&gt; ** sob a secção de critérios de **alerta.** Uma vez que queremos alertar sempre que houver um erro de inscrição, detete o **Limiar** da lógica de alerta padrão para **1** e, em seguida, selecione **Done**. 
+4. Selecione **'Alerta'** e, em seguida, selecione **Sempre que a pesquisa de registo personalizado estiver &lt; indefinida &gt; ** na secção de **critérios de alerta.** Uma vez que queremos alertar sempre que houver um erro de entrada, descreva o **Limiar** da lógica de alerta predefinido para **1** e, em seguida, selecione **'Fazer' ( 'Fazer').** 
 
     ![Configurar lógica de sinal](./media/howto-install-use-log-analytics-views/configure-signal-logic.png)
 
-5. Introduza um nome e descrição para o alerta e coloque a gravidade para **Aviso**.
+5. Introduza um nome e descrição para o alerta e desema esta medida de **gravidade**para Aviso .
 
     ![Criar regra](./media/howto-install-use-log-analytics-views/create-rule.png)
 
-6. Selecione o grupo de ação para alertar. Em geral, esta pode ser uma equipa que pretende notificar por e-mail ou mensagem de texto, ou pode ser uma tarefa automatizada usando webhooks, livros de execução, funções, aplicações lógicas ou soluções ITSM externas. Aprenda a criar e gerir grupos de [ação no portal Azure.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)
+6. Selecione o grupo de ação para alertar. Em geral, esta pode ser uma equipa que pretende notificar via e-mail ou mensagem de texto, ou pode ser uma tarefa automatizada usando webhooks, runbooks, funções, aplicações lógicas ou soluções ITSM externas. Saiba como [criar e gerir grupos de ação no portal Azure.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)
 
-7. Selecione **Criar a regra** de alerta para criar o alerta. Agora será alertado sempre que houver um erro de inscrição.
+7. Selecione **Criar a regra de alerta** para criar o alerta. Agora será alertado sempre que houver um erro de inscrição.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Como analisar registos de atividade com registos do Monitor Azure](howto-analyze-activity-logs-log-analytics.md)
-* [Começar com registos do Monitor Azure no portal Azure](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)
+* [Como analisar registos de atividade com registos do Azure Monitor](howto-analyze-activity-logs-log-analytics.md)
+* [Começa com registos do Azure Monitor no portal Azure](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)

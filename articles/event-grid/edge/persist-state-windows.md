@@ -1,6 +1,6 @@
 ---
-title: Persistir estado no Windows - Azure Event Grid IoT Edge [ Microsoft Docs
-description: Persistir estado nas Janelas
+title: Persistir estado no Windows - Azure Event Grid IoT Edge / Microsoft Docs
+description: Persistir estado no Windows
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,26 +10,25 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: c2bae3bd268dba8efdf23ae314671b17a2c89420
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77086622"
 ---
-# <a name="persist-state-in-windows"></a>Persistir estado nas Janelas
+# <a name="persist-state-in-windows"></a>Persistir estado no Windows
 
-Os tópicos e subscrições criados no módulo Event Grid são armazenados no sistema de ficheiros de contentores por padrão. Sem persistência, se o módulo for redistribuído, todos os metadados criados perder-se-ão. Para preservar os dados através de implementações e reinícios, é necessário persistir os dados fora do sistema de ficheiros de contentores. 
+Os tópicos e subscrições criados no módulo 'Grade de Eventos' são armazenados por predefinição no sistema de ficheiros do contentor. Sem persistência, se o módulo for redistribuído, todos os metadados criados serão perdidos. Para preservar os dados através de implementações e reiniciões, é necessário persistir os dados fora do sistema de ficheiros do contentor. 
 
-Por padrão, apenas os metadados são persistidos e os eventos ainda são armazenados na memória para um melhor desempenho. Siga a secção de eventos persistais para permitir a persistência do evento também.
+Por padrão, apenas os metadados são persistidos e os eventos ainda são armazenados na memória para um melhor desempenho. Siga a secção de eventos de persistência para permitir a persistência do evento também.
 
-Este artigo fornece os passos necessários para implementar o módulo De Rede de Eventos com persistência nas implementações do Windows.
+Este artigo fornece os passos necessários para implementar o módulo De Grelha de Eventos com persistência nas implementações do Windows.
 
 > [!NOTE]
->O módulo Event Grid funciona como um utilizador de baixo privilégio **ContainerUser** no Windows.
+>O módulo De Grelha de Evento funciona como um **containeruser** de utilizador pouco privilegiado no Windows.
 
-## <a name="persistence-via-volume-mount"></a>Persistência através do volume de montagem
+## <a name="persistence-via-volume-mount"></a>Persistência através do suporte de volume
 
-[Os volumes](https://docs.docker.com/storage/volumes/) de docker são usados para preservar dados através de implementações. Para montar um volume, é necessário criá-lo utilizando comandos de estivador, dar permissões para que o recipiente possa ler, escrever e, em seguida, implantar o módulo.
+[Os volumes de estivadores](https://docs.docker.com/storage/volumes/) são usados para preservar dados em todas as implementações. Para montar um volume, é necessário criá-lo utilizando comandos de estivadores, dar permissões para que o recipiente possa ler, escrever para ele e, em seguida, implantar o módulo.
 
 1. Criar um volume executando o seguinte comando:
 
@@ -42,7 +41,7 @@ Este artigo fornece os passos necessários para implementar o módulo De Rede de
    ```sh
    docker -H npipe:////./pipe/iotedge_moby_engine volume create myeventgridvol
    ```
-1. Obtenha o diretório anfitrião para que o volume mapeia para executando o comando abaixo
+1. Obtenha o diretório de anfitriões para o que o volume mapeia através do comando abaixo
 
     ```sh
     docker -H npipe:////./pipe/iotedge_moby_engine volume inspect <your-volume-name-here>
@@ -69,15 +68,15 @@ Este artigo fornece os passos necessários para implementar o módulo De Rede de
           }
    ]
    ```
-1. Adicione o grupo **Utilizadores** ao valor apontado pela **Mountpoint** da seguinte forma:
-    1. Lançar o Explorador de Ficheiros.
-    1. Navegue para a pasta apontada por **Mountpoint**.
-    1. Clique à direita e, em seguida, selecione **Propriedades**.
+1. Adicione o grupo **de Utilizadores** ao valor apontado pelo **Mountpoint** da seguinte forma:
+    1. Launch File Explorer.
+    1. Navegue para a pasta apontada pelo **Mountpoint**.
+    1. Clique com o botão direito e, em seguida, selecione **Propriedades**.
     1. Selecione **Segurança**.
-    1. Em *Nomes de grupo ou utilizador, **selecione Editar**.
-    1. Selecione `Users` **Adicionar,** introduzir, selecione **'Ver Nomes'** e selecione **Ok**.
-    1. Sob *permissões para utilizadores,* selecione **Modificar**, e selecione **Ok**.
-1. Use **Binds** para montar este volume e reimplantar módulo de Rede de Eventos do portal Azure
+    1. Em *Nomes de grupo ou de utilizador, **selecione Editar**.
+    1. **Selecione Adicionar,** `Users` insira, **selecione 'Verificar nomes'** e selecione **Ok**.
+    1. Sob *Permissões para Utilizadores*, selecione **Modificar**e selecione **Ok**.
+1. Utilize **os Binds** para montar este volume e recolocar o módulo de Grelha de Eventos a partir do portal Azure
 
    Por exemplo,
 
@@ -112,7 +111,7 @@ Este artigo fornece os passos necessários para implementar o módulo De Rede de
     ```
 
    >[!IMPORTANT]
-   >Não altere a segunda parte do valor da ligação. Aponta para uma localização específica no módulo. Para o módulo De Rede de Eventos nas janelas, tem de ser **\\C: metadados de aplicaçõesDb\\**.
+   >Não altere a segunda parte do valor do encaixe. Aponta para uma localização específica no módulo. Para o módulo de Grelha de Eventos nas janelas, tem de ser **C: \\ \\ metadados de aplicaçõesDb**.
 
 
     Por exemplo,
@@ -148,11 +147,11 @@ Este artigo fornece os passos necessários para implementar o módulo De Rede de
     }
     ```
 
-## <a name="persistence-via-host-directory-mount"></a>Persistência através do suporte de diretório anfitrião
+## <a name="persistence-via-host-directory-mount"></a>Persistência através do suporte do diretório de anfitriões
 
-Em vez de acumular um volume, pode criar um diretório no sistema de anfitriões e montar esse diretório.
+Em vez de montar um volume, pode criar um diretório no sistema de anfitrião e montar esse diretório.
 
-1. Crie um diretório no sistema de ficheiros do anfitrião executando o seguinte comando.
+1. Crie um diretório no sistema de ficheiros anfitrião executando o seguinte comando.
 
    ```sh
    mkdir <your-directory-name-here>
@@ -163,7 +162,7 @@ Em vez de acumular um volume, pode criar um diretório no sistema de anfitriões
    ```sh
    mkdir C:\myhostdir
    ```
-1. Utilize **Binds** para montar o seu diretório e recolocar o módulo Da Grelha de Eventos do portal Azure.
+1. Utilize **os Binds** para montar o seu diretório e recolocar o módulo 'Grade de Eventos' a partir do portal Azure.
 
     ```json
     {
@@ -176,7 +175,7 @@ Em vez de acumular um volume, pode criar um diretório no sistema de anfitriões
     ```
 
     >[!IMPORTANT]
-    >Não altere a segunda parte do valor da ligação. Aponta para uma localização específica no módulo. Para o módulo De Rede de Eventos nas janelas, tem de ser **\\C: metadados de aplicaçõesDb\\**.
+    >Não altere a segunda parte do valor do encaixe. Aponta para uma localização específica no módulo. Para o módulo 'Grade' de Eventos nas janelas, tem de ser **C: \\ \\ metadados de aplicaçõesDb**.
 
     Por exemplo,
 
@@ -212,15 +211,15 @@ Em vez de acumular um volume, pode criar um diretório no sistema de anfitriões
     ```
 ## <a name="persist-events"></a>Persistir eventos
 
-Para permitir a persistência do evento, deve primeiro ativar a persistência dos eventos através do suporte de volume ou do suporte de diretório hospedeiro utilizando as secções acima referidas.
+Para ativar a persistência do evento, deve primeiro permitir a persistência de eventos, quer através do suporte de volume quer do suporte do diretório de anfitriões, utilizando as secções acima.
 
 Coisas importantes a notar sobre eventos persistentes:
 
-* Os eventos persistentes são ativados por subscrição de eventos e é opt-in uma vez que um volume ou diretório foi montado.
-* A persistência do evento é configurada numa Subscrição de Eventos no momento da criação e não pode ser modificada uma vez que a Subscrição do Evento é criada. Para alternar a persistência do evento, deve eliminar e recriar a Subscrição do Evento.
-* Os eventos persistentes são quase sempre mais lentos do que nas operações de memória, no entanto a diferença de velocidade depende muito das características da unidade. A troca entre a velocidade e a fiabilidade é inerente a todos os sistemas de mensagens, mas torna-se apenas percetível em larga escala.
+* Os eventos persistentes são ativados por subscrição de eventos e são opt-in uma vez que um volume ou diretório foi montado.
+* A persistência do evento é configurada numa Subscrição de Eventos no momento da criação e não pode ser modificada uma vez que a Subscrição do Evento é criada. Para alternar a persistência do evento, tem de eliminar e recriar a Subscrição do Evento.
+* Os eventos persistentes são quase sempre mais lentos do que nas operações de memória, no entanto a diferença de velocidade é altamente dependente das características da unidade. A troca entre velocidade e fiabilidade é inerente a todos os sistemas de mensagens, mas só se torna percetível em larga escala.
 
-Para permitir a persistência do `persistencePolicy` evento `true`numa Subscrição de Eventos, definida para:
+Para permitir a persistência do evento numa Subscrição de Eventos, definido `persistencePolicy` `true` para:
 
  ```json
         {

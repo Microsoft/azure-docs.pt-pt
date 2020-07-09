@@ -1,26 +1,25 @@
 ---
-title: Ligue-se à piscina Synapse SQL
-description: Fique ligado à piscina SQL.
+title: Conecte-se à piscina Sinaapse SQL
+description: Aconsecte-se à piscina SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e5c015751e8b0aeed7bd84086cc4f65c234fdb41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 31537f6cf957307aea4524d9c9421842d65979c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745325"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213538"
 ---
-# <a name="connect-to-synapse-sql-pool"></a>Ligue-se à piscina Synapse SQL
+# <a name="connect-to-synapse-sql-pool"></a>Conecte-se à piscina Sinaapse SQL
 
-Fique ligado à piscina SQL.
+Aconsecte-se à piscina SQL.
 
 ## <a name="find-your-server-name"></a>Encontrar o nome do servidor
 
@@ -35,9 +34,9 @@ O nome do servidor no exemplo seguinte é sqlpoolservername.database.windows.net
 
 ## <a name="supported-drivers-and-connection-strings"></a>Controladores e cadeias de ligação suportados
 
-A piscina SQL suporta [ADO.NET,](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) [ODBC,](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [PHP](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [JDBC.](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) Para encontrar a versão mais recente e documentação, clique num dos controladores anteriores.
+A piscina SQL suporta [ADO.NET,](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) [ODBC,](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [PHP](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [JDBC.](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) Para encontrar a versão e documentação mais recentes, clique num dos controladores anteriores.
 
-Para gerar automaticamente a cadeia de ligação para o controlador que está a utilizar a partir do portal Azure, clique nas cordas de **ligação** da base de dados Show a partir do exemplo anterior. Seguem-se também alguns exemplos do aspeto de uma cadeia de ligação para cada controlador.
+Para gerar automaticamente a cadeia de ligação para o controlador que está a utilizar a partir do portal Azure, clique nas cadeias de ligação da base de **dados Show** a partir do exemplo anterior. Seguem-se também alguns exemplos do aspeto de uma cadeia de ligação para cada controlador.
 
 > [!NOTE]
 > Considere definir o tempo limite da ligação como 300 segundos, para permitir que a ligação sobreviva a curtos períodos de indisponibilidade.
@@ -77,6 +76,6 @@ A piscina SQL normaliza algumas configurações durante a ligação e criação 
 | [DATEFORMAT](/sql/t-sql/statements/set-dateformat-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |mdy |
 | [DATEFIRST](/sql/t-sql/statements/set-datefirst-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |7 |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para ligar e consultar com o Visual Studio, veja [Query with Visual Studio (Consulta com o Visual Studio)](sql-data-warehouse-query-visual-studio.md). Para saber mais sobre opções de autenticação, consulte [Autenticação para Anapse Analytics Azure](sql-data-warehouse-authentication.md).
+Para ligar e consultar com o Visual Studio, veja [Query with Visual Studio (Consulta com o Visual Studio)](sql-data-warehouse-query-visual-studio.md). Para saber mais sobre opções de autenticação, consulte [autenticação para Azure Synapse Analytics](sql-data-warehouse-authentication.md).

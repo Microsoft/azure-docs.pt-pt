@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 979c714ca5446d3f1eabb76e97535ee5ffa2e359
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: e27719f7a639a97a0cde04848a51ba6135c3199e
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140754"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84346286"
 ---
 <a name="HOLTop"></a>
 
@@ -166,7 +166,6 @@ static void SentimentAnalysisExample(TextAnalyticsClient client)
     DocumentSentiment documentSentiment = client.AnalyzeSentiment(inputText);
     Console.WriteLine($"Document sentiment: {documentSentiment.Sentiment}\n");
 
-    var si = new StringInfo(inputText);
     foreach (var sentence in documentSentiment.Sentences)
     {
         Console.WriteLine($"\tText: \"{sentence.Text}\"");

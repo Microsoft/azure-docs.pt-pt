@@ -1,47 +1,47 @@
 ---
-title: Parametrizar serviços ligados na Fábrica de Dados azure
-description: Saiba como parametrizar serviços ligados na Azure Data Factory e passar valores dinâmicos no tempo de funcionao.
+title: Parametrizar serviços ligados na Azure Data Factory
+description: Saiba como parametrizar os serviços ligados na Azure Data Factory e passar valores dinâmicos no tempo de execução.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 06/18/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: d2ccdd0a8000cb6c78244445a34529bc8f37d7f9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 85689661e7f0d170cd88edde8985f46285e679c6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84016632"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987786"
 ---
-# <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar serviços ligados na Fábrica de Dados azure
+# <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar serviços ligados na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Agora pode parametrizar um serviço ligado e passar valores dinâmicos no tempo de execução. Por exemplo, se pretender ligar-se a diferentes bases de dados no mesmo servidor Lógico SQL, pode agora parametrizar o nome da base de dados na definição de serviço ligado. Isto impede que tenha de criar um serviço ligado para cada base de dados no servidor Lógico SQL. Também pode parametificar outras propriedades na definição de serviço ligada - por exemplo, *o nome do utilizador.*
+Agora pode parametrizar um serviço ligado e passar valores dinâmicos no tempo de execução. Por exemplo, se pretender ligar-se a diferentes bases de dados no mesmo servidor lógico SQL, pode agora parametrizar o nome da base de dados na definição de serviço ligada. Isto impede-o de criar um serviço ligado para cada base de dados no servidor lógico SQL. Também é possível parametrizar outras propriedades na definição de serviço ligada - por exemplo, *o nome do utilizador.*
 
-Pode utilizar a Data Factory UI no portal Azure ou uma interface de programação para parametrizar serviços ligados.
+Pode utilizar a UI da Fábrica de Dados no portal Azure ou uma interface de programação para parametrizar os serviços ligados.
 
 > [!TIP]
-> Recomendamos que não parametilize senhas ou segredos. Guarde todas as cordas de ligação no Cofre de Chaves Azure e parametilize o *Nome Secreto*.
+> Recomendamos que não parametrize palavras-passe ou segredos. Em vez disso, guarde todas as cordas de conexão no Cofre da Chave Azure e parametize o *Nome Secreto*.
 
-Para uma introdução de sete minutos e demonstração desta funcionalidade, veja o seguinte vídeo:
+Para uma introdução e demonstração de sete minutos desta funcionalidade, veja o seguinte vídeo:
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
 
 ## <a name="supported-data-stores"></a>Arquivos de dados suportados
 
-Neste momento, a parametrização de serviços ligados é suportada na Data Factory UI no portal Azure para as seguintes lojas de dados. Para todas as outras lojas de dados, pode parametrizar o serviço ligado selecionando o ícone **Código** no separador **Ligações** e utilizando o editor JSON.
-- Base de Dados SQL do Azure
-- Azure SQL Data Warehouse
-- SQL Server
-- Oracle
-- BD do Cosmos
+Neste momento, a parametrização do serviço ligado é suportada na UI da Fábrica de Dados para as seguintes lojas de dados. Para todas as outras lojas de dados, pode parametrizar o serviço ligado selecionando o ícone **Código** no separador **Ligações** e utilizando o editor JSON.
+
 - Amazon Redshift
-- MySQL
+- Azure Cosmos DB (SQL API)
 - Base de Dados do Azure para MySQL
+- Base de Dados SQL do Azure
+- Azure Synapse Analytics (anteriormente SQL DW)
+- MySQL
+- Oracle
+- SQL Server
 
 ## <a name="data-factory-ui"></a>IU do Data Factory
 

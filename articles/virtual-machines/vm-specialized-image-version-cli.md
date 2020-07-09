@@ -1,6 +1,6 @@
 ---
 title: Criar um VM a partir de uma versão de imagem especializada usando o Azure CLI
-description: Crie um VM utilizando uma versão de imagem especializada numa Galeria de Imagem Partilhada utilizando o Azure CLI.
+description: Crie um VM utilizando uma versão de imagem especializada numa Galeria de Imagens Partilhadas utilizando o Azure CLI.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -10,19 +10,19 @@ ms.date: 04/23/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 1ccf03deee2a2f72c1eb2008e1acc5bf67d16447
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796775"
 ---
-# <a name="create-a-vm-using-a-specialized-image-version-with-the-azure-cli"></a>Crie um VM utilizando uma versão de imagem especializada com o Azure CLI
+# <a name="create-a-vm-using-a-specialized-image-version-with-the-azure-cli"></a>Criar um VM utilizando uma versão de imagem especializada com o Azure CLI
 
-Crie um VM a partir de uma [versão de imagem especializada](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) armazenada numa Galeria de Imagem Partilhada. Se quiser criar um VM utilizando uma versão de imagem generalizada, consulte [Criar um VM a partir de uma versão](vm-generalized-image-version-cli.md)de imagem generalizada .
+Crie um VM a partir de uma [versão de imagem especializada](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) armazenada numa Galeria de Imagens Partilhadas. Se quiser criar um VM utilizando uma versão de imagem generalizada, consulte [Criar um VM a partir de uma versão de imagem generalizada](vm-generalized-image-version-cli.md).
 
-Substitua os nomes de recursos conforme necessário neste exemplo. 
+Substitua os nomes de recursos necessários neste exemplo. 
 
-Enumera as definições de imagem numa galeria utilizando a [lista de definição de imagem az sig](/cli/azure/sig/image-definition#az-sig-image-definition-list) para ver o nome e identificação das definições.
+Listar as definições de imagem numa galeria utilizando [a lista de definições de imagem az sig](/cli/azure/sig/image-definition#az-sig-image-definition-list) para ver o nome e o ID das definições.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -34,9 +34,9 @@ az sig image-definition list \
    --output tsv
 ```
 
-Criar o VM usando [az vm criar](/cli/azure/vm#az-vm-create) usando o parâmetro --especializado para indicar que a imagem é uma imagem especializada. 
+Crie o VM utilizando [a az vm criar](/cli/azure/vm#az-vm-create) usando o parâmetro --especializado para indicar que a imagem é uma imagem especializada. 
 
-Utilize o ID `--image` de definição de imagem para criar o VM a partir da versão mais recente da imagem que está disponível. Também pode criar o VM a partir de uma `--image`versão específica, fornecendo o ID da versão de imagem para . 
+Utilize o ID de definição de imagem `--image` para criar o VM a partir da versão mais recente da imagem que está disponível. Também pode criar o VM a partir de uma versão específica, fornecendo o ID da versão de imagem para `--image` . 
 
 Neste exemplo, estamos a criar um VM a partir da versão mais recente da imagem *myImageDefinition.*
 
@@ -50,9 +50,9 @@ az vm create --resource-group myResourceGroup \
 
 
 ## <a name="next-steps"></a>Passos seguintes
-[O Azure Image Builder (pré-visualização)](./linux/image-builder-overview.md) pode ajudar a automatizar a criação da versão de imagem, pode até usá-la para atualizar e criar uma nova versão de imagem a partir de uma versão de [imagem existente.](./linux/image-builder-gallery-update-image-version.md) 
+[O Azure Image Builder (pré-visualização)](./linux/image-builder-overview.md) pode ajudar a automatizar a criação de versão de imagem, podendo até usá-la para atualizar e [criar uma nova versão de imagem a partir de uma versão de imagem existente.](./linux/image-builder-gallery-update-image-version.md) 
 
-Também pode criar recurso da Galeria de Imagem Partilhada utilizando modelos. Existem vários modelos Azure Quickstart disponíveis: 
+Também pode criar recursos da Galeria de Imagens Partilhadas utilizando modelos. Existem vários modelos Azure Quickstart disponíveis: 
 
 - [Criar um Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Criar uma Definição de Imagem num Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)

@@ -1,38 +1,38 @@
 ---
-title: O que é segurança de nível de coluna para Azure Synapse?
-description: A Segurança de Nível de Coluna permite que os clientes controlem o acesso a colunas de tabelas de bases de dados com base no contexto de execução do utilizador ou na adesão ao grupo, simplificando o design e codificação de segurança na sua aplicação, e permitindo-lhe implementar restrições no acesso à coluna.
+title: O que é a segurança ao nível da coluna para a Azure Synapse?
+description: A Segurança de Nível de Coluna permite que os clientes controlem o acesso a colunas de tabelas de bases de dados com base no contexto de execução ou membro do grupo do utilizador, simplificando o design e codificação de segurança na sua aplicação, e permitindo-lhe implementar restrições no acesso à coluna.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/19/2020
 ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: b0a783ad5db86ca783ff1cebceec8d77ab528047
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4da74c01f732f3a62d29847d5f61934dede9778
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687928"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208098"
 ---
 # <a name="column-level-security"></a>Segurança ao nível da coluna
 
-A Segurança de Nível de Coluna permite que os clientes controlem o acesso às colunas de mesa com base no contexto de execução do utilizador ou na adesão ao grupo.
+A Segurança de Nível de Coluna permite que os clientes controlem o acesso a colunas de mesa com base no contexto de execução do utilizador ou na adesão ao grupo.
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Desde que este vídeo foi publicado [Row level Security](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) tornou-se disponível para Azure Synapse.
+Desde que este vídeo foi [publicado, a Segurança de nível de linha](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) ficou disponível para Azure Synapse.
 
-A segurança ao nível da coluna simplifica o design e codificação de segurança na sua aplicação, permitindo-lhe restringir o acesso da coluna para proteger dados sensíveis. Por exemplo, garantir que utilizadores específicos só podem aceder a determinadas colunas de uma tabela pertinente ao seu departamento. A lógica de restrição de acesso está localizada no nível de base de dados e não longe dos dados de outro nível de aplicação. A base de dados aplica as restrições de acesso sempre que o acesso a dados é tentado a partir de qualquer nível. Esta restrição torna a sua segurança mais fiável e robusta, reduzindo a área de superfície do seu sistema de segurança global. Além disso, a segurança ao nível das colunas também elimina a necessidade de introduzir pontos de vista para filtrar colunas para impor restrições de acesso aos utilizadores.
+A segurança ao nível da coluna simplifica a conceção e codificação da segurança na sua aplicação, permitindo-lhe restringir o acesso à coluna para proteger dados sensíveis. Por exemplo, garantir que utilizadores específicos só podem aceder a determinadas colunas de uma tabela pertinentes ao seu departamento. A lógica de restrição de acesso está localizada no nível da base de dados e não longe dos dados de outro nível de aplicação. A base de dados aplica as restrições de acesso sempre que o acesso aos dados é tentado a partir de qualquer nível. Esta restrição torna a sua segurança mais fiável e robusta reduzindo a área de superfície do seu sistema de segurança global. Além disso, a segurança ao nível das colunas também elimina a necessidade de introduzir pontos de vista para filtrar colunas para impor restrições de acesso aos utilizadores.
 
-Pode implementar a segurança de nível de coluna com [a](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) declaração grant T-SQL. Com este mecanismo, a autenticação sQL e Azure Ative Diretório (AAD) são suportadas.
+Pode implementar a segurança ao nível da coluna com a declaração [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL. Com este mecanismo, a autenticação sql e a azure ative directy (AAD) são suportadas.
 
 ![cls](./media/column-level-security/cls.png)
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 ```syntaxsql
 GRANT <permission> [ ,...n ] ON
@@ -52,9 +52,9 @@ GRANT <permission> [ ,...n ] ON
 
 ## <a name="example"></a>Exemplo
 
-O exemplo que se `TestUser` segue mostra `SSN` como `Membership` restringir o acesso à coluna da tabela:
+O exemplo a seguir mostra como restringir `TestUser` o acesso à coluna da `SSN` `Membership` tabela:
 
-Crie `Membership` tabela com coluna SSN utilizada para armazenar números de segurança social:
+Criar `Membership` tabela com coluna SSN usada para armazenar números de segurança social:
 
 ```sql
 CREATE TABLE Membership
@@ -66,13 +66,13 @@ CREATE TABLE Membership
    Email varchar(100) NULL);
 ```
 
-Permitir `TestUser` o acesso a todas as colunas, com exceção da coluna SSN, que possui os dados sensíveis:
+Permitir `TestUser` o acesso a todas as colunas, com exceção da coluna SSN, que tem os dados sensíveis:
 
 ```sql
 GRANT SELECT ON Membership(MemberID, FirstName, LastName, Phone, Email) TO TestUser;
 ```
 
-As consultas executadas como `TestUser` falharão se incluirem a coluna SSN:
+Consultas executadas como `TestUser` falharão se incluirem a coluna SSN:
 
 ```sql
 SELECT * FROM Membership;
@@ -83,7 +83,7 @@ SELECT * FROM Membership;
 
 ## <a name="use-cases"></a>Casos de Utilização
 
-Alguns exemplos de como a segurança ao nível da coluna está a ser usada hoje em dia:
+Alguns exemplos de como a segurança ao nível das colunas está a ser utilizada hoje em dia:
 
 - Uma empresa de serviços financeiros permite que apenas os gestores de conta tenham acesso aos números de segurança social dos clientes (SSN), números de telefone e outras informações pessoalmente identificáveis (PII).
-- Um prestador de cuidados de saúde permite que apenas médicos e enfermeiros tenham acesso a registos médicos sensíveis, evitando que os membros do departamento de faturação possam visualizar estes dados.
+- Um prestador de cuidados de saúde permite que apenas médicos e enfermeiros tenham acesso a registos médicos sensíveis, impedindo os membros do departamento de faturação de visualizarem estes dados.

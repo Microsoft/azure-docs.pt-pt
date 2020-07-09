@@ -1,36 +1,36 @@
 ---
 title: Transferir dados com a biblioteca do Movimento de Dados para .NET
 titleSuffix: Azure Storage
-description: Utilize a biblioteca do Movimento de Dados para mover ou copiar dados de ou para o conteúdo de blob e ficheiros. Copie dados para o Armazenamento Azure a partir de ficheiros locais ou copie dados dentro ou entre contas de armazenamento. Emigre facilmente os seus dados para o Armazenamento Azure.
+description: Utilize a biblioteca Movimento de Dados para mover ou copiar dados para ou de bolhas e conteúdos de ficheiros. Copie os dados para o Azure Storage a partir de ficheiros locais ou copie dados dentro ou entre contas de armazenamento. Migrar facilmente os seus dados para o Azure Storage.
 services: storage
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 06/16/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5b8654500fd697685b38e4f51ba1069e0cf6ccfc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bab78d60e5007d9c3eb61afa7bc63a9b44e47aa1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78942911"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888036"
 ---
 # <a name="transfer-data-with-the-data-movement-library"></a>Transferir dados com a biblioteca do Movimento de Dados
 
-A biblioteca Azure Storage Data Movement é uma biblioteca de código aberto de plataforma cruzada que é projetada para carregar, descarregar e copiar de alto desempenho, descarregamento, descarregamento e cópia de blobs e ficheiros. A biblioteca Data Movement fornece métodos convenientes que não estão disponíveis na biblioteca de clientes do Azure Storage para .NET. Estes métodos proporcionam a capacidade de definir o número de operações paralelas, acompanhar o progresso da transferência, retomar facilmente uma transferência cancelada, e muito mais.
+A biblioteca Azure Storage Data Movement é uma biblioteca de código aberto de plataformas cruzadas que é projetada para carregar, descarregar e copiar de bolhas e ficheiros. A biblioteca Data Movement fornece métodos convenientes que não estão disponíveis na biblioteca do cliente do Azure Storage para .NET. Estes métodos proporcionam a capacidade de definir o número de operações paralelas, rastrear o progresso da transferência, facilmente retomar uma transferência cancelada, e muito mais.
 
-Esta biblioteca também utiliza .NET Core, o que significa que pode usá-lo na construção de aplicações .NET para Windows, Linux e macOS. Para saber mais sobre o Núcleo .NET, consulte a [documentação .NET Core](https://dotnet.github.io/). Esta biblioteca também funciona para aplicações tradicionais .NET Framework para Windows.
+Esta biblioteca também utiliza .NET Core, o que significa que pode usá-lo ao construir aplicações .NET para Windows, Linux e macOS. Para saber mais sobre .NET Core, consulte a [documentação .NET Core](https://dotnet.github.io/). Esta biblioteca também funciona para aplicações tradicionais .NET Framework para Windows.
 
 Este documento demonstra como criar uma aplicação de consola .NET Core que funciona no Windows, Linux e macOS e executa os seguintes cenários:
 
-- Faça upload de ficheiros e diretórios para blob Storage.
+- Faça upload de ficheiros e diretórios para o Blob Storage.
 - Defina o número de operações paralelas ao transferir dados.
-- Acompanhe o progresso da transferência de dados.
-- Retomar a transferência de dados cancelada.
+- Rastrear o progresso da transferência de dados.
+- Retomar transferência de dados cancelada.
 - Copiar ficheiro de URL para Blob Storage.
-- Cópia do Blob Storage para blob Storage.
+- Cópia do Blob Storage para o Blob Storage.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,20 +39,20 @@ Este documento demonstra como criar uma aplicação de consola .NET Core que fun
 
 ## <a name="setup"></a>Configuração
 
-1. Visite o Guia de [Instalação .NET Core](https://www.microsoft.com/net/core) para instalar .NET Core. Ao selecionar o seu ambiente, escolha a opção linha de comando.
-2. A partir da linha de comando, crie um diretório para o seu projeto. Navegue neste diretório `dotnet new console -o <sample-project-name>` e, em seguida, escreva para criar um projeto de consola C#.
-3. Abra este diretório no Código do Estúdio Visual. Este passo pode ser feito rapidamente `code .` através da linha de comando digitando no Windows.
-4. Instale a [extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) do Visual Studio Code Marketplace. Reiniciar o Código do Estúdio Visual.
-5. Neste momento, deve ver duas indicações. Uma é para adicionar "bens necessários para construir e depurar". Clique em "sim". Outra razão é restaurar dependências não resolvidas. Clique em "restaurar".
-6. Modifique-se `launch.json` em baixo `.vscode` para utilizar o terminal externo como consola. Esta definição deve ser lida como`"console": "externalTerminal"`
-7. O Visual Studio Code permite-lhe depurar as aplicações .NET Core. Bata `F5` para executar o seu pedido e verifique se a sua configuração está funcionando. Devias ver "Olá Mundo!" impresso para a consola.
+1. Visite o [Guia de Instalação do Núcleo .NET](https://www.microsoft.com/net/core) para instalar o Núcleo .NET. Ao selecionar o seu ambiente, escolha a opção de linha de comando.
+2. A partir da linha de comando, crie um diretório para o seu projeto. Navegue neste diretório e, em seguida, `dotnet new console -o <sample-project-name>` escreva para criar um projeto de consola C#.
+3. Abra este diretório no Código do Estúdio Visual. Este passo pode ser feito rapidamente através da linha de comando digitando `code .` no Windows.
+4. Instale a [extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) a partir do Mercado do Código do Estúdio Visual. Reiniciar código de estúdio visual.
+5. Neste momento, deve ver duas instruções. Uma delas é a adição de "ativos necessários para construir e depurar". Clique em "sim". Outra solicitação é restaurar as dependências não resolvidas. Clique em "restaurar".
+6. Modificar `launch.json` para usar o terminal externo como `.vscode` consola. Esta definição deve ser lida como`"console": "externalTerminal"`
+7. O Código do Estúdio Visual permite-lhe depurar aplicações .NET Core. Bata `F5` para executar a sua aplicação e verifique se a sua configuração está a funcionar. Devias ver "Olá Mundo!" impresso na consola.
 
 ## <a name="add-the-data-movement-library-to-your-project"></a>Adicione a biblioteca do Movimento de Dados ao seu projeto
 
-1. Adicione a versão mais recente da `dependencies` biblioteca `<project-name>.csproj` do Movimento de Dados à secção do seu ficheiro. No momento da escrita, esta versão seria`"Microsoft.Azure.Storage.DataMovement": "0.6.2"`
-2. Deve ser apresentada uma solicitação para restaurar o seu projeto. Clique no botão "restaurar". Também pode restaurar o seu projeto a `dotnet restore` partir da linha de comando digitando o comando na raiz do seu diretório de projeto.
+1. Adicione a versão mais recente da biblioteca Movimento de Dados à `dependencies` secção do seu `<project-name>.csproj` ficheiro. No momento da escrita, esta versão seria`"Microsoft.Azure.Storage.DataMovement": "0.6.2"`
+2. Um aviso deve ser exibido para restaurar o seu projeto. Clique no botão "restaurar". Também pode restaurar o seu projeto a partir da linha de comando digitando o comando `dotnet restore` na raiz do seu diretório de projeto.
 
-Modificar: `<project-name>.csproj`
+`<project-name>.csproj`Modificar:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -66,11 +66,11 @@ Modificar: `<project-name>.csproj`
     </Project>
 ```
 
-## <a name="set-up-the-skeleton-of-your-application"></a>Configurar o esqueleto da sua aplicação
+## <a name="set-up-the-skeleton-of-your-application"></a>Crie o esqueleto da sua aplicação
 
-A primeira coisa que fazemos é estabelecer o código "esqueleto" da nossa aplicação. Este código solicita-nos um nome de conta de Armazenamento `CloudStorageAccount` e chave de conta e utiliza essas credenciais para criar um objeto. Este objeto é usado para interagir com a nossa conta de Armazenamento em todos os cenários de transferência. O código também nos leva a escolher o tipo de operação de transferência que gostaríamos de executar.
+A primeira coisa que fazemos é configurar o código "esqueleto" da nossa aplicação. Este código nos solicita um nome de conta de Armazenamento e chave de conta e utiliza essas credenciais para criar um `CloudStorageAccount` objeto. Este objeto é usado para interagir com a nossa conta de Armazenamento em todos os cenários de transferência. O código também nos leva a escolher o tipo de operação de transferência que gostaríamos de executar.
 
-Modificar: `Program.cs`
+`Program.cs`Modificar:
 
 ```csharp
 using System;
@@ -145,9 +145,9 @@ namespace DMLibSample
 }
 ```
 
-## <a name="upload-a-local-file-to-a-blob"></a>Faça upload de um ficheiro local para uma bolha
+## <a name="upload-a-local-file-to-a-blob"></a>Faça o upload de um ficheiro local para uma bolha
 
-Adicione os `GetSourcePath` `GetBlob` métodos e: `Program.cs`
+Adicione os métodos `GetSourcePath` `GetBlob` `Program.cs` e:
 
 ```csharp
 public static string GetSourcePath()
@@ -175,7 +175,7 @@ public static CloudBlockBlob GetBlob(CloudStorageAccount account)
 }
 ```
 
-Modificar `TransferLocalFileToAzureBlob` o método:
+Modificar o `TransferLocalFileToAzureBlob` método:
 
 ```csharp
 public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount account)
@@ -189,19 +189,19 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 }
 ```
 
-Este código leva-nos para o caminho para um arquivo local, o nome de um recipiente novo ou existente, e o nome de uma nova bolha. O `TransferManager.UploadAsync` método executa o upload usando esta informação.
+Este código nos leva para o caminho para um arquivo local, o nome de um recipiente novo ou existente, e o nome de uma nova bolha. O `TransferManager.UploadAsync` método executa o upload usando esta informação.
 
-Bata `F5` para executar o seu pedido. Pode verificar se o upload ocorreu visualizando a sua conta de Armazenamento com o [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
+Bata `F5` para executar a sua candidatura. Pode verificar se o upload ocorreu visualizando a sua conta de Armazenamento com o [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 
 ## <a name="set-the-number-of-parallel-operations"></a>Definir o número de operações paralelas
 
-Uma característica oferecida pela biblioteca do Movimento de Dados é a capacidade de definir o número de operações paralelas para aumentar a produção de transferência de dados. Por padrão, a biblioteca data Movement define o número de operações paralelas para 8 * o número de núcleos na sua máquina.
+Uma das características oferecidas pela biblioteca do Movimento de Dados é a capacidade de definir o número de operações paralelas para aumentar o rendimento de transferência de dados. Por predefinição, a biblioteca Movimento de Dados define o número de operações paralelas a 8 * o número de núcleos na sua máquina.
 
-Tenha em mente que muitas operações paralelas num ambiente de baixa largura de banda podem sobrecarregar a ligação da rede e impedir que as operações se completem completamente. Você precisará experimentar com este cenário para determinar o que funciona melhor com base na largura de banda de rede disponível.
+Tenha em mente que muitas operações paralelas num ambiente de baixa largura de banda podem sobrecarregar a ligação da rede e impedir que as operações sejam completamente concluídas. Terá de experimentar esta definição para determinar o que funciona melhor com base na largura de banda disponível.
 
-Vamos adicionar um código que nos permite definir o número de operações paralelas. Vamos também adicionar código que vezes o tempo que a transferência leva para a transferência ser concluída.
+Vamos adicionar um código que nos permita definir o número de operações paralelas. Vamos também adicionar código que vezes o tempo que a transferência leva para completar.
 
-Adicione `SetNumberOfParallelOperations` um `Program.cs`método para:
+Adicione um `SetNumberOfParallelOperations` método `Program.cs` para:
 
 ```csharp
 public static void SetNumberOfParallelOperations()
@@ -212,7 +212,7 @@ public static void SetNumberOfParallelOperations()
 }
 ```
 
-Modificar `ExecuteChoice` o método `SetNumberOfParallelOperations`de utilização:
+Modificar o `ExecuteChoice` método de `SetNumberOfParallelOperations` utilização:
 
 ```csharp
 public static void ExecuteChoice(CloudStorageAccount account)
@@ -241,7 +241,7 @@ public static void ExecuteChoice(CloudStorageAccount account)
 }
 ```
 
-Modificar `TransferLocalFileToAzureBlob` o método de utilização de um temporizador:
+Modificar o `TransferLocalFileToAzureBlob` método para utilizar um temporizador:
 
 ```csharp
 public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount account)
@@ -257,11 +257,11 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 }
 ```
 
-## <a name="track-transfer-progress"></a>Progresso da transferência de pista
+## <a name="track-transfer-progress"></a>Progresso da transferência de faixas
 
-Saber quanto tempo os dados demoraram a transferir é útil. No entanto, poder ver o progresso da transferência *durante* a operação de transferência seria ainda melhor. Para alcançar este cenário, precisamos criar um `TransferContext` objeto. O `TransferContext` objeto vem de `SingleTransferContext` `DirectoryTransferContext`duas formas: e . O primeiro é para transferir um único ficheiro e este último é para transferir um diretório de ficheiros.
+Saber quanto tempo demorou para os dados transferirem é útil. No entanto, poder ver o progresso da transferência *durante* a operação de transferência seria ainda melhor. Para alcançar este cenário, precisamos de criar um `TransferContext` objeto. O `TransferContext` objeto vem de duas formas: e `SingleTransferContext` `DirectoryTransferContext` . O primeiro é para a transferência de um único ficheiro e este último é para transferir um diretório de ficheiros.
 
-Adicione os `GetSingleTransferContext` `GetDirectoryTransferContext` métodos e: `Program.cs`
+Adicione os métodos `GetSingleTransferContext` `GetDirectoryTransferContext` `Program.cs` e:
 
 ```csharp
 public static SingleTransferContext GetSingleTransferContext(TransferCheckpoint checkpoint)
@@ -289,7 +289,7 @@ public static DirectoryTransferContext GetDirectoryTransferContext(TransferCheck
 }
 ```
 
-Modificar `TransferLocalFileToAzureBlob` o método `GetSingleTransferContext`de utilização:
+Modificar o `TransferLocalFileToAzureBlob` método de `GetSingleTransferContext` utilização:
 
 ```csharp
 public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount account)
@@ -309,9 +309,9 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 
 ## <a name="resume-a-canceled-transfer"></a>Retomar uma transferência cancelada
 
-Outra funcionalidade conveniente oferecida pela biblioteca do Movimento de Dados é a capacidade de retomar uma transferência cancelada. Vamos adicionar um código que nos permite cancelar temporariamente `c`a transferência digitando e, em seguida, retomar a transferência 3 segundos depois.
+Outra funcionalidade conveniente oferecida pela biblioteca do Movimento de Dados é a capacidade de retomar uma transferência cancelada. Vamos adicionar um código que nos permite cancelar temporariamente a transferência digitando e, em `c` seguida, retomar a transferência 3 segundos depois.
 
-Modificar: `TransferLocalFileToAzureBlob`
+`TransferLocalFileToAzureBlob`Modificar:
 
 ```csharp
 public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount account)
@@ -363,13 +363,13 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 }
 ```
 
-Até agora, `checkpoint` o nosso valor `null`sempre foi definido para. Agora, se cancelarmos a transferência, recuperamos o último ponto de verificação da nossa transferência, e ntão usamos este novo checkpoint no nosso contexto de transferência.
+Até agora, o nosso `checkpoint` valor sempre foi definido `null` para. Agora, se cancelarmos a transferência, recuperamos o último ponto de verificação da nossa transferência, e usamos este novo posto de controlo no nosso contexto de transferência.
 
 ## <a name="transfer-a-local-directory-to-blob-storage"></a>Transfira um diretório local para o armazenamento blob
 
-Seria dececionante se a biblioteca do Movimento de Dados pudesse transferir apenas um ficheiro de cada vez. Felizmente, este não é o caso. A biblioteca data Movement fornece a capacidade de transferir um diretório de ficheiros e todos os seus subdiretórios. Vamos adicionar um código que nos permite fazer isso.
+Seria uma desilusão se a biblioteca do Movimento de Dados só pudesse transferir um ficheiro de cada vez. Felizmente, este não é o caso. A biblioteca Do Movimento de Dados fornece a capacidade de transferir um diretório de ficheiros e todas as suas subdiretivas. Vamos adicionar um código que nos permita fazer isso mesmo.
 
-Em primeiro lugar, adicione o método `GetBlobDirectory` a: `Program.cs`
+Primeiro, adicione o método `GetBlobDirectory` `Program.cs` para:
 
 ```csharp
 public static CloudBlobDirectory GetBlobDirectory(CloudStorageAccount account)
@@ -387,7 +387,7 @@ public static CloudBlobDirectory GetBlobDirectory(CloudStorageAccount account)
 }
 ```
 
-Em seguida, modificar: `TransferLocalDirectoryToAzureBlobDirectory`
+Em seguida, `TransferLocalDirectoryToAzureBlobDirectory` modificar:
 
 ```csharp
 public static async Task TransferLocalDirectoryToAzureBlobDirectory(CloudStorageAccount account)
@@ -444,13 +444,13 @@ public static async Task TransferLocalDirectoryToAzureBlobDirectory(CloudStorage
 }
 ```
 
-Existem algumas diferenças entre este método e o método para carregar um único ficheiro. Estamos a usar `TransferManager.UploadDirectoryAsync` e `getDirectoryTransferContext` o método que criámos anteriormente. Além disso, fornecemos agora um `options` valor para a nossa operação de upload, o que nos permite indicar que queremos incluir subdiretórios no nosso upload.
+Existem algumas diferenças entre este método e o método para o upload de um único ficheiro. Estamos a usar `TransferManager.UploadDirectoryAsync` e o método que `getDirectoryTransferContext` criámos anteriormente. Além disso, fornecemos agora um `options` valor para a nossa operação de upload, o que nos permite indicar que queremos incluir subdireções no nosso upload.
 
-## <a name="copy-a-file-from-url-to-a-blob"></a>Copiar um ficheiro de URL para uma bolha
+## <a name="copy-a-file-from-url-to-a-blob"></a>Copie um ficheiro de URL para uma bolha
 
-Agora, vamos adicionar código que nos permite copiar um ficheiro de um URL para um Azure Blob.
+Agora, vamos adicionar código que nos permite copiar um ficheiro de um URL para uma Blob Azure.
 
-Modificar: `TransferUrlToAzureBlob`
+`TransferUrlToAzureBlob`Modificar:
 
 ```csharp
 public static async Task TransferUrlToAzureBlob(CloudStorageAccount account)
@@ -502,13 +502,13 @@ public static async Task TransferUrlToAzureBlob(CloudStorageAccount account)
 }
 ```
 
-Um caso de utilização importante para esta funcionalidade é quando precisa de transferir dados de outro serviço na nuvem (por exemplo, AWS) para O Azure. Desde que tenha um URL que lhe dê acesso ao recurso, pode facilmente mover `TransferManager.CopyAsync` esse recurso para O Blobs Azure utilizando o método. Este método também introduz um novo parâmetro booleano. Configurar este `true` parâmetro para indicar que queremos fazer uma cópia assíncrona do lado do servidor. Configurar este `false` parâmetro para indicar uma cópia sincronizada - o que significa que o recurso é descarregado para a nossa máquina local primeiro, em seguida, enviado para Azure Blob. No entanto, a cópia sincronizada está atualmente disponível apenas para cópia de um recurso de Armazenamento Azure para outro.
+Um caso importante de utilização para esta funcionalidade é quando precisa de transferir dados de outro serviço de nuvem (por exemplo, AWS) para Azure. Desde que tenha um URL que lhe dê acesso ao recurso, pode facilmente mover esse recurso para Azure Blobs utilizando o `TransferManager.CopyAsync` método. Este método também introduz um novo parâmetro booleano. Definir este parâmetro `true` indica que queremos fazer uma cópia assíncronea do lado do servidor. Definir este parâmetro indica `false` uma cópia sincronizada - o que significa que o recurso é descarregado para a nossa máquina local primeiro e depois enviado para Azure Blob. No entanto, a cópia sincronizada só está atualmente disponível para copiar de um recurso de Armazenamento Azure para outro.
 
 ## <a name="copy-a-blob"></a>Copiar uma bolha
 
-Outra funcionalidade que é fornecida exclusivamente pela biblioteca data Movement é a capacidade de copiar de um recurso azure storage para outro.
+Outra funcionalidade que é exclusivamente fornecida pela biblioteca do Movimento de Dados é a capacidade de copiar de um recurso de Armazenamento Azure para outro.
 
-Modificar: `TransferAzureBlobToAzureBlob`
+`TransferAzureBlobToAzureBlob`Modificar:
 
 ```csharp
 public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount account)
@@ -525,7 +525,7 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
     ConsoleKeyInfo keyinfo;
     try
     {
-        task = TransferManager.CopyAsync(sourceBlob, destinationBlob, true, null, context, cancellationSource.Token);
+        task = TransferManager.CopyAsync(sourceBlob, destinationBlob, CopyMethod.ServiceSideAsyncCopy, null, context, cancellationSource.Token);
         while(!task.IsCompleted)
         {
             if(Console.KeyAvailable)
@@ -560,12 +560,12 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
 }
 ```
 
-Neste exemplo, colocamos o parâmetro `TransferManager.CopyAsync` booleano para `false` indicar que queremos fazer uma cópia sincronizada. Isto significa que o recurso é descarregado para a nossa máquina local primeiro, e depois enviado para Azure Blob. A opção de cópia sincronizada é uma ótima maneira de garantir que a sua operação de cópia tem uma velocidade consistente. Em contraste, a velocidade de uma cópia assíncrona do lado do servidor depende da largura de banda de rede disponível no servidor, que pode flutuar. No entanto, a cópia sincronizada pode gerar custos de saída adicionais em comparação com a cópia assíncrona. A abordagem recomendada é usar cópia sincronizada num VM Azure que se encontra na mesma região que a sua conta de armazenamento de origem para evitar custos de saída.
+Neste exemplo, definimos o parâmetro booleano `TransferManager.CopyAsync` `false` para indicar que queremos fazer uma cópia sincronizada. Isto significa que o recurso é descarregado para a nossa máquina local primeiro, depois enviado para Azure Blob. A opção de cópia sincronizada é uma ótima maneira de garantir que a sua operação de cópia tem uma velocidade consistente. Em contraste, a velocidade de uma cópia assíncrona do servidor está dependente da largura de banda de rede disponível no servidor, que pode flutuar. No entanto, a cópia sincronizada pode gerar custos adicionais de saída em comparação com a cópia assíncronia. A abordagem recomendada é utilizar uma cópia sincronizada num VM Azure que se encontra na mesma região que a sua conta de armazenamento de origem para evitar o custo da saída.
 
-A aplicação de movimento de dados está agora completa. A amostra completa de [código está disponível no GitHub](https://github.com/azure-samples/storage-dotnet-data-movement-library-app).
+A aplicação de movimento de dados está agora completa. [A amostra de código completa está disponível no GitHub.](https://github.com/azure-samples/storage-dotnet-data-movement-library-app)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Documentação de referência da biblioteca Azure Storage Data Movement.](https://azure.github.io/azure-storage-net-data-movement)
+[Documentação de referência do Movimento de Dados de Armazenamento Azure.](https://azure.github.io/azure-storage-net-data-movement)
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]

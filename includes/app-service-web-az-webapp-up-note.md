@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: app-service
 author: msangapu
 ms.service: app-service
@@ -18,11 +18,11 @@ ms.locfileid: "67184935"
 > [!NOTE]
 > O comando `az webapp up` executa as seguintes ações:
 >
->- Criar um grupo de [recursos](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create)padrão .
+>- Criar um grupo de [recursos](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create)predefinidos .
 >
->- Crie um plano de serviço de [aplicações](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create)padrão .
+>- Crie um plano de [serviço de aplicações predefinido.](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create)
 >
 >- [Crie uma aplicação](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) com o nome especificado.
 >
->- [Zip implementa](https://docs.microsoft.com/azure/app-service/deploy-zip) ficheiros do atual diretório de trabalho para a aplicação.
+>- [Zip implementa](https://docs.microsoft.com/azure/app-service/deploy-zip) ficheiros do diretório de trabalho atual para a aplicação.
 >

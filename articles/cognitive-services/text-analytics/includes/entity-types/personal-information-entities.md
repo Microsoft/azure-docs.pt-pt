@@ -8,15 +8,15 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: 81ed10f0b3b2a8042f0766f89bb99d7cad950fca
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: dd7a8b94aefbf389afef30b327ffaa367a30dd51
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140949"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108511"
 ---
 > [!NOTE]
-> Para `PHI` detetar, utilize o parâmetro e a `domain=phi` versão do modelo ou `2020-04-01` posteriormente.
+> Para detetar `PHI` (informações de saúde protegidas), utilize o `domain=phi` parâmetro e a versão do modelo ou `2020-04-01` posteriormente.
 >
 > Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi&model-version=2020-04-01`
  
@@ -40,8 +40,8 @@ As seguintes categorias de entidades são devolvidas ao enviar pedidos para o `/
 | DateTime | Data | Datas de Calender. | `2019-10-01` | Também devolvido `domain=phi` com. |
 | Quantidade | N/D | Números e quantidades numéricas. | `2019-10-01` |  |
 | Quantidade | Idade | Idades. | `2019-10-01` | | |
-| Classificação Internacional das Doenças (ICD-10-CM) | N/D | Entidades relacionadas com a Classificação Internacional de Doenças, 9ª Revisão.   | `2020-04-01` | Também devolvido `domain=phi` com. |
-| Classificação Internacional das Doenças (ICD-10-CM) | N/D | Entidades relacionadas com a Classificação Internacional de Doenças, Décima Revisão.    | `2020-04-01` | Também devolvido `domain=phi` com. |
+| Classificação Internacional das Doenças (ICD-9-CM) | N/D | Entidades relacionadas com a Classificação Internacional de Doenças, 9ª Revisão.   | `2020-04-01` | |
+| Classificação Internacional das Doenças (ICD-10-CM) | N/D | Entidades relacionadas com a Classificação Internacional de Doenças, Décima Revisão.    | `2020-04-01` | |
 
 ## <a name="azure-information"></a>Informação azul
 
@@ -51,7 +51,7 @@ Esta categoria de entidade inclui informações identificáveis do Azure, inclui
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Chave Azure DocumentDB Auth             | Chave de autorização para um servidor Azure DocumentDB.                           |
 | Cadeia de conexão de base de dados Azure IAAS e cadeia de conexão Azure SQL | Cadeia de ligação para uma Infraestrutura Azure como base de dados de serviço (IaaS) e cadeia de conexão SQL. |
-| Cadeia de conexão Azure SQL           | Cadeia de ligação para uma base de dados Azure SQL.                                |
+| Cadeia de conexão Azure SQL           | Cadeia de ligação para uma base de dados na Base de Dados Azure SQL.                                |
 | Cadeia de conexão Azure IoT           | Cadeia de ligação para Azure Internet das coisas (IoT).                        |
 | Azure Publicar Senha de Definição        | Palavra-passe para as definições de Azure Publish.                                        |
 | Cadeia de conexão Azure Redis Cache   | Fio de ligação para uma cache Azure para Redis.                             |

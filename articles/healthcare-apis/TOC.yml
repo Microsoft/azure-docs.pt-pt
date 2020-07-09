@@ -1,0 +1,102 @@
+- name: API do Azure para FHIR
+  href: index.yml
+- name: Descrição geral
+  items:
+    - name: Sobre a API do Azure para FHIR
+      href: overview.md
+- name: Guias de Início Rápido
+  expanded: true
+  items:
+    - name: Implementar a API do Azure para FHIR - Portal
+      href: fhir-paas-portal-quickstart.md
+    - name: Implementar a API do Azure para FHIR - PowerShell
+      href: fhir-paas-powershell-quickstart.md
+    - name: Implementar a API do Azure para FHIR - CLI
+      href: fhir-paas-cli-quickstart.md
+    - name: Implementar o FHIR Server para o Azure - Portal
+      href: fhir-oss-portal-quickstart.md
+    - name: Implementar o FHIR Server para o Azure - PowerShell
+      href: fhir-oss-powershell-quickstart.md
+    - name: Implementar o FHIR Server para o Azure - CLI
+      href: fhir-oss-cli-quickstart.md
+- name: Tutoriais
+  expanded: false
+  items:
+    - name: Implementar a aplicação JavaScript
+      expanded: false
+      items:
+        - name: 1. Configuração inicial e implementação do FHIR
+          href: tutorial-web-app-fhir-server.md
+        - name: 2. Registar aplicação cliente pública
+          href: tutorial-web-app-public-app-reg.md
+        - name: 3. Testar configuração com o Postman
+          href: tutorial-web-app-test-postman.md
+        - name: 4. Escrever aplicação Web
+          href: tutorial-web-app-write-web-app.md
+    - name: Aceder à API de FHIR com o Postman
+      href: access-fhir-postman-tutorial.md
+    - name: Utilizar tecnologia SMART no proxy FHIR
+      href: use-smart-on-fhir-proxy.md
+- name: Amostras
+  items:
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
+- name: Guias de procedimentos
+  expanded: false
+  items:
+    - name: Registar aplicações
+      expanded: false
+      items:
+        - name: Descrição geral do registo de aplicações do Azure API for FHIR
+          href: fhir-app-registration.md
+        - name: Aplicação de recurso
+          href: register-resource-azure-ad-client-app.md
+        - name: Aplicação cliente confidencial
+          href: register-confidential-azure-ad-client-app.md
+        - name: Aplicação cliente pública
+          href: register-public-azure-ad-client-app.md
+        - name: Aplicação cliente de serviço
+          href: register-service-azure-ad-client-app.md
+    - name: Configurar definições
+      expanded: false
+      items:
+        - name: Configurar definições adicionais do Azure API for FHIR
+          href: azure-api-for-fhir-additional-settings.md
+        - name: Configurar RBAC do Azure
+          href: configure-azure-rbac.md
+        - name: Configurar RBAC Local
+          href: configure-local-rbac.md
+        - name: Configurar as definições da base de dados
+          href: configure-database.md
+        - name: Configurar o CORS
+          href: configure-cross-origin-resource-sharing.md
+        - name: Configurar Exportação
+          href: configure-export-data.md
+    - name: Localizar IDs de objeto de identidade
+      href: find-identity-object-ids.md
+    - name: Ativar Registo de Diagnósticos no Azure API for FHIR®
+      href: enable-diagnostic-logging.md
+    - name: Obter um token para a API do Azure para FHIR - CLI
+      href: get-healthcare-apis-access-token-cli.md
+- name: Conceitos
+  expanded: false
+  items:
+    - name: Descrição geral do Azure AD e do Azure API for FHIR
+      href: azure-ad-hcapi.md
+    - name: Validação do token de acesso
+      href: azure-ad-hcapi-token-validation.md
+    - name: Utilizar cabeçalhos HTTP personalizados para adicionar dados a Registos de Auditoria
+      href: use-custom-headers.md
+- name: Recursos
+  items:
+    - name: FAQ
+      href: fhir-faq.md
+    - name: Funcionalidades suportadas
+      href: fhir-features-supported.md
+    - name: Ecossistema de parceiros
+      href: partner-ecosystem.md
+- name: Referência
+  items:
+    - name: CLI do Azure
+      href: /cli/azure/ext/healthcareapis/healthcareapis

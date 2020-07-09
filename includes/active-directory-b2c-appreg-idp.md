@@ -5,41 +5,41 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: 80e5166775b0cf5acbfce32e61d91c0889e3b086
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbf1daf3a70e5ca87b4a0027b53aed5fab5691d1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186369"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84317782"
 ---
-Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a experiência atual de **Aplicações,** ou a nossa nova experiência unificada de registos de **Aplicações (Pré-visualização).** [Saiba mais sobre a nova experiência.](https://aka.ms/b2cappregintro)
+Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência de **Aplicações (Legacy).** [Saiba mais sobre a nova experiência.](https://aka.ms/b2cappregtraining)
 
-#### <a name="applications"></a>[Aplicações](#tab/applications/)
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
-1. No menu esquerdo, **selecione Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
-1. Selecione **Aplicações,** e, em seguida, **selecione Adicionar**.
-1. Introduza um nome para a aplicação. Por exemplo, *testapp1*.
-1. Para **web app / Web API,** selecione **Sim**.
-1. Para **url de resposta,** insira`https://jwt.ms`
-1. Selecione **Criar**.
-
-#### <a name="app-registrations-preview"></a>[Registos de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Registos de aplicações](#tab/app-reg-ga/)
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
-1. No menu esquerdo, **selecione Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
-1. Selecione **registos de aplicativos (Pré-visualização)** e, em seguida, selecione **Nova inscrição**.
-1. Insira um **Nome** para a aplicação. Por exemplo, *testapp1*.
-1. Selecione **Contas em qualquer diretório organizacional ou qualquer fornecedor**de identidade.
-1. Em **Redirecione o URI,** selecione **Web**e, em seguida, introduza `https://jwt.ms` na caixa de texto URL.
-1. Em **Permissões**, selecione o consentimento do *administrador grant para abrir e offline_access permissões* verifiquem a caixa.
+1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
+1. No menu esquerdo, selecione **Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
+1. Selecione **as inscrições da App**e, em seguida, selecione Novo **registo**.
+1. Insira um **Nome** para a inscrição. Por exemplo, *testapp1*.
+1. Selecione **Contas em qualquer diretório organizacional ou qualquer fornecedor de identidade.**
+1. Em **URI de redirecionamento,** selecione **Web**e, em seguida, `https://jwt.ms` introduza na caixa de texto URL.
+1. Em **Permissões**, selecione o *consentimento de administração grant para abrir e offline_access caixa de verificação de permissões.*
 1. Selecione **Registar**.
 
-Uma vez concluído o registo de candidatura, ative o fluxo implícito de subvenção:
+Uma vez concluído o registo do pedido, permita o fluxo de subvenção implícito:
 
-1. Em **'Gerir',** **selecione Autenticação**.
+1. Em **Gestão**, **selecione Autenticação**.
 1. Selecione **Experimente a nova experiência** (se mostrada).
-1. Sob **a subvenção Implícita,** selecione tanto as **fichas** de acesso como as **fichas de identificação** das caixas de verificação.
+1. Sob **a concessão implícita,** selecione as caixas de verificação **de fichas de acesso** e **id.**
 1. Selecione **Guardar**.
+
+#### <a name="applications-legacy"></a>[Candidaturas (Legado)](#tab/applications-legacy/)
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
+1. No menu esquerdo, selecione **Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
+1. Selecione **Aplicações**e, em seguida, **selecione Adicionar**.
+1. Introduza um nome para a aplicação. Por exemplo, *testapp1*.
+1. Para **Aplicação Web / Web API,** selecione **Sim**.
+1. Para **URL de resposta**, insira`https://jwt.ms`
+1. Selecione **Criar**.

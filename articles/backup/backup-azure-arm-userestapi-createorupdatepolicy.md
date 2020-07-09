@@ -1,51 +1,50 @@
 ---
-title: Criar políticas de backup usando a API REST
-description: Neste artigo, você aprenderá a criar e gerir políticas de backup (agenda e retenção) usando a API REST.
+title: Criar políticas de backup usando REST API
+description: Neste artigo, você aprenderá a criar e gerir políticas de backup (agendamento e retenção) usando a API REST.
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 0718ebc3612f53f1c2cc279096dd92de69bb5ef6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76963857"
 ---
-# <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Criar políticas de backup dos Serviços de Recuperação Azure utilizando a API REST
+# <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Criar políticas de backup dos Serviços de Recuperação do Azure utilizando a API REST
 
-As medidas para criar uma política de backup para um cofre dos Serviços de Recuperação Azure estão descritas no [documento da Política REST API](/rest/api/backup/protectionpolicies/createorupdate). Usemos este documento como referência para criar uma política de backup Azure VM.
+As medidas para criar uma política de backup para um cofre dos Serviços de Recuperação do Azure estão delineadas no [documento da API de REST](/rest/api/backup/protectionpolicies/createorupdate)política . Utilizemos este documento como referência para criar uma política de backup Azure VM.
 
 ## <a name="create-or-update-a-policy"></a>Criar ou atualizar uma política
 
-Para criar ou atualizar uma política de backup do Azure, utilize a seguinte operação *PUT*
+Para criar ou atualizar uma política de Backup Azure, utilize a seguinte operação *PUT*
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2019-05-13
 ```
 
-Os `{policyName}` `{vaultName}` e são fornecidos no URI. Informações adicionais são fornecidas no organismo de pedido.
+O `{policyName}` e são fornecidos no `{vaultName}` URI. Informações adicionais são fornecidas no órgão de pedido.
 
 ## <a name="create-the-request-body"></a>Criar o corpo de pedido
 
 Por exemplo, para criar uma política de backup Azure VM, seguem-se os componentes do organismo de pedido.
 
-|Nome  |Necessário  |Tipo  |Descrição  |
+|Name  |Necessário  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
-|propriedades     |   Verdadeiro      |  Política de Proteção:[AzureIaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades ProtectionPolicyResource        |
+|propriedades     |   Verdadeiro      |  ProtecçãoPolítica:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades ProtectionPolicyResource        |
 |etiquetas     |         | Objeto        |  Etiquetas de recursos       |
 
-Para obter a lista completa de definições no organismo de pedido, consulte o documento REST [API](/rest/api/backup/protectionpolicies/createorupdate)da política de backup .
+Para obter a lista completa de definições no órgão de pedido, consulte o [documento da política de backup REST API](/rest/api/backup/protectionpolicies/createorupdate).
 
 ### <a name="example-request-body"></a>Corpo de pedido de exemplo
 
-O seguinte órgão de pedido define uma política de backup para backups De VM Azure.
+O seguinte órgão de pedido define uma política de backup para backups Azure VM.
 
-A apólice diz:
+A política diz:
 
-- Faça um reforço semanal todas as segundas, quartas, quintas às 10:00 hora padrão do Pacífico.
-- Retenha os reforços ocupados todas as segundas, quartas, quintas por uma semana.
-- Mantenha os backups recolhidos em cada primeira quarta e terceira quinta-feira de um mês por dois meses (substitui as condições de retenção anteriores, se houver).
-- Mantenha os backups tomados na quarta segunda e quarta quinta-feira em fevereiro e novembro por quatro anos (substitui as condições de retenção anteriores, se houver).
+- Faça um backup semanal todas as segundas, quartas, quintas às 10:00 horas do Pacífico.
+- Mantenha os reforços assumidos todas as segundas, quartas, quintas por uma semana.
+- Mantenha os backups assumidos todas as primeiras quartas-feiras e terceira quinta-feira de um mês durante dois meses (substitui as condições de retenção anteriores, se houver).
+- Manter os backups assumidos na quarta segunda-feira e quarta quinta-feira em fevereiro e novembro por quatro anos (substitui as condições de retenção anteriores, se houver).
 
 ```json
 {
@@ -129,22 +128,22 @@ A apólice diz:
 ```
 
 > [!IMPORTANT]
-> Os formatos de tempo para agendae suporte de retenção apenas DataTime. Não suportam apenas o formato time.
+> Os formatos de tempo para agendar e reter suportam apenas o DateTime. Não suportam apenas o formato Time.
 
 ## <a name="responses"></a>Respostas
 
-A criação/atualização da política de backup é uma [operação assíncrona.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) Significa que esta operação cria outra operação que precisa de ser rastreada separadamente.
+A criação/atualização da política de backup é uma [operação assíncronea](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Significa que esta operação cria outra operação que precisa de ser rastreada separadamente.
 
-Devolve duas respostas: 202 (Aceite) quando outra operação é criada, e depois 200 (OK) quando essa operação estiver concluída.
+Devolve duas respostas: 202 (Aceite) quando outra operação é criada e, em seguida, 200 (OK) quando essa operação termina.
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
-|200 OK     |    [Recursos políticos de proteção](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
-|202 Aceite     |         |     Aceite    |
+|200 OK     |    [Proteção PolíticaResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
+|202 Aceito     |         |     Aceite    |
 
 ### <a name="example-responses"></a>Respostas de exemplo
 
-Uma vez apresentado o pedido *DE PUT* para criação ou atualização de políticas, a resposta inicial é 202 (Aceite) com um cabeçalho de localização ou cabeçalho Azure-assync.
+Uma vez que submeta o pedido *DE* PARA criação ou atualização de políticas, a resposta inicial é 202 (Aceite) com um cabeçalho de localização ou cabeçalho Azure-async.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -164,7 +163,7 @@ Location: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000
 X-Powered-By: ASP.NET
 ```
 
-Em seguida, rastreie a operação resultante utilizando o cabeçalho de localização ou o cabeçalho da Operação Azure-Asynccom um simples comando *GET.*
+Em seguida, rastreia a operação resultante utilizando o cabeçalho de localização ou o cabeçalho Azure-AsyncOperation com um simples comando *GET.*
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2019-05-13
@@ -258,13 +257,13 @@ Uma vez concluída a operação, devolve 200 (OK) com o conteúdo da política n
 }
 ```
 
-Se já estiver a ser utilizada uma política para proteger um item, qualquer atualização da política resultará na modificação da [proteção](backup-azure-arm-userestapi-backupazurevms.md#changing-the-policy-of-protection) de todos esses itens associados.
+Se já estiver a ser utilizada uma política para proteger um item, qualquer atualização da política resultará na [modificação da proteção](backup-azure-arm-userestapi-backupazurevms.md#changing-the-policy-of-protection) de todos os itens associados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Permitir proteção para um VM Azure desprotegido](backup-azure-arm-userestapi-backupazurevms.md).
+[Ativar a proteção para um Azure VM desprotegido](backup-azure-arm-userestapi-backupazurevms.md).
 
-Para obter mais informações sobre as APIs DE REPOUSO DE Backup Azure, consulte os seguintes documentos:
+Para obter mais informações sobre as APIs de backup Azure, consulte os seguintes documentos:
 
-- [Prestador de serviços de recuperação azure REST API](/rest/api/recoveryservices/)
+- [Prestador de Serviços de Recuperação Azure REST API](/rest/api/recoveryservices/)
 - [Introdução à API REST do Azure](/rest/api/azure/)

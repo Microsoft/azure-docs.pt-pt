@@ -1,66 +1,61 @@
 ---
-title: Armazenamento de Blob Azure como fonte da Grelha de Eventos
-description: Descreve as propriedades que são fornecidas para eventos de armazenamento de blob com azure Event Grid
-services: event-grid
-author: spelluru
-ms.service: event-grid
+title: Armazenamento Azure Blob como fonte de grade de eventos
+description: Descreve as propriedades que são fornecidas para eventos de armazenamento de blob com Azure Event Grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: 8d22f8a2722dc55a13ce8e3752ca69d6e7251070
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/07/2020
+ms.openlocfilehash: a226a46dcc85e2bb4940364d2802397edb2c2397
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115130"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113756"
 ---
-# <a name="azure-blob-storage-as-an-event-grid-source"></a>Armazenamento azure Blob como fonte da Grelha de Eventos
+# <a name="azure-blob-storage-as-an-event-grid-source"></a>Armazenamento Azure Blob como fonte de grade de eventos
 
-Este artigo fornece as propriedades e esquemas para eventos de armazenamento de bolhas.Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](event-schema.md). Também lhe dá uma lista de arranques rápidos e tutoriais para usar o Armazenamento Azure Blob como fonte de evento.
+Este artigo fornece as propriedades e esquema para eventos de armazenamento de bolhas.Para uma introdução aos esquemas de eventos, consulte [o esquema do evento Azure Event Grid](event-schema.md). Também lhe dá uma lista de partidas rápidas e tutoriais para usar o Azure Blob Storage como fonte de evento.
 
 
 >[!NOTE]
-> Apenas contas de armazenamento de tipo **StorageV2 (finalidade geral v2)**, **BlockBlobStorage**e integração de eventos de suporte **blobStorage.** **O armazenamento (finalidade geral v1)** *não* suporta a integração com a Grelha de Eventos.
+> Apenas contas de armazenamento do tipo **StorageV2 (finalidade geral v2),** **BlockBlobStorage**e integração de eventos de suporte **BlobStorage.** **O armazenamento (propósito geral v1)** *não* suporta a integração com a Grade de Eventos.
 
 ## <a name="event-grid-event-schema"></a>Esquema de eventos do Event Grid
 
-### <a name="list-of-events-for-blob-rest-apis"></a>Lista de eventos para APIs de REPOUSO Blob
+### <a name="list-of-events-for-blob-rest-apis"></a>Lista de eventos para Blob REST APIs
 
-Estes eventos são desencadeados quando um cliente cria, substitui ou elimina uma bolha chamando a Blob REST APIs.
+Estes eventos são desencadeados quando um cliente cria, substitui ou elimina uma bolha chamando APIs blob REST.
 
  |Nome do evento |Descrição|
  |----------|-----------|
- |**Microsoft.Storage.BlobCreated** |Desencadeado quando uma bolha é criada ou substituída. <br>Especificamente, este evento é desencadeado `PutBlob`quando `PutBlockList`os `CopyBlob` clientes usam a , ou operações que estão disponíveis na API BLOB REST.   |
- |**Microsoft.Storage.BlobDeleted** |Desencadeado quando uma bolha é apagada. <br>Especificamente, este evento é desencadeado `DeleteBlob` quando os clientes ligam para a operação que está disponível na API Blob REST. |
+ |**Microsoft.Storage.BlobCreated** |Acionado quando uma bolha é criada ou substituída. <br>Especificamente, este evento é desencadeado quando os clientes usam o `PutBlob` `PutBlockList` , ou `CopyBlob` operações que estão disponíveis na API Blob REST.   |
+ |**Microsoft.Storage.BlobDeleted** |Acionado quando uma bolha é apagada. <br>Especificamente, este evento é desencadeado quando os clientes ligam para a `DeleteBlob` operação que está disponível na API Blob REST. |
 
 > [!NOTE]
-> Se quiser garantir que o evento **Microsoft.Storage.BlobCreated** só é acionado quando um Block `CopyBlob`Blob estiver completamente comprometido, filtre o evento para as `PutBlob`chamadas , e `PutBlockList` REST API. Estas chamadas API desencadeiam o evento **Microsoft.Storage.BlobCreated** apenas após os dados estartotalmente comprometidos com um Block Blob. Para aprender a criar um filtro, consulte [os eventos de filtragem para a Grelha de Eventos](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+> Se pretender garantir que o evento **Microsoft.Storage.BlobCreated** só é acionado quando um Block Blob estiver completamente comprometido, filtre o evento para chamadas `CopyBlob` , e REST `PutBlob` `PutBlockList` API. Estas chamadas API desencadeiam o evento **Microsoft.Storage.BlobCreated** apenas depois de os dados estiverem totalmente comprometidos com uma Blob de Bloco. Para aprender a criar um filtro, consulte [eventos de filtro para grelha de eventos.](https://docs.microsoft.com/azure/event-grid/how-to-filter-events)
 
 ### <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Lista dos eventos para Azure Data Lake Storage Gen 2 REST APIs
 
-Estes eventos são desencadeados se permitir um espaço de nome hierárquico na conta de armazenamento, e os clientes chamam Azure Data Lake Storage Gen2 REST APIs. Para mais informações sobre o Azure Data Lake Storage Gen2, consulte introdução ao Armazenamento de [Lagos De dados Azure Gen2](../storage/blobs/data-lake-storage-introduction.md).
+Estes eventos são desencadeados se você ativar um espaço hierárquico de nomes na conta de armazenamento, e os clientes ligam para Azure Data Lake Storage Gen2 REST APIs. Para obter mais informações sobre a Azure Data Lake Storage Gen2, consulte [Introdução ao Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
 |Nome do evento|Descrição|
 |----------|-----------|
-|**Microsoft.Storage.BlobCreated** | Desencadeado quando uma bolha é criada ou substituída. <br>Especificamente, este evento é desencadeado `CreateFile` quando `FlushWithClose` os clientes usam as operações e operações que estão disponíveis na API REST REST Do Lago De dados Azure. |
-|**Microsoft.Storage.BlobDeleted** |Desencadeado quando uma bolha é apagada. <br>Especificamente, este evento também é desencadeado `DeleteFile` quando os clientes ligam para a operação que está disponível na API REST REST Do Lago De dados Azure. |
-|**Microsoft.Storage.BlobRenamed**|Desencadeado quando uma bolha é renomeada. <br>Especificamente, este evento é desencadeado `RenameFile` quando os clientes utilizam a operação que está disponível na API REST De Armazenamento de Lago de Dados Azure.|
-|**Microsoft.Storage.DirectoryCreated**|Desencadeado quando um diretório é criado. <br>Especificamente, este evento é desencadeado `CreateDirectory` quando os clientes utilizam a operação que está disponível na API REST De Armazenamento de Lago de Dados Azure.|
-|**Microsoft.Storage.DirectoryRenomeado**|Desencadeado quando um diretório é renomeado. <br>Especificamente, este evento é desencadeado `RenameDirectory` quando os clientes utilizam a operação que está disponível na API REST De Armazenamento de Lago de Dados Azure.|
-|**Microsoft.Storage.DirectoryDeleted**|Desencadeado quando um diretório é apagado. <br>Especificamente, este evento é desencadeado `DeleteDirectory` quando os clientes utilizam a operação que está disponível na API REST De Armazenamento de Lago de Dados Azure.|
+|**Microsoft.Storage.BlobCreated** | Acionado quando uma bolha é criada ou substituída. <br>Especificamente, este evento é desencadeado quando os clientes usam o `CreateFile` e `FlushWithClose` operações que estão disponíveis na API de Armazenamento de Data Lake De Azure. |
+|**Microsoft.Storage.BlobDeleted** |Acionado quando uma bolha é apagada. <br>Especificamente, este evento também é desencadeado quando os clientes ligam para a `DeleteFile` operação que está disponível na API de Armazenamento de Data Lake De Azure. |
+|**Microsoft.Storage.BlobRenamed**|Desencadeado quando uma bolha é renomeada. <br>Especificamente, este evento é desencadeado quando os clientes usam a `RenameFile` operação que está disponível na API de Armazenamento de Data Lake De Azure.|
+|**Microsoft.Storage.DirectoryCreated**|Desencadeado quando um diretório é criado. <br>Especificamente, este evento é desencadeado quando os clientes usam a `CreateDirectory` operação que está disponível na API de Armazenamento de Data Lake De Azure.|
+|**Microsoft.Storage.DirectoryRenamed**|Desencadeado quando um diretório é renomeado. <br>Especificamente, este evento é desencadeado quando os clientes usam a `RenameDirectory` operação que está disponível na API de Armazenamento de Data Lake De Azure.|
+|**Microsoft.Storage.DirectoryDeleted**|Acionado quando um diretório é apagado. <br>Especificamente, este evento é desencadeado quando os clientes usam a `DeleteDirectory` operação que está disponível na API de Armazenamento de Data Lake De Azure.|
 
 > [!NOTE]
-> Se quiser garantir que o evento **Microsoft.Storage.BlobCreated** só é acionado quando um Block `FlushWithClose` Blob estiver completamente comprometido, filtre o evento para a chamada REST API. Esta chamada API despoleta o evento **Microsoft.Storage.BlobCreated** apenas depois de os dados estiverem totalmente comprometidos com um Block Blob. Para aprender a criar um filtro, consulte [os eventos de filtragem para a Grelha de Eventos](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+> Se quiser garantir que o evento **Microsoft.Storage.BlobCreated** só é acionado quando um Block Blob estiver completamente comprometido, filtre o evento para a `FlushWithClose` chamada REST API. Esta chamada API dispara o evento **Microsoft.Storage.BlobCreated** apenas depois de os dados estiverem totalmente comprometidos com uma Blob de Bloco. Para aprender a criar um filtro, consulte [eventos de filtro para grelha de eventos.](https://docs.microsoft.com/azure/event-grid/how-to-filter-events)
 
-<a id="example-event" />
+<a name="example-event"></a>
+### <a name="the-contents-of-an-event-response"></a>O conteúdo de uma resposta do evento
 
-### <a name="the-contents-of-an-event-response"></a>O conteúdo de uma resposta de evento
+Quando um evento é desencadeado, o serviço De Grelha de Eventos envia dados sobre esse evento para subscrever o ponto final.
 
-Quando um evento é desencadeado, o serviço De Event Grid envia dados sobre esse evento para subscrever endpoint.
+Esta secção contém um exemplo de como seriam esses dados para cada evento de armazenamento de bolhas.
 
-Esta secção contém um exemplo do que esses dados seriam para cada evento de armazenamento de bolhas.
-
-### <a name="microsoftstorageblobcreated-event"></a>Evento Microsoft.Storage.BlobCreated
+### <a name="microsoftstorageblobcreated-event"></a>Microsoft.Storage.BlobCreated evento
 
 ```json
 [{
@@ -90,16 +85,16 @@ Esta secção contém um exemplo do que esses dados seriam para cada evento de a
 
 ### <a name="microsoftstorageblobcreated-event-data-lake-storage-gen2"></a>Microsoft.Storage.BlobCreated event (Data Lake Storage Gen2)
 
-Se a conta de armazenamento blob tiver um espaço de nome hierárquico, os dados são semelhantes ao exemplo anterior, com exceção destas alterações:
+Se a conta de armazenamento blob tiver um espaço hierárquico de nomes, os dados são semelhantes ao exemplo anterior, com exceção destas alterações:
 
-* A `dataVersion` chave está definida `2`para um valor de .
+* A `dataVersion` chave está definida para um valor de `2` .
 
-* A `data.api` chave está definida `CreateFile` `FlushWithClose`na corda ou .
+* A `data.api` chave está definida para a corda ou . `CreateFile` `FlushWithClose` .
 
 * A `contentOffset` chave está incluída no conjunto de dados.
 
 > [!NOTE]
-> Se as aplicações utilizarem a `PutBlockList` operação para fazer o upload de uma nova bolha para a conta, os dados não conterão estas alterações.
+> Se as aplicações utilizarem `PutBlockList` a operação para enviar uma nova bolha para a conta, os dados não contêm estas alterações.
 
 ```json
 [{
@@ -128,7 +123,7 @@ Se a conta de armazenamento blob tiver um espaço de nome hierárquico, os dados
 }]
 ```
 
-### <a name="microsoftstorageblobdeleted-event"></a>Evento Microsoft.Storage.BlobDeleted
+### <a name="microsoftstorageblobdeleted-event"></a>Microsoft.Storage.BlobDeleted evento
 
 ```json
 [{
@@ -155,16 +150,16 @@ Se a conta de armazenamento blob tiver um espaço de nome hierárquico, os dados
 
 ### <a name="microsoftstorageblobdeleted-event-data-lake-storage-gen2"></a>Microsoft.Storage.BlobDeleted event (Data Lake Storage Gen2)
 
-Se a conta de armazenamento blob tiver um espaço de nome hierárquico, os dados são semelhantes ao exemplo anterior, com exceção destas alterações:
+Se a conta de armazenamento blob tiver um espaço hierárquico de nomes, os dados são semelhantes ao exemplo anterior, com exceção destas alterações:
 
-* A `dataVersion` chave está definida `2`para um valor de .
+* A `dataVersion` chave está definida para um valor de `2` .
 
-* A `data.api` chave está definida `DeleteFile`na corda.
+* A `data.api` chave está definida para a `DeleteFile` corda.
 
-* A `url` chave contém `dfs.core.windows.net`o caminho.
+* A `url` chave contém o `dfs.core.windows.net` caminho.
 
 > [!NOTE]
-> Se as aplicações utilizarem a `DeleteBlob` operação para eliminar uma bolha da conta, os dados não conterão estas alterações.
+> Se as aplicações utilizarem `DeleteBlob` a operação para eliminar uma bolha da conta, os dados não contêm estas alterações.
 
 ```json
 [{
@@ -190,7 +185,7 @@ Se a conta de armazenamento blob tiver um espaço de nome hierárquico, os dados
 }]
 ```
 
-### <a name="microsoftstorageblobrenamed-event"></a>Evento Microsoft.Storage.BlobRenomeado
+### <a name="microsoftstorageblobrenamed-event"></a>Microsoft.Storage.BlobRenamed evento
 
 ```json
 [{
@@ -215,7 +210,7 @@ Se a conta de armazenamento blob tiver um espaço de nome hierárquico, os dados
 }]
 ```
 
-### <a name="microsoftstoragedirectorycreated-event"></a>Microsoft.Storage.DirectoryCreated evento
+### <a name="microsoftstoragedirectorycreated-event"></a>Microsoft.Storage.Evento Decretado
 
 ```json
 [{
@@ -239,7 +234,7 @@ Se a conta de armazenamento blob tiver um espaço de nome hierárquico, os dados
 }]
 ```
 
-### <a name="microsoftstoragedirectoryrenamed-event"></a>Microsoft.Storage.DirectoryRenamed event
+### <a name="microsoftstoragedirectoryrenamed-event"></a>Microsoft.Storage.Evento Desorenado
 
 ```json
 [{
@@ -264,7 +259,7 @@ Se a conta de armazenamento blob tiver um espaço de nome hierárquico, os dados
 }]
 ```
 
-### <a name="microsoftstoragedirectorydeleted-event"></a>Microsoft.Storage.DirectoryDeleted event
+### <a name="microsoftstoragedirectorydeleted-event"></a>Microsoft.Storage.DirectoryDeleted
 
 ```json
 [{
@@ -295,47 +290,47 @@ Um evento tem os seguintes dados de alto nível:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| tópico | string | Caminho de recursos completos para a fonte do evento. Este campo não é repreensível. O Event Grid fornece este valor. |
+| tópico | string | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
 | Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
 | eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | ID | string | Identificador único para o evento. |
-| data | objeto | Dados do evento de armazenamento blob. |
+| dados | objeto | Dados do evento de armazenamento de bolhas. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | api | string | A operação que desencadeou o evento. |
-| clientRequestId | string | um id de pedido fornecido pelo cliente para a operação API de armazenamento. Este id pode ser usado para correlacionar com os registos de diagnóstico do Armazenamento Azure utilizando o campo "cliente-request-id" nos registos, e pode ser fornecido em pedidos de cliente utilizando o cabeçalho "x-ms-cliente-request-id". Ver [Formato de Registo](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
-| requestId | string | Id de pedido gerado pelo serviço para a operação API de armazenamento. Pode ser usado para correlacionar com os registos de diagnóstico do Armazenamento Azure utilizando o campo "request-id-header" nos registos e é devolvido a partir do início da chamada da API no cabeçalho 'x-ms-request-id'. Ver [Formato de Registo](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
-| eTag | string | O valor que pode utilizar para realizar operações condicionalmente. |
+| clienteRequestId | string | um id de pedido fornecido pelo cliente para a operação de API de armazenamento. Este id pode ser usado para correlacionar com os registos de diagnóstico de Armazenamento Azure usando o campo "cliente-pedido-id" nos registos, e pode ser fornecido em pedidos do cliente usando o cabeçalho "x-ms-cliente-pedido-id". Ver [Formato de Registo](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
+| requestId | string | Id de pedido gerado pelo serviço para a operação de API de armazenamento. Pode ser usado para correlacionar com os registos de diagnóstico de armazenamento Azure usando o campo "solicit-id-header" nos registos e é devolvido do início da chamada API no cabeçalho 'x-ms-request-id'. Ver [Formato de Registo](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
+| eTag | string | O valor que pode usar para realizar operações condicionalmente. |
 | conteúdoType | string | O tipo de conteúdo especificado para a bolha. |
-| conteúdoComprimento | número inteiro | O tamanho da bolha em bytes. |
-| blobType | string | O tipo de bolha. Os valores válidos são "BlockBlob" ou "PageBlob". |
-| conteúdoOffset | número | A compensação em bytes de uma operação de escrita realizada no ponto em que a aplicação de desencadeamento de eventos completou a escrita para o ficheiro. <br>Aparece apenas para eventos desencadeados em contas de armazenamento blob que têm um espaço de nome hierárquico.|
-| destinoUrl |string | O url do ficheiro que existirá após a operação estar concluída. Por exemplo, se um ficheiro `destinationUrl` for renomeado, a propriedade contém o url do novo nome do ficheiro. <br>Aparece apenas para eventos desencadeados em contas de armazenamento blob que têm um espaço de nome hierárquico.|
-| fonteUrl |string | O url do ficheiro que existe antes da operação. Por exemplo, se um ficheiro `sourceUrl` for renomeado, o url do nome de ficheiro original antes da operação de renome. <br>Aparece apenas para eventos desencadeados em contas de armazenamento blob que têm um espaço de nome hierárquico. |
-| url | string | O caminho para a bolha. <br>Se o cliente utilizar uma API Blob REST, então o url tem esta estrutura: * \<nome de\>arma de armazenamento .blob.core.windows.net/\<nome\>/\<\>de ficheiro de nome de contentor*. <br>Se o cliente utilizar uma API REST De armazenamento de data Lake, então o url tem esta estrutura: * \<\>nome de arma de armazenamento .dfs.core.windows.net/\<nome\>/\<\>de ficheiro do ficheiro do ficheiro*. |
-| recursivo | string | `True`executar a operação em todas as direções infantis; caso `False`contrário. <br>Aparece apenas para eventos desencadeados em contas de armazenamento blob que têm um espaço de nome hierárquico. |
-| sequenciador | string | Um valor de corda opaco que representa a sequência lógica de eventos para qualquer nome blob em particular.  Os utilizadores podem usar a comparação padrão de cordas para entender a sequência relativa de dois eventos no mesmo nome blob. |
+| contentAver | número inteiro | O tamanho da bolha em bytes. |
+| BlobType | string | O tipo de bolha. Os valores válidos são "BlockBlob" ou "PageBlob". |
+| conjunto de conteúdos | número | A compensação em bytes de uma operação de escrita realizada no ponto em que a aplicação de desencadeamento de eventos completou a escrita para o ficheiro. <br>Aparece apenas para eventos desencadeados em contas de armazenamento blob que têm um espaço hierárquico de nomes.|
+| destinationUrl |string | A url do ficheiro que existirá após a conclusão da operação. Por exemplo, se um ficheiro for renomeado, a `destinationUrl` propriedade contém o url do nome do novo ficheiro. <br>Aparece apenas para eventos desencadeados em contas de armazenamento blob que têm um espaço hierárquico de nomes.|
+| fonteUrl |string | A url do ficheiro que existe antes da operação. Por exemplo, se um ficheiro for renomeado, `sourceUrl` contém o url do nome original do ficheiro antes da operação do rebatizador. <br>Aparece apenas para eventos desencadeados em contas de armazenamento blob que têm um espaço hierárquico de nomes. |
+| url | string | O caminho para a bolha. <br>Se o cliente utilizar uma API Blob REST, então o url tem esta estrutura: * \<storage-account-name\> .blob.core.windows.net/ \<container-name\> / \<file-name\> *. <br>Se o cliente utilizar uma API de Armazenamento de Data Lake, então o url tem esta estrutura: * \<storage-account-name\> .dfs.core.windows.net/ \<file-system-name\> / \<file-name\> *. |
+| recursivo | string | `True`realizar a operação em todas as diretórios infantis; caso `False` contrário. <br>Aparece apenas para eventos desencadeados em contas de armazenamento blob que têm um espaço hierárquico de nomes. |
+| sequenciador | string | Um valor de corda opaco que representa a sequência lógica de eventos para qualquer nome de bolha em particular.  Os utilizadores podem usar a comparação de cordas padrão para entender a sequência relativa de dois eventos no mesmo nome blob. |
 | armazenamentoDiagnósticos | objeto | Dados de diagnóstico ocasionalmente incluídos pelo serviço de Armazenamento Azure. Quando presente, deve ser ignorado pelos consumidores de eventos. |
 
 ## <a name="tutorials-and-how-tos"></a>Tutorials and how-tos (Tutoriais e procedimentos)
 |Título  |Descrição  |
 |---------|---------|
-| [Quickstart: encaminhe eventos de armazenamento blob para um ponto final web personalizado com Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar o Azure CLI para enviar eventos de armazenamento blob para um WebHook. |
-| [Quickstart: encaminhe eventos de armazenamento blob para um ponto final personalizado com powerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar o Azure PowerShell para enviar eventos de armazenamento de blob para um WebHook. |
-| [Quickstart: criar e encaminhar eventos de armazenamento Blob com o portal Azure](blob-event-quickstart-portal.md) | Mostra como usar o portal para enviar eventos de armazenamento blob para um WebHook. |
-| [Azure CLI: subscreva eventos para uma conta de armazenamento Blob](./scripts/event-grid-cli-blob.md) | Prove script que subscreve evento para uma conta de armazenamento Blob. Envia o evento para um WebHook. |
-| [PowerShell: subscreva eventos para uma conta de armazenamento Blob](./scripts/event-grid-powershell-blob.md) | Prove script que subscreve evento para uma conta de armazenamento Blob. Envia o evento para um WebHook. |
-| [Modelo de Gestor de Recursos: Criar armazenamento e subscrição blob](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Implementa uma conta de armazenamento de Blobs do Azure e subscreve eventos para essa conta de armazenamento. Envia eventos para um WebHook. |
-| [Visão geral: reagir a eventos de armazenamento blob](../storage/blobs/storage-blob-event-overview.md) | Visão geral da integração do armazenamento blob com a Grelha de Eventos. |
+| [Quickstart: encaminhe os eventos de armazenamento blob para um ponto final personalizado da Web com Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar o Azure CLI para enviar eventos de armazenamento de bolhas para um WebHook. |
+| [Quickstart: encaminhe os eventos de armazenamento blob para um ponto final personalizado da Web com PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar o Azure PowerShell para enviar eventos de armazenamento de bolhas para um WebHook. |
+| [Quickstart: criar e encaminhar eventos de armazenamento Blob com o portal Azure](blob-event-quickstart-portal.md) | Mostra como usar o portal para enviar eventos de armazenamento de bolhas para um WebHook. |
+| [Azure CLI: subscreva eventos para uma conta de armazenamento Blob](./scripts/event-grid-cli-blob.md) | Guião de amostra que subscreve o evento para uma conta de armazenamento Blob. Envia o evento para um WebHook. |
+| [PowerShell: subscreva eventos para uma conta de armazenamento Blob](./scripts/event-grid-powershell-blob.md) | Guião de amostra que subscreve o evento para uma conta de armazenamento Blob. Envia o evento para um WebHook. |
+| [Modelo de gestor de recursos: Criar armazenamento e subscrição blob](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Implementa uma conta de armazenamento de Blobs do Azure e subscreve eventos para essa conta de armazenamento. Envia eventos para um WebHook. |
+| [Visão geral: reagir a eventos de armazenamento blob](../storage/blobs/storage-blob-event-overview.md) | Visão geral da integração do armazenamento blob com grade de eventos. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grelha de Eventos?](overview.md)
-* Para mais informações sobre a criação de uma subscrição da Rede de Eventos Do Evento, consulte o esquema de subscrição da [Rede de Eventos](subscription-creation-schema.md).
-* Para uma introdução ao trabalho com eventos de armazenamento de blob, consulte eventos de [armazenamento Route Blob - Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json). 
+* Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
+* Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md).
+* Para uma introdução ao trabalho com eventos de armazenamento de bolhas, consulte [eventos de armazenamento Route Blob - Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json). 

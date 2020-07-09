@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Detetar linguagem de texto - Tradutor'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, você aprenderá a detetar a linguagem do texto fornecido usando a API REPOUSO Tradutor.
+description: Neste arranque rápido, você aprenderá a detetar a linguagem do texto fornecido usando a API tradutor REST.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,19 +10,20 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.author: erhopf
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: e3c75a9d0ee76d2e7cc51bf1c5a6ad2d1378516e
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 4e11a26d75877dcaf244e754763f7c9b80c1de61
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996198"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608320"
 ---
 # <a name="quickstart-use-the-translator-to-detect-text-language"></a>Quickstart: Use o Tradutor para detetar linguagem de texto
 
-Neste arranque rápido, você aprenderá a detetar a linguagem do texto fornecido com a API DE REPOUSO Tradutor.
+Neste arranque rápido, você aprenderá a detetar a linguagem do texto fornecido com a API tradutor REST.
 
-Este quickstart requer uma [conta de Serviços Cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com recurso tradutor. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
+Este quickstart requer uma [conta Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso Tradutor. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/detect-csharp.md)]

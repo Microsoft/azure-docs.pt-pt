@@ -1,7 +1,7 @@
 ---
-title: incluir ficheiro
+title: ficheiro de inclusão
 titleSuffix: Azure
-description: incluir ficheiro
+description: ficheiro de inclusão
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: f8e93cf34ac56344ff7e3d145ce8c7c3529767b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81678657"
 ---
-O exemplo que se segue mostra como criar uma ligação de intercâmbio na Equinix Internet Exchange em Seattle. Se estiver a utilizar um fornecedor diferente e configurações diferentes, substitua essa informação quando fizer o seu pedido.
+O exemplo a seguir mostra como criar uma ligação exchange no Equinix Internet Exchange em Seattle. Se estiver a utilizar um fornecedor diferente e diferentes definições, substitua essa informação quando fizer o seu pedido.
 
-Utilize o cmdlet **PowerShell New-AzPeeringExchangeConnectionConnectionObject** para criar objetos de ligação PowerShell, que serão utilizados para gerar o novo pedido de peering.
+Utilize o cmdlet PowerShell **New-AzPeeringExchangeConnectionObject** para criar objetos de ligação PowerShell, que serão utilizados para gerar o novo pedido de espreitar.
 
-Este exemplo mostra como criar uma ligação de Intercâmbio.
+Este exemplo mostra como criar uma ligação Exchange.
 
 ```powershell
 $connection1 = New-AzPeeringExchangeConnectionObject `
@@ -30,7 +30,7 @@ $connection1 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-Crie outra ligação no caso de precisar de redundância no local de observação.
+Crie outra ligação no caso de necessitar de redundância no local de observação.
 
 ```powershell
 $connection2 = New-AzPeeringExchangeConnectionObject `
@@ -41,7 +41,7 @@ $connection2 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-O CmDLet **PowerShell New-AzPeering** pode ser usado para criar um novo persparo de Troca.
+O cmdlet PowerShell **New-AzPeering** pode ser usado para criar um novo perspeto de Troca.
 
 ```powershell
 $asn = Get-AzPeerAsn
@@ -54,7 +54,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-Esta resposta de exemplo mostra quando o pedido foi executado através de uma ligação.
+Esta resposta de exemplo mostra quando o pedido foi executado utilizando uma ligação.
 
 ```powershell
 
@@ -73,8 +73,8 @@ Tags              : {}
 ```
 
 > [!IMPORTANT]
-> A Microsoft começa a fornecer o `ConnectionState` peering solicitado e reflete o progresso.
-> Para obter mais informações sobre as etapas relacionadas com o provisionamento, consulte a passagem do [exchange peering](../walkthrough-exchange-all.md).
+> A Microsoft começa a auser o espreitamento solicitado e `ConnectionState` reflete o progresso.
+> Para obter mais informações sobre as etapas relacionadas com o provisionamento, consulte a [passagem de peering peering exchange](../walkthrough-exchange-all.md).
 
 Pode verificar o estado de ligação, como mostrado aqui.
 

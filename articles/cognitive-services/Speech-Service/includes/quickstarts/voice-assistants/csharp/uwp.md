@@ -4,37 +4,37 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: 62c317843c275531286eeb2ae616d79ad76c6f99
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 548d324a67b1bbee4741724faf2cf27ec6c3c3c1
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80671568"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84754635"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso azure speech](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Criar um recurso de discurso azul](~/articles/cognitive-services/speech-service/get-started.md)
 > * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
-> * Crie um bot ligado ao [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Criar um bot ligado ao [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Certifique-se de que tem acesso a um microfone para captura de áudio
 > 
   > [!NOTE]
-  > Consulte [a lista de regiões apoiadas para assistentes](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) de voz e certifique-se de que os seus recursos são implantados numa dessas regiões.
+  > Por favor, consulte [a lista de regiões apoiadas para assistentes de voz](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) e certifique-se de que os seus recursos são utilizados numa dessas regiões.
 
-## <a name="open-your-project-in-visual-studio"></a>Abra o seu projeto no Estúdio Visual
+## <a name="open-your-project-in-visual-studio"></a>Abra o seu projeto no Visual Studio
 
-O primeiro passo é garantir que tem o seu projeto aberto no Estúdio Visual.
+O primeiro passo é garantir que o seu projeto está aberto no Visual Studio.
 
-## <a name="start-with-some-boilerplate-code"></a>Comece com um pouco de código de placa de caldeira
+## <a name="start-with-some-boilerplate-code"></a>Comece com um código de placa de caldeira
 
-Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
+Vamos adicionar um código que funcione como um esqueleto para o nosso projeto.
 
-1. No **Solution Explorer,** abra. `MainPage.xaml`
+1. In **Solution Explorer,** abra `MainPage.xaml` .
 
-1. Na vista XAML do designer, substitua todo o conteúdo pelo seguinte corte que define uma interface de utilizador rudimentar:
+1. Na visão XAML do designer, substitua todo o conteúdo pelo seguinte corte que define uma interface de utilizador rudimentar:
 
     ```xml
     <Page
@@ -83,13 +83,13 @@ Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
 
 A vista Design é atualizada para mostrar a interface de utilizador da aplicação.
 
-1. No **Solution Explorer,** abra o `MainPage.xaml.cs`ficheiro código por trás da fonte . (Está agrupado sob `MainPage.xaml`.) Substitua o conteúdo deste ficheiro pelo seguinte, que inclui:
+1. No **Solution Explorer,** abra o ficheiro de código por trás `MainPage.xaml.cs` . (Está agrupado em `MainPage.xaml` .) Substitua o conteúdo deste ficheiro pelo seguinte, que inclui:
 
-- `using`declarações `Speech` para `Speech.Dialog` os espaços e nomes
-- Uma implementação simples para garantir o acesso ao microfone, ligado a um manipulador de botões
+- `using`declarações para os `Speech` espaços e `Speech.Dialog` nomes
+- Uma implementação simples para garantir o acesso ao microfone, ligada a um manipulador de botões
 - Ajudantes básicos da UI para apresentar mensagens e erros na aplicação
 - Um ponto de aterragem para o caminho do código de inicialização que será povoado mais tarde
-- Um ajudante para reproduzir texto-a-fala (sem suporte de streaming)
+- Um ajudante para reproduzir texto-a-discurso (sem suporte de streaming)
 - Um manipulador de botões vazio para começar a ouvir que será povoado mais tarde
 
     ```csharp
@@ -259,28 +259,28 @@ A vista Design é atualizada para mostrar a interface de utilizador da aplicaç�
         }
     }
     ```
-1. Adicione o seguinte fragmento de código `InitializeDialogServiceConnector`ao corpo metodológico de . Este código `DialogServiceConnector` cria o com a sua informação de subscrição.
+1. Adicione o seguinte corte de código ao corpo do método de `InitializeDialogServiceConnector` . Este código cria a `DialogServiceConnector` informação de subscrição.
 
     ```csharp
     // Create a BotFrameworkConfig by providing a Speech service subscription key
-    // the RecoLanguage property is optional (default en-US)
+    // the botConfig.Language property is optional (default en-US)
     const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
     const string region = "YourServiceRegion"; // Your subscription service region.
 
     var botConfig = BotFrameworkConfig.FromSubscription(speechSubscriptionKey, region);
-    botConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
+    botConfig.Language = "en-US";
     connector = new DialogServiceConnector(botConfig);
     ```
 
    > [!NOTE]
-   > Consulte [a lista de regiões apoiadas para assistentes](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) de voz e certifique-se de que os seus recursos são implantados numa dessas regiões.
+   > Por favor, consulte [a lista de regiões apoiadas para assistentes de voz](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) e certifique-se de que os seus recursos são utilizados numa dessas regiões.
 
    > [!NOTE]
-   > Para obter informações sobre a configuração do seu bot, consulte a documentação bot Framework para [o canal De Discurso da Linha Direta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+   > Para obter informações sobre a configuração do seu bot, consulte a documentação do Quadro bot para [o canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
-1. Substitua as `YourSpeechSubscriptionKey` `YourServiceRegion` cordas e os seus próprios valores para a sua subscrição de discurso e [região](~/articles/cognitive-services/speech-service/regions.md).
+1. Substitua as cordas `YourSpeechSubscriptionKey` e `YourServiceRegion` pelos seus próprios valores para a subscrição da sua fala e [região](~/articles/cognitive-services/speech-service/regions.md).
 
-1. Anexar o seguinte corte de código até ao `InitializeDialogServiceConnector`fim do corpo metodológico de . Este código configura manipuladores para eventos baseados em `DialogServiceConnector` para comunicar as suas atividades bot, resultados de reconhecimento de fala e outras informações.
+1. Anexar o seguinte corte de código ao fim do corpo do método de `InitializeDialogServiceConnector` . Este código configura manipuladores para eventos invocados para `DialogServiceConnector` comunicar as suas atividades bot, resultados de reconhecimento de voz e outras informações.
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client 
@@ -335,7 +335,7 @@ A vista Design é atualizada para mostrar a interface de utilizador da aplicaç�
     };
     ```
 
-1. Adicione o seguinte corte de código `ListenButton_ButtonClicked` ao corpo `MainPage` do método da classe. Este código configura-se `DialogServiceConnector` para ouvir, uma vez que já estabeleceu a configuração e registou os manipuladores de eventos.
+1. Adicione o seguinte corte de código ao corpo do `ListenButton_ButtonClicked` método na `MainPage` classe. Este código `DialogServiceConnector` configura-se para ouvir, uma vez que já estabeleceu a configuração e registou os manipuladores de eventos.
 
     ```csharp
     if (connector == null)
@@ -366,19 +366,19 @@ A vista Design é atualizada para mostrar a interface de utilizador da aplicaç�
     
 ## <a name="build-and-run-your-app"></a>Construa e execute a sua app
 
-Agora está pronto para construir a sua aplicação e testar o seu assistente de voz personalizado usando o serviço De Discurso.
+Agora está pronto para construir a sua aplicação e testar o seu assistente de voz personalizado usando o serviço Speech.
 
-1. A partir da barra de menus, escolha **Build Build** > **Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
+1. A partir da barra de menu, escolha **Build**  >  **Build Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
 
-1. Escolha **Depurar** > **Depuração** (ou prima **F5)** para iniciar a aplicação. A janela do **Helloworld** aparece.
+1. Escolha **Debug**  >  **Start Debugging** (ou prima **F5**) para iniciar a aplicação. A janela **helloworld** aparece.
 
-   ![Amostra UWP aplicação de assistente de voz em C# - quickstart](~/articles/cognitive-services/Speech-Service/media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
+   ![Experimente a aplicação de assistente de voz UWP em C# - quickstart](~/articles/cognitive-services/Speech-Service/media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
-1. Selecione **Ativar o microfone**e quando o pedido de autorização de acesso aparecer, selecione **Sim**.
+1. Selecione **Ativar o Microfone**, e quando o pedido de autorização de acesso aparecer, selecione **Sim**.
 
    ![Pedido de permissão de acesso ao microfone](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. Selecione **Falar com o seu bot**e dizer uma frase ou frase em inglês no microfone do seu dispositivo. O seu discurso é transmitido para o canal Direct Line Speech e transcrito para texto, que aparece na janela.
+1. **Selecione Fale com o seu bot**e fale uma frase ou frase em inglês no microfone do seu dispositivo. O seu discurso é transmitido para o canal Direct Line Speech e transcrito para texto, que aparece na janela.
 
 ## <a name="next-steps"></a>Passos seguintes
 

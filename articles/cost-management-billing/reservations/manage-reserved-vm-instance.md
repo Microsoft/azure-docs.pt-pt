@@ -5,14 +5,14 @@ ms.service: cost-management-billing
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 06/04/2020
 ms.author: banders
-ms.openlocfilehash: 2dadcac3c776feed5ee521284f6b244a050e83e9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 187bfeb7f9e4be47fb44a1ad0cf97be757865ab9
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79237943"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434191"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerir Reservas para recursos do Azure
 
@@ -20,6 +20,7 @@ Depois de comprar uma reserva do Azure, poderá precisar de aplicar a reserva a 
 
 Caso tenha comprado o Azure Reserved VM Instances, poderá alterar a definição de otimização da reserva. O desconto da reserva pode aplicar-se às VMs na mesma série ou pode reservar capacidade de datacenter para um tamanho de VM específico. Além disso, deve tentar otimizar as reservas para que sejam completamente utilizadas.
 
+*A permissão necessária para gerir uma reserva é distinta da permissão de subscrição.*
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -55,10 +56,9 @@ O âmbito só se aplica às subscrições individuais com tarifas pay as you go 
 
 Pode delegar a gestão de reservas. Para tal, adicione pessoas às funções no pedido de reservas ou na reserva. Por predefinição, a pessoa que faz o pedido de reserva e o administrador de conta têm a função Proprietário no pedido de reservas e na reserva.
 
-Pode gerir o acesso a encomendas de reservas e reservas independentemente das subscrições que obtêm o desconto de reserva. Quando concede permissões a alguém para gerir uma encomenda de reserva ou a reserva, não é concedida permissão para gerir a subscrição. Da mesma forma, caso conceda permissões a alguém para gerir uma subscrição no âmbito de reserva, não serão concedidos direitos para gerir a encomenda de reserva ou a reserva.
+Pode gerir o acesso às encomendas de reservas e às reservas *independentemente das subscrições* que obtêm o desconto de reserva. Quando concede permissões a alguém para gerir uma encomenda de reserva ou a reserva, não é concedida permissão para gerir a subscrição. Da mesma forma, caso conceda permissões a alguém para gerir uma subscrição no âmbito de reserva, não serão concedidos direitos para gerir a encomenda de reserva ou a reserva.
 
 Para realizar uma troca ou reembolso, o utilizador tem de ter acesso à encomenda de reserva. Ao conceder permissões a alguém, o melhor será conceder permissões para a encomenda de reserva e não para a reserva.
-
 
 Para delegar a gestão do acesso de uma reserva:
 
@@ -168,7 +168,7 @@ Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 
 Para comprar um plano de serviço:
 - [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../../sql-database/sql-database-reserved-capacity.md)
+- [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../../azure-sql/database/reserved-capacity-overview.md)
 - [Efetuar pré-pagamento de recursos do Azure Cosmos DB com capacidade reservada do Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
 
 Para comprar um plano de software:

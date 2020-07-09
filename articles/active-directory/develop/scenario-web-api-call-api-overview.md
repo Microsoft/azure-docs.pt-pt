@@ -1,6 +1,6 @@
 ---
-title: Construa uma API web que chama APIs web - plataforma de identidade microsoft / Azure
-description: Aprenda a construir uma API web que chama APIs web a jusante (visão geral).
+title: Construa uma API web que chame APIs web - plataforma de identidade microsoft / Rio Azure
+description: Saiba como construir uma API web que chama APIs da web a jusante (visão geral).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,10 +12,9 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 88a0177755fbd913bdaaf0ecf3e12c62dee294c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80885077"
 ---
 # <a name="scenario-a-web-api-that-calls-web-apis"></a>Cenário: Uma API web que chama APIs web
@@ -24,21 +23,21 @@ Saiba o que precisa de saber para construir uma API web que chama APIs web.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este cenário, no qual uma API web protegida chama APIs web, baseia-se no cenário "Proteger uma API web". Para saber mais sobre este cenário fundacional, consulte [Cenário: API web protegida](scenario-protected-web-api-overview.md).
+Este cenário, no qual uma API web protegida chama APIs web, baseia-se no cenário "Proteger uma API web". Para saber mais sobre este cenário fundamental, consulte [Cenário: API web protegida.](scenario-protected-web-api-overview.md)
 
 ## <a name="overview"></a>Descrição geral
 
-- Um cliente de aplicação web, desktop, mobile ou de uma página única (não representado no diagrama de acompanhamento) chama uma API web protegida e fornece um token portador da Web Token (JWT) no seu cabeçalho HTTP "Authorization".
-- A API web protegida valida o símbolo e utiliza o método `AcquireTokenOnBehalfOf` Microsoft Authentication Library (MSAL) para solicitar outro símbolo do Azure Ative Directory (Azure AD) para que a API da web protegida possa chamar uma segunda API web, ou API web a jusante, em nome do utilizador.
-- A API da web `AcquireTokenSilent`protegida também pode ligar mais tarde para solicitar tokens para outras APIs a jusante em nome do mesmo utilizador. `AcquireTokenSilent`refresca o símbolo quando necessário.
+- Um cliente de aplicação web, desktop, móvel ou de uma página (não representado no diagrama que o acompanha) chama uma API web protegida e fornece um símbolo portador da Web Token (JWT) JSON no seu cabeçalho HTTP "Autorização".
+- A API web protegida valida o token e utiliza o método da Microsoft Authentication Library (MSAL) `AcquireTokenOnBehalfOf` para solicitar outro token do Azure Ative Directory (AZure AD) para que a API web protegida possa ligar para uma segunda API web, ou API web a jusante, em nome do utilizador.
+- A API web protegida também pode ligar `AcquireTokenSilent` mais tarde para solicitar fichas para outras APIs a jusante em nome do mesmo utilizador. `AcquireTokenSilent`refresca o símbolo quando necessário.
 
 ![Diagrama de uma API web chamando uma API web](media/scenarios/web-api.svg)
 
 ## <a name="specifics"></a>Especificidades
 
-A parte de registo da aplicação que está relacionada com permissões DaPI é clássica. A configuração da aplicação envolve a utilização do fluxo OAuth 2.0 On-Behalf-Of para trocar o símbolo do portador jWT contra um símbolo para uma API a jusante. Este token é adicionado à cache simbólica, onde está disponível nos controladores da Web API, e pode então adquirir um símbolo silenciosamente para chamar APIs a jusante.
+A parte de registo de aplicações relacionada com permissões de API é clássica. A configuração da aplicação envolve a utilização do fluxo OAuth 2.0 On-Behalf-Of para trocar o token do portador JWT contra um símbolo para uma API a jusante. Este token é adicionado à cache simbólica, onde está disponível nos controladores da API web, e pode então adquirir um símbolo silenciosamente para chamar APIs a jusante.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Registo da aplicação](scenario-web-api-call-api-app-registration.md)
+> [Registo de aplicações](scenario-web-api-call-api-app-registration.md)

@@ -1,5 +1,5 @@
 ---
-title: Módulo Twin - Azure Event Grid IoT Edge [ Microsoft Docs
+title: Módulo Twin - Azure Event Grid IoT Edge / Microsoft Docs
 description: Configuração via Módulo Twin.
 author: HiteshMadan
 manager: rajarv
@@ -10,25 +10,25 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 5c23b9ef280a4a4e3458d279ecf060d2e3d50295
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72992148"
 ---
-# <a name="module-twin-json-schema"></a>Esquema JSON twin módulo
+# <a name="module-twin-json-schema"></a>Módulo twin JSON schema
 
-A Grelha de Eventos no IoT Edge integra-se com o ecossistema IoT Edge e suporta a criação de tópicos e subscrições através do Módulo Twin. Também relata o estado atual de todos os tópicos e subscrições de eventos para as propriedades reportadas no Módulo Twin.
+A Grade de Eventos no IoT Edge integra-se com o ecossistema IoT Edge e suporta a criação de tópicos e subscrições através do Módulo Twin. Também relata o estado atual de todos os tópicos e subscrições de eventos para as propriedades relatadas no Módulo Twin.
 
 > [!WARNING]
-> Devido a limitações no ecossistema IoT Edge, todos os elementos da matriz no exemplo json seguinte foram codificados como cordas json. Consulte `EventSubscription.Filter.EventTypes` `EventSubscription.Filter.AdvancedFilters` e as teclas no seguinte exemplo.
+> Devido às limitações no ecossistema IoT Edge, todos os elementos de matriz no exemplo json seguinte foram codificados como cordas json. Veja `EventSubscription.Filter.EventTypes` e as chaves no exemplo `EventSubscription.Filter.AdvancedFilters` seguinte.
 
 ## <a name="desired-properties-json"></a>Propriedades desejadas JSON
 
-* O valor de cada par de valor-chave na secção de tópicos tem exatamente o mesmo esquema JSON que é usado `Topic.Properties` na API ao criar tópicos.
-* O valor de cada par de valor-chave na secção **De Assinaturas** de Eventos `EventSubscription.Properties` tem exatamente o mesmo esquema json que é usado na API ao criar tópicos.
-* Para eliminar um tópico, `null` detete o seu valor nas propriedades desejadas.
-* A desposição de subscrições de eventos através de propriedades desejadas não é suportada.
+* O valor de cada par de valores-chave na secção de tópicos tem exatamente o mesmo esquema JSON que é usado `Topic.Properties` na API ao criar tópicos.
+* O valor de cada par de valores-chave na secção **EventSubscriptions** tem exatamente o mesmo esquema json que é usado `EventSubscription.Properties` na API ao criar tópicos.
+* Para eliminar um tópico, desa um valor para `null` as propriedades desejadas.
+* A eliminação das subscrições de eventos através das propriedades desejadas não é suportada.
 
 ```json
 {
@@ -85,7 +85,7 @@ A secção de propriedades reportadas do módulo twin inclui as seguintes inform
 
 * O conjunto de tópicos e subscrições que existem na loja do módulo
 * Quaisquer erros encontrados ao criar tópicos/subscrições de eventos desejados
-* Quaisquer erros de arranque (tais como propriedades desejadas JSON parsing falhou)
+* Quaisquer erros de arranque (tais como propriedades desejadas JSON análise falhou)
 
 ```json
 {

@@ -1,92 +1,101 @@
 ---
-title: Monitor Azure Event Grid entrega de mensagens
-description: Este artigo descreve como usar o portal Azure para ver o estado da entrega de mensagens Azure Event Grid.
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
+title: Ver métricas da grelha de eventos Azure e definir alertas
+description: Este artigo descreve como usar o portal Azure para ver métricas para tópicos e subscrições de Azure Event Grid e criar alertas sobre eles.
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: 7a01ab91fe84aaa1fe55018754eddbf8b8f89643
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 07/07/2020
+ms.openlocfilehash: 518d34d39e6fbecc408fe9a44d899fe4745d60d0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890859"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114888"
 ---
-# <a name="monitor-event-grid-message-delivery"></a>Monitorizar a entrega de mensagens da Grelha de Eventos 
+# <a name="monitor-event-grid-message-delivery"></a>Monitorar a entrega de mensagens da grelha de eventos 
+Este artigo descreve como usar o portal para ver métricas para tópicos e subscrições de Event Grid, e criar alertas sobre eles. 
 
-Este artigo descreve como usar o portal para ver o estado das entregas de eventos.
+## <a name="metrics"></a>Métricas
 
-A Rede de Eventos proporciona uma entrega duradoura. Entrega cada mensagem pelo menos uma vez para cada subscrição. Os eventos são enviados imediatamente para o webhook registado de cada subscrição. Se um webhook não reconhecer a receção de um evento no prazo de 60 segundos após a primeira tentativa de entrega, a Rede de Eventos retenta a entrega do evento.
-
-Para obter informações sobre entrega e repetições de eventos, entrega e retentativa de mensagens da Grelha de [Eventos.](delivery-and-retry.md)
-
-## <a name="delivery-metrics"></a>Métricas de entrega
-
-O portal exibe métricas para o estado de entrega de mensagens de eventos.
+O portal apresenta métricas para o estado de entrega de mensagens de evento.
 
 Para tópicos, aqui estão algumas das métricas:
 
-* **Publish Succeeded**: Evento enviado com sucesso para o tema, e processado com uma resposta 2xx.
-* **Publicar Failed**: Evento enviado para o tópico mas rejeitado com um código de erro.
-* **Unmatched**: Evento publicado com sucesso para o tema, mas não corresponde a uma subscrição de evento. O evento foi abandonado.
+* **Publicação Conseguida**: Evento enviado com sucesso para o tema, e processado com uma resposta 2xx.
+* **Publicar Falha:** Evento enviado para o tópico mas rejeitado com um código de erro.
+* **Incomparável**: Evento publicado com sucesso para o tema, mas não corresponde a uma subscrição de evento. O evento foi encerrado.
 
 Para subscrições, aqui estão algumas das métricas:
 
-* **Entrega Bem sucedida**: Evento entregue com sucesso no ponto final da subscrição, e recebeu uma resposta 2xx.
-* **Entrega Falhada**: Sempre que o serviço tenta entregar e o manipulador de eventos não devolve um código 2xx de sucesso, o contador **Failed delivery** é incrementado. Se tentarmos entregar o mesmo evento várias vezes e falharmos, o contador **Failed delivery** é incrementado para cada falha.
-* **Eventos Expirados**: O evento não foi entregue e todas as tentativas de retenção foram enviadas. O evento foi abandonado.
-* **Eventos Combinados**: Evento no tema foi acompanhado pela subscrição do evento.
+* **Entrega Conseguida**: Evento entregue com sucesso no ponto final da subscrição, e recebeu uma resposta de 2xx.
+* **Entrega Falhada**: Sempre que o serviço tenta entregar e o manipulador de eventos não devolve um código 2xx de sucesso, o contador **De entrega falhou.** Se tentarmos entregar o mesmo evento várias vezes e falharmos, o contador **Dedesema falha de entrega** é incrementado para cada falha.
+* **Eventos Expirados**: O evento não foi entregue e todas as tentativas de retenção foram enviadas. O evento foi encerrado.
+* **Eventos Combinados**: Evento no tópico foi acompanhado pela subscrição do evento.
 
     > [!NOTE]
-    > Para a lista completa de métricas, consulte [Métricas suportadas pela Azure Event Grid](metrics.md).
+    > Para obter a lista completa de métricas, consulte [métricas suportadas pela Azure Event Grid](metrics.md).
 
-## <a name="event-subscription-status"></a>Estado de subscrição de eventos
+## <a name="view-custom-topic-metrics"></a>Ver métricas de tópicos personalizados
 
-Para ver métricas para uma subscrição de evento, pode pesquisar por tipo de subscrição ou por subscrições para um recurso específico.
+Se publicou um tópico personalizado, pode ver as métricas para o mesmo. 
 
-Para pesquisar por tipo de subscrição de eventos, selecione **Todos os serviços**.
+1. Inscreva-se no [portal Azure](https://portal.azure.com/).
+2. Na barra de pesquisa do tópico, escreva **Tópicos de Grelha de Eventos**e, em seguida, selecione Tópicos de Grelha de **Eventos** da lista de drop-down. 
 
-![Selecione todos os serviços](./media/monitor-event-delivery/all-services.png)
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Procurar e selecionar tópicos de grelha de eventos":::
+3. Selecione o seu tópico personalizado na lista de tópicos. 
 
-Procure a grelha de **eventos** e selecione Assinaturas de Grelha de **Eventos** das opções disponíveis.
+    :::image type="content" source="./media/monitor-event-delivery/select-custom-topic.png" alt-text="Selecione o seu tópico personalizado":::
+4. Veja as métricas para o tema do evento personalizado na página **tópico da grelha de evento.** Na imagem a seguir, a secção **Essentials** que mostra o grupo de recursos, subscrição etc. é minimizada. 
 
-![Pesquisar subscrições de eventos](./media/monitor-event-delivery/search-and-select.png)
+    :::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics.png" alt-text="Ver métricas do evento":::
 
-Filtrar pelo tipo de evento, subscrição e localização. Selecione **Métricas** para a subscrição visualizar.
+Pode criar gráficos com métricas suportadas utilizando o separador **Métricas** da página **Tópico de Grelha de Evento.**
 
-![Filtrar assinaturas de eventos](./media/monitor-event-delivery/filter-events.png)
+:::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Tópico - Página de métricas":::
 
-Veja as métricas para o tópico do evento e subscrição.
+Para saber mais sobre métricas, consulte [métricas no Azure Monitor](../azure-monitor/platform/data-platform-metrics.md)
 
-![Ver métricas de eventos](./media/monitor-event-delivery/subscription-metrics.png)
+Por exemplo, consulte o gráfico de métricas para a **métrica de Eventos Publicados.**
 
-Para encontrar as métricas para um recurso específico, selecione esse recurso. Em seguida, selecione **Eventos**.
+:::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics-example.png" alt-text="Métrica de eventos publicados":::
 
-![Selecione eventos para um recurso](./media/monitor-event-delivery/select-events.png)
 
-Vê as métricas das assinaturas para esse recurso.
+## <a name="view-subscription-metrics"></a>Ver métricas de subscrição
+1. Navegue para a página **tópico da grelha de eventos** seguindo os passos da secção anterior. 
+2. Selecione a subscrição a partir do painel inferior, como mostrado no exemplo seguinte. 
 
-## <a name="custom-event-status"></a>Estado do evento personalizado
+    :::image type="content" source="./media/monitor-event-delivery/select-event-subscription.png" alt-text="Selecione subscrição de eventos":::    
 
-Se publicou um tópico personalizado, pode ver as métricas para ele. Selecione o grupo de recursos para o tópico e selecione o tópico.
+    Também pode pesquisar **subscrições de Grade de Eventos** na barra de pesquisa no portal Azure, selecione **Topic Type,** **Subscrição**e **Localização** para ver uma subscrição do evento. 
 
-![Selecionar tópico personalizado](./media/monitor-event-delivery/select-custom-topic.png)
+    :::image type="content" source="./media/monitor-event-delivery/event-subscriptions-page.png" alt-text="Selecione a subscrição do evento a partir da página de subscrições da Grade de Eventos":::        
 
-Veja as métricas para o tópico de evento personalizado.
+    Para tópicos personalizados, selecione **Tópicos de Grelha de Eventos** como **Tipo tópico**. Para tópicos do sistema, selecione o tipo de recurso Azure, por exemplo, **Contas de Armazenamento (Blob, GPv2)**. 
+3. Consulte as métricas da subscrição na página inicial para a subscrição num gráfico. Pode ver as métricas **General,** **Error,** **Latência**e **Carta Morta** durante as últimas 1 hora, 6 horas, 12 horas, 1 dia, 7 dias ou 30 dias. 
 
-![Ver métricas de eventos](./media/monitor-event-delivery/custom-topic-metrics.png)
+    :::image type="content" source="./media/monitor-event-delivery/subscription-home-page-metrics.png" alt-text="Métricas na página inicial da subscrição":::    
 
-## <a name="set-alerts"></a>Definir alertas
+## <a name="view-system-topic-metrics"></a>Ver métricas de tópicos do sistema
 
-Pode definir alertas sobre as métricas de nível de tópico e domínio para tópicos personalizados e domínios de eventos. Na lâmina geral para, selecione **Alertas** da esquerda tinha menu de recursos para visualizar, gerir e criar regras de alerta. [Saiba mais sobre alertas do Monitor Azure](../azure-monitor/platform/alerts-overview.md)
+1. Inscreva-se no [portal Azure](https://portal.azure.com/).
+2. Na barra de pesquisa do tópico, escreva **Tópicos do Sistema de Grelha de Eventos**e, em seguida, selecione Tópicos do Sistema de Grelha de **Eventos** da lista de drop-down. 
 
-![Ver métricas de eventos](./media/monitor-event-delivery/select-alerts.png)
+    :::image type="content" source="./media/monitor-event-delivery/search-system-topics.png" alt-text="Procurar e selecionar tópicos do sistema de grelha de eventos":::
+3. Selecione o tópico do seu sistema na lista de tópicos. 
 
-## <a name="next-steps"></a>Passos seguintes
+    :::image type="content" source="./media/monitor-event-delivery/select-system-topic.png" alt-text="Selecione o tópico do seu sistema":::
+4. Veja as métricas do tópico do sistema na página **tópico do sistema de grelha de evento.** Na imagem a seguir, a secção **Essentials** que mostra o grupo de recursos, subscrição etc. é minimizada. 
 
-* Para obter informações sobre entrega e repetições de eventos, entrega e retentativa de mensagens da Grelha de [Eventos.](delivery-and-retry.md)
-* Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).
-* Para começar rapidamente a usar a Grelha de Eventos, consulte [create e encaminhe eventos personalizados com a Grelha de Eventos Azure](custom-event-quickstart.md).
+    :::image type="content" source="./media/monitor-event-delivery/system-topic-overview-metrics.png" alt-text="Ver métricas de tópico do sistema na página geral":::
+
+Pode criar gráficos com métricas suportadas utilizando o separador **Métricas** da página **Tópico de Grelha de Evento.**
+
+:::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="Tópico do Sistema - Página de métricas":::
+
+Para saber mais sobre métricas, consulte [métricas no Azure Monitor](../azure-monitor/platform/data-platform-metrics.md)
+
+
+## <a name="next-steps"></a>Próximos passos
+Consulte os seguintes artigos:
+
+- Para aprender a criar alertas sobre métricas e operações de registo de [atividades, consulte Alertas definidos](set-alerts.md).
+- Para obter informações sobre entrega de eventos e retrórias, [entrega e redação de mensagens de Event Grid.](delivery-and-retry.md)

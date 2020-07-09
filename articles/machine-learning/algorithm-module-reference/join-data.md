@@ -1,7 +1,7 @@
 ---
-title: 'Juntar dados: Referência do módulo'
+title: 'Juntar Dados: Referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a utilizar o módulo Join Data em Azure Machine Learning para fundir conjuntos de dados.
+description: Aprenda a usar o módulo de junção de dados de junção em Azure Machine Learning para fundir conjuntos de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,62 +10,61 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
 ms.openlocfilehash: 38606f424e38fc68519181f485b5b698d0705d6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477583"
 ---
 # <a name="join-data"></a>Associar dados
 
-Este artigo descreve como usar o módulo **Join Data** em Azure Machine Learning designer (pré-visualização) para fundir dois conjuntos de dados usando uma operação de adesão ao estilo de base de dados.  
+Este artigo descreve como usar o módulo **DeDerdes no** Azure Machine Learning designer (pré-visualização) para fundir dois conjuntos de dados usando uma operação de junção estilo base de dados.  
 
-## <a name="how-to-configure-join-data"></a>Como configurar dados de adesão
+## <a name="how-to-configure-join-data"></a>Como configurar os Dados de Junção
 
-Para realizar uma adesão em dois conjuntos de dados, estes devem estar relacionados com uma coluna chave. As teclas compostas que utilizam várias colunas também são suportadas. 
+Para realizar uma junção em dois conjuntos de dados, devem estar relacionados por uma coluna-chave. As teclas compostas que utilizam várias colunas também são suportadas. 
 
-1. Adicione os conjuntos de dados que pretende combinar e, em seguida, arraste o módulo **Join Data** para o seu pipeline. 
+1. Adicione os conjuntos de dados que pretende combinar e, em seguida, arraste o módulo **'Unir Dados'** para o seu pipeline. 
 
-    Pode encontrar o módulo na categoria **de Transformação** de Dados, em **Manipulação.**
+    Pode encontrar o módulo na categoria **de Transformação de Dados,** em **Manipulação.**
 
-1. Ligue os conjuntos de dados ao módulo **Join Data.** 
+1. Ligue os conjuntos de dados ao módulo **'Unir Dados'.** 
  
-1. Selecione seletor de **colunas de lançamento** para escolher as colunas de teclas. Lembre-se de escolher colunas para as inputs esquerda e direita.
+1. Selecione **Seletor de colunas de lançamento** para escolher colunas-chave. Lembre-se de escolher colunas para as entradas esquerda e direita.
 
     Para uma única chave:
 
-    Selecione uma única coluna de teclas para ambas as inputs.
+    Selecione uma única coluna-chave para ambas as entradas.
     
     Para uma chave composta:
 
-    Selecione todas as colunas chave da entrada esquerda e direita na mesma ordem. O módulo **Join Data** juntar-se-á às tabelas quando todas as colunas-chave coincidirem. Verifique a opção Permitir duplicados e preservar a **ordem da coluna na seleção** se a ordem da coluna não for a mesma que a tabela original. 
+    Selecione todas as colunas-chave da entrada esquerda e da entrada direita na mesma ordem. O módulo **'Unir Dados'** juntar-se-á às tabelas quando todas as colunas-chave corresponderem. Verifique a opção Deixe duplicar e preservar a ordem da **coluna na seleção** se a ordem da coluna não for a mesma da tabela original. 
 
-    ![selecionador de colunas](media/module/join-data-column-selector.png)
+    ![seletor de colunas](media/module/join-data-column-selector.png)
 
 
-1. Selecione a opção **'Caso Dejogo'** se pretender preservar a sensibilidade da caixa numa coluna de texto. 
+1. Selecione a opção **caso 'Match'** se pretender preservar a sensibilidade ao caso numa coluna de texto. 
    
-1. Utilize a lista de dropdown do **tipo Join** para especificar como os conjuntos de dados devem ser combinados.  
+1. Utilize a lista de dropdown **do tipo 'Juntar',** para especificar como os conjuntos de dados devem ser combinados.  
   
-    * **Interior Join**: Uma *união interior* é a operação de adesão mais comum. Só devolve as linhas combinadas quando os valores das colunas-chave correspondem.  
+    * **Interior :** Uma *junção interior* é a operação de junção mais comum. Só devolve as linhas combinadas quando os valores das colunas-chave coincidem.  
   
-    * **Left Outer Join**: Uma *junta exterior esquerda* volta a juntar-se às linhas para todas as linhas da mesa esquerda. Quando uma linha na mesa esquerda não tem linhas correspondentes na mesa direita, a linha devolvida contém valores em falta para todas as colunas que vêm da mesa direita. Também pode especificar um valor de substituição para valores em falta.  
+    * **Left Outer Join**: Um *lado esquerdo junta-se* a linhas unidas para todas as linhas da mesa esquerda. Quando uma linha na mesa esquerda não tem linhas correspondentes na mesa direita, a fila retornado contém valores em falta para todas as colunas que vêm da mesa direita. Também pode especificar um valor de substituição para valores em falta.  
   
-    * **Full Outer Join**: Uma *junta exterior completa* devolve todas as linhas da mesa esquerda **(tabela 1**) e da mesa direita **(tabela 2).**  
+    * **Full Outer Join**: Uma *junção exterior completa* retorna todas as linhas da mesa esquerda **(mesa1**) e da mesa direita **(tabela2**).  
   
-         Para cada uma das linhas em cada mesa que não têm linhas correspondentes na outra, o resultado inclui uma linha contendo valores em falta.  
+         Para cada uma das linhas de cada mesa que não têm linhas correspondentes na outra, o resultado inclui uma linha contendo valores em falta.  
   
-    * **Semi-join esquerdo**: Uma *semi-união esquerda* devolve apenas os valores da mesa esquerda quando os valores das colunas-chave correspondem.  
+    * **Semi-unir à esquerda**: Uma *semi-junção esquerda* retorna apenas os valores da mesa esquerda quando os valores das colunas-chave coincidem.  
 
-1. Para a opção **Mantenha as colunas de teclas certas na tabela unida:**
+1. Para a opção **Mantenha as colunas-chave certas na tabela unida:**
 
     * Selecione esta opção para visualizar as teclas de ambas as tabelas de entrada.
-    * Desmarque apenas para devolver as colunas chave da entrada esquerda.
+    * Desmarcar apenas para retornar as colunas-chave da entrada esquerda.
 
-1. Submeta o oleoduto.
+1. Envie o oleoduto.
 
-1. Para ver os resultados, clique no Clique direito nos **Dados de Juntar** e selecione **Visualizar**.
+1. Para ver os resultados, clique com o botão direito para **'Unir Dados'** e **selecione Visualizar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

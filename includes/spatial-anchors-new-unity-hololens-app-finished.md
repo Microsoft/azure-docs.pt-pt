@@ -1,21 +1,21 @@
 ---
-author: julianparismorgan
+author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
-ms.date: 05/14/2019
+ms.date: 06/22/2020
 ms.topic: include
-ms.author: pmorgan
+ms.author: crtreasu
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 96439479ebb007507efdd577e963532d9cdf90d4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: baf9abae9ce2f823df304f2dcee983439a3ac8a7
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67722938"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297975"
 ---
-## <a name="putting-everything-together"></a>Juntar tudo
+## <a name="putting-everything-together"></a>Juntando tudo
 
-Aqui está como `AzureSpatialAnchorsScript` o arquivo completo da classe deve ser, depois de todos os diferentes elementos terem sido reunidos. Pode usá-lo como referência para comparar com o seu próprio ficheiro, e detetar se pode ter alguma diferença.
+Eis como deve ser o ficheiro completo da `AzureSpatialAnchorsScript` classe, depois de todos os diferentes elementos terem sido reunidos. Pode usá-lo como referência para comparar com o seu próprio ficheiro, e identificar se ainda tiver alguma diferença.
 
 ```csharp
 using Microsoft.Azure.SpatialAnchors;
@@ -42,6 +42,11 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
     /// Set this string to the Spatial Anchors account key provided in the Spatial Anchors resource.
     /// </summary>
     protected string SpatialAnchorsAccountKey = "Set me";
+
+    /// <summary>
+    /// Set this string to the Spatial Anchors account domain provided in the Spatial Anchors resource.
+    /// </summary>
+    protected string SpatialAnchorsAccountDomain = "Set me";
 
     /// <summary>
     /// Our queue of actions that will be executed on the main thread.
@@ -197,6 +202,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
 
         cloudSpatialAnchorSession.Configuration.AccountId = SpatialAnchorsAccountId.Trim();
         cloudSpatialAnchorSession.Configuration.AccountKey = SpatialAnchorsAccountKey.Trim();
+        cloudSpatialAnchorSession.Configuration.AccountDomain = SpatialAnchorsAccountDomain.Trim();
 
         cloudSpatialAnchorSession.LogLevel = SessionLogLevel.All;
 
@@ -396,7 +402,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você aprendeu mais sobre como usar âncoras espaciais Azure numa nova app Unity HoloLens. Para saber mais sobre como usar as Âncoras Espaciais Azure numa nova aplicação Android, continue para o próximo tutorial.
+Neste tutorial, você tem mais informações sobre como usar Azure Spatial Anchors em uma nova aplicação Unity HoloLens. Para saber mais sobre como usar o Azure Spatial Anchors numa nova aplicação Android, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Começar uma nova aplicação Android](/azure/spatial-anchors/tutorials/tutorial-new-android-app)

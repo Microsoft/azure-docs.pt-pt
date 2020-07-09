@@ -1,6 +1,6 @@
 ---
 title: Soluções para erros e problemas comuns em cenários B2B
-description: Encontre soluções para erros e problemas comuns ao resolver cenários B2B em Aplicações Lógicas Azure
+description: Encontre soluções para erros e problemas comuns ao resolver os cenários B2B em Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -9,15 +9,14 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/02/2017
 ms.openlocfilehash: 38e281ce3d8117bff719b1bb572f09acbbb89669
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75666691"
 ---
-# <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Erros e soluções B2B para Aplicações Lógicas Azure
+# <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Erros e soluções B2B para Apps Azure Logic
 
-Este artigo ajuda-o a resolver erros que podem acontecer nos cenários das Aplicações Lógicas B2B e sugere ações adequadas para corrigir esses erros.
+Este artigo ajuda-o a resolver erros que podem ocorrer em cenários de Aplicações Lógicas B2B e sugere ações apropriadas para corrigir esses erros.
 
 ## <a name="agreement-resolution"></a>Resolução do acordo
 
@@ -25,29 +24,29 @@ Este artigo ajuda-o a resolver erros que podem acontecer nos cenários das Aplic
 
 |   |   |  
 |---|---|
-| Descrição do erro | Nenhum acordo com os parâmetros de resolução do acordo. | 
-| Ação do utilizador | O acordo deve ser adicionado à conta de integração com identidades comerciais acordadas. </br>As identidades do negócio devem corresponder às identificações da mensagem de entrada. |  
+| Descrição do erro | Nenhum acordo encontrado com parâmetros de resolução do acordo. | 
+| Ação do utilizador | O acordo deve ser adicionado à conta de integração com identidades empresariais acordadas. </br>As identidades do negócio devem corresponder às identificações da mensagem de entrada. |  
 |   |   |
 
 ### <a name="no-agreement-found-with-identities"></a>Nenhum acordo encontrado com identidades
 
 |   |   | 
 |---|---|
-| Descrição do erro | Nenhum acordo encontrado com identidades: 'AS2Identidade':'Partner1' e 'AS2Identity':'Partner3' | 
-| Ação do utilizador | Inválido AS2-From ou AS2-To configurado para acordo. </br>Corrija os cabeçalhos "AS2-From" ou "AS2-To" da mensagem ou o acordo para combinar com os IDs AS2 nos cabeçalhos de mensagem AS2 com configurações de acordo. |
+| Descrição do erro | Nenhum acordo encontrado com identidades: 'AS2Identity':'Partner1' e 'AS2Identity':'Partner3' | 
+| Ação do utilizador | AS2-From ou AS2-To configurado para acordo. </br>Corrija os cabeçalhos "AS2-From" ou "AS2-To" da mensagem AS2 ou o acordo para combinar os IDs AS2 nos cabeçalhos de mensagens AS2 com configurações de acordo. |
 |   |   |     
 
 ## <a name="as2"></a>AS2
 
-### <a name="missing-as2-message-headers"></a>Cabeçalhos de mensagem AS2 desaparecidos  
+### <a name="missing-as2-message-headers"></a>Cabeçalhos de mensagens AS2 em falta  
 
 |   |   |  
 |---|---|
 | Descrição do erro | Cabeçalhos AS2 inválidos. Um dos cabeçalhos "AS2-To" ou "AS2-From" está vazio. | 
-| Ação do utilizador | Foi recebida uma mensagem AS2 que não continha os cabeçalhos AS2-From ou AS2-To ou ambos os cabeçalhos. </br> Verifique os cabeçalhos AS2-From e AS2-To da mensagem AS2-From e AS2-To e corrija-os com base na configuração do acordo. |
+| Ação do utilizador | Foi recebida uma mensagem AS2 que não continha o AS2-From ou AS2-To ou ambos os cabeçalhos. </br> Verifique os cabeçalhos AS2-From e AS2-To da mensagem AS2-To e corrija-os com base na configuração do acordo. |
 |  |  | 
 
-### <a name="missing-as2-message-body-and-headers"></a>Corpo de mensagem AS2 desaparecido e cabeçalhos    
+### <a name="missing-as2-message-body-and-headers"></a>Corpo e cabeçalhos de mensagem AS2 desaparecidos    
 
 |   |   |  
 |---|---|
@@ -55,11 +54,11 @@ Este artigo ajuda-o a resolver erros que podem acontecer nos cenários das Aplic
 | Ação do utilizador | Foi recebida uma mensagem AS2 que não continha o corpo da mensagem. |
 |  |  | 
 
-### <a name="as2-message-decryption-failure"></a>Falha na desencriptação da mensagem AS2
+### <a name="as2-message-decryption-failure"></a>Falha de desencriptação de mensagens AS2
 
 |   |   | 
 |---|---|
-| Descrição do erro |  [processado/Erro: falha da desencriptação] | 
+| Descrição do erro |  [processado/erro: falha de desencriptação] | 
 | Ação do utilizador | Adicione @base64ToBinary ao AS2Message antes de enviar para o parceiro. |
 |||
 
@@ -75,11 +74,11 @@ Por exemplo:
 },
 ``` 
 
-### <a name="mdn-decryption-failure"></a>Falha de desencriptação da MDN
+### <a name="mdn-decryption-failure"></a>Falha de desencriptação do MDN
 
 |   |   | 
 |---|---|
-| Descrição do erro |  [processado/Erro: falha da desencriptação] | 
+| Descrição do erro |  [processado/erro: falha de desencriptação] | 
 | Ação do utilizador | Adicione @base64ToBinary à MDN antes de enviar para o parceiro. | 
 |||
 
@@ -98,44 +97,44 @@ Por exemplo:
 
 |   |   |  
 |---|---|
-| Descrição do erro| O Certificado de Assinatura não foi configurado para a parte AS2. </br>AS2-From: partner1 AS2-To: partner2 | 
-| Ação do utilizador | Configure as definições do acordo AS2 com o certificado correto para assinatura. |
+| Descrição do erro| O Certificado de Assinatura não foi configurado para a festa AS2. </br>AS2-From: partner1 AS2-To: partner2 | 
+| Ação do utilizador | Configurar as definições do acordo AS2 com certificado correto para assinatura. |
 |  |  | 
 
 ## <a name="x12-and-edifact"></a>X12 e EDIFACT
 
-### <a name="leading-or-trailing-space-found"></a>Espaço de liderança ou de rasto encontrado    
+### <a name="leading-or-trailing-space-found"></a>Espaço de liderança ou de fuga encontrado    
     
 |   |   | 
 |---|---|
-| Descrição do erro | Erro encontrado durante a análise. A transação EDIFACT definida com id '123456' contida no intercâmbio (sem grupo) com id '987654', com ID do remetente 'Partner1', o recetor ID 'Partner2' está suspenso com os seguintes erros: <p>"Separador de trailing principal encontrado" |
-| Ação do utilizador | As definições do acordo a configurar para permitir o espaço de liderança e de trailing. </br>Editar definições de acordo para permitir o espaço de liderança e de trailing. |
+| Descrição do erro | Erro encontrado durante a análise. A transação EDIFACT definida com iD '123456' contida no intercâmbio (sem grupo) com iD '987654', com o remetente ID 'Partner1', iD recetor 'Partner2' está a ser suspensa com os seguintes erros: <p>"Separador de trailing líder encontrado" |
+| Ação do utilizador | As definições do acordo devem ser configuradas para permitir o espaço de liderança e de fuga. </br>Editar as definições do acordo para permitir o espaço de liderança e de fuga. |
 |   |   |
 
-![permitir espaço](./media/logic-apps-enterprise-integration-b2b-list-errors-solutions/leadingandtrailing.png)
+![permitir o espaço](./media/logic-apps-enterprise-integration-b2b-list-errors-solutions/leadingandtrailing.png)
 
-### <a name="duplicate-check-has-enabled-in-the-agreement"></a>Verificação duplicada permitiu no acordo
+### <a name="duplicate-check-has-enabled-in-the-agreement"></a>Verificação duplicada habilitada no acordo
 
 |   |   | 
 |---|---| 
 | Descrição do erro | Número de controlo duplicado |
-| Ação do utilizador | Este erro indica que a mensagem recebida tem números de controlo duplicados. </br>Corrija o número de controlo e reenvie a mensagem. |
+| Ação do utilizador | Este erro indica que a mensagem recebida tem números de controlo duplicados. </br>Corrija o número de controlo e reenconce a mensagem. |
 |   |   |
 
-### <a name="missing-schema-in-the-agreement"></a>Esquema desaparecido no acordo
+### <a name="missing-schema-in-the-agreement"></a>Falta de esquema no acordo
 
 |   |   | 
 |---|---| 
-| Descrição do erro | Erro encontrado durante a análise. A transação X12 definida com id '564220001' contida em grupo funcional com ID '56422', em troca com o ID '000056422', com id '12345678', o recetor ID '87654321' está suspenso com os seguintes erros: <p>"A mensagem tem um tipo de documento desconhecido e não resolveu com nenhum dos esquemas existentes configurados no acordo" |
-| Ação do utilizador | Configure o esquema nas definições do contrato.  |
+| Descrição do erro | Erro encontrado durante a análise. A transação X12 definida com ID '564220001' contida no grupo funcional com iD '56422', em troca com iD '000056422', com o remetente ID '12345678', ID recetor '87654321' está suspenso com os seguintes erros: <p>"A mensagem tem um tipo de documento desconhecido e não resolveu nenhum dos esquemas existentes configurados no acordo" |
+| Ação do utilizador | Configurar o esquema nas definições do acordo.  |
 |   |   |
 
 ### <a name="incorrect-schema-in-the-agreement"></a>Esquema incorreto no acordo
 
 |   |   | 
 |---|---| 
-| Descrição do erro | A mensagem tem um tipo de documento desconhecido e não resolveu com nenhum dos esquemas existentes configurados no acordo. |
-| Ação do utilizador | Configure o esquema correto nas definições do contrato. |
+| Descrição do erro | A mensagem tem um tipo de documento desconhecido e não resolveu nenhum dos esquemas existentes configurados no acordo. |
+| Ação do utilizador | Configurar o esquema correto nas definições do acordo. |
 |   |   |
 
 ## <a name="flat-file"></a>Ficheiro simples
@@ -144,7 +143,7 @@ Por exemplo:
 
 |   |   | 
 |---|---|
-| Descrição do erro | Modelo inválido. Incapaz de processar expressões linguísticas de modeloem inputs de "Flat_File_Decoding" de ação na linha '1' e coluna '1902': "Conteúdo de propriedade exigido espera um valor, mas ficou nulo. Caminho ''. |
+| Descrição do erro | InvalidTemplate. Não é possível processar expressões linguísticas de modelo em ação entradas 'Flat_File_Decoding' na linha '1' e coluna '1902': 'Conteúdo de propriedade obrigatório' espera um valor mas foi nulo. Caminho ''. |
 | Ação do utilizador | Este erro indica que a mensagem de entrada não contém um corpo. |
 |   |   | 
 

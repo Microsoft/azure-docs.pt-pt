@@ -1,5 +1,5 @@
 ---
-title: Adicione funções CRUD a uma app Angular com API do Azure Cosmos DB para MongoDB
+title: Adicione funções CRUD a uma aplicação angular com API da Azure Cosmos DB para a MongoDB
 description: Parte 6 da série do tutorial sobre como criar uma aplicação MongoDB com Angular e Node no Azure Cosmos DB mediante a utilização das mesmas APIs que são utilizadas para MongoDB.
 author: johnpapa
 ms.service: cosmos-db
@@ -10,16 +10,16 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 103545225b15a74d8c2ea0be5e88caa18f3c31cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: de9e7fd605a1d53d1078523c77cd33065c03ca85
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184780"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118972"
 ---
-# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Criar uma app Angular com a API do Azure Cosmos DB para mongoDB - Adicionar funções CRUD à app
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Criar uma aplicação angular com API da Azure Cosmos DB para MongoDB - Adicionar funções CRUD à app
 
-Este tutorial em várias partes demonstra como criar uma nova app escrita no Node.js com Express e Angular e, em seguida, conectá-la à sua [conta Cosmos configurada com a API da Cosmos DB para MongoDB](mongodb-introduction.md). A Parte 6 do tutorial é a continuação da [Parte 5](tutorial-develop-mongodb-nodejs-part5.md) e abrange as seguintes tarefas:
+Este tutorial multi-partes demonstra como criar uma nova app escrita em Node.js com o Express e angular e, em seguida, conectá-la à sua [conta Cosmos configurada com a API da Cosmos DB para a MongoDB.](mongodb-introduction.md) A Parte 6 do tutorial é a continuação da [Parte 5](tutorial-develop-mongodb-nodejs-part5.md) e abrange as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar as funções Post, Put e Delete para o serviço hero
@@ -40,7 +40,7 @@ Antes de iniciar esta parte do tutorial, certifique-se de que concluiu os passos
 
     Veja se a linha 7 de routes.js chama a função `getHeroes` na linha 5 de **hero.service.js**.  Temos de criar este emparelhamento para as funções post, put e delete. 
 
-    ![routes.js e hero.service.js no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/routes-heroservicejs.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/routes-heroservicejs.png" alt-text="routes.js e hero.service.js no Visual Studio Code":::
     
     Vamos começar por programar o serviço hero. 
 
@@ -88,11 +88,11 @@ Antes de iniciar esta parte do tutorial, certifique-se de que concluiu os passos
 
 6. Agora, regresse ao browser e prima F12, na maioria dos computadores, para abrir o separador Ferramentas do programador e Rede. Navegue para `http://localhost:3000` para ver as chamadas efetuadas através da rede.
 
-    ![Separador Redes no Chrome que mostra a atividade de rede](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="Separador Redes no Chrome que mostra a atividade de rede":::
 
 7. Selecione o botão **Adicionar Hero Novo** para adicionar um hero novo. Introduza o ID “999”, o nome “Pedro” e a indicação “Olá” e, em seguida, selecione **Guardar**. Deverá ver, no separador Rede, que enviou um pedido POST para um hero novo. 
 
-    ![Separador Rede no Chrome que mostra a atividade de rede para as funções Get e Post](./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="Separador Rede no Chrome que mostra a atividade de rede para as funções Get e Post":::
 
     Agora, vamos voltar atrás e adicionar as funções Put e Delete à aplicação.
 
@@ -177,11 +177,11 @@ Antes de iniciar esta parte do tutorial, certifique-se de que concluiu os passos
 
     Agora pode selecionar o ID no separador Rede para mostrar o payload. Pode ver, no payload, que a indicação está agora definida como “Bye”.
 
-    ![Aplicação heroes e separador Rede que mostra o payload](./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png) 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png" alt-text="Aplicação heroes e separador Rede que mostra o payload"::: 
 
     Também pode eliminar um dos heroes na IU e ver quanto tempo é que a operação delete demora a ser concluída. Experimente ao selecionar o botão “Eliminar” no hero com o nome “Pedro".
 
-    ![Aplicação heroes e separador Rede que mostra o tempo que demora a concluir as funções](./media/tutorial-develop-mongodb-nodejs-part6/times.png) 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/times.png" alt-text="Aplicação heroes e separador Rede que mostra o tempo que demora a concluir as funções"::: 
 
     Se atualizar a página, o separador Rede mostra o tempo que demora a obter os heroes. Embora estes tempos sejam rápidos, muito está dependente de onde os seus dados estão localizados no mundo e da sua capacidade de georreplicá-los numa zona perto dos seus utilizadores. Pode encontrar mais informações sobre a georreplicação no tutorial seguinte, que vai ser lançado em breve.
 

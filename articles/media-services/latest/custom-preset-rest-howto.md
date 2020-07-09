@@ -1,6 +1,6 @@
 ---
-title: Encode custom transform usando Media Services v3 REST - Azure [ Microsoft Docs
-description: Este tópico mostra como usar o Azure Media Services v3 para codificar uma transformação personalizada usando O REST.
+title: Transformação personalizada encode usando Media Services v3 REST - Azure / Microsoft Docs
+description: Este tópico mostra como usar o Azure Media Services v3 para codificar uma transformação personalizada usando REST.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,33 +13,33 @@ ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
 ms.openlocfilehash: 30e22cb786e5dc2a667fe41ca8edf398cf0b7613
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "65761801"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Como codificar com uma transformação personalizada - REST
 
-Ao codificar com a Azure Media Services, pode começar rapidamente com uma das predefinições incorporadas recomendadas, com base nas melhores práticas da indústria, como demonstra o tutorial de [ficheiros streaming.](stream-files-tutorial-with-rest.md#create-a-transform) Também pode construir um preset personalizado para direcionar os seus requisitos específicos para o seu cenário ou dispositivo.
+Ao codificar com o Azure Media Services, pode começar rapidamente com uma das predefinições recomendadas, baseada nas melhores práticas da indústria, como demonstra o tutorial de [ficheiros streaming.](stream-files-tutorial-with-rest.md#create-a-transform) Também pode construir uma predefinição personalizada para direcionar o seu cenário específico ou requisitos do dispositivo.
 
 ## <a name="considerations"></a>Considerações
 
 Ao criar predefinições personalizadas, aplicam-se as seguintes considerações:
 
-* Todos os valores para a altura e largura no teor de AVC devem ser múltiplos de 4.
-* No Azure Media Services v3, todos os bitrates de codificação estão em bits por segundo. Isto é diferente dos presets com as nossas V2 APIs, que usavam quilobits/segundo como unidade. Por exemplo, se o bitrate em v2 fosse especificado como 128 (quilobits/segundo), em v3 seria fixado em 128000 (bits/segundo).
+* Todos os valores para altura e largura no conteúdo AVC devem ser múltiplos de 4.
+* No Azure Media Services v3, todos os bitrates codificadores estão em bits por segundo. Isto é diferente das predefinições com as nossas APIs v2, que usavam quilobits/segundo como unidade. Por exemplo, se o bitrate em v2 fosse especificado como 128 (quilobits/segundo), em v3 seria definido para 128000 (bits/segundo).
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-- [Criar uma conta de Media Services.](create-account-cli-how-to.md) <br/>Lembre-se do nome do grupo de recursos e do nome da conta Media Services. 
-- [Configure Postman para Azure Media Services REST API chamadas](media-rest-apis-with-postman.md).<br/>Certifique-se de seguir o último passo no tópico [Get Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 
+- [Criar uma conta de Serviços de Comunicação](create-account-cli-how-to.md)Social. <br/>Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social. 
+- [Configure Carteiro para Azure Media Services REST Chamadas API](media-rest-apis-with-postman.md).<br/>Certifique-se de seguir o último passo do tema [Get Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
-## <a name="define-a-custom-preset"></a>Definir um preset personalizado
+## <a name="define-a-custom-preset"></a>Defina uma predefinição personalizada
 
-O exemplo seguinte define o corpo de pedido de uma nova Transformação. Definimos um conjunto de saídas que queremos ser geradas quando este Transform é usado. 
+O exemplo a seguir define o corpo de pedido de uma nova Transformação. Definimos um conjunto de saídas que queremos ser geradas quando esta Transforma é usada. 
 
-Neste exemplo, adicionamos primeiro uma camada AacAudio para a codificação de áudio e duas camadas H264Video para a codificação de vídeo. Nas camadas de vídeo, atribuímos etiquetas para que possam ser usadas nos nomes dos ficheiros de saída. Em seguida, queremos que a saída também inclua miniaturas. No exemplo abaixo especificamos imagens em formato PNG, geradas a 50% da resolução do vídeo de entrada, e em três selos de tempo - {25%, 50%, 75} do comprimento do vídeo de entrada. Por último, especificamos o formato para os ficheiros de saída - um para vídeo + áudio e outro para as miniaturas. Como temos vários H264Layers, temos que usar macros que produzem nomes únicos por camada. Podemos usar `{Label}` um `{Bitrate}` ou macro, o exemplo mostra o primeiro.
+Neste exemplo, primeiro adicionamos uma camada AacAudio para a codificação de áudio e duas camadas H264Video para a codificação de vídeo. Nas camadas de vídeo, atribuímos etiquetas para que possam ser usadas nos nomes dos ficheiros de saída. Em seguida, queremos que a saída também inclua miniaturas. No exemplo abaixo especificamos imagens em formato PNG, geradas a 50% da resolução do vídeo de entrada, e em três vezes osmps - {25%, 50%, 75} do comprimento do vídeo de entrada. Por último, especificamos o formato para os ficheiros de saída - um para vídeo + áudio e outro para as miniaturas. Como temos vários H264Layers, temos de usar macros que produzem nomes únicos por camada. Podemos usar um `{Label}` ou `{Bitrate}` macro, o exemplo mostra o primeiro.
 
 ```json
 {
@@ -133,22 +133,22 @@ Neste exemplo, adicionamos primeiro uma camada AacAudio para a codificação de 
 
 ## <a name="create-a-new-transform"></a>Criar uma nova transformação  
 
-Neste exemplo, criamos um **Transform** que é baseado no predefinido personalizado que definimos anteriormente. Ao criar um Transform, deve primeiro utilizar [O Get](https://docs.microsoft.com/rest/api/media/transforms/get) para verificar se já existe um. Se a Transformação existir, reutilize-a. 
+Neste exemplo, criamos uma **Transformação** que se baseia na predefinição personalizada que definimos anteriormente. Ao criar uma Transform, deve primeiro utilizar [o Get](https://docs.microsoft.com/rest/api/media/transforms/get) to check if one já existe. Se a Transformação existe, reutilizá-la. 
 
-Na coleção do Carteiro que descarregou, selecione **Transforms and Jobs**->**Create ou Update Transform**.
+Na coleção do Carteiro que descarregou, selecione **Transforms and Jobs** -> **Create ou Update Transform**.
 
-O método de pedido **PUT** HTTP é semelhante ao seguinte:
+O método de pedido **PUT** HTTP é semelhante a:
 
 ```
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
 ```
 
-Selecione o separador **Corpo** e substitua o corpo pelo código json que [definiu anteriormente](#define-a-custom-preset). Para que os Serviços de Media apliquem a Transform no vídeo ou áudio especificado, é necessário submeter um Trabalho ao abrigo dessa Transformação.
+Selecione o **separador 'Corpo'** e substitua o corpo pelo código json que [definiu anteriormente](#define-a-custom-preset). Para que os Serviços de Comunicação Social apliquem a Transformação ao vídeo ou áudio especificado, é necessário submeter um Job ao abrigo dessa Transformação.
 
 Selecione **Enviar**. 
 
-Para que os Serviços de Media apliquem a Transform no vídeo ou áudio especificado, é necessário submeter um Trabalho ao abrigo dessa Transformação. Para um exemplo completo que mostra como submeter um trabalho sob uma transformação, consulte [Tutorial: Stream video files - REST](stream-files-tutorial-with-rest.md).
+Para que os Serviços de Comunicação Social apliquem a Transformação ao vídeo ou áudio especificado, é necessário submeter um Job ao abrigo dessa Transformação. Para um exemplo completo que mostre como submeter um trabalho sob uma transformação, consulte [Tutorial: Stream video files - REST](stream-files-tutorial-with-rest.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Ver [outras operações de REST](https://docs.microsoft.com/rest/api/media/)
+Ver [outras operações REST](https://docs.microsoft.com/rest/api/media/)

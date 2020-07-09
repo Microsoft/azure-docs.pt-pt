@@ -1,6 +1,6 @@
 ---
 title: Residência de dados de autenticação multi-factor Azure
-description: Saiba quais os dados pessoais e organizacionais que a Autenticação Multi-Factor azure sobre si e os seus utilizadores e quais os dados que permanecem no país/região de origem.
+description: Saiba quais os dados pessoais e organizacionais que a Azure Multi-Factor Authentication armazena sobre si e sobre os seus utilizadores e quais os dados que permanecem dentro do país/região de origem.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,99 +12,98 @@ manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a75e9d5c8501274553edef36b475b2bd21b7875
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83738806"
 ---
-# <a name="data-residency-and-customer-data-for-azure-multi-factor-authentication"></a>Residência de dados e dados dos clientes para autenticação multi-factor Azure
+# <a name="data-residency-and-customer-data-for-azure-multi-factor-authentication"></a>Residência de dados e dados do cliente para autenticação multi-factor Azure
 
-Os dados dos clientes são armazenados pela Azure AD numa localização geográfica com base no endereço fornecido pela sua organização ao subscrever um serviço Microsoft Online como o Office 365 e o Azure. Para obter informações sobre onde os dados dos seus clientes são armazenados, pode utilizar a secção [Onde estão os seus dados localizados?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
+Os dados do cliente são armazenados pela Azure AD numa localização geográfica baseada no endereço fornecido pela sua organização ao subscrever um serviço Microsoft Online como o Office 365 e o Azure. Para obter informações sobre onde os dados do seu cliente são armazenados, pode utilizar a secção [Onde os seus dados estão localizados?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
 
-Autenticação de multifactor estoque azure baseado na nuvem e processo do Servidor de Autenticação Multi-Factor Azure e armazene alguma quantidade de dados pessoais e dados organizacionais. Este artigo descreve o que e onde os dados são armazenados.
+O processo de autenticação multi-factor Azure baseado na nuvem e o processo do Servidor de Autenticação Multi-Factor Azure e armazenam uma quantidade de dados pessoais e organizacionais. Este artigo descreve o que e onde os dados são armazenados.
 
-As seguintes atividades de autenticação multi-factor são atualmente originárias de datacenters dos EUA, exceto se for em que se nota:
+As seguintes atividades de autenticação multi-factor têm atualmente origem nos centros de dados dos EUA, exceto se formos anotados:
 
-* A autenticação de dois fatores usando chamadas telefónicas ou SMS normalmente são originárias de datacenters dos EUA e são encaminhadas por fornecedores globais.
-    * Os pedidos gerais de autenticação dos utilizadores de outras regiões, como a Europa ou a Austrália, são atualmente tratados por datacenters naquela região. Outros eventos, como resets de senha de autosserviço, eventos Azure B2C ou cenários híbridos utilizando extensão NPS ou adaptador AD FS, são atualmente tratados por datacenters dos EUA.
-* As notificações push utilizando a aplicação Microsoft Authenticator têm origem em datacenters dos EUA. Além disso, os serviços específicos do fornecedor de dispositivos também podem entrar em jogo de diferentes regiões.
-* Os códigos DEJURAMENTO são normalmente validados nos EUA.
-    * Mais uma vez, eventos de autenticação de utilizadores com origem noutras regiões, como a Europa ou a Austrália, são processados por datacenters naquela região. Eventos adicionais são atualmente processados por datacenters dos EUA.
+* A autenticação de dois fatores utilizando chamadas telefónicas ou SMS normalmente origina-se de datacenters dos EUA e são encaminhados por fornecedores globais.
+    * Os pedidos gerais de autenticação dos utilizadores provenientes de outras regiões, como a Europa ou a Austrália, são atualmente tratados por centros de dados nessa região. Outros eventos como resets de palavra-passe de autosserviço, eventos Azure B2C ou cenários híbridos usando extensão NPS ou adaptador AD FS, são todos processados por datacenters dos EUA.
+* As notificações push utilizando a aplicação Microsoft Authenticator são originárias de datacenters dos EUA. Além disso, os serviços específicos do fornecedor de dispositivos também podem ser reproduzidores de diferentes regiões.
+* Os códigos OATH são normalmente validados nos EUA.
+    * Mais uma vez, os eventos de autenticação geral dos utilizadores originários de outras regiões, como a Europa ou a Austrália, são tratados por datacenters naquela região. Eventos adicionais são atualmente processados por datacenters dos EUA.
 
-## <a name="personal-data-stored-by-azure-multi-factor-authentication"></a>Dados pessoais armazenados pela Autenticação Multifactor Azure
+## <a name="personal-data-stored-by-azure-multi-factor-authentication"></a>Dados pessoais armazenados por Autenticação Multi-Factor Azure
 
-Os dados pessoais são informações ao nível do utilizador associadas a uma pessoa específica. As seguintes lojas de dados contêm informações pessoais:
+Os dados pessoais são informações de nível de utilizador associadas a uma pessoa específica. As seguintes lojas de dados contêm informações pessoais:
 
 * Utilizadores bloqueados
 * Utilizadores ignorados
-* Pedidos de alteração de alterações no dispositivo do Microsoft Authenticator
-* Relatórios de atividade de autenticação de vários fatores
+* Pedidos de alteração de token de dispositivo microsoft Authenticator
+* Relatórios de atividade de autenticação multi-factor
 * Ativações do Autenticador microsoft
 
 Esta informação é retida por 90 dias.
 
-A Autenticação Multi-Factor Azure não regista dados pessoais como nome de utilizador, número de telefone ou endereço IP, mas existe um *UserObjectId* que identifica tentativas de autenticação multi-factor para os utilizadores. Os dados de registo são armazenados durante 30 dias.
+A autenticação multi-factor Azure não regista dados pessoais como nome de utilizador, número de telefone ou endereço IP, mas existe um *UserObjectId* que identifica tentativas de autenticação multi-factor para os utilizadores. Os dados de registo são armazenados durante 30 dias.
 
 ### <a name="azure-multi-factor-authentication"></a>Multi-Factor Authentication do Azure
 
-Para nuvens públicas Azure, excluindo a autenticação Azure B2C, extensão NPS e Adaptador AD FS 2016 ou 2019, os seguintes dados pessoais são armazenados:
+Para as nuvens públicas Azure, excluindo a autenticação Azure B2C, extensão NPS e Adaptador AD FS 2016 ou 2019, os seguintes dados pessoais são armazenados:
 
 | Tipo de evento                           | Tipo de loja de dados |
 |--------------------------------------|-----------------|
-| Ficha de JURAMENTO                           | Em registos de autenticação de vários fatores     |
-| SMS de ida                          | Em registos de autenticação de vários fatores     |
-| Chamada de voz                           | Em registos de autenticação de vários fatores<br />Loja de dados de relatório de atividade de autenticação multifactor<br />Utilizadores bloqueados se fraude reportada |
-| Notificação do Autenticador da Microsoft | Em registos de autenticação de vários fatores<br />Loja de dados de relatório de atividade de autenticação multifactor<br />Utilizadores bloqueados se fraude reportada<br />Alterar pedidos quando o dispositivo do Autenticador microsoft mudar |
+| Ficha do OATH                           | Em registos de autenticação multi-factor     |
+| SMS unidirecciona                          | Em registos de autenticação multi-factor     |
+| Chamada de voz                           | Em registos de autenticação multi-factor<br />Loja de dados de relatórios de atividade de autenticação multi-factor<br />Utilizadores bloqueados se fraude reportada |
+| Notificação autenticadora da Microsoft | Em registos de autenticação multi-factor<br />Loja de dados de relatórios de atividade de autenticação multi-factor<br />Utilizadores bloqueados se fraude reportada<br />Alterar pedidos quando o token do dispositivo Microsoft Authenticator muda |
 
 > [!NOTE]
-> A loja de dados de relatório de autenticação multi-factor é armazenada nos Estados Unidos para todas as nuvens, independentemente da região que processa o pedido de autenticação. Microsoft Azure Alemanha, Microsoft Azure Operado s21Vianet, e Microsoft Government Cloud têm as suas próprias lojas de dados independentes separadas das lojas de dados da região pública da nuvem, no entanto estes dados são sempre armazenados nos Estados Unidos.
+> A loja de dados de relatórios de autenticação multi-factor é armazenada nos Estados Unidos para todas as nuvens, independentemente da região que processa o pedido de autenticação. A Microsoft Azure Germany, Microsoft Azure Operada pela 21Vianet e Microsoft Government Cloud têm as suas próprias lojas de dados independentes separadas das lojas de dados da região da nuvem pública, no entanto estes dados são sempre armazenados nos Estados Unidos.
 
-Para o Microsoft Azure Government, Microsoft Azure Germany, Microsoft Azure Operado por 21Vianet, autenticação Azure B2C, Extensão NPS e Adaptador AD FS 2016 ou 2019 AD FS, os seguintes dados pessoais são armazenados:
+Para o Microsoft Azure Government, Microsoft Azure Germany, Microsoft Azure Operado por 21Vianet, autenticação Azure B2C, Extensão NPS e Adaptador AD FS 2016 ou 2019, os seguintes dados pessoais são armazenados:
 
 | Tipo de evento                           | Tipo de loja de dados |
 |--------------------------------------|-----------------|
-| Ficha de JURAMENTO                           | Em registos de autenticação de vários fatores<br />Loja de dados de relatório de atividade de autenticação multifactor |
-| SMS de ida                          | Em registos de autenticação de vários fatores<br />Loja de dados de relatório de atividade de autenticação multifactor |
-| Chamada de voz                           | Em registos de autenticação de vários fatores<br />Loja de dados de relatório de atividade de autenticação multifactor<br />Utilizadores bloqueados se fraude reportada |
-| Notificação do Autenticador da Microsoft | Em registos de autenticação de vários fatores<br />Loja de dados de relatório de atividade de autenticação multifactor<br />Utilizadores bloqueados se fraude reportada<br />Alterar pedidos quando o dispositivo do Autenticador microsoft mudar |
+| Ficha do OATH                           | Em registos de autenticação multi-factor<br />Loja de dados de relatórios de atividade de autenticação multi-factor |
+| SMS unidirecciona                          | Em registos de autenticação multi-factor<br />Loja de dados de relatórios de atividade de autenticação multi-factor |
+| Chamada de voz                           | Em registos de autenticação multi-factor<br />Loja de dados de relatórios de atividade de autenticação multi-factor<br />Utilizadores bloqueados se fraude reportada |
+| Notificação autenticadora da Microsoft | Em registos de autenticação multi-factor<br />Loja de dados de relatórios de atividade de autenticação multi-factor<br />Utilizadores bloqueados se fraude reportada<br />Alterar pedidos quando o token do dispositivo Microsoft Authenticator muda |
 
 ### <a name="multi-factor-authentication-server"></a>Servidor Multi-Factor Authentication
 
-Se implementar e executar o Servidor de Autenticação Multi-Factor Azure, os seguintes dados pessoais são armazenados:
+Se implementar e executar o Azure Multi-Factor Authentication Server, os seguintes dados pessoais são armazenados:
 
 > [!IMPORTANT]
-> A partir de 1 de julho de 2019, a Microsoft deixará de oferecer o Servidor de Autenticação Multi-Factor para novas implementações. Os novos clientes que pretendam exigir a autenticação de vários fatores dos seus utilizadores devem utilizar a autenticação multi-factor Azure baseada na nuvem. Os clientes existentes que tenham ativado o Servidor de Autenticação Multi-Factor antes de 1 de julho poderão descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
+> A partir de 1 de julho de 2019, a Microsoft deixará de oferecer o Servidor de Autenticação Multi-Factor para novas implementações. Os novos clientes que gostariam de exigir a autenticação de vários fatores dos seus utilizadores devem utilizar a autenticação multi-factor Azure baseada na nuvem. Os clientes existentes que tenham ativado o Servidor de Autenticação Multi-Factor antes do dia 1 de julho poderão descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
 
 | Tipo de evento                           | Tipo de loja de dados |
 |--------------------------------------|-----------------|
-| Ficha de JURAMENTO                           | Em registos de autenticação de vários fatores<br />Loja de dados de relatório de atividade de autenticação multifactor |
-| SMS de ida                          | Em registos de autenticação de vários fatores<br />Loja de dados de relatório de atividade de autenticação multifactor |
-| Chamada de voz                           | Em registos de autenticação de vários fatores<br />Loja de dados de relatório de atividade de autenticação multifactor<br />Utilizadores bloqueados se fraude reportada |
-| Notificação do Autenticador da Microsoft | Em registos de autenticação de vários fatores<br />Loja de dados de relatório de atividade de autenticação multifactor<br />Utilizadores bloqueados se fraude reportada<br />Alterar pedidos quando o dispositivo do Autenticador microsoft mudar |
+| Ficha do OATH                           | Em registos de autenticação multi-factor<br />Loja de dados de relatórios de atividade de autenticação multi-factor |
+| SMS unidirecciona                          | Em registos de autenticação multi-factor<br />Loja de dados de relatórios de atividade de autenticação multi-factor |
+| Chamada de voz                           | Em registos de autenticação multi-factor<br />Loja de dados de relatórios de atividade de autenticação multi-factor<br />Utilizadores bloqueados se fraude reportada |
+| Notificação autenticadora da Microsoft | Em registos de autenticação multi-factor<br />Loja de dados de relatórios de atividade de autenticação multi-factor<br />Utilizadores bloqueados se fraude reportada<br />Alterar pedidos quando o token do dispositivo Microsoft Authenticator muda |
 
-## <a name="organizational-data-stored-by-azure-multi-factor-authentication"></a>Dados organizacionais armazenados pela Autenticação Multi-Factor Azure
+## <a name="organizational-data-stored-by-azure-multi-factor-authentication"></a>Dados organizacionais armazenados por Autenticação Multi-Factor Azure
 
-Os dados organizacionais são informações ao nível do inquilino que podem expor a configuração ou a configuração do ambiente. As definições dos inquilinos a partir do seguinte portal Azure Páginas de autenticação multifactor podem armazenar dados organizacionais, tais como limiares de bloqueio ou informações de ID de chamada para pedidos de autenticação do telefone:
+Os dados organizacionais são informações de nível de inquilino que podem expor a configuração ou configuração do ambiente. As definições do inquilino a partir das seguintes páginas de autenticação multi-factor do portal Azure podem armazenar dados organizacionais, tais como limiares de bloqueio ou informações de identificação do chamador para pedidos de autenticação de telefones recebidos:
 
 * Bloqueio de conta
 * Alerta de fraudes
 * Notificações
 * Definições de chamadas telefónicas
 
-E para o Servidor de Autenticação Multi-Factor Azure, as seguintes páginas do portal Azure podem conter dados organizacionais:
+E para o Azure Multi-Factor Authentication Server, as seguintes páginas do portal Azure podem conter dados organizacionais:
 
 * Definições do servidor
 * Bypass único
 * Regras de caching
-* Estado do servidor de autenticação de vários fatores
+* Estado do servidor de autenticação multi-factor
 
-## <a name="log-data-location"></a>Localização de dados de registo
+## <a name="log-data-location"></a>Registar localização de dados
 
-Onde a informação de registo é armazenada depende de qual região são processadas. A maioria das geografias tem capacidades de autenticação multi-factor nativas, pelo que os dados de registo são armazenados na mesma região que processa o pedido de autenticação multi-factor. Em geografias sem suporte nativo de autenticação multi-factor Azure, são servidos pelas geografias dos Estados Unidos ou da Europa e os dados de registo são armazenados na mesma região que processa o pedido de autenticação multi-factor.
+Onde a informação de registo é armazenada depende da região em que são processadas. A maioria das geografias tem capacidades de autenticação multi-factor nativas, pelo que os dados de registo são armazenados na mesma região que processa o pedido de autenticação multi-factor. Em geografias sem suporte de autenticação multi-factor nativo, são servidas pelas geografias dos Estados Unidos ou da Europa e os dados de registo são armazenados na mesma região que processa o pedido de autenticação multi-factor.
 
-Alguns dados de registo de autenticação nuclear só são armazenados nos Estados Unidos. Microsoft Azure Alemanha e Microsoft Azure Operados por 21Vianet são sempre armazenados na sua respetiva nuvem. Os dados de registo da Cloud do Governo da Microsoft são sempre armazenados nos Estados Unidos.
+Alguns dados de registo de autenticação do núcleo são armazenados apenas nos Estados Unidos. A Microsoft Azure Germany e o Microsoft Azure Operados pela 21Vianet estão sempre armazenados na sua respetiva nuvem. Os dados de registo da Cloud do Governo da Microsoft são sempre armazenados nos Estados Unidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre as informações do utilizador recolhidas pela autenticação de multifactor azure baseado na nuvem e pelo servidor de autenticação de multi-factors Azure, consulte a recolha de dados dos utilizadores de [autenticação multi-factor Azure.](howto-mfa-reporting-datacollection.md)
+Para obter mais informações sobre as informações do utilizador recolhidas pelo Azure Multi-Factor Authentication e pelo Azure Multi-Factor Authentication Server, consulte a recolha de dados de [autenticação multi-factor Azure](howto-mfa-reporting-datacollection.md).

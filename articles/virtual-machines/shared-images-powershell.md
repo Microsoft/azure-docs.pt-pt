@@ -1,29 +1,29 @@
 ---
-title: Crie uma galeria de imagem partilhada com a Azure PowerShell
-description: Saiba como usar o Azure PowerShell para criar uma Galeria de Imagem Partilhada em Azure
+title: Criar uma Galeria de Imagens Partilhada com Azure PowerShell
+description: Saiba como usar a Azure PowerShell para criar uma Galeria de Imagens Partilhada em Azure
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: b7625903c4640fdb17eacd29822fe6203e075826
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.openlocfilehash: b6828571499631ae08b077a4b7e3120f599e5b8b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82796996"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84673756"
 ---
-# <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Crie uma galeria de imagens partilhada com a Azure PowerShell 
+# <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Criar uma galeria de imagens partilhada com a Azure PowerShell 
 
-Uma [Galeria de Imagem Partilhada](./windows/shared-image-galleries.md) simplifica a partilha de imagens personalizadas em toda a sua organização. As imagens personalizadas são como imagens do marketplace, mas são criadas por si. Imagens personalizadas podem ser usadas para tarefas de implementação de botas como aplicações de pré-carregamento, configurações de aplicações e outras configurações de SO. 
+Uma [Galeria de Imagens Partilhadas](./windows/shared-image-galleries.md) simplifica a partilha de imagens personalizadas em toda a sua organização. As imagens personalizadas são como imagens do marketplace, mas são criadas por si. As imagens personalizadas podem ser usadas para tarefas de implementação de botas como aplicações de pré-carregamento, configurações de aplicações e outras configurações de SISTEMA. 
 
-A Galeria de Imagem Partilhada permite-lhe partilhar as suas imagens VM personalizadas com outras da sua organização, dentro ou em todas as regiões, dentro de um inquilino da AAD. Escolha quais as imagens que pretende partilhar, quais as regiões em que as quer disponibilizar e com quem as quer partilhar. Você pode criar várias galerias para que você possa logicamente agrupar imagens partilhadas. 
+A Galeria de Imagens Partilhada permite-lhe partilhar as suas imagens VM personalizadas com outras pessoas da sua organização, dentro ou em todas as regiões, dentro de um inquilino da AAD. Escolha quais as imagens que pretende partilhar, em que regiões quer disponibilizá-las e com quem quer partilhá-las. Pode criar várias galerias para que possa, logicamente, agrupar imagens partilhadas. 
 
-A galeria é um recurso de alto nível que fornece um controlo completo de acesso baseado em papéis (RBAC). As imagens podem ser versonizadas e pode optar por replicar cada versão de imagem para um conjunto diferente de regiões do Azure. A galeria só funciona com Imagens Geridas.
+A galeria é um recurso de alto nível que fornece controlo de acesso baseado em funções completa (RBAC). As imagens podem ser versadas e pode optar por replicar cada versão de imagem para um conjunto diferente de regiões do Azure. A galeria funciona apenas com Imagens Geridas.
 
-A funcionalidade Da Galeria de Imagem Partilhada tem vários tipos de recursos. 
+A funcionalidade Image Gallery partilhada tem vários tipos de recursos. 
 
 [!INCLUDE [virtual-machines-shared-image-gallery-resources](../../includes/virtual-machines-shared-image-gallery-resources.md)]
 
@@ -31,13 +31,13 @@ A funcionalidade Da Galeria de Imagem Partilhada tem vários tipos de recursos.
 [!INCLUDE [virtual-machines-common-shared-images-powershell](../../includes/virtual-machines-common-shared-images-powershell.md)]
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Crie uma imagem a partir de um [VM,](image-version-vm-powershell.md)uma [imagem gerida,](image-version-managed-image-powershell.md)ou uma [imagem em outra galeria.](image-version-another-gallery-powershell.md)
+Crie uma imagem a partir de um [VM,](image-version-vm-powershell.md)uma [imagem gerida,](image-version-managed-image-powershell.md)ou uma [imagem noutra galeria.](image-version-another-gallery-powershell.md)
 
-[O Azure Image Builder (pré-visualização)](./windows/image-builder-overview.md) pode ajudar a automatizar a criação da versão de imagem, pode até usá-la para atualizar e criar uma nova versão de imagem a partir de uma versão de [imagem existente.](./windows/image-builder-gallery-update-image-version.md) 
+[O Azure Image Builder (pré-visualização)](./windows/image-builder-overview.md) pode ajudar a automatizar a criação de versão de imagem, podendo até usá-la para atualizar e [criar uma nova versão de imagem a partir de uma versão de imagem existente.](./windows/image-builder-gallery-update-image-version.md) 
 
-Também pode criar recurso da Galeria de Imagem Partilhada utilizando modelos. Existem vários modelos Azure Quickstart disponíveis: 
+Também pode criar recursos da Galeria de Imagens Partilhadas utilizando modelos. Existem vários modelos Azure Quickstart disponíveis: 
 
 - [Criar um Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Criar uma Definição de Imagem num Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)

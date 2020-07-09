@@ -1,6 +1,6 @@
 ---
-title: Terminologia azure API Management [ Microsoft Docs
-description: Este artigo dá definições para os termos específicos da Gestão API.
+title: Terminologia de Gestão AZURE API / Microsoft Docs
+description: Este artigo dá definições para os termos específicos da Gestão da API.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,25 +12,25 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: apimpm
 ms.openlocfilehash: b99ca444532799d21850058eae0e3f40ed871135
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61074059"
 ---
 # <a name="terminology"></a>Terminologia
 
-Este artigo apresenta definições para os termos específicos da Gestão da API (APIM).
+Este artigo dá definições para os termos específicos da Gestão da API (APIM).
 
 ## <a name="term-definitions"></a>Definições de prazo
 
 * **Backend API** - Um serviço HTTP que implementa a sua API e as suas operações. 
-* **Frontend API APIM**/**API** - Uma API API api não acolhe APIs, cria fachadas para as suas APIs de forma a personalizar a fachada de acordo com as suas necessidades sem tocar na API traseira. Para mais informações, consulte [Importar e publicar uma API](import-and-publish.md).
-* **Produto APIM** - um produto contém uma ou mais APIs, bem como uma quota de utilização e os termos de utilização. Pode incluir uma série de APIs e oferecê-las aos desenvolvedores através do portal Developer. Para mais informações, consulte [Criar e publicar um produto](api-management-howto-add-products.md).
-* **Operação APIM API** - Cada API API representa um conjunto de operações disponíveis para os desenvolvedores. Cada APIM API contém uma referência ao serviço de backend atrás que implementa a API, e o seu mapa de operações para as operações implementadas pelo serviço de backenda. Para mais informações, consulte [as respostas da API de Mock](mock-api-responses.md).
-* **Versão** - Por vezes, pretende publicar novas ou diferentes funcionalidades de API a alguns utilizadores, enquanto outros querem manter-se na API que atualmente funciona para eles. Para mais informações, consulte [Publicar várias versões da sua API](api-management-get-started-publish-versions.md).
-* **Revisão** - Quando a sua API está pronta para ir e começa a ser usada pelos desenvolvedores, normalmente precisa de ter cuidado para fazer alterações nessa API e, ao mesmo tempo, não perturbar os chamadores da sua API. É também útil dar a conhecer aos programadores as alterações que efetuou. Para mais informações, consulte [Revisões de Utilização](api-management-get-started-revise-api.md).
-* **Portal** de desenvolvimento - Os seus clientes (desenvolvedores) devem utilizar o portal Developer para aceder às suas APIs. O portal Developer pode ser personalizado. Para mais informações, consulte [Personalizar o portal Developer](api-management-customize-styles.md).
+* **Frontend API** / **APIM API** - Uma APIM API não acolhe APIs, cria fachadas para as suas APIs de forma a personalizar a fachada de acordo com as suas necessidades sem tocar na API traseira. Para mais informações, consulte [Import e publique uma API.](import-and-publish.md)
+* **Produto APIM** - um produto contém uma ou mais APIs, bem como uma quota de utilização e os termos de utilização. Pode incluir uma série de APIs e oferecê-las aos desenvolvedores através do portal Developer. Para mais informações, consulte [Criar e publicar um produto.](api-management-howto-add-products.md)
+* **Operação APIM API** - Cada APIM API representa um conjunto de operações disponíveis para os desenvolvedores. Cada APIM API contém uma referência ao serviço back end que implementa a API, e o seu mapa de operações às operações implementadas pelo serviço back end. Para obter mais informações, consulte [as respostas da Mock API](mock-api-responses.md).
+* **Versão** - Por vezes pretende publicar novas ou diferentes funcionalidades de API para alguns utilizadores, enquanto outros querem ficar com a API que atualmente funciona para eles. Para mais informações, consulte [publicar várias versões da sua API.](api-management-get-started-publish-versions.md)
+* **Revisão** - Quando a sua API está pronta para ir e começa a ser usada pelos desenvolvedores, normalmente tem de ter cuidado ao fazer alterações a essa API e, ao mesmo tempo, não perturbar os chamadores da sua API. É também útil dar a conhecer aos programadores as alterações que efetuou. Para obter mais informações, consulte [as revisões da utilização.](api-management-get-started-revise-api.md)
+* **Portal do desenvolvedor** - Os seus clientes (desenvolvedores) devem utilizar o portal Developer para aceder às suas APIs. O portal Developer pode ser personalizado. Para mais informações, consulte [Personalizar o portal Developer.](api-management-customize-styles.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

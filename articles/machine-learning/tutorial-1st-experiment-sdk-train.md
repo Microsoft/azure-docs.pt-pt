@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Treine o seu primeiro modelo Azure ML em Python'
 titleSuffix: Azure Machine Learning
-description: Neste tutorial, você aprende os padrões de design fundacional em Azure Machine Learning, e treina um modelo simples de aprendizagem de scikit com base no conjunto de dados da diabetes.
+description: Neste tutorial, você aprende os padrões de design fundamental em Azure Machine Learning, e treina um modelo simples de aprendizagem de scikit com base no conjunto de dados da diabetes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,61 +10,61 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: c8f259d2d4df46470a042c3f65ac1b8e1f66b1dd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 2a65579ea7ea1a8e1611b604fa64f6b108c88784
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80546039"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025153"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treine o seu primeiro modelo ML
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Este tutorial é a **segunda parte de uma série composta por duas partes**. No tutorial anterior, [criou-se um espaço de trabalho e escolheu um ambiente](tutorial-1st-experiment-sdk-setup.md)de desenvolvimento. Neste tutorial, você aprende os padrões de design fundacional em Azure Machine Learning, e treina um modelo simples de aprendizagem de scikit com base no conjunto de dados da diabetes. Depois de concluir este tutorial, terá o conhecimento prático do SDK para escalar até desenvolver experiências e fluxos de trabalho mais complexos.
+Este tutorial é a **segunda parte de uma série composta por duas partes**. No tutorial anterior, [criou um espaço de trabalho e escolheu um ambiente de desenvolvimento.](tutorial-1st-experiment-sdk-setup.md) Neste tutorial, você aprende os padrões de design fundamental em Azure Machine Learning, e treina um modelo simples de aprendizagem de scikit com base no conjunto de dados da diabetes. Após completar este tutorial, você terá o conhecimento prático do SDK para escalar para desenvolver experiências e fluxos de trabalho mais complexos.
 
 Neste tutorial, irá aprender as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Conecte o seu espaço de trabalho e crie uma experiência
-> * Carregue mato de dados e treine modelos de aprendizagem de ficção científica
-> * Ver resultados de formação no estúdio
+> * Ligue o seu espaço de trabalho e crie uma experiência
+> * Carregue os dados e treine modelos de aprendizagem de scikit
+> * Ver resultados de treino no estúdio
 > * Obter o melhor modelo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O único pré-requisito é executar a primeira parte deste tutorial, ambiente de [configuração e espaço de trabalho.](tutorial-1st-experiment-sdk-setup.md)
 
-Nesta parte do tutorial, você executa o código na amostra de tutoriais de caderno *jupyter/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* aberto no final da primeira parte. Este artigo percorre o mesmo código que está no caderno.
+Nesta parte do tutorial, você executou o código na amostra tutoriais de caderno *Jupyter/create-first-ml-experiment/tutorial-1-experiment-sdk-train.ipynb* abriu no final da primeira parte. Este artigo percorre o mesmo código que está no caderno.
 
 ## <a name="open-the-notebook"></a>Abra o caderno
 
-1. Inscreva-se no [estúdio Azure Machine Learning.](https://ml.azure.com/)
+1. Inscreva-se no [estúdio Azure Machine Learning](https://ml.azure.com/).
 
-1. Abra o **tutorial-1ª experiência-sdk-train.ipynb** na sua pasta, como mostrado na [primeira parte](tutorial-1st-experiment-sdk-setup.md#open).
+1. Abra o **tutorial-1-experiment-sdk-train.ipynb** na sua pasta, como mostrado na [primeira parte](tutorial-1st-experiment-sdk-setup.md#open).
 
 
 > [!Warning]
-> **Não** crie um *novo* caderno na interface Jupyter! Os *tutoriais portátil/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* incluem **todo o código e dados necessários** para este tutorial.
+> **Não** crie um *novo* caderno na interface Jupyter! Os *tutoriais do caderno/create-first-ml-experiment/tutorial-1-experiment-sdk-train.ipynb* incluem **todos os códigos e dados necessários** para este tutorial.
 
-## <a name="connect-workspace-and-create-experiment"></a>Ligar espaço de trabalho e criar experiência
+## <a name="connect-workspace-and-create-experiment"></a>Ligue espaço de trabalho e crie experiência
 
 > [!Important]
 > O resto deste artigo contém o mesmo conteúdo que se vê no caderno.  
 >
-> Mude para o caderno Jupyter agora se quiser ler enquanto executa o código. 
-> Para executar uma única célula de código num caderno, clique na célula de código e clique no **Shift+Enter**. Ou, executar todo o caderno escolhendo **Executar tudo** a partir da barra de ferramentas superior.
+> Mude agora para o caderno Jupyter se quiser ler enquanto executar o código. 
+> Para executar uma única célula de código num bloco de notas, clique na célula de código e clique no **Shift+Enter**. Ou, executar todo o caderno escolhendo **Executar tudo** a partir da barra de ferramentas superior.
 
-Importe `Workspace` a classe e carregue as `config.json` suas `from_config().` informações de subscrição a partir do ficheiro utilizando a função Isto procura o ficheiro `from_config(path="your/file/path")`JSON no diretório atual por padrão, mas também pode especificar um parâmetro de percurso para apontar para o ficheiro utilizando . Num servidor de portátil em nuvem, o ficheiro encontra-se automaticamente no diretório raiz.
+Importe a `Workspace` classe e carregue as informações de subscrição do ficheiro `config.json` utilizando a função Este procura o ficheiro `from_config().` JSON no diretório atual por predefinição, mas também pode especificar um parâmetro de caminho para apontar para o ficheiro que utiliza `from_config(path="your/file/path")` . Num servidor de cadernos em nuvem, o ficheiro está automaticamente no diretório de raiz.
 
-Se o código seguinte pedir autenticação adicional, basta colar o link num browser e introduzir o símbolo de autenticação.
+Se o código seguinte pedir a autenticação adicional, basta colar o link num browser e introduzir o token de autenticação.
 
 ```python
 from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-Agora crie uma experiência no seu espaço de trabalho. Uma experiência é outro recurso de nuvem fundacional que representa uma coleção de ensaios (executa modelo individual). Neste tutorial você usa a experiência para criar corridas e acompanhar o seu model training no estúdio Azure Machine Learning. Os parâmetros incluem a referência do espaço de trabalho e um nome de corda para a experiência.
+Agora crie uma experiência no seu espaço de trabalho. Uma experiência é outro recurso fundamental em nuvem que representa uma coleção de ensaios (o modelo individual corre). Neste tutorial você usa a experiência para criar corridas e acompanhar o seu treino de modelo no estúdio Azure Machine Learning. Os parâmetros incluem a referência do seu espaço de trabalho, e um nome de corda para a experiência.
 
 
 ```python
@@ -72,9 +72,9 @@ from azureml.core import Experiment
 experiment = Experiment(workspace=ws, name="diabetes-experiment")
 ```
 
-## <a name="load-data-and-prepare-for-training"></a>Carregue dados e prepare-se para o treino
+## <a name="load-data-and-prepare-for-training"></a>Carregar dados e preparar-se para a formação
 
-Para este tutorial, você usa o conjunto de dados da diabetes, que usa características como idade, sexo e IMC para prever a progressão da doença da diabetes. Carregue os dados da classe [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) e divida-os em conjuntos de treino e teste utilizando `train_test_split()`. Esta função segrega os dados para que o modelo tenha dados invisíveis para utilizar para testes após treino.
+Para este tutorial, você usa o conjunto de dados da diabetes, que usa características como idade, sexo e IMC para prever a progressão da doença da diabetes. Carregue os dados da classe [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) e divida-os em conjuntos de treino e teste utilizando `train_test_split()` . Esta função segrega os dados de modo que o modelo tem dados invisíveis para usar para testes após o treino.
 
 
 ```python
@@ -89,9 +89,9 @@ X_train, X_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, r
 
 ## <a name="train-a-model"></a>Preparar um modelo
 
-Treinar um modelo simples de aprendizagem de ficção pode ser facilmente feito localmente para treinoem em pequena escala, mas quando treina muitas iterações com dezenas de diferentes permutações de recursos e configurações de hiperparâmetros, é fácil perder a noção dos modelos que treinou e como os treinou. O seguinte padrão de design mostra como alavancar o SDK para acompanhar facilmente o seu treino na nuvem.
+Treinar um modelo simples de aprendizagem de scikit pode ser facilmente feito localmente para treinos em pequena escala, mas quando treina muitas iterações com dezenas de permutações de características diferentes e configurações de hiperparímetro, é fácil perder a noção dos modelos que treinou e como as treinou. O seguinte padrão de design mostra como aproveitar o SDK para acompanhar facilmente o seu treino na nuvem.
 
-Construa um guião que treine modelos de ridge em um loop através de diferentes valores alfa hiperparâmetros.
+Construa um script que treina modelos de cume em loop através de diferentes valores alfa hiperparímetros.
 
 
 ```python
@@ -122,10 +122,10 @@ for alpha in alphas:
 
 O código acima realiza o seguinte:
 
-1. Para cada valor de hiperparâmetro alfa na `alphas` matriz, uma nova execução é criada dentro da experiência. O valor alfa é registado para diferenciar entre cada corrida.
-1. Em cada corrida, um modelo Ridge é instantâneo, treinado e usado para executar previsões. O erro quadrado-raiz-médio é calculado para os valores reais versus previstos, e depois registrado na execução. Neste ponto, a execução tem metadados anexados tanto para o valor alfa como para a precisão rmse.
-1. Em seguida, o modelo para cada execução é serializado e carregado para a execução. Isto permite-lhe descarregar o ficheiro modelo a partir da execução no estúdio.
-1. No final de cada iteração a `run.complete()`corrida é completada através da chamada .
+1. Para cada valor alfa hiperparímetro na `alphas` matriz, uma nova execução é criada dentro da experiência. O valor alfa é registado para diferenciar cada corrida.
+1. Em cada corrida, um modelo Ridge é instantâneo, treinado e usado para executar previsões. O erro de base-médio-quadrado é calculado para os valores reais versus previstos e, em seguida, registado na execução. Neste ponto, a execução tem metadados ligados tanto para o valor alfa como para a precisão rmse.
+1. Em seguida, o modelo para cada execução é serializado e carregado para a corrida. Isto permite-lhe descarregar o ficheiro modelo da execução no estúdio.
+1. No final de cada iteração, a execução é completada chamando `run.complete()` .
 
 Depois de concluído o treino, ligue para a `experiment` variável para obter um link para a experiência no estúdio.
 
@@ -133,24 +133,24 @@ Depois de concluído o treino, ligue para a `experiment` variável para obter um
 experiment
 ```
 
-<table style="width:100%"><tr><th>Nome</th><th>Área de trabalho</th><th>Página de relatórios</th><th>Página do Docs</th></tr><tr><td>diabetes-experiência</td><td>seu-trabalho espaço-nome</td><td>Link para estúdio de machine learning Azure</td><td>Ligação à Documentação</td></tr></table>
+<table style="width:100%"><tr><th>Name</th><th>Área de trabalho</th><th>Página do relatório</th><th>Página docs</th></tr><tr><td>diabetes-experiência</td><td>seu espaço de trabalho-nome</td><td>Link para estúdio de Aprendizagem automática Azure</td><td>Ligação à Documentação</td></tr></table>
 
 ## <a name="view-training-results-in-studio"></a>Ver resultados de formação em estúdio
 
-Seguir o **estúdio Link to Azure Machine Learning** leva-o à página principal de experiências. Aqui você vê todos os indivíduos corre na experiência. Quaisquer valores personalizados `rmse`(e,`alpha_value` neste caso) tornam-se campos para cada corrida, e também ficam disponíveis para os gráficos e azulejos no topo da página de experimentação. Para adicionar uma métrica registada a um gráfico ou azulejo, paire sobre ele, clique no botão de edição e encontre a sua métrica personalizada.
+Seguindo o **estúdio Link to Azure Machine Learning** leva-o à página principal da experiência. Aqui você vê todos os runs individuais na experiência. Quaisquer valores registados sob encomenda `alpha_value` `rmse` (e, neste caso, neste caso) tornam-se campos para cada corrida, e também ficam disponíveis para as tabelas. Para traçar um novo gráfico com uma métrica registada, clique em 'Adicionar gráfico' e selecione a métrica que gostaria de traçar.
 
-Quando os modelos de treino em escala ao longo de centenas e milhares de runs separados, esta página torna fácil ver todos os modelos que treinou, especificamente como foram treinados, e como as suas métricas únicas mudaram ao longo do tempo.
+Ao treinar modelos em escala ao longo de centenas e milhares de corridas separadas, esta página torna fácil ver todos os modelos que treinou, especificamente como foram treinados, e como as suas métricas únicas mudaram ao longo do tempo.
 
-:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/experiment-main.png" alt-text="Página principal de experiências no estúdio.":::
+:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/experiment-main.png" alt-text="Página principal da experiência no estúdio.":::
 
 
-Selecione um link `RUN NUMBER` de número de execução na coluna para ver a página para uma execução individual. O separador predefinido **Detalhes** mostram-lhe informações mais detalhadas em cada execução. Navegue para o separador **Outputs + logs** e veja o `.pkl` ficheiro do modelo que foi carregado para a execução durante cada iteração de treino. Aqui pode descarregar o ficheiro modelo, em vez de ter de o retreinar manualmente.
+Selecione um link de número de execução na `RUN NUMBER` coluna para ver a página para uma execução individual. O separador padrão **Detalhes** mostra-lhe informações mais detalhadas em cada execução. Navegue para o separador **Saídas + registos** e veja o `.pkl` ficheiro do modelo que foi carregado para a execução durante cada iteração de treino. Aqui pode descarregar o ficheiro do modelo, em vez de ter de o retreinar manualmente.
 
 :::image type="content" source="./media/tutorial-1st-experiment-sdk-train/model-download.png" alt-text="Executar a página de detalhes no estúdio.":::
 
 ## <a name="get-the-best-model"></a>Obtenha o melhor modelo
 
-Além de poder descarregar ficheiros de modelos a partir da experiência no estúdio, também pode descarregá-los programáticamente. O código seguinte iténio através de cada execução na experiência, e acede tanto às métricas de execução registadas como aos detalhes de execução (que contém o run_id). Isto acompanha a melhor execução, neste caso a corrida com o menor erro de raiz-média-quadrado.
+Além de ser capaz de descarregar ficheiros de modelos da experiência no estúdio, também pode descarregá-los programáticamente. O código seguinte itera através de cada execução na experiência, e acede tanto às métricas de execução registadas como aos detalhes de execução (que contém o run_id). Isto acompanha a melhor execução, neste caso a corrida com o menor erro de raiz-médio-quadrado.
 
 ```python
 minimum_rmse_runid = None
@@ -175,10 +175,12 @@ print("Best run_id: " + minimum_rmse_runid)
 print("Best run_id rmse: " + str(minimum_rmse))
 ```
 
-    Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
-    Best run_id rmse: 57.234760283951765
+```output
+Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
+Best run_id rmse: 57.234760283951765
+```
 
-Utilize o id de melhor execução `Run` para obter a execução individual usando o construtor juntamente com o objeto de experiência. Em `get_file_names()` seguida, ligue para ver todos os ficheiros disponíveis para download a partir desta execução. Neste caso, só fez o upload de um ficheiro para cada corrida durante o treino.
+Utilize o melhor ID de execução para obter a execução individual utilizando o `Run` construtor juntamente com o objeto de experiência. Em seguida, ligue `get_file_names()` para ver todos os ficheiros disponíveis para download a partir desta execução. Neste caso, só carregou um ficheiro para cada execução durante o treino.
 
 ```python
 from azureml.core import Run
@@ -186,9 +188,11 @@ best_run = Run(experiment=experiment, run_id=minimum_rmse_runid)
 print(best_run.get_file_names())
 ```
 
-    ['model_alpha_0.1.pkl']
+```output
+['model_alpha_0.1.pkl']
+```
 
-Ligue `download()` para o objeto de execução, especificando o nome do ficheiro do modelo para descarregar. Por predefinição, esta função descarrega para o diretório atual.
+Ligue `download()` para o objeto de execução, especificando o nome do ficheiro do modelo para descarregar. Por predefinição, esta função é transferida para o diretório atual.
 
 ```python
 best_run.download_file(name="model_alpha_0.1.pkl")
@@ -196,7 +200,7 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Não complete esta secção se planeia executar outros tutoriais de Aprendizagem automática Azure.
+Não preencha esta secção se planeia executar outros tutoriais de Aprendizagem automática Azure.
 
 ### <a name="stop-the-compute-instance"></a>Pare a instância computacional
 
@@ -206,16 +210,16 @@ Não complete esta secção se planeia executar outros tutoriais de Aprendizagem
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
-Também pode manter o grupo de recursos, mas eliminar um único espaço de trabalho. Mostrar as propriedades do espaço de trabalho e selecionar **Apagar**.
+Também pode manter o grupo de recursos, mas eliminar um único espaço de trabalho. Mostrar as propriedades do espaço de trabalho e selecionar **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, fez as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Ligou o seu espaço de trabalho e criou uma experiência
-> * Dados carregados e modelos de aprendizagem de ficção científica treinados
-> * Resultados de formação visualizados no estúdio e modelos recuperados
+> * Dados carregados e modelos treinados para aprendizagem de scikit
+> * Resultados de treino vistos no estúdio e modelos recuperados
 
-[Implemente o seu modelo](tutorial-deploy-models-with-aml.md) com a Azure Machine Learning.
-Aprenda a desenvolver experiências automatizadas de [aprendizagem automática](tutorial-auto-train-models.md) de máquinas.
+[Implemente o seu modelo](tutorial-deploy-models-with-aml.md) com Azure Machine Learning.
+Aprenda a desenvolver experiências [automatizadas de aprendizagem automática](tutorial-auto-train-models.md) de máquinas.

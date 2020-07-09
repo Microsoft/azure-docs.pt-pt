@@ -5,27 +5,27 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: e0ff4e91ed55a37e710a5655e7da9ec76b7d1dd5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84014706"
 ---
 ## <a name="next-steps"></a>Próximos passos
 
-Depois de ativar a integração do cofre de chaves Azure, pode ativar a encriptação do SQL Server no seu VM SQL. Primeiro, terá de criar uma chave assimétrica dentro do seu cofre chave e uma chave simétrica dentro do Servidor SQL no seu VM. Em seguida, poderá executar declarações T-SQL para permitir a encriptação das suas bases de dados e backups.
+Depois de ativar a integração do cofre da chave Azure, pode ativar a encriptação do SQL Server no seu SQL VM. Primeiro, terá de criar uma chave assimétrica dentro do cofre da chave e uma chave simétrica dentro do SQL Server no seu VM. Em seguida, poderá executar declarações T-SQL para permitir encriptação para as suas bases de dados e backups.
 
-Existem várias formas de encriptação que pode tirar partido:
+Existem várias formas de encriptação que pode aproveitar:
 
 * [Encriptação de Dados Transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption)
 * [Backups encriptados](/sql/relational-databases/backup-restore/backup-encryption)
-* [Encriptação do nível da coluna (CLE)](/sql/t-sql/functions/cryptographic-functions-transact-sql)
+* [Encriptação de nível de coluna (CLE)](/sql/t-sql/functions/cryptographic-functions-transact-sql)
 
 Os seguintes scripts Transact-SQL fornecem exemplos para cada uma destas áreas.
 
 ### <a name="prerequisites-for-examples"></a>Pré-requisitos para exemplos
 
-Cada exemplo baseia-se nos dois pré-requisitos: uma chave assimétrica do seu cofre-chave chamada **CONTOSO_KEY** e uma credencial criada pela funcionalidade de integração AKV chamada **Azure_EKM_cred**. Os seguintes comandos Transact-SQL configuram estes pré-requisitos para executar os exemplos.
+Cada exemplo baseia-se nos dois pré-requisitos: uma chave assimétrica do seu cofre-chave chamada **CONTOSO_KEY** e uma credencial criada pela funcionalidade de Integração AKV chamada **Azure_EKM_cred**. Os seguintes comandos Transact-SQL configuram estes pré-requisitos para executar os exemplos.
 
 ``` sql
 USE master;
@@ -52,7 +52,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
 
 ### <a name="transparent-data-encryption-tde"></a>Encriptação de Dados Transparente (TDE)
 
-1. Crie um login do Servidor SQL para ser utilizado pelo Motor de Base de Dados para TDE e, em seguida, adicione-lhe a credencial.
+1. Crie um login SQL Server para ser utilizado pelo Motor de Base de Dados para TDE e, em seguida, adicione-lhe a credencial.
 
    ``` sql
    USE master;
@@ -70,7 +70,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-1. Crie a chave de encriptação da base de dados que será usada para o TDE.
+1. Crie a chave de encriptação da base de dados que será utilizada para o TDE.
 
    ``` sql
    USE ContosoDatabase;
@@ -89,7 +89,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
 
 ### <a name="encrypted-backups"></a>Backups encriptados
 
-1. Crie um login do SQL Server para ser utilizado pelo Motor de Base de Dados para encriptar cópias de segurança e adicione-lhe a credencial.
+1. Crie um login DO SQL Server para ser utilizado pelo Motor de Base de Dados para encriptar cópias de segurança e adicione-lhe a credencial.
 
    ``` sql
    USE master;
@@ -106,7 +106,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-1. Faça backup da base de dados especificando encriptação com a chave assimétrica armazenada no cofre da chave.
+1. Faça cópia de segurança na base de dados especificando encriptação com a chave assimétrica armazenada no cofre da chave.
 
    ``` sql
    USE master;
@@ -117,9 +117,9 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-### <a name="column-level-encryption-cle"></a>Encriptação do nível da coluna (CLE)
+### <a name="column-level-encryption-cle"></a>Encriptação de nível de coluna (CLE)
 
-Este script cria uma chave simétrica protegida pela chave assimétrica no cofre da chave e, em seguida, utiliza a chave simétrica para encriptar dados na base de dados.
+Este script cria uma chave simétrica protegida pela chave assimétrica no cofre da chave e, em seguida, usa a chave simétrica para encriptar dados na base de dados.
 
 ``` sql
 CREATE SYMMETRIC KEY DATA_ENCRYPTION_KEY
@@ -144,6 +144,6 @@ CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-Para obter mais informações sobre como utilizar estas funcionalidades de encriptação, consulte [a Utilização do EKM com as funcionalidades de encriptação do Servidor SQL](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
+Para obter mais informações sobre como utilizar estas funcionalidades de encriptação, consulte [utilizar o EKM com funcionalidades de encriptação do servidor SQL](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-Note que os passos neste artigo assumem que já tem o SQL Server a funcionar numa máquina virtual Azure. Caso contrário, consulte [a Provision a SQL Server virtual machine in Azure](../articles/azure-sql/virtual-machines/windows/create-sql-vm-portal.md). Para outras orientações sobre a execução do Servidor SQL em VMs Azure, consulte [o SQL Server na visão geral das Máquinas Virtuais Azure](../articles/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
+Note que os passos deste artigo assumem que já tem o SQL Server a funcionar numa máquina virtual Azure. Caso contrário, consulte [a Provision a sql Server virtual machine in Azure](../articles/azure-sql/virtual-machines/windows/create-sql-vm-portal.md). Para obter outras orientações sobre a execução do SQL Server em VMs Azure, consulte [o SQL Server na visão geral das máquinas virtuais Azure](../articles/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).

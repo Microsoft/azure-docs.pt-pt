@@ -77,7 +77,7 @@
           href: allbound-sso-tutorial.md
         - name: Allocadia
           href: allocadia-tutorial.md
-        - name: Ally
+        - name: Ally.io
           href: ally-tutorial.md
         - name: Amazon Business
           href: amazon-business-tutorial.md
@@ -99,6 +99,8 @@
           href: andromedascm-tutorial.md
         - name: AnswerHub
           href: answerhub-tutorial.md
+        - name: Anyone Home CRM
+          href: anyone-home-crm-tutorial.md
         - name: Apex Portal
           href: apexportal-tutorial.md
         - name: AppBlade
@@ -239,14 +241,16 @@
           href: brightspace-desire2learn-tutorial.md
         - name: Britive
           href: britive-tutorial.md
+        - name: Início de Sessão Único do BrowserStack
+          href: browserstack-single-sign-on-tutorial.md
         - name: Bugsnag
           href: bugsnag-tutorial.md
+        - name: BullseyeTDP
+          href: bullseyetdp-tutorial.md
         - name: Bynder
           href: bynder-tutorial.md
     - name: C
       items:
-        - name: CA PPM
-          href: cappm-tutorial.md
         - name: CakeHR
           href: cakehr-tutorial.md
         - name: Campus Café
@@ -309,6 +313,8 @@
           href: sharefile-tutorial.md
         - name: Civic Platform
           href: civic-platform-tutorial.md
+        - name: Clarity
+          href: cappm-tutorial.md
         - name: Clarizen
           href: clarizen-tutorial.md
         - name: Claromentis
@@ -327,6 +333,8 @@
           href: clickup-productivity-platform-tutorial.md
         - name: Cloud Management Portal para Microsoft Azure
           href: newsignature-tutorial.md
+        - name: CloudCords
+          href: cloudcords-tutorial.md
         - name: Cloudmore
           href: cloudmore-tutorial.md
         - name: CloudPassage
@@ -397,6 +405,8 @@
           href: crossknowledge-learning-suite-tutorial.md
         - name: CS Stars
           href: cs-stars-tutorial.md
+        - name: Curricula SAML
+          href: curricula-saml-tutorial.md
         - name: Cyara CX Assurance Platform
           href: cyara-cx-assurance-platform-tutorial.md
         - name: CyberArk SAML Authentication
@@ -453,7 +463,7 @@
           href: darwinbox-tutorial.md
         - name: Drift
           href: drift-tutorial.md
-        - name: Dropbox for Business
+        - name: Dropbox Business
           href: dropboxforbusiness-tutorial.md
         - name: Druva
           href: druva-tutorial.md
@@ -489,10 +499,14 @@
           href: edigitalresearch-tutorial.md
         - name: EduBrite LMS
           href: edubrite-lms-tutorial.md
+        - name: edX for Business SAML Integration
+          href: edx-for-business-saml-integration-tutorial.md
         - name: EFI Digital StoreFront
           href: efidigitalstorefront-tutorial.md
         - name: Egnyte
           href: egnyte-tutorial.md
+        - name: Ekarda
+          href: ekarda-tutorial.md
         - name: eKincare
           href: ekincare-tutorial.md
         - name: Eli Onboarding
@@ -557,6 +571,8 @@
           href: fastly-edge-cloud-tutorial.md
         - name: FCM HUB
           href: fcm-hub-tutorial.md
+        - name: ID de Campo
+          href: field-id-tutorial.md
         - name: Fidelity NetBenefits
           href: fidelitynetbenefits-tutorial.md
         - name: Fieldglass
@@ -713,6 +729,8 @@
           href: hr2day-tutorial.md
         - name: HRworks Single Sign-On
           href: hrworks-single-sign-on-tutorial.md
+        - name: Hub Planner
+          href: hub-planner-tutorial.md
         - name: HubSpot SAML
           href: hubspot-tutorial.md
         - name: Huddle
@@ -727,6 +745,8 @@
           href: hyperanna-tutorial.md
         - name: Plataforma de Patentes IamIP
           href: iamip-patent-platform-tutorial.md
+        - name: IBM Digital Business Automation na Cloud
+          href: ibm-digital-business-automation-on-cloud-tutorial.md
         - name: IBM Kenexa Survey Enterprise
           href: kenexasurvey-tutorial.md
         - name: IBM OpenPages
@@ -791,6 +811,8 @@
           href: insuite-tutorial.md
         - name: Intacct
           href: intacct-tutorial.md
+        - name: IntelligenceBank
+          href: intelligencebank-tutorial.md
         - name: InTime
           href: intime-tutorial.md
         - name: Intralinks
@@ -881,6 +903,8 @@
           href: kindling-tutorial.md
         - name: kintone
           href: kintone-tutorial.md
+        - name: Kisi Physical Security
+          href: kisi-physical-security-tutorial.md
         - name: Kiteworks
           href: kiteworks-tutorial.md
         - name: Klue
@@ -961,6 +985,8 @@
           href: m-files-tutorial.md
         - name: Mail Luck!
           href: mail-luck-tutorial.md
+        - name: MailGates
+          href: mailgates-tutorial.md
         - name: Manabi Pocket
           href: manabipocket-tutorial.md
         - name: Mapbox
@@ -1033,6 +1059,8 @@
           href: mozy-enterprise-tutorial.md
         - name: Acesso do Microsoft Azure SSO para Ethidex Compliance Office™
           href: ms-azure-sso-access-for-ethidex-compliance-office-tutorial.md
+        - name: Configuração de SSO do Azure AD para o MVISION Cloud
+          href: skyhighnetworks-tutorial.md
         - name: MyAryaka
           href: myaryaka-tutorial.md
         - name: My Award Points Top Sub/Top Team
@@ -1177,6 +1205,8 @@
           href: perceptyx-tutorial.md
         - name: Percolate
           href: percolate-tutorial.md
+        - name: Perforce Helix Core - Helix Authentication Service
+          href: perforce-helix-core-tutorial.md
         - name: PerformanceCentre
           href: performancecentre-tutorial.md
         - name: Periscope Data
@@ -1231,12 +1261,16 @@
           href: pronovos-ops-manager-tutorial.md
         - name: Proofpoint on Demand
           href: proofpoint-ondemand-tutorial.md
+        - name: Proto.io
+          href: proto.io-tutorial.md
         - name: Proxyclick
           href: proxyclick-tutorial.md
         - name: PureCloud da Genesys
           href: purecloud-by-genesys-tutorial.md
         - name: PurelyHR
           href: purelyhr-tutorial.md
+        - name: pymetrics
+          href: pymetrics-tutorial.md
     - name: Q - R
       items:
         - name: Qlik Sense Enterprise
@@ -1255,6 +1289,8 @@
           href: qumucloud-tutorial.md
         - name: Rackspace SSO
           href: rackspacesso-tutorial.md
+        - name: Raketa
+          href: raketa-tutorial.md
         - name: Rally Software
           href: rally-software-tutorial.md
         - name: Real Links
@@ -1373,8 +1409,12 @@
           href: securejoinnow-tutorial.md
         - name: Sedgwick CMS
           href: sedgwickcms-tutorial.md
+        - name: Segment
+          href: segment-tutorial.md
         - name: Seismic
           href: seismic-tutorial.md
+        - name: SendSafely
+          href: sendsafely-tutorial.md
         - name: SensoScientific Wireless Temperature Monitoring System
           href: sensoscientific-tutorial.md
         - name: Sequr
@@ -1395,6 +1435,8 @@
           href: shiphazmat-tutorial.md
         - name: Shmoop For Schools
           href: shmoopforschools-tutorial.md
+        - name: Shopify Plus
+          href: shopify-plus-tutorial.md
         - name: Showpad
           href: showpad-tutorial.md
         - name: Shuccho Navi
@@ -1413,6 +1455,8 @@
           href: simplenexus-tutorial.md
         - name: Simple Sign
           href: simple-sign-tutorial.md
+        - name: SiteIntel
+          href: siteintel-tutorial.md
         - name: Skilljar
           href: skilljar-tutorial.md
         - name: Skillport
@@ -1425,8 +1469,6 @@
           href: skills-workflow-tutorial.md
         - name: SkyDesk Email
           href: skydeskemail-tutorial.md
-        - name: Skyhigh Networks
-          href: skyhighnetworks-tutorial.md
         - name: SKYSITE
           href: skysite-tutorial.md
         - name: Início de sessão único para Skytap
@@ -1445,6 +1487,8 @@
           href: smartfile-tutorial.md
         - name: Smart Global Governance
           href: smart-global-governance-tutorial.md
+        - name: SmartKargo
+          href: smartkargo-tutorial.md
         - name: SmartLPA
           href: smartlpa-tutorial.md
         - name: SmartRecruiters
@@ -1537,7 +1581,7 @@
           href: teamviewer-tutorial.md
         - name: Teamwork.com
           href: teamwork-tutorial.md
-        - name: Templafy
+        - name: Templafy SAML2
           href: templafy-tutorial.md
         - name: Terraform Enterprise
           href: terraform-enterprise-tutorial.md
@@ -1627,6 +1671,8 @@
           href: veritas-tutorial.md
         - name: Verkada Command
           href: verkada-command-tutorial.md
+        - name: Verme
+          href: verme-tutorial.md
         - name: Versal
           href: versal-tutorial.md
         - name: Viareport (Europa)
@@ -1774,6 +1820,8 @@
       items:
         - name: 4me
           href: 4me-provisioning-tutorial.md
+        - name: 8x8
+          href: 8x8-provisioning-tutorial.md
         - name: 15Five
           href: 15five-provisioning-tutorial.md
     - name: A - L
@@ -1781,13 +1829,13 @@
         - name: Airstack
           href: airstack-provisioning-tutorial.md
         - name: Amazon Web Services (AWS) - Aprovisionamento de Funções
-          href: 'amazon-web-service-tutorial.md#configure-azure-ad-sso'
+          href: amazon-web-service-tutorial.md#configure-azure-ad-sso
         - name: Asana
           href: asana-provisioning-tutorial.md
         - name: Atlassian Cloud
           href: atlassian-cloud-provisioning-tutorial.md
         - name: Conector SCIM para o Azure Databricks
-          href: azure-databricks-scim-connector-provisioning-tutorial.md
+          href: 'https://docs.microsoft.com/azure/databricks/administration-guide/users-groups/scim/aad?toc=/azure/active-directory/saas-apps/toc.json&bc=/azure/active-directory/saas-apps/breadcrumb/toc.json'
         - name: BitaBIZ
           href: bitabiz-provisioning-tutorial.md
         - name: Blink
@@ -1812,7 +1860,7 @@
           href: cornerstone-ondemand-provisioning-tutorial.md
         - name: DocuSign
           href: docusign-provisioning-tutorial.md
-        - name: Dropbox for Business
+        - name: Dropbox Business
           href: dropboxforbusiness-provisioning-tutorial.md
         - name: Dynamic Signal
           href: dynamic-signal-provisioning-tutorial.md
@@ -1970,8 +2018,12 @@
           href: velpic-provisioning-tutorial.md
         - name: Visitly
           href: visitly-provisioning-tutorial.md
-        - name: Workday
+        - name: Workday para Active Directory
           href: workday-inbound-tutorial.md
+        - name: Workday para Azure AD
+          href: workday-inbound-cloud-only-tutorial.md
+        - name: Repetição de escrita do Workday
+          href: workday-writeback-tutorial.md
         - name: Workteam
           href: workteam-provisioning-tutorial.md
         - name: Workplace by Facebook

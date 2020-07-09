@@ -1,6 +1,6 @@
 ---
-title: Baixe os ativos dos Media Services para o seu computador - Azure / Microsoft Docs
-description: Saiba o que está prestes a transferir bens para o seu computador. As amostras de código são escritas em C# e utilizam o SDK de Serviços de Media para .NET.
+title: Baixar ativos dos Media Services para o seu computador - Azure ! Microsoft Docs
+description: Saiba como transferir os bens para o seu computador. As amostras de código são escritas em C# e utilizam o SDK dos Serviços de Mídia para .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 21fcc6ae09718ffbb22e1d438926586dd3cde71d
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61465665"
 ---
-# <a name="how-to-deliver-an-asset-by-download"></a>Como: Entregar um ativo por download  
-Este artigo discute opções para a entrega de ativos de mídia enviados para os Media Services. Pode entregar conteúdo dos Media Services em inúmeros cenários de aplicação. Depois de codificar, descarregue os meios de comunicação gerados ou aceda-os utilizando um localizador de streaming. Para um melhor desempenho e escalabilidade, também pode entregar conteúdo utilizando uma Rede de Entrega de Conteúdos (CDN).
+# <a name="how-to-deliver-an-asset-by-download"></a>Como: Entregar um ativo através do download  
+Este artigo discute opções de entrega de ativos de media enviados para os Media Services. Pode entregar conteúdos de Serviços de Mídia em inúmeros cenários de aplicação. Depois de codificar, descarregue os meios de comunicação gerados ou aceda-os utilizando um localizador de streaming. Para melhorar o desempenho e a escalabilidade, também pode fornecer conteúdo utilizando uma Rede de Entrega de Conteúdos (CDN).
 
-Este exemplo mostra como descarregar os meios de comunicação dos Media Services para o seu computador local. O código questiona os postos de trabalho associados à conta de Media Services por ID de emprego e acede à sua coleção **OutputMediaAssets** (que é o conjunto de um ou mais ativos de media de produção que resultam da gestão de um emprego). Este exemplo mostra como descarregar os meios de comunicação de saída de um emprego, mas pode aplicar a mesma abordagem para descarregar outros ativos.
+Este exemplo mostra como transferir os ativos de mídia dos Media Services para o seu computador local. O código questiona os postos de trabalho associados à conta dos Serviços de Comunicação social por ID de trabalho e acede à sua coleção **OutputMediaAssets** (que é o conjunto de um ou mais ativos de media de saída que resulta da execução de um emprego). Este exemplo mostra como descarregar os ativos de produção de media de um trabalho, mas você pode aplicar a mesma abordagem para descarregar outros ativos.
 
 >[!NOTE]
->Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Utilize o mesmo ID de política se estiver sempre a utilizar as mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que se destinam a permanecer no lugar por muito tempo (políticas de não upload). Para mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
+>Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Utilize o mesmo ID de política se estiver sempre a utilizar as mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que se destinam a permanecer no local por muito tempo (políticas de não carregamento). Para mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
 ```csharp
     // Download the output asset of the specified job to a local folder.
@@ -87,6 +87,6 @@ Este exemplo mostra como descarregar os meios de comunicação dos Media Service
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Veja também
-[Entregar conteúdo de streaming](media-services-deliver-streaming-content.md)
+## <a name="see-also"></a>Consulte também
+[Entregar conteúdo sonoro](media-services-deliver-streaming-content.md)
 

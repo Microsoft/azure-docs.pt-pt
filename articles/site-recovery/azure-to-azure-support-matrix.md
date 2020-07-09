@@ -2,14 +2,14 @@
 title: Matriz de suporte para recuperação de desastres Azure VM com recuperação do local de Azure
 description: Resume o apoio à recuperação de desastres dos VMs do Azure para uma região secundária com recuperação do local de Azure.
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 06/03/2020
 ms.author: raynew
-ms.openlocfilehash: 484a0e6e7c4beaffc86aaf26964ea1ec1736dd52
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: c729645eadc192dba4d7bb4f2c346d7b9d36434a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171434"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132686"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de apoio à recuperação de desastres em Azure VM entre regiões de Azure
 
@@ -70,7 +70,7 @@ Esta tabela resume o suporte para a conta de armazenamento de cache utilizada pe
 --- | --- | ---
 Contas de armazenamento V2 para fins gerais (nível quente e fresco) | Suportado | A utilização de GPv2 não é recomendada porque os custos de transação para V2 são substancialmente superiores às contas de armazenamento V1.
 Armazenamento Premium | Não suportado | As contas de armazenamento padrão são usadas para armazenamento de cache, para ajudar a otimizar os custos.
-Firewalls de armazenamento Azure para redes virtuais  | Suportado | Se estiver a utilizar a conta de armazenamento de cache ativada por firewall ou a conta de armazenamento alvo, certifique-se de que ["Permita serviços de Microsoft confiáveis".](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)<br></br>Além disso, certifique-se de que permite o acesso a pelo menos uma sub-rede de Vnet de origem.
+Firewalls de armazenamento Azure para redes virtuais  | Suportado | Se estiver a utilizar a conta de armazenamento de cache ativada por firewall ou a conta de armazenamento alvo, certifique-se de que ["Permita serviços de Microsoft confiáveis".](../storage/common/storage-network-security.md#exceptions)<br></br>Além disso, certifique-se de que permite o acesso a pelo menos uma sub-rede de Vnet de origem.
 
 
 ## <a name="replicated-machine-operating-systems"></a>Sistemas operativos de máquinas replicadas
@@ -98,62 +98,63 @@ Windows 7 (x64) com SP1 em diante | A partir da versão [9.30](https://support.m
 
 **Sistema operativo** | **Detalhes**
 --- | ---
-Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6,[7.7,](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) [8.0](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1
-CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 8.0, 8.1
+Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6,[7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [8.0](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/en-us/help/4570609)
+CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, [7.8](https://support.microsoft.com/help/4564347/), 8.0, 8.1, [8.2](https://support.microsoft.com/en-us/help/4570609)
 Ubuntu 14.04 LTS Server | [Versões de kernel suportadas](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Ubuntu 16.04 LTS Server | [Versão suportada do núcleo](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Os servidores Ubuntu que utilizam a autenticação e o sinstrução baseados em palavras-passe, e o pacote de init de nuvem para configurar VMs em nuvem, podem ter sinal baseado em palavra-passe desativado na falha (dependendo da configuração do cloudinit). O sessão baseado em palavra-passe pode ser re-activado na máquina virtual, repondo a palavra-passe a partir do menu 'Resolução de problemas >' > de resolução de problemas (do que falhou em VM no portal Azure).
 Ubuntu 18.04 LTS Server | [Versão suportada do núcleo](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
-Debian 7 | [Versões de kernel suportadas](#supported-debian-kernel-versions-for-azure-virtual-machines)
-Debian 8 | [Versões de kernel suportadas](#supported-debian-kernel-versions-for-azure-virtual-machines)
-SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4. [(Versões de núcleo suportado)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
+Debian 7 | Inclui apoio para todos os 7. *versões x* [Versões suportadas do kernel](#supported-debian-kernel-versions-for-azure-virtual-machines)
+Debian 8 | Inclui suporte para todos os 8. *versões x* [Versões suportadas do kernel](#supported-debian-kernel-versions-for-azure-virtual-machines)
+SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4, SP5 [(Versões suportadas do núcleo)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines) </br> (**SP5 está disponível através do mais recente patch de 9.33 para cenário Azure a Azure DR).
 SUSE Linux Enterprise Server 15 | 15 e 15 SP1. [(Versões de núcleo suportado)](#supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> O upgrade das máquinas de replicação de SP3 para SP4 não é suportado. Se uma máquina replicada tiver sido atualizada, é necessário desativar a replicação e voltar a ativar a replicação após a atualização.
 SUSE Linux Enterprise Server 11 | SP4
 Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) <br/><br/> Executando o núcleo compatível com chapéu vermelho ou desbloqueio de kernel da empresa inquebrável 3, 4 & 5 (UEK3, UEK4, UEK5)
 
+*Nota: Para suportar os núcleos linux mais recentes no prazo de 30 dias após o lançamento, a Azure Site Recovery lança um patch de correção quente em cima da versão mais recente do agente de mobilidade. Esta correção é lançada entre duas grandes versões. Para atualizar a versão mais recente do agente de mobilidade (incluindo o patch de correção quente) siga as etapas mencionadas [neste artigo](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). Este patch é atualmente lançado para agentes de mobilidade usados no cenário Azure to Azure DR.
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versões suportadas do kernel Ubuntu para máquinas virtuais Azure
 
 **Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
-14.04 LTS | 9.32| 3.13.0-24-genérico a 3.13.0-170-genérico,<br/>3.16.0-25-genérico a 3.16.0-77-genéricos,<br/>3.19.0-18-genérico a 3.19.0-80-genérico,<br/>4.2.0-18-genérico a 4.2.0-42-genérico,<br/>4.4.0-21-genérico a 4.4.0-148-genérico,<br/>4.15.0-1023-azure para 4.15.0-1045-azure |
+14.04 LTS | 9.32, [9.33](https://support.microsoft.com/help/4564347/),[9.34](https://support.microsoft.com/help/4570609)| 3.13.0-24-genérico a 3.13.0-170-genérico,<br/>3.16.0-25-genérico a 3.16.0-77-genéricos,<br/>3.19.0-18-genérico a 3.19.0-80-genérico,<br/>4.2.0-18-genérico a 4.2.0-42-genérico,<br/>4.4.0-21-genérico a 4.4.0-148-genérico,<br/>4.15.0-1023-azure para 4.15.0-1045-azure |
 14.04 LTS | 9.31 | 3.13.0-24-genérico a 3.13.0-170-genérico,<br/>3.16.0-25-genérico a 3.16.0-77-genéricos,<br/>3.19.0-18-genérico a 3.19.0-80-genérico,<br/>4.2.0-18-genérico a 4.2.0-42-genérico,<br/>4.4.0-21-genérico a 4.4.0-148-genérico,<br/>4.15.0-1023-azure para 4.15.0-1045-azure |
-14.04 LTS | 9.30 | 3.13.0-24-genérico a 3.13.0-170-genérico,<br/>3.16.0-25-genérico a 3.16.0-77-genéricos,<br/>3.19.0-18-genérico a 3.19.0-80-genérico,<br/>4.2.0-18-genérico a 4.2.0-42-genérico,<br/>4.4.0-21-genérico a 4.4.0-148-genérico,<br/>4.15.0-1023-azure para 4.15.0-1045-azure |
-14.04 LTS | 9.29 | 3.13.0-24-genérico a 3.13.0-170-genérico,<br/>3.16.0-25-genérico a 3.16.0-77-genéricos,<br/>3.19.0-18-genérico a 3.19.0-80-genérico,<br/>4.2.0-18-genérico a 4.2.0-42-genérico,<br/>4.4.0-21-genérico a 4.4.0-148-genérico,<br/>4.15.0-1023-azure para 4.15.0-1045-azure |
 |||
+16.04 LTS | [9.34](https://support.microsoft.com/help/4570609) | 4.4.0-21-genérico a 4.4.0-184-genérico,<br/>4.8.0-34-genérico a 4.8.0-58-genérico,<br/>4.10.0-14-genérico a 4.10.0-42-genérico,<br/>4.11.0-13-genérico a 4.11.0-14-genérico,<br/>4.13.0-16-genérico a 4.13.0-45-genéricos,<br/>4.15.0-13-genérico a 4.15.0-106-genérico<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1018-azure <br/>4.15.0-1012-azure para 4.15.0-1089-azure |
+16.04 LTS | [9.33](https://support.microsoft.com/help/4564347/) | 4.4.0-21-genérico a 4.4.0-178-genérico,<br/>4.8.0-34-genérico a 4.8.0-58-genérico,<br/>4.10.0-14-genérico a 4.10.0-42-genérico,<br/>4.11.0-13-genérico a 4.11.0-14-genérico,<br/>4.13.0-16-genérico a 4.13.0-45-genéricos,<br/>4.15.0-13-genérico a 4.15.0-99-genérico<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1018-azure <br/>4.15.0-1012-azure para 4.15.0-1082-azure </br> 4.15.0-101 genérico & 4.4.0-179-genérico através de 9.33 patch de correção quente**|
 16.04 LTS | 9.32 | 4.4.0-21-genérico a 4.4.0-171-genérico,<br/>4.8.0-34-genérico a 4.8.0-58-genérico,<br/>4.10.0-14-genérico a 4.10.0-42-genérico,<br/>4.11.0-13-genérico a 4.11.0-14-genérico,<br/>4.13.0-16-genérico a 4.13.0-45-genéricos,<br/>4.15.0-13-genérico a 4.15.0-74-genérico<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1018-azure <br/>4.15.0-1012-azure para 4.15.0-1066-azure|
 16.04 LTS | 9.31 | 4.4.0-21-genérico a 4.4.0-170-genérico,<br/>4.8.0-34-genérico a 4.8.0-58-genérico,<br/>4.10.0-14-genérico a 4.10.0-42-genérico,<br/>4.11.0-13-genérico a 4.11.0-14-genérico,<br/>4.13.0-16-genérico a 4.13.0-45-genéricos,<br/>4.15.0-13-genérico a 4.15.0-72-genérico<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1018-azure <br/>4.15.0-1012-azure para 4.15.0-1063-azure|
-16.04 LTS | [9.30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) | 4.4.0-21-genérico a 4.4.0-166-genérico,<br/>4.8.0-34-genérico a 4.8.0-58-genérico,<br/>4.10.0-14-genérico a 4.10.0-42-genérico,<br/>4.11.0-13-genérico a 4.11.0-14-genérico,<br/>4.13.0-16-genérico a 4.13.0-45-genéricos,<br/>4.15.0-13-genérico a 4.15.0-66-genérico<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1018-azure <br/>4.15.0-1012-azure para 4.15.0-1061-azure|
-16.04 LTS | 9.29 | 4.4.0-21-genérico a 4.4.0-164-genérico,<br/>4.8.0-34-genérico a 4.8.0-58-genérico,<br/>4.10.0-14-genérico a 4.10.0-42-genérico,<br/>4.11.0-13-genérico a 4.11.0-14-genérico,<br/>4.13.0-16-genérico a 4.13.0-45-genéricos,<br/>4.15.0-13-genérico a 4.15.0-64-genérico<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1018-azure <br/>4.15.0-1012-azure para 4.15.0-1059-azure|
 |||
+18.04 LTS | [9.34](https://support.microsoft.com/help/4570609) | 4.15.0-20-genérico a 4.15.0-108-genérico </br> 4.18.0-13-genérico a 4.18.0-25-genérico </br> 5.0.0-15-genérico a 5.0.0-52-genérico </br> 5.3.0-19-genérico a 5.3.0-61-genérico </br> 4.15.0-1009-azure para 4.15.0-1089-azure </br> 4.18.0-1006-azure para 4.18.0-1025-azure </br> 5.0.0-1012-azure para 5.0.0-1036-azure </br> 5.3.0-1007-azure para 5.3.0-1031-azure|
+18.04 LTS | [9.33](https://support.microsoft.com/help/4564347/) | 4.15.0-20-genérico a 4.15.0-99-genérico </br> 4.18.0-13-genérico a 4.18.0-25-genérico </br> 5.0.0-15-genérico a 5.0.0-47-genérico </br> 5.3.0-19-genérico a 5.3.0-51-genérico </br> 4.15.0-1009-azure para 4.15.0-1082-azure </br> 4.18.0-1006-azure para 4.18.0-1025-azure </br> 5.0.0-1012-azure para 5.0.0-1036-azure </br> 5.3.0-1007-azure para 5.3.0-1020-azure </br> 4.15.0-101-genérico, 5.0.0-48-genérico, 5.3.0-1022-azure & 5.3.0-53-genérico através de 9,33 patch de fixação quente**|
 18.04 LTS | 9.32| 4.15.0-20-genérico a 4.15.0-74-genérico </br> 4.18.0-13-genérico a 4.18.0-25-genérico </br> 5.0.0-15-genérico a 5.0.0-37-genérico </br> 5.3.0-19 genérico a 5.3.0-24-genérico </br> 4.15.0-1009-azure para 4.15.0-1037-azure </br> 4.18.0-1006-azure para 4.18.0-1025-azure </br> 5.0.0-1012-azure para 5.0.0-1028-azure </br> 5.3.0-1007-azure para 5.3.0-1009-azure|
 18.04 LTS | 9.31| 4.15.0-20-genérico a 4.15.0-72-genérico </br> 4.18.0-13-genérico a 4.18.0-25-genérico </br> 5.0.0-15-genérico a 5.0.0-37-genérico </br> 5.3.0-19 genérico a 5.3.0-24-genérico </br> 4.15.0-1009-azure para 4.15.0-1037-azure </br> 4.18.0-1006-azure para 4.18.0-1025-azure </br> 5.0.0-1012-azure para 5.0.0-1025-azure </br> 5.3.0-1007-azure|
-18.04 LTS | [9.30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) | 4.15.0-20-genérico a 4.15.0-66-genérico </br> 4.18.0-13-genérico a 4.18.0-25-genérico </br> 5.0.0-15-genérico a 5.0.0-32-genérico </br> 4.15.0-1009-azure para 4.15.0-1037-azure </br> 4.18.0-1006-azure para 4.18.0-1025-azure </br> 5.0.0-1012-azure para 5.0.0-1023-azure|
-18.04 LTS | [9.29](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 4.15.0-20-genérico a 4.15.0-64-genérico </br> 4.18.0-13-genérico a 4.18.0-25-genérico </br> 5.0.0-15-genérico a 5.0.0-29-genérico </br> 4.15.0-1009-azure para 4.15.0-1037-azure </br> 4.18.0-1006-azure para 4.18.0-1025-azure </br> 5.0.0-1012-azure para 5.0.0-1020-azure|
 
+*Nota: Para suportar os núcleos linux mais recentes no prazo de 30 dias após o lançamento, a Azure Site Recovery lança um patch de correção quente em cima da versão mais recente do agente de mobilidade. Esta correção é lançada entre duas grandes versões. Para atualizar a versão mais recente do agente de mobilidade (incluindo o patch de correção quente) siga as etapas mencionadas [neste artigo](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). Este patch é atualmente lançado para agentes de mobilidade usados no cenário Azure to Azure DR.
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Versões suportadas de kernel Debian para máquinas virtuais Azure
 
 **Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
-Debian 7 | 9.28,9.29,9.30,9.31 | 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.31, 9.32, [9.33](https://support.microsoft.com/help/4564347/), [9.34](https://support.microsoft.com/help/4570609) | 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | 9.29,9.30,9.31 | 3.16.0-4-amd64 a 3.16.0-10-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.11-amd64 |
-Debian 8 | 9.28 | 3.16.0-4-amd64 a 3.16.0-10-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.9-amd64 |
+Debian 8 | 9.31, 9.32, [9.33](https://support.microsoft.com/help/4564347/), [9.34](https://support.microsoft.com/help/4570609) | 3.16.0-4-amd64 a 3.16.0-10-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.11-amd64 |
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Suportadas versões de kernel SUSE Linux Enterprise Server 12 para máquinas virtuais Azure
 
 **Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.32 | Todas as ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.34-azure  |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.34](https://support.microsoft.com/help/4570609) | Todas as ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.43-azure </br> 4.12.14-16.7-azure para 4.12.14-16.19-azure  |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.32, [9.33](https://support.microsoft.com/help/4564347/) | Todas as ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.34-azure  |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | 9.33 patch de correção quente | Todas as ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.34-azure </br> 4.12.14-16.7-azure para 4.12.14-16.13-azure  |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.31 | Todas as ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.29-azure  |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.30 | Todas as ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.29-azure  |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.29 | Todas as ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.23-azure  |
 
 #### <a name="supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines"></a>Suportadas versões SUSE Linux Enterprise Server 15 para máquinas virtuais Azure
 
 **Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 15 e 15 SP1 | [9.34](https://support.microsoft.com/help/4570609)  | Por padrão, todas as [ações SUSE 15 e 15 núcleos são suportados.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.12.14-5.5-azure para 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure para 4.12.14-8.33-azure 
+|SUSE Linux Enterprise Server 15 e 15 SP1 | [9.33](https://support.microsoft.com/help/4564347/) | Por padrão, todas as [ações SUSE 15 e 15 núcleos são suportados.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.12.14-5.5-azure para 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure para 4.12.14-8.30-azure |
 SUSE Linux Enterprise Server 15 e 15 SP1 | 9.32 | Por padrão, todas as [ações SUSE 15 e 15 núcleos são suportados.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.12.14-5.5-azure para 4.12.14-8.22-azure |
 
 
@@ -179,7 +180,7 @@ Imagens personalizadas - Terceiros publicados | Suportado | Suportado se o VM fu
 VMs migraram usando a Recuperação do Local | Suportado | Se um VMware VM ou uma máquina física foi migrado para Azure usando a Recuperação do Site, é necessário desinstalar a versão mais antiga do serviço de mobilidade em funcionamento na máquina e reiniciar a máquina antes de a replicar para outra região do Azure.
 Políticas do RBAC | Não suportado | As políticas de controlo de acesso (RBAC) baseadas em funções (RBAC) não são replicadas para o VM de failover na região-alvo.
 Extensões | Não suportado | As extensões não são replicadas para o VM de failover na região-alvo. Tem de ser instalado manualmente após a falha.
-Grupos de colocação de proximidade | Não suportado | As máquinas virtuais localizadas dentro de um Grupo de Colocação de Proximidade não podem ser protegidas utilizando a Recuperação do Local.
+Grupos de colocação de proximidade | Suportado | As máquinas virtuais localizadas dentro de um Grupo de Colocação de Proximidade podem ser protegidas através da Recuperação do Local.
 
 
 ## <a name="replicated-machines---disk-actions"></a>Máquinas replicadas - ações de disco
@@ -228,10 +229,11 @@ GRS | Suportado |
 RA-GRS | Suportado |
 ZRS | Não suportado |
 Armazenamento fresco e quente | Não suportado | Os discos de máquinas virtuais não são suportados em armazenamento fresco e quente
-Firewalls de armazenamento Azure para redes virtuais  | Suportado | Se restringir o acesso de rede virtual a contas de armazenamento, ative [permitir serviços de Microsoft fidedignos](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+Firewalls de armazenamento Azure para redes virtuais  | Suportado | Se restringir o acesso de rede virtual a contas de armazenamento, ative [permitir serviços de Microsoft fidedignos](../storage/common/storage-network-security.md#exceptions).
 Contas de armazenamento V2 para fins gerais (nível quente e fresco) | Suportado | Os custos de transação aumentam substancialmente em comparação com as contas de armazenamento V1 de finalidade geral
 Geração 2 (bota UEFI) | Suportado
 Discos NVMe | Não suportado
+Discos partilhados do Azure | Não suportado
 
 >[!IMPORTANT]
 > Para evitar problemas de desempenho, certifique-se de que segue a escalabilidade do disco VM e os alvos de desempenho para Os VMs [do Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [do Windows.](../virtual-machines/windows/disk-scalability-targets.md) Se utilizar as definições predefinidas, a Recuperação do Site cria os discos e contas de armazenamento necessários, com base na configuração de origem. Se personalizar e selecionar as suas próprias definições, siga a escalabilidade do disco e os alvos de desempenho para os seus VMs de origem.
@@ -268,10 +270,10 @@ Vários endereços IP | Não suportado | Quando falha sobre um VM que tem um NIC
 Gestor de Tráfego     | Suportado | Pode pré-configurar o Gestor de Tráfego para que o tráfego seja encaminhado regularmente para o ponto final da região de origem e para o ponto final na região alvo em caso de falha.
 DNS do Azure | Suportado |
 DNS Personalizado    | Suportado |
-Procuração não autenticada | Suportado | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)
+Procuração não autenticada | Suportado | [Saiba mais](./azure-to-azure-about-networking.md)
 Procuração autenticada | Não suportado | Se o VM estiver a utilizar um representante autenticado para a conectividade de saída, não pode ser replicado utilizando a Recuperação do Local de Azure.
-Ligação local-local à VPN para as instalações<br/><br/>(com ou sem ExpressRoute)| Suportado | Certifique-se de que as UDRs e os NSGs estão configurados de modo a que o tráfego de Recuperação do Local não seja encaminhado para o local. [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)
-Ligação VNET à VNET    | Suportado | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)
+Ligação local-local à VPN para as instalações<br/><br/>(com ou sem ExpressRoute)| Suportado | Certifique-se de que as UDRs e os NSGs estão configurados de modo a que o tráfego de Recuperação do Local não seja encaminhado para o local. [Saiba mais](./azure-to-azure-about-networking.md)
+Ligação VNET à VNET    | Suportado | [Saiba mais](./azure-to-azure-about-networking.md)
 Pontos Finais de Serviço de Rede Virtual | Suportado | Se estiver a restringir o acesso da rede virtual às contas de armazenamento, certifique-se de que os serviços confiáveis da Microsoft têm acesso à conta de armazenamento.
 Redes aceleradas | Suportado | A rede acelerada deve ser ativada na origem VM. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
 Aparelho da rede Palo Alto | Não suportado | Com aparelhos de terceiros, muitas vezes existem restrições impostas pelo fornecedor dentro da Máquina Virtual. A Azure Site Recovery precisa de agente, extensões e conectividade de saída para estar disponível. Mas o aparelho não permite configurar nenhuma atividade de saída dentro da Máquina Virtual.
@@ -280,5 +282,5 @@ IPv6  | Não suportado | As configurações mistas que incluem o IPv4 e o IPv6 t
 
 
 ## <a name="next-steps"></a>Próximos passos
-- Leia [orientação de rede](site-recovery-azure-to-azure-networking-guidance.md) para replicar VMs Azure.
-- Implementar a recuperação de [desastres replicando VMs Azure](site-recovery-azure-to-azure.md).
+- Leia [orientação de rede](./azure-to-azure-about-networking.md) para replicar VMs Azure.
+- Implementar a recuperação de [desastres replicando VMs Azure](./azure-to-azure-quickstart.md).

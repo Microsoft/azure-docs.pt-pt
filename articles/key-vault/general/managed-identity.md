@@ -1,6 +1,6 @@
 ---
-title: Use uma identidade gerida atribuída ao sistema para aceder ao Cofre chave Azure
-description: Saiba como criar uma identidade gerida para aplicações de Serviço de Aplicações e como usá-la para aceder ao Cofre chave Azure
+title: Use uma identidade gerida atribuída ao sistema para aceder ao Cofre da Chave Azure
+description: Saiba como criar uma identidade gerida para aplicações do App Service e como usá-la para aceder ao Cofre da Chave Azure
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,52 +11,52 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: bb5288d043ab5638bb33c357cea55c64b03fcf1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81432128"
 ---
-# <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Forneça a autenticação do Cofre Chave com uma identidade gerida
+# <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Fornecer autenticação key vault com uma identidade gerida
 
-Uma identidade gerida do Azure Ative Directory permite que a sua aplicação aceda facilmente a outros recursos protegidos por AD Azure. A identidade é gerida pela plataforma Azure e não o obriga a fornecer ou rodar quaisquer segredos. Para mais informações, consulte [identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md). 
+Uma identidade gerida a partir do Azure Ative Directory permite que a sua app aceda facilmente a outros recursos protegidos por Azure. A identidade é gerida pela plataforma Azure e não requer que forneça ou rode quaisquer segredos. Para obter mais informações, consulte [identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md). 
 
-Este artigo mostra-lhe como criar uma identidade gerida para uma aplicação do Serviço de Aplicações e usá-la para aceder ao Cofre chave Azure. Para aplicações hospedadas em VMs Azure, consulte Utilize uma identidade gerida com sistema [Windows VM para aceder ao Cofre de Chaves Azure](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md).
+Este artigo mostra-lhe como criar uma identidade gerida para uma aplicação de Serviço de Aplicações e usá-la para aceder ao Cofre da Chave Azure. Para aplicações hospedadas em VMs Azure, consulte [utilizar uma identidade gerida do sistema Windows VM para aceder ao Cofre da Chave Azure](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md).
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-Para completar este guia, deve dispor dos seguintes recursos. 
+Para completar este guia, você deve ter os seguintes recursos. 
 
-- Um cofre chave. Você pode usar um cofre chave existente, ou criar um novo seguindo os passos em um destes quickstarts:
-   - [Crie um cofre chave com o Azure CLI](../secrets/quick-create-cli.md)
-   - [Crie um cofre chave com Azure PowerShell](../secrets/quick-create-powershell.md)
-   - [Crie um cofre chave com o portal Azure.](../secrets/quick-create-portal.md)
-- Uma aplicação existente do Serviço de Aplicações para a qual concede acesso ao cofre chave. Pode criar rapidamente um seguindo os passos na documentação do Serviço de [Aplicações.](../../app-service/overview.md)
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell.](/powershell/azure/overview) Em alternativa, pode utilizar o [portal Azure.](https://portal.azure.com)
+- Um cofre. Você pode usar um cofre de chaves existente, ou criar um novo seguindo os passos em um destes arranques rápidos:
+   - [Crie um cofre-chave com o Azure CLI](../secrets/quick-create-cli.md)
+   - [Crie um cofre com Azure PowerShell](../secrets/quick-create-powershell.md)
+   - [Crie um cofre-chave com o portal Azure](../secrets/quick-create-portal.md).
+- Uma aplicação existente do Serviço de Aplicações para conceder acesso ao cofre chave. Pode criar rapidamente um seguindo os passos na documentação do [Serviço de Aplicações.](../../app-service/overview.md)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview). Em alternativa, pode utilizar o [portal Azure](https://portal.azure.com).
 
 
 ## <a name="adding-a-system-assigned-identity"></a>Adicionar uma identidade atribuída ao sistema 
 
-Em primeiro lugar, deve adicionar uma identidade atribuída ao sistema a uma aplicação. 
+Primeiro, deve adicionar uma identidade atribuída ao sistema a uma aplicação. 
  
 ### <a name="azure-portal"></a>Portal do Azure 
 
-Para configurar uma identidade gerida no portal, primeiro criará uma aplicação normalmente e, em seguida, ativará a funcionalidade. 
+Para configurar uma identidade gerida no portal, irá primeiro criar uma aplicação normal e depois ativar a funcionalidade. 
 
-1. Se utilizar uma aplicação de função, navegue para **as funcionalidades da Plataforma**. Para outros tipos de aplicações, desloque-se para o grupo **Definições** na navegação à esquerda. 
+1. Se utilizar uma aplicação de função, navegue para **as funcionalidades da Plataforma.** Para outros tipos de **aplicativos,** desloque-se até ao grupo Definições na navegação à esquerda. 
 
 1. Selecione **identidade gerida**. 
 
-1. Dentro do separador designado pelo **Sistema,** mude o **Estado** para **o ligado**. Clique em **Guardar**. 
+1. Dentro do separador **Designado sistema,** **altere o Estado** para **ligar**. Clique em **Guardar**. 
 
     ![](../media/managed-identity-system-assigned.png)
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Este quickstart requer a versão Azure CLI 2.0.4 ou posterior. Execute `az --version` para encontrar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). 
+Este arranque rápido requer a versão Azure CLI 2.0.4 ou posterior. Execute `az --version` para encontrar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 Para iniciar sessão com o Azure CLI, utilize o comando [de login az:](/cli/azure/reference-index?view=azure-cli-latest#az-login)
 
@@ -66,7 +66,7 @@ az login
 
 Para obter mais informações sobre as opções de login com o Azure CLI, consulte [Iniciar sessão com o Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest). 
 
-Para criar a identidade para esta aplicação, utilize o comando de [az functionapp identity assign](/cli/azure/functionapp/identity?view=azure-cli-latest#az-functionapp-identity-assign) design de design webapp Azure CLI [az:](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign)
+Para criar a identidade para esta aplicação, utilize o comando de atribuição de identidade Azure CLI [az webapp](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) ou o comando [de atribuição de identidade az functionapp:](/cli/azure/functionapp/identity?view=azure-cli-latest#az-functionapp-identity-assign)
 
 
 ```azurecli-interactive
@@ -77,7 +77,7 @@ az webapp identity assign --name myApp --resource-group myResourceGroup
 az functionapp identity assign --name myApp --resource-group myResourceGroup
 ```
 
-Tome nota `PrincipalId`do , que será necessário na próxima secção.
+Tome nota do `PrincipalId` , que será necessário na próxima secção.
 
 ```json
 {
@@ -86,25 +86,25 @@ Tome nota `PrincipalId`do , que será necessário na próxima secção.
   "type": "SystemAssigned"
 }
 ```
-## <a name="grant-your-app-access-to-key-vault"></a>Conceda o acesso da sua aplicação ao Key Vault 
+## <a name="grant-your-app-access-to-key-vault"></a>Conceda à sua aplicação acesso ao Key Vault 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
 1.  Navegue para o recurso Key Vault. 
 
-1.  Selecione **políticas** de acesso e clique em **Adicionar Política de Acesso**. 
+1.  Selecione **as políticas de acesso** e clique em Adicionar Política de **Acesso.** 
 
-1.  Em **permissões secretas,** selecione **Get, List**. 
+1.  Em **permissões secretas**, selecione **Get, List**. 
 
-1.  Escolha **Selecionar Principal,** e no campo de pesquisa insira o nome da aplicação.  Selecione a aplicação na lista de resultados e clique em **Selecionar**. 
+1.  Escolha **Select Principal**, e no campo de pesquisa insira o nome da aplicação.  Selecione a aplicação na lista de resultados e clique em **Selecionar**. 
 
-1.  Clique em **Adicionar** para terminar de adicionar a nova política de acesso.
+1.  Clique **em Adicionar** para terminar a adição da nova política de acesso.
 
     ![](../media/managed-identity-access-policy.png)
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para conceder o acesso à sua aplicação ao seu cofre chave, utilize o comando de definição de definição de teclado Azure CLI [az,](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) fornecendo o parâmetro **ObjectId** com o **principalid** acima referido.
+Para garantir o acesso à sua aplicação ao seu cofre chave, utilize o comando [de definição de chave Azure](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) CLI az, fornecendo o parâmetro **ObjectId** com o **principal** que observou acima.
 
 ```azurecli-interactive
 az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-permissions get list 
@@ -112,8 +112,8 @@ az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-perm
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Segurança do Cofre chave Azure: Gestão de identidade e acesso](overview-security.md#identity-and-access-management)
-- [Forneça a autenticação do Cofre chave com uma política de controlo de acesso](group-permissions-for-apps.md)
-- [Proteja o cofre da chave).](secure-your-key-vault.md)
-- [Guia de desenvolvedor do Cofre de Chaves Azure](developers-guide.md)
-- Rever [as melhores práticas do Cofre de Chaves Azure](best-practices.md)
+- [Segurança do Cofre Azure Key: Gestão de identidade e acesso](overview-security.md#identity-and-access-management)
+- [Fornecer autenticação key vault com uma política de controlo de acesso](group-permissions-for-apps.md)
+- [Fixe o cofre da chave).](secure-your-key-vault.md)
+- [Guia de desenvolvedores do Azure Key Vault](developers-guide.md)
+- Rever [as melhores práticas do Azure Key Vault](best-practices.md)

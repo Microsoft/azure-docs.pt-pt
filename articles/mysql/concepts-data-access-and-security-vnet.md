@@ -6,12 +6,11 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 2c0714bf27897de72246461ae3ad3250c55390e1
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.openlocfilehash: 045b938e2612aa7e5b366f93c22669412f2d98e8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170669"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85100810"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Utilizar os pontos finais de serviço e regras de Rede Virtual para Base de Dados do Azure para MySQL
 
@@ -102,7 +101,7 @@ Tem a opção de usar o controlo de acesso baseado em [funções (RBAC)][rbac-wh
 > Em alguns casos, a Base de Dados Azure para o MySQL e a sub-rede VNet estão em diferentes subscrições. Nestes casos, deve assegurar as seguintes configurações:
 > - Ambas as subscrições devem estar no mesmo inquilino do Azure Ative Directory.
 > - O utilizador tem as permissões necessárias para iniciar operações, tais como ativar pontos finais de serviço e adicionar uma sub-rede VNet ao servidor dado.
-> - Certifique-se de que ambas as subscrições têm o fornecedor de recursos **Microsoft.Sql** registado. Para mais informações, consulte [o gestor de recursos-registo][resource-manager-portal]
+> - Certifique-se de que ambos os fornecedores de recursos **Microsoft.Sql** e **Microsoft.DBforMySQL** estão registados. Para mais informações, consulte [o gestor de recursos-registo][resource-manager-portal]
 
 ## <a name="limitations"></a>Limitações
 

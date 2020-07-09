@@ -1,6 +1,6 @@
 ---
 title: Schema atualiza junho-1-2016
-description: Versão de esquema atualizada 2016-06-01 para definições de aplicações lógicas em Aplicações Lógicas Azure
+description: Versão de esquema atualizada 2016-06-01 para definições de aplicações lógicas em Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: kevinlam1
@@ -9,27 +9,26 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
 ms.openlocfilehash: e2f65f1c52dc7dfb2e4e4bf66f5c7e82f4b802b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792872"
 ---
-# <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Atualizações de Schema para Apps Lógicas Azure - 1 de junho de 2016
+# <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Atualizações de Schema para Azure Logic Apps - 1 de junho de 2016
 
-A versão atualizada de [esquemas](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json) e API para Apps Lógicas Azure inclui melhorias fundamentais que tornam as aplicações lógicas mais fiáveis e fáceis de usar:
+O [esquema atualizado](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json) e a versão API para Azure Logic Apps inclui melhorias fundamentais que tornam as aplicações lógicas mais fiáveis e fáceis de usar:
 
-* [Os âmbitos](#scopes) permitem-lhe agrupar ou nidificar ações como um conjunto de ações.
-* [Condições e loops](#conditions-loops) são agora ações de primeira classe.
-* Encomenda mais precisa para `runAfter` ações de execução com o imóvel, substituindo`dependsOn`
+* [Os âmbitos](#scopes) permitem-lhe agrupar ou nidificar ações como uma coleção de ações.
+* [As condições e os laços](#conditions-loops) são agora ações de primeira classe.
+* Pedido mais preciso para executar ações com o `runAfter` imóvel, substituindo`dependsOn`
 
-Para atualizar as suas aplicações lógicas desde o esquema de pré-visualização de 1 de agosto de 2015 até ao esquema de 1 de junho de 2016, [confira a secção](#upgrade-your-schema)de upgrade .
+Para atualizar as suas aplicações lógicas a partir do esquema de pré-visualização de 1 de agosto de 2015 para o esquema de 1 de junho de 2016, [confira a secção de upgrade](#upgrade-your-schema).
 
 <a name="scopes"></a>
 
 ## <a name="scopes"></a>Âmbitos
 
-Este esquema inclui âmbitos, que permitem agrupar ações em conjunto, ou nidificar ações dentro umas das outras. Por exemplo, uma condição pode conter outra condição. Saiba mais sobre [a sintaxe](../logic-apps/logic-apps-loops-and-scopes.md)de âmbito, ou reveja este exemplo de âmbito básico:
+Este esquema inclui âmbitos, que permitem agrupar ações em conjunto, ou ações de ninho dentro umas das outras. Por exemplo, uma condição pode conter outra condição. Saiba mais sobre [a sintaxe de âmbito,](../logic-apps/logic-apps-loops-and-scopes.md)ou reveja este exemplo básico de âmbito:
 
 ```json
 {
@@ -55,7 +54,7 @@ Este esquema inclui âmbitos, que permitem agrupar ações em conjunto, ou nidif
 
 ## <a name="conditions-and-loops-changes"></a>Alterações de condições e loops
 
-Em versões anteriores de esquemas, condições e loops eram parâmetros associados a uma única ação. Este esquema levanta esta limitação, pelo que as condições e os laços estão agora disponíveis como tipos de ação. Saiba mais sobre [loops e âmbitos,](../logic-apps/logic-apps-loops-and-scopes.md) [condições,](../logic-apps/logic-apps-control-flow-conditional-statement.md)ou reveja este exemplo básico que mostra uma ação de condição:
+Em versões de esquema anteriores, as condições e os loops eram parâmetros associados a uma única ação. Este esquema levanta esta limitação, pelo que as condições e os laços estão agora disponíveis como tipos de ação. Saiba mais sobre [loops e âmbitos,](../logic-apps/logic-apps-loops-and-scopes.md) [condições,](../logic-apps/logic-apps-control-flow-conditional-statement.md)ou reveja este exemplo básico que mostra uma ação de condição:
 
 ```json
 {
@@ -85,7 +84,7 @@ Em versões anteriores de esquemas, condições e loops eram parâmetros associa
 
 ## <a name="runafter-property"></a>Propriedade 'runAfter'
 
-A `runAfter` propriedade `dependsOn`substitui, proporcionando mais precisão quando especifica a ordem de execução de ações baseadas no estado das ações anteriores. O `dependsOn` imóvel indicou se "a ação decorreu e foi bem sucedida", com base no sucesso da ação anterior, ou como saltou - e não no número de vezes que quis executar a ação. A `runAfter` propriedade proporciona flexibilidade como objeto que especifica todos os nomes de ação após o qual o objeto é executado. Esta propriedade também define uma variedade de status que são aceitáveis como gatilhos. Por exemplo, se quiser uma ação para correr após a ação A tenha sucesso `runAfter` e também depois da ação B ter sucesso ou falhar, instale esta propriedade:
+A `runAfter` propriedade `dependsOn` substitui, proporcionando mais precisão quando especifica a ordem de execução para ações com base no estado das ações anteriores. O `dependsOn` imóvel indicou se "a ação correu e foi bem sucedida", com base no facto de a ação anterior ter sido bem sucedida, falhada ou ignorada - e não o número de vezes que quis executar a ação. A `runAfter` propriedade proporciona flexibilidade como objeto que especifica todos os nomes de ação após o qual o objeto é executado. Esta propriedade também define uma série de status que são aceitáveis como gatilhos. Por exemplo, se você quiser que uma ação seja executada após a ação A tem sucesso e também após a ação B ter sucesso ou falhar, crie esta `runAfter` propriedade:
 
 ```json
 {
@@ -99,61 +98,61 @@ A `runAfter` propriedade `dependsOn`substitui, proporcionando mais precisão qua
 
 ## <a name="upgrade-your-schema"></a>Atualize o seu esquema
 
-Para fazer upgrade para o [esquema mais recente,](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json)basta dar alguns passos. O processo de upgrade inclui executar o script de upgrade, economizar como uma nova aplicação lógica, e se quiser, possivelmente sobrepor a app lógica anterior.
+Para atualizar para o [esquema mais recente,](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json)basta dar alguns passos. O processo de atualização inclui executar o script de upgrade, economizar como uma nova aplicação lógica, e se quiser, possivelmente sobre-escrever a aplicação lógica anterior.
 
 1. No portal Azure, abra a sua aplicação lógica.
 
-2. Vá ao **Overview.** Na barra de ferramentas lógica, escolha **Update Schema**.
+2. Ir ao **Overview**. Na barra de ferramentas de aplicação lógica, escolha **Update Schema**.
    
-   ![Escolha Atualização Schema][1]
+   ![Escolha atualização de Schema][1]
    
    A definição atualizada é devolvida, que pode copiar e colar numa definição de recurso, se necessário. 
 
    > [!IMPORTANT]
-   > *Certifique-se* de que escolhe **Save Assim** que todas as referências de ligação permanecem válidas na aplicação lógica atualizada.
+   > *Certifique-se* de que escolhe **Guardar para** que todas as referências de ligação permaneçam válidas na aplicação lógica atualizada.
 
-3. Na barra de ferramentas de lâmina de atualização, escolha **Save As**.
+3. Na barra de ferramentas da lâmina de atualização, escolha **Guardar As**.
 
-4. Introduza o nome lógico e o estado. Para implementar a sua aplicação lógica atualizada, escolha **Criar**.
+4. Insira o nome e o estado da lógica. Para implementar a sua aplicação lógica atualizada, escolha **Criar.**
 
 5. Confirme que a sua aplicação lógica atualizada funciona como esperado.
    
    > [!NOTE]
-   > Se estiver a utilizar um manual ou um gatilho de pedido, o URL de callback muda na sua nova aplicação lógica. Teste o novo URL para se certificar de que a experiência de ponta a ponta funciona. Para preservar URLs anteriores, pode clonar sobre a sua aplicação lógica existente.
+   > Se estiver a utilizar um gatilho manual ou de pedido, o URL de retorno muda na sua nova aplicação lógica. Teste o novo URL para se certificar de que a experiência de ponta a ponta funciona. Para preservar URLs anteriores, pode clonar-se sobre a sua aplicação lógica existente.
 
-6. *Opcional* Para substituir a sua aplicação lógica anterior com a nova versão schema, na barra de ferramentas, escolha **Clone**, ao lado do **Update Schema**. Este passo só é necessário se pretender manter o mesmo ID de recurso ou solicitar URL de gatilho da sua aplicação lógica.
+6. *Opcional* Para substituir a sua aplicação lógica anterior com a nova versão de esquema, na barra de ferramentas, escolha **Clone**, ao lado **do Update Schema**. Este passo só é necessário se pretender manter o mesmo ID de recurso ou solicitar o URL de gatilho da sua aplicação lógica.
 
 ## <a name="upgrade-tool-notes"></a>Atualizar notas de ferramentas
 
 ### <a name="mapping-conditions"></a>Condições de mapeamento
 
-Na definição atualizada, a ferramenta faz o melhor esforço para agrupar ações de filiais verdadeiras e falsas como âmbito. Especificamente, o `@equals(actions('a').status, 'Skipped')` padrão de `else` designer aparece como uma ação. No entanto, se a ferramenta detetar padrões irreconhecíveis, a ferramenta pode criar condições separadas tanto para o verdadeiro como para o ramo falso. Pode remapear as ações após a atualização, se necessário.
+Na definição atualizada, a ferramenta faz o melhor esforço para agrupar ações de ramo verdadeiro e falso como um âmbito. Especificamente, o padrão de designer `@equals(actions('a').status, 'Skipped')` aparece como uma `else` ação. No entanto, se a ferramenta detetar padrões irreconhecíveis, a ferramenta pode criar condições separadas tanto para o ramo verdadeiro como para o ramo falso. Pode remaptar as ações após a atualização, se necessário.
 
-#### <a name="foreach-loop-with-condition"></a>Loop 'foreach' com condição
+#### <a name="foreach-loop-with-condition"></a>'foreach' loop com condição
 
-No novo esquema, pode utilizar a ação do filtro para replicar o padrão que utiliza um **Para cada** loop com uma condição por item. No entanto, a alteração ocorre automaticamente quando faz a atualização. A condição torna-se uma ação de filtro que aparece antes de **cada** loop, devolvendo apenas um conjunto de itens que correspondem à condição, e passando essa matriz para **cada** ação. Por exemplo, consulte [Loops e âmbitos](../logic-apps/logic-apps-loops-and-scopes.md).
+No novo esquema, pode utilizar a ação do filtro para replicar o padrão que utiliza um **Loop para cada** loop com uma condição por item. No entanto, a alteração ocorre automaticamente quando faz a atualização. A condição torna-se uma ação de filtro que aparece antes do **For cada** loop, devolvendo apenas uma série de itens que correspondem à condição, e passando essa matriz para **Para cada** ação. Por exemplo, consulte [Loops e scopes](../logic-apps/logic-apps-loops-and-scopes.md).
 
 ### <a name="resource-tags"></a>Etiquetas de recursos
 
-Após a atualização, as etiquetas de recursos são removidas, por isso deve redefini-las para o fluxo de trabalho atualizado.
+Depois de atualizar, as etiquetas de recursos são removidas, pelo que deve repor-as para o fluxo de trabalho atualizado.
 
 ## <a name="other-changes"></a>Outras alterações
 
-### <a name="renamed-manual-trigger-to-request-trigger"></a>Gatilho 'manual' renomeado para gatilho 'pedido'
+### <a name="renamed-manual-trigger-to-request-trigger"></a>Rebatizado gatilho 'manual' para gatilho 'request'
 
-O `manual` tipo de gatilho foi depreciado `request` e `http`renomeado para com tipo . Esta mudança cria mais consistência para o tipo de padrão que o gatilho é usado para construir.
+O `manual` tipo de gatilho foi depreciado e renomeado para com o tipo `request` `http` . Esta mudança cria mais consistência para o tipo de padrão que o gatilho é usado para construir.
 
 ### <a name="new-filter-action"></a>Nova ação de 'filtro'
 
-Para filtrar uma grande matriz até um conjunto `filter` menor de itens, o novo tipo aceita uma matriz e uma condição, avalia a condição de cada item, e devolve uma matriz com itens que satisfazem a condição.
+Para filtrar uma grande matriz até um conjunto menor de itens, o novo `filter` tipo aceita uma matriz e uma condição, avalia a condição de cada item e devolve uma matriz com itens que cumprem a condição.
 
-### <a name="restrictions-for-foreach-and-until-actions"></a>Restrições para ações "foreach" e "until"
+### <a name="restrictions-for-foreach-and-until-actions"></a>Restrições para ações "foreach" e "até"
 
-O `foreach` `until` e o loop estão restritos a uma única ação.
+O `foreach` loop e o loop são `until` restritos a uma única ação.
 
-### <a name="new-trackedproperties-for-actions"></a>Novas 'trackedProperties' para ações
+### <a name="new-trackedproperties-for-actions"></a>Novas 'vias de rastreio' para ações
 
-As ações podem agora `trackedProperties`ter uma propriedade `runAfter` adicional `type` chamada , que é irmão das propriedades e propriedades. Este objeto especifica certas inputs ou saídas de ação que pretende incluir na telemetria de Diagnóstico Azure, emitida como parte de um fluxo de trabalho. Por exemplo:
+As ações podem agora ter uma propriedade adicional chamada `trackedProperties` , que é irmão das `runAfter` `type` propriedades. Este objeto especifica determinadas entradas de ação ou saídas que pretende incluir na telemetria Azure Diagnostic, emitida como parte de um fluxo de trabalho. Por exemplo:
 
 ``` json
 {
@@ -172,9 +171,9 @@ As ações podem agora `trackedProperties`ter uma propriedade `runAfter` adicion
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Criar definições de fluxo de trabalho para aplicações lógicas](../logic-apps/logic-apps-author-definitions.md)
+* [Criar definições de fluxo de trabalho para apps lógicas](../logic-apps/logic-apps-author-definitions.md)
 * [Automatizar a implementação de uma aplicação lógica](logic-apps-azure-resource-manager-templates-overview.md)
 
 <!-- Image references -->

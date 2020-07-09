@@ -1,111 +1,111 @@
 ---
 title: Depurar trabalhos do Apache Spark em execução no Azure HDInsight
-description: Use yARN UI, Spark UI e Spark History servidor para rastrear e depurar empregos em funcionamento em um cluster de faíscas em Azure HDInsight
+description: Use o servidor YARN UI, Spark UI e Spark History para rastrear e depurar empregos em execução num cluster spark em Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 75f8c1f77a372d3b9b9e9a5582927f24b99fe9ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 817b8976f5d014d990945816c2df1c7e8ed729fb
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190219"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084890"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Depurar trabalhos do Apache Spark em execução no Azure HDInsight
 
-Neste artigo, aprende-se a rastrear e depurar empregos da Apache Spark em clusters HDInsight. Depuração usando o Apache Hadoop YARN UI, Spark UI e o Spark History Server. Inicia-se um trabalho spark utilizando um caderno disponível com o cluster Spark, **Machine learning: Análise preditiva dos dados de inspeção alimentar utilizando mlLib**. Utilize os seguintes passos para rastrear uma aplicação que submeteu usando qualquer outra abordagem, por exemplo, **a apresentação de faíscas**.
+Neste artigo, você aprende a rastrear e depurar os empregos de Apache Spark correndo em clusters HDInsight. Debug usando o Apache Hadoop YARN UI, Spark UI e o Spark History Server. Inicia-se um trabalho de Spark utilizando um caderno disponível com o cluster Spark, **Machine learning: Análise preditiva em dados de inspeção alimentar utilizando MLLib**. Utilize os seguintes passos para acompanhar uma aplicação que submeteu usando qualquer outra abordagem, por exemplo, **apresentação de faíscas**.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, veja [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* Devia ter começado a executar o caderno, **[Machine learning: Análise preditiva dos dados da inspeção alimentar utilizando o MLLib](apache-spark-machine-learning-mllib-ipython.md)**. Para obter instruções sobre como executar este caderno, siga o link.  
+* Devia ter começado a executar o caderno, **[Machine learning: Análise preditiva sobre dados de inspeção alimentar utilizando mLLib](apache-spark-machine-learning-mllib-ipython.md)**. Para obter instruções sobre como executar este caderno, siga o link.  
 
-## <a name="track-an-application-in-the-yarn-ui"></a>Acompanhe uma aplicação na YARN UI
+## <a name="track-an-application-in-the-yarn-ui"></a>Acompanhe uma aplicação na UI YARN
 
-1. Lançar a YARN UI. Selecione **fios** sob **os dashboards cluster**.
+1. Lançar a UI YARN. Selecione **Fios** sob **os dashboards cluster**.
 
     ![Portal Azure lança YARN UI](./media/apache-spark-job-debugging/launch-apache-yarn-ui.png)
 
    > [!TIP]  
-   > Em alternativa, também pode lançar a UI YARN a partir da Ambari UI. Para lançar o Ambari UI, selecione **casa Ambari** sob **dashboards cluster**. A partir da Ambari UI, navegue até **ao YARN** > **Quick Links** > o gestor de recursos ativo > Gestor de Recursos **UI.**
+   > Em alternativa, também pode lançar o UI YARN a partir da UI Ambari. Para lançar o Ambari UI, selecione **Ambari casa** sob **painéis de cluster.** A partir da UI Ambari, navegue até **YARN**  >  **Quick Links** > o gestor de recursos ativo > Gestor de Recursos **UI**.
 
-2. Como iniciou o trabalho de Spark usando cadernos Jupyter, a aplicação tem o nome **remotesparkmagics** (o nome para todas as aplicações iniciadas a partir dos cadernos). Selecione o ID da aplicação com o nome da aplicação para obter mais informações sobre o trabalho. Esta ação lança a visão da aplicação.
+2. Como iniciou o trabalho de Spark usando cadernos Jupyter, a aplicação tem o nome **de remotesparkmagics** (o nome para todas as aplicações partiu dos cadernos). Selecione o ID da aplicação contra o nome da aplicação para obter mais informações sobre o trabalho. Esta ação lança a visão da aplicação.
 
-    ![Servidor de histórico de faíscas Encontre o ID da aplicação Spark](./media/apache-spark-job-debugging/find-application-id1.png)
+    ![Servidor histórico de faíscas Encontrar ID da aplicação Spark](./media/apache-spark-job-debugging/find-application-id1.png)
 
-    Para as aplicações que são lançadas a partir dos cadernos Jupyter, o estado está sempre **a CORRER** até sair do caderno.
+    Para estas aplicações que são lançadas a partir dos cadernos Jupyter, o estado está sempre **A CORRER** até sair do caderno.
 
-3. Do ponto de vista da aplicação, pode perfurar mais para descobrir os recipientes associados à aplicação e aos registos (stdout/stderr). Também pode lançar o Spark UI clicando na ligação correspondente ao URL de **Rastreio,** como mostrado abaixo.
+3. A partir da vista da aplicação, pode aprofundar-se mais para descobrir os recipientes associados à aplicação e os registos (stdout/stderr). Também pode lançar o Spark UI clicando na ligação correspondente ao **URL de rastreio,** como mostrado abaixo.
 
-    ![Registos de contentores de descarregamento de servidor de histórico de faíscas](./media/apache-spark-job-debugging/download-container-logs.png)
+    ![Servidor de histórico de faíscas descarrega registos de contentores](./media/apache-spark-job-debugging/download-container-logs.png)
 
-## <a name="track-an-application-in-the-spark-ui"></a>Acompanhe uma aplicação na Spark UI
+## <a name="track-an-application-in-the-spark-ui"></a>Acompanhe uma aplicação no Spark UI
 
-Na Spark UI, você pode perfurar os trabalhos de Faísca que são gerados pela aplicação que você começou anteriormente.
+Na Spark UI, você pode aprofundar os trabalhos de Faísca que são gerados pela aplicação que você começou mais cedo.
 
-1. Para lançar o Spark UI, a partir da vista da aplicação, selecione o link com o URL de **Rastreio**, como mostrado na captura do ecrã acima. Você pode ver todos os trabalhos spark que são lançados pela aplicação em execução no caderno Jupyter.
+1. Para lançar o Spark UI, a partir da vista de aplicação, selecione o link contra o **URL de rastreio,** como mostrado na captura do ecrã acima. Você pode ver todos os trabalhos spark que são lançados pela aplicação em execução no caderno Jupyter.
 
-    ![Guia de empregos de servidor de histórico de faíscas](./media/apache-spark-job-debugging/view-apache-spark-jobs.png)
+    ![Separador de empregos de servidor de histórico de faíscas](./media/apache-spark-job-debugging/view-apache-spark-jobs.png)
 
-2. Selecione o separador **Executores** para ver informações de processamento e armazenamento para cada executor. Também pode recuperar a pilha de chamadas selecionando o link **de despejo de fios.**
+2. Selecione o **separador Executors** para ver as informações de processamento e armazenamento para cada executor. Também pode recuperar a pilha de chamadas selecionando o link **de despejo de fio.**
 
     ![Separador de executores de servidor de histórico de faíscas](./media/apache-spark-job-debugging/view-spark-executors.png)
 
-3. Selecione o separador **Palcos** para ver os estágios associados à aplicação.
+3. Selecione o **separador Estágios** para ver as fases associadas à aplicação.
 
     ![Separador de estágios de servidor de histórico de faíscas](./media/apache-spark-job-debugging/view-apache-spark-stages.png "Ver estágios de faísca")
 
-    Cada etapa pode ter múltiplas tarefas para as quais pode ver estatísticas de execução, como mostrado abaixo.
+    Cada fase pode ter múltiplas tarefas para as quais pode ver estatísticas de execução, como mostrado abaixo.
 
-    ![Detalhes do separador de estágios do servidor de histórico de faíscas](./media/apache-spark-job-debugging/view-spark-stages-details.png "Ver detalhes dos estágios de Spark")
+    ![Spark histórico estágios detalhes do separador](./media/apache-spark-job-debugging/view-spark-stages-details.png "Ver detalhes dos estágios de faísca")
 
-4. A partir da página de detalhes do palco, pode lançar a Visualização DAG. Expanda o link **de visualização DAG** no topo da página, como mostrado abaixo.
+4. A partir da página de detalhes do palco, você pode lançar VISUALIZAção DAG. Expanda o link **de visualização DAG** no topo da página, como mostrado abaixo.
 
-    ![Ver Spark stages VISUALIZAção DAG](./media/apache-spark-job-debugging/view-spark-stages-dag-visualization.png)
+    ![Ver estágios de faísca visualização DAG](./media/apache-spark-job-debugging/view-spark-stages-dag-visualization.png)
 
     O DAG ou o Direct Aclyic Graph representam as diferentes fases da aplicação. Cada caixa azul no gráfico representa uma operação Spark invocada a partir da aplicação.
 
-5. A partir da página de detalhes do palco, também pode lançar a visão da linha do tempo da aplicação. Expanda a ligação timeline do **evento** no topo da página, como mostrado abaixo.
+5. A partir da página de detalhes de palco, também pode lançar a visão da linha do tempo da aplicação. Expanda a ligação timeline do **evento** no topo da página, como mostrado abaixo.
 
-    ![Ver a cronologia do evento de estágios de faísca](./media/apache-spark-job-debugging/view-spark-stages-event-timeline.png)
+    ![Ver linha do tempo do evento spark stages](./media/apache-spark-job-debugging/view-spark-stages-event-timeline.png)
 
-    Esta imagem exibe os eventos Spark sob a forma de uma linha do tempo. A visão da linha do tempo está disponível a três níveis, entre empregos, dentro de um emprego e dentro de uma fase. A imagem acima captura a vista do tempo para um determinado estágio.
+    Esta imagem exibe os eventos Spark sob a forma de uma linha do tempo. A visão da linha do tempo está disponível a três níveis, através de empregos, dentro de um trabalho, e dentro de uma fase. A imagem acima captura a visão da linha do tempo para um determinado estágio.
 
    > [!TIP]  
-   > Se selecionar a caixa de verificação de **zooming Ativa,** pode deslocar-se para a esquerda e para a direita através da vista da linha do tempo.
+   > Se selecionar a caixa **de verificação de zoom de ativação,** pode deslocar-se para a esquerda e para a direita através da vista da linha do tempo.
 
-6. Outros separadores na UI spark fornecem informações úteis sobre a instância Spark também.
+6. Outros separadores no Spark UI fornecem informações úteis sobre o exemplo de Spark também.
 
    * Separador de armazenamento - Se a sua aplicação criar um RDD, pode encontrar informações no separador Armazenamento.
-   * Separador ambiente - Este separador fornece informações úteis sobre a sua instância Spark, tais como:
+   * Separador ambiente - Este separador fornece informações úteis sobre o seu exemplo de Spark, como:
      * Versão Scala
      * Diretório de registo de eventos associado ao cluster
      * Número de núcleos de executor para a aplicação
 
-## <a name="find-information-about-completed-jobs-using-the-spark-history-server"></a>Encontre informações sobre trabalhos concluídos usando o Spark History Server
+## <a name="find-information-about-completed-jobs-using-the-spark-history-server"></a>Encontre informações sobre trabalhos concluídos utilizando o Spark History Server
 
 Uma vez concluído o trabalho, a informação sobre o trabalho é persistiu no Spark History Server.
 
-1. Para lançar o Spark History Server, a partir da página **Overview,** selecione **o servidor de histórico spark** em **dashboards cluster**.
+1. Para lançar o Spark History Server, a partir da página **'Vista Geral',** selecione **o servidor histórico spark** sob os **dashboards do Cluster**.
 
-    ![Portal Azure lança servidor histórico Spark](./media/apache-spark-job-debugging/launch-spark-history-server.png "Lançar Spark History Server1")
+    ![Portal Azure lança servidor histórico spark](./media/apache-spark-job-debugging/launch-spark-history-server.png "Lançar Spark History Server1")
 
    > [!TIP]  
-   > Em alternativa, também pode lançar o Spark History Server UI a partir do Ambari UI. Para lançar o Ambari UI, a partir da lâmina overview, **selecione casa Ambari** sob **dashboards cluster**. Do Ambari UI, navegue até **Spark2** > **Quick Links** > **Spark2 History Server UI**.
+   > Em alternativa, também pode lançar o Spark History Server UI a partir da UI Ambari. Para lançar o UI Ambari, a partir da lâmina overview, selecione **Ambari casa** sob **os dashboards cluster**. A partir do Ambari UI, navegue até **Spark2**  >  **Quick Links**  >  **Spark2 History Server UI**.
 
-2. Vê todas as candidaturas completas listadas. Selecione um ID de aplicação para perfurar uma aplicação para obter mais informações.
+2. Vê todas as candidaturas completas listadas. Selecione um ID de aplicação para aprofundar uma aplicação para mais informações.
 
-    ![O servidor de histórico de faíscas completou as aplicações](./media/apache-spark-job-debugging/view-completed-applications.png "Lançar Spark History Server2")
+    ![Servidor de histórico de faíscas completou aplicações](./media/apache-spark-job-debugging/view-completed-applications.png "Lançar Spark History Server2")
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Gerir recursos para o cluster do Apache Spark no Azure HDInsight](apache-spark-resource-manager.md)
-* [Debug Apache Spark Jobs usando o servidor de histórico de faíscas estendido](apache-azure-spark-history-server.md)
-* [Aplicações de Debug Apache Spark com Kit de Ferramentas Azure para IntelliJ através de SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Debug Apache Spark Jobs usando servidor de histórico de faíscas estendido](apache-azure-spark-history-server.md)
+* [Aplicações Debug Apache Spark com Azure Toolkit para IntelliJ através de SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md)

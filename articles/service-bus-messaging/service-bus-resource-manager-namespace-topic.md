@@ -1,49 +1,42 @@
 ---
-title: Crie o tópico do espaço de nome do ônibus de serviço Azure usando um modelo
-description: 'Quickstart: Criar um espaço de nome de ônibus de serviço com tópico e subscrição usando o modelo de Gestor de Recursos Azure'
-services: service-bus-messaging
+title: Crie o tópico de espaço de nome do ônibus de serviço Azure usando um modelo
+description: 'Quickstart: Criar um espaço de nomes de ônibus de serviço com tópico e subscrição usando o modelo de Gestor de Recursos Azure'
 documentationcenter: .net
 author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: d3d55200-5c60-4b5f-822d-59974cafff0e
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 01/16/2020
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: c94b670a33f7640d2d6f428287b3ba0fab766bc5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7417b8a1d63001ae4812160b95c6c0f12da52ef6
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80384879"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85336911"
 ---
-# <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Quickstart: Criar um espaço de nome de ônibus de serviço com tópico e subscrição usando um modelo de Gestor de Recursos Azure
+# <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Quickstart: Criar um espaço de nomes de ônibus de serviço com tópico e subscrição usando um modelo de Gestor de Recursos Azure
 
-Este artigo mostra como usar um modelo de Gestor de Recursos Azure que cria um espaço de nome de ônibus de serviço e um tópico e subscrição dentro desse espaço de nome. O artigo explica como especificar quais os recursos que são implantados e como definir parâmetros que são especificados quando a implementação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades
+Este artigo mostra como usar um modelo de Gestor de Recursos Azure que cria um espaço de nome de Service Bus e um tópico e subscrição dentro desse espaço de nome. O artigo explica como especificar quais os recursos que são implantados e como definir parâmetros especificados quando a implantação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades
 
 Para obter mais informações sobre a criação de modelos, consulte [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates] (Criar modelos do Azure Resource Manager).
 
-Para obter o modelo completo, consulte o espaço de nome do Ônibus de serviço com tópico e modelo [de subscrição.][Service Bus namespace with topic and subscription]
+Para o modelo completo, consulte o espaço de nomes do Service Bus com o tópico e o modelo [de subscrição.][Service Bus namespace with topic and subscription]
 
 > [!NOTE]
 > Os seguintes modelos do Gestor de Recursos Azure estão disponíveis para download e implementação.
 > 
 > * [Criar um espaço de nomes do Service Bus](service-bus-resource-manager-namespace.md)
-> * [Crie um espaço de nome de ônibus de serviço com fila](service-bus-resource-manager-namespace-queue.md)
-> * [Criar um espaço de nome de ônibus de serviço com a regra de fila e autorização](service-bus-resource-manager-namespace-auth-rule.md)
-> * [Criar um espaço de nome de ônibus de serviço com tópico, subscrição e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [Criar um espaço de nomes de ônibus de serviço com fila](service-bus-resource-manager-namespace-queue.md)
+> * [Criar um espaço de nome de ônibus de serviço com regra de fila e autorização](service-bus-resource-manager-namespace-auth-rule.md)
+> * [Criar um espaço de nomes de Service Bus com tópico, subscrição e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Para verificar os modelos mais recentes, visite a galeria [de modelos Azure Quickstart][Azure Quickstart Templates] e procure o **Ônibus de Serviço.**
+> Para verificar os modelos mais recentes, visite a galeria [Azure Quickstart Templates][Azure Quickstart Templates] e procure o **Service Bus.**
 
-## <a name="what-do-you-deploy"></a>O que é que vais acionar?
+## <a name="what-do-you-deploy"></a>O que é que implementas?
 
-Com este modelo, você implementa um espaço de nome de ônibus de serviço com tópico e subscrição.
+Com este modelo, você implementa um espaço de nomes de Service Bus com tópico e subscrição.
 
-[Os tópicos e subscrições](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) do Service Bus fornecem uma forma de comunicação de um a muitos, num padrão de *publicação/subscrição.*
+[Os tópicos e subscrições](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) do Service Bus fornecem uma forma de comunicação de um a muitos, num padrão *de publicação/subscrição.*
 
 Para executar automaticamente a implementação, clique no seguinte botão:
 
@@ -51,13 +44,13 @@ Para executar automaticamente a implementação, clique no seguinte botão:
 
 ## <a name="parameters"></a>Parâmetros
 
-Com o Azure Resource Manager, define parâmetros para os valores que pretende especificar quando o modelo é implementado. O modelo inclui `Parameters` uma secção chamada que contém todos os valores do parâmetro. Defina um parâmetro para os valores que variam em função do projeto que está a implementar ou com base no ambiente para o qual está a implementar. Não defina parâmetros para valores que permanecem sempre iguais. Cada valor de parâmetro é utilizado no modelo para definir os recursos que são implementados.
+Com o Azure Resource Manager, define parâmetros para os valores que pretende especificar quando o modelo é implementado. O modelo inclui uma secção chamada `Parameters` que contém todos os valores dos parâmetros. Defina um parâmetro para os valores que variam com base no projeto que está a implementar ou com base no ambiente para o qual está a implementar. Não defina parâmetros para valores que permanecem sempre iguais. Cada valor de parâmetro é utilizado no modelo para definir os recursos que são implementados.
 
 O modelo define os seguintes parâmetros:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 
-O nome do espaço de nome do Ônibus de serviço para criar.
+O nome do espaço de nomes do Service Bus para criar.
 
 ```json
 "serviceBusNamespaceName": {
@@ -67,7 +60,7 @@ O nome do espaço de nome do Ônibus de serviço para criar.
 
 ### <a name="servicebustopicname"></a>serviceBusTopicName
 
-O nome do tema criado no espaço de nome do Bus de Serviço.
+O nome do tópico criado no espaço de nomes do Service Bus.
 
 ```json
 "serviceBusTopicName": {
@@ -77,7 +70,7 @@ O nome do tema criado no espaço de nome do Bus de Serviço.
 
 ### <a name="servicebussubscriptionname"></a>serviceBusSubscriptionName
 
-O nome da subscrição criada no espaço de nome do Bus de Serviço.
+O nome da subscrição criada no espaço de nomes do Service Bus.
 
 ```json
 "serviceBusSubscriptionName": {
@@ -85,9 +78,9 @@ O nome da subscrição criada no espaço de nome do Bus de Serviço.
 }
 ```
 
-### <a name="servicebusapiversion"></a>serviçoBusApiVersion
+### <a name="servicebusapiversion"></a>serviceBusApiVersion
 
-A versão API do bus de serviço do modelo.
+A versão API do Service Bus do modelo.
 
 ```json
 "serviceBusApiVersion": { 
@@ -100,7 +93,7 @@ A versão API do bus de serviço do modelo.
 
 ## <a name="resources-to-deploy"></a>Recursos a implementar
 
-Cria um espaço de nome de ônibus de serviço padrão de tipo **Mensagens,** com tópico e subscrição.
+Cria um espaço de nome padrão do Service Bus do tipo **Mensagens,** com tópico e subscrição.
 
 ```json
 "resources": [{
@@ -135,7 +128,7 @@ Cria um espaço de nome de ônibus de serviço padrão de tipo **Mensagens,** co
     }]
 ```
 
-Para sintaxe jSON e propriedades, consulte espaços de [nome,](/azure/templates/microsoft.servicebus/namespaces) [tópicos](/azure/templates/microsoft.servicebus/namespaces/topics)e [subscrições.](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions)
+Para sintaxe json e propriedades, consulte [espaços de nome,](/azure/templates/microsoft.servicebus/namespaces) [tópicos](/azure/templates/microsoft.servicebus/namespaces/topics)e [subscrições.](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions)
 
 ## <a name="commands-to-run-deployment"></a>Comandos para executar a implementação
 
@@ -155,10 +148,10 @@ az group deployment create \<my-resource-group\> --name \<my-deployment-name\> -
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que criou e implantou recursos usando o Azure Resource Manager, aprenda a gerir estes recursos visualizando estes artigos:
+Agora que criou e implementou recursos usando o Azure Resource Manager, aprenda a gerir estes recursos visualizando estes artigos:
 
 * [Gerir o Barramento de Serviço com o PowerShell](service-bus-manage-with-ps.md)
-* [Gerir os recursos de ônibus de serviço com o Explorador de Ônibus de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* [Gerir recursos de ônibus de serviço com o Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus

@@ -1,154 +1,153 @@
 ---
-title: Personalizar mapeamentos de atributos Azure AD [ Microsoft Docs
-description: Saiba quais os mapeamentos de atributos para aplicações SaaS no Diretório Ativo Azure são como pode modificá-las para atender às necessidades do seu negócio.
+title: Personalizar mapeamentos de atributos AD AD azure Microsoft Docs
+description: Saiba quais os mapeamentos de atributos para aplicações SaaS no Azure Ative Directory como pode modificá-las para atender às necessidades do seu negócio.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/03/2019
-ms.author: mimart
-ms.openlocfilehash: 9697bc2abd147a501466ba134f96512fe15173c0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.author: kenwith
+ms.openlocfilehash: 70795c703810212c3b46d06254a0c3ebdcb418f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83639053"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782046"
 ---
-# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalização de mapeamento de atributos para aplicações SaaS no Diretório Ativo Azure
+# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar o fornecimento de produtos de fornecimento de mapeamentos de atributos para aplicações SaaS no Azure Ative Directory
 
-O Microsoft Azure AD fornece suporte para o fornecimento de utilizadores a aplicações SaaS de terceiros, tais como Salesforce, G Suite e outros. Se ativar o fornecimento de utilizadores para uma aplicação SaaS de terceiros, o portal Azure controla os seus valores de atributo através de mapeamentos de atributos.
+O Microsoft Azure AD fornece suporte para o fornecimento de utilizadores a aplicações SaaS de terceiros, tais como Salesforce, G Suite e outros. Se ativar o fornecimento de um pedido saaS de terceiros, o portal Azure controla os seus valores de atributos através de mapeamentos de atributos.
 
-Há um conjunto pré-configurado de atributos e mapeamentos de atributos entre objetos de utilizador da AD Azure e os objetos de utilizador de cada aplicação SaaS. Algumas aplicações gerem outros tipos de objetos juntamente com os Utilizadores, como grupos.
+Há um conjunto pré-configurado de atributos e mapeamentos de atributos entre objetos de utilizador AD Azure e objetos de utilizador de cada aplicação SaaS. Algumas aplicações gerem outros tipos de objetos juntamente com os Utilizadores, como grupos.
 
-Pode personalizar os mapeamentos de atributos padrão de acordo com as suas necessidades de negócio. Assim, pode alterar ou eliminar os mapeamentos de atributos existentes, ou criar novos mapeamentos de atributos.
+Pode personalizar os mapeamentos de atributos padrão de acordo com as necessidades do seu negócio. Assim, pode alterar ou eliminar os mapeamentos de atributos existentes ou criar novos mapeamentos de atributos.
 
-## <a name="editing-user-attribute-mappings"></a>Editar mapeamento de atributos do utilizador
+## <a name="editing-user-attribute-mappings"></a>Edição de mapeamentos de atributos do utilizador
 
-Siga estes passos para aceder à funcionalidade **Mapeamentos** de fornecimento de utilizadores:
+Siga estes passos para aceder à funcionalidade **Mappings** do fornecimento do utilizador:
 
-1. Inscreva-se no [portal de Diretório Ativo Azure.](https://aad.portal.azure.com)
-1. Selecione **aplicações Enterprise** a partir do painel esquerdo. É apresentada uma lista de todas as aplicações configuradas, incluindo aplicações que foram adicionadas a partir da galeria.
-1. Selecione qualquer aplicação para carregar o painel de gestão de aplicações, onde possa ver relatórios e gerir as definições de aplicações.
-1. Selecione **Provisioning** para gerir as definições de provisionamento da conta de utilizador para a aplicação selecionada.
-1. Expandir **Mapeamentos** para visualizar e editar os atributos do utilizador que fluem entre a AD Azure e a aplicação-alvo. Se a aplicação-alvo a suportar, esta secção permite configurar opcionalmente o fornecimento de grupos e contas de utilizador.
+1. Inscreva-se no [portal Azure Ative Directory](https://aad.portal.azure.com).
+1. Selecione **aplicações** Enterprise a partir do painel esquerdo. É mostrada uma lista de todas as aplicações configuradas, incluindo aplicações que foram adicionadas da galeria.
+1. Selecione qualquer aplicação para carregar o painel de gestão de aplicações, onde pode ver relatórios e gerir as definições de aplicações.
+1. **Selecione Provisioning** para gerir as definições de provisão de conta de utilizador para a aplicação selecionada.
+1. Expanda **os Mapeamentos** para visualizar e editar os atributos do utilizador que fluem entre a Azure AD e a aplicação-alvo. Se a aplicação-alvo o suportar, esta secção permite configurar opcionalmente o fornecimento de grupos e contas de utilizador.
 
-   ![Utilizar Mapeamentos para visualizar e editar atributos do utilizador](./media/customize-application-attributes/21.png)
+   ![Use Mapeamentos para visualizar e editar atributos do utilizador](./media/customize-application-attributes/21.png)
 
-1. Selecione uma configuração **de Mapeamento** para abrir o ecrã de Mapeamento do **Atributo** relacionado. Alguns mapeamentos de atributos são exigidos por uma aplicação SaaS para funcionar corretamente. Para atributos necessários, a funcionalidade **Eliminar** não está disponível.
+1. Selecione uma configuração **mapping para** abrir o ecrã de **mapeamento de atributos** relacionado. Alguns mapeamentos de atributos são necessários por uma aplicação SaaS para funcionar corretamente. Para os atributos necessários, a função **Eliminar** não está disponível.
 
-   ![Utilizar o Mapeamento do Atributo para configurar mapeamento de atributos para apps](./media/customize-application-attributes/22.png)
+   ![Utilizar o 'Mapping' do Atributo para configurar mapeamentos de atributos para apps](./media/customize-application-attributes/22.png)
 
-   Nesta imagem, pode ver que o atributo do **Username** de um objeto gerido no Salesforce é povoado com o valor do **userPrincipalName** do Objeto de Diretório Ativo Azure ligado.
+   Nesta imagem, pode ver que o atributo **Username** de um objeto gerido no Salesforce é povoado com o valor do nome de **utilizadorPrincipalName** do Azure Ative Directory Object ligado.
 
-1. Selecione um **Mapeamento** de Atributo existente para abrir o ecrã do **Atributo editar.** Aqui pode editar os atributos do utilizador que fluem entre a AD Azure e a aplicação-alvo.
+1. Selecione um **mapeamento** de atributos existente para abrir o ecrã **EditAr Atributo.** Aqui pode editar os atributos do utilizador que fluem entre a Azure AD e a aplicação-alvo.
 
-   ![Utilizar o Atributo editar para editar atributos do utilizador](./media/customize-application-attributes/23.png)
+   ![Use Edit Edit Attribute para editar atributos do utilizador](./media/customize-application-attributes/23.png)
 
 ### <a name="understanding-attribute-mapping-types"></a>Compreender tipos de mapeamento de atributos
 
-Com mapeamentos de atributos, você controla como os atributos são povoados em uma aplicação SaaS de terceiros.
-Existem quatro tipos diferentes de mapeamento suportados:
+Com os mapeamentos de atributos, você controla como os atributos são povoados numa aplicação SaaS de terceiros.
+Existem quatro tipos de mapeamento diferentes suportados:
 
-- **Direto** – o atributo-alvo é povoado com o valor de um atributo do objeto ligado em Azure AD.
-- **Constante** – o atributo-alvo é povoado com uma corda específica especificada.
-- **Expressão** - o atributo-alvo é povoado com base no resultado de uma expressão semelhante a um script.
-  Para mais informações, consulte [Expressões de Escrita para Atribuições em Diretório Ativo Azure](../app-provisioning/functions-for-customizing-application-data.md).
-- **Nenhum** - o atributo alvo é deixado inalterado. No entanto, se o atributo-alvo estiver sempre vazio, é povoado com o valor Padrão que especifica.
+- **Direto** – o atributo alvo é povoado com o valor de um atributo do objeto ligado em Azure AD.
+- **Constante** – o atributo alvo é preenchido com uma cadeia específica especificada.
+- **Expressão** - o atributo alvo é povoado com base no resultado de uma expressão semelhante ao script.
+  Para obter mais informações, consulte [a escrita de expressões para atribuir mapeamentos em Diretório Ativo Azure](../app-provisioning/functions-for-customizing-application-data.md).
+- **Nenhum** - o atributo alvo é deixado sem modificação. No entanto, se o atributo alvo estiver sempre vazio, é preenchido com o valor padrão que especifica.
 
-Juntamente com estes quatro tipos básicos, os mapeamentos personalizados suportam o conceito de uma atribuição opcional de valor **por defeito.** A atribuição de valor predefinido garante que um atributo-alvo é povoado com um valor se não houver um valor em Azure AD ou no objeto-alvo. A configuração mais comum é deixar isto em branco.
+Juntamente com estes quatro tipos básicos, os mapeamentos de atributos personalizados suportam o conceito de uma atribuição de valor **padrão** opcional. A atribuição de valor predefinido garante que um atributo alvo é povoado com um valor se não houver um valor em Ad Azure ou no objeto alvo. A configuração mais comum é deixar este em branco.
 
 ### <a name="understanding-attribute-mapping-properties"></a>Compreender propriedades de mapeamento de atributos
 
 Na secção anterior, já foi introduzido na propriedade do tipo de mapeamento de atributos.
-Juntamente com esta propriedade, os atributos-mapeamentos também suportam os seguintes atributos:
+Juntamente com esta propriedade, os mapeamentos de atributos também suportam os seguintes atributos:
 
-- **Atributo de origem** - O atributo do utilizador do sistema de origem (exemplo: Diretório Ativo Azure).
+- **Atributo de origem** - O atributo do utilizador a partir do sistema de origem (exemplo: Azure Ative Directory).
 - **Atributo-alvo** – O atributo do utilizador no sistema-alvo (exemplo: ServiceNow).
-- **Valor predefinido se nulo (opcional)** - O valor que será passado para o sistema-alvo se o atributo de origem for nulo. Este valor só será provisionado quando um utilizador for criado. O "valor predefinido quando nulo" não será provisionado ao atualizar um utilizador existente. Se, por exemplo, pretender fornecer todos os utilizadores existentes no sistema-alvo com um determinado Título de Trabalho (quando for nulo no sistema de origem), pode utilizar a seguinte [expressão](../app-provisioning/functions-for-customizing-application-data.md): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Certifique-se de substituir o "Valor Padrão" pelo que gostaria de fornecer quando nula no sistema de origem. 
-- **Combine objetos usando este atributo** – Se este mapeamento deve ser usado para identificar exclusivamente os utilizadores entre a fonte e os sistemas de destino. É normalmente definido no utilizadorPrincipalName ou atribuidor de correio em Azure AD, que é tipicamente mapeado para um campo de nome de utilizador numa aplicação alvo.
-- **Precedência correspondente** – Podem ser definidos múltiplos atributos correspondentes. Quando há vários, são avaliados na ordem definida por este campo. Assim que um jogo é encontrado, não são avaliados mais atributos correspondentes. Embora possa definir quantos atributos correspondentes gostaria, considere se os atributos que está a usar como atributos correspondentes são verdadeiramente únicos e precisam de ser atributos correspondentes. Geralmente, os clientes têm 1 ou 2 atributos correspondentes na sua configuração. 
+- **Valor predefinido se nulo (opcional)** - O valor que será passado para o sistema-alvo se o atributo de origem for nulo. Este valor só será a provisionado quando um utilizador for criado. O "valor predefinido quando nulo" não será previsto ao atualizar um utilizador existente. Se, por exemplo, pretender que todos os utilizadores existentes no sistema-alvo se encontrem com um determinado Título de Trabalho (quando é nulo no sistema de origem), pode utilizar a seguinte [expressão](../app-provisioning/functions-for-customizing-application-data.md): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Certifique-se de que substitui o "Valor Predefinido" pelo que pretende prever quando forlo nulo no sistema de origem. 
+- **Combine os objetos que utilizam este atributo** – Se este mapeamento deve ser utilizado para identificar exclusivamente os utilizadores entre os sistemas de origem e alvo. É tipicamente definido no nome de utilizadorPrincipalName ou atributo de correio em Azure AD, que é tipicamente mapeado para um campo de nome de utilizador em uma aplicação alvo.
+- **Precedência correspondente** - Podem ser definidos vários atributos correspondentes. Quando há múltiplos, são avaliados na ordem definida por este campo. Assim que um fósforo é encontrado, não são avaliados mais atributos correspondentes. Embora possa definir quantos atributos correspondentes quiser, considere se os atributos que está a usar como atributos correspondentes são verdadeiramente únicos e precisam de ser atributos correspondentes. Geralmente, os clientes têm 1 ou 2 atributos correspondentes na sua configuração. 
 - **Aplique este mapeamento**
   - **Sempre** – Aplique este mapeamento tanto na criação do utilizador como nas ações de atualização.
-  - **Apenas durante** a criação - Aplique este mapeamento apenas em ações de criação do utilizador.
+  - **Apenas durante a criação** - Aplique este mapeamento apenas nas ações de criação de utilizadores.
 
 ## <a name="matching-users-in-the-source-and-target--systems"></a>Utilizadores correspondentes nos sistemas de origem e alvo
-O serviço de provisionamento de AD Azure pode ser implementado em ambos os cenários de "greenfield" (onde os utilizadores não saem no sistema alvo) e cenários de "brownfield" (onde os utilizadores já existem no sistema alvo). Para suportar ambos os cenários, o serviço de provisionamento utiliza o conceito de atributos correspondentes. Os atributos correspondentes permitem determinar como identificar um utilizador de forma única na fonte e corresponder ao utilizador no alvo. Como parte do planeamento da sua implementação, identifique o atributo que pode ser usado para identificar de forma única um utilizador nos sistemas de origem e alvo. Coisas a notar:
+O serviço de fornecimento de Azure AD pode ser implementado tanto em cenários de "campo verde" (onde os utilizadores não saem no sistema alvo) como em cenários de "brownfield" (onde os utilizadores já existem no sistema-alvo). Para suportar ambos os cenários, o serviço de fornecimento utiliza o conceito de atributos correspondentes. Os atributos correspondentes permitem-lhe determinar como identificar um utilizador de forma única na fonte e corresponder ao utilizador no alvo. Como parte do planeamento da sua implementação, identifique o atributo que pode ser usado para identificar exclusivamente um utilizador nos sistemas de origem e alvo. Coisas a notar:
 
 - **Os atributos correspondentes devem ser únicos:** Os clientes usam frequentemente atributos como userPrincipalName, mail ou object ID como o atributo correspondente.
-- **Vários atributos podem ser usados como atributos correspondentes:** Pode definir múltiplos atributos a avaliar quando combinar utilizadores e a ordem em que são avaliados (definidos como precedência correspondente na UI). Se, por exemplo, definir três atributos como atributos correspondentes, e um utilizador for exclusivamente igualado após avaliar os dois primeiros atributos, o serviço não avaliará o terceiro atributo. O serviço avaliará os atributos correspondentes na ordem especificada e deixará de avaliar quando for encontrada uma correspondência.  
-- O valor na fonte e no alvo não têm de **corresponder exatamente:** O valor no alvo pode ser uma função simples do valor na fonte. Assim, pode-se ter um atributo de endereço de e-mail na fonte e no utilizadorPrincipalName no alvo, e corresponder por uma função do atributo do emailAddress que substitui alguns caracteres por algum valor constante.  
-- **A correspondência com base numa combinação de atributos não é suportada:** A maioria das aplicações não suporta consulta com base em duas propriedades. Portanto, não é possível combinar com base numa combinação de atributos. É possível avaliar propriedades individuais após outra.
-- **Todos os utilizadores devem ter um valor para pelo menos um atributo correspondente:** Se definir um atributo correspondente, todos os utilizadores devem ter um valor para esse atributo no sistema fonte. Se, por exemplo, definir o userPrincipalName como o atributo correspondente, todos os utilizadores devem ter um nome principal de utilizador. Se definir vários atributos correspondentes (por exemplo, extensãoAttribute1 e correio), nem todos os utilizadores têm de ter o mesmo atributo correspondente. Um utilizador pode ter uma extensãoAttribute1, mas não correio, enquanto outro utilizador poderia ter correio, mas nenhuma extensãoAttribute1. 
-- **A aplicação-alvo deve apoiar a filtragem do atributo correspondente:** Os desenvolvedores de aplicações permitem a filtragem para um subconjunto de atributos no seu utilizador ou grupo API. Para aplicações na galeria, garantimos que o mapeamento de atributo padrão é para um atributo que a API da aplicação alvo suporta a filtragem. Ao alterar o atributo de correspondência predefinido para a aplicação-alvo, verifique a documentação da API de terceiros para garantir que o atributo pode ser filtrado.  
+- **Vários atributos podem ser usados como atributos correspondentes:** Pode definir vários atributos a avaliar ao combinar utilizadores e a ordem na qual são avaliados (definidos como precedência correspondente na UI). Se, por exemplo, definir três atributos como atributos correspondentes, e um utilizador for exclusivamente compatível após a avaliação dos dois primeiros atributos, o serviço não avaliará o terceiro atributo. O serviço avaliará os atributos correspondentes na ordem especificada e deixará de avaliar quando uma correspondência for encontrada.  
+- **O valor na fonte e no alvo não tem de corresponder exatamente:** O valor no alvo pode ser uma função simples do valor na fonte. Assim, pode-se ter um atributo de e-mailApo na fonte e no nome do utilizadorPrincipalName no alvo, e corresponder por uma função do atributo emailAddress que substitui alguns caracteres por algum valor constante.  
+- **A correspondência com base numa combinação de atributos não é suportada:** A maioria das aplicações não suporta consultas com base em duas propriedades. Portanto, não é possível combinar com base numa combinação de atributos. É possível avaliar propriedades individuais após outra.
+- **Todos os utilizadores devem ter um valor para pelo menos um atributo correspondente:** Se definir um atributo correspondente, todos os utilizadores devem ter um valor para esse atributo no sistema de origem. Se, por exemplo, definir o nome de utilizadorPrincipal como o atributo correspondente, todos os utilizadores devem ter um nome de utilizadorPrincipal. Se definir vários atributos de correspondência (por exemplo, extensãoTribute1 e correio), nem todos os utilizadores têm de ter o mesmo atributo de correspondência. Um utilizador pode ter uma extensãoAtribute1 mas não correio enquanto outro utilizador pode ter correio, mas sem extensãoAttribute1. 
+- **A aplicação-alvo deve suportar a filtragem no atributo correspondente:** Os desenvolvedores de aplicações permitem a filtragem de um subconjunto de atributos no seu utilizador ou grupo API. Para aplicações na galeria, garantimos que o mapeamento de atributos predefinidos é para um atributo que a API da aplicação-alvo suporta a filtragem. Ao alterar o atributo de correspondência padrão para a aplicação-alvo, consulte a documentação da API de terceiros para garantir que o atributo pode ser filtrado.  
 
-## <a name="editing-group-attribute-mappings"></a>Edição de atributos-mapeamentos de grupo
+## <a name="editing-group-attribute-mappings"></a>Edição de atributos de grupo-mapeamentos
 
-Um número selecionado de aplicações, tais como ServiceNow, Box e G Suite, suportam a capacidade de fornecer objetos do Grupo e objetos do Utilizador. Os objetos de grupo podem conter propriedades de grupo, tais como nomes de exibição e pseudónimos de e-mail, juntamente com membros do grupo.
+Um número selecionado de aplicações, tais como ServiceNow, Box e G Suite, suportam a capacidade de providenciar objetos de grupo e objetos do utilizador. Os objetos de grupo podem conter propriedades de grupo, tais como nomes de exibição e pseudónimos de e-mail, juntamente com membros do grupo.
 
-![Exemplo mostra ServiceNow com objetos de grupo e utilizador provisionados](./media/customize-application-attributes/24.png)
+![Exemplo mostra ServiceNow com objetos do Grupo e do Utilizador a provisionados](./media/customize-application-attributes/24.png)
 
-O fornecimento do grupo pode ser opcionalmente ativado ou desativado selecionando o mapeamento do grupo em **Mapeamentos,** e definindo **Ativado** para a opção que deseja no ecrã de Mapeamento do **Atributo.**
+O provisionamento em grupo pode ser opcionalmente ativado ou desativado selecionando o mapeamento de grupo em **Mapeamentos**, e definição **Ativada** à opção desejada no ecrã **de mapeamento** do atributo.
 
-Os atributos aprovisionados como parte de objetos do Grupo podem ser personalizados da mesma forma que os objetos do Utilizador, descritos anteriormente. 
+Os atributos previstos como parte dos objetos do Grupo podem ser personalizados da mesma forma que os objetos do Utilizador, descritos anteriormente. 
 
 > [!TIP]
-> O fornecimento de objetos de grupo (propriedades e membros) é um conceito distinto de [atribuir grupos](../manage-apps/assign-user-or-group-access-portal.md) a uma aplicação. É possível atribuir um grupo a uma aplicação, mas apenas fornecer os objetos de utilizador contidos no grupo. O fornecimento de objetos de grupo completos não é obrigado a utilizar grupos em atribuições.
+> O fornecimento de objetos de grupo (propriedades e membros) é um conceito distinto de [atribuir grupos](../manage-apps/assign-user-or-group-access-portal.md) a uma aplicação. É possível atribuir um grupo a uma aplicação, mas apenas providenciar os objetos de utilizador contidos no grupo. O fornecimento de objetos de grupo completos não é necessário para utilizar grupos em atribuições.
 
-## <a name="editing-the-list-of-supported-attributes"></a>Editar a lista de atributos suportados
+## <a name="editing-the-list-of-supported-attributes"></a>Edição da lista de atributos suportados
 
-Os atributos do utilizador suportados para uma determinada aplicação são pré-configurados. A maioria das APIs de gestão de utilizadores da aplicação não suporta a descoberta de esquemas. Assim, o serviço de provisionamento de AD Azure não é capaz de gerar dinamicamente a lista de atributos suportados fazendo chamadas para a aplicação.
+Os atributos do utilizador suportados para uma determinada aplicação estão pré-configurados. A maioria das APIs de gestão de utilizadores da aplicação não suportam a descoberta de esquemas. Assim, o serviço de fornecimento de AD Azure não é capaz de gerar dinamicamente a lista de atributos suportados fazendo chamadas para a aplicação.
 
-No entanto, algumas aplicações suportam atributos personalizados, e o serviço de provisionamento de AD Azure pode ler e escrever a tributos personalizados. Para introduzir as suas definições no portal Azure, selecione a caixa de verificação de **opções avançadas do Show** na parte inferior do ecrã **de Mapeamento** do Atributo e, em seguida, selecione a lista de **atributos editar para** a sua aplicação.
+No entanto, algumas aplicações suportam atributos personalizados, e o serviço de fornecimento AZURE AD pode ler e escrever para atributos personalizados. Para introduzir as suas definições no portal Azure, selecione a caixa de verificação de **opções avançadas do Show** na parte inferior do ecrã **de mapeamento** de atributos e, em seguida, selecione a lista de **atributos Editar para** a sua aplicação.
 
-Aplicações e sistemas que suportam a personalização da lista de atributos incluem:
+As aplicações e sistemas que suportam a personalização da lista de atributos incluem:
 
 - Salesforce
 - ServiceNow
 - Workday
-- Diretório Ativo Azure ([AD Graph API atributos padrão](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) e extensões de diretório personalizados são suportados)
-- Aplicativos que suportam [O SCIM 2.0,](https://tools.ietf.org/html/rfc7643)onde os atributos definidos no [esquema central](https://tools.ietf.org/html/rfc7643) precisam de ser adicionados
+- Azure Ative Directy[(São suportados atributos padrão AZURE ADGraph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) e extensões de diretório personalizados)
+- As aplicações que [suportam o SCIM 2.0,](https://tools.ietf.org/html/rfc7643)onde os atributos definidos no [esquema principal](https://tools.ietf.org/html/rfc7643) precisam de ser adicionados
 
 > [!NOTE]
-> A edição da lista de atributos suportados só é recomendada para administradores que personalizaram o esquema das suas aplicações e sistemas, e têm conhecimento em primeira mão de como os seus atributos personalizados foram definidos. Isto requer, por vezes, familiaridade com as APIs e ferramentas de desenvolvimento fornecidas por uma aplicação ou sistema.
+> A edição da lista de atributos suportados é apenas recomendada para administradores que personalizaram o esquema das suas aplicações e sistemas, e têm conhecimento em primeira mão de como os seus atributos personalizados foram definidos. Isto por vezes requer familiaridade com as APIs e ferramentas de desenvolvimento fornecidas por uma aplicação ou sistema.
 
 Ao editar a lista de atributos suportados, são fornecidas as seguintes propriedades:
 
-- **Nome** - O nome do sistema do atributo, tal como definido no esquema do objecto-alvo.
-- **Tipo** - O tipo de dados que o atributo armazena, tal como definido no esquema do objecto-alvo, que pode ser um dos seguintes tipos:
-  - *Binário* - Atributo contém dados binários.
+- **Nome** - O nome do sistema do atributo, tal como definido no esquema do objeto-alvo.
+- **Tipo** - O tipo de dados que o atributo armazena, tal como definido no esquema do objeto-alvo, que pode ser um dos seguintes tipos:
+  - *Binário* - O atributo contém dados binários.
   - *Boolean* - Atributo contém um valor verdadeiro ou falso.
-  - *DataTime* - Atributo contém uma corda de data.
-  - *Inteiro* - Atributo contém um inteiro.
-  - *Referência* - O atributo contém um ID que refere um valor armazenado noutra tabela na aplicação-alvo.
+  - *DataTime* - O atributo contém uma cadeia de datas.
+  - *Inteiro -* Atributo contém um inteiro.
+  - *Referência* - O Atributo contém um ID que faz referência a um valor armazenado noutra tabela na aplicação-alvo.
   - *String* - Atributo contém uma cadeia de texto.
-- **Chave Primária?** - Se o atributo é definido como um campo-chave primário no esquema do objeto alvo.
-- **Necessário?** - Se o atributo é obrigado a ser povoado na aplicação ou sistema-alvo.
+- **Chave Primária?** - Se o atributo é definido como um campo chave primário no esquema do objeto alvo.
+- **Necessário?** - Se o atributo é necessário para ser povoado na aplicação ou sistema-alvo.
 - **Multi-valor?** - Se o atributo suporta vários valores.
-- **Caso exato?** - Se os valores dos atributos são avaliados de forma sensível aos casos.
-- **Expressão API** - Não utilize, a menos que seja instruído pela documentação para um conector de provisionamento específico (como o Dia de Trabalho).
-- **Atributo** de objeto referenciado - Se for um atributo tipo de referência, então este menu permite selecionar a tabela e atribuir na aplicação-alvo que contém o valor associado ao atributo. Por exemplo, se tiver um atributo chamado "Departamento" cujo valor armazenado referencia um objeto numa tabela separada de "Departamentos", selecionaria "Departments.Name". As tabelas de referência e os principais campos de ID suportados para uma determinada aplicação estão pré-configurados e atualmente não podem ser editados usando o portal Azure, mas podem ser editados usando a [API do Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+- **Caso exato?** - Se os valores dos atributos são avaliados de forma sensível a casos.
+- **Expressão API** - Não utilize, a menos que seja instruído pela documentação de um conector específico de provisionamento (como o Workday).
+- **Atributo de objeto referenciado** - Se for um atributo do tipo referência, este menu permite selecionar a tabela e atribuir na aplicação-alvo que contém o valor associado ao atributo. Por exemplo, se tiver um atributo chamado "Departamento" cujo valor armazenado referencia um objeto numa tabela separada de "Departamentos", escolherá "Departments.Name". As tabelas de referência e os campos de ID primários suportados para uma determinada aplicação são pré-configurados e atualmente não podem ser editados usando o portal Azure, mas podem ser editados usando a [API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes)do Gráfico microsoft .
 
-#### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Fornecimento de um atributo de extensão personalizado a uma aplicação compatível com o SCIM
-O SCIM RFC define um esquema de utilizador e grupo principal, ao mesmo tempo que permite que as extensões ao esquema satisfaçam as necessidades da sua aplicação. Para adicionar um atributo personalizado a uma aplicação SCIM:
-   1. Inscreva-se no [portal de Diretório Ativo Azure,](https://aad.portal.azure.com)selecione **Aplicações Empresariais,** selecione a sua aplicação e, em seguida, selecione **Provisioning**.
-   2. Em **Mapeamentos,** selecione o objeto (utilizador ou grupo) para o qual deseja adicionar um atributo personalizado.
+#### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Provisionando um atributo de extensão personalizada a uma aplicação compatível com o SCIM
+O SCIM RFC define um esquema de utilizador e grupo principal, ao mesmo tempo que permite extensões ao esquema para atender às necessidades da sua aplicação. Para adicionar um atributo personalizado a uma aplicação SCIM:
+   1. Inscreva-se no [portal Azure Ative Directory](https://aad.portal.azure.com), selecione **Aplicações empresariais,** selecione a sua aplicação e, em seguida, selecione **Provisioning**.
+   2. Em **Mapeamentos,** selecione o objeto (utilizador ou grupo) para o qual pretende adicionar um atributo personalizado.
    3. Na parte inferior da página, selecione **Mostrar opções avançadas**.
-   4. **Selecione editar lista de atributos para AppName**.
-   5. Na parte inferior da lista de atributos, introduza informações sobre o atributo personalizado nos campos fornecidos. Em seguida, selecione **Adicionar Atributo**.
+   4. **Selecione a lista de atributos editar para AppName**.
+   5. Na parte inferior da lista de atributos, insira informações sobre o atributo personalizado nos campos fornecidos. Em seguida, **selecione Adicionar Atributo**.
 
 Para aplicações SCIM, o nome do atributo deve seguir o padrão indicado no exemplo abaixo. O "CustomExtensionName" e "CustomAttribute" podem ser personalizados de acordo com os requisitos da sua aplicação, por exemplo:  
- * urn:ietf:params:scim:schemas:extensionName:2.0:User:CustomAttribute 
- * urn:ietf:params:scim:schemas:extensão:2.0:CustomExtensionName:CustomAttribute  
- * urn:ietf:params:scim:schemas:extensionName:2.0:User.CustomAttributeName:value
+ * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
+ * urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute  
+ * urn:ietf:params:scim:schemas:extensão:CustomExtensionName:2.0:User.CustomAttributeName:value
 
-Estas instruções aplicam-se apenas às aplicações ativadas pelo SCIM. Aplicações como ServiceNow e Salesforce não estão integradas com a Azure AD utilizando o SCIM, pelo que não requerem este espaço de nome específico ao adicionar um atributo personalizado.
+Estas instruções só são aplicáveis às aplicações ativadas pelo SCIM. Aplicações como ServiceNow e Salesforce não estão integradas com Azure AD usando SCIM, e, portanto, não requerem este espaço de nome específico ao adicionar um atributo personalizado.
 
-Os atributos personalizados não podem ser atributos referenciais ou atributos de vários valores. Atualmente, os atributos personalizados de extensão de vários valores são suportados apenas para aplicações na galeria.  
+Os atributos personalizados não podem ser atributos referenciais ou atributos de vário valor. Os atributos personalizados de extensão de vários valores são atualmente suportados apenas para aplicações na galeria.  
  
-**Representação de exemplo de um utilizador com um atributo de extensão:**
+**Exemplo de representação de um utilizador com um atributo de extensão:**
 
 ```json
    {
@@ -189,18 +188,18 @@ Os atributos personalizados não podem ser atributos referenciais ou atributos d
 ```
 
 
-## <a name="provisioning-a-role-to-a-scim-app"></a>Prestação de um papel a uma aplicação SCIM
-Utilize os passos abaixo para fornecer funções para um utilizador na sua aplicação. Note que a descrição abaixo é específica para aplicações SCIM personalizadas. Para aplicações de galerias como Salesforce e ServiceNow, utilize os mapeamentos de papéis pré-definidos. As balas abaixo descrevem como transformar as Atribuições de AppRoleatribuis ao formato que a sua aplicação espera.
+## <a name="provisioning-a-role-to-a-scim-app"></a>Provisionando um papel para uma aplicação SCIM
+Utilize os passos abaixo para as funções de provisão para um utilizador à sua aplicação. Note que a descrição abaixo é específica para aplicações SCIM personalizadas. Para aplicações de galeria como Salesforce e ServiceNow, utilize os mapeamentos de funções pré-definidos. As balas abaixo descrevem como transformar as assinaturas appRole Atribuem ao formato que a sua aplicação espera.
 
-- Mapear uma appRoleAssignment em Azure AD para um papel na sua aplicação requer que transforme o atributo usando uma [expressão](../app-provisioning/functions-for-customizing-application-data.md). O atributo da appRoleAssignment **não deve ser mapeado diretamente** para um atributo de função sem usar uma expressão para analisar os detalhes do papel. 
+- Mapear uma assinatura appRoleAssignment em Azure AD para um papel na sua aplicação requer que você transforme o atributo usando uma [expressão](../app-provisioning/functions-for-customizing-application-data.md). O atributo appRoleAssignment **não deve ser mapeado diretamente** a um atributo de função sem usar uma expressão para analisar os detalhes do papel. 
 
-- **Atribuição singleAppRole** 
-  - **Quando utilizar:** Utilize a expressão SingleAppRoleAssignment para fornecer uma única função para um utilizador e especificar a função principal. 
-  - **Como configurar:** Utilize os passos acima descritos para navegar na página de mapeamento de atributos e use a expressão SingleAppRoleAssignment para mapear as funções atributos. Há três atributos de papel a escolher: (papéis [primárioe "True"].display, roles[primary eq "True].type, e papéis[primário eq "True"].value). Pode optar por incluir todos ou todos os atributos de papel nos seus mapeamentos. Se quiser incluir mais do que um, basta adicionar um novo mapeamento e incluí-lo como o atributo-alvo.  
+- **Assinatura SingleAppRoleAssignment** 
+  - **Quando usar:** Utilize a expressão SingleAppRoleAssignment para prever uma única função para um utilizador e especificar o papel principal. 
+  - **Como configurar:** Utilize os passos acima descritos para navegar na página de mapeamentos de atributos e use a expressão SingleAppRoleAssignment para mapear para o atributo de funções. Existem três atributos de papel a escolher: (funções[primary eq "True"].display, papéis[eq primário "True].type, e roles[primary eq "True"].value). Pode optar por incluir qualquer ou todos os atributos de função nos seus mapeamentos. Se quiser incluir mais do que um, basta adicionar um novo mapeamento e incluí-lo como o atributo alvo.  
   
-  ![Adicionar atribuição de funções singleapprole](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
+  ![Adicionar singleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
   - **Coisas a considerar**
-    - Certifique-se de que várias funções não são atribuídas a um utilizador. Não podemos garantir qual será o papel que será aprovisionado.
+    - Certifique-se de que várias funções não são atribuídas a um utilizador. Não podemos garantir que papel será aussitado.
     
   - **Saída de exemplo** 
 
@@ -227,17 +226,17 @@ Utilize os passos abaixo para fornecer funções para um utilizador na sua aplic
    ```
   
 - **AppRoleAssignmentsComplex** 
-  - **Quando utilizar:** Utilize a expressão AppRoleAssignmentsComplex para fornecer múltiplas funções para um utilizador. 
-  - **Como configurar:** Editar a lista de atributos suportados acima descritos para incluir um novo atributo para funções: 
+  - **Quando usar:** Utilize a expressão AppRoleAssignmentsComplex para obter múltiplas funções para um utilizador. 
+  - **Como configurar:** Editar a lista de atributos suportados como descrito acima para incluir um novo atributo para funções: 
   
     ![Adicionar funções](./media/customize-application-attributes/add-roles.png)<br>
 
-    Em seguida, utilize a expressão AppRoleAssignmentsComplex para mapear o atributo de função personalizada, como mostrado na imagem abaixo:
+    Em seguida, utilize a expressão AppRoleAssignmentsComplex para mapear o atributo de função personalizada, tal como mostrado na imagem abaixo:
 
     ![Adicionar AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
   - **Coisas a considerar**
-    - Todas as funções serão provisadas como primárias = falsas.
-    - O POST contém o tipo de função. O pedido patch não contém tipo. Estamos a trabalhar no envio do tipo tanto nos pedidos post como patch.
+    - Todas as funções serão avisionadas como primárias = falsas.
+    - O POST contém o tipo de função. O pedido PATCH não contém o tipo. Estamos a trabalhar no envio do tipo nos pedidos POST e PATCH.
     
   - **Saída de exemplo** 
   
@@ -273,12 +272,12 @@ Utilize os passos abaixo para fornecer funções para um utilizador na sua aplic
   
 
 
-## <a name="provisioning-a-multi-value-attribute"></a>Fornecimento de um atributo de vários valores
-Certos atributos, como números de telefone e e-mails, são atributos de vários valores onde poderá ser necessário especificar diferentes tipos de números de telefone ou e-mails. Utilize a expressão abaixo para atributos de vários valores. Permite especificar o tipo de atributo e mapear isso ao atributo correspondente do utilizador Azure AD pelo valor. 
+## <a name="provisioning-a-multi-value-attribute"></a>Provisionamento de um atributo multi-valor
+Certos atributos, como telefoneS, números e e-mails são atributos de vário valor onde poderá ser necessário especificar diferentes tipos de números de telefone ou e-mails. Utilize a expressão abaixo para atributos de vários valores. Permite especificar o tipo de atributo e mapear que para o atributo do utilizador Azure AD correspondente para o valor. 
 
-* telefoneNumbers[tipo eq "trabalho"].valor
-* telefoneNumbers[tipo eq "mobile"].valor
-* telefoneNumbers[tipo eq "fax"].valor
+* phoneNumbers[tipo eq "work"].value
+* números de telefone[tipo eq "mobile"].valor
+* números de telefone[tipo eq "fax"].valor
 
    ```json
    "phoneNumbers": [
@@ -297,30 +296,30 @@ Certos atributos, como números de telefone e e-mails, são atributos de vários
    ]
    ```
 
-## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>Restaurar os atributos padrão e atributo-mapeamento
+## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>Restaurar os atributos padrão e atribuir mapeamentos
 
-Caso necessite de recomeçar e redefinir os mapeamentos existentes de volta ao seu estado padrão, pode selecionar a caixa de verificação de **mapeamentopadrão de restauro** e guardar a configuração. Ao fazê-lo, todos os mapeamentos e filtros de deteção como se a aplicação tivesse sido adicionada ao seu inquilino Azure AD a partir da galeria de aplicações.
+Se precisar de recomeçar e redefinir os mapeamentos existentes de volta ao seu estado predefinido, pode selecionar a caixa **de verificação de mapeamentos predefinidos restaurar** e guardar a configuração. Ao fazê-lo, define todos os mapeamentos e filtros de deteção como se a aplicação tivesse sido adicionada ao seu inquilino AZure AD da galeria de aplicações.
 
-A seleção desta opção forçará efetivamente uma ressincronização de todos os utilizadores enquanto o serviço de provisionamento estiver em funcionamento.
+A seleção desta opção forçará efetivamente a ressincronização de todos os utilizadores enquanto o serviço de fornecimento estiver em execução.
 
 > [!IMPORTANT]
-> Recomendamos vivamente que o estado de **provisionamento** seja definido **antes** de invocar esta opção.
+> Recomendamos vivamente que **o estatuto de Provisioning** seja definido para **Off** antes de invocar esta opção.
 
 ## <a name="what-you-should-know"></a>O que deve saber
 
-- A Microsoft Azure AD fornece uma implementação eficiente de um processo de sincronização. Num ambiente inicializado, apenas os objetos que requerem atualizações são processados durante um ciclo de sincronização.
-- Atualizar os mapeamentos de atributos tem um impacto no desempenho de um ciclo de sincronização. Uma atualização da configuração de mapeamento de atributos requer que todos os objetos geridos sejam reavaliados.
-- Uma boa prática recomendada é manter o número de alterações consecutivas nos seus mapeamentos de atributos no mínimo.
-- A adição de um atributo fotográfico a fornecer a uma aplicação não é suportada hoje, uma vez que não pode especificar o formato para sincronizar a fotografia. Pode solicitar a funcionalidade na Voz do [Utilizador](https://feedback.azure.com/forums/169401-azure-active-directory)
-- O atributo IsSoftDeleted é frequentemente parte dos mapeamentos padrão para uma aplicação. IsSoftdeleted pode ser verdade num dos quatro cenários (o utilizador está fora de âmbito devido ao facto de não ter sido atribuído da aplicação, o utilizador está fora de âmbito devido ao não cumprimento de um filtro de deteção, o utilizador foi eliminado suavemente em Azure AD, ou a conta De propriedadeEnabled está definida como falsa no utilizador). Não é aconselhável remover o atributo IsSoftDeleted dos seus mapeamentos de atributos.
-- O serviço de provisionamento da AD Azure não suporta o fornecimento de valores nulos.
-- A chave primária, tipicamente "ID", não deve ser incluída como um atributo-alvo nos seus mapeamentos de atributos. 
-- O atributo de papel normalmente precisa ser mapeado usando uma expressão, em vez de um mapeamento direto. Consulte a secção acima para mais detalhes sobre o mapeamento de papéis. 
+- O Microsoft Azure AD fornece uma implementação eficiente de um processo de sincronização. Num ambiente inicializado, apenas os objetos que necessitam de atualizações são processados durante um ciclo de sincronização.
+- A atualização dos mapeamentos de atributos tem um impacto no desempenho de um ciclo de sincronização. Uma atualização da configuração de mapeamento de atributos requer que todos os objetos geridos sejam reavaliados.
+- Uma boa prática recomendada é manter no mínimo o número de alterações consecutivas nos seus mapeamentos de atributos.
+- A adição de um atributo fotográfico a ser aprovisionado numa aplicação não é suportado hoje em dia, uma vez que não é possível especificar o formato para sincronizar a fotografia. Pode solicitar a funcionalidade no [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory)
+- O atributo IsSoftDeleted é frequentemente parte dos mapeamentos padrão para uma aplicação. O IsSoftdeleted pode ser verdade num dos quatro cenários (o utilizador está fora de alcance devido a não ter sido atribuído à aplicação, o utilizador está fora de alcance por não ter atendedo a um filtro de escotagem, o utilizador foi apagado suavemente em AD Azure, ou a propriedade AccountEnabled é definida como falsa no utilizador). Não é aconselhável remover o atributo IsSoftDeleted dos mapeamentos do seu atributo.
+- O serviço de prestação de AD Azure não suporta a prestação de valores nulos.
+- A chave primária, tipicamente "ID", não deve ser incluída como um atributo-alvo nos mapeamentos do seu atributo. 
+- O atributo de função normalmente precisa ser mapeado usando uma expressão, em vez de um mapeamento direto. Consulte a secção acima para obter mais detalhes sobre o mapeamento de funções. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Automatizar o fornecimento/deprovisionamento de utilizadores para apps SaaS](user-provisioning.md)
-- [Expressões de escrita para atributo-mapeamento](../app-provisioning/functions-for-customizing-application-data.md)
-- [Filtros de deteção para fornecimento de utilizadores](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
+- [Automatizar o Provisionamento/Desprovisionamento do Utilizador para aplicações SaaS](user-provisioning.md)
+- [Expressãos de escrita para atributos-mapeamentos](../app-provisioning/functions-for-customizing-application-data.md)
+- [Filtros de deteção para o provisionamento do utilizador](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
 - [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](use-scim-to-provision-users-and-groups.md)
 - [Lista de Tutoriais sobre Como Integrar Aplicações SaaS](../saas-apps/tutorial-list.md)

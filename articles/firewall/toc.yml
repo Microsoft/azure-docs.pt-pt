@@ -34,6 +34,8 @@
       href: log-analytics-samples.md
 - name: Conceitos
   items:
+    - name: Funcionalidades do Azure Firewall
+      href: features.md
     - name: Etiquetas FQDN
       href: fqdn-tags.md
     - name: FQDNs de Infraestrutura
@@ -56,6 +58,8 @@
       href: central-management.md
     - name: Suporte de trabalho remoto
       href: remote-work-support.md
+    - name: FQDN nas regras de rede
+      href: fqdn-filtering-network-rules.md
 - name: Guias de procedimentos
   items:
     - name: Implementar com o Azure PowerShell
@@ -78,6 +82,10 @@
       href: create-ip-group.md
     - name: Proteger o Windows Virtual Desktop
       href: protect-windows-virtual-desktop.md
+    - name: Proteger o Azure Kubernetes Service (AKS)
+      href: protect-azure-kubernetes-service.md
+    - name: Definições de DNS
+      href: dns-settings.md
 - name: Referência
   items:
     - name: CLI do Azure

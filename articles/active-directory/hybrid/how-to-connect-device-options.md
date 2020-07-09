@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Opções do dispositivo / Microsoft Docs'
+title: 'Azure AD Connect: Opções de dispositivos / Microsoft Docs'
 description: Este documento detalha as opções do dispositivo disponíveis no Azure AD Connect
 services: active-directory
 documentationcenter: ''
@@ -11,40 +11,40 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96ddcdb67ef079cfa23902a1dcb03b0ec61077fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cedf1419a763fe0b0f528bee6e1b48e435ec0e2a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67109533"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360032"
 ---
-# <a name="azure-ad-connect-device-options"></a>Ligação Azure AD: Opções do dispositivo
+# <a name="azure-ad-connect-device-options"></a>Azure AD Connect: Opções de dispositivo
 
-A seguinte documentação fornece informações sobre as várias opções do dispositivo disponíveis no Azure AD Connect. Pode utilizar o Azure AD Connect para configurar as seguintes duas operações: 
-* **Ad Hybrid Azure junta-se:** Se o seu ambiente tiver uma pegada ad no local e quiser os benefícios do Azure AD, pode implementar dispositivos híbridos Azure AD. Estes dispositivos são unidos tanto ao seu Diretório Ativo no local como ao seu Diretório Ativo Azure.
-* **Redação do dispositivo**: A reescrita do dispositivo é utilizada para permitir o acesso condicional com base em dispositivos a Dispositivos AD FS (2012 R2 ou superior) protegidos
+A documentação que se segue fornece informações sobre as várias opções do dispositivo disponíveis no Azure AD Connect. Pode utilizar o Azure AD Connect para configurar as seguintes duas operações: 
+* **Hybrid Azure AD ad:** Se o seu ambiente tiver uma pegada AD no local e quiser os benefícios do Azure AD, pode implementar dispositivos híbridos Azure AD. Estes dispositivos estão ligados tanto ao seu Ative Directory no local como ao seu Diretório Ativo Azure.
+* **Writeback do dispositivo**: A writeback do dispositivo é utilizada para permitir o acesso condicional com base em dispositivos a dispositivos protegidos AD FS (2012 R2 ou superior)
 
-## <a name="configure-device-options-in-azure-ad-connect"></a>Configure opções de dispositivos no Azure AD Connect
+## <a name="configure-device-options-in-azure-ad-connect"></a>Configure as opções do dispositivo no Azure AD Connect
 
-1.  Executar Azure AD Connect. Na página **de tarefas Adicionais,** selecione **Configurar as opções**do dispositivo .  Clique em **Seguinte**.
-    ![Configure as opções do dispositivo](./media/how-to-connect-device-options/deviceoptions.png) 
+1.  Executar Azure Ad Connect. Na página **de tarefas adicionais,** selecione **opções do dispositivo configurar**.  Clique em **Seguinte**.
+    ![Opções de configuração do dispositivo](./media/how-to-connect-device-options/deviceoptions.png) 
 
-    A página **'Overview'** apresenta os detalhes.
+    A página **'Vista Geral'** apresenta os detalhes.
     ![Descrição Geral](./media/how-to-connect-device-options/deviceoverview.png)
 
     >[!NOTE]
-    > As novas opções do dispositivo Configure só estão disponíveis na versão 1.1.819.0 e mais recentes.
+    > As novas opções do dispositivo Configurar apenas estão disponíveis na versão 1.1.819.0 e mais recentes.
 
-2.  Depois de fornecer as credenciais para o Azure AD, pode escolher a operação a ser realizada na página de opções do Dispositivo.
+2.  Depois de fornecer as credenciais para Azure AD, pode escolher a operação a ser executada na página de opções do Dispositivo.
     ![Operações de dispositivos](./media/how-to-connect-device-options/deviceoptionsselection.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Configure Hybrid Azure AD aderir](../device-management-hybrid-azuread-joined-devices-setup.md)
-* [Configurar / Desativar a reescrita do dispositivo](how-to-connect-device-writeback.md)
+* [Configure Hybrid Azure AD juntar-se](../device-management-hybrid-azuread-joined-devices-setup.md)
+* [Configurar / Desativar a writeback do dispositivo](how-to-connect-device-writeback.md)
 

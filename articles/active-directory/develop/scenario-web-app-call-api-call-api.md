@@ -1,6 +1,6 @@
 ---
-title: Ligue para um api web de uma aplicação web - plataforma de identidade Microsoft / Azure
-description: Saiba como construir uma aplicação web que chama APIs web (chamando uma API web protegida)
+title: Ligue para uma api web a partir de uma aplicação web - Plataforma de identidade microsoft / Rio Azure
+description: Saiba como construir uma aplicação web que chame APIs web (chamando uma API web protegida)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,23 +12,23 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 12802ab6dcfbbe5a1c5576ab672ead864dd0b4ae
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82559875"
 ---
-# <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Uma aplicação web que chama APIs web: Ligue para uma Web API
+# <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Uma aplicação web que chama APIs web: Ligue para uma API web
 
-Agora que tem um símbolo, pode chamar uma API protegida.
+Agora que tem um símbolo, pode chamar uma API protegida da web.
 
-## <a name="call-a-protected-web-api"></a>Ligue para uma API web protegida
+## <a name="call-a-protected-web-api"></a>Chame uma API web protegida
 
-Chamar uma API web protegida depende da sua linguagem e enquadramento de eleição:
+Chamar uma API web protegida depende da sua linguagem e enquadramento de escolha:
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Aqui está o código simplificado `HomeController`para a ação do . Este código recebe um símbolo para ligar para o Microsoft Graph. O código foi adicionado para mostrar como chamar o Microsoft Graph como um Rest API. O URL para o Microsoft Graph API é fornecido no ficheiro appsettings.json e é lido numa variável chamada: `webOptions`
+Aqui está o código simplificado para a ação do `HomeController` . Este código recebe um símbolo para ligar para o Microsoft Graph. O código foi adicionado para mostrar como chamar o Microsoft Graph como uma API REST. O URL para a API do Gráfico da Microsoft é fornecido no appsettings.jsem ficheiro e é lido numa variável chamada `webOptions` :
 
 ```json
 {
@@ -67,7 +67,7 @@ public async Task<IActionResult> Profile()
 ```
 
 > [!NOTE]
-> Pode usar o mesmo princípio para chamar qualquer API web.
+> Pode usar o mesmo princípio para chamar a API web.
 >
 > A maioria das APIs web Azure fornecem um SDK que simplifica a chamada API. Isto também é verdade no Microsoft Graph. No próximo artigo, você vai aprender onde encontrar um tutorial que ilustra o uso da API.
 
@@ -117,4 +117,4 @@ def graphcall():
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Mover para produção](scenario-web-app-call-api-production.md)
+> [Mover-se para a produção](scenario-web-app-call-api-production.md)

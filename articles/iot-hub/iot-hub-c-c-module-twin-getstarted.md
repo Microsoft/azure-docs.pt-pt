@@ -1,6 +1,6 @@
 ---
-title: Inicie com identidade do módulo Azure IoT Hub & módulo twin (C)
-description: Aprenda a criar a identidade do módulo e a atualização do módulo twin utilizando SDKs IoT para C.
+title: Começa com a identidade do módulo Azure IoT Hub & módulo gémeo (C)
+description: Aprenda a criar a identidade do módulo e atualizar o módulo twin utilizando SDKs IoT para C.
 author: chrissie926
 ms.service: iot-hub
 services: iot-hub
@@ -12,31 +12,30 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 3cd4277603b96dd1aa07682dd01a6d0e9c61bd82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733459"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>Inicie com identidade do módulo IoT Hub e módulo twin (C)
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>Começa com a identidade do módulo IoT Hub e o módulo twin (C)
 
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
-> As [identidades de módulo e os módulos duplos](iot-hub-devguide-module-twins.md) assemelham-se à identidade do dispositivo e ao dispositivo duplo do Hub IoT do Azure, exceto no facto de oferecerem melhor granularidade. Enquanto a identidade do dispositivo Azure IoT Hub e o dispositivo twin permitem que a aplicação back-end configure um dispositivo e ofereça visibilidade sobre as condições do dispositivo, uma identidade de módulo e um módulo twin fornecem estas capacidades para componentes individuais de um dispositivo. Em dispositivos compatíveis com vários componentes, tais como dispositivos baseados no sistema operativo ou dispositivos de firmware, permitem a configuração e condições isoladas para cada componente.
+> As [identidades de módulo e os módulos duplos](iot-hub-devguide-module-twins.md) assemelham-se à identidade do dispositivo e ao dispositivo duplo do Hub IoT do Azure, exceto no facto de oferecerem melhor granularidade. Enquanto a identidade do dispositivo Azure IoT Hub e o dispositivo twin permitem que a aplicação de back-end configurar um dispositivo e dê visibilidade sobre as condições do dispositivo, uma identidade do módulo e um módulo twin fornecem estas capacidades para componentes individuais de um dispositivo. Em dispositivos compatíveis com vários componentes, tais como dispositivos baseados no sistema operativo ou dispositivos de firmware, permitem a configuração e condições isoladas para cada componente.
 
-No final deste tutorial, você tem duas aplicações C:
+No final deste tutorial, tem duas aplicações C:
 
 * **CreateIdentities**, que cria uma identidade de dispositivo, uma identidade de módulo e a chave de segurança associada para ligar os clientes do dispositivo e do módulo.
 
 * **UpdateModuleTwinReportedProperties**, que envia as propriedades reportadas do módulo duplo atualizadas para o Hub IoT.
 
 > [!NOTE]
-> Para obter informações sobre os DSKs Azure IoT que pode usar para construir ambas as aplicações para executar em dispositivos, e o seu backend de solução, consulte [SDKs Azure IoT](iot-hub-devguide-sdks.md).
+> Para obter informações sobre os SDKs Azure IoT que pode utilizar para construir ambas as aplicações para executar em dispositivos, e sobre o seu backend de solução, consulte [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta azure gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
+* Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita Azure](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 
 * O mais recente [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
@@ -44,15 +43,15 @@ No final deste tutorial, você tem duas aplicações C:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de ligação do hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de conexão do hub IoT
 
 [!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
 
 [!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
-## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Criar uma identidade de dispositivo e uma identidade de módulo no IoT Hub
+## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Crie uma identidade de dispositivo e uma identidade de módulo no IoT Hub
 
-Nesta secção, cria-se uma aplicação C que cria uma identidade de dispositivo e uma identidade de módulo no registo de identidade no seu hub IoT. Não é possível ligar um dispositivo ou módulo ao hub IoT, exceto se tiver uma entrada no registo de identidade. Para mais informações, consulte a secção de registo de **identidade** do guia de [desenvolvimento do IoT Hub](iot-hub-devguide-identity-registry.md). Ao executar esta aplicação de consola, será gerado um ID e uma chave exclusivos para o dispositivo e o módulo. O dispositivo e o módulo utilizam estes valores para se identificarem quando enviam mensagens do dispositivo para cloud para o Hub IoT. Os IDs são sensíveis às maiúsculas e minúsculas.
+Nesta secção, cria-se uma aplicação C que cria uma identidade do dispositivo e uma identidade de módulo no registo de identidade no seu hub IoT. Não é possível ligar um dispositivo ou módulo ao hub IoT, exceto se tiver uma entrada no registo de identidade. Para mais informações, consulte a secção de registo de **identidade** do guia de desenvolvimento do [IoT Hub.](iot-hub-devguide-identity-registry.md) Ao executar esta aplicação de consola, será gerado um ID e uma chave exclusivos para o dispositivo e o módulo. O dispositivo e o módulo utilizam estes valores para se identificarem quando enviam mensagens do dispositivo para cloud para o Hub IoT. Os IDs são sensíveis às maiúsculas e minúsculas.
 
 Adicione o seguinte código ao seu ficheiro C:
 
@@ -180,16 +179,16 @@ int main(void)
 }
 ```
 
-Esta aplicação cria uma identidade de dispositivo com ID **myFirstDevice** e uma identidade de módulo com ID **myFirstModule** no dispositivo **myFirstDevice**. (Se esse id do módulo já existir no registo de identidade, o código simplesmente recupera as informações do módulo existentes.) A aplicação exibe então a chave principal para essa identidade. Esta chave vai ser utilizada na aplicação do módulo simulado para ligar ao seu hub IoT.
+Esta aplicação cria uma identidade do dispositivo com ID **myFirstDevice** e uma identidade de módulo com ID **myFirstModule** sob o dispositivo **myFirstDevice**. (Se esse módulo ID já existir no registo de identidade, o código simplesmente recupera as informações do módulo existente.) A aplicação apresenta então a chave primária para essa identidade. Esta chave vai ser utilizada na aplicação do módulo simulado para ligar ao seu hub IoT.
 
 > [!NOTE]
 > O registo de identidade do Hub IoT apenas armazena identidades de dispositivos e módulos para permitir um acesso seguro ao hub IoT. O registo de identidades armazena os IDs de dispositivo e as chaves para utilizar como credenciais de segurança. O registo de identidades também armazena um sinalizador ativado/desativado para cada dispositivo que pode utilizar para desativar o acesso a esse dispositivo. Se a sua aplicação tiver de armazenar outros metadados específicos do dispositivo, deverá utilizar um armazenamento específico da aplicação.  Não existe nenhum sinalizador ativado/desativado para identidades de módulo. Para obter mais informações, veja o [IoT Hub developer guide (Guia do programador do Hub IoT)](iot-hub-devguide-identity-registry.md).
 
-## <a name="update-the-module-twin-using-c-device-sdk"></a>Atualize o módulo twin usando o dispositivo C SDK
+## <a name="update-the-module-twin-using-c-device-sdk"></a>Atualize o módulo twin usando O Dispositivo C SDK
 
-Nesta secção, cria-se uma aplicação C no seu dispositivo simulado que atualiza as propriedades reportadas pelo módulo twin.
+Nesta secção, cria-se uma aplicação C no seu dispositivo simulado que atualiza as propriedades reportadas pelo módulo Twin.
 
-1. **Obtenha a sua cadeia de ligação do módulo** – agora, se iniciar sessão no [portal do Azure](https://portal.azure.com). Navegue até ao seu Hub IoT e clique em Dispositivos IoT. Encontre o meu FirstDevice, abra-o e veja que o myFirstModule foi criado com sucesso. Copie a cadeia de ligação do módulo. É necessária para o próximo passo.
+1. **Obtenha a sua cadeia de ligação do módulo** – agora, se iniciar sessão no [portal do Azure](https://portal.azure.com). Navegue até ao seu Hub IoT e clique em Dispositivos IoT. Encontre o meuFirstDevice, abra-o e verá que o meuFirstModule foi criado com sucesso. Copie a cadeia de ligação do módulo. É necessária para o próximo passo.
 
     ![Detalhe do módulo no portal do Azure](./media/iot-hub-c-c-module-twin-getstarted/module-detail.png)
 
@@ -253,9 +252,9 @@ Nesta secção, cria-se uma aplicação C no seu dispositivo simulado que atuali
 
 Esta amostra de código mostra-lhe como recuperar o módulo twin e atualizar as propriedades reportadas. 
 
-## <a name="get-updates-on-the-device-side"></a>Obtenha atualizações sobre o lado do dispositivo
+## <a name="get-updates-on-the-device-side"></a>Obtenha atualizações do lado do dispositivo
 
-Além do código acima, pode adicionar abaixo o bloco de código para obter a mensagem de atualização gémea no seu dispositivo.
+Além do código acima, pode adicionar abaixo o bloco de código para obter a mensagem de atualização dupla no seu dispositivo.
 
 ```C
 #include <stdio.h>
@@ -386,7 +385,7 @@ int main(void)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, veja:
 

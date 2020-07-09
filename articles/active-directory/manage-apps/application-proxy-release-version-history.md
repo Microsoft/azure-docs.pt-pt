@@ -1,10 +1,10 @@
 ---
-title: 'Procuração de aplicação da AD Azure: Versão versão lançar histórico / Microsoft Docs'
-description: Este artigo lista todas as versões da Procuração de Aplicação AD Azure e descreve novas funcionalidades e questões fixas
+title: 'Azure AD Application Proxy: Versão lança histórico / Microsoft Docs'
+description: Este artigo lista todos os lançamentos de Azure AD Application Proxy e descreve novas funcionalidades e problemas fixos
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -14,67 +14,67 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/07/2020
 ms.subservice: app-mgmt
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f027fbce66a73306165a0ad35d1ba3faa7a5c0bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 83c41a357ebaf65cca8465bfc48dda3dd065c3e0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80983896"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760002"
 ---
-# <a name="azure-ad-application-proxy-version-release-history"></a>Procuração de aplicação da AD Azure: Histórico de lançamento de versão
-Este artigo lista as versões e funcionalidades do Azure Ative Directory (Azure AD) Application Proxy que foram lançados. A equipa da AD Azure atualiza regularmente o Application Proxy com novas funcionalidades e funcionalidades. Os conectores Proxy da aplicação são atualizados automaticamente quando uma nova versão é lançada. 
+# <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD Application Proxy: O histórico de lançamentos da versão
+Este artigo lista as versões e funcionalidades do Azure Ative Directory (Azure AD) Application Proxy que foram lançados. A equipa Azure AD atualiza regularmente o Application Proxy com novas funcionalidades e funcionalidades. Os conectores Proxy da aplicação são atualizados automaticamente quando uma nova versão é lançada. 
 
-Recomendamos que certifique-se de que as atualizações automáticas estão ativadas para os seus conectores para garantir que possui as mais recentes funcionalidades e correções de erros. A Microsoft fornece suporte direto para a última versão do conector e uma versão anterior.
+Recomendamos que se certifique de que as atualizações automáticas estão ativadas para os seus conectores para garantir que tem as funcionalidades mais recentes e correções de erros. A Microsoft fornece suporte direto para a versão de conector mais recente e uma versão anterior.
 
 Aqui está uma lista de recursos relacionados:
 
 Recurso |  Detalhes
 --------- | --------- |
-Como ativar o Proxy de Aplicação | Neste [tutorial](application-proxy-add-on-premises-application.md)são descritos os pré-requisitos para permitir o Proxy da Aplicação e instalar e registar um conector .
-Compreender os conectores de procuração de aplicação da AD Azure | Saiba mais sobre a gestão do [conector](application-proxy-connectors.md) e como os conectores [atualizam automaticamente](application-proxy-connectors.md#automatic-updates).
-Transferência de conector proxy de aplicação da AD Azure |  [Descarregue o mais recente conector.](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download)
+Como ativar o Proxy de Aplicação | Neste [tutorial](application-proxy-add-on-premises-application.md)são descritos os pré-requisitos para permitir a aplicação Proxy e instalar e registar um conector .
+Compreenda os conectores Proxy de aplicação AD Azure | Saiba mais sobre [a gestão do conector](application-proxy-connectors.md) e como os conectores [atualizam automaticamente.](application-proxy-connectors.md#automatic-updates)
+Download do conector proxy da aplicação Azure Ad |  [Descarregue o conector mais recente.](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download)
 
 ## <a name="1515260"></a>1.5.1526.0
 
 ### <a name="release-status"></a>Estado de lançamento
 
-07 de abril de 2020: Lançado para download
+07 de abril de 2020: Lançamento para download
 
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias
--   Os conectores utilizam apenas TLS 1.2 para todas as ligações. Consulte [os pré-requisitos do Connector](application-proxy-add-on-premises-application.md#before-you-begin) para obter mais detalhes.
-- Melhor sinalização entre os serviços Connector e Azure. Isto inclui o suporte a sessões fiáveis para a comunicação wcf entre os serviços Connector e Azure e melhorias de cache dNS para comunicações WebSocket.
-- Suporte para configurar um proxy entre o Connector e a aplicação backend. Para mais informações consulte [Trabalhar com servidores proxy existentes no local](application-proxy-configure-connectors-with-proxy-servers.md).
+-   Os conectores utilizam apenas o TLS 1.2 para todas as ligações. Consulte [os pré-requisitos do Conector](application-proxy-add-on-premises-application.md#before-you-begin) para obter mais detalhes.
+- Sinalização melhorada entre os serviços Connector e Azure. Isto inclui o suporte de sessões fiáveis para a comunicação wcf entre os serviços Connector e Azure e melhorias no caching de DNS para as comunicações WebSocket.
+- Suporte para configurar um proxy entre o Conector e a aplicação backend. Para obter mais informações consulte [Trabalhar com servidores proxy existentes no local.](application-proxy-configure-connectors-with-proxy-servers.md)
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
-- Removido recuando para a porta 8080 para comunicações dos serviços Connector para Azure.
-- Adicione vestígios de depuração para comunicações WebSocket. 
-- Resolvida preservando o atributo do SameSite quando definido em cookies de aplicação de backend.
+- Removido caindo de volta para a porta 8080 para comunicações dos serviços Connector para Azure.
+- Vestígios de depurg adicionados para comunicações WebSocket. 
+- Resolvido preservando o atributo SameSite quando definido em cookies de aplicação backend.
 
 ## <a name="156120"></a>1.5.612.0
 
 ### <a name="release-status"></a>Estado de lançamento
 
-20 de setembro de 2018: Lançado para download
+20 de setembro de 2018: Lançamento para download
 
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias
 
-- Suporte WebSocket adicionado para a aplicação QlikSense. Para saber mais sobre como integrar o QlikSense com o Application Proxy, veja este [walkthrough](application-proxy-qlik.md). 
-- Melhorou o assistente de instalação para facilitar a configuração de um proxy de saída. 
-- Detete o TLS 1.2 como o protocolo predefinido para os conectores. 
-- Adicionou um novo Acordo de Licença de Utilizador Final (EULA).  
+- Adicionou suporte WebSocket para a aplicação QlikSense. Para saber mais sobre como integrar o QlikSense com o Application Proxy, consulte este [walkthrough](application-proxy-qlik.md). 
+- Melhorou o assistente de instalação para facilitar a configuração de um representante de saída. 
+- Desafine o TLS 1.2 como o protocolo predefinido para os conectores. 
+- Adicionou um novo Contrato de Licença de Utilizador Final (EULA).  
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
 
-- Fixou um bug que causou algumas fugas de memória no conector.
-- Atualizou a versão Azure Service Bus, que inclui uma correção de bugs para problemas de tempo de conector.
+- Corrigi um erro que causou fugas de memória no conector.
+- Atualizou a versão Azure Service Bus, que inclui uma correção de erro para problemas de tempo de conector.
 
 ## <a name="154020"></a>1.5.402.0
 
 ### <a name="release-status"></a>Estado de lançamento
 
-19 de janeiro de 2018: Lançado para download
+19 de janeiro de 2018: Lançamento para download
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
 
@@ -88,24 +88,24 @@ Transferência de conector proxy de aplicação da AD Azure |  [Descarregue o ma
 
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias 
 
-Controlo melhorado dos limites de ligação de saída dos conectores. 
+Melhor controlo sobre os limites de ligação de saída dos conectores. 
 
 ## <a name="15360"></a>1.5.36.0
 
 ### <a name="release-status"></a>Estado de lançamento
 
-15 de abril de 2017: Lançado para download
+15 de abril de 2017: Lançamento para download
 
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias
 
-- Embarque simplificado e gestão com menos portas necessárias. Aplicação Proxy agora requer a abertura apenas de duas portas padrão de saída: 443 e 80. Application Proxy continua a utilizar apenas ligações de saída, pelo que ainda não precisa de componentes num DMZ. Para mais detalhes, consulte a nossa [documentação de configuração.](application-proxy-add-on-premises-application.md)  
-- Se suportado pelo seu proxy externo ou firewall, pode agora abrir a sua rede por DNS em vez do intervalo IP. Os serviços de Procuração de Aplicação requerem ligações a *.msappproxy.net e *.servicebus.windows.net apenas.
+- Simplificação de embarque e gestão com menos portas necessárias. A Application Proxy exige agora a abertura de apenas duas portas de saída padrão: 443 e 80. O Application Proxy continua a utilizar apenas ligações de saída, pelo que ainda não precisa de componentes num DMZ. Para mais detalhes, consulte a nossa [documentação de configuração.](application-proxy-add-on-premises-application.md)  
+- Se suportado pelo seu proxy ou firewall externo, pode agora abrir a sua rede por DNS em vez de alcance IP. Os serviços de procuração de aplicação requerem ligações apenas a *.msappproxy.net e *.servicebus.windows.net.
 
 
 ## <a name="earlier-versions"></a>Versões anteriores
 
-Se estiver a utilizar uma versão do conector Proxy de aplicação mais cedo do que 1.5.36.0, atualize a versão mais recente para garantir que possui as mais recentes funcionalidades totalmente suportadas.
+Se estiver a utilizar uma versão de conector Proxy da Aplicação antes de 1.5.36.0, atualize a versão mais recente para garantir que tem as funcionalidades mais recentes totalmente suportadas.
 
-## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre o acesso remoto a aplicações no local através do [Procurador de Aplicação AD Azure](application-proxy.md).
-- Para começar a utilizar o Proxy da Aplicação, consulte [Tutorial: Adicione uma aplicação no local para acesso remoto através de Procuração](application-proxy-add-on-premises-application.md)de Aplicações .
+## <a name="next-steps"></a>Próximos passos
+- Saiba mais sobre [acesso remoto a aplicações no local através do Azure AD Application Proxy](application-proxy.md).
+- Para começar a utilizar o Application Proxy, consulte [Tutorial: Adicione uma aplicação no local para acesso remoto através do Application Proxy](application-proxy-add-on-premises-application.md).

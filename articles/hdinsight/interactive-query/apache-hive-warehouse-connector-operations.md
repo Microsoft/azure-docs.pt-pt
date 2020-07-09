@@ -1,44 +1,44 @@
 ---
-title: Operações Apache Spark apoiadas por Hive Warehouse Connector em Azure HDInsight
-description: Conheça as diferentes capacidades do Conector hive warehouse no Azure HDInsight.
+title: Operações apache spark apoiadas pelo Conector do Armazém da Colmeia em Azure HDInsight
+description: Conheça as diferentes capacidades do Conector do Armazém da Colmeia no Azure HDInsight.
 author: nis-goel
 ms.author: nisgoel
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/22/2020
-ms.openlocfilehash: 999c58871ed811d91fd96d158ea6f65db6c718f3
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: ed3dbe4cb5b9d8b50c028a68feeded170130bfb8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83853842"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085842"
 ---
-# <a name="apache-spark-operations-supported-by-hive-warehouse-connector-in-azure-hdinsight"></a>Operações Apache Spark apoiadas por Hive Warehouse Connector em Azure HDInsight
+# <a name="apache-spark-operations-supported-by-hive-warehouse-connector-in-azure-hdinsight"></a>Operações apache spark apoiadas pelo Conector do Armazém da Colmeia em Azure HDInsight
 
-Este artigo mostra operações baseadas em faíscas apoiadas pelo Hive Warehouse Connector (HWC). Todos os exemplos abaixo mostrados serão executados através da concha apache Spark.
+Este artigo mostra operações baseadas em faíscas apoiadas pelo Conector do Armazém da Colmeia (HWC). Todos os exemplos apresentados abaixo serão executados através da concha de Faísca Apache.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
-Complete os passos de configuração do [Conector do Armazém hive.](./apache-hive-warehouse-connector.md#hive-warehouse-connector-setup)
+Complete os passos de [configuração do Conector do Armazém da Colmeia.](./apache-hive-warehouse-connector.md#hive-warehouse-connector-setup)
 
 ## <a name="getting-started"></a>Introdução
 
-Para iniciar uma sessão de spark-shell, faça os seguintes passos:
+Para iniciar uma sessão de conchas de faísca, faça os seguintes passos:
 
-1. Utilize [o comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para se ligar ao seu aglomerado de Faíscas Apache. Editar o comando abaixo substituindo CLUSTERNAME pelo nome do seu cluster e, em seguida, introduzir o comando:
+1. Use [o comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para ligar ao seu aglomerado de faíscas Apache. Edite o comando abaixo substituindo o CLUSTERNAME pelo nome do seu cluster e, em seguida, insira o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. A partir da sua sessão ssh, execute o seguinte comando para observar a `hive-warehouse-connector-assembly` versão:
+1. A partir da sua sessão de sessão, execute o seguinte comando para notar a `hive-warehouse-connector-assembly` versão:
 
     ```bash
     ls /usr/hdp/current/hive_warehouse_connector
     ```
 
-1. Editar o código abaixo com a `hive-warehouse-connector-assembly` versão acima identificada. Em seguida, execute o comando para iniciar a casca de faísca:
+1. Edite o código abaixo com a `hive-warehouse-connector-assembly` versão acima identificada. Em seguida, execute o comando para iniciar a concha de faísca:
 
     ```bash
     spark-shell --master yarn \
@@ -46,16 +46,16 @@ Para iniciar uma sessão de spark-shell, faça os seguintes passos:
     --conf spark.security.credentials.hiveserver2.enabled=false
     ```
 
-1. Depois de iniciar a casca de faísca, uma instância de Conector de Armazém hive pode ser iniciada usando os seguintes comandos:
+1. Depois de iniciar a camada de faísca, uma instância do Conector do Armazém da Colmeia pode ser iniciada utilizando os seguintes comandos:
 
     ```scala
     import com.hortonworks.hwc.HiveWarehouseSession
     val hive = HiveWarehouseSession.session(spark).build()
     ```
 
-## <a name="creating-spark-dataframes-using-hive-queries"></a>Criação de DataFrames de Faísca suster consultas da Hive
+## <a name="creating-spark-dataframes-using-hive-queries"></a>Criação de DataFrames de Faíscas usando consultas de Hive
 
-Os resultados de todas as consultas que utilizam a biblioteca HWC são devolvidos como DataFrame. Os seguintes exemplos demonstram como criar uma consulta básica de colmeia.
+Os resultados de todas as consultas que utilizam a biblioteca HWC são devolvidos como DataFrame. Os exemplos a seguir demonstram como criar uma consulta básica da colmeia.
 
 ```scala
 hive.setDatabase("default")
@@ -63,41 +63,41 @@ val df = hive.executeQuery("select * from hivesampletable")
 df.filter("state = 'Colorado'").show()
 ```
 
-Os resultados da consulta são Spark DataFrames, que podem ser usados com bibliotecas spark como MLIB e SparkSQL.
+Os resultados da consulta são Spark DataFrames, que podem ser usados com bibliotecas Spark como MLIB e SparkSQL.
 
-## <a name="writing-out-spark-dataframes-to-hive-tables"></a>Escrever Spark DataFrames para as mesas da Colmeia
+## <a name="writing-out-spark-dataframes-to-hive-tables"></a>Escrevendo DataFrames de Faísca para tabelas de colmeias
 
-A Faísca não apoia a escrita nas mesas acid geridas da Hive. No entanto, utilizando o HWC, pode escrever qualquer DataFrame para uma tabela DaHiv. Pode ver esta funcionalidade a trabalhar no seguinte exemplo:
+Spark não apoia a escrita para as tabelas de ÁCIDO geridas da Hive. No entanto, usando o HWC, pode escrever qualquer DataFrame para uma tabela de Colmeia. Pode ver esta funcionalidade no trabalho no seguinte exemplo:
 
-1. Crie uma tabela chamada `sampletable_colorado` e especifique as suas colunas utilizando o seguinte comando:
+1. Criar uma tabela chamada `sampletable_colorado` e especificar as suas colunas utilizando o seguinte comando:
 
     ```scala
     hive.createTable("sampletable_colorado").column("clientid","string").column("querytime","string").column("market","string").column("deviceplatform","string").column("devicemake","string").column("devicemodel","string").column("state","string").column("country","string").column("querydwelltime","double").column("sessionid","bigint").column("sessionpagevieworder","bigint").create()
     ```
 
-1. Filtrar a tabela `hivesampletable` onde a coluna é igual `state` `Colorado` . Esta consulta de colmeia devolve uma sis Spark DataFrame e sis guardada na tabela Da Colmeia `sampletable_colorado` utilizando a `write` função.
+1. Filtrar a tabela `hivesampletable` onde a coluna é igual `state` `Colorado` . Esta consulta de colmeia devolve uma sis de Spark DataFrame guardada na tabela Hive `sampletable_colorado` utilizando a `write` função.
 
     ```scala
     hive.table("hivesampletable").filter("state = 'Colorado'").write.format("com.hortonworks.spark.sql.hive.llap.HiveWarehouseConnector").mode("append").option("table","sampletable_colorado").save()
     ```
 
-1. Veja os resultados com o seguinte comando:
+1. Ver os resultados com o seguinte comando:
 
     ```scala
     hive.table("sampletable_colorado").show()
     ```
     
-    ![conector de armazém de colmeia mostrar mesa de colmeia](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
+    ![conector de armazém de colmeia mostra tabela de colmeia](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
 
 
-## <a name="structured-streaming-writes"></a>Streaming estruturado escreve
+## <a name="structured-streaming-writes"></a>Escreve streaming estruturado
 
-Utilizando o Conector de Armazém Hive, pode utilizar o streaming Spark para escrever dados em tabelas da Hive.
+Utilizando o Conector Hive Warehouse, pode utilizar o streaming spark para escrever dados em tabelas de Colmeia.
 
 > [!IMPORTANT]
-> Os escritos de streaming estruturados não são suportados em clusters ESP ativados spark 4.0.
+> As escritas de streaming estruturadas não são suportadas em clusters de faíscas ativados por ESP 4.0.
 
-Siga os passos abaixo para ingerir dados de um fluxo de faíscas no porto local 9999 para uma tabela Hive via. Conector de Armazém hive.
+Siga os passos abaixo para ingerir dados de uma corrente de faísca na porta local 9999 em uma tabela de Colmeia via. Conector do Armazém da Colmeia.
 
 1. A partir da sua concha de faísca aberta, inicie uma corrente de faísca com o seguinte comando:
 
@@ -105,26 +105,26 @@ Siga os passos abaixo para ingerir dados de um fluxo de faíscas no porto local 
     val lines = spark.readStream.format("socket").option("host", "localhost").option("port",9999).load()
     ```
 
-1. Gere dados para o fluxo Spark que criou, fazendo os seguintes passos:
+1. Gerei dados para o fluxo spark que criou, fazendo os seguintes passos:
     1. Abra uma segunda sessão de SSH no mesmo cluster Spark.
-    1. No pedido de comando, escreva `nc -lk 9999` . Este comando utiliza o utilitário netcat para enviar dados da linha de comando para a porta especificada.
+    1. Na solicitação de comando, escreva `nc -lk 9999` . Este comando utiliza o utilitário netcat para enviar dados da linha de comando para a porta especificada.
 
-1. Volte à primeira sessão de SSH e crie uma nova tabela Hive para segurar os dados de streaming. Na casca de faísca, insira o seguinte comando:
+1. Volte à primeira sessão de SSH e crie uma nova tabela De Colmeia para conter os dados de streaming. Na casca de faísca, insira o seguinte comando:
 
     ```scala
     hive.createTable("stream_table").column("value","string").create()
     ```
 
-1. Em seguida, escreva os dados de streaming para a tabela recém-criada usando o seguinte comando:
+1. Em seguida, escreva os dados de streaming para a tabela recém-criada utilizando o seguinte comando:
 
     ```scala
     lines.filter("value = 'HiveSpark'").writeStream.format("com.hortonworks.spark.sql.hive.llap.streaming.HiveStreamingDataSource").option("database", "default").option("table","stream_table").option("metastoreUri",spark.conf.get("spark.datasource.hive.warehouse.metastoreUri")).option("checkpointLocation","/tmp/checkpoint1").start()
     ```
 
     >[!Important]
-    > As `metastoreUri` `database` opções e opções devem ser definidas manualmente devido a um problema conhecido em Apache Spark. Para mais informações sobre este assunto, consulte [SPARK-25460](https://issues.apache.org/jira/browse/SPARK-25460).
+    > As `metastoreUri` `database` opções devem ser definidas manualmente devido a um problema conhecido em Apache Spark. Para mais informações sobre este assunto, consulte [SPARK-25460](https://issues.apache.org/jira/browse/SPARK-25460).
 
-1. Volte à segunda sessão de SSH e introduza os seguintes valores:
+1. Volte à segunda sessão de SSH e insira os seguintes valores:
 
     ```bash
     foo
@@ -132,16 +132,16 @@ Siga os passos abaixo para ingerir dados de um fluxo de faíscas no porto local 
     bar
     ```
 
-1. Volte à primeira sessão de SSH e note a breve atividade. Utilize o seguinte comando para visualizar os dados:
+1. Volte à primeira sessão de SSH e tome nota da breve atividade. Utilize o seguinte comando para visualizar os dados:
 
     ```scala
     hive.table("stream_table").show()
     ```
 
-Utilize **ctrl + C** para parar o netcat na segunda sessão SSH. Utilize `:q` para sair de uma casca de faísca na primeira sessão sHH.
+Utilize **ctrl + C** para parar o netcat na segunda sessão de SSH. Use `:q` para sair da casca de faísca na primeira sessão de SSH.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Integração de HWC com Apache Spark e Apache Hive](./apache-hive-warehouse-connector.md)
+* [Integração do HWC no Apache Spark e no Apache Hive](./apache-hive-warehouse-connector.md)
 * [Utilizar uma Consulta Interativa com o HDInsight](./apache-interactive-query-get-started.md).
-* [Integração de HWC com Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)
+* [Integração do HWC no Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)

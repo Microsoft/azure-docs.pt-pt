@@ -1,51 +1,51 @@
 ---
 title: Configurar a autenticação mútua de TLS
-description: Saiba como autenticar os certificados de cliente no TLS. O Azure App Service pode disponibilizar o certificado de cliente ao código da aplicação para verificação.
+description: Saiba como autenticar certificados de cliente em TLS. O Azure App Service pode disponibilizar o certificado do cliente ao código da aplicação para verificação.
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: seodec18
 ms.openlocfilehash: 143317cd424428d7f480f4880d3aab750853890b
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82592371"
 ---
-# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configure autenticação mútua TLS para serviço de aplicações azure
+# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurar a autenticação mútua TLS para o Serviço de Aplicações Azure
 
-Pode restringir o acesso à sua aplicação Azure App Service, permitindo-lhe diferentes tipos de autenticação. Uma maneira de fazê-lo é solicitar um certificado de cliente quando o pedido do cliente for sobre TLS/SSL e validar o certificado. Este mecanismo chama-se autenticação mútua TLS ou autenticação de certificado de cliente. Este artigo mostra como configurar a sua app para utilizar a autenticação do certificado de cliente.
+Pode restringir o acesso à sua aplicação Azure App Service, permitindo diferentes tipos de autenticação para a sua aplicação. Uma forma de o fazer é solicitar um certificado de cliente quando o pedido do cliente é superior à TLS/SSL e validar o certificado. Este mecanismo chama-se autenticação mútua TLS ou autenticação de certificado de cliente. Este artigo mostra como configurar a sua app para utilizar a autenticação do certificado do cliente.
 
 > [!NOTE]
-> Se aceder ao seu site em HTTP e não HTTPS, não receberá qualquer certificado de cliente. Portanto, se o seu pedido requer certificados de cliente, não deve permitir pedidos para a sua candidatura em HTTP.
+> Se aceder ao seu site em HTTP e não HTTPS, não receberá nenhum certificado de cliente. Assim, se a sua candidatura necessitar de certificados de cliente, não deverá permitir pedidos à sua candidatura em HTTP.
 >
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
 ## <a name="enable-client-certificates"></a>Ativar certificados de cliente
 
-Para configurar a sua aplicação para exigir certificados de cliente, pode **ligar** o certificado de entrada Requirecoming selecionando `true`**Configurações Gerais** de **Configuração** > do Portal Azure ou precisa definir a `clientCertEnabled` definição para a sua app para . Para definir a definição, execute o seguinte comando na [Cloud Shell](https://shell.azure.com).
+Para configurar a sua aplicação para exigir certificados de cliente, pode **ligar** o certificado de entrada 'Exigir', selecionando Configurações Gerais de **Configuração**a partir do Portal  >  **General Settings** Azure ou precisa de definir a `clientCertEnabled` definição para a sua aplicação para `true` . Para definir a definição, executar o seguinte comando na [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
 ```
 
-## <a name="exclude-paths-from-requiring-authentication"></a>Excluir caminhos da exigência de autenticação
+## <a name="exclude-paths-from-requiring-authentication"></a>Excluir caminhos de exigir autenticação
 
-Quando ativar a auth mútua para a sua aplicação, todos os caminhos sob a raiz da sua aplicação exigirão um certificado de cliente para acesso. Para permitir que certos caminhos permaneçam abertos para acesso anónimo, pode definir caminhos de exclusão como parte da configuração da sua aplicação.
+Quando ativar a auth mútua para a sua aplicação, todos os caminhos sob a raiz da sua app exigirão um certificado de cliente para acesso. Para permitir que certos caminhos permaneçam abertos para acesso anónimo, pode definir caminhos de exclusão como parte da configuração da sua aplicação.
 
-Os caminhos de exclusão podem ser configurados selecionando**configurações gerais** de **configuração** > e definindo um caminho de exclusão. Neste exemplo, qualquer `/public` coisa em vias de aplicação não solicitaria um certificado de cliente.
+Os caminhos de exclusão podem ser configurados selecionando Configurações Gerais **de Configuração**  >  **General Settings** e definindo um caminho de exclusão. Neste exemplo, qualquer coisa em `/public` curso para o seu pedido não solicitaria um certificado de cliente.
 
-![Caminhos de Exclusão de Certificados][exclusion-paths]
+![Percursos de Exclusão de Certificados][exclusion-paths]
 
 
 ## <a name="access-client-certificate"></a>Certificado de cliente de acesso
 
-No Serviço de Aplicações, a rescisão do pedido por TLS ocorre no equilíbrio de carga frontend. Ao reencaminhar o pedido para o seu código de aplicações `X-ARR-ClientCert` com certificados de [cliente ativados,](#enable-client-certificates)o Serviço de Aplicações injeta um cabeçalho de pedido com o certificado de cliente. O Serviço de Aplicações não faz nada com este certificado de cliente a não ser reencaminhar para a sua aplicação. O seu código de aplicação é responsável pela validação do certificado de cliente.
+No Serviço de Aplicações, a interrupção do pedido do TLS ocorre no balançador de carga frontal. Ao encaminhar o pedido para o seu código de aplicação com [certificados de cliente ativados,](#enable-client-certificates)o Serviço de Aplicações injeta um `X-ARR-ClientCert` cabeçalho de pedido com o certificado do cliente. O Serviço de Aplicações não faz nada com este certificado de cliente, a não ser reencaminha-lo para a sua aplicação. O seu código de aplicação é responsável pela validação do certificado do cliente.
 
 Para ASP.NET, o certificado de cliente está disponível através da propriedade **HttpRequest.ClientCertificate.**
 
-Para outras pilhas de aplicações (Node.js, PHP, etc.), o cliente cert está disponível na sua app através de um valor codificado base64 no cabeçalho de `X-ARR-ClientCert` pedido.
+Para outras pilhas de aplicações (Node.js, PHP, etc.), o certificado do cliente está disponível na sua app através de um valor codificado base64 no cabeçalho de `X-ARR-ClientCert` pedido.
 
 ## <a name="aspnet-sample"></a>ASP.NET amostra
 
@@ -171,9 +171,9 @@ Para outras pilhas de aplicações (Node.js, PHP, etc.), o cliente cert está di
     }
 ```
 
-## <a name="nodejs-sample"></a>Amostra de Nó.js
+## <a name="nodejs-sample"></a>Node.js amostra
 
-O seguinte código de amostra Node.js recebe o `X-ARR-ClientCert` cabeçalho e utiliza a [forja do nó](https://github.com/digitalbazaar/forge) para converter a cadeia PEM codificada com base 64 num objeto de certificado e validá-lo:
+O seguinte código de amostra Node.js recebe o `X-ARR-ClientCert` cabeçalho e utiliza [a forja de nó](https://github.com/digitalbazaar/forge) para converter a cadeia PEM codificada de base64 num objeto de certificado e validá-la:
 
 ```javascript
 import { NextFunction, Request, Response } from 'express';
@@ -218,7 +218,7 @@ export class AuthorizationHandler {
 
 ## <a name="java-sample"></a>Amostra de Java
 
-A seguinte classe Java codifica `X-ARR-ClientCert` o `X509Certificate` certificado de uma instância. `certificateIsValid()`valida que a impressão digital do certificado corresponde à dada no construtor e que o certificado não expirou.
+A seguinte classe Java codifica o certificado de `X-ARR-ClientCert` um `X509Certificate` caso. `certificateIsValid()`valida que a impressão digital do certificado corresponde à dada no construtor e que o certificado não expirou.
 
 
 ```java

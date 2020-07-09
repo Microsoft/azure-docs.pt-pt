@@ -1,31 +1,19 @@
 ---
-title: Referência sintaxe SQLRuleAction no Ônibus de Serviço Azure
-description: Este artigo fornece uma referência para a sintaxe SQLRuleAction. As ações são escritas em sintaxe baseada em língua SQL que é realizada contra uma mensagem intermediada.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
+title: Referência de sintaxe SQLRuleAction em Azure Service Bus
+description: Este artigo fornece uma referência para a sintaxe SQLRuleAction. As ações são escritas na sintaxe baseada em linguagem SQL que é realizada contra uma mensagem intermediada.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 37615e39577ef60cccc9df91b61a6aa24ca794d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 61fa6e046b4d4a0ba91bf8608c846755026d07ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76759633"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341580"
 ---
-# <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Referência sintaxe SQLRuleAction para ônibus de serviço Azure
+# <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Referência de sintaxe SQLRuleAction para Azure Service Bus
 
-A *SqlRuleAction* é um exemplo da classe [SqlRuleAction,](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) e representa um conjunto de ações escritas na sintaxe baseada em linguagem SQL que é realizada contra uma [Mensagem Intermediada](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
+A *SqlRuleAction* é um exemplo da classe [SqlRuleAction,](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) e representa um conjunto de ações escritas na sintaxe baseada em linguagem SQL que é realizada contra uma [MediaedMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
   
-Este artigo lista detalhes sobre a gramática de ação de regra SQL.  
+Este artigo lista detalhes sobre a gramática de ação da regra SQL.  
   
 ```  
 <statements> ::=
@@ -65,7 +53,7 @@ Este artigo lista detalhes sobre a gramática de ação de regra SQL.
   
 ## <a name="arguments"></a>Argumentos  
   
--   `<scope>`é uma cadeia opcional que `<property_name>`indica o alcance do . Valores `sys` válidos são ou `user`. O `sys` valor indica `<property_name>` o âmbito do sistema onde é um nome de propriedade pública da [Classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`indica o `<property_name>` âmbito do utilizador onde é uma chave do dicionário [classe BrokeredMessage.](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) `user`âmbito é o `<scope>` âmbito padrão se não for especificado.  
+-   `<scope>`é uma cadeia opcional que indica o alcance do `<property_name>` . Valores válidos são `sys` ou `user` . O `sys` valor indica o âmbito do sistema onde é um nome de propriedade pública da Classe `<property_name>` [MediaedMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`indica o âmbito do utilizador onde `<property_name>` é uma chave do dicionário Da Classe [DeMetragem.](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) `user`o âmbito de aplicação é o âmbito padrão se `<scope>` não for especificado.  
   
 ### <a name="remarks"></a>Observações  
 
@@ -84,21 +72,21 @@ Uma tentativa de aceder a uma propriedade do sistema inexistente é um erro, enq
 ```  
   
 ### <a name="arguments"></a>Argumentos  
- `<regular_identifier>`é uma cadeia representada pela seguinte expressão regular:  
+ `<regular_identifier>`é uma corda representada pela seguinte expressão regular:  
   
 ```  
 [[:IsLetter:]][_[:IsLetter:][:IsDigit:]]*  
 ```  
   
- Isto significa qualquer corda que comece com uma letra e seja seguida por um ou mais sublinhados/letra/dígito.  
+ Isto significa que qualquer cadeia que comece com uma letra e seja seguida por um ou mais sublinhado/letra/dígito.  
   
- `[:IsLetter:]`significa qualquer personagem Unicode que seja categorizado como uma letra Unicode. `System.Char.IsLetter(c)``true` devoluções `c` se for uma letra Unicode.  
+ `[:IsLetter:]`significa qualquer personagem Unicode que seja classificado como uma letra Unicode. `System.Char.IsLetter(c)`retorna `true` se for uma letra `c` Unicode.  
   
- `[:IsDigit:]`significa qualquer personagem Unicode que seja categorizado como um dígito decimal. `System.Char.IsDigit(c)``true` devoluções `c` se for um dígito Unicode.  
+ `[:IsDigit:]`significa qualquer personagem Unicode que seja classificado como um dígito decimal. `System.Char.IsDigit(c)`retorna `true` se for um dígito `c` Unicode.  
   
  A `<regular_identifier>` não pode ser uma palavra-chave reservada.  
   
- `<delimited_identifier>`é qualquer corda que seja fechada com suportes quadrados esquerdo/direito ([]). Um suporte quadrado direito é representado como dois suportes quadrados direito. Seguem-se exemplos de: `<delimited_identifier>`  
+ `<delimited_identifier>`é qualquer corda que seja fechada com suportes quadrados esquerdo/direito ([]). Um suporte quadrado direito é representado como dois suportes quadrados direito. Seguem-se exemplos `<delimited_identifier>` de:  
   
 ```  
 [Property With Space]  
@@ -106,7 +94,7 @@ Uma tentativa de aceder a uma propriedade do sistema inexistente é um erro, enq
   
 ```  
   
- `<quoted_identifier>`é qualquer corda que seja fechada com duas aspas. Uma marca dupla de citação no identificador é representada como duas marcas duplas de citação. Não é aconselhável utilizar identificadores citados porque pode facilmente ser confundido com uma constante de corda. Utilize um identificador delimitado, se possível. Segue-se um `<quoted_identifier>`exemplo de:  
+ `<quoted_identifier>`é qualquer cadeia que é fechada com aspas duplas. Uma marca de dupla cotação no identificador é representada como duas aspas duplas. Não é aconselhável utilizar identificadores citados porque pode ser facilmente confundido com uma constante de corda. Use um identificador delimitado, se possível. Segue-se um exemplo `<quoted_identifier>` de:  
   
 ```  
 "Contoso & Northwind"  
@@ -121,11 +109,11 @@ Uma tentativa de aceder a uma propriedade do sistema inexistente é um erro, enq
   
 ### <a name="remarks"></a>Observações
   
- `<pattern>`deve ser uma expressão que é avaliada como uma corda. É usado como um padrão para o operador LIKE.      Pode conter os seguintes caracteres wildcard:  
+ `<pattern>`deve ser uma expressão que é avaliada como uma corda. É utilizado como um padrão para o operador LIKE.      Pode conter os seguintes caracteres wildcard:  
   
--   `%`: Qualquer série de caracteres zero ou mais.  
+-   `%`: Qualquer sequência de zero ou mais caracteres.  
   
--   `_`: Qualquer personagem único.  
+-   `_`: Qualquer personagem.  
   
 ## <a name="escape_char"></a>escape_char  
   
@@ -136,9 +124,9 @@ Uma tentativa de aceder a uma propriedade do sistema inexistente é um erro, enq
   
 ### <a name="remarks"></a>Observações
   
- `<escape_char>`deve ser uma expressão que é avaliada como uma cadeia de comprimento 1. É usado como um personagem de fuga para o operador LIKE.  
+ `<escape_char>`deve ser uma expressão que seja avaliada como uma cadeia de comprimento 1. É usado como um personagem de fuga para o operador LIKE.  
   
- Por `property LIKE 'ABC\%' ESCAPE '\'` exemplo, `ABC%` combina em vez `ABC`de uma corda que começa com .  
+ Por exemplo, `property LIKE 'ABC\%' ESCAPE '\'` combina em vez de uma corda que começa com `ABC%` `ABC` .  
   
 ## <a name="constant"></a>constante  
   
@@ -149,7 +137,7 @@ Uma tentativa de aceder a uma propriedade do sistema inexistente é um erro, enq
   
 ### <a name="arguments"></a>Argumentos  
   
--   `<integer_constant>`é uma série de números que não estão fechados em aspas e não contêm pontos decimais. Os valores são `System.Int64` armazenados internamente e seguem a mesma gama.  
+-   `<integer_constant>`é uma série de números que não estão incluídos em aspas e não contêm pontos decimais. Os valores são armazenados `System.Int64` internamente e seguem o mesmo alcance.  
   
      Seguem-se exemplos de longas constantes:  
   
@@ -158,9 +146,9 @@ Uma tentativa de aceder a uma propriedade do sistema inexistente é um erro, enq
     2  
     ```  
   
--   `<decimal_constant>`é uma série de números que não estão fechados em aspas, e contêm um ponto decimal. Os valores são `System.Double` armazenados internamente e seguem a mesma gama/precisão.  
+-   `<decimal_constant>`é uma série de números que não são incluídos em aspas, e contêm um ponto decimal. Os valores são armazenados `System.Double` internamente e seguem a mesma gama/precisão.  
   
-     Numa versão futura, este número pode ser armazenado num tipo de dados diferente para suportar a semântica `System.Double` `<decimal_constant>`exata dos números, pelo que não deve confiar no facto de o tipo de dados subjacente ser para .  
+     Numa versão futura, este número pode ser armazenado num tipo de dados diferente para suportar a semântica de número exato, pelo que não deve confiar no facto de que o tipo de dados subjacente é `System.Double` para `<decimal_constant>` .  
   
      Seguem-se exemplos de constantes decimais:  
   
@@ -169,7 +157,7 @@ Uma tentativa de aceder a uma propriedade do sistema inexistente é um erro, enq
     2.0  
     ```  
   
--   `<approximate_number_constant>`é um número escrito em notação científica. Os valores são `System.Double` armazenados internamente e seguem a mesma gama/precisão. Seguem-se exemplos de constantes de número supressão:  
+-   `<approximate_number_constant>`é um número escrito em notação científica. Os valores são armazenados `System.Double` internamente e seguem a mesma gama/precisão. Seguem-se exemplos de constantes de números aproximados:  
   
     ```  
     101.5E5  
@@ -185,7 +173,7 @@ Uma tentativa de aceder a uma propriedade do sistema inexistente é um erro, enq
   
 ### <a name="remarks"></a>Observações
   
-As constantes booleanas são `TRUE` representadas pelas palavras-chave ou `FALSE`. Os valores são `System.Boolean`armazenados como .  
+As constantes booleanas são representadas pelas palavras-chave `TRUE` ou `FALSE` . Os valores são armazenados como `System.Boolean` .  
   
 ## <a name="string_constant"></a>string_constant  
   
@@ -195,9 +183,9 @@ As constantes booleanas são `TRUE` representadas pelas palavras-chave ou `FALSE
   
 ### <a name="remarks"></a>Observações
   
-As constantes de cordas são fechadas em letras únicas e incluem quaisquer caracteres Unicode válidos. Uma única marca de citação incorporada numa constante de corda é representada como duas únicas marcas de citação.  
+As constantes de corda são incluídas em aspas únicas e incluem caracteres Unicode válidos. Uma única marca de aspas incorporada numa constante de corda é representada como duas aspas únicas.  
   
-## <a name="function"></a>função  
+## <a name="function"></a> Função   
   
 ```  
 <function> :=  
@@ -207,20 +195,20 @@ As constantes de cordas são fechadas em letras únicas e incluem quaisquer cara
   
 ### <a name="remarks"></a>Observações  
 
-A `newid()` função devolve um **System.Guid** gerado pelo `System.Guid.NewGuid()` método.  
+A `newid()` função devolve um **Sistema.Guid** gerado pelo `System.Guid.NewGuid()` método.  
   
-A `property(name)` função devolve o valor `name`do imóvel referenciado por . O `name` valor pode ser qualquer expressão válida que retorne um valor de cadeia.  
+A `property(name)` função devolve o valor do imóvel referenciado por `name` . O `name` valor pode ser qualquer expressão válida que devolva um valor de cadeia.  
   
 ## <a name="considerations"></a>Considerações
 
-- O SET é usado para criar um novo imóvel ou atualizar o valor de um imóvel existente.
+- O SET é utilizado para criar um novo imóvel ou atualizar o valor de um imóvel existente.
 - Remove é usado para remover uma propriedade.
-- O SET realiza uma conversão implícita, se possível, quando o tipo de expressão e o tipo de propriedade existente são diferentes.
+- O SET realiza conversão implícita se possível quando o tipo de expressão e o tipo de propriedade existente são diferentes.
 - A ação falha se as propriedades do sistema inexistentes forem referenciadas.
 - A ação não falha se as propriedades de utilizador inexistentes forem referenciadas.
-- Uma propriedade de utilizador inexistente é avaliada internamente como "Desconhecida", seguindo a mesma semântica que o [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) ao avaliar os operadores.
+- Uma propriedade utilizadora inexistente é avaliada como "Desconhecida" internamente, seguindo a mesma semântica que o [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) ao avaliar os operadores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Classe SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
 - [Classe SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)

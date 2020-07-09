@@ -1,22 +1,16 @@
 ---
-title: 'Tutorial: Envie eventos personalizados para conexão híbrida - Grelha de Eventos'
-description: 'Tutorial: Use Azure Event Grid e Azure CLI para publicar um tópico e subscrever esse evento. Uma ligação híbrida serve para o ponto final.'
-services: event-grid
-keywords: ''
-author: spelluru
-ms.author: spelluru
-ms.date: 11/05/2019
+title: 'Tutorial: Enviar eventos personalizados para conexão híbrida - Grade de Eventos'
+description: 'Tutorial: Use a Azure Event Grid e a Azure CLI para publicar um tópico e subscrever esse evento. Uma ligação híbrida serve para o ponto final.'
+ms.date: 07/07/2020
 ms.topic: tutorial
-ms.service: event-grid
-ms.custom: seodec18
-ms.openlocfilehash: 2773d06fdfc606faaab88340fc2ef9685bba21f9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 208d8584736a0d7ff591c3a8ed7a08bcbf6dcba4
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73720696"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114912"
 ---
-# <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Tutorial: Rota eventos personalizados para Ligações Híbridas Azure Relay com ClI Azure e Grelha de Eventos
+# <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Tutorial: Encaminhar eventos personalizados para Azure Relay Hybrid Connections com Azure CLI e Grade de Eventos
 
 O Azure Event Grid é um serviço de eventos para a cloud. As Ligações Híbridas do Azure Relay são um dos processadores de eventos suportados. Utiliza ligações híbridas como o processador de eventos quando necessita de processar eventos de aplicações que não tenham um ponto final público. Estas aplicações podem estar dentro da sua rede empresarial. Neste artigo, a CLI do Azure serve para criar um tópico personalizado, subscrever o tópico personalizado e acionar o evento para ver o resultado. Os eventos são enviados para a ligação híbrida.
 
@@ -27,7 +21,7 @@ Este artigo pressupõe que já tem uma ligação híbrida e uma aplicação de s
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!NOTE]
-> Se estiver a utilizar o Azure CLI na sua máquina local, utilize a versão Azure CLI 2.0.56 ou superior. Para obter instruções sobre a instalação da versão mais recente do Azure CLI, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli).
+> Se estiver a utilizar o Azure CLI na sua máquina local, utilize a versão 2.0.56 do Azure CLI. Para obter instruções sobre a instalação da versão mais recente do Azure [CLI, consulte instalar o Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -51,7 +45,7 @@ az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 
 ## <a name="subscribe-to-a-custom-topic"></a>Subscrever um tópico personalizado
 
-Subscreva um tópico da grelha de eventos para dizer ao Event Grid quais os eventos que pretende acompanhar. O exemplo seguinte subscreve o tópico personalizado que criou e passa a identificação de recursos da ligação híbrida para o ponto final. O ID da ligação híbrida está no formato:
+Você subscreve um tópico de grelha de eventos para dizer a Event Grid quais eventos você quer rastrear. O exemplo a seguir subscreve o tópico personalizado que criou e passa o ID de recurso da ligação híbrida para o ponto final. O ID da ligação híbrida está no formato:
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Relay/namespaces/<relay-namespace>/hybridConnections/<hybrid-connection-name>`
 
@@ -117,7 +111,7 @@ Se quiser continuar a trabalhar com este evento, não limpe os recursos criados 
 az group delete --name gridResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

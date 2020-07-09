@@ -1,5 +1,5 @@
 ---
-title: Crie a app Node.js Express com a API da Azure Cosmos DB para o MongoDB (Part2)
+title: Criar Node.js aplicação Express com API da Azure Cosmos DB para a MongoDB (Part2)
 description: Parte 2 da série do tutorial sobre como criar uma aplicação MongoDB com Angular e Node no Azure Cosmos DB mediante a utilização das mesmas APIs que são utilizadas para MongoDB.
 author: johnpapa
 ms.service: cosmos-db
@@ -10,16 +10,16 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 693222f4c1abd9bda128d18dc4dd67703a245bc8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f9ce90a64ca038c99fe4ba63e66f7e5abbd196f6
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75441134"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119176"
 ---
-# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Crie uma app Angular com a API da Azure Cosmos DB para o MongoDB - Crie uma app Node.js Express
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Criar uma aplicação angular com API da Azure Cosmos DB para a MongoDB - Criar uma aplicação Node.js Express
 
-Este tutorial em várias partes demonstra como criar uma nova app escrita no Node.js com Express e Angular e, em seguida, conectá-la à sua [conta Cosmos configurada com a API da Cosmos DB para MongoDB](mongodb-introduction.md).
+Este tutorial multi-partes demonstra como criar uma nova app escrita em Node.js com o Express e angular e, em seguida, conectá-la à sua [conta Cosmos configurada com a API da Cosmos DB para a MongoDB.](mongodb-introduction.md)
 
 A Parte 2 do tutorial é a continuação da [introdução](tutorial-develop-mongodb-nodejs.md) e abrange as seguintes tarefas:
 
@@ -163,7 +163,7 @@ Este tutorial também requer:
 
     Esta resposta mostra que a aplicação está em execução localmente. 
 
-    ![O Postman mostra o pedido e a resposta](./media/tutorial-develop-mongodb-nodejs-part2/azure-cosmos-db-postman.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part2/azure-cosmos-db-postman.png" alt-text="O Postman mostra o pedido e a resposta":::
 
 
 ## <a name="next-steps"></a>Passos seguintes

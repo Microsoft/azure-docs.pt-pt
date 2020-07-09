@@ -1,70 +1,69 @@
 ---
-title: Use a Automação Azure para lançar um trabalho no StorSimple Data Manager
-description: Saiba como usar a Automação Azure para desencadear empregos de Gestor de Dados StorSimple
+title: Use a Azure Automation para lançar um emprego no StorSimple Data Manager
+description: Saiba como utilizar a Azure Automation para desencadear empregos de Gestor de Dados StorSimple
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 034b4996672f0961cf31d342aa6055482f099b9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2562e7463ba0a79cf77d21f3bb619f13283c989d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76273998"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514926"
 ---
-# <a name="use-azure-automation-to-trigger-a-job"></a>Use a Automação Azure para desencadear um trabalho
+# <a name="use-azure-automation-to-trigger-a-job"></a>Use a Azure Automation para desencadear um trabalho
 
 Este artigo explica como pode utilizar a funcionalidade de transformação de dados dentro do serviço StorSimple Data Manager para transformar dados do dispositivo StorSimple. Pode lançar um trabalho de transformação de dados de duas formas: 
 
  - Utilizar o .NET SDK
- - Utilizar o livro de execução da Automação Azure
+ - Use o runbook da Azure Automation
  
-Este artigo detalha como criar um livro de execução da Automação Azure e depois usá-lo para iniciar um trabalho de transformação de dados. Para saber mais sobre como iniciar a transformação de dados através do .NET SDK, vá a [Use .NET SDK para desencadear empregos](storsimple-data-manager-dotnet-jobs.md)de transformação de dados .
+Este artigo detalha como criar um runbook da Azure Automation e depois usá-lo para iniciar um trabalho de transformação de dados. Para saber mais sobre como iniciar a transformação de dados através de .NET SDK, vá ao [Use .NET SDK para desencadear empregos de transformação de dados](storsimple-data-manager-dotnet-jobs.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de que tem:
 
-*   Azure PowerShell instalado no computador cliente. [Baixar O Azure PowerShell.](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
-*   Uma definição de trabalho corretamente configurada num serviço StorSimple Data Manager dentro de um grupo de recursos.
-*   Descarregue [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) o ficheiro do repositório GitHub. 
-*   Descarregue [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) o script do repositório GitHub.
+*   Azure PowerShell instalado no computador cliente. [Baixar Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+*   Uma definição de emprego corretamente configurada num serviço StorSimple Data Manager dentro de um grupo de recursos.
+*   Descarregue [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) o ficheiro do repositório do GitHub. 
+*   Baixe [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) o script do repositório do GitHub.
 
 ## <a name="step-by-step-procedure"></a>Procedimento passo a passo
 
-### <a name="set-up-the-automation-account"></a>Configurar a conta Automation
+### <a name="set-up-the-automation-account"></a>Configurar a conta De Automação
 
-1. Crie uma conta de automação Azure Run No portal Azure. Para isso, vá ao **mercado Azure > Everything** e, em seguida, procure a **Automação.** Selecione **contas de Automação**.
+1. Crie uma conta Azure Run Como conta de automação no portal Azure. Para tal, vá ao **mercado Azure > Tudo** e depois procure por **Automação.** **Selecione contas de automação**.
 
     ![Criar Run como conta de automação](./media/storsimple-data-manager-job-using-automation/search-automation-account1.png)
 
-2. Para adicionar uma nova conta de automação, clique **+ Adicionar**.
+2. Para adicionar uma nova conta de automação, clique **em + Adicionar**.
 
     ![Criar Run como conta de automação](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
 
-3. Na **Automação add:**
+3. Na **Automatização**de Adicionar:
 
-   1. Forneça o **nome** da sua conta de automação.
+   1. Forneça o **Nome** da sua conta de automação.
    2. Selecione a **Subscrição** ligada ao seu serviço StorSimple Data Manager.
    3. Crie um novo grupo de recursos ou selecione a partir de um grupo de recursos existente.
-   4. Selecione um **Local**.
-   5. Deixe o padrão **Criar Executar Como** opção de conta selecionada.
-   6. Para obter um link para acesso rápido no painel de instrumentos, verifique **pin para o painel de instrumentos**. Clique em **Criar**.
+   4. Selecione uma **localização**.
+   5. Deixe a opção **de execução por** defeito Como a opção de conta selecionada.
+   6. Para obter um link para acesso rápido no painel de instrumentos, verifique **Pin para painel de instrumentos**. Clique em **Criar**.
 
       ![Criar Run como conta de automação](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
-      Após a criação da conta de automação com sucesso, é notificado.
+      Depois de a conta de automação ter sido criada com sucesso, é notificado.
     
-      ![Notificação para implementação da conta de automação](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
+      ![Notificação para implantação da conta de automação](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
 
-      Para mais informações, vá à [Create a Run As account](../automation/automation-create-runas-account.md).
+      Para mais informações, aceda à [conta Criar uma Conta Como](../automation/automation-create-runas-account.md)Executada.
 
-3. Na conta recém-criada, vá aos **Recursos Partilhados > Módulos** e clique **+ Adicionar módulo**.
+3. Na conta recém-criada, vá a **Recursos Partilhados > Módulos** e clique **+ Adicionar módulo.**
 
     ![Módulo de importação 1](./media/storsimple-data-manager-job-using-automation/import-module-1.png)
 
-4. Navegue na localização `DataTransformationApp.zip` do ficheiro a partir do seu computador local e selecione e abra o módulo. Clique **em OK** para importar o módulo.
+4. Navegue pela localização do `DataTransformationApp.zip` ficheiro a partir do computador local e selecione e abra o módulo. Clique **em OK** para importar o módulo.
 
     ![Módulo de importação 2](./media/storsimple-data-manager-job-using-automation/import-module-2.png)
 
@@ -72,50 +71,50 @@ Antes de começar, certifique-se de que tem:
 
    ![Módulo de importação 4](./media/storsimple-data-manager-job-using-automation/import-module-4.png)
 
-5. Recebe uma notificação de que o módulo está a ser implantado e outra notificação quando o processo estiver concluído.  O estado dos **Módulos** altera-se ao **Disponível**.
+5. Recebe uma notificação de que o módulo está a ser implementado e outra notificação quando o processo estiver concluído.  O estado em **Módulos** muda para **Disponível**.
 
     ![Módulo de importação 5](./media/storsimple-data-manager-job-using-automation/import-module-5.png)
 
-### <a name="import-publish-and-run-automation-runbook"></a>Importar, publicar e executar livro de execução automation
+### <a name="import-publish-and-run-automation-runbook"></a>Importar, publicar e executar o runbook automation
 
-Execute os seguintes passos para importar, publicar e executar o livro de execução para desencadear a definição de trabalho.
+Execute os seguintes passos para importar, publicar e executar o livro de bordo para desencadear a definição de emprego.
 
-1. No portal do Azure, abra a sua conta da Automatização. Vá ao **Process Automation > Runbooks** e clique **+ Adicione um livro de execução**.
+1. No portal do Azure, abra a sua conta da Automatização. Vá a **Processos de Automatização > Runbooks** e clique **+ Adicione um runbook**.
 
-    ![Adicionar livro de corridas 1](./media/storsimple-data-manager-job-using-automation/add-runbook-1.png)
+    ![Adicionar runbook 1](./media/storsimple-data-manager-job-using-automation/add-runbook-1.png)
 
-2. Em **Adicionar livro de execução,** clique em importar um livro de **execução existente**.
+2. No **Add runbook,** clique **em Importar um livro de recortes existente.**
 
-3. Aponte para o ficheiro `Trigger-DataTransformation-Job.ps1` de script Azure PowerShell para o ficheiro **Runbook**. O tipo de livro de execução é automaticamente selecionado. Forneça um nome e uma descrição opcional para o livro de execução. Clique em **Criar**.
+3. Aponte para o ficheiro de script Azure PowerShell `Trigger-DataTransformation-Job.ps1` para o **ficheiro Runbook**. O tipo de livro de execução é selecionado automaticamente. Forneça um nome e uma descrição opcional para o livro de recortes. Clique em **Criar**.
 
-    ![Adicionar livro de corridas 2](./media/storsimple-data-manager-job-using-automation/add-runbook-2.png)
+    ![Adicionar runbook 2](./media/storsimple-data-manager-job-using-automation/add-runbook-2.png)
 
-4. O novo livro de execução aparece na lista de livros de execução para a conta Automation. Selecione e clique neste livro de execução.
+4. O novo runbook aparece na lista de runbooks para a conta Automation. Selecione e clique neste livro de execução.
 
-    ![Adicionar livro de corridas 3](./media/storsimple-data-manager-job-using-automation/add-runbook-3.png)
+    ![Adicionar runbook 3](./media/storsimple-data-manager-job-using-automation/add-runbook-3.png)
 
-5. Editar o livro de corridas e clicar no painel **de teste.**
+5. Edite o runbook e clique no **painel de teste.**
 
-    ![Adicionar livro de corridas 4](./media/storsimple-data-manager-job-using-automation/add-runbook-4.png)
+    ![Adicionar runbook 4](./media/storsimple-data-manager-job-using-automation/add-runbook-4.png)
 
-6. Forneça os parâmetros como o nome do seu serviço StorSimple Data Manager, o grupo de recursos associados e o nome da definição de emprego. **Começa** o teste. O relatório é gerado quando a execução está completa. Para mais informações, vá testar um livro de [corridas](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
+6. Forneça os parâmetros como o nome do seu serviço StorSimple Data Manager, o grupo de recursos associado e o nome de definição de trabalho. **Começa** o teste. O relatório é gerado quando a execução está completa. Para mais informações, aceda a como [testar um livro de recortes.](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook)
 
-    ![Adicionar livro de corridas 8](./media/storsimple-data-manager-job-using-automation/add-runbook-8.png)    
+    ![Adicionar runbook 8](./media/storsimple-data-manager-job-using-automation/add-runbook-8.png)    
 
-7. Inspecione a saída do livro de ensaios no painel de ensaio. Se estiver satisfeito, feche o painel. Clique em **Publicar** e quando solicitado para confirmação, confirme e publique o livro de execução.
+7. Inspecione a saída do livro de ensaios no painel de ensaio. Se estiver satisfeito, feche o painel. Clique **em Publicar** e quando solicitado para confirmação, confirme e publique o livro de recortes.
 
-    ![Adicionar livro de corridas 6](./media/storsimple-data-manager-job-using-automation/add-runbook-6.png)
+    ![Adicionar runbook 6](./media/storsimple-data-manager-job-using-automation/add-runbook-6.png)
 
-8. Volte para **runbooks** e selecione o livro de execução recém-criado.
+8. Volte para **runbooks** e selecione o livro de recortes recém-criado.
 
-    ![Adicionar livro de corridas 7](./media/storsimple-data-manager-job-using-automation/add-runbook-7.png)
+    ![Adicionar runbook 7](./media/storsimple-data-manager-job-using-automation/add-runbook-7.png)
 
-9. **Inicie** o livro de corridas. No **livro de arranque,** introduza todos os parâmetros. Clique em **OK** para submeter e iniciar o trabalho de transformação de dados.
+9. **Começa** o livro de corridas. No **runbook Start,** introduza todos os parâmetros. Clique **em OK** para submeter e iniciar o trabalho de transformação de dados.
 
 10. Para monitorizar o progresso do trabalho no portal Azure, vá ao **Jobs** no seu serviço StorSimple Data Manager. Selecione e clique no trabalho para ver os detalhes do trabalho.
 
-    ![Adicionar livro de corridas 10](./media/storsimple-data-manager-job-using-automation/add-runbook-10.png)
+    ![Adicionar runbook 10](./media/storsimple-data-manager-job-using-automation/add-runbook-10.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Utilize o StorSimple Data Manager UI para transformar os seus dados](storsimple-data-manager-ui.md).

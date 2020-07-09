@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
-ms.date: 11/12/2019
+ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 7dcd2015a669d9640f4163e6decc96689bb4ca7b
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 184db0280629e07314f9589338a33cdf442e63cb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167065"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85517385"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>O que é o Azure Machine Learning Designer (pré-visualização)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -71,7 +71,7 @@ Cada vez que corre um oleoduto, a configuração do gasoduto e os seus resultado
 
 As corridas de gasodutos são agrupadas em [experiências](concept-azure-machine-learning-architecture.md#experiments) para organizar a história da execução. Pode definir a experiência para cada corrida de gasodutos. 
 
-## <a name="datasets"></a>Conjuntos de dados
+## <a name="datasets"></a>Conjuntos de Dados
 
 Um conjunto de dados de machine learning facilita o acesso e o trabalho com os seus dados. Vários conjuntos de dados de amostra estão incluídos no designer para você experimentar. Pode [registar](how-to-create-register-datasets.md) mais conjuntos de dados à medida que necessitar.
 
@@ -81,7 +81,8 @@ Um módulo é um algoritmo que pode utilizar nos seus dados. O designer tem vár
 
 Um módulo pode ter um conjunto de parâmetros que pode utilizar para configurar algoritmos internos do módulo. Quando seleciona um módulo na tela, os parâmetros do módulo são apresentados no painel Propriedades à direita da tela. Pode modificar os parâmetros nesse painel para otimizar o seu modelo. Pode definir os recursos de computação para módulos individuais no designer. 
 
-![Propriedades do módulo](./media/concept-designer/properties.png)
+:::image type="content" source="./media/concept-designer/properties.png"alt-text="Propriedades do módulo":::
+
 
 Para alguma ajuda na navegação através da biblioteca de algoritmos de machine learning disponíveis, consulte [algoritmo & visão geral de referência do módulo](algorithm-module-reference/module-reference.md). Para ajudar a escolher um algoritmo, consulte a Folha de Batota do [Algoritmo de Aprendizagem de Máquinas Azure.](algorithm-cheat-sheet.md)
 

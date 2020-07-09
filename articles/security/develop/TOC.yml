@@ -1,20 +1,6 @@
 - name: Documentação sobre Desenvolvimento Seguro
   href: index.yml
-- name: Exemplos de aplicações
-  expanded: true
-  items:
-    - name: Ainda não conhece o desenvolvimento seguro
-      items:
-        - name: Aplicação Web num contentor do Linux
-          href: secure-web-app.md
-        - name: Aplicação Web com o Azure Active Directory
-          href: secure-aad-app.md
-    - name: Soluções em conformidade com a indústria
-      items:
-        - name: Indústria dos cartões de pagamento
-          href: secure-pci-web-app.md
 - name: Conceitos
-  expanded: true
   items:
     - name: Melhores práticas
       items:
@@ -26,8 +12,8 @@
           href: secure-develop.md
         - name: Implementar aplicações seguras
           href: secure-deploy.md
-- name: Recursos
   expanded: true
+- name: Recursos
   items:
     - name: Análise do Código de Segurança da Microsoft
       items:
@@ -95,3 +81,4 @@
               href: threat-modeling-tool-sensitive-data.md
             - name: Gestão de sessões
               href: threat-modeling-tool-session-management.md
+  expanded: true

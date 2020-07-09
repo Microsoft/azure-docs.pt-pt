@@ -1,6 +1,6 @@
 ---
-title: Conectores no Azure AD Synchronization Service Manager UI [ Gestor de Serviços de Sincronização da AD Azure ] Microsoft Docs'
-description: Compreenda o separador Conectores no Gestor de Serviços de Sincronização para o Azure AD Connect.
+title: Conectores no Azure AD Synchronization Service Manager UI Microsoft Docs'
+description: Compreenda o separador Conectores no Gestor de Serviço de Sincronização para Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -11,89 +11,89 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a013af680ecc84a2a981341ba4bb95148adc799f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261050"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357261"
 ---
-# <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Utilização de conectores com o Gestor de Serviços de Sincronização de Ligação AD Azure
+# <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Utilização de conectores com o Gestor de Serviços de Sincronização AZURE AD Connect
 
-![Gestor de Serviços de Sincronização](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
+![Gestor de Serviço sincronizado](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
 
-O separador Conectores é utilizado para gerir todos os sistemas a que o motor sincronizado está ligado.
+O separador Conectores é utilizado para gerir todos os sistemas a que o motor de sincronização está ligado.
 
 ## <a name="connector-actions"></a>Ações de conector
 | Ação | Comentário |
 | --- | --- |
-| Criar |Não utilizar. Para ligar a florestas aD adicionais, utilize o assistente de instalação. |
-| Propriedades |Usado para filtragem de domínio e U. |
-| [Eliminar](#delete) |Utilizado para apagar os dados no espaço do conector ou para eliminar a ligação a uma floresta. |
-| [Configure perfis de execução](#configure-run-profiles) |Exceto a filtragem de domínio, nada para configurar aqui. Pode utilizar esta ação para ver perfis de execução já configurados. |
-| Executar |Costumava começar uma série única de perfil. |
-| Parar |Para um Connector atualmente com um perfil. |
+| Criar |Não utilizar. Para ligar a florestas AD adicionais, utilize o assistente de instalação. |
+| Propriedades |Utilizado para filtragem de domínio e U. |
+| [Eliminar](#delete) |Utilizado para eliminar os dados no espaço do conector ou para eliminar a ligação a uma floresta. |
+| [Configurar perfis de execução](#configure-run-profiles) |Exceto pela filtragem de domínios, nada para configurar aqui. Você pode usar esta ação para ver perfis de execução já configurados. |
+| Executar |Costumava começar uma série única de um perfil. |
+| Parar |Para um Conector atualmente a executar um perfil. |
 | Conector de exportação |Não utilizar. |
 | Conector de Importação |Não utilizar. |
-| Atualizar O Conector |Não utilizar. |
-| Refresh Schema |Refresca o esquema em cache. É preferível utilizar a opção no assistente de instalação, uma vez que também atualiza as regras de sincronização. |
-| [Pesquisar Espaço conector](#search-connector-space) |Usado para encontrar objetos e seguir um objeto e seus dados através do sistema. |
+| Conector de atualização |Não utilizar. |
+| Atualizar Schema |Refresca o esquema em cache. Prefere-se utilizar a opção no assistente de instalação, uma vez que também atualiza as regras de sincronização. |
+| [Procurar espaço no conector](#search-connector-space) |Usado para encontrar objetos e seguir um objeto e seus dados através do sistema. |
 
 ### <a name="delete"></a>Eliminar
-A ação de eliminação é usada para duas coisas diferentes.  
-![Gestor de Serviços de Sincronização](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
+A ação de eliminação é utilizada para duas coisas diferentes.  
+![Gestor de Serviço sincronizado](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
 
-A opção Eliminar o **espaço do conector apenas** remove todos os dados, mas mantém a configuração.
+A opção **Eliminar o espaço do conector apenas** remove todos os dados, mas mantém a configuração.
 
-A opção Eliminar o Connector e o **espaço do conector** remove os dados e a configuração. Esta opção é usada quando já não quer ligar-se a uma floresta.
+A opção **Eliminar o conector e o espaço do conector** remove os dados e a configuração. Esta opção é usada quando já não pretende ligar-se a uma floresta.
 
 Ambas as opções sincronizam todos os objetos e atualizam os objetos metaversos. Esta ação é uma operação de longa duração.
 
-### <a name="configure-run-profiles"></a>Configure perfis de execução
-Esta opção permite-lhe ver os perfis de execução configurados para um Connector.
+### <a name="configure-run-profiles"></a>Configurar perfis de execução
+Esta opção permite-lhe ver os perfis de execução configurados para um Conector.
 
-![Gestor de Serviços de Sincronização](./media/how-to-connect-sync-service-manager-ui-connectors/configurerunprofiles.png)
+![Gestor de Serviço sincronizado](./media/how-to-connect-sync-service-manager-ui-connectors/configurerunprofiles.png)
 
-### <a name="search-connector-space"></a>Pesquisar Espaço conector
-A ação espacial do conector de pesquisa é útil para encontrar objetos e problemas de dados.
+### <a name="search-connector-space"></a>Procurar espaço no conector
+A ação espacial do conector de pesquisa é útil para encontrar objetos e resolver problemas de dados.
 
-![Gestor de Serviços de Sincronização](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
+![Gestor de Serviço sincronizado](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
 
-Comece por selecionar um **alcance**. Pode pesquisar com base em dados (RDN, DN, Anchor, Sub-Tree) ou no estado do objeto (todas as outras opções).  
-![Gestor de Serviços de Sincronização](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
-Se, por exemplo, fizer uma pesquisa sub-árvore, obtém todos os objetos num só OU.  
-![Gestor de Serviços de Sincronização](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
-A partir desta grelha pode selecionar um objeto, selecionar **propriedades,** e [segui-lo](tshoot-connect-object-not-syncing.md) a partir do espaço do conector de origem, através do metaverso, e para o espaço do conector alvo.
+Comece por selecionar um **âmbito.** Pode pesquisar com base em dados (RDN, DN, Âncora, Sub-Árvore) ou no estado do objeto (todas as outras opções).  
+![Gestor de Serviço sincronizado](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
+Se fizer uma pesquisa de sub-árvore, obtém todos os objetos num único U.  
+![Gestor de Serviço sincronizado](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
+A partir desta grelha pode selecionar um objeto, selecionar **propriedades**e [segui-lo](tshoot-connect-object-not-syncing.md) a partir do espaço do conector de origem, através do metaverso e até ao espaço do conector alvo.
 
 ### <a name="changing-the-ad-ds-account-password"></a>Alterar a palavra-passe da conta do AD DS
 Se alterar a palavra-passe da conta, o Serviço de Sincronização deixará de poder importar/exportar alterações para a AD no local.   Pode ver o seguinte:
 
-- O passo de importação/exportação do conector AD falha com o erro de "não iniciar credenciais".
-- No Windows Event Viewer, o registo do evento da aplicação contém um erro com o Id 6000 do Evento e a mensagem "O agente de gestão "contoso.com" não foi executado porque as credenciais eram inválidas.
+- O passo de importação/exportação para o conector AD falha com erro de "não-credenciais de arranque".
+- No Windows Event Viewer, o registo do evento de aplicação contém um erro com o ID do evento 6000 e a mensagem "O agente de gestão "contoso.com" não executou porque as credenciais eram inválidas."
 
 Para resolver o problema, atualize a conta de utilizador AD DS utilizando o seguinte:
 
 
-1. Inicie o Gestor de Serviços de Sincronização (START → Serviço de Sincronização).
-</br>![Gestor de Serviços de Sincronização](./media/how-to-connect-sync-service-manager-ui-connectors/startmenu.png)
-2. Vá ao separador **Conectores.**
-3. Selecione o Conector AD que está configurado para utilizar a conta AD DS.
-4. Em Ações, selecione **Propriedades**.
+1. Iniciar o Gestor de Serviços de Sincronização (START → Serviço de Sincronização).
+</br>![Gestor de Serviço sincronizado](./media/how-to-connect-sync-service-manager-ui-connectors/startmenu.png)
+2. Vá ao **separador Conectores.**
+3. Selecione o Conector AD que está configurado para utilizar a conta DS AD.
+4. Em Ações, selecione **Propriedades.**
 5. No diálogo pop-up, selecione Connect to Ative Directory Forest:
-6. O nome Forest indica o correspondente nas instalações ad.
-7. O nome utilizador indica a conta AD DS utilizada para a sincronização.
-8. Introduza a nova palavra-passe da conta AD DS na password textbox ![Azure AD Connect Sync Password Key Utility](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
-9. Clique em OK para guardar a nova palavra-passe e reiniciar o Serviço de Sincronização para remover a antiga palavra-passe da cache de memória.
+6. O nome Da Floresta indica o correspondente nas instalações da AD.
+7. O nome do utilizador indica a conta DS AD utilizada para sincronização.
+8. Introduza a nova palavra-passe da conta DS AD na caixa de texto password ![ Azure AD Connect Sync Encryption Key Utility](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
+9. Clique em OK para guardar a nova palavra-passe e reinicie o Serviço de Sincronização para remover a senha antiga do cache de memória.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre a configuração de [sincronização azure AD Connect.](how-to-connect-sync-whatis.md)
+## <a name="next-steps"></a>Próximos passos
+Saiba mais sobre a configuração da [sincronização Azure AD Connect.](how-to-connect-sync-whatis.md)
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

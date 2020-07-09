@@ -1,6 +1,6 @@
 ---
-title: Explore dados em tabelas da Colmeia com consultas de Colmeia - Processo de Ciência de Dados da Equipa
-description: Utilize scripts de colmeia de amostra que são usados para explorar dados em tabelas da Colmeia num cluster De Hadoop HDInsight.
+title: Explore dados em tabelas de Colmeia com consultas de Colmeia - Processo de Ciência de Dados de Equipa
+description: Use scripts de hive de amostra que são usados para explorar dados em tabelas de Colmeia em um cluster HDInsight Hadoop.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,29 +11,29 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 75dce2b5a83d13fe4a7d166595456e9a8d6324ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c0dfa06e2ece2ba4631c0d5681b066ab0134daba
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76722174"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085672"
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Explorar dados em tabelas do Hive com consultas do Hive
 
-Este artigo fornece scripts de amostra da Hive que são usados para explorar dados em tabelas da Colmeia em um cluster Hadoop HDInsight.
+Este artigo fornece scripts de hive de amostra que são usados para explorar dados em tabelas de Hive em um cluster HDInsight Hadoop.
 
-Esta tarefa é um passo no Processo de Ciência de Dados da [Equipa.](overview.md)
+Esta tarefa é um passo no [Processo de Ciência de Dados](overview.md)da Equipa.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo assume que tem:
 
 * Criei uma conta de armazenamento Azure. Se precisar de instruções, consulte [Criar uma conta de Armazenamento Azure](../../storage/common/storage-account-create.md)
-* Forprovisionou um cluster Hadoop personalizado com o serviço HDInsight. Se precisar de instruções, consulte [Customize Azure HDInsight Hadoop Clusters for Advanced Analytics](customize-hadoop-cluster.md).
-* Os dados foram enviados para as tabelas da Hive em clusters Hadoop Azure HDInsight. Se não o tiver, siga as instruções em [Criar e carregue os dados para as tabelas da Colmeia](move-hive-tables.md) para fazer o upload dos dados para as tabelas da Colmeia primeiro.
-* Acesso remoto ativado ao cluster. Se precisar de instruções, consulte [Aceda ao nó de cabeça do aglomerado de hadoop](customize-hadoop-cluster.md).
-* Se precisar de instruções sobre como submeter consultas de Colmeia, consulte [Como Submeter Consultas](move-hive-tables.md#submit) de Colmeia
+* Aderiu um cluster Hadoop personalizado com o serviço HDInsight. Se precisar de instruções, consulte [Os Clusters Hadoop Azure HDInsight para Análise Avançada](customize-hadoop-cluster.md).
+* Os dados foram enviados para as tabelas hive em clusters Azure HDInsight Hadoop. Caso contrário, siga as instruções em [Criar e carregue os dados nas tabelas da Hive](move-hive-tables.md) para enviar primeiro os dados para as tabelas da Colmeia.
+* Habilitado acesso remoto ao cluster. Se precisar de instruções, consulte [o nó de cabeça do Conjunto Hadoop](customize-hadoop-cluster.md).
+* Se precisar de instruções sobre como submeter consultas de Colmeia, consulte [Como Submeter Consultas de Colmeia](move-hive-tables.md#submit)
 
-## <a name="example-hive-query-scripts-for-data-exploration"></a>Exemplo, scripts de consulta de Hive para exploração de dados
+## <a name="example-hive-query-scripts-for-data-exploration"></a>Exemplo Scripts de consulta de hive para exploração de dados
 1. Obtenha a contagem de observações por partição`SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
 2. Obtenha a contagem de observações por dia`SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
 3. Obtenha os níveis numa coluna categórica  
@@ -41,33 +41,35 @@ Este artigo assume que tem:
 4. Obtenha o número de níveis em combinação de duas colunas categóricas`SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
 5. Obtenha a distribuição para colunas numéricas  
     `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
-6. Extrair registos da junção de duas tabelas
+6. Extrair registos de junção de duas mesas
    
-        SELECT
-            a.<common_columnname1> as <new_name1>,
-            a.<common_columnname2> as <new_name2>,
-            a.<a_column_name1> as <new_name3>,
-            a.<a_column_name2> as <new_name4>,
-            b.<b_column_name1> as <new_name5>,
-            b.<b_column_name2> as <new_name6>
-        FROM
-            (
-            SELECT <common_columnname1>,
-                <common_columnname2>,
-                <a_column_name1>,
-                <a_column_name2>,
-            FROM <databasename>.<tablename1>
-            ) a
-            join
-            (
-            SELECT <common_columnname1>,
-                <common_columnname2>,
-                <b_column_name1>,
-                <b_column_name2>,
-            FROM <databasename>.<tablename2>
-            ) b
-            ON a.<common_columnname1>=b.<common_columnname1> and a.<common_columnname2>=b.<common_columnname2>
+    ```hiveql
+    SELECT
+        a.<common_columnname1> as <new_name1>,
+        a.<common_columnname2> as <new_name2>,
+        a.<a_column_name1> as <new_name3>,
+        a.<a_column_name2> as <new_name4>,
+        b.<b_column_name1> as <new_name5>,
+        b.<b_column_name2> as <new_name6>
+    FROM
+        (
+        SELECT <common_columnname1>,
+            <common_columnname2>,
+            <a_column_name1>,
+            <a_column_name2>,
+        FROM <databasename>.<tablename1>
+        ) a
+        join
+        (
+        SELECT <common_columnname1>,
+            <common_columnname2>,
+            <b_column_name1>,
+            <b_column_name2>,
+        FROM <databasename>.<tablename2>
+        ) b
+        ON a.<common_columnname1>=b.<common_columnname1> and a.<common_columnname2>=b.<common_columnname2>
+    ```
 
-## <a name="additional-query-scripts-for-taxi-trip-data-scenarios"></a>Scripts de consulta adicional para cenários de dados de viagem de táxi
-Exemplos de consultas específicas para os cenários de dados da [viagem](https://chriswhong.com/open-data/foil_nyc_taxi/) de táxi de NYC também são fornecidos no [repositório GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Estas consultas já têm dados de esquema saem e estão prontos para serem submetidos a execução.
+## <a name="additional-query-scripts-for-taxi-trip-data-scenarios"></a>Scripts de consulta adicionais para cenários de dados de viagem de táxi
+Exemplos de consultas específicas aos cenários [de datas de viagem de táxi de NYC](https://chriswhong.com/open-data/foil_nyc_taxi/) também são fornecidos no [repositório gitHub.](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) Estas consultas já têm esquema de dados especificado e estão prontas para serem submetidas a execução.
 

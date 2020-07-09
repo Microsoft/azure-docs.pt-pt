@@ -1,72 +1,72 @@
 ---
-title: Utilize o Diretório Ativo Azure para autenticar soluções de Gestão de Lotes
-description: Explore utilizando o Azure Ative Directory para autenticar a partir de aplicações que utilizam a biblioteca Batch Management .NET.
+title: Utilize o Diretório Ativo Azure para autenticar soluções de gestão de lotes
+description: Explore a utilização do Azure Ative Directory para autenticar a partir de aplicações que utilizam a biblioteca Batch Management .NET.
 ms.topic: how-to
 ms.date: 04/27/2017
 ms.custom: has-adal-ref
-ms.openlocfilehash: ec9cf15f37c3ca7e4e477c628733d34cac21c141
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: b82d6b5f166f67752ea809353e074c01ac953a48
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726898"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848979"
 ---
-# <a name="authenticate-batch-management-solutions-with-active-directory"></a>Soluções de Gestão de Lotes Autenticados com Diretório Ativo
+# <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticar soluções de gestão de lotes com Diretório Ativo
 
-Aplicações que chamam o serviço de Gestão de Lotes Azure autenticado com [Diretório Ativo Azure][aad_about] (Azure AD). A Azure AD é o serviço de diretório e gestão de identidade multi-inquilinos da Microsoft. O próprio Azure utiliza a Azure AD para a autenticação dos seus clientes, administradores de serviços e utilizadores organizacionais.
+As aplicações que chamam o serviço de Gestão de Lotes Azure autenticam-se com [o Azure Ative Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD). Azure AD é o serviço de gestão de identidade e diretório multi-inquilino da Microsoft. A própria Azure utiliza a Azure AD para a autenticação dos seus clientes, administradores de serviços e utilizadores organizacionais.
 
-A biblioteca Batch Management .NET expõe tipos para trabalhar com contas de Lote, chaves de conta, aplicações e pacotes de aplicações. A biblioteca Batch Management .NET é um cliente fornecedor de recursos Azure, e é usada em conjunto com o [Azure Resource Manager][resman_overview] para gerir estes recursos programáticamente. A Azure AD é obrigada a autenticar pedidos feitos através de qualquer cliente do fornecedor de recursos Azure, incluindo a biblioteca Batch Management .NET, e através do [Azure Resource Manager.][resman_overview]
+A biblioteca Batch Management .NET expõe tipos para trabalhar com contas Batch, chaves de conta, aplicações e pacotes de aplicações. A biblioteca Batch Management .NET é um cliente fornecedor de recursos Azure, e é usada juntamente com [a Azure Resource Manager](../azure-resource-manager/management/overview.md) para gerir estes recursos programáticamente. O Azure AD é obrigado a autenticar pedidos escorriam por qualquer cliente fornecedor de recursos Azure, incluindo a biblioteca Batch Management .NET e através do Azure Resource Manager.
 
-Neste artigo, exploramos o uso de Azure AD para autenticar a partir de aplicações que utilizam a biblioteca Batch Management .NET. Mostramos como usar a AD Azure para autenticar um administrador de subscrição ou coadministrador, utilizando a autenticação integrada. Utilizamos o projeto de amostra [De Gestão de Contas,][acct_mgmt_sample] disponível no GitHub, para passar pela utilização do Azure AD com a biblioteca Batch Management .NET.
+Neste artigo, exploramos a utilização do Azure AD para autenticar a partir de aplicações que utilizam a biblioteca Batch Management .NET. Mostramos como usar a Azure AD para autenticar um administrador de subscrição ou coadministrador, utilizando a autenticação integrada. Utilizamos o projeto de amostra [de gestão de conta,](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement) disponível no GitHub, para passear através do Azure AD com a biblioteca Batch Management .NET.
 
-Para saber mais sobre a utilização da biblioteca Batch Management .NET e da amostra De Gestão de Contas, consulte gerir contas e quotas de Lote com a biblioteca de clientes da [Batch Management para .NET](batch-management-dotnet.md).
+Para saber mais sobre a utilização da biblioteca Batch Management .NET e da amostra de Gestão de Contas, consulte [contas e quotas do Lote com a biblioteca de clientes de Gestão de Lotes para .NET](batch-management-dotnet.md).
 
-## <a name="register-your-application-with-azure-ad"></a>Registe a sua candidatura na Azure AD
+## <a name="register-your-application-with-azure-ad"></a>Registe a sua candidatura com Azure AD
 
-A Biblioteca de [Autenticação de Diretórios Ativos][aad_adal] Azure (ADAL) fornece uma interface programática à Azure AD para utilização dentro das suas aplicações. Para ligar para a ADAL a partir da sua candidatura, deve registar a sua candidatura num inquilino da AD Azure. Ao registar a sua candidatura, fornece à Azure AD informações sobre a sua aplicação, incluindo um nome para o mesmo dentro do inquilino da AD Azure. A Azure AD fornece então um ID de aplicação que utiliza para associar a sua aplicação ao Azure AD em tempo de execução. Para saber mais sobre o ID da aplicação, consulte [os objetos principais de aplicação e serviço no Diretório Ativo azure](../active-directory/develop/app-objects-and-service-principals.md).
+A [Azure Ative Directory Authentication Library](../active-directory/active-directory-authentication-libraries.md) (ADAL) fornece uma interface programática ao Azure AD para utilização dentro das suas aplicações. Para ligar para a ADAL a partir do seu pedido, deve registar o seu pedido num inquilino da AD Azure. Quando regista a sua candidatura, fornece à Azure AD informações sobre a sua candidatura, incluindo um nome para ele dentro do inquilino Azure AD. A Azure AD fornece então um ID de aplicação que utiliza para associar a sua aplicação à Azure AD no tempo de execução. Para saber mais sobre o ID da aplicação, consulte [os objetos principais de aplicação e serviço no Diretório Ativo Azure.](../active-directory/develop/app-objects-and-service-principals.md)
 
-Para registar a aplicação da amostra De Gestão de Contas, siga os passos na secção [adicionar uma aplicação](../active-directory/develop/quickstart-register-app.md) na integração de [aplicações com o Diretório Ativo azure][aad_integrate]. Especifique a **Aplicação do Cliente Nativo** para o tipo de aplicação. O padrão da indústria OAuth 2.0 URI para o **Redirect URI** é `urn:ietf:wg:oauth:2.0:oob` . No entanto, pode especificar qualquer URI válido `http://myaccountmanagementsample` (como) para o **Redirect URI,** uma vez que não precisa de ser um verdadeiro ponto final:
+Para registar o pedido de amostra de Gestão de Contas, siga os passos na secção [adicionar uma aplicação](../active-directory/develop/quickstart-register-app.md) na [integração de aplicações com o Azure Ative Directory](../active-directory/active-directory-integrating-applications.md). Especifique **a Aplicação do Cliente Nativo** para o tipo de aplicação. O padrão da indústria OAuth 2.0 URI para o **Redirect URI** é `urn:ietf:wg:oauth:2.0:oob` . No entanto, pode especificar qualquer URI válido (como `http://myaccountmanagementsample` ) para o **URI de redirecionamento,** uma vez que não precisa de ser um verdadeiro ponto final.
 
-![](./media/batch-aad-auth-management/app-registration-management-plane.png)
+![Adicionar uma aplicação](./media/batch-aad-auth-management/app-registration-management-plane.png)
 
-Assim que concluir o processo de registo, verá o ID da aplicação e o ID do objeto (principal de serviço) listado para a sua aplicação.
+Assim que concluir o processo de registo, verá o ID da aplicação e o iD do objeto (principal serviço) listado para a sua candidatura.
 
-![](./media/batch-aad-auth-management/app-registration-client-id.png)
+![Processo de registo concluído](./media/batch-aad-auth-management/app-registration-client-id.png)
 
-## <a name="grant-the-azure-resource-manager-api-access-to-your-application"></a>Conceda ao Gestor de Recursos Azure acesso à sua aplicação
+## <a name="grant-the-azure-resource-manager-api-access-to-your-application"></a>Conceda ao Gestor de Recursos AZure acesso à sua aplicação
 
-Em seguida, terá de delegar acesso à sua candidatura à API do Gestor de Recursos Azure. O identificador Azure AD para o Gestor de Recursos API é a API de **Gestão de Serviços Windows Azure**.
+Em seguida, terá de delegar o acesso à sua candidatura à API do Gestor de Recursos Azure. O identificador AZure AD para o Gestor de Recursos API é **a API de Gestão de Serviços Windows Azure**.
 
 Siga os passos abaixo no portal do Azure:
 
-1. No painel de navegação à esquerda do portal Azure, escolha **Todos os serviços,** clique em Registos de **Aplicações,** e clique em **Adicionar**.
+1. No painel de navegação à esquerda do portal Azure, escolha **Todos os serviços,** clique em **Registos de Aplicações**e clique em **Adicionar**.
 2. Procure o nome da sua aplicação na lista de registos de aplicações:
 
-    ![Procure o seu nome de candidatura](./media/batch-aad-auth-management/search-app-registration.png)
+    ![Procure o nome da sua candidatura](./media/batch-aad-auth-management/search-app-registration.png)
 
-3. Exiba a lâmina **Definições.** Na secção **Acesso API,** selecione **permissões necessárias**.
-4. Clique em **Adicionar** para adicionar uma nova permissão necessária.
-5. No passo 1, introduza a API de Gestão de **Serviços Windows Azure,** selecione essa API da lista de resultados e clique no botão **Select.**
-6. No passo 2, selecione a caixa de verificação ao lado do **modelo de implementação clássico**do Access Azure como utilizadores da organização , e clique no botão **Select.**
-7. Clique no botão **Done.**
+3. Mostrar a lâmina **de definições.** Na secção **de Acesso API,** selecione **permissões necessárias**.
+4. Clique **em Adicionar** para adicionar uma nova permissão necessária.
+5. No passo 1, insira a API de Gestão de **Serviços do Windows Azure,** selecione a API da lista de resultados e clique no botão **Select.**
+6. No passo 2, selecione a caixa de verificação ao lado do **modelo de implementação clássica do Access Azure como utilizadores**da organização e clique no botão **Select.**
+7. Clique no botão **'Fazer'.**
 
-A lâmina **de permissões necessárias** mostra agora que as permissões à sua aplicação são concedidas tanto às APIs aADAL como ao Gestor de Recursos. As permissões são concedidas à ADAL por padrão quando regista a sua aplicação pela primeira vez com o Azure AD.
+A lâmina **de permissões necessárias** mostra agora que as permissões à sua aplicação são concedidas tanto às APIs do ADAL como do Gestor de Recursos. As permissões são concedidas à ADAL por padrão quando regista a sua aplicação pela primeira vez com a Azure AD.
 
-![Autorizações de delegados à API gestora de recursos do Azure](./media/batch-aad-auth-management/required-permissions-management-plane.png)
+![Autorizações de delegado à Azure Resource Manager API](./media/batch-aad-auth-management/required-permissions-management-plane.png)
 
-## <a name="azure-ad-endpoints"></a>Pontos finais da AD Azure
+## <a name="azure-ad-endpoints"></a>Pontos finais da AD AZure
 
-Para autenticar as suas soluções de Gestão de Lotes com a AD Azure, vai precisar de dois pontos finais bem conhecidos.
+Para autenticar as suas soluções de Gestão de Lotes com Azure AD, necessitará de dois pontos finais bem conhecidos.
 
-- O **ponto final comum da AD Azure** fornece uma interface de reunião de credenciais genéricas quando não é fornecido um inquilino específico, como no caso da autenticação integrada:
+- O **ponto final comum Azure AD** fornece uma interface de recolha de credenciais genéricas quando um inquilino específico não é fornecido, como no caso de autenticação integrada:
 
     `https://login.microsoftonline.com/common`
 
-- O ponto final do Gestor de **Recursos Azure** é utilizado para adquirir um símbolo para autenticação de pedidos ao serviço de gestão de Lotes:
+- O **ponto final do Azure Resource Manager** é utilizado para adquirir um símbolo para autenticar pedidos ao serviço de gestão batch:
 
     `https://management.core.windows.net/`
 
-A aplicação da amostra De Gestão de Contas define constantes para estes pontos finais. Deixe estas constantes inalteradas:
+A aplicação da amostra de Gestão de Contas define constantes para estes pontos finais. Deixe estas constantes inalteradas:
 
 ```csharp
 // Azure Active Directory "common" endpoint.
@@ -77,16 +77,16 @@ private const string ResourceUri = "https://management.core.windows.net/";
 
 ## <a name="reference-your-application-id"></a>Referenciar o seu ID de aplicação
 
-A sua aplicação de cliente utiliza o ID da aplicação (também referido como ID do cliente) para aceder à AD Azure em tempo de execução. Depois de ter registado a sua aplicação no portal Azure, atualize o seu código para utilizar o ID de aplicação fornecido pela Azure AD para a sua aplicação registada. Na aplicação da amostra De Gestão de Contas, copie o seu ID de aplicação do portal Azure para a constante adequada:
+A sua aplicação de cliente utiliza o ID da aplicação (também referido como ID do cliente) para aceder à Azure AD em tempo de execução. Depois de ter registado a sua candidatura no portal Azure, atualize o seu código para utilizar o ID da aplicação fornecido pela Azure AD para a sua aplicação registada. Na aplicação de amostra de Gestão de Contas, copie o ID da sua aplicação do portal Azure para a constante apropriada:
 
 ```csharp
 // Specify the unique identifier (the "Client ID") for your application. This is required so that your
 // native client application (i.e. this sample) can access the Microsoft Graph API. For information
 // about registering an application in Azure Active Directory, please see "Register an application with the Microsoft identity platform" here:
-// https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app
+// https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app
 private const string ClientId = "<application-id>";
 ```
-Copie também o URI redirecionado que especificou durante o processo de registo. O URI redirecionado especificado no seu código deve corresponder ao URI redirecionado que forneceu quando registou a aplicação.
+Copie também o URI de redirecionamento que especificou durante o processo de registo. O URI de redirecionamento especificado no seu código deve coincidir com o URI de redirecionamento que forneceu quando registou a aplicação.
 
 ```csharp
 // The URI to which Azure AD will redirect in response to an OAuth 2.0 request. This value is
@@ -95,9 +95,9 @@ Copie também o URI redirecionado que especificou durante o processo de registo.
 private const string RedirectUri = "http://myaccountmanagementsample";
 ```
 
-## <a name="acquire-an-azure-ad-authentication-token"></a>Adquirir um símbolo de autenticação Azure AD
+## <a name="acquire-an-azure-ad-authentication-token"></a>Adquirir um token de autenticação AD AZure
 
-Depois de registar a amostra de Gestão de Contas no inquilino da AD Azure e atualizar o código fonte da amostra com os seus valores, a amostra está pronta para autenticar utilizando a AD Azure. Quando executa a amostra, a ADAL tenta adquirir um símbolo de autenticação. Neste passo, solicita-lhe as credenciais da Microsoft:
+Depois de registar a amostra de Gestão de Conta no inquilino Azure AD e atualizar o código fonte da amostra com os seus valores, a amostra está pronta para autenticar usando Azure AD. Quando executam a amostra, o ADAL tenta adquirir um token de autenticação. Neste passo, solicita-lhe as suas credenciais microsoft:
 
 ```csharp
 // Obtain an access token using the "common" AAD resource. This allows the application
@@ -110,21 +110,11 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
                                                         PromptBehavior.Auto);
 ```
 
-Depois de fornecer as suas credenciais, o pedido de amostra pode proceder à emissão de pedidos autenticados ao serviço de gestão do Lote.
+Depois de fornecer as suas credenciais, o pedido de amostra pode proceder à emissão de pedidos autenticados ao serviço de gestão batch.
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre a execução da aplicação da [amostra De Gestão][acct_mgmt_sample]de Contas, consulte gerir contas e quotas de Lote com a biblioteca de clientes da Batch Management para [.NET](batch-management-dotnet.md).
-
-Para saber mais sobre o Azure AD, consulte a Documentação de [Diretório Ativo Azure.](https://docs.microsoft.com/azure/active-directory/) Exemplos aprofundados que mostram como utilizar o ADAL estão disponíveis na biblioteca De amostras de [código azul.](https://azure.microsoft.com/resources/samples/?service=active-directory)
-
-Para autenticar aplicações de serviço batch utilizando a AD Azure, consulte soluções de [serviço Authenticate Batch com Diretório Ativo](batch-aad-auth.md).
-
-
-[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "O que é o Azure Ative Directory?"
-[aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Cenários de autenticação para AD Azure"
-[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integração de Aplicações com Diretório Ativo Azure"
-[acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
-[azure_portal]: https://portal.azure.com
-[resman_overview]: ../azure-resource-manager/management/overview.md
+- Para obter mais informações sobre a execução do [pedido de amostra de Gestão de Contas,](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement)consulte gerir contas e quotas do Lote com a biblioteca de [clientes de Gestão de Lotes para .NET](batch-management-dotnet.md).
+- Para saber mais sobre a Azure AD, consulte a [Documentação do Diretório Ativo Azure](../active-directory/index.yml).
+- Exemplos aprofundados que mostram como utilizar o ADAL estão disponíveis na biblioteca [Azure Code Samples.](https://azure.microsoft.com/resources/samples/?service=active-directory)
+- Para autenticar aplicações de serviço batch utilizando Azure AD, consulte [soluções de serviço Authenticate Batch com Diretório Ativo.](batch-aad-auth.md)

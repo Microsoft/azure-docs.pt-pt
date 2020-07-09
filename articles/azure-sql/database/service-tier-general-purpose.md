@@ -1,10 +1,10 @@
 ---
-title: Nível de serviço de uso geral
-titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Conheça o nível de serviço de uso geral para a Base de Dados Azure SQL e a Instância Gerida Azure SQL.
+title: Nível de serviço para fins gerais
+titleSuffix: Azure SQL Database & Azure SQL Managed Instance
+description: Saiba mais sobre o nível de serviço de Finalidade Geral para Azure SQL Database e Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,50 +12,50 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/07/2019
-ms.openlocfilehash: 7fd446e6894c3c88701527bb2d3668a570888a06
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ee218253309995e721c97f4a7f7b4547b32f7c36
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049912"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986646"
 ---
-# <a name="general-purpose-service-tier---azure-sql-database--sql-managed-instance"></a>Nível de serviço para fins gerais - Base de Dados Azure SQL & Instância Gerida SQL
+# <a name="general-purpose-service-tier---azure-sql-database-and-azure-sql-managed-instance"></a>Nível de serviço para fins gerais - Base de Dados Azure SQL e Azure SQL Gestão de Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 > [!NOTE]
-> O nível de serviço de uso geral no modelo de compra baseado em vCore é chamado de nível de serviço padrão no modelo de compra baseado em DTU. Para uma comparação do modelo de compra baseado em vCore com o modelo de compra baseado em DTU, consulte [modelos e recursos](purchasing-models.md)de compra.
+> O nível de serviço de Finalidade Geral no modelo de compra baseado em vCore é chamado de nível de serviço padrão no modelo de compra baseado em DTU. Para comparar o modelo de compra baseado em vCore com o modelo de compra baseado na DTU, consulte [modelos e recursos de compra.](purchasing-models.md)
 
-A Base de Dados Azure SQL e a Azure SQL Managed Instance baseiam-se na arquitetura do motor de base de dados SQL Server adaptada para o ambiente em nuvem de forma a garantir uma disponibilidade de 99,99%, mesmo em casos de falhas de infraestrutura. 
+A Azure SQL Database e Azure SQL Managed Instance são baseados na arquitetura do motor de base de dados SQL Server adaptado para o ambiente em nuvem de forma a garantir uma disponibilidade de 99,99% mesmo em caso de falhas de infraestrutura. 
 
-Existem dois níveis de serviço utilizados pela Azure SQL Database e pela SQL Managed Instance: 
+Existem dois níveis de serviço utilizados pela Base de Dados Azure SQL e pela SQL Managed Instance: 
 
-- Fins gerais
-- Crítico de negócios
+- Fins Gerais
+- Critical de negócios
 
-A Base de Dados Azure SQL também tem um terceiro nível de serviço, que está atualmente indisponível para a Instância Gerida Azure SQL: 
+A Azure SQL Database também tem um terceiro nível de serviço, que atualmente está indisponível para Azure SQL Managed Instance:
 
 - Hyperscale
 
-O modelo arquitetónico para o nível de serviço de uso geral baseia-se numa separação de cálculo e armazenamento. Este modelo arquitetónico baseia-se na elevada disponibilidade e fiabilidade do armazenamento da Blob Azure que replica transparentemente ficheiros de bases de dados e garante nenhuma perda de dados se ocorrer uma falha de infraestrutura subjacente.
+O modelo arquitetónico para o nível de serviço de Finalidade Geral baseia-se numa separação entre computação e armazenamento. Este modelo arquitetónico baseia-se na elevada disponibilidade e fiabilidade do armazenamento da Azure Blob que replica de forma transparente ficheiros de base de dados e não garante nenhuma perda de dados se a falha subjacente da infraestrutura acontecer.
 
-A figura que se segue mostra quatro nós no modelo arquitetónico padrão com a computação separada e camadas de armazenamento.
+A figura a seguir mostra quatro nós no modelo arquitetónico padrão com as camadas de computação e armazenamento separadas.
 
-![Separação de cálculo e armazenamento](./media/service-tier-general-purpose/general-purpose-service-tier.png)
+![Separação do cálculo e do armazenamento](./media/service-tier-general-purpose/general-purpose-service-tier.png)
 
-No modelo arquitetónico para o nível de serviço de uso geral, existem duas camadas:
+No modelo arquitetónico para o nível de serviço de Finalidade Geral, existem duas camadas:
 
-- Uma camada de cálculo apátrida que está a executar o `sqlservr.exe` processo e contém apenas dados transitórios e cached (por exemplo – cache de plano, piscina tampão, piscina de colunas). Este nó apátrida é operado pela Azure Service Fabric que inicia o processo, controla a saúde do nó e executa falhas noutro local, se necessário.
-- Uma camada de dados audaz com ficheiros de base de dados (.mdf/.ldf) que são armazenados no armazenamento da Blob Azure. O armazenamento da Azure Blob garante que não haverá perda de dados de qualquer registo que seja colocado em qualquer ficheiro de base de dados. O Azure Storage tem disponibilidade/redundância de dados incorporados que garante que todos os registos no ficheiro de registo ou página no ficheiro de dados serão preservados mesmo que o processo se despenhe.
+- Uma camada de computação apátrida que está a executar o `sqlservr.exe` processo e contém apenas dados transitórios e em cache (por exemplo – cache de plano, piscina tampão, piscina de loja de colunas). Este nó apátrida é operado pela Azure Service Fabric que inicializa o processo, controla a saúde do nó, e executa falhas em outro lugar, se necessário.
+- Uma camada de dados imponente com ficheiros de base de dados (.mdf/.ldf) que são armazenados no armazenamento de Azure Blob. O armazenamento Azure Blob garante que não haverá perda de dados de qualquer registo que seja colocado em qualquer ficheiro de base de dados. O Azure Storage tem disponibilidade/redundância de dados incorporada que garante que todos os registos em ficheiros de registo ou página em ficheiro de dados serão preservados mesmo que o processo se despenhe.
 
-Sempre que o motor ou sistema operativo da base de dados for atualizado, uma parte da infraestrutura subjacente falha, ou se algum problema crítico for detetado no processo, o `sqlservr.exe` Azure Service Fabric deslocará o processo apátrida para outro nó de cálculo apátrida. Há um conjunto de nóteos sobressalentes que está à espera de executar um novo serviço de computação se uma falha do nó primário acontecer de forma a minimizar o tempo de falha. Os dados na camada de armazenamento do Azure não são afetados e os ficheiros de dados/registos estão ligados ao processo recém-inicializado. Este processo garante uma disponibilidade de 99,99%, mas pode ter alguns impactos de desempenho em cargas de trabalho pesadas que estão a decorrer devido ao tempo de transição e ao facto de o novo nó começar com cache frio.
+Sempre que o motor de base de dados ou o sistema operativo forem atualizados, alguma parte da infraestrutura subjacente falha, ou se algum problema crítico for detetado no processo, o `sqlservr.exe` Azure Service Fabric deslocará o processo apátrida para outro nó de computação apátrida. Há um conjunto de nós sobressalentes que está à espera de executar um novo serviço de computação se um failover do nó primário acontecer de forma a minimizar o tempo de insusição. Os dados na camada de armazenamento Azure não são afetados e os ficheiros de dados/registo são anexados ao processo recém-inicializado. Este processo garante uma disponibilidade de 99,99%, mas pode ter alguns impactos no desempenho em cargas de trabalho pesadas que estão a funcionar devido ao tempo de transição e o facto de o novo nó começar com cache frio.
 
 ## <a name="when-to-choose-this-service-tier"></a>Quando escolher este nível de serviço
 
-O nível de serviço General Purpose é um nível de serviço predefinido na Base de Dados Azure SQL e na Instância Gerida Azure SQL que é projetado para a maioria das cargas de trabalho genéricas. Se precisar de um motor de base de dados totalmente gerido com 99,99% SLA com latência de armazenamento entre 5 e 10 ms que correspondam ao SQL Server num VM Azure na maioria dos casos, o nível De propósito Geral é a opção para si.
+O nível de serviço de finalidade geral é um nível de serviço predefinido na Base de Dados Azure SQL e na Azure SQL Managed Instance que é projetado para a maioria das cargas de trabalho genéricas. Se necessitar de um motor de base de dados totalmente gerido com 99,99% SLA com latência de armazenamento entre 5 e 10 ms que combine com o SQL Server numa máquina virtual Azure na maioria dos casos, o nível de Finalidade Geral é a opção para si.
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Encontre características de recursos (número de núcleos, IO, memória) do modelo Geral Propósito/Padrão em [Instância Gerida SQL,](../managed-instance/resource-limits.md#service-tier-characteristics)base de dados única no [modelo vCore](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) ou [modelo DTU,](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes)ou piscina elástica no [modelo vCore](resource-limits-vcore-elastic-pools.md#general-purpose---provisioned-compute---gen4) e [modelo DTU](resource-limits-dtu-elastic-pools.md#standard-elastic-pool-limits).
-- Conheça os níveis [Business Critical](service-tier-business-critical.md) e [Hyperscale.](service-tier-hyperscale.md)
+- Encontrar características de recurso (número de núcleos, E/S, memória) do nível de finalidade geral/padrão em [SQL Managed Instance](../managed-instance/resource-limits.md#service-tier-characteristics), base de dados única no [modelo vCore](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) ou [modelo DTU,](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes)ou piscina elástica no [modelo vCore](resource-limits-vcore-elastic-pools.md#general-purpose---provisioned-compute---gen4) e [modelo DTU](resource-limits-dtu-elastic-pools.md#standard-elastic-pool-limits).
+- Saiba mais sobre os níveis [de Business Critical](service-tier-business-critical.md) e [Hyperscale.](service-tier-hyperscale.md)
 - Saiba mais sobre [o Tecido de Serviço.](../../service-fabric/service-fabric-overview.md)
-- Para mais opções para alta disponibilidade e recuperação de desastres, consulte A [Continuidade do Negócio](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+- Para mais opções de elevada disponibilidade e recuperação de desastres, consulte [Continuidade de Negócios.](business-continuity-high-availability-disaster-recover-hadr-overview.md)

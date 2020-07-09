@@ -1,24 +1,23 @@
 ---
-title: Série M - Máquinas Virtuais Azure
+title: Série M - Azure Virtual Machines
 description: Especificações para os VMs da série M.
-services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 7b84537693b3ffc3f7398c6eb84615a96bf8e7df
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
-ms.translationtype: MT
+ms.openlocfilehash: 4050a74dfef1fb31939ba716cfbaf78577f1aaef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744690"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84675949"
 ---
 # <a name="m-series"></a>Série M
 
-A série M oferece uma alta contagem de vCPU (até 128 vCPUs) e uma grande quantidade de memória (até 3,8 TiB). Também é ideal para bases de dados extremamente grandes ou outras aplicações que beneficiam de altas contagens de vCPU e grandes quantidades de memória. Os tamanhos da série M são&reg; suportados&reg; tanto no Intel Xeon CPU E7-8890&reg; v3&reg; @ 2.50GHz como na Intel Xeon Platinum 8280M (Lago cascade).
+A série M oferece uma alta contagem de VCPU (até 128 vCPUs) e uma grande quantidade de memória (até 3,8 TiB). Também é ideal para bases de dados extremamente grandes ou outras aplicações que beneficiam de altas contagens de vCPU e grandes quantidades de memória. Os tamanhos da série M são suportados tanto no Intel &reg; Xeon &reg; CPU E7-8890 v3 @ 2.50GHz como no Intel &reg; Xeon &reg; Platinum 8280M (Cascade Lake).
 
-A funcionalidade da Série M&reg; VM intel Hyper-Threading Technology.
+Recurso da série M VM, &reg; Intel Hyper-Threading Technology.
 
 ACU: 160-180
 
@@ -26,13 +25,13 @@ Armazenamento Premium: Suportado
 
 Caching de armazenamento premium: Suportado
 
-Migração Ao Vivo: Não Suportado
+Migração ao vivo: Não suportado
 
-Atualizações de preservação da memória: não suportadas
+Atualizações de preservação da memória: Não suportadas
 
-Acelerador de escrita: [Suportado](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Acelerador de escrita: [suportado](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Entrada de armazenamento em cache e temperatura máxima: IOPS/MBps (tamanho cache em GiB) | Potência de disco max uncached: IOPS/MBps | Largura de banda de rede Max NICs/Esperado (Mbps) |
+| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps (tamanho da cache em GiB) | Produção de disco não-abacatado por maxilar: IOPS/MBps | Largura de banda de rede Max NICs/Expect (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_M8ms                    | 8   | 218.75 | 256   | 8  | 10000/100 (793)     | 5000/125   | 4/2000  |
 | Standard_M16ms                   | 16  | 437.5  | 512   | 16 | 20000/200 (1587)    | 10000/250  | 8/4000  |
@@ -40,18 +39,18 @@ Acelerador de escrita: [Suportado](https://docs.microsoft.com/azure/virtual-mach
 | Standard_M32ls                   | 32  | 256    | 1024  | 32 | 40000/400 (3174)    | 20000/500  | 8/8000  |
 | Standard_M32ms                   | 32  | 875    | 1024  | 32 | 40000/400 (3174)    | 20000/500  | 8/8000  |
 | Standard_M64s <sup>1</sup>       | 64  | 1024   | 2048  | 64 | 80000/800 (6348)    | 40000/1000 | 8/16000 |
-| <sup>Standard_M64ls 1</sup>      | 64  | 512    | 2048  | 64 | 80000/800 (6348)    | 40000/1000 | 8/16000 |
+| Standard_M64ls <sup>1</sup>      | 64  | 512    | 2048  | 64 | 80000/800 (6348)    | 40000/1000 | 8/16000 |
 | Standard_M64ms <sup>1</sup>      | 64  | 1792   | 2048  | 64 | 80000/800 (6348)    | 40000/1000 | 8/16000 |
 | Standard_M128s <sup>1</sup>    | 128 | 2048   | 4096  | 64 | 160000/1600 (12696) | 80000/2000 | 8/30000 |
 | Standard_M128ms <sup>1,2</sup>   | 128 | 3892   | 4096  | 64 | 160000/1600 (12696) | 80000/2000 | 8/30000 |
 | Standard_M64 <sup>1</sup>        | 64  | 1024   | 7168  | 64 | 80000/800 (1228)    | 40000/1000 | 8/16000 |
-| <sup>Standard_M64m 1</sup>       | 64  | 1792   | 7168  | 64 | 80000/800 (1228)    | 40000/1000 | 8/16000 |
+| Standard_M64m <sup>1</sup>       | 64  | 1792   | 7168  | 64 | 80000/800 (1228)    | 40000/1000 | 8/16000 |
 | Standard_M128 <sup>1</sup>     | 128 | 2048   | 14336 | 64 | 250000/1600 (2456)  | 80000/2000 | 8/32000 |
-| <sup>Standard_M128m 1</sup>    | 128 | 3892   | 14336 | 64 | 250000/1600 (2456)  | 80000/2000 | 8/32000 |
+| Standard_M128m <sup>1</sup>    | 128 | 3892   | 14336 | 64 | 250000/1600 (2456)  | 80000/2000 | 8/32000 |
 
-<sup>1</sup> Mais de 64 vCPU's requerem um destes OSes de hóspedes suportados: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 e Red Hat Enterprise Linux, CentOS 7.3 ou Oracle Linux 7.3 com LIS 4.2.1.
+<sup>1</sup> Mais de 64 vCPU's requerem um destes OSes suportados: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 e Red Hat Enterprise Linux, CentOS 7.3 ou Oracle Linux 7.3 com LIS 4.2.1.
 
-<sup>2</sup> A Instância está isolada em hardware dedicado a um único cliente.
+<sup>2</sup> A instância é isolada para hardware dedicado a um único cliente.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
@@ -64,6 +63,6 @@ Acelerador de escrita: [Suportado](https://docs.microsoft.com/azure/virtual-mach
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre como as unidades de [computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho da computação em Azure SKUs.
+Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

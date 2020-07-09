@@ -1,6 +1,6 @@
 ---
-title: Copiar dados incrementalmente usando o Change Tracking
-description: Neste tutorial, vai criar um pipeline do Azure Data Factory, que copia dados delta de forma incremental de várias tabelas numa base de dados do SQL Server local para uma base de dados SQL do Azure.
+title: Copie gradualmente dados usando o Change Tracking utilizando o portal Azure
+description: Neste tutorial, cria-se um pipeline Azure Data Factory que copia dados delta incrementalmente de várias tabelas numa base de dados do SQL Server para uma base de dados na Base de Dados Azure SQL.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: cfe7a88cd02b109124b9d35247aa2d4cbc5373c5
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: c28489c2fa502f0ba1283abdea19219ed7438a99
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116606"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085825"
 ---
-# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar dados de forma incremental da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure com informações de controlo de alterações
+# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Carregue gradualmente os dados da Base de Dados Azure SQL para o Armazenamento Azure Blob utilizando informações de rastreio de alterações utilizando o portal Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, cria uma fábrica de dados do Azure com um pipeline que carrega dados delta com base em informações de **controlo de alterações** na base de dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
+Neste tutorial, você cria uma fábrica de dados Azure com um pipeline que carrega dados delta com base em informações de rastreamento de **alterações** na base de dados de origem na Base de Dados Azure SQL para um armazenamento de bolhas Azure.  
 
 Vai executar os seguintes passos neste tutorial:
 
@@ -42,12 +42,12 @@ Uma solução de integração de dados, que carrega dados incrementalmente após
 Eis os passos de fluxo de trabalho ponto-a-ponto normais para carregar dados incrementalmente com recurso à tecnologia de Controlo de Alterações.
 
 > [!NOTE]
-> Ambos a Base de Dados SQL do Azure e o SQL Server suportam a tecnologia de Controlo de Alterações. Este tutorial utiliza a Base de Dados SQL do Azure como o arquivo de dados de origem. Também pode utilizar um SQL Server local.
+> Ambos a Base de Dados SQL do Azure e o SQL Server suportam a tecnologia de Controlo de Alterações. Este tutorial utiliza a Base de Dados SQL do Azure como o arquivo de dados de origem. Também pode utilizar uma instância SQL Server.
 
 1. **Carregamento de dados históricos inicial** (executar uma vez):
-    1. Ative a tecnologia de Controlo de Alterações na base de dados SQL do Azure de origem.
-    2. Obtenha o valor inicial da SYS_CHANGE_VERSION na base de dados SQL do Azure como a linha de base para capturar os dados alterados.
-    3. Carregar os dados completos da base de dados SQL do Azure para um armazenamento de blobs do Azure.
+    1. Ativar a tecnologia change tracking na base de dados de origem na Base de Dados Azure SQL.
+    2. Obtenha o valor inicial de SYS_CHANGE_VERSION na base de dados como base de base para capturar dados alterados.
+    3. Carregue os dados completos da base de dados de origem num armazenamento de bolhas Azure.
 2. **Carregamento incremental de dados delta com base numa agenda** (executar periodicamente após o carregamento de dados inicial):
     1. Obter os valores SYS_CHANGE_VERSION novos e antigos.
     3. Carregar os dados delta ao associar as chaves primárias das linhas alteradas (entre dois valores SYS_CHANGE_VERSION) de **change_tracking_tables** com dados da **tabela de origem**, e em seguida, mover os dados delta para o destino.
@@ -67,16 +67,17 @@ Neste tutorial, vai criar dois pipelines que realizam as seguintes duas operaç�
     ![Diagrama de fluxo de carga incremental](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-load-flow-diagram.png)
 
 
-Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Base de Dados Azure SQL**. A base de dados é utilizada como o arquivo de dados de **origem**. Se não tiver uma Base de Dados SQL do Azure, veja o artigo [Criar uma base de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para obter os passos para criar uma.
-* **Conta de Armazenamento Azure.** O armazenamento de blobs é utilizado como arquivo de dados de **sink**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter os passos para criar uma. Crie um contentor com o nome **adftutorial**. 
+* **Base de Dados Azure SQL**. A base de dados é utilizada como o arquivo de dados de **origem**. Se não tiver uma base de dados na Base de Dados Azure SQL, consulte a [base de dados Criar uma base de dados no artigo base de dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para obter etapas para criar uma.
+* **Conta de Armazenamento Azure**. O armazenamento de blobs é utilizado como arquivo de dados de **sink**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter os passos para criar uma. Crie um contentor com o nome **adftutorial**. 
 
-### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Criar uma tabela de origem de dados na base de dados SQL do Azure
-1. Lance o Estúdio de **Gestão de Servidores SQL**e ligue-se à Base de Dados SQL.
+### <a name="create-a-data-source-table-in-azure-sql-database"></a>Criar uma tabela de fontes de dados na Base de Dados Azure SQL
+
+1. Lançar **SQL Server Management Studio,** e ligar-se à Base de Dados SQL.
 2. No **Explorador de Servidores**, clique com botão direito do rato em **base de dados** e escolha **Nova Consulta**.
-3. Execute o seguinte comando SQL na base de dados SQL do Azure para criar uma tabela com o nome `data_source_table` como arquivo da origem de dados.  
+3. Executar o seguinte comando SQL contra a sua base de dados para criar uma tabela chamada `data_source_table` data source store.  
 
     ```sql
     create table data_source_table
@@ -97,10 +98,11 @@ Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.mi
         (5, 'eeee', 22);
 
     ```
+
 4. Ative o mecanismo de **Controlo de Alterações** na sua base de dados e na tabela de origem (data_source_table) ao executar a seguinte consulta SQL:
 
     > [!NOTE]
-    > - Substitua &lt;o nome da sua base de dados&gt; com o nome da base de dados SQL do Azure que tenha o data_source_table.
+    > - Substitua &lt; o nome da sua base de dados pelo nome da base de &gt; dados na Base de Dados Azure SQL que tenha a data_source_table.
     > - Os dados alterados são mantidos por dois dias no exemplo atual. Se carregar os dados alterados a cada três ou mais dias, alguns dados alterados não são incluídos.  Precisa ou de alterar o valor de CHANGE_RETENTION para um número maior. Em alternativa, certifique-se de que o período para carregar os dados alterados se encontra dentro dos dois dias. Para obter mais informações, consulte [Ativar o registo de alterações para uma base de dados](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server#enable-change-tracking-for-a-database)
 
     ```sql
@@ -130,7 +132,7 @@ Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.mi
 
     > [!NOTE]
     > Se os dados não estiverem alterados após ativar o controlo de alterações da Base de Dados SQL, o valor da versão do controlo de alterações é 0.
-6. Execute a seguinte consulta para criar um procedimento armazenado na base de dados SQL do Azure. O pipeline invoca este procedimento armazenado para atualizar a versão de controlo de alterações na tabela que criou no passo anterior.
+6. Execute a seguinte consulta para criar um procedimento armazenado na sua base de dados. O pipeline invoca este procedimento armazenado para atualizar a versão de controlo de alterações na tabela que criou no passo anterior.
 
     ```sql
     CREATE PROCEDURE Update_ChangeTracking_Version @CurrentTrackingVersion BIGINT, @TableName varchar(50)
@@ -149,12 +151,12 @@ Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.mi
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Instale os mais recentes módulos Azure PowerShell seguindo instruções em [Como instalar e configurar o PowerShell Azure](/powershell/azure/install-Az-ps).
+Instale os mais recentes módulos Azure PowerShell seguindo instruções sobre [como instalar e configurar a Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-1. No menu esquerdo, selecione **Criar um recurso**Data +  >  **Analytics**  >  **Data Factory**:
+1. No menu esquerdo, **selecione Criar um recurso**Data +  >  **Analytics**  >  **Data Factory**:
 
    ![Seleção do Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -164,7 +166,7 @@ Instale os mais recentes módulos Azure PowerShell seguindo instruções em [Com
 
    O nome da fábrica de dados Azure deve ser **globalmente único.** Se receber o seguinte erro, altere o nome da fábrica de dados (por exemplo, oseunomeADFTutorialDataFactory) e tente criá-la novamente. Veja o artigo [Data Factory – Naming Rules](naming-rules.md) (Data Factory – Regras de Nomenclatura) para obter as regras de nomenclatura dos artefactos do Data Factory.
 
-       `Data factory name “ADFTutorialDataFactory” is not available`
+   *O nome da fábrica de dados "ADFTutorialDataFactory" não está disponível*
 3. Selecione a sua subscrição do **Azure** na qual pretende criar a fábrica de dados.
 4. No **Grupo de Recursos**, siga um destes passos:
 
@@ -176,7 +178,7 @@ Instale os mais recentes módulos Azure PowerShell seguindo instruções em [Com
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 6. Selecione **Afixar ao dashboard**.     
 7. Clique em **Criar**.      
-8. No painel de instrumentos, vê o seguinte azulejo com estatuto: **Implantação da fábrica**de dados .
+8. No painel de instrumentos, vê-se o seguinte azulejo com estado: **Implantação da fábrica de dados**.
 
     ![Mosaico “implementar a fábrica de dados”](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
 9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
@@ -188,7 +190,7 @@ Instale os mais recentes módulos Azure PowerShell seguindo instruções em [Com
     ![botão Criar pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/get-started-page.png)
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
-Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Nesta secção, vai criar serviços ligados para a sua conta de Armazenamento do Azure e a base de dados SQL do Azure.
+Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Nesta secção, crie serviços ligados à sua conta de Armazenamento Azure e à sua base de dados na Base de Dados Azure SQL.
 
 ### <a name="create-azure-storage-linked-service"></a>Criar o serviço ligado do Armazenamento do Azure.
 Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dados.
@@ -209,19 +211,19 @@ Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dado
 
 
 ### <a name="create-azure-sql-database-linked-service"></a>Criar o serviço ligado da Base de Dados SQL do Azure.
-Neste passo, vai ligar a sua base de dados SQL do Azure à fábrica de dados.
+Neste passo, ligue a sua base de dados à fábrica de dados.
 
 1. Clique em **Ligações** e em **+ Nova**.
 2. Na janela **Novo Serviço Ligado**, selecione **Base de Dados SQL do Azure** e clique em **Continuar**.
 3. Na janela **Novo Serviço Ligado**, siga os passos abaixo:
 
     1. Introduza **AzureSqlDatabaseLinkedService** no campo **Nome**.
-    2. Selecione o seu servidor para o campo de **nome server.**
-    4. Selecione a sua base de dados para o campo de **nomeação da Base de Dados.**
-    5. Introduza o nome do utilizador no campo **Nome de utilizador**.
-    6. Introduza a palavra-passe do utilizador no campo **Palavra-passe**.
-    7. Clique em **Testar ligação** para testar a ligação.
-    8. Clique em **Guardar** para guardar o serviço ligado.
+    2. Selecione o seu servidor para o campo **de nomes do Servidor.**
+    3. Selecione a sua base de dados para o campo **de nomes da Base de Dados.**
+    4. Introduza o nome do utilizador no campo **Nome de utilizador**.
+    5. Introduza a palavra-passe do utilizador no campo **Palavra-passe**.
+    6. Clique em **Testar ligação** para testar a ligação.
+    7. Clique em **Guardar** para guardar o serviço ligado.
 
        ![Definições do serviço ligado da Base de Dados SQL do Azure](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-sql-database-linked-service-settings.png)
 
@@ -263,7 +265,7 @@ Neste passo, cria um conjunto de dados para representar os dados que são copiad
 
     1. Selecione **AzureStorageLinkedService** em **Serviço ligado**.
     2. Introduza **adftutorial/incchgtracking** na parte **folder** de **filePath**.
-    3. ** \@ Insira a CONCAT ('Incremental-', pipeline(). RunId, '.txt')** para **arquivar** parte do **ficheiroPath**.  
+    3. Introduza ** \@ o CONCAT («Incremental-', pipeline(). RunId, '.txt')** para parte do **ficheiro.** **filePath**  
 
        ![Conjunto de dados de sink - ligação](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 
@@ -320,7 +322,7 @@ Clique em **Acionar**, na barra de ferramentas do pipeline, e clique em **Aciona
 1. Clique no separador **Monitorizar**, no lado esquerdo. Verá a execução do pipeline na lista e o respetivo estado. Para atualizar a lista, clique em **Atualizar**. As ligações na coluna Ações permitem-lhe ver as execuções de atividades associadas à execução do pipeline e voltar a executar o pipeline.
 
     ![Execuções de pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
-2. Para ver as execuções de atividades associadas à execução do pipeline, clique na ligação **Ver Execuções de Atividades**, na coluna **Ações**. Há apenas uma atividade no pipeline, pelo que só vai ver uma entrada na lista. Para voltar à vista de pipeline, clique na ligação **Pipelines** na parte superior.
+2. Para ver as execuções de atividades associadas à execução do pipeline, clique na ligação **Ver Execuções de Atividades**, na coluna **Ações**. Há apenas uma atividade no pipeline, pelo que só vai ver uma entrada na lista. Para voltar à vista do gasoduto, clique na ligação **Pipelines** na parte superior.
 
     ![Execuções de atividade](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
 
@@ -329,7 +331,7 @@ Vai ver um ficheiro chamado `incremental-<GUID>.txt` na pasta `incchgtracking` d
 
 ![Ficheiro de saída a partir da cópia completa](media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file.png)
 
-O ficheiro deve ter os dados da base de dados SQL do Azure:
+O ficheiro deve ter os dados da sua base de dados:
 
 ```
 1,aaaa,21
@@ -341,7 +343,7 @@ O ficheiro deve ter os dados da base de dados SQL do Azure:
 
 ## <a name="add-more-data-to-the-source-table"></a>Adicione mais dados à tabela de origem
 
-Execute a seguinte consulta na base de dados SQL do Azure para adicionar uma linha e atualizar uma linha.
+Execute a seguinte consulta na base de dados para adicionar uma linha e atualizar uma linha.
 
 ```sql
 INSERT INTO data_source_table
@@ -419,7 +421,7 @@ Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicam
         | Name | Tipo | Valor |
         | ---- | ---- | ----- |
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} |
-        | TableName | Cadeia | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} |
+        | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} |
 
         ![Atividade Stored Procedure - Parâmetros](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
 14. **Ligue a atividade Copy à atividade Stored Procedure**. Arraste e largue o botão **verde** associado à atividade Copy na atividade Stored Procedure.
@@ -442,7 +444,7 @@ Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicam
 1. Clique no separador **Monitorizar**, no lado esquerdo. Verá a execução do pipeline na lista e o respetivo estado. Para atualizar a lista, clique em **Atualizar**. As ligações na coluna **Ações** permitem-lhe ver as execuções de atividades associadas à execução do pipeline e voltar a executar o pipeline.
 
     ![Execuções de pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
-2. Para ver as execuções de atividades associadas à execução do pipeline, clique na ligação **Ver Execuções de Atividades**, na coluna **Ações**. Há apenas uma atividade no pipeline, pelo que só vai ver uma entrada na lista. Para voltar à vista de pipeline, clique na ligação **Pipelines** na parte superior.
+2. Para ver as execuções de atividades associadas à execução do pipeline, clique na ligação **Ver Execuções de Atividades**, na coluna **Ações**. Há apenas uma atividade no pipeline, pelo que só vai ver uma entrada na lista. Para voltar à vista do gasoduto, clique na ligação **Pipelines** na parte superior.
 
     ![Execuções de atividade](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
 
@@ -452,7 +454,7 @@ Vai ver um segundo ficheiro na pasta `incchgtracking` do contentor `adftutorial`
 
 ![Ficheiro de saída a partir da cópia incremental](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-output-file.png)
 
-O ficheiro deve ter apenas os dados delta da base de dados SQL do Azure. O registo com `U` é a linha atualizada na base de dados e `I` é a linha adicionada.
+O ficheiro deve ter apenas os dados delta da sua base de dados. O registo com `U` é a linha atualizada na base de dados e `I` é a linha adicionada.
 
 ```
 1,update,10,2,U
@@ -470,7 +472,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 
 
 ## <a name="next-steps"></a>Próximos passos
-Avançar para o seguinte tutorial para aprender sobre copiar novos ficheiros e alterados apenas com base no seu LastModifiedDate:
+Avance para o seguinte tutorial para aprender sobre a cópia de novos ficheiros e alterados apenas com base no seu Último Anomodified:
 
 > [!div class="nextstepaction"]
->[Copiar novos ficheiros até à data de última modificação](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
+>[Copiar novos ficheiros por último anúncio modificado](tutorial-incremental-copy-lastmodified-copy-data-tool.md)

@@ -12,12 +12,12 @@ metadata:
   ms.subservice: na
   ms.topic: landing-page
   services: active-directory
-  ms.openlocfilehash: 12c9cadab9ff93b40941e833dcb3823deb84ee35
-  ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+  ms.openlocfilehash: b2596145f500d3bc3c08c754abdb3703501dc4d9
+  ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81535745"
+  ms.lasthandoff: 06/25/2020
+  ms.locfileid: "85356564"
 landingContent:
 - title: Sobre a Identidade Híbrida
   linkLists:

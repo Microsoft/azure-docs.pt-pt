@@ -3,13 +3,14 @@ title: 'Quickstart: Language Understanding (LUIS) autoria da biblioteca de clien
 description: Começa com a biblioteca de clientes LUIS com este arranque rápido. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
 ms.topic: quickstart
 ms.date: 05/28/2020
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: 4a3ffb9ce6907658767af9e39569e7d9016e3145
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: c4f974935b5385b9df017af2f25b9f536ec5cddb
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171358"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605753"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library"></a>Quickstart: Language Understanding (LUIS) autoria da biblioteca de clientes
 

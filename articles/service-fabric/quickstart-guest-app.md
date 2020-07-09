@@ -4,10 +4,9 @@ description: Utilize um cluster do Azure Service Fabric para alojar uma aplicaç
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: 9153fc4cd60cb892532db49bf4339b517320b1a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614847"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Alojar uma aplicação Node.js no Azure Service Fabric
@@ -16,15 +15,15 @@ Este início rápido ajuda-o a implementar uma aplicação já existente (Node.j
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, certifique-se de que [configurou o seu ambiente de desenvolvimento](service-fabric-get-started.md). O que inclui a instalação do Service Fabric SDK e do Visual Studio 2019 ou 2015.
+Antes de começar, certifique-se de que [configurou o seu ambiente de desenvolvimento](service-fabric-get-started.md). Que inclui a instalação do Service Fabric SDK e do Visual Studio 2019 ou 2015.
 
 Também precisa de uma aplicação Node.js já existente para implementação. Este início rápido utiliza um Web site Node.js simples, que pode ser transferido [aqui][download-sample]. Extraia este ficheiro para a pasta `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` depois de criar o projeto no passo seguinte.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita.][create-account]
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita][create-account].
 
 ## <a name="create-the-service"></a>Criar o serviço
 
-Lançar o Estúdio Visual como **administrador.**
+Lançar o Visual Studio como **administrador.**
 
 Criar um projeto com `CTRL`+`SHIFT`+`N`
 
@@ -33,7 +32,7 @@ Na caixa de diálogo **Novo Projeto**, escolha **Cloud > Aplicação do Service 
 Dê o nome **MyGuestApp** à aplicação e prima **OK**.
 
 >[!IMPORTANT]
->O Node.js consegue exceder facilmente o limite do Windows de 260 carateres para caminhos. Utilize um caminho curto para o projeto, como **c:\code\svc1**. Opcionalmente, pode seguir **[estas instruções](https://stackoverflow.com/a/41687101/1664231)** para ativar longos caminhos de ficheiros no Windows 10.
+>O Node.js consegue exceder facilmente o limite do Windows de 260 carateres para caminhos. Utilize um caminho curto para o projeto, como **c:\code\svc1**. Opcionalmente, pode seguir **[estas instruções](https://stackoverflow.com/a/41687101/1664231)** para permitir longos percursos de ficheiros no Windows 10.
    
 ![Caixa de diálogo de novo projeto no Visual Studio][new-project]
 
@@ -43,7 +42,7 @@ Dê o nome **MyGuestService** ao serviço e defina as opções à direita com os
 
 | Definição                   | Valor |
 | ------------------------- | ------ |
-| Pasta do Pacote de Código       | _&lt;a pasta com a sua app Node.js&gt;_ |
+| Pasta do Pacote de Código       | _&lt;a pasta com a sua aplicação Node.js&gt;_ |
 | Comportamento do Pacote de Código     | Copiar os conteúdos da pasta para o projeto |
 | Programa                   | node.exe |
 | Argumentos                 | server.js |
@@ -55,7 +54,7 @@ Prima **OK**.
 
 O Visual Studio cria o projeto de aplicação e o projeto de serviço de ator e apresenta-os no Explorador de Soluções.
 
-O projeto de aplicação **(MyGuestApp)** não contém nenhum código diretamente. O projeto faz referência a um conjunto de projetos de serviço. Além disso, contém três outros tipos de conteúdo:
+O projeto de aplicação (**MyGuestApp)** não contém nenhum código diretamente. O projeto faz referência a um conjunto de projetos de serviço. Além disso, contém três outros tipos de conteúdo:
 
 * **Perfis de publicação**  
 Preferências de ferramentas para diferentes ambientes.
@@ -72,7 +71,7 @@ Para obter uma descrição geral do conteúdo do projeto de serviço, consulte o
 
 A aplicação Node.js de exemplo que estamos a implementar utiliza a porta **80** e temos de dizer ao Service Fabric que esta porta tem de estar exposta.
 
-Abra o ficheiro **ServiceManifest.xml** no projeto. No fundo do manifesto, há `<Resources> \ <Endpoints>` uma entrada já definida. Modifique essa entrada para adicionar `Port`, `Protocol` e `Type`. 
+Abra o ficheiro **ServiceManifest.xml** no projeto. Na parte inferior do manifesto, há um `<Resources> \ <Endpoints>` com uma entrada já definida. Modifique essa entrada para adicionar `Port`, `Protocol` e `Type`. 
 
 ```xml
   <Resources>
@@ -87,7 +86,7 @@ Abra o ficheiro **ServiceManifest.xml** no projeto. No fundo do manifesto, há `
 
 ## <a name="deploy-to-azure"></a>Implementar no Azure
 
-Se pressionar em **F5** e executar o projeto, está implantado no aglomerado local. No entanto, vamos implementar no Azure.
+Se **pressionares f5** e executares o projeto, ele é implantado no aglomerado local. No entanto, vamos implementar no Azure.
 
 Clique com o botão direito do rato no projeto e escolha **Publicar...**, o que abre uma caixa de diálogo para publicar no Azure.
 
@@ -97,13 +96,13 @@ Selecione o perfil de destino **PublishProfiles\Cloud.xml**.
 
 Se ainda não o tiver feito, escolha uma conta do Azure na qual implementar. Se ainda não tiver uma, [inscreva-se numa][create-account].
 
-Em **Ponto Final da Ligação**, selecione o cluster do Service Fabric no qual implementar. Se não tiver um, selecione ** &lt;Criar Novo Cluster... &gt; ** que abre a janela do navegador web para o portal Azure. Para obter mais informações, veja [Create a cluster in the portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal) (Crair um cluster no portal). 
+Em **Ponto Final da Ligação**, selecione o cluster do Service Fabric no qual implementar. Se não tiver um, selecione ** &lt; Create New Cluster... &gt; ** que abre a janela do navegador web para o portal Azure. Para obter mais informações, veja [Create a cluster in the portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal) (Crair um cluster no portal). 
 
 Quando criar o cluster do Service Fabric, confirme que define a definição **Pontos finais personalizados** como **80**.
 
 ![Configuração de tipo de nó do Service Fabric com ponto final personalizado][custom-endpoint]
 
-A criação de um cluster do Service Fabric novo demora algum tempo a ser concluída. Uma vez criado, volte ao diálogo de ** &lt;publicação&gt;** e selecione Refresh . O cluster novo é apresentado na caixa pendente; selecione-o.
+A criação de um cluster do Service Fabric novo demora algum tempo a ser concluída. Uma vez criado, volte ao diálogo de publicação e selecione ** &lt; Refresh &gt; **. O cluster novo é apresentado na caixa pendente; selecione-o.
 
 Prima **publicar** e aguarde pela conclusão da implementação.
 
@@ -119,13 +118,13 @@ Verifique o painel de descrição geral do endereço do serviço. Utilize o nome
 
 ![Painel de descrição geral do Service Fabric no portal do Azure][overview]
 
-Navegue para este endereço onde `HELLO WORLD` verá a resposta.
+Navegue para este endereço onde verá a `HELLO WORLD` resposta.
 
 ## <a name="delete-the-cluster"></a>Eliminar o cluster
 
-Não se esqueça de apagar todos os recursos que criou para este arranque rápido, já que é cobrado por esses recursos.
+Não se esqueça de apagar todos os recursos que criou para este arranque rápido, pois é cobrado por esses recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Leia mais sobre os [executáveis convidados](service-fabric-guest-executables-introduction.md).
 
 <!-- Image References -->

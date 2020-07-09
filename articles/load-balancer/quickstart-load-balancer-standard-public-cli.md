@@ -1,5 +1,5 @@
 ---
-title: Quickstart:Criar um Balancer de Carga pública - Azure CLI
+title: Quickstart:Criar um balanceador de carga público - Azure CLI
 titleSuffix: Azure Load Balancer
 description: Este guia de início rápido mostra como criar um balanceador de carga público com a CLI do Azure
 services: load-balancer
@@ -17,16 +17,16 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 1f6a05fdfc28adf412ffbd1402e37b69d1c51634
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1a2d0322436bd91e92a7018552c5827e021ee74e
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79477770"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851506"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Quickstart: Criar um Balancer de Carga Padrão para carregar VMs de equilíbrio utilizando o Azure CLI
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Quickstart: Criar um Balanceador de Carga Padrão para carregar VMs de equilíbrio usando Azure CLI
 
-Este arranque rápido mostra-lhe como criar um Equilibrador de Carga público. Para testar o balanceador de carga, implemente duas máquinas virtuais (VMs) com o servidor Ubuntu e faça o balanceamento de carga de uma aplicação Web entre as duas VMs.
+Este quickstart mostra-lhe como criar um Balancer de Carga público. Para testar o balanceador de carga, implemente duas máquinas virtuais (VMs) com o servidor Ubuntu e faça o balanceamento de carga de uma aplicação Web entre as duas VMs.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -46,24 +46,24 @@ O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupSLB* na 
 
 ## <a name="create-a-public-ip-address"></a>Crie um endereço IP público
 
-Para aceder à sua aplicação Web na Internet, precisa de um endereço IP público para o balanceador de carga. Use a [rede az public-ip criar](https://docs.microsoft.com/cli/azure/network/public-ip) para criar um endereço IP público redundante da zona Standard chamado *myPublicIP* no *myResourceGroupSLB*.
+Para aceder à sua aplicação Web na Internet, precisa de um endereço IP público para o balanceador de carga. Utilize [a rede az public-ip criar](https://docs.microsoft.com/cli/azure/network/public-ip) para criar um endereço IP público redundante de zona standard chamado *myPublicIP* no *myResourceGroupSLB*.
 
 ```azurecli-interactive
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard
 ```
 
-Para criar um endereço IP público zonal na utilização da zona 1:
+Para criar um endereço IP público zonal na zona 1 use:
 
 ```azurecli-interactive
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard --zone 1
 ```
 
-Utilizar `-SKU Basic` para criar um IP Público Básico. Os IPs públicos básicos não são compatíveis com o equilíbrio de carga **Standard.** A Microsoft recomenda a utilização **do Standard** para cargas de trabalho de produção.
+Use `-SKU Basic` para criar um IP público básico. Os IPs públicos básicos não são compatíveis com **o balanceador de** carga standard. A Microsoft recomenda a utilização **do Standard** para cargas de trabalho de produção.
 
 > [!IMPORTANT]
-> O resto deste quickstart assume que o **Standard** SKU é escolhido durante o processo de seleção SKU acima.
+> O resto deste quickstart pressupõe que **o Standard** SKU é escolhido durante o processo de seleção SKU acima.
 
-## <a name="create-azure-load-balancer"></a>Criar um equilibrador de carga Azure
+## <a name="create-azure-load-balancer"></a>Criar equilibrador de carga Azure
 
 Esta secção descreve como pode criar e configurar os seguintes componentes do balanceador de carga:
   - Um conjunto de IPs de front-end que recebe o tráfego de rede de entrada no balanceador de carga.
@@ -73,7 +73,7 @@ Esta secção descreve como pode criar e configurar os seguintes componentes do 
 
 ### <a name="create-the-load-balancer"></a>Criar o balanceador de carga
 
-Crie um Balanceador de Carga do Azure público com [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) com o nome **myLoadBalancer** que inclua um conjunto de front-end com o nome **myFrontEnd**, um conjunto de back-end com o nome **myBackEndPool** associado ao endereço IP público **myPublicIP** que criou no passo anterior. Utilizar `--sku basic` para criar um IP Público Básico. A Microsoft recomenda o Standard SKU para cargas de trabalho de produção.
+Crie um Balanceador de Carga do Azure público com [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) com o nome **myLoadBalancer** que inclua um conjunto de front-end com o nome **myFrontEnd**, um conjunto de back-end com o nome **myBackEndPool** associado ao endereço IP público **myPublicIP** que criou no passo anterior. Utilize `--sku basic` para criar um Balanceador de Carga Básico. A Microsoft recomenda o Standard SKU para cargas de trabalho de produção.
 
 ```azurecli-interactive
   az network lb create \
@@ -86,7 +86,7 @@ Crie um Balanceador de Carga do Azure público com [az network lb create](https:
 ```
 
 > [!IMPORTANT]
-> O resto deste quickstart assume que o **Standard** SKU é escolhido durante o processo de seleção SKU acima.
+> O resto deste quickstart pressupõe que **o Standard** SKU é escolhido durante o processo de seleção SKU acima.
 
 ### <a name="create-the-health-probe"></a>Criar a sonda de estado de funcionamento
 
@@ -202,7 +202,7 @@ Crie três interfaces de rede com [az network nic create](/cli/azure/network/nic
 
 Neste exemplo, o utilizador cria três máquinas virtuais para serem utilizadas como servidores de back-end para o balanceador de carga. Para verificar se um balanceador de carga foi criado com êxito, instale também o NGINX nas máquinas virtuais.
 
-Se estiver a criar um Balancer de Carga Básico com um IP Público Básico, terá de criar um Conjunto de Disponibilidade utilizando[(az vm disponibilidade cria](/cli/azure/network/nic) para adicionar as suas máquinas virtuais. Os equilibradores de carga padrão não requerem este passo adicional. A Microsoft recomenda a utilização do Standard.
+Se estiver a criar um Balanceador de Carga Básico com um IP público básico, terá de criar um Conjunto de Disponibilidades utilizando[(az vm disponibilidadeset criar](/cli/azure/network/nic) para adicionar as suas máquinas virtuais. Os Balançadores de Carga Padrão não requerem este passo adicional. A Microsoft recomenda a utilização do Standard.
 
 ### <a name="create-three-virtual-machines"></a>Criar três máquinas virtuais
 
@@ -311,6 +311,6 @@ Quando já não for necessário, pode utilizar o comando [az group delete](/cli/
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste arranque rápido, criou um Balancer de Carga Padrão, anexou-lhe VMs, configurou a regra de tráfego do Balancer de Carga, a sonda de saúde e, em seguida, testou o Balancer de Carga. Para saber mais sobre o Azure Load Balancer, continue a colocar [os tutoriais do Azure Load Balancer.](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+Neste arranque rápido, criou um Balancer de Carga Padrão, anexou VMs ao mesmo, configuraram a regra de tráfego do Balancer de Carga, a sonda de saúde e, em seguida, testou o Balanceador de Carga. Para saber mais sobre o Azure Load Balancer, continue para os [tutoriais do Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
 
-Saiba mais sobre as zonas de [Balancer de Carga e Disponibilidade.](load-balancer-standard-availability-zones.md)
+Saiba mais sobre [as zonas de Balancer e Disponibilidade](load-balancer-standard-availability-zones.md)de Carga.

@@ -1,29 +1,28 @@
 ---
-title: Ligação de saída de armazenamento de fila Azure para funções Azure
-description: Aprenda a criar mensagens de armazenamento de fila Azure em Funções Azure.
+title: Ligação de saída de armazenamento da fila Azure para funções Azure
+description: Aprenda a criar mensagens de armazenamento da Fila Azure em Funções Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
-ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: dd8442c00e2b7685b0dc1a7bd5150c87f2c27b7c
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.custom: cc996988-fb4f-47, tracking-python
+ms.openlocfilehash: eb61cad5f505e6895b550adca3e9f156222d6d30
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891454"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559963"
 ---
-# <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Encadernações de saída de armazenamento de fila Azure para funções azure
+# <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Encadernações de saída de armazenamento da fila Azure para funções Azure
 
-As Funções Azure podem criar novas mensagens de armazenamento de fila Azure através da criação de uma ligação de saída.
+As Funções Azure podem criar novas mensagens de armazenamento da Fila Azure, configurando uma ligação de saída.
 
-Para obter informações sobre os detalhes da configuração e configuração, consulte a [visão geral](./functions-bindings-storage-queue.md).
+Para obter informações sobre detalhes de configuração e configuração, consulte a [visão geral](./functions-bindings-storage-queue.md).
 
 ## <a name="example"></a>Exemplo
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que cria uma mensagem de fila para cada pedido http recebido.
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que cria uma mensagem de fila para cada pedido HTTP recebido.
 
 ```csharp
 [StorageAccount("MyStorageConnectionAppSetting")]
@@ -41,9 +40,9 @@ public static class QueueFunctions
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-O exemplo seguinte mostra uma ligação do gatilho HTTP num ficheiro *function.json* e código [de script C# (.csx)](functions-reference-csharp.md) que utiliza a ligação. A função cria um item de fila com uma carga de objeto **CustomQueueMessage** para cada pedido http recebido.
+O exemplo a seguir mostra uma ligação http num *function.jsno* ficheiro e o código de [script C# (.csx)](functions-reference-csharp.md) que utiliza a ligação. A função cria um item de fila com uma carga de objeto **CustomQueueMessage** para cada pedido HTTP recebido.
 
-Aqui está o ficheiro *função.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -70,7 +69,7 @@ Aqui está o ficheiro *função.json:*
 }
 ```
 
-A secção de [configuração](#configuration) explica estas propriedades.
+A secção [de configuração](#configuration) explica estas propriedades.
 
 Aqui está o código de script C# que cria uma única mensagem de fila:
 
@@ -87,7 +86,7 @@ public static CustomQueueMessage Run(CustomQueueMessage input, ILogger log)
 }
 ```
 
-Pode enviar várias mensagens `ICollector` ao `IAsyncCollector` mesmo tempo utilizando um ou parâmetro. Aqui está o código de script C# que envia várias mensagens, uma com os dados de pedido http e outra com valores codificados:
+Pode enviar várias mensagens de uma só vez utilizando um `ICollector` parâmetro ou `IAsyncCollector` parâmetro. Aqui está o código de script C# que envia várias mensagens, uma com os dados de pedido HTTP e outra com valores codificados:
 
 ```cs
 public static void Run(
@@ -102,9 +101,9 @@ public static void Run(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo seguinte mostra uma ligação de gatilho HTTP num ficheiro *function.json* e uma [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função cria um item de fila para cada pedido http recebido.
+O exemplo a seguir mostra uma ligação do gatilho HTTP numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função cria um item de fila para cada pedido HTTP recebido.
 
-Aqui está o ficheiro *função.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -131,7 +130,7 @@ Aqui está o ficheiro *função.json:*
 }
 ```
 
-A secção de [configuração](#configuration) explica estas propriedades.
+A secção [de configuração](#configuration) explica estas propriedades.
 
 Aqui está o código JavaScript:
 
@@ -142,7 +141,7 @@ module.exports = function (context, input) {
 };
 ```
 
-Pode enviar várias mensagens ao mesmo tempo, definindo um conjunto de mensagens para a ligação de `myQueueItem` saída. O seguinte código JavaScript envia duas mensagens de fila com valores codificados para cada pedido http recebido.
+Pode enviar várias mensagens de uma só vez definindo um conjunto de mensagens para a `myQueueItem` ligação de saída. O seguinte código JavaScript envia duas mensagens de fila com valores codificados por código rígido para cada pedido HTTP recebido.
 
 ```javascript
 module.exports = function(context) {
@@ -153,9 +152,9 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo seguinte demonstra como obter valores únicos e múltiplos para as filas de armazenamento. A configuração necessária para *função.json* é a mesma de qualquer forma.
+O exemplo a seguir demonstra como desau o resultado de valores únicos e múltiplos para as filas de armazenamento. A configuração necessária para *function.jsé* a mesma de qualquer forma.
 
-Uma ligação de fila de armazenamento *type* é definida `queue`na *função.json* onde o tipo está definido para .
+Uma ligação de fila de armazenamento é definida em *function.jsno* local onde *o tipo* está definido para `queue` .
 
 ```json
 {
@@ -187,7 +186,7 @@ Uma ligação de fila de armazenamento *type* é definida `queue`na *função.js
 }
 ```
 
-Para definir uma mensagem individual na fila, passa `set` um único valor para o método.
+Para definir uma mensagem individual na fila, passa-se um único valor ao `set` método.
 
 ```python
 import azure.functions as func
@@ -201,7 +200,7 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
     return 'OK'
 ```
 
-Para criar várias mensagens na fila, declare um parâmetro como o tipo de lista apropriado `set` e passe uma série de valores (que correspondam ao tipo de lista) ao método.
+Para criar várias mensagens na fila, declare um parâmetro como o tipo de lista apropriado e passe uma matriz de valores (que correspondam ao tipo de lista) ao `set` método.
 
 ```python
 import azure.functions as func
@@ -216,7 +215,7 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
 
 # <a name="java"></a>[Java](#tab/java)
 
- O exemplo seguinte mostra uma função Java que cria uma mensagem de fila para quando desencadeada por um pedido HTTP.
+ O exemplo a seguir mostra uma função Java que cria uma mensagem de fila para quando desencadeada por um pedido HTTP.
 
 ```java
 @FunctionName("httpToQueue")
@@ -230,7 +229,7 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
  }
 ```
 
-Na biblioteca de tempo de funcionamento das [funções java,](/java/api/overview/azure/functions/runtime)utilize a `@QueueOutput` anotação em parâmetros cujo valor seria escrito para armazenamento de fila.  O tipo de `OutputBinding<T>`parâmetro `T` deve ser, onde está qualquer tipo de Java nativo de um POJO.
+Na biblioteca de [funções Java,](/java/api/overview/azure/functions/runtime)utilize a `@QueueOutput` anotação em parâmetros cujo valor seria escrito para o armazenamento da fila.  O tipo de parâmetro deve ser `OutputBinding<T>` , onde está qualquer tipo nativo java de um `T` POJO.
 
 ---
 
@@ -238,9 +237,9 @@ Na biblioteca de tempo de funcionamento das [funções java,](/java/api/overview
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Nas [bibliotecas da classe C#,](functions-dotnet-class-library.md)utilize o [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues/QueueAttribute.cs).
+Nas [bibliotecas de classe C,](functions-dotnet-class-library.md)utilize a [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues/QueueAttribute.cs).
 
-O atributo aplica-se a um `out` parâmetro ou ao valor de retorno da função. O construtor do atributo tem o nome da fila, como mostra o seguinte exemplo:
+O atributo aplica-se a um `out` parâmetro ou ao valor de devolução da função. O construtor do atributo tem o nome da fila, como mostra o seguinte exemplo:
 
 ```csharp
 [FunctionName("QueueOutput")]
@@ -251,7 +250,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 }
 ```
 
-Pode definir `Connection` a propriedade para especificar a conta de armazenamento a utilizar, como mostra o seguinte exemplo:
+Pode definir a `Connection` propriedade para especificar a conta de armazenamento a utilizar, como mostra o seguinte exemplo:
 
 ```csharp
 [FunctionName("QueueOutput")]
@@ -262,13 +261,13 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 }
 ```
 
-Para um exemplo completo, consulte o [exemplo da saída](#example).
+Para um exemplo completo, consulte [o exemplo de Saída](#example).
 
-Pode utilizar `StorageAccount` o atributo para especificar a conta de armazenamento na classe, método ou nível de parâmetro. Para mais informações, consulte Trigger - atributos.
+Pode utilizar o `StorageAccount` atributo para especificar a conta de armazenamento no nível de classe, método ou parâmetro. Para obter mais informações, consulte o Trigger - atributos.
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Os atributos não são suportados por C# Script.
+Os atributos não são suportados pelo Script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -280,7 +279,7 @@ Os atributos não são suportados pela Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-A `QueueOutput` anotação permite-lhe escrever uma mensagem como saída de uma função. O exemplo seguinte mostra uma função desencadeada pelo HTTP que cria uma mensagem de fila.
+A `QueueOutput` anotação permite-lhe escrever uma mensagem como saída de uma função. O exemplo a seguir mostra uma função acionada por HTTP que cria uma mensagem de fila.
 
 ```java
 package com.function;
@@ -303,25 +302,25 @@ public class HttpTriggerQueueOutput {
 
 | Propriedade    | Descrição |
 |-------------|-----------------------------|
-|`name`       | Declara o nome do parâmetro na assinatura da função. Quando a função é ativada, o valor deste parâmetro tem o conteúdo da mensagem de fila. |
+|`name`       | Declara o nome do parâmetro na assinatura da função. Quando a função é desencadeada, o valor deste parâmetro tem o conteúdo da mensagem de fila. |
 |`queueName`  | Declara o nome da fila na conta de armazenamento. |
 |`connection` | Aponta para o fio de ligação da conta de armazenamento. |
 
-O parâmetro associado à `QueueOutput` anotação é dactilografado como uma instância [OutputBinding\<T.\> ](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java)
+O parâmetro associado à `QueueOutput` anotação é dactilografado como uma instância [de Fuga \<T\> de Saída.](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java)
 
 ---
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no `Queue` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `Queue` atributo.
 
-|propriedade fun.json | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Tem de `queue`ser definido para. Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
-|**direção** | n/d | Tem de `out`ser definido para. Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
-|**nome** | n/d | O nome da variável que representa a fila no código de função. `$return` Decidiu para referenciar o valor de devolução da função.|
-|**queueName** |**Nome da fila** | O nome da fila. |
-|**conexão** | **Conexão** |O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se `connection` definir para "MyStorage", o tempo de execução das Funções procura uma definição de aplicação que se chama "MyStorage". Se deixar `connection` vazio, o tempo de funcionamento das funções utiliza `AzureWebJobsStorage`a cadeia de ligação de armazenamento predefinida na definição da aplicação que é denominada .|
+|**tipo** | n/a | Deve ser definido para `queue` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
+|**direção** | n/a | Deve ser definido para `out` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
+|**nome** | n/a | O nome da variável que representa a fila no código de função. Definir `$return` para referenciar o valor de retorno da função.|
+|**nome de fila** |**Nome da fila** | O nome da fila. |
+|**conexão** | **Ligação** |O nome de uma definição de aplicação que contém o fio de ligação de armazenamento para usar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` "MyStorage", o tempo de execução de Funções procura uma definição de app chamada "MyStorage". Se deixar `connection` vazio, o tempo de execução das funções utiliza a cadeia de ligação de armazenamento predefinido na definição da aplicação que está denominada `AzureWebJobsStorage` .|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -329,55 +328,55 @@ A tabela a seguir explica as propriedades de configuração de ligação que def
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Escreva uma única mensagem de fila `out T paramName`utilizando um parâmetro de método como . Pode utilizar o tipo de `out` devolução do `T` método em vez de um parâmetro, podendo ser qualquer um dos seguintes tipos:
+Escreva uma única mensagem de fila utilizando um parâmetro de método como `out T paramName` . Pode utilizar o tipo de devolução do método em vez de um `out` parâmetro, e `T` pode ser qualquer um dos seguintes tipos:
 
 * Um objeto serializável como JSON
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 
 
-Se tentar ligar-se `CloudQueueMessage` e obter uma mensagem de erro, certifique-se de que tem uma referência à versão [SDK de armazenamento correta](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
+Se tentar ligar-se `CloudQueueMessage` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
-No script C# e C#, escreva várias mensagens de fila utilizando um dos seguintes tipos: 
+No script C# e C# escreva várias mensagens de fila utilizando um dos seguintes tipos: 
 
 * `ICollector<T>` ou `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Escreva uma única mensagem de fila `out T paramName`utilizando um parâmetro de método como . É `paramName` o valor especificado `name` na propriedade da *função.json*. Pode utilizar o tipo de `out` devolução do `T` método em vez de um parâmetro, podendo ser qualquer um dos seguintes tipos:
+Escreva uma única mensagem de fila utilizando um parâmetro de método como `out T paramName` . O `paramName` valor especificado na `name` propriedade de *function.jsem*. Pode utilizar o tipo de devolução do método em vez de um `out` parâmetro, e `T` pode ser qualquer um dos seguintes tipos:
 
 * Um objeto serializável como JSON
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 
 
-Se tentar ligar-se `CloudQueueMessage` e obter uma mensagem de erro, certifique-se de que tem uma referência à versão [SDK de armazenamento correta](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
+Se tentar ligar-se `CloudQueueMessage` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
-No script C# e C#, escreva várias mensagens de fila utilizando um dos seguintes tipos: 
+No script C# e C# escreva várias mensagens de fila utilizando um dos seguintes tipos: 
 
 * `ICollector<T>` ou `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O item da fila `context.bindings.<NAME>` `<NAME>` de saída está disponível através do local onde corresponde ao nome definido na *função.json*. Pode utilizar uma corda ou um objeto json-serializável para a carga útil do item da fila.
+O item da fila de saída está disponível através do `context.bindings.<NAME>` local onde corresponde ao nome definido emfunction.js`<NAME>` *em*. Pode utilizar uma corda ou um objeto serializável JSON para a carga útil do item da fila.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Existem duas opções para distribuir uma mensagem do Event Hub a partir de uma função:
+Existem duas opções para a saída de uma mensagem do Event Hub a partir de uma função:
 
-- **Valor de devolução**: Coloque a `name` propriedade em *função.json* para `$return`. Com esta configuração, o valor de retorno da função é persistido como uma mensagem de armazenamento de fila.
+- **Valor de retorno**: Desa estafunction.js`name` o *imóvel.* `$return` Com esta configuração, o valor de retorno da função é persistido como uma mensagem de armazenamento de fila.
 
-- **Imperativo**: Passe um valor para o método [definido](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) do parâmetro declarado como um tipo [out.](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) O valor `set` passado é persistiu como uma mensagem de armazenamento de fila.
+- **Imperativo**: Passe um valor ao método [definido](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) do parâmetro declarado como um tipo [out.](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) O valor passado `set` é persistido como uma mensagem de armazenamento de fila.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Existem duas opções para eliminar uma mensagem do Event Hub a partir de uma função, utilizando a anotação [QueueOutput:](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queueoutput)
+Existem duas opções para a saída de uma mensagem Do Centro de Eventos a partir de uma função utilizando a anotação [QueueOutput:](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queueoutput)
 
-- **Valor de devolução**: Aplicando a anotação à própria função, o valor de retorno da função é persinedo como mensagem Do Centro de Eventos.
+- **Valor de retorno**: Aplicando a anotação à função em si, o valor de retorno da função é persistido como uma mensagem Do Centro de Eventos.
 
-- **Imperativo**: Para definir explicitamente o valor da mensagem, aplique [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding)a `T` anotação a um parâmetro específico do tipo, onde se trata de um POJO ou de qualquer tipo de Java nativo. Com esta configuração, passar `setValue` um valor para o método persiste o valor como mensagem Do Hub do Evento.
+- **Imperativo**: Para definir explicitamente o valor da mensagem, aplique a anotação a um parâmetro específico do tipo [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding) , onde se encontra um `T` POJO ou qualquer tipo de Java nativo. Com esta configuração, passar um valor para o `setValue` método persiste o valor como uma mensagem Event Hub.
 
 ---
 
@@ -391,12 +390,12 @@ Existem duas opções para eliminar uma mensagem do Event Hub a partir de uma fu
 
 <a name="host-json"></a>  
 
-## <a name="hostjson-settings"></a>configurações host.json
+## <a name="hostjson-settings"></a>host.jsnas definições
 
-Esta secção descreve as definições de configuração global disponíveis para esta ligação nas versões 2.x e superiores. O ficheiro exemplo host.json abaixo contém apenas as definições da versão 2.x+ para esta ligação. Para obter mais informações sobre as configurações globais de configuração nas versões 2.x e além, consulte a [referência host.json para funções azure](functions-host-json.md).
+Esta secção descreve as definições de configuração global disponíveis para esta ligação nas versões 2.x ou superiores. O exemplo host.jsno ficheiro abaixo contém apenas as definições da versão 2.x+ para esta ligação. Para obter mais informações sobre as configurações globais nas versões 2.x e não só, consulte [host.jsem referência para Funções Azure](functions-host-json.md).
 
 > [!NOTE]
-> Para uma referência do host.json nas funções 1.x, consulte a [referência host.json para as funções Azure 1.x](functions-host-json-v1.md).
+> Para obter uma referência de host.jsem Funções 1.x, consulte [host.jsem referência para as Funções Azure 1.x](functions-host-json-v1.md).
 
 ```json
 {
@@ -415,13 +414,13 @@ Esta secção descreve as definições de configuração global disponíveis par
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|O intervalo máximo entre as sondagens. O mínimo é 00:00:100 (100 ms) e incrementos até 00:01:00 (1 min).  Em 1.x o tipo de dados é milissegundos, e em 2.x e superior é um TimeSpan.|
-|visibilidadeTimeout|00:00:00|O intervalo de tempo entre as tentativas de repetição ao processamento de uma mensagem falha. |
-|batchSize|16|O número de mensagens de fila que as Funções executam o tempo de funcionamento recupera simultaneamente e processa em paralelo. Quando o número que está `newBatchThreshold`a ser processado chega ao , o tempo de execução recebe outro lote e começa a processar essas mensagens. Assim, o número máximo de mensagens simultâneas que são processadas por função é `batchSize` mais `newBatchThreshold`. Este limite aplica-se separadamente a cada função acionada pela fila. <br><br>Se quiser evitar a execução paralela de mensagens `batchSize` recebidas numa fila, pode definir para 1. No entanto, esta definição elimina a conmoeda apenas enquanto a sua aplicação de função funcionar numa única máquina virtual (VM). Se a aplicação de função se dimensionar para vários VMs, cada VM pode executar uma instância de cada função desencadeada pela fila.<br><br>O `batchSize` máximo é de 32. |
-|maxDequeueCount|5|O número de vezes para tentar processar uma mensagem antes de movê-la para a fila do veneno.|
-|novo BatchThreshold|loteTamanho/2|Sempre que o número de mensagens que estão a ser processadas simultaneamente chega a este número, o tempo de execução recupera outro lote.|
+|maxPollingInterval|00:00:01|O intervalo máximo entre as sondagens. Mínimo é 00:00:00.100 (100 ms) e incrementos até 00:01:00 (1 min).  Em 1.x o tipo de dados é milissegundos, e em 2.x e superior é um TimeSpan.|
+|visibilidadeTimeout|00:00:00|O intervalo de tempo entre as recauchutagens ao processamento de uma mensagem falha. |
+|batchSize|16|O número de mensagens de fila que o tempo de funcionamento das Funções recupera simultaneamente e processa em paralelo. Quando o número que está a ser processado chega ao `newBatchThreshold` , o tempo de funcionamento recebe outro lote e começa a processar essas mensagens. Assim, o número máximo de mensagens simultâneas a serem processadas por função é `batchSize` mais `newBatchThreshold` . Este limite aplica-se separadamente a cada função acionada pela fila. <br><br>Se quiser evitar a execução paralela das mensagens recebidas numa fila, pode definir `batchSize` para 1. No entanto, esta definição elimina a conusncy apenas desde que a sua aplicação de função seja executado numa única máquina virtual (VM). Se a aplicação de função se dimensionar para vários VMs, cada VM pode executar uma instância de cada função desencadeada pela fila.<br><br>O máximo `batchSize` é 32. |
+|maxDequeueCount|5|O número de vezes para tentar processar uma mensagem antes de movê-la para a fila de veneno.|
+|newBatchThreshold|lotEsize/2|Sempre que o número de mensagens a ser processadas se descientemente a este número, o tempo de funcionamento recupera outro lote.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Executar uma função como alterações de dados de armazenamento de fila (Gatilho)](./functions-bindings-storage-queue-trigger.md)
 

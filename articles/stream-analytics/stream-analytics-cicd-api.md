@@ -1,30 +1,30 @@
 ---
-title: Use APIs de REPOUSO para fazer CI/CD para Azure Stream Analytics em IoT Edge
-description: Aprenda a implementar um oleoduto de integração e implantação contínuo para o Azure Stream Analytics utilizando APIs REST.
+title: Use APIs de REPOUSO para fazer CI/CD para Azure Stream Analytics no IoT Edge
+description: Aprenda a implementar um pipeline de integração e implantação contínua para a Azure Stream Analytics utilizando APIs REST.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 328ca7cd2c6f76095c8334ae6fdb4aa75fbb867d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed11488f397704be782a092d6cdc6463449cc71e
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80292010"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039080"
 ---
-# <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementar CI/CD para Stream Analytics em IoT Edge usando APIs
+# <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementar CI/CD para stream analytics em IoT Edge usando APIs
 
-Pode permitir a integração e implantação contínuas para trabalhos de Azure Stream Analytics utilizando APIs REST. Este artigo fornece exemplos sobre os quais as APIs utilizam e como usá-las. As APIs de REPOUSO não são suportadas na Azure Cloud Shell.
+Pode permitir a integração e implementação contínuas para trabalhos Azure Stream Analytics usando APIs REST. Este artigo fornece exemplos sobre os quais as APIs podem utilizá-las e como usá-las. As APIs de REPOUSO não são suportadas na Azure Cloud Shell.
 
 ## <a name="call-apis-from-different-environments"></a>Ligue para APIs de diferentes ambientes
 
-As APIs rest podem ser chamadas tanto do Linux como do Windows. Os seguintes comandos demonstram a sintaxe adequada para a chamada da API. A utilização específica da API será delineada em secções posteriores deste artigo.
+AS APIs de REPOUSO podem ser chamadas tanto do Linux como do Windows. Os seguintes comandos demonstram uma sintaxe adequada para a chamada da API. O uso específico da API será delineado em secções posteriores deste artigo.
 
 ### <a name="linux"></a>Linux
 
-Para o Linux, `Curl` `Wget` pode utilizar ou comandos:
+Para o Linux, pode utilizar `Curl` ou `Wget` comandar:
 
 ```bash
 curl -u { <username:password> }  -H "Content-Type: application/json" -X { <method> } -d "{ <request body> }" { <url> }   
@@ -36,7 +36,7 @@ wget -q -O- --{ <method> } -data="<request body>" --header=Content-Type:applicat
  
 ### <a name="windows"></a>Windows
 
-Para Windows, utilize powershell: 
+Para Windows, utilize Powershell: 
 
 ```powershell 
 $user = "<username>" 
@@ -51,9 +51,9 @@ $response = Invoke-RestMethod <url> -Method <method> -Body $content -Headers $He
 echo $response 
 ```
  
-## <a name="create-an-asa-job-on-edge"></a>Criar um trabalho asa em Edge 
+## <a name="create-an-asa-job-on-edge"></a>Criar um trabalho asa na Edge 
  
-Para criar o trabalho stream analytics, ligue para o método PUT utilizando a API Stream Analytics.
+Para criar o trabalho stream Analytics, ligue para o método PUT utilizando a API stream Analytics.
 
 |Método|URL do Pedido|
 |------|-----------|
@@ -65,7 +65,7 @@ Exemplo de comando utilizando **caracóis:**
 curl -u { <username:password> } -H "Content-Type: application/json" -X { <method> } -d "{ <request body> }" https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}?api-version=2017-04-01-preview  
 ``` 
  
-Exemplo do órgão de pedido na JSON:
+Exemplo do corpo de pedido em JSON:
 
 ```json
 { 
@@ -140,38 +140,38 @@ Para mais informações, consulte a documentação da [API.](/rest/api/streamana
  
 ## <a name="publish-edge-package"></a>Publicar pacote Edge 
  
-Para publicar um trabalho de Stream Analytics no IoT Edge, ligue para o método POST utilizando a API de Publicação do Pacote Edge.
+Para publicar um trabalho stream Analytics no IoT Edge, ligue para o método POST utilizando a API de publicação de pacotes edge.
 
 |Método|URL do Pedido|
 |------|-----------|
 |POST|`https://management.azure.com/subscriptions/{\**subscriptionid**}/resourceGroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**jobname**}/publishedgepackage?api-version=2017-04-01-preview`|
 
-Esta operação assíncrona devolve um estatuto de 202 até que o trabalho seja publicado com sucesso. O cabeçalho de resposta de localização contém o URI usado para obter o estado do processo. Enquanto o processo está em curso, uma chamada para o URI no cabeçalho de localização devolve um estado de 202. Quando o processo terminar, o URI no cabeçalho de localização devolve um estatuto de 200. 
+Esta operação assíncrona devolve um estatuto de 202 até que o trabalho tenha sido publicado com sucesso. O cabeçalho de resposta à localização contém o URI usado para obter o estado do processo. Enquanto o processo está em curso, uma chamada para o URI no cabeçalho de localização devolve um estado de 202. Quando o processo termina, o URI no cabeçalho de localização devolve um estado de 200. 
 
-Exemplo de uma chamada de publicação de pacote Edge usando **caracóis:** 
+Exemplo de uma chamada de publicação de pacote Edge utilizando **o caracol:** 
 
 ```bash
 curl -d -X POST https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}/publishedgepackage?api-version=2017-04-01-preview
 ```
  
-Depois de fazer a chamada do POST, deve esperar uma resposta com um corpo vazio. Procure o URL localizado no HEAD da resposta e grave-o para posterior utilização.
+Depois de fazer a chamada POST, deve esperar uma resposta com um corpo vazio. Procure o URL localizado na cabeça da resposta e grave-o para posterior utilização.
  
-Exemplo do URL do HEAD of response:
+Exemplo do URL da cabeça de resposta:
 
 ```
 https://management.azure.com/subscriptions/{**subscriptionid**}/resourcegroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/StreamingJobs/{**resourcename**}/OperationResults/023a4d68-ffaf-4e16-8414-cb6f2e14fe23?api-version=2017-04-01-preview 
 ```
-Aguarde um a dois minutos antes de executar o seguinte comando para fazer uma chamada api com o URL encontrado na CABEÇA da resposta. Tente o comando se não receber uma resposta de 200.
+A Wait for one to two minutes before running the seguinte command to make a API call with the URL you found in the HEAD of the response. Recasteça o comando se não receber uma resposta de 200.
  
-Exemplo de fazer chamada aPi com URL devolvido com **caracol:**
+Exemplo de fazer chamada de API com URL devolvido com **caracóis:**
 
 ```bash
 curl -d –X GET https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{resourcename}/publishedgepackage?api-version=2017-04-01-preview 
 ```
 
-A resposta inclui a informação que precisa adicionar ao script de implementação edge. Os exemplos abaixo mostram que informações precisa de recolher e onde adicioná-la no manifesto de implantação.
+A resposta inclui as informações necessárias para adicionar ao script de implementação Edge. Os exemplos abaixo mostram que informações precisa de recolher e onde adicioná-la no manifesto de implantação.
  
-Corpo de resposta da amostra após publicação com sucesso:
+Órgão de resposta à amostra após a publicação com sucesso:
 
 ```json
 { 
@@ -182,7 +182,7 @@ Corpo de resposta da amostra após publicação com sucesso:
 } 
 ```
 
-Amostra do manifesto de implantação: 
+Amostra do Manifesto de Implantação: 
 
 ```json
 { 
@@ -252,11 +252,11 @@ Amostra do manifesto de implantação:
 } 
 ```
 
-Após a configuração do manifesto de implantação, consulte os módulos De implantação [Azure IoT Edge com o Azure CLI](../iot-edge/how-to-deploy-modules-cli.md) para implementação.
+Após a configuração do manifesto de implantação, consulte os [módulos Deploy Azure IoT Edge com Azure CLI](../iot-edge/how-to-deploy-modules-cli.md) para implantação.
 
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
  
 * [Azure Stream Analytics no IoT Edge](stream-analytics-edge.md)
 * [ASA no tutorial IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
-* [Desenvolver trabalhos stream analytics edge usando ferramentas do Estúdio Visual](stream-analytics-tools-for-visual-studio-edge-jobs.md)
+* [Desenvolver trabalhos stream Analytics Edge usando ferramentas de Estúdio Visual](stream-analytics-tools-for-visual-studio-edge-jobs.md)

@@ -1,26 +1,26 @@
 ---
-title: Verifique o estado de encriptação de uma bolha - Armazenamento Azure
-description: Saiba como utilizar o portal Azure, PowerShell ou Azure CLI para verificar se uma determinada bolha está encriptada. Se uma bolha não estiver encriptada, aprenda a usar o AzCopy para forçar a encriptação, baixando e recarregando a bolha.
+title: Verifique o estado de encriptação de uma bolha - Azure Storage
+description: Aprenda a usar o portal Azure, PowerShell ou Azure CLI para verificar se uma determinada bolha está encriptada. Se uma bolha não estiver encriptada, aprenda a usar o AzCopy para forçar a encriptação descarregando e re-carregando a bolha.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
 ms.date: 11/26/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 5cef0e94a43b3ef16d45f7f43658f962e07b5345
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6d0392cd8e94ba8a9026f557b90e740fbed7f50c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74707584"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809082"
 ---
 # <a name="check-the-encryption-status-of-a-blob"></a>Verifique o estado de encriptação de uma bolha
 
-Cada blob de bloco, append blob ou blob de página que foi escrito para O Armazenamento Azure após 20 de outubro de 2017 é encriptado com encriptação de Armazenamento Azure. As bolhas criadas antes desta data continuam a ser encriptadas por um processo de fundo.
+Cada blob de bloco, blob de apêndice ou blob de página que foi escrito para Azure Storage depois de 20 de outubro de 2017 é encriptado com encriptação de armazenamento Azure. As manchas criadas antes desta data continuam a ser encriptadas por um processo de fundo.
 
-Este artigo mostra como determinar se uma dada bolha foi encriptada.
+Este artigo mostra como determinar se uma determinada bolha foi encriptada.
 
 ## <a name="check-a-blobs-encryption-status"></a>Verifique o estado de encriptação de uma bolha
 
@@ -32,14 +32,14 @@ Para utilizar o portal Azure para verificar se uma bolha foi encriptada, siga es
 
 1. No portal do Azure, navegue para a sua conta de armazenamento.
 1. Selecione **Recipientes** para navegar para uma lista de contentores na conta.
-1. Localize a bolha e exiba o seu separador **overview.**
-1. Consulte a propriedade **Encriptada do Servidor.** Se **True**, como mostra a seguinte imagem, então a bolha é encriptada. Note que as propriedades da bolha também incluem a data e hora que a bolha foi criada.
+1. Localize a bolha e apresente o **separador Visão Geral.**
+1. Ver a propriedade **encriptada do Servidor.** Se **verdadeiro**, como mostrado na imagem seguinte, então a bolha é encriptada. Note que as propriedades da bolha também incluem a data e a hora que a bolha foi criada.
 
-    ![Screenshot mostrando como verificar propriedade encriptada do servidor no portal Azure](media/storage-blob-encryption-status/blob-encryption-property-portal.png)
+    ![Screenshot mostrando como verificar propriedade encriptada do Servidor no portal Azure](media/storage-blob-encryption-status/blob-encryption-property-portal.png)
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para utilizar o PowerShell para verificar se uma bolha foi encriptada, verifique a propriedade **IsServerEncrypted** da blob. Lembre-se de substituir os valores do espaço reservado em suportes angulares por valores próprios:
+Para utilizar o PowerShell para verificar se uma bolha foi encriptada, verifique a propriedade **isServerEncrypted** da blob. Lembre-se de substituir os valores do espaço reservado nos suportes angulares com os seus próprios valores:
 
 ```powershell
 $account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -58,7 +58,7 @@ $blob.ICloudBlob.Properties.IsServerEncrypted
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
 
-Para utilizar o Azure CLI para verificar se uma bolha foi encriptada, verifique a propriedade **IsServerEncrypted** da blob. Lembre-se de substituir os valores do espaço reservado em suportes angulares por valores próprios:
+Para utilizar o CLI do Azure para verificar se uma bolha foi encriptada, verifique a propriedade **IsServerEncrypted** da blob. Lembre-se de substituir os valores do espaço reservado nos suportes angulares com os seus próprios valores:
 
 ```azurecli-interactive
 az storage blob show \
@@ -68,15 +68,15 @@ az storage blob show \
     --query "properties.serverEncrypted"
 ```
 
-Para determinar quando a bolha foi criada, verifique o valor da propriedade **criada.**
+Para determinar quando a bolha foi criada, verifique o valor do **imóvel criado.**
 
 ---
 
 ## <a name="force-encryption-of-a-blob"></a>Encriptação de força de uma bolha
 
-Se uma bolha que foi criada antes de 20 de outubro de 2017 ainda não foi encriptada pelo processo de fundo, pode forçar a encriptação a ocorrer imediatamente, descarregando e recarregando a bolha. Uma maneira simples de fazer isto é com a AzCopy.
+Se uma bolha que foi criada antes de 20 de outubro de 2017 ainda não foi encriptada pelo processo de fundo, pode forçar a encriptação a ocorrer imediatamente, descarregando e re-carregando a bolha. Uma maneira simples de fazer isto é com a AzCopy.
 
-Para descarregar uma bolha para o seu sistema de ficheiros local com a AzCopy, utilize a seguinte sintaxe:
+Para descarregar uma bolha para o seu sistema de ficheiros local com AzCopy, utilize a seguinte sintaxe:
 
 ```
 azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-file-path>'
@@ -85,7 +85,7 @@ Example:
 azcopy copy 'https://storagesamples.blob.core.windows.net/sample-container/blob1.txt' 'C:\temp\blob1.txt'
 ```
 
-Para voltar a carregar a bolha para o Armazenamento Azure com a AzCopy, utilize a seguinte sintaxe:
+Para reessarcar a bolha para Azure Storage com AzCopy, utilize a seguinte sintaxe:
 
 ```
 azcopy copy '<local-file-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-name>'
@@ -94,8 +94,8 @@ Example:
 azcopy copy 'C:\temp\blob1.txt' 'https://storagesamples.blob.core.windows.net/sample-container/blob1.txt'
 ```
 
-Para obter mais informações sobre a utilização do AzCopy para copiar dados blob, consulte [os dados de transferência com armazenamento AzCopy e Blob](../common/storage-use-azcopy-blobs.md).
+Para obter mais informações sobre a utilização do AzCopy para copiar dados de bolhas, consulte [os dados de Transferência com armazenamento AzCopy e Blob](../common/storage-use-azcopy-blobs.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Encriptação azure storage para dados em repouso](../common/storage-service-encryption.md)
+[Azure Storage encryption for data at rest](../common/storage-service-encryption.md) (Encriptação do Armazenamento do Azure para dados inativos)

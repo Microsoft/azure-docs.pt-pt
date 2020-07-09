@@ -1,25 +1,24 @@
 ---
-title: Monitor Lote com insights de aplicação azure
+title: Monitor Batch com Insights de Aplicação Azure
 description: Saiba como instrumentar uma aplicação Azure Batch .NET utilizando a biblioteca Azure Application Insights.
 ms.topic: how-to
 ms.date: 04/05/2018
 ms.openlocfilehash: b6817ad1303e6039ebfe5fe5ae6101b9bc192eb4
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83723617"
 ---
-# <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitor e depuração de uma aplicação Azure Batch .NET com Insights de Aplicação
+# <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitore e depure uma aplicação Azure Batch .NET com Insights de Aplicação
 
-[Application Insights](../azure-monitor/app/app-insights-overview.md) fornece uma forma elegante e poderosa de os desenvolvedores monitorizarem e depurarem aplicações implementadas nos serviços Azure. Utilize insights de aplicação para monitorizar contadores de desempenho e exceções, bem como instrumentar o seu código com métricas personalizadas e rastreios. Integrar insights de aplicação com a sua aplicação Azure Batch permite-lhe obter informações profundas sobre comportamentos e investigar problemas em tempo quase real.
+[A Application Insights](../azure-monitor/app/app-insights-overview.md) fornece uma forma elegante e poderosa de os desenvolvedores monitorizarem e depurarem aplicações implantadas nos serviços da Azure. Utilize insights de aplicação para monitorizar os contadores de desempenho e exceções, bem como instrumento o seu código com métricas e rastreios personalizados. A integração de Insights de Aplicação com a sua aplicação Azure Batch permite-lhe obter informações profundas sobre comportamentos e investigar problemas em tempo quase real.
 
-Este artigo mostra como adicionar e configurar a biblioteca Application Insights na sua solução Azure Batch .NET e instrumentar o seu código de aplicação. Também mostra formas de monitorizar a sua aplicação através do portal Azure e construir dashboards personalizados. Para suporte de Insights de Aplicação noutras línguas, veja as [línguas, plataformas e documentação de integrações.](../azure-monitor/app/platforms.md)
+Este artigo mostra como adicionar e configurar a biblioteca Application Insights na sua solução Azure Batch .NET e instrumento o seu código de aplicação. Também mostra formas de monitorizar a sua aplicação através do portal Azure e construir dashboards personalizados. Para o suporte de Insights de Aplicação em outras línguas, olhe para a [documentação de línguas, plataformas e integrações.](../azure-monitor/app/platforms.md)
 
-Uma solução C# de amostra com código para acompanhar este artigo está disponível no [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). Este exemplo adiciona o código de instrumentação De Insights de Aplicação ao exemplo [TopNWords.](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) Se não está familiarizado com este exemplo, tente construir e executar topNWords primeiro. Isto irá ajudá-lo a entender um fluxo básico de trabalho de lote de processamento de um conjunto de bolhas de entrada em paralelo em vários nós de computação. 
+Uma solução de amostra C# com código para acompanhar este artigo está disponível no [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). Este exemplo adiciona o código de instrumentação application Insights ao exemplo [do TopNWords.](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) Se não está familiarizado com esse exemplo, tente construir e executar o TopNWords primeiro. Ao fazê-lo, irá ajudá-lo a compreender um fluxo básico de trabalho do Lote de processamento de um conjunto de bolhas de entrada paralelamente em múltiplos nós de computação. 
 
 > [!TIP]
-> Como alternativa, configure a sua solução de Lote para exibir dados de Insights de Aplicação, como contadores de desempenho VM no Batch Explorer. [O Batch Explorer](https://github.com/Azure/BatchExplorer) é uma ferramenta de cliente gratuita, rica e autónoma para ajudar a criar, depurar e monitorizar aplicações do Lote Azure. Transfira um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows. Consulte o [repo de insights de lote](https://github.com/Azure/batch-insights) para obter passos rápidos para ativar os dados de Insights de Aplicação no Batch Explorer. 
+> Como alternativa, configuure a sua solução Batch para exibir dados de Insights de Aplicação, tais como contadores de desempenho VM no Batch Explorer. [O Batch Explorer](https://github.com/Azure/BatchExplorer) é uma ferramenta cliente independente e independente, com destaque para ajudar a criar, depurar e monitorizar as aplicações do Azure Batch. Transfira um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows. Consulte o [repo de insights de lote](https://github.com/Azure/batch-insights) para obter passos rápidos para ativar os dados de Insights de Aplicação no Batch Explorer. 
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -31,38 +30,38 @@ Uma solução C# de amostra com código para acompanhar este artigo está dispon
   
    * Utilize o portal Azure para criar um *recurso*Application Insights . Selecione o **tipo de Aplicação** *Geral* .
 
-   * Copie a chave de [instrumentação](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) do portal. É necessário mais tarde neste artigo.
+   * Copie a [chave de instrumentação](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) do portal. É necessário mais tarde neste artigo.
   
   > [!NOTE]
-  > Pode ser [cobrado](https://azure.microsoft.com/pricing/details/application-insights/) pelos dados armazenados na Aplicação Insights. Isto inclui os dados de diagnóstico e monitorização discutidos neste artigo.
+  > Pode ser [cobrado](https://azure.microsoft.com/pricing/details/application-insights/) pelos dados armazenados no Application Insights. Isto inclui os dados de diagnóstico e monitorização discutidos neste artigo.
   > 
 
-## <a name="add-application-insights-to-your-project"></a>Adicione insights de aplicação ao seu projeto
+## <a name="add-application-insights-to-your-project"></a>Adicionar Insights de Aplicação ao seu projeto
 
-O pacote **Microsoft.ApplicationInsights.WindowsServer** NuGet e as suas dependências são necessários para o seu projeto. Adicione ou restaure ao projeto da sua aplicação. Para instalar a embalagem, utilize o `Install-Package` comando ou o NuGet Package Manager.
+O pacote **Microsoft.ApplicationInsights.WindowsServer** NuGet e as suas dependências são necessários para o seu projeto. Adicione ou devolva ao projeto da sua aplicação. Para instalar a embalagem, utilize o gestor de `Install-Package` pacotes de comando ou NuGet.
 
 ```powershell
 Install-Package Microsoft.ApplicationInsights.WindowsServer
 ```
-Informações de aplicação de referência da sua aplicação .NET utilizando o espaço de nome **Microsoft.ApplicationInsights.**
+Insights de aplicação de referência da sua aplicação .NET utilizando o espaço de nome **Microsoft.ApplicationInsights.**
 
-## <a name="instrument-your-code"></a>Instrumente o seu código
+## <a name="instrument-your-code"></a>Instrumento o seu código
 
-Para instrumentar o seu código, a sua solução precisa de criar uma Aplicação Insights [TelemettryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient). No exemplo, o TelemettryClient carrega a sua configuração a partir do ficheiro [ApplicationInsights.config.](../azure-monitor/app/configuration-with-applicationinsights-config.md) Certifique-se de atualizar ApplicationInsights.config nos seguintes projetos com a sua chave de instrumentação Application Insights: Microsoft.Azure.Batch.Samples.TelemettryStartTask e TopNWordsSample.
+Para instrumentar o seu código, a sua solução precisa de criar um [Telemetria de](/dotnet/api/microsoft.applicationinsights.telemetryclient)Insights de Aplicação . No exemplo, o TelemetriaClient carrega a sua configuração a partir do ficheiro [ApplicationInsights.config.](../azure-monitor/app/configuration-with-applicationinsights-config.md) Certifique-se de atualizar ApplicationInsights.config nos seguintes projetos com a sua chave de instrumentação Application Insights: Microsoft.Azure.Batch. Samples.TelemetryStartTask e TopNWordsSample.
 
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
 ```
 Adicione também a chave de instrumentação no ficheiro TopNWords.cs.
 
-O exemplo em TopNWords.cs utiliza as seguintes chamadas de [instrumentação](../azure-monitor/app/api-custom-events-metrics.md) da API de Insights de Aplicação:
-* `TrackMetric()`- Rastreia o tempo que, em média, um nó computacional demora a descarregar o ficheiro de texto necessário.
-* `TrackTrace()`- Adiciona chamadas de depuração ao seu código.
+O exemplo em TopNWords.cs utiliza as seguintes chamadas de [instrumentação](../azure-monitor/app/api-custom-events-metrics.md) da API application insights:
+* `TrackMetric()`- Rastreia o tempo, em média, de um nó computacional para descarregar o ficheiro de texto necessário.
+* `TrackTrace()`- Adiciona chamadas de depuragem ao seu código.
 * `TrackEvent()`- Rastreia eventos interessantes para capturar.
 
-Este exemplo deixa propositadamente de fora o manuseamento de exceções. Em vez disso, a Application Insights reporta automaticamente exceções não tratadas, o que melhora significativamente a experiência de depuração. 
+Este exemplo deixa propositadamente de fora o tratamento de exceções. Em vez disso, o Application Insights reporta automaticamente exceções não manipuladas, o que melhora significativamente a experiência de depuragem. 
 
-O seguinte corte ilustra como usar estes métodos.
+O seguinte corte ilustra como utilizar estes métodos.
 
 ```csharp
 public void CountWords(string blobName, int numTopN, string storageAccountName, string storageAccountKey)
@@ -116,8 +115,8 @@ public void CountWords(string blobName, int numTopN, string storageAccountName, 
 }
 ```
 
-### <a name="azure-batch-telemetry-initializer-helper"></a>Ajudante de infetante de telemetria azure Batch
-Ao reportar a telemetria para um determinado servidor e instância, o Application Insights utiliza a Função VM Azure e o nome VM para os valores predefinidos. No contexto do Lote Azure, o exemplo mostra como usar o nome da piscina e o nome do nó computacional. Utilize um inicializador de [telemetria](../azure-monitor/app/api-filtering-sampling.md#add-properties) para anular os valores predefinidos. 
+### <a name="azure-batch-telemetry-initializer-helper"></a>Ajudante de inicializador de telemetria Azure Batch
+Ao reportar telemetria para um determinado servidor e exemplo, o Application Insights utiliza o nome Azure VM Role e VM para os valores predefinidos. No contexto do Azure Batch, o exemplo mostra como usar o nome da piscina e o nome do nó de computação. Utilize um [inicializador de telemetria](../azure-monitor/app/api-filtering-sampling.md#add-properties) para anular os valores predefinidos. 
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -174,11 +173,11 @@ Para ativar o inicializador de telemetria, o ficheiro ApplicationInsights.config
 </TelemetryInitializers>
 ``` 
 
-## <a name="update-the-job-and-tasks-to-include-application-insights-binaries"></a>Atualizar o trabalho e as tarefas para incluir binários de Insights de Aplicação
+## <a name="update-the-job-and-tasks-to-include-application-insights-binaries"></a>Atualizar o trabalho e as tarefas para incluir binários application insights
 
-Para que os Insights de Aplicação sejam executados corretamente nos seus nós de cálculo, certifique-se de que os binários estão corretamente colocados. Adicione os binários necessários à recolha de ficheiros de recursos da sua tarefa para que sejam descarregados no momento em que a sua tarefa executa. Os seguintes cortes são semelhantes ao código em Job.cs.
+Para que os Insights de Aplicação corram corretamente nos seus nós de computação, certifique-se de que os binários estão corretamente colocados. Adicione os binários necessários à recolha de ficheiros de recursos da sua tarefa para que sejam descarregados no momento em que a sua tarefa executa. Os seguintes cortes são semelhantes ao código em Job.cs.
 
-Primeiro, crie uma lista estática de ficheiros Application Insights para carregar.
+Em primeiro lugar, crie uma lista estática de ficheiros Application Insights para carregar.
 
 ```csharp
 private static readonly List<string> AIFilesToUpload = new List<string>()
@@ -198,7 +197,7 @@ private static readonly List<string> AIFilesToUpload = new List<string>()
 ...
 ```
 
-Em seguida, crie os ficheiros de encenação que são utilizados pela tarefa.
+Em seguida, crie os ficheiros de preparação que são utilizados pela tarefa.
 ```csharp
 ...
 // create file staging objects that represent the executable and its dependent assembly to run as the task.
@@ -215,7 +214,7 @@ foreach (string aiFile in AIFilesToUpload)
 ...
 ```
 
-O método é uma função de ajudante na amostra de `FileToStage` código que lhe permite carregar facilmente um ficheiro do disco local para uma bolha de Armazenamento Azure. Cada ficheiro é posteriormente descarregado para um nó de cálculo e referenciado por uma tarefa.
+O `FileToStage` método é uma função de ajudante na amostra de código que lhe permite carregar facilmente um ficheiro do disco local para uma bolha de armazenamento Azure. Cada ficheiro é posteriormente descarregado para um nó de computação e referenciado por uma tarefa.
 
 Por fim, adicione as tarefas ao trabalho e inclua os binários de Insights de Aplicação necessários.
 ```csharp
@@ -253,50 +252,50 @@ for (int i = 1; i <= topNWordsConfiguration.NumberOfTasks; i++)
 
 ## <a name="view-data-in-the-azure-portal"></a>Ver dados no portal Azure
 
-Agora que configurao o trabalho e as tarefas para usar os Insights de Aplicação, faça o trabalho de exemplo na sua piscina. Navegue para o portal Azure e abra o recurso Application Insights que disponibilizou. Depois de a piscina ser aprovisionada, deve começar a ver os dados fluindo e ficando registados. O resto deste artigo toca apenas algumas funcionalidades de Application Insights, mas sinta-se livre para explorar o conjunto completo de funcionalidades.
+Agora que configuraste o trabalho e as tarefas para usar o Application Insights, corre o trabalho de exemplo na tua piscina. Navegue até ao portal Azure e abra o recurso Application Insights que aprovisionou. Depois de o pool ser a provisionado, deve começar a ver os dados a fluir e a ser registados. O resto deste artigo aborda apenas algumas funcionalidades do Application Insights, mas sinta-se livre para explorar o conjunto completo de funcionalidades.
 
 ### <a name="view-live-stream-data"></a>Ver dados de transmissão ao vivo
 
-Para ver registos de rastreio no recurso Insights de Aplicações, clique em **Live Stream**. A imagem que se segue mostra como visualizar dados ao vivo provenientes dos nós de computação na piscina, por exemplo, o uso do CPU por nó de cálculo.
+Para visualizar registos de vestígios no seu recurso Applications Insights, clique em **Live Stream**. A imagem que se segue mostra como visualizar dados ao vivo provenientes dos nós de computação na piscina, por exemplo, o uso do CPU por nó de computação.
 
-![Dados do nó da computação de fluxo ao vivo](./media/monitor-application-insights/applicationinsightslivestream.png)
+![Dados do nó de computação em direto](./media/monitor-application-insights/applicationinsightslivestream.png)
 
-### <a name="view-trace-logs"></a>Ver registos de rastreio
+### <a name="view-trace-logs"></a>Ver registos de vestígios
 
-Para visualizar registos de rastreiono recurso Insights das aplicações, clique em **Procurar**. Esta visão mostra uma lista de dados de diagnóstico capturados pela Application Insights, incluindo vestígios, eventos e exceções. 
+Para visualizar registos de vestígios no seu recurso 'Insights' de Aplicações, clique em **Procurar**. Esta visão mostra uma lista de dados de diagnóstico capturados por Application Insights, incluindo vestígios, eventos e exceções. 
 
-A imagem seguinte mostra como um único traço para uma tarefa é registado e mais tarde consultado para fins de depuração.
+A imagem que se segue mostra como um único vestígio para uma tarefa é registado e posteriormente questionado para fins de depuragem.
 
-![Rastrear imagem de logs](./media/monitor-application-insights/tracelogsfortask.png)
+![Imagem de registos de traços](./media/monitor-application-insights/tracelogsfortask.png)
 
-### <a name="view-unhandled-exceptions"></a>Ver exceções não tratadas
+### <a name="view-unhandled-exceptions"></a>Ver exceções não manipuladas
 
-As seguintes imagens mostram como os Insights de Aplicação registam exceções lançadas da sua aplicação. Neste caso, segundos após a aplicação lançar a exceção, pode perfurar uma exceção específica e diagnosticar o problema.
+As imagens seguintes mostram como o Application Insights regista exceções lançadas da sua aplicação. Neste caso, a poucos segundos da aplicação que lança a exceção, pode perfurar uma exceção específica e diagnosticar o problema.
 
 ![Exceções não processadas](./media/monitor-application-insights/exception.png)
 
-### <a name="measure-blob-download-time"></a>Medir o tempo de descarregamento de blob
+### <a name="measure-blob-download-time"></a>Medir o tempo de descarregamento do blob
 
-As métricas personalizadas também são uma ferramenta valiosa no portal. Por exemplo, pode apresentar o tempo médio que cada nó computacional demorou a descarregar o ficheiro de texto necessário que estava a processar.
+As métricas personalizadas também são uma ferramenta valiosa no portal. Por exemplo, pode exibir o tempo médio que cada nó de cálculo demorou a descarregar o ficheiro de texto necessário que estava a processar.
 
-Para criar um gráfico de amostras:
-1. No seu recurso Application Insights, clique em **Métricas Explorer**  >  **Add chart**.
+Para criar um gráfico de amostragem:
+1. No seu recurso 'Insights de Aplicação', clique em **Gráfico de Métricas Explorer**  >  **Add**.
 2. Clique em **Editar** na tabela que foi adicionada.
 2. Atualize os detalhes do gráfico da seguinte forma:
    * Definir **tipo de gráfico** para **grelha**.
-   * Definir **agregação** para **a média**.
+   * Definir **agregação** para **média**.
    * Set **Group by** to **NodeId**.
-   * Em **Métricas,** selecione **Custom**  >  **Blob baixar em segundos**.
-   * Ajuste a **paleta de cores** de exibição à sua escolha. 
+   * Em **Metrics**, selecione **Download Custom**  >  **Blob em segundos**.
+   * Ajuste a **paleta de cores do** ecrã à sua escolha. 
 
-![Tempo de descarregamento blob por nó](./media/monitor-application-insights/blobdownloadtime.png)
+![Tempo de download de blob por nó](./media/monitor-application-insights/blobdownloadtime.png)
 
 
-## <a name="monitor-compute-nodes-continuously"></a>Monitorize os nódosos de computação continuamente
+## <a name="monitor-compute-nodes-continuously"></a>Monitorize os nosdes computacional continuamente
 
-Pode ter reparado que todas as métricas, incluindo contadores de desempenho, só estão registadas quando as tarefas estão em execução. Este comportamento é útil porque limita a quantidade de dados que o Application Insights regista. No entanto, há casos em que sempre se gostaria de monitorizar os nós da computação. Por exemplo, podem estar a executar trabalhos de fundo que não estão programados através do serviço Batch. Neste caso, criar um processo de monitorização para correr para a vida útil do nó computacional. 
+Pode ter reparado que todas as métricas, incluindo contadores de desempenho, só são registadas quando as tarefas estão em execução. Este comportamento é útil porque limita a quantidade de dados que a Application Insights regista. No entanto, há casos em que gostaria sempre de monitorizar os nós computacional. Por exemplo, podem estar a executar trabalhos de fundo que não são programados através do serviço Batch. Neste caso, crie um processo de monitorização para executar a vida útil do nó de computação. 
 
-Uma maneira de alcançar este comportamento é gerar um processo que carregue a biblioteca Application Insights e corra em segundo plano. No exemplo, a tarefa inicial carrega os binários na máquina e mantém um processo a funcionar indefinidamente. Configure o ficheiro de configuração de Insights de Aplicação para este processo emitir dados adicionais que lhe interesse, tais como contadores de desempenho.
+Uma forma de alcançar este comportamento é desovar um processo que carrega a biblioteca Application Insights e funciona em segundo plano. No exemplo, a tarefa inicial carrega as binários na máquina e mantém um processo em funcionamento indefinidamente. Configure o ficheiro de configuração do Application Insights para este processo para emitir dados adicionais que lhe interessam, como contadores de desempenho.
 
 ```csharp
 ...
@@ -325,17 +324,17 @@ pool.StartTask = new StartTask()
 ```
 
 > [!TIP]
-> Para aumentar a gestão da sua solução, pode agregar o conjunto num pacote de [aplicação](./batch-application-packages.md). Em seguida, para implementar o pacote de aplicação automaticamente para as suas piscinas, adicione uma referência de pacote de aplicação à configuração do pool.
+> Para aumentar a gestão da sua solução, pode agregar o conjunto num [pacote de aplicações.](./batch-application-packages.md) Em seguida, para implantar o pacote de aplicações automaticamente nas suas piscinas, adicione uma referência de pacote de aplicação à configuração da piscina.
 >
 
-## <a name="throttle-and-sample-data"></a>Dados do acelerador e da amostra 
+## <a name="throttle-and-sample-data"></a>Dados de aceleração e amostra 
 
-Devido à natureza em larga escala das aplicações do Lote Azure em produção, é melhor limitar a quantidade de dados recolhidos pela Application Insights para gerir os custos. Consulte [a Amostragem em Insights](../azure-monitor/app/sampling.md) de Aplicação para obter isso.
+Devido à natureza em larga escala das aplicações do Azure Batch em execução em produção, é melhor limitar a quantidade de dados recolhidos pela Application Insights para gerir os custos. Consulte [a amostragem em Insights de Aplicação](../azure-monitor/app/sampling.md) para obter alguns mecanismos para o conseguir.
 
 
 ## <a name="next-steps"></a>Próximos passos
-* Saiba mais sobre [os Insights de Aplicação.](../azure-monitor/app/app-insights-overview.md)
+* Saiba mais sobre [a Aplicação Insights](../azure-monitor/app/app-insights-overview.md).
 
-* Para suporte de Insights de Aplicação noutras línguas, veja as [línguas, plataformas e documentação de integrações.](../azure-monitor/app/platforms.md)
+* Para o suporte de Insights de Aplicação em outras línguas, olhe para a [documentação de línguas, plataformas e integrações.](../azure-monitor/app/platforms.md)
 
 

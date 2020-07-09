@@ -1,39 +1,38 @@
 ---
-title: Centros de tarefas em Funções Duráveis - Azure
-description: Saiba qual é o centro de tarefas na extensão de Funções Duráveis para funções azure. Aprenda a configurar centros de tarefas.
+title: Centros de tarefas em Funções Duradouras - Azure
+description: Saiba o que é um centro de tarefas na extensão de Funções Duradouras para Funções Azure. Aprenda a configurar centros de tarefas.
 author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 427ab6c4e0e769ab881af0af3023d514c1b092c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81604605"
 ---
-# <a name="task-hubs-in-durable-functions-azure-functions"></a>Centros de tarefas em funções duráveis (Funções Azure)
+# <a name="task-hubs-in-durable-functions-azure-functions"></a>Centros de tarefas em Funções Duradouras (Funções Azure)
 
-Um *centro de tarefas* em [Funções Duráveis](durable-functions-overview.md) é um recipiente lógico para os recursos de armazenamento azure que são usados para orquestrações. As funções de orquestrador e de atividade só podem interagir entre si quando pertencem ao mesmo centro de tarefas.
+Um *centro de tarefas* em [Funções Duradouras](durable-functions-overview.md) é um recipiente lógico para os recursos de armazenamento Azure que são usados para orquestrações. Orquestradores e funções de atividade só podem interagir uns com os outros quando pertencem ao mesmo centro de tarefas.
 
-Se várias aplicações de função partilharem uma conta de armazenamento, cada aplicação de função *deve* ser configurada com um nome de centro de tarefas separado. Uma conta de armazenamento pode conter vários centros de tarefas. O diagrama seguinte ilustra um centro de tarefas por aplicação de função em contas de armazenamento partilhadas e dedicadas.
+Se várias aplicações de funções partilharem uma conta de armazenamento, cada aplicação de função *deve* ser configurada com um nome de hub de tarefa separado. Uma conta de armazenamento pode conter vários centros de tarefas. O diagrama seguinte ilustra um centro de tarefas por aplicação de função em contas de armazenamento partilhadas e dedicadas.
 
 ![Diagrama mostrando contas de armazenamento partilhadas e dedicadas.](./media/durable-functions-task-hubs/task-hubs-storage.png)
 
-## <a name="azure-storage-resources"></a>Recursos de Armazenamento Azure
+## <a name="azure-storage-resources"></a>Recursos de armazenamento Azure
 
 Um centro de tarefas consiste nos seguintes recursos de armazenamento:
 
 * Uma ou mais filas de controlo.
-* Uma fila de trabalho.
+* Uma fila de artigos de trabalho.
 * Uma mesa de história.
 * Uma mesa de casos.
-* Um recipiente de armazenamento contendo uma ou mais bolhas de aluguer.
-* Um recipiente de armazenamento contendo grandes cargas de mensagem, se aplicável.
+* Um recipiente de armazenamento contendo uma ou mais bolhas de arrendamento.
+* Um recipiente de armazenamento contendo cargas de mensagens grandes, se aplicável.
 
-Todos estes recursos são criados automaticamente na conta de Armazenamento Azure padrão quando as funções de orquestração, entidade ou atividade funcionam ou estão programadas para funcionar. O artigo [Performance and Scale](durable-functions-perf-and-scale.md) explica como estes recursos são utilizados.
+Todos estes recursos são criados automaticamente na conta padrão do Azure Storage quando o orquestrador, entidade ou funções de atividade funcionam ou estão programados para executar. O artigo [Performance and Scale](durable-functions-perf-and-scale.md) explica como estes recursos são utilizados.
 
-## <a name="task-hub-names"></a>Nomes do centro de tarefas
+## <a name="task-hub-names"></a>Nomes de centros de tarefas
 
 Os centros de tarefas são identificados por um nome que está em conformidade com estas regras:
 
@@ -41,9 +40,9 @@ Os centros de tarefas são identificados por um nome que está em conformidade c
 * Começa com uma carta
 * Tem um comprimento mínimo de 3 caracteres, comprimento máximo de 45 caracteres
 
-O nome do centro de tarefas é declarado no ficheiro *host.json,* como mostra o seguinte exemplo:
+O nome do centro de tarefas é declarado no *host.jsem* arquivo, como mostra o seguinte exemplo:
 
-### <a name="hostjson-functions-20"></a>host.json (Funções 2.0)
+### <a name="hostjson-functions-20"></a>host.js(Funções 2.0)
 
 ```json
 {
@@ -56,7 +55,7 @@ O nome do centro de tarefas é declarado no ficheiro *host.json,* como mostra o 
 }
 ```
 
-### <a name="hostjson-functions-1x"></a>host.json (Funções 1.x)
+### <a name="hostjson-functions-1x"></a>host.jsem (Funções 1.x)
 
 ```json
 {
@@ -66,9 +65,9 @@ O nome do centro de tarefas é declarado no ficheiro *host.json,* como mostra o 
 }
 ```
 
-Os centros de tarefas também podem ser configurados `host.json` utilizando as definições da aplicação, como mostra o seguinte ficheiro exemplo:
+Os centros de tarefa também podem ser configurados usando as definições de aplicações, como mostrado no `host.json` seguinte ficheiro exemplo:
 
-### <a name="hostjson-functions-10"></a>host.json (Funções 1.0)
+### <a name="hostjson-functions-10"></a>host.js(Funções 1.0)
 
 ```json
 {
@@ -78,7 +77,7 @@ Os centros de tarefas também podem ser configurados `host.json` utilizando as d
 }
 ```
 
-### <a name="hostjson-functions-20"></a>host.json (Funções 2.0)
+### <a name="hostjson-functions-20"></a>host.js(Funções 2.0)
 
 ```json
 {
@@ -91,7 +90,7 @@ Os centros de tarefas também podem ser configurados `host.json` utilizando as d
 }
 ```
 
-O nome do centro de tarefas `MyTaskHub` será definido para o valor da definição da aplicação. O `local.settings.json` seguinte demonstra como `MyTaskHub` definir `samplehubname`a definição como:
+O nome do hub de tarefa será definido para o valor da definição da `MyTaskHub` aplicação. O seguinte `local.settings.json` demonstra como definir o cenário como `MyTaskHub` `samplehubname` :
 
 ```json
 {
@@ -102,9 +101,9 @@ O nome do centro de tarefas `MyTaskHub` será definido para o valor da definiç�
 }
 ```
 
-O seguinte código demonstra como escrever uma função que utiliza a ligação do cliente de [orquestração](durable-functions-bindings.md#orchestration-client) para trabalhar com um centro de tarefas que é configurado como uma Definição de Aplicações:
+O seguinte código demonstra como escrever uma função que usa a ligação do cliente de [orquestração](durable-functions-bindings.md#orchestration-client) para trabalhar com um centro de tarefas configurado como uma Definição de Aplicação:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -125,11 +124,11 @@ public static async Task<HttpResponseMessage> Run(
 ```
 
 > [!NOTE]
-> O exemplo c# anterior é para Funções Duráveis 2.x. Para funções duráveis 1.x, deve utilizar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo de [versões De Funções Duráveis.](durable-functions-versions.md)
+> O exemplo C# anterior é para Funções Duradouras 2.x. Para funções duradouras 1.x, deve utilizar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext` . Para obter mais informações sobre as diferenças entre versões, consulte o artigo [das versões Funções Duradouras.](durable-functions-versions.md)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-A propriedade do `function.json` centro de tarefas no ficheiro é definida através da Definição de Aplicações:
+A propriedade do hub de tarefa no `function.json` ficheiro é definida através da Definição de Aplicação:
 
 ```json
 {
@@ -142,19 +141,19 @@ A propriedade do `function.json` centro de tarefas no ficheiro é definida atrav
 
 ---
 
-Os nomes do centro de tarefas devem começar com uma letra e consistir apenas em letras e números. Se não especificado, um nome de centro de tarefas predefinido será utilizado como mostrado na tabela seguinte:
+Os nomes dos centros de tarefa devem começar com uma letra e consistir apenas em letras e números. Se não for especificado, será utilizado um nome de hub de tarefa predefinido como indicado no quadro seguinte:
 
-| Versão de extensão durável | Nome do centro de tarefas padrão |
+| Versão de extensão duradoura | Nome do centro de tarefas padrão |
 | - | - |
-| 2.x | Quando implantado em Azure, o nome do centro de tarefas é derivado do nome da _aplicação de função_. Quando se corre para fora de `TestHubName`Azure, o nome do centro de tarefas padrão é . |
-| 1.x | O nome padrão do centro `DurableFunctionsHub`de tarefas para todos os ambientes é . |
+| 2.x | Quando implantado no Azure, o nome do centro de tarefas é derivado do nome da _aplicação de função_. Quando corre fora de Azure, o nome do centro de tarefas padrão é `TestHubName` . |
+| 1.x | O nome padrão do centro de tarefas para todos os ambientes é `DurableFunctionsHub` . |
 
-Para obter mais informações sobre as diferenças entre versões de extensão, consulte o artigo de [versões de Funções Duráveis.](durable-functions-versions.md)
+Para obter mais informações sobre as diferenças entre as versões de extensão, consulte o artigo [das versões Funções Duradouras.](durable-functions-versions.md)
 
 > [!NOTE]
-> O nome é o que diferencia um centro de tarefas de outro quando existem múltiplos centros de tarefas numa conta de armazenamento partilhada. Se tiver várias aplicações de função que partilham uma conta de armazenamento partilhada, deve configurar explicitamente diferentes nomes para cada centro de tarefas nos *ficheiros host.json.* Caso contrário, as aplicações de múltiplas funções competirão entre si por mensagens, o `Pending` que `Running` pode resultar em comportamentos indefinidos, incluindo orquestrações ficando inesperadamente "presas" no ou estado.
+> O nome é o que diferencia um centro de tarefas de outro quando existem múltiplos centros de tarefas numa conta de armazenamento partilhada. Se tiver várias aplicações de funções que partilhem uma conta de armazenamento partilhada, tem de configurar explicitamente diferentes nomes para cada centro de tarefas no *host.jsem* ficheiros. Caso contrário, as aplicações de múltiplas funções competirão entre si por mensagens, o que pode resultar em comportamentos indefinidos, incluindo orquestrações ficando inesperadamente "presas" no `Pending` `Running` ou no estado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Saiba como lidar com a versão da orquestração](durable-functions-versioning.md)
+> [Saiba como lidar com a versão de orquestração](durable-functions-versioning.md)

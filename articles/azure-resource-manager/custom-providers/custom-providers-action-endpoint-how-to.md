@@ -1,26 +1,25 @@
 ---
-title: Adicionar ações personalizadas à API Do REST Azure
-description: Saiba como adicionar ações personalizadas à API Do REST Azure. Este artigo irá percorrer os requisitos e as melhores práticas para pontos finais que desejem implementar ações personalizadas.
+title: Adicionar ações personalizadas à Azure REST API
+description: Saiba como adicionar ações personalizadas à AZure REST API. Este artigo percorrerá os requisitos e as melhores práticas para os pontos finais que desejem implementar ações personalizadas.
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 6110a7952b7c29609d2b98e135b61032aec3fa52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650399"
 ---
-# <a name="adding-custom-actions-to-azure-rest-api"></a>Adicionar ações personalizadas à API do REST Azure
+# <a name="adding-custom-actions-to-azure-rest-api"></a>Adicionar ações personalizadas à Azure REST API
 
-Este artigo irá analisar os requisitos e as melhores práticas para criar pontos finais do Fornecedor de Recursos Personalizados Azure que implementam ações personalizadas. Se não está familiarizado com os Fornecedores de Recursos Personalizados Da Azure, consulte a visão geral sobre os fornecedores de [recursos personalizados.](overview.md)
+Este artigo irá analisar os requisitos e as melhores práticas para a criação de pontos finais do Azure Custom Resource Provider que implementem ações personalizadas. Se não estiver familiarizado com os Fornecedores de Recursos Personalizados Azure, consulte [a visão geral dos fornecedores de recursos personalizados.](overview.md)
 
-## <a name="how-to-define-an-action-endpoint"></a>Como definir um ponto final de ação
+## <a name="how-to-define-an-action-endpoint"></a>Como definir um Ponto final de ação
 
-Um **ponto final** é um URL que aponta para um serviço, que implementa o contrato subjacente entre ele e o Azure. O ponto final é definido no fornecedor de recursos personalizados e pode ser qualquer URL acessível ao público. A amostra abaixo tem `myCustomAction` uma `endpointURL` **ação** chamada implementada por .
+Um **ponto final** é um URL que aponta para um serviço, que implementa o contrato subjacente entre ele e a Azure. O ponto final é definido no fornecedor de recursos personalizados e pode ser qualquer URL acessível ao público. A amostra abaixo tem uma **ação** chamada `myCustomAction` implementada por `endpointURL` .
 
-**Provedor de Recursos**da Amostra:
+Fonte **de recursos da amostra:**
 
 ```JSON
 {
@@ -40,15 +39,15 @@ Um **ponto final** é um URL que aponta para um serviço, que implementa o contr
 }
 ```
 
-## <a name="building-an-action-endpoint"></a>Construindo um ponto final de ação
+## <a name="building-an-action-endpoint"></a>Construção de um ponto final de ação
 
-Um **ponto final** que implemente uma **ação** deve tratar do pedido e da resposta para a nova API em Azure. Quando um fornecedor de recursos personalizados com uma **ação** é criado, irá gerar um novo conjunto de APIs em Azure. Neste caso, a ação gerará uma nova `POST` Ação Azure API para chamadas:
+Um **ponto final** que implemente uma **ação** deve lidar com o pedido e resposta para a nova API em Azure. Quando um fornecedor de recursos personalizado com uma **ação** é criado, irá gerar um novo conjunto de APIs em Azure. Neste caso, a ação gerará uma nova API de ação Azure para `POST` chamadas:
 
 ``` JSON
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomAction
 ```
 
-Pedido de entrada da API Azure:
+Pedido de entrada da Azure API:
 
 ``` HTTP
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomAction?api-version=2018-09-01-preview
@@ -78,10 +77,10 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-Da mesma forma, a resposta do **ponto final** é então reencaminhada para o cliente. A resposta do ponto final deve voltar:
+Da mesma forma, a resposta do **ponto final** é então reencaminhada para o cliente. A resposta do ponto final deve regressar:
 
 - Um documento válido de objeto JSON. Todas as matrizes e cordas devem ser aninhadas sob um objeto superior.
-- O `Content-Type` cabeçalho deve ser definido para "aplicação/json; charset=utf-8".
+- O `Content-Type` cabeçalho deve ser definido como "aplicação/json; charset=utf-8".
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -111,10 +110,10 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="calling-a-custom-action"></a>Chamando uma ação personalizada
 
-Existem duas formas principais de chamar uma ação personalizada de um fornecedor de recursos personalizados:
+Existem duas maneiras principais de chamar uma ação personalizada de um fornecedor de recursos personalizado:
 
 - CLI do Azure
-- Modelos de gestor de recursos azure
+- Modelos de gestor de recursos Azure
 
 ### <a name="azure-cli"></a>CLI do Azure
 
@@ -130,18 +129,18 @@ az resource invoke-action --action {actionName} \
                             }'
 ```
 
-Parâmetro | Necessário | Descrição
+Parâmetro | Obrigatório | Descrição
 ---|---|---
-action | *Sim,* | O nome da ação definida no **ResourceProvider**.
-ids | *Sim,* | O ID de recurso do Fornecedor de **Recursos.**
-solicitar corpo | *Não* | O órgão de pedido que será enviado para o **ponto final.**
+action | *Sim, o que é* | O nome da ação definida no **ResourceProvider**.
+ids | *Sim, o que é* | O ID de recursos do **ResourceProvider.**
+pedido-corpo | *Não* | O órgão de pedido que será enviado para o **ponto final.**
 
 ### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
 
 > [!NOTE]
-> As ações têm suporte limitado nos modelos de gestor de recursos do Azure. Para que a ação seja chamada dentro de [`list`](../templates/template-functions-resource.md#list) um modelo, deve conter o prefixo em seu nome.
+> As ações têm suporte limitado em Modelos de Gestor de Recursos Azure. Para que a ação seja chamada dentro de um modelo, deve conter o [`list`](../templates/template-functions-resource.md#list) prefixo em seu nome.
 
-Sample **ResourceProvider** com Ação de Lista:
+Sample **ResourceProvider** com ação da lista:
 
 ```JSON
 {
@@ -158,7 +157,7 @@ Sample **ResourceProvider** com Ação de Lista:
 }
 ```
 
-Modelo de gestor de recursos azure da amostra:
+Modelo de gestor de recursos Azure:
 
 ``` JSON
 {
@@ -184,15 +183,15 @@ Modelo de gestor de recursos azure da amostra:
 }
 ```
 
-Parâmetro | Necessário | Descrição
+Parâmetro | Obrigatório | Descrição
 ---|---|---
-recursoIdentificador | *Sim,* | O ID de recurso do Fornecedor de **Recursos.**
-apiVersion | *Sim,* | A versão API do tempo de execução do recurso. Esta deve ser sempre "2018-09-01-preview".
-funçãoValores | *Não* | O órgão de pedido que será enviado para o **ponto final.**
+recursoIdentifier | *Sim, o que é* | O ID de recursos do **ResourceProvider.**
+apiVersion | *Sim, o que é* | A versão API do tempo de execução do recurso. Esta deve ser sempre "2018-09-01-preview".
+funçõesValues | *Não* | O órgão de pedido que será enviado para o **ponto final.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral sobre fornecedores de recursos personalizados Azure](overview.md)
-- [Quickstart: Criar o Fornecedor de Recursos Personalizados Azure e implementar recursos personalizados](./create-custom-provider.md)
+- [Quickstart: Criar Fornecedor de Recursos Personalizados Azure e implementar recursos personalizados](./create-custom-provider.md)
 - [Tutorial: Criar ações e recursos personalizados em Azure](./tutorial-get-started-with-custom-providers.md)
-- [Como: Adicionar recursos personalizados à API Do REST Azure](./custom-providers-resources-endpoint-how-to.md)
+- [Como: Adicionar recursos personalizados à Azure REST API](./custom-providers-resources-endpoint-how-to.md)

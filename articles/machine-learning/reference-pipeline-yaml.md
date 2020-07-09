@@ -5,17 +5,17 @@ description: Aprenda a definir um gasoduto de aprendizagem automática utilizand
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: reference
 ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
-ms.openlocfilehash: 0bf5a722c611f4d1c5446eb739fdd95b7edbc934
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: a519519d5728307847b5d92f9ae5ce3e739e3ba6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170533"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560954"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definir oleodutos de aprendizagem automática em YAML
 
@@ -229,7 +229,7 @@ pipeline:
 | `run_name` | O nome em Databricks para esta corrida. |
 | `source_directory` | Diretório que contém o script e outros ficheiros. |
 | `num_workers` | O número estático de trabalhadores para o agrupamento de databricks. |
-| `runconfig` | O caminho para um `.runconfig` arquivo. Este ficheiro é uma representação YAML da classe [RunConfiguration.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) Para obter mais informações sobre a estrutura deste ficheiro, consulte [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
+| `runconfig` | O caminho para um `.runconfig` arquivo. Este ficheiro é uma representação YAML da classe [RunConfiguration.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) Para obter mais informações sobre a estrutura deste ficheiro, consulte [runconfigschema.jsem](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
 | `allow_reuse` | Determina se o passo deve reutilizar os resultados anteriores quando for executado novamente com as mesmas definições. |
 
 O exemplo a seguir contém um passo databricks:
@@ -325,7 +325,7 @@ pipeline:
 | `outputs` | As saídas podem ser [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) ou [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
 | `script_name` | O nome da escrita Python (relativa a `source_directory` ). |
 | `source_directory` | Diretório que contém o guião, ambiente Conda, etc. |
-| `runconfig` | O caminho para um `.runconfig` arquivo. Este ficheiro é uma representação YAML da classe [RunConfiguration.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) Para obter mais informações sobre a estrutura deste ficheiro, consulte [runconfig.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
+| `runconfig` | O caminho para um `.runconfig` arquivo. Este ficheiro é uma representação YAML da classe [RunConfiguration.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) Para obter mais informações sobre a estrutura deste ficheiro, consulte [runconfig.jsem](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
 | `allow_reuse` | Determina se o passo deve reutilizar os resultados anteriores quando for executado novamente com as mesmas definições. |
 
 O exemplo a seguir contém um passo de script Python:

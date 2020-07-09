@@ -1,21 +1,20 @@
 ---
-title: Cláusula GROUP BY em Azure Cosmos DB
-description: Conheça a cláusula GROUP BY para o Azure Cosmos DB.
+title: GRUPO POR cláusula em Azure Cosmos DB
+description: Conheça a cláusula GROUP BY para Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: tisande
 ms.openlocfilehash: b602b56d37cec0e23d31318f6675d031bdd6bcdb
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83701001"
 ---
-# <a name="group-by-clause-in-azure-cosmos-db"></a>Cláusula GROUP BY em Azure Cosmos DB
+# <a name="group-by-clause-in-azure-cosmos-db"></a>GRUPO POR cláusula em Azure Cosmos DB
 
-A cláusula GROUP BY divide os resultados da consulta de acordo com os valores de um ou mais imóveis especificados.
+O GRUPO POR cláusula divide os resultados da consulta de acordo com os valores de uma ou mais propriedades especificadas.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -35,21 +34,21 @@ A cláusula GROUP BY divide os resultados da consulta de acordo com os valores d
 
 - `<scalar_expression>`
   
-   Qualquer expressão escalar é permitida, exceto para subqueries escalar e agregados escalar. Cada expressão escalar deve conter pelo menos uma referência de propriedade. Não há limite para o número de expressões individuais ou para a cardinalidade de cada expressão.
+   Qualquer expressão escalar é permitida, exceto para subqueries escalar e agregados escalar. Cada expressão escalar deve conter pelo menos uma referência de propriedade. Não há limite para o número de expressões individuais ou para o cardinalício de cada expressão.
 
 ## <a name="remarks"></a>Observações
   
-  Quando uma consulta utiliza uma cláusula GROUP BY, a cláusula SELECT só pode conter o subconjunto de propriedades e funções do sistema incluídas na cláusula GROUP BY. Uma exceção são [as funções agregadas](sql-query-aggregates.md)do sistema, que podem aparecer na cláusula SELECT sem serem incluídas na cláusula GROUP BY. Também pode incluir sempre valores literais na cláusula SELECT.
+  Quando uma consulta utiliza uma cláusula GRUPO A, a cláusula SELECT só pode conter o subconjunto de propriedades e funções do sistema incluídas na cláusula GRUPO A. Uma exceção são [as funções agregadas](sql-query-aggregates.md)do sistema , que podem aparecer na cláusula SELECT sem serem incluídas na cláusula GROUP BY. Também pode sempre incluir valores literais na cláusula SELECT.
 
-  A cláusula GROUP BY deve ser posterior à cláusula SELECT, FROM e WHERE e antes da cláusula OFFSET LIMIT. Atualmente não pode utilizar o GROUP BY com uma cláusula ORDER BY, mas está previsto.
+  A cláusula GRUPO A Cláusula deve ser após a cláusula SELECT, FROM e WHERE e antes da cláusula OFFSET LIMIT. Atualmente não pode utilizar o GROUP BY com uma cláusula ORDER BY, mas está previsto.
 
-  A cláusula GROUP BY não permite qualquer das seguintes:
+  O GRUPO POR cláusula não permite nenhum dos seguintes:
   
-- Propriedades de aliasing ou funções do sistema de alisamento (o aliasing ainda é permitido dentro da cláusula SELECT)
-- Subqueides
-- Funções agregadas do sistema (estas são permitidas apenas na cláusula SELECT)
+- Propriedades de aliasing ou funções do sistema de aliasing (o aliasing ainda é permitido dentro da cláusula SELECT)
+- Subconsultas
+- Funções agregadas do sistema (estas só são permitidas na cláusula SELECT)
 
-Consultas com uma função de sistema agregado e uma subqueria com `GROUP BY` não são suportadas. Por exemplo, a seguinte consulta não é suportada:
+As consultas com uma função de sistema agregada e um subquery com `GROUP BY` não são suportadas. Por exemplo, a seguinte consulta não é suportada:
 
 ```sql
 SELECT COUNT(UniqueLastNames)
@@ -62,9 +61,9 @@ GROUP BY f.lastName
 
 ## <a name="examples"></a>Exemplos
 
-Estes exemplos usam o conjunto de dados nutricionais disponíveis através do [Parque De Consulta DB Do MB Do Azure Cosmos.](https://www.documentdb.com/sql/demo)
+Estes exemplos utilizam o conjunto de dados nutricionais disponíveis através do [Azure Cosmos DB Query Playground](https://www.documentdb.com/sql/demo).
 
-Por exemplo, aqui está uma consulta que devolve a contagem total de itens em cada alimentoGroup:
+Por exemplo, aqui está uma consulta que devolve a contagem total de itens em cada grupo alimentar:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup
@@ -72,7 +71,7 @@ FROM Food f
 GROUP BY f.foodGroup
 ```
 
-Alguns resultados são (a palavra-chave TOP é usada para limitar resultados):
+Alguns resultados são (a palavra-chave TOP é usada para limitar os resultados):
 
 ```json
 [
@@ -130,7 +129,7 @@ Alguns resultados são:
 ]
 ```
 
-Esta consulta tem uma função de sistema na cláusula GROUP BY:
+Esta consulta tem uma função de sistema na cláusula GRUPO BY:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, UPPER(f.foodGroup) AS upperFoodGroup
@@ -186,7 +185,7 @@ Os resultados são:
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Introdução](sql-query-getting-started.md)
 - [Cláusula SELECT](sql-query-select.md)

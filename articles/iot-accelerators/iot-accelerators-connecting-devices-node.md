@@ -1,6 +1,6 @@
 ---
-title: Dispositivos de disponibilização de monitorização remota no Nó .js - Azure Microsoft Docs
-description: Descreve como ligar um dispositivo ao acelerador de soluções de monitorização remota utilizando uma aplicação escrita no Node.js.
+title: Dispositivos de fornecimento de Monitorização Remota em Node.js - Azure Microsoft Docs
+description: Descreve como ligar um dispositivo ao acelerador de solução de monitorização remota utilizando uma aplicação escrita em Node.js.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -10,27 +10,26 @@ ms.date: 01/24/2018
 ms.author: dobett
 ms.custom: mqtt
 ms.openlocfilehash: 76692c7d923e261d1e3beefa0e2ea76b94282a46
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683981"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Ligue o seu dispositivo ao acelerador de solução de monitorização remota (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Este tutorial mostra-lhe como ligar um dispositivo real ao acelerador de soluções de monitorização remota. Neste tutorial, você usa Node.js, que é uma boa opção para ambientes com restrições mínimas de recursos.
+Este tutorial mostra-lhe como ligar um dispositivo real ao acelerador de solução de monitorização remota. Neste tutorial, você usa Node.js, que é uma boa opção para ambientes com restrições mínimas de recursos.
 
-Se preferir simular um dispositivo, consulte [Criar e testar um novo dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md).
+Se preferir simular um dispositivo, consulte [criar e testar um novo dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
-## <a name="create-a-nodejs-solution"></a>Criar uma solução Nó.js
+## <a name="create-a-nodejs-solution"></a>Criar uma solução Node.js
 
-Certifique-se de que a versão 4.0.0 ou posterior do [Node.js](https://nodejs.org/) está instalada na sua máquina de desenvolvimento. Pode correr `node --version` na linha de comando para verificar a versão.
+Certifique-se de que [Node.js](https://nodejs.org/) versão 4.0.0 ou posterior é instalada na sua máquina de desenvolvimento. Pode correr `node --version` na linha de comando para verificar a versão.
 
-1. Crie uma `remotemonitoring` pasta chamada na sua máquina de desenvolvimento. Navegue para esta pasta no ambiente da linha de comando.
+1. Crie uma pasta chamada `remotemonitoring` na sua máquina de desenvolvimento. Navegue para esta pasta no seu ambiente de linha de comando.
 
-1. Para descarregar e instalar os pacotes que precisa para completar a aplicação de amostras, executar os seguintes comandos:
+1. Para descarregar e instalar os pacotes necessários para completar a aplicação da amostra, execute os seguintes comandos:
 
     ```cmd/sh
     npm init
@@ -39,7 +38,7 @@ Certifique-se de que a versão 4.0.0 ou posterior do [Node.js](https://nodejs.or
 
 1. Na `remotemonitoring` pasta, crie um ficheiro chamado **remote_monitoring.js**. Abra este ficheiro num editor de texto.
 
-1. No ficheiro **remote_monitoring.js,** adicione `require` as seguintes declarações:
+1. No ficheiro **remote_monitoring.js,** adicione as `require` seguintes declarações:
 
     ```javascript
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
@@ -48,7 +47,7 @@ Certifique-se de que a versão 4.0.0 ou posterior do [Node.js](https://nodejs.or
     var async = require('async');
     ```
 
-1. Adicione as seguintes declarações de variáveis a seguir às instruções `require`. Substitua o `{device connection string}` valor do espaço reservado pelo valor que observou para o dispositivo que aprovisionou na solução de Monitorização Remota:
+1. Adicione as seguintes declarações de variáveis a seguir às instruções `require`. Substitua o valor do espaço reservado `{device connection string}` pelo valor que notou para o dispositivo que aprovisionou na solução de Monitorização Remota:
 
     ```javascript
     var connectionString = '{device connection string}';
@@ -106,7 +105,7 @@ Certifique-se de que a versão 4.0.0 ou posterior do [Node.js](https://nodejs.or
     }
     ```
 
-1. Adicione a seguinte função de ajudante a utilizar para aleatoriamente os valores da telemetria:
+1. Adicione a seguinte função de ajudante para utilizar para aleatoriamente os valores de telemetria:
 
      ```javascript
      function generateRandomIncrement() {
@@ -114,7 +113,7 @@ Certifique-se de que a versão 4.0.0 ou posterior do [Node.js](https://nodejs.or
      }
      ```
 
-1. Adicione a seguinte função genérica para lidar com chamadas de métodos diretos a partir da solução. A função exibe informações sobre o método direto que foi invocado, mas nesta amostra não modifica o dispositivo de forma alguma. A solução utiliza métodos diretos para atuar em dispositivos:
+1. Adicione a seguinte função genérica para lidar com chamadas de métodos diretos a partir da solução. A função apresenta informações sobre o método direto que foi invocado, mas nesta amostra não modifica o dispositivo de forma alguma. A solução utiliza métodos diretos para agir em dispositivos:
 
      ```javascript
      function onDirectMethod(request, response) {
@@ -129,7 +128,7 @@ Certifique-se de que a versão 4.0.0 ou posterior do [Node.js](https://nodejs.or
      }
      ```
 
-1. Adicione a seguinte função para lidar com as chamadas diretas do método **FirmwareUpdate** da solução. A função verifica os parâmetros passados na carga útil do método direto e, em seguida, executa assincronicamente uma simulação de atualização de firmware:
+1. Adicione a seguinte função para manusear as chamadas diretas do método **FirmwareUpdate** a partir da solução. A função verifica os parâmetros passados na carga útil do método direto e, em seguida, assíncronea executa uma simulação de atualização de firmware:
 
      ```javascript
      function onFirmwareUpdate(request, response) {
@@ -158,7 +157,7 @@ Certifique-se de que a versão 4.0.0 ou posterior do [Node.js](https://nodejs.or
      }
      ```
 
-1. Adicione a seguinte função para simular um fluxo de atualização de firmware de longo prazo que reporta o progresso de volta à solução:
+1. Adicione a seguinte função para simular um fluxo de atualização de firmware de longa duração que reporte o progresso de volta à solução:
 
      ```javascript
      // Simulated firmwareUpdate flow
@@ -236,7 +235,7 @@ Certifique-se de que a versão 4.0.0 ou posterior do [Node.js](https://nodejs.or
      }
      ```
 
-1. Adicione o seguinte código para enviar dados de telemetria para a solução. A aplicação do cliente adiciona propriedades à mensagem para identificar o esquema da mensagem:
+1. Adicione o seguinte código para enviar dados de telemetria à solução. A aplicação do cliente adiciona propriedades à mensagem para identificar o esquema de mensagem:
 
      ```javascript
      function sendTelemetry(data, schema) {
@@ -255,7 +254,7 @@ Certifique-se de que a versão 4.0.0 ou posterior do [Node.js](https://nodejs.or
      }
      ```
 
-1. Adicione o seguinte código para criar uma instância de cliente:
+1. Adicione o seguinte código para criar uma instância do cliente:
 
      ```javascript
      var client = Client.fromConnectionString(connectionString, Protocol);
@@ -264,9 +263,9 @@ Certifique-se de que a versão 4.0.0 ou posterior do [Node.js](https://nodejs.or
 1. Adicione o seguinte código a:
 
     * Abra a ligação.
-    * Criar um manipulador para as propriedades desejadas.
+    * Crie um manipulador para as propriedades desejadas.
     * Envie propriedades reportadas.
-    * Registe os manipuladores para os métodos diretos. A amostra utiliza um manipulador separado para o método direto de atualização de firmware.
+    * Registar os manipuladores para os métodos diretos. A amostra utiliza um manipulador separado para o método direto de atualização de firmware.
     * Comece a enviar telemetria.
 
       ```javascript

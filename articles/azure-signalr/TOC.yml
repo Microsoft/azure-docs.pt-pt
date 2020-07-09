@@ -7,13 +7,13 @@
 - name: Guias de Início Rápido
   expanded: true
   items:
-    - name: 'ASP.NET Core - C#'
+    - name: ASP.NET Core - C#
       href: signalr-quickstart-dotnet-core.md
-    - name: 'ASP.NET - C#'
+    - name: ASP.NET - C#
       href: signalr-quickstart-dotnet.md
     - name: Funções do Azure - JavaScript
       href: signalr-quickstart-azure-functions-javascript.md
-    - name: 'Funções do Azure - C#'
+    - name: Funções do Azure - C#
       href: signalr-quickstart-azure-functions-csharp.md
     - name: Funções do Azure - Java
       href: signalr-quickstart-azure-functions-java.md
@@ -25,16 +25,14 @@
   items:
     - name: Criar uma aplicação sem servidor em tempo real com a autenticação
       href: signalr-tutorial-authenticate-azure-functions.md
-    - name: Monitorizar
-      items:
-        - name: Utilizar registos de diagnósticos para monitorizar o SignalR Service
-          href: signalr-tutorial-diagnostic-logs.md
 - name: Amostras
   items:
     - name: Exemplos de código
       href: 'https://github.com/aspnet/AzureSignalR-samples'
     - name: CLI do Azure
       href: signalr-reference-cli.md
+    - name: Incorporações do Azure Policy
+      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Detalhes internos do Serviço SignalR do Azure
@@ -49,6 +47,8 @@
           href: signalr-concept-serverless-development-config.md
         - name: Referência dos enlaces do SignalR Service para as Funções do Azure
           href: ../azure-functions/functions-bindings-signalr-service.md
+        - name: Definições de origem
+          href: concept-upstream.md
     - name: Elevada disponibilidade
       items:
         - name: Resiliência e recuperação após desastre
@@ -73,12 +73,26 @@
       items:
         - name: Rotação de chaves de acesso
           href: signalr-howto-key-rotation.md
+        - name: Utilizar Etiquetas de Serviço do Azure
+          href: howto-service-tags.md
+        - name: Utilizar Pontos Finais Privados do Azure
+          href: howto-private-endpoints.md
+        - name: Gerir o controlo de acesso à rede
+          href: howto-network-access-control.md
+        - name: Utilizar a identidade gerida
+          href: howto-use-managed-identity.md
     - name: Integrar
       items:
         - name: Enlaces das Funções do Azure
           href: signalr-concept-azure-functions.md
         - name: Integração do Event Grid
           href: signalr-howto-event-grid-integration.md
+    - name: Monitorizar
+      items:
+        - name: Utilizar registos de diagnósticos para monitorizar o SignalR Service
+          href: signalr-howto-diagnostic-logs.md
+        - name: Conformidade de auditoria com o Azure Policy
+          href: signalr-howto-azure-policy.md
 - name: Referências
   items:
     - name: CLI do Azure
@@ -101,7 +115,7 @@
       href: 'https://azure.microsoft.com/updates/'
     - name: Disponibilidade de região
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=signalr-service'
-    - name: Perguntas mais frequentes
+    - name: FAQs
       href: signalr-resource-faq.md
     - name: Limites do nível de subscrição do SignalR Service
       href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits'

@@ -1,6 +1,6 @@
 ---
 title: Configuração local do agente de segurança (C)
-description: Conheça o Azure Security Center para configurações locais de agente para C.
+description: Saiba mais sobre o Azure Security Center para configurações locais de agente para C.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,47 +15,47 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: cd344b9bebb69af210c482f46af6b2dd7edf7816
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 842a69c27ceb0d56df5a7b49eb9922b88d8d4b32
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311696"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85206942"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Compreender o ficheiro LocalConfiguration.json - Agente C
 
-O Centro de Segurança Azure para o agente de segurança IoT utiliza configurações de um ficheiro de configuração local.
-O agente de segurança lê a configuração uma vez, na start-up do agente.
+O Centro de Segurança Azure para agente de segurança IoT utiliza configurações a partir de um ficheiro de configuração local.
+O agente de segurança lê a configuração uma vez, no arranque do agente.
 A configuração encontrada no ficheiro de configuração local contém configuração de autenticação e outras configurações relacionadas com o agente.
-O ficheiro contém configurações em pares "Key-Value" na notação JSON e as configurações são povoadas quando o agente é instalado.
+O ficheiro contém configurações em pares "Valor-Chave" na notação JSON e as configurações são povoadas quando o agente é instalado.
 
-Por predefinição, o ficheiro está localizado em: /var/ASCIoTAgent/LocalConfiguration.json
+Por predefinição, o ficheiro está localizado em: /var/ASCIoTAgent/LocalConfiguration.jsem
 
-As alterações ao ficheiro de configuração ocorrem quando o agente é reiniciado.
+As alterações no ficheiro de configuração ocorrem quando o agente é reiniciado.
 
-## <a name="security-agent-configurations-for-c"></a>Configurações do agente de segurança para C
+## <a name="security-agent-configurations-for-c"></a>Configurações de agente de segurança para C
 
 | Nome de configuração | Valores possíveis | Detalhes |
 |:-----------|:---------------|:--------|
-| AgenteId | GUID | O identificador unique do agente |
-| TriggerdEventsInterval | Cadeia ISO8601 | Intervalo de programadores para recolha de eventos desencadeados |
-| Tempo de ligação | Cadeia ISO8601 | Período de tempo antes da ligação ao IoThub ser cronometrado |
+| AgentId | GUID | O identificador único do agente |
+| TriggerdEventsInterval | Corda ISO8601 | Intervalo de programador para recolha de eventos desencadeados |
+| Intervalo de conexão | Corda ISO8601 | Período de tempo antes da ligação ao IoThub ser cronometrado |
 | Autenticação | JsonObject | Configuração de autenticação. Este objeto contém todas as informações necessárias para a autenticação contra o IoTHub |
-| Identidade | "DPS", "SecurityModule", "Device" | Identidade de autenticação - DPS se a autenticação for efetuada através de DPS, SecurityModule se a autenticação for efetuada através de credenciais de módulo de segurança ou dispositivo se a autenticação for feita com credenciais do Dispositivo |
-| Método de Autenticação | "SasToken", "Auto-SignedCertificate" | o segredo do utilizador para a autenticação - Escolha SasToken se o segredo de utilização for uma chave simétrica, escolha um certificado auto-assinado se o segredo for um certificado auto-assinado  |
-| Caminho de Arquivo | Caminho para arquivar (corda) | Caminho para o arquivo que contém o segredo de autenticação |
-| NomedeAnfitrião | string | O nome anfitrião do centro azul. geralmente <meu hub>.azure-devices.net |
-| DeviceId | string | A identificação do dispositivo (registada no Hub Azure IoT) |
-| DPS | JsonObject | Configurações relacionadas com DPS |
-| IDScope | string | Âmbito de id do DPS |
-| RegistroId | string  | Id de registo de dispositivodPS DPS |
+| Identidade | "DPS", "SecurityModule", "Dispositivo" | Identidade de autenticação - DPS se a autenticação for feita através de DPS, SecurityModule se a autenticação for feita através de credenciais de módulo de segurança ou dispositivo se a autenticação for feita com credenciais do Dispositivo |
+| AutenticaçãoMethod | "SasToken", "SelfSignedCertificate" | o segredo do utilizador para a autenticação - Escolha SasToken se o segredo de uso for uma chave simétrica, escolha certificado auto-assinado se o segredo for um certificado auto-assinado  |
+| FilePath | Caminho para arquivar (cadeia) | Caminho para o arquivo que contém o segredo de autenticação |
+| NomedeAnfitrião | string | O nome hospedeiro do centro azure iot. geralmente <o meu hub>.azure-devices.net |
+| DeviceId | string | O ID do dispositivo (conforme registado no Azure IoT Hub) |
+| DPS | JsonObject | Configurações relacionadas com dPS |
+| IDScope | string | ID âmbito de DPS |
+| RegistroD | string  | ID de registo de dispositivos DPS |
 | Registo | JsonObject | Configurações relacionadas com o agente logger |
-| SystemLoggerMinimumSeveridade | 0 <= número <= 4 | mensagens de registo iguais e acima desta gravidade serão registadas para /var/log/syslog (0 é a severidade mais baixa) |
-| DiagnosticEventMinimumSeveridade | 0 <= número <= 4 | mensagens de registo iguais e acima desta gravidade serão enviadas como eventos de diagnóstico (0 é a severidade mais baixa) |
+| SystemLoggerMinimumSeverity | 0 <= número <= 4 | as mensagens de registo iguais e acima desta gravidade serão registadas para /var/log/syslog (0 é a menor gravidade) |
+| DiagnósticoEventMinimumSeverity | 0 <= número <= 4 | registar mensagens iguais e acima desta gravidade será enviada como eventos de diagnóstico (0 é a menor gravidade) |
 
-## <a name="security-agent-configurations-code-example"></a>Exemplo de código de configurações de agentes de segurança
+## <a name="security-agent-configurations-code-example"></a>Exemplo de código de configurações de agente de segurança
 
-```JSON
+```json
 {
     "Configuration" : {
         "AgentId" : "b97faf0a-0f57-471f-9dab-46a8e1764946",
@@ -80,12 +80,12 @@ As alterações ao ficheiro de configuração ocorrem quando o agente é reinici
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Leia o Centro de Segurança Azure para a [visão geral](overview.md) do serviço IoT
+- Leia o Centro de Segurança Azure para o serviço IoT [Visão geral](overview.md)
 - Saiba mais sobre o Azure Security Center for IoT [Architecture](architecture.md)
 - Ativar o Centro de Segurança Azure para [o serviço](quickstart-onboard-iot-hub.md) IoT
 - Leia o Centro de Segurança Azure para o serviço IoT [FAQ](resources-frequently-asked-questions.md)
-- Saiba como aceder a dados de [segurança bruta](how-to-security-data-access.md)
+- Saiba como aceder aos [dados de segurança bruta](how-to-security-data-access.md)
 - Compreender [recomendações](concept-recommendations.md)
-- Compreender [alertas](concept-security-alerts.md) de segurança
+- Compreender [alertas de](concept-security-alerts.md) segurança

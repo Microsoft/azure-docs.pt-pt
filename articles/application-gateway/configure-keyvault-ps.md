@@ -1,35 +1,35 @@
 ---
-title: Configure tLS terminação com certificados key vault - PowerShell
+title: Configure a rescisão de TLS com certificados Key Vault - PowerShell
 titleSuffix: Azure Application Gateway
-description: Saiba como pode integrar o Portal de Aplicações Azure com o Key Vault para certificados de servidor que estão ligados a ouvintes com acesso a HTTPS.
+description: Saiba como pode integrar o Azure Application Gateway com o Key Vault para certificados de servidor que estão ligados a ouvintes com ativação HTTPS.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: 6c638004d209996e52b0e57b467bfa184a77779c
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 5e0cb1a5c5c115aa1aaf9697e19631e2142853a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873464"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808071"
 ---
-# <a name="configure-tls-termination-with-key-vault-certificates-using-azure-powershell"></a>Configure a rescisão de TLS com certificados key vault usando O PowerShell Azure
+# <a name="configure-tls-termination-with-key-vault-certificates-using-azure-powershell"></a>Configure a rescisão de TLS com certificados Key Vault usando Azure PowerShell
 
-[O Azure Key Vault](../key-vault/general/overview.md) é uma loja secreta gerida pela plataforma que pode usar para salvaguardar segredos, chaves e certificados TLS/SSL. O Portal de Aplicações Azure suporta a integração com o Key Vault para certificados de servidor que estão ligados a ouvintes com SUPORTE HTTPS. Este suporte está limitado ao Gateway de aplicação v2 SKU.
+[O Azure Key Vault](../key-vault/general/overview.md) é uma loja secreta gerida pela plataforma que pode usar para salvaguardar segredos, chaves e certificados TLS/SSL. O Azure Application Gateway suporta a integração com o Key Vault para certificados de servidor que estão ligados a ouvintes com via HTTPS. Este suporte está limitado ao Gateway de Aplicação v2 SKU.
 
-Para mais informações, consulte a [rescisão de TLS com certificados key vault](key-vault-certs.md).
+Para obter mais informações, consulte [a rescisão de TLS com certificados Key Vault](key-vault-certs.md).
 
-Este artigo mostra-lhe como usar um script Azure PowerShell para integrar o seu cofre chave com o seu portal de aplicação para certificados de rescisão TLS/SSL.
+Este artigo mostra-lhe como usar um script Azure PowerShell para integrar o seu cofre-chave com o seu gateway de aplicação para certificados de rescisão TLS/SSL.
 
-Este artigo requer a versão 1.0.0 ou posterior do módulo PowerShell Azure. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Para executar os comandos neste artigo, também precisa de criar uma ligação com o Azure executando `Connect-AzAccount` .
+Este artigo requer a versão 1.0 ou mais tarde do módulo Azure PowerShell. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Para executar os comandos neste artigo, também é necessário criar uma ligação com o Azure executando `Connect-AzAccount` .
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, deve ter instalado o módulo ManagedServiceIdentity:
+Antes de começar, tem de ter o módulo ManagedServiceIdentity instalado:
 
 ```azurepowershell
 Install-Module -Name Az.ManagedServiceIdentity
@@ -58,7 +58,7 @@ $identity = New-AzUserAssignedIdentity -Name "appgwKeyVaultIdentity" `
   -Location $location -ResourceGroupName $rgname
 ```
 
-### <a name="create-a-key-vault-policy-and-certificate-to-be-used-by-the-application-gateway"></a>Criar um cofre chave, política e certificado para ser usado pelo gateway de aplicação
+### <a name="create-a-key-vault-policy-and-certificate-to-be-used-by-the-application-gateway"></a>Crie um cofre chave, política e certificado para ser usado pelo gateway de aplicação
 
 ```azurepowershell
 $keyVault = New-AzKeyVault -Name $kv -ResourceGroupName $rgname -Location $location -EnableSoftDelete 
@@ -73,7 +73,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> A bandeira -EnableSoftDelete deve ser utilizada para que a terminação do TLS funcione corretamente. Se estiver a configurar o [soft-delete do Key Vault através do Portal,](../key-vault/general/overview-soft-delete.md#soft-delete-behavior)o período de retenção deve ser mantido em 90 dias, o valor predefinido. O Application Gateway ainda não suporta um período de retenção diferente. 
+> A bandeira -EnableSoftDelete deve ser utilizada para que a terminação do TLS funcione corretamente. Se estiver a configurar o [Key Vault de apagar suavemente através do Portal,](../key-vault/general/overview-soft-delete.md#soft-delete-behavior)o período de retenção deve ser mantido em 90 dias, o valor predefinido. O Application Gateway ainda não suporta um período de retenção diferente. 
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
@@ -84,14 +84,14 @@ $vnet = New-AzvirtualNetwork -Name "Vnet1" -ResourceGroupName $rgname -Location 
   -AddressPrefix "10.0.0.0/16" -Subnet @($sub1, $sub2)
 ```
 
-### <a name="create-a-static-public-virtual-ip-vip-address"></a>Criar um endereço IP virtual público estático (VIP)
+### <a name="create-a-static-public-virtual-ip-vip-address"></a>Criar um endereço ip virtual público estático (VIP)
 
 ```azurepowershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name "AppGwIP" `
   -location $location -AllocationMethod Static -Sku Standard
 ```
 
-### <a name="create-pool-and-front-end-ports"></a>Criar piscina e portas front-end
+### <a name="create-pool-and-front-end-ports"></a>Criar piscina e portas frontais
 
 ```azurepowershell
 $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "appgwSubnet" -VirtualNetwork $vnet
@@ -104,13 +104,13 @@ $fp01 = New-AzApplicationGatewayFrontendPort -Name "port1" -Port 443
 $fp02 = New-AzApplicationGatewayFrontendPort -Name "port2" -Port 80
 ```
 
-### <a name="point-the-tlsssl-certificate-to-your-key-vault"></a>Aponte o certificado TLS/SSL para o seu cofre chave
+### <a name="point-the-tlsssl-certificate-to-your-key-vault"></a>Aponte o certificado TLS/SSL para o seu cofre de chaves
 
 ```azurepowershell
 $sslCert01 = New-AzApplicationGatewaySslCertificate -Name "SSLCert1" -KeyVaultSecretId $secretId
 ```
 
-### <a name="create-listeners-rules-and-autoscale"></a>Criar ouvintes, regras e escala automática
+### <a name="create-listeners-rules-and-autoscale"></a>Criar ouvintes, regras e autoescala
 
 ```azurepowershell
 $listener01 = New-AzApplicationGatewayHttpListener -Name "listener1" -Protocol Https `
@@ -127,7 +127,7 @@ $autoscaleConfig = New-AzApplicationGatewayAutoscaleConfiguration -MinCapacity 3
 $sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
 ```
 
-### <a name="assign-the-user-managed-identity-to-the-application-gateway"></a>Atribuir a identidade gerida pelo utilizador ao gateway da aplicação
+### <a name="assign-the-user-managed-identity-to-the-application-gateway"></a>Atribuir a identidade gerida pelo utilizador ao gateway de aplicações
 
 ```azurepowershell
 $appgwIdentity = New-AzApplicationGatewayIdentity -UserAssignedIdentityId $identity.Id
@@ -144,6 +144,6 @@ $appgw = New-AzApplicationGateway -Name $appgwName -Identity $appgwIdentity -Res
   -SslCertificates $sslCert01 -AutoscaleConfiguration $autoscaleConfig
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Saiba mais sobre a rescisão de TLS](ssl-overview.md)
+[Saiba mais sobre a rescisão do TLS](ssl-overview.md)

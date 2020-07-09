@@ -2,17 +2,21 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/13/2020
+ms.date: 06/23/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: d70f3d1ce6c818385f8d02006bf1aa5c854502ae
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: db34a49882f16b18205414ec462cd067eb14419e
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651386"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313782"
 ---
-|Name |Descrição |Efeitos(s) |Versão |GitHub |
-|---|---|---|---|---|
-|[Azure Cosmos DB permitiu localizações](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0473574d-2d43-4217-aefe-941fcdf7e684) |Esta política permite-lhe restringir os locais que a sua organização pode especificar ao implementar recursos DB da Azure Cosmos. Utilize para impor os requisitos de conformidade geográfica. |[parâmetros('policyEffect')] |1.0.0 |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_Locations_Deny.json) |
-|[Implementar Proteção Avançada de Ameaças para Contas DB cosmos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb5f04e03-92a3-4b09-9410-2cc5e5047656) |Esta política permite a Proteção Avançada de Ameaças através das contas da Cosmos DB. |ImplementaçãoIfNotExists, Desativado |1.0.0 |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/CosmosDbAdvancedThreatProtection_Deploy.json) |
+|Nome<br /><sub>(Portal Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[A conta DB da Azure Cosmos deve usar chaves geridas pelo cliente para encriptar dados em repouso](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1f905d99-2ab7-462c-a6b0-f709acca6c8f) |Utilize chaves geridas pelo cliente para controlar a encriptação no resto dos dados armazenados na Azure Cosmos DB quando este se tratar de um requisito regulamentar ou de conformidade. As teclas geridas pelo cliente também fornecem encriptação dupla adicionando uma segunda camada de encriptação em cima da padrão feita com teclas geridas pelo serviço. Ver[https://aka.ms/cosmosdb-cmk](https://aka.ms/cosmosdb-cmk) |auditoria, negação, desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_CMK_Deny.json) |
+|[Contas DB da Azure Cosmos devem ter regras de firewall](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F862e97cf-49fc-4a5c-9de4-40d4e2e7c8eb) |Auditar ou negar recursos que não tenham nenhuma regra IP configurada e permitir todas as redes por padrão. As contas que tenham pelo menos uma regra IP definida com o filtro de rede virtual ativado são consideradas conformes. As contas que incapacitam o acesso do público também são consideradas conformes. |Auditoria, Negar, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_NetworkRulesExist_Audit.json) |
+|[Azure Cosmos DB permitiu localizações](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0473574d-2d43-4217-aefe-941fcdf7e684) |Esta política permite-lhe restringir as localizações que a sua organização pode especificar ao implementar recursos DB da Azure Cosmos. Utilize para impor os requisitos de conformidade geográfica. |[parâmetros('policyEffect')] |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_Locations_Deny.json) |
+|[O acesso à escrita de metadados baseado em metadados Azure Cosmos deve ser desativado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4750c32b-89c0-46af-bfcb-2e4541a818d5) |Esta política permite-lhe garantir que todas as contas DB da Azure Cosmos desativem o acesso de metadados baseados em metadados baseados em chaves. |apêndice |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_DisableMetadata_Append.json) |
+|[A produção DB de Azure Cosmos deve ser limitada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b7ef78e-a035-4f23-b9bd-aff122a1b1cf) |Esta política permite-lhe restringir o máximo de produção que a sua organização pode especificar ao criar bases de dados e contentores DB da Azure Cosmos através do fornecedor de recursos. Bloqueia a criação de recursos de autoescala. |auditoria, negação, desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_MaxThroughput_Deny.json) |
+|[Implementar proteção avançada de ameaças para contas DB cosmos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb5f04e03-92a3-4b09-9410-2cc5e5047656) |Esta política permite a Proteção Avançada de Ameaças através das contas de DB da Cosmos. |ImplementarIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/CosmosDbAdvancedThreatProtection_Deploy.json) |

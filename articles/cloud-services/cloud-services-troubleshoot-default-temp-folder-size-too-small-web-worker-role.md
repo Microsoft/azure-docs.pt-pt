@@ -1,6 +1,6 @@
 ---
-title: O tamanho da pasta TEMP padrão é demasiado pequeno para um papel Microsoft Docs
-description: Uma função de serviço na nuvem tem uma quantidade limitada de espaço para a pasta TEMP. Este artigo fornece algumas sugestões sobre como evitar ficar sem espaço.
+title: O tamanho da pasta TEMP padrão é muito pequeno para um papel Microsoft Docs
+description: Uma função de serviço em nuvem tem uma quantidade limitada de espaço para a pasta TEMP. Este artigo fornece algumas sugestões sobre como evitar ficar sem espaço.
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
@@ -15,27 +15,27 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: bea9e163e9dde6c42de87048379d663222cb56e9
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82734625"
 ---
-# <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>O tamanho da pasta TEMP padrão é muito pequeno numa função web/trabalhador do serviço de nuvem
-O diretório temporário padrão de um trabalhador de serviço na nuvem ou função web tem um tamanho máximo de 100 MB, que pode ficar cheio em algum momento. Este artigo descreve como evitar ficar sem espaço para o diretório temporário.
+# <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>O tamanho da pasta TEMP padrão é muito pequeno numa função web/trabalhador de serviço de nuvem
+O diretório temporário padrão de um trabalhador de serviço de nuvem ou função web tem um tamanho máximo de 100 MB, que pode ficar cheio em algum momento. Este artigo descreve como evitar ficar sem espaço para o diretório temporário.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="why-do-i-run-out-of-space"></a>Por que fico sem espaço?
-As variáveis padrão do ambiente Windows TEMP e TMP estão disponíveis para codificar que está em execução na sua aplicação. Tanto a TEMP como a TMP apontam para um único diretório com um tamanho máximo de 100 MB. Quaisquer dados armazenados neste diretório não são persistidos ao longo do ciclo de vida do serviço de nuvem; se as instâncias de papel num serviço de nuvem forem recicladas, o diretório é limpo.
+## <a name="why-do-i-run-out-of-space"></a>Por que estou sem espaço?
+As variáveis de ambiente Windows standard TEMP e TMP estão disponíveis para código que está em execução na sua aplicação. Tanto o TEMP como o TMP apontam para um único diretório que tem um tamanho máximo de 100 MB. Os dados armazenados neste diretório não são persistidos em todo o ciclo de vida do serviço em nuvem; se as instâncias de papel num serviço de nuvem forem recicladas, o diretório é limpo.
 
 ## <a name="suggestion-to-fix-the-problem"></a>Sugestão para corrigir o problema
 Implementar uma das seguintes alternativas:
 
-* Configure um recurso de armazenamento local e aceda-o diretamente em vez de utilizar TEMP ou TMP. Para aceder a um recurso de armazenamento local a partir de código que está a ser gerido dentro da sua aplicação, ligue para o método [RoleEnvironment.GetLocalResource.](/previous-versions/azure/reference/ee772845(v=azure.100))
-* Configure um recurso de armazenamento local e indique os diretórios TEMP e TMP para apontar o caminho do recurso de armazenamento local. Esta modificação deve ser realizada dentro do método [RoleEntryPoint.OnStart.](/previous-versions/azure/reference/ee772851(v=azure.100))
+* Configure um recurso de armazenamento local e aceda-o diretamente em vez de utilizar TEMP ou TMP. Para aceder a um recurso de armazenamento local a partir de código que está em execução dentro da sua aplicação, ligue para o método [RoleEnvironment.GetLocalResource.](/previous-versions/azure/reference/ee772845(v=azure.100))
+* Configure um recurso de armazenamento local e aponte os diretórios TEMP e TMP para apontar para o caminho do recurso de armazenamento local. Esta modificação deve ser realizada dentro do método [RoleEntryPoint.OnStart.](/previous-versions/azure/reference/ee772851(v=azure.100))
 
-O seguinte exemplo de código mostra como modificar os directórios-alvo para TEMP e TMP a partir do método OnStart:
+O exemplo de código a seguir mostra como modificar os directórios-alvo para TEMP e TMP de dentro do método OnStart:
 
 ```csharp
 using System;
@@ -70,8 +70,8 @@ namespace WorkerRole1
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Leia um blog que descreve [como aumentar o tamanho da Função Web Azure ASP.NET pasta Temporária.](https://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx)
+Leia um blog que descreve [Como Aumentar o tamanho da Azure Web Role ASP.NET Pasta Temporária](https://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
 
-Veja mais artigos de [resolução de problemas](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview) para serviços na nuvem.
+Veja mais [artigos de resolução de problemas](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview) para serviços na nuvem.
 
-Para aprender a resolver problemas de papel de serviço na nuvem utilizando dados de diagnóstico de computador Azure PaaS, veja a [série de blogs de Kevin Williamson.](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)
+Para aprender a resolver problemas de problemas de funções de serviço em nuvem utilizando dados de diagnóstico de computador Azure PaaS, consulte a [série de blogs de Kevin Williamson](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

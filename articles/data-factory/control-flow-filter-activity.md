@@ -1,6 +1,6 @@
 ---
 title: Atividade de filtro na Fábrica de Dados Azure
-description: A atividade do Filtro filtra as inputs.
+description: A atividade do Filtro filtra as entradas.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.openlocfilehash: 2c8ada22b4492bef0239b6f811d5a7bd58e58510
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417215"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Atividade de filtro na Fábrica de Dados Azure
 Pode utilizar uma atividade de filtro num oleoduto para aplicar uma expressão de filtro a uma matriz de entrada. 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 ```json
 {
@@ -35,18 +35,18 @@ Pode utilizar uma atividade de filtro num oleoduto para aplicar uma expressão d
 }
 ```
 
-## <a name="type-properties"></a>Propriedades de tipo
+## <a name="type-properties"></a>Tipo de propriedades
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da `Filter` atividade. | String | Sim
-tipo | Deve ser programado para **filtrar**. | String | Sim
-condição | Condição a utilizar para filtrar a entrada. | Expressão | Sim
-itens | Matriz de entrada na qual o filtro deve ser aplicado. | Expressão | Sim
+name | O nome da `Filter` atividade. | String | Yes
+tipo | Deve ser programado para **filtrar.** | String | Yes
+condição | Condições a utilizar para filtrar a entrada. | Expression | Yes
+itens | Matriz de entrada sobre o filtro deve ser aplicado. | Expression | Yes
 
 ## <a name="example"></a>Exemplo
 
-Neste exemplo, o gasoduto tem duas atividades: **Filtro** e **ForEach**. A atividade do Filtro está configurada para filtrar a matriz de entrada para itens com um valor superior a 3. A atividade ForEach então itera sobre os valores filtrados e define o **teste** variável para o valor atual.
+Neste exemplo, o gasoduto tem duas atividades: **Filter** e **ForEach**. A atividade do Filtro está configurada para filtrar a matriz de entrada de itens com um valor superior a 3. A atividade ForEach, em seguida, itera sobre os valores filtrados e define o **teste** variável para o valor atual.
 
 ```json
 {

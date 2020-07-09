@@ -1,60 +1,60 @@
 ---
 title: Fases da implementação de um esquema
-description: Aprenda as etapas relacionadas com a segurança e artefactos que os serviços Azure Blueprints passam enquanto criam uma atribuição de plantas.
+description: Aprenda os passos relacionados com a segurança e artefactos que os serviços da Azure Blueprints passam enquanto criam uma atribuição de projeto.
 ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9efc66baa262e004a8beea5295e8567f4ab119dd
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: d3ccba6645e1b14fffc543af2a6ad40e3634e2ed
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82863999"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970659"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Fases da implementação de um esquema
 
-Quando uma planta é implementada, uma série de ações é tomada pelo serviço Azure Blueprints para implementar os recursos definidos no projeto. Este artigo fornece detalhes sobre o que cada passo envolve.
+Quando uma planta é implementada, uma série de ações é tomada pelo serviço Azure Blueprints para implementar os recursos definidos na planta. Este artigo fornece detalhes sobre o que cada passo envolve.
 
-A implementação do projeto é desencadeada atribuindo uma planta a uma subscrição ou [atualizando uma atribuição existente](../how-to/update-existing-assignments.md). Durante a implantação, a Azure Blueprints toma os seguintes passos de alto nível:
+A implementação do plano é desencadeada atribuindo uma planta a uma subscrição ou [atualizando uma atribuição existente](../how-to/update-existing-assignments.md). Durante a implantação, a Azure Blueprints toma os seguintes passos de alto nível:
 
 > [!div class="checklist"]
-> - Azure Blueprints concedeu direitos aos proprietários
+> - AZure Blueprints concedeu direitos ao proprietário
 > - O objeto de atribuição de plantas é criado
-> - Opcional - Plantas Azure cria identidade gerida **atribuída pelo sistema**
-> - A identidade gerida implementa artefactos de plantas
-> - Serviço de Plantas Azure e direitos de identidade geridos **atribuídos** pelo sistema são revogados
+> - Opcional - Azure Blueprints cria identidade gerida **atribuída ao sistema**
+> - A identidade gerida implanta artefactos de planta
+> - O serviço Azure Blueprints e os direitos de identidade geridos **atribuídos pelo sistema** são revogados
 
-## <a name="azure-blueprints-granted-owner-rights"></a>Azure Blueprints concedeu direitos aos proprietários
+## <a name="azure-blueprints-granted-owner-rights"></a>AZure Blueprints concedeu direitos ao proprietário
 
-O diretor de serviço seletiva azure é concedido direitos de proprietário para a subscrição ou subscrições atribuídas quando uma identidade gerida por identidade gerida [pelo sistema](../../../active-directory/managed-identities-azure-resources/overview.md) é utilizada. O papel concedido permite que as Plantas Azure criem, e mais tarde, a identidade gerida atribuída pelo **sistema.** Se utilizar uma identidade gerida atribuída ao **utilizador,** o diretor de serviço seletiva do Azure Blueprints não obtém e não precisa dos direitos do proprietário na subscrição.
+O principal do serviço Azure Blueprints recebe direitos de proprietário sobre a subscrição ou subscrições atribuídas quando é utilizada uma identidade [gerida pelo sistema.](../../../active-directory/managed-identities-azure-resources/overview.md) O papel concedido permite que a Azure Blueprints crie, e mais tarde revogue, a identidade gerida **atribuída pelo sistema.** Se utilizar uma identidade gerida **atribuída pelo utilizador,** o diretor de serviço da Azure Blueprints não obtém e não necessita de direitos de proprietário sobre a subscrição.
 
-Os direitos são concedidos automaticamente se a atribuição for feita através do portal. No entanto, se a atribuição for feita através da API REST, a concessão dos direitos deve ser feita com uma chamada separada da API. O Azure Blueprints `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`AppId é, mas o diretor de serviço varia de acordo com o inquilino. Utilize o [Azure Ative Directory Graph API](../../../active-directory/develop/active-directory-graph-api.md) e os [serviços](/graph/api/resources/serviceprincipal) endpoint REST para obter o diretor de serviço. Em seguida, conceda ao Azure Blueprints a função _Proprietário_ através do [Portal](../../../role-based-access-control/role-assignments-portal.md), [Azure CLI,](../../../role-based-access-control/role-assignments-cli.md) [Azure PowerShell,](../../../role-based-access-control/role-assignments-powershell.md) [REST API,](../../../role-based-access-control/role-assignments-rest.md)ou um modelo de Gestor de [Recursos](../../../role-based-access-control/role-assignments-template.md).
+Os direitos são concedidos automaticamente se a atribuição for feita através do portal. No entanto, se a atribuição for feita através da API REST, a concessão dos direitos tem de ser feita com uma chamada separada da API. O Azure Blueprints AppId `f71766dc-90d9-4b7d-bd9d-4499c4331c3f` é, mas o principal serviço varia por inquilino. Utilize o serviço [Azure Ative Directory Graph API](../../../active-directory/develop/active-directory-graph-api.md) e REST endpointPrincipals para obter o principal serviço. [servicePrincipals](/graph/api/resources/serviceprincipal) Em seguida, conceda ao Azure Blueprints a função _de Proprietário_ através do [Portal](../../../role-based-access-control/role-assignments-portal.md), [Azure CLI,](../../../role-based-access-control/role-assignments-cli.md) [Azure PowerShell,](../../../role-based-access-control/role-assignments-powershell.md) [REST API,](../../../role-based-access-control/role-assignments-rest.md)ou um [modelo de Gestor de Recursos Azure](../../../role-based-access-control/role-assignments-template.md).
 
-O serviço Azure Blueprints não implanta diretamente os recursos.
+O serviço Azure Blueprints não implementa diretamente os recursos.
 
 ## <a name="the-blueprint-assignment-object-is-created"></a>O objeto de atribuição de plantas é criado
 
-Um utilizador, grupo ou diretor de serviço atribui uma planta a uma subscrição. O objeto de atribuição existe ao nível da subscrição onde a planta foi atribuída. Os recursos criados pela implantação não são feitos no contexto da entidade de implantação.
+Um utilizador, grupo ou diretor de serviço atribui uma planta a uma subscrição. O objeto de atribuição existe no nível de subscrição onde a planta foi atribuída. Os recursos criados pela implantação não são feitos no contexto da entidade de implantação.
 
-Ao criar a atribuição da planta, o tipo de [identidade gerida](../../../active-directory/managed-identities-azure-resources/overview.md) é selecionado. O padrão é uma identidade gerida **atribuída pelo sistema.** Pode ser escolhida uma identidade gerida atribuída ao **utilizador.** Ao utilizar uma identidade gerida atribuída ao **utilizador,** deve ser definida e concedida permissões antes da criação da atribuição do projeto. Tanto as funções [de Proprietário](../../../role-based-access-control/built-in-roles.md#owner) como de Operador de [Plantas](../../../role-based-access-control/built-in-roles.md#blueprint-operator) têm a permissão necessária `blueprintAssignment/write` para criar uma atribuição que utilize uma identidade gerida atribuída ao **utilizador.**
+Ao criar a atribuição da planta, o tipo de [identidade gerida](../../../active-directory/managed-identities-azure-resources/overview.md) é selecionado. O padrão é uma identidade gerida **atribuída pelo sistema.** Uma identidade gerida **atribuída ao utilizador** pode ser escolhida. Ao utilizar uma identidade gerida **atribuída pelo utilizador,** deve ser definida e concedida permissões antes da criação da designação. Tanto as funções incorporadas [do Proprietário](../../../role-based-access-control/built-in-roles.md#owner) como do Operador [de Blueprint](../../../role-based-access-control/built-in-roles.md#blueprint-operator) têm a permissão necessária para criar uma atribuição que utilize uma identidade gerida atribuída `blueprintAssignment/write` pelo **utilizador.**
 
-## <a name="optional---azure-blueprints-creates-system-assigned-managed-identity"></a>Opcional - Plantas Azure cria identidade gerida atribuída pelo sistema
+## <a name="optional---azure-blueprints-creates-system-assigned-managed-identity"></a>Opcional - Azure Blueprints cria identidade gerida atribuída ao sistema
 
-Quando a [identidade gerida atribuída](../../../active-directory/managed-identities-azure-resources/overview.md) ao sistema é selecionada durante a atribuição, a Azure Blueprints cria a identidade e concede à identidade gerida a função do [proprietário.](../../../role-based-access-control/built-in-roles.md#owner) Se uma [atribuição existente for atualizada,](../how-to/update-existing-assignments.md)o Azure Blueprints utiliza a identidade gerida anteriormente criada.
+Quando [a identidade gerida atribuída pelo sistema](../../../active-directory/managed-identities-azure-resources/overview.md) é selecionada durante a atribuição, a Azure Blueprints cria a identidade e concede à identidade gerida a função de [proprietário.](../../../role-based-access-control/built-in-roles.md#owner) Se uma [atribuição existente for atualizada, a](../how-to/update-existing-assignments.md)Azure Blueprints utiliza a identidade gerida previamente criada.
 
-A identidade gerida relacionada com a atribuição do projeto é utilizada para implantar ou redistribuir os recursos definidos no projeto. Este desenho evita atribuições inadvertidamente interferindo entre si.
-Este design também suporta a funcionalidade de bloqueio de [recursos](./resource-locking.md) controlando a segurança de cada recurso implantado a partir da planta.
+A identidade gerida relacionada com a atribuição do projeto é utilizada para implantar ou redistribuir os recursos definidos na planta. Este design evita atribuições inadvertidamente interferindo entre si.
+Este design também suporta a [função de bloqueio de recursos](./resource-locking.md) controlando a segurança de cada recurso implantado a partir da planta.
 
-## <a name="the-managed-identity-deploys-blueprint-artifacts"></a>A identidade gerida implementa artefactos de plantas
+## <a name="the-managed-identity-deploys-blueprint-artifacts"></a>A identidade gerida implanta artefactos de planta
 
-A identidade gerida desencadeia então as implantações do Gestor de Recursos dos artefactos dentro da planta na ordem de [sequenciação](./sequencing-order.md)definida . A ordem pode ser ajustada para garantir que os artefactos dependentes de outros artefactos sejam implantados na ordem correta.
+A identidade gerida ativa então desencadeia as implementações do Gestor de Recursos dos artefactos dentro da planta na ordem de [sequenciação](./sequencing-order.md)definida . A ordem pode ser ajustada para garantir que artefactos dependentes de outros artefactos sejam implantados na ordem correta.
 
-Uma falha de acesso por uma implantação é muitas vezes o resultado do nível de acesso concedido à identidade gerida. O serviço Azure Blueprints gere o ciclo de vida de segurança da identidade gerida atribuída pelo **sistema.** No entanto, o utilizador é responsável pela gestão dos direitos e ciclo de vida de uma identidade gerida atribuída ao **utilizador.**
+Uma falha de acesso por uma implantação é muitas vezes o resultado do nível de acesso concedido à identidade gerida. O serviço Azure Blueprints gere o ciclo de vida de segurança da identidade gerida **atribuída pelo sistema.** No entanto, o utilizador é responsável pela gestão dos direitos e ciclo de vida de uma identidade gerida **atribuída pelo utilizador.**
 
-## <a name="blueprint-service-and-system-assigned-managed-identity-rights-are-revoked"></a>O serviço de plantas e os direitos de identidade geridos atribuídos pelo sistema são revogados
+## <a name="blueprint-service-and-system-assigned-managed-identity-rights-are-revoked"></a>O serviço de blueprint e os direitos de identidade geridos atribuídos pelo sistema são revogados
 
-Uma vez concluídas as implementações, a Azure Blueprints revoga os direitos da identidade gerida atribuída pelo **sistema** a partir da subscrição. Em seguida, o serviço Azure Blueprints revoga os seus direitos da subscrição. A remoção de direitos impede que o Azure Blueprints se torne proprietário permanente numa subscrição.
+Uma vez concluídas as implementações, a Azure Blueprints revoga os direitos da identidade gerida **atribuída pelo sistema** a partir da subscrição. Em seguida, o serviço Azure Blueprints revoga os seus direitos da subscrição. A remoção de direitos impede que a Azure Blueprints se torne proprietária permanente de uma subscrição.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](sequencing-order.md).

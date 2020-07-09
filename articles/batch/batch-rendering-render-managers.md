@@ -1,49 +1,48 @@
 ---
-title: Suporte de gestor render
-description: Utilizando a integração do gestor de renderização do Azure Batch. Saiba mais sobre suporte incorporado ou complementos para gestores de renderização populares.
+title: Apoio ao gestor de renderização
+description: Utilizando a integração do gestor de renderização do Azure Batch. Saiba mais sobre suporte incorporado ou add-ons para gestores de renderização populares.
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
 ms.openlocfilehash: c44cbf86d8bf2fe83a6dc91dee1c4f58eec156c0
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83726456"
 ---
-# <a name="using-azure-batch-with-render-farm-managers"></a>Utilização do Lote Azure com gestores de quintas renderizados
+# <a name="using-azure-batch-with-render-farm-managers"></a>Usando O Lote Azure com gestores de fazenda renderizador
 
-Se você está usando uma fazenda de renderização existente no local, então é altamente provável que um gestor de renderização controle a capacidade de renderização da fazenda e torne empregos.
+Se você está usando uma fazenda existente no local, então é altamente provável que um gestor de renderização controle a capacidade da fazenda e faça empregos.
 
 O Azure fornece suporte incorporado ou complementos para gestores de renderização populares. Em seguida, pode adicionar e remover VMs Azure, incluindo VMs com o licenciamento de aplicação pay-for-use e VMs de baixa prioridade.
 
-Os seguintes gestores de renderização são suportados:
+São apoiados os seguintes gestores de renderização:
 
 * [PipelineFX Qube!](https://www.pipelinefx.com/)
 * [Render real](https://www.royalrender.de/)
-* [Prazo da caixa de reflexão](https://deadline.thinkboxsoftware.com/)
+* [Prazo da caixa de pensamento](https://deadline.thinkboxsoftware.com/)
 
 ## <a name="azure-render-hub"></a>Azure Render Hub
 
-O Azure Render Hub simplifica a criação e gestão das quintas de renderização Azure.  Render Hub tem suporte nativo para PipelineFx Qube e Deadline 10.  Para obter mais informações e instruções detalhadas consulte [o repositório GitHub](https://github.com/Azure/azure-render-hub).
+O Azure Render Hub simplifica a criação e gestão das explorações de renderização da Azure.  Render Hub tem apoio nativo para PipelineFx Qube e Deadline 10.  Para obter mais informações e instruções detalhadas consulte [o repositório GitHub](https://github.com/Azure/azure-render-hub).
 
-## <a name="using-azure-with-pipelinefx-qube"></a>Utilização de Azure com Qube PipelineFX
+## <a name="using-azure-with-pipelinefx-qube"></a>Usando Azure com PipelineFX Qube
 
-O Azure Render Hub apoia gestores de renderização populares, incluindo o Deadline.  Para obter instruções sobre a implantação e utilização do Render Hub, consulte [o repositório GitHub](https://github.com/Azure/azure-render-hub).
+O Azure Render Hub suporta gestores de renderização populares, incluindo o Deadline.  Para obter instruções sobre a implantação e utilização do Render Hub consulte [o repositório GitHub](https://github.com/Azure/azure-render-hub).
 
-Scripts e instruções para permitir a utilização de VMs de piscina de lote de Azure, uma vez que os trabalhadores do Qube também estão disponíveis no [repositório GitHub](https://github.com/Azure/azure-qube).
+Scripts e instruções para permitir que os VMs da piscina de Azure Batch sejam usados como trabalhadores qube também estão disponíveis [no repositório GitHub](https://github.com/Azure/azure-qube).
 
 ## <a name="using-azure-with-royal-render"></a>Usando Azure com Render Real
 
-A Royal Render tem integração azure e azure batch incorporada, permitindo-lhe estender uma quinta rendercom VMs baseadoem em Azure. Para um resumo, consulte [os ficheiros de ajuda.](https://www.royalrender.de/help8/index.html?Cloudrendering.html)
+A Royal Render tem integração Azure e Azure Batch incorporada, permitindo-lhe estender uma quinta de renderização com VMs baseados em Azure. Para um resumo, consulte [os ficheiros de ajuda](https://www.royalrender.de/help8/index.html?Cloudrendering.html).
 
-Para um exemplo de um cliente da Royal Render usando a integração Azure, consulte a história do [cliente da Jellyfish Pictures.](https://customers.microsoft.com/story/jellyfishpictures)
+Para um exemplo de um cliente royal render usando a integração Azure, consulte a história do [cliente da Jellyfish Pictures](https://customers.microsoft.com/story/jellyfishpictures).
 
-## <a name="using-azure-with-thinkbox-deadline"></a>Utilização de Azure com prazo de thinkbox
+## <a name="using-azure-with-thinkbox-deadline"></a>Utilização do Azure com Prazo de Caixa de Pensamento
 
-O Azure Render Hub apoia gestores de renderização populares, incluindo o Deadline.  Para obter instruções sobre a implantação e utilização do Render Hub, consulte [o repositório GitHub](https://github.com/Azure/azure-render-hub).
+O Azure Render Hub suporta gestores de renderização populares, incluindo o Deadline.  Para obter instruções sobre a implantação e utilização do Render Hub consulte [o repositório GitHub](https://github.com/Azure/azure-render-hub).
 
 ## <a name="next-steps"></a>Próximos passos
 
-Experimente a integração do Lote Azure para o seu gestor de renderização, utilizando o plug-in apropriado e instruções no GitHub, quando aplicável.
+Experimente a integração do Azure Batch para o seu gestor de renderização, utilizando o plug-in apropriado e as instruções no GitHub, sempre que aplicável.

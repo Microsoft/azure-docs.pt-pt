@@ -6,94 +6,141 @@ author: v-miegge
 manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/12/2020
+ms.topic: troubleshooting
+ms.date: 06/05/2020
 ms.author: v-miegge
-ms.openlocfilehash: 7bcf3197ae218c469983200814cecf551dc42a6b
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: 0cf6f1c0fcc9a2da0bbfacc9e51076add107ed26
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82133173"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102706"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Resolução de problemas quando se inscreve numa nova conta no portal do Azure ou no centro de contas do Azure
 
-Poderá ter problemas quando se tentar inscrever numa nova conta no portal do Microsoft Azure ou no centro de contas do Azure. Antes de resolver os problemas, verifique antes o seguinte:
-
-- As informações que forneceu no Perfil da Conta do Azure (incluindo o endereço de e-mail, o endereço e o número de telefone) estão corretas.
-- As informações do cartão de crédito estão corretas.
-- Se já não tem uma conta Microsoft com as mesmas informações.
+Poderá ter problemas quando se tentar inscrever numa nova conta no portal do Microsoft Azure ou no centro de contas do Azure. Este pequeno guia orienta-o ao longo do processo de inscrição e aborda alguns dos problemas comuns em cada um dos passos.
 
 > [!NOTE]
 > Se já tem uma conta e está à procura de orientação para resolver problemas de início de sessão, veja [Resolver problemas relativos a início de sessão da subscrição do Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue).
 
-## <a name="resolutions"></a>Resoluções
+## <a name="before-you-begin"></a>Antes de começar
 
-Para resolver os erros, selecione o problema que está a ter ao tentar inscrever-se no Azure.
+Antes de começar a inscrição, verifique o seguinte:
 
-### <a name="error-we-cannot-proceed-with-sign-up-due-to-an-issue-with-your-account-please-contact-billing-support"></a>Erro: *Não podemos continuar com a inscrição devido a um problema na sua conta. Contacte o apoio ao cliente de faturação.*
+- Se as informações no Perfil da Conta do Azure (incluindo o endereço de e-mail, a morada e o número de telefone) estão corretas.
+- Se as informações do cartão de crédito estão corretas.
+- Se já não tem uma conta Microsoft com as mesmas informações.
 
-Para resolver o problema, siga estes passos:
+## <a name="guided-walkthrough-of-azure-sign-up"></a>Instruções passo a passo da inscrição do Azure
 
-1. Inicie sessão no [Centro de Contas do Azure](https://account.azure.com/Profile) com a credencial de administrador de conta.
+A experiência de inscrição do Azure consiste em quatro secções:
 
-2. Selecione **Editar detalhes**.
+- Acerca de si
+- Verificação de identidade por telefone
+- Verificação de identidade por cartão
+- Contrato
 
-3. Certifique-se de que todos os campos do endereço são preenchidos e válidos.
+Estas instruções passo a passo incluem exemplos de informações corretas para se inscrever numa conta do Azure. Cada secção também contém alguns dos problemas comuns e como os resolver.
 
-4. Quando se inscrever na subscrição do Azure, certifique-se de que o endereço de faturação do registo do cartão de crédito corresponde aos seus dados bancários.
+## <a name="about-you"></a>Acerca de si
 
-Se continuar a receber a mensagem de erro, tente inscrever-se com um browser diferente.
+![Acerca de si](./media/troubleshoot-azure-sign-up/1.png)
+ 
+### <a name="common-issues-and-solutions"></a>Problemas conhecidos e soluções
 
-### <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>A barra de progresso fica parada na secção *Verificação de identidade por cartão*.
+#### <a name="you-see-the-message-we-cannot-proceed-with-sign-up-due-to-an-issue-with-your-account-please-contact-billing-support"></a>É apresentada a mensagem “Não podemos continuar com a inscrição devido a um problema na conta. Contacte o apoio ao cliente de faturação”
 
-Para concluir a verificação de identidade por cartão, tem de permitir cookies de terceiros no seu browser.
+Para resolver este erro, siga estes passos:
 
-![Verificação de identidade por cartão](./media/troubleshoot-azure-sign-up/identify-verification-by-card.png)
+1.  Inicie sessão no [Centro de Contas do Azure](https://account.azure.com/Profile) com a credencial de administrador de conta.
+1.  Selecione **Editar detalhes**.
+1.  Confirme que todos os campos do endereço estão preenchidos e são válidos.
+1.  Quando se inscrever na subscrição do Azure, verifique que o endereço de faturação do registo do cartão de crédito corresponde aos dados bancários.
 
-Utilize os passos seguintes para atualizar as definições de cookies do browser.
+Se continuar a receber a mensagem, tente inscrever-se com um browser diferente.
 
-1. Se estiver a usar o Chrome, selecione **Definições** > **Mostrar definições avançadas** > **Privacidade** > **Definições de conteúdo**. Desmarque **Bloquear cookies de terceiros e dados do site**.
+E quanto à navegação InPrivate?
 
-2. Se estiver a usar o Microsoft Edge, selecione **Definições** > **Ver definições avançadas** > **Cookies** > **Não bloquear cookies**.
-
-3. Atualize a página de inscrição no Azure e verifique se o problema foi resolvido.
-
-4. Se a atualização não resolveu o problema, saia e reinicie o browser e, em seguida, tente novamente.
-
-### <a name="credit-card-form-doesnt-support-my-billing-address"></a>O formulário do cartão de crédito não suporta o meu endereço de faturação
-
-O seu endereço de faturação tem de estar situado no país que selecionar na secção **Acerca de si**. Confirme que seleciona o país correto.
-
-### <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>Não recebe mensagens de texto nem chamadas durante a verificação da conta de inscrição
-
-Embora o processo seja normalmente rápido, pode demorar até quatro minutos para que um código de verificação seja entregue. O número de telefone que introduzir para verificação não será armazenado como um número de contacto para a conta.
-
-Eis algumas dicas adicionais:
-
-- Não pode usar um número de telefone VoiP (Voice-over-IP) para o processo de verificação por telefone.
-- Verifique novamente o número de telefone que introduzir, incluindo o indicativo que selecionar no menu pendente.
-- Se o seu telefone não receber mensagens de texto (SMS), experimente a opção **Ligar-me**.
-- Verifique se o telefone pode receber chamadas ou mensagens SMS de um número de telefone proveniente dos Estados Unidos.
-
-Quando receber a mensagem de texto ou a chamada telefónica, introduza o código que receber na caixa de texto.
-
-### <a name="credit-card-declined-or-not-accepted"></a>Cartão de crédito rejeitado ou não aceite
-
-Os cartões de débito ou de crédito pré-pagos ou virtuais não são aceites como pagamento para Subscrições do Azure. Para ver o que mais pode fazer com que o cartão seja rejeitado, veja O seu cartão de débito ou de crédito é [recusado na inscrição no Azure](https://support.microsoft.com/help/4042960).
-
-### <a name="free-trial-is-not-available"></a>Não está disponível uma Avaliação Gratuita
+#### <a name="free-trial-is-not-available"></a>A avaliação gratuita não está disponível
 
 Já usou uma subscrição do Azure anteriormente? O contrato dos Termos de Utilização do Azure limita a ativação da avaliação gratuita a apenas um utilizador novo no Azure. Se já tiver outro tipo de subscrição do Azure, não poderá ativar uma avaliação gratuita. Considere inscrever-se numa [subscrição Pay As You Go](https://azure.microsoft.com/offers/ms-azr-0003p/).
 
-### <a name="i-saw-a-charge-on-my-free-trial-account"></a>Vi uma cobrança na minha conta de Avaliação Gratuita
+#### <a name="you-see-the-message-you-are-not-eligible-for-an-azure-subscription"></a>É apresentada a mensagem “Não é elegível para uma subscrição do Azure”
 
-Poderá ver uma breve retenção da verificação na sua conta de cartão de crédito depois de se inscrever. Este valor é removido em três a cinco dias. Se estiver preocupado com a gestão dos custos, leia mais sobre como [evitar custos inesperados](getting-started.md).
+Para resolver este problema, verifique novamente se os seguintes itens são verdadeiros:
+
+- As informações que forneceu no seu perfil da conta do Azure (incluindo o endereço de e-mail, o endereço e o número de telefone) estão corretas.
+- As informações do cartão de crédito estão corretas.
+- Se já não tem uma conta Microsoft que utilize as mesmas informações.
+
+#### <a name="you-see-the-message-your-current-account-type-is-not-supported"></a>É apresentada a mensagem “O tipo de conta atual não é suportado”
+
+Este problema pode ocorrer se a conta estiver registada num [diretório do Azure AD não gerido](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup) e não estiver no diretório do Azure AD da sua organização.
+Para resolver este problema, inscreva-se na conta do Azure com outra conta ou assuma o controlo do diretório do AD não gerido. Para obter mais informações, veja [Take over an unmanaged directory as administrator in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) (Assumir um diretório não gerido como administrador no Azure Active Directory).
+
+## <a name="identity-verification-by-phone"></a>Verificação de identidade por telefone
+
+![Verificação de identidade por telefone](./media/troubleshoot-azure-sign-up/2.png)
+ 
+Quando receber a mensagem de texto ou a chamada telefónica, introduza o código que receber na caixa de texto.
+
+### <a name="common-issues-and-solutions"></a>Problemas conhecidos e soluções
+
+#### <a name="no-verification-text-message-or-phone-call"></a>Não recebo a mensagem de texto de verificação nem a chamada telefónica
+
+Embora o processo de verificação de inscrição seja normalmente rápido, pode demorar até quatro minutos para que um código de verificação seja enviado.
+
+Eis algumas dicas adicionais:
+
+- Pode utilizar qualquer número de telefone para a verificação, desde que cumpra os requisitos. O número de telefone que introduzir para verificação não será armazenado como um número de contacto para a conta.
+  - Não pode usar um número de telefone VoiP (Voice-over-IP) para o processo de verificação por telefone.
+  - Verifique se o telefone pode receber chamadas ou mensagens SMS de um número de telefone proveniente dos Estados Unidos.
+- Verifique novamente o número de telefone que introduzir, incluindo o indicativo que selecionar no menu pendente.
+- Se o seu telefone não receber mensagens de texto (SMS), experimente a opção **Ligar-me**.
+
+## <a name="identity-verification-by-card"></a>Verificação de identidade por cartão
+
+![Verificação de identidade por cartão](./media/troubleshoot-azure-sign-up/3.png)
+ 
+### <a name="common-issues-and-solutions"></a>Problemas conhecidos e soluções
+
+#### <a name="credit-card-declined-or-not-accepted"></a>Cartão de crédito rejeitado ou não aceite
+
+Os cartões de débito ou de crédito pré-pagos ou virtuais não são aceites como pagamento para Subscrições do Azure. Para ver o que mais pode fazer com que o cartão seja rejeitado, veja [Resolução de problemas num cartão rejeitado na inscrição no Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card).
+
+#### <a name="credit-card-form-doesnt-support-my-billing-address"></a>O formulário do cartão de crédito não suporta o meu endereço de faturação
+
+O endereço de faturação tem de estar no país que selecionar na secção **Acerca de si**. Verifique se selecionou o país correto.
+
+#### <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>A barra de progresso fica parada na secção Verificação de identidade por cartão
+
+Para concluir a verificação de identidade por cartão, tem de permitir cookies de terceiros no seu browser.
+
+Utilize os passos seguintes para atualizar as definições de cookies do browser.
+
+1. Atualize as definições de cookies.
+   - Se estiver a utilizar o **Chrome**:
+     - Selecione **Definições** > **Mostrar definições avançadas** > **Privacidade** > **Definições de conteúdo**. Desmarque **Bloquear cookies de terceiros e dados do site**.
+
+   - Se estiver a utilizar o **Microsoft Edge**:
+     - Selecione **Definições** > **Ver definições avançadas** > **Cookies** > **Não bloquear cookies**.
+
+1. Atualize a página de inscrição do Azure e verifique se o problema foi resolvido.
+1. Se a atualização não tiver resolvido o problema, saia, reinicie o browser e tente novamente.
+
+### <a name="i-saw-a-charge-on-my-free-trial-account"></a>Vi uma cobrança na minha conta de avaliação gratuita
+
+Poderá ver uma breve retenção da verificação temporária na sua conta de cartão de crédito depois de se inscrever. Esta retenção é removida em três a cinco dias. Se estiver preocupado com a gestão dos custos, leia mais sobre como [evitar custos inesperados](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started).
+
+## <a name="agreement"></a>Contrato
+
+Complete o Contrato.
+
+## <a name="other-issues"></a>Outros problemas
 
 ### <a name="cant-activate-azure-benefit-plan-like-msdn-bizspark-bizsparkplus-or-mpn"></a>Não consegue ativar o plano de vantagens do Azure como MSDN, BizSpark, BizSparkPlus ou MPN
 
-Verifique se está a usar as informações de início de sessão corretas. Em seguida, verifique o programa de vantagens para confirmar que é elegível.
-
+Verifique se está a utilizar as informações de início de sessão corretas. Em seguida, verifique o programa de benefícios para confirmar se é elegível.
 - MSDN
   - Verifique o seu estado de elegibilidade na [página da sua conta MSDN](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
   - Se não conseguir verificar o seu estado, contacte os [Centros de Suporte ao Cliente das Subscrições do MSDN](https://msdn.microsoft.com/library/aa493452.aspx).
@@ -104,37 +151,24 @@ Verifique se está a usar as informações de início de sessão corretas. Em se
   - Inicie sessão no [portal do MPN](https://mspartner.microsoft.com/Pages/Locale.aspx) para verificar o seu estado de elegibilidade. Se tiver as [Competências da Plataforma da Cloud](https://mspartner.microsoft.com/pages/membership/cloud-platform-competency.aspx) adequadas, poderá ser elegível para vantagens adicionais.
   - Se não conseguir verificar o seu estado, contacte o [Suporte do MPN](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx).
 
+
 ### <a name="cant-activate-new-azure-in-open-subscription"></a>Não é possível ativar uma nova subscrição do Azure no Open
 
 Para criar uma subscrição do Azure no Open, precisa de uma Chave de Ativação de Serviço Online (OSA) válida que tenha pelo menos um token do Azure no Open associado à mesma. Se não tiver uma chave de OSA, contacte um dos Parceiros da Microsoft listados no [Microsoft Pinpoint](https://pinpoint.microsoft.com/).
-
-### <a name="error-you-are-not-eligible-for-an-azure-subscription"></a>Erro: *Não é elegível para uma subscrição do Azure*
-
-Para resolver este problema, verifique novamente se os seguintes itens são verdadeiros:
-
-- As informações que forneceu no seu perfil da conta do Azure (incluindo o endereço de e-mail, o endereço e o número de telefone) estão corretas.
-- As informações do cartão de crédito estão corretas.
-- Se já não tem uma conta Microsoft que utilize as mesmas informações.
-
-### <a name="error-your-current-account-type-is-not-supported"></a>Erro: *Não há suporte para o seu tipo de conta atual*
-
-Este problema pode ocorrer se a conta estiver registada num [diretório do Azure AD não gerido](../../active-directory/users-groups-roles/directory-self-service-signup.md) e não estiver no diretório do Azure AD da sua organização.
-
-Para resolver este problema, inscreva-se na conta do Azure com outra conta ou assuma o controlo do diretório do AD não gerido. Para obter mais informações, veja [Take over an unmanaged directory as administrator in Azure Active Directory](../../active-directory/users-groups-roles/domains-admin-takeover.md) (Assumir um diretório não gerido como administrador no Azure Active Directory).
 
 ## <a name="additional-help-resources"></a>Recursos de ajuda adicionais
 
 Outros artigos de resolução de problemas para Subscrições e Faturação do Azure
 
-- [Cartão rejeitado](troubleshoot-declined-card.md)
-- [Problemas de início de sessão da subscrição](troubleshoot-sign-in-issue.md)
-- [Não foram encontradas subscrições](no-subscriptions-found.md)
-- [Vista de custos empresariais desativada](enterprise-mgmt-grp-troubleshoot-cost-view.md)
+- [Cartão rejeitado](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)
+- [Problemas de início de sessão da subscrição](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue)
+- [Não foram encontradas subscrições](https://docs.microsoft.com/azure/cost-management-billing/manage/no-subscriptions-found)
+- [Vista de custos empresariais desativada](https://docs.microsoft.com/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view)
 
 ## <a name="contact-us-for-help"></a>Contacte-nos para obter ajuda
 
 Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="find-out-more-about-azure-cost-management"></a>Saiba mais sobre o Azure Cost Management
 
-- [Documentação de Faturação do Azure](../../billing/index.md)
+- [Documentação do Azure Cost Management e Faturação](https://docs.microsoft.com/azure/cost-management-billing)

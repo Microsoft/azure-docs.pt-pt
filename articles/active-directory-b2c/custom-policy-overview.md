@@ -1,71 +1,70 @@
 ---
-title: Políticas personalizadas do Diretório Ativo Azure B2C Microsoft Docs
-description: Conheça as políticas personalizadas do Azure Ative Directory B2C.
+title: Azure Ative Directory B2C políticas personalizadas Microsoft Docs
+description: Saiba mais sobre as políticas personalizadas do Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 06/06/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f18f44208b97ab5bc8d9cd9ff01d604c62deb963
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1a7cb964064e229ee29591ca14aa8ef33e393a7d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678152"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484173"
 ---
-# <a name="custom-policies-in-azure-active-directory-b2c"></a>Políticas personalizadas no Diretório Ativo Azure B2C
+# <a name="custom-policies-in-azure-active-directory-b2c"></a>Políticas personalizadas no Azure Ative Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-As políticas personalizadas são ficheiros de configuração que definem o comportamento do seu inquilino Azure Ative Directory B2C (Azure AD B2C). Os fluxos de utilizadores são predefinidos no portal Azure AD B2C para as tarefas de identidade mais comuns. As políticas personalizadas podem ser totalmente editadas por um desenvolvedor de identidade para completar muitas tarefas diferentes.
+As políticas personalizadas são ficheiros de configuração que definem o comportamento do seu inquilino Azure Ative Directory B2C (Azure AD B2C). Os fluxos de utilizador são predefinidos no portal Azure AD B2C para as tarefas de identidade mais comuns. As políticas personalizadas podem ser totalmente editadas por um desenvolvedor de identidade para completar muitas tarefas diferentes.
 
 ## <a name="comparing-user-flows-and-custom-policies"></a>Comparar fluxos de utilizadores e políticas personalizadas
 
-| | Fluxos do utilizador | Políticas personalizadas |
+| Contexto | Fluxos do utilizador | Políticas personalizadas |
 |-|-------------------|-----------------|
-| Utilizadores-alvo | Todos os desenvolvedores de aplicações com ou sem conhecimentos de identidade. | Profissionais de identidade, integradores de sistemas, consultores e equipas de identidade interna. Eles são confortáveis com os fluxos OpenID Connect e compreendem fornecedores de identidade e autenticação baseada em sinistros. |
-| Método de configuração | Portal Azure com uma interface de utilizador amigável (UI). | Editar diretamente ficheiros XML e, em seguida, fazer o upload para o portal Azure. |
-| Personalização da UI | Personalização completa de UI incluindo HTML, CSS e JavaScript.<br><br>Suporte multilingmístico com cordas personalizadas. | Mesma |
+| Utilizadores-alvo | Todos os desenvolvedores de aplicações com ou sem conhecimento de identidade. | Profissionais de identidade, integradores de sistemas, consultores e equipas de identidade interna. São confortáveis com os fluxos OpenID Connect e compreendem os fornecedores de identidade e a autenticação baseada em sinistros. |
+| Método de configuração | Portal Azure com uma interface de utilizador fácil de utilizar (UI). | Editar diretamente ficheiros XML e, em seguida, fazer o upload para o portal Azure. |
+| Personalização de UI | Personalização completa da UI, incluindo HTML, CSS e JavaScript.<br><br>Suporte multilanguage com cordas personalizadas. | Mesma |
 | Personalização de atributos | Atributos padrão e personalizados. | Mesma |
-| Token e gestão de sessões | Token personalizado e várias opções de sessão. | Mesma |
-| Fornecedores de Identidade | Prestador local ou social predefinido e a maioria dos fornecedores de identidade da OIDC, como a federação com inquilinos do Diretório Ativo Azure. | OIDC, OAUTH e SAML.  A autenticação também é possível através da integração com APIs REST. |
-| Tarefas de Identidade | Inscreva-se ou inscreva-se com contas sociais locais ou muitas.<br><br>Reset de senha de autosserviço.<br><br>Edição de perfil.<br><br>Autenticação multi-factor.<br><br>Personalize fichas e sessões.<br><br>Fluxos de fichas de acesso. | Complete as mesmas tarefas que os fluxos do utilizador utilizando fornecedores de identidade personalizados ou utilize âmbitos personalizados.<br><br>Fornecer uma conta de utilizador noutro sistema no momento do registo.<br><br>Envie um e-mail de boas-vindas usando o seu próprio fornecedor de serviços de e-mail.<br><br>Utilize uma loja de utilizadores fora do Azure AD B2C.<br><br>Validar o utilizador forneceu informações com um sistema fidedigno utilizando uma API. |
+| Gestão de token e sessão | Token personalizado e várias opções de sessão. | Mesma |
+| Fornecedores de Identidade | Predefinido provedor local ou social e a maioria dos fornecedores de identidade OIDC, como federação com inquilinos do Azure Ative Directory. | OIDC, OAUTH e SAML baseados em padrões.  A autenticação também é possível utilizando a integração com AS REST. |
+| Tarefas identitárias | Inscreva-se ou inscreva-se com contas locais ou muitas contas sociais.<br><br>Redefinição da palavra-passe de autosserviço.<br><br>Edição de perfil.<br><br>Autenticação multi-factor.<br><br>Personalize fichas e sessões.<br><br>O acesso aos fluxos de fichas. | Complete as mesmas tarefas que os fluxos do utilizador utilizando fornecedores de identidade personalizados ou utilize âmbitos personalizados.<br><br>Disponibilização de uma conta de utilizador noutro sistema no momento do registo.<br><br>Envie um e-mail de boas-vindas usando o seu próprio fornecedor de serviços de e-mail.<br><br>Utilize uma loja de utilizadores fora do Azure AD B2C.<br><br>Validar o utilizador forneceu informações com um sistema fidedigno utilizando uma API. |
 
 ## <a name="policy-files"></a>Ficheiros de política
 
-Estes três tipos de ficheiros políticos são utilizados:
+Estes três tipos de ficheiros de política são utilizados:
 
-- **Ficheiro base** - contém a maioria das definições. Recomenda-se que efaça um número mínimo de alterações neste ficheiro para ajudar na resolução de problemas e na manutenção a longo prazo das suas políticas.
-- **Ficheiro de extensões** - contém as alterações de configuração únicas para o seu inquilino.
-- **Ficheiro do Partido De Fiação (RP)** - O ficheiro focado na tarefa única que é invocado diretamente pela aplicação ou serviço (também, conhecido como Partido De Fiação). Cada tarefa única requer o seu próprio RP e, dependendo dos requisitos de marca, o número pode ser "total de aplicações x número total de casos de uso".
+- **Ficheiro base** - contém a maioria das definições. Recomenda-se que faça um número mínimo de alterações neste ficheiro para ajudar na resolução de problemas e na manutenção a longo prazo das suas políticas.
+- **Extensions file** - detém as alterações de configuração únicas para o seu inquilino.
+- **Ficheiro Do Partido De Gestão (RP)** - O único ficheiro focado em tarefas que é invocado diretamente pela aplicação ou serviço (também, conhecido como Partido De Gestão). Cada tarefa única requer o seu próprio RP e, dependendo dos requisitos de marca, o número pode ser "total de aplicações x número total de casos de uso".
 
-Os fluxos de utilizadores em Azure AD B2C seguem o padrão de ficheiro acima descrito, mas o desenvolvedor apenas vê o ficheiro RP, enquanto o portal Azure faz alterações no fundo do ficheiro de extensões.
+Os fluxos do utilizador em Azure AD B2C seguem o padrão de ficheiro acima descrito, mas o desenvolvedor apenas vê o ficheiro RP, enquanto o portal Azure faz alterações no fundo do ficheiro de extensões.
 
-Apesar de existirem três tipos de ficheiros políticos, não se limita a apenas três ficheiros. Pode ter vários ficheiros de cada tipo de ficheiro. Por exemplo, se não quiser ealterar o ficheiro Extensões, pode criar um ficheiro Extensions2 para alargar ainda mais o ficheiro Extensões.
+Embora existam três tipos de ficheiros de política, não está restrito a apenas três ficheiros. Pode ter vários ficheiros de cada tipo de ficheiro. Por exemplo, se não quiser fazer alterações no seu ficheiro Extensões, pode criar um ficheiro Extensions2 para prolongar ainda mais o ficheiro Extensões.
 
 ## <a name="custom-policy-core-concepts"></a>Conceitos de núcleo de política personalizada
 
 O serviço de gestão de identidade e acesso ao cliente (CIAM) em Azure inclui:
 
-- Um diretório de utilizador acessível através do Microsoft Graph e que detém dados de utilizadores tanto para contas locais como para contas federadas.
-- Acesso ao Quadro de Experiência de **Identidade** que orquestra a confiança entre utilizadores e entidades e passa reclamações entre eles para completar uma tarefa de gestão de identidade ou acesso.
-- Um serviço de token de segurança (STS) que emite fichas de identificação, fichas de atualização e fichas de acesso (e afirmações equivalentes de SAML) e os valida para proteger recursos.
+- Um diretório de utilizadores que é acessível através da utilização do Microsoft Graph e que contém dados de utilizadores tanto para contas locais como para contas federadas.
+- Acesso ao **Quadro de Experiência de Identidade** que orquestra a confiança entre utilizadores e entidades e passa reclamações entre eles para completar uma tarefa de gestão de identidade ou acesso.
+- Um serviço de símbolos de segurança (STS) que emite fichas de identificação, tokens de atualização e tokens de acesso (e afirmações SAML equivalentes) e os valida para proteger recursos.
 
-O Azure AD B2C interage com fornecedores de identidade, utilizadores, outros sistemas e com o diretório de utilizadores local em sequência para alcançar uma tarefa de identidade. Por exemplo, inscreva-se num utilizador, registe um novo utilizador ou repor uma palavra-passe. O Quadro de Experiência de Identidade e uma política (também chamada de viagem de utilizador ou política-quadro de confiança) estabelece a confiança multipartidária e define explicitamente os atores, as ações, os protocolos e a sequência de passos a concluir.
+O Azure AD B2C interage com fornecedores de identidade, utilizadores, outros sistemas e com o diretório de utilizadores local em sequência para alcançar uma tarefa de identidade. Por exemplo, iniciar sposição num utilizador, registar um novo utilizador ou redefinir uma palavra-passe. O Quadro de Experiência de Identidade e uma política (também chamada de viagem de utilizador ou política de enquadramento de confiança) estabelece a confiança multipartidária e define explicitamente os atores, as ações, os protocolos e a sequência de passos a concluir.
 
-O Quadro de Experiência de Identidade é uma plataforma Azure totalmente configurável, orientada por políticas e baseada na nuvem que orquestra a confiança entre entidades em formatos de protocolo padrão como OpenID Connect, OAuth, SAML e algumas não padrão, por exemplo, trocas de sistemas baseados na API baseadas no REST. O quadro cria experiências fáceis de utilizar e com rótulo branco que suportam HTML e CSS.
+O Quadro de Experiência de Identidade é uma plataforma Azure totalmente configurável, orientada por políticas e baseada em nuvem que orquestra a confiança entre entidades em formatos de protocolo padrão como OpenID Connect, OAuth, SAML e algumas não-standard, por exemplo, trocas de sistema-sistema baseadas em REST API. A estrutura cria experiências fáceis de utilizar e etiquetadas com rótulo branco que suportam HTML e CSS.
 
-Uma política personalizada é representada como um ou vários ficheiros com formatação XML que fazem referência entre si numa cadeia hierárquica. Os elementos XML definem o esquema de sinistros, as transformações de sinistros, as definições de conteúdo, os fornecedores de sinistros, os perfis técnicos e os passos de orquestração de viagens do utilizador, entre outros elementos. Uma política personalizada é acessível como um ou vários ficheiros XML que são executados pelo Quadro de Experiência de Identidade quando invocados por uma parte que confia. Os desenvolvedores que configuram políticas personalizadas devem definir as relações fidedignas em detalhes cuidadosos para incluir pontos finais de metadados, definições exatas de troca de reclamações e configurar segredos, chaves e certificados conforme necessário por cada fornecedor de identidade.
+Uma política personalizada é representada como um ou vários ficheiros com formatação XML que fazem referência entre si numa cadeia hierárquica. Os elementos XML definem o esquema de reclamações, as transformações de reclamações, as definições de conteúdo, os fornecedores de sinistros, os perfis técnicos e as etapas de orquestração de jornadas de utilizador, entre outros elementos. Uma política personalizada é acessível como um ou vários ficheiros XML que são executados pelo Quadro de Experiência de Identidade quando invocados por uma parte dependente. Os desenvolvedores que configuram políticas personalizadas devem definir as relações fidedignas com cuidado para incluir pontos finais de metadados, definições exatas de troca de alegações e configurar segredos, chaves e certificados, conforme necessário por cada fornecedor de identidade.
 
 ### <a name="inheritance-model"></a>Modelo de herança
 
-Quando uma aplicação chama o ficheiro de política de RP, o Quadro de Experiência de Identidade em Azure AD B2C adiciona todos os elementos do ficheiro base, a partir do ficheiro de extensões, e depois do ficheiro de política rp para montar a política atual em vigor.  Elementos do mesmo tipo e nome no ficheiro RP sobrepor-se-ão aos das extensões e as extensões sobrepõem-se à base.
+Quando uma aplicação chama o ficheiro de política de RP, o Quadro de Experiência de Identidade em Azure AD B2C adiciona todos os elementos do ficheiro base, do ficheiro de extensões e, em seguida, do ficheiro de política rp para montar a política atual em vigor.  Elementos do mesmo tipo e nome no ficheiro RP sobrepõem-se aos que estão nas extensões, e as extensões sobrepõem-se à base.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Introdução às políticas personalizadas](custom-policy-get-started.md)

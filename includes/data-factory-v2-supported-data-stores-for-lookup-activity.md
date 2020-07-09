@@ -1,5 +1,5 @@
 ---
-title: incluir ficheiro
+title: ficheiro de inclusão
 description: conectores suportados para atividade de procura
 services: data-factory
 author: linda33wj
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/13/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: d583c25afc5c328ef64a8c931e4209f0d88a14a9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 35997f57b0a66b4f7853ea117519273fd7b6f726
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84124511"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84436128"
 ---
 | Categoria | Arquivo de dados |
 |:--- |:--- |
-| **Azure** |[Armazenamento Azure Blob](../articles/data-factory/connector-azure-blob-storage.md) |
+| **Azure** |[Armazenamento de Blobs do Azure](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |
 | &nbsp; |[Azure Data Explorer](../articles/data-factory/connector-azure-data-explorer.md) |
 | &nbsp; |[Armazenamento do Azure Data Lake Ger1](../articles/data-factory/connector-azure-data-lake-store.md) |
@@ -27,10 +27,10 @@ ms.locfileid: "84124511"
 | &nbsp; |[Base de Dados do Azure para PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
 | &nbsp; |[Ficheiros do Azure](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Base de Dados SQL do Azure](../articles/data-factory/connector-azure-sql-database.md) |
-| &nbsp; |[Instância Gerida do Azure SQL](../articles/azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |
+| &nbsp; |[Instância Gerida do SQL no Azure](../articles/azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |
 | &nbsp; |[Azure Synapse Analytics (anteriormente SQL Data Warehouse)](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
-| &nbsp; |[Armazenamento de mesa azure](../articles/data-factory/connector-azure-table-storage.md) |
-| **Base de dados** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
+| &nbsp; |[Armazenamento de tabelas do Azure](../articles/data-factory/connector-azure-table-storage.md) |
+| **Base de Dados** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |
 | &nbsp; |[Drill](../articles/data-factory/connector-drill.md) |
 | &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |
@@ -48,9 +48,10 @@ ms.locfileid: "84124511"
 | &nbsp; |[PostgreSQL](../articles/data-factory/connector-postgresql.md) 
 | &nbsp; |[Presto (Pré-visualização)](../articles/data-factory/connector-presto.md) |
 | &nbsp; |[SAP Business Warehouse Open Hub](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |
-| &nbsp; |[Armazém de Negócios SAP via MDX](../articles/data-factory/connector-sap-business-warehouse.md) |
+| &nbsp; |[SAP Business Warehouse via MDX](../articles/data-factory/connector-sap-business-warehouse.md) |
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |
 | &nbsp; |[Tabela SAP](../articles/data-factory/connector-sap-table.md) |
+| &nbsp; |[Snowflake](../articles/data-factory/connector-snowflake.md) |
 | &nbsp; |[Spark](../articles/data-factory/connector-spark.md) |
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |

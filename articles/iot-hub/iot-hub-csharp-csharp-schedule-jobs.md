@@ -1,6 +1,6 @@
 ---
-title: Agendar trabalhos com o Azure IoT Hub (.NET/.NET) [ Microsoft Docs
-description: Como agendar um trabalho do Azure IoT Hub para invocar um método direto em vários dispositivos. Utiliza o dispositivo Azure IoT SDK para implementar as aplicações simuladas do dispositivo e uma aplicação de serviço para executar o trabalho.
+title: Agendar postos de trabalho com o Azure IoT Hub (.NET/.NET) / Microsoft Docs
+description: Como agendar um trabalho do Azure IoT Hub para invocar um método direto em vários dispositivos. Utiliza o dispositivo Azure IoT SDK para .NET para implementar as aplicações simuladas do dispositivo e uma aplicação de serviço para executar o trabalho.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -10,17 +10,16 @@ ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt
 ms.openlocfilehash: 4c71a108d1967027465d127db50737119af3e2c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733374"
 ---
-# <a name="schedule-and-broadcast-jobs-net"></a>Horárioe trabalhos de transmissão (.NET)
+# <a name="schedule-and-broadcast-jobs-net"></a>Horários e trabalhos de transmissão (.NET)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
-Utilize o Azure IoT Hub para agendar e rastrear trabalhos que atualizam milhões de dispositivos. Utilizar empregos para:
+Use o Azure IoT Hub para agendar e rastrear trabalhos que atualizam milhões de dispositivos. Utilizar empregos para:
 
 * Atualizar as propriedades pretendidas
 
@@ -28,27 +27,27 @@ Utilize o Azure IoT Hub para agendar e rastrear trabalhos que atualizam milhões
 
 * Invocar métodos diretos
 
-Um trabalho envolve uma destas ações e rastreia a execução contra um conjunto de dispositivos que é definido por uma consulta gémea do dispositivo. Por exemplo, uma aplicação back-end pode usar um trabalho para invocar um método direto em 10.000 dispositivos que reinicia os dispositivos. Especifica o conjunto de dispositivos com uma consulta de gémeos dispositivos e agende o trabalho para funcionar num futuro. O trabalho acompanha o progresso à medida que cada um dos dispositivos recebe e executa o método direto de reinicialização.
+Um trabalho envolve uma destas ações e acompanha a execução contra um conjunto de dispositivos que é definido por uma consulta de dois dispositivos. Por exemplo, uma aplicação back-end pode usar um trabalho para invocar um método direto em 10.000 dispositivos que reiniciam os dispositivos. Especifica o conjunto de dispositivos com uma consulta dupla do dispositivo e agenda o trabalho para ser executado num futuro próximo. O trabalho acompanha o progresso à medida que cada um dos dispositivos recebe e executa o método direto de reinicialização.
 
 Para saber mais sobre cada uma destas capacidades, consulte:
 
-* Dispositivo twin e propriedades: [Começar com gémeos dispositivo](iot-hub-csharp-csharp-twin-getstarted.md) e [Tutorial: Como usar propriedades gémeas do dispositivo](tutorial-device-twins.md)
+* Dispositivo twin e propriedades: [Começar com os gémeos do dispositivo](iot-hub-csharp-csharp-twin-getstarted.md) e [tutorial: Como usar propriedades gémeas do dispositivo](tutorial-device-twins.md)
 
-* Métodos diretos: Guia de [desenvolvimento do IoT Hub - métodos diretos](iot-hub-devguide-direct-methods.md) e [Tutorial: Utilize métodos diretos](quickstart-control-device-dotnet.md)
+* Métodos diretos: [Guia de desenvolvimento do IoT Hub - métodos diretos](iot-hub-devguide-direct-methods.md) e [tutorial: Utilize métodos diretos](quickstart-control-device-dotnet.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Este tutorial mostrar-lhe como:
 
-* Crie uma aplicação de dispositivo que implemente um método direto chamado **LockDoor**, que pode ser chamado pela aplicação back-end.
+* Crie uma aplicação para dispositivos que implemente um método direto chamado **LockDoor**, que pode ser chamado pela aplicação back-end.
 
-* Crie uma aplicação de back-end que crie um trabalho para chamar o método direto **LockDoor** em vários dispositivos. Outro trabalho envia atualizações de propriedade desejadas para vários dispositivos.
+* Crie uma aplicação back-end que cria um trabalho para ligar para o método direto **LockDoor** em vários dispositivos. Outro trabalho envia atualizações de propriedade desejadas para vários dispositivos.
 
 No final deste tutorial, tem duas aplicações de consola .NET (C#):
 
-* **Métodos de Simulação**de Dispositivos . Esta aplicação liga-se ao seu hub IoT e implementa o método direto **LockDoor.**
+* **SimularDeviceMethods**. Esta aplicação conecta-se ao seu hub IoT e implementa o método direto **LockDoor.**
 
-* **AgendaJob**. Esta aplicação utiliza trabalhos para chamar o método direct **LockDoor** e atualizar as propriedades desejadas pelo dispositivo em vários dispositivos.
+* **AgendarJob**. Esta aplicação utiliza trabalhos para ligar para o método direto **LockDoor** e atualizar as propriedades desejadas pelo dispositivo em vários dispositivos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,35 +55,35 @@ No final deste tutorial, tem duas aplicações de consola .NET (C#):
 
 * Uma conta ativa do Azure. Se não tiver uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 
-* Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste artigo utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste artigo utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="register-a-new-device-in-the-iot-hub"></a>Registe um novo dispositivo no hub IoT
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registar um novo dispositivo no hub IoT
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Criar uma aplicação de dispositivo simulada
 
-Nesta secção, cria-se uma aplicação de consola .NET que responde a um método direto chamado pela extremidade traseira da solução.
+Nesta secção, cria-se uma aplicação de consola .NET que responde a um método direto chamado pela solução back end.
 
-1. No Estúdio Visual, selecione **Criar um novo projeto**e, em seguida, escolha o modelo de projeto da App consola **(.NET Framework).** Selecione **Seguinte** para continuar.
+1. No Visual Studio, **selecione Criar um novo projeto**e, em seguida, escolha o modelo de projeto da App consola **(.NET Framework).** Selecione **Seguinte** para continuar.
 
-1. Em **Configurar o seu novo projeto,** nomeie o projeto *Simulamétodos de Dispositivos,* e, em seguida, selecione **Criar**.
+1. Em **Configurar o seu novo projeto**, nomeie o projeto *SimulateDeviceMethods*e, em seguida, selecione **Create**.
 
-    ![Configure o seu projeto Simulação de Métodos de Dispositivos](./media/iot-hub-csharp-csharp-schedule-jobs/configure-device-app.png)
+    ![Configure o seu projeto SimulateDeviceMethods](./media/iot-hub-csharp-csharp-schedule-jobs/configure-device-app.png)
 
-1. No Solution Explorer, clique no projeto **SimulateDeviceMethods** e, em seguida, selecione **Gerir pacotes NuGet**.
+1. No Solution Explorer, clique com o botão direito no projeto **SimulateDeviceMethods** e, em seguida, selecione **Gerir pacotes NuGet**.
 
-1. No **NuGet Package Manager,** selecione **Procurar** e escolha **Microsoft.Azure.Devices.Client**. Selecione **Instalar**.
+1. No **NuGet Package Manager**, selecione **Procurar** e escolher **Microsoft.Azure.Devices.Client**. Selecione **Instalar**.
 
-    ![Aplicativo cliente de cliente de janela nuGet Package Manager](./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png)
+    ![Aplicativo de cliente de janela do Gestor de pacotes NuGet](./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png)
 
-    Este passo descarrega, instala e adiciona uma referência ao pacote SDK NuGet do [dispositivo Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) e às suas dependências.
+    Este passo descarrega, instala e adiciona uma referência ao pacote SDK NuGet [do dispositivo Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) e às suas dependências.
 
-1. Adicione as `using` seguintes declarações na parte superior do ficheiro **Program.cs:**
+1. Adicione as `using` seguintes declarações no topo do ficheiro **Program.cs:**
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
@@ -113,7 +112,7 @@ Nesta secção, cria-se uma aplicação de consola .NET que responde a um métod
     }
     ```
 
-1. Adicione o seguinte método para implementar o ouvinte gémeos do dispositivo no dispositivo:
+1. Adicione o seguinte método para implementar o dispositivo de escuta gémeos no dispositivo:
 
     ```csharp
     private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, 
@@ -124,7 +123,7 @@ Nesta secção, cria-se uma aplicação de consola .NET que responde a um métod
     }
     ```
 
-1. Por fim, adicione o seguinte código ao método **Principal** para abrir a ligação ao seu hub IoT e inicializar o ouvinte do método:
+1. Por fim, adicione o seguinte código ao método **Principal** para abrir a ligação ao seu hub IoT e rubricar o ouvinte do método:
 
     ```csharp
     try
@@ -154,46 +153,46 @@ Nesta secção, cria-se uma aplicação de consola .NET que responde a um métod
 1. Poupe o seu trabalho e construa a sua solução.
 
 > [!NOTE]
-> Para manter as coisas simples, este tutorial não implementa quaisquer políticas de retenção. No código de produção, deve implementar políticas de retry (como a remarcação da ligação), como sugerido no manuseamento de [falhas transitórias](/azure/architecture/best-practices/transient-faults).
+> Para manter as coisas simples, este tutorial não implementa nenhuma política de retíria. No código de produção, deve implementar políticas de repetição (como a repetição de ligação), tal como sugerido no [tratamento de falhas transitórias](/azure/architecture/best-practices/transient-faults).
 >
 
-## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de ligação do hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de conexão do hub IoT
 
 [!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
 
 [!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
-## <a name="schedule-jobs-for-calling-a-direct-method-and-sending-device-twin-updates"></a>Agendar trabalhos para chamar um método direto e enviar atualizações gémeas do dispositivo
+## <a name="schedule-jobs-for-calling-a-direct-method-and-sending-device-twin-updates"></a>Agendar empregos para chamar um método direto e enviar atualizações gémeas do dispositivo
 
-Nesta secção, cria-se uma aplicação de consola .NET (utilizando C#) que utiliza trabalhos para ligar para o método direct **LockDoor** e enviar atualizações de propriedade desejadas para vários dispositivos.
+Nesta secção, cria-se uma aplicação de consola .NET (utilizando C#) que utiliza trabalhos para ligar para o método direto **LockDoor** e enviar atualizações de propriedade desejadas para vários dispositivos.
 
-1. No Estúdio Visual, selecione **File** > **New** > **Project**. Em **Criar um novo projeto,** escolha a App consola **(.NET Framework)** e, em seguida, selecione **Next**.
+1. No Estúdio Visual, selecione **File**  >  **New**  >  **Project**. In **Create a new project**, escolha a App consola **(.NET Framework)** e, em seguida, selecione **Next**.
 
-1. Em **Configure o seu novo projeto,** nomeie o projeto *ScheduleJob*. Para **solução,** escolha **Adicionar à solução**, e, em seguida, selecione **Criar**.
+1. Em **Configurar o seu novo projeto**, nomeie o projeto *ScheduleJob*. Para **solução**, escolha **Adicionar à solução**e, em seguida, selecione **Criar**.
 
     ![Nome e configuração do projeto ScheduleJob](./media/iot-hub-csharp-csharp-schedule-jobs/config-schedule-job-app.png)
 
-1. No Solution Explorer, clique no projeto **ScheduleJob** e, em seguida, selecione **Gerir pacotes NuGet**.
+1. No Solution Explorer, clique com o botão direito no projeto **ScheduleJob** e, em seguida, **selecione Gerir pacotes NuGet**.
 
-1. No **NuGet Package Manager**, selecione **Browse,** procure e escolha **Microsoft.Azure.Devices,** em seguida, selecione **Instalar**.
+1. No Gestor de **Pacotes NuGet**, selecione **Procurar,** procurar e escolher **Microsoft.Azure.Devices**, em seguida, selecione **Instalar**.
 
-   Este passo descarrega, instala e adiciona uma referência ao pacote SDK NuGet do [serviço Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices/) e às suas dependências.
+   Este passo descarrega, instala e adiciona uma referência ao pacote SDK NuGet [do serviço Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices/) e às suas dependências.
 
-1. Adicione as `using` seguintes declarações na parte superior do ficheiro **Program.cs:**
+1. Adicione as `using` seguintes declarações no topo do ficheiro **Program.cs:**
 
     ```csharp
     using Microsoft.Azure.Devices;
     using Microsoft.Azure.Devices.Shared;
     ```
 
-1. Adicione a `using` seguinte declaração se ainda não estiver presente nas declarações predefinidas.
+1. Adicione a seguinte `using` declaração se ainda não estiver presente nas declarações padrão.
 
     ```csharp
     using System.Threading;
     using System.Threading.Tasks;
     ```
 
-1. Adicione os seguintes campos à classe **Programa**. Substitua os espaços reservados pela cadeia de ligação IoT Hub que copiou anteriormente na cadeia de ligação do [hub IoT](#get-the-iot-hub-connection-string) e o nome do seu dispositivo.
+1. Adicione os seguintes campos à classe **Programa**. Substitua os espaços reservados pela cadeia de ligação IoT Hub que copiou anteriormente na cadeia de [ligação do hub IoT](#get-the-iot-hub-connection-string) e no nome do seu dispositivo.
 
     ```csharp
     static JobClient jobClient;
@@ -261,7 +260,7 @@ Nesta secção, cria-se uma aplicação de consola .NET (utilizando C#) que util
     ```
 
     > [!NOTE]
-    > Para mais informações sobre sintaxe de consulta, consulte a linguagem de [consulta do IoT Hub.](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language)
+    > Para obter mais informações sobre a sintaxe de consulta, consulte [o idioma de consulta IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language).
     >
 
 1. Por fim, adicione as seguintes linhas ao método **Main**:
@@ -293,22 +292,22 @@ Nesta secção, cria-se uma aplicação de consola .NET (utilizando C#) que util
 
 Já está pronto para executar as aplicações.
 
-1. No Visual Studio Solution Explorer, clique à direita na sua solução e, em seguida, selecione **Definir Projetos StartUp**.
+1. No Visual Studio Solution Explorer, clique com o botão direito na sua solução e, em seguida, selecione **set StartUp Projects**.
 
-1. Selecione **Common Properties** > **Startup Project**, e, em seguida, selecione Múltiplos projetos de **arranque.**
+1. Selecione **o Common Properties**Startup  >  **Project**e, em seguida, selecione **Vários projetos de startups**.
 
-1. Certifique-se de que `SimulateDeviceMethods` está no `ScheduleJob`topo da lista seguida por . Deteto ambas as suas ações para **Iniciar** e selecionar **OK**.
+1. Certifique-se de que `SimulateDeviceMethods` está no topo da lista seguido por `ScheduleJob` . Desacione ambas as suas ações para **Iniciar** e selecionar **OK**.
 
-1. Execute os projetos clicando **em Iniciar** ou ir ao menu **Debug** e clique **em Iniciar Depuração**.
+1. Executar os projetos clicando **em Iniciar** ou ir ao menu **Debug** e clicar **em Iniciar Debugging**.
 
-   Você vê a saída de aplicações de dispositivo e back-end.
+   Vê-se a saída tanto do dispositivo como das aplicações back-end.
 
     ![Executar as aplicações para agendar empregos](./media/iot-hub-csharp-csharp-schedule-jobs/schedule-jobs-console-results.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste tutorial, usou um trabalho para agendar um método direto para um dispositivo e a atualização das propriedades do dispositivo twin.
+Neste tutorial, utilizou um trabalho para agendar um método direto para um dispositivo e a atualização das propriedades do dispositivo Twin.
 
-* Para continuar a começar com o IoT Hub e padrões de gestão de dispositivos, como remotamente sobre a atualização do firmware de ar, leia [Tutorial: Como fazer uma atualização de firmware](tutorial-firmware-update.md).
+* Para continuar a trabalhar com o IoT Hub e padrões de gestão de dispositivos como o controlo remoto sobre a atualização do firmware aéreo, leia [Tutorial: Como fazer uma atualização de firmware](tutorial-firmware-update.md).
 
-* Para aprender sobre a implementação de IA para dispositivos de borda com Edge Azure IoT Edge, veja [Getting started with IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+* Para aprender sobre a implementação de IA para dispositivos de borda com Azure IoT Edge, consulte [Começar com IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).

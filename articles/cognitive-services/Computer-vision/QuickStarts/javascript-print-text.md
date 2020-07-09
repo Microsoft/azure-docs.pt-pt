@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Extrair texto impresso- REST, JavaScript'
+title: 'Quickstart: Extrato de texto impresso - REST, JavaScript'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá extrair texto impresso de uma imagem através da API de Imagem Digitalizada com o JavaScript.
 services: cognitive-services
@@ -11,35 +11,36 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4e28196a4de6e487b7119a00dc9b10f5c97fc006
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 98ea4d30e3630cd7e4e8ee687621e3feac8b98d4
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685132"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986802"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-javascript"></a>Quickstart: Extrair texto impresso (OCR) utilizando a API e o JavaScript de Visão Computacional
+# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-javascript"></a>Quickstart: Extrair texto impresso (OCR) utilizando a API de Visão de Computador e JavaScript
 
 > [!NOTE]
-> Se estiver a extrair texto em língua inglesa, considere utilizar a nova [operação Read](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Um [quickstart JavaScript](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/javascript-hand-text) está disponível.
+> Se estiver a extrair texto em inglês, considere utilizar a nova [operação Ler](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Está disponível um [quickstart JavaScript.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/javascript-hand-text)
 
-Neste arranque rápido, você extrairá texto impresso com reconhecimento ótico de caracteres (OCR) de uma imagem usando a API de Visão Computacional REST. Com o método [OCR,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) pode detetar texto impresso numa imagem e extrair caracteres reconhecidos num fluxo de caracteres utilizável por máquinas.
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+Neste arranque rápido, extrairá texto impresso com reconhecimento de caracteres óticos (OCR) a partir de uma imagem utilizando a API de Visão de Computador. Com o método [OCR,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) pode detetar texto impresso numa imagem e extrair caracteres reconhecidos num fluxo de caracteres utilizável por máquinas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Guarde a sua chave de subscrição e o URL de ponto final para um local temporário.
+* Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" crie um recurso de Visão de Computador crie um recurso de "  target="_blank"> Visão De Computador no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+    * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação ao serviço de Visão De Computador. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
+    * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
 Para criar e executar o exemplo, siga os seguintes passos:
 
-1. Crie um ficheiro chamado _get-print-text.html,_ abra-o num editor de texto e copie o seguinte código nele.
+1. Crie um ficheiro chamado _get-printed-text.html,_ abra-o num editor de texto e copie o seguinte código nele.
 1. Opcionalmente, substitua o valor do atributo `value` pelo controlo `inputImage` com o URL de uma imagem diferente que pretende analisar.
 1. Abra uma janela do browser.
 1. No browser, arraste e largue o ficheiro na janela do browser.
-1. Quando a página web for exibida no navegador, colhe a chave de subscrição e o URL do ponto final nas caixas de entrada apropriadas.
+1. Quando a página web for apresentada no navegador, cole a chave de subscrição e o URL do ponto final nas caixas de entrada apropriadas.
 1. Selecione o botão **de imagem Ler.**
 
 ```html
@@ -242,9 +243,9 @@ O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e aprese
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Em seguida, explore uma aplicação JavaScript que utiliza a Visão Computacional para realizar o reconhecimento ótico de caracteres (OCR); criar miniaturas de corte inteligente; e detetar, categorizar, etiquetar e descrever características visuais em imagens. 
+Em seguida, explore uma aplicação JavaScript que usa a Visão de Computador para realizar o reconhecimento de caracteres óticos (OCR); criar miniaturas cortadas inteligentemente; e detetar, categorizar, etiquetar e descrever características visuais em imagens. 
 
 > [!div class="nextstepaction"]
 > [Tutorial de JavaScript de API de Imagem Digitalizada](../Tutorials/javascript-tutorial.md)

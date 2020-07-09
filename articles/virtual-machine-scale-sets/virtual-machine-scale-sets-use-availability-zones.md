@@ -1,6 +1,6 @@
 ---
-title: Criar um conjunto de escala Azure que utiliza zonas de disponibilidade
-description: Saiba como criar conjuntos de escala de máquinas virtuais Azure que utilizam Zonas de Disponibilidade para maior redundância contra interrupções
+title: Crie um conjunto de escala Azure que utiliza Zonas de Disponibilidade
+description: Saiba como criar conjuntos de escala de máquina virtual Azure que usam Zonas de Disponibilidade para aumentar a redundância contra interrupções
 author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
@@ -10,53 +10,52 @@ ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: daa469bef999f33feb44983e3b5a7073b4df655e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83197359"
 ---
-# <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Criar um conjunto de escala de máquina virtual que utiliza Zonas de Disponibilidade
+# <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Crie um conjunto de escala de máquina virtual que utilize Zonas de Disponibilidade
 
-Para proteger os conjuntos de escala de máquinas virtuais de falhas ao nível do datacenter, pode criar uma escala definida em todas as Zonas de Disponibilidade. As regiões azure que suportam as Zonas de Disponibilidade têm um mínimo de três zonas separadas, cada uma com a sua própria fonte de energia independente, rede e arrefecimento. Para mais informações, consulte [a visão geral das Zonas de Disponibilidade](../availability-zones/az-overview.md).
+Para proteger os conjuntos de escala de máquina virtual contra falhas de nível de datacenter, pode criar um conjunto de escala em zonas de disponibilidade. As regiões azure que suportam Zonas de Disponibilidade têm um mínimo de três zonas distintas, cada uma com a sua própria fonte de energia independente, rede e arrefecimento. Para mais informações, consulte [a Visão Geral das Zonas de Disponibilidade.](../availability-zones/az-overview.md)
 
 ## <a name="availability-considerations"></a>Considerações de disponibilidade
 
-Quando se implanta uma escala definida numa ou mais zonas a partir da versão API *2017-12-01,* tem a opção de implantar com "propagação máxima" ou "propagação de domínio de avaria stática 5". Com a propagação máxima, o conjunto de escala espalha os seus VMs pelo maior número possível de domínios de avaria dentro de cada zona. Esta propagação pode ser em mais ou menos de cinco domínios de falha por zona. Com a "propagação do domínio de avaria estático 5", o conjunto de escala espalha os seus VMs através de exatamente cinco domínios de falha por zona. Se o conjunto de escala não encontrar cinco domínios de avaria distintos por zona para satisfazer o pedido de atribuição, o pedido falha.
+Quando implantar uma escala definida numa ou mais zonas a partir da versão API *2017-12-01,* tem a opção de implantar com "propagação máxima" ou "propagação estática de 5 domínios de avaria". Com a propagação máxima, o conjunto de escala espalha os seus VMs pelo maior número possível de domínios de avaria dentro de cada zona. Esta propagação pode ser através de maiores ou menos de cinco domínios de avaria por zona. Com a "propagação do domínio de avaria estática 5", o conjunto de escala espalha os seus VMs em exatamente cinco domínios de avaria por zona. Se o conjunto de escala não encontrar cinco domínios de avarias distintos por zona para satisfazer o pedido de atribuição, o pedido falha.
 
-**Recomendamos a implantação com a máxima propagação para**a maioria das cargas de trabalho, uma vez que esta abordagem proporciona a melhor propagação na maioria dos casos. Se precisar de réplicas para ser espalhada por unidades distintas de isolamento de hardware, recomendamos que se espalhe por Zonas de Disponibilidade e utilize a propagação máxima em cada zona.
+**Recomendamos a implantação com propagação máxima para a maioria das cargas de trabalho,** uma vez que esta abordagem proporciona a melhor propagação na maioria dos casos. Se precisar de réplicas para ser espalhada por unidades distintas de isolamento de hardware, recomendamos que se espalhe pelas Zonas de Disponibilidade e utilize a propagação máxima dentro de cada zona.
 
-Com a propagação máxima, basta ver um domínio de falha na visão de instância vM definido pela escala e, por exemplo, metadados, independentemente de quantos domínios de falha os VMs estão espalhados. A propagação dentro de cada zona está implícita.
+Com a propagação máxima, só se vê um domínio de falha na visão de instância de VM definida na escala e nos metadados de exemplo, independentemente de quantos domínios de avaria os VMs estão espalhados. A propagação dentro de cada zona está implícita.
 
-Para utilizar a propagação máxima, coloque a *plataformaFaultDomainCount* a *1*. Para utilizar a propagação estática de cinco falhas, coloque a *plataformaFaultDomainCount* a *5*. Na versão API *2017-12-01,* *a plataformaFaultDomainCount* falha em *1* para conjuntos de escala de zona única e zona cruzada. Atualmente, apenas a propagação de cinco porões estáticos é suportada para conjuntos regionais (não zonais).
+Para utilizar a propagação máxima, definir *plataformaFaultDomainCount* a *1*. Para utilizar a propagação estática de cinco domínios de avaria, desatar *a plataformaFaultDomainCount* a *5*. Na versão API *2017-12-01*, *a plataformaFaultDomainCount* falha em *1* para conjuntos de escala de zona única e de zona cruzada. Atualmente, apenas a propagação estática de cinco domínios de avaria é suportada para conjuntos regionais de escala (não zonal).
 
 ### <a name="placement-groups"></a>Grupos de colocação
 
-Ao implementar um conjunto de escala, também tem a opção de implantar com um único grupo de [colocação](./virtual-machine-scale-sets-placement-groups.md) por Zona de Disponibilidade, ou com vários por zona. Para os conjuntos regionais (não zonais), a escolha é ter um único grupo de colocação na região ou ter múltiplos na região. Para a maioria das cargas de trabalho, recomendamos vários grupos de colocação, o que permite uma maior escala. Na versão API *2017-12-01,* a escala define o padrão de vários grupos de colocação para conjuntos de escala de zona única e zona cruzada, mas eles padrão para um único grupo de colocação para conjuntos regionais (não zonais).
+Quando implementa um conjunto de escala, também tem a opção de implementar com um único [grupo de colocação](./virtual-machine-scale-sets-placement-groups.md) por Zona de Disponibilidade, ou com vários por zona. Para os conjuntos regionais (não zonais), a escolha é ter um único grupo de colocação na região ou ter múltiplos na região. Para a maioria das cargas de trabalho, recomendamos vários grupos de colocação, o que permite uma maior escala. Na versão API *2017-12-01,* a escala define o padrão em vários grupos de colocação para conjuntos de escala de zona única e de zona cruzada, mas eles default para um único grupo de colocação para conjuntos regionais (não zonais).
 
 > [!NOTE]
 > Se utilizar a propagação máxima, deve utilizar vários grupos de colocação.
 
 ### <a name="zone-balancing"></a>Equilíbrio de zona
 
-Finalmente, para conjuntos de escala implantados em várias zonas, você também tem a opção de escolher "o melhor equilíbrio de zona de esforço" ou "equilíbrio de zona rígida". Um conjunto de escala é considerado "equilibrado" se cada zona tiver o mesmo número de VMs ou + \\ - 1 VM em todas as outras zonas para o conjunto de escala. Por exemplo:
+Finalmente, para conjuntos de escala implantados em várias zonas, você também tem a opção de escolher "melhor equilíbrio de zona de esforço" ou "equilíbrio de zona rígida". Um conjunto de escala é considerado "equilibrado" se cada zona tiver o mesmo número de VMs ou + \\ - 1 VM em todas as outras zonas para o conjunto de escala. Por exemplo:
 
-- Uma escala definida com 2 VMs na zona 1, 3 VMs na zona 2 e 3 VMs na zona 3 é considerada equilibrada. Há apenas uma zona com uma contagem de VM diferente e é apenas menos 1 do que as outras zonas. 
-- Uma escala definida com 1 VM na zona 1, 3 VMs na zona 2 e 3 VMs na zona 3 é considerada desequilibrada. A Zona 1 tem menos 2 VMs do que as zonas 2 e 3.
+- Uma escala definida com 2 VMs na zona 1, 3 VMs na zona 2 e 3 VMs na zona 3 é considerada equilibrada. Há apenas uma zona com uma contagem de VM diferente e é apenas 1 menos do que as outras zonas. 
+- Uma escala definida com 1 VM na zona 1, 3 VMs na zona 2 e 3 VMs na zona 3 é considerada desequilibrada. A zona 1 tem menos 2 VMs do que as zonas 2 e 3.
 
-É possível que os VMs no conjunto de escala sejam criados com sucesso, mas as extensões desses VMs não conseguem implementar. Estes VMs com falhas de extensão ainda são contados para determinar se um conjunto de escala é equilibrado. Por exemplo, uma balança definida com 3 VMs na zona 1, 3 VMs na zona 2 e 3 VMs na zona 3 é considerada equilibrada mesmo que todas as extensões falhassem na zona 1 e todas as extensões tivessem sucesso nas zonas 2 e 3.
+É possível que os VMs no conjunto de escala sejam criados com sucesso, mas as extensões desses VMs não conseguem ser implementadas. Estes VMs com falhas de extensão ainda são contados para determinar se um conjunto de escala é equilibrado. Por exemplo, uma escala definida com 3 VMs na zona 1, 3 VMs na zona 2 e 3 VMs na zona 3 é considerada equilibrada mesmo que todas as extensões tenham falhado na zona 1 e todas as extensões tenham sido bem sucedidas nas zonas 2 e 3.
 
-Com o melhor equilíbrio de zona de esforço, a escala definida tenta entrar e sair, mantendo o equilíbrio. No entanto, se por alguma razão isso não for possível (por exemplo, se uma zona descer, o conjunto de escala não pode criar um novo VM nessa zona), o conjunto de escala permite que o desequilíbrio temporário entre ou saia. Nas tentativas subsequentes de escala para fora, o conjunto de escala adiciona VMs a zonas que precisam de mais VMs para a escala definida para ser equilibrada. Da mesma forma, em escala subsequente nas tentativas, o conjunto de escala remove VMs de zonas que precisam de menos VMs para a escala definida para ser equilibrada. Com o "equilíbrio de zona estrito", o conjunto de escala falha qualquer tentativa de escala dentro ou fora se o fizer causaria desequilíbrio.
+Com o melhor equilíbrio da zona de esforço, a escala tenta escalar para dentro e para fora, mantendo o equilíbrio. No entanto, se por alguma razão isso não for possível (por exemplo, se uma zona descer, o conjunto de escala não pode criar um novo VM nessa zona), o conjunto de escala permite que o desequilíbrio temporário se escalone com sucesso dentro ou fora. Nas tentativas de escala subsequentes, o conjunto de escala adiciona VMs a zonas que precisam de mais VMs para que a escala definida seja equilibrada. Da mesma forma, na escala subsequente em tentativas, o conjunto de escala remove VMs de zonas que precisam de menos VMs para que a escala definida seja equilibrada. Com "equilíbrio de zona rígida", o conjunto de escalas falha qualquer tentativa de escalar dentro ou fora se isso causar desequilíbrio.
 
-Para utilizar o melhor equilíbrio de zona de esforço, coloque *a zonaBalance* a *falsa*. Esta definição é o padrão na versão API *2017-12-01*. Para utilizar o equilíbrio de zona rigoroso, coloque *a zonaBalance* *a verdade*.
+Para utilizar o melhor equilíbrio da zona de esforço, deslobre *a zonaBalança* a *falso*. Esta definição é o padrão na versão API *2017-12-01*. Para utilizar um equilíbrio de zona rígido, deslobre *a zonaBalança* para *ser verdadeiro*.
 
-## <a name="single-zone-and-zone-redundant-scale-sets"></a>Conjuntos de escala seleções de zona única e de zona redundante
+## <a name="single-zone-and-zone-redundant-scale-sets"></a>Conjuntos de escala de zona única e de zona redundante
 
-Ao implementar um conjunto de escala de máquina virtual, pode optar por utilizar uma única Zona de Disponibilidade numa região, ou em várias zonas.
+Quando implementar um conjunto de escala de máquina virtual, pode optar por utilizar uma única Zona de Disponibilidade numa região ou em várias zonas.
 
-Quando se cria uma escala definida numa única zona, controla-se a zona de todas as instâncias vm e o conjunto de escala é gerido e a escala automática apenas dentro dessa zona. Um conjunto de escala redundante permite criar um conjunto de escala única que se estende por várias zonas. À medida que as instâncias vm são criadas, por padrão são equilibradas uniformemente em todas as zonas. Se ocorrer uma interrupção numa das zonas, um conjunto de escala não aumenta automaticamente a capacidade. Uma boa prática seria configurar regras de escala automática com base no CPU ou no uso da memória. As regras de escala automática permitiriam que a escala definida respondesse a uma perda dos casos vm naquela zona, eliminando novas instâncias nas restantes zonas operacionais.
+Quando se cria uma escala definida numa única zona, controla-se em que zona todas as instâncias VM funcionam, e o conjunto de escala é gerido e as escalas automáticas apenas dentro dessa zona. Um conjunto de escala redundante de zona permite criar um conjunto de escala única que se estende por várias zonas. À medida que os casos de VM são criados, por padrão são equilibrados em todas as zonas. Se ocorrer uma interrupção numa das zonas, um conjunto de escala não escala automaticamente para aumentar a capacidade. A best practice would be to configure autoscale rules based on CPU or memory usage. As regras de autoescala permitiriam que a escala definida respondesse a uma perda das instâncias VM nessa zona, escalando novos casos nas zonas operacionais restantes.
 
-Para utilizar as Zonas de Disponibilidade, o seu conjunto de escala deve ser criado numa [região azure apoiada.](../availability-zones/az-region.md) Pode criar um conjunto de escala que utiliza Zonas de Disponibilidade com um dos seguintes métodos:
+Para utilizar Zonas de Disponibilidade, o seu conjunto de escalas deve ser criado numa [região de Azure suportada.](../availability-zones/az-region.md) Pode criar um conjunto de escala que utilize Zonas de Disponibilidade com um dos seguintes métodos:
 
 - [Portal do Azure](#use-the-azure-portal)
 - CLI do Azure
@@ -65,17 +64,17 @@ Para utilizar as Zonas de Disponibilidade, o seu conjunto de escala deve ser cri
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
-O processo de criação de um conjunto de escala que utiliza uma Zona de Disponibilidade é o mesmo que detalhado no [artigo de início.](quick-create-portal.md) Ao selecionar uma região Azure suportada, pode criar uma escala definida numa ou mais zonas disponíveis, como mostra o seguinte exemplo:
+O processo para criar um conjunto de escala que utilize uma Zona de Disponibilidade é o mesmo que detalhado no [artigo de início.](quick-create-portal.md) Quando selecionar uma região de Azure suportada, pode criar uma escala definida numa ou mais zonas disponíveis, como mostra o seguinte exemplo:
 
 ![Criar uma escala definida numa única Zona de Disponibilidade](media/virtual-machine-scale-sets-use-availability-zones/vmss-az-portal.png)
 
-Os recursos de escala definidos e de apoio, como o equilibrador de carga Azure e o endereço IP público, são criados na zona única que especifica.
+O conjunto de escalas e recursos de suporte, como o equilibrador de carga Azure e o endereço IP público, são criados na única zona que especifica.
 
 ## <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
 
-O processo de criação de um conjunto de escala que utiliza uma Zona de Disponibilidade é o mesmo que detalhado no [artigo de início.](quick-create-cli.md) Para utilizar as Zonas de Disponibilidade, tem de criar a sua escala definida numa região azure apoiada.
+O processo para criar um conjunto de escala que utilize uma Zona de Disponibilidade é o mesmo que detalhado no [artigo de início.](quick-create-cli.md) Para utilizar Zonas de Disponibilidade, tem de criar a sua escala definida numa região de Azure suportada.
 
-Adicione o `--zones` parâmetro ao [az vmss criar](/cli/azure/vmss) comando e especificar qual a zona a utilizar (como zona *1,* *2*, ou *3*). O exemplo seguinte cria um conjunto de escala de zona única chamado *myScaleSet* na zona *1:*
+Adicione o `--zones` parâmetro ao [az vmss criar](/cli/azure/vmss) comando e especificar qual zona a utilizar (como a zona *1,* *2*, ou *3*). O exemplo a seguir cria um conjunto de escala de uma única zona denominado *myScaleSet* na zona *1*:
 
 ```azurecli
 az vmss create \
@@ -88,13 +87,13 @@ az vmss create \
     --zones 1
 ```
 
-Para um exemplo completo de um conjunto de escala de zona única e recursos de rede, consulte [este script CLI da amostra](https://github.com/Azure/azure-docs-cli-python-samples/blob/master/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.sh)
+Para um exemplo completo de um conjunto de escala única e recursos de rede, consulte [esta amostra de script CLI](https://github.com/Azure/azure-docs-cli-python-samples/blob/master/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.sh)
 
 ### <a name="zone-redundant-scale-set"></a>Conjunto de escala redundante de zona
 
-Para criar um conjunto de escala redundante, utilize um endereço IP público *Padrão* SKU e um equilibrador de carga. Para um maior despedimento, o *SKU Standard* cria recursos de rede redundantes em zonas. Para mais informações, consulte a [visão geral do Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) e as Zonas de Equilíbrio de Carga Padrão e Zonas de [Disponibilidade.](../load-balancer/load-balancer-standard-availability-zones.md)
+Para criar um conjunto de escala redundante de zona, utilize um endereço IP público *Standard* SKU e um equilibrador de carga. Para uma redundância reforçada, o *SKU Standard* cria recursos de rede redundantes de zona. Para obter mais informações, consulte [a visão geral do balançor de carga Azure e as](../load-balancer/load-balancer-standard-overview.md) [zonas padrão de balançador de carga e disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md).
 
-Para criar um conjunto de escala seletiva, especifique várias zonas com o `--zones` parâmetro. O exemplo seguinte cria um conjunto de escala redundante chamado *myScaleSet* através das zonas *1,2,3*:
+Para criar um conjunto de escala de zona redundante, especifique várias zonas com o `--zones` parâmetro. O exemplo a seguir cria um conjunto de escala redundante de zona denominado *myScaleSet* entre as zonas *1,2,3*:
 
 ```azurecli
 az vmss create \
@@ -107,13 +106,13 @@ az vmss create \
     --zones 1 2 3
 ```
 
-Leva alguns minutos para criar e configurar todos os recursos definidos de escala e VMs na ou área que especifica. Para um exemplo completo de um conjunto de escala seletiva e recursos de rede, consulte [este script CLI da amostra](https://github.com/Azure/azure-docs-cli-python-samples/blob/master/virtual-machine-scale-sets/create-zone-redundant-scale-set/create-zone-redundant-scale-set.sh)
+Leva alguns minutos para criar e configurar todos os recursos definidos de escala e VMs na zona(s) que especifica. Para um exemplo completo de um conjunto de escala de zona redundante e recursos de rede, consulte [esta amostra de script CLI](https://github.com/Azure/azure-docs-cli-python-samples/blob/master/virtual-machine-scale-sets/create-zone-redundant-scale-set/create-zone-redundant-scale-set.sh)
 
 ## <a name="use-azure-powershell"></a>Utilizar o Azure PowerShell
 
-Para utilizar as Zonas de Disponibilidade, tem de criar a sua escala definida numa região azure apoiada. Adicione o `-Zone` parâmetro ao comando [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) e especifique qual a zona a utilizar (como zona *1,* *2*, ou *3*).
+Para utilizar Zonas de Disponibilidade, tem de criar a sua escala definida numa região de Azure suportada. Adicione o `-Zone` parâmetro ao comando [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) e especifique qual a zona a utilizar (como a zona *1,* *2*ou *3*).
 
-O exemplo seguinte cria um conjunto de escala de zona única chamado *myScaleSet* na zona 1 *do Leste DOS EUA* *2*. Os recursos de rede do Azure para a rede virtual, o endereço IP público e o balanceador de carga são criados automaticamente. Quando solicitado, forneça as suas próprias credenciais administrativas pretendidas para as instâncias de VM no conjunto de dimensionamento:
+O exemplo a seguir cria um conjunto de escala de uma única zona chamado *myScaleSet* na zona *2 leste dos EUA* *1*. Os recursos de rede do Azure para a rede virtual, o endereço IP público e o balanceador de carga são criados automaticamente. Quando solicitado, forneça as suas próprias credenciais administrativas pretendidas para as instâncias de VM no conjunto de dimensionamento:
 
 ```powershell
 New-AzVmss `
@@ -130,7 +129,7 @@ New-AzVmss `
 
 ### <a name="zone-redundant-scale-set"></a>Conjunto de escala redundante de zona
 
-Para criar um conjunto de escala seletiva, especifique várias zonas com o `-Zone` parâmetro. O exemplo seguinte cria um conjunto de escala redundante chamado *myScaleSet* através das zonas *1,* *2, 3*. Os recursos de rede Azure redundantes para rede virtual, endereço IP público e equilibrador de carga são automaticamente criados. Quando solicitado, forneça as suas próprias credenciais administrativas pretendidas para as instâncias de VM no conjunto de dimensionamento:
+Para criar um conjunto de escala de zona redundante, especifique várias zonas com o `-Zone` parâmetro. O exemplo a seguir cria um conjunto de escala redundante de zona chamado *myScaleSet* através das zonas *1, 2, 3*. *East US 2* Os recursos de rede Azure redundantes para rede virtual, endereço IP público e balanceador de carga são automaticamente criados. Quando solicitado, forneça as suas próprias credenciais administrativas pretendidas para as instâncias de VM no conjunto de dimensionamento:
 
 ```powershell
 New-AzVmss `
@@ -147,9 +146,9 @@ New-AzVmss `
 
 ## <a name="use-azure-resource-manager-templates"></a>Use Azure Resource Manager templates (Utilizar modelos do Azure Resource Manager)
 
-O processo para criar um conjunto de escala que utiliza uma Zona de Disponibilidade é o mesmo que detalhado no artigo de início para [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). Para utilizar as Zonas de Disponibilidade, tem de criar a sua escala definida numa região azure apoiada. Adicione a propriedade ao tipo de `zones` recurso *Microsoft.Compute/virtualMachineScaleSets* no seu modelo e especifique qual a zona a utilizar (como zona *1,* *2*, ou *3*).
+O processo para criar um conjunto de escala que utilize uma Zona de Disponibilidade é o mesmo que detalhado no artigo de início para [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). Para utilizar Zonas de Disponibilidade, tem de criar a sua escala definida numa região de Azure suportada. Adicione a `zones` propriedade ao tipo de recurso *Microsoft.Compute/virtualMachineScaleSets* no seu modelo e especifique qual a zona a utilizar (como a zona *1*, *2*ou *3*).
 
-O exemplo seguinte cria um conjunto de escala de zona única Linux chamado *myScaleSet* na zona *1* *do Leste DOS 2* :
+O exemplo a seguir cria um conjunto de escala de zona única Linux denominado *myScaleSet* na zona *2 leste dos EUA* *1*:
 
 ```json
 {
@@ -189,11 +188,11 @@ O exemplo seguinte cria um conjunto de escala de zona única Linux chamado *mySc
 }
 ```
 
-Para um exemplo completo de um conjunto de escala de uma zona única e recursos de rede, consulte [este modelo de Gestor](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/singlezone.json) de Recursos da amostra
+Para um exemplo completo de um conjunto de escala única e recursos de rede, consulte [este modelo de gestor de recursos de amostra](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/singlezone.json)
 
 ### <a name="zone-redundant-scale-set"></a>Conjunto de escala redundante de zona
 
-Para criar um conjunto de escala seletiva, especifique vários valores na propriedade para o tipo de `zones` recurso *Microsoft.Compute/virtualMachineScaleSets.* O exemplo seguinte cria um conjunto de escala redundante chamado *myScaleSet* em 2 zonas leste dos EUA *1,2,3*: *East US 2*
+Para criar um conjunto de escala redundante de zona, especifique vários valores na `zones` propriedade para o tipo de recurso *Microsoft.Compute/virtualMachineScaleSets.* O exemplo a seguir cria um conjunto de escala redundante de zona chamado *myScaleSet* através das zonas *1,2,3*dos *EUA:*
 
 ```json
 {
@@ -209,10 +208,10 @@ Para criar um conjunto de escala seletiva, especifique vários valores na propri
 }
 ```
 
-Se criar um endereço IP público ou um equilibrador de carga, especifique o *"sku": { "nome": propriedade "Standard" }"* para criar recursos de rede redundantes em zonas. Também precisa de criar um Grupo de Segurança de Rede e regras para permitir qualquer tráfego. Para mais informações, consulte a [visão geral do Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) e as Zonas de Equilíbrio de Carga Padrão e Zonas de [Disponibilidade.](../load-balancer/load-balancer-standard-availability-zones.md)
+Se criar um endereço IP público ou um equilibrador de carga, especifique o *"sku": { "name": "Standard" }"* propriedade para criar recursos de rede redundantes de zona. Também precisa de criar um Grupo de Segurança de Rede e regras para permitir qualquer tráfego. Para obter mais informações, consulte [a visão geral do balançor de carga Azure e as](../load-balancer/load-balancer-standard-overview.md) [zonas padrão de balançador de carga e disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md).
 
-Para um exemplo completo de um conjunto de escala saca-redundante e recursos de rede, consulte [este modelo de Gestor](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json) de Recursos da amostra
+Para um exemplo completo de um conjunto de escalas redundantes de zona e recursos de rede, consulte [este modelo de gestor de recursos de amostra](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Agora que criou uma escala definida numa Zona de Disponibilidade, pode aprender a [implementar aplicações em conjuntos de escala](tutorial-install-apps-cli.md) de máquinas virtuais ou utilizar a escala automática com [conjuntos de escala de máquina virtual](tutorial-autoscale-cli.md).
+Agora que criou uma escala definida numa Zona de Disponibilidade, pode aprender a [implementar aplicações em conjuntos de escala de máquinas virtuais](tutorial-install-apps-cli.md) ou [utilizar uma escala automática com conjuntos de escala de máquina virtual](tutorial-autoscale-cli.md).

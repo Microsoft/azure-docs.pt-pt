@@ -1,6 +1,6 @@
 ---
 title: Copiar dados do Impala utilizando a Azure Data Factory
-description: Aprenda a copiar dados do Impala para lojas de dados de sink suportadas utilizando uma atividade de cópia num pipeline de fábrica de dados.
+description: Saiba como copiar dados do Impala para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num oleoduto de fábrica de dados.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,28 +12,28 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: b70db03e03ce914ea1d81d94cd2803a36eccfc88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418223"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Copiar dados do Impala utilizando a Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados do Impala. Baseia-se no artigo de visão geral da [Copy Activity](copy-activity-overview.md) que apresenta uma visão geral da atividade da cópia.
+Este artigo descreve como utilizar a Copy Activity na Azure Data Factory para copiar dados do Impala. Baseia-se no artigo [de visão geral](copy-activity-overview.md) da Copy Activity que apresenta uma visão geral da atividade da cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
 Este conector Impala é suportado para as seguintes atividades:
 
-- [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/pia suportada](copy-activity-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)
 
-Pode copiar dados do Impala para qualquer loja de dados suportada. Para obter uma lista de lojas de dados que sejam suportadas como fontes ou afunda-se pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
+Pode copiar dados do Impala para qualquer loja de dados de lavatórios suportados. Para obter uma lista de lojas de dados que são suportadas como fontes ou sumidouros pela atividade de cópia, consulte a tabela [de lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-A Data Factory fornece um condutor incorporado para permitir a conectividade. Por isso, não é necessário instalar manualmente um controlador para utilizar este conector.
+A Data Factory fornece um controlador incorporado para permitir a conectividade. Por isso, não é necessário instalar manualmente um controlador para utilizar este conector.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,26 +43,26 @@ A Data Factory fornece um condutor incorporado para permitir a conectividade. Po
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades da Fábrica de Dados específicas do conector Impala.
+As secções seguintes fornecem detalhes sobre propriedades que são usadas para definir entidades da Data Factory específicas do conector Impala.
 
-## <a name="linked-service-properties"></a>Propriedades de serviço seletos
+## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 
-As seguintes propriedades são suportadas para o serviço ligado ao Impala.
+As seguintes propriedades são suportadas para o serviço ligado a Impala.
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para **Impala**. | Sim |
-| anfitrião | O endereço IP ou nome do anfitrião do servidor Impala (isto é, 192.168.222.160).  | Sim |
-| porta | A porta TCP que o servidor Impala utiliza para ouvir as ligações do cliente. O valor padrão é 21050.  | Não |
-| authenticationType | O tipo de autenticação a utilizar. <br/>Os valores permitidos são **Anónimos,** **SASLUsername**e **Username AndPassword**. | Sim |
-| o nome de utilizador | O nome de utilizador usado para aceder ao servidor Impala. O valor predefinido é anónimo quando utiliza o Nome SASLUser.  | Não |
-| palavra-passe | A palavra-passe que corresponde ao nome de utilizador quando utiliza o usernameAndPassword. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Não |
-| enableSsl | Especifica se as ligações ao servidor são encriptadas utilizando o TLS. O valor predefinido é **falso**.  | Não |
-| trustedCertPath | O caminho completo do ficheiro .pem que contém certificados CA fidedignos utilizados para verificar o servidor quando se conecta através de TLS. Esta propriedade só pode ser definida quando utilizar TLS no Tempo de Execução de Integração Auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o tempo de execução da integração.  | Não |
-| useSystemTrustStore | Especifica se deve utilizar um certificado CA a partir da loja fiduciário do sistema ou de um ficheiro PEM especificado. O valor predefinido é **falso**.  | Não |
-| permitirHostNameCNMismatch | Especifica se deve exigir um nome de certificado TLS/SSL emitido pela CA para corresponder ao nome de anfitrião do servidor quando se conecta sobre TLS. O valor predefinido é **falso**.  | Não |
-| permitir AutoSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é **falso**.  | Não |
-| connectVia | O tempo de [integração](concepts-integration-runtime.md) a ser utilizado para se ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não especificado, utiliza o tempo de funcionar de integração azure padrão. |Não |
+| tipo | A propriedade tipo deve ser definida para **Impala.** | Yes |
+| anfitrião | O endereço IP ou nome de anfitrião do servidor Impala (ou seja, 192.168.222.160).  | Yes |
+| porta | A porta TCP que o servidor Impala utiliza para ouvir as ligações do cliente. O valor predefinido é 21050.  | No |
+| authenticationType | O tipo de autenticação a utilizar. <br/>Os valores permitidos são **Anónimos, SASLUsername**e **UsernameAndPassword**. **Anonymous** | Yes |
+| o nome de utilizador | O nome de utilizador usado para aceder ao servidor Impala. O valor predefinido é anónimo quando utiliza SASLUsername.  | No |
+| palavra-passe | A palavra-passe que corresponde ao nome de utilizador quando utiliza o nome de utilizadorAndPassword. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | No |
+| ativarSl | Especifica se as ligações ao servidor são encriptadas utilizando O S.TLS. O valor predefinido é **falso**.  | No |
+| trustedCertPath | O percurso completo do ficheiro .pem que contém certificados de CA fidedignos utilizados para verificar o servidor quando se liga através de TLS. Esta propriedade só pode ser definida quando utilizar o TLS no Tempo de Execução de Integração Auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o tempo de execução da integração.  | No |
+| useSystemTrustStore | Especifica se deve utilizar um certificado de CA da loja de fidedignidade do sistema ou de um ficheiro PEM especificado. O valor predefinido é **falso**.  | No |
+| permitirHostNameCNMismatch | Especifica se deve exigir um nome de certificado TLS/SSL emitido pela CA para corresponder ao nome de anfitrião do servidor quando ligar o TLS. O valor predefinido é **falso**.  | No |
+| permitirSelfSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é **falso**.  | No |
+| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
 
 **Exemplo:**
 
@@ -93,14 +93,14 @@ As seguintes propriedades são suportadas para o serviço ligado ao Impala.
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Datasets.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados Impala.
 
-Para copiar dados do Impala, detete a propriedade do tipo do conjunto de dados para **impalaObject**. As seguintes propriedades são suportadas:
+Para copiar dados do Impala, defina a propriedade tipo do conjunto de dados para **ImpalaObject**. As seguintes propriedades são suportadas:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **ImpalaObject** | Sim |
-| schema | Nome do esquema. |Não (se for especificada a "consulta" na fonte de atividade)  |
-| tabela | Nome da mesa. |Não (se for especificada a "consulta" na fonte de atividade)  |
-| tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` `table` e para nova carga de trabalho. | Não (se for especificada a "consulta" na fonte de atividade) |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **ImpalaObject** | Yes |
+| esquema | O nome do esquema. |Não (se for especificada "consulta" na fonte de atividade)  |
+| table | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
+| tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` e para nova carga de `table` trabalho. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
 
@@ -121,15 +121,15 @@ Para copiar dados do Impala, detete a propriedade do tipo do conjunto de dados p
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pelo tipo de fonte Impala.
+Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pelo tipo de origem Impala.
 
-### <a name="impala-as-a-source-type"></a>Impala como um tipo de fonte
+### <a name="impala-as-a-source-type"></a>Impala como tipo de origem
 
-Para copiar dados do Impala, delineie o tipo de origem na atividade de cópia para **impalaSource**. As seguintes propriedades são suportadas na secção de **origem** da atividade de cópia.
+Para copiar dados do Impala, desagrafe o tipo de origem na atividade de cópia para **ImpalaSource**. As seguintes propriedades são suportadas na secção **de origem** da atividade de cópia.
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **impalaSource**. | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida como **ImpalaSource**. | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Um exemplo é `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
@@ -166,8 +166,8 @@ Para copiar dados do Impala, delineie o tipo de origem na atividade de cópia pa
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
-Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
+Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

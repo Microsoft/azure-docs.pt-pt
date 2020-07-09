@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Obtenha comprimentos de frase - Tradutor'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, aprenderá como determinar o comprimento da frase usando o Tradutor.
+description: Neste arranque rápido, aprenderás a determinar o comprimento da frase usando o Tradutor.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,19 +10,20 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.author: erhopf
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: ad3a2bf734ef8df8c3807dda17aeeb58b0032772
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: bac8ab3da806927c588d3dc9cd06b83feb904a67
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995807"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84606552"
 ---
 # <a name="quickstart-use-the-translator-to-determine-sentence-length"></a>Quickstart: Use o Tradutor para determinar o comprimento da frase
 
-Neste início rápido, aprenderá como determinar a duração das frases usando o Tradutor.
+Neste arranque rápido, aprenderás a determinar a duração das frases usando o Tradutor.
 
-Este quickstart requer uma [conta de Serviços Cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com recurso tradutor. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
+Este quickstart requer uma [conta Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso Tradutor. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/sentences-csharp.md)]

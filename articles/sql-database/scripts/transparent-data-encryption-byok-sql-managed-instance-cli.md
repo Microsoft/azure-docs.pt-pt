@@ -1,6 +1,6 @@
 ---
-title: Exemplo CLI- Habilitar BYOK TDE - Instância Gerida Azure SQL
-description: Aprenda a configurar um Caso Gerido Azure SQL para começar a usar encriptação transparente de dados (TDE) para encriptação em repouso usando powerShell.
+title: Exemplo CLI- Enable BYOK TDE - Azure SQL Managed Instance
+description: Aprenda a configurar uma Instância Gerida Azure SQL para começar a usar a Encriptação de Dados Transparente BYOK (TDE) para encriptação em repouso utilizando o PowerShell.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,15 +12,14 @@ ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 ms.date: 11/05/2019
 ms.openlocfilehash: 271f68a57a4490032e318da57b4b37aac09a1410
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84019353"
 ---
-# <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Gerencie a encriptação de dados transparente sintetizado numa instância gerida utilizando a sua própria chave do Cofre de Chaves Azure
+# <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Gerir encriptação de dados transparentes numa instância gerida usando a sua própria chave a partir do Cofre de Chaves Azure
 
-Este exemplo de script Azure CLI configura encriptação de dados transparentes (TDE) com chave gerida pelo cliente para a Instância Gerida Azure SQL, utilizando uma chave do Cofre de Chaves Azure. Isto é frequentemente referido como um cenário de trazer a sua própria chave para tDE. Para saber mais sobre o TDE com a chave gerida pelo cliente, consulte [TDE Bring Your Own Key to Azure SQL](../../azure-sql/database/transparent-data-encryption-byok-overview.md).
+Este exemplo de script do Azure CLI configura a Encriptação de Dados Transparente (TDE) com a chave gerida pelo cliente para Azure SQL Managed Instance, utilizando uma chave do Cofre de Chaves Azure. Isto é frequentemente referido como um cenário Bring Your Own Key para TDE. Para saber mais sobre o TDE com a chave gerida pelo cliente, consulte [O TDE Bring Your Own Key to Azure SQL](../../azure-sql/database/transparent-data-encryption-byok-overview.md).
 
 Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -28,7 +27,7 @@ Se optar por instalar e utilizar a CLI localmente, este artigo requer a execuç�
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Uma instância gerida existente, consulte [Use Azure CLI para criar uma instância gerida Azure SQL](sql-database-create-configure-managed-instance-cli.md).
+Uma instância gerida existente, consulte [Use Azure CLI para criar um Azure SQL Managed Instance](sql-database-create-configure-managed-instance-cli.md).
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -46,7 +45,7 @@ az account set -s $subscription # ...or use 'az login'
 
 ### <a name="clean-up-deployment"></a>Limpar a implementação
 
-Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
+Utilize o seguinte comando para remover o grupo de recursos e todos os recursos que lhe estão associados.
 
 ```azurecli-interactive
 az group delete --name $resource
@@ -59,7 +58,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | | |
 |---|---|
 | [az sql db](/cli/azure/sql/db) | Comandos de base de dados. |
-| [az sql failover-grupo](/cli/azure/sql/failover-group) | Falha de comandos de grupo. |
+| [az sql failover grupo](/cli/azure/sql/failover-group) | Comandos de grupo de failover. |
 
 ## <a name="next-steps"></a>Próximos passos
 

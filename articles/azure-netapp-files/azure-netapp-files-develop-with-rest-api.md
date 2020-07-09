@@ -1,6 +1,6 @@
 ---
-title: Desenvolver ficheiros Azure NetApp com REST API [ Rest API] Microsoft Docs
-description: Descreve como começar com a utilização do Azure NetApp Files REST API.
+title: Desenvolver para Azure NetApp Files com REST API / Microsoft Docs
+description: Descreve como começar a usar a API dos Ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -11,23 +11,23 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/17/2019
+ms.topic: how-to
+ms.date: 06/02/2020
 ms.author: b-juche
-ms.openlocfilehash: 996fbcc7c3c9af0da9160216785ecd54840660e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 35800ef95e78a64d7aced13f496ec35d9fe60320
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "65957035"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964605"
 ---
-# <a name="develop-for-azure-netapp-files-with-rest-api"></a>Desenvolver ficheiros Azure NetApp com REST API 
+# <a name="develop-for-azure-netapp-files-with-rest-api"></a>Desenvolver para o Azure NetApp Files com a API REST 
 
-O REST API para o serviço Azure NetApp Files define operações http contra recursos como a conta NetApp, o pool de capacidade, os volumes e instantâneos. Este artigo ajuda-o a começar a usar a API REST API do Azure NetApp Files.
+A API REST para o serviço Azure NetApp Files define operações HTTP contra recursos como a conta NetApp, o pool de capacidade, os volumes e instantâneos. Este artigo ajuda-o a começar a utilizar a API dos Ficheiros Azure NetApp.
 
-## <a name="azure-netapp-files-rest-api-specification"></a>Especificação da API do Azure NetApp Files REST
+## <a name="azure-netapp-files-rest-api-specification"></a>Azure NetApp Files REST API especificação
 
-A especificação REST API para Ficheiros Azure NetApp é publicada através do [GitHub:](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager)
+A especificação REST API para ficheiros Azure NetApp é publicada através do [GitHub:](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager)
 
 `https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager`
 
@@ -35,140 +35,172 @@ A especificação REST API para Ficheiros Azure NetApp é publicada através do 
 ## <a name="access-the-azure-netapp-files-rest-api"></a>Aceda aos ficheiros Azure NetApp REST API  
 
 1. [Instale o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) se ainda não o fez.
-2. Crie um diretor de serviço no seu Diretório Ativo Azure (Azure AD):
+2. Crie um principal de serviço no seu Diretório Ativo Azure (Azure AD):
    1. Verifique se tem [permissões suficientes.](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)
 
-   1. Insira o seguinte comando no Azure CLI:  
+   2. Introduza o seguinte comando no Azure CLI: 
+    
+        ```azurecli
+        az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE
+        ```
 
-           az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE--password $YOURGENERATEDPASSWORDGOESHERE
+      A saída do comando é semelhante ao seguinte exemplo:  
 
-      A saída de comando é semelhante ao seguinte exemplo:  
+        ```output
+        { 
+            "appId": "appIDgoeshere", 
+            "displayName": "APPNAME", 
+            "name": "http://APPNAME", 
+            "password": "supersecretpassword", 
+            "tenant": "tenantIDgoeshere" 
+        } 
+        ```
 
-           { 
-               "appId": "appIDgoeshere", 
-               "displayName": "APPNAME", 
-               "name": "http://APPNAME", 
-               "password": "supersecretpassword", 
-               "tenant": "tenantIDgoeshere" 
-           } 
+      Mantenha a saída do comando.  Vai precisar dos `appId` `password` valores e `tenant` valores. 
 
-      Mantenha a saída de comando.  Vai precisar `appId`dos `password`valores e `tenant` valores. 
+3. Solicite um token de acesso OAuth:
 
-3. Solicite um sinal de acesso OAuth:
-
-    Os exemplos deste artigo usam cURL.  Também pode utilizar várias ferramentas API, tais como [Carteiro,](https://www.getpostman.com/) [Insónia,](https://insomnia.rest/)e [Pata.](https://paw.cloud/)  
+    Os exemplos deste artigo utilizam o cURL. Também pode utilizar várias ferramentas API, tais como [Carteiro,](https://www.getpostman.com/) [Insónia](https://insomnia.rest/)e [Pata.](https://paw.cloud/)  
 
     Substitua as variáveis no exemplo seguinte com a saída de comando do passo 2 acima. 
+    
+    ```azurecli
+    curl -X POST -d 'grant_type=client_credentials&client_id=[APP_ID]&client_secret=[PASSWORD]&resource=https%3A%2F%2Fmanagement.azure.com%2F' https://login.microsoftonline.com/[TENANT_ID]/oauth2/token
+    ```
 
-        curl -X POST -d 'grant_type=client_credentials&client_id=[APP_ID]&client_secret=[PASSWORD]&resource=https%3A%2F%2Fmanagement.azure.com%2F' https://login.microsoftonline.com/[TENANT_ID]/oauth2/token
+    A saída fornece um token de acesso semelhante ao seguinte exemplo:
 
-    A saída fornece um sinal de acesso semelhante ao seguinte exemplo:
+    `eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSIsImtpZCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSJ9`
 
-        eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSIsImtpZCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSJ9
-
-    O token apresentado é válido por 3600 segundos. Depois disso, tens de pedir um novo símbolo. 
+    O token visualizado é válido por 3600 segundos. Depois disso, tens de pedir um novo símbolo. 
     Guarde o símbolo para um editor de texto.  Vai precisar para o próximo passo.
 
-4. Envie uma chamada de teste e inclua o símbolo para validar o seu acesso à API REST:
+4. Envie uma chamada de teste e inclua o token para validar o seu acesso à API REST:
 
-        curl -X GET -H "Authorization: Bearer [TOKEN]" -H "Content-Type: application/json" https://management.azure.com/subscriptions/[SUBSCRIPTION_ID]/providers/Microsoft.Web/sites?api-version=2016-08-01
+    ```azurecli
+    curl -X GET -H "Authorization: Bearer [TOKEN]" -H "Content-Type: application/json" https://management.azure.com/subscriptions/[SUBSCRIPTION_ID]/providers/Microsoft.Web/sites?api-version=2019-11-01
+    ```
 
-## <a name="examples-using-the-api"></a>Exemplos que utilizam a API  
+## <a name="examples-using-the-api"></a>Exemplos de utilização da API  
 
-Este artigo utiliza o seguinte URL para a linha de base dos pedidos. Este URL aponta para a raiz do espaço de nome sinuoso dos Ficheiros Azure NetApp. 
+Este artigo utiliza o seguinte URL para a linha de base dos pedidos. Este URL aponta para a raiz do espaço de nomes Azure NetApp Files. 
 
-`https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts?api-version=2017-08-15`
+`https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts?api-version=2019-11-01`
 
-Deve substituir `subID` os `resourceGroups` valores e valores nos seguintes exemplos com os seus próprios valores. 
+Deve substituir os `SUBIDGOESHERE` valores e `RESOURCEGROUPGOESHERE` valores nos seguintes exemplos pelos seus próprios valores. 
 
-### <a name="get-request-examples"></a>Obtenha exemplos de pedidos
+### <a name="get-request-examples"></a>OBTER exemplos de pedido
 
-Você usa um pedido GET para consultar objetos de Ficheiros Azure NetApp numa subscrição, como mostram os seguintes exemplos: 
+Utiliza um pedido GET para consultar objetos de Ficheiros Azure NetApp numa subscrição, como mostram os seguintes exemplos: 
 
-        #get NetApp accounts 
-        curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts?api-version=2017-08-15
+```azurecli
+#get NetApp accounts 
+curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts?api-version=2019-11-01
+```
 
-        #get capacity pools for NetApp account 
-        curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools?api-version=2017-08-15
+```azurecli
+#get capacity pools for NetApp account 
+curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools?api-version=2019-11-01
+```
 
-        #get volumes in NetApp account & capacity pool 
-        curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes?api-version=2017-08-15
+```azurecli
+#get volumes in NetApp account & capacity pool 
+curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes?api-version=2019-11-01
+```
 
-        #get snapshots for a volume 
-        curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/VOLUMEGOESHERE/snapshots?api-version=2017-08-15
+```azurecli
+#get snapshots for a volume 
+curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/VOLUMEGOESHERE/snapshots?api-version=2019-11-01
+```
 
-### <a name="put-request-examples"></a>Put exemplos de pedido
+### <a name="put-request-examples"></a>PUT solicitar exemplos
 
-Utiliza um pedido PUT para criar novos objetos em Ficheiros Azure NetApp, como mostram os seguintes exemplos. O corpo do pedido PUT pode incluir os dados formatados JSON para as alterações, ou pode especificar um ficheiro para ler. 
+Utiliza um pedido PUT para criar novos objetos nos Ficheiros Azure NetApp, como mostram os seguintes exemplos. O corpo do pedido PUT pode incluir os dados formatados JSON para as alterações. Deve ser incluído no comando do caracho como texto ou referências como ficheiro. Para referir o corpo como um ficheiro, guarde o exemplo json para um ficheiro e adicione `-d @<filename>` ao comando do caracol.
 
-        #create a NetApp account  
-        curl -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE?api-version=2017-08-15
+```azurecli
+#create a NetApp account  
+curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE?api-version=2019-11-01
+```
 
-        #create a capacity pool  
-        curl -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE?api-version=2017-08-15
+```azurecli
+#create a capacity pool  
+curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE?api-version=2019-11-01
+```
 
-        #create a volume  
-        curl -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME?api-version=2017-08-15
+```azurecli
+#create a volume  
+curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME?api-version=2019-11-01
+```
 
-        #create a volume snapshot  
-        curl -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME/Snapshots/SNAPNAME?api-version=2017-08-15
+```azurecli
+ #create a volume snapshot  
+curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME/Snapshots/SNAPNAME?api-version=2019-11-01
+```
 
-### <a name="json-examples"></a>Exemplos jSON
+### <a name="json-examples"></a>Exemplos JSON
 
-O exemplo que se segue mostra como criar uma conta NetApp:
+O exemplo a seguir mostra como criar uma conta NetApp:
 
-    { 
-        "name": "MYNETAPPACCOUNT", 
-        "type": "Microsoft.NetApp/netAppAccounts", 
-        "location": "westus2", 
-        "properties": { 
-            "name": "MYNETAPPACCOUNT" 
-        }
-    } 
-
-O exemplo que se segue mostra como criar um conjunto de capacidades: 
-
-    {
-        "name": "MYNETAPPACCOUNT/POOLNAME",
-        "type": "Microsoft.NetApp/netAppAccounts/capacityPools",
-        "location": "westus2",
-        "properties": {
-            "name": "POOLNAME"
-            "size": "4398046511104",
-            "serviceLevel": "Premium"
-        }
+```json
+{ 
+    "name": "MYNETAPPACCOUNT", 
+    "type": "Microsoft.NetApp/netAppAccounts", 
+    "location": "westus2", 
+    "properties": { 
+        "name": "MYNETAPPACCOUNT" 
     }
+} 
+```
 
-O exemplo que se segue mostra como criar um novo volume: 
+O exemplo a seguir mostra como criar um pool de capacidade: 
 
-    {
-        "name": "MYNEWVOLUME",
-        "type": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes",
-        "location": "westus2",
-        "properties": {
-            "serviceLevel": "Premium",
-            "usageThreshold": "322122547200",
-            "creationToken": "MY-FILEPATH",
-            "snapshotId": "",
-            "subnetId": "/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.Network/virtualNetworks/VNETGOESHERE/subnets/MYDELEGATEDSUBNET.sn"
-            }
+```json
+{
+    "name": "MYNETAPPACCOUNT/POOLNAME",
+    "type": "Microsoft.NetApp/netAppAccounts/capacityPools",
+    "location": "westus2",
+    "properties": {
+        "name": "POOLNAME",
+        "size": "4398046511104",
+        "serviceLevel": "Premium"
     }
+}
+```
 
-O exemplo que se segue mostra como criar uma imagem instantânea de um volume: 
+O exemplo a seguir mostra como criar um novo volume. (O protocolo predefinido para o volume é NFSV3.) 
 
-    {
-        "name": "apitest2/apiPool01/apiVol01/snap02",
-        "type": "Microsoft.NetApp/netAppAccounts/capacityPools/Volumes/Snapshots",
-        "location": "westus2",
-        "properties": {
-            "name": "snap02",
-            "fileSystemId": "0168704a-bbec-da81-2c29-503825fe7420"
-        }
+```json
+{
+    "name": "MYNEWVOLUME",
+    "type": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes",
+    "location": "westus2",
+    "properties": {
+        "serviceLevel": "Premium",
+        "usageThreshold": "322122547200",
+        "creationToken": "MY-FILEPATH",
+        "snapshotId": "",
+        "subnetId": "/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.Network/virtualNetworks/VNETGOESHERE/subnets/MYDELEGATEDSUBNET.sn"
+         }
+}
+```
+
+O exemplo a seguir mostra como criar uma imagem instantânea de um volume: 
+
+```json
+{
+    "name": "apitest2/apiPool01/apiVol01/snap02",
+    "type": "Microsoft.NetApp/netAppAccounts/capacityPools/Volumes/Snapshots",
+    "location": "westus2",
+    "properties": {
+         "name": "snap02",
+        "fileSystemId": "0168704a-bbec-da81-2c29-503825fe7420"
     }
+}
+```
 
 > [!NOTE] 
-> Tens de `fileSystemId` especificar para criar uma fotografia.  Pode obter `fileSystemId` o valor com um pedido GET a um volume. 
+> Tem de especificar `fileSystemId` para criar uma imagem instantânea.  Pode obter o `fileSystemId` valor com um pedido GET para um volume. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Consulte a referência rest API dos Ficheiros Azurapp](https://docs.microsoft.com/rest/api/netapp/)
+[Consulte a referência AZure NetApp API](https://docs.microsoft.com/rest/api/netapp/)

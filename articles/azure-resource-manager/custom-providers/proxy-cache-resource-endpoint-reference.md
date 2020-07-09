@@ -1,26 +1,25 @@
 ---
 title: Referência de cache de recurso personalizado
-description: Referência de cache de recursos personalizado para fornecedores de recursos personalizados Azure. Este artigo irá analisar os requisitos para os pontos finais que implementam recursos personalizados em cache.
+description: Referência de cache de recursos personalizados para fornecedores de recursos personalizados Azure. Este artigo irá analisar os requisitos para os pontos finais que implementam recursos personalizados cache.
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: e1b8c44f020d18066423eed236018308fe88b607
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650386"
 ---
 # <a name="custom-resource-cache-reference"></a>Referência de cache de recursos personalizados
 
-Este artigo irá analisar os requisitos para os pontos finais que implementam recursos personalizados em cache. Se não está familiarizado com os Fornecedores de Recursos Personalizados Da Azure, consulte a visão geral sobre os fornecedores de [recursos personalizados.](overview.md)
+Este artigo irá analisar os requisitos para os pontos finais que implementam recursos personalizados cache. Se não estiver familiarizado com os Fornecedores de Recursos Personalizados Azure, consulte [a visão geral dos fornecedores de recursos personalizados.](overview.md)
 
 ## <a name="how-to-define-a-cache-resource-endpoint"></a>Como definir um ponto final de recurso de cache
 
-Um recurso proxy pode ser criado especificando o **routtype** para "Proxy, Cache".
+Um recurso proxy pode ser criado especificando o **roteamentoType** para "Proxy, Cache".
 
-Provedor de recursos personalizados da amostra:
+Fornecedor de recursos personalizados da amostra:
 
 ```JSON
 {
@@ -40,17 +39,17 @@ Provedor de recursos personalizados da amostra:
 }
 ```
 
-## <a name="building-proxy-resource-endpoint"></a>Ponto final do recurso proxy de construção
+## <a name="building-proxy-resource-endpoint"></a>Ponto final de recursos de procuração de edifício
 
-Um **ponto final** que implemente um **ponto final** de recurso "Proxy, Cache" deve lidar com o pedido e resposta para a nova API em Azure. Neste caso, o **recursoType** gerará uma nova `PUT`API de recursos Azure para , `GET`e `DELETE` para executar CRUD num único recurso, bem como `GET` para recuperar todos os recursos existentes:
+Um **ponto final** que implemente um ponto **final** de recurso "Proxy, Cache" deve lidar com o pedido e resposta para a nova API em Azure. Neste caso, o **recursoType** gerará uma nova API de recurso Azure `PUT` `GET` para, e `DELETE` para executar CRUD em um único recurso, bem como `GET` para recuperar todos os recursos existentes:
 
 > [!NOTE]
-> A API Azure gerará `PUT` `GET`os `DELETE`métodos de pedido, e, `PUT` `DELETE`mas o **ponto final** da cache só precisa de manusear e .
-> Recomendamos que o **ponto** `GET`final também implemente.
+> A Azure API gerará os métodos de `PUT` `GET` pedido, `DELETE` e, mas o **ponto final** da cache só precisa de ser manuseada `PUT` e . `DELETE` .
+> Recomendamos que o **ponto final** também `GET` implemente.
 
 ### <a name="create-a-custom-resource"></a>Criar um recurso personalizado
 
-Pedido de entrada da API Azure:
+Pedido de entrada da Azure API:
 
 ``` HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
@@ -84,12 +83,12 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-Da mesma forma, a resposta do **ponto final** é então reencaminhada para o cliente. A resposta do ponto final deve voltar:
+Da mesma forma, a resposta do **ponto final** é então reencaminhada para o cliente. A resposta do ponto final deve regressar:
 
 - Um documento válido de objeto JSON. Todas as matrizes e cordas devem ser aninhadas sob um objeto superior.
-- O `Content-Type` cabeçalho deve ser definido para "aplicação/json; charset=utf-8".
-- O fornecedor de recursos `name`personalizados irá substituir os , `type`e `id` campos para o pedido.
-- O fornecedor de recursos personalizados `properties` só devolverá campos sob o objeto para um ponto final de cache.
+- O `Content-Type` cabeçalho deve ser definido como "aplicação/json; charset=utf-8".
+- O fornecedor de recursos personalizados substituirá o `name` , e campos para o `type` `id` pedido.
+- O fornecedor de recursos personalizados só devolverá campos sob o `properties` objeto para um ponto final de cache.
 
 **Ponto final** Resposta:
 
@@ -107,7 +106,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-Os `name` `id`campos `type` serão automaticamente gerados para o recurso personalizado pelo fornecedor de recursos personalizados.
+Os `name` `id` campos , e campos `type` serão automaticamente gerados para o recurso personalizado pelo fornecedor de recursos personalizados.
 
 Resposta do fornecedor de recursos personalizados Azure:
 
@@ -128,9 +127,9 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### <a name="remove-a-custom-resource"></a>Remova um recurso personalizado
+### <a name="remove-a-custom-resource"></a>Remover um recurso personalizado
 
-Pedido de entrada da API Azure:
+Pedido de entrada da Azure API:
 
 ``` HTTP
 Delete https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
@@ -146,11 +145,11 @@ Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}
 ```
 
-Da mesma forma, a resposta do **ponto final** é então reencaminhada para o cliente. A resposta do ponto final deve voltar:
+Da mesma forma , a resposta do **ponto final** é então reencaminhada para o cliente. A resposta do ponto final deve regressar:
 
 - Um documento válido de objeto JSON. Todas as matrizes e cordas devem ser aninhadas sob um objeto superior.
-- O `Content-Type` cabeçalho deve ser definido para "aplicação/json; charset=utf-8".
-- O Fornecedor de Recursos Personalizados Azure só removerá o artigo da sua cache se uma resposta de 200 níveis for devolvida. Mesmo que o recurso não exista, o **ponto final** deve devolver 204.
+- O `Content-Type` cabeçalho deve ser definido como "aplicação/json; charset=utf-8".
+- O Fornecedor de Recursos Personalizados Azure só removerá o item da sua cache se for devolvida uma resposta de 200 níveis. Mesmo que o recurso não exista, o **ponto final** deve devolver 204.
 
 **Ponto final** Resposta:
 
@@ -168,7 +167,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="retrieve-a-custom-resource"></a>Recuperar um recurso personalizado
 
-Pedido de entrada da API Azure:
+Pedido de entrada da Azure API:
 
 ``` HTTP
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
@@ -199,7 +198,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="enumerate-all-custom-resources"></a>Enumerar todos os recursos personalizados
 
-Pedido de entrada da API Azure:
+Pedido de entrada da Azure API:
 
 ``` HTTP
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources?api-version=2018-09-01-preview
@@ -232,10 +231,10 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral sobre fornecedores de recursos personalizados Azure](overview.md)
-- [Quickstart: Criar o Fornecedor de Recursos Personalizados Azure e implementar recursos personalizados](./create-custom-provider.md)
+- [Quickstart: Criar Fornecedor de Recursos Personalizados Azure e implementar recursos personalizados](./create-custom-provider.md)
 - [Tutorial: Criar ações e recursos personalizados em Azure](./tutorial-get-started-with-custom-providers.md)
-- [Como: Adicionar ações personalizadas à API Do REST Azure](./custom-providers-action-endpoint-how-to.md)
+- [Como: Adicionar ações personalizadas à Azure REST API](./custom-providers-action-endpoint-how-to.md)
 - [Referência: Referência de procuração de recursos personalizados](proxy-resource-endpoint-reference.md)

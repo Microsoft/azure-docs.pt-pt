@@ -15,27 +15,26 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: 96528dc34305e77602634110a0153f7623a15c96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676773"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementar a Oracle Data Guard numa máquina virtual Azure Linux 
 
-A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este artigo descreve como usar o Azure CLI para implementar uma base de dados Oracle Database 12c a partir da imagem do Azure Marketplace. Este artigo mostra-lhe, passo a passo, como instalar e configurar o Data Guard numa máquina virtual Azure (VM).
+A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este artigo descreve como usar o Azure CLI para implantar uma base de dados Oracle Database 12c a partir da imagem do Azure Marketplace. Este artigo mostra-lhe, passo a passo, como instalar e configurar a Data Guard numa máquina virtual Azure (VM).
 
-Antes de começar, certifique-se de que o Azure CLI está instalado. Para mais informações, consulte o guia de [instalação Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Antes de começar, certifique-se de que o Azure CLI está instalado. Para mais informações, consulte o guia de instalação do [Azure CLI.](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente
 ### <a name="assumptions"></a>Pressupostos
 
-Para instalar o Oracle Data Guard, é necessário criar dois VMs Azure no mesmo conjunto de disponibilidade:
+Para instalar a Oracle Data Guard, é necessário criar dois VMs Azure no mesmo conjunto de disponibilidade:
 
-- O VM primário (myVM1) tem uma instância oráculo em execução.
-- O VM de espera (myVM2) tem o software Oracle instalado apenas.
+- O VM primário (myVM1) tem uma instância Oráculo em execução.
+- O VM de standby (myVM2) tem o software Oracle instalado apenas.
 
-A imagem do Marketplace que usa para criar os VMs é Oracle:Oracle-Database-Ee:12.1.0.2:2:mais recente.
+A imagem do Marketplace que utiliza para criar os VMs é Oracle:Oracle-Database-Ee:12.1.0.2:mais recente.
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure 
 
@@ -47,7 +46,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos Azure é um recipiente lógico no qual os recursos azure são implantados e geridos. 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos Azure é um recipiente lógico no qual os recursos da Azure são implantados e geridos. 
 
 O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na localização `westus`:
 
@@ -57,7 +56,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
 
-Criar um conjunto de disponibilidadeé opcional, mas recomendamos. Para mais informações, consulte a [disponibilidade do Azure definir orientações](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
+Criar um conjunto de disponibilidade é opcional, mas recomendamos. Para mais informações, consulte [as diretrizes de disponibilidade do Azure.](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)
 
 ```azurecli
 az vm availability-set create \
@@ -69,9 +68,9 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-Crie um VM utilizando o [az vm criar](/cli/azure/vm) comando. 
+Crie um VM utilizando o comando [az vm criar.](/cli/azure/vm) 
 
-O exemplo seguinte cria dois `myVM1` `myVM2`VMs nomeados e . Também cria chaves SSH, se ainda não existirem num local de chave predefinido. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`.
+O exemplo a seguir cria dois VMs nomeados `myVM1` e `myVM2` . Também cria chaves SSH, se já não existirem num local de chave predefinido. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`.
 
 Criar myVM1 (primário):
 ```azurecli
@@ -85,7 +84,7 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-Depois de criar o VM, o Azure CLI mostra informações semelhantes ao seguinte exemplo. Note o `publicIpAddress`valor de . Usa este endereço para aceder ao VM.
+Depois de criar o VM, o Azure CLI mostra informações semelhantes ao exemplo seguinte. Note o valor de `publicIpAddress` . Utilize este endereço para aceder ao VM.
 
 ```output
 {
@@ -113,13 +112,13 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-Note o `publicIpAddress` valor de depois de criar o myVM2.
+Note o valor de depois de `publicIpAddress` criar o myVM2.
 
-### <a name="open-the-tcp-port-for-connectivity"></a>Abra a porta TCP para conectividade
+### <a name="open-the-tcp-port-for-connectivity"></a>Abra a porta TCP para a conectividade
 
-Este passo configura pontos finais externos, que permitem o acesso remoto à base de dados oracle.
+Este passo configura pontos finais externos, que permitem o acesso remoto à base de dados Oráculo.
 
-Abra a porta para myVM1:
+Abra a porta para o myVM1:
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
@@ -129,7 +128,7 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-O resultado deve parecer semelhante à seguinte resposta:
+O resultado deve ser semelhante à seguinte resposta:
 
 ```output
 {
@@ -150,7 +149,7 @@ O resultado deve parecer semelhante à seguinte resposta:
 }
 ```
 
-Abra a porta para myVM2:
+Abra a porta para o myVM2:
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
@@ -162,7 +161,7 @@ az network nsg rule create --resource-group myResourceGroup\
 
 ### <a name="connect-to-the-virtual-machine"></a>Ligar à máquina virtual
 
-Utilize o seguinte comando para criar uma sessão SSH com a máquina virtual. Substitua o endereço `publicIpAddress` IP pelo valor da sua máquina virtual.
+Utilize o seguinte comando para criar uma sessão SSH com a máquina virtual. Substitua o endereço IP pelo `publicIpAddress` valor da sua máquina virtual.
 
 ```bash 
 $ ssh azureuser@<publicIpAddress>
@@ -172,7 +171,7 @@ $ ssh azureuser@<publicIpAddress>
 
 O software Oracle já está instalado na imagem do Marketplace, pelo que o próximo passo é instalar a base de dados. 
 
-Mude para o superutilizador oracle:
+Mude para o super-alimentador Oráculo:
 
 ```bash
 $ sudo su - oracle
@@ -200,7 +199,7 @@ $ dbca -silent \
    -ignorePreReqs
 ```
 
-As saídas devem ser semelhantes às seguintes respostas:
+As saídas devem ser semelhantes à seguinte resposta:
 
 ```output
 Copying database files
@@ -232,7 +231,7 @@ Creating Pluggable Databases
 Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for further details.
 ```
 
-Detete as variáveis ORACLE_SID e ORACLE_HOME:
+Definir as variáveis ORACLE_SID e ORACLE_HOME:
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
@@ -248,7 +247,7 @@ export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
 export ORACLE_SID=cdb1
 ```
 
-## <a name="configure-data-guard"></a>Configurar guarda de dados
+## <a name="configure-data-guard"></a>Configure a Guarda de Dados
 
 ### <a name="enable-archive-log-mode-on-myvm1-primary"></a>Ativar o modo de registo de arquivo no myVM1 (primário)
 
@@ -266,14 +265,14 @@ SQL> ALTER DATABASE ARCHIVELOG;
 SQL> ALTER DATABASE OPEN;
 ```
 
-Ativar o registo de força e certificar-se de que pelo menos um ficheiro de registo está presente:
+Ativar a exploração de força e certificar-se de que está presente pelo menos um ficheiro de registo:
 
 ```bash
 SQL> ALTER DATABASE FORCE LOGGING;
 SQL> ALTER SYSTEM SWITCH LOGFILE;
 ```
 
-Crie registos de redo de prontidão:
+Criar registos de redo de espera:
 
 ```bash
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo01.log') SIZE 50M;
@@ -282,7 +281,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-Ligue o Flashback (o que torna a\_recuperação muito mais fácil) e coloque a GESTÃO DE FICHEIROS\_STANDBY para auto. Saída SQL*Plus depois disso.
+Ligue o Flashback (o que facilita muito a recuperação) e desemote \_ a GESTÃO DE FICHEIROS STANDBY \_ para automático. Saia SQL*Plus depois disso.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;
@@ -343,7 +342,7 @@ SID_LIST_LISTENER =
 ADR_BASE_LISTENER = /u01/app/oracle
 ```
 
-Ativar corretor de guarda de dados:
+Ativar o corretor de guarda de dados:
 
 ```bash
 $ sqlplus / as sysdba
@@ -366,7 +365,7 @@ SSH para myVM2:
 $ ssh azureuser@<publicIpAddress>
 ```
 
-Inicie sessão como Oráculo:
+Faça login como Oráculo:
 
 ```bash
 $ sudo su - oracle
@@ -431,9 +430,9 @@ $ lsnrctl start
 ```
 
 
-### <a name="restore-the-database-to-myvm2-standby"></a>Restaurar a base de dados para myVM2 (espera)
+### <a name="restore-the-database-to-myvm2-standby"></a>Restaurar a base de dados para o myVM2 (standby)
 
-Crie o ficheiro parâmetro /tmp/initcdb1_stby.ora com os seguintes conteúdos:
+Criar o ficheiro de parâmetro /tmp/initcdb1_stby.ora com os seguintes conteúdos:
 
 ```bash
 *.db_name='cdb1'
@@ -448,7 +447,7 @@ mkdir -p /u01/app/oracle/fast_recovery_area/cdb1
 mkdir -p /u01/app/oracle/admin/cdb1/adump
 ```
 
-Criar um ficheiro de palavra-passe:
+Criar um ficheiro de senha:
 
 ```bash
 $ orapwd file=/u01/app/oracle/product/12.1.0/dbhome_1/dbs/orapwcdb1 password=OraPasswd1 entries=10
@@ -482,7 +481,7 @@ DUPLICATE TARGET DATABASE
   NOFILENAMECHECK;
 ```
 
-Deve ver mensagens semelhantes às seguintes quando o comando estiver concluído. Saída RMAN.
+Deverá ver mensagens semelhantes às seguintes quando o comando estiver concluído. Saída RMAN.
 
 ```output
 media recovery complete, elapsed time: 00:00:00
@@ -503,16 +502,16 @@ export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
 export ORACLE_SID=cdb1
 ```
 
-Ativar corretor de guarda de dados:
+Ativar o corretor de guarda de dados:
 ```bash
 $ sqlplus / as sysdba
 SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> EXIT;
 ```
 
-### <a name="configure-data-guard-broker-on-myvm1-primary"></a>Configure corretor de guarda de dados no myVM1 (primário)
+### <a name="configure-data-guard-broker-on-myvm1-primary"></a>Configure o corretor de guarda de dados no myVM1 (primário)
 
-Inicie o Gestor de Guarda de Dados e faça login utilizando syS e uma palavra-passe. (Não utilize a autenticação OS.) Execute o seguinte:
+Inicie o Data Guard Manager e faça login utilizando sYS e uma senha. (Não utilize a autenticação do SO.) Executar o seguinte:
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1
@@ -548,13 +547,13 @@ Configuration Status:
 SUCCESS   (status updated 26 seconds ago)
 ```
 
-Completou a instalação da Guarda de Dados da Oracle. A secção seguinte mostra-lhe como testar a conectividade e mudar.
+Completou a instalação da Oracle Data Guard. A próxima secção mostra-lhe como testar a conectividade e mudar.
 
-### <a name="connect-the-database-from-the-client-machine"></a>Ligue a base de dados da máquina cliente
+### <a name="connect-the-database-from-the-client-machine"></a>Ligue a base de dados da máquina de clientes
 
-Atualize ou crie o ficheiro tnsnames.ora na sua máquina cliente. Este ficheiro é geralmente em $ORACLE_HOME\network\admin.
+Atualize ou crie o ficheiro tnsnames.ora na sua máquina de cliente. Este ficheiro encontra-se normalmente em $ORACLE_HOME\network\admin.
 
-Substitua os endereços `publicIpAddress` IP pelos seus valores para myVM1 e myVM2:
+Substitua os endereços IP pelos seus `publicIpAddress` valores para myVM1 e myVM2:
 
 ```bash
 cdb1=
@@ -599,11 +598,11 @@ With the Partitioning, OLAP, Advanced Analytics and Real Application Testing opt
 SQL>
 ```
 
-## <a name="test-the-data-guard-configuration"></a>Testar a configuração da Guarda de Dados
+## <a name="test-the-data-guard-configuration"></a>Teste a configuração da Guarda de Dados
 
 ### <a name="switch-over-the-database-on-myvm1-primary"></a>Altere a base de dados no myVM1 (primário)
 
-Para mudar de primária para standby (cdb1 para cdb1_stby):
+Para mudar de primário para standby (cdb1 para cdb1_stby):
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1
@@ -647,7 +646,7 @@ SQL>
 
 ### <a name="switch-over-the-database-on-myvm2-standby"></a>Altere a base de dados no myVM2 (standby)
 
-Para mudar, percorra o seguinte no myVM2:
+Para mudar, passe o seguinte no myVM2:
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1_stby
@@ -670,7 +669,7 @@ Database mounted.
 Switchover succeeded, new primary is "cdb1"
 ```
 
-Mais uma vez, deve agora ser capaz de se ligar à base de dados primária.
+Mais uma vez, deverá poder ligar-se à base de dados primária.
 
 Iniciar SQL*Plus:
 
@@ -688,19 +687,19 @@ With the Partitioning, OLAP, Advanced Analytics and Real Application Testing opt
 SQL>
 ```
 
-Terminou a instalação e configuração do Guarda de Dados no Oracle Linux.
+Terminou a instalação e configuração da Data Guard no Oracle Linux.
 
 
 ## <a name="delete-the-virtual-machine"></a>Elimine a máquina virtual
 
-Quando já não necessitar do VM, pode utilizar o seguinte comando para remover o grupo de recursos, VM e todos os recursos relacionados:
+Quando já não precisar do VM, pode utilizar o seguinte comando para remover o grupo de recursos, VM e todos os recursos relacionados:
 
 ```azurecli
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Tutorial: Criar máquinas virtuais altamente disponíveis](../../linux/create-cli-complete.md)
 
-[Explore as amostras azure CLI de implantação vm](../../linux/cli-samples.md)
+[Explore amostras de CLI de implantação VM](../../linux/cli-samples.md)

@@ -1,24 +1,24 @@
 ---
-title: Definições políticas incorporadas para conjuntos de escala de máquinas virtuais Azure
-description: Listas Políticas Azure definições políticas incorporadas para conjuntos de escala de máquinas virtuais Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 05/13/2020
+title: Definições políticas incorporadas para conjuntos de escala de máquina virtual Azure
+description: Lista definições de políticas incorporadas da Azure Policy para conjuntos de escalas de máquinas virtuais Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
+ms.date: 06/23/2020
 ms.topic: sample
 author: ju-shim
 ms.author: jushiman
 ms.service: virtual-machine-scale-sets
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 0c408fc37e59b20770266a018c55e2465744943f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 56f42094c2ed8540773d2ee668b7ea42f7037507
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655153"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322794"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-virtual-machine-scale-sets"></a>Definições políticas integradas da Política Azure para conjuntos de escala de máquinas virtuais Azure
+# <a name="azure-policy-built-in-definitions-for-azure-virtual-machine-scale-sets"></a>Definições de tecnologia incorporadas para conjuntos de escala de máquina virtual Azure
 
-Esta página é um índice de definições políticas integradas da [Política Azure](../governance/policy/overview.md) para conjuntos de escala de máquinas virtuais Azure. Para obter mais insins de política azure para outros serviços, consulte [definições in-in da Política Azure.](../governance/policy/samples/built-in-policies.md)
+Esta página é um índice de definições de política incorporadas da [Azure Policy](../governance/policy/overview.md) para conjuntos de escala de máquina virtual Azure. Para obter mais incorporados em Azure Policy para outros serviços, consulte [definições incorporadas da Política Azure](../governance/policy/samples/built-in-policies.md).
 
-O nome de cada definição política incorporada está ligado à definição de política no portal Azure. Utilize o link na coluna **GitHub** para visualizar a fonte no repo da [política azure GitHub](https://github.com/Azure/azure-policy).
+O nome de cada definição de política incorporada liga-se à definição de política no portal Azure. Utilize o link na coluna **versão** para visualizar a fonte no [repo GitHub da Política Azure](https://github.com/Azure/azure-policy).
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 

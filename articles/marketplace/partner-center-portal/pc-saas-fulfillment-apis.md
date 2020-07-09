@@ -1,36 +1,58 @@
 ---
-title: SaaS cumpre mANo no mercado comercial da Microsoft
-description: Uma introdução às APIs de realização que lhe permitem integrar as suas ofertas SaaS no Microsoft AppSource e Azure Marketplace.
-author: dsindona
+title: APIs de cumprimento de SaaS no mercado comercial da Microsoft
+description: Uma introdução às APIs de realização que lhe permitem integrar as suas ofertas SaaS no Microsoft AppSource e no Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: dsindona
-ms.openlocfilehash: ba1b158bc529b148a8e3138d122c13ead19e073e
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 05/18/2020
+ms.openlocfilehash: 218a0624f7e4adc1aa188dbd62db217bf79202f8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858085"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109302"
 ---
-# <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>SaaS cumpre mANo no mercado comercial da Microsoft
+# <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>APIs de cumprimento de SaaS no mercado comercial da Microsoft
 
-As APIs de cumprimento do SaaS permitem que fornecedores de software independentes (ISVs) integrem as suas aplicações SaaS no Microsoft AppSource e Azure Marketplace. Estas APIs permitem que as aplicações ISV participem em todos os canais habilitados ao comércio: diretos, liderados por parceiros (revendedores) e orientados por campo. São obrigados a listar ofertas transacionáveis do SaaS no Microsoft AppSource e no Azure Marketplace.
+As APIs de Realização saaS permitem que os editores, também conhecidos como fornecedores independentes de software (ISVs), publiquem e vendam as suas aplicações SaaS no Microsoft AppSource, Azure Marketplace e no portal Azure. Estas APIs permitem que as aplicações ISV participem em todos os canais via comércio: direto, orientado por parceiros (revendedor) e liderado por campo.  A integração com estas APIs é um requisito para a criação e publicação de uma oferta de SaaS transacionável no Partner Center.
 
-> [!WARNING]
-> A versão atual deste API é a versão 2, que deve ser usada para todas as novas ofertas do SaaS.  A versão 1 da API está depreciada e está a ser mantida para suportar as ofertas existentes.
+Os ISVs devem implementar os seguintes fluxos de API adicionando no seu código de serviço SaaS para manter o mesmo estado de subscrição tanto para os ISVs como para a Microsoft:
 
-## <a name="business-model-support"></a>Suporte de modelo de negócio
+* Fluxo de página de aterragem: A Microsoft notifica a editora de que a oferta da editora SaaS foi comprada por um cliente no mercado.
+* Fluxo de ativação: A Editora notifica a Microsoft de que uma conta SaaS recém-comprada foi configurada do lado da editora.
+* Fluxo de atualização: Alteração do plano adquirido e/ou do número de lugares adquiridos.
+* Suspender e restabelecer o fluxo: Suspender a oferta saaS adquirida no caso de o método de pagamento do cliente deixar de ser válido. A oferta suspensa pode ser restabelecida quando a questão com o método de pagamento for resolvida.
+* Fluxos Webhook: A Microsoft notificará a editora sobre as alterações de subscrição do SaaS e o cancelamento desencadeado pelo cliente do lado da Microsoft.
 
-Esta API suporta as seguintes capacidades de modelo de negócio; É possível:
+Para o cancelamento da subscrição SaaS adquirida, a integração é opcional, pois pode ser feita pelo cliente do lado da Microsoft.
 
-* Especifique vários planos para uma oferta. Estes planos têm funcionalidades diferentes e podem ter um preço diferente.
-* Forneça uma oferta por site ou uma base de modelo de faturação por utilizador.
-* Fornecer opções mensais e anuais de faturação (paga antecipadamente).
-* Fornecer preços privados a um cliente com base num acordo comercial negociado.
+A integração correta com as APIs de Realização de SaaS é fundamental para garantir que
 
+* os clientes finais que compraram a oferta saaS da editora são faturados corretamente pela Microsoft.
+* os clientes finais estão a obter a experiência correta do utilizador de comprar, configurar, utilizar e gerir subscrições saaS compradas no Mercado.
 
-## <a name="next-steps"></a>Passos seguintes
+Estas APIs permitem que as ofertas da editora participem em todos os canais via comércio:
 
-Se ainda não o fez, registe a sua aplicação SaaS no [portal Azure,](https://ms.portal.azure.com) conforme explicado no [Registo de Uma Aplicação AD Azure](./pc-saas-registration.md).  Em seguida, utilize a versão mais atual desta interface para desenvolvimento: [SaaS Fulfillment API Version 2](./pc-saas-fulfillment-api-v2.md).
+* direto
+* liderado por parceiros (revendedor, CSP)
+* liderado por campo
+
+No cenário do revendedor (CSP), a CSP está a adquirir a oferta saaS em nome do cliente final. Espera-se que um cliente utilize a oferta saaS, mas o CSP é a entidade que faz o seguinte:
+
+* faturação do cliente
+* alteração dos planos de subscrição/quantidade de lugares adquiridos
+* cancelamento das assinaturas
+
+O Editor não é obrigado a implementar nenhum dos fluxos de chamada da API de forma diferente para este cenário.
+
+Para mais informações sobre a CSP, consulte https://partner.microsoft.com/en-us/licensing .
+
+>[!Warning]
+>A versão atual desta API é a versão 2, que deve ser usada para todas as novas ofertas do SaaS. A versão 1 da API é depreciada e está a ser mantida para apoiar as ofertas existentes.
+
+>[!Note]
+>As APIs de cumprimento saaS destinam-se apenas a ser chamadas de um serviço de backend da editora. A integração com as APIs diretamente da página web da editora não é suportada. Deve ser utilizado apenas o fluxo de autenticação de serviço-a-serviço.
+
+## <a name="next-steps"></a>Próximos passos
+
+Se ainda não o fez, registe a sua aplicação SaaS no [portal Azure,](https://ms.portal.azure.com) conforme explicado no [Registo de uma Aplicação AD Azure.](./pc-saas-registration.md)  Em seguida, utilize a versão mais atual desta interface para desenvolvimento: [SaaS Fulfillment API Versão 2](./pc-saas-fulfillment-api-v2.md).

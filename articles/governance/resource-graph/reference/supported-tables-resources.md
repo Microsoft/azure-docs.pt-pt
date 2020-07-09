@@ -1,39 +1,40 @@
 ---
-title: Tipos de recursos do Gestor de Recursos Suportados
-description: Forneça uma lista dos tipos de recursos do Gestor de Recursos suportados pelo Azure Resource Graph e change History.
-ms.date: 05/21/2020
+title: Tipos de recursos suportados do Gestor de Recursos Azure
+description: Forneça uma lista dos tipos de recursos do Azure Resource Manager suportados pelo Azure Resource Graph e Change History.
+ms.date: 06/04/2020
 ms.topic: reference
-ms.openlocfilehash: 7ccf8cc58ce19746958f89ff9d9207906aad16bd
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.custom: generated
+ms.openlocfilehash: 7a1890c8decb6f918ecacee99764e45817e3d38a
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770589"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970574"
 ---
-# <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráficos de recursos azure e referência do tipo de recurso
+# <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráfico de recurso Azure e referência do tipo de recurso
 
-O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [Recursos Azure](../../../azure-resource-manager/management/overview.md). Cada **tipo de recurso** faz parte de uma **tabela** no Resource Graph.
+O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Resource Manager](../../../azure-resource-manager/management/overview.md). Cada **tipo de recurso** faz parte de uma **tabela** no Gráfico de Recursos.
 
-## <a name="advisorresources"></a>recursos de aconselhamento
+## <a name="advisorresources"></a>recursos consultivos
 
 - microsoft.advisor/configurações
 - microsoft.advisor/recomendações
 - microsoft.advisor/supressões
 
-## <a name="alertsmanagementresources"></a>alertasgerecursos
+## <a name="alertsmanagementresources"></a>alertasmanagementresources
 
-- microsoft.alertas gestão/alertas
+- microsoft.alertsmanagement/alerts
 
-## <a name="healthresources"></a>recursos de saúde
+## <a name="healthresources"></a>recursos sanitários
 
-- microsoft.resourcehealth/events
+- microsoft.resourcehealth/eventos
 
-## <a name="maintenanceresources"></a>recursos de manutenção
+## <a name="maintenanceresources"></a>fontes de manutenção
 
-- microsoft.manutenção/configuração atribuições
-- microsoft.manutenção/atualizações
+- microsoft.maintenance/configurações de assinaturas
+- microsoft.maintenance/updates
 
-## <a name="resourcecontainers"></a>contentores de recursos
+## <a name="resourcecontainers"></a>recursos
 
 - microsoft.resources/subscrições
 - microsoft.resources/subscrições/grupos de recursos
@@ -45,35 +46,35 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - citrix.services/xendesktopessentials
 - conexlink.mycloudit/accounts
 - crypteron.datasecurity/apps
-- gridpro.evops/contas
-- gridpro.evops/contas/eventrules
-- gridpro.evops/contas/modelos de pedidos
-- gridpro.evops/contas/vistas
+- gridpro.evops/accounts
+- gridpro.evops/accounts/eventrules
+- gridpro.evops/accounts/requesttemplates
+- gridpro.evops/accounts/views
 - hive.streaming/serviços
-- incapsula.waf/contas
+- incapsula.waf/accounts
 - livearena.broadcast/services
 - mailjet.email/serviços
-- microsoft.aad/domainservices
+- microsoft.aad/serviços de domínio
 - microsoft.aadiam/privatelinkforazuread
 - microsoft.aadiam/inquilinos
-- microsoft.aisupercomputer/accounts
-- microsoft.aisupercomputer/accounts/jobgroups
-- microsoft.aisupercomputer/accounts/jobsgroups/jobs
-- microsoft.alertsge/actionrules
-- microsoft.alertsge/smartdetectoralertrules
+- microsoft.aisupercomputador/contas
+- microsoft.aisupercomputador/contas/grupos de trabalho
+- microsoft.aisupercomputador/contas/grupos de emprego/emprego
+- microsoft.alertsmanagement/actionrules
+- microsoft.alertsmanagement/smartdetectoralertrules
 - microsoft.analysisservices/servidores
 - microsoft.apimanagement/service
-- microsoft.appconfiguration/configuraçãostores
+- microsoft.appconfiguration/configurationstores
 - microsoft.appplatform/spring
 - microsoft.archive/collections
 - microsoft.attestation/attestationproviders
-- microsoft.automation/automationaccounts
+- microsoft.automation/automation
 - microsoft.automation/automationaccounts/configurações
 - microsoft.automation/automationaccounts/runbooks
 - microsoft.autonomoussystems/workspaces
 - microsoft.avs/privateclouds
-- microsoft.azconfig/lojas de configuração
-- microsoft.azureactivedirectory/b2cdirecties
+- microsoft.azconfig/configurationstores
+- microsoft.azureactivedirectory/b2cdirectories
 - microsoft.azuredata/datacontrollers
 - microsoft.azuredata/hybriddatamanagers
 - microsoft.azuredata/postgresinstances
@@ -82,21 +83,21 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.azuredata/sqlmanagedinstances
 - microsoft.azuredata/sqlserverinstances
 - microsoft.azuredata/sqlserverregistrations
-- microsoft.azurestack/registrations
+- microsoft.azurestack/registos
 - microsoft.azurestackhci/clusters
-- microsoft.baremetal/consolaconnections
+- microsoft.baremetal/consolas
 - microsoft.baremetal/crayservers
 - microsoft.baremetal/monitoringservers
-- microsoft.batch/batchaccounts
+- microsoft.batcontas ch/batch
 - microsoft.batchai/clusters
 - microsoft.batchai/fileservers
-- microsoft.batchai/jobs
-- microsoft.batchai/espaços de trabalho
+- microsoft.batchai/empregos
+- microsoft.batchai/espaço de trabalho
 - microsoft.bingmaps/mapapis
 - microsoft.biztalkservices/biztalk
 - microsoft.blockchain/blockchainmembers
 - microsoft.blockchain/cordamembers
-- microsoft.blockchain/watchers
+- microsoft.blockchain/observadores
 - microsoft.botservice/botservices
 - microsoft.cache/redis
 - microsoft.cache/redisenterprise
@@ -104,32 +105,32 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.cdn/perfis
 - microsoft.cdn/perfis/pontos finais
 - microsoft.certificateregistration/certificateorders
-- microsoft.classiccompute/domínios
+- microsoft.classiccompute/domainnames
 - microsoft.classiccompute/virtualmachines
 - microsoft.classicnetwork/networksecuritygroups
 - microsoft.classicnetwork/reservedips
 - microsoft.classicnetwork/virtualnetworks
 - microsoft.classicstorage/storageaccounts
 - microsoft.cloudes/contas
-- microsoft.cloudsearch/índices
+- microsoft.cloudsearch/indexes
 - microsoft.cognition/syntheticsaccounts
-- microsoft.cognitiveservices/accounts
-- microsoft.compute/disponibilidadesets
+- microsoft.cognitiveservices/contas
+- microsoft.compute/availabilitysets
 - microsoft.compute/diskaccesses
 - microsoft.compute/diskencryptionsets
-- microsoft.compute/discos
+- microsoft.compute/disks
 - microsoft.compute/galerias
-- microsoft.compute/galerias/aplicações
-- microsoft.compute/galerias/aplicações/versões
-- microsoft.compute/galerias/imagens
-- microsoft.compute/galerias/images/versões
+- microsoft.compute/galleries/applications
+- microsoft.compute/galleries/applications/versions
+- microsoft.compute/galleries/images
+- microsoft.compute/galleries/images/versions
 - microsoft.compute/hostgroups
 - microsoft.compute/hostgroups/hosts
 - microsoft.compute/images
-- microsoft.compute/grupos de colocação de proximidade
+- microsoft.compute/grupos de destacamentos de proximidade
 - microsoft.compute/restorepointcollections
 - microsoft.compute/sharedvmextensions
-- microsoft.compute/sharedvmextensions/versões
+- microsoft.compute/sharedvmextensions/versions
 - microsoft.compute/sharedvmimages
 - microsoft.compute/sharedvmimages/versões
 - microsoft.compute/snapshots
@@ -140,26 +141,26 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.compute/virtualmachines/runcommands
 - microsoft.compute/virtualmachinescalesets
 - microsoft.containerinstance/containergroups
-- microsoft.containerregistry/registros
+- microsoft.containerregistry/registries
 - microsoft.containerregistry/registries/agentpools
 - microsoft.containerregistry/registries/buildtasks
-- microsoft.containerregistry/registries/replications
+- microsoft.containerregistry/registries/replicações
 - microsoft.containerregistry/registries/taskruns
 - microsoft.containerregistry/registries/tasks
 - microsoft.containerregistry/registries/webhooks
-- serviços microsoft.containerservice/containerservices
+- microsoft.containerservice/containerservices
 - microsoft.containerservice/managedclusters
 - microsoft.containerservice/openshiftmanagedclusters
-- microsoft.contoso/employees
+- microsoft.contoso/empregados
 - microsoft.costmanagement/conectores
-- microsoft.customproviders/fornecedores de recursos
+- microsoft.customproviders/resourceproviders
 - microsoft.databox/jobs
 - microsoft.databoxedge/databoxedgedevices
-- microsoft.databricks/espaços de trabalho
+- microsoft.databricks/workspaces
 - microsoft.datacatalog/catálogos
 - microsoft.datacatalog/datacatalogs
 - microsoft.datadog/monitores
-- microsoft.datafactory/datafactores
+- microsoft.datafactory/datafactories
 - microsoft.datafactory/fábricas
 - microsoft.datalakeanalytics/accounts
 - microsoft.datalakestore/contas
@@ -167,7 +168,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.datamigration/services/projects
 - microsoft.datamigration/slots
 - microsoft.dataprotection/backupvaults
-- microsoft.datashare/contas
+- microsoft.datashare/accounts
 - microsoft.dbformariadb/servidores
 - microsoft.dbformysql/servidores
 - microsoft.dbforpostgresql/servergroups
@@ -183,20 +184,20 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.desktopvirtualization/applicationgroups
 - microsoft.desktopvirtualization/hostpools
 - microsoft.desktopvirtualization/workspaces
-- microsoft.detonationservice/detonationinstances
+- microsoft.detonionservice/detonioninstances
 - microsoft.devices/elasticpools
 - microsoft.devices/elasticpools/iothubtenants
 - microsoft.devices/iothubs
-- microsoft.devices/provisioningservices
+- microsoft.devices/serviços de provisionamento
 - microsoft.devops/pipelines
 - microsoft.devspaces/controladores
 - microsoft.devtestlab/labcenters
-- microsoft.devtestlab/laboratórios
+- microsoft.devtestlab/labs
 - microsoft.devtestlab/labs/servicerunners
 - microsoft.devtestlab/labs/virtualmachines
 - microsoft.devtestlab/horários
 - microsoft.digitaltwins/digitaltwinsinstances
-- microsoft.documentdb/databaseaccounts
+- microsoft.doccontas umentdb/base de dados
 - microsoft.domainregistration/domínios
 - microsoft.enterpriseknowledgegraph/services
 - microsoft.eventgrid/domínios
@@ -204,59 +205,59 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.eventgrid/partnerregistrations
 - microsoft.eventgrid/partnertopics
 - microsoft.eventgrid/systemtopics
-- microsoft.eventgrid/tópicos
+- microsoft.eventgrid/topics
 - microsoft.eventhub/clusters
 - microsoft.eventhub/namespaces
 - microsoft.experimentation/experimentworkspaces
 - microsoft.falcon/namespaces
-- microsoft.gaming/titles
-- microsoft.genómica/contas
-- microsoft.guestconfigura/autogeridoaccounts
+- microsoft.gaming/títulos
+- microsoft.geómica/contas
+- microsoft.guestconfiguration/automanagedaccounts
 - microsoft.hanaonazure/hanainstances
 - microsoft.hanaonazure/sapmonitors
-- microsoft.hardwaresecuritymodules/dedicatedhsms
+- microsoft.hardwaresecuritymodules/dedicados
 - microsoft.hdinsight/clusters
-- microsoft.healthcareapis/services
+- microsoft.healthcareapis/serviços
 - microsoft.healthcareapis/services/privateendpointconnections
-- microsoft.hybridcompute/machines
-- microsoft.hybridcompute/machines/extensões
+- microsoft.hybridcompute/máquinas
+- microsoft.hybridcompute/máquinas/extensões
 - microsoft.hybriddata/datamanagers
 - microsoft.importexport/jobs
-- microsoft.industrydatalifecycle/derivados
+- microsoft.industrydatalifecycle/modelos derivados
 - microsoft.insights/actiongroups
 - microsoft.insights/activitylogalerts
-- microsoft.insights/alertrules
-- microsoft.insights/autoscalesettings
+- microsoft.insights/alertars
+- microsoft.insights/autoescalações
 - microsoft.insights/componentes
 - microsoft.insights/datacollectionrules
 - microsoft.insights/guestdiagnosticsettings
 - microsoft.insights/metricalerts
-- microsoft.insights/notificationgroups
-- microsoft.insights/notificationrules
+- microsoft.insights/grupos de notificações
+- microsoft.insights/regras de notificação
 - microsoft.insights/privatelinkscopes
-- microsoft.insights/schedulequeryrules
+- microsoft.insights/scheduledqueryrules
 - microsoft.insights/webtests
-- microsoft.insights/livros
-- microsoft.insights/modelos de livro
+- microsoft.insights/livros de trabalho
+- microsoft.insights/workbooktemplates
 - microsoft.iotcentral/iotapps
-- microsoft.iotspaces/graph
+- microsoft.iotspaces/gráfico
 - microsoft.keyvault/hsmpools
 - microsoft.keyvault/vaults
-- microsoft.kubernetes/clusters conectados
+- microsoft.kubernetes/connectedclusters
 - microsoft.kusto/clusters
 - microsoft.kusto/clusters/bases de dados
-- microsoft.labservices/labaccounts
+- microsoft.labservices/contas labaccounts
 - microsoft.logic/integrationaccounts
 - microsoft.logic/integrationserviceenvironments
 - microsoft.logic/integrationserviceenvironments/managedapis
 - microsoft.logic/workflows
-- microsoft.machinelearning/commitmentplans
+- microsoft.machinelearning/plans de compromisso
 - microsoft.machinelearning/webservices
 - microsoft.machinelearning/workspaces
-- microsoft.machinelearningcompute/clusters de operacionalização
+- microsoft.machinelearningcompute/operationalizationclusters
 - microsoft.machinelearningservices/workspaces
-- microsoft.manutenção/manutenção
-- microsoft.manutenção/manutenção políticas
+- microsoft.maintenance/maintenanceconfigurations
+- microsoft.maintenance/manutençãopolicias
 - microsoft.managedidentity/groups
 - microsoft.managedidentity/userassignedidentities
 - microsoft.managednetwork/managednetworkgroups
@@ -264,7 +265,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.managednetwork/managednetworks
 - microsoft.managednetwork/managednetworks/managednetworkgroups
 - microsoft.managednetwork/managednetworks/managednetworkpeeringpolicies
-- microsoft.maps/contas
+- microsoft.maps/accounts
 - microsoft.maps/accounts/privateatlases
 - microsoft.marketplaceapps/classicdevservices
 - microsoft.media/mediaservices
@@ -272,10 +273,10 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.media/mediaservices/streamingendpoints
 - microsoft.media/mediaservices/transforms
 - microsoft.microservices4spring/appclusters
-- microsoft.migrate/assessmentprojects
-- microsoft.migrate/migrateprojetos
-- microsoft.migrate/movecollections
-- microsoft.migrate/projects
+- microsoft.migrar/avaliar projetos
+- microsoft.migrate/migrateprojects
+- microsoft.migrar/movercollections
+- microsoft.migrar/projetos
 - microsoft.mixedreality/holographicsbroadcastaccounts
 - microsoft.mixedreality/objectunderstandingaccounts
 - microsoft.mixedreality/remoterenderingaccounts
@@ -293,7 +294,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.network/azurefirewalls
 - microsoft.network/bastionhosts
 - microsoft.network/connections
-- microsoft.network/ddoscustompolicies
+- microsoft.network/ddoscustompolicias
 - microsoft.network/ddosprotectionplans
 - microsoft.network/dnszones
 - microsoft.network/expressroutecircuits
@@ -302,13 +303,13 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.network/expressrouteports
 - microsoft.network/firewallpolicies
 - microsoft.network/frontdoors
-- microsoft.network/frontdoorwebapplicationapplicationfirewallpolicies
+- microsoft.network/frontdoorwebapplicationfirewallpolicies
 - microsoft.network/ipallocations
 - microsoft.network/ipgroups
 - microsoft.network/loadbalancers
 - microsoft.network/localnetworkgateways
 - microsoft.network/natgateways
-- microsoft.network/networkexperimentprofiles
+- microsoft.network/networkexperimentprofils
 - microsoft.network/networkintentpolicies
 - microsoft.network/networkinterfaces
 - microsoft.network/networkmanagers
@@ -318,7 +319,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.network/networkwatchers
 - microsoft.network/networkwatchers/connectionmonitors
 - microsoft.network/networkwatchers/flowlogs
-- microsoft.network/networkwatchers/lentes
+- microsoft.network/networkwatchers/lenses
 - microsoft.network/networkwatchers/pingmeshes
 - microsoft.network/p2svpngateways
 - microsoft.network/privatednszones
@@ -326,14 +327,14 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.network/privateendpointredirectmaps
 - microsoft.network/privateendpoints
 - microsoft.network/privatelinkservices
-- microsoft.network/publicipaddresss
+- microsoft.network/publicipaddresses
 - microsoft.network/publicipprefixes
 - microsoft.network/routefilters
 - microsoft.network/routetables
 - microsoft.network/sampleresources
 - microsoft.network/securitypartnerproviders
 - microsoft.network/serviceendpointpolicies
-- microsoft.network/trafficmanagerperfis
+- microsoft.network/trafficmanagerprofils
 - microsoft.network/virtualhubs
 - microsoft.network/virtualnetworkgateways
 - microsoft.network/virtualnetworks
@@ -345,7 +346,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.network/vpnsites
 - microsoft.notificationhubs/namespaces
 - microsoft.notificationhubs/namespaces/notificationhubs
-- microsoft.objectstore/espaços de osnome
+- microsoft.objectstore/osnamespaces
 - microsoft.offazure/hipervsites
 - microsoft.offazure/importsites
 - microsoft.offazure/servidores
@@ -360,20 +361,20 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.portalsdk/rootresources
 - microsoft.powerbi/workspacecollections
 - microsoft.powerbidedicated/capacities
-- microsoft.projectbabylon/accounts
+- microsoft.projectbabylon/contas
 - microsoft.quantum/workspaces
 - microsoft.recoveryservices/vaults
 - microsoft.redhatopenshift/openshiftclusters
 - microsoft.relay/namespaces
-- microsoft.remoteapp/collections
+- microsoft.remoteapp/coleções
 - microsoft.resourcegraph/consultas
 - microsoft.resources/deploymentscripts
 - microsoft.resources/templatespecs
-- microsoft.resources/templatespecs/versões
+- microsoft.resources/templatespecs/vers
 - microsoft.saas/applications
 - microsoft.scheduler/jobcollections
 - microsoft.search/searchservices
-- microsoft.security/automações
+- microsoft.security/automations
 - microsoft.security/iotsecuritysolutions
 - microsoft.securitydetonation/chambers
 - microsoft.servicebus/namespaces
@@ -383,27 +384,27 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.servicefabricmesh/applications
 - microsoft.servicefabricmesh/gateways
 - microsoft.servicefabricmesh/networks
-- microsoft.servicefabricmesh/secrets
+- microsoft.servicefabricmesh/segredos
 - microsoft.servicefabricmesh/volumes
 - microsoft.serviceshub/conectores
 - microsoft.signalrservice/signalr
-- microsoft.solutions/appliancedefinições
-- microsoft.solutions/appliances
-- microsoft.solutions/applicationdefinições
-- microsoft.solutions/applications
+- microsoft.solutions/appliancedefinitions
+- microsoft.solutions/eletrodomésticos
+- microsoft.solutions/applicationdefinitions
+- microsoft.solutions/aplicações
 - microsoft.solutions/jitrequests
 - microsoft.spoolservice/spools
 - microsoft.sql/instancepools
 - microsoft.sql/managedinstances
-- microsoft.sql/managedinstances/bases de dados
+- microsoft.sql/managedinstances/databases
 - microsoft.sql/servidores
 - microsoft.sql/servidores/bases de dados
 - microsoft.sql/servers/elasticpools
-- microsoft.sql/servers/jobaccounts
+- microsoft.sql/servidores/jobaccounts
 - microsoft.sql/servers/jobagents
 - microsoft.sql/virtualclusters
 - microsoft.sqlvirtualmachine/sqlvirtualmachinegroups
-- microsoft.sqlvirtualmachine/sqlvirtualmachinemachines
+- microsoft.sqlvirtualmachine/sqlvirtualmachines
 - microsoft.sqlvm/dwvm
 - microsoft.storage/storageaccounts
 - microsoft.storagecache/caches
@@ -419,31 +420,31 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.timeseriesinsights/ambientes
 - microsoft.timeseriesinsights/environments/eventsources
 - microsoft.timeseriesinsights/environments/referencedatasets
-- microsoft.token/stores
+- microsoft.token/lojas
 - microsoft.tokenvault/vaults
-- microsoft.virtualmachineimages/modelos de imagem
+- microsoft.virtualmachineimages/imagetemplates
 - microsoft.visualstudio/conta
 - microsoft.visualstudio/conta/extensão
-- microsoft.visualstudio/conta/projeto
+- microsoft.visualstudio/account/project
 - microsoft.vmware/arczones
-- microsoft.vmware/recursospools
+- microsoft.vmware/recursos
 - microsoft.vmware/vcenters
 - microsoft.vmware/virtualmachines
 - microsoft.vmware/virtualmachinetemplates
 - microsoft.vmware/virtualnetworks
 - microsoft.vmwarecloudsimple/dedicadocloudnodes
-- microsoft.vmwarecloudsimple/dedicadoserviços cloud
+- microsoft.vmwarecloudsimple/dedicados serviços decloud
 - microsoft.vmwarecloudsimple/virtualmachines
 - microsoft.vmwareonazure/privateclouds
 - microsoft.vmwarevirtustream/privateclouds
 - microsoft.vsonline/contas
-- microsoft.vsonline/plans
+- microsoft.vsonline/planos
 - microsoft.web/apimanagementaccounts/apis
 - microsoft.web/certificados
 - microsoft.web/connectiongateways
-- microsoft.web/connections
+- microsoft.web/conexões
 - microsoft.web/customapis
-- ambientes microsoft.web/hosting
+- microsoft.web/hostingenvironments
 - microsoft.web/kubeenvironments
 - microsoft.web/serverfarms
 - microsoft.web/sites
@@ -454,20 +455,20 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.windowsiot/deviceservices
 - myget.packagemanagement/services
 - paraleap.cloudmonix/serviços
-- pokitdok.plataforma/serviços
+- pokitdok.platform/services
 - fornecedores.test/statefulibizaengines
-- fornecedores.teste/recursos estatais
-- fornecedores.teste/recursos estatais/recursos aninhadas
-- fornecedores.teste/recursos apátridas
+- fornecedores.test/statefulresources
+- fornecedores.test/statefulresources/nestedresources
+- fornecedores.test/statelessresources
 - ravenhq.db/bases de dados
 - raygun.crashreporting/apps
-- sendgrid.email/contas
+- sendgrid.email/accounts
 - sparkpost.basic/services
 - stackify.retrace/services
 - test.shoebox/testresources
 - test.shoebox/testresources2
-- trendmicro.deepsecurity/contas
-- u2uconsult.theidentityhub/serviços
+- trendmicro.deepsecurity/accounts
+- u2uconsult.theidentityhub/services
 - wandisco.fusion/fusiongroups
 - wandisco.fusion/fusiongroups/azurezones
 - wandisco.fusion/fusiongroups/azurezones/plugins
@@ -476,24 +477,17 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - wandisco.fusion/fusiongroups/onpremzones
 - wandisco.fusion/fusiongroups/replicationrules
 
-## <a name="securityresources"></a>recursos de segurança
+## <a name="securityresources"></a>fontes de segurança
 
-- microsoft.security/avaliações
-- microsoft.security/assessments/subavaliações
+- microsoft.security/assessments
+- microsoft.security/assessments/subassessments
 - microsoft.security/pricings
-- microsoft.security/regulatorycompliancestandards
-- microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols
-- microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols/regulatorycomplianceassessments
-- microsoft.security/securitystatuss
-- microsoft.security/securitystatuses/containerhosts
-- microsoft.security/securitystatuses/onpremisemachines
-- microsoft.security/securitystatuss/servers
-- microsoft.security/securitystatuss/subnets
-- microsoft.security/securitystatuss/virtualmachines
-- microsoft.security/securitystatusesresumos
+- microsoft.security/regulaycompliancestandards
+- microsoft.security/regulatórios padrões/regulatórios
+- microsoft.security/regulamentstandards/regulatorycompliancecontrols/regulatórios
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais sobre a [linguagem de consulta.](../concepts/query-language.md)
+- Saiba mais sobre a [língua de consulta.](../concepts/query-language.md)
 - Saiba mais sobre como [explorar recursos.](../concepts/explore-resources.md)
-- Ver amostras de consultas de [arranque](../samples/starter.md).
+- Consulte amostras de consultas de [arranque.](../samples/starter.md)

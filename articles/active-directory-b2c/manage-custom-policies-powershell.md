@@ -1,49 +1,49 @@
 ---
 title: Gerir políticas personalizadas com a PowerShell
 titleSuffix: Azure AD B2C
-description: Utilize o Diretório Ativo Azure (Azure AD) PowerShell cmdlet para gestão programática das suas políticas personalizadas Azure AD B2C. Criar, ler, atualizar e eliminar políticas personalizadas com o PowerShell.
+description: Utilize o cmdlet PowerShell powershell do Azure Ative para gestão programática das suas políticas personalizadas Azure AD B2C. Criar, ler, atualizar e eliminar políticas personalizadas com o PowerShell.
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ebf0cfffa410d8dfe2f0e0b42a0fee0c16106fde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a86be8fa08b6fec7c401ad30165b590b3a6ccde
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187411"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387682"
 ---
-# <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Gerir políticas personalizadas Azure AD B2C com a Azure PowerShell
+# <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Gerir as políticas personalizadas Azure AD B2C com a Azure PowerShell
 
-A Azure PowerShell fornece vários cmdlets para a gestão de políticas personalizadas baseadas em linhas de comando e script no seu inquilino Azure AD B2C. Saiba como utilizar o módulo PowerShell Azure AD para:
+A Azure PowerShell fornece vários cmdlets para a gestão de políticas personalizadas baseada em linha de comando e scripts no seu inquilino Azure AD B2C. Saiba como utilizar o módulo Azure AD PowerShell para:
 
-* Enumere as políticas personalizadas num inquilino Azure AD B2C
+* Listar as políticas personalizadas num inquilino Azure AD B2C
 * Faça o download de uma apólice de um inquilino
-* Atualizar uma política existente, sobrepondo o seu conteúdo
-* Faça upload de uma nova política para o seu inquilino Azure AD B2C
-* Eliminar uma política personalizada de um inquilino
+* Atualizar uma política existente, sobreescrevendo o seu conteúdo
+* Faça o upload de uma nova política para o seu inquilino Azure AD B2C
+* Excluir uma política personalizada de um inquilino
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Inquilino Azure AD B2C,](tutorial-create-tenant.md)e credenciais para um utilizador no diretório com o papel de Administrador de [Política B2C IEF](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
+* [Inquilino Azure AD B2C,](tutorial-create-tenant.md)e credenciais para um utilizador no diretório com a função [de Administrador de Política B2C IEF](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
 * [Políticas personalizadas](custom-policy-get-started.md) enviadas para o seu inquilino
-* [Azure AD PowerShell para módulo de **pré-visualização** de gráficos](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+* [Azure AD PowerShell para **módulo de pré-visualização** de gráfico](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
 
-## <a name="connect-powershell-session-to-b2c-tenant"></a>Ligue a sessão powerShell ao inquilino B2C
+## <a name="connect-powershell-session-to-b2c-tenant"></a>Ligue a sessão PowerShell ao inquilino B2C
 
-Para trabalhar com políticas personalizadas no seu inquilino Azure AD B2C, primeiro precisa de ligar a sua sessão PowerShell ao inquilino utilizando o comando [Connect-AzureAD.][Connect-AzureAD]
+Para trabalhar com políticas personalizadas no seu inquilino Azure AD B2C, primeiro precisa ligar a sua sessão PowerShell ao inquilino utilizando o comando [Connect-AzureAD.][Connect-AzureAD]
 
-Execute o seguinte comando, substituindo `{b2c-tenant-name}` o nome do seu inquilino Azure AD B2C. Inscreva-se numa conta que tenha o papel de Administrador de [Política B2C IEF](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) no diretório.
+Execute o seguinte comando, `{b2c-tenant-name}` substituindo-o pelo nome do seu inquilino Azure AD B2C. Inscreva-se com uma conta que atribuiu o papel de [Administrador de Política B2C IEF](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) no diretório.
 
 ```PowerShell
 Connect-AzureAD -Tenant "{b2c-tenant-name}.onmicrosoft.com"
 ```
 
-Saída de comando de exemplo mostrando um sinal de acesso bem sucedido:
+Saída de comando de exemplo mostrando um sucesso de in:
 
 ```Console
 PS C:\> Connect-AzureAD -Tenant "contosob2c.onmicrosoft.com"
@@ -55,7 +55,7 @@ azureuser@contoso.com AzureCloud  00000000-0000-0000-0000-000000000000 contosob2
 
 ## <a name="list-all-custom-policies-in-the-tenant"></a>Listar todas as políticas personalizadas no inquilino
 
-A descoberta de políticas personalizadas permite a um administrador Azure AD B2C rever, gerir e adicionar lógica de negócio às suas operações. Utilize o comando [Get-AzureADMSTrustFrameworkPolicy][Get-AzureADMSTrustFrameworkPolicy] para devolver uma lista das IDs das políticas personalizadas num inquilino Azure AD B2C.
+A descoberta de políticas personalizadas permite a um administrador AD B2C rever, gerir e adicionar lógica de negócio às suas operações. Utilize o comando [Get-AzureADMSTrustFrameworkPolicy][Get-AzureADMSTrustFrameworkPolicy] para devolver uma lista dos IDs das políticas personalizadas num inquilino Azure AD B2C.
 
 ```PowerShell
 Get-AzureADMSTrustFrameworkPolicy
@@ -75,9 +75,9 @@ B2C_1A_ProfileEdit
 B2C_1A_PasswordReset
 ```
 
-## <a name="download-a-policy"></a>Descarregue uma política
+## <a name="download-a-policy"></a>Faça o download de uma apólice
 
-Depois de rever a lista de Ids de política, pode direcionar uma política específica com [a Get-AzureADMSTrustFrameworkPolicy][Get-AzureADMSTrustFrameworkPolicy] para descarregar os seus conteúdos.
+Depois de rever a lista de IDs de política, pode direcionar uma política específica com [a Get-AzureADMSTrustFrameworkPolicy][Get-AzureADMSTrustFrameworkPolicy] para descarregar o seu conteúdo.
 
 ```PowerShell
 Get-AzureADMSTrustFrameworkPolicy [-Id <policyId>]
@@ -112,7 +112,7 @@ PS C:\> Get-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin
 </TrustFrameworkPolicy>
 ```
 
-Para editar o conteúdo da política localmente, `-OutputFilePath` deite a saída de comando para um ficheiro com o argumento e abra o ficheiro no seu editor favorito.
+Para editar o conteúdo da política localmente, encaneie a saída de comando num ficheiro com o `-OutputFilePath` argumento e, em seguida, abra o ficheiro no seu editor favorito.
 
 Exemplo de envio de comando para um ficheiro:
 
@@ -123,9 +123,9 @@ Get-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin -OutputFilePath C:\RP
 
 ## <a name="update-an-existing-policy"></a>Atualizar uma política existente
 
-Depois de editar um ficheiro de política que criou ou descarregou, pode publicar a política atualizada para o Azure AD B2C utilizando o comando [Set-AzureADMSTrustFrameworkPolicy.][Set-AzureADMSTrustFrameworkPolicy]
+Depois de editar um ficheiro de política que criou ou descarregou, pode publicar a política atualizada para Azure AD B2C utilizando o comando [Set-AzureADMSTrustFrameworkPolicy.][Set-AzureADMSTrustFrameworkPolicy]
 
-Se emitir `Set-AzureADMSTrustFrameworkPolicy` o comando com a identificação de uma apólice que já existe no seu inquilino Azure AD B2C, o conteúdo dessa política está sobreescrito.
+Se emitir o `Set-AzureADMSTrustFrameworkPolicy` comando com o ID de uma política que já existe no seu inquilino Azure AD B2C, o conteúdo dessa política está substituído.
 
 ```PowerShell
 Set-AzureADMSTrustFrameworkPolicy [-Id <policyId>] -InputFilePath <inputpolicyfilePath> [-OutputFilePath <outputFilePath>]
@@ -138,13 +138,13 @@ Comando de exemplo:
 Set-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin -InputFilePath C:\B2C_1A_signup_signin.xml
 ```
 
-Para exemplos adicionais, consulte a referência de comando [Set-AzureADMSTrustFrameworkPolicy.][Set-AzureADMSTrustFrameworkPolicy]
+Para outros exemplos, consulte a referência de comando [Set-AzureADMSTrustFrameworkPolicy.][Set-AzureADMSTrustFrameworkPolicy]
 
 ## <a name="upload-a-new-policy"></a>Faça upload de uma nova política
 
-Quando fizer uma alteração a uma política personalizada que está em execução, é melhor publicar várias versões da política para cenários de recuo ou de testes de A/B. Ou, talvez queira fazer uma cópia de uma política existente, modificá-la com algumas pequenas alterações, em seguida, carregá-la como uma nova política de utilização por uma aplicação diferente.
+Quando fizer uma alteração para uma política personalizada que está em execução em produção, talvez queira publicar várias versões da política para cenários de testes de recuo ou A/B. Ou, talvez queira fazer uma cópia de uma política existente, modificá-la com algumas pequenas alterações e, em seguida, carregá-la como uma nova política para uso por uma aplicação diferente.
 
-Utilize o comando [New-AzureADMSTrustFrameworkPolicy][New-AzureADMSTrustFrameworkPolicy] para fazer upload de uma nova política:
+Utilize o comando [New-AzureADMSTrustFrameworkPolicy][New-AzureADMSTrustFrameworkPolicy] para carregar uma nova política:
 
 ```PowerShell
 New-AzureADMSTrustFrameworkPolicy -InputFilePath <inputpolicyfilePath> [-OutputFilePath <outputFilePath>]
@@ -157,9 +157,9 @@ Comando de exemplo:
 New-AzureADMSTrustFrameworkPolicy -InputFilePath C:\SignUpOrSignInv2.xml
 ```
 
-## <a name="delete-a-custom-policy"></a>Eliminar uma política personalizada
+## <a name="delete-a-custom-policy"></a>Excluir uma política personalizada
 
-Para manter um ciclo de vida de operações limpas, recomendamos que remova periodicamente as políticas personalizadas não utilizadas. Por exemplo, é melhor remover versões políticas antigas depois de realizar uma migração para um novo conjunto de políticas e verificar a funcionalidade das novas políticas. Além disso, se tentar publicar um conjunto de políticas personalizadas e receber um erro, pode fazer sentido remover as políticas que foram criadas como parte da versão falhada.
+Para manter um ciclo de vida de operações limpas, recomendamos que remova periodicamente as políticas personalizadas não habituais. Por exemplo, é melhor remover as versões políticas antigas depois de realizar uma migração para um novo conjunto de políticas e verificar a funcionalidade das novas políticas. Além disso, se tentar publicar um conjunto de políticas personalizadas e receber um erro, poderá fazer sentido remover as políticas que foram criadas como parte da versão falhada.
 
 Utilize o comando [Remove-AzureADMSTrustFrameworkPolicy][Remove-AzureADMSTrustFrameworkPolicy] para eliminar uma apólice do seu inquilino.
 
@@ -176,7 +176,7 @@ Remove-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin
 
 ## <a name="troubleshoot-policy-upload"></a>Upload de política de resolução de problemas
 
-Quando tenta publicar uma nova política personalizada ou atualizar uma política existente, a formatação inadequada do XML e erros na cadeia de herança sinuosa de ficheiros de política podem causar falhas de validação.
+Quando tenta publicar uma nova política personalizada ou atualizar uma política existente, a formatação imprópria do XML e os erros na cadeia de herança de ficheiros de política podem causar falhas de validação.
 
 Por exemplo, aqui está uma tentativa de atualizar uma política com conteúdo que contém XML mal formado (a saída é truncada para a brevidade):
 
@@ -191,11 +191,11 @@ Message: Validation failed: 1 validation error(s) found in policy "B2C_1A_SIGNUP
 ...
 ```
 
-Para obter informações sobre políticas personalizadas de resolução de problemas, consulte As políticas personalizadas de [Troubleshoot Azure AD B2C e o Quadro de Experiência de Identidade](active-directory-b2c-guide-troubleshooting-custom.md).
+Para obter informações sobre a resolução de problemas de políticas personalizadas, consulte [as políticas personalizadas do Azure AD B2C e o Quadro de Experiência de Identidade](active-directory-b2c-guide-troubleshooting-custom.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter informações sobre a utilização do PowerShell para implementar políticas personalizadas como parte de um oleoduto de integração contínua/entrega contínua (CI/CD), consulte [implementar políticas personalizadas a partir de um pipeline Azure DevOps](deploy-custom-policies-devops.md).
+Para obter informações sobre a utilização do PowerShell para implementar políticas personalizadas como parte de um pipeline de integração contínua/entrega contínua (CI/CD), consulte [implementar políticas personalizadas a partir de um oleoduto Azure DevOps](deploy-custom-policies-devops.md).
 
 <!-- LINKS - External -->
 [Connect-AzureAD]: https://docs.microsoft.com/powershell/module/azuread/get-azureadmstrustframeworkpolicy

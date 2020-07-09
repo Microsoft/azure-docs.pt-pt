@@ -4,6 +4,8 @@
       href: networking-overview.md
     - name: Arquitetura
       items:
+        - name: Azure para engenheiros de rede
+          href: azure-for-network-engineers.md
         - name: Datacenters Virtuais
           href: /azure/architecture/vdc/networking-virtual-datacenter
         - name: Encaminhamento assimétrico com vários caminhos de rede

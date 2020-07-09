@@ -1,58 +1,61 @@
 ---
-title: Matriz de suporte para cópia de segurança de partilha de ficheiros Azure
-description: Fornece um resumo das definições de suporte e limitações ao apoiar as ações de ficheiros Azure.
+title: Matriz de suporte para a azure partilha de ficheiros
+description: Fornece um resumo das configurações e limitações de suporte ao fazer o backup das ações de ficheiros Azure.
 ms.topic: conceptual
 ms.date: 5/07/2020
-ms.openlocfilehash: 09ca5264280c990db8f57400aef1a876f842a210
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.custom: references_regions
+ms.openlocfilehash: 5670f4702a8e8d199b9762d87793a053cf6e53b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117689"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806876"
 ---
-# <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de suporte para backup de partilha de ficheiros Azure
+# <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de suporte para cópia de segurança da partilha de ficheiros Azure
 
-Pode utilizar o [serviço de backup Azure](https://docs.microsoft.com/azure/backup/backup-overview) para fazer backup as ações de ficheiros Azure. Este artigo resume as definições de suporte quando faz backup as partilhas de ficheiros Azure com a Azure Backup.
+Pode utilizar o [serviço Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) para fazer backup das ações de ficheiros Azure. Este artigo resume as definições de suporte quando faz backup de ações de ficheiros Azure com a Azure Backup.
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-### <a name="ga-regions-for-azure-file-shares-backup"></a>Regiões ga para ficheiros Azure partilham backup
+### <a name="ga-regions-for-azure-file-shares-backup"></a>Regiões de GA para ações de ficheiros Azure ações de backup
 
-As ações de backup de ficheiros Azure estão disponíveis em todas as regiões, **com exceção** de: Alemanha Central (Soberana), Alemanha Nordeste (Soberano), China Leste, China Leste 2, China Norte, China Norte 2, EUA Gov Iowa
+A azure file shares backup está disponível em todas as **regiões, exceto:** Alemanha Central (Soberano), Alemanha Nordeste (Soberano), China Leste, China Leste 2, China Norte, China Norte 2, EUA Gov Iowa
 
-### <a name="supported-regions-for-accidental-delete-protection"></a>Regiões apoiadas para proteção de eliminação acidental
+### <a name="supported-regions-for-accidental-delete-protection"></a>Regiões apoiadas para proteção acidental de eliminação
 
-E.U.A. Centro-Oeste
+West Central EUA, Austrália Sudeste ,Canadá Central
 
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento do Azure
 
 | Detalhes da conta de armazenamento | Suporte                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| Tipo de conta            | A Azure Backup suporta as ações de ficheiros Azure presentes nas contas de armazenamento de tipo v1 de uso geral, v2 de propósito geral e tipo de armazenamento de ficheiros |
-| Desempenho              | Azure Backup suporta ações de ficheiros em contas standard e premium de armazenamento |
-| Replicação              | As ações do Azure em Contas de Armazenamento com qualquer tipo de replicação são suportadas |
+| Tipo de Conta            | A Azure Backup suporta ações de ficheiros Azure presentes em contas de armazenamento de tipo v1, v2 de uso geral e de armazenamento de ficheiros |
+| Desempenho              | A Azure Backup suporta ações de ficheiros em contas standard e Premium Storage |
+| Replicação              | As ações de ficheiros Azure em contas de armazenamento com qualquer tipo de replicação são suportadas |
+| Firewall ativada         | As ações de ficheiros Azure em contas de armazenamento com regras de Firewall que permitem ao Microsoft Azure Services aceder à conta de armazenamento são suportadas|
 
-## <a name="supported-file-shares"></a>Partilhas de ficheiros suportadas
+## <a name="supported-file-shares"></a>Ações de ficheiros suportadas
 
 | Tipo de partilha de ficheiros                                   | Suporte   |
 | -------------------------------------------------- | --------- |
 | Standard                                           | Suportado |
 | Grande                                              | Suportado |
 | Premium                                            | Suportado |
-| Partilhas de ficheiros ligadas ao serviço de sincronização do Ficheiro Azure | Suportado |
+| Ações de ficheiros ligadas ao serviço de sincronização de ficheiros Azure | Suportado |
 
 ## <a name="protection-limits"></a>Limites de proteção
 
 | Definição                                                      | Limite |
 | ------------------------------------------------------------ | ----- |
-| Número máximo de ações de ficheiros que podem ser protegidas por dia por cofre | 200   |
+| Número máximo de ações de ficheiros que podem ser protegidas por abóbada por dia| 200   |
 | Número máximo de contas de armazenamento que podem ser registadas por cofre por dia | 50    |
+| Número máximo de ações de ficheiros que podem ser protegidas por cofre | 2000   |
+| Número máximo de contas de armazenamento que podem ser registadas por cofre | 200   |
 
 ## <a name="backup-limits"></a>Limites de backup
 
 | Definição                                      | Limite |
 | -------------------------------------------- | ----- |
-| Número máximo de backups a pedido por dia | 4     |
+| Número máximo de backups a pedido por dia | 10   |
 | Número máximo de backups programados por dia | 1     |
 
 ## <a name="restore-limits"></a>Restaurar limites
@@ -61,28 +64,28 @@ E.U.A. Centro-Oeste
 | ------------------------------------------------------------ | ------- |
 | Número máximo de restauros por dia                           | 10      |
 | Número máximo de ficheiros por restauro                         | 10      |
-| Tamanho máximo recomendado de restauro por restauração para grandes partilhas de ficheiros | 15 Tib |
+| Tamanho máximo recomendado de restauração por restauro para grandes partilhas de ficheiros | 15 TiB |
 
 ## <a name="retention-limits"></a>Limites de retenção
 
 | Definição                                                      | Limite    |
 | ------------------------------------------------------------ | -------- |
-| Máximo total de pontos de recuperação por ação de ficheiros em qualquer ponto do tempo | 200      |
+| Máximo total de pontos de recuperação por partilha de ficheiros em qualquer ponto do tempo | 200      |
 | Retenção máxima do ponto de recuperação criado por backup a pedido | 10 anos |
-| Retenção máxima dos pontos de recuperação diária (instantâneos) por partilha de ficheiros| 200 dias |
-| Retenção máxima dos pontos de recuperação semanais (instantâneos) por ação de ficheiros | 200 semanas |
-| Retenção máxima dos pontos de recuperação mensais (instantâneos) por ação de ficheiros | 120 meses |
-| Retenção máxima dos pontos de recuperação anual (instantâneos) por ação de ficheiros | 10 anos |
+| Retenção máxima de pontos de recuperação diários (instantâneos) por partilha de ficheiros| 200 dias |
+| Retenção máxima de pontos de recuperação semanais (instantâneos) por partilha de ficheiros | 200 semanas |
+| Retenção máxima de pontos de recuperação mensais (snapshots) por partilha de ficheiros | 120 meses |
+| Retenção máxima de pontos de recuperação anual (snapshots) por partilha de ficheiros | 10 anos |
 
-## <a name="supported-restore-methods"></a>Métodos de restauro suportados
+## <a name="supported-restore-methods"></a>Métodos de restauro apoiados
 
 | Restore method (Método Restore)     | Detalhes                                                      |
 | ------------------ | ------------------------------------------------------------ |
-| Restauro total de ações | Pode restaurar a parte completa do ficheiro para o local original ou alternativo |
-| Restabelecimento do nível do item | Pode restaurar ficheiros e pastas individuais para a localização original ou alternativa |
+| Restauro de ações completas | Pode restaurar a partilha completa do ficheiro para a localização original ou alternativa |
+| Restauro do nível do item | Pode restaurar ficheiros e pastas individuais para a localização original ou alternativa |
 
 ## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [apoiar as ações de ficheiros da Azure](backup-afs.md)
-* Saiba como restaurar as ações de [ficheiros azure](restore-afs.md)
-* Saiba como gerir cópias de [segurança de ficheiros Azure](manage-afs-backup.md)
+* Saiba como restaurar as [ações de ficheiros Azure](restore-afs.md)
+* Saiba como gerir as [cópias de segurança de partilha de ficheiros Azure](manage-afs-backup.md)

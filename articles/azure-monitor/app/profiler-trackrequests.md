@@ -1,5 +1,5 @@
 ---
-title: Escreva código para acompanhar pedidos com Insights de Aplicação Azure [ Microsoft Docs
+title: Escreva código para rastrear pedidos com a Azure Application Insights Microsoft Docs
 description: Escreva código para rastrear pedidos com Insights de Aplicação para que possa obter perfis para os seus pedidos.
 ms.topic: conceptual
 author: cweining
@@ -7,21 +7,20 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: c59cbe852a91a91c7b3adb4452328700ec718a82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671601"
 ---
-# <a name="write-code-to-track-requests-with-application-insights"></a>Escreva código para acompanhar pedidos com Insights de Aplicação
+# <a name="write-code-to-track-requests-with-application-insights"></a>Escreva código para rastrear pedidos com Insights de Aplicação
 
-Para ver os perfis da sua aplicação na página performance, o Azure Application Insights necessita de acompanhar os pedidos para a sua aplicação. Os Insights de Aplicação podem acompanhar automaticamente os pedidos de aplicações que são construídas em quadros já instrumentados. Dois exemplos são ASP.NET e ASP.NET Core. 
+Para visualizar perfis para a sua aplicação na página Performance, o Azure Application Insights precisa de acompanhar os pedidos da sua aplicação. O Application Insights pode rastrear automaticamente os pedidos de aplicações que são construídas sobre quadros já instrumentados. Dois exemplos são ASP.NET e ASP.NET Core. 
 
-Para outras aplicações, como as funções de trabalhador da Azure Cloud Services e as APIs apátridas do Service Fabric, é necessário escrever código para dizer insights de aplicação onde os seus pedidos começam e terminam. Depois de ter escrito este código, os pedidos de telemetria são enviados para a Aplicação Insights. Pode ver a telemetria na página Performance e os perfis são recolhidos para esses pedidos. 
+Para outras aplicações, como as funções de trabalhadores da Azure Cloud Services e APIs apátridas de tecido de serviço, é necessário escrever código para dizer à Application Insights onde os seus pedidos começam e terminam. Depois de ter escrito este código, solicita que a telemetria seja enviada para a Application Insights. Pode ver a telemetria na página Performance e os perfis são recolhidos para esses pedidos. 
 
 Para rastrear manualmente os pedidos, faça o seguinte:
 
-  1. No início do tempo de vida da aplicação, adicione o seguinte código:  
+  1. No início da vida útil da aplicação, adicione o seguinte código:  
 
         ```csharp
         using Microsoft.ApplicationInsights.Extensibility;
@@ -29,9 +28,9 @@ Para rastrear manualmente os pedidos, faça o seguinte:
         // Replace with your own Application Insights instrumentation key.
         TelemetryConfiguration.Active.InstrumentationKey = "00000000-0000-0000-0000-000000000000";
         ```
-      Para obter mais informações sobre esta configuração global da chave de instrumentação, consulte [use Service Fabric com Insights de Aplicação](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
+      Para obter mais informações sobre esta configuração global da chave de instrumentação, consulte [Use Service Fabric com Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
 
-  1. Para qualquer peça de código que pretenda instrumentar, adicione uma `StartOperation<RequestTelemetry>` declaração de **utilização** à sua volta, como mostra o seguinte exemplo:
+  1. Para qualquer pedaço de código que pretenda instrumentar, adicione uma declaração `StartOperation<RequestTelemetry>` **de utilização** à sua volta, como mostra o seguinte exemplo:
 
         ```csharp
         using Microsoft.ApplicationInsights;
@@ -45,7 +44,7 @@ Para rastrear manualmente os pedidos, faça o seguinte:
         }
         ```
 
-        Ligar `StartOperation<RequestTelemetry>` para `StartOperation<RequestTelemetry>` outro âmbito não é suportado. Em vez `StartOperation<DependencyTelemetry>` disso, podes usar no âmbito aninhado. Por exemplo:  
+        Ligar `StartOperation<RequestTelemetry>` dentro de outro âmbito não é `StartOperation<RequestTelemetry>` suportado. Em vez disso, pode `StartOperation<DependencyTelemetry>` utilizar-se no âmbito aninhado. Por exemplo:  
         
         ```csharp
         using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))

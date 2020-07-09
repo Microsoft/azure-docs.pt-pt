@@ -1,77 +1,77 @@
 ---
-title: Visão geral da Saúde do Serviço [ Microsoft Docs
-description: Informações personalizadas sobre como as suas aplicações Azure são afetadas por problemas e manutenção de serviços atuais e futuros do Azure.
+title: Visão geral do Serviço de Saúde / Microsoft Docs
+description: Informações personalizadas sobre como as suas aplicações Azure são afetadas por problemas de serviço e manutenção atuais e futuros.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 2d98a909a45c9dd00b3174f495a15cd18ced11f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bc1d07fdbba6da3540336438973fb1cfbb0c356b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146925"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563402"
 ---
-# <a name="service-health-overview"></a>Visão geral da Saúde do Serviço
+# <a name="service-health-overview"></a>Visão geral da saúde do serviço
 
-O Serviço De Saúde fornece-lhe um dashboard personalizável que acompanha a saúde dos seus serviços Azure nas regiões onde os utiliza. Neste dashboard, você pode rastrear eventos ativos como questões de serviço em curso, manutenção planeada próxima ou avisos de saúde relevantes. Quando os eventos ficam inativos, são colocados no seu histórico de saúde por até 90 dias. Finalmente, pode utilizar o dashboard Service Health para criar e gerir alertas de saúde de serviço que o notificam proativamente quando os problemas de serviço estão a afetá-lo.
+O Service Health fornece-lhe um dashboard personalizável que acompanha a saúde dos seus serviços Azure nas regiões onde os utiliza. Neste painel de instrumentos, você pode rastrear eventos ativos como problemas de serviço em curso, próxima manutenção planeada ou avisos de saúde relevantes. Quando os eventos ficam inativos, são colocados no seu historial de saúde até 90 dias. Finalmente, pode utilizar o painel de instrumentos de saúde do Serviço para criar e gerir alertas de saúde de serviço que o notificam proativamente quando os problemas de serviço o afetam.
 
 ## <a name="service-health-events"></a>Eventos de Saúde de Serviço
 
-Serviço Saúde rastreia quatro tipos de eventos de saúde que podem afetar os seus recursos:
+O Serviço de Saúde acompanha quatro tipos de eventos de saúde que podem afetar os seus recursos:
 
-1. **Problemas** de serviço - Problemas nos serviços Azure que o afetam neste momento. 
-2. **Manutenção planeada** - Manutenção futura que poderá afetar a disponibilidade dos seus serviços no futuro.  
-3. **Avisos de saúde** - Alterações nos serviços Azure que requerem a sua atenção. Exemplos incluem depreciação de funcionalidades Azure ou requisitos de atualização (por exemplo, upgrade para um quadro PHP suportado).
-4. **Avisos de segurança (pré-visualização)** - Notificações relacionadas com a segurança que podem afetar a disponibilidade dos seus serviços Azure.
+1. **Problemas de serviço** - Problemas nos serviços Azure que o afetam neste momento. 
+2. **Manutenção planeada** - Próxima manutenção que pode afetar a disponibilidade dos seus serviços no futuro.  
+3. **Avisos de saúde** - Alterações nos serviços Azure que requerem a sua atenção. Exemplos incluem a depreciação das funcionalidades Azure ou os requisitos de atualização (por exemplo, atualização para um quadro php suportado).
+4. **Avisos de segurança** - Notificações ou violações relacionadas com segurança que podem afetar a disponibilidade dos seus serviços Azure.
 
 > [!NOTE]
-> Para ver os eventos de Saúde de Serviço, os utilizadores devem receber [o papel de Leitor](../role-based-access-control/role-assignments-portal.md) numa subscrição.
+> Para visualizar os eventos de Saúde do Serviço, os utilizadores devem [ter a função Reader](../role-based-access-control/role-assignments-portal.md) numa subscrição.
 
 ## <a name="get-started-with-service-health"></a>Começar com a Saúde do Serviço
 
-Para lançar o seu dashboard Service Health, selecione o azulejo de Saúde de Serviço no seu portal dashboard. Se já removeu previamente o azulejo ou estiver a utilizar o dashboard personalizado, procure o serviço de saúde de serviço em "Mais serviços" (inferior à esquerda no seu painel).
+Para lançar o seu painel de saúde de serviço, selecione o azulejo de Saúde do Serviço no seu painel de instrumentos do portal. Se já removeu previamente o azulejo ou está a utilizar o painel de instrumentos personalizado, procure o serviço de Saúde de Serviço em "Mais serviços" (em baixo à esquerda no painel de instrumentos).
 
 ![Começar com a Saúde do Serviço](./media/service-health-overview/azure-service-health-overview-1.png)
 
-## <a name="see-current-issues-which-impact-your-services"></a>Veja as questões atuais que impactam os seus serviços
+## <a name="see-current-issues-which-impact-your-services"></a>Veja as questões atuais que afetam os seus serviços
 
-A visão **de questões** de Serviço mostra quaisquer problemas em curso nos serviços Azure que estão a afetar os seus recursos. Compreende-se quando a questão começou e que serviços e regiões são impactados. Pode também ler a mais recente atualização para perceber o que o Azure está a fazer para resolver o problema. 
+A visão **de problemas de Serviço** mostra quaisquer problemas em curso nos serviços Azure que estão a afetar os seus recursos. Compreende-se quando a questão começou e quais os serviços e regiões que são impactados. Também pode ler a mais recente atualização para entender o que o Azure está a fazer para resolver o problema. 
 
-![Gerir a emissão de serviço](./media/service-health-overview/azure-service-health-overview-2.png)
+[![Gerir a questão do serviço](./media/service-health-overview/azure-service-health-overview-2.png)](./media/service-health-overview/azure-service-health-overview-2.png#lightbox)
 
-Escolha o separador **de impacto Potencial** para ver a lista específica de recursos que possui que podem ser impactados pelo problema. Você pode baixar uma lista de CSV destes recursos para partilhar com a sua equipa.
+Escolha o separador **de impacto Potencial** para ver a lista específica de recursos que possui que podem ser impactados pelo problema. Você pode baixar uma lista de CSV destes recursos para compartilhar com a sua equipe.
 
-![Gerir a emissão de serviço - Impacto](./media/service-health-overview/azure-service-health-overview-4.png)
+[![Gerir a questão do serviço - Impacto](./media/service-health-overview/azure-service-health-overview-4.png)](./media/service-health-overview/azure-service-health-overview-4.png#lightbox)
 
-## <a name="see-emerging-issues-which-may-impact-your-services"></a>Consulte questões emergentes que podem afetar os seus serviços
+## <a name="see-emerging-issues-which-may-impact-your-services"></a>Veja questões emergentes que podem ter impacto nos seus serviços
 
-Existem situações em que problemas de serviço generalizados podem ser publicados na [página Do Estado do Azure](https://status.azure.com) antes de as comunicações direcionadas poderem ser enviadas para clientes com impacto. Para garantir que a Azure Service Health fornece uma visão abrangente das questões que podem afetá-lo, os problemas ativos da página do Estado do Azure são surgidos na Saúde de Serviço como *questões emergentes.* Quando um evento estiver ativo na página Do Estado do Azure, estará presente um banner de questões emergentes na Service Health. Clique no banner para ver todos os detalhes do problema.
+Existem situações em que problemas de serviço generalizados podem ser publicados na [página do Estado de Azure](https://status.azure.com) antes que as comunicações direcionadas possam ser enviadas para clientes com impacto. Para garantir que o Serviço Azure Health fornece uma visão abrangente de questões que podem afetá-lo, os problemas ativos da página do Estado do Azure são surgidos na Saúde do Serviço como *questões emergentes*. Quando um evento estiver ativo na página do Estado de Azure, um banner de questões emergentes estará presente na Saúde do Serviço. Clique no banner para ver todos os detalhes da questão.
 
-![Problema de serviço emergente](./media/service-health-overview/azure-service-health-emerging-issue.png)
+![Questão de serviço emergente](./media/service-health-overview/azure-service-health-emerging-issue.png)
 
 ## <a name="get-links-and-downloadable-explanations"></a>Obtenha links e explicações transferíveis 
 
-Pode obter um link para o problema usar no seu sistema de gestão de problemas. Você pode baixar ficheiros PDF e, por vezes, CSV para partilhar com pessoas que não têm acesso ao portal Azure.   
+Pode obter um link para que o problema seja utilizado no seu sistema de gestão de problemas. Você pode baixar ficheiros PDF e, por vezes, CSV para compartilhar com pessoas que não têm acesso ao portal Azure.   
 
-![Gerir a questão do serviço - Gestão de problemas](./media/service-health-overview/azure-service-health-overview-3.png)
+[![Gerir problemas de serviço - Gestão de problemas](./media/service-health-overview/azure-service-health-overview-3.png)](./media/service-health-overview/azure-service-health-overview-3.png#lightbox)
 
-## <a name="get-support-from-microsoft"></a>Obtenha suporte da Microsoft
+## <a name="get-support-from-microsoft"></a>Obtenha apoio da Microsoft
 
-Suporte de contato se o seu recurso for deixado em mau estado mesmo após a resolução do problema.  Utilize os links de suporte à direita da página.  
+Contacte o suporte se o seu recurso for deixado em mau estado mesmo depois de o problema ser resolvido.  Utilize os links de suporte no direito da página.  
 
-## <a name="pin-a-personalized-health-map-to-your-dashboard"></a>Coloque um mapa de saúde personalizado no seu painel de instrumentos
+## <a name="pin-a-personalized-health-map-to-your-dashboard"></a>Pin um mapa de saúde personalizado para o seu painel de instrumentos
 
-Serviço de Filtro Saúde para mostrar as suas assinaturas, regiões e tipos de recursos críticos do negócio. Guarde o filtro e afixe um mapa global de estado de funcionamento personalizado ao dashboard do portal. 
+Serviço de Filtragem Saúde para mostrar as suas subscrições, regiões e tipos de recursos críticos do seu negócio. Guarde o filtro e afixe um mapa global de estado de funcionamento personalizado ao dashboard do portal. 
 
-![Filtrar mapa de saúde personalizado](./media/service-health-overview/azure-service-health-overview-6a.png)
+[![Filtrar mapa de saúde personalizado](./media/service-health-overview/azure-service-health-overview-6a.png)](./media/service-health-overview/azure-service-health-overview-6a.png#lightbox)
 
 ![Pin um mapa de saúde personalizado](./media/service-health-overview/azure-service-health-overview-6b.png)
 
-## <a name="configure-service-health-alerts"></a>Configurar alertas de saúde de serviço
+## <a name="configure-service-health-alerts"></a>Configurar alertas de saúde do serviço
 
-O Service Health integra-se com o Azure Monitor para o alertar através de e-mails, mensagens de texto e notificações de webhook quando os seus recursos críticos de negócio são impactados. Instale um alerta de registo de atividade para o evento de saúde de serviço apropriado. Encaminhe esse alerta para as pessoas apropriadas da sua organização usando Grupos de Ação. Para mais informações, consulte [Configure Alerts para a Saúde do Serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
+O Service Health integra-se com o Azure Monitor para alertá-lo através de e-mails, mensagens de texto e notificações webhook quando os seus recursos críticos do negócio são impactados. Configurar um alerta de registo de atividade para o evento de saúde do serviço apropriado. Encaminhe esse alerta para as pessoas apropriadas da sua organização usando Grupos de Ação. Para mais informações, consulte [Alertas de Configuração para Saúde de Serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Instale alertas para que seja notificado de problemas de saúde. Para mais informações, consulte [as melhores práticas para a criação de Alertas de Saúde do Serviço Azure](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s). 
+Adasse alertas para que você é notificado de problemas de saúde. Para mais informações, consulte [as melhores práticas para a criação de Alertas de Saúde do Serviço Azure.](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s) 

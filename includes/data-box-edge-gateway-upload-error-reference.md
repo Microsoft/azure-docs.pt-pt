@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: alkohli
 ms.openlocfilehash: 05673885336dbfb9a70843bd0ccc4e700091ad7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184928"
 ---
 |     Código de erro     |      Descrição do erro     |
@@ -34,7 +34,7 @@ ms.locfileid: "67184928"
 |    2006            | Não foi possível carregar dados para a conta porque a conta ou a partilha está desativada.|
 |    2007            | Não foi possível ligar ao contentor porque as permissões de conta estão erradas ou desatualizadas. Verifique o seu acesso.|
 |    2008            | Não foi possível adicionar novos dados porque o contentor está cheio. Verifique as especificações do Azure para tamanhos de contentor suportados com base no tipo. Por exemplo, o Azure Files só suporta um tamanho de ficheiro máximo de 5 TB.|
-|    2009            | Não conseguiu fazer o upload dos dados porque o contentor associado à parte não existe.|    
+|    2009            | Não foi consegui carregar dados porque o contentor associado à partilha não existe.|    
 |    2997            | Ocorreu um erro inesperado. Este é um erro transitório que se resolverá sozinho.|
 |    2998            | Ocorreu um erro inesperado. O erro pode ser resolvido de forma automática mas se persistir durante mais de 24 horas, contacte o Suporte da Microsoft.|
 |    16000           | Não foi possível atualizar este ficheiro.|

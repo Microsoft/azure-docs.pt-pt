@@ -1,6 +1,6 @@
 ---
-title: Alertas de diretório Apache Ambari no Azure HDInsight
-description: Discussão e análise de possíveis razões e soluções para alertas de diretório Apache Ambari no HDInsight.
+title: Alertas de diretório Apache Ambari em Azure HDInsight
+description: Discussão e análise de possíveis razões e soluções para alertas de diretório Apache Ambari em HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,19 +8,18 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: 7fd287377a82caeaecea264f0165d12ced57f5cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76722840"
 ---
-# <a name="scenario-apache-ambari-directory-alerts-in-azure-hdinsight"></a>Cenário: Apache Ambari alerta no Azure HDInsight
+# <a name="scenario-apache-ambari-directory-alerts-in-azure-hdinsight"></a>Cenário: Alertas de diretório Apache Ambari em Azure HDInsight
 
 Este artigo descreve etapas de resolução de problemas e possíveis resoluções para problemas ao interagir com clusters Azure HDInsight.
 
 ## <a name="issue"></a>Problema
 
-Recebe erros de Apache Ambari semelhantes a:
+Você recebe erros de Apache Ambari que são semelhantes a:
 
 ```
 1/1 local-dirs have errors: [ /mnt/resource/hadoop/yarn/local : Cannot create directory: /mnt/resource/hadoop/yarn/local ]
@@ -29,19 +28,19 @@ Recebe erros de Apache Ambari semelhantes a:
 
 ## <a name="cause"></a>Causa
 
-Os referidos diretórios do alerta ambari estão desaparecidos no nó dos trabalhadores afetados.
+Faltam os referidos diretórios de alerta de Ambari nos nó(s) dos trabalhadores afetados.
 
 ## <a name="resolution"></a>Resolução
 
-Crie manualmente listas em falta no nó ou nos trabalhadores afetados.
+Criar manualmente diretórios em falta nos nó(s) do trabalhador afetados.
 
 1. SSH para o nó de trabalhador relevante.
 
-1. Obtenha o `sudo su`utilizador da raiz: .
+1. Obtenha o utilizador de raiz: `sudo su` .
 
 1. Recursivamente criar diretórios necessários.
 
-1. Mude o proprietário e o grupo para estes diretórios.
+1. Mude de proprietário e grupo para estes diretórios.
 
     ```bash
     chown -R yarn /mnt/resource/hadoop/yarn/local
@@ -50,14 +49,14 @@ Crie manualmente listas em falta no nó ou nos trabalhadores afetados.
     chgrp -R hadoop /mnt/resource/hadoop/yarn/log
     ```
 
-1. Da Apache Ambari UI, desative e, em seguida, ativa o alerta.
+1. A partir da Ia Apache Ambari, desative e, em seguida, ative o alerta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
+Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
-* Obtenha respostas de especialistas do Azure através do [Apoio Comunitário de Azure.](https://azure.microsoft.com/support/community/)
+* Obtenha respostas de especialistas da Azure através do [Apoio Comunitário Azure.](https://azure.microsoft.com/support/community/)
 
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligar a comunidade Azure aos recursos certos: respostas, apoio e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligação da comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
-* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** a partir da barra de menus ou abra o centro de **suporte Ajuda +.** Para obter informações mais detalhadas, reveja [como criar um pedido de apoio azure.](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte do Azure.](https://azure.microsoft.com/support/plans/)
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).

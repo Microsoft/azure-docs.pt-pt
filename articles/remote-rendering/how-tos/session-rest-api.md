@@ -6,28 +6,27 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 46560f067e020236031487677ad4f48a9560d4e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681249"
 ---
 # <a name="use-the-session-management-rest-api"></a>Utilizar a API REST de gestão de sessões
 
-Para utilizar a funcionalidade de renderização remota Azure, é necessário criar uma *sessão*. Cada sessão corresponde a uma máquina virtual (VM) a ser atribuída no Azure e à espera que um dispositivo cliente se conecte. Quando um dispositivo se liga, o VM torna os dados solicitados e serve o resultado como um fluxo de vídeo. Durante a criação da sessão, escolheu o tipo de servidor que pretende executar, o que determina os preços. Uma vez que a sessão já não seja necessária, deve ser interrompida. Se não parar manualmente, será desligado automaticamente quando o tempo de *aluguer* da sessão expirar.
+Para utilizar a funcionalidade de renderização remota Azure, precisa de criar uma *sessão*. Cada sessão corresponde a uma máquina virtual (VM) a ser alocado em Azure e à espera que um dispositivo cliente se conecte. Quando um dispositivo se liga, o VM presta os dados solicitados e serve o resultado como um fluxo de vídeo. Durante a criação da sessão, escolheu o tipo de servidor que pretende executar, o que determina o preço. Uma vez que a sessão não seja mais necessária, deve ser interrompida. Se não parar manualmente, será desligado automaticamente quando o tempo de *locação* da sessão expirar.
 
-Fornecemos um script PowerShell no [repositório](https://github.com/Azure/azure-remote-rendering) de amostras DE ARR na pasta *Scripts,* chamada *RenderingSession.ps1,* que demonstra o uso do nosso serviço. O script e a sua configuração são descritos aqui: [Exemplo de scripts PowerShell](../samples/powershell-example-scripts.md)
+Fornecemos um script PowerShell no [repositório de amostras ARR](https://github.com/Azure/azure-remote-rendering) na pasta *Scripts,* chamada *RenderingSession.ps1*, o que demonstra o uso do nosso serviço. O script e a sua configuração são descritos aqui: [Exemplo PowerShell scripts](../samples/powershell-example-scripts.md)
 
 > [!TIP]
-> Os comandos PowerShell listados nesta página destinam-se a complementar-se mutuamente. Se executar todos os scripts em sequência dentro do mesmo pedido de comando PowerShell, eles vão construir em cima uns dos outros.
+> Os comandos PowerShell listados nesta página destinam-se a complementar-se mutuamente. Se executar todos os scripts em sequência dentro da mesma decisão de comando PowerShell, eles construirão em cima uns dos outros.
 
 ## <a name="regions"></a>Regiões
 
-Consulte a [lista das regiões disponíveis](../reference/regions.md) para que os URLs base enviem os pedidos.
+Consulte a [lista das regiões disponíveis](../reference/regions.md) para os URLs de base para enviar os pedidos para.
 
-Para as amostras abaixo escolhemos a região *westus2*.
+Para os scripts da amostra abaixo escolhemos a região *westus2.*
 
-### <a name="example-script-choose-an-endpoint"></a>Exemplo script: Escolha um ponto final
+### <a name="example-script-choose-an-endpoint"></a>Script de exemplo: Escolha um ponto final
 
 ```PowerShell
 $endPoint = "https://remoterendering.westus2.mixedreality.azure.com"
@@ -35,20 +34,20 @@ $endPoint = "https://remoterendering.westus2.mixedreality.azure.com"
 
 ## <a name="accounts"></a>Contas
 
-Se não tiver uma conta de renderização remota, [crie uma](create-an-account.md). Cada recurso é identificado por uma *contaId*, que é usada ao longo da sessão APIs.
+Se não tiver uma conta de renderização remota, [crie uma](create-an-account.md). Cada recurso é identificado por um *accountId*, que é usado ao longo da sessão APIs.
 
-### <a name="example-script-set-accountid-and-accountkey"></a>Script de exemplo: Definir contaId e contaChave
+### <a name="example-script-set-accountid-and-accountkey"></a>Script de exemplo: Definir contaD e contaKey
 
 ```PowerShell
 $accountId = "********-****-****-****-************"
 $accountKey = "*******************************************="
 ```
 
-## <a name="common-request-headers"></a>Cabeçalhos de pedido comum
+## <a name="common-request-headers"></a>Cabeçalhos de pedido comuns
 
-* O cabeçalho *de Autorização* `Bearer TOKEN`deve ter`TOKEN`o valor de " ", onde " é o símbolo de autenticação [devolvido pelo Serviço De Token Seguro](tokens.md).
+* O cabeçalho *de autorização* deve ter o valor de " " onde " " é o símbolo `Bearer TOKEN` de `TOKEN` autenticação devolvido pelo Serviço [DeKen Seguro](tokens.md).
 
-### <a name="example-script-request-a-token"></a>Exemplo script: Solicite um símbolo
+### <a name="example-script-request-a-token"></a>Roteiro de exemplo: Pedir um token
 
 ```PowerShell
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
@@ -57,9 +56,9 @@ $response = ConvertFrom-Json -InputObject $webResponse.Content
 $token = $response.AccessToken;
 ```
 
-## <a name="common-response-headers"></a>Cabeçalhos de resposta comum
+## <a name="common-response-headers"></a>Cabeçalhos de resposta comuns
 
-* O cabeçalho *MS-CV* pode ser usado pela equipa de produtos para rastrear a chamada dentro do serviço.
+* O *cabeçalho MS-CV* pode ser utilizado pela equipa do produto para rastrear a chamada dentro do serviço.
 
 ## <a name="create-a-session"></a>Criar uma sessão
 
@@ -67,21 +66,21 @@ Este comando cria uma sessão. Devolve a identificação da nova sessão. Precis
 
 | URI | Método |
 |-----------|:-----------|
-| /v1/contas/*contaId*/sessões/criar | POST |
+| /v1/accounts/*accountId*/sessions/create | POST |
 
-**Órgão de pedido:**
+**Entidade de pedido:**
 
 * maxLeaseTime (timepan): um valor de tempo limite quando o VM será desativado automaticamente
-* modelos (matriz): URLs de contentores de ativos para pré-carga
-* tamanho (cadeia): o tamanho VM **("standard"** ou **"premium").** Consulte [limitações específicas do tamanho](../reference/limits.md#overall-number-of-polygons)do VM .
+* modelos (matriz): URLs de contentores de ativos para pré-carregar
+* tamanho (cadeia): o tamanho VM **("standard"** ou **"premium").** Consulte [as limitações específicas do tamanho do VM](../reference/limits.md#overall-number-of-polygons).
 
 **Respostas:**
 
-| Código de estado | Carga útil JSON | Comentários |
+| Código de estado | Carga JSON | Comentários |
 |-----------|:-----------|:-----------|
-| 202 | - sessãoId: GUID | Êxito |
+| 202 | - sessionId: GUID | Êxito |
 
-### <a name="example-script-create-a-session"></a>Exemplo script: Criar uma sessão
+### <a name="example-script-create-a-session"></a>Script de exemplo: Criar uma sessão
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/create" -Method Post -ContentType "application/json" -Body "{ 'maxLeaseTime': '4:0:0', 'models': [], 'size': 'standard' }" -Headers @{ Authorization = "Bearer $token" }
@@ -109,7 +108,7 @@ ParsedHtml        : mshtml.HTMLDocumentClass
 RawContentLength  : 52
 ```
 
-### <a name="example-script-store-sessionid"></a>Script exemplo: Store sessionId
+### <a name="example-script-store-sessionid"></a>Script de exemplo: Store sessionId
 
 A resposta do pedido acima inclui uma **sessãoId,** que você precisa para todos os pedidos de acompanhamento.
 
@@ -119,26 +118,26 @@ $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 
 ## <a name="update-a-session"></a>Atualizar uma sessão
 
-Este comando atualiza os parâmetros de uma sessão. Atualmente só pode prolongar o tempo de arrendamento de uma sessão.
+Este comando atualiza os parâmetros de uma sessão. Atualmente só pode estender o tempo de arrendamento de uma sessão.
 
 > [!IMPORTANT]
-> O tempo de arrendamento é sempre dado como um tempo total desde o início da sessão. Isto significa que se criou uma sessão com um tempo de arrendamento de uma hora, e quiser prolongar o seu tempo de arrendamento por mais uma hora, tem de atualizar o seu maxLeaseTime para duas horas.
+> O tempo de arrendamento é sempre dado como um tempo total desde o início da sessão. Isto significa que se criou uma sessão com um tempo de arrendamento de uma hora, e quer prolongar o seu tempo de arrendamento por mais uma hora, tem de atualizar o seu maxLeaseTime para duas horas.
 
 | URI | Método |
 |-----------|:-----------|
-| /v1/contas/*contaID*/sessões/*sessionId* | PATCH |
+| /v1/accounts/*accountID*/sessions/sessionId*sessionId* | PATCH |
 
-**Órgão de pedido:**
+**Entidade de pedido:**
 
 * maxLeaseTime (timepan): um valor de tempo limite quando o VM será desativado automaticamente
 
 **Respostas:**
 
-| Código de estado | Carga útil JSON | Comentários |
+| Código de estado | Carga JSON | Comentários |
 |-----------|:-----------|:-----------|
 | 200 | | Êxito |
 
-### <a name="example-script-update-a-session"></a>Script exemplo: Atualizar uma sessão
+### <a name="example-script-update-a-session"></a>Script de exemplo: Atualizar uma sessão
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId" -Method Patch -ContentType "application/json" -Body "{ 'maxLeaseTime': '5:0:0' }" -Headers @{ Authorization = "Bearer $token" }
@@ -166,15 +165,15 @@ Este comando devolve uma lista de sessões ativas.
 
 | URI | Método |
 |-----------|:-----------|
-| /v1/contas/*contaId*/sessões | GET |
+| /v1/accounts/*accountId*/sessions | GET |
 
 **Respostas:**
 
-| Código de estado | Carga útil JSON | Comentários |
+| Código de estado | Carga JSON | Comentários |
 |-----------|:-----------|:-----------|
-| 200 | - sessões: conjunto de propriedades da sessão | ver secção "Obter propriedades da sessão" para uma descrição das propriedades da sessão |
+| 200 | - sessões: variedade de propriedades de sessão | consulte a secção "Obter propriedades de sessão" para uma descrição das propriedades da sessão |
 
-### <a name="example-script-query-active-sessions"></a>Script de exemplo: Consultas de sessões ativas
+### <a name="example-script-query-active-sessions"></a>Script de exemplo: Sessões ativas de consulta
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions" -Method Get -Headers @{ Authorization = "Bearer $token" }
@@ -205,19 +204,19 @@ RawContentLength  : 2
 
 ## <a name="get-sessions-properties"></a>Obtenha propriedades de sessões
 
-Este comando devolve informações sobre uma sessão, como o seu nome de anfitrião VM.
+Este comando retorna informações sobre uma sessão, como o seu nome de anfitrião VM.
 
 | URI | Método |
 |-----------|:-----------|
-| /v1/contas/*contaId*/sessões/*sessionId*/propriedades | GET |
+| /v1/accounts/*accountId*/sessions/*sessionId*/properties | GET |
 
 **Respostas:**
 
-| Código de estado | Carga útil JSON | Comentários |
+| Código de estado | Carga JSON | Comentários |
 |-----------|:-----------|:-----------|
-| 200 | - mensagem: corda<br/>- sessãoTimelapsedTime: timepan<br/>- sessãoNome anfitrião: corda<br/>- sessionId: string<br/>- sessãoMaxLeaseTime: timepan<br/>- sessãoTamanho: enum<br/>- sessãoEstatuto: enum | enum sessionStatus { início, pronto, paragem, parado, expirado, erro}<br/>Se o estado for 'error' ou 'expirado', a mensagem conterá mais informações |
+| 200 | - mensagem: corda<br/>- sessãoElapsedTime: timepan<br/>- sessãoOstname: corda<br/>- sessionId: string<br/>- sessãoMaxLeaseTime: timepan<br/>- sessãoSize: enum<br/>- sessionStatus: enum | enum sessionStatus { começando, pronto, parando, parado, expirado, erro}<br/>Se o estado for 'erro' ou 'expirado', a mensagem conterá mais informações |
 
-### <a name="example-script-get-session-properties"></a>Script de exemplo: Obtenha propriedades da sessão
+### <a name="example-script-get-session-properties"></a>Script de exemplo: Obtenha propriedades de sessão
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId/properties" -Method Get -Headers @{ Authorization = "Bearer $token" }
@@ -246,21 +245,21 @@ ParsedHtml        : mshtml.HTMLDocumentClass
 RawContentLength  : 60
 ```
 
-## <a name="stop-a-session"></a>Pare uma sessão
+## <a name="stop-a-session"></a>Parar uma sessão
 
 Este comando para uma sessão. O VM atribuído será recuperado pouco depois.
 
 | URI | Método |
 |-----------|:-----------|
-| /v1/contas/*contaId*/sessões/*sessionId* | DELETE |
+| /v1/accounts/*accountId*/sessions/sessionId*sessionId* | DELETE |
 
 **Respostas:**
 
-| Código de estado | Carga útil JSON | Comentários |
+| Código de estado | Carga JSON | Comentários |
 |-----------|:-----------|:-----------|
 | 204 | | Êxito |
 
-### <a name="example-script-stop-a-session"></a>Exemplo script: Parar uma sessão
+### <a name="example-script-stop-a-session"></a>Roteiro de exemplo: Parar uma sessão
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId" -Method Delete -Headers @{ Authorization = "Bearer $token" }
@@ -281,6 +280,6 @@ Headers           : {[MS-CV, YDxR5/7+K0KstH54WG443w.0], [Date, Thu, 09 May 2019 
 RawContentLength  : 0
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Scripts do PowerShell de exemplo](../samples/powershell-example-scripts.md)

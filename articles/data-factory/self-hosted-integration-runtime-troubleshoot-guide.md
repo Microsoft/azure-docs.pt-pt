@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/07/2019
+ms.date: 06/24/2020
 ms.author: abnarain
-ms.openlocfilehash: f27132eb21d245d0d26de910abba088ba3b8efde
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: e77d621d5699c434e691de0a523e58e49166d8d6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170980"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85315016"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Resolução de problemas de integração auto-acolagem
 
@@ -22,7 +22,9 @@ Este artigo explora métodos comuns de resolução de problemas para o tempo de 
 
 ## <a name="common-errors-and-resolutions"></a>Erros comuns e resoluções
 
-### <a name="error-message-self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>Error message: O tempo de integração auto-hospedado não pode ligar-se ao serviço na nuvem
+### <a name="error-message"></a>Mensagem de erro: 
+
+`Self-hosted integration runtime can't connect to cloud service`
 
 ![Problema de conexão IV auto-hospedado](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
 
@@ -86,7 +88,8 @@ Segue-se a resposta esperada:
 > *    Verifique se o certificado TLS/SSL "wu2.frontend.clouddatahub.net/" é fidedigno no servidor proxy.
 > *    Se estiver a utilizar a autenticação ative directory no proxy, altere a conta de serviço para a conta de utilizador que possa aceder ao proxy como "Serviço de Tempo de Execução de Integração".
 
-### <a name="error-message-self-hosted-integration-runtime-node-logical-shir-is-in-inactive-running-limited-state"></a>Error message: Self-hosted integration runtime node/ logical SHIR is inative/ "Running (Limited)"
+### <a name="error-message"></a>Mensagem de erro: 
+`Self-hosted integration runtime node/ logical SHIR is in Inactive/ "Running (Limited)" state`
 
 #### <a name="cause"></a>Causa 
 
@@ -132,13 +135,153 @@ Este comportamento ocorre quando os nós não conseguem comunicar uns com os out
     - Adicione o IP para hospedar o mapeamento em todos os ficheiros anfitriões do VM hospedado.
 
 
+## <a name="troubleshoot-connectivity-issue"></a>Problema de conectividade resolução de problemas
+
+### <a name="troubleshoot-connectivity-issue-between-self-hosted-ir-and-data-factory-or-self-hosted-ir-and-data-sourcesink"></a>Problema de conectividade de resolução de problemas entre a infra-acolagem de IR e data factory ou ir auto-hospedado e fonte de dados/pia
+
+Para resolver o problema de conectividade da rede, deve saber [recolher os vestígios da rede,](#how-to-collect-netmon-trace)entender como usá-lo e [analisar o traço netmon](#how-to-analyze-netmon-trace) antes de aplicar as Ferramentas Netmon em casos reais a partir de IR auto-hospedado.
+
+Às vezes, quando resoluçmos os problemas de conectividade, tais como abaixo de um entre o IR auto-hospedado e a Fábrica de Dados: 
+
+![O pedido HTTP falhou](media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png)
+
+Ou o que se encontra entre o IR auto-alojado e a fonte de dados/pia, que encontraremos os seguintes erros:
+
+**Mensagem de erro:**
+`Copy failed with error:Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server: ‘IP address’`
+
+**Mensagem de erro:**
+`One or more errors occurred. An error occurred while sending the request. The underlying connection was closed: An unexpected error occurred on a receive. Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. An existing connection was forcibly closed by the remote host Activity ID.`
+
+**Resolução:** Ao encontrar questões acima, consulte as seguintes instruções para resolver mais problemas:
+
+Pegue o traço de netmon e analise mais.
+- Em primeiro lugar, pode configurar o filtro para ver qualquer reset do servidor para o lado do cliente. A partir do exemplo abaixo, pode ver o lado do servidor é o servidor Data Factory.
+
+    ![Servidor de fábrica de dados](media/self-hosted-integration-runtime-troubleshoot-guide/data-factory-server.png)
+
+- Quando receber o pacote de reset, pode encontrar a conversa seguindo o TCP.
+
+    ![Encontrar conversa](media/self-hosted-integration-runtime-troubleshoot-guide/find-conversation.png)
+
+- Em seguida, pode obter a conversão entre o servidor cliente e o servidor Data Factory abaixo, removendo o filtro.
+
+    ![Obter conversa](media/self-hosted-integration-runtime-troubleshoot-guide/get-conversation.png)
+- Com base nos vestígios de netmon recolhidos, podemos dizer que o total de TTL (TimeToLive) é de 64. De acordo com os **Valores limite de TTL e hop predefinidos** mencionados [neste artigo](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/) (como extraído abaixo), podemos ver que é o Sistema Linux que reinicia a embalagem e causa a desconexão.
+
+    Os valores padrão de TTL e Limite de Salto variam entre diferentes sistemas operativos, aqui estão os padrão para alguns:
+    - Kernel Linux 2.4 (cerca de 2001): 255 para TCP, UDP e ICMP
+    - Kernel Linux 4.10 (2015): 64 para TCP, UDP e ICMP
+    - Windows XP (2001): 128 para TCP, UDP e ICMP
+    - Windows 10 (2015): 128 para TCP, UDP e ICMP
+    - Windows Server 2008: 128 para TCP, UDP e ICMP
+    - Windows Server 2019 (2018): 128 para TCP, UDP e ICMP
+    - macOS (2001): 64 para TCP, UDP e ICMP
+
+    ![TTL 61](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-61.png)
+    
+    No entanto, é mostrado como 61 em vez de 64 em exemplo, porque quando o pacote de rede chega ao destino, precisa de passar por diferentes lúpulos como routers/dispositivos de rede. O número de routers/dispositivos de rede será deduzido na TTL final.
+    Neste caso, podemos ver que o Reset pode ser enviado do Linux System com TTL 64.
+
+- Temos de verificar o quarto salto do Auto-alojado IR para confirmar de onde o dispositivo de reset pode vir.
+ 
+    *Pacote de rede do Linux System A com TTL 64 -> B TTL 64 Menos 1 = 63 -> C TTL 63 Menos 1 = 62 -> TTL 62 Menos 1 = 61 IR auto-hospedado*
+
+- Na situação ideal, o TTL será 128, o que significa que o Windows System está a executar a nossa Fábrica de Dados. Como mostrado a seguir, *128 - 107 = 21 lúpulo*, o que significa que 21 lúpulos para o pacote foram enviados da Data Factory para o AUTO-hospedado IR durante o aperto de mão TCP 3.
+ 
+    ![TTL 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
+
+    Por isso, tens de envolver a equipa de rede para verificar qual é o quarto salto do IR auto-hospedado. Se for a firewall como Sistema Linux, verifique quaisquer registos sobre o porquê desse dispositivo reiniciar a embalagem após o aperto de mão TCP 3. No entanto, se não tiver a certeza de onde fazer a investigação, tente obter os vestígios de netmon do IR e firewall auto-hospedados durante o tempo problemático para descobrir que dispositivo pode redefinir este pacote e causar a desconexão. Neste caso, também precisa de envolver a sua equipa de rede para seguir em frente.
+
+### <a name="how-to-collect-netmon-trace"></a>Como recolher vestígios de netmon
+
+1.  Descarregue as Ferramentas Netmon a partir [deste website](https://www.microsoft.com/en-sg/download/details.aspx?id=4865)e instale-as na sua Máquina de Servidor (qualquer que seja o servidor que tenha o problema) e no Cliente (como IR auto-hospedado).
+
+2.  Criar uma pasta, por exemplo, no seguinte caminho: *D:\netmon*. Certifique-se de que tem espaço suficiente para guardar o tronco.
+
+3.  Capture o IP e a Informação portuária. 
+    1. Inicie uma solicitação CMD.
+    2. Selecione Executar como administrador e executar o seguinte comando:
+       
+        ```
+        Ipconfig /all >D:\netmon\IP.txt
+        netstat -abno > D:\netmon\ServerNetstat.txt
+        ```
+
+4.  Capture o Traço Netmon (pacote de rede).
+    1. Inicie uma solicitação CMD.
+    2. Selecione Executar como administrador e executar o seguinte comando:
+        
+        ```
+        cd C:\Program Files\Microsoft Network Monitor 3
+        ```
+    3. Pode utilizar três comandos diferentes para capturar a página da rede:
+        - Opção A: Comando ficheiro RoundRobin (isto irá capturar apenas um ficheiro e substituir registos antigos).
+
+            ```
+            nmcap /network * /capture /file D:\netmon\ServerConnection.cap:200M
+            ```         
+        - Opção B: Comando ficheiro acorrentado (isto criará um novo ficheiro se forem alcançados 200 MB).
+        
+            ```
+            nmcap /network * /capture /file D:\netmon\ServerConnection.chn:200M
+            ```          
+        - Opção C: Comando de ficheiro agendado.
+
+            ```
+            nmcap /network * /capture /StartWhen /Time 10:30:00 AM 10/28/2011 /StopWhen /Time 11:30:00 AM 10/28/2011 /file D:\netmon\ServerConnection.chn:200M
+            ```  
+
+5.  Pressione **Ctrl+C** para parar de capturar o vestígio de Netmon.
+ 
+> [!NOTE]
+> Se só conseguir recolher os vestígios de netmon na máquina do cliente, por favor obtenha o endereço IP do servidor para ajudá-lo a analisar os vestígios.
+
+### <a name="how-to-analyze-netmon-trace"></a>Como analisar vestígios de netmon
+
+Quando se tenta teletar **8.8.8.8.888** com vestígios de netmon acima recolhidos, é suposto ver abaixo o rastreio:
+
+![traço netmon 1](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png)
+
+![traço netmon 2](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
+ 
+
+Isto significa que não foi possível fazer a ligação TCP ao lado do servidor **8.8.8.8** com base na porta **888**, pelo que vê aí dois pacotes adicionais **SynReTransmit.** Uma vez que a Fonte **SELF-HOST2** não conseguiu estabelecer ligação a **8.8.8.8** no primeiro pacote, continuará a fazer a ligação.
+
+> [!TIP]
+> - Pode clicar **Load Filter**em  ->  **endereços de filtro padrão de filtro**de carga  ->  **Addresses**  ->  **endereços IPv4**.
+> - Inserir **IPv4.Endereço == 8.8.8.8** como filtro e clique em **Aplicar**. Depois disso, só verá a comunicação da máquina local para o destino **8.8.8.8**.
+
+![endereços de filtro 1](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
+        
+![endereços de filtro 2](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-2.png)
+
+Abaixo o exemplo mostra como seria um bom cenário. 
+
+- Se a Telnet **8.8.8.8 53** estiver a funcionar bem sem qualquer problema, pode ver o aperto de mão TCP 3 acontecer, e a sessão termina com um aperto de mão TCP 4.
+
+    ![bom exemplo de cenário 1](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-1.png)
+     
+    ![bom exemplo de cenário 2](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-2.png)
+
+- Com base no aperto de mão TCP 3 acima, pode ver abaixo o fluxo de trabalho:
+
+    ![Fluxo de trabalho de aperto de mão TCP 3](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-3-handshake-workflow.png)
+ 
+- O aperto de mão TCP 4 para terminar a sessão e o seu fluxo de trabalho serão mostrados como seguintes:
+
+    ![Aperto de mão TCP 4](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake.png)
+
+    ![Fluxo de trabalho de aperto de mão TCP 4](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
+
+
 ## <a name="next-steps"></a>Próximos passos
 
 Para obter mais ajuda na resolução de problemas, experimente os seguintes recursos:
 
 *  [Blog da Fábrica de Dados](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Pedidos de recursos da Data Factory](https://feedback.azure.com/forums/270578-data-factory)
-*  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [Vídeos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Stack overflow forum para data factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informações do Twitter sobre a Data Factory](https://twitter.com/hashtag/DataFactory)

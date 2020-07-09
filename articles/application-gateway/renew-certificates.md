@@ -1,38 +1,38 @@
 ---
-title: Renovar um certificado de gateway de aplicação Azure
+title: Renovar um certificado Azure Application Gateway
 description: Saiba como renovar um certificado associado a um ouvinte de gateway de aplicação.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 8/15/2018
 ms.author: victorh
-ms.openlocfilehash: 4c0c0ab84e60335f58ac075459b95cfabb9135ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: de57a58f7c891009d2e0cc43b351c2cad42a2766
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311951"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807881"
 ---
-# <a name="renew-application-gateway-certificates"></a>Renovar certificados gateway de aplicação
+# <a name="renew-application-gateway-certificates"></a>Renovar certificados de Gateway de Aplicação
 
-A dada altura, terá de renovar os seus certificados se configurar a sua porta de aplicação para encriptação TLS/SSL.
+Em algum momento, terá de renovar os seus certificados se configurar o seu gateway de aplicações para encriptação TLS/SSL.
 
 Pode renovar um certificado associado a um ouvinte utilizando o portal Azure, Azure PowerShell ou Azure CLI:
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-Para renovar um certificado de ouvinte do portal, navegue para os ouvintes da sua aplicação. Clique no ouvinte que tem um certificado que precisa de ser renovado e, em seguida, clique em **Renovar ou editar certificado selecionado**.
+Para renovar um certificado de ouvinte do portal, navegue para os ouvintes do seu gateway de aplicações. Clique no ouvinte que tem um certificado que precisa de ser renovado e, em seguida, clique em **Renovar ou editar o certificado selecionado**.
 
 ![Renovar certificado](media/renew-certificate/ssl-cert.png)
 
-Faça upload do seu novo certificado PFX, dê-lhe um nome, escreva a palavra-passe e clique em **Guardar**.
+Faça o upload do seu novo certificado PFX, dê-lhe um nome, escreva a palavra-passe e, em seguida, clique em **Guardar**.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para renovar o seu certificado utilizando o Azure PowerShell, utilize o seguinte script:
+Para renovar o seu certificado utilizando a Azure PowerShell, utilize o seguinte script:
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -60,6 +60,6 @@ az network application-gateway ssl-cert update \
   --cert-password "<password>"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para aprender a configurar o Descarregamento de TLS com o Gateway de Aplicação Azure, consulte [Configure TLS Offload](application-gateway-ssl-portal.md)
+Para aprender a configurar o descarregamento de TLS com gateway de aplicação Azure, consulte [Configure TLS Offload](application-gateway-ssl-portal.md)

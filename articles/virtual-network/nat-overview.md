@@ -1,29 +1,30 @@
 ---
-title: O que é a Rede Virtual Azure NAT?
+title: O que é Azure Virtual Network NAT?
 titlesuffix: Azure Virtual Network
-description: Visão geral das funcionalidades, recursos, arquitetura e implementação da Rede Virtual. Saiba como funciona a Rede Virtual NAT e como utilizar os recursos de gateway NAT na nuvem.
+description: Visão geral das funcionalidades, recursos, arquitetura e implementação da Rede Virtual NAT. Saiba como funciona o NAT de Rede Virtual e como utilizar os recursos de gateway NAT na nuvem.
 services: virtual-network
 documentationcenter: na
 author: asudbring
 manager: KumudD
 ms.service: virtual-network
+ms.subservice: nat
 Customer intent: As an IT administrator, I want to learn more about Virtual Network NAT, its NAT gateway resources, and what I can use them for.
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2020
 ms.author: allensu
-ms.openlocfilehash: 50fc8b9cefe88a80f3f954ce363139b6a4a38589
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 80e2ba8df9c81d2a34f63b2f1bc943ee5d731bae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80548392"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549586"
 ---
-# <a name="what-is-virtual-network-nat"></a>O que é a Rede Virtual NAT?
+# <a name="what-is-virtual-network-nat"></a>O que é Virtual Network NAT?
 
-A Rede Virtual NAT (tradução de endereços de rede) simplifica a conectividade de acesso à Internet apenas para redes virtuais. Quando configurado numa subnet, toda a conectividade de saída utiliza os seus endereços IP públicos estáticos especificados.  A conectividade de saída é possível sem o equilíbrio de carga ou endereços IP públicos diretamente ligados a máquinas virtuais. O NAT é totalmente gerido e altamente resistente.
+O VIRTUAL Network NAT (tradução de endereços de rede) simplifica a conectividade de saída da Internet para redes virtuais. Quando configurados numa sub-rede, toda a conectividade de saída utiliza os seus endereços IP públicos estáticos especificados.  A conectividade de saída é possível sem o balanceador de carga ou endereços IP públicos diretamente ligados a máquinas virtuais. O NAT é totalmente gerido e altamente resistente.
 
 <!-- 
 <img src="./media/nat-overview/flow-map.svg" width="270" align="center">
@@ -36,65 +37,65 @@ A Rede Virtual NAT (tradução de endereços de rede) simplifica a conectividade
 
 
 
-*Figura: Rede Virtual NAT*
+*Figura: Virtual Network NAT*
 
-## <a name="static-ip-addresses-for-outbound-only"></a>Endereços IP estáticos para apenas saída
+## <a name="static-ip-addresses-for-outbound-only"></a>Endereços IP estáticos apenas para saída
 
-A conectividade de saída pode ser definida para cada sub-rede com NAT.  Várias subredes dentro da mesma rede virtual podem ter NATs diferentes. Uma sub-rede é configurada especificando qual o recurso de gateway NAT a utilizar. Todos os fluxos de saída da UDP e do TCP de qualquer instância de máquina virtual usarão NAT. 
+A conectividade de saída pode ser definida para cada sub-rede com NAT.  Várias sub-redes dentro da mesma rede virtual podem ter DIFERENTES NATs. Uma sub-rede é configurada especificando qual recurso de gateway NAT a utilizar. Todos os fluxos de saída da UDP e TCP de qualquer instância de máquina virtual utilizarão o NAT. 
 
-O NAT é compatível com os recursos padrão de endereço IP público sKU ou os recursos públicos de prefixo IP ou uma combinação de ambos.  Pode utilizar um prefixo IP público diretamente ou distribuir os endereços IP públicos do prefixo através de vários recursos de gateway NAT. O NAT irá preparar todo o tráfego para o leque de endereços IP do prefixo.  Qualquer lista de ip das suas implementações é agora fácil.
+O NAT é compatível com os recursos de endereços IP públicos standard SKU ou recursos prefixos IP públicos ou uma combinação de ambos.  Pode utilizar um prefixo IP público diretamente ou distribuir os endereços IP públicos do prefixo através de vários recursos de gateway NAT. A NAT irá preparar todo o tráfego para o alcance dos endereços IP do prefixo.  Qualquer whitelisting IP das suas implementações é agora fácil.
 
-Todo o tráfego de saída para a subnet é processado automaticamente pelo NAT sem qualquer configuração do cliente.  Não são necessárias rotas definidas pelo utilizador. O NAT tem precedência sobre outros cenários de saída e substitui o destino padrão da Internet de uma subnet.
+Todo o tráfego de saída da sub-rede é processado automaticamente pela NAT sem qualquer configuração do cliente.  As rotas definidas pelo utilizador não são necessárias. A NAT tem precedência sobre outros cenários de saída e substitui o destino padrão da Internet de uma sub-rede.
 
 ## <a name="on-demand-snat-with-multiple-ip-addresses-for-scale"></a>SNAT a pedido com vários endereços IP para escala
 
-O NAT utiliza "tradução de endereços de rede portuária" (PNAT ou PAT) e é recomendado para a maioria das cargas de trabalho. Cargas de trabalho dinâmicas ou divergentes podem ser facilmente acomodadas com alocação de fluxo de saída a pedido. Evita-se um planeamento extensivo, pré-alocação e, em última análise, um excesso de oferta de recursos de saída. Os recursos portuários SNAT são partilhados e disponíveis em todas as subredes utilizando um recurso específico de gateway NAT e são fornecidos quando necessário.
+O NAT utiliza a "tradução de endereços de rede portuária" (PNAT ou PAT) e é recomendado para a maioria das cargas de trabalho. Cargas de trabalho dinâmicas ou divergentes podem ser facilmente acomodadas com alocação de fluxo de saída a pedido. Evita-se um planeamento extensivo, uma pré-atribuição e, em última análise, uma sobreprovisão dos recursos de saída. Os recursos portuários SNAT são partilhados e disponíveis em todas as sub-redes utilizando um recurso específico de gateway NAT e são fornecidos quando necessário.
 
-Um endereço IP público anexado ao NAT fornece até 64.000 fluxos simultâneos para uDP e TCP. Pode começar com um único endereço IP e escalar até 16 endereços IP públicos.
+Um endereço IP público anexado ao NAT fornece até 64.000 fluxos simultâneos para UDP e TCP. Pode começar com um único endereço IP e escalar até 16 endereços IP públicos.
 
-O NAT permite a criação de fluxos da rede virtual para a Internet. O tráfego de devolução da Internet só é permitido em resposta a um fluxo ativo.
+O NAT permite que os fluxos sejam criados da rede virtual para a Internet. O tráfego de devolução da Internet só é permitido em resposta a um fluxo ativo.
 
-Ao contrário do SNAT de saída do equilibrista de carga, o NAT não tem restrições sobre as quais o IP privado de uma instância de máquina virtual pode fazer ligações de saída.  As configurações ip secundárias podem criar ligação à Internet de saída com o NAT.
+Ao contrário do que acontece com o SNAT de saída do balanceador de carga, o NAT não tem restrições sobre as quais o IP privado de uma instância de máquina virtual pode fazer ligações de saída.  As configurações ip secundárias podem criar ligação à Internet de saída com o NAT.
 
 ## <a name="coexistence-of-inbound-and-outbound"></a>Coexistência de entrada e saída
 
-O NAT é compatível com os seguintes recursos SKU padrão:
+A NAT é compatível com os seguintes recursos SKU padrão:
 
 - Load balancer
 - Endereço IP público
 - Prefixo de IP público
 
-Quando utilizados juntamente com o NAT, estes recursos fornecem conectividade à Internet de entrada para a sua sub-rede. O NAT fornece toda a conectividade de saída da Internet a partir da sua subnet.s.
+Quando utilizados em conjunto com o NAT, estes recursos fornecem conectividade à Internet de entrada para as suas sub-redes. A NAT fornece toda a conectividade de saída da Internet a partir das suas sub-redes.
 
-As funcionalidades SKU padrão e compatíveis estão cientes da direção em que o fluxo foi iniciado. Os cenários de entrada e saída podem coexistir. Estes cenários receberão as traduções corretas de endereços de rede porque estas funcionalidades estão cientes da direção do fluxo. 
+As funcionalidades NAT e Standard SKU compatíveis estão cientes da direção em que o fluxo foi iniciado. Cenários de entrada e saída podem coexistir. Estes cenários receberão as traduções corretas de endereço de rede porque estas funcionalidades estão cientes da direção do fluxo. 
 
 <!-- 
 <img src="./media/nat-overview/flow-direction4.svg" width="500" align="center">
 ![Virtual Network NAT flow direction](./media/nat-overview/flow-direction4.svg)
 -->
 <p align="center">
-  <img src="./media/nat-overview/flow-direction4.svg" width="512" title="Direção de fluxo na rede virtual NAT">
+  <img src="./media/nat-overview/flow-direction4.svg" width="512" title="Direção de fluxo NAT de rede virtual">
 </p>
 
-*Figura: Direção de fluxo na rede virtual NAT*
+*Figura: Direção de fluxo NAT de rede virtual*
 
-## <a name="fully-managed-highly-resilient"></a>Totalmente gerido, altamente resiliente
+## <a name="fully-managed-highly-resilient"></a>Totalmente gerido, altamente resistente
 
-O NAT está completamente em escala desde o início. Não é necessária uma rampa ou uma operação de escala.  O Azure gere a operação da NAT para si.  O NAT tem sempre vários domínios de falhas e pode sofrer múltiplas falhas sem interrupção de serviço.
+O NAT está totalmente dimensionado desde o início. Não é necessária uma operação de rampa ou de escala.  A Azure gere o funcionamento da NAT para si.  A NAT tem sempre vários domínios de avaria e pode sofrer múltiplas falhas sem falha de serviço.
 
-## <a name="tcp-reset-for-unrecognized-flows"></a>Reposição do TCP para fluxos não reconhecidos
+## <a name="tcp-reset-for-unrecognized-flows"></a>Reposição de TCP para fluxos não reconhecidos
 
-O lado privado do NAT envia pacotes de Reset TCP para tentativas de comunicação sobre uma ligação TCP que não existe. Um exemplo são as ligações que atingiram o tempo de paragem. O próximo pacote recebido devolverá um Reset TCP ao endereço IP privado para sinalizar e forçar o encerramento da ligação.
+O lado privado da NAT envia pacotes de reset TCP para tentativas de comunicação numa ligação TCP que não existe. Um exemplo são as ligações que atingiram o tempo limite. O próximo pacote recebido devolverá um Reset TCP ao endereço IP privado para sinalizar e forçar o encerramento da ligação.
 
-O lado público do NAT não gera pacotes de Reset TCP ou qualquer outro tráfego.  Apenas o tráfego produzido pela rede virtual do cliente é emitido.
+O lado público da NAT não gera pacotes de reset TCP ou qualquer outro tráfego.  Apenas é emitido o tráfego produzido pela rede virtual do cliente.
 
-## <a name="configurable-tcp-idle-timeout"></a>Tempo limite de inativa configurável do TCP
+## <a name="configurable-tcp-idle-timeout"></a>Tempo limite de marcha lenta ção do TCP configurável
 
-É utilizado um tempo de inatividade padrão do TCP de 4 minutos e pode ser aumentado até 120 minutos. Qualquer atividade num fluxo também pode repor o temporizador inativo, incluindo a manutenção de TCP.
+É utilizado um tempo limite de 4 minutos de TCP padrão e pode ser aumentado até 120 minutos. Qualquer atividade num fluxo também pode reiniciar o temporizador inativo, incluindo os keepalives TCP.
 
-## <a name="regional-or-zone-isolation-with-availability-zones"></a>Isolamento regional ou zona com zonas de disponibilidade
+## <a name="regional-or-zone-isolation-with-availability-zones"></a>Isolamento regional ou de zona com zonas de disponibilidade
 
-O NAT é regional por defeito. Ao criar cenários de zonas de [disponibilidade,](../availability-zones/az-overview.md) o NAT pode ser isolado numa zona específica (implantação zonal).
+O NAT é regional por defeito. Ao criar [cenários de zonas de disponibilidade,](../availability-zones/az-overview.md) o NAT pode ser isolado numa zona específica (implantação zonal).
 
 <!-- 
 <img src="./media/nat-overview/az-directions.svg" width="500" align="center">
@@ -109,12 +110,12 @@ O NAT é regional por defeito. Ao criar cenários de zonas de [disponibilidade,]
 
 ## <a name="multi-dimensional-metrics-for-observability"></a>Métricas multidimensionais para a observabilidade
 
-Pode monitorizar o funcionamento do seu NAT através de métricas multidimensionais expostas no Monitor Azure. Estas métricas podem ser usadas para observar o uso e para resolução de problemas.  Os recursos de gateway na NAT expõem as seguintes métricas:
+Pode monitorizar o funcionamento do seu NAT através de métricas multidimensionais expostas no Azure Monitor. Estas métricas podem ser usadas para observar o uso e para a resolução de problemas.  Os recursos de gateway DA NAT expõem as seguintes métricas:
 - Bytes
 - Pacotes
-- Pacotes caídos
+- Pacotes derrubados
 - Total de ligações SNAT
-- Transições estatais de ligação SNAT por intervalo.
+- Transições do estado de ligação SNAT por intervalo.
 
 <!-- "ADD when PM is done" Learn more about [NAT gateway metrics](./nat-gateway-metrics.md) -->
 
@@ -125,38 +126,38 @@ Na disponibilidade geral, a trajetória de dados do NAT está disponível pelo m
 
 ## <a name="pricing"></a>Preços
 
-O portal NAT é faturado com dois metros separados:
+O gateway NAT é faturado com dois metros separados:
 
 | Medidor | Tarifa |
 | --- | --- |
-| Horário de recursos | $0.045/hora |
-| Dados tratados | $0.045/GB |
+| Horas de recursos | $0.045/hora |
+| Dados processados | $0.045/GB |
 
-As horas de recursos são responsáveis pela duração durante a qual existe um recurso de gateway NAT.
-Contas processadas por dados de todo o tráfego processado por um recurso de gateway NAT.
+O tempo de recurso é responsável pela duração durante a qual existe um recurso de gateway NAT.
+Os dados processados são responsáveis por todo o tráfego processado por um recurso de gateway NAT.
 
 ## <a name="availability"></a>Disponibilidade
 
-A Rede Virtual NAT e o recurso de gateway NAT estão disponíveis em todas as [regiões](https://azure.microsoft.com/global-infrastructure/regions/)de nuvem pública azure.
+A Rede Virtual NAT e o recurso DE GATEWAY NAT estão disponíveis em todas as [regiões](https://azure.microsoft.com/global-infrastructure/regions/)de nuvem pública Azure.
 
 ## <a name="support"></a>Suporte
 
-O NAT é suportado através de canais de apoio normais.
+O NAT é suportado através de canais de suporte normais.
 
-## <a name="feedback"></a>Comentários
+## <a name="suggestions"></a>Sugestões
 
-Queremos saber como podemos melhorar o serviço. Propor e votar o que devemos construir a seguir na [UserVoice para o NAT](https://aka.ms/natuservoice).
+Queremos saber como podemos melhorar o serviço. Propor e votar o que devemos construir a seguir no [UserVoice para o NAT.](https://aka.ms/natuservoice)
 
 
 ## <a name="limitations"></a>Limitações
 
-* O NAT é compatível com os recursos padrão de IP público sku, prefixo ip público e equilibrador de carga. Os recursos básicos, tais como o equilíbrio básico de carga, e quaisquer produtos derivados deles não são compatíveis com o NAT.  Os recursos básicos devem ser colocados numa sub-rede não configurada com NAT.
-* A família de endereços IPv4 é apoiada.  O NAT não interage com a família iPv6.  O NAT não pode ser implantado numa sub-rede com um prefixo IPv6.
-* A exploração de fluxo sanções da NSG não é suportada quando se utiliza NAT.
-* O NAT não pode abranger várias redes virtuais.
+* O NAT é compatível com o IP público SKU padrão, prefixo IP público e recursos do balançador de carga. Os recursos básicos, tais como o balanceador de carga básica, e quaisquer produtos derivados deles não são compatíveis com o NAT.  Os recursos básicos devem ser colocados numa sub-rede não configurada com o NAT.
+* A família iPv4 é apoiada.  A NAT não interage com a família IPv6.  O NAT não pode ser implantado numa sub-rede com um prefixo IPv6.
+* A exploração de fluxo NSG não é suportada quando se utiliza o NAT.
+* A NAT não pode abranger várias redes virtuais.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre o [recurso de gateway NAT.](./nat-gateway-resource.md)
-* [Diga-nos o que construir a seguir para a Rede Virtual NAT no UserVoice](https://aka.ms/natuservoice).
+* Saiba mais sobre [o recurso nat gateway.](./nat-gateway-resource.md)
+* [Diga-nos o que construir a seguir para o NAT de Rede Virtual no UserVoice](https://aka.ms/natuservoice).
 

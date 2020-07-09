@@ -6,15 +6,15 @@ metadata:
   description: Saiba como criar, executar e partilhar blocos de notas Jupyter através do serviço alojado da Pré-visualização do Azure Notebooks.
   ms.service: azure-notebooks
   ms.topic: landing-page
-  author: jasonwhowell
-  ms.author: jasonh
-  ms.date: 12/26/2019
-  ms.openlocfilehash: 5044e3d679827982af7259511777f7119188b00b
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
-  ms.translationtype: HT
+  author: JoshuaPartlow
+  ms.author: joshuapa
+  ms.date: 06/17/2020
+  ms.openlocfilehash: 96fd38e081105b6fc43cc2fc00d52bcf17b20074
+  ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+  ms.translationtype: 
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "75659122"
+  ms.lasthandoff: 07/01/2020
+  ms.locfileid: "85799416"
 landingContent:
 - title: Acerca do Azure Notebooks
   linkLists:
@@ -52,6 +52,8 @@ landingContent:
       url: quickstart-migrate-local-jupyter-notebook.md
     - text: Criar um projeto com um ambiente personalizado
       url: quickstart-create-jupyter-notebook-project-environment.md
+    - text: Exportar o seu projeto
+      url: quickstart-export-jupyter-notebook-project.md
 - title: Principais tarefas do Azure Notebooks
   linkLists:
   - linkListType: how-to-guide

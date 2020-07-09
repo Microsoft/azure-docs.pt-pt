@@ -1,49 +1,48 @@
 ---
-title: ApIs de implantação de aposentadoria para métricas do Monitor Azure e escala automática
-description: Métricas e APIs clássicos de escala automática, também chamados de Modelo de Gestão de Serviços Azure (ASM) ou RDFE sendo aposentado
+title: APIs de implantação de aposentadoria para métricas do Monitor Azure e autoescalação
+description: Métricas e APIs clássicos de autoescalação, também chamados de Azure Service Management (ASM) ou modelo de implantação RDFE sendo aposentado
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.openlocfilehash: d9b6118bc165a9b0a78ae9c4da895719249b22b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114219"
 ---
-# <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Reforma do Azure Monitor do modelo clássico de implantação APIs para métricas e escala automática
+# <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor reforma do modelo de implantação clássico APIs para métricas e autoescala
 
-O Azure Monitor (anteriormente Azure Insights quando foi lançado) oferece atualmente a capacidade de criar e gerir configurações de escala automática para e consumir métricas a partir de VMs clássicos e serviços clássicos de Cloud. O conjunto original de APIs clássicos baseados em modelos de implantação será retirado após 30 de junho de **2019** em todas as nuvens públicas e privadas azure em todas as regiões.   
+O Azure Monitor (anteriormente Azure Insights quando foi lançado pela primeira vez) oferece atualmente a capacidade de criar e gerir configurações de autoescala para e consumir métricas de VMs clássicos e serviços cloud clássicos. O conjunto original de APIs de implementação clássica baseada em modelos será **retirado após 30 de junho de 2019** em todas as nuvens públicas e privadas de Azure em todas as regiões.   
 
-As mesmas operações foram apoiadas através de um conjunto de APIs baseados em Recursos Azure há mais de um ano. O portal Azure utiliza as novas APIs REST tanto para autoescala como para métricas. Um novo SDK, PowerShell e CLI baseados nestes APIs do Gestor de Recursos também estão disponíveis. Os nossos serviços parceiros de monitorização consomem as novas APIs REST baseadas em Gestor de Recursos no Monitor Azure.  
+As mesmas operações têm sido suportadas através de um conjunto de APIs baseadas em recursos Azure há mais de um ano. O portal Azure utiliza as novas APIs REST tanto para autoescalagens como para métricas. Estão também disponíveis novos SDK, PowerShell e CLI com base nestas APIs do Gestor de Recursos. Os nossos serviços de parceiros para monitorização consomem as novas APIs de REST baseadas em Recursos no Azure Monitor.  
 
 ## <a name="who-is-not-affected"></a>Quem não é afetado
 
-Se estiver a gerir a escala automática através do portal Azure, os novos modelos [Azure Monitor SDK,](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)PowerShell, CLI ou Resource Manager, não é necessária qualquer ação.  
+Se estiver a gerir a autoescalação através do portal Azure, os novos modelos [Azure Monitor SDK,](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)PowerShell, CLI ou Resource Manager, não é necessária qualquer ação.  
 
-Se estiver a consumir métricas através do portal Azure ou através de vários serviços de parceiros de [monitorização,](../../azure-monitor/platform/partners.md)não é necessária qualquer ação. A Microsoft está a trabalhar com parceiros de monitorização para migrar para as novas APIs.
+Se estiver a consumir métricas através do portal Azure ou através de vários [serviços de parceiros de monitorização,](../../azure-monitor/platform/partners.md)não é necessária qualquer ação. A Microsoft está a trabalhar com parceiros de monitorização para migrar para as novas APIs.
 
 ## <a name="who-is-affected"></a>Quem é afetado
 
 Este artigo aplica-se a si se estiver a utilizar os seguintes componentes:
 
-- **Classic Azure Insights SDK** - Se estiver a utilizar o [clássico Azure Insights SDK,](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/)mude para utilizar o novo Azure Monitor SDK para [.NET](https://github.com/azure/azure-libraries-for-net#download) ou [Java](https://github.com/azure/azure-libraries-for-java#download). Descarregue o [pacote NuGet Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/).
+- **Classic Azure Insights SDK** - Se estiver a utilizar o [clássico Azure Insights SDK,](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/)mude para utilizar o novo Azure Monitor SDK para [.NET](https://github.com/azure/azure-libraries-for-net#download) ou [Java](https://github.com/azure/azure-libraries-for-java#download). Descarregue o [pacote Azure Monitor SDK NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/).
 
-- **Escala automática clássica** - Se estiver a chamar as [configurações clássicas](https://msdn.microsoft.com/library/azure/mt348562.aspx) de escala automática APIs das suas ferramentas personalizadas ou usando o [clássico Azure Insights SDK,](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/)deverá mudar para utilizar o Gestor de [Recursos Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings).
+- **Classic Autoscale** - Se estiver a chamar as [definições clássicas de autoescala APIs](https://msdn.microsoft.com/library/azure/mt348562.aspx) das suas ferramentas personalizadas ou utilizando o [clássico Azure Insights SDK,](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/)deverá mudar para o uso do [Gestor de Recursos Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings).
 
-- **Métricas Clássicas** - Se estiver a consumir métricas utilizando as [APIs clássicas](https://msdn.microsoft.com/library/azure/dn510374.aspx) do REST ou [o clássico Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/) a partir de ferramentas personalizadas, deve mudar para utilizar o Gestor de [Recursos Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings). 
+- **Métricas Clássicas** - Se estiver a consumir métricas utilizando as [APIs clássicas de REST](https://msdn.microsoft.com/library/azure/dn510374.aspx) ou [o clássico Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/) a partir de ferramentas personalizadas, deverá mudar para o recurso [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings). 
 
-Se não tem a certeza se o seu código ou ferramentas personalizadas estão a chamar as APIs clássicas, veja o seguinte:
+Se não tiver a certeza se o seu código ou ferramentas personalizadas estão a chamar as APIs clássicas, veja o seguinte:
 
-- Reveja o URI referenciado no seu código ou ferramenta. As APIs clássicas https://management.core.windows.netusam o URI. Você deve estar usando o URI mais recente para `https://management.azure.com/`as APIs baseadas em Recursos começa com .
+- Reveja o URI referenciado no seu código ou ferramenta. As APIs clássicas usam o https://management.core.windows.net URI. Deve utilizar o URI mais recente para as APIs baseadas em `https://management.azure.com/` recursos.
 
-- Compare o nome de montagem na sua máquina. A montagem clássica https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/mais antiga está em .
+- Compare o nome de montagem na sua máquina. A montagem clássica mais antiga está em https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/ .
 
-- Se estiver a usar a autenticação de certificado para aceder a métricas ou APIs de escala automática, está a utilizar um ponto final clássico e uma biblioteca. As APIs do newresource Manager exigem a autenticação do Diretório Ativo Azure através de um diretor de serviço ou do utilizador principal.
+- Se estiver a utilizar a autenticação de certificados para aceder a métricas ou APIs de autoescalação, está a utilizar um ponto final clássico e uma biblioteca. As NOVAS APIs do Gestor de Recursos requerem a autenticação do Azure Ative Directory através de um diretor de serviço ou de um responsável pelo utilizador.
 
 - Se estiver a utilizar chamadas referenciadas na documentação em qualquer um dos seguintes links, está a utilizar as APIs clássicas mais antigas.
 
-  - [Windows.Azure.Management.Biblioteca de classes de monitorização](https://docs.microsoft.com/previous-versions/azure/dn510414(v=azure.100))
+  - [Windows.Azure.Management.Monitoring Class Library](https://docs.microsoft.com/previous-versions/azure/dn510414(v=azure.100))
 
   - [Monitorização (clássica) .NET](https://docs.microsoft.com/previous-versions/azure/reference/mt348562(v%3dazure.100))
 
@@ -51,16 +50,16 @@ Se não tem a certeza se o seu código ou ferramentas personalizadas estão a ch
 
 ## <a name="why-you-should-switch"></a>Por que deve trocar
 
-Todas as capacidades existentes para a escala automática e métricas continuarão a funcionar através das novas APIs.  
+Todas as capacidades existentes para autoescalação e métricas continuarão a funcionar através das novas APIs.  
 
-A migração para apis mais recentes vem com capacidades baseadas em Recursos Manager, tais como suporte para controlo de acesso baseado em funções consistente (RBAC) em todos os seus serviços de monitorização. Também ganha funcionalidade adicional para métricas: 
+A migração para novas APIs vem com capacidades baseadas em Gestores de Recursos, tais como suporte para um controlo consistente de acesso baseado em funções (RBAC) em todos os seus serviços de monitorização. Também ganha funcionalidade adicional para métricas: 
 
-- apoio para dimensões
+- apoio a dimensões
 - granularidade métrica consistente de 1 minuto em todos os serviços 
 - melhor consulta
 - maior retenção de dados (93 dias de métricas vs. 30 dias) 
 
-No geral, como todos os outros serviços no Azure, as APIs do Monitor de Recursos baseadas em Recursos vêm com melhor desempenho, escalabilidade e fiabilidade. 
+No geral, como todos os outros serviços em Azure, o Gestor de Recursos Azure Monitor APIs vem com melhor desempenho, escalabilidade e fiabilidade. 
 
 ## <a name="what-happens-if-you-do-not-migrate"></a>O que acontece se não migrar
 
@@ -72,7 +71,7 @@ Não haverá qualquer impacto direto nos seus serviços Azure ou nas suas cargas
 
 Quaisquer chamadas para as APIs clássicas listadas anteriormente falharão e devolverão mensagens de erro semelhantes às seguintes:
 
-Para a escala automática: *Esta API foi depreciada. Utilize os modelos do portal Azure, Azure Monitor SDK, PowerShell, CLI ou Resource Manager para gerir as Definições*de Escala Automática .  
+Para uma escala automática: *Esta API foi depreciada. Utilize os modelos Azure Monitor SDK, PowerShell, CLI ou Resource Manager para gerir configurações de autoescalação*.  
 
 Para métricas: *Esta API foi depreciada. Utilize o portal Azure, Azure Monitor SDK, PowerShell, CLI para consultar métricas*.
 
@@ -80,12 +79,12 @@ Para métricas: *Esta API foi depreciada. Utilize o portal Azure, Azure Monitor 
 
 Foi enviada uma notificação de aposentadoria para endereços de e-mail para as seguintes funções de conta: 
 
-- Administradores de conta e de serviços
+- Administradores de conta e serviços
 - Coadministradores  
 
-Se tiver alguma dúvida, MonitorClassicAPIhelp@microsoft.comcontacte-nos em .  
+Se tiver alguma dúvida, contacte-nos em MonitorClassicAPIhelp@microsoft.com .  
 
 ## <a name="references"></a>Referências
 
-- [APIs de repouso mais recentes para o Monitor Azure](https://docs.microsoft.com/rest/api/monitor/) 
+- [Novas APIs REST para Monitor Azure](https://docs.microsoft.com/rest/api/monitor/) 
 - [Newer Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)

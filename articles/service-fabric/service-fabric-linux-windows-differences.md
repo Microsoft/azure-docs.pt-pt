@@ -5,23 +5,22 @@ ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: sfrev
 ms.openlocfilehash: c064291491110b17c172a561afbd1e65d6c08d06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75748523"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Diferenças entre o Service Fabric no Linux e no Windows
 
-Existem algumas funcionalidades que são suportadas no Windows, mas no Linux ainda não. Eventualmente, os conjuntos de funcionalidades estarão em paridade e, com cada versão, esta diferença de funcionalidades diminuirá. As seguintes diferenças existem entre os últimos lançamentos disponíveis.
+Existem algumas funcionalidades que são suportadas no Windows, mas no Linux ainda não. Eventualmente, os conjuntos de funcionalidades estarão em paridade e, com cada versão, esta diferença de funcionalidades diminuirá. Existem as seguintes diferenças entre as últimas versões disponíveis.
 
-* Enviado (Procuração Inversa) está em pré-estreia no Linux
+* Enviado (Reverse Proxy) está em pré-visualização no Linux
 * O instalador autónomo para Linux ainda não está disponível no Linux
 * Redirecionamento da consola (não suportado em clusters de produção do Windows ou Linux)
 * O Serviço de Análise de Falhas (FAS) no Linux
 * Serviço DNS para serviços do Service Fabric (o serviço DNS é suportado para contentores no Linux)
 * Equivalentes de comandos da CLI de determinados comandos do Powershell (lista abaixo, a maioria da qual é aplicável apenas a clusters autónomos)
-* [Diferenças na implementação de registos que podem afetar a escalabilidade](service-fabric-concepts-scalability.md#choosing-a-platform)
+* [Diferenças na implementação do registo que podem afetar a escalabilidade](service-fabric-concepts-scalability.md#choosing-a-platform)
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Cmdlets do PowerShell que não funcionam num cluster do Service Fabric do Linux
 
@@ -78,11 +77,11 @@ Existem algumas funcionalidades que são suportadas no Windows, mas no Linux ain
 * Stop-ServiceFabricRepairTask
 * Update-ServiceFabricRepairTaskHealthPolicy
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Preparar o ambiente de desenvolvimento no Linux](service-fabric-get-started-linux.md)
 * [Prepare your development environment on OSX (Preparar o ambiente de desenvolvimento no OSX)](service-fabric-get-started-mac.md)
 * [Criar e implementar a sua primeira aplicação Java do Service Fabric no Linux com o Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
-* [Crie e implemente a sua primeira aplicação de Serviço Fabric Java no Linux usando plugin de tecido de serviço para eclipse](service-fabric-get-started-eclipse.md)
+* [Crie e implemente a sua primeira aplicação De Tecido de Serviço Java no Linux utilizando o Plugin de Tecido de Serviço para Eclipse](service-fabric-get-started-eclipse.md)
 * [Create your first CSharp application on Linux (Criar a sua primeira aplicação CSharp no Linux)](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Utilizar a CLI do Service Fabric para gerir as aplicações](service-fabric-application-lifecycle-sfctl.md)

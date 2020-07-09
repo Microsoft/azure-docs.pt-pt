@@ -1,32 +1,28 @@
 ---
-title: Use a Grelha de Eventos Azure com eventos em esquema CloudEvents
-description: Descreve como usar o esquema CloudEvents para eventos em Azure Event Grid. O serviço suporta eventos na implementação da JSON de Cloud Events.
-services: event-grid
-author: banisadr
-ms.service: event-grid
+title: CloudEvents v1.0 schema com Azure Event Grid
+description: Descreve como usar o esquema do CloudEvents para eventos em Azure Event Grid. O serviço suporta eventos na implementação json de Eventos cloud.
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.author: babanisa
-ms.openlocfilehash: 127095bef2c67a93097bf90bea54ca1b44b16c58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/07/2020
+ms.openlocfilehash: 1c6085c0397f23d44cf11d43a3e1da71f0e728bb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81394387"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103080"
 ---
-# <a name="cloudevents-v10-schema-with-event-grid"></a>CloudEvents v1.0 schema com grelha de eventos
+# <a name="cloudevents-v10-schema-with-azure-event-grid"></a>CloudEvents v1.0 schema com Azure Event Grid
 
-Além do seu [esquema de evento padrão,](event-schema.md)a Azure Event Grid apoia de forma nativa eventos na [implementação jSON de CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) e [http protocol binding](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) é uma [especificação aberta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) para descrever dados do evento.
+Além do seu [esquema de eventos predefinidos,](event-schema.md)a Azure Event Grid suporta de forma nativa eventos na [implementação JSON de cloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) e [protocolo HTTP.](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md) [CloudEvents](https://cloudevents.io/) é uma [especificação aberta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) para descrever dados de eventos.
 
-A CloudEvents simplifica a interoperabilidade fornecendo um esquema comum de eventos para a publicação e consumindo eventos baseados em nuvem. Este esquema permite uma ferramenta uniforme, formas padrão de encaminhamento & lidar com eventos, e formas universais de desserialização do esquema de eventos exteriores. Com um esquema comum, pode integrar mais facilmente o trabalho em todas as plataformas.
+O CloudEvents simplifica a interoperabilidade, fornecendo um esquema comum de eventos para a publicação e consumindo eventos baseados na nuvem. Este esquema permite uma ferramenta uniforme, formas padrão de encaminhamento & eventos de manuseamento, e formas universais de desseeciar o esquema do evento exterior. Com um esquema comum, pode integrar mais facilmente o trabalho através das plataformas.
 
-A CloudEvents está a ser construída por [vários colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), incluindo a Microsoft, através da [Cloud Native Computing Foundation](https://www.cncf.io/). Atualmente está disponível como versão 1.0.
+O CloudEvents está a ser construído por [vários colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), incluindo a Microsoft, através da [Cloud Native Computing Foundation.](https://www.cncf.io/) Atualmente está disponível como versão 1.0.
 
-Este artigo descreve o esquema CloudEvents com a Grelha de Eventos.
+Este artigo descreve o esquema do CloudEvents com a Grade de Eventos.
 
-## <a name="sample-event-using-cloudevents-schema"></a>Evento de amostra usando esquema CloudEvents
+## <a name="sample-event-using-cloudevents-schema"></a>Evento de amostra usando o esquema do CloudEvents
 
-Aqui está um exemplo de um evento de armazenamento De Blob Azure no formato CloudEvents:
+Aqui está um exemplo de um evento de Armazenamento Azure Blob no formato CloudEvents:
 
 ``` JSON
 {
@@ -54,22 +50,22 @@ Aqui está um exemplo de um evento de armazenamento De Blob Azure no formato Clo
 }
 ```
 
-Uma descrição detalhada dos campos disponíveis, seus tipos e definições em CloudEvents v1.0 está [disponível aqui](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
+Uma descrição detalhada dos campos disponíveis, seus tipos e definições em CloudEvents v1.0 está [disponível aqui.](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes)
 
-Os valores dos cabeçalhos para eventos entregues no esquema CloudEvents e `content-type`no esquema da Grelha de Eventos são os mesmos exceto para . Para o esquema CloudEvents, o `"content-type":"application/cloudevents+json; charset=utf-8"`valor do cabeçalho é . Para o esquema da Grelha de `"content-type":"application/json; charset=utf-8"`Eventos, o valor do cabeçalho é .
+Os valores dos cabeçalhos para os eventos entregues no esquema cloudEvents e no esquema da Grelha de Eventos são os mesmos, exceto `content-type` . Para o esquema cloudEvents, o valor do cabeçalho é `"content-type":"application/cloudevents+json; charset=utf-8"` . Para o esquema da Grelha de Eventos, o valor do cabeçalho é `"content-type":"application/json; charset=utf-8"` .
 
-## <a name="event-grid-for-cloudevents"></a>Grelha de eventos para CloudEvents
+## <a name="event-grid-for-cloudevents"></a>Grelha de eventos para Eventos CloudEvents
 
-Pode utilizar a Grelha de Eventos tanto para a entrada como para a saída de eventos em esquema CloudEvents. Você pode usar CloudEvents para eventos de sistema, como eventos de armazenamento blob e eventos IoT Hub, e eventos personalizados. Também pode transformar esses eventos no fio de um lado para o outro.
+Você pode usar a Grade de Eventos tanto para a entrada como para a saída de eventos no esquema do CloudEvents. Você pode usar Eventos CloudEvents para eventos do sistema, como eventos blob storage e eventos IoT Hub, e eventos personalizados. Também pode transformar esses eventos no fio para trás e para a frente.
 
 
-| Input schema       | Esquema de saída
+| Esquema de entrada       | Esquema de saída
 |--------------------|---------------------
 | Formato CloudEvents | Formato CloudEvents
-| Formato Da Grelha de Eventos  | Formato CloudEvents
-| Formato Da Grelha de Eventos  | Formato Da Grelha de Eventos
+| Formato de grelha de eventos  | Formato CloudEvents
+| Formato de grelha de eventos  | Formato de grelha de eventos
 
-Para todos os eventos, a Grelha de Eventos requer validação ao publicar para um tópico de grelha de eventos e ao criar uma subscrição de eventos. Para mais informações, consulte [a segurança e a autenticação da Rede de Eventos.](security-authentication.md)
+Para todos os esquemas de eventos, o Event Grid requer validação ao publicar um tópico de grelha de eventos e ao criar uma subscrição de eventos. Para mais informações, consulte [a segurança e a autenticação da Grade de Eventos.](security-authentication.md)
 
-## <a name="next-steps"></a>Passos seguintes
-Ver [Como utilizar cloudEvents v1.0 schema com Grelha](cloudevents-schema.md)de Eventos .  
+## <a name="next-steps"></a>Próximos passos
+Ver [como utilizar o esquema cloudEvents v1.0 com grade de eventos](cloudevents-schema.md).  

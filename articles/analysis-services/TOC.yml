@@ -30,9 +30,9 @@
     - name: Automatização com principais de serviço
       href: analysis-services-service-principal.md
     - name: Bibliotecas de cliente
-      href: analysis-services-data-providers.md
+      href: 'https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current'
     - name: Nível de compatibilidade
-      href: 'https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services'
+      href: 'https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services?view=azure-analysis-services-current'
     - name: Ligar a origens de dados no local
       href: analysis-services-gateway.md
     - name: Ligar aos servidores
@@ -71,6 +71,8 @@
           href: ../active-directory/develop/howto-authenticate-service-principal-powershell.md
         - name: Adicionar um principal de serviço à função de administrador do servidor
           href: analysis-services-addservprinc-admins.md
+        - name: Mover entre regiões
+          href: move-between-regions.md
     - name: Modelo
       items:
         - name: Modelação tabular
@@ -120,11 +122,9 @@
     - name: Amostras
       href: analysis-services-samples.md
     - name: Blogue da equipa do Analysis Services
-      href: 'https://blogs.msdn.microsoft.com/analysisservices/'
-    - name: Página de perguntas das Perguntas e Respostas da Microsoft sobre o Azure Analysis Services
-      href: 'https://docs.microsoft.com/answers/topics/azure-analysis-services.html'
-    - name: Mapa do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
+      href: 'https://powerbi.microsoft.com/blog/category/analysis-services/'
+    - name: Atualizações do Azure
+      href: 'https://azure.microsoft.com/updates/?query=Analysis%20Services'
     - name: Estado do Azure
       href: 'https://azure.microsoft.com/status/'
     - name: Comentários

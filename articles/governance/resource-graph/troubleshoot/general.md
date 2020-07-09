@@ -1,34 +1,33 @@
 ---
 title: Resolver erros comuns
-description: Aprenda a resolver problemas com os vários SDKs enquanto consulta os recursos do Azure com o Azure Resource Graph.
+description: Aprenda a resolver problemas com os vários SDKs enquanto consulta recursos Azure com O Gráfico de Recursos Azure.
 ms.date: 05/20/2020
 ms.topic: troubleshooting
 ms.openlocfilehash: e1b3758e52641bc27341c5da0ced9e811263c02b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83683228"
 ---
-# <a name="troubleshoot-errors-using-azure-resource-graph"></a>Erros de resolução de problemas usando o gráfico de recursos do Azure
+# <a name="troubleshoot-errors-using-azure-resource-graph"></a>Erros de resolução de problemas usando gráfico de recurso Azure
 
-Pode ter erros ao consultar os recursos do Azure com o Azure Resource Graph. Este artigo descreve vários erros que podem ocorrer e como resolvê-los.
+Pode encontrar erros ao consultar os recursos do Azure com o Azure Resource Graph. Este artigo descreve vários erros que podem ocorrer e como resolvê-los.
 
 ## <a name="finding-error-details"></a>Encontrar detalhes de erro
 
-A maioria dos erros é o resultado de um problema enquanto executa uma consulta com o Azure Resource Graph. Quando uma consulta falha, o SDK fornece detalhes sobre a consulta falhada. Estas informações indicam a questão para que possa ser corrigida e uma consulta posterior tenha sucesso.
+A maioria dos erros são o resultado de um problema durante a execução de uma consulta com o Azure Resource Graph. Quando uma consulta falha, o SDK fornece detalhes sobre a consulta falhada. Esta informação indica a questão para que possa ser corrigida e uma consulta posterior seja bem sucedida.
 
 ## <a name="general-errors"></a>Erros gerais
 
-### <a name="scenario-throttled-requests"></a><a name="throttled"></a>Cenário: Pedidos acelerados
+### <a name="scenario-throttled-requests"></a><a name="throttled"></a>Cenário: Pedidos de throttled
 
 #### <a name="issue"></a>Problema
 
-Os clientes que fazem consultas de recursos grandes ou frequentes têm pedidos estrangulados.
+Os clientes que fazem consultas de recursos grandes ou frequentes têm pedidos acelerados.
 
 #### <a name="cause"></a>Causa
 
-O Azure Resource Graph atribui um número de quota para cada utilizador com base numa janela de tempo. Por exemplo, um utilizador pode enviar no máximo 15 consultas dentro de cada janela de 5 segundos sem ser estrangulado. O valor da quota é determinado por muitos fatores e está sujeito a alterações. Para mais informações, consulte [Throttling no Gráfico](../overview.md#throttling)de Recursos Azure .
+O Azure Resource Graph atribui um número de quota para cada utilizador com base numa janela de tempo. Por exemplo, um utilizador pode enviar no máximo 15 consultas dentro de cada janela de 5 segundos sem ser estrangulado. O valor do contingente é determinado por muitos fatores e está sujeito a alterações. Para obter mais informações, consulte [Throttling no Azure Resource Graph](../overview.md#throttling).
 
 #### <a name="resolution"></a>Resolução
 
@@ -43,15 +42,15 @@ Existem vários métodos para lidar com pedidos acelerados:
 
 #### <a name="issue"></a>Problema
 
-Os clientes com acesso a mais de 1000 subscrições, incluindo subscrições de inquilinos cruzados com [o Farol Azure,](../../../lighthouse/overview.md)não podem recolher dados em todas as subscrições numa única chamada para o Azure Resource Graph.
+Os clientes com acesso a mais de 1000 subscrições, incluindo subscrições de inquilinos cruzadas com [o Azure Lighthouse,](../../../lighthouse/overview.md)não conseguem obter dados em todas as subscrições numa única chamada para o Azure Resource Graph.
 
 #### <a name="cause"></a>Causa
 
-Azure CLI e PowerShell apenas avançam as primeiras 1000 subscrições do Azure Resource Graph. O REST API para o Azure Resource Graph aceita um número máximo de subscrições para realizar a consulta.
+A Azure CLI e PowerShell avançam apenas as primeiras 1000 subscrições do Azure Resource Graph. A API REST para Azure Resource Graph aceita um número máximo de subscrições para realizar a consulta.
 
 #### <a name="resolution"></a>Resolução
 
-Pedidos de lote para a consulta com um subconjunto de subscrições para permanecer abaixo do limite de subscrição de 1000. A solução está a utilizar o parâmetro **de subscrição** no PowerShell.
+Pedidos de lote para a consulta com um subconjunto de subscrições para permanecer abaixo do limite de subscrição 1000. A solução está a utilizar o parâmetro **de Subscrição** no PowerShell.
 
 ```azurepowershell-interactive
 # Replace this query with your own
@@ -76,25 +75,25 @@ foreach ($batch in $subscriptionsBatch){ $response += Search-AzGraph -Query $que
 $response
 ```
 
-### <a name="scenario-unsupported-content-type-rest-header"></a><a name="rest-contenttype"></a>Cenário: Cabeçalho DE REPOUSO DO Tipo de Conteúdo Não Suportado
+### <a name="scenario-unsupported-content-type-rest-header"></a><a name="rest-contenttype"></a>Cenário: Cabeçalho de descanso do tipo de conteúdo não suportado
 
 #### <a name="issue"></a>Problema
 
-Os clientes que consultam o Gráfico de Recursos Azure REST API recebem uma resposta _de 500_ (Erro de Servidor Interno) devolvida.
+Os clientes que consultam o Azure Resource Graph REST API obtêm uma resposta _de 500_ (Erro do Servidor Interno) devolvida.
 
 #### <a name="cause"></a>Causa
 
-A API do gráfico de recursos azure REST apenas suporta uma `Content-Type` **aplicação/json**. Algumas ferramentas rest ou agentes predefinidos para **texto/planície**, que não é suportado pela API REST.
+A Azure Resource Graph REST API suporta apenas uma `Content-Type` **aplicação/json**. Algumas ferramentas ou agentes REST por defeito de **texto/planície,** que não é suportado pela API REST.
 
 #### <a name="resolution"></a>Resolução
 
-Valide que a ferramenta ou agente que está a usar para consultar o Gráfico de Recursos Azure tem o cabeçalho REST API `Content-Type` configurado para **aplicação/json**.
+Valide que a ferramenta ou agente que está a utilizar para consultar o Azure Resource Graph tem o cabeçalho REST API `Content-Type` configurado para **aplicação/json**.
 
-### <a name="scenario-no-read-permission-to-all-subscriptions-in-list"></a><a name="rest-403"></a>Cenário: Não há autorização de leitura para todas as subscrições da lista
+### <a name="scenario-no-read-permission-to-all-subscriptions-in-list"></a><a name="rest-403"></a>Cenário: Não leia autorização para todas as subscrições na lista
 
 #### <a name="issue"></a>Problema
 
-Os clientes que passam explicitamente uma lista de subscrições com uma consulta do Azure Resource Graph obtêm uma resposta _403_ (Proibida).
+Os clientes que passam explicitamente uma lista de subscrições com uma consulta de Gráfico de Recursos Azure obtêm uma resposta _403_ (Proibida).
 
 #### <a name="cause"></a>Causa
 
@@ -102,12 +101,12 @@ Se o cliente não tiver lido permissão para todas as subscrições fornecidas, 
 
 #### <a name="resolution"></a>Resolução
 
-Inclua pelo menos uma subscrição na lista de subscrição a que o cliente que executa a consulta tenha pelo menos lido acesso. Para mais informações, consulte [Permissões no Gráfico](../overview.md#permissions-in-azure-resource-graph)de Recursos Azure .
+Inclua pelo menos uma subscrição na lista de subscrição a que o cliente que executa a consulta tem pelo menos acesso lido. Para obter mais informações, consulte [permissões no Gráfico de Recursos Azure](../overview.md#permissions-in-azure-resource-graph).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
+Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
-- Obtenha respostas de especialistas do Azure através dos [Fóruns Azure.](https://azure.microsoft.com/support/forums/)
-- Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente, ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
-- Se precisar de mais ajuda, pode apresentar um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.
+- Obtenha respostas de especialistas da Azure através dos [Fóruns Azure.](https://azure.microsoft.com/support/forums/)
+- Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
+- Se precisar de mais ajuda, pode apresentar um incidente de apoio ao Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter **Apoio**.

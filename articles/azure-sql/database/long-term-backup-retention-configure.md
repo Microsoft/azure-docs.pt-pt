@@ -1,73 +1,72 @@
 ---
 title: 'Base de Dados Azure SQL: Gerir a retenção de backup a longo prazo'
-description: Saiba como armazenar e restaurar cópias de segurança automatizadas para uma base de dados única ou pooled Azure SQL no armazenamento Azure (por um período de 10 anos) utilizando o portal Azure e powerShell
+description: Saiba como armazenar e restaurar cópias de segurança automatizadas para a Base de Dados Azure SQL em armazenamento Azure (até 10 anos) utilizando o portal Azure e PowerShell
 services: sql-database
-ms.service: sql-database
-ms.subservice: operations
+ms.service: sql-db-mi
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 04/14/2020
-ms.openlocfilehash: 6ae38bb81ad0b229d6bb5a9e2f626d17810d7b01
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 713ac569acb7866b4c7431b80e2afb1e7953ce08
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048344"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087372"
 ---
-# <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerir a retenção de backup de backup de base de dados Azure SQL
+# <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerir a Azure SQL Database retenção de backup a longo prazo
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Na Base de Dados Azure SQL, pode configurar uma base de dados com uma política de [retenção](long-term-retention-overview.md) de backup a longo prazo (LTR) para reter automaticamente as cópias de dados em recipientes de armazenamento Azure Blob separados por um período máximo de 10 anos. Em seguida, pode recuperar uma base de dados utilizando estas cópias de segurança utilizando o portal Azure ou powerShell. Também pode configurar a retenção a longo prazo para um [Caso Gerido Azure SQL,](../managed-instance/long-term-backup-retention-configure.md) mas encontra-se atualmente em pré-visualização pública limitada.
+Na Base de Dados Azure SQL, pode configurar uma base de dados com uma política [de retenção de backup de longo prazo](long-term-retention-overview.md) (LTR) para reter automaticamente as cópias de segurança da base de dados em recipientes de armazenamento separados Azure Blob por um período máximo de 10 anos. Em seguida, pode recuperar uma base de dados utilizando estas cópias de segurança utilizando o portal Azure ou o PowerShell. Pode configurar a retenção a longo prazo para uma [Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md) também, mas está atualmente em pré-visualização pública limitada.
 
-## <a name="using-azure-portal"></a>Com o Portal do Azure
+## <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
 
-As seguintes secções mostram-lhe como usar o portal Azure para configurar a retenção a longo prazo, ver backups em retenção a longo prazo e restaurar o backup da retenção a longo prazo.
+As secções seguintes mostram-lhe como usar o portal Azure para configurar a retenção a longo prazo, ver backups na retenção a longo prazo e restaurar o backup da retenção a longo prazo.
 
 ### <a name="configure-long-term-retention-policies"></a>Configure políticas de retenção a longo prazo
 
-Pode configurar a Base de Dados SQL para reter cópias de [segurança automatizadas](long-term-retention-overview.md) por um período mais longo do que o período de retenção para o seu nível de serviço.
+Pode configurar a Base de Dados SQL para [reter cópias de segurança automatizadas](long-term-retention-overview.md) por um período superior ao período de retenção para o seu nível de serviço.
 
-1. No portal Azure, selecione o seu servidor SQL e, em seguida, clique em **Gerir Backups**. No separador **de políticas Configure,** selecione a caixa de verificação para a base de dados na qual pretende definir ou modificar as políticas de retenção de cópias de segurança a longo prazo. Se a caixa de verificação ao lado da base de dados não for selecionada, as alterações da apólice não se aplicarão a essa base de dados.  
+1. No portal Azure, selecione a sua instância SQL Server e, em seguida, clique em **Gerir Backups**. No **separador políticas de configuração,** selecione a caixa de verificação para a base de dados na qual pretende definir ou modificar políticas de retenção de backup a longo prazo. Se a caixa de verificação ao lado da base de dados não for selecionada, as alterações da política não serão aplicadas a essa base de dados.  
 
-   ![gerir o link de backups](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
+   ![gerir ligação de backups](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
 
-2. No painel de **políticas configure,** selecione se quiser reter cópias de segurança semanais, mensais ou anuais e especifique o período de retenção para cada um.
+2. No painel de **políticas de configuração,** selecione se quiser reter backups semanais, mensais ou ano inteiros e especificar o período de retenção para cada um.
 
    ![configurar políticas](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
 
 3. Quando estiver concluído, clique **em Aplicar**.
 
 > [!IMPORTANT]
-> Quando permite uma política de retenção de backup a longo prazo, pode levar até 7 dias para que o primeiro backup se torne visível e disponível para restaurar. Para obter detalhes sobre o cadance de reserva LTR, consulte a [retenção de backup a longo prazo](long-term-retention-overview.md).
+> Quando ativar uma política de retenção de backup a longo prazo, pode levar até 7 dias para que a primeira cópia de segurança fique visível e disponível para restaurar. Para obter detalhes sobre o cadance de backup LTR, consulte [a retenção de backup a longo prazo](long-term-retention-overview.md).
 
-### <a name="view-backups-and-restore-from-a-backup"></a>Ver backups e restaurar a partir de um backup
+### <a name="view-backups-and-restore-from-a-backup"></a>Ver backups e restaurar a partir de uma cópia de segurança
 
-Veja as cópias de segurança retidas para uma base de dados específica com uma política LTR e restaure a partir desses backups.
+Veja as cópias de segurança que são mantidas para uma base de dados específica com uma política LTR e restaure a partir dessas cópias de segurança.
 
-1. No portal Azure, selecione o seu servidor e, em seguida, clique em **'Gerir Backups'.** No separador **de backups disponível,** selecione a base de dados para a qual pretende ver cópias de segurança disponíveis.
+1. No portal Azure, selecione o seu servidor e, em seguida, clique em **Gerir Backups**. No separador **de backups disponível,** selecione a base de dados para a qual deseja ver cópias de segurança disponíveis.
 
    ![selecionar base de dados](./media/long-term-backup-retention-configure/ltr-available-backups-select-database.png)
 
-1. No painel de **backups disponível,** reveja as cópias de segurança disponíveis.
+1. No painel **de backups disponível,** reveja as cópias de segurança disponíveis.
 
    ![ver backups](./media/long-term-backup-retention-configure/ltr-available-backups.png)
 
-1. Selecione a cópia de segurança a partir da qual pretende restaurar e, em seguida, especifique o novo nome da base de dados.
+1. Selecione a cópia de segurança a partir da qual pretende restaurar e, em seguida, especifique o nome da nova base de dados.
 
    ![restore](./media/long-term-backup-retention-configure/ltr-restore.png)
 
-1. Clique **em OK** para restaurar a sua base de dados a partir da cópia de segurança no armazenamento Azure SQL para a nova base de dados.
+1. Clique **em OK** para restaurar a sua base de dados a partir da cópia de segurança no armazenamento Azure para a nova base de dados.
 
 1. Na barra de ferramentas, clique no ícone de notificação para ver o estado da tarefa de restauro.
 
    ![progresso da tarefa de restauro](./media/long-term-backup-retention-configure/restore-job-progress-long-term.png)
 
-1. Quando o trabalho de restauro estiver concluído, abra a página de bases de **dados SQL** para ver a base de dados recém-restaurada.
+1. Quando o trabalho de restauro estiver concluído, abra a página **de bases de dados SQL** para ver a base de dados recentemente restaurada.
 
 > [!NOTE]
 > A partir daqui, pode ligar à base de dados restaurada através do o SQL Server Management Studio para efetuar tarefas necessárias, bem como para [extrair alguns dados da base de dados restaurada para copiá-los para a base de dados existente ou para eliminar a base de dados existente e mudar o nome da base de dados restaurada para o nome da base de dados existente](recovery-using-backups.md#point-in-time-restore).
@@ -79,29 +78,29 @@ Veja as cópias de segurança retidas para uma base de dados específica com uma
 > [!IMPORTANT]
 > O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
-As seguintes secções mostram-lhe como usar o PowerShell para configurar a retenção de cópiade cópias de segurança a longo prazo, ver backups no armazenamento Azure SQL e restaurar a partir de uma cópia de segurança no armazenamento Azure SQL.
+As seguintes secções mostram-lhe como usar o PowerShell para configurar a retenção de backup a longo prazo, ver cópias de segurança no armazenamento Azure e restaurar a partir de uma cópia de segurança no armazenamento Azure.
 
-### <a name="rbac-roles-to-manage-long-term-retention"></a>Funções rBAC para gerir a retenção a longo prazo
+### <a name="rbac-roles-to-manage-long-term-retention"></a>Funções do RBAC para gerir a retenção a longo prazo
 
 Para **Get-AzSqlDatabaseLongTermRetentionBackup** e **Restore-AzSqlDatabase,** terá de ter uma das seguintes funções:
 
-- Função do Proprietário da Subscrição ou
-- Função de Colaborador do Servidor SQL ou
-- Papel personalizado com as seguintes permissões:
+- Função do Proprietário de Assinatura ou
+- Papel de contribuinte do servidor SQL ou
+- Função personalizada com as seguintes permissões:
 
    Microsoft.Sql/locations/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
 
 Para **remover-AzSqlDatabaseLongTermRetentionBackup,** terá de ter uma das seguintes funções:
 
-- Função do Proprietário da Subscrição ou
-- Papel personalizado com a seguinte permissão:
+- Função do Proprietário de Assinatura ou
+- Função personalizada com a seguinte permissão:
 
    Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
 > [!NOTE]
-> A função De Colaborador do Servidor SQL não tem permissão para eliminar cópias de segurança LTR.
+> A função sql Server Contributor não tem permissão para eliminar cópias de segurança LTR.
 
-As permissões RBAC podem ser concedidas no âmbito de *subscrição* ou de grupo de *recursos.* No entanto, para aceder a cópias de segurança LTR que pertencem a um servidor abandonado, a permissão deve ser concedida no âmbito de *subscrição* desse servidor.
+As permissões do RBAC poderiam ser concedidas no âmbito *de subscrição* ou *grupo de recursos.* No entanto, para aceder a cópias de segurança LTR que pertencem a um servidor abandonado, a permissão deve ser concedida no âmbito de *subscrição* desse servidor.
 
 - Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
@@ -128,23 +127,23 @@ Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -Database
     -ResourceGroupName $resourceGroup -WeeklyRetention P12W -YearlyRetention P5Y -WeekOfYear 16
 ```
 
-### <a name="view-ltr-policies"></a>Ver políticas LTR
+### <a name="view-ltr-policies"></a>Ver as políticas LTR
 
 Este exemplo mostra como listar as políticas LTR dentro de um servidor
 
 ```powershell
 # get all LTR policies within a server
-$ltrPolicies = Get-AzSqlDatabase -ResourceGroupName Default-SQL-WestCentralUS -ServerName trgrie-ltr-server | `
-    Get-AzSqlDatabaseLongTermRetentionPolicy -Current
+$ltrPolicies = Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $serverName | `
+    Get-AzSqlDatabaseLongTermRetentionPolicy
 
 # get the LTR policy of a specific database
 $ltrPolicies = Get-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName `
-    -ResourceGroupName $resourceGroup -Current
+    -ResourceGroupName $resourceGroup
 ```
 
-### <a name="clear-an-ltr-policy"></a>Limpar uma política lTR
+### <a name="clear-an-ltr-policy"></a>Limpar uma política LTR
 
-Este exemplo mostra como limpar uma política LTR a partir de uma base de dados
+Este exemplo mostra como limpar uma política LTR de uma base de dados
 
 ```powershell
 Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName `
@@ -175,7 +174,7 @@ $ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Locatio
 
 ### <a name="delete-ltr-backups"></a>Eliminar backups LTR
 
-Este exemplo mostra como eliminar uma cópia de segurança LTR da lista de backups.
+Este exemplo mostra como eliminar uma cópia de segurança LTR da lista de cópias de segurança.
 
 ```powershell
 # remove the earliest backup
@@ -184,11 +183,11 @@ Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 
 > [!IMPORTANT]
-> A descontinuação do LTR não é reversível. Para eliminar uma cópia de segurança LTR depois de o servidor ter sido eliminado, deve ter permissão de âmbito de subscrição. Pode configurar notificações sobre cada eliminação no Monitor Azure filtrando para operação 'Elimina uma cópia de segurança de retenção a longo prazo'. O registo de atividade contém informações sobre quem e quando fez o pedido. Consulte [criar alertas](../../azure-monitor/platform/alerts-activity-log.md) de registo de atividade para obter instruções detalhadas.
+> Eliminar a cópia de segurança LTR não é reversível. Para eliminar uma cópia de segurança LTR depois de o servidor ter sido eliminado, tem de ter permissão de âmbito de subscrição. Pode configurar notificações sobre cada exclusão no Azure Monitor filtrando para a operação "Elimina uma cópia de segurança de retenção a longo prazo". O registo de atividades contém informações sobre quem e quando foi feito o pedido. Consulte [Criar alertas de registo de atividade](../../azure-monitor/platform/alerts-activity-log.md) para obter instruções detalhadas.
 
-### <a name="restore-from-ltr-backups"></a>Restaurar a partir de backups LTR
+### <a name="restore-from-ltr-backups"></a>Restauro a partir de backups LTR
 
-Este exemplo mostra como restaurar a partir de uma cópia de segurança LTR. Note que esta interface não mudou, mas o parâmetro id de recurso agora requer o id de recurso de reserva LTR.
+Este exemplo mostra como restaurar a partir de uma cópia de segurança LTR. Nota: esta interface não mudou, mas o parâmetro de identificação de recursos requer agora o ID de recursos de backup LTR.
 
 ```powershell
 # restore a specific LTR backup as an P1 database on the server $serverName of the resource group $resourceGroup
@@ -197,7 +196,7 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 ```
 
 > [!IMPORTANT]
-> Para restaurar a partir de uma cópia de segurança LTR após a eliminação do servidor, deve ter permissões consultadas na subscrição do servidor e essa subscrição deve estar ativa. Também deve omitir o parâmetro opcional -ResourceGroupName.
+> Para restaurar a partir de uma cópia de segurança LTR após o servidor ter sido eliminado, tem de ter permissões na subscrição do servidor e essa subscrição deve estar ativa. Também deve omitir o parâmetro opcional -ResourceGroupName.
 
 > [!NOTE]
 > A partir daqui, pode ligar à base de dados restaurada através do o SQL Server Management Studio para efetuar tarefas necessárias, bem como para extrair alguns dados da base de dados restaurada para copiá-los para a base de dados existente ou para eliminar a base de dados existente e mudar o nome da base de dados restaurada para o nome da base de dados existente. Ver [ponto no tempo restaurar](recovery-using-backups.md#point-in-time-restore).

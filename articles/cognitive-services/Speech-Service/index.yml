@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 87190c5cab772e4b8dc04672066e575b10c14533
-  ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+  ms.openlocfilehash: 455f71c7fd9defd7a1187f6b5df6b5b3b9c3131b
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/22/2020
-  ms.locfileid: "83800785"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85563761"
 highlightedContent:
   items:
   - title: O que é o serviço de Voz?
@@ -123,10 +123,13 @@ conceptualContent:
     links:
     - itemType: how-to-guide
       text: Acerca do Reconhecimento de Orador
-      url: ../Speaker-recognition/Home.md
+      url: speaker-recognition-overview.md
+    - itemType: how-to-guide
+      text: Noções básicas de Reconhecimento de Orador
+      url: speaker-recognition-basics.md
     - itemType: how-to-guide
       text: Referência da API de Reconhecimento de Orador
-      url: https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797
+      url: https://docs.microsoft.com/rest/api/speakerrecognition/
   - title: Ferramentas
     links:
     - itemType: overview
@@ -138,7 +141,7 @@ conceptualContent:
     - itemType: overview
       text: Acerca do Speech Studio (personalizações)
       url: https://speech.microsoft.com
-  - title: Alojamento
+  - title: Hosting
     links:
     - itemType: how-to-guide
       text: Contentores do serviço de Voz
@@ -211,6 +214,8 @@ additionalContent:
         url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
     - title: Recursos
       links:
+      - text: Novidades no Docs?
+        url: whats-new.md
       - text: Preços
         url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
       - text: Regiões

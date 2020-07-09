@@ -1,30 +1,29 @@
 ---
-title: Série HBv2 - Máquinas Virtuais Azure
+title: Série HBv2 - Azure Virtual Machines
 description: Especificações para os VMs da série HBv2.
-services: virtual-machines
 author: vermagit
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: amverma
-ms.openlocfilehash: eea649610ca53ccbb98b5ca361555280dcd3dafe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 730065333fde7431b7018ef0a6e614e12727d7ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78164802"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84673858"
 ---
 # <a name="hbv2-series"></a>Série HBv2
 
-Os VMs da série HBv2 são otimizados para aplicações impulsionadas pela largura de banda da memória, tais como dinâmica de fluidos, análise de elementos finitos e simulação do reservatório. Os VMs HBv2 apresentam 120 núcleos de processador AMD EPYC 7742, 4 GB de RAM por núcleo CPU e sem multithreading simultâneo. Cada HBv2 VM fornece até 340 GB/sede de largura de banda de memória, e até 4 teraFLOPS de computação FP64.
+Os VMs da série HBv2 são otimizados para aplicações impulsionadas pela largura de banda da memória, tais como dinâmica de fluidos, análise de elementos finitos e simulação do reservatório. Os VMs HBv2 dispõem de 120 núcleos de processador AMD EPYC 7742, 4 GB de RAM por núcleo CPU e sem multi-leitura simultânea. Cada HBv2 VM fornece até 340 GB/seg de largura de banda de memória, e até 4 teraFLOPS de FP64 compute.
 
 Armazenamento Premium: Suportado
 
-Migração Ao Vivo: Não Suportado
+Migração ao vivo: Não suportado
 
-Atualizações de preservação da memória: não suportadas
+Atualizações de preservação da memória: Não suportadas
 
-| Tamanho | vCPU | Processador | Memória (GB) | Largura de banda de memória GB/s | Frequência de CPU base (GHz) | Frequência de todos os núcleos (GHz, pico) | Frequência de núcleo único (GHz, pico) | Desempenho RDMA (Gb/s) | Suporte do MPI | Armazenamento temporário (GB) | Discos de dados máximos | Max Ethernet NICs |
+| Tamanho | vCPU | Processador | Memória (GB) | Largura de banda de memória GB/s | Frequência base cpu (GHz) | Frequência all-cores (GHz, pico) | Frequência monomússária (GHz, pico) | Desempenho de RDMA (Gb/s) | Suporte mpi | Armazenamento temporário (GB) | Discos de dados máximos | Max Ethernet NICs |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HB120rs_v2 | 120 | AMD EPYC 7V12 | 480 | 350 | 2.45 | 3,1 | 3.3 | 200 | Todos | 480 + 960 | 8 | 1 |
 
@@ -40,6 +39,6 @@ Atualizações de preservação da memória: não suportadas
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre como as unidades de [computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho da computação em Azure SKUs.
+Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

@@ -1,5 +1,5 @@
 ---
-title: Mova dados do Serviço de Armazenamento Simples da Amazon usando a Fábrica de Dados
+title: Mover dados do Serviço de Armazenamento Simples da Amazon utilizando a Data Factory
 description: Saiba como mover dados do Amazon Simple Storage Service (S3) utilizando a Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,13 +13,12 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: b23be9901df7ca435f412d9f49e1a7ad88382ade
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281655"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711923"
 ---
-# <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Mova dados do Serviço de Armazenamento Simples da Amazon utilizando a Fábrica de Dados Azure
+# <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Mover dados do Serviço de Armazenamento Simples da Amazon utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](data-factory-amazon-simple-storage-service-connector.md)
 > * [Versão 2 (versão atual)](../connector-amazon-simple-storage-service.md)
@@ -27,48 +26,48 @@ ms.locfileid: "79281655"
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o [conector Amazon S3 em V2](../connector-amazon-simple-storage-service.md).
 
-Este artigo explica como usar a atividade de cópia na Azure Data Factory para mover dados do Serviço de Armazenamento Simples da Amazon (S3). Baseia-se no artigo de atividades do [movimento Data,](data-factory-data-movement-activities.md) que apresenta uma visão geral do movimento de dados com a atividade da cópia.
+Este artigo explica como usar a atividade de cópia na Azure Data Factory para mover dados do Amazon Simple Storage Service (S3). Baseia-se no artigo de atividades de [movimento de dados,](data-factory-data-movement-activities.md) que apresenta uma visão geral do movimento de dados com a atividade da cópia.
 
-Pode copiar dados do Amazon S3 para qualquer loja de dados suportada. Para obter uma lista de lojas de dados suportadas como pias pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](data-factory-data-movement-activities.md#supported-data-stores-and-formats) A Tualmente, a Data Factory suporta apenas a transferência de dados da Amazon S3 para outras lojas de dados, mas não transfere dados de outras lojas de dados para a Amazon S3.
+Pode copiar dados do Amazon S3 para qualquer loja de dados de lavatórios suportados. Para obter uma lista de lojas de dados suportadas como pias pela atividade de cópia, consulte a tabela [de lojas de dados suportadas.](data-factory-data-movement-activities.md#supported-data-stores-and-formats) A Data Factory suporta atualmente apenas a transferência de dados do Amazon S3 para outras lojas de dados, mas não a transferência de dados de outras lojas de dados para o Amazon S3.
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 Para copiar dados do Amazon S3, certifique-se de que lhe foram concedidas as seguintes permissões:
 
 * `s3:GetObject`e `s3:GetObjectVersion` para a Amazon S3 Object Operations.
-* `s3:ListBucket`para amazon S3 Bucket Operations. Se estiver a utilizar o `s3:ListAllMyBuckets` Assistente de Cópia da Fábrica de Dados, também é necessário.
+* `s3:ListBucket`para a Amazon S3 Bucket Operations. Se estiver a utilizar o Assistente de Cópia da Fábrica de Dados, `s3:ListAllMyBuckets` também é necessário.
 
-Para mais detalhes sobre a lista completa de permissões Amazon S3, consulte [a especção de permissões numa Política](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
+Para obter mais informações sobre a lista completa das permissões do Amazon S3, consulte [especificar permissões numa Política.](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html)
 
 ## <a name="getting-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia que move dados de uma fonte Amazon S3 utilizando diferentes ferramentas ou APIs.
 
-A maneira mais fácil de criar um pipeline é utilizar o **Assistente de Cópia**. Para uma rápida passagem, consulte [Tutorial: Crie um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
+A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard**. Para uma rápida passagem, consulte [Tutorial: Crie um oleoduto utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Estúdio Visual,** **Azure PowerShell,** **Modelo de Gestor de Recursos Azure,** **.NET API**e **REST API**. Para obter instruções passo a passo para criar um pipeline com uma atividade de cópia, consulte o tutorial de [atividade da Cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API**e **REST API**. Para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia, consulte o tutorial de atividade da [Cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Quer utilize ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de sumidouro:
+Quer utilize ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
 1. Crie **serviços ligados** para ligar as lojas de dados de entrada e saída à sua fábrica de dados.
-2. Crie **conjuntos** de dados para representar dados de entrada e saída para a operação de cópia.
-3. Crie um **pipeline** com uma atividade de cópia que tome um conjunto de dados como entrada e um conjunto de dados como uma saída.
+2. Crie **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia.
+3. Crie um **pipeline** com uma atividade de cópia que leva um conjunto de dados como entrada e um conjunto de dados como uma saída.
 
-Quando utiliza o assistente, as definições jSON para estas entidades da Fábrica de Dados (serviços ligados, conjuntos de dados e o pipeline) são automaticamente criadas para si. Quando utiliza ferramentas ou APIs (exceto .NET API), define estas entidades da Fábrica de Dados utilizando o formato JSON. Para obter uma amostra com definições JSON para entidades da Data Factory que são usadas para copiar dados de uma loja de dados Amazon S3, consulte o [exemplo jSON: Copiar dados da Amazon S3 para azure blob](#json-example-copy-data-from-amazon-s3-to-azure-blob-storage) secção deste artigo.
+Quando utiliza o assistente, as definições de JSON para estas entidades da Data Factory (serviços ligados, conjuntos de dados e o pipeline) são automaticamente criadas para si. Quando utiliza ferramentas ou APIs (exceto.NET API), define estas entidades da Data Factory utilizando o formato JSON. Para obter uma amostra com definições JSON para entidades da Data Factory que são usadas para copiar dados de uma loja de dados Dazon S3, consulte o [exemplo JSON: Copiar dados da amazon S3 para a secção Azure Blob](#json-example-copy-data-from-amazon-s3-to-azure-blob-storage) deste artigo.
 
 > [!NOTE]
-> Para mais detalhes sobre formatos de ficheiros suportados e compressão para uma atividade de cópia, consulte [formatos de ficheiro e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
+> Para obter detalhes sobre formatos de ficheiros e compressão suportados para uma atividade de cópia, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
 
-As seguintes secções fornecem detalhes sobre as propriedades da JSON que são usadas para definir entidades da Fábrica de Dados específicas da Amazon S3.
+As secções seguintes fornecem detalhes sobre propriedades JSON que são usadas para definir entidades da Data Factory específicas do Amazon S3.
 
-## <a name="linked-service-properties"></a>Propriedades de serviço seletos
-Um serviço ligado liga uma loja de dados a uma fábrica de dados. Cria um serviço ligado do tipo **AwsAccessKey** para ligar a sua loja de dados Amazon S3 à sua fábrica de dados. A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado Amazon S3 (AwsAccessKey).
+## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
+Um serviço ligado liga uma loja de dados a uma fábrica de dados. Cria um serviço ligado do tipo **AwsAccessKey** para ligar a sua loja de dados Amazon S3 à sua fábrica de dados. A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado ao Amazon S3 (AwsAccessKey).
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| acessoKeyID |Identificação da chave de acesso secreta. |string |Sim |
-| secretAccessKey |A chave de acesso secreta em si. |Corda secreta encriptada |Sim |
+| accessKeyID |Identificação da chave de acesso secreta. |string |Sim |
+| SecretAccessKey |A chave de acesso secreto em si. |Cadeia secreta encriptada |Sim |
 
 >[!NOTE]
->Este conector requer chaves de acesso para a conta IAM para copiar dados do Amazon S3. [A Credencial de Segurança Temporária](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) não é apoiada.
+>Este conector requer chaves de acesso para conta IAM para copiar dados do Amazon S3. [A Credencial de Segurança Temporária](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) não é apoiada.
 >
 
 Segue-se um exemplo:
@@ -87,22 +86,22 @@ Segue-se um exemplo:
 ```
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
-Para especificar um conjunto de dados para representar dados de entrada no armazenamento do Azure Blob, delineie a propriedade do tipo do conjunto de dados para **o AmazonS3**. Detete a propriedade **linkedServiceName** do conjunto de dados para o nome do serviço ligado amazon S3. Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte [Criar conjuntos](data-factory-create-datasets.md)de dados . 
+Para especificar um conjunto de dados para representar dados de entrada no armazenamento do Azure Blob, defina a propriedade tipo do conjunto de dados para o **AmazonS3**. Defina a propriedade **linkedServiceName** do conjunto de dados com o nome do serviço ligado ao Amazon S3. Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte [criar conjuntos de dados](data-factory-create-datasets.md). 
 
-Secções como estrutura, disponibilidade e política são semelhantes para todos os tipos de conjuntos de dados (como base de dados SQL, blob Azure e tabela Azure). A secção **typeProperties** é diferente para cada tipo de conjunto de dados, e fornece informações sobre a localização dos dados na loja de dados. A secção **TypeProperties** para um conjunto de dados do tipo **AmazonS3** (que inclui o conjunto de dados Amazon S3) tem as seguintes propriedades:
+Secções como estrutura, disponibilidade e política são semelhantes para todos os tipos de conjuntos de dados (tais como base de dados SQL, blob Azure e tabela Azure). A secção **typeProperties** é diferente para cada tipo de conjunto de dados, e fornece informações sobre a localização dos dados na loja de dados. A secção **typeProperties** para um conjunto de dados do tipo **AmazonS3** (que inclui o conjunto de dados Amazon S3) tem as seguintes propriedades:
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| bucketName |O nome do balde S3. |String |Sim |
-| key |A chave de objetos S3. |String |Não |
-| prefixo |Prefixo para a tecla de objeto S3. São selecionados objetos cujas teclas começam com este prefixo. Aplica-se apenas quando a chave está vazia. |String |Não |
+| baldeName |O nome do balde S3. |String |Sim |
+| key |A chave do objeto S3. |String |Não |
+| prefixo |Prefixo para a tecla de objeto S3. São selecionados objetos cujas teclas começam com este prefixo. Só se aplica quando a chave estiver vazia. |String |Não |
 | versão |A versão do objeto S3, se a versão S3 estiver ativada. |String |Não |
-| formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desloque a propriedade **tipo** em formato a um destes valores. Para mais informações, consulte as secções de [formato Texto,](data-factory-supported-file-and-compression-formats.md#text-format) [Formato JSON,](data-factory-supported-file-and-compression-formats.md#json-format) [formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e [formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender copiar ficheiros como está entre lojas baseadas em ficheiros (cópia binária), ignore a secção de formato nas definições de conjunto de dados de entrada e de saída. | |Não |
-| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2,** e **ZipDeflate**. Os níveis suportados são: **Optimal** e **Fastest**. Para mais informações, consulte [formatos de ficheiroe de compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). | |Não |
+| formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte o [formato Texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato JSON,](data-factory-supported-file-and-compression-formats.md#json-format) [formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e secções [de formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender copiar ficheiros como-está entre lojas baseadas em ficheiros (cópia binária), salte a secção de formato nas definições de conjunto de dados de entrada e saída. | |Não |
+| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2**e **ZipDeflate**. Os níveis suportados são: **Ideal** e **Mais rápido.** Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). | |Não |
 
 
 > [!NOTE]
-> **bucketName + tecla** especifica a localização do objeto S3, onde o balde é o recipiente de raiz para objetos S3, e a chave é o caminho completo para o objeto S3.
+> **bucketName + tecla** especifica a localização do objeto S3, onde o balde é o recipiente raiz para objetos S3, e a chave é o caminho completo para o objeto S3.
 
 ### <a name="sample-dataset-with-prefix"></a>Conjunto de dados de amostra com prefixo
 
@@ -127,7 +126,7 @@ Secções como estrutura, disponibilidade e política são semelhantes para todo
     }
 }
 ```
-### <a name="sample-dataset-with-version"></a>Conjunto de dados de amostra (com versão)
+### <a name="sample-dataset-with-version"></a>Conjunto de dados da amostra (com versão)
 
 ```json
 {
@@ -153,43 +152,43 @@ Secções como estrutura, disponibilidade e política são semelhantes para todo
 ```
 
 ### <a name="dynamic-paths-for-s3"></a>Caminhos dinâmicos para S3
-A amostra anterior utiliza valores fixos para as propriedades **chave** e **bucketName** no conjunto de dados Amazon S3.
+A amostra anterior utiliza valores fixos para as propriedades **chave** e **baldename** no conjunto de dados Amazon S3.
 
 ```json
 "key": "testFolder/test.orc",
 "bucketName": "testbucket",
 ```
 
-Pode fazer com que a Data Factory calcule estas propriedades de forma dinâmica no prazo de funcionação, utilizando variáveis do sistema como o SliceStart.
+Pode fazer com que a Data Factory calcule estas propriedades dinamicamente no tempo de execução, utilizando variáveis do sistema como o SliceStart.
 
 ```json
 "key": "$$Text.Format('{0:MM}/{0:dd}/test.orc', SliceStart)"
 "bucketName": "$$Text.Format('{0:yyyy}', SliceStart)"
 ```
 
-Pode fazer o mesmo pela propriedade **prefixo** de um conjunto de dados Amazon S3. Para obter uma lista de funções e variáveis suportadas, consulte funções de [Data Factory e variáveis do sistema](data-factory-functions-variables.md).
+Pode fazer o mesmo pela propriedade **prefixada** de um conjunto de dados Amazon S3. Para obter uma lista de funções e variáveis suportadas, consulte [as funções da Data Factory e as variáveis do sistema.](data-factory-functions-variables.md)
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para obter uma lista completa de secções e propriedades disponíveis para definir [atividades, consulte Criar oleodutos.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e políticas estão disponíveis para todos os tipos de atividades. As propriedades disponíveis na secção **tipoPropriedades** da atividade variam com cada tipo de atividade. Para a atividade de cópia, as propriedades variam dependendo dos tipos de fontes e pias. Quando uma fonte na atividade de cópia é do tipo **FileSystemSource** (que inclui o Amazon S3), a seguinte propriedade está disponível na secção **typeProperties:**
+Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte [criar oleodutos.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e políticas estão disponíveis para todos os tipos de atividades. As propriedades disponíveis na secção **de tipoProperties** da atividade variam com cada tipo de atividade. Para a atividade da cópia, as propriedades variam consoante os tipos de fontes e pias. Quando uma fonte na atividade de cópia é do tipo **FileSystemSource** (que inclui o Amazon S3), a seguinte propriedade está disponível na secção **typeProperties:**
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| recursivo |Especifica se lista risivamente os objetos S3 sob o diretório. |verdadeiro/falso |Não |
+| recursivo |Especifica se deve listar novamente os objetos S3 sob o diretório. |verdadeiro/falso |Não |
 
-## <a name="json-example-copy-data-from-amazon-s3-to-azure-blob-storage"></a>Exemplo jSON: Copiar dados da Amazon S3 para o armazenamento da Blob Azure
-Esta amostra mostra como copiar dados da Amazon S3 para um armazenamento Azure Blob. No entanto, os dados podem ser copiados diretamente para [qualquer um dos lavatórios que são suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) utilizando a atividade de cópia na Data Factory.
+## <a name="json-example-copy-data-from-amazon-s3-to-azure-blob-storage"></a>Exemplo JSON: Copiar dados do Amazon S3 para o armazenamento Azure Blob
+Esta amostra mostra como copiar dados do Amazon S3 para um armazenamento Azure Blob. No entanto, os dados podem ser copiados diretamente para [qualquer um dos lavatórios que são suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) através da atividade de cópia na Data Factory.
 
-A amostra fornece definições JSON para as seguintes entidades data Factory. Pode utilizar estas definições para criar um pipeline para copiar dados da Amazon S3 para o armazenamento Blob, utilizando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [powerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
+A amostra fornece definições JSON para as seguintes entidades da Data Factory. Pode utilizar estas definições para criar um pipeline para copiar dados do Amazon S3 para o armazenamento Blob, utilizando o [Estúdio Visual](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [o PowerShell.](data-factory-copy-activity-tutorial-using-powershell.md)   
 
 * Um serviço ligado do tipo [AwsAccessKey](#linked-service-properties).
-* Um serviço ligado do tipo [AzureStorage.](data-factory-azure-blob-connector.md#linked-service-properties)
-* Um conjunto de [dados](data-factory-create-datasets.md) de entrada do tipo [AmazonS3](#dataset-properties).
-* Um [conjunto](data-factory-create-datasets.md) de dados de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-* Um [pipeline](data-factory-create-pipelines.md) com atividade de cópia que utiliza [FileSystemSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+* Um serviço ligado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+* Um conjunto de [dados](data-factory-create-datasets.md) de entrada do tipo [AmazonS3.](#dataset-properties)
+* Um conjunto de [dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+* Um [pipeline](data-factory-create-pipelines.md) com atividade de cópia que utiliza [FileSystemSource](#copy-activity-properties) e [BlobSink.](data-factory-azure-blob-connector.md#copy-activity-properties)
 
 A amostra copia dados da Amazon S3 para uma bolha Azure a cada hora. As propriedades JSON utilizadas nestas amostras são descritas em secções que seguem as amostras.
 
-### <a name="amazon-s3-linked-service"></a>Serviço ligado à Amazon S3
+### <a name="amazon-s3-linked-service"></a>Serviço ligado amazon S3
 
 ```json
 {
@@ -218,9 +217,9 @@ A amostra copia dados da Amazon S3 para uma bolha Azure a cada hora. As propried
 }
 ```
 
-### <a name="amazon-s3-input-dataset"></a>Conjunto de dados de entrada Amazon S3
+### <a name="amazon-s3-input-dataset"></a>Conjunto de dados de entrada do Amazon S3
 
-Definição **"externa": informa verdadeiramente** o serviço Data Factory de que o conjunto de dados é externo à fábrica de dados. Deteto esta propriedade como verdadeira num conjunto de dados de entrada que não seja produzido por uma atividade no pipeline.
+Definição **"externa": informa verdadeiramente** o serviço Data Factory de que o conjunto de dados é externo à fábrica de dados. Defina esta propriedade para ser verdadeira num conjunto de dados de entrada que não é produzido por uma atividade no pipeline.
 
 ```json
     {
@@ -247,7 +246,7 @@ Definição **"externa": informa verdadeiramente** o serviço Data Factory de qu
 
 ### <a name="azure-blob-output-dataset"></a>Conjunto de dados de saída do Blob do Azure
 
-Os dados são escritos para uma nova bolha a cada hora (frequência: hora, intervalo: 1). O caminho da pasta para a bolha é avaliado dinamicamente com base no tempo de início da fatia que está a ser processada. O caminho da pasta utiliza o ano, mês, dia e horas partes da hora de início.
+Os dados são escritos para uma nova bolha a cada hora (frequência: hora, intervalo: 1). O caminho da pasta para a bolha é avaliado dinamicamente com base na hora de início da fatia que está a ser processada. O percurso da pasta utiliza o ano, mês, dia e horas partes da hora de início.
 
 ```json
 {
@@ -306,9 +305,9 @@ Os dados são escritos para uma nova bolha a cada hora (frequência: hora, inter
 ```
 
 
-### <a name="copy-activity-in-a-pipeline-with-an-amazon-s3-source-and-a-blob-sink"></a>Copiar atividade em um oleoduto com uma fonte Amazon S3 e um lavatório de bolhas
+### <a name="copy-activity-in-a-pipeline-with-an-amazon-s3-source-and-a-blob-sink"></a>Copiar atividade em um oleoduto com uma fonte Amazon S3 e um lavatório blob
 
-O pipeline contém uma atividade de cópia configurada para utilizar os conjuntos de dados de entrada e saída, e está programado para funcionar a cada hora. Na definição JSON do gasoduto, o tipo de **origem** é definido para **FileSystemSource**, e o tipo **de pia** é definido para **BlobSink**.
+O pipeline contém uma atividade de cópia que está configurada para utilizar os conjuntos de dados de entrada e saída, e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **FileSystemSource,** e o tipo **de pia** é definido para **BlobSink**.
 
 ```json
 {
@@ -356,12 +355,12 @@ O pipeline contém uma atividade de cópia configurada para utilizar os conjunto
 }
 ```
 > [!NOTE]
-> Para mapear colunas de um conjunto de dados de origem para colunas a partir de um conjunto de dados de sumidouro, consulte [colunas de conjunto de dados de mapeamento na Fábrica](data-factory-map-columns.md)de Dados Azure .
+> Para mapear colunas de um conjunto de dados de origem para colunas de um conjunto de dados de sumidouro, consulte [as colunas de conjunto de dados de mapeamento na Azure Data Factory](data-factory-map-columns.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 
-* Para conhecer os factores-chave que impactam o desempenho do movimento de dados (atividade de cópia) na Data Factory, e várias formas de o otimizar, consulte o desempenho da atividade da Cópia e o guia de [afinação.](data-factory-copy-activity-performance.md)
+* Para conhecer os factores-chave que impactam o desempenho do movimento de dados (atividade de cópia) na Data Factory, e várias formas de otimizá-lo, consulte o guia de [desempenho e afinação](data-factory-copy-activity-performance.md)da atividade copy .
 
-* Para obter instruções passo a passo para criar um pipeline com uma atividade de cópia, consulte o tutorial de [atividade da Cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+* Para obter instruções passo a passo para a criação de um oleoduto com uma atividade de cópia, consulte o tutorial de atividade da [Cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

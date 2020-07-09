@@ -1,9 +1,9 @@
 ---
 title: Configurar o Advanced Threat Protection
 titleSuffix: Azure SQL Managed Instance
-description: A Advanced Threat Protection deteta atividades anómalas de base de dados que indicam potenciais ameaças à segurança na base de dados em 1º Caso Gerido por Azure SQL.
+description: A Advanced Threat Protection deteta atividades de base de dados anómalas que indiquem potenciais ameaças de segurança à base de dados em Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
@@ -12,40 +12,39 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: a60156762a4d8dfb6b11ae70e608fb26b07e5764
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: ceb6285448df2a5d87dfa87ab249c99bf22c9928
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045761"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84686330"
 ---
-# <a name="configure-advanced-threat-protection-in-azure-sql-managed-instance"></a>Configurar proteção avançada de ameaças em instância gerida azure SQL
+# <a name="configure-advanced-threat-protection-in-azure-sql-managed-instance"></a>Configure proteção avançada de ameaças em Azure SQL Caso gerido
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-[A Proteção avançada de ameaças](../database/threat-detection-overview.md) para um [Caso Gerido Azure SQL](sql-managed-instance-paas-overview.md) deteta atividades anómalas que indicam tentativas incomuns e potencialmente nocivas de acesso ou exploração de bases de dados. A Proteção avançada de Ameaças pode identificar **a injeção de Potencial SQL,** acesso a partir de localização ou centro de dados **incomuns,** acesso **a aplicação principal desconhecida ou potencialmente prejudicial**, e **credenciais SQL de força bruta** - ver mais detalhes em alertas avançados de [proteção contra ameaças](../database/threat-detection-overview.md#alerts).
+[A Advanced Threat Protection](../database/threat-detection-overview.md) for [a Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) deteta atividades anómalas que indiquem tentativas incomuns e potencialmente nocivas de aceder ou explorar bases de dados. A Advanced Threat Protection pode identificar **a injeção potencial de SQL**, acesso a partir de **localização incomum ou centro de dados**, **Acesso a aplicações principais ou potencialmente nocivas ,** e **credenciais de SQL da força bruta** - ver mais detalhes em [alertas de Proteção de Ameaças Avançadas](../database/threat-detection-overview.md#alerts).
 
-Pode receber notificações sobre as ameaças detetadas através de [notificações](../database/threat-detection-overview.md#explore-detection-of-a-suspicious-event) de email ou [portal Azure](../database/threat-detection-overview.md#explore-alerts-in-azure-portal)
+Pode receber notificações sobre as ameaças detetadas através de [notificações por e-mail](../database/threat-detection-overview.md#explore-detection-of-a-suspicious-event) ou [portal Azure](../database/threat-detection-overview.md#explore-alerts-in-the-azure-portal)
 
-[Advanced Threat Protection](../database/threat-detection-overview.md) faz parte da oferta avançada de segurança de [dados,](../database/advanced-data-security.md) que é um pacote unificado para capacidades avançadas de segurança SQL. O Advanced Threat Protection pode ser acedido e gerido através do portal ADS SQL central.
+[A Advanced Threat Protection](../database/threat-detection-overview.md) faz parte da oferta avançada de segurança de [dados,](../database/advanced-data-security.md) que é um pacote unificado para capacidades avançadas de segurança SQL. O Advanced Threat Protection pode ser acedido e gerido através do portal ADS SQL central.
 
 ##  <a name="azure-portal"></a>Portal do Azure
 
-1. Assine no [portal Azure.](https://portal.azure.com) 
-2. Navegue para a página de configuração do Caso Gerido SQL que pretende proteger. Na página **Definições,** selecione **Advanced Data Security**.
-3. Na página de configuração avançada de segurança de dados
-   - LIGUE **ON** A Segurança Avançada de Dados.
-   - Configure a **lista de e-mails** para receber alertas de segurança após a deteção de atividades anómalas na base de dados.
-   - Selecione a conta de **armazenamento Azure** onde os registos de auditoria de ameaças anómalas são guardados.
-   - Selecione os tipos avançados de **proteção contra ameaças** que gostaria de configurar. Saiba mais sobre alertas avançados de [proteção contra ameaças.](../database/threat-detection-overview.md)
-4. Clique em **Guardar** para salvar a nova ou atualizada política de Segurança de Dados Avançados.
+1. Inscreva-se no [portal Azure](https://portal.azure.com). 
+2. Navegue para a página de configuração da instância de SQL Managed Instance que pretende proteger. Na página **Definições,** selecione **Advanced Data Security**.
+3. Na página de configuração de Segurança de Dados Avançados
+   - Ligue **a** segurança de dados avançados.
+   - Configure a **lista de e-mails** para receber alertas de segurança após a deteção de atividades de base de dados anómalas.
+   - Selecione a **conta de armazenamento Azure** onde são guardados registos de auditoria de ameaças anómalas.
+   - Selecione os **tipos de Proteção de Ameaças Avançadas** que gostaria de configurar. Saiba mais sobre [alertas avançados de proteção contra ameaças.](../database/threat-detection-overview.md)
+4. Clique em **Guardar** para guardar a nova ou atualizada política de Segurança avançada de dados.
 
    ![Proteção Avançada Contra Ameaças](./media/threat-detection-configure/threat-detection.png)
 
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais sobre [a Proteção avançada de Ameaças.](../database/threat-detection-overview.md)
-- Aprenda sobre casos geridos, veja [O que é uma instância gerida Azure SQL](sql-managed-instance-paas-overview.md).
-- Saiba mais sobre a Proteção avançada de ameaças para a Base de [Dados SQL Azure](../database/threat-detection-configure.md).
-- Saiba mais sobre a auditoria de Instância Gerida pela [SQL](https://go.microsoft.com/fwlink/?linkid=869430).
-- Saiba mais sobre o [centro de segurança Azure.](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Saiba mais sobre [a Proteção Avançada de Ameaças.](../database/threat-detection-overview.md)
+- Conheça as instâncias geridas, veja [O que é um Azure SQL Managed Instance](sql-managed-instance-paas-overview.md).
+- Saiba mais sobre [a Advanced Threat Protection for Azure SQL Database](../database/threat-detection-configure.md).
+- Saiba mais sobre [a auditoria da SQL Managed Instance](https://go.microsoft.com/fwlink/?linkid=869430).
+- Saiba mais sobre [o Centro de Segurança Azure.](https://docs.microsoft.com/azure/security-center/security-center-intro)

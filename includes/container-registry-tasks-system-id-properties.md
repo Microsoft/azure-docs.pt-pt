@@ -1,21 +1,21 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 07/12/2019
+ms.date: 07/06/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 700dbfde3be2f24eb57acbdeb9d2841ef2bdfe44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1b7c8487eb42204f2741679c9ef6eb2717c272cd
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77112296"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057364"
 ---
-Na saída de `identity` comando, a secção `SystemAssigned` mostra que uma identidade de tipo é definida na tarefa. O `principalId` principal ID da identidade de tarefa:
+Na saída do comando, a `identity` secção mostra que uma identidade do tipo está definida na `SystemAssigned` tarefa. O `principalId` documento principal da identidade da tarefa:
 
 ```console
 [...]
@@ -28,10 +28,12 @@ Na saída de `identity` comando, a secção `SystemAssigned` mostra que uma iden
   "location": "eastus",
 [...]
 ``` 
-Utilize o comando de show de [tarefas az acr][az-acr-task-show] para armazenar o principado numa variável, para utilizar em comandos posteriores. Substitua o nome da sua tarefa e o seu registo no seguinte comando:
+Utilize o comando [de show de tarefas az acr][az-acr-task-show] para armazenar o mainId numa variável, para utilizar em comandos posteriores. Substitua o nome da sua tarefa e o seu registo no seguinte comando:
 
 ```azurecli
-principalID=$(az acr task show --name mytask --registry myregistry --query identity.principalId --output tsv)
+principalID=$(az acr task show \
+  --name <task_name> --registry <registry_name> \
+  --query identity.principalId --output tsv)
 ```
 
 <!-- LINKS - Internal -->

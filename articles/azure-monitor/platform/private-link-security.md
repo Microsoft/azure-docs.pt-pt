@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: 4ef7e4058c4f9cb458f4036ad4b315f5e85036b1
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 14ecd1a35f8aae8365b7c7dc458712acdb894e62
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170720"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602589"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utilize o Link Privado Azure para ligar de forma segura as redes ao Azure Monitor
 
@@ -74,11 +74,17 @@ Por exemplo, se as suas redes virtuais internas VNet1 e VNet2 deverão ligar-se 
 
 Comece por criar um recurso Azure Monitor Private Link Scope.
 
-1. Vá para **criar um recurso** no portal Azure e procure o **Azure Monitor Private Link Scope**. 
-2. Clique **em criar**. 
-3. Escolha um Grupo de Subscrição e Recursos. 
-4. Dê um nome aos AMPLS. É melhor usar um nome que seja claro para que finalidade e fronteira de segurança o Scope será usado para que alguém não quebre acidentalmente os limites de segurança da rede. Por exemplo, "AppServerProdTelem". 
+1. Vá para **criar um recurso** no portal Azure e procure o **Azure Monitor Private Link Scope**.
+
+   ![Encontre o âmbito de ligação privada do monitor Azure](./media/private-link-security/ampls-find-1c.png)
+
+2. Clique **em criar**.
+3. Escolha um Grupo de Subscrição e Recursos.
+4. Dê um nome aos AMPLS. É melhor usar um nome que seja claro para que finalidade e fronteira de segurança o Scope será usado para que alguém não quebre acidentalmente os limites de segurança da rede. Por exemplo, "AppServerProdTelem".
 5. Clique **em Rever + Criar**. 
+
+   ![Criar âmbito de ligação privada do Monitor Azure](./media/private-link-security/ampls-create-1d.png)
+
 6. Deixe passar a validação e, em seguida, clique em **Criar**.
 
 ## <a name="connect-azure-monitor-resources"></a>Ligar recursos do Monitor Azure
@@ -117,13 +123,13 @@ Agora que tem recursos ligados ao seu AMPLS, crie um ponto final privado para li
 
    a.    Escolha a **rede virtual** e **a sub-rede** que pretende ligar aos recursos do Monitor Azure. 
  
-   b.    Escolha **Sim** para **Integrar com a zona privada de DNS,** e deixe-o criar automaticamente uma nova Zona Privada de DNS. 
+   b.    Escolha **Sim** para **Integrar com a zona privada de DNS,** e deixe-o criar automaticamente uma nova Zona Privada de DNS. As zonas de DNS reais podem ser diferentes das mostradas na imagem abaixo. 
  
    c.    Clique em **Rever + criar**.
  
    d.    Deixe a validação passar. 
  
-   e.    Clique **em Criar**. 
+   e.    Clique em **Criar**. 
 
     ![Screenshot de seleção Criar Ponto Final Privado2](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 
@@ -162,9 +168,8 @@ Restringir o acesso desta forma só se aplica aos dados do recurso Application I
 
 > [!NOTE]
 > Para garantir totalmente os Insights de Aplicação baseados no espaço de trabalho, é necessário bloquear tanto o acesso ao recurso Application Insights como o espaço de trabalho subjacente ao Log Analytics.
-
-> [!NOTE]
-> Atualmente, os diagnósticos ao nível do código (profiler/debugger) não suportam o Private Link.
+>
+> Os diagnósticos ao nível do código (profiler/debugger) precisam que forneça a sua própria conta de armazenamento para suportar uma ligação privada. Aqui está a [documentação](https://docs.microsoft.com/azure/azure-monitor/app/profiler-bring-your-own-storage) para como fazer isto.
 
 ## <a name="use-apis-and-command-line"></a>Use APIs e linha de comando
 
@@ -174,7 +179,7 @@ Para criar e gerir os âmbitos de ligação privados, utilize [a az monitorar o 
 
 Para gerir o acesso à rede, utilize as bandeiras `[--ingestion-access {Disabled, Enabled}]` e nos espaços de trabalho do Log `[--query-access {Disabled, Enabled}]` [Analytics](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) ou nos componentes do [Application Insights](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 
-## <a name="collect-custom-logs-over-private-link"></a>Colete registos personalizados sobre link privado
+## <a name="collect-custom-logs-over-private-link"></a>Colete registos personalizados sobre o Link Privado
 
 As contas de armazenamento são utilizadas no processo de ingestão de registos personalizados. Por predefinição, são utilizadas contas de armazenamento geridas pelo serviço. No entanto, para ingerir registos personalizados em links privados, deve utilizar as suas próprias contas de armazenamento e associá-las ao espaço de trabalho log Analytics. Consulte mais detalhes sobre como configurar tais contas utilizando a [linha de comando](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
 
@@ -220,7 +225,14 @@ Para permitir que o Agente Desafiá-lo descarregue pacotes de soluções, adicio
 
 | Ambiente em nuvem | Recursos do Agente | Portas | Direção |
 |:--|:--|:--|:--|
-|Azure Público     | scadvisor.blob.core.windows.net         | 443 | Saída
+|Azure Público     | scadvisorcontent.blob.core.windows.net         | 443 | Saída
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Saída
 |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Saída
 
+### <a name="browser-dns-settings"></a>Configurações de DNS do navegador
+
+Se estiver a ligar-se aos recursos do Monitor Azure através de uma Ligação Privada, o tráfego para estes recursos deve passar pelo ponto final privado que está configurado na sua rede. Para ativar o ponto final privado, atualize as definições de DNS como explicado no [Connect para um ponto final privado](#connect-to-a-private-endpoint). Alguns navegadores usam as suas próprias definições de DNS em vez das que define. O navegador pode tentar ligar-se aos pontos finais públicos do Azure Monitor e contornar totalmente o Link Privado. Verifique se as definições dos seus navegadores não se sobrepõem ou cache as definições de DNS antigas. 
+
+## <a name="next-steps"></a>Próximos passos
+
+- Saiba mais sobre [armazenamento privado](private-storage.md)

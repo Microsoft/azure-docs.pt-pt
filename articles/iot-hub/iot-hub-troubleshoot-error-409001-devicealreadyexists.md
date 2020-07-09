@@ -1,6 +1,6 @@
 ---
-title: Problemas de resolução de problemas Azure IoT Hub erro 409001 Dispositivo Já Existe
-description: Entenda como corrigir o erro 409001 DispositivoJáExiste
+title: Resolução de problemas Erro do Hub Azure IoT 409001 DeviceAlreadyExists
+description: Entenda como corrigir o erro 409001 DeviceAlreadyExists
 author: jlian
 manager: briz
 ms.service: iot-hub
@@ -9,24 +9,23 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 93ab2ecc8e820c461a7c79082ac1d50c24f0ba8b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76960792"
 ---
 # <a name="409001-devicealreadyexists"></a>409001 DeviceAlreadyExists
 
-Este artigo descreve as causas e soluções para **o dispositivo 409001Exista** erros.
+Este artigo descreve as causas e soluções para **erros de 409001 DeviceAlreadyExists.**
 
 ## <a name="symptoms"></a>Sintomas
 
-Ao tentar registar um dispositivo no IoT Hub, o pedido falha com o erro **409001 DispositivoJáExiste**.
+Ao tentar registar um dispositivo no IoT Hub, o pedido falha com o erro **409001 DeviceAlreadyExists**.
 
 ## <a name="cause"></a>Causa
 
-Já há um dispositivo com o mesmo dispositivo de identificação no centro ioT. 
+Já há um dispositivo com o mesmo dispositivo ID no hub IoT. 
 
 ## <a name="solution"></a>Solução
 
-Utilize um ID de dispositivo diferente e tente novamente.
+Use uma identificação de dispositivo diferente e tente novamente.

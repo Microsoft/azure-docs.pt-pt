@@ -1,6 +1,6 @@
 ---
-title: Rota expressa para fornecedores de soluções em nuvem - Azure Microsoft Docs
-description: Este artigo fornece informações para os Fornecedores de Soluções Cloud que pretendem incorporar os serviços Azure e expressRoute nas suas ofertas.
+title: ExpressRoute para Fornecedores de Soluções Cloud - Azure / Microsoft Docs
+description: Este artigo fornece informações para fornecedores de soluções cloud que pretendem incorporar os serviços Azure e ExpressRoute nas suas ofertas.
 services: expressroute
 author: richcar
 ms.service: expressroute
@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: ricarlse
 ms.custom: seodec18
 ms.openlocfilehash: a3bd48f32dfcee1a666ff842cfcab2384a5459ec
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67849252"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para Fornecedores de Soluções em Nuvem (CSP)
@@ -31,7 +31,7 @@ O Microsoft Azure fornece um crescente número de serviços que pode oferecer ao
 A Microsoft fornece CSPs com APIs para gerir as subscrições de cliente do Azure, permitindo uma integração programática com os seus próprios sistemas de gestão de serviços. As capacidades de gestão suportadas podem ser encontradas [aqui](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
 
 ## <a name="microsoft-azure-resource-management"></a>Gestão dos recursos do Microsoft Azure
-O contrato celebrado com o seu cliente, este determinará a forma como a subscrição será gerida. O CSP pode gerir diretamente a criação e manutenção de recursos ou o cliente pode manter o controlo da subscrição do Microsoft Azure e criar os recursos Azure à medida que são necessários. Se o seu cliente gerir a criação de recursos na sua subscrição do Microsoft Azure, utilizará um dos dois modelos: "*Connect-Through*" modelo, ou modelo "*Direct-To*". Estes modelos são descritos em detalhe nas secções seguintes.  
+O contrato celebrado com o seu cliente, este determinará a forma como a subscrição será gerida. O CSP pode gerir diretamente a criação e manutenção de recursos ou o cliente pode manter o controlo da subscrição do Microsoft Azure e criar os recursos Azure à medida que são necessários. Se o seu cliente gerir a criação de recursos na sua subscrição Microsoft Azure, utilizará um dos dois modelos: modelo "*Connect-Through*" ou "*Direct-To*". Estes modelos são descritos em detalhe nas secções seguintes.  
 
 ### <a name="connect-through-model"></a>Modelo Connect-through
 ![texto alternativo](./media/expressroute-for-cloud-solution-providers/connect-through.png)  

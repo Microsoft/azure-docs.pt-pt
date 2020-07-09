@@ -1,16 +1,16 @@
 ---
 title: Organize os seus recursos com grupos de gestão - Azure Governance
 description: Saiba mais sobre os grupos de gestão, como as permissões destes funcionam e como utilizá-los.
-ms.date: 04/15/2020
+ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: 43c8bb2bdb71b0b75d2fcc31451952214978093c
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: b3d031b68ee7dba9c80ee0c7e97898bb8b439a47
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773156"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963687"
 ---
-# <a name="organize-your-resources-with-azure-management-groups"></a>Organizar recursos com os grupos de gestão do Azure
+# <a name="what-are-azure-management-groups"></a>O que são grupos de gestão Azure?
 
 Se a sua organização tiver várias subscrições, poderá precisar de uma forma de gerir eficazmente o acesso, as políticas e a conformidade para essas subscrições. Os grupos de gestão do Azure fornecem um nível de âmbito acima das subscrições. Estes permitem-lhe organizar as subscrições em contentores chamados "grupos de gestão" e aplicar as suas condições de governação aos grupos de gestão. Todas as subscrições num grupo de gestão herdam automaticamente as condições aplicadas ao grupo de gestão. Os grupos de gestão dão-lhe capacidades de gestão de nível empresarial em grande escala, independentemente do seu tipo de subscrição.
 Todas as subscrições num único grupo de gestão têm de confiar no mesmo inquilino do Azure Active Directory.
@@ -23,7 +23,7 @@ Pode criar uma estrutura flexível de grupos de gestão e de subscrições para 
 
 :::image type="content" source="./media/tree.png" alt-text="Exemplo de uma árvore hierárquica do grupo de gestão" border="false":::
 
-Pode criar uma hierarquia que se aplique a uma política, para, por exemplo, limitar as localizações das VMs à Região E.U.A. Oeste no grupo com o nome "Produção". Esta política herdará em todas as subscrições do Acordo Empresarial (EA) que são descendentes desse grupo de gestão e aplicar-se-á a todos os VMs ao abrigo dessas subscrições. Esta política de segurança não pode ser alterada pelo proprietário do recurso ou da subscrição, o que permite uma melhor governação.
+Pode criar uma hierarquia que se aplique a uma política, para, por exemplo, limitar as localizações das VMs à Região E.U.A. Oeste no grupo com o nome "Produção". Esta política herdará a todas as assinaturas do Acordo Empresarial (EA) que são descendentes desse grupo de gestão e aplicar-se-á a todos os VMs ao abrigo dessas subscrições. Esta política de segurança não pode ser alterada pelo proprietário do recurso ou da subscrição, o que permite uma melhor governação.
 
 Outro cenário em que utilizaria os grupos de gestão seria para fornecer acesso de utilizador a várias subscrições. Ao mover várias subscrições para esse grupo de gestão, pode criar uma atribuição de [controlo de acesso baseado em funções](../../role-based-access-control/overview.md) (RBAC) no grupo de gestão, o que faz com que todas as subscrições herdem esse acesso. Uma única atribuição no grupo de gestão pode permitir que os utilizadores tenham acesso a tudo o que precisam, sem a necessidade de criar scripts de RBAC para diferentes subscrições.
 
@@ -50,12 +50,12 @@ Outro cenário em que utilizaria os grupos de gestão seria para fornecer acesso
   - Quando são criadas, as novas subscrições são colocadas automaticamente por predefinição no grupo de gestão de raiz.
 - Todos os clientes do Azure podem ver o grupo de gestão de raiz, mas nem todos os clientes têm acesso para gerir esse mesmo grupo de gestão de raiz.
   - Todos os utilizadores com acesso a uma subscrição podem ver o contexto em que essa subscrição se insere na hierarquia.  
-  - Ninguém recebe acesso predefinido ao grupo de gestão de raiz. Os Administradores Globais do Azure AD são os únicos utilizadores que se podem elevar para obter acesso. Uma vez que tenham acesso ao grupo de gestão de raiz, os administradores globais podem atribuir qualquer papel RBAC a outros utilizadores para gerir  
-    é.
-- Na SDK, o grupo de gestão de raízes, ou 'Raiz de Inquilino', funciona como um grupo de gestão.
+  - Ninguém recebe acesso predefinido ao grupo de gestão de raiz. Os Administradores Globais do Azure AD são os únicos utilizadores que se podem elevar para obter acesso. Uma vez que tenham acesso ao grupo de gestão de raiz, os administradores globais podem atribuir qualquer papel de RBAC a outros utilizadores para gerir  
+    que.
+- Na SDK, o grupo de gestão de raiz, ou 'Raiz de Inquilino', funciona como um grupo de gestão.
 
 > [!IMPORTANT]
-> Qualquer atribuição de acesso de utilizador ou atribuição de política no grupo de gestão de raiz **aplica-se a todos os recursos dentro do diretório**. Por este motivo, todos os clientes devem avaliar a necessidade de ter itens definidos neste âmbito. O acesso ao utilizador e as atribuições políticas devem ser "Must Have" apenas neste  
+> Qualquer atribuição de acesso de utilizador ou atribuição de política no grupo de gestão de raiz **aplica-se a todos os recursos dentro do diretório**. Por este motivo, todos os clientes devem avaliar a necessidade de ter itens definidos neste âmbito. O acesso ao utilizador e as atribuições de políticas devem ser "Must Have" apenas neste  
 > âmbito.
 
 ## <a name="initial-setup-of-management-groups"></a>Configuração inicial dos grupos de gestão
@@ -83,7 +83,7 @@ Se tiver dúvidas sobre este processo de preenchimento, contacte: `managementgro
 ## <a name="management-group-access"></a>Acesso de grupo de gestão
 
 Os grupos de gestão do Azure suportam o [Controlo de Acesso Baseado em Funções (RBAC)](../../role-based-access-control/overview.md) para todos os acessos de recursos e definições de função.
-Estas permissões são herdadas pelos recursos subordinados existentes na hierarquia. Qualquer papel rbac pode ser atribuído a um grupo de gestão que herdará a hierarquia aos recursos. Por exemplo, a função RBAC de contribuidor de VM pode ser atribuída a um grupo de gestão. Esta função não desempenha qualquer ação no grupo de gestão, mas será herdada por todas as VMs nesse grupo de gestão.
+Estas permissões são herdadas pelos recursos subordinados existentes na hierarquia. Qualquer papel da RBAC pode ser atribuído a um grupo de gestão que herdará a hierarquia aos recursos. Por exemplo, a função RBAC de contribuidor de VM pode ser atribuída a um grupo de gestão. Esta função não desempenha qualquer ação no grupo de gestão, mas será herdada por todas as VMs nesse grupo de gestão.
 
 A tabela seguinte mostra a lista de funções e as ações suportadas nos grupos de gestão.
 
@@ -91,16 +91,16 @@ A tabela seguinte mostra a lista de funções e as ações suportadas nos grupos
 |:-------------------------- |:------:|:------:|:--------:|:------:|:-------------:| :------------:|:-----:|
 |Proprietário                       | X      | X      | X        | X      | X             | X             | X     |
 |Contribuinte                 | X      | X      | X        | X      |               |               | X     |
-|Colaborador mg\*            | X      | X      | X        | X      |               |               | X     |
+|Colaborador da MG\*            | X      | X      | X        | X      |               |               | X     |
 |Leitor                      |        |        |          |        |               |               | X     |
 |Leitor MG\*                 |        |        |          |        |               |               | X     |
 |Contribuidor de Política de Recursos |        |        |          |        |               | X             |       |
 |Administrador de Acesso de Utilizador   |        |        |          |        | X             | X             |       |
 
-\*: Mg Contributor e MG Reader apenas permitem que os utilizadores façam essas ações no âmbito do grupo de gestão.  
-\*\*: As atribuições de funções no grupo de gestão root não são necessárias para mover um grupo de subscrição ou de gestão de e para ele. Veja [Manage your resources with management groups](manage.md) (Gerir os recursos com grupos de gestão) para obter detalhes sobre como mover itens dentro da hierarquia.
+\*: MG Colaborador e MG Reader apenas permitem que os utilizadores façam essas ações no âmbito do grupo de gestão.  
+\*\*: As atribuições de funções no grupo de gestão Root não são necessárias para mover um grupo de subscrição ou gestão de e para ele. Veja [Manage your resources with management groups](manage.md) (Gerir os recursos com grupos de gestão) para obter detalhes sobre como mover itens dentro da hierarquia.
 
-## <a name="custom-rbac-role-definition-and-assignment"></a>Definição e atribuição de funções RBAC personalizadas
+## <a name="custom-rbac-role-definition-and-assignment"></a>Definição e atribuição de funções personalizadas do RBAC
 
 O suporte personalizado de funções RBAC para grupos de gestão está atualmente em pré-visualização com [algumas limitações.](#limitations) Pode definir o âmbito do grupo de gestão no âmbito designado pela Definição de Função. Essa Função RBAC personalizada passará a estar disponível para atribuição nesse grupo de gestão e em qualquer grupo de gestão, subscrição, grupo de recursos ou recursos aí existentes. Esta função personalizada herdará a hierarquia como qualquer função incorporada.  
 
@@ -108,7 +108,7 @@ O suporte personalizado de funções RBAC para grupos de gestão está atualment
 
 [Definir e criar um papel personalizado](../../role-based-access-control/custom-roles.md) não muda com a inclusão de grupos de gestão. Utilize o caminho completo para definir o grupo de gestão **/fornecedores/Microsoft.Management/managementgroups/{groupId}**.
 
-Utilize o ID do grupo de gestão e não o nome de exibição do grupo de gestão. Este erro comum acontece uma vez que ambos são campos definidos sob medida na criação de um grupo de gestão.
+Utilize o ID do grupo de gestão e não o nome de exibição do grupo de gestão. Este erro comum acontece uma vez que ambos são campos definidos sob medida ao criar um grupo de gestão.
 
 ```json
 ...
@@ -141,49 +141,49 @@ Utilize o ID do grupo de gestão e não o nome de exibição do grupo de gestão
 ...
 ```
 
-### <a name="issues-with-breaking-the-role-definition-and-assignment-hierarchy-path"></a>Questões com quebrar a definição de papel e o caminho da hierarquia de atribuição
+### <a name="issues-with-breaking-the-role-definition-and-assignment-hierarchy-path"></a>Questões com a quebra da definição de função e caminho da hierarquia de atribuição
 
-As definições de papéis são de âmbito atribuível em qualquer lugar da hierarquia do grupo de gestão. Uma definição de função pode ser definida num grupo de gestão dos pais enquanto a atribuição de funções real existe na subscrição da criança. Como há uma relação entre os dois itens, receberá um erro ao tentar separar a atribuição da sua definição.
+As definições de função são de âmbito atribuível em qualquer lugar da hierarquia do grupo de gestão. Uma definição de papel pode ser definida num grupo de gestão de pais enquanto a atribuição de funções real existe na subscrição da criança. Uma vez que existe uma relação entre os dois itens, receberá um erro ao tentar separar a atribuição da sua definição.
 
-Por exemplo, vamos olhar para uma pequena secção de uma hierarquia para um visual.
+Por exemplo, vamos olhar para uma pequena parte de uma hierarquia para um visual.
 
-:::image type="content" source="./media/subtree.png" alt-text="subárvore" border="false":::
+:::image type="content" source="./media/subtree.png" alt-text="sub-árvore" border="false":::
 
-Digamos que há um papel personalizado definido no grupo de gestão de Marketing. Esse papel personalizado é então atribuído nas duas subscrições de teste gratuitos.  
+Digamos que há um papel personalizado definido no grupo de gestão de marketing. Essa função personalizada é então atribuída nas duas subscrições de teste gratuito.  
 
-Se tentarmos mover uma dessas subscrições para ser uma criança do grupo de gestão de produção, este movimento quebraria o caminho desde a atribuição de funções de subscrição até à definição de papel de grupo de gestão de Marketing. Neste cenário, receberá um erro dizendo que a mudança não é permitida, uma vez que vai quebrar esta relação.  
+Se tentarmos mover uma dessas assinaturas para ser uma criança do grupo de gestão de produção, este movimento quebraria o caminho da atribuição de funções de subscrição para a definição de papel do grupo de gestão de Marketing. Neste cenário, receberá um erro dizendo que a mudança não é permitida, uma vez que vai quebrar esta relação.  
 
 Existem algumas opções diferentes para corrigir este cenário:
-- Retire a atribuição de funções da subscrição antes de passar a subscrição para um novo MG-mãe.
-- Adicione a subscrição ao âmbito designado pela Definição de Funções.
-- Alterar o âmbito atribuível dentro da definição de função. No exemplo acima, pode atualizar os âmbitos atribuíveis do Marketing ao Root Management Group para que a definição possa ser alcançada por ambos os ramos da hierarquia.  
-- Crie um Papel Personalizado adicional que será definido no outro ramo. Esta nova função exigirá que a atribuição de funções seja alterada na subscrição também.  
+- Remova a atribuição de funções da subscrição antes de mover a subscrição para um novo MG dos pais.
+- Adicione a subscrição ao âmbito atribuível da Definição de Função.
+- Altere o âmbito de aplicação na definição de função. No exemplo acima, pode atualizar os âmbitos atribuíveis do Marketing ao Root Management Group para que a definição possa ser alcançada por ambos os ramos da hierarquia.  
+- Crie uma Função Personalizada adicional que será definida no outro ramo. Esta nova função exigirá que a atribuição de funções seja alterada também na subscrição.  
 
 ### <a name="limitations"></a>Limitações  
 
-Existem limitações que existem quando se utilizam funções personalizadas em grupos de gestão. 
+Existem limitações quando se utilizam funções personalizadas em grupos de gestão. 
 
- - Só é possível definir um grupo de gestão nos âmbitos atribuíveis de um novo papel. Esta limitação está em vigor para reduzir o número de situações em que as definições de papéis e as atribuições de papéis são desligadas. Esta situação acontece quando uma subscrição ou grupo de gestão com uma atribuição de funções é transferida para um pai diferente que não tem a definição de papel.  
- - As ações do RBAC Data Plane não podem ser definidas em funções personalizadas do grupo de gestão. Esta restrição está em vigor, uma vez que há um problema de latência com as ações do RBAC que atualizam os fornecedores de recursos de avião de dados.
-   Esta questão da latência está a ser trabalhada e estas ações serão desativadas da definição de funções para reduzir quaisquer riscos.
- - O Gestor de Recursos Azure não valida a existência do grupo de gestão no âmbito de atribuição da definição de funções. Se houver um erro ou um ID de grupo de gestão incorreto listado, a definição de função ainda será criada.  
+ - Só é possível definir um grupo de gestão nos âmbitos atribuíveis de um novo papel. Esta limitação está em vigor para reduzir o número de situações em que as definições de funções e atribuições de funções são desligadas. Esta situação acontece quando uma subscrição ou grupo de gestão com uma atribuição de papel é transferida para um pai diferente que não tem a definição de papel.  
+ - As ações do Plano de Dados da RBAC não podem ser definidas em funções personalizadas do grupo de gestão. Esta restrição está em vigor, uma vez que há um problema de latência com as ações da RBAC que atualizam os fornecedores de recursos de planos de dados.
+   Esta questão da latência está a ser trabalhada e estas ações serão desativadas da definição de papel para reduzir quaisquer riscos.
+ - O Gestor de Recursos Azure não valida a existência do grupo de gestão no âmbito atribuível da definição de função. Se houver um erro ou um ID de grupo de gestão incorreto listado, a definição de função ainda será criada.  
 
-## <a name="moving-management-groups-and-subscriptions"></a>Grupos de gestão em movimento e subscrições 
+## <a name="moving-management-groups-and-subscriptions"></a>Grupos de gestão móvel e subscrições 
 
 Para mover um grupo de gestão ou subscrição para ser filho de outro grupo de gestão, três regras precisam de ser avaliadas como verdadeiras.
 
-Se estás a fazer a ação, precisas de: 
+Se estás a fazer a ação de movimento, precisas: 
 
-- O grupo de gestão escreve e role Assignment write permissões no grupo de subscrição ou gestão infantil.
-  - Exemplo de papel incorporado **Proprietário**
-- O grupo de gestão escreve o acesso ao grupo de gestão dos pais-alvo.
-  - Exemplo de papel incorporado: **Proprietário,** **Colaborador**, Colaborador do Grupo de **Gestão**
-- O grupo de gestão escreve o acesso ao grupo de gestão parental existente.
-  - Exemplo de papel incorporado: **Proprietário,** **Colaborador**, Colaborador do Grupo de **Gestão**
+- O grupo de gestão escreve e atribui permissão de atribuição de papéis no grupo de subscrição ou gestão de crianças.
+  - Exemplo de função incorporada **Proprietário**
+- O grupo de gestão escreve acesso ao grupo de gestão de pais alvo.
+  - Exemplo de função incorporada: **Proprietário,** **Contribuinte,** **Colaborador do Grupo de Gestão**
+- O grupo de gestão escreve acesso ao grupo de gestão de pais existente.
+  - Exemplo de função incorporada: **Proprietário,** **Contribuinte,** **Colaborador do Grupo de Gestão**
 
-**Exceção**: Se o alvo ou o grupo de gestão dos pais existente sou o grupo de gestão root, os requisitos de permissões não se aplicam. Uma vez que o grupo de gestão root é o local de aterragem padrão para todos os novos grupos de gestão e subscrições, você não precisa de permissões nele para mover um item.
+**Exceção**: Se o objetivo ou o grupo de gestão parental existente for o grupo de gestão Root, os requisitos de permissões não se aplicam. Uma vez que o grupo de gestão Root é o local de aterragem padrão para todos os novos grupos de gestão e subscrições, você não precisa de permissões nele para mover um item.
 
-Se o papel do Proprietário na subscrição for herdado do grupo de gestão atual, os seus alvos de movimento são limitados. Só pode mover a subscrição para outro grupo de gestão onde tem o papel de Proprietário. Não pode movê-lo para um grupo de gestão onde é um contribuinte porque perderia a propriedade da subscrição. Se você é diretamente atribuído ao papel de Proprietário para a subscrição (não herdada do grupo de gestão), você pode movê-lo para qualquer grupo de gestão onde você é um colaborador.
+Se a função do Proprietário na subscrição for herdada do grupo de gestão atual, os seus alvos de movimento são limitados. Só pode mover a subscrição para outro grupo de gestão onde tem a função De Proprietário. Não pode movê-lo para um grupo de gestão onde é um contribuinte porque perderia a propriedade da subscrição. Se você está diretamente designado para o papel de Proprietário para a subscrição (não herdado do grupo de gestão), você pode movê-lo para qualquer grupo de gestão onde você é um contribuinte.
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Auditar os grupos de gestão que utilizam registos de atividades
 
@@ -199,6 +199,4 @@ Para saber mais sobre os grupos de gestão, veja:
 
 - [Criar grupos de gestão para organizar recursos do Azure](./create.md)
 - [Como alterar, eliminar ou gerir os seus grupos de gestão](./manage.md)
-- [Rever os grupos de gestão no Módulo de Recursos do Azure PowerShell](/powershell/module/az.resources#resources)
-- [Rever os grupos de gestão na API REST](/rest/api/resources/managementgroups)
-- [Rever os grupos de gestão na CLI do Azure](/cli/azure/account/management-group)
+- Ver opções para [como proteger a sua hierarquia de recursos](./how-to/protect-resource-hierarchy.md)

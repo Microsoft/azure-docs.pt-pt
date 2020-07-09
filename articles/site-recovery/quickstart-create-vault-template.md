@@ -1,25 +1,25 @@
 ---
-title: Quickstart para criar um cofre de Serviços de Recuperação Azure usando um modelo de Gestor de Recursos Azure.
-description: Neste arranque rápido, você aprende a criar um cofre azure Recovery Services usando um modelo de Gestor de Recursos Azure.
+title: Quickstart para criar um cofre Azure Recovery Services usando um modelo de Gestor de Recursos Azure.
+description: Neste arranque rápido, você aprende a criar um cofre Azure Recovery Services usando um modelo de Gestor de Recursos Azure.
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/29/2020
 author: davidsmatlak
 ms.author: v-dasmat
-ms.openlocfilehash: 47c25ebd0fe18d470b04ccbcc85a8638c1ce0346
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: cf85939a1dbaf8d3e8a90a3acf10bda9faac83bc
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598402"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84217288"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-a-resource-manager-template"></a>Quickstart: Criar um cofre de serviços de recuperação usando um modelo de Gestor de Recursos
 
-Este quickstart descreve como configurar um cofre de Serviços de Recuperação usando um modelo de Gestor de Recursos Azure. O serviço de recuperação de [sites Azure](site-recovery-overview.md) contribui para a continuidade do seu negócio e estratégia de recuperação de desastres (BCDR) para que as suas aplicações de negócio permaneçam online durante as interrupções planeadas e não planeadas. A Recuperação do Local gere a recuperação de desastres de máquinas no local e máquinas virtuais Azure (VM), incluindo replicação, failover e recuperação.
+Este quickstart descreve como configurar um cofre de Serviços de Recuperação utilizando um modelo de Gestor de Recursos Azure. O serviço [de Recuperação de Sítios Azure](site-recovery-overview.md) contribui para a estratégia de continuidade do seu negócio e recuperação de desastres (BCDR) para que as suas aplicações de negócio permaneçam on-line durante as paragens planeadas e não planeadas. A Recuperação do Site gere a recuperação de desastres de máquinas no local e máquinas virtuais Azure (VM), incluindo replicação, failover e recuperação.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se não tiver uma subscrição azure ativa, pode criar uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição ativa do Azure, pode criar uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,26 +27,26 @@ Nenhum.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
-### <a name="review-the-template"></a>Reveja o modelo
+### <a name="review-the-template"></a>Rever o modelo
 
-O modelo utilizado neste quickstart é de [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
+O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
 
 :::code language="json" source="~/quickstart-templates/101-recovery-services-vault-create/azuredeploy.json" range="1-66" highlight="41-65":::
 
 Dois recursos Azure são definidos no modelo:
 
-- [Microsoft.RecoveryServices vaults](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults): cria o cofre.
-- [Microsoft.RecoveryServices/vaults/backupconfig](/rest/api/backup/backupresourcestorageconfigs): configura as definições de redundância de reserva do cofre.
+- [Cofres Microsoft.RecoveryServices:](/azure/templates/microsoft.recoveryservices/vaults)cria o cofre.
+- [Microsoft.RecoveryServices/vaults/backupstorageconfig](/rest/api/backup/backupresourcestorageconfigs): configura as definições de redundância de backup do cofre.
 
-O modelo inclui parâmetros opcionais para a configuração de backup do cofre. As definições de redundância de armazenamento são armazenamento localmente redundante (LRS) ou armazenamento geo-redundante (GRS). Para mais informações, consulte [Definir a redundância](../backup/backup-create-rs-vault.md#set-storage-redundancy)de armazenamento .
+O modelo inclui parâmetros opcionais para a configuração de backup do cofre. As definições de redundância de armazenamento são armazenamento localmente redundante (LRS) ou armazenamento geo-redundante (GRS). Para obter mais informações, consulte [set armazenamento redundância](../backup/backup-create-rs-vault.md#set-storage-redundancy).
 
-Para mais modelos de Serviços de Recuperação Azure, consulte [os modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Recoveryservices&pageNumber=1&sort=Popular).
+Para obter mais modelos de Serviços de Recuperação Azure, consulte [os modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Recoveryservices&pageNumber=1&sort=Popular).
 
 ### <a name="deploy-the-template"></a>Implementar o modelo
 
-Para implementar o modelo, são necessários o modelo **de Subscrição,** **Grupo de Recursos**e Nome **vault.**
+Para implementar o modelo, é necessário o nome **De assinatura,** **grupo de recursos**e **Cofre.**
 
-1. Para iniciar sessão no Azure e abrir o modelo, selecione a imagem **De si para azure.**
+1. Para iniciar súm na Azure e abrir o modelo, selecione a imagem **'Implementar para Azul'.**
 
    [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
 
@@ -56,20 +56,20 @@ Para implementar o modelo, são necessários o modelo **de Subscrição,** **Gru
 
    - **Subscrição**: selecione a sua subscrição Azure.
    - **Grupo de recursos**: selecione um grupo existente ou selecione **Criar novo** para adicionar um grupo.
-   - **Localização**: falha na localização do grupo de recursos e fica indisponível após a separação de um grupo de recursos.
-   - **Nome do cofre:** forneça um nome para o cofre.
-   - **Tipo de armazenamento de alteração**: O predefinido é **falso**. Selecione **o verdadeiro** apenas se precisar de alterar o tipo de armazenamento do cofre.
-   - **Tipo de armazenamento do cofre:** O padrão é **Globalmente Redundante**. Se o tipo de armazenamento for definido como **verdadeiro,** selecione **Localredundant**.
-   - **Localização**: `[resourceGroup().location]` a função não está na localização do grupo de recursos. Para alterar a localização, insira um valor como **westus**.
+   - **Localização**: predefinição da localização do grupo de recursos e fica indisponível após a seleção de um grupo de recursos.
+   - **Nome do cofre:** Forneça um nome para o cofre.
+   - **Tipo de armazenamento de**alteração: O predefinição é **falso**. Selecione **true** only if you need to change the vault's storage type.
+   - **Tipo de armazenamento de**cofre : O padrão é **globalmenteredundant**. Se o tipo de armazenamento foi definido como **verdadeiro,** selecione **LocallyRedundant**.
+   - **Localização:** a função `[resourceGroup().location]` é padrão para a localização do grupo de recursos. Para alterar a localização, insira um valor como **o westus.**
    - Selecione a caixa de verificação **Concordo com os termos e condições acima indicados**.
 
-1. Para iniciar a implantação do cofre, selecione o botão **de compra.** Após uma implementação bem sucedida, é apresentada uma notificação.
+1. Para iniciar a implantação do cofre, selecione o botão **'Comprar'.** Após uma implementação bem sucedida, é apresentada uma notificação.
 
-   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="O lançamento do cofre foi bem sucedido.":::
+   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="A colocação do cofre foi um sucesso.":::
 
 ## <a name="validate-the-deployment"></a>Validar a implementação
 
-Para confirmar que o cofre foi criado, utilize o Azure CLI ou o Azure PowerShell.
+Para confirmar que o cofre foi criado, use Azure CLI ou Azure PowerShell.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -130,7 +130,7 @@ GeoRedundant
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se planeias usar os novos recursos, não é necessária nenhuma ação. Caso contrário, pode remover o grupo de recursos e o cofre que foi criado neste arranque rápido. Para eliminar o grupo de recursos e os seus recursos, utilize o Azure CLI ou o Azure PowerShell.
+Se planeia usar os novos recursos, não é necessária nenhuma ação. Caso contrário, pode remover o grupo de recursos e o cofre que foi criado neste arranque rápido. Para eliminar o grupo de recursos e os seus recursos utiliza a Azure CLI ou a Azure PowerShell.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -153,7 +153,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criou um cofre dos Serviços de Recuperação. Para saber mais sobre a recuperação de desastres, continue para o próximo artigo de arranque rápido.
+Neste arranque rápido, criaste um cofre dos Serviços de Recuperação. Para saber mais sobre a recuperação de desastres, continue para o próximo artigo de arranque rápido.
 
 > [!div class="nextstepaction"]
 > [Configurar a recuperação após desastre](azure-to-azure-quickstart.md)

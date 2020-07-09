@@ -1,55 +1,45 @@
 ---
-title: Use tópicos e subscrições de ônibus de serviço Azure com Java
-description: Neste arranque rápido, escreve o código Java para enviar mensagens para um tópico do Azure Service Bus e, em seguida, recebe mensagens de subscrições para esse tópico.
-services: service-bus-messaging
-documentationcenter: java
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 63d6c8bd-8a22-4292-befc-545ffb52e8eb
-ms.service: service-bus-messaging
-ms.workload: tbd
-ms.tgt_pltfrm: na
+title: Use tópicos e subscrições de ônibus da Azure Service com a Java
+description: Neste quickstart, você escreve código Java para enviar mensagens para um tópico Azure Service Bus e, em seguida, receber mensagens de subscrições para esse tópico.
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 01/24/2020
-ms.author: aschhab
+ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: e025adfd3d8a29bc07cf14803f572dcba1097fd6
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: fb8e5196077e60c20d9354459cafe85302ad0e45
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791073"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341434"
 ---
-# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Quickstart: Use tópicos de ônibus de serviço e subscrições com Java
+# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Quickstart: Use tópicos e subscrições de Service Bus com a Java
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Neste arranque rápido, escreve o código Java para enviar mensagens para um tópico do Azure Service Bus e, em seguida, recebe mensagens de subscrições para esse tópico. 
+Neste quickstart, você escreve código Java para enviar mensagens para um tópico Azure Service Bus e, em seguida, receber mensagens de subscrições para esse tópico. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar os benefícios do [seu Estúdio Visual ou subscrição da MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se para uma conta [gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Siga os passos no [Quickstart: Utilize o portal Azure para criar um tópico de ônibus de serviço e subscrições do tópico](service-bus-quickstart-topics-subscriptions-portal.md) para fazer as seguintes tarefas:
-    1. Crie um espaço de **nome**de ônibus de serviço .
-    2. Pegue a corda de **ligação**.
-    3. Crie um **tópico** no espaço de nome.
-    4. Crie **três subscrições** para o tópico no espaço de nome.
+1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar os [benefícios do seu assinante Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)
+2. Siga os passos no [Quickstart: Use o portal Azure para criar um tópico de Service Bus e subscrições do tópico](service-bus-quickstart-topics-subscriptions-portal.md) para fazer as seguintes tarefas:
+    1. Crie um espaço de nomes de **autocarro de serviço.**
+    2. Obtenha a **cadeia de ligação.**
+    3. Crie um **tópico** no espaço de nomes.
+    4. Crie **três subscrições** do tema no espaço de nomes.
 3. [Azure SDK para Java.][Azure SDK for Java]
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configure a sua aplicação para utilizar o Service Bus
-Certifique-se de que instalou o [SDK Azure para Java][Azure SDK for Java] antes de construir esta amostra. Se estiver a utilizar o Eclipse, pode instalar o [Kit de Ferramentas Azure para eclipse][Azure Toolkit for Eclipse] que inclui o Azure SDK para Java. Em seguida, pode adicionar as **Bibliotecas Microsoft Azure para Java** ao seu projeto:
+Certifique-se de que instalou o [Azure SDK para Java][Azure SDK for Java] antes de construir esta amostra. Se estiver a utilizar o Eclipse, pode instalar o [Kit de Ferramentas Azure para Eclipse][Azure Toolkit for Eclipse] que inclui o Azure SDK para Java. Em seguida, pode adicionar as **Bibliotecas Microsoft Azure para Java** ao seu projeto:
 
-![Adicione bibliotecas Microsoft Azure para Java ao seu projeto Eclipse](media/service-bus-java-how-to-use-topics-subscriptions/eclipse-azure-libraries-java.png)
+![Adicione bibliotecas microsoft Azure para Java ao seu projeto Eclipse](media/service-bus-java-how-to-use-topics-subscriptions/eclipse-azure-libraries-java.png)
 
-Também precisa adicionar os seguintes JARs ao Caminho de Construção de Java:
+Também precisa adicionar os seguintes JARs ao Caminho da Construção de Java:
 
 - gson-2.6.2.jar
-- commons-cli-1.4.jar
+- comuns-cli-1.4.jar
 - protão-j-0.21.0.jar
 
-Adicione uma classe **Main** com um método Principal `import` e, em seguida, adicione as seguintes declarações no topo do ficheiro Java:
+Adicione uma classe com um método **Principal** e, em seguida, adicione as `import` seguintes declarações no topo do ficheiro Java:
 
 ```java
 import com.google.gson.reflect.TypeToken;
@@ -66,11 +56,11 @@ import org.apache.commons.cli.DefaultParser;
 ```
 
 ## <a name="send-messages-to-a-topic"></a>Enviar mensagens para um tópico
-Atualize o método **principal** para criar um objeto **TopicClient** e invoque um método de ajuda que envia assincronicamente mensagens de amostra para o tópico do Ônibus de Serviço.
+Atualize o método **principal** para criar um objeto **TopicClient** e invoque um método de ajuda que assincroticamente envia mensagens de amostra para o tópico do Service Bus.
 
 > [!NOTE] 
 > - Substitua `<NameOfServiceBusNamespace>` pelo nome do espaço de nomes do Service Bus. 
-> - Substitua-a `<AccessKey>` pela chave de acesso para o seu espaço de nome.
+> - `<AccessKey>`Substitua-a pela chave de acesso para o seu espaço de nome.
 
 ```java
 public class MyServiceBusTopicClient {
@@ -123,10 +113,10 @@ public class MyServiceBusTopicClient {
 }
 ```
 
-Os tópicos do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há limite para o número de mensagens realizadas num tópico, mas há um limite para o tamanho total das mensagens detidas por um tópico. O tamanho do tópico é definido no momento de criação, com um limite superior de 5 GB.
+Os tópicos do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há limite para o número de mensagens mantidas num tópico, mas há um limite para o tamanho total das mensagens detidas por um tópico. O tamanho do tópico é definido no momento de criação, com um limite superior de 5 GB.
 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>Como receber mensagens de uma subscrição
-Atualize o método **principal** para criar três objetos **SubscriptionClient** para três subscrições, e invoque um método de ajuda que receba assincronicamente mensagens do tópico do Service Bus. O código da amostra pressupõe que criou um tópico chamado **BasicTopic** e três subscrições chamadas **Subscrição1,** **Subscrição2**, e **Subscrição3**. Se usou nomes diferentes para eles, atualize o código antes de o testar. 
+Atualize o método **principal** para criar três objetos **SubscriptionClient** para três subscrições e invoque um método de ajuda que recebe assincroticamente mensagens do tópico Service Bus. O código de amostra assume que criou um tópico chamado **BasicTopic** e três subscrições **denominada Subscrição1**, **Subscrição2**e **Subscrição3**. Se utilizou nomes diferentes para eles, atualize o código antes de o testar. 
 
 ```java
 public class MyServiceBusTopicClient {
@@ -456,10 +446,10 @@ Message sending: Id = 9
 ```
 
 > [!NOTE]
-> Você pode gerir recursos de ônibus de serviço com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nome do Bus de Serviço e administram entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
+> Você pode gerir os recursos de Service Bus com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nomes de Service Bus e administram as entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
 
 ## <a name="next-steps"></a>Passos seguintes
-Para mais informações, consulte [filas de ônibus de serviço, tópicos e subscrições.][Service Bus queues, topics, and subscriptions]
+Para mais informações, consulte [as filas, tópicos e subscrições do Service Bus.][Service Bus queues, topics, and subscriptions]
 
 [Azure SDK for Java]: https://docs.microsoft.com/java/api/overview/azure/
 [Azure Toolkit for Eclipse]: https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/installation

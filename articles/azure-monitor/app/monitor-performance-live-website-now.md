@@ -1,31 +1,31 @@
 ---
 title: Monitorizar uma aplicação Web ASP.NET com o Application Insights do Azure | Microsoft Docs
-description: Monitorize o desempenho de um site sem o reimplementar. Trabalha com ASP.NET aplicações web hospedadas no local ou em VMs.
+description: Monitorize o desempenho de um site sem o reimplementar. Funciona com ASP.NET aplicações web hospedadas no local ou em VMs.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: ba17ee275a744b88f2c76e7e3f99a1ac9cc8e758
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e30700deaa0121fbe473580d868a79d75a899a1d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536833"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107483"
 ---
-# <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Aplicativos web de instrumentos em execução com Aplicação Insights Codeless Attach
+# <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Aplicações web de instrumentos em tempo de execução com App Insights Codeless Attach
 
 > [!IMPORTANT]
-> O Monitor de Estado já não é recomendado para utilização. Foi substituído pelo Agente de Insights de Aplicação do Monitor Azure (anteriormente denominado Monitor de Estado v2). Consulte a nossa documentação para [implementações de servidores no local](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) ou [máquina virtual Azure e implementações de conjuntos](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps)de escala de máquinavirtual .
+> O Status Monitor já não é recomendado para utilização, e a partir de 1 de junho de **2021** esta versão do Status monitor não será suportada. Foi substituído pelo Agente de Insights de Aplicação do Monitor Azure (anteriormente denominado Status Monitor v2). Consulte a nossa documentação para [implementações de servidores no local](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) ou [para a máquina virtual Azure e para as implementações de conjuntos de escalas de máquinas virtuais](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
 
 Pode instrumentar uma aplicação Web em direto com o Azure Application Insights, sem ter de modificar ou voltar a implementar o seu código. Precisará de uma subscrição do [Microsoft Azure](https://azure.com).
 
-O Status Monitor é utilizado para instrumentar uma aplicação .NET alojada no IIS, quer no local, quer num VM.
+O Status Monitor é utilizado para instrumentar uma aplicação .NET hospedada no IIS no local ou num VM.
 
-- Se a sua aplicação for implantada no conjunto de escala de máquinas virtuais Azure VM ou Azure, siga [estas instruções](azure-vm-vmss-apps.md).
-- Se a sua aplicação for implantada nos serviços de aplicações Do Azure, siga [estas instruções.](azure-web-apps.md)
-- Se a sua aplicação for implantada num VM Azure, pode ligar a monitorização do Application Insights a partir do painel de controlo Azure.
-- (Existem também artigos separados sobre a instrumentação dos [Serviços Azure Cloud](../../azure-monitor/app/cloudservices.md).)
+- Se a sua aplicação for implantada no conjunto de escala de máquina virtual Azure VM ou Azure, siga [estas instruções](azure-vm-vmss-apps.md).
+- Se a sua aplicação for implantada nos serviços de aplicações Azure, siga [estas instruções.](azure-web-apps.md)
+- Se a sua aplicação for implantada num VM Azure, pode ligar a monitorização de Insights de Aplicação a partir do painel de controlo Azure.
+- (Existem também artigos separados sobre instrumentação dos [Serviços Azure Cloud](../../azure-monitor/app/cloudservices.md).)
 
 
-![Screenshot de gráficos de visão geral do App Insights contendo informações sobre pedidos falhados, tempo de resposta do servidor e pedidos de servidor](./media/monitor-performance-live-website-now/overview-graphs.png)
+![Screenshot de gráficos de visão geral do App Insights que contêm informações sobre pedidos falhados, tempo de resposta do servidor e pedidos de servidor](./media/monitor-performance-live-website-now/overview-graphs.png)
 
 Tem uma escolha de duas rotas para aplicar Insights de Aplicação às suas aplicações web .NET:
 
@@ -90,15 +90,16 @@ Se pretender voltar a publicar sem adicionar o Application Insights ao código, 
 
 Estes são alguns passos que pode executar para confirmar que a sua instalação foi bem sucedida.
 
-- Confirme que o ficheiro applicationInsights.config está presente no diretório da aplicação alvo e contém o seu ikey.
+- Confirme que o ficheiro applicationInsights.config está presente no diretório de aplicações-alvo e contém o seu ikey.
 
-- Se suspeitar que faltam dados, pode fazer uma simples consulta no [Analytics](../log-query/get-started-portal.md) para listar todas as funções na nuvem que atualmente enviam telemetria.
+- Se suspeitar que os dados estão em falta, pode fazer uma consulta no [Analytics](../log-query/get-started-portal.md) para listar todas as funções em nuvem que estão atualmente a enviar telemetria.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
 
-- Se precisar confirmar que os Insights de Aplicação estão ligados com sucesso, pode executar o [Manípulo Sysinternals](https://docs.microsoft.com/sysinternals/downloads/handle) numa janela de comando para confirmar que applicationinsights.dll foi carregado pelo IIS.
-  ```cmd
+- Se precisar de confirmar que o Application Insights está ligado com sucesso, pode executar [o Cabo Sysinternals](https://docs.microsoft.com/sysinternals/downloads/handle) numa janela de comando para confirmar que applicationinsights.dll foi carregado pelo IIS.
+
+  ```console
   handle.exe /p w3wp.exe
   ```
 
@@ -109,16 +110,16 @@ Estes são alguns passos que pode executar para confirmar que a sua instalação
 
 ### <a name="unable-to-login"></a>Incapaz de iniciar sessão
 
-* Se o Monitor de Estado não conseguir iniciar sessão, faça uma instalação da linha de comando. O Monitor de Estado tenta iniciar sessão para recolher a sua chave, mas pode fornecer isto manualmente utilizando o comando:
+Se o Status Monitor não conseguir iniciar sessão, faça uma instalação de linha de comando. O Status Monitor tenta iniciar sessão para recolher o seu ikey, mas pode fornecer isto manualmente utilizando o comando:
 
 ```powershell
 Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
 Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000
 ```
 
-### <a name="could-not-load-file-or-assembly-systemdiagnosticsdiagnosticsource"></a>Não podia carregar ficheiro ou montagem 'System.Diagnostics.DiagnosticSource'
+### <a name="could-not-load-file-or-assembly-systemdiagnosticsdiagnosticsource"></a>Não foi possível carregar ficheiro ou montagem 'System.Diagnostics.DiagnosticSource'
 
-Pode ter este erro depois de ativar os Insights da Aplicação. Isto porque o instalador substitui este dll no seu diretório de lixo.
+Pode obter este erro depois de ativar o Application Insights. Isto porque o instalador substitui este dll no seu diretório de contentores.
 Para corrigir a atualização do seu web.config:
 
 ```xml
@@ -128,10 +129,10 @@ Para corrigir a atualização do seu web.config:
 </dependentAssembly>
 ```
 
-Estamos a acompanhar esta questão [aqui.](https://github.com/Microsoft/ApplicationInsights-Home/issues/301)
+Estamos a acompanhar esta [questão.](https://github.com/Microsoft/ApplicationInsights-Home/issues/301)
 
 
-### <a name="application-diagnostic-messages"></a>Mensagens de diagnóstico de aplicação
+### <a name="application-diagnostic-messages"></a>Mensagens de diagnóstico de aplicações
 
 * Abra o Monitor de Estado e selecione a aplicação no painel esquerdo. Verifique se existem quaisquer mensagens de diagnóstico para esta aplicação na secção "Notificações de configuração":
 
@@ -139,12 +140,12 @@ Estamos a acompanhar esta questão [aqui.](https://github.com/Microsoft/Applicat
   
 ### <a name="detailed-logs"></a>Registos detalhados
 
-* Por predefinição, o Monitor de Estado irá passar os registos de diagnóstico em:`C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log`
+* Por predefinição, o Monitor de Estado irá fazer registos de diagnóstico em:`C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log`
 
-* Para obter registos verbosos, modifique `<add key="TraceLevel" value="All" />` o `appsettings`ficheiro config: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` e adicione ao .
-Em seguida, reiniciar o monitor de estado.
+* Para obter registos verbosos, modifique o ficheiro config: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` e adicione `<add key="TraceLevel" value="All" />` ao `appsettings` .
+Em seguida, reinicie o monitor de estado.
 
-* Como o Status Monitor é uma aplicação .NET, também pode ativar [o rastreio .net adicionando os diagnósticos adequados ao ficheiro config](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Por exemplo, em alguns cenários pode ser útil ver o que está a acontecer a nível da rede [configurando](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing) o rastreio da rede
+* Como Status Monitor é uma aplicação .NET, também pode [ativar o rastreio .net adicionando os diagnósticos adequados ao ficheiro config](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Por exemplo, em alguns cenários pode ser útil ver o que está a acontecer ao nível da [rede, configurando o rastreio](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing) da rede
 
 ### <a name="insufficient-permissions"></a>Permissões insuficientes
   
@@ -152,25 +153,25 @@ Em seguida, reiniciar o monitor de estado.
   * No Gestor de IIS, selecione o conjunto de aplicações, abra **Definições Avançadas**, e, em **Modelo de Processos** tenha em atenção a identidade.
   * No painel de controlo de gestão do Computador, adicione esta identidade ao grupo de Utilizadores do Monitor de Desempenho.
 
-### <a name="conflict-with-systems-center-operations-manager"></a>Conflito com gestor de operações do Centro de Sistemas
+### <a name="conflict-with-systems-center-operations-manager"></a>Conflito com o Gestor de Operações do Centro de Sistemas
 
 * Se tiver MMA/SCOM (Systems Center Operations Manager) instalado no servidor, algumas versões podem entrar em conflito. Desinstale o SCOM e o Monitor de Estado, e reinstale as versões mais recentes.
 
 ### <a name="failed-or-incomplete-installation"></a>Instalação falhada ou incompleta
 
-Se o Monitor de Estado falhar durante uma instalação, poderá ficar com uma instalação incompleta da sua capacidade de recuperação do Monitor de Estado. Isto requer um reset manual.
+Se o Monitor de Estado falhar durante uma instalação, poderá ficar com uma instalação incompleta da qual o Status Monitor não conseguirá recuperar. Isto requer um reset manual.
 
 Elimine qualquer um destes ficheiros encontrados no seu diretório de aplicações:
-- Qualquer DLLs no seu diretório de lixo começando com "Microsoft.AI". ou "Microsoft.ApplicationInsights.".
-- Este DLL no seu diretório de bin "Microsoft.Web.Infrastructure.dll"
-- Este DLL no seu diretório de lixo "System.Diagnostics.DiagnosticSource.dll"
-- No seu diretório de candidaturas remova "App_Data\packages"
+- Quaisquer DLLs no seu diretório de caixotes começando com "Microsoft.AI". ou "Microsoft.ApplicationInsights".
+- Este DLL no seu diretório de caixotes "Microsoft.Web.Infrastructure.dll"
+- Este DLL no seu diretório de caixotes "System.Diagnostics.DiagnosticSource.dll"
+- No seu diretório de candidaturas remova "App_Data\pacotes"
 - No seu diretório de candidaturas remova "applicationinsights.config"
 
 
 ### <a name="additional-troubleshooting"></a>Resolução de Problemas Adicional
 
-* Ver [Resolução][qna]adicional de problemas .
+* Consulte [a resolução adicional de problemas.][qna]
 
 ## <a name="system-requirements"></a>Requisitos de Sistema
 Suporte de SO para o Monitor de Estado do Application Insights no Servidor:
@@ -181,7 +182,7 @@ Suporte de SO para o Monitor de Estado do Application Insights no Servidor:
 * Windows Server 2012 R2
 * Windows Server 2016
 
-com os mais recentes SP e .NET Framework 4.5 (O Monitor de Estado baseia-se nesta versão do quadro)
+com o mais recente QUADRO SP e .NET 4.5 (Status Monitor é construído nesta versão do quadro)
 
 No lado do cliente: Windows 7, 8, 8.1 e 10, novamente com o .NET Framework 4.5
 
@@ -192,7 +193,9 @@ Pode iniciar e parar a monitorização com o PowerShell no servidor de IIS.
 
 Primeiro, importe o módulo do Application Insights:
 
-`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+```powershell
+Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
+```
 
 Descubra que aplicações estão a ser monitorizadas:
 
@@ -221,12 +224,14 @@ Descubra que aplicações estão a ser monitorizadas:
     Para transferir a versão mais recente, utilize Update-ApplicationInsightsVersion.
 * Devolve `ApplicationInsightsApplication` com êxito. Se falhar, regista um rastreio em stderr.
 
-          Name                      : Default Web Site/WebApp1
-          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
-          ProfilerState             : ApplicationInsights
-          SdkState                  : EnabledAfterDeployment
-          SdkVersion                : 1.2.1
-          LatestAvailableSdkVersion : 1.2.3
+   ```output
+   Name                      : Default Web Site/WebApp1
+   InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+   ProfilerState             : ApplicationInsights
+   SdkState                  : EnabledAfterDeployment
+   SdkVersion                : 1.2.1
+   LatestAvailableSdkVersion : 1.2.3
+   ```
 
 `Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
 
@@ -238,7 +243,7 @@ Descubra que aplicações estão a ser monitorizadas:
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
 * `-Name`: o nome de uma aplicação Web no IIS.
-* `-InstrumentationKey`(Opcional.) Use isto para alterar o recurso para o qual a telemetria da aplicação é enviada.
+* `-InstrumentationKey`(Opcional.) Utilize isto para alterar o recurso para o qual a telemetria da aplicação é enviada.
 * Este cmdlet:
   * Atualiza a aplicação nomeada para a versão do SDK mais recentemente transferida para esta máquina. (Só funciona se `SdkState==EnabledAfterDeployment`)
   * Se fornecer uma chave de instrumentação, a aplicação nomeada é reconfigurada para enviar a telemetria para o recurso com essa chave. (Funciona se `SdkState != Disabled`)
@@ -268,14 +273,14 @@ Não recolhe telemetria por si só. Só configura as aplicações Web e define a
 
 Quando seleciona uma aplicação Web para o Monitor de Estado instrumentar:
 
-* Descarregamentos e coloca os conjuntos de Insights de Aplicação e ficheiro ApplicationInsights.config na pasta binária da aplicação web.
+* Descarrega e coloca os conjuntos de Insights de Aplicação e ApplicationInsights.config ficheiro na pasta de binários da aplicação web.
 * Permite a criação de perfis CLR para recolher chamadas de dependência.
 
 ### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>Que versão do Application Insights SDK instala o Status Monitor?
 
-A partir de agora, o Status Monitor só pode instalar as versões SDK de Aplicação Insights 2.3 ou 2.4. 
+A partir de agora, o Status Monitor só pode instalar as versões SDK do Application Insights 2.3 ou 2.4. 
 
-A aplicação Insights SDK Version 2.4 é a [última versão a suportar .NET 4.0](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1) que foi [EOL janeiro de 2016](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/). Por conseguinte, a partir de agora o Status Monitor pode ser utilizado para instrumentar uma aplicação .NET 4.0. 
+A Versão 2.4 do Application Insights SDK é a [última versão a suportar .NET 4.0,](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1) que foi [EOL janeiro de 2016](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/). Portanto, a partir de agora, o Status Monitor pode ser utilizado para instrumentar uma aplicação .NET 4.0. 
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>Preciso de executar o Monitor de Estado sempre que atualizar a aplicação?
 
@@ -298,19 +303,19 @@ Para aplicações já instrumentadas no momento da compilação:
  * Chamadas de dependência (.NET 4.5); valores de devolução em chamadas de dependência (.NET 4.6).
  * Valores de rastreio de pilha de exceção.
 
-[Mais informações](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[Saiba mais](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>Vídeo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="download-status-monitor"></a><a name="download"></a>Download Status Monitor
+## <a name="download-status-monitor"></a><a name="download"></a>Monitor de Estado de descarregamento
 
 - Utilize o novo [Módulo PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview)
-- Descarregue e execute o [instalador do Monitor](https://go.microsoft.com/fwlink/?LinkId=506648) de Estado
-- Ou executar [o Instalador](https://www.microsoft.com/web/downloads/platform.aspx) de Plataformas Web e pesquisar nele para monitor de estado de insights de aplicação.
+- Descarregue e execute o [instalador status Monitor](https://go.microsoft.com/fwlink/?LinkId=506648)
+- Ou executar [o Instalador de Plataforma Web](https://www.microsoft.com/web/downloads/platform.aspx) e pesquisar nele para o Monitor de Estado de Insights de Aplicação.
 
-## <a name="next-steps"></a><a name="next"></a>Passos seguintes
+## <a name="next-steps"></a><a name="next"></a>Próximos passos
 
 Ver a telemetria:
 

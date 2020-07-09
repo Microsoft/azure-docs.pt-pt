@@ -1,6 +1,6 @@
 ---
-title: Adicione um serviço à solução de monitorização remota UI - Azure [ Microsoft Docs
-description: Este artigo mostra-lhe como adicionar um novo serviço à uI do acelerador de soluções de monitorização remota.
+title: Adicione um serviço à solução de Monitorização Remota UI - Azure / Microsoft Docs
+description: Este artigo mostra-lhe como adicionar um novo serviço na UI do acelerador de solução de monitorização remota.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -9,81 +9,81 @@ services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: e44aa8ade512a6005959e795cb1d4ad861da1338
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61447051"
 ---
-# <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione um serviço personalizado ao uI web de solução de monitorização remota
+# <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione um serviço personalizado à UI do acelerador de solução de monitorização remota
 
-Este artigo mostra-lhe como adicionar um novo serviço à uI do acelerador de soluções de monitorização remota. O artigo descreve:
+Este artigo mostra-lhe como adicionar um novo serviço na UI do acelerador de solução de monitorização remota. O artigo descreve:
 
 - Como preparar um ambiente de desenvolvimento local.
 - Como adicionar um novo serviço à UI web.
 
-O serviço de exemplo neste artigo fornece os dados para uma grelha que o Adicionar uma grelha personalizada ao acelerador de [soluções de monitorização remota ui](iot-accelerators-remote-monitoring-customize-grid.md) como fazer mostra como adicionar.
+O serviço de exemplo neste artigo fornece os dados para uma grelha que a grelha personalizada adicionar à web ui do [acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-customize-grid.md) web ui como-a-artigo mostra-lhe como adicionar.
 
-Numa aplicação React, um serviço normalmente interage com um serviço back-end. Exemplos no acelerador de soluções de monitorização remota incluem serviços que interagem com o gestor do hub IoT e microserviços de configuração.
+Numa aplicação React, um serviço normalmente interage com um serviço back-end. Exemplos no acelerador de solução de monitorização remota incluem serviços que interagem com o hub manager IoT e microserviços de configuração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar os passos neste guia de como orientar, precisa do seguinte software instalado na sua máquina de desenvolvimento local:
+Para completar os passos neste guia de como fazer, precisa do seguinte software instalado na sua máquina de desenvolvimento local:
 
 - [Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Deve completar os passos na página Personalizada para o acelerador de [soluções de monitorização remota uI](iot-accelerators-remote-monitoring-customize-page.md) artigo antes de continuar.
+Deve completar os passos na página Adicionar uma página personalizada ao artigo web ui da solução de [monitorização remota](iot-accelerators-remote-monitoring-customize-page.md) antes de continuar.
 
 ## <a name="add-a-service"></a>Adicionar um serviço
 
-Para adicionar um serviço à Web UI, é necessário adicionar os ficheiros de origem que definem o serviço e modificar alguns ficheiros existentes para sensibilizar a Web UI para o novo serviço.
+Para adicionar um serviço à UI web, é necessário adicionar os ficheiros de origem que definem o serviço e modificar alguns ficheiros existentes para sensibilizar a UI web para o novo serviço.
 
 ### <a name="add-the-new-files-that-define-the-service"></a>Adicione os novos ficheiros que definem o serviço
 
 Para começar, a pasta **src/walkthrough/services** contém os ficheiros que definem um serviço simples:
 
-**exemploService.js**
+**exampleService.js**
 
 [!code-javascript[Example service](~/remote-monitoring-webui/src/walkthrough/services/exampleService.js?name=service "Example service")]
 
-Para saber mais sobre como os serviços são implementados, consulte [a introdução à Programação Reativa que tem estado ausente.](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754)
+Para saber mais sobre como os serviços são implementados, consulte [a introdução à Programação Reativa que tem faltado.](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754)
 
-**modelo/exemploModels.js**
+**modelo/exampleModels.js**
 
 [!code-javascript[Example model](~/remote-monitoring-webui/src/walkthrough/services/models/exampleModels.js?name=models "Example model")]
 
-Copiar **exemploSService.js** para a pasta **src/serviços** e copiar **exemploModels.js** para a pasta **src/serviços/modelos.**
+Copie **exampleService.js** para a pasta **src/serviços** e copie **exampleModels.js** para a pasta **src/serviços/modelos.**
 
-Atualizar o ficheiro **index.js** na pasta **sRC/serviços** para exportar o novo serviço:
+Atualizar o ficheiro **index.js** na pasta **src/serviços** para exportar o novo serviço:
 
 ```js
 export * from './exampleService';
 ```
 
-Atualizar o ficheiro **index.js** na pasta **sRC/serviços/modelos** para exportar o novo modelo:
+Atualizar o ficheiro **index.js** na pasta **src/serviços/modelos** para exportar o novo modelo:
 
 ```js
 export * from './exampleModels';
 ```
 
-### <a name="set-up-the-calls-to-the-service-from-the-store"></a>Configurar as chamadas para o serviço a partir da loja
+### <a name="set-up-the-calls-to-the-service-from-the-store"></a>Configurar as chamadas para o serviço da loja
 
-Para começar, a pasta **src/walkthrough/store/redutor** contém um redutor de amostras:
+Para começar, a pasta **src/walkthrough/store/redudores** contém um redutor de amostras:
 
-**exemploReducer.js**
+**exampleReducer.js**
 
 [!code-javascript[Example reducer](~/remote-monitoring-webui/src/walkthrough/store/reducers/exampleReducer.js?name=reducer "Example reducer")]
 
-Exemplos **de cópiaReducer.js** para a pasta **src/store/redutores.**
+Copie **exampleReducer.js** para a pasta **src/loja/redutores.**
 
-Para saber mais sobre o redutor e **épicos,** consulte [redux-observável](https://redux-observable.js.org/).
+Para saber mais sobre o redutor e **os épicos,** consulte [redux-observável](https://redux-observable.js.org/).
 
 ### <a name="configure-the-middleware"></a>Configure o middleware
 
-Para configurar o middleware, adicione o redutor ao ficheiro **rootReducer.js** na pasta **src/store:**
+Para configurar o middleware, adicione o redutor ao ficheiro **rootReducer.js** na pasta **src/loja:**
 
 ```js
 import { reducer as exampleReducer } from './reducers/exampleReducer';
@@ -97,7 +97,7 @@ const rootReducer = combineReducers({
 });
 ```
 
-Adicione os épicos ao ficheiro **rootEpics.js** na pasta **src/store:**
+Adicione os épicos ao ficheiro **rootEpics.js** na pasta **src/loja:**
 
 ```js
 import { epics as exampleEpics } from './reducers/exampleReducer';
@@ -114,8 +114,8 @@ const epics = [
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu sobre os recursos disponíveis para o ajudar a adicionar ou personalizar serviços na UI web no acelerador de soluções de Monitorização Remota.
+Neste artigo, aprendeu sobre os recursos disponíveis para ajudá-lo a adicionar ou personalizar serviços na UI web no acelerador de solução de Monitorização Remota.
 
-Agora que definiu um serviço, o próximo passo é [adicionar uma grelha personalizada ao acelerador de soluções de monitorização remota UI](iot-accelerators-remote-monitoring-customize-grid.md) que exibe dados devolvidos pelo serviço.
+Agora que definiu um serviço, o próximo passo é [adicionar uma grelha personalizada à UI do acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-customize-grid.md) que exibe dados devolvidos pelo serviço.
 
-Para obter informações mais conceptuais sobre o acelerador de soluções de monitorização remota, consulte [a arquitetura de Monitorização Remota.](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+Para obter mais informações conceptuais sobre o acelerador de solução de monitorização remota, consulte [a arquitetura de monitorização remota.](iot-accelerators-remote-monitoring-sample-walkthrough.md)

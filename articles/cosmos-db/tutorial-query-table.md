@@ -1,68 +1,71 @@
 ---
 title: Como consultar dados de tabela no Azure Cosmos DB?
-description: Saiba consultar os dados armazenados na conta API da Tabela API da Tabela Azure Cosmos DB utilizando filtros OData e consultas LINQ
+description: Saiba como consultar os dados armazenados na conta Azure Cosmos DB Table API utilizando filtros OData e consultas LINQ
 author: sakash279
 ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.date: 05/21/2019
+ms.date: 06/05/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 8f31ace0045dad2f038a1eded52a41ffb1932f99
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bab0487b09d7088e75ce762c9e4f0338cea507eb
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76770492"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391898"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Tutorial: Consultar o Azure Cosmos DB através da API de Tabela
 
-A [API de Tabela](table-introduction.md) do Azure Cosmos DB suporta as consultas OData e [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) relativamente a dados de chave/valor (tabela).  
+A [API de Tabela](table-introduction.md) do Azure Cosmos DB suporta as consultas OData e [LINQ](/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) relativamente a dados de chave/valor (tabela).  
 
-Este artigo abrange as seguintes tarefas: 
+Este artigo abrange as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Consultar dados com a API de Tabela
 
 As consultas neste artigo utilizam a tabela `People` de exemplo seguinte:
 
-| PartitionKey | RowKey | Email | PhoneNumber |
+| PartitionKey | RowKey | E-mail | PhoneNumber |
 | --- | --- | --- | --- |
 | Harp | Walter | Walter@contoso.com| 425-555-0101 |
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
-| Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
+| Smith | Jeff | Jeff@contoso.com| 425-555-0104 |
 
-Veja [Consultar Tabelas e Entidades](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) para obter detalhes sobre como consultar através da API de Tabela. 
+Veja [Consultar Tabelas e Entidades](/rest/api/storageservices/fileservices/querying-tables-and-entities) para obter detalhes sobre como consultar através da API de Tabela.
 
-Para obter mais informações sobre as capacidades avançadas do Azure Cosmos DB, veja [API de Tabela do Azure Cosmos DB](table-introduction.md) e [Desenvolver com a API de Tabela no .NET](tutorial-develop-table-dotnet.md). 
+Para obter mais informações sobre as capacidades avançadas do Azure Cosmos DB, veja [API de Tabela do Azure Cosmos DB](table-introduction.md) e [Desenvolver com a API de Tabela no .NET](tutorial-develop-table-dotnet.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para estas consultas funcionarem, tem de ter uma conta do Azure Cosmos DB e dados de entidade no contentor. Não tem qualquer um destes? Conclua o [início rápido de cinco minutos](create-table-dotnet.md) ou o [tutorial do programador](tutorial-develop-table-dotnet.md) para criar uma conta e povoar a base de dados.
 
 ## <a name="query-on-partitionkey-and-rowkey"></a>Consultar em PartitionKey e RowKey
-Uma vez que as propriedades PartitionKey e RowKey formam a chave primária de uma entidade, pode utilizar a seguinte sintaxe especial para identificar a entidade: 
+
+Uma vez que as propriedades PartitionKey e RowKey formam a chave primária de uma entidade, pode utilizar a seguinte sintaxe especial para identificar a entidade:
 
 **Consulta**
 
 ```
 https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')  
 ```
+
 **Resultados**
 
-| PartitionKey | RowKey | Email | PhoneNumber |
+| PartitionKey | RowKey | E-mail | PhoneNumber |
 | --- | --- | --- | --- |
 | Harp | Walter | Walter@contoso.com| 425-555-0104 |
 
-Em alternativa, pode especificar estas propriedades como parte da opção `$filter`, conforme mostrado na secção seguinte. Tenha em atenção que os nomes das propriedades chave e os valores constantes são sensíveis a maiúsculas e minúsculas. As propriedades PartitionKey e RowKey são do tipo Cadeia. 
+Em alternativa, pode especificar estas propriedades como parte da opção `$filter`, conforme mostrado na secção seguinte. Tenha em atenção que os nomes das propriedades chave e os valores constantes são sensíveis a maiúsculas e minúsculas. As propriedades PartitionKey e RowKey são do tipo Cadeia.
 
 ## <a name="query-by-using-an-odata-filter"></a>Consultar com um filtro OData
-Quando estiver a criar uma cadeia de filtro, não se esqueça destas regras: 
 
-* Utilize os operadores lógicos definidos pela Especificação do Protocolo OData para comparar uma propriedade a um valor. Tenha em atenção que não é possível comparar uma propriedade a um valor dinâmico. Um lado da expressão tem de ser uma constante. 
-* O nome da propriedade, o operador e o valor constante têm de estar separados por espaços com codificação URL. Um espaço tem codificação URL como `%20`. 
-* Todas as partes da cadeia de filtro são sensíveis a maiúsculas e minúsculas. 
-* O valor constante tem de ser do mesmo tipo de dados da propriedade para que o filtro devolva resultados válidos. Para obter mais informações sobre os tipos de propriedade suportados, veja [Noções Básicas sobre o Modelo de Dados do Serviço Tabela](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). 
+Quando estiver a criar uma cadeia de filtro, não se esqueça destas regras:
+
+* Utilize os operadores lógicos definidos pela Especificação do Protocolo OData para comparar uma propriedade a um valor. Tenha em atenção que não é possível comparar uma propriedade a um valor dinâmico. Um lado da expressão tem de ser uma constante.
+* O nome da propriedade, o operador e o valor constante têm de estar separados por espaços com codificação URL. Um espaço tem codificação URL como `%20`.
+* Todas as partes da cadeia de filtro são sensíveis a maiúsculas e minúsculas.
+* O valor constante tem de ser do mesmo tipo de dados da propriedade para que o filtro devolva resultados válidos. Para obter mais informações sobre os tipos de propriedade suportados, veja [Noções Básicas sobre o Modelo de Dados do Serviço Tabela](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 Segue-se uma consulta de exemplo que mostra como filtrar pelas propriedades PartitionKey e Email com um `$filter` OData.
 
@@ -72,13 +75,15 @@ Segue-se uma consulta de exemplo que mostra como filtrar pelas propriedades Part
 https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and%20Email%20eq%20'Ben@contoso.com'
 ```
 
-Para obter mais informações sobre como criar expressões de filtro para vários tipos de dados, veja [Consultar Tabelas e Entidades](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities).
+Para obter mais informações sobre como criar expressões de filtro para vários tipos de dados, veja [Consultar Tabelas e Entidades](/rest/api/storageservices/querying-tables-and-entities).
 
 **Resultados**
 
-| PartitionKey | RowKey | Email | PhoneNumber |
+| PartitionKey | RowKey | E-mail | PhoneNumber |
 | --- | --- | --- | --- |
 | Smith |Ben | Ben@contoso.com| 425-555-0102 |
+
+As consultas sobre as propriedades da hora de data não devolvem quaisquer dados quando executados na Tabela API da Azure Cosmos DB. Enquanto as lojas de armazenamento Azure Table datam valores com granularidade temporal de carrapatos, a Tabela API em Azure Cosmos DB usa a `_ts` propriedade. A `_ts` propriedade está em um segundo nível de granularidade, que não é um filtro OData. Assim, as consultas sobre as propriedades do timetamp são bloqueadas pela Azure Cosmos DB. Como uma solução alternativa, você pode definir uma data personalizada ou uma propriedade de tipo de dados longo e definir o valor da data do cliente.
 
 ## <a name="query-by-using-linq"></a>Consultar com o LINQ 
 Também pode consultar com o LINQ, que traduz as expressões de consulta OData correspondentes. Segue-se um exemplo de como criar consultas com o SDK .NET:

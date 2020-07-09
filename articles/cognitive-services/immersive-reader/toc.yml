@@ -7,14 +7,14 @@
 - name: Guias de Início Rápido
   expanded: true
   items:
-    - name: 'Utilizar C#'
-      href: Quickstart.md
-    - name: Com Node.js
-      href: quickstart-nodejs.md
-    - name: Utilizar o Swift (iOS)
-      href: ios-quickstart.md
+    - name: Utilizar a biblioteca de cliente
+      href: ./quickstarts/client-libraries.md
 - name: Tutoriais
   items:
+    - name: Iniciar a Leitura Avançada (Android)
+      href: tutorial-android.md
+    - name: Iniciar a Leitura Avançada (iOS)
+      href: tutorial-ios.md
     - name: Iniciar a Leitura Avançada (Python)
       href: tutorial-python.md
     - name: Utilizar vários recursos de Leitura Avançada
@@ -33,9 +33,15 @@
       href: how-to-customize-launch-button.md
     - name: Colocar o token de autenticação em cache
       href: how-to-cache-token.md
+    - name: Configurar a funcionalidade Ler em Voz Alta
+      href: how-to-configure-read-aloud.md
+    - name: Configurar a tradução
+      href: how-to-configure-translation.md
+    - name: Armazenar as preferências do utilizador
+      href: how-to-store-user-preferences.md
 - name: Referência
   items:
-    - name: Referência do SDK
+    - name: SDK JavaScript
       href: reference.md
 - name: Recursos
   items:

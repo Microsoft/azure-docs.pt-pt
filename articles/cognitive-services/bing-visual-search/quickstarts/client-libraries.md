@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use a biblioteca de clientes bing visual search'
+title: 'Quickstart: Use a biblioteca do cliente Bing Visual Search'
 titleSuffix: Azure Cognitive Services
-description: A API de Pesquisa Visual oferece bibliotecas de clientes que facilitam a integração de capacidades de pesquisa nas suas aplicações. Use este quickstart para começar a enviar pedidos de pesquisa e obter resultados de volta.
+description: A API de Pesquisa Visual oferece bibliotecas de clientes que facilitam a integração das capacidades de pesquisa nas suas aplicações. Use este quickstart para começar a enviar pedidos de pesquisa e obter os resultados de volta.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,14 +11,15 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 03/26/2020
 ms.author: aahi
-ms.openlocfilehash: e1d3a947df486cd347c17afae5d8dbce21878e09
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: 154e158079b9963c02aad02f6b399d28a0b34272
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80549996"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607895"
 ---
-# <a name="quickstart-use-the-bing-visual-search-client-library"></a>Quickstart: Use a biblioteca de clientes bing visual search
+# <a name="quickstart-use-the-bing-visual-search-client-library"></a>Quickstart: Use a biblioteca do cliente Bing Visual Search
 
 ::: zone pivot="programming-language-csharp"
 

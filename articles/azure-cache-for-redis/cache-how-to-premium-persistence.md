@@ -1,113 +1,113 @@
 ---
-title: Configure persistência de dados - Premium Azure Cache for Redis
-description: Saiba como configurar e gerir a persistência de dados do seu Premium Tier Azure Cache para os casos Redis
+title: Configure persistência de dados - Premium Azure Cache para Redis
+description: Saiba como configurar e gerir a persistência de dados na sua Cache Azure de nível Premium para instâncias Redis
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.openlocfilehash: 84a5b4784a36fb22ae50a7a1ec4fcb7e5ef5b7c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80245281"
 ---
-# <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Como configurar a persistência de dados para um Premium Azure Cache para Redis
-O Azure Cache for Redis tem diferentes ofertas de cache que proporcionam flexibilidade na escolha do tamanho e funcionalidades do cache, incluindo funcionalidades de nível Premium, como clustering, persistência e suporte de rede virtual. Este artigo descreve como configurar a persistência num Azure Cache premium para o caso Redis.
+# <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Como configurar a persistência de dados para uma Cache Premium Azure para Redis
+O Azure Cache para Redis tem diferentes ofertas de cache que proporcionam flexibilidade na escolha do tamanho e funcionalidades da cache, incluindo características de nível Premium, tais como clustering, persistência e suporte de rede virtual. Este artigo descreve como configurar a persistência numa cache Azure premium para o exemplo de Redis.
 
-Para obter informações sobre outras funcionalidades de cache premium, consulte [Introdução ao Cache Azure para o nível Redis Premium](cache-premium-tier-intro.md).
+Para obter informações sobre outras funcionalidades de cache premium, consulte [Introdução à Cache Azure para o nível Redis Premium](cache-premium-tier-intro.md).
 
-## <a name="what-is-data-persistence"></a>O que é a persistência de dados?
-A persistência do [Redis](https://redis.io/topics/persistence) permite-lhe persistir os dados armazenados em Redis. Também pode tirar fotografias e fazer o backup dos dados, que pode carregar em caso de falha de hardware. Esta é uma enorme vantagem sobre o nível Basic ou Standard onde todos os dados são armazenados na memória e pode haver perda de dados potencial em caso de falha em que os nós cache estão em baixo. 
+## <a name="what-is-data-persistence"></a>O que é a persistência dos dados?
+[A persistência do Redis](https://redis.io/topics/persistence) permite-lhe persistir nos dados armazenados no Redis. Também pode tirar fotografias e fazer o back up dos dados, que pode carregar em caso de falha de hardware. Esta é uma enorme vantagem sobre o nível Básico ou Padrão, onde todos os dados são armazenados na memória e pode haver potencial perda de dados em caso de falha em que os nós cache estão baixos. 
 
-O Azure Cache for Redis oferece persistência redis utilizando os seguintes modelos:
+A Azure Cache para Redis oferece persistência redis utilizando os seguintes modelos:
 
-* **Persistência RDB** - Quando a persistência do RDB (base de dados Redis) é configurada, o Azure Cache for Redis persiste uma imagem do Azure Cache for Redis num formato binário Redis para o disco com base numa frequência de backup configurável. Se ocorrer um evento catastrófico que desativa a cache primária e a réplica, a cache é reconstruída utilizando o instantâneo mais recente. Saiba mais sobre as vantagens e [desvantagens](https://redis.io/topics/persistence#rdb-disadvantages) da persistência do RDB. [advantages](https://redis.io/topics/persistence#rdb-advantages)
-* **Persistência AOF** - Quando a persistência da AOF (apêndice apenas ficheiro) é configurada, o Azure Cache para Redis guarda todas as operações de escrita para um registo que é guardado pelo menos uma vez por segundo numa conta de Armazenamento Azure. Se ocorrer um evento catastrófico que desativa a cache primária e a réplica, a cache é reconstruída utilizando as operações de escrita armazenadas. Saiba mais sobre as vantagens e [desvantagens](https://redis.io/topics/persistence#aof-disadvantages) da persistência da AOF. [advantages](https://redis.io/topics/persistence#aof-advantages)
+* **Persistência RDB** - Quando a persistência rdb (redis database) é configurada, Azure Cache para Redis persiste uma imagem da Cache Azure para Redis num formato binário Redis para o disco com base numa frequência de backup configurável. Se ocorrer um evento catastrófico que desative a cache primária e réplica, a cache é reconstruída usando o instantâneo mais recente. Saiba mais sobre as [vantagens](https://redis.io/topics/persistence#rdb-advantages) e [desvantagens](https://redis.io/topics/persistence#rdb-disadvantages) da persistência de RDB.
+* **AOF persistência** - Quando a persistência da AOF (apêndice apenas) é configurada, a Cache Azure para Redis guarda cada operação de escrita para um registo que é guardado pelo menos uma vez por segundo numa conta de Armazenamento Azure. Se ocorrer um evento catastrófico que desative a cache primária e réplica, a cache é reconstruída utilizando as operações de escrita armazenadas. Saiba mais sobre as [vantagens](https://redis.io/topics/persistence#aof-advantages) e [desvantagens](https://redis.io/topics/persistence#aof-disadvantages) da persistência da AOF.
 
-A persistência escreve os dados da Redis numa conta de Armazenamento Azure que possui e gere. Pode configurar a partir do **Novo Azure Cache para** lâmina Redis durante a criação de cache e no menu **Recurso** para caches premium existentes.
+A Persistência escreve dados do Redis numa conta de Armazenamento Azure que possui e gere. Pode configurar a partir da **Nova Cache Azure para** lâmina Redis durante a criação da cache e no menu **Recursos** para caches premium existentes.
 
 > [!NOTE]
 > 
-> O Azure Storage encripta automaticamente os dados quando é persistido. Podes usar as tuas próprias chaves para a encriptação. Para mais informações, consulte [as chaves geridas pelo Cliente com](/azure/storage/common/storage-service-encryption)o Cofre de Chaves Azure .
+> O Azure Storage encripta automaticamente os dados quando estes são persistidos. Podes usar as tuas próprias chaves para a encriptação. Para obter mais informações, consulte [as chaves geridas pelo Cliente com o Cofre da Chave Azure](/azure/storage/common/storage-service-encryption).
 > 
 > 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-Uma vez selecionado um nível de preços premium, clique na **persistência do Redis**.
+Uma vez selecionado um nível de preços premium, clique na **persistência de Redis**.
 
-![Persistência redis][redis-cache-persistence]
+![Persistência de Redis][redis-cache-persistence]
 
-Os passos na secção seguinte descrevem como configurar a persistência do Redis na sua nova cache premium. Assim que a persistência do Redis estiver configurada, clique em **Criar** para criar a sua nova cache premium com persistência redis.
+Os passos na secção seguinte descrevem como configurar a persistência do Redis na sua nova cache premium. Assim que a persistência do Redis estiver configurada, clique em **Criar** para criar a sua nova cache premium com persistência de Redis.
 
-## <a name="enable-redis-persistence"></a>Permitir a persistência dos Redis
+## <a name="enable-redis-persistence"></a>Ativar a persistência de Redis
 
-A persistência do redis é ativada na lâmina de persistência de **Dados,** escolhendo a persistência de **RDB** ou **AOF.** Para novos caches, esta lâmina é acedida durante o processo de criação de cache, como descrito na secção anterior. Para caches existentes, a lâmina de **persistência de Dados** é acedida a partir do menu **Recurso** para a sua cache.
+A persistência do Redis é ativada na lâmina de persistência de **Dados,** escolhendo a persistência **de RDB** ou **AOF.** Para novas caches, esta lâmina é acedida durante o processo de criação da cache, conforme descrito na secção anterior. Para caches existentes, a lâmina de persistência de **Dados** é acedida a partir do **menu Recursos** para a sua cache.
 
-![Definições de redis][redis-cache-settings]
+![Definições de Redis][redis-cache-settings]
 
 
-## <a name="configure-rdb-persistence"></a>Configure a persistência do RDB
+## <a name="configure-rdb-persistence"></a>Configração da persistência do RDB
 
-Para ativar a persistência do RDB, clique em **RDB**. Para desativar a persistência do RDB numa cache premium previamente ativada, clique em **Desativar**.
+Para ativar a persistência do **RDB,** clique em RDB . Para desativar a persistência de RDB numa cache premium previamente ativada, clique em **Desativar**.
 
-![Persistência redis RDB][redis-cache-rdb-persistence]
+![Persistência do REDIS RDB][redis-cache-rdb-persistence]
 
-Para configurar o intervalo de cópia de segurança, selecione uma Frequência de **Backup** da lista de drop-down. As escolhas incluem **15 Minutos,** **30 minutos,** **60 minutos,** **6 horas,** **12 horas**e **24 horas.** Este intervalo começa a contar após a operação de backup anterior concluída com sucesso e quando decorrido uma nova cópia de segurança é iniciada.
+Para configurar o intervalo de backup, selecione uma frequência de **backup** da lista de drop-down. As escolhas incluem **15 Minutos**, **30 minutos**, **60 minutos**, **6 horas,** **12 horas**e **24 horas.** Este intervalo começa a contagem rebatida após a operação de backup anterior ter sido concluída com sucesso e quando decorrer uma nova cópia de segurança é iniciada.
 
-Clique na **Conta de Armazenamento** para selecionar a conta de armazenamento para utilizar e escolha a chave **primária** ou a **chave secundária** para utilizar a partir da chave de **armazenamento.** Você deve escolher uma conta de armazenamento na mesma região que a cache, e uma conta **de Armazenamento Premium** é recomendada porque o armazenamento premium tem uma maior entrada. 
+Clique na **Conta de Armazenamento** para selecionar a conta de armazenamento a utilizar e escolha a **tecla Primária** ou a chave **secundária** para utilizar a partir da chave de **armazenamento.** Você deve escolher uma conta de armazenamento na mesma região que a cache, e uma conta **de Armazenamento Premium** é recomendada porque o armazenamento premium tem maior rendimento. 
 
 > [!IMPORTANT]
-> Se a chave de armazenamento para a sua conta de persistência for regenerada, deve reconfigurar a chave desejada a partir da queda da chave de **armazenamento.**
+> Se a chave de armazenamento da sua conta de persistência for regenerada, deve reconfigurar a chave desejada a partir da gota da chave de **armazenamento.**
 > 
 > 
 
-Clique **em OK** para salvar a configuração de persistência.
+Clique **em OK** para guardar a configuração de persistência.
 
-A próxima cópia de segurança (ou primeira cópia de segurança para novos caches) é iniciada assim que o intervalo de frequência de reserva decorrido.
+A próxima cópia de segurança (ou primeira cópia de segurança para novos caches) é iniciada assim que o intervalo de frequência de reserva decorrer.
 
 ## <a name="configure-aof-persistence"></a>Configurar a persistência da AOF
 
-Para permitir a persistência da AOF, clique em **AOF**. Para desativar a persistência da AOF numa cache premium previamente ativada, clique em **Desativar**.
+Para ativar a persistência da AOF, clique em **AOF**. Para desativar a persistência da AOF numa cache premium previamente ativada, clique em **Desativar**.
 
-![Persistência redis AOF][redis-cache-aof-persistence]
+![Remansa AOF persistência][redis-cache-aof-persistence]
 
-Para configurar a persistência da AOF, especifique uma **Primeira Conta de Armazenamento**. Esta conta de armazenamento deve estar na mesma região que a cache, e uma conta **de Armazenamento Premium** é recomendada porque o armazenamento premium tem uma maior entrada. Pode configurar opcionalmente uma conta de armazenamento adicional chamada **Segunda Conta de Armazenamento.** Se uma segunda conta de armazenamento estiver configurada, as escritas para a cache de réplica são escritas nesta segunda conta de armazenamento. Para cada conta de armazenamento configurada, escolha a **chave primária** ou a **chave secundária** para utilizar a partir da chave de **armazenamento.** 
+Para configurar a persistência da AOF, especifique uma **Primeira Conta de Armazenamento**. Esta conta de armazenamento deve estar na mesma região que a cache, e uma conta **de Armazenamento Premium** é recomendada porque o armazenamento premium tem um rendimento mais elevado. Pode configurar opcionalmente uma conta de armazenamento adicional chamada **Segunda Conta de Armazenamento.** Se uma segunda conta de armazenamento for configurada, as cópias para a cache de réplica são escritas nesta segunda conta de armazenamento. Para cada conta de armazenamento configurada, escolha a **tecla Primária** ou **a chave secundária** para utilizar a partir da chave de **armazenamento.** 
 
 > [!IMPORTANT]
-> Se a chave de armazenamento para a sua conta de persistência for regenerada, deve reconfigurar a chave desejada a partir da queda da chave de **armazenamento.**
+> Se a chave de armazenamento da sua conta de persistência for regenerada, deve reconfigurar a chave desejada a partir da gota da chave de **armazenamento.**
 > 
 > 
 
-Quando a persistência da AOF estiver ativada, as operações de escrita na cache são guardadas na conta de armazenamento designada (ou contas se tiver configurado uma segunda conta de armazenamento). Em caso de falha catastrófica que derrube a cache primária e réplica, o registo AOF armazenado é usado para reconstruir o cache.
+Quando a persistência da AOF estiver ativada, as operações de escrita para a cache são guardadas na conta de armazenamento designada (ou contas se tiver configurado uma segunda conta de armazenamento). Em caso de falha catastrófica que derrube a cache primária e réplica, o log AOF armazenado é usado para reconstruir a cache.
 
-## <a name="persistence-faq"></a>Persistência FAQ
-A lista que se segue contém respostas a perguntas comumente feitas sobre a persistência de Azure Cache para redis.
+## <a name="persistence-faq"></a>PERsistência FAQ
+A lista que se segue contém respostas a perguntas comumente feitas sobre Azure Cache para a persistência de Redis.
 
 * [Posso permitir a persistência numa cache previamente criada?](#can-i-enable-persistence-on-a-previously-created-cache)
 * [Posso permitir a persistência da AOF e do RDB ao mesmo tempo?](#can-i-enable-aof-and-rdb-persistence-at-the-same-time)
 * [Que modelo de persistência devo escolher?](#which-persistence-model-should-i-choose)
-* [O que acontece se eu tiver escalado para um tamanho diferente e um reforço for restaurado que foi feito antes da operação de escala?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+* [O que acontece se eu tiver escalado para um tamanho diferente e um backup é restaurado que foi feito antes da operação de escala?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
 
 
-### <a name="rdb-persistence"></a>Persistência do RDB
-* [Posso mudar a frequência de cópia de segurança RDB depois de criar a cache?](#can-i-change-the-rdb-backup-frequency-after-i-create-the-cache)
-* [Por que se eu tiver uma frequência de reserva RDB de 60 minutos há mais de 60 minutos entre cópias de segurança?](#why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups)
-* [O que acontece com os antigos reforços do RDB quando um novo reforço é feito?](#what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made)
+### <a name="rdb-persistence"></a>Persistência de RDB
+* [Posso mudar a frequência de reserva RDB depois de criar a cache?](#can-i-change-the-rdb-backup-frequency-after-i-create-the-cache)
+* [Por que se eu tiver uma frequência de reserva RDB de 60 minutos há mais de 60 minutos entre reforços?](#why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups)
+* [O que acontece com os antigos reforços RDB quando um novo reforço é feito?](#what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made)
 
-### <a name="aof-persistence"></a>Persistência da AOF
+### <a name="aof-persistence"></a>AOF persistência
 * [Quando devo usar uma segunda conta de armazenamento?](#when-should-i-use-a-second-storage-account)
-* [A persistência da AOF afeta toda a latência ou desempenho da minha cache?](#does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache)
+* [A persistência da AOF afeta toda a latência ou o desempenho da minha cache?](#does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache)
 * [Como posso remover a segunda conta de armazenamento?](#how-can-i-remove-the-second-storage-account)
-* [O que é uma reescrita e como isso afeta a minha cache?](#what-is-a-rewrite-and-how-does-it-affect-my-cache)
-* [O que devo esperar quando escalonar uma cache com AOF ativada?](#what-should-i-expect-when-scaling-a-cache-with-aof-enabled)
-* [Como é que os meus dados da AOF estão organizados no armazenamento?](#how-is-my-aof-data-organized-in-storage)
+* [O que é uma reescrita e como é que isso afeta a minha cache?](#what-is-a-rewrite-and-how-does-it-affect-my-cache)
+* [O que devo esperar ao escalonar uma cache com AOF ativada?](#what-should-i-expect-when-scaling-a-cache-with-aof-enabled)
+* [Como é que os meus dados da AOF são organizados no armazém?](#how-is-my-aof-data-organized-in-storage)
 
 
 ### <a name="can-i-enable-persistence-on-a-previously-created-cache"></a>Posso permitir a persistência numa cache previamente criada?
-Sim, a persistência do Redis pode ser configurada tanto na criação de cache como em caches premium existentes.
+Sim, a persistência do Redis pode ser configurada tanto na criação de cache como nas caches premium existentes.
 
 ### <a name="can-i-enable-aof-and-rdb-persistence-at-the-same-time"></a>Posso permitir a persistência da AOF e do RDB ao mesmo tempo?
 
@@ -115,56 +115,56 @@ Não, só pode ativar RDB ou AOF, mas não ambos ao mesmo tempo.
 
 ### <a name="which-persistence-model-should-i-choose"></a>Que modelo de persistência devo escolher?
 
-A persistência da AOF poupa cada escrita para um registo, que tem algum impacto na entrada, em comparação com a persistência do RDB que poupa backups com base no intervalo de backup configurado, com o mínimo impacto no desempenho. Escolha a persistência da AOF se o seu principal objetivo é minimizar a perda de dados e pode lidar com uma diminuição da entrada para a sua cache. Escolha a persistência do RDB se pretender manter a melhor entrada na sua cache, mas ainda assim quer um mecanismo de recuperação de dados.
+A persistência da AOF salva cada escrita para um log, que tem algum impacto na produção, em comparação com a persistência de RDB que poupa backups com base no intervalo de backup configurado, com o mínimo impacto no desempenho. Escolha a persistência da AOF se o seu objetivo principal é minimizar a perda de dados, e pode lidar com uma diminuição da produção para o seu cache. Escolha a persistência rdb se pretende manter a produção ideal na sua cache, mas ainda assim quer um mecanismo de recuperação de dados.
 
-* Saiba mais sobre as vantagens e [desvantagens](https://redis.io/topics/persistence#rdb-disadvantages) da persistência do RDB. [advantages](https://redis.io/topics/persistence#rdb-advantages)
-* Saiba mais sobre as vantagens e [desvantagens](https://redis.io/topics/persistence#aof-disadvantages) da persistência da AOF. [advantages](https://redis.io/topics/persistence#aof-advantages)
+* Saiba mais sobre as [vantagens](https://redis.io/topics/persistence#rdb-advantages) e [desvantagens](https://redis.io/topics/persistence#rdb-disadvantages) da persistência de RDB.
+* Saiba mais sobre as [vantagens](https://redis.io/topics/persistence#aof-advantages) e [desvantagens](https://redis.io/topics/persistence#aof-disadvantages) da persistência da AOF.
 
-Para obter mais informações sobre o desempenho ao utilizar a persistência da AOF, ver [AOF persistência afeta toda a latência ou desempenho da minha cache?](#does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache)
+Para obter mais informações sobre o desempenho ao utilizar a persistência da AOF, veja [a persistência da AOF a afetar em toda a parte, latência ou desempenho da minha cache?](#does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache)
 
-### <a name="what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation"></a>O que acontece se eu tiver escalado para um tamanho diferente e um reforço for restaurado que foi feito antes da operação de escala?
+### <a name="what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation"></a>O que acontece se eu tiver escalado para um tamanho diferente e um backup é restaurado que foi feito antes da operação de escala?
 
-Tanto para a persistência de RDB como AOF:
+Para a persistência de RDB e AOF:
 
-* Se escalou para um tamanho maior, não há impacto.
-* Se tiver escalado para um tamanho menor, e tiver uma definição de bases de [dados](cache-configure.md#databases) personalizada que é maior do que o limite de bases de [dados](cache-configure.md#databases) para o seu novo tamanho, os dados nessas bases de dados não são restaurados. Para mais informações, consulte a definição de bases de [dados personalizadas durante a escala?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
-* Se tiver escalado para um tamanho menor, e não houver espaço suficiente no tamanho mais pequeno para reter todos os dados da última cópia de segurança, as chaves serão despejadas durante o processo de restauro, normalmente usando a política de despejo [allkeys-lru.](https://redis.io/topics/lru-cache)
+* Se tiver escalado para um tamanho maior, não há impacto.
+* Se tiver escalado para um tamanho menor e tiver uma definição de [bases de dados](cache-configure.md#databases) personalizada que seja maior do que o limite de [bases de dados](cache-configure.md#databases) para o seu novo tamanho, os dados nessas bases de dados não são restaurados. Para mais informações, veja [se a definição de bases de dados personalizadas é afetada durante o dimensionamento?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
+* Se você tiver escalado para um tamanho menor, e não há espaço suficiente no tamanho menor para reter todos os dados da última cópia de segurança, as chaves serão despejadas durante o processo de restauro, normalmente usando a política de despejo [allkeys-lru.](https://redis.io/topics/lru-cache)
 
-### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>Posso mudar a frequência de cópia de segurança RDB depois de criar a cache?
-Sim, pode alterar a frequência de backup para a persistência de RDB na lâmina de **persistência de Dados.** Para obter instruções, consulte a persistência do Configure Redis.
+### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>Posso mudar a frequência de reserva RDB depois de criar a cache?
+Sim, pode alterar a frequência de backup para a persistência rdb na lâmina de persistência de **Dados.** Para obter instruções, consulte a persistência de Configure Redis.
 
-### <a name="why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups"></a>Por que se eu tiver uma frequência de reserva RDB de 60 minutos há mais de 60 minutos entre cópias de segurança?
-O intervalo de frequência de backup de persistência RDB só começa quando o processo de backup anterior tiver concluído com sucesso. Se a frequência de reserva for de 60 minutos e demorar um processo de backup de 15 minutos para ser concluída com sucesso, a próxima cópia de segurança só começará 75 minutos após a hora de início da cópia de segurança anterior.
+### <a name="why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups"></a>Por que se eu tiver uma frequência de reserva RDB de 60 minutos há mais de 60 minutos entre reforços?
+O intervalo de frequência de backup de persistência RDB não começa até que o processo de backup anterior tenha terminado com sucesso. Se a frequência de backup for de 60 minutos e levar um processo de backup de 15 minutos para completar com sucesso, o próximo backup só começará 75 minutos após a hora de início do backup anterior.
 
-### <a name="what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made"></a>O que acontece com os antigos reforços do RDB quando um novo reforço é feito?
-Todas as cópias de segurança de persistência RDB, com exceção das mais recentes, são automaticamente eliminadas. Esta eliminação pode não acontecer imediatamente, mas os backups mais antigos não são indeterminados indefinidamente.
+### <a name="what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made"></a>O que acontece com os antigos reforços RDB quando um novo reforço é feito?
+Todas as cópias de segurança de persistência RDB, com exceção das mais recentes, são automaticamente eliminadas. Esta supressão pode não acontecer imediatamente, mas as cópias de segurança mais antigas não são persistiu indefinidamente.
 
 
 ### <a name="when-should-i-use-a-second-storage-account"></a>Quando devo usar uma segunda conta de armazenamento?
 
-Deve utilizar uma segunda conta de armazenamento para persistência da AOF quando acredita que tem operações mais altas do que o esperado na cache.  A criação da conta de armazenamento secundário ajuda a garantir que a sua cache não atinge os limites de largura de banda de armazenamento.
+Deve utilizar uma segunda conta de armazenamento para persistência da AOF quando acredita que tem operações definidas mais altas do que o esperado na cache.  A configuração da conta de armazenamento secundário ajuda a garantir que o seu cache não atinja os limites de largura de banda de armazenamento.
 
-### <a name="does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache"></a>A persistência da AOF afeta toda a latência ou desempenho da minha cache?
+### <a name="does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache"></a>A persistência da AOF afeta toda a latência ou o desempenho da minha cache?
 
-A persistência da AOF afeta a entrada em cerca de 15% – 20% quando a cache está abaixo da carga máxima (CPU e Server Load ambos abaixo de 90%). Não deve haver problemas de latência quando a cache está dentro destes limites. No entanto, a cache atingirá estes limites mais cedo com a AOF ativada.
+A persistência da AOF afeta a produção em cerca de 15% – 20% quando a cache está abaixo da carga máxima (CPU e Server Load ambos abaixo de 90%). Não deve haver problemas de latência quando a cache está dentro destes limites. No entanto, a cache atingirá estes limites mais cedo com a AOF ativada.
 
 ### <a name="how-can-i-remove-the-second-storage-account"></a>Como posso remover a segunda conta de armazenamento?
 
-Pode remover a conta de armazenamento secundário de persistência da AOF, definindo a segunda conta de armazenamento como a mesma que a primeira conta de armazenamento. Para obter instruções, consulte a [persistência da Configuração AOF](#configure-aof-persistence).
+Pode remover a conta de armazenamento secundário de persistência da AOF, definindo a segunda conta de armazenamento como a mesma que a primeira conta de armazenamento. Para obter instruções, consulte a [persistência Configure AOF](#configure-aof-persistence).
 
-### <a name="what-is-a-rewrite-and-how-does-it-affect-my-cache"></a>O que é uma reescrita e como isso afeta a minha cache?
+### <a name="what-is-a-rewrite-and-how-does-it-affect-my-cache"></a>O que é uma reescrita e como é que isso afeta a minha cache?
 
-Quando o ficheiro AOF se torna suficientemente grande, uma reescrita é automaticamente colocada na cache. A reescrita redimensiona o ficheiro AOF com o conjunto mínimo de operações necessárias para criar o conjunto de dados atual. Durante as reescritas, espere atingir os limites de desempenho mais cedo, especialmente quando lidar com grandes conjuntos de dados. As reescritas ocorrem menos frequentemente à medida que o ficheiro AOF se torna maior, mas levará uma quantidade significativa de tempo quando isso acontece.
+Quando o ficheiro AOF se torna suficientemente grande, uma reescrita é automaticamente colocada na cache. A reescrita redimensiona o ficheiro AOF com o conjunto mínimo de operações necessárias para criar o conjunto de dados atual. Durante as reescritas, espere atingir os limites de desempenho mais cedo, especialmente quando se lida com grandes conjuntos de dados. As reescritas ocorrem menos frequentemente à medida que o ficheiro AOF se torna maior, mas levará uma quantidade significativa de tempo quando isso acontece.
 
-### <a name="what-should-i-expect-when-scaling-a-cache-with-aof-enabled"></a>O que devo esperar quando escalonar uma cache com AOF ativada?
+### <a name="what-should-i-expect-when-scaling-a-cache-with-aof-enabled"></a>O que devo esperar ao escalonar uma cache com AOF ativada?
 
-Se o ficheiro AOF no momento da escala for significativamente grande, então espere que a operação de escala demore mais tempo do que o esperado, uma vez que será recarregado o ficheiro depois de a escala ter terminado.
+Se o ficheiro AOF no momento da escala for significativamente grande, então espere que a operação de escala desmave mais tempo do que o esperado, uma vez que estará a recarregar o ficheiro após o dimensionamento ter terminado.
 
-Para mais informações sobre escala, veja [o que acontece se eu tiver escalado para um tamanho diferente e um backup é restaurado que foi feito antes da operação de escala?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+Para obter mais informações sobre o escalonamento, veja [o que acontece se eu tiver escalado para um tamanho diferente e uma cópia de segurança é restaurada que foi feita antes da operação de escala?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
 
-### <a name="how-is-my-aof-data-organized-in-storage"></a>Como é que os meus dados da AOF estão organizados no armazenamento?
+### <a name="how-is-my-aof-data-organized-in-storage"></a>Como é que os meus dados da AOF são organizados no armazém?
 
-Os dados armazenados em ficheiros AOF são divididos em várias páginas por nó para aumentar o desempenho de guardar os dados para armazenamento. A tabela seguinte mostra quantas bolhas de página são usadas para cada nível de preços:
+Os dados armazenados em ficheiros AOF são divididos em várias bolhas de página por nó para aumentar o desempenho da poupança dos dados para armazenamento. A tabela a seguir mostra quantas bolhas de página são utilizadas para cada nível de preços:
 
 | Escalão Premium | Blobs |
 |--------------|-------|
@@ -173,15 +173,15 @@ Os dados armazenados em ficheiros AOF são divididos em várias páginas por nó
 | P3           | 16 por fragmento   |
 | P4           | 20 por fragmento   |
 
-Quando o agrupamento está ativado, cada fragmento na cache tem o seu próprio conjunto de bolhas de página, conforme indicado na tabela anterior. Por exemplo, uma cache P2 com três fragmentos distribui o seu ficheiro AOF em 24 páginas de bolhas (8 bolhas por fragmento, com 3 fragmentos).
+Quando o agrupamento está ativado, cada fragmento na cache tem o seu próprio conjunto de bolhas de página, como indicado na tabela anterior. Por exemplo, uma cache P2 com três fragmentos distribui o seu ficheiro AOF em 24 páginas de bolhas (8 bolhas por fragmento, com 3 fragmentos).
 
-Após uma reescrita, existem dois conjuntos de ficheiros AOF no armazenamento. As reescritas ocorrem em segundo plano e anexam ao primeiro conjunto de ficheiros, enquanto as operações definidas que são enviadas para a cache durante o apêndice de reescrita para o segundo conjunto. Uma cópia de segurança é armazenada temporariamente durante as reescritas em caso de falha, mas é prontamente eliminada após a reescrita.
+Após uma reescrita, existem dois conjuntos de ficheiros AOF no armazenamento. As reescritas ocorrem em segundo plano e anexam ao primeiro conjunto de ficheiros, enquanto as operações definidas que são enviadas para a cache durante o apêndice de reescrita ao segundo conjunto. Uma cópia de segurança é temporariamente armazenada durante as reescritas em caso de falha, mas é prontamente eliminada após um reescrito finalizado.
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba como usar mais funcionalidades de cache premium.
+Aprenda a usar mais funcionalidades de cache premium.
 
-* [Introdução ao Cache Azure para o nível Redis Premium](cache-premium-tier-intro.md)
+* [Introdução à Cache Azure para o nível Redis Premium](cache-premium-tier-intro.md)
 
 <!-- IMAGES -->
 

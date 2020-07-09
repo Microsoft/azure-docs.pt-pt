@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Construir aplicações móveis com Xamarin e Azure Cosmos DB'
-description: 'Tutorial: Um tutorial que cria uma aplicação Xamarin iOS, Android ou Forms utilizando o Azure Cosmos DB. O Azure Cosmos DB é uma base de dados na cloud rápida e à escala mundial para aplicações móveis.'
+title: 'Tutorial: Construa aplicações móveis com Xamarin e Azure Cosmos DB'
+description: 'Tutorial: Um tutorial que cria uma aplicação Xamarin iOS, Android ou Forms usando Azure Cosmos DB. O Azure Cosmos DB é uma base de dados na cloud rápida e à escala mundial para aplicações móveis.'
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: 8fbd2065ceae1aadf1dc57c78adb21b7c2848297
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fbcbf1be29031596201774ae5ebb40cb1a3b89a2
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80985563"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85113454"
 ---
-# <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Tutorial: Construir aplicações móveis com Xamarin e Azure Cosmos DB
+# <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Tutorial: Construa aplicações móveis com Xamarin e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -31,11 +31,11 @@ Este artigo disponibiliza um tutorial para criar aplicações móveis com o Xama
 ## <a name="azure-cosmos-db-capabilities-for-mobile-apps"></a>Funcionalidades do Azure Cosmos DB para aplicações móveis
 O Azure Cosmos DB oferece as seguintes funcionalidades principais para os programadores de aplicações móveis:
 
-![Funcionalidades do Azure Cosmos DB para aplicações móveis](media/mobile-apps-with-xamarin/documentdb-for-mobile.png)
+:::image type="content" source="media/mobile-apps-with-xamarin/documentdb-for-mobile.png" alt-text="Funcionalidades do Azure Cosmos DB para aplicações móveis":::
 
 * Consultas avançadas de dados sem esquemas. O Azure Cosmos DB armazena os dados como documentos JSON sem esquemas em coleções heterogéneas. Proporciona [consultas avançadas e rápidas](how-to-sql-query.md) sem a necessidade de esquemas ou índices.
 * Débito rápido. Ler e gravar documentos com o Azure Cosmos DB demora apenas alguns milissegundos. Os programadores podem especificar o débito de que necessitam. Além disso, o Azure Cosmos DB permite fazê-lo com um SLA de 99,99% de disponibilidade para todas as contas de região única e para todas as contas de várias regiões com consistência flexível e 99,999% de disponibilidade de leitura em todas as contas de bases de dados de várias regiões.
-* Dimensionamento ilimitado. Os seus recipientes Azure Cosmos crescem à medida que a [sua aplicação cresce.](partition-data.md) Pode começar com dados de pequena dimensão e um débito de centenas de pedidos por segundo. As suas coleções ou bases de dados podem aumentar para petabytes de dados e um débito arbitrariamente grande com centenas de milhões de pedidos por segundo.
+* Dimensionamento ilimitado. Os seus recipientes Azure Cosmos [crescem à medida que a sua aplicação cresce.](partition-data.md) Pode começar com dados de pequena dimensão e um débito de centenas de pedidos por segundo. As suas coleções ou bases de dados podem aumentar para petabytes de dados e um débito arbitrariamente grande com centenas de milhões de pedidos por segundo.
 * Distribuído globalmente. Os utilizadores de aplicações móveis utilizam-nas em qualquer lugar e, muitas vezes, em todo o mundo. O Azure Cosmos DB é uma [base de dados distribuída globalmente](distribute-data-globally.md). Clique no mapa para disponibilizar dados aos seus utilizadores.
 * Autorização avançada incorporada. Com o Azure Cosmos DB, pode implementar padrões populares com facilidade, como [dados por utilizador](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems) ou dados partilhados multiutilizador sem códigos de autorização personalizados complexos.
 * Consultas geoespaciais. Muitas aplicações móveis já proporcionam experiências no contexto de uma área geográfica. Com um suporte de primeira classe para [tipos geoespaciais](geospatial.md), o Azure Cosmos DB faz com que seja fácil criar estas experiências.
@@ -45,9 +45,9 @@ O Azure Cosmos DB oferece as seguintes funcionalidades principais para os progra
 O seguinte tutorial mostra como pode criar uma aplicação móvel com o Xamarin e o Azure Cosmos DB. O código fonte completo do tutorial encontra-se no [Xamarin e no Azure Cosmos DB no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
 
 ### <a name="get-started"></a>Introdução
-Começar a utilizar o Azure Cosmos DB é fácil. Aceda ao portal do Azure e crie uma nova conta do Azure Cosmos DB. Clique no separador **De início Rápido.** Descarregue a amostra de lista de formulários xamarin que já está ligada à sua conta Azure Cosmos DB. 
+Começar a utilizar o Azure Cosmos DB é fácil. Aceda ao portal do Azure e crie uma nova conta do Azure Cosmos DB. Clique no separador **Início Rápido.** Descarregue a amostra de lista de a fazer formulários Xamarin que já está ligada à sua conta DB Azure Cosmos. 
 
-![Início rápido do Azure Cosmos DB para aplicações móveis](media/mobile-apps-with-xamarin/cosmos-db-quickstart.png)
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-quickstart.png" alt-text="Início rápido do Azure Cosmos DB para aplicações móveis":::
 
 Em alternativa, se tiver uma aplicação Xamarin existente, pode adicionar o [pacote NuGet Azure Cosmos DB](sql-api-sdk-dotnet-core.md). O Azure Cosmos DB suporta o Xamarin.IOS, Xamarin.Android e bibliotecas partilhadas do Xamarin Forms.
 
@@ -85,19 +85,19 @@ Siga estes passos para mudar a aplicação de lista de tarefas para uma aplicaç
 
 Um exemplo de código completo deste padrão encontra-se no [Mediador de Tokens de Recurso no GitHub](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems). Este diagrama ilustra a solução:
 
-![Mediador de permissões e utilizadores do Azure Cosmos DB](media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png)
+:::image type="content" source="media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png" alt-text="Mediador de permissões e utilizadores do Azure Cosmos DB" border="false":::
 
 Se quiser conceder a dois utilizadores acesso à mesma lista de tarefas, pode incluir permissões adicionais para o token de acesso no Mediador de Tokens de Recurso.
 
 ### <a name="scale-on-demand"></a>Dimensionar a pedido
 O Azure Cosmos DB é uma base de dados como serviço gerida. À medida que a sua base de utilizadores cresce, não terá de se preocupar em aprovisionar VMs ou aumentar o número de núcleos. Com o Azure Cosmos DB, só precisa de indicar o número de operações por segundo (débito) necessário para a sua aplicação. Pode especificar o débito através do separador **Dimensionar** ao utilizar uma medida de débito denominada Unidades de Pedido (RUs) por segundo. Por exemplo, uma operação de leitura num documento de 1 KB requer 1 RU. Também pode adicionar alertas à métrica **Débito** para monitorizar o aumento de tráfego e alterar programaticamente o débito quando os alertas são acionados.
 
-![Débito de dimensionamento a pedido do Azure Cosmos DB](media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png)
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png" alt-text="Débito de dimensionamento a pedido do Azure Cosmos DB":::
 
 ### <a name="go-planet-scale"></a>Aumente a sua dimensão à escala global
 À medida que a popularidade da sua aplicação cresce, poderá obter utilizadores de todo o mundo. Também poderá querer apenas preparar-se para eventos imprevistos. Aceda ao portal do Azure e abra a sua conta do Azure Cosmos DB. Clique no mapa para que os seus dados sejam replicados continuamente em várias regiões por todo o mundo. Esta funcionalidade torna os dados disponíveis aos seus utilizadores, onde quer que estejam. Também pode adicionar políticas de ativação pós-falha de forma a estar preparado para alguma eventualidade.
 
-![Dimensionamento do Azure Cosmos DB em várias regiões geográficas](media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png)
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png" alt-text="Dimensionamento do Azure Cosmos DB em várias regiões geográficas" border="false":::
 
 Parabéns! Concluiu a solução e acabou de criar uma aplicação móvel com o Xamarin e o Azure Cosmos DB. Siga passos semelhantes para criar aplicações Cordova com o JavaScript SDK do Azure Cosmos DB e aplicações nativas iOS/Android com APIs REST do Azure Cosmos DB.
 

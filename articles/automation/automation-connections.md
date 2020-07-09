@@ -1,31 +1,30 @@
 ---
-title: Gerir ligações na Automação Azure
-description: Este artigo diz como gerir as ligações da Azure Automation a serviços ou aplicações externas e como trabalhar com eles em livros de execução.
+title: Gerir ligações na Azure Automation
+description: Este artigo diz como gerir as ligações da Azure Automation a serviços ou aplicações externas e como trabalhar com eles em livros de recortes.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
 ms.openlocfilehash: 3c5901dbd45cc0ce82c7fcd8117705eaeed7b4ba
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83837132"
 ---
-# <a name="manage-connections-in-azure-automation"></a>Gerir ligações na Automação Azure
+# <a name="manage-connections-in-azure-automation"></a>Gerir ligações na Azure Automation
 
-Um ativo de ligação à Automação Azure contém as informações listadas abaixo. Estas informações são necessárias para a ligação a um serviço ou aplicação externo a partir de um livro de execução ou de uma configuração DSC. 
+Um ativo de ligação Azure Automation contém as informações listadas abaixo. Estas informações são necessárias para a ligação a um serviço externo ou aplicação a partir de um livro de execução ou configuração DSC. 
 
-* Informações necessárias para a autenticação, tais como nome de utilizador e senha
+* Informação necessária para a autenticação, como nome de utilizador e senha
 * Informações de ligação, tais como URL ou porta
 
-O ativo de ligação mantém todas as propriedades para a ligação a uma determinada aplicação, tornando desnecessário criar várias variáveis. Pode editar os valores para uma ligação num só local, e pode passar o nome de uma ligação a um livro de execução ou configuração DSC num único parâmetro. O livro de execução ou configuração acede às propriedades para uma ligação utilizando o `Get-AutomationConnection` cmdlet interno.
+O ativo de ligação mantém todas as propriedades para a ligação a uma determinada aplicação, tornando desnecessário criar múltiplas variáveis. Pode editar os valores para uma ligação num só local e pode passar o nome de uma ligação a um livro de execução ou configuração DSC num único parâmetro. O livro de execução ou configuração acede às propriedades para uma ligação utilizando o `Get-AutomationConnection` cmdlet interno.
 
-Quando cria uma ligação, deve especificar um tipo de ligação. O tipo de ligação é um modelo que define um conjunto de propriedades. Pode adicionar um tipo de ligação à Automatização Azure utilizando um módulo de integração com um ficheiro de metadados. Também é possível criar um tipo de ligação utilizando a API de [Automação Azure](/previous-versions/azure/reference/mt163818(v=azure.100)) se o módulo de integração incluir um tipo de ligação e for importado para a sua conta Deautomação. 
+Quando criar uma ligação, deve especificar um tipo de ligação. O tipo de ligação é um modelo que define um conjunto de propriedades. Pode adicionar um tipo de ligação à Azure Automation utilizando um módulo de integração com um ficheiro de metadados. Também é possível criar um tipo de ligação utilizando a [API AZure Automation](/previous-versions/azure/reference/mt163818(v=azure.100)) se o módulo de integração incluir um tipo de ligação e for importado para a sua conta Demôm automação. 
 
 >[!NOTE]
->Os ativos seguros na Automatização Azure incluem credenciais, certificados, ligações e variáveis encriptadas. Estes ativos são encriptados e armazenados na Automatização Azure utilizando uma chave única que é gerada para cada conta De Automação. A Azure Automation armazena a chave no Cofre chave gerido pelo sistema. Antes de armazenar um ativo seguro, a Automation carrega a chave a partir do Key Vault e depois usa-a para encriptar o ativo. 
+>Os ativos seguros na Azure Automation incluem credenciais, certificados, conexões e variáveis encriptadas. Estes ativos são encriptados e armazenados na Azure Automation utilizando uma chave única que é gerada para cada conta Dem automação. A Azure Automation armazena a chave no Key Vault gerido pelo sistema. Antes de armazenar um ativo seguro, a Automatização carrega a chave do Key Vault e utiliza-a para encriptar o ativo. 
 
 ## <a name="connection-types"></a>Tipos de ligação
 
@@ -33,13 +32,13 @@ A Azure Automation disponibiliza os seguintes tipos de ligação incorporados:
 
 * `Azure`- Representa uma ligação usada para gerir recursos clássicos.
 * `AzureServicePrincipal`- Representa uma ligação utilizada pela conta Azure Run As.
-* `AzureClassicCertificate`- Representa uma ligação utilizada pelo clássico Azure Run Como conta.
+* `AzureClassicCertificate`- Representa uma ligação utilizada pela conta clássica Azure Run As.
 
-Na maioria dos casos, não é necessário criar um recurso de ligação porque é criado quando cria uma [conta Run As](manage-runas-account.md).
+Na maioria dos casos, não precisa de criar um recurso de ligação porque é criado quando cria uma [conta Run As](manage-runas-account.md).
 
-## <a name="powershell-cmdlets-to-access-connections"></a>PowerShell cmdlets para aceder a ligações
+## <a name="powershell-cmdlets-to-access-connections"></a>Cmdlets PowerShell para aceder a ligações
 
-Os cmdlets na tabela a seguir criam e gerem as ligações de Automação com a PowerShell. Eles enviam como parte dos [módulos Az.](shared-resources/modules.md#az-modules)
+Os cmdlets na tabela seguinte criam e gerem as ligações automation com a PowerShell. Eles enviam como parte dos [módulos Az.](shared-resources/modules.md#az-modules)
 
 |Cmdlet|Descrição|
 |---|---|
@@ -50,25 +49,25 @@ Os cmdlets na tabela a seguir criam e gerem as ligações de Automação com a P
 
 ## <a name="internal-cmdlets-to-access-connections"></a>Cmdlets internos para aceder a ligações
 
-O cmdlet interno na tabela seguinte é utilizado para aceder a ligações nos seus livros de execução e configurações DSC. Este cmdlet vem com o módulo `Orchestrator.AssetManagement.Cmdlets` global. Para mais informações, consulte [cmdlets internos](shared-resources/modules.md#internal-cmdlets).
+O cmdlet interno na tabela seguinte é utilizado para aceder a ligações nos seus runbooks e configurações DSC. Este cmdlet vem com o módulo `Orchestrator.AssetManagement.Cmdlets` global. Para obter mais informações, consulte [as cmdlets internas.](shared-resources/modules.md#internal-cmdlets)
 
 |Cmdlet Interno|Descrição|
 |---|---|
-|`Get-AutomationConnection` | Recupera os valores dos diferentes campos na ligação e devolve-os como um [hashtable](https://go.microsoft.com/fwlink/?LinkID=324844). Em seguida, pode utilizar este hashtable com os comandos apropriados na configuração do livro de execução ou DSC.|
+|`Get-AutomationConnection` | Recupera os valores dos diferentes campos na ligação e devolve-os como um [haxixe.](https://go.microsoft.com/fwlink/?LinkID=324844) Em seguida, pode utilizar este haxixe com os comandos apropriados na configuração do runbook ou DSC.|
 
 >[!NOTE]
->Evite utilizar variáveis com o `Name` parâmetro de `Get-AutomationConnection` . A utilização de variáveis neste caso pode complicar a descoberta de dependências entre os livros de execução ou as configurações de DSC e os ativos de conexão no momento do projeto.
+>Evite utilizar variáveis com o `Name` parâmetro de `Get-AutomationConnection` . A utilização de variáveis neste caso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e ativos de conexão no momento do design.
 
-## <a name="python-2-functions-to-access-connections"></a>Funções Python 2 para aceder a ligações
+## <a name="python-2-functions-to-access-connections"></a>Python 2 funciona para aceder a ligações
 
-A função na tabela a seguir é utilizada para aceder a ligações num livro de execução Python 2.
+A função na tabela a seguir é utilizada para aceder a ligações num livro de bordo Python 2.
 
 | Função | Descrição |
 |:---|:---|
 | `automationassets.get_automation_connection` | Recupera uma ligação. Devolve um dicionário com as propriedades da ligação. |
 
 > [!NOTE]
-> Tem de importar o `automationassets` módulo no topo do seu livro de execução Python para aceder às funções de ativo.
+> Deve importar o `automationassets` módulo no topo do seu livro de bordo Python para aceder às funções do ativo.
 
 ## <a name="create-a-new-connection"></a>Criar uma nova ligação
 
@@ -76,14 +75,14 @@ A função na tabela a seguir é utilizada para aceder a ligações num livro de
 
 Para criar uma nova ligação no portal Azure:
 
-1. Na sua conta de Automação, clique em **Ligações** em **Recursos Partilhados**.
-2. Clique **+ Adicione uma ligação** na página Ligações.
-4. No campo **Tipo** no painel new connection, selecione o tipo de ligação para criar. As tuas escolhas `Azure` `AzureServicePrincipal` `AzureClassicCertificate` são, e. 
-5. O formulário apresenta propriedades para o tipo de ligação que escolheu. Complete o formulário e clique **em Criar** para salvar a nova ligação.
+1. A partir da sua conta de Automação, clique em Conexões em **Recursos Partilhados.** **Connections**
+2. Clique **+ Adicionar uma ligação** na página 'Ligações'.
+4. No campo **Tipo** no painel De Nova Ligação, selecione o tipo de ligação a criar. As tuas escolhas `Azure` `AzureServicePrincipal` são, `AzureClassicCertificate` e. 
+5. O formulário apresenta propriedades para o tipo de ligação que escolheu. Preencha o formulário e clique em **Criar** para salvar a nova ligação.
 
 ### <a name="create-a-new-connection-with-windows-powershell"></a>Criar uma nova ligação com o Windows PowerShell
 
-Crie uma nova ligação com o Windows PowerShell utilizando o `New-AzAutomationConnection` cmdlet. Este cmdlet tem um `ConnectionFieldValues` parâmetro que espera um valore sinuoso definindo valores para cada uma das propriedades definidas pelo tipo de ligação.
+Crie uma nova ligação com o Windows PowerShell utilizando o `New-AzAutomationConnection` cmdlet. Este cmdlet tem um `ConnectionFieldValues` parâmetro que espera um valore de definição de haxixe para cada uma das propriedades definidas pelo tipo de ligação.
 
 Pode utilizar os seguintes comandos de exemplo como alternativa à criação da conta Run As a partir do portal para criar um novo ativo de ligação.
 
@@ -93,13 +92,13 @@ $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "Tenant
 New-AzAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
 
-Ao criar a sua conta De automatização, inclui vários módulos globais por padrão, juntamente com o tipo de ligação `AzureServicePrincipal` para criar o ativo de `AzureRunAsConnection` ligação. Se tentar criar um novo ativo de ligação para ligar a um serviço ou aplicação com um método de autenticação diferente, a operação falha porque o tipo de ligação ainda não está definido na sua conta Automation. Para obter mais informações sobre a criação do seu próprio tipo de ligação para um módulo personalizado, consulte [Adicionar um tipo de ligação](#add-a-connection-type).
+Ao criar a sua conta Automation, inclui vários módulos globais por padrão, juntamente com o tipo de ligação `AzureServicePrincipal` para criar o ativo de `AzureRunAsConnection` ligação. Se tentar criar um novo ativo de ligação para ligar a um serviço ou aplicação com um método de autenticação diferente, a operação falha porque o tipo de ligação ainda não está definido na sua conta Dem automação. Para obter mais informações sobre a criação do seu próprio tipo de ligação para um módulo personalizado, consulte [Adicionar um tipo de ligação](#add-a-connection-type).
 
-## <a name="add-a-connection-type"></a>Adicione um tipo de ligação
+## <a name="add-a-connection-type"></a>Adicionar um tipo de ligação
 
-Se a configuração do seu livro de execução ou DSC se ligar a um serviço externo, deve definir um tipo de ligação num [módulo personalizado](shared-resources/modules.md#custom-modules) chamado módulo de integração. Este módulo inclui um ficheiro de metadados que especifica as propriedades do tipo de ligação e é nomeado ** &lt; MóduloName &gt; -Automation.json**, localizado na pasta do módulo do seu ficheiro **.zip** comprimido. Este ficheiro contém os campos de uma ligação que são necessárias para ligar ao sistema ou serviço que o módulo representa. Utilizando este ficheiro, pode definir os nomes de campo, tipos de dados, estado de encriptação e estado opcional para o tipo de ligação. 
+Se o seu runbook ou configuração DSC se ligar a um serviço externo, deve definir um tipo de ligação num [módulo personalizado](shared-resources/modules.md#custom-modules) chamado módulo de integração. Este módulo inclui um ficheiro de metadados que especifica propriedades do tipo de ligação e é nomeado ** &lt; MóduloName &gt;-Automation.js,** localizado na pasta do módulo do seu ficheiro **.zip** comprimido. Este ficheiro contém os campos de uma ligação que é necessária para ligar ao sistema ou serviço que o módulo representa. Utilizando este ficheiro, pode definir os nomes de campo, tipos de dados, estado de encriptação e estado opcional para o tipo de ligação. 
 
-O exemplo seguinte é um modelo no formato de ficheiro **.json** que define o nome do utilizador e as propriedades da palavra-passe para um tipo de ligação personalizado `MyModuleConnection` chamado:
+O exemplo a seguir é um modelo no formato de ficheiro **.json** que define o nome de utilizador e as propriedades de senha para um tipo de ligação personalizado chamado `MyModuleConnection` :
 
 ```json
 {
@@ -122,32 +121,32 @@ O exemplo seguinte é um modelo no formato de ficheiro **.json** que define o no
 }
 ```
 
-## <a name="get-a-connection-in-a-runbook-or-dsc-configuration"></a>Obtenha uma ligação numa configuração de livro de execução ou DSC
+## <a name="get-a-connection-in-a-runbook-or-dsc-configuration"></a>Obtenha uma ligação em um runbook ou configuração DSC
 
-Recupere uma ligação numa configuração de rés-do-guia ou DSC com o `Get-AutomationConnection` cmdlet interno. Este cmdlet é preferido sobre o `Get-AzAutomationConnection` cmdlet, uma vez que recupera os valores de ligação em vez de informações sobre a ligação. 
+Recupere uma ligação num livro de bordo ou na configuração DSC com o `Get-AutomationConnection` cmdlet interno. Este cmdlet é preferido sobre o `Get-AzAutomationConnection` cmdlet, uma vez que recupera os valores de ligação em vez de informações sobre a ligação. 
 
-### <a name="textual-runbook-example"></a>Exemplo de livro textual
+### <a name="textual-runbook-example"></a>Exemplo de livro de texto
 
-O exemplo que se segue mostra como usar a conta Run As para autenticar com os recursos do Gestor de Recursos Azure no seu livro de execução. Utiliza um ativo de ligação que representa a conta Run As, que faz referência ao diretor de serviço baseado em certificados.
+O exemplo a seguir mostra como utilizar a conta Run As para autenticar com os recursos do Azure Resource Manager no seu runbook. Utiliza um ativo de ligação que representa a conta Run As, que faz referência ao principal do serviço baseado em certificados.
 
 ```powershell
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection
 Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 ```
 
-### <a name="graphical-runbook-examples"></a>Exemplos de livro gráfico
+### <a name="graphical-runbook-examples"></a>Exemplos gráficos de runbook
 
-Pode adicionar uma atividade para o `Get-AutomationConnection` cmdlet interno a um livro gráfico. Clique na ligação no painel da Biblioteca do editor gráfico e selecione **Adicionar à tela**.
+Pode adicionar uma atividade para o `Get-AutomationConnection` cmdlet interno a um runbook gráfico. Clique com o botão direito na ligação no painel da Biblioteca do editor gráfico e **selecione Adicionar à tela**.
 
 ![adicionar a tela](media/automation-connections/connection-add-canvas.png)
 
-A imagem que se segue mostra um exemplo de utilização de um objeto de ligação num livro gráfico. Este exemplo utiliza o conjunto de dados para a atividade, que utiliza um objeto de `Constant value` `Get RunAs Connection` ligação para autenticação. Uma [ligação](automation-graphical-authoring-intro.md#use-links-for-workflow) de gasoduto é utilizada aqui, uma vez que o conjunto de parâmetros está à espera de `ServicePrincipalCertificate` um único objeto.
+A imagem a seguir mostra um exemplo de utilização de um objeto de ligação num livro de bordo gráfico. Este exemplo utiliza o `Constant value` conjunto de dados para a `Get RunAs Connection` atividade, que utiliza um objeto de ligação para autenticação. Uma [ligação de gasoduto](automation-graphical-authoring-intro.md#use-links-for-workflow) é usada aqui, uma vez que o conjunto de `ServicePrincipalCertificate` parâmetros está à espera de um único objeto.
 
 ![obter ligações](media/automation-connections/automation-get-connection-object.png)
 
-### <a name="python-2-runbook-example"></a>Exemplo de livro de python 2
+### <a name="python-2-runbook-example"></a>Exemplo de livro de bordo python 2
 
-O exemplo que se segue mostra como autenticar usando o Run As ligação num livro de execução Python 2.
+O exemplo a seguir mostra como autenticar usando a ligação Run As num livro de bordo Python 2.
 
 ```python
 """ Tutorial to show how to authenticate against Azure resource manager resources """
@@ -190,8 +189,8 @@ runas_connection = automationassets.get_automation_connection(
 azure_credential = get_automation_runas_credential(runas_connection)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para saber mais sobre os cmdlets utilizados para aceder a ligações, consulte [Gerir módulos em Automação Azure](shared-resources/modules.md).
-* Para obter informações gerais sobre livros de execução, consulte a execução do Livro de [Corridas na Automação Azure.](automation-runbook-execution.md)
-* Para mais detalhes sobre as configurações do DSC, consulte a visão geral da [Configuração do Estado](automation-dsc-overview.md).
+* Para saber mais sobre os cmdlets utilizados para aceder às ligações, consulte [Gerir módulos na Azure Automation](shared-resources/modules.md).
+* Para obter informações gerais sobre os runbooks, consulte [a execução do Runbook na Azure Automation](automation-runbook-execution.md).
+* Para obter detalhes sobre as configurações do DSC, consulte a [visão geral da configuração do estado](automation-dsc-overview.md).

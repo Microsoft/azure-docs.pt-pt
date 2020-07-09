@@ -1,7 +1,7 @@
 ---
-title: Criar piscinas de recursos com mapeamento de subscrição Azure
+title: Crie piscinas de recursos com mapeamento de subscrição Azure
 titleSuffix: Azure VMware Solution by CloudSimple
-description: Descreve como criar piscinas de recursos para a sua Nuvem Privada através do mapeamento de subscrição do Azure
+description: Descreve como criar piscinas de recursos para a sua Nuvem Privada através do mapeamento de subscrição Azure
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/14/2019
@@ -10,21 +10,20 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 474ef03d482288b6bf7b5a8b1c224349a8e2d3a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77014968"
 ---
 # <a name="create-resource-pools-for-your-private-cloud-with-azure-subscription-mapping"></a>Crie piscinas de recursos para a sua Nuvem Privada com mapeamento de subscrição Azure
-O mapeamento de subscrição Azure permite-lhe criar piscinas de recursos para a sua Nuvem Privada a partir dos conjuntos de recursos vSphere disponíveis. No portal CloudSimple, pode ver e gerir a subscrição Azure para as suas Nuvens Privadas.
+O mapeamento de subscrição Azure permite-lhe criar piscinas de recursos para a sua Nuvem Privada a partir das piscinas de recursos disponíveis vSphere. No portal CloudSimple, pode ver e gerir a subscrição do Azure para as suas Nuvens Privadas.
 
 > [!NOTE]
-> Mapear um conjunto de recursos também mapeia quaisquer piscinas de recursos infantis. Um conjunto de recursos parentais não pode ser mapeado se algum conjunto de recursos infantis já estiver mapeado.
+> Mapear uma piscina de recursos também mapeia quaisquer piscinas de recursos para crianças. Um conjunto de recursos dos pais não pode ser mapeado se alguma piscina de recursos para crianças já estiver mapeada.
 
 1. [Aceda ao portal CloudSimple](access-cloudsimple-portal.md).
-2. Abra a página **Recursos** e selecione o mapeamento de **subscrições do Azure.**  
-3. Clique em editar mapeamento de **subscrição Do Azure**.  
+2. Abra a página **Recursos** e selecione **o mapeamento de subscrições Azure**.  
+3. Clique **em Editar Mapeamento de subscrição Azure**.  
 4. Para mapear os conjuntos de recursos disponíveis, selecione-os à esquerda e clique na seta virada para a direita. 
 5. Para remover mapeamentos, selecione-os à direita e clique na seta virada para a esquerda. 
 

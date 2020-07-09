@@ -1,26 +1,25 @@
 ---
 title: Comandos comuns da CLI Azure
-description: Aprenda alguns dos comandos comuns do Azure CLI para que você tenha começado a gerir os seus VMs no modo Azure Resource Manager
+description: Aprenda alguns dos comandos comuns do Azure CLI para começar a gerir os seus VMs no modo Azure Resource Manager
 author: RicksterCDN
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: rclaus
 ms.openlocfilehash: 253f2ab1b192d22f43e4082766adf4ec4f86fe71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969257"
 ---
 # <a name="common-azure-cli-commands-for-managing-azure-resources"></a>Comandos comuns da CLI do Azure para gerir recursos do Azure
 
 O Azure CLI permite-lhe criar e gerir os seus recursos Azure em macOS, Linux e Windows. Este artigo detalha alguns dos comandos mais comuns para criar e gerir máquinas virtuais (VMs).
 
-Este artigo requer a versão Azure CLI 2.0.4 ou posterior. Executar `az --version` para localizar a versão. Se precisar de fazer o upgrade, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli). Também pode utilizar [a Cloud Shell](/azure/cloud-shell/quickstart) a partir do seu navegador.
+Este artigo requer a versão Azure CLI 2.0.4 ou posterior. Executar `az --version` para localizar a versão. Se precisar de atualizar, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli). Também pode utilizar [cloud Shell](/azure/cloud-shell/quickstart) a partir do seu navegador.
 
 ## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Comandos básicos do Azure Resource Manager na CLI do Azure
-Para obter uma ajuda mais detalhada com interruptores e opções específicos `az <command> <subcommand> --help`da linha de comando, pode utilizar a ajuda e opções de comando on-line digitando .
+Para uma ajuda mais detalhada com comutadores e opções específicos da linha de comando, pode utilizar a ajuda e opções de comando on-line digitando `az <command> <subcommand> --help` .
 
 ### <a name="create-vms"></a>Criar VMs
 | Tarefa | Comandos da CLI Azure |
@@ -39,7 +38,7 @@ Para obter uma ajuda mais detalhada com interruptores e opções específicos `a
 | Reimplementar uma VM | `az vm redeploy --resource-group myResourceGroup --name myVM` |
 | Eliminar uma VM | `az vm delete --resource-group myResourceGroup --name myVM` |
 
-### <a name="get-vm-info"></a>Obtenha informações vM
+### <a name="get-vm-info"></a>Obtenha informações VM
 | Tarefa | Comandos da CLI Azure |
 | --- | --- |
 | Listar VMs | `az vm list` |
@@ -58,7 +57,7 @@ Para obter uma ajuda mais detalhada com interruptores e opções específicos `a
 | Criar VM a partir da imagem | `az vm create --resource-group myResourceGroup --name myNewVM --image myImage` |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para exemplos adicionais dos comandos CLI, consulte os [VMs Create e Manage Linux com o tutorial Azure CLI.](tutorial-manage-vm.md)
 
 

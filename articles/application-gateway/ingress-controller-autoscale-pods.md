@@ -1,33 +1,33 @@
 ---
 title: Cápsulas AKS de escala automática com métricas de Gateway de aplicação Azure
-description: Este artigo fornece instruções sobre como escalar as suas cápsulas de backend AKS utilizando métricas de Gateway de aplicação e adaptador métrico Azure Kubernetes
+description: Este artigo fornece instruções sobre como escalar as suas cápsulas de backend AKS usando métricas de Gateway de Aplicação e Adaptador Métrico Azure Kubernetes
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 1169ed0e9a2b970ee0e30d73ea20c87001b62786
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e0533a44db269229b2f26fa8d2f2b4f84f4d0b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80239454"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85125468"
 ---
-# <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Calcifique automaticamente as suas cápsulas AKS utilizando métricas de gateway de aplicação (Beta)
+# <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Descalcificar automaticamente os seus pods AKS utilizando métricas de gateway de aplicação (Beta)
 
-À medida que o tráfego aumenta, torna-se crucial aumentar as suas aplicações com base na procura.
+À medida que o tráfego de entrada aumenta, torna-se crucial aumentar as suas aplicações com base na procura.
 
-No seguinte tutorial, explicamos como pode usar `AvgRequestCountPerHealthyHost` a métrica do Application Gateway para aumentar a sua aplicação. `AvgRequestCountPerHealthyHost`mede os pedidos médios enviados para uma piscina específica de backend e combinação de definição http end.
+No seguinte tutorial, explicamos como pode usar a métrica do Application Gateway `AvgRequestCountPerHealthyHost` para aumentar a sua aplicação. `AvgRequestCountPerHealthyHost`mede os pedidos médios enviados para uma combinação de definição http de backend específica e backend.
 
 Vamos usar dois componentes:
 
-* [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter)- Usaremos o adaptador métrico para expor as métricas do Gateway aplicação através do servidor métrico. O Adaptador Métrico Azure Kubernetes é um projeto de código aberto no âmbito do Azure, semelhante ao Controlador de Entrada de Gateway de Aplicação. 
-* [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler)- Utilizaremos o HPA para utilizar as métricas do Gateway de aplicação e direcionar uma implementação para a escala.
+* [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter)- Usaremos o adaptador métrico para expor as métricas do Gateway de Aplicação através do servidor métrico. O Adaptador Métrico Azure Kubernetes é um projeto de código aberto no âmbito do Azure, semelhante ao Controlador de Entradas de Gateway de Aplicação. 
+* [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler)- Utilizaremos o HPA para utilizar as métricas do Gateway de Aplicação e direcionamos uma implementação para dimensionamento.
 
 ## <a name="setting-up-azure-kubernetes-metric-adapter"></a>Configuração do Adaptador Métrico Azure Kubernetes
 
-1. Criaremos primeiro um diretor de serviço Azure `Monitoring Reader` AAD e atribuiremos-lhe acesso ao grupo de recursos da Application Gateway. 
+1. Primeiro criaremos um diretor de serviço Azure AAD e atribuíremos-lhe `Monitoring Reader` acesso ao grupo de recursos da Application Gateway. 
 
     ```azurecli
         applicationGatewayGroupName="<application-gateway-group-id>"
@@ -35,11 +35,11 @@ Vamos usar dois componentes:
         az ad sp create-for-rbac -n "azure-k8s-metric-adapter-sp" --role "Monitoring Reader" --scopes applicationGatewayGroupId
     ```
 
-1. Agora, vamos implementar [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) o recurso ao principal de serviço AAD criado acima.
+1. Agora, vamos implementar o [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) uso do principal de serviço AAD criado acima.
 
     ```bash
     kubectl create namespace custom-metrics
-    # use values from service principle created above to create secret
+    # use values from service principal created above to create secret
     kubectl create secret generic azure-k8s-metrics-adapter -n custom-metrics \
         --from-literal=azure-tenant-id=<tenantid> \
         --from-literal=azure-client-id=<clientid> \
@@ -47,7 +47,7 @@ Vamos usar dois componentes:
     kubectl apply -f kubectl apply -f https://raw.githubusercontent.com/Azure/azure-k8s-metrics-adapter/master/deploy/adapter.yaml -n custom-metrics
     ```
 
-1. Criaremos `ExternalMetric` um recurso `appgw-request-count-metric`com nome. Este recurso instruirá o adaptador métrico para expor `AvgRequestCountPerHealthyHost` a métrica para `myApplicationGateway` o recurso no `myResourceGroup` grupo de recursos. Você pode `filter` usar o campo para direcionar uma piscina específica de backend e backend HTTP definição no Gateway de Aplicação.
+1. Criaremos um `ExternalMetric` recurso com `appgw-request-count-metric` nome. Este recurso instruirá o adaptador métrico a expor `AvgRequestCountPerHealthyHost` a métrica para `myApplicationGateway` o recurso no grupo de `myResourceGroup` recursos. Pode utilizar o `filter` campo para direcionar uma piscina de backend específica e uma definição HTTP de backend na definição de Gateway de aplicação.
 
     ```yaml
     apiVersion: azure.com/v1alpha2
@@ -90,13 +90,13 @@ kubectl get --raw "/apis/external.metrics.k8s.io/v1beta1/namespaces/default/appg
 # }
 ```
 
-## <a name="using-the-new-metric-to-scale-up-the-deployment"></a>Usando a nova métrica para aumentar a implantação
+## <a name="using-the-new-metric-to-scale-up-the-deployment"></a>Usando a nova métrica para escalar a implantação
 
-Assim que formos `appgw-request-count-metric` capazes de expor através [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) do servidor métrico, estamos prontos a usar para aumentar a nossa implementação de alvos.
+Assim que formos capazes de expor `appgw-request-count-metric` através do servidor métrico, estamos prontos a usar [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) para escalar a nossa implementação de alvo.
 
-Em exemplo, direcionaremos uma `aspnet`utilização da amostra. Escalaremos os Pods quando `appgw-request-count-metric` > 200 por `10` Pod até um máximo de Pods.
+Seguindo o exemplo, teremos como alvo uma implantação de `aspnet` amostras. Vamos escalar pods quando `appgw-request-count-metric` > 200 por Pod até um máximo de `10` Pods.
 
-Substitua o nome de implementação do alvo e aplique a seguinte configuração de escala automática:
+Substitua o nome de implantação do alvo e aplique a seguinte configuração de escala automática:
 ```yaml
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
@@ -116,10 +116,10 @@ spec:
       targetAverageValue: 200
 ```
 
-Teste a sua configuração utilizando uma ferramenta de teste de carga como o banco Apache:
+Teste a sua configuração utilizando uma ferramenta de teste de carga como banco apache:
 ```bash
 ab -n10000 http://<applicaiton-gateway-ip-address>/
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-- [**Problemas problemas do Controlador de Ingress:**](ingress-controller-troubleshoot.md)Problemas de resolução de problemas com o Controlador De Entrada.
+## <a name="next-steps"></a>Próximos passos
+- [**Problemas no controlador ingress :**](ingress-controller-troubleshoot.md)Resolução de problemas com o Controlador de Entradas.

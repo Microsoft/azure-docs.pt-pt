@@ -23,6 +23,8 @@
           href: b2b-tutorial-require-mfa.md
     - name: Amostras
       items:
+        - name: Exemplos para inscrição self-service
+          href: code-samples-self-service-sign-up.md
         - name: Exemplos de códigos e do Azure PowerShell
           href: code-samples.md
     - name: Conceitos
@@ -52,6 +54,8 @@
           href: identity-providers.md
         - name: Fluxos de utilizador de inscrição self-service (Pré-visualização)
           href: self-service-sign-up-overview.md
+        - name: Conectores da API de inscrição self-service (Pré-visualização)
+          href: api-connectors-overview.md
         - name: Gestão de direitos do Azure AD
           href: self-service-portal.md
         - name: Limitações atuais
@@ -95,6 +99,10 @@
               href: user-flow-add-custom-attributes.md
             - name: Personalizar a linguagem de fluxo do utilizador
               href: user-flow-customize-language.md
+            - name: Adicionar um conector de API
+              href: self-service-sign-up-add-api-connector.md
+            - name: Adicionar um sistema de aprovação personalizado
+              href: self-service-sign-up-add-approvals.md
         - name: Gerir contas de convidado
           items:
             - name: Adicionar um utilizador B2B a uma função
@@ -125,8 +133,8 @@
       items:
         - name: FAQ
           href: faq.md
-        - name: Obter suporte para B2B
-          href: get-support.md
+        - name: Obter suporte
+          href: 'https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto'
         - name: Fórum de comentários do Azure
           href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
         - name: Mapa do Azure

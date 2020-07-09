@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Realizar uma pesquisa na web com Go - Bing Web Search REST API'
+title: 'Quickstart: Realize uma pesquisa web com Go - Bing Web Search REST API'
 titleSuffix: Azure Cognitive Services
-description: Use este quickstart para enviar pedidos para o Bing Web Search REST API usando Go, e receber uma resposta JSON
+description: Use este quickstart para enviar pedidos para a Bing Web Search REST API usando Go, e receber uma resposta JSON
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,18 +12,18 @@ ms.date: 05/22/2020
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
-ms.openlocfilehash: 0d0bd9dfa8dc115ae10831d997dccc8000a1ae25
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 3ea8375d1ed999d4b617a9d2a78ec53ad22543ac
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873904"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85602194"
 ---
-# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Quickstart: Procure na web usando a API e Go
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Quickstart: Procure na web utilizando a API de Pesquisa web Bing e Go
 
-Use este quickstart para fazer a sua primeira chamada para a API de pesquisa web bing. Esta aplicação Go envia um pedido de pesquisa para a API, e mostra a resposta json. Embora esta aplicação esteja escrita em Go, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação.
+Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa web Bing. Esta aplicação Go envia um pedido de pesquisa à API, e mostra a resposta JSON. Embora esta aplicação esteja escrita em Go, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
- Os exemplos de código neste arranque rápido requerem apenas bibliotecas centrais; não há dependências externas.  
+ Os exemplos de código neste arranque rápido requerem apenas bibliotecas fundamentais; não há dependências externas.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
@@ -35,7 +35,7 @@ Aqui estão algumas coisas de que irá precisar antes de executar este início r
 
 ## <a name="create-a-project-and-import-core-libraries"></a>Criar um projeto e importar bibliotecas de núcleo
 
-Crie um novo projeto do Go no seu IDE ou editor favorito. Em seguida, importar `net/http` para pedidos, `ioutil` ler a resposta, e lidar com `time` o `encoding/json` JSON, e `fmt` imprimir a saída.
+Crie um novo projeto do Go no seu IDE ou editor favorito. Em seguida, importar `net/http` para pedidos, `ioutil` ler a resposta, e lidar com o `time` `encoding/json` JSON, e `fmt` imprimir a saída.
 
 ```go
 package main
@@ -113,11 +113,11 @@ type BingAnswer struct {
 
 Este código declara a função principal e define as variáveis necessárias: 
 
-1. Para o `endpoint` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso. 
+1. Pelo `endpoint` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final [de subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso. 
 
 2. Confirme que o ponto final está correto e substitua o valor `token` por uma chave de subscrição válida da sua conta do Azure. 
  
-3. Opcionalmente, personalize a consulta de pesquisa substituindo o valor por `searchTerm` .
+3. Opcionalmente, personalize a consulta de pesquisa substituindo o valor de `searchTerm` .
 
 ```go
 // Declare the main function. This is required for all Go programs.
@@ -176,7 +176,7 @@ if err != nil {
 
 ## <a name="handle-the-response"></a>Processar a resposta
 
-Use a estrutura que criamos anteriormente para formatar a resposta e imprimir os resultados da pesquisa.
+Utilize a estrutura que criamos anteriormente para formatar a resposta e imprimir os resultados da pesquisa.
 
 ```go
 // Create a new answer.  
@@ -311,14 +311,13 @@ func main() {
 }
 ```
 
-## <a name="example-json-response"></a>Exemplo resposta JSON
+## <a name="example-json-response"></a>Exemplo JSON resposta
 
-As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta resposta da amostra foi formatada utilizando a `BingAnswer` estrutura e mostra a e `result.Name` `result.URL` .
+As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta resposta da amostra foi formatada utilizando a `BingAnswer` estrutura e mostra o e `result.Name` `result.URL` .
 
 ```go
 Microsoft Cognitive Services || https://www.microsoft.com/cognitive-services
 Cognitive Services | Microsoft Azure || https://azure.microsoft.com/services/cognitive-services/
-Cognitive Service Try experience | Microsoft Azure || https://azure.microsoft.com/try/cognitive-services/
 What is Microsoft Cognitive Services? | Microsoft Docs || https://docs.microsoft.com/azure/cognitive-services/Welcome
 Microsoft Cognitive Toolkit || https://www.microsoft.com/en-us/cognitive-toolkit/
 Microsoft Customers || https://customers.microsoft.com/en-us/search?sq=%22Microsoft%20Cognitive%20Services%22&ff=&p=0&so=story_publish_date%20desc
@@ -330,6 +329,6 @@ Cognitive Services - msdn.microsoft.com || https://msdn.microsoft.com/magazine/m
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicativo de pesquisa web bing Web API](../tutorial-bing-web-search-single-page-app.md)
+> [Tutorial de aplicação de pesquisa web de pesquisa web Bing Web API](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

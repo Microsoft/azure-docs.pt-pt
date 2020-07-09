@@ -1,29 +1,28 @@
 ---
-title: Agregações avançadas em consultas de registo do Monitor Do Azure Microsoft Docs
-description: Descreve algumas das opções de agregação mais avançadas disponíveis para consultas de log Do Monitor Azure.
+title: Agregações avançadas em consultas de registo do Azure Monitor Microsoft Docs
+description: Descreve algumas das opções de agregação mais avançadas disponíveis para consultas de registo do Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: e5dc290a40342e0797001dde6cab90e12dd5cf39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77662183"
 ---
-# <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agregações avançadas em consultas de registo do Monitor Azure
+# <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agregações avançadas em consultas de log do Azure Monitor
 
 > [!NOTE]
-> Deve completar [as agregações em consultas do Monitor Azure](./aggregations.md) antes de concluir esta lição.
+> Deve completar [agregações em consultas do Azure Monitor](./aggregations.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Este artigo descreve algumas das opções de agregação mais avançadas disponíveis para consultas do Monitor Azure.
+Este artigo descreve algumas das opções de agregação mais avançadas disponíveis para consultas do Azure Monitor.
 
 ## <a name="generating-lists-and-sets"></a>Gerando listas e conjuntos
-Pode utilizar `makelist` para girar dados pela ordem dos valores numa determinada coluna. Por exemplo, você pode querer explorar os eventos de ordem mais comuns ocorrem nas suas máquinas. Pode essencialmente girar os dados pela ordem dos EventIDs em cada máquina. 
+Pode utilizar `makelist` para orientar dados pela ordem dos valores numa determinada coluna. Por exemplo, pode querer explorar os eventos de ordem mais comuns que ocorrem nas suas máquinas. Pode essencialmente girar os dados por ordem de EventosIDs em cada máquina. 
 
 ```Kusto
 Event
@@ -38,9 +37,9 @@ Event
 | computador2 | [326,105,302,301,300,102] |
 | ... | ... |
 
-`makelist`gera uma lista na ordem em que os dados foram transmitidos nele. Para separar eventos do mais `asc` antigo ao mais `desc`recente, use na declaração de encomenda em vez de . 
+`makelist`gera uma lista na ordem que os dados foram passados para ele. Para separar eventos do mais antigo ao mais novo, utilize `asc` na declaração de encomenda em vez de `desc` . 
 
-Também é útil criar uma lista de valores apenas distintos. Isto chama-se _Conjunto_ e pode `makeset`ser gerado com:
+Também é útil criar uma lista de valores apenas distintos. Isto é chamado de _Conjunto_ e pode ser gerado `makeset` com:
 
 ```Kusto
 Event
@@ -55,10 +54,10 @@ Event
 | computador2 | [326,105,302,301,300,102] |
 | ... | ... |
 
-Tal `makelist` `makeset` como, também trabalha com dados encomendados e gerará as matrizes com base na ordem das linhas que são passadas para lá.
+Como `makelist` , também funciona com `makeset` dados encomendados e gerará as matrizes com base na ordem das linhas que são passadas para o mesmo.
 
 ## <a name="expanding-lists"></a>Listas de expansão
-O funcionamento `makelist` inverso `makeset` `mvexpand`de ou é, que expande uma lista de valores para separar linhas. Pode expandir-se através de várias colunas dinâmicas, tanto JSON como matriz. Por exemplo, pode verificar a tabela *Heartbeat* para obter soluções que enviem dados de computadores que enviaram um batimento cardíaco na última hora:
+O funcionamento inverso de `makelist` ou é , que `makeset` `mvexpand` expande uma lista de valores para linhas separadas. Pode expandir-se através de qualquer número de colunas dinâmicas, tanto JSON como matriz. Por exemplo, pode verificar a tabela *Heartbeat* para obter soluções de envio de dados de computadores que enviaram um batimento cardíaco na última hora:
 
 ```Kusto
 Heartbeat
@@ -73,7 +72,7 @@ Heartbeat
 | computador3 | "antiMalware", "changeTracking" |
 | ... | ... |
 
-Utilize `mvexpand` para mostrar cada valor numa linha separada em vez de uma lista separada de vírina:
+Utilize `mvexpand` para mostrar cada valor numa linha separada em vez de uma lista separada por vírgulas:
 
 ```Kusto
 Heartbeat
@@ -86,15 +85,15 @@ Heartbeat
 |--------------|----------------------|
 | computador1 | "segurança" |
 | computador1 | "atualizações" |
-| computador1 | "ChangeTracking" |
+| computador1 | "changeTracking" |
 | computador2 | "segurança" |
 | computador2 | "atualizações" |
 | computador3 | "antiMalware" |
-| computador3 | "ChangeTracking" |
+| computador3 | "changeTracking" |
 | ... | ... |
 
 
-Em seguida, `makelist` poderia usar novamente para agrupar itens, e desta vez ver a lista de computadores por solução:
+Em seguida, pode `makelist` usar novamente para agrupar itens em conjunto, e desta vez ver a lista de computadores por solução:
 
 ```Kusto
 Heartbeat
@@ -108,12 +107,12 @@ Heartbeat
 |--------------|----------------------|
 | "segurança" | ["computador1", "computador2"] |
 | "atualizações" | ["computador1", "computador2"] |
-| "ChangeTracking" | ["computador1", "computador3"] |
+| "changeTracking" | ["computador1", "computador3"] |
 | "antiMalware" | ["computador3"] |
 | ... | ... |
 
 ## <a name="handling-missing-bins"></a>Manuseamento de caixotes em falta
-Uma aplicação `mvexpand` útil é a necessidade de preencher valores predefinidos para os caixotes em falta. Por exemplo, suponha que está à procura do tempo de adoção de uma determinada máquina explorando o seu batimento cardíaco. Também quer ver a fonte do batimento cardíaco que está na coluna da _categoria._ Normalmente, usaríamos uma simples declaração resumindo da seguinte forma:
+Uma aplicação útil `mvexpand` é a necessidade de preencher valores predefinidos para os caixotes em falta. Por exemplo, suponha que está à procura do tempo de uma determinada máquina explorando o seu batimento cardíaco. Também quer ver a fonte do batimento cardíaco que está na coluna de _categoria._ Normalmente, usaríamos uma simples declaração resumida da seguinte forma:
 
 ```Kusto
 Heartbeat
@@ -123,14 +122,14 @@ Heartbeat
 
 | Categoria | TimeGenerated | count_ |
 |--------------|----------------------|--------|
-| Agente Direto | 2017-06-06T17:00:00 | 15 |
-| Agente Direto | 2017-06-06T18:00:00 | 60 |
-| Agente Direto | 2017-06-06T20:00:00 | 55 |
-| Agente Direto | 2017-06-06T21:00:00 | 57 |
-| Agente Direto | 2017-06-06t22:00:00 | 60 |
+| Agente Direto | 2017-06-06T17:00:00Z | 15 |
+| Agente Direto | 2017-06-06T18:00:00Z | 60 |
+| Agente Direto | 2017-06-06T20:00:00Z | 55 |
+| Agente Direto | 2017-06-06T21:00:00Z | 57 |
+| Agente Direto | 2017-06-06T22:00:00Z | 60 |
 | ... | ... | ... |
 
-Nestes resultados, embora o balde associado ao "2017-06-06T19:00:00Z" esteja desaparecido porque não há dados de batimentos cardíacos para aquela hora. Utilize `make-series` a função para atribuir um valor predefinido a baldes vazios. Isto gerará uma linha para cada categoria com duas colunas extra, uma para valores, e outra para baldes de tempo correspondentes:
+Nestes resultados, embora o balde associado a "2017-06-06T19:00:00Z" esteja em falta porque não há dados do batimento cardíaco para essa hora. Utilize a `make-series` função para atribuir um valor predefinido a baldes vazios. Isto gerará uma linha para cada categoria com duas colunas de matriz extra, uma para valores e outra para baldes de tempo correspondentes:
 
 ```Kusto
 Heartbeat
@@ -139,10 +138,10 @@ Heartbeat
 
 | Categoria | count_ | TimeGenerated |
 |---|---|---|
-| Agente Direto | [15,60,0,55,60,57,60,...] | ["2017-06-06t17:00:00.0000000Z", "2017-06-06T18:00:00.0000000z", "2017-06-06t19:0 0:00.0000000Z,"2017-06-06T20:00:00000000Z","2017-06-06T21:00:00.000000Z",...] |
+| Agente Direto | [15,60,0,55,60,57,60,...] | ["2017-06-06T17:00:00.000000Z","2017-06-06T18:00.0000000Z","2017-06-06T19:00:00.000000Z","2017-06-06T20:00:000000Z","2017-06-06T21:00:00.00000Z",...] |
 | ... | ... | ... |
 
-O terceiro elemento da matriz *count_* é um 0 como esperado, e há um carimbo de tempo correspondente de "2017-06-06T19:00:00.00000000Z" na matriz _TimeGenerated._ Este formato de matriz é difícil de ler. Utilizar `mvexpand` para expandir as matrizes e produzir `summarize`a mesma saída de formato gerada por:
+O terceiro elemento da matriz *count_* é um 0 como esperado, e há um timetamp correspondente de "2017-06T19:00:00.0000000Z" na matriz _timeGenerated._ Este formato de matriz é difícil de ler. Utilize `mvexpand` para expandir as matrizes e produzir a mesma saída de formato gerada `summarize` por:
 
 ```Kusto
 Heartbeat
@@ -153,18 +152,18 @@ Heartbeat
 
 | Categoria | TimeGenerated | count_ |
 |--------------|----------------------|--------|
-| Agente Direto | 2017-06-06T17:00:00 | 15 |
-| Agente Direto | 2017-06-06T18:00:00 | 60 |
-| Agente Direto | 2017-06-06T19:00:00 | 0 |
-| Agente Direto | 2017-06-06T20:00:00 | 55 |
-| Agente Direto | 2017-06-06T21:00:00 | 57 |
-| Agente Direto | 2017-06-06t22:00:00 | 60 |
+| Agente Direto | 2017-06-06T17:00:00Z | 15 |
+| Agente Direto | 2017-06-06T18:00:00Z | 60 |
+| Agente Direto | 2017-06-06T19:00:00Z | 0 |
+| Agente Direto | 2017-06-06T20:00:00Z | 55 |
+| Agente Direto | 2017-06-06T21:00:00Z | 57 |
+| Agente Direto | 2017-06-06T22:00:00Z | 60 |
 | ... | ... | ... |
 
 
 
-## <a name="narrowing-results-to-a-set-of-elements-let-makeset-toscalar-in"></a>Reduzir os resultados a um `let` `makeset`conjunto `toscalar`de elementos: , ,`in`
-Um cenário comum é selecionar os nomes de algumas entidades específicas com base num conjunto de critérios e, em seguida, filtrar um conjunto de dados diferentes para esse conjunto de entidades. Por exemplo, pode encontrar computadores que se sabe que têm falta de atualizações e identificar IPs a que estes computadores chamaram:
+## <a name="narrowing-results-to-a-set-of-elements-let-makeset-toscalar-in"></a>A redução dos resultados para um conjunto de elementos: `let` `makeset` , `toscalar` ,`in`
+Um cenário comum é selecionar os nomes de algumas entidades específicas com base num conjunto de critérios e, em seguida, filtrar um conjunto de dados diferente para esse conjunto de entidades. Por exemplo, pode encontrar computadores que são conhecidos por terem atualizações em falta e identificar iPs a que estes computadores chamaram:
 
 
 ```Kusto
@@ -177,9 +176,9 @@ WindowsFirewall
 | where Computer in (ComputersNeedingUpdate)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Consulte outras lições para utilizar a linguagem de [consulta Kusto](/azure/kusto/query/) com dados de registo do Monitor Azure:
+Consulte outras lições para utilizar a [linguagem de consulta kusto](/azure/kusto/query/) com dados de registo do Azure Monitor:
 
 - [Operações de cadeia](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)

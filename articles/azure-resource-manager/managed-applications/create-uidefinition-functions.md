@@ -6,13 +6,12 @@ ms.topic: conceptual
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: a93f4ff2ddc0737692de9e5619cf7a7521936224
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82980818"
 ---
-# <a name="createuidefinition-functions"></a>Funções CreateUiDefini
+# <a name="createuidefinition-functions"></a>Funções createUiDefinition
 Esta secção contém as assinaturas para todas as funções suportadas de uma CreateUiDefinition.
 
 Para utilizar uma função, rodeie a invocação com suportes quadrados. Por exemplo:
@@ -21,43 +20,43 @@ Para utilizar uma função, rodeie a invocação com suportes quadrados. Por exe
 "[function()]"
 ```
 
-Cordas e outras funções podem ser referenciadas como parâmetros para uma função, mas as cordas devem ser rodeadas em citações únicas. Por exemplo:
+Cordas e outras funções podem ser referenciadas como parâmetros para uma função, mas as cordas devem ser cercadas em citações únicas. Por exemplo:
 
 ```json
 "[fn1(fn2(), 'foobar')]"
 ```
 
-Quando aplicável, pode fazer referência às propriedades da saída de uma função utilizando o operador de pontos. Por exemplo:
+Se for caso disso, pode referenciar propriedades da saída de uma função utilizando o operador de pontos. Por exemplo:
 
 ```json
 "[func().prop1]"
 ```
 
-## <a name="referencing-functions"></a>Funções de referenciação
-Estas funções podem ser utilizadas para referência de saídas a partir das propriedades ou contexto de uma CreateUiDefinition.
+## <a name="referencing-functions"></a>Funções de referência
+Estas funções podem ser usadas para referência de saídas a partir das propriedades ou contexto de uma CreateUiDefinition.
 
 ### <a name="basics"></a>básicos
-Devolve os valores de saída de um elemento definido na etapa basics.
+Devolve os valores de saída de um elemento que é definido na etapa Básico.
 
-O exemplo seguinte devolve a `foo` saída do elemento nomeado na etapa basics:
+O exemplo a seguir devolve a saída do elemento nomeado `foo` na etapa Basics:
 
 ```json
 "[basics('foo')]"
 ```
 
 ### <a name="steps"></a>passos
-Devolve os valores de saída de um elemento definido no passo especificado. Para obter os valores de saída dos `basics()` elementos na etapa Basics, utilize em vez disso.
+Devolve os valores de saída de um elemento definido no passo especificado. Para obter os valores de saída dos elementos na etapa Basics, use `basics()` em vez disso.
 
-O exemplo seguinte devolve a `bar` saída do `foo`elemento nomeado no passo denominado:
+O exemplo a seguir devolve a saída do elemento nomeado `bar` no passo `foo` denominado:
 
 ```json
 "[steps('foo').bar]"
 ```
 
 ### <a name="location"></a>localização
-Devolve a localização selecionada na etapa basics ou no contexto atual.
+Devolve o local selecionado na etapa Básica ou no contexto atual.
 
-O seguinte exemplo `"westus"`pode voltar:
+O seguinte exemplo poderia `"westus"` voltar:
 
 ```json
 "[location()]"
@@ -69,52 +68,52 @@ Estas funções só podem ser utilizadas com cordas JSON.
 ### <a name="concat"></a>concat
 Concatenates uma ou mais cordas.
 
-Por exemplo, se o `element1` `"bar"`valor de saída de `"foobar!"`se , então este exemplo devolve a cadeia:
+Por exemplo, se o valor de saída de `element1` `"bar"` se, então este exemplo devolve a `"foobar!"` cadeia:
 
 ```json
 "[concat('foo', steps('step1').element1, '!')]"
 ```
 
 ### <a name="substring"></a>substring
-Devolve a subcadeia da corda especificada. O substring começa no índice especificado e tem o comprimento especificado.
+Devolve o sub-cordão da cadeia especificada. O sub-adc de sublagem começa no índice especificado e tem o comprimento especificado.
 
-O exemplo `"ftw"`seguinte retorna:
+O seguinte exemplo `"ftw"` regressa:
 
 ```json
 "[substring('azure-ftw!!!1one', 6, 3)]"
 ```
 
 ### <a name="replace"></a>substituir
-Devolve uma corda na qual todas as ocorrências da corda especificada na cadeia atual são substituídas por outra corda.
+Devolve uma cadeia na qual todas as ocorrências da corda especificada na cadeia atual são substituídas por outra corda.
 
-O exemplo `"Everything is awesome!"`seguinte retorna:
+O seguinte exemplo `"Everything is awesome!"` regressa:
 
 ```json
 "[replace('Everything is terrible!', 'terrible', 'awesome')]"
 ```
 
 ### <a name="guid"></a>guid
-Gera uma corda globalmente única (GUID).
+Gera uma cadeia globalmente única (GUID).
 
-O seguinte exemplo `"c7bc8bdc-7252-4a82-ba53-7c468679a511"`pode voltar:
+O seguinte exemplo poderia `"c7bc8bdc-7252-4a82-ba53-7c468679a511"` voltar:
 
 ```json
 "[guid()]"
 ```
 
 ### <a name="tolower"></a>toLower
-Devolve uma corda convertida em minúscula.
+Devolve uma corda convertida em minúsculas.
 
-O exemplo `"foobar"`seguinte retorna:
+O seguinte exemplo `"foobar"` regressa:
 
 ```json
 "[toLower('FOOBAR')]"
 ```
 
-### <a name="toupper"></a>toUpper
+### <a name="toupper"></a>toupper
 Devolve uma corda convertida em maiúscula.
 
-O exemplo `"FOOBAR"`seguinte retorna:
+O seguinte exemplo `"FOOBAR"` regressa:
 
 ```json
 "[toUpper('foobar')]"
@@ -123,25 +122,25 @@ O exemplo `"FOOBAR"`seguinte retorna:
 ## <a name="collection-functions"></a>Funções de recolha
 Estas funções podem ser usadas com coleções, como cordas JSON, matrizes e objetos.
 
-### <a name="contains"></a>contém
-Devoluções `true` se uma cadeia contiver o substring especificado, uma matriz contém o valor especificado, ou um objeto contém a chave especificada.
+### <a name="contains"></a>contains
+Devoluções `true` se uma cadeia contiver o sub-adc de substring especificado, uma matriz contém o valor especificado, ou um objeto contém a chave especificada.
 
 #### <a name="example-1-string"></a>Exemplo 1: corda
-O exemplo `true`seguinte retorna:
+O seguinte exemplo `true` regressa:
 
 ```json
 "[contains('foobar', 'foo')]"
 ```
 
 #### <a name="example-2-array"></a>Exemplo 2: matriz
-Assuma declarações. `element1` `[1, 2, 3]` O exemplo `false`seguinte retorna:
+Assuma `element1` devoluções `[1, 2, 3]` . O seguinte exemplo `false` regressa:
 
 ```json
 "[contains(steps('foo').element1, 4)]"
 ```
 
 #### <a name="example-3-object"></a>Exemplo 3: objeto
-Assumir `element1` devoluções:
+Assuma `element1` devoluções:
 
 ```json
 {
@@ -150,7 +149,7 @@ Assumir `element1` devoluções:
 }
 ```
 
-O exemplo `true`seguinte retorna:
+O seguinte exemplo `true` regressa:
 
 ```json
 "[contains(steps('foo').element1, 'key1')]"
@@ -160,21 +159,21 @@ O exemplo `true`seguinte retorna:
 Devolve o número de caracteres numa corda, o número de valores numa matriz ou o número de teclas num objeto.
 
 #### <a name="example-1-string"></a>Exemplo 1: corda
-O exemplo `6`seguinte retorna:
+O seguinte exemplo `6` regressa:
 
 ```json
 "[length('foobar')]"
 ```
 
 #### <a name="example-2-array"></a>Exemplo 2: matriz
-Assuma declarações. `element1` `[1, 2, 3]` O exemplo `3`seguinte retorna:
+Assuma `element1` devoluções `[1, 2, 3]` . O seguinte exemplo `3` regressa:
 
 ```json
 "[length(steps('foo').element1)]"
 ```
 
 #### <a name="example-3-object"></a>Exemplo 3: objeto
-Assumir `element1` devoluções:
+Assuma `element1` devoluções:
 
 ```json
 {
@@ -183,31 +182,31 @@ Assumir `element1` devoluções:
 }
 ```
 
-O exemplo `2`seguinte retorna:
+O seguinte exemplo `2` regressa:
 
 ```json
 "[length(steps('foo').element1)]"
 ```
 
 ### <a name="empty"></a>vazio
-Devoluções `true` se a corda, a matriz ou o objeto estiverem nulos ou vazios.
+Retorna `true` se a corda, matriz ou objeto for nulo ou vazio.
 
 #### <a name="example-1-string"></a>Exemplo 1: corda
-O exemplo `true`seguinte retorna:
+O seguinte exemplo `true` regressa:
 
 ```json
 "[empty('')]"
 ```
 
 #### <a name="example-2-array"></a>Exemplo 2: matriz
-Assuma declarações. `element1` `[1, 2, 3]` O exemplo `false`seguinte retorna:
+Assuma `element1` devoluções `[1, 2, 3]` . O seguinte exemplo `false` regressa:
 
 ```json
 "[empty(steps('foo').element1)]"
 ```
 
 #### <a name="example-3-object"></a>Exemplo 3: objeto
-Assumir `element1` devoluções:
+Assuma `element1` devoluções:
 
 ```json
 {
@@ -216,38 +215,38 @@ Assumir `element1` devoluções:
 }
 ```
 
-O exemplo `false`seguinte retorna:
+O seguinte exemplo `false` regressa:
 
 ```json
 "[empty(steps('foo').element1)]"
 ```
 
 #### <a name="example-4-null-and-undefined"></a>Exemplo 4: nulo e indefinido
-Assumir `element1` `null` é ou não definido. O exemplo `true`seguinte retorna:
+Assumir `element1` é `null` ou indefinido. O seguinte exemplo `true` regressa:
 
 ```json
 "[empty(steps('foo').element1)]"
 ```
 
 ### <a name="first"></a>primeiro
-Devolve o primeiro carácter da corda especificada; primeiro valor da matriz especificada; ou a primeira chave e valor do objeto especificado.
+Devolve o primeiro carácter da cadeia especificada; primeiro valor da matriz especificada; ou a primeira chave e valor do objeto especificado.
 
 #### <a name="example-1-string"></a>Exemplo 1: corda
-O exemplo `"f"`seguinte retorna:
+O seguinte exemplo `"f"` regressa:
 
 ```json
 "[first('foobar')]"
 ```
 
 #### <a name="example-2-array"></a>Exemplo 2: matriz
-Assuma declarações. `element1` `[1, 2, 3]` O exemplo `1`seguinte retorna:
+Assuma `element1` devoluções `[1, 2, 3]` . O seguinte exemplo `1` regressa:
 
 ```json
 "[first(steps('foo').element1)]"
 ```
 
 #### <a name="example-3-object"></a>Exemplo 3: objeto
-Assumir `element1` devoluções:
+Assuma `element1` devoluções:
 
 ```json
 {
@@ -255,31 +254,31 @@ Assumir `element1` devoluções:
   "key2": "raboof"
 }
 ```
-O exemplo `{"key1": "foobar"}`seguinte retorna:
+O seguinte exemplo `{"key1": "foobar"}` regressa:
 
 ```json
 "[first(steps('foo').element1)]"
 ```
 
-### <a name="last"></a>última
-Devolve o último carácter da corda especificada, o último valor da matriz especificada, ou a última chave e valor do objeto especificado.
+### <a name="last"></a>último
+Devolve o último carácter da cadeia especificada, o último valor da matriz especificada ou a última chave e valor do objeto especificado.
 
 #### <a name="example-1-string"></a>Exemplo 1: corda
-O exemplo `"r"`seguinte retorna:
+O seguinte exemplo `"r"` regressa:
 
 ```json
 "[last('foobar')]"
 ```
 
 #### <a name="example-2-array"></a>Exemplo 2: matriz
-Assuma declarações. `element1` `[1, 2, 3]` O exemplo `2`seguinte retorna:
+Assuma `element1` devoluções `[1, 2, 3]` . O seguinte exemplo `2` regressa:
 
 ```json
 "[last(steps('foo').element1)]"
 ```
 
 #### <a name="example-3-object"></a>Exemplo 3: objeto
-Assumir `element1` devoluções:
+Assuma `element1` devoluções:
 
 ```json
 {
@@ -288,31 +287,31 @@ Assumir `element1` devoluções:
 }
 ```
 
-O exemplo `{"key2": "raboof"}`seguinte retorna:
+O seguinte exemplo `{"key2": "raboof"}` regressa:
 
 ```json
 "[last(steps('foo').element1)]"
 ```
 
 ### <a name="take"></a>tomar
-Devolve um número especificado de caracteres contíguos desde o início da corda, um número especificado de valores contíguos desde o início da matriz, ou um número especificado de chaves e valores contíguos desde o início do objeto.
+Devolve um número especificado de caracteres contíguos desde o início da cadeia, um número especificado de valores contíguos desde o início da matriz, ou um número especificado de teclas e valores contíguos desde o início do objeto.
 
 #### <a name="example-1-string"></a>Exemplo 1: corda
-O exemplo `"foo"`seguinte retorna:
+O seguinte exemplo `"foo"` regressa:
 
 ```json
 "[take('foobar', 3)]"
 ```
 
 #### <a name="example-2-array"></a>Exemplo 2: matriz
-Assuma declarações. `element1` `[1, 2, 3]` O exemplo `[1, 2]`seguinte retorna:
+Assuma `element1` devoluções `[1, 2, 3]` . O seguinte exemplo `[1, 2]` regressa:
 
 ```json
 "[take(steps('foo').element1, 2)]"
 ```
 
 #### <a name="example-3-object"></a>Exemplo 3: objeto
-Assumir `element1` devoluções:
+Assuma `element1` devoluções:
 
 ```json
 {
@@ -321,31 +320,31 @@ Assumir `element1` devoluções:
 }
 ```
 
-O exemplo `{"key1": "foobar"}`seguinte retorna:
+O seguinte exemplo `{"key1": "foobar"}` regressa:
 
 ```json
 "[take(steps('foo').element1, 1)]"
 ```
 
 ### <a name="skip"></a>saltar
-Contorna um número especificado de elementos numa coleção e, em seguida, devolve os elementos restantes.
+Contorna um número especificado de elementos numa coleção e, em seguida, devolve os restantes elementos.
 
 #### <a name="example-1-string"></a>Exemplo 1: corda
-O exemplo `"bar"`seguinte retorna:
+O seguinte exemplo `"bar"` regressa:
 
 ```json
 "[skip('foobar', 3)]"
 ```
 
 #### <a name="example-2-array"></a>Exemplo 2: matriz
-Assuma declarações. `element1` `[1, 2, 3]` O exemplo `[3]`seguinte retorna:
+Assuma `element1` devoluções `[1, 2, 3]` . O seguinte exemplo `[3]` regressa:
 
 ```json
 "[skip(steps('foo').element1, 2)]"
 ```
 
 #### <a name="example-3-object"></a>Exemplo 3: objeto
-Assumir `element1` devoluções:
+Assuma `element1` devoluções:
 
 ```json
 {
@@ -353,141 +352,141 @@ Assumir `element1` devoluções:
   "key2": "raboof"
 }
 ```
-O exemplo `{"key2": "raboof"}`seguinte retorna:
+O seguinte exemplo `{"key2": "raboof"}` regressa:
 
 ```json
 "[skip(steps('foo').element1, 1)]"
 ```
 
 ## <a name="logical-functions"></a>Funções lógicas
-Estas funções podem ser utilizadas em condicional. Algumas funções podem não suportar todos os tipos de dados da JSON.
+Estas funções podem ser utilizadas em condicional. Algumas funções podem não suportar todos os tipos de dados JSON.
 
 ### <a name="equals"></a>equals
-Devoluções `true` se ambos os parâmetros tiverem o mesmo tipo e valor. Esta função suporta todos os tipos de dados da JSON.
+Devoluções `true` se ambos os parâmetros tiverem o mesmo tipo e valor. Esta função suporta todos os tipos de dados JSON.
 
-O exemplo `true`seguinte retorna:
+O seguinte exemplo `true` regressa:
 
 ```json
 "[equals(0, 0)]"
 ```
 
-O exemplo `true`seguinte retorna:
+O seguinte exemplo `true` regressa:
 
 ```json
 "[equals('foo', 'foo')]"
 ```
 
-O exemplo `false`seguinte retorna:
+O seguinte exemplo `false` regressa:
 
 ```json
 "[equals('abc', ['a', 'b', 'c'])]"
 ```
 
 ### <a name="less"></a>less
-Devoluções `true` se o primeiro parâmetro for estritamente inferior ao segundo parâmetro. Esta função suporta parâmetros apenas de número e corda tipo.
+Devoluções `true` se o primeiro parâmetro for estritamente inferior ao segundo parâmetro. Esta função suporta parâmetros apenas de número de tipo e corda.
 
-O exemplo `true`seguinte retorna:
+O seguinte exemplo `true` regressa:
 
 ```json
 "[less(1, 2)]"
 ```
 
-O exemplo `false`seguinte retorna:
+O seguinte exemplo `false` regressa:
 
 ```json
 "[less('9', '10')]"
 ```
 
 ### <a name="lessorequals"></a>lessOrEquals
-Devoluções `true` se o primeiro parâmetro for inferior ou igual ao segundo parâmetro. Esta função suporta parâmetros apenas de número e corda tipo.
+Devoluções `true` se o primeiro parâmetro for inferior ou igual ao segundo parâmetro. Esta função suporta parâmetros apenas de número de tipo e corda.
 
-O exemplo `true`seguinte retorna:
+O seguinte exemplo `true` regressa:
 
 ```json
 "[lessOrEquals(2, 2)]"
 ```
 
 ### <a name="greater"></a>greater
-Devoluções `true` se o primeiro parâmetro for estritamente maior que o segundo parâmetro. Esta função suporta parâmetros apenas de número e corda tipo.
+Devoluções `true` se o primeiro parâmetro for estritamente maior do que o segundo parâmetro. Esta função suporta parâmetros apenas de número de tipo e corda.
 
-O exemplo `false`seguinte retorna:
+O seguinte exemplo `false` regressa:
 
 ```json
 "[greater(1, 2)]"
 ```
 
-O exemplo `true`seguinte retorna:
+O seguinte exemplo `true` regressa:
 
 ```json
 "[greater('9', '10')]"
 ```
 
 ### <a name="greaterorequals"></a>greaterOrEquals
-Devoluções `true` se o primeiro parâmetro for maior ou igual ao segundo parâmetro. Esta função suporta parâmetros apenas de número e corda tipo.
+Devoluções `true` se o primeiro parâmetro for maior ou igual ao segundo parâmetro. Esta função suporta parâmetros apenas de número de tipo e corda.
 
-O exemplo `true`seguinte retorna:
+O seguinte exemplo `true` regressa:
 
 ```json
 "[greaterOrEquals(2, 2)]"
 ```
 
 ### <a name="and"></a>e
-Devoluções `true` se todos os `true`parâmetros avaliarem para . Esta função suporta apenas dois ou mais parâmetros do tipo Boolean.
+Devoluções `true` se todos os parâmetros avaliarem `true` . Esta função suporta apenas dois ou mais parâmetros do tipo Boolean.
 
-O exemplo `true`seguinte retorna:
+O seguinte exemplo `true` regressa:
 
 ```json
 "[and(equals(0, 0), equals('foo', 'foo'), less(1, 2))]"
 ```
 
-O exemplo `false`seguinte retorna:
+O seguinte exemplo `false` regressa:
 
 ```json
 "[and(equals(0, 0), greater(1, 2))]"
 ```
 
 ### <a name="or"></a>ou
-Devoluções `true` se pelo menos um dos `true`parâmetros avaliar para . Esta função suporta apenas dois ou mais parâmetros do tipo Boolean.
+Devoluções `true` se pelo menos um dos parâmetros avaliar a `true` . Esta função suporta apenas dois ou mais parâmetros do tipo Boolean.
 
-O exemplo `true`seguinte retorna:
+O seguinte exemplo `true` regressa:
 
 ```json
 "[or(equals(0, 0), equals('foo', 'foo'), less(1, 2))]"
 ```
 
-O exemplo `true`seguinte retorna:
+O seguinte exemplo `true` regressa:
 
 ```json
 "[or(equals(0, 0), greater(1, 2))]"
 ```
 
 ### <a name="not"></a>not
-Devoluções `true` se o parâmetro `false`avaliar para . Esta função suporta parâmetros apenas do tipo Boolean.
+Retorna `true` se o parâmetro avaliar a `false` . Esta função suporta parâmetros apenas do tipo Boolean.
 
-O exemplo `true`seguinte retorna:
+O seguinte exemplo `true` regressa:
 
 ```json
 "[not(false)]"
 ```
 
-O exemplo `false`seguinte retorna:
+O seguinte exemplo `false` regressa:
 
 ```json
 "[not(equals(0, 0))]"
 ```
 
 ### <a name="coalesce"></a>coalesce
-Devolve o valor do primeiro parâmetro não nulo. Esta função suporta todos os tipos de dados da JSON.
+Devolve o valor do primeiro parâmetro não nulo. Esta função suporta todos os tipos de dados JSON.
 
-Assuma `element1` e `element2` não estão definidos. O exemplo `"foobar"`seguinte retorna:
+Assuma `element1` e `element2` é indefinido. O seguinte exemplo `"foobar"` regressa:
 
 ```json
 "[coalesce(steps('foo').element1, steps('foo').element2, 'foobar')]"
 ```
 
-Esta função é especialmente útil no contexto da invocação opcional que acontece devido à ação do utilizador após as cargas da página. Um exemplo é se os constrangimentos colocados num campo na UI dependem do valor atualmente selecionado de outro campo, **inicialmente não visível.** Neste caso, `coalesce()` pode ser utilizado para permitir que a função seja sintáticamente válida no tempo de carga da página, tendo o efeito desejado quando o utilizador interage com o campo.
+Esta função é especialmente útil no contexto da invocação opcional que acontece devido à ação do utilizador após a carga da página. Um exemplo é se os constrangimentos colocados num campo na UI dependem do valor atualmente selecionado de outro campo, **inicialmente não visível.** Neste caso, `coalesce()` pode ser utilizado para permitir que a função seja sintaticamente válida no tempo de carregamento da página, tendo o efeito desejado quando o utilizador interage com o campo.
 
-Considere `DropDown`isto, que permite ao utilizador escolher entre vários tipos diferentes de bases de dados:
+Considere `DropDown` isto, que permite ao utilizador escolher entre vários tipos de bases de dados diferentes:
 
 ```
 {
@@ -516,159 +515,159 @@ Considere `DropDown`isto, que permite ao utilizador escolher entre vários tipos
     },
 ```
 
-Para condicionar a ação de outro campo sobre `coalesce()`o valor escolhido atual mente deste campo, utilize, como aqui se mostra:
+Para condicionar a ação de outro campo sobre o valor atual escolhido deste campo, `coalesce()` utilize, como mostrado aqui:
 
 ```
 "regex": "[concat('^jdbc:', coalesce(steps('section_database').databaseConnectionInfo.databaseType, ''), '.*$')]",
 ```
 
-Isto é necessário `databaseType` porque inicialmente não é visível e, portanto, não tem um valor. Isto faz com que toda a expressão não avalie corretamente.
+Isto é necessário porque `databaseType` inicialmente não é visível e, portanto, não tem valor. Isto faz com que toda a expressão não avalie corretamente.
 
 ## <a name="conversion-functions"></a>Funções de conversão
 Estas funções podem ser utilizadas para converter valores entre tipos de dados JSON e codificações.
 
 ### <a name="int"></a>int
-Converte o parâmetro para um inteiro. Esta função suporta parâmetros de tipo de número e corda.
+Converte o parâmetro num inteiro. Esta função suporta parâmetros de número e corda do tipo.
 
-O exemplo `1`seguinte retorna:
+O seguinte exemplo `1` regressa:
 
 ```json
 "[int('1')]"
 ```
 
-O exemplo `2`seguinte retorna:
+O seguinte exemplo `2` regressa:
 
 ```json
 "[int(2.9)]"
 ```
 
 ### <a name="float"></a>float
-Converte o parâmetro num ponto flutuante. Esta função suporta parâmetros de tipo de número e corda.
+Converte o parâmetro num ponto flutuante. Esta função suporta parâmetros de número e corda do tipo.
 
-O exemplo `1.0`seguinte retorna:
+O seguinte exemplo `1.0` regressa:
 
 ```json
 "[float('1.0')]"
 ```
 
-O exemplo `2.9`seguinte retorna:
+O seguinte exemplo `2.9` regressa:
 
 ```json
 "[float(2.9)]"
 ```
 
 ### <a name="string"></a>string
-Converte o parâmetro numa corda. Esta função suporta parâmetros de todos os tipos de dados da JSON.
+Converte o parâmetro numa corda. Esta função suporta parâmetros de todos os tipos de dados JSON.
 
-O exemplo `"1"`seguinte retorna:
+O seguinte exemplo `"1"` regressa:
 
 ```json
 "[string(1)]"
 ```
 
-O exemplo `"2.9"`seguinte retorna:
+O seguinte exemplo `"2.9"` regressa:
 
 ```json
 "[string(2.9)]"
 ```
 
-O exemplo `"[1,2,3]"`seguinte retorna:
+O seguinte exemplo `"[1,2,3]"` regressa:
 
 ```json
 "[string([1,2,3])]"
 ```
 
-O exemplo `"{"foo":"bar"}"`seguinte retorna:
+O seguinte exemplo `"{"foo":"bar"}"` regressa:
 
 ```json
 "[string({\"foo\":\"bar\"})]"
 ```
 
 ### <a name="bool"></a>bool
-Converte o parâmetro para um Boolean. Esta função suporta parâmetros de tipo número, corda e Boolean. Semelhante a Booleans no JavaScript, `'false'` `true`qualquer valor exceto `0` ou devoluções.
+Converte o parâmetro num Boolean. Esta função suporta parâmetros de número de tipo, string e Boolean. Semelhante a Booleans em JavaScript, qualquer valor exceto `0` ou `'false'` devoluções `true` .
 
-O exemplo `true`seguinte retorna:
+O seguinte exemplo `true` regressa:
 
 ```json
 "[bool(1)]"
 ```
 
-O exemplo `false`seguinte retorna:
+O seguinte exemplo `false` regressa:
 
 ```json
 "[bool(0)]"
 ```
 
-O exemplo `true`seguinte retorna:
+O seguinte exemplo `true` regressa:
 
 ```json
 "[bool(true)]"
 ```
 
-O exemplo `true`seguinte retorna:
+O seguinte exemplo `true` regressa:
 
 ```json
 "[bool('true')]"
 ```
 
 ### <a name="parse"></a>parse
-Converte o parâmetro para um tipo nativo. Por outras palavras, esta `string()`função é o inverso de . Esta função suporta parâmetros apenas de cadeia de tipo.
+Converte o parâmetro para um tipo nativo. Por outras palavras, esta função é o inverso de `string()` . Esta função suporta parâmetros apenas de tipo de cadeia.
 
-O exemplo `1`seguinte retorna:
+O seguinte exemplo `1` regressa:
 
 ```json
 "[parse('1')]"
 ```
 
-O exemplo `true`seguinte retorna:
+O seguinte exemplo `true` regressa:
 
 ```json
 "[parse('true')]"
 ```
 
-O exemplo `[1,2,3]`seguinte retorna:
+O seguinte exemplo `[1,2,3]` regressa:
 
 ```json
 "[parse('[1,2,3]')]"
 ```
 
-O exemplo `{"foo":"bar"}`seguinte retorna:
+O seguinte exemplo `{"foo":"bar"}` regressa:
 
 ```json
 "[parse('{\"foo\":\"bar\"}')]"
 ```
 
 ### <a name="encodebase64"></a>codificarBase64
-Codifica o parâmetro a uma cadeia codificada base-64. Esta função suporta parâmetros apenas de cadeia de tipo.
+Codifica o parâmetro para uma cadeia codificada base-64. Esta função suporta parâmetros apenas de tipo de cadeia.
 
-O exemplo `"Zm9vYmFy"`seguinte retorna:
+O seguinte exemplo `"Zm9vYmFy"` regressa:
 
 ```json
 "[encodeBase64('foobar')]"
 ```
 
 ### <a name="decodebase64"></a>descodificarBase64
-Descodifica o parâmetro de uma corda codificada base-64. Esta função suporta parâmetros apenas de cadeia de tipo.
+Descodifica o parâmetro de uma cadeia codificada base-64. Esta função suporta parâmetros apenas de tipo de cadeia.
 
-O exemplo `"foobar"`seguinte retorna:
+O seguinte exemplo `"foobar"` regressa:
 
 ```json
 "[decodeBase64('Zm9vYmFy')]"
 ```
 
-### <a name="encodeuricomponent"></a>codificar Componente UriUri
-Codifica o parâmetro a uma cadeia codificada por URL. Esta função suporta parâmetros apenas de cadeia de tipo.
+### <a name="encodeuricomponent"></a>encodeUriComponent
+Codifica o parâmetro para uma cadeia codificada url. Esta função suporta parâmetros apenas de tipo de cadeia.
 
-O exemplo `"https%3A%2F%2Fportal.azure.com%2F"`seguinte retorna:
+O seguinte exemplo `"https%3A%2F%2Fportal.azure.com%2F"` regressa:
 
 ```json
 "[encodeUriComponent('https://portal.azure.com/')]"
 ```
 
-### <a name="decodeuricomponent"></a>descodificar Componente Uri
-Descodifica o parâmetro de uma cadeia codificada por URL. Esta função suporta parâmetros apenas de cadeia de tipo.
+### <a name="decodeuricomponent"></a>decodeUriComponent
+Descodifica o parâmetro de uma cadeia codificada url. Esta função suporta parâmetros apenas de tipo de cadeia.
 
-O exemplo `"https://portal.azure.com/"`seguinte retorna:
+O seguinte exemplo `"https://portal.azure.com/"` regressa:
 
 ```json
 "[decodeUriComponent('https%3A%2F%2Fportal.azure.com%2F')]"
@@ -678,7 +677,7 @@ O exemplo `"https://portal.azure.com/"`seguinte retorna:
 ### <a name="add"></a>adicionar
 Adiciona dois números e devolve o resultado.
 
-O exemplo `3`seguinte retorna:
+O seguinte exemplo `3` regressa:
 
 ```json
 "[add(1, 2)]"
@@ -687,7 +686,7 @@ O exemplo `3`seguinte retorna:
 ### <a name="sub"></a>sub
 Subtrai o segundo número do primeiro número e devolve o resultado.
 
-O exemplo `1`seguinte retorna:
+O seguinte exemplo `1` regressa:
 
 ```json
 "[sub(3, 2)]"
@@ -696,7 +695,7 @@ O exemplo `1`seguinte retorna:
 ### <a name="mul"></a>mul
 Multiplica dois números e devolve o resultado.
 
-O exemplo `6`seguinte retorna:
+O seguinte exemplo `6` regressa:
 
 ```json
 "[mul(2, 3)]"
@@ -705,22 +704,22 @@ O exemplo `6`seguinte retorna:
 ### <a name="div"></a>div
 Divide o primeiro número pelo segundo número e devolve o resultado. O resultado é sempre um inteiro.
 
-O exemplo `2`seguinte retorna:
+O seguinte exemplo `2` regressa:
 
 ```json
 "[div(6, 3)]"
 ```
 
 ### <a name="mod"></a>mod
-Divide o primeiro número pelo segundo número e devolve o restante.
+Divide o primeiro número pelo segundo número, e devolve o restante.
 
-O exemplo `0`seguinte retorna:
+O seguinte exemplo `0` regressa:
 
 ```json
 "[mod(6, 3)]"
 ```
 
-O exemplo `2`seguinte retorna:
+O seguinte exemplo `2` regressa:
 
 ```json
 "[mod(6, 4)]"
@@ -729,25 +728,25 @@ O exemplo `2`seguinte retorna:
 ### <a name="min"></a>min
 Devolve o pequeno dos dois números.
 
-O exemplo `1`seguinte retorna:
+O seguinte exemplo `1` regressa:
 
 ```json
 "[min(1, 2)]"
 ```
 
-### <a name="max"></a>máximo
+### <a name="max"></a>máx
 Devolve o maior dos dois números.
 
-O exemplo `2`seguinte retorna:
+O seguinte exemplo `2` regressa:
 
 ```json
 "[max(1, 2)]"
 ```
 
-### <a name="range"></a>alcance
+### <a name="range"></a>gama
 Gera uma sequência de números integrais dentro do intervalo especificado.
 
-O exemplo `[1,2,3]`seguinte retorna:
+O seguinte exemplo `[1,2,3]` regressa:
 
 ```json
 "[range(1, 3)]"
@@ -756,25 +755,25 @@ O exemplo `[1,2,3]`seguinte retorna:
 ### <a name="rand"></a>rand
 Devolve um número integral aleatório dentro do intervalo especificado. Esta função não gera números aleatórios criptograficamente seguros.
 
-O seguinte exemplo `42`pode voltar:
+O seguinte exemplo poderia `42` voltar:
 
 ```json
 "[rand(-100, 100)]"
 ```
 
-### <a name="floor"></a>piso
-Devolve o maior inteiro inferior ou igual ao número especificado.
+### <a name="floor"></a>chão
+Devolve o maior número inteiro menos ou igual ao número especificado.
 
-O exemplo `3`seguinte retorna:
+O seguinte exemplo `3` regressa:
 
 ```json
 "[floor(3.14)]"
 ```
 
 ### <a name="ceil"></a>ceil
-Devolve o maior inteiro maior ou igual ao número especificado.
+Devolve o maior número inteiro maior ou igual ao número especificado.
 
-O exemplo `4`seguinte retorna:
+O seguinte exemplo `4` regressa:
 
 ```json
 "[ceil(3.14)]"
@@ -784,39 +783,39 @@ O exemplo `4`seguinte retorna:
 ### <a name="utcnow"></a>utcNow
 Devolve uma cadeia no formato ISO 8601 da data e hora atuais no computador local.
 
-O seguinte exemplo `"1990-12-31T23:59:59.000Z"`pode voltar:
+O seguinte exemplo poderia `"1990-12-31T23:59:59.000Z"` voltar:
 
 ```json
 "[utcNow()]"
 ```
 
-### <a name="addseconds"></a>adicionarSeconds
-Adiciona um número integral de segundos à marca de tempo especificada.
+### <a name="addseconds"></a>addSeconds
+Adiciona um número integral de segundos à estada de tempo especificada.
 
-O exemplo `"1991-01-01T00:00:00.000Z"`seguinte retorna:
+O seguinte exemplo `"1991-01-01T00:00:00.000Z"` regressa:
 
 ```json
 "[addSeconds('1990-12-31T23:59:60Z', 1)]"
 ```
 
 ### <a name="addminutes"></a>addMinutes
-Adiciona um número integral de minutos à marca de tempo especificada.
+Adiciona um número integral de minutos à estada de tempo especificada.
 
-O exemplo `"1991-01-01T00:00:59.000Z"`seguinte retorna:
+O seguinte exemplo `"1991-01-01T00:00:59.000Z"` regressa:
 
 ```json
 "[addMinutes('1990-12-31T23:59:59Z', 1)]"
 ```
 
 ### <a name="addhours"></a>addHours
-Adiciona um número integral de horas à marca de tempo especificada.
+Adiciona um número integral de horas à hora de tempo especificada.
 
-O exemplo `"1991-01-01T00:59:59.000Z"`seguinte retorna:
+O seguinte exemplo `"1991-01-01T00:59:59.000Z"` regressa:
 
 ```json
 "[addHours('1990-12-31T23:59:59Z', 1)]"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-* Para uma introdução ao Gestor de Recursos Azure, consulte a [visão geral do Gestor de Recursos do Azure.](../management/overview.md)
+## <a name="next-steps"></a>Próximos passos
+* Para uma introdução ao Azure Resource Manager, consulte [a visão geral do Azure Resource Manager](../management/overview.md).
 

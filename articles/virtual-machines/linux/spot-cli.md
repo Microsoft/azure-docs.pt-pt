@@ -1,36 +1,36 @@
 ---
-title: Utilize o CLI para implantar VMs Spot Azure
-description: Aprenda a usar o CLI para implantar VMs De Mancha Azure para economizar custos.
+title: Utilize o CLI para implantar VMs Azure Spot
+description: Saiba como usar o CLI para implantar VMs Azure Spot para economizar custos.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 03/25/2020
+ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 3f341271c208cc56a704c836433c33af0129a4ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6560f11d26200bdd9f39c4cbae643022872d362
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758376"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506077"
 ---
-# <a name="deploy-spot-vms-using-the-azure-cli"></a>Implementar VMs spot utilizando o Azure CLI
+# <a name="deploy-spot-vms-using-the-azure-cli"></a>Implementar VMs spot utilizando o CLI Azure
 
-A utilização de [VMs Azure Spot](spot-vms.md) permite-lhe tirar partido da nossa capacidade não utilizada a uma significativa poupança de custos. A qualquer momento em que o Azure precise de capacidade de volta, a infraestrutura Azure despejará VMs spot. Por isso, os VMs spot são ótimos para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento de lotes, ambientes de v/teste, grandes cargas de trabalho de computação, e muito mais.
+A utilização de [VMs Azure Spot](spot-vms.md) permite-lhe tirar partido da nossa capacidade não utilizada com uma poupança significativa de custos. Em qualquer momento em que a Azure precise da capacidade de volta, a infraestrutura Azure irá despejar os VM spot. Por isso, os VM spot são ótimos para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento de lotes, ambientes dev/teste, grandes cargas de trabalho de computação, e muito mais.
 
-Os preços dos VMs spot são variáveis, com base na região e no SKU. Para mais informações, consulte os preços vm para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
+Os preços dos VM spot são variáveis, com base na região e no SKU. Para obter mais informações, consulte os preços em VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
-Tem opção de definir um preço máximo que está disposto a pagar, por hora, para o VM. O preço máximo de um Spot VM pode ser fixado em dólares americanos (USD), utilizando até 5 lugares decimais. Por exemplo, `0.98765`o valor seria um preço máximo de $0.98765 USD por hora. Se fixar o preço `-1`máximo para ser, o VM não será despejado com base no preço. O preço do VM será o preço atual para o Spot ou o preço de um VM padrão, o que sempre é menor, desde que haja capacidade e quota disponíveis. Para obter mais informações sobre a fixação do preço máximo, consulte [Spot VMs - Preços](spot-vms.md#pricing).
+Tem a opção de definir um preço máximo que está disposto a pagar, por hora, pelo VM. O preço máximo de um Spot VM pode ser definido em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765` seria um preço máximo de $0.98765 USD por hora. Se definir o preço `-1` máximo, o VM não será despejado com base no preço. O preço para o VM será o preço atual para o Spot ou o preço para um VM padrão, que sempre é menor, desde que haja capacidade e quota disponível. Para obter mais informações sobre a fixação do preço máximo, consulte [Spot VMs - Preços](spot-vms.md#pricing).
 
-O processo de criação de um VM com Spot utilizando o CLI Azure é o mesmo que detalhado no [artigo quickstart](/azure/virtual-machines/linux/quick-create-cli). Basta adicionar o parâmetro "--ponto prioritário" e `-1`fornecer um preço máximo ou .
+O processo de criação de um VM com spot utilizando o CLI Azure é o mesmo que detalhado no [artigo de arranque rápido](/azure/virtual-machines/linux/quick-create-cli). Basta adicionar o parâmetro "--prioridade Spot", definir o `--eviction-policy` Deallocate (este é o padrão) ou `Delete` , e fornecer um preço máximo ou `-1` . 
 
 
 ## <a name="install-azure-cli"></a>Instalar a CLI do Azure
 
-Para criar VMs spot, precisa de estar a executar a versão Azure CLI 2.0.74 ou posterior. Execute **az --version** para descobrir a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+Para criar VMs spot, tem de executar a versão Azure CLI 2.0.74 ou posterior. Execute **az --version** para descobrir a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
-Inicie sessão no Azure com [login az](/cli/azure/reference-index#az-login).
+Inicie sessão no Azure com [início de sessão](/cli/azure/reference-index#az-login).
 
 ```azurecli
 az login
@@ -38,7 +38,7 @@ az login
 
 ## <a name="create-a-spot-vm"></a>Criar um Spot VM
 
-Este exemplo mostra como implementar um VM Linux Spot que não será despejado com base no preço. 
+Este exemplo mostra como implementar um Linux Spot VM que não será despejado com base no preço. A política de despejo está definida para negociar o VM, para que possa ser reiniciada mais tarde. Se pretender eliminar o VM e o disco subjacente quando o VM for despejado, desajuste `--eviction-policy` para `Delete` .
 
 ```azurecli
 az group create -n mySpotGroup -l eastus
@@ -49,10 +49,13 @@ az vm create \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Spot \
-    --max-price -1
+    --max-price -1 \
+    --eviction-policy Deallocate
 ```
 
-Após a criação do VM, você pode consultar para ver o preço máximo de faturação para todos os VMs no grupo de recursos.
+
+
+Após a criação do VM, pode consultar para ver o preço máximo de faturação para todos os VMs do grupo de recursos.
 
 ```azurecli
 az vm list \
@@ -61,8 +64,8 @@ az vm list \
    --output table
 ```
 
-**Passos seguintes**
+**Próximos passos**
 
-Também pode criar um Spot VM utilizando [o Azure PowerShell](../windows/spot-powershell.md) ou um [modelo](spot-template.md).
+Também pode criar um Spot VM utilizando [a Azure PowerShell,](../windows/spot-powershell.md) [portal](../windows/spot-portal.md)ou um [modelo](spot-template.md).
 
 Se encontrar um erro, consulte [códigos de erro](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

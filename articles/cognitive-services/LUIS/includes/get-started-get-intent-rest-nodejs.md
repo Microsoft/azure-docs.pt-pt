@@ -1,42 +1,44 @@
 ---
-title: Obtenha intenção com chamada REST no Node.js
+title: Obtenha intenção com a chamada REST em Node.js
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/18/2020
+ms.date: 06/03/2020
 ms.author: diberry
-ms.openlocfilehash: f60b4391f5b68f163eb2e97153667d82454639d5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 05142c1d98906a591fae41658c5c7b9d36cdb8c4
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654284"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418068"
 ---
+[Documentação de referência](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08)  |  [Amostra](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/node-predict-with-rest/predict.js)
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Linguagem de programação [Node.js](https://nodejs.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-## <a name="create-pizza-app"></a>Criar app Pizza
+## <a name="create-pizza-app"></a>Criar aplicativo Pizza
 
 [!INCLUDE [Create pizza app](get-started-get-intent-create-pizza-app.md)]
 
-## <a name="create-the-nodejs-project"></a>Crie o projeto Node.js
+## <a name="create-the-nodejs-project"></a>Criar o projeto Node.js
 
 1. Crie uma nova pasta para realizar o seu projeto Node.js, como `node-predict-with-rest` .
 
-1. Abra um novo Comando Prompt, navegue para a pasta que criou e execute o seguinte comando:
+1. Abrir um novo Pedido de Comando, navegar para a pasta que criou e executar o seguinte comando:
 
     ```console
     npm init
     ```
 
-    Pressione Introduza em cada pedido para aceitar as definições predefinidas.
+    Prima Introduza em cada pedido para aceitar as definições predefinidos.
 
-1. Instale as dependências entrando nos seguintes comandos:
+1. Instale as dependências introduzindo os seguintes comandos:
 
     ```console
     npm install --save request
@@ -46,62 +48,19 @@ ms.locfileid: "83654284"
 
 ## <a name="get-intent-programmatically"></a>Obter a intenção através de programação
 
-Use nonó.js para consultar o [ponto final](https://aka.ms/luis-apim-v3-prediction) da previsão e obter um resultado de previsão.
+Use node.js para consultar o [ponto final](https://aka.ms/luis-apim-v3-prediction) da previsão e obter um resultado de previsão.
 
-1. Copie o seguinte código de corte para um ficheiro `predict.js` chamado:
+1. Copie o seguinte código de corte para um ficheiro chamado `predict.js` :
 
-    ```javascript
-    var requestPromise = require('request-promise');
-    var queryString = require('querystring');
+    [!code-javascript[Code snippet](~/cognitive-services-quickstart-code/javascript/LUIS/node-predict-with-rest/predict.js)]
 
-    // Analyze a string utterance.
-    getPrediction = async () => {
-
-        //////////
-        // Values to modify.
-
-        // YOUR-APP-ID: The App ID GUID found on the www.luis.ai Application Settings page.
-        const LUIS_appId = "YOUR-APP-ID";
-
-        // YOUR-PREDICTION-KEY: Your LUIS authoring key, 32 character value.
-        const LUIS_predictionKey = "YOUR-PREDICTION-KEY";
-
-        // YOUR-PREDICTION-ENDPOINT: Replace this with your authoring key endpoint.
-        // For example, "https://westus.api.cognitive.microsoft.com/"
-        const LUIS_endpoint = "YOUR-PREDICTION-ENDPOINT";
-
-        // The utterance you want to use.
-        const utterance = "I want a deep dish supreme pizza with extra cheese, hold the onions.";
-        //////////
-
-        // Create query string
-        const queryParams = {
-            "show-all-intents": true,
-            "verbose":  true,
-            "query": utterance,
-            "subscription-key": LUIS_predictionKey
-        }
-
-        // Create the URI for the REST call.
-        const URI = `${LUIS_endpoint}luis/prediction/v3.0/apps/${LUIS_appId}/slots/production/predict?${queryString.stringify(queryParams)}`
-
-        // Send the REST call.
-        const response = await requestPromise(URI);
-
-        // Display the response from the REST call.
-        console.log(response);
-    }
-
-    // Pass an utterance to the sample LUIS app
-    getPrediction().then(()=>console.log("done")).catch((err)=>console.log(err));
-    ```
-
-1. Substitua os `YOUR-KEY` valores e `YOUR-ENDPOINT` valores com a sua própria chave de previsão **Runtime** e ponto final.
+1. Substitua os valores a partir dos `YOUR-` seus próprios valores.
 
     |Informações|Objetivo|
     |--|--|
-    |`YOUR-KEY`|A tua **chave** de previsão de 32 caracteres.|
-    |`YOUR-ENDPOINT`| O seu ponto final de URL de previsão. Por exemplo, `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
+    |`YOUR-APP-ID`|A sua identificação de aplicativo. Localizado no portal LUIS, página de Definições de Aplicação para a sua aplicação.
+    |`YOUR-PREDICTION-KEY`|A tua chave de previsão de caracteres de 32 caracteres. Localizada no portal LUIS, página Azure Resources para a sua aplicação.
+    |`YOUR-PREDICTION-ENDPOINT`| O seu ponto final de PREVISÃO URL. Localizada no portal LUIS, página Azure Resources para a sua aplicação.<br>Por exemplo, `https://westus.api.cognitive.microsoft.com/`.|
 
  1. Reveja a resposta de previsão, que é devolvida como JSON:
 
@@ -275,7 +234,7 @@ Use nonó.js para consultar o [ponto final](https://aka.ms/luis-apim-v3-predicti
 
 Quando terminar este arranque rápido, elimine a pasta do projeto do sistema de ficheiros.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Adicione expressões e comboio](../get-started-get-model-rest-apis.md)

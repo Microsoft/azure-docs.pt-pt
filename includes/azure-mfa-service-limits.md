@@ -1,23 +1,23 @@
 ---
 author: rothja
-ms.service: cost-management-billing
+ms.service: active-directory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: df237cdbb8944928641f2dbea2117bbef7ba9165
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 57c64173ee3f307feb7bd879098f41505f5c5e32
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74224475"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85838815"
 ---
 | Recurso | Limite predefinido | Limite máximo |
 | --- | --- | --- |
-| Número máximo de endereços IP</a> ou intervalos de IP fidedignos por subscrição |0 |50 |
+| Número máximo de endereços ip fidedignos ou intervalos </a> por subscrição |0 |50 |
 | Lembre-se dos meus dispositivos, número de dias |14 |60 |
 | Número máximo de senhas de aplicação |0 |Sem limite |
 | Permitir **X** tentativas durante a chamada MFA |1 |99 |
-| Segundos de tempo de tempo inversivada de mensagem de texto bidirecional |60 |600 |
+| Tempo de tempo de mensagem de texto bidirecciona segundos |60 |600 |
 | Segundos de omissão de uso individual predefinidos |300 |1.800 |
 | Bloquear a conta de utilizador após **X** negações consecutivas do MFA |Não definido |99 |
 | Repor contador de bloqueio da conta após **X** minutos |Não definido |9,999 |

@@ -1,61 +1,61 @@
 ---
-title: Movendo dados para Avere vFXT para Azure
-description: Como adicionar dados a um novo volume de armazenamento para utilização com o Avere vFXT para o Azure
+title: Dados de mudança para Avere vFXT para Azure
+description: Como adicionar dados a um novo volume de armazenamento para uso com o Avere vFXT para Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: c2a38b20fff789faf370e3161a92a31ed5f04c57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 76bbe60397ebb01aed5694d933b3067f778a4c21
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76153723"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505601"
 ---
-# <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Mover dados para o cluster vFXT - Ingerir dados paralelos
+# <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Mover dados para o cluster vFXT - Ingestão de dados paralelos
 
-Depois de criar um novo cluster vFXT, a sua primeira tarefa pode ser mover dados para um novo volume de armazenamento em Azure. No entanto, se o seu método habitual de movimentação de dados estiver a emitir um simples comando de cópia de um cliente, provavelmente verá um desempenho de cópia lento. A cópia com fios únicos não é uma boa opção para copiar dados para o armazenamento traseiro do cluster Avere vFXT.
+Depois de criar um novo cluster vFXT, a sua primeira tarefa poderá ser mover dados para um novo volume de armazenamento em Azure. No entanto, se o seu método habitual de movimentação de dados estiver a emitir um simples comando de cópia de um cliente, provavelmente verá um desempenho de cópia lenta. A cópia de um único roscado não é uma boa opção para copiar dados para o armazenamento de back-end do cluster Avere vFXT.
 
-Como o Cluster Avere vFXT para Azure é uma cache de vários clientes escalável, a forma mais rápida e eficiente de copiar dados para ele é com vários clientes. Esta técnica paraleliza a ingestão dos ficheiros e objetos.
+Como o cluster Avere vFXT para Azure é uma cache multi-cliente escalável, a forma mais rápida e eficiente de copiar dados para ele é com vários clientes. Esta técnica paraleliza a ingestão dos ficheiros e objetos.
 
-![Diagrama mostrando movimento de dados multi-cliente, multi-threaded: Na parte superior esquerda, um ícone para armazenamento de hardware no local tem várias setas provenientes dele. As setas apontam para quatro máquinas de clientes. De cada máquina cliente três setas apontam para o Avere vFXT. Do Avere vFXT, várias setas apontam para o armazenamento blob.](media/avere-vfxt-parallel-ingest.png)
+![Diagrama que mostra movimento de dados multi-clientes e multi-threaded: Na parte superior esquerda, um ícone para armazenamento de hardware no local tem várias setas provenientes dele. As setas apontam para quatro máquinas de clientes. De cada máquina cliente três setas apontam para o Avere vFXT. Do Avere vFXT, várias setas apontam para o armazenamento blob.](media/avere-vfxt-parallel-ingest.png)
 
-Os ``cp`` ``copy`` comandos ou que são comumente usados para transferir dados de um sistema de armazenamento para outro são processos de roscar uninor que copiam apenas um ficheiro de cada vez. Isto significa que o servidor de ficheiros está a ingerir apenas um ficheiro de cada vez - o que é um desperdício dos recursos do cluster.
+Os ``cp`` ``copy`` comandos ou comandos que são normalmente utilizados para a transferência de dados de um sistema de armazenamento para outro são processos de rosca única que copiam apenas um ficheiro de cada vez. Isto significa que o servidor de ficheiros está a ingerir apenas um ficheiro de cada vez - o que é um desperdício dos recursos do cluster.
 
-Este artigo explica estratégias para criar um sistema multi-cliente de cópia de ficheiros multi-threaded para mover dados para o cluster Avere vFXT. Explica conceitos de transferência de ficheiros e pontos de decisão que podem ser usados para copiar dados eficientes usando vários clientes e comandos de cópia simples.
+Este artigo explica estratégias para a criação de um sistema multi-cliente de cópia de ficheiros multi-threaded para mover dados para o cluster Avere vFXT. Explica conceitos de transferência de ficheiros e pontos de decisão que podem ser usados para copiar dados eficientes usando vários clientes e comandos de cópia simples.
 
-Também explica alguns serviços que podem ajudar. O ``msrsync`` utilitário pode ser utilizado para automatizar parcialmente o processo de ``rsync`` divisão de um conjunto de dados em baldes e utilizando comandos. O ``parallelcp`` script é outro utilitário que lê o diretório de origem e emite comandos de cópia automaticamente. Além ``rsync`` disso, a ferramenta pode ser usada em duas fases para fornecer uma cópia mais rápida que ainda fornece consistência de dados.
+Também explica alguns utilitários que podem ajudar. O ``msrsync`` utilitário pode ser usado para automatizar parcialmente o processo de dividir um conjunto de dados em baldes e usar ``rsync`` comandos. O ``parallelcp`` script é outro utilitário que lê o diretório de origem e emite comandos de cópia automaticamente. Além disso, a ``rsync`` ferramenta pode ser usada em duas fases para fornecer uma cópia mais rápida que ainda fornece consistência de dados.
 
 Clique no link para saltar para uma secção:
 
 * [Exemplo de cópia manual](#manual-copy-example) - Uma explicação completa usando comandos de cópia
-* [Exemplo de rsync de duas fases](#use-a-two-phase-rsync-process)
+* [Exemplo rsync em duas fases](#use-a-two-phase-rsync-process)
 * [Exemplo parcialmente automatizado (msrsync)](#use-the-msrsync-utility)
 * [Exemplo de cópia paralela](#use-the-parallel-copy-script)
 
-## <a name="data-ingestor-vm-template"></a>Modelo vm ingestor de dados
+## <a name="data-ingestor-vm-template"></a>Modelo VM do ingestor de dados
 
 Um modelo de Gestor de Recursos está disponível no GitHub para criar automaticamente um VM com as ferramentas paralelas de ingestão de dados mencionadas neste artigo.
 
-![diagrama mostrando várias setas cada uma a partir de armazenamento de blob, armazenamento de hardware e fontes de arquivo Azure. As setas apontam para um "data ingestor vm" e, a partir daí, várias setas apontam para o Avere vFXT](media/avere-vfxt-ingestor-vm.png)
+![Diagrama mostrando várias setas cada uma a partir de armazenamento de bolhas, armazenamento de hardware e fontes de ficheiros Azure. As setas apontam para um "data ingestor vm" e a partir daí, várias setas apontam para o Avere vFXT](media/avere-vfxt-ingestor-vm.png)
 
-O VM ingestor de dados faz parte de um tutorial onde o vM recém-criado monta o cluster Avere vFXT e descarrega o seu script de bootstrap do cluster. Leia [Bootstrap um VM ingestor](https://github.com/Azure/Avere/blob/master/docs/data_ingestor.md) de dados para mais detalhes.
+O data ingestor VM faz parte de um tutorial onde o recém-criado VM monta o cluster Avere vFXT e descarrega o seu script de botas do cluster. Leia [Bootstrap um dados ingeridos VM](https://github.com/Azure/Avere/blob/master/docs/data_ingestor.md) para obter mais detalhes.
 
 ## <a name="strategic-planning"></a>Planeamento estratégico
 
-Ao conceber uma estratégia para copiar dados em paralelo, deve compreender as trocas em tamanho de ficheiro, contagem de ficheiros e profundidade de diretório.
+Ao desenhar uma estratégia para copiar dados em paralelo, deve entender as trocas no tamanho do ficheiro, contagem de ficheiros e profundidade de diretório.
 
-* Quando os ficheiros são pequenos, a métrica de interesse é de ficheiros por segundo.
-* Quando os ficheiros são grandes (10MiBi ou mais), a métrica de interesse é bytes por segundo.
+* Quando os ficheiros são pequenos, a métrica de juros são ficheiros por segundo.
+* Quando os ficheiros são grandes (10MiBi ou superior), a métrica de interesse é bytes por segundo.
 
-Cada processo de cópia tem uma taxa de entrada e uma taxa transferida por ficheiros, que pode ser medida cronometrando o comprimento do comando de cópia e fatorizando o tamanho do ficheiro e a contagem de ficheiros. Explicar como medir as tarifas está fora do âmbito deste documento, mas é importante perceber se vai lidar com ficheiros pequenos ou grandes.
+Cada processo de cópia tem uma taxa de produção e uma taxa de transferência de ficheiros, que pode ser medida através do tempo do comando da cópia e factoring do tamanho do ficheiro e contagem de ficheiros. Explicar como medir as taxas está fora do âmbito deste documento, mas é importante perceber se vai lidar com ficheiros pequenos ou grandes.
 
 ## <a name="manual-copy-example"></a>Exemplo de cópia manual
 
-Pode criar manualmente uma cópia multi-threaded num cliente executando mais do que um comando de cópia ao mesmo tempo no fundo contra conjuntos predefinidos de ficheiros ou caminhos.
+Pode criar manualmente uma cópia multi-roscadas num cliente executando mais do que um comando de cópia ao mesmo tempo em segundo plano contra conjuntos de ficheiros ou caminhos predefinidos.
 
-O comando Linux/UNIX ``cp`` ``-p`` inclui o argumento para preservar a propriedade e os metadados mtime. Adicionar este argumento aos comandos abaixo é opcional. (Adicionar o argumento aumenta o número de chamadas de sistema de ficheiros enviadas do cliente para o sistema de ficheiros de destino para modificação de metadados.)
+O comando Linux/UNIX ``cp`` inclui o argumento para preservar a propriedade e os ``-p`` metadados mtime. Adicionar este argumento aos comandos abaixo é opcional. (Adicionar o argumento aumenta o número de chamadas de sistema de ficheiros enviadas do cliente para o sistema de ficheiros de destino para modificação de metadados.)
 
 Este exemplo simples copia dois ficheiros em paralelo:
 
@@ -63,13 +63,13 @@ Este exemplo simples copia dois ficheiros em paralelo:
 cp /mnt/source/file1 /mnt/destination1/ & cp /mnt/source/file2 /mnt/destination1/ &
 ```
 
-Depois de emitir este `jobs` comando, o comando mostrará que dois fios estão a funcionar.
+Após a emissão deste comando, o `jobs` comando mostrará que dois fios estão em funcionamento.
 
 ### <a name="predictable-filename-structure"></a>Estrutura previsível do nome de ficheiro
 
-Se os seus nomes de ficheiros forem previsíveis, pode utilizar expressões para criar fios de cópia paralelos.
+Se os seus ficheiros forem previsíveis, pode utilizar expressões para criar fios de cópia paralelos.
 
-Por exemplo, se o seu diretório contiver 1000 ficheiros que são numerados sequencialmente de `0001` a, `1000`pode utilizar as seguintes expressões para criar dez fios paralelos que cada cópia de 100 ficheiros:
+Por exemplo, se o seu diretório contiver 1000 ficheiros numerados sequencialmente de `0001` , pode utilizar as `1000` seguintes expressões para criar dez fios paralelos que cada cópia de 100 ficheiros:
 
 ```bash
 cp /mnt/source/file0* /mnt/destination1/ & \
@@ -84,11 +84,11 @@ cp /mnt/source/file8* /mnt/destination1/ & \
 cp /mnt/source/file9* /mnt/destination1/
 ```
 
-### <a name="unknown-filename-structure"></a>Estrutura de nome de ficheiro desconhecido
+### <a name="unknown-filename-structure"></a>Estrutura de nome de arquivo desconhecido
 
-Se a sua estrutura de nomeação de ficheiros não for previsível, pode agrupar ficheiros com nomes de diretório.
+Se a sua estrutura de nomeação de ficheiros não for previsível, pode agrupar ficheiros por nomes de diretório.
 
-Este exemplo recolhe diretórios ``cp`` inteiros para enviar para comandos executados como tarefas de fundo:
+Este exemplo recolhe diretórios inteiros para enviar para ``cp`` comandos executados como tarefas de fundo:
 
 ```bash
 /root
@@ -100,7 +100,7 @@ Este exemplo recolhe diretórios ``cp`` inteiros para enviar para comandos execu
 |-/dir1d
 ```
 
-Após a recolha dos ficheiros, pode executar comandos de cópia paralelos para copiar recursivamente os subdiretórios e todos os seus conteúdos:
+Após a recolha dos ficheiros, pode executar comandos de cópia paralelos para copiar novamente as subdiretórios e todo o seu conteúdo:
 
 ```bash
 cp /mnt/source/* /mnt/destination/
@@ -113,9 +113,9 @@ cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 
 ### <a name="when-to-add-mount-points"></a>Quando adicionar pontos de montagem
 
-Depois de ter fios paralelos suficientes contra um único ponto de montagem do sistema de ficheiros de destino, haverá um ponto em que adicionar mais fios não dá mais energia. (A entrada será medida em ficheiros/segundo ou bytes/segundo, dependendo do seu tipo de dados.) Ou pior, o excesso de rosca pode, por vezes, causar uma degradação da entrada.
+Depois de ter fios paralelos suficientes contra um único ponto de montagem do sistema de ficheiros de destino, haverá um ponto em que adicionar mais fios não dá mais produção. (A produção será medida em ficheiros/segundo ou bytes/segundo, dependendo do seu tipo de dados.) Ou pior, o excesso de rosca pode, por vezes, causar uma degradação da produção.
 
-Quando isso acontecer, pode adicionar pontos de montagem do lado do cliente a outros endereços IP do cluster vFXT, utilizando o mesmo caminho de montagem do sistema de ficheiros remoto:
+Quando isto acontece, pode adicionar pontos de montagem do lado do cliente a outros endereços IP do cluster vFXT, utilizando o mesmo caminho de montagem do sistema de ficheiros remoto:
 
 ```bash
 10.1.0.100:/nfs on /mnt/sourcetype nfs (rw,vers=3,proto=tcp,addr=10.1.0.100)
@@ -124,9 +124,9 @@ Quando isso acontecer, pode adicionar pontos de montagem do lado do cliente a ou
 10.1.1.103:/nfs on /mnt/destination3type nfs (rw,vers=3,proto=tcp,addr=10.1.1.103)
 ```
 
-A adição de pontos de montagem do lado do `/mnt/destination[1-3]` cliente permite-lhe desviar comandos de cópia adicionais para os pontos de montagem adicionais, alcançando mais paralelismo.
+A adição de pontos de montagem do lado do cliente permite-lhe desviar comandos de cópia adicionais para os pontos de `/mnt/destination[1-3]` montagem adicionais, conseguindo um paralelismo adicional.
 
-Por exemplo, se os seus ficheiros forem muito grandes, poderá definir os comandos de cópia para utilizar caminhos de destino distintos, enviando mais comandos em paralelo a partir do cliente que executa a cópia.
+Por exemplo, se os seus ficheiros forem muito grandes, poderá definir os comandos de cópia para utilizar caminhos de destino distintos, enviando mais comandos em paralelo com o cliente que executa a cópia.
 
 ```bash
 cp /mnt/source/file0* /mnt/destination1/ & \
@@ -144,7 +144,7 @@ No exemplo acima, os três pontos de montagem de destino estão a ser alvo pelos
 
 ### <a name="when-to-add-clients"></a>Quando adicionar clientes
 
-Por último, quando tiver atingido as capacidades do cliente, adicionar mais fios de cópia ou pontos de montagem adicionais não produzirá quaisquer ficheiros/sec adicionais ou aumentos de bytes/seg. Nessa situação, pode implantar outro cliente com o mesmo conjunto de pontos de montagem que estarão a executar os seus próprios conjuntos de processos de cópia de ficheiros.
+Por último, quando tiver atingido as capacidades do cliente, adicionar mais fios de cópia ou pontos de montagem adicionais não produzirá quaisquer ficheiros/seg adicionais ou aumentos de bytes/seg. Nessa situação, pode implantar outro cliente com o mesmo conjunto de pontos de montagem que estarão a executar os seus próprios conjuntos de processos de cópia de ficheiros.
 
 Exemplo:
 
@@ -168,9 +168,9 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 ### <a name="create-file-manifests"></a>Criar manifestos de ficheiros
 
-Depois de compreender as abordagens acima (múltiplos fios de cópia por destino, múltiplos destinos por cliente, múltiplos clientes por sistema de ficheiros de origem acessível à rede), considere esta recomendação: Construa manifestos de ficheiros e, em seguida, use-os com comandos de cópia em vários clientes.
+Depois de compreender as abordagens acima (múltiplos fios de cópia por destino, múltiplos destinos por cliente, vários clientes por sistema de ficheiros de origem acessível à rede), considere esta recomendação: Construa manifestos de ficheiros e, em seguida, use-os com comandos de cópia em vários clientes.
 
-Este cenário utiliza ``find`` o comando UNIX para criar manifestos de ficheiros ou diretórios:
+Este cenário utiliza o comando UNIX ``find`` para criar manifestos de ficheiros ou diretórios:
 
 ```bash
 user@build:/mnt/source > find . -mindepth 4 -maxdepth 4 -type d
@@ -187,7 +187,7 @@ user@build:/mnt/source > find . -mindepth 4 -maxdepth 4 -type d
 
 Redirecione este resultado para um ficheiro:`find . -mindepth 4 -maxdepth 4 -type d > /tmp/foo`
 
-Em seguida, pode iterar através do manifesto, usando comandos BASH para contar ficheiros e determinar os tamanhos dos subdiretórios:
+Em seguida, pode iterar através do manifesto, usando comandos BASH para contar ficheiros e determinar os tamanhos das subdiretivas:
 
 ```bash
 ben@xlcycl1:/sps/internal/atj5b5ab44b7f > for i in $(cat /tmp/foo); do echo " `find ${i} |wc -l` `du -sh ${i}`"; done
@@ -226,27 +226,27 @@ ben@xlcycl1:/sps/internal/atj5b5ab44b7f > for i in $(cat /tmp/foo); do echo " `f
 33     2.8G    ./atj5b5ab44b7f-03/support/trace/rolling
 ```
 
-Por último, tem de elaborar os comandos de cópia de ficheiros reais para os clientes.
+Por último, deve elaborar os comandos de cópia de ficheiros reais para os clientes.
 
-Se tiver quatro clientes, use este comando:
+Se tiver quatro clientes, utilize este comando:
 
 ```bash
 for i in 1 2 3 4 ; do sed -n ${i}~4p /tmp/foo > /tmp/client${i}; done
 ```
 
-Se tem cinco clientes, use algo assim:
+Se tiver cinco clientes, use algo assim:
 
 ```bash
 for i in 1 2 3 4 5; do sed -n ${i}~5p /tmp/foo > /tmp/client${i}; done
 ```
 
-E por seis... Extrapolar, se necessário.
+E por seis... Extrapolar conforme necessário.
 
 ```bash
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done
 ```
 
-Obterá ficheiros *N* resultantes, um para cada um dos seus clientes *N* que tem os nomes `find` de caminho para os diretórios de nível 4 obtidos como parte da saída do comando.
+Você *receberá* ficheiros N resultantes, um para cada um dos seus clientes *N* que tem os nomes do caminho para os diretórios de nível quatro obtidos como parte da saída do `find` comando.
 
 Utilize cada ficheiro para construir o comando de cópia:
 
@@ -254,48 +254,48 @@ Utilize cada ficheiro para construir o comando de cópia:
 for i in 1 2 3 4 5 6; do for j in $(cat /tmp/client${i}); do echo "cp -p -R /mnt/source/${j} /mnt/destination/${j}" >> /tmp/client${i}_copy_commands ; done; done
 ```
 
-O acima irá dar-lhe ficheiros *N,* cada um com um comando de cópia por linha, que pode ser executado como um roteiro BASH no cliente.
+O acima vai dar-lhe ficheiros *N,* cada um com um comando de cópia por linha, que pode ser executado como um script BASH no cliente.
 
 O objetivo é executar vários fios destes scripts simultaneamente por cliente em paralelo em vários clientes.
 
-## <a name="use-a-two-phase-rsync-process"></a>Use um processo de rsync de duas fases
+## <a name="use-a-two-phase-rsync-process"></a>Use um processo rsync de duas fases
 
-O ``rsync`` utilitário padrão não funciona bem para a população de armazenamento em nuvem através do sistema Avere vFXT para o sistema Azure porque gera um grande número de operações de criação de ficheiros e renomeação para garantir a integridade dos dados. No entanto, pode ``--inplace`` utilizar ``rsync`` com segurança a opção para ignorar o procedimento de cópia mais cuidadoso se o seguir com uma segunda execução que verifica a integridade do ficheiro.
+O utilitário padrão ``rsync`` não funciona bem para povoar o armazenamento em nuvem através do sistema Avere vFXT para Azure, porque gera um grande número de operações de criação de ficheiros e renomeação para garantir a integridade dos dados. No entanto, pode utilizar com segurança a ``--inplace`` opção ``rsync`` para saltar o procedimento de cópia mais cuidadoso se o seguir com uma segunda execução que verifica a integridade do ficheiro.
 
-Uma ``rsync`` operação de cópia padrão cria um ficheiro temporário e enche-o com dados. Se a transferência de dados for concluída com sucesso, o ficheiro temporário é renomeado para o nome de ficheiro original. Este método garante a consistência mesmo que os ficheiros sejam acedidos durante a cópia. Mas este método gera mais operações de escrita, o que retarda o movimento de ficheiros através da cache.
+Uma operação de cópia padrão ``rsync`` cria um ficheiro temporário e preenche-o com dados. Se a transferência de dados for concluída com sucesso, o ficheiro temporário será renomeado para o nome de ficheiro original. Este método garante a consistência mesmo que os ficheiros sejam acedidos durante a cópia. Mas este método gera mais operações de escrita, o que retarda o movimento do ficheiro através da cache.
 
-A ``--inplace`` opção escreve o novo ficheiro diretamente na sua localização final. Não é garantido que os ficheiros sejam consistentes durante a transferência, mas isso não é importante se estiver a preparar um sistema de armazenamento para ser utilizado mais tarde.
+A opção ``--inplace`` escreve o novo ficheiro diretamente na sua localização final. Os ficheiros não são garantidos para serem consistentes durante a transferência, mas isso não é importante se estiver a preparar um sistema de armazenamento para ser utilizado mais tarde.
 
-A ``rsync`` segunda operação serve como uma verificação de consistência na primeira operação. Como os ficheiros já foram copiados, a segunda fase é uma análise rápida para garantir que os ficheiros do destino correspondam aos ficheiros da fonte. Se algum ficheiro não corresponder, são recopiadas.
+A segunda ``rsync`` operação serve como uma verificação de consistência na primeira operação. Como os ficheiros já foram copiados, a segunda fase é uma verificação rápida para garantir que os ficheiros do destino correspondam aos ficheiros da fonte. Se os ficheiros não corresponderem, são recopiados.
 
-Pode emitir ambas as fases em conjunto num comando:
+Pode emitir ambas as fases juntas num só comando:
 
 ```bash
 rsync -azh --inplace <source> <destination> && rsync -azh <source> <destination>
 ```
 
-Este método é um método simples e eficaz para conjuntos de dados até ao número de ficheiros que o gestor interno de diretório pode lidar. (Isto é tipicamente 200 milhões de ficheiros para um cluster de 3 nós, 500 milhões de ficheiros para um cluster de seis nós, e assim por diante.)
+Este método é um método simples e eficaz no tempo para conjuntos de dados até ao número de ficheiros que o gestor de diretório interno pode tratar. (Isto é tipicamente 200 milhões de ficheiros para um cluster de 3 nós, 500 milhões de ficheiros para um cluster de seis nós, e assim por diante.)
 
-## <a name="use-the-msrsync-utility"></a>Use a utilidade msrsync
+## <a name="use-the-msrsync-utility"></a>Use o utilitário msrsync
 
-A ``msrsync`` ferramenta também pode ser usada para mover dados para um ficheiro de núcleo de back-end para o cluster Avere. Esta ferramenta foi concebida para otimizar o ``rsync`` uso da largura de banda executando vários processos paralelos. Está disponível no GitHub em <https://github.com/jbd/msrsync>.
+A ``msrsync`` ferramenta também pode ser usada para mover dados para um ficheiro de núcleo de back-end para o cluster Avere. Esta ferramenta foi concebida para otimizar o uso da largura de banda executando ``rsync`` vários processos paralelos. Está disponível no GitHub em <https://github.com/jbd/msrsync> .
 
-``msrsync``separa o diretório de origem em "baldes" separados e, em seguida, executa processos individuais ``rsync`` em cada balde.
+``msrsync``rompe o diretório de origem em "baldes" separados e, em seguida, executa processos individuais ``rsync`` em cada balde.
 
-Os testes preliminares utilizando um VM de quatro núcleos mostraram a melhor eficiência ao utilizar 64 processos. Use ``msrsync`` a ``-p`` opção para definir o número de processos para 64.
+Os testes preliminares utilizando um VM de quatro núcleos mostraram a melhor eficiência quando utilizaram 64 processos. Utilize a ``msrsync`` opção ``-p`` para definir o número de processos para 64.
 
-Também pode usar ``--inplace`` o ``msrsync`` argumento com comandos. Se utilizar esta opção, considere executar um segundo comando (como com [rsync](#use-a-two-phase-rsync-process), descrito acima) para garantir a integridade dos dados.
+Também pode usar o ``--inplace`` argumento com ``msrsync`` comandos. Se utilizar esta opção, considere executar um segundo comando (como com [o rsync](#use-a-two-phase-rsync-process), descrito acima) para garantir a integridade dos dados.
 
-``msrsync``só pode escrever de e para os volumes locais. A fonte e o destino devem ser acessíveis como montados locais na rede virtual do cluster.
+``msrsync``só pode escrever de e para os volumes locais. A fonte e o destino devem ser acessíveis como suportes locais na rede virtual do cluster.
 
-Para ``msrsync`` utilizar para povoar um volume de nuvem Azure com um cluster Avere, siga estas instruções:
+Para utilizar ``msrsync`` para preencher um volume de nuvem azul com um cluster Avere, siga estas instruções:
 
-1. Instalar ``msrsync`` e os seus pré-requisitos (rsync e Python 2.6 ou posterior)
-1. Determine o número total de ficheiros e diretórios a copiar.
+1. Instale ``msrsync`` e os seus pré-requisitos (rsync e Python 2.6 ou posterior)
+1. Determine o número total de ficheiros e diretórios a serem copiados.
 
-   Por exemplo, utilize o ``prime.py`` utilitário Avere com ```prime.py --directory /path/to/some/directory``` argumentos <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>(disponíveis através do download de url).
+   Por exemplo, utilize o utilitário Avere ``prime.py`` com argumentos ```prime.py --directory /path/to/some/directory``` (disponíveis por download de <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py> url).
 
-   Se não ``prime.py``estiver a utilizar, pode calcular o ``find`` número de itens com a ferramenta GNU da seguinte forma:
+   Se não ``prime.py`` utilizar, pode calcular o número de itens com a ferramenta GNU ``find`` da seguinte forma:
 
    ```bash
    find <path> -type f |wc -l         # (counts files)
@@ -303,7 +303,7 @@ Para ``msrsync`` utilizar para povoar um volume de nuvem Azure com um cluster Av
    find <path> |wc -l                 # (counts both)
    ```
 
-1. Divida o número de itens em 64 para determinar o número de itens por processo. Utilize este número ``-f`` com a opção de definir o tamanho dos baldes quando executar o comando.
+1. Divida o número de itens por 64 para determinar o número de itens por processo. Utilize este número com a ``-f`` opção de definir o tamanho dos baldes quando executar o comando.
 
 1. Emita o ``msrsync`` comando para copiar ficheiros:
 
@@ -311,21 +311,21 @@ Para ``msrsync`` utilizar para povoar um volume de nuvem Azure com um cluster Av
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
    ```
 
-   Se ``--inplace``utilizar, adicione uma segunda execução sem a opção de verificar se os dados estão corretamente copiados:
+   Se ``--inplace`` utilizar, adicione uma segunda execução sem a opção de verificar se os dados estão corretamente copiados:
 
    ```bash
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv --inplace" <SOURCE_PATH> <DESTINATION_PATH> && msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
    ```
 
-   Por exemplo, este comando foi concebido para mover 11.000 ficheiros em 64 processos de /teste/repositório de origem para /mnt/vfxt/repositório:
+   Por exemplo, este comando foi concebido para mover 11.000 ficheiros em 64 processos de /teste/repositório de fontes para /mnt/vfxt/repositório:
 
    ``msrsync -P --stats -p 64 -f 170 --rsync "-ahv --inplace" /test/source-repository/ /mnt/vfxt/repository && msrsync -P --stats -p 64 -f 170 --rsync "-ahv --inplace" /test/source-repository/ /mnt/vfxt/repository``
 
-## <a name="use-the-parallel-copy-script"></a>Use o roteiro de cópia paralela
+## <a name="use-the-parallel-copy-script"></a>Use o script de cópia paralelo
 
 O ``parallelcp`` script também pode ser útil para mover dados para o armazenamento de back-end do seu cluster vFXT.
 
-O script abaixo irá `parallelcp`adicionar o executável . (Este script foi concebido para Ubuntu; se ``parallel`` utilizar outra distribuição, tem de instalar separadamente.)
+O roteiro abaixo irá adicionar o executável `parallelcp` . (Este script foi concebido para Ubuntu; se utilizar outra distribuição, deve instalar-se ``parallel`` separadamente.)
 
 ```bash
 sudo touch /usr/bin/parallelcp && sudo chmod 755 /usr/bin/parallelcp && sudo sh -c "/bin/cat >/usr/bin/parallelcp" <<EOM
@@ -379,12 +379,12 @@ EOM
 
 ### <a name="parallel-copy-example"></a>Exemplo de cópia paralela
 
-Este exemplo utiliza o script ``glibc`` de cópia paralela para compilar utilizando ficheiros de origem do cluster Avere.
+Este exemplo utiliza o script de cópia paralelo para compilar ``glibc`` utilizando ficheiros de origem do cluster Avere.
 <!-- xxx what is stored where? what is 'the avere cluster mount point'? xxx -->
 
-Os ficheiros de origem são armazenados no ponto de montagem do cluster Avere, e os ficheiros do objeto são armazenados no disco rígido local.
+Os ficheiros de origem são armazenados no ponto de montagem do cluster Avere, e os ficheiros de objetos são armazenados no disco rígido local.
 
-Este script usa script de cópia paralela acima. A ``-j`` opção ``parallelcp`` é ``make`` usada com e para ganhar paralelização.
+Este script usa script de cópia paralelo acima. A opção ``-j`` é usada com e para ganhar ``parallelcp`` ``make`` paralelização.
 
 ```bash
 sudo apt-get update

@@ -1,6 +1,6 @@
 ---
-title: Amostra de política de gestão da API Azure - Adicione um cabeçalho reencaminhado / Microsoft Docs
-description: Amostra de política de gestão da API Azure - Demonstra como adicionar um cabeçalho reencaminhado no pedido de entrada para permitir que a API backend construa URLs adequados.
+title: Amostra de política de gestão da AZure API - Adicione um cabeçalho reencaminhado Microsoft Docs
+description: Amostra de política de gestão Azure API - Demonstra como adicionar um cabeçalho reencaminhado no pedido de entrada para permitir que a API de backend construa URLs adequados.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,19 +13,19 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: e525029ae8eab086d11126a4e18958423e207aa1
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70067494"
 ---
-# <a name="add-a-forwarded-header"></a>Adicione um cabeçalho para a frente
+# <a name="add-a-forwarded-header"></a>Adicione um cabeçalho reencaminhado
 
-Este artigo mostra uma amostra de política de gestão da API Azure que demonstra como adicionar um cabeçalho reencaminhado no pedido de entrada para permitir que a API de backend construa URLs adequados. Para definir ou editar um código de política, siga os passos descritos no [set ou edite uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [amostras políticas.](../policy-samples.md)
+Este artigo mostra uma amostra de política de gestão da API Azure que demonstra como adicionar um cabeçalho reencaminhado no pedido de entrada para permitir que a API de backend construa URLs adequados. Para definir ou editar um código de política, siga os passos descritos no [Conjunto ou edite uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [as amostras de política.](../policy-samples.md)
 
 ## <a name="code"></a>Código
 
-Cola o código no bloco **de entrada.**
+Cole o código no bloco **de entrada.**
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Forward gateway hostname to backend for generating correct urls in responses.policy.xml)]
 
@@ -34,4 +34,4 @@ Cola o código no bloco **de entrada.**
 Saiba mais sobre as políticas da APIM:
 
 + [Políticas de transformação](../api-management-transformation-policies.md)
-+ [Amostras políticas](../policy-samples.md)
++ [Amostras de política](../policy-samples.md)

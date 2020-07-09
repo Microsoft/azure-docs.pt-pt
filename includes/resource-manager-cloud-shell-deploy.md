@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: aac2f3ea2b52ac0319f96279deed13c1145749bd
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74451506"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Implementar o modelo a partir do Cloud Shell
 
-Pode utilizar o [Cloud Shell](../articles/cloud-shell/overview.md) para implementar o modelo. Para implementar um modelo externo, forneça o URI do modelo exatamente como faria para qualquer implantação externa. Para implementar um modelo local, primeiro deve carregar o seu modelo na conta de armazenamento da sua Cloud Shell. Esta secção descreve como carregar o modelo na sua conta de concha de nuvem, e implantá-lo como um arquivo local. Se ainda não usou a Cloud Shell, consulte a [Visão Geral da Azure Cloud Shell](../articles/cloud-shell/overview.md) para obter informações sobre a sua configuração.
+Pode utilizar o [Cloud Shell](../articles/cloud-shell/overview.md) para implementar o modelo. Para implementar um modelo externo, forneça o URI do modelo exatamente como faria para qualquer implementação externa. Para implementar um modelo local, você deve primeiro carregar o seu modelo na conta de armazenamento para a sua Cloud Shell. Esta secção descreve como carregar o modelo na sua conta de concha de nuvem e implantá-lo como um ficheiro local. Se não usou a Cloud Shell, consulte [a visão geral da Azure Cloud Shell](../articles/cloud-shell/overview.md) para obter informações sobre a sua configuração.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Selecione o grupo de recursos do Cloud Shell. O padrão de nome é `cloud-shell-storage-<region>`.
 
-   ![Selecionar grupo de recursos](./media/resource-manager-cloud-shell-deploy/select-cloud-shell-resource-group.png)
+   ![Selecionar o grupo de recursos](./media/resource-manager-cloud-shell-deploy/select-cloud-shell-resource-group.png)
 
 1. Selecione a conta de armazenamento para o Cloud Shell.
 
@@ -33,7 +33,7 @@ Pode utilizar o [Cloud Shell](../articles/cloud-shell/overview.md) para implemen
 
    ![Adicionar contentor](./media/resource-manager-cloud-shell-deploy/add-container.png)
 
-1. Dê ao seu recipiente um nome e um nível de acesso. O modelo de amostra neste artigo não contém nenhuma informação sensível, por isso permita o acesso de leitura anónima. Selecione **OK**.
+1. Dê ao seu recipiente um nome e um nível de acesso. O modelo de amostra deste artigo não contém nenhuma informação sensível, por isso permita o acesso de leitura anónima. Selecione **OK**.
 
    ![Fornecer valores de contentores](./media/resource-manager-cloud-shell-deploy/provide-container-values.png)
 
@@ -41,9 +41,9 @@ Pode utilizar o [Cloud Shell](../articles/cloud-shell/overview.md) para implemen
 
    ![Selecione novo recipiente](./media/resource-manager-cloud-shell-deploy/select-container.png)
 
-1. Selecione **Upload**.
+1. Selecione **Carregar**.
 
-   ![Carregar blob](./media/resource-manager-cloud-shell-deploy/upload-blob.png)
+   ![Bolha de upload](./media/resource-manager-cloud-shell-deploy/upload-blob.png)
 
 1. Localize e carregue o modelo.
 

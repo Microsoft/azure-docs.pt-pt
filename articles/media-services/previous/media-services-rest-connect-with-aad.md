@@ -1,6 +1,6 @@
 ---
-title: Utilize a autenticação Azure AD para aceder à API azure Media Services com REST Microsoft Docs
-description: Saiba como aceder à API azure Media Services com autenticação de Diretório Ativo Azure utilizando o REST.
+title: Utilize a autenticação Azure AD para aceder à Azure Media Services API com REST / Microsoft Docs
+description: Saiba como aceder à Azure Media Services API com autenticação do Azure Ative Directory utilizando REST.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,77 +15,77 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
 ms.openlocfilehash: a693eb374365670da3fe8c4b2bb8ce664a024217
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80295447"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Utilizar a autenticação do Azure AD para aceder à API de Serviços de Multimédia com REST
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
-Quando estiver a utilizar a autenticação Azure AD com a Azure Media Services, pode autenticar de uma de duas formas:
+Quando estiver a utilizar a autenticação AD AZure com a Azure Media Services, pode autenticar de duas formas:
 
-- **A autenticação** do utilizador autentica uma pessoa que está a usar a app para interagir com os recursos da Azure Media Services. A aplicação interativa deve primeiro solicitar ao utilizador credenciais. Um exemplo é uma aplicação de consola de gestão que é usada por utilizadores autorizados para monitorizar trabalhos de codificação ou streaming ao vivo. 
-- **A autenticação do diretor** de serviço autentica um serviço. Aplicações que usam comumente este método de autenticação são aplicações que executam serviços de daemon, serviços de nível médio ou empregos programados, tais como aplicações web, aplicações de função, aplicações lógicas, APIs ou microserviços.
+- **A autenticação do utilizador** autentica uma pessoa que está a usar a app para interagir com os recursos do Azure Media Services. A aplicação interativa deve primeiro solicitar ao utilizador credenciais. Um exemplo é uma aplicação de consola de gestão que é usada por utilizadores autorizados para monitorizar trabalhos de codificação ou streaming ao vivo. 
+- **A autenticação principal do serviço** autentica um serviço. As aplicações que normalmente utilizam este método de autenticação são aplicações que executam serviços daemon, serviços de nível médio ou trabalhos programados, tais como aplicações web, apps de funções, apps lógicas, APIs ou microserviços.
 
-    Este tutorial mostra-lhe como utilizar a autenticação **principal do serviço** Azure AD para aceder à AMS API com REST. 
+    Este tutorial mostra-lhe como usar a autenticação **principal do serviço** Azure AD para aceder à AMS API com REST. 
 
     > [!NOTE]
-    > **O diretor de serviço** é a melhor prática recomendada para a maioria das aplicações que ligam aos Serviços De Mídia Azure. 
+    > **O diretor de** serviço é a melhor prática recomendada para a maioria das aplicações que ligam ao Azure Media Services. 
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Obtenha a informação de autenticação do portal Azure
-> * Obtenha o sinal de acesso usando o Carteiro
-> * Testar a API **de ativos** utilizando o sinal de acesso
+> * Obtenha o token de acesso usando o Carteiro
+> * Testar a API **dos Ativos** utilizando o token de acesso
 
 
 > [!IMPORTANT]
-> Atualmente, a Media Services suporta o modelo de autenticação de serviços de Controlo de Acesso Azure. No entanto, a autenticação do Controlo de Acesso será depreciada a 1 de junho de 2018. Recomendamos que migre para o modelo de autenticação do Azure AD assim que for possível.
+> Atualmente, a Media Services suporta o modelo de autenticação de serviços Azure Access Control. No entanto, a autenticação do Controlo de Acesso será depreciada a 1 de junho de 2018. Recomendamos que migre para o modelo de autenticação do Azure AD assim que for possível.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-- [Crie uma conta Azure Media Services utilizando o portal Azure.](media-services-portal-create-account.md)
-- Consulte o Accessing Azure Media Services API com o artigo de [autenticação da AD Azure.](media-services-use-aad-auth-to-access-ams-api.md)
-- Instale o cliente [DO REPOUSADO](https://www.getpostman.com/) para executar as APIs REST mostradas neste artigo. 
+- Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- [Criar uma conta Azure Media Services utilizando o portal Azure](media-services-portal-create-account.md).
+- Reveja a API dos Serviços de Media de Acesso com o artigo [de autenticação AD Azure.](media-services-use-aad-auth-to-access-ams-api.md)
+- Instale o cliente [Postman](https://www.getpostman.com/) REST para executar as APIs REST mostradas neste artigo. 
 
-    Neste tutorial, estamos a usar **o Carteiro,** mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plugin REST ou **Telerik Fiddler**. 
+    Neste tutorial, estamos a usar **o Carteiro,** mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Código de Estúdio Visual** com o plugin REST ou o **Fiddler Telerik**. 
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Obtenha a informação de autenticação do portal Azure
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 
-Para aceder à API dos Serviços de Media, é necessário recolher os seguintes pontos de dados.
+Para aceder à API dos Serviços de Mídia, é necessário recolher os seguintes pontos de dados.
 
-|Definição|Exemplo|Descrição|
+|Definição|Exemplo|Description|
 |---|-------|-----|
-|Domínio de inquilino de Diretório Ativo Azure|microsoft.onmicrosoft.com|O Azure AD como ponto final do Serviço De Token Seguro <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token>(STS) é criado utilizando o seguinte formato: . A Azure AD emite um JWT para aceder a recursos (um sinal de acesso).|
-|Ponto final da API REST|<https://amshelloworld.restv2.westus.media.azure.net/api/>|Este é o ponto final contra o qual todas as chamadas da Media Services REST API na sua aplicação são feitas.|
-|ID do cliente (ID da aplicação)|f7fbbb29-a02d-4d91-bbc6-59a25792|ID de aplicação Azure AD (cliente). A identificação do cliente é necessária para obter o sinal de acesso. |
-|Segredo do Cliente|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Chaves de aplicação Azure AD (segredo do cliente). O segredo do cliente é necessário para obter o sinal de acesso.|
+|Domínio do inquilino do Diretório Ativo Azure|microsoft.onmicrosoft.com|A Azure AD como um ponto final secure Token Service (STS) é criado usando o seguinte formato: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token> . A Azure AD emite um JWT para aceder a recursos (um token de acesso).|
+|Ponto final da API REST|<https://amshelloworld.restv2.westus.media.azure.net/api/>|Este é o ponto final contra o qual todos os serviços de mídia REST API chama na sua aplicação.|
+|ID do cliente (ID de aplicação)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|ID de aplicação AD Azure (cliente). A identificação do cliente é necessária para obter o token de acesso. |
+|Segredo do Cliente|+mUERiNzMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Chaves de aplicação AD AZure (segredo do cliente). O segredo do cliente é necessário para obter o token de acesso.|
 
 ### <a name="get-aad-auth-info-from-the-azure-portal"></a>Obtenha informações auth AAD do portal Azure
 
 Para obter a informação, siga estes passos:
 
-1. Faça login no [portal Azure.](https://portal.azure.com)
-2. Navegue para a sua instância AMS.
+1. Faça login no [portal Azure](https://portal.azure.com).
+2. Navegue para o seu caso AMS.
 3. Selecione **acesso API**.
-4. Clique em **Connect to Azure Media Services API com o principal serviço**.
+4. Clique em **Connect to Azure Media Services API com o principal serviço.**
 
     ![Acesso a API](./media/connect-with-rest/connect-with-rest01.png)
 
-5. Selecione uma **aplicação Azure AD** existente ou crie uma nova (mostrada abaixo).
+5. Selecione uma **aplicação AD Azure** existente ou crie uma nova (mostrada abaixo).
 
     > [!NOTE]
-    > Para que o pedido do Azure Media REST tenha sucesso, o utilizador de chamadas deve ter uma função **de Contribuinte** ou **Proprietário** para a conta media Services a que está a tentar aceder. Se tiver uma exceção que diga "O servidor remoto devolveu um erro: (401) Não autorizado", consulte [o controlo](media-services-use-aad-auth-to-access-ams-api.md#access-control)de acesso .
+    > Para que o pedido de REPOUSO Azure Media seja bem sucedido, o utilizador chamador deve ter uma função **de Contribuinte** ou **Proprietário** para a conta de Serviços de Comunicação social a que está a tentar aceder. Se receber uma exceção que diga "O servidor remoto devolveu um erro: (401) Não Autorizado", consulte [o controlo de acesso](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
-    Se precisar de criar uma nova app AD, siga estes passos:
+    Se precisar de criar uma nova aplicação AD, siga estes passos:
     
    1. Pressione **Criar Novo**.
    2. Insira um nome.
@@ -96,54 +96,54 @@ Para obter a informação, siga estes passos:
 
       A nova aplicação aparece na página.
 
-6. Obtenha o ID do **Cliente** (ID de aplicação).
+6. Obtenha o **ID do cliente** (ID de aplicação).
     
-   1. Selecione a aplicação.
+   1. Selecione a inscrição.
    2. Pegue a **identificação** do cliente da janela à direita. 
 
       ![Acesso a API](./media/connect-with-rest/existing-client-id.png)
 
-7. Obtenha a **Chave** da aplicação (segredo do cliente). 
+7. Obtenha a **Chave** do pedido (segredo do cliente). 
 
-   1. Clique no botão **'Gerir'** (note que a informação de ID do Cliente está em **ID da aplicação**). 
-   2. **Teclas**de pressão.
+   1. Clique no botão **de aplicação Manage** (note que a informação de ID do Cliente está no **ID da aplicação).** 
+   2. **Teclas de pressão**.
     
        ![Acesso a API](./media/connect-with-rest/manage-app.png)
-   3. Gere a chave da aplicação (segredo do cliente) preenchendo **descrição** e **EXPIRAe** e pressionando **Save**.
+   3. Gere a chave de aplicação (segredo do cliente) preenchendo **a DESCRIÇÃO** e **EXPIRA** E **pressionando o Save.**
     
-       Uma vez premido o botão **Guardar,** o valor-chave aparece. Copie o valor-chave antes de deixar a lâmina.
+       Uma vez premido o botão **Guardar,** o valor da tecla aparece. Copie o valor da chave antes de sair da lâmina.
 
    ![Acesso a API](./media/connect-with-rest/connect-with-rest03.png)
 
 Pode adicionar valores para parâmetros de ligação AD ao seu ficheiro web.config ou app.config, para posterior utilização no seu código.
 
 > [!IMPORTANT]
-> A **chave Cliente** é um segredo importante e deve ser devidamente protegida num cofre chave ou encriptada na produção.
+> A **chave cliente** é um segredo importante e deve ser devidamente segura num cofre ou encriptada na produção.
 
-## <a name="get-the-access-token-using-postman"></a>Obtenha o sinal de acesso usando o Carteiro
+## <a name="get-the-access-token-using-postman"></a>Obtenha o token de acesso usando o Carteiro
 
-Esta secção mostra como usar o **Carteiro** para executar uma API REST que devolve um JWT Bearer Token (ficha de acesso). Para ligar para qualquer Media Services REST API, você precisa adicionar o cabeçalho "Autorização" às chamadas, e adicionar o valor de "Bearer *your_access_token"* a cada chamada (como mostrado na secção seguinte deste tutorial). 
+Esta secção mostra como usar **o Carteiro** para executar uma API REST que devolve um Token do Portador JWT (token de acesso). Para ligar para qualquer API dos Serviços de Mídia, é necessário adicionar o cabeçalho "Autorização" às chamadas e adicionar o valor de "Bearer *your_access_token"* a cada chamada (como mostrado na secção seguinte deste tutorial). 
 
-1. Carteiro **Postman**Aberto.
+1. **Carteiro aberto.**
 2. Selecione **PUBLICAR**.
-3. Introduza o URL que inclui o nome do seu inquilino utilizando o seguinte formato: o nome do inquilino deve terminar com **.onmicrosoft.com** e o URL deve terminar com **oauth2/token:** 
+3. Introduza o URL que inclui o nome do seu inquilino utilizando o seguinte formato: o nome do inquilino deve terminar com **.onmicrosoft.com** e o URL deve terminar com **oauth2/token**: 
 
     `https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token`
 
-4. Selecione o separador **Cabeçalhos.**
-5. Introduza as informações **dos Cabeçalhos** utilizando a grelha de dados "Chave/Valor". 
+4. Selecione o **separador Cabeçalhos.**
+5. Introduza as **informações dos Cabeçalhos** utilizando a grelha de dados "Chave/Valor". 
 
-    ![Grelha de Dados](./media/connect-with-rest/headers-data-grid.png)
+    ![Rede de dados](./media/connect-with-rest/headers-data-grid.png)
 
-    Em alternativa, clique no link **'Edição a granel'** à direita da janela do Carteiro e cole o seguinte código.
+    Em alternativa, clique no link **de edição** a granel à direita da janela do Carteiro e cole o seguinte código.
 
         Content-Type:application/x-www-form-urlencoded
         Keep-Alive:true
 
-6. Pressione a guia **body.**
-7. Introduza as informações do corpo utilizando a grelha de dados "Chave/Valor" (substitua o ID do cliente e os valores secretos). 
+6. Pressione a aba **do Corpo.**
+7. Introduza a informação do corpo utilizando a grelha de dados "Chave/Valor" (substitua o ID do cliente e os valores secretos). 
 
-    ![Grelha de Dados](./media/connect-with-rest/data-grid.png)
+    ![Rede de dados](./media/connect-with-rest/data-grid.png)
 
     Em alternativa, clique em **Edição a granel** à direita da janela do Carteiro e cole o seguinte corpo (substitua o ID do cliente e os valores secretos):
 
@@ -156,29 +156,29 @@ Esta secção mostra como usar o **Carteiro** para executar uma API REST que dev
 
     ![obter símbolo](./media/connect-with-rest/connect-with-rest04.png)
 
-A resposta devolvida contém o **sinal de acesso** que precisa de usar para aceder a quaisquer APIs ams.
+A resposta devolvida contém o **sinal de acesso** que precisa de utilizar para aceder a quaisquer APIs ams.
 
-## <a name="test-the-assets-api-using-the-access-token"></a>Testar a API **de ativos** utilizando o sinal de acesso
+## <a name="test-the-assets-api-using-the-access-token"></a>Testar a API **dos Ativos** utilizando o token de acesso
 
-Esta secção mostra como aceder à API **de ativos** utilizando **o Carteiro.**
+Esta secção mostra como aceder à API **de Ativos** utilizando **o Carteiro**.
 
-1. Carteiro **Postman**Aberto.
+1. **Carteiro aberto.**
 2. Selecione **OBTER**.
 3. Colar o ponto final da API REST (por exemplo,https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
-4. Selecione o separador **Autorização.** 
-5. Selecione **Token bearer**.
-6. Colar o símbolo que foi criado na secção anterior.
+4. Selecione o **separador Autorização.** 
+5. Selecione **o token do portador**.
+6. Cole o símbolo que foi criado na secção anterior.
 
     ![obter símbolo](./media/connect-with-rest/connect-with-rest05.png)
 
     > [!NOTE]
-    > O Postman UX pode ser diferente entre um Mac e pc. Se a versão Mac não tiver a opção "Bearer Token" na secção de **autenticação,** deverá adicionar manualmente o cabeçalho **de Autorização** no cliente Mac.
+    > O Carteiro UX pode ser diferente entre um Mac e um PC. Se a versão Mac não tiver a opção "Token portador" na secção de **autenticação,** deve adicionar manualmente o cabeçalho **de Autorização** ao cliente Mac.
 
    ![Cabeçalho de Auth](./media/connect-with-rest/auth-header.png)
 
-7. Selecione **Cabeçalhos**.
-5. Clique no link **De edição** a granel à direita da janela do Carteiro.
-6. Colar os seguintes cabeçalhos:
+7. **Selecione Cabeçalhos**.
+5. Clique no link **de edição** a granel na janela direita do Carteiro.
+6. Cole os seguintes cabeçalhos:
 
         x-ms-version:2.19
         Accept:application/json
@@ -192,5 +192,5 @@ A resposta devolvida contém os ativos que estão na sua conta.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Experimente este código de amostra na [Autenticação AD Azure para acesso aos serviços de mídia Azure: Tanto através da API REST](https://github.com/willzhan/WAMSRESTSoln)
-* [Upload de ficheiros com .NET](media-services-dotnet-upload-files.md)
+* Experimente este código de amostra na [autenticação AD Azure para acesso a serviços de mídia Azure: Ambos via REST API](https://github.com/willzhan/WAMSRESTSoln)
+* [Faça upload de ficheiros com .NET](media-services-dotnet-upload-files.md)

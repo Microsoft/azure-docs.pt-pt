@@ -1,6 +1,6 @@
 ---
-title: Utilizar opções DE GRUPO BY em Synapse SQL
-description: A Synapse SQL permite desenvolver soluções implementando diferentes opções de GROUP BY.
+title: Utilizar opções GRUPO A OPS em Sinapse SQL
+description: O Sinaapse SQL permite desenvolver soluções implementando diferentes opções group by.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -12,34 +12,34 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
 ms.openlocfilehash: 261f75344d250ae8a8d9687f4bcd80535d11716b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81429047"
 ---
-# <a name="group-by-options-in-synapse-sql"></a>Opções group BY em Synapse SQL
-A Synapse SQL permite desenvolver soluções implementando diferentes opções de GROUP BY. 
+# <a name="group-by-options-in-synapse-sql"></a>OPÇÕES GRUPO A EM Sinapse SQL
+O Sinaapse SQL permite desenvolver soluções implementando diferentes opções group by. 
 
-## <a name="what-does-group-by-do"></a>O que o GROUP BY faz
+## <a name="what-does-group-by-do"></a>O que é que o GROUP BY faz
 
-A cláusula [Group BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL agrega dados a um conjunto de linhas sumárias.
+A cláusula [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL agrega dados a um conjunto sumário de linhas.
 
-A SQL on-demand suporta toda a gama de opções GROUP BY. O pool SQL suporta um número limitado de opções GROUP BY.
+A SQL on-demand suporta toda a gama de opções GROUP BY. A piscina SQL suporta um número limitado de opções GROUP BY.
 
-## <a name="group-by-options-supported-in-sql-pool"></a>Opções group BY suportadas em piscina SQL
+## <a name="group-by-options-supported-in-sql-pool"></a>OPÇÕES GRUPO POR APOIO Na Piscina SQL
 
-Group BY tem algumas opções que o SQL pool não suporta. Estas opções têm suposições, que são as seguintes:
+O GROUP BY tem algumas opções que a piscina SQL não suporta. Estas opções têm soluções alternativas, que são as seguintes:
 
-* GROUP BY com ROLLUP
-* CONJUNTOS DE AGRUPAMENTOS
-* GRUPO BY COM CUBE
+* GRUPO BY com ROLLUP
+* CONJUNTOS DE AGRUPAMENTO
+* GRUPO BY com CUBO
 
-### <a name="rollup-and-grouping-sets-options"></a>Rollup e agrupamento define opções
+### <a name="rollup-and-grouping-sets-options"></a>Opções de conjuntos rollup e de agrupamento
 
 A opção mais simples aqui é usar a UNION ALL para executar o rollup em vez de confiar na sintaxe explícita. O resultado é exatamente o mesmo
 
-O exemplo seguinte utiliza a declaração GROUP BY com a opção ROLLUP:
+O exemplo a seguir utiliza a declaração GROUP BY com a opção ROLLUP:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -54,13 +54,13 @@ GROUP BY ROLLUP (
 ;
 ```
 
-Ao utilizar o ROLLUP, o exemplo anterior solicita as seguintes agregações:
+Utilizando o ROLLUP, o exemplo anterior solicita as seguintes agregações:
 
 * País e Região
 * País
-* Total Geral
+* Grand Total
 
-Para substituir o ROLLUP e devolver os mesmos resultados, pode utilizar o UNION ALL e especificar explicitamente as agregações necessárias:
+Para substituir o ROLLUP e devolver os mesmos resultados, pode utilizar a UNION ALL e especificar explicitamente as agregações necessárias:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -87,13 +87,13 @@ FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey;
 ```
 
-Para substituir os CONJUNTOS DE AGRUPAMENTO, aplica-se o princípio da amostra. Basta criar secções UNION ALL para os níveis de agregação que pretende ver.
+Para substituir os CONJUNTOS DE AGRUPAMENTO, aplica-se o princípio da amostra. Só precisa de criar secções UNION ALL para os níveis de agregação que quer ver.
 
-### <a name="cube-options"></a>Opções de cubos
+### <a name="cube-options"></a>Opções de cubo
 
-É possível criar um GRUPO BY COM CUBE usando a abordagem UNION ALL. O problema é que o código pode rapidamente tornar-se pesado e desajeitado. Para mitigar esta questão, pode usar esta abordagem mais avançada.
+É possível criar um grupo by with cube usando a abordagem UNION ALL. O problema é que o código pode rapidamente tornar-se pesado e inflexível. Para atenuar esta questão, pode utilizar esta abordagem mais avançada.
 
-O primeiro passo é definir o 'cubo' que define todos os níveis de agregação que queremos criar. Tome nota do CROSS JOIN das duas tabelas derivadas, pois gera todos os níveis. O resto do código está lá para a formatação.
+O primeiro passo é definir o 'cubo' que define todos os níveis de agregação que queremos criar. Tome nota da CROSS JOIN das duas tabelas derivadas, uma vez que gera todos os níveis. O resto do código está lá para formatação.
 
 ```sql
 CREATE TABLE #Cube
@@ -124,11 +124,11 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-A imagem seguinte mostra os resultados da [TABELA CREATE AS SELECT:](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+A imagem a seguir mostra os resultados do [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest):
 
 ![Grupo por cubo](./media/develop-group-by-options/develop-group-by-cube.png)
 
-O segundo passo consiste em especificar um quadro-alvo para armazenar resultados provisórios:
+O segundo passo é especificar uma tabela-alvo para o armazenamento de resultados provisórios:
 
 ```sql
 DECLARE
@@ -151,7 +151,7 @@ WITH
 ;
 ```
 
-O terceiro passo é dar a volta ao cubo das colunas que realizam a agregação. A consulta será executada uma vez por cada linha na mesa temporária #Cube. Os resultados são armazenados na tabela temporária #Results:
+O terceiro passo é dar a volta ao cubo de colunas que executam a agregação. A consulta será executada uma vez para cada linha da #Cube tabela temporária. Os resultados são armazenados na tabela temporária #Results:
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -188,4 +188,4 @@ Ao dividir o código em secções e gerar uma construção em loop, o código to
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais dicas de desenvolvimento, consulte a [visão geral do desenvolvimento.](develop-overview.md)
+Para obter mais dicas de desenvolvimento, consulte [a visão geral do desenvolvimento.](develop-overview.md)

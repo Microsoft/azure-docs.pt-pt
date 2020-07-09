@@ -1,22 +1,22 @@
 ---
-title: Ligue-se e consulta Synapse SQL com Estúdio Visual e SSDT
-description: Use o Visual Studio para consultar a piscina SQL utilizando o Azure Synapse Analytics.
+title: Conecte-se e consultar o Synapse SQL com o Visual Studio e o SSDT
+description: Utilize o Visual Studio para consultar a piscina SQL utilizando o Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: c8b66e42c5719203eb0f195a5b61e81da8b187e7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3f98a9d6dd79ba1da1a3be1e9e187ed4e8eca8ee
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658165"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962991"
 ---
-# <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Ligue-se ao Synapse SQL com O Estúdio Visual e SSDT
+# <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Conecte-se ao SYNapse SQL com o Visual Studio e o SSDT
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
@@ -26,21 +26,21 @@ ms.locfileid: "83658165"
 > 
 > 
 
-Use o Visual Studio para consultar a piscina SQL utilizando o Azure Synapse Analytics. Este método utiliza a extensão SQL Server Data Tools (SSDT) no Visual Studio 2019. 
+Utilize o Visual Studio para consultar a piscina SQL utilizando o Azure Synapse Analytics. Este método utiliza a extensão SQL Server Data Tools (SSDT) no Visual Studio 2019. 
 
 > [!NOTE]
-> A SQL on-demand (pré-visualização) não é suportada pelo SSDT.
+> SQL on demand (pré-visualização) não é suportado pela SSDT.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para utilizar este tutorial, é necessário ter os seguintes componentes:
+Para utilizar este tutorial, precisa de ter os seguintes componentes:
 
-* Uma piscina SQL existente. Se não tiver uma, consulte [Criar uma piscina SQL](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para completar este pré-requisito.
-* SSDT para Visual Studio. Se tem o Estúdio Visual, provavelmente já tem este componente. Para obter instruções e opções de instalação, veja [Installing Visual Studio and SSDT](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (Instalar o Visual Studio e o SSDT).
-* O nome de servidor SQL completamente qualificado. Para encontrar este nome de servidor, consulte [Connect to SQL pool](connect-overview.md).
+* Uma piscina SQL existente. Se não tiver uma, consulte [criar uma piscina SQL](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para completar este pré-requisito.
+* SSDT para Visual Studio. Se tem o Visual Studio, provavelmente já tem este componente. Para obter instruções e opções de instalação, veja [Installing Visual Studio and SSDT](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (Instalar o Visual Studio e o SSDT).
+* O nome de servidor SQL completamente qualificado. Para encontrar este nome do servidor, consulte [a piscina Connect to SQL](connect-overview.md).
 
-## <a name="1-connect-to-sql-pool"></a>1. Ligar à piscina SQL
+## <a name="1-connect-to-sql-pool"></a>1. Ligue-se à piscina SQL
 1. Open Visual Studio 2019.
-2. Abra o Explorador de Objetos do Servidor SQL selecionando **o 'Ver**  >  **Explorador de Objetos servidor SQL**'.
+2. Abra o SQL Server Object Explorer selecionando **View**  >  **SQL Server Object Explorer**.
    
     ![SQL Server Object Explorer](./media/get-started-visual-studio/open-ssdt.png)
 3. Clique no ícone **Adicionar SQL Server**.
@@ -50,16 +50,16 @@ Para utilizar este tutorial, é necessário ter os seguintes componentes:
    
     ![Ligar ao Servidor](./media/get-started-visual-studio/connection-dialog.png)
    
-   * **Nome**do servidor : Introduza o nome do **servidor** previamente identificado.
-   * **Autenticação**: Selecione Autenticação do **Servidor SQL** ou Autenticação Integrada do **Diretório Ativo:**
-   * **Nome e** **Palavra-passe**do utilizador : Introduza o nome de utilizador e a palavra-passe se a Autenticação do Servidor SQL tiver sido selecionada acima.
+   * **Nome do servidor**: Introduza o nome do **servidor** previamente identificado.
+   * **Autenticação**: Selecione A autenticação do **servidor SQL** ou **a autenticação integrada do Diretório Ativo**:
+   * **Nome do utilizador** e **palavra-passe**: Introduza o nome de utilizador e a palavra-passe se a autenticação do servidor SQL tiver sido selecionada acima.
    * Clique em **Ligar**.
 5. Para explorar, expanda o servidor SQL do Azure. Pode ver as bases de dados associadas ao servidor. Expanda AdventureWorksDW para ver as tabelas na sua base de dados de exemplo.
    
     ![Explorar AdventureWorksDW](./media/get-started-visual-studio/explore-sample.png)
 
 ## <a name="2-run-a-sample-query"></a>2. Executar uma consulta de amostra
-Agora que foi estabelecida uma ligação à sua base de dados, escreva uma consulta.
+Agora que foi estabelecida uma ligação à sua base de dados, irá escrever uma consulta.
 
 1. Clique com o botão direito do rato na base de dados no SQL Server Object Explorer.
 2. Selecione **Nova Consulta**. É aberta uma nova janela de consulta.
@@ -70,14 +70,14 @@ Agora que foi estabelecida uma ligação à sua base de dados, escreva uma consu
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Executar a consulta clicando na seta verde ou utilizar o seguinte atalho: `CTRL` + `SHIFT` + `E` .
+4. Executar a consulta clicando na seta verde ou utilize o seguinte atalho: `CTRL` + `SHIFT` + `E` .
    
     ![Executar consulta](./media/get-started-visual-studio/run-query.png)
 5. Veja os resultados da consulta. Neste exemplo, a tabela FactInternetSales tem 60398 linhas.
    
     ![Resultados da consulta](./media/get-started-visual-studio/query-results.png)
 
-## <a name="next-steps"></a>Passos seguintes
-Agora que pode ligar e consultar, tente [visualizar os dados com O Power BI](get-started-power-bi-professional.md).
-Para configurar o seu ambiente para autenticação de Diretório Ativo Azure, consulte [Authenticate to SQL pool](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+## <a name="next-steps"></a>Próximos passos
+Agora que pode ligar e consultar, tente [visualizar os dados com o Power BI](get-started-power-bi-professional.md).
+Para configurar o seu ambiente para a autenticação do Azure Ative Directory, consulte [autenticação para piscina SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
  

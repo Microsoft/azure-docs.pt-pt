@@ -1,7 +1,7 @@
 ---
-title: Apoio linguístico - Serviço de fala
+title: Suporte linguístico - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: O serviço da Fala apoia numerosas línguas para a conversão fala-a-texto e texto-a-fala, juntamente com a tradução da fala. Este artigo fornece uma lista completa de suporte linguístico por recurso de serviço.
+description: O serviço Discurso apoia numerosas línguas para a conversão de texto-a-texto e de texto-a-voz, juntamente com a tradução da fala. Este artigo fornece uma lista completa de suporte linguístico por recurso de serviço.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -11,24 +11,22 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 423d65cc77cb06a6084ad9ad56f3d7274e057ffb
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: eb9e0f126a25bfb0f2db18074bd7200e1a7c2001
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746514"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087151"
 ---
-# <a name="language-and-voice-support-for-the-speech-service"></a>Apoio à linguagem e voz para o serviço da Fala
+# <a name="language-and-voice-support-for-the-speech-service"></a>Suporte linguístico e de voz para o serviço de fala
 
-O suporte linguístico varia de acordo com a funcionalidade do serviço da Fala. As tabelas que se sintetizam o apoio linguístico às ofertas de serviços de tradução [de discurso sonâmlo,](#speech-to-text) [texto-a-fala](#text-to-speech)e [de tradução](#speech-translation) da fala.
+O suporte linguístico varia de acordo com a funcionalidade do serviço speech. As tabelas que se seguem resumem o apoio linguístico às ofertas de serviços [de](#speech-to-text) [tradução](#speech-translation) de voz e [de voz.](#text-to-speech)
 
 ## <a name="speech-to-text"></a>Conversão de voz em texto
 
 Tanto o Microsoft Speech SDK como o REST API suportam os seguintes idiomas (locais). 
 
-Para melhorar a precisão, a personalização é oferecida para um subconjunto das línguas através do upload **de Audio + Transcrições com rótulo humano** ou texto **relacionado: Frases**. Para saber mais sobre personalização, consulte [Começar com Discurso Personalizado](how-to-custom-speech.md).
-
-Para obter mais informações sobre como pode melhorar a pronúncia, consulte [Melhorar um modelo para discurso personalizado](how-to-custom-speech-improve-accuracy.md#add-new-words-with-pronunciation).
+Para melhorar a precisão, a personalização é oferecida para um subconjunto das línguas através do upload **de Transcrições áudio + etiqueta humana** ou texto **relacionado: frases**. Para saber mais sobre personalização, consulte [Começar com Discurso Personalizado.](how-to-custom-speech.md)
 
 <!--
 To get the AM and ML bits:
@@ -38,102 +36,119 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Região  | Linguagem                          | Suportado | Personalizações                                    |
-|---------|-----------------------------------|-----------|---------------------------------------------------|
-| `ar-AE` | Árabe (EAU)                      | Sim       | Não                                                |
-| `ar-BH` | Árabe (Bahrein), padrão moderno | Sim       | Modelo de linguagem                                    |
-| `ar-EG` | Árabe (Egito)                    | Sim       | Modelo de linguagem                                    |
-| `ar-IL` | Árabe (Israel)                   | Sim       | Não                                                |
-| `ar-KW` | Árabe (Kuwait)                   | Sim       | Não                                                |
-| `ar-PS` | Árabe (Palestina)                | Sim       | Não                                                |
-| `ar-QA` | Árabe (Qatar)                    | Sim       | Não                                                |
-| `ar-SA` | Árabe (Arábia Saudita)             | Sim       | Não                                                |
-| `ar-SY` | Árabe (Síria)                    | Sim       | Modelo de linguagem                                    |
-| `ca-ES` | Catalão                           | Sim       | Modelo de linguagem                                    |
-| `da-DK` | Dinamarquês (Dinamarca)                  | Sim       | Modelo de linguagem                                    |
-| `de-DE` | Alemão (Alemanha)                  | Sim       | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
-| `en-AU` | Inglês (Austrália)               | Sim       | Modelo acústico<br>Modelo de linguagem                  |
-| `en-CA` | Inglês (Canadá)                  | Sim       | Modelo acústico<br>Modelo de linguagem                  |
-| `en-GB` | Inglês (Reino Unido)          | Sim       | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
-| `en-IN` | Inglês (Índia)                   | Sim       | Modelo acústico<br>Modelo de linguagem                  |
-| `en-NZ` | Inglês (Nova Zelândia)             | Sim       | Modelo acústico<br>Modelo de linguagem                  |
-| `en-US` | Inglês (Estados Unidos)           | Sim       | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
-| `es-ES` | Espanhol (Espanha)                   | Sim       | Modelo acústico<br>Modelo de linguagem                  |
-| `es-MX` | Espanhol (México)                  | Sim       | Modelo acústico<br>Modelo de linguagem                  |
-| `fi-FI` | Finlandês (Finlândia)                 | Sim       | Modelo de linguagem                                    |
-| `fr-CA` | Francês (Canadá)                   | Sim       | Modelo acústico<br>Modelo de linguagem                  |
-| `fr-FR` | Francês (França)                   | Sim       | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
-| `gu-IN` | Gujarati (Indiano)                 | Sim       | Modelo de linguagem                                    |
-| `hi-IN` | Hindi (Índia)                     | Sim       | Modelo acústico<br>Modelo de linguagem                  |
-| `it-IT` | Italiano (Itália)                   | Sim       | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
-| `ja-JP` | Japonês (Japão)                  | Sim       | Modelo de linguagem                                    |
-| `ko-KR` | Coreano (Coreia)                    | Sim       | Modelo de linguagem                                    |
-| `mr-IN` | Marathi (Índia)                   | Sim       | Modelo de linguagem                                    |
-| `nb-NO` | Norueguês (Bokmål) (Noruega)       | Sim       | Modelo de linguagem                                    |
-| `nl-NL` | Neerlandês (Países Baixos)               | Sim       | Modelo de linguagem                                    |
-| `pl-PL` | Polaco (Polónia)                   | Sim       | Modelo de linguagem                                    |
-| `pt-BR` | Português (Brasil)               | Sim       | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
-| `pt-PT` | Português (Portugal)             | Sim       | Modelo de linguagem                                    |
-| `ru-RU` | Russo (Rússia)                  | Sim       | Modelo acústico<br>Modelo de linguagem                  |
-| `sv-SE` | Sueco (Suécia)                  | Sim       | Modelo de linguagem                                    |
-| `ta-IN` | Tamil (Índia)                     | Sim       | Modelo de linguagem                                    |
-| `te-IN` | Telugu (Índia)                    | Sim       | Não                                                |
-| `th-TH` | Tailandês (Tailândia)                   | Sim       | Não                                                |
-| `tr-TR` | Turco (Turquia)                  | Sim       | Modelo de linguagem                                    |
-| `zh-CN` | Chinês (mandarim, simplificado)    | Sim       | Modelo acústico<br>Modelo de linguagem                  |
-| `zh-HK` | Chinês (cantonês, tradicional)  | Sim       | Modelo de linguagem                                    |
-| `zh-TW` | Chinês (Mandarim taiwanês)      | Sim       | Modelo de linguagem                                    |
+| Região  | Linguagem                          | Personalizações                                    |
+|---------|-----------------------------------|---------------------------------------------------|
+| `ar-AE` | Árabe (EAU)                      | Não                                                |
+| `ar-BH` | Árabe (Bahrein), padrão moderno | Modelo de linguagem                                    |
+| `ar-EG` | Árabe (Egito)                    | Modelo de linguagem                                    |
+| `ar-IL` | Árabe (Israel)                   | Não                                                |
+| `ar-JO` | Árabe (Jordânia)                   | Não                                                |
+| `ar-KW` | Árabe (Kuwait)                   | Não                                                |
+| `ar-LB` | Árabe (Líbano)                  | Não                                                |
+| `ar-PS` | Árabe (Palestina)                | Não                                                |
+| `ar-QA` | Árabe (Qatar)                    | Não                                                |
+| `ar-SA` | Árabe (Arábia Saudita)             | Não                                                |
+| `ar-SY` | Árabe (Síria)                    | Modelo de linguagem                                    |
+| `ca-ES` | Catalão                           | Modelo de linguagem                                    |
+| `da-DK` | Dinamarquês (Dinamarca)                  | Modelo de linguagem                                    |
+| `de-DE` | Alemão (Alemanha)                  | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
+| `en-AU` | Inglês (Austrália)               | Modelo acústico<br>Modelo de linguagem                  |
+| `en-CA` | Inglês (Canadá)                  | Modelo acústico<br>Modelo de linguagem                  |
+| `en-GB` | Inglês (Reino Unido)          | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
+| `en-IN` | Inglês (Índia)                   | Modelo acústico<br>Modelo de linguagem                  |
+| `en-NZ` | Inglês (Nova Zelândia)             | Modelo acústico<br>Modelo de linguagem                  |
+| `en-US` | Inglês (Estados Unidos)           | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
+| `es-ES` | Espanhol (Espanha)                   | Modelo acústico<br>Modelo de linguagem                  |
+| `es-MX` | Espanhol (México)                  | Modelo acústico<br>Modelo de linguagem                  |
+| `fi-FI` | Finlandês (Finlândia)                 | Modelo de linguagem                                    |
+| `fr-CA` | Francês (Canadá)                   | Modelo acústico<br>Modelo de linguagem                  |
+| `fr-FR` | Francês (França)                   | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
+| `gu-IN` | Gujarati (indiano)                 | Modelo de linguagem                                    |
+| `hi-IN` | Hindi (Índia)                     | Modelo acústico<br>Modelo de linguagem                  |
+| `it-IT` | Italiano (Itália)                   | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
+| `ja-JP` | Japonês (Japão)                  | Modelo de linguagem                                    |
+| `ko-KR` | Coreano (Coreia)                    | Modelo de linguagem                                    |
+| `mr-IN` | Marathi (Índia)                   | Modelo de linguagem                                    |
+| `nb-NO` | Norueguês (Bokmål) (Noruega)       | Modelo de linguagem                                    |
+| `nl-NL` | Neerlandês (Países Baixos)               | Modelo de linguagem                                    |
+| `pl-PL` | Polaco (Polónia)                   | Modelo de linguagem                                    |
+| `pt-BR` | Português (Brasil)               | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
+| `pt-PT` | Português (Portugal)             | Modelo de linguagem                                    |
+| `ru-RU` | Russo (Rússia)                  | Modelo acústico<br>Modelo de linguagem                  |
+| `sv-SE` | Sueco (Suécia)                  | Modelo de linguagem                                    |
+| `ta-IN` | Tamil (Índia)                     | Modelo de linguagem                                    |
+| `te-IN` | Telugu (Índia)                    | Modelo de linguagem                                    |
+| `th-TH` | Tailandês (Tailândia)                   | Não                                                |
+| `tr-TR` | Turco (Turquia)                  | Modelo de linguagem                                    |
+| `zh-CN` | Chinês (mandarim, simplificado)    | Modelo acústico<br>Modelo de linguagem                  |
+| `zh-HK` | Chinês (cantonês, tradicional)  | Modelo de linguagem                                    |
+| `zh-TW` | Chinês (Mandarim taiwanês)      | Modelo de linguagem                                    |
 
 ## <a name="text-to-speech"></a>Conversão de texto em voz
 
-Tanto o Microsoft Speech SDK como o REST APIs suportam estas vozes, cada uma das quais suporta uma linguagem e dialeto específicos, identificados pelo local. Você também pode obter uma lista completa de línguas e vozes suportadas para cada região/ponto final específico através das [vozes/lista API](rest-text-to-speech.md#get-a-list-of-voices). 
+Tanto os Microsoft Speech SDK como os REST APIs suportam estas vozes, cada uma das quais suporta uma linguagem e dialeto específicos, identificados pelo local. Também pode obter uma lista completa de línguas e vozes apoiadas para cada região/ponto final específico através das [vozes/lista API](rest-text-to-speech.md#get-a-list-of-voices). 
 
 > [!IMPORTANT]
-> Os preços variam para vozes padrão, personalizadas e neurais. Visite a página [de Preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) para obter informações adicionais.
+> Os preços variam para vozes normais, personalizadas e neurais. Visite a página [de preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) para obter informações adicionais.
 
 ### <a name="neural-voices"></a>Vozes neurais
 
-Texto-a-fala neural é um novo tipo de síntese da fala alimentada por redes neuronais profundas. Quando se usa uma voz neural, a fala sintetizada é quase indistinguível das gravações humanas.
+O texto-a-discurso neural é um novo tipo de síntese da fala alimentada por redes neuronais profundas. Quando se usa uma voz neural, o discurso sintetizado é quase indistinguível das gravações humanas.
 
-As vozes neurais podem ser usadas para tornar as interações com chatbots e assistentes de voz mais naturais e envolventes, converter textos digitais como livros eletrónicos em audiolivros e melhorar os sistemas de navegação no carro. Com a prosódia natural humana e a clara articulação das palavras, as vozes neurais reduzem significativamente a fadiga auditiva quando os utilizadores interagem com sistemas de IA.
+As vozes neurais podem ser usadas para tornar as interações com chatbots e assistentes de voz mais naturais e envolventes, converter textos digitais como e-books em audiolivros e melhorar os sistemas de navegação no carro. Com a prosódia natural humana e a clara articulação das palavras, as vozes neurais reduzem significativamente a fadiga auditiva quando os utilizadores interagem com os sistemas de IA.
 
-Para obter mais informações sobre a disponibilidade regional, consulte [regiões.](regions.md#standard-and-neural-voices)
+Para obter mais informações sobre a disponibilidade regional, consulte [as regiões.](regions.md#standard-and-neural-voices)
 
 |Região  | Linguagem            | Género | Nome de voz | Suporte de estilo |
 |--|--|--|--|--|
-| `de-DE` | Alemão (Alemanha)                | Mulheres | "de-DE-KatjaNeural"      | Geral |
-| `en-AU` | Inglês (Austrália)             | Mulheres | "en-AU-NatashaNeural"    | Geral |
-| `en-CA` | Inglês (Canadá)                | Mulheres | "en-CA-ClaraNeural"      | Geral |
-| `en-GB` | Inglês (Reino Unido)                    | Mulheres | "en-GB-LibbyNeural"      | Geral |
-|         |                                 | Mulheres | "en-GB-MiaNeural"        | Geral |
-| `en-US` | Inglês (E.U.A.)                    | Mulheres | "en-US-AriaNeural"       | Estilos de voz gerais e múltiplos disponíveis |
-|         |                                 | Homens   | "en-US-GuyNeural"        | Geral |
-| `es-ES` | Espanhol (Espanha)                 | Mulheres | "es-ES-ElviraNeural"     | Geral |
-| `es-MX` | Espanhol (México)                | Mulheres | "es-MX-DaliaNeural"      | Geral |
-| `fr-CA` | Francês (Canadá)                 | Mulheres | "fr-CA-SylvieNeural"     | Geral |
-| `fr-FR` | Francês (França)                 | Mulheres | "FR-FR-DeniseNeural"     | Geral |
-| `it-IT` | Italiano (Itália)                 | Mulheres | "IT-IT-ElsaNeural"       | Geral |
-| `ja-JP` | Japonês                        | Mulheres | "ja-JP-NanamiNeural"     | Geral |
-| `ko-KR` | Coreano                          | Mulheres | "ko-KR-SunHiNeural"      | Geral |
-| `nb-NO` | Norueguês                       | Mulheres | "nb-NO-IselinNeural"     | Geral |
-| `pt-BR` | Português (Brasil)             | Mulheres | "pt-BR-FranciscaNeural"  | Geral |
-| `tr-TR` | Turco                         | Mulheres | "Tr-TR-EmelNeural"       | Geral |
-| `zh-CN` | Chinês (mandarim, simplificado)  | Mulheres | "zh-CN-XiaoxiaoNeural"   | Estilos de voz gerais e múltiplos disponíveis |
-|         |                                 | Mulheres | "zh-CN-XiaoyouNeural"    | Voz de criança, otimizada para narração de história |
-|         |                                 | Homens   | "zh-CN-YunyangNeural"    | Otimizado para leitura de notícias, vários estilos de voz disponíveis |
-|         |                                 | Homens   | "zh-CN-YunyeNeural"      | Otimizado para narração de histórias |
+| `ar-EG` | Árabe (Egito)                  | Mulheres | `ar-EG-SalmaNeural`      | Geral |
+| `ar-SA` | Árabe (Arábia Saudita)           | Mulheres | `ar-SA-ZariyahNeura`     | Geral |
+| `ca-ES` | Catalão (Espanha)                 | Mulheres | `ca-ES-AlbaNeural`       | Geral |
+| `da-DK` | Dinamarquês (Dinamarca)                | Mulheres | `da-DK-ChristelNeural`   | Geral |
+| `de-DE` | Alemão (Alemanha)                | Mulheres | `de-DE-KatjaNeural`      | Geral |
+| `en-AU` | Inglês (Austrália)             | Mulheres | `en-AU-NatashaNeural`    | Geral |
+| `en-CA` | Inglês (Canadá)                | Mulheres | `en-CA-ClaraNeural`      | Geral |
+| `en-GB` | Inglês (Reino Unido)                    | Mulheres | `en-GB-LibbyNeural`      | Geral |
+|         |                                 | Mulheres | `en-GB-MiaNeural`        | Geral |
+| `en-IN` | Inglês (Índia)                 | Mulheres | `en-IN-NeerjaNeural`     | Geral |
+| `en-US` | Inglês (E.U.A.)                    | Mulheres | `en-US-AriaNeural`       | Geral, vários estilos de voz disponíveis |
+|         |                                 | Homens   | `en-US-GuyNeural`        | Geral |
+| `es-ES` | Espanhol (Espanha)                 | Mulheres | `es-ES-ElviraNeural`     | Geral |
+| `es-MX` | Espanhol (México)                | Mulheres | `es-MX-DaliaNeural`      | Geral |
+| `fi-FI` | Finlandês (Finlândia)               | Mulheres | `fi-FI-NooraNeural`      | Geral |
+| `fr-CA` | Francês (Canadá)                 | Mulheres | `fr-CA-SylvieNeural`     | Geral |
+| `fr-FR` | Francês (França)                 | Mulheres | `fr-FR-DeniseNeural`     | Geral |
+| `hi-IN` | Hindi (Índia)                   | Mulheres | `hi-IN-SwaraNeural`      | Geral |
+| `it-IT` | Italiano (Itália)                 | Mulheres | `it-IT-ElsaNeural`       | Geral |
+| `ja-JP` | Japonês                        | Mulheres | `ja-JP-NanamiNeural`     | Geral |
+| `ko-KR` | Coreano                          | Mulheres | `ko-KR-SunHiNeural`      | Geral |
+| `nb-NO` | Norueguês                       | Mulheres | `nb-NO-IselinNeural`     | Geral |
+| `nl-NL` | Holandês (Holanda)              | Mulheres | `nl-NL-ColetteNeural`    | Geral |
+| `pl-PL` | Polaco (Polónia)                 | Mulheres | `pl-PL-ZofiaNeural`      | Geral |
+| `pt-BR` | Português (Brasil)             | Mulheres | `pt-BR-FranciscaNeural`  | Geral, vários estilos de voz disponíveis |
+| `tr-TR` | Turco                         | Mulheres | `tr-TR-EmelNeural`       | Geral |
+| `pt-PT` | Português (Portugal)           | Mulheres | `pt-PT-FernandaNeural`   | Geral |
+| `ru-RU` | Russo (Rússia)                | Mulheres | `ru-RU-DariyaNeural`     | Geral |
+| `sv-SE` | Sueco (Suécia)                | Mulheres | `sv-SE-HilleviNeural`    | Geral |
+| `th-TH` | Tailandês (Tailândia)                 | Mulheres | `th-TH-AcharaNeural`     | Geral |
+| `zh-CN` | Chinês (mandarim, simplificado)  | Mulheres | `zh-CN-XiaoxiaoNeural`   | Geral, vários estilos de voz disponíveis |
+|         |                                 | Mulheres | `zh-CN-XiaoyouNeural`    | Voz infantil, otimizada para narração de história |
+|         |                                 | Homens   | `zh-CN-YunyangNeural`    | Otimizado para leitura de notícias, vários estilos de voz disponíveis |
+|         |                                 | Homens   | `zh-CN-YunyeNeural`      | Otimizado para narração de história |
+| `zh-HK` | Chinês (cantonês, tranditional)   | Mulheres | `zh-HK-HiuGaaiNeural`| Geral |
+| `zh-TW` | Chinês (Mandarim taiwanês)   | Mulheres | `zh-TW-HsiaoYuNeural`    | Geral |
 
 > [!IMPORTANT]
-> A `en-US-JessaNeural` voz mudou `en-US-AriaNeural` para. Se já estavas a usar "Jessa", convertes-te em "Aria".
+> A `en-US-JessaNeural` voz mudou `en-US-AriaNeural` para. Se já usaste "Jessa" antes, converte-te em "Aria".
 
-Para saber como pode configurar e ajustar vozes neurais, consulte a linguagem de marcação da [síntese da fala.](speech-synthesis-markup.md#adjust-speaking-styles)
+Para aprender como pode configurar e ajustar vozes neurais, consulte a [linguagem de marcação da síntese da fala](speech-synthesis-markup.md#adjust-speaking-styles).
 
 > [!TIP]
-> Pode continuar a usar o mapeamento completo do nome do serviço como "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)" nos pedidos de síntese de fala.
+> Pode continuar a utilizar o mapeamento de nome de serviço completo como "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)" nos seus pedidos de síntese de fala.
 
 ### <a name="standard-voices"></a>Vozes padrão
 
-Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, que permitem converter texto em discurso sintetizado. Para obter mais informações sobre a disponibilidade regional, consulte [regiões.](regions.md#standard-and-neural-voices)
+Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, que permitem converter texto em discurso sintetizado. Para obter mais informações sobre a disponibilidade regional, consulte [as regiões.](regions.md#standard-and-neural-voices)
 
 | Região | Linguagem | Género | Nome de voz |
 |--|--|--|--|
@@ -169,21 +184,21 @@ Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, qu
 |  |  | Homens | "es-ES-Pablo-Apollo" |
 | `es-MX` | Espanhol (México) | Mulheres |  "es-MX-HildaRUS" |
 |  |  | Homens | "es-MX-Raul-Apollo" |
-| `fi-FI` | Finlandês | Mulheres | "FI-HeidiRUS" |
+| `fi-FI` | Finlandês | Mulheres | "fi-FI-HeidiRUS" |
 | `fr-CA` | Francês (Canadá) | Mulheres | "fr-CA-Caroline" |
 |  |  | Mulheres | "fr-CA-HarmonieRUS" |
 | `fr-CH` | Francês (Suíça) | Homens | "fr-CH-Guillaume" |
-| `fr-FR` | Francês (França) | Mulheres |  "FR-FR-Julie-Apollo" |
-|  |  | Mulheres |"FR-FR-HortenseRUS" |
-|  |  | Homens |  "FR-FR-Paul-Apollo" |
+| `fr-FR` | Francês (França) | Mulheres |  "fr-FR-Julie-Apollo" |
+|  |  | Mulheres |"fr-FR-HortenseRUS" |
+|  |  | Homens |  "fr-FR-Paul-Apollo" |
 | `he-IL` | Hebraico (Israel) | Homens |  "he-IL-Asaf" |
-| `hi-IN` | Hindi (Índia) | Mulheres | "Hi-IN-Kalpana-Apollo" |
-|  |  | Mulheres |  "Hi-IN-Kalpana" |
-|  |  | Homens |  "Hi-IN-Hemant" |
-| `hr-HR` | Croata | Homens | "HR-HR-Matej" |
+| `hi-IN` | Hindi (Índia) | Mulheres | "hi-IN-Kalpana-Apollo" |
+|  |  | Mulheres |  "hi-IN-Kalpana" |
+|  |  | Homens |  "hi-IN-Hemant" |
+| `hr-HR` | Croata | Homens | "hr-HR-Matej" |
 | `hu-HU` | Húngaro | Homens |  "hu-HU-Szabolcs" |
 | `id-ID` | Indonésio | Homens | "ID-ID-Andika" |
-| `it-IT` | Italiano | Homens |  "IT-IT-Cosimo-Apollo" |
+| `it-IT` | Italiano | Homens |  "IT-Cosimo-Apollo" |
 |  |  | Mulheres |  "IT-IT-LuciaRUS" |
 | `ja-JP` | Japonês | Mulheres |  "ja-JP-Ayumi-Apollo" |
 |  |  | Homens | "ja-JP-Ichiro-Apollo" |
@@ -191,51 +206,51 @@ Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, qu
 | `ko-KR` | Coreano | Mulheres | "ko-KR-HeamiRUS" |
 | `ms-MY` | Malaio | Homens |  "Ms-MY-Rizwan" |
 | `nb-NO` | Norueguês | Mulheres |  "nb-NO-HuldaRUS" |
-| `nl-NL` | Neerlandês | Mulheres |  "NL-NL-HannaRUS" |
+| `nl-NL` | Neerlandês | Mulheres |  "nl-NL-HannaRUS" |
 | `pl-PL` | Polaco | Mulheres |  "pl-PL-PaulinaRUS" |
 | `pt-BR` | Português (Brasil) | Mulheres | "pt-BR-HeloisaRUS" |
 |  |  | Homens |  "pt-BR-Daniel-Apollo" |
 | `pt-PT` | Português (Portugal) | Mulheres | "pt-PT-HeliaRUS" |
 | `ro-RO` | Romeno | Homens | "ro-RO-Andrei" |
-| `ru-RU` | Russo | Mulheres |  "ru-RU-Irina-Apollo" |
-|  |  | Homens | "ru-RU-Pavel-Apollo" |
+| `ru-RU` | Russo | Mulheres |  "Ru-RU-Irina-Apollo" |
+|  |  | Homens | "Ru-RU-Pavel-Apollo" |
 |  |  | Mulheres |  ru-RU-EkaterinaRUS |
-| `sk-SK` | Eslovaco | Homens | "Sk-SK-Filip" |
+| `sk-SK` | Eslovaco | Homens | "sk-SK-Filip" |
 | `sl-SI` | Esloveno | Homens |  "sl-SI-Lado" |
 | `sv-SE` | Sueco | Mulheres | "sv-SE-HedvigRUS" |
 | `ta-IN` | Tamil (Índia) | Homens |  "ta-IN-Valluvar" |
 | `te-IN` | Telugu (Índia) | Mulheres |  "te-IN-Chitra" |
-| `th-TH` | Tailandês | Homens |  "TH-TH-Pattara" |
-| `tr-TR` | Turco (Turquia) | Mulheres | "Tr-TR-SedaRUS" |
+| `th-TH` | Tailandês | Homens |  "Th-TH-Pattara" |
+| `tr-TR` | Turco (Turquia) | Mulheres | "tr-TR-SedaRUS" |
 | `vi-VN` | Vietnamita | Homens |  "vi-VN-An" |
 | `zh-CN` | Chinês (mandarim, simplificado) | Mulheres |  "zh-CN-HuihuiRUS" |
 |  |  | Mulheres | "zh-CN-Yaoyao-Apollo" |
 |  |  | Homens | "zh-CN-Kangkang-Apollo" |
-| `zh-HK` | Chinês (cantonês, tradicional) | Mulheres |  "zh-HK-Tracy-Apollo" |
-|  |  | Mulheres | "zh-HK-TracyRUS" |
-|  |  | Homens |  "zh-HK-Danny-Apollo" |
-| `zh-TW` | Chinês (Mandarim taiwanês) | Mulheres |  "zh-TW-Yating-Apollo" |
-|  |  | Mulheres | "zh-TW-HanHanRUS" |
-|  |  | Homens |  "zh-TW-Zhiwei-Apollo" |
+| `zh-HK` | Chinês (cantonês, tradicional) | Mulheres |  "Zh-HK-Tracy-Apollo" |
+|  |  | Mulheres | "Zh-HK-TracyRUS" |
+|  |  | Homens |  "Zh-HK-Danny-Apollo" |
+| `zh-TW` | Chinês (Mandarim taiwanês) | Mulheres |  "Zh-TW-Yating-Apollo" |
+|  |  | Mulheres | "Zh-TW-HanHanRUS" |
+|  |  | Homens |  "Zh-TW-Zhiwei-Apollo" |
 
-**1** *ar-EG suporta o árabe moderno padrão (MSA).*
+**1** *ar-EG suporta árabe moderno padrão (MSA).*
 
 > [!IMPORTANT]
-> A `en-US-Jessa` voz mudou `en-US-Aria` para. Se já estavas a usar "Jessa", convertes-te em "Aria".
+> A `en-US-Jessa` voz mudou `en-US-Aria` para. Se já usaste "Jessa" antes, converte-te em "Aria".
 
 > [!TIP]
-> Pode continuar a usar o mapeamento completo do nome do serviço como "Microsoft Server Speech Text to Speech Voice (en-US, AriaRUS)" nos pedidos de síntese de discurso.
+> Pode continuar a utilizar o mapeamento de nome de serviço completo como "Microsoft Server Speech Text to Speech Voice (en-US, AriaRUS)" nos seus pedidos de síntese de fala.
 
 ### <a name="customization"></a>Personalização
 
-A personalização por voz está disponível `de-DE` para, `en-GB` , , , , e `en-IN` `en-US` `es-MX` `fr-FR` `it-IT` `pt-BR` `zh-CN` . Selecione o local certo que corresponda aos dados de treino que tem para treinar um modelo de voz personalizado. Por exemplo, se os dados de gravação que tiver tiver forem falados em inglês com sotaque britânico, selecione `en-GB` .
+A personalização de voz está disponível `de-DE` para, `en-GB` , , , , , , e `en-IN` `en-US` `es-MX` `fr-FR` `it-IT` `pt-BR` `zh-CN` . Selecione o local certo que corresponda aos dados de treino que tem para treinar um modelo de voz personalizado. Por exemplo, se os dados de gravação que tem forem falados em inglês com sotaque britânico, selecione `en-GB` .
 
 > [!NOTE]
-> Não apoiamos o treino de modelos bilingues em Voz Personalizada, exceto para o bilingchinês chinês-inglês. Selecione "bilingue chinês-inglês" se quiser treinar uma voz chinesa que também fale inglês. A formação de voz em todos os locais começa com um conjunto de dados de mais de 2.000 expressões, exceto para o `en-US` e onde você pode começar com qualquer tamanho de dados de `zh-CN` treino.
+> Não apoiamos a formação de modelos bilingues em Custom Voice, exceto o bi-lingual chinês-inglês. Selecione "bilingue chinês-inglês" se quiser treinar uma voz chinesa que também sabe falar inglês. A formação de voz em todos os locais começa com um conjunto de dados de mais de 2.000 expressões, exceto para o `en-US` e onde você pode começar com qualquer tamanho de `zh-CN` dados de treino.
 
 ## <a name="speech-translation"></a>Tradução de voz
 
-A API de **Tradução da Fala** apoia diferentes línguas para a tradução fala-a-fala e de fala-a-texto. A linguagem fonte deve ser sempre da tabela linguística discurso-texto. As línguas-alvo disponíveis dependem se o alvo de tradução é fala ou texto. Pode traduzir o discurso de entrada em mais de [60 línguas.](https://www.microsoft.com/translator/business/languages/) Um subconjunto de línguas está disponível para [síntese da fala.](language-support.md#text-languages)
+A API **de Tradução de Discursos** apoia diferentes línguas para a tradução fala-a-fala e de discurso-a-texto. A língua de origem deve ser sempre da mesa de linguagem fala-a-texto. As línguas-alvo disponíveis dependem se o alvo de tradução é a fala ou o texto. Pode traduzir o discurso de entrada em mais de [60 línguas.](https://www.microsoft.com/translator/business/languages/) Um subconjunto de línguas está disponível para [síntese da fala.](language-support.md#text-languages)
 
 ### <a name="text-languages"></a>Línguas de texto
 
@@ -243,7 +258,7 @@ A API de **Tradução da Fala** apoia diferentes línguas para a tradução fala
 |:------------------------|:-------------:|
 | Afrikaans               | `af`          |
 | Árabe                  | `ar`          |
-| Rio Bangla                  | `bn`          |
+| Bangla                  | `bn`          |
 | Bósnio (Latim)         | `bs`          |
 | Búlgaro               | `bg`          |
 | Cantonês (Tradicional) | `yue`         |
@@ -274,8 +289,8 @@ A API de **Tradução da Fala** apoia diferentes línguas para a tradução fala
 | Japonês                | `ja`          |
 | Canarês                 | `kn`          |
 | Rio Kiswahili               | `sw`          |
-| Rio Klingon                 | `tlh`         |
-| Klingon (plqaD)         | `tlh-Qaak`    |
+| Klingon                 | `tlh-Latn`    |
+| Klingon (plqaD)         | `tlh-Piqd`    |
 | Coreano                  | `ko`          |
 | Letão                 | `lv`          |
 | Lituano              | `lt`          |
@@ -294,7 +309,7 @@ A API de **Tradução da Fala** apoia diferentes línguas para a tradução fala
 | Queretaro Otomi         | `otq`         |
 | Romeno                | `ro`          |
 | Russo                 | `ru`          |
-| Samoano                  | `sm`          |
+| Samoa                  | `sm`          |
 | Sérvio (Cirílico)      | `sr-Cyrl`     |
 | Sérvio (Latim)         | `sr-Latn`     |
 | Eslovaco                  | `sk`          |
@@ -311,9 +326,29 @@ A API de **Tradução da Fala** apoia diferentes línguas para a tradução fala
 | Urdu                    | `ur`          |
 | Vietnamita              | `vi`          |
 | Galês                   | `cy`          |
-| Maia yucateca            | `yua`         |
+| Maia-de-iucatec            | `yua`         |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="speaker-recognition"></a>Reconhecimento de Orador
 
-* [Obtenha a subscrição do teste do serviço Speech](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como reconhecer o discurso em C #](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)
+Consulte a tabela seguinte para as línguas suportadas para as várias APIs de reconhecimento de altifalantes. Consulte a [visão geral](speaker-recognition-overview.md) para obter informações adicionais sobre o reconhecimento de colunas.
+
+| Região | Linguagem | Verificação dependente de texto | Verificação independente de texto | Identificação independente de texto |
+|----|----|----|----|----|
+| pt-PT | Inglês (E.U.A.) | sim | sim | sim |
+|zh-CN  |Chinês (mandarim, simplificado)|    n/a|    sim|    sim|
+|de-DE  |Alemão (Alemanha)   |n/a    |sim    |sim|
+|en-GB  |Inglês (Reino Unido)   |n/a    |sim    |sim|
+|fr-FR  |Francês (França)    |n/a    |sim    |sim|
+|en-AU  |Inglês (Austrália)    |n/a    |sim    |sim|
+|en-CA  |Inglês (Canadá)   |n/a|   sim|    sim|
+|fr-CA  |Francês (Canadá)    |n/a    |sim|   sim|
+|it-IT  |Italiano|   n/a |sim|   sim|
+|es-ES| Espanhol (Espanha) |n/a    |sim|   sim|
+|es-MX  |Espanhol (México)   |n/a|   sim|    sim|
+|ja-JP| Japonês    |n/a    |sim    |sim|
+|pt-BR| Português (Brasil)|    n/a|    sim|    sim|
+
+## <a name="next-steps"></a>Próximos passos
+
+* [Obtenha a subscrição do seu teste de serviço de discurso](https://azure.microsoft.com/try/cognitive-services/)
+* [Veja como reconhecer a fala em C #](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

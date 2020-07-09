@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: storage
 author: roygara
 ms.service: storage
@@ -9,24 +9,24 @@ ms.date: 09/04/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 4604616cd4f2d6c75c272586df1331fc405061cb
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70737496"
 ---
-## <a name="error-conditionheadersnotsupported-from-a-web-application-using-azure-files-from-browser"></a>Error ConditionHeadersNotSupported from a Web Application using Azure Files from Browser
+## <a name="error-conditionheadersnotsupported-from-a-web-application-using-azure-files-from-browser"></a>Problemas de erroSalheadersNotSupported a partir de uma aplicação web usando ficheiros Azure do Navegador
 
-O erro condicionadoNotSupported ocorre ao aceder a conteúdos hospedados em Ficheiros Azure através de uma aplicação que faz uso de cabeçalhos condicionais, como um navegador web, falha o acesso. O erro indica que os cabeçalhos de condição não são suportados.
+O erro do ConditionHeadersNotSupported ocorre ao aceder aos conteúdos alojados nos Ficheiros Azure através de uma aplicação que faz uso de cabeçalhos condicional, como um navegador web, o acesso falha. O erro indica que os cabeçalhos da condição não são suportados.
 
-![Erro de cabeçalhos condicional de Ficheiros Azure](media/storage-files-condition-headers/conditionalerror.png)
+![Erro de cabeçalhos condicional de ficheiros Azure](media/storage-files-condition-headers/conditionalerror.png)
 
 ### <a name="cause"></a>Causa
 
-Os cabeçalhos condicional ainda não são suportados. As aplicações que as implementam terão de solicitar o ficheiro completo sempre que o ficheiro for acedido.
+Os cabeçalhos condicional ainda não estão suportados. As aplicações que as implementam terão de solicitar o ficheiro completo sempre que o ficheiro for acedido.
 
 ### <a name="workaround"></a>Solução
 
-Quando um novo ficheiro é carregado, a propriedade de controlo de cache por padrão é "sem cache". Para forçar o pedido de pedido do ficheiro sempre, a propriedade de controlo de cache do ficheiro precisa de ser atualizada de "no-cache" para "no-cache, no-store, must-revalida". Isto pode ser conseguido usando [o Azure Storage Explorer.](https://azure.microsoft.com/features/storage-explorer/)
+Quando um novo ficheiro é carregado, a propriedade de controlo de cache por padrão é "no-cache". Para forçar o pedido de solicitar o ficheiro sempre, a propriedade de cache-control do ficheiro precisa de ser atualizada de "no-cache" para "no-cache, no-store, must-revalidate". Isto pode ser conseguido usando [o Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-![Modificação de cache de conteúdo do explorador de armazenamento para cabeçalhos condicional sintetizados De Ficheiros Azure](media/storage-files-condition-headers/storage-explorer-cache.png)
+![Modificação da cache do conteúdo do explorador de armazenamento para cabeçalhos condicional de ficheiros Azure](media/storage-files-condition-headers/storage-explorer-cache.png)

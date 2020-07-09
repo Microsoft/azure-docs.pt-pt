@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 48a3326dbe0e9eed4a5490e720248555586d189c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184311"
 ---
 ### <a name="to-take-a-backup"></a>Para efetuar uma cópia de segurança
@@ -29,7 +29,7 @@ ms.locfileid: "67184311"
 
 5. No painel **Adicionar primeira agenda**:
 
-    1. Selecione o tipo de cópia de segurança. Para restauros mais rápidos, selecione instantâneo **local.** Para obter resiliência de dados, selecione **Cloud** snapshot.
+    1. Selecione o tipo de cópia de segurança. Para obter restauros mais rápidos, selecione **Local** snapshot. Para obter resiliência de dados, selecione **Cloud** snapshot.
     2. Especifique a frequência da cópia de segurança em minutos, horas, dias ou semanas.
     3. Selecione um tempo de retenção. As opções de período de retenção dependem da frequência da cópia de segurança. Por exemplo, para uma política diária, o período de retenção pode ser especificado em semanas, ao passo que o período de retenção para uma política mensal é em meses.
     4. Selecione a hora e data de início para a política de cópia de segurança.

@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b802cab7d52fd886770c326e97d0378a0da64762
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75752459"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
@@ -39,7 +39,7 @@ Não. O tráfego só pode ser encaminhado através de uma ligação de rede de V
  
 ### <a name="is-there-a-change-in-the-number-of-sstp-connections-supported-with-radius-authentication-what-is-the-maximum-number-of-sstp-and-ikev2-connections-supported"></a>Existe uma alteração no número de ligações SSTP suportadas com a autenticação RADIUS? Qual é o número máximo de ligações SSTP e IKEv2 suportadas?
 
-Não existe qualquer alteração no número máximo de ligações SSTP suportadas num gateway com a autenticação RADIUS. Permanece 128 para o SSTP, mas depende da porta de entrada SKU para o IKEv2.Para obter mais informações sobre o número de ligações suportadas, consulte [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
+Não existe qualquer alteração no número máximo de ligações SSTP suportadas num gateway com a autenticação RADIUS. Permanece 128 para a SSTP, mas depende do gateway SKU para iKEv2.Para obter mais informações sobre o número de ligações suportadas, consulte [gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
  
 ### <a name="what-is-the-difference-between-doing-certificate-authentication-using-a-radius-server-vs-using-azure-native-certificate-authentication-by-uploading-a-trustedcertificate-to-azure"></a>Qual é a diferença entre fazer a autenticação de certificados com um servidor RADIUS relativamente à autenticação de certificados nativa do Azure (através do carregamento de um certificado fidedigno para o Azure).
 
@@ -53,4 +53,4 @@ Sim, a autenticação RADIUS funciona com as VPNs IKEv2 e SSTP. 
 
 ### <a name="does-radius-authentication-work-with-the-openvpn-client"></a>A autenticação RADIUS funciona com o cliente OpenVPN?
 
-A autenticação RADIUS é suportada para o protocolo OpenVPN apenas através da PowerShell.
+A autenticação RADIUS é suportada apenas através do powerShell.

@@ -6,29 +6,29 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 06/03/2020
 ms.author: anfeldma
-ms.openlocfilehash: 53ae3217e77a9301cbe0d3d63ce0712a0b9b7f1e
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.openlocfilehash: 520f64cbe768f2fcbd4603d1fb038bc349cd01db
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171621"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391983"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para API SQL: Lançar notas e recursos
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [SDK .NET v3](sql-api-sdk-dotnet-standard.md)
+> * [SDK .NET v2](sql-api-sdk-dotnet.md)
+> * [SDK v2 de .NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [SDK v4 de Java](sql-api-sdk-java-v4.md)
 > * [SDK v2 Java assíncrono](sql-api-sdk-async-java.md)
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [REST](/rest/api/cosmos-db/)
+> * [Fornecedor de Recursos REST](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Executor a granel - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor a granel - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor a granel - Java](sql-api-sdk-bulk-executor-java.md)
 
 Este é o Azure Cosmos DB Sync Java SDK v2 para a SQL API que suporta operações sincronizadas.
@@ -47,6 +47,12 @@ Este é o Azure Cosmos DB Sync Java SDK v2 para a SQL API que suporta operaçõe
 |**Tempo mínimo suportado**|[Kit de Desenvolvimento de Java (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="251"></a><a name="2.5.1"></a>2.5.1
+* Corrige a emissão de cache de partição principal na consulta documentCollection.
+
+### <a name="250"></a><a name="2.5.0"></a>2.5.0
+* Suporte adicionado para 449 retíria configuração personalizada.
 
 ### <a name="247"></a><a name="2.4.7"></a>2.4.7
 * Corrige o problema do tempo limite de tempo da piscina de ligação.
@@ -266,8 +272,10 @@ Qualquer pedido à Cosmos DB usando um SDK reformado será rejeitado pelo servi�
 
 <br/>
 
-| Versão | Data de Lançamento | Data de Aposentadoria |
+| Versão | Data de Lançamento | Data de Extinção |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |03 de junho de 2020 |--- |
+| [2.5.0](#2.5.0) |12 de maio de 2020 |--- |
 | [2.4.7](#2.4.7) |20 de fevereiro de 2020 |--- |
 | [2.4.6](#2.4.6) |24 de janeiro de 2020 |--- |
 | [2.4.5](#2.4.5) |Nov 10, 2019 |--- |

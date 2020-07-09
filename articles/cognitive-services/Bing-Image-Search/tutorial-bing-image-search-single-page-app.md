@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 9227417d28eb09a322dd4757033ee62fee97d91c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 6a88ca1f028efcb3b9614df532b6d2dcc9dcfac8
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78943895"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800909"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutorial: Criar uma aplicação de página única com a API de Pesquisa de Imagens do Bing
 
@@ -34,13 +34,13 @@ O código fonte completo para este tutorial está disponível no [GitHub](https:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * A versão mais recente do [Node.js](https://nodejs.org/).
-* A arquitetura [Express.js](https://expressjs.com/) para Node.js. As instruções de instalação do código fonte estão disponíveis no ficheiro de leitura da amostra GitHub.
+* A arquitetura [Express.js](https://expressjs.com/) para Node.js. As instruções de instalação do código fonte estão disponíveis no ficheiro de leitura da amostra gitHub.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="manage-and-store-user-subscription-keys"></a>Gerir e armazenar chaves de subscrição de utilizador
 
-Esta aplicação utiliza o armazenamento persistente dos browsers para armazenar chaves de subscrição da API. Se não for armazenada nenhuma chave, a página Web irá pedir ao utilizador a respetiva chave e irá armazená-la para utilização posterior. Se a chave for rejeitada pela API mais tarde, a aplicação irá removê-la do armazenamento. Esta amostra usa o ponto final global. Também pode utilizar o ponto final de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+Esta aplicação utiliza o armazenamento persistente dos browsers para armazenar chaves de subscrição da API. Se não for armazenada nenhuma chave, a página Web irá pedir ao utilizador a respetiva chave e irá armazená-la para utilização posterior. Se a chave for rejeitada pela API mais tarde, a aplicação irá removê-la do armazenamento. Esta amostra usa o ponto final global. Também pode utilizar o ponto final [de subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
 
 Defina as funções `storeValue` e `retrieveValue` para utilizar o objeto `localStorage` (se for suportado pelo browser) ou um cookie.
@@ -316,7 +316,7 @@ function renderImageResults(items) {
 
 A API de Pesquisa de Imagens do Bing pode devolver quatro tipos de sugestões de pesquisa para ajudar a orientar as experiências de pesquisa dos utilizadores, cada um no seu próprio objeto de nível superior:
 
-| Sugestão         | Descrição                                                                                                                                                                                                         |
+| Sugestão         | Description                                                                                                                                                                                                         |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pivotSuggestions` | Consultas que substituem uma palavra “pivô” na pesquisa original por outra diferente. Por exemplo, se procurar "flores vermelhas", uma palavra pivô poderá ser "vermelhas" e uma sugestão pivô "flores amarelas". |
 | `queryExpansions`  | Consultas que reduzem a consulta original mediante a adição de mais termos. Por exemplo, se procurar "Microsoft Surface", uma expansão da consulta poderá ser "Microsoft Surface Pro".                                   |
@@ -386,19 +386,22 @@ As políticas de segurança do browser (CORS) podem impedir que o cabeçalho `X-
 > [!NOTE]
 > Numa aplicação Web de produção, deve fazer o pedido no lado do servidor mesmo assim. Caso contrário, a chave da API de Pesquisa do Bing tem de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas com a sua chave de subscrição da API, mesmo os pedidos feitos por partes não autorizadas, pelo que é importante que não revele a sua chave.
 
-Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de tal `Access-Control-Expose-Headers` procuração tem um cabeçalho que permite cabeçalhos de resposta e os coloca à disposição do JavaScript.
+Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de tal proxy tem um `Access-Control-Expose-Headers` cabeçalho que permite cabeçalhos de resposta e os coloca disponíveis para JavaScript.
 
 É fácil instalar um proxy do CORS para permitir que a nossa aplicação de tutorial aceda ao cabeçalho do ID de cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, emita o comando seguinte numa janela de comando:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Depois, altere o ponto final da Pesquisa na Web do Bing no ficheiro HTML para:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Em seguida, altere o ponto de terminação Bing Web Search no ficheiro HTML para:\
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Por fim, inicie o proxy do CORS com o comando seguinte:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 
@@ -407,6 +410,6 @@ Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se 
 > [!div class="nextstepaction"]
 > [Extrair os detalhes da Imagem com a API de Pesquisa de Imagens do Bing](tutorial-image-post.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

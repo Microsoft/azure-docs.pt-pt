@@ -3,15 +3,14 @@ title: Criar e gerir grupos de ação no portal Azure
 description: Saiba como criar e gerir grupos de ação no portal Azure.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 4/17/2020
+ms.date: 6/5/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: b88b6d1ea4b9d9fc2b33849157968ee1c2f8c620
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.openlocfilehash: dbc810ad7227d9d47099fe85e89a92c8fa750302
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170465"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465257"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal Azure
 Um grupo de ação é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure. Os alertas Azure Monitor e Service Health utilizam grupos de ação para notificar os utilizadores de que foi desencadeado um alerta. Vários alertas podem utilizar o mesmo grupo de ação ou diferentes grupos de ação, dependendo dos requisitos do utilizador. Pode configurar até 2.000 grupos de ação numa subscrição.
@@ -72,7 +71,7 @@ Depois de criar um grupo de ação, pode ver **grupos de ação** selecionando *
 > [!NOTE]
 > Consulte [os limites do serviço de subscrição para monitorização](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits) dos limites numéricos em cada um dos itens abaixo.  
 
-### <a name="automation-runbook"></a>Livro de corridas de automação
+### <a name="automation-runbook"></a>Runbook de Automatização
 Consulte os limites do [serviço de subscrição Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md) para limites nas cargas executadas.
 
 Você pode ter um número limitado de ações Runbook em um Grupo de Ação. 
@@ -106,7 +105,7 @@ Poderá ter um número limitado de ações ITSM num Grupo de Ação.
 ### <a name="logic-app"></a>Aplicação Lógica
 Você pode ter um número limitado de ações de Aplicação Lógica em um Grupo de Ação.
 
-### <a name="secure-webhook"></a>Webhook seguro
+### <a name="secure-webhook"></a>Webhook Seguro
 A ação Action Groups Webhook permite-lhe aproveitar o Azure Ative Directory para garantir a ligação entre o seu grupo de ação e a sua API web protegida (webhook endpoint). O fluxo de trabalho global para tirar partido desta funcionalidade é descrito abaixo. Para obter uma visão geral das aplicações ad da Azure e dos principais serviços, consulte a [plataforma de identidade da Microsoft (v2.0).](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
 
 1. Crie uma Aplicação AD Azure para a sua API web protegida. Consulte https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
@@ -217,7 +216,12 @@ Pode ter um número limitado de ações de voz num Grupo de Ação.
 Os preços dos países/regiões apoiados constam da página de preços do [Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>Webhook
-Os webhooks são novamente julgados utilizando as seguintes regras. A chamada webhook é novamente experimentada um máximo de 2 vezes quando os seguintes códigos de estado HTTP são devolvidos: 408, 429, 503, 504 ou o ponto final HTTP não responde. A primeira repetição ocorre ao fim de 10 segundos. A segunda repetição acontece após 100 segundos. Depois de duas falhas, nenhum grupo de ação ligará para o ponto final durante 30 minutos. 
+Webhooks são processados usando as seguintes regras
+- Uma chamada webhook é tentada no máximo 3 vezes.
+- A chamada será novamente experimentada se não for recebida uma resposta dentro do prazo de tempo ou se um dos seguintes códigos de estado HTTP for devolvido: 408, 429, 503 ou 504.
+- A primeira chamada esperará 10 segundos por uma resposta.
+- A segunda e terceira tentativas esperarão 30 segundos por uma resposta.
+- Após as 3 tentativas de ligar para o webhook, nenhum grupo de ação ligará para o ponto final durante 15 minutos.
 
 Intervalos de endereço IP de origem
  - 13.72.19.232

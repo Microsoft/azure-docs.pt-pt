@@ -1,5 +1,5 @@
 ---
-title: Azure AD B2C (Android MSAL) / Azure
+title: Azure AD B2C (MSAL Android) Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre considerações específicas ao utilizar o Azure AD B2C com a Microsoft Authentication Library para Android (MSAL). Android)
 services: active-directory
@@ -14,19 +14,18 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.openlocfilehash: 0998bb04b0dfc69db4696f2e390cfe259eba6718
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76696526"
 ---
-# <a name="use-msal-for-android-with-b2c"></a>Use MSAL para Android com B2C
+# <a name="use-msal-for-android-with-b2c"></a>Use o MSAL para Android com B2C
 
-A Microsoft Authentication Library (MSAL) permite que os desenvolvedores de aplicações autentiquem os utilizadores com identidades sociais e locais utilizando o [Azure Ative Directory B2C (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/). Azure AD B2C é um serviço de gestão de identidade. Use-o para personalizar e controlar a forma como os clientes se inscrevem, fazem o insessão e gerem os seus perfis quando utilizam as suas aplicações.
+A Microsoft Authentication Library (MSAL) permite que os desenvolvedores de aplicações autuçam os utilizadores com identidades sociais e locais utilizando [o Azure Ative Directory B2C (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/). Azure AD B2C é um serviço de gestão de identidade. Use-o para personalizar e controlar a forma como os clientes se inscrevem, se inscrevem e gerem os seus perfis quando utilizam as suas aplicações.
 
-## <a name="configure-known-authorities-and-redirect-uri"></a>Configure as autoridades conhecidas e redirecione o URI
+## <a name="configure-known-authorities-and-redirect-uri"></a>Configure as autoridades conhecidas e redirecione a URI
 
-Em MSAL para Android, as políticas B2C (viagens de utilizador) são configuradas como autoridades individuais.
+No MSAL para Android, as políticas B2C (viagens de utilizador) são configuradas como autoridades individuais.
 
 Dada uma aplicação B2C que tem duas políticas:
 - Inscrição / Inscrição
@@ -34,7 +33,7 @@ Dada uma aplicação B2C que tem duas políticas:
 - Editar Perfil
     * Chamado`B2C_1_EditProfile`
 
-O ficheiro de configuração `authorities`da aplicação declararia dois . Um para cada apólice. A `type` propriedade de cada `B2C`autoridade é.
+O ficheiro de configuração da aplicação declararia dois `authorities` . Um para cada política. A `type` propriedade de cada autoridade `B2C` é.
 
 ### `app/src/main/res/raw/msal_config.json`
 ```json
@@ -54,11 +53,11 @@ O ficheiro de configuração `authorities`da aplicação declararia dois . Um pa
 }
 ```
 
-A `redirect_uri` configuração da aplicação deve `AndroidManifest.xml` ser registada e também para apoiar a reorientação durante o fluxo de [concessão](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code)do código de autorização .
+O `redirect_uri` deve ser registado na configuração da aplicação, bem como para apoiar a `AndroidManifest.xml` reorientação durante o fluxo de [concessão](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code)de código de autorização .
 
-## <a name="initialize-ipublicclientapplication"></a>Inicializar a Aplicação IPublicClientApplication
+## <a name="initialize-ipublicclientapplication"></a>Inicializar IPublicClientApplication
 
-`IPublicClientApplication`é construído por um método de fábrica para permitir que a configuração da aplicação seja analisada de forma assíncrona.
+`IPublicClientApplication`é construído por um método de fábrica para permitir que a configuração da aplicação seja analisada assíncroneamente.
 
 ```java
 PublicClientApplication.createMultipleAccountPublicClientApplication(
@@ -81,7 +80,7 @@ PublicClientApplication.createMultipleAccountPublicClientApplication(
 
 ## <a name="interactively-acquire-a-token"></a>Adquirir interativamente um símbolo
 
-Para adquirir um símbolo interactivamente com `AcquireTokenParameters` a MSAL, `acquireToken` construa uma instância e forneça-a ao método. O pedido simbólico abaixo `default` utiliza a autoridade.
+Para adquirir um símbolo interativamente com a MSAL, construa uma `AcquireTokenParameters` instância e forneça-a ao `acquireToken` método. O pedido simbólico abaixo usa a `default` autoridade.
 
 ```java
 IMultipleAccountPublicClientApplication pca = ...; // Initialization not shown
@@ -110,9 +109,9 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
 pca.acquireToken(parameters);
 ```
 
-## <a name="silently-renew-a-token"></a>Renovar silenciosamente um símbolo
+## <a name="silently-renew-a-token"></a>Silenciosamente renovar um símbolo
 
-Para adquirir um símbolo silenciosamente com a `AcquireTokenSilentParameters` MSAL, `acquireTokenSilentAsync` construa uma instância e forneça-a ao método. Ao `acquireToken` contrário do `authority` método, o deve ser especificado para adquirir um símbolo silenciosamente.
+Para adquirir um símbolo silenciosamente com a MSAL, construa uma `AcquireTokenSilentParameters` instância e forneça-a ao `acquireTokenSilentAsync` método. Ao contrário do `acquireToken` método, `authority` o deve ser especificado para adquirir um símbolo silenciosamente.
 
 ```java
 IMultilpeAccountPublicClientApplication pca = ...; // Initialization not shown
@@ -139,7 +138,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>Especificar uma política
 
-Dado que as políticas em B2C são representadas como autoridades separadas, `fromAuthority` invocar uma `acquireToken` política `acquireTokenSilent` diferente do incumprimento é alcançada especificando uma cláusula na construção ou parâmetros.  Por exemplo:
+Uma vez que as políticas em B2C são representadas como autoridades separadas, invocar uma política que não o padrão é conseguida especificando uma `fromAuthority` cláusula na construção `acquireToken` ou `acquireTokenSilent` parâmetros.  Por exemplo:
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
@@ -151,13 +150,13 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
     .build();
 ```
 
-## <a name="handle-password-change-policies"></a>Lidar com as políticas de mudança de palavra-passe
+## <a name="handle-password-change-policies"></a>Lidar com políticas de mudança de senha
 
-O sinal de inscrição ou fluxo de utilizador de entrada de conta local mostra uma**palavra-passe esquecida?** link. Clicar neste link não despoleta automaticamente um fluxo de utilizador de redefinição de palavra-passe.
+A inscrição na conta local ou o fluxo de utilizador de entrada mostra uma **' Palavra-passe esquecida?** ligação. Clicar neste link não aciona automaticamente o fluxo do utilizador de redefinição de palavra-passe.
 
-Em vez disso, o código `AADB2C90118` de erro é devolvido à sua aplicação. A sua aplicação deve lidar com este código de erro executando um fluxo específico do utilizador que redefine a palavra-passe.
+Em vez disso, o código de erro `AADB2C90118` é devolvido à sua aplicação. A sua aplicação deve lidar com este código de erro executando um fluxo de utilizador específico que reinicie a palavra-passe.
 
-Para capturar um código de erro de redefinição `AuthenticationCallback`de palavra-passe, a seguinte implementação pode ser utilizada no interior do seu:
+Para capturar um código de erro de redefinição de palavra-passe, pode ser utilizada a seguinte implementação dentro do seu `AuthenticationCallback` :
 
 ```java
 new AuthenticationCallback() {
@@ -183,9 +182,9 @@ new AuthenticationCallback() {
 }
 ```
 
-## <a name="use-iauthenticationresult"></a>Utilizar iAuthenticationResult
+## <a name="use-iauthenticationresult"></a>Utilizar IAuthenticationResult
 
-Uma aquisição simbólica bem `IAuthenticationResult` sucedida resulta num objeto. Contém o sinal de acesso, reclamações de utilizadores e metadados.
+Uma aquisição de fichas bem sucedida resulta num `IAuthenticationResult` objeto. Contém o token de acesso, reclamações de utilizador e metadados.
 
 ### <a name="get-the-access-token-and-related-properties"></a>Obtenha o token de acesso e propriedades relacionadas
 
@@ -225,18 +224,18 @@ String username = account.getUsername();
 String tenantId = account.getTenantId();
 ```
 
-### <a name="idtoken-claims"></a>Reclamações idToken
+### <a name="idtoken-claims"></a>IdToken reclama
 
-As reclamações devolvidas no IdToken são povoadas pelo Serviço de Token de Segurança (STS), e não pela MSAL. Dependendo do fornecedor de identidade (IdP) utilizado, algumas reclamações podem estar ausentes. Alguns idPs não fornecem `preferred_username` atualmente a reclamação. Porque esta alegação é usada pela MSAL para `MISSING FROM THE TOKEN RESPONSE`o cache, um valor de espaço reservado, é usada no seu lugar. Para obter mais informações sobre as alegações do IdToken b2C, consulte a [visão geral das fichas no Diretório Ativo Azure B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
+As reclamações devolvidas no IdToken são povoadas pelo Serviço de Token de Segurança (STS), e não pela MSAL. Dependendo do fornecedor de identidade (IdP) utilizado, algumas reclamações podem estar ausentes. Alguns IDPs não fornecem a `preferred_username` reclamação. Uma vez que esta alegação é utilizada pela MSAL para caching, um valor de espaço `MISSING FROM THE TOKEN RESPONSE` reservado, é usado no seu lugar. Para obter mais informações sobre as reclamações do B2C IdToken, consulte [a visão geral dos tokens no Azure Ative Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
 
 ## <a name="managing-accounts-and-policies"></a>Gestão de contas e políticas
 
-B2C trata cada política como uma autoridade separada. Assim, os tokens de acesso, fichas de atualização e fichas de identificação devolvidas de cada apólice não são permutáveis. Isto significa que cada `IAccount` política devolve um objeto separado cujos tokens não podem ser usados para invocar outras políticas.
+B2C trata cada política como uma autoridade separada. Assim, os tokens de acesso, tokens de atualização e fichas de identificação devolvidas de cada política não são permutáveis. Isto significa que cada política devolve um objeto separado `IAccount` cujos símbolos não podem ser usados para invocar outras políticas.
 
-Cada apólice `IAccount` adiciona uma cache para cada utilizador. Se um utilizador assinar uma aplicação e invocar duas `IAccount`políticas, terá dois s. Para remover este utilizador da cache, deve solicitar `removeAccount()` cada apólice.
+Cada política adiciona uma `IAccount` cache para cada utilizador. Se um utilizador assinar uma aplicação e invocar duas apólices, terá duas `IAccount` s. Para remover este utilizador da cache, tem de pedir `removeAccount()` cada apólice.
 
-Quando renovar os símbolos para `acquireTokenSilent`uma política `IAccount` com , fornecer o mesmo que `AcquireTokenSilentParameters`foi devolvido de invocações anteriores da política para . O fornecimento de uma conta devolvida por outra política resultará num erro.
+Quando renovar os tokens para uma política com `acquireTokenSilent` , forneça o mesmo que foi devolvido de `IAccount` invocações anteriores da apólice para `AcquireTokenSilentParameters` . Fornecer uma conta devolvida por outra apólice resultará num erro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o Azure Ative Directory B2C (Azure AD B2C) no [What is Azure Ative Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)

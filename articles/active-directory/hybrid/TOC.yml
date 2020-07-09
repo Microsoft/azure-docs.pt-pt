@@ -188,6 +188,8 @@
       items:
         - name: Ativar a repetição de escrita do dispositivo
           href: how-to-connect-device-writeback.md
+        - name: Ativar repetição de escrita do grupo
+          href: how-to-connect-group-writeback.md
         - name: Opções do dispositivo
           href: how-to-connect-device-options.md
         - name: Funcionalidades adicionais no Azure AD Connect

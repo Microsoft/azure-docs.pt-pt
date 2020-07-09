@@ -1,19 +1,18 @@
 ---
-title: Tecido de serviço Azure CLI- volume de malha sfctl
-description: Conheça o sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para obter e apagar recursos de volume.
+title: Volume de malha CLI-sfctl de tecido de serviço Azure
+description: Saiba mais sobre o sfctl, a interface de linha de comando do Azure Service Fabric. Inclui uma lista de comandos para obter e apagar recursos de volume.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 0e5ba1a311bd0480c56ee40edf01fc13ec01664a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76905905"
 ---
 # <a name="sfctl-mesh-volume"></a>sfctl mesh volume
-Obtenha e elimine os recursos de volume.
+Obter e apagar recursos de volume.
 
 ## <a name="commands"></a>Comandos
 
@@ -21,7 +20,7 @@ Obtenha e elimine os recursos de volume.
 | --- | --- |
 | delete | Elimina o recurso Volume. |
 | list | Lista todos os recursos de volume. |
-| Mostrar | Obtém o recurso Volume com o nome dado. |
+| Mostrar | Obtém o recurso Volume com o nome próprio. |
 
 ## <a name="sfctl-mesh-volume-delete"></a>sfctl volume de malha eliminar
 Elimina o recurso Volume.
@@ -38,11 +37,11 @@ Elimina o recurso Volume identificado pelo nome.
 
 |Argumento|Descrição|
 | --- | --- |
-| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
-| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
-| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
-| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
+| --output -o | Formato de saída.  Valores permitidos \: json, jsonc, mesa, tsv.  \:Json padrão. |
+| -consulta | Cadeia de consulta JMESPath. Consulte http \: //jmespath.org/ para obter mais informações e exemplos. |
+| -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 ## <a name="sfctl-mesh-volume-list"></a>lista de volume de malha sfctl
 Lista todos os recursos de volume.
@@ -53,16 +52,16 @@ Obtém a informação sobre todos os recursos de volume num determinado grupo de
 
 |Argumento|Descrição|
 | --- | --- |
-| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
-| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
-| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
-| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
+| --output -o | Formato de saída.  Valores permitidos \: json, jsonc, mesa, tsv.  \:Json padrão. |
+| -consulta | Cadeia de consulta JMESPath. Consulte http \: //jmespath.org/ para obter mais informações e exemplos. |
+| -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
-## <a name="sfctl-mesh-volume-show"></a>sfctl malha volume mostrar
-Obtém o recurso Volume com o nome dado.
+## <a name="sfctl-mesh-volume-show"></a>sfctl show de volume de malha
+Obtém o recurso Volume com o nome próprio.
 
-Obtém a informação sobre o recurso Volume com o nome dado. As informações incluem a descrição e outras propriedades do Volume.
+Obtém a informação sobre o recurso Volume com o nome próprio. As informações incluem a descrição e outras propriedades do Volume.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -74,13 +73,13 @@ Obtém a informação sobre o recurso Volume com o nome dado. As informações i
 
 |Argumento|Descrição|
 | --- | --- |
-| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
-| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
-| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
-| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
+| --output -o | Formato de saída.  Valores permitidos \: json, jsonc, mesa, tsv.  \:Json padrão. |
+| -consulta | Cadeia de consulta JMESPath. Consulte http \: //jmespath.org/ para obter mais informações e exemplos. |
+| -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 
-## <a name="next-steps"></a>Passos seguintes
-- [Instale](service-fabric-cli.md) o CLI de tecido de serviço.
-- Aprenda a utilizar o CLI de tecido de serviço utilizando as [scripts de amostra](/azure/service-fabric/scripts/sfctl-upgrade-application).
+## <a name="next-steps"></a>Próximos passos
+- [Configurar](service-fabric-cli.md) o CLI de Tecido de Serviço.
+- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](/azure/service-fabric/scripts/sfctl-upgrade-application)da amostra .

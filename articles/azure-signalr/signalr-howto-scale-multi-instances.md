@@ -1,30 +1,29 @@
 ---
-title: Escala com múltiplas instâncias - Serviço De Sinalização Azure
-description: Em muitos cenários de escala, o cliente muitas vezes precisa fornecer múltiplas instâncias e configurar para usá-los juntos, para criar uma implementação em larga escala. Por exemplo, sharding requer apoio de vários casos.
+title: Escala com múltiplas instâncias - Serviço Azure SignalR
+description: Em muitos cenários de escala, o cliente precisa muitas vezes de providenciar múltiplas instâncias e configurar para usá-los em conjunto, para criar uma implementação em larga escala. Por exemplo, o fragmento requer suporte de múltiplas instâncias.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: zhshang
 ms.openlocfilehash: 43d703312cbc1fc067a2d51d5623ed028ba01405
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74158155"
 ---
-# <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Como escalar o Serviço SignalR com múltiplas instâncias?
-O mais recente SignalR Service SDK suporta vários pontos finais para as instâncias do Serviço SignalR. Pode utilizar esta funcionalidade para escalar as ligações simultâneas ou usá-la para mensagens transversais.
+# <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Como escalar o Serviço SignalR com várias instâncias?
+O mais recente Serviço SignalR SDK suporta vários pontos finais para instâncias do Serviço SignalR. Pode utilizar esta funcionalidade para escalar as ligações simultâneas ou usá-la para mensagens transversais.
 
-## <a name="for-aspnet-core"></a>Para ASP.NET Core
+## <a name="for-aspnet-core"></a>Para ASP.NET Núcleo
 
 ### <a name="how-to-add-multiple-endpoints-from-config"></a>Como adicionar vários pontos finais da config?
 
-Config com `Azure:SignalR:ConnectionString` `Azure:SignalR:ConnectionString:` chave ou para a cadeia de ligação signalR service.
+Config com a chave `Azure:SignalR:ConnectionString` ou para a cadeia de `Azure:SignalR:ConnectionString:` ligação SignalR Service.
 
-Se a chave `Azure:SignalR:ConnectionString:`começar com, `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`deve `Name` estar `EndpointType` em formato, onde e são propriedades do `ServiceEndpoint` objeto, e estão acessíveis a partir do código.
+Se a chave começar `Azure:SignalR:ConnectionString:` com , deve estar em formato , onde e são propriedades do `Azure:SignalR:ConnectionString:{Name}:{EndpointType}` `Name` `EndpointType` `ServiceEndpoint` objeto, e são acessíveis a partir de código.
 
-Pode adicionar cordas de ligação `dotnet` de várias instâncias utilizando os seguintes comandos:
+Pode adicionar cadeias de ligação de vários casos utilizando os `dotnet` seguintes comandos:
 
 ```batch
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-a <ConnectionString1>
@@ -34,8 +33,8 @@ dotnet user-secrets set Azure:SignalR:ConnectionString:backup:secondary <Connect
 
 ### <a name="how-to-add-multiple-endpoints-from-code"></a>Como adicionar vários pontos finais do código?
 
-Uma `ServicEndpoint` classe é introduzida para descrever as propriedades de um ponto final do Serviço De Sinalização Azure.
-Pode configurar vários pontos finais de instância ao utilizar o Serviço De Sinalização Azure SDK através de:
+Uma `ServicEndpoint` classe é introduzida para descrever as propriedades de um ponto final do Serviço Azure SignalR.
+Pode configurar vários pontos finais de instâncias ao utilizar o Serviço Azure SignalR SDK através de:
 ```cs
 services.AddSignalR()
         .AddAzureSignalR(options => 
@@ -53,23 +52,23 @@ services.AddSignalR()
         });
 ```
 
-### <a name="how-to-customize-endpoint-router"></a>Como personalizar o router endpoint?
+### <a name="how-to-customize-endpoint-router"></a>Como personalizar o router de pontos finais?
 
-Por predefinição, o SDK utiliza o [DefaultEndpointRouter](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR/EndpointRouters/DefaultEndpointRouter.cs) para captar pontos finais.
+Por predefinição, o SDK utiliza o [DefaultEndpointRouter](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR/EndpointRouters/DefaultEndpointRouter.cs) para apanhar pontos de final.
 
 #### <a name="default-behavior"></a>Comportamento predefinido 
-1. Encaminhamento de pedidos de cliente
+1. Encaminhamento de pedido de cliente
 
-    Quando `/negotiate` cliente com o servidor de aplicações. Por predefinição, o SDK **seleciona aleatoriamente** um ponto final do conjunto de pontos finais de serviço disponíveis.
+    Quando o cliente `/negotiate` com o servidor de aplicações. Por predefinição, a SDK **seleciona aleatoriamente** um ponto final a partir do conjunto de pontos finais de serviço disponíveis.
 
-2. Encaminhamento de mensagem do servidor
+2. Encaminhamento de mensagens de servidor
 
-    Quando *enviando mensagem para uma ligação específica ****** e a ligação do alvo é encaminhada para o servidor atual, a mensagem vai diretamente para esse ponto final conectado. Caso contrário, as mensagens são transmitidas para todos os pontos finais do Azure SignalR.
+    Quando *enviar mensagem para uma ligação específica *****, e a ligação do alvo é encaminhada para o servidor atual, a mensagem vai diretamente para esse ponto final ligado. Caso contrário, as mensagens são transmitidas para todos os pontos finais do Azure SignalR.
 
 #### <a name="customize-routing-algorithm"></a>Personalizar algoritmo de encaminhamento
 Pode criar o seu próprio router quando tiver conhecimentos especiais para identificar quais os pontos finais a que as mensagens devem ir.
 
-Um router personalizado é definido abaixo como `east-` um exemplo quando os `east`grupos que começam com sempre vão para o ponto final chamado:
+Um router personalizado é definido abaixo como um exemplo quando os grupos que começam com `east-` sempre vão para o ponto final chamado `east` :
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -87,7 +86,7 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-Outro exemplo abaixo, que sobrepõe o comportamento de negociação padrão, para selecionar os pontos finais depende do local onde o servidor da aplicação está localizado.
+Outro exemplo abaixo, que substitui o comportamento de negociação padrão, para selecionar os pontos finais depende de onde o servidor da aplicação está localizado.
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -110,7 +109,7 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-Não se esqueça de registar o router no recipiente DI utilizando:
+Não se esqueça de registar o router para o contentor DI utilizando:
 
 ```cs
 services.AddSingleton(typeof(IEndpointRouter), typeof(CustomRouter));
@@ -127,15 +126,15 @@ services.AddSignalR()
             });
 ```
 
-## <a name="for-aspnet"></a>Por ASP.NET
+## <a name="for-aspnet"></a>Para ASP.NET
 
 ### <a name="how-to-add-multiple-endpoints-from-config"></a>Como adicionar vários pontos finais da config?
 
-Config com `Azure:SignalR:ConnectionString` `Azure:SignalR:ConnectionString:` chave ou para a cadeia de ligação signalR service.
+Config com a chave `Azure:SignalR:ConnectionString` ou para a cadeia de `Azure:SignalR:ConnectionString:` ligação SignalR Service.
 
-Se a chave `Azure:SignalR:ConnectionString:`começar com, `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`deve `Name` estar `EndpointType` em formato, onde e são propriedades do `ServiceEndpoint` objeto, e estão acessíveis a partir do código.
+Se a chave começar `Azure:SignalR:ConnectionString:` com , deve estar em formato , onde e são propriedades do `Azure:SignalR:ConnectionString:{Name}:{EndpointType}` `Name` `EndpointType` `ServiceEndpoint` objeto, e são acessíveis a partir de código.
 
-Pode adicionar cordas de ligação de várias instâncias a: `web.config`
+Pode adicionar cadeias de conexão de vários casos `web.config` a:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -152,8 +151,8 @@ Pode adicionar cordas de ligação de várias instâncias a: `web.config`
 
 ### <a name="how-to-add-multiple-endpoints-from-code"></a>Como adicionar vários pontos finais do código?
 
-Uma `ServicEndpoint` classe é introduzida para descrever as propriedades de um ponto final do Serviço De Sinalização Azure.
-Pode configurar vários pontos finais de instância ao utilizar o Serviço De Sinalização Azure SDK através de:
+Uma `ServicEndpoint` classe é introduzida para descrever as propriedades de um ponto final do Serviço Azure SignalR.
+Pode configurar vários pontos finais de instâncias ao utilizar o Serviço Azure SignalR SDK através de:
 
 ```cs
 app.MapAzureSignalR(
@@ -173,9 +172,9 @@ app.MapAzureSignalR(
 
 ### <a name="how-to-customize-router"></a>Como personalizar o router?
 
-A única diferença entre ASP.NET SignalR e ASP.NET Core `GetNegotiateEndpoint`SignalR é o tipo de contexto http para . Para ASP.NET SignalR, é do tipo [IOwinContext.](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.AspNet/EndpointRouters/DefaultEndpointRouter.cs#L19)
+A única diferença entre ASP.NET SignalR e ASP.NET Core SignalR é o tipo de contexto http para `GetNegotiateEndpoint` . Para ASP.NET SignalR, é do tipo [IOwinContext.](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.AspNet/EndpointRouters/DefaultEndpointRouter.cs#L19)
 
-Abaixo está o exemplo de negociação personalizado para ASP.NET SignalR:
+Abaixo está o exemplo de negociação personalizada para ASP.NET SignalR:
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -197,7 +196,7 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-Não se esqueça de registar o router no recipiente DI utilizando:
+Não se esqueça de registar o router para o contentor DI utilizando:
 
 ```cs
 var hub = new HubConfiguration();
@@ -213,33 +212,33 @@ app.MapAzureSignalR(GetType().FullName, hub, options => {
 });
 ```
 
-## <a name="configuration-in-cross-region-scenarios"></a>Configuração em cenários transversais
+## <a name="configuration-in-cross-region-scenarios"></a>Configuração em cenários de região cruzada
 
-O `ServiceEndpoint` objeto `EndpointType` tem uma `primary` `secondary`propriedade com valor ou .
+O `ServiceEndpoint` objeto tem uma propriedade com valor ou `EndpointType` `primary` `secondary` .
 
-`primary`os pontos finais são pontos finais preferidos para receber o tráfego do cliente, e são considerados como tendo ligações de rede mais fiáveis; `secondary` os pontos finais são considerados como tendo ligações de rede menos fiáveis e são usados apenas para levar o servidor ao tráfego do cliente, por exemplo, mensagens de radiodifusão, não para levar o cliente ao tráfego do servidor.
+`primary`os pontos finais são os pontos finais preferidos para receber o tráfego do cliente, e são considerados como tendo ligações de rede mais fiáveis; `secondary`os pontos finais são considerados como tendo ligações de rede menos fiáveis e são usados apenas para levar o servidor ao tráfego do cliente, por exemplo, mensagens de transmissão, não para levar o cliente ao tráfego de servidores.
 
-Em casos transversais, a rede pode ser instável. Para um servidor de aplicações localizado no *Leste dos EUA,* o ponto final `primary` do SignalR Service localizado na mesma região leste dos *EUA* pode ser configurado como e pontos finais em outras regiões marcadas como `secondary`. Nesta configuração, os pontos finais do serviço noutras regiões podem **receber** mensagens deste servidor de aplicações *dos EUA Orientais,* mas não haverá clientes **transversais** encaminhados para este servidor de aplicações. A arquitetura é mostrada no diagrama abaixo:
+Em casos transversais, a rede pode ser instável. Para um servidor de aplicações localizado no *Leste dos EUA,* o ponto final do Serviço SignalR localizado na mesma região *leste dos EUA* pode ser configurado como `primary` pontos finais em outras regiões marcadas como `secondary` . Nesta configuração, os pontos finais de serviço noutras regiões podem **receber** mensagens deste servidor de aplicações *dos EUA,* mas não haverá clientes **de região cruzada** encaminhados para este servidor de aplicações. A arquitetura é mostrada no diagrama abaixo:
 
-![Infra-geo-transversal](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
+![Infra-Geo Transversal](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
 
-Quando um `/negotiate` cliente tenta com o servidor de aplicações, com o router predefinido, `primary` o SDK **seleciona aleatoriamente** um ponto final do conjunto de pontos finais disponíveis. Quando o ponto final primário não está disponível, o SDK **seleciona aleatoriamente** de todos os pontos finais disponíveis. `secondary` O ponto final é marcado como **disponível** quando a ligação entre o servidor e o ponto final do serviço está viva.
+Quando um cliente tenta `/negotiate` com o servidor de aplicações, com o router predefinido, o SDK **seleciona aleatoriamente** um ponto final a partir do conjunto de `primary` pontos finais disponíveis. Quando o ponto final principal não está disponível, o SDK **seleciona aleatoriamente** de todos os `secondary` pontos finais disponíveis. O ponto final é marcado como **disponível** quando a ligação entre o servidor e o ponto final de serviço está viva.
 
-No cenário transversal, quando um `/negotiate` cliente tenta com o servidor de aplicações `primary` hospedado no Leste dos *EUA,* por padrão, devolve sempre o ponto final localizado na mesma região. Quando todos os pontos finais *dos EUA Não* estão disponíveis, o cliente é redirecionado para pontos finais noutras regiões. A secção de falha abaixo descreve o cenário em detalhe.
+Em cenário inter-região, quando um cliente tenta `/negotiate` com o servidor de aplicações alojado no Leste dos *EUA,* por padrão, devolve sempre o `primary` ponto final localizado na mesma região. Quando todos os pontos finais *do Leste dos EUA* não estão disponíveis, o cliente é redirecionado para pontos finais noutras regiões. A secção de insusição abaixo descreve o cenário em detalhe.
 
 ![Negociação Normal](./media/signalr-howto-scale-multi-instances/normal_negotiate.png)
 
-## <a name="fail-over"></a>Falha
+## <a name="fail-over"></a>Repse-over
 
-Quando `primary` todos os pontos finais `/negotiate` não estão `secondary` disponíveis, as escolhas do cliente dos pontos finais disponíveis. Este mecanismo de falha requer que cada `primary` ponto final sirva de ponto final para pelo menos um servidor de aplicações.
+Quando todos os `primary` pontos finais não estão disponíveis, as escolhas do cliente `/negotiate` entre os `secondary` pontos finais disponíveis. Este mecanismo de falha requer que cada ponto final sirva como `primary` ponto final para pelo menos um servidor de aplicações.
 
-![Falha](./media/signalr-howto-scale-multi-instances/failover_negotiate.png)
+![Repse-over](./media/signalr-howto-scale-multi-instances/failover_negotiate.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste guia, aprendeu a configurar múltiplos casos na mesma aplicação para cenários de escala, sharding e cross-region.
+Neste guia, aprendeu sobre como configurar várias instâncias na mesma aplicação para cenários de escala, fragmentos e cross-region.
 
 Vários suportes de pontos finais também podem ser usados em cenários de alta disponibilidade e recuperação de desastres.
 
 > [!div class="nextstepaction"]
-> [Serviço de Sinalização de Configuração para recuperação de desastres e elevada disponibilidade](./signalr-concept-disaster-recovery.md)
+> [Serviço SignalR de configuração para recuperação de desastres e alta disponibilidade](./signalr-concept-disaster-recovery.md)

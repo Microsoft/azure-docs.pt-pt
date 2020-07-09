@@ -1,32 +1,32 @@
 ---
 title: Adquirir um símbolo da cache (MSAL.NET)
 titleSuffix: Microsoft identity platform
-description: Aprenda a adquirir um token de acesso silenciosamente (a partir da cache simbólica) utilizando a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET).
+description: Aprenda a adquirir um símbolo de acesso silenciosamente (a partir da cache simbólica) utilizando a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
 author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 90189a1d7fd6421b7a24940e8c6ed615fa0df6d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4e60e7e6a16b3e526d2f1581bfa145b74e5da01
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77084831"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477503"
 ---
 # <a name="get-a-token-from-the-token-cache-using-msalnet"></a>Obtenha um símbolo da cache simbólica usando MSAL.NET
 
-Quando adquire um sinal de acesso utilizando a Microsoft Authentication Library para .NET (MSAL.NET), o token está em cache. Quando o pedido precisa de um símbolo, deve primeiro chamar o `AcquireTokenSilent` método para verificar se um token aceitável está na cache. Em muitos casos, é possível adquirir outro símbolo com mais âmbitos baseados num símbolo na cache. Também é possível refrescar um símbolo quando está perto da expiração (como a cache token também contém um token refrescante).
+Quando adquire um token de acesso utilizando a Microsoft Authentication Library para .NET (MSAL.NET), o token está em cache. Quando a aplicação precisa de um token, deve primeiro ligar para o `AcquireTokenSilent` método para verificar se um símbolo aceitável está na cache. Em muitos casos, é possível adquirir outro token com mais miras baseadas num símbolo na cache. Também é possível refrescar um token quando está perto de expirar (como a cache simbólica também contém um token de atualização).
 
-O padrão recomendado é `AcquireTokenSilent` chamar o método primeiro.  Se `AcquireTokenSilent` falhar, adquira um símbolo utilizando outros métodos.
+O padrão recomendado é chamar o `AcquireTokenSilent` método primeiro.  Se `AcquireTokenSilent` falhar, então adquira um símbolo utilizando outros métodos.
 
-No exemplo seguinte, a aplicação tenta primeiro adquirir um símbolo da cache simbólica.  Se `MsalUiRequiredException` for aberta uma exceção, a aplicação adquire um símbolo interactivamente. 
+No exemplo seguinte, a aplicação tenta adquirir um símbolo a partir da cache simbólica.  Se for lançada uma `MsalUiRequiredException` exceção, a aplicação adquire um símbolo interativamente. 
 
 ```csharp
 AuthenticationResult result = null;

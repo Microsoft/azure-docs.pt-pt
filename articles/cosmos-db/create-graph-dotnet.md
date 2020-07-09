@@ -1,5 +1,5 @@
 ---
-title: Construa um Quadro Azure Cosmos DB .NET, aplicação core utilizando a API Gremlin
+title: Construir um Quadro Azure Cosmos DB .NET, aplicação core utilizando a API Gremlin
 description: Apresenta um exemplo de código .NET Framework/Core que pode utilizar para ligar e consultar o Azure Cosmos DB
 author: luisbosquez
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: lbosq
-ms.openlocfilehash: bf453587b354b5db3f3ef1a80f974bcb8f8f4e14
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a85df3e437f2c1ec93996cdaacfccadeaa47cc99
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81730024"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118258"
 ---
-# <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Quickstart: Construa uma aplicação .NET Framework ou Core utilizando a conta API Azure Cosmos DB Gremlin
+# <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Quickstart: Construir uma aplicação .NET Framework ou Core utilizando a conta API API AZure Cosmos DB Gremlin
 
 > [!div class="op_single_selector"]
 > * [Consola do Gremlin](create-graph-gremlin-console.md)
@@ -28,11 +28,11 @@ ms.locfileid: "81730024"
 
 O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
 
-Este quickstart demonstra como criar uma conta API Azure Cosmos DB [Gremlin,](graph-introduction.md) base de dados e gráfico (recipiente) usando o portal Azure. Em seguida, irá criar e executar uma aplicação de consola com o controlador open-source [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
+Este quickstart demonstra como criar uma conta API AZure Cosmos DB [Gremlin,](graph-introduction.md) base de dados e gráfico (recipiente) utilizando o portal Azure. Em seguida, irá criar e executar uma aplicação de consola com o controlador open-source [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se ainda não tiver o Visual Studio 2019 instalado, pode descarregar e utilizar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) **gratuito.** Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
+Se ainda não tiver o Visual Studio 2019 instalado, **free** pode baixar e utilizar a [Edição Comunitária visual 2019 gratuita do Visual Studio 2019.](https://www.visualstudio.com/downloads/) Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -83,19 +83,19 @@ Este passo é opcional. Se estiver interessado em aprender de que forma os recur
 
 Os seguintes fragmentos são retirados do ficheiro Program.cs.
 
-* Defina os parâmetros de ligação com base na conta acima criada: 
+* Desaça os parâmetros de ligação com base na conta acima criada: 
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="configureConnectivity":::
 
-* Os comandos Gremlin a executar estão listados num Dicionário:
+* Os comandos gremlin a serem executados estão listados num Dicionário:
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="defineQueries":::
 
-* Criar novos `GremlinServer` `GremlinClient` objetos de ligação utilizando os parâmetros acima fornecidos:
+* Criar um objeto novo `GremlinServer` e `GremlinClient` de ligação utilizando os parâmetros acima indicados:
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="defineClientandServerObjects":::
 
-* Execute cada consulta de Gremlin utilizando o `GremlinClient` objeto com uma tarefa de sincronização. Pode ler as consultas de Gremlin do dicionário definidas no passo anterior e executá-las. Mais tarde obtenha o resultado e leia os valores, `JsonSerializer` que são formatados como um dicionário, usando a classe do pacote Newtonsoft.Json:
+* Execute cada consulta gremlin usando o `GremlinClient` objeto com uma tarefa assídua. Pode ler as consultas de Gremlin a partir do dicionário definido no passo anterior e executá-las. Mais tarde obtenha o resultado e leia os valores, que são formatados como um dicionário, usando a `JsonSerializer` classe de Newtonsoft.Jsem pacote:
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="executeQueries":::
 
@@ -105,24 +105,24 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 1. A partir do [portal do Azure](https://portal.azure.com/), navegue até à sua conta da base de dados de gráficos. No separador **Descrição geral**, pode ver dois pontos finais- 
  
-   **.NET SDK URI** - Este valor é utilizado quando se conecta à conta de gráfico utilizando a biblioteca Microsoft.Azure.Graphs. 
+   **.NET SDK URI** - Este valor é utilizado quando se liga à conta de gráfico utilizando a biblioteca Microsoft.Azure.Graphs. 
 
    **Ponto final do Gremlin** – Este valor é utilizado quando se liga à conta de gráficos através da biblioteca de Gremlin.Net.
 
-    ![Copiar o ponto final](./media/create-graph-dotnet/endpoint.png)
+    :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copiar o ponto final":::
 
-   Para executar esta amostra, copie o valor **gremlin Endpoint,** elimine `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`o número da porta no final, ou seja, o URI torna-se . O valor final deve parecer`testgraphacct.gremlin.cosmosdb.azure.com`
+   Para executar esta amostra, copie o valor **gremlin Endpoint,** elimine o número de porta no final, ou seja, o URI torna-se `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com` . O valor do ponto final deve parecer`testgraphacct.gremlin.cosmosdb.azure.com`
 
-1. Em seguida, navegue para o separador **Keys** e **copie** o valor CHAVE PRIMÁRIO do portal Azure. 
+1. Em seguida, navegue no separador **Chaves** e copie o valor **KEY PRINCIPAL** a partir do portal Azure. 
 
-1. Depois de ter copiado a CHAVE URI e PRIMÁRIA da sua conta, guarde-as para uma nova variável ambiental na máquina local que executa a aplicação. Para definir a variável ambiental, abra uma janela de comando rápida e execute o seguinte comando. Certifique-se de substituir <Your_Azure_Cosmos_account_URI Your_Azure_Cosmos_account_URI> e <Your_Azure_Cosmos_account_PRIMARY_KEY valores>.
+1. Depois de copiar o URI e a CHAVE PRIMÁRIA da sua conta, guarde-os para uma nova variável ambiental na máquina local que executa a aplicação. Para definir a variável ambiente, abra uma janela de ordem de comando e execute o seguinte comando. Certifique-se de que substitui os valores <Your_Azure_Cosmos_account_URI> e <Your_Azure_Cosmos_account_PRIMARY_KEY>.
 
    ```console
    setx EndpointUrl "<your Azure Cosmos account name>.gremlin.cosmosdb.azure.com"
    setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
    ```
 
-1. Abra o ficheiro *Program.cs* e atualize as variáveis "base de dados e "contentores" com os nomes da base de dados e do contentor (que é também o nome do gráfico) acima criados.
+1. Abra o ficheiro *Program.cs* e atualize as variáveis "base de dados e contentores" com os nomes da base de dados e do recipiente (que também é o nome do gráfico) criado acima.
 
     `private static string database = "your-database-name";` `private static string container = "your-container-or-graph-name";`
 
@@ -146,7 +146,7 @@ Agora, pode voltar ao Data Explorer no portal do Azure e procurar e consultar os
 
     Pode ampliar e reduzir o gráfico, expandir o espaço de visualização do gráfico, adicionar mais vértices e mover vértices na superfície de visualização.
 
-    ![Ver o gráfico no Data Explorer no portal do Azure](./media/create-graph-dotnet/graph-explorer.png)
+    :::image type="content" source="./media/create-graph-dotnet/graph-explorer.png" alt-text="Ver o gráfico no Data Explorer no portal do Azure":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 

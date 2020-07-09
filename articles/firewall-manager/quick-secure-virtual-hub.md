@@ -1,27 +1,27 @@
 ---
-title: 'Quickstart: Secure virtual hub usando Azure Firewall Manager Preview - Modelo de gestor de recursos'
-description: Saiba como proteger o seu hub virtual utilizando a pré-visualização do Azure Firewall Manager.
+title: 'Quickstart: Secure virtual hub usando Azure Firewall Manager - Modelo de Gestor de Recursos'
+description: Saiba como proteger o seu hub virtual utilizando o Azure Firewall Manager.
 services: firewall-manager
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 05/19/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 9c51fdb5142159e390ac4fcf59a04aa3dd747469
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 6641cc29025d39ddff33e706dd9b1b0da517b884
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167201"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563690"
 ---
 # <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>Quickstart: Fixe o seu hub virtual usando o Azure Firewall Manager - Modelo de Gestor de Recursos
 
-Neste arranque rápido, utiliza um modelo de Gestor de Recursos para proteger o seu hub virtual utilizando a pré-visualização do Azure Firewall Manager. A firewall implantada tem uma regra de aplicação que permite ligações a `www.microsoft.com` . Duas máquinas virtuais do Windows Server 2019 são implementadas para testar a firewall. Um servidor de salto é utilizado para ligar ao servidor de carga de trabalho. A partir do servidor de carga de trabalho, só é possível ligar-se a `www.microsoft.com` .
+Neste arranque rápido, utilize um modelo de Gestor de Recursos para proteger o seu hub virtual utilizando o Azure Firewall Manager. A firewall implantada tem uma regra de aplicação que permite ligações a `www.microsoft.com` . Duas máquinas virtuais do Windows Server 2019 são implementadas para testar a firewall. Um servidor de salto é utilizado para ligar ao servidor de carga de trabalho. A partir do servidor de carga de trabalho, só é possível ligar-se a `www.microsoft.com` .
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Para mais informações sobre a pré-visualização do Azure Firewall Manager, consulte [o que é a pré-visualização do Azure Firewall Manager?](overview.md)
+Para mais informações sobre o Azure Firewall Manager, veja [o que é O Gestor de Firewall da Azure?](overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,11 +29,11 @@ Para mais informações sobre a pré-visualização do Azure Firewall Manager, c
 
 ## <a name="create-a-secured-virtual-hub"></a>Criar um hub virtual seguro
 
-Este modelo cria um hub virtual seguro usando a preview do Azure Firewall Manager, juntamente com os recursos necessários para suportar o cenário.
+Este modelo cria um hub virtual seguro usando o Azure Firewall Manager, juntamente com os recursos necessários para suportar o cenário.
 
-### <a name="review-the-template"></a>Reveja o modelo
+### <a name="review-the-template"></a>Rever o modelo
 
-O modelo utilizado neste arranque rápido é de [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
+O modelo utilizado neste início rápido pertence aos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
 
 :::code language="json" source="~/quickstart-templates/fwm-docs-qs/azuredeploy.json" range="001-477" highlight="47-76":::
 
@@ -98,7 +98,7 @@ Para eliminar o grupo de recursos, ligue para o `Remove-AzResourceGroup` cmdlet:
 Remove-AzResourceGroup -Name "<your resource group name>"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Conheça os parceiros de segurança de confiança](trusted-security-partners.md)
+> [Conheça os fornecedores de parceiros de segurança](trusted-security-partners.md)

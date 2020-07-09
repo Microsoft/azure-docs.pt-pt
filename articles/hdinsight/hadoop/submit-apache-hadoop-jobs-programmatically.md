@@ -1,6 +1,6 @@
 ---
-title: Submeta empregos apache Hadoop no HDInsight
-description: Submeta os empregos apache Hadoop em Azure HDInsight usando Microsoft .NET SDK, curl ou PowerShell
+title: Submeta empregos da Apache Hadoop em HDInsight
+description: Submeta empregos da Apache Hadoop em Azure HDInsight utilizando Microsoft .NET SDK, curl ou PowerShell
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,37 +9,36 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/16/2019
 ms.openlocfilehash: 1cdee99378feb381d75edef0d150089132d1bbc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435701"
 ---
-# <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>Submeta empregos apache Hadoop no HDInsight
+# <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>Submeta empregos da Apache Hadoop em HDInsight
 
-Pode submeter os trabalhos apache Hadoop no Azure HDInsight utilizando o Microsoft .NET SDK para HDInsight, curl ou Azure PowerShell.
+Pode submeter os trabalhos da Apache Hadoop no Azure HDInsight utilizando o Microsoft .NET SDK para HDInsight, curl ou Azure PowerShell.
 
 ## <a name="resources"></a>Recursos
 
-- **.NET SDK:**
+- **.NET SDK**:
 
   - [Criar aplicações de autenticação não interativa .NET](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
-  - [Executar consultas de Hiv Apache usando o HDInsight .NET SDK](apache-hadoop-use-hive-dotnet-sdk.md)
-  - [Executar trabalhos Apache Sqoop usando o .NET SDK para Apache Hadoop em HDInsight](apache-hadoop-use-sqoop-dotnet-sdk.md)
-  - [Executar mapeiaEmpregos utilizando o HDInsight .NET SDK](apache-hadoop-use-mapreduce-dotnet-sdk.md)
+  - [Executar consultas de Colmeia Apache utilizando o HDInsight .NET SDK](apache-hadoop-use-hive-dotnet-sdk.md)
+  - [Executar apaches sqoop empregos usando o .NET SDK para Apache Hadoop em HDInsight](apache-hadoop-use-sqoop-dotnet-sdk.md)
+  - [Executar trabalhos de MapReduce utilizando o HDInsight .NET SDK](apache-hadoop-use-mapreduce-dotnet-sdk.md)
 
-- **caracóis:**
+- **Caracol:**
 
-  - [Executar consultas de Hiv Apache com Apache Hadoop em HDInsight usando caracol](apache-hadoop-use-hive-curl.md)
-  - [Executar trabalhos Apache Sqoop com Apache Hadoop no HDInsight usando caracol](apache-hadoop-use-sqoop-curl.md)
-  - [Executar mapeia Empregos com Apache Hadoop em HDInsight usando caracol](apache-hadoop-use-mapreduce-curl.md)
+  - [Executar consultas de Colmeia Apache com Apache Hadoop em HDInsight usando caracóis](apache-hadoop-use-hive-curl.md)
+  - [Executar apaches sqoop empregos com Apache Hadoop em HDInsight usando curl](apache-hadoop-use-sqoop-curl.md)
+  - [Executar trabalhos de MapReduce com Apache Hadoop em HDInsight usando o curl](apache-hadoop-use-mapreduce-curl.md)
 
 - **PowerShell:**
 
-  - [Executar consultas da Colmeia Apache usando powerShell](apache-hadoop-use-hive-powershell.md)
+  - [Executar consultas de Colmeia Apache usando PowerShell](apache-hadoop-use-hive-powershell.md)
   - [Use Apache Sqoop com Apache Hadoop em HDInsight](apache-hadoop-use-sqoop-powershell.md)
-  - [Executar mapeie empregos com Apache Hadoop em HDInsight usando PowerShell](apache-hadoop-use-mapreduce-powershell.md)
+  - [Executar trabalhos de MapReduce com Apache Hadoop em HDInsight usando PowerShell](apache-hadoop-use-mapreduce-powershell.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [Documentação Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/)

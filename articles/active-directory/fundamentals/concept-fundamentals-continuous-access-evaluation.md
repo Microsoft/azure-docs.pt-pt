@@ -11,12 +11,11 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf904bb2c0d133ea07cd32274fad5b6601da5d9
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
-ms.translationtype: MT
+ms.openlocfilehash: f0cb402741163c657b3e7961eb5a4f9c8e18dafd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148128"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84673025"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -40,6 +39,7 @@ A avaliação contínua do acesso é implementada através da capacitação dos 
 
 - A Conta de Utilizador é eliminada ou desativada
 - A palavra-passe para um utilizador é alterada ou reiniciada
+- MFA está ativado para o utilizador
 - Administração revoga explicitamente todos os tokens de atualização para um utilizador
 - Risco elevado de utilizador detetado pela Azure AD Identity Protection
 
@@ -76,7 +76,7 @@ Aumentaremos o acesso ao token life para 24 horas nas sessões cae. A revogaçã
 1. Um sinal de acesso é apresentado ao fornecedor de recursos. O fornecedor de recursos avalia a validade do token e verifica se existe algum evento de revogação para o utilizador. O fornecedor de recursos utiliza esta informação para decidir conceder ou não acesso ao recurso.
 1. Neste caso, o fornecedor de recursos nega o acesso, e envia um desafio de reclamação de 401+ de volta ao cliente
 1. O cliente capaz de CAE compreende o desafio de reclamação de 401+. Contorna os caches e volta ao passo 1, enviando o seu token de atualização juntamente com o desafio de reivindicação de volta para Azure AD. O Azure AD reavaliará todas as condições e solicitará ao utilizador que reautore neste caso.
- 
+
 ## <a name="faqs"></a>FAQs
 
 ### <a name="what-is-the-lifetime-of-my-access-token"></a>Qual é a vida do meu Token de Acesso?

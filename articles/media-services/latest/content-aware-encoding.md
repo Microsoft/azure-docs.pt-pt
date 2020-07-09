@@ -1,6 +1,6 @@
 ---
-title: Um preset para codificação consciente de conteúdos - Azure Media Services
-description: Este artigo discute a codificação consciente do conteúdo no Microsoft Azure Media Services v3.
+title: Predefinição para codificação consciente do conteúdo - Azure Media Services
+description: Este artigo discute a codificação de conteúdos na Microsoft Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,39 +9,38 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 3ea6c4226a59ba020a477cc5811033ff3dc3c2e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 57a8d308955719be0d84b87fb3a23c6f510c2836
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76772110"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234887"
 ---
-# <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Utilize o predefinição de codificação consciente do conteúdo para encontrar o valor bitrate ideal para uma determinada resolução
+# <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Utilize a predefinição de codificação consciente do conteúdo para encontrar o valor bitrate ideal para uma determinada resolução
 
-Para preparar o conteúdo para entrega através de streaming de [bitrate adaptativo,](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)o vídeo precisa de ser codificado a várias bit-rates (alto a baixo). Isto garante uma degradação graciosa da qualidade, uma vez que o bitrate é reduzido, assim como a resolução do vídeo. Esta codificação de várias bits faz uso da chamada escada de codificação – uma tabela de resoluções e bitrates, ver os serviços de [comunicação incorporados presets](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
+Para preparar o conteúdo para a entrega através do [streaming de bitrate adaptativo,](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)o vídeo precisa de ser codificado a várias taxas de bit (de alto a baixo). Isto garante uma degradação graciosa da qualidade, uma vez que o bitrate é reduzido assim como a resolução do vídeo. Esta codificação de bit-rate múltipla faz uso de uma chamada escada codificadora – uma tabela de resoluções e bitrates, ver as [predefinições codificadoras dos](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)Media Services.
 
-Deve estar ciente do conteúdo que está a processar e personalizar/afinar a escada de codificação para a complexidade do vídeo individual. Em cada resolução, há um bitrate para além do qual qualquer aumento de qualidade não é percetivo – o codificador opera a este valor bitrate ideal. O próximo nível de otimização é selecionar as resoluções com base no conteúdo – por exemplo, um vídeo de uma apresentação do PowerPoint não beneficia de ir abaixo dos 720p. Indo mais longe, o codificador pode ser incumbido de otimizar as definições para cada tiro dentro do vídeo. 
+Deve estar ciente do conteúdo que está a processar e personalizar/afinar a escada de codificação para a complexidade do vídeo individual. Em cada resolução, há um bitrate para além do qual qualquer aumento de qualidade não é percetivo – o codificador opera a este valor bitrate ideal. O próximo nível de otimização é selecionar as resoluções com base no conteúdo – por exemplo, um vídeo de uma apresentação do PowerPoint não beneficia de ir abaixo dos 720p. Indo mais longe, o codificador pode ser incumbido de otimizar as definições para cada filmagem dentro do vídeo. 
 
-O predefinido de [Streaming Adaptativo](autogen-bitrate-ladder.md) da Microsoft aborda parcialmente o problema da variabilidade na qualidade e resolução dos vídeos de origem. Os nossos clientes têm uma mistura variada de conteúdo, alguns a 1080p, outros a 720p, e alguns em SD e resoluções mais baixas. Além disso, nem todos os conteúdos de origem são mezaninos de alta qualidade de estúdios de cinema ou tv. O predefinido de Streaming Adaptativo aborda estes problemas garantindo que a escada bitrate nunca excede a resolução ou a bitrate média do mezanino de entrada. No entanto, este preset não examina propriedades de origem que não a resolução e a bitrate.
+A predefinição de [Streaming Adaptativo](autogen-bitrate-ladder.md) da Microsoft aborda parcialmente o problema da variabilidade na qualidade e resolução dos vídeos de origem. Os nossos clientes têm uma mistura variada de conteúdo, alguns a 1080p, outros a 720p, e alguns em SD e resoluções mais baixas. Além disso, nem todos os conteúdos de origem são mezaninos de alta qualidade de estúdios de cinema ou tv. A predefinição de Streaming Adaptativo aborda estes problemas garantindo que a escada de bitrate nunca excede a resolução ou a bitrate média da mezanino de entrada. No entanto, esta predefinição não examina propriedades de origem que não a resolução e o bitrate.
 
 ## <a name="the-content-aware-encoding"></a>A codificação consciente do conteúdo 
 
-O preconjunto de codificação consciente do conteúdo alarga o mecanismo de "streaming de bitrate adaptativo", incorporando uma lógica personalizada que permite ao codificador procurar o valor bitrate ideal para uma determinada resolução, mas sem necessitar de uma análise computacional extensiva. Este preset produz um conjunto de MP4 alinhados com gop. Dado qualquer conteúdo de entrada, o serviço realiza uma análise leve inicial do conteúdo de entrada, e utiliza os resultados para determinar o número ideal de camadas, bitrate apropriado e definições de resolução para entrega através de streaming adaptativo. Este preset é particularmente eficaz para vídeos de baixa e média complexidade, onde os ficheiros de saída estarão em bitrates mais baixos do que o pré-definido de Streaming Adaptativo, mas a uma qualidade que ainda oferece uma boa experiência aos espectadores. A saída conterá ficheiros MP4 com vídeo e áudio interleaved
+A predefinição de codificação consciente do conteúdo alarga o mecanismo de "streaming de bitrate adaptativo", incorporando uma lógica personalizada que permite ao codificante procurar o valor bitrate ideal para uma determinada resolução, mas sem exigir uma análise computacional extensiva. Esta predefinição produz um conjunto de MP4s alinhados com GOP. Dado qualquer conteúdo de entrada, o serviço realiza uma análise leve inicial do conteúdo de entrada, e utiliza os resultados para determinar o número ideal de camadas, definições de bitrate e resolução apropriadas para entrega através do streaming adaptativo. Esta predefinição é particularmente eficaz para vídeos de baixa e média complexidade, onde os ficheiros de saída estarão em bitrates mais baixos do que a predefinição de Streaming Adaptive, mas com uma qualidade que ainda oferece uma boa experiência aos espectadores. A saída conterá ficheiros MP4 com vídeo e áudio intercalados
 
-Os gráficos de amostra seguem mostrar a comparação utilizando métricas de qualidade como [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) e [VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion). A fonte foi criada através da concatenação de pequenos clips de imagens de alta complexidade de filmes e séries de TV, destinadas a realçar o codificador. Por definição, este preset produz resultados que variam de conteúdo para conteúdo – significa também que, para alguns conteúdos, pode não haver uma redução significativa do bitrate ou melhoria da qualidade.
+Os gráficos de amostra que se seguem mostram a comparação utilizando métricas de qualidade como [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) e [VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion). A fonte foi criada através da concatenação de pequenos clips de imagens de alta complexidade de filmes e séries de TV, destinadas a realçar o codificadora. Por definição, esta predefinição produz resultados que variam de conteúdo para conteúdo – também significa que, para alguns conteúdos, pode não haver uma redução significativa do bitrate ou melhoria na qualidade.
 
-![Curva de distorção de taxas (RD) utilizando PSNR](media/content-aware-encoding/msrv1.png)
+![Curva de distorção de taxa (RD) utilizando PSNR](media/content-aware-encoding/msrv1.png)
 
-**Figura 1: Curva de distorção de taxas (RD) utilizando métrica PSNR para fonte de alta complexidade**
+**Figura 1: Curva de distorção de taxas (RD) utilizando a métrica PSNR para fonte de alta complexidade**
 
-![Curva de distorção de taxas (RD) utilizando VMAF](media/content-aware-encoding/msrv2.png)
+![Curva de distorção de taxa (RD) utilizando VMAF](media/content-aware-encoding/msrv2.png)
 
 **Figura 2: Curva de distorção de taxas (RD) utilizando a métrica VMAF para fonte de alta complexidade**
 
-Abaixo estão os resultados de outra categoria de conteúdo de origem, onde o codificador foi capaz de determinar que a entrada era de má qualidade (muitos artefactos de compressão devido à baixa bitrate). Note que, com o predefinido consciente do conteúdo, o codificador decidiu produzir apenas uma camada de saída – a um bitrate suficientemente baixo para que a maioria dos clientes fosse capaz de jogar o stream sem empatar.
+Seguem-se os resultados de outra categoria de conteúdo de origem, onde o codificadores foi capaz de determinar que a entrada era de má qualidade (muitos artefactos de compressão devido ao bitrate baixo). Note-se que, com a predefinição consciente do conteúdo, o codificadora decidiu produzir apenas uma camada de saída – a uma bitrate suficientemente baixa para que a maioria dos clientes pudesse reproduzir o stream sem empatar.
 
 ![Curva RD usando PSNR](media/content-aware-encoding/msrv3.png)
 
@@ -51,13 +50,14 @@ Abaixo estão os resultados de outra categoria de conteúdo de origem, onde o co
 
 **Figura 4: Curva RD utilizando VMAF para entrada de baixa qualidade (a 1080p)**
 
-## <a name="how-to-use-the-content-aware-encoding-preset"></a>Como utilizar o predefinição de codificação consciente do conteúdo 
+## <a name="how-to-use-the-content-aware-encoding-preset"></a>Como utilizar a predefinição de codificação consciente do conteúdo 
 
-Pode criar transformações que utilizam este preset da seguinte forma. 
+Pode criar transformações que utilizem esta predefinição da seguinte forma. 
 
-> [!TIP]
-> Consulte a secção [de passos Seguintes](#next-steps) para tutoriais que utilizem saídas de transforme. O ativo de saída pode ser entregue a partir de pontos finais de streaming de Serviços de Media em protocolos como MPEG-DASH e HLS (como mostram os tutoriais).
+Consulte a secção [etapas seguintes](#next-steps) para tutoriais que utilizam saídas de transformação. O ativo de saída pode ser entregue a partir de pontos finais de streaming dos Media Services em protocolos como MPEG-DASH e HLS (como mostrado nos tutoriais).
 
+> [!NOTE]
+> Certifique-se de que utiliza o **predefinição de contentAwareEncodingExperimental.**
 
 ```csharp
 TransformOutput[] output = new TransformOutput[]
@@ -76,12 +76,12 @@ TransformOutput[] output = new TransformOutput[]
 ```
 
 > [!NOTE]
-> Os trabalhos `ContentAwareEncoding` de codificação utilizando o preset estão a ser faturados com base nos minutos de saída. 
+> Os trabalhos de codificação utilizando a `ContentAwareEncoding` predefinição estão a ser faturados com base nas atas de saída. 
+  
+## <a name="next-steps"></a>Próximos passos
 
-## <a name="next-steps"></a>Passos seguintes
-
-* [Tutorial: Upload, codificação e streaming de vídeos com Media Services v3](stream-files-tutorial-with-api.md)
-* [Tutorial: Codificar um ficheiro remoto com base em URL e transmitir o vídeo - REST](stream-files-tutorial-with-rest.md)
-* [Tutorial: Codificar um ficheiro remoto com base no URL e transmitir o vídeo - CLI](stream-files-cli-quickstart.md)
-* [Tutorial: Codificar um ficheiro remoto com base em URL e transmitir o vídeo - .NET](stream-files-dotnet-quickstart.md)
-* [Tutorial: Codificar um ficheiro remoto com base em URL e transmitir o vídeo - Node.js](stream-files-nodejs-quickstart.md)
+* [Tutorial: Carregar, codificar e transmitir vídeos com o Media Services v3](stream-files-tutorial-with-api.md)
+* [Tutorial: Codificar um ficheiro remoto baseado em URL e transmitir o vídeo - REST](stream-files-tutorial-with-rest.md)
+* [Tutorial: Codificar um ficheiro remoto baseado em URL e transmitir o vídeo - CLI](stream-files-cli-quickstart.md)
+* [Tutorial: Codificar um ficheiro remoto com base no URL e transmitir o vídeo - .NET](stream-files-dotnet-quickstart.md)
+* [Tutorial: Codificar um ficheiro remoto baseado em URL e transmitir o vídeo - Node.js](stream-files-nodejs-quickstart.md)

@@ -1,48 +1,48 @@
 ---
-title: Padrões de networking para tecido de serviço Azure
-description: Descreve padrões comuns de networking para o Tecido de Serviço e como criar um cluster utilizando funcionalidades de networking Azure.
+title: Padrões de rede para tecido de serviço Azure
+description: Descreve padrões comuns de networking para o Tecido de Serviço e como criar um cluster utilizando funcionalidades de rede Azure.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 065c311fffe409b20e02a3fddf1e9e7e6a82a2a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9114be5498bcb7fdec4e105ad6e3ff9fcc03a7c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75466286"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85106625"
 ---
 # <a name="service-fabric-networking-patterns"></a>Padrões de rede de tecido de serviço
-Pode integrar o seu cluster Azure Service Fabric com outras funcionalidades de networking Azure. Neste artigo, mostramos-lhe como criar clusters que usam as seguintes funcionalidades:
+Pode integrar o seu cluster Azure Service Fabric com outras funcionalidades de networking Azure. Neste artigo, mostramos-lhe como criar clusters que utilizam as seguintes funcionalidades:
 
-- [Rede virtual existente ou sub-rede](#existingvnet)
+- [Rede virtual ou sub-rede existente](#existingvnet)
 - [Endereço IP público estático](#staticpublicip)
-- [Equilibrador de carga interna](#internallb)
+- [Equilibrador de carga interno](#internallb)
 - [Equilibrador de carga interno e externo](#internalexternallb)
 
-O tecido de serviço funciona num conjunto de escala de máquina virtual padrão. Qualquer funcionalidade que possa utilizar num conjunto de escala de máquina virtual, pode utilizar com um cluster de Tecido de Serviço. As secções de rede dos modelos do Gestor de Recursos Azure para conjuntos de escala de máquinavirtual e tecido de serviço são idênticas. Depois de se implantar numa rede virtual existente, é fácil incorporar outras funcionalidades de networking, como o Azure ExpressRoute, o Azure VPN Gateway, um grupo de segurança de rede e o peering de rede virtual.
+O tecido de serviço funciona num conjunto de escala de máquina virtual padrão. Qualquer funcionalidade que possa utilizar num conjunto de escala de máquina virtual, pode utilizar com um cluster de Tecido de Serviço. As secções de networking dos modelos Azure Resource Manager para conjuntos de escala de máquinas virtuais e tecido de serviço são idênticas. Depois de implementar para uma rede virtual existente, é fácil incorporar outras funcionalidades de networking, como a Azure ExpressRoute, Azure VPN Gateway, um grupo de segurança de rede e olhando para a rede virtual.
 
-### <a name="allowing-the-service-fabric-resource-provider-to-query-your-cluster"></a>Permitindo ao fornecedor de recursos service Fabric consultar o seu cluster
+### <a name="allowing-the-service-fabric-resource-provider-to-query-your-cluster"></a>Permitindo que o fornecedor de recursos de Tecido de Serviço questione o seu cluster
 
-O Service Fabric é único a partir de outras funcionalidades de networking num aspeto. O [portal Azure](https://portal.azure.com) utiliza internamente o fornecedor de recursos service Fabric para chamar um cluster para obter informações sobre nós e aplicações. O prestador de recursos service Fabric requer acesso de entrada acessível ao acesso acessível ao portal http (porta 19080, por defeito) no ponto final da gestão. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) utiliza o ponto final de gestão para gerir o seu cluster. O fornecedor de recursos Service Fabric também utiliza esta porta para consultar informações sobre o seu cluster, para exibir no portal Azure. 
+O Tecido de Serviço é único a partir de outras funcionalidades de networking num aspeto. O [portal Azure](https://portal.azure.com) utiliza internamente o fornecedor de recursos de Service Fabric para ligar para um cluster para obter informações sobre nós e aplicações. O fornecedor de recursos service Fabric requer acesso de entrada acessível ao público à porta de gateway HTTP (porta 19080, por defeito) no ponto final de gestão. [O Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) utiliza o ponto final de gestão para gerir o seu cluster. O fornecedor de recursos service Fabric também utiliza esta porta para consultar informações sobre o seu cluster, para exibir no portal Azure. 
 
-Se o porto 19080 não estiver acessível ao fornecedor de recursos service Fabric, uma mensagem como *Nós Não Encontrados* aparece no portal, e o seu nó e lista de aplicações parece vazio. Se quiser ver o seu cluster no portal Azure, o seu equilibrador de carga deve expor um endereço IP público, e o seu grupo de segurança de rede deve permitir o tráfego da porta de entrada 19080. Se a sua configuração não cumprir estes requisitos, o portal Azure não mostra o estado do seu cluster.
+Se a porta 19080 não estiver acessível a partir do fornecedor de recursos do Service Fabric, aparece no portal uma mensagem como *Os Nós Não Encontrados* e a sua lista de nós e de aplicação. Se quiser ver o seu cluster no portal Azure, o seu equilibrador de carga deve expor um endereço IP público, e o seu grupo de segurança de rede deve permitir a entrada do tráfego da porta 19080. Se a sua configuração não satisfaça estes requisitos, o portal Azure não apresenta o estado do seu cluster.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="templates"></a>Modelos
 
-Todos os modelos de tecido de serviço estão no [GitHub.](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking) Deverá ser capaz de implantar os modelos como está utilizando os seguintes comandos PowerShell. Se estiver a implementar o modelo de rede virtual Azure existente ou o modelo ip público estático, leia primeiro a secção inicial de [configuração](#initialsetup) deste artigo.
+Todos os modelos de tecido de serviço estão no [GitHub.](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking) Deverá ser capaz de implementar os modelos como está utilizando os seguintes comandos PowerShell. Se estiver a implementar o modelo de Rede Virtual Azure existente ou o modelo ip público estático, leia primeiro a secção de [configuração inicial](#initialsetup) deste artigo.
 
 <a id="initialsetup"></a>
 ## <a name="initial-setup"></a>Configuração inicial
 
 ### <a name="existing-virtual-network"></a>Rede virtual existente
 
-No exemplo seguinte, começamos com uma rede virtual existente chamada ExistingRG-vnet, no grupo de recursos **ExistenteRG.** A sub-rede chama-se padrão. Estes recursos padrão são criados quando se utiliza o portal Azure para criar uma máquina virtual padrão (VM). Poderia criar a rede virtual e a sub-rede sem criar o VM, mas o principal objetivo de adicionar um cluster a uma rede virtual existente é fornecer conectividade de rede a outros VMs. A criação do VM dá um bom exemplo de como uma rede virtual existente é normalmente utilizada. Se o seu cluster Service Fabric utilizar apenas um equilibrador de carga interna, sem um endereço IP público, pode utilizar o VM e o seu IP público como uma caixa de *salto*segura .
+No exemplo seguinte, começamos com uma rede virtual existente chamada ExistingRG-vnet, no grupo **de recursosRG existente.** A sub-rede tem o nome de padrão. Estes recursos predefinidos são criados quando utiliza o portal Azure para criar uma máquina virtual padrão (VM). Poderia criar a rede virtual e a sub-rede sem criar o VM, mas o principal objetivo de adicionar um cluster a uma rede virtual existente é fornecer conectividade de rede a outros VMs. A criação do VM dá um bom exemplo de como uma rede virtual existente é normalmente utilizada. Se o seu cluster Service Fabric utilizar apenas um equilibrador de carga interno, sem endereço IP público, pode utilizar o VM e o seu IP público como *uma caixa de salto*segura.
 
 ### <a name="static-public-ip-address"></a>Endereço IP público estático
 
-Um endereço IP público estático geralmente é um recurso dedicado que é gerido separadamente dos VM ou VMs a que é atribuído. É aprovisionado num grupo dedicado de recursos de rede (ao contrário do próprio grupo de recursos de cluster Fabric). Crie um endereço IP público estático chamado staticIP1 no mesmo grupo de recursos Existenterg, quer no portal Azure quer utilizando o PowerShell:
+Um endereço IP público estático geralmente é um recurso dedicado que é gerido separadamente dos VM ou VMs a que é atribuído. É aprovisionado num grupo dedicado de recursos em rede (em oposição ao próprio grupo de recursos de cluster de tecidos de serviço). Criar um endereço IP público estático chamado staticIP1 no mesmo grupo de recursos existente, quer no portal Azure, quer utilizando o PowerShell:
 
 ```powershell
 PS C:\Users\user> New-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
@@ -68,12 +68,12 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Modelo de tecido de serviço
 
-Nos exemplos deste artigo, usamos o modelo de tecido de serviço.json. Pode utilizar o assistente padrão do portal para descarregar o modelo a partir do portal antes de criar um cluster. Também pode utilizar um dos modelos de [amostra,](https://github.com/Azure-Samples/service-fabric-cluster-templates)como o cluster de tecido de [serviço seguro de cinco nós.](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure)
+Nos exemplos deste artigo, utilizamos o tecido de serviço template.js. Pode utilizar o assistente de portal padrão para descarregar o modelo a partir do portal antes de criar um cluster. Também pode utilizar um dos modelos de [amostra,](https://github.com/Azure-Samples/service-fabric-cluster-templates)como o [aglomerado de tecido de serviço de cinco nós seguro.](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure)
 
 <a id="existingvnet"></a>
-## <a name="existing-virtual-network-or-subnet"></a>Rede virtual existente ou sub-rede
+## <a name="existing-virtual-network-or-subnet"></a>Rede virtual ou sub-rede existente
 
-1. Mude o parâmetro da sub-rede para o nome da subnet existente e, em seguida, adicione dois novos parâmetros para referência à rede virtual existente:
+1. Altere o parâmetro da sub-rede para o nome da sub-rede existente e, em seguida, adicione dois novos parâmetros para fazer referência à rede virtual existente:
 
     ```json
         "subnet0Name": {
@@ -100,20 +100,20 @@ Nos exemplos deste artigo, usamos o modelo de tecido de serviço.json. Pode util
             },*/
     ```
 
-2. Comente `nicPrefixOverride` o `Microsoft.Compute/virtualMachineScaleSets`atributo de , porque está a usar a subnet existente e desativou esta variável no passo 1.
+2. Comente `nicPrefixOverride` o atributo de , porque está a usar a `Microsoft.Compute/virtualMachineScaleSets` sub-rede existente e desativou esta variável no passo 1.
 
     ```json
             /*"nicPrefixOverride": "[parameters('subnet0Prefix')]",*/
     ```
 
-3. Alterar `vnetID` a variável para apontar para a rede virtual existente:
+3. Alterar a `vnetID` variável para apontar para a rede virtual existente:
 
     ```json
             /*old "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",*/
             "vnetID": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingVNetRGName'), '/providers/Microsoft.Network/virtualNetworks/', parameters('existingVNetName'))]",
     ```
 
-4. Remova `Microsoft.Network/virtualNetworks` dos seus recursos, para que o Azure não crie uma nova rede virtual:
+4. `Microsoft.Network/virtualNetworks`Remova dos seus recursos, para que o Azure não crie uma nova rede virtual:
 
     ```json
     /*{
@@ -143,7 +143,7 @@ Nos exemplos deste artigo, usamos o modelo de tecido de serviço.json. Pode util
     },*/
     ```
 
-5. Comente a rede `dependsOn` virtual a `Microsoft.Compute/virtualMachineScaleSets`partir do atributo de , para que não dependa da criação de uma nova rede virtual:
+5. Comente a rede virtual a partir `dependsOn` do atributo de , para que não `Microsoft.Compute/virtualMachineScaleSets` dependa da criação de uma nova rede virtual:
 
     ```json
     "apiVersion": "[variables('vmssApiVersion')]",
@@ -164,20 +164,20 @@ Nos exemplos deste artigo, usamos o modelo de tecido de serviço.json. Pode util
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
     ```
 
-    Após a implantação, a sua rede virtual deve incluir os novos VMs conjuntos de escala. O tipo de nó de escala de máquina virtual deve mostrar a rede virtual existente e a sub-rede. Também pode utilizar o Protocolo de Ambiente de Trabalho Remoto (RDP) para aceder ao VM que já estava na rede virtual e para pingar os novos VMs conjuntos de escala:
+    Após a implementação, a sua rede virtual deve incluir os novos VMs definidos em escala. O tipo de nó de conjunto de escala de máquina virtual deve mostrar a rede virtual existente e a sub-rede. Também pode utilizar o Protocolo de Ambiente de Trabalho Remoto (RDP) para aceder ao VM que já se encontrava na rede virtual e para pingar os novos VMs definidos em escala:
 
     ```
     C:>\Users\users>ping 10.0.0.5 -n 1
     C:>\Users\users>ping NOde1000000 -n 1
     ```
 
-Por outro exemplo, consulte [um que não seja específico do Tecido de Serviço](https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet).
+Por outro exemplo, veja [um que não seja específico do Service Fabric.](https://github.com/gbowerman/azure-myriad/tree/main/existing-vnet)
 
 
 <a id="staticpublicip"></a>
 ## <a name="static-public-ip-address"></a>Endereço IP público estático
 
-1. Adicione parâmetros para o nome do grupo, nome e nome de domínio ip estático existente (FQDN):
+1. Adicionar parâmetros para o nome do grupo de recursos IP estáticos existente, nome e nome de domínio totalmente qualificado (FQDN):
 
     ```json
     "existingStaticIPResourceGroup": {
@@ -191,7 +191,7 @@ Por outro exemplo, consulte [um que não seja específico do Tecido de Serviço]
     }
     ```
 
-2. Retire `dnsName` o parâmetro. (O endereço IP estático já tem um.)
+2. Retire o `dnsName` parâmetro. (O endereço IP estático já tem um.)
 
     ```json
     /*
@@ -201,13 +201,13 @@ Por outro exemplo, consulte [um que não seja específico do Tecido de Serviço]
     */
     ```
 
-3. Adicione uma variável para referência ao endereço IP estático existente:
+3. Adicione uma variável para fazer referência ao endereço IP estático existente:
 
     ```json
     "existingStaticIP": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingStaticIPResourceGroup'), '/providers/Microsoft.Network/publicIPAddresses/', parameters('existingStaticIPName'))]",
     ```
 
-4. Retire `Microsoft.Network/publicIPAddresses` dos seus recursos, para que o Azure não crie um novo endereço IP:
+4. `Microsoft.Network/publicIPAddresses`Remova dos seus recursos, para que o Azure não crie um novo endereço IP:
 
     ```json
     /*
@@ -229,7 +229,7 @@ Por outro exemplo, consulte [um que não seja específico do Tecido de Serviço]
     }, */
     ```
 
-5. Comente o endereço `dependsOn` IP a `Microsoft.Network/loadBalancers`partir do atributo de , para que não dependa da criação de um novo endereço IP:
+5. Comente o endereço IP a partir `dependsOn` do atributo de , para que não `Microsoft.Network/loadBalancers` dependa da criação de um novo endereço IP:
 
     ```json
     "apiVersion": "[variables('lbIPApiVersion')]",
@@ -243,7 +243,7 @@ Por outro exemplo, consulte [um que não seja específico do Tecido de Serviço]
     "properties": {
     ```
 
-6. No `Microsoft.Network/loadBalancers` recurso, altere `publicIPAddress` `frontendIPConfigurations` o elemento de referência do endereço IP estático existente em vez de um recém-criado:
+6. No `Microsoft.Network/loadBalancers` recurso, altere o `publicIPAddress` elemento de referência ao endereço IP `frontendIPConfigurations` estático existente em vez de um recém-criado:
 
     ```json
                 "frontendIPConfigurations": [
@@ -259,7 +259,7 @@ Por outro exemplo, consulte [um que não seja específico do Tecido de Serviço]
                     ],
     ```
 
-7. No `Microsoft.ServiceFabric/clusters` recurso, `managementEndpoint` altere para o DNS FQDN do endereço IP estático. Se estiver a utilizar um cluster seguro, certifique-se de que muda *http://* para *https://*. (Note que este passo se aplica apenas aos clusters de tecido de serviço. Se estiver a utilizar um conjunto de escala de máquina virtual, ignore este passo.)
+7. No `Microsoft.ServiceFabric/clusters` recurso, altere `managementEndpoint` para o DNS FQDN do endereço IP estático. Se estiver a utilizar um cluster seguro, certifique-se de que muda *http://* para *https://*. (Note que este passo se aplica apenas aos clusters de Tecidos de Serviço. Se estiver a utilizar um conjunto de balança de máquina virtual, salte este passo.)
 
     ```json
                     "fabricSettings": [],
@@ -279,14 +279,14 @@ Por outro exemplo, consulte [um que não seja específico do Tecido de Serviço]
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
     ```
 
-Após a implantação, pode ver que o seu equilibrador de carga está ligado ao endereço IP estático público do outro grupo de recursos. O ponto final de ligação ao cliente do Tecido de Serviço e o ponto final do Explorador de [Tecidode Serviço](service-fabric-visualizing-your-cluster.md) apontam para o DNS FQDN do endereço IP estático.
+Após a implementação, pode ver que o seu balanceador de carga está ligado ao endereço IP estático público do outro grupo de recursos. O ponto final de ligação ao cliente do Service Fabric e o ponto final [do Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) apontam para o DNS FQDN do endereço IP estático.
 
 <a id="internallb"></a>
-## <a name="internal-only-load-balancer"></a>Equilibrador de carga interna
+## <a name="internal-only-load-balancer"></a>Equilibrador de carga interno
 
-Este cenário substitui o equilibrante de carga externo no modelo de tecido de serviço predefinido por um equilibrador de carga interna. Consulte [anteriormente no artigo](#allowing-the-service-fabric-resource-provider-to-query-your-cluster) as implicações para o portal Azure e para o fornecedor de recursos Service Fabric.
+Este cenário substitui o balançador de carga externo no modelo de tecido de serviço predefinido por um equilibrador de carga interno. Consulte [anteriormente no artigo](#allowing-the-service-fabric-resource-provider-to-query-your-cluster) as implicações para o portal Azure e para o fornecedor de recursos de Tecido de Serviço.
 
-1. Retire `dnsName` o parâmetro. (Não é necessário.)
+1. Retire o `dnsName` parâmetro. (Não é necessário.)
 
     ```json
     /*
@@ -296,7 +296,7 @@ Este cenário substitui o equilibrante de carga externo no modelo de tecido de s
     */
     ```
 
-2. Opcionalmente, se utilizar um método de atribuição estático, pode adicionar um parâmetro de endereço IP estático. Se utilizar um método de atribuição dinâmico, não precisa de fazer este passo.
+2. Opcionalmente, se utilizar um método de alocação estática, pode adicionar um parâmetro de endereço IP estático. Se utilizar um método de atribuição dinâmico, não precisa de fazer este passo.
 
     ```json
             "internalLBAddress": {
@@ -305,7 +305,7 @@ Este cenário substitui o equilibrante de carga externo no modelo de tecido de s
             }
     ```
 
-3. Retire `Microsoft.Network/publicIPAddresses` dos seus recursos, para que o Azure não crie um novo endereço IP:
+3. `Microsoft.Network/publicIPAddresses`Remova dos seus recursos, para que o Azure não crie um novo endereço IP:
 
     ```json
     /*
@@ -327,7 +327,7 @@ Este cenário substitui o equilibrante de carga externo no modelo de tecido de s
     }, */
     ```
 
-4. Remova o `dependsOn` atributo `Microsoft.Network/loadBalancers`do endereço IP de , para que não dependa da criação de um novo endereço IP. Adicione o `dependsOn` atributo da rede virtual porque o equilibrador de carga depende agora da subnet a partir da rede virtual:
+4. Remova o atributo de endereço IP `dependsOn` de , para que não `Microsoft.Network/loadBalancers` dependa de criar um novo endereço IP. Adicione o atributo de rede virtual `dependsOn` porque o balançador de carga agora depende da sub-rede da rede virtual:
 
     ```json
                 "apiVersion": "[variables('lbApiVersion')]",
@@ -340,7 +340,7 @@ Este cenário substitui o equilibrante de carga externo no modelo de tecido de s
                 ],
     ```
 
-5. Altere a regulação `frontendIPConfigurations` do equilíbrio `publicIPAddress`de carga de `privateIPAddress`utilização de a, para utilização de uma sub-rede e . `privateIPAddress`utiliza um endereço IP interno estático predefinido. Para utilizar um endereço IP `privateIPAddress` dinâmico, retire `privateIPAllocationMethod` o elemento e, em seguida, mude para **Dynamic**.
+5. Mude a regulação do balançador de carga `frontendIPConfigurations` de uma , para usar uma `publicIPAddress` sub-rede e `privateIPAddress` . `privateIPAddress`utiliza um endereço IP interno estático predefinido. Para utilizar um endereço IP dinâmico, remova o `privateIPAddress` elemento e, em seguida, `privateIPAllocationMethod` altere para **Dynamic**.
 
     ```json
                 "frontendIPConfigurations": [
@@ -361,7 +361,7 @@ Este cenário substitui o equilibrante de carga externo no modelo de tecido de s
                     ],
     ```
 
-6. No `Microsoft.ServiceFabric/clusters` recurso, `managementEndpoint` altere para apontar para o endereço do equilibrador de carga interno. Se utilizar um cluster seguro, certifique-se de que muda *http://* para *https://*. (Note que este passo se aplica apenas aos clusters de tecido de serviço. Se estiver a utilizar um conjunto de escala de máquina virtual, ignore este passo.)
+6. No `Microsoft.ServiceFabric/clusters` recurso, altere `managementEndpoint` para apontar para o endereço do balançador interno de carga. Se utilizar um cluster seguro, certifique-se de que muda *http://* para *https://*. (Note que este passo se aplica apenas aos clusters de Tecidos de Serviço. Se estiver a utilizar um conjunto de balança de máquina virtual, salte este passo.)
 
     ```json
                     "fabricSettings": [],
@@ -377,16 +377,16 @@ Este cenário substitui o equilibrante de carga externo no modelo de tecido de s
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
     ```
 
-Após a implantação, o seu equilibrador de carga utiliza o endereço IP estático privado 10.0.0.250. Se tiver outra máquina nessa mesma rede virtual, pode ir ao ponto final do [Service Fabric Explorer.](service-fabric-visualizing-your-cluster.md) Note que se liga a um dos nódosos por trás do equilibrador de carga.
+Após a implementação, o seu equilibrador de carga utiliza o endereço IP estático privado 10.0.0.250. Se tiver outra máquina nessa mesma rede virtual, pode ir ao ponto final interno do [Service Fabric Explorer.](service-fabric-visualizing-your-cluster.md) Note que se liga a um dos nós por trás do balançador de carga.
 
 <a id="internalexternallb"></a>
 ## <a name="internal-and-external-load-balancer"></a>Equilibrador de carga interno e externo
 
-Neste cenário, começa-se pelo equilibrador externo de carga do tipo nó único existente e adiciona-se um equilibrante interno de carga para o mesmo tipo de nó. Uma porta traseira anexa a uma piscina de endereços traseiros só pode ser atribuída a um único equilibrador de carga. Escolha qual o equilibrador de carga que terá as suas portas de aplicação e qual o equilibrador de carga que terá os seus pontos finais de gestão (portas 19000 e 19080). Se colocar os pontos finais de gestão no equilibrador interno de carga, tenha em mente as restrições de prestador de recursos do Service Fabric discutidas [anteriormente no artigo](#allowing-the-service-fabric-resource-provider-to-query-your-cluster). No exemplo que utilizamos, os pontos finais de gestão permanecem no equilibrador de carga externo. Adicione também uma porta de aplicação porta 80 e coloque-a no equilibrador interno de carga.
+Neste cenário, começa-se com o balanceador de carga externo do tipo único existente e adiciona-se um balançador interno de carga para o mesmo tipo de nó. Uma porta traseira anexada a um conjunto de endereços de back-end só pode ser atribuída a um único equilibrador de carga. Escolha qual o balanceador de carga que terá as portas de aplicação e qual o balanceador de carga que terá os seus pontos finais de gestão (portas 19000 e 19080). Se colocar os pontos finais de gestão no balançador interno de carga, lembre-se das restrições do fornecedor de recursos service Fabric discutidas [anteriormente no artigo](#allowing-the-service-fabric-resource-provider-to-query-your-cluster). No exemplo que usamos, os pontos finais de gestão permanecem no balanceador de carga externo. Adicione também uma porta de aplicação de porta 80 e coloque-a no equilibrador interno de carga.
 
-Num cluster de dois nós, um tipo de nó está no equilibrista de carga externo. O outro tipo de nó está no equilibrista interno de carga. Para utilizar um cluster de dois nós, no modelo de dois nós criado pelo portal (que vem com dois equilibradores de carga), mude o segundo equilibrante de carga para um equilibrante interno de carga. Para mais informações, consulte a secção de [equilíbrio de carga interna.](#internallb)
+Num aglomerado de dois nós, um tipo de nó está no balançador de carga externo. O outro tipo de nó está no balançador interno de carga. Para utilizar um cluster de dois nós, no modelo de dois nós criado pelo portal (que vem com dois equilibradores de carga), altere o segundo equilibrador de carga para um equilibrador de carga interno. Para obter mais informações, consulte a secção [de balançadores de carga apenas internas.](#internallb)
 
-1. Adicione o parâmetro de endereço IP do equilíbrio interno estático. (Para notas relacionadas com a utilização de um endereço IP dinâmico, consulte secções anteriores deste artigo.)
+1. Adicione o parâmetro de endereço IP do balançador interno de carga interno estático. (Para notas relacionadas com a utilização de um endereço IP dinâmico, consulte secções anteriores deste artigo.)
 
     ```json
             "internalLBAddress": {
@@ -395,9 +395,9 @@ Num cluster de dois nós, um tipo de nó está no equilibrista de carga externo.
             }
     ```
 
-2. Adicione uma porta de aplicação 80 parâmetro.
+2. Adicione um parâmetro de porta de aplicação 80.
 
-3. Para adicionar versões internas das variáveis de rede existentes, copie e cole-as, e adicione "-Int" ao nome:
+3. Para adicionar versões internas das variáveis de rede existentes, copiá-las e colar e adicionar "-Int" ao nome:
 
     ```json
     /* Add internal load balancer networking variables */
@@ -410,7 +410,7 @@ Num cluster de dois nós, um tipo de nó está no equilibrista de carga externo.
             /* Internal load balancer networking variables end */
     ```
 
-4. Se começar com o modelo gerado pelo portal que utiliza a porta de aplicação 80, o modelo de portal padrão adiciona AppPort1 (porta 80) no equilibrador de carga externo. Neste caso, remova o AppPort1 do `loadBalancingRules` equilibrador de carga externo e das sondas, para que possa adicioná-lo ao equilibrador interno de carga:
+4. Se começar com o modelo gerado pelo portal que utiliza a porta de aplicação 80, o modelo de portal padrão adiciona AppPort1 (porta 80) no equilibrador de carga externo. Neste caso, remova o AppPort1 do equilibrador de carga externo `loadBalancingRules` e das sondas, para que possa adicioná-lo ao equilibrador de carga interno:
 
     ```json
     "loadBalancingRules": [
@@ -487,7 +487,7 @@ Num cluster de dois nós, um tipo de nó está no equilibrista de carga externo.
     "inboundNatPools": [
     ```
 
-5. Adicione um `Microsoft.Network/loadBalancers` segundo recurso. Parece semelhante ao equilibrista interno de carga criado na secção de equilíbrio de [carga interna,](#internallb) mas utiliza as variáveis de equilíbrio de carga "-Int", e implementa apenas a porta de aplicação 80. Isto também `inboundNatPools`remove, para manter os pontos finais do PDR no equilíbrio de carga pública. Se pretender RDP no equilibrador `inboundNatPools` de carga interno, passe do equilibrador de carga externo para este equilibrador de carga interno:
+5. Adicione um segundo `Microsoft.Network/loadBalancers` recurso. Parece semelhante ao equilibrador de carga interno criado na secção [de balançador de carga interno,](#internallb) mas utiliza as variáveis de balançador de carga "Int" e implementa apenas a porta de aplicação 80. Isto também remove `inboundNatPools` , para manter os pontos finais rdp no balanceador de carga pública. Se quiser PDR no balançador interno de carga, passe `inboundNatPools` do balançador de carga externo para este equilibrista interno:
 
     ```json
             /* Add a second load balancer, configured with a static privateIPAddress and the "-Int" load balancer variables. */
@@ -594,14 +594,14 @@ Num cluster de dois nós, um tipo de nó está no equilibrista de carga externo.
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
     ```
 
-Após a implantação, pode ver dois equilibradores de carga no grupo de recursos. Se você navegar nos equilibradores de carga, você pode ver o endereço IP público e pontos finais de gestão (portas 19000 e 19080) atribuídos ao endereço IP público. Pode também ver o endereço IP interno estático e o ponto final de aplicação (porta 80) atribuído ao equilibrador interno de carga. Ambos os equilibradores de carga utilizam a mesma balança de calcário virtual definida na parte de trás.
+Após a colocação, pode ver dois equilibradores de carga no grupo de recursos. Se navegar nos esquiliadores de carga, pode ver o endereço IP público e os pontos finais de gestão (portes 19000 e 19080) atribuídos ao endereço IP público. Também pode ver o endereço IP interno estático e o ponto final da aplicação (porta 80) atribuído ao balançador interno de carga. Ambos os equilibradores de carga usam a mesma balança de máquina virtual definida na parte de trás da piscina.
 
-## <a name="notes-for-production-workloads"></a>Notas para cargas horárias de produção
+## <a name="notes-for-production-workloads"></a>Notas para cargas de trabalho de produção
 
-Os modelos GitHub acima são projetados para funcionar com o SKU padrão para o Equilíbrio de Carga Padrão Azure (SLB), o SKU Básico. Este SLB não tem SLA, pelo que para as cargas de trabalho de produção o SKU padrão deve ser utilizado. Para mais informações, consulte a visão geral do [Balancer de Carga Padrão Azure](/azure/load-balancer/load-balancer-standard-overview). Qualquer cluster de tecido de serviço que utilize o SKU padrão para SLB precisa de garantir que cada tipo de nó tem uma regra que permite o tráfego de saída na porta 443. Isto é necessário para completar a configuração do cluster, e qualquer implantação sem tal regra falhará. No exemplo acima de um equilibrador de carga "interno", deve ser adicionado ao modelo um equilibrante de carga externo adicional com uma regra que permita o tráfego de saída para a porta 443.
+Os modelos gitHub acima são projetados para trabalhar com o SKU padrão para Azure Standard Load Balancer (SLB), o SKU Básico. Este SLB não tem SLA, pelo que, para as cargas de trabalho de produção, o SKU Standard deve ser utilizado. Para mais informações, consulte a visão geral do [Balanço de Carga Padrão Azure](/azure/load-balancer/load-balancer-standard-overview). Qualquer cluster de tecido de serviço que utilize o SKU Standard para SLB precisa de garantir que cada tipo de nó tem uma regra que permite o tráfego de saída na porta 443. Isto é necessário para completar a configuração do cluster, e qualquer implementação sem tal regra falhará. No exemplo acima de um equilibrador de carga "apenas interno", deve ser adicionado um equilibrador de carga externo adicional ao gabarito com uma regra que permite o tráfego de saída para a porta 443.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Criar um cluster](service-fabric-cluster-creation-via-arm.md)
 
-Após a implantação, pode ver dois equilibradores de carga no grupo de recursos. Se você navegar nos equilibradores de carga, você pode ver o endereço IP público e pontos finais de gestão (portas 19000 e 19080) atribuídos ao endereço IP público. Pode também ver o endereço IP interno estático e o ponto final de aplicação (porta 80) atribuído ao equilibrador interno de carga. Ambos os equilibradores de carga utilizam a mesma balança de calcário virtual definida na parte de trás.
+Após a colocação, pode ver dois equilibradores de carga no grupo de recursos. Se navegar nos esquiliadores de carga, pode ver o endereço IP público e os pontos finais de gestão (portes 19000 e 19080) atribuídos ao endereço IP público. Também pode ver o endereço IP interno estático e o ponto final da aplicação (porta 80) atribuído ao balançador interno de carga. Ambos os equilibradores de carga usam a mesma balança de máquina virtual definida na parte de trás da piscina.
 

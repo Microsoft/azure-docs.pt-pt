@@ -1,6 +1,6 @@
 ---
-title: Utilize o armazenamento local do dispositivo IoT Edge a partir de um módulo - Azure IoT Edge [ Microsoft Docs
-description: Utilize variáveis ambientais e crie opções para permitir o acesso do módulo ao armazenamento local do dispositivo IoT Edge.
+title: Use o armazenamento local do dispositivo IoT Edge a partir de um módulo - Azure IoT Edge ! Microsoft Docs
+description: Use variáveis ambientais e crie opções para permitir o acesso do módulo ao armazenamento local do dispositivo IoT Edge.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,28 +9,27 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 079d5845917e63fadcf0466e5a744ed637d704ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75434530"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Fornecer o acesso a módulos ao armazenamento local de um dispositivo
 
-Além de armazenar dados utilizando serviços de armazenamento Azure ou no armazenamento de contentores do seu dispositivo, também pode dedicar armazenamento no próprio dispositivo IoT Edge para melhorar a fiabilidade, especialmente quando opera offline.
+Além de armazenar dados utilizando serviços de armazenamento Azure ou no armazenamento de contentores do seu dispositivo, também pode dedicar armazenamento no próprio dispositivo IoT Edge do anfitrião para uma maior fiabilidade, especialmente quando opera offline.
 
 ## <a name="link-module-storage-to-device-storage"></a>Link armazenamento de módulos para armazenamento de dispositivos
 
-Para ativar uma ligação desde o armazenamento do módulo até ao armazenamento no sistema de hospedagem, crie uma variável ambiental para o seu módulo que aponta para uma pasta de armazenamento no recipiente. Em seguida, utilize as opções de criação para ligar essa pasta de armazenamento a uma pasta na máquina de acolhimento.
+Para ativar uma ligação desde o armazenamento do módulo ao armazenamento no sistema hospedeiro, crie uma variável ambiental para o seu módulo que aponta para uma pasta de armazenamento no recipiente. Em seguida, utilize as opções de criação para ligar essa pasta de armazenamento a uma pasta na máquina de anfitrião.
 
-Por exemplo, se quiser ativar o hub IoT Edge para armazenar mensagens no armazenamento local do seu dispositivo e recuperá-las mais tarde, pode configurar as variáveis ambientais e criar opções no portal Azure na secção Definições de Tempo de **Execução.**
+Por exemplo, se pretender ativar o hub IoT Edge para armazenar mensagens no armazenamento local do seu dispositivo e recuperá-las mais tarde, pode configurar as variáveis ambientais e criar opções no portal Azure na secção **Definições de Tempo** de Execução.
 
-1. Tanto para o hub IoT Edge como para o agente IoT Edge, adicione uma variável ambiental chamada **StorageFolder** que aponta para um diretório no módulo.
-1. Tanto para o hub IoT Edge como para o agente IoT Edge, adicione ligações para ligar um diretório local na máquina hospedeira a um diretório no módulo. Por exemplo:
+1. Para o hub IoT Edge e o agente IoT Edge, adicione uma variável ambiental chamada **StorageFolder** que aponta para um diretório no módulo.
+1. Para o hub IoT Edge e para o agente IoT Edge, adicione ligações para ligar um diretório local na máquina de anfitrião a um diretório no módulo. Por exemplo:
 
-   ![Adicione criar opções e variáveis ambientais para armazenamento local](./media/how-to-access-host-storage-from-module/offline-storage.png)
+   ![Adicione opções de criar e variáveis ambientais para armazenamento local](./media/how-to-access-host-storage-from-module/offline-storage.png)
 
-Ou, pode configurar o armazenamento local diretamente no manifesto de implantação. Por exemplo:
+Ou pode configurar o armazenamento local diretamente no manifesto de implantação. Por exemplo:
 
 ```json
 "systemModules": {
@@ -70,19 +69,19 @@ Ou, pode configurar o armazenamento local diretamente no manifesto de implantaç
 }
 ```
 
-`<HostStoragePath>` Substitua `<ModuleStoragePath>` e com o seu caminho de armazenamento de hospedeiro e módulo; ambos os valores devem ser um caminho absoluto.
+Substitua `<HostStoragePath>` e pelo seu hospedeiro e pelo caminho de armazenamento do `<ModuleStoragePath>` módulo; ambos os valores devem ser um caminho absoluto.
 
-Por exemplo, num sistema `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` Linux, significa que o diretório **/etc/iotedge/armazenamento** no seu sistema de acolhimento está mapeado para o diretório **/iotedge/armazenamento/** no recipiente. Num sistema Windows, como `"Binds":["C:\\temp:C:\\contemp"]` outro exemplo, significa o diretório **C:\\** a temperatura no seu sistema de hospedagem está mapeada para o diretório **C:\\contemp** no recipiente.
+Por exemplo, num sistema Linux, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` o diretório **/etc/iotedge/armazenamento** no seu sistema de anfitrião está mapeado para o diretório **/iotedge/armazenamento/** no recipiente. Num sistema Windows, como outro exemplo, `"Binds":["C:\\temp:C:\\contemp"]` significa o diretório **C: a \\ temperatura** no seu sistema de anfitrião está mapeada para o diretório **C: \\ contemp** no recipiente.
 
-Além disso, nos dispositivos Linux, certifique-se de que o perfil do utilizador para o seu módulo tem as permissões necessárias para ler, escrever e executar permissões para o diretório do sistema de anfitriões. Voltando ao exemplo anterior de permitir que o hub IoT Edge guarde mensagens no armazenamento local do seu dispositivo, precisa de conceder permissões ao seu perfil de utilizador, UID 1000. (O agente IoT Edge funciona como raiz, por isso não precisa de permissões adicionais.) Existem várias formas de gerir permissões `chown` de diretório nos sistemas Linux, incluindo a utilização para alterar o proprietário do diretório e, em seguida, `chmod` alterar as permissões, tais como:
+Além disso, nos dispositivos Linux, certifique-se de que o perfil do utilizador do seu módulo tem as permissões de leitura, escrita e execução necessárias para o diretório do sistema de anfitrião. Voltando ao exemplo anterior de permitir que o hub IoT Edge armazene mensagens no armazenamento local do seu dispositivo, precisa de conceder permissões ao seu perfil de utilizador, O UID 1000. (O agente IoT Edge funciona como raiz, por isso não precisa de permissões adicionais.) Existem várias formas de gerir permissões de diretório nos sistemas Linux, incluindo a utilização `chown` para mudar o proprietário do diretório e, em `chmod` seguida, alterar as permissões, tais como:
 
 ```bash
 sudo chown 1000 <HostStoragePath>
 sudo chmod 700 <HostStoragePath>
 ```
 
-Pode encontrar mais detalhes sobre a criação de opções a partir de [docs de estivador.](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate)
+Pode encontrar mais detalhes sobre a criação de opções a partir de [docs dockers](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para um exemplo adicional de acesso ao armazenamento do hospedeiro a partir de um módulo, consulte os dados da [Loja na borda com o Armazenamento De Blob Azure no IoT Edge](how-to-store-data-blob.md).
+Para obter um exemplo adicional de acesso ao armazenamento de hospedeiros a partir de um módulo, consulte [os dados da Loja na borda com o Azure Blob Storage no IoT Edge](how-to-store-data-blob.md).

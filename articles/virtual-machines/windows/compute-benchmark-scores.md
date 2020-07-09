@@ -1,6 +1,6 @@
 ---
-title: Pontuações de referência computacionais para VMs do Windows Azure
-description: Compare as pontuações de referência do cálculo da computação SPECint para Os VMs Azure que executam o Windows Server.
+title: Pontuações de referência do Compute para VMs do Azure Windows
+description: Compare as pontuações de referência da computação SPECint para VMs Azure que executam o Windows Server.
 author: cynthn
 ms.service: virtual-machines-windows
 ms.subservice: sizes
@@ -10,19 +10,19 @@ ms.date: 04/29/2020
 ms.author: cynthn
 ms.reviewer: davberg
 ms.openlocfilehash: c3e0fdc398d3b0b851c6f548119858e6c41a5a19
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583915"
 ---
-# <a name="compute-benchmark-scores-for-windows-vms"></a>Pontuações de referência computacionais para VMs do Windows
-As pontuações de referência specInt que se seguem mostram o desempenho da computação para os VMs Azure selecionados que executam o Windows Server. As pontuações de referência computacionais também estão disponíveis para [VMs Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+# <a name="compute-benchmark-scores-for-windows-vms"></a>Pontuações de referência do Compute para VMs do Windows
+As seguintes pontuações de referência SPECInt mostram desempenho do cálculo para selecionar VMs Azure executando O Windows Server. As pontuações de referência do computo também estão disponíveis para [Os VMs do Linux.](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 
 ## <a name="av2---general-compute"></a>Av2 - Computação Geral
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_A1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 12 | 14.2 | 0.3 | 
 | Standard_A1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 9 | 13.2 | 0.6 | 
@@ -48,13 +48,13 @@ As pontuações de referência specInt que se seguem mostram o desempenho da com
 
 
 > [!NOTE]
-> Os VMs da série Av2 podem ser implantados numa variedade de tipos de hardware e processadores (como visto acima). Os VMs da série Av2 têm configurações de desempenho cpu e memória mais adequadas para cargas de trabalho de nível de entrada como desenvolvimento e teste. O tamanho é acelerado para oferecer um desempenho relativamente consistente do processador para a instância de execução, independentemente do hardware em que é implantado; no entanto, o software que tira partido de otimizações específicas de processadores mais recentes pode ver uma variação mais significativa entre os tipos de processadores.
+> Os VMs da série Av2 podem ser implantados numa variedade de tipos e processadores de hardware (como se vê acima). Os VMs da série Av2 têm configurações de desempenho e memória de CPU mais adequadas para cargas de trabalho de nível de entrada como desenvolvimento e teste. O tamanho é acelerado para oferecer um desempenho relativamente consistente do processador para a instância de execução, independentemente do hardware em que é implantado; no entanto, o software que tira partido de otimizações específicas de processadores mais recentes pode ver uma variação mais significativa entre os tipos de processadores.
 
-## <a name="b---burstable"></a>B - Burstable
+## <a name="b---burstable"></a>B - Rebentado
 
 (Atualizado 2019-10-23 para 2019-11-03 PBI:5604451)
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_B1ms | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 9 | 6.3 | 0,2 | 
 | Standard_B1ms | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 47 | 6.4 | 0,2 | 
@@ -71,15 +71,15 @@ As pontuações de referência specInt que se seguem mostram o desempenho da com
 
 
 >[!NOTE]
-> Os VMs da Série B destinam-se a cargas de trabalho com requisitos de desempenho insupreensíveis. Os casos vm acumulam créditos quando se utiliza menos do que a sua linha de base. Quando o VM tiver crédito acumulado, o VM pode rebentar acima da linha de base usando até 100% para satisfazer os requisitos curtos de rutura do CPU. O tempo de rutura depende dos créditos disponíveis, que é uma função do tamanho e tempo do VM.  
+> Os VMs da Série B destinam-se a cargas de trabalho com requisitos de desempenho rebentáveis. As instâncias VM acumulam créditos quando utilizam menos do que a sua linha de base. Quando o VM tiver crédito acumulado, o VM pode rebentar acima da linha de base usando até 100% para satisfazer os requisitos de explosão de CPU curtos. O tempo de rutura depende dos créditos disponíveis, que é uma função do tamanho e do tempo de VM.  
 >
-> SPEC Int é um teste de execução bastante longo que normalmente esgota os créditos de explosão disponíveis.  Portanto, os números acima estão mais próximos do desempenho base do VM (embora possam refletir algum tempo de rutura acumulado entre corridas).  Para o desempenho de cargas de trabalho curtas, rebentadas e rebentadas (típicas em Série B) normalmente estarão mais próximas da série Ds v3..
+> SPEC Int é um teste de execução bastante longo que normalmente esgota os créditos de rutura disponíveis.  Por conseguinte, os números acima estão mais próximos do desempenho de base do VM (embora possam refletir algum tempo de rutura acumulado entre as corridas).  Para curto, rebentamento, o desempenho das cargas de trabalho (típicas em Série B) será tipicamente mais próximo do da Série Ds v3..
 
 ## <a name="dsv3---general-compute--premium-storage"></a>DSv3 - Computação Geral + Armazenamento Premium
 
-(atualizado 2019-10-23 a 2019-11-03 PBI:5604451)
+(atualizado 2019-10-23 para 2019-11-03 PBI:5604451)
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_D2s_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 10 | 40.8 | 2.3 | 
 | Standard_D2s_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 52 | 43.3 | 2.1 | 
@@ -91,18 +91,18 @@ As pontuações de referência specInt que se seguem mostram o desempenho da com
 | Standard_D16s_v3 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 38 | 298.2 | 4.4 | 
 | Standard_D32s_v3 | 32 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 24 | 545.8 | 10,5 | 
 | Standard_D32s_v3 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 9 | 535.6 | 12.6 | 
-| Standard_D32-8s_v3 | 8 |  | Intel(R) Xeon(R) CPU E5-2673 v3 ou v4 | 6 | 166.0 | 8.8 |
-| Standard_D32-16s_v3 | 16 |  | Intel(R) Xeon(R) CPU E5-2673 v3 ou v4 | 4 | 300.8 | 6.4 |
+| Standard_D32 8s_v3 | 8 |  | Intel(R) Xeon(R) CPU E5-2673 v3 ou v4 | 6 | 166.0 | 8.8 |
+| Standard_D32 16s_v3 | 16 |  | Intel(R) Xeon(R) CPU E5-2673 v3 ou v4 | 4 | 300.8 | 6.4 |
 | Standard_D48s_v3 | 48 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 ou v4 | 1 | 838.0 | 0,0 |
-| Standard_D64s_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 35 | 1070.6 | 2.4 | 
-| Standard_D64-16s_v3 | 16 |  | Intel(R) Xeon(R) CPU E5-2673 v3 ou v4 | 4 | 340.0 | 21.4 |
+| Standard_D64s_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 35 | 1070.6 | 2,4 | 
+| Standard_D64 16s_v3 | 16 |  | Intel(R) Xeon(R) CPU E5-2673 v3 ou v4 | 4 | 340.0 | 21.4 |
 | Standard_D64-32s_v3 | 32 |  | Intel(R) Xeon(R) CPU E5-2673 v3 ou v4 | 3 | 592.3 | 1.5 |
 
-## <a name="dv3---general-compute"></a>Dv3 - Computação Geral
+## <a name="dv3---general-compute"></a>Dv3 - Cálculo Geral
 
-(atualizado 2019-10-23 a 2019-11-03 PBI:5604451)
+(atualizado 2019-10-23 para 2019-11-03 PBI:5604451)
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_D2_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 10 | 38.6 | 1.8 | 
 | Standard_D2_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 24 | 41.8 | 3.3 | 
@@ -119,13 +119,13 @@ As pontuações de referência specInt que se seguem mostram o desempenho da com
 
 ## <a name="dsv2---storage-optimized"></a>DSv2 - Armazenamento Otimizado
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_DS1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 12 | 33.0 | 1.1 | 
 | Standard_DS1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 37 | 33.8 | 2.5 | 
 | Standard_DS2_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 33 | 63.9 | 1.7 | 
 | Standard_DS2_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 66.6 | 4.8 | 
-| Standard_DS3_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 15 | 125.5 | 3,2 | 
+| Standard_DS3_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 15 | 125.5 | 3.2 | 
 | Standard_DS3_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 47 | 130.1 | 4.3 | 
 | Standard_DS4_v2 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 23 | 235.7 | 6.6 | 
 | Standard_DS4_v2 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 34 | 249.4 | 2,8 | 
@@ -133,31 +133,31 @@ As pontuações de referência specInt que se seguem mostram o desempenho da com
 | Standard_DS5_v2 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 31 | 470.6 | 5.7 | 
 | Standard_DS11_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 22 | 66.3 | 2,8 | 
 | Standard_DS11_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 34 | 64.8 | 2,8 | 
-| Standard_DS11-1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 17 | 33.6 | 1.8 | 
-| Standard_DS11-1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 41 | 36.0 | 1.7 | 
+| Standard_DS11 1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 17 | 33.6 | 1.8 | 
+| Standard_DS11 1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 41 | 36.0 | 1.7 | 
 | Standard_DS12_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 10 | 126.8 | 2.7 | 
 | Standard_DS12_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 30 | 127.5 | 3.3 | 
 | Standard_DS12-1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 20 | 33.5 | 1.4 | 
-| Standard_DS12-1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 30 | 34.8 | 2.4 | 
-| Standard_DS12-2_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 17 | 65.5 | 2.3 | 
-| Standard_DS12-2_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 33 | 67.7 | 5.1 | 
+| Standard_DS12-1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 30 | 34.8 | 2,4 | 
+| Standard_DS12 2_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 17 | 65.5 | 2.3 | 
+| Standard_DS12 2_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 33 | 67.7 | 5.1 | 
 | Standard_DS13_v2 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 20 | 234.1 | 7.1 | 
 | Standard_DS13_v2 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 23 | 248.0 | 2,2 | 
 | Standard_DS13-2_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 17 | 65.2 | 3,1 | 
 | Standard_DS13-2_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 15 | 72.8 | 3.8 | 
-| Standard_DS13-4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 24 | 126.1 | 4.3 | 
-| Standard_DS13-4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 27 | 133.3 | 2,8 | 
+| Standard_DS13 4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 24 | 126.1 | 4.3 | 
+| Standard_DS13 4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 27 | 133.3 | 2,8 | 
 | Standard_DS14_v2 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 22 | 469.5 | 6.9 | 
 | Standard_DS14_v2 | 16 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 456.6 | 7.3 | 
-| Standard_DS14-4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 28 | 132.8 | 6.6 | 
-| Standard_DS14-4_v2 | 4 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 125.1 | 4.8 | 
-| Standard_DS14-8_v2 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 27 | 251.3 | 2.4 | 
-| Standard_DS14-8_v2 | 8 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 14 | 247.4 | 10.2 | 
+| Standard_DS14 4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 28 | 132.8 | 6.6 | 
+| Standard_DS14 4_v2 | 4 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 125.1 | 4.8 | 
+| Standard_DS14 8_v2 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 27 | 251.3 | 2,4 | 
+| Standard_DS14 8_v2 | 8 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 14 | 247.4 | 10.2 | 
 | Standard_DS15_v2 | 20 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 45 | 546.1 | 10,5 | 
 
 ## <a name="dv2---general-compute"></a>Dv2 - Computação Geral
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_D1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 30 | 33.5 | 1.7 | 
 | Standard_D1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 31 | 34.7 | 2.5 | 
@@ -182,36 +182,36 @@ As pontuações de referência specInt que se seguem mostram o desempenho da com
 
 ## <a name="esv3---memory-optimized--premium-storage"></a>Esv3 - Memória Otimizada + Armazenamento Premium
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_E2s_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 39 | 42.5 | 2,2 | 
 | Standard_E4s_v3 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 28 | 81.4 | 3.3 | 
 | Standard_E8s_v3 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 29 | 156.3 | 5.1 | 
-| Standard_E8-2s_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 57 | 41.8 | 2,6 | 
-| Standard_E8-4s_v3 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 45 | 82.9 | 3.0 | 
+| Standard_E8 2s_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 57 | 41.8 | 2,6 | 
+| Standard_E8 4s_v3 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 45 | 82.9 | 3.0 | 
 | Standard_E16s_v3 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 31 | 295.7 | 4.5 | 
 | Standard_E16-4s_v3 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 45 | 82.7 | 3.8 | 
-| Standard_E16-8s_v3 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 39 | 158.3 | 4.5 | 
-| Standard_E20s_v3 | 20 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 27 | 369.7 | 3,2 | 
+| Standard_E16 8s_v3 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 39 | 158.3 | 4.5 | 
+| Standard_E20s_v3 | 20 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 27 | 369.7 | 3.2 | 
 | Standard_E32s_v3 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 31 | 577.9 | 9.4 | 
-| Standard_E32-8s_v3 | 8 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 31 | 163.4 | 6.8 | 
-| Standard_E32-16s_v3 | 16 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 41 | 307.1 | 8.7 | 
-| Standard_E4-2s_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 65 | 41.9 | 2.4 | 
+| Standard_E32 8s_v3 | 8 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 31 | 163.4 | 6.8 | 
+| Standard_E32 16s_v3 | 16 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 41 | 307.1 | 8.7 | 
+| Standard_E4 2s_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 65 | 41.9 | 2,4 | 
 | Standard_E64s_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1080.0 | 0,0 | 
-| Standard_E64-16s_v3 | 16 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 3 | 334.3 | 1.5 | 
-| Standard_E64-32s_v3 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 592.5 | 4.4 | 
+| Standard_E64 16s_v3 | 16 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 3 | 334.3 | 1.5 | 
+| Standard_E64 32s_v3 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 592.5 | 4.4 | 
 
-## <a name="eisv3---memory-opt--premium-storage-isolated"></a>Eisv3 - Memory Opt + Premium Storage (isolado)
+## <a name="eisv3---memory-opt--premium-storage-isolated"></a>Eisv3 - Memory Opt + Armazenamento Premium (isolado)
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_E64is_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 28 | 1073.9 | 5.7 | 
 
 ## <a name="ev3---memory-optimized"></a>Ev3 - Memória Otimizada
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
-| Standard_E2_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 41 | 41.2 | 2.4 | 
+| Standard_E2_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 41 | 41.2 | 2,4 | 
 | Standard_E4_v3 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 43 | 81.4 | 5.3 | 
 | Standard_E8_v3 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 39 | 157.4 | 8.1 | 
 | Standard_E16_v3 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 49 | 301.6 | 8.9 | 
@@ -221,15 +221,15 @@ As pontuações de referência specInt que se seguem mostram o desempenho da com
 
 ## <a name="eiv3---memory-optimized-isolated"></a>Eiv3 - Memória Otimizada (isolada)
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_E64i_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 28 | 1081.4 | 11.1 | 
 
 ## <a name="fsv2---compute--storage-optimized"></a>Fsv2 - Compute + Armazenamento Otimizado
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
-| Standard_F2s_v2 | 2 | 1 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 46 | 56.5 | 2.4 | 
+| Standard_F2s_v2 | 2 | 1 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 46 | 56.5 | 2,4 | 
 | Standard_F4s_v2 | 4 | 1 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 60 | 110.2 | 4.7 | 
 | Standard_F8s_v2 | 8 | 1 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 36 | 215.2 | 5.3 | 
 | Standard_F16s_v2 | 16 | 1 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 36 | 409.3 | 15.5 | 
@@ -237,9 +237,9 @@ As pontuações de referência specInt que se seguem mostram o desempenho da com
 | Standard_F64s_v2 | 64 | 2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 33 | 1440.9 | 26.0 | 
 | Standard_F72s_v2 | 72 | 2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 29 | 1372.1 | 8.2 | 
 
-## <a name="fs---compute-and-storage-optimized"></a>FS - Computação e Armazenamento Otimizado
+## <a name="fs---compute-and-storage-optimized"></a>Fs - Computação e Armazenamento Otimizados
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_F1s | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 31 | 33.2 | 1.0 | 
 | Standard_F1s | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 41 | 35.1 | 2.0 | 
@@ -254,7 +254,7 @@ As pontuações de referência specInt que se seguem mostram o desempenho da com
 
 ## <a name="f---compute-optimized"></a>F - Compute Otimizado
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_F1 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 15 | 32.8 | 1.8 | 
 | Standard_F1 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 13 | 33.3 | 2.0 | 
@@ -270,7 +270,7 @@ As pontuações de referência specInt que se seguem mostram o desempenho da com
 
 ## <a name="gs---storage-optimized"></a>GS - Armazenamento Otimizado
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_GS1 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 29 | 63.6 | 4.7 | 
 | Standard_GS2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 29 | 122.3 | 6.9 | 
@@ -283,7 +283,7 @@ As pontuações de referência specInt que se seguem mostram o desempenho da com
 | Standard_GS5-16 | 16 | 2 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 31 | 447.9 | 4,0 | 
 
 ## <a name="g---compute-optimized"></a>G - Compute Otimizado
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_G1 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 29 | 64.7 | 9.2 | 
 | Standard_G2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 30 | 127.9 | 12.2 | 
@@ -291,9 +291,9 @@ As pontuações de referência specInt que se seguem mostram o desempenho da com
 | Standard_G4 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 31 | 400.2 | 3.9 | 
 | Standard_G5 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 31 | 774.1 | 4.1 | 
 
-## <a name="h---high-performance-compute-hpc"></a>H - Computação de Alto Desempenho (HPC)
+## <a name="h---high-performance-compute-hpc"></a>H - Alto Desempenho Compute (HPC)
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_H8 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 31 | 296.1 | 1.4 | 
 | Standard_H8m | 8 | 1 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 34 | 295.1 | 1.5 | 
@@ -304,7 +304,7 @@ As pontuações de referência specInt que se seguem mostram o desempenho da com
 
 ## <a name="ls---storage-optimized"></a>Ls - Armazenamento Otimizado
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_L4s | 4 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 29 | 122.7 | 6.6 | 
 | Standard_L8s | 8 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 30 | 223.3 | 7,5 | 
@@ -313,7 +313,7 @@ As pontuações de referência specInt que se seguem mostram o desempenho da com
 
 ## <a name="m---memory-optimized"></a>M - Memória Otimizada
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_M8-2ms | 2 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 15 | 42.1 | 2.1 | 
 | Standard_M8-4ms | 4 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 13 | 81.6 | 2.9 | 
@@ -322,7 +322,7 @@ As pontuações de referência specInt que se seguem mostram o desempenho da com
 | Standard_M32-8ms | 8 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 18 | 162.5 | 2.1 | 
 | Standard_M32-16ms | 16 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 12 | 306.5 | 0,5 | 
 | Standard_M64 | 64 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 11 | 1010.9 | 5.4 | 
-| Standard_M64-16ms | 16 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 13 | 316.0 | 2.4 | 
+| Standard_M64-16ms | 16 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 13 | 316.0 | 2,4 | 
 | Standard_M64-32ms | 32 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 12 | 586.8 | 5.4 | 
 | Standard_M64m | 64 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 12 | 1005.5 | 12.3 | 
 | Standard_M64ms | 64 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 12 | 1012.9 | 12.5 | 
@@ -337,13 +337,13 @@ As pontuações de referência specInt que se seguem mostram o desempenho da com
 | Standard_M32ls | 32 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 13 | 535.2 | 4.8 | 
 | Standard_M32ms | 32 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 11 | 534.1 | 4.6 | 
 | Standard_M32ms | 32 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 1 | 589.0 | 0,0 | 
-| Standard_M32ts | 32 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 12 | 538.6 | 3,2 | 
+| Standard_M32ts | 32 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 12 | 538.6 | 3.2 | 
 | Standard_M64ls | 64 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 13 | 1015.2 | 10.0 | 
 | Standard_M8ms | 8 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 13 | 158.2 | 5.5 | 
 
 ## <a name="ncsv3---gpu-enabled"></a>NCSv3 - GPU Habilitado
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_NC6s_v3 | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 6 | 230.2 | 1.6 | 
 | Standard_NC12s_v3 | 12 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 7 | 425.0 | 3.6 | 
@@ -352,7 +352,7 @@ As pontuações de referência specInt que se seguem mostram o desempenho da com
 
 ## <a name="ncsv2---gpu-enabled"></a>NCSv2 - GPU Habilitado
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_NC6s_v2 | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 11 | 227.0 | 6.2 | 
 | Standard_NC12s_v2 | 12 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 9 | 427.3 | 1.3 | 
@@ -361,7 +361,7 @@ As pontuações de referência specInt que se seguem mostram o desempenho da com
 
 ## <a name="nc---gpu-enabled"></a>NC - GPU Habilitado
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_NC6 | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 27 | 209.6 | 4.4 | 
 | Standard_NC12 | 12 | 1 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 28 | 394.4 | 3.8 | 
@@ -370,7 +370,7 @@ As pontuações de referência specInt que se seguem mostram o desempenho da com
 
 ## <a name="nds--gpu-enabled"></a>NDs- GPU Habilitado
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_ND6s | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 8 | 230.1 | 1.2 | 
 | Standard_ND12s | 12 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 11 | 426.5 | 1.4 | 
@@ -379,15 +379,15 @@ As pontuações de referência specInt que se seguem mostram o desempenho da com
 
 ## <a name="nv---gpu-enabled"></a>NV - GPU Habilitado
 
-| Tamanho | vCPUs | Nódosos NUMA | CPU | Execuções | Taxa Base de Avg | Rio StdDev | 
+| Tamanho | vCPUs | Nó de numções | CPU | Execuções | Taxa base de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_NV6 | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 28 | 210.5 | 6.1 | 
 | Standard_NV12 | 12 | 1 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 28 | 394.5 | 2.3 | 
 | Standard_NV24 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 26 | 752.2 | 4.4 | 
 
-## <a name="about-specint"></a>Sobre o SPECint
-Os números do Windows foram calculados com o funcionamento [do SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) no Windows Server. O SPECint foi executado utilizando a opção de taxa base (SPECint_rate2006), com uma cópia por vCPU. O SPECint é composto por 12 testes separados, cada um executado três vezes, tomando o valor mediano de cada teste e ponderando-os para formar uma pontuação composta. Esses testes foram então executados através de vários VMs para fornecer as pontuações médias mostradas.
+## <a name="about-specint"></a>Sobre a SPECint
+Os números do Windows foram calculados executando [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) no Windows Server. A SPECint foi executada utilizando a opção de taxa base (SPECint_rate2006), com uma cópia por vCPU. A SPECint consiste em 12 testes distintos, cada uma executada três vezes, tomando o valor mediano de cada teste e ponderando-os para formar uma pontuação composta. Esses testes foram então executados em vários VMs para fornecer as pontuações médias mostradas.
 
 ## <a name="next-steps"></a>Passos seguintes
-* Para capacidades de armazenamento, detalhes do disco e considerações adicionais para escolher entre tamanhos VM, consulte [Tamanhos para máquinas virtuais](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Para capacidades de armazenamento, detalhes do disco e considerações adicionais para escolher entre tamanhos VM, consulte [tamanhos para máquinas virtuais.](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

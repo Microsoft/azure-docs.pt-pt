@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use a biblioteca de clientes do Detetor de Anomalias'
 titleSuffix: Azure Cognitive Services
-description: A API anomaly Detetor oferece bibliotecas de clientes para detetar anomalias na sua série de dados, quer como um lote, quer em dados de streaming.
+description: A API do Detetor de Anomalias oferece bibliotecas de clientes para detetar anomalias na sua série de dados, quer como lote, quer em dados de streaming.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,14 +9,15 @@ zone_pivot_groups: programming-languages-set-seventeen
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 04/16/2020
+ms.date: 06/30/2020
 ms.author: aahi
-ms.openlocfilehash: 7a48992ab5978824f1ffb4b2c3ac0670f40c1424
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: 5a8e1d99aee7035cddabce8069d55a038261872a
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759980"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986141"
 ---
 # <a name="quickstart-use-the-anomaly-detector-client-library"></a>Quickstart: Use a biblioteca de clientes do Detetor de Anomalias
 

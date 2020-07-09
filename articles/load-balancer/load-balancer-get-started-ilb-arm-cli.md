@@ -1,24 +1,23 @@
 ---
-title: Criar um equilíbrio de carga básico interno - Azure CLI
+title: Criar um equilibrador de carga interno - Azure CLI
 titleSuffix: Azure Load Balancer
-description: Neste artigo, aprenda a criar um equilibrador de carga interno usando o Azure CLI
+description: Neste artigo, aprenda a criar um equilibrador de carga interno usando O Azure CLI
 services: load-balancer
 documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2018
+ms.date: 07/02/2020
 ms.author: allensu
-ms.openlocfilehash: 51df1936e5d8725b2243e7c0084973370139c540
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2557ac6f3fb8e9091faad5c9c219db529838495d
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79457016"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921721"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Criar um balanceador de carga interno para balanceamento de carga de VMs através da CLI do Azure
 
@@ -52,7 +51,7 @@ Crie uma rede virtual com o nome *myVnet*, com uma sub-rede de nome *mySubnet* e
     --subnet-name mySubnet
 ```
 
-## <a name="create-basic-load-balancer"></a>Criar Balanceador de Carga Básico
+## <a name="create-standard-load-balancer"></a>Criar o Balanceador de Carga Standard
 
 Esta secção descreve como pode criar e configurar os seguintes componentes do balanceador de carga:
   - uma configuração de IPs de front-end que recebe o tráfego de rede de entrada no balanceador de carga.
@@ -62,12 +61,15 @@ Esta secção descreve como pode criar e configurar os seguintes componentes do 
 
 ### <a name="create-the-load-balancer"></a>Criar o balanceador de carga
 
-Crie um Balancer de Carga interno com [az rede lb criar](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominado **myLoadBalancer** que inclui uma configuração IP frontal chamada **myFrontEnd**, uma piscina de back-end chamada **myBackEndPool** que está associada a um endereço IP privado **10.0.0.7.
+Crie um Balancer de Carga interno com [a az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) chamado **myLoadBalancer** que inclui uma configuração IP frontend chamada **myFrontEnd**, uma piscina traseira chamada **myBackEndPool** que está associada a um endereço IP privado **10.0.0.7**. 
+
+Utilize `--sku basic` para criar um Balanceador de Carga Básico. A Microsoft recomenda o Standard SKU para cargas de trabalho de produção.
 
 ```azurecli-interactive
   az network lb create \
     --resource-group myResourceGroupILB \
     --name myLoadBalancer \
+    --sku standard \
     --frontend-ip-name myFrontEnd \
     --private-ip-address 10.0.0.7 \
     --backend-pool-name myBackEndPool \
@@ -85,7 +87,7 @@ Uma sonda de estado de funcionamento verifica todas as instâncias de máquina v
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
-    --port 80   
+    --port 80
 ```
 
 ### <a name="create-the-load-balancer-rule"></a>Criar a regra de balanceador de carga
@@ -103,6 +105,12 @@ Uma regra de balanceador de carga define a configuração de IP de front-end do 
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe  
+```
+
+Também pode criar uma regra de balançador de carga [de portas HA](load-balancer-ha-ports-overview.md) utilizando a configuração abaixo com o Balanceador de Carga Padrão.
+
+```azurecli-interactive
+az network lb rule create --resource-group myResourceGroupILB --lb-name myLoadBalancer --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name myFrontEnd --backend-address-pool-name myBackEndPool
 ```
 
 ## <a name="create-servers-for-the-backend-address-pool"></a>Criar servidores para o conjunto de endereços de back-end
@@ -238,5 +246,5 @@ Quando já não for necessário, pode utilizar o comando [az group delete](/cli/
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, criou um Balanceador de Carga Básico interno, anexou VMs ao mesmo, configurou a regra de tráfego do balanceador de carga, a sonda de estado de funcionamento e, em seguida, testou o balanceador de carga. Para saber mais sobre balanceadores de carga e recursos associados, avance para os artigos de instruções.

@@ -7,17 +7,16 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: b50d8cfa4731c487997e2bf431a9c71eff08f5d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274167"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84702640"
 ---
 # <a name="view-designer-conversion-examples"></a>Ver exemplos de conversão de designers
 
-Para replicar o livro de trabalho, copiar e colar o seguinte código no editor avançado, denotado pelo símbolo </> na barra de ferramentas
+Para replicar o livro de trabalho com a marcação de visualização, copie e cole o seguinte código no editor Avançado, denotado pelo símbolo </> na barra de ferramentas
 
-![Barra de Ferramentas de Editor Avançado](media/view-designer-conversion-examples/toolbar.png)
+![Barra de ferramentas do editor avançado](media/view-designer-conversion-examples/toolbar.png)
 
 Os utilizadores podem ter de atualizar as suas definições de consulta e subscrições para os seus próprios recursos acessíveis
 

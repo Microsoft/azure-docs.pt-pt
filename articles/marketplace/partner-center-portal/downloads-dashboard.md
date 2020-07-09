@@ -1,40 +1,38 @@
 ---
-title: Downloads dashboard na Microsoft commercial marketplace analytics no Partner Center
+title: Descarrega dashboard no mercado comercial da Microsoft análise no Partner Center
 description: Saiba como aceder a pedidos de descarregamento para as suas ofertas de marketplace.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 136a65e47327007d7a28c2777051be61f475323e
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: fde95e3b6d1b4d1cdfb060c11e1e67241d3329f8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732723"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121712"
 ---
-# <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Downloads Dashboard em análise de marketplace comercial
+# <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de Transferências na análise de mercados comerciais
 
-Este artigo fornece informações sobre o dashboard Downloads no Partner Center. Este dashboard apresenta uma lista dos seus pedidos de descarregamento ao longo dos últimos 30 dias.
+Este artigo fornece informações sobre o dashboard Downloads no Partner Center. Este dashboard apresenta uma lista dos seus pedidos de descarregamento nos últimos 30 dias.
 
-Para aceder ao dashboard Downloads, abra o dashboard **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** no Mercado Comercial.
+Para aceder ao dashboard Downloads, abra o painel **[de instrumentos De analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** em Marketplace Comercial.
 
 >[!NOTE]
-> Para definições detalhadas de terminologia analítica, consulte [frequentemente perguntas e terminologia para análise](./faq-terminology.md)de mercado comercial.
+> Para definições detalhadas de terminologia analítica, consulte [perguntas frequentes e terminologia para análise de mercado comercial.](./faq-terminology.md)
 
 ## <a name="downloads-dashboard"></a>Dashboard de transferências
 
-O dashboard **Downloads** do menu **Analyze** exibe pedidos para quaisquer downloads que contenham mais de 1000 filas de dados de clientes ou encomendas.
+O painel de **transferências** do menu **Analyze** apresenta pedidos para quaisquer downloads que contenham mais de 1000 linhas de dados de clientes ou encomendas.
 
-Receberá uma notificação pop-up e e-mail contendo um link para o dashboard **Downloads** sempre que solicitar um download com mais de 1000 linhas de dados. Estes downloads de dados estarão disponíveis por um período de 30 dias e depois removidos.
+Receberá uma notificação pop-up e um e-mail contendo um link para o dashboard **downloads** sempre que solicitar um download com mais de 1000 linhas de dados. Estes downloads de dados estarão disponíveis por um período de 30 dias e depois removidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Para uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [o Analytics para o mercado comercial no Partner Center](./analytics.md).
-- Para gráficos, tendências e valores de dados agregados que resumam a atividade do mercado para a sua oferta, consulte [Summary Dashboard na análise do mercado comercial.](./summary-dashboard.md)
-- Para obter informações sobre as suas encomendas num formato gráfico e descarregável, consulte [o Painel de Encomendas na análise do mercado comercial](./orders-dashboard.md).
-- Para máquina virtual (VM) oferece métricas de utilização e faturação medida, consulte [o Usage Dashboard na análise do mercado comercial](./usage-dashboard.md).
-- Para obter informações detalhadas sobre os seus clientes, incluindo tendências de crescimento, consulte o [Customer Dashboard na análise do mercado comercial.](./customer-dashboard.md)
-- Para ver uma visão consolidada do feedback dos clientes para as ofertas no Azure Marketplace e appSource, consulte [ratings e avaliações de dashboard na análise do mercado comercial.](./ratings-reviews.md)
-- Para perguntas frequentes sobre análise de mercado comercial e para um dicionário abrangente de termos de dados, consulte [frequentemente perguntas e terminologia para análise](./faq-terminology.md)de mercado comercial.
+- Para uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [Analytics para o mercado comercial no Partner Center](./analytics.md).
+- Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para a sua oferta, consulte [o Painel De Resumo em análise de mercado comercial.](./summary-dashboard.md)
+- Para obter informações sobre as suas encomendas num formato gráfico e transferível, consulte [o Painel de Encomendas em análise de marketplace comercial.](./orders-dashboard.md)
+- Para Máquina Virtual (VM) oferece métricas de utilização e faturação medido, consulte [o Painel de Utilização em análise de mercado comercial.](./usage-dashboard.md)
+- Para obter informações detalhadas sobre os seus clientes, incluindo tendências de crescimento, consulte [o Customer Dashboard em análise de mercado comercial.](./customer-dashboard.md)
+- Para ver uma visão consolidada do feedback dos clientes para as ofertas no Azure Marketplace e appSource, consulte [ratings e comentários no painel de análise de mercado comercial.](./ratings-reviews.md)
+- Para perguntas frequentes sobre análise de mercado comercial e para um dicionário abrangente de termos de dados, consulte [perguntas frequentes e terminologia para análise de mercado comercial.](./faq-terminology.md)

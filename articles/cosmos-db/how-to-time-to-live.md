@@ -1,25 +1,25 @@
 ---
-title: Configure e gerencie o Tempo para Viver em Azure Cosmos DB
-description: Aprenda a configurar e gerir o tempo para viver num recipiente e num item em Azure Cosmos DB
+title: Configure e gere o Tempo para Viver em Azure Cosmos DB
+description: Aprenda a configurar e gerir o tempo para viver num contentor e num item em Azure Cosmos DB
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/27/2020
 ms.author: anfeldma
-ms.openlocfilehash: 11f5615d44cef4b6717dc9fe2004a64cf2f800ba
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bbddcb8627c78544d603e1ea3ca33bc410419da1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124130"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263627"
 ---
-# <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configure o tempo para viver em Azure Cosmos DB
+# <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar tempo para viver em Azure Cosmos DB
 
-No Azure Cosmos DB, pode optar por configurar o Time to Live (TTL) ao nível do contentor, ou pode sobrepor-se a um nível de item após a fixação do recipiente. Pode configurar o TTL para um recipiente utilizando o portal Azure ou os SDKs específicos da língua. As sobreposições de nível ttl do item podem ser configuradas utilizando os SDKs.
+Em Azure Cosmos DB, pode optar por configurar o Tempo para Viver (TTL) ao nível do recipiente, ou pode sobrepor-se a um nível de item após a definição do recipiente. Pode configurar o TTL para um recipiente utilizando o portal Azure ou os SDKs específicos da linguagem. As sobreposições TTL de nível de item podem ser configuradas utilizando os SDKs.
 
-## <a name="enable-time-to-live-on-a-container-using-azure-portal"></a>Tempo para viver num contentor usando o portal Azure
+## <a name="enable-time-to-live-on-a-container-using-azure-portal"></a>Habilite o tempo para viver em um recipiente usando o portal Azure
 
-Utilize os seguintes passos para dar tempo a viver num recipiente sem validade. Ative isto para permitir que o TTL seja ultrapassado ao nível do item. Também pode definir o TTL inserindo um valor não zero durante segundos.
+Utilize os seguintes passos para permitir que o tempo viva num recipiente sem expiração. Isto permite que o TTL seja ultrapassado ao nível do item. Também pode definir o TTL introduzindo um valor não zero durante segundos.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
@@ -29,25 +29,25 @@ Utilize os seguintes passos para dar tempo a viver num recipiente sem validade. 
 
 4. Selecione um recipiente existente, expanda-o e modifique os seguintes valores:
 
-   * Abra a janela **Definições de escala &.**
-   * Em **Definição** encontrar, **Tempo para viver**.
-   * Selecione **On (sem predefinição)** ou selecione **On** e definir um valor TTL
+   * Abra a **janela 'Definições & escala'.**
+   * Em **Definição** encontrar, **tempo para viver**.
+   * Selecione **On (sem predefinição)** ou selecione **On** e desafina um valor TTL
    * Clique em **Guardar** para guardar as alterações.
 
-   ![Configure tempo para viver no portal Azure](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
+   :::image type="content" source="./media/how-to-time-to-live/how-to-time-to-live-portal.png" alt-text="Configurar tempo para viver no portal Azure":::
 
-* Quando o Tempo ToLive padrão for nulo, então o seu tempo de viver está desligado
-* Quando o DefaultTimeToLive é -1 então a definição time to Live está ligado (sem predefinição)
-* Quando o DefaultTimeToLive tiver qualquer outro valor Int (exceto 0) a definição time to Live está on
+* Quando o DefaultTimeToLive é nulo, então o seu tempo de viver está desligado
+* Quando o DefaultTimeToLive é -1, então a sua definição de Tempo de Vida está acesa (Sem predefinição)
+* Quando o DefaultTimeToLive tiver qualquer outro valor Int (exceto 0) a sua definição de Tempo de Vida está ligado
 
-## <a name="enable-time-to-live-on-a-container-using-azure-cli-or-powershell"></a>Tempo de vida num recipiente utilizando o Azure CLI ou o PowerShell
+## <a name="enable-time-to-live-on-a-container-using-azure-cli-or-powershell"></a>Habilite o tempo para viver num recipiente usando Azure CLI ou PowerShell
 
-Para criar ou ativar a TTL num recipiente ver,
+Para criar ou ativar o TTL num recipiente ver,
 
-* [Criar um recipiente com TTL utilizando o Azure CLI](manage-with-cli.md#create-a-container-with-ttl)
-* [Criar um recipiente com TTL usando powerShell](manage-with-powershell.md#create-container-unique-key-ttl)
+* [Criar um recipiente com TTL utilizando O Azure CLI](manage-with-cli.md#create-a-container-with-ttl)
+* [Criar um recipiente com TTL usando PowerShell](manage-with-powershell.md#create-container-unique-key-ttl)
 
-## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Tempo para viver num recipiente usando SDK
+## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Habilite o tempo para viver em um recipiente usando SDK
 
 ### <a name="net-sdk"></a><a id="dotnet-enable-noexpiry"></a>.NET SDK
 
@@ -111,9 +111,9 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 ```
 ---
 
-## <a name="set-time-to-live-on-a-container-using-sdk"></a>Detete tempo para viver num recipiente usando SDK
+## <a name="set-time-to-live-on-a-container-using-sdk"></a>Definir a hora para viver em um recipiente usando SDK
 
-Para definir a hora de viver num recipiente, é necessário fornecer um número positivo não nulo que indique o período de tempo em segundos. Com base no valor configurado do TTL, todos os itens do recipiente após o último carimbo de tempo modificado do item `_ts` são eliminados.
+Para definir a hora de viver num recipiente, é necessário fornecer um número positivo não zero que indique o período de tempo em segundos. Com base no valor TTL configurado, todos os itens no recipiente após a última hora modificada do artigo `_ts` são eliminados.
 
 ### <a name="net-sdk"></a><a id="dotnet-enable-withexpiry"></a>.NET SDK
 
@@ -191,19 +191,19 @@ async function createcontainerWithTTL(db: Database, containerDefinition: Contain
 }
 ```
 
-## <a name="set-time-to-live-on-an-item"></a>Definir tempo para viver em um item
+## <a name="set-time-to-live-on-an-item"></a>Definir a hora de viver em um item
 
-Além de definir um tempo padrão para viver num recipiente, pode definir uma hora de viver para um item. A definição do tempo de vida ao nível do item sobrepor-se-á ao TTL padrão do item nesse recipiente.
+Além de definir um tempo padrão para viver num recipiente, pode definir uma hora para viver para um item. A definição do tempo de vida ao nível do item sobrepor-se-á ao TTL predefinido do item naquele recipiente.
 
-* Para definir o TTL num item, é necessário fornecer um número positivo não nulo, o que indica que o período, em segundos, expirará o item após o último carimbo de tempo modificado do artigo `_ts` .
+* Para definir o TTL num item, é necessário fornecer um número positivo não zero, o que indica o período, em segundos, para expirar o item após o último tempotal modificado do artigo `_ts` .
 
-* Se o item não tiver um campo TTL, então, por padrão, o conjunto TTL no recipiente aplicar-se-á ao item.
+* Se o item não tiver um campo TTL, então, por padrão, o conjunto TTL para o recipiente aplicar-se-á ao item.
 
-* Se a TTL for desativada ao nível do contentor, o campo TTL no item será ignorado até que a TTL seja reativada no recipiente.
+* Se o TTL estiver desativado ao nível do recipiente, o campo TTL no item será ignorado até que a TTL seja reativada no recipiente.
 
 ### <a name="azure-portal"></a><a id="portal-set-ttl-item"></a>Portal do Azure
 
-Utilize os seguintes passos para dar tempo a viver num item:
+Utilize os seguintes passos para permitir que o tempo viva num item:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
@@ -213,12 +213,12 @@ Utilize os seguintes passos para dar tempo a viver num item:
 
 4. Selecione um recipiente existente, expanda-o e modifique os seguintes valores:
 
-   * Abra a janela **Definições de escala &.**
-   * Em **Definição** encontrar, **Tempo para viver**.
-   * Selecione **On (sem predefinição)** ou selecione **On** e detete um valor TTL. 
+   * Abra a **janela 'Definições & escala'.**
+   * Em **Definição** encontrar, **tempo para viver**.
+   * Selecione **On (sem predefinição)** ou selecione **On** e desafina um valor TTL. 
    * Clique em **Guardar** para guardar as alterações.
 
-5. Em seguida, navegue para o item para o qual pretende definir o tempo para viver, adicione a `ttl` propriedade e selecione **Update**. 
+5. Em seguida, navegue para o item para o qual deseja definir a hora de viver, adicione a `ttl` propriedade e selecione **Update**. 
 
    ```json
    {
@@ -345,9 +345,9 @@ SalesOrder salesOrder = new SalesOrder(
 ```
 ---
 
-## <a name="reset-time-to-live"></a>Redefinir o tempo para viver
+## <a name="reset-time-to-live"></a>Repor o tempo de vida
 
-Pode redefinir o tempo para viver num item executando uma operação de escrita ou atualização no item. A operação de escrita ou atualização definirá o `_ts` tempo atual, e o TTL para que o item expire recomeçará. Se desejar alterar o TTL de um item, pode atualizar o campo assim que atualizar qualquer outro campo.
+Pode redefinir a hora de viver num item executando uma operação de escrita ou atualização no item. A operação de escrita ou atualização definirá `_ts` a hora atual e o TTL para o item expirar recomeçará. Se desejar alterar o TTL de um item, pode atualizar o campo assim que atualizar qualquer outro campo.
 
 ### <a name="net-sdk"></a><a id="dotnet-extend-ttl-item"></a>.NET SDK
 
@@ -421,7 +421,7 @@ container.getItem("SO05", new PartitionKey("CO18009186470")).read()
 
 ## <a name="turn-off-time-to-live"></a>Desligue o tempo para viver
 
-Se o tempo de vida tiver sido definido num item e já não quiser que esse item expire, então pode obter o item, remover o campo TTL e substituir o item no servidor. Quando o campo TTL é removido do item, o valor tTL predefinido atribuído ao recipiente é aplicado ao item. Detete o valor TTL para -1 para evitar que um item expire e não herde o valor TTL do recipiente.
+Se o tempo de vida tiver sido definido num item e já não quiser que o item expire, então pode obter o item, remover o campo TTL e substituir o item no servidor. Quando o campo TTL é removido do item, o valor TTL predefinido atribuído ao recipiente é aplicado ao item. Deite o valor TTL a -1 para evitar que um item expire e não herdar o valor TTL do recipiente.
 
 ### <a name="net-sdk"></a><a id="dotnet-turn-off-ttl-item"></a>.NET SDK
 
@@ -494,9 +494,9 @@ container.getItem("SO05", new PartitionKey("CO18009186470")).read()
 ```
 ---
 
-## <a name="disable-time-to-live"></a>Desativar o tempo para viver
+## <a name="disable-time-to-live"></a>Desativar o tempo de vida
 
-Para desativar o tempo para viver num recipiente e impedir que o processo de fundo verifique se há artigos caducados, a `DefaultTimeToLive` propriedade do recipiente deve ser eliminada. A apagar esta propriedade é diferente de defini-la para -1. Quando o definir para -1, novos itens adicionados ao recipiente viverão para sempre, no entanto pode anular este valor em itens específicos no recipiente. Quando retirar a propriedade TTL do recipiente os itens nunca expirarão, mesmo que existam que tenham ultrapassado explicitamente o valor tTL padrão anterior.
+Para desativar o tempo de vida num recipiente e impedir que o processo de fundo verifique se há itens expirados, a `DefaultTimeToLive` propriedade do recipiente deve ser eliminada. A eliminação desta propriedade é diferente de defini-la para -1. Quando o definir para -1, os novos itens adicionados ao recipiente viverão para sempre, no entanto pode sobrepor este valor em itens específicos no recipiente. Quando retirar a propriedade TTL do recipiente, os itens nunca expirarão, mesmo que existam, eles ultrapassaram explicitamente o valor TTL predefinido anterior.
 
 ### <a name="net-sdk"></a><a id="dotnet-disable-ttl"></a>.NET SDK
 
@@ -555,7 +555,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 ```
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o tempo para viver no seguinte artigo:
 

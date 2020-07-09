@@ -1,113 +1,113 @@
 ---
-title: Configurar alertas - Hiperescala (Citus) - Base de Dados Azure para PostgreSQL
-description: Este artigo descreve como configurar e aceder a alertas métricos para a Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
+title: Alertas de configuração - Hiperescala (Citus) - Base de Dados Azure para PostgreSQL
+description: Este artigo descreve como configurar e aceder a alertas métricos para Azure Database for PostgreSQL - Hyperscale (Citus)
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 8bf887b8d86131e0b358056fc1744a8d144be3fc
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 88425e2c875b3cce7c63cd66fd034e5a7af56ec7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584105"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117037"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Utilize o portal Azure para configurar alertas sobre métricas para a Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Utilize o portal Azure para configurar alertas em métricas para a Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 
-Este artigo mostra-lhe como configurar a Base de Dados Azure para alertas PostgreSQL utilizando o portal Azure. Pode receber um alerta com base em [métricas de monitorização](concepts-hyperscale-monitoring.md) dos seus serviços Azure.
+Este artigo mostra-lhe como configurar a Base de Dados Azure para alertas PostgreSQL utilizando o portal Azure. Pode receber um alerta com base nas [métricas de monitorização](concepts-hyperscale-monitoring.md) dos seus serviços Azure.
 
-Vamos criar um alerta para desencadear quando o valor de uma métrica especificada atravessar um limiar. O alerta dispara quando a condição é satisfeita pela primeira vez, e continua a disparar depois.
+Vamos configurar um alerta para desencadear quando o valor de uma métrica especificada atravessar um limiar. O alerta dispara quando a condição é recebida pela primeira vez, e continua a disparar depois.
 
-Pode configurar um alerta para fazer as seguintes ações quando dispara:
-* Envie notificações por e-mail ao administrador de serviço e aos coadministradores.
-* Envie e-mail para e-mails adicionais que especifice.
-* Chame um gancho de teia.
+Pode configurar um alerta para fazer as seguintes ações quando ativa:
+* Envie notificações por e-mail ao administrador de serviço e coadministrators.
+* Envie e-mail para e-mails adicionais que especifique.
+* Chame um webhook.
 
-Pode configurar e obter informações sobre as regras de alerta usando:
+Pode configurar e obter informações sobre as regras de alerta utilizando:
 * [Portal do Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [CLI do Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
-## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta sobre uma métrica do portal Azure
+## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta sobre uma métrica a partir do portal Azure
 1. No [portal Azure,](https://portal.azure.com/)selecione a Base de Dados Azure para o servidor PostgreSQL que pretende monitorizar.
 
-2. Na secção **de monitorização** da barra lateral, selecione **Alertas** conforme mostrado:
+2. Na secção **de monitorização** da barra lateral, selecione **Alertas** como mostrado:
 
    ![Selecione Regras de Alerta](./media/howto-hyperscale-alert-on-metric/2-alert-rules.png)
 
-3. Selecione **Nova regra de alerta** (ícone+).
+3. Selecione **Nova regra de alerta** (+ ícone).
 
-4. A página de **regras Create** abre como mostrado abaixo. Preencha as informações necessárias:
+4. A página **de regras Create** abre conforme mostrado abaixo. Preencha as informações necessárias:
 
-   ![Adicionar forma de alerta métrico](./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png)
+   ![Adicione formulário de alerta métrico](./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png)
 
 5. Dentro da secção **Condição,** **selecione Adicionar**.
 
-6. Selecione uma métrica da lista de sinais a alertar. Neste exemplo, selecione "Storage percent".
+6. Selecione uma métrica da lista de sinais a serem alertados. Neste exemplo, selecione "Storage percent".
    
    ![Selecionar métrica](./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png)
 
 7. Configure a lógica de alerta:
 
-    * **Operador** (ex. "Maior que")
+    * **Operador** (ex. "Maior do que")
     * **Valor limiar** (ex. 85 por cento)
-    * Quantidade de tempo de **granularidade de agregação** a regra métrica deve ser satisfeita antes do alerta disparar (ex. "Nos últimos 30 minutos")
+    * **A granularidade** da agregação deve ser satisfeita antes do alerta de disparo (ex. "Nos últimos 30 minutos")
     * e **Frequência de avaliação** (ex. "1 minuto")
    
-   Selecione **Feito** quando estiver completo.
+   Selecione **Fazer** quando concluído.
 
    ![Selecionar métrica](./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png)
 
-8. Dentro da secção **Grupos de Ação,** selecione **Create New** para criar um novo grupo para receber notificações no alerta.
+8. Na secção **Grupos de Ação,** selecione **Criar Novo** para criar um novo grupo para receber notificações no alerta.
 
 9. Preencha o formulário "Adicionar grupo de ação" com um nome, nome curto, subscrição e grupo de recursos.
 
     ![Grupo de ações](./media/howto-hyperscale-alert-on-metric/9-add-action-group.png)
 
-10. Configure um tipo de ação de **e-mail/SMS/Push/Voice.**
+10. Configure um tipo de ação **por E-mail/SMS/Push/Voice.**
     
-    Escolha "Email Azure Resource Manager Role" para enviar notificações aos proprietários de subscrições, colaboradores e leitores.
+    Escolha "Email Azure Resource Manager Role" para enviar notificações aos proprietários, colaboradores e leitores de subscrição.
    
-    Selecione **OK** quando estiver concluído.
+    Selecione **OK** quando concluído.
 
     ![Grupo de ações](./media/howto-hyperscale-alert-on-metric/10-action-group-type.png)
 
-11. Especifique um nome de regra de alerta, descrição e gravidade.
+11. Especifique um nome de regra de alerta, descrição e severidade.
 
     ![Grupo de ações](./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png) 
 
-12. Selecione **Criar a regra** de alerta para criar o alerta.
+12. Selecione **Criar a regra de alerta** para criar o alerta.
 
-    Dentro de poucos minutos, o alerta está ativo e dispara como descrito anteriormente.
+    Em poucos minutos, o alerta está ativo e dispara como descrito anteriormente.
 
 ### <a name="managing-alerts"></a>Gerir alertas
 
 Uma vez criado um alerta, pode selecioná-lo e fazer as seguintes ações:
 
-* Veja um gráfico que mostre o limiar métrico e os valores reais do dia anterior relevantes para este alerta.
-* **Editar** ou **Eliminar** a regra de alerta.
-* **Desative** ou **Ative** o alerta, caso pretenda parar ou retomar temporariamente a receção de notificações.
+* Veja um gráfico que mostra o limiar métrico e os valores reais do dia anterior relevantes para este alerta.
+* **Editar** ou **eliminar** a regra de alerta.
+* **Desative** ou **Ative** o alerta, se pretender parar temporariamente ou retomar as notificações.
 
 ## <a name="suggested-alerts"></a>Alertas sugeridos
 
 ### <a name="disk-space"></a>Espaço em disco
 
-A monitorização e alerta é importante para cada grupo de servidores de hiperescala de produção (Citus). A base de dados PostgreSQL subjacente requer espaço de disco gratuito para funcionar corretamente. Se o disco ficar cheio, o nó do servidor de base de dados ficará offline e recusar-se-á a iniciar até que o espaço esteja disponível. Nessa altura, requer um pedido de suporte da Microsoft para corrigir a situação.
+A monitorização e alerta são importantes para todos os grupos de servidores Hyperscale (Citus) de produção. A base de dados PostgreSQL subjacente requer espaço livre para funcionar corretamente. Se o disco ficar cheio, o nó do servidor de base de dados ficará offline e recusar-se-á a iniciar até que o espaço esteja disponível. Nessa altura, requer um pedido de suporte da Microsoft para corrigir a situação.
 
-Recomendamos a definição de alertas de espaço em disco em cada nó de cada grupo de servidores, mesmo para uso não produtivo. Os alertas de utilização do espaço do disco fornecem o aviso prévio necessário para intervir e manter os nódosos saudáveis. Para obter os melhores resultados, experimente uma série de alertas a 75%, 85%, e 95% de utilização. As percentagens a escolher dependem da velocidade de ingestão de dados, uma vez que a ingestão rápida de dados preenche o disco mais rapidamente.
+Recomendamos a definição de alertas de espaço em cada nó em cada grupo de servidores, mesmo para utilização não-produção. Os alertas de utilização do espaço em disco fornecem o aviso prévio necessário para intervir e manter os nós saudáveis. Para obter melhores resultados, experimente uma série de alertas a 75%, 85% e 95% de utilização. As percentagens a escolher dependem da velocidade de ingestão de dados, uma vez que a ingestão rápida de dados preenche o disco mais rapidamente.
 
 À medida que o disco se aproxima do seu limite de espaço, experimente estas técnicas para obter mais espaço livre:
 
-* Reveja a política de retenção de dados. Mova dados mais antigos para armazenamento frio, se possível.
-* Considere [adicionar nós](howto-hyperscale-scaling.md#add-worker-nodes) ao grupo do servidor e reequilibrar fragmentos. O reequilíbrio distribui os dados por mais computadores.
-* Considere [aumentar a capacidade](howto-hyperscale-scaling.md#increase-or-decrease-vcores-on-nodes) dos nódosos dos trabalhadores. Cada trabalhador pode ter até 2 TiB de armazenamento. No entanto, a adição de nódosos deve ser tentada antes de redimensionar os nódosos porque a adição de nódosos completa-se mais rapidamente.
+* Rever a política de retenção de dados. Mova os dados mais antigos para o armazenamento frio, se possível.
+* Considere [adicionar nós](howto-hyperscale-scaling.md#add-worker-nodes) ao grupo de servidor e reequilibtar fragmentos. O reequilíbrio distribui os dados por mais computadores.
+* Considere [aumentar a capacidade](howto-hyperscale-scaling.md#increase-or-decrease-vcores-on-nodes) dos nós dos trabalhadores. Cada trabalhador pode ter até 2 TiB de armazenamento. No entanto, a adição de nós deve ser tentada antes de redimensionar os nós porque a adição de nós completa-se mais rapidamente.
 
 ### <a name="cpu-usage"></a>Utilização da CPU
 
-A monitorização da utilização do CPU é útil para estabelecer uma linha de base para o desempenho. Por exemplo, pode notar que o uso de CPU costuma rondar os 40-60%. Se o uso de CPU começar subitamente a rondar os 95%, pode reconhecer uma anomalia. O uso do CPU pode refletir o crescimento orgânico, mas também pode revelar uma consulta perdida. Ao criar um alerta de CPU, delineie uma granularidade de agregação longa para capturar aumentos prolongados e ignorar picos momentâneos.
+A monitorização da utilização do CPU é útil para estabelecer uma linha de base para o desempenho. Por exemplo, pode notar que o uso do CPU é geralmente de cerca de 40-60%. Se o uso do CPU começar subitamente a pairar cerca de 95%, pode reconhecer uma anomalia. O uso do CPU pode refletir o crescimento orgânico, mas também pode revelar uma consulta desviada. Ao criar um alerta de CPU, deslovide uma granularidade de agregação longa para capturar aumentos prolongados e ignorar picos momentâneos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
-* Obtenha uma [visão geral da recolha de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para garantir que o seu serviço está disponível e reativo.
+* Obtenha uma [visão geral da recolha de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para se certificar de que o seu serviço está disponível e responsivo.

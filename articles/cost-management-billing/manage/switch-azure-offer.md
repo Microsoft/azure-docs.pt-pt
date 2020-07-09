@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 05/14/2020
 ms.author: banders
-ms.openlocfilehash: 4aa02dae521844f2654a50f77be9b2ee3c46a74f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ee2de33fadb068ee2697f79c1ebcb1b2fa4e5fcc
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199522"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715890"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>Alterar a subscrição do Azure para outra oferta
 
@@ -51,10 +51,10 @@ Pode alterar de uma subscrição individual com taxas pay as you go para:
 1. **Selecione a oferta pretendida** na lista de ofertas para as quais a sua subscrição pode ser mudada. Esta lista varia de acordo com as associações da sua conta. Se não aparecer nada, veja a [lista de ofertas disponíveis para as quais pode mudar](#whats-supported) e confirme que tem as associações adequadas.
 
    ![Selecionar a oferta para a qual quer mudar](./media/switch-azure-offer/selectoffer.png)
-1. Consoante a oferta para qual está a mudar, pode ver uma nota sobre o efeito da mudança. Leia cuidadosamente esta lista e siga as instruções antes de avançar.
+1. Consoante a oferta para qual está a mudar, pode ver uma nota sobre o efeito da mudança. Leia cuidadosamente a lista e siga as instruções antes de continuar.
 
    ![Rever as notas](./media/switch-azure-offer/thingstonote.png)
-1. Pode mudar o nome da subscrição. Por predefinição, está definido como o novo nome da oferta. Clique em **Mudar Oferta** para concluir o processo.
+1. Pode mudar o nome da subscrição. Por predefinição, não está definida como o novo nome da oferta. Clique em **Mudar Oferta** para concluir o processo.
 
    ![Clicar no botão verde](./media/switch-azure-offer/confirmpage.png)
 1. Êxito! A subscrição foi mudada para a nova oferta.
@@ -100,7 +100,7 @@ No dia em que mudar, uma fatura será gerada para todos os custos pendentes. Em 
 
 ### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-provider-csp-or-enterprise-agreement-ea"></a>Posso migrar de uma subscrição com taxas pay as you go para o Fornecedor de Soluções Cloud (CSP) ou para o Contrato Enterprise (EA)?
 
-* Para migrar para o CSP, veja [Azure Pay-As-You-Go Subscription Migration to CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp) (Migração da Subscrição Pay As You Go do Azure para o CSP).
+* Para migrar para o CSP, veja [Transfer Azure subscriptions between subscribers and CSPs](transfer-subscriptions-subscribers-csp.md) (Transferir subscrições do Azure entre subscritores e CSPs).
 * Para migrar para o EA, peça ao Administrador de Inscrição para adicionar a sua conta ao EA. Siga as instruções no e-mail de convite para que as suas subscrições sejam movidas ao abrigo da inscrição de EA. Para saber mais, veja [Associar uma Conta Existente](https://ea.azure.com/helpdocs/associateExistingAccount) no EA Portal.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>Posso migrar dados e serviços para uma nova subscrição?

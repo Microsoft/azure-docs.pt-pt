@@ -1,6 +1,6 @@
 ---
 title: Copiar dados da Sybase utilizando a Azure Data Factory
-description: Saiba como copiar dados da Sybase para lojas de dados de sink suportadas utilizando uma atividade de cópia num pipeline azure Data Factory.
+description: Saiba como copiar dados da Sybase para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num pipeline da Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,14 +9,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 06/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 495d16efcc26fc336a87c0f2d88f5202ab0b4a3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ac9dff4b16d8ba1b346a2827f3b5487dbf97392e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416623"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669839"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copiar dados da Sybase utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -24,36 +23,38 @@ ms.locfileid: "81416623"
 > * [Versão atual](connector-sybase.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de uma base de dados da Sybase. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de uma base de dados da Sybase. Baseia-se no artigo [de visão geral](copy-activity-overview.md) da atividade de cópia que apresenta uma visão geral da atividade da cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
 Este conector Sybase é suportado para as seguintes atividades:
 
-- [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/pia suportada](copy-activity-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)
 
-Pode copiar dados da base de dados da Sybase para qualquer loja de dados suportada. Para obter uma lista de lojas de dados que são suportadas como fontes/pias pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
+Pode copiar dados da base de dados Sybase para qualquer loja de dados de lavatórios suportados. Para obter uma lista de lojas de dados suportadas como fontes/pias pela atividade de cópia, consulte a tabela [de lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
 Especificamente, este conector Sybase suporta:
 
-- SAP Sybase SQL Em qualquer lugar (ASA) **versão 16 ou superior;** O QI e a ASE não são suportados.
+- SAP Sybase SQL Em qualquer lugar (ASA) **versão 16 e superior**.
 - Copiar dados utilizando a autenticação **Básica** ou **Windows.**
+
+O QI de Sybase e o ASE não são suportados. Em vez disso, pode utilizar o conector ODBC genérico com o controlador Sybase.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar este conector Sybase, é necessário:
+Para utilizar este conector Sybase, tem de:
 
-- Criar um Tempo de Integração Auto-hospedado. Consulte o artigo [De Integração Autónoma](create-self-hosted-integration-runtime.md) para obter mais detalhes.
-- Instale o fornecedor de [dados para Sybase iAnywhere.Data.SQLAnywhere](https://go.microsoft.com/fwlink/?linkid=324846) 16 ou superior na máquina de tempo de execução de integração.
+- Crie um tempo de integração auto-hospedado. Consulte o artigo [de execução de integração auto-hospedado](create-self-hosted-integration-runtime.md) para obter detalhes.
+- Instale o [fornecedor de dados para Sybase iAnywhere.Data.SQLOnse 16](https://go.microsoft.com/fwlink/?linkid=324846) ou superior na máquina de tempo de execução de integração.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades da Fábrica de Dados específicas do conector Sybase.
+As secções seguintes fornecem detalhes sobre propriedades que são usadas para definir entidades da Data Factory específicas do conector Sybase.
 
-## <a name="linked-service-properties"></a>Propriedades de serviço seletos
+## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 
 As seguintes propriedades são suportadas para o serviço ligado à Sybase:
 
@@ -61,11 +62,11 @@ As seguintes propriedades são suportadas para o serviço ligado à Sybase:
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **Sybase** | Sim |
 | servidor | Nome do servidor Sybase. |Sim |
-| base de dados | Nome da base de dados da Base de Dados Sybase. |Sim |
-| authenticationType | Tipo de autenticação utilizada para ligar à base de dados da Sybase.<br/>Os valores permitidos são: **Básico,** e **Windows**. |Sim |
-| o nome de utilizador | Especifique o nome do utilizador para se ligar à base de dados da Sybase. |Sim |
-| palavra-passe | Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). |Sim |
-| connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. É necessário um tempo de execução de integração auto-hospedado, tal como mencionado nos [pré-requisitos.](#prerequisites) |Sim |
+| base de dados | Nome da base de dados Sybase. |Sim |
+| authenticationType | Tipo de autenticação usada para ligar à base de dados Sybase.<br/>Os valores permitidos são: **Básico**e **Windows**. |Sim |
+| o nome de utilizador | Especifique o nome do utilizador para ligar à base de dados Sybase. |Sim |
+| palavra-passe | Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Sim |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, tal como mencionado nos [Pré-Requisitos](#prerequisites). |Sim |
 
 **Exemplo:**
 
@@ -94,14 +95,14 @@ As seguintes propriedades são suportadas para o serviço ligado à Sybase:
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo conjuntos de [dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados da Sybase.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [conjuntos de dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados Sybase.
 
-Para copiar dados da Sybase, são suportadas as seguintes propriedades:
+Para copiar dados da Sybase, suportam-se as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do conjunto de dados deve ser definida para: **SybaseTable** | Sim |
-| tableName | Nome da tabela na base de dados da Base de Dados Sybase. | Não (se for especificada a "consulta" na fonte de atividade) |
+| tableName | O nome da tabela na base de dados da Sybase. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
 
@@ -120,19 +121,19 @@ Para copiar dados da Sybase, são suportadas as seguintes propriedades:
 }
 ```
 
-Se estiver `RelationalTable` a utilizar o conjunto de dados dactilografado, ainda é suportado como está, enquanto é sugerido que utilize o novo para a frente.
+Se estiver a utilizar `RelationalTable` conjunto de dados dactilografado, ainda é suportado como está, enquanto é sugerido que utilize o novo para a frente.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas por fonte sybase.
+Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela fonte da Sybase.
 
 ### <a name="sybase-as-source"></a>Sybase como fonte
 
-Para copiar dados da Sybase, as seguintes propriedades são suportadas na secção de **origem** de atividade de cópia:
+Para copiar dados da Sybase, as seguintes propriedades são suportadas na secção **de origem** da atividade da cópia:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo da fonte de atividade de cópia deve ser definida para: **SybaseSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **SybaseSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
@@ -167,19 +168,19 @@ Para copiar dados da Sybase, as seguintes propriedades são suportadas na secç�
 ]
 ```
 
-Se estiver `RelationalSource` a usar a fonte dactilografada, continua a ser suportada como está, enquanto é sugerido que utilize o novo para a frente.
+Se estava a usar `RelationalSource` uma fonte dactilografada, ainda é suportada como está, enquanto é sugerido que utilize a nova que vai para a frente.
 
-## <a name="data-type-mapping-for-sybase"></a>Mapeamento de tipo de dados para Sybase
+## <a name="data-type-mapping-for-sybase"></a>Mapeamento do tipo de dados para a Sybase
 
-Ao copiar dados da Sybase, os seguintes mapeamentos são utilizados desde tipos de dados da Sybase para tipos de dados provisórios da Azure Data Factory. Consulte [schema e mapeamentos](copy-activity-schema-and-type-mapping.md) de tipo de dados para saber como a atividade de cópia mapeia o esquema de origem e o tipo de dados para a pia.
+Ao copiar dados da Sybase, os seguintes mapeamentos são usados desde tipos de dados Sybase até tipos de dados provisórios da Azure Data Factory. Consulte [os mapeamentos de schema e tipo de dados](copy-activity-schema-and-type-mapping.md) para saber como a atividade da cópia mapeia o esquema de origem e o tipo de dados para a pia.
 
-A Base Sybase suporta tipos T-SQL. Para uma tabela de mapeamento dos tipos SQL para os tipos de dados provisórios da Azure Data Factory, consulte [o Azure SQL Database Connector -](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database) secção de mapeamento de tipo de dados.
+A Sybase suporta tipos T-SQL. Para uma tabela de mapeamento de tipos DE SQL para tipos de dados provisórios da Azure Data Factory, consulte [o Conector de Base de Dados Azure SQL - secção de mapeamento do tipo de dados.](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database)
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
-Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
+Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
 
 
-## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Azure Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).
+## <a name="next-steps"></a>Próximos passos
+Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

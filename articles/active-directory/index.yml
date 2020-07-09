@@ -11,13 +11,13 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 05/19/2020
-  ms.openlocfilehash: 4e1b18e1037b37deba3e037f3e896bf1536f4fd7
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.date: 05/29/2020
+  ms.openlocfilehash: 13e69e5f45244be79d06b0014d32e5c8192c777c
+  ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83591918"
+  ms.lasthandoff: 07/07/2020
+  ms.locfileid: "86038077"
 highlightedContent:
   items:
   - title: O que é o Azure AD?
@@ -42,15 +42,15 @@ conceptualContent:
   items:
   - title: Gestão de aplicações
     links:
-    - url: ./manage-apps/what-is-single-sign-on.md
-      itemType: concept
-      text: O que é o Início de Sessão Único (SSO)?
-    - url: ./manage-apps/user-provisioning.md
-      itemType: tutorial
-      text: Aprovisionamento automático de utilizadores
-    - url: ./manage-apps/application-proxy.md
-      itemType: concept
-      text: Proxy de Aplicações para aplicações no local
+    - url: ./manage-apps/what-is-application-management.md
+      itemType: overview
+      text: O que é a gestão de aplicações?
+    - url: ./manage-apps/view-applications-portal.md
+      itemType: quickstart
+      text: Ver as aplicações que estão a utilizar o seu inquilino para gestão de identidades
+    - url: ./manage-apps/add-application-portal-setup-sso.md
+      itemType: quickstart
+      text: Configurar o SSO baseado em SAML
     footerLink:
       url: ./manage-apps/index.yml
       text: Ver mais
@@ -109,20 +109,6 @@ conceptualContent:
       text: Condições com base na localização
     footerLink:
       url: ./conditional-access/index.yml
-      text: Ver mais
-  - title: Programadores
-    links:
-    - url: ./develop/v2-overview.md
-      itemType: overview
-      text: Acerca da plataforma de identidade da Microsoft
-    - url: ./develop/v2-oauth2-auth-code-flow.md
-      itemType: concept
-      text: Conceder o fluxo de código de OAuth 2.0
-    - url: ./develop/quickstart-register-app.md
-      itemType: quickstart
-      text: Registar uma aplicação na plataforma de identidades da Microsoft
-    footerLink:
-      url: ./develop/index.yml
       text: Ver mais
   - title: Gestão de dispositivos
     links:
@@ -235,6 +221,20 @@ conceptualContent:
       text: Serviços que suportam a identidade gerida
     footerLink:
       url: ./managed-identities-azure-resources/index.yml
+      text: Ver mais
+  - title: Plataforma de identidades da Microsoft
+    links:
+    - url: ./develop/v2-overview.md
+      itemType: overview
+      text: Acerca da plataforma de identidade da Microsoft
+    - url: ./develop/v2-oauth2-auth-code-flow.md
+      itemType: concept
+      text: Conceder o fluxo de código de OAuth 2.0
+    - url: ./develop/quickstart-register-app.md
+      itemType: quickstart
+      text: Registar uma aplicação na plataforma de identidades da Microsoft
+    footerLink:
+      url: ./develop/index.yml
       text: Ver mais
   - title: Privileged Identity Management (PIM)
     links:

@@ -1,6 +1,6 @@
 ---
-title: Obtenha valores para autenticação de apps
-description: Crie um diretor de serviço para aceder à Base de Dados Azure SQL a partir do código.
+title: Obtenha valores para autenticação de aplicações
+description: Crie um principal de serviço para aceder à Base de Dados Azure SQL a partir do código.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,26 +11,25 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 6a0a4c0885552d7f8697a1f13b8750e084d8770a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 5aba4c690f91b515424eb866d387652ca9f40e7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041725"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84344616"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-azure-sql-database-from-code"></a>Obtenha os valores necessários para autenticar uma aplicação para aceder à Base de Dados Azure SQL a partir do código
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Para criar e gerir a Base de Dados SQL a partir do código, tem de registar a sua aplicação no domínio Azure Ative Directory (AAD) na subscrição onde foram criados os seus recursos Azure.
+Para criar e gerir a Base de Dados Azure SQL a partir do código, tem de registar a sua aplicação no domínio Azure Ative Directory (Azure AD) na subscrição onde foram criados os seus recursos Azure.
 
-## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Criar um serviço principal para aceder a recursos a partir de uma aplicação
+## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Criar um chefe de serviço para aceder a recursos a partir de uma aplicação
 
-Os seguintes exemplos criam a aplicação Ative Directory (AD) e o principal de serviço que precisamos para autenticar a nossa aplicação C#. O script produz os valores de necessários para a amostra do C# precedente. Para obter informações detalhadas, consulte [Utilize o Azure PowerShell para criar um principal de serviço para aceder aos recursos](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+Os exemplos a seguir criam a aplicação Ative Directory (AD) e o principal de serviço que precisamos para autenticar a nossa aplicação C#. O script produz os valores de necessários para a amostra do C# precedente. Para obter informações detalhadas, consulte [Utilize o Azure PowerShell para criar um principal de serviço para aceder aos recursos](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
-> O módulo PowerShell Azure Resource Manager (RM) ainda é suportado pela Base de Dados SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para mais informações sobre a sua compatibilidade, consulte [A introdução do novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
+> O módulo PowerShell Azure Resource Manager (RM) ainda é suportado pela BASE de Dados SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber correções de erros até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre a sua compatibilidade, consulte [a introdução do novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
 
 ```powershell
 # sign in to Azure
@@ -100,7 +99,7 @@ Write-Output "_applicationSecret:" $secret
 
 * * *
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [Criar uma base de dados na Base de Dados Azure SQL com C #](design-first-database-csharp-tutorial.md)  
-[Ligue-se à Base de Dados Azure SQL utilizando a autenticação de diretório ativo Azure](authentication-aad-overview.md)
+[Ligue à Base de Dados Azure SQL utilizando a autenticação do Diretório Ativo Azure](authentication-aad-overview.md)

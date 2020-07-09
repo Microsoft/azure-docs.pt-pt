@@ -1,5 +1,5 @@
 ---
-title: Crie imagens VM Linux Azure com Packer
+title: Criar Imagens VM Linux Azure com Packer
 description: Saiba como usar o Packer para criar imagens de máquinas virtuais Linux em Azure
 author: cynthn
 ms.service: virtual-machines-linux
@@ -8,24 +8,24 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
-ms.openlocfilehash: fa899764e4e80e7eba849e02d617c8c1ca2ae410
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 587e339f2c2d91792ef1c342f7a1f8363da63626
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792705"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85106015"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Como usar o Packer para criar imagens de máquinas virtuais Linux em Azure
-Cada máquina virtual (VM) em Azure é criada a partir de uma imagem que define a distribuição linux e a versão OS. As imagens podem incluir aplicações e configurações pré-instaladas. O Azure Marketplace fornece muitas imagens de primeira e terceira para a maioria das distribuições e ambientes de aplicações comuns, ou pode criar as suas próprias imagens personalizadas adaptadas às suas necessidades. Este artigo detalha como usar a ferramenta de código aberto [Packer](https://www.packer.io/) para definir e construir imagens personalizadas em Azure.
+Cada máquina virtual (VM) em Azure é criada a partir de uma imagem que define a distribuição Linux e a versão OS. As imagens podem incluir aplicações e configurações pré-instaladas. O Azure Marketplace fornece muitas imagens de primeira e de terceiros para a distribuição mais comum e ambientes de aplicações, ou pode criar as suas próprias imagens personalizadas adaptadas às suas necessidades. Este artigo detalha como usar a ferramenta de código aberto [Packer](https://www.packer.io/) para definir e construir imagens personalizadas em Azure.
 
 > [!NOTE]
-> O Azure tem agora um serviço, o Azure Image Builder (pré-visualização), para definir e criar as suas próprias imagens personalizadas. O Azure Image Builder é construído em Packer, para que possa até usar os seus scripts de provisão packer existentes com ele. Para começar com o Azure Image Builder, consulte [Create a Linux VM com Azure Image Builder](image-builder.md).
+> O Azure tem agora um serviço, Azure Image Builder (pré-visualização), para definir e criar as suas próprias imagens personalizadas. O Azure Image Builder é construído em Packer, para que possa até usar os scripts existentes do proserdor de conchas Packer com ele. Para começar com o Azure Image Builder, consulte [Criar um Linux VM com Azure Image Builder](image-builder.md).
 
 
 ## <a name="create-azure-resource-group"></a>Criar grupo de recursos Azure
-Durante o processo de construção, a Packer cria recursos temporários azure à medida que constrói a fonte VM. Para capturar essa fonte VM para uso como imagem, você deve definir um grupo de recursos. A saída do processo de construção Packer é armazenada neste grupo de recursos.
+Durante o processo de construção, a Packer cria recursos temporários do Azure à medida que constrói a origem VM. Para capturar essa fonte VM para ser usada como imagem, deve definir um grupo de recursos. A saída do processo de construção packer é armazenada neste grupo de recursos.
 
-Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* na localização *oriental:*
+Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *este:*
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
@@ -33,9 +33,9 @@ az group create -n myResourceGroup -l eastus
 
 
 ## <a name="create-azure-credentials"></a>Criar credenciais do Azure
-Packer autentica com Azure usando um diretor de serviço. Um diretor de serviço Azure é uma identidade de segurança que pode usar com apps, serviços e ferramentas de automação como o Packer. Controla e define as permissões sobre que operações o diretor de serviço pode realizar em Azure.
+Packer autentica com Azure usando um principal de serviço. Um diretor de serviço Azure é uma identidade de segurança que pode usar com apps, serviços e ferramentas de automação como o Packer. Você controla e define as permissões sobre as operações que o diretor de serviço pode executar em Azure.
 
-Crie um diretor de serviço com [az ad sp criar-para-rbac](/cli/azure/ad/sp) e obter as credenciais de que packer precisa:
+Crie um principal de serviço com [a ad sp criar para rbac](/cli/azure/ad/sp) e produzir as credenciais de que packer precisa:
 
 ```azurecli
 az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
@@ -51,28 +51,28 @@ Um exemplo da saída dos comandos anteriores é o seguinte:
 }
 ```
 
-Para autenticar o Azure, também precisa de obter o seu ID de subscrição Azure com [conta az mostrar:](/cli/azure/account)
+Para autenticar a Azure, também precisa de obter o seu ID de subscrição Azure com [um show de conta Az:](/cli/azure/account)
 
 ```azurecli
 az account show --query "{ subscription_id: id }"
 ```
 
-Usa a saída destes dois comandos no próximo passo.
+Usas a saída destes dois comandos no próximo passo.
 
 
-## <a name="define-packer-template"></a>Definir modelo packer
-Para construir imagens, cria-se um modelo como ficheiro JSON. No modelo, define construtores e provisionadores que realizam o processo de construção real. A Packer tem um [provisionador para](https://www.packer.io/docs/builders/azure.html) o Azure que lhe permite definir os recursos azure, como as credenciais principais de serviço criadas na etapa anterior.
+## <a name="define-packer-template"></a>Definir modelo de Packer
+Para construir imagens, cria-se um modelo como ficheiro JSON. No modelo, você define construtores e provisionadores que realizam o processo de construção real. A Packer tem um [provisionador para o Azure](https://www.packer.io/docs/builders/azure.html) que lhe permite definir os recursos Azure, como as credenciais principais de serviço criadas no passo anterior.
 
-Crie um ficheiro chamado *ubuntu.json* e colá-lo o seguinte conteúdo. Insira os seus próprios valores para o seguinte:
+Crie um ficheiro nomeado *ubuntu.js* e cole o seguinte conteúdo. Insira os seus próprios valores para os seguintes valores:
 
 | Parâmetro                           | Onde obter |
 |-------------------------------------|----------------------------------------------------|
-| *client_id*                         | Primeira linha de `az ad sp` saída a partir de criar comando - *appId* |
-| *client_secret*                     | Segunda linha de `az ad sp` saída a partir de criar comando - *senha* |
-| *tenant_id*                         | Terceira linha de `az ad sp` saída a partir de criar comando - *inquilino* |
-| *subscription_id*                   | Saída `az account show` a partir do comando |
+| *client_id*                         | Primeira linha de saída a partir de `az ad sp` criar comando - *appId* |
+| *client_secret*                     | Segunda linha de saída a partir de `az ad sp` criar comando - *senha* |
+| *tenant_id*                         | Terceira linha de saída a partir de `az ad sp` criar comando - *inquilino* |
+| *subscription_id*                   | Saída do `az account show` comando |
 | *managed_image_resource_group_name* | Nome do grupo de recursos que criou no primeiro passo |
-| *managed_image_name*                | Nome para a imagem de disco gerida que é criada |
+| *managed_image_name*                | Nome para a imagem gerida do disco que é criada |
 
 
 ```json
@@ -119,12 +119,12 @@ Crie um ficheiro chamado *ubuntu.json* e colá-lo o seguinte conteúdo. Insira o
 Este modelo constrói uma imagem Ubuntu 16.04 LTS, instala NGINX e, em seguida, desprovisiona o VM.
 
 > [!NOTE]
-> Se expandir este modelo para fornecer credenciais de utilizador, ajuste o comando `-deprovision` do `deprovision+user`provisionador que desprovisiona o agente Azure para ler em vez de .
-> A `+user` bandeira remove todas as contas de utilizador da Fonte VM.
+> Se expandir neste modelo para obter credenciais de utilizador, ajuste o comando do provisionador que desprovisionia o agente Azure para ler `-deprovision` em vez de `deprovision+user` .
+> A `+user` bandeira remove todas as contas do utilizador da fonte VM.
 
 
-## <a name="build-packer-image"></a>Construir imagem Packer
-Se ainda não tiver o Packer instalado na sua máquina local, siga as instruções de [instalação do Packer](https://www.packer.io/docs/install/index.html).
+## <a name="build-packer-image"></a>Construa a imagem do Packer
+Se ainda não tiver o Packer instalado na sua máquina local, [siga as instruções de instalação do Packer](https://www.packer.io/docs/install).
 
 Construa a imagem especificando o seu ficheiro de modelo Packer da seguinte forma:
 
@@ -193,11 +193,11 @@ ManagedImageName: myPackerImage
 ManagedImageLocation: eastus
 ```
 
-Leva alguns minutos para packer construir o VM, executar os provisionadores, e limpar a implantação.
+Leva alguns minutos para packer construir o VM, executar os provisões, e limpar a implementação.
 
 
-## <a name="create-vm-from-azure-image"></a>Criar VM a partir de Imagem Azure
-Agora pode criar um VM a partir da sua Imagem com [az vm criar](/cli/azure/vm). Especifique a `--image` Imagem que criou com o parâmetro. O exemplo seguinte cria um VM chamado *myVM* a partir do *myPackerImage* e gera chaves SSH se ainda não existirem:
+## <a name="create-vm-from-azure-image"></a>Criar VM a partir da Imagem Azure
+Agora pode criar um VM a partir da sua Imagem com [criação az vm](/cli/azure/vm). Especifique a Imagem que criou com o `--image` parâmetro. O exemplo a seguir cria um VM chamado *myVM* do *myPackerImage* e gera chaves SSH se ainda não existirem:
 
 ```azurecli
 az vm create \
@@ -208,9 +208,9 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Se desejar criar VMs num grupo ou região diferente do seu Packer, especifique o ID de imagem em vez do nome da imagem. Pode obter o ID de imagem com um show de [imagem az](/cli/azure/image#az-image-show).
+Se desejar criar VMs num grupo ou região de recursos diferente do que a sua imagem Packer, especifique o ID de imagem em vez do nome da imagem. Pode obter o ID de imagem com [um mostrador de imagem az](/cli/azure/image#az-image-show).
 
-Leva alguns minutos para criar o VM. Uma vez criado o VM, tome nota do `publicIpAddress` mostrado pelo Azure CLI. Este endereço é utilizado para aceder ao site nginX através de um navegador web.
+Leva alguns minutos para criar o VM. Uma vez criado o VM, tome nota do `publicIpAddress` mostrado pelo CLI Azure. Este endereço é utilizado para aceder ao site do NGINX através de um navegador web.
 
 Para permitir que o tráfego da Web aceda à VM, abra a porta 80 a partir da Internet com [az vm open-port](/cli/azure/vm):
 
@@ -222,10 +222,10 @@ az vm open-port \
 ```
 
 ## <a name="test-vm-and-nginx"></a>Teste VM e NGINX
-Agora, pode abrir um browser e introduzir `http://publicIpAddress` na barra de endereço. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. A página padrão NGINX é apresentada como no seguinte exemplo:
+Agora, pode abrir um browser e introduzir `http://publicIpAddress` na barra de endereço. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. A página NGINX predefinida é apresentada como no seguinte exemplo:
 
 ![Site predefinido do NGINX](./media/build-image-with-packer/nginx.png) 
 
 
-## <a name="next-steps"></a>Passos seguintes
-Também pode utilizar scripts de provisionamento Packer existentes com [o Azure Image Builder.](image-builder.md)
+## <a name="next-steps"></a>Próximos passos
+Também pode utilizar scripts de provisionadores Packer existentes com [O Azure Image Builder](image-builder.md).

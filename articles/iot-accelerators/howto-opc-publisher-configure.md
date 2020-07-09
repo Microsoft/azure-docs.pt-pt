@@ -1,6 +1,6 @@
 ---
-title: Configure OPC Publisher - Azure [ Microsoft Docs
-description: Este artigo descreve como configurar o OPC Publisher para especificar alterações de dados do nó da OPC UA, eventos da OPC UA para publicar e também o formato de telemetria.
+title: Configure Editora OPC - Azure / Microsoft Docs
+description: Este artigo descreve como configurar o OPC Publisher para especificar alterações de dados de nó OPC UA, eventos OPC UA para publicar e também o formato de telemetria.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/10/2019
@@ -8,34 +8,33 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 0ebbf0d41c05f71c571d9665903ba4ba44f71bd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2128fee29e64c58a8066a681776fb509b3e31b6f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77198808"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85445700"
 ---
 # <a name="configure-opc-publisher"></a>Configurar o Publicador OPC
 
-Pode configurar o OPC Publisher para especificar:
+Pode configurar o Editor OPC para especificar:
 
-- As alterações de dados do nó da OPC UA para publicar.
-- Os eventos da OPC UA para publicar.
-- O formato de telemetria.
+- Os dados do nó UA da OPC alteram a publicação.
+- Os eventos da UA da OPC para publicar.
+- O formato da telemetria.
 
-Pode configurar o OPC Publisher utilizando ficheiros de configuração ou utilizando chamadas de método.
+Pode configurar o Editor OPC usando ficheiros de configuração ou usando chamadas de método.
 
 ## <a name="use-configuration-files"></a>Utilizar os ficheiros de configuração
 
-Esta secção descreve as opções para configurar a publicação do nó UA do OPC com ficheiros de configuração.
+Esta secção descreve opções para configurar a publicação do nó UA OPC com ficheiros de configuração.
 
 ### <a name="use-a-configuration-file-to-configure-publishing-data-changes"></a>Utilize um ficheiro de configuração para configurar alterações de dados de publicação
 
-A forma mais fácil de configurar os nódosos da OPC UA para publicar é com um ficheiro de configuração. O formato de ficheiro de configuração está documentado em [publishednodes.json](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/publishednodes.json) no repositório.
+A forma mais fácil de configurar os nós UA da OPC para publicar é com um ficheiro de configuração. O formato de ficheiro de configuração é documentado em [publishednodes.jsno](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/publishednodes.json) repositório.
 
-A sintaxe de ficheiros de configuração mudou ao longo do tempo. A OPC Publisher ainda lê formatos antigos, mas converte-os no formato mais recente quando persiste a configuração.
+A sintaxe do ficheiro de configuração mudou ao longo do tempo. O OPC Publisher ainda lê formatos antigos, mas converte-os no formato mais recente quando persiste na configuração.
 
-O exemplo seguinte mostra o formato do ficheiro de configuração:
+O exemplo a seguir mostra o formato do ficheiro de configuração:
 
 ```json
 [
@@ -56,9 +55,9 @@ O exemplo seguinte mostra o formato do ficheiro de configuração:
 
 ### <a name="use-a-configuration-file-to-configure-publishing-events"></a>Utilize um ficheiro de configuração para configurar eventos de publicação
 
-Para publicar eventos OPC UA, utiliza o mesmo ficheiro de configuração que para alterações de dados.
+Para publicar eventos OPC UA, utilize o mesmo ficheiro de configuração que para alterações de dados.
 
-O exemplo que se segue mostra como configurar a publicação para eventos gerados pelo [servidor SimpleEvents](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/SimpleEvents/Server). O servidor SimpleEvents pode ser encontrado no [repositório da Fundação OPC:](https://github.com/OPCFoundation/UA-.NETStandard)
+O exemplo a seguir mostra como configurar a publicação para eventos gerados pelo [servidor SimpleEvents](https://github.com/OPCFoundation/UA-.NETStandard-Samples/tree/master/Workshop/SimpleEvents/Server). O servidor SimpleEvents pode ser encontrado no [repositório da Fundação OPC:](https://github.com/OPCFoundation/UA-.NETStandard-Samples)
 
 ```json
 [
@@ -110,43 +109,43 @@ O exemplo que se segue mostra como configurar a publicação para eventos gerado
 ]
 ```
 
-## <a name="use-method-calls"></a>Usar chamadas de métodos
+## <a name="use-method-calls"></a>Use chamadas de método
 
-Esta secção descreve as chamadas de método que pode usar para configurar o OPC Publisher.
+Esta secção descreve as chamadas de método que pode utilizar para configurar o Editor OPC.
 
-### <a name="configure-using-opc-ua-method-calls"></a>Configure usando chamadas de método oPC UA
+### <a name="configure-using-opc-ua-method-calls"></a>Configure usando chamadas de método OPC UA
 
-A OPC Publisher inclui um Servidor UA OPC, que pode ser acedido na porta 62222. Se o nome de **anfitrião**é editor `opc.tcp://publisher:62222/UA/Publisher`, então o ponto final URI é: .
+O OPC Publisher inclui um Servidor UA OPC, que pode ser acedido na porta 62222. Se o nome de anfitrião for **editor,** então o ponto final URI é: `opc.tcp://publisher:62222/UA/Publisher` .
 
 Este ponto final expõe os seguintes quatro métodos:
 
-- Nó editorial
-- Não publicar Node
-- GetPublishedNodes
-- Método HubDirect IoT
+- PublicarNode
+- Não-publicaNode
+- Obter Nomes Publicados
+- IoT HubDirectMethod
 
-### <a name="configure-using-iot-hub-direct-method-calls"></a>Configure usando chamadas de método sinuoso IoT Hub
+### <a name="configure-using-iot-hub-direct-method-calls"></a>Configure usando chamadas de método direto IoT Hub
 
-O OPC Publisher implementa as seguintes chamadas de método sinuoso IoT Hub:
+A OPC Publisher implementa as seguintes chamadas de método direto IoT Hub:
 
-- Publicar Nodes
-- Não publicarNodes
-- Não publicar AllNodes
-- GetConfiguredEndpoints
+- PublicarNodes
+- Não-publicanteNodes
+- UnpublishAllNodes
+- Obter Pontos DeEndpoints Configurados
 - GetConfiguredNodesOnEndpoint
 - GetDiagnosticInfo
-- GetDiagnosticLog
+- ObterDiagnosticLog
 - GetDiagnosticStartupLog
-- Aplicação de saída
+- ExitApplication
 - GetInfo
 
-O formato da carga útil JSON do pedido e respostas do método é definido em [opcpublisher/HubMethodModel.cs](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/HubMethodModel.cs).
+O formato da carga útil JSON do método de pedido e respostas é definido em [opcpublisher/HubMethodModel.cs](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/HubMethodModel.cs).
 
-Se chamar um método desconhecido no módulo, responde com uma corda que diz que o método não é implementado. Pode chamar um método desconhecido como uma forma de pingar o módulo.
+Se chamar um método desconhecido no módulo, responde com uma corda que diz que o método não é implementado. Pode chamar um método desconhecido como forma de pingar o módulo.
 
-### <a name="configure-username-and-password-for-authentication"></a>Configure o nome de utilizador e a palavra-passe para autenticação
+### <a name="configure-username-and-password-for-authentication"></a>Configurar o nome de utilizador e a palavra-passe para a autenticação
 
-O modo de autenticação pode ser definido através de chamadas de método sinuoso IoT Hub. A carga útil deve conter a propriedade **OpcAuthenticationMode** e o nome de utilizador e palavra-passe:
+O modo de autenticação pode ser definido através de um método ioT hub chamadas diretas. A carga útil deve conter a propriedade **OpcAuthenticationMode** e o nome de utilizador e senha:
 
 ```csharp
 {
@@ -158,7 +157,7 @@ O modo de autenticação pode ser definido através de chamadas de método sinuo
 }
 ```
 
-A palavra-passe é encriptada pelo IoT Hub Workload Client e armazenada na configuração da editora. Para alterar a autenticação de volta para anónimo, utilize o método com a seguinte carga útil:
+A palavra-passe é encriptada pelo Cliente de Carga de Trabalho do Hub IoT e armazenada na configuração da editora. Para alterar a autenticação de volta para anónima, utilize o método com a seguinte carga útil:
 
 ```csharp
 {
@@ -172,19 +171,19 @@ Se a propriedade **OpcAuthenticationMode** não estiver definida na carga útil,
 
 ## <a name="configure-telemetry-publishing"></a>Configure a publicação de telemetria
 
-Quando a OPC Publisher recebe uma notificação de uma mudança de valor num nó publicado, gera uma mensagem formatada JSON que é enviada para o IoT Hub.
+Quando a OPC Publisher recebe uma notificação de uma alteração de valor num nó publicado, gera uma mensagem formatada JSON que é enviada para o IoT Hub.
 
-Pode configurar o conteúdo desta mensagem formatada JSON utilizando um ficheiro de configuração. Se não for especificado `--tc` nenhum ficheiro de configuração com a opção, é utilizada uma configuração predefinida compatível com o acelerador de [solução](https://github.com/Azure/azure-iot-connected-factory)de fábrica Ligado .
+Pode configurar o conteúdo desta mensagem formatada JSON utilizando um ficheiro de configuração. Se nenhum ficheiro de configuração for especificado com a `--tc` opção, é utilizada uma configuração predefinida que seja compatível com o acelerador de [solução de fábrica Ligado](https://github.com/Azure/azure-iot-connected-factory).
 
-Se a OPC Publisher estiver configurada para enviar mensagens de lote, então são enviadas como uma matriz JSON válida.
+Se o Editor OPC estiver configurado para enviar mensagens de lote, então são enviadas como uma matriz JSON válida.
 
-A telemetria deriva das seguintes fontes:
+A telemetria provém das seguintes fontes:
 
-- A configuração do nó da Editora OPC para o nó
-- O objeto **MonitoredItem** da pilha oPC UA para o qual a OPC Publisher recebeu uma notificação.
+- A configuração do nó do nó do editor OPC para o nó
+- O objeto **MonitoredItem** da pilha OPC UA para a qual a OPC Publisher recebeu uma notificação.
 - O argumento passou para esta notificação, que fornece detalhes sobre a alteração do valor dos dados.
 
-A telemetria que é colocada na mensagem formatada jSON é uma seleção de propriedades importantes destes objetos. Se precisar de mais propriedades, precisa de alterar a base de código da OPC Publisher.
+A telemetria que é colocada na mensagem formatada JSON é uma seleção de propriedades importantes destes objetos. Se precisar de mais propriedades, tem de alterar a base de códigos OPC Publisher.
 
 A sintaxe do ficheiro de configuração é a seguinte:
 
@@ -378,6 +377,6 @@ A sintaxe do ficheiro de configuração é a seguinte:
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Agora que aprendeu a configurar a Editora OPC, o próximo passo sugerido é aprender a executar a [Editora OPC](howto-opc-publisher-run.md).
+Agora que aprendeu a configurar a Editora OPC, o próximo passo sugerido é aprender a gerir a [Editora OPC.](howto-opc-publisher-run.md)

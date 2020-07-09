@@ -1,6 +1,6 @@
 ---
-title: Proteja os conteúdos hls com o Microsoft PlayReady ou apple FairPlay - Azure [ Microsoft Docs
-description: Este tópico apresenta uma visão geral e mostra como usar os Serviços De Mídia Azure para encriptar dinamicamente o seu conteúdo http Live Streaming (HLS) com o Apple FairPlay. Também mostra como usar o serviço de entrega de licenças dos Media Services para entregar licenças FairPlay aos clientes.
+title: Proteja os conteúdos HLS com o Microsoft PlayReady ou Apple FairPlay - Azure / Microsoft Docs
+description: Este tópico dá uma visão geral e mostra como usar o Azure Media Services para encriptar dinamicamente o seu conteúdo HTTP Live Streaming (HLS) com o Apple FairPlay. Também mostra como usar o serviço de entrega de licenças de Media Services para entregar licenças FairPlay aos clientes.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,87 +13,87 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 873bc4ab5e435b91ff4400a39c92db0d0bb9baa8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ad06d0e37b7cf464c311e28e546e1b7f1ebd183
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74968770"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058253"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Proteja o seu conteúdo HLS com Apple FairPlay ou Microsoft PlayReady
 
 > [!NOTE]
-> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não estão a ser adicionadas novas funcionalidades ou funcionalidades aos Serviços de Media v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não estão a ser adicionadas novas funcionalidades ou funcionalidades aos Serviços de Comunicação Social v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 >
 
-O Azure Media Services permite-lhe encriptar dinamicamente o conteúdo do HTTP Live Streaming (HLS) utilizando os seguintes formatos:  
+O Azure Media Services permite-lhe encriptar dinamicamente o seu conteúdo HTTP Live Streaming (HLS) utilizando os seguintes formatos:  
 
 * **Chave clara do envelope AES-128**
 
-    Todo o pedaço é encriptado utilizando o modo **AES-128 CBC.** A desencriptação do fluxo é suportada pelo iOS e pelo jogador OS X de forma nativa. Para mais informações, consulte [AES-128 serviço](media-services-protect-with-aes128.md)de encriptação dinâmica e entrega de chaves .
+    Todo o pedaço é encriptado utilizando o modo **CBC AES-128.** A desencriptação do fluxo é suportada pelo leitor de iOS e OS X de forma nativa. Para obter mais informações, consulte [o serviço de encriptação dinâmica AES-128 e o serviço de entrega de chaves](media-services-protect-with-aes128.md).
 * **Apple FairPlay**
 
-    As amostras individuais de vídeo e áudio são encriptadas utilizando o modo **AES-128 CBC.** O **FairPlay Streaming** (FPS) está integrado nos sistemas operativos do dispositivo, com suporte nativo no iOS e apple TV. O Safari no OS X ativa o FPS utilizando o suporte de interface de extensões de mídia encriptada (EME).
+    As amostras individuais de vídeo e áudio são encriptadas utilizando o modo **CBC AES-128.** **O FairPlay Streaming** (FPS) está integrado nos sistemas operativos do dispositivo, com suporte nativo no iOS e Apple TV. O Safari no OS X permite fps utilizando o suporte de interface de extensões de mídia encriptadas (EME).
 * **Microsoft PlayReady**
 
-A imagem que se segue mostra o fluxo de trabalho de **encriptação dinâmica HLS + FairPlay ou PlayReady.**
+A imagem a seguir mostra o fluxo de trabalho **de encriptação dinâmica HLS + FairPlay ou PlayReady.**
 
-![Diagrama do fluxo de trabalho de encriptação dinâmica](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
+![Diagrama de fluxo de trabalho de encriptação dinâmica](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
-Este artigo demonstra como usar os Media Services para encriptar dinamicamente o seu conteúdo HLS com o Apple FairPlay. Também mostra como usar o serviço de entrega de licenças dos Media Services para entregar licenças FairPlay aos clientes.
+Este artigo demonstra como usar os Media Services para encriptar dinamicamente o seu conteúdo HLS com o Apple FairPlay. Também mostra como usar o serviço de entrega de licenças de Media Services para entregar licenças FairPlay aos clientes.
 
 > [!NOTE]
-> Se também pretende encriptar o seu conteúdo HLS com o PlayReady, tem de criar uma chave de conteúdo comum e associá-la ao seu ativo. Também precisa de configurar a política de autorização da chave de conteúdo, tal como descrito na [encriptação comum dinâmica PlayReady](media-services-protect-with-playready-widevine.md).
+> Se também pretende encriptar o seu conteúdo HLS com o PlayReady, tem de criar uma chave de conteúdo comum e associá-la ao seu ativo. Também é necessário configurar a política de autorização da chave de conteúdo, conforme descrito na utilização da [encriptação comum dinâmica Do PlayReady](media-services-protect-with-playready-widevine.md).
 >
 >
 
 ## <a name="requirements-and-considerations"></a>Requisitos e considerações
 
-São necessários os seguintes serviços de comunicação social para entregar hlS encriptados com FairPlay e para entregar licenças FairPlay:
+São necessários os seguintes quando se utilizam os Serviços de Comunicação social para entregar o HLS encriptado com FairPlay e para entregar licenças FairPlay:
 
-  * Uma conta do Azure. Para mais detalhes, consulte [o teste gratuito do Azure.](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)
-  * Uma conta dos Media Services. Para criar uma, consulte [Criar uma conta Azure Media Services utilizando o portal Azure](media-services-portal-create-account.md).
-  * Inscreva-se no Programa de Desenvolvimento da [Apple](https://developer.apple.com/).
-  * A Apple exige que o proprietário do conteúdo obtenha o pacote de [implementação.](https://developer.apple.com/contact/fps/) Diga que já implementou o Módulo de Segurança Chave (KSM) com os Serviços de Media e que está a solicitar o pacote final de FPS. Existem instruções no pacote final de FPS para gerar certificação e obter a Chave Secreta da Aplicação (ASK). Usa ask para configurar fairPlay.
+  * Uma conta do Azure. Para mais detalhes, consulte [o julgamento gratuito do Azure.](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)
+  * Uma conta dos Media Services. Para criar um, consulte [criar uma conta Azure Media Services utilizando o portal Azure](media-services-portal-create-account.md).
+  * Inscreva-se no [Apple Development Program](https://developer.apple.com/).
+  * A Apple exige que o proprietário do conteúdo obtenha o [pacote de implementação.](https://developer.apple.com/contact/fps/) Diga que já implementou o Módulo de Segurança Chave (KSM) com os Media Services e que está a solicitar o pacote final de FPS. Existem instruções no pacote final de FPS para gerar certificação e obter a Chave Secreta de Aplicação (ASK). Usa o ASK para configurar o FairPlay.
   * Azure Media Services .NET SDK versão **3.6.0** ou posterior.
 
-As seguintes coisas devem ser definidas no lado da entrega da chave dos Serviços de Media:
+As seguintes coisas devem ser definidas no lado da entrega da chave dos serviços de comunicação social:
 
   * **App Cert (AC)**: Este é um ficheiro .pfx que contém a chave privada. Cria este ficheiro e encripta-o com uma palavra-passe.
 
-       Quando configurar uma política de entrega de chaves, deve fornecer essa palavra-passe e o ficheiro .pfx no formato Base64.
+       Ao configurar uma política de entrega de chaves, deve fornecer essa palavra-passe e o ficheiro .pfx no formato Base64.
 
       Os seguintes passos descrevem como gerar um ficheiro de certificado .pfx para FairPlay:
 
-    1. Instale OpenSSL a partir de https://slproweb.com/products/Win32OpenSSL.html.
+    1. Instale o OpenSSL a partir de https://slproweb.com/products/Win32OpenSSL.html .
 
-        Vá para a pasta onde estão o certificado FairPlay e outros ficheiros entregues pela Apple.
+        Vá à pasta onde estão o certificado FairPlay e outros ficheiros entregues pela Apple.
     2. Execute o comando seguinte a partir da linha de comandos. Isto converte o ficheiro .cer num ficheiro .pem.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in FairPlay.cer -out FairPlay-out.pem
-    3. Execute o comando seguinte a partir da linha de comandos. Isto converte o ficheiro .pem num ficheiro .pfx com a chave privada. A palavra-passe para o ficheiro .pfx é então pedida pela OpenSSL.
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -informe der -in FairPlay.cer -out FairPlay-out.pem
+    3. Execute o comando seguinte a partir da linha de comandos. Isto converte o ficheiro .pem para um ficheiro .pfx com a chave privada. A palavra-passe para o ficheiro .pfx é então solicitada pela OpenSSL.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -exportação -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
-  * **Palavra-passe do App Cert**: A palavra-passe para criar o ficheiro .pfx.
-  * **Id de palavra-passe do App Cert:** Tem de carregar a palavra-passe, semelhante à forma como eles fazem o upload de outras teclas dos Serviços de Media. Utilize o **valor do Enum ContentKeyType.FairPlayPfxPassword** para obter o ID dos Serviços de Media. É isto que precisam de usar dentro da opção de política de entrega chave.
-  * **iv**: Este é um valor aleatório de 16 bytes. Deve coincidir com o iv na política de entrega de ativos. Gera-se o iv, e coloca-o em ambos os lugares: a política de entrega de ativos e a opção-chave da política de entrega.
-  * **ASK**: Esta chave é recebida quando gera a certificação utilizando o portal Apple Developer. Cada equipa de desenvolvimento recebe um ASK único. Guarde uma cópia do ASK e guarde-a num local seguro. Mais tarde, tem de configurar o ASK como FairPlayAsk to Media Services.
-  * **ASK ID**: Este ID é obtido quando envia ASK para serviços de mídia. Tem de carregar ASK utilizando o **valor contentKeyType.FairPlayAsk** enum. Como resultado, o ID dos Serviços de Media é devolvido, e é isso que deve ser usado na definição da opção de política de entrega chave.
+        Pkcs12 "C:\OpenSSL-Win32\bin\openssl.exe" -exportação -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
+  * **Aplicação Cert password**: A palavra-passe para criar o ficheiro .pfx.
+  * **ID de senha de aplicação Cert**: Tem de carregar a palavra-passe, semelhante à forma como carregam outras teclas de Serviços de Comunicação Social. Utilize o valor enum **do ContentKeyType.FairPlayPfxPassword** para obter o ID dos Serviços de Comunicação. Isto é o que eles precisam de usar dentro da opção de política de entrega chave.
+  * **iv**: Trata-se de um valor aleatório de 16 bytes. Deve coincidir com o iv na política de entrega de ativos. Gera-se o iv e coloca-se em ambos os lugares: a política de entrega de ativos e a opção de política de entrega chave.
+  * **ASK:** Esta chave é recebida quando gera a certificação utilizando o portal Apple Developer. Cada equipa de desenvolvimento recebe um ASK único. Guarde uma cópia do ASK e guarde-a num local seguro. Mais tarde, é necessário configurar o ASK como FairPlayAsk para os Media Services.
+  * **ID ASK**: Este ID é obtido quando envia ASK para os Serviços de Mídia. Tem de fazer o upload ask utilizando o valor enum **contentKeyType.FairPlayAsk.** Como resultado, o ID dos Serviços de Comunicação é devolvido, e é isso que deve ser usado ao definir a opção de política de entrega chave.
 
-As seguintes coisas devem ser definidas pelo lado do cliente da FPS:
+As seguintes coisas devem ser definidas pelo lado do cliente FPS:
 
-  * **App Cert (AC)**: Este é um ficheiro .cer/.der que contém a chave pública, que o sistema operativo utiliza para encriptar alguma carga útil. A Media Services precisa de saber sobre isso porque é exigida pelo jogador. O serviço de entrega chave desencripta-o utilizando a chave privada correspondente.
+  * **App Cert (AC)**: Trata-se de um ficheiro .cer/.der que contém a chave pública, que o sistema operativo utiliza para encriptar alguma carga útil. Os Serviços de Comunicação Social precisam de saber porque é exigido pelo jogador. O serviço de entrega de chaves desencripta-o utilizando a chave privada correspondente.
 
-Para reproduzir um stream encriptado FairPlay, obtenha primeiro um ASK real e, em seguida, gere um certificado real. Este processo cria as três partes:
+Para reproduzir um stream encriptado FairPlay, obtenha um ASK real primeiro e, em seguida, gere um certificado real. Este processo cria as três partes:
 
-  * ficheiro .der
-  * arquivo .pfx
-  * senha para o .pfx
+  * .der arquivo
+  * Arquivo .pfx
+  * palavra-passe para o .pfx
 
-Os seguintes clientes suportam hls com encriptação **AES-128 CBC:** Safari no OS X, Apple TV, iOS.
+Os seguintes clientes suportam HLS com encriptação **CBC AES-128:** Safari em OS X, Apple TV, iOS.
 
-## <a name="configure-fairplay-dynamic-encryption-and-license-delivery-services"></a>Configure serviços de encriptação dinâmica FairPlay e entrega de licenças
-Seguem-se passos gerais para proteger os seus ativos com fairPlay utilizando o serviço de entrega de licenças dos Media Services e também utilizando encriptação dinâmica.
+## <a name="configure-fairplay-dynamic-encryption-and-license-delivery-services"></a>Configure Serviços de encriptação dinâmica FairPlay e entrega de licenças
+Seguem-se os passos gerais para proteger os seus ativos com o FairPlay, utilizando o serviço de entrega de licenças media Services, e também utilizando encriptação dinâmica.
 
 1. Crie um elemento e carregue ficheiros para o mesmo.
 2. Codifique o elemento que contém o ficheiro para o MP4 de velocidade de transmissão adaptável definido.
@@ -101,10 +101,10 @@ Seguem-se passos gerais para proteger os seus ativos com fairPlay utilizando o s
 4. Configure a política de autorização da chave de conteúdo. Especifique o seguinte:
 
    * O método de entrega (neste caso, FairPlay).
-   * Configuração de opções de política FairPlay. Para obter mais detalhes sobre como configurar fairPlay, consulte o método **ConfigureFairPlayPolicyOptions()** na amostra abaixo.
+   * Configuração de opções de política do FairPlay. Para obter mais informações sobre como configurar o FairPlay, consulte o método **ConfigureFairPlayPolicyOptions na** amostra abaixo.
 
      > [!NOTE]
-     > Normalmente, você quereria configurar opções de política FairPlay apenas uma vez, porque você terá apenas um conjunto de certificação e um ASK.
+     > Normalmente, gostaria de configurar as opções de política do FairPlay apenas uma vez, porque só terá um conjunto de certificação e um ASK.
      >
      >
    * Restrições (abertas ou simbólicas).
@@ -112,39 +112,39 @@ Seguem-se passos gerais para proteger os seus ativos com fairPlay utilizando o s
 5. Configure a política de entrega de ativos. A configuração da política de entrega inclui:
 
    * O protocolo de entrega (HLS).
-   * O tipo de encriptação dinâmica (encriptação CBC comum).
-   * O URL de aquisição de licença.
+   * O tipo de encriptação dinâmica (encriptação cbc comum).
+   * A URL de aquisição de licença.
 
      > [!NOTE]
-     > Se quiser entregar um stream encriptado com fairPlay e outro sistema de Gestão de Direitos Digitais (DRM), tem de configurar políticas de entrega separadas:
+     > Se quiser entregar um stream que esteja encriptado com o FairPlay e outro sistema de Gestão de Direitos Digitais (DRM), tem de configurar políticas de entrega separadas:
      >
-     > * Uma IAssetDeliveryPolicy para configurar o streaming adaptativo dinâmico em HTTP (DASH) com encriptação comum (CENC) (PlayReady + Widevine) e Smooth com PlayReady
-     > * Outra IAssetDeliveryPolicy para configurar FairPlay para HLS
+     > * One IAssetDeliveryPolicy para configurar o Streaming Adaptativo Dinâmico em HTTP (DASH) com Encriptação Comum (CENC) (PlayReady + Widevine) e Smooth com PlayReady
+     > * Outra IAssetDeliveryPolicy para configurar FairPlay para o HLS
      >
      >
 6. Crie um localizador OnDemand para obter um URL de transmissão em fluxo.
 
-## <a name="use-fairplay-key-delivery-by-player-apps"></a>Utilize a entrega da chave FairPlay por aplicações de jogadores
-Pode desenvolver aplicações de jogadores utilizando o iOS SDK. Para poder jogar conteúdo fairPlay, tem de implementar o protocolo de troca de licenças. Este protocolo não é especificado pela Apple. Cabe a cada aplicação como enviar pedidos de entrega chave. O serviço de entrega de chaves Media Services FairPlay espera que o SPC venha como uma mensagem postal codificada em www-form-url, no seguinte formulário:
+## <a name="use-fairplay-key-delivery-by-player-apps"></a>Use a entrega da chave FairPlay por apps do jogador
+Pode desenvolver aplicações para jogadores utilizando o iOS SDK. Para poder jogar o conteúdo do FairPlay, tem de implementar o protocolo de troca de licenças. Este protocolo não é especificado pela Apple. Cabe a cada app enviar pedidos de entrega chave. O serviço de entrega chave de media Serviços FairPlay espera que o SPC venha como uma mensagem postal codificada www-form-url, na seguinte forma:
 
-    spc=<Base64 encoded SPC>
+`spc=<Base64 encoded SPC>`
 
 > [!NOTE]
-> Azure Media Player suporta a reprodução do FairPlay. Consulte a documentação do [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) para mais informações.
+> Azure Media Player suporta a reprodução do FairPlay. Consulte [a documentação do Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) para mais informações.
 >
 >
 
 ## <a name="streaming-urls"></a>Streaming URLs
-Se o seu ativo foi encriptado com mais de um DRM, deve utilizar uma etiqueta de encriptação no URL de streaming: (formato='m3u8-apl', encriptação='xxx').
+Se o seu ativo foi encriptado com mais de um DRM, deve utilizar uma etiqueta de encriptação no URL de streaming: (formato='m3u8-aapl', encriptação='xxx').
 
 As seguintes considerações são aplicáveis:
 
-* Apenas zero ou um tipo de encriptação podem ser especificados.
-* O tipo de encriptação não tem de ser especificado no URL se apenas uma encriptação for aplicada ao ativo.
+* Apenas um tipo de encriptação zero ou um pode ser especificado.
+* O tipo de encriptação não tem de ser especificado no URL se apenas uma encriptação foi aplicada ao ativo.
 * O tipo de encriptação é insensível.
-* Os seguintes tipos de encriptação podem ser especificados:  
+* Podem ser especificados os seguintes tipos de encriptação:  
   * **cenc**: Encriptação comum (PlayReady ou Widevine)
-  * **cbcs-apl**: FairPlay
+  * **cbcs-aapl**: FairPlay
   * **cbc**: Encriptação do envelope AES
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
@@ -159,7 +159,7 @@ As seguintes considerações são aplicáveis:
 
 ## <a name="example"></a>Exemplo
 
-A amostra seguinte demonstra a capacidade de utilizar os Serviços de Media para entregar o seu conteúdo encriptado com fairPlay. Esta funcionalidade foi introduzida no Azure Media Services SDK para a versão .NET 3.6.0. 
+A amostra que se segue demonstra a capacidade de utilizar os Media Services para entregar o seu conteúdo encriptado com FairPlay. Esta funcionalidade foi introduzida no Azure Media Services SDK para a versão 3.NET 3.6.0. 
 
 Substitua o código no seu ficheiro Program.cs com o código mostrado nesta secção.
 
@@ -557,7 +557,7 @@ namespace DynamicEncryptionWithFairPlay
 
 ## <a name="additional-notes"></a>Notas adicionais
 
-* A Widevine é um serviço prestado pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
+* Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
 ## <a name="next-steps-media-services-learning-paths"></a>Passos seguintes: percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

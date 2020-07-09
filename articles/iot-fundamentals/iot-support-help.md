@@ -1,22 +1,22 @@
 ---
-title: Opções de apoio e ajuda Azure IoT Microsoft Docs
-description: Como obter ajuda e apoio a questões ou problemas quando cria soluções utilizando os Serviços Azure IoT.
+title: Azure IoT apoiar e ajudar opções / Microsoft Docs
+description: Como obter ajuda e suporte para questões ou problemas quando cria soluções utilizando os Serviços Azure IoT.
 author: philmea
 ms.author: phil
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 1/23/2020
-ms.openlocfilehash: e5dfdd41d3770cc49ed7a1e40ad6fbb12e5b10ea
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.date: 6/10/2020
+ms.openlocfilehash: 3ba7e4b73fb0ac8d6318b7bfee73300800d5b7ee
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827240"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340783"
 ---
 # <a name="azure-iot-support-and-help-options"></a>Opções de suporte e ajuda do Azure IoT
 
-Aqui ficam as sugestões para onde pode obter ajuda ao desenvolver as suas soluções Azure IoT.
+Aqui ficam as sugestões para onde poderá obter ajuda ao desenvolver as suas soluções Azure IoT.
 
 ## <a name="create-an-azure-support-request"></a>Criar um pedido de suporte do Azure
 
@@ -24,59 +24,68 @@ Aqui ficam as sugestões para onde pode obter ajuda ao desenvolver as suas solu�
     <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
 </div>
 
-Explore a gama de opções de [suporte azure e escolha o plano](https://azure.microsoft.com/support/plans) que melhor se adapte, seja um desenvolvedor apenas iniciando a sua jornada na nuvem ou uma grande organização implementando aplicações estratégicas críticas de negócios. Os clientes azure podem criar e gerir pedidos de apoio no portal Azure.
+Explore a gama de opções de [suporte do Azure e escolha o plano](https://azure.microsoft.com/support/plans) que melhor se adequa, quer seja um desenvolvedor que comece a sua jornada na nuvem ou uma grande organização que implemente aplicações estratégicas críticas ao negócio. Os clientes Azure podem criar e gerir pedidos de suporte no portal Azure.
 
 * [Portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-* [Portal azure para o governo dos Estados Unidos](https://portal.azure.us)
+* [Portal Azure para o governo dos Estados Unidos](https://portal.azure.us)
 
-## <a name="post-a-question-on-stack-overflow"></a>Poste uma pergunta sobre Stack Overflow
+## <a name="post-a-question-on-microsoft-qa"></a>Publique uma pergunta no Microsoft Q&A
+
+Para respostas rápidas e fiáveis sobre as suas questões técnicas de produtos da Microsoft Engineers, Azure Most Valuable Professionals (MVPs), ou da nossa comunidade especializada, envolva-se connosco no [Microsoft Q&A](https://aka.ms/azureqa), o destino preferido da Azure para apoio à comunidade. 
+
+Se não conseguir encontrar uma resposta para o seu problema usando a pesquisa, envie uma nova pergunta para o Microsoft Q&A. Use uma das seguintes etiquetas quando fizer a sua pergunta:
+
+- [Azure IoT](https://docs.microsoft.com/answers/topics/azure-iot.html)
+- [Azure IoT Central](https://docs.microsoft.com/answers/topics/azure-iot-central.html)
+- [Azure IoT Edge](https://docs.microsoft.com/answers/topics/azure-iot-edge.html)
+- [Azure IoT Hub](https://docs.microsoft.com/answers/topics/azure-iot-hub.html)
+- [Serviço de Aprovisionamento de Dispositivos (DPS) no Hub IoT do Azure](https://docs.microsoft.com/answers/topics/azure-iot-dps.html)
+- [SDKs do Azure IoT](https://docs.microsoft.com/answers/topics/azure-iot-sdk.html)
+- [Azure Digital Twins](https://docs.microsoft.com/answers/topics/azure-digital-twins.html)
+- [Azure RTOS](https://docs.microsoft.com/answers/topics/azure-rtos.html)
+- [Azure Sphere](https://docs.microsoft.com/answers/topics/azure-sphere.html)
+- [Azure Time Series Insights](https://docs.microsoft.com/answers/topics/azure-time-series-insights.html)
+- [Azure Maps](https://docs.microsoft.com/answers/topics/azure-maps.html)
+
+## <a name="post-a-question-on-stack-overflow"></a>Publique uma pergunta sobre Stack Overflow
 
 <div class='icon is-large'>
     <img alt='Stack Overflow' src='https://docs.microsoft.com/media/logos/logo_stackoverflow.svg'>
 </div>
 
-Para obter respostas imediatas da comunidade, procure stack Overflow. Stack Overflow é o canal preferido para **questões relacionadas com**o desenvolvimento. É onde membros da comunidade e membros da equipa da Microsoft estão diretamente envolvidos em ajudá-lo a resolver os seus problemas.
+Para obter respostas sobre as perguntas do seu desenvolvedor do maior ecossistema de desenvolvimento comunitário, faça a sua pergunta sobre Stack Overflow.
 
-Se não encontrar uma resposta para o seu problema através de pesquisa, envie uma nova pergunta ao Stack Overflow. Utilize uma das seguintes tags quando formular a pergunta:
+Se submeter uma nova pergunta ao Stack Overflow, utilize uma ou mais das seguintes etiquetas quando criar a questão:
 
- - [Azure Digital Twins](https://stackoverflow.com/questions/tagged/azure-digital-twins)
  - [Azure IoT Central](https://stackoverflow.com/questions/tagged/azure-iot-central)
  - [Azure IoT Edge](https://stackoverflow.com/questions/tagged/azure-iot-edge)
  - [Azure IoT Hub](https://stackoverflow.com/questions/tagged/azure-iot-hub)
- - [Azure Maps](https://stackoverflow.com/questions/tagged/azure-maps)
  - [SDKs do Azure IoT](https://stackoverflow.com/questions/tagged/azure-iot-sdk)
+ - [Azure Digital Twins](https://stackoverflow.com/questions/tagged/azure-digital-twins)
+ - [Azure RTOS](https://stackoverflow.com/questions/tagged/azure-rtos)
+ - [Azure Sphere](https://stackoverflow.com/questions/tagged/azuresphere)
  - [Azure Time Series Insights](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)
+ - [Azure Maps](https://stackoverflow.com/questions/tagged/azure-maps)
 
-## <a name="start-a-conversation-on-the-msdn-forums"></a>Inicie uma conversa sobre os fóruns da MSDN
-
-Discutir tecnologias e serviços azure para a criação de soluções IoT. A MSDN é o canal preferido para **questões relacionadas com soluções.** É onde membros da comunidade e membros da equipa da Microsoft estão diretamente envolvidos em ajudá-lo a escolher a solução certa para o seu projeto.
-
-Se não encontrar uma resposta para o seu problema através de pesquisa, envie uma nova pergunta à MSDN no fórum relacionado com o serviço:
-
-- [Microsoft Q&Uma página de perguntas para As Gémeas Digitais Azure](https://docs.microsoft.com/answers/topics/azure-digital-twins.html)
-- [Microsoft Q&Uma página de perguntas para o Hub Azure IoT](https://docs.microsoft.com/answers/topics/azure-iot-hub.html)
-- [Microsoft Q&Uma página de perguntas para Azure IoT Edge](https://docs.microsoft.com/answers/topics/azure-iot-edge.html)
-- [Microsoft Q&Uma página de perguntas para o Azure Maps](https://docs.microsoft.com/answers/topics/azure-maps.html)
-- [Microsoft Q&Uma página de perguntas para Insights da Série De Tempo Azure](https://docs.microsoft.com/answers/topics/azure-time-series-insights.html)
-
-## <a name="submit-feedback-on-azure-feedback"></a>Enviar feedback sobre o Feedback do Azure
+## <a name="submit-feedback-on-azure-feedback"></a>Enviar feedback sobre O Feedback Azure
 
 <div class='icon is-large'>
     <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
 </div>
 
-Para solicitar novas funcionalidades, publique-as no Feedback Do Azure. Partilhe as suas ideias para que os serviços Azure IoT funcionem melhor para as aplicações que desenvolve:
+Para solicitar novas funcionalidades, publique-as no Azure Feedback. Partilhe as suas ideias para que os serviços Azure IoT funcionem melhor para as aplicações que desenvolve:
 
 | Serviço                       | Azure Feedback URL |
 |-------------------------------|---------------|
 | Azure IoT Hub                    | https://feedback.azure.com/forums/321918-azure-iot |
 | Azure IoT Central             | https://feedback.azure.com/forums/911455-azure-iot-central |
-| Catálogo de dispositivos Azure IoT      | https://feedback.azure.com/forums/916948-azure-iot-device-catalog |
+| Catálogo de Dispositivos Azure IoT      | https://feedback.azure.com/forums/916948-azure-iot-device-catalog |
 | Azure IoT Edge                | https://feedback.azure.com/forums/907045-azure-iot-edge |
-| Aceleradores de soluções Azure IoT | https://feedback.azure.com/forums/916438-azure-iot-solution-accelerators |
+| Aceleradores de solução Azure IoT | https://feedback.azure.com/forums/916438-azure-iot-solution-accelerators |
 | Azure Maps                 | https://feedback.azure.com/forums/909172-azure-maps |
 | Azure Time Series Insights | https://feedback.azure.com/forums/906859-azure-time-series-insights |
 | Azure Digital Twins | https://feedback.azure.com/forums/916621-azure-digital-twins |
+| Azure Sphere | https://feedback.azure.com/forums/915433-azure-sphere |
 
 ## <a name="stay-informed-of-updates-and-new-releases"></a>Mantenha-se informado sobre atualizações e novos lançamentos
 
@@ -84,11 +93,11 @@ Para solicitar novas funcionalidades, publique-as no Feedback Do Azure. Partilhe
     <img alt='Stay informed' src='https://docs.microsoft.com/media/common/i_blog.svg'>
 </div>
 
-Conheça as importantes atualizações de produtos, roteiros e anúncios em [Atualizações Do Azure.](https://azure.microsoft.com/updates/?category=iot)
+Conheça as importantes atualizações de produtos, roteiro e anúncios em [Azure Updates](https://azure.microsoft.com/updates/?category=iot).
 
-As notícias e informações sobre o Azure IoT são partilhadas no [blog Azure](https://azure.microsoft.com/blog/topics/internet-of-things/) e na [Internet of Things Show no Canal 9.](https://channel9.msdn.com/Shows/Internet-of-Things-Show)
+Notícias e informações sobre o Azure IoT são partilhadas no [blog Azure](https://azure.microsoft.com/blog/topics/internet-of-things/) e no [Internet of Things Show no Canal 9](https://channel9.msdn.com/Shows/Internet-of-Things-Show).
 
-Além disso, partilhe as suas experiências, envolva-se e aprenda com especialistas na [Internet das Coisas Tech Community](https://techcommunity.microsoft.com/t5/Internet-of-Things-IoT/ct-p/IoT).
+Além disso, partilhe as suas experiências, envolva-se e aprenda com especialistas na [Internet of Things Tech Community.](https://techcommunity.microsoft.com/t5/Internet-of-Things-IoT/ct-p/IoT)
 
 ## <a name="next-steps"></a>Passos seguintes
 

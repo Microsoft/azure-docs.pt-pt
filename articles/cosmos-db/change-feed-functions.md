@@ -1,57 +1,57 @@
 ---
-title: Como utilizar o feed de mudança de DB Azure Cosmos com funções azure
-description: Utilize funções Azure para ligar ao feed de mudança de DB Azure Cosmos. Mais tarde poderá criar funções de Azure reativas que são desencadeadas em todos os novos eventos.
+title: Como usar o feed DB da Azure Cosmos com funções Azure
+description: Utilize funções Azure para ligar ao feed de alteração DB do Azure Cosmos. Mais tarde, pode criar funções reativas do Azure que são desencadeadas em cada novo evento.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7a74635551d8416bf60689b1f1403f29883e81bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e452f03721551adada69a36b1ce69e57f1111f55
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78851365"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834068"
 ---
-# <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Arquiteturas baseadas em eventos sem servidores com funções Azure Cosmos DB e Azure
+# <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Arquiteturas baseadas em eventos sem servidor com funções Azure Cosmos DB e Azure
 
-As Funções Azure fornecem a forma mais simples de ligar ao feed de [mudança](change-feed.md). Pode criar pequenas funções azure reativas que serão automaticamente desencadeadas em cada novo evento no feed de mudança do seu contentor Azure Cosmos.
+As Funções Azure fornecem a forma mais simples de se ligar ao [feed de alteração](change-feed.md). Pode criar pequenas Funções Azure reativas que serão automaticamente ativadas em cada novo evento no feed de mudança do seu contentor Azure Cosmos.
 
-![Funções baseadas em eventos sem servidor estoque trabalhando com o gatilho funções Azure para Cosmos DB](./media/change-feed-functions/functions.png)
+:::image type="content" source="./media/change-feed-functions/functions.png" alt-text="Funções baseadas em eventos sem servidor que funcionam com o gatilho de Funções Azure para Cosmos DB" border="false":::
 
-Com o [gatilho das Funções Azure para cosmos DB,](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md)pode aproveitar a funcionalidade de deteção de eventos de escala e de deteção de eventos fiável do [Processador Change Feed](./change-feed-processor.md)sem a necessidade de manter qualquer infraestrutura de [trabalhadores.](./change-feed-processor.md) Concentre-se na lógica da sua Função Azure sem se preocupar com o resto do oleoduto de fornecimento de eventos. Pode até misturar o Gatilho com quaisquer [outras ligações de Funções Azure](../azure-functions/functions-triggers-bindings.md#supported-bindings).
+Com o [gatilho de Funções Azure para Cosmos DB,](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md)pode aproveitar a funcionalidade de deteção de eventos do [Processador Change Feed](./change-feed-processor.md)e de deteção de eventos fiável sem a necessidade de manter qualquer infraestrutura de [trabalho](./change-feed-processor.md). Concentre-se apenas na lógica da sua Azure Function sem se preocupar com o resto do pipeline de fornecimento de eventos. Pode até misturar o Gatilho com quaisquer [outras ligações Azure Functions](../azure-functions/functions-triggers-bindings.md#supported-bindings).
 
 > [!NOTE]
-> Atualmente, o gatilho funções Azure para Cosmos DB é suportado para utilização apenas com a API Core (SQL).
+> Atualmente, o gatilho Azure Functions para Cosmos DB é suportado apenas para utilização com a API core (SQL).
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
-Para implementar um fluxo baseado em eventos sem servidor, precisa de:
+Para implementar um fluxo baseado em eventos sem servidor, você precisa:
 
-* **O recipiente monitorizado**: O contentor monitorizado é o contentor Azure Cosmos a ser monitorizado e armazena os dados a partir dos quais o feed de mudança é gerado. Quaisquer inserções, as atualizações do recipiente monitorizado refletem-se na alimentação de alterações do recipiente.
-* **O contentor de aluguer**: O contentor de aluguer mantém o estado em várias e dinâmicas instâncias de função Azure sem servidor e permite uma escala dinâmica. Este recipiente de aluguer pode ser criado manualmente ou automaticamente pelo gatilho funções Azure para Cosmos DB. Para criar automaticamente o recipiente de aluguer, detete a bandeira *CreateLeaseCollectionIfNotExist* na [configuração](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Os recipientes de locação divisória são obrigados a ter uma `/id` definição chave de partição.
+* **O recipiente monitorizado**: O recipiente monitorizado é o recipiente Azure Cosmos que está a ser monitorizado e armazena os dados a partir dos quais o feed de alteração é gerado. Quaisquer inserções, atualizações ao recipiente monitorizado refletem-se na alteração do revestimento do recipiente.
+* **O recipiente de locação**: O recipiente de locação mantém o estado em várias instâncias dinâmicas de função Azure sem servidor e permite um dimensionamento dinâmico. Este recipiente de locação pode ser criado manualmente ou automaticamente pelo gatilho Azure Functions para Cosmos DB. Para criar automaticamente o recipiente de locação, deite a bandeira *CreateLeaseCollectionIfNotExists* na [configuração](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Os recipientes de locação divididos são obrigados a ter uma `/id` definição chave de partição.
 
-## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>Crie o gatilho de Funções Azure para Cosmos DB
+## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>Crie o seu gatilho de Funções Azure para Cosmos DB
 
-A criação da sua Função Azure com um gatilho de funções Azure para cosmos DB é agora suportada em todas as integrações Azure FunctionI e CLI:
+A criação da sua Função Azure com um gatilho de Funções Azure para Cosmos DB é agora suportada em todas as integrações Azure Functions IDE e CLI:
 
 * [Extensão do estúdio visual](../azure-functions/functions-develop-vs.md) para utilizadores do Estúdio Visual.
-* [Extensão](/azure/javascript/tutorial-vscode-serverless-node-01) visual do código do estúdio para utilizadores de Código de Estúdio Visual.
-* E finalmente [core CLI ferramentas](../azure-functions/functions-run-local.md#create-func) para uma experiência agnóstica ide de plataforma cruzada.
+* [Extensão visual do código do estúdio](/azure/developer/javascript/tutorial-vscode-serverless-node-01) para utilizadores do Código do Estúdio Visual.
+* E, [finalmente, core CLI ferramenta](../azure-functions/functions-run-local.md#create-func) para uma experiência agnóstica IDE de plataforma cruzada.
 
-## <a name="run-your-trigger-locally"></a>Execute o seu gatilho localmente
+## <a name="run-your-trigger-locally"></a>Executar o seu gatilho localmente
 
-Pode executar a sua [Função Azure localmente](../azure-functions/functions-develop-local.md) com o [Emulador Db Azure Cosmos](./local-emulator.md) para criar e desenvolver os seus fluxos baseados em eventos sem servidores sem uma Subscrição Azure ou incorrer em quaisquer custos.
+Pode executar a sua [Função Azure localmente](../azure-functions/functions-develop-local.md) com o [Emulador Azure Cosmos DB](./local-emulator.md) para criar e desenvolver os seus fluxos baseados em eventos sem servidor sem uma Subscrição Azure ou incorrer em quaisquer custos.
 
-Se quiser testar cenários ao vivo na nuvem, pode [experimentar o Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem qualquer cartão de crédito ou subscrição Azure necessária.
+Se quiser testar cenários ao vivo na nuvem, pode experimentar o [Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem qualquer cartão de crédito ou subscrição Azure necessária.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Pode agora continuar a aprender mais sobre a mudança de alimentos nos seguintes artigos:
+Pode agora continuar a aprender mais sobre a alteração do feed nos seguintes artigos:
 
 * [Visão geral do feed de mudança](change-feed.md)
-* [Formas de ler o feed de mudança](read-change-feed.md)
-* [Usando a biblioteca de processadores de feed de mudança](change-feed-processor.md)
-* [Como trabalhar com a biblioteca de processadores de feed de mudança](change-feed-processor.md)
-* [Computação de base de dados sem servidores utilizando funções Azure Cosmos DB e Azure](serverless-computing-database.md)
+* [Formas de ler change feed](read-change-feed.md)
+* [Utilização da biblioteca de processadores de feed de alteração](change-feed-processor.md)
+* [Como trabalhar com a biblioteca de processadores change feed](change-feed-processor.md)
+* [Computação de base de dados sem servidor usando funções Azure Cosmos DB e Azure](serverless-computing-database.md)

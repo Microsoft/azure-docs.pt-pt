@@ -1,6 +1,6 @@
 ---
-title: Guia de resolução de problemas para streaming ao vivo [ Microsoft Docs
-description: Este artigo dá sugestões sobre como resolver problemas de streaming da Azure Media Services.
+title: Guia de resolução de problemas para transmissão em direto Microsoft Docs
+description: Este artigo dá sugestões sobre como resolver problemas de problemas com o Azure Media Services em direto.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: b00df5e8176aaad86be5cf3ae4e04c736f36cf5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74885607"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Guia de resolução de problemas de transmissão em fluxo em direto  
@@ -25,33 +24,33 @@ ms.locfileid: "74885607"
 Este artigo dá sugestões sobre como resolver alguns problemas de streaming ao vivo.
 
 ## <a name="issues-related-to-on-premises-encoders"></a>Questões relacionadas com codificadores no local
-Esta secção dá sugestões sobre como resolver problemas relacionados com codificadores no local que são configurados para enviar um único fluxo bitrate para canais AMS que estão habilitados para codificação ao vivo.
+Esta secção dá sugestões sobre como resolver problemas relacionados com os codificadores no local que estão configurados para enviar um único fluxo de bitrate para canais AMS que estão habilitados para codificação ao vivo.
 
 ### <a name="problem-would-like-to-see-logs"></a>Problema: Gostaria de ver registos
-* **Problema potencial**: Não consigo encontrar registos codificadores que possam ajudar a depurar problemas.
+* **Problema potencial**: Não é possível encontrar registos codificadores que possam ajudar a depurar problemas.
   
-  * **Telestream Wirecast**: Normalmente pode encontrar registos em C:\User\{username}\AppData\Roaming\Wirecast\ 
-  * **Elemental Live**: Você pode encontrar links para logs no portal de gestão. Clique em **Estatísticas,** em **seguida, Logs**. Na página **Registos,** verá uma lista de registos para todos os itens liveEvent; selecione o que corresponde à sua sessão atual. 
-  * **Flash Media Live Encoder:** Pode encontrar o Diretório de **Registo...** navegando para o **separador DeScodificação.**
+  * **Telestream Wirecast**: Normalmente pode encontrar registos em C:\Username}\AppData\Roaming\Wirecast\ \{ 
+  * **Elemental Live**: Pode encontrar links para registos no portal de gestão. Clique em **Estatísticas**e, em seguida, **Regista**. Na página **'Ficheiros de Registo',** verá uma lista de registos de todos os itens LiveEvent; selecione a que corresponde à sua sessão atual. 
+  * **Flash Media Live Encoder**: Pode encontrar o **Diretório de Registos...** navegando no **separador Registo de Codificação.**
 
-### <a name="problem-there-is-no-option-for-outputting-a-progressive-stream"></a>Problema: Não há opção para eliminar um fluxo progressivo
-* **Problema potencial**: O codificador utilizado não desliga automaticamente. 
+### <a name="problem-there-is-no-option-for-outputting-a-progressive-stream"></a>Problema: Não há opção para a saída de um fluxo progressivo
+* **Problema potencial**: O codificante que está a ser utilizado não desinterla automaticamente. 
   
-    **Passos de resolução**de problemas : Procure uma opção de desalocação dentro da interface codificadora. Uma vez ativada a desligação, verifique novamente se há definições de saída progressivas. 
+    **Etapas de resolução de problemas**: Procure uma opção de desligar-se dentro da interface do codificante. Uma vez ativado o desligar, verifique novamente se existem definições progressivas de saída. 
 
-### <a name="problem-tried-several-encoder-output-settings-and-still-unable-to-connect"></a>Problema: Experimentei várias definições de saída do codificador e ainda não conseguiu ligar.
-* **Problema potencial**: O canal de codificação Azure não foi devidamente reposto. 
+### <a name="problem-tried-several-encoder-output-settings-and-still-unable-to-connect"></a>Problema: Experimente várias definições de saída do codificadores e ainda não conseguiu ligar-se.
+* **Problema potencial**: O canal de codificação Azure não foi corretamente reposto. 
   
-    **Passos de resolução de problemas:** Certifique-se de que o codificador já não está a empurrar para a AMS, pare e reinstale o canal. Uma vez em execução novamente, tente ligar o seu codificador às novas definições. Se isto ainda não corrigir a questão, tente criar um novo canal inteiramente, por vezes os canais podem tornar-se corruptos após várias tentativas falhadas.  
-* **Problema potencial**: As definições de tamanho GOP ou de quadro-chave não são ótimas. 
+    **Etapas de resolução de problemas**: Certifique-se de que o codificadora já não está a empurrar para a AMS, pare e reinicie o canal. Uma vez em execução, tente ligar o codificadora às novas definições. Se isto ainda não corrigir a questão, tente criar um novo canal inteiramente, por vezes os canais podem tornar-se corruptos após várias tentativas falhadas.  
+* **Problema potencial**: O tamanho do GOP ou as definições do quadro da chave não são ideais. 
   
-    **Passos de resolução de problemas**: O tamanho recomendado do GOP ou o intervalo do quadro de chaves é de dois segundos. Alguns codificadores calculam esta definição em número de quadros, enquanto outros usam segundos. Por exemplo: Ao distribuir 30 fps, o tamanho gop seria de 60 fotogramas, o que equivale a 2 segundos.  
+    **Etapas de resolução de problemas**: O tamanho recomendado do GOL ou o intervalo do quadro de chaves são de dois segundos. Alguns codificadores calculam esta definição em número de quadros, enquanto outros usam segundos. Por exemplo: Ao desausar 30 fps, o tamanho do GOP seria de 60 fotogramas, o que equivale a 2 segundos.  
 * **Problema potencial**: As portas fechadas estão a bloquear o fluxo. 
   
-    **Passos de resolução**de problemas : Ao transmitir através de RTMP, verifique as definições de firewall e/ou proxy para confirmar que as portas de saída 1935 e 1936 estão abertas. 
+    **Etapas de resolução de problemas**: Quando transmitir através de RTMP, verifique as definições de firewall e/ou proxy para confirmar que as portas de saída de saída 1935 e 1936 estão abertas. 
 
 > [!NOTE]
-> Se depois de seguir os passos de resolução de problemas, ainda não consegue transmitir com sucesso, envie um bilhete de apoio utilizando o portal Azure.
+> Se depois de seguir as etapas de resolução de problemas ainda não conseguir transmitir com sucesso, envie um bilhete de apoio utilizando o portal Azure.
 > 
 > 
 

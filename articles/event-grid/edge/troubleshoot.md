@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot - Azure Event Grid IoT Edge [ Microsoft Docs
-description: Resolução de problemas em Event Grid em IoT Edge.
+title: Resolução de problemas - Azure Event Grid IoT Edge / Microsoft Docs
+description: Resolução de problemas em Grade de Eventos em IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,19 +10,19 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 95181d0eb23d5956b2c6af52c77f85714b107345
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73100148"
 ---
 # <a name="common-issues"></a>Problemas Comuns
 
-Se tiver problemas com a Grelha de Eventos Azure no IoT Edge no seu ambiente, use este artigo como guia para resolução e resolução de problemas.
+Se sentir problemas usando a Azure Event Grid no IoT Edge no seu ambiente, use este artigo como um guia para resolução e resolução de problemas.
 
-## <a name="view-event-grid-module-logs"></a>Ver registos de módulos da Grelha de Eventos
+## <a name="view-event-grid-module-logs"></a>Ver registos de módulos de grelha de evento
 
-Para resolver problemas, poderá ter de aceder aos registos de módulos da Rede de Eventos. Para tal, no VM onde o módulo é implantado executa o seguinte comando:
+Para resolver problemas, poderá ter de aceder aos registos de módulos da Grelha de Eventos. Para isso, no VM onde o módulo é implantado, executar o seguinte comando:
 
 Nas janelas,
 
@@ -36,15 +36,15 @@ Em Linux,
 sudo docker logs eventgridmodule
 ```
 
-## <a name="unable-to-make-https-requests"></a>Incapaz de fazer pedidos HTTPS
+## <a name="unable-to-make-https-requests"></a>Não é possível fazer pedidos HTTPS
 
-* Primeiro certifique-se de que o módulo De Rede de Eventos tem **entrada:serverAuth:tlsPolítica** definida para **rígida** ou **ativada**.
+* Primeiro certifique-se de que o módulo De Grelha de Eventos tem **entrada:serverAuth:tlsPolicy** definido para **rigoroso** ou **ativado**.
 
-* Se as suas comunicações módulo-módulo, certifique-se de que está a fazer a chamada na porta **4438** e o nome do módulo corresponde ao que está implantado. 
+* Se as comunicações módulo-módulo, certifique-se de que está a fazer a chamada na porta **4438** e o nome do módulo corresponde ao que está implantado. 
 
-  Para, por exemplo, se o módulo Event Grid foi implantado com **https://eventgridmodule:4438**o **nome eventgridmodule** então o seu URL deve ser . Certifique-se de que o invólucro e o número da porta estão corretos.
+  Por exemplo, se o módulo 'Grade de Eventos' foi implantado com o nome **eventgridmodule,** então o seu URL deve ser **https://eventgridmodule:4438** . Certifique-se de que o invólucro e o número da porta estão corretos.
     
-* Se for do módulo não IoT, certifique-se de que a porta da Grelha de Eventos está mapeada na máquina anfitriã durante a implantação, por exemplo,
+* Se for de um módulo não IoT, certifique-se de que a porta de grelha de eventos está mapeada na máquina do anfitrião durante a implementação, por exemplo,
 
     ```json
     "HostConfig": {
@@ -58,15 +58,15 @@ sudo docker logs eventgridmodule
      }
     ```
 
-## <a name="unable-to-make-http-requests"></a>Incapaz de fazer pedidos http
+## <a name="unable-to-make-http-requests"></a>Não é possível fazer pedidos HTTP
 
-* Primeiro certifique-se de que o módulo De Rede de Eventos tem **entrada:serverAuth:tlsDefinição de política** **ativada** ou **desativada**.
+* Primeiro certifique-se de que o módulo De Grelha de Eventos tem **entrada:serverAuth:tlsPolicy** definido para **ativar** ou **desativar**.
 
-* Se as suas comunicações módulo-módulo, certifique-se de que está a fazer a chamada na porta **5888** e o nome do módulo corresponde ao que está implantado. 
+* Se as comunicações módulo-módulo, certifique-se de que está a fazer a chamada na porta **5888** e o nome do módulo corresponde ao que está implantado. 
 
-  Para, por exemplo, se o módulo Event Grid foi implantado com **http://eventgridmodule:5888**o **nome eventgridmodule** então o seu URL deve ser . Certifique-se de que o invólucro e o número da porta estão corretos.
+  Por exemplo, se o módulo 'Grade de Eventos' foi implantado com o nome **eventgridmodule,** então o seu URL deve ser **http://eventgridmodule:5888** . Certifique-se de que o invólucro e o número da porta estão corretos.
     
-* Se for do módulo não IoT, certifique-se de que a porta da Grelha de Eventos está mapeada na máquina anfitriã durante a implantação, por exemplo,
+* Se for de um módulo não IoT, certifique-se de que a porta de grelha de eventos está mapeada na máquina do anfitrião durante a implementação, por exemplo,
 
     ```json
     "HostConfig": {
@@ -82,30 +82,30 @@ sudo docker logs eventgridmodule
 
 ## <a name="certificate-chain-was-issued-by-an-authority-thats-not-trusted"></a>A cadeia de certificados foi emitida por uma autoridade que não é de confiança.
 
-Por padrão, o módulo Event Grid está configurado para autenticar clientes com certificado emitido pelo daemon de segurança IoT Edge. Certifique-se de que o cliente está a apresentar um certificado que está enraizado nesta cadeia.
+Por predefinição, o módulo Event Grid está configurado para autenticar clientes com certificado emitido pelo daemon de segurança IoT Edge. Certifique-se de que o cliente está a apresentar um certificado que está enraizado nesta cadeia.
 
-A classe **IoTSecurity** mostra [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) como recuperar certificados do daemon IoT Edge Security e usá-lo para configurar chamadas de saída.
+A classe **IoTSecurity** [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) mostra como recuperar certificados da IoT Edge Security e usá-los para configurar chamadas de saída.
 
-Se for um ambiente de não produção, tem a opção de desativar a autenticação do cliente. Consulte a [Segurança e Autenticação](security-authentication.md) para obter mais informações sobre como fazê-lo.
+Se não for um ambiente de não produção, tem a opção de desligar a autenticação do cliente. Consulte a [Segurança e Autenticação](security-authentication.md) para obter mais informações sobre como fazê-lo.
 
-## <a name="debug-events-not-received-by-subscriber"></a>Debug Eventos não recebidos por assinante
+## <a name="debug-events-not-received-by-subscriber"></a>Eventos Debug não recebidos por assinante
 
 As razões típicas para isto são:
 
-* O evento nunca foi publicado com sucesso. Um Código de Estado HTTP de 200 (OK) deve ser recebido ao publicar um evento no módulo Event Grid.
+* O evento nunca foi publicado com sucesso. Um Código de Estado HTTP de 200(OK) deve ser recebido ao publicar um evento no módulo De Grelha de Eventos.
 
 * Verifique a subscrição do evento para verificar:
-    * URL endpoint é válido
+    * URL de ponto final é válido
     * Quaisquer filtros na subscrição não estão a fazer com que o evento seja "largado".
 
-* Verifique se o módulo de subscritor está em execução
+* Verifique se o módulo de assinante está em execução
 
-* Inicie sessão no VM onde o módulo De Rede de Eventos é implantado e veja os seus registos.
+* Inicie sessão no VM onde o módulo 'Grade de Eventos' está implantado e veja os seus registos.
 
-* Ligue o registo por entrega definindo **o corretor:logDeliverySuccess=verdadeiro** e reimplantando o módulo De rede de eventos e reexperimentando o pedido. Ligar o registo por entrega pode ter impacto na entrada e latência, por isso, uma vez completada a depuração, a nossa recomendação é voltar a trás para **corretor:logDeliverySuccess=falso** e reimplantar módulo de Rede de Eventos.
+* Ligue por registo de entrega definindo **o corretor:logDeliverySuccess=verdadeiro** e reimplantando o módulo de Grelha de Evento e retorcendo o pedido. Ligar o registo por entrega pode ter impacto na produção e latência, pelo que uma vez concluída a depuração, a nossa recomendação é voltar a **ligá-lo ao módulo corretor:logDeliverySuccess=falso** e reafectando o módulo de Grade de Eventos.
 
-* Ligue as métricas definindo **métricas:repórtertype=consola** e reimplante o módulo De Rede de Eventos. Quaisquer operações posteriores resultarão na registo de métricas na consola do módulo Event Grid, que pode ser usada para depurar ainda mais. A nossa recomendação é ligar as métricas apenas para depurar e uma vez completa para desligá-la definindo **métricas:repórtertype=nenhuma** e reimplantando o módulo De Rede de Eventos.
+* Ligue as métricas definindo **métricas:reportertype=consola** e reposicione o módulo de grelha de evento. Qualquer operação depois disso resultará em métricas registadas na consola do módulo Event Grid, que pode ser usado para depurar ainda mais. A nossa recomendação é ligar as métricas apenas para depuração e uma vez completa para desligá-la definindo **métricas:reportertype=nenhum** e reafectando o módulo de Grade de Eventos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Relatar quaisquer problemas, sugestões com a utilização da Grelha de Eventos no IoT Edge em [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues).
+Informe quaisquer problemas, sugestões com a utilização da Grade de Eventos no IoT Edge em [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues) .

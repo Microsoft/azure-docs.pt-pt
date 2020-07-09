@@ -12,16 +12,16 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 0e2247e94b20846f19c2ed26c96a5dc53972e770
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a45160db09b3f6bf68bda3f25e40a29a1154099d
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80883818"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308494"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Quickstart: Criar um inquilino
 
-A plataforma de identidade da Microsoft permite que os programadores criem aplicações orientadas para uma grande variedade de ambientes personalizados e identidades do Microsoft 365. Para começar a usar a plataforma de identidade da Microsoft, você precisará de acesso a um ambiente, também chamado de inquilino Da Azure, que pode registar e gerir aplicações, ter acesso aos dados da Microsoft 365, e implementar restrições personalizadas de Acesso Condicional e inquilino.
+A plataforma de identidade da Microsoft permite que os programadores criem aplicações orientadas para uma grande variedade de ambientes personalizados e identidades do Microsoft 365. Para começar a usar a plataforma de identidade da Microsoft, você precisará de acesso a um ambiente, também chamado de inquilino Azure AD, que pode registar e gerir aplicações, ter acesso aos dados do Microsoft 365, e implementar restrições personalizadas de Acesso Condicional e inquilino.
 
 Um inquilino é uma representação de uma organização. É uma instância dedicada do Azure AD que uma organização ou um programador de aplicações recebe quando a organização ou o programador de aplicações cria uma relação com o Microsoft – como inscrever-se no Azure, no Microsoft Intune ou no Microsoft 365.
 
@@ -56,14 +56,14 @@ Se não tiver um inquilino existente associado à sua conta, verá um GUID por b
 
 ### <a name="create-a-new-azure-ad-tenant"></a>Criar um novo inquilino do Azure AD
 
-Se ainda não tem um inquilino da AD Azure ou quer criar um novo para desenvolvimento, consulte o [quickstart](../fundamentals/active-directory-access-create-new-tenant.md) ou simplesmente siga a experiência de criação de [diretórios.](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) Terá de fornecer as informações seguintes para criar o novo inquilino:
+Se ainda não tem um inquilino AZure AD ou quer criar um novo para o desenvolvimento, consulte o [quickstart](../fundamentals/active-directory-access-create-new-tenant.md) ou simplesmente siga a [experiência de criação de diretórios.](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) Terá de fornecer as informações seguintes para criar o novo inquilino:
 
 - **Nome da organização**
 - **Domínio inicial** – fará parte de *.onmicrosoft.com. Pode personalizar melhor o domínio posteriormente.
 - **País ou região**
 
 > [!NOTE]
-> Ao nomear o seu inquilino, use caracteres alfanuméricos. Personagens especiais não são permitidos. O nome não deve exceder 256 caracteres.
+> Ao nomear o seu inquilino, use caracteres alfanuméricos. Não são permitidos caracteres especiais. O nome não deve exceder 256 caracteres.
 
 ## <a name="social-and-local-accounts"></a>Contas de redes sociais e locais
 
@@ -71,6 +71,6 @@ Para começar a criar aplicações que iniciem sessão nas contas de redes socia
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Registe uma aplicação](quickstart-register-app.md) e integre-se na plataforma de identidade da Microsoft. 
-* Conheça o [básico da autenticação.](authentication-scenarios.md)
-* Veja como as [subscrições do Azure estão associadas ao Azure Ative Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) para mais detalhes sobre a relação entre subscrições e um inquilino da AD Azure.
+* [Registe uma aplicação](quickstart-register-app.md) e integre-a com a plataforma de identidade da Microsoft. 
+* Aprenda o [básico da autenticação.](authentication-scenarios.md)
+* Consulte [Associate ou adicione uma subscrição Azure ao seu inquilino Azure Ative Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) para obter detalhes sobre a relação entre subscrições e um inquilino AZure AD.

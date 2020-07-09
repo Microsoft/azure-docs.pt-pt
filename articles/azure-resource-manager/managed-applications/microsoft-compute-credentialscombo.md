@@ -1,18 +1,17 @@
 ---
-title: Elemento UI credenciaisCombo
-description: Descreve o elemento Microsoft.Compute.CredentialsCombo UI para o portal Azure.
+title: Elemento de UI de UI de Credenciais
+description: Descreve o elemento microsoft.compute.credentialsCombo UI para o portal Azure.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 09/29/2018
 ms.author: tomfitz
 ms.openlocfilehash: baee83e08505ddabb4680b5bbb4101479010ea47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75652141"
 ---
-# <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsCombo UI
+# <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsDi elemento UI
 
 Um grupo de controlos com validação incorporada para senhas Windows e Linux e chaves públicas SSH.
 
@@ -22,11 +21,11 @@ Para windows, os utilizadores vêem:
 
 ![Microsoft.Compute.CredentialsCombo Windows](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
 
-Para o Linux com senha selecionada, os utilizadores vêem:
+Para Linux com senha selecionada, os utilizadores vêem:
 
-![Palavra-passe microsoft.Compute.CredentialsCombo Linux](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
+![Microsoft.Compute.CredentialsCombo Linux password](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
 
-Para o Linux com a chave pública SSH selecionada, os utilizadores vêem:
+Para Linux com chave pública SSH selecionada, os utilizadores vêem:
 
 ![Microsoft.Compute.CredentialsCombo Linux](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
 
@@ -58,7 +57,7 @@ Para windows, utilize o seguinte esquema:
 }
 ```
 
-Para **o Linux,** utilize o seguinte esquema:
+Para **Linux,** utilize o seguinte esquema:
 
 ```json
 {
@@ -91,7 +90,7 @@ Para **o Linux,** utilize o seguinte esquema:
 
 ## <a name="sample-output"></a>Resultado da amostra
 
-Se `osPlatform` **Windows**for windows `osPlatform` , ou for **o Linux** e o utilizador fornecer uma palavra-passe em vez de uma chave pública SSH, o controlo devolve a seguinte saída:
+Se `osPlatform` for o **Windows**, ou se for `osPlatform` o **Linux** e o utilizador tiver fornecido uma palavra-passe em vez de uma chave pública SSH, o controlo devolve a seguinte saída:
 
 ```json
 {
@@ -111,13 +110,13 @@ Se `osPlatform` for **o Linux** e o utilizador fornecer uma chave pública SSH, 
 
 ## <a name="remarks"></a>Observações
 
-- `osPlatform`deve ser especificado e pode ser **Windows** ou **Linux**.
-- Se `constraints.required` for definido como **verdadeiro,** então a palavra-passe ou as caixas de texto públicas SSH devem ter valores para validar com sucesso. O valor padrão é **verdadeiro.**
-- Se `options.hideConfirmation` for definido como **verdadeiro,** a segunda caixa de texto para confirmar a palavra-passe do utilizador está escondida. O valor predefinido é **falso**.
-- Se `options.hidePassword` for definido como **verdadeiro,** então a opção de utilizar a autenticação de senha está escondida. Só pode ser `osPlatform` usado quando é **Linux.** O valor predefinido é **falso**.
-- Constrangimentos adicionais nas senhas permitidas podem `customPasswordRegex` ser implementados utilizando a propriedade. O string `customValidationMessage` in é apresentado quando uma palavra-passe falha na validação personalizada. O valor predefinido para ambas as propriedades é **nulo.**
+- `osPlatform`deve ser especificado, e pode ser **windows** ou **Linux**.
+- Se `constraints.required` estiver definido como **verdadeiro,** então a palavra-passe ou as caixas de texto de chaves públicas SSH devem ter valores para validar com sucesso. O valor predefinido é **verdadeiro.**
+- Se `options.hideConfirmation` estiver definido como **verdadeiro**, então a segunda caixa de texto para confirmar a palavra-passe do utilizador é ocultada. O valor predefinido é **falso**.
+- Se `options.hidePassword` estiver definido como **verdadeiro,** então a opção de utilização da autenticação de palavra-passe está oculta. Só pode ser utilizado quando `osPlatform` é **Linux.** O valor predefinido é **falso**.
+- Constrangimentos adicionais nas palavras-passe permitidas podem ser implementados usando a `customPasswordRegex` propriedade. O string in `customValidationMessage` é apresentado quando uma palavra-passe falha na validação personalizada. O valor predefinido para ambas as propriedades é **nulo.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição das propriedades comuns nos elementos UI, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).
+* Para obter uma descrição das propriedades comuns em elementos de UI, consulte [os elementos CreateUiDefinition](create-uidefinition-elements.md).

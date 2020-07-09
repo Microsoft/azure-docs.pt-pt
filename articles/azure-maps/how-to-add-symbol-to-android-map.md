@@ -1,5 +1,5 @@
 ---
-title: Adicione uma camada de símbolo aos mapas Android / Microsoft Azure Maps
+title: Adicione uma camada de símbolo aos mapas Android Microsoft Azure Maps
 description: Neste artigo, você aprenderá a renderizar dados de pontos num mapa adicionando-lhe uma camada de símbolo usando o Microsoft Azure Maps Android SDK.
 author: philmea
 ms.author: philmea
@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 0eca73b5acae715283c05125181e12729ed5a772
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335576"
 ---
-# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Adicione uma camada de símbolo a um mapa usando O Android SDK do Azure Maps
+# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Adicione uma camada de símbolo a um mapa usando Azure Maps Android SDK
 
-Este artigo mostra-lhe como renderizar dados de pontos a partir de uma fonte de dados como uma camada de símbolo num mapa usando o Azure Maps Android SDK.
+Este artigo mostra-lhe como renderizar dados de pontos de uma fonte de dados como uma camada de símbolo num mapa usando o Azure Maps Android SDK.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir completamente os passos deste artigo, é necessário instalar o [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para carregar um mapa.
+Para seguir completamente os passos neste artigo, é necessário instalar [o Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para carregar um mapa.
 
 ## <a name="add-a-symbol-layer"></a>Adicionar uma camada de símbolo
 
 Para adicionar um marcador no mapa utilizando a camada de símbolo, siga os passos abaixo:
 
-1. Editar **res** > **layout** > **activity_main.xml** para que se pareça com o seguinte XML:
+1. Editar **res**  >  **o layout**  >  ** resactivity_main.xml** para que pareça o seguinte XML:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -50,7 +50,7 @@ Para adicionar um marcador no mapa utilizando a camada de símbolo, siga os pass
     </FrameLayout>
     ```
 
-2. Copie o seguinte código no método **onCreate()** da sua `MainActivity.java` classe.
+2. Copie o seguinte corte de código no método **onCreate()** da sua `MainActivity.java` classe.
 
     ```Java
     mapControl.onReady(map -> {
@@ -72,9 +72,9 @@ Para adicionar um marcador no mapa utilizando a camada de símbolo, siga os pass
     
     ```
     
-    O código acima obtém primeiro uma instância de controlo de mapas Do Mapa Azure Maps utilizando o método de chamada **onReady().** Cria então um objeto de origem de dados utilizando a classe **DataSource** e adiciona-o ao mapa. Em seguida, adiciona-lhe uma **funcionalidade** contendo uma geometria de ponto. Uma imagem de marcador vermelho é então definida como ícone para o símbolo. Uma **camada de símbolo** utiliza texto ou ícones para renderizar dados baseados em pontos embrulhados na fonte de dados como símbolo no mapa. Uma camada de símbolo é então criada e a fonte de dados é passada para ela para render, e é adicionada às camadas do mapa.
+    O corte de código acima obtém primeiro uma instância de controlo do mapa Azure Maps utilizando o método de retorno **onReady().** Em seguida, cria um objeto de origem de dados utilizando a classe **DataSource** e adiciona-o ao mapa. Em seguida, adiciona-lhe uma **característica** que contém uma geometria de ponto. Uma imagem de marcador vermelho é então definida como ícone para o símbolo. Uma **camada de símbolo** utiliza texto ou ícones para tornar os dados baseados em ponto embrulhados na fonte de dados como símbolo no mapa. Uma camada de símbolo é então criada e a fonte de dados é passada para renderizar, e é adicionada às camadas do mapa.
     
-    Depois de adicionar o código `MainActivity.java` acima, o seu deve parecer o abaixo:
+    Depois de adicionar o corte de código acima, `MainActivity.java` deve parecer-se com o abaixo:
     
     ```Java
     package com.example.myapplication;
@@ -170,7 +170,7 @@ Neste ponto, se executar a sua aplicação, deve ver um marcador no mapa, como m
 
 <center>
 
-![Pin o mapa android](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
+![Pino do mapa android](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
 
 
 ## <a name="next-steps"></a>Passos seguintes

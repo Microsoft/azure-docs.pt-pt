@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 02/14/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 13089a2514229c5c5bc7b40d9447719247b23405
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184096"
 ---
 ### <a name="to-modify-local-network-gateway-ip-address-prefixes---no-gateway-connection"></a><a name="noconnection"></a>Para modificar prefixos de endereço de IP do gateway de rede local - sem ligação de gateway
@@ -33,14 +33,14 @@ Para adicionar prefixos de endereços adicionais:
 
 Para remover um prefixos de endereço:
 
-  Não inclua os prefixos que já não são necessários. Neste exemplo, já não precisamos de prefixo 10.101.2.0/24 (do exemplo anterior), pelo que atualizamos o portal de rede local, excluindo esse prefixo.
+  Não inclua os prefixos que já não são necessários. Neste exemplo, já não precisamos do prefixo 10.101.2.0/24 (do exemplo anterior), pelo que atualizamos o gateway de rede local, excluindo o prefixo.
 
 1. Defina a variável para o LocalNetworkGateway.
 
    ```azurepowershell-interactive
    $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
    ```
-2. Detete a porta de entrada com os prefixos atualizados.
+2. Desacorra o portal com os prefixos atualizados.
 
    ```azurepowershell-interactive
    Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
@@ -56,7 +56,7 @@ Se tiver uma ligação de gateway e pretender adicionar ou remover os prefixos d
    ```azurepowershell-interactive
    Remove-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1
    ```
-2. Detete a porta de entrada da rede local com os prefixos de endereço modificados.
+2. Desacorra o portal de rede local com os prefixos de endereço modificados.
    
    Defina a variável para o LocalNetworkGateway.
 

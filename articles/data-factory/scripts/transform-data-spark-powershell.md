@@ -1,5 +1,5 @@
 ---
-title: Transforme dados na nuvem usando powerShell
+title: Transforme dados em nuvem usando PowerShell
 description: Este script PowerShell transforma dados na nuvem executando o programa Spark num cluster Azure HDInsight Spark.
 author: djpmsft
 ms.author: daperlov
@@ -11,22 +11,21 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: c09d0532b845472d0ccaac1ad57e3772630bb5c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74932051"
 ---
-# <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>PowerShell script - transforme dados em nuvem usando a Fábrica de Dados Azure
+# <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>PowerShell script - transforme dados em nuvem usando Azure Data Factory
 
-Este script de amostra PowerShell cria um pipeline que transforma dados na nuvem executando o programa Spark em um cluster Azure HDInsight Spark. 
+Esta amostra De script PowerShell cria um pipeline que transforma dados na nuvem executando o programa Spark num cluster Azure HDInsight Spark. 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Conta de Armazenamento Azure.** Crie um script python e um ficheiro de entrada e carregue-os para o armazenamento Azure. A saída do programa Spark é armazenada nesta conta de armazenamento. O cluster do Spark a pedido utiliza a mesma conta de armazenamento como o respetivo armazenamento primário.  
+* **Conta de Armazenamento Azure**. Crie um script python e um ficheiro de entrada e faça o upload para o armazenamento Azure. A saída do programa Spark é armazenada nesta conta de armazenamento. O cluster do Spark a pedido utiliza a mesma conta de armazenamento como o respetivo armazenamento primário.  
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Carregar o script Python para a conta de Armazenamento de Blobs
 1. Crie um ficheiro Python com o nome **WordCount_Spark.py** com o seguinte conteúdo: 
@@ -54,7 +53,7 @@ Este script de amostra PowerShell cria um pipeline que transforma dados na nuvem
     if __name__ == "__main__":
         main()
     ```
-2. Substitua ** &lt;&gt; ** o Nome do Depósito de Depósitos com o nome da sua conta de Armazenamento Azure. Em seguida, guarde o ficheiro. 
+2. Substitua ** &lt; o armazenamentoAme &gt; de contagem** de armazenamento pelo nome da sua conta de Armazenamento Azure. Em seguida, guarde o ficheiro. 
 3. No Armazenamento de Blobs do Azure, crie um contentor com o nome **adftutorial**, caso ainda não exista. 
 4. Crie uma pasta com o nome **spark**.
 5. Crie uma subpasta com o nome **script** na pasta **spark**. 
@@ -63,18 +62,18 @@ Este script de amostra PowerShell cria um pipeline que transforma dados na nuvem
 
 ### <a name="upload-the-input-file"></a>Carregue o ficheiro de entrada
 1. Crie um ficheiro com o nome **minecraftstory.txt** com algum texto. O programa Spark conta o número de palavras neste texto. 
-2. Crie uma `inputfiles` subpasta `spark` nomeada na pasta do recipiente blob. 
+2. Crie uma sub-página nomeada `inputfiles` na pasta do recipiente `spark` blob. 
 3. Carregue o ficheiro `minecraftstory.txt` para a subpasta `inputfiles`. 
 
 ## <a name="sample-script"></a>Script de exemplo
 > [!IMPORTANT]
-> Este script cria ficheiros JSON que definem entidades da Data Factory (serviço ligado, conjunto de dados e pipeline) no seu disco rígido no c:\ pasta.
+> Este script cria ficheiros JSON que definem as entidades da Data Factory (serviço ligado, conjunto de dados e pipeline) no seu disco rígido no c:\ pasta.
 
 [!code-powershell[main](../../../powershell_scripts/data-factory/transform-data-using-spark/transform-data-using-spark.ps1 "Transform data using Spark")]
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
-Depois de executar o script da amostra, pode utilizar o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo:
+Depois de executar o script da amostra, pode utilizar o seguinte comando para remover o grupo de recursos e todos os recursos que lhe estão associados:
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
@@ -93,15 +92,15 @@ Este script utiliza os seguintes comandos:
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Criar uma fábrica de dados. |
-| [Set-AzDataFactoryV2LinkedService](/powershell/module/az.datafactory/set-Azdatafactoryv2linkedservice) | Cria um serviço ligado na fábrica de dados. Um serviço ligado liga uma loja de dados ou uma computação a uma fábrica de dados. |
-| [Set-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/set-Azdatafactoryv2pipeline) | Cria um oleoduto na fábrica de dados. Um oleoduto contém uma ou mais atividades que realizam uma determinada operação. Neste pipeline, uma atividade de faísca transforma dados executando um programa num cluster Azure HDInsight Spark. |
+| [Set-AzDataFactoryV2LinkedService](/powershell/module/az.datafactory/set-Azdatafactoryv2linkedservice) | Cria um serviço ligado na fábrica de dados. Um serviço ligado liga uma loja de dados ou um cálculo a uma fábrica de dados. |
+| [Set-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/set-Azdatafactoryv2pipeline) | Cria um oleoduto na fábrica de dados. Um oleoduto contém uma ou mais atividades que realizam uma determinada operação. Neste oleoduto, uma atividade de faísca transforma dados executando um programa num cluster Azure HDInsight Spark. |
 | [Invocar-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/invoke-Azdatafactoryv2pipeline) | Cria uma corrida para o oleoduto. Por outras palavras, corre o oleoduto. |
-| [Get-AzDataFactoryV2ActivityRun](/powershell/module/az.datafactory/get-Azdatafactoryv2activityrun) | Obtém detalhes sobre o execução da atividade (execução de atividade) no oleoduto. 
+| [Get-AzDataFactoryV2ActivityRun](/powershell/module/az.datafactory/get-Azdatafactoryv2activityrun) | Obtém detalhes sobre o funcionação da atividade (atividade executada) no oleoduto. 
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Amostras adicionais de script da Fábrica de Dados Azure PowerShell podem ser encontradas nas [amostras de PowerShell da Fábrica](../samples-powershell.md)de Dados Azure .
+Amostras adicionais de scripts powerShell da Fábrica de Dados Azure podem ser encontradas nas [amostras powerShell da Azure Data Factory](../samples-powershell.md).

@@ -1,6 +1,6 @@
 ---
-title: Importar a coleção de carteiros com operações de streaming azure on-demand
-description: Este artigo fornece uma definição da coleção postman para chamadas DE REST Azure Media Services.
+title: Importar a coleção do Carteiro com operações de streaming Azure On-Demand
+description: Este artigo fornece uma definição da coleção do Carteiro para chamadas Azure Media Services REST.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 37fd131e570fa9f50df2479503b35407d67410cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60637540"
 ---
 # <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importar uma coleção de carteiros com operações de streaming a pedido 
 
-Este artigo contém uma definição da coleção **do Carteiro** que contém pedidos http agrupados agrupados que chamam AFS REST De Serviços De Mídia Azure. Para obter informações sobre como configurar o **Carteiro** para que possa ser usado para ligar para media services REST APIs, consulte [Configure Postman for Media Services REST API calls](media-rest-apis-with-postman.md) tutorial.
+Este artigo contém uma definição da coleção **do Carteiro** que contém pedidos HTTP agrupados que chamam Azure Media Services REST APIs. Para obter informações sobre como configurar **o Carteiro** para que possa ser usado para ligar para as APIs dos Serviços de Media, consulte [o Carteiro configurar para serviços de mídia REST API chama](media-rest-apis-with-postman.md) tutorial.
 
 ```json
 {

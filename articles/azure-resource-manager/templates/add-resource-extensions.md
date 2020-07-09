@@ -1,39 +1,39 @@
 ---
 title: Configuração pós-implantação utilizando extensões
-description: Aprenda a utilizar extensões de modelo do Gestor de Recursos Azure para fornecer configurações pós-implementação.
+description: Saiba como utilizar as extensões de modelo do Azure Resource Manager para fornecer configurações pós-implantação.
 author: mumian
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: jgao
-ms.openlocfilehash: b3c4110c8761b3e8daf324d65ac7fa1dcbcdf61f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be55138a2aa6dc0552c7556438ffd43705687c87
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77023502"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055055"
 ---
-# <a name="provide-post-deployment-configurations-by-using-extensions"></a>Fornecer configurações de pós-implementação utilizando extensões
+# <a name="provide-post-deployment-configurations-by-using-extensions"></a>Fornecer configurações pós-implantação utilizando extensões
 
-Extensões de modelo saem pequenas aplicações que fornecem tarefas de configuração pós-implantação e automação em recursos Azure. A mais popular são as extensões de máquinas virtuais. Consulte [extensões e funcionalidades da máquina Virtual para Windows](../../virtual-machines/extensions/features-windows.md), e [extensões e funcionalidades de máquinavirtual para Linux](../../virtual-machines/extensions/features-linux.md).
+As extensões de modelo são pequenas aplicações que fornecem tarefas de configuração e automação pós-implantação nos recursos Azure. A mais popular são as extensões de máquinas virtuais. Consulte [extensões e funcionalidades de máquina virtual para Windows](../../virtual-machines/extensions/features-windows.md)e [extensões e funcionalidades de máquinas virtuais para Linux](../../virtual-machines/extensions/features-linux.md).
 
 ## <a name="extensions"></a>Extensões
 
 As extensões existentes são:
 
-- [Microsoft.Compute/virtualMachines/extensões](https://docs.microsoft.com/azure/templates/microsoft.compute/2018-10-01/virtualmachines/extensions)
-- [Microsoft.Compute virtualMachineScaleSets/extensões](https://docs.microsoft.com/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions)
-- [Clusters/extensões Microsoft.HDInsight](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/2018-06-01-preview/clusters)
-- [Servidores/bases de dados/extensões Microsoft.Sql](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions) 
-- [Microsoft.Web/sites/extensões de sites](https://docs.microsoft.com/azure/templates/microsoft.web/2016-08-01/sites/siteextensions)
+- [Microsoft.Compute/virtualMachines/extensões](/azure/templates/microsoft.compute/2018-10-01/virtualmachines/extensions)
+- [Microsoft.Compute virtualMachineScaleSets/extensões](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions)
+- [Microsoft.HDInsight clusters/extensões](/azure/templates/microsoft.hdinsight/2018-06-01-preview/clusters)
+- [Servidores/bases de dados/extensões microsoft.Sql](/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions) 
+- [Microsoft.Web/sites/siteextensions](/azure/templates/microsoft.web/2016-08-01/sites/siteextensions)
 
-Para saber as extensões disponíveis, navegue para a referência do [modelo](https://docs.microsoft.com/azure/templates/). Em **Filtro por título,** **introduza a extensão**.
+Para saber as extensões disponíveis, navegue na referência do [modelo](/azure/templates/). In **Filter by title**, insira a **extensão**.
 
 Para aprender a usar estas extensões, consulte:
 
-- [Tutorial: Implementar extensões de máquinavirtual com modelos](template-tutorial-deploy-vm-extensions.md)de Gestor de Recursos Azure .
+- [Tutorial: Implementar extensões de máquinas virtuais com modelos do Gestor de Recursos Azure](template-tutorial-deploy-vm-extensions.md).
 - [Tutorial: Importar ficheiros SQL BACPAC com modelos do Azure Resource Manager](template-tutorial-deploy-sql-extensions-bacpac.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Tutorial: Implementar extensões de máquina virtual com modelos do Azure Resource Manager](template-tutorial-deploy-vm-extensions.md)

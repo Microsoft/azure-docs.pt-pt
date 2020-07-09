@@ -1,26 +1,26 @@
 ---
 title: Operações agregadas em tabelas da API para Cassandra do Azure Cosmos DB a partir de Spark
-description: Este artigo abrange operações básicas de agregação contra as tabelas da API da Azure Cosmos DB Cassandra da Spark
+description: Este artigo abrange operações básicas de agregação contra as tabelas API API da Azure Cosmos DB Cassandra da Spark
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: 4fbb86f4fbda9b8e521f7465bb8bb3d18602ca13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3851eb9e7439d7a40994240240cd221d616cb3b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60894191"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260514"
 ---
 # <a name="aggregate-operations-on-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Operações agregadas em tabelas da API para Cassandra do Azure Cosmos DB a partir de Spark 
 
 Este artigo descreve as operações de agregação básicas em tabelas da API para Cassandra do Azure Cosmos DB a partir do Spark. 
 
 > [!NOTE]
-> A filtragem do lado do servidor e a agregação do lado do servidor não são atualmente suportadas na API DB Cassandra do Azure Cosmos.
+> A filtragem do lado do servidor e a agregação do lado do servidor não é suportada atualmente na Azure Cosmos DB Cassandra API.
 
 ## <a name="cassandra-api-configuration"></a>Configuração da API de Cassandra
 
@@ -48,7 +48,7 @@ spark.conf.set("spark.cassandra.concurrent.reads", "512")
 spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
-## <a name="sample-data-generator"></a>Gerador de dados de amostras
+## <a name="sample-data-generator"></a>Gerador de dados de amostra
 
 ```scala
 // Generate a simple dataset containing five values
@@ -67,7 +67,7 @@ booksDF.write
   .save()
 ```
 
-## <a name="count-operation"></a>Operação contada
+## <a name="count-operation"></a>Operação contagem
 
 
 ### <a name="rdd-api"></a>RDD API
@@ -83,21 +83,21 @@ res48: Long = 5
 
 ### <a name="dataframe-api"></a>Dataframe API
 
-A contagem contra os quadros de dados não é suportada atualmente.  A amostra abaixo mostra como executar uma contagem de dados depois de persistir o dataframe para a memória como uma suver.
+A contagem contra os dataframes não é suportada atualmente.  A amostra abaixo mostra como executar uma contagem de dados depois de persistir o dataframe para a memória como uma solução alternativa.
 
-Escolha uma [opção]( https://spark.apache.org/docs/2.2.0/rdd-programming-guide.html#which-storage-level-to-choose) de armazenamento entre as seguintes opções disponíveis, para evitar encontrar problemas "fora de memória":
+Escolha uma [opção]( https://spark.apache.org/docs/2.2.0/rdd-programming-guide.html#which-storage-level-to-choose) de armazenamento a partir das seguintes opções disponíveis, para evitar problemas de "fora de memória":
 
-* MEMORY_ONLY: Esta é a opção de armazenamento padrão. Lojas RDD como objetos Java desserializados no JVM. Se o RDD não encaixar na memória, algumas divisórias não serão emcache e são recomputadas no voo cada vez que são necessárias.
+* MEMORY_ONLY: Esta é a opção de armazenamento padrão. Armazena RDD como objetos java deserializados no JVM. Se o RDD não encaixar na memória, algumas divisórias não serão em cache e são recomuedidas em voo cada vez que são necessárias.
 
-* MEMORY_AND_DISK: Lojas RDD como objetos Java desserializados no JVM. Se o DDr não encaixar na memória, guarde as divisórias que não cabem no disco e, sempre que necessário, leia-as a partir do local onde estão armazenadas.
+* MEMORY_AND_DISK: Armazena RDD como objetos Java deserializados no JVM. Se o RDD não encaixar na memória, guarde as divisórias que não cabem no disco e, sempre que necessário, leia-as a partir do local onde estão armazenadas.
 
-* MEMORY_ONLY_SER (Java/Scala): Lojas RDD como objetos java serializados- matriz de um byte por partição. Esta opção é eficiente em termos de espaço quando comparada com objetos desserializados, especialmente quando se utiliza um serializador rápido, mas mais intensivo para ler.
+* MEMORY_ONLY_SER (Java/Scala): Armazena RDD como objetos java serializados- matriz de um byte por partição. Esta opção é eficiente em termos de espaço quando comparada com objetos deserializados, especialmente quando se utiliza um serializador rápido, mas mais intensivo de CPU para ler.
 
-* MEMORY_AND_DISK_SER (Java/Scala): Esta opção de armazenamento é como MEMORY_ONLY_SER, a única diferença é que derrama divisórias que não cabem na memória do disco em vez de as recomcomputar quando são necessárias.
+* MEMORY_AND_DISK_SER (Java/Scala): Esta opção de armazenamento é como MEMORY_ONLY_SER, a única diferença é que derrama divisórias que não se encaixam na memória do disco em vez de as recomprê-las quando são necessárias.
 
 * DISK_ONLY: Armazena apenas as divisórias RDD no disco.
 
-* MEMORY_ONLY_2, MEMORY_AND_DISK_2...: Os mesmos que os níveis acima, mas replica cada partição em dois nós de cluster.
+* MEMORY_ONLY_2, MEMORY_AND_DISK_2...: O mesmo que os níveis acima, mas replica cada partição em dois nós de cluster.
 
 * OFF_HEAP (experimental): Semelhante a MEMORY_ONLY_SER, mas armazena os dados em memória off-heap, e requer que a memória off-heap seja ativada antes do tempo. 
 
@@ -223,7 +223,7 @@ select min(book_price) from books_vw;
 11.33
 ```
 
-## <a name="max-operation"></a>Operação max
+## <a name="max-operation"></a>Operação Max
 
 ### <a name="rdd-api"></a>RDD API
 
@@ -262,7 +262,7 @@ select max(book_price) from books_vw;
 22.45
 ```
 
-## <a name="sum-operation"></a>Operação soma
+## <a name="sum-operation"></a>Operação sum
 
 ### <a name="rdd-api"></a>RDD API
 
@@ -364,8 +364,8 @@ readBooksDF: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] = [book_name
 select book_name,book_price from books_vw order by book_price desc limit 3;
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para efetuar operações de cópia de tabela, consulte:
+Para realizar operações de cópia de mesa, consulte:
 
-* [Operações de cópia de tabela](cassandra-spark-table-copy-ops.md)
+* [Operações de cópia de mesa](cassandra-spark-table-copy-ops.md)

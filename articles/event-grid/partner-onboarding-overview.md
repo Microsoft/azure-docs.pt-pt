@@ -1,18 +1,14 @@
 ---
 title: A bordo como parceiro da Azure Event Grid
 description: A bordo como um tipo de parceiro Azure Event Grid. Compreenda o modelo de recursos e o fluxo de publicação para tópicos parceiros.
-services: event-grid
-author: banisadr
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.author: babanisa
-ms.openlocfilehash: 2a7e2b9f731dbf05dfeb2ac01f1ae258c5250827
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.date: 07/07/2020
+ms.openlocfilehash: 8003e3e6a28b0e6a05d553be01c171029e244d74
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170006"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116119"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner"></a>A bordo como parceiro da Azure Event Grid
 

@@ -1,74 +1,74 @@
 ---
-title: Problema configurar inscrição única federada para aplicação não-galeria [ Microsoft Docs
-description: Resolva alguns dos problemas comuns que pode encontrar ao configurar um único sign-on federado para a sua aplicação SAML personalizada que não está listada na Galeria de Aplicações da AD Azure
+title: Problema configurado único sinal para uma aplicação não-galeria / Microsoft Docs
+description: Aborde alguns dos problemas comuns que poderá encontrar ao configurar um único sinal de acesso à sua aplicação SAML personalizada que não está listada na Galeria de Aplicações AD AZure
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7894bfada4d363e89f526280e2925b4f4c6180a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84a8ee8ca29046d26d200aaf853a3efe25f15768
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76711889"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763572"
 ---
-# <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>Problema configurar inscrição única federada para aplicação não-galeria
+# <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>Problema de configuração de um único sinal para uma aplicação não-galeria
 
-Se encontrar algum problema ao configurar uma aplicação. Verifique se seguiu todos os passos do artigo Configurando um único sinal para [aplicações que não estão na galeria de aplicações do Azure Ative Directory.](configure-federated-single-sign-on-non-gallery-applications.md)
+Se encontrar um problema ao configurar uma aplicação. Verifique se seguiu todos os passos do artigo [Configurando um único sinal de inscrição para aplicações que não estão na galeria de aplicações do Azure Ative.](configure-federated-single-sign-on-non-gallery-applications.md)
 
-## <a name="cant-add-another-instance-of-the-application"></a>Não posso adicionar outra instância da aplicação
+## <a name="cant-add-another-instance-of-the-application"></a>Não posso adicionar outro exemplo da aplicação
 
 Para adicionar uma segunda instância de uma aplicação, você precisa ser capaz de:
 
--   Configure um identificador único para a segunda instância. Não é possível configurar o mesmo identificador utilizado em primeira instância.
+-   Configurar um identificador único para a segunda instância. Não é possível configurar o mesmo identificador usado em primeira instância.
 
--   Configure um certificado diferente do utilizado em primeira instância.
+-   Configurar um certificado diferente do utilizado em primeira instância.
 
 Se a aplicação não suportar nenhum dos anteriores, não pode configurar uma segunda instância.
 
-## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Onde posso definir o formato EntityID (Identificador de Utilizador)
+## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Onde é que eu defini o formato EntityID (User Identifier)
 
-Não é possível selecionar o formato EntityID (Identificador de Utilizador) que o Azure AD envia para a aplicação na resposta após a autenticação do utilizador.
+Não é possível selecionar o formato EntityID (User Identifier) que o Azure AD envia para a aplicação na resposta após a autenticação do utilizador.
 
-A Azure AD seleciona o formato para o atributo NameID (Identificador de utilizador) com base no valor selecionado ou no formato solicitado pela aplicação no AuthRequest SAML. Para mais informações visite o [protocolo SAML](../develop/single-sign-on-saml-protocol.md#authnrequest) de assinatura única ao abrigo da secção NameIDPolicy,
+A Azure AD seleciona o formato para o atributo NameID (User Identifier) com base no valor selecionado ou no formato solicitado pela aplicação no AuthRequest SAML. Para mais informações visite o protocolo [SEML de assinatura única](../develop/single-sign-on-saml-protocol.md#authnrequest) sob a secção NameIDPolicy,
 
-## <a name="where-do-i-get-the-application-metadata-or-certificate-from-azure-ad"></a>Onde obtenho os metadados de aplicação ou certificado da Azure AD
+## <a name="where-do-i-get-the-application-metadata-or-certificate-from-azure-ad"></a>Onde consigo os metadados ou certificado de aplicação da Azure AD
 
-Para descarregar os metadados de aplicação ou certificado da Azure AD, siga estes passos:
+Para descarregar os metadados ou certificados da aplicação a partir da Azure AD, siga estes passos:
 
-1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministrador.**
+1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministração.**
 
-2. Abra a extensão do **Diretório Ativo Azure** clicando em **todos os serviços** no topo do menu principal de navegação à esquerda.
+2. Abra a **Extensão do Diretório Ativo Azure** clicando em **todos os serviços** no topo do menu principal de navegação à esquerda.
 
-3. Digite em **"Azure Ative Directory"** na caixa de pesquisa de filtros e selecione o item **azure Ative Directory.**
+3. Digite **"Azure Ative Directory"** na caixa de pesquisa do filtro e selecione o item **Azure Ative Directory.**
 
-4. clique **em Aplicações Empresariais** a partir do menu de navegação à esquerda do Azure Ative Diretório.
+4. clique em **Aplicações Empresariais** a partir do menu de navegação à esquerda do Azure Ative.
 
 5. clique em **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
 
-   * Se não vir a aplicação que deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e detetete a opção **Mostrar** para Todas **as Aplicações.**
+   * Se não vir a aplicação deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e desate a opção **'Mostrar'** a **todas as aplicações.**
 
-6. Selecione a aplicação que configurau um único sinal.
+6. Selecione a aplicação que configurar um único sinal de inscrição.
 
-7. Uma vez que a aplicação seja carregada, clique no único sinal de **inscrição** do menu de navegação à esquerda da aplicação.
+7. Uma vez que a aplicação é carregada, clique **no único sinal de inscrição** do menu de navegação à esquerda da aplicação.
 
-8. Vá à secção **de Certificado de Assinatura SAML** e, em seguida, clique no valor da coluna **Descarregue.** Dependendo do que a aplicação requer configurar um único sinal, você vê a opção de descarregar o Metadata XML ou o Certificado.
+8. Aceda à secção **de Certificado de Assinatura SAML** e, em seguida, clique em Baixar **o** valor da coluna. Dependendo do que a aplicação requer configurar um único sinal, vê a opção de descarregar o Metadadata XML ou o Certificado.
 
 A Azure AD não fornece um URL para obter os metadados. Os metadados só podem ser recuperados como um ficheiro XML.
 
 ## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Não sei como personalizar as reclamações da SAML enviadas para uma aplicação
 
-Para saber como personalizar as reclamações de atributos SAML enviadas para a sua aplicação, consulte [o mapeamento de Reclamações no Diretório Ativo Azure](../develop/active-directory-claims-mapping.md) para obter mais informações.
+Para saber como personalizar as reclamações de atributos SAML enviadas para a sua aplicação, consulte [o mapeamento de Reclamações no Azure Ative Diretório](../develop/active-directory-claims-mapping.md) para obter mais informações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Gestão de Aplicações com Diretório Ativo Azure](what-is-application-management.md)

@@ -12,12 +12,12 @@ metadata:
   author: IEvangelist
   ms.author: dapine
   ms.date: 01/23/2020
-  ms.openlocfilehash: 2ba262c7adf778099e47e636a9106f74314c2254
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 9f0ed5265bc4371169097d2fedcbfcddb62d3bff
+  ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "77108685"
+  ms.lasthandoff: 07/07/2020
+  ms.locfileid: "86045438"
 landingContent:
 - title: Sobre a Leitura Avançada
   linkLists:
@@ -33,14 +33,22 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Núcleo de ASP.NET
-      url: quickstart.md
-    - text: Node.js
-      url: quickstart-nodejs.md
-    - text: Swift (iOS)
-      url: ios-quickstart.md
+    - text: Utilizar C# (Núcleo do ASP.NET)
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp
+    - text: Utilizar Node.js
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-nodejs
+    - text: Utilizar Java (Android)
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-java-android
+    - text: Utilizar Kotlin (Android)
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-kotlin
+    - text: Utilizar o Swift (iOS)
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-swift
   - linkListType: tutorial
     links:
+    - text: Android
+      url: tutorial-android.md
+    - text: iOS
+      url: tutorial-ios.md
     - text: Python
       url: tutorial-python.md
     - text: Utilizar vários recursos de Leitura Avançada
@@ -61,6 +69,12 @@ landingContent:
       url: how-to-customize-launch-button.md
     - text: Colocar o token de autenticação em cache
       url: how-to-cache-token.md
+    - text: Configurar a funcionalidade Ler em Voz Alta
+      url: how-to-configure-read-aloud.md
+    - text: Configurar a tradução
+      url: how-to-configure-translation.md
+    - text: Armazenar as preferências do utilizador
+      url: how-to-store-user-preferences.md
   - linkListType: reference
     links:
     - text: SDK JavaScript

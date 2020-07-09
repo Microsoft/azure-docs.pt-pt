@@ -1,75 +1,75 @@
 ---
-title: Partilha de recipientede perfil FSLogix do Windows Virtual Desktop - Azure
-description: Como configurar um recipiente de perfil FSLogix para um conjunto de anfitriões do Windows Virtual Desktop utilizando uma partilha virtual de ficheiros baseado em máquinas.
+title: Partilha de contentores de perfil FSLogix do Windows Virtual Desktop - Azure
+description: Como configurar um recipiente de perfil FSLogix para um conjunto de anfitriões virtual do Windows Desktop utilizando uma partilha de ficheiros virtual baseada em máquinas.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 96b593f544aa4bbf126c06747a01902581f5ffb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bac0047c1eb151f38ff09092b45ca7fd86fcc65a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250923"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211838"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Criar um contentor de perfis para um conjunto de anfitriões através de uma partilha de ficheiros
 
-O serviço de ambiente de trabalho virtual windows oferece os recipientes de perfil FSLogix como a solução de perfil recomendado para o utilizador. Não recomendamos a utilização da solução user Profile Disk (UPD), que será depreciada em futuras versões do Windows Virtual Desktop.
+O serviço De Ambiente de Trabalho Virtual Windows oferece recipientes de perfil FSLogix como a solução recomendada para o perfil do utilizador. Não recomendamos a utilização da solução De Disco de Perfil do Utilizador (UPD), que será depreciada em futuras versões do Windows Virtual Desktop.
 
-Este artigo dir-lhe-á como configurar uma partilha de contentor de perfil FSLogix para uma piscina hospedeira utilizando uma partilha virtual de ficheiros baseado em máquinas. Para obter mais documentação do FSLogix, consulte o [site do FSLogix](https://docs.fslogix.com/).
+Este artigo dir-lhe-á como configurar uma partilha de contentores de perfil FSLogix para uma piscina hospedeira utilizando uma partilha de ficheiros virtual baseada em máquinas. Recomendamos vivamente a utilização de Ficheiros Azure em vez de partilhas de ficheiros. Para obter mais documentação FSLogix, consulte o site da [FSLogix.](https://docs.fslogix.com/)
 
 >[!NOTE]
->Se procura material de comparação sobre as diferentes opções de armazenamento de contentores de perfil FSLogix no Azure, consulte opções de armazenamento para recipientes de [perfil FSLogix](store-fslogix-profile.md).
+>Se procura material de comparação sobre as diferentes opções de armazenamento de contentores de perfil FSLogix no Azure, consulte [as opções de armazenamento para recipientes de perfil FSLogix](store-fslogix-profile.md).
 
-## <a name="create-a-new-virtual-machine-that-will-act-as-a-file-share"></a>Criar uma nova máquina virtual que funcionará como uma partilha de ficheiros
+## <a name="create-a-new-virtual-machine-that-will-act-as-a-file-share"></a>Crie uma nova máquina virtual que atue como uma partilha de ficheiros
 
-Ao criar a máquina virtual, certifique-se de colocá-la na mesma rede virtual que as máquinas virtuais do pool anfitrião ou numa rede virtual que tenha conectividade com as máquinas virtuais do pool anfitrião. Pode criar uma máquina virtual de várias maneiras:
+Ao criar a máquina virtual, certifique-se de colocá-la na mesma rede virtual que as máquinas virtuais do pool anfitrião ou numa rede virtual que tenha conectividade com as máquinas virtuais do pool anfitrião. Pode criar uma máquina virtual de várias formas:
 
-- [Criar uma máquina virtual a partir de uma imagem da Galeria Azure](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
+- [Crie uma máquina virtual a partir de uma imagem da Galeria Azure](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Criar uma máquina virtual a partir de uma imagem gerida](../virtual-machines/windows/create-vm-generalized-managed.md)
-- [Criar uma máquina virtual a partir de uma imagem não gerida](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
+- [Criar uma máquina virtual a partir de uma imagem nãogerida](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
 Depois de criar a máquina virtual, junte-a ao domínio fazendo as seguintes coisas:
 
-1. [Ligue-se à máquina virtual](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) com as credenciais que forneceu ao criar a máquina virtual.
-2. Na máquina virtual, lance **o Painel de Controlo** e selecione **System**.
-3. Selecione **o nome do computador,** selecione **definições de alteração**e, em seguida, selecione **Mudar...**
-4. Selecione **Domínio** e, em seguida, introduza o domínio de Diretório Ativo na rede virtual.
-5. Autenticar com uma conta de domínio que tenha privilégios de unir máquinas de união de domínios.
+1. [Ligue-se à máquina virtual](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) com as credenciais fornecidas ao criar a máquina virtual.
+2. Na máquina virtual, lance o **Painel de Controlo** e selecione **Sistema.**
+3. Selecione **nome de computador**, selecione Alterar as **definições**e, em seguida, selecione **Alterar...**
+4. Selecione **Domínio** e, em seguida, introduza o domínio Ative Directory na rede virtual.
+5. Autenticar com uma conta de domínio que tem privilégios para máquinas de união de domínios.
 
-## <a name="prepare-the-virtual-machine-to-act-as-a-file-share-for-user-profiles"></a>Prepare a máquina virtual para funcionar como uma partilha de ficheiros para os perfis dos utilizadores
+## <a name="prepare-the-virtual-machine-to-act-as-a-file-share-for-user-profiles"></a>Prepare a máquina virtual para funcionar como uma partilha de ficheiros para perfis de utilizador
 
-As seguintes são instruções gerais sobre como preparar uma máquina virtual para funcionar como uma partilha de ficheiros para os perfis do utilizador:
+Seguem-se instruções gerais sobre como preparar uma máquina virtual para funcionar como uma partilha de ficheiros para perfis de utilizador:
 
-1. Adicione os utilizadores ativos do Windows Ao Diretório Ativo do Windows ao [Diretório Ativo](/windows/security/identity-protection/access-control/active-directory-security-groups/). Este grupo de segurança será utilizado para autenticar os utilizadores do Windows Virtual Desktop na máquina virtual de partilha de ficheiros que acaba de criar.
+1. Adicione os utilizadores do Windows Virtual Desktop Ative Directory a um [grupo de segurança ative directory](/windows/security/identity-protection/access-control/active-directory-security-groups/). Este grupo de segurança será utilizado para autenticar os utilizadores do Windows Virtual Desktop na máquina virtual de partilha de ficheiros que acabou de criar.
 2. [Ligue-se à máquina virtual de partilha de ficheiros](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine).
-3. Na máquina virtual de partilha de ficheiros, crie uma pasta na **unidade C** que será utilizada como partilha de perfil.
-4. Clique na nova pasta, selecione **Propriedades,** selecione **Partilhar,** em seguida, selecione **Partilha Avançada...**.
-5. Selecione **Partilhar esta pasta,** selecione **Permissões...** e, em seguida, selecione **Adicionar...**.
-6. Procure o grupo de segurança ao qual adicionou os utilizadores do Windows Virtual Desktop e, em seguida, certifique-se de que o grupo tem **controlo completo**.
-7. Depois de adicionar o grupo de segurança, clique na pasta, selecione **Propriedades,** **selecione Partilhar,** e depois copie o Caminho da **Rede** para usar mais tarde.
+3. Na máquina virtual de partilha de ficheiros, crie uma pasta na **unidade C** que será usada como partilha de perfil.
+4. Clique com o botão direito na nova pasta, selecione **Propriedades,** selecione **Partilhar,** em seguida, selecione **Partilha Avançada...**.
+5. **Selecione Partilhe esta pasta,** selecione **Permissões...** e, em seguida, selecione **Adicionar...**.
+6. Procure o grupo de segurança ao qual adicionou os utilizadores do Windows Virtual Desktop e, em seguida, certifique-se de que o grupo tem **Controlo Total**.
+7. Depois de adicionar o grupo de segurança, clique com o botão direito na pasta, selecione **Propriedades**, selecione **Partilhar**e, em seguida, copie o Caminho da **Rede** para usar para mais tarde.
 
-Para obter mais informações sobre permissões, consulte a [documentação do FSLogix](/fslogix/fslogix-storage-config-ht/).
+Para obter mais informações sobre permissões, consulte a [documentação FSLogix](/fslogix/fslogix-storage-config-ht/).
 
 ## <a name="configure-the-fslogix-profile-container"></a>Configure o recipiente de perfil FSLogix
 
-Para configurar as máquinas virtuais com o software FSLogix, faça o seguinte em cada máquina registada na piscina anfitriã:
+Para configurar as máquinas virtuais com o software FSLogix, faça o seguinte em cada máquina registada na piscina hospedeira:
 
-1. [Ligue-se à máquina virtual](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) com as credenciais que forneceu ao criar a máquina virtual.
-2. Lance um navegador de internet e navegue para [este link](https://go.microsoft.com/fwlink/?linkid=2084562) para descarregar o agente FSLogix.
-3. Navegue \\ \\para o\\Lançamento \\ \\Win32 ou Para o Lançamento X64\\no ficheiro .zip e execute o **FSLogixAppsSetup** para instalar o agente FSLogix.  Para saber mais sobre como instalar o FSLogix, consulte [O Download e instala o FSLogix](/fslogix/install-ht/).
-4. Navegue para **O Programa Ficheiros** > **FSLogix** > **Apps** para confirmar o agente instalado.
-5. A partir do menu inicial, executar **RegEdit** como administrador. Navegue para **software\\\\\\De HKEY_LOCAL_MACHINE De computador FSLogix**.
-6. Criar uma chave chamada **Perfis.**
-7. Criar os seguintes valores para a chave Perfis:
+1. [Ligue-se à máquina virtual](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) com as credenciais fornecidas ao criar a máquina virtual.
+2. Lance um navegador de internet e navegue [para este link](https://go.microsoft.com/fwlink/?linkid=2084562) para descarregar o agente FSLogix.
+3. Navegue para \\ \\ o Lançamento win32 \\ ou \\ \\ X64 no ficheiro \\ .zip e executar **FSLogixAppsSetup** para instalar o agente FSLogix.  Para saber mais sobre como instalar o FSLogix, consulte [Download e instale o FSLogix](/fslogix/install-ht/).
+4. Navegue para **ficheiros de programa**  >  **FSLogix**  >  **Apps** para confirmar o agente instalado.
+5. A partir do menu inicial, executar **RegEdit** como administrador. Navegue para **o software de HKEY_LOCAL_MACHINE de computador \\ \\ \\ FSLogix**.
+6. Crie uma chave chamada **Perfis.**
+7. Criar os seguintes valores para a tecla Perfis:
 
-| Nome                | Tipo               | Dados/Valor                        |
+| Name                | Tipo               | Dados/Valor                        |
 |---------------------|--------------------|-----------------------------------|
 | Ativado             | DWORD              | 1                                 |
-| VHDLocations        | Valor multi-string | "Caminho de rede para partilha de ficheiros"     |
+| VHDLocations        | Valor multi-cordas | "Caminho da rede para partilha de ficheiros"     |
 
 >[!IMPORTANT]
->Para ajudar a proteger o ambiente de ambiente de trabalho virtual do Windows em Azure, recomendamos que não abra a porta de entrada 3389 nos seus VMs. O Windows Virtual Desktop não necessita de uma porta de entrada aberta 3389 para os utilizadores acederem aos VMs do grupo anfitrião. Se tiver de abrir a porta 3389 para efeitos de resolução de problemas, recomendamos que utilize [o acesso VM just-in-time](../security-center/security-center-just-in-time.md).
+>Para ajudar a proteger o ambiente de ambiente de trabalho virtual do Windows em Azure, recomendamos que não abra a porta de entrada 3389 nos seus VMs. O Windows Virtual Desktop não necessita de uma porta de entrada aberta 3389 para os utilizadores acederem aos VMs da piscina anfitriã. Se tiver de abrir a porta 3389 para efeitos de resolução de problemas, recomendamos que utilize [acesso vm just-in-time](../security-center/security-center-just-in-time.md).

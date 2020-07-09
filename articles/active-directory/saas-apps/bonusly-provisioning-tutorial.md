@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Bonusly para o fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
-description: Aprenda a configurar o Diretório Ativo Azure para fornecer automaticamente e desfornecer contas de utilizador à Bonusly.
+title: 'Tutorial: Configurar bónus para o fornecimento automático de utilizadores com diretório Azure Ative / Microsoft Docs'
+description: Saiba como configurar o Azure Ative Directory para provisão automática e desa provisionar contas de utilizadores à Bonusly.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -17,37 +17,36 @@ ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7694e441a59680a9b9544d3479100c1f779964ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77058882"
 ---
-# <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Tutorial: Configure bónus para o fornecimento automático de utilizadores
+# <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Tutorial: Configurar bónus para o provisionamento automático do utilizador
 
-O objetivo deste tutorial é demonstrar os passos a serem realizados no Bonusly e no Azure Ative Directory (Azure AD) para configurar a AD Azure para fornecer automaticamente e desfornecer utilizadores e/ou grupos à Bonusly.
+O objetivo deste tutorial é demonstrar os passos a serem realizados no Bónus e no Azure Ative Directory (Azure AD) para configurar a Azure AD para automaticamente a prestação e desavisagem de utilizadores e/ou grupos para bónus.
 
 > [!NOTE]
-> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Da AD Azure. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
+> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [automatizar o fornecimento e desprovisionamento de aplicações saaS com diretório Azure Ative.](../app-provisioning/user-provisioning.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário delineado neste tutorial pressupõe que já tem o seguinte:
 
-* Um inquilino da AD Azure
+* Um inquilino da AD AZure
 * Um [inquilino bónus](https://bonus.ly/pricing)
-* Uma conta de utilizador em Bonusly com permissões de Administrador
+* Uma conta de utilizador em Bónus com permissões de Administração
 
 > [!NOTE]
-> A integração de provisionamento de AD Azure baseia-se na [API bonusly Rest,](https://konghq.com/solutions/gateway/)que está disponível para desenvolvedores bónus.
+> A integração de provisionamento Azure AD depende da [API de Repouso Bónus,](https://konghq.com/solutions/gateway/)que está disponível para os desenvolvedores da Bonusly.
 
-## <a name="adding-bonusly-from-the-gallery"></a>Adicionando Bónus da galeria
+## <a name="adding-bonusly-from-the-gallery"></a>Adicionar bónus da galeria
 
-Antes de configurar bónus para o fornecimento automático de utilizadores com a AD Azure, precisa adicionar Bónus da galeria de aplicações Azure AD à sua lista de aplicações SaaS geridas.
+Antes de configurar bónus para o fornecimento automático de utilizadores com Azure AD, tem de adicionar Bonusly da galeria de aplicações AD AZure à sua lista de aplicações geridas pelo SaaS.
 
-**Para adicionar Bónus à galeria de aplicações da AD Azure, execute os seguintes passos:**
+**Para adicionar Bonusly da galeria de aplicações AZure, execute os seguintes passos:**
 
-1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -55,113 +54,113 @@ Antes de configurar bónus para o fornecimento automático de utilizadores com a
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
+3. Para adicionar nova aplicação, clique em Novo botão de **aplicação** no topo do diálogo.
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Bonusly**, selecione **Bonusly** do painel de resultados e, em seguida, clique em **Adicionar** o botão para adicionar a aplicação.
+4. Na caixa de pesquisa, **escreva Bonusly**, selecione **Bonusly** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![Bónus na lista de resultados](common/search-new-app.png)
 
 ## <a name="assigning-users-to-bonusly"></a>Atribuir utilizadores a Bónus
 
-O Azure Ative Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de utilizadores, apenas os utilizadores e/ou grupos que tenham sido "atribuídos" a uma aplicação em Azure AD são sincronizados. 
+O Azure Ative Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de utilizadores, apenas os utilizadores e/ou grupos que foram "atribuídos" a uma aplicação em AD Azure são sincronizados. 
 
-Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de ter acesso à Bonusly. Uma vez decidido, pode atribuir estes utilizadores e/ou grupos à Bonusly seguindo as instruções aqui:
+Antes de configurar e permitir o fornecimento automático do utilizador, deve decidir quais os utilizadores e/ou grupos em AZure AD que precisam de acesso ao Bónus. Uma vez decididos, pode atribuir estes utilizadores e/ou grupos a Bónus seguindo as instruções aqui:
 
 * [Atribuir um utilizador ou grupo a uma aplicação empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-to-bonusly"></a>Dicas importantes para atribuir utilizadores à Bonusly
+### <a name="important-tips-for-assigning-users-to-bonusly"></a>Dicas importantes para atribuir utilizadores à Bónus
 
-* Recomenda-se que um único utilizador da AD Azure seja atribuído à Bonusly para testar a configuração automática de fornecimento do utilizador. Posteriormente, os utilizadores e/ou grupos adicionais podem ser atribuídos.
+* Recomenda-se que um único utilizador AZure AD seja designado para a Bonusly para testar a configuração automática de provisionamento do utilizador. Utilizadores e/ou grupos adicionais podem ser atribuídos mais tarde.
 
-* Ao atribuir um utilizador à Bonusly, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
+* Ao atribuir um utilizador a Bónus, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **Acesso Predefinido** estão excluídos do provisionamento.
 
-## <a name="configuring-automatic-user-provisioning-to-bonusly"></a>Configurar o fornecimento automático de utilizadores à Bonusly
+## <a name="configuring-automatic-user-provisioning-to-bonusly"></a>Configurar o fornecimento automático do utilizador para bónus
 
-Esta secção guia-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Bónus com base em atribuições de utilizador e/ou grupo em Azure AD.
+Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Bónus com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Também pode optar por ativar um único sinal baseado em SAML para bónus, seguindo as instruções fornecidas no tutorial de [inscrição bónus.](bonus-tutorial.md) O único sinal de inscrição pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente.
+> Pode também optar por ativar o único sinal de Bónus baseado em SAML, seguindo as instruções fornecidas no [tutorial de inscrição único bonusly](bonus-tutorial.md). O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente.
 
-### <a name="to-configure-automatic-user-provisioning-for-bonusly-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para bónus em Anúncio sinuoso:
+### <a name="to-configure-automatic-user-provisioning-for-bonusly-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para bónus em Ad Azure:
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Aplicações Empresariais,** selecione **Todas as aplicações**e, em seguida, selecione **Bonusly**.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Bonusly**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Bonusly**.
+2. Na lista de candidaturas, selecione **Bonusly**.
 
-    ![O link Bónus na lista de Aplicações](common/all-applications.png)
+    ![O link bónus na lista de Aplicações](common/all-applications.png)
 
-3. Selecione o separador **Provisioning.**
+3. Selecione o **separador Provisioning.**
 
-    ![Provisionamento Bónus](./media/bonusly-provisioning-tutorial/ProvisioningTab.png)
+    ![Provisionamento bónus](./media/bonusly-provisioning-tutorial/ProvisioningTab.png)
 
-4. Detete o **modo de provisionamento** para **automático**.
+4. Desa ajuste o **modo de provisionamento** para **automático**.
 
-    ![Provisionamento Bónus](./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png)
+    ![Provisionamento bónus](./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png)
 
-5. Sob a secção **de Credenciais de Administrador,** insera o **Token Secreto** da sua conta Bonusly conforme descrito no Passo 6.
+5. Sob a secção **Credenciais de Administração,** insira o **Token Secreto** da sua conta Bónus, conforme descrito no Passo 6.
 
-    ![Provisionamento Bónus](./media/bonusly-provisioning-tutorial/secrettoken.png)
+    ![Provisionamento bónus](./media/bonusly-provisioning-tutorial/secrettoken.png)
 
-6. O **Token Secreto** para a sua conta Bonusly está localizado na **Administração > Empresa > Integrações.** Na secção **Se quiser codificar,** clique na **API > Criar novo Token** de Acesso API para criar um novo Token Secreto.
+6. O **Token Secreto** para a sua conta Bonusly está localizado na **Empresa > Admin > Integrações.** Na secção **Se pretender codificar,** clique em **API > Criar Novo Token de Acesso API** para criar um novo Token Secreto.
 
-    ![Provisionamento Bónus](./media/bonusly-provisioning-tutorial/BonuslyIntegrations.png)
+    ![Provisionamento bónus](./media/bonusly-provisioning-tutorial/BonuslyIntegrations.png)
 
-    ![Provisionamento Bónus](./media/bonusly-provisioning-tutorial/BonsulyRestApi.png)
+    ![Provisionamento bónus](./media/bonusly-provisioning-tutorial/BonsulyRestApi.png)
 
-    ![Provisionamento Bónus](./media/bonusly-provisioning-tutorial/CreateToken.png)
+    ![Provisionamento bónus](./media/bonusly-provisioning-tutorial/CreateToken.png)
 
-7. No ecrã seguinte, digite um nome para o token de acesso na caixa de texto fornecida e, em seguida, prima **Create Api Key**. O novo sinal de acesso aparecerá por alguns segundos num pop-up.
+7. No ecrã seguinte, digite um nome para o token de acesso na caixa de texto fornecida e, em seguida, prima **Create Api Key**. O novo token de acesso aparecerá por alguns segundos num pop-up.
 
-    ![Provisionamento Bónus](./media/bonusly-provisioning-tutorial/Token01.png)
+    ![Provisionamento bónus](./media/bonusly-provisioning-tutorial/Token01.png)
 
-    ![Provisionamento Bónus](./media/bonusly-provisioning-tutorial/Token02.png)
+    ![Provisionamento bónus](./media/bonusly-provisioning-tutorial/Token02.png)
 
-8. Ao povoar os campos mostrados no Passo 5, clique em **Test Connection** para garantir que o Azure AD pode ligar-se a Bonusly. Se a ligação falhar, certifique-se de que a sua conta Bonusly tem permissões de Administrador e tente novamente.
+8. Ao povoar os campos mostrados no Passo 5, clique em **Test Connection** para garantir que a Azure AD pode ligar-se ao Bónus. Se a ligação falhar, certifique-se de que a sua conta Bonusly tem permissões de Administração e tente novamente.
 
-    ![Provisionamento Bónus](./media/bonusly-provisioning-tutorial/TestConnection.png)
+    ![Provisionamento bónus](./media/bonusly-provisioning-tutorial/TestConnection.png)
 
-9. No campo **de e-mail de notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e verifique a caixa de verificação Enviar uma notificação por **e-mail quando ocorrer uma falha**.
+9. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e verifique a caixa de verificação **Enviar por e-mail uma notificação de e-mail quando ocorrer uma falha**.
 
-    ![Provisionamento Bónus](./media/bonusly-provisioning-tutorial/EmailNotification.png)
+    ![Provisionamento bónus](./media/bonusly-provisioning-tutorial/EmailNotification.png)
 
 10. Clique em **Guardar**.
 
-11. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to Bonusly**.
+11. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para bónus**.
 
-    ![Provisionamento Bónus](./media/bonusly-provisioning-tutorial/UserMappings.png)
+    ![Provisionamento bónus](./media/bonusly-provisioning-tutorial/UserMappings.png)
 
-12. Reveja os atributos do utilizador que são sincronizados de Azure AD para Bonusly na secção de Mapeamento de **Atributos.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador em Bonusly para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
+12. Reveja os atributos do utilizador que são sincronizados de AD AD a Bonusly na secção **De Mapeamento** de Atributos. Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas do utilizador em Bonusly para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    ![Provisionamento Bónus](./media/bonusly-provisioning-tutorial/UserAttributeMapping.png)
+    ![Provisionamento bónus](./media/bonusly-provisioning-tutorial/UserAttributeMapping.png)
 
-13. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+13. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-14. Para ativar o serviço de provisionamento de AD Azure para bónus, altere o Estado de **Provisionamento** para **On** na secção **Definições.**
+14. Para ativar o serviço de prestação de Ad Azure para bónus, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
-    ![Provisionamento Bónus](./media/bonusly-provisioning-tutorial/ProvisioningStatus.png)
+    ![Provisionamento bónus](./media/bonusly-provisioning-tutorial/ProvisioningStatus.png)
 
-15. Defina os utilizadores e/ou grupos que deseja fornecer à Bonusly, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
+15. Defina os utilizadores e/ou grupos que deseja prever bónus, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
-    ![Provisionamento Bónus](./media/bonusly-provisioning-tutorial/ScopeSync.png)
+    ![Provisionamento bónus](./media/bonusly-provisioning-tutorial/ScopeSync.png)
 
-16. Quando estiver pronto para fornecer, clique em **Guardar**.
+16. Quando estiver pronto para a provisão, clique em **Guardar**.
 
-    ![Provisionamento Bónus](./media/bonusly-provisioning-tutorial/SaveProvisioning.png)
+    ![Provisionamento bónus](./media/bonusly-provisioning-tutorial/SaveProvisioning.png)
 
-Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser desempenhada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento AD Azure esteja em funcionamento. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento de AD Azure em Bonusly.
+Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de fornecimento AZure AD esteja em execução. Pode utilizar a secção Detalhes da **Sincronização** para monitorizar o progresso e seguir links para o relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de fornecimento de AD Azure em Bónus.
 
-Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
+Para obter mais informações sobre como ler os registos de provisionamento da AZure AD, consulte [Reportar sobre o provisionamento automático da conta de utilizador](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 

@@ -8,18 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 32dc7e86d5cd737533a4a6c8b3d9ce7d00795c65
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 3d9fb7f3fa01c06cc778e4062dd1d136e9c6e342
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140515"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103403"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
 A API text Analytics é atualizada numa base contínua. Para se manter atualizado com os recentes desenvolvimentos, este artigo fornece-lhe informações sobre novos lançamentos e funcionalidades.
+
+## <a name="july-2020"></a>Julho de 2020
+
+### <a name="text-analytics-for-health-container-public-gated-preview"></a>Análise de texto para portaria do recipiente de saúde visualização do portão
+
+O recipiente Text Analytics for Health encontra-se agora em pré-visualização fechada pública, que permite extrair informações de textos não estruturados em língua inglesa em documentos clínicos como: formulários de admissão de pacientes, notas do médico, trabalhos de investigação e resumos de descarga. Atualmente, não será cobrado para text analytics para uso de recipientes de saúde. 
+
+O recipiente oferece as seguintes características:
+
+* Reconhecimento de Entidades Nomeadas
+* Extração de relação
+* Ligação de entidades
+* Negação
+
+
+> [!div class="nextstepaction"]
+> [Saiba mais sobre o texto Analytics for Health container](how-tos/text-analytics-for-health.md)
 
 ## <a name="may-2020"></a>Maio de 2020
 
@@ -61,9 +78,6 @@ Os nomes das seguintes propriedades na resposta JSON foram alterados, se aplicá
 ### <a name="text-analytics-api-v31-public-preview"></a>API API de Análise de Texto v3.1 Visualização pública
    * Novo recurso de Análise de Sentimento - [Mineração de Opinião](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
    * Novo [filtro de `PII` domínio pessoal para](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) informações de saúde protegidas `PHI` ().
-   * Novas `PII` categorias Pessoais(
-      * Classificação Internacional das Doenças (ICD-9-CM)
-      * Classificação Internacional das Doenças (ICD-10-CM)
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre a API API v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)

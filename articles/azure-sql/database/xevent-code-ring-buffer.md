@@ -1,6 +1,6 @@
 ---
-title: Código tampão do anel xevento
-description: Fornece uma amostra de código Transact-SQL que é facilitada e rápida pela utilização do alvo tampão de anel, na Base de Dados Azure SQL.
+title: Código tampão de anel XEvent
+description: Fornece uma amostra de código Transact-SQL que é facilitada e rápida com a utilização do alvo do tampão ring, na Base de Dados Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -12,50 +12,49 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: faba9eaf59f5d1c941bacb58ba1faf9f817d39cf
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84046986"
 ---
-# <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Código-alvo do tampão de anel para eventos alargados na Base de Dados Azure SQL
+# <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Código-alvo do tampão de anel para eventos prolongados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Você quer uma amostra de código completa para a maneira rápida mais fácil de capturar e reportar informações para um evento prolongado durante um teste. O alvo mais fácil para dados de eventos estendidos é o [alvo do Tampão](https://msdn.microsoft.com/library/ff878182.aspx)de Anel .
+Você quer uma amostra de código completa para a maneira mais fácil de capturar e reportar informações para um evento prolongado durante um teste. O alvo mais fácil para dados de eventos alargados é o [alvo do tampão ring](https://msdn.microsoft.com/library/ff878182.aspx).
 
 Este tópico apresenta uma amostra de código Transact-SQL que:
 
 1. Cria uma tabela com dados para demonstrar.
 2. Cria uma sessão para um evento alargado existente, nomeadamente **sqlserver.sql_statement_starting**.
 
-   * O evento limita-se a declarações SQL que contenham uma determinada cadeia de atualização: **declaração LIKE '%UPDATE tabEmployee%'**.
-   * Opta por enviar a saída do evento para um alvo do tipo Ring Buffer, nomeadamente **pacote0.ring_buffer**.
+   * O evento está limitado a declarações SQL que contêm uma determinada cadeia de atualização: **declaração como '%UPDATE tabEmployee%'**.
+   * Opta por enviar a saída do evento para um alvo do tipo Tampão de Anel, nomeadamente **pacote0.ring_buffer**.
 3. Começa a sessão do evento.
-4. Emite algumas simples declarações de ATUALIZAÇÃO SQL.
-5. Emite uma declaração SQL SELECT para recuperar a saída do evento a partir do Tampão de Anel.
+4. Emite um par de declarações simples SQL UPDATE.
+5. Emite uma declaração SQL SELECT para recuperar a saída do evento a partir do tampão de anel.
 
-   * **sys.dm_xe_database_session_targets** e outras visões dinâmicas de gestão (DMVs) são unidas.
-6. Interrompe a sessão do evento.
-7. Larga o alvo do Tampão anelar, para libertar os seus recursos.
+   * **sys.dm_xe_database_session_targets** e outras visões dinâmicas de gestão (DMVs) juntam-se.
+6. Para a sessão do evento.
+7. Deixa cair o alvo do tampão do anel, para libertar os seus recursos.
 8. Deixa cair a sessão do evento e a mesa de demonstração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma conta e subscrição do Azure. Pode inscrever-se para obter uma [versão de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Qualquer base de dados onde possa criar uma tabela.
+* Qualquer base de dados pode criar uma tabela.
   
-  * Opcionalmente, pode criar uma base de dados de [demonstração **AdventureWorksLT** ](single-database-create-quickstart.md) em minutos.
+  * Opcionalmente, pode [criar uma base de dados de demonstração **AdventureWorksLT** ](single-database-create-quickstart.md) em minutos.
 * SQL Server Management Studio (ssms.exe), idealmente a sua mais recente versão mensal de atualização.
-  Você pode baixar os mais recentes ssms.exe de:
+  Você pode baixar as últimas ssms.exe a partir de:
   
   * Tópico intitulado [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
   * [Um link direto para o download.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>Exemplo de código
 
-Com uma modificação muito pequena, a seguinte amostra de código tampão de anel pode ser executada na Base de Dados Azure SQL ou no Microsoft SQL Server. A diferença é a presença do nó '_database' em nome de algumas visões dinâmicas de gestão (DMVs), utilizadas na cláusula FROM no Passo 5. Por exemplo:
+Com uma modificação muito pequena, a seguinte amostra de código do tampão de anel pode ser executada na Base de Dados Azure SQL ou no Microsoft SQL Server. A diferença é a presença do nó '_database' em nome de algumas visões dinâmicas de gestão (DMVs), utilizadas na cláusula FROM no Passo 5. Por exemplo:
 
 * sys.dm_xe<strong>_database</strong>_session_targets
 * sys.dm_xe_session_targets
@@ -214,15 +213,15 @@ GO
 
 &nbsp;
 
-## <a name="ring-buffer-contents"></a>Conteúdo do Tampão de Anel
+## <a name="ring-buffer-contents"></a>Conteúdo do tampão de anel
 
 Costumávamos `ssms.exe` analisar a amostra de código.
 
 Para ver os resultados, clicamos na célula sob o cabeçalho da coluna **target_data_XML**.
 
-Em seguida, no painel de resultados, clicamos na célula sob o cabeçalho da coluna **target_data_XML**. Este clique criou outro separador de ficheiros em ssms.exe no qual o conteúdo da célula resultado foi apresentado, como XML.
+Em seguida, no painel de resultados clicamos na célula sob o cabeçalho da coluna **target_data_XML**. Este clique criou outro separador de ficheiros em ssms.exe em que o conteúdo da célula de resultados foi apresentado, como XML.
 
-A saída é mostrada no seguinte bloco. Parece comprido, mas são apenas dois **\<event>** elementos.
+A saída é mostrada no bloco seguinte. Parece longo, mas são **\<event>** apenas dois elementos.
 
 &nbsp;
 
@@ -313,9 +312,9 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 </RingBufferTarget>
 ```
 
-### <a name="release-resources-held-by-your-ring-buffer"></a>Recursos de libertação detidos pelo seu Tampão anelar
+### <a name="release-resources-held-by-your-ring-buffer"></a>Liberte os recursos detidos pelo seu tampão de anel
 
-Quando terminar com o seu Tampão de Anel, pode removê-lo e libertar os seus recursos emitindo um **ALTER** como o seguinte:
+Quando terminar com o tampão de anel, pode removê-lo e libertar os seus recursos emitindo um **ALTER** como o seguinte:
 
 ```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
@@ -324,7 +323,7 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 GO
 ```
 
-A definição da sua sessão de eventos está atualizada, mas não abandonada. Mais tarde, pode adicionar outra instância do Tampão de Anel à sua sessão de eventos:
+A definição da sua sessão de eventos é atualizada, mas não abandonada. Mais tarde, pode adicionar outra instância do Tampão anelar à sua sessão de evento:
 
 ```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
@@ -338,13 +337,13 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 
 ## <a name="more-information"></a>Mais informações
 
-O tema principal para eventos alargados na Base de Dados Azure SQL é:
+O tópico principal para eventos alargados na Base de Dados Azure SQL é:
 
-* [Considerações de eventos alargados na Base de Dados Azure SQL,](xevent-db-diff-from-svr.md)que contrasta alguns aspetos de eventos estendidos que diferem entre a Base de Dados Azure SQL e o Microsoft SQL Server.
+* [Considerações alargadas de eventos na Base de Dados Azure SQL,](xevent-db-diff-from-svr.md)o que contrasta alguns aspetos de eventos alargados que diferem entre Azure SQL Database e Microsoft SQL Server.
 
-Outros tópicos de amostra de código para eventos prolongados estão disponíveis nos seguintes links. No entanto, deve verificar rotineiramente qualquer amostra para ver se a amostra tem como alvo o Microsoft SQL Server versus Azure SQL Database. Em seguida, pode decidir se são necessárias pequenas alterações para executar a amostra.
+Outros tópicos de amostra de código para eventos prolongados estão disponíveis nos seguintes links. No entanto, deve verificar rotineiramente qualquer amostra para ver se a amostra tem como alvo o Microsoft SQL Server contra Azure SQL Database. Então pode decidir se são necessárias pequenas alterações para executar a amostra.
 
-* Amostra de código para Base de Dados Azure SQL: [Código-alvo do Ficheiro de Eventos para eventos alargados na Base de Dados Azure SQL](xevent-code-event-file.md)
+* Amostra de código para Azure SQL Database: [Código-alvo de ficheiros de eventos para eventos alargados na Base de Dados Azure SQL](xevent-code-event-file.md)
 
 <!--
 ('lock_acquired' event.)

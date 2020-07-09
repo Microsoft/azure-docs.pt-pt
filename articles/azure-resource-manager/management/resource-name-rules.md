@@ -3,16 +3,18 @@ title: Restrições de nomeação de recursos
 description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 73e5f7ce7f5c13a0ce456372d299e49033c7e704
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: ca13203b6d31c1eeb939c668a58e67f0d462a905
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170584"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554349"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
 Este artigo resume as regras de nomeação e as restrições para os recursos da Azure. Para recomendações sobre como nomear recursos, consulte [convenções recomendadas de nomeação e marcação.](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)
+
+Este artigo lista os recursos pelo espaço de nome do fornecedor de recursos. Para obter uma lista de como os fornecedores de recursos correspondem aos serviços da Azure, consulte [os fornecedores de recursos para os serviços Azure](azure-services-resource-providers.md).
 
 Os nomes dos recursos são insensíveis a caso, a menos que sejam especificamente indicados na coluna de caracteres válidos.
 
@@ -34,7 +36,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > [!div class="mx-tableFixed"]
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
-> | serviço | global | 1-50 | Alfanuméricos.<br><br>Comece com a carta. |
+> | serviço | global | 1-50 | Alfanuméricos e hífenes.<br><br>Comece com a letra, e termine com alfanumérico. |
 > | serviço / apis | serviço | 1-256 | Não posso usar:<br> `*#&+:<>?` |
 > | serviço / apis / questões | api | 1-256 | Não posso usar:<br> `*#&+:<>?` |
 > | serviço / apis / problemas / anexos | questão | 1-256 | Não posso usar:<br> `*#&+:<>?` |
@@ -172,8 +174,8 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | galerias / imagens / versões | image | Inteiro de 32 bits | Números e períodos. |
 > | imagens | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, períodos e hífenes.<br><br>Comece com alfanumérico. Termine com alfanumérico ou sublinhado. |
 > | instantâneos | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, períodos e hífenes.<br><br>Comece com alfanumérico. Termine com alfanumérico ou sublinhado. |
-> | virtualMachines | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Veja a nota abaixo. | Não posso usar:<br> `\/""[]:|<>+=;,?*@&`<br><br>Não posso começar com sublinhado. Não pode terminar com período ou hífen. |
-> | virtualMachineScaleSets | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Veja a nota abaixo. | Não posso usar:<br> `\/""[]:|<>+=;,?*@&`<br><br>Não posso começar com sublinhado. Não pode terminar com período ou hífen. |
+> | virtualMachines | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Veja a nota abaixo. | Não posso usar:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Não posso começar com sublinhado. Não pode terminar com período ou hífen. |
+> | virtualMachineScaleSets | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Veja a nota abaixo. | Não posso usar:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Não posso começar com sublinhado. Não pode terminar com período ou hífen. |
 
 > [!NOTE]
 > As máquinas virtuais Azure têm dois nomes distintos: nome de recurso e nome de hospedeiro. Quando se cria uma máquina virtual no portal, o mesmo valor é utilizado para ambos os nomes. As restrições na tabela anterior são para o nome de anfitrião. O nome do recurso real pode ter até 64 carateres.
@@ -522,7 +524,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > [!div class="mx-tableFixed"]
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
-> | espaços de nome | global | 6-50 | Alfanuméricos e hífens<br><br>Comece e termine com alfanumérico. |
+> | espaços de nome | global | 6-50 | Alfanuméricos e hífens<br><br>Comece com a carta. Termine com alfanumérico. |
 > | espaços de nome / AutorizaçõesRules | espaço de nomes | 1-256 | Alfanuméricos, períodos, hífens e sublinhados.<br><br>Comece alfanumérico. |
 > | espaços de nomes / notificaçõesHubs | espaço de nomes | 1-260 | Alfanuméricos, períodos, hífens e sublinhados.<br><br>Comece alfanumérico. |
 > | espaços de nome / notificaçõesHubs / Autorizações | centro de notificação | 1-256 | Alfanuméricos, períodos, hífens e sublinhados.<br><br>Comece alfanumérico. |

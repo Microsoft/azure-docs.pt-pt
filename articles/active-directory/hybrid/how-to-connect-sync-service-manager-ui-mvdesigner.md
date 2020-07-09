@@ -1,6 +1,6 @@
 ---
-title: Azure AD Connect MV Designer [ Microsoft Docs'
-description: Compreenda o separador Metaverse Designer no Gestor de Serviços de Sincronização para o Azure AD Connect.
+title: Azure Ad Connect MV Designer / Microsoft Docs'
+description: Compreenda o separador Metaverse Designer no Gestor de Serviço de Sincronização para Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -11,26 +11,26 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d08454a0ad87adb97037517579f11ab976280425
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 5365619f0a68032a628d52b2aa6e8490d2299e38
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60381381"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357176"
 ---
-# <a name="sync-service-manager-metaverse-designer"></a>Designer metaverso do Gestor de Serviços de Sincronização
+# <a name="sync-service-manager-metaverse-designer"></a>Sync Service Manager Metaverse Designer
 
-![Gestor de Serviços de Sincronização](./media/how-to-connect-sync-service-manager-ui-mvdesigner/mvdesigner.png)
+![Gestor de Serviço sincronizado](./media/how-to-connect-sync-service-manager-ui-mvdesigner/mvdesigner.png)
 
 Para a maioria dos clientes, não há nada para configurar aqui.
 
-## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre a configuração de [sincronização azure AD Connect.](how-to-connect-sync-whatis.md)
+## <a name="next-steps"></a>Próximos passos
+Saiba mais sobre a configuração da [sincronização Azure AD Connect.](how-to-connect-sync-whatis.md)
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

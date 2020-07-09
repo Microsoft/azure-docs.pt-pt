@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 21b05631f1c225c9c4b1f7c65d18588900850b8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19f06893c862e1e34cd79a42c428d202918f92e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77911729"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84817723"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Proteção de dados e segurança do Azure Data Box
 
@@ -34,7 +34,7 @@ O diagrama seguinte indica o fluxo de dados através da solução Azure Data Box
 
 ![Segurança do Data Box](media/data-box-security/data-box-security-2.png)
 
-À medida que os dados fluem através desta solução, os eventos são registados e os registos são gerados. Para mais informações, aceda ao Tracking e ao [registo de eventos para a sua Caixa](data-box-logs.md)de Dados Azure .
+À medida que os dados fluem através desta solução, os eventos são registados e os registos são gerados. Para mais informações, aceda ao [rastreio e ao registo de eventos para a sua Caixa de Dados Azure.](data-box-logs.md)
 
 ## <a name="security-features"></a>Funcionalidades de segurança
 
@@ -45,20 +45,19 @@ O Data Box oferece uma solução segura para proteção de dados ao garantir que
 O dispositivo do Data Box está protegido pelas seguintes funcionalidades:
 
 - Uma caixa robusta para o dispositivo resistente a choques, transporte adverso e condições ambientais. 
-- Selos invioláveis para garantir que nenhum dispositivo é adulterado durante o envio.
 - Deteção de adulteração de hardware e software que impede outras operações do dispositivo.
 - Executa apenas o software específico do Data Box.
 - Arranca num estado bloqueado.
 - Controla o acesso do dispositivo através da palavra-passe de desbloqueio do dispositivo.
-- Credenciais de acesso para copiar dados dentro e fora do dispositivo. Todos os acessos à página de **credenciais do Dispositivo** no portal Azure estão registados nos [registos de atividade](data-box-logs.md#query-activity-logs-during-setup).
+- Credenciais de acesso para copiar dados dentro e fora do dispositivo. Todos os acessos à página **de credenciais do Dispositivo** no portal Azure estão registados nos [registos](data-box-logs.md#query-activity-logs-during-setup)de atividade .
 
 ### <a name="data-box-data-protection"></a>Proteção de dados do Data Box
 
 O fluxo de dados de entrada e saída do Data Box está protegido pelas seguintes funcionalidades:
 
 - Encriptação AES de 256 bits para Dados inativos.
-- Os protocolos encriptados podem ser utilizados para dados em trânsito.
-- Eliminação segura de dados do dispositivo após a conclusão do carregamento de dados para o Azure. O apagamento de dados está de acordo com as diretrizes do Apêndice A para unidades de [disco rígido ATA nas normas NIST 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). O evento de apagamento de dados é registado no histórico da [ordem.](data-box-logs.md#download-order-history)
+- Os protocolos encriptados podem ser utilizados para dados em trânsito. Recomendamos que utilize o SMB 3.0 com encriptação para proteger os dados quando os copiar dos seus servidores de dados.
+- Eliminação segura de dados do dispositivo após a conclusão do carregamento de dados para o Azure. A eliminação de dados está de acordo com as diretrizes do [Apêndice A para discos rígidos ATA nas normas NIST 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). O evento de apagamento de dados é registado no histórico de [encomendas](data-box-logs.md#download-order-history).
 
 ### <a name="data-box-service-protection"></a>Proteção do serviço Data Box
 
@@ -66,7 +65,7 @@ O serviço Data Box está protegido pelas seguintes funcionalidades.
 
 - O acesso ao serviço Data Box requer que a sua organização tenha uma subscrição do Azure que inclua o Data Box. A subscrição controla as funcionalidades a que pode aceder no portal do Azure.
 - Uma vez que o serviço Data Box está alojado no Azure, é protegido pelas funcionalidades de segurança do Azure. Para obter mais informações sobre as funcionalidades de segurança fornecidas pelo Microsoft Azure, aceda ao [Centro de Fidedignidade do Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx).
-- O acesso à ordem data box pode ser controlado através da utilização de funções de Controlo de Acesso (RBAC) baseados em funções. Para mais informações, consulte [Configurar o controlo de acesso para a ordem data box](data-box-logs.md#set-up-access-control-on-the-order)
+- O acesso à ordem Caixa de Dados pode ser controlado através da utilização de funções de Controlo de Acesso (RBAC) baseados em funções. Para obter mais informações, consulte [Configurar o controlo de acesso para a encomenda caixa de dados](data-box-logs.md#set-up-access-control-on-the-order)
 - O serviço Data Box armazena a palavra-passe desbloqueada que serve para desbloquear o dispositivo no serviço.
 - O serviço Data Box armazena os detalhes da encomenda e o estado no serviço. Estas informações são eliminadas quando a encomenda é eliminada.
 
@@ -80,7 +79,7 @@ O Azure Data Box recolhe e apresenta informações pessoais nas seguintes instâ
 
   - Nome do contacto
   - Número de telefone
-  - Email
+  - E-mail
   - Morada
   - Localidade
   - Código postal
@@ -106,9 +105,9 @@ As seguintes diretrizes de segurança são implementadas no Data Box:
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | Para resistir a condições de transporte adversas          |
 |[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | Para a atualização de firmware seguro         |
 |[FIPS 140-2 Level 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | Para proteção de dados         |
-|Apêndice A, para unidades de disco rígido ATA em [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Para a limpeza de dados         |
+|Apêndice A, para Discos Rígidos ATA em [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Para a limpeza de dados         |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja os [Requisitos do Data Box](data-box-system-requirements.md).
 - Compreenda os [limites do Data Box](data-box-limits.md).

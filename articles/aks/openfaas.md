@@ -1,36 +1,36 @@
 ---
-title: Utilizar OpenFaaS com serviço Azure Kubernetes (AKS)
-description: Aprenda a implementar e utilizar o OpenFaaS num cluster do Serviço Azure Kubernetes (AKS) para construir funções sem servidores com contentores.
+title: Use OpenFaaS com serviço Azure Kubernetes (AKS)
+description: Aprenda a implementar e a utilizar o OpenFaaS num cluster Azure Kubernetes Service (AKS) para construir funções sem servidor com contentores.
 author: justindavies
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
 ms.openlocfilehash: 95039573c607f516755f08f1ebad8b968416ec8b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80631475"
 ---
-# <a name="using-openfaas-on-aks"></a>Utilização de OpenFaaS no AKS
+# <a name="using-openfaas-on-aks"></a>Utilização do OpenFaaS em AKS
 
-[OpenFaaS][open-faas] é uma estrutura para construir funções sem servidor através da utilização de recipientes. Como um projeto de código aberto, ganhou adoção em larga escala dentro da comunidade. Este documento detalha a instalação e utilização de OpenFaas num cluster do Serviço Azure Kubernetes (AKS).
+[OpenFaaS][open-faas] é uma estrutura para construir funções sem servidor através da utilização de contentores. Como um projeto de código aberto, ganhou adoção em larga escala dentro da comunidade. Este documento detalha a instalação e utilização do OpenFaas num cluster Azure Kubernetes Service (AKS).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar os passos dentro deste artigo, precisa dos seguintes.
+Para completar os passos dentro deste artigo, você precisa do seguinte.
 
 * Compreensão básica de Kubernetes.
-* Um cluster azure Kubernetes Service (AKS) e credenciais AKS configuradas no seu sistema de desenvolvimento.
+* Um cluster de serviço Azure Kubernetes (AKS) e credenciais AKS configuradas no seu sistema de desenvolvimento.
 * Azure CLI instalado no seu sistema de desenvolvimento.
 * Ferramentas de linha de comando Git instaladas no seu sistema.
 
 ## <a name="add-the-openfaas-helm-chart-repo"></a>Adicione o repo de gráfico de leme OpenFaaS
 
-Vá [https://shell.azure.com](https://shell.azure.com) abrir a Azure Cloud Shell no seu navegador.
+Vá [https://shell.azure.com](https://shell.azure.com) para abrir a Azure Cloud Shell no seu navegador.
 
-A OpenFaaS mantém as suas próprias tabelas de leme para manter-se atualizada com todas as mudanças mais recentes.
+O OpenFaaS mantém os seus próprios gráficos de leme para se manter atualizado com todas as mudanças mais recentes.
 
 ```console
 helm repo add openfaas https://openfaas.github.io/faas-netes/
@@ -41,13 +41,13 @@ helm repo update
 
 Como uma boa prática, as funções OpenFaaS e OpenFaaS devem ser armazenadas no seu próprio espaço de nome Kubernetes.
 
-Criar um espaço de nome para o sistema OpenFaaS e funções:
+Criar um espaço de nome para o sistema e funções OpenFaaS:
 
 ```console
 kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml
 ```
 
-Gere uma palavra-passe para o Portal UI OpenFaaS e a API REST:
+Gere uma palavra-passe para o Portal OpenFaaS UI e para a API REST:
 
 ```console
 # generate a random password
@@ -58,11 +58,11 @@ kubectl -n openfaas create secret generic basic-auth \
 --from-literal=basic-auth-password="$PASSWORD"
 ```
 
-Pode obter o valor do `echo $PASSWORD`segredo com.
+Pode obter o valor do segredo `echo $PASSWORD` com.
 
-A palavra-passe que criamos aqui será usada pelo gráfico de leme para permitir a autenticação básica no OpenFaaS Gateway, que é exposto à Internet através de um LoadBalancer em nuvem.
+A palavra-passe que criamos aqui será usada pelo gráfico de leme para permitir a autenticação básica no Gateway OpenFaaS, que está exposto à Internet através de um LoadBalancer em nuvem.
 
-Um gráfico helm para OpenFaaS está incluído no repositório clonado. Use este gráfico para implantar openFaaS no seu cluster AKS.
+Um gráfico de helm para OpenFaaS está incluído no repositório clonado. Utilize este gráfico para implantar o OpenFaaS no seu cluster AKS.
 
 ```console
 helm upgrade openfaas --install openfaas/openfaas \
@@ -94,7 +94,7 @@ To verify that openfaas has started, run:
   kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
 ```
 
-É criado um endereço IP público para aceder ao gateway OpenFaaS. Para recuperar este endereço IP, utilize o comando de [serviço kubectl get.][kubectl-get] Pode levar um minuto para que o endereço IP seja atribuído ao serviço.
+É criado um endereço IP público para aceder ao gateway OpenFaaS. Para recuperar este endereço IP, utilize o [comando de serviço kubectl.][kubectl-get] Pode levar um minuto para o endereço IP ser atribuído ao serviço.
 
 ```console
 kubectl get service -l component=gateway --namespace openfaas
@@ -108,34 +108,34 @@ gateway            ClusterIP      10.0.156.194   <none>         8080/TCP        
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
-Para testar o sistema OpenFaaS, navegue para o endereço `http://52.186.64.52:8080` IP externo na porta 8080, neste exemplo. Será solicitado a fazer login. Para obter a `echo $PASSWORD`sua senha, insira .
+Para testar o sistema OpenFaaS, consulte o endereço IP externo na porta 8080, `http://52.186.64.52:8080` neste exemplo. Serão solicitados a fazer login. Para obter a sua senha, insira `echo $PASSWORD` .
 
 ![OpenFaaS UI](media/container-service-serverless/openfaas.png)
 
-Por fim, instale o OPENFaaS CLI. Este exemplo usado brew, consulte a [documentação OPENFaaS CLI][open-faas-cli] para mais opções.
+Finalmente, instale o OpenFaaS CLI. Este exemplo usado, consulte a [documentação Do CLI OpenFaaS][open-faas-cli] para mais opções.
 
 ```console
 brew install faas-cli
 ```
 
-Definido `$OPENFAAS_URL` para o IP público encontrado acima.
+Definir `$OPENFAAS_URL` para o IP público encontrado acima.
 
-Inicie sessão com o Azure CLI:
+Faça login com o Azure CLI:
 
 ```console
 export OPENFAAS_URL=http://52.186.64.52:8080
 echo -n $PASSWORD | ./faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 ```
 
-## <a name="create-first-function"></a>Criar a primeira função
+## <a name="create-first-function"></a>Criar primeira função
 
-Agora que o OpenFaaS está operacional, crie uma função usando o portal OpenFaas.
+Agora que o OpenFaaS está operacional, crie uma função utilizando o portal OpenFaas.
 
-Clique em **Implementar Nova Função** e procure **Figlet**. Selecione a função Figlet e clique em **Implementar**.
+Clique em **Implementar Nova Função** e procure **por Figlet**. Selecione a função Figlet e clique em **Implementar**.
 
 ![Figlet](media/container-service-serverless/figlet.png)
 
-Use caracóis para invocar a função. Substitua o endereço IP no seguinte exemplo pelo do seu gateway OpenFaas.
+Use caracóis para invocar a função. Substitua o endereço IP no exemplo seguinte pelo do seu gateway OpenFaas.
 
 ```console
 curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
@@ -154,23 +154,23 @@ Saída:
 
 ## <a name="create-second-function"></a>Criar segunda função
 
-Agora crie uma segunda função. Este exemplo será implementado usando o OpenFaaS CLI e inclui uma imagem de recipiente personalizada e recuperando dados de um Cosmos DB. Vários itens precisam de ser configurados antes de criar a função.
+Agora criar uma segunda função. Este exemplo será implementado usando o OpenFaaS CLI e inclui uma imagem personalizada do recipiente e obtenção de dados de um Cosmos DB. Vários itens precisam de ser configurados antes de criar a função.
 
-Primeiro, crie um novo grupo de recursos para o Cosmos DB.
+Primeiro, criar um novo grupo de recursos para o Cosmos DB.
 
 ```azurecli-interactive
 az group create --name serverless-backing --location eastus
 ```
 
-Implementar uma instância cosmosDB do tipo. `MongoDB` A instância precisa de `openfaas-cosmos` um nome único, atualizar para algo único para o seu ambiente.
+Implementar uma instância cosmosdb do tipo `MongoDB` . O caso precisa de um nome único, atualização `openfaas-cosmos` para algo único para o seu ambiente.
 
 ```azurecli-interactive
 az cosmosdb create --resource-group serverless-backing --name openfaas-cosmos --kind MongoDB
 ```
 
-Pegue a cadeia de ligação à base de dados Cosmos e guarde-a numa variável.
+Obtenha a cadeia de ligação da base de dados Cosmos e guarde-a numa variável.
 
-Atualize o `--resource-group` valor do argumento para o nome `--name` do seu grupo de recursos, e o argumento do seu Cosmos DB.
+Atualize o valor do `--resource-group` argumento para o nome do seu grupo de recursos e o argumento para o nome do seu `--name` Cosmos DB.
 
 ```azurecli-interactive
 COSMOS=$(az cosmosdb list-connection-strings \
@@ -180,7 +180,7 @@ COSMOS=$(az cosmosdb list-connection-strings \
   --output tsv)
 ```
 
-Agora povoa o Cosmos DB com dados de teste. Crie um `plans.json` ficheiro nomeado e copie no seguinte json.
+Agora povoam o Cosmos DB com dados de teste. Crie um ficheiro com o nome `plans.json` e copie no seguinte json.
 
 ```json
 {
@@ -194,15 +194,15 @@ Agora povoa o Cosmos DB com dados de teste. Crie um `plans.json` ficheiro nomead
 }
 ```
 
-Utilize a ferramenta *mongoimport* para carregar a instância CosmosDB com dados.
+Utilize a ferramenta *de mongoimport* para carregar a instância CosmosDB com dados.
 
-Se necessário, instale as ferramentas MongoDB. O exemplo seguinte instala estas ferramentas utilizando cerveja, consulte a [documentação do MongoDB][install-mongo] para outras opções.
+Se necessário, instale as ferramentas MongoDB. O exemplo a seguir instala estas ferramentas utilizando a cerveja, consulte a [documentação mongoDB][install-mongo] para outras opções.
 
 ```console
 brew install mongodb
 ```
 
-Carregue os dados na base de dados.
+Coloque os dados na base de dados.
 
 ```console
 mongoimport --uri=$COSMOS -c plans < plans.json
@@ -215,7 +215,7 @@ Saída:
 2018-02-19T14:42:14.918+0000    imported 1 document
 ```
 
-Executar o seguinte comando para criar a função. Atualize o `-g` valor do argumento com o seu endereço de gateway OpenFaaS.
+Executar o seguinte comando para criar a função. Atualize o valor do `-g` argumento com o seu endereço de gateway OpenFaaS.
 
 ```console
 faas-cli deploy -g http://52.186.64.52:8080 --image=shanepeckham/openfaascosmos --name=cosmos-query --env=NODE_ENV=$COSMOS
@@ -246,7 +246,7 @@ Também pode testar a função dentro do OpenFaaS UI.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Você pode continuar a aprender com o workshop OpenFaaS através de um conjunto de laboratórios práticos que cobrem tópicos como como criar o seu próprio bot GitHub, consumir segredos, visualizar métricas e auto-escala.
+Você pode continuar a aprender com o workshop OpenFaaS através de um conjunto de laboratórios práticos que abrangem tópicos como como criar o seu próprio bot GitHub, consumindo segredos, métricas de visualização e auto-escala.
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/

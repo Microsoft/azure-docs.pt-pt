@@ -1,6 +1,6 @@
 ---
-title: Compreender a delegação de papel de administrador - Azure Ative Directory [ Azure Ative Directory ] Microsoft Docs
-description: Modelos de delegação, exemplos e segurança de papéis no Diretório Ativo azure
+title: Compreenda a delegação de funções de administração - Azure Ative Directory / Microsoft Docs
+description: Modelos de delegação, exemplos e segurança de papéis no Azure Ative Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,45 +9,44 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87f5b1ec02400c5cd9d26cc324ddbafdf8d76537
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 556871b55de60ee592622f9f93c7b7123ba2ed32
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582599"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84731975"
 ---
-# <a name="delegate-administration-in-azure-active-directory"></a>Administração de delegados no Diretório Ativo de Azure
+# <a name="delegate-administration-in-azure-active-directory"></a>Delegada administração em Diretório Ativo Azure
 
-Com o crescimento organizacional vem a complexidade. Uma resposta comum é reduzir parte da carga de trabalho da gestão de acessocom funções de administração do Azure Ative Directory (AD). Pode atribuir o menor privilégio possível aos utilizadores para acederem às suas apps e executarem as suas tarefas. Mesmo que não atribua o papel de Administrador Global a todos os proprietários de aplicações, está a atribuir responsabilidades de gestão de aplicações aos administradores globais existentes. Há muitas razões para uma organização avançar para uma administração mais descentralizada. Este artigo pode ajudá-lo a planear a delegação na sua organização.
+Com o crescimento organizacional vem a complexidade. Uma resposta comum é reduzir parte da carga de trabalho da gestão de acessos com funções de administração Azure Ative (AD). Pode atribuir o mínimo privilégio possível aos utilizadores para acederem às suas apps e executarem as suas tarefas. Mesmo que não atribua o papel de Administrador Global a todos os proprietários de aplicações, está a atribuir responsabilidades de gestão de aplicações aos administradores globais existentes. Há muitas razões para uma organização avançar para uma administração mais descentralizada. Este artigo pode ajudá-lo a planear a delegação na sua organização.
 
 <!--What about reporting? Who has which role and how do I audit?-->
 
 ## <a name="centralized-versus-delegated-permissions"></a>Permissões centralizadas versus delegadas
 
-À medida que uma organização cresce, pode ser difícil acompanhar quais os utilizadores que têm funções específicas de administração. Se um empregado tem direitos de administrador que não deve, a sua organização pode ser mais suscetível a falhas de segurança. Geralmente, quantos administradores apoia e como as suas permissões são granulares depende do tamanho e complexidade da sua implantação.
+À medida que uma organização cresce, pode ser difícil acompanhar quais os utilizadores que têm funções específicas de administração. Se um empregado tem direitos de administrador que não deve, a sua organização pode ser mais suscetível a falhas de segurança. Geralmente, quantos administradores suporta e como as suas permissões são granular depende do tamanho e complexidade da sua implantação.
 
-* Em pequenas ou prova de conceito, um ou alguns administradores fazem tudo; Não há delegação. Neste caso, crie cada administrador com o papel de Administrador Global.
-* Em implementações maiores com mais máquinas, aplicações e desktops, é necessária mais delegação. Vários administradores podem ter responsabilidades funcionais mais específicas (funções). Por exemplo, alguns podem ser Administradores de Identidade Privilegiados, e outros podem ser Administradores de Aplicação. Além disso, um administrador pode gerir apenas certos grupos de objetos, como dispositivos.
-* Implementações ainda maiores podem exigir ainda mais permissões granulares, além de possivelmente administradores com funções não convencionais ou híbridas.
+* Em implementações pequenas ou com prova de conceito, um ou alguns administradores fazem tudo; Não há delegação. Neste caso, crie cada administrador com o papel de Administrador Global.
+* Em maiores implementações com mais máquinas, aplicações e desktops, é necessária mais delegação. Vários administradores podem ter responsabilidades funcionais mais específicas (funções). Por exemplo, alguns podem ser Administradores de Identidade Privilegiada, e outros podem ser Administradores de Aplicações. Além disso, um administrador pode gerir apenas certos grupos de objetos, como dispositivos.
+* Implementações ainda maiores podem exigir ainda mais permissões granulares, além de possíveis administradores com funções não convencionais ou híbridas.
 
-No portal Azure AD, pode [ver todos os membros de qualquer função](directory-manage-roles-portal.md), o que pode ajudá-lo a verificar rapidamente a sua implementação e delegar permissões.
+No portal AD AZure, pode [visualizar todos os membros de qualquer papel](directory-manage-roles-portal.md), o que pode ajudá-lo a verificar rapidamente as permissões de implementação e delegado.
 
-Se estiver interessado em delegar acesso aos recursos Azure em vez de acesso administrativo em Azure AD, consulte a atribuição de uma função de [controlo de acesso baseado em Funções (RBAC).](../../role-based-access-control/role-assignments-portal.md)
+Se estiver interessado em delegar o acesso aos recursos Azure em vez de acesso administrativo em Azure AD, consulte [atribuir uma função de controlo de acesso baseado em funções (RBAC).](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="delegation-planning"></a>Planeamento da delegação
 
-É trabalho desenvolver um modelo de delegação que se adapte às suas necessidades. Desenvolver um modelo de delegação é um processo de design iterativo, e sugerimos que siga estes passos:
+É um trabalho para desenvolver um modelo de delegação que se adapte às suas necessidades. Desenvolver um modelo de delegação é um processo de design iterativo, e sugerimos que siga estes passos:
 
 * Defina os papéis de que precisa
-* Administração de aplicativos delegados
+* Delegar administração de aplicativos
 * Conceder a capacidade de registar candidaturas
-* Delegar a propriedade da aplicação
+* Delegar propriedade de aplicativos
 * Desenvolver um plano de segurança
 * Estabelecer contas de emergência
 * Proteja as suas funções de administrador
@@ -55,63 +54,63 @@ Se estiver interessado em delegar acesso aos recursos Azure em vez de acesso adm
 
 ## <a name="define-roles"></a>Definir funções
 
-Determine as tarefas de Diretório Ativo que são executadas pelos administradores e como mapeiam para as funções. Pode [ver descrições detalhadas](directory-manage-roles-portal.md) de papéis no portal Azure.
+Determine as tarefas do Diretório Ativo que são executadas pelos administradores e como mapeiam as funções. Pode [ver descrições detalhadas](directory-manage-roles-portal.md) de papéis no portal Azure.
 
-Cada tarefa deve ser avaliada para frequência, importância e dificuldade. Estes critérios são aspetos vitais da definição de tarefas porque regem se deve ser delegada uma autorização:
+Cada tarefa deve ser avaliada em termos de frequência, importância e dificuldade. Estes critérios são aspetos vitais da definição de tarefas, pois regem se uma autorização deve ser delegada:
 
-* As tarefas que faz rotineiramente, têm risco limitado e são triviais para completar são excelentes candidatos à delegação.
-* Tarefas que você raramente faz, mas tem grande impacto em toda a organização e requer altos níveis de habilidade deve ser considerado com muito cuidado antes de delegar. Em vez disso, pode [elevar temporariamente uma conta para o papel necessário](../active-directory-privileged-identity-management-configure.md) ou reatribuir a tarefa.
+* As tarefas que faz rotineiramente, têm um risco limitado, e são triviais para completar são excelentes candidatos à delegação.
+* Tarefas que raramente faz, mas que têm um grande impacto em toda a organização e que requerem elevados níveis de habilidade, devem ser consideradas com muito cuidado antes de delegar. Em vez disso, pode [elevar temporariamente uma conta para a função necessária](../active-directory-privileged-identity-management-configure.md) ou reatribuir a tarefa.
 
-## <a name="delegate-app-administration"></a>Administração de aplicativos delegados
+## <a name="delegate-app-administration"></a>Delegar administração de aplicativos
 
-A proliferação de aplicações dentro da sua organização pode forçar o seu modelo de delegação. Se colocar o fardo para a gestão do acesso a aplicações no Administrador Global, é provável que o modelo aumente a sua sobrecarga à medida que o tempo passa. Se concedeu às pessoas o papel de Administrador Global para coisas como configurar aplicações empresariais, agora pode descarregá-las para os seguintes papéis menos privilegiados. Fazê-lo ajuda a melhorar a sua postura de segurança e reduz o potencial de erros infelizes. As funções de administrador de aplicação mais privilegiada são:
+A proliferação de aplicações dentro da sua organização pode condicionar o seu modelo de delegação. Se colocar o fardo para a gestão do acesso a aplicações no Administrador Global, é provável que o modelo aumente a sua sobrecarga à medida que o tempo passa. Se concedeu às pessoas o papel de Administrador Global para coisas como configurar aplicações empresariais, pode agora descarregá-las para as seguintes funções menos privilegiadas. Ao fazê-lo, ajuda a melhorar a sua postura de segurança e reduz o potencial de erros infelizes. As funções de administrador de aplicação mais privilegiadas são:
 
-* A função de Administrador de **Aplicação,** que concede a capacidade de gerir todas as aplicações no diretório, incluindo registos, configurações de inscrição única, atribuições de utilizador e grupo e licenciamento, definições de Procuração de Aplicações e consentimento. Não concede a capacidade de gerir o Acesso Condicional.
-* A função de Administrador de **Aplicação cloud,** que concede todas as capacidades do Administrador de Aplicação, exceto que não concede acesso às definições de Proxy de Aplicação (porque não tem permissão no local).
+* A função **de Administrador de Aplicação,** que concede a capacidade de gerir todas as aplicações no diretório, incluindo registos, definições de inscrição única, atribuição de utilizadores e grupos e licenciamento, definições de Procuração de Aplicação e consentimento. Não dá a capacidade de gerir o Acesso Condicional.
+* A função **de Administrador de Aplicação cloud,** que concede todas as capacidades do Administrador de Aplicação, exceto que não concede acesso às definições de Procuração de Aplicações (porque não tem permissão no local).
 
-## <a name="delegate-app-registration"></a>Registo de aplicativos delegados
+## <a name="delegate-app-registration"></a>Registo de aplicativos de delegado
 
-Por padrão, todos os utilizadores podem criar registos de aplicações. Conceder seletivamente a capacidade de criar registos de candidaturas:
+Por predefinição, todos os utilizadores podem criar registos de aplicações. Para garantir seletivamente a capacidade de criar registos de pedidos:
 
-* Definir **utilizadores podem registar aplicações** para Não nas **definições do Utilizador**
+* **Definir Utilizadores podem registar aplicações** a Não nas **definições do Utilizador**
 * Atribuir o utilizador à função de Desenvolvedor de Aplicações
 
-Conceder seletivamente a capacidade de consentimento para permitir um pedido de acesso a dados:
+Para conceder seletivamente a capacidade de consentir para permitir que uma aplicação aceda aos dados:
 
-* Definir **Os Utilizadores podem consentir em aplicações que acedam aos dados** da empresa em seu nome, Sem nas **definições do Utilizador**
+* **Definir Os utilizadores podem consentir que as aplicações acedam aos dados da empresa em seu nome** Para Não nas **definições do Utilizador**
 * Atribuir o utilizador à função de Desenvolvedor de Aplicações
 
-Quando um Desenvolvedor de Aplicações cria um novo registo de aplicação, são automaticamente adicionados como primeiro proprietário.
+Quando um Desenvolvedor de Aplicações cria um novo registo de aplicações, são automaticamente adicionados como o primeiro proprietário.
 
-## <a name="delegate-app-ownership"></a>Delegar a propriedade da aplicação
+## <a name="delegate-app-ownership"></a>Delegar propriedade de aplicativos
 
-Para uma delegação de acesso a apps com grãos mais finos, pode atribuir propriedade a aplicações empresariais individuais. Isto complementa o apoio existente à atribuição de registos de candidaturas. A propriedade é atribuída numa base de aplicação por empresa na lâmina de Aplicações empresariais. O benefício é que os proprietários só podem gerir as aplicações empresariais que possuem. Por exemplo, pode atribuir um proprietário para a aplicação Salesforce, e esse proprietário pode gerir o acesso e configuração para a Salesforce, e nenhuma outra aplicação. Uma aplicação empresarial pode ter muitos proprietários, e um utilizador pode ser o proprietário de muitas aplicações empresariais. Existem duas funções de proprietário de aplicativos:
+Para uma delegação de acesso a aplicações mais fina, pode atribuir a propriedade a aplicações empresariais individuais. Isto complementa o apoio existente para a atribuição de registos de pedidos. A propriedade é atribuída numa base de aplicação por empresa na lâmina de Aplicações da Empresa. O benefício é que os proprietários só podem gerir as aplicações empresariais que possuem. Por exemplo, pode atribuir um proprietário para a aplicação Salesforce, e esse proprietário pode gerir o acesso e configuração para a Salesforce, e nenhuma outra aplicação. Uma aplicação da empresa pode ter muitos proprietários, e um utilizador pode ser o proprietário de muitas aplicações empresariais. Existem duas funções de proprietário de aplicativos:
 
-* A função **de Proprietário de Aplicações empresariais** concede a capacidade de gerir as "aplicações empresariais que o utilizador detém, incluindo definições únicas de inscrição, atribuições de utilizador e grupo, e adicionar mais proprietários. Não concede a capacidade de gerir as definições de Procuração de Aplicações ou Acesso Condicional.
-* A função de Proprietário de Registo de **Aplicação** confere a capacidade de gerir os registos de aplicações para aplicação que o utilizador detém, incluindo o manifesto de aplicação e adicionando mais proprietários.
+* A função **Enterprise Application Owner** concede a capacidade de gerir as "aplicações empresariais que o utilizador possui, incluindo definições únicas de inscrição, atribuições de utilizador e grupo, e adicionando proprietários adicionais. Não concede a capacidade de gerir as definições de Procuração de Aplicações ou Acesso Condicional.
+* A função de Titular do Registo de **Aplicações** confere a possibilidade de gerir os registos de candidaturas para aplicações que o utilizador detém, incluindo o manifesto de aplicação e a adição de proprietários adicionais.
 
 ## <a name="develop-a-security-plan"></a>Desenvolver um plano de segurança
 
-A Azure AD fornece um extenso guia para planear e executar um plano de segurança nas suas funções de administração da Azure AD, [garantindo acesso privilegiado para implantações híbridas e em nuvem.](directory-admin-roles-secure.md)
+A Azure AD fornece um extenso guia para planear e executar um plano de segurança nas suas funções de administrador AD AD Azure, [garantindo acesso privilegiado para implantações híbridas e em nuvem.](directory-admin-roles-secure.md)
 
 ## <a name="establish-emergency-accounts"></a>Estabelecer contas de emergência
 
-Para manter o acesso à sua loja de gestão de identidade quando surge problema, prepare contas de acesso de emergência de acordo com a [Create contas administrativas de acesso de emergência.](directory-emergency-access.md)
+Para manter o acesso à sua loja de gestão de identidade quando surgir emissão, prepare as contas de acesso de emergência de acordo com [a Create emergency access.](directory-emergency-access.md)
 
 ## <a name="secure-your-administrator-roles"></a>Proteja as suas funções de administrador
 
-Os atacantes que obtêm o controlo de contas privilegiadas podem causar danos tremendos, por isso protejam estas contas primeiro, utilizando a política de [acesso de base](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/22/baseline-security-policy-for-azure-ad-admin-accounts-in-public-preview/) que está disponível por defeito a todas as organizações da AD Azure (em pré-visualização pública). A política impõe a autenticação de vários fatores em contas adad privilegiadas do Azure. As seguintes funções da AD Azure são abrangidas pela política de base da AD Azure:
+Os atacantes que obtêm o controlo de contas privilegiadas podem causar danos tremendos, por isso proteja estas contas primeiro, usando a [política de acesso de base](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/22/baseline-security-policy-for-azure-ad-admin-accounts-in-public-preview/) que está disponível por padrão para todas as organizações AD Azure (em pré-visualização pública). A política aplica a autenticação de vários fatores nas contas AD privilegiadas da Azure. As seguintes funções AZure AD são abrangidas pela política de base Azure AD:
 
 * Administrador global
 * Administrador do SharePoint
 * Administrador do Exchange
-* Administrador de Acesso Condicional
+* Administrador de acesso condicional
 * Administrador de segurança
 
 ## <a name="elevate-privilege-temporarily"></a>Elevar o privilégio temporariamente
 
-Para a maioria das atividades do dia-a-dia, nem todos os utilizadores precisam de direitos de administrador global, e nem todos devem ser permanentemente atribuídos ao papel de Administrador Global. Quando os utilizadores precisam das permissões de um Administrador Global, devem ativar a atribuição de funções na Azure AD [Privileged Identity Management,](../active-directory-privileged-identity-management-configure.md) quer na sua conta própria, quer numa conta administrativa alternativa.
+Para a maioria das atividades do dia-a-dia, nem todos os utilizadores precisam de direitos de administrador global, e nem todos devem ser permanentemente atribuídos ao papel de Administrador Global. Quando os utilizadores precisam das permissões de um Administrador Global, devem ativar a atribuição de funções na Azure AD [Privileged Identity Management,](../active-directory-privileged-identity-management-configure.md) quer na sua própria conta, quer numa conta administrativa alternativa.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para uma referência às descrições da função Azure AD, consulte as funções de [atribuírem em Azure AD](directory-assign-admin-roles.md)
+Para uma referência às descrições de funções da AD Azure, consulte [atribuir funções de administrador em Azure AD](directory-assign-admin-roles.md)

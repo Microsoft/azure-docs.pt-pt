@@ -1,21 +1,21 @@
 ---
-title: Criar ou inserir dados no Azure Cosmos DB Cassandra API da Spark
-description: Este artigo detalha como inserir dados de amostra nas tabelas da API da Azure Cosmos DB Cassandra
+title: Criar ou inserir dados na Azure Cosmos DB Cassandra API da Spark
+description: Este artigo detalha como inserir dados de amostra nas tabelas API AZURE Cosmos DB Cassandra
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: 3eb23a3d8b1098110bd8b75faa22cc483637d183
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56899b7d81f17e678026b1aad7f3e2d9f8b9b0b0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75442128"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260529"
 ---
-# <a name="createinsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Criar/Inserir dados no Azure Cosmos DB Cassandra API da Spark
+# <a name="createinsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Criar/inserir dados na Azure Cosmos DB Cassandra API da Spark
  
 Este artigo descreve como inserir dados de amostra numa tabela em Azure Cosmos DB Cassandra API da Spark.
 
@@ -67,11 +67,11 @@ booksDF.show
 ```
 
 > [!NOTE]
-> A funcionalidade "Criar se não existir", a nível de linha, ainda não é suportada.
+> A funcionalidade "Criar se não existir", a nível de linha, ainda não está suportada.
 
-### <a name="persist-to-azure-cosmos-db-cassandra-api"></a>Persistir na Azure Cosmos DB Cassandra API
+### <a name="persist-to-azure-cosmos-db-cassandra-api"></a>Persistir para Azure Cosmos DB Cassandra API
 
-Ao guardar dados, também pode definir definições de política de tempo para viver e consistência, como mostra o seguinte exemplo:
+Ao guardar dados, também pode definir as definições de política de tempo para viver e consistência, como mostrado no exemplo seguinte:
 
 ```scala
 //Persist
@@ -83,7 +83,7 @@ booksDF.write
 ```
 
 > [!NOTE]
-> O TTL de nível de coluna ainda não é suportado.
+> O TTL de nível de coluna ainda não está suportado.
 
 #### <a name="validate-in-cqlsh"></a>Validar em cqlsh
 
@@ -92,7 +92,7 @@ use books_ks;
 select * from books;
 ```
 
-## <a name="resilient-distributed-database-rdd-api"></a>Base de Dados Distribuída Resiliente (RDD) API
+## <a name="resilient-distributed-database-rdd-api"></a>API de Base de Dados Distribuída Resiliente (RDD)
 
 ### <a name="create-a-rdd-with-sample-data"></a>Criar um RDD com dados de amostra
 ```scala
@@ -114,11 +114,11 @@ booksRDD.take(2).foreach(println)
 ```
 
 > [!NOTE]
-> Criar se não existir funcionalidade ainda não é suportado.
+> Criar se não existir funcionalidade ainda não está suportado.
 
-### <a name="persist-to-azure-cosmos-db-cassandra-api"></a>Persistir na Azure Cosmos DB Cassandra API
+### <a name="persist-to-azure-cosmos-db-cassandra-api"></a>Persistir para Azure Cosmos DB Cassandra API
 
-Ao guardar dados para a Cassandra API, também pode definir as definições de política de tempo para viver e consistência, como mostra o seguinte exemplo:
+Ao guardar dados para a API de Cassandra, também pode definir as definições de política de tempo-a-viver e de consistência, como mostrado no exemplo seguinte:
 
 ```scala
 import com.datastax.spark.connector.writer._
@@ -134,13 +134,13 @@ use books_ks;
 select * from books;
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Depois de inserir dados na tabela API Da API da Azure Cosmos DB Cassandra, proceda aos seguintes artigos para efetuar outras operações nos dados armazenados na Cosmos DB Cassandra API:
+Depois de inserir dados na tabela API API da Azure Cosmos DB Cassandra, dirija-se aos seguintes artigos para efetuar outras operações sobre os dados armazenados na API de Cosmos DB Cassandra:
  
 * [Ler operações](cassandra-spark-read-ops.md)
-* [Operações upsert](cassandra-spark-upsert-ops.md)
+* [Operações de upsert](cassandra-spark-upsert-ops.md)
 * [Eliminar operações](cassandra-spark-delete-ops.md)
 * [Operações de agregação](cassandra-spark-aggregation-ops.md)
-* [Operações de cópia de tabela](cassandra-spark-table-copy-ops.md)
+* [Operações de cópia de mesa](cassandra-spark-table-copy-ops.md)
 

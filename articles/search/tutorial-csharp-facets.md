@@ -1,42 +1,42 @@
 ---
-title: C# tutorial sobre o uso de facetas para ajudar na navegação
+title: Tutorial C# sobre o uso de facetas para ajudar na navegação
 titleSuffix: Azure Cognitive Search
-description: Continue a partir de "Resultados paging" para adicionar navegação faceada. Aprenda como as facetas podem ser usadas para reduzir facilmente uma pesquisa.
+description: Continue a partir de "Resultados de Paging" para adicionar navegação facetada. Saiba como as facetas podem ser usadas para reduzir facilmente uma pesquisa.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/10/2020
-ms.openlocfilehash: bc25ba6d95fe58a80c90881c6ad60cdb8801cce4
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/20/2020
+ms.openlocfilehash: 7d91348b727c1c43f010ec9f60ae9abd33978ce8
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780594"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85257521"
 ---
-# <a name="tutorial-add-faceted-navigation-using-the-net-sdk"></a>Tutorial: Adicione navegação facetada utilizando o .NET SDK
+# <a name="tutorial-add-faceted-navigation-using-the-net-sdk"></a>Tutorial: Adicionar navegação facetada usando o .NET SDK
 
-As facetas são usadas para ajudar a navegação, fornecendo ao utilizador um conjunto de links para usar para concentrar a sua pesquisa. Facetas são atributos dos dados (como a categoria, ou uma característica específica, de um hotel nos nossos dados de amostra).
+As facetas são usadas para ajudar a navegação, fornecendo ao utilizador um conjunto de links para usar para concentrar a sua pesquisa. As facetas são atributos dos dados (como a categoria, ou uma característica específica, de um hotel nos nossos dados de amostra).
 
-Este tutorial baseia-se no projeto de paging criado no [C# Tutorial: Pesquisa resultados paginação - Tutorial de Pesquisa Cognitiva Azure.](tutorial-csharp-paging.md)
+Este tutorial baseia-se no projeto de paging criado no [Tutorial C#: Pagination de resultados de pesquisa - Tutorial de Pesquisa Cognitiva Azure.](tutorial-csharp-paging.md)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Definir propriedades do modelo como _IsFacetable_
-> * Adicione navegação de facet a sua aplicação
+> * Adicione navegação faceta à sua app
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, precisa de:
 
-Tenha o [C# Tutorial: Resultados de pesquisa paginação - Projeto](tutorial-csharp-paging.md) de Pesquisa Cognitiva Azure em funcionamento. Este projeto pode ser a sua própria versão, ou instalá-lo a partir do GitHub: [Criar a primeira aplicação](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Ter o [Tutorial C#: Pesquisa de resultados pagination - Projeto de Pesquisa Cognitiva Azure](tutorial-csharp-paging.md) em funcionamento. Este projeto pode ser a sua própria versão ou instalá-lo a partir do GitHub: [Criar a primeira aplicação.](https://github.com/Azure-Samples/azure-search-dotnet-samples)
 
 ## <a name="set-model-properties-as-isfacetable"></a>Definir propriedades do modelo como IsFacetable
 
-Para que uma propriedade modelo seja localizada numa busca de faceta, deve ser marcada com **IsFacetable**.
+Para que uma propriedade modelo seja localizada numa pesquisa de facetas, deve ser marcado com **IsFacetable**.
 
-1. Examine a classe **hotel.** **Categoria** e **Etiquetas,** por exemplo, são marcados como **IsFacetable,** mas **o Nome** do Hotel e **a Descrição** não são. 
+1. Examine a classe **hoteleira.** **As categorias** e tags , por exemplo, são **marcadas**como **IsFacetable,** mas **o HotelName** e **a Description** não são. 
 
     ```cs
     public partial class Hotel
@@ -82,40 +82,40 @@ Para que uma propriedade modelo seja localizada numa busca de faceta, deve ser m
     }
     ```
 
-2. Não vamos alterar nenhuma etiqueta como parte deste tutorial, por isso feche o hotel.cs ficheiro inalterado.
+2. Não vamos mudar nenhuma etiqueta como parte deste tutorial, por isso feche o ficheiro hotel.cs inalterada.
 
     > [!Note]
-    > Uma pesquisa de faceta irá lançar um erro se um campo solicitado na pesquisa não for marcado adequadamente.
+    > Uma pesquisa de faceta lançará um erro se um campo solicitado na pesquisa não for marcado adequadamente.
 
 
-## <a name="add-facet-navigation-to-your-app"></a>Adicione navegação de facet a sua aplicação
+## <a name="add-facet-navigation-to-your-app"></a>Adicione navegação faceta à sua app
 
 Para este exemplo, vamos permitir ao utilizador selecionar uma categoria de hotel, ou uma amenidade, a partir de listas de links mostrados à esquerda dos resultados. O utilizador começa por introduzir algum texto de pesquisa, depois pode reduzir os resultados da pesquisa selecionando uma categoria, e pode reduzir ainda mais os resultados selecionando uma amenidade, ou pode selecionar a amenidade primeiro (a ordem não é importante).
 
-Precisamos que o controlador passe as listas de facetas para a vista. Precisamos manter as seleções dos utilizadores à medida que a pesquisa progride, e mais uma vez, usamos o armazenamento temporário como mecanismo de preservação de dados.
+Precisamos que o controlador passe as listas de facetas para a vista. Precisamos manter as seleções de utilizadores à medida que a pesquisa progride, e mais uma vez, usamos o armazenamento temporário como mecanismo de preservação de dados.
 
-![Usando a navegação de faceta para estreitar uma busca de "piscina"](./media/tutorial-csharp-create-first-app/azure-search-facet-nav.png)
+![Usando a navegação faceta para reduzir uma pesquisa de "piscina"](./media/tutorial-csharp-create-first-app/azure-search-facet-nav.png)
 
 ### <a name="add-filter-strings-to-the-searchdata-model"></a>Adicione cordas de filtro ao modelo SearchData
 
-1. Abra o ficheiro SearchData.cs e adicione propriedades de cordas à classe **SearchData,** para segurar as cordas do filtro de faceta.
+1. Abra o ficheiro SearchData.cs e adicione propriedades de cordas à classe **SearchData,** para segurar as cordas do filtro faceta.
 
     ```cs
         public string categoryFilter { get; set; }
         public string amenityFilter { get; set; }
     ```
 
-### <a name="add-the-facet-action-method"></a>Adicione o método de ação facet
+### <a name="add-the-facet-action-method"></a>Adicione o método de ação Facet
 
-O controlador doméstico precisa de uma nova ação, **Facet,** e atualizações para as suas ações de **Index** e **Page** existentes, bem como atualizações para o método **RunQueryAsync.**
+O controlador doméstico precisa de uma nova ação, **Facet,** e atualiza as ações existentes **de Index** e **Page,** bem como atualizações para o método **RunQueryAsync.**
 
-1. Abra o ficheiro do controlador doméstico e adicione a declaração **de utilização,** para ativar a construção da **&lt;cadeia&gt; lista.**
+1. Abra o ficheiro do controlador doméstico e adicione a declaração **de utilização,** para ativar a construção da ** &lt; cadeia &gt; Lista.**
 
     ```cs
     using System.Collections.Generic;
     ```
 
-2. Substitua o método de ação **Index (SearchData).**
+2. Substitua o método de ação **Index (Modelo SearchData).**
 
     ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -140,7 +140,7 @@ O controlador doméstico precisa de uma nova ação, **Facet,** e atualizações
         }
     ```
 
-3. Substitua o método de ação **Page (SearchData).**
+3. Substitua o método de ação **Page (Modelo SearchData).**
 
     ```cs
         public async Task<ActionResult> Page(SearchData model)
@@ -187,7 +187,7 @@ O controlador doméstico precisa de uma nova ação, **Facet,** e atualizações
         }
     ```
 
-4. Adicione um método de ação **Facet (SearchData)** a ser ativado quando o utilizador clicar num link facet. O modelo conterá um filtro de pesquisa de categoria ou um filtro de pesquisa de amenidade. Talvez adicioná-lo depois da ação da **Página.**
+4. Adicione um método de ação **Facet (modelo SearchData),** a ser ativado quando o utilizador clicar num link facet. O modelo conterá um filtro de pesquisa de categoria ou um filtro de pesquisa de amenidades. Talvez adicioná-lo depois da ação da **Página.**
 
     ```cs
         public async Task<ActionResult> Facet(SearchData model)
@@ -230,9 +230,9 @@ O controlador doméstico precisa de uma nova ação, **Facet,** e atualizações
 
 ### <a name="set-up-the-search-filter"></a>Configurar o filtro de pesquisa
 
-Quando um utilizador seleciona uma determinada faceta, por exemplo, clica na categoria **Resort e Spa,** então apenas os hotéis que são especificados como esta categoria devem ser devolvidos nos resultados. Para reduzir uma pesquisa desta forma, precisamos de configurar um _filtro._
+Quando um utilizador seleciona uma determinada faceta, por exemplo, clica na categoria **Resort e Spa,** então apenas os hotéis especificados como esta categoria devem ser devolvidos nos resultados. Para reduzir uma busca desta forma, precisamos de configurar um _filtro._
 
-1. Substitua o método **RunQueryAsync** pelo seguinte código. Em primeiro lugar, é preciso uma cadeia de filtro de categoria e uma cadeia de filtro de amenidade, e define o parâmetro **filtro** dos **Parâmetros de Busca**.
+1. Substitua o método **RunQueryAsync** pelo seguinte código. Em primeiro lugar, é necessário uma cadeia de filtro de categoria e uma cadeia de filtro de amenidade, e define o parâmetro **filtro** dos **Parâmetros de Busca**.
 
     ```cs
         private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage, string catFilter, string ameFilter)
@@ -316,13 +316,13 @@ Quando um utilizador seleciona uma determinada faceta, por exemplo, clica na cat
         }
     ```
 
-    Adicionámos as propriedades **da Categoria** e **Etiquetas** à lista de itens **Select** para devolver. Esta adição não é um requisito para que a navegação por faceta funcione, mas utilizamos estas informações para verificar se estamos a filtrar corretamente.
+    Adicionámos as propriedades **de Categoria** e **Tags** à lista de itens **Select** para devolver. Esta adição não é um requisito para que a navegação faceta funcione, mas utilizamos estas informações para verificar se estamos a filtrar corretamente.
 
-### <a name="add-lists-of-facet-links-to-the-view"></a>Adicione listas de links de facet a vista
+### <a name="add-lists-of-facet-links-to-the-view"></a>Adicionar listas de links facetas à vista
 
-A vista vai exigir algumas mudanças significativas. 
+A vista vai requerer algumas mudanças significativas. 
 
-1. Comece por abrir o ficheiro hotels.css (na pasta wwwroot/css), e adicione as seguintes aulas.
+1. Comece por abrir o ficheiro hotels.css (na pasta wwwroot/css) e adicione as seguintes aulas.
 
     ```html
     .facetlist {
@@ -344,7 +344,7 @@ A vista vai exigir algumas mudanças significativas.
     }
     ```
 
-2. Para a vista, organizamos a saída numa tabela, para alinhar cuidadosamente as listas de facetas à esquerda, e os resultados à direita. Abra o ficheiro index.cshtml. Substitua todo o &lt;conteúdo&gt; das etiquetas corporais HTML, com o seguinte código.
+2. Para a vista, organizamos a saída numa tabela, para alinhar cuidadosamente as listas de facetas à esquerda, e os resultados à direita. Abra o ficheiro index.cshtml. Substitua todo o conteúdo das &lt; marcas de corpo &gt; HTML, pelo seguinte código.
 
     ```cs
     <body>
@@ -524,28 +524,28 @@ A vista vai exigir algumas mudanças significativas.
     </body>
     ```
 
-    Note a utilização da chamada **Html.ActionLink.** Esta chamada comunica cordas de filtro válidas ao controlador, quando o utilizador clica num link de faceta. 
+    Note a utilização da chamada **Html.ActionLink.** Esta chamada comunica cadeias de filtro válidas ao controlador, quando o utilizador clica num link facet. 
 
-### <a name="run-and-test-the-app"></a>Executar e testar a app
+### <a name="run-and-test-the-app"></a>Executar e testar a aplicação
 
-A vantagem da navegação facet a quem o utilizador pode reduzir as pesquisas com um único clique, que podemos mostrar na seguinte sequência.
+A vantagem da navegação faceta para o utilizador é que eles podem reduzir as pesquisas com um único clique, que podemos mostrar na seguinte sequência.
 
-1. Executar a aplicação, digitar "aeroporto" como texto de pesquisa. Verifique se a lista de facetas aparece perfeitamente à esquerda. Estas facetas são tudo o que se aplica a hotéis que têm "aeroporto" nos seus dados de texto, com uma contagem da frequência com que ocorrem.
+1. Executar a aplicação, digitar "aeroporto" como texto de pesquisa. Verifique se a lista de facetas aparece perfeitamente à esquerda. Estas facetas são tudo o que se aplica aos hotéis que têm "aeroporto" nos seus dados de texto, com uma contagem da frequência com que ocorrem.
 
-    ![Usando a navegação de faceta para estreitar uma busca de "aeroporto"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport.png)
+    ![Usando a navegação faceta para reduzir uma pesquisa de "aeroporto"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport.png)
 
-2. Clique na categoria **Resort e Spa.** Verifique se todos os resultados estão nesta categoria.
+2. Clique na categoria **Resort e Spa.** Verifique todos os resultados desta categoria.
 
-    ![Reduzindo a procura para "Resort e Spa"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport-ras.png)
+    ![Estreitando a pesquisa para "Resort e Spa"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport-ras.png)
 
-3. Clique na amenidade do café da **manhã continental.** Verifique se todos os resultados ainda estão na categoria "Resort e Spa", com a amenidade selecionada.
+3. Clique na amenidade **do café da manhã continental.** Verifique todos os resultados ainda na categoria "Resort e Spa", com a amenidade selecionada.
 
-    ![Reduzindo a procura para o "pequeno-almoço continental"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport-ras-cb.png)
+    ![Reduzir a procura para "pequeno-almoço continental"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport-ras-cb.png)
 
-4. Tente selecionar qualquer outra categoria, depois uma amenidade, e veja os resultados de estreitamento. Então tente ao contrário, uma amenidade, depois uma categoria.
+4. Tente selecionar qualquer outra categoria, em seguida, uma amenidade, e veja os resultados de estreitamento. Então tente o contrário, uma amenidade, depois uma categoria.
 
     >[!Note]
-    > Quando uma seleção é feita numa lista de facetas (como categoria) irá anular qualquer seleção anterior dentro da lista de categorias.
+    > Quando uma seleção é feita numa lista de facetas (como categoria) irá substituir qualquer seleção anterior dentro da lista de categorias.
 
 ## <a name="takeaways"></a>Conclusões
 
@@ -553,11 +553,11 @@ Considere os seguintes takeaways deste projeto:
 
 * É imperativo marcar cada propriedade como **IsFacetable,** se forem incluídas na navegação faceta.
 * A navegação faceta proporciona a um utilizador uma forma fácil e intuitiva de reduzir uma pesquisa.
-* A navegação faceta é melhor dividida em secções (categorias de hotel, comodidades de um hotel, intervalos de preços, gamas de classificação, etc.), cada secção com uma rubrica adequada.
+* A navegação faceta é melhor dividida em secções (categorias de hotel, comodidades de um hotel, intervalos de preços, gamas de classificação, etc.), cada secção com uma posição apropriada.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-No próximo tutorial, olhamos para os resultados de encomendas. Até este ponto, os resultados são encomendados simplesmente na ordem de que estão localizados na base de dados.
+No próximo tutorial, olhamos para os resultados da encomenda. Até este ponto, os resultados são encomendados simplesmente na ordem em que estão localizados na base de dados.
 
 > [!div class="nextstepaction"]
 > [C# tutorial: Encomende os resultados- Pesquisa Cognitiva Azure](tutorial-csharp-orders.md)

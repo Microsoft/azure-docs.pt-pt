@@ -5,20 +5,20 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: cf876d3c7c100f001ba81082d792e81a777c7315
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3ed653c511dbd775d124e1abd6f4bb02923edb25
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82193042"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102077"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Tutorial: Criar modelos ARM com recursos dependentes
 
-Aprenda a criar um modelo de Gestor de Recursos Azure (ARM) para implementar vários recursos e configurar a ordem de implementação. Depois de criar o modelo, implementa o modelo utilizando a Cloud Shell do portal Azure.
+Saiba como criar um modelo Azure Resource Manager (ARM) para implementar múltiplos recursos e configurar a ordem de implantação. Depois de criar o modelo, implementa o modelo utilizando a Cloud Shell a partir do portal Azure.
 
-Neste tutorial, vai criar uma conta de armazenamento, uma máquina virtual, uma rede virtual e mais alguns recursos dependentes. Alguns dos recursos não podem ser implementados enquanto existir outro recurso. Por exemplo, não é possível criar a máquina virtual enquanto as respetivas conta de armazenamento e interface de rede existirem. Defina esta relação fazendo com que um recurso seja dependente dos outros recursos. O Resource Manager avalia as dependências entre os recursos e implementa-os por ordem dependente. Quando os recursos não são dependentes entre si, o Resource Manager implementa-os em paralelo. Para mais informações, consulte [Definir a ordem de implantação de recursos em modelos ARM](./define-resource-dependency.md).
+Neste tutorial, vai criar uma conta de armazenamento, uma máquina virtual, uma rede virtual e mais alguns recursos dependentes. Alguns dos recursos não podem ser implementados enquanto existir outro recurso. Por exemplo, não é possível criar a máquina virtual enquanto as respetivas conta de armazenamento e interface de rede existirem. Defina esta relação fazendo com que um recurso seja dependente dos outros recursos. O Resource Manager avalia as dependências entre os recursos e implementa-os por ordem dependente. Quando os recursos não são dependentes entre si, o Resource Manager implementa-os em paralelo. Para obter mais informações, consulte [Definir a ordem para a implantação de recursos em modelos ARM](./define-resource-dependency.md).
 
-![Diagrama de ordem de implementação de recursos dependentes do gestor de recursos de recursos](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
+![Diagrama de ordem de implementação de recursos dependentes do gestor de recursos de recursos de recursos de recursos de recursos de recursos de recursos de](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -27,26 +27,26 @@ Este tutorial abrange as seguintes tarefas:
 > * Explorar o modelo
 > * Implementar o modelo
 
-Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, precisa de:
 
-* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [o Use Visual Studio Code para criar modelos ARM](use-vs-code-to-create-template.md).
+* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [Quickstart: Crie modelos de Gestor de Recursos Azure com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
 * Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Eis um exemplo para gerar uma palavra-passe:
 
     ```console
     openssl rand -base64 32
     ```
 
-    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para mais informações, consulte [Tutorial: Integre o Cofre chave Azure na implementação](./template-tutorial-use-key-vault.md)do modelo ARM . Também recomendamos que atualize a palavra-passe a cada três meses.
+    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para obter mais informações, consulte [Tutorial: Integre o cofre da chave azul na implementação do modelo ARM](./template-tutorial-use-key-vault.md). Também recomendamos que atualize a palavra-passe a cada três meses.
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
-Os modelos Azure Quickstart é um repositório para modelos ARM. Em vez de criar um modelo do zero, pode encontrar um modelo de exemplo e personalizá-lo. O modelo utilizado neste tutorial é denominado [Implementar uma VM do Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Azure Quickstart Templates é um repositório para modelos ARM. Em vez de criar um modelo do zero, pode encontrar um modelo de exemplo e personalizá-lo. O modelo utilizado neste tutorial é denominado [Implementar uma VM do Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. A partir do Código do Estúdio Visual, selecione **File**>**Open File**.
+1. A partir do Código do Estúdio Visual, selecione Ficheiro Aberto **de** > **Ficheiros**.
 2. em **Nome de ficheiro**, cole o seguinte URL:
 
     ```url
@@ -54,7 +54,7 @@ Os modelos Azure Quickstart é um repositório para modelos ARM. Em vez de criar
     ```
 
 3. Selecione **Abrir** para abrir o ficheiro.
-4. Selecione **Guardar Ficheiros**>**Para** guardar uma cópia do ficheiro para o computador local com o nome **azuredeploy.json**.
+4. Selecione **File** > **'Guardar ficheiros' para** guardar uma cópia do ficheiro no computador local com o nome **azuredeploy.jsligado**.
 
 ## <a name="explore-the-template"></a>Explorar o modelo
 
@@ -71,8 +71,8 @@ Ao explorar o modelo nesta secção, tente responder a estas perguntas:
 
     Existem seis recursos definidos pelo modelo:
 
-   * [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
-   * [**Microsoft.Network/publicIPAddresss**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Storage/storageAcounts**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses).
    * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
    * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
    * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
@@ -80,21 +80,21 @@ Ao explorar o modelo nesta secção, tente responder a estas perguntas:
 
      É útil rever a referência do modelo antes de personalizar um modelo.
 
-1. Expanda o primeiro recurso. É uma conta de armazenamento. Compare a definição de recurso com a referência do [modelo](/azure/templates/Microsoft.Storage/storageAccounts).
+1. Expanda o primeiro recurso. É uma conta de armazenamento. Compare a definição de recurso com a [referência do modelo.](/azure/templates/Microsoft.Storage/storageAccounts)
 
     ![Definição da conta de armazenamento de modelos do Azure Resource Manager no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
-1. Expanda o segundo recurso. O tipo de recurso é `Microsoft.Network/publicIPAddresses`. Compare a definição de recurso com a referência do [modelo](/azure/templates/microsoft.network/publicipaddresses).
+1. Expanda o segundo recurso. O tipo de recurso é `Microsoft.Network/publicIPAddresses`. Compare a definição de recurso com a [referência do modelo.](/azure/templates/microsoft.network/publicipaddresses)
 
     ![Definição do endereço IP público de modelos do Azure Resource Manager no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
 
-1. Expanda o terceiro recurso. O tipo de recurso é `Microsoft.Network/networkSecurityGroups`. Compare a definição de recurso com a referência do [modelo](/azure/templates/microsoft.network/networksecuritygroups).
+1. Expandir o terceiro recurso. O tipo de recurso é `Microsoft.Network/networkSecurityGroups`. Compare a definição de recurso com a [referência do modelo.](/azure/templates/microsoft.network/networksecuritygroups)
 
-    ![Visual Studio Code Azure Resource Manager modelos definição de grupo de segurança de rede](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-network-security-group-definition.png)
+    ![Código de estúdio visual Azure Resource Manager modelos de definição de grupo de segurança de rede](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-network-security-group-definition.png)
 
 1. Expanda o quarto recurso. O tipo de recurso é `Microsoft.Network/virtualNetworks`:
 
-    ![Modelos de gestor de recursos do Estúdio Visual Azure gestor de recursos dependem da rede virtual](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
+    ![Visual Studio Code Azure Resource Manager modelos de rede virtual dependeon](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
     O elemento dependsOn permite-lhe definir um recurso como sendo dependente de um ou mais recursos. Este recurso depende de um outro recurso:
 
@@ -105,7 +105,7 @@ Ao explorar o modelo nesta secção, tente responder a estas perguntas:
     * `Microsoft.Network/publicIPAddresses`
     * `Microsoft.Network/virtualNetworks`
 
-1. Expanda o sexto recurso. Este recurso é uma máquina virtual. Depende de dois outros recursos:
+1. Expandir o sexto recurso. Este recurso é uma máquina virtual. Depende de dois outros recursos:
 
     * `Microsoft.Storage/storageAccounts`
     * `Microsoft.Network/networkInterfaces`
@@ -118,13 +118,13 @@ Ao especificar as dependências, o Resource Manager implementa a solução de fo
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-1. Inscreva-se na [Casca de Nuvem Azure](https://shell.azure.com)
+1. Inscreva-se na [Azure Cloud Shell](https://shell.azure.com)
 
-1. Escolha o seu ambiente preferido selecionando **powerShell** ou **Bash** (para CLI) no canto superior esquerdo.  É necessário reiniciar o Shell quando mudar.
+1. Escolha o seu ambiente preferido selecionando **PowerShell** ou **Bash** (para CLI) no canto superior esquerdo.  É necessário reiniciar o Shell quando mudar.
 
-    ![Ficheiro de upload do portal Azure Cloud Shell](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
+    ![Arquivo de upload do portal Azure Cloud Shell](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Veja a captura de ecrã anterior. Selecione o ficheiro que guardou anteriormente. Depois de fazer o upload do ficheiro, pode utilizar o comando **ls** e o comando do **gato** para verificar se o ficheiro é carregado com sucesso.
+1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Veja a captura de ecrã anterior. Selecione o ficheiro que guardou anteriormente. Depois de carregar o ficheiro, pode utilizar o comando **ls** e o comando do **gato** para verificar se o ficheiro é carregado com sucesso.
 
 1. Executar o seguinte script PowerShell para implementar o modelo.
 
@@ -173,14 +173,14 @@ Ao especificar as dependências, o Resource Manager implementa a solução de fo
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos.
 
-1. A partir do portal Azure, selecione **Grupo Recurso** do menu esquerdo.
+1. A partir do portal Azure, selecione Grupo de **Recursos** do menu esquerdo.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
 3. Selecione o nome do grupo de recursos. Verá um total de seis recursos no grupo de recursos.
-4. **Selecione Eliminar** o grupo de recursos do menu superior.
+4. **Selecione Eliminar o grupo** de recursos do menu superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste tutorial, desenvolveu e implementou um modelo para criar uma máquina virtual, uma rede virtual e os recursos dependentes. Para aprender a utilizar scripts de implantação para realizar operações de implantação pré/pós, consulte:
+Neste tutorial, desenvolveu e implementou um modelo para criar uma máquina virtual, uma rede virtual e os recursos dependentes. Para aprender a usar scripts de implementação para executar operações de implantação pré/post, consulte:
 
 > [!div class="nextstepaction"]
 > [Utilize o script de implementação](./template-tutorial-deployment-script.md)

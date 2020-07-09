@@ -1,39 +1,39 @@
 ---
-title: Localize a interface de utilizador da sua aplicação com uma política personalizada
-description: Conheça a localização de uma interface de utilizador utilizando uma política personalizada no Azure Ative Directory B2C.
+title: Localize a interface de utilizador da sua app com uma política personalizada
+description: Saiba como localização uma interface de utilizador utilizando uma política personalizada no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
+ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 090fecea44c7881920fcd087304f33f935a5e907
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8939d4546657b049b61eb31c08844dac07c67ae2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636268"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389093"
 ---
-# <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Localize a interface de utilizador da sua aplicação utilizando uma política personalizada no Diretório Ativo Azure B2C
+# <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Localize a interface de utilizador da sua aplicação utilizando uma política personalizada no Azure Ative Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-A personalização linguística no Azure Ative Directory B2C (Azure AD B2C) permite-lhe acomodar diferentes idiomas de acordo com as necessidades do seu cliente. A Microsoft fornece as traduções para [36 idiomas,](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-language-customization#supported-languages)mas também pode fornecer as suas próprias traduções para qualquer idioma. Mesmo que a sua experiência seja fornecida apenas para uma única língua, pode personalizar qualquer texto nas páginas. 
+A personalização de linguagem no Azure Ative Directory B2C (Azure AD B2C) permite-lhe acomodar diferentes idiomas de acordo com as necessidades do seu cliente. A Microsoft fornece as traduções para [36 idiomas](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-language-customization#supported-languages), mas também pode fornecer as suas próprias traduções para qualquer idioma. Mesmo que a sua experiência seja fornecida apenas para um único idioma, pode personalizar qualquer texto nas páginas. 
 
-Este artigo mostra-lhe como apoiar vários locais ou idiomas na política para viagens de utilizador. A localização requer três passos: configurar a lista explícita de línguas suportadas, fornecer cordas e coleções específicas da linguagem e editar a [definição](contentdefinitions.md) de conteúdo para a página. 
+Este artigo mostra-lhe como apoiar vários locais ou idiomas na política para viagens de utilizador. A localização requer três etapas: configurar a lista explícita de línguas apoiadas, fornecer cordas e coleções específicas da linguagem e editar a [definição](contentdefinitions.md) de conteúdo para a página. 
 
 ## <a name="set-up-the-list-of-supported-languages"></a>Configurar a lista de línguas apoiadas
 
 Abra o ficheiro de extensões da sua apólice. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 
-1. Procure o elemento [BuildingBlocks.](buildingblocks.md) Se o elemento não existir, adicione-o.
+1. Procure o elemento [Blocos de Construção.](buildingblocks.md) Se o elemento não existir, adicione-o.
 1. Adicione o `Localization` elemento com as línguas suportadas: inglês (padrão) e espanhol.  
 
 
-```XML
+```xml
 <Localization Enabled="true">
   <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
     <SupportedLanguage>en</SupportedLanguage>
@@ -44,14 +44,14 @@ Abra o ficheiro de extensões da sua apólice. Por exemplo, <em>`SocialAndLocalA
 
 ## <a name="provide-language-specific-labels"></a>Fornecer rótulos específicos da linguagem
 
-Os [Recursos Localizados](localization.md#localizedresources) do `Localization` elemento contêm a lista de cordas localizadas. O elemento de recursos localizados tem um identificador que é usado para identificar de forma única os recursos localizados. Este identificador é utilizado posteriormente no elemento de definição de [conteúdo.](contentdefinitions.md)
+As [Fontes Locais](localization.md#localizedresources) do `Localization` elemento contém a lista de cordas localizadas. O elemento de recursos localizado tem um identificador que é usado para identificar exclusivamente recursos localizados. Este identificador é usado mais tarde no elemento [de definição](contentdefinitions.md) de conteúdo.
 
-Configura elementos de recursos localizados para a definição de conteúdo e qualquer idioma que queira suportar. Para personalizar as páginas unificadas de inscrição ou inscrição para inglês e espanhol, adicione os `LocalizedResources` seguintes elementos após o encerramento do `</SupportedLanguages>` elemento.
+Configura elementos de recursos localizados para a definição de conteúdo e qualquer idioma que queira apoiar. Para personalizar as páginas unificadas de inscrição ou inscrição para inglês e espanhol, adicione os `LocalizedResources` seguintes elementos após o fecho do `</SupportedLanguages>` elemento.
 
 > [!NOTE]
-> Na amostra seguinte adicionámos o símbolo da libra `#` na mendigagem de cada linha, para que possa encontrar as etiquetas localizadas no ecrã.
+> Na amostra seguinte, adicionámos o símbolo da libra `#` na mendigagem de cada linha, para que possa encontrar as etiquetas localizadas no ecrã.
 
-```XML
+```xml
 <!--Local account sign-up or sign-in page English-->
 <LocalizedResources Id="api.signuporsignin.en">
   <LocalizedStrings>
@@ -214,11 +214,11 @@ Configura elementos de recursos localizados para a definição de conteúdo e qu
 
 ## <a name="edit-the-content-definition-with-the-localization"></a>Editar a definição de conteúdo com a localização
 
-Colar todo o conteúdo do elemento ContentDefinitions que copiou em criança do elemento BuildingBlocks.
+Cole todo o conteúdo do elemento ContentDefinitions que copiou como criança do elemento BuildingBlocks.
 
-No exemplo seguinte, as cordas personalizadas inglesas (en) e espanholas (es) são adicionadas à página de inscrição ou inscrição, e à página de inscrição da conta local. O **LocalizedResourcesReferenceId** para cada Referência de **Recursos Localizados** é o mesmo que o local, mas pode utilizar qualquer cadeia como identificador. Para cada combinação de idiomas e páginas, aponta para os **Recursos Localizados correspondentes** que criou anteriormente.
+No exemplo seguinte, as cordas personalizadas em inglês (en) e espanholas (es) são adicionadas à página de inscrição ou de inscrição e à página de inscrição da conta local. O **Resources LocalizesReferenceId** para cada **Referência De Recursos Locais** é o mesmo que o local, mas você pode usar qualquer cadeia como o identificador. Para cada idioma e combinação de página, aponta para os **recursos localizadores correspondentes** que criou anteriormente.
 
-```XML
+```xml
 <ContentDefinitions>
   <ContentDefinition Id="api.signuporsignin">
     <LocalizedResourcesReferences MergeBehavior="Prepend">
@@ -238,28 +238,28 @@ No exemplo seguinte, as cordas personalizadas inglesas (en) e espanholas (es) s�
 
 ##  <a name="upload-and-test-your-updated-custom-policy"></a>Faça upload e teste a sua política personalizada atualizada
 
-### <a name="upload-the-custom-policy"></a>Faça upload da política personalizada
+### <a name="upload-the-custom-policy"></a>Faça o upload da política personalizada
 
 1. Guarde o ficheiro de extensões.
-1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
-1. Procure e **selecione Azure AD B2C**.
-1. No âmbito **das Políticas,** selecione Quadro de **Experiência de Identidade**.
-1. Selecione **a política personalizada de upload**.
-1. Faça upload do ficheiro de extensões que alterou anteriormente.
+1. Certifique-se de que está a utilizar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro **de subscrição Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
+1. Procure e selecione **Azure AD B2C**.
+1. No âmbito **de Políticas**, selecione Identity **Experience Framework**.
+1. Selecione **a política personalizada do Upload**.
+1. Faça o upload do ficheiro de extensões que alterou anteriormente.
 
 ### <a name="test-the-custom-policy-by-using-run-now"></a>Teste a política personalizada usando **Run agora**
 
-1. Selecione a política que carregou e, em seguida, selecione **Executar agora**.
+1. Selecione a política que fez o upload e, em seguida, selecione **Executar agora**.
 1. Você deve ser capaz de ver a página de inscrição ou inscrição localizada.
-1. Clique no link de inscrição e poderá ver a página de inscrição localizada.
-1. Mude o idioma padrão do seu navegador para espanhol. Ou pode adicionar o parâmetro de corda de consulta ao pedido de `ui_locales` autorização. Por exemplo: 
+1. Clique no link de inscrição e deverá ser capaz de ver a página de inscrição localizada.
+1. Mude o idioma padrão do seu navegador para espanhol. Ou pode adicionar o parâmetro de cadeia de consulta `ui_locales` ao pedido de autorização. Por exemplo: 
 
 ```http
 https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais sobre o elemento de [localização](localization.md) na referência iEF.
+- Saiba mais sobre o elemento [de localização](localization.md) na referência IEF.
 - Consulte a lista de [IDs](localization-string-ids.md) de cadeia de localização disponíveis no Azure AD B2C.
 

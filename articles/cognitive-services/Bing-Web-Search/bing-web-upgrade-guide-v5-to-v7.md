@@ -1,7 +1,7 @@
 ---
 title: Upgrade de API v5 para v7 - Bing Web Search API
 titleSuffix: Azure Cognitive Services
-description: Determine quais as partes da sua aplicação que requerem atualizações para utilizar as APIs de Pesquisa Web bing.
+description: Determine quais as partes da sua aplicação que requerem atualizações para utilizar as APIs de Pesquisa Web Bing v7.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,78 +11,78 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 2133cd59c524112ae8a77c0a20cbce1d1336a38d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7ee8d05a542c6906d4ebe70f7e2a461752c6e3f3
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68881311"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85609457"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Upgrade de Bing Web Search API v5 para v7
 
-Este guia de atualização identifica as alterações entre a versão 5 e a versão 7 da API de Pesquisa Web bing. Utilize este guia para o ajudar a identificar as partes da sua aplicação que precisa de atualizar para utilizar a versão 7.
+Este guia de atualização identifica as alterações entre a versão 5 e a versão 7 da API de Pesquisa Web Bing. Utilize este guia para o ajudar a identificar as partes da sua aplicação que necessita de atualizar para utilizar a versão 7.
 
 ## <a name="breaking-changes"></a>Alterações interruptivas
 
 ### <a name="endpoints"></a>Pontos Finais
 
-- O número da versão final mudou de v5 para v7. Por exemplo,\/\/https: api.cognitive.microsoft.com/bing/**v7.0**/search.
+- O número de versão do ponto final passou de v5 para v7. Por exemplo, https: \/ \/ api.cognitive.microsoft.com/bing/**v7.0**/search.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de resposta a erros e códigos de erro
 
-- Todos os pedidos falhados `ErrorResponse` devem agora incluir um objeto no corpo de resposta.
+- Todos os pedidos falhados devem agora incluir um `ErrorResponse` objeto no corpo de resposta.
 
-- Adicione os seguintes `Error` campos ao objeto.  
+- Adicionei os seguintes campos ao `Error` objeto.  
   - `subCode`&mdash;Divisórias o código de erro em baldes discretos, se possível
-  - `moreDetails`&mdash;Informações adicionais sobre `message` o erro descrito no campo
+  - `moreDetails`&mdash;Informações adicionais sobre o erro descrito no `message` campo
 
 
-- Substituiu os códigos de erro `code` `subCode` v5 com os seguintes valores possíveis e valores.
+- Substituiu os códigos de erro v5 pelos seguintes `code` valores e `subCode` valores possíveis.
 
-|Código|Subcódigo|Descrição
+|Código|SubCódes|Description
 |-|-|-
-|Error do servidor|Erro Inesperado<br/>Erro de Recursos<br/>Não Implementado|Bing devolve ServerError sempre que ocorrer em qualquer uma das condições do subcódigo. A resposta incluirá estes erros se o código de estado HTTP for de 500.
-|Pedido inválido|Parâmetros desaparecidos<br/>ParâmetroSInvalidValue<br/>Httpnotado<br/>Bloqueado|Devoluções Bing InvalidRequest sempre que qualquer parte do pedido não for válida. Por exemplo, falta um parâmetro necessário ou não é válido um valor de parâmetro.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de estado HTTP é de 400.<br/><br/>Se o erro for httpNotAllowed, o código de estado HTTP 410.
-|RateLimitExceeded||Bing devolve RateLimitExceeded sempre que excede as suas consultas por segundo (QPS) ou consultas por mês (QPM) quota.<br/><br/>Bing devolve o código de estado HTTP 429 se exceder qPS e 403 se exceder o QPM.
-|Autorização Inválida|Autorização Faltando<br/>AutorizaçãoRedundy|Bing devolve InvalidAuthorization quando Bing não pode autenticar o chamador. Por exemplo, `Ocp-Apim-Subscription-Key` falta o cabeçalho ou a chave de subscrição não é válida.<br/><br/>O despedimento ocorre se especificar mais do que um método de autenticação.<br/><br/>Se o erro for InvalidAuthorization, o código de estado HTTP é 401.
-|Autorização Insuficiente|AutorizaçãoDeficiente<br/>Autorizações Caducadas|Bing devolve InsuficienteAutorização quando o chamador não tem permissões para aceder ao recurso. Este erro pode ocorrer se a chave de subscrição tiver sido desativada ou tiver expirado. <br/><br/>Se o erro for insuficiente, o código de estado HTTP é 403.
+|ServerError|InesperadoError<br/>Recurso<br/>Não ÉDopliizado|Bing devolve ServerError sempre que ocorrer qualquer uma das condições de subcodições. A resposta incluirá estes erros se o código de estado HTTP for 500.
+|InáduloRequest|ParâmetroSMissing<br/>ParâmetroInvalvalue<br/>HttpNotAllowed<br/>Bloqueado|Bing devolve InvalidRequest sempre que qualquer parte do pedido não seja válida. Por exemplo, falta um parâmetro necessário ou um valor de parâmetro não é válido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de estado HTTP é 400.<br/><br/>Se o erro for httpNotAllowed, o código de estado HTTP 410.
+|TaxaLimitExceed||Bing devoluções TaxaLimitExceed sempre que exceder as suas consultas por segundo (QPS) ou consultas por mês (QPM).<br/><br/>Bing devolve http código de estado 429 se exceder QPS e 403 se excedeu QPM.
+|InvalidAuthorization|AutorizaçãoSDissing<br/>AutorizaçãoSAundação|Bing devolve invalidAuthorization quando Bing não pode autenticar o chamador. Por exemplo, falta o `Ocp-Apim-Subscription-Key` cabeçalho ou a chave de subscrição não é válida.<br/><br/>A redundância ocorre se especificar mais de um método de autenticação.<br/><br/>Se o erro for invalidauthorization, o código de estado HTTP é 401.
+|Authorização insuficiente|AutorizaçãoDisabled<br/>AutorizaçãoSDusa|Bing devolve aautorização insuficiente quando o chamador não tem permissões para aceder ao recurso. Este erro pode ocorrer se a chave de subscrição tiver sido desativada ou tiver expirado. <br/><br/>Se o erro for insuficiente, o código de estado HTTP é 403.
 
-- Os seguintes mapas dos códigos de erro anteriores para os novos códigos. Se tiver tomado uma dependência dos códigos de erro V5, atualize o seu código em conformidade.
+- Os seguintes mapas dos códigos de erro anteriores para os novos códigos. Se tiver assumido uma dependência dos códigos de erro v5, atualize o seu código em conformidade.
 
-|Código versão 5|Versão 7 código.subCode
+|Código da versão 5|Versão 7 código.subCode
 |-|-
-|RequestParameter Missing|Pedido inválido.Parâmetro desaparecido
-RequestParameterInvalidValue|Pedido inválido.parameterInvalidValue
-Acesso de RecursosNegado|Autorização Insuficiente
-Volume Excedido|RateLimitExceeded
-UltrapassadoQpsLimit|RateLimitExceeded
-Desativado|Autorização Insuficiente.AutorizaçãoDeficiente
-Erro Inesperado|Error server.UnexpectedError
-Erros dataSource|Error de servidor.Error de recursos
-Autorização Faltando|Autorização Inválida.Autorização Em Falta
-Httpnotado|Pedido Inválido.httpNotAllowed
-Agente de utilizador Desaparecido|Pedido inválido.Parâmetro desaparecido
-Não Implementado|Error server.NotImplemented
-Autorização Inválida|Autorização Inválida
-Método de Autorização Inválida|Autorização Inválida
-Método de Autorização Múltipla|Autorização Inválida.AutorizaçãoDesem Despedimento
-Caducada caducidade|Autorização Insuficiente.Autorizações Caducadas
-InsuficienteScope|Autorização Insuficiente
-Bloqueado|Pedido inválido.Bloqueado
+|PedidoParameterMissing|InvalidRequest.ParameterMissing
+PedidoParameterInvalidValue|InvalidRequest.ParameterInvalidValue
+ResourceAccessDenied|Authorização insuficiente
+ExcedidoVolume|TaxaLimitExceed
+UltrapassadoQpsLimit|TaxaLimitExceed
+Desativado|Authorização insuficiente.AutorizaçãoDisabled
+InesperadoError|ServerError.UnexpectedError
+DataSourceErrors|ServerError.ResourceError
+AutorizaçãoSDissing|InvalidAuthorization.AuthorizationMissing
+HttpNotAllowed|InvalidRequest.httpNotAllowed
+UserAgentMissing|InvalidRequest.ParameterMissing
+Não ÉDopliizado|ServerError.NotImplemented
+InvalidAuthorization|InvalidAuthorization
+InvalidAuthorizationMethod|InvalidAuthorization
+MultipleAuthorizationMethod|InvalidAuthorization.AuthorizationRedundancy
+ValidadeAuthorizationToken|Authorization insuficiente.AutorizaçãoExpired
+Ómuiso insuficiente|Authorização insuficiente
+Bloqueado|InvalidRequest.Bloqueado
 
 
-## <a name="non-breaking-changes"></a>Alterações não-destantes  
+## <a name="non-breaking-changes"></a>Alterações não-quebrando  
 
 ### <a name="headers"></a>Cabeçalhos
 
-- Acrescentou o cabeçalho opcional do pedido [pragma.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) Por predefinição, o Bing devolve conteúdo em cache, se disponível. Para impedir que o Bing devolva conteúdo em cache, defina o cabeçalho Pragma como no-cache (por exemplo, Pragma: no-cache).
+- Acrescentou o cabeçalho de pedido [de Pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) opcional. Por predefinição, o Bing devolve conteúdo em cache, se disponível. Para impedir que o Bing devolva conteúdo em cache, defina o cabeçalho Pragma como no-cache (por exemplo, Pragma: no-cache).
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 
-- Acrescentou o parâmetro de consulta [do Conde.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) Utilize este parâmetro para especificar o número de respostas que pretende que a resposta inclua. As respostas são escolhidas com base no ranking. Por exemplo, se definir este parâmetro para três (3), a resposta inclui as três respostas mais bem classificadas.  
+- Adicionei o parâmetro de consulta [answerCount.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) Utilize este parâmetro para especificar o número de respostas que pretende que a resposta inclua. As respostas são escolhidas com base no ranking. Por exemplo, se definir este parâmetro para três (3), a resposta inclui as três melhores respostas classificadas.  
 
-- Acrescentou o parâmetro de consulta [de promoção.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) Utilize este parâmetro `answerCount` juntamente com um ou mais tipos de resposta, independentemente do seu ranking. Por exemplo, para promover vídeos e imagens na resposta, definiria a promoção de *vídeos, imagens.* A lista de respostas que pretende promover `answerCount` não conta contra o limite. Por exemplo, `answerCount` se `promote` for 2 e for definido para *vídeos,imagens*, a resposta pode incluir páginas web, notícias, vídeos e imagens.
+- Acrescentou o parâmetro de consulta [de promoção.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) Utilize este parâmetro juntamente com `answerCount` para incluir explicitamente um ou mais tipos de resposta, independentemente do seu ranking. Por exemplo, para promover vídeos e imagens na resposta, definiria promover *para vídeos, imagens*. A lista de respostas que pretende promover não conta contra o `answerCount` limite. Por exemplo, se `answerCount` for 2 e `promote` estiver definido para *vídeos, imagens,* a resposta pode incluir páginas web, notícias, vídeos e imagens.
 
 ### <a name="object-changes"></a>Alterações de objetos
 
-- Adicione `someResultsRemoved` o campo ao objeto [WebAnswer.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) O campo contém um valor Boolean o que indica se a resposta excluiu alguns resultados da resposta web.  
+- Adicionei o `someResultsRemoved` campo ao objeto [WebAnswer.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) O campo contém um valor Boolean que indica se a resposta excluiu alguns resultados da resposta web.  

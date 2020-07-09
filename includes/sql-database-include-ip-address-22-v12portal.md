@@ -1,7 +1,7 @@
 ---
 title: Regras de firewall ao nível do servidor
 description: Regras de firewall ao nível do servidor
-keywords: conexão sql,cadeia de ligação
+keywords: conexão sql,cadeia de conexão
 services: sql-database
 author: dalechen
 manager: craigg
@@ -11,20 +11,20 @@ ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
 ms.openlocfilehash: 8d0f9899dbb7599340b8d15ca010a0157011fb9e
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184338"
 ---
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-2. Na lista à esquerda, selecione **Todos os serviços.**
+2. Na lista à esquerda, selecione **Todos os serviços**.
 
-3. Percorra e selecione **servidores SQL**.
+3. Desloque e selecione **servidores SQL**.
 
     ![Encontre o seu servidor de base de dados Azure SQL no portal][b21-FindServerInPortal]
-5. Na caixa de texto do filtro, comece a digitar o nome do seu servidor. A sua fila está exposta.
+5. Na caixa de texto do filtro, comece a escrever o nome do seu servidor. A sua linha está exposta.
 
 6. Selecione a linha para o seu servidor. É apresentada uma lâmina para o seu servidor.
 
@@ -33,11 +33,11 @@ ms.locfileid: "67184338"
 8. Selecione **Firewall**.
 
     ![Selecione Definições > Firewall][b31-SettingsFirewallNavig]
-9. **Selecione Adicionar cliente IP**. Digite um nome para a sua nova regra na primeira caixa de texto.
+9. Selecione **Adicionar Computador IP**. Digite um nome para a sua nova regra na primeira caixa de texto.
 
-10. Digite os valores de endereço IP baixos e altos para a gama que pretende ativar.
+10. Digite os valores de endereço IP baixos e altos para o intervalo que deseja ativar.
 
-    * Pode ser útil ter a extremidade de baixo valor com **.0** e a extremidade de alto valor com **.255**.
+    * Pode ser útil ter a extremidade de baixo valor com **.0** e o fim de alto valor com **.255**.
 
 11. Selecione **Guardar**.
 

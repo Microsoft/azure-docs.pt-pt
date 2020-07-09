@@ -1,5 +1,5 @@
 ---
-title: Alertas do Centro de Segurança Azure
+title: Schemas para o Centro de Segurança Azure alertas
 description: Este artigo descreve os diferentes esquemas usados pelo Azure Security Center para alertas de segurança.
 services: security-center
 documentationcenter: na
@@ -12,43 +12,43 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 19ca17f66f6818ed4c3ef532e2030cc03f0e73ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b8d7f241f79b087f318c9c416dcadf92838b084
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062954"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85126217"
 ---
-# <a name="security-alerts-schemas"></a>Alertas de segurança schemas
+# <a name="security-alerts-schemas"></a>Esquemas de alerta de segurança
 
 Os utilizadores do nível padrão do Azure Security Center recebem alertas de segurança quando o Centro de Segurança deteta ameaças aos seus recursos.
 
-Pode ver estes alertas de segurança nas páginas de **Proteção contra Ameaças** do Azure Security Center, ou através de ferramentas externas como:
+Pode ver estes alertas de segurança nas páginas de **Proteção** de Ameaças do Centro de Segurança Azure ou através de ferramentas externas como:
 
-- [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/) - SIEM nativo da Nuvem da Microsoft. O Conector Sentinel recebe alertas do Azure Security Center e envia-os para o espaço de [trabalho do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) para o Azure Sentinel.
-- SIEMs de terceiros - Use as ferramentas [de exportação contínuas](continuous-export.md) do Security Center para enviar dados para os Hubs de [Eventos Azure](https://docs.microsoft.com/azure/event-hubs/). Em seguida, integre os seus dados do Event Hub com um SIEM de terceiros.
-- [Rest API](https://docs.microsoft.com/rest/api/securitycenter/) - Se estiver a usar a API REST para aceder a alertas, consulte a documentação da [API de Alertas online](https://docs.microsoft.com/rest/api/securitycenter/alerts).
+- [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/) - SIEM nativo da Nuvem da Microsoft. O Sentinel Connector recebe alertas do Azure Security Center e envia-os para o [espaço de trabalho log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) para o Azure Sentinel.
+- SIEMs de terceiros - Utilize as ferramentas [de exportação contínuas](continuous-export.md) do Security Center para enviar dados para [os Hubs de Eventos Azure](https://docs.microsoft.com/azure/event-hubs/). Em seguida, integre os seus dados do Event Hub com um SIEM de terceiros.
+- [A API REST](https://docs.microsoft.com/rest/api/securitycenter/) - Se estiver a utilizar a API REST para aceder a alertas, consulte a [documentação da API alertas online](https://docs.microsoft.com/rest/api/securitycenter/alerts).
 
-Se estiver a usar métodos programáticos para consumir os alertas, precisará do esquema correto para encontrar os campos que lhe são relevantes. Além disso, se estiver a exportar para um Hub de Eventos ou a tentar ativar a Workflow Automation com conectores genéricos HTTP, utilize os schemas para analisar corretamente os objetos JSON.
+Se estiver a utilizar métodos programáticos para consumir os alertas, precisará do esquema correto para encontrar os campos que são relevantes para si. Além disso, se estiver a exportar para um Centro de Eventos ou a tentar ativar a Automatização do Fluxo de Trabalho com conectores HTTP genéricos, utilize os esquemas para analisar corretamente os objetos JSON.
 
 >[!IMPORTANT]
 > O esquema é ligeiramente diferente para cada um destes cenários, por isso certifique-se de selecionar o separador relevante abaixo.
 
 
-## <a name="the-schemas"></a>Os schemas 
+## <a name="the-schemas"></a>Os esquemas 
 
 
-### <a name="workflow-automation-and-continuous-export-to-event-hub"></a>[Automação de fluxo de trabalho e exportação contínua para O Hub de Eventos](#tab/schema-continuousexport)
+### <a name="workflow-automation-and-continuous-export-to-event-hub"></a>[Automação do fluxo de trabalho e exportação contínua para o Centro de Eventos](#tab/schema-continuousexport)
 
-### <a name="sample-json-for-alerts-sent-to-logic-apps-event-hub-and-third-party-siems"></a>Amostra JSON para alertas enviados para Apps Lógicas, Hub de Eventos e SIEMs de terceiros
+### <a name="sample-json-for-alerts-sent-to-logic-apps-event-hub-and-third-party-siems"></a>Amostra JSON para alertas enviados para Apps Lógicas, Centro de Eventos e SIEMs de terceiros
 
-Abaixo encontrará o esquema dos eventos de alerta passados para:
+Abaixo você encontrará o esquema dos eventos de alerta passados para:
 
-- Instâncias da App Azure Logic que foram configuradas na automatização de fluxos de trabalho do Security Center
+- Instâncias da Azure Logic App que foram configuradas na automatização do fluxo de trabalho do Security Center
 - Azure Event Hub usando a funcionalidade de exportação contínua do Security Center
 
-Para obter mais informações sobre a funcionalidade de automatização do fluxo de trabalho, consulte [as respostas da Automatização automática a alertas e recomendações.](workflow-automation.md)
-Para obter mais informações sobre exportação contínua, consulte [alertas e recomendações para exportação.](continuous-export.md)
+Para obter mais informações sobre a função de automatização do fluxo de trabalho, consulte [as respostas da Automatização aos alertas e recomendações.](workflow-automation.md)
+Para obter mais informações sobre a exportação contínua, consulte [alertas e recomendações de exportação.](continuous-export.md)
 
 [!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflow-automation.md)]
 
@@ -57,11 +57,11 @@ Para obter mais informações sobre exportação contínua, consulte [alertas e 
 
 ### <a name="azure-sentinel-and-log-analytics-workspaces"></a>[Espaços de trabalho Azure Sentinel e Log Analytics](#tab/schema-sentinel)
 
-O Conector Sentinel recebe alertas do Azure Security Center e envia-os para o espaço de trabalho de Log Analytics para o Azure Sentinel. 
+O Connector Sentinel recebe alertas do Azure Security Center e envia-os para o Log Analytics Workspace para O Azure Sentinel. 
 
-Para criar um caso Sentinel ou incidente usando alertas do Security Center, você precisará do esquema para os alertas mostrados abaixo. 
+Para criar um caso Sentinel ou incidente usando alertas do Centro de Segurança, você precisará do esquema para os alertas mostrados abaixo. 
 
-Para mais informações sobre o Azure Sentinel, consulte [a documentação](https://docs.microsoft.com/azure/sentinel/).
+Para mais informações sobre a Azure Sentinel, consulte [a documentação.](https://docs.microsoft.com/azure/sentinel/)
 
 [!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-log-analytics-workspace.md)]
 
@@ -72,12 +72,12 @@ Para mais informações sobre o Azure Sentinel, consulte [a documentação](http
 
 As auditorias do Azure Security Center geraram alertas de segurança como eventos no Registo de Atividades do Azure.
 
-Pode visualizar os alertas de segurança em eventos no Registo de Atividade, procurando o evento Activate Alert como mostrado:
+Pode ver os eventos de alerta de segurança no Registo de Atividades, procurando o evento De Alerta Ativado como mostrado:
 
-[![Pesquisar o registo de atividade para o evento Activate Alert](media/alerts-schemas/sample-activity-log-alert.png)](media/alerts-schemas/sample-activity-log-alert.png#lightbox)
+[![Pesquisando o registo de atividade para o evento De Alerta Ativado](media/alerts-schemas/sample-activity-log-alert.png)](media/alerts-schemas/sample-activity-log-alert.png#lightbox)
 
 
-### <a name="sample-json-for-alerts-sent-to-azure-activity-log"></a>Amostra JSON para alertas enviados para Registo de Atividades do Azure
+### <a name="sample-json-for-alerts-sent-to-azure-activity-log"></a>Amostra JSON para alertas enviados para Registo de Atividades Azure
 
 ```json
 {
@@ -143,26 +143,26 @@ Pode visualizar os alertas de segurança em eventos no Registo de Atividade, pro
 |Campo|Descrição|
 |----|----|
 |**canais**|Constante, "Operação"|
-|**coralaid**|O Id de alerta do Centro de Segurança Azure|
+|**correlationId**|O alerta do Centro de Segurança Azure ID|
 |**descrição**|Descrição do alerta|
-|**eventoDataId**|Ver correlationid|
-|**nome de evento**|Os subcampos value e localizados Contêm o nome do visor de alerta|
-|**categoria**|Os subcampos de valor e valor localizadosão constantes - "Segurança"|
-|**eventoTimestamp**|Carimbo de tempo UTC para quando o alerta foi gerado|
-|**ID**|O ID de alerta totalmente qualificado|
+|**eventDataId**|Ver correlationId|
+|**nome de evento**|Os subcampos de valor e de Valor Localizados contêm o nome de exibição de alerta|
+|**categoria**|Os subcampos de valor e de valor localizados são constantes - "Segurança"|
+|**eventTimestamp**|Calendário utc para quando o alerta foi gerado|
+|**id**|O ID de alerta totalmente qualificado|
 |**nível**|Constante, "Informacional"|
-|**operaçãoId**|Ver correlationid|
-|**operaçãoNome**|O campo de valor é constante - "Microsoft.Security/locations/alerts/activate/action", e o valor localizado será "Activate Alert" (pode potencialmente ser localizado par o local do utilizador)|
+|**operationId**|Ver correlationId|
+|**operaçãoName**|O campo de valor é constante - "Microsoft.Security/locations/alerts/activate/action", e o valor localizado será "Alert Ativado" (pode potencialmente ser localizado em par do local do utilizador)|
 |**resourceGroupName**|Incluirá o nome do grupo de recursos|
-|**nome fornecedor de recursos**|Os subcampos de valor e valor localizados são constantes - "Microsoft.Security"|
-|**recursosType**|Os subcampos de valor e valor localizados são constantes - "Microsoft.Security/locations/alerts"|
+|**nome de recursoProviderName**|Os subcampos de valor e de valor localizados são constantes - "Microsoft.Security"|
+|**RecursosType**|Os subcampos de valor e de valor localizados são constantes - "Microsoft.Security/locations/alerts"|
 |**recursosId**|O ID de recurso Azure totalmente qualificado|
-|**estado**|Os subcampos de valor e valor localizados são constantes - "Ativo"|
-|**subEstatuto**|Os subcampos de valor e valor localizados estão vazios|
-|**submissãoTimestamp**|O carimbo de tempo utc da submissão do evento ao Registo de Atividades|
-|**subscriptionId**|A identificação de subscrição do recurso comprometido|
-|**propriedades**|Um saco JSON de propriedades adicionais relacionadas com o alerta. Estes podem mudar de um alerta para o outro, no entanto, os seguintes campos aparecerão em todos os alertas:<br>- gravidade: A gravidade do ataque<br>- Entidade comprometida: O nome do recurso comprometido<br>- remediaçãoPassos: Conjunto de medidas de reparação a tomar<br>- intenção: A intenção de matar o alerta. Possíveis intenções estão documentadas na [tabela Intenções](alerts-reference.md#intentions)|
-|**relacionadoSEventos**|Constante - matriz vazia|
+|**estado**|Os subcampos de valor e de valor localizados são constantes - "Ative"|
+|**subStatus**|Os subcampos de valor e de Valor Localizados estão vazios|
+|**submissãoTimestamp**|O calendário utc de submissão de eventos ao Registo de Atividades|
+|**subscriçãoId**|O ID de subscrição do recurso comprometido|
+|**propriedades**|Um saco JSON de propriedades adicionais pertencentes ao alerta. Estes podem mudar de um alerta para o outro, no entanto, os seguintes campos aparecerão em todos os alertas:<br>- gravidade: A gravidade do ataque<br>- Entidade comprometida: O nome do recurso comprometido<br>- reparaçãoSteps: Matriz de medidas de reparação a tomar<br>- intenção: a intenção da cadeia de morte do alerta. Possíveis intenções estão documentadas na [tabela Intenções](alerts-reference.md#intentions)|
+|**relacionadosTevents**|Constante - matriz vazia|
 |||
 
 
@@ -171,20 +171,20 @@ Pode visualizar os alertas de segurança em eventos no Registo de Atividade, pro
 
 ### <a name="ms-graph-api"></a>[MS Graph API](#tab/schema-graphapi)
 
-O Microsoft Graph é a porta de entrada para dados e inteligência no Microsoft 365. Fornece um modelo de programabilidade unificado que pode utilizar para aceder à enorme quantidade de dados no Office 365, Windows 10 e Enterprise Mobility + Security. Use a riqueza de dados no Microsoft Graph para construir apps para organizações e consumidores que interagem com milhões de utilizadores.
+O Microsoft Graph é a porta de entrada para dados e inteligência na Microsoft 365. Fornece um modelo de programabilidade unificado que pode utilizar para aceder à enorme quantidade de dados no Microsoft 365, Windows 10 e Enterprise Mobility + Security. Use a riqueza de dados no Microsoft Graph para construir apps para organizações e consumidores que interagem com milhões de utilizadores.
 
-O esquema e uma representação da JSON para alertas de segurança enviados para o MS Graph, estão disponíveis na [documentação do Microsoft Graph](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0).
+O esquema e uma representação JSON para alertas de segurança enviados para o MS Graph, estão disponíveis [na documentação do Microsoft Graph](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0).
 
 ---
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Este artigo descreveu os esquemas que as ferramentas de proteção contra ameaças do Azure Security Center usam ao enviar informações de alerta de segurança.
+Este artigo descreveu os esquemas que as ferramentas de proteção de ameaças do Azure Security Center usam ao enviar informações de alerta de segurança.
 
 Para obter mais informações sobre as formas de aceder a alertas de segurança de fora do Centro de Segurança, consulte as seguintes páginas:
 
-- [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/) - SIEM nativo da nuvem da Microsoft
+- [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/) - SIEM nativo da Nuvem da Microsoft
 - [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) - Serviço de ingestão de dados totalmente gerido e em tempo real da Microsoft
-- Característica contínua de [exportação](continuous-export.md) do Centro de Segurança
-- [Log Analytics espaços de trabalho](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) - Azure Monitor armazena dados de log num espaço de trabalho log Analytics, um recipiente que inclui dados e informações de configuração
+- Recurso de [exportação contínua](continuous-export.md) do Centro de Segurança
+- [Log Analytics workspaces](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) - Azure Monitor armazena dados de registo num espaço de trabalho Log Analytics, um recipiente que inclui informações de dados e configuração

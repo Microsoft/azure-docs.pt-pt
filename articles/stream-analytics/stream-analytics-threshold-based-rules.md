@@ -1,48 +1,48 @@
 ---
 title: Regras configuráveis baseadas em limiares no Azure Stream Analytics
-description: Este artigo descreve como usar dados de referência para obter uma solução de alerta que tem regras baseadas em limiarconfiguráveis no Azure Stream Analytics.
+description: Este artigo descreve como usar dados de referência para alcançar uma solução de alerta que tem regras baseadas em limiares configuráveis no Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2018
-ms.openlocfilehash: 94fdddf11acb6763ed98a4b7e17304fbde0e25dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 215835bf7f1e6676adba6541da70dcb86fc3500c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75369716"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039046"
 ---
-# <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Processe regras baseadas em limiares configuráveis no Azure Stream Analytics
-Este artigo descreve como usar dados de referência para obter uma solução de alerta que utiliza regras configuráveis baseadas em limiares no Azure Stream Analytics.
+# <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Regras baseadas em limiar de processos configuráveis no Azure Stream Analytics
+Este artigo descreve como usar dados de referência para alcançar uma solução de alerta que utiliza regras baseadas em limiares configuráveis no Azure Stream Analytics.
 
-## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Cenário: Alerta com base em limiares de regras ajustáveis
-Pode ser necessário produzir um alerta como saída quando os eventos streamed de entrada atingirem um determinado valor, ou quando um valor agregado baseado nos eventos streamed de entrada exceder um determinado limiar. É simples configurar uma consulta de Stream Analytics que comparou o valor a um limiar estático que é fixo e pré-determinado. Um limiar fixo pode ser codificado duramente na sintaxe de consulta de streaming utilizando comparações numéricas simples (maiores do que, menos do que, e igualdade).
+## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Cenário: Alerta com base nos limiares de regras ajustáveis
+Poderá ter de produzir um alerta como saída quando os eventos transmitidos por entrada atingirem um determinado valor, ou quando um valor agregado baseado nos eventos transmitidos de entrada excede um determinado limiar. É simples configurar uma consulta stream Analytics que comparou o valor a um limiar estático que é fixo e pré-determinado. Um limiar fixo pode ser codificado duramente na sintaxe de consulta de streaming utilizando comparações numéricas simples (maiores do que, menos do que, e igualdade).
 
-Em alguns casos, os valores-limiar devem ser mais facilmente configuráveis sem editar a sintaxe de consulta cada vez que um valor limiar muda. Noutros casos, pode necessitar de inúmeros dispositivos ou utilizadores processados pela mesma consulta, com cada um deles a ter um valor de limiar diferente em cada tipo de dispositivo. 
+Em alguns casos, os valores limiar devem ser mais facilmente configuráveis sem editar a sintaxe de consulta cada vez que um valor limiar muda. Noutros casos, poderá necessitar de inúmeros dispositivos ou utilizadores processados pela mesma consulta, com cada um deles a ter um limiar diferente em cada tipo de dispositivo. 
 
-Este padrão pode ser usado para configurar dinamicamente os limiares, escolher seletivamente que tipo de dispositivo o limiar aplica filtrando os dados de entrada e escolher seletivamente quais os campos a incluir na saída.
+Este padrão pode ser usado para configurar dinamicamente os limiares, escolher seletivamente que tipo de dispositivo o limiar aplica através da filtragem dos dados de entrada e escolher seletivamente quais os campos a incluir na saída.
 
 ## <a name="recommended-design-pattern"></a>Padrão de design recomendado
-Utilize uma entrada de dados de referência para um trabalho de Stream Analytics como uma análise dos limiares de alerta:
-- Guarde os valores-limiar nos dados de referência, um valor por chave.
-- Junte os eventos de entrada de dados de streaming aos dados de referência na coluna chave.
-- Utilize o valor-chave dos dados de referência como valor-limiar.
+Utilize uma entrada de dados de referência para um trabalho do Stream Analytics como uma análise dos limiares de alerta:
+- Armazenar os valores-limiar nos dados de referência, um valor por chave.
+- Junte os eventos de entrada de dados de streaming aos dados de referência na coluna-chave.
+- Utilize o valor de teclas a partir dos dados de referência como valor limiar.
 
-## <a name="example-data-and-query"></a>Dados de exemplo e consulta
+## <a name="example-data-and-query"></a>Exemplo de dados e consulta
 No exemplo, os alertas são gerados quando o agregado de dados que são transmitidos a partir de dispositivos numa janela de minutos corresponde aos valores estipulados na regra fornecida como dados de referência.
 
-Na consulta, para cada dispositivoId, e cada nome métrico sob o dispositivoId, pode configurar de 0 a 5 dimensões para GROUP BY. Apenas os eventos com os valores de filtro correspondentes são agrupados. Uma vez agrupados, janelas de Min, Max, Avg, são calculados sobre uma janela de queda de 60 segundos. Os filtros dos valores agregados são então calculados de acordo com o limiar configurado na referência, para gerar o evento de saída de alerta.
+Na consulta, para cada dispositivoId, e cada nome métrico sob o dispositivoId, pode configurar de 0 a 5 dimensões para GROUP BY. Apenas os eventos com os valores do filtro correspondentes são agrupados. Uma vez agrupados, os agregados de Min, Max, Avg, são calculados ao longo de uma janela de 60 segundos. Os filtros nos valores agregados são então calculados de acordo com o limiar configurado na referência, para gerar o evento de saída de alerta.
 
-Como exemplo, assuma que há um trabalho de Stream Analytics que tem uma entrada de dados de referência denominada **regras**, e transmissão de dados de entrada de dados chamadas **métricas**. 
+Como exemplo, assuma que existe um trabalho de Stream Analytics que tem uma entrada de dados de referência denominada **regras**, e streaming de **dados denominados métricas**. 
 
 ## <a name="reference-data"></a>Dados de referência
-Estes dados de referência mostram como uma regra baseada no limiar pode ser representada. Um ficheiro JSON contém os dados de referência e é guardado no armazenamento de blob Azure, e esse recipiente de armazenamento blob é usado como uma entrada de dados de referência denominada **regras**. Pode substituir este ficheiro JSON e substituir a configuração da regra à medida que o tempo passa, sem parar ou iniciar o trabalho de streaming.
+Este exemplo de dados de referência mostra como uma regra baseada em limiares poderia ser representada. Um ficheiro JSON contém os dados de referência e é guardado no armazenamento de bolhas Azure, e esse recipiente de armazenamento de bolhas é usado como uma entrada de dados de referência denominada **regras**. Pode substituir este ficheiro JSON e substituir a configuração da regra à medida que o tempo passa, sem parar ou iniciar o trabalho de streaming.
 
-- A regra do exemplo é usada para representar um alerta ajustável quando o `90` CPU excede (a média é maior ou igual a) o valor por cento. O `value` campo é configurável conforme necessário.
-- Note que a regra tem um campo **de operador,** que é `AVGGREATEROREQUAL`dinamicamente interpretado na sintaxe de consulta mais tarde . 
-- A regra filtra os dados numa `2` determinada `C1`chave de dimensão com valor . Outros campos são de cadeia vazia, indicando não filtrar o fluxo de entrada por esses campos de eventos. Pode criar regras adicionais de CPU para filtrar outros campos correspondentes, se necessário.
-- Nem todas as colunas devem ser incluídas no evento de alerta de saída. Neste caso, `includedDim` o `2` número-chave é ligado `TRUE` para representar que o campo número 2 dos dados do evento no fluxo será incluído nos eventos de saída de qualificação. Os outros campos não estão incluídos na saída de alerta, mas a lista de campo pode ser ajustada.
+- A regra do exemplo é usada para representar um alerta ajustável quando a CPU excede (a média é maior ou igual a) o valor `90` por cento. O `value` campo é configurável conforme necessário.
+- Note que a regra tem um campo **de operador,** que é interpretado dinamicamente na sintaxe de consulta mais tarde `AVGGREATEROREQUAL` . 
+- A regra filtra os dados numa determinada tecla de dimensão `2` com valor `C1` . Outros campos são de corda vazia, indicando para não filtrar o fluxo de entrada por esses campos de evento. Pode criar regras adicionais de CPU para filtrar outros campos correspondentes, se necessário.
+- Nem todas as colunas devem ser incluídas no evento de alerta de saída. Neste caso, `includedDim` o número-chave `2` é ligado para representar que o número de campo `TRUE` 2 dos dados do evento no stream será incluído nos eventos de saída qualificados. Os outros campos não estão incluídos na saída de alerta, mas a lista de campo pode ser ajustada.
 
 
 ```json
@@ -71,7 +71,7 @@ Estes dados de referência mostram como uma regra baseada no limiar pode ser rep
 ```
 
 ## <a name="example-streaming-query"></a>Consulta de streaming de exemplo
-Esta consulta de exemplo Stream Analytics junta os dados de referência das **regras** do exemplo acima, a um fluxo de entrada de dados **nomeados métricas**.
+Este exemplo A consulta stream Analytics une as **regras** de referência dados do exemplo acima, a um fluxo de entrada de **métricas nomeadas**.
 
 ```sql
 WITH transformedInput AS
@@ -131,14 +131,14 @@ HAVING
     )
 ```
 
-## <a name="example-streaming-input-event-data"></a>Exemplo de dados de eventos de entrada de entrada
-Este exemplo, os dados da JSON representam os dados de entrada de **métricas** que são utilizados na consulta de streaming acima. 
+## <a name="example-streaming-input-event-data"></a>Exemplo de streaming de dados de eventos de entrada
+Este exemplo de dados JSON representa os dados de entrada **de métricas** que são usados na consulta de streaming acima. 
 
-- Três eventos de exemplo são listados dentro `T14:50`do tempo de 1 minuto, valor . 
-- Todos os três `deviceId` `978648`têm o mesmo valor.
-- Os valores métricos do `98`CPU variam em cada evento, `95` `80` respectivamente. Apenas os dois primeiros exemplos de eventos excedem a regra de alerta da CPU estabelecida na regra.
-- O campo incluídoDim na regra de alerta era a chave número 2. O campo chave 2 correspondente nos `NodeName`eventos de exemplo é nomeado . Os eventos de `N024` `N024`três `N014` exemplos têm valores, e respectivamente. Na saída, vê apenas `N024` o nó, pois são os únicos dados que correspondem aos critérios de alerta para cpu elevado. `N014`não satisfaz o limiar elevado da CPU.
-- A regra de alerta `filter` é configurada com apenas no `cluster` número 2 da chave, que corresponde ao campo nos eventos da amostra. Os eventos de `C1` três exemplos têm valor e correspondem aos critérios do filtro.
+- Três exemplos de eventos são listados dentro do intervalo de 1 minuto, valor `T14:50` . 
+- Os três têm o mesmo `deviceId` `978648` valor.
+- Os valores métricos da CPU variam em cada evento, `98` `95` `80` respectivamente. Apenas os dois primeiros exemplos de eventos excedem a regra de alerta do CPU estabelecida na regra.
+- O campo incluindo oDim na regra de alerta era a chave número 2. O campo de tecla 2 correspondente nos eventos de exemplo é nomeado `NodeName` . Os três exemplos de eventos têm valores `N024` `N024` , `N014` e, respectivamente. Na saída, você vê apenas o nó `N024` como que são os únicos dados que correspondem aos critérios de alerta para CPU elevado. `N014`não satisfaz o limiar elevado da CPU.
+- A regra de alerta é configurada com um `filter` apenas na chave número 2, que corresponde ao `cluster` campo nos eventos da amostra. Os três exemplos de eventos têm valor `C1` e correspondem aos critérios do filtro.
 
 ```json
 {
@@ -282,7 +282,7 @@ Este exemplo, os dados da JSON representam os dados de entrada de **métricas** 
 ```
 
 ## <a name="example-output"></a>Saída de exemplo
-Estes dados de saída de exemplo JSON mostram que um único evento de alerta foi produzido com base na regra limiar do CPU definida nos dados de referência. O evento de saída contém o nome do alerta, bem como o agregado (médio, min, máx) dos campos considerados. Os dados do evento de `NodeName` `N024` saída incluem o valor da chave de campo número 2 devido à configuração da regra. (O JSON foi alterado para mostrar quebras de linha para a legibilidade.)
+Este exemplo de saída Os dados do JSON mostram que foi produzido um único evento de alerta com base na regra do limiar da CPU definida nos dados de referência. O evento de saída contém o nome do alerta, bem como o agregado (médio, min, máx) dos campos considerados. Os dados do evento de saída incluem o valor da chave de campo número 2 `NodeName` `N024` devido à configuração da regra. (O JSON foi alterado para mostrar quebras de linha para a legibilidade.)
 
 ```JSON
 {"time":"2018-05-01T02:03:00.0000000Z","deviceid":"978648","ruleid":1234,"metric":"CPU",

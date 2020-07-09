@@ -1,5 +1,5 @@
 ---
-title: Cobertura de tráfego Microsoft Azure Maps
+title: Cobertura de tráfego / Microsoft Azure Maps
 description: Neste artigo, você vai aprender sobre cobertura de tráfego no Microsoft Azure Maps.
 author: philmea
 ms.author: philmea
@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 836a924bb371aaf2879e951501c6febbe51e182e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80333950"
 ---
-# <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego do Azure Maps
+# <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego Azure Maps
 
-A Azure Maps fornece informações ricas sobre o tráfego sob a forma de **fluxo** de tráfego e **incidentes.** Estes dados podem ser visualizados em mapas ou utilizados para gerar rotas mais inteligentes que fator em condições reais de condução.
+O Azure Maps fornece informações ricas sobre tráfego sob a forma de **fluxo** de tráfego e **incidentes.** Estes dados podem ser visualizados em mapas ou usados para gerar rotas mais inteligentes que fator em condições reais de condução.
 
-No entanto, o Maps não tem o mesmo nível de informação e precisão para todos os países ou regiões. A tabela seguinte fornece informações sobre que tipo de informações de tráfego pode solicitar de cada país ou região: 
+No entanto, o Maps não tem o mesmo nível de informação e precisão para todos os países ou regiões. A tabela seguinte fornece informações sobre o tipo de informações de tráfego que pode solicitar a cada país ou região: 
 
 ## <a name="americas"></a>Américas
 
@@ -32,7 +32,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para todo
 |Colômbia      |✓         |✓         |
 |México     |✓         |✓         |
 |Peru       |✓         |✓         | 
-|Estados Unidos     |✓         |✓        |
+|Estados Unidos da América     |✓         |✓        |
 |+Porto Rico     |✓         |✓         |
 |Uruguai |✓         |✓         |
 
@@ -43,7 +43,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para todo
 |---------|:---------:|:---------:|
 |Austrália     |✓         |✓        |
 |Brunei   |✓         |✓        |
-|RAE de Hong Kong     |✓         |✓         |
+|R.A.E. de Hong Kong     |✓         |✓         |
 |Índia   |✓         |✓         |
 |Indonésia     |✓         |✓         |
 |Cazaquistão    |✓         |✓         |
@@ -84,7 +84,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para todo
 |Cazaquistão    |✓         |✓        |
 |Letónia     |✓         |✓         |
 |Lesoto     |✓         |✓         |
-|Liechtenstein      |✓         |✓         |
+|Listenstaine      |✓         |✓         |
 |Lituânia     |✓         |✓         |
 |Luxemburgo     |✓         |✓         |
 |Malta     |✓         |✓         |
@@ -123,7 +123,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para todo
 |Egito     |✓         |✓         |
 |Israel     |✓         |✓         |
 |Quénia     |✓         |✓         |
-|Kuwait     |✓         |✓         |
+|Koweit     |✓         |✓         |
 |Marrocos     |✓         |✓         |
 |Moçambique  |✓         |✓         |
 |Nigéria   |✓        |✓        |

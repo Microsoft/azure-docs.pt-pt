@@ -1,22 +1,24 @@
 ---
-title: Implantação condicional com modelos
-description: Descreve como implantar condicionalmente um recurso num modelo de Gestor de Recursos Azure.
+title: Implementação condicional com modelos
+description: Descreve como implementar um recurso condicionalmente num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: 001a1a7d6d15fe29b0f3184b75892f4ec75cef27
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.date: 06/01/2020
+ms.openlocfilehash: effa7fe6ee1393e44a124bc087609da5d4898210
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017499"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259325"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Implantação condicional em modelos ARM
 
-Por vezes, é necessário implementar opcionalmente um recurso num modelo de Gestor de Recursos Azure (ARM). Utilize o `condition` elemento para especificar se o recurso está implantado. O valor deste elemento resolve-se a verdade ou a ser falso. Quando o valor é verdadeiro, o recurso é criado. Quando o valor é falso, o recurso não é criado. O valor só pode ser aplicado a todo o recurso.
+Por vezes, é necessário implantar opcionalmente um recurso num modelo Azure Resource Manager (ARM). Utilize o `condition` elemento para especificar se o recurso é implantado. O valor deste elemento resolve-se a verdade ou falso. Quando o valor é verdadeiro, o recurso é criado. Quando o valor é falso, o recurso não é criado. O valor só pode ser aplicado a todo o recurso.
+
+> [!NOTE]
+> A implantação condicional não se cascata para [os recursos infantis.](child-resource-name-type.md) Se pretender implantar condicionalmente um recurso e os seus recursos para crianças, deve aplicar a mesma condição a cada tipo de recurso.
 
 ## <a name="new-or-existing-resource"></a>Recurso novo ou existente
 
-Pode utilizar a implantação condicional para criar um novo recurso ou utilizar um existente. O exemplo seguinte mostra como usar a condição para implementar uma nova conta de armazenamento ou usar uma conta de armazenamento existente.
+Pode utilizar a implementação condicional para criar um novo recurso ou utilizar um existente. O exemplo a seguir mostra como usar a condição para implantar uma nova conta de armazenamento ou usar uma conta de armazenamento existente.
 
 ```json
 {
@@ -33,13 +35,13 @@ Pode utilizar a implantação condicional para criar um novo recurso ou utilizar
 }
 ```
 
-Quando o **parâmetro novoOrExisting** está definido para **novo,** a condição avalia-se verdadeiramente. A conta de armazenamento está implantada. No entanto, quando o **novo OrExisting** está definido para **existir,** a condição avalia para falso e a conta de armazenamento não é implementada.
+Quando o **novo parâmetroOrExisting** é definido como **novo,** a condição avalia-se a verdade. A conta de armazenamento está implantada. No entanto, quando o **novoOrExisting** está definido para **existir,** a condição avalia-se em falso e a conta de armazenamento não é implantada.
 
-Para um modelo de exemplo completo que utiliza o `condition` elemento, consulte [VM com uma rede virtual nova ou existente, armazenamento e IP público.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions)
+Para obter um modelo de exemplo completo que utilize o `condition` elemento, consulte [VM com uma rede virtual nova ou existente, armazenamento e IP público.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions)
 
-## <a name="allow-condition"></a>Permitir condição
+## <a name="allow-condition"></a>Permitir a condição
 
-Pode passar num valor de parâmetro que indique se uma condição é permitida. O exemplo seguinte implementa um servidor SQL e permite opcionalmente iPs Azure.
+Pode passar num valor de parâmetro que indique se uma condição é permitida. O exemplo a seguir implementa um servidor SQL e permite opcionalmente IPs Azure.
 
 ```json
 {
@@ -71,21 +73,21 @@ Pode passar num valor de parâmetro que indique se uma condição é permitida. 
 }
 ```
 
-Para obter o modelo completo, consulte o [servidor lógico Azure SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server).
+Para obter o modelo completo, consulte [o servidor lógico Azure SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server).
 
-## <a name="runtime-functions"></a>Funções de tempo de funcionamento
+## <a name="runtime-functions"></a>Funções de tempo de execução
 
-Se utilizar uma função de [referência](template-functions-resource.md#reference) ou [lista](template-functions-resource.md#list) com um recurso que é implantado condicionalmente, a função é avaliada mesmo que o recurso não seja implantado. Obtém-se um erro se a função se referir a um recurso que não existe.
+Se utilizar uma função [de referência](template-functions-resource.md#reference) ou [lista](template-functions-resource.md#list) com um recurso que esteja implantado condicionalmente, a função é avaliada mesmo que o recurso não seja implantado. Obtém-se um erro se a função se referir a um recurso que não existe.
 
-Utilize a função [se](template-functions-logical.md#if) para se certificar de que a função só é avaliada para as condições em que o recurso é implantado. Consulte a [função se](template-functions-logical.md#if) para um modelo de amostra que utiliza se e referência com um recurso implantado condicionalmente.
+Utilize a função [se](template-functions-logical.md#if) funcionar para se certificar de que a função só é avaliada para as condições quando o recurso é implantado. Consulte a [função se](template-functions-logical.md#if) for para um modelo de amostra que utiliza se e referenciar com um recurso implantado condicionalmente.
 
-Você define um [recurso tão dependente](define-resource-dependency.md) de um recurso condicional exatamente como qualquer outro recurso. Quando um recurso condicional não é implantado, o Gestor de Recursos Azure remove-o automaticamente das dependências necessárias.
+Define um [recurso tão dependente](define-resource-dependency.md) de um recurso condicional exatamente como qualquer outro recurso. Quando um recurso condicional não é implantado, o Azure Resource Manager remove-o automaticamente das dependências necessárias.
 
-## <a name="condition-with-complete-mode"></a>Condição com modo completo
+## <a name="complete-mode"></a>Modo completo
 
-Se implementar um modelo com [o modo completo](deployment-modes.md) e um recurso não for implantado porque a condição avalia falsamente, o resultado depende da versão REST API que utilizar para implementar o modelo. Se utilizar uma versão mais cedo do que 2019-05-10, o recurso **não é apagado**. Com 2019-05-10 ou mais tarde, o recurso **é apagado.** As versões mais recentes do Azure PowerShell e do Azure CLI apagam o recurso quando a condição é falsa.
+Se implementar um modelo com [o modo completo](deployment-modes.md) e um recurso não for implantado porque a condição avalia falsamente, o resultado depende da versão API DO REST que utiliza para implementar o modelo. Se utilizar uma versão anterior a 2019-05-10, o recurso **não é eliminado**. Com 2019-05-10 ou posteriormente, o recurso **é eliminado.** As versões mais recentes do Azure PowerShell e do Azure CLI apagam o recurso quando a condição é falsa.
 
 ## <a name="next-steps"></a>Próximos passos
 
-* Para recomendações sobre a criação de modelos, consulte [as melhores práticas](template-best-practices.md)do modelo ARM.
-* Para criar várias instâncias de um recurso, consulte a [iteração de recursos nos modelos ARM](copy-resources.md).
+* Para recomendações sobre a criação de modelos, consulte [as melhores práticas do modelo ARM](template-best-practices.md).
+* Para criar múltiplas instâncias de um recurso, consulte [a iteração de recursos nos modelos ARM](copy-resources.md).

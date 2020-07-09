@@ -9,32 +9,32 @@ ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
-ms.openlocfilehash: 4854d5ff9d697a2bf082a788c0e761a2152b0294
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: d29500db5efd0abde4c9555fde9a7e3d5bbe070a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758712"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564987"
 ---
 # <a name="graphics-binding"></a>Ligação gráfica
 
 Para poder utilizar a Renderização Remota Azure numa aplicação personalizada, tem de ser integrada no pipeline de renderização da aplicação. Esta integração é da responsabilidade da ligação gráfica.
 
-Uma vez configurada, a ligação gráfica dá acesso a várias funções que afetam a imagem renderizada. Estas funções podem ser separadas em duas categorias: funções gerais que estão sempre disponíveis e funções específicas que só são relevantes para os selecionados `Microsoft.Azure.RemoteRendering.GraphicsApiType` .
+Uma vez configurado, a ligação gráfica dá acesso a várias funções que afetam a imagem renderizada. Estas funções podem ser separadas em duas categorias: funções gerais sempre disponíveis e funções específicas que só são relevantes para os selecionados `Microsoft.Azure.RemoteRendering.GraphicsApiType` .
 
-## <a name="graphics-binding-in-unity"></a>Ligação gráfica em Unidade
+## <a name="graphics-binding-in-unity"></a>Ligação gráfica na Unidade
 
-Em Unidade, toda a ligação é tratada pela `RemoteUnityClientInit` estrutura passada para `RemoteManagerUnity.InitializeManager` . Para definir o modo gráfico, o campo tem de `GraphicsApiType` ser definido para a ligação escolhida. O campo será automaticamente povoado dependendo da presença de um XRDevice. O comportamento pode ser manualmente ultrapassado com os seguintes comportamentos:
+Em Unidade, toda a ligação é tratada pela `RemoteUnityClientInit` estrutura passada em `RemoteManagerUnity.InitializeManager` . Para definir o modo gráfico, o `GraphicsApiType` campo tem de ser definido para a ligação escolhida. O campo será automaticamente povoado dependendo se um XRDevice está presente. O comportamento pode ser manualmente ultrapassado com os seguintes comportamentos:
 
-* **HoloLens 2**: a ligação gráfica [da Realidade Mista do Windows](#windows-mixed-reality) é sempre utilizada.
-* **Aplicação de ambiente de trabalho UWP plana**: [A simulação](#simulation) é sempre usada. Para utilizar este modo, certifique-se de seguir os passos no [Tutorial: Configurar um projeto de Unidade do zero](../tutorials/unity/project-setup.md).
-* **Editor de unidade**: [A simulação](#simulation) é sempre usada a menos que um auricular WMR VR esteja ligado, caso em que a ARR será desativada para permitir depurar as partes não relacionadas com o ARR da aplicação. Ver também [remografia holográfica.](../how-tos/unity/holographic-remoting.md)
+* **HoloLens 2**: é sempre utilizada a ligação com gráficos [de realidade mista do Windows.](#windows-mixed-reality)
+* **Aplicativo de ambiente de trabalho UWP plano**: [A simulação](#simulation) é sempre usada.
+* **Editor de unidade**: [A simulação](#simulation) é sempre utilizada a menos que um auricular WMR VR esteja ligado, caso em que o ARR será desativado para permitir depurar as partes não relacionadas com ARR da aplicação. Consulte também [a remoing holográfico.](../how-tos/unity/holographic-remoting.md)
 
 A única outra parte relevante para a Unidade é o acesso à [ligação básica,](#access)todas as outras secções abaixo podem ser ignoradas.
 
-## <a name="graphics-binding-setup-in-custom-applications"></a>Configuração de ligação gráfica em aplicações personalizadas
+## <a name="graphics-binding-setup-in-custom-applications"></a>Configuração de ligação de gráficos em aplicações personalizadas
 
-Para selecionar uma ligação gráfica, dê os seguintes dois passos: Primeiro, a ligação gráfica tem de ser inicializada estáticaquando o programa é inicializado:
+Para selecionar uma ligação gráfica, dê os seguintes dois passos: Primeiro, a ligação gráfica tem de ser inicializada estática quando o programa é inicializado:
 
 ```cs
 RemoteRenderingInitialization managerInit = new RemoteRenderingInitialization;
@@ -52,11 +52,11 @@ managerInit.right = ///...
 StartupRemoteRendering(managerInit); // static function in namespace Microsoft::Azure::RemoteRendering
 ```
 
-A chamada acima é necessária para inicializar a renderização remota azure nas APIs holográficas. Esta função deve ser chamada antes de qualquer API holográfico ser chamada e antes de qualquer outra APIs de renderização remota ser acedida. Da mesma forma, a função de desinite correspondente deve ser chamada depois de `RemoteManagerStatic.ShutdownRemoteRendering();` já não serem chamadas APIs holográficas.
+A chamada acima é necessária para inicializar a renderização remota do Azure nas APIs holográficas. Esta função deve ser chamada antes de qualquer API holográfica ser chamada e antes de qualquer outra APIs de renderização remota ser acedida. Da mesma forma, a função de desativação correspondente `RemoteManagerStatic.ShutdownRemoteRendering();` deve ser chamada depois de já não serem chamadas APIs holográficas.
 
-## <a name="span-idaccessaccessing-graphics-binding"></a><span id="access">Acesso à ligação gráfica
+## <a name="span-idaccessaccessing-graphics-binding"></a><span id="access">Acesso à ligação de gráficos
 
-Uma vez configurado um cliente, a ligação gráfica básica pode ser acedida com o `AzureSession.GraphicsBinding` getter. Como exemplo, as estatísticas do último quadro podem ser recuperadas desta forma:
+Uma vez configurado um cliente, a ligação gráfica básica pode ser acedida com o `AzureSession.GraphicsBinding` getter. Como exemplo, as últimas estatísticas de quadros podem ser recuperadas desta forma:
 
 ```cs
 AzureSession currentSession = ...;
@@ -84,16 +84,16 @@ if (ApiHandle<GraphicsBinding> binding = currentSession->GetGraphicsBinding())
 
 ## <a name="graphic-apis"></a>APIs gráficos
 
-Existem atualmente duas APIs gráficas que podem ser selecionadas, `WmrD3D11` e `SimD3D11` . Um terceiro `Headless` existe, mas ainda não é apoiado do lado do cliente.
+Existem atualmente duas APIs gráficos que podem ser selecionadas, `WmrD3D11` e `SimD3D11` . Um terceiro `Headless` existe, mas ainda não é apoiado do lado do cliente.
 
 ### <a name="windows-mixed-reality"></a>Windows Mixed Reality
 
-`GraphicsApiType.WmrD3D11`é a ligação padrão para executar em HoloLens 2. Vai criar a `GraphicsBindingWmrD3d11` ligação. Neste modo, os ganchos de renderização remota Azure diretamente nas APIs holográficas.
+`GraphicsApiType.WmrD3D11`é a ligação padrão para executar em HoloLens 2. Vai criar a `GraphicsBindingWmrD3d11` ligação. Neste modo, a Azure Remote Rendering liga-se diretamente às APIs holográficas.
 
-Para aceder às ligações gráficas derivadas, a base tem de `GraphicsBinding` ser lançada.
-Há duas coisas que precisam de ser feitas para usar a ligação WMR:
+Para aceder às ligações gráficas derivadas, a base `GraphicsBinding` tem de ser lançada.
+Há duas coisas que precisam de ser feitas para utilizar a ligação WMR:
 
-#### <a name="inform-remote-rendering-of-the-used-coordinate-system"></a>Informar a renderização remota do sistema de coordenadas usado
+#### <a name="inform-remote-rendering-of-the-used-coordinate-system"></a>Informe a renderização remota do sistema de coordenadas utilizado
 
 ```cs
 AzureSession currentSession = ...;
@@ -116,11 +116,11 @@ if (*wmrBinding->UpdateUserCoordinateSystem(ptr) == Result::Success)
 ```
 
 
-Quando o acima deve ser um indicador de um objeto nativo que define o sistema de `ptr` `ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem` coordenadas espaciais mundiais no qual as coordenadas na API são expressas.
+Quando o acima `ptr` deve ser um ponteiro para um objeto nativo `ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem` que define o sistema de coordenadas espaciais do mundo no qual as coordenadas na API são expressas.
 
 #### <a name="render-remote-image"></a>Render imagem remota
 
-No início de cada quadro, o quadro remoto precisa de ser transformado no tampão traseiro. Isto é feito através da chamada , que preencherá informações de cor e profundidade no alvo de `BlitRemoteFrame` renderização atualmente ligado. Assim, é importante que isto seja feito depois de vincular o tampão traseiro como alvo de renderização.
+No início de cada quadro, a estrutura remota precisa de ser transformada no tampão traseiro. Isto é feito através da chamada `BlitRemoteFrame` , que preencherá a informação de cor e profundidade no alvo de renderização atualmente vinculado. Assim, é importante que isto seja feito depois de encadernar o tampão traseiro como alvo de renderização.
 
 ```cs
 AzureSession currentSession = ...;
@@ -136,12 +136,12 @@ wmrBinding->BlitRemoteFrame();
 
 ### <a name="simulation"></a>Simulação
 
-`GraphicsApiType.SimD3D11`é a ligação de simulação e se selecionada cria a `GraphicsBindingSimD3d11` ligação gráfica. Esta interface é usada para simular o movimento da cabeça, por exemplo, numa aplicação de ambiente de trabalho e torna uma imagem monoscópica.
+`GraphicsApiType.SimD3D11`é a ligação de simulação e, se selecionada, cria a `GraphicsBindingSimD3d11` ligação gráfica. Esta interface é usada para simular o movimento da cabeça, por exemplo, numa aplicação de ambiente de trabalho e torna uma imagem monoscópica.
 A configuração é um pouco mais envolvida e funciona da seguinte forma:
 
-#### <a name="create-proxy-render-target"></a>Criar alvo de renderização proxy
+#### <a name="create-proxy-render-target"></a>Criar alvo de renderização de procuração
 
-O conteúdo remoto e local precisa de ser renderizado para um alvo de renderização de cor/profundidade offscreen chamado 'proxy' utilizando os dados da câmara proxy fornecidos pela `GraphicsBindingSimD3d11.Update` função. O representante deve corresponder à resolução do tampão traseiro. Uma vez que uma sessão esteja pronta, precisa ser chamada antes de `GraphicsBindingSimD3d11.InitSimulation` se ligar a ela:
+O conteúdo remoto e local precisa de ser tornado num alvo de renderização de cor/profundidade fora do ecrã chamado 'proxy' utilizando os dados da câmara proxy fornecidos pela `GraphicsBindingSimD3d11.Update` função. O representante deve corresponder à resolução do tampão traseiro. Uma vez que uma sessão esteja pronta, `GraphicsBindingSimD3d11.InitSimulation` precisa ser chamado antes de ligar a ela:
 
 ```cs
 AzureSession currentSession = ...;
@@ -167,15 +167,15 @@ ApiHandle<GraphicsBindingSimD3d11> simBinding = currentSession->GetGraphicsBindi
 simBinding->InitSimulation(d3dDevice, depth, color, refreshRate, flipBlitRemoteFrameTextureVertically, flipReprojectTextureVertically);
 ```
 
-A função init precisa de ser fornecida com indicações para o dispositivo d3d nativo, bem como para a textura de cor e profundidade do alvo de representação proxy. Uma vez inicializado, `AzureSession.ConnectToRuntime` e pode ser chamado `DisconnectFromRuntime` várias vezes, mas quando mudar para uma sessão diferente, `GraphicsBindingSimD3d11.DeinitSimulation` precisa ser chamado primeiro na sessão antiga antes `GraphicsBindingSimD3d11.InitSimulation` pode ser chamado em outra sessão.
+A função init deve ser fornecida com ponteiros para o dispositivo d3d nativo, bem como para a textura de cor e profundidade do alvo de renderização proxy. Uma vez inicializado, `AzureSession.ConnectToRuntime` e pode ser chamado `DisconnectFromRuntime` várias vezes, mas quando se muda para uma sessão diferente, `GraphicsBindingSimD3d11.DeinitSimulation` precisa ser chamado primeiro na sessão antiga antes `GraphicsBindingSimD3d11.InitSimulation` pode ser convocado em outra sessão.
 
-#### <a name="render-loop-update"></a>Rendertualização de loop
+#### <a name="render-loop-update"></a>Atualização do loop de renderização
 
-A atualização do loop render izado consiste em múltiplas etapas:
+A atualização do loop de renderização consiste em vários passos:
 
-1. Cada quadro, antes de qualquer renderização, `GraphicsBindingSimD3d11.Update` é chamado com a atual transformação da câmara que é enviada para o servidor para ser renderizada. Ao mesmo tempo, a transformação de procuração devolvida deve ser aplicada à câmara de procuração para render no alvo de representação proxy.
-Se a atualização de procuração devolvida `SimulationUpdate.frameId` for nula, ainda não existem dados remotos. Neste caso, em vez de renderizar no alvo de prestação de procuração, qualquer conteúdo local deve ser entregue diretamente ao tampão traseiro utilizando os dados atuais da câmara e os próximos dois passos são ignorados.
-1. O pedido deve agora ligar o alvo de prestação de procuração e chamar `GraphicsBindingSimD3d11.BlitRemoteFrameToProxy` . Isto preencherá a cor remota e a informação de profundidade no alvo de representação. Qualquer conteúdo local pode agora ser entregue no proxy utilizando a transformação da câmara proxy.
+1. Cada frame, antes de qualquer renderização, `GraphicsBindingSimD3d11.Update` é chamada com a transformação da câmara atual que é enviada para o servidor a ser renderizada. Ao mesmo tempo, a transformação de procuração devolvida deve ser aplicada à câmara proxy para renderizar o alvo de renderização.
+Se a atualização de procuração devolvida `SimulationUpdate.frameId` for nula, ainda não existem dados remotos. Neste caso, em vez de renderizar o alvo de renderização proxy, qualquer conteúdo local deve ser entregue diretamente ao tampão traseiro utilizando os dados atuais da câmara e os dois passos seguintes são ignorados.
+1. O pedido deve agora vincular o alvo e a chamada de renderização de procuração `GraphicsBindingSimD3d11.BlitRemoteFrameToProxy` . Isto preencherá a cor remota e a informação de profundidade no alvo de renderização de procuração. Qualquer conteúdo local pode agora ser entregue no proxy utilizando a transformação da câmara proxy.
 1. Em seguida, o tampão traseiro precisa ser amarrado como um alvo de renderização e `GraphicsBindingSimD3d11.ReprojectProxy` chamado em que ponto o tampão traseiro pode ser apresentado.
 
 ```cs
@@ -231,6 +231,6 @@ else
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Tutorial: Criação de um projeto de unidade do zero](../tutorials/unity/project-setup.md)
+* [Tutorial: Visualização remota de modelos renderizados](../tutorials/unity/view-remote-models/view-remote-models.md)

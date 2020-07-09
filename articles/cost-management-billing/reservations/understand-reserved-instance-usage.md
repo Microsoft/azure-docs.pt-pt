@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 5867c4ba7fa1447cbd5d40e15237ae50c24c7168
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e3553515e2cbae007883ad75960aa1c6991926df
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199267"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254553"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Compreender a utilização de reservas do Azure para a sua subscrição individual com a subscrição de tarifas pay as you go
 
@@ -71,7 +71,7 @@ Suponha que está a executar uma Base de Dados SQL de 4.ª geração na região 
 
 ### <a name="statement-section-of-csv-file"></a>Secção de declaração do ficheiro CSV
 
-Filtre pelo nome do medidor **Reserved Instance Usage** (Utilização de Instâncias Reservadas) e selecione a **Meter Category** (Categoria do Medidor) necessária – base de dados Azure SQL (SQL do Azure) ou Azure Cosmos DB. Verá algo semelhante à seguinte captura de ecrã:
+Filtre pelo nome do medidor **Utilização de Instâncias Reservadas** e selecione a **Categoria do Medidor** necessária, Base de Dados SQL do Azure ou Azure Cosmos DB. Verá algo semelhante à seguinte captura de ecrã:
 
 ![Ficheiro CSV para capacidade de reserva da Base de Dados SQL](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 
@@ -83,7 +83,7 @@ Filtre por **Additional Info** (Informações Adicionais) e escreva o seu **Rese
 
 ![Ficheiro CSV para capacidade de reserva da Base de Dados SQL](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
 
-1. O **ReservationId** (ID da Reserva) no campo **Additional Info** (Informações Adicionais) corresponde à reserva de capacidade reservada da Base de Dados SQL aplicada ao recurso da base de dados SQL.
+1. O **ReservationId** no campo **Informações Adicionais** corresponde à reserva de capacidade reservada da Base de Dados SQL aplicada ao recurso da Base de Dados SQL.
 2. O **ConsumptionMeter** (Medidor de Consumo) é o ID do medidor para o recurso da Base de Dados SQL.
 3. O **Meter Id** (ID do Medidor) é o medidor da reserva. O custo deste medidor é de 0 $. Todos os recursos da Base de Dados SQL elegíveis para o desconto de reserva mostram este ID do medidor no ficheiro CSV.
 
@@ -95,9 +95,9 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.m
 
 Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 
-- [O que são as Reservas do Azure?](save-compute-costs-reservations.md)
+- [O que são as reservas do Azure?](save-compute-costs-reservations.md)
 - [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../../sql-database/sql-database-reserved-capacity.md)
+- [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../../azure-sql/database/reserved-capacity-overview.md)
 - [Gerir o Azure Reservations](manage-reserved-vm-instance.md)
 - [Compreender como o desconto das reservas é aplicado](../manage/understand-vm-reservation-charges.md)
 - [Compreender a utilização de reservas na inscrição Enterprise](understand-reserved-instance-usage-ea.md)

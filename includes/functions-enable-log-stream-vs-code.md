@@ -11,12 +11,12 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/27/2020
 ms.locfileid: "68669781"
 ---
-Para ligar os registos de streaming da sua aplicação de funções em Azure:
+Para ativar os registos de transmissão em fluxo para a sua aplicação de funções no Azure:
 
-1. Selecione F1 para abrir a paleta de comando e, em seguida, procure e execute as funções de comando **Azure: Inicie os registos de streaming**.
+1. Selecione F1 para abrir a paleta de comandos e, em seguida, procure e execute o comando **Funções do Azure: Iniciar Registos de Transmissão em Fluxo**.
 
-1. Selecione a sua aplicação de funções no Azure e, em seguida, selecione **Sim** para ativar o registo de aplicações para a aplicação de funções.
+1. Selecione a sua aplicação de funções no Azure e, em seguida, selecione **Sim** para ativar o registo de aplicações da aplicação de funções.
 
-1. Desencadeie as suas funções em Azure. Note que os dados de registo são apresentados na janela output no Código do Estúdio Visual.
+1. Acione as suas funções no Azure. Note que os dados de registo são apresentados na janela Output (Saída) no Visual Studio Code.
 
-1. Quando terminar, lembre-se de executar as funções de comando **Azure: Pare** de transmitir registos para desativar o registo da aplicação de função.
+1. Quando terminar, lembre-se de executar o comando **Funções do Azure: Parar Registos de Transmissão em Fluxo** para desativar o registo da aplicação de funções.

@@ -1,62 +1,80 @@
 ---
-title: Descodificação lógica - Base de Dados Azure para PostgreSQL - Servidor Único
-description: Descreve a descodificação lógica e o wal2json para a captura de dados de alteração na Base de Dados Azure para PostgreSQL - Servidor Único
+title: Descoding lógica - Base de Dados Azure para PostgreSQL - Servidor Único
+description: Descreve a descodagem lógica e o wal2json para a captura de dados de alteração na Base de Dados Azure para PostgreSQL - Servidor Único
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: 1213b38f2b67e8fed179cfda4308943808893e1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/22/2020
+ms.openlocfilehash: 363c003a915763a7ab1165c2e0d8f945bc3dd510
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80522150"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213691"
 ---
 # <a name="logical-decoding"></a>Descodificação lógica
  
-[A descodificação lógica no PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) permite-lhe transmitir alterações de dados a consumidores externos. A descodificação lógica é popularmente usada para streaming de eventos e alterar cenários de captura de dados.
+[A descodão lógica no PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) permite-lhe transmitir alterações de dados a consumidores externos. A descodão lógica é popularmente usada para streaming de eventos e alterar cenários de captura de dados.
 
-A descodificação lógica utiliza um plugin de saída para converter o registo de escrita de Postgres à frente (WAL) num formato legível. A Base de Dados Azure para PostgreSQL fornece dois plugins de saída: [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) e [wal2json](https://github.com/eulerto/wal2json).
- 
+A descodagem lógica utiliza um plugin de saída para converter o registo de escrita de Postgres (WAL) num formato legível. A Azure Database for PostgreSQL fornece os plugins de saída [wal2json,](https://github.com/eulerto/wal2json) [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) e pgoutput. pgoutput é disponibilizado pela Postgres da versão 10 e mais.
+
+Para uma visão geral de como funciona a descodagem lógica postgres, [visite o nosso blog.](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/change-data-capture-in-postgres-how-to-use-logical-decoding-and/ba-p/1396421) 
 
 > [!NOTE]
-> A descodificação lógica está em pré-visualização pública na Base de Dados Azure para PostgreSQL - Servidor Único.
+> A descodão lógica está em pré-visualização pública na Base de Dados Azure para PostgreSQL - Servidor Único.
 
 
-## <a name="set-up-your-server"></a>Configurar o seu servidor
-Para começar a usar a descodificação lógica, ative o seu servidor para guardar e transmitir o WAL. 
+## <a name="set-up-your-server"></a>Configurar o seu servidor 
+A descodão lógica e a leitura de [réplicas](concepts-read-replicas.md) dependem tanto dos Postgres escreverem antecipadamente (WAL) para obter informações. Estas duas funcionalidades precisam de diferentes níveis de registo de postgres. A descodão lógica precisa de um nível mais elevado de registo do que réplicas lidas.
 
-1. Coloque o azure.replication_support para `logical` utilizar o Azure CLI. 
+Para configurar o nível certo de registo, utilize o parâmetro de suporte de replicação Azure. O suporte de replicação Azure tem três opções de definição:
+
+* **Off** - Coloca a menor informação no WAL. Esta definição não está disponível na maioria dos servidores Azure Database para servidores PostgreSQL.  
+* **Réplica** - Mais verboso do que **desligado**. Este é o nível mínimo de exploração madeireira necessário para [que as réplicas de leitura](concepts-read-replicas.md) funcionem. Esta definição é o padrão na maioria dos servidores.
+* **Lógico** - Mais verboso do que **réplica.** Este é o nível mínimo de exploração madeireira para a descodão lógica para funcionar. As réplicas de leitura também funcionam neste cenário.
+
+O servidor precisa de ser reiniciado após uma alteração deste parâmetro. Internamente, este parâmetro define os parâmetros postgres, `wal_level` `max_replication_slots` e `max_wal_senders` .
+
+### <a name="using-azure-cli"></a>Utilizar a CLI do Azure
+
+1. Desatado azure.replication_support para `logical` .
    ```
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
-   ```
+   ``` 
 
-   > [!NOTE]
-   > Se utilizar réplicas de leitura, o `logical` conjunto azure.replication_support também permite que as réplicas corram. Se parar de utilizar a descodificação lógica, mude a definição para `replica`. 
-
-
-2. Reiniciar o servidor para aplicar as alterações.
+2. Reinicie o servidor para aplicar a alteração.
    ```
    az postgres server restart --resource-group mygroup --name myserver
    ```
 
-## <a name="start-logical-decoding"></a>Iniciar a descodificação lógica
+### <a name="using-azure-portal"></a>Com o Portal do Azure
 
-A descodificação lógica pode ser consumida através de protocolo de streaming ou interface SQL. Ambos os métodos utilizam ranhuras de [replicação.](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS) Uma ranhura representa um fluxo de alterações a partir de uma única base de dados.
+1. Desa parte do suporte de replicação do Azure para **ser lógico**. Selecione **Guardar**.
 
-Usar uma ranhura de replicação requer privilégios de replicação do Postgres. Neste momento, o privilégio de replicação só está disponível para o utilizador administrativo do servidor. 
+   ![Base de Dados Azure para PostgreSQL - Replicação - Suporte de replicação Azure](./media/concepts-logical/replication-support.png)
+
+2. Reinicie o servidor para aplicar a alteração selecionando **Sim**.
+
+   ![Base de Dados Azure para PostgreSQL - Replicação - Confirme o reinício](./media/concepts-logical/confirm-restart.png)
+
+
+## <a name="start-logical-decoding"></a>Começar a descodição lógica
+
+A descodão lógica pode ser consumida através do protocolo de streaming ou da interface SQL. Ambos os métodos utilizam [ranhuras de replicação.](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS) Uma ranhura representa um fluxo de alterações a partir de uma única base de dados.
+
+Usar uma ranhura de replicação requer os privilégios de replicação de Postgres. Neste momento, o privilégio de replicação só está disponível para o utilizador administrativo do servidor. 
 
 ### <a name="streaming-protocol"></a>Protocolo de streaming
-Consumir alterações utilizando o protocolo de streaming é muitas vezes preferível. Pode criar o seu próprio consumidor/ conector, ou usar uma ferramenta como [a Debezium](https://debezium.io/). 
+Consumir alterações usando o protocolo de streaming é muitas vezes preferível. Pode criar o seu próprio consumidor/conector ou utilizar uma ferramenta como [a Debezium.](https://debezium.io/) 
 
 Visite a documentação wal2json por [exemplo usando o protocolo de streaming com pg_recvlogical](https://github.com/eulerto/wal2json#pg_recvlogical).
 
 
 ### <a name="sql-interface"></a>Interface SQL
-No exemplo abaixo, usamos a interface SQL com o plugin wal2json.
+No exemplo abaixo, utilizamos a interface SQL com o plugin wal2json.
  
-1. Criar uma vaga.
+1. Criar uma ranhura.
    ```SQL
    SELECT * FROM pg_create_logical_replication_slot('test_slot', 'wal2json');
    ```
@@ -73,7 +91,7 @@ No exemplo abaixo, usamos a interface SQL com o plugin wal2json.
    DELETE FROM a_table WHERE id='id1';
    ```
 
-3. Consuma as mudanças.
+3. Consumir as mudanças.
    ```SQL
    SELECT data FROM pg_logical_slot_get_changes('test_slot', NULL, NULL, 'pretty-print', '1');
    ```
@@ -112,41 +130,41 @@ No exemplo abaixo, usamos a interface SQL com o plugin wal2json.
    }
    ```
 
-4. Largue a ranhura assim que terminar de usá-la.
+4. Largue a ranhura assim que terminar de a utilizar.
    ```SQL
    SELECT pg_drop_replication_slot('test_slot'); 
    ```
 
 
-## <a name="monitoring-slots"></a>Slots de monitorização
+## <a name="monitoring-slots"></a>Faixas horárias de monitorização
 
-Tens de monitorizar a descodificação lógica. Qualquer ranhura de replicação não utilizada deve ser largada. As faixas horárias agarram-se aos registos do Postgres WAL e aos catálogos de sistemas relevantes até que as alterações tenham sido lidas por um consumidor. Se o seu consumidor falhar ou não estiver devidamente configurado, os troncos não consumidos acumular-se-ão e encherão o seu armazenamento. Além disso, os registos não consumidos aumentam o risco de envolvimento de ID de transação. Ambas as situações podem fazer com que o servidor fique indisponível. Por isso, é fundamental que as ranhuras de replicação lógica sejam consumidas continuamente. Se uma ranhura lógica de replicação já não for utilizada, deixe-a imediatamente.
+Tens de monitorizar a descodagem lógica. Qualquer ranhura de replicação nãousada deve ser largada. As ranhuras mantêm-se nos registos POSTGRES WAL e catálogos de sistemas relevantes até que as alterações tenham sido lidas por um consumidor. Se o seu consumidor falhar ou não tiver sido devidamente configurado, os troncos não consumados acumulam-se e enchem o seu armazenamento. Além disso, os registos não consumados aumentam o risco de transação de iD wrap. Ambas as situações podem fazer com que o servidor fique indisponível. Portanto, é fundamental que as ranhuras lógicas de replicação sejam consumidas continuamente. Se uma ranhura de replicação lógica já não for utilizada, largue-a imediatamente.
 
 A coluna "ativa" na visão pg_replication_slots indicará se existe um consumidor ligado a uma ranhura.
 ```SQL
 SELECT * FROM pg_replication_slots;
 ```
 
-[Detete alertas](howto-alert-on-metric.md) no *Armazenamento utilizado* e o max lag através das métricas das *réplicas* para notificá-lo quando os valores aumentam os limiares normais. 
+[Desave alertas](howto-alert-on-metric.md) sobre *o Armazenamento utilizado* e o Max *desfase através das métricas de réplicas* para o notificar quando os valores aumentarem para além dos limiares normais. 
 
 > [!IMPORTANT]
-> Tens de largar ranhuras de replicação não utilizadas. Não o fazer pode levar à indisponibilidade do servidor.
+> Tens de largar as ranhuras de replicação não usudas. Se não o fizer, pode levar à indisponibilidade do servidor.
 
 ## <a name="how-to-drop-a-slot"></a>Como deixar cair uma ranhura
-Se não estiver a consumir ativamente uma ranhura de replicação, deve deixá-la cair.
+Se não estiver a consumir ativamente uma ranhura de replicação, deve larhá-la.
 
-Para deixar cair uma `test_slot` ranhura de replicação chamada sQL:
+Para deixar cair uma ranhura de replicação chamada `test_slot` SQL:
 ```SQL
 SELECT pg_drop_replication_slot('test_slot');
 ```
 
 > [!IMPORTANT]
-> Se parar de usar descodificação lógica, `replica` `off`mude de azul.replication_support de volta para ou . Os detalhes wal `logical` retidos por são mais verbosos, e devem ser desativados quando a descodificação lógica não está em uso. 
+> Se parar de descodição lógica, mude a azure.replication_support de volta para `replica` ou `off` . Os detalhes do WAL retidos são `logical` mais verbosos, e devem ser desativados quando a descodão lógica não estiver a ser utilizada. 
 
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Visite a documentação postgres para [saber mais sobre descodificação lógica.](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html)
-* Contacte a [nossa equipa](mailto:AskAzureDBforPostgreSQL@service.microsoft.com) se tiver dúvidas sobre descodificação lógica.
-* Saiba mais sobre [as réplicas de leitura.](concepts-read-replicas.md)
+* Visite a documentação postgres para [saber mais sobre a descodagem lógica.](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html)
+* Contacte a [nossa equipa](mailto:AskAzureDBforPostgreSQL@service.microsoft.com) se tiver dúvidas sobre descodição lógica.
+* Saiba mais sobre [réplicas lidas.](concepts-read-replicas.md)
 

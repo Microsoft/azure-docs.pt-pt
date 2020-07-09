@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas Erro Do Hub Azure IoT 404103 DeviceNotOnline
+title: Resolução de problemas Erro do Hub Azure IoT 404103 DeviceNotOnline
 description: Entenda como corrigir o erro 404103 DeviceNotOnline
 author: jlian
 manager: briz
@@ -9,10 +9,9 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: e648428f924cfc33421c8591c41f7ac85b05a033
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76960818"
 ---
 # <a name="404103-devicenotonline"></a>404103 DeviceNotOnline
@@ -25,8 +24,8 @@ Um método direto para um dispositivo falha com o erro **404103 DeviceNotOnline*
 
 ## <a name="cause"></a>Causa
 
-Se sabe que o dispositivo está on-line e ainda obtém o erro, é provável que o desvio do método direto não esteja registado no dispositivo.
+Se sabe que o dispositivo está online e ainda obtém o erro, é provável que seja porque o método direto de chamada não está registado no dispositivo.
 
 ## <a name="solution"></a>Solução
 
-Para configurar corretamente o seu dispositivo para chamadas de método direto, consulte [o manusear um método direto num dispositivo](iot-hub-devguide-direct-methods.md#handle-a-direct-method-on-a-device).
+Para configurar corretamente o seu dispositivo para chamadas de métodos diretos, consulte [manusear um método direto num dispositivo](iot-hub-devguide-direct-methods.md#handle-a-direct-method-on-a-device).

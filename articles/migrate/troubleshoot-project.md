@@ -6,12 +6,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
-ms.openlocfilehash: b1fc4bce988b13a9ff76fd961d524ce945876054
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b56244fccce623827367d504831ca8db517c108d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535405"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121644"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Resolver problemas relacionados com projetos do Azure Migrate
 
@@ -19,50 +19,50 @@ Este artigo ajuda-o a resolver problemas ao criar e gerir projetos [da Azure Mig
 
 ## <a name="how-to-add-new-project"></a>Como adicionar novo projeto?
 
-Você pode ter vários projetos Azure Migrate em uma subscrição. [Aprenda](how-to-add-tool-first-time.md) a criar um projeto pela primeira vez, ou adicione projetos [adicionais.](create-manage-projects.md#create-additional-projects)
+Pode ter vários projetos da Azure Migrate numa subscrição. [Saiba como](how-to-add-tool-first-time.md) criar um projeto pela primeira vez, ou adicione projetos [adicionais.](create-manage-projects.md#create-additional-projects)
 
-## <a name="what-azure-permissions-are-needed"></a>Que permissões azure são necessárias?
+## <a name="what-azure-permissions-are-needed"></a>Que permissões do Azure são necessárias?
 
-Você precisa de permissões de Colaborador ou Proprietário na subscrição para criar um projeto Azure Migrate.
+Precisa de permissões de Colaborador ou Proprietário na subscrição para criar um projeto Azure Migrate.
 
-## <a name="cant-find-a-project"></a>Não consigo encontrar um projeto.
+## <a name="cant-find-a-project"></a>Não consigo encontrar um projeto
 
-Encontrar um projeto Azure Migrate existente depende se está a usar a versão atual ou antiga do Azure Migrate. [Siga.](create-manage-projects.md#find-a-project)
+Encontrar um projeto Azure Migrate existente depende se está a usar a versão atual ou antiga do Azure Migrate. [Seguir](create-manage-projects.md#find-a-project).
 
 
 ## <a name="cant-find-a-geography"></a>Não consigo encontrar uma geografia
 
 Você pode criar um projeto Azure Migrate em geografias apoiadas para nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais.](migrate-support-matrix.md#supported-geographies-azure-government)
 
-## <a name="what-are-vm-limits"></a>O que são os limites vm?
+## <a name="what-are-vm-limits"></a>O que são os limites de VM?
 
-Você pode avaliar até 35.000 VMs VMware ou até 35.000 VMs Hiper-V em um único projeto. Um projeto pode incluir vMs VMware e VMs Hiper-V, até os limites de avaliação.
+Você pode avaliar até 35.000 VMware VMs ou até 35.000 VMs Hiper-V em um único projeto. Um projeto pode incluir VMware VMs e VMs hiper-V, até os limites de avaliação.
 
 ## <a name="can-i-upgrade-old-project"></a>Posso atualizar o projeto antigo?
 
-Os projetos da versão anterior do Azure Migrate não podem ser atualizados. É necessário [criar um novo projeto](how-to-add-tool-first-time.md)e adicionar-lhe ferramentas.
+Os projetos da versão anterior do Azure Migrate não podem ser atualizados. É preciso [criar um novo projeto](how-to-add-tool-first-time.md)e adicionar-lhe ferramentas.
 
-## <a name="cant-create-a-project"></a>Não pode criar um projeto
+## <a name="cant-create-a-project"></a>Não se pode criar um projeto
 
 Se tentar criar um projeto e encontrar um erro de implantação:
 
-- Tente criar o projeto de novo no caso de ser um erro transitório. Em **Implementações,** clique em **Re-deploy** para tentar novamente.
-- Verifique se tem permissões de Contribuinte ou Proprietário na subscrição.
-- Se está sintetizador numa geografia recém-adicionada, espere um pouco e tente de novo.
+- Tente criar o projeto de novo no caso de ser um erro transitório. Em **Implementações,** clique em **Re-implantar para** tentar novamente.
+- Verifique se tem permissões de Colaborador ou Proprietário na subscrição.
+- Se estiver a implementar uma geografia recém-adicionada, aguarde um pouco de tempo e tente de novo.
 - Se receber o erro, "Os pedidos devem conter cabeçalhos de identidade do utilizador", o que pode indicar que não tem acesso ao inquilino do Azure Ative Directory (Azure AD) da organização. Neste caso:
-    - Quando você é adicionado a um inquilino DaD Azure pela primeira vez, você recebe um convite por e-mail para se juntar ao inquilino.
+    - Quando você é adicionado a um inquilino AZure AD pela primeira vez, você recebe um convite de e-mail para se juntar ao inquilino.
     - Aceite o convite para ser adicionado ao inquilino.
-    - Se não conseguir ver o e-mail, contacte um utilizador com acesso ao inquilino e peça-lhe que lhe [envie o convite.](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users)
-    - Depois de receber o e-mail de convite, abra-o e selecione o link para aceitar o convite. Então, assine o portal Azure e inscreva-se novamente. (refrescar o navegador não funcionará.) Pode então começar a criar o projeto de migração.
+    - Se não conseguir ver o e-mail, contacte um utilizador com acesso ao inquilino e peça-lhe que [reencaia o convite](../active-directory/b2b/add-users-administrator.md#resend-invitations-to-guest-users) para si.
+    - Depois de receber o e-mail do convite, abra-o e selecione o link para aceitar o convite. Em seguida, assine fora do portal Azure e inscreva-se novamente. (refrescar o navegador não vai funcionar.) Pode então começar a criar o projeto de migração.
 
 ## <a name="how-do-i-delete-a-project"></a>Como posso apagar um projeto
 
-[Siga estas instruções](create-manage-projects.md#delete-a-project) para apagar um projeto. Note que ao apagar um projeto, tanto o projeto como os metadados sobre máquinas descobertas no projeto são eliminados.
+[Siga estas instruções](create-manage-projects.md#delete-a-project) para apagar um projeto. Note que quando elimina um projeto, tanto o projeto como os metadados sobre máquinas descobertas no projeto são eliminados.
 
-## <a name="added-tools-dont-show"></a>Ferramentas adicionadas não mostram
+## <a name="added-tools-dont-show"></a>As ferramentas adicionadas não mostram
 
-Certifique-se de que tem o projeto certo selecionado. No hub de Migração Azure > **Servidores** ou em Bases de **Dados,** clique em **Alterar** ao lado do **projeto Migrate (Alterar)** no canto superior direito do ecrã. Escolha a subscrição correta e o nome do projeto > **OK**. A página deve refrescar-se com as ferramentas adicionais do projeto selecionado.
+Certifique-se de que tem o projeto certo selecionado. No hub Azure Migrate > **Servers** ou em **Bases de Dados,** clique em **Change** next to **Migrate project (Change)** no canto superior direito do ecrã. Escolha o nome correto da subscrição e do projeto > **OK**. A página deve refrescar-se com as ferramentas adicionadas do projeto selecionado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Adicione ferramentas de [avaliação](how-to-assess.md) ou [migração](how-to-migrate.md) aos projetos da Azure Migrate.
+Adicione ferramentas de [avaliação](how-to-assess.md) ou [migração](how-to-migrate.md) a projetos da Azure Migrate.

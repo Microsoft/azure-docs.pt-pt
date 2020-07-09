@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 63fee90be773f61bfef73e21a272192eea5f789c
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 496f519ba5e4eb17060ee35ed86fba45c85336d6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167490"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84905736"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurar uma aplicação Java do Linux para o Serviço de Aplicações do Azure
 
@@ -44,7 +44,7 @@ Relatórios de desempenho, visualizações de tráfego e check-ups de saúde est
 
 ### <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico em fluxo
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 Para obter mais informações, consulte [os registos de streaming em Cloud Shell](../troubleshoot-diagnostic-logs.md#in-cloud-shell).
 
@@ -292,7 +292,7 @@ Esta secção mostra como ligar as aplicações java implementadas no Azure App 
 ### <a name="configure-appdynamics"></a>Configurar a AppDynamics
 
 1. Criar uma conta AppDynamics na [AppDynamics.com](https://www.appdynamics.com/community/register/)
-2. Descarregue o agente Java a partir do site da AppDynamics, o nome do ficheiro será semelhante ao *AppServerAgent-x.x.xxxx.zip*
+2. Descarregue o agente Java a partir do site appDynamics, o nome do ficheiro será semelhante ao *AppServerAgent-x.x.x.xxxxx.zip*
 3. [SSH na sua instância de Serviço de Aplicações](app-service-linux-ssh-support.md) e criar um novo diretório */home/site/wwwroot/apm*.
 4. Faça o upload dos ficheiros do agente Java para um diretório em */home/site/wwwroot/apm*. Os ficheiros do seu agente devem estar em */home/site/wwwroot/apm/appdynamics*.
 5. No portal Azure, navegue pela sua aplicação no Serviço de Aplicações e crie uma nova Definição de Aplicação.
@@ -329,9 +329,9 @@ Estas instruções aplicam-se a todas as ligações de base de dados. Terá de p
 
 | Base de Dados   | Nome da classe do motorista                             | Condutor JDBC                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
-| PostgreSQL | `org.postgresql.Driver`                        | [Transferir](https://jdbc.postgresql.org/download.html)                                    |
+| PostgreSQL | `org.postgresql.Driver`                        | [Transferência](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Download](https://dev.mysql.com/downloads/connector/j/) (Selecione "Plataforma Independente") |
-| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Transferir](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#download)                                                           |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Transferência](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#download)                                                           |
 
 Para configurar o Tomcat para utilizar a Conectividade da Base de Dados de Java (JDBC) ou a API de Persistência de Java (JPA), primeiro personalize a `CATALINA_OPTS` variável ambiental que é lida pela Tomcat no arranque. Defina estes valores através de uma definição de aplicação no [plugin Maven do Serviço de Aplicações:](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)
 
@@ -350,9 +350,9 @@ Em seguida, determine se a fonte de dados deve estar disponível para uma aplica
 
 #### <a name="application-level-data-sources"></a>Fontes de dados ao nível da aplicação
 
-1. Crie um ficheiro *context.xml* no *diretório META-INF/diretório* do seu projeto. Crie o *meta-INF/diretório* se não existir.
+1. Crie um ficheiro *context.xml* no *meta-INF/diretório* do seu projeto. Crie o *meta-INF/diretório* se não existir.
 
-2. Em *contexto.xml,* adicione um `Context` elemento para ligar a fonte de dados a um endereço JNDI. Substitua o `driverClassName` espaço reservado pelo nome da classe do seu condutor na tabela acima.
+2. Em *context.xml*, adicione um `Context` elemento para ligar a fonte de dados a um endereço JNDI. Substitua o `driverClassName` espaço reservado pelo nome da classe do seu condutor na tabela acima.
 
     ```xml
     <Context>
@@ -367,7 +367,7 @@ Em seguida, determine se a fonte de dados deve estar disponível para uma aplica
     </Context>
     ```
 
-3. Atualize o *web.xml* da sua aplicação para utilizar a fonte de dados na sua aplicação.
+3. Atualize as *web.xml* da sua aplicação para utilizar a fonte de dados na sua aplicação.
 
     ```xml
     <resource-env-ref>
@@ -378,9 +378,9 @@ Em seguida, determine se a fonte de dados deve estar disponível para uma aplica
 
 #### <a name="shared-server-level-resources"></a>Recursos ao nível do servidor partilhados
 
-A adição de uma fonte de dados partilhada e ao nível do servidor exigirá que edite o servidor do Tomcat.xml. Em primeiro lugar, faça o upload de um [script de arranque](app-service-linux-faq.md#built-in-images) e desemcora o caminho para o script no Comando de Arranque de **Configuração**  >  **Startup Command**. Pode carregar o script de arranque utilizando [FTP](../deploy-ftp.md).
+A adição de uma fonte de dados partilhada e ao nível do servidor exigirá que edite a server.xml do Tomcat. Em primeiro lugar, faça o upload de um [script de arranque](app-service-linux-faq.md#built-in-images) e desemcora o caminho para o script no Comando de Arranque de **Configuração**  >  **Startup Command**. Pode carregar o script de arranque utilizando [FTP](../deploy-ftp.md).
 
-O seu script de arranque fará uma [transformação de xsl](https://www.w3schools.com/xml/xsl_intro.asp) para o ficheiro server.xml e irá desausar o ficheiro xml resultante para `/usr/local/tomcat/conf/server.xml` . O script de arranque deve instalar libxslt via apk. O seu ficheiro xsl e o script de arranque podem ser carregados via FTP. Abaixo está um script de arranque exemplo.
+O seu script de arranque fará uma [transformação de xsl](https://www.w3schools.com/xml/xsl_intro.asp) para o ficheiro server.xml e descolou o ficheiro xml resultante para `/usr/local/tomcat/conf/server.xml` . O script de arranque deve instalar libxslt via apk. O seu ficheiro xsl e o script de arranque podem ser carregados via FTP. Abaixo está um script de arranque exemplo.
 
 ```sh
 # Install libxslt. Also copy the transform file to /home/tomcat/conf/
@@ -390,7 +390,7 @@ apk add --update libxslt
 xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
 ```
 
-Um ficheiro xsl de exemplo é fornecido abaixo. O ficheiro xsl exemplo adiciona um novo nó de conector ao servidor Tomcat.xml.
+Um ficheiro xsl de exemplo é fornecido abaixo. O ficheiro xsl exemplo adiciona um novo nó de conector ao tomcat server.xml.
 
 ```xml
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -562,7 +562,7 @@ Para utilizar o Tomcat com o Redis, tem de configurar a sua aplicação para uti
 
 7. Navegue na secção de **definições Avançadas** da sua instância Redis e defina **Deixe o acesso apenas via SSL** a **Nº**. Isto permite que a sua instância de Serviço de Aplicações comunique com a sua cache Redis através da infraestrutura Azure.
 
-8. Atualize a `azure-webapp-maven-plugin` configuração no ficheiro *pom.xml* da sua aplicação para consultar as informações da sua conta Redis. Este ficheiro utiliza as variáveis ambientais que definiu anteriormente para manter as informações da sua conta fora dos seus ficheiros de origem.
+8. Atualize a `azure-webapp-maven-plugin` configuração no ficheiro *pom.xml* da sua aplicação para se referir às informações da sua conta Redis. Este ficheiro utiliza as variáveis ambientais que definiu anteriormente para manter as informações da sua conta fora dos seus ficheiros de origem.
 
     Se for necessário, mude `1.9.1` para a versão atual do [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
 

@@ -1,6 +1,6 @@
 ---
-title: Atribuir variáveis com Synapse SQL
-description: Neste artigo, encontrará dicas para atribuir variáveis T-SQL com Synapse SQL.
+title: Atribuir variáveis com Sinapse SQL
+description: Neste artigo, encontrará dicas para atribuir variáveis T-SQL com Sinapse SQL.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,20 +9,20 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: b2a596b71ee7e5f58e01d5bc10b330f6f54a69d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91e251c8274ad85fcb0b3a65a3bdbcc660ceba00
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428670"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85101012"
 ---
-# <a name="assigning-variables-with-synapse-sql"></a>Atribuindo variáveis com Synapse SQL
+# <a name="assigning-variables-with-synapse-sql"></a>Atribuição de variáveis com SQL de Sinapse
 
-Neste artigo, encontrará dicas para atribuir variáveis T-SQL com Synapse SQL.
+Neste artigo, encontrará dicas para atribuir variáveis T-SQL com Sinapse SQL.
 
-## <a name="setting-variables-with-declare"></a>Definição de variáveis com DECLAR
+## <a name="setting-variables-with-declare"></a>Definição de variáveis com DECLARA
 
-As variáveis em Synapse SQL são definidas utilizando a `DECLARE` declaração ou a `SET` declaração. Inicializar variáveis com DECLAR é uma das formas mais flexíveis de definir um valor variável em Synapse SQL.
+As variáveis em Synapse SQL são definidas usando a `DECLARE` declaração ou a `SET` declaração. Inicializar variáveis com DECLARE é uma das formas mais flexíveis de definir um valor variável em Synapse SQL.
 
 ```sql
 DECLARE @v  int = 0
@@ -37,7 +37,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Não pode inicializar e usar uma variável na mesma declaração de DECLARAÇÃO. Para ilustrar, o exemplo que *@p1* se segue não é permitido uma vez que é inicializado e usado na mesma declaração de DECLARAÇÃO. O exemplo que se segue dá um erro.
+Não é possível inicializar e utilizar uma variável na mesma declaração DE DECLARAÇÃO. Para ilustrar, o exemplo a seguir não é permitido, uma vez * \@ que o p1* é rubricado e usado na mesma declaração DE DECLARA. O exemplo a seguir dá um erro.
 
 ```sql
 DECLARE @p1 int = 0
@@ -47,7 +47,7 @@ DECLARE @p1 int = 0
 
 ## <a name="setting-values-with-set"></a>Definição de valores com SET
 
-O SET é um método comum para definir uma única variável.
+SET é um método comum para definir uma única variável.
 
 As seguintes declarações são todas formas válidas de definir uma variável com SET:
 
@@ -58,12 +58,12 @@ SET     @v = @v+1;
 SET     @v +=1;
 ```
 
-Só é possível definir uma variável de cada vez com SET. No entanto, os operadores compostos são admissíveis.
+Só é possível definir uma variável de cada vez com o SET. No entanto, os operadores compostos são admissíveis.
 
 ## <a name="limitations"></a>Limitações
 
-Não pode utilizar o UPDATE para a atribuição variável.
+Não é possível utilizar o UPDATE para a atribuição variável.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter mais dicas de desenvolvimento, consulte o artigo de visão geral do [desenvolvimento synapse SQL.](develop-overview.md)
+Para obter mais dicas de desenvolvimento, consulte o artigo de visão geral do [desenvolvimento do Synapse SQL.](develop-overview.md)

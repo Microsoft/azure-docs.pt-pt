@@ -1,55 +1,55 @@
 ---
-title: CPU Core quota aumentar pedido - Azure HDInsight
-description: Aprenda o processo para solicitar um aumento para os núcleos cpu atribuídos à sua subscrição.
+title: CpU Core pedido de aumento de quota - Azure HDInsight
+description: Aprenda o processo para solicitar um aumento para os núcleos do CPU atribuídos à sua subscrição.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: a708ad9626f4d6750de64097a7e1e9177c350e5e
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 4de32bad763c0bbf0e143a7ce639efec8c9c41ae
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83717810"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079620"
 ---
-# <a name="requesting-quota-increases-for-azure-hdinsight"></a>Solicitação de aumentos de quota para Azure HDInsight
+# <a name="requesting-quota-increases-for-azure-hdinsight"></a>Pedido de aumento de quota para Azure HDInsight
 
-As quotas centrais da CPU ajudam a garantir que a utilização de recursos seja distribuída de forma justa entre todos os clientes de uma determinada região do Azure. No entanto, em certos casos, os seus requisitos de negócio podem exigir mais recursos de cluster do que a sua quota atual permitirá. Nesses casos, pode solicitar um aumento de quota central da CPU para que possa implementar clusters, que correspondam aos seus requisitos de processamento de dados.
+As quotas centrais da CPU ajudam a garantir que a utilização de recursos seja distribuída de forma justa entre todos os clientes de uma determinada região do Azure. No entanto, em certos casos, os seus requisitos de negócio podem exigir mais recursos de cluster do que a sua quota atual permitirá. Nesses casos, pode solicitar um aumento de quota de base da CPU para que possa implantar clusters, que correspondam aos seus requisitos de processamento de dados.
 
-Quando se atinge um limite de quota, não se pode implantar novos clusters ou escalar os clusters existentes adicionando mais nós de trabalhadores. O único limite de quota é a quota CPU Cores que existe ao nível da região para cada subscrição. Por exemplo, a sua subscrição pode ter um limite de 30 CPU na região leste dos EUA, com outros 30 núcleos cpu permitidos no Leste dos EUA 2.
+Quando se atinge um limite de quota, não se pode implantar novos clusters ou escalar os aglomerados existentes adicionando mais nós de trabalhadores. O único limite de quota é a quota cpu Cores que existe a nível regional para cada subscrição. Por exemplo, a sua subscrição pode ter um limite de núcleo de 30 CPU na região leste dos EUA, com outros 30 núcleos de CPU permitidos no Leste dos EUA 2.
 
 ## <a name="gather-required-information"></a>Recolher informações necessárias
 
-Se recebeu um erro que indique que atingiu um limite de quota, utilize o processo descrito nesta secção para recolher informações importantes e apresentar um pedido de aumento de quota.
+Se recebeu um erro que indica que atingiu um limite de quota, utilize o processo descrito nesta secção para recolher informações importantes e apresentar um pedido de aumento de quota.
 
-1. Determine o tamanho, escala e tipo de VM do cluster desejado.
-1. Verifique os atuais limites de capacidade de quota da sua subscrição. Para verificar os seus núcleos disponíveis, faça os seguintes passos:
+1. Determine o tamanho, escala e tipo de VM do seu cluster desejado.
+1. Verifique os limites de capacidade de quota atuais da sua subscrição. Para verificar os seus núcleos disponíveis, faça os seguintes passos:
 
     1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-    1. Navegue para a página **de visão geral** do cluster HDInsight.
-    1. No menu esquerdo, selecione **limites de quota**. A página apresenta o número de núcleos em utilização, o número de núcleos disponíveis e o total de núcleos.
+    1. Navegue para a página **de visão geral** para o cluster HDInsight.
+    1. No menu à esquerda, **selecione Os limites de Quota**. A página apresenta o número de núcleos em utilização, o número de núcleos disponíveis e o total de núcleos.
 
-Para solicitar um aumento de quota, faça os seguintes passos:
+Para solicitar um aumento de quota, faça as seguintes etapas:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-1. Selecione **Ajuda + suporte** no lado inferior esquerdo da página.
+1. Selecione **Help + suporte** no lado inferior esquerdo da página.
 
-    ![botão de ajuda e apoio](./media/quota-increase-request/help-support-button.png)
+    ![botão de ajuda e suporte](./media/quota-increase-request/help-support-button.png)
 
 1. Selecione **Novo pedido de suporte**.
 1. Na página **Novo pedido de suporte**, no separador **Básicos**, selecione as seguintes opções:
 
-   - **Tipo de emissão**: Limites de **serviço e subscrição (quotas)**
+   - **Tipo de emissão**: **Limites de serviço e de subscrição (quotas)**
    - **Subscrição**: a subscrição que pretende modificar
-   - **Tipo**de quota : **HDInsight**
+   - **Tipo de**quota : **HDInsight**
 
-     ![Criar um pedido de suporte para aumentar a quota central do HDInsight](./media/quota-increase-request/hdinsight-quota-support-request.png)
+     ![Crie um pedido de apoio para aumentar a quota de base HDInsight](./media/quota-increase-request/hdinsight-quota-support-request.png)
 
 1. Selecione **Seguinte: Soluções >>**.
-1. Na página **Detalhes,** introduza uma descrição do problema, selecione a gravidade do problema, o seu método de contacto preferido e outros campos necessários. Utilize o modelo listado abaixo, para garantir que fornece as informações necessárias. Os pedidos de aumento de quota são avaliados pela equipa de capacidade do Azure, e não pela equipa de produtos HDInsight. Quanto mais informações fornecerem, maior é a probabilidade de o seu pedido ser aprovado.
+1. Na página **Detalhes,** introduza uma descrição do problema, selecione a gravidade do problema, o seu método de contacto preferido e outros campos necessários. Utilize o modelo listado abaixo, para garantir que fornece as informações necessárias. Os pedidos de aumento de quota são avaliados pela equipa de capacidade da Azure, e não pela equipa de produtos HDInsight. Quanto mais completa for a informação, mais provável será o seu pedido.
 
     ```
     I would like to request [SPECIFY DESIRED AMOUNT] on [DESIRED SKU] for [SUBSCRIPTION ID].
@@ -61,17 +61,17 @@ Para solicitar um aumento de quota, faça os seguintes passos:
 
     ![detalhes do problema](./media/quota-increase-request/problem-details.png)
 
-1. Selecione **Seguinte: Rever + criar >>**.
-1. No **separador Review + criar,** selecione **Criar**.
+1. Selecione **Seguinte: Revisão + criar >>**.
+1. No **separador 'Rever + criar',** selecione **Criar.**
 
 > [!NOTE]  
-> Se precisar de aumentar a quota central do HDInsight numa região privada, [apresente um pedido de whitelist](https://aka.ms/canaryintwhitelist).
+> Se precisar de aumentar a quota-base HDInsight numa região privada, [apresente um pedido de lista branca](https://aka.ms/canaryintwhitelist).
 
-Pode [contactar o suporte para solicitar um aumento](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)de quota.
+Pode [contactar o suporte para solicitar um aumento de quota.](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)
 
-Há alguns limites de quota fixas. Por exemplo, uma única subscrição azure pode ter no máximo 10.000 núcleos. Para mais detalhes sobre estes limites, consulte [os limites de subscrição e serviço do Azure, quotas e restrições.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
+Há alguns limites de quota fixa. Por exemplo, uma única subscrição do Azure pode ter no máximo 10.000 núcleos. Para obter mais informações sobre estes limites, consulte [os limites de subscrição e serviços da Azure, quotas e constrangimentos.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
 
 ## <a name="next-steps"></a>Próximos passos
 
-* [Configure clusters em HDInsight com Apache Hadoop, Spark, Kafka e muito mais:](hdinsight-hadoop-provision-linux-clusters.md)Saiba como configurar e configurar clusters no HDInsight.
-* [Monitorize](hdinsight-key-scenarios-to-monitor.md)o desempenho do cluster : Saiba sobre cenários-chave para monitorizar o seu cluster HDInsight que possam afetar a capacidade do seu cluster.
+* [Configurar clusters em HDInsight com Apache Hadoop, Spark, Kafka, e muito mais](hdinsight-hadoop-provision-linux-clusters.md): Aprenda a configurar e configurar clusters em HDInsight.
+* [Monitor cluster performance](hdinsight-key-scenarios-to-monitor.md): Saiba mais sobre cenários-chave para monitorizar o seu cluster HDInsight que pode afetar a capacidade do seu cluster.

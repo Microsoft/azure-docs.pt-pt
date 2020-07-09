@@ -1,6 +1,6 @@
 ---
-title: Opções de monitorização - Azure Dedicado HSM [ Microsoft Docs
-description: Visão geral das opções de monitorização e monitorização de HSM dedicadas do Azure e responsabilidades de monitorização
+title: Opções de monitorização - Azure Dedicado HSM / Microsoft Docs
+description: Visão geral das opções de monitorização e monitorização do HSM dedicados à Azure
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
@@ -13,32 +13,31 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 3fde577a6b0efb7584e1c9efd57c95583ebe4ec9
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70881418"
 ---
-# <a name="azure-dedicated-hsm-monitoring"></a>Monitorização HSM dedicada azure
+# <a name="azure-dedicated-hsm-monitoring"></a>Monitorização dedicada ao HSM da Azure
 
-O Serviço HSM Dedicado Azure fornece um dispositivo físico para uso exclusivo do cliente com total responsabilidade de controlo administrativo e gestão. O dispositivo disponibilizado é um [Modelo Gemalto SafeNet Luna 7 HSM A790](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/).  A Microsoft não terá acesso administrativo uma vez aprovisionado por um cliente, para além do acessório físico por porta em série como uma função de monitorização. Como resultado, os clientes são responsáveis por atividades operacionais típicas, incluindo monitorização abrangente e análise de registos.
-Os clientes são totalmente responsáveis por aplicações que utilizam os HSMs e devem trabalhar com a Gemalto para assistência de apoio ou consultoria. Devido à extensão da propriedade do cliente da higiene operacional, não é possível que a Microsoft ofereça qualquer tipo de garantia de alta disponibilidade para este serviço. É da responsabilidade do cliente garantir que as suas aplicações estão corretamente configuradas para alcançar uma elevada disponibilidade. A Microsoft monitorizará e manterá a conectividade da rede e saúde do dispositivo.
+O Azure Dedicad HSM Service fornece um dispositivo físico para uso exclusivo do cliente com total responsabilidade administrativa e de gestão. O dispositivo disponibilizado é um [Modelo A790 Da Gemalto SafeNet Luna 7 HSM.](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/)  A Microsoft não terá acesso administrativo uma vez que seja adesertado por um cliente, para além do acessório de porta em série física como função de monitorização. Como resultado, os clientes são responsáveis por atividades operacionais típicas, incluindo monitorização abrangente e análise de registos.
+Os clientes são totalmente responsáveis pelas aplicações que utilizam os HSMs e devem trabalhar com a Gemalto para apoio ou assistência de consultoria. Devido à extensão da propriedade do cliente de higiene operacional, não é possível para a Microsoft oferecer qualquer tipo de garantia de alta disponibilidade para este serviço. É da responsabilidade do cliente garantir que as suas aplicações estão corretamente configuradas para alcançar uma elevada disponibilidade. A Microsoft monitorizará e manterá a saúde do dispositivo e a conectividade da rede.
 
 ## <a name="microsoft-monitoring"></a>Monitorização da Microsoft
 
-O dispositivo Gemalto SafeNet em uso tem por padrão SNMP e porta de série como opções para monitorizar o dispositivo. A Microsoft utilizou a ligação da porta em série como meio físico para se ligar ao dispositivo para recuperar a telemetria básica sobre a saúde do dispositivo. Isto inclui itens como temperatura e estado do componente, tais como fontes de alimentação e ventiladores.
-Para tal, a Microsoft utiliza uma função de "monitor" não administrativo criada no dispositivo Gemalto. Esta função dá a capacidade de recuperar a telemetria, mas não dá qualquer acesso ao dispositivo em termos de tarefa administrativa ou de qualquer forma visualização de informações criptográficas. Os nossos clientes podem ter a certeza de que o seu dispositivo é verdadeiramente seu próprio para gerir, administrar e usar para armazenamento de chaves criptográficas sensíveis. Caso algum cliente não esteja satisfeito com este acesso mínimo para monitorização básica da saúde, eles têm a opção de desativar a conta de monitorização. A consequência óbvia disto é que a Microsoft não terá informações e, portanto, não terá capacidade de fornecer qualquer notificação proativa de problemas de saúde do dispositivo. Nesta situação, o cliente é responsável pela saúde do dispositivo.
-A função de monitor em si é configurada para fazer uma sondagem ao dispositivo a cada 10 minutos para obter dados de saúde. Devido ao erro de natureza propensa a comunicações em série, só depois de múltiplos indicadores negativos de saúde durante um período de uma hora seria levantado um alerta. Este alerta acabaria por levar a uma comunicação proactiva do cliente notificando o problema.
-Dependendo da natureza da questão, seria tomada a medida adequada para reduzir o impacto e garantir uma reparação de baixo risco. Por exemplo, uma falha de alimentação é um procedimento de troca de calor sem nenhum evento de adulteração resultante, pelo que pode ser realizado com baixo impacto e risco mínimo de funcionamento. Outros procedimentos podem exigir que um dispositivo seja zeroizado e desprovisionado para minimizar qualquer risco de segurança para o cliente. Nesta situação, um cliente forneceria um dispositivo alternativo, juntando-se a um emparelhamento de alta disponibilidade, desencadeando assim a sincronização do dispositivo. O funcionamento normal seria retomado em tempo mínimo, com o mínimo de perturbação e menor risco de segurança.  
+O dispositivo Gemalto SafeNet em uso tem por defeito SNMP e porta em série como opções para monitorizar o dispositivo. A Microsoft utilizou a ligação da porta em série como meio físico para se ligar ao dispositivo para recuperar a telemetria básica na saúde do dispositivo. Isto inclui itens como temperatura e estado do componente, tais como fontes de alimentação e ventiladores.
+Para tal, a Microsoft utiliza uma função de "monitor" não administrativa criada no dispositivo Gemalto. Esta função dá a capacidade de recuperar a telemetria, mas não dá qualquer acesso ao dispositivo em termos de tarefa administrativa ou de qualquer forma visualizando informações criptográficas. Os nossos clientes podem ter a certeza de que o seu dispositivo é realmente seu próprio para gerir, administrar e usar para armazenamento de chaves criptográficas sensíveis. Caso algum cliente não esteja satisfeito com este acesso mínimo para monitorização básica da saúde, tem a opção de desativar a conta de monitorização. A consequência óbvia disto é que a Microsoft não terá nenhuma informação e, portanto, nenhuma capacidade de fornecer qualquer notificação proativa de problemas de saúde do dispositivo. Nesta situação, o cliente é responsável pela saúde do dispositivo.
+A função do monitor em si é configurada para sondar o dispositivo a cada 10 minutos para obter dados de saúde. Devido à natureza propensa a erros das comunicações em série, só depois de vários indicadores de saúde negativos durante um período de uma hora seria levantado um alerta. Este alerta acabaria por levar a uma comunicação proativa do cliente a notificar o problema.
+Dependendo da natureza da questão, serão tomadas as medidas adequadas para reduzir o impacto e garantir uma remediação de baixo risco. Por exemplo, uma falha de alimentação é um procedimento de troca de calor sem qualquer evento de adulteração resultante, pelo que pode ser realizado com baixo impacto e risco mínimo de funcionamento. Outros procedimentos podem exigir que um dispositivo seja zeroizado e desprovisionado para minimizar qualquer risco de segurança para o cliente. Nesta situação, um cliente providenciaria um dispositivo alternativo, reunindo um emparelhamento de alta disponibilidade, desencadeando assim a sincronização do dispositivo. O funcionamento normal seria retomado no mínimo tempo, com uma interrupção mínima e menor risco de segurança.  
 
 ## <a name="customer-monitoring"></a>Monitorização do cliente
 
-Uma proposta de valor do serviço HSM dedicado é o controlo que o cliente obtém do dispositivo, especialmente tendo em conta que se trata de um dispositivo entregue em nuvem. Uma consequência deste controlo é a responsabilidade de monitorizar e gerir a saúde do dispositivo. O dispositivo Gemalto SafeNet vem com orientação para a implementação de SNMP e Syslog. Recomenda-se aos clientes do serviço HSM dedicado que utilizem isto mesmo quando a conta de monitor da Microsoft permanece ativa e devem considerá-la obrigatória se desativar a conta de monitor da Microsoft.
-Qualquer uma das técnicas disponíveis permitiria que um cliente identificasse problemas e ligasse para o suporte da Microsoft para iniciar um trabalho de reparação apropriado.
+Uma proposta de valor do serviço Dedicado HSM é o controlo que o cliente obtém do dispositivo, especialmente tendo em conta que se trata de um dispositivo entregue em nuvem. Uma consequência deste controlo é a responsabilidade de monitorizar e gerir a saúde do dispositivo. O dispositivo Gemalto SafeNet vem com orientação para a implementação do SNMP e do Syslog. Recomenda-se aos clientes do serviço Dedicado HSM que utilizem este serviço mesmo quando a conta do monitor da Microsoft se mantenha ativa e deverão considerá-la obrigatória se desativarem a conta monitor da Microsoft.
+Qualquer uma das técnicas disponíveis permitiria a um cliente identificar problemas e ligar para o suporte da Microsoft para iniciar um trabalho de remediação apropriado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Recomenda-se que todos os conceitos-chave do serviço, como a elevada disponibilidade e segurança, por exemplo, sejam bem compreendidos antes de qualquer fornecimento de dispositivos e design de aplicações ou implementação. Outros tópicos de nível de conceito:
+Recomenda-se que todos os conceitos-chave do serviço, como a alta disponibilidade e segurança, por exemplo, sejam bem compreendidos antes de qualquer fornecimento de dispositivos e design de aplicações ou implementação. Outros tópicos de nível de conceito:
 
 * [Alta Disponibilidade](high-availability.md)
 * [Segurança Física](physical-security.md)

@@ -1,6 +1,6 @@
 ---
-title: Importar a coleção de carteiros para chamadas Azure Live Streaming REST
-description: Este artigo fornece uma definição da coleção postman para chamadas DE REST Azure Media Services.
+title: Importe a coleção de Carteiro para chamadas de streaming Azure Live REST
+description: Este artigo fornece uma definição da coleção do Carteiro para chamadas Azure Media Services REST.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 897513abcc9f829f1cbdc315208e4451ae4dbc41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60637595"
 ---
-# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importar uma coleção de carteiros com operações de streaming ao vivo 
+# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importar uma coleção de carteiro com operações de Live Streaming 
 
-Este artigo contém uma definição da coleção **Postman** que contém pedidos http agrupados que chamam **live streaming** Azure Media Services REST APIs. Para obter informações sobre como configurar o **Carteiro** para que possa ser usado para ligar para media services REST APIs, consulte [Configure Postman for Media Services REST API calls](media-rest-apis-with-postman.md) tutorial.
+Este artigo contém uma definição da coleção **Do Carteiro** que contém pedidos HTTP agrupados que chamam **Live Streaming** Azure Media Services REST APIs. Para obter informações sobre como configurar **o Carteiro** para que possa ser usado para ligar para as APIs dos Serviços de Media, consulte [o Carteiro configurar para serviços de mídia REST API chama](media-rest-apis-with-postman.md) tutorial.
 
 ```
 {

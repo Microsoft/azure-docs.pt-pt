@@ -3,27 +3,26 @@ title: Como atualizar as ferramentas Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 07/03/2018
 ms.topic: conceptual
-description: Saiba como atualizar as ferramentas de linha de comando Azure Dev Spaces, extensão do Código do Estúdio Visual e extensão do Estúdio Visual
-keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contentores Azure, contentores
+description: Saiba como atualizar as ferramentas de linha de comando Azure Dev Spaces, extensão visual Studio Code e extensão visual Studio
+keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contentores
 ms.openlocfilehash: 1dad455b834bbef046b295b2cba040831a74f757
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83873490"
 ---
 # <a name="how-to-upgrade-azure-dev-spaces-tools"></a>Como atualizar as ferramentas Azure Dev Spaces
 
-Se houver um novo lançamento e já estiver a utilizar o Azure Dev Spaces, poderá ter de atualizar as suas ferramentas de cliente Da Azure Dev Spaces.
+Se houver um novo lançamento e já estiver a utilizar a Azure Dev Spaces, poderá ter de atualizar as suas ferramentas de clienteS Azure Dev Spaces.
 
 ## <a name="update-the-azure-cli"></a>Atualizar o Azure CLI
 
-Ao atualizar o mais recente Azure CLI, obtém também a versão mais recente da extensão CLI dos Espaços Dev Spaces.
+Ao atualizar o mais recente Azure CLI, obtém também a versão mais recente da extensão CLI de Dev Spaces.
 
 Não precisa de desinstalar a versão anterior, basta encontrar o download apropriado no [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 
-## <a name="update-the-dev-spaces-cli-extension-and-command-line-tools"></a>Atualize as ferramentas de extensão CLI e linha de comando de Dev Spaces
+## <a name="update-the-dev-spaces-cli-extension-and-command-line-tools"></a>Atualizar as ferramentas de extensão CLI e linha de comando de Dev Spaces
 
 Execute o seguinte comando:
 
@@ -33,12 +32,12 @@ az aks use-dev-spaces -n <your-aks-cluster> -g <your-aks-cluster-resource-group>
 
 ## <a name="update-the-vs-code-extension"></a>Atualizar a extensão do Código VS
 
-Uma vez instalada, a extensão atualiza-se automaticamente. Poderá ser necessário recarregar a extensão para utilizar as novas funcionalidades. No Código VS, abra o painel de **extensões,** escolha as extensões **dos Espaços Azure Dev** e escolha **recarregar**.
+Uma vez instalado, a extensão atualiza-se automaticamente. Poderá ser necessário recarregar a extensão para utilizar as novas funcionalidades. No Código VS, abra o painel **de extensões,** escolha as extensões **Azure Dev Spaces** e escolha **Recarregar**.
 
-## <a name="update-visual-studio"></a>Update Visual Studio
+## <a name="update-visual-studio"></a>Atualização Estúdio Visual
 
-A Azure Dev Spaces faz parte da carga de trabalho do Desenvolvimento Azure e está incluída em todas as atualizações do Visual Studio.
+Azure Dev Spaces faz parte da carga de trabalho do Azure Development e está incluído em todas as atualizações do Visual Studio.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Teste as novas ferramentas criando um novo cluster. Experimente os quickstarts e tutoriais no [Azure Dev Spaces.](/azure/dev-spaces)

@@ -5,20 +5,20 @@ author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: d5f843add0649682bae8c472bc50b6beea33bf93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 722d3e218272202074820db442ab1592042c7011
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681522"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805016"
 ---
 # <a name="get-information-about-a-converted-model"></a>Obter informações sobre um modelo convertido
 
-O ficheiro arrAsset produzido pelo serviço de conversão destina-se exclusivamente ao consumo pelo serviço de renderização. Pode haver momentos, no entanto, em que pretende aceder a informações sobre um modelo sem iniciar uma sessão de renderização. Por isso, o serviço de conversão coloca um ficheiro JSON ao lado do ficheiro arrAsset no recipiente de saída. Por exemplo, se `buggy.gltf` um ficheiro for convertido, o `buggy.info.json` recipiente de `buggy.arrAsset`saída conterá um ficheiro chamado ao lado do ativo convertido . Contém informações sobre o modelo de origem, o modelo convertido, e sobre a conversão em si.
+O ficheiro arrAsset produzido pelo serviço de conversão destina-se exclusivamente ao consumo pelo serviço de prestação de serviços. Pode haver momentos, no entanto, em que pretende aceder a informações sobre um modelo sem iniciar uma sessão de renderização. Por isso, o serviço de conversão coloca um ficheiro JSON ao lado do ficheiro arrAsset no recipiente de saída. Por exemplo, se um ficheiro `buggy.gltf` for convertido, o recipiente de saída conterá um ficheiro chamado `buggy.info.json` ao lado do ativo convertido `buggy.arrAsset` . Contém informações sobre o modelo de origem, o modelo convertido e sobre a própria conversão.
 
-## <a name="example-info-file"></a>Arquivo *de informações* de exemplo
+## <a name="example-info-file"></a>Arquivo *de informação* de exemplo
 
-Aqui está um arquivo de *informação* de `buggy.gltf`exemplo produzido através da conversão de um ficheiro chamado:
+Aqui está um ficheiro de *informação* de exemplo produzido através da conversão de um ficheiro chamado `buggy.gltf` :
 
 ```JSON
 {
@@ -73,59 +73,59 @@ Aqui está um arquivo de *informação* de `buggy.gltf`exemplo produzido atravé
 }
 ```
 
-## <a name="information-in-the-info-file"></a>Informação no ficheiro de informação
+## <a name="information-in-the-info-file"></a>Informação no ficheiro informação
 
 ### <a name="the-files-section"></a>A secção *de ficheiros*
 
-Esta secção contém os nomes de ficheiros fornecidos.
+Esta secção contém os dados de ficheiros fornecidos.
 
-* `input`: O nome do ficheiro fonte.
-* `output`: O nome do ficheiro de saída, quando o utilizador tiver especificado um nome não predefinido.
+* `input`: O nome do ficheiro de origem.
+* `output`: O nome do ficheiro de saída, quando o utilizador tiver especificado um nome não padrão.
 
-### <a name="the-conversionsettings-section"></a>A secção *definições de conversão*
+### <a name="the-conversionsettings-section"></a>A secção *conversõesSes*
 
-Esta secção contém uma cópia das [Definições](configure-model-conversion.md#settings-file) de Conversão especificadas quando o modelo foi convertido.
+Esta secção contém uma cópia das [conversões Especificadas](configure-model-conversion.md#settings-file) quando o modelo foi convertido.
 
 ### <a name="the-inputinfo-section"></a>A secção *inputInfo*
 
 Esta secção regista informações sobre o formato de ficheiro de origem.
 
 * `sourceAssetExtension`: A extensão do ficheiro de origem.
-* `sourceAssetFormat`: Uma descrição do formato de ficheiro fonte.
-* `sourceAssetFormatVersion`: A versão do formato de ficheiro fonte.
-* `sourceAssetGenerator`: O nome da ferramenta que gerou o ficheiro fonte, se disponível.
+* `sourceAssetFormat`: Uma descrição do formato do ficheiro de origem.
+* `sourceAssetFormatVersion`: A versão do formato de ficheiro de origem.
+* `sourceAssetGenerator`: O nome da ferramenta que gerou o ficheiro de origem, se disponível.
 
-### <a name="the-inputstatistics-section"></a>A secção *inputStatistics*
+### <a name="the-inputstatistics-section"></a>A secção *de inputStatistics*
 
-Esta secção fornece informações sobre a cena da origem. Muitas vezes haverá discrepâncias entre os valores desta secção e os valores equivalentes na ferramenta que criou o modelo de origem. Esperam-se tais diferenças, uma vez que o modelo é modificado durante as etapas de exportação e conversão.
+Esta secção fornece informações sobre a cena da origem. Muitas vezes haverá discrepâncias entre os valores desta secção e os valores equivalentes na ferramenta que criou o modelo de origem. Estas diferenças são esperadas, uma vez que o modelo é modificado durante as etapas de exportação e conversão.
 
 * `numMeshes`: O número de peças de malha, onde cada peça pode fazer referência a um único material.
-* `numFaces`: O número total de _triângulos_ em todo o modelo. Note que a malha é triangulada durante a conversão.
+* `numFaces`: O número total de _triângulos_ em todo o modelo. Note que a malha é triangulada durante a conversão. Este número contribui para o limite do polígono no [tamanho padrão de VM de renderização](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons).
 * `numVertices`: O número total de vértices em todo o modelo.
 * `numMaterial`: O número total de materiais em todo o modelo.
 * `numFacesSmallestMesh`: O número de triângulos na malha mais pequena do modelo.
 * `numFacesBiggestMesh`: O número de triângulos na maior malha do modelo.
 * `numNodes`: O número de nós no gráfico de cena do modelo.
-* `numMeshUsagesInScene`: O número de vezes que não faz nódeas referências. Mais do que um nó pode referir a mesma malha.
-* `maxNodeDepth`: A profundidade máxima dos nódosos dentro do gráfico de cena.
+* `numMeshUsagesInScene`: O número de vezes que os nós de referência. Mais do que um nó pode fazer referência à mesma malha.
+* `maxNodeDepth`: A profundidade máxima dos nós dentro do gráfico de cena.
 
 ### <a name="the-outputinfo-section"></a>A secção *outputInfo*
 
 Esta secção regista informações gerais sobre a saída gerada.
 
-* `conversionToolVersion`: Versão do conversor do modelo.
-* `conversionHash`: Um hash dos dados dentro do arrAsset que pode contribuir para a renderização. Pode ser usado para entender se o serviço de conversão produziu um resultado diferente quando reexecutado no mesmo ficheiro.
+* `conversionToolVersion`: Versão do conversor de modelo.
+* `conversionHash`: Um haxixe dos dados dentro do arrAsset que pode contribuir para a renderização. Pode ser usado para entender se o serviço de conversão produziu um resultado diferente quando reexecutado no mesmo ficheiro.
 
-### <a name="the-outputstatistics-section"></a>A secção *de estatísticas de saída*
+### <a name="the-outputstatistics-section"></a>A secção *de resultadosStatística*
 
 Esta secção regista informações calculadas a partir do ativo convertido.
 
-* `numMeshPartsCreated`: O número de medas no arrAsset. Pode diferir `numMeshes` da `inputStatistics` secção, porque o inestacção é afetado pelo processo de conversão.
-* `numMeshPartsInstanced`: O número de medas que são reutilizadas no arrAsset.
-* `recenteringOffset`: Quando `recenterToOrigin` a opção nas [Definições](configure-model-conversion.md) de Conversão está ativada, este valor é a tradução que faria com que o modelo convertido voltasse à sua posição original.
+* `numMeshPartsCreated`: O número de malhas no arrAsset. Pode diferir `numMeshes` da secção, porque a `inputStatistics` instancing é afetada pelo processo de conversão.
+* `numMeshPartsInstanced`: O número de malhas reutilizadas no arrAsset.
+* `recenteringOffset`: Quando a `recenterToOrigin` opção nas [conversõesEção](configure-model-conversion.md) estiver ativada, este valor é a tradução que moveria o modelo convertido de volta à sua posição original.
 * `boundingBox`: Os limites do modelo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Conversão de modelo](model-conversion.md)
 * [Configurar a conversão de modelos](configure-model-conversion.md)

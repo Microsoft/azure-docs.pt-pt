@@ -5,26 +5,26 @@ description: Este artigo descreve como configurar um túnel de utilizador Always
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
-ms.date: 03/13/2020
+ms.topic: how-to
+ms.date: 06/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: dd5b215b143fbaf487325744a158bb8b05707951
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03f67053a5a199c8c64efb05d2b6a65ad6707650
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79502870"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564049"
 ---
-# <a name="configure-an-always-on-vpn-user-tunnel-for-virtual-wan"></a>Configure um túnel de utilizador sempre em VPN para WAN virtual
+# <a name="configure-an-always-on-vpn-user-tunnel-for-virtual-wan"></a>Configure um túnel de utilizador Always On VPN para O WAN Virtual
 
 [!INCLUDE [intro](../../includes/vpn-gateway-vwan-always-on-intro.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Deve criar uma configuração ponto-a-local e editar a atribuição do hub virtual. Consulte as seguintes secções para obter instruções:
+Tem de criar uma configuração ponto-a-local e editar a atribuição do hub virtual. Consulte as seguintes secções para obter instruções:
 
 * [Criar uma configuração P2S](virtual-wan-point-to-site-portal.md#p2sconfig)
-* [Editar a atribuição do hub](virtual-wan-point-to-site-portal.md#edit)
+* [Criar hub com gateway P2S](virtual-wan-point-to-site-portal.md#hub)
 
 ## <a name="configure-a-user-tunnel"></a>Configure um túnel de utilizador
 
@@ -40,10 +40,10 @@ Para remover um perfil, utilize os seguintes passos:
    C:\> Remove-VpnConnection UserTest  
    ```
 
-1. Desligue a ligação e limpe a caixa de **verificação de ligação automaticamente.**
+1. Desligue a ligação e limpe a caixa de verificação **do Connect automaticamente.**
 
    ![Limpeza](./media/howto-always-on-user-tunnel/disconnect.jpg)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para mais informações sobre o WAN Virtual, consulte as [FAQ](virtual-wan-faq.md).
+Para obter mais informações sobre o VIRTUAL WAN, consulte as [FAQ.](virtual-wan-faq.md)

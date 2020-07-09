@@ -1,22 +1,22 @@
 ---
-title: Criar um ponto final personalizado [ Microsoft Docs
-description: Neste artigo, aprenda a configurar um ponto final personalizado para medir com o seu recurso Analisador de Internet.
+title: Criar um ponto de final personalizado Microsoft Docs
+description: Neste artigo, aprenda a configurar um ponto final personalizado para medir com o seu recurso Internet Analyzer.
 services: internet-analyzer
 author: mattcalder
 ms.service: internet-analyzer
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 0b5647dd2e43c8a73bb999af559a579c14bb86a1
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 6ca71bce726f16eeacc96e10eb654bb3e21c5924
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683972"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744090"
 ---
-# <a name="measure-custom-endpoints-to-evaluate-in-your-internet-analyzer-tests"></a>Meça pontos finais personalizados para avaliar nos seus testes de Análise de Internet 
+# <a name="measure-custom-endpoints-to-evaluate-in-your-internet-analyzer-tests"></a>Meça pontos finais personalizados para avaliar nos seus testes de Analisador de Internet 
 
-Este artigo demonstra como configurar um ponto final personalizado para medir como parte dos seus testes de Analisador de Internet. Os pontos finais personalizados ajudam a avaliar as cargas de trabalho no local, as cargas de trabalho a funcionar noutros fornecedores de nuvem e as configurações personalizadas do Azure.  Comparar dois pontos finais personalizados num teste é possível se um ponto final for um recurso Azure. Para mais informações sobre o Analisador de Internet, consulte a [visão geral](internet-analyzer-overview.md). 
+Este artigo demonstra como configurar um ponto final personalizado para medir como parte dos seus testes de Analisador de Internet. Os pontos finais personalizados ajudam a avaliar as cargas de trabalho no local, as cargas de trabalho em execução em outros fornecedores de nuvem e as configurações azure personalizadas.  Comparar dois pontos finais personalizados num teste é possível se um ponto final for um recurso Azure. Para obter mais informações sobre o Analisador de Internet, consulte a [visão geral.](internet-analyzer-overview.md) 
 
 > [!IMPORTANT]
 > Esta pré-visualização pública é disponibilizada sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
@@ -24,16 +24,16 @@ Este artigo demonstra como configurar um ponto final personalizado para medir co
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Certifique-se de configurar um recurso do Analisador de Internet e selecionar a opção "Custom Endpoint". O Internet Analyzer assume que o seu ponto final personalizado é acessível à Internet. Para mais informações, consulte [Criar um Recurso analisador](internet-analyzer-create-test-portal.md)de Internet .
+Certifique-se de que configura um recurso analisador de Internet e selecione a opção "Ponto final personalizado". O Internet Analyzer assume que o seu ponto final personalizado é acessível à Internet. Para obter mais informações, consulte [Criar um Recurso de Analisador de Internet.](internet-analyzer-create-test-portal.md)
 
 
-## <a name="create-custom-endpoint"></a>Criar ponto final personalizado
+## <a name="create-custom-endpoint"></a>Criar ponto de final personalizado
 
-1. Descarregue uma imagem transparente de teste de um pixel [aqui](https://fpc.msedge.net/apc/trans.gif). Esta imagem de um pixel é o ativo que o cliente JavaScript irá buscar para medir o desempenho.
-2. Na sua aplicação web personalizada, implemente a imagem de teste num caminho acessível ao público. O caminho deve funcionar sobre HTTPS. 
+1. Faça o download de uma imagem transparente de um pixel [aqui.](https://fpc.msedge.net/apc/trans.gif) Esta imagem de um pixel é o ativo que o cliente JavaScript irá obter para medir o desempenho.
+2. Na sua aplicação web personalizada, desloque a imagem de teste num caminho acessível ao público. O caminho deve funcionar sobre HTTPS. 
 3. Copie o URL de ponto final personalizado completo (por `https://contoso.com/test/trans.gif` exemplo) no campo de ponto final personalizado durante a sua criação de teste.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Leia o [FaQ do Analisador](internet-analyzer-faq.md) de Internet
+Leia o [Analisador de Internet FAQ](internet-analyzer-faq.md)
 

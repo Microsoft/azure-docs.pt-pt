@@ -13,25 +13,24 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 537d609c1281929203d1891f37614b7627e1683a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81868672"
 ---
-# <a name="admin-consent-on-the-microsoft-identity-platform"></a>Consentimento do administrador na plataforma de identidade da Microsoft
+# <a name="admin-consent-on-the-microsoft-identity-platform"></a>Consentimento de administração na plataforma de identidade da Microsoft
 
 Algumas permissões requerem o consentimento de um administrador antes de poderem ser concedidas dentro de um inquilino.  Você também pode usar o ponto final de consentimento administrativo para conceder permissões a um inquilino inteiro.
 
 ## <a name="recommended-sign-the-user-into-your-app"></a>Recomendado: Inscreva o utilizador na sua aplicação
 
-Normalmente, quando se constrói uma aplicação que utiliza o ponto final do consentimento do administrador, a aplicação precisa de uma página ou vista na qual o administrador pode aprovar as permissões da app. Esta página pode fazer parte do fluxo de inscrição da aplicação, parte das definições da aplicação, ou pode ser um fluxo dedicado de "connect". Em muitos casos, faz sentido que a app mostre esta visão de "connect" apenas depois de um utilizador ter assinado com uma conta de trabalho ou escola da Microsoft.
+Normalmente, quando constrói uma aplicação que utiliza o ponto final de consentimento administrativo, a aplicação precisa de uma página ou vista na qual o administrador pode aprovar as permissões da app. Esta página pode fazer parte do fluxo de inscrição da aplicação, parte das definições da aplicação, ou pode ser um fluxo dedicado de "connect". Em muitos casos, faz sentido que a app mostre esta vista de "conectar" apenas depois de um utilizador ter assinado com uma conta microsoft de trabalho ou escola.
 
-Ao assinar o utilizador na sua aplicação, pode identificar a organização a que pertence o administrador antes de pedir-lhes que aprovem as permissões necessárias. Embora não seja estritamente necessário, pode ajudá-lo a criar uma experiência mais intuitiva para os seus utilizadores organizacionais. Para iniciar sessão com o utilizador, siga os [nossos tutoriais](active-directory-v2-protocols.md)de protocolo de plataforma de identidade da Microsoft .
+Quando assinar o utilizador na sua aplicação, pode identificar a organização a que o administrador pertence antes de pedir-lhes que aprovem as permissões necessárias. Embora não seja estritamente necessário, pode ajudá-lo a criar uma experiência mais intuitiva para os seus utilizadores organizacionais. Para iniciar sômsim do utilizador, siga os [nossos tutoriais de protocolo de plataforma de identidade da Microsoft.](active-directory-v2-protocols.md)
 
-## <a name="request-the-permissions-from-a-directory-admin"></a>Solicite as permissões de um administrador de diretório
+## <a name="request-the-permissions-from-a-directory-admin"></a>Solicite as permissões a um administrador de diretório
 
-Quando estiver pronto para solicitar permissões ao administrador da sua organização, pode redirecionar o utilizador para o *ponto final*de consentimento da plataforma de identidade da Microsoft .
+Quando estiver pronto para solicitar permissões do administrador da sua organização, pode redirecionar o utilizador para o *ponto final de consentimento da*plataforma de identidade da Microsoft.
 
 ```HTTP
 // Line breaks are for legibility only.
@@ -47,14 +46,14 @@ https://graph.microsoft.com/mail.send
 
 | Parâmetro     | Condição     | Descrição                                                                               |
 |--------------:|--------------:|:-----------------------------------------------------------------------------------------:|
-| `tenant` | Necessário | O inquilino do diretório de quem quer pedir autorização. Pode ser fornecido em formato de nome `organizations` GUIA ou amigável OU genericamente referenciado com o exemplo. Não utilize "comum", uma vez que as contas pessoais não podem dar consentimento à administração, exceto no contexto de um inquilino. Para garantir a melhor compatibilidade com contas pessoais que gerem os inquilinos, utilize o ID do inquilino sempre que possível. |
-| `client_id` | Necessário | O ID de **Aplicação (cliente)** que o [portal Azure – App registra](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída à sua app. |
-| `redirect_uri` | Necessário |O URI redireciona do URI onde pretende que a resposta seja enviada para a sua aplicação manusear. Deve corresponder exatamente a uma das URIs redirecionais que registou no portal de registo da aplicação. |
-| `state` | Recomendado | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de qualquer conteúdo que queiras. Utilize o Estado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou visualização em que se encontrava. |
-|`scope`        | Necessário      | Define o conjunto de permissões que estão a ser solicitadas pelo pedido. Isto pode ser estático (utilizando /.padrão) ou âmbitos dinâmicos.  Isto pode incluir os âmbitos`openid` `profile`oIDC ( , , `email`). |
+| `tenant` | Necessário | O inquilino do diretório que quer pedir autorização. Pode ser fornecido em formato guiado ou de nome amigável ou genericamente referenciado com `organizations` o que se vê no exemplo. Não utilize 'comum', uma vez que as contas pessoais não podem fornecer consentimento administrativo, exceto no contexto de um inquilino. Para garantir a melhor compatibilidade com contas pessoais que gerem os inquilinos, utilize o ID do inquilino sempre que possível. |
+| `client_id` | Necessário | O **ID da Aplicação (cliente)** que o [portal Azure – Experiência de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuído à sua app. |
+| `redirect_uri` | Necessário |O URI de redirecionamento onde deseja que a resposta seja enviada para que a sua aplicação seja tratada. Deve corresponder exatamente a um dos URIs redirecionados que registou no portal de registo de aplicações. |
+| `state` | Recomendado | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de conteúdos que quiser. Utilize o estado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou a visualização em que se encontravam. |
+|`scope`        | Necessário      | Define o conjunto de permissões solicitadas pela aplicação. Isto pode ser estático (usando /.predefinido) ou âmbitos dinâmicos.  Isto pode incluir os âmbitos OIDC `openid` (, `profile` , . `email` . |
 
 
-Neste momento, a Azure AD exige que um administrador inquilino assine o pedido. Pede-se ao administrador que aprove todas as `scope` permissões que solicitou no parâmetro.  Se tiver usado um`/.default`valor estático , funcionará como o ponto final de consentimento da v1.0 e solicitará o consentimento de todos os âmbitos encontrados nas permissões necessárias para a app.
+Neste momento, a Azure AD exige que um administrador de inquilino assine para completar o pedido. Pede-se ao administrador que aprove todas as permissões que solicitou no `scope` parâmetro.  Se tiver usado um valor estático `/.default` () funcionará como o ponto final de consentimento de administração v1.0 e solicitará o consentimento para todos os âmbitos encontrados nas permissões necessárias para a aplicação.
 
 ### <a name="successful-response"></a>Resposta bem sucedida
 
@@ -66,27 +65,27 @@ http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-
 
 | Parâmetro         | Descrição                                                                                       |
 |------------------:|:-------------------------------------------------------------------------------------------------:|
-| `tenant`| O inquilino de diretório que concedeu ao seu pedido as permissões que solicitou, em formato GUID.|
-| `state`           | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de qualquer conteúdo que queiras. O Estado é utilizado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou visualização em que se encontrava.|
-| `scope`          | O conjunto de permissões que tiveram acesso, para o pedido.|
-| `admin_consent`   | Será definido `True`para .|
+| `tenant`| O inquilino do diretório que concedeu ao seu pedido as permissões que solicitou, em formato GUID.|
+| `state`           | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de conteúdos que quiser. O Estado é utilizado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou a visualização em que se encontravam.|
+| `scope`          | O conjunto de permissões a que foi dado acesso, para o pedido.|
+| `admin_consent`   | Será definido para `True` .|
 
 ### <a name="error-response"></a>Resposta de erro
 
 `http://localhost/myapp/permissions?error=consent_required&error_description=AADSTS65004%3a+The+resource+owner+or+authorization+server+denied+the+request.%0d%0aTrace+ID%3a+d320620c-3d56-42bc-bc45-4cdd85c41f00%0d%0aCorrelation+ID%3a+8478d534-5b2c-4325-8c2c-51395c342c89%0d%0aTimestamp%3a+2019-09-24+18%3a34%3a26Z&admin_consent=True&tenant=fa15d692-e9c7-4460-a743-29f2956fd429&state=12345`
 
-Adicionando aos parâmetros observados numa resposta bem sucedida, os parâmetros de erro são vistos como abaixo.
+Adicionando aos parâmetros vistos numa resposta bem sucedida, os parâmetros de erro são vistos como abaixo.
 
 | Parâmetro          | Descrição                                                                                      |
 |-------------------:|:-------------------------------------------------------------------------------------------------:|
-| `error`            | Uma cadeia de código de erro que pode ser usada para classificar tipos de erros que ocorrem, e pode ser usada para reagir a erros.|
+| `error`            | Uma cadeia de código de erro que pode ser usada para classificar tipos de erros que ocorrem e pode ser usado para reagir a erros.|
 | `error_description`| Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa principal de um erro.|
-| `tenant`| O inquilino de diretório que concedeu ao seu pedido as permissões que solicitou, em formato GUID.|
-| `state`           | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de qualquer conteúdo que queiras. O Estado é utilizado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou visualização em que se encontrava.|
-| `admin_consent`   | Será definido `True` para indicar que esta resposta ocorreu num fluxo de consentimento administrativo.|
+| `tenant`| O inquilino do diretório que concedeu ao seu pedido as permissões que solicitou, em formato GUID.|
+| `state`           | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de conteúdos que quiser. O Estado é utilizado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou a visualização em que se encontravam.|
+| `admin_consent`   | Será programado `True` para indicar que esta resposta ocorreu num fluxo de consentimento administrativo.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Veja [como converter uma app para ser multi-inquilino](howto-convert-app-to-be-multi-tenant.md)
-- Saiba como o consentimento é suportado na camada de [protocolo OAuth 2.0 durante o fluxo de concessão do código](v2-oauth2-auth-code-flow.md#request-an-authorization-code)de autorização .
-- Saiba [como uma aplicação multi-arrendatária pode usar o quadro de consentimento](active-directory-devhowto-multi-tenant-overview.md) para implementar o consentimento de "utilizador" e "administrador", suportando padrões de aplicação multi-nível mais avançados.
-- Compreender experiências de consentimento de [aplicação da AD Azure](application-consent-experience.md)
+- Saiba como [o consentimento é suportado na camada do protocolo OAuth 2.0 durante o fluxo de concessão de código de autorização](v2-oauth2-auth-code-flow.md#request-an-authorization-code).
+- Saiba [como uma aplicação multi-arrendatário pode usar o quadro de consentimento](active-directory-devhowto-multi-tenant-overview.md) para implementar o consentimento "utilizador" e "administrador", suportando padrões de aplicação de vários níveis mais avançados.
+- Compreender [experiências de consentimento de pedidos de Azure AD](application-consent-experience.md)

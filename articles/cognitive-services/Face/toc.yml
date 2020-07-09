@@ -37,8 +37,6 @@
       items:
         - name: 'C#'
           href: Tutorials/FaceAPIinCSharpTutorial.md
-        - name: Android
-          href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: Conceitos
   items:
     - name: Deteção de rostos

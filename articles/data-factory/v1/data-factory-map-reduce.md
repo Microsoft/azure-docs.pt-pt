@@ -1,6 +1,6 @@
 ---
-title: Invocar mapReduce programa da Fábrica de Dados Azure
-description: Saiba como processar dados executando programas MapReduce num cluster Azure HDInsight de uma fábrica de dados Azure.
+title: Invocar o Programa MapReduce da Azure Data Factory
+description: Saiba como processar dados executando programas MapReduce num cluster Azure HDInsight a partir de uma fábrica de dados Azure.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -13,18 +13,17 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 598a16d25ba375b984a966cba190181edbda3d15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74703143"
 ---
-# <a name="invoke-mapreduce-programs-from-data-factory"></a>Invocar mapReduce programas da fábrica de dados
+# <a name="invoke-mapreduce-programs-from-data-factory"></a>Invocar programas mapReduce da Fábrica de Dados
 > [!div class="op_single_selector" title1="Atividades de Transformação"]
 > * [Atividade da Colmeia](data-factory-hive-activity.md) 
 > * [Atividade do Porco](data-factory-pig-activity.md)
-> * [MapReduce Atividade](data-factory-map-reduce.md)
-> * [Atividade de streaming de hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Atividade mapReduce](data-factory-map-reduce.md)
+> * [Atividade de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade de Faísca](data-factory-spark.md)
 > * [Atividade de Execução em Lote do Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 > * [Atividade de Recursos de Atualização de Machine Learning](data-factory-azure-ml-update-resource-activity.md)
@@ -33,27 +32,27 @@ ms.locfileid: "74703143"
 > * [.NET Atividade Personalizada](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte [a transformação de dados utilizando](../transform-data-using-hadoop-map-reduce.md)a atividade MapReduce na Fábrica de Dados .
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte os dados de [transformação utilizando a atividade mapReduce na Data Factory.](../transform-data-using-hadoop-map-reduce.md)
 
 
-O HDInsight MapReduce atividade num [pipeline](data-factory-create-pipelines.md) data factory executa programas MapReduce por [si só](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou a [pedido](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) do cluster HDInsight baseado em HDInsight. Este artigo baseia-se no artigo sobre atividades de transformação de [dados,](data-factory-data-transformation-activities.md) que apresenta uma visão geral da transformação de dados e das atividades de transformação apoiadas.
+A atividade HDInsight MapReduce num [oleoduto](data-factory-create-pipelines.md) data factory executa programas MapReduce por [conta própria](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou a pedido do grupo HDInsight baseado [em](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux. Este artigo baseia-se no artigo de atividades de [transformação](data-factory-data-transformation-activities.md) de dados, que apresenta uma visão geral da transformação de dados e das atividades de transformação apoiadas.
 
 > [!NOTE] 
-> Se é novo na Azure Data Factory, leia através da [Introdução à Azure Data Factory](data-factory-introduction.md) e faça o tutorial: [Construa](data-factory-build-your-first-pipeline.md) o seu primeiro pipeline de dados antes de ler este artigo.  
+> Se é novo na Azure Data Factory, leia através [da Introdução à Azure Data Factory](data-factory-introduction.md) e faça o tutorial: Construa o seu primeiro pipeline de [dados](data-factory-build-your-first-pipeline.md) antes de ler este artigo.  
 
 ## <a name="introduction"></a>Introdução
-Um oleoduto numa fábrica de dados azure processa dados em serviços de armazenamento ligados utilizando serviços de cálculo ligados. Contém uma sequência de atividades em que cada atividade realiza uma operação de processamento específica. Este artigo descreve a utilização do Mapa HDInsight Reduzir a Atividade.
+Um oleoduto numa fábrica de dados da Azure processa dados em serviços de armazenamento ligados utilizando serviços de computação ligados. Contém uma sequência de atividades em que cada atividade realiza uma operação de processamento específica. Este artigo descreve a utilização da Atividade de Mílpe MapReduce HDInsight.
 
-Consulte [o Pig](data-factory-pig-activity.md) and [Hive](data-factory-hive-activity.md) para obter detalhes sobre a execução de scripts de Pig/Hive num cluster HDInsight baseado no Windows/Linux a partir de um pipeline utilizando atividades de Porco e Colmeia HDInsight. 
+Consulte [o Pig](data-factory-pig-activity.md) and [Hive](data-factory-hive-activity.md) para obter detalhes sobre a execução de scripts de Pig/Hive num cluster HDInsight baseado no Windows/Linux a partir de um oleoduto utilizando atividades de Porco e Colmeia HDInsight. 
 
-## <a name="json-for-hdinsight-mapreduce-activity"></a>JSON para HDInsight MapReduce Activity
+## <a name="json-for-hdinsight-mapreduce-activity"></a>JSON para atividade de mapreduce mapa hdinsight
 Na definição JSON para a Atividade HDInsight: 
 
 1. Defina o **tipo** de **atividade** para **HDInsight**.
-2. Especifique o nome da classe para a propriedade **className.**
-3. Especifique o caminho para o ficheiro JAR, incluindo o nome de ficheiro da propriedade **jarFilePath.**
-4. Especifique o serviço ligado que se refere ao Armazenamento De Blob Azure que contém o ficheiro JAR para a propriedade **jarLinkedService.**   
-5. Especifique quaisquer argumentos para o programa MapReduce na secção **de argumentos.** No tempo de execução, você vê alguns argumentos extra (por exemplo: mapreduce.job.tags) do quadro MapReduce. Para diferenciar os seus argumentos com os argumentos MapReduce, considere usar tanto a opção como o valor como argumentos como mostrado no exemplo seguinte (-s, --entrada, -- saída, etc., são opções imediatamente seguidas pelos seus valores).
+2. Especifique o nome da classe para propriedade **classeName.**
+3. Especifique o caminho para o ficheiro JAR, incluindo o nome do ficheiro para a propriedade **jarFilePath.**
+4. Especifique o serviço ligado que se refere ao Azure Blob Storage que contém o ficheiro JAR para a propriedade **jarLinkedService.**   
+5. Especifique quaisquer argumentos para o programa MapReduce na secção **de argumentos.** No tempo de execução, você vê alguns argumentos extra (por exemplo: mapreduce.job.tags) a partir do quadro MapReduce. Para diferenciar os seus argumentos com os argumentos MapReduce, considere usar a opção e o valor como argumentos como mostrados no exemplo seguinte (-s, --input, --output etc., são opções imediatamente seguidas pelos seus valores).
 
     ```JSON   
     {
@@ -109,16 +108,16 @@ Na definição JSON para a Atividade HDInsight:
         }
     }
     ```
-   Pode utilizar o HDInsight MapReduce Activity para executar qualquer ficheiro mapReduce num cluster HDInsight. Na seguinte amostra, a definição JSON de um pipeline, a Atividade HDInsight é configurada para executar um ficheiro Mahout JAR.
+   Pode utilizar a Atividade de MapReduce HDInsight para executar qualquer ficheiro de frasco MapReduce num cluster HDInsight. Na seguinte amostra, a definição JSON de um oleoduto, a Atividade HDInsight está configurada para executar um ficheiro Mahout JAR.
 
 ## <a name="sample-on-github"></a>Amostra no GitHub
-Pode descarregar uma amostra para utilizar o HDInsight MapReduce Activity a partir de: [Data Factory Samples on GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON/MapReduce_Activity_Sample).  
+Você pode baixar uma amostra para usar a atividade de MapReduce HDInsight a partir de: [Data Factory Samples on GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON/MapReduce_Activity_Sample).  
 
 ## <a name="running-the-word-count-program"></a>Executar o programa Word Count
 O pipeline neste exemplo executa o programa Word Count Map/Reduce no seu cluster Azure HDInsight.   
 
 ### <a name="linked-services"></a>Serviços Ligados
-Em primeiro lugar, cria-se um serviço ligado para ligar o Armazenamento Azure que é utilizado pelo cluster Azure HDInsight à fábrica de dados Azure. Se copiar/colar o seguinte código, não se esqueça de substituir o nome da **conta** e a chave da **conta** pelo nome e chave do seu Armazenamento Azure. 
+Em primeiro lugar, cria um serviço ligado para ligar o Azure Storage que é utilizado pelo cluster Azure HDInsight à fábrica de dados Azure. Se copiar/colar o seguinte código, não se esqueça de substituir o **nome** da conta e **a chave de conta** pelo nome e chave do seu Azure Storage. 
 
 #### <a name="azure-storage-linked-service"></a>Serviço ligado do Storage do Azure
 
@@ -134,8 +133,8 @@ Em primeiro lugar, cria-se um serviço ligado para ligar o Armazenamento Azure q
 }
 ```
 
-#### <a name="azure-hdinsight-linked-service"></a>Serviço ligado azure HDInsight
-Em seguida, cria um serviço ligado para ligar o seu cluster Azure HDInsight à fábrica de dados Azure. Se copiar/colar o seguinte código, substitua o nome do **cluster HDInsight** com o nome do seu cluster HDInsight e altere os valores de nome de utilizador e palavra-passe.   
+#### <a name="azure-hdinsight-linked-service"></a>Serviço ligado a Azure HDInsight
+Em seguida, cria um serviço ligado para ligar o seu cluster Azure HDInsight à fábrica de dados Azure. Se copiar/colar o seguinte código, substitua o nome do **cluster HDInsight** pelo nome do seu cluster HDInsight e altere o nome de utilizador e os valores da palavra-passe.   
 
 ```JSON
 {
@@ -152,9 +151,9 @@ Em seguida, cria um serviço ligado para ligar o seu cluster Azure HDInsight à 
 }
 ```
 
-### <a name="datasets"></a>Conjuntos de dados
+### <a name="datasets"></a>Conjuntos de Dados
 #### <a name="output-dataset"></a>Conjunto de dados de saída
-O gasoduto neste exemplo não tem quaisquer inputs. Especifica um conjunto de dados de saída para o HDInsight MapReduce Activity. Este conjunto de dados é apenas um conjunto de dados de boneco que é necessário para impulsionar o calendário do gasoduto.  
+O gasoduto neste exemplo não tem entradas. Especifica um conjunto de dados de saída para a Atividade de Análise de Mapas hdinsight. Este conjunto de dados é apenas um conjunto de dados falso que é necessário para conduzir o calendário do pipeline.  
 
 ```JSON
 {
@@ -179,17 +178,17 @@ O gasoduto neste exemplo não tem quaisquer inputs. Especifica um conjunto de da
 ```
 
 ### <a name="pipeline"></a>Pipeline
-O oleoduto neste exemplo tem apenas uma atividade que é de tipo: HDInsightMapReduce. Algumas das propriedades importantes no JSON são: 
+O pipeline neste exemplo tem apenas uma atividade que é do tipo: HDInsightMapReduce. Algumas das propriedades importantes no JSON são: 
 
 | Propriedade | Notas |
 |:--- |:--- |
 | tipo |O tipo deve ser definido para **HDInsightMapReduce**. |
-| className |O nome da classe é: **wordcount** |
-| jarFilePath |Caminho para o arquivo do frasco que contém a classe. Se copiar/colar o seguinte código, não se esqueça de alterar o nome do cluster. |
-| jarLinkedService |Serviço ligado ao Armazenamento Azure que contém o ficheiro do frasco. Este serviço ligado refere-se ao armazenamento que está associado ao cluster HDInsight. |
-| argumentos |O programa wordcount requer dois argumentos, uma entrada e uma saída. O ficheiro de entrada é o ficheiro davinci.txt. |
+| nome de classeName |O nome da classe é: **contador de palavras** |
+| jarFilePath |Caminho para o ficheiro do frasco que contém a classe. Se copiar/colar o seguinte código, não se esqueça de alterar o nome do cluster. |
+| jarLinkedService |Serviço ligado a Azure Storage que contém o ficheiro do frasco. Este serviço ligado refere-se ao armazenamento que está associado ao cluster HDInsight. |
+| argumentos |O programa wordcount leva dois argumentos, uma entrada e uma saída. O ficheiro de entrada é o ficheiro davinci.txt. |
 | frequência/intervalo |Os valores destas propriedades correspondem ao conjunto de dados de saída. |
-| linkedServiceName |refere-se ao serviço ligado ao HDInsight que tinha criado anteriormente. |
+| linkedServiceName |refere-se ao serviço ligado hdInsight que tinha criado anteriormente. |
 
 ```JSON
 {
@@ -245,10 +244,10 @@ Pode utilizar a atividade MapReduce para executar programas do Spark no seu clus
 [Developer Reference]: https://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: https://portal.azure.com
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 * [Atividade da Colmeia](data-factory-hive-activity.md)
 * [Atividade do Porco](data-factory-pig-activity.md)
-* [Atividade de streaming de hadoop](data-factory-hadoop-streaming-activity.md)
+* [Atividade de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
 * [Invocar programas do Spark](data-factory-spark.md)
 * [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

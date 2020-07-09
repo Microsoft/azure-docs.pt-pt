@@ -1,6 +1,6 @@
 ---
-title: Como registar eventos para os Hubs de Eventos Azure na Azure API Management [ Microsoft Docs
-description: Saiba como registar eventos para o Azure Event Hubs na Azure API Management.
+title: Como registar eventos para Azure Event Hubs na Azure API Management Microsoft Docs
+description: Saiba como registar eventos no Azure Event Hubs na Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,39 +14,38 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
 ms.openlocfilehash: 0d122a56035e58bd5065da8fde56246da6478d54
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82871270"
 ---
-# <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Como registar eventos para hubs de eventos Azure na Gestão da API Azure
-Os Event Hubs do Azure são um serviço de entrada de dados altamente dimensionável, que pode ingerir milhões de eventos por segundo para que possa processar e analisar os quantidades enormes de dados produzidos pelos dispositivos e aplicações ligados. O Event Hubs funciona como a "porta da frente" para um oleoduto de eventos, e uma vez recolhidos dados num centro de eventos, pode ser transformado e armazenado usando qualquer fornecedor de análise em tempo real ou adaptadores de lotação/armazenamento. Os Event Hubs desacoplam a produção de um fluxo de eventos do consumo desses eventos, para que os consumidores de eventos possam aceder aos eventos de acordo com seu próprio agendamento.
+# <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Como registar eventos para Azure Event Hubs na Azure API Management
+Os Event Hubs do Azure são um serviço de entrada de dados altamente dimensionável, que pode ingerir milhões de eventos por segundo para que possa processar e analisar os quantidades enormes de dados produzidos pelos dispositivos e aplicações ligados. O Event Hubs funciona como a "porta da frente" para um oleoduto de eventos, e uma vez recolhidos dados num centro de eventos, pode ser transformado e armazenado usando qualquer fornecedor de análise em tempo real ou adaptadores de lote/armazenamento. Os Event Hubs desacoplam a produção de um fluxo de eventos do consumo desses eventos, para que os consumidores de eventos possam aceder aos eventos de acordo com seu próprio agendamento.
 
-Este artigo é um companheiro da [Integrate Azure API Management com](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) vídeo de Event Hubs e descreve como registar eventos de Gestão API usando Hubs de Eventos Azure.
+Este artigo é um companheiro da [Integração Azure API Management com](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) vídeo de Event Hubs e descreve como registar eventos de Gestão API usando Azure Event Hubs.
 
 ## <a name="create-an-azure-event-hub"></a>Criar um Hub de Eventos do Azure
 
-Para dar passos detalhados sobre como criar um hub de eventos e obter cordas de ligação que precisa para enviar e receber eventos de e para o Hub de Eventos, consulte [Create a Event Hubs namespace e um hub de eventos utilizando o portal Azure.](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
+Para etapas detalhadas sobre como criar um centro de eventos e obter cordas de conexão que você precisa enviar e receber eventos de e para o Centro de [Eventos, consulte Criar um espaço de nomes de Event Hubs e um centro de eventos usando o portal Azure.](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
-## <a name="create-an-api-management-logger"></a>Criar um logger de Gestão API
-Agora que tem um Hub de Eventos, o próximo passo é configurar um [Logger](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger) no seu serviço de Gestão API para que possa registar eventos no Event Hub.
+## <a name="create-an-api-management-logger"></a>Criar um madeireiro de gestão da API
+Agora que tem um Centro de Eventos, o próximo passo é configurar um [Logger](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger) no seu serviço de Gestão API para que possa registar eventos no Centro de Eventos.
 
-Os madeireiros de gestão da API são configurados utilizando a [API Management REST API](https://aka.ms/apimapi). Para exemplos de pedidos detalhados, consulte [como criar Maders](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate).
+Os madeireiros de gestão da API são configurados utilizando a [API Management REST API](https://aka.ms/apimapi). Para exemplos de pedidos detalhados, consulte [como criar madeireiros.](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate)
 
 ## <a name="configure-log-to-eventhub-policies"></a>Configure as políticas de log-to-eventhub
 
-Assim que o seu logger estiver configurado na Gestão API, pode configurar a sua política de log-to-eventhub para registar os eventos desejados. A política de log-to-eventhub pode ser utilizada na secção política de entrada ou na secção política de saída.
+Uma vez configurado o seu madeireiro na Gestão da API, pode configurar a sua política de log-to-eventhub para registar os eventos pretendidos. A política de log-to-eventhub pode ser utilizada na secção política de entrada ou na secção política de saída.
 
 1. Navegue até à sua instância APIM.
 2. Selecione o separador API.
-3. Selecione a API à qual pretende adicionar a apólice. Neste exemplo, estamos adicionando uma política à **Echo API** no produto **Ilimitado.**
-4. Selecione **todas as operações**.
+3. Selecione a API à qual pretende adicionar a apólice. Neste exemplo, estamos adicionando uma política à **API Echo** no produto **Ilimitado.**
+4. Selecione **Todas as operações**.
 5. Na parte superior do ecrã, selecione o separador Design.
-6. Na janela de processamento de entrada ou saída, clique no triângulo (ao lado do lápis).
-7. Selecione o editor de Código. Para mais informações, consulte [Como definir ou editar políticas.](set-edit-policies.md)
-8. Posicione o cursor na `inbound` secção ou `outbound` política.
-9. Na janela à direita, selecione **Políticas Avançadas** > **Faça log to EventHub**. Isto insere o modelo de `log-to-eventhub` declaração de política.
+6. Na janela de processamento de entrada ou saída, clique no triângulo (junto ao lápis).
+7. Selecione o editor de código. Para obter mais informações, consulte [como definir ou editar políticas.](set-edit-policies.md)
+8. Posicione o cursor na `inbound` secção ou na secção `outbound` política.
+9. Na janela à direita, selecione **Advanced policies**Log  >  **to EventHub**. Isto insere o `log-to-eventhub` modelo de declaração de política.
 
 ```xml
 <log-to-eventhub logger-id="logger-id">
@@ -61,31 +60,31 @@ Assim que o seu logger estiver configurado na Gestão API, pode configurar a sua
     }
 </log-to-eventhub>
 ```
-Substitua `logger-id` pelo valor `{loggerId}` utilizado no URL de pedido para criar o madeireiro no passo anterior.
+`logger-id`Substitua-o pelo valor utilizado `{loggerId}` no URL de pedido para criar o madeireiro no passo anterior.
 
-Pode usar qualquer expressão que retorne uma `log-to-eventhub` corda como valor para o elemento. Neste exemplo, é registada uma cadeia em formato JSON contendo a data e hora, nome do serviço, id de pedido, endereço IP de pedido e nome de operação.
+Pode utilizar qualquer expressão que devolva uma corda como o valor do `log-to-eventhub` elemento. Neste exemplo, um string no formato JSON contendo a data e hora, nome de serviço, id pedido, endereço IP pedido e nome de operação é registado.
 
-Clique em **Guardar** para salvar a configuração de política atualizada. Assim que é salva, a política está ativa e os eventos são registados no centro de eventos designado.
+Clique em **Guardar** para guardar a configuração de política atualizada. Assim que for salva, a política está ativa e os eventos são registados no Centro de Eventos designado.
 
-## <a name="preview-the-log-in-event-hubs-by-using-azure-stream-analytics"></a>Pré-visualizar o log in Event Hubs utilizando o Azure Stream Analytics
+## <a name="preview-the-log-in-event-hubs-by-using-azure-stream-analytics"></a>Pré-visualizar o registo em Centros de Eventos utilizando a Azure Stream Analytics
 
-Pode pré-visualizar o log in Event Hubs utilizando consultas de Análise de Fluxo de [Azure](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics). 
+Pode visualizar o registo em Centros de Eventos utilizando [consultas Azure Stream Analytics](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics). 
 
-1. No portal Azure, navegue até ao centro de eventos para o que o madeireiro envia eventos. 
-2. Em **Funções**, selecione o separador de dados do **Processo.**
-3. No Enable insights em tempo real do cartão **de eventos,** selecione **Explore**.
-4. Deverá ser possível visualizar o log no separador **de pré-visualização de entrada.** Se os dados mostrados não estiverem atuais, selecione **Refresh** para ver os eventos mais recentes.
+1. No portal Azure, navegue pelo centro de eventos para onde o madeireiro envia eventos. 
+2. Em **Funcionalidades**, selecione o separador **de dados do Processo.**
+3. No **Enable introspeções em tempo real a partir do** cartão de eventos, selecione **Explore**.
+4. Deverá ser capaz de pré-visualizar o registo no **separador de pré-visualização de Entrada.** Se os dados apresentados não estiverem atuais, selecione **Refresh** para ver os eventos mais recentes.
 
-## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre os Hubs de Eventos Azure
-  * [Começar com hubs de eventos Azure](../event-hubs/event-hubs-c-getstarted-send.md)
+## <a name="next-steps"></a>Próximos passos
+* Saiba mais sobre os Azure Event Hubs
+  * [Começa com os Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
   * [Receber mensagens com o EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Guia de programação dos Hubs de Eventos](../event-hubs/event-hubs-programming-guide.md)
-* Saiba mais sobre a integração de Centros de Gestão e Eventos da API
+* Saiba mais sobre a integração da API Management e Do Event Hubs
   * [Referência da entidade logger](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger)
   * [referência política log-to-eventhub](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
-  * [Monitorize as suas APIs com a Azure API Management, Event Hubs e Moesif](api-management-log-to-eventhub-sample.md)  
-* Saiba mais sobre [integração com insights de aplicação azure](api-management-howto-app-insights.md)
+  * [Monitorize as suas APIs com Azure API Management, Event Hubs e Moesif](api-management-log-to-eventhub-sample.md)  
+* Saiba mais sobre [a integração com a Azure Application Insights](api-management-howto-app-insights.md)
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png

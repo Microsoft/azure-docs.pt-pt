@@ -1,6 +1,6 @@
 ---
-title: Questões conhecidas e limitações com migrações online para a Base de Dados Azure SQL gerida
-description: Conheça questões/limitações de migração conhecidas associadas às migrações online para a Base de Dados Azure SQL gerida.
+title: Questões e limitações conhecidas com migrações online para Azure SQL Gestão de Instância
+description: Conheça as questões conhecidas/limitações de migração associadas às migrações online para Azure SQL Managed Instance.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -11,57 +11,57 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 88e2b5894686ee93caecf33e04940803eb75f394
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 871ea665d23a5fba644448ddb6c596179d47bb3f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77648670"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85106404"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database-managed-instance"></a>Questões conhecidas/limitações de migração com migrações online para a Base de Dados Azure SQL gerida
+# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-managed-instance"></a>Questões conhecidas/limitações de migração com migrações on-line para Azure SQL Gestão De Instância
 
-Questões e limitações conhecidas que estão associadas às migrações on-line do SQL Server para a Base de Dados Azure SQL são descritas abaixo.
+Problemas e limitações conhecidos que estão associados às migrações on-line do SQL Server para Azure SQL Managed Instance são descritos abaixo.
 
 > [!IMPORTANT]
-> Com as migrações on-line do SQL Server para a Base de Dados SQL Azure, a migração de tipos de dados SQL_variant não é suportada.
+> Com migrações on-line do SQL Server para Azure SQL Database, a migração de SQL_variant tipos de dados não é suportada.
 
 ## <a name="backup-requirements"></a>Requisitos de backup
 
-- **Backups com cheques**
+- **Backups com checkum**
 
-    O Serviço de Migração de Bases de Dados Azure utiliza o método de backup e restauro para migrar as suas bases de dados no local para a instância gerida pela Base de Dados SQL. O Serviço de Migração de Bases de Dados Azure apenas suporta backups criados através do checksum.
+    O Serviço de Migração da Base de Dados Azure utiliza o método de backup e restauro para migrar as bases de dados no local para a SQL Managed Instance. O Serviço de Migração da Base de Dados Azure suporta apenas cópias de segurança criadas através do checksum.
 
-    [Ativar ou desativar verificações de backup durante a cópia de segurança ou restaurar (Servidor SQL)](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)
+    [Ativar ou desativar os custos de verificação de cópias de segurança durante a cópia de segurança ou restauro (SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)
 
     > [!NOTE]
-    > Se retirar as cópias de segurança da base de dados com compressão, o controlo é um comportamento predefinido a menos que seja explicitamente desativado.
+    > Se pegar nas cópias de segurança da base de dados com compressão, a conta de verificação é um comportamento predefinido, a menos que seja explicitamente desativado.
 
-    Com as migrações offline, se **escolher, permitirei**que o Serviço de Migração da Base de Dados Azure... então o Serviço de Migração da Base de Dados Azure leve a base de dados de reserva com a opção checksum ativada.
+    Com as migrações offline, se **escolher, permitirei que o Serviço de Migração da Base de Dados de Azure...** então o Serviço de Migração da Base de Dados Azure irá fazer cópias de segurança da base de dados com a opção checkum ativada.
 
-- **Meios de apoio**
+- **Meios de comunicação**
 
-    Certifique-se de que leva todas as cópias de segurança de um meio de backup separado (ficheiros de backup). O Serviço de Migração de Bases de Dados Azure não suporta cópias de segurança anexas a um único ficheiro de backup. Pegue cópias de segurança completas e faça log backups para separar ficheiros de backup.
+    Certifique-se de que leva todas as cópias de segurança de um meio de cópia de segurança separados (ficheiros de cópia de segurança). O Serviço de Migração da Base de Dados Azure não suporta cópias de segurança que estejam anexadas a um único ficheiro de backup. Pegue a cópia de segurança completa e faça cópias de segurança para separar ficheiros de backup.
 
-## <a name="data-and-log-file-layout"></a>Layout de dados e ficheiros de registo
+## <a name="data-and-log-file-layout"></a>Layout de ficheiros de dados e registo
 
 - **Número de ficheiros de registo**
 
-    O Serviço de Migração de Bases de Dados Azure não suporta bases de dados com vários ficheiros de registo. Se tiver vários ficheiros de registo, encolhe-os e reorganize-os num único ficheiro de registo de transações. Como não pode saquear ficheiros que não estão vazios, tem de fazer o registo primeiro.
+    O Azure Database Migration Service não suporta bases de dados com vários ficheiros de registo. Se tiver vários ficheiros de registo, encolhe-os e reorganiza-os num único ficheiro de registo de transações. Como não é possível registar ficheiros que não estão vazios, tem de fazer o registo primeiro.
 
-## <a name="sql-server-features"></a>Características do Servidor SQL
+## <a name="sql-server-features"></a>Funcionalidades do SQL Server
 
 - **FileStream/FileTables**
 
-    A tualmente, a instância gerida pela Base de Dados SQL não suporta fileStream e FileTables. Para cargas de trabalho dependentes destas funcionalidades, recomendamos que opte por Servidores SQL em Execução em VMs Azure como o seu alvo Azure.
+    A sql Managed Instance não suporta fileStream e FileTables. Para cargas de trabalho dependentes destas funcionalidades, recomendamos que opte por SqL Servers que executam em VMs Azure como alvo Azure.
 
 - **Tabelas de memória**
 
-    O OLTP em memória está disponível nos níveis Premium e Business Critical para a instância gerida pela Base de Dados SQL; o nível de Propósito Geral não suporta OLTP em memória.
+    OLTP em memória está disponível nos níveis Premium e Business Critical para SQL Managed Instance; o nível de Finalidade Geral não suporta OLTP de memória.
 
 ## <a name="migration-resets"></a>Resets migratórios
 
 - **Implementações**
 
-    A instância gerida pela Base de Dados SQL é um serviço PaaS com atualizações automáticas de remendos e versão. Durante a migração da sua base de dados SQL gerida, as atualizações não críticas são de ajuda até 36 horas. Posteriormente (e para atualizações críticas), se a migração for interrompida, o processo repõe-se para um estado de restauro completo.
+    SQL Managed Instance é um serviço PaaS com remendos automáticos e atualizações de versão. Durante a migração da sua SQL Managed Instance, as atualizações não críticas são mantidas por até 36 horas. Posteriormente (e para atualizações críticas), se a migração for interrompida, o processo reinicia para um estado de restauro total.
 
-    A redução da migração só pode ser chamada depois de restaurar a cópia de segurança completa e apanhar todas as cópias de segurança. Se as suas reduções de migração de produção forem afetadas, contacte o [pseudónimo Azure DMS Feedback](mailto:dmsfeedback@microsoft.com).
+    O corte de migração só pode ser chamado depois de restaurado o backup completo e recuperar todos os backups de registo. Se os cortes de migração da sua produção forem afetados, contacte o [pseudónimo Azure DMS Feedback](mailto:dmsfeedback@microsoft.com).

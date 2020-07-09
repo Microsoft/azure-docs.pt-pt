@@ -1,22 +1,22 @@
 ---
 title: Ligue-se ao Power BI Professional
-description: Neste tutorial, vamos passar por etapas de como ligar o ambiente de trabalho power BI à SQL on-demand (pré-visualização).
+description: Neste tutorial, vamos passar por etapas como ligar o desktop Power BI ao SQL on demand (pré-visualização).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4bedcc1f7375cb83131b00be93c785069a7d3e7d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: f5699624300d262630c9582131d00f33f5ce5be9
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692383"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212892"
 ---
-# <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Ligue-se ao Synapse SQL com power bi professional
+# <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Conecte-se ao SQL synapse com power BI Professional
 
 > [!div class="op_single_selector"]
 >
@@ -26,7 +26,7 @@ ms.locfileid: "82692383"
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
-Neste tutorial, vamos percorrer os passos para ligar o ambiente de trabalho power BI à SQL on-demand (pré-visualização).
+Neste tutorial, passaremos os passos para ligar o desktop Power BI ao SQL on demand (pré-visualização).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,32 +37,32 @@ Ferramenta para emitir consultas:
   - Azure Data Studio
   - SQL Server Management Studio
 
-- Ambiente de trabalho power BI instalado
+- Power BI desktop instalado
 
 Parâmetros:
 
 | Parâmetro                                 | Descrição                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Endereço final do serviço sql on-demand    | Será usado como nome do servidor                                   |
-| Região de ponto final do serviço sql a pedido     | Será usado para determinar que armazenamento usaremos em amostras |
+| Endereço de ponto final de serviço a pedido da SQL    | Será usado como nome de servidor                                   |
+| SqL região de ponto final de serviço a pedido     | Será usado para determinar que armazenamento vamos usar em amostras |
 | Nome de utilizador e senha para acesso ao ponto final | Será usado para aceder ao ponto final                               |
-| Base de Dados que utilizará para criar pontos de vista     | Esta base de dados será usada como ponto de partida em amostras       |
+| Base de dados que utilizará para criar vistas     | Esta base de dados será usada como ponto de partida em amostras       |
 
 ## <a name="first-time-setup"></a>Configuração pela primeira vez
 
-Há dois passos antes da utilização de amostras:
+Existem dois passos antes da utilização de amostras:
 
 1. Crie base de dados para os seus pontos de vista
-2. Criar credenciais a utilizar pela SQL a pedido para aceder a ficheiros no armazenamento
+2. Criar credenciais a serem usadas pela SQL a pedido de acesso a ficheiros no armazenamento
 
 ### <a name="create-database"></a>Criar base de dados
 
-Para este artigo de início, deve criar a sua própria base de dados para utilizar como demonstração. É necessária uma base de dados para a criação de pontos de vista. Você usará esta base de dados em algumas das consultas de amostra dentro desta documentação.
+Para este artigo de início, deve criar a sua própria base de dados para utilizar como uma demonstração. É necessária uma base de dados para a criação de pontos de vista. Você usará esta base de dados em algumas das consultas de amostra dentro desta documentação.
 
 > [!NOTE]
-> As bases de dados são utilizadas apenas para visualizar metadados, não para dados reais.
+> As bases de dados são utilizadas apenas para visualização de metadados, não para dados reais.
 >
-> Escreva o nome da base de dados que está a usar, e vai precisar dele mais tarde.
+> Escreva o nome da base de dados que está a usar e vai precisar mais tarde.
 
 ```sql
 DROP DATABASE IF EXISTS demo;
@@ -70,12 +70,12 @@ DROP DATABASE IF EXISTS demo;
 
 ### <a name="create-credentials"></a>Criar credenciais
 
-Temos de criar credenciais antes que possas fazer consultas. Esta credencial será utilizada pelo serviço on-demand SQL para aceder a ficheiros armazenados.
+Precisamos de criar credenciais antes que possas fazer consultas. Esta credencial será utilizada pelo serviço a pedido da SQL para aceder a ficheiros armazenados.
 
 > [!NOTE]
-> Precisa criar credenciais para o acesso à conta de armazenamento. Embora a SQL a pedido possa aceder ao armazenamento de diferentes regiões, ter armazenamento e espaço de trabalho Azure Synapse na mesma região proporcionará uma melhor experiência de desempenho.
+> Precisa de criar credenciais para o acesso à conta de armazenamento. Embora o SQL on demand possa aceder ao armazenamento de diferentes regiões, ter armazenamento e espaço de trabalho Azure Synapse na mesma região proporcionará uma melhor experiência de desempenho.
 
-**Código de snippet sobre como criar credenciais para os recipientes**de dados do Census, executar:
+**Código snippet sobre como criar credenciais para recipientes de dados do Censos,** executar:
 
 ```sql
 IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
@@ -90,23 +90,23 @@ SECRET = '';
 GO
 ```
 
-## <a name="creating-power-bi-desktop-report"></a>Criação de relatório de desktop Power BI
+## <a name="creating-power-bi-desktop-report"></a>Criando relatório de ambiente de trabalho Power BI
 
 Abra a aplicação de ambiente de trabalho Power BI e selecione a opção **Obter dados.**
 
-![Abra a aplicação de ambiente de trabalho Do Power BI e selecione obter dados.](./media/get-started-power-bi-professional/step-0-open-powerbi.png)
+![Abrir a aplicação de ambiente de trabalho DO BI e selecionar obter dados.](./media/get-started-power-bi-professional/step-0-open-powerbi.png)
 
 ### <a name="step-1---select-data-source"></a>Passo 1 - Selecione fonte de dados
 
 Selecione **Azure** no menu e, em seguida, **Azure SQL Database**.
 ![Selecione fonte de dados.](./media/get-started-power-bi-professional/step-1-select-data-source.png)
 
-### <a name="step-2---select-database"></a>Passo 2 - Selecionar base de dados
+### <a name="step-2---select-database"></a>Passo 2 - Selecione base de dados
 
-Escreva o URL para a base de dados e o nome da base de dados onde reside a vista.
+Escreva o URL para a base de dados e o nome da base de dados onde a vista reside.
 ![Selecione base de dados no ponto final.](./media/get-started-power-bi-professional/step-2-db.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Avançar para [ficheiros](get-started-azure-data-studio.md) de armazenamento de Consulta para aprender a ligar-se à SQL on-demand usando o Azure Data Studio.
+Avance para [consultar ficheiros de armazenamento](get-started-azure-data-studio.md) para aprender a ligar-se ao SQL on demand usando o Azure Data Studio.
  

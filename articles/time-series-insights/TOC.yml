@@ -41,31 +41,41 @@
           items:
             - name: Autenticar e autorizar
               href: time-series-insights-authentication-and-authorization.md
-            - name: 'Consultar dados com C#'
+            - name: Consultar dados com C#
               href: time-series-insights-query-data-csharp.md
-            - name: 'Gerir dados de referência com C#'
+            - name: Gerir dados de referência com C#
               href: time-series-insights-manage-reference-data-csharp.md
             - name: Partilhar uma vista personalizada
               href: time-series-insights-parameterized-urls.md
     - name: Pré-visualização do Azure Time Series Insights
       items:
-        - name: Planear o ambiente
-          href: time-series-insights-update-plan.md
-        - name: Entrada e armazenamento de dados
-          href: time-series-insights-update-storage-ingress.md
         - name: Casos de utilização
           href: time-series-insights-update-use-cases.md
+        - name: Planear o ambiente
+          href: time-series-insights-update-plan.md
+        - name: Descrição Geral da Ingestão
+          href: concepts-ingestion-overview.md
+        - name: Tipos de Dados Suportados
+          href: concepts-supported-data-types.md
+        - name: Origens de Eventos da Ingestão de Transmissão em Fluxo
+          href: concepts-streaming-ingestion-event-sources.md
+        - name: Regras de simplificação e escape de JSON
+          href: concepts-json-flattening-escaping-rules.md
+        - name: Limites de Débito da Entrada de Transmissão em Fluxo
+          href: concepts-streaming-throughput-limitations.md
+        - name: Armazenamento
+          href: concepts-storage.md
         - name: Modelo de Série de Tempo
-          href: time-series-insights-update-tsm.md
+          href: concepts-model-overview.md
         - name: Consulta de Série de Tempo
-          href: time-series-insights-update-tsq.md
+          href: concepts-query-overview.md
         - name: Visualizar dados na Pré-visualização do explorador
           href: time-series-insights-update-explorer.md
         - name: Programar
           items:
             - name: Autenticar e autorizar
               href: time-series-insights-authentication-and-authorization.md
-            - name: 'Consultar dados com C#'
+            - name: Consultar dados com C#
               href: time-series-insights-update-query-data-csharp.md
             - name: Integração do Power BI
               href: concepts-power-bi.md
@@ -111,6 +121,14 @@
           href: time-series-insights-update-how-to-shape-events.md
         - name: Ligar ao Power BI
           href: how-to-connect-power-bi.md
+- name: Alterações Interruptivas
+  items:
+    - name: Pré-visualização do Azure Time Series Insights
+      items:
+        - name: Adicionar Suporte para Tipo de Dados Longos
+          href: time-series-insights-long-data-type.md
+        - name: Alterações à simplificação e ao armazenamento do JSON
+          href: ingestion-rules-update.md
 - name: Referência
   items:
     - name: Time Series Insights
@@ -135,9 +153,14 @@
       items:
         - name: SDK do Cliente de JavaScript
           href: 'https://github.com/microsoft/tsiclient/blob/master/docs/API.md'
+    - name: CLI do Azure
+      href: /cli/azure/ext/timeseriesinsights/timeseriesinsights
+      displayName: az iot
 - name: Recursos
   expanded: true
   items:
+    - name: Opções de suporte e ajuda
+      href: /azure/iot-fundamentals/iot-support-help
     - name: Pedidos de dados do cliente
       href: time-series-insights-customer-data-requests.md
     - name: Recursos para programadores
@@ -158,22 +181,6 @@
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Disponibilidade de região
           href: 'https://azure.microsoft.com/regions/services/'
-    - name: Opções de suporte e ajuda
-      items:
-        - name: Opções de suporte do Azure
-          href: 'https://azure.microsoft.com/support/options/'
-        - name: Opções de suporte e ajuda do Azure IoT
-          href: 'https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help'
-        - name: Stack Overflow
-          href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
-        - name: Página de perguntas das Perguntas e Respostas da Microsoft
-          href: 'https://docs.microsoft.com/answers/topics/azure-time-series-insights.html'
-    - name: Comentários e fóruns
-      items:
-        - name: Página de perguntas das Perguntas e Respostas da Microsoft
-          href: 'https://docs.microsoft.com/answers/topics/azure-time-series-insights.html'
-        - name: Pedidos e sugestões de produtos
-          href: 'https://feedback.azure.com/forums/906859-azure-time-series-insights'
     - name: Vídeos do Azure
       href: 'https://azure.microsoft.com/resources/videos/index/?services=time-series-insights'
     - name: Vídeos do Channel 9

@@ -1,6 +1,6 @@
 ---
-title: Dados de consulta de um ambiente de pré-visualização usando C# - Azure Time Series Insights [ Microsoft Docs
-description: Saiba como consultar dados de um ambiente de Insights da Série De Tempo Azure utilizando uma aplicação escrita em C#.
+title: Dados de consulta de um ambiente de pré-visualização usando C# - Azure Time Series Insights Microsoft Docs
+description: Aprenda a consultar dados de um ambiente Azure Time Series Insights utilizando uma aplicação escrita em C#.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,73 +12,73 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
 ms.openlocfilehash: fbc2cbc29cb23a21e7d3713091fc22f01bb1b15a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81379821"
 ---
-# <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Dados de consulta do ambiente de pré-visualização da Série de Tempo Azure insights usando C #
+# <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Dados de consulta do ambiente de pré-visualização da Série de TempoS Azure utilizando C #
 
-Este exemplo C# demonstra como consultar dados das APIs de acesso a dados de [pré-visualização](https://docs.microsoft.com/rest/api/time-series-insights/preview) em ambientes de pré-visualização da Série de Tempo Azure Insights.
+Este exemplo C# demonstra como consultar dados a partir das APIs de [pré-visualização](https://docs.microsoft.com/rest/api/time-series-insights/preview) do acesso a dados em ambientes de pré-visualização de séries de tempo Azure.
 
 > [!TIP]
-> Ver Amostras de [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample)código Preview C# em .
+> Ver amostras de código pré-visualização C# em [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample) .
 
 ## <a name="summary"></a>Resumo
 
-O código da amostra abaixo demonstra as seguintes características:
+O código de amostra abaixo demonstra as seguintes características:
 
-* Suporte para a geração automática SDK a partir do [Azure AutoRest](https://github.com/Azure/AutoRest).
-* Como adquirir um token de acesso através do Diretório Ativo Azure utilizando [o Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
-* Como passar aquele símbolo de acesso `Authorization` adquirido no cabeçalho dos pedidos subsequentes da API de Acesso a Dados. 
-* A amostra fornece uma interface de consola demonstrando como os pedidos http são feitos para:
+* Suporte para a geração automática SDK da [Azure AutoRest](https://github.com/Azure/AutoRest).
+* Como adquirir um token de acesso através do Azure Ative Directory utilizando [o Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
+* Como passar o token de acesso adquirido no `Authorization` cabeçalho dos pedidos subsequentes da API de Acesso a Dados. 
+* A amostra fornece uma interface de consola que demonstra como os pedidos HTTP são feitos para:
 
-    * [Pré-visualização Ambientes API](https://docs.microsoft.com/rest/api/time-series-insights/preview#preview-environments-apis)
-        * [Obtenha API de disponibilidade](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) de ambientes e [obtenha evento Schema API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema)
-    * [Pré-visualização Consulta API](https://docs.microsoft.com/rest/api/time-series-insights/preview#query-apis)
-        * [Obtenha eventos API,](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#getevents) [Obtenha Série API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#getseries)e [Obtenha API série agregada](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#aggregateseries)
-    * [Modelo de Série de Tempo APIs](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#aggregateseries)
+    * [Pré-visualização ambientes API](https://docs.microsoft.com/rest/api/time-series-insights/preview#preview-environments-apis)
+        * [Obter Disponibilidade de Ambientes API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) e [Obter API de Schema de Eventos](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema)
+    * [Consulta de pré-visualização API](https://docs.microsoft.com/rest/api/time-series-insights/preview#query-apis)
+        * [Obter Eventos API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#getevents), [Obter API série](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#getseries), e [Obter API série agregada](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#aggregateseries)
+    * [APIs modelo série de tempo](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#aggregateseries)
         * [Obtenha hierarquias API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeserieshierarchies/get) e [Hierarquias Lote API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeserieshierarchies/executebatch)
-        * [Obtenha tipos API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/get) e [Tipos De Lote API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/executebatch)
-        * [Obtenha Instâncias API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/get) e [Instâncias Lote API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/executebatch)
-* Capacidades avançadas de [pesquisa](https://docs.microsoft.com/rest/api/time-series-insights/preview#search-features) e [TSX.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+        * [Obtenha API de tipos](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/get) e [tipos de lote API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/executebatch)
+        * [Obter API de Instâncias](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/get) e [Instâncias Lote API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/executebatch)
+* [Procura](https://docs.microsoft.com/rest/api/time-series-insights/preview#search-features) Avançada e capacidades [de TSX.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
 
 ## <a name="prerequisites-and-setup"></a>Pré-requisitos e configuração
 
-Complete os seguintes passos antes de compilar e executar o código da amostra:
+Complete os seguintes passos antes de compilar e executar o código de amostra:
 
-1. Fornecer um ambiente [de Insights da Série de Tempo Azure.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-how-to-manage#create-the-environment)
-1. Configure o seu ambiente de Insights da Série De Tempo Azure para o Diretório Ativo Azure, conforme descrito na [Autenticação e autorização.](time-series-insights-authentication-and-authorization.md) 
-1. Executar o [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/GenerateCode.bat) conforme especificado no [Readme.md](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/Readme.md) para gerar as dependências do cliente de Pré-visualização da Série De Tempo.
-1. Abra `TSIPreviewDataPlaneclient.sln` a solução e definido `DataPlaneClientSampleApp` como o projeto padrão no Estúdio Visual.
-1. Instale as dependências de projeto sinuosas utilizando os `.exe` passos [descritos abaixo](#project-dependencies) e compilar o exemplo num ficheiro executável.
-1. Faça `.exe` o ficheiro clicando duas vezes nele.
+1. [Provisionar um ambiente de Pré-visualização Azure Time Series Insights.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-how-to-manage#create-the-environment)
+1. Configure o seu ambiente Azure Time Series Insights para o Azure Ative Directory, conforme descrito na [Autenticação e autorização](time-series-insights-authentication-and-authorization.md). 
+1. Executar o [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/GenerateCode.bat) conforme especificado no [Readme.md](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/Readme.md) para gerar as dependências do cliente de Previsão de Insights de Séries Tempo.
+1. Abra a `TSIPreviewDataPlaneclient.sln` solução e definir `DataPlaneClientSampleApp` como o projeto padrão no Estúdio Visual.
+1. Instale as dependências de projetos necessárias utilizando os passos [descritos abaixo](#project-dependencies) e compile o exemplo para um ficheiro executável. `.exe`
+1. Executar o `.exe` ficheiro clicando duas vezes nele.
 
-## <a name="project-dependencies"></a>Dependências do projeto
+## <a name="project-dependencies"></a>Dependências de projetos
 
-Recomenda-se que use a mais recente versão do Visual Studio:
+Recomenda-se que utilize a versão mais recente do Visual Studio:
 
-* [Estúdio Visual 2019](https://visualstudio.microsoft.com/vs/) - Versão 16.4.2+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) - Versão 16.4.2+
 
-O código da amostra tem várias dependências necessárias que podem ser vistas no ficheiro [embalagem.config.](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClientSampleApp/packages.config)
+O código de amostra tem várias dependências necessárias que podem ser vistas no [ficheiropackages.config.](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClientSampleApp/packages.config)
 
-Descarregue os pacotes no Visual Studio 2019 selecionando a opção **Build** > **Build Solution.** 
+Descarregue os pacotes no Visual Studio 2019 selecionando a opção **Build**  >  **Build Solution.** 
 
-Em alternativa, adicione cada pacote utilizando [NuGet 2.12+](https://www.nuget.org/). Por exemplo:
+Em alternativa, adicione cada pacote utilizando [o NuGet 2.12+](https://www.nuget.org/). Por exemplo:
 
 * `dotnet add package Microsoft.IdentityModel.Clients.ActiveDirectory --version 4.5.1`
 
-## <a name="c-sample-code"></a>Código da amostra C#
+## <a name="c-sample-code"></a>Código de amostra C#
 
 [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-preview-sample/DataPlaneClientSampleApp/Program.cs)]
 
 > [!NOTE]
 > * A amostra de código pode ser executada sem alterar as variáveis ambientais padrão.
-> * A amostra de código irá compilar para uma aplicação de consola executável .NET.
+> * A amostra de código compila-se-á para uma aplicação de consola executável .NET.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre consulta, leia a referência da [Consulta API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query).
+- Para saber mais sobre consultas, leia a [referência API de Consulta.](https://docs.microsoft.com/rest/api/time-series-insights/preview-query)
 
-- Leia como [ligar uma aplicação JavaScript utilizando o SDK do cliente](https://github.com/microsoft/tsiclient) para time series Insights.
+- Leia como [ligar uma aplicação JavaScript utilizando o cliente SDK](https://github.com/microsoft/tsiclient) a Time Series Insights.

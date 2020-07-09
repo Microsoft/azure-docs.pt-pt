@@ -1,6 +1,6 @@
 ---
 title: Cenários do Azure Disk Encryption em VMs do Windows
-description: Este artigo fornece instruções sobre a ativação da encriptação do disco Microsoft Azure para VMs do Windows para vários cenários
+description: Este artigo fornece instruções para permitir a encriptação do disco do Azure do Microsoft para VMs windows para vários cenários
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
@@ -8,43 +8,43 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4509c62b15eb06c89fe80555a26773fdd3876e66
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 81ac76ef5eeebd278dc10e03d661bb21469c8f4f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790903"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610575"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Cenários do Azure Disk Encryption em VMs do Windows
 
-A encriptação do disco Azure para máquinas virtuais do Windows (VMs) utiliza a funcionalidade BitLocker do Windows para fornecer encriptação completa do disco de disco e disco de dados. Além disso, fornece encriptação do disco temporário quando o parâmetro VolumeType é All.
+A encriptação do disco Azure para máquinas virtuais do Windows (VMs) utiliza a funcionalidade BitLocker do Windows para fornecer encriptação completa do disco de segurança e do disco de dados. Além disso, fornece encriptação do disco temporário quando o parâmetro VolumeType é All.
 
-A encriptação do disco Azure está integrada com o [Azure Key Vault](disk-encryption-key-vault.md) para ajudá-lo a controlar e gerir as chaves e segredos de encriptação do disco. Para uma visão geral do serviço, consulte a [Encriptação do Disco Azure para VMs do Windows](disk-encryption-overview.md).
+A Azure Disk Encryption está [integrada com o Azure Key Vault](disk-encryption-key-vault.md) para ajudá-lo a controlar e gerir as chaves e segredos de encriptação do disco. Para uma visão geral do serviço, consulte [a encriptação do disco Azure para VMs do Windows](disk-encryption-overview.md).
 
-Só é possível aplicar encriptação de disco a máquinas virtuais de [tamanhos vm suportados e sistemas operativos.](disk-encryption-overview.md#supported-vms-and-operating-systems) Deve também cumprir os seguintes pré-requisitos:
+Só é possível aplicar encriptação de discos a máquinas virtuais de [tamanhos e sistemas operativos VM suportados.](disk-encryption-overview.md#supported-vms-and-operating-systems) Deve também cumprir os seguintes pré-requisitos:
 
-- [Requisitos de networking](disk-encryption-overview.md#networking-requirements)
+- [Requisitos de rede](disk-encryption-overview.md#networking-requirements)
 - [Requisitos de Política de Grupo](disk-encryption-overview.md#group-policy-requirements)
 - [Requisitos de armazenamento de chaves de encriptação](disk-encryption-overview.md#encryption-key-storage-requirements)
 
 >[!IMPORTANT]
-> - Se já utilizou anteriormente a Encriptação do Disco Azure com a AD Azure para encriptar um VM, tem de continuar a utilizar esta opção para encriptar o seu VM. Consulte a Encriptação do [Disco Azure com AD Azure (versão anterior)](disk-encryption-overview-aad.md) para obter mais detalhes. 
+> - Se já utilizou a Encriptação do Disco Azure com AZure AD para encriptar um VM, deve continuar a utilizar esta opção para encriptar o seu VM. Consulte [a encriptação do disco Azure com Azure AD (versão anterior)](disk-encryption-overview-aad.md) para obter mais detalhes. 
 >
-> - Deve [tirar uma fotografia](snapshot-copy-managed-disk.md) e/ou criar uma cópia de segurança antes de os discos serem encriptados. As cópias de segurança garantem que uma opção de recuperação é possível se ocorrer uma falha inesperada durante a encriptação. VMs com discos geridos requerem uma cópia de segurança antes da encriptação ocorrer. Uma vez feita uma cópia de segurança, pode utilizar o [cmdlet set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) para encriptar discos geridos especificando o parâmetro -skipVmBackup. Para obter mais informações sobre como fazer o back-up e restaurar os VMs encriptados, consulte [O Back up e restaure o Azure VM encriptado](../../backup/backup-azure-vms-encryption.md). 
+> - Deve [tirar uma fotografia](snapshot-copy-managed-disk.md) e/ou criar uma cópia de segurança antes de os discos serem encriptados. As cópias de segurança garantem que uma opção de recuperação é possível se ocorrer uma falha inesperada durante a encriptação. VMs com discos geridos requerem uma cópia de segurança antes da encriptação ocorrer. Uma vez feita uma cópia de segurança, pode utilizar o [cmdlet Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) para encriptar os discos geridos especificando o parâmetro -skipVmBackup. Para obter mais informações sobre como fazer o back up e restaurar VMs encriptados, consulte [Back up e restaure O VM encriptado](../../backup/backup-azure-vms-encryption.md). 
 >
-> - Encriptar ou desativar encriptação pode fazer com que um VM reinicie.
+> - Encriptar ou desativar a encriptação pode fazer com que um VM reinicie.
 
 ## <a name="install-tools-and-connect-to-azure"></a>Instale ferramentas e ligue-se ao Azure
 
 [!INCLUDE [disk-encryption-install-cli-powershell](../../../includes/disk-encryption-install-cli-powershell.md)]
 
-## <a name="enable-encryption-on-an-existing-or-running-windows-vm"></a>Ativar a encriptação de um VM Windows existente ou em execução
-Neste cenário, pode ativar a encriptação utilizando o modelo de Gestor de Recursos, cmdlets PowerShell ou comandos CLI. Se precisar de informações de esquemapara a extensão virtual da máquina, consulte a encriptação do disco Azure para o artigo de [extensão do Windows.](../extensions/azure-disk-enc-windows.md)
+## <a name="enable-encryption-on-an-existing-or-running-windows-vm"></a>Ativar a encriptação num VM do Windows existente ou em execução
+Neste cenário, pode ativar a encriptação utilizando o modelo de Gestor de Recursos, cmdlets PowerShell ou comandos CLI. Se precisar de informações sobre esquemas para a extensão da máquina virtual, consulte a Encriptação do Disco Azure para o artigo [de extensão do Windows.](../extensions/azure-disk-enc-windows.md)
 
-### <a name="enable-encryption-on-existing-or-running-vms-with-azure-powershell"></a>Ativar a encriptação em VMs existentes ou em execução com O PowerShell Azure 
-Utilize o [cmdlet set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) para permitir a encriptação numa máquina virtual IaaS em funcionamento em Azure. 
+### <a name="enable-encryption-on-existing-or-running-vms-with-azure-powershell"></a>Ativar a encriptação em VMs existentes ou em execução com Azure PowerShell 
+Utilize o [cmdlet Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) para ativar a encriptação numa máquina virtual IaaS em funcionamento em Azure. 
 
--  **Criptografe um VM em execução:** O script abaixo inicializa as suas variáveis e executa o cmdlet set-AzVMDiskEncryptionExtension. O grupo de recursos, VM e cofre chave já deviam ter sido criados como pré-requisitos. Substitua o MyKeyVaultResourceGroup, myVirtualMachineResourceGroup, MySecureVM e MySecureVault com os seus valores.
+-  **Criptografe um VM em execução:** O script abaixo inicializa as suas variáveis e executa o cmdlet Set-AzVMDiskEncryptionExtension. O grupo de recursos, VM e cofre-chave já deveriam ter sido criados como pré-requisitos. Substitua o MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM e MySecureVault com os seus valores.
 
      ```azurepowershell
       $KVRGname = 'MyKeyVaultResourceGroup';
@@ -57,7 +57,7 @@ Utilize o [cmdlet set-AzVMDiskEncryptionExtension](/powershell/module/az.compute
 
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
     ```
-- **Criptografe um VM em execução utilizando kek:** 
+- **Criptografe um VM em execução utilizando KEK:** 
 
      ```azurepowershell
      $KVRGname = 'MyKeyVaultResourceGroup';
@@ -75,21 +75,21 @@ Utilize o [cmdlet set-AzVMDiskEncryptionExtension](/powershell/module/az.compute
      ```
      
    >[!NOTE]
-   > A sintaxe para o valor do parâmetro de cofre de encriptação de disco é a cadeia de identificação completa: /subscrições/[subscrição-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> A sintaxe para o valor do parâmetro chave-encriptação-chave é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
+   > A sintaxe para o valor do parâmetro de chave-chave de encriptação de disco é a cadeia de identificação completa: /subscrições/[subscrição-id-guid]/resourceGroups/[resource-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> A sintaxe para o valor do parâmetro chave-encriptação-chave é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **Verifique se os discos estão encriptados:** Para verificar o estado de encriptação de um VM IaaS, utilize o [cmdlet Get-AzVmDiskCryptonStatus.](/powershell/module/az.compute/get-azvmdiskencryptionstatus) 
+- **Verifique se os discos estão encriptados:** Para verificar o estado de encriptação de um IaaS VM, utilize o [cmdlet Get-AzVmDiskEncrypationStatus.](/powershell/module/az.compute/get-azvmdiskencryptionstatus) 
      ```azurepowershell-interactive
      Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
     
-- **Desativar a encriptação do disco:** Para desativar a encriptação, utilize o cmdlet [Desactivação-AzVMDiskCrypton.](/powershell/module/az.compute/disable-azvmdiskencryption) A desativação da encriptação dos discos de dados numa VM do Windows quando os discos do SO e de dados foram encriptados não funciona conforme esperado. Desative a encriptação em todos os discos.
+- **Desativar a encriptação do disco:** Para desativar a encriptação, utilize o [cmdlet de desencriptação Disable-AzVMDiskEncryption.](/powershell/module/az.compute/disable-azvmdiskencryption) A desativação da encriptação dos discos de dados numa VM do Windows quando os discos do SO e de dados foram encriptados não funciona conforme esperado. Em vez disso, desative a encriptação em todos os discos.
 
      ```azurepowershell-interactive
      Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
 
 ### <a name="enable-encryption-on-existing-or-running-vms-with-the-azure-cli"></a>Ativar a encriptação em VMs existentes ou em execução com o CLI Azure
-Utilize o comando [de encriptação az vm para](/cli/azure/vm/encryption#az-vm-encryption-enable) ativar a encriptação numa máquina virtual IaaS em funcionamento em Azure.
+Utilize a [encriptação az vm ativar](/cli/azure/vm/encryption#az-vm-encryption-enable) o comando para ativar a encriptação numa máquina virtual IaaS em execução em Azure.
 
 - **Criptografe um VM em execução:**
 
@@ -97,59 +97,59 @@ Utilize o comando [de encriptação az vm para](/cli/azure/vm/encryption#az-vm-e
     az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type [All|OS|Data]
     ```
 
-- **Criptografe um VM em execução utilizando kek:**
+- **Criptografe um VM em execução utilizando KEK:**
 
      ```azurecli-interactive
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type [All|OS|Data]
      ```
 
      >[!NOTE]
-     > A sintaxe para o valor do parâmetro de cofre de encriptação de disco é a cadeia de identificação completa: /subscrições/[subscrição-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name] </br> A sintaxe para o valor do parâmetro chave-encriptação-chave é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
+     > A sintaxe para o valor do parâmetro de chave-chave de encriptação de disco é a cadeia de identificação completa: /subscrições/[subscrição-id-guid]/resourceGroups/[resource-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name] </br> A sintaxe para o valor do parâmetro chave-encriptação-chave é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **Verifique se os discos estão encriptados:** Para verificar o estado de encriptação de um VM IaaS, use o comando de [encriptação az vm.](/cli/azure/vm/encryption#az-vm-encryption-show) 
+- **Verifique se os discos estão encriptados:** Para verificar o estado de encriptação de um IaaS VM, utilize o comando [do programa de encriptação az vm.](/cli/azure/vm/encryption#az-vm-encryption-show) 
 
      ```azurecli-interactive
      az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
      ```
 
-- **Desativar a encriptação:** Para desativar a encriptação, utilize o comando de [desativação de encriptação az vm.](/cli/azure/vm/encryption#az-vm-encryption-disable) A desativação da encriptação dos discos de dados numa VM do Windows quando os discos do SO e de dados foram encriptados não funciona conforme esperado. Desative a encriptação em todos os discos.
+- **Desativar a encriptação:** Para desativar a encriptação, utilize o comando [de desativação de encriptação az vm.](/cli/azure/vm/encryption#az-vm-encryption-disable) A desativação da encriptação dos discos de dados numa VM do Windows quando os discos do SO e de dados foram encriptados não funciona conforme esperado. Em vez disso, desative a encriptação em todos os discos.
 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
      ```
 
-### <a name="using-the-resource-manager-template"></a>Usando o modelo de Gestor de Recursos
+### <a name="using-the-resource-manager-template"></a>Usando o modelo de gestor de recursos
 
-Pode ativar a encriptação do disco em VMs iaaS existentes ou em execução em Azure, utilizando o modelo de Gestor de [Recursos para encriptar um VM Windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad).
+Pode ativar a encriptação do disco em VMs do IaaS Windows existente ou em execução, utilizando o [modelo de Gestor de Recursos para encriptar um VM do Windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad).
 
 
-1. No modelo de arranque rápido azure, clique em **Implementar para Azure**.
+1. No modelo de arranque rápido Azure, clique em **Implementar para Azure**.
 
-2. Selecione a subscrição, grupo de recursos, localização, configurações, termos legais e acordo. Clique em **Comprar** para ativar a encriptação no VM IaaS existente ou em execução.
+2. Selecione a subscrição, grupo de recursos, localização, configurações, termos legais e acordo. Clique em **Comprar** para ativar a encriptação no IaaS VM existente ou em execução.
 
-A tabela seguinte lista os parâmetros do modelo do Gestor de Recursos para VMs existentes ou em execução:
+A tabela que se segue lista os parâmetros do modelo do Gestor de Recursos para os VM existentes ou em execução:
 
 | Parâmetro | Descrição |
 | --- | --- |
 | vmName | Nome do VM para executar a operação de encriptação. |
-| keyVaultName | Nome do cofre chave para o que a chave BitLocker deve ser enviada. Pode obtê-lo utilizando `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` o cmdlet ou o comando Azure CLI`az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
+| keyVaultName | Nome do cofre chave para o que a chave BitLocker deve ser carregada. Você pode obtê-lo usando o cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` ou o comando Azure CLI`az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
 | keyVaultResourceGroup | Nome do grupo de recursos que contém o cofre chave|
-|  keyEncryptionKeyURL | O URL da chave de encriptação,&lt;no formato https:// nome&gt;do cofre .vault.azure.net/key/&lt;nome-chave&gt;. Se não quiser utilizar um KEK, deixe este campo em branco. |
-| volumeType | Tipo de volume em que a operação de encriptação é realizada. Os valores válidos são _OS,_ _Dados,_ e _Tudo._ 
-| forceUpdateTag | Passe num valor único como um GUID cada vez que a operação precisa de ser executada à força. |
-| redimensionamentoOSDisk | Se a divisória osso for redimensionada para ocupar o VHD total do SISTEMA antes de dividir o volume do sistema. |
+|  keyEncryptionKeyURL | O URL da chave de encriptação, no formato https:// &lt; nome de &gt; chavevault .vault.azure.net/key/ &lt; nome-chave &gt; . Se não desejar utilizar um KEK, deixe este campo em branco. |
+| volumeType | Tipo de volume em que a operação de encriptação é executada. Valores válidos são _OS,_ _Dados_e _Todos._ 
+| forceUpdateTag | Passe um valor único como um GUID sempre que a operação precisa de ser executada à força. |
+| redimensionarOSDisco | Se a partição de SO for redimensionada para ocupar o VHD completo do SO antes de dividir o volume do sistema. |
 | localização | Localização para todos os recursos. |
 
 
-## <a name="new-iaas-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a>Novos VMs IaaS criados a partir de VHD encriptado pelo cliente e chaves de encriptação
+## <a name="new-iaas-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a>Novos VMs iaas criados a partir de VHD encriptados pelo cliente e chaves de encriptação
 
-Neste cenário, pode criar um novo VM a partir de um VHD pré-encriptado e das chaves de encriptação associadas utilizando cmdlets PowerShell ou comandos CLI. 
+Neste cenário, pode criar um novo VM a partir de um VHD pré-encriptado e das chaves de encriptação associadas utilizando comandos PowerShell ou CLI. 
 
-Utilize as instruções em [Preparar um VHD windows pré-encriptado](disk-encryption-sample-scripts.md#prepare-a-pre-encrypted-windows-vhd). Após a criação da imagem, pode utilizar os passos na secção seguinte para criar um Azure VM encriptado.
+Utilize as instruções em [Preparar um VHD do Windows pré-encriptado](disk-encryption-sample-scripts.md#prepare-a-pre-encrypted-windows-vhd). Após a criação da imagem, pode utilizar os passos na secção seguinte para criar um Azure VM encriptado.
 
 
-### <a name="encrypt-vms-with-pre-encrypted-vhds-with-azure-powershell"></a>Criptografe VMs com VHDs pré-encriptados com PowerShell Azure
-Pode ativar a encriptação do disco no vHD encriptado utilizando o PowerShell cmdlet [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk#examples). O exemplo abaixo dá-lhe alguns parâmetros comuns. 
+### <a name="encrypt-vms-with-pre-encrypted-vhds-with-azure-powershell"></a>Criptografe VMs com VHDs pré-encriptados com Azure PowerShell
+Pode ativar a encriptação do disco no seu VHD encriptado utilizando o [Conjunto de Cmdlet PowerShell Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk#examples). O exemplo abaixo dá-lhe alguns parâmetros comuns. 
 
 ```azurepowershell
 $VirtualMachine = New-AzVMConfig -VMName "MySecureVM" -VMSize "Standard_A1"
@@ -158,14 +158,14 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 ```
 
 ## <a name="enable-encryption-on-a-newly-added-data-disk"></a>Ativar a encriptação num disco de dados recém-adicionado
-Pode [adicionar um novo disco a um VM windows utilizando powerShell](attach-disk-ps.md), ou [através do portal Azure](attach-managed-disk-portal.md). 
+Pode [adicionar um novo disco a um Windows VM utilizando o PowerShell,](attach-disk-ps.md)ou [através do portal Azure](attach-managed-disk-portal.md). 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-powershell"></a>Ativar a encriptação num disco recém-adicionado com a Azure PowerShell
- Ao utilizar o PowerShell para encriptar um novo disco para VMs do Windows, deve ser especificada uma nova versão de sequência. A versão da sequência tem de ser única. O script abaixo gera um GUID para a versão de sequência. Em alguns casos, um disco de dados recentemente adicionado pode ser encriptado automaticamente pela extensão de encriptação do disco Azure. A encriptação automática ocorre geralmente quando o VM reinicia após a onda do novo disco. Isto é normalmente causado porque "All" foi especificado para o tipo de volume quando a encriptação do disco anteriormente funcionava no VM. Se a encriptação automática ocorrer num disco de dados recém-adicionado, recomendamos que volte a executar o cmdlet Set-AzVmDiskEncryptionExtension com nova versão de sequência. Se o seu novo disco de dados estiver encriptado automaticamente e não pretender ser encriptado, desencriptar primeiro todas as unidades e depois voltar a encriptar com uma nova versão de sequência especificando OS para o tipo de volume. 
+ Ao utilizar o PowerShell para encriptar um novo disco para VMs do Windows, deve ser especificada uma nova versão de sequência. A versão da sequência tem de ser única. O script abaixo gera um GUID para a versão de sequência. Em alguns casos, um disco de dados recém-adicionado pode ser encriptado automaticamente pela extensão de encriptação do disco Azure. A encriptação automática ocorre geralmente quando o VM reinicia após o novo disco estar online. Isto é normalmente causado porque "All" foi especificado para o tipo de volume quando a encriptação do disco foi previamente correu no VM. Se a encriptação automática ocorrer num disco de dados recém-adicionado, recomendamos que se recorra o cmdlet de configuração de Set-AzVmDiskEncryptionExtension novamente com nova versão de sequência. Se o seu novo disco de dados estiver encriptado automaticamente e não desejar ser encriptado, desencriptar todas as unidades primeiro, então reencrimar com uma nova versão de sequência especificando o SO para o tipo de volume. 
   
  
 
--  **Criptografe um VM em execução:** O script abaixo inicializa as suas variáveis e executa o cmdlet set-AzVMDiskEncryptionExtension. O grupo de recursos, VM e cofre chave já deviam ter sido criados como pré-requisitos. Substitua o MyKeyVaultResourceGroup, myVirtualMachineResourceGroup, MySecureVM e MySecureVault com os seus valores. Este exemplo utiliza "All" para o parâmetro -VolumeType, que inclui tanto os volumes de OS como os dados. Se pretender encriptar apenas o volume de OS, utilize "OS" para o parâmetro -VolumeType. 
+-  **Criptografe um VM em execução:** O script abaixo inicializa as suas variáveis e executa o cmdlet Set-AzVMDiskEncryptionExtension. O grupo de recursos, VM e cofre-chave já deveriam ter sido criados como pré-requisitos. Substitua o MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM e MySecureVault com os seus valores. Este exemplo utiliza "All" para o parâmetro -VolumeType, que inclui volumes de SO e Dados. Se quiser apenas encriptar o volume de SO, utilize "OS" para o parâmetro -VolumeType. 
 
      ```azurepowershell
       $KVRGname = 'MyKeyVaultResourceGroup';
@@ -179,7 +179,7 @@ Pode [adicionar um novo disco a um VM windows utilizando powerShell](attach-disk
 
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType "All" –SequenceVersion $sequenceVersion;
     ```
-- **Criptografe um VM em execução utilizando kek:** Este exemplo utiliza "All" para o parâmetro -VolumeType, que inclui tanto os volumes de OS como os dados. Se pretender encriptar apenas o volume de OS, utilize "OS" para o parâmetro -VolumeType.
+- **Criptografe um VM em execução utilizando KEK:** Este exemplo utiliza "All" para o parâmetro -VolumeType, que inclui volumes de SO e Dados. Se quiser apenas encriptar o volume de SO, utilize "OS" para o parâmetro -VolumeType.
 
      ```azurepowershell
      $KVRGname = 'MyKeyVaultResourceGroup';
@@ -198,10 +198,10 @@ Pode [adicionar um novo disco a um VM windows utilizando powerShell](attach-disk
      ```
 
     >[!NOTE]
-    > A sintaxe para o valor do parâmetro de cofre de encriptação de disco é a cadeia de identificação completa: /subscrições/[subscrição-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> A sintaxe para o valor do parâmetro chave-encriptação-chave é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
+    > A sintaxe para o valor do parâmetro de chave-chave de encriptação de disco é a cadeia de identificação completa: /subscrições/[subscrição-id-guid]/resourceGroups/[resource-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> A sintaxe para o valor do parâmetro chave-encriptação-chave é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-### <a name="enable-encryption-on-a-newly-added-disk-with-azure-cli"></a>Ativar a encriptação num disco recém-adicionado com o Azure CLI
- O comando Azure CLI fornecerá automaticamente uma nova versão de sequência para si quando executar o comando para ativar a encriptação. O exemplo usa "All" para o parâmetro do tipo volume. Pode ser necessário alterar o parâmetro do tipo volume para OS se estiver apenas a encriptar o disco OS. Ao contrário da sintaxe PowerShell, o CLI não requer que o utilizador forneça uma versão de sequência única ao permitir a encriptação. O CLI gera automaticamente e utiliza o seu próprio valor de versão de sequência única.   
+### <a name="enable-encryption-on-a-newly-added-disk-with-azure-cli"></a>Ativar a encriptação num disco recém-adicionado com O Azure CLI
+ O comando Azure CLI fornecerá automaticamente uma nova versão de sequência para si quando executar o comando para ativar a encriptação. O exemplo utiliza "All" para o parâmetro do tipo volume. Pode ter de alterar o parâmetro do tipo volume para SISTEMA se estiver apenas a encriptar o disco de so. Em contraste com a sintaxe PowerShell, o CLI não requer que o utilizador forneça uma versão de sequência única ao permitir a encriptação. O CLI gera e utiliza automaticamente o seu próprio valor exclusivo de versão de sequência.   
 
 -  **Criptografe um VM em execução:**
 
@@ -209,7 +209,7 @@ Pode [adicionar um novo disco a um VM windows utilizando powerShell](attach-disk
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type "All"
      ```
 
-- **Criptografe um VM em execução utilizando kek:**
+- **Criptografe um VM em execução utilizando KEK:**
 
      ```azurecli-interactive
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type "All"
@@ -217,43 +217,30 @@ Pode [adicionar um novo disco a um VM windows utilizando powerShell](attach-disk
 
 
 ## <a name="disable-encryption"></a>Desativar a encriptação
-Pode desativar a encriptação utilizando o Azure PowerShell, o Azure CLI ou com um modelo de Gestor de Recursos. A desativação da encriptação dos discos de dados numa VM do Windows quando os discos do SO e de dados foram encriptados não funciona conforme esperado. Desative a encriptação em todos os discos.
-
-- **Desative a encriptação do disco com o Azure PowerShell:** Para desativar a encriptação, utilize o cmdlet [Desactivação-AzVMDiskCrypton.](/powershell/module/az.compute/disable-azvmdiskencryption) 
-     ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' -VolumeType "all"
-     ```
-
-- **Desative a encriptação com o Azure CLI:** Para desativar a encriptação, utilize o comando de [desativação de encriptação az vm.](/cli/azure/vm/encryption#az-vm-encryption-disable) 
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "all"
-     ```
-- **Desative a encriptação com um modelo de Gestor de Recursos:** 
-
-    1. Clique em **'Implementar para Azure'** a partir da encriptação do [disco desativar no modelo VM do Windows.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad)
-    2. Selecione a subscrição, grupo de recursos, localização, VM, tipo de volume, termos legais e acordo.
-    3.  Clique em **Comprar** para desativar a encriptação do disco num VM do Windows em execução. 
+[!INCLUDE [disk-encryption-disable-encryption-powershell](../../../includes/disk-encryption-disable-powershell.md)]
 
 ## <a name="unsupported-scenarios"></a>Cenários não suportados
 
-A encriptação do disco azure não funciona para os seguintes cenários, funcionalidades e tecnologia:
+A Azure Disk Encryption não funciona para os seguintes cenários, funcionalidades e tecnologia:
 
-- Encriptar VM ou VMs básicos criados através do método clássico de criação VM.
-- Encriptar VMs configurados com sistemas RAID baseados em software.
-- Encriptar VMs configurados com espaços de armazenamento direto (S2D) ou versões do Windows Server antes de 2016 configurados com espaços de armazenamento do Windows.
+- Encriptação de VM ou VMs básicos criados através do método clássico de criação de VM.
+- Encriptação de VMs configurados com sistemas RAID baseados em software.
+- Encriptação de VMs configurados com os espaços de armazenamento direto (S2D) ou versões do Windows Server antes de 2016 configurados com espaços de armazenamento do Windows.
 - Integração com um sistema de gestão chave no local.
 - Ficheiros Azure (sistema de ficheiros partilhados).
 - Sistema de ficheiros de rede (NFS).
 - Volumes dinâmicos.
-- Os recipientes do Windows Server, que criam volumes dinâmicos para cada recipiente.
-- Discos efémeros osso.
-- Encriptação de sistemas de ficheiros partilhados/distribuídos como (mas não se limitando a) DFS, GFS, DRDB e CephFS.
-- Mover um VMs encriptado para outra subscrição.
-- Gen2 VMs (ver: [Suporte para geração 2 VMs em Azure)](generation-2.md#generation-1-vs-generation-2-capabilities)
-- VMs série Lsv2 (ver: [Lsv2-series)](../lsv2-series.md)
+- Recipientes do Servidor Windows, que criam volumes dinâmicos para cada recipiente.
+- Discos efémeros de OS.
+- Encriptação de sistemas de ficheiros partilhados/distribuídos como (mas não limitados a) DFS, GFS, DRDB e CephFS.
+- Mover um VMs encriptado para outra subscrição ou região.
+- Criar uma imagem ou instantâneo de um VM encriptado e usá-lo para implementar VMs adicionais.
+- Gen2 VMs (ver: [Suporte para a geração 2 VMs em Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
+- VMs da série Lsv2 (ver: [série Lsv2)](../lsv2-series.md)
+- VMs da série M com discos de acelerador de escrita.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Visão geral da encriptação do disco azure](disk-encryption-overview.md)
+- [Visão geral da encriptação do disco Azure](disk-encryption-overview.md)
 - [Scripts de exemplo do Azure Disk Encryption](disk-encryption-sample-scripts.md)
 - [Resolução de problemas do Azure Disk Encryption](disk-encryption-troubleshooting.md)

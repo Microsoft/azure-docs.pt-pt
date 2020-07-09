@@ -1,55 +1,43 @@
 ---
-title: Registos de diagnóstico de ônibus de serviço Azure Microsoft Docs
-description: Este artigo fornece uma visão geral de todos os registos operacionais e de diagnóstico que estão disponíveis para o Azure Service Bus.
-keywords: ''
-documentationcenter: .net
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
+title: Registos de diagnóstico de autocarros da Azure Service / Microsoft Docs
+description: Este artigo fornece uma visão geral de todos os registos operacionais e de diagnóstico que estão disponíveis para a Azure Service Bus.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: a80fb97810fee04a4eb50c43178c168e66f29173
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: eeaa7e92488fd59994fc07ea0081b0f00c8768df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80618735"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337528"
 ---
-# <a name="enable-diagnostics-logs-for-service-bus"></a>Ativar registos de diagnóstico para ônibus de serviço
+# <a name="enable-diagnostics-logs-for-service-bus"></a>Ativar registos de diagnóstico para Service Bus
 
-Quando começar a utilizar o seu espaço de nome do Autocarro do Serviço Azure, é melhor monitorizar como e quando o seu espaço de nome é criado, apagado ou acedido. Este artigo fornece uma visão geral de todos os registos operacionais e de diagnóstico que estão disponíveis.
+Quando começar a utilizar o seu espaço de nomes Azure Service Bus, poderá querer monitorizar como e quando o seu espaço de nome é criado, eliminado ou acedido. Este artigo fornece uma visão geral de todos os registos operacionais e de diagnóstico que estão disponíveis.
 
-A Tualmente, a Azure Service Bus suporta a atividade e os registos operacionais, que captam operações de *gestão* que são realizadas no espaço de nome do Azure Service Bus. Especificamente, estes registos capturam o tipo de operação, incluindo a criação de filas, os recursos utilizados e o estado da operação.
+A Azure Service Bus atualmente suporta atividade e registos operacionais, que capturam *operações de gestão* que são realizadas no espaço de nomes do Azure Service Bus. Especificamente, estes registos captam o tipo de operação, incluindo a criação de filas, os recursos utilizados e o estado da operação.
 
 ## <a name="operational-logs-schema"></a>Esquema de registos operacionais
 
 Todos os registos são armazenados no formato JavaScript Object Notation (JSON) nos dois locais seguintes:
 
-- **AzureActivity**: Exibe registos de operações e ações que são conduzidas contra o seu espaço de nome no portal Azure ou através de implementações de modelos do Gestor de Recursos Azure.
-- **AzureDiagnostics**: Exibe registos de operações e ações que são conduzidas contra o seu espaço de nome utilizando a API, ou através de clientes de gestão no idioma SDK.
+- **AzureActivity**: Exibe registos de operações e ações que são conduzidas contra o seu espaço de nome no portal Azure ou através de implementações de modelos do Azure Resource Manager.
+- **AzureDiagnostics**: Exibe registos de operações e ações que são conduzidas contra o seu espaço de nome utilizando a API, ou através de clientes de gestão na língua SDK.
 
 As cordas JSON de registo operacional incluem os elementos listados na tabela seguinte:
 
-| Nome | Descrição |
+| Name | Descrição |
 | ------- | ------- |
-| Atividadeid | ID interno, usado para identificar a atividade especificada |
+| ActivityId | ID interno, usado para identificar a atividade especificada |
 | EventName | Nome da operação |
-| ResourceId | ID de recurso do Gestor de Recursos Azure |
+| ResourceId | Azure Resource Manager resource ID |
 | SubscriptionId | ID da subscrição |
-| String de Tempo de Evento | Tempo de operação |
-| Propriedades de Eventos | Propriedades de operação |
+| EventTimeString | Tempo de funcionamento |
+| EventProperties | Propriedades de operação |
 | Estado | Estado da operação |
-| Autor da chamada | Chamada de operação (portal Azure ou cliente de gestão) |
-| Categoria | Registos Operacionais |
+| Autor da chamada | Chamador de operação (o portal Azure ou cliente de gestão) |
+| Categoria | Logística |
 
-Aqui está um exemplo de uma cadeia de log operacional JSON:
+Aqui está um exemplo de uma cadeia de log JSON operacional:
 
 ```json
 {
@@ -67,7 +55,7 @@ Aqui está um exemplo de uma cadeia de log operacional JSON:
 
 ## <a name="events-and-operations-captured-in-operational-logs"></a>Eventos e operações capturados em registos operacionais
 
-Os registos operacionais captam todas as operações de gestão que são realizadas no espaço de nome do Azure Service Bus. As operações de dados não são capturadas, devido ao elevado volume de operações de dados que são realizadas no Azure Service Bus.
+Os registos operacionais captam todas as operações de gestão que são realizadas no espaço de nomes do Azure Service Bus. As operações de dados não são capturadas, devido ao elevado volume de operações de dados que são realizadas na Azure Service Bus.
 
 > [!NOTE]
 > Para ajudá-lo a rastrear melhor as operações de dados, recomendamos a utilização de rastreios do lado do cliente.
@@ -76,48 +64,48 @@ As seguintes operações de gestão são capturadas em registos operacionais:
 
 | Âmbito | Operação|
 |-------| -------- |
-| Espaço de nomes | <ul> <li> Criar espaço de nome</li> <li> Atualizar espaço de nome </li> <li> Excluir espaço de nome </li> <li> Atualizar a política de acesso partilhado do espaço de nome </li> </ul> | 
-| Filas | <ul> <li> Criar fila</li> <li> Atualizar fila</li> <li> Eliminar a fila </li> <li> Eliminar automaticamente a fila de eliminação </li> </ul> | 
-| Tópico | <ul> <li> Criar tópico </li> <li> Tópico de Atualização </li> <li> Excluir Tópico </li> <li> Eliminar automaticamente o tópico de eliminar </li> </ul> |
-| Subscrição | <ul> <li> Criar Subscrição </li> <li> Subscrição de Atualização </li> <li> Excluir Subscrição </li> <li> Eliminar automaticamente a subscrição </li> </ul> |
+| Espaço de Nomes | <ul> <li> Criar espaço de nome</li> <li> Atualizar espaço de nome </li> <li> Excluir espaço de nomes </li> <li> Atualizar a política de Partilha de Espaços de Nome </li> </ul> | 
+| Filas | <ul> <li> Criar fila</li> <li> Atualização da fila</li> <li> Apagar fila </li> <li> AutoDelete Delete Queue </li> </ul> | 
+| Tópico | <ul> <li> Criar Tópico </li> <li> Tópico de Atualização </li> <li> Eliminar Tópico </li> <li> AutoDelete Delete Topic </li> </ul> |
+| Subscrição | <ul> <li> Criar Subscrição </li> <li> Atualização subscrição </li> <li> Excluir subscrição </li> <li> Assinatura de Exclusão automática </li> </ul> |
 
 > [!NOTE]
-> Atualmente, as operações *de Leitura* não são rastreadas nos registos operacionais.
+> Atualmente, as operações *de leitura* não são rastreadas nos registos operacionais.
 
 ## <a name="enable-operational-logs"></a>Ativar registos operacionais
 
-Os registos operacionais são desativados por defeito. Para ativar os registos de diagnóstico, faça o seguinte:
+Os registos operacionais são desativado por predefinição. Para ativar registos de diagnóstico, faça o seguinte:
 
-1. No [portal Azure,](https://portal.azure.com)vá ao seu espaço de nome do Ônibus de Serviço Azure e, em seguida, sob **monitorização,** selecione **definições**de diagnóstico .
+1. No [portal Azure,](https://portal.azure.com)aceda ao seu espaço de nomes para o Azure Service Bus e, em seguida, em **Monitorização,** selecione **Definições de Diagnóstico**.
 
-   ![O link "Definições de diagnóstico"](./media/service-bus-diagnostic-logs/image1.png)
+   ![A ligação "Definições de diagnóstico"](./media/service-bus-diagnostic-logs/image1.png)
 
-1. No painel de definições de **Diagnóstico,** selecione **Adicionar definição de diagnóstico**.  
+1. No painel de **definições de Diagnóstico,** selecione **Adicionar a definição de diagnóstico**.  
 
-   ![O link "Adicionar definição de diagnóstico"](./media/service-bus-diagnostic-logs/image2.png)
+   ![A ligação "Adicionar definição de diagnóstico"](./media/service-bus-diagnostic-logs/image2.png)
 
 1. Configure as definições de diagnóstico fazendo o seguinte:
 
-   a. Na caixa **Nome,** introduza um nome para as definições de diagnóstico.  
+   a. Na caixa **Nome,** insira um nome para as definições de diagnóstico.  
 
-   b. Selecione um dos três destinos seguintes para os seus registos de diagnóstico:  
-   - Se selecionar o Arquivo para uma conta de **armazenamento,** precisa de configurar a conta de armazenamento onde os registos de diagnóstico serão armazenados.  
-   - Se selecionar **o Stream para um centro**de eventos, precisa de configurar o centro de eventos para o quais pretende transmitir os registos de diagnóstico.
-   - Se selecionar **Enviar para Registar Analytics,** precisa especificar para que instância de Log Analytics os diagnósticos serão enviados.  
+   b. Selecione um dos seguintes três destinos para os seus registos de diagnóstico:  
+   - Se selecionar **o Archive para uma conta de armazenamento,** tem de configurar a conta de armazenamento onde os registos de diagnóstico serão armazenados.  
+   - Se selecionar **o Stream para um centro**de eventos, tem de configurar o centro de eventos para o quais pretende transmitir os registos de diagnóstico.
+   - Se selecionar **Enviar para Registar Analytics,** tem de especificar para que instância de Log Analytics os diagnósticos serão enviados.  
 
-   c. Selecione a caixa de verificação **De Registos Operacionais.**
+   c. Selecione a caixa de verificação **'Registos Operacionais'.**
 
     ![O painel "Definições de Diagnóstico"](./media/service-bus-diagnostic-logs/image3.png)
 
 1. Selecione **Guardar**.
 
-As novas definições têm efeito em cerca de 10 minutos. Os registos são apresentados no alvo de arquivo configurado, no painel de registos de **diagnóstico.**
+As novas definições fazem efeito em cerca de 10 minutos. Os registos são apresentados no alvo de arquivo configurado, no painel de **registos de diagnóstico.**
 
-Para obter mais informações sobre a configuração das definições de diagnóstico, consulte a [visão geral dos registos de diagnóstico sinuoso](../azure-monitor/platform/diagnostic-logs-overview.md)do Azure .
+Para obter mais informações sobre a configuração das definições de diagnóstico, consulte a [visão geral dos registos de diagnósticos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para saber mais sobre o Ônibus de Serviço, consulte:
+Para saber mais sobre o Service Bus, consulte:
 
-* [Introdução ao ônibus de serviço](service-bus-messaging-overview.md)
+* [Introdução ao Service Bus](service-bus-messaging-overview.md)
 * [Introdução ao Service Bus](service-bus-dotnet-get-started-with-queues.md)

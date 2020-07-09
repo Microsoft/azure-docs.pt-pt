@@ -1,5 +1,5 @@
 ---
-title: Atividade de espera na Fábrica de Dados Azure
+title: Atividade de espera na Azure Data Factory
 description: A atividade de espera interrompe a execução do gasoduto durante o período especificado.
 services: data-factory
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2018
 ms.openlocfilehash: e6158938d01b6e5da74ed046d2a74e0dfd827f47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417917"
 ---
-# <a name="execute-wait-activity-in-azure-data-factory"></a>Executar atividade de espera na Fábrica de Dados Azure
+# <a name="execute-wait-activity-in-azure-data-factory"></a>Executar atividade de espera na Azure Data Factory
 Quando utiliza uma atividade Aguardar num pipeline, este aguarda o período de tempo especificado antes de continuar a execução das atividades subsequentes. 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 ```json
 {
@@ -37,21 +37,21 @@ Quando utiliza uma atividade Aguardar num pipeline, este aguarda o período de t
 
 ```
 
-## <a name="type-properties"></a>Propriedades de tipo
+## <a name="type-properties"></a>Tipo de propriedades
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da `Wait` atividade. | String | Sim
-tipo | Deve ser definido para **esperar.** | String | Sim
-waitTimeInSeconds | O número de segundos que o gasoduto espera antes de continuar com o processamento. | Número inteiro | Sim
+name | O nome da `Wait` atividade. | String | Yes
+tipo | Deve ser definido para **Esperar**. | String | Yes
+tempo de esperaInSegundos | O número de segundos que o gasoduto aguarda antes de continuar com o processamento. | Número inteiro | Yes
 
 ## <a name="example"></a>Exemplo
 
 > [!NOTE]
-> Esta secção fornece definições JSON e amostra de comandos PowerShell para executar o gasoduto. Para um passeio com instruções passo a passo para criar um pipeline data Factory utilizando definições Azure PowerShell e JSON, consulte [tutorial: crie uma fábrica de dados utilizando a Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> Esta secção fornece definições JSON e comandos de amostra PowerShell para executar o gasoduto. Para uma passagem com instruções passo a passo para criar um oleoduto data factory utilizando definições Azure PowerShell e JSON, consulte tutorial: crie uma fábrica de [dados utilizando a Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="pipeline-with-wait-activity"></a>Pipeline com atividade de espera
-Neste exemplo, o gasoduto tem duas atividades: **Até** e **esperar**. A atividade de espera está configurada para esperar um segundo. O gasoduto executa a atividade web em ciclo com um segundo de tempo de espera entre cada corrida. 
+Neste exemplo, o gasoduto tem duas atividades: **Até** e **Esperar.** A atividade de Espera está configurada para esperar por um segundo. O gasoduto executa a atividade web em loop com um segundo tempo de espera entre cada corrida. 
 
 ```json
 {

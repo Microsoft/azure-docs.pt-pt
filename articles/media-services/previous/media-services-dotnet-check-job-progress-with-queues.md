@@ -1,6 +1,6 @@
 ---
-title: Utilize o armazenamento da Fila Azure para monitorizar as notificações de emprego dos Media Services com .NET [ Microsoft Docs
-description: Saiba como utilizar o armazenamento da Fila Azure para monitorizar as notificações de emprego dos Serviços de Media. A amostra de código está escrita em C# e utiliza o Media Services SDK para .NET.
+title: Utilize o armazenamento da Azure Queue para monitorizar as notificações de emprego dos Media Services com .NET / Microsoft Docs
+description: Saiba como usar o armazenamento da Azure Queue para monitorizar as notificações de emprego dos Media Services. A amostra de código está escrita em C# e utiliza o SDK dos Serviços de Mídia para .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,61 +14,64 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2a7f15eb7e90ba4dec9bc614a45d2de46c07bdfd
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: d75ba63955deb3fb6ef4a1207754097b0b3be532
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "64868108"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962684"
 ---
-# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Utilize o armazenamento da Fila Azure para monitorizar as notificações de emprego dos Media Services com .NET 
+# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Utilize o armazenamento da Azure Queue para monitorizar as notificações de emprego dos Media Services com .NET 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
-Quando se gere trabalhos de codificação, muitas vezes é preciso uma forma de acompanhar o progresso do emprego. Pode configurar os Serviços de Media para entregar notificações ao armazenamento da [Fila Azure.](../../storage/storage-dotnet-how-to-use-queues.md) Pode monitorizar o progresso do trabalho recebendo notificações do armazenamento da fila. 
+Quando se faz trabalhos de codificação, muitas vezes é preciso uma forma de acompanhar o progresso do emprego. Pode configurar os Serviços de Comunicação Social para entregar notificações ao [armazenamento da Fila Azure](../../storage/storage-dotnet-how-to-use-queues.md). Pode monitorizar o progresso do trabalho recebendo notificações do armazenamento da fila. 
 
-As mensagens entregues ao armazenamento da Fila podem ser acedidas a partir de qualquer parte do mundo. A arquitetura de mensagens de armazenamento de fila é fiável e altamente escalável. O armazenamento da fila de sondagens para mensagens é recomendado sobre a utilização de outros métodos.
+As mensagens entregues no armazenamento da fila podem ser acedidas a partir de qualquer parte do mundo. A arquitetura de mensagens de armazenamento de fila é fiável e altamente escalável. O armazenamento da fila de sondagens para mensagens é recomendado através de outros métodos.
 
-Um cenário comum para ouvir notificações dos Serviços de Media é se estiver a desenvolver um sistema de gestão de conteúdos que precisa de realizar alguma tarefa adicional após a conclusão de um trabalho de codificação (por exemplo, para desencadear o próximo passo num fluxo de trabalho, ou para publicar conteúdo).
+Um cenário comum para ouvir notificações dos Media Services é se estiver a desenvolver um sistema de gestão de conteúdos que precisa de executar alguma tarefa adicional após a conclusão de um trabalho de codificação (por exemplo, para desencadear o próximo passo num fluxo de trabalho ou para publicar conteúdos).
 
 Este artigo mostra como obter mensagens de notificação do armazenamento da fila.  
 
 ## <a name="considerations"></a>Considerações
-Considere o seguinte ao desenvolver aplicações de Serviços de Media que utilizam o armazenamento de fila:
+Considere o seguinte ao desenvolver aplicações de Serviços de Mídia que utilizam o armazenamento da fila:
 
-* O armazenamento em fila não fornece uma garantia de entrega encomendada pela Primeira Vez (FIFO). Para mais informações, consulte [as filas de ônibus azure e azure service comparadas e contrastadas](https://msdn.microsoft.com/library/azure/hh767287.aspx).
-* O armazenamento de fila não é um serviço de push. Tens de fazer uma sondagem à fila.
-* Pode ter várias filas. Para mais informações, consulte [O Serviço de Fila REST API](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API).
-* O armazenamento de fila tem algumas limitações e especificidades para estar atento. Estes são descritos em filas de [ônibus azure e azure service bus comparados e contrastados](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
+* O armazenamento em fila não oferece uma garantia de entrega ordenada pela primeira vez (FIFO). Para obter mais informações, consulte [as filas de Azure e as filas de autocarros da Azure Service Comparadas e Contrastadas.](https://msdn.microsoft.com/library/azure/hh767287.aspx)
+* O armazenamento da fila não é um serviço de pressão. Tens de fazer uma sondagem à fila.
+* Pode ter várias filas. Para mais informações, consulte [a API DO Serviço de Fila REST.](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API)
+* O armazenamento da fila tem algumas limitações e especificidades a ter em conta. Estas são descritas em [Filas Azure e filas de autocarros de serviço Azure Comparadas e Contrastadas.](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)
 
 ## <a name="net-code-example"></a>exemplo de código .NET
 
 O exemplo de código nesta secção faz o seguinte:
 
-1. Define a classe **EncodingJobMessage** que mapeia para o formato de mensagem de notificação. O código desserializa as mensagens recebidas da fila em objetos do tipo **CodificaçãoJobMessage.**
-2. Carregue as informações da conta Media Services e Storage a partir do ficheiro app.config. O exemplo de código utiliza esta informação para criar os objetos **CloudMediaContext** e **CloudQueue.**
+1. Define a classe **EncodingJobMessage** que mapeia para o formato de mensagem de notificação. O código deseriza as mensagens recebidas da fila em objetos do tipo **EncodingJobMessage.**
+2. Carrega as informações da conta de Media Services e Armazenamento do ficheiro app.config. O exemplo de código utiliza esta informação para criar os objetos **CloudMediaContext** e **CloudQueue.**
 3. Cria a fila que recebe mensagens de notificação sobre o trabalho de codificação.
-4. Cria o ponto final da notificação que está mapeado para a fila.
-5. Anexa o ponto final da notificação ao trabalho e submete o trabalho de codificação. Pode ter vários pontos finais de notificação ligados a um trabalho.
-6. Passa **notificationJobState.FinalStatesOnly** para o método **AddNew.** (Neste exemplo, só nos interessa os estados finais do processamento de emprego.)
+4. Cria o ponto final de notificação que está mapeado para a fila.
+5. Anexa o ponto final de notificação ao trabalho e submete o trabalho de codificação. Pode ter vários pontos finais de notificação anexados a um trabalho.
+6. Passes **NotificationJobState.FinalStatesOnly** para o método **AddNew.** (Neste exemplo, só estamos interessados nos estados finais do processamento de emprego.)
 
-        job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
-7. Se passar **notificaçãoJobState.All**, obtém todas as seguintes notificações de mudança de estado: filas, agendadas, processadas e acabadas. No entanto, como já foi notado, o armazenamento da fila não garante a entrega ordenada. Para encomendar mensagens, utilize a propriedade **Timestamp** (definida no tipo **EncodingJobMessage** no exemplo abaixo). As mensagens duplicadas são possíveis. Para verificar se há duplicados, utilize a **propriedade ETag** (definida no tipo **CodificaçãoJobMessage).** Também é possível que algumas notificações de alteração do Estado são ignoradas.
-8. Espera que o trabalho chegar ao estado final verificando a fila a cada 10 segundos. Elimina as mensagens depois de processadas.
-9. Elimina a fila e o ponto final da notificação.
+    ```csharp
+    job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
+    ```
+
+7. Se passar **em NotificationJobState.All,** obtém todas as seguintes notificações de alteração de estado: fila, programação, processamento e acabamento. No entanto, como já foi notado anteriormente, o armazenamento da fila não garante a entrega encomendada. Para encomendar mensagens, utilize a propriedade **Timestamp** (definida no tipo **EncodingJobMessage** no exemplo abaixo). As mensagens duplicadas são possíveis. Para verificar se há duplicados, utilize a **propriedade ETag** (definida no tipo **EncodingJobMessage).** Também é possível que algumas notificações de alteração de estado seja ignorada.
+8. Espera que o trabalho entre no estado final, verificando a fila a cada 10 segundos. Elimina as mensagens depois de processadas.
+9. Elimina a fila e o ponto final de notificação.
 
 > [!NOTE]
-> A forma recomendada de monitorizar o estado de um trabalho é ouvindo mensagens de notificação, como se pode ver no seguinte exemplo:
+> A forma recomendada de monitorizar o estado de um trabalho é ouvindo mensagens de notificação, como mostra o seguinte exemplo:
 >
-> Em alternativa, você poderia verificar o estado de um trabalho usando a propriedade **IJob.State.**  Uma mensagem de notificação sobre a conclusão de um trabalho pode chegar antes que o estado no **IJob** esteja definido para **Terminado**. A propriedade **IJob.State** reflete o estado exato com um ligeiro atraso.
+> Em alternativa, você pode verificar o estado de um trabalho usando a propriedade **IJob.State.**  Uma mensagem de notificação sobre a conclusão de um trabalho pode chegar antes que o estado no **IJob** esteja definido para **terminado**. A propriedade **IJob.State** reflete o estado exato com um ligeiro atraso.
 >
 >
 
 ### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
 
 1. Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com informações da ligação, conforme descrito em [Media Services development with .NET](media-services-dotnet-how-to-use.md) (Desenvolvimento de Serviços de Multimédia com .NET). 
-2. Crie uma nova pasta (a pasta pode estar em qualquer lugar da sua unidade local) e copie um ficheiro .mp4 que pretende codificar e transmitir ou descarregar progressivamente. Neste exemplo, é utilizado o caminho "C:\Media".
+2. Crie uma nova pasta (a pasta pode estar em qualquer lugar da unidade local) e copie um ficheiro .mp4 que pretende codificar e fazer streaming ou descarregar progressivamente. Neste exemplo, é utilizado o caminho "C:\Media".
 3. Adicione uma referência à biblioteca **System.Runtime.Serialization.**
 
 ### <a name="code"></a>Código
@@ -344,31 +347,32 @@ namespace JobNotification
 
 O exemplo anterior produziu a seguinte saída: Os seus valores variarão.
 
-    Created assetFile BigBuckBunny.mp4
-    Upload BigBuckBunny.mp4
-    Done uploading of BigBuckBunny.mp4
+```output
+Created assetFile BigBuckBunny.mp4
+Upload BigBuckBunny.mp4
+Done uploading of BigBuckBunny.mp4
 
-    EventType: NotificationEndPointRegistration
-    MessageVersion: 1.0
-    ETag: e0238957a9b25bdf3351a88e57978d6a81a84527fad03bc23861dbe28ab293f6
-    TimeStamp: 2013-05-14T20:22:37
-        NotificationEndPointId: nb:nepid:UUID:d6af9412-2488-45b2-ba1f-6e0ade6dbc27
-        State: Registered
-        Name: dde957b2-006e-41f2-9869-a978870ac620
-        Created: 2013-05-14T20:22:35
+EventType: NotificationEndPointRegistration
+MessageVersion: 1.0
+ETag: e0238957a9b25bdf3351a88e57978d6a81a84527fad03bc23861dbe28ab293f6
+TimeStamp: 2013-05-14T20:22:37
+    NotificationEndPointId: nb:nepid:UUID:d6af9412-2488-45b2-ba1f-6e0ade6dbc27
+    State: Registered
+    Name: dde957b2-006e-41f2-9869-a978870ac620
+    Created: 2013-05-14T20:22:35
 
-    EventType: JobStateChange
-    MessageVersion: 1.0
-    ETag: 4e381f37c2d844bde06ace650310284d6928b1e50101d82d1b56220cfcb6076c
-    TimeStamp: 2013-05-14T20:24:40
-        JobId: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54
-        JobName: My MP4 to Smooth Streaming encoding job
-        NewState: Finished
-        OldState: Processing
-        AccountName: westeuropewamsaccount
-    job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected
-    State: Finished
-
+EventType: JobStateChange
+MessageVersion: 1.0
+ETag: 4e381f37c2d844bde06ace650310284d6928b1e50101d82d1b56220cfcb6076c
+TimeStamp: 2013-05-14T20:24:40
+    JobId: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54
+    JobName: My MP4 to Smooth Streaming encoding job
+    NewState: Finished
+    OldState: Processing
+    AccountName: westeuropewamsaccount
+job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected
+State: Finished
+```
 
 ## <a name="next-step"></a>Passo seguinte
 Rever os percursos de aprendizagem dos Serviços de Multimédia

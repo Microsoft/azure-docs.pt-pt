@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,15 +9,15 @@ ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: d2dba0f657b418267db90c07014dc8996ed12a10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80059948"
 ---
-Depois de criar um certificado de raiz auto-assinado, exporte o certificado de raiz do ficheiro público .cer (não a chave privada). Mais tarde, enviará este ficheiro para o Azure. Os seguintes passos ajudam-no a exportar o ficheiro .cer para o seu certificado raiz auto-assinado:
+Depois de criar um certificado de raiz auto-assinado, exporte o certificado de raiz do ficheiro público .cer (não a chave privada). Mais tarde, irá enviar este ficheiro para o Azure. Os seguintes passos ajudam-no a exportar o ficheiro .cer para o seu certificado de raiz auto-assinado:
 
-1. Para obter um ficheiro .cer a partir do certificado, abra **Gerir certificados de utilizador**. Localize o certificado de raiz autoassinado, normalmente em ''Certificates - Current User\Personal\Certificates'', e clique com o botão direito do rato. Clique em **Todas as Tarefas** e, em seguida, clique em **Exportar**. Esta ação abre o **Assistente para Exportar Certificados**. Se não encontrar o certificado nos certificados de utilizador'pessoal\certificados, pode ter acidentalmente aberto "Certificados - Computador Local", em vez de "Certificados - Utilizador Atual"). Se pretender abrir o Certificate Manager no âmbito atual do utilizador utilizando o PowerShell, escreva *certmgr* na janela da consola.
+1. Para obter um ficheiro .cer a partir do certificado, abra **Gerir certificados de utilizador**. Localize o certificado de raiz autoassinado, normalmente em ''Certificates - Current User\Personal\Certificates'', e clique com o botão direito do rato. Clique em **Todas as Tarefas** e, em seguida, clique em **Exportar**. Esta ação abre o **Assistente para Exportar Certificados**. Se não conseguir encontrar o certificado nos termos do Utilizador Atual\Personal\Certificates, poderá ter aberto acidentalmente "Certificados - Computador Local", em vez de "Certificados - Utilizador Atual"). Se pretender abrir o Certificate Manager no âmbito atual do utilizador utilizando o PowerShell, digite *certmgr* na janela da consola.
 
    ![Exportar](./media/vpn-gateway-certificates-export-public-key-include/export.png)
 2. No Assistente, clique em **Seguinte**.
@@ -29,7 +29,7 @@ Depois de criar um certificado de raiz auto-assinado, exporte o certificado de r
 4. Na página **Formato do Ficheiro de Exportação**, selecione **X.509 codificado com Base-64 (.CER).** e, em seguida, clique em **Seguinte**.
 
    ![Base-64 codificada](./media/vpn-gateway-certificates-export-public-key-include/base64.png)
-5. Para **File to Export**, **Navegue** no local para onde pretende exportar o certificado. Em **Nome do ficheiro**, atribua um nome ao ficheiro de certificado. Em seguida, clique **em Next**.
+5. Para **arquivar para exportar,** **navegue** para o local para onde pretende exportar o certificado. Em **Nome do ficheiro**, atribua um nome ao ficheiro de certificado. Em seguida, clique **em Seguinte**.
 
    ![Procurar](./media/vpn-gateway-certificates-export-public-key-include/browse.png)
 6. Clique em **Concluir** para exportar o certificado.
@@ -38,9 +38,9 @@ Depois de criar um certificado de raiz auto-assinado, exporte o certificado de r
 7. O seu certificado é exportado com sucesso.
 
    ![Êxito](./media/vpn-gateway-certificates-export-public-key-include/success.png)
-8. O certificado exportado é semelhante ao seguinte:
+8. O certificado exportado é semelhante a este:
 
    ![Exportado](./media/vpn-gateway-certificates-export-public-key-include/exported.png)
-9. Se abrir o certificado exportado utilizando o Bloco de Notas, verá algo semelhante a este exemplo. A secção em azul contém a informação que é enviada para O Azure. Se abrir o certificado com o Bloco de Notas e não se parecer com este, normalmente isto significa que não o exportou utilizando o X.509 codificado base-64(. Formato CER). Além disso, se quiser usar um editor de texto diferente, entenda que alguns editores podem introduzir formatação não intencional em segundo plano. Isto pode criar problemas quando enviado o texto deste certificado para o Azure.
+9. Se abrir o certificado exportado usando o Bloco de Notas, vê algo semelhante a este exemplo. A secção azul contém a informação que é enviada para Azure. Se abrir o certificado com o Notepad e não se parecer com este, normalmente isto significa que não o exportou utilizando o X.509 codificado base-64(. Formato CER). Além disso, se quiser usar um editor de texto diferente, entenda que alguns editores podem introduzir formatação não intencional em segundo plano. Isto pode criar problemas quando enviado o texto deste certificado para Azure.
 
    ![Aberto com Bloco de Notas](./media/vpn-gateway-certificates-export-public-key-include/notepad.png)

@@ -2,15 +2,14 @@
 title: Utilize zonas de disponibilidade no Serviço Azure Kubernetes (AKS)
 description: Saiba como criar um cluster que distribui nós em zonas de disponibilidade no Serviço Azure Kubernetes (AKS)
 services: container-service
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, references_regions
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 20b796e2da7fe602a8987d3de98bd3a5d9fafb5c
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
-ms.translationtype: MT
+ms.openlocfilehash: 06507c75d486717a77676154818f2032b7e8c807
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148179"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195569"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Criar um cluster Azure Kubernetes Service (AKS) que utiliza zonas de disponibilidade
 
@@ -20,7 +19,7 @@ Ao definir piscinas de nó em um cluster para abranger várias zonas, os nós em
 
 Este artigo mostra-lhe como criar um cluster AKS e distribuir os componentes do nó através de zonas de disponibilidade.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Precisa da versão 2.0.76 do Azure CLI ou posteriormente instalada e configurada. Corre  `az --version` para encontrar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
 
@@ -36,7 +35,7 @@ Os clusters AKS podem ser criados atualmente utilizando zonas de disponibilidade
 * Europa do Norte
 * Ásia Sudeste
 * Sul do Reino Unido
-* Europa ocidental
+* Europa Ocidental
 * E.U.A.Oeste 2
 
 Aplicam-se as seguintes limitações quando cria um cluster AKS utilizando zonas de disponibilidade:

@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: storage
 author: tamram
 ms.service: storage
@@ -9,23 +9,23 @@ ms.date: 10/19/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: cdcbe993bd1100b2060a1f8d38eb82ac97121c0d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74851638"
 ---
-Você é cobrado para Armazenamento Azure com base no uso da sua conta de armazenamento. Todos os objetos numa conta do Storage são faturados em conjunto como um grupo. 
+Está cobrado para o Azure Storage com base no uso da sua conta de armazenamento. Todos os objetos numa conta do Storage são faturados em conjunto como um grupo. 
 
 Os custos de armazenagem são calculados de acordo com os seguintes fatores: 
 
-* **A região** refere-se à região geográfica em que se baseia a sua conta.
-* **O tipo** de conta refere-se ao tipo de conta de armazenamento que está a usar. 
-* **O nível de acesso** refere-se ao padrão de utilização de dados especificado para a sua conta de armazenamento v2 ou Blob.
-* **A Capacidade** de Armazenamento refere-se à quantidade de loteamento da sua conta de armazenamento que está a usar para armazenar dados.
-* **A replicação** determina quantas cópias dos seus dados são mantidas de uma só vez, e em que locais.
-* **As transações** referem-se a todas as operações de leitura e escrita para o Armazenamento Azure.
-* **A saída** de dados refere-se a quaisquer dados transferidos de uma região do Azure. Quando os dados na sua conta de armazenamento são acedidos por uma aplicação que não está a funcionar na mesma região, é-lhe cobrado o seu número de dados. Para obter informações sobre a utilização de grupos de recursos para agrupar os seus dados e serviços na mesma região para limitar as taxas de saída, consulte o que é um grupo de [recursos Azure?](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) 
+* **Região** refere-se à região geográfica em que a sua conta está sediada.
+* **O tipo de conta** refere-se ao tipo de conta de armazenamento que está a utilizar. 
+* **O nível de acesso** refere-se ao padrão de utilização de dados especificado para a sua conta de armazenamento v2 ou Blob para fins gerais.
+* **Capacidade** de armazenamento refere-se à quantidade de loteamento da sua conta de armazenamento que está a usar para armazenar dados.
+* **A replicação** determina quantas cópias dos seus dados são mantidas ao mesmo tempo e em que locais.
+* **As transações** referem-se a todas as operações de leitura e escrita para o Azure Storage.
+* **A saída de dados** refere-se a quaisquer dados transferidos de uma região de Azure. Quando os dados na sua conta de armazenamento são acedidos por uma aplicação que não está a funcionar na mesma região, é cobrado por saída de dados. Para obter informações sobre a utilização de grupos de recursos para agrupar os seus dados e serviços na mesma região para limitar as taxas de saída, veja [o que é um grupo de recursos Azure?](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) 
 
 A página [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) fornece informações detalhadas sobre os preços com base na capacidade de armazenamento, replicação e transações. A página [Detalhes de Preços das Transferências de Dados](https://azure.microsoft.com/pricing/details/data-transfers/) fornece informações detalhadas sobre os preços de saída de dados. Pode utilizar a [Calculadora de Preços do Storage do Azure](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) para o ajudar a avaliar os custos.
 

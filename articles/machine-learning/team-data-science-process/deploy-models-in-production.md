@@ -1,6 +1,6 @@
 ---
-title: Implementar modelos em produção - Team Data Science Process
-description: Como implementar modelos para a produção permitindo-lhes desempenhar um papel ativo na tomada de decisões empresariais.
+title: Implementar modelos na produção - Processo de Ciência de Dados de Equipa
+description: Como implementar modelos na produção que lhes permitam desempenhar um papel ativo na tomada de decisões empresariais.
 author: marktab
 manager: marktab
 editor: marktab
@@ -11,36 +11,35 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e3e2ef3340ca836f56176c21cf3d221f0bf172b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76722242"
 ---
-# <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>Implementar modelos para a produção para desempenhar um papel ativo na tomada de decisões empresariais
+# <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>Implementar modelos na produção para desempenhar um papel ativo na tomada de decisões empresariais
 
-A implantação da produção permite que um modelo desempem um papel ativo num negócio. As previsões de um modelo implantado podem ser usadas para decisões empresariais.
+A implantação da produção permite que um modelo desem este um papel ativo num negócio. As previsões de um modelo implantado podem ser usadas para decisões empresariais.
 
 ## <a name="production-platforms"></a>Plataformas de produção
 
 Existem várias abordagens e plataformas para colocar modelos em produção. Aqui estão algumas opções:
 
 - [Onde implementar modelos com Azure Machine Learning](../how-to-deploy-and-where.md)
-- [Implementação de um modelo no servidor SQL](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-- [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+- [Implantação de um modelo no sql-servidor](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
+- [Servidor do Microsoft Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 >[!NOTE]
 >Antes da implantação, é preciso garantir que a latência da pontuação do modelo é baixa o suficiente para ser usada na produção.
 >
 
 >[!NOTE]
->Para ser implementado utilizando o Azure Machine Learning Studio, consulte [A implantação de um serviço web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
+>Para implementar usando o Azure Machine Learning Studio, consulte [implementar um serviço web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
 >
 
-## <a name="ab-testing"></a>Ensaio a/B
+## <a name="ab-testing"></a>Testes A/B
 
-Quando vários modelos estão em produção, os [testes A/B](https://en.wikipedia.org/wiki/A/B_testing) podem ser usados para comparar o desempenho do modelo. 
+Quando vários modelos estão em produção, [os testes A/B](https://en.wikipedia.org/wiki/A/B_testing) podem ser usados para comparar o desempenho do modelo. 
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-São também fornecidos walkthroughs que demonstrem todos os passos no processo para **cenários específicos.** Estão listados e ligados com descrições de miniaturas no artigo [de walkthroughs exemplo.](walkthroughs.md) Ilustram como combinar cloud, ferramentas no local e serviços num fluxo de trabalho ou oleoduto para criar uma aplicação inteligente. 
+São também fornecidas etapas que demonstram todos os passos no processo para **cenários específicos.** Estão listados e ligados com descrições de miniaturas no artigo [exemplo.](walkthroughs.md) Ilustram como combinar ferramentas e serviços de nuvem, no local, num fluxo de trabalho ou oleoduto para criar uma aplicação inteligente. 

@@ -1,72 +1,80 @@
 ---
-title: Gerencie papéis no seu espaço de trabalho
+title: Gerir funções no seu espaço de trabalho
 titleSuffix: Azure Machine Learning
-description: Aprenda a aceder a um espaço de trabalho azure machine learning utilizando o controlo de acesso baseado em funções (RBAC).
+description: Saiba como aceder a um espaço de trabalho Azure Machine Learning utilizando o controlo de acesso baseado em funções (RBAC).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/06/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 127a0a2b7f7573db91df9347169e90de3e14c4c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f289be1b3432d9c62b4841c513088afa16e0e447
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270098"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609253"
 ---
-# <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a um espaço de trabalho azure machine learning
+# <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a um espaço de trabalho de aprendizagem automática Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, aprende-se a gerir o acesso a um espaço de trabalho azure machine learning. [O controlo de acesso baseado em funções (RBAC)](/azure/role-based-access-control/overview) é utilizado para gerir o acesso aos recursos do Azure. Aos utilizadores do seu Diretório Ativo Azure são atribuídas funções específicas, que concedem acesso a recursos. O Azure fornece tanto papéis incorporados como a capacidade de criar papéis personalizados.
+Neste artigo, aprende-se a gerir o acesso a um espaço de trabalho de Aprendizagem automática Azure. [O controlo de acesso baseado em funções (RBAC)](/azure/role-based-access-control/overview) é utilizado para gerir o acesso aos recursos Azure. Os utilizadores do seu Diretório Ativo Azure são atribuídos a funções específicas, que concedem acesso a recursos. O Azure fornece papéis incorporados e a capacidade de criar papéis personalizados.
 
-## <a name="default-roles"></a>Funções padrão
+## <a name="default-roles"></a>Funções predefinidos
 
-Um espaço de trabalho Azure Machine Learning é um recurso Azure. Tal como outros recursos azure, quando é criado um novo espaço de trabalho azure machine learning, ele vem com três funções padrão. Pode adicionar os utilizadores ao espaço de trabalho e atribuí-los a uma destas funções incorporadas.
+Um espaço de trabalho de aprendizagem automática Azure é um recurso Azure. Como outros recursos Azure, quando um novo espaço de trabalho Azure Machine Learning é criado, ele vem com três papéis padrão. Pode adicionar utilizadores ao espaço de trabalho e atribuí-los a uma destas funções incorporadas.
 
 | Função | Nível de acesso |
 | --- | --- |
-| **Leitor** | Apenas as ações de leitura no espaço de trabalho. Os leitores podem listar e ver os ativos num espaço de trabalho, mas não podem criar ou atualizar estes ativos. |
-| **Contribuinte** | Ver, criar, editar ou excluir (quando aplicável) ativos num espaço de trabalho. Por exemplo, os contribuintes podem criar uma experiência, criar ou anexar um cluster de cálculo, submeter uma execução e implantar um serviço web. |
-| **Proprietário** | Acesso total ao espaço de trabalho, incluindo a capacidade de visualizar, criar, editar ou eliminar (quando aplicável) ativos num espaço de trabalho. Além disso, pode alterar as atribuições de funções. |
+| **Leitor** | Ações só de leitura no espaço de trabalho. Os leitores podem listar e visualizar ativos (incluindo credenciais [de datastore)](how-to-access-data.md) num espaço de trabalho, mas não podem criar ou atualizar esses ativos. |
+| **Contribuinte** | Ver, criar, editar ou apagar (se aplicável) ativos num espaço de trabalho. Por exemplo, os contribuintes podem criar uma experiência, criar ou anexar um cluster de computação, submeter uma execução e implementar um serviço web. |
+| **Proprietário** | Acesso total ao espaço de trabalho, incluindo a capacidade de visualizar, criar, editar ou apagar (se aplicável) ativos num espaço de trabalho. Além disso, pode alterar atribuições de funções. |
 
 > [!IMPORTANT]
-> O acesso a funções pode ser acessível a vários níveis em Azure. Por exemplo, alguém com acesso do proprietário a um espaço de trabalho pode não ter acesso do proprietário ao grupo de recursos que contém o espaço de trabalho. Para mais informações, consulte como funciona o [RBAC.](/azure/role-based-access-control/overview#how-rbac-works)
+> O acesso a funções pode ser alargado a vários níveis em Azure. Por exemplo, alguém com acesso ao proprietário a um espaço de trabalho pode não ter acesso ao grupo de recursos que contém o espaço de trabalho. Para mais informações, consulte [como funciona o RBAC.](/azure/role-based-access-control/overview#how-rbac-works)
 
-Para obter mais informações sobre papéis específicos incorporados, consulte [as funções incorporadas para o Azure.](/azure/role-based-access-control/built-in-roles)
+Para obter mais informações sobre funções específicas incorporadas, consulte [as funções incorporadas para o Azure.](/azure/role-based-access-control/built-in-roles)
 
 ## <a name="manage-workspace-access"></a>Gerir o acesso ao espaço de trabalho
 
-Se for proprietário de um espaço de trabalho, pode adicionar e remover funções para o espaço de trabalho. Também pode atribuir funções aos utilizadores. Utilize os seguintes links para descobrir como gerir o acesso:
+Se você é proprietário de um espaço de trabalho, você pode adicionar e remover papéis para o espaço de trabalho. Também pode atribuir funções aos utilizadores. Use os seguintes links para descobrir como gerir o acesso:
 - [Azure portal UI](/azure/role-based-access-control/role-assignments-portal)
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [CLI do Azure](/azure/role-based-access-control/role-assignments-cli)
 - [API REST](/azure/role-based-access-control/role-assignments-rest)
 - [Modelos do Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
 
-Se tiver instalado o CLI de [aprendizagem automática Azure,](reference-azure-machine-learning-cli.md)também pode utilizar um comando CLI para atribuir funções aos utilizadores.
+Se instalou o [CLI de Aprendizagem de Máquinas Azure,](reference-azure-machine-learning-cli.md)também pode utilizar um comando CLI para atribuir funções aos utilizadores.
 
 ```azurecli-interactive 
 az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
 ```
 
-O `user` campo é o endereço de e-mail de um utilizador existente no caso do Azure Ative Diretório onde vive a subscrição dos pais do espaço de trabalho. Aqui está um exemplo de como usar este comando:
+O `user` campo é o endereço de e-mail de um utilizador existente no caso do Azure Ative Directory onde vive a subscrição dos pais do espaço de trabalho. Aqui está um exemplo de como usar este comando:
 
 ```azurecli-interactive 
 az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
 ```
 
+> [!NOTE]
+> O comando "az ml workspace share" não funciona para conta federada pela Azure Ative Directory B2B. Por favor, use o portal Azure UI em vez de comandar.
+
+
+## <a name="azure-machine-learning-operations"></a>Operações de Aprendizagem automática Azure
+
+Azure Machine Learning em ações incorporadas para muitas operações e tarefas. Para obter uma lista completa, consulte [as operações dos fornecedores de recursos da Azure.](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)
+
 ## <a name="create-custom-role"></a>Criar função personalizada
 
-Se os papéis incorporados forem insuficientes, pode criar papéis personalizados. Os papéis personalizados podem ter lido, escrito, apagado e calcular permissões de recursos nesse espaço de trabalho. Pode disponibilizar o papel a um nível específico do espaço de trabalho, a um nível específico de grupo de recursos ou a um nível de subscrição específico.
+Se os papéis incorporados forem insuficientes, pode criar papéis personalizados. As funções personalizadas podem ter lido, escrito, apagado e computado permissões de recursos nesse espaço de trabalho. Pode disponibilizar a função a um nível específico do espaço de trabalho, a um nível específico do grupo de recursos ou a um nível de subscrição específico.
 
 > [!NOTE]
-> Deve ser proprietário do recurso a esse nível para criar papéis personalizados dentro desse recurso.
+> Você deve ser um proprietário do recurso a esse nível para criar funções personalizadas dentro desse recurso.
 
-Para criar uma função personalizada, primeiro construa um ficheiro JSON de definição de função que especifica a permissão e o âmbito para o papel. O exemplo que se segue define uma função personalizada chamada "Data Scientist" mapeada a um nível específico do espaço de trabalho:
+Para criar um papel personalizado, primeiro construa um ficheiro JSON de definição de papel que especifica a permissão e o alcance para o papel. O exemplo a seguir define uma função personalizada chamada "Data Scientist" a um nível específico do espaço de trabalho:
 
 `data_scientist_role.json` :
 ```json
@@ -87,13 +95,14 @@ Para criar uma função personalizada, primeiro construa um ficheiro JSON de def
 }
 ```
 
-Pode alterar `AssignableScopes` o campo para definir o âmbito desta função personalizada ao nível da subscrição, ao nível do grupo de recursos ou a um nível específico de espaço de trabalho.
+> [!TIP]
+> Pode alterar o `AssignableScopes` campo para definir o âmbito desta função personalizada ao nível da subscrição, ao nível do grupo de recursos ou a um nível específico de espaço de trabalho.
 
-Este papel personalizado pode fazer tudo no espaço de trabalho, exceto para as seguintes ações:
+Esta função personalizada pode fazer tudo no espaço de trabalho, exceto nas seguintes ações:
 
-- Não pode criar ou atualizar um recurso de computação.
-- Não pode apagar um recurso de computação.
-- Não pode adicionar, apagar ou alterar atribuições de papéis.
+- Não pode criar ou atualizar um recurso computacional.
+- Não pode apagar um recurso computacional.
+- Não pode adicionar, excluir ou alterar atribuições de funções.
 - Não pode apagar o espaço de trabalho.
 
 Para implementar esta função personalizada, utilize o seguinte comando Azure CLI:
@@ -102,36 +111,33 @@ Para implementar esta função personalizada, utilize o seguinte comando Azure C
 az role definition create --role-definition data_scientist_role.json
 ```
 
-Após a implantação, esta função fica disponível no espaço de trabalho especificado. Agora pode adicionar e atribuir este papel no portal Azure. Ou, pode atribuir esta função a `az ml workspace share` um utilizador utilizando o comando CLI:
+Após a implementação, esta função fica disponível no espaço de trabalho especificado. Agora pode adicionar e atribuir este papel no portal Azure. Ou, pode atribuir esta função a um utilizador utilizando o `az ml workspace share` comando CLI:
 
 ```azurecli-interactive
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-Para obter mais informações sobre papéis personalizados, consulte [funções personalizadas para os recursos Do Azure.](/azure/role-based-access-control/custom-roles)
+Para obter mais informações sobre funções personalizadas, consulte [as funções personalizadas para recursos Azure](/azure/role-based-access-control/custom-roles).
 
-Para obter mais informações sobre as operações (ações) utilizáveis com funções personalizadas, consulte [as operações do fornecedor](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)de recursos.
-
-
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 
 ### <a name="q-what-are-the-permissions-needed-to-perform-various-actions-in-the-azure-machine-learning-service"></a>P. Quais são as permissões necessárias para realizar várias ações no serviço de Aprendizagem automática Azure?
 
-A tabela seguinte é um resumo das atividades de Aprendizagem automática de Azure e as permissões necessárias para as realizar pelo menos no âmbito. Como exemplo se uma atividade pode ser realizada com um âmbito de espaço de trabalho (Coluna 4), então todo o âmbito mais alto com essa permissão também funcionará automaticamente. Todos os caminhos nesta mesa `Microsoft.MachineLearningServices/`são **caminhos relativos** para .
+O quadro a seguir é um resumo das atividades de Aprendizagem automática do Azure e as permissões necessárias para as executar no mínimo. Como exemplo, se uma atividade pode ser realizada com um âmbito de espaço de trabalho (Coluna 4), então todo o âmbito mais elevado com essa permissão também funcionará automaticamente. Todos os caminhos desta tabela são **caminhos relativos** `Microsoft.MachineLearningServices/` para.
 
-| Atividade | Âmbito de subscrição | Âmbito de nível de grupo de recursos | Âmbito de nível de espaço de trabalho |
+| Atividade | Âmbito de nível de subscrição | Âmbito de grupo de recursos | Âmbito ao nível do espaço de trabalho |
 |---|---|---|---|
-| Criar novo espaço de trabalho | Não é necessária | Proprietário ou contribuinte | N/A (torna-se Proprietário ou herda maior função de âmbito após a criação) |
-| Criar novo cluster de computação | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada permitindo:`workspaces/computes/write` |
-| Criar novo Caderno VM | Não é necessária | Proprietário ou contribuinte | Não é possível |
-| Criar nova instância computacional | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada permitindo:`workspaces/computes/write` |
-| Atividade de avião de dados como submeter corrida, aceder a dados, implementar modelo ou publicar pipeline | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada permitindo:`workspaces/*/write` <br/> Tenha em anote que também necessita de uma loja de dados registada no espaço de trabalho para permitir que a MSI aceda aos dados na sua conta de armazenamento. |
+| Criar novo espaço de trabalho | Não é necessária | Proprietário ou colaborador | N/A (torna-se Proprietário ou herda um papel de âmbito superior após a criação) |
+| Criar novo cluster computacional | Não é necessária | Não é necessária | Função de proprietário, colaborador ou personalizado que permite:`workspaces/computes/write` |
+| Criar novo VM de Caderno | Não é necessária | Proprietário ou colaborador | Não é possível |
+| Criar nova instância computacional | Não é necessária | Não é necessária | Função de proprietário, colaborador ou personalizado que permite:`workspaces/computes/write` |
+| Atividade de plano de dados como submeter, aceder a dados, implementar modelo ou publicar pipeline | Não é necessária | Não é necessária | Função de proprietário, colaborador ou personalizado que permite:`workspaces/*/write` <br/> Também precisa de uma datastore registada no espaço de trabalho para permitir que a MSI aceda aos dados na sua conta de armazenamento. |
 
 
-### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>P. Como enumerei todos os papéis personalizados na minha subscrição?
+### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>P. Como posso listar todas as funções personalizadas na minha assinatura?
 
-No Azure CLI, execute o seguinte comando.
+No Azure CLI, executar o seguinte comando.
 
 ```azurecli-interactive
 az role definition list --subscription <sub-id> --custom-role-only true
@@ -139,38 +145,38 @@ az role definition list --subscription <sub-id> --custom-role-only true
 
 ### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>P. Como encontro a definição de papel para um papel na minha subscrição?
 
-No Azure CLI, execute o seguinte comando. Note `<role-name>` que deve estar no mesmo formato devolvido pelo comando acima.
+No Azure CLI, executar o seguinte comando. O `<role-name>` deve estar no mesmo formato devolvido pelo comando acima.
 
 ```azurecli-interactive
 az role definition list -n <role-name> --subscription <sub-id>
 ```
 
-### <a name="q-how-do-i-update-a-role-definition"></a>P. Como atualiza uma definição de papel?
+### <a name="q-how-do-i-update-a-role-definition"></a>P. Como atualizei uma definição de função?
 
-No Azure CLI, execute o seguinte comando.
+No Azure CLI, executar o seguinte comando.
 
 ```azurecli-interactive
 az role definition update --role-definition update_def.json --subscription <sub-id>
 ```
 
-Note que precisa de ter permissões em todo o âmbito da sua nova definição de papel. Por exemplo, se esta nova função tiver um alcance em três subscrições, você precisa ter permissões nas três subscrições. 
+Precisa de permissões em todo o âmbito da sua nova definição de papel. Por exemplo, se esta nova função tiver um alcance em três subscrições, você precisa ter permissões nas três subscrições. 
 
 > [!NOTE]
-> As atualizações de papéis podem demorar 15 minutos a uma hora para se aplicarem em todas as atribuições de funções nesse âmbito.
-### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>P. Posso definir um papel que impeça a atualização da Edição do espaço de trabalho? 
+> As atualizações de funções podem demorar 15 minutos a uma hora a aplicar-se em todas as atribuições de funções nesse âmbito.
+### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>P. Posso definir um papel que impeça a atualização da edição do espaço de trabalho? 
 
-Sim, pode definir um papel que impede a atualização da Edição do espaço de trabalho. Uma vez que a atualização do espaço de trabalho é uma chamada `"NotActions"` patch sobre o objeto espaço de trabalho, você faz isso colocando a seguinte ação na matriz na sua definição JSON: 
+Sim, pode definir um papel que impede a atualização da edição do espaço de trabalho. Uma vez que a atualização do espaço de trabalho é uma chamada PATCH no objeto do espaço de trabalho, fá-lo colocando a seguinte ação na `"NotActions"` matriz na definição JSON: 
 
 `"Microsoft.MachineLearningServices/workspaces/write"`
 
 ### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>P. Que permissões são necessárias para realizar operações de quotas num espaço de trabalho? 
 
-Precisa de permissões de nível de subscrição para realizar qualquer operação relacionada com quotas no espaço de trabalho. Isto significa que a definição de quota de nível de subscrição ou de nível de espaço de trabalho para os seus recursos computacionais geridos só pode acontecer se tiver permissões de escrita no âmbito da subscrição. 
+Precisa de permissões de nível de subscrição para realizar qualquer operação relacionada com quotas no espaço de trabalho. Isto significa que definir a quota de nível de subscrição ou a quota de nível de espaço de trabalho para os seus recursos de computação geridos só pode acontecer se tiver permissões de escrita no âmbito de subscrição. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Descrição geral da segurança empresarial](concept-enterprise-security.md)
-- [Executar experiências e inferência/pontuação de forma segura dentro de uma rede virtual](how-to-enable-virtual-network.md)
+- [Executar de forma segura experiências e inferência/pontuação dentro de uma rede virtual](how-to-enable-virtual-network.md)
 - [Tutorial: Modelos de comboio](tutorial-train-models-with-aml.md)
 - [Operações do fornecedor de recursos](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

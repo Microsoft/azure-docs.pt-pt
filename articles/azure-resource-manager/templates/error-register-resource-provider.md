@@ -1,14 +1,13 @@
 ---
 title: Erros de registo do fornecedor de recursos
-description: Descreve como resolver os erros de registo do fornecedor de recursos Azure ao implementar recursos com o Gestor de Recursos Azure.
+description: Descreve como resolver erros de registo do fornecedor de recursos Azure ao implementar recursos com o Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 02/15/2019
 ms.openlocfilehash: a9182be53cc91240a62ab201efc53d674f7cf427
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273777"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706563"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Resolver erros do registo do fornecedor de recursos
 
@@ -33,9 +32,9 @@ Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
-A mensagem de erro deve dar-lhe sugestões para os locais suportados e versões API. Pode alterar o seu modelo para um dos valores sugeridos. A maioria dos fornecedores é registada automaticamente pelo portal Azure ou pela interface de linha de comando que está a usar, mas não todos. Se não tiver usado um determinado fornecedor de recursos antes, poderá ter de registar esse fornecedor.
+A mensagem de erro deve dar-lhe sugestões para as localizações suportadas e versões API. Pode alterar o seu modelo para um dos valores sugeridos. A maioria dos fornecedores são registados automaticamente pelo portal Azure ou pela interface de linha de comando que está a utilizar, mas não todos. Se nunca tenha utilizado um determinado fornecedor de recursos, poderá ter de registar esse fornecedor.
 
-Ou, ao desativar o encerramento automático de máquinas virtuais, pode receber uma mensagem de erro semelhante a:
+Ou, ao desativar o encerramento automático de máquinas virtuais, poderá receber uma mensagem de erro semelhante a:
 
 ```
 Code: AuthorizationFailed
@@ -49,17 +48,17 @@ Recebe estes erros por uma destas razões:
 * O fornecedor de recursos necessário não foi registado para a sua subscrição
 * Versão API não suportada para o tipo de recurso
 * Localização não suportada para o tipo de recurso
-* Para o encerramento automático de VMs, o fornecedor de recursos Microsoft.DevTestLab deve ser registado.
+* Para o encerramento automático dos VMs, o fornecedor de recursos Microsoft.DevTestLab deve estar registado.
 
 ## <a name="solution-1---powershell"></a>Solução 1 - PowerShell
 
-Para a PowerShell, utilize **o Get-AzResourceProvider** para ver o seu estado de registo.
+Para powerShell, utilize **o Get-AzResourceProvider** para ver o seu estado de registo.
 
 ```powershell
 Get-AzResourceProvider -ListAvailable
 ```
 
-Para registar um fornecedor, utilize o **Register-AzResourceProvider** e forneça o nome do fornecedor de recursos que pretende registar.
+Para registar um fornecedor, utilize **o Register-AzResourceProvider** e forneça o nome do fornecedor de recursos que pretende registar.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Cdn
@@ -79,13 +78,13 @@ Para obter as versões API suportadas para um determinado tipo de recurso, utili
 
 ## <a name="solution-2---azure-cli"></a>Solução 2 - Azure CLI
 
-Para ver se o fornecedor está `az provider list` registado, utilize o comando.
+Para ver se o fornecedor está registado, utilize o `az provider list` comando.
 
 ```azurecli-interactive
 az provider list
 ```
 
-Para registar um fornecedor `az provider register` de recursos, utilize o comando e especifique o *espaço de nome* para se registar.
+Para registar um fornecedor de recursos, utilize o `az provider register` comando e especifique o *espaço de identificação* para se registar.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Cdn
@@ -101,7 +100,7 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 Pode ver o estado de registo e registar um espaço de nome do fornecedor de recursos através do portal.
 
-1. A partir do portal, selecione **Todos os serviços.**
+1. A partir do portal, selecione **Todos os serviços**.
 
    ![Selecione todos os serviços](./media/error-register-resource-provider/select-all-services.png)
 
@@ -111,12 +110,12 @@ Pode ver o estado de registo e registar um espaço de nome do fornecedor de recu
 
 1. A partir da lista de subscrições, selecione a subscrição que pretende utilizar para registar o fornecedor de recursos.
 
-   ![Selecione subscrição para registar fornecedor de recursos](./media/error-register-resource-provider/select-subscription-to-register.png)
+   ![Selecione a subscrição para registar fornecedor de recursos](./media/error-register-resource-provider/select-subscription-to-register.png)
 
-1. Para a sua subscrição, selecione **Fornecedores**de Recursos .
+1. Para a sua subscrição, selecione **Fornecedores de Recursos.**
 
    ![Selecione fornecedores de recursos](./media/error-register-resource-provider/select-resource-provider.png)
 
-1. Veja a lista de fornecedores de recursos e, se necessário, selecione o link **Register** para registar o fornecedor de recursos do tipo que está a tentar implementar.
+1. Veja a lista de fornecedores de recursos e, se necessário, selecione o link **Registar** para registar o fornecedor de recursos do tipo que está a tentar implementar.
 
-   ![Lista de fornecedores de recursos](./media/error-register-resource-provider/list-resource-providers.png)
+   ![Fornecedores de recursos de lista](./media/error-register-resource-provider/list-resource-providers.png)

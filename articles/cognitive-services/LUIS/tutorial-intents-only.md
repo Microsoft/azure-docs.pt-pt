@@ -3,18 +3,18 @@ title: 'Tutorial: Prever intenções - LUIS'
 description: Crie uma aplicação personalizada que preveja a intenção de um utilizador com base na expressão (texto) neste tutorial.
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: c76273d7c180928d25be70e0abd7abf26c90b44a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d0a625708e730094ab4dea8f705852f38ee6e1da
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588964"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959864"
 ---
-# <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Tutorial: Construir uma app LUIS para determinar as intenções dos utilizadores
+# <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Tutorial: Construa uma app LUIS para determinar as intenções dos utilizadores
 
 Neste tutorial, cria-se uma aplicação personalizada que prevê a intenção de um utilizador com base na expressão (texto).
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 > [!div class="checklist"]
 > * Criar uma nova aplicação
@@ -24,9 +24,9 @@ Neste tutorial, cria-se uma aplicação personalizada que prevê a intenção de
 > * Publicar aplicação
 > * Obtenha previsão de intenção a partir do ponto final
 
-## <a name="user-intentions-as-intents"></a>Intenções de utilizador como intenções
+## <a name="user-intentions-as-intents"></a>Intenções dos utilizadores como intenções
 
-O objetivo da app é determinar a intenção do texto de linguagem natural e conversacional:
+O objetivo da app é determinar a intenção de texto de linguagem natural e conversacional:
 
 `I'd like to order a veggie pizza with a salad on the side.`
 
@@ -34,10 +34,10 @@ Estas intenções estão categorizadas em **Intenções**.
 
 |Intenção|Objetivo|
 |--|--|
-|`ModifyOrder`|Determina o pedido de pizza do utilizador.|
-|`Greeting`|Comece a conversa com bot.|
-|`ConfirmOrder`|Confirme a encomenda da pizza.|
-|`None`|Determine se o utilizador está a perguntar algo que a aplicação LUIS não foi concebida para responder. Esta intenção é fornecida como parte da criação de apps e não pode ser eliminada. |
+|`ModifyOrder`|Determine o pedido de pizza do utilizador.|
+|`Greeting`|Comece a conversa bot.|
+|`ConfirmOrder`|Confirme o pedido de pizza.|
+|`None`|Determine se o utilizador está a perguntar algo que a aplicação LUIS não foi concebida para responder. Esta intenção é fornecida como parte da criação de aplicações e não pode ser eliminada. |
 
 ## <a name="create-a-new-app"></a>Criar uma nova aplicação
 
@@ -45,17 +45,17 @@ Estas intenções estão categorizadas em **Intenções**.
 
 ## <a name="create-a-new-intent"></a>Criar uma nova intenção
 
-Uma intenção é usada para classificar as palavras do utilizador com base na intenção do utilizador, determinada a partir do texto de linguagem natural.
+Uma intenção é usada para classificar as expressões do utilizador com base na intenção do utilizador, determinada a partir do texto de linguagem natural.
 
-Para classificar uma expressão, a intenção necessita de exemplos de declarações de utilizadores que devem ser classificadas com esta intenção.
+Para classificar uma expressão, a intenção precisa de exemplos de declarações de utilizadores que devem ser classificadas com esta intenção.
 
-1. Na secção **Construir,** na página **Intenções,** selecione **+ Criar** para criar uma nova intenção. Introduza o novo nome de `OrderPizza` intenção, em seguida, selecione **Done**.
+1. Na secção **Construção,** na página **Intenções,** selecione **+ Criar** para criar uma nova intenção. Introduza o novo nome de `OrderPizza` intenção, e depois selecione **'Fazer' ( "Fazer")**
 
     A `OrderPizza` intenção é prevista quando um utilizador quer pedir uma pizza.
 
-1. Adicione várias declarações de exemplo a esta intenção que espera que um utilizador pergunte:
+1. Adicione vários exemplos a esta intenção que espera que um utilizador pergunte:
 
-    |`OrderPizza`expressões exemplo|
+    |`OrderPizza`palavras exemplo|
     |--|
     |`can i get a pepperoni pizza and a can of coke please`|
     |`can i get a small pizza with onions peppers and olives`|
@@ -65,17 +65,17 @@ Para classificar uma expressão, a intenção necessita de exemplos de declaraç
     |`Order a pizza for me`|
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot de adicionar pronunciações de exemplo no portal LUIS na página Intent](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
+    > ![Screenshot de adicionar palavras de exemplo no portal LUIS na página Intent](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    Ao dar _exemplos,_ está a ensinar ao LUIS que tipo de declarações devem ser previstas para esta intenção. Estes são exemplos positivos. As declarações em todas as outras intenções são tratadas como exemplos negativos para esta intenção.
+    Ao dar _palavras de exemplo,_ está a ensinar ao LUIS que tipo de proclamações devem ser previstas para esta intenção. Estes são exemplos positivos. As declarações em todas as outras intenções são tratadas como exemplos negativos para esta intenção.
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]
 
 ## <a name="create-remaining-intents"></a>Criar intenções restantes
 
-1. Crie a `Greeting` intenção e adicione as seguintes expressões exemplo. Esta é a intenção de determinar se um utilizador está a iniciar uma nova conversa de encomenda de pizza.
+1. Crie a `Greeting` intenção e adicione as seguintes palavras de exemplo. Esta é a intenção de determinar se um utilizador está a iniciar uma nova conversa de encomenda de pizza.
 
-    |`Greeting`expressões exemplo|
+    |`Greeting`palavras exemplo|
     |--|
     |`Hi`|
     |`Hello`|
@@ -83,9 +83,9 @@ Para classificar uma expressão, a intenção necessita de exemplos de declaraç
     |`Start`|
     |`Begin`|
 
-1. Crie a `Confirm` intenção e adicione as seguintes expressões exemplo. Esta é a intenção de determinar se um utilizador é feito encomendando e aceita os detalhes da encomenda.
+1. Crie a `Confirm` intenção e adicione as seguintes palavras de exemplo. Esta é a intenção de determinar se um utilizador é feito encomendando e aceita os detalhes da encomenda.
 
-    |`Confirm`expressões exemplo|
+    |`Confirm`palavras exemplo|
     |--|
     |`Go ahead`|
     |`ok`|
@@ -93,7 +93,7 @@ Para classificar uma expressão, a intenção necessita de exemplos de declaraç
     |`Sure`|
 
 
-## <a name="none-intent-example-utterances"></a>Nenhuma intenção exemplo pronunciamentos
+## <a name="none-intent-example-utterances"></a>Nenhuma intenção exemplo declarações
 
 [!INCLUDE [Follow these steps to add the None intent to the app](includes/add-example-utterances-none-intent.md)]
 
@@ -109,13 +109,12 @@ Para classificar uma expressão, a intenção necessita de exemplos de declaraç
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Vá até ao fim do URL na barra de endereços e introduza:
+1. Vá até o final do URL na barra de endereços e insira:
 
     `get a medium vegetarian pizza for delivery`
 
-    Isto não é exatamente o mesmo que um exemplo de expressão, por isso é um bom teste para ver se LUIS pode aprender o que deve ser previsto com esta intenção.
-
-    O último parâmetro de cadeia de consulta é `query`, a expressão **query**. Esta expressão não é igual a nenhuma das expressões de exemplo. É um bom teste e deverá devolver a intenção `OrderPizza` como a intenção com a melhor classificação.
+  
+    O parâmetro da cadeia de consulta é `query` , a **consulta** de expressão é passada no URI. Esta expressão não é igual a nenhuma das expressões de exemplo. Este deve ser um bom teste para verificar se LUIS aprende e prevê a `OrderPizza` intenção como a intenção de pontuação superior.
 
     ```JSON
     {
@@ -141,15 +140,15 @@ Para classificar uma expressão, a intenção necessita de exemplos de declaraç
     }
     ```
 
-    A matriz de entidades está vazia porque esta app atualmente não tem nenhuma entidade (unidade de dados dentro da expressão para extrair).
+    O conjunto de entidades está vazio porque esta app não tem atualmente nenhuma entidade (unidade de dados dentro da expressão para extrair).
 
-    O resultado da JSON identifica a principal intenção de pontuação como **`prediction.topIntent`** propriedade. Todos os resultados estão entre 1 e 0, com a melhor pontuação a estar mais perto de 1.
+    O resultado do JSON identifica a intenção de pontuação superior como **`prediction.topIntent`** propriedade. Todas as pontuações estão entre 1 e 0, com a melhor pontuação a ser mais próxima de 1.
 
-1. Altere o parâmetro de **consulta** URL para direcionar a intenção **de Saudação:**
+1. Altere o parâmetro **de consulta** URL para direcionar a intenção **de Saudação:**
 
     `Howdy`
 
-    Isto não é exatamente o mesmo que um exemplo de expressão, por isso é um bom teste para ver se LUIS pode aprender o que deve ser previsto com esta intenção.
+    Isto não é exatamente o mesmo que uma expressão de exemplo, por isso é um bom teste para ver se LUIS pode aprender o que deve ser previsto com esta intenção.
 
     ```json
     {
@@ -175,13 +174,13 @@ Para classificar uma expressão, a intenção necessita de exemplos de declaraç
     }
     ```
 
-    Esta previsão tem uma pontuação de confiança de 44%. Para aumentar a pontuação de confiança, adicione entre 15 e 30 expressões exemplo.
+    Esta previsão tem uma pontuação de confiança de 44%. Para aumentar a pontuação de confiança, adicione entre 15 e 30 palavras de exemplo.
 
 ## <a name="client-application-next-steps"></a>Próximos passos da aplicação do cliente
 
-Este tutorial criou uma app LUIS, criou intenções, acrescentou declarações de exemplo a cada intenção, acrescentou declarações de exemplo à intenção none, treinada, publicada e testada no ponto final. Estes são os passos básicos de criação de um modelo do LUIS.
+Este tutorial criou uma app LUIS, criou intenções, acrescentou palavras de exemplo a cada intenção, acrescentou palavras de exemplo à intenção de Ninguém, treinada, publicada e testada no ponto final. Estes são os passos básicos de criação de um modelo do LUIS.
 
-Depois de devolver a resposta JSON, o LUIS conclui este pedido. O LUIS não fornece respostas às expressões do utilizador, apenas identifica o tipo de informação que está a ser pedida em linguagem natural. O acompanhamento de conversação é fornecido pela aplicação do cliente, como um Bot Azure.
+Depois de devolver a resposta JSON, o LUIS conclui este pedido. O LUIS não fornece respostas às expressões do utilizador, apenas identifica o tipo de informação que está a ser pedida em linguagem natural. O acompanhamento da conversação é fornecido pela aplicação do cliente, como um Bot Azure.
 
 
 [!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
@@ -198,4 +197,4 @@ Depois de devolver a resposta JSON, o LUIS conclui este pedido. O LUIS não forn
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Adicione uma entidade descompável a esta aplicação](tutorial-machine-learned-entity.md)
+> [Adicione uma entidade decomposição a esta aplicação](tutorial-machine-learned-entity.md)

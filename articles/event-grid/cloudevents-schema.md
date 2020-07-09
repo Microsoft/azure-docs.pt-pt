@@ -1,37 +1,33 @@
 ---
-title: Use a Grelha de Eventos Azure com eventos em esquema CloudEvents
-description: Descreve como usar o esquema CloudEvents para eventos em Azure Event Grid. O serviço suporta eventos na implementação da JSON de Cloud Events.
-services: event-grid
-author: banisadr
-ms.service: event-grid
+title: Use a grelha de eventos Azure com eventos no esquema cloudEvents
+description: Descreve como usar o esquema do CloudEvents para eventos em Azure Event Grid. O serviço suporta eventos na implementação json de Eventos cloud.
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.author: babanisa
-ms.openlocfilehash: b62122e7ce981a73fe8b8b3028c123054e16330d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 07/07/2020
+ms.openlocfilehash: 0bcd14356c4d52bb8a5b270966097d47dfc92c3c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847604"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113960"
 ---
-# <a name="use-cloudevents-v10-schema-with-event-grid"></a>Use CloudEvents v1.0 schema com grelha de eventos
-Além do seu [esquema de evento padrão,](event-schema.md)a Azure Event Grid apoia de forma nativa eventos na [implementação jSON de CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) e [http protocol binding](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) é uma [especificação aberta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) para descrever dados do evento.
+# <a name="use-cloudevents-v10-schema-with-event-grid"></a>Use esquema cloudEvents v1.0 com grade de eventos
+Além do seu [esquema de eventos predefinidos,](event-schema.md)a Azure Event Grid suporta de forma nativa eventos na [implementação JSON de cloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) e [protocolo HTTP.](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md) [CloudEvents](https://cloudevents.io/) é uma [especificação aberta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) para descrever dados de eventos.
 
-A CloudEvents simplifica a interoperabilidade fornecendo um esquema comum de eventos para a publicação e consumindo eventos baseados em nuvem. Este esquema permite uma ferramenta uniforme, formas padrão de encaminhamento & lidar com eventos, e formas universais de desserialização do esquema de eventos exteriores. Com um esquema comum, pode integrar mais facilmente o trabalho em todas as plataformas.
+O CloudEvents simplifica a interoperabilidade, fornecendo um esquema comum de eventos para a publicação e consumindo eventos baseados na nuvem. Este esquema permite uma ferramenta uniforme, formas padrão de encaminhamento & eventos de manuseamento, e formas universais de desseeciar o esquema do evento exterior. Com um esquema comum, pode integrar mais facilmente o trabalho através das plataformas.
 
-A CloudEvents está a ser construída por [vários colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), incluindo a Microsoft, através da [Cloud Native Computing Foundation](https://www.cncf.io/). Atualmente está disponível como versão 1.0.
+O CloudEvents está a ser construído por [vários colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), incluindo a Microsoft, através da [Cloud Native Computing Foundation.](https://www.cncf.io/) Atualmente está disponível como versão 1.0.
 
-Este artigo descreve como usar o esquema CloudEvents com a Grelha de Eventos.
+Este artigo descreve como usar o esquema cloudEvents com grade de eventos.
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-## <a name="install-preview-feature"></a>Instalar função de pré-visualização
+## <a name="install-preview-feature"></a>Instale a função de pré-visualização
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="cloudevent-schema"></a>Esquema cloudEvent
 
-Aqui está um exemplo de um evento de armazenamento De Blob Azure no formato CloudEvents:
+Aqui está um exemplo de um evento de Armazenamento Azure Blob no formato CloudEvents:
 
 ``` JSON
 {
@@ -59,26 +55,26 @@ Aqui está um exemplo de um evento de armazenamento De Blob Azure no formato Clo
 }
 ```
 
-Uma descrição detalhada dos campos disponíveis, seus tipos e definições em CloudEvents v1.0 está [disponível aqui](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
+Uma descrição detalhada dos campos disponíveis, seus tipos e definições em CloudEvents v1.0 está [disponível aqui.](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes)
 
-Os valores dos cabeçalhos para eventos entregues no esquema CloudEvents e no esquema da Grelha de Eventos são os mesmos exceto `content-type` para . Para o esquema CloudEvents, o valor do cabeçalho é `"content-type":"application/cloudevents+json; charset=utf-8"` . Para o esquema da Grelha de Eventos, o valor do cabeçalho é `"content-type":"application/json; charset=utf-8"` .
+Os valores dos cabeçalhos para os eventos entregues no esquema cloudEvents e no esquema da Grelha de Eventos são os mesmos, exceto `content-type` . Para o esquema cloudEvents, o valor do cabeçalho é `"content-type":"application/cloudevents+json; charset=utf-8"` . Para o esquema da Grelha de Eventos, o valor do cabeçalho é `"content-type":"application/json; charset=utf-8"` .
 
-## <a name="configure-event-grid-for-cloudevents"></a>Configure grelha de eventos para CloudEvents
+## <a name="configure-event-grid-for-cloudevents"></a>Configure grelha de eventos para eventos cloudEvents
 
-Pode utilizar a Grelha de Eventos tanto para a entrada como para a saída de eventos em esquema CloudEvents. Você pode usar CloudEvents para eventos de sistema, como eventos de armazenamento blob e eventos IoT Hub, e eventos personalizados. Também pode transformar esses eventos no fio de um lado para o outro.
+Você pode usar a Grade de Eventos tanto para a entrada como para a saída de eventos no esquema do CloudEvents. Você pode usar Eventos CloudEvents para eventos do sistema, como eventos blob storage e eventos IoT Hub, e eventos personalizados. Também pode transformar esses eventos no fio para trás e para a frente.
 
 
-| Input schema       | Esquema de saída
+| Esquema de entrada       | Esquema de saída
 |--------------------|---------------------
 | Formato CloudEvents | Formato CloudEvents
-| Formato Da Grelha de Eventos  | Formato CloudEvents
-| Formato Da Grelha de Eventos  | Formato Da Grelha de Eventos
+| Formato de grelha de eventos  | Formato CloudEvents
+| Formato de grelha de eventos  | Formato de grelha de eventos
 
-Para todos os eventos, a Grelha de Eventos requer validação ao publicar para um tópico de grelha de eventos e ao criar uma subscrição de eventos. Para mais informações, consulte [a segurança e a autenticação da Rede de Eventos.](security-authentication.md)
+Para todos os esquemas de eventos, o Event Grid requer validação ao publicar um tópico de grelha de eventos e ao criar uma subscrição de eventos. Para mais informações, consulte [a segurança e a autenticação da Grade de Eventos.](security-authentication.md)
 
-### <a name="input-schema"></a>Input schema
+### <a name="input-schema"></a>Esquema de entrada
 
-Você define o esquema de entrada para um tópico personalizado quando você cria o tópico personalizado.
+Define o esquema de entrada para um tópico personalizado quando cria o tópico personalizado.
 
 Para a CLI do Azure, utilize:
 
@@ -110,7 +106,7 @@ New-AzureRmEventGridTopic `
 
 ### <a name="output-schema"></a>Esquema de saída
 
-Você define o esquema de saída quando cria a subscrição do evento.
+Define o esquema de saída quando cria a subscrição do evento.
 
 Para a CLI do Azure, utilize:
 
@@ -135,24 +131,24 @@ New-AzureRmEventGridSubscription `
   -DeliverySchema CloudEventSchemaV1_0
 ```
 
- Atualmente, não é possível utilizar um gatilho da Grelha de Eventos para uma aplicação De Funções Azure quando o evento é entregue no esquema CloudEvents. Utilize um gatilho HTTP. Por exemplo, implementando um gatilho HTTP que recebe eventos no esquema CloudEvents, consulte A Utilização de [CloudEvents com Funções Azure](#azure-functions).
+ Atualmente, não é possível utilizar um gatilho de Grade de Eventos para uma aplicação Azure Functions quando o evento é entregue no esquema do CloudEvents. Utilize um gatilho HTTP. Para, por exemplo, implementar um gatilho HTTP que receba eventos no esquema cloudEvents, consulte [Utilização de Eventos CloudEvents com Funções Azure](#azure-functions).
 
- ## <a name="endpoint-validation-with-cloudevents-v10"></a>Validação do ponto final com CloudEvents v1.0
+ ## <a name="endpoint-validation-with-cloudevents-v10"></a>Validação de ponto final com CloudEvents v1.0
 
-Se já está familiarizado com a Grelha de Eventos, pode estar ciente do aperto de mão de validação de ponto final da Event Grid para prevenir abusos. CloudEvents v1.0 implementa a sua própria [semântica](webhook-event-delivery.md) de proteção contra abusos utilizando o método HTTP OPTIONS. Pode ler mais sobre o assunto [aqui](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Ao utilizar o esquema CloudEvents para saída, a Rede de Eventos utiliza com a proteção de abuso CloudEvents v1.0 em vez do mecanismo de eventode validação da Rede de Eventos.
+Se já está familiarizado com a Grade de Eventos, poderá estar ciente do aperto de mão de validação de ponto final da Event Grid para prevenir abusos. O CloudEvents v1.0 implementa a sua própria [semântica de proteção contra abusos](webhook-event-delivery.md) utilizando o método HTTP OPTIONS. Pode ler mais sobre o assunto [aqui](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Ao utilizar o esquema cloudEvents para saída, a Grade de Eventos utiliza com a proteção de abuso cloudEvents v1.0 em vez do mecanismo de validação da Grelha de Eventos.
 
 <a name="azure-functions"></a>
 
-## <a name="use-with-azure-functions"></a>Utilização com funções Azure
+## <a name="use-with-azure-functions"></a>Utilizar com Funções Azure
 
-A [ligação da Grelha de Eventos de Funções Azure](../azure-functions/functions-bindings-event-grid.md) não suporta de forma nativa cloudEvents, pelo que as funções desencadeadas por HTTP são usadas para ler mensagens CloudEvents. Ao utilizar um gatilho HTTP para ler CloudEvents, tem de escrever código para o que o gatilho da Grelha de Eventos faz automaticamente:
+A [ligação Azure Functions Event Grid](../azure-functions/functions-bindings-event-grid.md) não suporta os Eventos CloudEvents de forma nativa, pelo que as funções acionadas por HTTP são usadas para ler mensagens CloudEvents. Ao utilizar um gatilho HTTP para ler Eventos CloudEvents, tem de escrever código para o que o gatilho da Grelha de Eventos faz automaticamente:
 
-* Envia uma resposta de validação a um pedido de [validação](../event-grid/webhook-event-delivery.md)de assinaturas.
-* Invoca a função uma vez por elemento da matriz do evento contida no organismo de pedido.
+* Envia uma resposta de validação a um [pedido de validação de subscrição.](../event-grid/webhook-event-delivery.md)
+* Invoca a função uma vez por elemento da matriz do evento contida no corpo de pedido.
 
-Para obter informações sobre o URL a utilizar para invocar a função localmente ou quando funciona em Azure, consulte a documentação de [referência de ligação http trigger](../azure-functions/functions-bindings-http-webhook.md)
+Para obter informações sobre o URL a utilizar para invocar a função localmente ou quando é executado em Azure, consulte a [documentação de referência de ligação do gatilho HTTP](../azure-functions/functions-bindings-http-webhook.md)
 
-O seguinte código C# da amostra para um gatilho HTTP simula o comportamento do gatilho da Grelha de Eventos.  Use este exemplo para eventos entregues no esquema CloudEvents.
+O seguinte código C# da amostra para um gatilho HTTP simula o comportamento do gatilho da Grade de Eventos.  Use este exemplo para eventos entregues no esquema cloudEvents.
 
 ```csharp
 [FunctionName("HttpTrigger")]
@@ -182,13 +178,13 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
 }
 ```
 
-A amostra a seguir código JavaScript para um gatilho HTTP simula o comportamento do gatilho da Grelha de Eventos. Use este exemplo para eventos entregues no esquema CloudEvents.
+A amostra seguinte código JavaScript para um gatilho HTTP simula o comportamento do gatilho da Grade de Evento. Use este exemplo para eventos entregues no esquema cloudEvents.
 
 ```javascript
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
     
-    if (req.method == "OPTIONS) {
+    if (req.method == "OPTIONS") {
         // If the request is for subscription validation, send back the validation code
         
         context.log('Validate request received');
@@ -211,8 +207,8 @@ module.exports = function (context, req) {
 };
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para obter informações sobre a monitorização das entregas de eventos, consulte a entrega de [mensagens Monitor Event Grid](monitor-event-delivery.md).
-* Encorajamo-lo a testar, comentar e [contribuir](https://github.com/cloudevents/spec/blob/master/CONTRIBUTING.md) para a CloudEvents.
-* Para mais informações sobre a criação de uma subscrição da Rede de Eventos Do Evento, consulte o esquema de subscrição da [Rede de Eventos](subscription-creation-schema.md).
+* Para obter informações sobre a monitorização das entregas de eventos, consulte [a entrega de mensagens monitor a Grelha de Eventos](monitor-event-delivery.md).
+* Encorajamo-lo a testar, comentar e [contribuir](https://github.com/cloudevents/spec/blob/master/community/CONTRIBUTING.md) para o CloudEvents.
+* Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md).

@@ -1,6 +1,6 @@
 ---
-title: LOG em linguagem de consulta de Azure Cosmos DB
-description: Conheça a função do sistema LOG SQL em Azure Cosmos DB para devolver o logarithm natural da expressão numérica especificada
+title: LOG em Azure Cosmos DB linguagem de consulta
+description: Conheça a função do sistema LOG SQL em Azure Cosmos DB para devolver o logaritmo natural da expressão numérica especificada
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 9213ef03f383dec7109652246411fac154b4a7f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78302513"
 ---
 # <a name="log-azure-cosmos-db"></a>LOG (Azure Cosmos DB)
- Devolve o logarithm natural da expressão numérica especificada.  
+ Devolve o logaritmo natural da expressão numérica especificada.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -29,7 +28,7 @@ LOG (<numeric_expr> [, <base>])
    É uma expressão numérica.  
   
 *base*  
-   Argumento numérico opcional que define a base para o logarithm.  
+   Argumento numérico opcional que define a base para o logaritmo.  
   
 ## <a name="return-types"></a>Tipos de retorno
   
@@ -37,15 +36,15 @@ LOG (<numeric_expr> [, <base>])
   
 ## <a name="remarks"></a>Observações
   
-  Por predefinição, log() devolve o logarithm natural. Pode alterar a base do logarithm para outro valor utilizando o parâmetro base opcional.  
+  Por predefinição, LOG() devolve o logaritmo natural. Pode alterar a base do logaritmo para outro valor utilizando o parâmetro base opcional.  
   
-  O logarithm natural é o logarithm para a base **e**, onde **e** é uma constante irracional aproximadamente igual a 2.718281828.  
+  O logaritmo natural é o logaritmo da base **e,** onde **e** é uma constante irracional aproximadamente igual a 2.718281828.  
   
-  O logarithm natural do exponencial de um número é o próprio número: LOG( n ) = n. E o exponencial do logarithm natural de um número é o próprio número: EXP( n) = n.  
+  O logaritmo natural do exponencial de um número é o número em si: LOG(n) = n. E o exponencial do logaritmo natural de um número é o número em si: EXP(n) = n.  
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte declara uma variável e devolve o valor logarithm da variável especificada (10).  
+  O exemplo a seguir declara uma variável e devolve o valor logaritmo da variável especificada (10).  
   
 ```sql
 SELECT LOG(10) AS log  
@@ -57,7 +56,7 @@ SELECT LOG(10) AS log
 [{log: 2.3025850929940459}]  
 ```  
   
- O exemplo seguinte `LOG` calcula o expoente de um número.  
+ O exemplo a seguir calcula o `LOG` expoente de um número.  
   
 ```sql
 SELECT EXP(LOG(10)) AS expLog  
@@ -73,8 +72,8 @@ SELECT EXP(LOG(10)) AS expLog
 
 Esta função do sistema não utilizará o índice.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

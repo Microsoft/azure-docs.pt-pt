@@ -8,14 +8,14 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2019
 ms.author: lbosq
-ms.openlocfilehash: e38f3e2029bdc8dc8c13ce330e37053d491317f3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4a979fd4b3947be62f77bbd6d7c046c6af78466c
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68736653"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118309"
 ---
-# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Quickstart: Criar uma base de dados de gráficos em Azure Cosmos DB utilizando PHP e o portal Azure
+# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Quickstart: Criar uma base de dados de gráficos em Azure Cosmos DB usando PHP e o portal Azure
 
 > [!div class="op_single_selector"]
 > * [Consola do Gremlin](create-graph-gremlin-console.md)
@@ -32,7 +32,7 @@ O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distrib
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Em alternativa, pode [experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure, gratuitamente e compromissos.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Em alternativa, pode [experimentar gratuitamente a Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure, gratuitamente e compromissos.
 
 Além disso:
 * [PHP](https://php.net/) 5.6 ou mais recente
@@ -106,7 +106,8 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
 
     Copie a primeira parte do valor do URI.
 
-    ![Ver e copiar uma chave de acesso no portal do Azure, página Chaves](./media/create-graph-php/keys.png)
+    :::image type="content" source="./media/create-graph-php/keys.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
+
 2. Abra o ficheiro `connect.php` e, na linha 8, cole o valor do URI sobre `your_server_address`.
 
     A inicialização do objeto de ligação deve agora ter um aspeto semelhante ao código seguinte:
@@ -192,23 +193,23 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
 1. Clique em **Data Explorer**, expanda **sample-graph**, clique em **Gráfico** e clique em **Aplicar Filtro**. 
 
-   ![Criar documentos novos no Data Explorer no portal do Azure](./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png)
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png" alt-text="Criar documentos novos no Data Explorer no portal do Azure":::
 
-2. Na lista **Resultados**, repare nos utilizadores novos que são adicionados ao gráfico. Selecione **ben** e note que estão ligados ao Robin. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato e expandir o tamanho do gráfico com a seta dupla. 
+2. Na lista **Resultados**, repare nos utilizadores novos que são adicionados ao gráfico. Selecione **Ben** e note que estão ligados ao Robin. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato e expandir o tamanho do gráfico com a seta dupla. 
 
-   ![Vértices novos no gráfico no Data Explorer no portal do Azure](./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png)
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png" alt-text="Vértices novos no gráfico no Data Explorer no portal do Azure":::
 
 3. Vamos adicionar alguns utilizadores novos. Clique no botão **Vértice Novo** para adicionar os dados ao gráfico.
 
-   ![Criar documentos novos no Data Explorer no portal do Azure](./media/create-graph-php/azure-cosmosdb-data-explorer-new-vertex.png)
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Criar documentos novos no Data Explorer no portal do Azure":::
 
 4. Introduza uma etiqueta de *pessoa*.
 
-5. Clique em **Adicionar propriedade** para adicionar cada uma das seguintes propriedades. Tenha em atenção que pode criar propriedades exclusivas para cada pessoa no seu gráfico. Só é necessária a chave de **identificação.**
+5. Clique **em Adicionar propriedade** para adicionar cada uma das seguintes propriedades. Tenha em atenção que pode criar propriedades exclusivas para cada pessoa no seu gráfico. Só é necessária a chave **de identificação.**
 
     Chave | Valor | Notas
     ----|----|----
-    **ID** | ashley | O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
+    **id** | ashley | O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
     **Género** | feminino | 
     **técnico** | java | 
 
@@ -225,7 +226,7 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
     
     Chave | Valor | Notas
     ----|----|----
-    **ID** | rakesh | O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
+    **id** | rakesh | O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
     **Género** | masculino | 
     **escola** | MIT | 
 
@@ -237,15 +238,15 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
 12. Agora, pode ligar rakesh e ashley. Confirme que **ashley** está selecionada na lista **Resultados** e clique no botão Editar junto a **Destinos**, no canto inferior direito. Poderá ter de alargar a janela para ver a área **Propriedades**.
 
-    ![Alterar o destino de um vértice de um gráfico](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Alterar o destino de um vértice de um gráfico":::
 
 13. Na caixa **Destino**, escreva *rakesh*, na caixa **Etiqueta da extremidade**, escreva *Conhece* e clique no visto.
 
-    ![Adicionar uma ligação entre ashley e rakesh no Data Explorer](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png" alt-text="Adicionar uma ligação entre ashley e rakesh no Data Explorer":::
 
 14. Agora, selecione **rakesh** na lista de resultados e veja se ashley e rakesh estão ligados. 
 
-    ![Dois vértices ligados no Data Explorer](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer.png" alt-text="Dois vértices ligados no Data Explorer":::
 
     Esta ação conclui a parte da criação de recursos deste início rápido. Pode continuar a adicionar vértices ao seu gráfico, modificar os vértices existentes ou alterar as consultas. Agora vamos rever as métricas que o Azure Cosmos DB oferece e, em seguida, limpar os recursos. 
 

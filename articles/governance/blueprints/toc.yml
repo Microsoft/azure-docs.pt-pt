@@ -4,16 +4,19 @@
   items:
     - name: O que é o Azure Blueprints?
       displayName: 'templates, policy, definition, assignment, rbac'
-      href: overview.md
+      href: ./overview.md
 - name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar um esquema - Portal
       displayName: 'publish, assign, track, unassign, delete'
-      href: create-blueprint-portal.md
-    - name: Criar um esquema - PowerShell
+      href: ./create-blueprint-portal.md
+    - name: Criar um esquema - Azure PowerShell
       displayName: 'publish, assign, track, unassign, delete'
-      href: create-blueprint-powershell.md
+      href: ./create-blueprint-powershell.md
+    - name: Criar um esquema - CLI do Azure
+      displayName: 'publish, assign, track, unassign, delete'
+      href: ./create-blueprint-azurecli.md
     - name: Criar um esquema - API REST
       displayName: 'publish, assign, track, unassign, delete'
       href: create-blueprint-rest-api.md
@@ -34,16 +37,8 @@
       displayName: 'list, examples'
       href: ./samples/index.md
     - name: Referência de Segurança do Azure
-      items:
-        - name: Descrição geral
-          displayName: 'standards, azure, benchmark'
-          href: ./samples/azure-security-benchmark/index.md
-        - name: Mapeamento de controlo
-          displayName: 'standards, azure, benchmark'
-          href: ./samples/azure-security-benchmark/control-mapping.md
-        - name: Passos para implementar
-          displayName: 'standards, azure, benchmark'
-          href: ./samples/azure-security-benchmark/deploy.md
+      displayName: 'standards, azure, benchmark'
+      href: ./samples/azure-security-benchmark.md
     - name: ISM PROTECTED da Administração Australiana
       items:
         - name: Mapeamento de controlo
@@ -61,16 +56,8 @@
           displayName: 'standards, canada, federal, pbmm'
           href: ./samples/canada-federal-pbmm/deploy.md
     - name: CIS Microsoft Azure Foundations Benchmark
-      items:
-        - name: Descrição geral
-          displayName: 'standards, cis'
-          href: ./samples/cis-azure-1.1.0/index.md
-        - name: Mapeamento das recomendações
-          displayName: 'standards, cis'
-          href: ./samples/cis-azure-1.1.0/control-mapping.md
-        - name: Passos para implementar
-          displayName: 'standards, cis'
-          href: ./samples/cis-azure-1.1.0/deploy.md
+      displayName: 'standards, cis'
+      href: ./samples/cis-azure-1-1-0.md
     - name: Impacto DoD Nível 4
       items:
         - name: Descrição geral
@@ -82,6 +69,17 @@
         - name: Passos para implementar
           displayName: 'standards, DoD, IL4'
           href: ./samples/dod-impact-level-4/deploy.md
+    - name: Impacto DoD Nível 5
+      items:
+        - name: Descrição geral
+          displayName: 'standards, DoD, IL5'
+          href: ./samples/dod-impact-level-5/index.md
+        - name: Mapeamento de controlo
+          displayName: 'standards, DoD, IL5'
+          href: ./samples/dod-impact-level-5/control-mapping.md
+        - name: Passos para implementar
+          displayName: 'standards, DoD, IL5'
+          href: ./samples/dod-impact-level-5/deploy.md
     - name: FedRAMP Moderado
       items:
         - name: Descrição geral
@@ -170,17 +168,12 @@
         - name: Passos para implementar
           displayName: 'standards, Media'
           href: ./samples/media/deploy.md
-    - name: NIST SP 800-53 Rev4
-      items:
-        - name: Descrição geral
-          displayName: 'standards, nist, 800-53, rev 4'
-          href: ./samples/nist-sp-800-53-rev4/index.md
-        - name: Mapeamento de controlo
-          displayName: 'standards, nist, 800-53, rev 4'
-          href: ./samples/nist-sp-800-53-rev4/control-mapping.md
-        - name: Passos para implementar
-          displayName: 'standards, nist, 800-53, rev 4'
-          href: ./samples/nist-sp-800-53-rev4/deploy.md
+    - name: NIST SP 800-53 R4
+      displayName: 'standards, nist, 800-53, rev 4'
+      href: ./samples/nist-sp-800-53-r4.md
+    - name: NIST SP 800-171 R2
+      displayName: 'standards, nist, 800-171, rev 2'
+      href: ./samples/nist-sp-800-171-r2.md
     - name: PCI-DSS v3.2.1
       items:
         - name: Descrição geral
@@ -268,8 +261,10 @@
   href: ./troubleshoot/general.md
 - name: Referência
   items:
+    - name: CLI do Azure
+      href: /cli/azure/ext/blueprint/blueprint
     - name: Azure PowerShell
-      href: '/powershell/module/az.blueprint/#blueprint'
+      href: /powershell/module/az.blueprint/#blueprint
     - name: SDK do Azure para .NET
       href: /dotnet/api/overview/azure/blueprints/management
     - name: REST
@@ -285,7 +280,7 @@
     - name: GitHub - Exemplos do Azure Blueprints
       href: 'https://github.com/Azure/azure-blueprints'
     - name: Perguntas e Respostas da Microsoft para o Azure Blueprints
-      href: /answers/topics/azure-blueprints.html.html
+      href: /answers/topics/azure-blueprints.html
     - name: Canal do YouTube sobre Governação
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: Azure Friday - Descrição Geral do Azure Blueprints

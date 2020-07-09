@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: f3448765eecf4a586e13155903f1c093607781dc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: da7d56a0fd8571e796567331a7543074f0bf1eda
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76896444"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808697"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registar o tráfego de rede de/para uma máquina virtual através do portal do Azure
 
@@ -31,7 +31,7 @@ ms.locfileid: "76896444"
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
-Um grupo de segurança de rede (NSG) permite filtrar o tráfego de entrada e o tráfego de saída numa máquina virtual (VM). Pode registar o tráfego de rede que passa através de um NSG com a capacidade dos registos de fluxo do NSG do Observador de Rede. Neste tutorial, ficará a saber como:
+Um grupo de segurança de rede (NSG) permite filtrar o tráfego de entrada e o tráfego de saída numa máquina virtual (VM). Pode registar o tráfego de rede que passa através de um NSG com a capacidade dos registos de fluxo do NSG do Observador de Rede. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma VM com um grupo de segurança de rede
@@ -40,13 +40,13 @@ Um grupo de segurança de rede (NSG) permite filtrar o tráfego de entrada e o t
 > * Transferir dados registados
 > * Ver dados registados
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
 1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do portal do Azure.
-2. **Selecione Compute**, e, em seguida, selecione **O Datacenter do Windows Server 2016** ou uma versão do **Ubuntu Server**.
-3. Introduza, ou selecione, as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK:**
+2. **Selecione Compute**e, em seguida, selecione **o Centro de Dados do Windows Server 2016** ou uma versão do **Ubuntu Server**.
+3. Introduza ou selecione as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK**:
 
     |Definição|Valor|
     |---|---|
@@ -89,13 +89,13 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
 
 1. Os dados de registo de fluxo do NSG são escritos numa conta de Armazenamento do Microsoft Azure. Para criar uma conta de Armazenamento do Microsoft Azure, selecione **+ Criar um recurso** no canto superior esquerdo do portal.
 2. Selecione **Armazenamento** e, em seguida, **Conta de Armazenamento – blob, ficheiro, tabela, fila**.
-3. Introduza, ou selecione as seguintes informações, aceite as restantes predefinições e, em seguida, selecione **Criar**.
+3. Introduza ou selecione as seguintes informações, aceite os predefinidos restantes e, em seguida, **selecione Criar**.
 
     | Definição        | Valor                                                        |
     | ---            | ---   |
     | Nome           | 3 a 24 carateres de comprimento, só pode conter letras minúsculas e números e tem de ser exclusivo em todas as contas de Armazenamento do Microsoft Azure.                                                               |
     | Localização       | Selecione **E.U.A. Leste**.                                           |
-    | Grupo de recursos | Selecione **Use existente,** e, em seguida, selecione **myResourceGroup** |
+    | Grupo de recursos | Selecione **Utilizar a utilização existente**e, em seguida, selecione **myResourceGroup** |
 
     A criação da conta de armazenamento pode demorar cerca de um minuto. Não continue com os restantes passos até que a conta de armazenamento seja criada. Em todos os casos, a conta de armazenamento deve estar na mesma região que o NSG.
 4. No canto superior esquerdo do portal, selecione **Todos os serviços**. Na **caixa Filtro**, escreva *Observador de Rede*. Quando o **Observador de Rede** aparecer nos resultados de pesquisa, selecione-o.
@@ -105,13 +105,13 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
 
 6. Na lista de NSGs, selecione o NSG denominado **myVm nsg**.
 7. Em **Definições dos registos de fluxo**, selecione **Ligado**.
-8. Selecione a versão de registo de fluxo. A versão 2 contém estatísticas de sessões de fluxo (Bytes e Pacotes)
+8. Selecione a versão de registo de fluxo. A versão 2 contém estatísticas de sessão de fluxo (Bytes e Pacotes)
 
-   ![Selecione versão de Logs de fluxo](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+   ![Selecione versão de Registos de fluxo](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
 
 9. Selecione a conta de armazenamento que criou no passo 3.
    > [!NOTE]
-   > Os Registos de Fluxo NSG não funcionam com contas de armazenamento que tenham espaço de [nome hierárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) ativado.
+   > Os Registos de Fluxo NSG não funcionam com contas de armazenamento que tenham [espaço hierárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) habilitado.
 1. No canto superior esquerdo do portal, selecione **Todos os serviços**. Na **caixa Filtro**, escreva *Observador de Rede*. Quando o **Observador de Rede** aparecer nos resultados de pesquisa, selecione-o.
 10. Defina **Retenção (dias)** como 5 e, em seguida, selecione **Guardar**.
 
@@ -123,8 +123,8 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
    ![Transferir os registos de fluxo](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Selecione a conta de armazenamento que configurou no passo 2 da secção [Ativar o registo de fluxo do NSG](#enable-nsg-flow-log).
-4. Sob **o serviço Blob,** selecione **Blobs**e, em seguida, selecione o recipiente **insights-logs-networksecuritygroupflowevent.**
-5. No recipiente, navegue na hierarquia da pasta até chegar a um ficheiro PT1H.json, como mostra a imagem que se segue. Os ficheiros de registo são escritos para uma hierarquia de pastas que segue a seguinte convenção de nomeação: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIÇÕES/{subscriçãoID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+4. Sob **o serviço Blob**, selecione **Containers**e, em seguida, selecione o recipiente de **fluxofluevent de insights-logs-networksecurity.**
+5. No recipiente, navegue na hierarquia da pasta até chegar a um PT1H.jsem arquivo, como mostra a imagem que se segue. Os ficheiros de registo são escritos para uma hierarquia de pasta que segue a seguinte convenção de nomeação: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupGroup Name}/FORNECEDORES/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
    ![Registo do fluxo](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
@@ -134,7 +134,7 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
 
 O seguinte json é um exemplo do que verá no ficheiro PT1H.json para cada fluxo para o qual foram registados dados:
 
-### <a name="version-1-flow-log-event"></a>Evento de log de fluxo da versão 1
+### <a name="version-1-flow-log-event"></a>Evento de registo de fluxo da versão 1
 ```json
 {
     "time": "2018-05-01T15:00:02.1713710Z",
@@ -211,16 +211,16 @@ O valor de **mac** na saída anterior é o endereço MAC da interface de rede qu
 | 10.0.0.4  | Endereço IP de origem      | O endereço IP de origem do qual teve origem o fluxo. 10.0.0.4 é o endereço IP privado da VM que criou em [Criar uma VM](#create-a-vm).
 | 13.67.143.118     | Endereço IP de destino | O endereço IP de destino para o qual se destinava o fluxo.                                                                                  |
 | 44931        | Porta de origem            | A porta de origem da qual teve origem o fluxo.                                           |
-| 443         | Porta de destino       | A porta de destino à qual se destinava o fluxo. Uma vez que o tráfego se destinava ao porto 443, a regra denominada **UserRule_default-permitir-rdp**, no ficheiro de registo processou o fluxo.                                                |
+| 443         | Porta de destino       | A porta de destino à qual se destinava o fluxo. Uma vez que o tráfego estava destinado à porta 443, a regra denominada **UserRule_default-allow-rdp**, no ficheiro de registo processou o fluxo.                                                |
 | T            | Protocolo               | Indica se o protocolo do fluxo era TCP (T) ou UDP (U).                                  |
 | O            | Direção              | Indica se o tráfego era de entrada (I) ou de saída (O).                                     |
 | A            | Ação                 | Indica se o tráfego era permitido (I) ou proibido (O).  
-| C            | Flow State **Versão 2 Apenas** | Captura o estado do fluxo. Os estados possíveis são **B:** Comece, quando um fluxo é criado. As estatísticas não são fornecidas. **C:** Continuar para um fluxo contínuo. As estatísticas são fornecidas em intervalos de 5 minutos. **E:** Terminar, quando um fluxo é terminado. As estatísticas são fornecidas. |
+| C            | Flow State **Version 2 Apenas** | Captura o estado do fluxo. Os estados possíveis são **B:** Comece, quando um fluxo é criado. As estatísticas não são fornecidas. **C:** Continuando para um fluxo contínuo. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: Fim, quando um fluxo é interrompido. As estatísticas são fornecidas. |
 | 30 | Pacotes enviados - Fonte para destino **Versão 2 Apenas** | O número total de pacotes TCP ou UDP enviados de origem para destino desde a última atualização. |
-| 16978 | Bytes enviados - Fonte para destino **Versão 2 Apenas** | O número total de bytes de pacotes TCP ou UDP enviados de origem para destino desde a última atualização. Os bytes do pacote incluem o cabeçalho do pacote e a carga útil. |
+| 16978 | Bytes enviados - Fonte para destino **Versão 2 Apenas** | O número total de bytes de pacotes TCP ou UDP enviados de origem para destino desde a última atualização. Os bytes de pacote incluem o cabeçalho do pacote e a carga útil. |
 | 24 | Pacotes enviados - Destino para fonte **Versão 2 Apenas** | O número total de pacotes TCP ou UDP enviados de destino para fonte desde a última atualização. |
-| 14008| Bytes enviados - Destino para fonte **Versão 2 Apenas** | O número total de bytes de pacotes TCP e UDP enviados de destino para fonte desde a última atualização. Os bytes do pacote incluem cabeçalho de pacote e carga útil.|
+| 14008| Bytes enviados - Destino para fonte **Versão 2 Apenas** | O número total de bytes de pacotes TCP e UDP enviados de destino a fonte desde a última atualização. Os bytes de pacote incluem cabeçalho de pacote e carga útil.|
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a ativar o registo de fluxo do NSG para um NSG. Também aprendeu como transferir e ver os dados registados num ficheiro. Os dados não processados no ficheiro json podem ser difíceis de interpretar. Para visualizar os dados do Flow Logs, pode utilizar [o Azure Traffic Analytics,](traffic-analytics.md) [o Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)e outras ferramentas. Pode experimentar métodos alternativos de ativação de registos de fluxo NSG como [powerShell,](network-watcher-nsg-flow-logging-powershell.md) [Azure CLI,](network-watcher-nsg-flow-logging-cli.md) [REST API](network-watcher-nsg-flow-logging-rest.md) e [ARM.](network-watcher-nsg-flow-logging-azure-resource-manager.md)
+Neste tutorial, aprendeu a ativar o registo de fluxo do NSG para um NSG. Também aprendeu como transferir e ver os dados registados num ficheiro. Os dados não processados no ficheiro json podem ser difíceis de interpretar. Para visualizar os dados de Registos de Fluxo, pode utilizar [a Azure Traffic Analytics](traffic-analytics.md), Microsoft Power [BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)e outras ferramentas. Pode experimentar métodos alternativos de ativação de Registos de Fluxo NSG como [PowerShell,](network-watcher-nsg-flow-logging-powershell.md) [Azure CLI,](network-watcher-nsg-flow-logging-cli.md) [REST API](network-watcher-nsg-flow-logging-rest.md) e [ARM.](network-watcher-nsg-flow-logging-azure-resource-manager.md)

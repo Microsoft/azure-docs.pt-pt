@@ -1,54 +1,54 @@
 ---
-title: O que é Azure Static Web Apps?
-description: As principais funcionalidades e funcionalidades das Aplicações Web Estáticas do Azure.
+title: O que são as Aplicações Web Estáticas do Azure?
+description: As principais funcionalidades e funcionalidades das Aplicações Web Estáticas Azure.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: d416044599535e8acd363d09099e8667bba59a0a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 476b81fc9aceae3f05ed54e7b2b11be381121bd8
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599968"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488924"
 ---
-# <a name="what-is-azure-static-web-apps-preview"></a>O que é a pré-visualização de aplicações web estáticas do Azure?
+# <a name="what-is-azure-static-web-apps-preview"></a>O que é Azure Static Web Apps Preview?
 
-As Web Apps Estáticas azure é um serviço que automaticamente constrói e implementa aplicações web de stack completa para O Azure a partir de um repositório GitHub.
+Azure Static Web Apps é um serviço que constrói e implementa automaticamente aplicações web de stack completa para Azure a partir de um repositório GitHub.
 
-:::image type="content" source="media/overview/static-apps-overview.png" alt-text="Visão geral de aplicações web estáticas":::
+:::image type="content" source="media/overview/static-apps-overview.png" alt-text="Visão geral das aplicações web estáticas":::
 
-O fluxo de trabalho das Aplicações Web Estáticas Azure é adaptado ao fluxo de trabalho diário de um desenvolvedor. As aplicações são construídas e implementadas com base nas interações do GitHub.
+O fluxo de trabalho da Azure Static Web Apps é adaptado ao fluxo de trabalho diário de um desenvolvedor. As aplicações são construídas e implementadas com base nas interações do GitHub.
 
-Ao criar um recurso Azure Static Web Apps, o Azure configura um fluxo de trabalho gitHub Actions no repositório de código fonte da aplicação que monitoriza um ramo da sua escolha. Sempre que pressiona os compromissos ou aceita pedidos de puxar para o ramo vigiado, a GitHub Action constrói e implanta automaticamente a sua app e a sua API para o Azure.
+Quando cria um recurso Azure Static Web Apps, o Azure cria um fluxo de trabalho gitHub Actions no repositório de código fonte da aplicação que monitoriza um ramo à sua escolha. Sempre que pressiona compromete-se ou aceita pedidos de puxar para a sucursal observada, a GitHub Action constrói e implementa automaticamente a sua app e a sua API para Azure.
 
-As aplicações web estáticas são comumente construídas usando bibliotecas e estruturas como Angular, Reagir, Svelte ou Vue. Estas aplicações incluem HTML, CSS, JavaScript e ativos de imagem que compõem a aplicação. Com um servidor web tradicional, estes ativos são servidos a partir de um único servidor ao lado de quaisquer pontos finais API necessários.
+As aplicações web estáticas são geralmente construídas usando bibliotecas e estruturas como Angular, React, Svelte ou Vue. Estas aplicações incluem HTML, CSS, JavaScript e ativos de imagem que compõem a aplicação. Com um servidor web tradicional, estes ativos são servidos a partir de um único servidor ao lado de todos os pontos finais da API necessários.
 
-Com aplicações web estáticas, os ativos estáticos são separados de um servidor web tradicional e são servidos a partir de pontos distribuídos geograficamente em todo o mundo. Esta distribuição torna os ficheiros de serviço muito mais rápidos, uma vez que os ficheiros estão fisicamente mais próximos dos utilizadores finais. Além disso, os pontos finais da API são hospedados usando uma [arquitetura sem servidores](../azure-functions/functions-overview.md), o que evita a necessidade de um servidor completo de back-end todos juntos.
+Com aplicações web estáticas, os ativos estáticos são separados de um servidor web tradicional e são servidos a partir de pontos geograficamente distribuídos em todo o mundo. Esta distribuição torna a servi dos ficheiros muito mais rapidamente, uma vez que os ficheiros estão fisicamente mais próximos dos utilizadores finais. Além disso, os pontos finais da API são hospedados usando uma [arquitetura sem servidor](../azure-functions/functions-overview.md), o que evita a necessidade de um servidor back-end completo todos juntos.
 
 ## <a name="key-features"></a>Principais funcionalidades
 
-- **Hospedagem gratuita na web** para conteúdo estático como HTML, CSS, JavaScript e imagens.
-- **Suporte integrado da API** fornecido pelas Funções Azure.
-- **Integração gitHub de primeira parte** onde as mudanças de repositório desencadeiam construções e implantações.
-- Conteúdo estático **distribuído globalmente,** colocando conteúdo mais próximo dos seus utilizadores.
+- **Hospedagem web** para conteúdo estático como HTML, CSS, JavaScript e imagens.
+- **Suporte integrado da API** fornecido pela Azure Functions.
+- **Integração gitHub de primeira parte** onde alterações de repositório desencadeiam construções e implementações.
+- Conteúdo estático **distribuído globalmente,** colocando o conteúdo mais próximo dos seus utilizadores.
 - **Certificados SSL gratuitos,** que são automaticamente renovados.
-- **Domínios personalizados** \* para fornecer personalizações de marca para a sua aplicação.
-- Modelo de **segurança sem emenda** com um proxy invertido ao ligar para APIs, que não requer configuração CORS.
-- **Integrações** de fornecedores de autenticação com o Azure Ative Directory, Facebook, Google, GitHub e Twitter.
-- **Definição** de funções de autorização personalizável e atribuições.
-- **Regras de encaminhamento de back-end** que permitem o controlo total sobre o conteúdo e as rotas que serve.
-- **Geradas versões de encenação alimentadas** por pedidos de pull que permitem versões de pré-visualização do seu site antes de publicar.
+- **Domínios personalizados** \* para fornecer personalizações de marca à sua app.
+- **Modelo de segurança sem emenda** com um proxy invertido ao chamar APIs, que não requer configuração CORS.
+- **Integrações de fornecedores de autenticação** com Azure Ative Directory, Facebook, Google, GitHub e Twitter.
+- Definição e atribuições **de funções de função de autorização personalizável.**
+- **Regras de encaminhamento de back-end** que permitem o controlo total sobre o conteúdo e rotas que serve.
+- **Versões de encenação geradas alimentadas** por pedidos de puxar que permitem versões de pré-visualização do seu site antes da publicação.
 
 ## <a name="what-you-can-do-with-static-web-apps"></a>O que pode fazer com aplicações web estáticas
 
-- **Construa aplicações javaScript modernas** com estruturas e bibliotecas como [Angular,](https://angular.io/) [Reagir,](https://reactjs.org/) [Svelte,](https://svelte.dev/) [Vue](https://vuejs.org/) com uma back-end de [funções Azure.](https://azure.microsoft.com/services/functions/)
-- **Publique sites estáticos** com estruturas como [Gatsby,](publish-gatsby.md) [Hugo,](publish-hugo.md) [VuePress.](publish-vuepress.md)
-- **Implemente aplicações web** com estruturas como [Next.js](deploy-nextjs.md) e [Nuxt.js](deploy-nuxtjs.md).
+- **Construa aplicações JavaScript modernas** com quadros e bibliotecas como [Angular](https://angular.io/), [React,](https://reactjs.org/) [Svelte,](https://svelte.dev/) [Vue](https://vuejs.org/) com um back-end [Azure Functions.](https://azure.microsoft.com/services/functions/)
+- **Publique sites estáticos** com quadros como [Gatsby,](publish-gatsby.md) [Hugo,](publish-hugo.md) [VuePress.](publish-vuepress.md)
+- **Implementar aplicações web** com quadros como [Next.js](deploy-nextjs.md) e [Nuxt.js](deploy-nuxtjs.md).
 
-\*As inscrições de domínio Apex não são suportadas durante a pré-visualização.
+\*Os registos de domínio Apex não são suportados durante a pré-visualização.
 
 ## <a name="next-steps"></a>Passos seguintes
 

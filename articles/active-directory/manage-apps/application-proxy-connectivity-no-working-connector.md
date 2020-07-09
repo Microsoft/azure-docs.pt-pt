@@ -1,74 +1,73 @@
 ---
-title: Nenhum grupo de conector de trabalho encontrado para uma aplicação proxy de aplicação
-description: Resolver problemas que poderá encontrar quando não houver um Connector a funcionar num Grupo de Conector para a sua aplicação com o Proxy de Aplicação AD Azure
+title: Nenhum grupo de conector de trabalho encontrado para uma aplicação de Proxy de aplicação
+description: Resolver problemas que poderá encontrar quando não houver conector de funcionamento num Grupo de Conector para a sua aplicação com o Proxy de Aplicação AD AZure
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96ab0d1b3bbab9c97c04da4f918f3aaa2f1d07e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1a9b43660889a318b2085f3aa8c1060daebe0244
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74275626"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764745"
 ---
-# <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>Nenhum grupo de conector de trabalho encontrado para uma aplicação de procuração de aplicação
+# <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>Nenhum grupo de conector de trabalho encontrado para uma aplicação de Procuração de Aplicação
 
-Este artigo ajuda a resolver as questões comuns com que se defrontam quando não é detetado um conector para uma aplicação proxy de aplicação integrada com o Diretório Ativo azure.
+Este artigo ajuda a resolver as questões comuns enfrentadas quando não existe um conector detetado para uma aplicação Proxy de aplicação integrada com o Azure Ative Directory.
 
 ## <a name="overview-of-steps"></a>Visão geral dos passos
-Se não houver um Connector a funcionar num Grupo de Conector para a sua aplicação, existem algumas formas de resolver o problema:
+Se não houver um Conector funcionando num Grupo de Conector para a sua aplicação, existem algumas formas de resolver o problema:
 
 -   Se não tiver conectores no grupo, pode:
 
     -   Descarregue um novo Conector à direita no servidor de instalações e atribua-o a este grupo
 
-    -   Mova um Conector ativo para o grupo
+    -   Mover um Conector ativo para o grupo
 
 -   Se não tiver conectores ativos no grupo, pode:
 
     -   Identifique a razão pela qual o seu Conector está inativo e resolve
 
-    -   Mova um Conector ativo para o grupo
+    -   Mover um Conector ativo para o grupo
 
-Para descobrir o problema, abra o menu "Application Proxy" na sua Aplicação e veja a mensagem de aviso do Grupo de Conectores. Se não houver conectores no grupo, a mensagem de aviso especifica que o grupo necessita de pelo menos um Conector. Se não tiver conectores ativos, a mensagem de aviso explica isso. É comum ter Conectores inativos. 
+Para resolver o problema, abra o menu "Application Proxy" na sua Aplicação e olhe para a mensagem de aviso do Grupo Connector. Se não houver conectores no grupo, a mensagem de aviso especifica que o grupo necessita de pelo menos um Conector. Se não tiver Conectores ativos, a mensagem de aviso explica isso. É comum ter Conectores inativos. 
 
-   ![Seleção de grupo de conector no portal Azure](./media/application-proxy-connectivity-no-working-connector/no-active-connector.png)
+   ![Seleção do grupo de conector no portal Azure](./media/application-proxy-connectivity-no-working-connector/no-active-connector.png)
 
-Para mais detalhes sobre cada uma destas opções, consulte a secção correspondente abaixo. As instruções pressupõem que está a partir da página de gestão do Connector. Se estiver a olhar para a mensagem de erro acima, pode ir a esta página clicando na mensagem de aviso. Também pode chegar à página indo para **o Azure Ative Directory,** clicando em **Aplicações Empresariais,** em **seguida, Application Proxy.**
+Para mais detalhes sobre cada uma destas opções, consulte a secção correspondente abaixo. As instruções pressupõem que está a partir da página de gestão do Conector. Se estiver a olhar para a mensagem de erro acima, pode ir a esta página clicando na mensagem de aviso. Também pode chegar à página indo ao **Azure Ative Directory,** clicando em **Aplicações empresariais,** em seguida, **Application Proxy.**
 
-   ![Gestão do grupo connector no portal Azure](./media/application-proxy-connectivity-no-working-connector/app-proxy.png)
+   ![Gestão do grupo de conector no portal Azure](./media/application-proxy-connectivity-no-working-connector/app-proxy.png)
 
 ## <a name="download-a-new-connector"></a>Descarregue um novo Conector
 
-Para descarregar um novo Conector, utilize o botão "Descarregue o Conector" na parte superior da página.
+Para descarregar um novo Conector, utilize o botão "Transferir o Conector" no topo da página.
 
-Instale o conector numa máquina com linha direta de visão para a aplicação backend. Normalmente, o conector é instalado no mesmo servidor que a aplicação. Depois de descarregar, o Conector deve aparecer neste menu. clique no Conector e utilize a queda do "Connector Group" para se certificar de que pertence ao grupo certo. Guarde a alteração.
+Instale o conector numa máquina com linha de visão direta para a aplicação backend. Normalmente, o conector é instalado no mesmo servidor que a aplicação. Após o download, o Conector deve aparecer neste menu. clique no Conector e use o drop-down "Connector Group" para se certificar de que pertence ao grupo certo. Guarde a alteração.
 
-   ![Descarregue o conector do portal Azure](./media/application-proxy-connectivity-no-working-connector/download-connector.png)
+   ![Descarregue o conector a partir do portal Azure](./media/application-proxy-connectivity-no-working-connector/download-connector.png)
    
-## <a name="move-an-active-connector"></a>Mova um Conector Ativo
+## <a name="move-an-active-connector"></a>Mover um Conector Ativo
 
-Se tiver um Conector ativo que deve pertencer ao grupo e tiver uma linha de visão para a aplicação de backend do alvo, pode mover o Conector para o grupo designado. Para isso, clique no Conector. No campo "Connector Group", utilize a gota para selecionar o grupo correto e clique em Guardar.
+Se tiver um Conector ativo que deve pertencer ao grupo e tiver uma linha de visão para a aplicação de backend alvo, pode mover o Conector para o grupo designado. Para tal, clique no Conector. No campo "Grupo de Conector", utilize o drop-down para selecionar o grupo correto e clique em Guardar.
 
 ## <a name="resolve-an-inactive-connector"></a>Resolver um Conector inativo
 
-Se os únicos Conectores do grupo estiverem inativos, são prováveis numa máquina que não tenha todas as portas necessárias desbloqueadas.
+Se os únicos Conectores do grupo estiverem inativos, é provável que estejam numa máquina que não tenha todas as portas necessárias desbloqueadas.
 
-consulte o documento de Troubleshoot para obter detalhes sobre a investigação deste problema.
+consulte o documento de resolução de problemas das portas para obter detalhes sobre a investigação deste problema.
 
-## <a name="next-steps"></a>Passos seguintes
-[Compreender os conectores de procuração de aplicação da AD Azure](application-proxy-connectors.md)
+## <a name="next-steps"></a>Próximos passos
+[Compreenda os conectores Proxy de aplicação AD Azure](application-proxy-connectors.md)
 
 

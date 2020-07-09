@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: spelluru
   ms.author: spelluru
-  ms.date: 03/13/2020
-  ms.openlocfilehash: 24f3c35b41effaaad7aa3058c4a3d3af13739a01
-  ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+  ms.date: 06/23/2020
+  ms.openlocfilehash: 8b559591255a9856f644de5482ccec6b7d34a7f8
+  ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/01/2020
-  ms.locfileid: "80520320"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85314918"
 landingContent:
 - title: Acerca dos Hubs de Eventos
   linkLists:

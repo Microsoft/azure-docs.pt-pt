@@ -1,39 +1,39 @@
 ---
 title: Criar uma nova app - LUIS
 titleSuffix: Azure Cognitive Services
-description: Crie e gerencie as suas aplicações na página da Compreensão da Língua (LUIS).
+description: Crie e gere as suas aplicações na página web do Understanding language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: diberry
-ms.openlocfilehash: 3b9466bf52b3650216408a8f0906f3208dfae42d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3d6b2b5896242ff85c6fb96071b747083893b03a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653896"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343171"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Criar uma nova app LUIS no portal LUIS
-Existem algumas formas de criar uma app LUIS. Pode criar uma aplicação LUIS no portal LUIS, ou através da AUTORA DA [LUIS.](developer-reference-resource.md)
+Há algumas formas de criar uma aplicação LUIS. Pode criar uma aplicação LUIS no portal LUIS, ou através das [APIs](developer-reference-resource.md)de autoria do LUIS.
 
 ## <a name="using-the-luis-portal"></a>Usando o portal LUIS
 
-Pode criar uma nova app no portal de várias formas:
+Pode criar uma nova aplicação no portal de várias formas:
 
-* Comece com uma app vazia e crie intençãos, expressões e entidades.
+* Comece com uma app vazia e crie intenções, expressões e entidades.
 * Comece com uma aplicação vazia e adicione um [domínio pré-construído.](luis-how-to-use-prebuilt-domains.md)
-* Importar uma aplicação LUIS de um `.lu` ou arquivo que já `.json` contenha intenções, declarações e entidades.
+* Importe uma aplicação LUIS de um `.lu` ou ficheiro que já `.json` contenha intenções, declarações e entidades.
 
-## <a name="using-the-authoring-apis"></a>Utilização das APIs de autoria
-Pode criar uma nova aplicação com as APIs de autoria de várias maneiras:
+## <a name="using-the-authoring-apis"></a>Utilizando as APIs de autoria
+Pode criar uma nova aplicação com as APIs de autoria de algumas formas:
 
-* [Adicione a aplicação](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f) - comece com uma app vazia e crie intençãos, expressões e entidades.
-* [Adicione aplicação pré-construída](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/59104e515aca2f0b48c76be5) - comece com um domínio pré-construído, incluindo intenções, expressões e entidades.
+* [Adicionar aplicação](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f) - comece com uma app vazia e crie intenções, expressões e entidades.
+* [Adicionar aplicação pré-construída](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/59104e515aca2f0b48c76be5) - comece com um domínio pré-construído, incluindo intenções, expressões e entidades.
 
 
 <a name="export-app"></a>
@@ -45,36 +45,36 @@ Pode criar uma nova aplicação com as APIs de autoria de várias maneiras:
 
 ## <a name="create-new-app-in-luis"></a>Criar nova app no LUIS
 
-1. Na página **minhas apps,** selecione a sua **Subscrição**e **o recurso de autor** **então + Criar**. Se estiver a usar a chave de teste gratuita, aprenda a criar um recurso de [autoria.](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal)
+1. Na página **My Apps,** selecione a sua **Subscrição**e **o recurso de autoria** e, em **seguida, + Criar**. Se estiver a utilizar a chave de teste gratuita, aprenda a [criar um recurso de autoria.](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal)
 
 > [!div class="mx-imgBorder"]
 > ![Lista de aplicações LUIS](./media/create-app-in-portal.png)
 
-1. Na caixa de diálogo, introduza o nome da sua aplicação, como `Pizza Tutorial` .
+1. Na caixa de diálogo, insira o nome da sua aplicação, tal como `Pizza Tutorial` .
 
     ![Criar novo diálogo de aplicativos](./media/create-pizza-tutorial-app-in-portal.png)
 
-1. Escolha a sua cultura de aplicação e, em seguida, selecione **Done**. A descrição e o recurso de previsão são opcionais neste momento. Pode definir então a qualquer momento na secção **Gerir** do portal.
+1. Escolha a sua cultura de aplicação e, em seguida, selecione **Feito**. A descrição e o recurso de previsão são opcionais neste momento. Pode definir a qualquer momento na secção **Gerir** o portal.
 
     > [!NOTE]
     > A cultura não pode ser alterada assim que a aplicação for criada.
 
-    Depois de a app ser criada, o portal LUIS mostra a lista **de Intenções** com a `None` intenção já criada para si. Agora tem uma aplicação vazia.
+    Após a criação da app, o portal LUIS mostra a lista **de Intenções** com a `None` intenção já criada para si. Agora tem uma aplicação vazia.
 
     > [!div class="mx-imgBorder"]
-    > ![Lista de intenções com nenhuma intenção criada sem pronunciamentos de exemplo.](media/pizza-tutorial-new-app-empty-intent-list.png)
+    > ![Lista de intenções sem nenhuma intenção criada sem palavras de exemplo.](media/pizza-tutorial-new-app-empty-intent-list.png)
 
-## <a name="other-actions-available-on-my-apps-page"></a>Outras ações disponíveis na página my Apps
+## <a name="other-actions-available-on-my-apps-page"></a>Outras ações disponíveis na página My Apps
 
 A barra de ferramentas de contexto fornece outras ações:
 
-* Aplicação de renome
-* Importar a partir de ficheiros `.lu` ou`.json`
-* Aplicativo de exportação como `.lu` (para [LUDown),](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown) `.json` ou `.zip` (para [recipiente LUIS)](luis-container-howto.md)
-* Importador de registos finais de contentores, para rever as declarações de pontos finais
-* Registos finais de exportação, como `.csv` a, para análise offline
+* Aplicativo de renome
+* Importar a partir de ficheiros usando `.lu` ou`.json`
+* App de exportação como `.lu` (para [LUDown),](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown) `.json` ou `.zip` (para [o recipiente LUIS)](luis-container-howto.md)
+* Registos de pontos finais de contentores de importação, para rever as expressões de ponto final
+* Registos de pontos finais de exportação, como um `.csv` , para análise offline
 * Excluir app
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Se o design da sua aplicação incluir deteção de [intenções, crie novas intenções](luis-how-to-add-intents.md)e adicione expressões de exemplo. Se o design da sua aplicação for apenas extração de dados, adicione declarações de exemplo à intenção None, em seguida, [crie entidades](luis-how-to-add-example-utterances.md), e rotule as palavras de exemplo com essas entidades.
+Se o design da sua aplicação incluir deteção de [intenções, crie novas intenções](luis-how-to-add-intents.md)e adicione palavras de exemplo. Se o design da sua aplicação for apenas a extração de dados, adicione palavras de exemplo à intenção de Zero, em seguida, [crie entidades](luis-how-to-add-example-utterances.md), e rotule as expressões de exemplo com essas entidades.

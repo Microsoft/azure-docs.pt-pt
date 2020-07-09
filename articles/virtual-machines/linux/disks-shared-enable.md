@@ -1,22 +1,21 @@
 ---
-title: Ativar discos partilhados para discos geridos pelo Azure
-description: Configure um disco gerido pelo Azure com discos partilhados (pré-visualização) para que possa partilhá-lo em vários VMs
+title: Ativar discos partilhados para discos geridos aZure
+description: Configurar um disco gerido a Azure com discos partilhados (pré-visualização) para que possa partilhá-lo em vários VMs
 author: roygara
 ms.service: virtual-machines
-ms.topic: conceptual
-ms.date: 04/24/2020
+ms.topic: how-to
+ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0dc7cf6e3f72ff9fa7ef5d7cbd85c1fb93f76f9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3b949905f311b1a8878aa691e32abc3f568e1e6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146775"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84657287"
 ---
-# <a name="enable-shared-disk"></a>Ativar o disco partilhado
+# <a name="enable-shared-disk"></a>Ativar disco partilhado
 
-Este artigo cobre como ativar a funcionalidade de discos partilhados (pré-visualização) para discos geridos pelo Azure. Os discos partilhados azure (pré-visualização) são uma nova funcionalidade para discos geridos pelo Azure que lhe permite ligar simultaneamente um disco gerido a várias máquinas virtuais (VMs). A fixação de um disco gerido a vários VMs permite-lhe implementar aplicações agrupadas novas ou migratórias existentes para o Azure. 
+Este artigo cobre como ativar a funcionalidade de discos partilhados (pré-visualização) para discos geridos Azure. Os discos partilhados Azure (pré-visualização) são uma nova funcionalidade para discos geridos aZure que lhe permite anexar um disco gerido a várias máquinas virtuais (VMs) simultaneamente. A anexação de um disco gerido a vários VMs permite-lhe implementar novas ou migrar aplicações agrupadas existentes para o Azure. 
 
-Se procura informações conceptuais sobre discos geridos que tenham discos partilhados, consulte [discos partilhados do Azure.](disks-shared.md)
+Se procura informações conceptuais sobre discos geridos que tenham discos partilhados ativados, consulte [os discos partilhados do Azure.](disks-shared.md)
 [!INCLUDE [virtual-machines-enable-shared-disk](../../../includes/virtual-machines-enable-shared-disk.md)]

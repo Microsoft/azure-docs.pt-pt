@@ -7,32 +7,32 @@ author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/30/2019
-ms.openlocfilehash: dacce0d4f40f077b5da6221000192a4398da99e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5843ca59c4542fcc990a6b5ac7e89d175efdfb04
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260348"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107058"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Desenvolver scripts U-SQL com as Ferramentas do Data Lake para Visual Studio
 
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-As ferramentas Azure Data Lake e Stream Analytics incluem funcionalidaderelacionada com dois serviços Azure, Azure Data Lake Analytics e Azure Stream Analytics. Para obter mais informações sobre os cenários do Azure Stream Analytics, consulte [as ferramentas Azure Stream Analytics para O Estúdio Visual](../stream-analytics/stream-analytics-tools-for-visual-studio-install.md).
+As ferramentas Azure Data Lake e Stream Analytics incluem funcionalidades relacionadas com dois serviços Azure, Azure Data Lake Analytics e Azure Stream Analytics. Para obter mais informações sobre os cenários Azure Stream Analytics, consulte [as ferramentas Azure Stream Analytics para o Visual Studio](../stream-analytics/stream-analytics-tools-for-visual-studio-install.md).
 
-Este artigo descreve como usar o Estúdio Visual para criar contas Azure Data Lake Analytics. Você pode definir empregos em [U-SQL](data-lake-analytics-u-sql-get-started.md), e submeter empregos ao serviço Data Lake Analytics. Para mais informações sobre a Data Lake Analytics, consulte [Descrição geral da Análise do Azure Data Lake](data-lake-analytics-overview.md).
+Este artigo descreve como usar o Visual Studio para criar contas Azure Data Lake Analytics. Você pode definir empregos em [U-SQL,](data-lake-analytics-u-sql-get-started.md)e submeter empregos ao serviço Data Lake Analytics. Para mais informações sobre a Data Lake Analytics, consulte [Descrição geral da Análise do Azure Data Lake](data-lake-analytics-overview.md).
 
 > [!IMPORTANT]
-> Recomendamos que faça upgrade para O Azure Data Lake Tools for Visual Studio versão 2.3.3000.4 ou posterior. As versões anteriores já não estão disponíveis para transferência e foram preteridas.
+> Recomendamos que atualize para Azure Data Lake Tools para visual studio versão 2.3.3000.4 ou posterior. As versões anteriores já não estão disponíveis para transferência e foram preteridas.
 >
 > 1. Verifique se está a utilizar uma versão anterior à versão 2.3.3000.4 das Ferramentas do Azure Data Lake para o Visual Studio.
 >
 >    ![Verificar a versão da ferramenta](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-about-data-lake.png)
 >
 > 1. Se a sua versão for anterior à versão 2.3.3000.4, atualize as Ferramentas do Azure Data Lake para o Visual Studio, visitando o centro de transferências:
->    - [Para o Visual Studio 2017 e 2019](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
+>    - [Para Visual Studio 2017 e 2019](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
 >    - [Para Visual Studio 2013 e 2015](https://www.microsoft.com/en-us/download/details.aspx?id=49504)
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -49,17 +49,17 @@ Este artigo descreve como usar o Estúdio Visual para criar contas Azure Data La
 
 ## <a name="install-azure-data-lake-tools-for-visual-studio"></a>Instalar as Ferramentas do Azure Data Lake para Visual Studio
 
-Este tutorial exige que as Ferramentas do Data Lake para Visual Studio estejam instaladas. Para mais informações, consulte [Instalar Ferramentas de Lago](data-lake-analytics-data-lake-tools-install.md)de Dados para Estúdio Visual .
+Este tutorial exige que as Ferramentas do Data Lake para Visual Studio estejam instaladas. Para obter mais informações, consulte [instalar ferramentas do Lago de Dados para o Estúdio Visual.](data-lake-analytics-data-lake-tools-install.md)
 
 ## <a name="connect-to-an-azure-data-lake-analytics-account"></a>Ligar-se a uma conta do Azure Data Lake Analytics
 
 1. Abra o Visual Studio.
 
-1. Abra o **Server Explorer** selecionando o **'Explorer' do** > **Servidor**de Visualização .
+1. Abrir **o Explorador do Servidor** selecionando **Ver**Explorador  >  **do Servidor**.
 
-1. Clique no **Azure,** em seguida, selecione Connect para a **subscrição do Microsoft Azure**. **Insete o sessão na sua conta,** siga as instruções.
+1. Clique com o botão direito **Azure**e, em seguida, **selecione Connect to Microsoft Azure Subscription**. In **Iniciar sôm no seu conta,** siga as instruções.
 
-1. No **Server Explorer,** selecione **Azure** > **Data Lake Analytics**. Verá uma lista das suas contas do Data Lake Analytics.
+1. No **Server Explorer**, selecione **Azure**  >  **Data Lake Analytics**. Verá uma lista das suas contas do Data Lake Analytics.
 
 ## <a name="write-your-first-u-sql-script"></a>Escrever o seu primeiro script U-SQL
 
@@ -82,17 +82,17 @@ OUTPUT @a
 
 ## <a name="submit-a-data-lake-analytics-job"></a>Submeter uma tarefa do Data Lake Analytics
 
-1. No Estúdio Visual, selecione **File** > **New** > **Project**.
+1. No Estúdio Visual, selecione **File**  >  **New**  >  **Project**.
 
-1. Selecione o tipo **de Projeto U-SQL** e, em seguida, selecione **Next**. Em **Configurar o seu novo projeto,** selecione **Criar**.
+1. Selecione o tipo **de Projeto U-SQL** e, em seguida, selecione **Seguinte**. Em **Configurar o seu novo projeto,** selecione **Criar**.
 
    O Visual Studio cria uma solução que contém um ficheiro **Script.usql.**
 
-1. Colhe o guião de [Escreva o seu primeiro guião U-SQL](#write-your-first-u-sql-script) na janela **Script.usql.**
+1. Cole o script a partir de [escrever o seu primeiro script U-SQL](#write-your-first-u-sql-script) na janela **Script.usql.**
 
-1. No **Solution Explorer,** clique no **script.usql,** clique à direita e selecione **Enviar script**.
+1. No **Solution Explorer,** clique à direita **script.usql**e selecione **Enviar Script**.
 
-1. Em **Enviar Trabalho,** escolha a sua conta Data Lake Analytics e selecione **Enviar**.
+1. Em **Enviar Emprego,** escolha a sua conta Data Lake Analytics e selecione **Enviar por isso.**
 
    ![Submeter projeto do Visual Studio em U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-submit-job-vs2019.png)
 
@@ -103,16 +103,16 @@ Após a submissão da tarefa, o separador **Vista da tarefa** é aberto para mos
 * **Operações de Metadados** apresenta todas as ações que foram executadas no catálogo de U-SQL.
 * **Dados** apresenta todas as entradas e saídas.
 * O **Histórico de Estado** mostra os detalhes do estado e da linha do tempo.
-* **A UA Analysis** mostra quantas UA foram usadas no trabalho e exploram simulações de diferentes estratégias de alocação de UA.
+* **A AU Analysis** mostra quantas UA foram usadas no trabalho e exploram simulações de diferentes estratégias de atribuição de UA.
 * **Diagnóstico** oferece uma análise avançada para a otimização do desempenho e a execução da tarefa.
 
 ![Gráfico de desempenho da tarefa do Data Lake Analytics no Visual Studio em U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
-Para ver o estado de trabalho mais recente e refrescar o ecrã, selecione **Refresh**.
+Para ver o estado de trabalho mais recente e refrescar o ecrã, **selecione Refresh**.
 
 ## <a name="check-job-status"></a>Verificar o estado da tarefa
 
-1. No **Server Explorer,** selecione **Azure** > **Data Lake Analytics**.
+1. No **Server Explorer**, selecione **Azure**  >  **Data Lake Analytics**.
 
 1. Expanda o nome da conta do Data Lake Analytics.
 
@@ -128,7 +128,7 @@ Para ver o estado de trabalho mais recente e refrescar o ecrã, selecione **Refr
 
 1. No separador **Saídas de Tarefas**, selecione o ficheiro `"/data.csv"`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Run U-SQL scripts on your own workstation for testing and debugging](data-lake-analytics-data-lake-tools-local-run.md) (Executar scripts U-SQL na sua própria área de trabalho para testes e depuração)
 * [Depurar o código C# em tarefas U-SQL com Ferramentas do Azure Data Lake para o Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)

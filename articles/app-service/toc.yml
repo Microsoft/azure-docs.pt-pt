@@ -112,8 +112,14 @@
       items:
         - name: Configurar definições comuns
           href: configure-common.md
+        - name: Configurar o ASP.NET
+          href: configure-language-dotnet-framework.md
+        - name: Configurar o ASP.NET Core
+          href: configure-language-dotnetcore.md
+        - name: Configurar o Node.js
+          href: configure-language-nodejs.md
         - name: Configurar PHP
-          href: web-sites-php-configure.md
+          href: configure-language-php.md
         - name: Configurar o Java
           href: configure-language-java.md
         - name: Ligar a recursos no local
@@ -216,12 +222,14 @@
           href: app-service-web-app-cloning.md
         - name: Restaurar o Serviço de Aplicações eliminado
           href: app-service-undelete.md
+        - name: Restaurar a partir da região indisponível
+          href: manage-disaster-recovery.md
     - name: Mover aplicação
       items:
         - name: Mover entre regiões
           href: manage-move-across-regions.md
         - name: Mover subscrições
-          href: '../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#checklist-before-moving-resources'
+          href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#checklist-before-moving-resources
     - name: Execução de tarefas em segundo plano
       items:
         - name: Criar Trabalhos Web
@@ -237,7 +245,7 @@
     - name: CLI do Azure
       href: /cli/azure/appservice
     - name: Azure PowerShell
-      href: '/powershell/module/az.websites/#app_service'
+      href: /powershell/module/az.websites/#app_service
     - name: API REST
       href: /rest/api/appservice/
     - name: Modelo do Resource Manager
@@ -253,7 +261,7 @@
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: Informações sobre a Quota
-      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?product=app-service'
     - name: Guias do Assistente de Migração

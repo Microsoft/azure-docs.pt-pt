@@ -1,6 +1,6 @@
 ---
 title: Obtenha dados de utilização da Máquina Virtual Azure utilizando a API REST
-description: Utilize as APIs De REPOUSO Azure para recolher métricas de utilização para uma Máquina Virtual.
+description: Utilize as APIs de REPOUSO Azure para recolher métricas de utilização para uma máquina virtual.
 author: rloutlaw
 ms.service: virtual-machines
 ms.subservice: monitoring
@@ -9,21 +9,20 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
 ms.openlocfilehash: 07e91f3d9fd32f01db91415bfd90746cd1aef403
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78944742"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Obtenha métricas de utilização da Máquina Virtual utilizando a API REST
 
-Este exemplo mostra como recuperar o uso do CPU para uma [Máquina Virtual Linux](https://docs.microsoft.com/azure/virtual-machines/linux/monitor) utilizando a [API Bluee REST](/rest/api/azure/).
+Este exemplo mostra como recuperar a utilização do CPU para uma [Máquina Virtual Linux](https://docs.microsoft.com/azure/virtual-machines/linux/monitor) utilizando a [API Azure REST](/rest/api/azure/).
 
-Documentação completa de referência e amostras adicionais para a API REST estão disponíveis na [referência REST do Monitor Azure](/rest/api/monitor). 
+A documentação completa de referência e amostras adicionais para a API REST estão disponíveis na [referência Azure Monitor REST](/rest/api/monitor). 
 
 ## <a name="build-the-request"></a>Criar o pedido
 
-Utilize o seguinte pedido GET para recolher a [métrica percentual cpu](/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftcomputevirtualmachines) de uma máquina virtual
+Utilize o seguinte pedido GET para recolher a [métrica percentual](/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftcomputevirtualmachines) do CPU de uma Máquina Virtual
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmname}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=Percentage%20CPU&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
@@ -40,14 +39,14 @@ Os seguintes cabeçalhos são obrigatórios:
 
 ### <a name="uri-parameters"></a>Parâmetros URI
 
-| Nome | Descrição |
+| Name | Descrição |
 | :--- | :---------- |
-| subscriptionId | O ID de subscrição que identifica uma assinatura Azure. Se tiver várias subscrições, consulte [Trabalhar com várias subscrições.](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest) |
-| resourceGroupName | O nome do grupo de recursos Azure associado ao recurso. Pode obter este valor a partir do Azure Resource Manager API, CLI ou do portal. |
+| subscriptionId | O ID de subscrição que identifica uma subscrição do Azure. Se tiver várias subscrições, consulte [Trabalhar com várias subscrições](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| resourceGroupName | O nome do grupo de recursos Azure associado ao recurso. Pode obter este valor a partir da Azure Resource Manager API, CLI ou do portal. |
 | vmname | O nome da Máquina Virtual Azure. |
-| nomes métricos | Lista separada da vírmeta das [métricas válidas](/azure/load-balancer/load-balancer-standard-diagnostics)do Balancer de Carga . |
-| api-version | A versão API a utilizar para o pedido.<br /><br /> Este documento abrange a `2018-01-01`versão api, incluída no URL acima.  |
-| timespan | String com o `startDateTime_ISO/endDateTime_ISO` seguinte formato que define a gama de tempo das métricas devolvidas. Este parâmetro opcional está definido para devolver um dia de dados no exemplo. |
+| métricas | Lista separada por vírgulas de [métricas válidas do Balanceador](/azure/load-balancer/load-balancer-standard-diagnostics)de Carga . |
+| api-version | A versão API a utilizar para o pedido.<br /><br /> Este documento abrange a versão `2018-01-01` api, incluída no URL acima.  |
+| timespan | String com o seguinte formato `startDateTime_ISO/endDateTime_ISO` que define o intervalo de tempo das métricas devolvidas. Este parâmetro opcional está definido para devolver um dia de dados no exemplo. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Corpo do pedido
@@ -56,7 +55,7 @@ Não é necessário nenhum corpo de pedido para esta operação.
 
 ## <a name="handle-the-response"></a>Processar a resposta
 
-O código de estado 200 é devolvido quando a lista de valores métricos é devolvida com sucesso. Uma lista completa de códigos de erro está disponível na documentação de [referência.](/rest/api/monitor/metrics/list#errorresponse)
+O código de estado 200 é devolvido quando a lista de valores métricos é devolvida com sucesso. Uma lista completa de códigos de erro está disponível na [documentação de referência.](/rest/api/monitor/metrics/list#errorresponse)
 
 ## <a name="example-response"></a>Resposta de exemplo 
 

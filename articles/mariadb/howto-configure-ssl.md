@@ -1,67 +1,67 @@
 ---
 title: Configure SSL - Base de Dados Azure para MariaDB
-description: Instruções para configurar corretamente a Base de Dados Azure para o MariaDB e aplicações associadas para utilizar corretamente as ligações SSL
+description: Instruções para configurar corretamente a Base de Dados de Azure para a MariaDB e aplicações associadas para utilizar corretamente as ligações SSL
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/7/2020
-ms.openlocfilehash: 9c5f4b1602182b3f9dca45c11d572e1fec2ff07c
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: e6ff3dbf5eb7452f36532af225fe1a0878c3bba1
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82925971"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104712"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Configure a conectividade SSL na sua aplicação para ligar de forma segura à Base de Dados Azure para MariaDB
-A Base de Dados Azure para MariaDB suporta a ligação da sua Base de Dados Azure para o servidor MariaDB às aplicações do cliente utilizando a Secure Sockets Layer (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
+A Azure Database for MariaDB suporta ligar a sua Base de Dados Azure para servidor MariaDB a aplicações de clientes utilizando a Camada de Tomadas Seguras (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
 
 ## <a name="obtain-ssl-certificate"></a>Obter certificado SSL
-Descarregue o certificado necessário para comunicar através do SSL com a sua Base de Dados Azure para o servidor MariaDB [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) e guarde o ficheiro de certificado para a sua unidade local (este tutorial utiliza c:\ssl, por exemplo).
-**Para o Microsoft Internet Explorer e Microsoft Edge:** Depois de o download ter terminado, mude o nome do certificado para BaltimoreCyberTrustRoot.crt.pem.
+Faça o download do certificado necessário para comunicar através do SSL com a sua Base de Dados Azure para o servidor MariaDB e guarde o ficheiro de [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) certificado para a sua unidade local (este tutorial utiliza c:\ssl, por exemplo).
+**Para o Microsoft Internet Explorer e Microsoft Edge:** Depois de concluído o download, rebatize o certificado para BaltimoreCyberTrustRoot.crt.pem.
 
 ## <a name="bind-ssl"></a>Bind SSL
 
-### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>Ligação ao servidor utilizando a bancada mySQL sobre o SSL
-Configure a bancada de trabalho MySQL para ligar de forma segura sobre o SSL. 
+### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>Conectar-se ao servidor usando a bancada mySQL workbench sobre sSL
+Configure a bancada MySQL workbench para ligar de forma segura sobre o SSL. 
 
-1. A partir do diálogo de configuração new connection, navegue até ao separador **SSL.** 
+1. A partir do diálogo Configuração Nova Ligação, navegue para o separador **SSL.** 
 
-1. Atualize o campo **SSL use** para "Exigir".
+1. Atualize o campo **Utilizar SSL** para "Exigir".
 
-1. No **Ficheiro SSL CA:** field, introduza a localização do ficheiro do **BaltimoreCyberTrustRoot.crt.pem**. 
+1. No **Ficheiro CA SSL:** campo, introduza a localização do ficheiro **do BaltimoreCyberTrustRoot.crt.pem**. 
     
     ![Salvar a configuração SSL](./media/howto-configure-ssl/mysql-workbench-ssl.png)
 
-Para as ligações existentes, pode ligar o SSL clicando corretamente no ícone de ligação e escolher editar. Em seguida, navegue para o separador **SSL** e ligue o ficheiro cert.
+Para as ligações existentes, pode ligar o SSL clicando à direita no ícone de ligação e escolher editar. Em seguida, navegue no separador **SSL** e ligue o ficheiro cert.
 
-### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>Ligação ao servidor utilizando o CLI MySQL sobre o SSL
-Outra forma de ligar o certificado SSL é utilizar a interface da linha de comando MySQL executando os seguintes comandos. 
+### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>Conectar-se ao servidor utilizando o MySQL CLI em SSL
+Outra forma de ligar o certificado SSL é utilizar a interface de linha de comando MySQL executando os seguintes comandos. 
 
 ```bash
 mysql.exe -h mydemoserver.mariadb.database.azure.com -u Username@mydemoserver -p --ssl-mode=REQUIRED --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
 
 > [!NOTE]
-> Ao utilizar a interface de linha de comando MySQL no Windows, poderá receber um erro `SSL connection error: Certificate signature check failed`. Se isto ocorrer, `--ssl-mode=REQUIRED --ssl-ca={filepath}` substitua `--ssl`os parâmetros por .
+> Ao utilizar a interface de linha de comando MySQL no Windows, poderá receber um erro `SSL connection error: Certificate signature check failed` . Se isto ocorrer, substitua os `--ssl-mode=REQUIRED --ssl-ca={filepath}` parâmetros por `--ssl` .
 
-## <a name="enforcing-ssl-connections-in-azure"></a>Impor ligações SSL em Azure 
+## <a name="enforcing-ssl-connections-in-azure"></a>Aplicação das ligações SSL em Azure 
 ### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
-Utilizando o portal Azure, visite a sua Base de Dados Azure para o servidor MariaDB e, em seguida, clique na **segurança da Ligação**. Utilize o botão de alternância para ativar ou desativar a definição de **ligação SSL de acionar** e, em seguida, clique em **Guardar**. A Microsoft recomenda ativar sempre a definição de **ligação SSL de aplicação** para uma maior segurança.
+Utilizando o portal Azure, visite a sua Base de Dados Azure para o servidor MariaDB e, em seguida, clique em **Segurança de Ligação**. Utilize o botão de alternar para ativar ou desativar a **definição de ligação SSL de acionar** e, em seguida, clique em **Guardar**. A Microsoft recomenda ativar sempre a **definição de ligação Enforce SSL** para uma segurança reforçada.
 ![enable-ssl](./media/howto-configure-ssl/enable-ssl.png)
 
 ### <a name="using-azure-cli"></a>Utilizar a CLI do Azure
-Pode ativar ou desativar o parâmetro **de execução ssl** utilizando valores habilitados ou desativados respectivamente no Azure CLI.
+Pode ativar ou desativar o parâmetro **de execução do ssl** utilizando valores ativados ou desativados, respectivamente, no Azure CLI.
 ```azurecli-interactive
 az mariadb server update --resource-group myresource --name mydemoserver --ssl-enforcement Enabled
 ```
 
 ## <a name="verify-the-ssl-connection"></a>Verifique a ligação SSL
-Execute o comando de **estado** mysql para verificar se ligou ao seu servidor MariaDB utilizando o SSL:
+Execute o comando de **estado** mysql para verificar se ligou ao seu servidor MariaDB utilizando SSL:
 ```sql
 status
 ```
-Confirme que a ligação é encriptada através da revisão da saída, o que deve mostrar: **SSL: Cipher em uso é AES256-SHA** 
+Confirme que a ligação é encriptada através da revisão da saída, que deve mostrar: **SSL: Cifra em uso é AES256-SHA** 
 
 ## <a name="sample-code"></a>Código de exemplo
 Para estabelecer uma ligação segura à Base de Dados Azure para MariaDB sobre SSL a partir da sua aplicação, consulte as seguintes amostras de código:
@@ -86,7 +86,7 @@ try:
 except mysql.connector.Error as err:
     print(err)
 ```
-### <a name="python-pymysql"></a>Python (pymysql)
+### <a name="python-pymysql"></a>Python (PyMySQL)
 ```python
 conn = pymysql.connect(user='myadmin@mydemoserver',
                        password='yourpassword',

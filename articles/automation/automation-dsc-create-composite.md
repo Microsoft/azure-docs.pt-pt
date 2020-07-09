@@ -1,7 +1,7 @@
 ---
-title: Converter configurações em recursos compósitos para configuração do Estado da Automação Azure
+title: Converter configurações para recursos compósitos para configuração do Estado de Automação Azure
 description: Este artigo diz como converter configurações em recursos compósitos para a Configuração do Estado da Automação Azure.
-keywords: dsc,powershell,configuração,configuração,configuração
+keywords: dsc,powershell,configuração,configuração
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -11,17 +11,16 @@ ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b3a49fac5600e6338d5fb56281a3360f0abaa39a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83836979"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>Converter configurações em recursos compostos
 
 > Aplica-se a: Windows PowerShell 5.1
 
-Assim que começar a autoria de configurações, pode criar rapidamente "cenários" que gerem grupos de configurações.
+Assim que começar a autorizar configurações, pode rapidamente criar "cenários" que gerem grupos de definições.
 Exemplos seriam:
 
 - criar um servidor web
@@ -29,9 +28,9 @@ Exemplos seriam:
 - criar um servidor SharePoint
 - configurar um cluster SQL
 - gerir definições de firewall
-- gerir as definições de palavra-passe
+- gerir definições de palavras-passe
 
-Se está interessado em partilhar este trabalho com outros, a melhor opção é embalar a configuração como [Recurso Composto.](/powershell/scripting/dsc/resources/authoringresourcecomposite)
+Se estiver interessado em partilhar este trabalho com outros, a melhor opção é embalar a configuração como [Um Recurso Composto.](/powershell/scripting/dsc/resources/authoringresourcecomposite)
 Criar recursos compósitos pela primeira vez pode ser esmagador.
 
 > [!NOTE]
@@ -40,23 +39,23 @@ Criar recursos compósitos pela primeira vez pode ser esmagador.
 
 ## <a name="community-project-compositeresource"></a>Projeto comunitário: CompositeResource
 
-Foi criada uma solução comunitária chamada [CompositeResource](https://github.com/microsoft/compositeresource) para resolver este desafio.
+Uma solução de manutenção da comunidade chamada [CompositeResource](https://github.com/microsoft/compositeresource) foi criada para resolver este desafio.
 
 A CompositeResource automatiza o processo de criação de um novo módulo a partir da sua configuração.
-Comece por [fornecer](https://blogs.technet.microsoft.com/heyscriptingguy/2010/08/10/how-to-reuse-windows-powershell-functions-in-scripts/) o script de configuração na sua estação de trabalho (ou construir servidor) para que seja carregado na memória.
+Começa por [dotar](https://blogs.technet.microsoft.com/heyscriptingguy/2010/08/10/how-to-reuse-windows-powershell-functions-in-scripts/) o script de configuração na sua estação de trabalho (ou construir servidor) para que seja carregado na memória.
 Em seguida, em vez de executar a configuração para gerar um ficheiro MOF, utilize a função fornecida pelo módulo CompositeResource para automatizar uma conversão.
 O cmdlet carregará o conteúdo da sua configuração, obterá a lista de parâmetros e gerará um novo módulo com tudo o que precisa.
 
-Depois de ter gerado um módulo, pode incrementar a versão e adicionar notas de lançamento sempre que fizer alterações e publicá-la no seu próprio [repositório PowerShellGet](https://powershellexplained.com/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo).
+Uma vez gerado um módulo, pode incrementar a versão e adicionar notas de lançamento sempre que fizer alterações e publicá-la no seu próprio [repositório PowerShellGet](https://powershellexplained.com/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo).
 
-Depois de criar um módulo de recurso composto que contenha a sua configuração (ou múltiplas configurações), pode utilizá-los na Experiência de [Autor Composável](/azure/automation/compose-configurationwithcompositeresources) em Azure, ou adicioná-los a [scripts de Configuração DSC](/powershell/scripting/dsc/configurations/configurations) para gerar ficheiros MOF e [carregar os ficheiros MOF para a Automação Azure](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Em seguida, registe os seus servidores a partir do [local](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) ou [em Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) para puxar configurações.
-A mais recente atualização do projeto também publicou livros de [execução](https://www.powershellgallery.com/packages?q=DscGallerySamples) para a Azure Automation para automatizar o processo de importação de configurações da PowerShell Gallery.
+Uma vez criado um módulo de recursos compostos que contenha a sua configuração (ou múltiplas configurações), pode utilizá-los na [Experiência de Autorização Composível](/azure/automation/compose-configurationwithcompositeresources) em Azure, ou adicioná-los a [scripts de configuração DSC](/powershell/scripting/dsc/configurations/configurations) para gerar ficheiros MOF e [enviar os ficheiros MOF para a Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+Em seguida, registe os seus servidores a partir [de instalações no local](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) ou em [Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) para puxar configurações.
+A mais recente atualização do projeto também publicou [livros para](https://www.powershellgallery.com/packages?q=DscGallerySamples) a Azure Automation para automatizar o processo de importação de configurações da Galeria PowerShell.
 
-Para experimentar a automatização da criação de recursos compósitos para a DSC, visite a [PowerShell Gallery](https://www.powershellgallery.com/packages/compositeresource/) e descarregue a solução ou clique em "Site do Projeto" para ver a [documentação](https://github.com/microsoft/compositeresource).
+Para experimentar automatizar a criação de recursos compósitos para a DSC, visite a [Galeria PowerShell](https://www.powershellgallery.com/packages/compositeresource/) e descarregue a solução ou clique em "Project Site" para ver a [documentação.](https://github.com/microsoft/compositeresource)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Para compreender o PowerShell DSC, consulte a [visão geral da Configuração do Estado do Windows PowerShell.](/powershell/scripting/dsc/overview/overview)
-- Saiba mais sobre os recursos da PowerShell DSC nos [Recursos DSC](/powershell/scripting/dsc/resources/resources).
-- Para mais detalhes sobre a configuração do Gestor de Configuração Local, consulte [configurar o Gestor](/powershell/scripting/dsc/managing-nodes/metaconfig)de Configuração Local .
+- Para compreender o PowerShell DSC, consulte a visão geral da [configuração do estado desejada do Windows PowerShell](/powershell/scripting/dsc/overview/overview).
+- Descubra os recursos da PowerShell DSC em [Recursos DSC.](/powershell/scripting/dsc/resources/resources)
+- Para obter mais detalhes sobre a configuração do Gestor de Configuração Local, consulte [configurar o Gestor de Configuração Local](/powershell/scripting/dsc/managing-nodes/metaconfig).

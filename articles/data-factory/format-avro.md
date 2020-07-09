@@ -1,5 +1,5 @@
 ---
-title: Formato Avro na Fábrica de Dados Azure
+title: Formato Avro na Azure Data Factory
 description: Este tópico descreve como lidar com o formato Avro na Azure Data Factory.
 author: linda33wj
 manager: shwang
@@ -7,21 +7,20 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 06/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 931287fa2a4104069b101236bec9f76bb7193e8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 32af8c1b19d57fdba58ce27700e5d1e7a34f9c64
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416357"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84604988"
 ---
-# <a name="avro-format-in-azure-data-factory"></a>Formato Avro na Fábrica de Dados Azure
+# <a name="avro-format-in-azure-data-factory"></a>Formato Avro na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Siga este artigo quando pretender **analisar os ficheiros Avro ou escrever os dados no formato Avro**. 
+Siga este artigo quando quiser **analisar os ficheiros Avro ou escrever os dados no formato Avro**. 
 
-O formato Avro é suportado para os seguintes conectores: [Amazon S3,](connector-amazon-simple-storage-service.md) [Azure Blob,](connector-azure-blob-storage.md) [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage,](connector-azure-file-storage.md) [File System,](connector-file-system.md) [FTP,](connector-ftp.md) [Google Cloud Storage,](connector-google-cloud-storage.md) [HDFS,](connector-hdfs.md) [HTTP](connector-http.md)e [SFTP](connector-sftp.md).
+O formato Avro é suportado para os seguintes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), Azure File Storage Gen2 , [Azure File Storage](connector-azure-file-storage.md), File [System](connector-file-system.md), [FTP,](connector-ftp.md) [Google Cloud Storage,](connector-google-cloud-storage.md) [HDFS,](connector-hdfs.md) [HTTP](connector-http.md)e [SFTP](connector-sftp.md).
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
@@ -29,14 +28,14 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 | Propriedade         | Descrição                                                  | Necessário |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| tipo             | A propriedade tipo do conjunto de dados deve ser definida para **Avro**. | Sim      |
-| localização         | Definições de localização dos ficheiros. Cada conector baseado em ficheiros tem `location`o seu próprio tipo de localização e propriedades suportadas em . Consulte os detalhes na secção de propriedades do conjunto de dados **do conector ->**. | Sim      |
-| avroCompressionCodec | O código de compressão para usar ao escrever para ficheiros Avro. Ao ler os ficheiros Avro, a Data Factory determina automaticamente o código de compressão com base nos metadados do ficheiro.<br>Os tipos suportados são "**nenhum**" (padrão), "**esvaziar**",**snappy**". Nota atualmente A atividade da Cópia não suporta snappy ao ler/escrever ficheiros Avro. | Não       |
+| tipo             | A propriedade do tipo do conjunto de dados deve ser definida para **Avro**. | Sim      |
+| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . **Consulte os detalhes na secção de propriedades do conector -> Dataset**. | Sim      |
+| avroCompressionCodec | O codec de compressão para usar ao escrever para ficheiros Avro. Ao ler os ficheiros avro, a Data Factory determina automaticamente o código de compressão com base nos metadados do ficheiro.<br>Os tipos suportados são "**nenhum**" (padrão), "**esvaziar**", "**snappy**". Nota atualmente A atividade copy não suporta Snappy quando lê/escreve ficheiros Avro. | Não       |
 
 > [!NOTE]
 > O espaço branco no nome da coluna não é suportado para ficheiros Avro.
 
-Abaixo está um exemplo de conjunto de dados Avro no Armazenamento de Blob Azure:
+Abaixo está um exemplo do conjunto de dados da Avro no Armazenamento Azure Blob:
 
 ```json
 {
@@ -62,36 +61,64 @@ Abaixo está um exemplo de conjunto de dados Avro no Armazenamento de Blob Azure
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela fonte avro e pia.
+Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela fonte e pia avro.
 
 ### <a name="avro-as-source"></a>Avro como fonte
 
-As seguintes propriedades são suportadas na secção de *** \*origem\* *** da atividade de cópia.
+As seguintes propriedades são suportadas na secção *** \* de origem \* *** da atividade de cópia.
 
 | Propriedade      | Descrição                                                  | Necessário |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **AvroSource**. | Sim      |
-| lojasDefinições | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros `storeSettings`tem as suas próprias definições de leitura suportadas em . . Consulte os detalhes na secção de propriedades de propriedade do artigo do **conector -> Copiar**. | Não       |
+| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida como **AvroSource**. | Sim      |
+| lojaSs | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | Não       |
 
 ### <a name="avro-as-sink"></a>Avro como pia
 
-As seguintes propriedades são suportadas na secção de *** \*sumidouro\* *** da atividade de cópia.
+As seguintes propriedades são suportadas na secção de *** \* lavatório \* *** de atividade de cópia.
 
 | Propriedade      | Descrição                                                  | Necessário |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **AvroSink**. | Sim      |
-| lojasDefinições | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros `storeSettings`tem as suas próprias definições de escrita suportadas em baixo . Consulte os detalhes na secção de propriedades de propriedade do artigo do **conector -> Copiar**. | Não       |
+| tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida como **AvroSink**. | Sim      |
+| lojaSs | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | Não       |
 
-## <a name="data-type-support"></a>Suporte de tipo de dados
+
+## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
+
+No mapeamento dos fluxos de dados, pode ler e escrever para o formato avro nas seguintes lojas de dados: [Azure Blob Storage,](connector-azure-blob-storage.md#mapping-data-flow-properties) [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), e [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
+
+### <a name="source-properties"></a>Propriedades de origem
+
+A tabela abaixo lista as propriedades suportadas por uma fonte avro. Pode editar estas propriedades no separador **Opções Fonte.**
+
+| Name | Descrição | Necessário | Valores permitidos | Propriedade de script de fluxo de dados |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Caminhos de wild card | Todos os ficheiros correspondentes ao caminho wildcard serão processados. Substitui a pasta e o caminho do ficheiro definido no conjunto de dados. | não | Corda[] | wildcardPaths |
+| Caminho da raiz da partição | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | não | String | partitionRootPath |
+| Lista de ficheiros | Se a sua fonte está a apontar para um ficheiro de texto que lista ficheiros para processar | não | `true` ou `false` | fileList |
+| Coluna para armazenar nome de ficheiro | Criar uma nova coluna com o nome e caminho do ficheiro de origem | não | String | rowUrlColumn |
+| Após a conclusão | Elimine ou mova os ficheiros após o processamento. O caminho do arquivo começa a partir da raiz do recipiente | não | Excluir: `true` ou`false` <br> Mover-se:`['<from>', '<to>']` | purgeFiles <br> moveFiles |
+| Filtrar por última modificação | Opte por filtrar ficheiros com base na última alteração que foram alterados | não | Carimbo de data/hora | modificado Depois <br> modificadoSForo antes |
+
+### <a name="sink-properties"></a>Propriedades de pia
+
+A tabela abaixo lista as propriedades suportadas por um lavatório avro. Pode editar estas propriedades no **separador Definições.**
+
+| Name | Descrição | Necessário | Valores permitidos | Propriedade de script de fluxo de dados |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Limpe a pasta | Se a pasta de destino for apurada antes de escrever | não | `true` ou `false` | truncato |
+| Opção de nome de ficheiro | O formato de nomeação dos dados escritos. Por predefinição, um ficheiro por partição em formato`part-#####-tid-<guid>` | não | Padrão: Corda <br> Por partição: String[] <br> Como dados na coluna: String <br> Saída para um único ficheiro:`['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+| Citar tudo | Incluir todos os valores em cotações | não | `true` ou `false` | citaçãoTo |
+
+## <a name="data-type-support"></a>Suporte ao tipo de dados
 
 ### <a name="copy-activity"></a>Atividade Copiar
-Os tipos de [dados complexos](https://avro.apache.org/docs/current/spec.html#schema_complex) da Avro não são suportados (registos, enums, matrizes, mapas, sindicatos e fixos) na Atividade de Cópia.
+Os [tipos de dados complexos](https://avro.apache.org/docs/current/spec.html#schema_complex) de Avro não são suportados (registos, enums, matrizes, mapas, sindicatos e fixos) na Copy Activity.
 
 ### <a name="data-flows"></a>Fluxos de dados
-Ao trabalhar com ficheiros Avro em fluxos de dados, pode ler e escrever tipos de dados complexos, mas certifique-se de limpar primeiro o esquema físico do conjunto de dados. Nos fluxos de dados, pode definir a sua projeção lógica e obter colunas que são estruturas complexas, em seguida, mapear automaticamente esses campos para um ficheiro Avro.
+Ao trabalhar com ficheiros Avro em fluxos de dados, pode ler e escrever tipos de dados complexos, mas certifique-se de limpar o esquema físico do conjunto de dados primeiro. Nos fluxos de dados, pode definir a sua projeção lógica e colunas derivantes que são estruturas complexas, em seguida, mapear automaticamente esses campos para um ficheiro Avro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Descrição geral da atividade de cópia](copy-activity-overview.md)
+- [Visão geral da atividade da cópia](copy-activity-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)
-- [Obtenha atividade de Metadados](control-flow-get-metadata-activity.md)
+- [Atividade getMetadata](control-flow-get-metadata-activity.md)

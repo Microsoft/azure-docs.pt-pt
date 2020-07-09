@@ -12,7 +12,7 @@
     - name: ServiceNow
       href: /azure/active-directory/saas-apps/servicenow-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: Amazon Web Services (AWS) - Aprovisionamento de Funções
-      href: '/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-ont?context=azure/active-directory/app-provisioning/context/app-provisioning-context'
+      href: /azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-ont?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: Workday
       href: /azure/active-directory/saas-apps/workday-inbound-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: SAP SuccessFactors
@@ -45,6 +45,8 @@
           href: define-conditional-rules-for-provisioning-user-accounts.md
         - name: Ignorar eliminação de utilizadores fora do âmbito
           href: skip-out-of-scope-deletions.md
+    - name: Aprovisionamento a pedido
+      href: provision-on-demand.md
     - name: Monitorizar e reportar aprovisionamentos
       items:
         - name: Monitorizar o estado e o desempenho do aprovisionamento

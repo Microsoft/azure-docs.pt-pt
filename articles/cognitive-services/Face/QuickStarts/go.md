@@ -1,7 +1,7 @@
 ---
 title: 'Início rápido: detetar rostos numa imagem com a API REST e Go'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, deteta rostos de uma imagem utilizando o serviço Face com Go.
+description: Neste arranque rápido, deteta rostos a partir de uma imagem utilizando o serviço Face com Go.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,25 +10,28 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: b3e6f5746df6197938d3a91de5ff11b1a311d762
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 8de043e9ae79c29d1c6d7e4f59ac7494eeb2d4f8
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81402957"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84985588"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Início rápido: detetar rostos numa imagem com a API REST e Go
 
-Neste arranque rápido, você usará a API De REPOUSO Face Azure com Go para detetar rostos humanos em uma imagem.
+Neste arranque rápido, você usará a API AZure Face REST com Go para detetar rostos humanos numa imagem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma chave de subscrição Face. Você pode obter uma chave de subscrição de teste gratuito da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço Face e obter a sua chave.
+* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" crie um recurso Face crie um recurso Face no portal "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+    * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API face. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
+    * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
 - Um editor de código como [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="write-the-script"></a>Escreva o guião
 
-Crie um novo ficheiro, _faceDetection.go_e adicione o seguinte código. Isto chama a API facial para um determinado URL de imagem.
+Crie um novo ficheiro, _faceDetection.go,_ e adicione o seguinte código. Isto chama a API facial para um dado URL de imagem.
 
 ```go
 package main
@@ -108,11 +111,11 @@ func main() {
 }
 ```
 
-Terá de atualizar o `subscriptionKey` valor com a sua `uriBase` chave de subscrição e alterar a cadeia de modo a conter a cadeia de ponto final correto.
+Terá de atualizar o valor com a `subscriptionKey` sua chave de subscrição e alterar a cadeia de modo a `uriBase` conter a cadeia de ponto final correta.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-Também pode querer mudar `imageUrl` de campo para apontar para a sua própria imagem de entrada. Também pode querer alterar `returnFaceAttributes` o campo que especifica quais os atributos faciais a recuperar.
+Também pode desejar alterar o `imageUrl` campo para apontar para a sua própria imagem de entrada. Também pode desejar alterar o `returnFaceAttributes` campo que especifica quais os atributos faciais para recuperar.
 
 ## <a name="run-the-script"></a>Executar o script
 
@@ -128,7 +131,7 @@ Em seguida, executar o programa:
 detect-face
 ```
 
-Deve ver uma cadeia json de dados faciais detetados impressos na consola. Segue-se um exemplo de uma resposta json bem sucedida.
+Deve ver uma série de dados faciais detetados no JSON impressos na consola. Segue-se um exemplo de uma resposta bem sucedida da JSON.
 
 ```json
 [
@@ -311,7 +314,7 @@ Deve ver uma cadeia json de dados faciais detetados impressos na consola. Segue-
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, escreveu uma Aplicação de Consola Go que chama o serviço Azure Face para detetar rostos numa imagem e devolver os seus atributos. Em seguida, explore a documentação de referência da API face para saber mais.
+Neste arranque rápido, escreveu uma Aplicação go console que chama o serviço Azure Face para detetar rostos numa imagem e devolver os seus atributos. Em seguida, explore a documentação de referência da Face API para saber mais.
 
 > [!div class="nextstepaction"]
 > [API Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

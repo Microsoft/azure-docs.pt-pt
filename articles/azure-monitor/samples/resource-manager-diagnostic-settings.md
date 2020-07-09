@@ -1,36 +1,144 @@
 ---
-title: Amostras de modelo do Gestor de Recursos para configurações de diagnóstico
-description: Modelos de Gestor de Recursos Azure da amostra para aplicar as definições de diagnóstico do Monitor Azure a um recurso Azure.
+title: Amostras de modelo do gestor de recursos para definições de diagnóstico
+description: Experimente os modelos do Gestor de Recursos Azure para aplicar as definições de diagnóstico do Azure Monitor a um recurso Azure.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 05/18/2020
-ms.openlocfilehash: 4330f70328d00766c829478cebeb2cdbb9ad21c1
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 06/23/2020
+ms.openlocfilehash: 540175f02660717793ded667f9c07de8549ec2f5
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83854481"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85320846"
 ---
-# <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Amostras de modelo do Gestor de Recursos para configurações de diagnóstico no Monitor Azure
-Este artigo inclui modelos de gestor de [recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para criar configurações de diagnóstico para um recurso Azure. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
+# <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Amostras de modelo do gestor de recursos para definições de diagnóstico no Azure Monitor
+Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para criar configurações de diagnóstico para um recurso Azure. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
 
-Para criar uma definição de diagnóstico, adicione um recurso de <resource namespace> tipo/fornecedores/definições de diagnóstico ao modelo. Este artigo fornece exemplos para dois tipos de recursos diferentes, mas o mesmo padrão pode ser aplicado a outros tipos de recursos. A recolha de registos e métricas permitidas variará para cada tipo de recurso.
+Para criar uma definição de diagnóstico para um recurso Azure, adicione um recurso de tipo `<resource namespace>/providers/diagnosticSettings` ao modelo. Este artigo fornece exemplos para alguns tipos de recursos, mas o mesmo padrão pode ser aplicado a outros tipos de recursos. A recolha de registos e métricas permitidos variará para cada tipo de recurso.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
+## <a name="diagnostic-setting-for-activity-log"></a>Definição de diagnóstico para registo de atividade
+A amostra a seguir cria uma definição de diagnóstico para um registo de atividade adicionando um recurso de tipo `Microsoft.Insights/diagnosticSettings` ao modelo.
 
-## <a name="diagnostic-setting-for-azure-key-vault"></a>Definição de diagnóstico para cofre chave Azure 
-A amostra seguinte adiciona duas consultas de registo a um cofre Azure Key.
+> [!IMPORTANT]
+> As definições de diagnóstico para registos de atividade são criadas para uma subscrição, não para um grupo de recursos como configurações para recursos Azure. Para implementar o modelo de gestão de recursos, utilize `New-AzSubscriptionDeployment` para PowerShell ou `az deployment sub create` para Azure CLI.
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "settingName": {
+          "type": "String"
+        },
+        "workspaceId": {
+          "type": "String"
+        },
+        "storageAccountId": {
+          "type": "String"
+        },
+        "eventHubAuthorizationRuleId": {
+          "type": "String"
+        },
+        "eventHubName": {
+          "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Insights/diagnosticSettings",
+            "apiVersion": "2017-05-01-preview",
+            "name": "[parameters('settingName')]",
+            "properties": {
+                "workspaceId": "[parameters('workspaceId')]",
+                "storageAccountId": "[parameters('storageAccountId')]",
+                "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+                "eventHubName": "[parameters('eventHubName')]",
+                "logs": [
+                    {
+                        "category": "Administrative",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Security",
+                        "enabled": true
+                    },
+                    {
+                        "category": "ServiceHealth",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Alert",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Recommendation",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Policy",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Autoscale",
+                        "enabled": true
+                    },
+                    {
+                        "category": "ResourceHealth",
+                        "enabled": true
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+### <a name="parameter-file"></a>Arquivo de parâmetros
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "settingName": {
+        "value": "Send to all locations"
+      },
+      "workspaceId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"
+      },
+      "storageAccountId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+      },
+      "eventHubAuthorizationRuleId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNameSpace/authorizationrules/RootManageSharedAccessKey"
+      },
+      "eventHubName": {
+        "value": "my-eventhub"
+      }
+  }
+}
+```
+
+
+## <a name="diagnostic-setting-for-azure-key-vault"></a>Definição de diagnóstico para cofre de chave Azure 
+A amostra a seguir cria uma definição de diagnóstico para um Cofre de Chave Azure adicionando um recurso de tipo `Microsoft.KeyVault/vaults/providers/diagnosticSettings` ao modelo.
+
+### <a name="template-file"></a>Arquivo de modelo
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "settingName": {
+            "type": "String"
+        },
         "vaultName": {
             "type": "String"
         },
@@ -52,10 +160,8 @@ A amostra seguinte adiciona duas consultas de registo a um cofre Azure Key.
         {
           "type": "Microsoft.KeyVault/vaults/providers/diagnosticSettings",
           "apiVersion": "2017-05-01-preview",
-          "name": "[concat(parameters('vaultName'), '/Microsoft.Insights/Send to all destinations')]",
-          "dependsOn": [
-            
-          ],
+          "name": "[concat(parameters('vaultName'), '/Microsoft.Insights/', parameters('settingName'))]",
+          "dependsOn": [],
           "properties": {
             "workspaceId": "[parameters('workspaceId')]",
             "storageAccountId": "[parameters('storageAccountId')]",
@@ -79,13 +185,16 @@ A amostra seguinte adiciona duas consultas de registo a um cofre Azure Key.
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+      "settingName": {
+          "value": "Send to all locations"
+      },
       "vaultName": {
         "value": "MyVault"
       },
@@ -99,21 +208,25 @@ A amostra seguinte adiciona duas consultas de registo a um cofre Azure Key.
         "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNameSpace/authorizationrules/RootManageSharedAccessKey"
       },
       "eventHubName": {
-        "value": "MyKeyVault"
+        "value": "my-eventhub"
       }
   }
 }
 ```
 
 ## <a name="diagnostic-setting-for-azure-sql-database"></a>Definição de diagnóstico para base de dados Azure SQL
-A amostra seguinte adiciona duas consultas de registo a uma base de dados Azure SQL.
-### <a name="template-file"></a>Ficheiro de modelo
+A amostra a seguir cria uma definição de diagnóstico para uma base de dados Azure SQL adicionando um recurso de tipo `microsoft.sql/servers/databases/providers/diagnosticSettings` ao modelo.
+
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "settingName": {
+            "type": "String"
+        },        
         "serverName": {
             "type": "String"
         },
@@ -138,10 +251,8 @@ A amostra seguinte adiciona duas consultas de registo a uma base de dados Azure 
         {
           "type": "microsoft.sql/servers/databases/providers/diagnosticSettings",
           "apiVersion": "2017-05-01-preview",
-          "name": "[concat(parameters('serverName'),'/',parameters('dbName'),'/microsoft.insights/SQL diagnostic setting')]",
-          "dependsOn": [
-            
-          ],
+          "name": "[concat(parameters('serverName'),'/',parameters('dbName'),'/microsoft.insights', parameters('settingName'))]",
+          "dependsOn": [],
           "properties": {
             "workspaceId": "[parameters('workspaceId')]",
             "storageAccountId": "[parameters('storageAccountId')]",
@@ -205,13 +316,16 @@ A amostra seguinte adiciona duas consultas de registo a uma base de dados Azure 
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+      "settingName": {
+          "value": "Send to all locations"
+      },
       "serverName": {
         "value": "MySqlServer"
       },
@@ -228,7 +342,7 @@ A amostra seguinte adiciona duas consultas de registo a uma base de dados Azure 
         "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNameSpace/authorizationrules/RootManageSharedAccessKey"
       },
       "eventHubName": {
-        "value": "MyKeyVault"
+        "value": "my-eventhub"
       }
   }
 }
@@ -237,5 +351,5 @@ A amostra seguinte adiciona duas consultas de registo a uma base de dados Azure 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Obtenha outros modelos de amostra para o Monitor Azure](resource-manager-samples.md).
+* [Obtenha outros modelos de amostra para Azure Monitor](resource-manager-samples.md).
 * [Saiba mais sobre as definições de diagnóstico](../platform/diagnostic-settings.md).

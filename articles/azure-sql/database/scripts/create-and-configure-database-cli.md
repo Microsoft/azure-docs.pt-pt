@@ -1,6 +1,6 @@
 ---
-title: 'Azure CLI: Criar uma única base de dados'
-description: Utilize este script de exemplo Azure CLI para criar uma única base de dados Azure SQL.
+title: 'O Azure CLI: Criar uma única base de dados'
+description: Utilize este script de exemplo Azure CLI para criar uma única base de dados.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,17 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: ab847f13b6c75eeb31c4d20877d7a314e53f47ac
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: de554f48297c228df9345a6e822096d05b85652f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054090"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196867"
 ---
-# <a name="use-the-azure-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Utilize o Azure CLI para criar uma única base de dados Azure SQL e configurar uma regra de firewall
+# <a name="use-the-azure-cli-to-create-a-single-database-and-configure-a-firewall-rule"></a>Utilize o CLI Azure para criar uma única base de dados e configurar uma regra de firewall
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Este exemplo de script Azure CLI cria uma Base de Dados Azure SQL e configura uma regra de firewall ao nível do servidor. Uma vez que o script tenha sido executado com sucesso, a Base de Dados SQL pode ser acedida a partir de todos os serviços Azure e do endereço IP configurado.
+Este exemplo de script do Azure CLI cria uma única base de dados na Base de Dados Azure SQL e configura uma regra de firewall ao nível do servidor. Depois de o script ter sido executado com sucesso, a base de dados pode ser acedida a partir de todos os serviços Azure e do endereço IP configurado.
 
 Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
@@ -37,7 +38,7 @@ Se optar por instalar e usar a CLI localmente, este tópico requer a execução 
 
 ### <a name="clean-up-deployment"></a>Limpar a implementação
 
-Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
+Utilize o seguinte comando para remover o grupo de recursos e todos os recursos que lhe estão associados.
 
 ```azurecli-interactive
 az group delete --name $resource
@@ -50,10 +51,10 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | | |
 |---|---|
 | [az sql server](/cli/azure/sql/server#az-sql-server-create) | Comandos do servidor |
-| [firewall de servidor az sql](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Comandos de firewall do servidor. |
+| [firewall do servidor az sql](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Comandos de firewall do servidor. |
 | [az sql db](/cli/azure/sql/db#az-sql-db-create) | Comandos de base de dados. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

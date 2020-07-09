@@ -1,18 +1,18 @@
 ---
 title: Gerir cópias de segurança de partilha de ficheiros Azure com o Azure CLI
-description: Aprenda a utilizar o Azure CLI para gerir e monitorizar as ações de ficheiros Azure apoiadas pela Azure Backup.
+description: Saiba como utilizar o Azure CLI para gerir e monitorizar as ações de ficheiros Azure apoiadas pela Azure Backup.
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.openlocfilehash: 06e1f29874085c3943a5207f36eff313dc670e88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82184117"
 ---
 # <a name="manage-azure-file-share-backups-with-the-azure-cli"></a>Gerir cópias de segurança de partilha de ficheiros Azure com o Azure CLI
 
-O Azure CLI proporciona uma experiência de linha de comando para gerir os recursos azure. É uma ótima ferramenta para construir automação personalizada para usar recursos Azure. Este artigo explica como executar tarefas de gestão e monitorização das ações de ficheiro supérno do Azure que são apoiadas por [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview). Também pode realizar estes passos com o [portal Azure.](https://portal.azure.com/)
+O Azure CLI proporciona uma experiência de linha de comando para a gestão dos recursos da Azure. É uma ótima ferramenta para construir automatização personalizada para usar recursos Azure. Este artigo explica como executar tarefas de gestão e monitorização das ações de ficheiros Azure que são apoiadas pela [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview). Também pode realizar estes passos com o [portal Azure.](https://portal.azure.com/)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -20,18 +20,18 @@ Para instalar e utilizar o CLI localmente, tem de executar a versão Azure CLI 2
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo assume que já tem uma partilha de ficheiros Azure apoiada pela [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview). Se não tiver uma, consulte as partilhas de [ficheiros Do Back Up Azure com o CLI](backup-afs-cli.md) para configurar a cópia de segurança para as suas ações de ficheiro. Para este artigo, utiliza os seguintes recursos:
+Este artigo pressupõe que já tem uma partilha de ficheiros Azure apoiada pela [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview). Se não tiver um, consulte [ações de ficheiros Back up Azure com o CLI](backup-afs-cli.md) para configurar a cópia de segurança para as suas ações de ficheiro. Para este artigo, utiliza os seguintes recursos:
 
-* **Grupo de recursos**: *ficheiros azurefiles*
+* **Grupo de recursos**: *azurefiles*
 * **RecoveryServicesVault**: *azurefilesvault*
 * **Conta de Armazenamento**: *afsaccount*
-* **Partilha de Ficheiros**: *ficheiros azurefiles*
+* **Partilha de Ficheiros**: *azurefiles*
 
 ## <a name="monitor-jobs"></a>Monitorizar trabalhos
 
-Quando aciona as operações de backup ou restaura, o serviço de backup cria um trabalho de rastreio. Para monitorizar os trabalhos concluídos ou atualmente em funcionamento, utilize a lista de trabalho de [backup az](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) cmdlet. Com o CLI, também pode [suspender um trabalho atualmente em funcionamento](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-stop) ou [esperar até que um trabalho termine.](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-wait)
+Quando aciona operações de backup ou restauro, o serviço de backup cria um trabalho para rastrear. Para monitorizar os trabalhos concluídos ou atualmente em funcionamento, utilize o cmdlet da [lista de trabalho de reserva az.](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) Com o CLI, também pode [suspender um trabalho atualmente em execução](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-stop) ou [esperar até que um trabalho termine.](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-wait)
 
-O exemplo seguinte mostra o estado dos trabalhos de backup para o cofre dos Serviços de Recuperação do cofre dos Serviços de Recuperação do cofre do *Azurefilesvault* Recovery Services:
+O exemplo a seguir mostra o estado dos trabalhos de backup para o cofre dos Serviços de Recuperação *azurefilesvault:*
 
 ```azurecli-interactive
 az backup job list --resource-group azurefiles --vault-name azurefilesvault
@@ -92,17 +92,17 @@ az backup job list --resource-group azurefiles --vault-name azurefilesvault
 ]
 ```
 
-## <a name="modify-policy"></a>Modificar a política
+## <a name="modify-policy"></a>Alterar a política
 
-Pode modificar uma política de backup para alterar a frequência de backup ou o intervalo de retenção utilizando a [política de definição de itens](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-set-policy)de backup az .
+Pode modificar uma política de backup para alterar a frequência de backup ou o intervalo de retenção utilizando [a política de definição de produto de backup az](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-set-policy).
 
 Para alterar a política, defina os seguintes parâmetros:
 
-* **--nome do contentor**: O nome da conta de armazenamento que acolhe a parte do ficheiro. Para recuperar o **nome** ou **o nome amigável** do seu recipiente, utilize o comando da lista de contentores de reserva [az.](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list)
-* **-name**: O nome da parte do ficheiro para a qual pretende alterar a apólice. Para recuperar o **nome** ou **o nome amigável** do seu item backed, utilize o comando da lista de itens de reserva [az.](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list)
-* **--nome da política**: O nome da política de backup que pretende definir para a sua parte de ficheiro. Pode usar a lista de política de [backup da AZ](https://docs.microsoft.com/cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-list) para ver todas as políticas para o seu cofre.
+* **--nome do contentor**: o nome da conta de armazenamento que acolhe a parte do ficheiro. Para recuperar o **nome** ou **o nome amigável** do seu recipiente, utilize o comando da lista de [contentores de reserva az.](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list)
+* **--nome**: O nome da partilha de ficheiros para a qual pretende alterar a política. Para recuperar o **nome** ou **o nome amigável** do seu item de reserva, utilize o comando da lista de produtos de reserva [az.](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list)
+* **--nome de política**: O nome da política de backup que pretende definir para a sua parte do ficheiro. Você pode usar [a lista de políticas de backup az](https://docs.microsoft.com/cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-list) para ver todas as políticas para o seu cofre.
 
-O exemplo seguinte define a política de backup *do calendário2* para a partilha de ficheiros *azurefiles* presente na conta de armazenamento da *afsaccount.*
+O exemplo a seguir define a política de backup *do agendamento2* para a partilha de ficheiros *azurefiles* presente na conta de armazenamento *afsaccount.*
 
 ```azurecli-interactive
 az backup item set-policy --policy-name schedule2 --name azurefiles --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --name "AzureFileShare;azurefiles" --backup-management-type azurestorage --out table
@@ -110,8 +110,8 @@ az backup item set-policy --policy-name schedule2 --name azurefiles --vault-name
 
 Também pode executar o comando anterior utilizando os nomes amigáveis para o recipiente e o item, fornecendo os seguintes dois parâmetros adicionais:
 
-* **--backup-gestão tipo:** *armazenamento em azurestorage*
-* **--tipo de carga de trabalho**: *azurefileshare*
+* **--tipo de gestão de backup:** *azurestorage*
+* **--tipo de carga de trabalho:** *azurefileshare*
 
 ```azurecli-interactive
 az backup item set-policy --policy-name schedule2 --name azurefiles --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --name azurefiles --backup-management-type azurestorage --out table
@@ -123,27 +123,27 @@ Name                                  ResourceGroup
 fec6f004-0e35-407f-9928-10a163f123e5  azurefiles
 ```
 
-O **atributo nome** na saída corresponde ao nome do trabalho criado pelo serviço de backup para a sua operação de política de mudança. Para acompanhar o estado do trabalho, use o show de [trabalho de reserva az](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+O atributo **Nome** na saída corresponde ao nome do trabalho criado pelo serviço de backup para o seu funcionamento de política de mudança. Para acompanhar o estado do trabalho, use o [az backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
 ## <a name="stop-protection-on-a-file-share"></a>Parar a proteção numa partilha de ficheiros
 
 Existem duas formas de parar a proteção de partilhas de ficheiros do Azure:
 
 * Pare todos os futuros trabalhos de backup e *elimine* todos os pontos de recuperação.
-* Pare todos os futuros trabalhos de reserva, mas *deixe* os pontos de recuperação.
+* Parem com todos os futuros trabalhos de *apoio,* mas deixem os pontos de recuperação.
 
-Pode haver um custo associado à saída dos pontos de recuperação no armazenamento, porque os instantâneos subjacentes criados pela Azure Backup serão mantidos. O benefício de deixar os pontos de recuperação é a opção de restaurar a parte do ficheiro mais tarde, se quiser. Para obter informações sobre o custo de saída dos pontos de recuperação, consulte os detalhes dos [preços.](https://azure.microsoft.com/pricing/details/storage/files) Se optar por eliminar todos os pontos de recuperação, não pode restaurar a parte do ficheiro.
+Pode haver um custo associado a deixar os pontos de recuperação armazenados, porque os instantâneos subjacentes criados pela Azure Backup serão mantidos. O benefício de deixar os pontos de recuperação é a opção de restaurar a partilha do ficheiro mais tarde, se quiser. Para obter informações sobre o custo de sair dos pontos de recuperação, consulte os [detalhes dos preços.](https://azure.microsoft.com/pricing/details/storage/files) Se optar por eliminar todos os pontos de recuperação, não poderá restaurar a partilha de ficheiros.
 
 Para parar a proteção da partilha de ficheiros, defina os seguintes parâmetros:
 
-* **--nome do contentor**: O nome da conta de armazenamento que acolhe a parte do ficheiro. Para recuperar o **nome** ou **o nome amigável** do seu recipiente, utilize o comando da lista de contentores de reserva [az.](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list)
-* **--nome**do item : O nome da parte do ficheiro para a qual pretende parar a proteção. Para recuperar o **nome** ou **o nome amigável** do seu item backed, utilize o comando da lista de itens de reserva [az.](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list)
+* **--nome do contentor**: o nome da conta de armazenamento que acolhe a parte do ficheiro. Para recuperar o **nome** ou **o nome amigável** do seu recipiente, utilize o comando da lista de [contentores de reserva az.](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list)
+* **--nome do item**: o nome da partilha de ficheiros para a qual pretende parar a proteção. Para recuperar o **nome** ou **o nome amigável** do seu item de reserva, utilize o comando da lista de produtos de reserva [az.](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list)
 
 ### <a name="stop-protection-and-retain-recovery-points"></a>Parar a proteção e reter pontos de recuperação
 
-Para parar a proteção enquanto retém dados, utilize a proteção de [reserva az desativar](https://docs.microsoft.com/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable) cmdlet.
+Para parar a proteção enquanto conserva os dados, utilize a [proteção de segurança az desative o](https://docs.microsoft.com/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable) cmdlet.
 
-O exemplo seguinte impede a proteção da partilha de *ficheiros azurefiles,* mas mantém todos os pontos de recuperação.
+O exemplo seguinte para a proteção para a partilha *de ficheiros azurefiles,* mas mantém todos os pontos de recuperação.
 
 ```azurecli-interactive
 az backup protection disable --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name “AzureFileShare;azurefiles” --out table
@@ -151,8 +151,8 @@ az backup protection disable --vault-name azurefilesvault --resource-group azure
 
 Também pode executar o comando anterior utilizando o nome amigável para o recipiente e o item, fornecendo os seguintes dois parâmetros adicionais:
 
-* **--backup-gestão tipo:** *armazenamento em azurestorage*
-* **--tipo de carga de trabalho**: *azurefileshare*
+* **--tipo de gestão de backup:** *azurestorage*
+* **--tipo de carga de trabalho:** *azurefileshare*
 
 ```azurecli-interactive
 az backup protection disable --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --item-name azurefiles --workload-type azurefileshare --backup-management-type Azurestorage --out table
@@ -164,13 +164,13 @@ Name                                  ResourceGroup
 fec6f004-0e35-407f-9928-10a163f123e5  azurefiles
 ```
 
-O atributo **nome** na saída corresponde ao nome do trabalho criado pelo serviço de backup para a sua operação de proteção de paragens. Para acompanhar o estado do trabalho, use o show de [trabalho de reserva az](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+O atributo **Nome** na saída corresponde ao nome do trabalho criado pelo serviço de backup para a sua operação de proteção stop. Para acompanhar o estado do trabalho, use o [az backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
 ### <a name="stop-protection-without-retaining-recovery-points"></a>Parar a proteção sem reter pontos de recuperação
 
-Para parar a proteção sem reter pontos de recuperação, utilize a proteção de [reserva az desativar](https://docs.microsoft.com/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable) cmdlet com a opção **de dados de eliminação de dados de cópia** de segurança definida como **verdadeira**.
+Para parar a proteção sem reter pontos de recuperação, utilize a [proteção de segurança az desativar](https://docs.microsoft.com/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable) o cmdlet com a opção **de eliminação de dados de cópia de segurança** definida como **verdadeira**.
 
-O exemplo seguinte impede a proteção da partilha de *ficheiros azurefiles* sem reter pontos de recuperação.
+O exemplo a seguir para a proteção da partilha *de ficheiros azurefiles* sem reter pontos de recuperação.
 
 ```azurecli-interactive
 az backup protection disable --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name “AzureFileShare;azurefiles” --delete-backup-data true --out table
@@ -178,8 +178,8 @@ az backup protection disable --vault-name azurefilesvault --resource-group azure
 
 Também pode executar o comando anterior utilizando o nome amigável para o recipiente e o item, fornecendo os seguintes dois parâmetros adicionais:
 
-* **--backup-gestão tipo:** *armazenamento em azurestorage*
-* **--tipo de carga de trabalho**: *azurefileshare*
+* **--tipo de gestão de backup:** *azurestorage*
+* **--tipo de carga de trabalho:** *azurefileshare*
 
 ```azurecli-interactive
 az backup protection disable --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --item-name azurefiles --workload-type azurefileshare --backup-management-type Azurestorage --delete-backup-data true --out table
@@ -187,15 +187,15 @@ az backup protection disable --vault-name azurefilesvault --resource-group azure
 
 ## <a name="resume-protection-on-a-file-share"></a>Retomar a proteção numa partilha de ficheiros
 
-Se parou a proteção para uma partilha de ficheiros Azure, mas manteve pontos de recuperação, pode retomar a proteção mais tarde. Se não mantiver os pontos de recuperação, não pode retomar a proteção.
+Se parasse a proteção de uma partilha de ficheiros Azure, mas mantivesse pontos de recuperação, poderá retomar a proteção mais tarde. Se não mantiver os pontos de recuperação, não pode retomar a proteção.
 
 Para retomar a proteção da partilha de ficheiros, defina os seguintes parâmetros:
 
-* **--nome do contentor**: O nome da conta de armazenamento que acolhe a parte do ficheiro. Para recuperar o **nome** ou **o nome amigável** do seu recipiente, utilize o comando da lista de contentores de reserva [az.](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list)
-* **--nome**do item : O nome da parte do ficheiro para a qual pretende retomar a proteção. Para recuperar o **nome** ou **o nome amigável** do seu item backed, utilize o comando da lista de itens de reserva [az.](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list)
-* **--nome da política**: O nome da política de backup para a qual pretende retomar a proteção da parte do ficheiro.
+* **--nome do contentor**: o nome da conta de armazenamento que acolhe a parte do ficheiro. Para recuperar o **nome** ou **o nome amigável** do seu recipiente, utilize o comando da lista de [contentores de reserva az.](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list)
+* **--nome do item**: o nome da partilha de ficheiros para a qual pretende retomar a proteção. Para recuperar o **nome** ou **o nome amigável** do seu item de reserva, utilize o comando da lista de produtos de reserva [az.](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list)
+* **--nome de política**: O nome da política de backup para a qual pretende retomar a proteção para a partilha de ficheiros.
 
-O exemplo seguinte utiliza o currículo de [proteção de reserva az](https://docs.microsoft.com/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-resume) cmdlet para retomar a proteção para a partilha de *ficheiros azurefiles* utilizando a política de backup *schedule1.*
+O exemplo a seguir utiliza o cmdlet de [proteção de backup az](https://docs.microsoft.com/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-resume) para retomar a proteção para a partilha *de ficheiros azurefiles* utilizando a política de backup do *agenda1.*
 
 ```azurecli-interactive
 az backup protection resume --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --policy-name schedule2 --out table
@@ -203,8 +203,8 @@ az backup protection resume --vault-name azurefilesvault --resource-group azuref
 
 Também pode executar o comando anterior utilizando o nome amigável para o recipiente e o item, fornecendo os seguintes dois parâmetros adicionais:
 
-* **--backup-gestão tipo:** *armazenamento em azurestorage*
-* **--tipo de carga de trabalho**: *azurefileshare*
+* **--tipo de gestão de backup:** *azurestorage*
+* **--tipo de carga de trabalho:** *azurefileshare*
 
 ```azurecli-interactive
 az backup protection resume --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --item-name azurefiles --workload-type azurefileshare --backup-management-type Azurestorage --policy-name schedule2 --out table
@@ -216,15 +216,15 @@ Name                                  ResourceGroup
 75115ab0-43b0-4065-8698-55022a234b7f  azurefiles
 ```
 
-O atributo **nome** na saída corresponde ao nome do trabalho criado pelo serviço de backup para a sua operação de proteção de currículo. Para acompanhar o estado do trabalho, use o show de [trabalho de reserva az](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+O atributo **Nome** na saída corresponde ao nome do trabalho criado pelo serviço de backup para a sua operação de proteção de currículo. Para acompanhar o estado do trabalho, use o [az backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
-## <a name="unregister-a-storage-account"></a>Desregistar uma conta de armazenamento
+## <a name="unregister-a-storage-account"></a>Não registar uma conta de armazenamento
 
-Se quiser proteger as suas ações de ficheiro numa determinada conta de armazenamento utilizando um cofre diferente dos Serviços de Recuperação, a primeira [paragem de proteção para todas as ações](#stop-protection-on-a-file-share) de ficheiro supor nessa conta de armazenamento. Em seguida, desregilhe a conta do cofre dos Serviços de Recuperação atualmente utilizado para proteção.
+Se pretender proteger as suas ações de ficheiros numa determinada conta de armazenamento utilizando um cofre diferente dos Serviços de Recuperação, [primeiro pare a proteção para todas as ações de ficheiros](#stop-protection-on-a-file-share) nessa conta de armazenamento. Em seguida, desagrega a conta do cofre dos Serviços de Recuperação atualmente utilizado para proteção.
 
-É necessário fornecer um nome de contentor para desregistar a conta de armazenamento. Para recuperar o **nome** ou o **nome amigável** do seu recipiente, utilize o comando da lista de contentores de [reserva Az.](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list)
+Tem de fornecer um nome de contentor para não registar a conta de armazenamento. Para recuperar o **nome** ou o **nome amigável** do seu recipiente, utilize o comando da lista [de contentores de reserva az.](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list)
 
-O exemplo seguinte não regista a conta de armazenamento da *afsaccount* a partir do *cofre azurefilesvault* utilizando o recipiente de [reserva az não registrar](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-unregister) cmdlet.
+O exemplo a seguir não registra a conta de armazenamento *afsaccount* a partir de *azurefilesvault* utilizando o [cmdlet do recipiente de reserva az.](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-unregister)
 
 ```azurecli-interactive
 az backup container unregister --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --out table
@@ -232,7 +232,7 @@ az backup container unregister --vault-name azurefilesvault --resource-group azu
 
 Também pode executar o cmdlet anterior utilizando o nome amigável para o recipiente, fornecendo o seguinte parâmetro adicional:
 
-* **--backup-gestão tipo:** *armazenamento em azurestorage*
+* **--tipo de gestão de backup:** *azurestorage*
 
 ```azurecli-interactive
 az backup container unregister --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --backup-management-type azurestorage --out table
@@ -240,4 +240,4 @@ az backup container unregister --vault-name azurefilesvault --resource-group azu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para mais informações, consulte [o ficheiro Troubleshoot Azure partilha backup](troubleshoot-azure-files.md).
+Para obter mais informações, consulte [a Troubleshoot Azure file shares backup](troubleshoot-azure-files.md).

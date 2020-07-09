@@ -1,8 +1,8 @@
 ---
-title: 'Azure AD Connect: Autenticação pass-through - Como funciona Microsoft Docs'
-description: Este artigo descreve como funciona a autenticação de passagem de diretório ativo azure
+title: 'Azure AD Connect: Authentication pass-through - Como funciona Microsoft Docs'
+description: Este artigo descreve como funciona a autenticação pass-through do Azure Ative Directory
 services: active-directory
-keywords: Autenticação de passagem de ligação Azure AD, instala o Diretório Ativo, componentes necessários para Azure AD, SSO, Single Sign-on
+keywords: Autenticação pass-through Azure AD Connect, instalar Diretório Ativo, componentes necessários para Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -11,53 +11,53 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59cd52dbdf6c13900cde592aeb52d8bf9abf850f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e794b66341d4e7c478fd526107cc35c7c745fa7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60347795"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358332"
 ---
-# <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticação de passagem por curso de diretório ativo Azure: mergulho técnico profundo
-Este artigo é uma visão geral de como funciona o diretório Azure Ative (Azure AD) Pass-through Authentication. Para obter informações técnicas e de segurança profundas, consulte o artigo de [mergulho profundo da Segurança.](how-to-connect-pta-security-deep-dive.md)
+# <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticação pass-through do Diretório Ativo Azure: Mergulho profundo técnico
+Este artigo é uma visão geral de como funciona o diretório Azure Ative (Azure AD) De autenticação pass-through. Para obter informações técnicas e de segurança profundas, consulte o artigo [de mergulho profundo da Segurança.](how-to-connect-pta-security-deep-dive.md)
 
-## <a name="how-does-azure-active-directory-pass-through-authentication-work"></a>Como funciona a autenticação de passagem de diretório ativo azure?
+## <a name="how-does-azure-active-directory-pass-through-authentication-work"></a>Como funciona o Azure Ative Directory Authentication?
 
 >[!NOTE]
->Como pré-requisito para que a Autenticação Pass-through funcione, os utilizadores precisam de ser aprovisionados no Azure AD a partir do Diretório Ativo no local utilizando o Azure AD Connect. A autenticação pass-through não se aplica apenas a utilizadores com nuvem.
+>Como pré-requisito para a autenticação pass-through para funcionar, os utilizadores precisam de ser a provisionados no Azure AD a partir de Ative Directory no local usando Azure AD Connect. A autenticação pass-through não se aplica apenas aos utilizadores na nuvem.
 
-Quando um utilizador tenta iniciar sessão numa aplicação protegida pela Azure AD, e se a Autenticação Pass-through estiver ativada no inquilino, ocorrem os seguintes passos:
+Quando um utilizador tenta iniciar sação numa aplicação protegida pela Azure AD, e se a Autenticação Pass-through estiver ativada no arrendatário, ocorrem os seguintes passos:
 
-1. O utilizador tenta aceder a uma aplicação, por exemplo, [aplicação Web do Outlook.](https://outlook.office365.com/owa/)
-2. Se o utilizador ainda não estiver inscrito, o utilizador é redirecionado para a página **de entrada do Utilizador** AD Azure.
-3. O utilizador introduz o seu nome de utilizador na página de sinal de Anúncio Azure e, em seguida, seleciona o botão **Seguinte.**
-4. O utilizador introduz a sua palavra-passe na página de sinal de Anúncio Do Azure e, em seguida, seleciona o botão **'Sinal' no** botão.
-5. A Azure AD, ao receber o pedido de inscrição, coloca o nome de utilizador e a palavra-passe (encriptado utilizando a chave pública dos Agentes de Autenticação) numa fila.
-6. Um Agente de Autenticação no local recupera o nome de utilizador e a palavra-passe encriptada da fila. Note que o Agente não faz frequentemente sondagem para pedidos da fila, mas recupera pedidos sobre uma ligação persistente pré-estabelecida.
+1. O utilizador tenta aceder a uma aplicação, por exemplo, [a Outlook Web App](https://outlook.office365.com/owa/).
+2. Se o utilizador ainda não tiver assinado, o utilizador é redirecionado para a página **de inscrição do utilizador** Azure AD.
+3. O utilizador introduz o seu nome de utilizador no sinal Azure AD na página e, em seguida, seleciona o botão **Seguinte.**
+4. O utilizador introduz a sua palavra-passe no sinal AZure AD na página e, em seguida, seleciona o botão **'Sinal' na** página.
+5. A Azure AD, ao receber o pedido de inscrição, coloca o nome de utilizador e palavra-passe (encriptado utilizando a chave pública dos Agentes de Autenticação) numa fila.
+6. Um Agente de Autenticação no local recupera o nome de utilizador e a palavra-passe encriptada da fila. Note que o Agente não faz frequentemente sondagens para pedidos da fila, mas recupera pedidos sobre uma ligação persistente pré-estabelecida.
 7. O agente desencripta a palavra-passe utilizando a sua chave privada.
-8. O agente valida o nome de utilizador e a palavra-passe contra o Ative Directory utilizando APIs padrão do Windows, que é um mecanismo semelhante ao que os Serviços da Federação de DiretórioS Ativos (AD FS) usam. O nome de utilizador pode ser o nome `userPrincipalName`de utilizador predefinido no local, normalmente, `Alternate ID`ou outro atributo configurado no Azure AD Connect (conhecido como ).
-9. O controlador de domínio Ative Directory (DC) no local avalia o pedido e devolve ao agente a resposta adequada (sucesso, falha, senha expirada ou utilizador bloqueado).
+8. O agente valida o nome de utilizador e a palavra-passe contra o Ative Directory utilizando apis padrão do Windows, que é um mecanismo semelhante ao que os Serviços da Federação de Diretório Ativo (AD FS) utilizam. O nome de utilizador pode ser o nome de utilizador padrão no local, `userPrincipalName` normalmente, ou outro atributo configurado no Azure AD Connect (conhecido como `Alternate ID` ).
+9. O controlador de domínio Ative Directory (DC) no local avalia o pedido e devolve ao agente a resposta adequada (sucesso, falha, senha expirada ou utilizador bloqueado) ao agente.
 10. O Agente de Autenticação, por sua vez, devolve esta resposta à Azure AD.
-11. A Azure AD avalia a resposta e responde ao utilizador conforme apropriado. Por exemplo, a AD Azure ou assina o utilizador imediatamente ou solicita a autenticação de multi-factores Azure.
-12. Se o utilizador iniciar o seu registo, o utilizador pode aceder à aplicação.
+11. A Azure AD avalia a resposta e responde ao utilizador conforme apropriado. Por exemplo, a Azure AD assina imediatamente o utilizador ou solicita a autenticação multi-factor Azure.
+12. Se o pedido de sedu máximo for bem sucedido, o utilizador poderá aceder à aplicação.
 
-O seguinte diagrama ilustra todos os componentes e passos envolvidos:
+O diagrama a seguir ilustra todos os componentes e os passos envolvidos:
 
 ![Autenticação pass-through](./media/how-to-connect-pta-how-it-works/pta2.png)
 
-## <a name="next-steps"></a>Passos seguintes
-- [Limitações atuais](how-to-connect-pta-current-limitations.md): Saiba quais os cenários suportados e quais não são.
-- [Início rápido](how-to-connect-pta-quick-start.md): Levantar-se e funcionar na Autenticação de Passagem De AD Azure.
-- [Migrar de AD FS para a Autenticação Pass-through](https://aka.ms/adfstoPTADP) - Um guia detalhado para migrar de AD FS (ou outras tecnologias da federação) para a Autenticação Pass-through.
+## <a name="next-steps"></a>Próximos passos
+- [Limitações atuais](how-to-connect-pta-current-limitations.md): Saiba quais os cenários que são apoiados e quais não são.
+- [Início Rápido](how-to-connect-pta-quick-start.md): Levante-se e corra na Autenticação Pass-through Azure.
+- [Migrar de AD FS para Autenticação Pass-through](https://aka.ms/adfstoPTADP) - Um guia detalhado para migrar de FS AD (ou outras tecnologias da federação) para a Autenticação Pass-through.
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md): Configure a capacidade de bloqueio inteligente no seu inquilino para proteger as contas do utilizador.
-- [Perguntas frequentes](how-to-connect-pta-faq.md): Encontre respostas para perguntas frequentes.
-- [Resolução de problemas](tshoot-connect-pass-through-authentication.md): Aprenda a resolver problemas comuns com a função de Autenticação Pass-through.
-- [Segurança Deep Dive](how-to-connect-pta-security-deep-dive.md): Obtenha informações técnicas profundas sobre a função de autenticação pass-through.
-- [Azure AD Seamless SSO](how-to-connect-sso.md): Saiba mais sobre esta funcionalidade complementar.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Utilize o Fórum de Diretório Ativo Azure para apresentar novos pedidos de funcionalidades.
+- [Perguntas frequentes](how-to-connect-pta-faq.md): Encontre respostas a perguntas frequentes.
+- [Resolução de problemas](tshoot-connect-pass-through-authentication.md): Aprenda a resolver problemas comuns com a função De autenticação Pass-through.
+- [Security Deep Dive](how-to-connect-pta-security-deep-dive.md): Obtenha informações técnicas profundas sobre a funcionalidade de Autenticação Pass-through.
+- [Azure AD Seamless SSO](how-to-connect-sso.md): Saiba mais sobre esta característica complementar.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Utilize o Azure Ative Directory Forum para apresentar novos pedidos de funcionalidades.
 

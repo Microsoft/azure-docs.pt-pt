@@ -1,143 +1,204 @@
 ---
-title: Apoio linguístico - Tradutor
+title: Suporte linguístico - Tradutor
 titleSuffix: Azure Cognitive Services
-description: O Tradutor de Serviços Cognitivos suporta as seguintes línguas para tradução de texto a texto utilizando tradução da máquina neural (NMT).
+description: O Tradutor de Serviços Cognitivos suporta as seguintes línguas para tradução de texto para texto usando tradução automática neural (NMT).
 services: cognitive-services
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 05/26/2020
+ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 359079ad73fcf162fb742afe74c1c1de5896c35c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 4e4200e291db81ff759e21eac5b1a9b785b5657f
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996079"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888311"
 ---
-# <a name="language-and-region-support-for-translator"></a>Apoio à língua e à região para tradutor
+# <a name="language-and-region-support-for-text-and-speech-translation"></a>Apoio linguístico e regional para tradução de texto e fala
 
-O Tradutor suporta as seguintes línguas para a tradução de texto para texto. A Tradução da Máquina Neural (NMT) é o novo padrão para traduções automáticas de alta qualidade alimentadas por IA e está disponível como padrão utilizando V3 de Tradutor quando um sistema neural está disponível.
+Utilize o Tradutor para traduzir para e a partir de qualquer uma das mais de 60 línguas de tradução de texto. A Tradução Automática Neural (NMT) é o novo padrão para traduções automáticas alimentadas por IA de alta qualidade e está disponível como o padrão usando V3 de Tradutor quando um sistema neural está disponível.
+
+Também pode utilizar o Tradutor em conjunto com o Custom Tradutor para construir sistemas de tradução neural que compreendam a terminologia utilizada no seu próprio negócio e indústria, e com o Microsoft Speech Service para adicionar tradução de voz à sua app.
 
 [Saiba mais sobre como funciona a tradução automática](https://www.microsoft.com/translator/mt.aspx)
 
-## <a name="translation"></a>Tradução
+## <a name="text-translation"></a>Tradução de texto
+A Tradução de Texto está disponível utilizando a operação Translate para ou a partir de qualquer uma das línguas disponíveis no Tradutor. A API também oferece deteção de linguagem utilizando a operação Detect, transliteração utilizando a operação Transliterada e dicionários bilingues utilizando as operações de Procura do Dicionário e Exemplos de Dicionário. As línguas disponíveis para cada uma destas operações estão listadas abaixo. 
 
-**Tradutor V2**
+### <a name="translate"></a>Traduzir
 
-> [!NOTE]
-> A V2 foi depreciada a 30 de abril de 2018. Por favor, emigre as suas aplicações para v3 de forma a tirar partido das novas funcionalidades disponíveis exclusivamente em V3.
+O tradutor apoia as seguintes línguas para tradução de texto para texto. 
 
-* Apenas estatístico: Não existe nenhum sistema neural disponível para esta língua.
-* Neural disponível: Um sistema neural está disponível. Utilize o parâmetro `category=generalnn` para aceder ao sistema neural.
-* Padrão neural: Neural é o sistema de tradução padrão. Utilize o parâmetro `category=smt` para aceder ao sistema estatístico para utilização com o Microsoft Tradutor Hub.
-* Apenas neural: Apenas a tradução neural está disponível.
+[Ver Traduzir documentação de referência de operação](reference/v3-0-translate.md)
 
-**Tradutor V3** O Tradutor V3 é neural por defeito e os sistemas estatísticos só estão disponíveis quando não existe nenhum sistema neural.
-
-> [!NOTE]
-> Atualmente, um subconjunto das línguas neurais está disponível no Tradutor Personalizado e estamos gradualmente adicionando outros. [Ver idiomas atualmente disponíveis em Tradutor Personalizado.](#customization)
-
-|Linguagem|    Código do idioma|    V3 API|
-|:-----|:-----:|:-----|
-|Afrikaans|    `af`|    Neural|
-|Árabe|    `ar`    |    Neural|
-|Rio Bangla|    `bn`    |    Neural|
-|Bósnio (Latim)|    `bs`    |    Neural|
-|Búlgaro|    `bg`    |    Neural|
-|Cantonês (Tradicional)|    `yue`|    Estatística|
-|Catalão|    `ca`    |    Estatística|
-|Chinês simplificado|    `zh-Hans`|Neural|
-|Chinês tradicional|    `zh-Hant`        |Neural|
-|Croata|    `hr`    |Neural|
-|Checo|    `cs`    |    Neural|
-|Dinamarquês|    `da`        |Neural|
-|Neerlandês|    `nl`|    Neural|
-|Inglês|    `en`    |    Neural|
-|Estónio|    `et`    |    Neural|
-|Fijian|    `fj`    |    Estatística|
-|Filipino|    `fil`    |    Estatística|
-|Finlandês|    `fi`    |    Neural|
-|Francês|    `fr`    |    Neural|
-|Alemão|    `de`    |    Neural|
-|Grego|    `el`    |    Neural|
-|Guzerate|    `gu`    |    Neural|
-|Crioulo haitiano|    `ht`        |Estatística|
-|Hebraico    |`he`    |Neural
-|Hindi|    `hi`    |    Neural|
-|Hmong Daw|    `mww`    |    Estatística|
-|Húngaro|    `hu`    |    Neural|
-|Islandês|    `is`    |    Neural|
-|Indonésio|    `id`    |    Estatística|
-|Irlandês | `ga`| Neural
-|Italiano|    `it`    |    Neural|
-|Japonês|    `ja`    |    Neural|
-|Canarês|`kn`| Neural
-|Rio Kiswahili|    `sw`    |    Estatística|
-|Rio Klingon|    `tlh`    |    Estatística|
-|Klingon (plqaD)|    `tlh-Qaak`    |    Estatística|
-|Coreano    |`ko`    |    Neural|
-|Letão|    `lv`    |    Neural|
-|Lituano|    `lt`    |    Neural|
-|Malgaxe|    `mg`    |    Estatística|
-|Malaio|    `ms`        |Estatística|
-|Malaiala| `ml` | Neural
-|Maltês|    `mt`    |    Estatística|
-|Maori| `mi`  | Neural|
-|Marata| `mr`  | Neural|
-|Norueguês|    `nb`    |    Neural|
-|Persa|    `fa`    |    Neural|
-|Polaco|    `pl`    |    Neural|
-|Português (Brasil)|    `pt-br`    |    Neural|
-|Português (Portugal)| `pt-pt` | Neural
-|Punjabi|`pa`|Neural
-|Queretaro Otomi|    `otq`    |    Estatística|
-|Romeno|    `ro`    |    Neural|
-|Russo|    `ru`    |    Neural|
-|Samoano|    `sm`    |    Estatística|
-|Sérvio (Cirílico)|    `sr-Cyrl`|    Estatística|
-|Sérvio (Latim)|    `sr-Latn`        |Estatística|
-|Eslovaco|    `sk`    |    Neural|
-|Esloveno|    `sl`    |    Neural|
-|Espanhol|    `es`    |    Neural|
-|Sueco|    `sv`    |Neural|
-|Taitiano|    `ty`    |Estatística|
-|Tâmil|    `ta`    |    Neural|
-|Telugu|    `te`    |    Neural|
-|Tailandês|    `th`    |    Neural|
-|Tongan|    `to`    |    Estatística|
-|Turco|    `tr`        |Neural|
-|Ucraniano|    `uk`    |    Neural|
-|Urdu|    `ur`    |    Estatística|
-|Vietnamita|    `vi`    |    Neural|
-|Galês|    `cy`    |    Neural|
-|Maia yucateca|    `yua`    |    Estatística|
+|Linguagem|  Código do idioma|
+|:-----|:-----:|
+|Afrikaans| `af`|
+|Árabe|    `ar`    |
+|Bangla|    `bn`    |
+|Bósnio (Latim)|   `bs`    |
+|Búlgaro| `bg`    |
+|Cantonês (Tradicional)|   `yue`|
+|Catalão|   `ca`    |
+|Chinês simplificado|    `zh-Hans`|
+|Chinês tradicional|   `zh-Hant`       |
+|Croata|  `hr`    |
+|Checo| `cs`    |
+|Dinamarquês|    `da`        |
+|Neerlandês| `nl`|
+|Inglês|   `en`    |
+|Estónio|  `et`    |
+|Fijian|    `fj`    |
+|Filipino|  `fil`   |
+|Finlandês|   `fi`    |
+|Francês|    `fr`    |
+|Alemão|    `de`    |
+|Grego| `el`    |
+|Guzerate|  `gu`    |
+|Crioulo haitiano|    `ht`        |
+|Hebraico |`he`   |
+|Hindi| `hi`    |
+|Hmong Daw| `mww`   |
+|Húngaro| `hu`    |
+|Islandês| `is`    |
+|Indonésio|    `id`    |
+|Irlandês | `ga`|
+|Italiano|   `it`    |
+|Japonês|  `ja`    |
+|Canarês|`kn`|
+|Cazaque|`kk`|
+|Rio Kiswahili| `sw`    |
+|Klingon|   `tlh-Latn`  |
+|Klingon (plqaD)|   `tlh-Piqd`  |
+|Coreano |`ko`   |
+|Letão|   `lv`    |
+|Lituano|    `lt`    |
+|Malgaxe|  `mg`    |
+|Malaio| `ms`        |
+|Malaiala| `ml` |
+|Maltês|   `mt`    |
+|Maori| `mi`  |
+|Marata| `mr`  |
+|Norueguês| `nb`    |
+|Persa|   `fa`    |
+|Polaco|    `pl`    |
+|Português (Brasil)|   `pt-br` |
+|Português (Portugal)| `pt-pt` |
+|Punjabi|`pa`|
+|Queretaro Otomi|   `otq`   |
+|Romeno|  `ro`    |
+|Russo|   `ru`    |
+|Samoa|    `sm`    |
+|Sérvio (Cirílico)|    `sr-Cyrl`|
+|Sérvio (Latim)|   `sr-Latn`       |
+|Eslovaco|    `sk`    |
+|Esloveno| `sl`    |
+|Espanhol|   `es`    |
+|Sueco|   `sv`    |
+|Taitiano|  `ty`    |
+|Tâmil| `ta`    |
+|Telugu|    `te`    |
+|Tailandês|  `th`    |
+|Tongan|    `to`    |
+|Turco|   `tr`        |
+|Ucraniano| `uk`    |
+|Urdu|  `ur`    |
+|Vietnamita|    `vi`    |
+|Galês| `cy`    |
+|Maia-de-iucatec|  `yua`   |
 
 > [!NOTE]
-> O código `pt` linguístico será indefinido para `pt-br` , Português (Brasil).
+> O código `pt` linguístico será desafins a `pt-br` português (Brasil).
 
-## <a name="transliteration"></a>Transliteração
+### <a name="detect"></a>Detetar
 
-O método transliterado suporta as seguintes línguas. No "To/From", "<-->" indica que a língua pode ser transliterada de ou para qualquer um dos scripts listados. O "-->" indica que a língua só pode ser transliterada de um guião para outro.
+O tradutor deteta as seguintes línguas para tradução e transliteração.
+
+[Ver Detetar documentação de referência de operação](reference/v3-0-detect.md)
+
+|Linguagem|  Código do idioma|
+|:-----|:-----:|
+|Afrikaans| `af`|
+|Árabe|    `ar`    |
+|Búlgaro| `bg`    |
+|Catalão|   `ca`    |
+|Chinês simplificado|    `zh-Hans`|
+|Chinês tradicional|   `zh-Hant`       |
+|Croata|  `hr`    |
+|Checo| `cs`    |
+|Dinamarquês|    `da`        |
+|Neerlandês| `nl`|
+|Inglês|   `en`    |
+|Estónio|  `et`    |
+|Finlandês|   `fi`    |
+|Francês|    `fr`    |
+|Alemão|    `de`    |
+|Grego| `el`    |
+|Guzerate|  `gu`    |
+|Crioulo haitiano|    `ht`        |
+|Hebraico |`he`   |
+|Hindi| `hi`    |
+|Húngaro| `hu`    |
+|Islandês| `is`    |
+|Indonésio|    `id`    |
+|Irlandês | `ga`|
+|Italiano|   `it`    |
+|Japonês|  `ja`    |
+|Rio Kiswahili| `sw`    |
+|Klingon|   `tlh-Latn`  |
+|Coreano |`ko`   |
+|Letão|   `lv`    |
+|Lituano|    `lt`    |
+|Malaio| `ms`        |
+|Maltês|   `mt`    |
+|Norueguês| `nb`    |
+|Persa|   `fa`    |
+|Polaco|    `pl`    |
+|Português (Brasil)|   `pt-br` |
+|Português (Portugal)| `pt-pt` |
+|Romeno|  `ro`    |
+|Russo|   `ru`    |
+|Sérvio (Cirílico)|    `sr-Cyrl`|
+|Sérvio (Latim)|   `sr-Latn`       |
+|Eslovaco|    `sk`    |
+|Esloveno| `sl`    |
+|Espanhol|   `es`    |
+|Sueco|   `sv`    |
+|Taitiano|  `ty`    |
+|Tailandês|  `th`    |
+|Turco|   `tr`        |
+|Ucraniano| `uk`    |
+|Urdu|  `ur`    |
+|Vietnamita|    `vi`    |
+|Galês| `cy`    |
+|Maia-de-iucatec|  `yua`   |
+
+### <a name="transliterate"></a>Transliterar
+
+O método transliterado suporta as seguintes línguas. No "De/Para", "<->" indica que a língua pode ser transliterada de ou para qualquer um dos scripts listados. O "->" indica que a linguagem só pode ser transliterada de um script para o outro.
+
+[Ver documentação de referência de operação transliterada](reference/v3-0-translate.md)
+
 
 | Linguagem    | Código do idioma | Script | Para/De | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe`Arab` | <--> | Latim`Latn` |
-|Rio Bangla  | `bn` | Bengalês`Beng` | <--> | Latim`Latn` |
+| Bangla  | `bn` | Bengalês`Beng` | <--> | Latim`Latn` |
 | Chinês (Simplificado) | `zh-Hans` | Chinês simplificado`Hans`| <--> | Latim`Latn` |
 | Chinês (Simplificado) | `zh-Hans` | Chinês simplificado`Hans`| <--> | Chinês tradicional`Hant`|
 | Chinês (Tradicional) | `zh-Hant` | Chinês tradicional`Hant`| <--> | Latim`Latn` |
 | Chinês (Tradicional) | `zh-Hant` | Chinês tradicional`Hant`| <--> | Chinês simplificado`Hans` |
 | Guzerate | `gu`  | Guzerate`Gujr` | --> | Latim`Latn` |
 | Hebraico | `he` | Hebraico`Hebr` | <--> | Latim`Latn` |
-| Hindi | `hi` | Rio Devanagari`Deva` | <--> | Latim`Latn` |
+| Hindi | `hi` | Devanagari`Deva` | <--> | Latim`Latn` |
 | Japonês | `ja` | Japonês`Jpan` | <--> | Latim`Latn` |
 | Canarês | `kn` | Canarês`Knda` | --> | Latim`Latn` |
 | Malaiala | `ml` | Malaiala`Mlym` | --> | Latim`Latn` |
-| Marata | `mr` | Rio Devanagari`Deva` | --> | Latim`Latn` |
-| Oriya | `or` | Oriya`Orya` | <--> | Latim`Latn` |
+| Marata | `mr` | Devanagari`Deva` | --> | Latim`Latn` |
+| Odia | `or` | Oriya`Orya` | <--> | Latim`Latn` |
 | Punjabi | `pa` | Rio Gurmukhi`Guru`  | <--> | Latim`Latn`  |
 | Sérvio (Cirílico) | `sr-Cyrl` | Cirílico`Cyrl`  | --> | Latim`Latn` |
 | Sérvio (Latim) | `sr-Latn` | Latim`Latn` | --> | Cirílico`Cyrl`|
@@ -145,15 +206,17 @@ O método transliterado suporta as seguintes línguas. No "To/From", "<-->" indi
 | Telugu | `te` | Telugu`Telu` | --> | Latim`Latn` |
 | Tailandês | `th` | Tailandês`Thai` | --> | Latim`Latn` |
 
-## <a name="dictionary"></a>Dicionário
+### <a name="dictionary"></a>Dicionário
 
-O dicionário suporta as seguintes línguas de ou para inglês utilizando os métodos De supérão e Exemplos.
+O dicionário suporta as seguintes línguas de ou para o inglês usando os métodos Lookup e Examples.
+
+Ver documentação de referência para as operações [de Procura](reference/v3-0-dictionary-lookup.md) do Dicionário e [Exemplos de Dicionário.](reference/v3-0-dictionary-examples.md)
 
 | Linguagem    | Código do idioma |
 |:----------- |:-------------:|
 | Afrikaans      | `af`          |
 | Árabe       | `ar`          |
-| Rio Bangla      | `bn`          |
+| Bangla      | `bn`          |
 | Bósnio (Latim)      | `bs`          |
 | Búlgaro      | `bg`          |
 | Catalão      | `ca`          |
@@ -177,7 +240,7 @@ O dicionário suporta as seguintes línguas de ou para inglês utilizando os mé
 | Italiano      | `it`          |
 | Japonês      | `ja`          |
 | Rio Kiswahili      | `sw`          |
-| Rio Klingon      | `tlh`          |
+| Klingon      | `tlh`          |
 | Coreano      | `ko`          |
 | Letão      | `lv`          |
 | Lituano      | `lt`          |
@@ -202,29 +265,24 @@ O dicionário suporta as seguintes línguas de ou para inglês utilizando os mé
 | Vietnamita      | `vi`          |
 | Galês      | `cy`          |
 
-## <a name="detect"></a>Detetar
+### <a name="access-the-translator-language-list-programmatically"></a>Aceda à lista de línguas tradutora programáticamente
 
-Tradutor deteta todas as línguas disponíveis para tradução e transliteração.
+Pode obter uma lista de línguas apoiadas para Tradutor utilizando o método idiomas. Pode ver a lista por recurso, código de idioma, bem como o nome da língua em inglês ou qualquer outro idioma suportado. Esta lista é atualizada automaticamente pelo serviço Microsoft Tradutor, uma vez que são disponibilizados novos idiomas.
 
-
-## <a name="access-the-translator-language-list-programmatically"></a>Aceda à lista de línguas tradutora programáticamente
-
-Pode obter uma lista de idiomas suportados para tradutor v3.0 utilizando o método Idiomas. Pode ver a lista por recurso, código de idioma, bem como o nome de língua em inglês ou qualquer outro idioma suportado. Esta lista é automaticamente atualizada pelo serviço Microsoft Tradutor à medida que novos idiomas são disponibilizados.
-
-[Ver documentação de referência da operação Idiomas](reference/v3-0-languages.md)
+[Ver documentação de referência de operação de línguas](reference/v3-0-languages.md)
 
 ## <a name="customization"></a>Personalização
 
-Os seguintes idiomas estão disponíveis para personalização de ou para inglês usando [tradutor personalizado](https://aka.ms/CustomTranslator).
+Os seguintes idiomas estão disponíveis para personalização de ou para inglês usando [o Tradutor Personalizado.](https://aka.ms/CustomTranslator)
 
 | Linguagem    | Código do idioma |
 |:----------- |:-------------:|
 | Árabe       | `ar`          |
-| Rio Bangla      | `bn`          |
+| Bangla      | `bn`          |
 | Bósnio (Latim)      | `bs`          |
 | Búlgaro      | `bg`          |
 | Chinês simplificado      | `zh-Hans`          |
-|Chinês tradicional|    `zh-Hant`    |
+|Chinês tradicional|   `zh-Hant`   |
 | Croata      | `hr`          |
 | Checo      | `cs`          |
 | Dinamarquês      | `da`          |
@@ -239,15 +297,15 @@ Os seguintes idiomas estão disponíveis para personalização de ou para inglê
 | Hindi      | `hi`          |
 | Húngaro      | `hu`          |
 | Islandês | `is` |
-| Indonésio|    `id`    |
-| Irlandês | `ga`    |
+| Indonésio|   `id`    |
+| Irlandês | `ga`  |
 | Italiano      | `it`          |
 | Japonês      | `ja`          |
 | Rio Kiswahili|    `sw`    |
 | Coreano      | `ko`          |
 | Letão      | `lv`          |
 | Lituano      | `lt`          |
-| Malgaxe|    `mg`    |
+| Malgaxe| `mg`    |
 | Maori| `mi`  |
 | Norueguês      | `nb`          |
 | Persa      | `fa`          |
@@ -255,7 +313,7 @@ Os seguintes idiomas estão disponíveis para personalização de ou para inglê
 | Português (Brasil) | `pt-br` |
 | Romeno      | `ro`          |
 | Russo      | `ru`          |
-| Samoano|    `sm`    |
+| Samoa|   `sm`    |
 | Sérvio (Latim)      | `sr-Latn`          |
 | Eslovaco     | `sk`          |
 | Esloveno      | `sl`          |
@@ -267,8 +325,89 @@ Os seguintes idiomas estão disponíveis para personalização de ou para inglê
 | Vietnamita      | `vi`          |
 | Galês | `cy` |
 
-## <a name="access-the-list-on-the-microsoft-translator-website"></a>Aceda à lista no site do Microsoft Tradutor
+## <a name="speech-translation"></a>Tradução de Voz
+A tradução da fala está disponível utilizando o serviço de Discurso de Tradutor com Serviços Cognitivos. Consulte [a documentação do Serviço de Discurso](https://docs.microsoft.com/azure/cognitive-services/speech-service/) para saber mais sobre a utilização da tradução da fala e para ver todas as [opções linguísticas disponíveis.](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support)
 
-Para uma rápida olhada nos idiomas, o site do Microsoft Tradutor mostra todos os idiomas suportados pelos APIs de Tradução e Fala. Esta lista não inclui informações específicas do desenvolvedor, tais como códigos de idiomas.
+### <a name="speech-to-text"></a>Conversão de voz em texto
+Converta a fala em texto para traduzir para a linguagem de texto à sua escolha. A palavra-a-texto é usada para a tradução de texto ou para tradução fala-a-fala quando usada em conjunto com a síntese da fala.
+
+| Linguagem    |
+|:----------- |
+|Árabe|
+|Cantonês (Tradicional)|
+|Catalão|
+|Chinês simplificado|
+|Chinês tradicional|
+|Dinamarquês|
+|Neerlandês|
+|Inglês|
+|Finlandês|
+|Francês|
+|Alemão|
+|Guzerate|
+|Hindi|
+|Italiano|
+|Japonês|
+|Coreano|
+|Marata|
+|Norueguês|
+|Polaco|
+|Português (Brasil)|
+|Português (Portugal)|
+|Russo|
+|Espanhol|
+|Sueco|
+|Tâmil|
+|Telugu|
+|Tailandês|
+|Turco|
+
+### <a name="text-to-speech"></a>Conversão de texto em voz
+Converter texto em discurso. O texto-a-discurso é usado para adicionar produção audível dos resultados de tradução, ou para tradução fala-a-fala quando usado com discurso-a-texto. 
+
+| Linguagem    |
+|:----------- |
+|Árabe|
+|Búlgaro|
+|Cantonês (Tradicional)|
+|Catalão|
+|Chinês simplificado|
+|Chinês tradicional|
+|Croata|
+|Checo|
+|Dinamarquês|
+|Neerlandês|
+|Inglês|
+|Finlandês|
+|Francês|
+|Alemão|
+|Grego|
+|Hebraico|
+|Hindi|
+|Húngaro|
+|Indonésio|
+|Italiano|
+|Japonês|
+|Coreano|
+|Malaio|
+|Norueguês|
+|Polaco|
+|Português (Brasil)|
+|Português (Portugal)|
+|Romeno|
+|Russo|
+|Eslovaco|
+|Esloveno|
+|Espanhol|
+|Sueco|
+|Tâmil|
+|Telugu|
+|Tailandês|
+|Turco|
+|Vietnamita|
+
+## <a name="view-the-language-list-on-the-microsoft-translator-website"></a>Ver a lista de idiomas no site do Microsoft Tradutor
+
+Para uma rápida olhada nas línguas, o site microsoft Tradutor mostra todas as línguas suportadas pelo Tradutor para tradução de texto e serviço de fala para tradução de fala. Esta lista não inclui informações específicas do programador, tais como códigos linguísticos.
 
 [Ver a lista de línguas](https://www.microsoft.com/translator/languages.aspx)

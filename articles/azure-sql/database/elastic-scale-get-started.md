@@ -1,6 +1,6 @@
 ---
-title: Começar com ferramentas de base de dados elásticas
-description: Explicação básica da funcionalidade ferramentas de base de dados elásticas da Base de Dados Azure SQL, incluindo uma aplicação de amostra fácil de executar.
+title: Começar com Ferramentas elásticas de base de dados
+description: Explicação básica da funcionalidade Elástico database Tools da Azure SQL Database, incluindo uma aplicação de amostra fácil de executar.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,55 +12,54 @@ ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 8a7efdee772c3a871fb8f26655dfc1160c275959
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84044186"
 ---
-# <a name="get-started-with-elastic-database-tools"></a>Começar com ferramentas de base de dados elásticas
+# <a name="get-started-with-elastic-database-tools"></a>Começar com Ferramentas elásticas de base de dados
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Este documento apresenta-lhe a experiência do desenvolvedor para a biblioteca de clientes de base de [dados elástica,](elastic-database-client-library.md) ajudando-o a executar uma aplicação de amostra. A aplicação de amostra sharded cria uma aplicação simples e explora as principais capacidades da funcionalidade Ferramentas de Base de Dados Elásticas da Base de Dados Azure SQL. Centra-se na utilização de casos para [a gestão](elastic-scale-shard-map-management.md)de mapas de fragmentos, [encaminhamento dependente de dados](elastic-scale-data-dependent-routing.md)e consulta [multi-fragmentos.](elastic-scale-multishard-querying.md) A biblioteca de clientes está disponível para .NET e Java.
+Este documento apresenta-lhe a experiência do desenvolvedor para a [biblioteca de clientes de base de dados elástica,](elastic-database-client-library.md) ajudando-o a executar uma aplicação de amostra. A aplicação de amostra cria uma aplicação simples e sharded e explora as capacidades-chave da funcionalidade Elástico Base de Dados de Dados sqL da Base de Dados Azure. Centra-se na utilização de casos [de gestão de mapas de](elastic-scale-shard-map-management.md) [fragmentos, encaminhamento dependente de dados](elastic-scale-data-dependent-routing.md)e [consulta de vários fragmentos.](elastic-scale-multishard-querying.md) A biblioteca cliente está disponível para .NET, bem como java.
 
-## <a name="elastic-database-tools-for-java"></a>Ferramentas de base de dados elásticas para Java
+## <a name="elastic-database-tools-for-java"></a>Ferramentas elásticas de base de dados para Java
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Um Kit de Desenvolvimento Java (JDK), versão 1.8 ou posterior
-* [Rio Maven](https://maven.apache.org/download.cgi)
+* Um Kit de Desenvolvimento Java (JDK), versão 1.8 ou mais tarde
+* [Maven](https://maven.apache.org/download.cgi)
 * Base de Dados SQL ou uma instância local do Servidor SQL
 
-### <a name="download-and-run-the-sample-app"></a>Descarregue e execute a aplicação de amostra
+### <a name="download-and-run-the-sample-app"></a>Descarregue e execute o aplicativo de amostra
 
-Para construir os ficheiros JAR e começar com o projeto da amostra, faça o seguinte:
+Para construir os ficheiros JAR e começar com o projeto de amostra, faça o seguinte:
 
-1. Clone o [repositório GitHub](https://github.com/Microsoft/elastic-db-tools-for-java) contendo a biblioteca do cliente, juntamente com a aplicação de amostra.
+1. Clone o [repositório GitHub](https://github.com/Microsoft/elastic-db-tools-for-java) contendo a biblioteca do cliente, juntamente com a aplicação da amostra.
 
 2. Editar o ficheiro _./sample/src/main/resources/resource.properties_ para definir o seguinte:
     * TEST_CONN_USER
     * TEST_CONN_PASSWORD
     * TEST_CONN_SERVER_NAME
 
-3. Para construir o projeto de amostragem, no diretório _./amostra,_ executar o seguinte comando:
+3. Para construir o projeto de amostra, no _diretório ./amostra,_ executar o seguinte comando:
 
     ```
     mvn install
     ```
 
-4. Para iniciar o projeto de amostragem, no diretório _./amostra,_ executar o seguinte comando:
+4. Para iniciar o projeto de amostra, no _diretório ./amostra,_ executar o seguinte comando:
 
     ```
     mvn -q exec:java "-Dexec.mainClass=com.microsoft.azure.elasticdb.samples.elasticscalestarterkit.Program"
     ```
 
-5. Para saber mais sobre as capacidades da biblioteca do cliente, experimente as várias opções. Sinta-se livre para explorar o código para saber sobre a implementação da aplicação de amostras.
+5. Para saber mais sobre as capacidades da biblioteca do cliente, experimente as várias opções. Sinta-se livre para explorar o código para saber sobre a implementação da aplicação da amostra.
 
     ![Progresso-java][5]
 
-Parabéns! Construiu e executou com sucesso a sua primeira aplicação esforçada utilizando ferramentas de base de dados elásticas na Base de Dados SQL Azure. Utilize o Visual Studio ou o SQL Server Management Studio para se ligar à sua base de dados e dar uma olhada rápida nos fragmentos que a amostra criou. Você vai notar novas bases de dados de fragmentos de amostra e uma base de dados de gestor de mapas de fragmentos que a amostra criou.
+Parabéns! Construiu e executou com sucesso a sua primeira aplicação de sharded utilizando Ferramentas elásticas de base de dados na Base de Dados Azure SQL. Utilize o Visual Studio ou o SQL Server Management Studio para ligar à sua base de dados e dar uma olhada rápida nos fragmentos que a amostra criou. Irá notar novas bases de dados de fragmentos de amostra e uma base de dados de gestor de mapas de fragmentos que a amostra criou.
 
-Para adicionar a biblioteca de clientes ao seu próprio projeto Maven, adicione a seguinte dependência no seu ficheiro POM:
+Para adicionar a biblioteca do cliente ao seu próprio projeto Maven, adicione a seguinte dependência no seu ficheiro POM:
 
 ```xml
 <dependency>
@@ -74,68 +73,68 @@ Para adicionar a biblioteca de clientes ao seu próprio projeto Maven, adicione 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Estúdio Visual 2012 ou mais tarde com C#. Faça o download de uma versão gratuita no [Visual Studio Downloads.](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
-* NuGet 2.7 ou mais tarde. Para obter a versão mais recente, consulte [Instalar nuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
+* Visual Studio 2012 ou mais tarde com C#. Descarregue uma versão gratuita no [Visual Studio Downloads.](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+* NuGet 2.7 ou mais tarde. Para obter a versão mais recente, consulte [instalar o NuGet.](https://docs.nuget.org/docs/start-here/installing-nuget)
 
-### <a name="download-and-run-the-sample-app"></a>Descarregue e execute a aplicação de amostra
+### <a name="download-and-run-the-sample-app"></a>Descarregue e execute o aplicativo de amostra
 
-Para instalar a biblioteca, vá a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). A biblioteca está instalada com a aplicação de amostras descrita na secção seguinte.
+Para instalar a biblioteca, aceda a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). A biblioteca está instalada com a aplicação de amostras descrita na secção seguinte.
 
 Para descarregar e executar a amostra, siga estes passos:
 
-1. Descarregue as [ferramentas ELÁSTICAS DB para Azure SQL - Começar](https://github.com/Azure/elastic-db-tools)a amostra . Desaperte a amostra para um local que escolher.
+1. Descarregue as [Ferramentas Elásticas DB para Azure SQL - Obter Amostra de Início](https://github.com/Azure/elastic-db-tools). Desaperte a amostra para um local que escolher.
 
-2. Para criar um projeto, abra a solução *ElasticScaleStarterStarter.sln* a partir do diretório *C#.*
+2. Para criar um projeto, abra a solução *ElasticScaleStarterKit.sln* a partir do diretório *C#.*
 
-3. Na solução para o projeto da amostra, abra o ficheiro *app.config.* Em seguida, siga as instruções no ficheiro para adicionar o nome do seu servidor e as suas informações de entrada (nome de utilizador e palavra-passe).
+3. Na solução para o projeto da amostra, abra o ficheiro *app.config.* Em seguida, siga as instruções do ficheiro para adicionar o nome do servidor e as informações de inscrição (nome de utilizador e palavra-passe).
 
-4. Compile e execute a aplicação. Quando for solicitado, ative o Visual Studio a restaurar os pacotes NuGet da solução. Esta ação descarrega a versão mais recente da biblioteca de clientes de base de dados elástica da NuGet.
+4. Compile e execute a aplicação. Quando for solicitado, ative o Visual Studio para restaurar os pacotes NuGet da solução. Esta ação descarrega a versão mais recente da biblioteca de clientes de base de dados elástica do NuGet.
 
 5. Para saber mais sobre as capacidades da biblioteca do cliente, experimente as várias opções. Note os passos que a aplicação toma na saída da consola e sinta-se livre para explorar o código nos bastidores.
 
    ![Progresso][4]
 
-Parabéns! Construiu e executou com sucesso a sua primeira aplicação esforçada utilizando ferramentas de base de dados elásticas na Base de Dados SQL. Utilize o Visual Studio ou o SQL Server Management Studio para se ligar à sua base de dados e dar uma olhada rápida nos fragmentos que a amostra criou. Você vai notar novas bases de dados de fragmentos de amostra e uma base de dados de gestor de mapas de fragmentos que a amostra criou.
+Parabéns! Construiu e executou com sucesso a sua primeira aplicação de sharded utilizando Ferramentas elásticas de base de dados na Base de Dados SQL. Utilize o Visual Studio ou o SQL Server Management Studio para ligar à sua base de dados e dar uma olhada rápida nos fragmentos que a amostra criou. Irá notar novas bases de dados de fragmentos de amostra e uma base de dados de gestor de mapas de fragmentos que a amostra criou.
 
 > [!IMPORTANT]
-> Recomendamos que utilize sempre a versão mais recente do Management Studio para que se mantenha sincronizado com atualizações para a Base de Dados Azure e SQL. [Atualize o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> Recomendamos que utilize sempre a versão mais recente do Management Studio para que se mantenha sincronizado com atualizações para a Azure e a SQL Database. [Atualize o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="key-pieces-of-the-code-sample"></a>Peças-chave da amostra de código
 
-* **Gestão de fragmentos e mapas**de fragmentos : O código ilustra como trabalhar com fragmentos, gamas e mapeamentos no ficheiro *ShardManagementUtils.cs.* Para mais informações, consulte as bases de [dados scale out com o gestor de mapas de fragmentos](https://go.microsoft.com/?linkid=9862595).  
+* **Gestão de fragmentos e mapas de fragmentos**: O código ilustra como trabalhar com fragmentos, gamas e mapeamentos no ficheiro *ShardManagementUtils.cs.* Para obter mais informações, consulte [bases de dados de escala com o gestor de mapas de fragmentos.](https://go.microsoft.com/?linkid=9862595)  
 
-* **Encaminhamento dependente de dados**: O encaminhamento das transações para o fragmento direito é mostrado no ficheiro *DataDependentRoutingSample.cs.* Para obter mais informações, consulte o [encaminhamento dependente de dados](https://go.microsoft.com/?linkid=9862596).
+* **Encaminhamento dependente de dados**: O encaminhamento de transações para o fragmento certo é indicado no ficheiro *DataDependentRoutingSample.cs.* Para obter mais informações, consulte [o encaminhamento dependente de dados](https://go.microsoft.com/?linkid=9862596).
 
-* **Consulta sobre vários fragmentos**: A consulta através de fragmentos é ilustrada no ficheiro *MultiShardQuerySample.cs.* Para mais informações, consulte a [consulta multi-fragmento](https://go.microsoft.com/?linkid=9862597).
+* **Consulta sobre vários fragmentos**: A consulta através de fragmentos é ilustrada no ficheiro *MultiShardQuerySample.cs.* Para obter mais informações, consulte [a consulta multi-fragmentos.](https://go.microsoft.com/?linkid=9862597)
 
-* **Adição de fragmentos vazios**: A adição iterativa de novos fragmentos vazios é executada pelo código no ficheiro *CreateShardSample.cs.* Para mais informações, consulte as bases de [dados scale out com o gestor de mapas de fragmentos](https://go.microsoft.com/?linkid=9862595).
+* **Adicionar fragmentos vazios**: A adição iterativa de novos fragmentos vazios é efetuada pelo código no ficheiro *CreateShardSample.cs.* Para obter mais informações, consulte [bases de dados de escala com o gestor de mapas de fragmentos.](https://go.microsoft.com/?linkid=9862595)
 
-## <a name="other-elastic-scale-operations"></a>Outras operações de escala elástica
+## <a name="other-elastic-scale-operations"></a>Outras operações à escala elástica
 
-* **Dividir um fragmento existente**: A capacidade de dividir fragmentos é fornecida pela ferramenta de fusão de divisão. Para mais informações, consulte [os dados em movimento entre](elastic-scale-overview-split-and-merge.md)bases de dados em nuvem .
+* **Divisão de um fragmento existente**: A capacidade de dividir fragmentos é fornecida pela ferramenta de fusão dividida. Para obter mais informações, consulte [dados de deslocação entre bases de dados de nuvem escalonadas](elastic-scale-overview-split-and-merge.md).
 
-* Fusão de **fragmentos existentes**: As fusões de fragmentos também são realizadas utilizando a ferramenta de fusão de divisão. Para mais informações, consulte [os dados em movimento entre](elastic-scale-overview-split-and-merge.md)bases de dados em nuvem .
+* **Os fragmentos existentes**também são efetuados através da ferramenta de fusão de divisões. Para obter mais informações, consulte [dados de deslocação entre bases de dados de nuvem escalonadas](elastic-scale-overview-split-and-merge.md).
 
 ## <a name="cost"></a>Custo
 
-A biblioteca Elastic Database Tools é gratuita. Quando utiliza ferramentas de base de dados elásticas, não incorre em encargos adicionais para além do custo da sua utilização do Azure.
+A biblioteca Elástico Database Tools é gratuita. Quando utiliza Ferramentas elásticas de base de dados, não incorre em custos adicionais para além do custo da sua utilização do Azure.
 
-Por exemplo, a aplicação da amostra cria novas bases de dados. O custo desta capacidade depende da edição da Base de Dados SQL que escolher e do uso azure da sua aplicação.
+Por exemplo, a aplicação da amostra cria novas bases de dados. O custo desta capacidade depende da edição SQL Database que escolher e da utilização do Azure da sua aplicação.
 
-Para obter informações sobre preços, consulte os detalhes dos preços da Base de [Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+Para obter informações sobre preços, consulte [os detalhes dos preços da Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para mais informações sobre ferramentas de base de dados elásticas, consulte os seguintes artigos:
+Para obter mais informações sobre as Ferramentas de Base de Dados Elásticas, consulte os seguintes artigos:
 
 * Amostras de código:
-  * Ferramentas de base de dados elásticas[(.NET,](https://github.com/Azure/elastic-db-tools) [Java)](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)
-  * [Ferramentas de base de dados elásticas para Azure SQL - Integração do Quadro de Entidades](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
-  * [Elasticidade do fragmento no Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
+  * Ferramentas elásticas de base de dados[(.NET,](https://github.com/Azure/elastic-db-tools) [Java)](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)
+  * [Ferramentas elásticas de base de dados para Azure SQL - Integração de Quadros de Entidade](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
+  * [Elasticidade do fragmento no Centro de Script](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Anúncio de Escala Elástica](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
-* Canal 9: [Vídeo de visão geral da escala elástica](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
-* Fórum de discussão: Microsoft Q&Uma página de perguntas para base de [dados Azure SQL](https://docs.microsoft.com/answers/topics/azure-sql-database.html)
-* Para medir o desempenho: Contadores de [desempenho para gestor de mapas de fragmentos](elastic-database-client-library.md)
+* Canal 9: Vídeo [de visão geral da escala elástica](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
+* Fórum de discussão: [Microsoft Q&Uma página de perguntas para Azure SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html)
+* Para medir o desempenho: [Contadores de desempenho para o gestor de mapas de fragmentos](elastic-database-client-library.md)
 
 <!--Anchors-->
 [The Elastic Scale Sample Application]: #The-Elastic-Scale-Sample-Application

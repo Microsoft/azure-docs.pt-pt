@@ -1,5 +1,5 @@
 ---
-title: Mostrar dados de tráfego no mapa android / Microsoft Azure Maps
+title: Mostrar dados de tráfego no mapa android Microsoft Azure Maps
 description: Neste artigo você vai aprender, como exibir dados de tráfego em um mapa usando o Microsoft Azure Maps Android SDK.
 author: philmea
 ms.author: philmea
@@ -9,29 +9,29 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: e5611eeb08ac370e12cf452d57a87e449fbd80da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335382"
 ---
-# <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Mostre dados de tráfego no mapa usando Azure Maps Android SDK
+# <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Mostrar dados de tráfego no mapa usando Azure Maps Android SDK
 
-Dados de fluxo e dados de incidentes são os dois tipos de dados de tráfego que podem ser exibidos no mapa. Este guia mostra-lhe como exibir ambos os tipos de dados de tráfego. Os dados relativos aos incidentes consistem em dados de pontos e de linha para coisas como construções, encerramentos de estradas e acidentes. Os dados de fluxo mostram métricas sobre o fluxo de tráfego na estrada.
+Dados de fluxo e dados de incidentes são os dois tipos de dados de tráfego que podem ser exibidos no mapa. Este guia mostra-lhe como exibir ambos os tipos de dados de tráfego. Os dados relativos aos incidentes consistem em dados pontuais e baseados em linha para coisas como construções, encerramentos de estradas e acidentes. Os dados do fluxo mostram métricas sobre o fluxo de tráfego na estrada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de poder mostrar o tráfego no mapa, tem de [fazer uma Conta Azure](quick-demo-map-app.md#create-an-account-with-azure-maps)e obter uma chave de [subscrição](quick-demo-map-app.md#get-the-primary-key-for-your-account). Depois, é necessário instalar o [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) e carregar um mapa.
+Antes de poder mostrar tráfego no mapa, tem de [fazer uma Conta Azure](quick-demo-map-app.md#create-an-account-with-azure-maps)e [obter uma chave de subscrição.](quick-demo-map-app.md#get-the-primary-key-for-your-account) Em seguida, você precisa instalar o [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) e carregar um mapa.
 
 ## <a name="incidents-traffic-data"></a>Incidentes dados de tráfego 
 
-Terá de importar as seguintes `setTraffic` bibliotecas para ligar e: `incidents`
+Você precisará importar as seguintes bibliotecas para ligar `setTraffic` `incidents` e:
 
 ```java
 import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.incidents;
 ```
 
- O seguinte código de corte mostra-lhe como exibir dados de tráfego no mapa. Passamos um valor booleano ao `incidents` método, `setTraffic` e passamos isso para o método. 
+ O seguinte corte de código mostra-lhe como exibir dados de tráfego no mapa. Passamos um valor booleano ao `incidents` método, e passamos isso para o `setTraffic` método. 
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -44,21 +44,21 @@ protected void onCreate(Bundle savedInstanceState) {
 
 ## <a name="flow-traffic-data"></a>Dados de tráfego de fluxo
 
-Primeiro terá de importar as seguintes `setTraffic` `flow`bibliotecas para ligar e:
+Primeiro terá de importar as seguintes bibliotecas para ligar `setTraffic` `flow` e:
 
 ```java
 import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
 import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 ```
 
-Utilize o seguinte código para definir os dados de fluxo de tráfego. Semelhante ao código na secção anterior, passamos `flow` o valor `setTraffic` de retorno do método ao método. Há quatro valores que `flow`podem ser passados `flow` para, e cada valor desencadearia a devolução do respetivo valor. O valor `flow` de retorno será então `setTraffic`passado como argumento para . Consulte a tabela abaixo para estes quatro valores:
+Utilize o seguinte corte de código para definir os dados de fluxo de tráfego. Semelhante ao código na secção anterior, passamos o valor de retorno do `flow` método para o `setTraffic` método. Há quatro valores que podem ser passados `flow` para , e cada valor desencadearia para devolver o respetivo `flow` valor. O valor de retorno será `flow` então passado como argumento para `setTraffic` . Consulte a tabela abaixo para estes quatro valores:
 
 | | |
 | :-- | :-- |
-| Fluxo de Tráfego.NENHUM | Não exibe dados de tráfego no mapa |
-| Fluxo de Tráfego.RELATIVE | Mostra dados de tráfego relativos à velocidade de fluxo livre da estrada |
-| TrafficFlow.RELATIVE_DELAY | Exibe áreas mais lentas do que o atraso esperado médio |
-| Fluxo de Tráfego.ABSOLUTE | Mostra a velocidade absoluta de todos os veículos na estrada |
+| TrafficFlow.NONE | Não exibe dados de tráfego no mapa |
+| TrafficFlow.RELATIVE | Mostra dados de tráfego relativos à velocidade de fluxo livre da estrada |
+| TrafficFlow.RELATIVE_DELAY | Exibe áreas mais lentas do que a média esperada |
+| TrafficFlow.ABSOLUTE | Mostra a velocidade absoluta de todos os veículos na estrada |
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -69,11 +69,11 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-## <a name="show-incident-traffic-data-by-clicking-a-feature"></a>Mostre dados de tráfego de incidentes clicando numa funcionalidade
+## <a name="show-incident-traffic-data-by-clicking-a-feature"></a>Mostrar dados de tráfego de incidentes clicando numa funcionalidade
 
-Para obter os incidentes para uma característica específica, pode utilizar o código abaixo. Quando uma funcionalidade é clicada, a lógica do código verifica incidentes e constrói uma mensagem sobre o incidente. Uma mensagem aparece na parte inferior do ecrã com os detalhes.
+Para obter os incidentes para uma funcionalidade específica, pode utilizar o código abaixo. Quando uma funcionalidade é clicada, a lógica de código verifica os incidentes e constrói uma mensagem sobre o incidente. Uma mensagem aparece na parte inferior do ecrã com os detalhes.
 
-1. Primeiro, é necessário editar **res > layout > activity_main.xml,** para que se pareça com o que está por baixo. Pode substituir `mapcontrol_centerLat`o, `mapcontrol_centerLng` `mapcontrol_zoom` e os valores desejados. Lembre-se, o nível de zoom é um valor entre 0 e 22. No nível de zoom 0, o mundo inteiro encaixa-se num único azulejo.
+1. Primeiro, você precisa editar **res > layout > activity_main.xml**, para que se pareça com o de baixo. Pode substituir o `mapcontrol_centerLat` `mapcontrol_centerLng` , e pelos `mapcontrol_zoom` valores desejados. Lembre-se, o nível de zoom é um valor entre 0 e 22. No nível de zoom 0, o mundo inteiro cabe num único azulejo.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>
@@ -96,7 +96,7 @@ Para obter os incidentes para uma característica específica, pode utilizar o c
    </FrameLayout>
    ```
 
-2. Adicione o seguinte código ao seu ficheiro **MainActivity.java.** O pacote está incluído por defeito, por isso certifique-se de manter o seu pacote no topo.
+2. Adicione o seguinte código ao seu ficheiro **MainActivity.java.** O pacote está incluído por padrão, por isso certifique-se de manter a sua encomenda no topo.
 
    ```java
    package <yourpackagename>;
@@ -240,7 +240,7 @@ Consulte os seguintes guias para saber como adicionar mais dados ao seu mapa:
 > [Adicionar uma camada de mosaico](how-to-add-tile-layer-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Adicione formas ao mapa android](how-to-add-shapes-to-android-map.md)
+> [Adicione formas ao mapa do android](how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Apresentar informações da funcionalidade](display-feature-information-android.md)

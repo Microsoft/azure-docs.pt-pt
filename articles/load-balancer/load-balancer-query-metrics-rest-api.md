@@ -1,31 +1,31 @@
 ---
 title: Recuperar métricas com a API REST
 titleSuffix: Azure Load Balancer
-description: Neste artigo, começar a usar as APIs azure REST para recolher métricas de saúde e utilização para o Azure Load Balancer.
+description: Neste artigo, começa a utilizar as APIs do Azure REST para recolher métricas de saúde e utilização para o Azure Load Balancer.
 services: sql-database
 author: asudbring
 manager: KumudD
 ms.service: load-balancer
 ms.custom: REST, seodec18
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: 760ec8a945ab88b63dde2de75f5354818facf4f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b5aedb20bc7a8d2aa6f3aa3d8691a71af4cd3a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74225245"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808378"
 ---
-# <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Obtenha métricas de utilização do Balancer de Carga utilizando a API REST
+# <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Obtenha métricas de utilização do Balanceador de Carga utilizando a API REST
 
-Recolher o número de bytes processados por um [Balancer de Carga Padrão](/azure/load-balancer/load-balancer-standard-overview) durante um intervalo de tempo utilizando a [API Azure REST](/rest/api/azure/).
+Recolher o número de bytes processados por um [Balanceador de Carga Padrão](/azure/load-balancer/load-balancer-standard-overview) por um intervalo de tempo utilizando a [API Azure REST](/rest/api/azure/).
 
-Documentação completa de referência e amostras adicionais para a API REST estão disponíveis na [referência REST do Monitor Azure](/rest/api/monitor). 
+A documentação completa de referência e amostras adicionais para a API REST estão disponíveis na [referência Azure Monitor REST](/rest/api/monitor). 
 
 ## <a name="build-the-request"></a>Criar o pedido
 
-Utilize o seguinte pedido GET para recolher a [métrica ByteCount](/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics) de um Balancer de Carga Padrão. 
+Utilize o seguinte pedido GET para recolher a [métrica ByteCount](/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics) de um Balanceador de Carga Padrão. 
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=ByteCount&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
@@ -42,14 +42,14 @@ Os seguintes cabeçalhos são obrigatórios:
 
 ### <a name="uri-parameters"></a>Parâmetros URI
 
-| Nome | Descrição |
+| Name | Descrição |
 | :--- | :---------- |
-| subscriptionId | O ID de subscrição que identifica uma assinatura Azure. Se tiver várias subscrições, consulte [Trabalhar com várias subscrições.](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest) |
-| resourceGroupName | O nome do grupo de recursos que contém o recurso. Pode obter este valor junto do Gestor de Recursos Azure API, CLI ou do portal. |
-| loadBalancerName | O nome do Equilíbrio de Carga Azure. |
-| nomes métricos | Lista separada da vírmeta das [métricas válidas](/azure/load-balancer/load-balancer-standard-diagnostics)do Balancer de Carga . |
-| api-version | A versão API a utilizar para o pedido.<br /><br /> Este documento abrange a `2018-01-01`versão api, incluída no URL acima.  |
-| timespan | O tempo da consulta. É uma corda com o `startDateTime_ISO/endDateTime_ISO`seguinte formato. Este parâmetro opcional está definido para devolver um dia de dados no exemplo. |
+| subscriptionId | O ID de subscrição que identifica uma subscrição do Azure. Se tiver várias subscrições, consulte [Trabalhar com várias subscrições](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| resourceGroupName | O nome do grupo de recursos que contém o recurso. Pode obter este valor a partir da Azure Resource Manager API, CLI ou do portal. |
+| loadBalancerName | O nome do Equilibrador de Carga Azure. |
+| nomes métricos | Lista separada por vírgulas de [métricas válidas do Balanceador](/azure/load-balancer/load-balancer-standard-diagnostics)de Carga . |
+| api-version | A versão API a utilizar para o pedido.<br /><br /> Este documento abrange a versão `2018-01-01` api, incluída no URL acima.  |
+| timespan | O tempo da consulta. É uma corda com o seguinte `startDateTime_ISO/endDateTime_ISO` formato. Este parâmetro opcional está definido para devolver um dia de dados no exemplo. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Corpo do pedido
@@ -58,7 +58,7 @@ Não é necessário nenhum corpo de pedido para esta operação.
 
 ## <a name="handle-the-response"></a>Processar a resposta
 
-O código de estado 200 é devolvido quando a lista de valores métricos é devolvida com sucesso. Uma lista completa de códigos de erro está disponível na documentação de [referência.](/rest/api/monitor/metrics/list#errorresponse)
+O código de estado 200 é devolvido quando a lista de valores métricos é devolvida com sucesso. Uma lista completa de códigos de erro está disponível na [documentação de referência.](/rest/api/monitor/metrics/list#errorresponse)
 
 ## <a name="example-response"></a>Resposta de exemplo 
 

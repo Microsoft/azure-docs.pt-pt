@@ -403,9 +403,9 @@
         - name: Dynamics AX
           href: site-recovery-dynamicsax.md
         - name: RDS
-          href: 'site-recovery-workload.md#protect-remote-desktop-services'
+          href: site-recovery-workload.md#protect-remote-desktop-services
         - name: Troca
-          href: 'site-recovery-workload.md#protect-exchange'
+          href: site-recovery-workload.md#protect-exchange
         - name: SAP
           href: site-recovery-sap.md
         - name: Servidor de Ficheiros
@@ -415,7 +415,7 @@
         - name: Citrix XenApp e XenDesktop
           href: site-recovery-citrix-xenapp-and-xendesktop.md
         - name: Outras cargas de trabalho
-          href: 'site-recovery-workload.md#workload-summary'
+          href: site-recovery-workload.md#workload-summary
     - name: Recuperação após desastre para um site secundário
       items:
         - name: VMs do VMware/servidores físicos
@@ -509,7 +509,7 @@
 - name: Relacionado
   items:
     - name: Automatização do Azure
-      href: /azure/automation/
+      href: ../automation/index.yml
 - name: Recursos
   items:
     - name: Mapa do Azure
@@ -517,7 +517,7 @@
     - name: Blogue
       href: 'https://azure.microsoft.com/blog/tag/azure-site-recovery/'
     - name: Página de perguntas das Perguntas e Respostas da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-site-recovery.html'
+      href: /answers/topics/azure-site-recovery.html
     - name: Percurso de aprendizagem
       href: /learn/azure/
     - name: Preços

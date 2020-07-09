@@ -1,35 +1,34 @@
 ---
 title: Arquitetura Azure FarmBeats
-description: Descreve a arquitetura dos Azure FarmBeats
+description: Descreve a arquitetura de Azure FarmBeats
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: d64c2175072d9979cfda2ea5f75beb34d3ad0d6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75482377"
 ---
 # <a name="integration-patterns"></a>Padrões de integração
 
-A Azure FarmBeats é uma oferta de negócios a negócios, disponível no Azure Marketplace. FarmBeats permite a gregação de conjuntos de dados agrícolas entre fornecedores, e geração de insights atuais através da construção de modelos de Inteligência Artificial (IA) ou Machine Learning (ML), fundindo os conjuntos de dados.
+A azure FarmBeats é uma oferta de negócios para empresas, disponível no Azure Marketplace. O FarmBeats permite a agregação de conjuntos de dados agrícolas entre fornecedores, e geração de insights accuíveis através da construção de modelos de Inteligência Artificial (IA) ou Machine Learning (ML), fundindo os conjuntos de dados.
 
-![Batidas da Fazenda do Projeto](./media/architecture-for-farmbeats/farmbeats-architecture-1.png)
+![Project Farm Beats](./media/architecture-for-farmbeats/farmbeats-architecture-1.png)
 
-As seguintes secções descrevem o padrão de integração para O Azure FarmBeats.
+As secções seguintes descrevem o padrão de integração para a Azure FarmBeats.
 
 ## <a name="why-integrate-with-azure-farmbeats"></a>Porquê integrar-se com a Azure FarmBeats?
 
 Esta secção está focada em parceiros que querem integrar os seus sistemas de dados (como sensores, drones, estações meteorológicas) no Azure FarmBeats.
 
-A Azure FarmBeats é uma oferta extensível, que permite às empresas agrícolas adicionar os seus diferentes conjuntos de dados agrícolas históricos e em tempo real numa única plataforma. A Azure FarmBeats ajuda uma empresa agrícola a normalizar, contextualizar e a agregar os seus dados no contexto de uma exploração.
+O Azure FarmBeats é uma oferta extensível, que permite às empresas agrícolas adicionar os seus diferentes conjuntos de dados agrícolas históricos e em tempo real numa única plataforma. O Azure FarmBeats ajuda uma empresa agrícola a normalizar, contextualizar e agregar os seus dados no contexto de uma exploração agrícola.
 
-Ao tornar-se um parceiro de dados com a Azure FarmBeats, pode abrir os seus sistemas para uma adoção mais ampla e chegar a mais clientes com as suas ofertas de dados. O Azure FarmBeats fornece uma camada de API extensível chamada Datahub, que o ajuda a ingerir dados dos seus dispositivos de forma sistemática e num esquema padronizado.
+Ao tornar-se um parceiro de dados com a Azure FarmBeats, pode abrir os seus sistemas para uma adoção mais ampla e contactar mais clientes com as suas ofertas de dados. O Azure FarmBeats fornece uma camada API extensível chamada Datahub, que ajuda a ingerir dados dos seus dispositivos sistematicamente e num esquema padronizado.
 
-Uma vez que os dados estão disponíveis na instância Azure FarmBeats dos seus clientes, os seus clientes podem construir análises e ferramentas mais ricas em cima dos seus dados.
+Uma vez que os dados estão disponíveis dentro da instância Azure FarmBeats dos seus clientes, os seus clientes podem construir análises e ferramentas mais ricas em cima dos seus dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre a integração de dados de sensores, consulte a [integração de dados de sensores](sensor-partner-integration-in-azure-farmbeats.md) e para integração de parceiros de imagem, consulte a integração de [parceiros de imagem.](imagery-partner-integration-in-azure-farmbeats.md)
+Para obter mais informações sobre a integração de dados de sensores, consulte [a integração de dados de sensores](sensor-partner-integration-in-azure-farmbeats.md) e para a integração de parceiros de imagem, consulte [a integração de parceiros de imagem](imagery-partner-integration-in-azure-farmbeats.md).

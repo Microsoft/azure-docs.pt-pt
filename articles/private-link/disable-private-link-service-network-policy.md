@@ -1,41 +1,43 @@
 ---
-title: 'Desativar as políticas de rede para o endereço IP de origem de serviço seletivo do Link Privado Azure '
-description: Saiba como desativar as políticas de rede para o Azure private Link
+title: 'Desativar as políticas de rede para o endereço IP de fonte de serviço de ligação privada Azure '
+description: Saiba como desativar as políticas de rede para o Azure Private Link
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 4c6bd64d141341e0b7fa5641e04320a95d7951bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1062f126da8be6b37f6b52eee520425b3edcde16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75452998"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744345"
 ---
-# <a name="disable-network-policies-for-private-link-service-source-ip"></a>Desativar as políticas de rede para a fonte de serviço de Link Privado IP
+# <a name="disable-network-policies-for-private-link-service-source-ip"></a>Desativar as políticas de rede para a fonte de serviço de Ligação Privada IP
 
-Para escolher um endereço IP de origem para o `privateLinkServiceNetworkPolicies` seu serviço de Ligação Privada, é necessária uma definição explícita de desativação na sub-rede. Esta definição só é aplicável para o endereço IP privado específico que escolheu como o IP fonte do serviço Private Link. Para outros recursos na subrede, o acesso é controlado com base na definição de regras de segurança dos Grupos de Segurança da Rede (NSG). 
+Para escolher um endereço IP de origem para o seu serviço De Ligação Privada, é necessária uma definição de desativação explícita `privateLinkServiceNetworkPolicies` na sub-rede. Esta definição só é aplicável para o endereço IP privado específico que escolheu como IP de origem do serviço Private Link. Para outros recursos na sub-rede, o acesso é controlado com base na definição de regras de segurança dos Grupos de Segurança da Rede (NSG). 
  
-Ao utilizar qualquer cliente Azure (PowerShell, CLI ou modelos), é necessário um passo adicional para alterar esta propriedade. Pode desativar a apólice utilizando a casca de nuvem do portal Azure, ou instalações locais de Azure PowerShell, Azure CLI ou utilizar modelos do Gestor de Recursos Azure.  
+Ao utilizar qualquer cliente Azure (PowerShell, CLI ou modelos), é necessário um passo adicional para alterar esta propriedade. Pode desativar a política utilizando a casca de nuvem a partir do portal Azure, ou instalações locais da Azure PowerShell, Azure CLI ou utilizar modelos de Gestor de Recursos Azure.  
  
-Siga os passos abaixo para desativar as políticas de rede de serviços de ligação privada para uma rede virtual chamada *myVirtualNetwork* com uma subnet *padrão* hospedada num grupo de recursos chamado *myResourceGroup*. 
+Siga os passos abaixo para desativar as políticas de rede de serviços de ligação privada para uma rede virtual chamada *myVirtualNetwork* com uma sub-rede *padrão* hospedada num grupo de recursos chamado *myResourceGroup*. 
 
 ## <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
-Esta secção descreve como desativar as políticas de ponto final privado da subnet utilizando o Azure PowerShell.
+Esta secção descreve como desativar as políticas de ponto final privado da sub-rede utilizando a Azure PowerShell.
+No código, substitua o "predefinido" pelo nome da sub-rede virtual.
 
 ```azurepowershell
+$virtualSubnetName = "default"
 $virtualNetwork= Get-AzVirtualNetwork `
   -Name "myVirtualNetwork" ` 
-  -ResourceGroupName "myResourceGroup"  
+  -ResourceGroupName "myResourceGroup"
    
-($virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq 'default'} ).privateLinkServiceNetworkPolicies = "Disabled"  
+($virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq $virtualSubnetName} ).privateLinkServiceNetworkPolicies = "Disabled"  
  
 $virtualNetwork | Set-AzVirtualNetwork 
 ```
 ## <a name="using-azure-cli"></a>Utilizar a CLI do Azure
-Esta secção descreve como desativar as políticas de pontofinal privado da sub-rede utilizando o Azure CLI.
+Esta secção descreve como desativar as políticas de ponto final privado da sub-rede utilizando o Azure CLI.
 ```azurecli
 az network vnet subnet update \ 
   --name default \ 
@@ -44,7 +46,7 @@ az network vnet subnet update \
   --disable-private-link-service-network-policies true 
 ```
 ## <a name="using-a-template"></a>Usando um modelo
-Esta secção descreve como desativar as políticas de ponto final privado da subnet utilizando o modelo de gestor de recursos azure.
+Esta secção descreve como desativar as políticas de ponto final privado da sub-rede utilizando o Modelo de Gestor de Recursos Azure.
 ```json
 { 
     "name": "myVirtualNetwork", 
@@ -70,6 +72,6 @@ Esta secção descreve como desativar as políticas de ponto final privado da su
 } 
  
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [o Azure Private Endpoint](private-endpoint-overview.md)
  

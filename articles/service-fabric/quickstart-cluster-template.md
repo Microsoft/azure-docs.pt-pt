@@ -1,61 +1,63 @@
 ---
-title: Criar um cluster de tecido de serviço usando o modelo de Gestor de Recursos Azure
-description: Neste arranque rápido, você vai criar um cluster de teste de Tecido de Serviço Azure utilizando o modelo De Gestor de Recursos Azure.
+title: Crie um cluster de tecido de serviço usando o modelo de gestor de recursos Azure
+description: Neste arranque rápido, irá criar um cluster de testes de tecido de serviço Azure utilizando o modelo Azure Resource Manager.
 author: erikadoyle
 ms.service: service-fabric
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 04/24/2020
-ms.openlocfilehash: 2db3dffbbf0f6d98fe6da7a0cec5400f7f2c03da
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 1cb6dc56a5d4fa975f68c1dea08920a7c7db3904
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722461"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119502"
 ---
-# <a name="quickstart-create-a-service-fabric-cluster-using-resource-manager-template"></a>Quickstart: Criar um cluster de tecido de serviço usando o modelo de Gestor de Recursos
+# <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>Quickstart: Criar um cluster de tecido de serviço usando o modelo ARM
 
-O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços e contentores dimensionáveis e fiáveis. Um *cluster* de tecido de serviço é um conjunto de máquinas virtuais ligadas à rede nas quais os seus microserviços são implantados e geridos.
+O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços e contentores dimensionáveis e fiáveis. Um *cluster* de Tecido de Serviço é um conjunto de máquinas virtuais ligadas à rede em que os seus microserviços são implantados e geridos. Este artigo descreve como implantar um cluster de teste de tecido de serviço em Azure usando um modelo de Gestor de Recursos Azure (modelo ARM).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Este artigo descreve como implementar um cluster de teste de Tecido de Serviço em Azure usando o Gestor de Recursos. Este cluster Windows de cinco nós é protegido com um certificado auto-assinado e, portanto, destina-se apenas a fins instrutivos (em vez de cargas de trabalho de produção).
+Este cluster windows de cinco nó é protegido com um certificado auto-assinado e, portanto, apenas destinado a fins instrutivos (em vez de cargas de trabalho de produção). Usaremos a Azure PowerShell para implementar o modelo. Além do Azure PowerShell, também pode utilizar o portal Azure CLI e a REST API. Para aprender outros métodos de implementação, consulte [os modelos de implementação](../azure-resource-manager/templates/deploy-portal.md).
 
-Usaremos o Azure PowerShell para implementar o modelo. Além do Azure PowerShell, também pode utilizar o portal Azure, O ClI Azur e a Rest API. Para aprender outros métodos de implementação, consulte [os modelos de implantação](../azure-resource-manager/templates/deploy-portal.md).
+Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
 
-Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-secure-cluster-5-node-1-nodetype%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="install-service-fabric-sdk-and-powershell-modules"></a>Instale módulos SDK e PowerShell de tecido de serviço
+Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+
+### <a name="install-service-fabric-sdk-and-powershell-modules"></a>Instalar módulos SDK e PowerShell de tecido de serviço
 
 Para completar este arranque rápido, terá de:
 
-* Instale o [módulo SDK e PowerShell](service-fabric-get-started.md)de tecido de serviço.
+* Instale o [módulo SDK e PowerShell do tecido de serviço](service-fabric-get-started.md).
 
-* Instale [o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* Instalar [a Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-### <a name="download-the-sample-template-and-certificate-helper-script"></a>Descarregue o modelo de amostra e o script de ajudante de certificado
+### <a name="download-the-sample-template-and-certificate-helper-script"></a>Descarregue o modelo de amostra e o script do ajudante de certificado
 
-Clone ou baixe o [quickstart Templates do Gestor de Recursos Azure.](https://github.com/Azure/azure-quickstart-templates) Alternativamente, copie localmente os seguintes ficheiros que iremos utilizar a partir da pasta de *cluster-5-nó-nó-de-tecido* de serviço:
+Clone ou descarregue o [quickstart Templates do Azure Resource](https://github.com/Azure/azure-quickstart-templates) Manager. Alternativamente, copie localmente os seguintes ficheiros que usaremos a partir da pasta *de tipo de nó-cluster-5-nó-1 de serviço* de serviço:
 
-* [Novo ServiçoFabricClusterCertificate.ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/New-ServiceFabricClusterCertificate.ps1)
-* [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json)
+* [New-ServiceFabricClusterCertificate.ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/New-ServiceFabricClusterCertificate.ps1)
+* [azuredeploy.js](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json)
 * [azuredeploy.parameters.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.parameters.json)
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inscreva-se no Azure e designe a subscrição a utilizar para criar o seu cluster Service Fabric.
+Inscreva-se no Azure e designe a subscrição para a criação do seu cluster de Tecido de Serviço.
 
 ```powershell
 # Sign in to your Azure account
 Login-AzAccount -SubscriptionId "<subscription ID>"
 ```
 
-### <a name="create-a-self-signed-certificate-stored-in-key-vault"></a>Crie um certificado auto-assinado armazenado no Cofre chave
+### <a name="create-a-self-signed-certificate-stored-in-key-vault"></a>Criar um certificado auto-assinado armazenado em Key Vault
 
-Service Fabric utiliza certificados X.509 para [garantir um cluster](./service-fabric-cluster-security.md) e fornecer funcionalidades de segurança de aplicações, e Key [Vault](../key-vault/general/overview.md) para gerir esses certificados. A criação bem sucedida do cluster requer um certificado de cluster para permitir a comunicação nó-ao-nó. Com o propósito de criar este cluster de teste de arranque rápido, criaremos um certificado auto-assinado para autenticação de cluster. As cargas de trabalho de produção requerem certificados criados utilizando um serviço de certificado supor o Windows Server corretamente configurado ou um de uma autoridade de certificados aprovado (CA).
+A Service Fabric utiliza certificados X.509 para [garantir um cluster](./service-fabric-cluster-security.md) e fornecer funcionalidades de segurança de aplicações, e o Key [Vault](../key-vault/general/overview.md) para gerir esses certificados. A criação bem sucedida do cluster requer um certificado de cluster para permitir a comunicação nó-a-nó. Com o propósito de criar este cluster de teste de arranque rápido, vamos criar um certificado auto-assinado para autenticação de cluster. As cargas de trabalho de produção requerem certificados criados utilizando um serviço de certificados do Windows Server corretamente configurado ou um de uma autoridade de certificados aprovada (CA).
 
 ```powershell
 # Designate unique (within cloudapp.azure.com) names for your resources
@@ -72,14 +74,14 @@ New-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $resourceGroupName -L
 .\New-ServiceFabricClusterCertificate.ps1
 ```
 
-O script irá instruí-lo para o seguinte (certifique-se de modificar *CertDNSName* e *KeyVaultName* dos valores de exemplo abaixo):
+O script irá instruí-lo para o seguinte (certifique-se de modificar *CertDNSName* e *KeyVaultName* a partir dos valores de exemplo abaixo):
 
 * **Senha:** Senha!1
 * **CertDNSName:** *sfquickstart*.southcentralus.cloudapp.azure.com
 * **KeyVaultName:** *SFQuickstartKV*
 * **KeyVaultSecretName:** clustercert
 
-Após a conclusão, o script fornecerá os valores parâmetros necessários para a implementação do modelo. Certifique-se de guardá-las nas seguintes variáveis, pois serão necessárias para implementar o seu modelo de cluster:
+Após a conclusão, o script fornecerá os valores de parâmetro necessários para a implementação do modelo. Certifique-se de que as armazena nas seguintes variáveis, pois serão necessárias para implementar o seu modelo de cluster:
 
 ```powershell
 $sourceVaultId = "<Source Vault Resource Id>"
@@ -87,31 +89,29 @@ $certUrlValue = "<Certificate URL>"
 $certThumbprint = "<Certificate Thumbprint>"
 ```
 
-## <a name="create-a-service-fabric-cluster"></a>Criar um cluster do Service Fabric
+## <a name="review-the-template"></a>Rever o modelo
 
-### <a name="review-the-template"></a>Reveja o modelo
-
-O modelo utilizado neste quickstart é de [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). O modelo para este artigo é muito longo para mostrar aqui. Para ver o modelo, consulte o ficheiro [azuredeploy.json.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json)
+O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). O modelo para este artigo é muito longo para mostrar aqui. Para ver o modelo, consulte a [azuredeploy.jsno](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json) ficheiro.
 
 Vários recursos Azure foram definidos no modelo:
 
-* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+* [Microsoft.Storage/storageAcontas](/azure/templates/microsoft.storage/storageaccounts)
 * [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
-* [Microsoft.Network/publicIPAddresss](/azure/templates/microsoft.network/publicipaddresses)
+* [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
 * [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers)
 * [Microsoft.Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets)
 * [Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/clusters)
 
-Para encontrar mais modelos relacionados com tecido de serviço Azure, consulte [os modelos de arranque rápido do Azure](https://azure.microsoft.com/resources/templates/?sort=Popular&term=service+fabric).
+Para encontrar mais modelos relacionados com o Tecido de Serviço Azure, consulte [os modelos de arranque rápido do Azure.](https://azure.microsoft.com/resources/templates/?sort=Popular&term=service+fabric)
 
 ### <a name="customize-the-parameters-file"></a>Personalize o ficheiro de parâmetros
 
-Abra *azuredeploy.parameters.json* e edite os valores do parâmetro de modo a:
+Abra *azuredeploy.parameters.js* e edite os valores dos parâmetros de modo a que:
 
-* **clusterName** corresponde ao valor fornecido para *CertDNSName* ao criar o seu certificado de cluster
-* **adminUserName** é um valor diferente do *token GEN-UNIQUE* padrão
-* **adminPassword** é um valor diferente do token *GEN-PASSWORD* padrão
-* **certificadoImpressãoPolegar,** **fonteVaultResourceId,** e **certificadoUrlValue** são todos de cadeia vazia ( `""` )
+* **clusterName** corresponde ao valor que forneceu para *o CertDNSName* ao criar o seu certificado de cluster
+* **adminUserName** é algum valor que não seja o token *GEN-UNIQUE* padrão
+* **adminPassword** é algum valor que não seja o token *GEN-PASSWORD* padrão
+* **certificateThumbprint**, **sourceVaultResourceId,** e **certificateUrlValue** são todos cordas vazias ( `""` )
 
 Por exemplo:
 
@@ -144,7 +144,7 @@ Por exemplo:
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Guarde os caminhos do seu modelo de Gestor de Recursos e ficheiros de parâmetros em variáveis e, em seguida, implemente o modelo.
+Guarde os caminhos do seu modelo ARM e dos ficheiros de parâmetros em variáveis e, em seguida, desloque o modelo.
 
 ```powershell
 $templateFilePath = "<full path to azuredeploy.json>"
@@ -160,15 +160,15 @@ New-AzResourceGroupDeployment `
     -Verbose
 ```
 
-## <a name="review-deployed-resources"></a>Rever os recursos implantados
+## <a name="review-deployed-resources"></a>Revisão dos recursos implantados
 
-Assim que a implementação estiver concluída, encontre o `managementEndpoint` valor na saída e abra o endereço num navegador web para ver o seu cluster no Service Fabric [Explorer](./service-fabric-visualizing-your-cluster.md).
+Uma vez concluída a implementação, encontre o `managementEndpoint` valor na saída e abra o endereço num navegador web para ver o seu cluster no Service Fabric [Explorer](./service-fabric-visualizing-your-cluster.md).
 
-![Service Fabric Explorer mostrando novo cluster](./media/quickstart-cluster-template/service-fabric-explorer.png)
+![Explorador de tecido de serviço mostrando novo cluster](./media/quickstart-cluster-template/service-fabric-explorer.png)
 
-Também pode encontrar o ponto final do Service Fabric Explorer a partir da sua lâmina de recurso Service Explorer no portal Azure.
+Também pode encontrar o ponto final do Service Fabric Explorer a partir da sua lâmina de recursos Do Explorador de Serviço no portal Azure.
 
-![Lâmina de recurso de tecido de serviço mostrando ponto final do Explorador de Tecido de Serviço](./media/quickstart-cluster-template/service-fabric-explorer-endpoint-azure-portal.png)
+![Lâmina de recurso de tecido de serviço mostrando ponto final do Explorador de tecido de serviço](./media/quickstart-cluster-template/service-fabric-explorer-endpoint-azure-portal.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -182,7 +182,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para aprender sobre a criação de um modelo personalizado de cluster azure service fabric, consulte:
+Para aprender sobre a criação de um modelo de cluster de tecido de serviço Azure personalizado, consulte:
 
 > [!div class="nextstepaction"]
-> [Criar um modelo de gestor de recursos de cluster de tecido de serviço](service-fabric-cluster-creation-create-template.md)
+> [Crie um modelo de gestor de recursos de cluster de tecido de serviço](service-fabric-cluster-creation-create-template.md)

@@ -1,134 +1,133 @@
 ---
-title: Conceitos - Kubernetes básicos para Serviços Azure Kubernetes (AKS)
-description: Aprenda os componentes básicos de cluster e carga de trabalho das Kubernetes e como se relacionam com as funcionalidades no Serviço Azure Kubernetes (AKS)
+title: Conceitos - Kubernetes básicos para serviços Azure Kubernetes (AKS)
+description: Aprenda os componentes básicos de cluster e carga de trabalho de Kubernetes e como se relacionam com as funcionalidades no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 13169628aff2fe4bff64fed36db54d18d4f830b8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: 9b54bdbfcbc37d3863d4e6b86ae6fe5522bb5be9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208164"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85336627"
 ---
-# <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos centrais da Kubernetes para o Serviço Azure Kubernetes (AKS)
+# <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes conceitos fundamentais para O Serviço Azure Kubernetes (AKS)
 
-À medida que o desenvolvimento da aplicação avança para uma abordagem baseada em contentores, a necessidade de orquestrar e gerir recursos é importante. A Kubernetes é a plataforma líder que fornece a capacidade de fornecer um agendamento fiável de cargas de trabalho de aplicação tolerantes a falhas. O Azure Kubernetes Service (AKS) é uma Kubernetes gerida que oferece uma oferta gerida que simplifica ainda mais a implementação e gestão de aplicações baseadas em contentores.
+À medida que o desenvolvimento de aplicações avança para uma abordagem baseada em contentores, a necessidade de orquestrar e gerir recursos é importante. A Kubernetes é a plataforma líder que fornece a capacidade de fornecer agendamento fiável de cargas de carga de aplicação tolerantes a falhas. O Azure Kubernetes Service (AKS) é um Kubernetes gerido que oferece que simplifica ainda mais a implementação e gestão de aplicações baseadas em contentores.
 
-Este artigo introduz os componentes de infraestrutura kubernetes centrais, tais como o plano de *controlo,* *nós*e piscinas de *nós.* São também introduzidos recursos de carga de trabalho como *cápsulas,* *implantações*e *conjuntos,* bem como como agrupar recursos em *espaços com nomes.*
+Este artigo introduz os componentes de infraestrutura de Kubernetes fundamentais, tais como o *plano de controlo,* *nós*e *piscinas de nó.* São também introduzidos recursos de carga de trabalho como *cápsulas,* implantações e *conjuntos,* juntamente com a forma de agrupar recursos em espaços de *nome.* *sets*
 
 ## <a name="what-is-kubernetes"></a>O que é o Kubernetes?
 
-A Kubernetes é uma plataforma em rápida evolução que gere aplicações baseadas em contentores e os seus componentes de networking e armazenamento associados. O foco está nas cargas de trabalho de aplicação, não nos componentes de infraestrutura subjacentes. A Kubernetes fornece uma abordagem declarativa às implantações, apoiada por um conjunto robusto de APIs para operações de gestão.
+A Kubernetes é uma plataforma em rápida evolução que gere aplicações baseadas em contentores e os seus componentes de networking e armazenamento associados. O foco está nas cargas de trabalho da aplicação, não nos componentes subjacentes à infraestrutura. A Kubernetes fornece uma abordagem declarativa às implementações, apoiada por um conjunto robusto de APIs para operações de gestão.
 
-Você pode construir e executar aplicações modernas, portáteis, baseadas em microserviços que beneficiam de Kubernetes orquestrando e gerindo a disponibilidade desses componentes de aplicação. A Kubernetes apoia aplicações apátridas e apátridas à medida que as equipas progridem através da adoção de aplicações baseadas em microserviços.
+Você pode construir e executar aplicações modernas, portáteis, baseadas em microserviços que beneficiam de Kubernetes orquestrando e gerindo a disponibilidade desses componentes de aplicação. Kubernetes apoia aplicações apátridas e estatais à medida que as equipas progridem através da adoção de aplicações baseadas em microserviços.
 
-Como plataforma aberta, a Kubernetes permite-lhe construir as suas aplicações com a sua linguagem de programação preferida, OS, bibliotecas ou autocarro de mensagens. As ferramentas de integração contínua e de entrega contínua existentes (CI/CD) podem integrar-se com a Kubernetes para agendar e implementar lançamentos.
+Como uma plataforma aberta, a Kubernetes permite-lhe construir as suas aplicações com a sua linguagem de programação preferida, OS, bibliotecas ou autocarro de mensagens. As ferramentas de integração contínua e entrega contínua existentes (CI/CD) podem integrar-se com Kubernetes para agendar e implementar lançamentos.
 
-O Serviço Azure Kubernetes (AKS) fornece um serviço gerido pela Kubernetes que reduz a complexidade das tarefas de implementação e gestão de núcleos, incluindo a coordenação de upgrades. O plano de controlo AKS é gerido pela plataforma Azure, e você só paga pelos nós AKS que executam as suas aplicações. A AKS é construída em cima do motor de serviço Azure Kubernetes de origem aberta ([aks-engine).][aks-engine]
+O Azure Kubernetes Service (AKS) fornece um serviço gerido pela Kubernetes que reduz a complexidade das tarefas de implementação e gestão de núcleos, incluindo a coordenação de upgrades. O avião de controlo AKS é gerido pela plataforma Azure, e você só paga pelos nós AKS que executam as suas aplicações. AKS é construída em cima do motor de serviço Azure Kubernetes de código aberto[(motor aks).][aks-engine]
 
 ## <a name="kubernetes-cluster-architecture"></a>Arquitetura de cluster kubernetes
 
 Um cluster Kubernetes é dividido em dois componentes:
 
-- *Os* nódosos de avião de controlo fornecem os principais serviços kubernetes e orquestração de cargas de trabalho de aplicação.
-- *Os nódosos* executam as suas cargas de trabalho de aplicação.
+- Os nós *dos aviões* de controlo fornecem os serviços de Kubernetes e a orquestração das cargas de trabalho de aplicação.
+- *Os nós executam* as cargas de trabalho da sua aplicação.
 
-![Componentes de plano e nó de controlo kubernetes](media/concepts-clusters-workloads/control-plane-and-nodes.png)
+![Kubernetes controlam os componentes do plano e do nó](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
 ## <a name="control-plane"></a>Plano de controlo
 
-Quando se cria um cluster AKS, um plano de controlo é automaticamente criado e configurado. Este plano de controlo é fornecido como um recurso Azure gerido abstrato do utilizador. Não há nenhum custo para o plano de controlo, apenas os nós que fazem parte do cluster AKS.
+Quando se cria um cluster AKS, um plano de controlo é automaticamente criado e configurado. Este plano de controlo é fornecido como um recurso Azure gerido abstraído do utilizador. Não há custo para o avião de controlo, apenas os nós que fazem parte do aglomerado AKS.
 
-O plano de controlo inclui os seguintes componentes kubernetes centrais:
+O plano de controlo inclui os seguintes componentes de Kubernetes:
 
-- *kube-apiserver* - O servidor API é como as APIs kubernetes subjacentes são expostas. Este componente proporciona a interação para `kubectl` ferramentas de gestão, como ou o dashboard Kubernetes.
+- *kube-apiserver* - O servidor API é como as APIs subjacentes de Kubernetes estão expostas. Este componente proporciona a interação para ferramentas de gestão, tais como `kubectl` ou o dashboard Kubernetes.
 - *etcd* - Para manter o estado do seu cluster e configuração Kubernetes, o *etcd* altamente disponível é uma loja de valor chave dentro de Kubernetes.
 - *kube-scheduler* - Quando cria ou escala aplicações, o Scheduler determina quais os nós que podem executar a carga de trabalho e inicia-as.
-- *kube-controller-manager* - O Controlador Gestor supervisiona uma série de controladores menores que realizam ações como replicar cápsulas e manusear operações de nó.
+- *kube-controller-manager* - O Controlador-Gerente supervisiona uma série de controladores menores que executam ações como replicar cápsulas e manusear operações de nó.
 
-A AKS fornece um plano de controlo de um único inquilino, com um servidor API dedicado, Scheduler, etc. Define o número e o tamanho dos nós, e a plataforma Azure configura a comunicação segura entre o plano de controlo e os nós. A interação com o plano de controlo ocorre `kubectl` através de APIs kubernetes, como ou o painel de instrumentos Kubernetes.
+AKS fornece um plano de controlo de um único inquilino, com um servidor API dedicado, Agendador, etc. Você define o número e o tamanho dos nós, e a plataforma Azure configura a comunicação segura entre o plano de controlo e os nós. A interação com o plano de controlo ocorre através de APIs de Kubernetes, tais como `kubectl` ou o painel kubernetes.
 
-Este plano de controlo gerido significa que não precisa de configurar componentes como uma loja *de etcaltamente* disponível, mas também significa que não pode aceder diretamente ao plano de controlo. As atualizações para Kubernetes são orquestradas através do portal Azure CLI ou Azure, que atualiza o plano de controlo e, em seguida, os nós. Para resolver possíveis problemas, pode rever os registos dos planos de controlo através dos registos do Monitor De controlo.
+Este avião de controlo gerido significa que você não precisa configurar componentes como uma loja *de etcd* altamente disponível, mas também significa que você não pode aceder diretamente ao avião de controlo. As atualizações para Kubernetes são orquestradas através do portal Azure CLI ou Azure, que atualiza o plano de controlo e, em seguida, os nós. Para resolver eventuais problemas, pode rever os registos dos aviões de controlo através dos registos do Azure Monitor.
 
-Se precisar de configurar o plano de controlo de uma forma particular ou necessitar de acesso direto ao mesmo, pode implantar o seu próprio cluster Kubernetes utilizando o [motor aks][aks-engine].
+Se precisar de configurar o avião de controlo de uma forma particular ou precisar de acesso direto ao mesmo, pode implantar o seu próprio cluster Kubernetes utilizando [o motor aks][aks-engine].
 
 Para as melhores práticas associadas, consulte [as melhores práticas para a segurança do cluster e upgrades em AKS][operator-best-practices-cluster-security].
 
-## <a name="nodes-and-node-pools"></a>Piscinas de nóerios
+## <a name="nodes-and-node-pools"></a>Nosdes e piscinas de nó
 
-Para executar as suas aplicações e serviços de apoio, precisa de um *nó*Kubernetes. Um cluster AKS tem um ou mais nós, que é uma máquina virtual Azure (VM) que executa os componentes do nó Kubernetes e o tempo de funcionamento do contentor:
+Para executar as suas aplicações e serviços de apoio, precisa de um *nó*Kubernetes. Um cluster AKS tem um ou mais nós, que é uma máquina virtual Azure (VM) que executa os componentes do nó de Kubernetes e o tempo de execução do recipiente:
 
-- É `kubelet` o agente Kubernetes que processa os pedidos de orquestração do plano de controlo e agendamento de funcionamento dos contentores solicitados.
-- A rede virtual é manuseada pelo *kube-proxy* em cada nó. O proxy routes tráfego de rede e gere endereços IP para serviços e casulos.
-- O tempo de *execução* do contentor é o componente que permite que as aplicações contentorizadas executem e interajam com recursos adicionais, como a rede virtual e o armazenamento. No AKS, Moby é usado como o tempo de execução do contentor.
+- É `kubelet` o agente Kubernetes que processa os pedidos de orquestração do avião de controlo e o agendamento de executar os contentores solicitados.
+- A rede virtual é tratada pelo *kube-proxy* em cada nó. A procuração liga o tráfego da rede e gere o endereço IP para serviços e cápsulas.
+- O *tempo de funcionamento* do contentor é o componente que permite que as aplicações contentorizadas corram e interajam com recursos adicionais, como a rede virtual e o armazenamento. Em AKS, Moby é usado como tempo de funcionação do recipiente.
 
 ![Máquina virtual Azure e recursos de apoio para um nó Kubernetes](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
-O tamanho do VM Azure para os seus nós define quantos CPUs, quanto memória e o tamanho e tipo de armazenamento disponíveis (como SSD de alto desempenho ou HDD regular). Se antecipar a necessidade de aplicações que requerem grandes quantidades de CPU e memória ou armazenamento de alto desempenho, planeje o tamanho do nó em conformidade. Também pode aumentar o número de nós no seu cluster AKS para satisfazer a procura.
+O tamanho Azure VM para os seus nóns define quantos CPUs, quanta memória, e o tamanho e tipo de armazenamento disponíveis (como SSD de alto desempenho ou HDD regular). Se antecipar uma necessidade de aplicações que exijam grandes quantidades de CPU e armazenamento de memória ou de alto desempenho, planeie o tamanho do nó em conformidade. Também pode aumentar o número de nós no seu cluster AKS para satisfazer a procura.
 
-No AKS, a imagem VM para os nós do seu cluster é atualmente baseada em Ubuntu Linux ou Windows Server 2019. Quando se cria um cluster AKS ou eslarga o número de nós, a plataforma Azure cria o número solicitado de VMs e os confunde. Não há configuração manual para realizar. Os nós de agente são cobrados como máquinas virtuais padrão, por isso quaisquer descontos que tenha no tamanho VM que você está usando (incluindo [reservas Azure][reservation-discounts]) são automaticamente aplicados.
+Em AKS, a imagem VM para os nós no seu cluster é atualmente baseada em Ubuntu Linux ou Windows Server 2019. Quando cria um cluster AKS ou escala o número de nós, a plataforma Azure cria o número solicitado de VMs e configura-os. Não há nenhuma configuração manual para si. Os nós de agente são faturados como máquinas virtuais padrão, por isso quaisquer descontos que tenha no tamanho VM que está a usar (incluindo [reservas Azure)][reservation-discounts]são automaticamente aplicados.
 
-Se precisar de utilizar um sistema operativo de hospedeiro diferente, tempo de execução do contentor ou incluir pacotes personalizados, pode implantar o seu próprio cluster Kubernetes utilizando [o motor aks][aks-engine]. O upstream `aks-engine` lança funcionalidades e fornece opções de configuração antes de serem oficialmente suportadas em clusters AKS. Por exemplo, se desejar utilizar um tempo de execução `aks-engine` de um contentor que não seja o Moby, pode utilizar para configurar e implantar um cluster Kubernetes que satisfaça as suas necessidades atuais.
+Se precisar de utilizar um sistema operativo de hospedeiro diferente, tempo de execução do contentor ou incluir pacotes personalizados, pode implantar o seu próprio cluster Kubernetes utilizando [o motor aks][aks-engine]. O upstream `aks-engine` lança funcionalidades e fornece opções de configuração antes de serem oficialmente suportados em clusters AKS. Por exemplo, se desejar utilizar um tempo de funcionamento de um contentor diferente do Moby, pode usar `aks-engine` para configurar e implantar um cluster Kubernetes que satisfaça as suas necessidades atuais.
 
 ### <a name="resource-reservations"></a>Reservas de recursos
 
-Os recursos do nó são utilizados pela AKS para fazer com que o nó funcione como parte do seu cluster. Isto pode criar uma discrepância entre os recursos totais do seu nó e os recursos alocados quando usados em AKS. Isto é importante notar ao definir pedidos e limites para as cápsulas implantadas pelo utilizador.
+Os recursos do nó são utilizados pela AKS para fazer com que o nó funcione como parte do seu cluster. Isto pode criar uma discrepância entre os recursos totais do seu nó e os recursos alocáveis quando usados em AKS. Isto é importante notar ao definir pedidos e limites para as cápsulas implantadas pelo utilizador.
 
-Para encontrar os recursos alocáveis de um nó executado:
+Para encontrar os recursos alocáveis de um nó:
 ```kubectl
 kubectl describe node [NODE_NAME]
 
 ```
 
-Para manter o desempenho e a funcionalidade do nó, os recursos são reservados em cada nó pela AKS. À medida que um nó cresce em recursos, a reserva de recursos cresce devido a uma maior quantidade de cápsulas implantadas por utilizadores que precisam de gestão.
+Para manter o desempenho e funcionalidade do nó, os recursos são reservados em cada nó pela AKS. À medida que um nó aumenta em recursos, a reserva de recursos cresce devido a uma maior quantidade de cápsulas implantadas pelo utilizador que precisam de gestão.
 
 >[!NOTE]
-> A utilização de addons AKS, como o Container Insights (OMS), consumirá recursos adicionais do nó.
+> A utilização de complementos AKS, como o Container Insights (OMS) consumirá recursos adicionais de nó.
 
-- **CPU** - CPU reservado depende do tipo de nó e da configuração do cluster que pode causar CPU menos alocável devido a funcionalidades adicionais de funcionamento
+- **CPU** - CPU reservado depende do tipo de nó e da configuração do cluster que pode causar CPU menos alocável devido à execução de funcionalidades adicionais
 
-| Núcleos de CPU no hospedeiro | 1    | 2    | 4    | 8    | 16 | 32|64|
+| Núcleos de CPU no anfitrião | 1    | 2    | 4    | 8    | 16 | 32|64|
 |---|---|---|---|---|---|---|---|
-|Reservado para Kube (miliscores)|60|100|140|180|260|420|740|
+|Kube reservado (millicores)|60|100|140|180|260|420|740|
 
-- **Memória** - memória utilizada pela AKS inclui a soma de dois valores.
+- **Memória** - a memória utilizada pela AKS inclui a soma de dois valores.
 
-1. O daemon kubelet está instalado em todos os nós de agente Kubernetes para gerir a criação e a rescisão de contentores. Por defeito no AKS, este daemon tem a seguinte regra de despejo: *memory.disponível<750Mi*, o que significa que um nó deve ter sempre pelo menos 750 Mi alocadas.  Quando um hospedeiro estiver abaixo desse limiar de memória disponível, o kubelet terminará uma das cápsulas de corrida para libertar a memória na máquina hospedeira e protegê-la. Esta é uma ação reativa uma vez que a memória disponível diminui para além do limiar de 750Mi.
+1. O daemon kubelet está instalado em todos os nós de agente Kubernetes para gerir a criação e rescisão de contentores. Por defeito na AKS, este daemon tem a seguinte regra de despejo: *memory.disponível<750Mi*, o que significa que um nó deve sempre ter pelo menos 750 Mi atribuível em todos os momentos.  Quando um hospedeiro estiver abaixo desse limiar de memória disponível, o kubelet terminará uma das cápsulas de funcionamento para libertar a memória na máquina hospedeira e protegê-la-á. Esta é uma ação reativa uma vez que a memória disponível diminui para além do limiar de 750Mi.
 
-2. O segundo valor é uma taxa regressiva de reservas de memória para o daemon kubelet funcionar corretamente (reservado para kube).
+2. O segundo valor é uma taxa regressiva de reservas de memória para o daemon kubelet funcionar corretamente (kube-reserved).
     - 25% dos primeiros 4 GB de memória
     - 20% dos próximos 4 GB de memória (até 8 GB)
     - 10% dos próximos 8 GB de memória (até 16 GB)
     - 6% dos próximos 112 GB de memória (até 128 GB)
     - 2% de qualquer memória acima de 128 GB
 
-As regras acima referidas para a alocação de memória e CPU são usadas para manter os nós de agente saudáveis, incluindo algumas cápsulas de sistema de hospedagem que são cruciais para a saúde do cluster. Estas regras de atribuição também fazem com que o nó reporte memória e CPU menos alocáveis do que se não fizesse parte de um aglomerado de Kubernetes. As reservas de recursos acima não podem ser alteradas.
+As regras acima referidas para a alocação de memória e CPU são usadas para manter os nós de agente saudáveis, incluindo algumas cápsulas de sistema de hospedagem que são fundamentais para a saúde do agrupamento. Estas regras de atribuição também fazem com que o nó reporte menos memória alocável e CPU do que faria se não fizesse parte de um cluster kubernetes. As reservas de recursos acima não podem ser alteradas.
 
-Por exemplo, se um nó oferece 7 GB, reportará 34% da memória não alocada em cima do limiar de despejo duro de 750Mi.
+Por exemplo, se um nó oferecer 7 GB, reportará 34% da memória não alocável, incluindo o limiar de despejo rígido de 750Mi.
 
-`(0.25*4) + (0.20*3) = + 1 GB + 0.6GB = 1.6GB / 7GB = 22.86% reserved`
+`0.75 + (0.25*4) + (0.20*3) = 0.75GB + 1GB + 0.6GB = 2.35GB / 7GB = 33.57% reserved`
 
-Além das reservas para a própria Kubernetes, o oso do nó subjacente também reserva uma quantidade de CPU e recursos de memória para manter as funções de OS.
+Além das reservas para a própria Kubernetes, o nó oss subjacente reserva também uma quantidade de CPU e recursos de memória para manter as funções de SO.
 
-Para as melhores práticas associadas, consulte [as melhores práticas para funcionalidades básicas de programadores em AKS][operator-best-practices-scheduler].
+Para as melhores práticas associadas, consulte [as melhores práticas para funcionalidades básicas de programador em AKS][operator-best-practices-scheduler].
 
 ### <a name="node-pools"></a>Piscinas de nó
 
-Os nódosos da mesma configuração são agrupados em *piscinas*de nó . Um aglomerado de Kubernetes contém uma ou mais piscinas de nós. O número inicial de nós e tamanho são definidos quando se cria um cluster AKS, que cria uma piscina de *nós padrão*. Este conjunto de nós padrão em AKS contém os VMs subjacentes que executam os seus nós de agente.
+Os nós da mesma configuração são agrupados em *piscinas de nó.* Um cluster Kubernetes contém uma ou mais piscinas de nós. O número inicial de nós e tamanho é definido quando cria um cluster AKS, que cria uma *piscina de nós predefinidos*. Este conjunto de nós predefinidos em AKS contém os VMs subjacentes que executam os nós do seu agente.
 
 > [!NOTE]
-> Para garantir que o seu cluster funciona de forma fiável, deve executar pelo menos 2 (dois) nós na piscina de nós padrão.
+> Para garantir que o seu cluster funciona de forma fiável, deve executar pelo menos 2 (dois) nós na piscina de nós predefinidos.
 
-Quando escala ou atualiza um cluster AKS, a ação é executada contra o conjunto de nós padrão. Você também pode optar por escalar ou atualizar uma piscina de nó específica. Para operações de upgrade, os recipientes de funcionamento estão programados em outros nós na piscina do nó até que todos os nós sejam atualizados com sucesso.
+Quando escala ou atualiza um cluster AKS, a ação é executada contra o conjunto de nós predefinidos. Também pode optar por escalar ou atualizar uma piscina de nó específico. Para as operações de atualização, os contentores de funcionamento estão programados em outros nós na piscina do nó até que todos os nós sejam atualizados com sucesso.
 
-Para obter mais informações sobre como usar várias piscinas de nós em AKS, consulte [Create e gerencie várias piscinas][use-multiple-node-pools]de nós para um cluster em AKS .
+Para obter mais informações sobre como usar várias piscinas de nó em AKS, consulte [Criar e gerir várias piscinas de nó para um cluster em AKS.][use-multiple-node-pools]
 
-### <a name="node-selectors"></a>Selecionadores de nó
+### <a name="node-selectors"></a>Seletores de nó
 
-Num cluster AKS que contém várias piscinas de nós, você pode precisar dizer ao Agendador Kubernetes que piscina de nó para usar para um determinado recurso. Por exemplo, os controladores de ingresso não devem ser executados nos nós do Windows Server. Os selecionadores de nó permitem definir vários parâmetros, como o nó OS, para controlar onde uma vagem deve ser programada.
+Num cluster AKS que contém várias piscinas de nós, você pode precisar dizer ao Programador Kubernetes qual o conjunto de nós para usar para um determinado recurso. Por exemplo, os controladores de entrada não devem funcionar nos nós do Windows Server. Os seletores de nó permitem definir vários parâmetros, como o nó OS, para controlar onde deve ser programado um casulo.
 
-O exemplo básico seguinte programa uma instância NGINX num nó Linux utilizando o seletor de nó *"beta.kubernetes.io/os": linux*:
+O exemplo básico a seguir programa uma instância NGINX num nó Linux utilizando o seletor de nó *"beta.kubernetes.io/os": linux*:
 
 ```yaml
 kind: Pod
@@ -143,29 +142,29 @@ spec:
     "beta.kubernetes.io/os": linux
 ```
 
-Para obter mais informações sobre como controlar onde as cápsulas estão programadas, consulte [as melhores práticas para funcionalidades avançadas de programadores em AKS][operator-best-practices-advanced-scheduler].
+Para obter mais informações sobre como controlar onde as cápsulas estão programadas, consulte [as melhores práticas para funcionalidades avançadas do programador em AKS][operator-best-practices-advanced-scheduler].
 
-## <a name="pods"></a>Pods
+## <a name="pods"></a>Casulos
 
-Kubernetes usa *cápsulas* para executar uma instância da sua aplicação. Uma cápsula representa uma única instância da sua aplicação. As cápsulas normalmente têm um mapeamento 1:1 com um recipiente, embora existam cenários avançados onde uma cápsula pode conter vários recipientes. Estas cápsulas multi-contentores estão programadas juntas no mesmo nó e permitem que os contentores partilhem recursos relacionados.
+Kubernetes usa *cápsulas* para executar uma instância da sua aplicação. Uma cápsula representa uma única instância da sua aplicação. As cápsulas normalmente têm um mapeamento de 1:1 com um recipiente, embora existam cenários avançados onde uma cápsula pode conter vários recipientes. Estas cápsulas multi-contentores estão programadas em conjunto no mesmo nó e permitem que os contentores partilhem recursos relacionados.
 
-Ao criar uma cápsula, pode definir pedidos de *recursos* para solicitar uma certa quantidade de CPU ou recursos de memória. O Agendador Kubernetes tenta agendar as cápsulas para funcionar em um nó com recursos disponíveis para satisfazer o pedido. Também pode especificar limites máximos de recursos que impedem que um dado casulo contenha demasiado recurso computacional do nó subjacente. A melhor prática é incluir limites de recursos para todas as cápsulas para ajudar o Agendador Kubernetes a entender quais os recursos necessários e permitidos.
+Quando cria uma cápsula, pode definir *pedidos* de recursos para solicitar uma certa quantidade de CPU ou recursos de memória. O Kubernetes Scheduler tenta agendar as cápsulas para executar um nó com recursos disponíveis para atender o pedido. Também pode especificar limites máximos de recursos que impedem que uma determinada cápsula consuma demasiado recurso computacional a partir do nó subjacente. Uma boa prática é incluir limites de recursos para todas as cápsulas para ajudar o Programador Kubernetes a compreender quais os recursos necessários e permitidos.
 
-Para mais informações, consulte [as cápsulas Kubernetes][kubernetes-pods] e o ciclo de vida da [cápsula Kubernetes][kubernetes-pod-lifecycle].
+Para obter mais informações, consulte [as cápsulas Kubernetes][kubernetes-pods] e [o ciclo de vida do casulo Kubernetes.][kubernetes-pod-lifecycle]
 
-Uma cápsula é um recurso lógico, mas o ou os contentores são onde as cargas de trabalho de aplicação funcionam. As cápsulas são tipicamente efémeras, recursos descartáveis, e as cápsulas programadas individualmente perdem algumas das características de alta disponibilidade e redundância que a Kubernetes fornece. Em vez disso, as cápsulas são normalmente implantadas e geridas por *controladores*Kubernetes , como o Controlador de Implantação.
+Uma cápsula é um recurso lógico, mas os contentores(s) são onde as cargas de trabalho da aplicação são executadas. Os pods são tipicamente efémeros, recursos descartáveis, e as cápsulas programadas individualmente perdem algumas das funcionalidades de alta disponibilidade e redundância que kubernetes fornece. Em vez disso, as cápsulas são normalmente implantadas e geridas por *Controladores*Kubernetes , como o Controlador de Implementação.
 
-## <a name="deployments-and-yaml-manifests"></a>Implantações e manifestos YAML
+## <a name="deployments-and-yaml-manifests"></a>Implementações e manifestos YAML
 
-Uma *implantação* representa uma ou mais cápsulas idênticas, geridas pelo Controlador de Implantação Kubernetes. Uma implementação define o número de *réplicas* (cápsulas) para criar, e o Agendador Kubernetes garante que se as cápsulas ou nós encontrarem problemas, as cápsulas adicionais são programadas em nós saudáveis.
+Uma *implementação* representa uma ou mais cápsulas idênticas, geridas pelo Controlador de Implantação de Kubernetes. Uma implementação define o número de *réplicas* (pods) para criar, e o Programador Kubernetes garante que se as cápsulas ou nós encontrarem problemas, as cápsulas adicionais são programadas em nós saudáveis.
 
-Pode atualizar as implementações para alterar a configuração das cápsulas, imagem de contentor utilizada ou armazenamento anexado. O Controlador de Implantação drena e termina um determinado número de réplicas, cria réplicas a partir da nova definição de implementação, e continua o processo até que todas as réplicas na implementação sejam atualizadas.
+Pode atualizar as implementações para alterar a configuração de cápsulas, imagem de recipiente utilizada ou armazenamento anexo. O Controlador de Implementação drena e termina um determinado número de réplicas, cria réplicas a partir da nova definição de implementação, e continua o processo até que todas as réplicas na implementação sejam atualizadas.
 
-A maioria das aplicações apátridas no AKS deve usar o modelo de implantação em vez de agendar cápsulas individuais. As kubernetes podem monitorizar a saúde e o estado das implementações para garantir que o número necessário de réplicas seja executado dentro do cluster. Quando só se programam cápsulas individuais, as cápsulas não são reiniciadas se encontrarem um problema, e não forem reagendadas em nós saudáveis se o nó atual encontrar um problema.
+A maioria das aplicações apátridas em AKS deve usar o modelo de implementação em vez de agendar cápsulas individuais. Kubernetes pode monitorizar a saúde e o estado das implementações para garantir que o número necessário de réplicas é executado dentro do cluster. Quando se apenas programam cápsulas individuais, as cápsulas não são reiniciadas se encontrarem um problema, e não são reagendadas em nós saudáveis se o seu nó atual encontrar um problema.
 
-Se uma aplicação requer um quórum de instâncias para estar sempre disponível para as decisões de gestão a serem tomadas, você não quer um processo de atualização para perturbar essa capacidade. *Os Orçamentos de Disrupção* de Pod podem ser usados para definir quantas réplicas numa implementação podem ser retiradas durante uma atualização ou atualização do nó. Por exemplo, se tiver *5* réplicas na sua implementação, pode definir uma rutura de *4* cápsulas para permitir que apenas uma réplica seja eliminada/reagendada de cada vez. Tal como acontece com os limites de recursos da cápsula, a melhor prática é definir orçamentos de disrupção de casulos em aplicações que exijam um número mínimo de réplicas para estarem sempre presentes.
+Se uma aplicação requer que um quórum de instâncias esteja sempre disponível para que as decisões de gestão sejam tomadas, você não quer que um processo de atualização perturbe essa capacidade. *Os Orçamentos de Interrupção do Pod* podem ser utilizados para definir quantas réplicas numa implementação podem ser retiradas durante uma atualização ou atualização de nós. Por exemplo, se tiver *5* réplicas na sua implementação, pode definir uma rutura de pod de *4* para permitir apenas que uma réplica seja eliminada/reagendada de cada vez. Tal como acontece com os limites de recursos do pod, a melhor prática é definir orçamentos de disrupção do pod em aplicações que requerem um número mínimo de réplicas para estar sempre presente.
 
-As implementações são tipicamente `kubectl create` criadas e geridas com ou `kubectl apply`. Para criar uma implementação, define um ficheiro manifesto no formato YAML (YAML Ain't Markup Language). O exemplo seguinte cria uma implementação básica do servidor web NGINX. A implantação especifica *3* réplicas a criar e que a porta *80* esteja aberta no recipiente. Os pedidos e limites de recursos também estão definidos para CPU e memória.
+As implementações são tipicamente criadas e geridas com `kubectl create` ou `kubectl apply` . Para criar uma implementação, define um ficheiro manifesto no formato YAML (YAML Ain't Markup Language). O exemplo a seguir cria uma implementação básica do servidor web NGINX. A implantação especifica *3* réplicas a serem criadas e a porta *80* está aberta no recipiente. Os pedidos e limites de recursos também estão definidos para CPU e memória.
 
 ```yaml
 apiVersion: apps/v1
@@ -196,75 +195,71 @@ spec:
             memory: 256Mi
 ```
 
-Aplicações mais complexas podem ser criadas também, incluindo serviços como equilibradores de carga dentro do manifesto YAML.
+Aplicações mais complexas podem ser criadas incluindo também serviços como equilibradores de carga dentro do manifesto YAML.
 
-Para mais informações, consulte as implementações da [Kubernetes.][kubernetes-deployments]
+Para obter mais informações, consulte [as implementações de Kubernetes][kubernetes-deployments].
 
 ### <a name="package-management-with-helm"></a>Gestão de pacotes com Helm
 
-Uma abordagem comum para gerir aplicações em Kubernetes é com [helm][helm]. Você pode construir e usar *gráficos* de Helm públicos existentes que contêm uma versão embalada do código de aplicação e kubernetes YAML manifesta-se para implementar recursos. Estes gráficos Helm podem ser armazenados localmente, ou frequentemente num repositório remoto, como um repo de gráfico de helm do registo de [contentores Azure][acr-helm].
+Uma abordagem comum para gerir aplicações em Kubernetes é com [Helm.][helm] Você pode construir e usar gráficos helm *públicos existentes* que contêm uma versão embalada do código de aplicação e os manifestos de Kubernetes YAML para implantar recursos. Estes gráficos helm podem ser armazenados localmente, ou muitas vezes em um repositório remoto, como um [repo de cartão de registo de contentores Azure.][acr-helm]
 
-Para utilizar o Helm, um componente de servidor chamado *Tiller* está instalado no seu cluster Kubernetes. O Tiller gere a instalação de gráficos dentro do cluster. O cliente Helm em si está instalado localmente no seu computador, ou pode ser usado dentro da [Casca de Nuvem Azure][azure-cloud-shell]. Pode pesquisar ou criar gráficos Helm com o cliente e, em seguida, instalá-los no seu cluster Kubernetes.
+Para utilizar o Helm, instale o cliente Helm no seu computador ou utilize o cliente Helm na [Azure Cloud Shell][azure-cloud-shell]. Pode pesquisar ou criar gráficos Helm com o cliente e, em seguida, instalá-los no seu cluster Kubernetes. Para obter mais informações, consulte [instalar as aplicações existentes com Helm em AKS][aks-helm].
 
-![O helm inclui um componente cliente e um componente Tiller do lado do servidor que cria recursos dentro do cluster Kubernetes](media/concepts-clusters-workloads/use-helm.png)
+## <a name="statefulsets-and-daemonsets"></a>StatefulSets e DaemonSets
 
-Para mais informações, consulte [Instalar aplicações com o Helm no Serviço Azure Kubernetes (AKS)][aks-helm].
+O Controlador de Implementação utiliza o Programador Kubernetes para executar um determinado número de réplicas em qualquer nó disponível com recursos disponíveis. Esta abordagem da utilização de implementações pode ser suficiente para aplicações apátridas, mas não para aplicações que exijam uma convenção ou armazenamento persistentes de nomeação. Para aplicações que requerem uma réplica em cada nó, ou nós selecionados, dentro de um cluster, o Controlador de Implementação não olha como as réplicas são distribuídas pelos nós.
 
-## <a name="statefulsets-and-daemonsets"></a>Conjuntos de Estado e Conjuntos Deemon
+Existem dois recursos Kubernetes que permitem gerir este tipo de aplicações:
 
-O Controlador de Implantação utiliza o Agendador Kubernetes para executar um determinado número de réplicas em qualquer nó disponível com recursos disponíveis. Esta abordagem de utilização de implantações pode ser suficiente para aplicações apátridas, mas não para aplicações que exijam uma convenção de nomeação persistente ou armazenamento. Para aplicações que exijam a existência de uma réplica em cada nó, ou nós selecionados, dentro de um cluster, o Controlador de Implementação não olha para a forma como as réplicas são distribuídas pelos nós.
-
-Existem dois recursos Kubernetes que lhe permitem gerir este tipo de aplicações:
-
-- *StatefulSets* - Mantenha o estado das aplicações para além de um ciclo de vida de pod individual, como o armazenamento.
+- *StatefulSets* - Mantenha o estado das aplicações para além de um ciclo de vida individual, como o armazenamento.
 - *DaemonSets* - Certifique-se de uma instância de execução em cada nó, no início do processo de bootstrap Kubernetes.
 
-### <a name="statefulsets"></a>Conjuntos de Estado
+### <a name="statefulsets"></a>StatefulSets
 
-O desenvolvimento moderno de aplicações visa frequentemente aplicações apátridas, mas *statefulSets* podem ser usados para aplicações imponentes, tais como aplicações que incluem componentes de base de dados. Um StatefulSet é semelhante a uma implementação na medida em que uma ou mais cápsulas idênticas são criadas e geridas. As réplicas num StatefulSet seguem uma abordagem graciosa e sequencial de implantação, escala, upgrades e rescisões. Com um StatefulSet (à medida que as réplicas são reagendadas) persistem a convenção de nomeação, os nomes da rede e o armazenamento.
+O desenvolvimento de aplicações modernas tem muitas vezes como objetivos para aplicações apátridas, mas *statefulSets* podem ser usados para aplicações imponentes, como aplicações que incluem componentes de base de dados. Um StatefulSet é semelhante a uma implementação na qual uma ou mais cápsulas idênticas são criadas e geridas. As réplicas num StatefulSet seguem uma abordagem graciosa e sequencial à implementação, escala, atualizações e terminações. Com um StatefulSet (à medida que as réplicas são reagendadas) persistem as convenções de nomeação, os nomes da rede e o armazenamento.
 
-Define a aplicação no formato YAML utilizando `kind: StatefulSet`, e o Controlador StatefulSet lida com a implementação e gestão das réplicas necessárias. Os dados são escritos para armazenamento persistente, fornecidos por Discos Geridos Azure ou Ficheiros Azure. Com statefulSets, o armazenamento persistente subjacente permanece mesmo quando o StatefulSet é eliminado.
+Define a aplicação em formato YAML utilizando `kind: StatefulSet` , e o Controlador StatefulSet trata então a implementação e gestão das réplicas necessárias. Os dados são escritos para armazenamento persistente, fornecido por Discos Geridos Azure ou Ficheiros Azure. Com statefulSets, o armazenamento persistente subjacente permanece mesmo quando o StatefulSet é eliminado.
 
-Para mais informações, consulte [Kubernetes StatefulSets][kubernetes-statefulsets].
+Para obter mais informações, consulte [o StatefulSets de Kubernetes][kubernetes-statefulsets].
 
-As réplicas de um StatefulSet estão programadas e passam por qualquer nó disponível num cluster AKS. Se precisar de garantir que pelo menos uma cápsula no seu set corre num nó, pode utilizar um DaemonSet.
+As réplicas num StatefulSet são programadas e correm através de qualquer nó disponível num cluster AKS. Se precisar de garantir que pelo menos uma cápsula do seu Conjunto funciona num nó, pode, em vez disso, utilizar um DaemonSet.
 
-### <a name="daemonsets"></a>Conjuntos de Daemon
+### <a name="daemonsets"></a>DaemonSets
 
-Para obter necessidades específicas de recolha de registos ou de monitorização, poderá ser necessário executar uma determinada cápsula em todos os nós, ou selecionados. Um *DaemonSet* é novamente utilizado para implantar uma ou mais cápsulas idênticas, mas o Controlador DaemonSet garante que cada nó especificado executa uma instância da cápsula.
+Para necessidades específicas de recolha de registos ou de monitorização, poderá ter de executar uma determinada cápsula em todos os nós, ou selecionados. Um *DaemonSet* é novamente utilizado para implantar uma ou mais cápsulas idênticas, mas o Controlador DaemonSet garante que cada nó especificado executa uma instância da cápsula.
 
-O Controlador DaemonSet pode agendar cápsulas em nós no início do processo de arranque do cluster, antes do programador padrão Kubernetes ter começado. Esta capacidade garante que as cápsulas de um DaemonSet são iniciadas antes de estarem programadas cápsulas tradicionais num Deployment ou StatefulSet.
+O Controlador DaemonSet pode agendar cápsulas em nós no início do processo de arranque do cluster, antes do programador padrão de Kubernetes ter começado. Esta capacidade garante que as cápsulas de um DaemonSet são iniciadas antes de serem agendadas cápsulas tradicionais numa Implementação ou StatefulSet.
 
-Tal como statefulSets, um DaemonSet é definido como `kind: DaemonSet`parte de uma definição YAML usando .
+Tal como statefulSets, um DaemonSet é definido como parte de uma definição YAML usando `kind: DaemonSet` .
 
-Para mais informações, consulte [Kubernetes DaemonSets][kubernetes-daemonset].
+Para mais informações, consulte [o Kubernetes DaemonSets][kubernetes-daemonset].
 
 > [!NOTE]
-> Se utilizar o addon Dos [Nós Virtuais,](virtual-nodes-cli.md#enable-virtual-nodes-addon)os DaemonSets não criarão cápsulas no nó virtual.
+> Se utilizar o [addons virtual,](virtual-nodes-cli.md#enable-virtual-nodes-addon)os DaemonSets não criarão cápsulas no nó virtual.
 
 ## <a name="namespaces"></a>Espaços de nomes
 
-Os recursos kubernetes, tais como cápsulas e implantações, são logicamente agrupados num *espaço de nome*. Estes agrupamentos fornecem uma forma logicamente de dividir um cluster AKS e restringir o acesso à criação, visão ou gestão de recursos. Pode criar espaços de nome para separar grupos empresariais, por exemplo. Os utilizadores só podem interagir com recursos dentro dos seus espaços de nome atribuídos.
+Os recursos kubernetes, tais como cápsulas e implementações, são logicamente agrupados num *espaço de nome.* Estes agrupamentos fornecem uma forma de dividir logicamente um cluster AKS e restringir o acesso para criar, visualizar ou gerir recursos. Pode criar espaços de nome para separar grupos empresariais, por exemplo. Os utilizadores só podem interagir com recursos dentro dos espaços de nome atribuídos.
 
-![Kubernetes nomeespaços para dividir logicamente recursos e aplicações](media/concepts-clusters-workloads/namespaces.png)
+![Kubernetes espaços de nome para dividir logicamente recursos e aplicações](media/concepts-clusters-workloads/namespaces.png)
 
-Quando se cria um cluster AKS, estão disponíveis os seguintes espaços de nome:
+Quando cria um cluster AKS, os seguintes espaços de nome estão disponíveis:
 
-- *predefinição* - Este espaço de nome é onde as cápsulas e as implementações são criadas por padrão quando nenhuma é fornecida. Em ambientes mais pequenos, pode implementar aplicações diretamente no espaço de nome padrão sem criar separações lógicas adicionais. Quando interage com a API kubernetes, como por exemplo, `kubectl get pods`o espaço de nome padrão é usado quando nenhum é especificado.
-- *kube-system* - Este espaço de nome é onde existem recursos centrais, tais como funcionalidades de rede como DNS e proxy, ou o dashboard Kubernetes. Normalmente não se implantam as suas próprias aplicações neste espaço de nome.
-- *kube-público* - Este espaço de nome normalmente não é usado, mas pode ser usado para que os recursos sejam visíveis em todo o cluster, e pode ser visto por qualquer utilizador.
+- *padrão* - Este espaço de nome é onde as cápsulas e implementações são criadas por padrão quando nenhuma é fornecida. Em ambientes mais pequenos, pode implementar aplicações diretamente no espaço de nome padrão sem criar separações lógicas adicionais. Quando interage com a API de Kubernetes, tal como `kubectl get pods` com, o espaço de nome padrão é utilizado quando nenhum é especificado.
+- *kube-system* - Este espaço de nome é onde existem recursos fundamentais, tais como funcionalidades de rede como DNS e proxy, ou o dashboard Kubernetes. Normalmente, não se implanta as suas próprias aplicações neste espaço de nome.
+- *kube-public* - Este espaço de nome normalmente não é usado, mas pode ser usado para recursos para ser visível em todo o cluster, e pode ser visto por qualquer utilizador.
 
-Para mais informações, consulte os espaços de [nome kubernetes.][kubernetes-namespaces]
+Para mais informações, consulte [os espaços de nomes de Kubernetes.][kubernetes-namespaces]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Este artigo cobre alguns dos componentes kubernetes fundamentais e como se aplicam aos clusters AKS. Para obter informações adicionais sobre os conceitos core Kubernetes e AKS, consulte os seguintes artigos:
+Este artigo cobre alguns dos componentes de Kubernetes e como se aplicam aos clusters AKS. Para obter informações adicionais sobre os conceitos core Kubernetes e AKS, consulte os seguintes artigos:
 
-- [Kubernetes / ACESSO aks e identidade][aks-concepts-identity]
-- [Kubernetes / Segurança AKS][aks-concepts-security]
+- [Acesso e identidade kubernetes / AKS][aks-concepts-identity]
+- [Segurança Kubernetes / AKS][aks-concepts-security]
 - [Redes virtuais Kubernetes / AKS][aks-concepts-network]
 - [Armazenamento Kubernetes / AKS][aks-concepts-storage]
-- [Escala kubernetes / AKS][aks-concepts-scale]
+- [Escala de Kubernetes / AKS][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 [aks-engine]: https://github.com/Azure/aks-engine

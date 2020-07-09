@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 0df74b82c847c9738d97d2001573666714c17672
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81008360"
 ---
 ## <a name="limitations"></a>Limitações
@@ -25,14 +25,14 @@ ms.locfileid: "81008360"
 
 ## <a name="deploy-shared-disks"></a>Implementar discos partilhados
 
-### <a name="deploy-a-premium-ssd-as-a-shared-disk"></a>Implementar um SSD premium como um disco partilhado
+### <a name="deploy-a-premium-ssd-as-a-shared-disk"></a>Implementar um SSD premium como disco partilhado
 
-Para implantar um disco gerido com a funcionalidade de `maxShares` disco partilhado ativada, utilize a nova propriedade e defina um valor superior a 1. Isto torna o disco partilhável em vários VMs.
+Para implementar um disco gerido com a funcionalidade de disco partilhado ativada, utilize a nova propriedade e defina um valor superior a `maxShares` 1. Isto torna o disco partilhável em vários VMs.
 
 > [!IMPORTANT]
-> O valor `maxShares` de apenas pode ser definido ou alterado quando um disco é desmontado de todos os VMs. Consulte os tamanhos do Disco `maxShares`para os [valores permitidos](#disk-sizes) para .
+> O valor só `maxShares` pode ser definido ou alterado quando um disco é desmontado de todos os VMs. Consulte os [tamanhos](#disk-sizes) do disco para obter os valores permitidos para `maxShares` .
 
-Antes de utilizar o `[parameters('dataDiskName')]` `[resourceGroup().location]`seguinte `[parameters('dataDiskSizeGB')]`modelo, substitua, e `[parameters('maxShares')]` com os seus próprios valores.
+Antes de utilizar o seguinte modelo, `[parameters('dataDiskName')]` substitua, , , e pelos seus `[resourceGroup().location]` `[parameters('dataDiskSizeGB')]` `[parameters('maxShares')]` próprios valores.
 
 ```json
 { 
@@ -77,10 +77,10 @@ Antes de utilizar o `[parameters('dataDiskName')]` `[resourceGroup().location]`s
 
 #### <a name="cli"></a>CLI
 
-Para implantar um disco gerido com a função `maxShares` de disco partilhado ativada, altere o parâmetro para um valor superior a 1. Isto torna o disco partilhável em vários VMs.
+Para implementar um disco gerido com a função de disco partilhado ativada, altere o `maxShares` parâmetro para um valor superior a 1. Isto torna o disco partilhável em vários VMs.
 
 > [!IMPORTANT]
-> O valor `maxShares` de apenas pode ser definido ou alterado quando um disco é desmontado de todos os VMs. Consulte os tamanhos do Disco `maxShares`para os [valores permitidos](#disk-sizes) para .
+> O valor só `maxShares` pode ser definido ou alterado quando um disco é desmontado de todos os VMs. Consulte os [tamanhos](#disk-sizes) do disco para obter os valores permitidos para `maxShares` .
 
 ```azurecli
 #Creating an Ultra shared Disk 
@@ -95,12 +95,12 @@ az disk show -g rg1 -n clidisk
 
 #### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Para implantar um disco gerido com a função `maxShares` de disco partilhado ativada, utilize a propriedade e defina um valor superior a 1. Isto torna o disco partilhável em vários VMs.
+Para implementar um disco gerido com a funcionalidade de disco partilhado ativada, utilize a propriedade e defina um valor superior a `maxShares` 1. Isto torna o disco partilhável em vários VMs.
 
 > [!IMPORTANT]
-> O valor `maxShares` de apenas pode ser definido ou alterado quando um disco é desmontado de todos os VMs. Consulte os tamanhos do Disco `maxShares`para os [valores permitidos](#disk-sizes) para .
+> O valor só `maxShares` pode ser definido ou alterado quando um disco é desmontado de todos os VMs. Consulte os [tamanhos](#disk-sizes) do disco para obter os valores permitidos para `maxShares` .
 
-Antes de utilizar o `[parameters('dataDiskName')]` `[resourceGroup().location]`seguinte `[parameters('dataDiskSizeGB')]` `[parameters('maxShares')]`modelo, substitua, `[parameters('diskIOPSReadWrite')]`, , e `[parameters('diskMBpsReadWrite')]` `[parameters('diskIOPSReadOnly')]` `[parameters('diskMBpsReadOnly')]` com os seus próprios valores.
+Antes de utilizar o seguinte modelo, `[parameters('dataDiskName')]` substitua, , , , , , , , `[resourceGroup().location]` e com os seus `[parameters('dataDiskSizeGB')]` `[parameters('maxShares')]` `[parameters('diskIOPSReadWrite')]` `[parameters('diskMBpsReadWrite')]` `[parameters('diskIOPSReadOnly')]` `[parameters('diskMBpsReadOnly')]` próprios valores.
 
 ```json
 {
@@ -168,12 +168,12 @@ Antes de utilizar o `[parameters('dataDiskName')]` `[resourceGroup().location]`s
 }
 ```
 
-### <a name="using-azure-shared-disks-with-your-vms"></a>Utilizando discos compartilhados azure com os seus VMs
+### <a name="using-azure-shared-disks-with-your-vms"></a>Usando discos compartilhados Azure com os seus VMs
 
-Depois de ter implantado um `maxShares>1`disco partilhado com, pode montar o disco num ou mais dos seus VMs.
+Depois de ter implantado um disco partilhado, `maxShares>1` pode montar o disco num ou mais dos seus VMs.
 
 > [!IMPORTANT]
-> Todos os VMs que partilham um disco devem ser implantados no mesmo grupo de [colocação](../articles/virtual-machines/windows/proximity-placement-groups.md)de proximidade .
+> Todos os VM que partilham um disco devem ser implantados no mesmo [grupo de colocação de proximidade](../articles/virtual-machines/windows/proximity-placement-groups.md).
 
 ```azurepowershell-interactive
 
@@ -195,11 +195,11 @@ $vm = Add-AzVMDataDisk -VM $vm -Name "mySharedDisk" -CreateOption Attach -Manage
 update-AzVm -VM $vm -ResourceGroupName $resourceGroup
 ```
 
-## <a name="supported-scsi-pr-commands"></a>Comandos SCSI PR suportados
+## <a name="supported-scsi-pr-commands"></a>Comandos SCSI PR apoiados
 
-Depois de ter montado o disco partilhado nos seus VMs no seu cluster, pode estabelecer quórum e ler/escrever para o disco utilizando pr SCSI. Os seguintes comandos de RP estão disponíveis quando utilizar discos partilhados azure:
+Uma vez montado o disco partilhado nos seus VMs no seu cluster, pode estabelecer quórum e ler/escrever para o disco utilizando o SCSI PR. Os seguintes comandos de relações públicas estão disponíveis quando utilizar discos partilhados Azure:
 
-Para interagir com o disco, comece com a lista de ação persistente de reserva:
+Para interagir com o disco, comece com a lista de ação de reserva persistente:
 
 ```
 PR_REGISTER_KEY 
@@ -217,7 +217,7 @@ PR_CLEAR_RESERVATION
 PR_RELEASE_RESERVATION 
 ```
 
-Ao utilizar PR_RESERVE, PR_PREEMPT_RESERVATION ou PR_RELEASE_RESERVATION, forneça um dos seguintes tipos persistentes de reserva:
+Ao utilizar PR_RESERVE, PR_PREEMPT_RESERVATION ou PR_RELEASE_RESERVATION, forneça um dos seguintes tipos de reserva persistentes:
 
 ```
 PR_NONE 
@@ -235,9 +235,9 @@ PR_WRITE_EXCLUSIVE_ALL_REGISTRANTS
 PR_EXCLUSIVE_ACCESS_ALL_REGISTRANTS 
 ```
 
-Também precisa de fornecer uma chave de reserva persistente ao utilizar PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION ou PR_RELEASE-RESERVATION.
+Você também precisa fornecer uma chave de reserva persistente ao usar PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION ou PR_RELEASE-RESERVA.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Se estiver interessado em experimentar discos partilhados, [inscreva-se na nossa pré-visualização.](https://aka.ms/AzureSharedDiskPreviewSignUp)
+Se está interessado em experimentar discos partilhados, [inscreva-se para a nossa pré-visualização](https://aka.ms/AzureSharedDiskPreviewSignUp).

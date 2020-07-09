@@ -1,40 +1,40 @@
 ---
 title: Partilha de ficheiros do Azure – falha ao eliminar ficheiros da partilha de ficheiros do Azure
-description: Identifique e desameça a falha na eliminação de ficheiros da Partilha de Ficheiros Azure.
+description: Identifique e resolva a falha na eliminação de ficheiros do Azure File Share.
 author: v-miegge
 ms.topic: troubleshooting
 ms.author: kartup
 manager: dcscontentpm
 ms.date: 10/25/2019
 ms.service: storage
-ms.subservice: common
+ms.subservice: files
 services: storage
 tags: ''
-ms.openlocfilehash: d3a3763a8964810626bcdc47da230a9ee406f1f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c50f54491e0284005c4b762b0c4b35a8460f5ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74196484"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511973"
 ---
 # <a name="azure-file-share--failed-to-delete-files-from-azure-file-share"></a>Partilha de ficheiros do Azure – falha ao eliminar ficheiros da partilha de ficheiros do Azure
 
-A não eliminação de ficheiros da Partilha de Ficheiros Azure pode ter vários sintomas:
+A falha na eliminação de ficheiros da Azure File Share pode ter vários sintomas:
 
 **Sintoma 1:**
 
-Não apagou um ficheiro em partilha de ficheiros azure devido a uma das duas questões abaixo:
+Não conseguiu eliminar um ficheiro em partilha de ficheiros azul devido a uma das duas questões abaixo:
 
-* O ficheiro marcado para apagar
-* O recurso especificado pode ser utilizado por um cliente SMB
+* O ficheiro marcado para eliminar
+* O recurso especificado pode estar a ser utilizado por um cliente SMB
 
 **Sintoma 2:**
 
-Não há quota suficiente para processar este comando
+Não há quota suficiente disponível para processar este comando
 
 ## <a name="cause"></a>Causa
 
-O erro 1816 ocorre quando se atinge o limite superior das pegas abertas simultâneas permitidas para um ficheiro, no computador onde a parte do ficheiro está a ser montada. Para mais informações, consulte o desempenho do [Armazenamento Azure e](https://docs.microsoft.com/azure/storage/blobs/storage-performance-checklist)a lista de verificação de escalabilidade .
+O erro 1816 ocorre quando se atinge o limite superior das pegas abertas simultâneas permitidas para um ficheiro, no computador onde a partilha de ficheiros está a ser montada. Para obter mais informações, consulte a [lista de verificação de desempenho e escalabilidade do Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-performance-checklist).
 
 ## <a name="resolution"></a>Resolução
 
@@ -70,15 +70,15 @@ $Context = New-AzStorageContext -StorageAccountName "StorageAccountName" -Storag
 # Get-AzStorageFileHandle -Context $Context -ShareName "FileShareName" -Recursive
 ```
 
-## <a name="example-result"></a>Resultado do exemplo:
+## <a name="example-result"></a>Resultado de exemplo:
 
-|Handleid|Caminho|ClientIp|ClientPort|Hora Aberta|LastReconnectTime|Fileid|Paria|SessãoId|
+|HandleId|Caminho|ClientIp|ClientPort|Horário aberto|Última Hora de Ligação|FileId|ParentId|SessionId|
 |---|---|---|---|---|---|---|---|---|
 |259101229083|---|10.222.10.123|62758|2019-10-05|12:16:50Z|0|0|9507758546259807489|
 |259101229131|---|10.222.10.123|62758|2019-10-05|12:36:20Z|0|0|9507758546259807489|
 |259101229137|---|10.222.10.123|62758|2019-10-05|12:36:53Z|0|0|9507758546259807489|
-|259101229136|Nova pasta/teste.zip|10.222.10.123|62758|2019-10-05|12:36:29Z|13835132822072852480|9223446803645464576|9507758546259807489|
-|259101229135|teste.zip|37.222.22.143|62758|2019-10-05|12:36:24Z|11529250230440558592|0|9507758546259807489|
+|259101229136|Nova pasta/test.zip|10.222.10.123|62758|2019-10-05|12:36:29Z|13835132822072852480|9223446803645464576|9507758546259807489|
+|259101229135|test.zip|37.222.22.143|62758|2019-10-05|12:36:24Z|11529250230440558592|0|9507758546259807489|
 
 ### <a name="close-an-open-handle"></a>Feche uma pega aberta:
 
@@ -88,8 +88,8 @@ Para fechar uma pega aberta, utilize o seguinte comando:
 # Close-AzStorageFileHandle -Context $Context -ShareName "FileShareName" -Path 'New folder/test.zip' -CloseAll
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Troubleshoot Azure Files no Windows](storage-troubleshoot-windows-file-connection-problems.md)
-* [Troubleshoot Azure Files em Linux](storage-troubleshoot-linux-file-connection-problems.md)
+* [Resolução de problemas Ficheiros Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
+* [Resolução de problemas Ficheiros Azure em Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Resolver problemas da Sincronização de Ficheiros do Azure](storage-sync-files-troubleshoot.md)

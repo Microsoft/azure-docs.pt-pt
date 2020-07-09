@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mqtt
-ms.date: 06/21/2019
-ms.openlocfilehash: b1ee14afcf46dfbedfb9d696b6a0add22ccd39cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/01/2020
+ms.openlocfilehash: 2efd2c982fcd4c799a6c9daa1d89fde25e7f2c64
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769125"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307668"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-net"></a>Quickstart: Envie a telemetria de um dispositivo para um hub IoT e leia-a com uma aplicação de back-end (.NET)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-net"></a>Quickstart: Enviar telemetria de um dispositivo para um hub IoT e lê-lo com uma aplicação de back-end (.NET)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -29,11 +29,11 @@ Este guia de início rápido utiliza duas aplicações C# pré-escritas, uma par
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As duas aplicações de exemplo que executa neste guia de início rápido são escritas com C#. Precisa do SDK de .NET Core 2.1.0 ou posterior no seu computador de desenvolvimento.
+As duas aplicações de exemplo que executa neste guia de início rápido são escritas com C#. Precisa do .NET Core SDK 3.0 ou superior na sua máquina de desenvolvimento.
 
 Pode transferir o SDK de .NET Core para múltiplas plataformas em [.NET](https://www.microsoft.com/net/download/all).
 
@@ -43,7 +43,10 @@ Pode verificar qual a versão atual do C# no seu computador de desenvolvimento a
 dotnet --version
 ```
 
-Execute o seguinte comando para adicionar a extensão Microsoft Azure IoT para Azure CLI à sua instância Cloud Shell. A extensão IOT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
+> [!NOTE]
+> Recomenda-se que .NET Core SDK 3.0 ou superior seja o código de serviço do Event Hubs utilizado para ler telemetria neste arranque rápido. Pode utilizar .NET Core SDK 2.1 se definir a versão idioma para o código de serviço para pré-visualizar como indicado na [secção Ler a telemetria do seu hub.](#read-the-telemetry-from-your-hub)
+
+Executar o seguinte comando para adicionar a extensão IoT do Microsoft Azure para Azure CLI à sua instância Cloud Shell. A extensão IOT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-iot
@@ -51,9 +54,9 @@ az extension add --name azure-iot
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-Descarregue as amostras Azure [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) IoT C# e extraia o arquivo ZIP.
+Descarregue as amostras Azure IoT C# [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) e extraia o arquivo ZIP.
 
-Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste quickstart utiliza o protocolo MQTT, que comunica através da porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste arranque rápido utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
@@ -65,17 +68,17 @@ Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dis
 
 1. Executar o seguinte comando em Azure Cloud Shell para criar a identidade do dispositivo.
 
-   **YourIoTHubName**: Substitua este espaço reservado abaixo com o nome que escolheu para o seu hub IoT.
+   **Seu NomeIoTHubName**: Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT.
 
-   **MyDotnetDevice**: Este é o nome do dispositivo que está a registar. É aconselhável utilizar o **MyDotnetDevice** como mostrado. Se escolher um nome diferente para o seu dispositivo, também terá de usar esse nome ao longo deste artigo e atualizar o nome do dispositivo nas aplicações da amostra antes de os executar.
+   **MyDotnetDevice:** Este é o nome do dispositivo que está a registar. Recomenda-se a utilização **do MyDotnetDevice** como mostrado. Se escolher um nome diferente para o seu dispositivo, também terá de usar esse nome ao longo deste artigo e atualizar o nome do dispositivo nas aplicações da amostra antes de executá-los.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDotnetDevice
     ```
 
-2. Execute o seguinte comando em Azure Cloud Shell para obter a _cadeia de ligação_ do dispositivo para o dispositivo que acabou de registar:
+2. Executar o seguinte comando em Azure Cloud Shell para obter a _cadeia de ligação_ do dispositivo para o dispositivo que acabou de registar:
 
-   **YourIoTHubName**: Substitua este espaço reservado abaixo com o nome que escolheu para o seu hub IoT.
+   **Seu NomeIoTHubName**: Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
@@ -85,11 +88,11 @@ Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dis
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDotnetDevice;SharedAccessKey={YourSharedAccessKey}`
 
-    Usará este valor mais tarde no início.
+    Usará este valor mais tarde no arranque rápido.
 
-3. Você também precisa do ponto final compatível com Hubs de _eventos,_ _caminho compatível com Hubs_de eventos , e _chave primária_ de serviço do seu hub IoT para permitir que a aplicação back-end se ligue ao seu hub IoT e recupere as mensagens. Os seguintes comandos obtêm estes valores para o hub IoT:
+3. Também precisa do _ponto final compatível com Os Centros de Eventos,_ _caminho compatível com Os Hubs de Eventos_e _da chave primária_ de serviço do seu hub IoT para permitir que a aplicação back-end se conecte ao seu hub IoT e recupere as mensagens. Os seguintes comandos obtêm estes valores para o hub IoT:
 
-   **YourIoTHubName**: Substitua este espaço reservado abaixo com o nome que escolher para o seu hub IoT.
+   **Seu NomeIoTHubName**: Substitua este espaço reservado abaixo pelo nome que escolher para o seu hub IoT.
 
     ```azurecli-interactive
     az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
@@ -109,7 +112,7 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
 
 2. Abra o ficheiro **SimulatedDevice.cs** num editor de texto à sua escolha.
 
-    Substitua o `s_connectionString` valor da variável pela cadeia de ligação do dispositivo de que fez uma nota anterior. Em seguida, guarde as suas alterações para **SimulatedDevice.cs**.
+    Substitua o valor da `s_connectionString` variável pela cadeia de ligação do dispositivo que fez uma nota anterior. Em seguida, guarde as suas alterações para **SimulatedDevice.cs**.
 
 3. Na janela de terminal local, execute os seguintes comandos para instalar os pacotes exigidos para a aplicação de dispositivo simulado:
 
@@ -125,7 +128,7 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
 
     A seguinte captura de ecrã mostra a saída à medida que a aplicação de dispositivo simulado envia telemetria para o seu hub IoT:
 
-    ![Executar o dispositivo simulado](media/quickstart-send-telemetry-dotnet/SimulatedDevice.png)
+    ![Executar o dispositivo simulado](media/quickstart-send-telemetry-dotnet/simulated-device.png)
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Ler a telemetria a partir do seu hub
 
@@ -137,9 +140,12 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
 
     | Variável | Valor |
     | -------- | ----------- |
-    | `s_eventHubsCompatibleEndpoint` | Substitua o valor da variável pelo ponto final compatível com os Hubs de Eventos que fez uma nota anterior. |
-    | `s_eventHubsCompatiblePath`     | Substitua o valor da variável pelo caminho compatível com hubs de eventos que fez uma nota anterior. |
-    | `s_iotHubSasKey`                | Substitua o valor da variável pela chave primária de serviço que fez uma nota anterior. |
+    | `EventHubsCompatibleEndpoint` | Substitua o valor da variável pelo ponto final compatível com Os Centros de Eventos que fez uma nota anterior. |
+    | `EventHubName`                | Substitua o valor da variável pelo caminho compatível com Os Centros de Eventos que fez uma nota anterior. |
+    | `IotHubSasKey`                | Substitua o valor da variável pela chave primária de serviço que fez uma nota de anterior. |
+
+    > [!NOTE]
+    > Se estiver a utilizar .NET Core SDK 2.1, tem de definir a versão linguística para pré-visualizar para compilar o código. Para tal, abra o ficheiro **read-d2c-messages.csproj** e desajuste o valor do `<LangVersion>` elemento para `preview` .
 
 3. Na janela de terminal local, execute os seguintes comandos para instalar as bibliotecas exigidas para a aplicação back-end:
 
@@ -155,7 +161,7 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
 
     A seguinte captura de ecrã mostra a saída à medida que a aplicação back-end recebe telemetria enviada pelo dispositivo simulado para o hub:
 
-    ![Executar a aplicação back-end](media/quickstart-send-telemetry-dotnet/ReadDeviceToCloud.png)
+    ![Executar a aplicação back-end](media/quickstart-send-telemetry-dotnet/read-device-to-cloud.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -163,7 +169,7 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, você montou um hub IoT, registou um dispositivo, enviou telemetria simulada para o hub usando uma aplicação C#, e leu a telemetria do hub usando uma simples aplicação back-end.
+Neste quickstart, você montou um hub IoT, registou um dispositivo, enviou telemetria simulada para o hub usando uma aplicação C# e leu a telemetria do hub usando uma simples aplicação de back-end.
 
 Para saber como controlar o seu dispositivo simulado a partir de uma aplicação back-end, continue para o guia de início rápido seguinte.
 

@@ -1,6 +1,6 @@
 ---
-title: Criação de recuperação de desastres após migração para Azure com recuperação do site Azure
-description: Este artigo descreve como preparar máquinas para configurar a recuperação de desastres entre as regiões de Azure após a migração para Azure usando a Recuperação do Sítio Azure.
+title: Confiúdo de recuperação de desastres após migração para Azure com recuperação do local de Azure
+description: Este artigo descreve como preparar máquinas para estabelecer a recuperação de desastres entre as regiões de Azure após a migração para Azure usando a Recuperação do Local de Azure.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,81 +8,81 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 874c282ff878126297dc46ca0e7a4c19910e40a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a71e476a214c44514c7d57c54a09a38218ad6d2a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74159105"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135677"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configurar a recuperação após desastre de VMs do Azure após a migração para o Azure 
 
 
-Siga este artigo se [emigrou máquinas no local para VMs Azure](tutorial-migrate-on-premises-to-azure.md) usando o serviço de [Recuperação](site-recovery-overview.md) do Site, e agora quer que os VMs sejam configurados para a recuperação de desastres para uma região secundária de Azure. O artigo descreve como garantir que o agente Azure VM é instalado em VMs migrados, e como remover o serviço de Mobilidade de Recuperação do Site que já não é necessário após a migração.
+Siga este artigo se [você emigrou as máquinas no local para Azure VMs](./migrate-tutorial-on-premises-azure.md) usando o serviço de Recuperação de [Locais,](site-recovery-overview.md) e agora você quer obter os VMs configurados para recuperação de desastres para uma região secundária de Azure. O artigo descreve como garantir que o agente Azure VM é instalado em VMs migrados, e como remover o serviço de Mobilidade de Recuperação do Local que já não é necessário após a migração.
 
 
 
-## <a name="verify-migration"></a>Verificar a migração
+## <a name="verify-migration"></a>Verificar migração
 
-Antes de preparar a recuperação de desastres, certifique-se de que a migração está concluída como esperado. Para completar uma migração com sucesso, após a falha, deve selecionar a opção **Migração Completa,** para cada máquina que pretende migrar. 
+Antes de preparar a recuperação de desastres, certifique-se de que a migração está concluída como esperado. Para completar uma migração com sucesso, após o failover, deve selecionar a opção **Migração Completa,** para cada máquina que pretende migrar. 
 
 ## <a name="verify-the-azure-vm-agent"></a>Verifique o agente Azure VM
 
-Cada VM Azure deve ter o [agente Azure VM](../virtual-machines/extensions/agent-windows.md) instalado. Para replicar Os VMs Azure, a Recovery do Local instala uma extensão no agente.
+Cada Azure VM deve ter o [agente Azure VM](../virtual-machines/extensions/agent-windows.md) instalado. Para replicar VMs Azure, a Recuperação do Local instala uma extensão no agente.
 
-- Se a máquina estiver a funcionar na versão 9.7.0.0 ou posterior do serviço de Mobilidade de Recuperação do Site, o agente Azure VM é automaticamente instalado pelo serviço mobility em VMs windows. Em versões anteriores do serviço mobility, irá instalar o agente manualmente.
-- Para os VMs Linux, tem de instalar manualmente o agente Azure VM. Só precisa de instalar o agente Azure VM se o serviço de Mobilidade instalado na máquina migrada for v9.6 ou mais cedo.
+- Se a máquina estiver a executar a versão 9.7.0.0 ou posterior do serviço de Mobilidade de Recuperação do Local, o agente Azure VM é automaticamente instalado pelo serviço mobility em VMs windows. Nas versões anteriores do serviço Mobility, instalará o agente manualmente.
+- Para os VMs Linux, deve instalar manualmente o agente Azure VM. Só é necessário instalar o agente Azure VM se o serviço de Mobilidade instalado na máquina migratória for v9.6 ou mais cedo.
 
 
-### <a name="install-the-agent-on-windows-vms"></a>Instale o agente nos VMs do Windows
+### <a name="install-the-agent-on-windows-vms"></a>Instale o agente em VMs do Windows
 
-Se estiver a executar uma versão do serviço de mobilidade de Recuperação do Site mais cedo do que 9.7.0.0, ou tiver alguma outra necessidade de instalar o agente manualmente, faça o seguinte:  
+Se estiver a executar uma versão do serviço de mobilidade de Recuperação do Site antes de 9.7.0.0, ou tiver alguma outra necessidade de instalar o agente manualmente, faça o seguinte:  
 
 1. Certifique-se de que tem permissões de administração no VM.
-2. Descarregue o [instalador vM Agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
+2. Descarregue o [instalador do Agente VM](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 3. Executar o ficheiro do instalador.
 
 #### <a name="validate-the-installation"></a>Validar a instalação
 Para verificar se o agente está instalado:
 
 1. No Azure VM, na pasta C:\WindowsAzure\Packages, deverá ver o ficheiro WaAppAgent.exe.
-2. Clique no ficheiro e no **Properties,** selecione o separador **Detalhes.**
-3. Verifique se o campo versão do **produto** mostra 2.6.1198.718 ou superior.
+2. Clique com o direito no ficheiro e, em **Propriedades,** selecione o separador **Detalhes.**
+3. Verifique se o campo **versão do produto** apresenta 2.6.1198.718 ou superior.
 
-[Saiba mais](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) sobre a instalação de agente para windows.
+[Saiba mais](../virtual-machines/extensions/agent-windows.md) sobre a instalação do agente para windows.
 
 ### <a name="install-the-agent-on-linux-vms"></a>Instale o agente em VMs Linux
 
-Instale manualmente o agente [Azure Linux VM:](../virtual-machines/extensions/agent-linux.md)
+Instale manualmente o agente [Azure Linux VM](../virtual-machines/extensions/agent-linux.md) da seguinte forma:
 
-1. Certifique-se de ter permissões de administração na máquina.
-2. Recomendamos vivamente que instale o agente Linux VM utilizando um pacote RPM ou DEB do repositório de pacotes da sua distribuição. Todos os fornecedores de [distribuição endossados](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integram o pacote de agentes Azure Linux nas suas imagens e repositórios.
+1. Certifique-se de que tem permissões de administração na máquina.
+2. Recomendamos vivamente que instale o agente Linux VM utilizando um RPM ou um pacote DEB do repositório de pacotes da sua distribuição. Todos os [fornecedores de distribuição endossados](../virtual-machines/linux/endorsed-distros.md) integram o pacote de agente Azure Linux nas suas imagens e repositórios.
     - Recomendamos vivamente que atualize o agente apenas através de um repositório de distribuição.
     - Não recomendamos instalar o agente Linux VM diretamente do GitHub e atualizá-lo.
-    -  Se o mais recente agente para a sua distribuição não estiver disponível, contacte o suporte de distribuição para obter instruções sobre como instalá-lo. 
+    -  Se o último agente para a sua distribuição não estiver disponível, contacte o suporte de distribuição para obter instruções sobre como instalá-lo. 
 
 #### <a name="validate-the-installation"></a>Validar a instalação 
 
-1. Execute este comando: **ps-e** para garantir que o agente Azure está a funcionar no Linux VM.
-2. Se o processo não estiver em execução, reinicie-o utilizando os seguintes comandos:
-    - Para Ubuntu: início do **walinuxagent de serviço**
-    - Para outras distribuições: **início do waagent de serviço**
+1. Executar este comando: **ps-e** para garantir que o agente Azure está em execução no Linux VM.
+2. Se o processo não estiver em curso, reinicie-o utilizando os seguintes comandos:
+    - Para Ubuntu: **início de serviço walinuxagent**
+    - Para outras distribuições: **início waagent de serviço**
 
 
 ## <a name="uninstall-the-mobility-service"></a>Desinstalar o serviço de Mobilidade
 
-1. Desinstale manualmente o serviço de Mobilidade a partir do Azure VM, utilizando um dos seguintes métodos. 
-    - Para windows, no Painel de Controlo > **Programas de Adição/Remoção,** desinstale o Serviço de Mobilidade de Recuperação do **Site Microsoft Azure/servidor Master Target**. A uma altura elevada de comando, corra:
+1. Desinstalar manualmente o serviço de Mobilidade a partir do Azure VM, utilizando um dos seguintes métodos. 
+    - Para o Windows, no Painel de Controlo > **adicionar/remover programas**, desinstale **o Serviço de Mobilidade de Recuperação do Site microsoft Azure/servidor De destino Principal**. Com um pedido de comando elevado, corra:
         ```
         MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
         ```
-    - Para linux, inscreva-se como um utilizador de raiz. Num terminal, dirija-se a **/utilizador/local/ASR,** e execute o seguinte comando:
+    - Para o Linux, inscreva-se como um utilizador de raiz. Num terminal, vá a **/utilizador/local/ASR,** e execute o seguinte comando:
         ```
         ./uninstall.sh -Y
         ```
 2. Reinicie o VM antes de configurar a replicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Reveja](site-recovery-extension-troubleshoot.md) a resolução de problemas para a extensão de recuperação do site no agente Azure VM.
-[Reproduza rapidamente](azure-to-azure-quickstart.md) um VM Azure para uma região secundária.
+[Reveja a resolução de problemas](site-recovery-extension-troubleshoot.md) para a extensão de recuperação do local no agente Azure VM.
+[Replique rapidamente](azure-to-azure-quickstart.md) um Azure VM para uma região secundária.

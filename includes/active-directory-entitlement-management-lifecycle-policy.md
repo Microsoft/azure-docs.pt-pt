@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: active-directory
 author: msaburnley
 ms.service: active-directory
@@ -9,36 +9,36 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
 ms.openlocfilehash: e971af5d415ea788f97ab11b58541e629c7eb0ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76694365"
 ---
 ## <a name="lifecycle"></a>Ciclo de vida
 
-No separador **Lifecycle,** especifice quando a atribuição de um utilizador ao pacote de acesso expira. Também pode especificar se os utilizadores podem estender as suas atribuições.
+No **separador Ciclo de Vida,** especifique quando expira a atribuição de um utilizador ao pacote de acesso. Também pode especificar se os utilizadores podem estender as suas atribuições.
 
-1. Na secção **Expiração,** as atribuições de pacotes de **acesso expiram** até à **data**, **Número de dias**, ou **Nunca**.
+1. Na secção **expiração,** as **atribuições de pacotes de acesso terminam** até à **data**, **Número de dias**, ou **Nunca**.
 
-    Para **data de trabalho**, selecione uma data de validade no futuro.
+    Para **a data,** selecione uma data de validade no futuro.
 
-    Durante **o número de dias**, especifique um número entre 0 e 3660 dias.
+    Para **o número de dias**, especifique um número entre 0 e 3660 dias.
 
     Com base na sua seleção, a atribuição de um utilizador ao pacote de acesso expira numa determinada data, um certo número de dias após a sua aprovação, ou nunca.
 
-1. Clique em **Mostrar definições de expiração avançadas** para mostrar definições adicionais.
+1. Clique **em Mostrar Definições de expiração avançadas** para mostrar definições adicionais.
 
-    ![Pacote de acesso - Definições de Expiração do Ciclo de Vida](./media/active-directory-entitlement-management-lifecycle-policy/expiration.png)
+    ![Pacote de acesso - Definições de expiração do ciclo de vida](./media/active-directory-entitlement-management-lifecycle-policy/expiration.png)
 
-1. Para permitir que o utilizador prolongue as suas atribuições, **detete te permita que os utilizadores aumentem o acesso** ao **Sim**.
+1. Para permitir que o utilizador aumente as suas atribuições, desateia-se **permitir que os utilizadores alargassem** o acesso ao **Sim.**
 
-    Se forem permitidas extensões na apólice, o utilizador receberá um e-mail 14 dias e também 1 dia antes da sua atribuição do pacote de acesso expirar, levando-os a prolongar a atribuição. Se o utilizador apresentar um pedido de extensão do acesso, a data de extensão deve ser em ou antes de as atribuições expirarem conforme definido na política que foi utilizada para conceder ao utilizador o acesso ao pacote de acesso. Por exemplo, se a apólice indicar que as atribuições estão previstas para expirar a 30 de junho, a extensão máxima que um utilizador pode solicitar é 30 de junho.
+    Se as extensões forem permitidas na apólice, o utilizador receberá um e-mail 14 dias e também 1 dia antes da sua atribuição do pacote de acesso estar definida para expirar, levando-os a prolongar a atribuição. Se o utilizador submeter um pedido de alargamento do acesso, a data de extensão deve ser ou antes de as atribuições expirarem conforme definido na política que foi usada para conceder ao utilizador acesso ao pacote de acesso. Por exemplo, se a apólice indicar que as atribuições estão definidas para expirar no dia 30 de junho, a extensão máxima que um utilizador pode solicitar é 30 de junho.
 
-    Se o acesso de um utilizador for alargado, não poderá solicitar o pacote de acesso após a data de extensão especificada (data definida no fuso horário do utilizador que criou a apólice).
+    Se o acesso de um utilizador for prolongado, não poderá solicitar o pacote de acesso após a data de extensão especificada (data definida no fuso horário do utilizador que criou a apólice).
 
-1. Para exigir a aprovação para conceder uma extensão, definido **Exigir aprovação para conceder extensão** a **Sim**.
+1. Para exigir aprovação para conceder uma extensão, **detete-se a aprovação para conceder a extensão** ao **Sim**.
 
     Serão utilizadas as mesmas definições de aprovação especificadas no separador **Pedidos.**
 
-1. Clique em **Seguir** ou **atualizar**.
+1. Clique **em Seguinte** ou **Atualização**.

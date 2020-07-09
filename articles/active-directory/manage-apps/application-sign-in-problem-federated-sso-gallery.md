@@ -1,147 +1,147 @@
 ---
-title: Problemas de inscrição na app de inscrição única federada / Microsoft Docs
-description: Orientação para os erros específicos ao assinar uma aplicação configurada para saml-federado único sign-on com Azure AD
+title: Problemas de inscrição na app de galeria de inscrição única federada Microsoft Docs
+description: Orientação para os erros específicos ao assinar uma aplicação que configuraste para um único sign-on federado com base em SAML com Azure AD
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/18/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 874d273e26a728afc0a1dc1a16852016797067ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 68dc90cdb096849df17bc25ac185b1239b46ec72
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77367893"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413149"
 ---
-# <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemas de inscrição numa aplicação de galeria configurada para inscrição única federada
+# <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemas ao iniciar sessão numa aplicação de galeria configurada para o início de sessão único federado
 
-Para resolver os problemas de inscrição abaixo, recomendamos que siga esta sugestão para obter um melhor diagnóstico e automatizar os passos de resolução:
+Para resolver os problemas de inscrição abaixo, recomendamos que siga estas sugestões para obter um melhor diagnóstico e automatizar as etapas de resolução:
 
-- Instale a extensão do [navegador Seguro das Minhas Aplicações](access-panel-extension-problem-installing.md) para ajudar o Azure Ative Directory (Azure AD) a fornecer um melhor diagnóstico e resoluções ao utilizar a experiência de teste no portal Azure.
-- Reproduza o erro utilizando a experiência de teste na página de configuração da aplicação no portal Azure. Saiba mais sobre [aplicações de assinatura única baseadas em Debug SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- Instale a [Extensão de Navegador My Apps Secure](access-panel-extension-problem-installing.md) para ajudar o Azure Ative Directory (Azure AD) a fornecer um melhor diagnóstico e resoluções ao utilizar a experiência de teste no portal Azure.
+- Reproduza o erro utilizando a experiência de teste na página de configuração da aplicação no portal Azure. Saiba mais sobre [aplicações únicas baseadas em Debug SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
 
 
-## <a name="application-not-found-in-directory"></a>Candidatura não encontrada no diretório
+## <a name="application-not-found-in-directory"></a>Pedido não encontrado no diretório
 
-*Erro AADSTS70001: Aplicação com\/identificador 'https: /contoso.com' não foi encontrada no diretório*.
+*Erro AADSTS70001: Aplicação com identificador 'https: \/ /contoso.com' não foi encontrada no diretório*.
 
-**Possível causa**
+**Causa possível**
 
-O `Issuer` atributo enviado a partir da aplicação à AD Azure no pedido SAML não corresponde ao valor do Identificador que está configurado para a aplicação em Azure AD.
+O `Issuer` atributo enviado do pedido para Azure AD no pedido SAML não corresponde ao valor identificador configurado para o pedido em Azure AD.
 
 **Resolução**
 
-Certifique-se `Issuer` de que o atributo no pedido SAML corresponde ao valor identificador configurado em Azure AD. Se utilizar a experiência de [teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal Azure com a extensão do navegador Seguro das Minhas Aplicações, não precisa de seguir manualmente estes passos.
+Certifique-se de que o `Issuer` atributo no pedido SAML corresponde ao valor identificador configurado em Azure AD. Se utilizar a experiência de [teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal Azure com a Extensão do Navegador Seguro das Minhas Aplicações, não precisa de seguir manualmente estes passos.
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministrador**.
+1.  Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministração**.
 
-1.  Abra a extensão do **Diretório Ativo Azure** selecionando **Todos os serviços** no topo do menu principal de navegação à esquerda.
+1.  Abra a **Extensão do Diretório Ativo Azure** selecionando **todos os serviços** no topo do menu principal de navegação à esquerda.
 
-1.  Digite **"Azure Ative Directory"** na caixa de pesquisa de filtros e selecione o item **azure Ative Directory.**
+1.  Digite **"Azure Ative Directory"** na caixa de pesquisa do filtro e selecione o item **Azure Ative Directory.**
 
-1.  Selecione **Aplicações Empresariais** do menu de navegação à esquerda do Azure Ative Diretório.
+1.  Selecione **Aplicações empresariais** do menu de navegação à esquerda do Azure Ative.
 
 1.  Selecione **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
 
-    Se não vir a aplicação que deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e detetete a opção **Mostrar** para Todas **as Aplicações**.
+    Se não vir a aplicação deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e desate a opção **'Mostrar'** para **todas as aplicações**.
 
-1.  Selecione a aplicação que pretende configurar para um único início de sessão.
+1.  Selecione a aplicação que pretende configurar para uma única sação.
 
-1.  Assim que a aplicação for carregada, abra **Configuração de SAML básica**. Verifique se o valor na caixa de texto do identificador corresponde ao valor do identificador apresentado no erro.
+1.  Assim que a aplicação for carregada, abra **Configuração de SAML básica**. Verifique se o valor na caixa de texto do Identificador corresponde ao valor do valor do identificador apresentado no erro.
 
 
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>O endereço de resposta não corresponde aos endereços de resposta configurados para o pedido
 
-*Erro AADSTS50011: O endereço\/de resposta 'https: /contoso.com' não corresponde aos endereços de resposta configurados para a aplicação*
+*Erro AADSTS50011: O endereço de resposta 'https: \/ /contoso.com' não corresponde aos endereços de resposta configurados para o pedido*
 
-**Possível causa**
+**Causa possível**
 
-O `AssertionConsumerServiceURL` valor no pedido SAML não corresponde ao valor ou padrão de URL de resposta configurado em Azure AD. O `AssertionConsumerServiceURL` valor no pedido SAML é o URL que vê no erro.
+O `AssertionConsumerServiceURL` valor do pedido SAML não corresponde ao valor url de resposta ou padrão configurado em Azure AD. O `AssertionConsumerServiceURL` valor no pedido DE SAML é o URL que vê no erro.
 
 **Resolução**
 
-Certifique-se `AssertionConsumerServiceURL` de que o valor no pedido SAML corresponde ao valor URL de resposta configurado em Azure AD. Se utilizar a experiência de [teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal Azure com a extensão do navegador Seguro das Minhas Aplicações, não precisa de seguir manualmente estes passos.
+Certifique-se de que o `AssertionConsumerServiceURL` valor no pedido SAML corresponde ao valor URL de resposta configurado em Azure AD. Se utilizar a experiência de [teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal Azure com a Extensão do Navegador Seguro das Minhas Aplicações, não precisa de seguir manualmente estes passos.
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministrador**.
+1.  Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministração**.
 
-1.  Abra a extensão do **Diretório Ativo Azure** selecionando **Todos os serviços** no topo do menu principal de navegação à esquerda.
+1.  Abra a **Extensão do Diretório Ativo Azure** selecionando **todos os serviços** no topo do menu principal de navegação à esquerda.
 
-1.  Digite **"Azure Ative Directory"** na caixa de pesquisa de filtros e selecione o item **azure Ative Directory.**
+1.  Digite **"Azure Ative Directory"** na caixa de pesquisa do filtro e selecione o item **Azure Ative Directory.**
 
-1.  Selecione **Aplicações Empresariais** do menu de navegação à esquerda do Azure Ative Diretório.
+1.  Selecione **Aplicações empresariais** do menu de navegação à esquerda do Azure Ative.
 
 1.  Selecione **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
 
-    Se não vir a aplicação que deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e detetete a opção **Mostrar** para Todas **as Aplicações**.
+    Se não vir a aplicação deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e desate a opção **'Mostrar'** para **todas as aplicações**.
 
-1.  Selecione a aplicação que pretende configurar para um único início de sessão.
+1.  Selecione a aplicação que pretende configurar para uma única sação.
 
-1.  Assim que a aplicação for carregada, abra **Configuração de SAML básica**. Verifique ou atualize o valor na caixa `AssertionConsumerServiceURL` de texto URL resposta para corresponder ao valor no pedido SAML.    
+1.  Assim que a aplicação for carregada, abra **Configuração de SAML básica**. Verifique ou atualize o valor na caixa de texto URL de resposta para corresponder ao `AssertionConsumerServiceURL` valor do pedido SAML.    
     
-Depois de ter atualizado o valor URL de resposta em AD Azure, e corresponder ao valor enviado pela aplicação no pedido SAML, deverá poder iniciar sessão no pedido.
+Depois de ter atualizado o valor URL de resposta em Azure AD, e corresponder ao valor enviado pela aplicação no pedido SAML, deverá poder inscrever-se na aplicação.
 
 ## <a name="user-not-assigned-a-role"></a>Utilizador não atribuiu uma função
 
-*Erro AADSTS50105: O assinado\@no utilizador 'brian contoso.com' não é atribuído a um papel para a aplicação*.
+*Erro AADSTS50105: O assinado no utilizador 'brian \@ contoso.com' não está atribuído a uma função para a aplicação*.
 
-**Possível causa**
+**Causa possível**
 
 Não foi concedido ao utilizador acesso à aplicação no Azure Active Directory.
 
 **Resolução**
 
-Para atribuir um ou mais utilizadores a uma aplicação diretamente, siga os passos abaixo. Se utilizar a experiência de [teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal Azure com a extensão do navegador Seguro das Minhas Aplicações, não precisa de seguir manualmente estes passos.
+Para atribuir um ou mais utilizadores a uma aplicação diretamente, siga os passos abaixo. Se utilizar a experiência de [teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal Azure com a Extensão do Navegador Seguro das Minhas Aplicações, não precisa de seguir manualmente estes passos.
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global.**
+1.  Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global**.
 
-1.  Abra a extensão do **Diretório Ativo Azure** selecionando **Todos os serviços** no topo do menu principal de navegação à esquerda.
+1.  Abra a **Extensão do Diretório Ativo Azure** selecionando **todos os serviços** no topo do menu principal de navegação à esquerda.
 
-1.  Digite **"Azure Ative Directory"** na caixa de pesquisa de filtros e selecione o item **azure Ative Directory.**
+1.  Digite **"Azure Ative Directory"** na caixa de pesquisa do filtro e selecione o item **Azure Ative Directory.**
 
-1.  Selecione **Aplicações Empresariais** do menu de navegação à esquerda do Azure Ative Diretório.
+1.  Selecione **Aplicações empresariais** do menu de navegação à esquerda do Azure Ative.
 
 1.  Selecione **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
 
-    Se não vir a aplicação que deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e detetete a opção **Mostrar** para Todas **as Aplicações**.
+    Se não vir a aplicação deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e desate a opção **'Mostrar'** para **todas as aplicações**.
 
-1.  A partir da lista de aplicações, selecione aquela a que pretende atribuir um utilizador.
+1.  A partir da lista de aplicações, selecione a que pretende atribuir um utilizador.
 
-1.  Assim que a aplicação for carregada, selecione **Utilizadores e Grupos** do menu de navegação à esquerda da aplicação.
+1.  Uma vez que a aplicação seja carregada, selecione **Utilizadores e Grupos** do menu de navegação à esquerda da aplicação.
 
-1.  Clique no botão **Adicionar** em cima da lista de **Utilizadores e Grupos** para abrir o painel de atribuição de **adicionar.**
+1.  Clique no botão **Adicionar** no topo da lista **de Utilizadores e Grupos** para abrir o painel **de atribuição de adicionar.**
 
-1.  Selecione o seletor de **utilizadores e grupos** do painel **adicionar** assignment.
+1.  Selecione o seletor **de Utilizadores e grupos** a partir do painel **de atribuição de adicionar.**
 
 1. Na caixa de pesquisa **Pesquisar por nome ou endereço de e-mail**, escreva o nome completo ou o endereço de e-mail do utilizador que quer adicionar.
 
-1. Passe por cima do **utilizador** na lista para revelar uma caixa de **verificação**. Clique na caixa de verificação ao lado da foto ou logotipo do perfil do utilizador para adicionar o utilizador à lista **Selecionada.**
+1. Passe por cima do **utilizador** na lista para revelar uma **caixa de verificação**. Clique na caixa de verificação ao lado da foto ou logotipo do perfil do utilizador para adicionar o utilizador à lista **Selecionada.**
 
-1. **Opcional:** Se quiser **adicionar mais do que um utilizador,** escreva outro nome completo ou endereço de e-mail na caixa de pesquisa de endereços de pesquisa de **'Pesquisa' de nome ou endereço de e-mail,** e clique na caixa de verificação para adicionar o utilizador à lista **Selecionada.**
+1. **Opcional:** Se pretender **adicionar mais do que um utilizador**, digite outro nome completo ou endereço de e-mail na caixa de pesquisa de endereço de nome ou **e-mail** e clique na caixa de verificação para adicionar o utilizador à lista **Selecionada.**
 
-1. Quando terminar de selecionar os utilizadores, clique no botão **Select** para adicioná-los à lista de utilizadores e grupos a atribuir à aplicação.
+1. Quando terminar de selecionar os utilizadores, clique no botão **Selecionar** para os adicionar à lista de utilizadores e grupos a atribuir à aplicação.
 
-1. **Opcional:** Clique no seletor **de funções Select** no painel **adicionar** assignment para selecionar uma função para atribuir aos utilizadores que selecionou.
+1. **Opcional:** Clique no seletor **'Escolha's Fun** no painel **'Adicionar Atribuição'** para selecionar uma função a atribuir aos utilizadores selecionados.
 
 1. Clique no botão **Atribuir** para atribuir a aplicação aos utilizadores selecionados.
 
 Após um curto período de tempo, os utilizadores selecionados poderão lançar estas aplicações utilizando os métodos descritos na secção de descrição da solução.
 
-## <a name="not-a-valid-saml-request"></a>Não é um pedido SAML válido
+## <a name="not-a-valid-saml-request"></a>Não é um pedido válido da SAML
 
-*Erro AADSTS75005: O pedido não é uma mensagem de protocolo Saml2 válida.*
+*Error AADSTS75005: O pedido não é uma mensagem de protocolo Saml2 válida.*
 
-**Possível causa**
+**Causa possível**
 
 O Azure Active Directory não suporta o pedido SAML enviado pela aplicação para o início de sessão único. Alguns problemas comuns são:
 
@@ -150,125 +150,125 @@ O Azure Active Directory não suporta o pedido SAML enviado pela aplicação par
 
 **Resolução**
 
-1. Capture o pedido da SAML. Siga o tutorial [Como depurar o único sign-on baseado em SAML em aplicações em Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md) para aprender a capturar o pedido SAML.
+1. Capture o pedido da SAML. Siga o tutorial [Como depurar o único sign-on baseado em SAML para aplicações em Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md) para aprender como capturar o pedido DE SAML.
 
 1. Contacte o fabricante da aplicação e partilhe as seguintes informações:
 
-   -   Pedido da SAML
+   -   Pedido SAML
 
-   -   [Requisitos de protocolo SAML de assinatura única da AD Azure](../develop/single-sign-on-saml-protocol.md)
+   -   [Requisitos do protocolo Azure AD Single Sign-on SAML](../develop/single-sign-on-saml-protocol.md)
 
-O fornecedor de aplicações deve validar que suporta a implementação do Azure AD SAML para um único sign-on.
+O vendedor de aplicações deve validar que apoia a implementação Azure AD SAML para uma única sação.
 
 ## <a name="misconfigured-application"></a>Aplicação mal configurada
 
-*Erro AADSTS650056: Aplicação mal configurada. Isto pode dever-se a uma das seguintes: O cliente não enumerou quaisquer permissões nas permissões solicitadas no registo de candidatura do cliente. Ou, o administrador não consentiu no inquilino. Ou, Verifique o identificador de aplicação no pedido para garantir que corresponde ao identificador de aplicação de cliente configurado. Contacte o seu administrador para corrigir a configuração ou consentimento em nome do inquilino.*
+*Error AADSTS650056: Aplicação configurada erradamente. Isto pode dever-se a uma das seguintes: O cliente não enumerou quaisquer permissões nas permissões solicitadas no registo de pedido do cliente. Ou, o administrador não consentiu no inquilino. Ou, verifique o identificador de aplicações no pedido para garantir que corresponde ao identificador de aplicação de cliente configurado. Entre em contato com o seu administrador para corrigir a configuração ou consentimento em nome do inquilino.*
 
-**Possível causa**
+**Causa possível**
 
-O `Issuer` atributo enviado a partir da aplicação à AD Azure no pedido SAML não corresponde ao valor identificador configurado para a aplicação em Azure AD.
+O `Issuer` atributo enviado do pedido para Azure AD no pedido SAML não corresponde ao valor identificador configurado para o pedido em Azure AD.
 
 **Resolução**
 
-Certifique-se `Issuer` de que o atributo no pedido SAML corresponde ao valor identificador configurado em Azure AD. Se utilizar a experiência de [teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal Azure com a extensão do navegador Seguro das Minhas Aplicações, não precisa de seguir manualmente estes passos:
+Certifique-se de que o `Issuer` atributo no pedido SAML corresponde ao valor identificador configurado em Azure AD. Se utilizar a experiência de [teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal Azure com a extensão do navegador My Apps Secure, não precisa de seguir manualmente estes passos:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministrador**.
+1.  Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministração**.
 
-1.  Abra a extensão do **Diretório Ativo Azure** selecionando **Todos os serviços** no topo do menu principal de navegação à esquerda.
+1.  Abra a **Extensão do Diretório Ativo Azure** selecionando **todos os serviços** no topo do menu principal de navegação à esquerda.
 
-1.  Digite **"Azure Ative Directory"** na caixa de pesquisa de filtros e selecione o item **azure Ative Directory.**
+1.  Digite **"Azure Ative Directory"** na caixa de pesquisa do filtro e selecione o item **Azure Ative Directory.**
 
-1.  Selecione **Aplicações Empresariais** do menu de navegação à esquerda do Azure Ative Diretório.
+1.  Selecione **Aplicações empresariais** do menu de navegação à esquerda do Azure Ative.
 
 1.  Selecione **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
 
-    Se não vir a aplicação que deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e detetete a opção **Mostrar** para Todas **as Aplicações**.
+    Se não vir a aplicação deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e desate a opção **'Mostrar'** para **todas as aplicações**.
 
-1.  Selecione a aplicação que pretende configurar para um único início de sessão.
+1.  Selecione a aplicação que pretende configurar para uma única sação.
 
-1.  Assim que a aplicação for carregada, abra **Configuração de SAML básica**. Verifique se o valor na caixa de texto do identificador corresponde ao valor do identificador apresentado no erro.
+1.  Assim que a aplicação for carregada, abra **Configuração de SAML básica**. Verifique se o valor na caixa de texto do Identificador corresponde ao valor do valor do identificador apresentado no erro.
 
 
 ## <a name="certificate-or-key-not-configured"></a>Certificado ou chave não configurado
 
 *Error AADSTS50003: Sem chave de assinatura configurada.*
 
-**Possível causa**
+**Causa possível**
 
-O objeto de aplicação é corrompido e a AD Azure não reconhece o certificado configurado para a aplicação.
+O objeto da aplicação está corrompido e a Azure AD não reconhece o certificado configurado para a aplicação.
 
 **Resolução**
 
 Para eliminar e criar um novo certificado, siga os passos abaixo:
 
-1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministrador**.
+1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministração**.
 
-1. Abra a extensão do **Diretório Ativo Azure** clicando em **todos os serviços** no topo do menu principal de navegação à esquerda.
+1. Abra a **Extensão do Diretório Ativo Azure** clicando em **todos os serviços** no topo do menu principal de navegação à esquerda.
 
-1. Digite **"Azure Ative Directory"** na caixa de pesquisa de filtros e selecione o item **azure Ative Directory.**
+1. Digite **"Azure Ative Directory"** na caixa de pesquisa do filtro e selecione o item **Azure Ative Directory.**
 
-1. Selecione **Aplicações Empresariais** do menu de navegação à esquerda do Azure Ative Diretório.
+1. Selecione **Aplicações empresariais** do menu de navegação à esquerda do Azure Ative.
 
 1. Selecione **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
 
-    Se não vir a aplicação que deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e detetete a opção **Mostrar** para Todas **as Aplicações**.
+    Se não vir a aplicação deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e desate a opção **'Mostrar'** para **todas as aplicações**.
 
-1. Selecione a aplicação que pretende configurar um único sinal
+1. Selecione a aplicação que pretende configurar um único sinal de sação
 
-1. Uma vez que a aplicação seja carregada, clique no único sinal de **inscrição** do menu de navegação à esquerda da aplicação.
+1. Uma vez que a aplicação é carregada, clique **no único sinal de inscrição** do menu de navegação à esquerda da aplicação.
 
-1. Selecione **Criar um novo certificado** no âmbito da secção certificado de assinatura **SAML.**
+1. Selecione **Criar novo certificado** na secção certificado de assinatura **SAML.**
 
-1. Selecione a data de validade e, em seguida, clique em **Guardar**.
+1. Selecione a data de expiração e, em seguida, clique em **Guardar**.
 
-1. Verifique **Tornar o novo certificado ativo** para anular o certificado ativo. Em seguida, clique em **Guardar** na parte superior do painel e aceite ativar o certificado de rollover.
+1. Verifique **Se o novo certificado está ativo** para anular o certificado ativo. Em seguida, clique em **Guardar** na parte superior do painel e aceite ativar o certificado de rollover.
 
-1. No âmbito da secção certificado de **assinatura SAML,** clique em **remover** o certificado **não utilizado.**
+1. Na secção **Certificado de Assinatura SAML,** clique **em remover** para remover o certificado **não reutilizado.**
 
-## <a name="saml-request-not-present-in-the-request"></a>Pedido SAML não está presente no pedido
+## <a name="saml-request-not-present-in-the-request"></a>Pedido SAML não presente no pedido
 
-*Erro AADSTS750054: SAMLRequest ou SAMLResponse devem estar presentes como parâmetros de corda de consulta no pedido http para a ligação de redirecionamento SAML.*
+*Erro AADSTS750054: SAMLRequest ou SAMLResponse devem estar presentes como parâmetros de cadeia de consulta no pedido HTTP para ligação de redirecionamento SAML.*
 
-**Possível causa**
+**Causa possível**
 
-A Azure AD não foi capaz de identificar o pedido SAML dentro dos parâmetros DE URL no pedido HTTP. Isto pode acontecer se o pedido não estiver a utilizar a ligação de redirecionamento HTTP ao enviar o pedido SAML para a AD Azure.
+A Azure AD não foi capaz de identificar o pedido DEL dentro dos parâmetros URL no pedido HTTP. Isto pode acontecer se a aplicação não estiver a utilizar a ligação de redirecionamento HTTP ao enviar o pedido SAML para a Azure AD.
 
 **Resolução**
 
-O pedido precisa de enviar o pedido SAML codificado para o cabeçalho de localização utilizando a encadernação de redirecionamento HTTP. Para obter mais informações sobre como implementá-lo, leia a secção HTTP Redirect Binding (Enlace de Redirecionamento de HTTP) no [documento de especificação do protocolo SAML](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
+A aplicação precisa de enviar o pedido SAML codificado no cabeçalho de localização utilizando a ligação de redirecionamento HTTP. Para obter mais informações sobre como implementá-lo, leia a secção HTTP Redirect Binding (Enlace de Redirecionamento de HTTP) no [documento de especificação do protocolo SAML](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
 
-## <a name="azure-ad-is-sending-the-token-to-an-incorrect-endpoint"></a>A Azure AD está a enviar o símbolo para um ponto final incorreto
+## <a name="azure-ad-is-sending-the-token-to-an-incorrect-endpoint"></a>A Azure AD está enviando o símbolo para um ponto final incorreto
 
-**Possível causa**
+**Causa possível**
 
-Durante o início de um único signo, se o pedido de inscrição não contiver um URL de resposta explícito (URL de Serviço ao Consumidor de Afirmação) então o Azure AD selecionará qualquer um dos URLs de confiança configurado para essa aplicação. Mesmo que a aplicação tenha um URL de resposta explícito https://127.0.0.1:444configurado, o utilizador pode ser redirecionado . 
+Durante um único sinal, se o pedido de inscrição não contiver um URL de resposta explícito (URL de serviço ao consumidor de afirmação), então a Azure AD selecionará qualquer um dos URLs de resposta configurados para esse pedido. Mesmo que a aplicação tenha um URL de resposta explícito configurado, o utilizador pode ser redirecionado https://127.0.0.1:444 . 
 
 Quando a aplicação foi adicionada como uma aplicação sem galeria, o Azure Active Directory criou este URL de resposta como um valor predefinido. Este comportamento foi alterado e o Azure Active Directory já não o adiciona por predefinição. 
 
 **Resolução**
 
-Elimine os URLs de resposta não utilizados configurados para a aplicação.
+Eliminar os URLs de resposta não uused configurados para o pedido.
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministrador**.
+1.  Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministração**.
 
-2.  Abra a extensão do **Diretório Ativo Azure** selecionando **Todos os serviços** no topo do menu principal de navegação à esquerda.
+2.  Abra a **Extensão do Diretório Ativo Azure** selecionando **todos os serviços** no topo do menu principal de navegação à esquerda.
 
-3.  Digite **"Azure Ative Directory"** na caixa de pesquisa de filtros e selecione o item **azure Ative Directory.**
+3.  Digite **"Azure Ative Directory"** na caixa de pesquisa do filtro e selecione o item **Azure Ative Directory.**
 
-4.  Selecione **Aplicações Empresariais** do menu de navegação à esquerda do Azure Ative Diretório.
+4.  Selecione **Aplicações empresariais** do menu de navegação à esquerda do Azure Ative.
 
 5.  Selecione **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
 
-    Se não vir a aplicação que deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e detetete a opção **Mostrar** para Todas **as Aplicações**.
+    Se não vir a aplicação deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e desate a opção **'Mostrar'** para **todas as aplicações**.
 
-6.  Selecione a aplicação que pretende configurar para um único início de sessão.
+6.  Selecione a aplicação que pretende configurar para uma única sação.
 
-7.  Assim que a aplicação for carregada, abra **Configuração de SAML básica**. No **URL de resposta (URL do Serviço ao Consumidor de Afirmação)**, elimine URLs de Resposta não utilizados ou predefinidos criados pelo sistema. Por exemplo, `https://127.0.0.1:444/applications/default.aspx`.
+7.  Assim que a aplicação for carregada, abra **Configuração de SAML básica**. No **URL de resposta (URL de serviço ao consumidor de afirmação)**, elimine os URLs de resposta não uusados ou predefinidos criados pelo sistema. Por exemplo, `https://127.0.0.1:444/applications/default.aspx`.
 
-## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problema ao personalizar as reclamações da SAML enviadas para um pedido
+## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problema ao personalizar as reclamações da SAML enviadas para uma aplicação
 
-Para aprender a personalizar as reclamações de atributos SAML enviadas para a sua aplicação, consulte [o mapeamento de Reclamações no Diretório Ativo Azure](../develop/active-directory-claims-mapping.md).
+Para saber como personalizar as reclamações de atributos SAML enviadas para a sua aplicação, consulte [o mapeamento de Reclamações no Azure Ative Directory](../develop/active-directory-claims-mapping.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Como depurar o único sign-on baseado em SAML para aplicações em Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

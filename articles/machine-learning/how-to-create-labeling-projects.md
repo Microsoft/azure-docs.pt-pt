@@ -5,16 +5,16 @@ description: Aprenda a criar e executar projetos de rotulagem para marcar dados 
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 40c31d4dd4a6c675691f75d3717f7865d6b847f7
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.openlocfilehash: e20b7b447797a957f860c6b1dd9679519960ebc5
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171567"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025187"
 ---
-# <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
+# <a name="create-a-data-labeling-project-preview-and-export-labels"></a>Criar um projeto de rotulagem de dados (pré-visualização) e rótulos de exportação 
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -35,11 +35,10 @@ Neste artigo, aprenderá a:
 > * Criar um projeto
 > * Especificar os dados e estrutura do projeto
 > * Executar e monitorizar o projeto
-> * Exportar os rótulos
+> * Exportar as etiquetas
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
 
 * Os dados que pretende rotular, quer em ficheiros locais, quer no armazenamento de blob Azure.
 * O conjunto de etiquetas que pretende aplicar.
@@ -67,6 +66,8 @@ Selecione **a seguir** quando estiver pronto para continuar.
 
 Se já criou um conjunto de dados que contém os seus dados, selecione-os a partir da lista de drop-down existente do conjunto de **dados.** Ou, **selecione Criar um conjunto de dados** para utilizar uma loja de dados Azure existente ou para carregar ficheiros locais.
 
+> [!NOTE]
+> Um projeto não pode conter mais de 500.000 imagens.  Se o seu conjunto de dados tiver mais, apenas as primeiras 500.000 imagens serão carregadas.  
 
 ### <a name="create-a-dataset-from-an-azure-datastore"></a>Criar um conjunto de dados a partir de uma loja de dados Azure
 
@@ -85,8 +86,6 @@ Para criar um conjunto de dados a partir de dados que já armazenou no armazenam
 1. Selecione **Seguinte**.
 1. Confirme os detalhes. Selecione **Back** para modificar as definições ou **criar** para criar o conjunto de dados.
 
-> [!NOTE]
-> Os dados que escolher são carregados no seu projeto.  A adição de mais dados à datastore não aparecerá neste projeto uma vez que o projeto é criado.  
 
 ### <a name="create-a-dataset-from-uploaded-data"></a>Criar um conjunto de dados a partir de dados carregados
 
@@ -102,6 +101,19 @@ Para fazer o upload direto dos seus dados:
 1. Confirme os detalhes. Selecione **Back** para modificar as definições ou **criar** para criar o conjunto de dados.
 
 Os dados são enviados para a loja blob padrão ("workspaceblobstore") do seu espaço de trabalho Machine Learning.
+
+## <a name="configure-incremental-refresh"></a><a name="incremental-refresh"> </a> Configurar atualização incremental
+
+Se pretende adicionar novas imagens ao seu conjunto de dados, utilize a atualização incremental para adicionar estas novas imagens ao seu projeto.   Quando **a atualização incremental** é ativada, o conjunto de dados é verificado periodicamente para que novas imagens sejam adicionadas a um projeto, com base na taxa de conclusão da rotulagem.   A verificação de novos dados para quando o projeto contém o máximo de 500.000 imagens.
+
+Para adicionar mais imagens ao seu projeto, utilize o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) para fazer o upload para a pasta apropriada no armazenamento de bolhas. 
+
+Verifique a caixa para **Ativar a atualização incremental** quando pretender que o seu projeto monitorize continuamente novos dados na datastore.
+
+Desmarque esta caixa se não quiser que novas imagens que apareçam na datastore sejam adicionadas ao seu projeto.
+
+Pode encontrar o tempo de duração para a última atualização no **separador De atualização Incremental** **para** o seu projeto.
+
 
 ## <a name="specify-label-classes"></a>Especificar classes de etiquetas
 
@@ -164,7 +176,10 @@ Uma vez treinado um modelo de machine learning nos seus dados etiquetados manual
 
 ## <a name="initialize-the-labeling-project"></a>Inicializar o projeto de rotulagem
 
-Após a inicial do projeto de rotulagem, alguns aspetos do projeto são imutáveis. Não é possível alterar o tipo de tarefa ou o conjunto de dados. *Pode* modificar as etiquetas e o URL para a descrição da tarefa. Reveja cuidadosamente as definições antes de criar o projeto. Depois de submeter o projeto, é devolvido à página inicial da **Rotulagem de Dados,** que mostrará o projeto como **Initializing**. Esta página não se atualiza automaticamente. Assim, após uma pausa, refresque manualmente a página para ver o estado do projeto como **Criado**.
+Após a inicial do projeto de rotulagem, alguns aspetos do projeto são imutáveis. Não é possível alterar o tipo de tarefa ou o conjunto de dados. *Pode* modificar as etiquetas e o URL para a descrição da tarefa. Reveja cuidadosamente as definições antes de criar o projeto. Depois de submeter o projeto, é devolvido à página inicial da **Rotulagem de Dados,** que mostrará o projeto como **Initializing**.
+
+> [!NOTE]
+> Esta página pode não ser automaticamente atualizada. Assim, após uma pausa, refresque manualmente a página para ver o estado do projeto como **Criado**.
 
 ## <a name="run-and-monitor-the-project"></a>Executar e monitorizar o projeto
 
@@ -194,7 +209,7 @@ Utilize estes passos para adicionar um ou mais rótulos a um projeto:
 1. Modifique a página de instruções conforme necessário para a nova etiqueta.
 1. Depois de ter adicionado todas as novas etiquetas, no topo da página selecione **Iniciar** para reiniciar o projeto.  
 
-## <a name="export-the-labels"></a>Exportar os rótulos
+## <a name="export-the-labels"></a>Exportar as etiquetas
 
 Pode exportar os dados do rótulo para a experimentação de Machine Learning a qualquer momento. As etiquetas de imagem podem ser exportadas em [formato COCO](http://cocodataset.org/#format-data) ou como um conjunto de dados de Aprendizagem automática Azure. Utilize o botão **Exportação** na página de detalhes do **Projeto** do seu projeto de rotulagem.
 

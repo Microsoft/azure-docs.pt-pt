@@ -6,21 +6,21 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: alkohli
 ms.openlocfilehash: f230fc247c6ad94bfdfb3cdbc0f897d66313b039
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83696479"
 ---
-Aqui está uma lista das contas de armazenamento suportadas e dos tipos de armazenamento para o dispositivo Data Box. Para obter uma lista completa de todos os tipos de contas de armazenamento e as suas capacidades completas, consulte [tipos de contas de armazenamento](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
+Aqui está uma lista das contas de armazenamento suportadas e dos tipos de armazenamento para o dispositivo Data Box. Para obter uma lista completa de todos os tipos de contas de armazenamento e todas as suas capacidades, consulte [tipos de contas de armazenamento.](/azure/storage/common/storage-account-overview#types-of-storage-accounts)
 
-| **Conta de armazenamento / Tipos de armazenamento suportados** | **Blob de blocos** |**Blob página*** |**Ficheiros Azure** |**Notas**|
+| **Conta de armazenamento / Tipos de armazenamento suportados** | **Blob de blocos** |**Bolha de página*** |**Ficheiros Azure** |**Notas**|
 | --- | --- | -- | -- | -- |
 | Padrão Clássico | S | S | S |
-| Norma v1 de uso geral  | S | S | S | Tanto quentes como frescos são suportados.|
-| Prémio v1 de propósito geral  |  | S| | |
-| Norma v2 de uso geral  | S | S | S | Tanto quentes como frescos são suportados.|
-| Prémio v2 de propósito geral  |  |S | | |
-| Padrão de armazenamento blob |S | | |Tanto quentes como frescos são suportados. |
+| Padrão v1 para fins gerais  | S | S | S | Tanto quentes como frescos são suportados.|
+| Finalidade geral v1 Premium  |  | S| | |
+| Padrão v2 para fins gerais  | S | S | S | Tanto quentes como frescos são suportados.|
+| V2 Premium para fins gerais  |  |S | | |
+| Padrão de armazenamento de bolhas |S | | |Tanto quentes como frescos são suportados. |
 
-\**- Os dados enviados para as bolhas de página devem ser 512 bytes alinhados, tais como VHDs.*
+\**- Os dados enviados para as bolhas de página devem estar alinhados com 512 bytes, tais como VHDs.*

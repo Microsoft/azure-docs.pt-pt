@@ -1,21 +1,21 @@
 ---
 title: Configure uma WAF
-description: Aprenda a configurar uma firewall de aplicação web (WAF) em frente ao seu Ambiente de Serviço de Aplicações, seja com o Portal de Aplicações Azure ou com um WAF de terceiros.
+description: Saiba como configurar uma firewall de aplicação web (WAF) em frente ao seu Ambiente de Serviço de Aplicações, seja com o Azure Application Gateway ou com uma WAF de terceiros.
 author: ccompy
 ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d
 ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 33fd0b6a3a07fa4fbc5448a97ca93c75a3e239d5
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d629aca791794de6c3e065fdc9f4a9e7f6d8a5df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684214"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833186"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configurar uma Firewall de Aplicações Web (WAF) para o Ambiente de Serviço de Aplicações
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 As firewalls de aplicações Web (WAF) ajudam a proteger as suas aplicações Web ao inspecionarem o tráfego Web de entrada para bloquear injeções de SQL, Scripting Entre Sites, carregamentos de malware, DDoS de aplicações e outros ataques. Também inspecionam as respostas dos servidores Web do back-end quanto a Prevenção de Perda de Dados (DLP). Em combinação com o isolamento e o dimensionamento adicional que os Ambientes de Serviço de Aplicações proporcionam, as firewalls oferecem um ambiente ideal para alojar aplicações Web criticas das empresas que têm de conseguir suportar pedidos maliciosos e altos volumes de tráfego. O Azure proporciona uma capacidade de WAF com o [Gateway de Aplicação](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).  Para saber como integrar o Ambiente de Serviço de Aplicações num Gateway de Aplicação, leia o documento [Integrate your ILB ASE with an Application Gateway](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway) (Integrar o ASE de ILB num Gateway de Aplicação).
 
@@ -66,12 +66,12 @@ Depois de iniciar sessão, deverá ver um dashboard, como o da imagem seguinte, 
 
 ![Dashboard de Gestão][ManagementDashboard]
 
-Clicar no separador **Services** (Serviços) permite-lhe configurar o WAF para os serviços que aquele está a proteger. Para obter mais detalhes sobre como configurar o Barracuda WAF, veja a [documentação da Barracuda](https://techlib.barracuda.com/waf/getstarted1). No exemplo seguinte, foi configurada uma aplicação do App Service que serve tráfego em HTTP e HTTPS.
+Clicar no separador **Services** (Serviços) permite-lhe configurar o WAF para os serviços que aquele está a proteger. Para obter mais detalhes sobre como configurar o Barracuda WAF, veja a [documentação da Barracuda](https://techlib.barracuda.com/waf/getstarted1). No exemplo seguinte, foi configurada uma aplicação do Serviço de Aplicações que serve o tráfego em HTTP e HTTPS.
 
 ![Gestão Adicionar Serviços][ManagementAddServices]
 
 > [!NOTE]
-> Dependendo da configuração das suas aplicações e das funcionalidades utilizadas no seu Ambiente de Serviço de Aplicação, é necessário reencaminhar o tráfego para portas TCP que não sejam 80 e 443, por exemplo, se tiver configuração IP TLS para uma aplicação de Serviço de Aplicações. Para obter uma lista das portas de rede utilizadas em Ambientes de Serviço de Aplicações, veja a secção Portas de Rede da [documentação Control Inbound Traffic](app-service-app-service-environment-control-inbound-traffic.md) (Controlar o Tráfego de Entrada).
+> Dependendo da configuração das suas aplicações e das funcionalidades que estão a ser utilizadas no seu Ambiente de Serviço de Aplicações, é necessário encaminhar o tráfego para portas TCP que não sejam 80 e 443, por exemplo, se tiver configuração IP TLS para uma aplicação de Serviço de Aplicações. Para obter uma lista das portas de rede utilizadas em Ambientes de Serviço de Aplicações, veja a secção Portas de Rede da [documentação Control Inbound Traffic](app-service-app-service-environment-control-inbound-traffic.md) (Controlar o Tráfego de Entrada).
 > 
 > 
 
@@ -89,9 +89,11 @@ Para reencaminhar os pings do Gestor de Tráfego do WAF para a aplicação, tem 
 ![Traduções de Web sites][WebsiteTranslations]
 
 ## <a name="securing-traffic-to-app-service-environment-using-network-security-groups-nsg"></a>Proteger o Tráfego para o Ambiente de Serviço de Aplicações com Grupos de Segurança de Rede (NSG)
-Siga a [documentação Control Inbound Traffic](app-service-app-service-environment-control-inbound-traffic.md) para ver detalhes sobre como limitar o tráfego para o Ambiente de Serviço de Aplicações a partir do WAF ao utilizar apenas o endereço VIP do seu Serviço Cloud. Eis um comando do Powershell de exemplo para realizar esta tarefa para a porta TCP 80.
+Siga a [documentação Control Inbound Traffic](app-service-app-service-environment-control-inbound-traffic.md) para ver detalhes sobre como limitar o tráfego para o Ambiente de Serviço de Aplicações a partir do WAF ao utilizar apenas o endereço VIP do seu Serviço Cloud. Aqui está uma amostra do comando PowerShell para executar esta tarefa para a porta TCP 80.
 
-    Get-AzureNetworkSecurityGroup -Name "RestrictWestUSAppAccess" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP Barracuda" -Type Inbound -Priority 201 -Action Allow -SourceAddressPrefix '191.0.0.1'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
+```azurepowershell-interactive
+Get-AzureNetworkSecurityGroup -Name "RestrictWestUSAppAccess" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP Barracuda" -Type Inbound -Priority 201 -Action Allow -SourceAddressPrefix '191.0.0.1'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
+```
 
 Substitua SourceAddressPrefix pelo endereço IP Virtual (VIP) do Serviço Cloud do WAF.
 

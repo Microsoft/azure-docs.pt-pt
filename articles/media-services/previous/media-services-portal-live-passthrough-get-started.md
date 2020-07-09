@@ -1,5 +1,5 @@
 ---
-title: Live stream com codificadores no local usando portal Azure [ Microsoft Docs
+title: Live stream com codificadores no local usando portal Azure / Microsoft Docs
 description: Este tutorial explica os passos para criar um Canal configurado para uma entrega pass-through.
 services: media-services
 documentationcenter: ''
@@ -15,13 +15,12 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: a83d6ae2e3ed13f0d03e0fdc87a3b45a4119ba88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77162757"
 ---
-# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Realizar streaming ao vivo com codificadores no local usando portal Azure
+# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Execute o streaming ao vivo com codificadores no local usando o portal Azure
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -30,7 +29,7 @@ ms.locfileid: "77162757"
 > 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Este tutorial explica os passos para criar um **Canal** configurado para uma entrega pass-through através do Portal do Azure. 
 
@@ -54,8 +53,8 @@ Os passos seguintes descrevem as tarefas envolvidas na criação de aplicações
 > [!NOTE]
 > Certifique-se de que o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo está no estado **Em execução**. 
     
-1. Ligue uma câmara de vídeo a um computador. <br/>Para ideias de configuração, confira configuração de equipamento de [vídeo de evento simples e portátil]( https://link.medium.com/KNTtiN6IeT).
-1. Iniciar e configurar um codificador em direto no local que produza um RTMP com velocidade de transmissão múltipla ou uma transmissão em fluxo MP4 fragmentada. Para obter mais informações, consulte [Suporte RTMP dos Media Services do Azure e Codificadores em Direto](https://go.microsoft.com/fwlink/?LinkId=532824).<br/>Além disso, confira este blog: Produção de [streaming ao vivo com OBS](https://link.medium.com/ttuwHpaJeT).
+1. Ligue uma câmara de vídeo a um computador. <br/>Para obter ideias de configuração, confira [a configuração de equipamento de vídeo de evento simples e portátil]( https://link.medium.com/KNTtiN6IeT).
+1. Iniciar e configurar um codificador em direto no local que produza um RTMP com velocidade de transmissão múltipla ou uma transmissão em fluxo MP4 fragmentada. Para obter mais informações, consulte [Suporte RTMP dos Media Services do Azure e Codificadores em Direto](https://go.microsoft.com/fwlink/?LinkId=532824).<br/>Confira também este blog: [Produção de streaming ao vivo com OBS](https://link.medium.com/ttuwHpaJeT).
    
     Este passo também pode ser realizado depois de criar o Canal.
 1. Criar e iniciar um Canal pass-through.

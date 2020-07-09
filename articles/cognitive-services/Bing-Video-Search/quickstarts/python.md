@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Pesquisa de vídeos usando a REST API e Python - Bing Video Search'
+title: 'Quickstart: Procure vídeos usando a API REST e Python - Bing Video Search'
 titleSuffix: Azure Cognitive Services
-description: Use este quickstart para enviar pedidos de pesquisa de vídeo para a API de pesquisa de vídeo bing usando Python.
+description: Utilize este quickstart para enviar pedidos de pesquisa de vídeo para a API Bing Video Search REST usando Python.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,22 +10,23 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 28d9726bfa1e195fa87b41914841083c56dbc844
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.custom: tracking-python
+ms.openlocfilehash: 33a4e31be04e5a205322bb3040d3694525c4515c
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849591"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605991"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>Quickstart: Procure vídeos usando a Bing Video Search REST API e Python
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>Quickstart: Procure vídeos utilizando a API e a Python de pesquisa de vídeo Bing
 
-Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Vídeo Bing. Esta simples aplicação Python envia uma consulta de pesquisa de vídeo HTTP para a API, e exibe a resposta JSON. Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação. 
+Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Vídeo Bing. Esta simples aplicação Python envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta JSON. Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. 
 
 O código fonte deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingVideoSearchv7.py) com processamento de erros e anotações de código adicionais.
 
-Você pode executar este exemplo como um caderno Jupyter no [MyBinder](https://mybinder.org) selecionando o crachá de classificadores de **lançamento:** 
+Pode executar este exemplo como um portátil Jupyter no [MyBinder](https://mybinder.org) selecionando o crachá de encaixe de **lançamento:** 
 
-[![Aglutinante](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
+[![Encadernação](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -36,13 +37,13 @@ Você pode executar este exemplo como um caderno Jupyter no [MyBinder](https://m
 
 ## <a name="initialize-the-application"></a>Inicializar a aplicação
 
-1. Crie um novo ficheiro Python no seu IDE ou editor favorito, e importe as seguintes bibliotecas:
+1. Crie um novo ficheiro Python no seu IDE ou editor favorito e importe as seguintes bibliotecas:
 
     ```python
     import requests
     from IPython.display import HTML
     ```
-2.  Crie variáveis para a sua chave de subscrição, ponto final de pesquisa e termo de pesquisa. Para o `search_url` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2.  Crie variáveis para a sua chave de subscrição, ponto final de pesquisa e termo de pesquisa. Pelo `search_url` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final [de subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
     
     ```python
     subscription_key = None
@@ -51,7 +52,7 @@ Você pode executar este exemplo como um caderno Jupyter no [MyBinder](https://m
     search_term = "kittens"
     ```
 
-3. Adicione a sua chave de subscrição a um `Ocp-Apim-Subscription-Key` cabeçalho criando um novo dicionário para associar a corda do cabeçalho à sua chave.
+3. Adicione a chave de subscrição a um `Ocp-Apim-Subscription-Key` cabeçalho criando um novo dicionário para associar a corda do cabeçalho à sua chave.
 
     ```python
     headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
@@ -59,13 +60,13 @@ Você pode executar este exemplo como um caderno Jupyter no [MyBinder](https://m
 
 ## <a name="send-your-request"></a>Envie o seu pedido
 
-1. Adicione os parâmetros ao seu pedido criando um dicionário chamado `params` . Adicione os seus termos de pesquisa ao `q` parâmetro: uma contagem de vídeo de 5, `free` para o preço dos vídeos devolvidos e para o comprimento do `short` vídeo.
+1. Adicione os parâmetros ao seu pedido criando um dicionário denominado `params` . Adicione os seus termos de pesquisa ao `q` parâmetro: uma contagem de vídeo de 5, `free` para o preço dos vídeos devolvidos, e para o comprimento do `short` vídeo.
 
     ```python
     params  = {"q": search_term, "count":5, "pricing": "free", "videoLength":"short"}
     ```
 
-2. Use a biblioteca em Python para ligar para a API de Pesquisa de `requests` Vídeo Bing. Passe a tecla API e os parâmetros de pesquisa utilizando o `headers` `params` e dicionário.
+2. Use a `requests` biblioteca em Python para ligar para a API de pesquisa de vídeo Bing. Passe a chave API e os parâmetros de pesquisa utilizando o `headers` dicionário `params` e dicionário.
     
     ```python
     response = requests.get(search_url, headers=headers, params=params)
@@ -73,7 +74,7 @@ Você pode executar este exemplo como um caderno Jupyter no [MyBinder](https://m
     search_results = response.json()
     ```
 
-3. Para ver um dos vídeos retornados, obtenha um resultado de pesquisa do `search_results` objeto. Insira a propriedade do resultado `embedHtml` num `IFrame` .  
+3. Para ver um dos vídeos devolvidos, obtenha um resultado de pesquisa do `search_results` objeto. Insira a propriedade do resultado `embedHtml` num `IFrame` .  
     
     ```python
     HTML(search_results["value"][0]["embedHtml"].replace("autoplay=1","autoplay=0"))
@@ -190,7 +191,7 @@ Você pode executar este exemplo como um caderno Jupyter no [MyBinder](https://m
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorial-bing-video-search-single-page-app.md)

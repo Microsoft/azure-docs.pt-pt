@@ -1,5 +1,5 @@
 ---
-title: Publicar conteúdo no portal Azure Microsoft Docs
+title: Publicar conteúdo no portal Azure / Microsoft Docs
 description: Este tutorial acompanha-o através dos passos de publicação do seu conteúdo no portal Azure.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: abdb926825abcac4485cb11b71bdc82597391727
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b258b0b5dba902e94e8d221e0d8f0292fdec9f67
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176826"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057403"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publicar conteúdo no portal Azure  
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "82176826"
 
 ## <a name="overview"></a>Descrição geral
 > [!NOTE]
-> Para concluir este tutorial, precisa de uma conta do Azure. Para mais detalhes, consulte [o teste gratuito do Azure.](https://azure.microsoft.com/pricing/free-trial/) 
+> Para concluir este tutorial, precisa de uma conta do Azure. Para mais detalhes, consulte [o julgamento gratuito do Azure.](https://azure.microsoft.com/pricing/free-trial/) 
 > 
 > 
 
@@ -42,35 +42,35 @@ Para fornecer ao seu utilizador um URL que ele possa utilizar para transmitir ou
 
 Para construir um URL de streaming HLS, apêndice *(formato=m3u8-aapl)* para o URL:
 
-    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
+`{streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)`
 
 Para compilar um URL de transmissão em fluxo que reproduza elementos de Smooth Streaming, utilize o formato de URL abaixo:
 
-    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest
+`{streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest`
 
 Para compilar um URL de transmissão em fluxo MPEG DASH, acrescente *(format=mpd-time-csf)* ao URL.
 
-    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
+`{streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)`
 
 Os URLs de assinatura de acesso partilhado têm o formato seguinte:
 
-    {blob container name}/{asset name}/{file name}/{shared access signature}
+`{blob container name}/{asset name}/{file name}/{shared access signature}`
 
-Para mais informações, consulte a visão geral do [conteúdo.](media-services-deliver-content-overview.md)
+Para mais informações, consulte a [visão geral do conteúdo de entrega.](media-services-deliver-content-overview.md)
 
 > [!NOTE]
 > Os localizadores que foram criados no portal do Azure antes de março de 2015 têm uma data de expiração de dois anos.  
 > 
 > 
 
-Para atualizar uma data de validade de um localizador, a utilização pode utilizar uma [API REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ou uma [API .NET](https://go.microsoft.com/fwlink/?LinkID=533259). 
+Para atualizar uma data de validade num localizador, a utilização pode utilizar uma [API REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ou uma [API .NET](https://go.microsoft.com/fwlink/?LinkID=533259). 
 
 > [!NOTE]
 > Quando atualiza a data de expiração de um localizador de assinatura de acesso partilhado, o URL é alterado.
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Para utilizar o portal para publicar um elemento
 1. No [portal do Azure](https://portal.azure.com/) selecione a sua conta de Serviços de Multimédia do Azure.
-2. Selecione**Ativos**de **Definições** > . Selecione o elemento que pretende publicar.
+2. Selecione **Settings**  >  **Configurações Ativos**. Selecione o elemento que pretende publicar.
 3. Selecione o botão **Publicar**.
 4. Selecione o tipo de localizador.
 5. Selecione **Adicionar**.
@@ -90,11 +90,11 @@ São aplicáveis algumas considerações:
 
 * Confirme que o vídeo foi publicado.
 * O leitor de multimédia do portal do Azure reproduz a partir do ponto final da transmissão em fluxo predefinido. Se quiser reproduzir a partir de um ponto final da transmissão em fluxo não predefinido, selecione e copie o URL e cole-o noutro leitor. Por exemplo, pode testar o vídeo no [Leitor de Multimédia do Azure](https://aka.ms/azuremediaplayer).
-* O ponto final de streaming a partir do qual está a transmitir deve estar a funcionar.  
+* O ponto final de streaming a partir do qual está a ser transmitido deve estar a ser transmitido.  
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

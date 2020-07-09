@@ -1,40 +1,39 @@
 ---
-title: Criar um espaço de trabalho com modelo de Gestor de Recursos Azure
+title: Crie um espaço de trabalho com o modelo do Gestor de Recursos Azure
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar um modelo de Gestor de Recursos Azure para criar um novo espaço de trabalho azure machine learning.
+description: Aprenda a usar um modelo de Gestor de Recursos Azure para criar um novo espaço de trabalho de aprendizagem automática Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
 ms.date: 05/19/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: eae10b7ae8cd14fd120e969c39c05a8ba2525003
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.openlocfilehash: 39c694f4e2afbf5d781a8fde43a7db9c4a255466
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681541"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392676"
 ---
-# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Use um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para o Azure Machine Learning
+# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Use um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para a aprendizagem de máquinas Azure
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 <br>
 
-Neste artigo, você aprende várias maneiras de criar um espaço de trabalho Azure Machine Learning usando modelos de Gestor de Recursos Azure. Um modelo de Gestor de Recursos facilita a criação de recursos como uma única operação coordenada. Um modelo é um documento JSON que define os recursos necessários para uma implantação. Também pode especificar parâmetros de implantação. Os parâmetros são utilizados para fornecer valores de entrada ao utilizar o modelo.
+Neste artigo, você aprende várias maneiras de criar um espaço de trabalho Azure Machine Learning usando modelos de Gestor de Recursos Azure. Um modelo de Gestor de Recursos facilita a criação de recursos como uma única operação coordenada. Um modelo é um documento JSON que define os recursos necessários para uma implantação. Também pode especificar parâmetros de implantação. Os parâmetros são utilizados para fornecer valores de entrada ao utilizar o gabarito.
 
-Para mais informações, consulte [Implementar uma aplicação com o modelo de Gestor](../azure-resource-manager/templates/deploy-powershell.md)de Recursos Azure .
+Para obter mais informações, consulte [Implementar uma aplicação com o modelo Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma **subscrição Azure.** Se não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
+* Uma **assinatura Azure**. Se não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Para utilizar um modelo a partir de um CLI, precisa do [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) ou do [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Para utilizar um modelo a partir de um CLI, você precisa de [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) ou do [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="resource-manager-template"></a>Modelo do Resource Manager
 
-O seguinte modelo de Gestor de Recursos pode ser usado para criar um espaço de trabalho Azure Machine Learning e recursos Azure associados:
+O modelo seguinte do Gestor de Recursos pode ser usado para criar um espaço de trabalho de aprendizagem de máquinas Azure e recursos Azure associados:
 
 [!code-json[create-azure-machine-learning-service-workspace](~/quickstart-templates/101-machine-learning-create/azuredeploy.json)]
 
@@ -47,52 +46,52 @@ Este modelo cria os seguintes serviços Azure:
 * Registo de Contentores do Azure
 * Área de trabalho do Azure Machine Learning
 
-O grupo de recursos é o contentor que detém os serviços. Os vários serviços são exigidos pelo espaço de trabalho Azure Machine Learning.
+O grupo de recursos é o contentor que detém os serviços. Os vários serviços são requeridos pelo espaço de trabalho Azure Machine Learning.
 
 O modelo de exemplo tem dois parâmetros:
 
 * O **local** onde o grupo de recursos e os serviços serão criados.
 
-    O modelo utilizará a localização que seleccionarpara a maioria dos recursos. A exceção é o serviço Application Insights, que não está disponível em todos os locais que os outros serviços são. Se selecionar um local onde não esteja disponível, o serviço será criado na localização do Centro Sul dos EUA.
+    O modelo utilizará o local que seleciona para a maioria dos recursos. A exceção é o serviço Application Insights, que não está disponível em todos os locais que os outros serviços são. Se selecionar um local onde não esteja disponível, o serviço será criado na localização do Centro Sul dos EUA.
 
-* O **nome do espaço**de trabalho , que é o nome amigável do espaço de trabalho Azure Machine Learning.
+* O **nome do espaço de trabalho,** que é o nome amigável do espaço de trabalho Azure Machine Learning.
 
     > [!NOTE]
-    > O nome do espaço de trabalho é insensível a casos.
+    > O nome do espaço de trabalho é insensível a caso.
 
     Os nomes dos outros serviços são gerados aleatoriamente.
 
 > [!TIP]
-> Enquanto o modelo associado a este documento cria um novo Registo de Contentores Azure, também pode criar um novo espaço de trabalho sem criar um registo de contentores. Um será criado quando executar uma operação que requer um registo de contentores. Por exemplo, treinar ou implementar um modelo.
+> Enquanto o modelo associado a este documento cria um novo registo de contentores Azure, também pode criar um novo espaço de trabalho sem criar um registo de contentores. Um deles será criado quando efetuar uma operação que requer um registo de contentores. Por exemplo, treinar ou implementar um modelo.
 >
-> Também pode fazer referência a uma conta de registo ou armazenamento de contentores existente no modelo do Gestor de Recursos Azure, em vez de criar uma nova.
+> Também pode fazer referência a um registo de contentores ou uma conta de armazenamento existente no modelo Azure Resource Manager, em vez de criar uma nova. No entanto, o registo do contentor que utiliza deve ter a __conta de administração__ ativada. Para obter informações sobre a habilitação da conta de administração, consulte [a conta Admin](/azure/container-registry/container-registry-authentication#admin-account).
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 Para obter mais informações sobre os modelos, consulte os seguintes artigos:
 
-* [Modelos de Gestor de Recursos Do Autor Azure](../azure-resource-manager/templates/template-syntax.md)
+* [Modelos de gestor de recursos do autor Azure](../azure-resource-manager/templates/template-syntax.md)
 * [Implementar uma aplicação com modelos de Gestor de Recursos Azure](../azure-resource-manager/templates/deploy-powershell.md)
-* [Microsoft.MachineLearningServices tipos de recursos](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+* [Microsoft.MachineLearningServes de recursos](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 
 ### <a name="advanced-template"></a>Modelo avançado
 
-O seguinte modelo de exemplo demonstra como criar um espaço de trabalho com três configurações:
+O modelo de exemplo a seguir demonstra como criar um espaço de trabalho com três configurações:
 
-* Ativar configurações de alta confidencialidade para o espaço de trabalho
-* Ativar encriptação para o espaço de trabalho
+* Permitir configurações de alta confidencialidade para o espaço de trabalho
+* Ativar a encriptação para o espaço de trabalho
 * Usa um cofre de chaves Azure existente para recuperar chaves geridas pelo cliente
 
-Para mais informações, consulte [encriptação em repouso](concept-enterprise-security.md#encryption-at-rest).
+Para obter mais informações, consulte [a Encriptação em repouso](concept-enterprise-security.md#encryption-at-rest).
 
 > [!IMPORTANT]
-> Existem alguns requisitos específicos que a sua subscrição deve cumprir antes de usar este modelo:
-> * A aplicação __Azure Machine Learning__ deve ser um contribuinte para __a__ sua subscrição Azure.
+> Existem alguns requisitos específicos que a sua subscrição deve satisfazer antes de usar este modelo:
+> * A aplicação __Azure Machine Learning__ deve ser um __contribuinte__ para a sua subscrição Azure.
 > * Deve ter um Cofre de Chave Azure existente que contenha uma chave de encriptação.
-> * Você deve ter uma política de acesso no Cofre chave Azure que concede __obter,__ __embrulhar__e __desembrulhar__ o acesso à aplicação __Azure Cosmos DB.__
-> * O Cofre chave Azure deve estar na mesma região onde planeia criar o espaço de trabalho Azure Machine Learning.
+> * Você deve ter uma política de acesso no Azure Key Vault que concede __obter,__ __embrulhar,__ e __desembrulhar__ o acesso à aplicação __DB Azure Cosmos.__
+> * O Azure Key Vault deve estar na mesma região onde planeia criar o espaço de trabalho Azure Machine Learning.
 
-__Para adicionar a aplicação Azure Machine Learning como contribuinte,__ utilize os seguintes comandos:
+__Para adicionar a app Azure Machine Learning como contribuinte,__ utilize os seguintes comandos:
 
 1. Para autenticar a Azure a partir do CLI, utilize o seguinte comando:
 
@@ -102,7 +101,7 @@ __Para adicionar a aplicação Azure Machine Learning como contribuinte,__ utili
     
     [!INCLUDE [subscription-login](../../includes/machine-learning-cli-subscription.md)]
 
-1. Para obter o id do objeto da aplicação Azure Machine Learning, utilize o seguinte comando. O valor pode ser diferente para cada uma das suas subscrições do Azure:
+1. Para obter o ID do objeto da aplicação Azure Machine Learning, utilize o seguinte comando. O valor pode ser diferente para cada uma das suas subscrições Azure:
 
     ```azurecli-interactive
     az ad sp list --display-name "Azure Machine Learning" --query '[].[appDisplayName,objectId]' --output tsv
@@ -110,17 +109,17 @@ __Para adicionar a aplicação Azure Machine Learning como contribuinte,__ utili
 
     Este comando devolve o ID do objeto, que é um GUID.
 
-1. Para adicionar o ID do objeto como contribuinte à sua subscrição, utilize o seguinte comando. `<object-ID>`Substitua-a com o GUID do passo anterior. Substitua `<subscription-ID>` pelo nome ou identificação da sua assinatura Azure:
+1. Para adicionar o ID do objeto como contribuinte à sua subscrição, utilize o seguinte comando. `<object-ID>`Substitua-o pelo GUID do passo anterior. Substitua `<subscription-ID>` pelo nome ou ID da sua subscrição Azure:
 
     ```azurecli-interactive
     az role assignment create --role 'Contributor' --assignee-object-id <object-ID> --subscription <subscription-ID>
     ```
 
-__Para adicionar uma chave ao seu Cofre de Chave Azure,__ utilize a informação na [Adição de uma chave, segredo ou certificado na](../key-vault/general/manage-with-cli2.md#adding-a-key-secret-or-certificate-to-the-key-vault) secção chave do cofre da chave do Cofre de Chaves de Gestão utilizando o artigo Do __ClI Azure.__
+__Para adicionar uma chave ao seu Cofre de Chave Azure,__ utilize as informações na [Adição de uma chave, segredo ou certificado à](../key-vault/general/manage-with-cli2.md#adding-a-key-secret-or-certificate-to-the-key-vault) secção do cofre de chaves do Cofre de Chaves de Gestão utilizando o artigo __Azure CLI.__
 
-Para adicionar uma política de __acesso ao cofre chave, utilize os seguintes comandos:__
+__Para adicionar uma política de acesso ao cofre de chaves, utilize os seguintes comandos:__
 
-1. Para obter o objeto ID da app Azure Cosmos DB, use o seguinte comando. O valor pode ser diferente para cada uma das suas subscrições do Azure:
+1. Para obter o iD do objeto da aplicação DB Azure Cosmos, utilize o seguinte comando. O valor pode ser diferente para cada uma das suas subscrições Azure:
 
     ```azurecli-interactive
     az ad sp list --display-name "Azure Cosmos DB" --query '[].[appDisplayName,objectId]' --output tsv
@@ -128,15 +127,15 @@ Para adicionar uma política de __acesso ao cofre chave, utilize os seguintes co
     
     Este comando devolve o ID do objeto, que é um GUID.
 
-1. Para definir a política, utilize o seguinte comando. Substitua-o pelo nome do cofre de `<keyvault-name>` chaves Azure existente. `<object-ID>`Substitua-a pelo GUID do passo anterior:
+1. Para definir a política, utilize o seguinte comando. `<keyvault-name>`Substitua-o pelo nome do cofre de chave Azure existente. `<object-ID>`Substitua-a pelo GUID do passo anterior:
 
     ```azurecli-interactive
     az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
     ```
 
-__Para obter os valores__ para o `cmk_keyvault` (ID do cofre chave) e os `resource_cmk_uri` parâmetros (chave URI) necessários por este modelo, use os seguintes passos:
+__Para obter os valores__ para o `cmk_keyvault` (ID do Cofre chave) e os `resource_cmk_uri` parâmetros (chave URI) necessários por este modelo, utilize os seguintes passos:
 
-1. Para obter o ID do cofre de chaves, use o seguinte comando:
+1. Para obter o ID do cofre de chaves, utilize o seguinte comando:
 
     ```azurecli-interactive
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
@@ -144,7 +143,7 @@ __Para obter os valores__ para o `cmk_keyvault` (ID do cofre chave) e os `resour
 
     Este comando devolve um valor semelhante a `/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault` .
 
-1. Para obter o valor para o URI para a chave gerida pelo cliente, utilize o seguinte comando:
+1. Para obter o valor do URI para a tecla gerida pelo cliente, utilize o seguinte comando:
 
     ```azurecli-interactive
     az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
@@ -161,15 +160,15 @@ __Modelo de exemplo__
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
-1. Siga os passos em [Recursos de implantação a partir de modelo personalizado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Quando chegar ao ecrã do __modelo Editar,__ cola no modelo deste documento.
-1. Selecione __Guardar__ para utilizar o modelo. Forneça as seguintes informações e concorde com os termos e condições listados:
+1. Siga os passos na [implementação de recursos a partir do modelo personalizado.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template) Quando chegar ao ecrã do __modelo editar,__ cole o modelo a partir deste documento.
+1. __Selecione Guardar__ para usar o modelo. Forneça as seguintes informações e concorde com os termos e condições listados:
 
    * Subscrição: Selecione a subscrição Azure para utilizar para estes recursos.
    * Grupo de recursos: Selecione ou crie um grupo de recursos para conter os serviços.
-   * Nome do espaço de trabalho: O nome a utilizar para o espaço de trabalho Azure Machine Learning que será criado. O nome do espaço de trabalho deve estar entre 3 e 33 caracteres. Só pode conter caracteres alfanuméricos e "-".
-   * Localização: Selecione a localização onde serão criados os recursos.
+   * Nome do espaço de trabalho: O nome a usar para o espaço de trabalho Azure Machine Learning que será criado. O nome do espaço de trabalho deve ter entre 3 e 33 caracteres. Só pode conter caracteres alfanuméricos e "-".
+   * Localização: Selecione o local onde os recursos serão criados.
 
-Para mais informações, consulte [Implementar recursos a partir de modelo personalizado](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
+Para obter mais informações, consulte [implementar recursos a partir do modelo personalizado.](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)
 
 ## <a name="use-azure-powershell"></a>Utilizar o Azure PowerShell
 
@@ -182,7 +181,7 @@ new-azresourcegroupdeployment -name exampledeployment `
   -templatefile .\azuredeploy.json -workspaceName "exampleworkspace" -sku "basic"
 ```
 
-Para mais informações, consulte [a implantação de recursos com modelos de Gestor de Recursos e o Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) e implante o modelo de Gestor de [Recursos privados com token SAS e Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
+Para obter mais informações, consulte [implementar recursos com modelos de Gestor de Recursos e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) e [implementar o modelo de Gestor de Recursos Privados com token SAS e Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
 
@@ -197,7 +196,7 @@ az group deployment create \
   --parameters workspaceName=exampleworkspace location=eastus sku=basic
 ```
 
-Para mais informações, consulte [a implantação de recursos com modelos de Gestor de Recursos e o Azure CLI](../azure-resource-manager/templates/deploy-cli.md) e implante o modelo de Gestor de [Recursos privados com token SAS e Azure CLI](../azure-resource-manager/templates/secure-template-with-sas-token.md).
+Para obter mais informações, consulte [implementar recursos com modelos de Gestor de Recursos e Azure CLI](../azure-resource-manager/templates/deploy-cli.md) e [implementar o modelo de Gestor de Recursos Privados com token SAS e Azure CLI](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -205,17 +204,17 @@ Para mais informações, consulte [a implantação de recursos com modelos de Ge
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
 
-### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Política de acesso ao cofre de chaves Azure e modelos de Gestor de Recursos Azure
+### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Política de acesso a Azure Key Vault e modelos de Gestor de Recursos Azure
 
-Quando utiliza um modelo de Gestor de Recursos Azure para criar o espaço de trabalho e recursos associados (incluindo o Cofre chave Azure), várias vezes. Por exemplo, usar o modelo várias vezes com os mesmos parâmetros como parte de um gasoduto de integração e implantação contínua.
+Quando utilizar um modelo de Gestor de Recursos Azure para criar o espaço de trabalho e os recursos associados (incluindo o Cofre da Chave Azure), várias vezes. Por exemplo, utilizar o modelo várias vezes com os mesmos parâmetros como parte de um gasoduto de integração e implantação contínua.
 
-A maioria das operações de criação de recursos através de modelos são idempotentes, mas o Key Vault limpa as políticas de acesso cada vez que o modelo é usado. Limpar as políticas de acesso quebra o acesso ao Cofre chave para qualquer espaço de trabalho existente que o esteja a utilizar. Por exemplo, as funcionalidades Stop/Create dos Cadernos Azure VM podem falhar.  
+A maioria das operações de criação de recursos através de modelos são idempotentes, mas o Key Vault limpa as políticas de acesso cada vez que o modelo é usado. Limpar as políticas de acesso quebra o acesso ao Cofre-Chave para qualquer espaço de trabalho existente que o utilize. Por exemplo, parar/criar funcionalidades de Azure Notebooks VM podem falhar.  
 
 Para evitar este problema, recomendamos uma das seguintes abordagens:
 
-* Não desloque o modelo mais de uma vez para os mesmos parâmetros. Ou eliminar os recursos existentes antes de usar o modelo para recriá-los.
+* Não desloque o modelo mais de uma vez para os mesmos parâmetros. Ou elimine os recursos existentes antes de usar o modelo para recriá-los.
 
-* Examine as políticas de acesso ao Cofre Chave e, em seguida, use estas políticas para definir a `accessPolicies` propriedade do modelo. Para visualizar as políticas de acesso, utilize o seguinte comando Azure CLI:
+* Examine as políticas de acesso ao Cofre chave e, em seguida, use estas políticas para definir a `accessPolicies` propriedade do modelo. Para ver as políticas de acesso, utilize o seguinte comando Azure CLI:
 
     ```azurecli-interactive
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
@@ -223,9 +222,9 @@ Para evitar este problema, recomendamos uma das seguintes abordagens:
 
     Para obter mais informações sobre a `accessPolicies` utilização da secção do modelo, consulte a referência do [objeto AccessPolicyEntry](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
 
-* Verifique se o recurso Key Vault já existe. Se o fizer, não o recrie através do modelo. Por exemplo, para utilizar o Cofre chave existente em vez de criar um novo, faça as seguintes alterações no modelo:
+* Verifique se o recurso Key Vault já existe. Se o fizer, não o recrie através do modelo. Por exemplo, para utilizar o Cofre de Chaves existente em vez de criar um novo, faça as seguintes alterações ao modelo:
 
-    * **Adicione** um parâmetro que aceite a identificação de um recurso chave vault existente:
+    * **Adicione** um parâmetro que aceite o ID de um recurso de Cofre de Chaves existente:
 
         ```json
         "keyVaultId":{
@@ -236,7 +235,7 @@ Para evitar este problema, recomendamos uma das seguintes abordagens:
         }
       ```
 
-    * **Remova** a secção que cria um recurso key vault:
+    * **Remova** a secção que cria um recurso Key Vault:
 
         ```json
         {
@@ -284,9 +283,9 @@ Para evitar este problema, recomendamos uma das seguintes abordagens:
         }
         ```
 
-    Após estas alterações, pode especificar a identificação do recurso Key Vault existente ao executar o modelo. O modelo irá então reutilizar o Cofre chave, definindo a `keyVault` propriedade do espaço de trabalho para o seu ID.
+    Após estas alterações, pode especificar o ID do recurso de cofre de teclas existente ao executar o modelo. O modelo reutilizará então o Cofre de Chaves definindo a `keyVault` propriedade do espaço de trabalho para o seu ID.
 
-    Para obter a identificação do Cofre chave, pode fazer referência à saída do modelo original executar ou utilizar o Azure CLI. O seguinte comando é um exemplo de utilização do CLI Azure para obter o ID de recurso key vault:
+    Para obter o ID do Cofre de Chaves, pode referenciar a saída do modelo original ou utilizar o Azure CLI. O seguinte comando é um exemplo de utilização do CLI Azure para obter o ID do recurso Key Vault:
 
     ```azurecli-interactive
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query id
@@ -298,7 +297,7 @@ Para evitar este problema, recomendamos uma das seguintes abordagens:
     /subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Implementar recursos com modelos de Gestor](../azure-resource-manager/templates/deploy-rest.md)de Recursos e Gestor de Recursos REST API .
-* [Criação e implantação de grupos de recursos Azure através do Estúdio Visual.](../azure-resource-manager/templates/create-visual-studio-deployment-project.md)
+* [Implementar recursos com modelos de Gestor de Recursos e Gestor de Recursos REST API](../azure-resource-manager/templates/deploy-rest.md).
+* [Criar e implantar grupos de recursos Azure através do Visual Studio.](../azure-resource-manager/templates/create-visual-studio-deployment-project.md)

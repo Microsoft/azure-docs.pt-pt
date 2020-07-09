@@ -1,37 +1,37 @@
 ---
 title: Armazenar resultados de consulta para armazenamento
-description: Neste artigo, você aprenderá a armazenar resultados de consulta para armazenamento usando SQL on-demand (pré-visualização).
+description: Neste artigo, você aprenderá a armazenar resultados de consulta para armazenamento usando SQL on demand (pré-visualização).
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d73e895371764d9dd28290648551d84181e022cd
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 610391cefe88f6d066f4af12f6fb88f55b1fe56b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117582"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206552"
 ---
-# <a name="store-query-results-to-storage-using-sql-on-demand-preview-using-azure-synapse-analytics"></a>Armazenar resultados de consulta para armazenamento usando SQL on-demand (pré-visualização) usando Azure Synapse Analytics
+# <a name="store-query-results-to-storage-using-sql-on-demand-preview-using-azure-synapse-analytics"></a>Armazenar resultados de consulta para armazenamento usando SQL on demand (pré-visualização) usando Azure Synapse Analytics
 
-Neste artigo, você aprenderá a armazenar resultados de consulta para armazenamento usando SQL On-demand (pré-visualização).
+Neste artigo, você aprenderá a armazenar resultados de consulta para armazenamento usando SQL On demand (pré-visualização).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O seu primeiro passo é **criar uma base de dados** onde executará as consultas. Em seguida, inicialize os objetos executando o script de [configuração](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) nessa base de dados. Este script de configuração criará as fontes de dados, credenciais de base de dados e formatos de ficheiros externos que são usados para ler dados nestas amostras.
+O seu primeiro passo é **criar uma base de dados** onde executará as consultas. Em seguida, inicialize os objetos executando o [script de configuração](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) nessa base de dados. Este script de configuração criará as fontes de dados, credenciais de base de dados e formatos de ficheiros externos que são usados para ler dados nestas amostras.
 
-Siga as instruções deste artigo para criar fontes de dados, credenciais de base de dados e formatos de ficheiros externos que são utilizados para escrever dados no armazenamento de saída.
+Siga as instruções deste artigo para criar fontes de dados, credenciais de base de dados e formatos de ficheiros externos que são utilizados para escrever dados no armazenamento da saída.
 
 ## <a name="create-external-table-as-select"></a>Criar tabela externa como selecionado
 
-Pode utilizar a declaração CREATE EXTERNAL TABLE AS SELECT (CETAS) para armazenar os resultados da consulta no armazenamento.
+Pode utilizar a declaração CREATE EXTERNAL TABLE AS SELECT (CETAS) para armazenar os resultados da consulta.
 
 > [!NOTE]
-> Mude a primeira linha da consulta, ou seja, [mydbname], então está a usar a base de dados que criou.
+> Mude a primeira linha da consulta, isto é, [mydbname], por isso está a usar a base de dados que criou.
 
 ```sql
 USE [mydbname];
@@ -43,7 +43,7 @@ WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
 GO
 
 CREATE EXTERNAL DATA SOURCE [MyDataSource] WITH (
-    LOCATION = 'https://<storage account name>.blob.core.windows.net/csv', CREDENTIAL [SasTokenWrite]
+    LOCATION = 'https://<storage account name>.blob.core.windows.net/csv', CREDENTIAL = [SasTokenWrite]
 );
 GO
 
@@ -64,7 +64,7 @@ FROM
     OPENROWSET(
         BULK 'csv/population-unix/population.csv',
         DATA_SOURCE = 'sqlondemanddemo',
-        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0'
     ) WITH (
         CountryCode varchar(4),
         CountryName varchar(64),
@@ -79,7 +79,7 @@ FROM
 Pode utilizar a tabela externa criada através do CETAS como uma tabela externa regular.
 
 > [!NOTE]
-> Mude a primeira linha da consulta, ou seja, [mydbname], então está a usar a base de dados que criou.
+> Mude a primeira linha da consulta, isto é, [mydbname], por isso está a usar a base de dados que criou.
 
 ```sql
 USE [mydbname];
@@ -94,6 +94,6 @@ ORDER BY
     [population] DESC;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre como consultar diferentes tipos de ficheiros, consulte o [ficheiro CSV único](query-single-csv-file.md)da [Consulta, ficheiros Query Parquet](query-parquet-files.md)e artigos de [ficheiros Consulta JSON.](query-json-files.md)
+Para obter mais informações sobre como consultar diferentes tipos de ficheiros, consulte o [ficheiro CSV único,](query-single-csv-file.md) [os ficheiros Query Parquet](query-parquet-files.md)e [os ficheiros de ficheiros De consulta JSON.](query-json-files.md)

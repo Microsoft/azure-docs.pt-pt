@@ -1,10 +1,10 @@
 ---
-title: Auditoria e reportagem de um utilizador de colaboração B2B - Azure AD
-description: As propriedades dos utilizadores convidados são configuráveis na colaboração Azure Ative Directory B2B
+title: Auditoria e reporte de um utilizador de colaboração B2B - Azure AD
+description: As propriedades dos utilizadores dos hóspedes são configuráveis na colaboração B2B do Azure Ative Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
@@ -12,32 +12,32 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2f1478391eccaabcc4dbcd150b54376494d3f56
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a805f643e5f93270fe4721f527073baa9a1e4c8d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587532"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387274"
 ---
-# <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Auditoria e comunicação de um utilizador de colaboração B2B
-Com os utilizadores convidados, tem capacidades de auditoria semelhantes às dos utilizadores membros. 
+# <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Auditoria e reporte de um utilizador de colaboração B2B
+Com os utilizadores convidados, tem capacidades de auditoria semelhantes às dos utilizadores dos membros. 
 
 ## <a name="access-reviews"></a>Revisões de acesso
-Pode utilizar avaliações de acesso para verificar periodicamente se os utilizadores ainda precisam de acesso aos seus recursos. A funcionalidade **de avaliações** de acesso está disponível no **Diretório Ativo do Azure** ao abrigo das avaliações de acesso a **identidades externas.**  >  **Access reviews** Pode ainda pesquisar "avaliações de acesso" de **todos os serviços** do portal Azure. Para aprender a usar as avaliações de acesso, consulte Gerir o acesso dos [hóspedes com avaliações de acesso a AD Azure](../governance/manage-guest-access-with-access-reviews.md).
+Pode utilizar comentários de acesso para verificar periodicamente se os utilizadores de hóspedes ainda precisam de acesso aos seus recursos. A funcionalidade **de comentários de Acesso** está disponível no **Azure Ative Directy** no âmbito de avaliações de acesso **de identidades**  >  **externas.** Também pode pesquisar por "comentários de acesso" a partir de **todos os serviços** do portal Azure. Para aprender a usar comentários de acesso, consulte [gerir o acesso dos hóspedes com comentários de acesso AZure.](../governance/manage-guest-access-with-access-reviews.md)
 
 ## <a name="audit-logs"></a>Registos de auditoria
 
-Os registos de auditoria da AD Azure fornecem registos de sistemas e atividades de utilizadores, incluindo atividades iniciadas pelos utilizadores convidados. Para aceder a registos de auditoria, no **Diretório Ativo Azure,** sob **monitorização,** selecione registos de **auditoria.** Aqui está um exemplo da história do convite e da redenção do convite Sam Oogle:
+Os registos de auditoria da AZure AD fornecem registos de atividades do sistema e do utilizador, incluindo atividades iniciadas pelos utilizadores convidados. Para aceder aos registos de auditoria, no **Azure Ative Directory,** em **Monitorização,** selecione **registos de auditoria**. Aqui está um exemplo da história do convite e redenção do convidado Sam Oogle:
 
-![Screenshot mostrando e exemplo de saída de registo de auditoria](./media/auditing-and-reporting/audit-log.png)
+![Screenshot mostrando e exemplo da saída de registo de auditoria](./media/auditing-and-reporting/audit-log.png)
 
-Você pode mergulhar em cada um destes eventos para obter os detalhes. Por exemplo, vamos ver os detalhes de aceitação.
+Você pode mergulhar em cada um destes eventos para obter os detalhes. Por exemplo, vamos ver os detalhes da aceitação.
 
-![Screenshot mostrando e exemplo de saída de detalhes da atividade](./media/auditing-and-reporting/activity-details.png)
+![Screenshot mostrando e exemplo de saída de detalhes de atividade](./media/auditing-and-reporting/activity-details.png)
 
-Também pode exportar estes registos a partir de Azure AD e usar a ferramenta de reporte à sua escolha para obter relatórios personalizados.
+Também pode exportar estes registos a partir da Azure AD e utilizar a ferramenta de reporte à sua escolha para obter relatórios personalizados.
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Próximos passos
 
 - [Propriedades do utilizador de colaboração B2B](user-properties.md)
 

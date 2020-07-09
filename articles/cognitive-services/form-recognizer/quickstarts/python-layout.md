@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: c30374b21c1d95b6b710de10da08391d0af4f538
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 62cbaec3e4eaffb9ff3b29e97516ed7e039b38ff
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141964"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028103"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Quickstart: Extrair informações de texto e layout usando a API do Reconhecimento de Formulários REST com Python
 
@@ -29,7 +29,7 @@ Para completar este arranque rápido, você deve ter:
 - Um documento de formulário. Pode descarregar uma imagem a partir do conjunto de [dados](https://go.microsoft.com/fwlink/?linkid=2090451) da amostra para este arranque rápido.
 
 > [!NOTE]
-> Este quickstart utiliza um documento armazenado localmente. Para utilizar a utilização de ficheiros remotos acedidos por URL, consulte a [documentação de referência](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync).
+> Este quickstart utiliza um documento armazenado localmente. Para utilizar a utilização de ficheiros remotos acedidos por URL, consulte a [documentação de referência](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync).
 
 
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso de reconhecimento de formulários
@@ -38,7 +38,7 @@ Para completar este arranque rápido, você deve ter:
 
 ## <a name="analyze-the-form-layout"></a>Analise o layout do formulário
 
-Para começar a analisar o layout, você chama a **[API de Layout de Análise](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** usando o script Python abaixo. Antes de executar o script, faça estas alterações:
+Para começar a analisar o layout, você chama a **[API de Layout de Análise](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)** usando o script Python abaixo. Antes de executar o script, faça estas alterações:
 
 1. `<Endpoint>`Substitua-o pelo ponto final que obteve com a subscrição do Form Recogniser.
 1. `<path to your form>`Substitua-o pelo caminho do documento de formulário local.
@@ -54,7 +54,7 @@ Para começar a analisar o layout, você chama a **[API de Layout de Análise](h
     # Endpoint URL
     endpoint = r"<Endpoint>"
     apim_key = "<Subscription Key>"
-    post_url = endpoint + "/formrecognizer/v2.0-preview/Layout/analyze"
+    post_url = endpoint + "/formrecognizer/v2.0/Layout/analyze"
     source = r"<path to your form>"
     
     headers = {
@@ -84,12 +84,12 @@ Para começar a analisar o layout, você chama a **[API de Layout de Análise](h
 Receberá uma `202 (Success)` resposta que inclui um **cabeçalho operação-localização,** que o script irá imprimir na consola. Este cabeçalho contém um ID de funcionamento que pode utilizar para consultar o estado da operação assíncronea e obter os resultados. No seguinte valor de exemplo, a cadeia seguinte `operations/` é o ID de funcionamento.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.0-preview/layout/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.0/layout/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ## <a name="get-the-layout-results"></a>Obtenha os resultados do layout
 
-Depois de ter chamado a API do **Layout de Análise,** ligue para a API **[do Resultado do Layout de Análise](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** para obter o estado da operação e os dados extraídos. Adicione o seguinte código na parte inferior do seu script Python. Este código utiliza o valor de ID de operação numa nova chamada API. Este script chama a API em intervalos regulares até que os resultados estejam disponíveis. Recomendamos um intervalo de um segundo ou mais.
+Depois de ter chamado a API do **Layout de Análise,** ligue para a API **[do Resultado do Layout de Análise](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/GetAnalyzeLayoutResult)** para obter o estado da operação e os dados extraídos. Adicione o seguinte código na parte inferior do seu script Python. Este código utiliza o valor de ID de operação numa nova chamada API. Este script chama a API em intervalos regulares até que os resultados estejam disponíveis. Recomendamos um intervalo de um segundo ou mais.
 
 ```python
 n_tries = 10
@@ -277,9 +277,9 @@ Consulte a seguinte imagem de fatura e a respetiva saída JSON. A saída foi enc
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, você usou o Formulário Reconhecedor REST API com Python para extrair o layout de texto de uma fatura. Em seguida, consulte a documentação de referência para explorar mais aprofundadamente a API do Reconhecimento de Formulários.
 
 > [!div class="nextstepaction"]
-> [Documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)
+> [Documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)

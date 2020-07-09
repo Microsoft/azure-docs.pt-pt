@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:` Use identidade gerida para aceder ao Gestor de Recursos Azure - Windows - Azure AD
+title: '`:`Tutorial Utilização gerida identidade para aceder Azure Resource Manager - Windows - Azure AD'
 description: Um tutorial que explica o processo de utilização de uma identidade gerida atribuída pelo sistema de uma VM do Windows, para aceder ao Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -16,11 +16,11 @@ ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4431031e5e96c71c6488b57cc570271d763bb764
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240479"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84693469"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>Utilizar uma identidade gerida atribuída pelo sistema de VM do Windows para aceder ao Resource Manager
 
@@ -42,7 +42,7 @@ Com as identidades geridas para recursos do Azure, o seu código pode obter toke
 1.  Navegue até ao separador para **Grupos de Recursos**. 
 2.  Selecione o **Grupo de Recursos** específico que criou para a sua **VM do Windows**. 
 3.  Aceda a **Controlo de acesso (IAM)** no painel esquerdo. 
-4.  Em seguida, adicione uma nova atribuição de **funções** para o seu **VM Windows**.  Selecione **Função** como **Leitor**. 
+4.  Em **seguida, adicione** uma nova atribuição de função para o seu **Windows VM**.  Selecione **Função** como **Leitor**. 
 5.  Na lista pendente seguinte, defina **Atribuir acesso a** para o recurso **Máquina Virtual**. 
 6.  Em seguida, certifique-se de que está listada a subscrição correta na lista pendente **Subscrição**. Para **Grupo de Recursos**, selecione **Todos os grupos de recursos**. 
 7.  Por fim, em **Selecionar**, selecione a sua VM do Windows na lista pendente e clique em **Guardar**.
@@ -55,8 +55,8 @@ Terá de utilizar o **PowerShell** nesta parte.  Se não tiver o **PowerShell** 
 
 1.  No portal, navegue para **Máquinas Virtuais**, aceda à sua máquina virtual do Windows e, em **Descrição Geral**, clique em **Ligar**. 
 2.  Introduza o seu **Nome de Utilizador** e a **Palavra-passe** que adicionou quando criou a VM do Windows. 
-3.  Agora que criou uma **Ligação remota de ambiente** de trabalho com a máquina virtual, abra a **PowerShell** na sessão remota. 
-4.  Utilizando o cmdlet Invoke-WebRequest, faça um pedido à identidade gerida local para o ponto final dos recursos azure para obter um sinal de acesso para O Gestor de Recursos Azure.
+3.  Agora que criou uma **Ligação de Ambiente de Trabalho Remoto** com a máquina virtual, abra o **PowerShell** na sessão remota. 
+4.  Utilizando o cmdlet Invoke-WebRequest, faça um pedido à identidade gerida local para o ponto final dos recursos Azure para obter um token de acesso para Azure Resource Manager.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' -Method GET -Headers @{Metadata="true"}
@@ -76,7 +76,7 @@ Terá de utilizar o **PowerShell** nesta parte.  Se não tiver o **PowerShell** 
     $ArmToken = $content.access_token
     ```
     
-    Por fim, chame o Azure Resource Manager com o token de acesso. Neste exemplo, estamos também a usar o cmdlet Invoke-WebRequest para fazer a chamada para o Gestor de Recursos Azure, e incluir o sinal de acesso no cabeçalho de Autorização.
+    Por fim, chame o Azure Resource Manager com o token de acesso. Neste exemplo, também estamos a usar o cmdlet Invoke-WebRequest para fazer a chamada para O Gestor de Recursos Azure, e incluir o token de acesso no cabeçalho de Autorização.
     
     ```powershell
     (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $ArmToken"}).content

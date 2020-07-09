@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,23 +10,20 @@ ms.topic: include
 ms.custom: include file
 ms.date: 01/15/2020
 ms.author: diberry
-ms.openlocfilehash: 11abd52681d7c9962af4e5bf0728f97b256223c1
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: b1013b261e9449aef45f629c729579f4c87c1f6b
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76122902"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85378612"
 ---
 ## <a name="create-a-personalizer-azure-resource"></a>Criar um recurso Personalizer Azure
 
-Crie um recurso para personalizar utilizando o [portal Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [o Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) na sua máquina local. Também pode:
+Crie um recurso para Personalizar utilizando o [portal Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [O CLI Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) na sua máquina local. 
 
-* Obtenha uma chave de [teste](https://azure.microsoft.com/try/cognitive-services) válida por 7 dias de graça. Depois de se inscrever, estará disponível no site do [Azure.](https://azure.microsoft.com/try/cognitive-services/my-apis/)
-* Veja o seu recurso no [portal Azure.](https://portal.azure.com/)
-
-Depois de obter uma chave da sua subscrição ou recurso experimental, crie duas [variáveis ambientais:](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)
+Depois de obter uma chave do seu recurso, crie duas [variáveis ambientais:](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)
 
 * `PERSONALIZER_RESOURCE_KEY`para a chave de recursos.
-* `PERSONALIZER_RESOURCE_ENDPOINT`para o ponto final do recurso.
+* `PERSONALIZER_RESOURCE_ENDPOINT`para o ponto final de recursos.
 
-No portal Azure, tanto os valores chave como os valores finais estão disponíveis na página **de arranque rápido.**
+No portal Azure, tanto os valores da chave como do ponto final estão disponíveis na página **de arranque rápido.**

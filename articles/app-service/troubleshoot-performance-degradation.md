@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
 ms.openlocfilehash: 2ef4862b629f5d192049c2cb9236a3da2b411960
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84170771"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Resolução de problemas problemas de desempenho de aplicações lentas no Azure App Service
@@ -152,7 +151,7 @@ Além disso, pode optar por executar a sua aplicação em mais de um caso. A esc
 Pode configurar a escala para ser manual ou automática.
 
 #### <a name="use-autoheal"></a>Use AutoHeal
-O AutoHeal recicla o processo de trabalhador para a sua aplicação com base nas definições que escolhe (como alterações de configuração, pedidos, limites baseados na memória ou o tempo necessário para executar um pedido). Na maior parte do tempo, reciclar o processo é a forma mais rápida de recuperar de um problema. Embora possa sempre reiniciar a aplicação diretamente dentro do portal Azure, o AutoHeal fá-la automaticamente para si. Tudo o que precisa fazer é adicionar alguns gatilhos na web raiz.config para a sua aplicação. Estas definições funcionariam da mesma forma, mesmo que a sua aplicação não seja uma aplicação .NET.
+O AutoHeal recicla o processo de trabalhador para a sua aplicação com base nas definições que escolhe (como alterações de configuração, pedidos, limites baseados na memória ou o tempo necessário para executar um pedido). Na maior parte do tempo, reciclar o processo é a forma mais rápida de recuperar de um problema. Embora possa sempre reiniciar a aplicação diretamente dentro do portal Azure, o AutoHeal fá-la automaticamente para si. Tudo o que precisa fazer é adicionar alguns gatilhos na raiz web.config para a sua aplicação. Estas definições funcionariam da mesma forma, mesmo que a sua aplicação não seja uma aplicação .NET.
 
 Para obter mais informações, consulte [os Web Sites Azure de auto-cura.](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/)
 

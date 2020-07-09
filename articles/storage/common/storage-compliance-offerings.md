@@ -1,31 +1,31 @@
 ---
-title: Ofertas de conformidade de armazenamento azure [ Microsoft Docs
-description: Resumo das ofertas de conformidade no Armazenamento Azure
+title: Ofertas de conformidade de armazenamento Azure / Microsoft Docs
+description: Resumo das ofertas de conformidade no Azure Storage
 services: storage
 author: fhryo-msft
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: f711d0dbc2df2a5ab102b520fb0d166a459383c1
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c24db9fb1b411de31ba8d086b6baa418f656c920
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684463"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514402"
 ---
-# <a name="azure-storage-compliance-offerings"></a>Ofertas de conformidade de armazenamento azure
+# <a name="azure-storage-compliance-offerings"></a>Ofertas de conformidade de armazenamento Azure
 
-Para ajudar as organizações a cumprir os requisitos nacionais, regionais e específicos da indústria que regem a recolha e utilização de dados individuais, o Microsoft Azure & O Armazenamento Azure oferecem o conjunto mais abrangente de certificações e atestados de qualquer fornecedor de serviços na nuvem.
+Para ajudar as organizações a cumprirem os requisitos nacionais, regionais e específicos da indústria que regem a recolha e utilização de dados individuais, o Microsoft Azure & Azure Storage oferecem o conjunto mais abrangente de certificações e atestados de qualquer prestador de serviços na nuvem.
 
-Pode encontrar abaixo as ofertas de conformidade no Armazenamento Azure para garantir o seu serviço regulado na utilização do serviço de Armazenamento Azure. Aplicam-se às seguintes ofertas de Armazenamento Azure: Blobs, Files, Filas, Tabelas, Discos, Armazenamento Cool e Armazenamento Premium.
+Pode encontrar abaixo as ofertas de conformidade no Azure Storage para garantir que o seu serviço seja regulado na utilização do serviço de Armazenamento Azure. Aplicam-se às seguintes ofertas de Armazenamento Azure: Blobs, Ficheiros, Filas, Tabelas, Discos, Armazenamento Cool e Armazenamento Premium.
 
 ## <a name="global"></a>Global
 
-* [CSA-STAR-Attestation](https://www.microsoft.com/trustcenter/compliance/csa-star-attestation)
-* [Certificação CSA-Star](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)
-* [CSA-STAR-Auto-Avaliação](https://www.microsoft.com/trustcenter/compliance/csa-self-assessment)
+* [CSA-STAR-Atestado](https://www.microsoft.com/trustcenter/compliance/csa-star-attestation)
+* [Certificação CSA-Estrela](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)
+* [CSA-STAR-Auto-avaliação](https://www.microsoft.com/trustcenter/compliance/csa-self-assessment)
 * [ISO 20000-1:2011](https://www.microsoft.com/TrustCenter/Compliance/ISO-20000-1)
 * [ISO 22301](https://www.microsoft.com/trustcenter/compliance/iso-22301)
 * [ISO 27001](https://www.microsoft.com/trustcenter/compliance/iso-iec-27017)
@@ -38,8 +38,8 @@ Pode encontrar abaixo as ofertas de conformidade no Armazenamento Azure para gar
 
 * [DoD DISA L2, L4, L5](https://www.microsoft.com/trustcenter/compliance/disa)
 * [DoE 10 CFR Parte 810](https://aka.ms/AzureCompliance)
-* [EAR (Regulamento seleto de administração de exportação dos EUA)](https://aka.ms/AzureCompliance)
-* [Título cfr da FDA 21 Parte 11](https://aka.ms/AzureCompliance)
+* [EAR (Regulamentos da Administração de Exportação dos EUA)](https://aka.ms/AzureCompliance)
+* [Título do CFR da FDA 21 Parte 11](https://aka.ms/AzureCompliance)
 * [FedRAMP](https://www.microsoft.com/trustcenter/compliance/fedramp)
 * [FERPA](https://www.microsoft.com/trustcenter/compliance/ferpa)
 * [FIPS 140-2](https://www.microsoft.com/trustcenter/compliance/fips)
@@ -77,11 +77,11 @@ Pode encontrar abaixo as ofertas de conformidade no Armazenamento Azure para gar
 * [DJCP (China)](https://www.trustcenter.cn/compliance/default.html#DJCP)
 * [ENISA IAF (UE)](https://aka.ms/AzureCompliance)
 * [ENS (Espanha)](https://www.microsoft.com/trustcenter/compliance/spainens)
-* [Cláusulas-modelo da UE](https://www.microsoft.com/trustcenter/compliance/eu-model-clauses)
+* [Cláusulas-Modelo da UE](https://www.microsoft.com/trustcenter/compliance/eu-model-clauses)
 * [Escudo de Privacidade UE-EUA](https://privacy.microsoft.com/en-US/microsoft-eu-us-privacy-shield)
 * [GB 18030 (China)](https://www.trustcenter.cn/compliance/default.html#GB18030)
 * [RGPD (UE)](https://www.microsoft.com/trustcenter/privacy/gdpr)
-* [Livro de Trabalho de Grundschutz (Alemanha)](https://www.microsoft.com/TrustCenter/Compliance/IT-Grundschutz)
+* [Livro de TI Grundschutz (Alemanha)](https://www.microsoft.com/TrustCenter/Compliance/IT-Grundschutz)
 * [LOPD (Espanha)](https://aka.ms/AzureCompliance)
 * [MTCS (Singapura)](https://www.microsoft.com/trustcenter/compliance/mtcs)
 * [My Number (Japão)](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#my_number)
@@ -90,8 +90,8 @@ Pode encontrar abaixo as ofertas de conformidade no Armazenamento Azure para gar
 * [PDPA (Argentina)](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#argentina)
 * [PIPEDA (Canadá)](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#canadian_privacy_laws)
 * [TRUCS (China)](https://www.trustcenter.cn/compliance/default.html#TCS)
-* [Uk-G-Cloud](https://www.microsoft.com/trustcenter/compliance/uk-g-cloud)
+* [UK-G-Cloud](https://www.microsoft.com/trustcenter/compliance/uk-g-cloud)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-O Microsoft Azure & o Azure Storage continuam a liderar nas ofertas de conformidade, pode encontrar as mais recentes coberturas e detalhes no [Microsoft TrustCenter](https://www.microsoft.com/TrustCenter/Compliance/default.aspx).
+O Microsoft Azure & Azure Storage continua a liderar nas ofertas de conformidade, pode encontrar as mais recentes coberturas e detalhes no [Microsoft TrustCenter](https://www.microsoft.com/TrustCenter/Compliance/default.aspx).

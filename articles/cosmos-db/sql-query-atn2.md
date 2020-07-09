@@ -1,6 +1,6 @@
 ---
-title: ATN2 em linguagem de consulta do Azure Cosmos DB
-description: Saiba como funciona o sistema ATN2 SQL em Azure Cosmos DB devolve o valor principal do arco tangente de y/x, expresso em radianos
+title: ATN2 em Azure Cosmos DB linguagem de consulta
+description: Saiba como funciona o sistema ATN2 SQL no Azure Cosmos DB devolve o valor principal da tangente de arco de y/x, expressa em radianos
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,13 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 696e14e75998ead04c99fab2b84fc4c742d5f54a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78302666"
 ---
 # <a name="atn2-azure-cosmos-db"></a>ATN2 (Azure Cosmos DB)
- Devolve o valor principal da tangente do arco de y/x, expressa em radianos.  
+ Devolve o valor principal da tangente de arco de y/x, expressa em radianos.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,7 +33,7 @@ ATN2(<numeric_expr>, <numeric_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte calcula o ATN2 para os componentes especificados x e y.  
+  O exemplo a seguir calcula o ATN2 para os componentes x e y especificados.  
   
 ```sql
 SELECT ATN2(35.175643, 129.44) AS atn2  
@@ -50,8 +49,8 @@ SELECT ATN2(35.175643, 129.44) AS atn2
 
 Esta função do sistema não utilizará o índice.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

@@ -1,6 +1,6 @@
 ---
 title: Copiar dados da Phoenix utilizando a Azure Data Factory
-description: Saiba como copiar dados da Phoenix para lojas de dados de sink suportadas utilizando uma atividade de cópia num pipeline azure Data Factory.
+description: Saiba como copiar dados da Phoenix para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num oleoduto Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,27 +12,27 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: d236b9f8800b644a0aa51597d01df1c1442475ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416781"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copiar dados da Phoenix utilizando a Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados da Phoenix. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados da Phoenix. Baseia-se no artigo [de visão geral](copy-activity-overview.md) da atividade de cópia que apresenta uma visão geral da atividade da cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
 Este conector Phoenix é suportado para as seguintes atividades:
 
-- [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/pia suportada](copy-activity-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)
 
-Pode copiar dados da Phoenix para qualquer loja de dados suportada. Para obter uma lista de lojas de dados que são suportadas como fontes/pias pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
+Pode copiar dados da Phoenix para qualquer loja de dados de lavatórios suportados. Para obter uma lista de lojas de dados suportadas como fontes/pias pela atividade de cópia, consulte a tabela [de lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-A Azure Data Factory fornece um controlador incorporado para permitir a conectividade, pelo que não necessita de instalar manualmente qualquer controlador utilizando este conector.
+A Azure Data Factory fornece um controlador incorporado para permitir a conectividade, pelo que não é necessário instalar manualmente qualquer controlador utilizando este conector.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,30 +42,30 @@ A Azure Data Factory fornece um controlador incorporado para permitir a conectiv
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades data Factory específicas do conector Phoenix.
+As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades da Data Factory específicas do conector Phoenix.
 
-## <a name="linked-service-properties"></a>Propriedades de serviço seletos
+## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 
 As seguintes propriedades são suportadas para o serviço ligado à Phoenix:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Phoenix** | Sim |
-| anfitrião | O endereço IP ou o nome do anfitrião do servidor Phoenix. (isto é, 192.168.222.160)  | Sim |
-| porta | A porta TCP que o servidor Phoenix usa para ouvir as ligações do cliente. O valor padrão é 8765. Se ligar ao Azure HDInsights, especifique a porta como 443. | Não |
-| httpPath | O URL parcial correspondente ao servidor Phoenix. (isto é, /gateway/sandbox/phoenix/versão). Especifique `/hbasephoenix0` se utilizar o cluster HDInsights.  | Não |
-| authenticationType | O mecanismo de autenticação utilizado para ligar ao servidor Phoenix. <br/>Os valores permitidos são: **Anonymous**, **UsernameAndPassword,** **WindowsAzureHDInsightService** | Sim |
-| o nome de utilizador | O nome de utilizador usado para ligar ao servidor Phoenix.  | Não |
-| palavra-passe | A palavra-passe correspondente ao nome de utilizador. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Não |
-| enableSsl | Especifica se as ligações ao servidor estão encriptadas utilizando TLS. O valor predefinido é false.  | Não |
-| trustedCertPath | O caminho completo do ficheiro .pem contendo certificados CA fidedignos para verificar o servidor ao ligar-se através de TLS. Esta propriedade só pode ser definida quando se utiliza TLS em IR auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o IR.  | Não |
-| useSystemTrustStore | Especifica se deve utilizar um certificado CA a partir da loja fiduciário do sistema ou de um ficheiro PEM especificado. O valor predefinido é false.  | Não |
-| permitirHostNameCNMismatch | Especifica se deve exigir um nome de certificado TLS/SSL emitido pela CA para corresponder ao nome de anfitrião do servidor ao ligar-se ao TLS. O valor predefinido é false.  | Não |
-| permitir AutoSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é false.  | Não |
-| connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não especificado, utiliza o tempo de funcionar de integração azure padrão. |Não |
+| tipo | A propriedade tipo deve ser definida para: **Phoenix** | Yes |
+| anfitrião | O endereço IP ou o nome de anfitrião do servidor Phoenix. (ou seja, 192.168.222.160)  | Yes |
+| porta | A porta TCP que o servidor Phoenix usa para ouvir as ligações do cliente. O valor predefinido é 8765. Se ligar ao Azure HDInsights, especifique a porta como 443. | No |
+| httpPath | O URL parcial correspondente ao servidor Phoenix. (isto é, /gateway/sandbox/phoenix/versão). Especificar `/hbasephoenix0` se utilizar o cluster HDInsights.  | No |
+| authenticationType | O mecanismo de autenticação usado para ligar ao servidor Phoenix. <br/>Os valores permitidos são: **Anónimo,** **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
+| o nome de utilizador | O nome de utilizador usado para ligar ao servidor Phoenix.  | No |
+| palavra-passe | A palavra-passe correspondente ao nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | No |
+| ativarSl | Especifica se as ligações ao servidor são encriptadas utilizando O S.TLS. O valor predefinido é false.  | No |
+| trustedCertPath | O percurso completo do ficheiro .pem que contém certificados ca fidedignos para verificar o servidor ao ligar através de TLS. Esta propriedade só pode ser definida quando se utiliza TLS em IR auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o IR.  | No |
+| useSystemTrustStore | Especifica se deve utilizar um certificado de CA da loja de fidedignidade do sistema ou de um ficheiro PEM especificado. O valor predefinido é false.  | No |
+| permitirHostNameCNMismatch | Especifica se deve exigir um nome de certificado TLS/SSL emitido pela CA para corresponder ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é false.  | No |
+| permitirSelfSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é false.  | No |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
 
 >[!NOTE]
->Se o seu cluster não suportar uma sessão pegajosa, por exemplo, HDInsight, adicione explicitamente o `/hbasephoenix0` índice `/hbasephoenix`de nó no final da definição do caminho http, por exemplo, especifique em vez de .
+>Se o seu cluster não suportar sessão pegajosa, por exemplo, HDInsight, adicione explicitamente o índice de nó no final da definição do caminho http, por exemplo, especifique `/hbasephoenix0` em vez de `/hbasephoenix` .
 
 **Exemplo:**
 
@@ -91,16 +91,16 @@ As seguintes propriedades são suportadas para o serviço ligado à Phoenix:
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo conjuntos de [dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados Phoenix.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [conjuntos de dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados Phoenix.
 
-Para copiar dados da Phoenix, detete a propriedade do tipo do conjunto de dados para **PhoenixObject**. As seguintes propriedades são suportadas:
+Para copiar dados da Phoenix, defina a propriedade tipo do conjunto de dados para **PhoenixObject**. As seguintes propriedades são suportadas:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **PhoenixObject** | Sim |
-| schema | Nome do esquema. |Não (se for especificada a "consulta" na fonte de atividade)  |
-| tabela | Nome da mesa. |Não (se for especificada a "consulta" na fonte de atividade)  |
-| tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` `table` e para nova carga de trabalho. | Não (se for especificada a "consulta" na fonte de atividade) |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **PhoenixObject** | Yes |
+| esquema | O nome do esquema. |Não (se for especificada "consulta" na fonte de atividade)  |
+| table | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
+| tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` e para nova carga de `table` trabalho. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
 
@@ -121,15 +121,15 @@ Para copiar dados da Phoenix, detete a propriedade do tipo do conjunto de dados 
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela fonte phoenix.
+Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas por fonte Phoenix.
 
-### <a name="phoenix-as-source"></a>Fénix como fonte
+### <a name="phoenix-as-source"></a>Phoenix como fonte
 
-Para copiar dados da Phoenix, delineie o tipo de origem na atividade de cópia para **PhoenixSource**. As seguintes propriedades são suportadas na secção de **origem** da atividade de cópia:
+Para copiar dados da Phoenix, desagrafe o tipo de origem na atividade de cópia para **PhoenixSource**. As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **PhoenixSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **PhoenixSource** | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
@@ -166,7 +166,7 @@ Para copiar dados da Phoenix, delineie o tipo de origem na atividade de cópia p
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
-Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
+Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Azure Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

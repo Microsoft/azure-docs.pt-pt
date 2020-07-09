@@ -33,6 +33,9 @@
           href: create-data-warehouse-portal.md
         - name: PowerShell
           href: create-data-warehouse-powershell.md
+        - name: Modelo ARM
+          displayName: Resource Manager
+          href: quickstart-arm-template.md
     - name: Carregar dados
       items:
         - name: Declaração COPY
@@ -417,5 +420,7 @@
           href: sql-data-warehouse-partner-data-integration.md
         - name: Gestão de dados
           href: sql-data-warehouse-partner-data-management.md
+        - name: Machine learning e IA
+          href: sql-data-warehouse-partner-machine-learning-ai.md
         - name: Parceiros da Pré-visualização Pública
           href: sql-data-warehouse-partner-launch.md

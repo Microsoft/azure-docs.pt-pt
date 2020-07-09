@@ -1,26 +1,25 @@
 ---
-title: Insights de Aplicação Azure - Dependência Auto-Collection [ Dependência Auto-Coleção ] Microsoft Docs
-description: Insights de aplicação recolhem e visualizam automaticamente dependências
+title: Azure Application Insights - Coleção Automática de Dependência / Microsoft Docs
+description: Application Insights recolhem e visualizam automaticamente dependências
 ms.topic: reference
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
 ms.openlocfilehash: 21e98ee9dc59e7520fb715f1146e492b9198f883
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82891599"
 ---
 # <a name="dependency-auto-collection"></a>Coleção automática da dependência
 
-Abaixo está a lista de chamadas de dependência suportadas atualmente que são automaticamente detetadas como dependências sem exigir qualquer modificação adicional ao código da sua aplicação. Estas dependências são visualizadas no mapa de aplicação de insights de [aplicação](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) e vistas de [diagnóstico de transações.](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) Se a sua dependência não estiver na lista abaixo, ainda pode rastreá-la manualmente com uma chamada de dependência da [via.](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency)
+Abaixo está a lista de chamadas de dependência atualmente suportadas que são automaticamente detetadas como dependências sem exigir qualquer modificação adicional ao código da sua aplicação. Estas dependências são visualizadas no mapa da [Aplicação](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) insights e pontos de vista [de diagnóstico de transação.](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) Se a sua dependência não estiver na lista abaixo, ainda pode rastreá-la manualmente com uma [chamada de dependência da faixa](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## <a name="net"></a>.NET
 
 | Quadros de aplicativos| Versões |
 | ------------------------|----------|
-| ASP.NET Webforms | 4.5+ |
+| formas web ASP.NET | 4.5+ |
 | ASP.NET MVC | 4+ |
 | ASP.NET WebAPI | 4.5+ |
 | Núcleo de ASP.NET | 1.1+ |
@@ -34,7 +33,7 @@ Abaixo está a lista de chamadas de dependência suportadas atualmente que são 
 | ADO.NET | 4.5+ |
 
 > [!NOTE]
-> Existe um [problema conhecido](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1347) com versões mais antigas do Microsoft.Data.SqlClient. Recomendamos a utilização de 1.1.0 ou mais tarde para atenuar esta questão. O Núcleo de Quadro de Entidades não é necessariamente enviado com o mais recente lançamento estável do Microsoft.Data.SqlClient por isso aconselhamos a confirmar que está em pelo menos 1.1.0 para evitar este problema.   
+> Existe um [problema conhecido](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1347) com versões mais antigas do Microsoft.Data.SqlClient. Recomendamos a utilização de 1.1.0 ou posterior para atenuar este problema. O Núcleo Quadro da Entidade não envia necessariamente com a mais recente versão estável do Microsoft.Data.SqlClient, pelo que aconselhamos a confirmar que está em pelo menos 1.1.0 para evitar este problema.   
 
 
 ## <a name="java"></a>Java
@@ -42,16 +41,16 @@ Abaixo está a lista de chamadas de dependência suportadas atualmente que são 
 |-------------|----------|
 | [Tomcat](https://tomcat.apache.org/) | 7, 8 | 
 | [JBoss EAP](https://developers.redhat.com/products/eap/download/) | 6, 7 |
-| [Cais](https://www.eclipse.org/jetty/) | 9 |
+| [Jetty](https://www.eclipse.org/jetty/) | 9 |
 | <b>Quadros de aplicativos</b> |  |
 | [Spring](https://spring.io/) | 3.0 |
 | [Spring Boot](https://spring.io/projects/spring-boot) | 1.5.9+<sup>*</sup> |
 | Java Servlet | 3.1+ |
 | <b>Bibliotecas de comunicação</b> |  |
-| [Cliente Apache Http](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) | 4.3+<sup>†</sup> |
+| [Apache Http Cliente](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) | 4.3+<sup>†</sup> |
 | <b>Clientes de armazenamento</b> | |
 | [SQL Server]( https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) | 1+<sup>†</sup> |
-| [PostgreSQL (Suporte Beta)](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/CHANGELOG.md#version-240-beta) | |
+| [Postgresql (Suporte Beta)](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/CHANGELOG.md#version-240-beta) | |
 | [Oracle]( https://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html) | 1+<sup>†</sup> |
 | [MySql]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1+<sup>†</sup> |
 | <b>Bibliotecas de exploração madeireira</b> | |
@@ -62,21 +61,21 @@ Abaixo está a lista de chamadas de dependência suportadas atualmente que são 
 
 > [!NOTE]
 > *Exceto suporte de programação reativo.
-> <br>†Requer a instalação do [Agente JVM](https://docs.microsoft.com/azure/application-insights/app-insights-java-agent#install-the-application-insights-agent-for-java).
+> <br>†Requer a instalação do [Agente JVM.](https://docs.microsoft.com/azure/application-insights/app-insights-java-agent#install-the-application-insights-agent-for-java)
 
 ## <a name="nodejs"></a>Node.js
 
 | Bibliotecas de comunicação | Versões |
 | ------------------------|----------|
-| [HTTP,](https://nodejs.org/api/http.html) [HTTPS](https://nodejs.org/api/https.html) | 0,10+ |
+| [HTTP](https://nodejs.org/api/http.html), [HTTPS](https://nodejs.org/api/https.html) | 0.10+ |
 | <b>Clientes de armazenamento</b> | |
 | [Redis](https://www.npmjs.com/package/redis) | 2.x |
-| [MongoDb;](https://www.npmjs.com/package/mongodb) [Núcleo MongoDb](https://www.npmjs.com/package/mongodb-core) | 2.x - 3.x |
+| [MongoDb;](https://www.npmjs.com/package/mongodb) [Núcleo mongoDb](https://www.npmjs.com/package/mongodb-core) | 2.x - 3.x |
 | [MySQL](https://www.npmjs.com/package/mysql) | 2.0.0 - 2.16.x |
 | [PostgreSql;](https://www.npmjs.com/package/pg) | 6.x - 7.x |
 | [pg-pool](https://www.npmjs.com/package/pg-pool) | 1.x - 2.x |
 | <b>Bibliotecas de exploração madeireira</b> | |
-| [consola](https://nodejs.org/api/console.html) | 0,10+ |
+| [consola](https://nodejs.org/api/console.html) | 0.10+ |
 | [Rio Bunyan](https://www.npmjs.com/package/bunyan) | 1.x |
 | [Winston](https://www.npmjs.com/package/winston) | 2.x - 3.x |
 
@@ -86,11 +85,11 @@ Abaixo está a lista de chamadas de dependência suportadas atualmente que são 
 | ------------------------|----------|
 | [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | Todos |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Configurar o rastreio de dependência personalizada para [.NET](../../azure-monitor/app/asp-net-dependencies.md).
 - Configurar o rastreio de dependência personalizada para [Java.](../../azure-monitor/app/java-agent.md)
-- Configurar o rastreio de dependência personalizada para [OpenCensus Python](../../azure-monitor/app/opencensus-python-dependency.md).
-- [Escreva telemetria de dependência personalizada](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
-- Consulte o modelo de [dados](../../azure-monitor/app/data-model.md) para tipos de Insights de Aplicação e modelo de dados.
-- Confira [as plataformas](../../azure-monitor/app/platforms.md) suportadas por Application Insights.
+- Configurar rastreio de dependência personalizada para [o OpenCensus Python](../../azure-monitor/app/opencensus-python-dependency.md).
+- [Escrever telemetria de dependência personalizada](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
+- Consulte [o modelo de dados](../../azure-monitor/app/data-model.md) para os tipos de Insights de Aplicação e modelo de dados.
+- Confira as [plataformas](../../azure-monitor/app/platforms.md) suportadas pela Application Insights.

@@ -1,6 +1,6 @@
 ---
-title: Monitorizar o progresso do trabalho de codificação com o portal Azure
-description: Este tutorial acompanha-o através dos passos de monitorização do seu trabalho através do portal Azure.
+title: Monitorar o progresso do trabalho com o portal Azure
+description: Este tutorial acompanha-o através dos passos de monitorização do progresso do seu trabalho utilizando o portal Azure.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 86c91582256261d701dc3c73b1bdfdcb6002f6e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "64867224"
 ---
-# <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Monitorizar o progresso do trabalho de codificação com o portal Azure
+# <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Monitorar o progresso do trabalho com o portal Azure
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Quando se gere empregos, muitas vezes é preciso uma forma de acompanhar o progresso do emprego. 
 
@@ -39,7 +39,7 @@ Pode clicar no trabalho para ver mais detalhes.
 ![Tarefas](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-Depois do seu trabalho de codificação ser um, pode publicar e reproduzir os seus bens, como descrito [aqui.](media-services-portal-publish.md)
+Depois do seu trabalho de codificação ser um deles, pode publicar e jogar os seus bens, como descrito [aqui.](media-services-portal-publish.md)
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

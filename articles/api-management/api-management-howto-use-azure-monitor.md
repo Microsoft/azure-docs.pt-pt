@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: bee93cf84f4beda0684127102942447630219881
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 989608b9a087599ab73864ae2605fbffcf3221d9
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82128849"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982055"
 ---
 # <a name="monitor-published-apis"></a>Monitorizar as APIs publicadas
 
 Com o Azure Monitor, pode visualizar, consultar, encaminhar, arquivar e tomar medidas relativamente a métricas ou registos provenientes de recursos do Azure.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Ver registos de atividades
@@ -43,14 +43,13 @@ O vídeo seguinte mostra como monitorizar a Gestão de API através do Azure Mon
 
 ## <a name="view-metrics-of-your-apis"></a>Ver métricas das APIs
 
-A Gestão de API emite métricas a cada minuto, o que lhe permite ter visibilidade quase em tempo real sobre o estado geral e o estado de funcionamento das suas APIs. Segue-se um resumo de algumas das métricas disponíveis:
+A Gestão de API emite métricas a cada minuto, o que lhe permite ter visibilidade quase em tempo real sobre o estado geral e o estado de funcionamento das suas APIs. Abaixo estão as duas métricas mais usadas. Para obter uma lista de todas as métricas disponíveis, consulte [as métricas suportadas.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftapimanagementservice)
 
-* Capacidade: ajuda-o a tomar decisões sobre a modernização/redução dos seus serviços APIM. A métrica é emitida por minuto e reflete a capacidade do gateway no momento da criação de relatórios. A métrica varia entre 0 e 100 e é calculada com base nos recursos do gateway, como a utilização da CPU e da memória.
-* Total de Pedidos do Gateway: número de pedidos da API num determinado período. 
-* Pedidos do Gateway Com Êxito: número de pedidos da API que receberam códigos de resposta HTTP com êxito, incluindo 304, 307 e tudo o que for inferior a 301 (por exemplo, 200).
-* Pedidos do Gateway Falhados: número de pedidos da API que receberam códigos de resposta HTTP erróneos, incluindo 400 e tudo o que for superior a 500.
-* Pedidos do Gateway Não Autorizados: número de pedidos da API que receberam códigos de resposta HTTP, incluindo 401, 403 e 429.
-* Outros Pedidos do Gateway: número de pedidos da API que receberam códigos de resposta HTTP que não pertencem a nenhuma das categorias anteriores (por exemplo, 418).
+* Capacidade: ajuda-o a tomar decisões sobre a atualização/degradação dos seus serviços APIM. A métrica é emitida por minuto e reflete a capacidade do gateway no momento da criação de relatórios. A métrica varia entre 0 e 100 e é calculada com base nos recursos do gateway, como a utilização da CPU e da memória.
+* Pedidos: ajuda-o a analisar o tráfego da API através dos seus serviços APIM. A métrica é emitida por minuto e relata o número de pedidos de gateway com dimensões, incluindo códigos de resposta, localização, nome de hospedeiro e erros. 
+
+> [!IMPORTANT]
+> As seguintes métricas foram depreciadas a partir de maio de 2019 e serão aposentadas em agosto de 2023: Total gateway Requests, Pedidos de Gateway Bem-Sucedidos, Pedidos de Gateway Não Autorizados, Pedidos de Gateway Falhados, Outros Pedidos de Gateway. Por favor, migrar para a métrica Solicitações que fornece funcionalidade equivalente.
 
 ![gráfico de métricas](./media/api-management-azure-monitor/apim-monitor-metrics.png)
 
@@ -60,9 +59,9 @@ Para aceder a métricas:
 
     ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-1. Na lista pendente, selecione as métricas que lhe interessam. Por exemplo, **Pedidos**. 
-1. O gráfico mostra o número total de chamadas à API.
-1. O gráfico pode ser filtrado utilizando as dimensões da métrica **de Pedidos.** Por exemplo, clique no **filtro Adicionar,** escolha Código de **Resposta ao Backend,** introduza 500 como valor. Agora, o gráfico mostra o número de pedidos que foram falhados no backend da API.   
+2. Na lista pendente, selecione as métricas que lhe interessam. Por exemplo, **Pedidos**. 
+3. O gráfico mostra o número total de chamadas à API.
+4. O gráfico pode ser filtrado utilizando as dimensões da métrica **Solicitações.** Por exemplo, clique no **filtro Adicionar,** escolha **o Código de Resposta de Backend,** introduza 500 como valor. Agora, o gráfico mostra o número de pedidos que foram falhados no backend da API.   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configurar uma regra de alerta para um pedido não autorizado
 
@@ -74,28 +73,28 @@ Pode configurar a receção de alertas com base em métricas e registos de ativi
 
 Para configurar alertas:
 
-1. Selecione **Alertas** a partir da barra de menus perto da parte inferior da página.
+1. Selecione **Alertas** da barra de menus perto da parte inferior da página.
 
     ![alerts](./media/api-management-azure-monitor/alert-menu-item.png)
 
-2. Clique numa **nova regra** de alerta para este alerta.
+2. Clique numa **nova regra de alerta** para este alerta.
 3. Clique na **condição de adicionar**.
-4. Selecione **Métricas** no tipo sinal baixar.
-5. Selecione Pedido de **Gateway não autorizado** como sinal para monitorizar.
+4. Selecione **métricas** no tipo sinal cair para baixo.
+5. Selecione **Pedido de Gateway Não Autorizado** como o sinal para monitorizar.
 
     ![alerts](./media/api-management-azure-monitor/signal-type.png)
 
-6. Na visão lógica do **sinal Configurar,** especifique um limiar após o qual o alerta deve ser acionado e clique **em Done**.
+6. Na **visão lógica do sinal de configuração,** especifique um limiar após o qual o alerta deve ser acionado e clique em **'Fazer'.**
 
     ![alerts](./media/api-management-azure-monitor/threshold.png)
 
-7. Selecione um Grupo de Ação existente ou crie um novo. No exemplo abaixo, um e-mail será enviado para os administradores. 
+7. Selecione um Grupo de Ação existente ou crie um novo. No exemplo abaixo, será enviado um e-mail para os administradores. 
 
     ![alerts](./media/api-management-azure-monitor/action-details.png)
 
 8. Forneça um nome, descrição da regra de alerta e escolha o nível de gravidade. 
-9. Pressione **Criar regra**de alerta .
-10. Agora, tente chamar a API da Conferência sem uma chave API. O alerta será desencadeado e o e-mail será enviado aos administradores. 
+9. Pressione **Criar regra de alerta**.
+10. Agora, tente ligar para a Conferência API sem uma chave API. O alerta será desencadeado e o e-mail será enviado para os administradores. 
 
 ## <a name="activity-logs"></a>Registos de Atividade
 
@@ -119,7 +118,7 @@ Para ver registos de atividades:
 
 ## <a name="resource-logs"></a>Registos de Recursos
 
-Os registos de recursos fornecem informações ricas sobre operações e erros que são importantes para a auditoria, bem como para fins de resolução de problemas. Os registos de recursos diferem dos registos de atividade. Os registos de atividade fornecem insights sobre as operações que foram realizadas nos seus recursos Azure. Os registos de recursos fornecem informações sobre as operações que o seu recurso realizou.
+Os registos de recursos fornecem informações ricas sobre operações e erros que são importantes para a auditoria, bem como para efeitos de resolução de problemas. Os registos de recursos diferem dos registos de atividade. Os registos de atividade fornecem informações sobre as operações que foram realizadas nos seus recursos Azure. Os registos de recursos fornecem informações sobre as operações que o seu recurso realizou.
 
 Para configurar registos de recursos:
 
@@ -128,9 +127,9 @@ Para configurar registos de recursos:
 
     ![registos de recursos](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. Clique em **Ativar diagnósticos**. Pode arquivar registos de recursos juntamente com métricas para uma conta de armazenamento, transmiti-los para um Hub de Eventos ou enviá-los para registos do Monitor Azure. 
+3. Clique em **Ativar diagnósticos**. Pode arquivar registos de recursos juntamente com métricas para uma conta de armazenamento, transmiti-los para um Centro de Eventos ou enviá-los para registos do Azure Monitor. 
 
-A API Management fornece atualmente registos de recursos (loteados de hora a hora) sobre o pedido individual de API com cada entrada com o seguinte esquema:
+A API Management fornece atualmente registos de recursos (lotados por hora) sobre cada pedido de API individual, tendo cada entrada o seguinte esquema:
 
 ```json
 {  
@@ -177,18 +176,18 @@ A API Management fornece atualmente registos de recursos (loteados de hora a hor
 }  
 ```
 
-| Propriedade  | Tipo | Descrição |
+| Propriedade  | Tipo | Description |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | boolean | “Verdadeiro” se o pedido HTTP for concluído com o código de estado de resposta no intervalo 2xx ou 3xx |
-| hora | date-time | Carimbo de tempo de quando o gateway começa processando o pedido |
+| hora | date-time | Timetamp de quando o gateway começa a processar o pedido |
 | operationName | string | Valor constante “Microsoft.ApiManagement/GatewayLogs” |
 | categoria | string | Valor constante “GatewayLogs” |
-| durationMs | número inteiro | Número de milissegundos a partir do momento em que gateway recebeu pedido até o momento de resposta enviada na íntegra. Inclui clienTime, cacheTime e backendTime. |
+| durationMs | número inteiro | Número de milissegundos a partir do momento em que gateway recebeu pedido até ao momento em que a resposta foi enviada na íntegra. Inclui clienTime, cacheTime e backendTime. |
 | callerIpAddress | string | Endereço IP do chamador de Gateway de imediato (pode ser um intermediário) |
 | correlationId | string | Identificador de pedido http exclusivo atribuído pela Gestão de API |
 | localização | string | Nome da região do Azure em que o Gateway que processou o pedido estava localizado |
 | httpStatusCodeCategory | string | Categoria do código de estado da resposta http: bem-sucedida (301 ou menos ou 304 ou 307), não autorizada (401, 403, 429), Errónea (400, entre 500 e 600), Outro |
-| resourceId | string | ID do recurso de gestão\<da API /SUBSCRIÇÕES/> de subscrição/GRUPOS DE RECURSOS/\<grupo de recursos>/FORNECEDOREs/MICROSOFT. APIMANAGEMENT/SERVIÇO/\<nome> |
+| resourceId | string | ID do recurso de Gestão da API /SUBSCRIÇÕES/ \<subscription> /RESOURCEGROUPS/ \<resource-group> /PROVIDERS/MICROSOFT. APIMANAGEMENT/SERVICE/\<name> |
 | propriedades | objeto | Propriedades do pedido atual |
 | método | string | Método HTTP do pedido a receber |
 | url | string | URL do pedido a receber |
@@ -211,7 +210,7 @@ A API Management fornece atualmente registos de recursos (loteados de hora a hor
 | apimSubscriptionId | string | Identificador da entidade de subscrição do pedido atual | 
 | backendId | string | Identificador da entidade de back-end do pedido atual | 
 | LastError | objeto | Último erro de processamento de pedido | 
-| elapsed | número inteiro | O número de milissegundos decorrido entre quando o portal recebeu o pedido e o momento em que ocorreu o erro | 
+| elapsed | número inteiro | Número de milissegundos decorrido entre quando o portal recebeu o pedido e o momento em que ocorreu o erro | 
 | source | string | Nome da política ou processador interno provocou o erro | 
 | scope | string | Âmbito do documento da política que contém a política que provocou o erro | 
 | section | string | Secção do documento da política que contém a política que provocou o erro | 

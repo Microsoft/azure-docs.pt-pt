@@ -1,7 +1,7 @@
 ---
-title: Como usar a deteção automática de linguagem para a fala ao texto
+title: Como utilizar a deteção automática de linguagem para a fala a texto
 titleSuffix: Azure Cognitive Services
-description: O SDK da Fala suporta a deteção automática de linguagem para a fala a texto. Ao utilizar esta funcionalidade, o áudio fornecido é comparado com uma lista fornecida de idiomas, sendo determinada a correspondência mais provável. O valor devolvido pode então ser usado para selecionar o modelo de idioma utilizado para a fala a texto.
+description: O SDK de discurso suporta a deteção automática de linguagem para a fala a texto. Ao utilizar esta funcionalidade, o áudio fornecido é comparado com uma lista fornecida de idiomas, e o jogo mais provável é determinado. O valor devolvido pode então ser usado para selecionar o modelo de linguagem utilizado para a fala a texto.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -10,31 +10,31 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-nineteen
-ms.openlocfilehash: 311c85e254711a219ac93424b77f35c2662008b7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+zone_pivot_groups: programming-languages-speech-services-nomore-variant
+ms.openlocfilehash: df8fe6301a629e4f21478d6da4d892afec44c889
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658444"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85601229"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>Deteção automática de linguagem para fala a texto
 
-A deteção automática de idiomas é usada para determinar a correspondência mais provável para o áudio passado para o SDK da fala quando comparada com uma lista de idiomas fornecidos. O valor devolvido pela deteção automática de idiomas é então utilizado para selecionar o modelo de linguagem para a fala ao texto, proporcionando-lhe uma transcrição mais precisa. Para ver quais línguas estão disponíveis, consulte [o suporte da Linguagem.](language-support.md)
+A deteção automática de idiomas é usada para determinar a correspondência mais provável para o áudio passado para o SDK do discurso quando comparado com uma lista de línguas fornecidas. O valor devolvido pela deteção automática de idiomas é então utilizado para selecionar o modelo linguístico para a fala a texto, proporcionando-lhe uma transcrição mais precisa. Para ver quais as línguas disponíveis, consulte [o suporte linguístico.](language-support.md)
 
 Neste artigo, você aprenderá a usar `AutoDetectSourceLanguageConfig` para construir um objeto e recuperar a linguagem `SpeechRecognizer` detetada.
 
 > [!IMPORTANT]
 > Esta funcionalidade só está disponível para o Speech SDK com C#, C++, Java, Python e Objective-C.
 
-## <a name="automatic-language-detection-with-the-speech-sdk"></a>Deteção automática de linguagem com o SDK da Fala
+## <a name="automatic-language-detection-with-the-speech-sdk"></a>Deteção automática de linguagem com o SDK de fala
 
-A deteção automática de linguagens tem atualmente um limite de serviços de dois idiomas por deteção. Tenha em mente esta limitação ao construir o seu `AudoDetectSourceLanguageConfig` objeto. Nas amostras abaixo, criará um `AutoDetectSourceLanguageConfig` , em seguida, usá-lo para construir um `SpeechRecognizer` .
+A deteção automática de idiomas tem atualmente um limite de serviços de quatro línguas por deteção. Tenha em mente esta limitação ao construir o seu `AudoDetectSourceLanguageConfig` objeto. Nas amostras abaixo, você vai criar `AutoDetectSourceLanguageConfig` um, em seguida, usá-lo para construir um `SpeechRecognizer` .
 
 > [!TIP]
-> Também pode especificar um modelo personalizado para usar ao executar o discurso por texto. Para mais informações, consulte [Utilize um modelo personalizado para deteção automática de idiomas.](#use-a-custom-model-for-automatic-language-detection)
+> Também pode especificar um modelo personalizado para usar ao executar a fala para texto. Para obter mais informações, consulte [Utilize um modelo personalizado para deteção automática de idiomas.](#use-a-custom-model-for-automatic-language-detection)
 
-Os seguintes snippets ilustram como usar a deteção automática de idiomas nas suas apps:
+Os seguintes snippets ilustram como utilizar a deteção automática de idiomas nas suas aplicações:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -135,11 +135,25 @@ NSString *detectedLanguage = [languageDetectionResult language];
 
 ::: zone-end
 
-## <a name="use-a-custom-model-for-automatic-language-detection"></a>Use um modelo personalizado para deteção automática de idiomas
+::: zone pivot="programming-language-javascript"
 
-Além da deteção de idiomas utilizando modelos de serviço da Fala, pode especificar um modelo personalizado para um reconhecimento melhorado. Se um modelo personalizado não for fornecido, o serviço utilizará o modelo de idioma predefinido.
+```Javascript
+var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromLanguages(["en-US", "de-DE"]);
+var speechRecognizer = SpeechSDK.SpeechRecognizer.FromConfig(speechConfig, audioConfig, autoDetectConfig);
+speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) => {
+        var languageDetectionResult = SpeechSDK.AutoDetectSourceLanguageResult.fromResult(result);
+        var detectedLanguage = languageDetectionResult.language;
+},
+{});
+```
 
-Os cortes abaixo ilustram como especificar um modelo personalizado na sua chamada para o serviço de Fala. Se a linguagem detetada `en-US` for, então o modelo predefinido é utilizado. Se a linguagem detetada `fr-FR` for, então o ponto final para o modelo personalizado é utilizado:
+::: zone-end
+
+## <a name="use-a-custom-model-for-automatic-language-detection"></a>Utilize um modelo personalizado para deteção automática de idiomas
+
+Além da deteção de linguagem utilizando modelos de serviço de fala, pode especificar um modelo personalizado para um reconhecimento melhorado. Se um modelo personalizado não for fornecido, o serviço utilizará o modelo de linguagem padrão.
+
+Os snippets abaixo ilustram como especificar um modelo personalizado na sua chamada para o serviço Desemaça. Se a língua detetada `en-US` for, então o modelo predefinido é utilizado. Se a língua detetada `fr-FR` for, então o ponto final para o modelo personalizado é utilizado:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -213,6 +227,16 @@ SPXAutoDetectSourceLanguageConfiguration* autoDetectSourceLanguageConfig = \
 
 ::: zone-end
 
+::: zone pivot="programming-language-javascript"
+
+```Javascript
+var enLanguageConfig = SpeechSDK.SourceLanguageConfig.fromLanguage("en-US");
+var frLanguageConfig = SpeechSDK.SourceLanguageConfig.fromLanguage("fr-FR", "The Endpoint Id for custom model of fr-FR");
+var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromSourceLanguageConfigs([enLanguageConfig, frLanguageConfig]);
+```
+
+::: zone-end
+
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Documentação de referência do SDK do discurso](speech-sdk.md)
+- [Documentação de referência do SDK de fala](speech-sdk.md)

@@ -1,26 +1,20 @@
 ---
 title: Azure Event Hubs - Visualizar anomalias de dados em eventos em tempo real
-description: 'Tutorial: Visualizar anomalias de dados em eventos em tempo real enviados para hubs de eventos do Microsoft Azure'
-services: event-hubs
-author: ShubhaVijayasarathy
-manager: timlt
-ms.author: shvija
+description: 'Tutorial: Visualizar anomalias de dados em eventos em tempo real enviados para os Hubs de Eventos da Microsoft Azure'
 ms.topic: tutorial
-ms.service: event-hubs
-ms.custom: seodec18
-ms.date: 01/15/2020
-ms.openlocfilehash: f71d8e9f88dad32818ed25d4a0719a1528656f96
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 595c0e06750171c844249a77ecef16c84dc8ada5
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77163182"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85315623"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados em eventos em tempo real enviados para os Hubs de Eventos do Azure
 
-Com os Hubs de Eventos do Azure, pode utilizar o Azure Stream Analytics para verificar os dados recebidos e extrair as anomalias, que, em seguida, pode visualizar no Power BI. Imaginemos que tem milhares de dispositivos constantemente a enviar dados em tempo real para um hub de eventos, adicionando até milhões de eventos por segundo. De que forma verifica a existência de anomalias ou erros nessa quantidade de dados? Por exemplo, e se os dispositivos estiverem a enviar transações de cartões de crédito, e precisar de capturar em qualquer lugar onde tenha várias transações em vários países/regiões dentro de um intervalo de tempo de 5 segundos? Isto poderia acontecer se alguém roubar cartões de crédito e, em seguida, utilizá-los para comprar artigos em todo o mundo ao mesmo tempo. 
+Com os Hubs de Eventos do Azure, pode utilizar o Azure Stream Analytics para verificar os dados recebidos e extrair as anomalias, que, em seguida, pode visualizar no Power BI. Imaginemos que tem milhares de dispositivos constantemente a enviar dados em tempo real para um hub de eventos, adicionando até milhões de eventos por segundo. De que forma verifica a existência de anomalias ou erros nessa quantidade de dados? Por exemplo, e se os dispositivos estiverem a enviar transações de cartões de crédito e precisar de capturar em qualquer lugar que tenha várias transações em vários países/regiões dentro de um intervalo de 5 segundos? Isto poderia acontecer se alguém roubar cartões de crédito e, em seguida, utilizá-los para comprar artigos em todo o mundo ao mesmo tempo. 
 
-Neste tutorial, vai simular este exemplo. Vai executar uma aplicação que cria e envia transações de cartão de crédito para um hub de eventos. Depois lê-se o fluxo de dados em tempo real com o Azure Stream Analytics, que separa as transações válidas das transações inválidas e, em seguida, utiliza o Power BI para identificar visualmente as transações que são marcadas como inválidas.
+Neste tutorial, vai simular este exemplo. Vai executar uma aplicação que cria e envia transações de cartão de crédito para um hub de eventos. Em seguida, você leu o fluxo de dados em tempo real com a Azure Stream Analytics, que separa as transações válidas das transações inválidas, e depois usa o Power BI para identificar visualmente as transações que são marcadas como inválidas.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -38,7 +32,7 @@ Para concluir este tutorial, precisa de uma subscrição do Azure. Se não tiver
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-- Instalar [o Estúdio Visual.](https://www.visualstudio.com/) 
+- Instalar [o Estúdio Visual](https://www.visualstudio.com/). 
 - Precisa de uma conta do Power BI para analisar a saída de uma tarefa do Stream Analytics. Pode [experimentar o Power BI gratuitamente](https://app.powerbi.com/signupredirect?pbi_source=web).
 
 ## <a name="set-up-resources"></a>Configurar recursos
@@ -47,7 +41,7 @@ Para este tutorial, precisa de um espaço de nomes de Hubs de Eventos e de um hu
 
 As secções seguintes descrevem como executar estes passos obrigatórios. Siga as instruções da CLI *ou* do PowerShell para executar os seguintes passos:
 
-1. Criar um [grupo de recursos](../azure-resource-manager/management/overview.md). 
+1. Criar um [grupo de recursos.](../azure-resource-manager/management/overview.md) 
 
 2. Crie um espaço de nomes dos Hubs de Eventos. 
 
@@ -156,11 +150,11 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 ## <a name="run-app-to-produce-test-event-data"></a>Executar a aplicação para produzir dados de evento de teste
 
-As amostras do Event Hubs [no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) incluem uma aplicação do Detetor de Anomalias que produz dados de teste para si. A aplicação simula a utilização de cartões de crédito ao escrever transações de cartão de crédito no hub de eventos, incluindo a escrita ocasional de várias transações para o mesmo cartão de crédito em várias localizações, de modo a que sejam identificadas como anomalias. Para executar esta aplicação, siga estes passos: 
+As amostras do Event Hubs [no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) incluem uma aplicação de Detetor de Anomalias que produz dados de teste para si. A aplicação simula a utilização de cartões de crédito ao escrever transações de cartão de crédito no hub de eventos, incluindo a escrita ocasional de várias transações para o mesmo cartão de crédito em várias localizações, de modo a que sejam identificadas como anomalias. Para executar esta aplicação, siga estes passos: 
 
 1. Transfira os [exemplos de Hubs de Eventos do Azure](https://github.com/Azure/azure-event-hubs/archive/master.zip) do GitHub e deszipe o ficheiro localmente.
-2. Navegue para a pasta **\azure-event-hubs-master\samples\DotNet\\ ** pasta. 
-3. Mude para a pasta **Azure.Messaging.EventHubs\AnomalyDetector\\ ** e clique duas vezes em **AnomalyDetector.sln** para abrir a solução no Estúdio Visual. 
+2. Navegue para a pasta **\azure-event-hubs-master\samples\dotNet. \\ ** 
+3. Mude para a pasta **Azure.Messaging.EventHubs\AnomalyDetector \\ ** e clique duas vezes em **AnomalyDetector.sln** para abrir a solução em Visual Studio. 
 
     Para utilizar a versão antiga da amostra que utiliza o antigo pacote Microsoft.Azure.EventHubs, abra a solução a partir da pasta **Microsoft.Azure.EventHubs\AnomalyDetector.** 
 3. Abra o ficheiro Program.cs e substitua **Event Hubs connection string** pela cadeia de ligação que guardou quando executou o script. 
@@ -306,7 +300,7 @@ Na tarefa do Stream Analytics, clique em **Iniciar**, **Agora** e **Iniciar**. A
 
    ![Captura de ecrã da especificação do nome do dashboard.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-name.png)
 
-7. Na página do Dashboard, clique em **Adicionar azulejos,** selecione **Dados de Streaming Personalizados** na secção **DADOS EM TEMPO REAL** e, em seguida, clique **em Seguinte**.
+7. Na página dashboard, clique em **Adicionar azulejos,** selecione **Dados de Streaming personalizados** na secção **DADOS EM TEMPO REAL** e, em seguida, clique em **Seguinte**.
 
    ![Captura de ecrã da especificação da origem do mosaico.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-real-time-data.png)
 
@@ -325,7 +319,7 @@ Na tarefa do Stream Analytics, clique em **Iniciar**, **Agora** e **Iniciar**. A
     ![Captura de ecrã da especificação do título e subtítulo para o mosaico do dashboard.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-tile-details.png)
 
     > [!IMPORTANT]
-    > Quando executa a aplicação da amostra e transmite dados para o centro do evento, o número neste azulejo muda rapidamente (a cada segundo). É porque a consulta stream analytics realmente atualiza o valor a **cada segundo**. Atualize a consulta para uma janela de 3 minutos para ver a soma nos últimos minutos. 
+    > Quando executam a aplicação da amostra e transmitem os dados para o centro do evento, o número deste azulejo muda rapidamente (a cada segundo). É porque a consulta Stream Analytics realmente atualiza o valor a **cada segundo**. Atualize a consulta para uma janela de 3 minutos para ver a soma nos últimos minutos. 
 11. Adicione outra visualização. Repita os primeiros passos novamente:
 
     * Clique em **Adicionar Mosaico**.
@@ -386,4 +380,4 @@ Avance para o artigo seguinte para saber mais sobre os Hubs de Eventos do Azure.
 > [!div class="nextstepaction"]
 > [Introdução ao envio de mensagens para os Hubs de Eventos do Azure no .NET Standard](get-started-dotnet-standard-send-v2.md)
 
-[crie uma conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[criar uma conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

@@ -1,37 +1,37 @@
 ---
-title: Utilizar .NET para criar uma delegação de utilizadores SAS para um recipiente ou bolha
+title: Utilize .NET para criar uma delegação de utilizador SAS para um recipiente ou bolha
 titleSuffix: Azure Storage
-description: Saiba como criar uma delegação de utilizadores SAS com credenciais de Diretório Ativo Azure utilizando a biblioteca de clientes .NET para armazenamento Azure.
+description: Saiba como criar uma delegação de utilizador SAS com credenciais de Diretório Azure Ative utilizando a biblioteca de clientes .NET para armazenamento Azure.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
 ms.date: 12/18/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: fa0754505d887b77cc3d11ebde9c246d4a00eb59
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: d5e8f5e3939ade4e5344ef586a62b6a19082e34e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82883316"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809031"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Criar uma delegação de utilizadores SAS para um recipiente ou bolha com .NET
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Crie uma delegação de utilizador SAS para um recipiente ou bolha com .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Este artigo mostra como utilizar credenciais de Diretório Ativo Azure (Azure AD) para criar uma delegação de utilizadores SAS para um contentor ou blob com a biblioteca de clientes Azure Storage para a versão 12.NET.
+Este artigo mostra como utilizar credenciais do Azure Ative Directory (Azure AD) para criar uma delegação de utilizador SAS para um recipiente ou blob com a biblioteca de clientes Azure Storage para a versão 12 da NET.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## <a name="assign-rbac-roles-for-access-to-data"></a>Atribuir funções RBAC para acesso aos dados
+## <a name="assign-rbac-roles-for-access-to-data"></a>Atribuir funções do RBAC para acesso aos dados
 
-Quando um diretor de segurança da AD Azure tenta aceder a dados blob, esse diretor de segurança deve ter permissões para o recurso. Quer o diretor de segurança seja uma identidade gerida no Azure ou um código de execução de conta de utilizador Azure AD no ambiente de desenvolvimento, o diretor de segurança deve ser atribuído a uma função RBAC que conceda acesso a dados blob no Armazenamento Azure. Para obter informações sobre a atribuição de permissões via RBAC, consulte a secção intitulada **Assign RBAC para direitos** de acesso em [Autorizao acesso a blobs e filas Azure utilizando o Diretório Ativo Azure](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
+Quando um diretor de segurança da AZure AD tenta aceder aos dados blob, esse diretor de segurança deve ter permissões para o recurso. Se o principal de segurança é uma identidade gerida em Azure ou uma conta de utilizador Azure AD que executa código no ambiente de desenvolvimento, o principal de segurança deve ser atribuído a uma função RBAC que concede acesso a dados blob no Azure Storage. Para obter informações sobre a atribuição de permissões através do RBAC, consulte a secção intitulada **Atribuir funções RBAC para direitos de acesso** em acesso autorizado a [blobs e filas Azure usando O Diretório Ativo Azure](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
-Para saber mais sobre como autenticar com a biblioteca de clientes Azure Identity a partir do Armazenamento Azure, consulte a secção intitulada **Authenticate com a biblioteca Identidade Azure** em [Autorizar o acesso a blobs e filas com o Azure Ative Directory e identidades geridas para a Azure Resources.](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library)
+Para saber mais sobre como autenticar com a biblioteca de clientes Azure Identity a partir do Azure Storage, consulte a secção intitulada **Autenticação com a biblioteca de Identidade Azure** em [Autorização de acesso a blobs e filas com O Diretório Ativo Azure e identidades geridas para Recursos Azure.](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library)
 
 ## <a name="add-using-directives"></a>Adicionar com diretivas
 
@@ -50,9 +50,9 @@ using Azure.Storage.Blobs.Models;
 
 ## <a name="get-an-authenticated-token-credential"></a>Obtenha uma credencial simbólica autenticada
 
-Para obter uma credencial simbólica que o seu código pode usar para autorizar pedidos de Armazenamento Azure, crie uma instância da classe [DefaultAzureCredential.](/dotnet/api/azure.identity.defaultazurecredential)
+Para obter uma credencial simbólica que o seu código pode usar para autorizar pedidos para o Azure Storage, crie uma instância da classe [DefaultAzureCredential.](/dotnet/api/azure.identity.defaultazurecredential)
 
-O seguinte código de corte mostra como obter a credencial simbólica autenticada e usá-lo para criar um cliente de serviço para armazenamento Blob:
+O seguinte corte de código mostra como obter a credencial de token autenticado e usá-lo para criar um cliente de serviço para armazenamento Blob:
 
 ```csharp
 // Construct the blob endpoint from the account name.
@@ -63,18 +63,18 @@ BlobServiceClient blobClient = new BlobServiceClient(new Uri(blobEndpoint),
                                                      new DefaultAzureCredential());
 ```
 
-## <a name="get-the-user-delegation-key"></a>Obtenha a chave da delegação do utilizador
+## <a name="get-the-user-delegation-key"></a>Obtenha a chave da delegação de utilizadores
 
-Todos os SAS são assinados com uma chave. Para criar uma delegação de utilizadores SAS, primeiro deve solicitar uma chave de delegação de utilizadores, que é depois utilizada para assinar o SAS. A chave da delegação do utilizador é análoga à chave da conta utilizada para assinar um serviço SAS ou uma conta SAS, exceto que se baseia nas suas credenciais De AD Azure. Quando um cliente solicita uma chave de delegação de utilizadores utilizando um token OAuth 2.0, o Azure Storage devolve a chave da delegação do utilizador em nome do utilizador.
+Todos os SAS são assinados com uma chave. Para criar uma delegação de utilizador SAS, deve primeiro solicitar uma chave de delegação de utilizador, que é depois utilizada para assinar o SAS. A chave da delegação do utilizador é análoga à chave de conta utilizada para assinar um serviço SAS ou uma conta SAS, exceto que se baseia nas suas credenciais AZure AD. Quando um cliente solicita uma chave de delegação de utilizador utilizando um token OAuth 2.0, o Azure Storage devolve a chave da delegação do utilizador em nome do utilizador.
 
-Assim que tiver a chave da delegação do utilizador, pode utilizar essa chave para criar qualquer número de assinaturas de acesso partilhados da delegação de utilizadores, ao longo da vida útil da chave. A chave da delegação do utilizador é independente do token OAuth 2.0 usado para adquiri-lo, pelo que o símbolo não precisa de ser renovado enquanto a chave ainda for válida. Pode especificar que a chave é válida por um período de até 7 dias.
+Uma vez que tenha a chave da delegação do utilizador, pode usar essa chave para criar qualquer número de assinaturas de acesso partilhadas da delegação do utilizador, ao longo do tempo de vida da chave. A chave da delegação do utilizador é independente do símbolo OAuth 2.0 utilizado para adquiri-lo, pelo que o símbolo não precisa de ser renovado enquanto a chave ainda for válida. Pode especificar que a chave é válida por um período de até 7 dias.
 
 Utilize um dos seguintes métodos para solicitar a chave da delegação do utilizador:
 
-- [Chave de Delegação getuser](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getuserdelegationkey)
+- [GetUserDelegationKey](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getuserdelegationkey)
 - [GetUserDelegationKeyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getuserdelegationkeyasync)
 
-O seguinte código de snippet obtém a chave da delegação do utilizador e escreve as suas propriedades:
+O seguinte corte de código obtém a chave da delegação do utilizador e escreve as suas propriedades:
 
 ```csharp
 // Get a user delegation key for the Blob service that's valid for seven days.
@@ -92,9 +92,9 @@ Console.WriteLine("Key signed service: {0}", key.SignedService);
 Console.WriteLine("Key signed version: {0}", key.SignedVersion);
 ```
 
-## <a name="create-the-sas-token"></a>Criar o símbolo SAS
+## <a name="create-the-sas-token"></a>Criar o token SAS
 
-Os seguintes programas de código criam um novo [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) e fornecem os parâmetros para a delegação de utilizadores SAS. O corte chama então os [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) para obter a corda token SAS. Finalmente, o código constrói o URI completo, incluindo o endereço de recursos e token SAS.
+Os seguintes programas de corte de código criam um novo [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) e fornecem os parâmetros para a delegação do utilizador SAS. O snippet chama então os [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) para obter a corda simbólica SAS. Finalmente, o código constrói o URI completo, incluindo o endereço de recurso e o token SAS.
 
 ```csharp
 // Create a SAS token that's valid for one hour.
@@ -125,7 +125,7 @@ UriBuilder fullUri = new UriBuilder()
 
 ## <a name="example-get-a-user-delegation-sas"></a>Exemplo: Obtenha uma delegação de utilizadores SAS
 
-O seguinte método de exemplo mostra o código completo para autenticar o diretor de segurança e criar a delegação de utilizadores SAS:
+O seguinte método de exemplo mostra o código completo para autenticar o principal de segurança e criar a delegação de utilizador SAS:
 
 ```csharp
 async static Task<Uri> GetUserDelegationSasBlob(string accountName, string containerName, string blobName)
@@ -185,7 +185,7 @@ async static Task<Uri> GetUserDelegationSasBlob(string accountName, string conta
 
 ## <a name="example-read-a-blob-with-a-user-delegation-sas"></a>Exemplo: Leia uma bolha com uma delegação de utilizadores SAS
 
-O exemplo seguinte testa a delegação de utilizadores SAS criada no exemplo anterior a partir de uma aplicação simulada do cliente. Se o SAS for válido, a aplicação do cliente é capaz de ler o conteúdo da bolha. Se o SAS for inválido, por exemplo, se tiver expirado, o Azure Storage devolve o código de erro 403 (Proibido).
+O exemplo a seguir testa a delegação de utilizador SAS criada no exemplo anterior a partir de uma aplicação de cliente simulada. Se o SAS for válido, a aplicação do cliente é capaz de ler o conteúdo da bolha. Se o SAS for inválido, por exemplo, se tiver expirado, o Azure Storage devolve o código de erro 403 (Proibido).
 
 ```csharp
 private static async Task ReadBlobWithSasAsync(Uri sasUri)
@@ -235,8 +235,8 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
-- [Conceder acesso limitado aos recursos de Armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md)
-- [Obtenha a operação chave da delegação do utilizador](/rest/api/storageservices/get-user-delegation-key)
+- [Conceder acesso limitado aos recursos de armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md)
+- [Obtenha a operação chave da delegação de utilizadores](/rest/api/storageservices/get-user-delegation-key)
 - [Criar uma delegação de utilizadores SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)

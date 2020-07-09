@@ -16,6 +16,11 @@
     - name: Evento em direto com o portal e OBS
       displayName: 'live, event, portal, obs'
       href: live-events-obs-quickstart.md
+    - name: 'Utilizar o portal para carregar, codificar e transmitir conteúdo em fluxo'
+      href: manage-assets-quickstart.md
+    - name: Utilizar o portal para encriptar conteúdo
+      displayName: 'protect, drm, aes'
+      href: encrypt-content-quickstart.md
 - name: Tutoriais
   items:
     - name: Codificar um ficheiro remoto e transmitir o vídeo
@@ -71,7 +76,7 @@
           displayName: 'name, naming, file name, upload, output, download'
     - name: Processar ficheiros
       items:
-        - name: Transformações e Tarefas
+        - name: Transformações e tarefas
           href: transforms-jobs-concept.md
           displayName: 'preset, schema'
     - name: Codificar conteúdo
@@ -91,13 +96,13 @@
         - name: Descrição geral
           href: analyzing-video-audio-files-concept.md
           displayName: 'analyze, analyzing, presets, jobs'
-        - name: Transformações e Tarefas
+        - name: Transformações e tarefas
           href: transforms-jobs-concept.md
     - name: Transmissão em direto
       items:
         - name: Descrição geral
           href: live-streaming-overview.md
-        - name: Eventos em Direto e Saídas em Direto
+        - name: Eventos em direto e saídas em direto
           href: live-events-outputs-concept.md
           displayName: 'vanity, ingest'
         - name: Codificadores em direto testados no local
@@ -124,15 +129,15 @@
         - name: Filtros
           displayName: "manifest, dynamic manifest, filter, hls, dash, m3u8, mpd,\tcontent delivery"
           href: filters-concept.md
-        - name: Pontos Finais de Transmissão em fluxo
+        - name: Pontos finais de transmissões em fluxo
           displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
         - name: Dimensionar Transmissão em Fluxo com CDN
           href: scale-streaming-cdn.md
-        - name: Localizadores de Transmissão em Fluxo
+        - name: Localizadores de transmissão em fluxo
           displayName: URLs
           href: streaming-locators-concept.md
-        - name: Políticas de Transmissão em Fluxo
+        - name: Políticas de transmissão em fluxo
           href: streaming-policy-concept.md
     - name: Proteção de conteúdo
       items:
@@ -150,9 +155,9 @@
               href: widevine-license-template-overview.md
             - name: Requisitos de licença do FairPlay
               href: fairplay-license-overview.md
-        - name: Políticas de Transmissão em Fluxo
+        - name: Políticas de transmissão em fluxo
           href: streaming-policy-concept.md
-        - name: Políticas de Chave de Conteúdo
+        - name: Políticas de chave de conteúdo
           href: content-key-policy-concept.md
     - name: Monitorização
       items:
@@ -179,9 +184,9 @@
           href: rbac-overview.md
         - name: Códigos de erro
           items:
-            - name: Códigos de erro do Ponto Final de Transmissão em Fluxo
+            - name: Códigos de erro do ponto final de transmissão em fluxo
               href: streaming-endpoint-error-codes.md
-            - name: Códigos de erro do Evento em Direto
+            - name: Códigos de erro do evento em direto
               href: live-event-error-codes.md
             - name: Códigos de erro das tarefas
               href: job-error-codes.md
@@ -193,6 +198,19 @@
         - name: Transmissão em Fluxo
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-streaming.md
+    - name: Resolução de problemas
+      items:
+        - name: Perguntas mais frequentes
+          displayName: faqs
+          href: frequently-asked-questions.md
+        - name: Códigos de erro
+          items:
+            - name: Códigos de erro do ponto final de transmissão em fluxo
+              href: streaming-endpoint-error-codes.md
+            - name: Códigos de erro do evento em direto
+              href: live-event-error-codes.md
+            - name: Códigos de erro das tarefas
+              href: job-error-codes.md
     - name: Migrar da versão v2 para a v3
       items:
         - name: v2 vs v3
@@ -213,9 +231,9 @@
         - name: API de acesso
           displayName: 'portal, cli'
           href: access-api-howto.md
-        - name: Dimensionar Unidades Reservadas de Multimédia
+        - name: Dimensionar unidades reservadas de multimédia
           href: media-reserved-units-cli-how-to.md
-        - name: Criar um Elemento
+        - name: Criar um recurso
           href: cli-create-asset.md
     - name: Guias para programadores
       items:
@@ -258,13 +276,13 @@
           href: job-multiple-transform-outputs.md
     - name: Codificar conteúdo
       items:
-        - name: HTTPS como Entrada da tarefa
+        - name: HTTPS como entrada da tarefa
           displayName: 'encode, encoding'
           href: job-input-from-http-how-to.md
-        - name: Ficheiro local como Entrada da tarefa
+        - name: Ficheiro local como entrada da tarefa
           displayName: 'encode, encoding'
           href: job-input-from-local-file-how-to.md
-        - name: Codificar com uma Transformação personalizada
+        - name: Codificar com uma transformação personalizada
           items:
             - name: Com o .NET
               displayName: 'encode, encoding, custom, transform'
@@ -291,7 +309,7 @@
           href: live-events-wirecast-quickstart.md
         - name: Verificar o codificador no local
           href: become-on-premises-encoder-partner.md
-        - name: Códigos de erro do Evento em Direto
+        - name: Códigos de erro do evento em direto
           href: live-event-error-codes.md
     - name: Utilizar o Event Grid
       items:
@@ -338,19 +356,6 @@
           href: download-results-howto.md
         - name: Sinal de áudio descritivo
           href: signal-descriptive-audio-howto.md
-    - name: Resolução de problemas
-      items:
-        - name: Perguntas mais frequentes
-          displayName: faqs
-          href: frequently-asked-questions.md
-        - name: Códigos de erro
-          items:
-            - name: Códigos de erro do Ponto Final de Transmissão em Fluxo
-              href: streaming-endpoint-error-codes.md
-            - name: Códigos de erro do Evento em Direto
-              href: live-event-error-codes.md
-            - name: Códigos de erro das tarefas
-              href: job-error-codes.md
 - name: Referência
   items:
     - name: Especificação de OpenAPI (Swagger)
@@ -369,17 +374,23 @@
         - name: Python
           href: 'https://aka.ms/ams-v3-python-ref'
         - name: Node.js
-          href: 'https://aka.ms/ams-v3-nodejs-ref'
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/mediaservices/management'
         - name: Ir
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.media/allversions
+    - name: Esquemas do Codificador Standard
+      items:
+        - name: Metadados de entrada
+          href: input-metadata-schema.md
+        - name: Metadados de saída
+          href: output-metadata-schema.md
 - name: Recursos
   items:
     - name: Comunidade dos Serviços de Multimédia do Azure
       displayName: 'forums, twitter, feedback'
       href: media-services-community.md
-    - name: Mapa do Azure
+    - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/media-services/'

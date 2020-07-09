@@ -1,6 +1,6 @@
 ---
-title: Compreender os empregos do Azure IoT Hub [ Microsoft Docs
-description: Guia de desenvolvedores - agendamento de trabalhos para executar em vários dispositivos ligados ao seu hub IoT. Os trabalhos podem atualizar etiquetas e propriedades desejadas e invocar métodos diretos em vários dispositivos.
+title: Compreenda os empregos do Azure IoT Hub Microsoft Docs
+description: Developer guide - agendar trabalhos para executar em vários dispositivos ligados ao seu hub IoT. Os trabalhos podem atualizar tags e propriedades desejadas e invocar métodos diretos em vários dispositivos.
 author: robinsh
 manager: philmea
 ms.author: robinsh
@@ -10,34 +10,33 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: mqtt
 ms.openlocfilehash: 5c14e8cfcbf8df86b0f71d6b12025594d2e648c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81730114"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Programar tarefas em vários dispositivos
 
-O Azure IoT Hub permite uma série de blocos de construção como [propriedades gémeas e etiquetas de dispositivos e métodos diretos.](iot-hub-devguide-device-twins.md) [direct methods](iot-hub-devguide-direct-methods.md) Normalmente, as aplicações de back-end permitem aos administradores e operadores de dispositivos atualizar e interagir com dispositivos IoT a granel e a uma hora programada. Os trabalhos executam atualizações duplas do dispositivo e métodos diretos contra um conjunto de dispositivos numa hora programada. Por exemplo, um operador usaria uma aplicação de back-end que inicia e rastreia um trabalho para reiniciar um conjunto de dispositivos no edifício 43 e no piso 3 de cada vez que não seria perturbador para as operações do edifício.
+O Azure IoT Hub permite uma série de blocos de construção como [propriedades gémeas do dispositivo e etiquetas e métodos diretos.](iot-hub-devguide-device-twins.md) [direct methods](iot-hub-devguide-direct-methods.md) Normalmente, as aplicações back-end permitem aos administradores e operadores de dispositivos atualizar e interagir com dispositivos IoT a granel e a uma hora programada. Os trabalhos executam duas atualizações e métodos diretos contra um conjunto de dispositivos numa hora programada. Por exemplo, um operador usaria uma aplicação back-end que inicia e rastreia um trabalho para reiniciar um conjunto de dispositivos no edifício 43 e no piso 3 de cada vez que não seria perturbador para as operações do edifício.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Considere utilizar empregos quando necessitar de agendar e acompanhar o progresso de qualquer uma das seguintes atividades num conjunto de dispositivos:
+Considere usar empregos quando precisar de agendar e acompanhar o progresso de qualquer uma das seguintes atividades num conjunto de dispositivos:
 
 * Atualizar as propriedades pretendidas
 * Etiquetas de atualização
 * Invocar métodos diretos
 
-## <a name="job-lifecycle"></a>Ciclo de vida profissional
+## <a name="job-lifecycle"></a>Ciclo de vida do trabalho
 
-Os postos de trabalho são iniciados pela solução na parte de trás e mantidos pelo IoT Hub. Você pode iniciar um trabalho através`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30`de um URI virado para o serviço e consulta`GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30`para o progresso em um trabalho de execução através de um URI virado para o serviço ( ). Para refrescar o estatuto de trabalho de funcionamento uma vez iniciado um emprego, executar uma consulta de trabalho.
+Os postos de trabalho são iniciados pela solução back-end e mantidos pela IoT Hub. Pode iniciar um trabalho através de um URI virado para o serviço e consultar o `PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30` progresso de um trabalho de execução através de um URI virado para o serviço ( `GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30` ). Para refrescar o estado de gestão de empregos uma vez iniciado um trabalho, executar uma consulta de trabalho.
 
 > [!NOTE]
 > Quando inicia um trabalho, os nomes e valores de propriedade só podem conter alfanumérico imprimível US-ASCII, exceto qualquer um no seguinte conjunto:`$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
 
 ## <a name="jobs-to-execute-direct-methods"></a>Empregos para executar métodos diretos
 
-O seguinte corte mostra os detalhes do pedido HTTPS 1.1 para executar um [método direto](iot-hub-devguide-direct-methods.md) num conjunto de dispositivos utilizando um trabalho:
+O seguinte corte mostra os dados do pedido HTTPS 1.1 para a execução de um [método direto](iot-hub-devguide-direct-methods.md) num conjunto de dispositivos utilizando um trabalho:
 
 ```
 PUT /jobs/v2/<jobId>?api-version=2018-06-30
@@ -59,7 +58,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-A condição de consulta também pode estar num único dispositivo ou numa lista de IDs do dispositivo, como mostram os seguintes exemplos:
+A condição de consulta também pode estar em um único ID do dispositivo ou em uma lista de IDs do dispositivo, como mostrado nos seguintes exemplos:
 
 ```
 "queryCondition" = "deviceId = 'MyDevice1'"
@@ -67,7 +66,7 @@ A condição de consulta também pode estar num único dispositivo ou numa lista
 "queryCondition" = "deviceId IN ['MyDevice1']"
 ```
 
-[IoT Hub Consulta Language](iot-hub-devguide-query-language.md) cobre a linguagem de consulta IoT Hub em detalhes adicionais.
+[IoT Hub Query Language](iot-hub-devguide-query-language.md) cobre ioT Hub linguagem de consulta em detalhes adicionais.
 
 O seguinte corte mostra o pedido e a resposta para um trabalho programado para chamar um método direto chamado testMethod em todos os dispositivos em contoso-hub-1:
 
@@ -103,7 +102,7 @@ Date: Fri, 03 May 2019 01:46:18 GMT
 
 ## <a name="jobs-to-update-device-twin-properties"></a>Empregos para atualizar propriedades gémeas do dispositivo
 
-O seguinte snippet mostra o pedido HTTPS 1.1 para atualizar propriedades gémeas do dispositivo usando um trabalho:
+O seguinte corte mostra os detalhes do pedido HTTPS 1.1 para atualizar propriedades gémeas do dispositivo usando um trabalho:
 
 ```
 PUT /jobs/v2/<jobId>?api-version=2018-06-30
@@ -122,9 +121,9 @@ Content-Type: application/json; charset=utf-8
 ```
 
 > [!NOTE]
-> A *propriedade updateTwin* requer uma correspondência de etag válida; por exemplo, `etag="*"`.
+> A *propriedade updateTwin* requer uma correspondência etag válida; por exemplo, `etag="*"` . .
 
-O seguinte corte mostra o pedido e a resposta para um trabalho programado para atualizar propriedades gémeas do dispositivo para dispositivo de teste no contoso-hub-1:
+O seguinte corte mostra o pedido e a resposta de um trabalho programado para atualizar as propriedades gémeas do dispositivo para dispositivo de teste em contoso-hub-1:
 
 ```
 PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job02?api-version=2018-06-30 HTTP/1.1
@@ -159,9 +158,9 @@ Date: Fri, 03 May 2019 22:45:13 GMT
 {"jobId":"job02","type":"scheduleUpdateTwin","status":"queued"}
 ```
 
-## <a name="querying-for-progress-on-jobs"></a>Consulta de progresso saquede empregos
+## <a name="querying-for-progress-on-jobs"></a>Consulta do progresso dos postos de trabalho
 
-O seguinte corte mostra o pedido HTTPS 1.1 para consultas de emprego:
+O seguinte corte mostra os dados do pedido HTTPS 1.1 para consulta de emprego:
 
 ```
 GET /jobs/v2/query?api-version=2018-06-30[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
@@ -170,34 +169,34 @@ Authorization: <config.sharedAccessSignature>
 Content-Type: application/json; charset=utf-8
 ```
 
-A continuação Token é fornecida a partir da resposta.
+A continuaçãoToken é fornecida a partir da resposta.
 
-Pode consultar o estado de execução do emprego em cada dispositivo utilizando a linguagem de [consulta IoT Hub para gémeos de dispositivos, empregos e encaminhamento de mensagens.](iot-hub-devguide-query-language.md)
+Pode consultar o estado de execução do trabalho em cada dispositivo utilizando a [linguagem de consulta IoT Hub para gémeos, empregos e encaminhamento de mensagens](iot-hub-devguide-query-language.md).
 
 ## <a name="jobs-properties"></a>Propriedades de Emprego
 
-A lista que se segue mostra as propriedades e as descrições correspondentes, que podem ser utilizadas quando se consulta maquea para empregos ou resultados de emprego.
+A lista a seguir mostra as propriedades e descrições correspondentes, que podem ser usadas na consulta de empregos ou resultados de emprego.
 
 | Propriedade | Descrição |
 | --- | --- |
-| **jobId** |A aplicação forneceu identificação para o trabalho. |
-| **startTime** |A aplicação proporcionou o tempo de início (ISO-8601) para o trabalho. |
-| **endTime** |O IoT Hub forneceu a data (ISO-8601) para quando o trabalho foi concluído. Válido apenas depois de o trabalho chegar ao estado 'concluído'. |
+| **jobId** |A candidatura forneceu identificação para o trabalho. |
+| **startTime** |A aplicação forneceu a hora de início (ISO-8601) para o trabalho. |
+| **endTime** |IoT Hub forneceu a data (ISO-8601) para quando o trabalho terminou. Válido apenas após o trabalho chegar ao estado "concluído". |
 | **tipo** |Tipos de empregos: |
-| | **horárioSUpdateTwin**: Um trabalho usado para atualizar um conjunto de propriedades ou etiquetas desejadas. |
-| | **horárioSDeviceMethod**: Um trabalho utilizado para invocar um método de dispositivo num conjunto de gémeos dispositivos. |
+| | **scheduleUpdateTwin**: Um trabalho usado para atualizar um conjunto de propriedades ou tags desejadas. |
+| | **agendaDeviceMethod**: Um trabalho usado para invocar um método do dispositivo num conjunto de gémeos do dispositivo. |
 | **estado** |Estado atual do trabalho. Valores possíveis para o estado: |
 | | **pendente**: Agendado e à espera de ser recolhido pelo serviço de trabalho. |
-| | **programado**: Agendado para um tempo no futuro. |
-| | **funcionamento**: Atualmente trabalho ativo. |
+| | **agendado**: Agendado para uma hora no futuro. |
+| | **funcionamento**: Atualmente ativo. |
 | | **cancelado**: O trabalho foi cancelado. |
-| | **falhado**: Trabalho falhou. |
-| | **concluído**: O trabalho está concluído. |
+| | **falhou:** O trabalho falhou. |
+| | **concluído**: Trabalho concluído. |
 | **dispositivoJobStatistics** |Estatísticas sobre a execução do trabalho. |
-| | **dispositivoPropriedades JobStatistics:** |
-| | **dispositivoJobStatistics.deviceCount**: Número de dispositivos em função. |
-| | **dispositivoJobStatistics.failedCount**: Número de dispositivos onde o trabalho falhou. |
-| | **dispositivoJobStatistics.succeededCount**: Número de dispositivos onde o trabalho foi bem sucedido. |
+| | **propriedades do dispositivoJobStatistics:** |
+| | **dispositivoJobStatistics.deviceCount**: Número de dispositivos no trabalho. |
+| | **dispositivoJobStatistics.failedCount**: Número de dispositivos em que o trabalho falhou. |
+| | **deviceJobStatistics.succeeddCount**: Número de dispositivos onde o trabalho foi bem sucedido. |
 | | **dispositivoJobStatistics.runningCount**: Número de dispositivos que estão atualmente a executar o trabalho. |
 | | **dispositivoJobStatistics.pendenteCount**: Número de dispositivos pendentes para executar o trabalho. |
 
@@ -205,17 +204,17 @@ A lista que se segue mostra as propriedades e as descrições correspondentes, q
 
 Outros tópicos de referência no guia de desenvolvimento do IoT Hub incluem:
 
-* [Os pontos finais do IoT Hub](iot-hub-devguide-endpoints.md) descrevem os vários pontos finais que cada hub IoT expõe para operações de execução e gestão.
+* [Os pontos finais do IoT Hub](iot-hub-devguide-endpoints.md) descrevem os vários pontos finais que cada hub IoT expõe para operações de tempo de execução e gestão.
 
-* [O estrangulamento e](iot-hub-devguide-quotas-throttling.md) as quotas descrevem as quotas aplicáveis ao serviço IoT Hub e o comportamento de estrangulamento que se espera quando se utiliza o serviço.
+* [O estrangulamento e as quotas](iot-hub-devguide-quotas-throttling.md) descrevem as quotas que se aplicam ao serviço IoT Hub e o comportamento de estrangulamento que se espera quando utiliza o serviço.
 
-* O [dispositivo e o serviço Azure IoT](iot-hub-devguide-sdks.md) listam os vários SDKs linguísticos que pode utilizar quando desenvolve aplicações de dispositivos e serviços que interagem com o IoT Hub.
+* [O dispositivo e serviço Azure IoT lista](iot-hub-devguide-sdks.md) os vários SDKs de linguagem que pode utilizar quando desenvolve aplicações de dispositivos e serviços que interagem com o IoT Hub.
 
-* [IoT Hub consulta linguagem para gémeos dispositivos, empregos e encaminhamento de mensagens](iot-hub-devguide-query-language.md) descreve a linguagem de consulta IoT Hub. Use esta linguagem de consulta para obter informações do IoT Hub sobre os seus gémeos e empregos.
+* [IoT Hub linguagem de consulta para gémeos de dispositivos, empregos e encaminhamento de mensagens](iot-hub-devguide-query-language.md) descreve a linguagem de consulta IoT Hub. Use esta linguagem de consulta para obter informações do IoT Hub sobre os gémeos e empregos do seu dispositivo.
 
-* [O suporte IoT Hub MQTT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
+* [O suporte do IoT Hub MQTT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para experimentar alguns dos conceitos descritos neste artigo, consulte o seguinte tutorial IoT Hub:
 

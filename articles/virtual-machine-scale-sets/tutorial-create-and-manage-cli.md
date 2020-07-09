@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Crie e gerencie um conjunto de escala de máquina virtual Azure
+title: Tutorial - Criar e gerir um conjunto de escala de máquina virtual Azure
 description: Saiba como utilizar a CLI do Azure para criar um conjunto de dimensionamento de máquinas virtuais, juntamente com algumas tarefas de gestão comuns, como iniciar e parar uma instância ou alterar a capacidade do conjunto de dimensionamento.
 author: ju-shim
 ms.author: jushiman
@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 252b3b3ecf2de24410d046473ee2cfd2215254a9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ff4a2b9cb66013900b5b9969a4281d1a20d9c122
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198230"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736446"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Criar e gerir um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Ao longo do ciclo de vida dos conjuntos de dimensionamento de máquinas virtuais, poderá ter de executar uma ou mais tarefas de gestão. Neste tutorial, ficará a saber como:
@@ -26,7 +26,7 @@ Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir
 > * Dimensionar manualmente um conjunto de dimensionamento
 > * Executar tarefas de gestão comuns de conjuntos de dimensionamento
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -34,7 +34,7 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execu�
 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um grupo de recursos tem de ser criado antes de um conjunto de dimensionamento de máquinas virtuais. Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Neste exemplo, um grupo de recursos chamado *myResourceGroup* é criado na região *oriental.* 
+Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um grupo de recursos tem de ser criado antes de um conjunto de dimensionamento de máquinas virtuais. Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Neste exemplo, um grupo de recursos chamado *myResourceGroup* é criado na região *leste.* 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -167,6 +167,9 @@ CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20170925   7.3.20170925
 
 Para implementar um conjunto de dimensionamento que utilize uma imagem específica, utilize o valor na coluna *Urn*. Ao especificar a imagem, o número de versão da imagem pode ser substituído por *latest*, que seleciona a versão mais recente da distribuição. No seguinte exemplo, o argumento `--image` é utilizado para especificar a versão mais recente de uma imagem do CentOS 7.3.
 
+> [!IMPORTANT]
+> Recomendamos a utilização da versão de imagem *mais recente.* Especifique as 'últimas' para utilizar a versão mais recente de uma imagem disponível no momento de implementação. Note que mesmo que utilize 'mais recente', a imagem VM não atualizará automaticamente após o tempo de implantação, mesmo que uma nova versão esteja disponível.
+
 Uma vez que a criação e configuração de todas as instâncias de VMs e recursos do conjunto de dimensionamento demora alguns minutos, não precisa de implementar o seguinte conjunto de dimensionamento:
 
 ```azurecli-interactive
@@ -185,7 +188,7 @@ Um tamanho de instância de VM, ou *SKU*, determina a quantidade de recursos de 
 ### <a name="vm-instance-sizes"></a>Tamanhos de instância de VM
 A tabela seguinte categoriza tamanhos de VM comuns em casos de utilização.
 
-| Tipo                     | Tamanhos comuns           |    Descrição       |
+| Tipo                     | Tamanhos comuns           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Fins gerais](../virtual-machines/linux/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU-para-memória equilibrada. Ideal para desenvolvimento/teste e aplicações e soluções de dados pequenas a médias.  |
 | [Com otimização de computação](../virtual-machines/linux/sizes-compute.md)   | Fs, F             | CPU-para-memória elevada. É adequado para aplicações de tráfego médio, dispositivos de rede e processos em lote.        |

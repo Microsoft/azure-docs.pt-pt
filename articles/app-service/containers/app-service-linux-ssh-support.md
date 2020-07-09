@@ -1,6 +1,6 @@
 ---
 title: Acesso SSH para contentores Linux
-description: Pode abrir uma sessão sSH a um contentor Linux no Azure App Service. Os recipientes Linux personalizados são suportados com algumas modificações na sua imagem personalizada.
+description: Pode abrir uma sessão de SSH num contentor Linux no Azure App Service. Os recipientes Linux personalizados são suportados com algumas modificações à sua imagem personalizada.
 keywords: serviço de aplicativos azure, web app, linux, oss
 author: msangapu-msft
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
@@ -9,48 +9,47 @@ ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: dab13f222b441c7415a8d09d0d91ab3af5aaf836
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280186"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84695832"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Suporte SSH para o Serviço de Aplicações do Azure no Linux
 
-[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) é comumente usado para executar comandos administrativos remotamente a partir de um terminal de linha de comando. O Serviço de Aplicações no Linux fornece suporte SSH para o recipiente de aplicações. 
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) é comumente utilizado para executar comandos administrativos remotamente a partir de um terminal de linha de comando. O Serviço de Aplicações no Linux fornece suporte SSH no recipiente da aplicação. 
 
-![Serviço de aplicativos Linux SSH](./media/app-service-linux-ssh-support/app-service-linux-ssh.png)
+![Serviço de aplicações Linux SSH](./media/app-service-linux-ssh-support/app-service-linux-ssh.png)
 
-Também pode ligar-se ao recipiente diretamente da sua máquina de desenvolvimento local utilizando SSH e SFTP.
+Também pode ligar-se ao recipiente diretamente a partir da sua máquina de desenvolvimento local utilizando SSH e SFTP.
 
-## <a name="open-ssh-session-in-browser"></a>Abra a sessão sSH no navegador
+## <a name="open-ssh-session-in-browser"></a>SSH aberto no navegador
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-no-h.md)]
 
 ## <a name="use-ssh-support-with-custom-docker-images"></a>Use suporte SSH com imagens personalizadas do Docker
 
-Consulte [o Configure SSH num recipiente personalizado](configure-custom-container.md#enable-ssh).
+Consulte [o SSH configurado num recipiente personalizado](configure-custom-container.md#enable-ssh).
 
-## <a name="open-ssh-session-from-remote-shell"></a>Abra a sessão SSH a partir de uma concha remota
+## <a name="open-ssh-session-from-remote-shell"></a>Sessão SSH aberta a partir de concha remota
 
 > [!NOTE]
-> Esta funcionalidade encontra-se atualmente em Pré-visualização.
+> Esta funcionalidade encontra-se atualmente em Pré-Visualização.
 >
 
-Utilizando o túnel TCP, pode criar uma ligação de rede entre a sua máquina de desenvolvimento e a Web App para contentores através de uma ligação WebSocket autenticada. Permite-lhe abrir uma sessão de SSH com o seu contentor a funcionar no Serviço de Aplicações a partir do cliente à sua escolha.
+Utilizando o túnel TCP, pode criar uma ligação de rede entre a sua máquina de desenvolvimento e a Web App para contentores através de uma ligação WebSocket autenticada. Permite-lhe abrir uma sessão SSH com o seu contentor a funcionar no Serviço de Aplicações a partir do cliente à sua escolha.
 
-Para começar, é necessário instalar [o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Para ver como funciona sem instalar o Azure CLI, abra a [Azure Cloud Shell.](../../cloud-shell/overview.md) 
+Para começar, é necessário instalar o [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Para ver como funciona sem instalar o Azure CLI, abra [a Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-Abra uma ligação remota à sua aplicação utilizando o comando de [criação de ligação remota az webapp.](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) Especifique \_ \< _ \<_ _ \<>_ de identificação de subscrição,>de nome de grupo e>_ de nome de aplicação para a sua aplicação.
+Abra uma ligação remota à sua aplicação utilizando o comando [de criação de ligação remota az webapp.](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) Especifique _\<subscription-id>_ , e _ para a sua _\<group-name>_ \_ \<app-name> aplicação.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
 ```
 
 > [!TIP]
-> `&`no final do comando é apenas por conveniência se estiver a usar cloud Shell. Executa o processo em segundo plano para que possa executar o próximo comando na mesma concha.
+> `&`no final do comando é apenas por conveniência se estiver a usar a Cloud Shell. Executa o processo em segundo plano para que possa executar o próximo comando na mesma concha.
 
-A saída de comando dá-lhe a informação necessária para abrir uma sessão de SSH.
+A saída do comando dá-lhe a informação necessária para abrir uma sessão de SSH.
 
 ```output
 Port 21382 is open
@@ -58,20 +57,20 @@ SSH is available { username: root, password: Docker! }
 Start your favorite client and connect to port 21382
 ```
 
-Abra uma sessão de SSH com o seu recipiente com o cliente à sua escolha, utilizando o porto local. O exemplo seguinte utiliza o comando [ssh](https://ss64.com/bash/ssh.html) predefinido:
+Abra uma sessão de SSH com o seu recipiente com o cliente à sua escolha, utilizando a porta local. O exemplo a seguir utiliza o comando [ssh predefinido:](https://ss64.com/bash/ssh.html)
 
 ```bash
 ssh root@127.0.0.1 -p <port>
 ```
 
-Quando for solicitado, `yes` escreva para continuar a ligar. Em seguida, é-lhe solicitada a senha. Use `Docker!`, que foi mostrado mais cedo.
+Quando for solicitado, `yes` escreva para continuar a ligar. Em seguida, é solicitado para a senha. Use, `Docker!` que lhe foi mostrado anteriormente.
 
 ```output
 Warning: Permanently added '[127.0.0.1]:21382' (ECDSA) to the list of known hosts.
 root@127.0.0.1's password:
 ```
 
-Uma vez autenticado, deve ver o ecrã de boas-vindas da sessão.
+Uma vez autenticado, deverá ver o ecrã de boas-vindas da sessão.
 
 ```output
   _____
@@ -87,7 +86,7 @@ A P P   S E R V I C E   O N   L I N U X
 
 Está agora ligado ao seu conector.  
 
-Tente mover o comando [superior.](https://ss64.com/bash/top.html) Deverá poder ver o processo da sua aplicação na lista de processos. Na saída de exemplo abaixo, é `PID 263`a que tem .
+Tente comandar o comando [superior.](https://ss64.com/bash/top.html) Deverá poder ver o processo da sua aplicação na lista de processos. No exemplo de saída abaixo, é o que `PID 263` tem.
 
 ```output
 Mem: 1578756K used, 127032K free, 8744K shrd, 201592K buff, 341348K cached
@@ -111,13 +110,13 @@ Load average: 0.07 0.04 0.08 4/765 45738
 45738     1 root     Z        0   0%   0   0% [init]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode publicar perguntas e preocupações no [fórum Azure.](https://docs.microsoft.com/answers/topics/azure-webapps.html)
 
-Para mais informações sobre a Web App para contentores, consulte:
+Para obter mais informações sobre a Web App para contentores, consulte:
 
-* [Introdução de depuração remota de aplicações nonóio no Serviço de Aplicações Azure a partir do Código VS](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0)
+* [Introduzindo depuração remota de aplicações de Node.js no Azure App Service a partir do Código VS](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0)
 * [Como utilizar uma imagem personalizada do Docker para as Aplicações Web para Contentores](quickstart-docker-go.md)
 * [Utilizar o .NET Core no Serviço de Aplicações do Azure no Linux](quickstart-dotnetcore.md)
 * [Utilizar o Ruby no Serviço de Aplicações do Azure no Linux](quickstart-ruby.md)

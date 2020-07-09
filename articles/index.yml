@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 9232082e845ef651d188adcc2ccd5cd3b96d90b4
-  ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+  ms.openlocfilehash: fe377424c1a10b1356718d3c8c0d90a6a3db4d63
+  ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/26/2020
-  ms.locfileid: "83849608"
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86134347"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -55,13 +55,20 @@ productDirectory:
     - ai-machine-learning
     - web
     url: search/index.yml
+  - title: Serviços Cognitivos do Azure
+    summary: Adicione capacidades inteligentes de API para ativar interações contextuais
+    imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
+    azureCategories:
+    - featured
+    - ai-machine-learning
+    url: cognitive-services/index.yml
   - title: Azure Databricks
     summary: Plataforma de análise baseada no Apache Spark rápida, fácil e colaborativa
     imageSrc: https://static.docs.com/ui/media/product/azure/databricks.svg
     azureCategories:
     - ai-machine-learning
     - analytics
-    url: azure-databricks/index.yml
+    url: /azure/databricks/
   - title: Azure Machine Learning
     summary: Leve a IA a todos com uma plataforma ponto a ponto, dimensionável e fiável com experimentação e gestão de modelos
     imageSrc: https://static.docs.com/ui/media/product/azure/machine-learning.svg
@@ -135,13 +142,6 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     url: cognitive-services/bing-web-search/overview.md
-  - title: Serviços Cognitivos
-    summary: Adicione capacidades inteligentes de API para ativar interações contextuais
-    imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-    azureCategories:
-    - featured
-    - ai-machine-learning
-    url: cognitive-services/index.yml
   - title: Imagem Digitalizada
     summary: Separe informações acionáveis de imagens
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
@@ -216,6 +216,12 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     url: cognitive-services/personalizer/index.yml
+  - title: Projeto Bonsai (Pré-visualização)
+    summary: Um serviço de machine teaching para criar sistemas de controlo industrial inteligentes através de simulações
+    imageSrc: https://static.docs.com/ui/media/product/azure/bonsai.svg
+    azureCategories:
+    - ai-machine-learning
+    url: https://docs.microsoft.com/bonsai/
   - title: QnA Maker
     summary: Converta informações em respostas de conversação fáceis de navegar
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
@@ -359,12 +365,6 @@ productDirectory:
     azureCategories:
     - blockchain
     url: blockchain/service/index.yml
-  - title: Azure Blockchain Tokens (Pré-visualização)
-    summary: Faça a gestão, defina e crie facilmente tokens baseados no livro razão
-    imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-token.svg
-    azureCategories:
-    - blockchain
-    url: blockchain/tokens/index.yml
   - title: Azure Blockchain Workbench (Pré-visualização)
     summary: Crie facilmente protótipos de aplicações de blockchain na cloud
     imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-workbench.svg
@@ -487,7 +487,7 @@ productDirectory:
     - compute
     - containers
     url: service-fabric/index.yml
-  - title: SQL Server em Máquinas Virtuais
+  - title: SQL Server nas Máquinas Virtuais do Azure
     summary: Aloje as aplicações empresariais do SQL Server na cloud
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-server-vm.svg
     azureCategories:
@@ -597,14 +597,26 @@ productDirectory:
     - databases
     - migration
     url: dms/index.yml
+  - title: SQL do Azure
+    summary: Família do SQL moderna para migração e modernização de aplicações
+    imageSrc: https://static.docs.com/ui/media/product/azure/sql.svg
+    azureCategories:
+    - featured
+    - hybrid
+    - databases
+    url: azure-sql/index.yml
   - title: Base de Dados SQL do Azure
     summary: SQL gerido e inteligente na cloud
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
     azureCategories:
-    - featured
     - databases
-    - hybrid
-    url: sql-database/index.yml
+    url: azure-sql/database/index.yml
+  - title: Instância Gerida do Azure SQL
+    summary: Instância gerida e sempre atualizada do SQL na cloud
+    imageSrc: https://static.docs.com/ui/media/product/azure/sql-managed-instance.svg
+    azureCategories:
+    - databases
+    url: azure-sql/managed-instance/index.yml
   - title: SQL do Azure no Edge (Pré-visualização)
     summary: Motor de dados de pequena quantidade otimizado no edge com IA incorporado
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database-edge.svg
@@ -624,6 +636,12 @@ productDirectory:
     azureCategories:
     - developer-tools
     url: azure-app-configuration/index.yml
+  - title: Azure Data Studio
+    summary: Um editor simples que pode executar consultas SQL a pedido e ver e guardar resultados como texto, JSON ou Excel.
+    imageSrc: https://docs.microsoft.com/sql/tools/media/overview-sql-tools/azure-data-studio.svg
+    azureCategories:
+    - developer-tools
+    url: https://docs.microsoft.com/sql/azure-data-studio/
   - title: DevOps do Azure
     summary: Serviços que permitem às equipas partilhar código, monitorizar trabalho e enviar software
     imageSrc: https://static.docs.com/ui/media/product/azure/devops.svg
@@ -664,7 +682,7 @@ productDirectory:
     azureCategories:
     - developer-tools
     url: https://code.visualstudio.com/docs
-  - title: Visual Studio Online (Pré-visualização)
+  - title: Visual Studio Codespaces (Pré-visualização)
     summary: Ambientes de desenvolvimento com tecnologia de cloud acessíveis em todo o lado
     imageSrc: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
     azureCategories:
@@ -708,6 +726,13 @@ productDirectory:
     azureCategories:
     - devops
     url: https://docs.microsoft.com/azure/devops/test/
+  - title: GitHub Actions para o Azure
+    summary: Criar, testar e implementar qualquer aplicação do GitHub no Azure
+    imageSrc: ./media/index/github-actions-icon.svg
+    azureCategories:
+    - devops
+    - developer-tools
+    url: https://docs.microsoft.com/en-us/azure/developer/github/github-actions
   - title: Azure Active Directory (AD)
     summary: Sincronize diretórios no local e ative o início de sessão único
     imageSrc: https://static.docs.com/ui/media/product/azure/active-directory.svg
@@ -1017,13 +1042,13 @@ productDirectory:
     - media
     url: media-services/latest/index.yml
   - title: Data Box
-    summary: Aplicações e soluções para transferência de dados para computação edge e do Azure
+    summary: Aplicações e soluções de transferência de dados para o Azure
     imageSrc: https://static.docs.com/ui/media/product/azure/data-box.svg
     azureCategories:
     - migration
     - storage
-    url: databox-family/index.md
-  - title: Spatial Anchors (Pré-visualização)
+    url: databox/index.yml
+  - title: Spatial Anchors
     summary: Crie experiências de realidade mista com perceção espacial e para vários utilizadores
     imageSrc: https://static.docs.com/ui/media/product/azure/spatial-anchor-accounts.svg
     azureCategories:
@@ -1079,7 +1104,7 @@ productDirectory:
     azureCategories:
     - networking
     url: firewall/index.yml
-  - title: Azure Firewall Manager (Pré-visualização)
+  - title: Azure Firewall Manager
     summary: Gestão centralizada de rotas e políticas de segurança de rede para perímetros definidos por software distribuídos globalmente
     imageSrc: https://static.docs.com/ui/media/product/azure/firewall-manager.svg
     azureCategories:
@@ -1116,7 +1141,7 @@ productDirectory:
     - networking
     url: virtual-network/index.yml
   - title: WAN Virtual
-    summary: Otimize e automatize a conectividade ramo a ramo através do Azure
+    summary: Serviço hub-and-spoke gerido pela Microsoft para garantir conectividade e segurança
     imageSrc: https://static.docs.com/ui/media/product/azure/virtual-wans.svg
     azureCategories:
     - networking
@@ -1188,9 +1213,9 @@ productDirectory:
     azureCategories:
     - storage
     url: virtual-machines/windows/managed-disks-overview.md
-  - title: Armazenamento de Ficheiros
+  - title: Ficheiros do Azure
     summary: Partilhas de ficheiros que utilizam o protocolo 3.0 SMB padrão
-    imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
+    imageSrc: https://static.docs.com/ui/media/product/azure/storage-azure-files.svg
     azureCategories:
     - storage
     url: storage/files/index.yml
@@ -1241,7 +1266,7 @@ tools:
     url: https://docs.microsoft.com/dotnet/azure/
   - title: JavaScript
     imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
-    url: https://docs.microsoft.com/azure/javascript/
+    url: https://docs.microsoft.com/azure/developer/javascript/
   - title: Java
     imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
     url: https://docs.microsoft.com/azure/developer/java/

@@ -1,6 +1,6 @@
 ---
-title: Alterações no nome do princípio do utilizador azure (UPN)
-description: Compreender questões conhecidas e mitigações para alterações da UPN
+title: Plano e resolução de problemas Alterações do nome do princípio do utilizador do Azure (UPN)
+description: Compreender questões conhecidas e mitigações para alterações na UPN
 services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
@@ -11,48 +11,49 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d11be1d971922095d4a1ace1c81c763134b4e58c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 885d30305ba2b186052e17b9b455b2248bca541b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80743333"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608522"
 ---
-# <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Plano e resolução de problemas O nome principal do utilizador muda no Diretório Ativo do Azure
+# <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Plano e resolução de problemas Alterações do Nome Principal do Utilizador no Diretório Ativo do Azure
 
-Um nome principal do utilizador (UPN) é um atributo que é um padrão de comunicação na Internet para as contas dos utilizadores. A UPN é constituída por um prefixo UPN (nome da conta de utilizador) e um sufixo UPN (um nome de domínio DNS). O prefixo une o sufixo utilizando o símbolo "@". Por exemplo, someone@example.com. A UPN deve ser única entre todos os objetos principais de segurança dentro de uma floresta de diretórios. 
+Um Nome Principal do Utilizador (UPN) é um atributo que é um padrão de comunicação de internet para contas de utilizador. Um UPN é composto por um prefixo UPN (o nome da conta do utilizador) e um sufixo UPN (um nome de domínio DNS). O prefixo une o sufixo utilizando o símbolo "@". Por exemplo, someone@example.com. Um UPN deve ser único entre todos os objetos principais de segurança dentro de uma floresta de diretórios. 
+
+**Este artigo pressupõe que está a usar a UPN como identificador de utilizador. Aborda o planeamento de alterações da UPN e a recuperação de problemas que podem resultar de alterações na UPN.**
 
 > [!NOTE]
-> Para os desenvolvedores, recomendamos que utilize o objectID do utilizador como identificador imutável, em vez de UPN. Se as suas aplicações estiverem atualmente a utilizar a UPN, recomendamos que a UPN corresponda ao endereço de e-mail primário do utilizador para melhorar a sua experiência.<br> **Num ambiente híbrido, é importante que a UPN para um utilizador seja idêntica no diretório no local e no Diretório Ativo Azure.**
+> Para os desenvolvedores, recomendamos que utilize o objectID do utilizador como identificador imutável, em vez de UPN ou endereços de e-mail, uma vez que os seus valores podem mudar.
 
-**Este artigo pressupõe que está a usar a UPN como identificador de utilizador. Aborda o planeamento das alterações da UPN e a recuperação de problemas que podem resultar de alterações da UPN.**
 
-## <a name="learn-about-upns-and-upn-changes"></a>Conheça as alterações das UPNs e UPN
-As páginas de entrada frequentemente levam os utilizadores a introduzir o seu endereço de e-mail quando o valor exigido é na verdade a sua UPN. Por isso, deve alterar a UPN dos utilizadores sempre que o seu endereço de e-mail primário se altere.
+## <a name="learn-about-upns-and-upn-changes"></a>Conheça as alterações da UPNs e da UPN
+As páginas de entrada de sômedudas frequentemente levam os utilizadores a introduzir o seu endereço de e-mail quando o valor exigido é, na verdade, o seu UPN. Portanto, deve ter a certeza de alterar a UPN dos utilizadores sempre que o seu endereço de e-mail principal for alterado.
 
 Os principais endereços de e-mail dos utilizadores podem mudar por muitas razões:
 
-* rebranding da empresa
+* rebranding empresa
 
-* funcionários movendo-se para diferentes divisões de empresas 
+* funcionários movendo-se para diferentes divisões da empresa 
 
 * fusões e aquisições
 
-* alterações no nome do empregado
+* alterações de nome do empregado
 
-### <a name="types-of-upn-changes"></a>Tipos de alterações UPN
+### <a name="types-of-upn-changes"></a>Tipos de alterações upn
 
-Pode alterar uma UPN alterando o prefixo, o sufixo ou ambos.
+Pode alterar uma UPN alterando o prefixo, sufixo ou ambos.
 
-* **Alterar o prefixo**.
+* **Alterando o prefixo**.
 
    *  Por exemplo, se o nome de uma pessoa mudar, pode alterar o nome da conta:  
-BSimon@contoso.com paraBJohnson@contoso.com
+BSimon@contoso.comparaBJohnson@contoso.com
 
-   * Também pode alterar o padrão corporativo para prefixos:  
-Bsimon@contoso.com paraBritta.Simon@contoso.com
+   * Pode também alterar o padrão corporativo para prefixos:  
+Bsimon@contoso.comparaBritta.Simon@contoso.com
 
-* **Alterando o sufixo.** <br>
+* **Mudando o sufixo.** <br>
 
     Por exemplo, se uma pessoa mudar de divisão, pode mudar o seu domínio: 
 
@@ -60,184 +61,192 @@ Bsimon@contoso.com paraBritta.Simon@contoso.com
      Ou<br>
     * Britta.Simon@corp.contoso.comParaBritta.Simon@labs.contoso.com 
 
-Altere a UPN do utilizador sempre que o endereço de e-mail principal para um utilizador for atualizado. Não importa a razão da mudança de e-mail, a UPN deve ser sempre atualizada para corresponder.
+Recomendamos alterar a UPN dos utilizadores sempre que o seu endereço de e-mail principal seja atualizado.
 
-Durante a sincronização inicial do Ative Directory para o Azure AD, certifique-se de que os e-mails dos utilizadores são idênticos às suas UPNs.
+Durante a sincronização inicial do Ative Directory para Azure AD, certifique-se de que os e-mails dos utilizadores são idênticos aos seus UPNs.
 
 ### <a name="upns-in-active-directory"></a>UPNs em Diretório Ativo
 
-No Diretório Ativo, o sufixo padrão UPN é o nome DNS do domínio onde criou a conta de utilizador. Na maioria dos casos, este é o nome de domínio que regista como domínio da empresa na internet. Se criar a conta de utilizador no domínio contoso.com, a UPN padrão é
+No Ative Directory, o sufixo UPN predefinido é o nome DNS do domínio onde criou a conta de utilizador. Na maioria dos casos, este é o nome de domínio que regista como domínio da empresa na internet. Se criar a conta de utilizador no domínio contoso.com, o UPN predefinido é
 
 username@contoso.com
 
- No entanto, pode [adicionar mais sufixos UPN](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain) utilizando domínios e fidedignidades do Diretório Ativo. 
+ No entanto, pode [adicionar mais sufixos UPN](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain) utilizando domínios e fidedignidades do Ative Directory. 
 
-Por exemplo, pode querer adicionar labs.contoso.com e ter as UPNs dos utilizadores e o e-mail a refletir isso. Tornar-se-iam então
+Por exemplo, pode querer adicionar labs.contoso.com e ter UPNs dos utilizadores e e-mail refletir isso. Tornar-se-iam então
 
 username@labs.contoso.com.
 
 >[!IMPORTANT]
-> Se as UPNs no diretório Ativo e no Diretório Ativo azure não corresponderem, surgirão questões. Se estiver [a alterar o sufixo no Diretório Ativo,](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)deve certificar-se de que foi adicionado e verificado um nome de domínio personalizado correspondente no [Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain). 
+> Se estiver [a alterar o sufixo no Ative Directory,](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)deve certificar-se de que foi adicionado e verificado um nome de domínio personalizado correspondente no [AD AZure](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain). 
 
 ![Uma imagem de domínios verificados](./media/howto-troubleshoot-upn-changes/custom-domains.png)
 
 ### <a name="upns-in-azure-active-directory"></a>UPNs em Diretório Ativo Azure
 
-Os utilizadores iniciaram sessão no Azure AD com o valor no seu atributo de userPrincipalName. 
+Os utilizadores inserem-se no Azure AD com o valor no seu atributo UserPrincipalName. 
 
-Quando utiliza o Azure AD em conjunto com o seu Diretório Ativo no local, as contas de utilizador são sincronizadas utilizando o serviço Azure AD Connect. Por predefinição, o assistente Azure AD Connect utiliza o atributo do userPrincipalName a partir do Diretório Ativo no local como upn em Azure AD. Pode alterá-lo para um atributo diferente numa instalação personalizada.
+Quando utiliza o Azure AD em conjunto com o seu Ative Directory, as contas do utilizador são sincronizadas utilizando o serviço Azure AD Connect. Por predefinição, o assistente Azure AD Connect utiliza o atributo UserPrincipalName a partir do Diretório Ativo no local como UPN em Azure AD. Pode alterá-lo para um atributo diferente numa instalação personalizada.
 
-É importante que tenha um processo definido quando atualizar um Nome Principal de Utilizador (UPN) de um único utilizador, ou para toda a sua organização. 
+É importante que tenha um processo definido quando atualiza um Nome Principal do Utilizador (UPN) de um único utilizador, ou para toda a sua organização. 
 
-Consulte as questões e suposições conhecidas neste documento.
+Consulte as questões e soluções alternativas conhecidas neste documento.
 
-Quando estiver a sincronizar as contas dos utilizadores do Ative Directory para o Azure AD, certifique-se de que as UPNs em Diretório Ativo são para domínios verificados em Azure AD.
+Quando estiver a sincronizar as contas dos utilizadores do Ative Directory para a Azure AD, certifique-se de que as UPNs no mapa do Ative Directory são para domínios verificados em Azure AD.
 
 ![Screenshot de domínios verificados](./media/howto-troubleshoot-upn-changes/verified-domains.png)
 
-Se o valor do atributo do userPrincipalName não corresponder a um domínio verificado em Azure AD, o processo de sincronização substitui o sufixo por um valor padrão .onmicrosoft.com.
+Se o valor do atributo UserPrincipalName não corresponder a um domínio verificado em Ad Azure, o processo de sincronização substitui o sufixo por um valor padrão .onmicrosoft.com.
 
 
-### <a name="roll-out-bulk-upn-changes"></a>Alterações UPN a granel
+### <a name="roll-out-bulk-upn-changes"></a>Alterações de UPN em massa de lançamento
 
-Siga as [melhores práticas para um piloto](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans) para alterações em massa da UPN. Também tenha um plano de reversão testado para reverter as UPNs se encontrar problemas que não podem ser resolvidos rapidamente. Uma vez que o seu piloto esteja em execução, você pode começar a direcionar pequenos conjuntos de utilizadores com várias funções organizacionais e seus conjuntos específicos de apps ou dispositivos.
+Siga as [melhores práticas para um piloto](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans) para alterações em massa da UPN. Também tem um plano de reversão testado para reverter as UPNs se encontrar problemas que não podem ser resolvidos rapidamente. Uma vez que o seu piloto está em execução, você pode começar a direcionar pequenos conjuntos de utilizadores com várias funções organizacionais e seus conjuntos específicos de apps ou dispositivos.
 
-Passar por este primeiro subconjunto de utilizadores vai dar-lhe uma boa ideia do que os utilizadores devem esperar como parte da mudança. Inclua esta informação nas comunicações do utilizador.
+Passar por este primeiro subconjunto de utilizadores irá dar-lhe uma boa ideia do que os utilizadores devem esperar como parte da mudança. Inclua esta informação nas comunicações do seu utilizador.
 
-Criar um procedimento definido para a alteração das UPNs em utilizadores individuais como parte das operações normais. Recomendamos que tenha um procedimento testado que inclua documentação sobre questões conhecidas e suposições.
+Crie um procedimento definido para a alteração das UPNs em utilizadores individuais como parte das operações normais. Recomendamos ter um procedimento testado que inclua documentação sobre questões conhecidas e soluções alternativas.
 
-As secções seguintes detalham potenciais questões conhecidas e soluções de suposições quando as UPNs são alteradas.
+As secções seguintes detalham potenciais problemas e soluções quando as UPNs são alteradas.
 
-## <a name="apps-known-issues-and-workarounds"></a>Apps conhecidas questões e sobras
+## <a name="apps-known-issues-and-workarounds"></a>Aplicativos conhecidos questões e soluções alternativas
 
-As aplicações de [software como serviço (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) e Line of Business (LoB) dependem frequentemente das UPNs para encontrar informações sobre os utilizadores e armazenar informações sobre o perfil dos utilizadores, incluindo funções. As aplicações que utilizam [o provisionamento Just in Time](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning) para criar um perfil de utilizador quando os utilizadores iniciarem sessão na aplicação pela primeira vez podem ser afetadas por alterações da UPN.
+As aplicações [de software como serviço (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) e Line of Business (LoB) dependem frequentemente de UPNs para encontrar utilizadores e armazenar informações sobre o perfil do utilizador, incluindo funções. As aplicações que utilizam [o fornecimento just in time](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning) para criar um perfil de utilizador quando os utilizadores iniciarem sessão na aplicação pela primeira vez podem ser afetadas por alterações na UPN.
 
-**Edição conhecida**<br>
-Alterar a UPN de um utilizador pode quebrar a relação entre o utilizador da AD Azure e o perfil de utilizador criado na aplicação. Se a aplicação utilizar [o provisionamento Just in Time,](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning)poderá criar um novo perfil de utilizador. Isto exigirá que o administrador de aplicação efaça alterações manuais para corrigir esta relação.
+**Questão conhecida**<br>
+A alteração da UPN de um utilizador pode quebrar a relação entre o utilizador Azure AD e o perfil de utilizador criado na aplicação. Se a aplicação utilizar [o provisionamento Just in Time,](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning)poderá criar um novo perfil de utilizador. Isto exigirá que o administrador de aplicação es faça alterações manuais para corrigir esta relação.
 
-**Supor**<br>
-O fornecimento automatizado de [utilizadores da Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) permite-lhe criar, manter e remover automaticamente as identidades dos seus utilizadores em aplicações em nuvem suportadas. Configurar o fornecimento automatizado de utilizadores nas suas aplicações atualiza automaticamente as UPNs nas aplicações. Teste as aplicações como parte do lançamento progressivo para validar que não são afetadas por alterações da UPN.
+**Solução**<br>
+[O Azure AD Automated User Provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) permite-lhe criar, manter e remover automaticamente as identidades do utilizador em aplicações de nuvem suportadas. Configurar o fornecimento automatizado de utilizadores nas suas aplicações atualiza automaticamente as UPNs nas aplicações. Teste as aplicações como parte do rollout progressivo para validar que não são impactadas por alterações da UPN.
 Se for um desenvolvedor, considere [adicionar suporte SCIM à sua aplicação](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) para permitir o fornecimento automático de utilizadores a partir do Azure Ative Directory. 
 
-## <a name="managed-devices-known-issues-and-workarounds"></a>Dispositivos geridos conhecidos questões e sobras
+## <a name="managed-devices-known-issues-and-workarounds"></a>Dispositivos geridos conhecidos problemas e soluções alternativas
 
-Ao [trazer os seus dispositivos para o Azure AD,](https://docs.microsoft.com/azure/active-directory/devices/overview)maximiza a produtividade dos seus utilizadores através de um único sinal (SSO) através da sua nuvem e recursos no local.
+Ao [trazer os seus dispositivos para Azure AD,](https://docs.microsoft.com/azure/active-directory/devices/overview)maximiza a produtividade dos seus utilizadores através de um único sign-on (SSO) através da sua nuvem e recursos no local.
 
 ### <a name="azure-ad-joined-devices"></a>Dispositivos associados ao Azure AD
 
-Os dispositivos aderes à [Azure AD](https://docs.microsoft.com/azure/active-directory/devices/concept-azure-ad-join) juntam-se diretamente à Azure AD e permitem que os utilizadores inscrevam o dispositivo utilizando a identidade da sua organização.
+Os dispositivos [aderidos a Azure AD](https://docs.microsoft.com/azure/active-directory/devices/concept-azure-ad-join) são unidos diretamente ao Azure AD e permitem que os utilizadores inscrevam-se no dispositivo usando a identidade da sua organização.
 
 **Problemas conhecidos** <br>
-Os utilizadores podem experimentar problemas de inscrição simples com aplicações que dependem da AD Azure para autenticação.
+Os utilizadores podem experimentar problemas de súmuta único com aplicações que dependem do Azure AD para autenticação.
 
-**Supor** <br>
-Dê tempo suficiente para que a alteração UPN sincronize com a AD Azure. Assim que verificar se a nova UPN está refletida no Portal Azure AD, peça ao utilizador que selecione o azulejo "Outro utilizador" para iniciar sessão com a sua nova UPN. Também pode verificar através [da PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). Depois de iniciar sessão com a sua nova UPN, as referências à antiga UPN podem ainda aparecer na definição do Windows "Access work or school".
+**Resolução** <br>
+Os problemas mencionados nesta secção foram corrigidos na atualização do Windows 10 May 2020 (2004).
+
+**Solução** <br>
+Dê tempo suficiente para que a UPN mude para sincronizar com Azure AD. Assim que verificar se a nova UPN se reflete no Portal AD Azure, peça ao utilizador que selecione o azulejo "Outro utilizador" para iniciar súb9 com a sua nova UPN. Também pode verificar através [do PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). Depois de iniciar sessão com a sua nova UPN, as referências à antiga UPN podem ainda aparecer na definição do Windows "Access work ou school".
 
 ![Screenshot de domínios verificados](./media/howto-troubleshoot-upn-changes/other-user.png)
 
+
 ### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos híbridos associados ao Azure AD
 
-Os dispositivos aderes à [Hybrid Azure AD](https://docs.microsoft.com/azure/active-directory/devices/concept-azure-ad-join-hybrid) juntam-se ao Ative Directory e ao Azure AD. Pode implementar a adesão do Hybrid Azure AD se o seu ambiente tiver uma pegada de Diretório Ativo no local e também quiser beneficiar das capacidades fornecidas pela Azure AD.
+Os dispositivos [híbridos Azure AD juntam-se](https://docs.microsoft.com/azure/active-directory/devices/concept-azure-ad-join-hybrid) ao Ative Directory e ao Azure AD. Pode implementar a ad Hybrid Azure se o seu ambiente tiver uma pegada de Ative Directory no local e também quiser beneficiar das capacidades fornecidas pela Azure AD.
 
 **Problemas conhecidos** 
 
-Os dispositivos aderes ao Windows 10 Hybrid Azure AD são suscetíveis de sofrer reiniciações inesperadas e problemas de acesso.
+Os dispositivos AD Azure Ad híbridos do Windows 10 são suscetíveis de sofrer recomeçamentos inesperados e problemas de acesso.
 
-Se os utilizadores iniciarem sessão no Windows antes da nova UPN ter sido sincronizada com a AD Azure, ou continuarem a utilizar uma sessão windows existente, poderão experimentar problemas de acesso simples com aplicações que utilizam a AD Azure para autenticação se o Acesso Condicional tiver sido configurado para impor a utilização de dispositivos Híbridos Unidos para aceder a recursos. 
+Se os utilizadores iniciarem sessão no Windows antes de a nova UPN ter sido sincronizada com a AZure AD, ou continuar a utilizar uma sessão do Windows existente, poderão experimentar problemas de sinalização única com aplicações que utilizam Azure AD para autenticação se o Acesso Condicional tiver sido configurado para impor a utilização de dispositivos híbridos unidos para aceder aos recursos. 
 
-Além disso, aparecerá a seguinte mensagem, forçando um reinício após um minuto. 
+Além disso, aparecerá a seguinte mensagem, forçando um recomeço após um minuto. 
 
-"O seu PC recomeçará automaticamente num minuto. O Windows teve um problema e precisa de ser reiniciado. Deve fechar esta mensagem agora e salvar o seu trabalho".
+"O seu PC reinicia automaticamente num minuto. O Windows teve um problema e precisa de reiniciar. Deve encerrar esta mensagem agora e salvar o seu trabalho".
 
-**Supor** 
+**Resolução** <br>
+Os problemas mencionados nesta secção foram corrigidos na atualização do Windows 10 May 2020 (2004).
 
-O aparelho deve ser desacompanhado da AD Azure e reiniciado. Após o reinício, o dispositivo voltará a juntar-se automaticamente ao Azure AD e o utilizador deve iniciar o seu contrato com a nova UPN, selecionando o azulejo "Outro utilizador". Para desjuntar um dispositivo da Azure AD, execute o seguinte comando num pedido de comando:
+**Solução** 
+
+O aparelho deve ser desacompinado do Azure AD e reiniciado. Após o reinício, o dispositivo volta a juntar-se automaticamente ao Azure AD e o utilizador deve iniciar sação utilizando a nova UPN selecionando o azulejo "Outro utilizador". Para desacompir um dispositivo da Azure AD, executar o seguinte comando num pedido de comando:
 
 **dsregcmd /leave**
 
-O utilizador terá de [se reinscrever](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-whfb-provision) para o Windows Hello for Business se estiver a ser utilizado. Os dispositivos Windows 7 e 8.1 não são afetados por este problema após alterações da UPN.
+O utilizador terá de [se reinscrevê-lo](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-whfb-provision) para o Windows Hello for Business se estiver a ser utilizado. Os dispositivos Windows 7 e 8.1 não são afetados por este problema após alterações na UPN.
 
-## <a name="microsoft-authenticator-known-issues-and-workarounds"></a>Microsoft Autenticador conhecido seleções e seleções
 
-A sua organização poderá exigir a utilização da [aplicação Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview) para iniciar sessão e aceder a aplicações e dados organizacionais. Embora possa aparecer um nome de utilizador na aplicação, a conta não está configurada para funcionar como um método de verificação até que o utilizador complete o processo de registo.
+## <a name="microsoft-authenticator-known-issues-and-workarounds"></a>Microsoft Authenticator conhecido problemas e soluções alternativas
+
+A sua organização poderá necessitar da utilização da [app Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview) para iniciar sômentou e aceder a aplicações e dados organizacionais. Apesar de um nome de utilizador poder aparecer na aplicação, a conta não está configurada para funcionar como um método de verificação até que o utilizador complete o processo de registo.
 
 A [aplicação Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview) tem quatro funções principais:
 
-* Autenticação de vários fatores através de um código de notificação ou verificação push
+* Autenticação de vários fatores através de um código de notificação ou verificação de push
 
-* Atuar como corretor de autenticação em dispositivos iOS e Android para fornecer um único sinal para aplicações que utilizem [autenticação intermediada](https://docs.microsoft.com/azure/active-directory/develop/brokered-auth)
+* Atuar como corretor de autenticação em dispositivos iOS e Android para fornecer um único sinal para aplicações que usam [a autenticação intermediada](https://docs.microsoft.com/azure/active-directory/develop/brokered-auth)
 
-* Registo de dispositivos (também conhecido como Workplace Join) para AD Azure, que é um requisito para outras funcionalidades como Intune App Protection e Device Registration/Management,
+* Registo do dispositivo (também conhecido como Workplace Join) para Azure AD, que é um requisito para outras funcionalidades como Intune App Protection e Device Innd/Management,
 
-* Registo telefónico, que requer MFA e registo do dispositivo.
+* Sinal telefónico, que requer MFA e registo do dispositivo.
 
 ### <a name="multi-factor-authentication-with-android-devices"></a>Autenticação multi-factor com dispositivos Android
 
-A aplicação Microsoft Authenticator oferece uma opção de verificação fora da banda. Em vez de colocar uma chamada telefónica ou SMS automatizada ao utilizador durante o check-in, a [Autenticação Multi-Factor (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) empurra uma notificação para a aplicação Microsoft Authenticator no smartphone ou tablet do utilizador. O utilizador simplesmente toca Em 'Approve' (ou introduz um PIN ou biométrico e toca em "Authenticate") na aplicação para completar o seu início de sessão.
+A aplicação Microsoft Authenticator oferece uma opção de verificação fora de banda. Em vez de colocar uma chamada telefónica automatizada ou SMS ao utilizador durante o sismo, [a Autenticação Multi-Factor (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) empurra uma notificação para a aplicação Microsoft Authenticator no smartphone ou tablet do utilizador. O utilizador simplesmente toca aprovação (ou introduz um PIN ou biométrico e toca "Authenticate") na aplicação para completar o seu insumo.
 
 **Problemas conhecidos** 
 
-Quando altera a UPN de um utilizador, a antiga UPN ainda apresenta na conta de utilizador e pode não ser recebida uma notificação. [Os códigos](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-faq) de verificação continuam a funcionar.
+Quando altera a UPN de um utilizador, a upn antiga ainda aparece na conta do utilizador e uma notificação pode não ser recebida. [Os códigos de verificação](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-faq) continuam a funcionar.
 
-**Supor**
+**Solução**
 
-Se for recebida uma notificação, instrua o utilizador a rejeitar a notificação, abra a aplicação Autenticadora, toque na opção "Verificar notificações" e aprove o pedido de MFA. Depois disso, a UPN exibida na conta será atualizada. Note que a UPN atualizada pode ser apresentada como uma nova conta, isto deve-se à aplicação de outras funcionalidades do Autenticador. Para mais informações consulte as questões adicionais conhecidas neste artigo.
+Se for recebida uma notificação, instrua o utilizador a dispensar a notificação, abra a aplicação Authenticator, toque na opção "Verificar as notificações" e aprove o pedido de MFA. Depois disso, a UPN exibida na conta será atualizada. Note que a UPN atualizada pode ser apresentada como uma nova conta, isto deve-se a outras funcionalidades autenticadoras que estão a ser utilizadas. Para mais informações consulte as questões adicionais conhecidas neste artigo.
 
 ### <a name="brokered-authentication"></a>Autenticação intermediada
 
-Em corretores Android e iOS como o Microsoft Authenticator permitem:
+Para corretores Android e iOS como o Microsoft Authenticator permitem:
 
-* Inscrição única (SSO) - Os seus utilizadores não precisarão de iniciar sessão em cada aplicação.
+* Único sinal de s-on (SSO) - Os seus utilizadores não precisarão de iniciar sina em cada aplicação.
 
-* Identificação do dispositivo - O corretor acede ao certificado do dispositivo criado no dispositivo quando foi aderido no local de trabalho.
+* Identificação do dispositivo - O corretor acede ao certificado do dispositivo criado no dispositivo quando este foi aderido ao local de trabalho.
 
-* Verificação de identificação de aplicações - Quando uma aplicação chama o corretor, passa o url de redirecionamento, e o corretor verifica-o.
+* Verificação de identificação de aplicação - Quando uma aplicação chama o corretor, passa o url de redirecionamento, e o corretor verifica-o.
 
-Além disso, permite que as aplicações participem em funcionalidades mais avançadas, como o [Acesso Condicional,](https://docs.microsoft.com/azure/active-directory/conditional-access/)e suporta [cenários Microsoft Intune](https://docs.microsoft.com/azure/active-directory/develop/msal-net-use-brokers-with-xamarin-apps).
+Além disso, permite que as aplicações participem em funcionalidades mais avançadas, como [o Acesso Condicionado,](https://docs.microsoft.com/azure/active-directory/conditional-access/)e suporta [cenários Microsoft Intune](https://docs.microsoft.com/azure/active-directory/develop/msal-net-use-brokers-with-xamarin-apps).
 
 **Problemas conhecidos**<br>
-O utilizador é apresentado com solicitações de autenticação mais interativas em novas aplicações que utilizam o sessão assistido pelo corretor devido a uma incompatibilidade entre o login_hint passado pela aplicação e a UPN armazenada no corretor.
+O utilizador é apresentado com pedidos de autenticação mais interativas em novas aplicações que utilizam o sign-in assistido por corretor devido a um desfasamento entre o login_hint passado pela aplicação e a UPN armazenadas no corretor.
 
-**Supor** <br> O utilizador precisa de remover manualmente a conta do Microsoft Authenticator e iniciar um novo início de sessão a partir de uma aplicação assistida por corretor. A conta será adicionada automaticamente após a autenticação inicial.
+**Solução** <br> O utilizador necessita de remover manualmente a conta do Microsoft Authenticator e iniciar um novo início de s início de uma aplicação assistida por corretor. A conta será automaticamente adicionada após a autenticação inicial.
 
 ### <a name="device-registration"></a>Registo de dispositivo
 
-A aplicação Microsoft Authenticator é responsável pelo registo do dispositivo na Azure AD. O registo do dispositivo permite que o dispositivo autentime à AD Azure e é um requisito para os seguintes cenários:
+A aplicação Microsoft Authenticator é responsável por registar o dispositivo no Azure AD. O registo do dispositivo permite que o dispositivo autente para a Azure AD e é um requisito para os seguintes cenários:
 
 * Intune App Protection
 
-* Inscrição de Dispositivo Intune
+* Inscrição de dispositivo intune
 
-* Sinal de telefone dentro
+* Sinal de telefone
 
 **Problemas conhecidos**<br>
-Quando muda a UPN, uma nova conta com a nova UPN aparece listada na aplicação Microsoft Authenticator, enquanto a conta com a antiga UPN ainda está listada. Além disso, os antigos ecrãs UPN na secção registo do dispositivo nas definições da aplicação. Não existe qualquer alteração na funcionalidade normal do Registo do Dispositivo ou nos cenários dependentes.
+Quando muda a UPN, uma nova conta com a nova UPN aparece listada na aplicação Microsoft Authenticator, enquanto a conta com a antiga UPN ainda está listada. Além disso, a antiga UPN exibe na secção de Registo de Dispositivos nas definições da aplicação. Não há alterações na funcionalidade normal do Registo do Dispositivo ou nos cenários dependentes.
 
-**Supor** <br> Para remover todas as referências à antiga UPN na aplicação Microsoft Authenticator, instrua o utilizador a remover manualmente as contas antigas e novas do Microsoft Authenticator, voltar a registar-se para o MFA e voltar a juntar-se ao dispositivo.
+**Solução** <br> Para remover todas as referências à antiga UPN na aplicação Microsoft Authenticator, instrua o utilizador a remover manualmente as contas antigas e novas do Microsoft Authenticator, re-registar-se para MFA e voltar a juntar-se ao dispositivo.
 
-### <a name="phone-sign-in"></a>Registo telefónico
+### <a name="phone-sign-in"></a>Sindução de telefone
 
-O registo telefónico permite que os utilizadores acedam ao Azure AD sem senha. Para ativar o registo do telefone, o utilizador tem de se registar para o MFA utilizando a aplicação Authenticator e, em seguida, ativar o registo do telefone diretamente no Autenticador. Como parte da configuração, o dispositivo regista-se com a AD Azure.
-
-**Problemas conhecidos** <br>
-Os utilizadores não podem utilizar o registo telefónico porque não recebem qualquer notificação. Se o utilizador tocar no Check for Notifications, obtém um erro.
-
-**Supor**<br>
-O utilizador tem de selecionar o menu de entrega na conta ativada para o registo do telefone e selecionar desativar o registo do telefone. Se desejar, o registo do telefone pode ser ativado novamente.
-
-## <a name="security-key-fido2-known-issues-and-workarounds"></a>Chave de Segurança (FIDO2) questões conhecidas e salões
+O s-in telefónico permite que os utilizadores entrem no Azure AD sem senha. Para ativar o registo do telefone, o utilizador precisa de se registar para MFA utilizando a aplicação Authenticator e, em seguida, ativar a entrada do telefone diretamente no Autenticador. Como parte da configuração, o dispositivo regista-se com Azure AD.
 
 **Problemas conhecidos** <br>
-Quando vários utilizadores estão registados na mesma tecla, o sinal no ecrã mostra uma página de seleção de conta onde a antiga UPN é exibida. As inscrições utilizando as Teclas de Segurança não são afetadas pelas alterações da UPN.  
+Os utilizadores não podem utilizar o registo do Telefone porque não recebem qualquer notificação. Se o utilizador tocar no Check for Notifications, obtém-se um erro.
 
-**Supor**<br>
-Para remover referências às nsupções antigas, os utilizadores devem redefinir a chave de [segurança e reregistar.](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key#known-issues)
+**Solução**<br>
+O utilizador precisa de selecionar o menu suspenso na conta ativada para o sôm-in do Telefone e selecionar o registo do telefone desativado. Se desejar, o registo telefónico pode ser ativado novamente.
 
-## <a name="onedrive-known-issues-and-workarounds"></a>OneDrive conheceu questões e salões
+## <a name="security-key-fido2-known-issues-and-workarounds"></a>Chave de Segurança (FIDO2) questões conhecidas e soluções alternativas
 
-Os utilizadores do OneDrive são conhecidos por experimentarem problemas após as alterações da UPN. Para obter mais informações, veja como as [alterações da UPN afetam as funcionalidades do URL oneDrive e do OneDrive](https://docs.microsoft.com/onedrive/upn-changes).
+**Problemas conhecidos** <br>
+Quando vários utilizadores estão registados na mesma tecla, o sinal no ecrã mostra uma página de seleção de conta onde a antiga UPN é apresentada. As entradas de inscrição que utilizam Teclas de segurança não são afetadas por alterações da UPN.  
 
-## <a name="next-steps"></a>Passos seguintes
+**Solução**<br>
+Para remover referências a UPNs antigos, os utilizadores devem [redefinir a chave de segurança e voltar a registar- se](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key#known-issues).
+
+## <a name="onedrive-known-issues-and-workarounds"></a>OneDrive conhecidos questões e soluções alternativas
+
+Os utilizadores do OneDrive são conhecidos por experimentarem problemas após alterações na UPN. Para obter mais informações, consulte [como as alterações da UPN afetam as funcionalidades de URL e OneDrive OneDrive](https://docs.microsoft.com/onedrive/upn-changes).
+
+## <a name="next-steps"></a>Próximos passos
 
 Consulte estes recursos:
 * [Azure AD Connect: Conceitos de design](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-design-concepts)

@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 39cc37293ecb0e900a9a88d5aa00863f3e450400
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 2af8b429b6addf6da32b34773525c51a36624e78
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594456"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85242100"
 ---
-No Azure, oferecemos a capacidade de aumentar o armazenamento de discos IOPS e o desempenho mb/s referido como rebentando tanto em Máquinas Virtuais como em Discos. O busto é útil em muitos cenários, tais como lidar com tráfego de discos inesperados ou processar trabalhos de lote. Você pode efetivamente alavancar vM e nível de disco rebentando para alcançar um grande desempenho de linha de base e rutura tanto no seu VM como no disco. Desta forma, você pode alcançar um grande desempenho de base e um desempenho de rutura tanto no seu vm como no disco.
+No Azure, oferecemos a capacidade de aumentar o armazenamento de discos IOPS e o desempenho de MB/s referido como estourando tanto em Máquinas Virtuais como em discos. O busting é útil em muitos cenários, como lidar com o tráfego inesperado de discos ou processar trabalhos de lote. Pode efetivamente alavancar o VM e o nível do disco a rebentar para obter um grande desempenho de base e estourando tanto no seu VM como no disco. Desta forma, pode obter um grande desempenho de base e um desempenho de rutura tanto no seu vm como no disco. 
+
+Por favor, note que as explosões nos Discos e VMs são independentes umas das outras. Se tiver um disco estourando, não precisa de um VM estou rebentando para permitir que o seu disco rebente. Se tiver um VM estourante, não precisa de um disco de rutura para permitir que o seu VM rebente. 

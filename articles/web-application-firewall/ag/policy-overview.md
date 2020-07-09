@@ -1,6 +1,6 @@
 ---
-title: Visão geral da política da firewall de aplicação web azure (WAF)
-description: Este artigo é uma visão geral das políticas globais, por site e por-URI da Web Application Firewall (WAF).
+title: Visão geral da política do Azure Web Application Firewall (WAF)
+description: Este artigo é uma visão geral das políticas globais, por site e per-URI da Web Application Firewall (WAF).
 services: web-application-firewall
 ms.topic: article
 author: winthrop28
@@ -8,58 +8,58 @@ ms.service: web-application-firewall
 ms.date: 02/01/2020
 ms.author: victorh
 ms.openlocfilehash: fff4fb5707c07098fd7fac261a36909224365cdf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80060273"
 ---
-# <a name="azure-web-application-firewall-waf-policy-overview"></a>Visão geral da política da firewall de aplicação web azure (WAF)
+# <a name="azure-web-application-firewall-waf-policy-overview"></a>Visão geral da política do Azure Web Application Firewall (WAF)
 
-As políticas de firewall de aplicação web contêm todas as definições e configurações waf. Isto inclui exclusões, regras personalizadas, regras geridas, e assim por diante. Estas políticas estão então associadas a um gateway de aplicação (global), a um ouvinte (por site) ou a uma regra baseada no caminho (per-URI) para que eles entrem em vigor.
+As políticas de firewall de aplicação web contêm todas as definições e configurações da WAF. Isto inclui exclusões, regras personalizadas, regras geridas, e assim por diante. Estas políticas estão então associadas a uma porta de aplicação (global), a um ouvinte (por local) ou a uma regra baseada em caminhos (per-URI) para que eles entrem em vigor.
 
 > [!NOTE]
-> As políticas azure Web Application Firewall (WAF) por site e por URI estão em Pré-visualização pública.
+> As políticas Azure Web Application Firewall (WAF) por site e per-URI estão na Pré-visualização Pública.
 > 
-> Esta pré-visualização pública é disponibilizada sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> Esta pré-visualização pública é disponibilizada sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Não há limite para o número de políticas que se pode criar. Quando se cria uma política, deve estar associada a uma porta de entrada de aplicação para produzir efeitos. Pode ser associado a qualquer combinação de gateways de aplicação, ouvintes e regras baseadas em caminhos.
+Não há limite para o número de políticas que se pode criar. Quando se cria uma política, deve ser associada a uma porta de aplicação para fazer efeito. Pode ser associado a qualquer combinação de gateways de aplicações, ouvintes e regras baseadas em caminhos.
 
-## <a name="global-waf-policy"></a>Política global de WAF
+## <a name="global-waf-policy"></a>Política global da WAF
 
-Quando associa uma política waf globalmente, todos os sites por trás do seu Application Gateway WAF estão protegidos com as mesmas regras geridas, regras personalizadas, exclusões e quaisquer outras configurações configuradas.
+Quando associa uma política WAF globalmente, todos os sites por trás da sua Aplicação Gateway WAF estão protegidos com as mesmas regras geridas, regras personalizadas, exclusões e quaisquer outras configurações configuradas.
 
-Se quiser que uma única política se aplique a todos os sites, pode associar a política ao gateway da aplicação. Para obter mais informações, consulte [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md) para criar e aplicar uma política WAF usando o portal Azure. 
+Se quiser que uma única política se aplique a todos os sites, pode associar a política à porta de aplicação. Para obter mais informações, consulte [as políticas de Criar firewall de aplicação web para](create-waf-policy-ag.md) o Gateway de aplicação para criar e aplicar uma política WAF utilizando o portal Azure. 
 
-## <a name="per-site-waf-policy"></a>Política de WAF por site
+## <a name="per-site-waf-policy"></a>Política de WAF por local
 
-Com as políticas de WAF por site, pode proteger vários sites com diferentes necessidades de segurança por trás de uma única WAF utilizando políticas por site. Por exemplo, se houver cinco sites por trás do seu WAF, pode ter cinco políticas waf separadas (uma para cada ouvinte) para personalizar as exclusões, regras personalizadas, conjuntos de regras geridos e todas as outras definições de WAF para cada site.
+Com as políticas WAF por site, pode proteger vários sites com diferentes necessidades de segurança por trás de um único WAF utilizando políticas por site. Por exemplo, se existirem cinco sites por trás do seu WAF, pode ter cinco políticas WAF separadas (uma para cada ouvinte) para personalizar as exclusões, regras personalizadas, conjuntos de regras geridos e todas as outras definições de WAF para cada site.
 
-Digamos que a sua porta de entrada de candidatura tem uma política global aplicada a ela. Depois aplica-se uma política diferente a um ouvinte na porta de entrada de aplicações. A política do ouvinte entra agora em vigor apenas para aquele ouvinte. A política global do portal de aplicação ainda se aplica a todos os outros ouvintes e regras baseadas em caminhos que não têm uma política específica atribuída a eles.
+Digamos que o seu portal de aplicação tem uma política global aplicada a ela. Depois aplica-se uma política diferente a um ouvinte no portal da aplicação. A política do ouvinte agora faz efeito apenas para aquele ouvinte. A política global do gateway aplica ainda se aplica a todos os outros ouvintes e regras baseadas em caminhos que não têm uma política específica que lhes seja atribuída.
 
-## <a name="per-uri-policy"></a>Política Per-URI
+## <a name="per-uri-policy"></a>Política per-URI
 
-Para uma personalização ainda maior até ao nível URI, pode associar uma política de WAF a uma regra baseada em caminhos. Se houver certas páginas dentro de um único site que requerem políticas diferentes, pode fazer alterações na política waf que apenas afetam um determinado URI. Isto pode aplicar-se a uma página de pagamento ou início de sessão, ou a quaisquer outras URIs que necessitem de uma política waf ainda mais específica do que os outros sites por trás do seu WAF.
+Para uma personalização ainda maior até ao nível URI, pode associar uma política de WAF a uma regra baseada em caminhos. Se houver certas páginas dentro de um único site que exijam políticas diferentes, pode fazer alterações na política da WAF que apenas afetam um dado URI. Isto pode aplicar-se a uma página de pagamento ou de entrada, ou a quaisquer outros URIs que necessitem de uma política waf ainda mais específica do que os outros sites por trás da sua WAF.
 
-Tal como acontece com as políticas de WAF por site, políticas mais específicas sobrepõe-se às menos específicas. Isto significa que uma política por URI num mapa de caminhos de URL sobrepõe-se a qualquer política de WAF por site ou global acima dele.
+Tal como acontece com as políticas de WAF por site, as políticas mais específicas sobrepõem-se às menos específicas. Isto significa que uma política per-URI num mapa de caminhos DE URL substitui qualquer política de WAF por local ou global acima dela.
 
 ## <a name="example"></a>Exemplo
 
-Digamos que tem três sites: contoso.com, fabrikam.com e adatum.com todos atrás da mesma porta de aplicação. Você quer uma WAF aplicada aos três sites, mas você precisa de segurança adicional com adatum.com porque é onde os clientes visitam, navegam e compram produtos.
+Digamos que tem três sites: contoso.com, fabrikam.com e adatum.com todos atrás do mesmo portal de aplicações. Você quer um WAF aplicado nos três sites, mas você precisa de segurança adicional com adatum.com porque é onde os clientes visitam, navegam e compram produtos.
 
-Pode aplicar uma política global ao WAF, com algumas definições básicas, exclusões ou regras personalizadas, se necessário para impedir que alguns falsos positivos bloqueiem o tráfego. Neste caso, não há necessidade de ter regras globais de injeção SQL em execução porque fabrikam.com e contoso.com são páginas estáticas sem backend SQL. Para que possa desativar essas regras na política global.
+Pode aplicar uma política global à WAF, com algumas definições básicas, exclusões ou regras personalizadas, se necessário, para impedir que alguns falsos positivos bloqueiem o tráfego. Neste caso, não há necessidade de ter regras globais de injeção de SQL em funcionamento porque fabrikam.com e contoso.com são páginas estáticas sem backend SQL. Para que possa desativar essas regras na política global.
 
-Esta política global é adequada para contoso.com e fabrikam.com, mas é preciso ter mais cuidado com adatum.com onde se trata de um sinal de informação e de pagamentos. Pode aplicar uma política por site ao ouvinte adato e deixar as regras SQL em funcionamento. Também assuma que há um cookie bloqueando algum tráfego, para que você possa criar uma exclusão para que esse cookie pare o falso positivo. 
+Esta política global é adequada para contoso.com e fabrikam.com, mas é preciso ter mais cuidado com adatum.com onde o sinal de informação e pagamentos são tratados. Pode aplicar uma política por local ao ouvinte do adatum e deixar as regras SQL em funcionamento. Também assuma que há um cookie bloqueando algum tráfego, para que você possa criar uma exclusão para que o cookie pare o falso positivo. 
 
 O adatum.com/payments URI é onde tens de ter cuidado. Por isso, aplique outra política sobre esse URI e deixe todas as regras ativadas, e também remova todas as exclusões.
 
-Neste exemplo, tem uma política global que se aplica a dois sites. Você tem uma política por site que se aplica a um site, e depois uma política por URI que se aplica a uma regra específica baseada em caminhos. Consulte (insira o link aqui quando existe) como criar políticas por site e por URI para o PowerShell correspondente para este exemplo.
+Neste exemplo, tem uma política global que se aplica a dois sites. Você tem uma política por site que se aplica a um site, e depois uma política per-URI que se aplica a uma regra específica baseada em caminhos. Consulte (inserir link aqui quando existir) como criar por site e políticas por URI para o exemplo do PowerShell correspondente.
 
 ## <a name="existing-waf-configurations"></a>Configurações WAF existentes
 
-Todas as novas definições waf da Firewall de aplicação web (regras personalizadas, configurações de conjuntos de regras geridas, exclusões, e assim por diante.) existem numa política WAF. Se tiver um WAF existente, estas definições podem ainda existir na sua configuração WAF. Para obter mais informações sobre a mudança para a nova política da WAF, [migrar WAF Config para uma política waf](https://docs.microsoft.com/azure/web-application-firewall/ag/migrate-policy). 
+Todas as definições waf da Web Application Firewall (regras personalizadas, configurações de definição de regras geridas, exclusões e assim por diante.) existem numa política da WAF. Se tiver um WAF existente, estas definições ainda podem existir na sua configuração WAF. Para obter mais informações sobre a mudança para a nova política da WAF, [Migrar WAF Config para uma Política da WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/migrate-policy). 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Crie políticas por site e por URI utilizando o Azure PowerShell.
+Crie políticas por site e per-URI utilizando a Azure PowerShell.

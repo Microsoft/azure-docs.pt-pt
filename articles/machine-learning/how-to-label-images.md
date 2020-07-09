@@ -1,22 +1,22 @@
 ---
-title: Marque imagens em um projeto de rotulagem
+title: Identifie imagens em um projeto de rotulagem
 title.suffix: Azure Machine Learning
-description: Aprenda a utilizar as ferramentas de marcação de dados num projeto de rotulagem de Machine Learning Azure.
+description: Saiba como utilizar as ferramentas de marcação de dados num projeto de rotulagem Azure Machine Learning.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 22b77b79ea3f8c6744c2eba064c52e6d9e29c2b9
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: MT
+ms.openlocfilehash: 0421e5ad164c440c1b841cae66e7dafc5deadb81
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758916"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025136"
 ---
-# <a name="tag-images-in-a-labeling-project-preview"></a>Marque imagens num projeto de rotulagem (pré-visualização)
+# <a name="tag-images-in-a-labeling-project-preview"></a>Identifite imagens num projeto de rotulagem (pré-visualização)
 
-Depois de o administrador do projeto criar um projeto de [rotulagem](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) no Azure Machine Learning, pode utilizar a ferramenta de rotulagem (pré-visualização pública) para preparar rapidamente dados para um projeto de Machine Learning. Este artigo descreve:
+Depois de o administrador do seu projeto [criar um projeto de rotulagem](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) em Azure Machine Learning, pode utilizar a ferramenta de rotulagem (pré-visualização pública) para preparar rapidamente dados para um projeto de Machine Learning. Este artigo descreve:
 
 > [!div class="checklist"]
 > * Como aceder aos seus projetos de rotulagem
@@ -25,112 +25,112 @@ Depois de o administrador do projeto criar um projeto de [rotulagem](https://doc
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma [conta Microsoft](https://account.microsoft.com/account) ou uma conta Azure Ative Diretório para a organização e projeto
-* Acesso ao nível dos contribuintes ao espaço de trabalho que contém o projeto de rotulagem.
+* Uma [conta microsoft](https://account.microsoft.com/account) ou uma conta de Azure Ative Directory para a organização e projeto
+* Acesso ao nível do contribuinte ao espaço de trabalho que contém o projeto de rotulagem.
 
 ## <a name="sign-in-to-the-workspace"></a>Inscreva-se no espaço de trabalho
 
-1. Inscreva-se no [estúdio Azure Machine Learning.](https://ml.azure.com)
+1. Inscreva-se no [estúdio Azure Machine Learning](https://ml.azure.com).
 
-1. Selecione a subscrição e o espaço de trabalho que contém o projeto de rotulagem.  Obtenha esta informação do administrador do seu projeto.
+1. Selecione a subscrição e o espaço de trabalho que contém o projeto de rotulagem.  Obtenha esta informação do seu administrador do projeto.
 
-1. Selecione **a rotulagem de Dados** no lado esquerdo para encontrar o projeto.  
+1. Selecione **data labeling** no lado esquerdo para encontrar o projeto.  
 
 1. Selecione o nome do projeto na lista.
 
 ## <a name="understand-the-labeling-task"></a>Compreender a tarefa de rotulagem
 
-Uma vez selecionado o projeto, no topo da página, selecione dados do **Rótulo**.
+Uma vez selecionado o projeto, no topo da página, selecione **Os dados do Rótulo**.
 
-Veja instruções específicas para o seu projeto. Eles explicam o tipo de dados que está a enfrentar, como deve tomar as suas decisões, e outras informações relevantes. Depois de ler esta informação, no topo da página selecione **Tarefas**.  Ou na parte inferior da página, selecione **Iniciar a rotulagem**.
+Você vê instruções específicas para o seu projeto. Eles explicam o tipo de dados que está a enfrentar, como deve tomar as suas decisões, e outras informações relevantes. Depois de ler esta informação, no topo da página selecione **Tarefas**.  Ou na parte inferior da página, selecione **Iniciar a rotulagem**.
 
 ## <a name="common-features-of-the-labeling-task"></a>Características comuns da tarefa de rotulagem
 
-Em todas as tarefas de rotulagem de imagem, você escolhe uma etiqueta ou etiquetas apropriadas de um conjunto especificado pelo administrador do projeto. Pode selecionar as primeiras nove etiquetas utilizando as teclas de número no teclado.  
+Em todas as tarefas de rotulagem de imagem, você escolhe uma etiqueta ou etiquetas apropriadas de um conjunto especificado pelo administrador do projeto. Pode selecionar as primeiras nove tags utilizando as teclas numerais do seu teclado.  
 
-Em tarefas de classificação de imagem, pode optar por ver várias imagens simultaneamente. Utilize os ícones acima da área de imagem para selecionar o layout. 
+Nas tarefas de classificação de imagem, pode optar por visualizar várias imagens simultaneamente. Utilize os ícones acima da área de imagem para selecionar o layout. 
 
-Para selecionar todas as imagens exibidas simultaneamente, utilize **Selecione todas**. Para selecionar imagens individuais, utilize o botão de seleção circular no canto superior direito da imagem. Deve selecionar pelo menos uma imagem para aplicar uma etiqueta. Se selecionar várias imagens, qualquer etiqueta que selecionar será aplicada a todas as imagens selecionadas.
+Para selecionar simultaneamente todas as imagens apresentadas, utilize **Selecione todas**. Para selecionar imagens individuais, utilize o botão de seleção circular no canto superior direito da imagem. Deve selecionar pelo menos uma imagem para aplicar uma etiqueta. Se selecionar várias imagens, qualquer tag que selecione será aplicada a todas as imagens selecionadas.
 
 Aqui escolhemos um layout de dois por dois e estamos prestes a aplicar a etiqueta "Mamífero" às imagens do urso e da orca. A imagem do tubarão já estava marcada como "Peixe Cartilaginoso", e a iguana ainda não foi marcada.
 
 ![Vários layouts de imagem e seleção](./media/how-to-label-images/layouts.png)
 
 > [!Important] 
-> Só altere os layouts quando tiver uma página nova de dados não rotulados. Mudar os layouts iliba o trabalho de marcação em curso da página.
+> Só mude os layouts quando tiver uma nova página de dados não rotulados. A troca de layouts limpa o trabalho de marcação em curso da página.
 
-O Azure ativa o botão **Enviar** quando tiver marcado todas as imagens da página. Selecione **Submeter** para salvar o seu trabalho.
+O Azure ativa o botão **Enviar** quando tiver marcado todas as imagens na página. **Selecione Enviar** para salvar o seu trabalho.
 
-Depois de submeter etiquetas para os dados disponíveis, o Azure atualiza a página com um novo conjunto de imagens da fila de trabalho.
+Depois de submeter tags para os dados em questão, o Azure atualiza a página com um novo conjunto de imagens da fila de trabalho.
 
-### <a name="assisted-machine-learning"></a>Aprendizagem automática assistida 
+### <a name="assisted-machine-learning"></a>Aprendizagem de máquina assistida 
 
 Os algoritmos de aprendizagem automática podem ser desencadeados. Se estes algoritmos estiverem ativados no seu projeto, poderá ver o seguinte:
 
-* Depois de alguma quantidade de imagens terem sido rotulados, poderá ver **tarefas agrupadas** na parte superior do ecrã ao lado do nome do projeto.  Isto significa que as imagens são agrunadas para apresentar imagens semelhantes na mesma página.  Em caso afirmativo, mude para uma das múltiplas vistas de imagem para tirar partido do agrupamento.  
+* Depois de alguma quantidade de imagens terem sido rotuladas, poderá ver **Tasks agrupadas** no topo do seu ecrã ao lado do nome do projeto.  Isto significa que as imagens são agrupadas para apresentar imagens semelhantes na mesma página.  Em caso afirmativo, mude para uma das múltiplas vistas de imagem para aproveitar o agrupamento.  
 
-* Num ponto posterior, poderá ver **tarefas pré-rotuladas** ao lado do nome do projeto.  As imagens aparecerão então com um rótulo sugerido que provém de um modelo de classificação de machine learning. Nenhum modelo de aprendizagem automática tem 100% de precisão. Embora utilizemos apenas imagens para as quais o modelo está confiante, estas imagens podem ainda ser incorretamente pré-rotuladas.  Quando vir estas etiquetas, corrija as etiquetas erradas antes de enviar a página.  
+* Mais tarde, poderá ver **Tasks pré-etiquetadas** ao lado do nome do projeto.  As imagens aparecerão então com um rótulo sugerido que provém de um modelo de classificação de machine learning. Nenhum modelo de aprendizagem automática tem 100% de precisão. Embora utilizemos apenas imagens para as quais o modelo está confiante, estas imagens ainda podem estar incorretamente pré-etiquetadas.  Quando vir estas etiquetas, corrija as etiquetas erradas antes de enviar a página.  
 
-* Para os modelos de deteção de objetos, pode ver caixas de delimitação e etiquetas já presentes.  Corrija os que estiverem incorretos antes de submeter a página.
+* Para modelos de deteção de objetos, pode ver caixas e etiquetas já presentes.  Corrija qualquer que esteja incorreta antes de enviar a página.
 
-Especialmente no início de um projeto de rotulagem, o modelo de aprendizagem automática só pode ser preciso o suficiente para pré-rotular um pequeno subconjunto de imagens. Uma vez rotulados estas imagens, o projeto de rotulagem voltará à rotulagem manual para recolher mais dados para a próxima ronda de formação de modelos. Com o tempo, o modelo tornar-se-á mais confiante sobre uma maior proporção de imagens, resultando em tarefas mais pré-rotuladas mais tarde no projeto.
+Especialmente no início de um projeto de rotulagem, o modelo de machine learning só pode ser preciso o suficiente para pré-lobel um pequeno subconjunto de imagens. Uma vez rotuladas estas imagens, o projeto de rotulagem voltará à rotulagem manual para recolher mais dados para a próxima ronda de formação de modelos. Com o passar do tempo, o modelo ficará mais confiante sobre uma maior proporção de imagens, resultando em tarefas mais pré-escritas mais tarde no projeto.
 
-## <a name="tag-images-for-multi-class-classification"></a>Marque imagens para classificação multi-classe
+## <a name="tag-images-for-multi-class-classification"></a>Etiquetar imagens para classificação multi-classes
 
-Se o seu projeto for de tipo "Classificação de Imagem Multiclasse", atribuirá uma única etiqueta a toda a imagem. Para rever as instruções a qualquer momento, vá à página **instruções** e selecione **Ver instruções detalhadas**.
+Se o seu projeto for do tipo "Classificação de Imagem Multi-Class", atribuirá uma única etiqueta a toda a imagem. Para rever as instruções a qualquer momento, vá à página **Instruções** e selecione **Ver instruções detalhadas**.
 
-Se perceber que cometeu um erro depois de atribuir uma etiqueta a uma imagem, pode consertá-la. Selecione o "**X**" na etiqueta que é exibida abaixo da imagem para limpar a etiqueta. Ou, selecione a imagem e escolha outra classe. O valor recentemente selecionado substituirá a etiqueta anteriormente aplicada.
+Se perceber que cometeu um erro depois de atribuir uma etiqueta a uma imagem, pode consertá-la. Selecione o "**X**" na etiqueta que é exibida abaixo da imagem para limpar a etiqueta. Ou, selecione a imagem e escolha outra classe. O valor recentemente selecionado substituirá a etiqueta previamente aplicada.
 
-## <a name="tag-images-for-multi-label-classification"></a>Marque imagens para classificação multi-etiqueta
+## <a name="tag-images-for-multi-label-classification"></a>Etiquetar imagens para classificação multi-rótulo
 
-Se estiver a trabalhar num projeto de tipo "Image Classification Multi-Label", aplicará uma *ou mais* etiquetas a uma imagem. Para ver as instruções específicas do projeto, selecione **Instruções** e vá ver **instruções detalhadas**.
+Se estiver a trabalhar num projeto do tipo "Image Classification Multi-Label", aplicará uma *ou mais* etiquetas a uma imagem. Para ver as instruções específicas do projeto, selecione **Instruções** e vá **ao Ver instruções detalhadas**.
 
-Selecione a imagem que pretende rotular e, em seguida, selecione a etiqueta. A etiqueta é aplicada a todas as imagens selecionadas e, em seguida, as imagens são desselecionadas. Para aplicar mais tags, deve voltar a selecionar as imagens. A seguinte animação mostra marcação multi-etiqueta:
+Selecione a imagem que pretende rotular e, em seguida, selecione a etiqueta. A etiqueta é aplicada a todas as imagens selecionadas e, em seguida, as imagens são desmarcadas. Para aplicar mais etiquetas, tem de reseleler as imagens. A seguinte animação mostra a marcação multi-etiqueta:
 
 1. **Selecione tudo** é usado para aplicar a etiqueta "Ocean".
 1. Uma única imagem é selecionada e marcada como "Closeup".
 1. Três imagens são selecionadas e marcadas como "Grande angular".
 
-![Animação mostra fluxo multirótulo](./media/how-to-label-images/multilabel.gif)
+![Animação mostra fluxo multilabel](./media/how-to-label-images/multilabel.gif)
 
-Para corrigir um erro, clique no "**X**" para limpar uma etiqueta individual ou selecionar as imagens e, em seguida, selecionar a etiqueta, que limpa a etiqueta de todas as imagens selecionadas. Este cenário é mostrado aqui. Clicar em "Land" limpará essa etiqueta a partir das duas imagens selecionadas.
+Para corrigir um erro, clique no "**X**" para limpar uma etiqueta individual ou selecionar as imagens e, em seguida, selecione a etiqueta, que limpa a etiqueta de todas as imagens selecionadas. Este cenário é mostrado aqui. Clicar em "Land" limpará a etiqueta das duas imagens selecionadas.
 
-![Uma imagem mostra várias desselecções](./media/how-to-label-images/multiple-deselection.png)
+![Uma imagem mostra vários deselecções](./media/how-to-label-images/multiple-deselection.png)
 
-O Azure só ativará o botão **Enviar** depois de ter aplicado pelo menos uma etiqueta em cada imagem. Selecione **Submeter** para salvar o seu trabalho.
+O Azure só ativará o botão **Enviar** depois de ter aplicado pelo menos uma etiqueta em cada imagem. **Selecione Enviar** para salvar o seu trabalho.
 
 
 ## <a name="tag-images-and-specify-bounding-boxes-for-object-detection"></a>Marque imagens e especifique caixas de delimitação para deteção de objetos
 
-Se o seu projeto for do tipo "Identificação de Objetos (Caixas de delimitação)", especifique uma ou mais caixas de delimitação na imagem e aplique uma etiqueta em cada caixa. As imagens podem ter várias caixas de delimitação, cada uma com uma única etiqueta. Utilização **Ver instruções detalhadas** para determinar se várias caixas de delimitação são usadas no seu projeto.
+Se o seu projeto for do tipo "Identificação de Objetos (Caixas Delimitadoras)", especificará uma ou mais caixas de delimitação na imagem e aplicará uma etiqueta em cada caixa. As imagens podem ter várias caixas de delimitação, cada uma com uma única etiqueta. Utilize **instruções detalhadas** para determinar se são utilizadas várias caixas de delimitação no seu projeto.
 
 1. Selecione uma etiqueta para a caixa de delimitação que pretende criar.
-1. Selecione a ferramenta **retangular** da ![ caixa Retangular ](./media/how-to-label-images/rectangular-box-tool.png) ou selecione "R"
-3. Clique e arraste na diagonal através do seu alvo para criar uma caixa de delimitação áspera. Para ajustar a caixa de delimitação, arraste as bordas ou cantos.
+1. Selecione a ferramenta **caixa retangular** ![ ferramenta caixa retangular ](./media/how-to-label-images/rectangular-box-tool.png) ou selecione "R".
+3. Clique e arraste diagonalmente através do seu alvo para criar uma caixa de delimitação áspera. Para ajustar a caixa de delimitação, arraste as bordas ou os cantos.
 
-![Uma imagem mostra a criação básica de caixa de limitador.](./media/how-to-label-images/bounding-box-sequence.png)
+![Uma imagem mostra a criação de uma caixa de delimitação básica.](./media/how-to-label-images/bounding-box-sequence.png)
 
 Para eliminar uma caixa de delimitação, clique no alvo em forma de X que aparece ao lado da caixa de delimitação após a criação.
 
-Não pode supor a etiqueta de uma caixa de delimitação existente. Se cometer um erro de atribuição de etiquetas, tem de apagar a caixa de delimitação e criar uma nova com a etiqueta correta.
+Não pode mudar a etiqueta de uma caixa de limites existente. Se cometer um erro de atribuição de etiquetas, tem de apagar a caixa de delimitação e criar uma nova com a etiqueta correta.
 
-Por padrão, pode editar as caixas de delimitação existentes. A ferramenta **Lock/unlock regions** ![ Lock/unlock regions ](./media/how-to-label-images/lock-bounding-boxes-tool.png) ou "L" alterna esse comportamento. Se as regiões estiverem bloqueadas, só pode alterar a forma ou a localização de uma nova caixa de delimitação.
+Por predefinição, pode editar as caixas existentes. A ferramenta **lock/desbloqueie regiões** ![ Bloquear/desbloquear regiões ](./media/how-to-label-images/lock-bounding-boxes-tool.png) ferramenta ou "L" alterna esse comportamento. Se as regiões estiverem bloqueadas, só pode alterar a forma ou a localização de uma nova caixa de delimitação.
 
-Utilize a ferramenta de **manipulação regiões** ![ Ferramenta de manipulação ](./media/how-to-label-images/regions-tool.png) regiões ou "M" para ajustar uma caixa de delimitação existente. Arraste as bordas ou cantos para ajustar a forma. Clique no interior para poder arrastar toda a caixa de limitadora. Se não consegue editar uma região, provavelmente alterou a ferramenta **de regiões Lock/unlock.**
+Utilize a ferramenta **de manipulação regiões** ![ Ferramenta de manipulação regiões ](./media/how-to-label-images/regions-tool.png) ou "M" para ajustar uma caixa de delimitação existente. Arraste as bordas ou os cantos para ajustar a forma. Clique no interior para poder arrastar toda a caixa de delimitação. Se não consegue editar uma região, provavelmente alterou a ferramenta **de regiões de bloqueio/desbloqueio.**
 
-Utilize a ferramenta de caixa de modelo **seleção baseada em** ![ ](./media/how-to-label-images/template-box-tool.png) modeloou "T" para criar várias caixas de delimitação do mesmo tamanho. Se a imagem não tiver caixas de delimitação e ativar caixas baseadas em modelos, a ferramenta produzirá caixas de 50 por 50 pixels. Se criar uma caixa de delimitação e, em seguida, ativar caixas baseadas em modelos, quaisquer novas caixas de delimitação serão do tamanho da última caixa que criou. As caixas baseadas em modelos podem ser redimensionadas após a colocação. Redimensionar uma caixa baseada em modelo somente apenas redimensiona essa caixa em particular.
+Utilize a ferramenta **de caixa baseada no modelo** ferramenta ferramenta ferramenta ![ modelo-box ](./media/how-to-label-images/template-box-tool.png) ou "T" para criar caixas de delimitação múltiplas do mesmo tamanho. Se a imagem não tiver caixas de delimitação e ativar caixas baseadas em modelos, a ferramenta produzirá caixas de 50 por 50 pixels. Se criar uma caixa de delimitação e, em seguida, ativar caixas baseadas em modelos, quaisquer novas caixas de delimitação serão do tamanho da última caixa que criou. As caixas baseadas em modelos podem ser redimensionadas após a colocação. Redimensionar uma caixa baseada em modelo só redimensiona essa caixa em particular.
 
-Para eliminar *todas as* caixas de delimitação na imagem atual, selecione a ferramenta Eliminar todas **as regiões** Eliminar as ![ regiões ferramenta ](./media/how-to-label-images/delete-regions-tool.png) .
+Para eliminar *todas as* caixas de delimitação na imagem atual, selecione a ferramenta Eliminar todas **as regiões** ![ Eliminar regiões ](./media/how-to-label-images/delete-regions-tool.png) .
 
-Depois de criar as caixas de delimitação para uma imagem, selecione **Enviar** para salvar o seu trabalho, ou o seu trabalho em curso não será guardado.
+Depois de criar as caixas de delimitação para uma imagem, **selecione Submeter-se** para salvar o seu trabalho, ou o seu trabalho em curso não será guardado.
 
 ## <a name="finish-up"></a>Concluir
 
-Ao submeter uma página de dados marcados, o Azure atribui-lhe novos dados não rotulados a partir de uma fila de trabalho. Se não houver mais dados não rotulados disponíveis, receberá uma mensagem a notar isso juntamente com um link para a página inicial do portal.
+Quando envia uma página de dados marcados, o Azure atribui-lhe novos dados não identificados a partir de uma fila de trabalho. Se não houver mais dados não rotulados disponíveis, receberá uma mensagem a notar isto juntamente com um link para a página inicial do portal.
 
-Quando terminar a rotulagem, selecione o seu nome no canto superior direito do portal de rotulagem e, em seguida, selecione o **sign-out**. Se não assinar, eventualmente o Azure irá "cronometrar- te" e atribuir os seus dados a outro rotulador.
+Quando terminar a rotulagem, selecione o seu nome no canto superior direito do portal de rotulagem e, em seguida, selecione **a sing-out**. Se não assinar, eventualmente, o Azure irá "cronometrar" e atribuir os seus dados a outro labeler.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Aprenda a treinar modelos de classificação de [imagem em Azure](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml)
+* Aprenda a [treinar modelos de classificação de imagem em Azure](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml)
 

@@ -1,6 +1,6 @@
 ---
-title: H264 Bitrate Múltiplo 1080p Áudio 5.1 [ Microsoft Docs
-description: O tópico dá uma visão geral da predefinição de tarefa de **1080p Áudio 5.1 do H264.**
+title: H264 Bitrate Múltiplo 1080p Áudio 5.1 / Microsoft Docs
+description: O tópico apresenta uma visão geral do **predefinição da tarefa H264 Multiple Bitrate 1080p Audio 5.1.**
 author: Juliako
 manager: femila
 editor: ''
@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 53ea54406969d246845018191960b13b8ee9a08a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61129768"
 ---
 # <a name="h264-multiple-bitrate-1080p-audio-51"></a>H264 Taxas de Bits Múltiplas 1080p Audio 5.1 
 
-`Media Encoder Standard`define um conjunto de predefinições de codificação que pode usar ao criar trabalhos de codificação. Pode utilizar um `preset name` para especificar em que formato pretende codificar o seu ficheiro de mídia. Ou, pode criar os seus próprios presets baseados em JSON ou XML (utilizando a codificação UTF-8 ou UTF-16. Em seguida, passaria o predefinido personalizado para o codificador. Para a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificador, consulte predefinições de tarefa para Media [Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`define um conjunto de predefinições codificantes que pode usar ao criar trabalhos de codificação. Pode utilizar um `preset name` para especificar em que formato gostaria de codificar o seu ficheiro de mídia. Ou, pode criar as suas próprias predefinições baseadas em JSON ou XML (utilizando codificação UTF-8 ou UTF-16. Passaria então a predefinição personalizada para o codificar. Para a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificadores, consulte [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- Este tópico `H264 Multiple Bitrate 1080p Audio 5.1` mostra o predefinido no formato XML e JSON.  
+ Este tópico mostra a `H264 Multiple Bitrate 1080p Audio 5.1` predefinição no formato XML e JSON.  
   
- Este preset produz um conjunto de 8 ficheiros MP4 alinhados com GOP, que variam entre 6000 kbps e 400 kbps, e áudio AAC 5.1. Para obter informações detalhadas sobre o perfil, bitrate, taxa de amostragem, etc. deste predefinido, examine o XML ou JSON definidos abaixo. Para obter explicações sobre o que cada elemento significa, e os valores válidos para cada elemento, consulte o esquema Padrão do [Codificador de Meios](media-services-mes-schema.md).  
+ Esta predefinição produz um conjunto de 8 ficheiros MP4 alinhados com GOP, que variam de 6000 kbps a 400 kbps, e áudio AAC 5.1. Para obter informações detalhadas sobre o perfil, o bitrate, a taxa de amostragem, etc. desta predefinição, examine o XML ou JSON definido abaixo. Para obter explicações sobre o que cada elemento significa e os valores válidos para cada elemento, consulte o [esquema padrão da Media Encoder](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Ao modificar `Width` os `Height` valores e valores entre camadas, certifique-se de que a relação de aspeto permanece consistente. Por exemplo: 1920x1080, 1280x720, 1080x576, 640x360. Não deve utilizar uma mistura de rácios de aspetos, tais como: 1280x720, 720x480, 640x360.  
+>  Ao modificar os `Width` valores e `Height` valores através das camadas, certifique-se de que a relação de aspeto permanece consistente. Por exemplo: 1920x1080, 1280x720, 1080x576, 640x360. Não deve utilizar uma mistura de rácios de aspeto, tais como: 1280x720, 720x480, 640x360.  
   
  XML  
   

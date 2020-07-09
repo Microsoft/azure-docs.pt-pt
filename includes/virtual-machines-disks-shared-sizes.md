@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,22 +9,22 @@ ms.date: 04/06/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 0b185d545e129c941d5df2e8ce86ee684174b666
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81008359"
 ---
-Por enquanto, apenas discos ultra e SSDs premium podem ativar discos partilhados. Diferentes tamanhos de `maxShares` disco podem ter um limite `maxShares` diferente, que não pode exceder ao definir o valor. Para SSDs premium, os tamanhos do disco que suportam a partilha dos seus discos são P15 e maiores.
+Por enquanto, apenas discos ultra e SSDs premium podem ativar discos partilhados. Diferentes tamanhos de disco podem ter um `maxShares` limite diferente, que não pode exceder ao definir o `maxShares` valor. Para SSDs premium, os tamanhos de disco que suportam a partilha dos seus discos são P15 e maiores.
 
-Para cada disco, pode `maxShares` definir um valor que representa o número máximo de nós que podem simultaneamente partilhar o disco. Por exemplo, se planeia criar um cluster de 2 nós, `maxShares=2`definiria . O valor máximo é um limite superior. Os nós podem juntar ou deixar o cluster (montar ou desmontar o disco) desde `maxShares` que o número de nós seja inferior ao valor especificado.
+Para cada disco, pode definir um `maxShares` valor que represente o número máximo de nós que podem simultaneamente partilhar o disco. Por exemplo, se planeia configurar um cluster de falha de 2 nós, definiria `maxShares=2` . O valor máximo é um limite superior. Os nós podem unir-se ou sair do cluster (montar ou desmontar o disco) desde que o número de nós seja inferior ao `maxShares` valor especificado.
 
 > [!NOTE]
-> O `maxShares` valor só pode ser definido ou editado quando o disco é separado de todos os nós.
+> O `maxShares` valor só pode ser definido ou editado quando o disco é desligado de todos os nós.
 
 ### <a name="premium-ssd-ranges"></a>Gamas Premium SSD
 
-A tabela que se segue `maxShares` ilustra os valores máximos permitidos por tamanhos de disco premium:
+O quadro a seguir ilustra os valores máximos permitidos `maxShares` por tamanhos de disco premium:
 
 |Tamanhos de disco  |limite maxShares  |
 |---------|---------|
@@ -32,8 +32,8 @@ A tabela que se segue `maxShares` ilustra os valores máximos permitidos por tam
 |P30, P40, P50     |5         |
 |P60, P70, P80     |10         |
 
-Os limites de iopS e largura de `maxShares` banda para um disco não são afetados pelo valor. Por exemplo, o IOPS max de um disco P15 é de 1100, quer maxShares = 1 ou maxShares > 1.
+Os limites de largura de banda e IOPS para um disco não são afetados pelo `maxShares` valor. Por exemplo, o IOPS máximo de um disco P15 é de 1100 quer maxShares = 1 ou maxShares > 1.
 
-### <a name="ultra-disk-ranges"></a>Gamas ultra-disco
+### <a name="ultra-disk-ranges"></a>Gamas ultra disco
 
-O `maxShares` valor mínimo é 1, enquanto o valor máximo `maxShares` é de 5. Não existem restrições de tamanho em discos ultra, qualquer `maxShares`tamanho ultra disco pode usar qualquer valor para , até e incluindo o valor máximo.
+O valor mínimo `maxShares` é 1, enquanto o valor máximo `maxShares` é de 5. Não existem restrições de tamanho em discos ultra, qualquer disco ultra de tamanho pode usar qualquer valor para `maxShares` , até e incluindo o valor máximo.

@@ -10,6 +10,8 @@
 - name: Guias de Início Rápido
   expaned: true
   items:
+    - name: Utilizar a biblioteca de cliente
+      href: quickstarts/client-library.md
     - name: Utilização da ferramenta de etiquetagem de exemplo
       items:
         - name: Preparar modelo personalizado com etiquetas
@@ -36,12 +38,12 @@
           items:
             - name: Python
               href: quickstarts/python-layout.md
-    - name: Utilizar o SDK .NET
-      href: quickstarts/dotnet-sdk.md
 - name: Tutoriais
   items:
     - name: Utilizar o Reconhecedor de Formato com o Azure Logic Apps
       href: tutorial-form-recognizer-with-logic-apps.md
+    - name: Utilizar o Reconhecedor de Formato com o Cognitive Search
+      href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
 - name: Guias de procedimentos
   items:
     - name: Criar um conjunto de dados de preparação
@@ -58,16 +60,24 @@
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: Utilizar instâncias de contentor
           href: deploy-form-recognizer-on-container-instances.md
+    - name: Fazer a cópia de segurança e recuperar modelos
+      href: disaster-recovery.md
 - name: Referência
   items:
     - name: API do Reconhecedor de Formato v2.0
-      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm'
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
     - name: API do Reconhecedor de Formato v1.0
       href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel'
     - name: SDKs
       items:
         - name: .NET
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/formrecognizer'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/formrecognizer'
+        - name: JavaScript
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer'
 - name: Recursos
   items:
     - name: Preços e limites

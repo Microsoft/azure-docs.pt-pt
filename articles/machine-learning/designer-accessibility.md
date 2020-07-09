@@ -11,40 +11,39 @@ author: peterclu
 ms.date: 01/09/2020
 ms.custom: designer
 ms.openlocfilehash: af676f128796c762b330d986836ea825a36cb246
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83646302"
 ---
-# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Utilize um teclado para utilizar o designer de machine learning Azure (pré-visualização)
+# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Use um teclado para usar o designer de machine learning Azure (pré-visualização)
 
-Aprenda a usar um leitor de teclado e ecrã para utilizar o designer de Machine Learning Azure. Para uma lista de atalhos de teclado que funcionam em todo o lado no portal Azure, consulte [atalhos de teclado no portal Azure](../azure-portal/azure-portal-keyboard-shortcuts.md)
+Aprenda a usar um leitor de teclado e ecrã para usar o designer Azure Machine Learning. Para obter uma lista de atalhos de teclado que funcionam em todo o lado no portal Azure, consulte [atalhos de teclado no portal Azure](../azure-portal/azure-portal-keyboard-shortcuts.md)
 
-Este fluxo de trabalho foi testado com [o Narrador](https://support.microsoft.com/help/22798/windows-10-complete-guide-to-narrator) e o [JAWS,](https://www.freedomscientific.com/products/software/jaws/)mas deve funcionar com outros leitores de ecrã padrão.
+Este fluxo de trabalho foi testado com [o Narrator](https://support.microsoft.com/help/22798/windows-10-complete-guide-to-narrator) e [o JAWS,](https://www.freedomscientific.com/products/software/jaws/)mas deve funcionar com outros leitores de ecrã padrão.
 
-## <a name="navigate-the-pipeline-graph"></a>Navegue no gráfico do oleoduto
+## <a name="navigate-the-pipeline-graph"></a>Navegue no gráfico do gasoduto
 
-O gráfico do oleoduto é organizado como uma lista aninhada. A lista externa é uma lista de módulos, que descreve todos os módulos do gráfico do pipeline. A lista interna é uma lista de ligação, que descreve todas as ligações de um módulo específico.  
+O gráfico do pipeline é organizado como uma lista aninhada. A lista exterior é uma lista de módulos, que descreve todos os módulos no gráfico do pipeline. A lista interna é uma lista de ligações, que descreve todas as ligações de um módulo específico.  
 
-1. Na lista de módulos, utilize a tecla seta para mudar os módulos.
-1. Utilize o separador para abrir a lista de ligação para o módulo alvo.
-1. Utilize a tecla seta para alternar entre as portas de ligação para o módulo.
-1. Utilize "G" para ir ao módulo alvo.
+1. Na lista de módulos, utilize a tecla de seta para mudar os módulos.
+1. Utilize o separador para abrir a lista de ligação para o módulo-alvo.
+1. Utilize a tecla de seta para alternar entre as portas de ligação para o módulo.
+1. Use "G" para ir ao módulo alvo.
 
 ## <a name="edit-the-pipeline-graph"></a>Editar o gráfico do pipeline
 
 ### <a name="add-a-module-to-the-graph"></a>Adicione um módulo ao gráfico
 
 1. Utilize ctrl+F6 para mudar o foco da tela para a árvore do módulo.
-1. Encontre o módulo desejado na árvore do módulo utilizando o controlo padrão da visão da árvore.
+1. Encontre o módulo desejado na árvore do módulo utilizando o controlo padrão da visão de árvore.
 
 ### <a name="edit-a-module"></a>Editar um módulo
 
 Para ligar um módulo a outro módulo:
 
 1. Utilize ctrl + Shift + H ao direcionar um módulo na lista de módulos para abrir o ajudante de ligação.
-1. Editar as portas de ligação para o módulo.
+1. Edite as portas de ligação para o módulo.
 
 Para ajustar as propriedades do módulo:
 
@@ -53,19 +52,19 @@ Para ajustar as propriedades do módulo:
 
 ## <a name="navigation-shortcuts"></a>Atalhos de navegação
 
-| Tecla | Descrição |
+| Toque de tecla | Descrição |
 |-|-|
 | Ctrl + F6 | Foco de alternância entre tela e árvore de módulo |
-| Ctrl + F1   | Abra o cartão de informações quando se concentrar num nó na árvore do módulo |
+| Ctrl + F1   | Abra o cartão de informação ao concentrar-se num nó na árvore do módulo |
 | Ctrl + Turno + H | Abra o ajudante de ligação quando o foco estiver num nó |
-| Ctrl + Turno + E | Abrir propriedades do módulo quando o foco está em um nó |
+| Ctrl + Turno + E | Abra as propriedades do módulo quando o foco está num nó |
 | Ctrl + G | Mova o foco para o primeiro nó falhado se o gasoduto falhar |
 
 ## <a name="action-shortcuts"></a>Atalhos de ação
 
-Utilize os seguintes atalhos com a chave de acesso. Para obter mais informações sobre as teclas de acesso, consulte https://en.wikipedia.org/wiki/Access_key .
+Utilize os seguintes atalhos com a chave de acesso. Para obter mais informações sobre as teclas de acesso, https://en.wikipedia.org/wiki/Access_key consulte.
 
-| Tecla | Ação |
+| Toque de tecla | Ação |
 |-|-|
 | Chave de acesso + R | Executar |
 | Chave de acesso + P | Publicar |
@@ -73,11 +72,11 @@ Utilize os seguintes atalhos com a chave de acesso. Para obter mais informaçõe
 | Chave de acesso + D | Implementação |
 | Chave de acesso + I | Criar/atualizar o gasoduto de inferência |
 | Chave de acesso + B | Criar/atualizar o gasoduto de inferência do lote |
-| Chave de acesso + K | Open "Create inference pipeline" dropdown |
-| Chave de acesso + U | Abrir "Update inference pipeline" dropdown |
+| Chave de acesso + K | Abra o dropdown "Create inference pipeline" |
+| Chave de acesso + U | Abra o dropdown "Update inference pipeline" |
 | Chave de acesso + M | Abrir mais(...) dropdown |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Ativar o alto contraste ou a alteração de tema](../azure-portal/azure-portal-change-theme-high-contrast.md)
-- [Ferramentas relacionadas com a acessibilidade na Microsoft](https://www.microsoft.com/accessibility)
+- [Ferramentas relacionadas com acessibilidade na Microsoft](https://www.microsoft.com/accessibility)

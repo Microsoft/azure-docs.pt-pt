@@ -1,40 +1,40 @@
 ---
 title: Utilização de metadados de ficheiros em consultas
-description: A função OPENROWSET fornece informações de ficheiros e caminhos sobre cada ficheiro utilizado na consulta para filtrar ou analisar dados baseados no nome do ficheiro e/ou no caminho da pasta.
+description: A função OPENROWSET fornece informações sobre ficheiros e caminhos sobre todos os ficheiros utilizados na consulta para filtrar ou analisar dados com base no nome do ficheiro e/ou no caminho da pasta.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e8d7301799bfb4af9a0f5a6f242be929e8253d7c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: bf62d57aab07f5b1f2839b9e6e45c42e6b1b2c51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744207"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478421"
 ---
 # <a name="using-file-metadata-in-queries"></a>Utilização de metadados de ficheiros em consultas
 
-O serviço De consulta a pedido SQL pode endereçar vários ficheiros e pastas conforme descrito nas [pastas Da Query e no artigo de vários ficheiros.](query-folders-multiple-csv-files.md) Neste artigo, aprende-se a utilizar informações de metadados sobre ficheiros e nomes de pastas nas consultas.
+O serviço de consulta on-demand SQL pode abordar vários ficheiros e pastas conforme descrito nas pastas de consulta e no artigo [de vários ficheiros.](query-folders-multiple-csv-files.md) Neste artigo, aprende a utilizar informações de metadados sobre ficheiros e nomes de pastas nas consultas.
 
-Por vezes, pode ser necessário saber qual o ficheiro ou fonte de pasta que se correlaciona a uma linha específica no conjunto de resultados.
+Por vezes, poderá ser necessário saber qual o ficheiro ou fonte de pasta que se relaciona com uma linha específica no conjunto de resultados.
 
-Pode utilizar a função e devolver os nomes dos `filepath` `filename` ficheiros e/ou o caminho no conjunto de resultados. Ou pode usá-los para filtrar dados com base no nome do ficheiro e/ou no caminho da pasta. Estas funções são descritas na [função](develop-storage-files-overview.md#filename-function) de nome de ficheiro da secção sintaxe e na [função de pathpath](develop-storage-files-overview.md#filepath-function). Abaixo encontrará pequenas descrições ao longo de amostras.
+Pode utilizar a função `filepath` e `filename` devolver nomes de ficheiros e/ou o caminho no conjunto de resultados. Ou pode usá-los para filtrar dados com base no nome do ficheiro e/ou no caminho da pasta. Estas funções são descritas na [função](query-data-storage.md#filename-function) de nome de ficheiro da secção sintaxe e [função de filepa .](query-data-storage.md#filepath-function) Abaixo você encontrará breves descrições ao longo de amostras.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O seu primeiro passo é **criar uma base de dados** com uma fonte de dados que referencia a conta de armazenamento. Em seguida, inicialize os objetos executando o script de [configuração](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) nessa base de dados. Este script de configuração criará as fontes de dados, credenciais de base de dados e formatos de ficheiros externos que são utilizados nestas amostras.
+O seu primeiro passo é **criar uma base de dados** com uma fonte de dados que refira a conta de armazenamento. Em seguida, inicialize os objetos executando o [script de configuração](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) nessa base de dados. Este script de configuração criará as fontes de dados, credenciais de base de dados e formatos de ficheiros externos que são utilizados nestas amostras.
 
 ## <a name="functions"></a>Funções
 
-### <a name="filename"></a>Nome de ficheiro
+### <a name="filename"></a>Nome de arquivo
 
-Esta função devolve o nome de ficheiro de que a linha é originária.
+Esta função devolve o nome do ficheiro de que a linha é originária.
 
-A amostra seguinte lê os ficheiros de dados do Táxi Amarelo de NYC para os últimos três meses de 2017 e devolve o número de passeios por ficheiro. A parte OPENROWSET da consulta especifica quais os ficheiros que serão lidos.
+A amostra a seguir lê os ficheiros de dados do Táxi Amarelo de NYC para os últimos três meses de 2017 e devolve o número de passeios por ficheiro. A parte OPENROWSET da consulta especifica quais os ficheiros que serão lidos.
 
 ```sql
 SELECT
@@ -49,7 +49,7 @@ FROM
 GROUP BY nyc.filename();
 ```
 
-O exemplo que se segue mostra como o *nome de ficheiro ()* pode ser usado na cláusula WHERE para filtrar os ficheiros a ler. Acede a toda a pasta na parte OPENROWSET da consulta e filtra ficheiros na cláusula WHERE.
+O exemplo a seguir mostra como o *nome de ficheiros* pode ser usado na cláusula WHERE para filtrar os ficheiros a serem lidos. Acede a toda a pasta na parte OPENROWSET da consulta e filtra ficheiros na cláusula WHERE.
 
 Os seus resultados serão os mesmos que o exemplo anterior.
 
@@ -72,14 +72,14 @@ ORDER BY
     [filename];
 ```
 
-### <a name="filepath"></a>Arquivo
+### <a name="filepath"></a>Filepath
 
-A função de path derevolta um caminho completo ou parcial:
+A função filepath devolve um caminho completo ou parcial:
 
-- Quando chamado sem parâmetro, devolve o caminho de arquivo completo de que a linha provém.
-- Quando chamado com um parâmetro, devolve parte do caminho que corresponde ao wildcard na posição especificada no parâmetro. Por exemplo, o valor do parâmetro 1 devolveria parte do caminho que corresponde ao primeiro wildcard.
+- Quando chamado sem parâmetro, devolve o caminho completo do ficheiro de onde a linha se origina.
+- Quando chamado com um parâmetro, retorna parte do caminho que corresponde ao wildcard na posição especificada no parâmetro. Por exemplo, o valor do parâmetro 1 devolveria parte do caminho que corresponde ao primeiro wildcard.
 
-A amostra seguinte lê ficheiros de dados do Táxi Amarelo de NYC para os últimos três meses de 2017. Devolve o número de passeios por caminho de arquivo. A parte OPENROWSET da consulta especifica quais os ficheiros que serão lidos.
+A amostra a seguir lê os ficheiros de dados do Táxi Amarelo de NYC para os últimos três meses de 2017. Devolve o número de passeios por caminho de arquivo. A parte OPENROWSET da consulta especifica quais os ficheiros que serão lidos.
 
 ```sql
 SELECT
@@ -101,7 +101,7 @@ ORDER BY
     filepath;
 ```
 
-O exemplo que se segue mostra como o *processo* pode ser utilizado na cláusula WHERE para filtrar os ficheiros a ler.
+O exemplo a seguir mostra como *o filepath pode* ser usado na cláusula WHERE para filtrar os ficheiros a serem lidos.
 
 Pode utilizar os wildcards na parte OPENROWSET da consulta e filtrar os ficheiros na cláusula WHERE. Os seus resultados serão os mesmos que o exemplo anterior.
 
@@ -132,6 +132,6 @@ ORDER BY
     filepath;
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 No próximo artigo, aprenderá a [consultar ficheiros Parquet.](query-parquet-files.md)

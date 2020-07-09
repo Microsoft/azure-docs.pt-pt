@@ -1,6 +1,6 @@
 ---
-title: 'Agente de fornecimento de nuvem Azure AD Connect: Atualização automática / Microsoft Docs'
-description: Este artigo descreve a funcionalidade de atualização automática incorporada no agente de fornecimento de nuvem Azure AD Connect.
+title: 'Azure AD Connect agente de provisionamento em nuvem: Atualização automática / Microsoft Docs'
+description: Este artigo descreve a funcionalidade de atualização automática incorporada no agente de provisionamento de nuvem Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -8,46 +8,46 @@ manager: daveba
 editor: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f09b2fc685881aa8a7bd87b6a855c657af9ef43d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d0f7093f44a284ec26907d7c4bcfb2bdfd04763
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78190318"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360916"
 ---
-# <a name="azure-ad-connect-cloud-provisioning-agent-automatic-upgrade"></a>Agente de fornecimento de nuvem Azure AD Connect: Upgrade automático
+# <a name="azure-ad-connect-cloud-provisioning-agent-automatic-upgrade"></a>Azure AD Connect agente de provisionamento em nuvem: Atualização automática
 
-Certificar-se de que a instalação do agente de fornecimento de nuvem Azure Ative (Azure AD) connect é sempre atualizada com a funcionalidade de atualização automática.
+Certificar-se de que o seu Azure Ative Directory (Azure AD) Conecte a instalação do agente de provisionamento em nuvem é sempre atualizado é fácil com a funcionalidade de atualização automática.
 
 O agente está instalado aqui: "Ficheiros de programa\Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe"
 
-Para verificar a sua versão, clique no direito das propriedades executáveis e selecione propriedades e, em seguida, detalhes.
+Para verificar a sua versão, clique com o botão direito para executar propriedades e selecione propriedades e, em seguida, detalhes.
 
-![Versão de ficheiro do agente](media/how-to-automatic-upgrade/agent1.png)
+![Versão de ficheiro de agente](media/how-to-automatic-upgrade/agent1.png)
 
-O atualizador de agente está instalado aqui: "Ficheiros de programa\Azure AD Connect Provisioning Agent Updater\AzureADConnectAgentUpdater.exe"
+O atualizador do agente está instalado aqui: "Ficheiros de programa\Azure AD Connect Provisioning Agent Updater\AzureADConnectAgentUpdater.exe"
 
-Para verificar a sua versão, clique no direito das propriedades executáveis e selecione propriedades e, em seguida, detalhes.
+Para verificar a sua versão, clique com o botão direito para executar propriedades e selecione propriedades e, em seguida, detalhes.
 
-![Versão atualizador de agente](media/how-to-automatic-upgrade/agent2.png)
+![Versão do atualizador de agentes](media/how-to-automatic-upgrade/agent2.png)
 
 ## <a name="uninstall-the-agent"></a>Desinstalar o agente
-Para remover o agente, vá para **Desinstalar ou alterar um programa** e desinstalar o seguinte:
+Para remover o agente, vá a **Desinstalar ou alterar um programa** e desinstalar o seguinte:
 
-- **Atualização do agente de ligação ad da Microsoft Azure**
-- **Agente de provisionamento de ligação ad da Microsoft Azure**
-- **Pacote de agente de provisionamento de ligação ad da Microsoft Azure**
+- **Microsoft Azure AD Connect Agent Updater**
+- **Microsoft Azure AD Connect Provisioning Agent**
+- **Microsoft Azure AD Connect Provisioning Agent Package**
 
-![Remoção de agente](media/how-to-automatic-upgrade/agent3.png)
+![Remoção de agentes](media/how-to-automatic-upgrade/agent3.png)
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 - [O que é o aprovisionamento?](what-is-provisioning.md)
 - [O que é o aprovisionamento na cloud do Azure AD Connect?](what-is-cloud-provisioning.md)

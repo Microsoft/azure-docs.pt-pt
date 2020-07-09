@@ -1,20 +1,19 @@
 ---
-title: Elemento UI TagsByResource
-description: Descreve o elemento Microsoft.Common.TagsByResource UI para o portal Azure. Utilize para aplicar etiquetas num recurso durante a implantação.
+title: TagsByResource UI elemento
+description: Descreve o elemento UI microsoft.common.TagsByResource para o portal Azure. Utilize para aplicar etiquetas a um recurso durante a implantação.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: tomfitz
 ms.openlocfilehash: 23a7c54a84ec083b8fa470f26582913fcc3d2ee6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75652206"
 ---
-# <a name="microsoftcommontagsbyresource-ui-element"></a>Microsoft.Common.TagsByResource UI
+# <a name="microsoftcommontagsbyresource-ui-element"></a>Microsoft.Common.TagsByResource UI elemento
 
-Um controlo para associar [tags](../management/tag-resources.md) com os recursos numa implantação.
+Um controlo para associar [etiquetas](../management/tag-resources.md) com os recursos numa implantação.
 
 ## <a name="ui-sample"></a>Amostra de UI
 
@@ -49,9 +48,9 @@ Um controlo para associar [tags](../management/tag-resources.md) com os recursos
 
 ## <a name="remarks"></a>Observações
 
-- Deve especificar-se pelo `resources` menos um item da matriz.
-- Cada elemento `resources` deve ser um tipo de recurso totalmente qualificado. Estes elementos aparecem no dropdown do **Recurso** e são marcados pelo utilizador.
-- A saída do controlo é formatada para uma fácil atribuição de valores de etiqueta num modelo de Gestor de Recursos Azure. Para receber a saída do controlo num modelo, inclua um parâmetro no seu modelo, como mostra o seguinte exemplo:
+- Pelo menos um item na `resources` matriz deve ser especificado.
+- Cada elemento `resources` deve ser um tipo de recurso totalmente qualificado. Estes elementos aparecem na redução do **recurso** e são taggable pelo utilizador.
+- A saída do controlo é formatada para uma fácil atribuição de valores de etiqueta num modelo de Gestor de Recursos Azure. Para receber a saída do controlo num modelo, inclua um parâmetro no seu modelo, como mostrado no exemplo seguinte:
 
   ```json
   "parameters": {
@@ -59,7 +58,7 @@ Um controlo para associar [tags](../management/tag-resources.md) com os recursos
   }
   ```
 
-  Para cada recurso que possa ser marcado, atribua a propriedade de etiquetas ao valor do parâmetro para esse tipo de recurso:
+  Para cada recurso que possa ser marcado, atribua a propriedade tags ao valor do parâmetro para esse tipo de recurso:
 
   ```json
   {
@@ -69,9 +68,9 @@ Um controlo para associar [tags](../management/tag-resources.md) com os recursos
     ...
   ```
 
-- Utilize a função [se](../templates/template-functions-logical.md#if) ao aceder ao parâmetro tagsByResource. Permite-lhe atribuir um objeto vazio quando não são atribuídas etiquetas ao tipo de recurso dado.
+- Utilize a função [se](../templates/template-functions-logical.md#if) tiver acesso ao parâmetro TagsByResource. Permite-lhe atribuir um objeto vazio quando não são atribuídas tags ao tipo de recurso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
-- Para obter uma descrição das propriedades comuns nos elementos UI, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).
+- Para obter uma descrição das propriedades comuns em elementos de UI, consulte [os elementos CreateUiDefinition](create-uidefinition-elements.md).

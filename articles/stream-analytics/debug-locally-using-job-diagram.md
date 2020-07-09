@@ -1,46 +1,46 @@
 ---
 title: Debug Azure Stream Analytics consulta localmente usando diagrama de trabalho em Estúdio Visual
-description: Este artigo descreve como depurar consultas localmente usando diagrama de trabalho em Ferramentas de Análise de Fluxo de Azure para Estúdio Visual.
+description: Este artigo descreve como depurar consultas localmente usando o diagrama de trabalho em Azure Stream Analytics Tools for Visual Studio.
 author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 106b1f0b765700803d2cd55b5e049fae5be3dfad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86367f1dce3cc8040555827935e9ca2f9f9fb4c5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76847202"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045404"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Debug Azure Stream Analytics consulta localmente usando diagrama de trabalho em Estúdio Visual
 
-Empregos que não produzam resultados ou resultados inesperados são cenários comuns de resolução de problemas para consultas de streaming. Pode utilizar o diagrama de trabalho enquanto testa a sua consulta localmente no Estúdio Visual para examinar o conjunto de resultados intermédios e métricas para cada passo. Os diagramas de trabalho podem ajudá-lo a isolar rapidamente a origem de um problema quando se desatiram problemas.
+Empregos que não resultam nem resultados inesperados são cenários comuns de resolução de problemas para consultas de streaming. Pode utilizar o diagrama de trabalho enquanto testa a sua consulta localmente no Visual Studio para examinar o conjunto de resultados intermédios e as métricas para cada passo. Os diagramas de trabalho podem ajudá-lo a isolar rapidamente a origem de um problema quando resolver problemas.
 
-## <a name="debug-a-query-using-job-diagram"></a>Depurar uma consulta usando diagrama de trabalho
+## <a name="debug-a-query-using-job-diagram"></a>Depurar uma consulta usando o diagrama de trabalho
 
-Um script Azure Stream Analytics é usado para transformar dados de entrada em dados de saída. O diagrama de trabalho mostra como os dados fluem de fontes de entrada (Event Hub, IoT Hub, etc.) através de múltiplos passos de consulta e, finalmente, para afundações de saída. Cada passo de consulta é mapeado para um `WITH` conjunto de resultados temporário definido no script usando uma declaração. Pode ver os dados, bem como as métricas de cada passo de consulta em cada resultado intermédio definido para encontrar a origem de um problema.
+Um script Azure Stream Analytics é usado para transformar dados de entrada para dados de saída. O diagrama de trabalho mostra como os dados fluem de fontes de entrada (Event Hub, IoT Hub, etc.) através de múltiplos passos de consulta e, finalmente, para sumidouros de saída. Cada passo de consulta é mapeado para um conjunto de resultados temporário definido no script usando uma `WITH` declaração. Pode ver os dados, bem como as métricas de cada passo de consulta em cada conjunto de resultados intermédios para encontrar a origem de um problema.
 
 > [!NOTE]
 > Este diagrama de trabalho apenas mostra os dados e métricas para testes locais num único nó. Não deve ser utilizado para afinação de desempenho e resolução de problemas.
 
 ### <a name="start-local-testing"></a>Iniciar testes locais
 
-Use este [Quickstart](stream-analytics-quick-create-vs.md) para aprender a criar um trabalho de Stream Analytics usando o Visual Studio ou [exportar um trabalho existente para um projeto local.](stream-analytics-vs-tools.md#export-jobs-to-a-project) Se quiser testar a consulta com os dados de entrada locais, siga estas [instruções](stream-analytics-live-data-local-testing.md). Se quiser testar com a entrada ao vivo, passe para o próximo passo.
+Utilize este [Quickstart](stream-analytics-quick-create-vs.md) para aprender a criar um trabalho stream Analytics usando o Visual Studio ou [exporte um emprego existente para um projeto local.](stream-analytics-vs-tools.md#export-jobs-to-a-project) Se pretender testar a consulta com os dados de entrada locais, siga estas [instruções](stream-analytics-live-data-local-testing.md). Se quiser testar com entrada ao vivo, passe para o próximo passo.
 
 > [!NOTE]
-> Se exportar um emprego para o projeto local e quiser testar contra um fluxo de entrada ao vivo, precisa especificar as credenciais para todas as entradas novamente.  
+> Se exportar um emprego para um projeto local e quiser testar contra um fluxo de entrada ao vivo, precisa especificar as credenciais para todas as entradas novamente.  
 
-Escolha a fonte de entrada e saída do editor de scripts e selecione **Executar localmente**. O diagrama de trabalho aparece no lado direito.
+Escolha a fonte de entrada e saída do editor de scripts e selecione **Executar localmente.** O diagrama de trabalho aparece no lado direito.
 
 ### <a name="view-the-intermediate-result-set"></a>Ver o conjunto de resultados intermédios  
 
 1. Selecione o passo de consulta para navegar para o script. É automaticamente direcionado para o script correspondente no editor à esquerda.
 
-   ![Diagrama de trabalho navegar script](./media/debug-locally-using-job-diagram/navigate-script.png)
+   ![Diagrama de trabalho navegando script](./media/debug-locally-using-job-diagram/navigate-script.png)
 
-2. Selecione o passo de consulta e selecione **Preview** no diálogo apareceu. O conjunto de resultados é mostrado num separador na janela inferior do resultado.
+2. Selecione o passo de consulta e **selecione Preview** no diálogo poped up. O conjunto de resultados é mostrado numa lingueta na janela de resultados inferiores.
 
    ![Resultado da pré-visualização do diagrama de trabalho](./media/debug-locally-using-job-diagram/preview-result.png)
 
@@ -48,30 +48,30 @@ Escolha a fonte de entrada e saída do editor de scripts e selecione **Executar 
 
 Nesta secção, você explora as métricas disponíveis para cada parte do diagrama.
 
-#### <a name="input-sources-live-stream"></a>Fontes de entrada (live stream)
+#### <a name="input-sources-live-stream"></a>Fontes de entrada (Live stream)
 
-![Diagrama de trabalho fontes de entrada ao vivo](./media/debug-locally-using-job-diagram/live-input.png)
+![Fontes de entrada ao vivo do diagrama de trabalho](./media/debug-locally-using-job-diagram/live-input.png)
 
-|Métrica|Descrição|
+|Metric|Descrição|
 |-|-|
 |**TaxiRide**| O nome da entrada.|
 |**Hub de Eventos** | Tipo de fonte de entrada.|
 |**Eventos**|O número de eventos lidos.|
-|**Fontes de eventos atrasados**|Quantas mais mensagens precisam de ser lidas para os Centros de Eventos e inputs do IoT Hub.|
+|**Fontes de eventos retrostruidas**|Quantas mensagens mais precisam de ser lidas para os Centros de Eventos e entradas IoT Hub.|
 |**Eventos em Bytes**|O número de bytes lidos.|
-| **Eventos Degradados**|A contagem de eventos que teve um problema que não seja a desserialização.|
-|**Eventos Iniciais**| O número de eventos que têm um carimbo de tempo de aplicação antes da marca de água elevada.|
+| **Eventos Degradados**|A contagem de eventos que tiveram outro problema que não a deserialização.|
+|**Eventos Iniciais**| O número de eventos que têm um horário de inscrição antes da marca de água alta.|
 |**Eventos Tardios**| O número de eventos que têm um carimbo de tempo de aplicação após a marca de água elevada.|
-|**Fontes de eventos**| O número de unidades de dados lidas. Por exemplo, o número de bolhas.|
+|**Fontes de evento**| O número de unidades de dados lidas. Por exemplo, o número de bolhas.|
 
 #### <a name="input-sources-local-input"></a>Fontes de entrada (entrada local)
 
 ![Fontes de entrada locais do diagrama de trabalho](./media/debug-locally-using-job-diagram/local-input.png)
 
-|Métrica|Descrição|
+|Metric|Descrição|
 |-|-|
 |**TaxiRide**| O nome da entrada.|
-|**Contagem de fileiras**| O número de linhas geradas a partir do degrau.|
+|**Contagem de Linhas**| O número de linhas geradas a partir do degrau.|
 |**Tamanho dos dados**| O tamanho dos dados gerados a partir deste passo.|
 |**Entrada local**| Use os dados locais como entrada.|
 
@@ -79,50 +79,50 @@ Nesta secção, você explora as métricas disponíveis para cada parte do diagr
 
 ![Passo de consulta do diagrama de trabalho](./media/debug-locally-using-job-diagram/query-step.png)
 
-|Métrica|Descrição|
+|Metric|Descrição|
 |-|-|
 |**TripData**|O nome do conjunto de resultados temporários.|
-|**Contagem de fileiras**| O número de linhas geradas a partir do degrau.|
+|**Contagem de Linhas**| O número de linhas geradas a partir do degrau.|
 |**Tamanho dos dados**| O tamanho dos dados gerados a partir deste passo.|
   
-#### <a name="output-sinks-live-output"></a>Sumidouros de saída (saída ao vivo)
+#### <a name="output-sinks-live-output"></a>Pias de saída (saída ao vivo)
 
-![Diagrama de trabalho pias de saída local](./media/debug-locally-using-job-diagram/live-output.png)
+![Diagrama de trabalho pias de saída locais](./media/debug-locally-using-job-diagram/live-output.png)
 
-|Métrica|Descrição|
+|Metric|Descrição|
 |-|-|
-|**regionalggEH**|O nome da saída.|
-|**Eventos**|O número de eventos a chegar aos afundados.|
+|**regionaggEH**|O nome da saída.|
+|**Eventos**|O número de eventos a afundar.|
 
-#### <a name="output-sinks-local-output"></a>Sumidouros de saída (saída local)
+#### <a name="output-sinks-local-output"></a>Pias de saída (saída local)
 
-![Diagrama de trabalho pias de saída local](./media/debug-locally-using-job-diagram/local-output.png)
+![Diagrama de trabalho pias de saída locais](./media/debug-locally-using-job-diagram/local-output.png)
 
-|Métrica|Descrição|
+|Metric|Descrição|
 |-|-|
-|**regionalggEH**|O nome da saída.|
-|**Saída Local**| Resultado de saída para um arquivo local.|
-|**Contagem de fileiras**| O número de filas de saída para o arquivo local.|
-|**Tamanho dos dados**| O tamanho da saída de dados para o arquivo local.|
+|**regionaggEH**|O nome da saída.|
+|**Saída local**| Resultado de saída para um ficheiro local.|
+|**Contagem de Linhas**| O número de linhas de saída para o arquivo local.|
+|**Tamanho dos dados**| O tamanho da saída de dados para o ficheiro local.|
 
-### <a name="close-job-diagram"></a>Diagrama de trabalho fechado
+### <a name="close-job-diagram"></a>Diagrama de trabalho próximo
 
-Se já não precisar do diagrama de trabalho, selecione **Fechar** no canto superior direito. Depois de fechar a janela do diagrama, precisa de começar os testes locais novamente para vê-lo.
+Se já não precisar do diagrama de trabalho, **selecione Close** no canto superior direito. Depois de fechar a janela do diagrama, tem de recomeçar os testes locais para o ver.
 
 ### <a name="view-job-level-metrics-and-stop-running"></a>Ver métricas de nível de trabalho e parar de correr
 
 Outras métricas de nível de trabalho aparecem na consola pop-up. Prima **Ctrl+C** na consola se quiser parar o trabalho.
 
-![Trabalho de paragem do diagrama de trabalho](./media/debug-locally-using-job-diagram/stop-job.png)
+![Diagrama de trabalho parar o trabalho](./media/debug-locally-using-job-diagram/stop-job.png)
 
 ## <a name="limitations"></a>Limitações
 
-* Os lavatórios de saída do Power BI e do Azure Data Lake Gen1 não são suportados devido a limitações do modelo de autenticação.
+* Os lavatórios de produção da Power BI e do Azure Data Lake Storage Gen1 não são suportados devido a limitações do modelo de autenticação.
 
-* Apenas as opções de entrada em nuvem têm apoio de políticas de [tempo,](stream-analytics-out-of-order-and-late-events.md) enquanto as opções locais de entrada não.
+* Apenas as opções de entrada na nuvem têm suporte às políticas de [tempo,](stream-analytics-out-of-order-and-late-events.md) enquanto as opções de entrada local não.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Quickstart: Criar um trabalho de Stream Analytics usando o Estúdio Visual](stream-analytics-quick-create-vs.md)
-* [Use o Estúdio Visual para ver empregos da Azure Stream Analytics](stream-analytics-vs-tools.md)
-* [Teste dados ao vivo localmente utilizando ferramentas Azure Stream Analytics para Estúdio Visual (Pré-visualização)](stream-analytics-live-data-local-testing.md)
+* [Quickstart: Criar um trabalho stream analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
+* [Use o Estúdio Visual para ver os trabalhos do Azure Stream Analytics](stream-analytics-vs-tools.md)
+* [Teste dados ao vivo localmente usando ferramentas Azure Stream Analytics para Estúdio Visual (Pré-visualização)](stream-analytics-live-data-local-testing.md)

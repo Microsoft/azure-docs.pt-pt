@@ -1,7 +1,7 @@
 ---
-title: Mover uma API web protegida para a produção [ Azure
+title: Mover uma API web protegida para a produção Rio Azure
 titleSuffix: Microsoft identity platform
-description: Aprenda a construir uma API web protegida (mude-se para a produção).
+description: Aprenda a construir uma API web protegida (passe para a produção).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,19 +13,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 86e897547869c917313deeb8d71b361c9e16798b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537190"
 ---
-# <a name="protected-web-api---move-to-production"></a>API da web protegida - mude para a produção
+# <a name="protected-web-api---move-to-production"></a>Protected web API - passe para a produção
 
 Agora que sabe como proteger a sua API web, eis como pode movê-la para a produção.
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda a chamar uma API a jusante.
 
@@ -38,7 +37,7 @@ Saiba mais com tutoriais e amostras.
 > [Chamando uma API protegida usando um daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
 
 > [!div class="nextstepaction"]
-> [tutorial de API web ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
+> [Tutorial de API web ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
 
 > [!div class="nextstepaction"]
-> [ASP.NET amostra de API web](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)
+> [ASP.NET amostra web de API](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)

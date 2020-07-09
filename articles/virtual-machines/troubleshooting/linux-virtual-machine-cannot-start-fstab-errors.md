@@ -1,5 +1,5 @@
 ---
-title: Problemas de jogo Do Linux VM iniciam problemas devido a erros de fstab Microsoft Docs
+title: Resolução de problemas Linux VM problemas de início devido a erros do FSTAB Microsoft Docs
 description: Explica porque é que o Linux VM não pode começar e como resolver o problema.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: f68221666f370f87af7539d9302aaa3ed472d5e8
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: daf3e3aaa95734c79e513c16e5d41aeb0bf894dc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82883146"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135258"
 ---
-# <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Problemas de jogo do Linux VM iniciam problemas devido a erros de fstab
+# <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Resolução de problemas Linux VM problemas de início devido a erros de fstab
 
-Não é possível ligar-se a uma Máquina Virtual Azure Linux (VM) utilizando uma ligação Secure Shell (SSH). Quando executa a funcionalidade [Boot Diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) no [portal Azure,](https://portal.azure.com/)vê entradas de registo que se assemelham aos seguintes exemplos:
+Não é possível ligar-se a uma Máquina Virtual Azure Linux (VM) utilizando uma ligação Secure Shell (SSH). Quando executar a função ['Diagnóstico de Arranque'](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) no [portal Azure,](https://portal.azure.com/)vê entradas de registo que se assemelham aos seguintes exemplos:
 
 ## <a name="examples"></a>Exemplos
 
 Seguem-se exemplos de possíveis erros.
 
-### <a name="example-1-a-disk-is-mounted-by-the-scsi-id-instead-of-the-universally-unique-identifier-uuid"></a>Exemplo 1: Um disco é montado pelo ID SCSI em vez do identificador universalmente único (UUID)
+### <a name="example-1-a-disk-is-mounted-by-the-scsi-id-instead-of-the-universally-unique-identifier-uuid"></a>Exemplo 1: Um disco é montado pelo SCSI ID em vez do identificador universalmente único (UUID)
 
 ```
 [K[[1;31m TIME [0m] Timed out waiting for device dev-incorrect.device.
@@ -41,7 +41,7 @@ Give root password for maintenance
 (or type Control-D to continue)
 ```
 
-### <a name="example-2-an-unattached-device-is-missing-on-centos"></a>Exemplo 2: Falta um dispositivo desvinculado no CentOS
+### <a name="example-2-an-unattached-device-is-missing-on-centos"></a>Exemplo 2: Falta um dispositivo não ligado no CentOS
 
 ```
 Checking file systems…
@@ -96,57 +96,57 @@ Give root password for maintenance
 (or type Control-D to continue)
 ```
 
-Este problema pode ocorrer se a sintaxe da tabela de sistemas de ficheiros (fstab) estiver incorreta ou se um disco de dados necessário que esteja mapeado para uma entrada no ficheiro "/etc/fstab" não estiver ligado ao VM.
+Este problema pode ocorrer se a sintaxe da tabela de sistemas de ficheiros (fstab) estiver incorreta ou se um disco de dados necessário que é mapeado para uma entrada no ficheiro "/etc/fstab" não estiver ligado ao VM.
 
 ## <a name="resolution"></a>Resolução
 
-Para resolver este problema, inicie o VM em modo de emergência utilizando a consola em série para máquinas virtuais Azure. Em seguida, utilize a ferramenta para reparar o sistema de ficheiros. Se a consola em série não estiver ativada no seu VM, vá à secção [de reparação offline VM.](#repair-the-vm-offline)
+Para resolver este problema, inicie o VM em modo de emergência utilizando a consola em série para Máquinas Virtuais Azure. Em seguida, utilize a ferramenta para reparar o sistema de ficheiros. Se a consola em série não estiver ativada no seu VM, vá à secção De Reparação da secção [offline VM.](#repair-the-vm-offline)
 
 ## <a name="use-the-serial-console"></a>Utilizar a consola de série
 
-### <a name="using-single-user-mode"></a>Utilização do modo de utilizador único
+### <a name="using-single-user-mode"></a>Usando o modo de utilizador único
 
 1. Ligue-se [à consola em série.](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
-2. Utilize a consola de série para tomar o [modo de utilizador único single](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode) modo
+2. Utilize a consola em série para tomar o [modo único de utilizador no modo único de utilizador](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
 3. Uma vez iniciado o vm no modo de utilizador único. Use o seu editor de texto favorito para abrir o ficheiro fstab. 
 
    ```
    # nano /etc/fstab
    ```
 
-4. Reveja os sistemas de ficheiros listados. Cada linha no ficheiro fstab indica um sistema de ficheiros montado quando o VM começa. Para mais informações sobre a sintaxe do ficheiro fstab, execute o comando do homem. Para resolver uma falha inicial, reveja cada linha para se certificar de que está correta tanto na estrutura como no conteúdo.
+4. Reveja os sistemas de ficheiros listados. Cada linha no ficheiro fstab indica um sistema de ficheiros montado quando o VM começa. Para mais informações sobre a sintaxe do ficheiro fstab, executar o comando fstab man. Para resolver uma falha inicial, reveja cada linha para se certificar de que está correta tanto na estrutura como no conteúdo.
 
    > [!Note]
-   > * Os campos em cada linha são separados por separadores ou espaços. As linhas em branco são ignoradas. Linhas que têm um sinal de número (#) como o primeiro personagem são comentários. As linhas comentadas podem permanecer no ficheiro fstab, mas não serão processadas. Recomendamos que comente linhas de fstab que não tem a certeza em vez de remover as linhas.
-   > * Para que o VM recupere e inicie, as divisórias do sistema de ficheiros devem ser as únicas divisórias necessárias. O VM pode experimentar erros de aplicação sobre divisórias comcomentários adicionais. No entanto, o VM deve começar sem as divisórias adicionais. Mais tarde, pode descomentar quaisquer linhas comentadas.
+   > * Os campos em cada linha são separados por separadores ou espaços. As linhas em branco são ignoradas. Linhas que têm um sinal numer (#) como o primeiro personagem são comentários. As linhas comentadas podem permanecer no ficheiro fstab, mas não serão processadas. Recomendamos que comente linhas fstab sobre as quais não tem a certeza em vez de remover as linhas.
+   > * Para que o VM recupere e inicie, as divisórias do sistema de ficheiros devem ser as únicas divisórias necessárias. O VM pode experimentar erros de aplicação sobre divisórias comentadas adicionais. No entanto, o VM deve começar sem as divisórias adicionais. Mais tarde, pode descoduir quaisquer linhas comentadas.
    > * Recomendamos que monte discos de dados em VMs Azure utilizando o UUID da partição do sistema de ficheiros. Por exemplo, executar o seguinte comando:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
-   > * Para determinar o UUID do sistema de ficheiros, execute o comando blkid. Para mais informações sobre a sintaxe, mande o comando do homem blkid.
-   > * A opção nofail ajuda a certificar-se de que o VM começa mesmo que o sistema de ficheiros seja corrompido ou o sistema de ficheiros não exista no arranque. Recomendamos que utilize a opção nofail no ficheiro fstab para permitir que o arranque continue após ocorrem erros em divisórias que não são necessárias para o arranque do VM.
+   > * Para determinar o UUID do sistema de ficheiros, executar o comando blkid. Para mais informações sobre a sintaxe, mande o comando blkid.
+   > * A opção nofalil ajuda a garantir que o VM começa mesmo que o sistema de ficheiros esteja corrompido ou o sistema de ficheiros não exista no arranque. Recomendamos que utilize a opção nofalil no ficheiro fstab para permitir que o arranque continue após erros ocorridos em divisórias que não são necessárias para o arranque do VM.
 
 5. Altere ou comente quaisquer linhas incorretas ou desnecessárias no ficheiro fstab para permitir que o VM comece corretamente.
 
 6. Guarde as alterações no ficheiro fstab.
 
-7. Reinicie o vm utilizando o comando abaixo.
+7. Reinicie o vm usando o comando abaixo.
    
    ```
    # reboot -f
    ```
 > [!Note]
-   > Também pode utilizar o comando "CTRL+x", que também reiniciaria o vm.
+   > Também pode utilizar o comando "ctrl+x" que também reiniciaria o vm.
 
 
-8. Se o comentário ou correção das entradas tiver sido bem sucedido, o sistema deve chegar a um aviso de batida no portal. Verifique se pode ligar-se ao VM.
+8. Se as entradas comentarem ou corrigirem ter sido bem sucedidas, o sistema deverá chegar a uma pontuação no portal. Verifique se pode ligar-se ao VM.
 
-### <a name="using-root-password"></a>Usando palavra-passe raiz
+### <a name="using-root-password"></a>Usando senha de raiz
 
 1. Ligue-se [à consola em série.](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
-2. Inscreva-se no sistema utilizando um utilizador local e uma senha.
+2. Iniciar sôs-in no sistema utilizando um utilizador local e uma palavra-passe.
 
    > [!Note]
-   > Não é possível utilizar uma chave SSH para iniciar sessão no sistema na consola em série.
+   > Não é possível utilizar uma chave SSH para iniciar sinstrução no sistema na consola em série.
 
-3. Procure o erro que indica que o disco não foi montado. No exemplo seguinte, o sistema estava a tentar anexar um disco que já não estava presente:
+3. Procure o erro que indica que o disco não foi montado. No exemplo seguinte, o sistema tentava anexar um disco que já não estava presente:
 
    ```
    [DEPEND] Dependency failed for /datadisk1.
@@ -159,86 +159,86 @@ Para resolver este problema, inicie o VM em modo de emergência utilizando a con
    (or type Control-D to continue):
    ```
 
-4. Ligue-se ao VM utilizando a palavra-passe de raiz (VMs baseados em Chapéu Vermelho).
+4. Ligue-se ao VM utilizando a palavra-passe raiz (VMs baseados em chapéu vermelho).
 
-5. Use o seu editor de texto favorito para abrir o ficheiro fstab. Depois de montado o disco, execute o seguinte comando para Nano:
+5. Use o seu editor de texto favorito para abrir o ficheiro fstab. Depois de montado o disco, erguia o seguinte comando para Nano:
 
    ```
    $ nano /mnt/troubleshootingdisk/etc/fstab
    ```
 
-6. Reveja os sistemas de ficheiros listados. Cada linha no ficheiro fstab indica um sistema de ficheiros montado quando o VM começa. Para mais informações sobre a sintaxe do ficheiro fstab, execute o comando do homem. Para resolver uma falha inicial, reveja cada linha para se certificar de que está correta tanto na estrutura como no conteúdo.
+6. Reveja os sistemas de ficheiros listados. Cada linha no ficheiro fstab indica um sistema de ficheiros montado quando o VM começa. Para mais informações sobre a sintaxe do ficheiro fstab, executar o comando fstab man. Para resolver uma falha inicial, reveja cada linha para se certificar de que está correta tanto na estrutura como no conteúdo.
 
    > [!Note]
-   > * Os campos em cada linha são separados por separadores ou espaços. As linhas em branco são ignoradas. Linhas que têm um sinal de número (#) como o primeiro personagem são comentários. As linhas comentadas podem permanecer no ficheiro fstab, mas não serão processadas. Recomendamos que comente linhas de fstab que não tem a certeza em vez de remover as linhas.
-   > * Para que o VM recupere e inicie, as divisórias do sistema de ficheiros devem ser as únicas divisórias necessárias. O VM pode experimentar erros de aplicação sobre divisórias comcomentários adicionais. No entanto, o VM deve começar sem as divisórias adicionais. Mais tarde, pode descomentar quaisquer linhas comentadas.
+   > * Os campos em cada linha são separados por separadores ou espaços. As linhas em branco são ignoradas. Linhas que têm um sinal numer (#) como o primeiro personagem são comentários. As linhas comentadas podem permanecer no ficheiro fstab, mas não serão processadas. Recomendamos que comente linhas fstab sobre as quais não tem a certeza em vez de remover as linhas.
+   > * Para que o VM recupere e inicie, as divisórias do sistema de ficheiros devem ser as únicas divisórias necessárias. O VM pode experimentar erros de aplicação sobre divisórias comentadas adicionais. No entanto, o VM deve começar sem as divisórias adicionais. Mais tarde, pode descoduir quaisquer linhas comentadas.
    > * Recomendamos que monte discos de dados em VMs Azure utilizando o UUID da partição do sistema de ficheiros. Por exemplo, executar o seguinte comando:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
-   > * Para determinar o UUID do sistema de ficheiros, execute o comando blkid. Para mais informações sobre a sintaxe, mande o comando do homem blkid.
-   > * A opção nofail ajuda a certificar-se de que o VM começa mesmo que o sistema de ficheiros seja corrompido ou o sistema de ficheiros não exista no arranque. Recomendamos que utilize a opção nofail no ficheiro fstab para permitir que o arranque continue após ocorrem erros em divisórias que não são necessárias para o arranque do VM.
+   > * Para determinar o UUID do sistema de ficheiros, executar o comando blkid. Para mais informações sobre a sintaxe, mande o comando blkid.
+   > * A opção nofalil ajuda a garantir que o VM começa mesmo que o sistema de ficheiros esteja corrompido ou o sistema de ficheiros não exista no arranque. Recomendamos que utilize a opção nofalil no ficheiro fstab para permitir que o arranque continue após erros ocorridos em divisórias que não são necessárias para o arranque do VM.
 
 7. Altere ou comente quaisquer linhas incorretas ou desnecessárias no ficheiro fstab para permitir que o VM comece corretamente.
 
 8. Guarde as alterações no ficheiro fstab.
 
-9. Reiniciar a máquina virtual.
+9. Reinicie a máquina virtual.
 
-10. Se o comentário ou correção das entradas tiver sido bem sucedido, o sistema deve chegar a um aviso de batida no portal. Verifique se pode ligar-se ao VM.
+10. Se as entradas comentarem ou corrigirem ter sido bem sucedidas, o sistema deverá chegar a uma pontuação no portal. Verifique se pode ligar-se ao VM.
 
-11. Verifique os pontos de montagem quando testar qualquer alteração de fstab, executando a montagem – um comando. Se não houver erros, os seus pontos de montagem devem ser bons.
+11. Verifique os pontos de montagem quando testar qualquer alteração fstab executando o suporte -um comando. Se não houver erros, os seus pontos de montagem devem ser bons.
 
 ## <a name="repair-the-vm-offline"></a>Reparar o VM offline
 
-1. Fixe o disco de sistema do VM como um disco de dados a um VM de recuperação (qualquer VM Linux em funcionamento). Para tal, pode utilizar [comandos CLI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) ou automatizar a configuração do VM de recuperação utilizando os comandos de [reparação VM](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
+1. Fixe o disco de sistema do VM como um disco de dados a um VM de recuperação (qualquer LM Linux em funcionamento). Para isso, pode utilizar [comandos CLI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) ou automatizar a configuração do VM de recuperação utilizando os [comandos de reparação VM](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
 
-2. Depois de montar o disco do sistema como um disco de dados no VM de recuperação, faça o back up do ficheiro fstab antes de fazer alterações e, em seguida, siga os próximos passos para corrigir o ficheiro fstab.
+2. Depois de montar o disco do sistema como um disco de dados no VM de recuperação, faça o back up do ficheiro fstab antes de escoar as alterações e, em seguida, siga os próximos passos para corrigir o ficheiro fstab.
 
-3.    Procure o erro que indica que o disco não foi montado. No exemplo seguinte, o sistema estava a tentar anexar um disco que já não estava presente:
+3. Procura o erro que indica que o disco não foi montado. No exemplo seguinte, o sistema tentava anexar um disco que já não estava presente:
 
-    ```
-    [DEPEND] Dependency failed for /datadisk1.
-    [DEPEND] Dependency failed for Local File Systems.
-    [DEPEND] Dependency failed for Relabel all filesystems, if necessary.
-    [DEPEND] Dependency failed for Migrate local... structure to the new structure.
-    Welcome to emergency mode! After logging in, type "journalctl -xb" to view system logs, "systemctl reboot" to reboot, "systemctl default" or ^D to try again to boot into default mode.
-    Give root password for maintenance (or type Control-D to continue):
-    ```
+   ```output
+   [DEPEND] Dependency failed for /datadisk1.
+   [DEPEND] Dependency failed for Local File Systems.
+   [DEPEND] Dependency failed for Relabel all filesystems, if necessary.
+   [DEPEND] Dependency failed for Migrate local... structure to the new structure.
+   Welcome to emergency mode! After logging in, type "journalctl -xb" to view system logs, "systemctl reboot" to reboot, "systemctl default" or ^D to try again to boot into default mode.
+   Give root password for maintenance (or type Control-D to continue):
+   ```
 
-4. Ligue-se ao VM utilizando a palavra-passe de raiz (VMs baseados em Chapéu Vermelho).
+4. Ligue-se ao VM utilizando a palavra-passe raiz (VMs baseados em chapéu vermelho).
 
-5. Use o seu editor de texto favorito para abrir o ficheiro fstab. Depois de montado o disco, execute o seguinte comando para Nano. Certifique-se de que está a trabalhar no ficheiro fstab que está localizado no disco montado e não no ficheiro fstab que está no VM de resgate.
+5. Use o seu editor de texto favorito para abrir o ficheiro fstab. Depois de montar o disco, erguia o seguinte comando para Nano. Certifique-se de que está a trabalhar no ficheiro fstab que está localizado no disco montado e não no ficheiro fstab que está no VM de resgate.
 
    ```
    $ nano /mnt/troubleshootingdisk/etc/fstab
    ```
 
-6. Reveja os sistemas de ficheiros listados. Cada linha no ficheiro fstab indica um sistema de ficheiros montado quando o VM começa. Para mais informações sobre a sintaxe do ficheiro fstab, execute o comando do homem. Para resolver uma falha inicial, reveja cada linha para se certificar de que está correta tanto na estrutura como no conteúdo.
+6. Reveja os sistemas de ficheiros listados. Cada linha no ficheiro fstab indica um sistema de ficheiros montado quando o VM começa. Para mais informações sobre a sintaxe do ficheiro fstab, executar o comando fstab man. Para resolver uma falha inicial, reveja cada linha para se certificar de que está correta tanto na estrutura como no conteúdo.
 
    > [!Note]
-   > * Os campos em cada linha são separados por separadores ou espaços. As linhas em branco são ignoradas. Linhas que têm um sinal de número (#) como o primeiro personagem são comentários. As linhas comentadas podem permanecer no ficheiro fstab, mas não serão processadas. Recomendamos que comente linhas de fstab que não tem a certeza em vez de remover as linhas.
-   > * Para que o VM recupere e inicie, as divisórias do sistema de ficheiros devem ser as únicas divisórias necessárias. O VM pode experimentar erros de aplicação sobre divisórias comcomentários adicionais. No entanto, o VM deve começar sem as divisórias adicionais. Mais tarde, pode descomentar quaisquer linhas comentadas.
+   > * Os campos em cada linha são separados por separadores ou espaços. As linhas em branco são ignoradas. Linhas que têm um sinal numer (#) como o primeiro personagem são comentários. As linhas comentadas podem permanecer no ficheiro fstab, mas não serão processadas. Recomendamos que comente linhas fstab sobre as quais não tem a certeza em vez de remover as linhas.
+   > * Para que o VM recupere e inicie, as divisórias do sistema de ficheiros devem ser as únicas divisórias necessárias. O VM pode experimentar erros de aplicação sobre divisórias comentadas adicionais. No entanto, o VM deve começar sem as divisórias adicionais. Mais tarde, pode descoduir quaisquer linhas comentadas.
    > * Recomendamos que monte discos de dados em VMs Azure utilizando o UUID da partição do sistema de ficheiros. Por exemplo, executar o seguinte comando:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
-   > * Para determinar o UUID do sistema de ficheiros, execute o comando blkid. Para mais informações sobre a sintaxe, mande o comando do homem blkid. Note que o disco que pretende recuperar está agora montado num novo VM. Embora os UUIDs devam ser consistentes, os IDs de partição do dispositivo (por exemplo, "/dev/sda1") são diferentes neste VM. As divisórias do sistema de ficheiros do VM original que estão localizados num VHD não-sistema não estão disponíveis para o VM de recuperação [utilizando comandos CLI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux).
-   > * A opção nofail ajuda a certificar-se de que o VM começa mesmo que o sistema de ficheiros seja corrompido ou o sistema de ficheiros não exista no arranque. Recomendamos que utilize a opção nofail no ficheiro fstab para permitir que o arranque continue após ocorrem erros em divisórias que não são necessárias para o arranque do VM.
+   > * Para determinar o UUID do sistema de ficheiros, executar o comando blkid. Para mais informações sobre a sintaxe, mande o comando blkid. Note que o disco que pretende recuperar está agora montado num novo VM. Embora os UUIDs devam ser consistentes, os IDs de partição do dispositivo (por exemplo, "/dev/sda1") são diferentes neste VM. As divisórias do sistema de ficheiros do VM original que estão localizados num VHD não-sistema não estão disponíveis para a recuperação VM [utilizando comandos CLI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux).
+   > * A opção nofalil ajuda a garantir que o VM começa mesmo que o sistema de ficheiros esteja corrompido ou o sistema de ficheiros não exista no arranque. Recomendamos que utilize a opção nofalil no ficheiro fstab para permitir que o arranque continue após erros ocorridos em divisórias que não são necessárias para o arranque do VM.
 
 7. Altere ou comente quaisquer linhas incorretas ou desnecessárias no ficheiro fstab para permitir que o VM comece corretamente.
 
 8. Guarde as alterações no ficheiro fstab.
 
-9. Reiniciar a máquina virtual ou reconstruir o VM original.
+9. Reinicie a máquina virtual ou reconstrua o VM original.
 
-10. Se o comentário ou correção das entradas tiver sido bem sucedido, o sistema deve chegar a um aviso de batida no portal. Verifique se pode ligar-se ao VM.
+10. Se as entradas comentarem ou corrigirem ter sido bem sucedidas, o sistema deverá chegar a uma pontuação no portal. Verifique se pode ligar-se ao VM.
 
-11. Verifique os pontos de montagem quando testar qualquer alteração de fstab, executando a montagem – um comando. Se não houver erros, os seus pontos de montagem devem ser bons.
+11. Verifique os pontos de montagem quando testar qualquer alteração fstab executando o suporte -um comando. Se não houver erros, os seus pontos de montagem devem ser bons.
 
-12. Desmonte e desaperte o disco rígido virtual original e, em seguida, crie um VM a partir do disco original do sistema. Para tal, pode utilizar [comandos CLI](troubleshoot-recovery-disks-linux.md) ou comandos de [reparação VM](repair-linux-vm-using-azure-virtual-machine-repair-commands.md) se os utilizar para criar o VM de recuperação.
+12. Desmonte e desprete o disco rígido virtual original e, em seguida, crie um VM a partir do disco original do sistema. Para isso, pode utilizar [comandos CLI](troubleshoot-recovery-disks-linux.md) ou [comandos de reparação VM](repair-linux-vm-using-azure-virtual-machine-repair-commands.md) se os utilizar para criar o VM de recuperação.
 
-13. Depois de criar o VM novamente e pode ligá-lo através do SSH, tome as seguintes ações:
-    * Reveja qualquer uma das linhas de fstab que foram alteradas ou comentadas durante a recuperação.
-    * Certifique-se de que está a utilizar o UUID e a opção nofail adequadamente.
-    * Teste quaisquer alterações antes de reiniciar o VM. Para tal, utilize o seguinte comando:``$ sudo mount -a``
-    * Crie uma cópia adicional do ficheiro de fstab corrigido para utilização em futuros cenários de recuperação.
+13. Depois de voltar a criar o VM e pode ligá-lo através do SSH, tome as seguintes ações:
+    * Reveja qualquer uma das linhas fstab que foram alteradas ou comentadas durante a recuperação.
+    * Certifique-se de que está a utilizar o UUID e a opção nofale adequadamente.
+    * Teste quaisquer alterações de fstab antes de reiniciar o VM. Para isso, utilize o seguinte comando:``$ sudo mount -a``
+    * Crie uma cópia adicional do ficheiro fstab corrigido para utilização em futuros cenários de recuperação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Resolução de problemas um VM Linux, ligando o disco OS a um VM de recuperação com o Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
-* [Troubleshoot a Linux VM ligando o disco OS a um VM de recuperação usando o portal Azure](https://docs.microsoft.com/azure/virtual-machines/linux/troubleshoot-recovery-disks-portal)
+* [Resolução de problemas de um Linux VM, fixando o disco DE A uma VM de recuperação com o Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
+* [Resolução de problemas de um Linux VM, fixando o disco DE Aa a um VM de recuperação utilizando o portal Azure](https://docs.microsoft.com/azure/virtual-machines/linux/troubleshoot-recovery-disks-portal)

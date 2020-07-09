@@ -1,69 +1,69 @@
 ---
 title: Detalhes internos do Serviço SignalR do Azure
-description: Conheça os internos do Serviço De Sinalização Azure, a arquitetura, as ligações e como os dados são transmitidos.
+description: Conheça os interiores do Serviço Azure SignalR, a arquitetura, as ligações e a forma como os dados são transmitidos.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 8ba34edfc382f0f03abe080d78a6a47dcb65501b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82105765"
 ---
 # <a name="azure-signalr-service-internals"></a>Detalhes internos do Serviço SignalR do Azure
 
-O Serviço De Sinalização Azure é construído em cima da estrutura de ASP.NET Core SignalR. Também suporta ASP.NET SignalR reimplementando ASP.NET protocolo de dados do SignalR para além do quadro central ASP.NET.
+O Serviço Azure SignalR é construído em cima de ASP.NET estrutura do Core SignalR. Também apoia ASP.NET SignalR, reimplementando ASP.NET protocolo de dados do SignalR no topo do quadro ASP.NET Core.
 
-Pode migrar facilmente uma aplicação local ASP.NET Core SignalR ou ASP.NET aplicação SignalR para trabalhar com o SignalR Service, com algumas linhas de alteração de código.
+Pode migrar facilmente uma aplicação de ASP.NET Core SignalR local ou ASP.NET aplicação SignalR para trabalhar com o Serviço SignalR, com algumas linhas de mudança de código.
 
 O diagrama abaixo descreve a arquitetura típica quando utiliza o Serviço SignalR com o seu servidor de aplicações.
 
-As diferenças entre a aplicação core signalr auto-hospedada ASP.NET são também discutidas.
+As diferenças entre a aplicação core signalr ASP.NET auto-acolhido também são discutidas.
 
 ![Arquitetura](./media/signalr-concept-internals/arch.png)
 
-## <a name="server-connections"></a>Ligações ao servidor
+## <a name="server-connections"></a>Conexões de servidor
 
-O servidor de aplicação Core SignalR ASP.NET auto-hospedado ouve e liga os clientes diretamente.
+O servidor de aplicação Core SignalR ASP.NET auto-alojado ouve e liga diretamente os clientes.
 
-Com o SignalR Service, o servidor de aplicações já não aceita ligações persistentes ao cliente, em vez disso:
+Com o Serviço SignalR, o servidor de aplicações já não aceita ligações persistentes do cliente:
 
-1. Um `negotiate` ponto final é exposto pelo Serviço De Sinalização Azure SDK para cada hub.
-1. Este ponto final responderá aos pedidos de negociação do cliente e redirecionará os clientes para o SignalR Service.
-1. Eventualmente, os clientes estarão ligados ao Serviço SignalR.
+1. Um `negotiate` ponto final é exposto pelo Azure SignalR Service SDK para cada hub.
+1. Este ponto final irá responder aos pedidos de negociação do cliente e redirecionar os clientes para o Serviço SignalR.
+1. Eventualmente, os clientes serão ligados ao Serviço SignalR.
 
 Para mais informações, consulte [as ligações do Cliente.](#client-connections)
 
 Uma vez iniciado o servidor de aplicações, 
-- Para ASP.NET Core SignalR, o Serviço De Sinalização Azure SDK abre 5 ligações WebSocket por hub para o Serviço SignalR. 
-- Para ASP.NET SignalR, o Serviço De Sinalização Azure SDK abre 5 ligações WebSocket por hub para o SignalR Service e uma por aplicação webSocket.
+- Para ASP.NET Core SignalR, o Serviço Azure SignalR SDK abre 5 ligações WebSocket por hub ao Serviço SignalR. 
+- Para ASP.NET SignalR, o Serviço Azure SignalR SDK abre 5 ligações WebSocket por hub ao SignalR Service e uma por aplicação Ligação WebSocket.
 
-5 Ligações WebSocket é o valor predefinido que pode ser alterado na [configuração](https://github.com/Azure/azure-signalr/blob/dev/docs/use-signalr-service.md#connectioncount).
+5 As ligações WebSocket são o valor predefinido que pode ser alterado na [configuração](https://github.com/Azure/azure-signalr/blob/dev/docs/use-signalr-service.md#connectioncount).
 
-As mensagens de e para os clientes serão multiplexadas nestas ligações.
+As mensagens de e para os clientes serão multiplexed nestas ligações.
 
 Estas ligações permanecerão sempre ligadas ao Serviço SignalR. Se uma ligação do servidor for desligada para problemas de rede,
-- todos os clientes que são servidos por esta desconexão de ligação do servidor (para mais informações sobre o mesmo, consulte [a transmissão de Dados entre o cliente e o servidor);](#data-transmit-between-client-and-server)
-- a ligação do servidor começa a voltar a ligar-se automaticamente.
+- todos os clientes que são servidos por esta ligação de servidor desligam (para mais informações sobre o mesmo, consulte [dados transmitidos entre cliente e servidor](#data-transmit-between-client-and-server));
+- a ligação do servidor começa a reconectar-se automaticamente.
 
 ## <a name="client-connections"></a>Ligações de cliente
 
-Quando utiliza o Serviço SignalR, os clientes ligam-se ao SignalR Service em vez do servidor de aplicações.
+Quando utiliza o Serviço SignalR, os clientes ligam-se ao Serviço SignalR em vez do servidor de aplicações.
 Existem duas etapas para estabelecer ligações persistentes entre o cliente e o Serviço SignalR.
 
-1. O cliente envia um pedido de negociação para o servidor de aplicações. Com o Serviço De Sinalização Azure SDK, o servidor de aplicações devolve uma resposta de redirecionamento com URL do SignalR Service e ficha de acesso.
+1. O cliente envia um pedido de negociação para o servidor de aplicações. Com o Serviço Azure SignalR SDK, o servidor de aplicação devolve uma resposta de redirecionamento com o URL do Serviço SignalR e o token de acesso.
 
-- Para ASP.NET Core SignalR, uma resposta de redirecionamento típica parece:
+- Para ASP.NET Core SignalR, uma resposta típica de redirecionamento parece:
     ```
     {
         "url":"https://test.service.signalr.net/client/?hub=chat&...",
         "accessToken":"<a typical JWT token>"
     }
     ```
-- Para ASP.NET SignalR, uma resposta de redirecionamento típica parece:
+- Para ASP.NET SignalR, uma resposta típica de redirecionamento parece:
     ```
     {
         "ProtocolVersion":"2.0",
@@ -72,19 +72,19 @@ Existem duas etapas para estabelecer ligações persistentes entre o cliente e o
     }
     ```
 
-1. Depois de receber a resposta de redirecionamento, o cliente utiliza o novo URL e acesso para iniciar o processo normal de ligação ao SignalR Service.
+1. Depois de receber a resposta de redirecionamento, o cliente utiliza o novo URL e o token de acesso para iniciar o processo normal para ligar ao Serviço SignalR.
 
 Saiba mais sobre ASP.NET [protocolos](https://github.com/aspnet/SignalR/blob/release/2.2/specs/TransportProtocols.md)de transporte do Core SignalR.
 
-## <a name="data-transmit-between-client-and-server"></a>Transmissão de dados entre cliente e servidor
+## <a name="data-transmit-between-client-and-server"></a>Os dados transmitem entre cliente e servidor
 
-Quando um cliente está ligado ao Serviço SignalR, o tempo de execução do serviço encontrará uma ligação de servidor para servir este cliente
-- Este passo acontece apenas uma vez, e é um mapeamento um-para-um entre as ligações do cliente e do servidor.
-- O mapeamento é mantido no Serviço SignalR até que o cliente ou servidor se desconecte.
+Quando um cliente está ligado ao Serviço SignalR, o tempo de funcionação do serviço encontrará uma ligação de servidor para servir este cliente
+- Este passo só acontece uma vez, e é um mapeamento de um para um entre as ligações do cliente e do servidor.
+- O mapeamento é mantido no Serviço SignalR até que o cliente ou servidor se desligue.
 
-Neste momento, o servidor de aplicações recebe um evento com informações do novo cliente. Uma ligação lógica com o cliente é criada no servidor de aplicações. O canal de dados é estabelecido de cliente para servidor de aplicação, via SignalR Service.
+Neste momento, o servidor de aplicações recebe um evento com informações do novo cliente. Uma ligação lógica ao cliente é criada no servidor de aplicações. O canal de dados é estabelecido de cliente para servidor de aplicações, via Serviço SignalR.
 
 O serviço SignalR transmite dados do cliente para o servidor de aplicações de emparelhamento. E os dados do servidor de aplicações serão enviados para os clientes mapeados.
 
-Como pode ver, o Serviço De Sinalização Azure é essencialmente uma camada de transporte lógica entre servidor de aplicações e clientes. Todas as ligações persistentes são descarregadas para o Serviço SignalR.
-O servidor de aplicações só precisa de lidar com a lógica do negócio na classe hub, sem se preocupar com as ligações do cliente.
+Como pode ver, o Serviço Azure SignalR é essencialmente uma camada lógica de transporte entre servidor de aplicações e clientes. Todas as ligações persistentes são descarregadas para o Serviço SignalR.
+O servidor de aplicações apenas precisa de lidar com a lógica de negócio na classe hub, sem se preocupar com as ligações com o cliente.

@@ -1,6 +1,6 @@
 ---
-title: Provision Enterprise Edition para o Tempo de Integração Azure-SSIS
-description: Este artigo descreve as características da Enterprise Edition para o Runtime de Integração Azure-SSIS e como fortá-lo
+title: Provision Enterprise Edition para o tempo de execução da integração Azure-SSIS
+description: Este artigo descreve as características da Enterprise Edition para o tempo de execução da integração Azure-SSIS e como procurá-lo
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -11,44 +11,43 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
 ms.openlocfilehash: a0e35a309fd30a36263b498b6a8e74a312004a99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81606164"
 ---
-# <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Provision Enterprise Edition para o Tempo de Integração Azure-SSIS
+# <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Provision Enterprise Edition para o tempo de execução da integração Azure-SSIS
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A Edição Enterprise do Runtime de Integração Azure-SSIS permite-lhe utilizar as seguintes funcionalidades avançadas e premium:
--   Alterar componentes de captura de dados (CDC)
+A Edição Empresarial do Tempo de Execução de Integração Azure-SSIS permite-lhe utilizar as seguintes funcionalidades avançadas e premium:
+-   Alterar componentes de Captura de Dados (CDC)
 -   Conectores Oracle, Teradata e SAP BW
--   Os Serviços de Análise de Servidores SQL (SSAS) e os Serviços de Análise De Azure (AAS) e os conectores e transformações
--   Transformações de Agrupamento fuzzy e lookup fuzzy
--   Transformações de extração a termo e de procura de termo
+-   Serviços de Análise de Servidores SQL (SSAS) e Serviços de Análise de Azure (AAS) conectores e transformações
+-   Fuzzy Grouping e fuzzy Lookup transformações
+-   Extração de prazos e transformações de procura de prazos
 
-Algumas destas funcionalidades exigem que instale componentes adicionais para personalizar o IR Azure-SSIS. Para obter mais informações sobre como instalar componentes adicionais, consulte a configuração personalizada para o tempo de [funcionamento da integração Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
+Algumas destas funcionalidades requerem que instale componentes adicionais para personalizar o Azure-SSIS IR. Para obter mais informações sobre como instalar componentes adicionais, consulte [a configuração personalizada para o tempo de execução da integração Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
 
 ## <a name="enterprise-features"></a>Funcionalidades do Enterprise
 
-| **Características da empresa** | **Descrições** |
+| **Características da Empresa** | **Descrições** |
 |---|---|
-| Componentes CDC | A CDC Source, Control Task e Splitter Transformation estão pré-instaladas na Edição Empresarial Azure-SSIS IR. Para se ligar à Oracle, também precisa de instalar o CDC Designer e O Serviço noutro computador. |
-| Conectores oráculo | O Oracle Connection Manager, Source e Destination estão pré-instalados na Edição Empresarial Azure-SSIS IR. Também é necessário instalar o controlador Oracle Call Interface (OCI) e, se necessário, configurar o Substrato da Rede de Transporte oracle (TNS), no IR Azure-SSIS. Para mais informações, veja [Configuração personalizada do runtime de integração do Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md). |
-| Conectores Teradata | É necessário instalar o Gestor de Ligação teradata, Fonte e Destino, bem como o controlador API e Teradata ODBC, na Edição Empresarial Do II da Azure-SSIS. Para mais informações, veja [Configuração personalizada do runtime de integração do Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md). |
-| Conectores SAP BW | O SAP BW Connection Manager, Source e Destination estão pré-instalados na Azure-SSIS IR Enterprise Edition. Também precisa de instalar o controlador SAP BW no IR Azure-SSIS. Estes conectores suportam versões SAP BW 7.0 ou anteriores. Para se ligar a versões posteriores de SAP BW ou outros produtos SAP, pode adquirir e instalar conectores SAP a partir de ISVs de terceiros no IR Azure-SSIS. Para obter mais informações sobre como instalar componentes adicionais, consulte a configuração personalizada para o tempo de [funcionamento da integração Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md). |
-| Componentes dos Serviços de Análise               | O Destino de Formação de Modelos de Mineração de Dados, o Destino de Processamento de Dimensões e o Destino de Processamento de Partição, bem como a Transformação da Consulta de Mineração de Dados, estão pré-instalados na Edição Empresarial Azure-SSIS IR. Todos estes componentes suportam serviços de análise de servidores SQL (SSAS), mas apenas o Destino de Processamento de Partição suporta serviços de análise azure (AAS). Para se ligar ao SSAS, também é necessário [configurar as credenciais de autenticação do Windows no SSISDB](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth). Além destes componentes, os Serviços de Análise executam a Tarefa DDL, a Tarefa de Processamento de Serviços de Análise e a Tarefa de Consulta de Mineração de Dados também estão pré-instaladas na Edição Padrão/Empresa Do Azure-SSIS IR. |
-| Transformações de Agrupamento fuzzy e lookup fuzzy  | As transformações fuzzy Grouping e Fuzzy Lookup estão pré-instaladas na Azure-SSIS IR Enterprise Edition. Estes componentes suportam tanto o SQL Server como o Azure SQL Database para armazenar dados de referência. |
-| Transformações de extração a termo e de procura de termo | As transformações de Extração a Prazo e Descuido a Prazo estão pré-instaladas na Edição Empresarial Azure-SSIS IR. Estes componentes suportam tanto o SQL Server como o Azure SQL Database para armazenar dados de referência. |
+| Componentes CDC | A CDC Source, Control Task e Splitter Transformation estão pré-instaladas na Edição Empresarial Azure-SSIS IR. Para se ligar à Oracle, também precisa de instalar o CDC Designer e o Service noutro computador. |
+| Conectores oráculos | O Oracle Connection Manager, Source e Destination estão pré-instalados na Edição Empresarial Azure-SSIS IR. Também é necessário instalar o controlador Oracle Call Interface (OCI) e, se necessário, configurar o Substrato da Rede de Transportes Oracle (TNS), no Azure-SSIS IR. Para mais informações, veja [Configuração personalizada do runtime de integração do Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md). |
+| Conectores teradata | É necessário instalar o Gestor de Ligação Teradata, Fonte e Destino, bem como o condutor da Teradata Parallel Transportr (TPT) API e da Teradata ODBC, na Edição Empresarial Azure-SSIS IR. Para mais informações, veja [Configuração personalizada do runtime de integração do Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md). |
+| Conectores SAP BW | O Sap BW Connection Manager, Source e Destination estão pré-instalados na Edição Empresarial Azure-SSIS IR. Também é necessário instalar o controlador SAP BW no Azure-SSIS IR. Estes conectores suportam as versões SAP BW 7.0 ou anteriores. Para ligar a versões posteriores de SAP BW ou outros produtos SAP, pode adquirir e instalar conectores SAP a partir de ISVs de terceiros no Azure-SSIS IR. Para obter mais informações sobre como instalar componentes adicionais, consulte [a configuração personalizada para o tempo de execução da integração Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md). |
+| Componentes de Serviços de Análise               | O Destino de Formação do Modelo de Mineração de Dados, o Destino de Processamento de Dimensões e o Destino de Processamento de Partição, bem como a Transformação de Consulta de Data Mining, estão pré-instalados na Edição Empresarial Azure-SSIS IR. Todos estes componentes suportam serviços de análise de servidores SQL (SSAS), mas apenas o Destino de Processamento de Partição suporta os Serviços de Análise Azure (AAS). Para se ligar ao SSAS, também é necessário [configurar credenciais de autenticação do Windows em SSISDB](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth). Para além destes componentes, os Serviços de Análise Executam A Tarefa DDL, a Tarefa de Processamento de Serviços de Análise e a Tarefa de Consulta de Data Mining estão também pré-instalados na Norma IR/Edição Empresarial Azure-SSIS. |
+| Fuzzy Grouping e fuzzy Lookup transformações  | As transformações fuzzy Grouping e Fuzzy Lookup estão pré-instaladas na Edição Empresarial Azure-SSIS IR. Estes componentes suportam tanto o SQL Server como o Azure SQL Database para armazenar dados de referência. |
+| Extração de prazos e transformações de procura de prazos | As transformações de Extração de Prazos e Desacureamento de Prazos estão pré-instaladas na Edição Empresarial Azure-SSIS IR. Estes componentes suportam tanto o SQL Server como o Azure SQL Database para armazenar dados de referência. |
 
 ## <a name="instructions"></a>Instruções
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1.  Descarregue e [instale o Azure PowerShell.](/powershell/azure/install-az-ps)
+1.  Descarregue e instale [a Azure PowerShell](/powershell/azure/install-az-ps).
 
-2.  Quando fornecer ou reconfigurar o IR Azure-SSIS `Set-AzDataFactoryV2IntegrationRuntime` com powerShell, corra com a **Enterprise** como o valor para o parâmetro **Edition** antes de iniciar o IR Azure-SSIS. Aqui está um roteiro de amostra:
+2.  Quando forres ou reconfigurares o Azure-SSIS IR com o PowerShell, corra `Set-AzDataFactoryV2IntegrationRuntime` com a **Enterprise** como o valor para o parâmetro **Edição** antes de iniciar o Azure-SSIS IR. Aqui está um guião de amostra:
 
     ```powershell
     $MyAzureSsisIrEdition = "Enterprise"
@@ -63,8 +62,8 @@ Algumas destas funcionalidades exigem que instale componentes adicionais para pe
                                                  -ResourceGroupName $MyResourceGroupName
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
--   [Configuração personalizada para o tempo de execução de integração Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md)
+-   [Configuração personalizada para o tempo de integração Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md)
 
--   [Como desenvolver componentes personalizados pagos ou licenciados para o tempo de funcionamento da integração Azure-SSIS](how-to-develop-azure-ssis-ir-licensed-components.md)
+-   [Como desenvolver componentes personalizados pagos ou licenciados para o tempo de execução da integração Azure-SSIS](how-to-develop-azure-ssis-ir-licensed-components.md)

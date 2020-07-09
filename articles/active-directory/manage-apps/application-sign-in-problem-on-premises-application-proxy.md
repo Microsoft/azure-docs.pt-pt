@@ -1,28 +1,28 @@
 ---
-title: Problema de sessão na aplicação no local utilizando procuração de aplicação da AD Azure [ Microsoft Docs
-description: Resolução de problemas comum quando não é possível iniciar sessão numa aplicação no local integrada com a Azure AD utilizando o Proxy de Aplicação AD Azure
+title: Problema de sessão na app no local usando a aplicação AD AD do Azure Microsoft Docs
+description: Resolução de problemas comuns enfrentados quando não consegue assinar uma aplicação no local integrada com Azure AD utilizando o Azure AD Application Proxy
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91a00e243032fd9702e8b549c75363f1a3e1c87f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29aa4eb0bc40f0b2b960c49cf7b17dc62d92b0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74232330"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367721"
 ---
-# <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemas de inscrição numa aplicação no local utilizando o proxy de aplicação DaD Azure
+# <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemas de adesão a um pedido no local utilizando o representante de aplicação AZure AD
 
 Se tiver problemas em assinar uma aplicação no local, pode tentar seguir os passos abaixo para resolver o seu problema.
 
@@ -36,7 +36,7 @@ Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais com
 
 ## <a name="im-having-a-connectivity-problem-my-application"></a>Estou com problemas de conectividade na minha aplicação
   Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais comuns nesta categoria.
-  * [Não sei que portas abrir para a minha aplicação](application-proxy-connectivity-ports-how-to.md)
+  * [Não sei que portas abrir para a minha aplicação](application-proxy-add-on-premises-application.md)
   * [Encontrei um problema porque não havia um conector a funcionar num grupo de conectores da minha aplicação](application-proxy-connectivity-no-working-connector.md)
 
 ## <a name="im-having-a-problem-configuring-the-azure-ad-application-proxy-in-the-admin-portal"></a>Estou a ter um problema ao configurar o Proxy de Aplicações do Azure AD no portal de administração
@@ -56,7 +56,7 @@ Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais com
 
 ## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Estou a ter um problema ao instalar o Conector do Agente do Proxy de Aplicações
   Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais comuns nesta categoria.
-  * [Estou tendo problemas em instalar o Conector de Agente proxy de aplicação](application-proxy-connector-installation-problem.md)
+  * [Estou com problemas na instalação do Conector de Agente de Procuração de Aplicações](application-proxy-connector-installation-problem.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [How to provide secure remote access to on-premises applications](application-proxy.md) (Como fornecer acesso remoto seguro a aplicações no local)

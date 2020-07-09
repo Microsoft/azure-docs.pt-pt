@@ -6,21 +6,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 03/18/2020
+ms.date: 06/24/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f28b660a2afc97cf9faf0f601e247a97e99098cd
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 0d05e85a06ae1e893d5d7faa7e5389da78ad6389
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853356"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85559536"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introdução ao Armazenamento de blobs do Azure
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
-## <a name="blob-storage-resources"></a>Recursos de armazenamento blob
+## <a name="blob-storage-resources"></a>Recursos de armazenamento de bolhas
 
 O armazenamento blob oferece três tipos de recursos:
 
@@ -30,34 +30,34 @@ O armazenamento blob oferece três tipos de recursos:
 
 O diagrama seguinte mostra a relação entre estes recursos.
 
-![Diagrama mostrando a relação entre uma conta de armazenamento, recipientes e bolhas](./media/storage-blobs-introduction/blob1.png)
+![Diagrama mostrando a relação entre uma conta de armazenamento, contentores e bolhas](./media/storage-blobs-introduction/blob1.png)
 
 ### <a name="storage-accounts"></a>Contas de armazenamento
 
-Uma conta de armazenamento fornece um espaço de nome único em Azure para os seus dados. Cada objeto que armazena no Azure Storage tem um endereço que inclui o nome único da conta. A combinação do nome da conta e do ponto final do ponto final do depósito azure forma o endereço base para os objetos na sua conta de armazenamento.
+Uma conta de armazenamento fornece um espaço de nome único em Azure para os seus dados. Cada objeto que armazena no Azure Storage tem um endereço que inclui o nome da sua conta única. A combinação do nome da conta e do ponto final da bolha de armazenamento Azure forma o endereço base para os objetos na sua conta de armazenamento.
 
-Por exemplo, se a sua conta de armazenamento for nomeada minha conta de *armazenamento,* então o ponto final padrão para o armazenamento blob é:
+Por exemplo, se a sua conta de armazenamento for nomeada *mystorageaccount*, então o ponto final padrão para armazenamento Blob é:
 
 ```
 http://mystorageaccount.blob.core.windows.net
 ```
 
-Para criar uma conta de armazenamento, consulte [Criar uma conta](../common/storage-account-create.md)de armazenamento . Para saber mais sobre as contas de armazenamento, consulte a visão geral da conta de [armazenamento do Azure.](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+Para criar uma conta de armazenamento, consulte [Criar uma conta de armazenamento.](../common/storage-account-create.md) Para saber mais sobre as contas de armazenamento, consulte [a visão geral da conta de armazenamento Azure](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="containers"></a>Contentores
 
-Um recipiente organiza um conjunto de bolhas, semelhantes a um diretório num sistema de ficheiros. Uma conta de armazenamento pode incluir um número ilimitado de contentores, e um contentor pode armazenar um número ilimitado de blobs.
+Um contentor organiza um conjunto de bolhas, semelhantes a um diretório num sistema de ficheiros. Uma conta de armazenamento pode incluir um número ilimitado de contentores, e um contentor pode armazenar um número ilimitado de blobs.
 
 > [!NOTE]
-> O nome do contentor tem de ser em minúsculas. Para obter mais informações sobre o nome de contentores, consulte [Contentores de Nomeação e Referência, Blobs e Metadados](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
+> O nome do contentor tem de ser em minúsculas. Para obter mais informações sobre o nome de recipientes, consulte [Naming e Referenciar Contentores, Bolhas e Metadados.](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)
 
 ### <a name="blobs"></a>Blobs
 
-O Armazenamento Azure suporta três tipos de bolhas:
+O Azure Storage suporta três tipos de bolhas:
 
-- **Bloqueie blobs** armazenar texto e dados binários, até cerca de 4,7 TB. Os blobs de blocos são constituídos por blocos de dados que podem ser geridos individualmente.
-- As bolhas de apêndice são **compostas** por blocos como blocos de blocos, mas são otimizadas para operações de apêndice. Os blobs de acréscimo são ideais para cenários como os dados de registo a partir de máquinas virtuais.
-- **As bolhas de página** armazenam ficheiros de acesso aleatório até 8 TB de tamanho. As bolhas de página armazenam ficheiros de disco rígido virtual (VHD) e servem como discos para máquinas virtuais Azure. Para mais informações sobre as bolhas de página, consulte a [visão geral das bolhas de página azure](storage-blob-pageblob-overview.md)
+- **As bolhas de bloco armazenam** texto e dados binários. Os blobs de blocos são constituídos por blocos de dados que podem ser geridos individualmente. As bolhas de bloco armazenam até cerca de 4,75 TiB de dados. Blobs de bloco maiores estão disponíveis na pré-visualização, até cerca de 190.7 TiB
+- **As bolhas de apêndice** são compostas por blocos como bolhas de bloco, mas são otimizadas para operações de apêndice. Os blobs de acréscimo são ideais para cenários como os dados de registo a partir de máquinas virtuais.
+- **As bolhas de página** armazenam ficheiros de acesso aleatório até 8 TB de tamanho. As bolhas de página armazenam ficheiros de disco rígido virtual (VHD) e servem como discos para máquinas virtuais Azure. Para obter mais informações sobre as bolhas de página, consulte [a visão geral das bolhas da página de Azure](storage-blob-pageblob-overview.md)
 
 Para obter mais informações sobre os diferentes tipos de bolhas, consulte [Understanding Block Blobs, Append Blobs e Page Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
@@ -65,12 +65,12 @@ Para obter mais informações sobre os diferentes tipos de bolhas, consulte [Und
 
 Existem várias soluções para a migração dos dados existentes para o armazenamento da Blob:
 
-- **O AzCopy** é uma ferramenta de linha de comando fácil de usar para Windows e Linux que copia dados de e para o armazenamento blob, através de contentores ou através de contas de armazenamento. Para mais informações sobre o AzCopy, consulte os [dados de transferência com o AzCopy v10](../common/storage-use-azcopy-v10.md).
-- A **biblioteca Azure Storage Data Movement** é uma biblioteca .NET para movimentar dados entre os serviços de Armazenamento Azure. O utilitário AzCopy é construído com a biblioteca Data Movement. Para mais informações, consulte a [documentação de referência](/dotnet/api/microsoft.azure.storage.datamovement) para a biblioteca do Movimento de Dados.
-- A **Azure Data Factory** suporta a cópia de dados de e para o armazenamento da Blob utilizando a chave de conta, uma assinatura de acesso partilhado, um diretor de serviço ou identidades geridas para os recursos Do Azure. Para mais informações, consulte [os dados da Cópia de ou para o armazenamento da Blob Azure utilizando](../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)a Azure Data Factory .
-- **Blobfuse** é um controlador virtual do sistema de ficheiros para o armazenamento de Azure Blob. Pode utilizar blobfuse para aceder aos dados de blob de bloco existentes na sua conta de Armazenamento através do sistema de ficheiros Linux. Para mais informações, consulte como montar o armazenamento blob como um sistema de [ficheiros com blobfuse](storage-how-to-mount-container-linux.md).
-- O serviço **Azure Data Box** está disponível para transferir dados no local para o armazenamento blob quando grandes conjuntos de dados ou restrições de rede tornam o upload de dados através do fio irrealista. Dependendo do tamanho dos dados, pode solicitar o Disco de Caixa de [Dados Azure,](../../databox/data-box-disk-overview.md)a Caixa de [Dados Azure](../../databox/data-box-overview.md)ou os dispositivos Heavy Da Caixa de [Dados Azure](../../databox/data-box-heavy-overview.md) da Microsoft. Em seguida, pode copiar os seus dados para esses dispositivos e enviá-los de volta para a Microsoft para serem enviados para o armazenamento blob.
-- O **serviço azure import/exportação** fornece uma forma de importar ou exportar grandes quantidades de dados de e para a sua conta de armazenamento utilizando discos rígidos que fornece. Para mais informações, consulte [Utilize o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento blob](../common/storage-import-export-service.md).
+- **O AzCopy** é uma ferramenta de linha de comando fácil de usar para Windows e Linux que copia dados de e para o armazenamento blob, através de contentores ou através de contas de armazenamento. Para obter mais informações sobre a AzCopy, consulte [os dados de transferência com o AzCopy v10](../common/storage-use-azcopy-v10.md).
+- A **biblioteca Azure Storage Data Movement** é uma biblioteca .NET para transferir dados entre os serviços de armazenamento Azure. O utilitário AzCopy é construído com a biblioteca Do Movimento de Dados. Para mais informações, consulte a [documentação de referência](/dotnet/api/microsoft.azure.storage.datamovement) para a biblioteca do Movimento de Dados.
+- **A Azure Data Factory** suporta a cópia de dados de e para o armazenamento blob usando a chave de conta, uma assinatura de acesso partilhado, um principal serviço ou identidades geridas para recursos Azure. Para obter mais informações, consulte [copiar dados para ou a partir do armazenamento da Azure Blob utilizando a Azure Data Factory](../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+- **Blobfuse** é um controlador de sistema de ficheiros virtual para o armazenamento Azure Blob. Pode utilizar o blobfuse para aceder aos dados de blob existentes na sua conta de Armazenamento através do sistema de ficheiros Linux. Para obter mais informações, consulte [Como montar o armazenamento Blob como um sistema de ficheiros com blobfuse](storage-how-to-mount-container-linux.md).
+- O serviço **Azure Data Box** está disponível para transferir dados no local para armazenamento Blob quando grandes conjuntos de dados ou restrições de rede tornam os dados de upload sobre o fio irrealistas. Dependendo do tamanho dos dados, pode solicitar [a Azure Data Box Disk,](../../databox/data-box-disk-overview.md) [Azure Data Box](../../databox/data-box-overview.md)ou [Azure Data Box Dispositivos pesados](../../databox/data-box-heavy-overview.md) da Microsoft. Em seguida, pode copiar os seus dados para esses dispositivos e enviá-los de volta para a Microsoft para serem enviados para o armazenamento blob.
+- O **serviço Azure Import/Export** fornece uma forma de importar ou exportar grandes quantidades de dados de e para a sua conta de armazenamento utilizando discos rígidos que fornece. Para obter mais informações, consulte [o serviço Microsoft Azure Import/Export para transferir dados para o armazenamento blob](../common/storage-import-export-service.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

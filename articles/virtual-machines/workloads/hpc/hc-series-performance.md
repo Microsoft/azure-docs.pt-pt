@@ -1,6 +1,6 @@
 ---
-title: Desempenho do tamanho da série HC VM - Máquinas Virtuais Azure / Microsoft Docs
-description: Conheça os resultados dos testes de desempenho para os tamanhos vm da série HC em Azure.
+title: Desempenho do tamanho VM da série HC - Azure Virtual Machines Microsoft Docs
+description: Saiba mais sobre os resultados dos testes de desempenho para tamanhos VM da série HC em Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -13,23 +13,23 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: cea772f03d5e2838b44d50f3cf5e926d740be5f0
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67707689"
 ---
-# <a name="hc-series-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais da série HC
+# <a name="hc-series-virtual-machine-sizes"></a>Tamanhos de máquina virtual da série HC
 
-Vários testes de desempenho foram executados em tamanhos de série HC. Seguem-se alguns dos resultados deste teste de desempenho.
+Vários testes de desempenho foram realizados em tamanhos da série HC. Seguem-se alguns dos resultados deste teste de desempenho.
 
 | Carga de trabalho                                        | HB                    |
 |-------------------------------------------------|-----------------------|
-| Tríade STREAM                                    | ~190 GB/s (Intel MLC AVX-512)  |
+| STREAM Triad                                    | ~190 GB/s (Intel MLC AVX-512)  |
 | Linpack de alto desempenho (HPL)                  | ~3520 GigaFLOPS (Rpeak), ~2970 GigaFLOPS (Rmax) |
-| Latência RDMA & largura de banda                        | 1,80 microsegundos, 96.3 Gb/s   |
-| FIO em NVMe SSD local                           | ~1,3 GB/s lê, ~900 MB/s escreve |  
-| IOR em 4 SSD Premium Azure (P30 Discos Geridos, RAID0)**  | ~780 MB/s lê, ~780 MB/escreve |
+| Latência RDMA & largura de banda                        | 1,80 microsegundos, 96,3 Gb/s   |
+| FIO no NVMe SSD local                           | ~1.3 LEITURAS GB/s, ~900 MB/s escreve |  
+| IOR em 4 Azure Premium SSD (P30 Discos Geridos, RAID0)**  | ~780 MB/s lê, ~780 MB/writes |
 
 ## <a name="infiniband-send-latency"></a>InfiniBand enviar latência
 
@@ -54,9 +54,9 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 | 2048            | 1000            | 2.68            | 6.14            | 2.75            | 2.52            | 0,20            |
 | 4096            | 1000            | 3.17            | 7.02            | 3.26            | 2.81            | 0.24            |
 
-## <a name="osu-mpi-latency-test"></a>Teste de Latência MPI da OSU
+## <a name="osu-mpi-latency-test"></a>Teste de latência DAU MPI
 
-Teste de latência MPI v5.4.3.
+Teste de latência MPI DA OSU v5.4.3.
 
 ```azure-cli
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency 
@@ -77,9 +77,9 @@ Teste de latência MPI v5.4.3.
 | 2048 | 3.09     | 3.11     | 3.34     |
 | 4096 | 3.72     | 3.91     | 4.44     |
 
-## <a name="mpi-bandwidth"></a>Largura de banda MPI
+## <a name="mpi-bandwidth"></a>Largura de banda do MPI
 
-TESTE DE Largura de Banda MPI V5.4.3.
+Teste de largura de banda OSU MPI v5.4.3.
 
 ```azure-cli
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw

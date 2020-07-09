@@ -1,28 +1,32 @@
 ---
 title: Gamas de endereços IP privados Azure Firewall SNAT
-description: Pode configurar gamas privadas de endereçoIP para que a firewall não o tráfego sNAT para esses endereços IP.
+description: Pode configurar intervalos de endereço IP para SNAT.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
-ms.date: 03/20/2020
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: ed8cef00b7de67458c607373c724a3717f14a7cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be2bf0f9590a23f9def44a1800338c80f69a782c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80064817"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610528"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Gamas de endereços IP privados Azure Firewall SNAT
 
-O Azure Firewall não snaT com regras de rede quando o endereço IP de destino está numa gama de endereços IP privado por [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). As regras de aplicação são sempre aplicadas utilizando um [representante transparente,](https://wikipedia.org/wiki/Proxy_server#Transparent_proxy) independentemente do endereço IP de destino.
+O Azure Firewall fornece SNAT automático para todo o tráfego de saída para endereços IP públicos. Por padrão, o Azure Firewall não sNAT com regras de rede quando o endereço IP de destino está em uma gama de endereços IP privada por [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). As regras de aplicação são sempre aplicadas usando um [representante transparente,](https://wikipedia.org/wiki/Proxy_server#Transparent_proxy) independentemente do endereço IP de destino.
 
-Se a sua organização utilizar uma gama pública de endereços IP para redes privadas, o Azure Firewall SNATs snats o tráfego para um dos endereços IP privados firewall em AzureFirewallSubnet. No entanto, pode configurar o Azure Firewall para **não** sNAT a sua gama pública de endereços IP.
+Esta lógica funciona bem quando se encaminha o tráfego diretamente para a Internet. No entanto, se tiver ativado [um túnel forçado,](forced-tunneling.md)o tráfego ligado à Internet é SNATed para um dos endereços IP privados de firewall em AzureFirewallSubnet, escondendo a fonte da sua firewall no local.
 
-## <a name="configure-snat-private-ip-address-ranges"></a>Configure gamas de endereços IP privados SNAT
+Se a sua organização utilizar um intervalo de endereços IP público para redes privadas, o Azure Firewall SNATs faz o tráfego para um dos endereços IP privados de firewall em AzureFirewallSubnet. No entanto, pode configurar o Azure Firewall para **não** SNAT o seu intervalo de endereço IP público.
 
-Pode utilizar o Azure PowerShell para especificar uma gama de endereços IP que a firewall não o snat.
+Para configurar o Azure Firewall para nunca o SNAT, independentemente do endereço IP de destino, utilize **0.0.0.0/0** como o seu intervalo de endereço IP privado. Com esta configuração, o Azure Firewall nunca poderá encaminhar o tráfego diretamente para a Internet. Para configurar a firewall para sempre SNAT, independentemente do endereço de destino, utilize **255.255.255.255/32** como a sua gama de endereços IP privado.
+
+## <a name="configure-snat-private-ip-address-ranges---azure-powershell"></a>Configurar gamas de endereços IP privados SNAT - Azure PowerShell
+
+Pode utilizar o Azure PowerShell para especificar os intervalos de endereço IP privados para a firewall.
 
 ### <a name="new-firewall"></a>Nova firewall
 
@@ -31,7 +35,7 @@ Para uma nova firewall, o comando Azure PowerShell é:
 `New-AzFirewall -Name $GatewayName -ResourceGroupName $RG -Location $Location -VirtualNetworkName $vnet.Name -PublicIpName $LBPip.Name -PrivateRange @("IANAPrivateRanges","IPRange1", "IPRange2")`
 
 > [!NOTE]
-> O IANAPrivateRanges é expandido para os atuais incumprimentos no Firewall Azure, enquanto as outras gamas são adicionadas ao mesmo.
+> IANAPrivateRanges é expandido para os padrãos atuais no Azure Firewall enquanto as outras gamas são adicionadas ao mesmo. Para manter o PADRÃO IANAPrivateRanges na sua especificação de gama privada, deve permanecer na sua `PrivateRange` especificação como mostrado nos seguintes exemplos.
 
 Para mais informações, consulte [New-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall?view=azps-3.3.0).
 
@@ -47,7 +51,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 ### <a name="templates"></a>Modelos
 
-Pode adicionar o seguinte `additionalProperties` à secção:
+Pode adicionar o seguinte à `additionalProperties` secção:
 
 ```
 "additionalProperties": {
@@ -55,6 +59,20 @@ Pode adicionar o seguinte `additionalProperties` à secção:
                 },
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="configure-snat-private-ip-address-ranges---azure-portal"></a>Configurar gamas de endereços IP privados SNAT - Portal Azure
 
-- Aprenda a [implementar e configurar uma Firewall Azure](tutorial-firewall-deploy-portal.md).
+Pode utilizar o portal Azure para especificar intervalos de endereços IP privados para a firewall.
+
+1. Selecione o seu grupo de recursos e, em seguida, selecione a sua firewall.
+2. Na página **'Visão Geral',** **Gamas IP Privadas**, selecione o valor padrão **IANA RFC 1918**.
+
+   A página **de prefixos IP privados** de edição abre:
+
+   :::image type="content" source="media/snat-private-range/private-ip.png" alt-text="Editar prefixos IP privados":::
+
+1. Por predefinição, **o IANAPrivateRanges** está configurado.
+2. Edite os intervalos de endereço IP privados para o seu ambiente e, em seguida, **selecione Guardar**.
+
+## <a name="next-steps"></a>Próximos passos
+
+- Saiba mais sobre [o túnel forçado Azure Firewall](forced-tunneling.md).

@@ -2,19 +2,19 @@
 title: Implementar e fazer previsões com ONNX em Azure SQL Edge (Preview)
 description: Aprenda a treinar um modelo, converta-o em ONNX, implante-o para Azure SQL Edge (Preview) e, em seguida, executar previsão nativa em dados usando o modelo ONNX carregado.
 keywords: implementar SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
-ms.subservice: ''
+services: sql-edge
+ms.service: sql-edge
+ms.subservice: machine-learning
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
-ms.openlocfilehash: 2dd5af1a23618b063f094e4974f705a51a1b2bcf
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: b5cd655aaf9992c6908a7f9287f691fd36d84871
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171026"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85476738"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-in-azure-sql-edge-preview"></a>Implementar e fazer previsões com um modelo ONNX em Azure SQL Edge (Pré-visualização)
 
@@ -22,7 +22,7 @@ Neste arranque rápido, aprenderá a treinar um modelo, convertê-lo para ONNX, 
 
 Este quickstart é baseado em **scikit-learn** e usa o [conjunto de dados boston Housing](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 * Se não tiver implantado um módulo Azure SQL Edge, siga os passos de [implantação sql edge (Preview) utilizando o portal Azure](deploy-portal.md).
 
@@ -380,11 +380,11 @@ AS (
         , PTRATIO
         , B
         , LSTAT
-    FROM [onnx].[dbo].[features]
+    FROM [dbo].[features]
     )
 SELECT predict_input.id
     , p.variable1 AS MEDV
-FROM PREDICT(MODEL = @model, DATA = predict_input, RUNTIME=ONNX) WITH (variable1 FLOAT) AS p
+FROM PREDICT(MODEL = @model, DATA = predict_input, RUNTIME=ONNX) WITH (variable1 FLOAT) AS p;
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

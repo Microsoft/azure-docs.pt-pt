@@ -5,32 +5,32 @@ services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.topic: conceptual
 ms.date: 05/15/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9440d5a13973a245320bc465e3997e3cdf414b3f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 83170f4090909e3edcc163312383773d088d8c57
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660318"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212127"
 ---
-# <a name="configure-workload-importance-in-azure-synapse-analytics"></a>Configure importância da carga de trabalho no Azure Synapse Analytics
+# <a name="configure-workload-importance-in-azure-synapse-analytics"></a>Configure a importância da carga de trabalho no Azure Synapse Analytics
 
-Definir importância no Synapse SQL para O Synapse Azure permite-lhe influenciar o agendamento de consultas. Consultas com maior importância serão agendadas antes de consultas com menor importância. Para atribuir importância a consultas, é necessário criar um classificador de carga de trabalho.
+Definir importância no Sinapse SQL para Azure Synapse permite-lhe influenciar o agendamento de consultas. As consultas com maior importância serão agendadas para serem executadas antes de consultas com menor importância. Para atribuir importância às consultas, é necessário criar um classificador de carga de trabalho.
 
-## <a name="create-a-workload-classifier-with-importance"></a>Criar um Classificador de Carga de Trabalho com Importância
+## <a name="create-a-workload-classifier-with-importance"></a>Criar um classificador de carga de trabalho com importância
 
-Muitas vezes, num cenário de armazém de dados, temos utilizadores, num sistema movimentado, que precisam de executar as suas consultas rapidamente.  O utilizador pode ser executivo da empresa que precisa de executar relatórios ou o utilizador pode ser um analista a executar uma consulta adhoc. Para atribuir importância, cria-se um classificador de carga de trabalho e a importância é atribuída a uma consulta.  Os exemplos abaixo usam a sintaxe [de classificação de carga](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) de trabalho para criar dois classificadores. `Membername`pode ser um único utilizador ou um grupo.  Para encontrar utilizadores de armazéns de dados existentes, executar:
+Muitas vezes, num cenário de armazém de dados, temos utilizadores, num sistema movimentado, que precisam de executar as suas consultas rapidamente.  O utilizador pode ser executivo da empresa que precisa de executar relatórios ou o utilizador pode ser um analista que executa uma consulta de adhoc. Para atribuir importância, cria-se um classificador de carga de trabalho e a importância é atribuída a uma consulta.  Os exemplos abaixo utilizam a sintaxe [do classificador de criar carga de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para criar dois classificadores. `Membername`pode ser um único utilizador ou um grupo.  Para encontrar os utilizadores de armazém de dados existentes, corra:
 
 ```sql
 Select name from sys.sysusers
 ```
 
-Para criar um classificador de carga de trabalho, para um utilizador com maior importância executada:
+Para criar um classificador de carga de trabalho, para um utilizador com maior importância é executado:
 
 ```sql
 CREATE WORKLOAD CLASSIFIER ExecReportsClassifier
@@ -39,7 +39,7 @@ CREATE WORKLOAD CLASSIFIER ExecReportsClassifier
          ,IMPORTANCE     = above_normal);
 ```
 
-Para criar um classificador de carga de trabalho para um utilizador que executa consultas adhoc com execução de menor importância:  
+Para criar um classificador de carga de trabalho para um utilizador que executa consultas de adesivo com menor importância:  
 
 ```sql
 CREATE WORKLOAD CLASSIFIER AdhocClassifier
@@ -50,8 +50,8 @@ CREATE WORKLOAD CLASSIFIER AdhocClassifier
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para mais informações sobre a gestão da carga de trabalho, consulte [Classificação da Carga de Trabalho](sql-data-warehouse-workload-classification.md)
-- Para mais informações sobre Importância, consulte [A Importância da Carga de Trabalho](sql-data-warehouse-workload-importance.md)
+- Para obter mais informações sobre a gestão da carga de trabalho, consulte [classificação da carga de trabalho](sql-data-warehouse-workload-classification.md)
+- Para mais informações sobre importância, consulte [a Importância da Carga de Trabalho](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
-> [Ir para gerir e monitorizar a importância da carga de trabalho](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)
+> [Vá para gerir e monitorize a importância da carga de trabalho](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)

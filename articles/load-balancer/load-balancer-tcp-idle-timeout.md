@@ -1,53 +1,53 @@
 ---
-title: Configure balancer de carga TCP tempo limite inativo em Azure
+title: Configurar o tempo limite de marcha lenta TCP em Azure
 titleSuffix: Azure Load Balancer
-description: Neste artigo, aprenda a configurar o tempo inativo do Azure Load Balancer TCP.
+description: Neste artigo, aprenda a configurar o tempo limite de marcha lenta do Azure Load Balancer TCP.
 services: load-balancer
 documentationcenter: na
 author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 09d15877088fb6356419a9d31f8bef3164e76029
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 38db681655a839983ebf38e94ec28eb05ed65d1f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780608"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808582"
 ---
-# <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Configure as definições de tempo de tempo inativa do TCP para o Equilíbrio de Carga Sinuoso Azure
+# <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Configurar as definições de tempo limite de marcha lenta da TCP para o balançador de carga Azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a versão 5.4.1 ou posterior do módulo Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar a PowerShell localmente, também precisa de correr para criar uma ligação com o `Connect-AzAccount` Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a versão 5.4.1 ou posterior do módulo Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar o PowerShell localmente, também precisa de correr `Connect-AzAccount` para criar uma ligação com o Azure.
 
-## <a name="tcp-idle-timeout"></a>TCP Idle Timeout
-O Equilíbrio de Carga Azure tem um intervalo de tempo inativo de 4 minutos a 30 minutos. Por defeito, está definido para 4 minutos. Se um período de inatividade for superior ao valor de tempo limite, não há garantiade que a sessão de TCP ou HTTP seja mantida entre o cliente e o seu serviço na nuvem.
+## <a name="tcp-idle-timeout"></a>TCP Inativo Tempo
+O Azure Load Balancer tem uma definição de tempo limite de 4 minutos a 30 minutos. Por predefinição, está programado para 4 minutos. Se um período de inatividade for maior do que o valor de tempo limite, não há garantias de que a sessão TCP ou HTTP seja mantida entre o cliente e o seu serviço na nuvem.
 
-Quando a ligação estiver fechada, a aplicação do seu cliente pode receber a seguinte mensagem de erro: "A ligação subjacente foi fechada: Uma ligação que se esperava que fosse mantida viva foi fechada pelo servidor."
+Quando a ligação estiver fechada, a aplicação do seu cliente poderá receber a seguinte mensagem de erro: "A ligação subjacente foi encerrada: Uma ligação que se esperava que fosse mantida viva foi fechada pelo servidor."
 
-Uma prática comum é usar um TCP manter-se vivo. Esta prática mantém a ligação ativa por um período mais longo. Para mais informações, consulte estes [exemplos .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Com a manutenção ativada, os pacotes são enviados durante períodos de inatividade na ligação. Os pacotes de keep-alive garantem que o valor de tempo inativo não é atingido e a ligação é mantida por um longo período.
+Uma prática comum é usar um TCP de vida. Esta prática mantém a ligação ativa por um período mais longo. Para obter mais informações, consulte estes [exemplos .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Com o tempo de vida ativo, os pacotes são enviados durante períodos de inatividade na ligação. Os pacotes de manutenção vivos asseguram que o valor de tempo de saída não é atingido e a ligação é mantida por um longo período de tempo.
 
-A definição funciona apenas para ligações de entrada. Para evitar perder a ligação, configure o TCP manter-vivo com um intervalo inferior ao tempo inativo ou aumentar o valor de tempo inativo. Para suportar estes cenários, foi adicionado suporte para um tempo de paragem inativo configurável.
+A regulação funciona apenas para ligações de entrada. Para evitar perder a ligação, configufique a fixação do TCP com um intervalo inferior ao da definição de tempo de marcha lenta inativa ou aumente o valor de tempo de marcha lenta inativo. Para apoiar estes cenários, foi adicionado o apoio a um tempo limite configurável.
 
-A tCP mantém-se viva para cenários em que a vida útil da bateria não é um constrangimento. Não é recomendado para aplicações móveis. A utilização de um TCP manejá-lo vivo numa aplicação móvel pode drenar a bateria do dispositivo mais rapidamente.
+A TCP mantém-se viva para cenários em que a vida útil da bateria não é um constrangimento. Não é recomendado para aplicações móveis. A utilização de um TCP de vida numa aplicação móvel pode drenar a bateria do dispositivo mais rapidamente.
 
-![Intervalo de tempo para tcp](./media/load-balancer-tcp-idle-timeout/image1.png)
+![Tempo limite de TCP](./media/load-balancer-tcp-idle-timeout/image1.png)
 
-As seguintes secções descrevem como alterar as definições de tempo inativo para os recursos públicos de IP e de equilíbrio de carga.
+As secções seguintes descrevem como alterar as definições de tempo limite de marcha lenta para IP público e recursos do balançador de carga.
 
 >[!NOTE]
-> O tempo inativo da TCP não afeta as regras de equilíbrio de carga no protocolo UDP.
+> O tempo limite de inatividade da TCP não afeta as regras de equilíbrio de carga no protocolo UDP.
 
 
-## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Configure o tempo de tempo tCP para o seu IP público de nível de exemplo para 15 minutos
+## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Configure o tempo limite de TCP para o seu IP público de nível de exemplo para 15 minutos
 
 ```azurepowershell-interactive
 $publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
@@ -55,11 +55,11 @@ $publicIP.IdleTimeoutInMinutes = "15"
 Set-AzPublicIpAddress -PublicIpAddress $publicIP
 ```
 
-`IdleTimeoutInMinutes` é opcional. Se não estiver definido, o tempo de paragem padrão é de 4 minutos. O intervalo de tempo aceitável é de 4 a 30 minutos.
+`IdleTimeoutInMinutes` é opcional. Se não estiver definido, o tempo limite de tempo é de 4 minutos. O intervalo aceitável é de 4 a 30 minutos.
 
-## <a name="set-the-tcp-timeout-on-a-load-balanced-rule-to-15-minutes"></a>Delineie o tempo de tempo tCP numa regra equilibrada em carga para 15 minutos
+## <a name="set-the-tcp-timeout-on-a-load-balanced-rule-to-15-minutes"></a>Desabrague o tempo limite de TCP numa regra equilibrada de carga para 15 minutos
 
-Para definir o tempo inativo para um equilibrador de carga, o 'IdleTimeoutInMinutes' é definido na regra equilibrada da carga. Por exemplo:
+Para definir o tempo de inatividade para um balanceador de carga, o 'IdleTimeoutInMinutes' é definido na regra equilibrada de carga. Por exemplo:
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer -Name "MyLoadBalancer" -ResourceGroup "MyResourceGroup"
@@ -67,7 +67,7 @@ $lb | Set-AzLoadBalancerRuleConfig -Name myLBrule -IdleTimeoutInMinutes 15
 ```
 ## <a name="next-steps"></a>Próximos passos
 
-[Visão geral do equilíbrio de carga interna](load-balancer-internal-overview.md)
+[Visão geral do balançador de carga interna](load-balancer-internal-overview.md)
 
 [Começar a configurar um equilibrador de carga virado para a Internet](quickstart-create-standard-load-balancer-powershell.md)
 

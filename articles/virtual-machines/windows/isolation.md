@@ -1,6 +1,6 @@
 ---
-title: Isolamento para VMs Windows em Azure
-description: Saiba que o isolamento vm funciona em Azure.
+title: Isolamento para VMs windows em Azure
+description: Saiba mais sobre o isolamento VM funciona em Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
@@ -8,10 +8,9 @@ ms.workload: infrastructure-services
 ms.date: 08/01/2019
 ms.author: cynthn
 ms.openlocfilehash: e03f31d8a78a0d327278768c3f0b66d2119f8dc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81870057"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Isolamento de máquina virtual em Azure
@@ -20,9 +19,9 @@ ms.locfileid: "81870057"
 
 [!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation-migration.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Pode implantar um hospedeiro dedicado utilizando o [Azure PowerShell,](dedicated-hosts-powershell.md)o [portal](dedicated-hosts-portal.md)e o [Azure CLI](../linux/dedicated-hosts-cli.md). Para mais informações, consulte a visão geral dos [anfitriões dedicados.](dedicated-hosts.md)
+- Pode implementar um anfitrião dedicado utilizando [a Azure PowerShell,](dedicated-hosts-powershell.md)o [portal](dedicated-hosts-portal.md)e [o Azure CLI](../linux/dedicated-hosts-cli.md). Para mais informações, consulte a visão geral dos [anfitriões dedicados.](dedicated-hosts.md)
 
 
 

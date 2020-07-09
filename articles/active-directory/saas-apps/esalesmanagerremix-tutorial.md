@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Diretório Ativo Azure com o Remix do Gestor de Vendas E Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com o E Sales Manager Remix Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o E Sales Manager Remix.
 services: active-directory
 documentationCenter: na
@@ -17,120 +17,120 @@ ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 167d682bb5ce1266ba6b677f6223c38dd34af9bb
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82202401"
 ---
-# <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrar o Diretório Ativo Azure com o Remix do Gestor de Vendas E
+# <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integre o Azure Ative Directy com o E Sales Manager Remix
 
 Neste tutorial, aprende-se a integrar o Azure Ative Directory (Azure AD) com o E Sales Manager Remix.
 
 Ao integrar o Azure AD com o E Sales Manager Remix, obtém os seguintes benefícios:
 
 - Você pode controlar em Azure AD que tem acesso ao E Sales Manager Remix.
-- Pode permitir que os seus utilizadores se inscrevam automaticamente no E Sales Manager Remix (insessão individual, ou SSO) com as suas contas Azure AD.
+- Pode permitir que os seus utilizadores se inscrevam automaticamente no E Sales Manager Remix (s-on único, ou SSO) com as suas contas AD Azure.
 - Pode gerir as suas contas num local central, o portal Azure.
 
-Para saber mais sobre a integração de apps saaS com a Azure AD, veja [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory?](../manage-apps/what-is-single-sign-on.md)
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, veja [o que é o acesso à aplicação e um único acesso com o Azure Ative Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com o Remix do Gestor de Vendas E, precisa dos seguintes itens:
+Para configurar a integração AD da Azure com o E Sales Manager Remix, precisa dos seguintes itens:
 
 - Uma subscrição do Azure
-- Uma subscrição ativada por E Sales Manager SSO
+- Uma subscrição ativada pelo E Sales Manager Remix SSO
 
 > [!NOTE]
-> Quando testar os passos deste tutorial, recomendamos que *não* utilize um ambiente de produção.
+> Ao testar os passos neste tutorial, recomendamos que *não* utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, siga estas recomendações:
 
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de julgamento da AD Azure, pode [ter um julgamento de um mês.](https://azure.microsoft.com/pricing/free-trial/)
+- Não utilize o seu ambiente de produção, a não ser que seja necessário.
+- Se não tiver um ambiente experimental da AD Azure, pode [ter um julgamento de um mês.](https://azure.microsoft.com/pricing/free-trial/)
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testa o single sign-on Azure AD em um ambiente de teste. 
+Neste tutorial, você testa a Azure AD um único sinal de acesso em um ambiente de teste. 
 
 O cenário delineado neste tutorial consiste em dois blocos principais de construção:
 
 * Adicionar E Sales Manager Remix da galeria
-* Configuração e teste de um único sinal de Azure AD
+* Configurar e testar o Azure AD único sinal de acesso
 
-## <a name="add-e-sales-manager-remix-from-the-gallery"></a>Adicione E Sales Manager Remix da galeria
-Para configurar a integração do Azure AD com o E Sales Manager Remix, adicione o Remix do Gestor de Vendas E da galeria à sua lista de aplicações geridas do SaaS, fazendo o seguinte:
+## <a name="add-e-sales-manager-remix-from-the-gallery"></a>Adicionar E Sales Manager Remix da galeria
+Para configurar a integração do AZure AD com o E Sales Manager Remix, adicione o E Sales Manager Remix da galeria à sua lista de aplicações geridas para o SaaS, fazendo o seguinte:
 
 1. No [portal Azure,](https://portal.azure.com)no painel esquerdo, selecione **Azure Ative Directory**. 
 
     ![O botão Azure Ative Directory][1]
 
-1. Selecione **aplicações** > Enterprise**Todas as aplicações**.
+1. Selecione **aplicações da Empresa**  >  **Todas as aplicações**.
 
-    ![A janela "Aplicações empresariais"][2]
+    ![A janela "Aplicações da Empresa"][2]
     
 1. Para adicionar uma nova aplicação, selecione **Nova aplicação** na parte superior da janela.
 
     ![O novo botão de aplicação][3]
 
-1. Na caixa de pesquisa, type **E Sales Manager Remix**, selecione **E Sales Manager Remix** na lista de resultados e, em seguida, selecione **Adicionar**.
+1. Na caixa de pesquisa, o Remix do tipo **E Sales Manager**, selecione E Sales Manager **Remix** na lista de resultados e, em seguida, selecione **Add**.
 
     ![E Sales Manager Remix na lista de resultados](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o single sign-on azure AD com o E Sales Manager Remix, com base num utilizador de teste chamado "Britta Simon".
+Nesta secção, configura e testa o Azure AD com o E Sales Manager Remix, baseado num utilizador de teste chamado "Britta Simon".
 
-Para um único login funcionar, a Azure AD precisa identificar o utilizador E Sales Manager Remix e a sua congénere em Azure AD. Por outras palavras, deve ser estabelecida uma relação de ligação entre um utilizador da AD Azure e o mesmo utilizador no E Sales Manager Remix.
+Para um único sinal de sação a funcionar, o Azure AD precisa de identificar o utilizador E Sales Manager Remix e a sua congénere em Azure AD. Por outras palavras, deve ser estabelecida uma relação de ligação entre um utilizador Azure AD e o mesmo utilizador no E Sales Manager Remix.
 
-Para configurar e testar o único sign-on da Azure AD com o E Sales Manager Remix, complete os blocos de construção nas próximas cinco secções:
+Para configurar e testar o Azure AD com o E Sales Manager Remix, complete os blocos de construção nas próximas cinco secções:
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
 
-Ative o único sign-on da Azure AD no portal Azure e configure um único sinal na aplicação E Sales Manager Remix fazendo o seguinte:
+Ativar o Azure AD num único sinal no portal Azure e configurar um único sinal na sua aplicação E Sales Manager Remix, fazendo o seguinte:
 
-1. No portal Azure, na página de integração de aplicações **E Sales Manager Remix,** selecione **Single sign-on**.
+1. No portal Azure, na página de integração da aplicação **E Sales Manager Remix,** selecione **Single sign-on**.
 
     ![O link "Single sign-on"][4]
 
-1. Na janela **de entrada individual,** na caixa **modo de entrada única,** selecione **saml-on baseado em SAML**.
+1. Na janela **de inscrição única,** na caixa **de modo de inscrição única,** selecione **Sign-on com base em SAML**.
  
     ![A janela "Single sign-on"](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_samlbase.png)
 
 1. Em **E Sales Manager Remix Domain and URLs,** faça o seguinte:
 
-    ![E Sales Manager Remix Domain and URLs informações únicas de inscrição](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
+    ![E Sales Manager Remix Domain e URLs informações únicas de início de súmito](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
-    a. Na caixa **de URL sign-on,** escreva um URL no seguinte formato: *\<https://> de URL baseado no servidor/\<subdomínio>/esales-pc*.
+    a. Na caixa **URL de entrada de inscrição,** digite um URL no seguinte formato: https:// * \<Server-Based-URL> / \<sub-domain> /esales-pc*.
 
-    b. Na caixa **de identificação,** digite um URL no seguinte formato: https:// *\<> de url baseado no servidor/> subdomínio/\<*.
+    b. Na caixa **do identificador,** digite um URL no seguinte formato: * \<Server-Based-URL> / \<sub-domain> / https://*.
 
     c. Note o valor **do Identificador** para posterior utilização neste tutorial.
     
     > [!NOTE] 
-    > Os valores anteriores não são reais. Atualize-os com o URL de inscrição real e identificador. Para obter os valores, contacte a equipa de suporte ao [Cliente Remix Do Gestor](mailto:esupport@softbrain.co.jp)de Vendas E.
+    > Os valores anteriores não são reais. Atualize-os com o URL de inscrição real e o identificador. Para obter os valores, contacte a [equipa de suporte do Cliente Remix Do Gerente de Vendas da E.](mailto:esupport@softbrain.co.jp)
 
-1. Em **certificado de assinatura SAML,** selecione Certificado **(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+1. Ao abrigo **do Certificado de Assinatura SAML,** selecione Certificado **(Base64)** e guarde o ficheiro de certificado no seu computador.
 
     ![O link de descarregamento do Certificado (Base64)](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
 
-1. Selecione o **'Ver' e edite todos os outros atributos** do utilizador verificar a caixa e, em seguida, selecione o atributo do **endereço de e-mail.**
+1. Selecione a **Caixa de Verificação de Todos os outros atributos do utilizador** e, em seguida, selecione o atributo **e-mailaddress.**
     
-    ![A janela de atributos do utilizador](./media/esalesmanagerremix-tutorial/configure1.png)
+    ![A janela Atributos do Utilizador](./media/esalesmanagerremix-tutorial/configure1.png)
 
-    A janela **Edit Attribute** abre.
+    A janela **Edite Attribute** abre-se.
 
-1. Copie os **valores** do Espaço de Nome e **nome.** Gere o valor no padrão * \<\<Namespace>/ Nome>, *e guarde-o para posterior utilização neste tutorial.
+1. Copie os **valores namespace** e **Name.** Gere o valor no *\<Namespace>/\<Name>* padrão, e guarde-o para posterior utilização neste tutorial.
 
-    ![A janela do Atributo editar](./media/esalesmanagerremix-tutorial/configure2.png)
+    ![A janela editar atributo](./media/esalesmanagerremix-tutorial/configure2.png)
 
-1. Sob **a configuração de remix do Gestor**de Vendas E, selecione **Configure E Sales Manager Remix**.
+1. No **âmbito da configuração do Remix do Gerente de Vendas E**, selecione **Configure E Sales Manager Remix**.
 
-    ![E Sales Manager Remix Configuração](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
+    ![Configuração remix do gerente de vendas do E](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
-    A janela **de inscrição configuração** abre.
+    A janela de inscrição de configuração **abre.-** A janela de inscrição se abre.
 
-1. Na secção **De Referência Rápida,** copie o URL de inscrição e o URL de serviço de inscrição único SAML.
+1. Na secção **referência rápida,** copie o URL de inscrição e o URL de serviço único SAML.
 
 1. Selecione **Guardar**.
 
@@ -138,141 +138,141 @@ Ative o único sign-on da Azure AD no portal Azure e configure um único sinal n
 
 1. Inscreva-se na sua aplicação E Sales Manager Remix como administrador.
 
-1. Na parte superior direita, selecione **Menu para Administrador**.
+1. No menu superior direito, selecione **Para o Menu de Administrador**.
 
-    ![O comando "Para Administrador"](./media/esalesmanagerremix-tutorial/configure4.png)
+    ![O comando "Menu de Administrador"](./media/esalesmanagerremix-tutorial/configure4.png)
 
-1. No painel esquerdo, selecione **Definições** > do sistema**Cooperação com sistema externo**.
+1. No painel esquerdo, selecione **Definições de Sistema**  >  **Cooperação com sistema externo**.
 
-    ![As ligações "Definições do sistema" e "Cooperação com sistema externo"](./media/esalesmanagerremix-tutorial/configure5.png)
+    ![As ligações "Definições do Sistema" e "Cooperação com o sistema externo"](./media/esalesmanagerremix-tutorial/configure5.png)
     
-1. Na Cooperação com a janela do **sistema externo,** selecione **SAML**.
+1. Na **janela de Cooperação com sistema externo,** selecione **SAML**.
 
-    ![A janela "Cooperação com sistema externo"](./media/esalesmanagerremix-tutorial/configure6.png)
+    ![A janela "Cooperação com o sistema externo"](./media/esalesmanagerremix-tutorial/configure6.png)
 
-1. Sob a definição de **autenticação SAML,** faça o seguinte:
+1. Na **definição de autenticação SAML,** faça o seguinte:
 
-    ![A secção "Definição de autenticação SAML"](./media/esalesmanagerremix-tutorial/configure3.png)
+    ![A secção "definição de autenticação SAML"](./media/esalesmanagerremix-tutorial/configure3.png)
     
-    a. Selecione a caixa de verificação da **versão para PC.**
+    a. Selecione a caixa de verificação **da versão pc.**
     
-    b. Na secção de artigos de **Colaboração,** na lista de entrega, selecione **e-mail**.
+    b. Na secção **de artigos de Colaboração,** na lista de drop-down, selecione **e-mail**.
 
-    c. Na caixa de artigos de **Colaboração,** colhe o valor de reclamação **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** que copiou anteriormente do portal Azure (isto é, ).
+    c. Na caixa **de item da Colaboração,** cole o valor de reclamação que copiou anteriormente do portal Azure (isto é, **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** ).
 
-    d. Na caixa **Emitente (ID entidade),** colhe o valor do identificador que copiou anteriormente da secção **E Sales Manager Remix Domain e URLs** do portal Azure.
+    d. Na caixa **emitente (ID da entidade),** cole o valor do identificador que copiou anteriormente a partir da secção **E Sales Manager Remix Domain e URLs** do portal Azure.
 
-    e. Para fazer o upload do seu certificado descarregado a partir do portal Azure, selecione **a seleção**de Ficheiros .
+    e. Para fazer o upload do certificado descarregado a partir do portal Azure, **selecione Ficheiros**.
 
-    f. Na caixa DE URL do fornecedor de **identificação,** colá o URL de serviço de inscrição única SAML que copiou anteriormente no portal Azure.
+    f. Na caixa DE URL de login do **fornecedor de ID,** cole o URL de serviço único de inscrição SAML que copiou anteriormente no portal Azure.
 
-    g. Na caixa URL do Fornecedor de **Identidade,** colhe o valor URL de inscrição que copiou anteriormente no portal Azure.
+    exemplo, Na caixa **URL do Fornecedor de Identidade,** cole o valor URL de inscrição que copiou anteriormente no portal Azure.
 
     h. Selecione **Definição completa**.
 
 > [!TIP]
-> À medida que está a configurar a aplicação, pode ler uma versão concisa das instruções anteriores no [portal Azure](https://portal.azure.com). Depois de ter adicionado a aplicação na secção > **aplicações** da Empresa de **Diretório Ativo,** selecione o separador **Sign-On único** e aceda à documentação incorporada na secção **de Configuração** na parte inferior. Para obter mais informações sobre a funcionalidade de documentação incorporada, consulte a [documentação incorporada da Azure AD.]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ao configurar a aplicação, pode ler uma versão concisa das instruções anteriores no [portal Azure](https://portal.azure.com). Depois de ter adicionado a aplicação na secção Aplicações empresariais do **Diretório Ativo,**  >  **Enterprise Applications** selecione o separador **Sign-On único** e, em seguida, aceda à documentação incorporada na secção **Configuração** na parte inferior. Para obter mais informações sobre a documentação incorporada, consulte [a documentação incorporada da Azure AD.]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
-Nesta secção, cria-se a utilizadora de teste Britta Simon no portal Azure fazendo o seguinte:
+Nesta secção, cria a utilizadora de teste Britta Simon no portal Azure, fazendo o seguinte:
 
-![Criar um utilizador de teste Azure AD][100]
+![Criar um utilizador de teste AZure AD][100]
 
 1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**.
 
-    ![A ligação Azure Ative Diretório](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
+    ![A ligação Azure Ative Directory](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
 
-1. Para apresentar uma lista de utilizadores atuais, selecione **Utilizadores e grupos** > **Todos os utilizadores**.
+1. Para apresentar uma lista de utilizadores atuais, selecione **Utilizadores e grupos**  >  **Todos os utilizadores**.
 
-    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
+    ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
-1. Na parte superior da janela **All Users,** selecione **Adicionar**.
+1. Na parte superior da janela **Todos os Utilizadores,** selecione **Adicionar**.
 
     ![O botão Adicionar](./media/paloaltoadmin-tutorial/create_aaduser_03.png)
     
-    A janela **do Utilizador** abre-se.
+    A janela **do utilizador** abre-se.
 
-1. Na janela **Utilizador,** faça o seguinte:
+1. Na janela **do Utilizador,** faça o seguinte:
 
-    ![A janela utilizador](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
+    ![A janela do utilizador](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
 
-    a. Na caixa **de nomes,** **digite BrittaSimon.**
+    a. Na caixa **Nome,** **digite BrittaSimon.**
 
-    b. Na caixa de nome sinuoso, digite o endereço de e-mail da utilizadora Britta Simon. **User name**
+    b. Na caixa **de nome do utilizador,** digite o endereço de e-mail do utilizador Britta Simon.
 
-    c. Selecione a caixa de verificação **de palavra-passe do Show** e, em seguida, note o valor que está visualizado na caixa **password.**
+    c. Selecione a caixa **de verificação 'Mostrar palavra-passe'** e, em seguida, note o valor que é apresentado na caixa **palavra-passe.**
 
     d. Selecione **Criar**.
  
-### <a name="create-an-e-sales-manager-remix-test-user"></a>Criar um utilizador de teste Remix Do Gestor de Vendas E
+### <a name="create-an-e-sales-manager-remix-test-user"></a>Criar um utilizador de teste E Sales Manager Remix
 
 1. Inscreva-se na sua aplicação E Sales Manager Remix como administrador.
 
-1. Selecione **Menu para administrador** a partir do menu no topo direito.
+1. Selecione Para o **Menu de Administrador** a partir do menu no topo direito.
 
-    ![E Sales Manager Remix Configuração](./media/esalesmanagerremix-tutorial/configure4.png)
+    ![Configuração remix do gerente de vendas do E](./media/esalesmanagerremix-tutorial/configure4.png)
 
-1. Selecione **as definições** > da sua empresa**Manutenção de departamentos e funcionários,** e depois selecione **Colaboradores registados**.
+1. Selecione **as definições da sua empresa**Manutenção de  >  **departamentos e funcionários**, e, em seguida, selecione **Funcionários registados**.
 
     ![O separador "Empregados registados"](./media/esalesmanagerremix-tutorial/user1.png)
 
-1. Na secção de registo de **novos empregados,** faça o seguinte:
+1. Na nova secção **de registo de funcionários,** faça o seguinte:
     
-    ![A secção "Novo Registo de Trabalhadores"](./media/esalesmanagerremix-tutorial/user2.png)
+    ![A secção "Novo Registo de Funcionários"](./media/esalesmanagerremix-tutorial/user2.png)
 
-    a. Na caixa **nome do empregado,** digite o nome do utilizador (por exemplo, **Britta**).
+    a. Na caixa **nome do empregado,** digite o nome do utilizador (por exemplo, **Britta).**
 
     b. Complete os restantes campos necessários.
     
-    c. Se ativar o SAML, o administrador não pode iniciar sessão na página de sessão. Conceda privilégios de entrada de administrador ao utilizador selecionando a caixa de **verificação de login do Administrador.**
+    c. Se ativar o SAML, o administrador não pode iniciar súmis na página de inscrição. Conceder privilégios de entrada de administrador ao utilizador selecionando a caixa de verificação **de Login Admin.**
 
-    d. Selecione **Inscrição**.
+    d. Selecione **Registo**.
 
-1. No futuro, para iniciar sessão como administrador, inscreva-se como utilizador que tenha permissões de administrador e, em seguida, no topo direito, selecione **Menu para Administrador**.
+1. No futuro, para se inscrever como administrador, inscreva-se como o utilizador que tem permissões de administrador e, em seguida, no topo direito, selecione Para o **Menu de Administrador**.
 
-    ![O comando "Para Administrador"](./media/esalesmanagerremix-tutorial/configure4.png)
+    ![O comando "Menu de Administrador"](./media/esalesmanagerremix-tutorial/configure4.png)
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, permite que a utilizadora Britta Simon utilize um único sign-on azure, concedendo acesso ao E Sales Manager Remix. Para isso, faça o seguinte: 
+Nesta secção, permite ao utilizador Britta Simon utilizar o Azure single sign-on, permitindo o acesso ao E Sales Manager Remix. Para tal, faça o seguinte: 
 
 ![Atribuir a função de utilizador][200] 
 
-1. No portal Azure, abra a vista **Aplicações,** vá à vista do **Diretório** e, em seguida, selecione **aplicações** > Da Enterprise**Todas as aplicações**.
+1. No portal Azure, abra a vista **applications,** vá à vista do **Diretório** e, em seguida, selecione **aplicações da Empresa**  >  **Todas as aplicações**.
 
     ![As ligações "Aplicações da Empresa" e "Todas as aplicações"][201] 
 
-1. Na lista de **Aplicações,** selecione **E Sales Manager Remix**.
+1. Na lista **de Aplicações,** selecione **E Sales Manager Remix**.
 
-    ![A ligação E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_app.png)  
+    ![O link remix do gerente de vendas E](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_app.png)  
 
 1. No painel esquerdo, selecione **Utilizadores e grupos**.
 
-    ![O link "Utilizadores e grupos"][202]
+    ![A ligação "Utilizadores e grupos"][202]
 
-1. **Selecione Adicionar** e, em seguida, no painel **adicionar atribuição,** selecione **Utilizadores e grupos**.
+1. **Selecione Adicionar** e, em seguida, no painel **de atribuição de adicionar,** selecione **Utilizadores e grupos**.
 
-    ![O painel de atribuição adicionar][203]
+    ![O painel de atribuição de adição][203]
 
-1. Na janela **Utilizadores e grupos,** na lista **de Utilizadores,** selecione **Britta Simon**.
+1. Na janela **de Utilizadores e grupos,** na lista **de Utilizadores,** selecione **Britta Simon**.
 
-1. Selecione o botão **Selecionar.**
+1. Selecione o botão **Selecione.**
 
-1. Na janela **Adicionar Atribuição,** selecione **Atribuir**.
+1. Na janela **'Adicionar Atribuição',** selecione **Atribuir**.
     
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Nesta secção, testa a configuração de um único sinal de acesso do Azure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de acesso Azure AD utilizando o Painel de Acesso.
 
-Quando selecionar o azulejo E Sales Manager Remix no Painel de Acesso, deve ser inscrito automaticamente na sua aplicação E Sales Manager Remix.
+Quando selecionar o azulejo E Sales Manager Remix no Painel de Acesso, deverá ser assinado automaticamente na aplicação E Sales Manager Remix.
 
-Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](../user-help/active-directory-saas-access-panel-introduction.md)de Acesso . 
+Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/active-directory-saas-access-panel-introduction.md) 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre integração de apps SaaS com Diretório Ativo Azure](tutorial-list.md)
+* [Lista de tutoriais sobre a integração de apps saaS com diretório ativo Azure](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->

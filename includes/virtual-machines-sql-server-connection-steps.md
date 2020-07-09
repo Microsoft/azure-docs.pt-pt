@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: d679767f1a4be3ecdcf1811662c72dbbe2df33a0
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84014792"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Abrir portas TCP na firewall do Windows para a instância predefinida do Motor de Base de Dados
 1. Ligue-se à máquina virtual com o Ambiente de Trabalho Remoto. Para obter instruções detalhadas sobre como ligar à VM, veja [Abrir uma VM do SQL com o Ambiente de Trabalho Remoto](../articles/azure-sql/virtual-machines/windows/create-sql-vm-portal.md#remotedesktop).
-2. Uma vez inscrito, no ecrã Iniciar, digite **WF.msc,** e bata no ENTER.
+2. Uma vez assinado, no ecrã Iniciar, escreva **WF.msc**e, em seguida, acerte ENTER.
    
     ![Iniciar o Programa de Firewall](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
 3. Na **Firewall do Windows com Segurança Avançada**, no painel esquerdo, clique com o botão direito do rato em **Regras de Entrada** e, em seguida, clique em **Nova Regra** no painel de ação.
@@ -55,7 +55,7 @@ O Motor de Base de Dados do SQL Server não pode utilizar a Autenticação do Wi
 1. Enquanto estiver ligado à máquina virtual, na página Início, escreva **SQL Server Management Studio** e clique no ícone selecionado.
    
     Na primeira vez que abre o Management Studio, este tem de criar os utilizadores do ambiente do Management Studio. Esta operação poderá demorar alguns tempo.
-2. O Management Studio apresenta a caixa de diálogo **Ligar ao Servidor**. Na caixa **Nome do servidor**, escreva o nome da máquina virtual a ligar ao Motor de Base de Dados com o Object Explorer (em vez do nome da máquina virtual, também pode utilizar **(local)** ou um caráter de ponto como **Nome do servidor**). **Selecione A autenticação do Windows**e deixe ***your_VM_name\your_local_administrator*** na caixa de **nomes do Utilizador.** Clique em **Ligar**.
+2. O Management Studio apresenta a caixa de diálogo **Ligar ao Servidor**. Na caixa **Nome do servidor**, escreva o nome da máquina virtual a ligar ao Motor de Base de Dados com o Object Explorer (em vez do nome da máquina virtual, também pode utilizar **(local)** ou um caráter de ponto como **Nome do servidor**). Selecione **a autenticação do Windows**e deixe ***your_VM_name\your_local_administrator*** na caixa de **nome do Utilizador.** Clique em **Ligar**.
    
     ![Ligar ao Servidor](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. No Object Explorer do SQL Server Management Studio, clique com o botão direito do rato no nome da instância do SQL Server (o nome de máquina virtual) e, em seguida, clique em **Propriedades**.

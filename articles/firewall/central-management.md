@@ -1,6 +1,6 @@
 ---
-title: Gestão central da Azure Firewall
-description: Conheça a gestão central do Azure Firewall Manager
+title: Gestão central do Azure Firewall
+description: Saiba mais sobre a gestão central do Azure Firewall Manager
 author: vhorne
 ms.service: firewall
 services: firewall
@@ -8,44 +8,43 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: victorh
 ms.openlocfilehash: 58f670f3f55a63f0c1823adc13c98f5863d4d650
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77444553"
 ---
-# <a name="azure-firewall-central-management"></a>Gestão central da Azure Firewall
+# <a name="azure-firewall-central-management"></a>Gestão central do Azure Firewall
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-Se gere várias firewalls, sabe que as regras de firewall em constante mudança dificultam a sua sincronização. As equipas centrais de TI precisam de uma forma de definir as políticas de firewall base e aplicá-las em várias unidades de negócio. Ao mesmo tempo, as equipas da DevOps querem criar as suas próprias políticas locais de firewall derivadas para uma melhor agilidade.
+Se gerir várias firewalls, sabe que mudar continuamente as regras de firewall dificulta mantê-las sincronizadas. As equipas centrais de TI precisam de uma forma de definir as políticas de firewall base e executá-las em várias unidades de negócio. Ao mesmo tempo, as equipas da DevOps querem criar as suas próprias políticas de firewall derivadas locais para uma melhor agilidade.
 
-A Pré-visualização do Gestor de Firewall Azure pode ajudar a resolver estes problemas.
+A pré-visualização do Azure Firewall Manager pode ajudar a resolver estes problemas.
 
 
-## <a name="azure-firewall-manager-preview"></a>Pré-visualização do Gestor de Firewall Azure
+## <a name="azure-firewall-manager-preview"></a>Pré-visualização do gestor de firewall Azure
 
-Azure Firewall Manager Preview é um serviço de gestão de segurança de rede que fornece a política de segurança central e a gestão de rotas para perímetros de segurança baseados na nuvem. Torna mais fácil para as equipas de TI da Enterprise definir centralmente regras de nível de rede e de aplicação para filtragem de tráfego em várias instâncias do Azure Firewall. Você pode percorrer diferentes regiões e subscrições de Azure no hub e arquiteturas faladas para governação e proteção do tráfego. Também fornece à DevOps uma melhor agilidade com políticas de segurança locais derivadas da firewall que são implementadas entre organizações.
+A Azure Firewall Manager Preview é um serviço de gestão de segurança de rede que fornece política de segurança central e gestão de rotas para perímetros de segurança baseados na nuvem. Torna mais fácil para as equipas de TI da Enterprise definir centralmente regras de nível de rede e aplicação para filtragem de tráfego em vários casos de Azure Firewall. Você pode abranger diferentes regiões e subscrições de Azure no centro e falou de arquiteturas para governação e proteção de tráfego. Também fornece aos DevOps uma melhor agilidade com políticas de segurança locais derivadas que são implementadas em todas as organizações.
 
 ### <a name="firewall-policy"></a>Política de firewall
 
-Uma política de Firewall é um recurso Azure que contém nat, recolhade regras de rede e aplicações e definições de Inteligência de Ameaça. É um recurso global que pode ser usado em várias instâncias de Firewall Azure em *Centros Virtuais Seguros* e Redes Virtuais *Hub*. Novas políticas podem ser criadas a partir do zero ou herdadas das políticas existentes. A herança permite que a DevOps crie políticas locais de firewall para além da política de base mandatada pela organização. As políticas funcionam entre regiões e subscrições.
+Uma política de Firewall é um recurso Azure que contém recolhas de regras de rede e aplicações e configurações de Inteligência de Ameaças. É um recurso global que pode ser usado em vários casos de Firewall Azure em *Secured Virtual Hubs* e *Hub Virtual Networks*. As novas políticas podem ser criadas do zero ou herdadas das políticas existentes. A herança permite que os DevOps criem políticas locais de firewall em cima da política de base mandatada pela organização. As políticas funcionam em regiões e assinaturas.
  
-Pode criar políticas de firewall e associações com o Azure Firewall Manager. No entanto, também pode criar e gerir uma política utilizando a REST API, modelos, Azure PowerShell e CLI. Assim que criar uma apólice, pode associá-la a uma firewall num hub virtual WAN, tornando-o num *Hub Virtual Seguro* e/ou numa firewall numa rede virtual que a torna hub Virtual *Network*.
+Pode criar Política de Firewall e associações com o Azure Firewall Manager. No entanto, também pode criar e gerir uma política usando a API REST, modelos, Azure PowerShell e CLI. Uma vez que crie uma política, pode associá-la a uma firewall num hub WAN virtual, tornando-o um *Hub Virtual Seguro* e/ou uma firewall numa rede virtual que o torna o Hub Virtual *Network*.
 
 ### <a name="pricing"></a>Preços
 
-As políticas são faturadas com base em associações de firewall. Uma política com zero ou uma associação de firewall é gratuita. Uma política com várias associações de firewall é cobrada a uma taxa fixa. Para mais informações, consulte [o Preço do Gestor de Firewall azure](https://azure.microsoft.com/pricing/details/firewall-manager/).
+As políticas são faturadas com base em associações de firewall. Uma política com zero ou uma associação de firewall é gratuita. Uma política com várias associações de firewall é cobrada a uma taxa fixa. Para obter mais informações, consulte o Preço do Gestor de Firewall da [Azure.](https://azure.microsoft.com/pricing/details/firewall-manager/)
 
-## <a name="azure-firewall-management-partners"></a>Parceiros azure Firewall Management
+## <a name="azure-firewall-management-partners"></a>Parceiros de Gestão de Firewall da Azure
 
-As seguintes soluções de terceiros apoiam a gestão central do Azure Firewall utilizando APIs padrão do Azure REST. Cada uma destas soluções tem as suas características e características únicas:
+As seguintes soluções líderes de terceiros suportam a gestão central do Azure Firewall utilizando apis padrão Azure REST. Cada uma destas soluções tem as suas características e características únicas:
 
-- [Fluxo de Nuvem de Algosec](https://www.algosec.com/azure/) 
-- [Guardião de Segurança da Nuvem Barracuda](https://www.barracuda.com/products/cloudsecurityguardian/for_azure)
+- [AlgoSec CloudFlow](https://www.algosec.com/azure/) 
+- [Guardião da Segurança da Nuvem de Barracuda](https://www.barracuda.com/products/cloudsecurityguardian/for_azure)
 - [Tufin Orca](https://www.tufin.com/products/tufin-orca)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para mais informações sobre a Pré-visualização do Gestor de Firewall do Azure, consulte [o que é a Pré-visualização do Gestor de Firewall do Azure?](../firewall-manager/overview.md)
+Para mais informações sobre a pré-visualização do Azure Firewall Manager, veja [o que é a pré-visualização do Azure Firewall Manager?](../firewall-manager/overview.md)

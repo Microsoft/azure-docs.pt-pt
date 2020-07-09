@@ -6,12 +6,11 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: f998cc238b997f2dfb8e8043693379e4c5a53546
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.openlocfilehash: 777febb86e6a1fa719b6a7d74c32defebcf3b58c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170414"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85099819"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Utilizar regras e pontos finais de serviço da Rede Virtual para o Azure Database for MariaDB
 
@@ -101,7 +100,7 @@ Tem a opção de usar o controlo de acesso baseado em [funções (RBAC)][rbac-wh
 > Em alguns casos, a Base de Dados Azure para MariaDB e a sub-rede VNet estão em diferentes subscrições. Nestes casos, deve assegurar as seguintes configurações:
 > - Ambas as subscrições devem estar no mesmo inquilino do Azure Ative Directory.
 > - O utilizador tem as permissões necessárias para iniciar operações, tais como ativar pontos finais de serviço e adicionar uma sub-rede VNet ao servidor dado.
-> - Certifique-se de que ambas as subscrições têm o fornecedor de recursos **Microsoft.Sql** registado. Para mais informações, consulte [o gestor de recursos-registo][resource-manager-portal]
+> - Certifique-se de que ambos os fornecedores de recursos **Microsoft.Sql** e **Microsoft.DBforMariaDB** estão registados. Para mais informações, consulte [o gestor de recursos-registo][resource-manager-portal]
 
 ## <a name="limitations"></a>Limitações
 

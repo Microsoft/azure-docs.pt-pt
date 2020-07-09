@@ -1,62 +1,61 @@
 ---
-title: Política de Grupo e definições de MDM para ESR - Diretório Ativo Azure
-description: Definições de gestão para roaming do Estado da Empresa
+title: Políticas de Grupo e definições de MDM para ESR - Diretório Ativo Azure
+description: Definições de gestão para roaming do estado da empresa
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: troubleshooting
+ms.topic: reference
 ms.date: 02/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdffbc3a140bd13dcd6d352db8c192803d39b03e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ab24b3113f9dc69b8f3907037e228ba212a03106
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672375"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252938"
 ---
-# <a name="group-policy-and-mdm-settings"></a>Política de Grupo e definições de MDM
+# <a name="group-policy-and-mdm-settings"></a>Políticas de Grupo e configurações de MDM
 
-Utilize estas definições de política de grupo e de gestão de dispositivos móveis (MDM) apenas em dispositivos corporativos, uma vez que estas políticas são aplicadas a todo o dispositivo do utilizador. A aplicação de uma política de MDM para desativar a sincronização de definições para um dispositivo pessoal, propriedade do utilizador, terá um impacto negativo na utilização desse dispositivo. Além disso, outras contas de utilizador no dispositivo também serão afetadas pela apólice.
+Utilize estas definições de política de grupo e gestão de dispositivos móveis (MDM) apenas em dispositivos de propriedade corporativa, uma vez que estas políticas são aplicadas a todo o dispositivo do utilizador. A aplicação de uma política de MDM para desativar a sincronização de configurações para um dispositivo pessoal e de propriedade do utilizador irá afetar negativamente a utilização desse dispositivo. Além disso, outras contas de utilizadores no dispositivo também serão afetadas pela política.
 
-As empresas que pretendam gerir o roaming para dispositivos pessoais (não geridos) podem utilizar o portal Azure para ativar ou desativar o roaming, em vez de utilizarem a Política de Grupo ou OMD.
-As tabelas seguintes descrevem as definições de política disponíveis.
+As empresas que pretendam gerir o roaming para dispositivos pessoais (não geridos) podem usar o portal Azure para permitir ou desativar o roaming, em vez de utilizar a Política de Grupo ou o MDM.
+As tabelas que se seguem descrevem as definições de política disponíveis.
 
 > [!NOTE]
-> Este artigo aplica-se ao navegador baseado no Microsoft Edge Legacy HTML lançado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador baseado em Crómio microsoft Edge, lançado a 15 de janeiro de 2020. Para obter mais informações sobre o comportamento do Sync para o novo Microsoft Edge, consulte o artigo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
+> Este artigo aplica-se ao navegador baseado em HTML do Microsoft Edge Legacy lançado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador baseado em Chromium microsoft Edge lançado a 15 de janeiro de 2020. Para obter mais informações sobre o comportamento do Sync para o novo Microsoft Edge, consulte o artigo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
 ## <a name="mdm-settings"></a>Definições de MDM
 
-As definições de política do MDM aplicam-se tanto ao Windows 10 como ao Windows 10 Mobile.  O suporte móvel do Windows 10 existe apenas para a conta da Microsoft, baseada em roaming através da conta OneDrive do utilizador. Consulte os [Dispositivos e pontos finais](enterprise-state-roaming-windows-settings-reference.md) para obter detalhes sobre quais os dispositivos suportados para sincronização baseada em Anúncios Azure.
+As definições de política do MDM aplicam-se tanto ao Windows 10 como ao Windows 10 Mobile.  O suporte móvel do Windows 10 existe apenas para a conta da Microsoft baseada em roaming através da conta OneDrive do utilizador. Consulte [os Dispositivos e pontos finais](enterprise-state-roaming-windows-settings-reference.md) para obter mais detalhes sobre quais os dispositivos suportados para sincronização baseada em Azure.
 
-| Nome | Descrição |
+| Name | Descrição |
 | --- | --- |
-| Permitir a ligação à conta da Microsoft |Permite que os utilizadores autentiem usando uma conta Microsoft no dispositivo |
-| Permitir sincronizar as minhas definições |Permite que os utilizadores circulem pelas definições do Windows e pelos dados das aplicações; Desativar esta política irá desativar sincronização, bem como backups em dispositivos móveis |
+| Permitir a ligação da conta da Microsoft |Permite que os utilizadores autentem a autenticação utilizando uma conta Microsoft no dispositivo |
+| Permitir sincronizar as minhas definições |Permite que os utilizadores vagueiem pelas definições do Windows e dados de aplicações; Desativar esta política irá desativar a sincronização, bem como cópias de segurança em dispositivos móveis |
 
 ## <a name="group-policy-settings"></a>Definições da política de grupo
 
-As definições de política do grupo aplicam-se aos dispositivos Windows 10 que se juntam a um domínio de Diretório Ativo. A tabela também inclui configurações antigas que parecem gerir definições de sincronização, mas que não funcionam para o Enterprise State Roaming para o Windows 10, que são notadas com 'Não utilizar' na descrição.
+As definições de política de grupo aplicam-se aos dispositivos Windows 10 que se juntam a um domínio ative directory. A tabela também inclui definições antigas que parecem gerir as definições de sincronização, mas que não funcionam para o Roaming do Estado da Empresa para o Windows 10, que são notadas com "Não usar" na descrição.
 
-Estas definições estão localizadas em:`Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
+Estas definições situam-se em:`Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
 
-| Nome | Descrição |
+| Name | Descrição |
 | --- | --- |
-| Contas: Bloquear contas da Microsoft |Esta definição de política impede os utilizadores de adicionar em novo sistema de contas da Microsoft |
-| Não sincronizar |Impede que os utilizadores pervertam as definições do Windows e os dados das aplicações |
-| Não sincronizar personalizar |Desativa a sincronização do grupo Temáticos |
+| Contas: Bloquear contas da Microsoft |Esta definição de política impede os utilizadores de adicionarem novas contas da Microsoft neste computador |
+| Não sincronize |Impede os utilizadores de percorrerem as definições do Windows e os dados das aplicações |
+| Não sincronize personalizar |Desativa a sincronização do grupo Temas |
 | Não sincronize as definições do navegador |Desativa a sincronização do grupo Internet Explorer |
-| Não sincronizar palavras-passe |Desativa a sincronização do grupo Passwords |
-| Não sincronize outras definições do Windows |Desativa a sincronização do grupo de definições de Outras Definições do Windows |
-| Não sincronizar a personalização do ambiente de trabalho |Não utilizar; não tem efeito |
-| Não sincronizar as ligações medimétricas |Desativa o roaming em ligações medid, tais como celular 3G |
-| Não sincronizar apps |Não utilizar; não tem efeito |
-| Não sincronize as definições de aplicativos |Desativa o roaming de dados de aplicações |
+| Não sincronize palavras-passe |Desativa sincronização do grupo Passwords |
+| Não sincronize outras definições do Windows |Desativa sincronização do grupo de definições de Outras Janelas |
+| Não sincronize a personalização do ambiente de trabalho |Não utilizar; não tem efeito |
+| Não sincronize em ligações com medição |Desativa o roaming em ligações medidos, tais como celular 3G |
+| Não sincronize apps |Não utilizar; não tem efeito |
+| Não sincronizar as definições da aplicação |Desativa o roaming dos dados das aplicações |
 | Não sincronizar as definições de início |Não utilizar; não tem efeito |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para uma visão geral, consulte a [visão geral do Estado do Roaming.](enterprise-state-roaming-overview.md)
+Para uma visão geral, consulte [a visão geral do Roaming do Estado da empresa.](enterprise-state-roaming-overview.md)

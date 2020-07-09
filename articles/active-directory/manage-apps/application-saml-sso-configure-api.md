@@ -1,37 +1,36 @@
 ---
-title: Utilize APIs do Microsoft Graph para configurar um único sign-on baseado em SAML
+title: Utilize APIs de Gráficos do Microsoft para configurar um único sign-on baseado em SAML
 titleSuffix: Azure Active Directory
-description: Precisa de configurar um único sinal baseado em SAML para várias instâncias de uma aplicação? Aprenda a economizar tempo utilizando as APIs do Microsoft Graph para automatizar a configuração de um único sign-on baseado em SAML.
+description: Precisa de configurar um único sign-on baseado em SAML para vários casos de uma aplicação? Aprenda a economizar tempo utilizando as APIs do Gráfico microsoft para automatizar a configuração de um único sign-on baseado em SAML.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: fd59dcdd566110d1df02333f5701c0c206442d5d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.openlocfilehash: 50ee9e3c22c885931e2586f65ba2fa3353fccfeb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846465"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85355850"
 ---
 # <a name="automate-saml-based-sso-app-configuration-with-microsoft-graph-api"></a>Automatizar a configuração da aplicação SSO baseada em SAML com a Microsoft Graph API
 
-Neste artigo, você aprenderá a criar e configurar uma aplicação da Galeria Azure Ative Directory (Azure AD). Este artigo utiliza a AWS como exemplo, mas pode utilizar os passos deste artigo para qualquer aplicação baseada em SAML na Galeria AD Azure.
+Neste artigo, você vai aprender a criar e configurar uma aplicação da Galeria Azure Ative (Azure AD). Este artigo utiliza a AWS como exemplo, mas pode usar os passos deste artigo para qualquer aplicação baseada em SAML na Galeria AD Azure.
 
-**Passos para utilizar APIs do Microsoft Graph para automatizar configuração de um único sign-on baseado em SAML**
+**Passos para utilizar apis do Microsoft Graph para automatizar a configuração de um único sign-on baseado em SAML**
 
 | Passo  | Detalhes  |
 |---------|---------|
-| [1. Criar a aplicação da galeria](#step-1-create-the-gallery-application) | Inscreva-se no cliente da API <br> Recuperar a aplicação da galeria <br> Criar a aplicação da galeria|
-| [2. Configurar um único sinal](#step-2-configure-single-sign-on) | Recuperar id objeto de aplicativo e id objeto principal de serviço <br> Definir o modo de início de sinal único <br> Definir URLs SAML básicos tais como identificador, URL de resposta, URL de inscrição <br> Adicionar funções de aplicativo (Opcional)|
-| [3. Configurar o mapeamento de sinistros](#step-3-configure-claims-mapping) | Criar política de mapeamento de sinistros <br> Atribuir reivindicações política de mapeamento ao principal de serviço|
-| [4. Configurar certificado de assinatura](#step-4-configure-signing-certificate) | Criar um certificado <BR> Adicione uma chave de assinatura personalizada <br> Ativar a chave de assinatura personalizada|
+| [1. Criar a aplicação da galeria](#step-1-create-the-gallery-application) | Inscreva-se no cliente da API <br> Recupere a aplicação da galeria <br> Criar a aplicação da galeria|
+| [2. Configurar um único sinal](#step-2-configure-single-sign-on) | Recuperar iD de objeto de aplicativo e iD de objeto principal de serviço <br> Definir o único modo de inscrição <br> Definir URLs SAML básicos tais como identificador, URL de resposta, URL de inscrição <br> Adicionar funções de aplicativo (Opcional)|
+| [3. Configurar reclamações de mapeamento](#step-3-configure-claims-mapping) | Criar política de mapeamento de reclamações <br> Atribuir a política de mapeamento de reclamações ao principal do serviço|
+| [4. Certificado de assinatura de configuração](#step-4-configure-signing-certificate) | Criar um certificado <BR> Adicione uma chave de assinatura personalizada <br> Ativar a chave de assinatura personalizada|
 | [5. Atribuir utilizadores](#step-5-assign-users) | Atribuir utilizadores e grupos à aplicação
-| [6. Configure o lado da aplicação](#step-6-configure-the-application-side)| Obtenha metadados Azure AD SAML
+| [6. Configurar o lado da aplicação](#step-6-configure-the-application-side)| Obtenha metadados Azure Ad SAML
 
 **Lista de todas as APIs utilizadas na documentação**
 
@@ -39,25 +38,25 @@ Certifique-se de que tem as permissões correspondentes para ligar para as segui
 
 |Tipo de recurso |Método |
 |---------|---------|
-|[modelo de aplicação](https://docs.microsoft.com/graph/api/resources/applicationtemplate?view=graph-rest-beta)|[Modelo de aplicação da lista](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) <br>[Modelo de aplicação instantânea](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http)|
-|[serviçoPrincipaes](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)|[Serviço de atualizaçãoPrincipal](https://docs.microsoft.com/graph/api/serviceprincipal-update?view=graph-rest-beta&tabs=http) <br> [Criar atribuições de aplicações](https://docs.microsoft.com/graph/api/serviceprincipal-post-approleassignments?view=graph-rest-beta&tabs=http) <br> [Atribuir reclamaçõesMappingPolicies](https://docs.microsoft.com/graph/api/serviceprincipal-post-claimsmappingpolicies?view=graph-rest-beta&tabs=http)|
-|[aplicações](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)|[Aplicação de atualização](https://docs.microsoft.com/graph/api/application-update?view=graph-rest-beta&tabs=http)|
-|[reivindicaçõesMappingPolicy](https://docs.microsoft.com/graph/api/resources/claimsmappingpolicy?view=graph-rest-beta)| [Criar reivindicaçõesMappingPolicy](https://docs.microsoft.com/graph/api/claimsmappingpolicy-post-claimsmappingpolicies?view=graph-rest-beta&tabs=http)
+|[aplicaçãoTemplate](https://docs.microsoft.com/graph/api/resources/applicationtemplate?view=graph-rest-beta)|[Aplicação de listaSTaplate](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) <br>[Aplicação instantâneaSteplate](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http)|
+|[serviçoPrincipals](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-1.0)|[Serviço de atualizaçãoPrincipal](https://docs.microsoft.com/graph/api/serviceprincipal-update?view=graph-rest-1.0&tabs=http) <br> [Criar apreciamentos apreciável](https://docs.microsoft.com/graph/api/serviceprincipal-post-approleassignments?view=graph-rest-1.0&tabs=http) <br> [Atribuir reclamaçõesMappingPolicies](https://docs.microsoft.com/graph/api/serviceprincipal-post-claimsmappingpolicies?view=graph-rest-beta&tabs=http)|
+|[aplicações](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)|[Aplicação de atualização](https://docs.microsoft.com/graph/api/application-update?view=graph-rest-1.0&tabs=http)|
+|[sinistrosMappingPolicy](https://docs.microsoft.com/graph/api/resources/claimsmappingpolicy?view=graph-rest-beta)| [Criar reivindicaçõesMappingPolicy](https://docs.microsoft.com/graph/api/claimsmappingpolicy-post-claimsmappingpolicies?view=graph-rest-beta&tabs=http)
 
 >[!NOTE]
 >Os objetos de resposta apresentados neste artigo podem ser encurtados para a legibilidade. Todas as propriedades serão devolvidas de uma chamada real.
 
 ## <a name="step-1-create-the-gallery-application"></a>Passo 1: Criar a aplicação da galeria
 
-### <a name="sign-in-to-microsoft-graph-explorer-recommended-postman-or-any-other-api-client-you-use"></a>Inscreva-se no Microsoft Graph Explorer (recomendado), Carteiro ou qualquer outro cliente da API que utilize
+### <a name="sign-in-to-microsoft-graph-explorer-recommended-postman-or-any-other-api-client-you-use"></a>Faça login no Microsoft Graph Explorer (recomendado), carteiro ou em qualquer outro cliente API que utilize
 
-1. Inicie [o Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
-2. Selecione **Iniciar sessão com** a Microsoft e iniciar sessão utilizando um administrador global da AD Azure ou credenciais de administrador de aplicações.
-3. Após um início de sessão bem sucedido, verá os detalhes da conta do utilizador no painel da mão esquerda.
+1. Iniciar [o Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
+2. Selecione **Iniciar s-in com a Microsoft** e iniciar sação utilizando um administrador global AD AD ou credenciais de Administração de aplicações.
+3. Após o sucesso da sina, verá os detalhes da conta do utilizador no painel esquerdo.
 
-### <a name="retrieve-the-gallery-application-template-identifier"></a>Recupere o identificador de modelo de aplicação da galeria
+### <a name="retrieve-the-gallery-application-template-identifier"></a>Recupere o identificador de modelo de aplicação de galeria
 
-As aplicações na galeria de aplicações da AD Azure têm um modelo de [aplicação](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) que descreve os metadados para essa aplicação. Utilizando este modelo, pode criar uma instância do diretor de candidatura e serviço no seu inquilino para gestão.
+As aplicações na galeria de aplicações AZure AD têm cada um um [modelo de aplicação](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) que descreve os metadados para essa aplicação. Utilizando este modelo, pode criar uma instância do principal de aplicação e serviço no seu inquilino para gestão.
 
 #### <a name="request"></a>Pedir
 
@@ -109,8 +108,10 @@ Content-type: application/json
 
 ### <a name="create-the-gallery-application"></a>Criar a aplicação da galeria
 
-Utilizando o ID do modelo que recuperou para a sua candidatura no último passo, [crie uma instância](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http) do diretor de aplicação e serviço no seu inquilino.
+Utilizando o ID do modelo que recuperou para a sua aplicação no último passo, [crie uma instância](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http) do principal de aplicação e serviço no seu inquilino.
 
+> [!NOTE] 
+> Pode utilizar a aplicaçãoTemplate API para instantanear [aplicações não-Galeria.](add-non-gallery-app.md) Utilizar aplicaçãoSteplateId `8adf8e6e-67b2-4cf2-a259-e3dc5476c621` .
 #### <a name="request"></a>Pedir
 
 <!-- {
@@ -176,7 +177,7 @@ Content-type: application/json
 
 ## <a name="step-2-configure-single-sign-on"></a>Passo 2: Configurar um único sinal
 
-### <a name="retrieve-app-object-id-and-service-principal-object-id"></a>Recuperar id objeto de aplicativo e id objeto principal de serviço
+### <a name="retrieve-app-object-id-and-service-principal-object-id"></a>Recuperar iD de objeto de aplicativo e iD de objeto principal de serviço
 
 Utilize a resposta da chamada anterior para recuperar e guardar o ID do objeto de aplicação e o ID principal do objeto de serviço.
 
@@ -188,9 +189,9 @@ Utilize a resposta da chamada anterior para recuperar e guardar o ID do objeto d
         "objectId": "f47a6776-bca7-4f2e-bc6c-eec59d058e3e"
 }
 ```
-### <a name="set-single-sign-on-mode"></a>Definir o modo de início de sinal único
+### <a name="set-single-sign-on-mode"></a>Definir o único modo de inscrição
 
-Neste exemplo, irá definir como o modo de inscrição único no tipo de `saml` recurso principal de [serviço](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta). Outras propriedades SAML SSO que pode configurar são: `notificationEmailAddresses` , `loginUrl` e`samlSingleSignOnSettings.relayState`
+Neste exemplo, irá definir `saml` como o único modo de início de sação no tipo de recurso [servicePrincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-1.0). Outras propriedades SSO SAML que pode configurar são: `notificationEmailAddresses` `loginUrl` , e`samlSingleSignOnSettings.relayState`
 
 #### <a name="request"></a>Pedir
 
@@ -200,14 +201,11 @@ Neste exemplo, irá definir como o modo de inscrição único no tipo de `saml` 
 }-->
 
 ```msgraph-interactive
-PATCH https://graph.microsoft.com/beta/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
+PATCH https://graph.microsoft.com/v1.0/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
 Content-type: servicePrincipal/json
 
 {
-    "preferredSingleSignOnMode": "saml",
-    "notificationEmailAddresses": [
-        "john@contoso.com"
-      ]
+    "preferredSingleSignOnMode": "saml"
 }
 ```
 
@@ -224,7 +222,7 @@ HTTP/1.1 204
 
 ### <a name="set-basic-saml-urls-such-as-identifier-reply-url-sign-on-url"></a>Definir URLs SAML básicos tais como identificador, URL de resposta, URL de inscrição
 
-Detete o identificador e responda urLs para AWS no objeto de aplicação.
+Descreva o identificador e responda URLs para AWS no objeto de aplicação.
 
 #### <a name="request"></a>Pedir
 
@@ -234,7 +232,7 @@ Detete o identificador e responda urLs para AWS no objeto de aplicação.
 }-->
 
 ```msgraph-interactive
-PATCH https://graph.microsoft.com/beta/applications/cbc071a6-0fa5-4859-8g55-e983ef63df63
+PATCH https://graph.microsoft.com/v1.0/applications/cbc071a6-0fa5-4859-8g55-e983ef63df63
 Content-type: applications/json
 
 {
@@ -260,12 +258,12 @@ HTTP/1.1 204
 ```
 ### <a name="add-app-roles-optional"></a>Adicionar funções de aplicativo (Opcional)
 
-Se a aplicação necessitar da informação sobre o papel no símbolo, adicione a definição das funções no objeto de aplicação. Para a AWS, pode [permitir que](../app-provisioning/application-provisioning-configure-api.md) o fornecimento de utilizadores consiga obter todas as funções dessa conta AWS. 
+Se a aplicação necessitar da informação de papel no token, adicione a definição das funções no objeto de aplicação. Para a AWS, pode [permitir que o fornecimento do utilizador](../app-provisioning/application-provisioning-configure-api.md) procure todas as funções a partir dessa conta AWS. 
 
 Para mais informações, leia [Configure a alegação de papel emitida no token SAML](../develop/active-directory-enterprise-app-role-management.md)
 
 > [!NOTE] 
-> Ao adicionar funções de aplicação, não modifique as funções padrão da aplicação msiam_access. 
+> Ao adicionar funções de aplicação, não modifique as funções de aplicação padrão msiam_access. 
 
 #### <a name="request"></a>Pedir
 
@@ -275,7 +273,7 @@ Para mais informações, leia [Configure a alegação de papel emitida no token 
 }-->
 
 ```msgraph-interactive
-PATCH https://graph.microsoft.com/beta/serviceprincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
+PATCH https://graph.microsoft.com/v1.0/serviceprincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
 Content-type: serviceprincipals/json
 
 {
@@ -326,19 +324,21 @@ Content-type: serviceprincipals/json
 HTTP/1.1 204
 ```
 
-## <a name="step-3-configure-claims-mapping"></a>Passo 3: Configurar o mapeamento de sinistros
+## <a name="step-3-configure-claims-mapping"></a>Passo 3: Configurar reclama mapeamento de reclamações
 
-### <a name="create-claims-mapping-policy"></a>Criar política de mapeamento de sinistros
+### <a name="create-claims-mapping-policy"></a>Criar política de mapeamento de reclamações
 
-Para além das alegações básicas, configure os seguintes pedidos para que a AD Azure emita no token SAML:
+Para além das alegações básicas, configurar os seguintes pedidos de Azure AD para emitir no token SAML:
 
 | Nome de reclamação | Origem  |
 |---------|---------|
-| `https://aws.amazon.com/SAML/Attributes/Role` | designados| 
-| `https://aws.amazon.com/SAML/Attributes/RoleSessionName` | nome principal de utilizador |
+| `https://aws.amazon.com/SAML/Attributes/Role` | entidades designadas| 
+| `https://aws.amazon.com/SAML/Attributes/RoleSessionName` | nome do utilizadorprincipal |
 | `https://aws.amazon.com/SAML/Attributes/SessionDuration` | "900" |
-| funções | designados |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` | nome principal de utilizador |
+| funções | entidades designadas |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` | nome do utilizadorprincipal |
+
+Para obter mais informações, consulte [Personalizar as reclamações emitidas em token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping).
 
 #### <a name="request"></a>Pedir
 
@@ -348,7 +348,7 @@ Para além das alegações básicas, configure os seguintes pedidos para que a A
 }-->
 
 ```msgraph-interactive
-POST https://graph.microsoft.com/beta/policies/claimsMappingPolicies
+POST https://graph.microsoft.com/v1.0/policies/claimsMappingPolicies
 Content-type: claimsMappingPolicies/json
 
 {
@@ -406,7 +406,7 @@ HTTP/1.1 200 OK
 Content-type: claimsMappingPolicies/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#policies/claimsMappingPolicies/$entity",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#policies/claimsMappingPolicies/$entity",
     "id": "6b33aa8e-51f3-41a6-a0fd-d660d276197a",
     "definition": [
         "{\"ClaimsMappingPolicy\": {\"Version\": 1,\"IncludeBasicClaimSet\": \"true\",\"ClaimsSchema\": [{\"Source\": \"user\",\"ID\": \"assignedroles\",\"SamlClaimType\":\"https://aws.amazon.com/SAML/Attributes/Role\"\r\n                    },{\"Source\": \"user\",\"ID\": \"userprincipalname\",\"SamlClaimType\": \"https://aws.amazon.com/SAML/Attributes/RoleSessionName\"},{\"Source\": \"user\",\"ID\": \"900\",\"SamlClaimType\": \"https://aws.amazon.com/SAML/Attributes/SessionDuration\"},{\"Source\": \"user\",\"ID\": \"assignedroles\",\"SamlClaimType\":\"appRoles\"},{\"Source\": \"user\",\"ID\": \"userprincipalname\",\"SamlClaimType\": \"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier\"}]}}"
@@ -416,7 +416,7 @@ Content-type: claimsMappingPolicies/json
 }
 ```
 
-### <a name="assign-claims-mapping-policy-to-service-principal"></a>Atribuir reivindicações política de mapeamento ao principal de serviço
+### <a name="assign-claims-mapping-policy-to-service-principal"></a>Atribuir a política de mapeamento de reclamações ao principal do serviço
 
 #### <a name="request"></a>Pedir
 
@@ -430,7 +430,7 @@ POST https://graph.microsoft.com/beta/servicePrincipals/f47a6776-bca7-4f2e-bc6c-
 Content-type: claimsMappingPolicies/json
 
 {
-  "@odata.id":"https://graph.microsoft.com/beta/policies/claimsMappingPolicies/6b33aa8e-51f3-41a6-a0fd-d660d276197a"
+  "@odata.id":"https://graph.microsoft.com/v1.0/policies/claimsMappingPolicies/6b33aa8e-51f3-41a6-a0fd-d660d276197a"
 }
 ```
 
@@ -444,9 +444,9 @@ Content-type: claimsMappingPolicies/json
 HTTP/1.1 204
 ```
 
-## <a name="step-4-configure-signing-certificate"></a>Passo 4: Configurar certificado de assinatura
+## <a name="step-4-configure-signing-certificate"></a>Passo 4: Certificado de assinatura de configuração
 
-A [utilização](https://docs.microsoft.com/graph/api/resources/applicationtemplate?view=graph-rest-beta) da aplicação Modelo API não cria um certificado de assinatura por padrão. Crie o seu certificado de assinatura personalizado e atribua-o à aplicação. 
+Utilizando a [aplicação API de placa de aplicação](https://docs.microsoft.com/graph/api/resources/applicationtemplate?view=graph-rest-beta) não cria um certificado de assinatura por padrão. Crie o seu certificado de assinatura personalizado e atribua-o à aplicação. 
 
 ### <a name="create-a-custom-signing-certificate"></a>Criar um certificado de assinatura personalizado
 
@@ -479,17 +479,17 @@ Export-Certificate -cert $path -FilePath $cerFile
 
 ### <a name="add-a-custom-signing-key"></a>Adicione uma chave de assinatura personalizada
 
-Adicione as seguintes informações ao diretor de serviço:
+Adicione as seguintes informações ao responsável pelo serviço:
 
 * Chave privada
 * Palavra-passe
 * Chave pública 
 
-Extrair a chave privada e pública Base64 codificada no ficheiro PFX. Para saber mais sobre as propriedades, leia o tipo de [recurso chaveCredential](https://docs.microsoft.com/graph/api/resources/keycredential?view=graph-rest-1.0).
+Extrair a chave privada e pública Base64 codificada a partir do ficheiro PFX. Para saber mais sobre as propriedades, leia o [tipo de recurso keyCredential](https://docs.microsoft.com/graph/api/resources/keycredential?view=graph-rest-1.0).
 
-Certifique-se de que o id da tecla Para a teclaCredential utilizado para "Sign" corresponde ao id chave da palavra-passeCredential.
+Certifique-se de que o keyId para o keyCredential utilizado para "Sign" corresponde à chaveId da palavra-passeCredential.
 
-Pode gerar o `customkeyIdentifier` hash da impressão digital do cert.
+Pode gerar o `customkeyIdentifier` haxixe da impressão digital do cert.
 
 ```csharp
   public string GetSha256FromThumbprint(string thumbprint)
@@ -503,14 +503,14 @@ Pode gerar o `customkeyIdentifier` hash da impressão digital do cert.
 #### <a name="request"></a>Pedir
 
 > [!NOTE]
-> O valor "chave" na propriedade keyCredenciais é encurtado para a legibilidade.
+> O valor "chave" na propriedade keyCredentials é encurtado para a legibilidade. O valor é a base 64 codificada. Para a chave privada a propriedade `usage` é "Sign". Para a chave pública o `usage` imóvel é "Verificar".
 
 <!-- {
   "blockType": "request",
   "name": "servicePrincipals"
 }-->
 ```msgraph-interactive
-PATCH https://graph.microsoft.com/beta/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
+PATCH https://graph.microsoft.com/v1.0/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
 
 Content-type: servicePrincipals/json
 
@@ -562,7 +562,7 @@ HTTP/1.1 204
 
 ### <a name="activate-the-custom-signing-key"></a>Ativar a chave de assinatura personalizada
 
-Você precisa definir a `preferredTokenSigningKeyThumbprint` propriedade para a impressão digital do certificado que você quer que a Azure AD use para assinar a resposta SAML. 
+Você precisa definir a `preferredTokenSigningKeyThumbprint` propriedade para a impressão digital do certificado que você quer Azure AD usar para assinar a resposta SAML. 
 
 #### <a name="request"></a>Pedir
 
@@ -571,7 +571,7 @@ Você precisa definir a `preferredTokenSigningKeyThumbprint` propriedade para a 
   "name": "servicePrincipals"
 }-->
 ```msgraph-interactive
-PATCH https://graph.microsoft.com/beta/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
+PATCH https://graph.microsoft.com/v1.0/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
 
 Content-type: servicePrincipals/json
 
@@ -593,14 +593,14 @@ HTTP/1.1 204
 
 ### <a name="assign-users-and-groups-to-the-application"></a>Atribuir utilizadores e grupos à aplicação
 
-Atribuir o seguinte utilizador ao diretor de serviço e atribuir o AWS_Role1. 
+Atribua o seguinte utilizador ao principal de serviço e atribua o AWS_Role1. 
 
 | Name  | ID  |
 |---------|---------|
 | ID do utilizador (principalId) | 6cad4079-4e79-4a3f-9efb-ea30a14bdb26 |
 | Tipo (principalType) | Utilizador |
-| Id de função de aplicativo (appRoleId) | 454dc4c2-8176-498e-99df-8c4efcde41ef |
-| serviçoPrincipalID (resourceId) | 515f62cb-d18a-4dca-bec3-bb0bf31deeea |
+| ID de função da aplicação (appRoleId) | 454dc4c2-8176-498e-99df-8c4efcde41ef |
+| servicePrincipalID (resourceId) | 515f62cb-d18a-4dca-bec3-bb0bf31deeea |
 
 #### <a name="request"></a>Pedir
 
@@ -609,7 +609,7 @@ Atribuir o seguinte utilizador ao diretor de serviço e atribuir o AWS_Role1.
   "name": "servicePrincipals"
 }-->
 ```msgraph-interactive
-POST https://graph.microsoft.com/beta/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e/appRoleAssignments
+POST https://graph.microsoft.com/v1.0/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e/appRoleAssignments
 
 Content-type: appRoleAssignments/json
 
@@ -642,16 +642,16 @@ Content-type: appRoleAssignments/json
 }
 ```
 
-Para mais informações, consulte o tipo de recurso [appRoleAssignment.](https://docs.microsoft.com/graph/api/resources/approleassignment?view=graph-rest-beta)
+Para obter mais informações, consulte o tipo de recurso [appRoleAssignment.](https://docs.microsoft.com/graph/api/resources/approleassignment?view=graph-rest-1.0)
 
 ## <a name="step-6-configure-the-application-side"></a>Passo 6: Configurar o lado da aplicação
 
-### <a name="get-azure-ad-saml-metadata"></a>Obtenha metadados Azure AD SAML
+### <a name="get-azure-ad-saml-metadata"></a>Obtenha metadados Azure Ad SAML
 
-Utilize o seguinte URL para obter os metadados Azure AD SAML para a aplicação configurada específica. Os metadados contêm informações como o certificado de assinatura, a entidade Azure AD ID e o Azure AD SingleSignOnService, entre outros.
+Utilize o seguinte URL para obter os metadados Azure AD SAML para a aplicação configurada específica. Os metadados contêm informações como o certificado de assinatura, a entidade AD AD AD E, e Azure AD SingleSignOnService, entre outros.
 
 https://login.microsoftonline.com/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={app-id}
 
-## <a name="next-steps"></a>Passos seguintes
-- [Utilize APIs do Microsoft Graph para configurar o fornecimento de utilizadores](../app-provisioning/application-provisioning-configure-api.md)
-- [Utilize o relatório de atividade de aplicação da AD FS para migrar aplicações para a AD Azure](migrate-adfs-application-activity.md)
+## <a name="next-steps"></a>Próximos passos
+- [Utilize APIs de Gráficos do Microsoft para configurar o provisionamento do utilizador](../app-provisioning/application-provisioning-configure-api.md)
+- [Utilize o relatório de atividade da aplicação AD FS para migrar aplicações para a Azure AD](migrate-adfs-application-activity.md)

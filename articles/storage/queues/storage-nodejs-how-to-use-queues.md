@@ -1,41 +1,44 @@
 ---
-title: Utilize o armazenamento de fila Azure a partir do Nó.js - Armazenamento Azure
-description: Aprenda a utilizar o serviço De Fila Azure para criar e apagar filas, e inserir, obter e apagar mensagens. Amostras escritas no Node.js.
+title: Use o armazenamento da fila Azure a partir de Node.js - Azure Storage
+description: Aprenda a utilizar o serviço Azure Queue para criar e apagar filas e inserir, obter e apagar mensagens. Amostras escritas em Node.js.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
+ms.topic: how-to
+ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 7abcad03678131668700f5d2c64b9c971081cb89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4b8f15831c02a74bbba85ca4327369af6a4dbb2a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060924"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808797"
 ---
-# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Utilize o Serviço de Fila Azure para criar e apagar filas a partir de Node.js
+# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Utilize o Serviço de Fila Azure para criar e eliminar filas de Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
 
 ## <a name="overview"></a>Descrição geral
-Este guia mostra-lhe como realizar cenários comuns utilizando o serviço microsoft Azure Queue. As amostras são escritas usando a API node.js. Os cenários abordados incluem **a inserção,** **espreitar,** **receber**e **apagar** mensagens de fila, bem como criar e **apagar filas.**
+Este guia mostra-lhe como executar cenários comuns usando o serviço Microsoft Azure Queue. As amostras são escritas com a API Node.js. Os cenários abordados incluem **inserir,** **espreitar,** **receber**e **apagar** mensagens de fila, bem como **criar e apagar filas.**
+
+> [!IMPORTANT]
+> Este artigo refere-se à versão antiga da biblioteca de clientes Azure Storage para JavaScript. Para começar com a versão mais recente, consulte [a biblioteca de clientes de armazenamento Quickstart: Azure Queue para JavaScript](storage-quickstart-queues-nodejs.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Criar uma aplicação Node.js
-Crie uma aplicação node.js em branco. Para obter instruções para criar uma aplicação Node.js, consulte [Create a Node.js web app no Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [Construa e implemente uma aplicação Node.js para um Serviço De Nuvem Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) utilizando o Windows PowerShell, ou [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
+Crie uma aplicação de Node.js em branco. Para obter instruções que criem uma aplicação Node.js, consulte [Criar uma aplicação web Node.js no Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [Construa e implemente uma aplicação Node.js para um Serviço de Nuvem Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) utilizando o Windows PowerShell ou [Código de Estúdio Visual](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
 ## <a name="configure-your-application-to-access-storage"></a>Configure a sua aplicação para aceder ao armazenamento
-Para utilizar o armazenamento Azure, necessita do Azure Storage SDK para Node.js, que inclui um conjunto de bibliotecas de conveniência que comunicam com os serviços REST de armazenamento.
+Para utilizar o armazenamento Azure, você precisa do Azure Storage SDK para Node.js, que inclui um conjunto de bibliotecas de conveniência que comunicam com os serviços DE ARMAZENAMENTO REST.
 
-### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Use O Gestor de Pacotes do Nó (NPM) para obter o pacote
-1. Utilize uma interface de linha de comando, como **o PowerShell** (Windows,) **Terminal** (Mac,) ou **Bash** (Unix), navegar para a pasta onde criou a sua aplicação de amostra.
+### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Use o Gestor de Pacotes de Nó (NPM) para obter o pacote
+1. Utilize uma interface de linha de comando como **PowerShell** (Windows,) **Terminal** (Mac,) ou **Bash** (Unix), navegue para a pasta onde criou a sua aplicação de amostra.
 2. Escreva **npm install azure-storage** na janela de comandos. Os resultados do comando são semelhantes ao seguinte exemplo.
  
     ```bash
@@ -51,26 +54,26 @@ Para utilizar o armazenamento Azure, necessita do Azure Storage SDK para Node.js
     +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
     ```
 
-3. Pode executar manualmente o comando **ls** para verificar se foi criada uma pasta de **\_módulos** de nó. Nessa pasta, encontrará o pacote **azure-storage**, que contém as bibliotecas de que precisa para aceder ao armazenamento.
+3. Pode executar manualmente o comando **ls** para verificar se foi criada uma pasta **de módulos de \_ nó.** Nessa pasta, encontrará o pacote **azure-storage**, que contém as bibliotecas de que precisa para aceder ao armazenamento.
 
 ### <a name="import-the-package"></a>Importar o pacote
-Utilizando o Bloco de Notas ou outro editor de texto, adicione o seguinte ao ficheiro **'server.js'** da aplicação onde pretende utilizar o armazenamento:
+Utilizando o Notepad ou outro editor de texto, adicione o seguinte ao topo o ficheiro **server.js** da aplicação onde pretende utilizar o armazenamento:
 
 ```javascript
 var azure = require('azure-storage');
 ```
 
-## <a name="setup-an-azure-storage-connection"></a>Configurar uma ligação de armazenamento azure
-O módulo azul irá ler as\_variáveis ambientais AZURE\_STORAGE ACCOUNT e AZURE\_STORAGE\_\_ACCESS KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING para informações necessárias para se ligar à sua conta de armazenamento Azure. Se estas variáveis ambientais não forem definidas, deve especificar as informações da conta ao ligar **para criar serviçode fila**.
+## <a name="setup-an-azure-storage-connection"></a>Configurar uma ligação de armazenamento Azure
+O módulo azul irá ler as variáveis ambientais AZURE \_ STORAGE \_ ACCOUNT e AZURE \_ STORAGE ACCESS \_ \_ KEY, ou AZURE \_ STORAGE CONNECTION STRING para obter \_ \_ informações necessárias para se ligar à sua conta de armazenamento Azure. Se estas variáveis ambientais não estiverem definidas, deve especificar as informações da conta ao ligar para **o CreateQueueService**.
 
 ## <a name="how-to-create-a-queue"></a>Como: Criar uma fila
-O seguinte código cria um objeto **QueueService,** que lhe permite trabalhar com filas.
+O código a seguir cria um objeto **QueueService,** que lhe permite trabalhar com filas.
 
 ```javascript
 var queueSvc = azure.createQueueService();
 ```
 
-Utilize o método **CreateQueueIfNotExists,** que devolve a fila especificada se já existe ou cria uma nova fila com o nome especificado se ainda não existir.
+Utilize o método **createQueueIfNotExists,** que devolve a fila especificada se já existe ou cria uma nova fila com o nome especificado se ainda não existir.
 
 ```javascript
 queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
@@ -80,24 +83,24 @@ queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
 });
 ```
 
-Se a fila `result.created` for criada, é verdade. Se a fila `result.created` existe, é falso.
+Se a fila for criada, `result.created` é verdade. Se a fila existe, `result.created` é falso.
 
 ### <a name="filters"></a>Filtros
-As operações de filtragem opcionais podem ser aplicadas às operações realizadas através do **QueueService**. As operações de filtragem podem incluir a exploração madeireira, a retentar automaticamente, etc. Os filtros são objetos que implementam um método com a assinatura:
+As operações de filtragem opcionais podem ser aplicadas às operações realizadas através do **Serviço de Fila.** As operações de filtragem podem incluir registos, retagem automaticamente, etc. Os filtros são objetos que implementam um método com a assinatura:
 
 ```javascript
 function handle (requestOptions, next)
 ```
 
-Depois de fazer o seu pré-processamento sobre as opções de pedido, o método precisa de chamar "seguinte" passando uma chamada com a seguinte assinatura:
+Depois de ter feito o pré-processamento nas opções de pedido, o método precisa de chamar "seguinte" passando uma chamada com a seguinte assinatura:
 
 ```javascript
 function (returnObject, finalCallback, next)
 ```
 
-Nesta chamada, e após o processamento do ReturnObject (a resposta do pedido ao servidor), o backback precisa de invocar a seguir se existir para continuar a processar outros filtros ou simplesmente invocar o Backback final de outra forma para acabar com a invocação do serviço.
+Nesta chamada, e depois de processar o ReturnObject (a resposta do pedido ao servidor), o retorno precisa de invocar em seguida se existir para continuar a processar outros filtros ou simplesmente invocar finalCallback de outra forma para acabar com a invocação do serviço.
 
-O Azure SDK para Node.js inclui dois filtros que implementam lógica de repetição: **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. O seguinte cria um objeto **QueueService** que utiliza o **ExponencialRetryPolicyFilter:**
+O Azure SDK para Node.js inclui dois filtros que implementam lógica de repetição: **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. O seguinte cria um objeto **QueueService** que utiliza o **ExponentialRetryPolicyFilter:**
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -115,8 +118,8 @@ queueSvc.createMessage('myqueue', "Hello world!", function(error, results, respo
 });
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Como: Espreitar a próxima mensagem
-Pode espreitar a mensagem na frente de uma fila sem a retirar da fila, chamando o método **peekMessages.** Por padrão, **peekMessages** espreita uma única mensagem.
+## <a name="how-to-peek-at-the-next-message"></a>Como: Espreitar a Próxima Mensagem
+Pode espreitar a mensagem na frente de uma fila sem a retirar da fila, chamando o método **peekMessages.** Por padrão, **as mensagens** espreitam uma única mensagem.
 
 ```javascript
 queueSvc.peekMessages('myqueue', function(error, results, response){
@@ -126,20 +129,20 @@ queueSvc.peekMessages('myqueue', function(error, results, response){
 });
 ```
 
-A `result` mensagem contém.
+Contém `result` a mensagem.
 
 > [!NOTE]
-> Utilizar **mensagens de espreitar** quando não houver mensagens na fila não devolverá um erro, no entanto nenhuma mensagem será devolvida.
+> A utilização **de mensagens de espreitária** quando não há mensagens na fila não retornará um erro, no entanto não serão devolvidas mensagens.
 > 
 > 
 
-## <a name="how-to-dequeue-the-next-message"></a>Como: Defilar a Próxima Mensagem
+## <a name="how-to-dequeue-the-next-message"></a>Como: Dequeue a Próxima Mensagem
 Processar uma mensagem é um processo em duas fases:
 
-1. Desfila a mensagem.
+1. Dequeue a mensagem.
 2. Apague a mensagem.
 
-Para desfilar uma mensagem, use **getMessages**. Isto torna as mensagens invisíveis na fila, para que nenhum outro cliente as possa processar. Uma vez que a sua aplicação tenha processado uma mensagem, ligue para **apagar Mensagem** para apagá-la da fila. O exemplo seguinte recebe uma mensagem e depois apaga::
+Para descodutar uma mensagem, utilize **as caixas de correio.** Isto torna as mensagens invisíveis na fila, para que nenhum outro cliente possa processá-las. Uma vez que a sua aplicação tenha processado uma mensagem, ligue **para apagar** a sua parte da fila. O exemplo a seguir recebe uma mensagem e, em seguida, elimina-a:
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, results, response){
@@ -156,15 +159,15 @@ queueSvc.getMessages('myqueue', function(error, results, response){
 ```
 
 > [!NOTE]
-> Por padrão, uma mensagem só é escondida durante 30 segundos, após a qual é visível para outros clientes. Pode especificar um valor `options.visibilityTimeout` diferente utilizando com **getMessages**.
+> Por padrão, uma mensagem só é ocultada por 30 segundos, após o que é visível para outros clientes. Pode especificar um valor diferente utilizando `options.visibilityTimeout` com as caixas de **correio.**
 > 
 > [!NOTE]
-> A utilização **de mensagens getMessages** quando não há mensagens na fila não devolverá um erro, no entanto nenhuma mensagem será devolvida.
+> A utilização **de mensagens getMessages** quando não há mensagens na fila não retornará um erro, no entanto nenhuma mensagem será devolvida.
 > 
 > 
 
 ## <a name="how-to-change-the-contents-of-a-queued-message"></a>Como: Alterar o conteúdo de uma mensagem em fila
-Pode alterar o conteúdo de uma mensagem no lugar na fila utilizando a **actualizaçãoMensagem**. O exemplo seguinte atualiza o texto de uma mensagem:
+Pode alterar o conteúdo de uma mensagem no lugar na fila utilizando a **actualizaçãoMessage**. O exemplo a seguir atualiza o texto de uma mensagem:
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
@@ -180,13 +183,13 @@ queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
 });
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>Como: Opções adicionais para descodar mensagens
-Existem duas formas de personalizar a recuperação de mensagens a partir de uma fila:
+## <a name="how-to-additional-options-for-dequeuing-messages"></a>Como: Opções adicionais para desescoding de mensagens
+Há duas formas de personalizar a recuperação de mensagens a partir de uma fila:
 
 * `options.numOfMessages`- Recuperar um lote de mensagens (até 32.)
-* `options.visibilityTimeout`- Detete um intervalo de invisibilidade mais longo ou mais curto.
+* `options.visibilityTimeout`- Desemti o tempo limite de invisibilidade mais longo ou curto.
 
-O exemplo que se segue utiliza o método **getMessages** para obter 15 mensagens numa chamada. Em seguida, processa cada mensagem usando um para loop. Também define o tempo de invisibilidade para cinco minutos para todas as mensagens devolvidas por este método.
+O exemplo a seguir utiliza o método **getMessages** para obter 15 mensagens numa chamada. Em seguida, processa cada mensagem usando um loop. Também define o tempo limite de invisibilidade para cinco minutos para todas as mensagens devolvidas por este método.
 
 ```javascript
 queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, results, getResponse){
@@ -216,8 +219,8 @@ queueSvc.getQueueMetadata('myqueue', function(error, results, response){
 });
 ```
 
-## <a name="how-to-list-queues"></a>Como: Lista r' seleções
-Para recuperar uma lista de filas, utilize **listaSSegmentadas**. Para recuperar uma lista filtrada por um prefixo específico, utilize **listaSSegmentedWithPrefix**.
+## <a name="how-to-list-queues"></a>Como: Listar filas
+Para obter uma lista de filas, utilize **listQueuesSegmented**. Para obter uma lista filtrada por um prefixo específico, utilize **a listaQueuesSegmentedWithPrefix**.
 
 ```javascript
 queueSvc.listQueuesSegmented(null, function(error, results, response){
@@ -227,10 +230,10 @@ queueSvc.listQueuesSegmented(null, function(error, results, response){
 });
 ```
 
-Se todas as filas `result.continuationToken` não puderem ser devolvidas, pode ser usada como o primeiro parâmetro das **listQueuesSegmented** ou o segundo parâmetro de **listQueuesSegmentedWithPrefix** para obter mais resultados.
+Se todas as filas não puderem ser devolvidas, `result.continuationToken` pode ser usado como o primeiro parâmetro da **listQueuesSegmented** ou o segundo parâmetro da **listQueuesSegmentedWithPrefix** para obter mais resultados.
 
-## <a name="how-to-delete-a-queue"></a>Como: Apagar uma fila
-Para eliminar uma fila e todas as mensagens contidas na seleção, ligue para o método **deleteQueue** no objeto de fila.
+## <a name="how-to-delete-a-queue"></a>Como: Eliminar uma fila
+Para eliminar uma fila e todas as mensagens contidas na sua parte, ligue para o método **deleteQueue** no objeto da fila.
 
 ```javascript
 queueSvc.deleteQueue(queueName, function(error, response){
@@ -243,11 +246,11 @@ queueSvc.deleteQueue(queueName, function(error, response){
 Para limpar todas as mensagens de uma fila sem a apagar, utilize **mensagens claras**.
 
 ## <a name="how-to-work-with-shared-access-signatures"></a>Como: Trabalhar com assinaturas de acesso partilhado
-As Assinaturas de Acesso Partilhado (SAS) são uma forma segura de fornecer acesso granular às filas sem fornecer o nome ou as chaves da sua conta de armazenamento. As SAS são frequentemente utilizadas para fornecer acesso limitado às suas filas, tais como permitir que uma aplicação móvel envie mensagens.
+As Assinaturas de Acesso Partilhado (SAS) são uma forma segura de fornecer acesso granular às filas sem fornecer o nome ou as chaves da sua conta de armazenamento. Os SAS são frequentemente utilizados para fornecer acesso limitado às suas filas, como permitir que uma aplicação móvel envie mensagens.
 
-Uma aplicação fidedigna, como um serviço baseado na nuvem, gera um SAS utilizando a **geraçãoSharedAccessSignature** do **QueueService,** e fornece-a a uma aplicação não confiável ou semi-fidedigna. Por exemplo, uma aplicação móvel. A SAS é gerada utilizando uma política, que descreve as datas de início e de fim durante as quais a SAS é válida, bem como o nível de acesso concedido ao titular da SAS.
+Uma aplicação fidedigna, como um serviço baseado na nuvem, gera um SAS utilizando o **generateSharedAccesssignature** do **QueueService**, e fornece-o a uma aplicação não confiável ou semi-confiável. Por exemplo, uma aplicação móvel. A SAS é gerada utilizando uma política, que descreve as datas de início e de fim durante as quais a SAS é válida, bem como o nível de acesso concedido ao titular da SAS.
 
-O exemplo seguinte gera uma nova política de acesso partilhado que permitirá ao titular da SAS adicionar mensagens à fila, e expira 100 minutos após a sua criação.
+O exemplo a seguir gera uma nova política de acesso partilhado que permitirá ao titular do SAS adicionar mensagens à fila e expira 100 minutos após a sua criação.
 
 ```javascript
 var startDate = new Date();
@@ -267,9 +270,9 @@ var queueSAS = queueSvc.generateSharedAccessSignature('myqueue', sharedAccessPol
 var host = queueSvc.host;
 ```
 
-Note que as informações do anfitrião também devem ser fornecidas, como é necessário quando o titular da SAS tenta aceder à fila.
+Note que as informações do anfitrião também devem ser fornecidas, como é exigido quando o titular da SAS tenta aceder à fila.
 
-A aplicação do cliente utiliza então o SAS com **QueueServiceWithSAS** para realizar operações contra a fila. O exemplo seguinte liga-se à fila e cria uma mensagem.
+A aplicação do cliente utiliza então o SAS com **o QueueServiceWithSAS** para realizar operações contra a fila. O exemplo a seguir liga-se à fila e cria uma mensagem.
 
 ```javascript
 var sharedQueueService = azure.createQueueServiceWithSas(host, queueSAS);
@@ -280,12 +283,12 @@ sharedQueueService.createMessage('myqueue', 'Hello world from SAS!', function(er
 });
 ```
 
-Uma vez que o SAS foi gerado com acesso ao add, se fosse feita uma tentativa de ler, atualizar ou apagar mensagens, um erro seria devolvido.
+Uma vez que o SAS foi gerado com acesso de adicionar, se fosse feita uma tentativa de ler, atualizar ou apagar mensagens, seria devolvido um erro.
 
 ### <a name="access-control-lists"></a>Lista de controlo de acesso
-Também pode utilizar uma Lista de Controlo de Acesso (ACL) para definir a política de acesso para uma SAS. Isto é útil se desejar permitir que vários clientes acedam à fila, mas que proporcione diferentes políticas de acesso para cada cliente.
+Também pode utilizar uma Lista de Controlo de Acesso (ACL) para definir a política de acesso para uma SAS. Isto é útil se desejar permitir que vários clientes acedam à fila, mas forneça diferentes políticas de acesso para cada cliente.
 
-Uma ACL é implementada com uma matriz de políticas de acesso, com um ID associado a cada política. O exemplo que se segue define duas políticas; uma para 'user1' e outra para 'user2':
+Uma ACL é implementada com uma matriz de políticas de acesso, com um ID associado a cada política. O exemplo a seguir define duas políticas; um para 'user1' e outro para 'user2':
 
 ```javascript
 var sharedAccessPolicy = {
@@ -302,7 +305,7 @@ var sharedAccessPolicy = {
 };
 ```
 
-O exemplo seguinte obtém o ACL atual para **a myqueue,** em seguida, adiciona as novas políticas usando **setQueueAcl**. Esta abordagem permite:
+O exemplo a seguir obtém o atual ACL para **myqueue,** em seguida, adiciona as novas políticas usando **setQueueAcl**. Esta abordagem permite:
 
 ```javascript
 var extend = require('extend');
@@ -318,7 +321,7 @@ queueSvc.getQueueAcl('myqueue', function(error, result, response) {
 });
 ```
 
-Uma vez definida a ACL, pode criar um SAS com base no ID para uma apólice. O exemplo seguinte cria uma nova SAS para "user2":
+Uma vez definido o ACL, pode então criar um SAS baseado no ID para uma política. O exemplo seguinte cria uma nova SAS para "user2":
 
 ```javascript
 queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });

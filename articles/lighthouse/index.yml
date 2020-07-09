@@ -10,12 +10,12 @@ metadata:
   author: JnHs
   ms.author: jenhayes
   ms.date: 04/14/2020
-  ms.openlocfilehash: e62db32a20c4124f64e7c77d626099905a960815
-  ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+  ms.openlocfilehash: 8599ddc8a4216b97be6d5bf183eea68654ff65a4
+  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/27/2020
-  ms.locfileid: "83871793"
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86111546"
 landingContent:
 - title: Acerca do Azure Lighthouse
   linkLists:
@@ -33,7 +33,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Integrar um cliente na gestão de recursos delegados do Azure
+    - text: Incluir um cliente no Azure Lighthouse
       url: ./how-to/onboard-customer.md
   - linkListType: concept
     links:
@@ -71,15 +71,17 @@ landingContent:
       url: ./how-to/view-manage-customers.md
     - text: Ver e gerir fornecedores de serviços
       url: ./how-to/view-manage-service-providers.md
-- title: Trabalhe com os serviços do Azure
+- title: Trabalhar com os serviços do Azure em escala
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Utilize os Registos do Azure Monitor em escala
+    - text: Gerir as áreas de trabalho do Azure Sentinel
+      url: ./how-to/manage-sentinel-workspaces.md
+    - text: Utilizar os Registos do Azure Monitor
       url: ./how-to/monitor-at-scale.md
     - text: Monitorizar alterações de delegação
       url: ./how-to/monitor-at-scale.md
-    - text: Implemente o Azure Policy em escala
+    - text: Implementar o Azure Policy
       url: ./how-to/policy-at-scale.md
     - text: Implementar uma política que pode ser corrigida
       url: ./how-to/deploy-policy-remediation.md
@@ -112,6 +114,6 @@ landingContent:
   - linkListType: get-started
     links:
     - text: Perguntas e Respostas da Microsoft para o Azure Lighthouse
-      url: https://docs.microsoft.com/answers/topics/azure-lighthouse.html
+      url: /answers/topics/azure-lighthouse.html
     - text: Pedir funcionalidades de produto
       url: https://feedback.azure.com/forums/922753

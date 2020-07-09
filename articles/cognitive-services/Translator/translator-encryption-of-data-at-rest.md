@@ -1,7 +1,7 @@
 ---
-title: Encriptação de dados de tradutor em repouso
+title: Encriptação do tradutor de dados em repouso
 titleSuffix: Azure Cognitive Services
-description: Encriptação de dados de tradutor em repouso.
+description: Encriptação de tradução de dados em repouso.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
@@ -9,76 +9,76 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: egeaney
-ms.openlocfilehash: 0a4a1f49735a30d7ad764e7f031610eabd09763e
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: bc328efd648eb3dd522f5233e2a5c440911ac58c
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995773"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310840"
 ---
-# <a name="translator-encryption-of-data-at-rest"></a>Encriptação de dados de tradutor em repouso
+# <a name="translator-encryption-of-data-at-rest"></a>Encriptação do tradutor de dados em repouso
 
-O tradutor encripta automaticamente os seus dados, que envia para construir modelos de tradução personalizada, quando é persistido na nuvem, ajudando a cumprir os seus objetivos de segurança organizacional e conformidade.
+O tradutor encripta automaticamente os seus dados, que faz o upload para construir modelos de tradução personalizados, quando este é persistido na nuvem, ajudando a cumprir os seus objetivos de segurança organizacional e conformidade.
 
 ## <a name="about-cognitive-services-encryption"></a>Sobre a encriptação dos Serviços Cognitivos
 
-Os dados são encriptados e desencriptados utilizando encriptação [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) compatível com [140-2](https://en.wikipedia.org/wiki/FIPS_140-2) bits. A encriptação e a desencriptação são transparentes, o que significa que a encriptação e o acesso são geridos para si. Os seus dados são seguros por padrão e não precisa de modificar o seu código ou aplicações para tirar partido da encriptação.
+Os dados são encriptados e desencriptados utilizando encriptação AES de [140-2](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) em conformidade com o [FIPS.](https://en.wikipedia.org/wiki/FIPS_140-2) A encriptação e a desencriptação são transparentes, o que significa que a encriptação e o acesso são geridos para si. Os seus dados são seguros por padrão e não precisa de modificar o seu código ou aplicações para tirar partido da encriptação.
 
-## <a name="about-encryption-key-management"></a>Sobre a gestão da chave de encriptação
+## <a name="about-encryption-key-management"></a>Sobre a gestão de chaves de encriptação
 
-Por padrão, a sua subscrição utiliza chaves de encriptação geridas pela Microsoft. Se estiver a utilizar um nível de preços que suporta as chaves geridas pelo Cliente, pode ver as definições de encriptação do seu recurso na secção de **encriptação** do [portal Azure,](https://portal.azure.com)como mostra a imagem seguinte.
+Por predefinição, a sua subscrição utiliza chaves de encriptação geridas pela Microsoft. Se estiver a utilizar um nível de preços que suporta teclas geridas pelo Cliente, pode ver as definições de encriptação do seu recurso na secção de **Encriptação** do [portal Azure](https://portal.azure.com), como mostra a imagem seguinte.
 
 ![Ver definições de encriptação](../media/cognitive-services-encryption/encryptionblade.png)
 
-Para subscrições que suportam apenas chaves de encriptação geridas pela Microsoft, não terá uma secção de **Encriptação.**
+Para subscrições que suportam apenas as chaves de encriptação geridas pela Microsoft, não terá uma secção **de Encriptação.**
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Chaves geridas pelo cliente com o Azure Key Vault
 
-Existe também uma opção para gerir a sua subscrição com as suas próprias chaves. As chaves geridas pelo cliente (CMK), também conhecidacomo Bring your own key (BYOK), oferecem maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os seus dados.
+Existe também uma opção para gerir a sua subscrição com as suas próprias chaves. As teclas geridas pelo cliente (CMK), também conhecidas como Bring your own key (BYOK), oferecem uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os seus dados.
 
 > [!IMPORTANT]
-> As chaves geridas pelo cliente estão disponíveis para todos os níveis de preços para o serviço Tradutor. Para solicitar a capacidade de utilizar as chaves geridas pelo cliente, preencha e envie o Formulário de Pedido de Chave Gerido pelo Cliente do [Tradutor,](https://aka.ms/cogsvc-cmk) levará aproximadamente 3-5 dias úteis para voltar a ouvir o estado do seu pedido. Dependendo da procura, pode ser colocado numa fila e aprovado à medida que o espaço se torna disponível. Uma vez aprovado para utilizar a CMK com o serviço Tradutor, terá de criar um novo recurso Tradutor. Assim que o seu recurso Tradutor for criado, pode utilizar o Cofre chave Azure para configurar a sua identidade gerida.
+> As chaves geridas pelo cliente estão disponíveis para todos os níveis de preços para o serviço Tradutor. Para solicitar a capacidade de utilizar chaves geridas pelo cliente, preencha e envie o [Formulário de Pedido de Chave Gerido pelo Cliente do Tradutor,](https://aka.ms/cogsvc-cmk) levará aproximadamente 3-5 dias úteis para ouvir o estado do seu pedido. Dependendo da procura, você pode ser colocado em uma fila e aprovado à medida que o espaço fica disponível. Uma vez aprovado para a utilização da CMK com o serviço Tradutor, terá de criar um novo recurso Tradutor. Uma vez criado o seu recurso Tradutor, pode utilizar o Cofre da Chave Azure para configurar a sua identidade gerida.
 
-Siga estes passos para ativar as chaves geridas pelo cliente para o Tradutor:
+Siga estes passos para permitir chaves geridas pelo cliente para o Tradutor:
 
-1. Crie o seu novo recurso de Tradutor Regional ou Serviços Cognitivos Regionais. Isto não funcionará com um recurso global.
-2. Identidade Gerida Ativada no portal Azure e adicione informações chave geridas pelo cliente.
-3. Crie um novo espaço de trabalho em Tradutor Personalizado e associe esta informação de subscrição.
+1. Crie o seu novo Tradutor regional ou recurso de Serviços Cognitivos regionais. Isto não funcionará com um recurso global.
+2. Identidade Gerida Ativada no portal Azure e adicione as informações chave geridas pelo cliente.
+3. Crie um novo espaço de trabalho no Custom Tradutor e associe esta informação de subscrição.
 
-[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk-regions.md)]
+[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
 ### <a name="enable-customer-managed-keys"></a>Ativar chaves geridas pelo cliente
 
-Você deve usar o Cofre chave Azure para armazenar as suas chaves geridas pelo cliente. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves. O recurso Dos Serviços Cognitivos e o cofre-chave devem estar na mesma região e no mesmo inquilino azure Ative Directory (Azure AD), mas podem estar em diferentes subscrições. Para mais informações sobre o Cofre de Chaves Azure, veja [o que é o Cofre de Chaves Azure?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+Tem de utilizar o Cofre da Chave Azure para armazenar as suas chaves geridas pelo cliente. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves. O recurso de Serviços Cognitivos e o cofre-chave devem estar na mesma região e no mesmo inquilino do Azure Ative Directory (Azure AD), mas podem estar em diferentes subscrições. Para mais informações sobre o Azure Key Vault, veja [o que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 
-Um novo recurso dos Serviços Cognitivos é sempre encriptado utilizando chaves geridas pela Microsoft. Não é possível ativar as chaves geridas pelo cliente no momento em que o recurso é criado. As chaves geridas pelo cliente são armazenadas no Cofre chave Azure, e o cofre chave deve ser aprovisionado com políticas de acesso que concedem permissões-chave para a identidade gerida que está associada ao recurso dos Serviços Cognitivos. A identidade gerida está disponível assim que o recurso é criado.
+Um novo recurso de Serviços Cognitivos é sempre encriptado usando as teclas geridas pela Microsoft. Não é possível ativar chaves geridas pelo cliente no momento em que o recurso é criado. As chaves geridas pelo cliente são armazenadas no Cofre da Chave Azure, e o cofre-chave deve ser aprovisionado com políticas de acesso que concedem permissões-chave à identidade gerida que está associada ao recurso Serviços Cognitivos. A identidade gerida está disponível assim que o recurso é criado.
 
-Para aprender a usar chaves geridas pelo cliente com o Cofre chave Azure para encriptação de Serviços Cognitivos, consulte:
+Para aprender a usar chaves geridas pelo cliente com cofre de chaves Azure para encriptação de serviços cognitivos, consulte:
 
-- [Configure chaves geridas pelo cliente com chave vault para encriptação de serviços cognitivos do portal Azure](../Encryption/cognitive-services-encryption-keys-portal.md)
+- [Configure as chaves geridas pelo cliente com a encriptação Key Vault for Cognitive Services a partir do portal Azure](../Encryption/cognitive-services-encryption-keys-portal.md)
 
-Ativar as chaves geridas pelo cliente também permitirá um sistema de identidade gerida atribuída, uma funcionalidade da Azure AD. Uma vez ativada a identidade gerida do sistema atribuída, este recurso será registado no Azure Ative Directory. Depois de registada, a identidade gerida terá acesso ao Cofre chave selecionado durante a configuração da chave gerida pelo cliente. Pode saber mais sobre [identidades geridas.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
-
-> [!IMPORTANT]
-> Se desativar as identidades geridas atribuídas ao sistema, o acesso ao cofre da chave será removido e quaisquer dados encriptados com as teclas do cliente deixarão de estar acessíveis. Quaisquer funcionalidades dependentes destes dados deixarão de funcionar. Quaisquer modelos que tenha implantado também não serão implantados. Todos os dados enviados serão eliminados do Tradutor Personalizado. Se as identidades geridas forem reativadas, não recolocaremos automaticamente o modelo para si.
+Ativar as chaves geridas pelo cliente também permitirá um sistema atribuído à identidade gerida, uma característica do Azure AD. Uma vez ativada a identidade gerida do sistema, este recurso será registado no Azure Ative Directory. Após a sua inscrição, a identidade gerida terá acesso ao Cofre-Chave selecionado durante a configuração da chave gerida pelo cliente. Pode saber mais sobre [identidades geridas.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
 > [!IMPORTANT]
-> As identidades geridas não suportam atualmente cenários transversais. Quando configura as chaves geridas pelo cliente no portal Azure, uma identidade gerida é automaticamente atribuída sob as capas. Se posteriormente deslocar a subscrição, o grupo de recursos ou o recurso de um diretório Azure AD para outro, a identidade gerida associada ao recurso não é transferida para o novo inquilino, pelo que as chaves geridas pelo cliente podem deixar de funcionar. Para obter mais informações, consulte **a Transferência de uma subscrição entre diretórios da AD Azure** em [FAQs e questões conhecidas com identidades geridas para recursos Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories).  
+> Se desativar as identidades geridas do sistema, o acesso ao cofre da chave será removido e quaisquer dados encriptados com as teclas do cliente deixarão de estar acessíveis. Quaisquer funcionalidades dependentes destes dados deixarão de funcionar. Quaisquer modelos que tenha implementado também não serão utilizados. Todos os dados enviados serão eliminados do Custom Tradutor. Se as identidades geridas forem re-activadas, não reiparceremos automaticamente o modelo para si.
 
-### <a name="store-customer-managed-keys-in-azure-key-vault"></a>Armazenar chaves geridas pelo cliente no Cofre de Chaves Azure
+> [!IMPORTANT]
+> As identidades geridas não suportam atualmente cenários de diretórios cruzados. Quando configura as chaves geridas pelo cliente no portal Azure, uma identidade gerida é automaticamente atribuída sob as capas. Se posteriormente mover a subscrição, o grupo de recursos ou o recurso de um diretório AD Azure para outro, a identidade gerida associada ao recurso não é transferida para o novo inquilino, pelo que as chaves geridas pelo cliente podem deixar de funcionar. Para obter mais informações, consulte **a transferência de uma subscrição entre diretórios AD Azure** em [FAQs e questões conhecidas com identidades geridas para recursos Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories).  
 
-Para ativar as chaves geridas pelo cliente, tem de utilizar um Cofre de Chave Azure para armazenar as suas chaves. Deve ativar as propriedades **Soft Delete** e **Não purgar** as propriedades no cofre da chave.
+### <a name="store-customer-managed-keys-in-azure-key-vault"></a>Armazenar chaves geridas pelo cliente no Cofre da Chave Azure
 
-Apenas as chaves RSA do tamanho 2048 são suportadas com encriptação dos Serviços Cognitivos. Para mais informações sobre as chaves, consulte **as chaves key vault** em [chaves, segredos e certificados do Cofre chave Azure.](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys)
+Para ativar as chaves geridas pelo cliente, tem de utilizar um Cofre de Chaves Azure para guardar as suas chaves. Tem de ativar as propriedades **Soft Delete** e **Não Purgar** no cofre da chave.
+
+Apenas as chaves RSA do tamanho 2048 são suportadas com encriptação dos Serviços Cognitivos. Para obter mais informações sobre as chaves, consulte **as chaves do Cofre chave** em chaves [Azure Key Vault, segredos e certificados](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys).
 
 > [!NOTE]
-> Se todo o cofre da chave for eliminado, os seus dados deixarão de ser apresentados e todos os seus modelos ficarão desdistribuídos. Todos os dados enviados serão eliminados do Tradutor Personalizado. 
+> Se todo o cofre de chaves for eliminado, os seus dados deixarão de ser apresentados e todos os seus modelos ficarão desprotendo-se. Todos os dados enviados serão eliminados do Custom Tradutor. 
 
 ### <a name="revoke-access-to-customer-managed-keys"></a>Revogar o acesso às chaves geridas pelo cliente
 
-Para revogar o acesso às chaves geridas pelo cliente, utilize o PowerShell ou o Azure CLI. Para mais informações, consulte [o Cofre de Chaves Azure PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) ou o Cofre de Chaves [Azure CLI](https://docs.microsoft.com/cli/azure/keyvault). Revogar o acesso bloqueia efetivamente o acesso a todos os dados do recurso Serviços Cognitivos e os seus modelos não serão implantados, uma vez que a chave de encriptação é inacessível pelos Serviços Cognitivos. Todos os dados enviados também serão eliminados do Tradutor Personalizado.
+Para revogar o acesso às chaves geridas pelo cliente, utilize o PowerShell ou o Azure CLI. Para obter mais informações, consulte [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) ou [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). A revogação do acesso bloqueia eficazmente o acesso a todos os dados do recurso Serviços Cognitivos e os seus modelos não serão desprovidos, uma vez que a chave de encriptação é inacessível pelos Serviços Cognitivos. Todos os dados carregados também serão eliminados do Custom Tradutor.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba mais sobre o Cofre de Chaves Azure](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Saiba mais sobre o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

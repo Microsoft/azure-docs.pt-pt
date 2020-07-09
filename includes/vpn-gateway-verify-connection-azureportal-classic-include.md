@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 010/17/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 26e48d1af8e29c7d00a80910dcca62811da14822
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67673464"
 ---
 No portal do Azure, pode ver o estado da ligação de um Gateway de VPN de VNet clássica ao navegar para essa ligação. Os passos seguintes mostram uma forma de navegar para a ligação e realizar uma verificação.
@@ -21,7 +21,7 @@ No portal do Azure, pode ver o estado da ligação de um Gateway de VPN de VNet 
 2. No painel da rede virtual, clique em **Descrição geral** para aceder à secção **Ligações VPN** do mesmo.
 3. No gráfico das ligações VPN, clique no site.
 
-    ![Local local](./media/vpn-gateway-verify-connection-azureportal-classic/localsitename.png "local")
+    ![Site local](./media/vpn-gateway-verify-connection-azureportal-classic/localsitename.png "local")
 4. No painel **Ligações de Rede de VPNs**, veja as informações sobre o site.
 
     ![Estado da ligação](./media/vpn-gateway-verify-connection-azureportal-classic/siteconnectstatus.png "Estado da ligação")

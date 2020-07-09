@@ -1,46 +1,45 @@
 ---
-title: 'Depuração interativa: Código VS & instâncias computacionais ml'
+title: 'Depurativo: VS Código & casos de computação ML'
 titleSuffix: Azure Machine Learning
-description: Configurar o Código VS Remote para depurar interativamente o seu código com o Azure Machine Learning.
+description: Confiem o código VS Remote para depurar interativamente o seu código com a Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
-ms.openlocfilehash: 1999d29db21f820fbcdbca08f2258b657673be3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 19d4b6e7994450eacacab51e9a01cbf58eab803a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77169743"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84433130"
 ---
-# <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Depurar interativamente em uma instância de computação de aprendizagem automática Azure com vs código remoto
+# <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Debug interativamente em uma Azure Machine Learning Compute Instance com VS Code Remote
 
-Neste artigo, aprenderá sacar o código do estúdio visual Remote numa instância de computação de aprendizagem automática Azure para que possa **desinvejar interativamente o seu código** a partir do Código VS. 
+Neste artigo, você vai aprender a configurar o Visual Studio Code Remote em uma Azure Machine Learning Compute Instance para que você possa **depurar interativamente o seu código** a partir de CÓDIGO VS. 
 
-+ A [Azure Machine Learning Compute Instance](concept-compute-instance.md) é uma estação de trabalho totalmente gerida em nuvem para cientistas de dados e fornece capacidades de gestão e prontidão empresarial para administradores de TI. 
++ [A Azure Machine Learning Compute Instance](concept-compute-instance.md) é uma estação de trabalho totalmente gerida baseada na nuvem para cientistas de dados e fornece capacidades de gestão e prontidão empresarial para administradores de TI. 
 
 
-+ [Código de estúdio visual Remoto](https://code.visualstudio.com/docs/remote/remote-overview) O desenvolvimento permite-lhe utilizar um recipiente, uma máquina remota ou o Subsistema Windows para linux (WSL) como um ambiente de desenvolvimento completo. 
++ [Código de estúdio visual remoto](https://code.visualstudio.com/docs/remote/remote-overview) O desenvolvimento permite-lhe utilizar um contentor, uma máquina remota ou o Subsistema Windows para Linux (WSL) como um ambiente de desenvolvimento completo. 
 
 ## <a name="prerequisite"></a>Pré-requisito  
 
-Nas plataformas Windows, tem de [instalar um cliente SSH compatível com OpenSSH](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) se um ainda não estiver presente. 
+Nas plataformas do Windows, tem de [instalar um cliente SSH compatível com OpenSSH](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) se ainda não estiver presente. 
 
 > [!Note]
-> O PuTTY não é suportado no Windows, uma vez que o comando ssh deve estar no caminho. 
+> PuTTY não é suportado no Windows, uma vez que o comando ssh deve estar no caminho. 
 
 ## <a name="get-ip-and-ssh-port"></a>Obtenha porta IP e SSH 
 
-1. Vá ao estúdio de Aprendizagem automática Azure em https://ml.azure.com/.
+1. Vá ao estúdio Azure Machine Learning em https://ml.azure.com/ .
 
 2. Selecione o seu [espaço de trabalho](concept-workspace.md).
-1. Clique no separador **Compute Instances.**
-1. Na coluna **Application URI,** clique na ligação **SSH** da instância computacional que pretende utilizar como uma computação remota. 
+1. Clique no **separador Instâncias computacional.**
+1. Na coluna URI de **aplicação,** clique na ligação **SSH** da instância de computação que pretende utilizar como um cálculo remoto. 
 1. No diálogo, tome nota do endereço IP e da porta SSH. 
-1. Guarde a sua chave privada para o diretório ~/.ssh/ no seu computador local; por exemplo, abra um editor para um novo ficheiro e colhe a chave em: 
+1. Guarde a sua chave privada para o diretório ~/ssh/ no seu computador local; por exemplo, abrir um editor para um novo ficheiro e colar a chave em: 
 
    **Linux:** 
    ```sh
@@ -68,9 +67,9 @@ Nas plataformas Windows, tem de [instalar um cliente SSH compatível com OpenSSH
    chmod 600 ~/.ssh/id_azmlcitest_rsa   
    ```
 
-## <a name="add-instance-as-a-host"></a>Adicione instância como hospedeiro 
+## <a name="add-instance-as-a-host"></a>Adicionar instância como hospedeiro 
 
-Abra o `~/.ssh/config` ficheiro (Linux) ou `C:\Users<username>.ssh\config` (Windows) num editor e adicione uma nova entrada semelhante a esta:
+Abra o ficheiro `~/.ssh/config` (Linux) ou `C:\Users<username>.ssh\config` (Windows) num editor e adicione uma nova entrada semelhante a esta:
 
 ```
 Host azmlci1 
@@ -88,30 +87,30 @@ Aqui alguns detalhes sobre os campos:
 
 |Campo|Descrição|
 |----|---------|
-|Anfitrião|Use o que quiser para a instância de cálculo |
+|Anfitrião|Use a abreviatura que quiser para a instância computacional |
 |NomedeAnfitrião|Este é o endereço IP da instância computacional |
 |Porta|Esta é a porta mostrada no diálogo SSH acima |
 |Utilizador|Isto tem de ser `azureuser` |
-|Ficheiro de Identidade|Deve apontar para o arquivo onde guardou a chave privada |
+|Ficheiro de Identidade|Deve apontar para o ficheiro onde guardou a chave privada |
 
-Agora, deve ser capaz de se esguijar para a sua `ssh azmlci1`instância de cálculo usando a abreviatura que usou acima, . 
+Agora, você deve ser capaz de ssh para a sua instância de cálculo usando a abreviatura que você usou acima, `ssh azmlci1` . 
 
-## <a name="connect-vs-code-to-the-instance"></a>Ligue o Código VS à instância 
+## <a name="connect-vs-code-to-the-instance"></a>Ligue o Código VS ao caso 
 
-1. [Instale o Código](https://code.visualstudio.com/)do Estúdio Visual .
+1. [Instale o Código do Estúdio Visual](https://code.visualstudio.com/).
 
 1. [Instale a extensão SSH remota](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh). 
 
 1. Clique no ícone Remote-SSH à esquerda para mostrar as suas configurações SSH.
 
-1. Clique na configuração do hospedeiro SSH que acabou de criar.
+1. Clique com o botão direito na configuração do anfitrião SSH que acabou de criar.
 
-1. **Selecione Ligar ao anfitrião na janela atual**. 
+1. Selecione **Ligar ao anfitrião na janela atual**. 
 
-A partir de agora, está a trabalhar inteiramente na instância computacional e agora pode editar, depurar, usar git, usar extensões, etc. - tal como pode com o seu Código de Estúdio Visual local. 
+A partir de agora, está a trabalhar inteiramente na instância computacional e agora pode editar, depurar, usar git, usar extensões, etc. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Agora que configuraste o Código de Código do Estúdio Visual Remote, podes usar uma instância de cálculo como computação remota do Visual Studio Code para desinpurar interativamente o teu código. 
+Agora que configuraste o Visual Studio Code Remote, podes usar uma instância de computação como computação remota do Código do Estúdio Visual para depurar interativamente o teu código. 
 
-[Tutorial: Treinar o seu primeiro modelo ML](tutorial-1st-experiment-sdk-train.md) mostra como usar uma instância computacional com um caderno integrado.
+[Tutorial: Treine o seu primeiro modelo ML](tutorial-1st-experiment-sdk-train.md) mostra como usar uma instância computacional com um caderno integrado.

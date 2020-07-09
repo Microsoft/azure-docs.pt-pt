@@ -1,44 +1,44 @@
 ---
 title: Tipos de nós e conjuntos de dimensionamento de máquinas virtuais
-description: Saiba como os tipos de nó de tecido de serviço Azure se relacionam com conjuntos de escala de máquina virtual e como ligar remotamente a uma instância de conjunto de escala ou nó de cluster.
+description: Saiba como os tipos de nós de tecido de serviço Azure se relacionam com conjuntos de balanças de máquinas virtuais e como ligar remotamente a uma instância definida de escala ou nó de cluster.
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
 ms.openlocfilehash: 03076a711041812f7587aa1c388b0889b49725d2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82787138"
 ---
-# <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nó de tecido de serviço Azure e conjuntos de escala de máquina virtual
+# <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nó de nó de tecido de serviço Azure e conjuntos de escala de máquina virtual
 
-[Os conjuntos](/azure/virtual-machine-scale-sets) de escala de máquinas virtuais são um recurso de computação Azure. Pode utilizar conjuntos de escala para implantar e gerir uma coleção de máquinas virtuais como conjunto. Cada tipo de nó que define num cluster de tecido de serviço Azure configura exatamente um conjunto de escala: vários tipos de nó não podem ser apoiados pelo mesmo conjunto de escala e um tipo de nó não deve (na maioria dos casos) ser apoiado por conjuntos de escala múltipla. Uma exceção a isso é na rara situação de [escala vertical](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) de um tipo de `nodeTypeRef` nó, quando você tem temporariamente dois conjuntos de escala com o mesmo valor enquanto as réplicas são migradas do original para o conjunto de escala atualizado.
+[Os conjuntos de escala de máquina virtual](/azure/virtual-machine-scale-sets) são um recurso de computação Azure. Pode utilizar conjuntos de escala para implantar e gerir uma coleção de máquinas virtuais como conjunto. Cada tipo de nó que define num cluster de tecido de serviço Azure configura exatamente um conjunto de escala: vários tipos de nós não podem ser apoiados pelo mesmo conjunto de escala e um tipo de nó não deve (na maioria dos casos) ser apoiado por conjuntos de várias escalas. Uma exceção a isso encontra-se na rara situação de [escalonamento vertical](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) de um tipo de nó, quando você temporariamente tem dois conjuntos de escala com o mesmo `nodeTypeRef` valor enquanto as réplicas são migradas do original para o conjunto de escala atualizado.
 
-O tempo de execução do Tecido de Serviço está instalado em cada máquina virtual na escala definida pela extensão *Microsoft.Azure.ServiceFabric* Virtual Machine. Pode escalar de forma independente cada nó para cima ou para baixo, alterar o OS SKU em cada nó de cluster, ter diferentes conjuntos de portas abertas e usar métricas de capacidade diferentes.
+O tempo de funcionamento do Tecido de Serviço é instalado em cada máquina virtual na escala definida pela extensão da Máquina Virtual *Microsoft.Azure.ServiceFabric.* Pode escalar independentemente cada tipo de nó para cima ou para baixo, alterar o SISTEMA SKU funcionando em cada nó de cluster, ter diferentes conjuntos de portas abertas e usar diferentes métricas de capacidade.
 
-A figura que se segue mostra um cluster que tem dois tipos de nó, chamado *FrontEnd* e *BackEnd*. Cada nó tem cinco nós.
+A figura a seguir mostra um cluster que tem dois tipos de nós, *chamados FrontEnd* e *BackEnd*. Cada nó tem cinco nós.
 
-![Um aglomerado que tem dois tipos de nó][NodeTypes]
+![Um cluster que tem dois tipos de nó][NodeTypes]
 
-## <a name="map-virtual-machine-scale-set-instances-to-nodes"></a>Map virtual machine scale set instâncias para nós
+## <a name="map-virtual-machine-scale-set-instances-to-nodes"></a>Mapear instâncias de escala de máquina virtual para os nónádisscos
 
-Como mostrado na figura anterior, as instâncias de conjunto de escala começam na instância 0 e depois aumentam em 1. A numeração reflete-se nos nomes do nó. Por exemplo, o nó BackEnd_0 é a instância 0 do conjunto de escala BackEnd. Este conjunto de escala seleções em particular tem cinco instâncias, chamadas BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 e BackEnd_4.
+Como mostrado no valor anterior, as instâncias definidas em escala começam no exemplo 0 e, em seguida, aumentam em 1. A numeração reflete-se nos nomes dos nóns. Por exemplo, o nó BackEnd_0 é o exemplo 0 do conjunto de escala BackEnd. Este conjunto de escalas particulares tem cinco instâncias, denominada BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 e BackEnd_4.
 
-Quando se escala um conjunto de escala, cria-se um novo exemplo. O nome da nova instância de escala normalmente é o nome definido de escala mais o número de instância seguinte. No nosso exemplo, é BackEnd_5.
+Quando se escala um conjunto de escala, cria-se um novo exemplo. O nome de instância definida de nova escala normalmente é o nome definido da escala mais o número de instância seguinte. No nosso exemplo, é BackEnd_5.
 
-## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Conjunto de conjuntode balança de mapas para tipos de nó e conjuntos de escala
+## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Balança de escala de mapas conjunto de balanças para tipos de nó e conjuntos de escala
 
-Se implementou o seu cluster no portal Azure ou usou o modelo de gestor de recursos Azure, todos os recursos sob um grupo de recursos estão listados. Pode ver os equilibradores de carga para cada conjunto de calcário ou tipo de nó. O nome do equilíbrio de carga utiliza o seguinte formato: **nome&lt;&gt;do tipo LB-nó**. Um exemplo é LB-sfcluster4doc-0, como mostra a seguinte figura:
+Se implementou o seu cluster no portal Azure ou utilizou o modelo de gestor de recursos Azure, todos os recursos sob um grupo de recursos estão listados. Pode ver os balançadores de carga para cada conjunto de balanças ou tipo de nó. O nome do balançador de carga utiliza o seguinte formato: ** &lt; &gt; nome do tipo de nó LB**. Um exemplo é LB-scluster4doc-0, como mostra a seguinte figura:
 
 ![Recursos][Resources]
 
-## <a name="service-fabric-virtual-machine-extension"></a>Extensão da máquina virtual de tecido de serviço
+## <a name="service-fabric-virtual-machine-extension"></a>Extensão da máquina virtual do tecido de serviço
 
-A extensão da máquina virtual de tecido de serviço é usada para botas de tecido de serviço para máquinas virtuais Azure e configurar a Segurança do Nó.
+A extensão da máquina virtual do tecido de serviço de serviço é utilizada para o tecido de serviço de botas para a azure máquinas virtuais e configurar a Segurança do Nó.
 
-Segue-se um excerto da extensão da máquina virtual de tecido de serviço:
+Segue-se um corte da extensão da Máquina Virtual de Tecido de Serviço:
 
 ```json
 "extensions": [
@@ -74,27 +74,27 @@ Seguem-se as descrições da propriedade:
 
 | **Nome** | **Valores Permitidos** | **Orientação ou Breve Descrição** |
 | --- | --- | --- | --- |
-| nome | string | Nome único para extensão |
-| tipo | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode" | Identifica o Tecido de Serviço os si |
-| autoUpgradeMinorVersion | true ou false | Ativar atualização automática de versões menores de prazo de execução SF |
-| publicador | Microsoft.Azure.ServiceFabric | Nome do editor de extensão de tecido de serviço |
-| clusterEndpont | string | URI:PORTO para ponto final de gestão |
-| nóTypeRef | string | Nome do nóType |
-| durabilidadeN | bronze, prata, ouro, platina | Tempo permitido para parar infraestrutura supreendível Azure |
-| enableParallelJobs | true ou false | Ativar Compute ParallelJobs como remover VM e reiniciar VM na mesma escala definida em paralelo |
-| nicPrefixOverride | string | Prefixo de sub-rede como "10.0.0.0.0/24" |
-| nomes comuns | cadeia[] | Nomes comuns dos certificados de cluster instalados |
-| x509Nome da loja | string | Nome da Loja onde está localizado certificado de cluster instalado |
-| typeHandlerVersion | 1.1 | Versão da Extensão. 1.0 versão clássica da extensão é recomendada para atualizar para 1.1 |
-| dataPath | string | Caminho para a unidade utilizada para salvar o estado dos serviços de sistema de tecido de serviço e dados de aplicação.
+| name | string | Nome único para extensão |
+| tipo | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode" | Identifie o tecido de serviço oss está a ser armadilhada para |
+| autoUpgradeMinorVersion | true ou false | Ativar a atualização automática das versões menores de tempo de execução SF |
+| publicador | Microsoft.Azure.ServiceFabric | Nome da editora de extensão de Tecido de Serviço |
+| clusterEndpont | string | URI:PORT para Management endpoint |
+| nodeTypeRef | string | Nome do nóType |
+| durabilidadeLevel | bronze, prata, ouro, platina | Tempo permitido para a infraestrutura azure imutável |
+| ativar Os Trabalhos DeParallel | true ou false | Ativar Compute ParallelJobs como remover VM e reiniciar VM na mesma escala definida em paralelo |
+| nicPrefixOverride | string | Prefixo de sub-rede como "10.0.0.0/24" |
+| nomes comuns | corda[] | Nomes comuns dos certificados de agrupamento instalados |
+| x509StoreName | string | Nome da Loja onde está localizado o certificado de cluster instalado |
+| typeHandlerVersion | 1.1 | Versão de Extensão. 1.0 versão clássica de extensão são recomendadas para upgrade para 1.1 |
+| dataPata | string | Caminho para a unidade usada para guardar o estado para serviços de sistema de tecido de serviço e dados de aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Veja a [visão geral da funcionalidade "Implementar em qualquer lugar" e uma comparação com clusters geridos pelo Azure](service-fabric-deploy-anywhere.md).
-* Saiba mais sobre [a segurança do cluster.](service-fabric-cluster-security.md)
-* [Ligação remota](service-fabric-cluster-remote-connect-to-azure-cluster-node.md) a uma instância específica de conjunto de escala
-* [Atualizar os valores da gama de porta rdp](./scripts/service-fabric-powershell-change-rdp-port-range.md) em VMs de cluster após a implantação
-* Alterar o nome de utilizador e a [palavra-passe](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) do administrador para VMs de cluster
+* Consulte a [visão geral da funcionalidade "Implementar em qualquer lugar" e uma comparação com os clusters geridos pelo Azure.](service-fabric-deploy-anywhere.md)
+* Conheça a [segurança do cluster.](service-fabric-cluster-security.md)
+* [Ligação remota](service-fabric-cluster-remote-connect-to-azure-cluster-node.md) a uma instância definida de escala específica
+* [Atualizar os valores da gama de portas RDP](./scripts/service-fabric-powershell-change-rdp-port-range.md) nos VMs do cluster após a implantação
+* [Alterar o nome de utilizador e a palavra-passe](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) do administrador para os VMs do cluster
 
 <!--Image references-->
 [NodeTypes]: ./media/service-fabric-cluster-nodetypes/NodeTypes.png

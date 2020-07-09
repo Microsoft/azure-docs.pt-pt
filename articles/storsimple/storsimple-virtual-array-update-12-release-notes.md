@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure StorSimple Virtual Array Update 1.2 nota de lançamento Microsoft Docs
-description: Descreve questões e resoluções críticas abertas para o StorSimple Virtual Array executando update 1.2.
+title: Microsoft Azure StorSimple Virtual Array Update 1.2 notas de lançamento Microsoft Docs
+description: Descreve problemas e resoluções abertos críticos para o StorSimple Virtual Array que executa a Atualização 1.2.
 services: storsimple
 author: alkohli
 ms.service: storsimple
@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: alkohli
 ms.openlocfilehash: ea7e4801dfaad533403c0f927a03735ae409cc52
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "66420607"
 ---
-# <a name="storsimple-virtual-array-update-12-release-notes"></a>Notas de lançamento storSimple Virtual Array Update 1.2
+# <a name="storsimple-virtual-array-update-12-release-notes"></a>StorSimple Virtual Array Update 1.2 notas de lançamento
 
 As seguintes notas de lançamento identificam os problemas abertos críticos e os problemas resolvidos para as atualizações do Microsoft Azure StorSimple Virtual Array.
 
@@ -23,50 +23,50 @@ As notas de lançamento são continuamente atualizadas. À medida que são desco
 A atualização 1.2 corresponde à versão do software **10.0.10311.0**.
 
 > [!IMPORTANT]
-> - As atualizações são disruptivas e reiniciam o seu dispositivo. Se o I/O estiver em curso, o dispositivo incorre no tempo de inatividade. Para obter instruções detalhadas sobre as embalagens utilizadas para aplicar esta atualização, vá ao [Download Update 1.2](#download-update-12).
-> - A atualização 1.2 só está disponível através do portal Azure se o seu dispositivo estiver a executar o Update 1.0 ou 1.1.
+> - As atualizações são disruptivas e reiniciam o seu dispositivo. Se a I/O estiver em andamento, o dispositivo incorre em tempo de inatividade. Para instruções detalhadas sobre os pacotes utilizados para aplicar esta atualização, aceda ao [Download Update 1.2](#download-update-12).
+> - A atualização 1.2 só está disponível através do portal Azure se o seu dispositivo estiver a executar a atualização 1.0 ou 1.1.
 
 ## <a name="whats-new-in-update-12"></a>Novidades na Atualização 1.2
 
-Esta atualização contém as seguintes correções de bugs:
+Esta atualização contém as seguintes correções de erro:
 
-- Melhoria da resiliência ao processar ficheiros apagados.
-- Melhoria das exceções de manuseamento no caminho do arranque de código, levando a falhas reduzidas em backups, restauro, leituras na nuvem e recuperação automática de espaço.
+- Melhor resiliência ao processar ficheiros eliminados.
+- Exceções de manuseamento melhoradas na trajetória de arranque de códigos que conduzem a falhas reduzidas em backups, restauros, leituras de nuvens e recuperação automática de espaço.
 
-## <a name="download-update-12"></a>Baixar Atualização 1.2
+## <a name="download-update-12"></a>Baixar atualização 1.2
 
-Para descarregar esta atualização, vá ao servidor do [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Home.aspx) e descarregue o pacote KB4502035. Este pacote contém os seguintes pacotes:
+Para descarregar esta atualização, aceda ao servidor [do Catálogo microsoft Update](https://www.catalog.update.microsoft.com/Home.aspx) e descarregue o pacote KB4502035. Este pacote contém os seguintes pacotes:
 
- - **KB4493446** que contém atualizações cumulativas do Windows para 2012 R2 até abril de 2019. Para mais informações sobre o que está incluído neste rollup, vá ao rollup mensal de [segurança de abril.](https://support.microsoft.com/help/4493446/windows-8-1-update-kb4493446)
- - **KB3011067,** que é um ficheiro de ficheiro autónomo da Microsoft Update, WindowsTH-KB3011067-x64. Este ficheiro é utilizado para atualizar o software do dispositivo.
+ - **KB4493446** que contém atualizações cumulativas do Windows para 2012 R2 até abril de 2019. Para obter mais informações sobre o que está incluído neste rollup, vá ao rollup mensal de [segurança de abril.](https://support.microsoft.com/help/4493446/windows-8-1-update-kb4493446)
+ - **KB3011067,** que é um ficheiro de pacote autónomo microsoft update WindowsTH-KB3011067-x64. Este ficheiro é utilizado para atualizar o software do dispositivo.
 
-Baixe kB4502035 e siga estas instruções para [aplicar a atualização através](storsimple-virtual-array-install-update-11.md#use-the-local-web-ui)da Web UI local .
+Baixe o KB4502035 e siga estas instruções para [aplicar a atualização através da web UI local](storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
 
-## <a name="issues-fixed-in-update-12"></a>Problemas corrigidos na Atualização 1.2
+## <a name="issues-fixed-in-update-12"></a>Problemas fixados na Atualização 1.2
 
-A tabela que se segue apresenta um resumo das questões fixadas nesta versão.
+O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 
 | Não. | Funcionalidade | Problema |
 | --- | --- | --- |
-| 1 |Eliminação| Nas versões anteriores do software, houve um problema quando o uso do dispositivo não mudou mesmo quando os ficheiros foram apagados. Esta questão é corrigida nesta versão. O caminho do código de tiering tornou-se mais resistente no processamento de ficheiros apagados.|
-| 2 |Processamento de exceções| Nas versões anteriores do software, houve um problema na sequência do reboot do sistema que poderia potencialmente levar a falhas nas cópias de segurança, restaurar, ler a partir da nuvem e recuperação automática do espaço. Esta versão contém alterações sobre a forma como as exceções foram tratadas no caminho do arranque.|
+| 1 |Eliminação| Nas versões anteriores do software, houve um problema quando o uso do dispositivo não mudou mesmo quando os ficheiros foram eliminados. Esta questão é corrigida nesta versão. O caminho do código de tiering tornou-se mais resistente no processamento de ficheiros eliminados.|
+| 2 |Processamento de exceções| Nas versões anteriores do software, havia um problema na sequência do reboot do sistema que poderia potencialmente levar a falhas nas cópias de segurança, restaurar, ler a partir da nuvem e recuperação automática de espaço. Esta versão contém alterações na forma como as exceções foram tratadas na trajetória de arranque.|
 
-## <a name="known-issues-in-update-12"></a>Questões conhecidas na Atualização 1.2
+## <a name="known-issues-in-update-12"></a>Problemas conhecidos na Atualização 1.2
 
-Não foram lançados novos problemas no Update 1.2. Todas as questões de lançamento são transmitidas a partir de lançamentos anteriores. Para ver o resumo das questões conhecidas incluídas nos lançamentos anteriores, vá a [questões conhecidas no Update 1.1](storsimple-virtual-array-update-11-release-notes.md#known-issues-in-update-11).
+Não foram divulgados novos problemas no Update 1.2. Todos os problemas notados pelo lançamento são transitados de lançamentos anteriores. Para ver o resumo das questões conhecidas incluídas nas versões anteriores, vá a [edições conhecidas na Atualização 1.1](storsimple-virtual-array-update-11-release-notes.md#known-issues-in-update-11).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Baixe KB4502035 e [Aplique a atualização através](storsimple-virtual-array-install-update-11.md#use-the-local-web-ui)da Web UI local .
+Baixe o KB4502035 e [aplique a atualização através da web UI local.](storsimple-virtual-array-install-update-11.md#use-the-local-web-ui)
 
 ## <a name="references"></a>Referências
 
-À procura de uma nota de libertação mais antiga? Vá para:
-* [Notas de lançamento da StorSimple Virtual Array Update 1.1](storsimple-virtual-array-update-11-release-notes.md)
-* [Notas de lançamento da StorSimple Virtual Array Update 1.0](storsimple-virtual-array-update-1-release-notes.md)
+À procura de uma nota de lançamento mais antiga? Vá para:
+* [StorSimple Virtual Array Update 1.1 Notas de lançamento](storsimple-virtual-array-update-11-release-notes.md)
+* [StorSimple Virtual Array Update 1.0 Notas de lançamento](storsimple-virtual-array-update-1-release-notes.md)
 * [StorSimple Virtual Array Update 0.6 Notas de lançamento](storsimple-virtual-array-update-06-release-notes.md)
 * [StorSimple Virtual Array Update 0.5 Notas de lançamento](storsimple-virtual-array-update-05-release-notes.md)
 * [StorSimple Virtual Array Update 0.4 Notas de lançamento](storsimple-virtual-array-update-04-release-notes.md)
 * [StorSimple Virtual Array Update 0.3 Notas de lançamento](storsimple-ova-update-03-release-notes.md)
 * [StorSimple Virtual Array Update 0.1 e 0.2 Notas de lançamento](storsimple-ova-update-01-release-notes.md)
-* [Notas de lançamento de disponibilidade geral de matriz virtual StorSimple](storsimple-ova-pp-release-notes.md)
+* [StorSimple Notas de lançamento de disponibilidade geral de matriz virtual](storsimple-ova-pp-release-notes.md)

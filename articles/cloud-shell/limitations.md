@@ -1,6 +1,6 @@
 ---
-title: Limitações da Casca de Nuvem Azure [ Microsoft Docs
-description: Visão geral das limitações da Casca de Nuvem Azure
+title: Limitações da Azure Cloud Shell Microsoft Docs
+description: Visão geral das limitações da Azure Cloud Shell
 services: azure
 documentationcenter: ''
 author: maertendMSFT
@@ -15,13 +15,12 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: damaerte
 ms.openlocfilehash: 092dccab82326bb9983f11ff64fe50aee7b1084d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74951484"
 ---
-# <a name="limitations-of-azure-cloud-shell"></a>Limitações da Casca de Nuvem Azure
+# <a name="limitations-of-azure-cloud-shell"></a>Limitações da Concha da Nuvem Azure
 
 A Azure Cloud Shell tem as seguintes limitações conhecidas:
 
@@ -29,11 +28,11 @@ A Azure Cloud Shell tem as seguintes limitações conhecidas:
 
 ### <a name="system-state-and-persistence"></a>Estado do sistema e persistência
 
-A máquina que fornece a sua sessão Cloud Shell é temporária e é reciclada após a sua sessão estar inativa durante 20 minutos. Cloud Shell requer que uma parte de ficheiro Azure seja montada. Como resultado, a sua subscrição deve ser capaz de configurar recursos de armazenamento para aceder à Cloud Shell. Outras considerações incluem:
+A máquina que fornece a sua sessão Cloud Shell é temporária e é reciclada após a sessão estar inativa durante 20 minutos. A Cloud Shell requer que seja montada uma partilha de ficheiros Azure. Como resultado, a sua subscrição deve ser capaz de configurar recursos de armazenamento para aceder à Cloud Shell. Outras considerações incluem:
 
-* Com armazenamento montado, apenas `$Home` persistem modificações dentro do diretório.
-* As ações de ficheiros Azure só podem ser montadas a partir da [sua região atribuída](persisting-shell-storage.md#mount-a-new-clouddrive).
-  * Em Bash, `env` corra para encontrar `ACC_LOCATION`a sua região definida como .
+* Com o armazenamento montado, apenas persistem modificações dentro do `$Home` diretório.
+* As ações de ficheiros Azure só podem ser montadas dentro da [região afetada.](persisting-shell-storage.md#mount-a-new-clouddrive)
+  * Em Bash, corra `env` para encontrar a sua região definida como `ACC_LOCATION` .
 
 ### <a name="browser-support"></a>Browser support (Suporte do browser)
 
@@ -45,45 +44,45 @@ A Cloud Shell suporta as versões mais recentes do Microsoft Edge, Microsoft Int
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Para um determinado utilizador, apenas uma concha pode estar ativa
 
-Os utilizadores só podem lançar um tipo de concha de cada vez, seja **a Bash** ou a **PowerShell.** No entanto, pode ter vários casos de Bash ou PowerShell a funcionar de uma só vez. Trocar entre Bash ou PowerShell utilizando o menu faz com que a Cloud Shell reinicie, o que encerra as sessões existentes. Em alternativa, pode correr bash dentro `bash`da PowerShell digitando , `pwsh`e pode executar PowerShell dentro da festa digitando .
+Os utilizadores só podem lançar um tipo de concha de cada vez, ou **Bash** ou **PowerShell**. No entanto, pode ter várias instâncias de Bash ou PowerShell a funcionar em simultâneo. A troca entre Bash ou PowerShell utilizando o menu faz com que a Cloud Shell reinicie, o que termina as sessões existentes. Em alternativa, podes fazer uma bash dentro do PowerShell `bash` digitando, e podes executar o PowerShell dentro da bash dactilografia `pwsh` .
 
 ### <a name="usage-limits"></a>Limites de utilização
 
-Cloud Shell destina-se a casos de uso interativo. Como resultado, quaisquer sessões não interativas de longa duração terminam sem aviso prévio.
+A Cloud Shell destina-se a casos de utilização interativa. Como resultado, quaisquer sessões não interativas de longa duração terminam sem aviso prévio.
 
 ## <a name="bash-limitations"></a>Limitações de bash
 
 ### <a name="user-permissions"></a>Permissões de utilizador
 
-As permissões são definidas como utilizadores regulares sem acesso sudo. Qualquer instalação `$Home` fora do seu diretório não é persistiu.
+As permissões são definidas como utilizadores regulares sem acesso de sudo. Qualquer instalação fora do seu `$Home` diretório não é persistiu.
 
 ### <a name="editing-bashrc-or-profile"></a>Edição .bashrc ou $PROFILE
 
-Tenha cuidado ao editar .bashrc ou ficheiro $PROFILE da PowerShell, fazê-lo pode causar erros inesperados na Cloud Shell.
+Tenha cuidado ao editar o ficheiro de $PROFILE da PowerShell ou da PowerShell, podendo causar erros inesperados na Cloud Shell.
 
-## <a name="powershell-limitations"></a>Limitações powerShell
+## <a name="powershell-limitations"></a>Limitações PowerShell
 
 ### <a name="azuread-module-name"></a>`AzureAD`nome do módulo
 
-O `AzureAD` nome do `AzureAD.Standard.Preview`módulo é atualmente , o módulo fornece a mesma funcionalidade.
+O `AzureAD` nome do módulo encontra-se atualmente, o módulo fornece a mesma `AzureAD.Standard.Preview` funcionalidade.
 
 ### <a name="sqlserver-module-functionality"></a>`SqlServer`funcionalidade do módulo
 
-O `SqlServer` módulo incluído na Cloud Shell tem apenas suporte de pré-lançamento para PowerShell Core. Em particular, `Invoke-SqlCmd` ainda não está disponível.
+O `SqlServer` módulo incluído na Cloud Shell tem apenas suporte pré-lançado para PowerShell Core. Em particular, `Invoke-SqlCmd` ainda não está disponível.
 
-### <a name="default-file-location-when-created-from-azure-drive"></a>Localização do ficheiro predefinido quando criada a partir da unidade Azure:
+### <a name="default-file-location-when-created-from-azure-drive"></a>Localização do ficheiro padrão quando criado a partir da unidade Azure:
 
-Utilizando cmdlets PowerShell, os utilizadores não podem criar ficheiros sob o Azure: unidade. Quando os utilizadores criam novos ficheiros utilizando outras ferramentas, `$HOME` como o vim ou o nano, os ficheiros são guardados por defeito. 
+Utilizando cmdlets PowerShell, os utilizadores não podem criar ficheiros sob o Azure: unidade. Quando os utilizadores criam novos ficheiros utilizando outras ferramentas, como vim ou nano, os ficheiros são guardados `$HOME` por padrão. 
 
 ### <a name="gui-applications-are-not-supported"></a>As aplicações gui não são suportadas
 
-Se o utilizador tiver um comando que crie uma caixa de diálogo `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`Windows, vê-se uma mensagem de erro como: .
+Se o utilizador executa um comando que criaria uma caixa de diálogo do Windows, vê-se uma mensagem de erro como: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)` .
 
-### <a name="large-gap-after-displaying-progress-bar"></a>Grande Lacuna após exibir barra de progresso
+### <a name="large-gap-after-displaying-progress-bar"></a>Grande lacuna após exibir barra de progresso
 
-Se o utilizador executar uma ação que apresenta uma barra de `Azure:` progresso, como um separador que está a completar durante a unidade, então é possível que o cursor não esteja corretamente definido e apareça uma lacuna onde a barra de progresso estava anteriormente.
+Se o utilizador efetuar uma ação que apresente uma barra de progresso, como uma aba completando durante a `Azure:` unidade, então é possível que o cursor não esteja corretamente definido e apareça uma lacuna onde a barra de progresso estava anteriormente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Resolução de problemas Cloud Shell](troubleshooting.md) <br>
 [Início Rápido para o Bash](quickstart.md) <br>

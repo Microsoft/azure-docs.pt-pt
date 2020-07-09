@@ -1,6 +1,6 @@
 ---
-title: Inicie-se com a gestão de dispositivos Azure IoT Hub (Python) / Microsoft Docs
-description: Como utilizar a gestão do dispositivo IoT Hub para iniciar um reboot remoto do dispositivo. Utiliza o Azure IoT SDK para python para implementar uma aplicação simulada de dispositivoque inclui um método direto e uma aplicação de serviço que invoca o método direto.
+title: Começa com a gestão de dispositivos Azure IoT Hub (Python) Microsoft Docs
+description: Como utilizar a gestão do dispositivo IoT Hub para iniciar um reboot remoto de dispositivos. Você usa o Azure IoT SDK para Python para implementar uma aplicação de dispositivo simulado que inclui um método direto e uma aplicação de serviço que invoca o método direto.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,13 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: robinsh
-ms.custom: mqtt
-ms.openlocfilehash: f376831175840284fdfd15f367542d33ad9f7177
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: mqtt, tracking-python
+ms.openlocfilehash: 3e48e52294884294a2e4649e8fc0e0b9c42e0c0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759769"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608541"
 ---
 # <a name="get-started-with-device-management-python"></a>Começar com a gestão de dispositivos (Python)
 
@@ -22,17 +21,17 @@ ms.locfileid: "81759769"
 
 Este tutorial mostrar-lhe como:
 
-* Utilize o portal Azure para criar um Hub IoT e criar uma identidade de dispositivo no seu hub IoT.
+* Utilize o portal Azure para criar um Hub IoT e crie uma identidade de dispositivo no seu hub IoT.
 
-* Crie uma aplicação simulada de dispositivo que contenha um método direto que reinicie esse dispositivo. Os métodos diretos são invocados da nuvem.
+* Crie uma aplicação de dispositivo simulado que contenha um método direto que reinicie esse dispositivo. Os métodos diretos são invocados da nuvem.
 
-* Crie uma aplicação de consola Python que chame o método direct reboot na aplicação simulada do dispositivo através do seu hub IoT.
+* Crie uma aplicação de consola Python que chame o método de reinício direto na aplicação do dispositivo simulado através do seu hub IoT.
 
-No final deste tutorial, tens duas aplicações de consola Python:
+No final deste tutorial, você tem duas aplicações de consola Python:
 
-* **dmpatterns_getstarted_device.py**, que se conecta ao seu hub IoT com a identidade do dispositivo criada anteriormente, recebe um método direto de reinicialização, simula um reboot físico e reporta o tempo para o último reboot.
+* **dmpatterns_getstarted_device.py**, que se conecta ao seu hub IoT com a identidade do dispositivo criada anteriormente, recebe um método de reinicialização direta, simula um reboot físico e relata a hora do último reboot.
 
-* **dmpatterns_getstarted_service.py**, que chama um método direto na aplicação simulada do dispositivo, exibe a resposta e exibe as propriedades reportadas atualizadas.
+* **dmpatterns_getstarted_service.py**, que chama um método direto na aplicação do dispositivo simulado, exibe a resposta e exibe as propriedades relatadas atualizadas.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
@@ -40,13 +39,13 @@ No final deste tutorial, tens duas aplicações de consola Python:
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
 
-* Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste artigo utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste artigo utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="register-a-new-device-in-the-iot-hub"></a>Registe um novo dispositivo no hub IoT
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registar um novo dispositivo no hub IoT
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
@@ -58,9 +57,9 @@ Nesta secção, pode:
 
 * Simular um reboot de dispositivo
 
-* Utilize as propriedades reportadas para permitir que as consultas gémeas do dispositivo identifiquem dispositivos e quando foram reiniciados pela última vez
+* Utilize as propriedades reportadas para permitir consultas gémeas do dispositivo para identificar dispositivos e quando foram reiniciados pela última vez
 
-1. Ao seu pedido de comando, execute o seguinte comando para instalar o pacote de **dispositivos azure-iot:**
+1. No seu comando, executar o seguinte comando para instalar o pacote de **dispositivo azure-iot:**
 
     ```cmd/sh
     pip install azure-iot-device
@@ -77,7 +76,7 @@ Nesta secção, pode:
     from azure.iot.device import IoTHubDeviceClient, MethodResponse
     ```
 
-4. Adicione a **variável CONNECTION_STRING.** Substitua `{deviceConnectionString}` o valor do espaço reservado pela corda de ligação do dispositivo. Copiou esta cadeia de ligação anteriormente no [Registo de um novo dispositivo no hub IoT](#register-a-new-device-in-the-iot-hub).  
+4. Adicione a variável **CONNECTION_STRING.** Substitua o `{deviceConnectionString}` valor do espaço reservado pela cadeia de ligação do dispositivo. Copiou esta cadeia de ligação anteriormente no [Registo de um novo dispositivo no hub IoT](#register-a-new-device-in-the-iot-hub).  
 
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"
@@ -109,7 +108,7 @@ Nesta secção, pode:
             client.send_method_response(method_response)
     ```
 
-6. Inicie o método direto de escuta e espere.
+6. Inicie o ouvinte do método direto e aguarde.
 
     ```python
     def iothub_client_init():
@@ -141,19 +140,19 @@ Nesta secção, pode:
 7. Guarde e feche o ficheiro **dmpatterns_getstarted_device.py.**
 
 > [!NOTE]
-> Para facilitar, este tutorial não implementa nenhuma política de repetição. No código de produção, deve implementar políticas de retry (como um backoff exponencial), como sugerido no artigo, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
+> Para facilitar, este tutorial não implementa nenhuma política de repetição. No código de produção, deve implementar políticas de reequipante (como um backoff exponencial), como sugerido no artigo, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 
-## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de ligação do hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de conexão do hub IoT
 
 [!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Desencadear um reboot remoto no dispositivo utilizando um método direto
+## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Desencadeie um reboot remoto no dispositivo utilizando um método direto
 
-Nesta secção, cria-se uma aplicação de consola Python que inicia um reboot remoto num dispositivo utilizando um método direto. A aplicação utiliza consultas de gémeos dispositivos para descobrir o último tempo de reinício para esse dispositivo.
+Nesta secção, cria-se uma aplicação para consola Python que inicia um reboot remoto num dispositivo utilizando um método direto. A aplicação utiliza consultas gémeas do dispositivo para descobrir a última vez que reinicia o tempo para este dispositivo.
 
-1. Ao seu pedido de comando, execute o seguinte comando para instalar o pacote **azure-iot-hub:**
+1. No seu comando, executar o seguinte comando para instalar o pacote **azure-iot-hub:**
 
     ```cmd/sh
     pip install azure-iot-hub
@@ -170,7 +169,7 @@ Nesta secção, cria-se uma aplicação de consola Python que inicia um reboot r
     from azure.iot.hub.models import CloudToDeviceMethod, CloudToDeviceMethodResult, Twin
     ```
 
-4. Adicione as seguintes declarações variáveis. Substitua `{IoTHubConnectionString}` o valor do espaço reservado pela cadeia de ligação do hub IoT que copiou anteriormente na cadeia de ligação do [hub IoT](#get-the-iot-hub-connection-string). Substitua `{deviceId}` o valor do espaço reservado pelo ID do dispositivo registado no [Registo de um novo dispositivo no hub IoT](#register-a-new-device-in-the-iot-hub).
+4. Adicione as seguintes declarações variáveis. Substitua o `{IoTHubConnectionString}` valor do espaço reservado pela cadeia de ligação do hub IoT copiada anteriormente na cadeia de [ligação do hub IoT](#get-the-iot-hub-connection-string). Substitua o `{deviceId}` valor do espaço reservado pelo ID do dispositivo que registou no Registo de um novo dispositivo no hub [IoT](#register-a-new-device-in-the-iot-hub).
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
@@ -182,7 +181,7 @@ Nesta secção, cria-se uma aplicação de consola Python que inicia um reboot r
     WAIT_COUNT = 10
     ```
 
-5. Adicione a seguinte função para invocar o método do dispositivo para reiniciar o dispositivo alvo, em seguida, consultar os gémeos do dispositivo e obter o último tempo de reinicialização.
+5. Adicione a seguinte função para invocar o método do dispositivo para reiniciar o dispositivo alvo, em seguida, consultar os gémeos do dispositivo e obter a última vez de reinicialização.
 
     ```python
     def iothub_devicemethod_sample_run():
@@ -239,15 +238,15 @@ Nesta secção, cria-se uma aplicação de consola Python que inicia um reboot r
 
 ## <a name="run-the-apps"></a>Executar as aplicações
 
-Está pronto para executar as aplicações.
+Agora está pronto para executar as aplicações.
 
-1. No pedido de comando, execute o seguinte comando para começar a ouvir o método direto de reinicialização.
+1. Na pronta do comando, corram o seguinte comando para começar a ouvir o método direto de reinicialização.
 
     ```cmd/sh
     python dmpatterns_getstarted_device.py
     ```
 
-2. Noutra solicitação de comando, execute o seguinte comando para acionar o reboot remoto e a consulta para que o dispositivo gémeo encontre o último tempo de reinicialização.
+2. Noutra solicitação de comando, executar o seguinte comando para ativar o reboot remoto e consultar o twin do dispositivo para encontrar a última hora de reinicialização.
 
     ```cmd/sh
     python dmpatterns_getstarted_service.py
@@ -255,12 +254,12 @@ Está pronto para executar as aplicações.
 
 3. Vê a resposta do dispositivo ao método direto na consola.
 
-   O seguinte mostra a resposta do dispositivo ao método direto de reinicialização:
+   O seguinte mostra a resposta do dispositivo ao método direto reiniciado:
 
-   ![Saída simulada de aplicativo de dispositivo](./media/iot-hub-python-python-device-management-get-started/device.png)
+   ![Saída de aplicação de dispositivo simulado](./media/iot-hub-python-python-device-management-get-started/device.png)
 
-   O seguinte mostra o serviço que chama o método direto de reinicialização e vota o dispositivo twin para o estado:
+   O seguinte mostra o serviço que chama o método direto de reinicialização e sonda o dispositivo twin para o estado:
 
-   ![Saída de serviço de reiniciar o gatilho](./media/iot-hub-python-python-device-management-get-started/service.png)
+   ![Desencadear saída de serviço de reinicialização](./media/iot-hub-python-python-device-management-get-started/service.png)
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]

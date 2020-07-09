@@ -1,42 +1,42 @@
 ---
-title: Configure o comportamento da sessão utilizando políticas personalizadas - Diretório Ativo Azure B2C / Microsoft Docs
-description: Configure o comportamento da sessão utilizando políticas personalizadas no Diretório Ativo Azure B2C.
+title: Configurar comportamento de sessão usando políticas personalizadas - Azure Ative Directy B2C / Microsoft Docs
+description: Configure o comportamento da sessão usando políticas personalizadas no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3f6af5e8e1cfadd302eadfedf189a6710ac4aeca
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a2f20a4521efe2806c4bc66e4612b99caf84382a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966600"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385268"
 ---
-# <a name="configure-session-behavior-using-custom-policies-in-azure-active-directory-b2c"></a>Configure o comportamento da sessão utilizando políticas personalizadas no Diretório Ativo Azure B2C
+# <a name="configure-session-behavior-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar comportamento de sessão usando políticas personalizadas no Azure Ative Directory B2C
 
-A gestão da sessão de sessão de início de [sessão (SSO)](session-overview.md) no Azure Ative Directory B2C (Azure AD B2C) permite a um administrador controlar a interação com um utilizador depois de o utilizador já ter autenticado. Por exemplo, o administrador pode controlar se a seleção dos fornecedores de identidade é apresentada ou se os detalhes da conta precisam de ser novamente introduzidos. Este artigo descreve como configurar as definições sSO para Azure AD B2C.
+A gestão [de sessão de sessão de sessão de sessão de sessão de sessão de sessão](session-overview.md) em Azure Ative Directory B2C (Azure AD B2C) permite que um administrador controle a interação com um utilizador depois de o utilizador já ter autenticado. Por exemplo, o administrador pode controlar se a seleção de fornecedores de identidade é apresentada ou se os detalhes da conta precisam de ser introduzidos novamente. Este artigo descreve como configurar as definições SSO para Azure AD B2C.
 
-## <a name="session-behavior-properties"></a>Propriedades do comportamento da sessão
+## <a name="session-behavior-properties"></a>Propriedades de comportamento de sessão
 
-Pode utilizar as seguintes propriedades para gerir sessões de aplicação web:
+Pode utilizar as seguintes propriedades para gerir sessões de aplicações web:
 
-- Vida útil da sessão da **aplicação web (minutos)** - A vida útil do cookie de sessão do Azure AD B2C armazenado no navegador do utilizador após a autenticação bem sucedida.
+- **Duração da sessão de aplicações web (minutos)** - A vida útil do cookie de sessão do Azure AD B2C armazenado no navegador do utilizador após a autenticação bem sucedida.
     - Predefinição = 86400 segundos (1440 minutos).
     - Mínimo (inclusivo) = 900 segundos (15 minutos).
     - Máximo (inclusivo) = 86400 segundos (1440 minutos).
-- **Timeout** de sessão de aplicação web - O tipo de expiração da [sessão,](session-overview.md#session-expiry-type) *Rolling*, ou *Absolute*. 
-- **Configuração de inscrição única** - O âmbito da [sessão](session-overview.md#session-scope) do comportamento de entrada única (SSO) em várias aplicações e fluxos de utilizadores no seu inquilino Azure AD B2C. 
+- **Tempo limite de sessão de aplicações web** - O [tipo de sessão expirado,](session-overview.md#session-expiry-type) *Rolling,* ou *Absoluto*. 
+- **Configuração única de entrada** - O âmbito de [sessão](session-overview.md#session-scope) do comportamento de sessão única (SSO) em várias aplicações e fluxos de utilizador no seu inquilino Azure AD B2C. 
 
 ## <a name="configure-the-properties"></a>Configure as propriedades
 
-Para alterar o comportamento da sua sessão e as configurações SSO, adicione um elemento **UserJourneyBehaviors** dentro do elemento [RelyingParty.](relyingparty.md)  O elemento **UserJourneyBehaviors** deve seguir imediatamente a **Viagem**de Utilizador Padrão . O seu elemento **UserJourneyBehavors** deve parecer este exemplo:
+Para alterar o comportamento da sessão e as configurações SSO, adicione um elemento **UserJourneyBehaviors** dentro do elemento [RelyingParty.](relyingparty.md)  O elemento **UserJourneyBehaviors** deve seguir imediatamente o **DefaultUserJourney**. O elemento **UserJourneyBehavors** deve parecer-se com este exemplo:
 
-```XML
+```xml
 <UserJourneyBehaviors>
    <SingleSignOn Scope="Application" />
    <SessionExpiryType>Absolute</SessionExpiryType>
@@ -46,23 +46,23 @@ Para alterar o comportamento da sua sessão e as configurações SSO, adicione u
 
 ## <a name="single-sign-out"></a>Fim de sessão único
 
-### <a name="configure-the-applications"></a>Configure as aplicações
+### <a name="configure-the-applications"></a>Configurar as aplicações
 
-Ao redirecionar o utilizador para o ponto final de sinalização Azure AD B2C (para os protocolos OAuth2 e SAML), o Azure AD B2C iliba a sessão do utilizador a partir do navegador.  Para permitir a [inscrição única,](session-overview.md#single-sign-out)desestabeleça a `LogoutUrl` aplicação do portal Azure:
+Quando redireciona o utilizador para o ponto final de assinatura Azure AD B2C (tanto para os protocolos OAuth2 como PARA SAML), o Azure AD B2C limpa a sessão do utilizador do navegador.  Para permitir a [assinatura única,](session-overview.md#single-sign-out)descreva `LogoutUrl` a aplicação a partir do portal Azure:
 
-1. Navegue para o [portal Azure.](https://portal.azure.com)
-1. Escolha o seu diretório Azure AD AD B2C clicando na sua conta no canto superior direito da página.
-1. No menu esquerdo, escolha **Azure AD B2C,** selecione registos de **aplicações**e, em seguida, selecione a sua aplicação.
-1. Selecione **Definições,** selecione **Propriedades**e, em seguida, encontre a caixa de texto **URL de Logout.** 
+1. Navegue até ao [portal Azure.](https://portal.azure.com)
+1. Escolha o seu diretório Azure AD B2C clicando na sua conta no canto superior direito da página.
+1. No menu esquerdo, escolha **Azure AD B2C,** selecione **as inscrições da App**e, em seguida, selecione a sua aplicação.
+1. Selecione **Definições**, selecione **Propriedades**e, em seguida, encontre a caixa de texto **URL logout.** 
 
 ### <a name="configure-the-token-issuer"></a>Configure o emitente simbólico 
 
-Para apoiar a inscrição única, os perfis técnicos do emitente simbólico tanto para a JWT como para a SAML devem especificar:
+Para apoiar uma única assinatura, os perfis técnicos do emitente simbólico para o JWT e para a SAML devem especificar:
 
 - O nome do protocolo, como`<Protocol Name="OpenIdConnect" />`
-- A referência ao perfil técnico `UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />`da sessão, como .
+- A referência ao perfil técnico da sessão, tal como `UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />` .
 
-O exemplo que se segue ilustra os emitentes de token JWT e SAML com uma única inscrição:
+O exemplo a seguir ilustra os emitentes JWT e SAML com uma única súmia:
 
 ```xml
 <ClaimsProvider>
@@ -74,7 +74,7 @@ O exemplo que se segue ilustra os emitentes de token JWT e SAML com uma única i
       <Protocol Name="OpenIdConnect" />
       <OutputTokenFormat>JWT</OutputTokenFormat>
       ...    
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />
     </TechnicalProfile>
 
     <!-- Session management technical profile for OIDC based tokens -->
@@ -101,6 +101,6 @@ O exemplo que se segue ilustra os emitentes de token JWT e SAML com uma única i
 </ClaimsProvider>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais sobre a [sessão Azure AD B2C.](session-overview.md)
+- Saiba mais sobre [a sessão Azure AD B2C](session-overview.md).

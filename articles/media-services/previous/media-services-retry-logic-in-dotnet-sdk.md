@@ -1,6 +1,6 @@
 ---
-title: Retry logic in the Media Services SDK for .NET [ Microsoft Docs
-description: O tema dá uma visão geral da lógica de retry no SDK de Serviços de Media para .NET.
+title: Redatória lógica no SDK dos Serviços de Comunicação Social para .NET / Microsoft Docs
+description: O tópico dá uma visão geral da lógica de reluto no SDK dos Serviços de Media para .NET.
 author: Juliako
 manager: femila
 editor: ''
@@ -15,73 +15,73 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 63715f668438519131eba5bfff7aa38fc73267d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61094658"
 ---
-# <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Redelógica de retry no SDK de Serviços de Media para .NET  
+# <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Redatória lógica no SDK dos Serviços de Media para .NET  
 
-Ao trabalhar com os serviços do Microsoft Azure, podem ocorrer falhas transitórias. Se ocorrer uma falha transitória, na maioria dos casos, após algumas tentativas, a operação tem sucesso. O Media Services SDK para .NET implementa a lógica de retry para lidar com falhas transitórias associadas a exceções e erros que são causados por pedidos web, executar consultas, salvar alterações e operações de armazenamento.  Por predefinição, o Media Services SDK para .NET executa quatro repetições antes de voltar a lançar a exceção à sua aplicação. O código da sua aplicação deve então lidar corretamente com esta exceção.  
+Ao trabalhar com os serviços microsoft Azure, podem ocorrer falhas transitórias. Se ocorrer uma falha transitória, na maioria dos casos, após algumas retrações, a operação terá sucesso. O Media Services SDK para .NET implementa a lógica de reagem para lidar com falhas transitórias associadas a exceções e erros que são causados por pedidos web, execução de consultas, poupança de alterações e operações de armazenamento.  Por predefinição, o Media Services SDK para .NET executa quatro recauchutagens antes de relançar a exceção à sua aplicação. O código da sua aplicação deve então lidar corretamente com esta exceção.  
 
- Segue-se uma breve orientação das políticas de Pedido web, armazenamento, consulta e saveChanges:  
+ Segue-se uma breve orientação das políticas de Pedido Web, Armazenamento, Consulta e SaveChanges:  
 
-* A política de armazenamento é utilizada para operações de armazenamento de blob (uploads ou download de ficheiros de ativos).  
-* A política de Pedido web é utilizada para pedidos genéricos web (por exemplo, para obter um símbolo de autenticação e resolver o ponto final do cluster dos utilizadores).  
-* A política de consulta é usada para consulta de entidades da REST (por exemplo, mediaContext.Assets.Where(...)).  
-* A política SaveChanges é usada para fazer qualquer coisa que mude os dados dentro do serviço (por exemplo, criar uma entidade a atualizar uma entidade, chamando uma função de serviço para uma operação).  
+* A política de Armazenamento é utilizada para operações de armazenamento de bolhas (uploads ou download de ficheiros de ativos).  
+* A política de Pedido web é utilizada para pedidos genéricos da web (por exemplo, para obter um token de autenticação e resolver o ponto final do cluster dos utilizadores).  
+* A política de consulta é utilizada para consultar entidades do REST (por exemplo, mediaContext.Assets.Where(...)).  
+* A política SaveChanges é utilizada para fazer qualquer coisa que mude os dados dentro do serviço (por exemplo, criar uma entidade que atualize uma entidade, chamando uma função de serviço para uma operação).  
   
-  Este tópico lista tipos de exceção e códigos de erro que são tratados pelo Media Services SDK para a lógica de retry .NET.  
+  Este tópico lista tipos de exceções e códigos de erro que são tratados pelo SDK dos Serviços de Mídia para a lógica de reluto de .NET.  
 
-## <a name="exception-types"></a>Tipos de exceção
-O quadro seguinte descreve exceções que o Media Services SDK para manuseios .NET ou não trata de algumas operações que podem causar falhas transitórias.  
+## <a name="exception-types"></a>Tipos de exceções
+O quadro que se segue descreve exceções que o Media Services SDK para as pegas .NET ou não lida com algumas operações que podem causar falhas transitórias.  
 
 | Exceção | Pedido web | Armazenamento | Consulta | SaveChanges |
 | --- | --- | --- | --- | --- |
-| Exceção web<br/>Para mais informações, consulte a secção de códigos de [estado WebException.](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) |Sim |Sim |Sim |Sim |
-| DataServiceClientException<br/> Para mais informações, consulte [os códigos](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)de estado de erro HTTP . |Não |Sim |Sim |Sim |
-| DataServiceQueryException<br/> Para mais informações, consulte [os códigos](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)de estado de erro HTTP . |Não |Sim |Sim |Sim |
-| DataServiceRequestException<br/> Para mais informações, consulte [os códigos](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)de estado de erro HTTP . |Não |Sim |Sim |Sim |
+| WebException<br/>Para obter mais informações, consulte a secção [de códigos de estado WebException.](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) |Sim |Sim |Sim |Sim |
+| DataServiceClientExcepção<br/> Para obter mais informações, consulte [os códigos de estado de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No |Sim |Sim |Sim |
+| DataServiceQueryException<br/> Para obter mais informações, consulte [os códigos de estado de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No |Sim |Sim |Sim |
+| DataServiceRequestException<br/> Para obter mais informações, consulte [os códigos de estado de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No |Sim |Sim |Sim |
 | DataServiceTransportException |Não |Não |Sim |Sim |
-| TimeoutException |Sim |Sim |Sim |Não |
-| TomadaExcepção |Sim |Sim |Sim |Sim |
-| Arrecadação Exceção |Não |Sim |Não |Não |
-| IoException |Não |Sim |Não |Não |
+| TimeoutExcepção |Sim |Sim |Sim |No |
+| SocketException |Sim |Sim |Sim |Sim |
+| ArmazenamentoExcepção |No |Yes |Não |Não |
+| IoExcepção |No |Yes |Não |Não |
 
-### <a name="webexception-status-codes"></a><a name="WebExceptionStatus"></a>Códigos de estado da WebException
-A tabela que se segue mostra para as quais o erro WebException codifica a lógica de retry. A enumeração [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) define os códigos de estado.  
+### <a name="webexception-status-codes"></a><a name="WebExceptionStatus"></a>Códigos de estado WebException
+A tabela a seguir mostra para o qual o erro WebException codifica a lógica de repetição. A enumeração [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) define os códigos de estado.  
 
 | Estado | Pedido web | Armazenamento | Consulta | SaveChanges |
 | --- | --- | --- | --- | --- |
-| Falha de ligação |Sim |Sim |Sim |Sim |
-| Falha na resolução de nomes |Sim |Sim |Sim |Sim |
+| ConnectFailure |Sim |Sim |Sim |Sim |
+| NomeResolutionFailure |Sim |Sim |Sim |Sim |
 | ProxyNameResolutionFailure |Sim |Sim |Sim |Sim |
-| EnvioFalha |Sim |Sim |Sim |Sim |
-| PipelineFailure |Sim |Sim |Sim |Não |
-| Conexão Fechada |Sim |Sim |Sim |Não |
-| KeepAliveFail |Sim |Sim |Sim |Não |
-| Erro Desconhecido |Sim |Sim |Sim |Não |
-| Receber Falha |Sim |Sim |Sim |Não |
-| Pedido Cancelado |Sim |Sim |Sim |Não |
-| Tempo limite |Sim |Sim |Sim |Não |
-| Erro protocolado <br/>A retentativa no ProtocolError é controlada pelo manuseamento do código de estado HTTP. Para mais informações, consulte [os códigos](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)de estado de erro HTTP . |Sim |Sim |Sim |Sim |
+| Enviar AFailure |Sim |Sim |Sim |Sim |
+| PipelineFailure |Sim |Sim |Sim |No |
+| ConexãoClosed |Sim |Sim |Sim |No |
+| KeepAliveFailure |Sim |Sim |Sim |No |
+| DesconhecidoError |Sim |Sim |Sim |No |
+| Receber AProfissilução |Sim |Sim |Sim |No |
+| PedidoCanceled |Sim |Sim |Sim |No |
+| Tempo Limite |Sim |Sim |Sim |No |
+| ProtocoloError <br/>A repetição no ProtocolError é controlada pelo tratamento do código de estado HTTP. Para obter mais informações, consulte [os códigos de estado de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Sim |Sim |Sim |Sim |
 
 ### <a name="http-error-status-codes"></a><a name="HTTPStatusCode"></a>Códigos de estado de erro HTTP
-Quando as operações de Query e SaveChanges lançam DataServiceClientException, DataServiceQueryException ou DataServiceQueryException, o código de erro HTTP é devolvido na propriedade StatusCode.  A tabela que se segue mostra quais códigos de erro a lógica de retry é implementada.  
+Quando as operações de Consulta e SaveChanges lançam DataServiceClientException, DataServiceQueryException ou DataServiceQueryException, o código de estado de erro HTTP é devolvido na propriedade StatusCode.  A tabela a seguir mostra para que códigos de erro a lógica de repetição é implementada.  
 
 | Estado | Pedido web | Armazenamento | Consulta | SaveChanges |
 | --- | --- | --- | --- | --- |
-| 401 |Não |Sim |Não |Não |
-| 403 |Não |Sim<br/>Manusear repetições com esperas mais longas. |Não |Não |
+| 401 |No |Yes |Não |Não |
+| 403 |No |Yes<br/>Manusear recaímos com esperas mais longas. |Não |Não |
 | 408 |Sim |Sim |Sim |Sim |
 | 429 |Sim |Sim |Sim |Sim |
-| 500 |Sim |Sim |Sim |Não |
-| 502 |Sim |Sim |Sim |Não |
+| 500 |Sim |Sim |Sim |No |
+| 502 |Sim |Sim |Sim |No |
 | 503 |Sim |Sim |Sim |Sim |
-| 504 |Sim |Sim |Sim |Não |
+| 504 |Sim |Sim |Sim |No |
 
-Se quiser analisar a implementação real do Media Services SDK para a lógica de retry .NET, consulte [azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling).
+Se quiser dar uma olhada na implementação real do SDK dos Serviços de Comunicação Social para a lógica de relemque de .NET, consulte [azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling).
 
 ## <a name="next-steps"></a>Passos seguintes
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

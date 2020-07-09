@@ -1,6 +1,6 @@
 ---
 title: Criar e editar políticas de segurança da Política Azure utilizando a API REST
-description: Conheça a gestão da política azure através de uma API REST.
+description: Saiba mais sobre a gestão de políticas da Azure Política através de uma API REST.
 services: security-center
 author: memildin
 manager: rkarlin
@@ -9,37 +9,36 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: c218b5dc8ca3bfa0358a9b6a0d4867696762a8d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77430946"
 ---
-# <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configure uma política de segurança na Política Azure utilizando a API REST
+# <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configure uma política de segurança na Política Azure usando a API REST
 
-Como parte da integração nativa com a Política Azure, o Azure Security Center permite-lhe aproveitar a API REST da Azure Policy para criar atribuições políticas. As seguintes instruções passam por você através da criação de atribuições políticas, bem como da personalização das atribuições existentes. 
+Como parte da integração nativa com a Azure Policy, o Azure Security Center permite-lhe aproveitar a API REST da Azure Policy para criar atribuições políticas. As seguintes instruções acompanham-no através da criação de atribuições políticas, bem como da personalização das atribuições existentes. 
 
 Conceitos importantes na Política Azure: 
 
 - Uma **definição de política** é uma regra 
 
-- Uma **iniciativa** é uma coleção de definições políticas (regras) 
+- Uma **iniciativa** é um conjunto de definições políticas (regras) 
 
-- Uma **atribuição** é uma aplicação de uma iniciativa ou uma política a um âmbito específico (grupo de gestão, subscrição, etc.) 
+- Uma **atribuição** é uma aplicação de uma iniciativa ou de uma política a um âmbito específico (grupo de gestão, subscrição, etc.) 
 
 O Centro de Segurança tem uma iniciativa integrada que inclui todas as suas políticas de segurança. Para avaliar as políticas do Security Center sobre os seus recursos Azure, deverá criar uma atribuição no grupo de gestão ou subscrição que pretende avaliar.
 
-A iniciativa incorporada tem todas as políticas do Centro de Segurança possibilitadas por defeito. Pode optar por desativar certas políticas da iniciativa incorporada. Por exemplo, para aplicar todas as políticas do Security Center, exceto firewall de **aplicações web,** alterar o valor do parâmetro de efeito da apólice para **Deficientes**. 
+A iniciativa incorporada tem todas as políticas do Centro de Segurança habilitados por defeito. Pode optar por desativar certas políticas da iniciativa incorporada. Por exemplo, para aplicar todas as políticas do Security Center, exceto a firewall de **aplicações web,** altere o valor do parâmetro de efeito da apólice para **Desativado**. 
 
 ## <a name="api-examples"></a>Exemplos de API
 
 Nos seguintes exemplos, substitua estas variáveis:
 
-- **{scope}** introduza o nome do grupo de gestão ou subscrição a que está a aplicar a apólice.
-- **{policyAssignmentName}** introduza o [nome da atribuição de política relevante](#policy-names).
-- **{name}** introduza o seu nome ou o nome do administrador que aprovou a alteração de política.
+- **{scope}** insira o nome do grupo de gestão ou subscrição à qual está a aplicar a apólice.
+- **{policyAssignmentName}** insira o [nome da atribuição de política relevante](#policy-names).
+- **{nome}** insira o seu nome, ou o nome do administrador que aprovou a alteração de política.
 
-Este exemplo mostra-lhe como atribuir a iniciativa do Centro de Segurança incorporado num grupo de subscrição ou gestão
+Este exemplo mostra-lhe como atribuir a iniciativa do Centro de Segurança incorporado a um grupo de subscrição ou gestão
  
  ```
     PUT  
@@ -115,26 +114,26 @@ Este exemplo mostra-lhe como remover uma atribuição:
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
  ```
 
-## <a name="policy-names-reference"></a>Referência de nomes de políticas<a name="policy-names"></a>
+## <a name="policy-names-reference"></a>Referência de nomes de política<a name="policy-names"></a>
 
-|Nome de política no Centro de Segurança|Nome de política exibido na Política de Azure |Nome do parâmetro de efeito político|
+|Nome da apólice no Centro de Segurança|Nome da política exibido na Política Azure |Nome do parâmetro de efeito de política|
 |----|----|----|
-|Encriptação SQL |Monitorize a base de dados SQL não encriptada no Centro de Segurança Azure |sqlEncryptionMonitoringEffect| 
-|Auditoria do SQL |Monitorize a base de dados SQL não auditada no Centro de Segurança Azure |sqlAuditingMonitoringEffect|
-|Atualizações do sistema |Monitorizar as atualizações do sistema em falta no Centro de Segurança do Azure |systemUpdatesMonitoringEffect|
-|Encriptação do armazenamento |Auditar encriptação por blob em falta para contas de armazenamento |armazenamentoEncriptaçãoMonitoreffect|
-|Acesso à Rede JIT |Monitorize possíveis acessos de rede just-in-time (JIT) no Centro de Segurança Azure |jitNetworkAccessMonitoringEffect |
-|Controlos de aplicações adaptáveis |Monitorize possível aplicação Whitelisting no Azure Security Center |adaptativoAplicaçãoControlEsMonitoringEffect|
-|Grupos de segurança de rede |Monitor acesso permissivo à rede no Centro de Segurança Azure |networkSecurityGroupsMonitoringEffect| 
-|Configurações de segurança |Monitorize as vulnerabilidades do OS no Centro de Segurança Azure |sistemaConfiguraçõesMonitoringEffect| 
-|Endpoint protection |Monitor desaparecido Proteção de Ponto final no Centro de Segurança Azure |ponto finalPontoProtectionMonitoringEffect |
-|Encriptação de disco |Monitor de Discos VM não encriptados no Centro de Segurança Azure |diskEncryptionMonitoringEffect|
-|Avaliação de vulnerabilidades |Monitor De vulnerabilidades vm no Centro de Segurança Azure |vulnerabilidadeAssessmentMonitoringEffect|
+|Encriptação SQL |Monitor desencrito base de dados SQL no Centro de Segurança Azure |sqlEncryptionMonitoringEffect| 
+|Auditoria do SQL |Monitore a base de dados SQL não auditada no Azure Security Center |sqlAuditingMonitoringEffect|
+|Atualizações do sistema |Monitorize atualizações do sistema em falta no Centro de Segurança Azure |sistemaUpdatesMonitoringEffect|
+|Encriptação do armazenamento |Auditar encriptação por blob em falta para contas de armazenamento |storageEncryptionMonitoringEffect|
+|Acesso à rede JIT |Monitorize possível acesso à rede just-in-time (JIT) no Azure Security Center |jitNetworkAccessMonitoringEffect |
+|Controlos de aplicações adaptáveis |Monitorize possível app Whitelisting no Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
+|Grupos de segurança de rede |Monitore o acesso à rede permissiva no Centro de Segurança Azure |networkSecurityGroupsMonitoringEffect| 
+|Configurações de segurança |Monitorize vulnerabilidades de SO no Centro de Segurança Azure |sistemaConfigurationsMonitoringEffect| 
+|Proteção de ponto final |Monitor que falta proteção de ponto final no Centro de Segurança Azure |endpointProtectionMonitoringEffect |
+|Disk encryption (Encriptação de discos) |Monitor de discos VM não encriptados no Centro de Segurança Azure |diskEncryptionMonitoringEffect|
+|Avaliação de vulnerabilidades |Monitorizar vulnerabilidades VM no Centro de Segurança Azure |vulnerabilidadeAssessmentMonitoringEffect|
 |Firewall de aplicação Web |Monitorize aplicação web desprotegida no Centro de Segurança Azure |webApplicationFirewallMonitoringEffect |
-|Firewall da próxima geração |Monitorde pontos finais de rede desprotegidos no Centro de Segurança Azure| |
+|Firewall da próxima geração |Monitorize pontos finais de rede desprotegidos no Centro de Segurança Azure| |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para outros materiais relacionados, consulte os seguintes artigos: 
 

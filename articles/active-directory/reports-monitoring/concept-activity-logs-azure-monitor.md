@@ -1,6 +1,6 @@
 ---
-title: Registos de atividades de Diretório Ativo Azure no Monitor Azure / Microsoft Docs
-description: Introdução aos registos de atividades de Diretório Ativo do Azure no Monitor Azure
+title: Registos de atividade do Azure Ative Directory no Azure Monitor Microsoft Docs
+description: Introdução aos registos de atividade do Azure Ative Directory no Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,20 +18,19 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0822bdd886a9a29f2cdb6843d3dc4404d7360f32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81261028"
 ---
-# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registos de atividade da Azure AD no Monitor Azure
+# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registos de atividades da AD AZure no Azure Monitor
 
-Pode encaminhar os registos de atividade do Azure Ative Directory (Azure AD) para vários pontos finais para retenção a longo prazo e insights de dados. Esta funcionalidade permite-lhe:
+Pode encaminhar os registos de atividade do Azure Ative (Azure AD) para vários pontos finais para retenção a longo prazo e insights de dados. Esta funcionalidade permite-lhe:
 
-* A atividade da Archive Azure AD regista uma conta de armazenamento Azure, para reter os dados durante muito tempo.
-* A atividade da Stream Azure AD entra num centro de eventos Azure para análise, utilizando ferramentas populares de Segurança e Gestão de Eventos (SIEM), como Splunk e QRadar.
-* Integre os registos de atividade da Azure AD com as suas próprias soluções de registo personalizadas, transmitindo-as para um centro de eventos.
-* Envie registos de atividade da Azure AD para registos do Monitor Azure para permitir visualizações ricas, monitorização e alerta nos dados conectados.
+* Archive Azure AD registra-se numa conta de armazenamento Azure, para reter os dados por um longo período de tempo.
+* Stream Azure AD logs to a Azure event hub for analytics, usando ferramentas populares de Informação de Segurança e Gestão de Eventos (SIEM), como Splunk e QRadar.
+* Integre os registos de atividades Azure AD com as suas próprias soluções de log personalizadas, transmitindo-as para um centro de eventos.
+* Envie registos de atividades Azure AD para registos do Azure Monitor para permitir visualizações ricas, monitorização e alerta nos dados conectados.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
@@ -39,7 +38,7 @@ Pode encaminhar os registos de atividade do Azure Ative Directory (Azure AD) par
 
 ## <a name="supported-reports"></a>Relatórios suportados
 
-Pode encaminhar registos de auditoria da Azure AD e registos de login para a sua conta de armazenamento Azure, hub de eventos, registos do Monitor Azure ou solução personalizada utilizando esta funcionalidade. 
+Pode encaminhar os registos de auditoria e registos de login da Azure para a sua conta de armazenamento Azure, centro de eventos, registos Azure Monitor ou solução personalizada utilizando esta funcionalidade. 
 
 * **Registos de auditoria**: o [relatório de atividades de registos de auditoria](concept-audit-logs.md) dá-lhe acesso ao histórico de cada tarefa que é executada no seu inquilino.
 * **Registos de inícios de sessão**: com o [relatório de atividades de inícios de sessão](concept-sign-ins.md), pode saber quem executou as tarefas reportadas no relatório de registos de auditoria.
@@ -70,7 +69,7 @@ Se já tiver uma licença do Azure AD, precisa de uma subscrição do Azure para
 
 ### <a name="storage-size-for-activity-logs"></a>Tamanho de armazenamento para registos de atividades
 
-Cada evento de registo de auditoria consome cerca de 2 KB de armazenamento de dados. Os registos de eventos são de cerca de 4 KB de armazenamento de dados. Para um inquilino com 100 000 utilizadores, o que implicaria cerca de 1,5 milhões de eventos por dia, precisaria de aproximadamente 3 GB de armazenamento de dados por dia. Uma vez que ocorrem escritas em lotes com a duração aproximada de cinco minutos, é possível prever aproximadamente 9000 operações de escrita por mês. 
+Cada evento de registo de auditoria consome cerca de 2 KB de armazenamento de dados. Os registos de eventos são cerca de 4 KB de armazenamento de dados. Para um inquilino com 100 000 utilizadores, o que implicaria cerca de 1,5 milhões de eventos por dia, precisaria de aproximadamente 3 GB de armazenamento de dados por dia. Uma vez que ocorrem escritas em lotes com a duração aproximada de cinco minutos, é possível prever aproximadamente 9000 operações de escrita por mês. 
 
 
 A tabela seguinte contém uma estimativa do custo, dependendo do tamanho do inquilino, de uma conta de armazenamento para fins gerais v2 nos E.U.A. Oeste durante, pelo menos, um ano de retenção. Para criar uma estimativa mais exata do volume de dados que prevê para a sua aplicação, utilize a [calculadora de preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
@@ -78,10 +77,10 @@ A tabela seguinte contém uma estimativa do custo, dependendo do tamanho do inqu
 
 | Categoria do registo | Número de utilizadores | Eventos por dia | Volume de dados por mês (est.) | Custo por mês (est.) | Custo por ano (est.) |
 |--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
-| Auditoria | 100 000 | 1,5&nbsp;milhões | 90 GB | $1,93 | $23,12 |
+| Auditoria | 100.000 | 1,5&nbsp;milhões | 90 GB | $1,93 | $23,12 |
 | Auditoria | 1,000 | 15 000 | 900 MB | $0,02 | $0,24 |
 | Inícios de sessão | 1,000 | 34 800 | 4GB | $0,13 | $1,56 |
-| Inícios de sessão | 100 000 | 15&nbsp;milhões | 1,7 TB | $35,41 | $424,92 |
+| Inícios de sessão | 100.000 | 15&nbsp;milhões | 1,7 TB | $35,41 | $424,92 |
  
 
 
@@ -98,24 +97,24 @@ Os eventos são colocados em lote com aproximadamente cinco minutos de intervalo
 
 Por exemplo, para um inquilino grande com mais de 100 000 utilizadores, ocorrem normalmente cerca de 18 eventos por segundo, uma taxa que equivale a 5400 eventos de cinco em cinco minutos. Uma vez que os registos de auditoria têm perto de 2k por evento, equivale a 10,8 MB de dados. Consequentemente, são enviadas 43 mensagens para o hub de eventos nesse intervalo de cinco minutos. 
 
-O quadro seguinte contém custos estimados por mês para um centro de eventos básicos no Oeste dos EUA, dependendo do volume de dados do evento que podem variar de inquilino para inquilino, de acordo com muitos fatores como o comportamento de entrada do utilizador, etc. Para calcular uma estimativa precisa do volume de dados que antecipa para a sua aplicação, utilize a calculadora de preços do [Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
+O quadro seguinte contém custos estimados por mês para um centro de eventos básicos nos EUA Ocidentais, dependendo do volume de dados de eventos que podem variar de inquilino para inquilino, de acordo com muitos fatores como o comportamento de inscrição do utilizador, etc. Para calcular uma estimativa precisa do volume de dados que antecipa para a sua aplicação, utilize a [calculadora de preços](https://azure.microsoft.com/pricing/details/event-hubs/)do Event Hubs .
 
 | Categoria do registo | Número de utilizadores | Eventos por segundo | Eventos por intervalo de cinco minutos | Volume por intervalo | Mensagens por intervalo | Mensagens por mês | Custo por mês (est.) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
-| Auditoria | 100 000 | 18 | 5400 | 10,8 MB | 43 | 371 520 | $10,83 |
+| Auditoria | 100.000 | 18 | 5400 | 10,8 MB | 43 | 371 520 | $10,83 |
 | Auditoria | 1,000 | 0.1 | 52 | 104 KB | 1 | 8640 | 10,80 $ |
-| Inícios de sessão | 100 000 | 18000 | 5,400,000 | 10,8 GB | 42188 | 364,504,320 | $23.9 |  
+| Inícios de sessão | 100.000 | 18000 | 5,400,000 | 10,8 GB | 42188 | 364,504,320 | $23.9 |  
 | Inícios de sessão | 1,000 | 178 | 53 400 | 106,8&nbsp;MB | 418 | 3.611.520 | $11,06 |  
 
-### <a name="azure-monitor-logs-cost-considerations"></a>Azure Monitor regista considerações de custos
+### <a name="azure-monitor-logs-cost-considerations"></a>Registos do Monitor Azure consideram considerações de custos
 
 
 
 | Categoria do registo       | Número de utilizadores | Eventos por dia | Eventos por mês (30 dias) | Custo por mês em USD (est.) |
 | :--                | ---             | ---            | ---                        | --:                          |
-| Auditoria e Inscrições | 100 000         | 16,500,000     | 495,000,000                |  $1093,00                       |
-| Auditoria              | 100 000         | 1,500,000      | 45,000,000                 |  $246.66                     |
-| Inícios de sessão           | 100 000         | 15,000,000     | 450,000,000                |  $847.28                     |
+| Auditoria e Inscrições | 100.000         | 16,500,000     | 495,000,000                |  $1093,00                       |
+| Auditoria              | 100.000         | 1,500,000      | 45,000,000                 |  $246.66                     |
+| Inícios de sessão           | 100.000         | 15,000,000     | 450,000,000                |  $847.28                     |
 
 
 
@@ -126,9 +125,9 @@ O quadro seguinte contém custos estimados por mês para um centro de eventos b�
 
 
 
-Para rever os custos relacionados com a gestão dos registos do Monitor Azure, consulte [gerir o custo controlando o volume de dados e a retenção nos registos do Monitor Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
+Para rever os custos relacionados com a gestão dos registos do Monitor Azure, consulte Gerir o [custo controlando o volume de dados e a retenção nos registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 Esta secção responde às perguntas mais frequentes e inclui discussões sobre problemas conhecidos dos registos do Azure AD no Azure Monitor.
 
@@ -138,19 +137,19 @@ Esta secção responde às perguntas mais frequentes e inclui discussões sobre 
 
 ---
 
-**P: Quanto tempo depois de uma ação os registos correspondentes aparecerão no meu centro de eventos?**
+**P: Em quanto tempo depois de uma ação os registos correspondentes aparecerão no meu centro de eventos?**
 
 **R**: os registos devem aparecer no hub de eventos entre dois a cinco minutos após a ação ter sido realizada. Para obter mais informações sobre os Hubs de Eventos, veja [O que são os Hubs de Eventos do Azure?](../../event-hubs/event-hubs-about.md)
 
 ---
 
-**P: Quanto tempo depois de uma ação os registos correspondentes aparecerão na minha conta de armazenamento?**
+**P: Em quanto tempo depois de uma ação aparecerão os registos correspondentes na minha conta de armazenamento?**
 
 **R**: Relativamente às contas de armazenamento do Azure, a latência situa-se entre 5 e 15 minutos após a ação ter sido realizada.
 
 ---
 
-**P: O que acontece se um Administrador alterar o período de retenção de uma definição de diagnóstico?**
+**P: O que acontece se um administrador alterar o período de retenção de uma definição de diagnóstico?**
 
 **R**: A nova política de retenção será aplicada aos registos recolhidos após a alteração. Os registos recolhidos antes da mudança de política não serão afetados.
 
@@ -180,7 +179,7 @@ Esta secção responde às perguntas mais frequentes e inclui discussões sobre 
 
 **P: Que ferramentas SIEM são atualmente suportadas?** 
 
-**R:** **A**: Atualmente, o Monitor Azure é suportado por [Splunk,](tutorial-integrate-activity-logs-with-splunk.md)IBM QRadar, [Sumo Logic,](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory) [ArcSight,](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight)LogRhythm e Logz.io. Para obter mais informações sobre como funcionam os conectores, veja [Stream Azure monitoring data to an event hub for consumption by an external tool](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md) (Transmitir em fluxo dados de monitorização do Azure para um hub de eventos, para consumo por uma ferramenta externa).
+**R:** **A**: Atualmente, o Monitor Azure é suportado por [Splunk](tutorial-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic,](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory) [ArcSight,](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight)LogRhythm e Logz.io. Para obter mais informações sobre como funcionam os conectores, veja [Stream Azure monitoring data to an event hub for consumption by an external tool](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md) (Transmitir em fluxo dados de monitorização do Azure para um hub de eventos, para consumo por uma ferramenta externa).
 
 ---
 
@@ -203,8 +202,8 @@ Esta secção responde às perguntas mais frequentes e inclui discussões sobre 
 ---
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Arquivar registos de atividades numa conta de armazenamento](quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Encaminhar registos de atividades para um hub de eventos](quickstart-azure-monitor-stream-logs-to-event-hub.md)
-* [Integrar registos de atividade com o Monitor Azure](howto-integrate-activity-logs-with-log-analytics.md)
+* [Integrar registos de atividade com o Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)

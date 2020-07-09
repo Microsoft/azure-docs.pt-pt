@@ -1,82 +1,81 @@
 ---
 title: Investigar risco Azure Ative Directory Identity Protection
-description: Saiba como investigar utilizadores, deteções e inscrições de risco na Proteção de Identidade do Diretório Ativo azure
+description: Saiba como investigar utilizadores, deteções e inscrições arriscadas na Azure Ative Directory Identity Protection
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 12/13/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23105a78e2ba34cf6a45f749ebfdd6b034ebf0dc
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.openlocfilehash: 3610fa5ea442e5ccb15255d8a1ddcee211871aeb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680153"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463948"
 ---
-# <a name="how-to-investigate-risk"></a>Como: Investigar o risco
+# <a name="how-to-investigate-risk"></a>How To: Investigar riscos
 
-A Proteção de Identidade fornece às organizações três relatórios que podem usar para investigar riscos de identidade no seu ambiente. Estes relatórios são **os utilizadores de risco,** **os insins de risco**e as deteções de **risco.** A investigação dos acontecimentos é fundamental para uma melhor compreensão e identificação de quaisquer pontos fracos na sua estratégia de segurança.
+A Proteção de Identidade fornece às organizações três relatórios que podem usar para investigar riscos de identidade no seu ambiente. Estes relatórios são **os utilizadores arriscados**, **as entradas de risco**e as **deteções de riscos.** A investigação dos acontecimentos é fundamental para uma melhor compreensão e identificação de quaisquer pontos fracos na sua estratégia de segurança.
 
-Todos os três relatórios permitem o download de eventos em . Formato CSV para análise mais aprofundada fora do portal Azure. Os utilizadores de risco e os relatórios de entrada de risco permitem descarregar as mais recentes 2500 entradas, enquanto o relatório de deteção de riscos permite descarregar os mais recentes 5000 registos.
+Todos os três relatórios permitem o download de eventos em . Formato CSV para análise posterior fora do portal Azure. Os utilizadores de risco e os relatórios de insiná-ins de risco permitem o descarregamento das 2500 entradas mais recentes, enquanto o relatório de deteções de risco permite descarregar os registos mais recentes de 5000.
 
-As organizações podem aproveitar as integrações da Microsoft Graph API para agregar dados com outras fontes a que possam ter acesso como organização.
+As organizações podem tirar partido das integrações da Microsoft Graph API para agregar dados com outras fontes a que possam ter acesso como organização.
 
-Os três relatórios encontram-se no **portal**  >  **Azure Ative Directory**  >  **Security.**
+Os três relatórios encontram-se no **portal**  >  **Azure Ative Directory**  >  **Security**.
 
-## <a name="navigating-the-reports"></a>Navegar nos relatórios
+## <a name="navigating-the-reports"></a>Navegando nos relatórios
 
-Cada relatório é lançado com uma lista de todas as deteções para o período apresentado no topo do relatório. Cada relatório permite a adição ou remoção de colunas com base na preferência do administrador. Os administradores podem optar por fazer o download dos dados em . CSV ou . Formato JSON. Os relatórios podem ser filtrados utilizando os filtros na parte superior do relatório.
+Cada relatório lança uma lista de todas as deteções para o período apresentado no topo do relatório. Cada relatório permite a adição ou remoção de colunas com base na preferência do administrador. Os administradores podem optar por descarregar os dados em . CSV ou . . Formato JSON. Os relatórios podem ser filtrados utilizando os filtros em toda a parte superior do relatório.
 
-A seleção de entradas individuais pode permitir entradas adicionais na parte superior do relatório, tais como a capacidade de confirmar um início de sessão como comprometido ou seguro, confirmar um utilizador como comprometido ou descartar o risco do utilizador.
+A seleção de entradas individuais pode permitir entradas adicionais no topo do relatório, tais como a capacidade de confirmar uma sing-in como comprometida ou segura, confirmar um utilizador como comprometido ou descartar o risco do utilizador.
 
-A seleção de entradas individuais expande uma janela de detalhes abaixo das deteções. A visão dos detalhes permite que os administradores investiguem e realizem ações em cada deteção. 
+A seleção de entradas individuais expande uma janela de detalhes abaixo das deteções. A visão de detalhes permite que os administradores investiguem e realizem ações em cada deteção. 
 
-![Relatório de Proteção de Identidade de exemplo mostrando inscrições e detalhes arriscados](./media/howto-identity-protection-investigate-risk/identity-protection-risky-sign-ins-report.png)
+![Relatório de Proteção de Identidade de exemplo mostrando ins e detalhes de risco](./media/howto-identity-protection-investigate-risk/identity-protection-risky-sign-ins-report.png)
 
-## <a name="risky-users"></a>Utilizadores de risco
+## <a name="risky-users"></a>Utilizadores arriscados
 
-Com as informações fornecidas pelo relatório de utilizadores de risco, os administradores podem encontrar:
+Com as informações fornecidas pelo relatório de utilizadores arriscados, os administradores podem encontrar:
 
-- Que utilizadores estão em risco, tiveram risco remediado ou tiveram risco de ser descartados?
+- Que utilizadores estão em risco, tiveram riscos remediados ou tiveram o risco de ser dispensados?
 - Detalhes sobre deteções
-- História de todos os sign-ins arriscados
-- Histórico de risco
+- História de todos os insus máximos de risco
+- História do risco
  
-Os administradores podem então optar por tomar medidas sobre estes eventos. Os administradores podem optar por:
+Os administradores podem então optar por tomar medidas sobre estes eventos. Os administradores podem escolher:
 
-- Redefinir a palavra-passe do utilizador
+- Redefinir a senha do utilizador
 - Confirmar o compromisso do utilizador
-- Descartar o risco de utilizador
+- Descartar o risco do utilizador
 - Bloquear o utilizador de iniciar sessão
-- Investigar mais sobre o uso do ATP Azure
+- Investigue mais além usando Azure ATP
 
 ## <a name="risky-sign-ins"></a>Inícios de sessão de risco
 
-O relatório de inscrição de risco contém dados filtrantes até aos últimos 30 dias (1 mês).
+O relatório de inscrições de risco contém dados filtrantes até aos últimos 30 dias (1 mês).
 
-Com as informações fornecidas pelo relatório de inscrição de risco, os administradores podem encontrar:
+Com as informações fornecidas pelo relatório de inscrições de risco, os administradores podem encontrar:
 
 - Que inscrições são classificadas como em risco, confirmadas comprometidas, confirmadas seguras, dispensadas ou remediadas.
 - Níveis de risco em tempo real e agregados associados a tentativas de inscrição.
 - Tipos de deteção desencadeados
-- Políticas de Acesso Condicional aplicadas
+- Políticas de acesso condicional aplicadas
 - Detalhes do MFA
 - Informações do dispositivo
 - Informações da aplicação
 - Informações de localização
 
-Os administradores podem então optar por tomar medidas sobre estes eventos. Os administradores podem optar por:
+Os administradores podem então optar por tomar medidas sobre estes eventos. Os administradores podem escolher:
 
-- Confirmar compromisso de inscrição
-- Confirmar o cofre de inscrição
+- Confirmar compromisso de entrada
+- Confirme o cofre de entrada
 
 > [!NOTE] 
-> A Proteção de Identidade avalia o risco para todos os fluxos de autenticação, seja interativo ou não interativo. No entanto, o relatório de inscrição mostra apenas os sign-ins interativos. Pode ver inscrições arriscadas que ocorreram em inscrições não interativas, mas o inscreveu-se não aparecerá no relatório de inscrições da AD Azure.
+> A Proteção de Identidade avalia o risco para todos os fluxos de autenticação, sejam interativos ou não interativos. No entanto, o relatório de inscrição mostra apenas os relatórios interativos. Pode ver insusimentos arriscados que ocorreram em insiná-ins não interativos, mas o sinal não aparecerá no relatório de inscrições da Azure AD.
 
 ## <a name="risk-detections"></a>Deteções de riscos
 
@@ -86,13 +85,13 @@ Com as informações fornecidas pelo relatório de deteção de riscos, os admin
 
 - Informação sobre cada deteção de risco, incluindo o tipo.
 - Outros riscos desencadeados ao mesmo tempo
-- Local de tentativa de inserção
-- Ligue-se a mais detalhes a partir do Microsoft Cloud App Security (MCAS).
+- Localização da tentativa de inscrição
+- Link para mais detalhes a partir de Microsoft Cloud App Security (MCAS).
 
 Os administradores podem então optar por voltar ao relatório de risco ou de inscrição do utilizador para tomar medidas com base nas informações recolhidas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Políticas disponíveis para mitigar riscos](concept-identity-protection-policies.md)
 
-- [Ativar políticas de risco de inscrição e utilizador](howto-identity-protection-configure-risk-policies.md)
+- [Ativar políticas de insusição e risco de utilizador](howto-identity-protection-configure-risk-policies.md)

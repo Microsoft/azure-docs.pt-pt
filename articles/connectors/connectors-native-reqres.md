@@ -5,45 +5,55 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 1eb017740fb13dbc4f67b11ad8768e48e5b29010
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.openlocfilehash: 9f3f361b3e9fafdb350f943c0a8adcd87fa06c78
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171536"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84325138"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a pedidos HTTPS de entrada em Azure Logic Apps
 
 Com [as Apps Azure Logic](../logic-apps/logic-apps-overview.md) e a ação incorporada de detonação e resposta do Pedido, pode criar tarefas e fluxos de trabalho automatizados que recebam e respondam aos pedidos HTTPS recebidos. Por exemplo, pode ter a sua aplicação lógica:
 
 * Receber e responder a um pedido HTTPS de dados numa base de dados no local.
+
 * Desencadeie um fluxo de trabalho quando um evento externo de webhook acontece.
+
 * Receber e responder a uma chamada HTTPS de outra aplicação lógica.
 
 O gatilho request suporta [a autenticação aberta do Azure Ative](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) para autorizar chamadas de entrada na sua aplicação lógica. Para obter mais informações sobre como ativar esta autenticação, consulte [acesso seguro e dados em Azure Logic Apps - Enable Azure AD OAuth autenticação](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
-
-> [!NOTE]
-> O gatilho request suporta *apenas* a Segurança da Camada de Transporte (TLS) 1.2 para chamadas recebidas. As chamadas de saída apoiam o suporte TLS 1.0, 1.1 e 1.2. Para obter mais informações, consulte [a resolução do problema TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
->
-> Se tiver erros de aperto de mão TLS, certifique-se de que utiliza O TLS 1.2. 
-> Para chamadas recebidas, aqui estão as suítes de cifra suportadas:
->
-> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição, pode [inscrever-se numa conta Azure gratuita.](https://azure.microsoft.com/free/)
 
 * Conhecimento básico sobre [aplicações lógicas.](../logic-apps/logic-apps-overview.md) Se é novo em aplicações lógicas, aprenda [a criar a sua primeira aplicação lógica.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+<a name="tls-support"></a>
+
+## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
+
+* As chamadas de entrada *suportam apenas* a Segurança da Camada de Transporte (TLS) 1.2. Se tiver erros de aperto de mão TLS, certifique-se de que utiliza O TLS 1.2. Para obter mais informações, consulte [a resolução do problema TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem). As chamadas de saída suportam o suporte TLS 1.0, 1.1 e 1.2, com base na capacidade do ponto final do alvo.
+
+* As chamadas de entrada suportam estas suítes de cifra:
+
+  * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+
+  * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+
+  * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+
+  * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+
+  * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+
+  * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+
+  * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+
+  * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 <a name="add-request"></a>
 
@@ -157,6 +167,14 @@ Este gatilho incorporado cria um ponto final HTTPS manualmente chamado que *só*
          }
       }
       ```
+
+1. Para verificar se a chamada de entrada tem um corpo de pedido que corresponde ao seu esquema especificado, siga estes passos:
+
+   1. Na barra de título do pedido, selecione o botão elipses **(...**).
+   
+   1. Nas definições do gatilho, ligue **a Validação de Schema**e selecione **'Fazer'**
+   
+      Se o corpo de pedido da chamada de entrada não corresponder ao seu esquema, o gatilho retorna um `HTTP 400 Bad Request` erro.
 
 1. Para especificar propriedades adicionais, abra a nova lista **de parâmetros** e selecione os parâmetros que pretende adicionar.
 

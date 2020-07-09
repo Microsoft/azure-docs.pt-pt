@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 47714be27cd4588b9bdf481750974394d3738985
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 7b925a25e1e246008f393f7b15160417c3b3d7a1
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119281"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254859"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Tutorial: Criar um pipeline com a Atividade de Cópia com a API .NET
 > [!div class="op_single_selector"]
@@ -32,9 +32,9 @@ ms.locfileid: "84119281"
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [tutorial de atividade de cópia](../quickstart-create-data-factory-dot-net.md). 
 
-Neste artigo, vai aprender a utilizar a [API .NET](https://portal.azure.com) para criar uma fábrica de dados com um pipeline que copia dados de um armazenamento de blobs do Azure para uma Base de Dados SQL do Azure. Se não estiver familiarizado com o Azure Data Factory, leia o artigo [Introduction to Azure Data Factory](data-factory-introduction.md) (Introdução ao Azure Data Factory) antes de fazer este tutorial.   
+Neste artigo, aprende-se a utilizar [a API .NET](https://portal.azure.com) para criar uma fábrica de dados com um pipeline que copia dados de um armazenamento de blob Azure para Azure SQL Database. Se não estiver familiarizado com o Azure Data Factory, leia o artigo [Introduction to Azure Data Factory](data-factory-introduction.md) (Introdução ao Azure Data Factory) antes de fazer este tutorial.   
 
-Neste tutorial, vai criar um pipeline com uma atividade no mesmo: a Atividade de Cópia. A Atividade de Cópia copia dados de um arquivo de dados suportado para um arquivo de dados sink suportado. Para obter uma lista dos arquivos de dados suportados como origens e sinks, veja [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) (Arquivos de dados suportados). A atividade utiliza a tecnologia de um serviço globalmente disponível que pode copiar dados entre vários arquivos de dados de uma forma segura, fiável e dimensionável. Para mais informações sobre a Atividade da Cópia, consulte [Atividades](data-factory-data-movement-activities.md)de Movimento de Dados .
+Neste tutorial, vai criar um pipeline com uma atividade no mesmo: a Atividade de Cópia. A Atividade de Cópia copia dados de um arquivo de dados suportado para um arquivo de dados sink suportado. Para obter uma lista dos arquivos de dados suportados como origens e sinks, veja [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) (Arquivos de dados suportados). A atividade utiliza a tecnologia de um serviço globalmente disponível que pode copiar dados entre vários arquivos de dados de uma forma segura, fiável e dimensionável. Para obter mais informações sobre a Atividade de Cópia, consulte [as Atividades de Movimento de Dados.](data-factory-data-movement-activities.md)
 
 Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas atividades (executar uma atividade após a outra) ao definir o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra. Para obter mais informações, veja [Multiple activities in a pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (Várias atividades num pipeline). 
 
@@ -55,7 +55,7 @@ Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas ativ
 ### <a name="create-an-application-in-azure-active-directory"></a>Criar uma Aplicação no Azure Active Directory
 Crie uma aplicação no Azure Active Directory, crie um principal de serviço para a aplicação e atribua-a à função **Contribuinte do Data Factory**.
 
-1. Lançamento **PowerShell**.
+1. **Launch PowerShell**.
 2. Execute o comando seguinte e introduza o nome de utilizador e a palavra-passe que utiliza para iniciar sessão no portal do Azure.
 
     ```powershell
@@ -66,7 +66,7 @@ Crie uma aplicação no Azure Active Directory, crie um principal de serviço pa
     ```powershell
     Get-AzSubscription
     ```
-4. Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua o ** &lt; NomeOfAzureSubscription** &gt; pelo nome da sua subscrição Azure.
+4. Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua ** &lt; a subscrição NameOfAzureSubscription** &gt; pelo nome da sua subscrição Azure.
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -134,7 +134,7 @@ Deve obter os quatro valores seguintes destes passos:
    2. Execute o seguinte comando para instalar o pacote do Azure Active Directory (utilize a API do Azure Active Directory no código): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. Adicione a secção **appSetttings** seguinte ao ficheiro **App.config**. Estas definições são utilizadas pelo método de ajuda: **GetAuthorizationHeader**.
 
-    Substitua os valores por ID ** &lt; &gt; ** ** &lt; &gt; de aplicação,** ** &lt; palavra-passe, &gt; ** ** &lt; ID &gt; de subscrição**e ID do inquilino pelos seus próprios valores.
+    Substitua os valores ** &lt; de ID &gt; de aplicação,** ** &lt; password, &gt; ** ** &lt; ID &gt; de assinatura**e ** &lt; ID &gt; do inquilino** pelos seus próprios valores.
 
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -240,7 +240,7 @@ Deve obter os quatro valores seguintes destes passos:
 9. Adicione o código seguinte, que cria um **serviço ligado SQL do Azure**, ao método **Principal**.
 
    > [!IMPORTANT]
-   > Substitua o nome do **servidor,** nome de base de **dados,** **nome de utilizador**e **palavra-passe** por nomes do seu servidor, base de dados, utilizador e palavra-passe.
+   > Substitua **o nome de servidor,** **nome de base de dados,** nome de **utilizador**e **palavra-passe** por nomes do seu servidor, base de dados, utilizador e palavra-passe.
 
     ```csharp
     // create a linked service for output data store: Azure SQL Database
@@ -260,7 +260,7 @@ Deve obter os quatro valores seguintes destes passos:
     );
     ```
 
-    O AzureSqlLinkedService liga a sua base de dados SQL do Azure à fábrica de dados. Os dados copiados do armazenamento de blobs são armazenados nesta base de dados. Como parte dos [pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), criou a tabela emp nesta base de dados.
+    O AzureSqlLinkedService liga a Base de Dados Azure SQL à fábrica de dados. Os dados copiados do armazenamento de blobs são armazenados nesta base de dados. Como parte dos [pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), criou a tabela emp nesta base de dados.
 10. Adicione o código seguinte, que cria **conjuntos de dados de entrada e saída**, ao método **Principal**.
 
     ```csharp
@@ -337,15 +337,15 @@ Deve obter os quatro valores seguintes destes passos:
         });
     ```
     
-    No passo anterior, criou serviços ligados para ligar a sua conta de Armazenamento do Azure e uma base de dados SQL do Azure à fábrica de dados. Neste passo, vai definir dois conjuntos de dados, com os nomes InputDataset e OutputDataset, que representam os dados de entrada e saída que estão armazenados nos arquivos de dados referenciados por AzureStorageLinkedService e AzureSqlLinkedService, respetivamente.
+    No passo anterior, criou serviços ligados para ligar a sua conta de Armazenamento Azure e a Base de Dados Azure SQL à sua fábrica de dados. Neste passo, vai definir dois conjuntos de dados, com os nomes InputDataset e OutputDataset, que representam os dados de entrada e saída que estão armazenados nos arquivos de dados referenciados por AzureStorageLinkedService e AzureSqlLinkedService, respetivamente.
 
     O serviço ligado do armazenamento do Azure especifica a cadeia de ligação que o serviço Data Factory utiliza no tempo de execução para ligar à sua conta de armazenamento do Azure. Além disso, o conjunto de dados de blobs de entrada (InputDataset) especifica o contentor e a pasta que contém os dados de entrada.  
 
-    Do mesmo modo, o serviço ligado Base de Dados SQL do Azure especifica a cadeia de ligação que o serviço Data Factory utiliza no tempo de execução para ligar à sua base de dados SQL do Azure. E o conjunto de dados da tabela SQL de saída (OututDataset) especifica a tabela na base de dados para a qual os dados do armazenamento de blobs vão ser copiados.
+    Da mesma forma, o serviço de base de dados Azure SQL especifica a cadeia de ligação que o serviço Data Factory utiliza no tempo de funcionamento para ligar à sua base de dados. E o conjunto de dados da tabela SQL de saída (OututDataset) especifica a tabela na base de dados para a qual os dados do armazenamento de blobs vão ser copiados.
 
     Neste passo, vai criar um conjunto de dados com o nome InputDataset que aponta para um ficheiro de blobs (emp.text) na pasta raiz de um contentor de blobs (adftutorial) no Armazenamento do Azure, representado pelo serviço ligado AzureStorageLinkedService. Se não especificar um valor para fileName (ou se o ignorar), os dados de todos os blobs da pasta de entrada são copiados para o destino. Neste tutorial, vai especificar um valor para fileName.    
 
-    Neste passo, vai criar um conjunto de dados de saída com o nome **OutputDataset**. Este conjunto de dados aponta para uma tabela SQL na Base de Dados SQL do Azure, representada por **AzureSqlLinkedService**.
+    Neste passo, vai criar um conjunto de dados de saída com o nome **OutputDataset**. Este conjunto de dados aponta para uma tabela SQL na base de dados representada pelo **AzureSqlLinkedService**.
 11. Adicione o código seguinte, que **cria e ativa um pipeline**, ao método **Principal**. Neste passo, vai criar um pipeline com uma **atividade de cópia** que utiliza **InputDataset** como entrada e **OutputDataset** como saída.
 
     ```csharp
@@ -511,17 +511,17 @@ Deve obter os quatro valores seguintes destes passos:
     John, Doe
     Jane, Doe
     ```
-18. Executar a amostra clicando em **Debug**  ->  **Start Debugging** no menu. Quando vir **A obter detalhes da execução de um setor de dados**, aguarde alguns minutos e prima **ENTER**.
+18. Execute a amostra clicando em **Debug**  ->  **Start Debugging** no menu. Quando vir **A obter detalhes da execução de um setor de dados**, aguarde alguns minutos e prima **ENTER**.
 19. Utilize o portal do Azure para verificar se a fábrica de dados **APITutorialFactory** foi criada com os artefactos seguintes:
     * Serviço ligado: **LinkedService_AzureStorage**
     * Conjunto de dados: **InputDataset** e **OutputDataset**.
     * Pipeline: **PipelineBlobSample**
-20. Verifique se os dois registos dos empregados são criados na tabela **emp** na base de dados Azure SQL especificada.
+20. Verifique se os dois registos dos empregados são criados na tabela **emp** na base de dados especificada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter toda a documentação sobre a API .NET do Data Factory, veja [Data Factory .NET API Reference](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) (Referência da API .NET do Data Factory).
 
-Neste tutorial, utilizou o armazenamento de blobs do Azure como arquivo de dados de origem e uma base de dados SQL do Azure como arquivo de dados de destino numa operação de cópia. A tabela seguinte disponibiliza uma lista dos arquivos de dados que a atividade de cópia suporta como origens e destinos: 
+Neste tutorial, utilizou o armazenamento de blob Azure como uma loja de dados de origem e a Base de Dados Azure SQL como uma loja de dados de destino numa operação de cópia. A tabela seguinte disponibiliza uma lista dos arquivos de dados que a atividade de cópia suporta como origens e destinos: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 

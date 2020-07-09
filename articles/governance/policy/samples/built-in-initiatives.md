@@ -1,21 +1,25 @@
 ---
 title: Lista de iniciativas políticas integradas
-description: Enumeraas iniciativas políticas integradas para a Política Azure. As categorias incluem Conformidade Regulamentar, Configuração de Hóspedes, e muito mais.
-ms.date: 05/13/2020
+description: Enumerar iniciativas políticas integradas para a Política Azure. As categorias incluem Conformidade Regulamentar, Configuração de Hóspedes e muito mais.
+ms.date: 06/23/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 969b1849628616bf42951e1ff7fdf2f507cf0abe
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0efd8d2b77027aa3e800b9a5071cc4d77a97b7d3
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83639366"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85312695"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Definições de iniciativa integradas da Política Azure
 
-Esta página é um índice de definições de iniciativa integrada sinuosa.
+Esta página é um índice de definições de iniciativa incorporadas da Azure Policy.
 
-O nome em cada ligação incorporada à fonte de definição de iniciativa no repo da [política azure GitHub.](https://github.com/Azure/azure-policy) Os incorporados são agrupados pela propriedade da **categoria** em **metadados.** Para saltar para uma **categoria**específica, use o menu do lado direito da página. Caso contrário, utilize <kbd>ctrl</kbd>F para utilizar a funcionalidade de - <kbd>F</kbd> pesquisa do seu navegador.
+O nome em cada ligação incorporada à fonte de definição de iniciativa no [repo da política Azure GitHub](https://github.com/Azure/azure-policy). Os incorporados são agrupados pela **categoria** de propriedade em **metadados.** Para saltar para uma **categoria**específica, utilize o menu no lado direito da página. Caso contrário, utilize <kbd>o Ctrl</kbd> - <kbd>F</kbd> para utilizar o recurso de pesquisa do seu navegador.
+
+## <a name="cosmos-db"></a>BD do Cosmos
+
+[!INCLUDE [azure-policy-samples-policysets-cosmos-db](../../../../includes/policy/samples/bycat/policysets-cosmos-db.md)]
 
 ## <a name="guest-configuration"></a>Configuração de Convidado
 

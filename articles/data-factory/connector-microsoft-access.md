@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de fontes do Microsoft Access
-description: Saiba como copiar dados de fontes do Microsoft Access para lojas de dados de sink suportadas utilizando uma atividade de cópia num pipeline azure Data Factory.
+title: Copiar dados de e para o Microsoft Access
+description: Saiba como copiar dados de e para o Microsoft Access utilizando uma atividade de cópia num pipeline Azure Data Factory.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -10,34 +10,33 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/27/2019
-ms.openlocfilehash: fc2179efcda4ee11dda3b424b16a072a2bb2c26e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/28/2020
+ms.openlocfilehash: 00966af4e0fc83015726d86a4c7cb5724ad38633
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418189"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513365"
 ---
-# <a name="copy-data-from-and-to-microsoft-access-data-stores-using-azure-data-factory"></a>Copiar dados de e para as lojas de dados do Microsoft Access utilizando a Azure Data Factory
+# <a name="copy-data-from-and-to-microsoft-access-using-azure-data-factory"></a>Copiar dados de e para o Microsoft Access usando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de uma loja de dados do Microsoft Access. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como utilizar a Atividade de Cópia na Azure Data Factory para copiar dados de uma loja de dados do Microsoft Access. Baseia-se no artigo [de visão geral](copy-activity-overview.md) da atividade de cópia que apresenta uma visão geral da atividade da cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Este conector Microsoft Access é suportado para as seguintes atividades:
+Este conector do Microsoft Access é suportado para as seguintes atividades:
 
-- [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/pia suportada](copy-activity-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)
 
-Pode copiar dados da fonte do Microsoft Access para qualquer loja de dados suportada. Para obter uma lista de lojas de dados que são suportadas como fontes/pias pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
+Pode copiar dados da fonte do Microsoft Access para qualquer loja de dados de lavatórios suportados ou copiar de qualquer loja de dados de origem suportada para o afundanço do Microsoft Access. Para obter uma lista de lojas de dados suportadas como fontes/pias pela atividade de cópia, consulte a tabela [de lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar este conector Microsoft Access, é necessário:
+Para utilizar este conector do Microsoft Access, tem de:
 
-- Criar um Tempo de Integração Auto-hospedado. Consulte o artigo [De Integração Autónoma](create-self-hosted-integration-runtime.md) para obter mais detalhes.
-- Instale o controlador Microsoft Access ODBC para a loja de dados na máquina De integração Runtime.
+- Crie um tempo de integração auto-hospedado. Consulte o artigo [de execução de integração auto-hospedado](create-self-hosted-integration-runtime.md) para obter detalhes.
+- Instale o controlador ODBC do Microsoft Access para a loja de dados na máquina de tempo de execução de integração.
 
 >[!NOTE]
 >A versão do Microsoft Access 2016 do controlador ODBC não funciona com este conector. Utilize a versão do condutor 2013 ou 2010.
@@ -46,21 +45,21 @@ Para utilizar este conector Microsoft Access, é necessário:
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades data Factory específicas do conector Microsoft Access.
+As secções seguintes fornecem detalhes sobre propriedades que são usadas para definir entidades da Data Factory específicas do conector do Microsoft Access.
 
-## <a name="linked-service-properties"></a>Propriedades de serviço seletos
+## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 
 As seguintes propriedades são suportadas para o serviço ligado ao Microsoft Access:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **MicrosoftAccess** | Sim |
-| conexãoString | A cadeia de ligação ODBC excluindo a parte credencial. Pode especificar a cadeia de ligação ou utilizar o sistema DSN (Data Source Name) que configura na máquina de tempo de funcionação de integração (ainda precisa especificar a parte credencial no serviço ligado em conformidade).<br> Também pode colocar uma palavra-passe no `password` Cofre de Chaves Azure e retirar a configuração da cadeia de ligação.Consulte [as credenciais da Loja no Cofre](store-credentials-in-key-vault.md) de Chaves Azure com mais detalhes.| Sim |
-| authenticationType | Tipo de autenticação utilizada para se ligar à loja de dados do Microsoft Access.<br/>Os valores permitidos são: **Básico** e **Anónimo.** | Sim |
+| conexãoStragem | O fio de ligação ODBC excluindo a parte credencial. Pode especificar a cadeia de ligação ou utilizar o sistema DSN (Data Source Name) que configura na máquina de tempo de execução de integração (ainda precisa especificar a parte credencial no serviço ligado em conformidade).<br> Também pode colocar uma palavra-passe no Cofre da Chave Azure e retirar a  `password`   configuração da cadeia de ligação.Consulte [as credenciais da Loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md)   com mais detalhes.| Sim |
+| authenticationType | Tipo de autenticação utilizada para ligar à loja de dados do Microsoft Access.<br/>Os valores permitidos são: **Básico** e **Anónimo.** | Sim |
 | userName | Especifique o nome do utilizador se estiver a utilizar a autenticação Básica. | Não |
-| palavra-passe | Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Não |
-| credencial | A parte credencial de acesso da cadeia de ligação especificada no formato de valor de propriedade específico do condutor. Marque este campo como um SecureString. | Não |
-| connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. É necessário um tempo de execução de integração auto-hospedado, tal como mencionado nos [pré-requisitos.](#prerequisites) |Sim |
+| palavra-passe | Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Não |
+| credencial | A parte credencial de acesso da cadeia de ligação especificada no formato de valor da propriedade específica do condutor. Marque este campo como um SecureString. | Não |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, tal como mencionado nos [Pré-Requisitos](#prerequisites). |Sim |
 
 **Exemplo:**
 
@@ -68,7 +67,7 @@ As seguintes propriedades são suportadas para o serviço ligado ao Microsoft Ac
 {
     "name": "MicrosoftAccessLinkedService",
     "properties": {
-        "type": "Microsoft Access",
+        "type": "MicrosoftAccess",
         "typeProperties": {
             "connectionString": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;",
             "authenticationType": "Basic",
@@ -88,14 +87,14 @@ As seguintes propriedades são suportadas para o serviço ligado ao Microsoft Ac
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo conjuntos de [dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados do Microsoft Access.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [conjuntos de dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo Conjunto de Dados do Microsoft Access.
 
-Para copiar dados do Microsoft Access, são suportadas as seguintes propriedades:
+Para copiar dados do Microsoft Access, as seguintes propriedades são suportadas:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do conjunto de dados deve ser definida para: **MicrosoftAccessTable** | Sim |
-| tableName | Nome da tabela no Microsoft Access. | Não para fonte (se for especificada a "consulta" na fonte de atividade);<br/>Sim para afundar |
+| tableName | Nome da tabela no Microsoft Access. | Não para a fonte (se for especificada "consulta" na fonte de atividade);<br/>Sim para afundar |
 
 **Exemplo**
 
@@ -117,16 +116,16 @@ Para copiar dados do Microsoft Access, são suportadas as seguintes propriedades
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela fonte do Microsoft Access.
+Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela fonte do Microsoft Access.
 
-### <a name="microsoft-access-as-source"></a>Acesso ao Microsoft como fonte
+### <a name="microsoft-access-as-source"></a>Microsoft Access como fonte
 
-Para copiar dados da loja de dados compatível com o Microsoft Access, as seguintes propriedades são suportadas na secção de **origem** da atividade de cópia:
+Para copiar dados do Microsoft Access, as seguintes propriedades são suportadas na secção **fonte de origem** da atividade da cópia:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo da fonte de atividade de cópia deve ser definida para: **MicrosoftAccessSource** | Sim |
-| consulta | Use a consulta personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **MicrosoftAccessSource** | Sim |
+| consulta | Utilize a consulta personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
@@ -160,9 +159,51 @@ Para copiar dados da loja de dados compatível com o Microsoft Access, as seguin
 ]
 ```
 
+### <a name="microsoft-access-as-sink"></a>Microsoft Access como pia
+
+Para copiar dados para o Microsoft Access, as seguintes propriedades são suportadas na secção de **lavatório** de atividade de cópia:
+
+| Propriedade | Descrição | Necessário |
+|:--- |:--- |:--- |
+| tipo | A propriedade tipo do lavatório de atividade de cópia deve ser definida para: **MicrosoftAccessSink** | Sim |
+| escreverBatchTimeout |Tempo de espera para que o funcionamento do encaixe do lote esteja concluído antes de esgotar o tempo.<br/>Os valores permitidos são: timepan. Exemplo: "00:30:00" (30 minutos). |Não |
+| escreverBatchSize |Insere dados na tabela SQL quando o tamanho do tampão atinge o writeBatchSize.<br/>Os valores permitidos são: inteiro (número de linhas). |Não (o padrão é 0 - auto detetado) |
+| preCopyScript |Especifique uma consulta SQL para a Copy Activity para executar antes de escrever dados em loja de dados em cada execução. Pode utilizar esta propriedade para limpar os dados pré-carregados. |Não |
+
+**Exemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToMicrosoftAccess",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Microsoft Access output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "MicrosoftAccessSink"
+            }
+        }
+    }
+]
+```
+
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
-Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
+Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Azure Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).
+## <a name="next-steps"></a>Próximos passos
+Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

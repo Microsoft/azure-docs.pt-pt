@@ -1,35 +1,35 @@
 ---
 title: Configure uma VPN ponto-a-local (P2S) no Linux para utilização com Ficheiros Azure / Microsoft Docs
-description: Como configurar uma VPN Ponto-a-Local (P2S) no Linux para utilização com ficheiros Azure
+description: Como configurar uma VPN ponto-a-local (P2S) no Linux para utilização com ficheiros Azure
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: cfff05ed52258ee448d83a521b99dca7d356a0f9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 685373203da14a6aa83c608d90d6416ab2b30ae4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80061050"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515297"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Configure uma VPN ponto-a-local (P2S) no Linux para utilização com ficheiros Azure
-Pode utilizar uma ligação VPN Point-to-Site (P2S) para montar as suas ações de ficheiro Azure sobre SMB de fora do Azure, sem abrir a porta 445. Uma ligação VPN Ponto-a-Local é uma ligação VPN entre o Azure e um cliente individual. Para utilizar uma ligação P2S VPN com Ficheiros Azure, uma ligação P2S VPN terá de ser configurada para cada cliente que queira ligar. Se tiver muitos clientes que precisam de se conectar às suas ações de ficheiroS Azure a partir da sua rede no local, pode utilizar uma ligação VPN site-to-site (S2S) em vez de uma ligação Ponto-a-Site para cada cliente. Para saber mais, consulte [Configure uma VPN site-to-site para utilização com ficheiros Azure](storage-files-configure-s2s-vpn.md).
+Pode utilizar uma ligação VPN Ponto-a-Local (P2S) para montar as suas ações de ficheiroS Azure sobre SMB de fora de Azure, sem abrir a porta 445. Uma ligação VPN ponto-a-local é uma ligação VPN entre Azure e um cliente individual. Para utilizar uma ligação P2S VPN com ficheiros Azure, uma ligação P2S VPN terá de ser configurada para cada cliente que queira ligar. Se tiver muitos clientes que precisam de se ligar às suas ações de ficheiroS Azure a partir da sua rede no local, pode utilizar uma ligação VPN Site-to-Site (S2S) em vez de uma ligação Ponto-a-Local para cada cliente. Para saber mais, consulte [configurar uma VPN site-to-site para utilização com ficheiros Azure](storage-files-configure-s2s-vpn.md).
 
-Recomendamos vivamente que leia a visão geral da [rede Azure Files](storage-files-networking-overview.md) antes de continuar com esta forma de se reler para uma discussão completa das opções de networking disponíveis para ficheiros Azure.
+Recomendamos vivamente que leia [a visão geral do Azure Files](storage-files-networking-overview.md) antes de continuar com este artigo para uma discussão completa das opções de networking disponíveis para ficheiros Azure.
 
-O artigo detalha os passos para configurar uma VPN Ponto-a-Local no Linux para montar as ações de ficheiro sinuosamente no local. Se procura encaminhar o tráfego de Sincronização de Ficheiros Azure através de uma VPN, consulte [configurar as definições](storage-sync-files-firewall-and-proxy.md)de proxy e firewall do Ficheiro Azure .
+O artigo detalha os passos para configurar uma VPN point-to-site no Linux para montar ações de ficheiros Azure diretamente no local. Se procura encaminhar o tráfego de Azure File Sync por uma VPN, consulte [as configurações de configuração do proxy e firewall do Azure File Sync](storage-sync-files-firewall-and-proxy.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- A versão mais recente do Azure CLI. Para obter mais informações sobre como instalar o Azure CLI, consulte [Instale o CLI Da PowerShell Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e selecione o seu sistema operativo. Se preferir utilizar o módulo Azure PowerShell no Linux, pode, no entanto, as instruções abaixo são apresentadas para o Azure CLI.
+- A versão mais recente do Azure CLI. Para obter mais informações sobre como instalar o Azure CLI, consulte [instalar o Azure PowerShell CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) e selecione o seu sistema operativo. Se preferir utilizar o módulo Azure PowerShell no Linux, pode, no entanto, as instruções abaixo são apresentadas para Azure CLI.
 
-- Uma partilha de ficheiros Azure que gostaria de montar no local. As ações de ficheiros Azure são implantadas dentro de contas de armazenamento, que são construções de gestão que representam um conjunto partilhado de armazenamento no qual você pode implementar várias ações de arquivo, bem como outros recursos de armazenamento, tais como recipientes de blob ou filas. Pode saber mais sobre como implementar ações de ficheiros Azure e contas de armazenamento em [Create a Azure file share](storage-how-to-create-file-share.md).
+- Uma partilha de ficheiros Azure que gostaria de montar no local. As ações de ficheiros Azure são implantadas dentro de contas de armazenamento, que são construções de gestão que representam um conjunto partilhado de armazenamento no qual você pode implementar várias ações de arquivo, bem como outros recursos de armazenamento, tais como recipientes blob ou filas. Pode saber mais sobre como implementar ações de ficheiros Azure e contas de armazenamento na [Create a azure file share](storage-how-to-create-file-share.md).
 
-- Um ponto final privado para a conta de armazenamento que contém a partilha de ficheiros Azure que pretende montar no local. Para saber mais sobre como criar um ponto final privado, consulte [configurar pontos finais](storage-files-networking-endpoints.md?tabs=azure-cli)da rede Azure Files . 
+- Um ponto final privado para a conta de armazenamento que contém a partilha de ficheiros Azure que pretende montar no local. Para saber mais sobre como criar um ponto final privado, consulte [os pontos finais da rede De Configuração Azure Files](storage-files-networking-endpoints.md?tabs=azure-cli). 
 
-## <a name="install-required-software"></a>Instalar software necessário
-O portal de rede virtual Azure pode fornecer ligações VPN utilizando vários protocolos VPN, incluindo IPsec e OpenVPN. Este guia mostra como usar o IPsec e utiliza o pacote StrongSwan para fornecer o suporte no Linux. 
+## <a name="install-required-software"></a>Instalar o software necessário
+O gateway de rede virtual Azure pode fornecer ligações VPN usando vários protocolos VPN, incluindo IPsec e OpenVPN. Este guia mostra como usar o IPsec e usa o pacote strongSwan para fornecer o suporte no Linux. 
 
 > Verificado com Ubuntu 18.10.
 
@@ -40,11 +40,11 @@ installDir="/etc/"
 ```
 
 ### <a name="deploy-a-virtual-network"></a>Implementar uma rede virtual 
-Para aceder à sua partilha de ficheiros Azure e outros recursos Azure a partir de instalações através de uma VPN Ponto-a-Site, tem de criar uma rede virtual, ou VNet. A ligação VPN P2S que irá criar automaticamente é uma ponte entre a sua máquina Linux no local e esta rede virtual Azure.
+Para aceder à sua partilha de ficheiros Azure e outros recursos Azure a partir de instalações através de uma VPN Ponto-a-Local, tem de criar uma rede virtual, ou VNet. A ligação P2S VPN que irá criar automaticamente é uma ponte entre a sua máquina Linux no local e esta rede virtual Azure.
 
-O seguinte script criará uma rede virtual Azure com três subredes: uma para o ponto final de serviço da sua conta de armazenamento, uma para o ponto final privado da sua conta de armazenamento, que é necessária para aceder à conta de armazenamento no local sem criar encaminhamento personalizado para o IP público da conta de armazenamento que pode mudar, e uma para o seu portal de rede virtual que fornece o serviço VPN. 
+O seguinte script criará uma rede virtual Azure com três sub-redes: uma para o ponto final de serviço da sua conta de armazenamento, uma para o ponto final privado da sua conta de armazenamento, que é necessária para aceder à conta de armazenamento no local sem criar encaminhamento personalizado para o IP público da conta de armazenamento que pode mudar, e outro para o seu gateway de rede virtual que fornece o serviço VPN. 
 
-Lembre-se `<region>` `<resource-group>`de `<desired-vnet-name>` substituir, e com os valores apropriados para o seu ambiente.
+Lembre-se de substituir `<region>` , e com os `<resource-group>` `<desired-vnet-name>` valores apropriados para o seu ambiente.
 
 ```bash
 region="<region>"
@@ -82,7 +82,7 @@ gatewaySubnet=$(az network vnet subnet create \
 ```
 
 ## <a name="create-certificates-for-vpn-authentication"></a>Criar certificados para autenticação VPN
-Para que as ligações VPN das suas máquinas Linux no local sejam autenticadas para aceder à sua rede virtual, deve criar dois certificados: um certificado de raiz, que será fornecido ao portal da máquina virtual, e um certificado de cliente, que será assinado com o certificado raiz. O seguinte script cria os certificados necessários.
+Para que as ligações VPN das suas máquinas Linux sejam autenticadas para aceder à sua rede virtual, deve criar dois certificados: um certificado de raiz, que será fornecido ao porta de entrada da máquina virtual, e um certificado de cliente, que será assinado com o certificado raiz. O seguinte script cria os certificados necessários.
 
 ```bash
 rootCertName="P2SRootCert"
@@ -112,12 +112,14 @@ openssl pkcs12 -in "clientCert.pem" -inkey "clientKey.pem" -certfile rootCert.pe
 ```
 
 ## <a name="deploy-virtual-network-gateway"></a>Implementar gateway de rede virtual
-O portal de rede virtual Azure é o serviço a que as suas máquinas Linux no local se ligarão. A implementação deste serviço requer dois componentes básicos: um IP público que identificará a porta de entrada para os seus clientes onde quer que estejam no mundo e um certificado de raiz que criou anteriormente que será usado para autenticar os seus clientes.
+O gateway de rede virtual Azure é o serviço ao qual as suas máquinas Linux no local se irão ligar. A implementação deste serviço requer dois componentes básicos: um IP público que identificará a porta de entrada para os seus clientes onde quer que estejam no mundo e um certificado de raiz que criou anteriormente que será usado para autenticar os seus clientes.
 
-Lembre-se `<desired-vpn-name-here>` de substituir pelo nome que gostaria por estes recursos.
+Lembre-se de substituir `<desired-vpn-name-here>` pelo nome que gostaria por estes recursos.
 
 > [!Note]  
-> A implementação do portal de rede virtual Azure pode demorar até 45 minutos. Enquanto este recurso está a ser implantado, este script de guião de bash bloqueará para que a implementação seja concluída. Isto era esperado.
+> A implantação do gateway de rede virtual Azure pode demorar até 45 minutos. Enquanto este recurso está a ser implementado, este script de script bash bloqueará para a implementação ser concluída.
+>
+> As ligações P2S IKEv2/OpenVPN não são suportadas com o **SKU Básico.** Este script utiliza o **SKU VpnGw1** para o gateway de rede virtual, em conformidade.
 
 ```bash
 vpnName="<desired-vpn-name-here>"
@@ -152,7 +154,7 @@ az network vnet-gateway root-cert create \
 ```
 
 ## <a name="configure-the-vpn-client"></a>Configure o cliente VPN
-O portal de rede virtual Azure criará um pacote transferível com ficheiros de configuração necessários para inicializar a ligação VPN na sua máquina Linux no local. O seguinte script colocará os certificados que criou `ipsec.conf` no local correto e configurará o ficheiro com os valores corretos do ficheiro de configuração no pacote descarregamento.
+O gateway de rede virtual Azure criará um pacote transferível com ficheiros de configuração necessários para inicializar a ligação VPN na sua máquina Linux no local. O seguinte script colocará os certificados criados no local correto e configurará o `ipsec.conf` ficheiro com os valores corretos do ficheiro de configuração no pacote transferível.
 
 ```bash
 vpnClient=$(az network vnet-gateway vpn-client generate \
@@ -190,8 +192,8 @@ sudo ipsec restart
 sudo ipsec up $virtualNetworkName 
 ```
 
-## <a name="mount-azure-file-share"></a>Partilha de ficheiros do Monte Azure
-Agora que criou a sua VPN Point-to-Site, pode montar a sua parte de ficheiro Azure. O exemplo seguinte montará a parte sem persistentemente. Para montar persistentemente, consulte Use uma partilha de [ficheiros Azure com o Linux](storage-how-to-use-files-linux.md). 
+## <a name="mount-azure-file-share"></a>Partilha de ficheiros mount Azure
+Agora que configurar a sua VPN Ponto-a-Local, pode montar a sua partilha de ficheiros Azure. O exemplo a seguir irá montar a parte sem insistência. Para montar persistentemente, consulte [Use uma partilha de ficheiros Azure com o Linux](storage-how-to-use-files-linux.md). 
 
 ```bash
 fileShareName="myshare"
@@ -208,7 +210,7 @@ smbPath="//$storageAccountPrivateIP/$fileShareName"
 sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
 ```
 
-## <a name="see-also"></a>Consulte também
-- [Visão geral da rede Azure Files](storage-files-networking-overview.md)
+## <a name="see-also"></a>Ver também
+- [Visão geral da rede de ficheiros Azure](storage-files-networking-overview.md)
 - [Configure uma VPN ponto-a-local (P2S) no Windows para utilização com ficheiros Azure](storage-files-configure-p2s-vpn-windows.md)
 - [Configure uma VPN site-to-site (S2S) para utilização com ficheiros Azure](storage-files-configure-s2s-vpn.md)

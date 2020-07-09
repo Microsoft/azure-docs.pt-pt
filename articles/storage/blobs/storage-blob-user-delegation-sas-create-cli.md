@@ -1,49 +1,49 @@
 ---
-title: Utilize o Azure CLI para criar uma delegação de utilizadores SAS para um recipiente ou bolha
+title: Utilize o CLI Azure para criar uma delegação de utilizador SAS para um recipiente ou bolha
 titleSuffix: Azure Storage
-description: Saiba como criar uma delegação de utilizadores SAS com credenciais de Diretório Ativo Azure utilizando o Azure CLI.
+description: Saiba como criar uma delegação de utilizador SAS com credenciais de Diretório Azure Ative utilizando o Azure CLI.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/18/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: e1a81b25042501a166cee122279d21e3702cd419
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bad97f9bc9eaa3aad02dfcb5e82d2171e93f2dac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "75371994"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809020"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Criar uma delegação de utilizadores SAS para um recipiente ou bolha com o Azure CLI
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Criar uma delegação de utilizador SAS para um recipiente ou bolha com o Azure CLI
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Este artigo mostra como utilizar credenciais de Diretório Ativo Azure (Azure AD) para criar uma delegação de utilizadores SAS para um recipiente ou bolha com o Azure CLI.
+Este artigo mostra como utilizar credenciais do Azure Ative Directory (Azure AD) para criar uma delegação de utilizador SAS para um recipiente ou bolha com o CLI Azure.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
 ## <a name="install-the-latest-version-of-the-azure-cli"></a>Instalar a versão mais recente da CLI do Azure
 
-Para utilizar o Azure CLI para garantir um SAS com credenciais AD Azure, certifique-se primeiro de que instalou a versão mais recente do Azure CLI. Para obter mais informações sobre a instalação do Azure CLI, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli).
+Para utilizar o Azure CLI para garantir um SAS com credenciais AD AZure, certifique-se primeiro de que instalou a versão mais recente do Azure CLI. Para obter mais informações sobre a instalação do Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
-Para criar uma delegação de utilizadores SAS utilizando o Azure CLI, certifique-se de que instalou a versão 2.0.78 ou mais tarde. Para verificar a sua versão `az --version` instalada, utilize o comando.
+Para criar uma delegação de utilizador SAS utilizando o Azure CLI, certifique-se de que instalou a versão 2.0.78 ou posterior. Para verificar a sua versão instalada, utilize o `az --version` comando.
 
-## <a name="sign-in-with-azure-ad-credentials"></a>Inscreva-se com credenciais da AD Azure
+## <a name="sign-in-with-azure-ad-credentials"></a>Inscreva-se com credenciais AD AD Azure
 
-Inscreva-se no Azure CLI com as suas credenciais Azure AD. Para obter mais informações, veja [Iniciar sessão na CLI do Azure](/cli/azure/authenticate-azure-cli).
+Inscreva-se no Azure CLI com as suas credenciais AZure AD. Para obter mais informações, veja [Iniciar sessão na CLI do Azure](/cli/azure/authenticate-azure-cli).
 
-## <a name="assign-permissions-with-rbac"></a>Atribuir permissões com RBAC
+## <a name="assign-permissions-with-rbac"></a>Atribuir permissões com o RBAC
 
-Para criar uma delegação de utilizadores SAS da Azure PowerShell, a conta Azure AD utilizada para iniciar sessão no Azure CLI deve ser atribuída uma função que inclua a ação **Microsoft.Storage/storageAccounts/blobServices/generateUserSKey.** Esta permissão permite que a conta Azure AD solicite a chave da *delegação*do utilizador . A chave da delegação de utilizadores é utilizada para assinar a delegação de utilizadores SAS. A função que fornece a **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationAacçãoA** ação deve ser atribuída ao nível da conta de armazenamento, do grupo de recursos ou da subscrição.
+Para criar uma delegação de utilizadores SAS da Azure PowerShell, a conta Azure AD utilizada para assinar no Azure CLI deve ser atribuída a uma função que inclua a ação **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey.** Esta permissão permite que a conta Azure AD solicite a chave da *delegação*do utilizador . A chave da delegação de utilizadores é utilizada para assinar a delegação de utilizadores SAS. A função que fornece a ação **Microsoft.Storage/storageAcounts/blobServices/generateUserDelegationKey** deve ser atribuída ao nível da conta de armazenamento, do grupo de recursos ou da subscrição.
 
-Se não tiver permissões suficientes para atribuir funções RBAC a um diretor de segurança da AD Azure, poderá ter de pedir ao proprietário ou administrador da conta que atribua as permissões necessárias.
+Se não tiver permissões suficientes para atribuir funções RBAC a um responsável de segurança Azure, poderá ter de pedir ao proprietário ou administrador da conta para atribuir as permissões necessárias.
 
-O exemplo seguinte atribui a função de Contribuinte de **Dados do Blob de Armazenamento,** que inclui a ação **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey.** O papel é traçado ao nível da conta de armazenamento.
+O exemplo a seguir atribui a função **de Contribuinte de Dados blob de armazenamento,** que inclui a ação **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey.** A função é traçada ao nível da conta de armazenamento.
 
-Lembre-se de substituir os valores do espaço reservado em suportes angulares por valores próprios:
+Lembre-se de substituir os valores do espaço reservado nos suportes angulares com os seus próprios valores:
 
 ```azurecli-interactive
 az role assignment create \
@@ -52,23 +52,23 @@ az role assignment create \
     --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-Para obter mais informações sobre as funções incorporadas que incluem a **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action, consulte [as funções incorporadas para os recursos Azure](../../role-based-access-control/built-in-roles.md).
+Para obter mais informações sobre as funções incorporadas que incluem a ação **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey,** consulte [funções incorporadas para recursos Azure](../../role-based-access-control/built-in-roles.md).
 
-## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>Use credenciais Azure AD para garantir um SAS
+## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>Use credenciais AD AD para garantir um SAS
 
-Quando cria uma delegação de utilizadores SAS com o Azure CLI, a chave de delegação de utilizadores que é usada para assinar o SAS é criada para si implicitamente. O tempo de início e o tempo de validade que especifica para o SAS também são utilizados como hora de início e tempo de validade para a chave da delegação do utilizador.
+Quando cria uma delegação de utilizadores SAS com o Azure CLI, a chave da delegação do utilizador que é usada para assinar o SAS é criada implicitamente para si. O tempo de início e o prazo de validade que especifica para o SAS também são utilizados como o tempo de início e o prazo de validade para a chave da delegação do utilizador.
 
-Uma vez que o intervalo máximo sobre o qual a chave da delegação do utilizador é válido é de 7 dias a contar da data de início, deve especificar um prazo de validade para o SAS que se encontra no prazo de 7 dias após a hora de início. O SAS é inválido após o termo da chave da delegação do utilizador, pelo que um SAS com um prazo de validade superior a 7 dias ainda será válido apenas por 7 dias.
+Uma vez que o intervalo máximo sobre o qual a chave da delegação do utilizador é válida é de 7 dias a contar da data de início, deve especificar um prazo de validade para o SAS que se encontra no prazo de 7 dias a contar da hora de início. O SAS é inválido após o termo da chave da delegação do utilizador, pelo que um SAS com um prazo de validade superior a 7 dias será válido apenas por 7 dias.
 
-Ao criar uma delegação `--auth-mode login` de `--as-user parameters` utilizadores SAS, o e são necessários. Especifique `--auth-mode` o *login* para o parâmetro para que os pedidos feitos ao Armazenamento Azure sejam autorizados com as suas credenciais De AD Azure. Especifique o `--as-user` parâmetro para indicar que o SAS devolvido deve ser uma delegação de utilizadores SAS.
+Ao criar uma delegação de utilizador SAS, `--auth-mode login` o e `--as-user parameters` é necessário. Especifique o *login* para o `--auth-mode` parâmetro de modo a que os pedidos feitos ao Azure Storage sejam autorizados com as suas credenciais AD Azure. Especifique o `--as-user` parâmetro que indica que o SAS devolvido deve ser uma delegação de utilizador SAS.
 
-### <a name="create-a-user-delegation-sas-for-a-container"></a>Criar uma delegação de utilizadores SAS para um recipiente
+### <a name="create-a-user-delegation-sas-for-a-container"></a>Criar uma delegação de utilizador SAS para um recipiente
 
-Para criar uma delegação de utilizadores SAS para um recipiente com o Azure CLI, ligue para o comando [az storage container generate-sas.](/cli/azure/storage/container#az-storage-container-generate-sas)
+Para criar uma delegação de utilizador SAS para um recipiente com o CLI Azure, ligue para o [comando de confli do recipiente de armazenamento az.](/cli/azure/storage/container#az-storage-container-generate-sas)
 
-Permissões suportadas para uma delegação de utilizadores SAS num recipiente incluem Adicionar, Criar, Excluir, Lista, Ler e Escrever. As permissões podem ser especificadas com singly ou combinadas. Para obter mais informações sobre estas permissões, consulte [Criar uma delegação de utilizadores SAS](/rest/api/storageservices/create-user-delegation-sas).
+Permissões suportadas para uma delegação de utilizador SAS em um recipiente incluem Adicionar, Criar, Eliminar, Listar, Ler e Escrever. As permissões podem ser especificadas singly ou combinadas. Para obter mais informações sobre estas permissões, consulte [Criar uma delegação de utilizador SAS](/rest/api/storageservices/create-user-delegation-sas).
 
-O exemplo seguinte devolve um símbolo da delegação de utilizadores SAS para um recipiente. Lembre-se de substituir os valores do espaço reservado em parênteses por valores próprios:
+O exemplo a seguir devolve um símbolo SAS da delegação de utilizadores para um recipiente. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
 
 ```azurecli-interactive
 az storage container generate-sas \
@@ -80,19 +80,19 @@ az storage container generate-sas \
     --as-user
 ```
 
-A delegação de utilizadores SAS token devolvido será semelhante a:
+A delegação de utilizadores sas token devolvida será semelhante a:
 
 ```
 se=2019-07-27&sp=r&sv=2018-11-09&sr=c&skoid=<skoid>&sktid=<sktid>&skt=2019-07-26T18%3A01%3A22Z&ske=2019-07-27T00%3A00%3A00Z&sks=b&skv=2018-11-09&sig=<signature>
 ```
 
-### <a name="create-a-user-delegation-sas-for-a-blob"></a>Criar uma delegação de utilizadores SAS para uma bolha
+### <a name="create-a-user-delegation-sas-for-a-blob"></a>Criar uma delegação de utilizador SAS para uma bolha
 
-Para criar uma delegação de utilizadores SAS para uma bolha com o Azure CLI, ligue para o comando [az storage blob generate-sas.](/cli/azure/storage/blob#az-storage-blob-generate-sas)
+Para criar uma delegação de utilizador SAS para uma bolha com o CLI Azure, ligue para o comando [az blob de armazenamento generate-sas.](/cli/azure/storage/blob#az-storage-blob-generate-sas)
 
-Permissões suportadas para uma delegação de utilizadores SAS em uma bolha incluem Adicionar, Criar, Excluir, Ler e Escrever. As permissões podem ser especificadas com singly ou combinadas. Para obter mais informações sobre estas permissões, consulte [Criar uma delegação de utilizadores SAS](/rest/api/storageservices/create-user-delegation-sas).
+As permissões suportadas para uma delegação de utilizador SAS numa bolha incluem Adicionar, Criar, Eliminar, Ler e Escrever. As permissões podem ser especificadas singly ou combinadas. Para obter mais informações sobre estas permissões, consulte [Criar uma delegação de utilizador SAS](/rest/api/storageservices/create-user-delegation-sas).
 
-A seguinte sintaxe devolve uma delegação de utilizadores SAS para uma bolha. O exemplo especifica `--full-uri` o parâmetro, que devolve o blob URI com o token SAS anexado. Lembre-se de substituir os valores do espaço reservado em parênteses por valores próprios:
+A sintaxe que se segue devolve uma delegação de utilizador SAS para uma bolha. O exemplo especifica o `--full-uri` parâmetro, que devolve o blob URI com o símbolo SAS anexado. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
 
 ```azurecli-interactive
 az storage blob generate-sas \
@@ -106,7 +106,7 @@ az storage blob generate-sas \
     --full-uri
 ```
 
-A delegação de utilizadores que a SAS URI devolveu será semelhante a:
+A delegação de utilizadores SAS URI devolvida será semelhante a:
 
 ```
 https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-08-03&sp=rw&sv=2018-11-09&sr=b&skoid=<skoid>&sktid=<sktid>&skt=2019-08-02T2
@@ -118,9 +118,9 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 
 ## <a name="revoke-a-user-delegation-sas"></a>Revogar uma delegação de utilizadores SAS
 
-Para revogar uma delegação de utilizadores SAS do Azure CLI, ligue para a conta de armazenamento az revogar o comando [de chaves de delegação.](/cli/azure/storage/account#az-storage-account-revoke-delegation-keys) Este comando revoga todas as chaves da delegação do utilizador associadas à conta de armazenamento especificada. Quaisquer assinaturas de acesso partilhadaassociadas a essas chaves são invalidadas.
+Para revogar uma delegação de utilizadores SAS do Azure CLI, ligue para a conta de armazenamento AZ revogar o comando [de chaves de delegação.](/cli/azure/storage/account#az-storage-account-revoke-delegation-keys) Este comando revoga todas as chaves da delegação do utilizador associadas à conta de armazenamento especificada. Quaisquer assinaturas de acesso partilhada associadas a essas chaves são invalidadas.
 
-Lembre-se de substituir os valores do espaço reservado em suportes angulares por valores próprios:
+Lembre-se de substituir os valores do espaço reservado nos suportes angulares com os seus próprios valores:
 
 ```azurecli-interactive
 az storage account revoke-delegation-keys \
@@ -129,9 +129,9 @@ az storage account revoke-delegation-keys \
 ```
 
 > [!IMPORTANT]
-> Tanto a chave da delegação do utilizador como as atribuições de funções RBAC são em cache pelo Armazenamento Azure, pelo que pode haver um atraso entre quando iniciar o processo de revogação e quando uma delegação de utilizadores existente SAS se tornar inválida.
+> Tanto a chave da delegação de utilizadores como as atribuições de funções RBAC são armazenadas pela Azure Storage, pelo que pode haver um atraso entre quando inicia o processo de revogação e quando uma delegação de utilizadores existente SAS se torna inválida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma delegação de utilizadores SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)
-- [Obtenha a operação chave da delegação do utilizador](/rest/api/storageservices/get-user-delegation-key)
+- [Obtenha a operação chave da delegação de utilizadores](/rest/api/storageservices/get-user-delegation-key)

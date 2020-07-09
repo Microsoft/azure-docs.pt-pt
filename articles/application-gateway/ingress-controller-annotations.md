@@ -1,6 +1,6 @@
 ---
-title: Anotações do Controlador de Ingress ingresso gateway de aplicação
-description: Este artigo fornece documentação sobre as anotações específicas do Controlador de Ingress gateway de aplicação.
+title: Anotações do controlador de entrada de gateway de aplicação
+description: Este artigo fornece documentação sobre as anotações específicas do Controlador de Entradas de Gateway de Aplicação.
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: f54381ddcd11a2e4a24d30d812468da85b5403de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335813"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Anotações para controlador de entrada de gateway de aplicação 
 
 ## <a name="introductions"></a>Apresentações
 
-O recurso Kubernetes Ingress pode ser anotado com pares de chaves/valor arbitrários. A AGIC baseia-se em anotações para programar funcionalidades de Gateway de Aplicação, que não são configuráveis através do Ingress YAML. As anotações de ingresso são aplicadas a todos os cenários HTTP, piscinas de backend e ouvintes derivados de um recurso de ingresso.
+O recurso Kubernetes Ingress pode ser anotado com pares arbitrários de chave/valor. A AGIC baseia-se em anotações para programar funcionalidades de Gateway de Aplicação, que não são configuráveis através do INgress YAML. As anotações ingresss são aplicadas a todas as definições HTTP, piscinas de backend e ouvintes derivados de um recurso de entrada.
 
 ## <a name="list-of-supported-annotations"></a>Lista de anotações apoiadas
 
-Para que um recurso Ingress seja observado pela AGIC, `kubernetes.io/ingress.class: azure/application-gateway`deve ser **anotado** com . Só então a AGIC trabalhará com o recurso Ingress em questão.
+Para que um recurso Ingress seja observado pela AGIC, **deve ser anotado** com `kubernetes.io/ingress.class: azure/application-gateway` . Só então a AGIC trabalhará com o recurso Ingress em questão.
 
-| Chave de Anotação | Tipo de Valor | Valor Predefinido | Valores Permitidos
+| Chave de anotação | Tipo de Valor | Valor Predefinido | Valores Permitidos
 | -- | -- | -- | -- |
 | [appgw.ingress.kubernetes.io/backend-path-prefix](#backend-path-prefix) | `string` | `nil` | |
 | [appgw.ingress.kubernetes.io/ssl-redirect](#tls-redirect) | `bool` | `false` | |
@@ -37,7 +37,7 @@ Para que um recurso Ingress seja observado pela AGIC, `kubernetes.io/ingress.cla
 
 ## <a name="backend-path-prefix"></a>Prefixo do caminho de backend
 
-Esta anotação permite que o caminho de backend especificado num recurso de entrada seja reescrito com prefixo especificado nesta anotação. Isto permite que os utilizadores exponham serviços cujos pontos finais são diferentes dos nomes finais usados para expor um serviço num recurso de ingresso.
+Esta anotação permite que o caminho de backend especificado num recurso ingresso seja reescrito com prefixo especificado nesta anotação. Isto permite que os utilizadores exponham serviços cujos pontos finais são diferentes dos nomes de pontos finais usados para expor um serviço num recurso de entrada.
 
 ### <a name="usage"></a>Utilização
 
@@ -65,14 +65,14 @@ spec:
           serviceName: go-server-service
           servicePort: 80
 ```
-No exemplo acima, definimos um `go-server-ingress-bkprefix` recurso ingresso `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"` nomeado com uma anotação. A anotação indica a porta de entrada da aplicação para criar `/hello` uma `/test/`definição HTTP, que terá um prefixo de caminho para o caminho para .
+No exemplo acima, definimos um recurso ingresso nomeado `go-server-ingress-bkprefix` com uma `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"` anotação. A anotação indica a porta de entrada da aplicação para criar uma definição HTTP, que terá um prefixo de caminho para o caminho `/hello` para `/test/` .
 
 > [!NOTE] 
-> No exemplo acima, temos apenas uma regra definida. No entanto, as anotações aplicam-se a todo o recurso ingress, pelo que se um utilizador tivesse definido várias regras, o prefixo do caminho de backend seria configurado para cada um dos caminhos especificados. Assim, se um utilizador quer regras diferentes com prefixos de caminho diferentes (mesmo para o mesmo serviço) teria de definir diferentes recursos de ingresso.
+> No exemplo acima, temos apenas uma regra definida. No entanto, as anotações são aplicáveis a todo o recurso ingresso, por isso, se um utilizador tivesse definido várias regras, o prefixo do caminho de backend seria configurado para cada um dos caminhos especificados. Assim, se um utilizador quiser regras diferentes com prefixos de caminhos diferentes (mesmo para o mesmo serviço) teria de definir diferentes recursos de entrada.
 
-## <a name="tls-redirect"></a>Redirecionamento TLS
+## <a name="tls-redirect"></a>Redirecionamento de TLS
 
-O Gateway de aplicações [pode ser configurado](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) para redirecionar automaticamente OS URLs HTTP para as suas congéneres HTTPS. Quando esta anotação estiver presente e o TLS estiver corretamente configurado, o controlador Kubernetes Ingress criará uma regra de [encaminhamento com uma configuração de redirecionamento](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) e aplicará as alterações ao gateway da aplicação. O redirecionamento `301 Moved Permanently`criado será HTTP .
+O Gateway de Aplicações [pode ser configurado](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) para redirecionar automaticamente os URLs HTTP para as suas congéneres HTTPS. Quando esta anotação estiver presente e o TLS estiver devidamente configurado, o controlador Kubernetes Ingress criará uma [regra de encaminhamento com uma configuração de redireccionamento](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) e aplicará as alterações no seu Gateway de Aplicação. O redirecionamento criado será HTTP `301 Moved Permanently` .
 
 ### <a name="usage"></a>Utilização
 
@@ -105,10 +105,10 @@ spec:
           servicePort: 80
 ```
 
-## <a name="connection-draining"></a>Drenagem de Ligação
+## <a name="connection-draining"></a>Drenagem de ligação
 
 `connection-draining`: Esta anotação permite que os utilizadores especifiquem se permitem a drenagem da ligação.
-`connection-draining-timeout`: Esta anotação permite que os utilizadores especifiquem um prazo após o qual o Gateway da Aplicação irá encerrar os pedidos para o ponto final de drenagem.
+`connection-draining-timeout`: Esta anotação permite que os utilizadores especifiquem um intervalo após o qual o Application Gateway terminará os pedidos para o ponto final de retenção de drenagem.
 
 ### <a name="usage"></a>Utilização
 
@@ -139,7 +139,7 @@ spec:
           servicePort: 80
 ```
 
-## <a name="cookie-based-affinity"></a>Afinidade Baseada em Cookies
+## <a name="cookie-based-affinity"></a>Afinidade baseada em cookies
 
 Esta anotação permite especificar se permite a afinidade baseada em cookies.
 
@@ -172,7 +172,7 @@ spec:
 
 ## <a name="request-timeout"></a>Tempo Limite do Pedido
 
-Esta anotação permite especificar o prazo de pedido em segundos após o qual o Gateway da Aplicação falhará o pedido se a resposta não for recebida.
+Esta anotação permite especificar o tempo limite de pedido em segundos após o qual o Application Gateway falhará o pedido se a resposta não for recebida.
 
 ### <a name="usage"></a>Utilização
 
@@ -203,11 +203,11 @@ spec:
 
 ## <a name="use-private-ip"></a>Utilizar IP privado
 
-Esta anotação permite-nos especificar se devemos expor este ponto final em IP privado de Gateway de Aplicação.
+Esta anotação permite-nos especificar se devemos expor este ponto final no Private IP do Application Gateway.
 
 > [!NOTE]
-> * O Gateway de aplicação não suporta vários IPs na mesma porta (exemplo: 80/443). Ingress com anotação `appgw.ingress.kubernetes.io/use-private-ip: "false"` `appgw.ingress.kubernetes.io/use-private-ip: "true"` e `HTTP` outro com on fará com que a AGIC falhe na atualização do Gateway de Aplicação.
-> * Para o Application Gateway que não tem um `appgw.ingress.kubernetes.io/use-private-ip: "true"` IP privado, ingresses com será ignorado. Isto irá refletir-se nos registos do controlador `NoPrivateIP` e nos eventos de ingresso para aqueles ingressos com aviso.
+> * O Application Gateway não suporta vários IPs na mesma porta (exemplo: 80/443). A entrada com anotação `appgw.ingress.kubernetes.io/use-private-ip: "false"` e outra com on fará com que a `appgw.ingress.kubernetes.io/use-private-ip: "true"` `HTTP` AGIC falhe na atualização do Gateway de Aplicação.
+> * Para o Application Gateway que não tenha um IP privado, Ingresses com `appgw.ingress.kubernetes.io/use-private-ip: "true"` será ignorado. Isto refletir-se-á nos registos do controlador e nos eventos de entrada para aqueles que se ingressam com `NoPrivateIP` aviso.
 
 
 ### <a name="usage"></a>Utilização
@@ -235,12 +235,12 @@ spec:
           servicePort: 80
 ```
 
-## <a name="backend-protocol"></a>Protocolo de backend
+## <a name="backend-protocol"></a>Protocolo de Backend
 
-Esta anotação permite-nos especificar o protocolo que o Gateway de Aplicação deve utilizar durante a conversa com as Cápsulas. Protocolos apoiados: `http``https`
+Esta anotação permite-nos especificar o protocolo que o Application Gateway deve utilizar enquanto fala com os Pods. Protocolos apoiados: `http` ,`https`
 
 > [!NOTE]
-> * Enquanto os certificados auto-assinados são suportados no `https` Application Gateway, atualmente, a AGIC só suporta quando os Pods estão usando certificado assinado por um conhecido CA.
+> * Embora os certificados auto-assinados sejam suportados no Application Gateway, atualmente, a AGIC só suporta `https` quando os Pods estão a usar o certificado assinado por um conhecido CA.
 > * Certifique-se de que não utiliza a porta 80 com HTTPS e a porta 443 com HTTP nas Cápsulas.
 
 ### <a name="usage"></a>Utilização

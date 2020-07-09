@@ -1,112 +1,107 @@
 ---
-title: Adicione uma API a Aplicações Web Estáticas Azure com Funções Azure
-description: Inicie-se com aplicações Web estáticas Azure adicionando um API sem servidor à sua aplicação estátática usando funções Azure.
+title: Adicione uma API a Azure Static Web Apps com Funções Azure
+description: Começa com as Aplicações Web Estáticas Azure adicionando uma API sem servidor à tua aplicação web estática utilizando Funções Azure.
 services: static-web-apps
 author: manekinekko
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 05/08/2020
+ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: a6aee5c8049e03a43c547f419f6c6646617e651c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fd4f57350e97ad38c2c78aec29b1e51d775e8a02
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598459"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104117"
 ---
-# <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicione uma API à Pré-visualização de aplicações web estáticas azure com funções Azure
+# <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicione uma API a Azure Static Web Apps Preview com Funções Azure
 
-Pode adicionar APIs sem servidor estática a Aplicações Web Estáticas Azure através da integração com funções Azure. Este artigo demonstra como adicionar e implementar uma API para um site de Web Apps Estática seletiva seletiva.
-
-Para obter informações sobre como proteger as rotas da API, consulte o guia de [encaminhamento](routes.md).
+Pode adicionar APIs sem servidor a Azure Static Web Apps através da integração com as Funções Azure. Este artigo demonstra como adicionar e implementar uma API num site de Aplicações Web Estáticas Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free)
+- Conta Azure com uma subscrição ativa.
+  - Se não tiver uma conta, pode [criar uma de graça.](https://azure.microsoft.com/free)
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Extensão de funções azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para Código de Estúdio Visual
-- [Extensão do Código](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) do Estúdio Visual do Servidor Vivo.
+- [Extensão de funções Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para Código do Estúdio Visual
+- [Extensão do Código do Estúdio Visual do Servidor Ao Vivo.](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+- [Node.js](https://nodejs.org/download/) executar a app API localmente
 
-## <a name="create-a-git-repository"></a>Criar um repositório git 
+## <a name="create-a-git-repository"></a>Criar um repositório de git
 
 Os seguintes passos demonstram como criar um novo repositório e clonar os ficheiros para o seu computador.
 
-1. Navegue https://github.com/staticwebdev/vanilla-basic/generate para criar um novo repositório.
-1. Na caixa de _nome repositório,_ introduza **a minha baunilha-api.**
-1. Clique **em criar repositório a partir do modelo**.
+1. Certifique-se de que está a iniciar sessão no GitHub e, navegue https://github.com/staticwebdev/vanilla-basic/generate para criar um novo repositório.
+1. Na caixa de _nomes repositório,_ insira **o meu-baunilha-api.**
+1. Clique **em Criar repositório a partir do modelo.**
 
    :::image type="content" source="media/add-api/create-repository.png" alt-text="Criar um novo repositório a partir de baunilha-básico":::
 
-Assim que o seu projeto for criado, pode usar o Código do Estúdio Visual para clonar o repositório Git.
+Assim que o seu projeto for criado, copie o URL no seu navegador para o novo repositório. Usa este URL no Código do Estúdio Visual para clonar o repositório git.
 
-1. Pressione **f1** para abrir o comando na Paleta de Comando.
-1. Colhe o URL no _Git: Clone_ prompt, e pressione **Enter**.
+1. Prima **F1** para abrir o comando na Paleta de Comando.
+1. Cole o URL no _Git: Clone_ prompt e prima **Enter**.
 
-   :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Clone um projeto GitHub usando código de estúdio visual":::
+   :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Clone um projeto GitHub usando Código de Estúdio Visual":::
 
-   :::image type="content" source="media/add-api/github-clone-url.png" alt-text="Clone um projeto GitHub usando código de estúdio visual":::
+    Siga as instruções para selecionar um local de repositório para clonar o projeto.
 
+## <a name="create-the-api"></a>Criar a API
 
-## <a name="create-your-local-project"></a>Crie o seu projeto local
+Em seguida, você cria um projeto Azure Functions como API da aplicação. 
 
-Nesta secção, você usa o Código de Estúdio Visual para criar um projeto local de Funções Azure. Mais tarde, publica a app Funções para o Azure.
+1. Dentro do projeto _my-vanilla-api,_ crie uma sub-pasta chamada **api**.
+1. Prima **F1** para abrir a Paleta de Comando
+1. Funções do Tipo **Azure: Criar novo projeto...**
+1. **Entrada de imprensa**
+1. Escolha **Procurar**
+1. Selecione a pasta **api** como diretório para o seu espaço de trabalho do projeto
+1. Escolha **Selecionar**
 
-1. Dentro do projeto _my-vanilla-api,_ crie uma subpasta chamada **api.**
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Criar uma nova Função Azure utilizando o Código do Estúdio Visual":::
 
-   > [!NOTE]
-   > Pode dar a esta pasta qualquer nome. Este exemplo `api` utiliza. 
+1. Fornecer as seguintes informações nas instruções:
 
-2. Pressione **F1** para abrir a Paleta de Comando
-3. Funções do tipo **Azure: Criar novo projeto...**
-4. Pressione **Entrar**
-5. Escolha **Navegar**
-6. Selecione a pasta **api** como o diretório para o seu espaço de trabalho do projeto
-7. Escolha **Selecionar**
+    - _Selecione um idioma_: Escolha **JavaScript**
+    - _Selecione um modelo para a primeira função do seu projeto_: Escolha **o gatilho HTTP**
+    - _Fornecer um nome de função_: Insira **GetMessage**
+    - _Nível de autorização_: Escolha **Anónimo,** que permite a qualquer pessoa ligar para o ponto final da sua função.
+        - Para saber mais sobre os níveis de autorização, consulte [as teclas de Autorização](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys).
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Criar uma nova Função Azure usando o Código de Estúdio Visual":::
+O Visual Studio Code gera um projeto Azure Functions com uma função http desencadeada.
 
-8. Forneça as seguintes informações nas instruções:
+A sua aplicação tem agora uma estrutura de projeto semelhante ao seguinte exemplo.
 
-    - _Selecione um idioma para o seu projeto de função_: Escolha **JavaScript**
-    - _Selecione um modelo para a primeira função do seu projeto_: Escolha o **gatilho HTTP**
-    - _Fornecer um nome de função_: Type **GetMessage**
-    - _Nível de autorização_: Escolha **o Anonymous,** que permite a qualquer pessoa ligar para o seu ponto final de função.
-        - Para saber sobre os níveis de autorização, consulte [as teclas de autorização.](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys)
+```files
+├── api
+│   ├── GetMessage
+│   │   ├── function.json
+│   │   ├── index.js
+│   │   └── sample.dat
+│   ├── host.json
+│   ├── local.settings.json
+│   ├── package.json
+│   └── proxies.json
+├── index.html
+├── readme.md
+└── styles.css
+```
 
-9. Utilizando esta informação, o Visual Studio Code gera um projeto de Funções Azure com um gatilho HTTP.
-    - Pode ver os ficheiros do projeto local na janela exploradora do Visual Studio Code.
-    - Para saber mais sobre os ficheiros que são criados, consulte [ficheiros de projetos gerados](https://docs.microsoft.com/azure/azure-functions/functions-develop-vs-code#generated-project-files).
+Em seguida, mudará a `GetMessage` função para devolver uma mensagem à parte frontal.
 
-10. A sua aplicação deverá agora ter uma estrutura de projeto semelhante a este exemplo.
+1. Atualize a `GetMessage` função em _api/GetMessage/index.js_ com o seguinte código.
 
-    ```files
-    ├── api
-    │   ├── GetMessage
-    │   │   ├── function.json
-    │   │   ├── index.js
-    │   │   └── sample.dat
-    │   ├── host.json
-    │   ├── local.settings.json
-    │   ├── package.json
-    │   └── proxies.json
-    ├── index.html
-    ├── readme.md
-    └── styles.css
-    ```
-
-11. Em seguida, atualize a `GetMessage` função sob _api/GetMessage/index.js_ com o seguinte código.
-
-    ```JavaScript
+    ```javascript
     module.exports = async function (context, req) {
       context.res = {
-        body: { 
-          text: "Hello from the API" 
+        body: {
+          text: "Hello from the API"
         }
       };
     };
     ```
 
-12. Atualize a `GetMessage` configuração `api/GetMessage/function.json` com as seguintes definições.
+1. Atualize a `GetMessage` configuração em `api/GetMessage/function.json` baixo com as seguintes definições.
 
     ```json
     {
@@ -129,43 +124,45 @@ Nesta secção, você usa o Código de Estúdio Visual para criar um projeto loc
       ]
     }
     ```
-    
+
 Com as definições acima, o ponto final da API é:
 
-- Desencadeado com um pedido HTTP é feito para a função
+- Desencadeado quando um pedido HTTP é feito para a função
 - Disponível para todos os pedidos independentemente do estado de autenticação
 - Exposto através da rota _/api/mensagem_
 
-## <a name="run-the-function-locally"></a>Executar localmente a função
+## <a name="run-the-api-locally"></a>Executar a API localmente
 
-O Visual Studio Code integra-se com as [Ferramentas Core funções do Azure](https://docs.microsoft.com/azure/azure-functions/functions-run-local) para permitir que execute este projeto no seu computador de desenvolvimento local antes de publicar no Azure.
+O Código do Estúdio Visual integra-se com [as Ferramentas Core do Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-run-local) para permitir que execute este projeto no seu computador de desenvolvimento local antes de publicar para o Azure.
 
-1. Executar a função premindo **F5** para iniciar a aplicação Funções, e a saída de Ferramentas Core é exibida no painel _Terminal._
+> [!TIP]
+> Certifique-se de que tem todos os recursos listados na secção [de pré-requisitos instalados](#prerequisites) antes de prosseguir.
 
-2. Se as ferramentas core funções do Azure ainda não estiverem instaladas, **selecione Instalar** no momento da pronta.
+1. Executar a função pressionando **F5** para iniciar a aplicação Funções.
 
-    Quando as Ferramentas Core são instaladas, a sua aplicação começa no painel _Terminal._ Como parte da saída, pode ver o ponto final url da sua função desencadeada em HTTP a funcionar localmente.
+1. Se as ferramentas principais do Azure Functions ainda não estiverem instaladas, selecione **Instale** na mensagem.
 
-    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Criar uma nova Função Azure usando o Código de Estúdio Visual":::
+    As Ferramentas Core mostram a saída da aplicação de execução no painel _Terminal._ Como parte da saída, pode ver o ponto final url da sua função desencadeada por HTTP a funcionar localmente.
 
-3. Com as Ferramentas Core em execução, navegue para o seguinte URL para executar um `GET` pedido.
+    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Criar uma nova Função Azure utilizando o Código do Estúdio Visual":::
 
-   <http://localhost:7071/api/message>
+1. Com as Ferramentas Core em funcionamento, navegue para o seguinte URL para verificar se a API está a funcionar corretamente: <http://localhost:7071/api/message> .
 
-   Uma resposta é devolvida, que se parece com a seguinte no navegador:
+   A resposta no navegador deve ser semelhante ao seguinte exemplo:
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Criar uma nova Função Azure usando o Código de Estúdio Visual":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Criar uma nova Função Azure utilizando o Código do Estúdio Visual":::
 
-Depois de verificar que a função funciona corretamente, pode ligar para a API da aplicação JavaScript.
+1. **Press Shift + F5** para parar a sessão de depuragem.
 
-### <a name="call-the-api-from-the-application"></a>Ligue para a API da aplicação
+### <a name="call-the-api-from-the-application"></a>Ligue para a API a partir da aplicação
+
+Quando implementados para o Azure, os pedidos à API são automaticamente encaminhados para a app Funções para pedidos enviados para a `api` rota. Trabalhando localmente, você tem que configurar as configurações de aplicação para pedidos de procuração para a API local.
 
 [!INCLUDE [static-web-apps-local-proxy](../../includes/static-web-apps-local-proxy.md)]
 
+#### <a name="update-html-files-to-access-the-api"></a>Atualizar ficheiros HTML para aceder à API
 
-#### <a name="update-files-to-access-the-api"></a>Atualizar ficheiros para aceder à API
-
-1. Em seguida, atualize o conteúdo do ficheiro _index.html_ com o seguinte código para recolher o texto da função API e exibi-lo no ecrã:
+1. Em seguida, atualize o conteúdo do ficheiro _index.html_ com o seguinte código para obter o texto da função API e exibi-lo no ecrã:
 
    ```html
    <!DOCTYPE html>
@@ -181,7 +178,7 @@ Depois de verificar que a função funciona corretamente, pode ligar para a API 
    <body>
      <main>
        <h1>Vanilla JavaScript App</h1>
-       <p>Loading message from the API: <b id="name">...</b></p>
+       <p>Loading content from the API: <b id="name">...</b></p>
      </main>
 
      <script>
@@ -195,98 +192,84 @@ Depois de verificar que a função funciona corretamente, pode ligar para a API 
    </html>
    ```
 
-   Com as Ferramentas Core em execução, utilize a extensão do Código do Estúdio Visual [do Servidor Vivo](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para servir o ficheiro _index.html_ e abra-o no navegador. 
+1. Prima **F5** para iniciar o projeto API.
 
-2. Prima **F1** e escolha **Live Server: Abra com o Live Server**.
+1. Prima **F1** e escolha **Live Server: Abra com o Servidor Ao Vivo**.
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Criar uma nova Função Azure usando o Código de Estúdio Visual":::
+    Deve agora ver a mensagem da API na página web.
+
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Criar uma nova Função Azure utilizando o Código do Estúdio Visual":::
 
    > [!NOTE]
-   > Pode utilizar outros servidores OU proxies HTTP para servir o `index.html` ficheiro. Aceder ao `index.html` de `file:///` não funcionar.
+   > Pode utilizar outros servidores http ou proxies para servir o `index.html` ficheiro. Aceder ao `index.html` de vai não `file:///` funcionar.
+
+1. **Press Shift + F5** para parar o projeto API.
 
 ### <a name="commit-and-push-your-changes-to-github"></a>Comprometa e empurre as suas alterações para o GitHub
 
-Utilizando o Código do Estúdio Visual, comprometa e empurre as suas alterações para o repositório de git remoto.
+Utilizando o Código do Estúdio Visual, comprometa e empurre as suas alterações para o repositório remoto de git.
 
-1. Pressionando **f1** para abrir a Paleta de Comando
-1. Tipo **Git: Comprometa todos**
-1. Adicione uma mensagem de compromisso
-1. Tipo em **Git: empurre**
+1. Prima **F1** para abrir a Paleta de Comando
+1. Tipo **Git: Cometer tudo**
+1. Adicione uma mensagem de compromisso e **pressione Insira**
+1. Pressione **F1**
+1. Digite em **Git: empurre** e **pressione Insira**
 
-## <a name="create-a-static-web-app"></a>Criar uma aplicação web estática
-
-:::image type="content" source="media/add-api/create-static-app-on-azure-portal-1.png" alt-text="Criar aplicação estática no portal Azure - ecrã 1":::
+## <a name="create-a-static-web-app"></a>Crie uma aplicação web estática
 
 1. Navegue para o [portal do Azure](https://portal.azure.com)
-1. Clique em **Criar um Recurso**
-1. Pesquisa de **aplicações web estáticas**
-1. Clique em **aplicações web estáticas (pré-visualização)**
-1. Clique em **Criar**
+1. Clique **em Criar um recurso**
+1. Pesquisa por **Aplicação Web Estática**
+1. Clique **em Aplicativo Web Estático (pré-visualização)**
+1. Clique **em Criar**
+
+Em seguida, adicione as definições específicas da aplicação.
+
 1. Selecione a sua _subscrição Azure_
 1. Selecione ou crie um novo _Grupo de Recursos_
-1. Diga o nome da app **my-vanilla-api.**
-1. _Região_ selecionada mais próxima de si
+1. Nomeie a aplicação **my-vanilla-api.**
+1. Selecione _Região_ mais próxima de si
 1. Selecione o _SKU_ **gratuito**
-1. Clique no **Sign-in com** o botão GitHub e autenticar com gitHub
+1. Clique no **'Iniciar s-in' com** o botão GitHub e autense com o GitHub
 1. Selecione a sua _Organização_ Preferida
-1. Selecione **my-vanilla-api** do _Repository_ drop-down
-1. Selecione **mestre** da queda do _Branch_
-1. Clique no **seguinte: Construa >** botão para editar a configuração de construção
+1. Selecione **my-vanilla-api** do _repositório_ drop-down
+1. Selecione **mestre** do _ramo_ drop-down
+1. Clique no **Seguinte: Construa >** botão para editar a configuração de construção
 
-:::image type="content" source="media/add-api/create-static-app-on-azure-portal-2.png" alt-text="Criar aplicação estática no portal Azure - ecrã 2":::
+Em seguida, adicione os seguintes detalhes de construção.
 
-Em seguida, adicione os seguintes detalhes da construção.
-
-1. Insira **./** para a localização da _Aplicação_.
-
-1. Introduza **api** na caixa de _localização Api._
-
-   Este é o nome da pasta API criada no passo anterior.
-   
+1. **/** Insira para a localização da _App._
+1. Introduza **a Api** na caixa _de localização da Api._
 1. Limpe o valor predefinido da localização do artefacto da _App,_ deixando a caixa vazia.
-
 1. Clique em **Rever + criar**.
+1. Clique no botão **Criar**
 
-| Definição | Descrição             | Necessário |
-| -------- | ----------------------- |
-|  Localização da aplicação | A localização do código-fonte da aplicação estática | Sim |
-|  Localização Api | A localização do backend da API. Isto aponta para a pasta raiz do projeto Da App funções do Azure | Não |
-|  Localização do artefacto da aplicação | A localização da pasta de saída de construção. Algumas estruturas javaScript front-end têm um passo de construção que coloca ficheiros de produção numa pasta. Esta definição aponta para a pasta de saída de construção. | Não |
+    Uma vez que clica no botão _Criar,_ o Azure faz duas coisas. Em primeiro lugar, os serviços de nuvem subjacentes são criados para suportar a app. Em seguida, um processo de fundo começa a construir e implementar a aplicação.
 
-:::image type="content" source="media/add-api/create-static-app-on-azure-portal-3.png" alt-text="Criar aplicação estática no portal Azure - ecrã 3":::
+1. Clique no botão **'Ir a Recursos'** para o levar à página _de Visão Geral_ da aplicação web.
 
-1. Clique em **Criar**
-1. Aguarde a colocação para terminar (isto pode demorar um minuto)
-1. Navegar para`https://github.com/<YOUR_GITHUB_ACCOUNT>/my-vanilla-api/actions?query=workflow%3A"Azure+Pages+CI%2FCD"`
-1. Certifique-se de que a construção é bem sucedida
+    Como a aplicação está a ser construída em segundo plano, pode clicar no banner que contém um link para ver o estado de construção.
 
-:::image type="content" source="media/add-api/github-workflow-0.png" alt-text="Fluxo de trabalho GitHub":::
+    :::image type="content" source="media/add-api/github-action-flag.png" alt-text="Fluxo de trabalho do GitHub":::
 
-A API implantada estará disponível em `https://<STATIC_APP_NAME>.azurestaticapps.net/api/<FUNCTION_OR_ROUTE_NAME>` .
+1. Uma vez concluída a implementação, ou pode navegar para a aplicação web, clicando no link _URL_ mostrado na página _'Vista Geral'._
 
-:::image type="content" source="media/add-api/github-workflow-1.png" alt-text="Fluxo de trabalho GitHub":::
-
-Também pode encontrar o URL de aplicação do portal Azure:
-
-:::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Aceder a URL de aplicação estática do portal Azure":::
-
-Em alternativa, pode aceder diretamente à sua Web App Azure Static `https://<STATIC_APP_NAME>.azurestaticapps.net` e verificar o resultado no navegador.
+    :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Acesso url de aplicativo estático a partir do portal Azure":::
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se não quiser manter esta aplicação para posterior utilização, pode utilizar os seguintes passos para eliminar a Aplicação Web Estática Azure e os seus recursos relacionados.
+Se não quiser manter esta aplicação para posterior utilização, pode utilizar os seguintes passos para eliminar a App Web Estática Azure e os seus recursos relacionados.
 
 1. Navegue para o [portal do Azure](https://portal.azure.com)
-1. Na barra de pesquisa superior, digite **grupos de recursos**
-1. Clique **em grupos de recursos** 
+1. Na barra de pesquisa superior, tipo **grupos de recursos**
+1. Clique **em grupos de recursos**
 1. Selecione **myResourceGroup**
 1. Na página _myResourceGroup,_ certifique-se de que os recursos listados são os que pretende eliminar.
-1. **Selecione Excluir**
+1. Selecione **Eliminar**
 1. Digite **myResourceGroup** na caixa de texto
 1. Selecione **Eliminar**.
 
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Configurar as definições da aplicação](./application-settings.md)

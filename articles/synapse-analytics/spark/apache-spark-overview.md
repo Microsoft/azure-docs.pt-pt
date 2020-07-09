@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 8ca2a3d55a98f96f704999d888761ea40fc4665f
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 0a9a89b6ff3d0e2d3987d4b4281b9e4e1605475f
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140978"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476789"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>O que é Apache Spark em Azure Synapse Analytics
 
@@ -60,7 +60,7 @@ O SparkContext pode ligar-se ao gestor do cluster, que aloca recursos através d
 
 O SparkContext executa a função principal do utilizador e executa as várias operações paralelas nos nós. Em seguida, recolhe os resultados das operações. Os nós lêem e escrevem dados de e para o sistema de ficheiros. Os nóns também cache transformaram dados na memória como Conjuntos de Dados Distribuídos Resilientes (RDDs).
 
-O SparkContext liga-se à piscina Spark e é responsável pela conversão de uma aplicação num gráfico direcionado (DAG). O gráfico consiste em tarefas individuais que são executadas dentro de um processo de executor nos nós. Cada aplicação tem os seus próprios processos de executor, que permanecem em funcionamento ao longo da duração de toda a aplicação e executam tarefas em múltiplos threads.
+O SparkContext liga-se à piscina Spark e é responsável pela conversão de uma aplicação num gráfico acíclico direcionado (DAG). O gráfico consiste em tarefas individuais que são executadas dentro de um processo de executor nos nós. Cada aplicação tem os seus próprios processos de executor, que permanecem em funcionamento ao longo da duração de toda a aplicação e executam tarefas em múltiplos threads.
 
 ## <a name="apache-spark-in-synapse-analytics-use-cases"></a>Apache Spark in Synapse Analytics usa casos
 
@@ -86,7 +86,7 @@ Use os seguintes artigos para saber mais sobre Apache Spark in Synapse Analytics
 > [!NOTE]
 > Parte da documentação oficial do Apache Spark baseia-se na utilização da consola de faíscas, esta não está disponível no Azure Synapse Spark, usa o caderno ou experiências IntelliJ em vez disso
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Nesta visão geral, você obtém uma compreensão básica de Apache Spark em Azure Synapse Analytics. Avance para o próximo artigo para aprender a criar uma piscina spark em Azure Synapse Analytics:
 

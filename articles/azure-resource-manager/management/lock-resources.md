@@ -1,67 +1,69 @@
 ---
 title: Bloquear recursos para evitar alterações
-description: Impedir que os utilizadores atualizem ou abatam recursos críticos do Azure aplicando um bloqueio para todos os utilizadores e funções.
+description: Impedir que os utilizadores atualem ou apaguem recursos críticos do Azure aplicando um bloqueio para todos os utilizadores e funções.
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 2060a7ed2de4956eb15bc85fb1a905705e21f813
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 06/17/2020
+ms.openlocfilehash: 7fe735cf523758f51fd9d6751de8507b2af46737
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847672"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057590"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para prevenir alterações inesperadas
 
-Como administrador, pode precisar de bloquear uma subscrição, um grupo de recursos ou recursos, para impedir que outros utilizadores na sua organização eliminem ou modifiquem acidentalmente recursos importantes. Pode definir o nível do bloqueio para **CanNotDelete** ou **ReadOnly**. No portal, as fechaduras são chamadas **apagar** e **ler apenas** respectivamente.
+Como administrador, pode precisar de bloquear uma subscrição, um grupo de recursos ou recursos, para impedir que outros utilizadores na sua organização eliminem ou modifiquem acidentalmente recursos importantes. Pode definir o nível do bloqueio para **CanNotDelete** ou **ReadOnly**. No portal, as fechaduras são chamadas **de Delete** e **Read-only,** respectivamente.
 
-* **CanNotDelete** significa que os utilizadores autorizados ainda podem ler e modificar um recurso, mas não podem apagar o recurso. 
-* **LerApenas** significa que os utilizadores autorizados podem ler um recurso, mas não podem excluir ou atualizar o recurso. A aplicação deste bloqueio é semelhante a restringir todos os utilizadores autorizados às permissões concedidas pela função **Reader.**
+* **CanNotDelete** significa que os utilizadores autorizados ainda podem ler e modificar um recurso, mas não podem eliminar o recurso.
+* **ReadOnly** significa que os utilizadores autorizados podem ler um recurso, mas não podem eliminar ou atualizar o recurso. A aplicação deste bloqueio é semelhante a restringir todos os utilizadores autorizados às permissões concedidas pela função **Reader.**
 
-## <a name="how-locks-are-applied"></a>Como as fechaduras são aplicadas
+## <a name="how-locks-are-applied"></a>Como os bloqueios são aplicados
 
-Quando se aplica um cadeado no âmbito dos pais, todos os recursos nesse âmbito herdam o mesmo cadeado. Até os recursos que adicionas mais tarde herdam o cadeado do progenitor. O bloqueio mais restritivo da herança tem precedência.
+Quando se aplica uma fechadura no âmbito dos pais, todos os recursos dentro desse âmbito herdam a mesma fechadura. Até os recursos que adicionas mais tarde herda a fechadura do progenitor. O bloqueio mais restritivo na herança tem precedência.
 
-Ao contrário do controlo de acesso baseado em funções, pode utilizar a gestão de bloqueios para aplicar uma restrição a todos os utilizadores e a todas as funções. Para aprender a definir permissões para utilizadores e funções, consulte [o Controlo de Acesso baseado em Papel Azure](../../role-based-access-control/role-assignments-portal.md).
+Ao contrário do controlo de acesso baseado em funções, pode utilizar a gestão de bloqueios para aplicar uma restrição a todos os utilizadores e a todas as funções. Para saber mais sobre a definição de permissões para utilizadores e funções, consulte [o Controlo de Acesso baseado em funções Azure](../../role-based-access-control/role-assignments-portal.md).
 
-Os bloqueios do Resource Manager aplicam-se apenas a operações que ocorrem no painel de gestão, o que consiste em operações enviadas para `https://management.azure.com`. Os bloqueios não restringem a forma como os recursos desempenham as suas próprias funções. As alterações dos recursos são restritas, mas as operações dos recursos não o são. Por exemplo, um bloqueio De Leitura Apenas numa Base de Dados SQL impede-o de apagar ou modificar a base de dados. Não impede a criação, atualização ou eliminação dos dados na base de dados. As transações de dados são permitidas porque essas operações não são enviadas para `https://management.azure.com`.
+Os bloqueios do Resource Manager aplicam-se apenas a operações que ocorrem no painel de gestão, o que consiste em operações enviadas para `https://management.azure.com`. Os bloqueios não restringem a forma como os recursos desempenham as suas próprias funções. As alterações dos recursos são restritas, mas as operações dos recursos não o são. Por exemplo, um bloqueio ReadOnly numa Base de Dados SQL impede-o de eliminar ou modificar a base de dados. Não impede a criação, atualização ou eliminação dos dados na base de dados. As transações de dados são permitidas porque essas operações não são enviadas para `https://management.azure.com`.
 
 ## <a name="considerations-before-applying-locks"></a>Considerações antes de aplicar fechaduras
 
-A aplicação de fechaduras pode levar a resultados inesperados porque algumas operações que não parecem modificar o recurso realmente requerem ações bloqueadas pelo bloqueio. Alguns exemplos comuns das operações bloqueadas por fechaduras são:
+A aplicação de bloqueios pode levar a resultados inesperados porque algumas operações que não parecem modificar o recurso requerem realmente ações que são bloqueadas pelo bloqueio. Alguns exemplos comuns das operações que são bloqueadas por fechaduras são:
 
-* Um bloqueio apenas de leitura numa conta de **armazenamento** impede todos os utilizadores de listar as chaves. A operação de listar chaves é processada através de um pedido POST porque as chaves devolvidas estão disponíveis para operações de escrita.
+* Um bloqueio apenas de leitura numa **conta de armazenamento** impede todos os utilizadores de listar as chaves. A operação de listar chaves é processada através de um pedido POST porque as chaves devolvidas estão disponíveis para operações de escrita.
 
-* Um bloqueio apenas de leitura num recurso **do Serviço de Aplicações** impede o Visual Studio Server Explorer de apresentar ficheiros para o recurso, porque essa interação requer acesso por escrito.
+* Um bloqueio apenas de leitura num recurso do Serviço de **Aplicações** impede o Visual Studio Server Explorer de exibir ficheiros para o recurso porque essa interação requer acesso de escrita.
 
-* Um bloqueio apenas de leitura num grupo de **recursos** que contém uma **máquina virtual** impede que todos os utilizadores iniciem ou reiniciem a máquina virtual. Estas operações requerem um pedido de CORREIO.
+* Um bloqueio apenas de leitura num grupo de **recursos** que contenha uma **máquina virtual** impede todos os utilizadores de iniciar ou reiniciar a máquina virtual. Estas operações requerem um pedido de CORREIO.
 
-* Um bloqueio de leitura apenas numa **subscrição** impede o **Azure Advisor** de funcionar corretamente. O consultor não pode armazenar os resultados das suas consultas.
+* Um bloqueio não pode eliminar um grupo de **recursos** impede o Gestor de Recursos Azure de [eliminar automaticamente as implementações](../templates/deployment-history-deletions.md) na história. Se atingir 800 destacamentos na história, as suas implementações falharão.
 
-* Um bloqueio não pode excluir o grupo de **recursos** criado pelo Serviço de **Backup Azure** faz com que as cópias de segurança falhem. O serviço suporta um máximo de 18 pontos de restauro. Quando bloqueado, o serviço de reserva não consegue limpar os pontos de restauro. Para mais informações, consulte [frequentemente perguntas-Back up Azure VMs](../../backup/backup-azure-vm-backup-faq.md).
+* Um bloqueio não pode eliminar o **grupo de recursos** criado pelo **Azure Backup Service** faz com que as cópias de segurança falhem. O serviço suporta um máximo de 18 pontos de restauro. Quando bloqueado, o serviço de reserva não pode limpar pontos de restauro. Para obter mais informações, consulte [Perguntas Frequentes-Back up Azure VMs](../../backup/backup-azure-vm-backup-faq.md).
+
+* Um bloqueio de leitura numa **subscrição** impede o **Azure Advisor** de funcionar corretamente. O consultor não consegue armazenar os resultados das suas consultas.
 
 ## <a name="who-can-create-or-delete-locks"></a>Quem pode criar ou apagar fechaduras
 
-Para criar ou eliminar fechaduras de gestão, deve ter acesso `Microsoft.Authorization/*` ou `Microsoft.Authorization/locks/*` ações. Das funções incorporadas, apenas **Proprietário** e **Administrador de Acesso dos Utilizadores** têm acesso a essas ações.
+Para criar ou eliminar bloqueios de gestão, tem de ter acesso `Microsoft.Authorization/*` ou `Microsoft.Authorization/locks/*` ações. Das funções incorporadas, apenas **Proprietário** e **Administrador de Acesso dos Utilizadores** têm acesso a essas ações.
 
 ## <a name="managed-applications-and-locks"></a>Aplicações e fechaduras geridas
 
-Alguns serviços Azure, como o Azure Databricks, utilizam [aplicações geridas](../managed-applications/overview.md) para implementar o serviço. Nesse caso, o serviço cria dois grupos de recursos. Um grupo de recursos contém uma visão geral do serviço e não está bloqueado. O outro grupo de recursos contém a infraestrutura para o serviço e está bloqueado.
+Alguns serviços da Azure, como o Azure Databricks, utilizam [aplicações geridas](../managed-applications/overview.md) para implementar o serviço. Nesse caso, o serviço cria dois grupos de recursos. Um grupo de recursos contém uma visão geral do serviço e não está bloqueado. O outro grupo de recursos contém a infraestrutura para o serviço e está bloqueado.
 
-Se tentar eliminar o grupo de recursos de infraestrutura, obtém um erro afirmando que o grupo de recursos está bloqueado. Se tentar apagar o bloqueio para o grupo de recursos de infraestrutura, obtém um erro afirmando que o bloqueio não pode ser apagado porque é propriedade de uma aplicação do sistema.
+Se tentar eliminar o grupo de recursos de infraestrutura, obtém-se um erro indicando que o grupo de recursos está bloqueado. Se tentar apagar o bloqueio do grupo de recursos de infraestrutura, obtém-se um erro afirmando que o bloqueio não pode ser eliminado porque é propriedade de uma aplicação do sistema.
 
-Em vez disso, apague o serviço, que também elimina o grupo de recursos de infraestrutura.
+Em vez disso, elimine o serviço, que também elimina o grupo de recursos de infraestrutura.
 
 Para aplicações geridas, selecione o serviço que implementou.
 
-![Selecione o serviço](./media/lock-resources/select-service.png)
+![Selecione serviço](./media/lock-resources/select-service.png)
 
-Note que o serviço inclui um link para um Grupo de **Recursos Geridos**. Este grupo de recursos detém a infraestrutura e está bloqueado. Não pode ser apagado diretamente.
+Note que o serviço inclui um link para um **Grupo de Recursos Geridos**. Este grupo de recursos detém a infraestrutura e está bloqueado. Não pode ser apagado diretamente.
 
 ![Mostrar grupo gerido](./media/lock-resources/show-managed-group.png)
 
-Para eliminar tudo para o serviço, incluindo o grupo de recursos de infraestrutura bloqueado, **selecione Eliminar** para o serviço.
+Para eliminar tudo o que for para o serviço, incluindo o grupo de recursos de infraestrutura bloqueado, **selecione Delete** para o serviço.
 
-![Eliminar o serviço](./media/lock-resources/delete-service.png)
+![Apagar serviço](./media/lock-resources/delete-service.png)
 
 ## <a name="portal"></a>Portal
 
@@ -69,7 +71,7 @@ Para eliminar tudo para o serviço, incluindo o grupo de recursos de infraestrut
 
 ## <a name="template"></a>Modelo
 
-Ao utilizar um modelo de Gestor de Recursos para implementar um bloqueio, utiliza valores diferentes para o nome e tipo, dependendo do âmbito do bloqueio.
+Ao utilizar um modelo de Gestor de Recursos para implantar uma fechadura, utiliza valores diferentes para o nome e o tipo dependendo do âmbito da fechadura.
 
 Ao aplicar um bloqueio a um **recurso,** utilize os seguintes formatos:
 
@@ -81,67 +83,68 @@ Ao aplicar um bloqueio a um grupo de **recursos** ou **subscrição,** utilize o
 * nome -`{lockName}`
 * tipo -`Microsoft.Authorization/locks`
 
-O exemplo seguinte mostra um modelo que cria um plano de serviço de aplicações, um web site e um bloqueio no site. O tipo de recurso do bloqueio é o tipo de recurso do recurso para bloquear e **/fornecedores/fechaduras**. O nome do cadeado é criado concatenando o nome do recurso com **/Microsoft.Authorization/** e o nome do cadeado.
+O exemplo a seguir mostra um modelo que cria um plano de serviço de aplicações, um web site e um bloqueio no site. O tipo de recurso do bloqueio é o tipo de recurso do recurso para bloquear e **/fornecedores/fechaduras**. O nome do bloqueio é criado através da concatenação do nome do recurso com **/Microsoft.Authorization/** e o nome do bloqueio.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "hostingPlanName": {
-            "type": "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "hostingPlanName": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "siteName": "[concat('ExampleSite', uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2019-08-01",
+      "name": "[parameters('hostingPlanName')]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "tier": "Free",
+        "name": "f1",
+        "capacity": 0
+      },
+      "properties": {
+        "targetWorkerCount": 1
+      }
     },
-    "variables": {
-        "siteName": "[concat('ExampleSite', uniqueString(resourceGroup().id))]"
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2019-08-01",
+      "name": "[variables('siteName')]",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+      ],
+      "properties": {
+        "serverFarmId": "[parameters('hostingPlanName')]"
+      }
     },
-    "resources": [
-        {
-            "apiVersion": "2016-09-01",
-            "type": "Microsoft.Web/serverfarms",
-            "name": "[parameters('hostingPlanName')]",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "tier": "Free",
-                "name": "f1",
-                "capacity": 0
-            },
-            "properties": {
-                "targetWorkerCount": 1
-            }
-        },
-        {
-            "apiVersion": "2016-08-01",
-            "name": "[variables('siteName')]",
-            "type": "Microsoft.Web/sites",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
-            ],
-            "properties": {
-                "serverFarmId": "[parameters('hostingPlanName')]"
-            }
-        },
-        {
-            "type": "Microsoft.Web/sites/providers/locks",
-            "apiVersion": "2016-09-01",
-            "name": "[concat(variables('siteName'), '/Microsoft.Authorization/siteLock')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', variables('siteName'))]"
-            ],
-            "properties": {
-                "level": "CanNotDelete",
-                "notes": "Site should not be deleted."
-            }
-        }
-    ]
+    {
+      "type": "Microsoft.Web/sites/providers/locks",
+      "apiVersion": "2016-09-01",
+      "name": "[concat(variables('siteName'), '/Microsoft.Authorization/siteLock')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', variables('siteName'))]"
+      ],
+      "properties": {
+        "level": "CanNotDelete",
+        "notes": "Site should not be deleted."
+      }
+    }
+  ]
 }
 ```
 
-Para um exemplo de colocar um bloqueio num grupo de recursos, consulte Criar um grupo de [recursos e bloqueá-lo](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
+Para um exemplo de fixação de um grupo de recursos, consulte [criar um grupo de recursos e bloqueá-lo](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment).
 
 ## <a name="powershell"></a>PowerShell
-Bloqueia os recursos implantados com a Azure PowerShell utilizando o comando [New-AzResourceLock.](/powershell/module/az.resources/new-azresourcelock)
+
+Bloqueia os recursos implantados com o Azure PowerShell utilizando o comando [New-AzResourceLock.](/powershell/module/az.resources/new-azresourcelock)
 
 Para bloquear um recurso, forneça o nome do recurso, o seu tipo de recurso e o seu nome de grupo de recursos.
 
@@ -155,7 +158,7 @@ Para bloquear um grupo de recursos, forneça o nome do grupo de recursos.
 New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
-Para obter informações sobre um bloqueio, use [Get-AzResourceLock](/powershell/module/az.resources/get-azresourcelock). Para obter todas as fechaduras da sua subscrição, use:
+Para obter informações sobre um bloqueio, utilize [o Get-AzResourceLock](/powershell/module/az.resources/get-azresourcelock). Para obter todas as fechaduras da sua subscrição, utilize:
 
 ```azurepowershell-interactive
 Get-AzResourceLock
@@ -167,13 +170,13 @@ Para obter todas as fechaduras para um recurso, use:
 Get-AzResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
-Para obter todas as fechaduras para um grupo de recursos, use:
+Para obter todas as fechaduras de um grupo de recursos, utilize:
 
 ```azurepowershell-interactive
 Get-AzResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
-Para eliminar um bloqueio, utilize:
+Para eliminar uma fechadura, utilize:
 
 ```azurepowershell-interactive
 $lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
@@ -182,7 +185,7 @@ Remove-AzResourceLock -LockId $lockId
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-Bloqueia os recursos implantados com o Azure CLI utilizando o comando de criação de [bloqueio az.](/cli/azure/lock#az-lock-create)
+Bloqueia os recursos implantados com o Azure CLI utilizando o comando [de criação de bloqueio az.](/cli/azure/lock#az-lock-create)
 
 Para bloquear um recurso, forneça o nome do recurso, o seu tipo de recurso e o seu nome de grupo de recursos.
 
@@ -196,7 +199,7 @@ Para bloquear um grupo de recursos, forneça o nome do grupo de recursos.
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-Para obter informações sobre um cadeado, use a lista de [bloqueio az](/cli/azure/lock#az-lock-list). Para obter todas as fechaduras da sua subscrição, use:
+Para obter informações sobre uma fechadura, utilize [a lista de bloqueios az](/cli/azure/lock#az-lock-list). Para obter todas as fechaduras da sua subscrição, utilize:
 
 ```azurecli
 az lock list
@@ -208,13 +211,13 @@ Para obter todas as fechaduras para um recurso, use:
 az lock list --resource-group exampleresourcegroup --resource-name examplesite --namespace Microsoft.Web --resource-type sites --parent ""
 ```
 
-Para obter todas as fechaduras para um grupo de recursos, use:
+Para obter todas as fechaduras de um grupo de recursos, utilize:
 
 ```azurecli
 az lock list --resource-group exampleresourcegroup
 ```
 
-Para eliminar um bloqueio, utilize:
+Para eliminar uma fechadura, utilize:
 
 ```azurecli
 lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --resource-type Microsoft.Web/sites --resource-name examplesite --output tsv --query id)
@@ -222,25 +225,30 @@ az lock delete --ids $lockid
 ```
 
 ## <a name="rest-api"></a>API REST
-Pode bloquear os recursos implantados com a [API REST para fechaduras](https://docs.microsoft.com/rest/api/resources/managementlocks)de gestão . A API REST permite-lhe criar e eliminar fechaduras e recuperar informações sobre fechaduras existentes.
+
+Pode bloquear recursos implantados com a [API REST para bloqueios de gestão](/rest/api/resources/managementlocks). A API REST permite-lhe criar e eliminar fechaduras e recuperar informações sobre fechaduras existentes.
 
 Para criar uma fechadura, corra:
 
-    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
+```http
+PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
+```
 
-O âmbito pode ser uma subscrição, um grupo de recursos ou um recurso. O nome da fechadura é o que quiser chamar de fechadura. Para a versão api, utilize **2016-09-01**.
+O âmbito pode ser uma subscrição, grupo de recursos ou recurso. O nome do cadeado é o que quiser chamar de fechadura. Para a versão api, utilize **2016-09-01**.
 
 No pedido, inclua um objeto JSON que especifica as propriedades para o bloqueio.
 
-    {
-      "properties": {
-        "level": "CanNotDelete",
-        "notes": "Optional text notes."
-      }
-    } 
+```json
+{
+  "properties": {
+  "level": "CanNotDelete",
+  "notes": "Optional text notes."
+  }
+}
+```
 
-## <a name="next-steps"></a>Passos seguintes
-* Para aprender sobre a organização lógica dos seus recursos, consulte [Usar etiquetas para organizar os seus recursos.](tag-resources.md)
+## <a name="next-steps"></a>Próximos passos
+
+* Para aprender a organizar logicamente os seus recursos, consulte [Usando tags para organizar os seus recursos.](tag-resources.md)
 * Pode aplicar restrições e convenções em toda a sua subscrição com políticas personalizadas. Para obter mais informações, veja [What is Azure Policy?](../../governance/policy/overview.md) (O que é o Azure Policy?).
 * Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](/azure/architecture/cloud-adoption-guide/subscription-governance).
-

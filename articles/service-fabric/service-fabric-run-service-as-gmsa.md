@@ -1,39 +1,38 @@
 ---
-title: Executar um serviço azure service fabric sob uma conta gMSA
-description: Aprenda a executar um serviço como uma Conta de Serviço Gerida por grupo (gMSA) num cluster autónomo do Service Fabric Windows.
+title: Executar um serviço de tecido de serviço Azure sob uma conta gMSA
+description: Saiba como executar um serviço como uma conta de serviço gerida por grupo (gMSA) num cluster autónomo do Service Fabric Windows.
 author: dkkapur
 ms.topic: how-to
 ms.date: 03/29/2018
 ms.author: dekapur
 ms.custom: sfrev
 ms.openlocfilehash: 19343d370547cb5457f6bed70a8465187ff27102
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76988401"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Executar um serviço como uma Conta de Serviço Gerida de grupo
 
-Num cluster autónomo do Windows Server, pode executar um serviço como uma conta de *serviço gerida* por grupo (gMSA) utilizando uma política de *RunAs.*  Por predefinição, as aplicações de `Fabric.exe` Tecido de Serviço são executadas sob a conta a que o processo é executado. Executar aplicações sob contas diferentes, mesmo num ambiente partilhado, torna-as mais seguras umas das outras. Ao utilizar um gMSA, não existe senha ou senha encriptada armazenada no manifesto da aplicação.  Também pode executar um serviço como [utilizador ou grupo de Directórioactivo.](service-fabric-run-service-as-ad-user-or-group.md)
+Num cluster autónomo do Windows Server, pode executar um serviço como uma *conta de serviço gerida por grupo* (gMSA) utilizando uma política *RunAs.*  Por predefinição, as aplicações do Service Fabric são executadas sob a conta que o `Fabric.exe` processo executa. Executar aplicações em diferentes contas, mesmo num ambiente partilhado, torna-as mais seguras umas das outras. Ao utilizar um gMSA, não existe senha ou senha encriptada armazenada no manifesto da aplicação.  Também pode executar um serviço como [utilizador ou grupo ative diretório.](service-fabric-run-service-as-ad-user-or-group.md)
 
-O exemplo seguinte mostra como criar uma conta gMSA chamada *svc-Test$,* como implementar essa conta de serviço gerida para os nós do cluster, e como configurar o principal do utilizador.
+O exemplo a seguir mostra como criar uma conta gMSA chamada *svc-Test$*, como implementar essa conta de serviço gerida para os nós do cluster, e como configurar o principal utilizador.
 
 > [!NOTE]
-> A utilização de um gMSA com um cluster de tecido de serviço autónomo requer diretório ativo no seu domínio (em vez de Azure Ative Directory (Azure AD)).
+> A utilização de um gMSA com um cluster de tecido de serviço autónomo requer diretório ativo no local dentro do seu domínio (em vez de Azure Ative Directory (Azure AD)).
 
 Pré-requisitos:
 
 - O domínio precisa de uma chave de raiz KDS.
-- Deve haver pelo menos um Dc Do Windows Server 2012 (ou R2) no domínio.
+- Deve haver pelo menos um Windows Server 2012 (ou R2) DC no domínio.
 
-1. Ter um administrador de domínio ative Directy criar `New-ADServiceAccount` uma conta de serviço `PrincipalsAllowedToRetrieveManagedPassword` gerida pelo grupo utilizando o cmdlet e garantir que todos os nós de cluster de tecido de serviço. `AccountName`E `DnsHostName` `ServicePrincipalName` deve ser único.
+1. Tenha um administrador de domínio ative Directory criar uma conta de serviço gerida pelo grupo utilizando o `New-ADServiceAccount` cmdlet e certifique-se de que `PrincipalsAllowedToRetrieveManagedPassword` inclui todos os nós de cluster de Tecido de Serviço. `AccountName`E `DnsHostName` `ServicePrincipalName` deve ser único.
 
     ```powershell
     New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
     ```
 
-2. Em cada um dos nós de cluster `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`de tecido de serviço (por exemplo, instale e teste o gMSA.
+2. Em cada um dos nós de cluster de tecido de serviço (por exemplo, `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$` ), instale e teste o gMSA.
     
     ```powershell
     Add-WindowsFeature RSAT-AD-PowerShell
@@ -41,7 +40,7 @@ Pré-requisitos:
     Test-AdServiceAccount svc-Test$
     ```
 
-3. Configure o diretor do Utilizador `RunAsPolicy` e configure o de referência para o [Utilizador](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-fabric-settings#runas).
+3. Configure o Diretor do Utilizador e configuure o `RunAsPolicy` para fazer referência ao [Utilizador](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-fabric-settings#runas).
     
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -62,7 +61,7 @@ Pré-requisitos:
     ```
 
 > [!NOTE]
-> Se aplicar uma política de RunAs a um serviço e o manifesto de serviço declarar recursos de ponto final com o protocolo HTTP, deve especificar uma Política de **Acesso de Segurança**.  Para mais informações, consulte [Atribuir uma política de acesso à segurança para os pontos finais HTTP e HTTPS](service-fabric-assign-policy-to-endpoint.md).
+> Se aplicar uma política runAs a um serviço e o manifesto de serviço declarar recursos de ponto final com o protocolo HTTP, deve especificar uma **SegurançaAccessPolicy**.  Para obter mais informações, consulte [atribuir uma política de acesso à segurança para pontos finais HTTP e HTTPS](service-fabric-assign-policy-to-endpoint.md).
 >
 
 Os seguintes artigos irão guiá-lo através dos próximos passos:

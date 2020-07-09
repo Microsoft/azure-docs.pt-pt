@@ -1,23 +1,23 @@
 ---
-title: Operações da DDL no Azure Cosmos DB Cassandra API da Spark
-description: Este artigo detalha as operações do Keyspace e da tabela DDL contra a Azure Cosmos DB Cassandra API da Spark.
+title: Operações DDL em Azure Cosmos DB Cassandra API da Spark
+description: Este artigo detalha as operações de keyspace e tabela DDL contra a Azure Cosmos DB Cassandra API da Spark.
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: c0df05eff5dc84ef24e1ed5afcaf705d99f447ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30cac5894998ca2bb9c37217820e1000ed97ba5d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77622566"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260570"
 ---
-# <a name="ddl-operations-in-azure-cosmos-db-cassandra-api-from-spark"></a>Operações da DDL no Azure Cosmos DB Cassandra API da Spark
+# <a name="ddl-operations-in-azure-cosmos-db-cassandra-api-from-spark"></a>Operações DDL em Azure Cosmos DB Cassandra API da Spark
 
-Este artigo detalha as operações do Keyspace e da tabela DDL contra a Azure Cosmos DB Cassandra API da Spark.
+Este artigo detalha as operações de keyspace e tabela DDL contra a Azure Cosmos DB Cassandra API da Spark.
 
 ## <a name="cassandra-api-related-configuration"></a>Configuração relacionada com a API de Cassandra 
 
@@ -48,9 +48,9 @@ spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
 
-## <a name="keyspace-ddl-operations"></a>Operações DDL do keyspace
+## <a name="keyspace-ddl-operations"></a>Operações DDL keyspace
 
-### <a name="create-a-keyspace"></a>Criar um espaço de chave
+### <a name="create-a-keyspace"></a>Criar um espaço-chave
 
 ```scala
 //Cassandra connector instance
@@ -62,13 +62,13 @@ cdbConnector.withSessionDo(session => session.execute("CREATE KEYSPACE IF NOT EX
 
 #### <a name="validate-in-cqlsh"></a>Validar em cqlsh
 
-Execute o seguinte comando em cqlsh e você deve ver o espaço chave que criou anteriormente.
+Executar o seguinte comando em cqlsh e você deve ver o espaço-chave que criou anteriormente.
 
 ```bash
 DESCRIBE keyspaces;
 ```
 
-### <a name="drop-a-keyspace"></a>Largue um espaço de chave
+### <a name="drop-a-keyspace"></a>Deixe cair um espaço-chave
 
 ```scala
 val cdbConnector = CassandraConnector(sc)
@@ -80,14 +80,14 @@ cdbConnector.withSessionDo(session => session.execute("DROP KEYSPACE books_ks"))
 ```bash
 DESCRIBE keyspaces;
 ```
-## <a name="table-ddl-operations"></a>Operações dDL de tabela
+## <a name="table-ddl-operations"></a>Operações DDL de tabela
 
 **Considerações:**  
 
-- A entrada pode ser atribuída ao nível da tabela utilizando a declaração de criação da tabela.  
+- A produção pode ser atribuída ao nível da mesa utilizando a declaração de tabela de criação.  
 - Uma chave de partição pode armazenar 20 GB de dados.  
 - Um registo pode armazenar um máximo de 2 MB de dados.  
-- Uma gama de chaves de divisória pode armazenar várias teclas de partição.
+- Uma gama de chaves de partição pode armazenar várias chaves de partição.
 
 ### <a name="create-a-table"></a>Criar uma tabela
 
@@ -98,21 +98,21 @@ cdbConnector.withSessionDo(session => session.execute("CREATE TABLE IF NOT EXIST
 
 #### <a name="validate-in-cqlsh"></a>Validar em cqlsh
 
-Execute o seguinte comando em cqlsh e você deve ver a tabela chamada "livros: 
+Executar o seguinte comando em cqlsh e você deve ver a tabela chamada "livros: 
 
 ```bash
 USE books_ks;
 DESCRIBE books;
 ```
 
-Os valores de entrada e TTL predefinidos não são mostrados na saída do comando anterior, podendo obter estes valores a partir do portal.
+Os valores de TTL de produção e TTL previstos não são apresentados na saída do comando anterior, pode obter estes valores a partir do portal.
 
-### <a name="alter-table"></a>Alterar mesa
+### <a name="alter-table"></a>Alterar tabela
 
-Pode alterar os seguintes valores utilizando o comando da tabela de alterações:
+Pode alterar os seguintes valores utilizando o comando de tabela alter:
 
-* provisão de entrada 
-* valor tempo-a-viver
+* produção a provisionada 
+* valor tempo-a-vida
 <br>Atualmente, as alterações das colunas não são suportadas.
 
 ```scala
@@ -129,20 +129,20 @@ cdbConnector.withSessionDo(session => session.execute("DROP TABLE IF EXISTS book
 
 #### <a name="validate-in-cqlsh"></a>Validar em cqlsh
 
-Execute o seguinte comando em cqlsh e deve ver que a tabela "livros" já não está disponível:
+Executar o seguinte comando em cqlsh e você deve ver que a tabela "livros" já não está disponível:
 
 ```bash
 USE books_ks;
 DESCRIBE tables;
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Depois de criar o espaço-chave e a tabela, proceda aos seguintes artigos para operações crud e mais:
+Depois de criar o espaço-chave e a tabela, proceda aos seguintes artigos para operações CRUD e muito mais:
  
 * [Criar/inserir operações](cassandra-spark-create-ops.md)  
 * [Ler operações](cassandra-spark-read-ops.md)  
-* [Operações upsert](cassandra-spark-upsert-ops.md)  
+* [Operações de upsert](cassandra-spark-upsert-ops.md)  
 * [Eliminar operações](cassandra-spark-delete-ops.md)  
 * [Operações de agregação](cassandra-spark-aggregation-ops.md)  
-* [Operações de cópia de tabela](cassandra-spark-table-copy-ops.md)  
+* [Operações de cópia de mesa](cassandra-spark-table-copy-ops.md)  

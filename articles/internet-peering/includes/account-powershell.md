@@ -1,7 +1,7 @@
 ---
-title: incluir ficheiro
+title: ficheiro de inclusão
 titleSuffix: Azure
-description: incluir ficheiro
+description: ficheiro de inclusão
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: beffb2babefd86c2807e21e9337cba66f42fcfc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81678507"
 ---
-Antes de iniciar a configuração, instale e importe os módulos necessários. Precisa de privilégios do Administrador para instalar módulos no PowerShell.
+Antes de iniciar a configuração, instale e importe os módulos necessários. Precisa de privilégios de administrador para instalar módulos no PowerShell.
 
 1. Instale e importe o módulo Az.
     ```powershell
@@ -35,19 +35,19 @@ Antes de iniciar a configuração, instale e importe os módulos necessários. P
     ```powershell
     Connect-AzAccount
     ```
-1. Verifique as subscrições da conta e selecione a subscrição na qual pretende criar um epeering.
+1. Verifique as subscrições da conta e selecione a subscrição na qual pretende criar um espreitamento.
     ```powershell
     Get-AzSubscription
     Select-AzSubscription -SubscriptionId "subscription-id"
     ```
-1. Se ainda não tem um grupo de recursos, tem de criar um antes de criar um olhar. Pode fazê-lo executando o seguinte comando:
+1. Se ainda não tem um grupo de recursos, tem de criar um antes de criar um espreitamento. Pode fazê-lo executando o seguinte comando:
 
     ```powershell
     New-AzResourceGroup -Name "PeeringResourceGroup" -Location "Central US"
     ```
 > [!IMPORTANT]
-> Se ainda não associou o seu ASN e a sua subscrição, siga os passos em [Associate Peer ASN](../howto-subscription-association-powershell.md). Esta ação é necessária para solicitar um ressopar.
+> Se ainda não associou a sua ASN e a subscrição, siga os passos no [Associate Peer ASN](../howto-subscription-association-powershell.md). Esta ação é necessária para solicitar um espreitamento.
 
 > [!NOTE]
-> A localização de um grupo de recursos é independente do local onde escolhe configurar um peering.
+> A localização de um grupo de recursos é independente do local onde escolhe configurar um espreitamento.
 &nbsp;

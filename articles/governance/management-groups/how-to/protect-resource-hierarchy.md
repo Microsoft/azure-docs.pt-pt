@@ -1,37 +1,36 @@
 ---
 title: Como proteger a sua hierarquia de recursos - Azure Governance
-description: Aprenda a proteger a sua hierarquia de recursos com configurações de hierarquia que incluem a definição do grupo de gestão padrão.
+description: Saiba como proteger a sua hierarquia de recursos com definições de hierarquia que incluem a definição do grupo de gestão padrão.
 ms.date: 05/21/2020
 ms.topic: conceptual
 ms.openlocfilehash: 60c184d176ae62c1af525db656c56a83422cb94a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83837417"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Como proteger a sua hierarquia de recursos
 
-Os seus recursos, grupos de recursos, subscrições, grupos de gestão e inquilinos constituem colectivamente a sua hierarquia de recursos. As configurações do grupo de gestão de raízes, tais como funções rBAC personalizadas ou atribuições políticas de Política Azure, podem ter impacto em cada recurso na sua hierarquia de recursos. É importante proteger a hierarquia de recursos de mudanças que podem ter um impacto negativo em todos os recursos.
+Os seus recursos, grupos de recursos, subscrições, grupos de gestão e inquilinos constituem colectivamente a sua hierarquia de recursos. As configurações no grupo de gestão de raízes, tais como funções personalizadas de RBAC ou atribuições de políticas de Política Azure, podem ter impacto em todos os recursos da sua hierarquia de recursos. É importante proteger a hierarquia de recursos de mudanças que podem ter um impacto negativo em todos os recursos.
 
-Os grupos de gestão têm agora configurações de hierarquia que permitem ao administrador inquilino controlar estes comportamentos. Este artigo abrange cada uma das definições da hierarquia disponível e como defini-las.
+Os grupos de gestão têm agora configurações de hierarquia que permitem ao administrador do inquilino controlar estes comportamentos. Este artigo abrange cada uma das definições de hierarquia disponíveis e como defini-las.
 
-## <a name="rbac-permissions-for-hierarchy-settings"></a>Permissões RBAC para configurações de hierarquia
+## <a name="rbac-permissions-for-hierarchy-settings"></a>Permissões DO RBAC para configurações de hierarquia
 
-Configurar qualquer uma das definições da hierarquia requer as seguintes duas operações RBAC no grupo de gestão de raiz:
+A configuração de qualquer uma das definições da hierarquia requer as seguintes duas operações do RBAC no grupo de gestão de raízes:
 
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
 
-Estas operações apenas permitem que um utilizador leia e atualize as definições da hierarquia. As operações não fornecem qualquer outro acesso à hierarquia ou recursos do grupo de gestão na hierarquia. Ambas as operações estão disponíveis no administrador de **definições**de hierarquia de funções RBAC incorporado.
+Estas operações apenas permitem que um utilizador leia e atualize as definições da hierarquia. As operações não fornecem qualquer outro acesso à hierarquia do grupo de gestão ou recursos na hierarquia. Ambas as operações estão disponíveis no administrador de **definições da hierarquia da função**RBAC incorporado.
 
-## <a name="setting---default-management-group"></a>Definição - Grupo de gestão padrão
+## <a name="setting---default-management-group"></a>Definição - Grupo de gestão predefinido
 
-Por padrão, uma nova subscrição adicionada dentro de um inquilino é adicionada como membro do grupo de gestão de raiz. Se as atribuições políticas, o controlo de acesso baseado em funções (RBAC) e outras construções de governação forem atribuídas ao grupo de gestão de raízes, efetuam imediatamente estas novas subscrições. Por esta razão, muitas organizações não aplicam estas construções no grupo de gestão de raízes, mesmo que esse seja o local desejado para as atribuir. Noutros casos, é desejado um conjunto de controlos mais restritivo para novas subscrições, mas não deve ser atribuído a todas as subscrições. Esta definição suporta ambos os casos de utilização.
+Por padrão, uma nova subscrição adicionada dentro de um inquilino é adicionada como membro do grupo de gestão de raiz. Se as atribuições políticas, o controlo de acesso baseado em funções (RBAC) e outras construções de governação forem atribuídas ao grupo de gestão de raízes, elas efetuam imediatamente estas novas subscrições. Por esta razão, muitas organizações não aplicam estas construções no grupo de gestão de raízes, embora esse seja o local desejado para as atribuir. Noutros casos, é desejado um conjunto mais restritivo de controlos para novas subscrições, mas não deve ser atribuído a todas as subscrições. Esta definição suporta ambos os casos de utilização.
 
-Ao permitir que o grupo de gestão padrão para novas subscrições seja definido, as construções de governação a nível organizacional podem ser aplicadas no grupo de gestão de raiz, e um grupo de gestão separado com atribuições políticas ou atribuições RBAC mais adequadas a uma nova subscrição pode ser definido.
+Ao permitir que o grupo de gestão padrão para novas subscrições seja definido, as construções de governação a nível da organização podem ser aplicadas no grupo de gestão de raiz, e um grupo de gestão separado com atribuições políticas ou atribuições de RBAC mais adequadas a uma nova subscrição pode ser definido.
 
-Para configurar esta definição, chama-se o ponto final da API de [Definições de Hierarquia](/rest/api/resources/hierarchysettings) REST API. Para tal, utilize o seguinte formato REST API URI e body. `{rootMgID}`Substitua-a pela identificação do seu grupo de gestão de raiz e `{defaultGroupID}` com a identificação do grupo de gestão para se tornar o grupo de gestão padrão:
+Para configurar esta definição, o ponto final da API de [Definições de Hierarquia](/rest/api/resources/hierarchysettings) REST é chamado. Para tal, utilize o seguinte REST API URI e formato corporal. `{rootMgID}`Substitua-se pelo ID do seu grupo de gestão de raízes e `{defaultGroupID}` pelo ID do grupo de gestão para se tornar o grupo de gestão padrão:
 
 - URI da API REST
 
@@ -49,13 +48,13 @@ Para configurar esta definição, chama-se o ponto final da API de [Definições
   }
   ```
 
-Para definir o grupo de gestão padrão de volta ao grupo de gestão de raiz, use o mesmo ponto final e **depreite o Grupo de Gestão** padrão para um valor de `/providers/Microsoft.Management/managementGroups/{rootMgID}` .
+Para retorpar o grupo de gestão predefinido para o grupo de gestão de raiz, utilize o mesmo ponto final e desaponte o **Grupo de Gestão padrão** para um valor de `/providers/Microsoft.Management/managementGroups/{rootMgID}` .
 
 ## <a name="setting---require-authorization"></a>Definição - Exigir autorização
 
-Qualquer utilizador, por padrão, pode criar novos grupos de gestão dentro de um inquilino. Os administradores de um inquilino só podem desejar fornecer estas permissões a utilizadores específicos para manter a consistência e conformidade na hierarquia do grupo de gestão. Se ativado, um utilizador necessita da operação no grupo de gestão de `Microsoft.Management/managementGroups/write` raízes para criar novos grupos de gestão de crianças.
+Qualquer utilizador, por padrão, pode criar novos grupos de gestão dentro de um inquilino. Os administradores de um inquilino só podem desejar fornecer estas permissões a utilizadores específicos para manter a consistência e a conformidade na hierarquia do grupo de gestão. Se estiver ativado, um utilizador requer a `Microsoft.Management/managementGroups/write` operação no grupo de gestão de raízes para criar novos grupos de gestão de crianças.
 
-Para configurar esta definição, chama-se o ponto final da API de [Definições de Hierarquia](/rest/api/resources/hierarchysettings) REST API. Para tal, utilize o seguinte formato REST API URI e body. Este valor é uma _booleana,_ por isso, forneça **verdadeiroou** **falso** para o valor. Um valor **verdadeiro** permite que este método proteja a sua hierarquia de grupo de gestão:
+Para configurar esta definição, o ponto final da API de [Definições de Hierarquia](/rest/api/resources/hierarchysettings) REST é chamado. Para tal, utilize o seguinte REST API URI e formato corporal. Este valor é um _booleano,_ por isso forneça **verdadeiro** ou **falso** para o valor. Um valor **verdadeiro** permite este método de proteger a sua hierarquia do grupo de gestão:
 
 - URI da API REST
 
@@ -73,9 +72,9 @@ Para configurar esta definição, chama-se o ponto final da API de [Definições
   }
   ```
 
-Para desligar a desativação, utilize o mesmo ponto final e **defina a Criação DeAutorizações ForGroup** a um valor de **falso**.
+Para desligar a regulação, utilize o mesmo ponto final e defina **o requerer a Autenticação para oGroupCreation** a um valor de **falso**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os grupos de gestão, veja:
 

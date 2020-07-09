@@ -1,5 +1,5 @@
 ---
-title: Configuração do Pacemaker na SLES em Azure Microsoft Docs
+title: Criação do Pacemaker no SLES em Azure Microsoft Docs
 description: Configuração do Pacemaker no SUSE Linux Enterprise Server em Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/21/2020
+ms.date: 06/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 1dc5cf055e6fee72cb6d73b3c4c5c76eefb037d6
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: ed754e3f69feaf6d5415db8f71cb5c1bb65632e0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800188"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85368260"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuração do Pacemaker no SUSE Linux Enterprise Server em Azure
 
@@ -32,16 +32,16 @@ ms.locfileid: "83800188"
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
-Existem duas opções para criar um cluster Pacemaker em Azure. Pode utilizar um agente de esgrima, que trata de reiniciar um nó falhado através das APIs Azure ou pode utilizar um dispositivo SBD.
+Existem duas opções para criar um cluster Pacemaker em Azure. Pode utilizar um agente de esgrima, que se ocupa de reiniciar um nó falhado através das APIs Azure ou pode utilizar um dispositivo SBD.
 
-O dispositivo SBD requer pelo menos uma máquina virtual adicional que funciona como um servidor-alvo iSCSI e fornece um dispositivo SBD. Estes servidores-alvo iSCSI podem, no entanto, ser partilhados com outros clusters Pacemaker. A vantagem de utilizar um dispositivo SBD é uma falha mais rápida no tempo e, se estiver a utilizar dispositivos SBD no local, não requer alterações na forma como opera o cluster do pacemaker. Pode utilizar até três dispositivos SBD para um cluster Pacemaker para permitir que um dispositivo SBD fique indisponível, por exemplo durante a correção de OS do servidor-alvo iSCSI. Se pretender utilizar mais do que um dispositivo SBD por Pacemaker, certifique-se de implementar vários servidores-alvo iSCSI e ligar um SBD a cada servidor-alvo iSCSI. Recomendamos a utilização de um dispositivo SBD ou três. O Pacemaker não poderá vedar automaticamente um nó de cluster se configurar apenas dois dispositivos SBD e um deles não estiver disponível. Se pretender ser capaz de vedar quando um servidor de alvo iSCSI estiver avariado, tem de utilizar três dispositivos SBD e, portanto, três servidores-alvo iSCSI.
+O dispositivo SBD requer pelo menos uma máquina virtual adicional que funciona como um servidor alvo iSCSI e fornece um dispositivo SBD. Estes servidores-alvo iSCSI podem, no entanto, ser partilhados com outros clusters pacemaker. A vantagem de utilizar um dispositivo SBD é que, se já estiver a utilizar dispositivos SBD no local, não necessita de alterações na forma como opera o cluster do pacemaker. Pode utilizar até três dispositivos SBD para um cluster Pacemaker para permitir que um dispositivo SBD fique indisponível, por exemplo durante a correção do sistema operativo do servidor alvo do iSCSI. Se pretender utilizar mais de um dispositivo SBD por Pacemaker, certifique-se de que implementa vários servidores-alvo do iSCSI e liga um SBD a cada servidor-alvo do iSCSI. Recomendamos a utilização de um dispositivo SBD ou três. O Pacemaker não será capaz de vedar automaticamente um nó de cluster se configurar apenas dois dispositivos SBD e um deles não estiver disponível. Se quiser ser capaz de vedar quando um servidor alvo do iSCSI estiver em baixo, tem de utilizar três dispositivos SBD e, portanto, três servidores-alvo iSCSI, que é a configuração mais resistente quando se utiliza SBDs.
 
-Se não quiser investir numa máquina virtual adicional, também pode utilizar o agente Da Cerca Azure. A desvantagem é que uma falha pode demorar entre 10 a 15 minutos se uma paragem de recursos falhar ou os nós do cluster não puderem mais comunicar entre si.
+O agente da Azure Fence não necessita de implantação de máquinas virtuais adicionais.   
 
 ![Pacemaker na visão geral do SLES](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 >[!IMPORTANT]
-> Ao planear e implantar nódosos linux pacemakers e dispositivos SBD, é essencial para a fiabilidade global da configuração completa do cluster que o encaminhamento entre os VMs envolvidos e os VM(s) que hospedam os dispositivos SBD(s) não está a passar por outros dispositivos como os [NVAs](https://azure.microsoft.com/solutions/network-appliances/). Caso contrário, problemas e eventos de manutenção com a NVA podem ter um impacto negativo na estabilidade e fiabilidade da configuração geral do cluster. Para evitar tais obstáculos, não defina as regras de encaminhamento de NVAs ou regras de [encaminhamento definidas](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) pelo utilizador que encaminham o tráfego entre nós agrupados e dispositivos SBD através de NVAs e dispositivos semelhantes ao planear e implementar os nódos agrupados linux Pacemaker e dispositivos SBD. 
+> Ao planear e implantar os nós agrupados linux pacemaker e dispositivos SBD, é essencial para a fiabilidade global da configuração completa do cluster que o encaminhamento entre os VMs envolvidos e os VM(s) que hospedam os dispositivos SBD não está a passar por outros dispositivos como [os NVAs](https://azure.microsoft.com/solutions/network-appliances/). Caso contrário, problemas e eventos de manutenção com a NVA podem ter um impacto negativo na estabilidade e fiabilidade da configuração global do cluster. Para evitar tais obstáculos, não defina regras de encaminhamento de NVAs ou regras de [encaminhamento definidos](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) pelo utilizador que encaminham o tráfego entre nós agrupados e dispositivos SBD através de NVAs e dispositivos similares ao planear e implantar nós agrupados Linux Pacemaker e dispositivos SBD. 
 >
 
 ## <a name="sbd-fencing"></a>Esgrima SBD
@@ -50,11 +50,11 @@ Siga estes passos se quiser utilizar um dispositivo SBD para esgrima.
 
 ### <a name="set-up-iscsi-target-servers"></a>Configurar servidores-alvo iSCSI
 
-Primeiro é necessário criar as máquinas virtuais-alvo iSCSI. Os servidores-alvo iSCSI podem ser partilhados com vários clusters Pacemaker.
+Primeiro, é necessário criar as máquinas virtuais-alvo iSCSI. Os servidores-alvo do iSCSI podem ser partilhados com vários clusters pacemaker.
 
-1. Implemente novas SLES 12 SP1 ou máquinas virtuais superiores e ligue-as através do SSH. As máquinas não precisam de ser grandes. Um tamanho de máquina virtual como Standard_E2s_v3 ou Standard_D2s_v3 é suficiente. Certifique-se de utilizar o armazenamento Premium do disco OS.
+1. Implemente novas máquinas virtuais SLES 12 SP1 ou superiores e ligue-as através do ssh. As máquinas não precisam de ser grandes. Um tamanho de máquina virtual como Standard_E2s_v3 ou Standard_D2s_v3 é suficiente. Certifique-se de que utiliza o armazenamento Premium do disco OS.
 
-Executar os seguintes comandos em todas as **máquinas virtuais de alvo iSCSI**.
+Executar os seguintes comandos em todas as **máquinas virtuais alvo iSCSI**.
 
 1. Atualizar SLES
 
@@ -62,7 +62,7 @@ Executar os seguintes comandos em todas as **máquinas virtuais de alvo iSCSI**.
    </code></pre>
 
    > [!NOTE]
-   > Poderá ter de reiniciar o Sistema operativo depois de atualizar ou atualizar o SISTEMA. 
+   > Poderá ter de reiniciar o sistema operativo depois de atualizar ou atualizar o SISTEMA. 
 
 1. Remover pacotes
 
@@ -76,17 +76,17 @@ Executar os seguintes comandos em todas as **máquinas virtuais de alvo iSCSI**.
    <pre><code>sudo zypper install targetcli-fb dbus-1-python
    </code></pre>
 
-1. Ativar o serviço-alvo iSCSI
+1. Ativar o serviço de destino iSCSI
 
    <pre><code>sudo systemctl enable targetcli
    sudo systemctl start targetcli
    </code></pre>
 
-### <a name="create-iscsi-device-on-iscsi-target-server"></a>Criar dispositivo iSCSI no servidor-alvo iSCSI
+### <a name="create-iscsi-device-on-iscsi-target-server"></a>Criar dispositivo iSCSI no servidor alvo do iSCSI
 
-Execute os seguintes comandos em todas as **máquinas virtuais de destino iSCSI** para criar os discos iSCSI para os clusters utilizados pelos seus sistemas SAP. No exemplo seguinte, são criados dispositivos SBD para vários clusters. Mostra como usaria um servidor de alvo iSCSI para vários clusters. Os dispositivos SBD são colocados no disco OS. Certifique-se de ter espaço suficiente.
+Executar os seguintes comandos em todas as **máquinas virtuais iSCSI alvo** para criar os discos iSCSI para os clusters utilizados pelos seus sistemas SAP. No exemplo seguinte, são criados dispositivos SBD para vários clusters. Mostra como usaria um servidor-alvo iSCSI para vários clusters. Os dispositivos SBD são colocados no disco oss. Certifique-se de ter espaço suficiente.
 
-**`nfs`** é utilizado para identificar o cluster NFS, **ascsnw1** é usado para identificar o cluster ASCS de **NW1**, **dbnw1** é usado para identificar o cluster de base de dados de **NW1**, **nfs-0** e **nFs-1** são os nomes de anfitrião dos nós de cluster NFS, **nw1-xscs-0** e **nw1-xscs-1** são os nomes de anfitrião dos nós de cluster **NW1** ASCS, e **nw1-db-0** e **nw1-db-1** são os nomes de anfitriãos dos nós de cluster de base de dados. Substitua-os pelos nomes de anfitrião dos seus nós de cluster e o SID do seu sistema SAP.
+**`nfs`** é utilizado para identificar o cluster NFS, **o ascsnw1** é utilizado para identificar o cluster ASCS de **NW1**, **dbnw1** é usado para identificar o cluster de base de dados de **NW1**, **nfs-0** e **nfs-1** são os anfitriões dos nosmes de cluster NFS, **nw1-xscs-0** e **nw1-xscs-1** são os números anfitriões dos nós de cluster **NW1** ASCS, e **nw1-db-0** e **nw1-db-1** são os números hospedeiros dos nós de cluster de base de dados. Substitua-os pelos números de anfitrião dos seus nós de cluster e pelo SID do seu sistema SAP.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -178,9 +178,9 @@ o- / ...........................................................................
 
 Ligue-se ao dispositivo iSCSI que foi criado no último passo do cluster.
 Execute os seguintes comandos nos nós do novo cluster que pretende criar.
-Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, **[1]** - apenas aplicável ao nó 1 ou **[2]** - apenas aplicável ao nó 2.
+Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nós, **[1]** - apenas aplicável ao nó 1 ou **[2]** - apenas aplicáveis ao nó 2.
 
-1. **[A]** Ligar aos dispositivos iSCSI
+1. **[A]** Ligar-se aos dispositivos iSCSI
 
    Em primeiro lugar, ativar os serviços iSCSI e SBD.
 
@@ -189,22 +189,22 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    sudo systemctl enable sbd
    </code></pre>
 
-1. **[1]** Alterar o nome do iniciador no primeiro nó
+1. **[1]** Alterar o nome de iniciador no primeiro nó
 
    <pre><code>sudo vi /etc/iscsi/initiatorname.iscsi
    </code></pre>
 
-   Altere o conteúdo do ficheiro para combinar com os ACLs utilizados ao criar o dispositivo iSCSI no servidor-alvo iSCSI, por exemplo, para o servidor NFS.
+   Altere o conteúdo do ficheiro para corresponder aos ACLs utilizados ao criar o dispositivo iSCSI no servidor alvo do iSCSI, por exemplo para o servidor NFS.
 
    <pre><code>InitiatorName=<b>iqn.2006-04.nfs-0.local:nfs-0</b>
    </code></pre>
 
-1. **[2]** Alterar o nome do iniciador no segundo nó
+1. **[2]** Alterar o nome de iniciador no segundo nó
 
    <pre><code>sudo vi /etc/iscsi/initiatorname.iscsi
    </code></pre>
 
-   Altere o conteúdo do ficheiro para combinar com os ACLs utilizados ao criar o dispositivo iSCSI no servidor-alvo iSCSI
+   Altere o conteúdo do ficheiro para corresponder aos ACLs utilizados ao criar o dispositivo iSCSI no servidor alvo do iSCSI
 
    <pre><code>InitiatorName=<b>iqn.2006-04.nfs-1.local:nfs-1</b>
    </code></pre>
@@ -217,7 +217,7 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    sudo systemctl restart iscsi
    </code></pre>
 
-   Ligue os dispositivos iSCSI. No exemplo abaixo, 10.0.0.17 é o endereço IP do servidor-alvo iSCSI e 3260 é a porta predefinida. <b>iqn.2006-04.nfs.local:nfs</b> é um dos nomes-alvo que está listado quando executa o primeiro comando abaixo (iscsiadm -m descoberta).
+   Ligue os dispositivos iSCSI. No exemplo abaixo, 10.0.0.17 é o endereço IP do servidor alvo iSCSI e 3260 é a porta padrão. <b>iqn.2006-04.nfs.local:nfs</b> é um dos nomes-alvo que está listado quando você executar o primeiro comando abaixo (iscsiadm -m discovery).
 
    <pre><code>sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.17:3260</b>   
    sudo iscsiadm -m node -T <b>iqn.2006-04.nfs.local:nfs</b> --login --portal=<b>10.0.0.17:3260</b>
@@ -234,7 +234,7 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    sudo iscsiadm -m node -p <b>10.0.0.19:3260</b> --op=update --name=node.startup --value=automatic
    </code></pre>
 
-   Certifique-se de que os dispositivos iSCSI estão disponíveis e anote o nome do dispositivo (no exemplo a seguir /dev/sde)
+   Certifique-se de que os dispositivos iSCSI estão disponíveis e anota o nome do dispositivo (no seguinte exemplo /dev/sde)
 
    <pre><code>lsscsi
    
@@ -268,15 +268,15 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    # lrwxrwxrwx 1 root root  9 Aug  9 13:32 /dev/disk/by-id/scsi-SLIO-ORG_sbdnfs_f88f30e7-c968-4678-bc87-fe7bfcbdb625 -> ../../sdf
    </code></pre>
 
-   A lista de comandos de três identificações de dispositivos para cada dispositivo SBD. Recomendamos a utilização do ID que começa com o scsi-3, no exemplo acima deste é
+   A lista de comandos identifica três dispositivos para cada dispositivo SBD. Recomendamos a utilização do ID que começa com scsi-3, no exemplo acima deste é
 
-   * **/dev/disco/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03**
-   * **/dev/disco/by-id/scsi-360014053fe4da371a5a4bb69a419a4df**
-   * **/dev/disco/by-id/scsi-36001405f8f30e7c9684678bc87fe7bf**
+   * **/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03**
+   * **/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a419a4df**
+   * **/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf**
 
 1. **[1]** Criar o dispositivo SBD
 
-   Utilize o ID do dispositivo iSCSI para criar os novos dispositivos SBD no primeiro nó de cluster.
+   Utilize o ID do dispositivo dos dispositivos iSCSI para criar os novos dispositivos SBD no primeiro nó de cluster.
 
    <pre><code>sudo sbd -d <b>/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03</b> -1 60 -4 120 create
 
@@ -287,12 +287,12 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
 
 1. **[A]** Adaptar o config SBD
 
-   Abra o ficheiro de config SBD
+   Abra o ficheiro config SBD
 
    <pre><code>sudo vi /etc/sysconfig/sbd
    </code></pre>
 
-   Altere a propriedade do dispositivo SBD, ative a integração do pacemaker e altere o modo de início do SBD.
+   Altere a propriedade do dispositivo SBD, permita a integração do pacemaker e altere o modo de partida do SBD.
 
    <pre><code>[...]
    <b>SBD_DEVICE="/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf"</b>
@@ -315,14 +315,14 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
 
 ## <a name="cluster-installation"></a>Instalação de cluster
 
-Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, **[1]** - apenas aplicável ao nó 1 ou **[2]** - apenas aplicável ao nó 2.
+Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nós, **[1]** - apenas aplicável ao nó 1 ou **[2]** - apenas aplicáveis ao nó 2.
 
 1. **[A]** Atualização SLES
 
    <pre><code>sudo zypper update
    </code></pre>
 
-1. **[A]** Instalar componente, necessário para os recursos de cluster
+1. **[A]** Componente de instalação, necessário para os recursos de cluster
 
    <pre><code>sudo zypper in socat
    </code></pre>
@@ -333,13 +333,13 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    </code></pre>
 
    > [!NOTE]
-   > Verifique a versão dos agentes de recursos do pacote e certifique-se de que os requisitos mínimos da versão são cumpridos:  
+   > Verifique a versão dos agentes de recursos do pacote e certifique-se de que os requisitos mínimos de versão estão cumpridos:  
    > - Para o SLES 12 SP4/SP5, a versão deve ser pelo menos agentes de recursos-4.3.018.a7fb5035-3.30.1.  
-   > - Para o SLES 15/15 SP1, a versão deve ser pelo menos agentes de recursos-4.3.0184.6ee15eb2-4.13.1.  
+   > - Para sLES 15/15 SP1, a versão deve ser pelo menos agentes de recursos-4.3.0184.6ee15eb2-4.13.1.  
 
 1. **[A]** Configurar o sistema operativo
 
-   Em alguns casos, o Pacemaker cria muitos processos e, assim, esgota o número permitido de processos. Neste caso, um batimento cardíaco entre os nós do cluster pode falhar e levar à falha dos seus recursos. Recomendamos o aumento dos processos máximos permitidos, definindo o seguinte parâmetro.
+   Em alguns casos, o Pacemaker cria muitos processos e, assim, esgota o número permitido de processos. Nesse caso, um batimento cardíaco entre os nós do cluster pode falhar e levar ao fracasso dos seus recursos. Recomendamos o aumento dos processos máximos permitidos definindo o seguinte parâmetro.
 
    <pre><code># Edit the configuration file
    sudo vi /etc/systemd/system.conf
@@ -355,7 +355,7 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    sudo systemctl --no-pager show | grep DefaultTasksMax
    </code></pre>
 
-   Reduza o tamanho da cache suja. Para mais informações, consulte [o desempenho de Baixa escrita nos servidores SLES 11/12 com RAM grande](https://www.suse.com/support/kb/doc/?id=7010287).
+   Reduza o tamanho da cache suja. Para obter mais informações, consulte [o desempenho da gravação de Low em servidores SLES 11/12 com RAM grande](https://www.suse.com/support/kb/doc/?id=7010287).
 
    <pre><code>sudo vi /etc/sysctl.conf
 
@@ -364,12 +364,12 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    vm.dirty_background_bytes = 314572800
    </code></pre>
 
-1. **[A]** Configure cloud-netconfig-azure para cluster HA
+1. **[A]** Configurar cloud-netconfig-azure para o aglomerado HA
 
    >[!NOTE]
-   > Verifique a versão instalada do pacote **cloud-netconfig-azure** executando **informações zypper cloud-netconfig-azure**. Se a versão no seu ambiente for de 1,3 ou superior, já não é necessário suprimir a gestão das interfaces de rede pelo plugin da rede cloud. Se a versão for inferior a 1.3, sugerimos atualizar o pacote **cloud-netconfig-azure** para a versão mais recente disponível.  
+   > Verifique a versão instalada do pacote **cloud-netconfig-azure** executando **zypper info cloud-netconfig-azure**. Se a versão no seu ambiente for 1.3 ou superior, deixará de ser necessário suprimir a gestão das interfaces de rede pelo plugin da rede cloud. Se a versão for inferior a 1.3, sugerimos atualizar o pacote **cloud-netconfig-azure** para a versão mais recente disponível.  
 
-   Altere o ficheiro de configuração da interface de rede, tal como mostrado abaixo, para evitar que o plugin da rede cloud remova o endereço IP virtual (o Pacemaker deve controlar a atribuição VIP). Para mais informações, consulte [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
+   Altere o ficheiro de configuração para a interface de rede, tal como mostrado abaixo, para evitar que o plugin da rede de nuvem remove o endereço IP virtual (o Pacemaker deve controlar a atribuição VIP). Para mais informações, consulte [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
 
    <pre><code># Edit the configuration file
    sudo vi /etc/sysconfig/network/ifcfg-eth0 
@@ -413,37 +413,41 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    sudo vi /root/.ssh/authorized_keys
    </code></pre>
 
-1. **[A]** Instalar agentes da Cerca
+1. **[A]** Instale o pacote de agentes da Cerca, se utilizar o dispositivo STONITH, com base no Agente da Cerca de Azure.  
    
    <pre><code>sudo zypper install fence-agents
    </code></pre>
 
    >[!IMPORTANT]
-   > Se utilizar o Suse Linux Enterprise Server para o SAP 15, esteja ciente de que precisa de ativar módulo adicional e instalar um componente adicional, isso é pré-requisito para a utilização do Agente de Cerca seletiva Azure. Para saber mais sobre módulos e extensões SUSE ver [Módulos e Extensões explicados](https://www.suse.com/documentation/sles-15/singlehtml/art_modules/art_modules.html). Siga as instruções para instalar o Azure Python SDK. 
+   > A versão instalada dos agentes da **cerca** de pacote deve ser pelo menos **4.4.0** para beneficiar dos tempos de execução mais rápidos com o Agente da Cerca de Azure, se um conjunto de nós precisar de ser vedado. Recomendamos que atualize o pacote, se estiver a executar uma versão mais baixa.  
 
-   As seguintes instruções sobre como instalar o Azure Python SDK são aplicáveis apenas para o Suse Enterprise Server para SAP **15**.  
 
-    - Se estiver a usar a Bring-Your-Own-Subscription, siga estas instruções  
+1. **[A]** Instalar Azure Python SDK 
+   - No SLES 12 SP4 ou SLES 12 SP5
+   <pre><code>
+    # You may need to activate the Public cloud extention first
+    SUSEConnect -p sle-module-public-cloud/12/x86_64
+    sudo zypper install python-azure-mgmt-compute
+   </code></pre> 
 
-    <pre><code>
-    #Activate module PackageHub/15/x86_64
-    sudo SUSEConnect -p PackageHub/15/x86_64
-    #Install Azure Python SDK
-    sudo zypper in python3-azure-sdk
-    </code></pre>
+   - No SLES 15 e superior 
+   <pre><code>
+    # You may need to activate the Public cloud extention first. In this example the SUSEConnect command is for SLES 15 SP1
+    SUSEConnect -p sle-module-public-cloud/15.1/x86_64
+    sudo zypper install python3-azure-mgmt-compute
+   </code></pre> 
+ 
+   >[!IMPORTANT]
+   >Dependendo da sua versão e do tipo de imagem, poderá ter de ativar a extensão de nuvem pública para a sua versão OS, antes de poder instalar o Azure Python SDK.
+   >Pode verificar a extensão, executando extensões ---list do SUSEConnect.  
+   >Para alcançar os tempos de execução mais rápidos com o Agente da Cerca de Azure:
+   > - no SLES 12 SP4 ou SLES 12 SP5 instalar a versão **4.6.2** ou superior ao pacote python-azure-mgmt-compute  
+   > - no SLES 15 instalar a versão **4.6.2** ou superior do pacote python**3**-azure-mgmt-compute 
 
-     - Se estiver a utilizar a subscrição Pay-As-You-Go, siga estas instruções  
+1. **[A]** Resolução do nome do anfitrião da configuração
 
-    <pre><code>#Activate module PackageHub/15/x86_64
-    zypper ar https://download.opensuse.org/repositories/openSUSE:/Backports:/SLE-15/standard/ SLE15-PackageHub
-    #Install Azure Python SDK
-    sudo zypper in python3-azure-sdk
-    </code></pre>
-
-1. **[A]** Configuração resolução de nome de anfitrião
-
-   Pode utilizar um servidor DNS ou modificar os /etc/anfitriões em todos os nós. Este exemplo mostra como usar o ficheiro /etc/anfitriões.
-   Substitua o endereço IP e o nome de anfitrião nos seguintes comandos. O benefício de usar /etc/anfitriões é que o seu cluster se torna independente do DNS, que pode ser um único ponto de falhas também.
+   Pode utilizar um servidor DNS ou modificar os /etc/anfitriões em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
+   Substitua o endereço IP e o nome de anfitrião nos seguintes comandos. O benefício da utilização /etc/anfitriões é que o seu cluster se torna independente do DNS, o que pode ser um único ponto de falhas também.
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
@@ -456,8 +460,8 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    <b>10.0.0.7 prod-cl1-1</b>
    </code></pre>
 
-1. **[1]** Instalar cluster
-
+1. **[1]** Instalar Cluster
+- se utilizar dispositivos SBD para esgrima
    <pre><code>sudo ha-cluster-init -u
    
    # ! NTP is not configured to start at system boot.
@@ -469,7 +473,20 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    # Do you wish to configure an administration IP (y/n)? <b>n</b>
    </code></pre>
 
-1. **[2]** Adicionar nó ao cluster
+- se *não utilizar* dispositivos SBD para esgrima
+   <pre><code>sudo ha-cluster-init -u
+   
+   # ! NTP is not configured to start at system boot.
+   # Do you want to continue anyway (y/n)? <b>y</b>
+   # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
+   # Address for ring0 [10.0.0.6] <b>Press ENTER</b>
+   # Port for ring0 [5405] <b>Press ENTER</b>
+   # Do you wish to use SBD (y/n)? <b>n</b>
+   #WARNING: Not configuring SBD - STONITH will be disabled.
+   # Do you wish to configure an administration IP (y/n)? <b>n</b>
+   </code></pre>
+
+1. **[2]** Adicione nó ao cluster
 
    <pre><code>sudo ha-cluster-join
    
@@ -479,7 +496,7 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
    </code></pre>
 
-1. **[A]** Alterar a palavra-passe do hacluster para a mesma senha
+1. **[A]** Alterar a palavra-passe hacluster para a mesma senha
 
    <pre><code>sudo passwd hacluster
    </code></pre>
@@ -489,7 +506,7 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   Adicione o seguinte conteúdo arrojado ao ficheiro se os valores não estiverem lá ou diferentes. Certifique-se de que muda o token para 30000 para permitir a manutenção da conservação da Memória. Para mais informações, consulte [este artigo para Linux][virtual-machines-linux-maintenance] ou [Windows][virtual-machines-windows-maintenance].
+   Adicione o seguinte conteúdo arrojado ao ficheiro se os valores não estiverem lá ou diferentes. Certifique-se de que muda o token para 30000 para permitir a manutenção da conservação da memória. Para mais informações, consulte [este artigo para Linux][virtual-machines-linux-maintenance] ou [Windows][virtual-machines-windows-maintenance].
 
    <pre><code>[...]
      <b>token:          30000
@@ -523,88 +540,16 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    }
    </code></pre>
 
-   Em seguida, reiniciar o serviço de corosync
+   Em seguida, reinicie o serviço de corosync
 
    <pre><code>sudo service corosync restart
    </code></pre>
 
-## <a name="create-azure-fence-agent-stonith-device"></a>Crie o dispositivo STONITH agente da Cerca Azure
-
-O dispositivo STONITH utiliza um Diretor de Serviço para autorizar contra o Microsoft Azure. Siga estes passos para criar um Diretor de Serviço.
-
-1. Ir para <https://portal.azure.com>
-1. Abra a lâmina do Diretório Ativo Azure  
-   Vá à Properties e escreva a identificação do Diretório. Esta é a identificação do **inquilino.**
-1. Clique nas inscrições da App
-1. Clique em Novo Registo
-1. Insira um Nome, selecione "Contas apenas neste diretório de organização" 
-2. Selecione Tipo de Aplicação Tipo "Web", introduza um URL de inscrição (por exemplo http: \/ /localhost) e clique em Adicionar  
-   O URL de inscrição não é usado e pode ser qualquer URL válido
-1. Selecione Certificados e Segredos e, em seguida, clique em novo segredo de cliente
-1. Introduza uma descrição para uma nova tecla, selecione "Nunca expira" e clique em Adicionar
-1. Escreva o Valor. É usado como **palavra-passe** para o Diretor de Serviço
-1. Selecione Descrição geral. Escreva o ID da inscrição. É utilizado como nome de utilizador (ID de**login** nos passos abaixo) do Diretor de Assistência
-
-### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** Criar um papel personalizado para o agente da cerca
-
-O Diretor de Serviço não tem permissões para aceder aos seus recursos Azure por defeito. É necessário dar ao Diretor de Serviço permissões para iniciar e parar (desalocar) todas as máquinas virtuais do cluster. Se ainda não criou o papel personalizado, pode criá-lo usando [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-powershell#create-a-custom-role) ou [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-cli)
-
-Utilize o seguinte conteúdo para o ficheiro de entrada. É necessário adaptar o conteúdo às suas subscrições, ou seja, substituir c276fc76-9cd4-44c9-99a7-4fd71546436e e e91d47c4-76f3-4271-a796-21b4ecfe3624 com os Ids da sua subscrição. Se tiver apenas uma subscrição, remova a segunda entrada em Assalgências.
-
-```json
-{
-  "Name": "Linux Fence Agent Role",
-  "Id": null,
-  "IsCustom": true,
-  "Description": "Allows to deallocate and start virtual machines",
-  "Actions": [
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/deallocate/action",
-    "Microsoft.Compute/virtualMachines/start/action", 
-    "Microsoft.Compute/virtualMachines/powerOff/action" 
-  ],
-  "NotActions": [
-  ],
-  "AssignableScopes": [
-    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
-  ]
-}
-```
-
-### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** Atribuir o papel personalizado ao Diretor de Serviço
-
-Atribuir o papel personalizado "Função de Agente de Cerca de Linux" que foi criado no último capítulo ao Diretor de Serviço. Não use mais o papel de Proprietário!
-
-1. Ir para[https://portal.azure.com](https://portal.azure.com)
-1. Abra a lâmina de todos os recursos
-1. Selecione a máquina virtual do primeiro nó de cluster
-1. Clique no controlo de acesso (IAM)
-1. Clique em Adicionar atribuição de funções
-1. Selecione o papel "Função do Agente da Cerca de Linux"
-1. Insira o nome da aplicação que criou acima
-1. Clicar em Guardar
-
-Repita os passos acima para o segundo nó de cluster.
-
-### <a name="1-create-the-stonith-devices"></a>**[1]** Criar os dispositivos STONITH
-
-Depois de editar as permissões para as máquinas virtuais, pode configurar os dispositivos STONITH no cluster.
-
-<pre><code># replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
-sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
-
-sudo crm configure property stonith-timeout=900
-sudo crm configure property stonith-enabled=true
-</code></pre>
-
-> [!TIP]
->O Agente da Cerca Azure requer conectividade de saída para pontos finais públicos, conforme documentado, juntamente com possíveis soluções, na [conectividade de ponto final público para VMs usando o ILB padrão](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
-
 ## <a name="default-pacemaker-configuration-for-sbd"></a>Configuração padrão do Pacemaker para SBD
 
-1. **[1]** Ativar a utilização de um dispositivo STONITH e definir o atraso da vedação
+A configuração nesta secção só é aplicável se utilizar o SBD STONITH.  
+
+1. **[1]** Permitir a utilização de um dispositivo STONITH e definir o atraso da vedação
 
 <pre><code>sudo crm configure property stonith-timeout=144
 sudo crm configure property stonith-enabled=true
@@ -618,11 +563,97 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
    op monitor interval="15" timeout="15"
 </code></pre>
 
-## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Configuração do pacemaker para eventos agendados do Azure
+## <a name="create-azure-fence-agent-stonith-device"></a>Criar dispositivo STONITH agente da cerca Azure
 
-O Azure oferece [eventos agendados.](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events) Os eventos agendados são fornecidos através do serviço de metadados e permitem que a aplicação se prepare para eventos como encerramento de VM, reimplantação vm, etc. Monitores **[de eventos azure do](https://github.com/ClusterLabs/resource-agents/pull/1161)** agente de recursos para eventos azure agendados. Se os eventos forem detetados, o agente tentará parar todos os recursos no VM impactado e movê-los para outro nó no cluster. Para alcançar esses recursos adicionais do Pacemaker deve ser configurado. 
+Esta secção da documentação só é aplicável, se utilizar o STONITH, com base no agente da Cerca de Azure.
+O dispositivo STONITH utiliza um Diretor de Serviço para autorizar contra o Microsoft Azure. Siga estes passos para criar um Diretor de Serviço.
 
-1. **[A]** **Certifique-se** de que o pacote para o agente de eventos azul já está instalado e atualizado. 
+1. Ir para <https://portal.azure.com>
+1. Abra a lâmina do Diretório Ativo Azure  
+   Vá ao Properties e escreva o ID do Diretório. Esta é a identificação do **inquilino.**
+1. Clique nos registos da App
+1. Clique em Novo Registo
+1. Insira um Nome, selecione "Contas apenas neste diretório de organização" 
+2. Selecione o Tipo de Aplicação "Web", introduza um URL de entrada de sinal (por exemplo http: \/ /localhost) e clique em Adicionar  
+   O URL de inscrição não é usado e pode ser qualquer URL válido
+1. Selecione Certificados e Segredos e, em seguida, clique em Novo segredo de cliente
+1. Introduza uma descrição para uma nova chave, selecione "Nunca expira" e clique em Adicionar
+1. Anota o Valor. É usado como **a palavra-passe** para o diretor de serviço
+1. Selecione Descrição geral. Escreva o ID da aplicação. É usado como nome de utilizador **(ID de login** nos passos abaixo) do Diretor de Serviço
+
+### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** Criar um papel personalizado para o agente da cerca
+
+O Diretor de Serviço não tem permissões para aceder aos seus recursos Azure por defeito. Você precisa dar ao Service Principal permissões para iniciar e parar (deallocate) todas as máquinas virtuais do cluster. Se ainda não criou o papel personalizado, pode criá-lo utilizando [o PowerShell](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-powershell#create-a-custom-role) ou [o Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-cli)
+
+Utilize o seguinte conteúdo para o ficheiro de entrada. É necessário adaptar o conteúdo às suas subscrições, ou seja, substituir c276fc76-9cd4-44c9-99a7-4fd71546436e e e91d47c4-76f3-4271-a796-21b4ecfe3624 com os IDs da sua assinatura. Se tiver apenas uma subscrição, remova a segunda entrada em 'AtribuableScopes'.
+
+```json
+{
+    "properties": {
+        "roleName": "Linux Fence Agent Role",
+        "description": "Allows to power-off and start virtual machines",
+        "assignableScopes": [
+            "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
+            "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Compute/*/read",
+                    "Microsoft.Compute/virtualMachines/powerOff/action",
+                    "Microsoft.Compute/virtualMachines/start/action"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
+### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** Atribuir o papel personalizado ao Diretor de Serviços
+
+Atribua o papel personalizado "Linux Fence Agent Role" que foi criado no último capítulo ao Diretor de Serviço. Não use mais o papel de Proprietário!
+
+1. Ir para[https://portal.azure.com](https://portal.azure.com)
+1. Abra a lâmina de todos os recursos
+1. Selecione a máquina virtual do primeiro nó de cluster
+1. Clique no controlo de acesso (IAM)
+1. Clique em Adicionar atribuição de função
+1. Selecione o papel "Linux Fence Agent Role"
+1. Insira o nome da aplicação que criou acima
+1. Clicar em Guardar
+
+Repita os passos acima para o segundo nó de cluster.
+
+### <a name="1-create-the-stonith-devices"></a>**[1]** Criar os dispositivos STONITH
+
+Depois de editar as permissões para as máquinas virtuais, pode configurar os dispositivos STONITH no cluster.
+
+<pre><code>sudo crm configure property stonith-enabled=true
+crm configure property concurrent-fencing=true
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
+sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
+  params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>" \
+  pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 \ 
+  op monitor interval=3600 timeout=120
+
+sudo crm configure property stonith-timeout=900
+
+</code></pre>
+
+> [!IMPORTANT]
+> As operações de monitorização e esgrima são des serializadas. Como resultado, se houver uma operação de monitorização mais longa e evento de esgrima simultânea, não há atrasos no cluster failover, devido à operação de monitorização já em funcionamento.
+
+> [!TIP]
+>O Agente de Cercas Azure requer conectividade de saída para pontos finais públicos como documentado, juntamente com possíveis soluções, na [conectividade de ponto final público para VMs utilizando iLB padrão](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+
+## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Configuração de Pacemaker para eventos agendados do Azure
+
+A Azure oferece [eventos agendados.](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events) Os eventos regulares são fornecidos através do serviço de meta-dados e permitem tempo para a aplicação se preparar para eventos como encerramento de VM, redistribuição de VM, etc. O agente de recursos **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitores para eventos Azure programados. Se os eventos forem detetados, o agente tentará parar todos os recursos no VM impactado e movê-los para outro nó no cluster. Para conseguir esse tal, é necessário configurar os recursos adicionais do Pacemaker. 
+
+1. **[A]** Certifique-se de que o pacote para o agente **de eventos azure** já está instalado e atualizado. 
 
 <pre><code>sudo zypper info resource-agents
 </code></pre>
@@ -642,17 +673,17 @@ sudo crm configure property maintenance-mode=false
 </code></pre>
 
    > [!NOTE]
-   > Depois de configurar os recursos do Pacemaker para o agente de eventos azuis, quando colocar o cluster dentro ou fora do modo de manutenção, poderá receber mensagens de aviso como:  
-     AVISO: cib-bootstrap-options: atributo desconhecido 'hostName_ nome de <strong>anfitrião'</strong>  
-     AVISO: cib-bootstrap-options: atributo desconhecido 'azure-events_globalPullState'  
-     AVISO: cib-bootstrap-options: atributo desconhecido 'hostName_ nome de <strong>anfitrião'</strong>  
+   > Depois de configurar os recursos do Pacemaker para agente de eventos azure, quando colocar o cluster dentro ou fora do modo de manutenção, poderá receber mensagens de aviso como:  
+     AVISO: opções cib-bootstrap: atributo desconhecido 'hostName_ <strong>nome de anfitrião'</strong>  
+     AVISO: opções cib-bootstrap: atributo desconhecido 'azure-events_globalPullState'  
+     AVISO: opções cib-bootstrap: atributo desconhecido 'hostName_ <strong>nome de anfitrião'</strong>  
    > Estas mensagens de aviso podem ser ignoradas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Planeamento e implementação de Máquinas Virtuais Azure para SAP][planning-guide]
-* [Implantação de Máquinas Virtuais Azure para SAP][deployment-guide]
-* [Implantação de DBMS de Máquinas Virtuais Azure para SAP][dbms-guide]
+* [Azure Virtual Machines planejamento e implementação para SAP][planning-guide]
+* [Implantação de máquinas virtuais Azure para SAP][deployment-guide]
+* [Implantação DBMS de máquinas virtuais Azure para SAP][dbms-guide]
 * [Alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server][sles-nfs-guide]
 * [Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP][sles-guide]
-* Para aprender como estabelecer alta disponibilidade e plano para a recuperação de desastres de SAP HANA em VMs Azure, consulte [Alta Disponibilidade de SAP HANA em Máquinas Virtuais Azure (VMs)][sap-hana-ha]
+* Para aprender a estabelecer uma elevada disponibilidade e plano para a recuperação de desastres da SAP HANA em VMs Azure, consulte [Alta Disponibilidade de SAP HANA em Máquinas Virtuais Azure (VMs)][sap-hana-ha]

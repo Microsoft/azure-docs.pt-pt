@@ -12,20 +12,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/17/2020
+ms.date: 07/07/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 00de9c803ef796eda8da609a4009e0a8cfcb3664
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1b1cf72a75349c420e2d789b435e049ab824446
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79455372"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054411"
 ---
 # <a name="registration-management"></a>Gestão de registos
 
-Este tópico explica como registar dispositivos com centros de notificação para receber notificações push. O tópico descreve as inscrições a um nível elevado, introduzindo depois os dois principais padrões de registo de dispositivos: registar-se diretamente do dispositivo para o centro de notificação e registar através de um backend de aplicação.
+Este tópico explica como registar dispositivos com centros de notificação para receber notificações push. O tópico descreve as inscrições a um nível elevado, introduzindo depois os dois principais padrões de registo dos dispositivos: registar-se do dispositivo diretamente para o centro de notificação e registar-se através de um backend de aplicação.
 
 ## <a name="what-is-device-registration"></a>O que é o registo do dispositivo
 
@@ -33,22 +33,22 @@ O registo do dispositivo com um Centro de Notificação é realizado através de
 
 ### <a name="registrations"></a>Registos
 
-Um registo associa o cabo do Serviço de Notificação da Plataforma (PNS) para um dispositivo com etiquetas e possivelmente um modelo. O cabo PNS pode ser um ChannelURI, um token do dispositivo ou identificação de registo da FCM. As etiquetas são utilizadas para encaminhar notificações para o conjunto correto de pegas do dispositivo. Para mais informações, consulte [Routing e Tag Expressions](notification-hubs-tags-segment-push-message.md). Os modelos são usados para implementar a transformação por registo. Para obter mais informações, veja [Templates](notification-hubs-templates-cross-platform-push-messages.md) (Modelos).
+Um registo associa o serviço de notificação da plataforma (PNS) para um dispositivo com etiquetas e possivelmente um modelo. O cabo PNS pode ser um ChannelURI, um símbolo do dispositivo ou um ID de registo FCM. As etiquetas são utilizadas para encaminhar notificações para o conjunto correto de alças do dispositivo. Para obter mais informações, consulte [Expressões de Encaminhamento e Etiquetagem](notification-hubs-tags-segment-push-message.md). Os modelos são usados para implementar a transformação por registo. Para obter mais informações, veja [Templates](notification-hubs-templates-cross-platform-push-messages.md) (Modelos).
 
 > [!NOTE]
 > O Azure Notification Hubs suporta um máximo de 60 tags por dispositivo.
 
 ### <a name="installations"></a>Instalações
 
-Uma Instalação é um registo reforçado que inclui um saco de propriedades relacionadas com o impulso. É a mais recente e melhor abordagem para registar os seus dispositivos. No entanto, ainda não é suportado pelo lado do cliente .NET SDK ([Notification Hub SDK para operações de backend).](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)  Isto significa que, se estiver a registar-se a partir do próprio dispositivo cliente, terá de utilizar a abordagem API DO [REST Hubs](/rest/api/notificationhubs/create-overwrite-installation) de Notificação para apoiar as instalações. Se estiver a utilizar um serviço de backend, deverá poder utilizar o [Notification Hub SDK para operações de backend](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Uma Instalação é um registo melhorado que inclui um saco de propriedades relacionadas com o push. É a mais recente e melhor abordagem para registar os seus dispositivos. No entanto, ainda não é suportado pelo lado do cliente .NET SDK ( Centro de[Notificação SDK para operações](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)de backend ).  Isto significa que, se estiver a registar-se a partir do próprio dispositivo cliente, terá de utilizar a abordagem [API do Centro](/rest/api/notificationhubs/create-overwrite-installation) de Notificações REST para suportar instalações. Se estiver a utilizar um serviço de backend, deverá poder utilizar [o Hub SDK de notificação para operações de backend](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 Seguem-se algumas vantagens fundamentais para a utilização de instalações:
 
-- Criar ou atualizar uma instalação é totalmente impotente. Para que possa voltar a experimentá-lo sem qualquer preocupação com as inscrições duplicadas.
-- O modelo de instalação suporta`$InstallationId:{INSTALLATION_ID}`um formato de etiqueta especial que permite enviar uma notificação diretamente para o dispositivo específico. Por exemplo, se o código da aplicação `joe93developer` definir um ID de instalação para este dispositivo `$InstallationId:{joe93developer}` em particular, um desenvolvedor pode direcionar este dispositivo ao enviar uma notificação para a etiqueta. Isto permite-lhe direcionar um dispositivo específico sem ter de fazer qualquer codificação adicional.
-- A utilização de instalações também permite fazer atualizações parciais de registo. A atualização parcial de uma instalação é solicitada com um método PATCH utilizando a [norma JSON-Patch](https://tools.ietf.org/html/rfc6902). Isto é útil quando pretende atualizar as etiquetas no registo. Não precisa retirar todo o registo e depois reenviar todas as etiquetas anteriores novamente.
+- A criação ou atualização de uma instalação é totalmente idempotente. Assim, pode voltar a tentar sem qualquer preocupação com as inscrições duplicadas.
+- O modelo de instalação suporta um formato de marcação especial `$InstallationId:{INSTALLATION_ID}` ( ) que permite enviar uma notificação diretamente para o dispositivo específico. Por exemplo, se o código da aplicação definir um ID de instalação `joe93developer` para este dispositivo em particular, um desenvolvedor pode direcionar este dispositivo ao enviar uma notificação para a `$InstallationId:{joe93developer}` etiqueta. Isto permite-lhe direcionar um dispositivo específico sem ter de fazer qualquer codificação adicional.
+- A utilização de instalações também permite fazer atualizações parciais de registo. Solicita-se a atualização parcial de uma instalação com um método PATCH utilizando a [norma JSON-Patch](https://tools.ietf.org/html/rfc6902). Isto é útil quando pretende atualizar as etiquetas no registo. Não tens de retirar todo o registo e reencamender todas as etiquetas anteriores outra vez.
 
-Uma instalação pode conter as seguintes propriedades. Para obter uma listagem completa das propriedades de instalação, consulte [Criar ou substituir uma Instalação com propriedades](/rest/api/notificationhubs/create-overwrite-installation) REST API ou [Instalação](/dotnet/api/microsoft.azure.notificationhubs.installation).
+Uma instalação pode conter as seguintes propriedades. Para obter uma listagem completa das propriedades de instalação, consulte [Criar ou Substituir uma Instalação com API REST](/rest/api/notificationhubs/create-overwrite-installation) ou Propriedades de [Instalação.](/dotnet/api/microsoft.azure.notificationhubs.installation)
 
 ```json
 // Example installation format to show some supported properties
@@ -87,43 +87,43 @@ Uma instalação pode conter as seguintes propriedades. Para obter uma listagem 
 ```
 
 > [!NOTE]
-> Por defeito, as inscrições e instalações não expiram.
+> Por predefinição, os registos e instalações não caducam.
 
-As inscrições e instalações devem conter um manijode PNS válido para cada dispositivo/canal. Como as pegas PNS só podem ser obtidas numa aplicação de cliente no dispositivo, um padrão é registar-se diretamente nesse dispositivo com a aplicação do cliente. Por outro lado, considerações de segurança e lógica de negócio relacionadacom tags podem exigir que você gere o registo do dispositivo no back-end da app.
+Os registos e instalações devem conter uma pega PNS válida para cada dispositivo/canal. Como as pegas PNS só podem ser obtidas numa aplicação de clientes no dispositivo, um padrão é registar-se diretamente nesse dispositivo com a aplicação do cliente. Por outro lado, considerações de segurança e lógica de negócio relacionadas com tags podem exigir que você gere o registo do dispositivo no back-end da app.
 
 > [!NOTE]
-> A API instalações não suporta o serviço Baidu (embora a API de Registos o faça). 
+> A API de Instalações não suporta o serviço Baidu (embora a API de Registos o faça). 
 
 ### <a name="templates"></a>Modelos
 
-Se pretender utilizar [modelos,](notification-hubs-templates-cross-platform-push-messages.md)a instalação do dispositivo também contém todos os modelos associados a esse dispositivo num formato JSON (ver amostra acima). Os nomes do modelo ajudam a direcionar diferentes modelos para o mesmo dispositivo.
+Se pretender utilizar [modelos,](notification-hubs-templates-cross-platform-push-messages.md)a instalação do dispositivo também contém todos os modelos associados a esse dispositivo num formato JSON (ver amostra acima). Os nomes do modelo ajudam a direcionar modelos diferentes para o mesmo dispositivo.
 
-Cada nome de modelo mapeia para um corpo de modelo e um conjunto opcional de tags. Além disso, cada plataforma pode ter propriedades de modelo adicionais. No caso da Windows Store (utilizando WNS) e Windows Phone 8 (utilizando MPNS), um conjunto adicional de cabeçalhos pode fazer parte do modelo. No caso de APNs, pode definir uma propriedade de validade para uma constante ou para uma expressão de modelo. Para uma listagem completa das propriedades de instalação ver, [criar ou substituir uma instalação com](/rest/api/notificationhubs/create-overwrite-installation) tópico REST.
+Cada nome de modelo mapeia para um corpo de modelo e um conjunto opcional de tags. Além disso, cada plataforma pode ter propriedades adicionais do modelo. Para a Windows Store (utilizando o WNS) e o Windows Phone 8 (utilizando o MPNS), um conjunto adicional de cabeçalhos pode fazer parte do modelo. No caso de APNs, você pode definir uma propriedade de validade para uma constante ou para uma expressão de modelo. Para uma listagem completa das propriedades de instalação ver, [criar ou substituir uma instalação com](/rest/api/notificationhubs/create-overwrite-installation) o tópico REST.
 
-### <a name="secondary-tiles-for-windows-store-apps"></a>Azulejos secundários para aplicativos de loja de janelas
+### <a name="secondary-tiles-for-windows-store-apps"></a>Azulejos secundários para apps da Windows Store
 
-Para aplicações de clientes da Windows Store, o envio de notificações para azulejos secundários é o mesmo que enviá-los para o principal. Isto também é suportado em instalações. Os azulejos secundários têm um ChannelUri diferente, que o SDK na aplicação do seu cliente lida de forma transparente.
+Para as aplicações de clientes da Windows Store, o envio de notificações para azulejos secundários é o mesmo que enviá-las para a primeira. Isto também é suportado em instalações. Os azulejos secundários têm um ChannelUri diferente, que o SDK na aplicação do seu cliente lida de forma transparente.
 
-O dicionário SecondaryTiles utiliza o mesmo TileId que é usado para criar o objeto SecondaryTiles na sua aplicação Windows Store. Tal como acontece com o ChannelUri primário, o ChannelUris de azulejos secundários pode mudar a qualquer momento. Para manter as instalações atualizadas no centro de notificação, o dispositivo deve atualizá-las com o canalUris atual dos azulejos secundários.
+O dicionário SecondaryTiles utiliza o mesmo TileId que é usado para criar o objeto SecondaryTiles na sua aplicação Windows Store. Tal como acontece com o ChannelUri primário, os ChannelUris de azulejos secundários podem mudar a qualquer momento. Para manter as instalações no centro de notificação atualizadas, o dispositivo deve atualizá-las com os atuais ChannelUris dos azulejos secundários.
 
-## <a name="registration-management-from-the-device"></a>Gestão de registos do dispositivo
+## <a name="registration-management-from-the-device"></a>Gestão de registo do dispositivo
 
-Ao gerir o registo do dispositivo a partir de aplicações de clientes, o backend só é responsável pelo envio de notificações. As aplicações de clientes mantêm as pegas pNS atualizadas e registam etiquetas. A imagem que se segue ilustra este padrão.
+Ao gerir o registo do dispositivo a partir de aplicações de clientes, o backend é apenas responsável pelo envio de notificações. As aplicações do cliente mantêm as alças de PNS atualizadas e registam tags. A imagem a seguir ilustra este padrão.
 
 ![Registo do dispositivo](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
 
-O dispositivo primeiro recupera o manípulo PNS do PNS e, em seguida, regista-se diretamente com o centro de notificação. Após o sucesso do registo, o backend da aplicação pode enviar uma notificação direcionada a esse registo. Para obter mais informações sobre como enviar notificações, consulte [Routing e Tag Expressions](notification-hubs-tags-segment-push-message.md).
+O dispositivo recupera primeiro a pega PNS do PNS e depois regista-se diretamente com o centro de notificação. Após o sucesso do registo, o backend da aplicação pode enviar uma notificação direcionada a esse registo. Para obter mais informações sobre como enviar notificações, consulte [Expressões de Encaminhamento e Etiquetagem](notification-hubs-tags-segment-push-message.md).
 
-Neste caso, utiliza apenas os direitos de escuta para aceder aos seus centros de notificação a partir do dispositivo. Para mais informações, consulte [segurança.](notification-hubs-push-notification-security.md)
+Neste caso, utiliza apenas os direitos de escuta para aceder aos seus centros de notificação a partir do dispositivo. Para mais informações, consulte [a Segurança.](notification-hubs-push-notification-security.md)
 
 Registar-se a partir do dispositivo é o método mais simples, mas tem algumas desvantagens:
 
-- Uma aplicação de cliente só pode atualizar as suas tags quando a aplicação estiver ativa. Por exemplo, se um utilizador tiver dois dispositivos que registam tags relacionadas com equipas desportivas, quando o primeiro dispositivo se registar para uma etiqueta adicional (por exemplo, Seahawks), o segundo dispositivo não receberá as notificações sobre os Seahawks até que a aplicação no segundo dispositivo seja executada uma segunda vez. De uma forma mais geral, quando as etiquetas são afetadas por vários dispositivos, gerir etiquetas a partir do backend é uma opção desejável.
-- Uma vez que as aplicações podem ser pirateadas, garantir o registo a etiquetas específicas requer cuidados extra, como explica o artigo [Segurança](notification-hubs-push-notification-security.md).
+- Uma aplicação de cliente só pode atualizar as suas etiquetas quando a aplicação está ativa. Por exemplo, se um utilizador tiver dois dispositivos que registam tags relacionadas com equipas desportivas, quando o primeiro dispositivo se regista para uma etiqueta adicional (por exemplo, Seahawks), o segundo dispositivo não receberá as notificações sobre os Seahawks até que a aplicação do segundo dispositivo seja executada uma segunda vez. De uma forma mais geral, quando as etiquetas são afetadas por vários dispositivos, gerir tags a partir do backend é uma opção desejável.
+- Uma vez que as aplicações podem ser pirateadas, garantir o registo a etiquetas específicas requer cuidados extra, como explicado no artigo [Segurança](notification-hubs-push-notification-security.md).
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Código de exemplo para registar com um centro de notificação a partir de um dispositivo usando uma instalação
 
-Neste momento, este é apenas suportado através da [API REST Hubs de Notificação](/rest/api/notificationhubs/create-overwrite-installation).
+Neste momento, este só é suportado utilizando a API dos [Centros de Notificação](/rest/api/notificationhubs/create-overwrite-installation)REST .
 
 Também pode utilizar o método PATCH utilizando a [norma JSON-Patch](https://tools.ietf.org/html/rfc6902) para atualizar a instalação.
 
@@ -134,79 +134,79 @@ class DeviceInstallation
     public string platform { get; set; }
     public string pushChannel { get; set; }
     public string[] tags { get; set; }
-}
 
-private async Task<HttpStatusCode> CreateOrUpdateInstallationAsync(DeviceInstallation deviceInstallation,
+    private async Task<HttpStatusCode> CreateOrUpdateInstallationAsync(DeviceInstallation deviceInstallation,
         string hubName, string listenConnectionString)
-{
-    if (deviceInstallation.installationId == null)
-        return HttpStatusCode.BadRequest;
-
-    // Parse connection string (https://msdn.microsoft.com/library/azure/dn495627.aspx)
-    ConnectionStringUtility connectionSaSUtil = new ConnectionStringUtility(listenConnectionString);
-    string hubResource = "installations/" + deviceInstallation.installationId + "?";
-    string apiVersion = "api-version=2015-04";
-
-    // Determine the targetUri that we will sign
-    string uri = connectionSaSUtil.Endpoint + hubName + "/" + hubResource + apiVersion;
-
-    //=== Generate SaS Security Token for Authorization header ===
-    // See, https://msdn.microsoft.com/library/azure/dn495627.aspx
-    string SasToken = connectionSaSUtil.getSaSToken(uri, 60);
-
-    using (var httpClient = new HttpClient())
     {
-        string json = JsonConvert.SerializeObject(deviceInstallation);
+        if (deviceInstallation.installationId == null)
+            return HttpStatusCode.BadRequest;
 
-        httpClient.DefaultRequestHeaders.Add("Authorization", SasToken);
+        // Parse connection string (https://msdn.microsoft.com/library/azure/dn495627.aspx)
+        ConnectionStringUtility connectionSaSUtil = new ConnectionStringUtility(listenConnectionString);
+        string hubResource = "installations/" + deviceInstallation.installationId + "?";
+        string apiVersion = "api-version=2015-04";
 
-        var response = await httpClient.PutAsync(uri, new StringContent(json, System.Text.Encoding.UTF8, "application/json"));
-        return response.StatusCode;
+        // Determine the targetUri that we will sign
+        string uri = connectionSaSUtil.Endpoint + hubName + "/" + hubResource + apiVersion;
+
+        //=== Generate SaS Security Token for Authorization header ===
+        // See https://msdn.microsoft.com/library/azure/dn495627.aspx
+        string SasToken = connectionSaSUtil.getSaSToken(uri, 60);
+
+        using (var httpClient = new HttpClient())
+        {
+            string json = JsonConvert.SerializeObject(deviceInstallation);
+
+            httpClient.DefaultRequestHeaders.Add("Authorization", SasToken);
+
+            var response = await httpClient.PutAsync(uri, new StringContent(json, System.Text.Encoding.UTF8, "application/json"));
+            return response.StatusCode;
+        }
     }
-}
 
-var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+    var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
-string installationId = null;
-var settings = ApplicationData.Current.LocalSettings.Values;
+    string installationId = null;
+    var settings = ApplicationData.Current.LocalSettings.Values;
 
-// If we have not stored an installation ID in application data, create and store as application data.
-if (!settings.ContainsKey("__NHInstallationId"))
-{
-    installationId = Guid.NewGuid().ToString();
-    settings.Add("__NHInstallationId", installationId);
-}
+    // If we have not stored an installation ID in application data, create and store as application data.
+    if (!settings.ContainsKey("__NHInstallationId"))
+    {
+        installationId = Guid.NewGuid().ToString();
+        settings.Add("__NHInstallationId", installationId);
+    }
 
-installationId = (string)settings["__NHInstallationId"];
+    installationId = (string)settings["__NHInstallationId"];
 
-var deviceInstallation = new DeviceInstallation
-{
-    installationId = installationId,
-    platform = "wns",
-    pushChannel = channel.Uri,
-    //tags = tags.ToArray<string>()
-};
+    var deviceInstallation = new DeviceInstallation
+    {
+        installationId = installationId,
+        platform = "wns",
+        pushChannel = channel.Uri,
+        //tags = tags.ToArray<string>()
+    };
 
-var statusCode = await CreateOrUpdateInstallationAsync(deviceInstallation, 
+    var statusCode = await CreateOrUpdateInstallationAsync(deviceInstallation, 
                     "<HUBNAME>", "<SHARED LISTEN CONNECTION STRING>");
 
-if (statusCode != HttpStatusCode.Accepted)
-{
-    var dialog = new MessageDialog(statusCode.ToString(), "Registration failed. Installation Id : " + installationId);
-    dialog.Commands.Add(new UICommand("OK"));
-    await dialog.ShowAsync();
-}
-else
-{
-    var dialog = new MessageDialog("Registration successful using installation Id : " + installationId);
-    dialog.Commands.Add(new UICommand("OK"));
-    await dialog.ShowAsync();
+    if (statusCode != HttpStatusCode.Accepted)
+    {
+        var dialog = new MessageDialog(statusCode.ToString(), "Registration failed. Installation Id : " + installationId);
+        dialog.Commands.Add(new UICommand("OK"));
+        await dialog.ShowAsync();
+    }
+    else
+    {
+        var dialog = new MessageDialog("Registration successful using installation Id : " + installationId);
+        dialog.Commands.Add(new UICommand("OK"));
+        await dialog.ShowAsync();
+    }
 }
 ```
 
-### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration"></a>Código de exemplo para registar-se com um centro de notificação a partir de um dispositivo que utilize um registo
+### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration"></a>Código de exemplo para registar com um centro de notificação a partir de um dispositivo usando um registo
 
-Estes métodos criam ou atualizam um registo para o dispositivo em que são chamados. Isto significa que, para atualizar o manípulo ou as etiquetas, deve substituir a totalidade do registo. Lembre-se que as inscrições são transitórias, pelo que deve ter sempre uma loja fiável com as etiquetas atuais de que um dispositivo específico necessita.
+Estes métodos criam ou atualizam um registo do dispositivo em que são chamados. Isto significa que, para atualizar o manípulo ou as etiquetas, deve substituir todo o registo. Lembre-se que as inscrições são transitórias, pelo que deve ter sempre uma loja fiável com as etiquetas atuais de que um dispositivo específico necessita.
 
 ```csharp
 // Initialize the Notification Hub
@@ -261,15 +261,15 @@ catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
 
 ## <a name="registration-management-from-a-backend"></a>Gestão de registos a partir de um backend
 
-Gerir os registos a partir do backend requer a escrita de código adicional. A aplicação do dispositivo deve fornecer o cabo PNS atualizado para o backend sempre que a aplicação começar (juntamente com etiquetas e modelos), e o backend deve atualizar este cabo no centro de notificação. A imagem seguinte ilustra este design.
+A gestão dos registos a partir do backend requer a elaboração de código adicional. A aplicação do dispositivo deve fornecer o cabo PNS atualizado para o backend sempre que a aplicação começa (juntamente com tags e modelos), e o backend deve atualizar esta pega no centro de notificação. A imagem a seguir ilustra este design.
 
 ![Gestão de registos](./media/notification-hubs-registration-management/notification-hubs-registering-on-backend.png)
 
-As vantagens de gerir registos a partir do backend incluem a capacidade de modificar etiquetas para registos mesmo quando a aplicação correspondente no dispositivo está inativa, e autenticar a app do cliente antes de adicionar uma etiqueta ao seu registo.
+As vantagens de gerir os registos a partir do backend incluem a capacidade de modificar tags para registos mesmo quando a aplicação correspondente no dispositivo está inativa, e de autenticar a app do cliente antes de adicionar uma etiqueta ao seu registo.
 
-### <a name="example-code-to-register-with-a-notification-hub-from-a-backend-using-an-installation"></a>Código de exemplo para registar-se com um centro de notificação a partir de um backend usando uma instalação
+### <a name="example-code-to-register-with-a-notification-hub-from-a-backend-using-an-installation"></a>Código de exemplo para registar com um centro de notificação a partir de um backend usando uma instalação
 
-O dispositivo cliente ainda obtém o seu manípulo PNS e propriedades de instalação relevantes como antes e chama uma API personalizada no backend que pode realizar o registo e autorizar etiquetas etc. O backend pode alavancar o Centro de [Notificação SDK para operações de backend](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+O dispositivo cliente ainda obtém o seu cabo PNS e propriedades de instalação relevantes como antes e chama uma API personalizada no backend que pode realizar o registo e autorizar tags etc. O backend pode alavancar o [Hub SDK de notificação para operações de backend](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 Também pode utilizar o método PATCH utilizando a [norma JSON-Patch](https://tools.ietf.org/html/rfc6902) para atualizar a instalação.
 
@@ -315,9 +315,9 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
 }
 ```
 
-### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Código de exemplo para registar-se com um centro de notificação a partir de um dispositivo usando um ID de registo
+### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Código de exemplo para registar com um centro de notificação a partir de um dispositivo usando um ID de registo
 
-A partir do seu backend da sua aplicação, pode realizar operações básicas de CRUDS nos registos. Por exemplo:
+A partir do seu backend da app, pode realizar operações básicas da CRUDS em registos. Por exemplo:
 
 ```csharp
 var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
@@ -341,4 +341,4 @@ await hub.UpdateRegistrationAsync(r);
 await hub.DeleteRegistrationAsync(r);
 ```
 
-O backend deve lidar com a moeda entre as atualizações de registo. A Service Bus oferece um controlo de condivisões otimista para a gestão de registos. A nível de HTTP, esta é implementada com a utilização do ETag em operações de gestão de registos. Esta funcionalidade é utilizada de forma transparente pelos SDKs da Microsoft, que atiram uma exceção se uma atualização for rejeitada por razões de condivisa. O backend da aplicação é responsável por lidar com estas exceções e refazer a atualização se necessário.
+O backend deve lidar com a concordância entre as atualizações de registo. A Service Bus oferece um controlo de concordância otimista para a gestão do registo. A nível HTTP, este é implementado com a utilização de ETag em operações de gestão de registos. Esta funcionalidade é utilizada de forma transparente pelos SDKs da Microsoft, que lançam uma exceção se uma atualização for rejeitada por razões de concordância. O backend da aplicação é responsável por lidar com estas exceções e tentar novamente a atualização, se necessário.

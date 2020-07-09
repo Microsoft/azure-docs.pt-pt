@@ -1,44 +1,33 @@
 ---
-title: Conexões Híbridas Azure Relay - HTTP solicita em .NET
+title: Ligações Híbridas Azure Relay - pedidos HTTP em .NET
 description: Escreva uma aplicação de consola C# para pedidos HTTP das Ligações Híbridas do Azure Relay em .NET.
-services: service-bus-relay
-documentationcenter: .net
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
-ms.service: service-bus-relay
-ms.devlang: tbd
 ms.topic: conceptual
-ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 11/01/2018
-ms.author: spelluru
-ms.openlocfilehash: 7c984876c4338b4f6802ba55752c8f612c390e94
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 270e1bf0f9655705afe4d3657af03152957227c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211004"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85317061"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Introdução aos pedidos HTTP das Ligações Híbridas do Azure Relay em .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-Neste arranque rápido, cria aplicações de remetente .NET e recetores que enviam e recebem mensagens utilizando o protocolo HTTP. As aplicações utilizam a funcionalidade Ligações Híbridas do Relé Azure. Para saber mais sobre o Azure Relay em geral, consulte [O Relé Azure.](relay-what-is-it.md) 
+Neste arranque rápido, cria aplicações de remetente e recetor .NET que enviam e recebem mensagens utilizando o protocolo HTTP. As aplicações utilizam a função Ligações Híbridas do Azure Relay. Para saber mais sobre a Azure Relay em geral, consulte [a Azure Relay](relay-what-is-it.md). 
 
-Neste arranque rápido, tome os seguintes passos:
+Neste arranque rápido, você dá os seguintes passos:
 
 1. Crie um espaço de nomes de Reencaminhamento com o Portal do Azure.
 2. Crie uma ligação híbrida nesse espaço de nomes, com o portal do Azure.
 3. Escrever uma aplicação de consola (serviço de escuta) de servidor para receber mensagens.
 4. Escrever uma aplicação de consola (remetente) de cliente para enviar mensagens.
-5. Executar aplicações. 
+5. Executar candidaturas. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 
-* [Visual Studio 2015 ou posterior](https://www.visualstudio.com). Os exemplos neste tutorial utilizam o Visual Studio 2017.
+* [Visual Studio 2015 ou mais tarde](https://www.visualstudio.com). Os exemplos neste tutorial utilizam o Visual Studio 2017.
 * Uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="create-a-namespace"></a>Criar um espaço de nomes
@@ -64,13 +53,13 @@ No Visual Studio, crie uma aplicação de consola C# para enviar mensagens para 
     Online
     Server listening
     ```
-1. Execute a aplicação cliente. Verá `hello!` na janela do cliente. O cliente enviou um pedido HTTP para o servidor, e o servidor respondeu com `hello!` um . 
+1. Execute a aplicação cliente. Verá `hello!` na janela do cliente. O cliente enviou um pedido HTTP para o servidor, e o servidor respondeu com um `hello!` . 
 3. Agora, para fechar as janelas da consola, prima **ENTER** em ambas as janelas da consola. 
 
-Parabéns, criou uma aplicação completa de Ligações Híbridas!
+Parabéns, criaste uma aplicação completa da Hybrid Connections!
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste arranque rápido, criou aplicações de cliente e servidor .NET que utilizavam http para enviar e receber mensagens. A funcionalidade Ligações Híbridas do Azure Relay também suporta a utilização de WebSockets para enviar e receber mensagens. Para aprender a utilizar webSockets com ligações híbridas De retransmissão Azure, consulte o arranque rápido das [WebSockets](relay-hybrid-connections-dotnet-get-started.md).
+Neste arranque rápido, criou aplicações de clientes .NET e servidor que utilizavam HTTP para enviar e receber mensagens. A funcionalidade Conexões Híbridas do Azure Relay também suporta a utilização de WebSockets para enviar e receber mensagens. Para aprender a utilizar WebSockets com conexões híbridas Azure Relay, consulte o arranque rápido dos [WebSockets](relay-hybrid-connections-dotnet-get-started.md).
 
-Neste arranque rápido, utilizou a .NET Framework para criar aplicações de clientes e servidores. Para aprender a escrever aplicações de cliente e servidor utilizando o Node.js, consulte o Início rápido do [Node.js WebSockets](relay-hybrid-connections-node-get-started.md) ou o [Quickstart Node.js HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md).
+Neste arranque rápido, utilizou o Quadro .NET para criar aplicações de clientes e servidores. Para aprender a escrever aplicações de clientes e servidor usando Node.js, consulte o [arranque rápido doNode.js WebSockets](relay-hybrid-connections-node-get-started.md) ou o arranque rápidoNode.js [HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md).

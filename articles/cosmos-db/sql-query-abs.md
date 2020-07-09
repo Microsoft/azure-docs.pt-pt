@@ -1,6 +1,6 @@
 ---
-title: ABS em linguagem de consulta de Azure Cosmos DB
-description: Saiba como funciona o sistema Absoluto (ABS) SQL em Azure Cosmos DB devolve o valor positivo da expressão numérica especificada
+title: ABS em Azure Cosmos DB linguagem de consulta
+description: Saiba como funciona o sistema SQL (ABS) Absoluto no Azure Cosmos DB devolve o valor positivo da expressão numérica especificada
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,9 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 6d173827f2695cc20fa208d390731acf0edb3848
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78301102"
 ---
 # <a name="abs-azure-cosmos-db"></a>ABS (Azure Cosmos DB)
@@ -34,7 +33,7 @@ ABS (<numeric_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte mostra os `ABS` resultados da utilização da função em três números diferentes.  
+  O exemplo a seguir mostra os resultados da utilização da `ABS` função em três números diferentes.  
   
 ```sql
 SELECT ABS(-1) AS abs1, ABS(0) AS abs2, ABS(1) AS abs3 
@@ -48,10 +47,10 @@ SELECT ABS(-1) AS abs1, ABS(0) AS abs2, ABS(1) AS abs3
 
 ## <a name="remarks"></a>Observações
 
-Esta função do sistema beneficiará de um índice de [alcance](index-policy.md#includeexclude-strategy).
+Esta função do sistema beneficiará de um [índice de intervalo.](index-policy.md#includeexclude-strategy)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

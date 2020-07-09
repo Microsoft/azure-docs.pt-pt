@@ -1,7 +1,7 @@
 ---
-title: Fluxo de código de dispositivo OAuth 2.0 / Azure
+title: OAuth 2.0 device code flow / Rio Azure
 titleSuffix: Microsoft identity platform
-description: Inscreva-se em utilizadores sem browser. Construa fluxos de autenticação incorporados e sem navegador utilizando a concessão de autorização do dispositivo.
+description: Inscreva-se nos utilizadores sem navegador. Construa fluxos de autenticação incorporados e sem navegador utilizando o subsídio de autorização do dispositivo.
 services: active-directory
 author: hpsin
 manager: CelesteDG
@@ -14,27 +14,27 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: a0677603f02b429c269c0f93ef348b2b1d717a9f
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82689772"
 ---
-# <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Plataforma de identidade da Microsoft e fluxo de autorização de autorização de dispositivo OAuth 2.0
+# <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Plataforma de identidade da Microsoft e o fluxo de concessão de autorização de dispositivo OAuth 2.0
 
-A plataforma de identidade da Microsoft suporta a [concessão](https://tools.ietf.org/html/rfc8628)de autorização do dispositivo , que permite que os utilizadores inscrevam em dispositivos limitados de entrada, como uma smart TV, dispositivo IoT ou impressora.  Para ativar este fluxo, o dispositivo tem o utilizador a visitar uma página web no seu navegador noutro dispositivo para iniciar sessão.  Assim que o utilizador entrar, o dispositivo é capaz de obter fichas de acesso e de atualização de fichas conforme necessário.
+A plataforma de identidade da Microsoft suporta a [concessão de autorização](https://tools.ietf.org/html/rfc8628)do dispositivo , que permite aos utilizadores iniciar sedutor em dispositivos com restrições de entrada, como uma smart TV, dispositivo IoT ou impressora.  Para ativar este fluxo, o dispositivo tem o utilizador a visitar uma página web no seu navegador noutro dispositivo para iniciar sôm.  Uma vez que o utilizador entra, o dispositivo é capaz de obter tokens de acesso e atualizar fichas conforme necessário.
 
-Este artigo descreve como programar diretamente contra o protocolo na sua aplicação.  Sempre que possível, recomendamos que utilize as Bibliotecas de Autenticação da Microsoft (MSAL) suportadas em vez de adquirir fichas e ligar para [APIs web protegidos](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Veja também as [aplicações de amostra que utilizam o MSAL.](sample-v2-code.md)
+Este artigo descreve como programar diretamente contra o protocolo na sua aplicação.  Quando possível, recomendamos que utilize as Bibliotecas de Autenticação da Microsoft (MSAL) suportadas para [adquirir fichas e chamar APIs web seguras](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Dê também uma olhada nas aplicações de [amostra que utilizam o MSAL.](sample-v2-code.md)
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 
-Todo o fluxo de código do dispositivo parece semelhante ao próximo diagrama. Descrevemos cada um dos passos mais tarde neste artigo.
+Todo o fluxo de código do dispositivo é semelhante ao diagrama seguinte. Descrevemos cada um dos passos mais tarde neste artigo.
 
 ![Fluxo de código do dispositivo](./media/v2-oauth2-device-code/v2-oauth-device-flow.svg)
 
 ## <a name="device-authorization-request"></a>Pedido de autorização do dispositivo
 
-O cliente deve primeiro verificar com o servidor de autenticação um dispositivo e código de utilizador que seja utilizado para iniciar a autenticação. O cliente recolhe este `/devicecode` pedido do ponto final. Neste pedido, o cliente deve incluir também as permissões que necessita para adquirir ao utilizador. A partir do momento em que este pedido é enviado, o `expires_in`utilizador tem apenas 15 minutos para iniciar sessão (o valor habitual para), pelo que só faça este pedido quando o utilizador tiver indicado que está pronto para iniciar sessão.
+O cliente deve primeiro verificar com o servidor de autenticação um dispositivo e código de utilizador que seja utilizado para iniciar a autenticação. O cliente recolhe este pedido do `/devicecode` ponto final. Neste pedido, o cliente também deve incluir as permissões que necessita para adquirir ao utilizador. A partir do momento em que este pedido é enviado, o utilizador tem apenas 15 minutos para iniciar singing (o valor habitual `expires_in` para), por isso só faça este pedido quando o utilizador tiver indicado que está pronto para iniciar sing.
 
 > [!TIP]
 > Tente executar este pedido no Carteiro!
@@ -51,35 +51,35 @@ scope=user.read%20openid%20profile
 
 ```
 
-| Parâmetro | Condição | Descrição |
+| Parâmetro | Condição | Description |
 | --- | --- | --- |
-| `tenant` | Necessário | Pode ser /comum, /consumidores ou /organizações.  Também pode ser o inquilino de diretório que pretende solicitar permissão em formato DE NOME GUIA ou amigável.  |
-| `client_id` | Necessário | O ID de **Aplicação (cliente)** que o [portal Azure – App registra](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída à sua app. |
-| `scope` | Recomendado | Uma lista de [âmbitos separados](v2-permissions-and-consent.md) pelo espaço que pretende que o utilizador consinta.  |
+| `tenant` | Necessário | Pode ser /comum, /consumidores, ou /organizações.  Também pode ser o inquilino do diretório que você deseja solicitar permissão em formato GUID ou nome amigável.  |
+| `client_id` | Necessário | O **ID da Aplicação (cliente)** que o [portal Azure – Experiência de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuído à sua app. |
+| `scope` | Recomendado | Uma lista de [âmbitos separados](v2-permissions-and-consent.md) pelo espaço a que o utilizador consinta.  |
 
 ### <a name="device-authorization-response"></a>Resposta à autorização do dispositivo
 
-Uma resposta bem sucedida será um objeto JSON contendo as informações necessárias para permitir que o utilizador assine a sua inscrição.
+Uma resposta bem sucedida será um objeto JSON contendo as informações necessárias para permitir que o utilizador faça o seu sposição.
 
-| Parâmetro | Formato | Descrição |
+| Parâmetro | Formato | Description |
 | ---              | --- | --- |
 |`device_code`     | String | Uma longa corda usada para verificar a sessão entre o cliente e o servidor de autorização. O cliente utiliza este parâmetro para solicitar o sinal de acesso do servidor de autorização. |
-|`user_code`       | String | Uma curta corda mostrada ao utilizador que é usada para identificar a sessão num dispositivo secundário.|
-|`verification_uri`| URI | O URI a que o `user_code` utilizador deve ir com o para iniciar sessão. |
-|`expires_in`      | int | O número de `device_code` segundos antes do e `user_code` expirar. |
+|`user_code`       | String | Uma corda curta mostrada ao utilizador que é usada para identificar a sessão num dispositivo secundário.|
+|`verification_uri`| URI | O URI a que o utilizador deve ir com o `user_code` para iniciar sinsus. |
+|`expires_in`      | int | O número de segundos antes `device_code` do e `user_code` expirar. |
 |`interval`        | int | O número de segundos que o cliente deve esperar entre os pedidos de sondagens. |
-| `message`        | String | Uma corda legível pelo homem com instruções para o utilizador. Isto pode ser localizado através da inclusão de um `?mkt=xx-XX`parâmetro de **consulta** a pedido do formulário, preenchendo o código de cultura linguística apropriado. |
+| `message`        | String | Uma cadeia legível pelo homem com instruções para o utilizador. Isto pode ser localizado através da inclusão de um **parâmetro de consulta** no pedido do `?mkt=xx-XX` formulário, preenchendo o código de cultura linguística apropriado. |
 
 > [!NOTE]
-> O `verification_uri_complete` campo de resposta não está incluído ou apoiado neste momento.  Mencionamos isto porque se ler o `verification_uri_complete` [padrão,](https://tools.ietf.org/html/rfc8628) vê que está listado como uma parte opcional da norma de fluxo de código do dispositivo.
+> O `verification_uri_complete` campo de resposta não está incluído ou suportado neste momento.  Mencionamos isto porque se ler o [padrão](https://tools.ietf.org/html/rfc8628) vê que `verification_uri_complete` está listado como uma parte opcional do padrão de fluxo de código do dispositivo.
 
 ## <a name="authenticating-the-user"></a>Autenticação do utilizador
 
-Depois de `user_code` receber `verification_uri`o e , o cliente apresenta-os ao utilizador, instruindo-os a iniciar em sessão utilizando o seu telemóvel ou navegador pc.
+Depois de receber o `user_code` `verification_uri` e, o cliente exibe-os ao utilizador, instruindo-os a iniciar singing usando o seu telemóvel ou browser pc.
 
-Se o utilizador autenticar com uma conta pessoal (em /comum ou /consumidores), será-lhes solicitado que volte a inscrever-se para transferir o estado de autenticação para o dispositivo.  Será também solicitado que dêem o seu consentimento, para garantir que estão cientes das permissões que estão a ser concedidas.  Isto não se aplica ao trabalho ou às contas escolares utilizadas para autenticar.
+Se o utilizador autenticar com uma conta pessoal (em /comum ou /consumidores), será solicitado que volte a inscrever-se para transferir o estado de autenticação para o dispositivo.  Será também solicitado que dêem o seu consentimento, para garantir que estão cientes das permissões que estão a ser concedidas.  Isto não se aplica às contas de trabalho ou escolas utilizadas para autenticação.
 
-Enquanto o utilizador estiver `verification_uri`a autenticar no `/token` , o cliente deve estar `device_code`a sondar o ponto final do token solicitado utilizando o .
+Enquanto o utilizador está a autenticar no `verification_uri` , o cliente deve estar a sondar o ponto final para o `/token` token solicitado utilizando o `device_code` .
 
 ```HTTP
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
@@ -90,23 +90,23 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 ```
 
-| Parâmetro | Necessário | Descrição|
+| Parâmetro | Obrigatório | Descrição|
 | -------- | -------- | ---------- |
-| `tenant`  | Necessário | O mesmo inquilino ou pseudónimo de inquilino utilizado no pedido inicial. |
+| `tenant`  | Necessário | O mesmo pseudónimo de inquilino ou inquilino usado no pedido inicial. |
 | `grant_type` | Necessário | Deve ser`urn:ietf:params:oauth:grant-type:device_code`|
-| `client_id`  | Necessário | Deve coincidir `client_id` com o utilizado no pedido inicial. |
+| `client_id`  | Necessário | Deve corresponder ao `client_id` usado no pedido inicial. |
 | `device_code`| Necessário | O `device_code` devolvido no pedido de autorização do dispositivo.  |
 
 ### <a name="expected-errors"></a>Erros esperados
 
-O fluxo de código do dispositivo é um protocolo de votação, pelo que o seu cliente deve esperar receber erros antes de o utilizador terminar de autenticar.
+O fluxo de código do dispositivo é um protocolo de votação, pelo que o seu cliente deve esperar receber erros antes de o utilizador terminar a autenticação.
 
-| Erro | Descrição | Ação do Cliente |
+| Erro | Description | Ação do Cliente |
 | ------ | ----------- | -------------|
-| `authorization_pending` | O utilizador ainda não terminou de autenticar, mas não cancelou o fluxo. | Repita o pedido `interval` após pelo menos segundos. |
-| `authorization_declined` | O utilizador final negou o pedido de autorização.| Pare de votar e volte para um estado não autenticado.  |
-| `bad_verification_code`| O `device_code` enviado `/token` para o ponto final não foi reconhecido. | Verifique se o cliente `device_code` está a enviar o correto no pedido. |
-| `expired_token` | Pelo `expires_in` menos segundos se passaram, e a `device_code`autenticação já não é possível com isto . | Pare de votar e volte para um estado não autenticado. |
+| `authorization_pending` | O utilizador ainda não terminou a autenticação, mas não cancelou o fluxo. | Repita o pedido após pelo menos `interval` segundos. |
+| `authorization_declined` | O utilizador final negou o pedido de autorização.| Pare de votar, e volte a um estado não autenticado.  |
+| `bad_verification_code`| O `device_code` enviado para o ponto final não foi `/token` reconhecido. | Verifique se o cliente está a enviar o correto `device_code` no pedido. |
+| `expired_token` | Pelo menos `expires_in` passaram-se segundos, e a autenticação já não é possível com isto `device_code` . | Pare de votar e volte a um estado não autenticado. |
 
 ### <a name="successful-authentication-response"></a>Resposta de autenticação bem sucedida
 
@@ -123,13 +123,13 @@ Uma resposta simbólica bem sucedida será como:
 }
 ```
 
-| Parâmetro | Formato | Descrição |
+| Parâmetro | Formato | Description |
 | --------- | ------ | ----------- |
 | `token_type` | String| Sempre "Portador. |
-| `scope` | Cordas separadas do espaço | Se um token de acesso foi devolvido, isto lista os âmbitos para os que o token de acesso é válido. |
-| `expires_in`| int | Número de segundos antes do token de acesso incluído é válido para. |
-| `access_token`| Corda opaca | Emitido para os [âmbitos solicitados.](v2-permissions-and-consent.md)  |
-| `id_token`   | JWT | Emitido se o `scope` parâmetro original `openid` incluía o âmbito.  |
-| `refresh_token` | Corda opaca | Emitido se o `scope` parâmetro original `offline_access`incluído .  |
+| `scope` | Cadeias separadas do espaço | Se um token de acesso foi devolvido, este lista os âmbitos para os para oses para os qual o token de acesso é válido. |
+| `expires_in`| int | O número de segundos antes do token de acesso incluído é válido para. |
+| `access_token`| Corda opaca | Emitido para os [âmbitos](v2-permissions-and-consent.md) que foram solicitados.  |
+| `id_token`   | JWT | Emitido se o parâmetro original `scope` incluísse o `openid` âmbito.  |
+| `refresh_token` | Corda opaca | Emitido se o parâmetro original `scope` `offline_access` incluído.  |
 
-Pode utilizar o token de atualização para adquirir novos tokens de acesso e fichas de atualização utilizando o mesmo fluxo documentado na documentação de fluxo do [Código OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
+Pode utilizar o token refresh para adquirir novos tokens de acesso e fichas de atualização utilizando o mesmo fluxo documentado na documentação de fluxo do [Código OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).

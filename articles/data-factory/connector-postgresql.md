@@ -1,6 +1,6 @@
 ---
 title: Copiar dados do PostgreSQL utilizando a Azure Data Factory
-description: Saiba como copiar dados do PostgreSQL para lojas de dados de sink suportadas utilizando uma atividade de cópia num pipeline azure Data Factory.
+description: Saiba como copiar dados da PostgreSQL para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num pipeline da Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,60 +12,60 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: jingwang
 ms.openlocfilehash: 6d10e7b9b24817eb738172bd0f2d2c3e7f8f2cbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416757"
 ---
-# <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copiar dados do PostgreSQL utilizando a Azure Data Factory
+# <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copiar dados da PostgreSQL utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-onprem-postgresql-connector.md)
 > * [Versão atual](connector-postgresql.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
-Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de uma base de dados PostgreSQL. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de uma base de dados PostgreSQL. Baseia-se no artigo [de visão geral](copy-activity-overview.md) da atividade de cópia que apresenta uma visão geral da atividade da cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
 Este conector PostgreSQL é suportado para as seguintes atividades:
 
-- [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/pia suportada](copy-activity-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)
 
-Pode copiar dados da base de dados PostgreSQL para qualquer loja de dados de sink suportado. Para obter uma lista de lojas de dados que são suportadas como fontes/pias pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
+Pode copiar dados da base de dados PostgreSQL para qualquer loja de dados de sumidouro suportado. Para obter uma lista de lojas de dados suportadas como fontes/pias pela atividade de cópia, consulte a tabela [de lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Especificamente, este conector PostgreSQL suporta a versão PostgreSQL **7.4 e superior**.
+Especificamente, este conector PostgreSQL suporta a **versão 7.4 e superior**do PostgreSQL .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-O Tempo de Funcionamento de Integração fornece um controlador PostgreSQL incorporado a partir da versão 3.7, pelo que não precisa de instalar manualmente qualquer controlador.
+O Tempo de Execução de Integração fornece um controlador PostgreSQL incorporado a partir da versão 3.7, pelo que não precisa de instalar manualmente nenhum controlador.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades da Fábrica de Dados específicas do conector PostgreSQL.
+As secções seguintes fornecem detalhes sobre propriedades que são usadas para definir entidades da Data Factory específicas do conector PostgreSQL.
 
-## <a name="linked-service-properties"></a>Propriedades de serviço seletos
+## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 
-As seguintes propriedades são suportadas para o serviço ligado ao PostgreSQL:
+As seguintes propriedades são suportadas para o serviço ligado postgreSQL:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **PostgreSql** | Sim |
-| conexãoString | Uma cadeia de ligação ODBC para ligar à Base de Dados Azure para PostgreSQL. <br/>Também pode colocar palavra-passe no Cofre `password` de Chaves Azure e retirar a configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no](store-credentials-in-key-vault.md) artigo do Cofre chave Azure com mais detalhes. | Sim |
-| connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não especificado, utiliza o tempo de funcionar de integração azure padrão. |Não |
+| tipo | A propriedade tipo deve ser definida para: **PostgreSql** | Yes |
+| conexãoStragem | Um fio de ligação ODBC para ligar à Base de Dados Azure para PostgreSQL. <br/>Também pode colocar a palavra-passe no Cofre da Chave Azure e retirar a `password` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Yes |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
 
-Uma corda de `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`ligação típica é . Mais propriedades que pode definir no seu caso:
+Uma cadeia de ligação típica é `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>` . Mais propriedades que pode definir por seu caso:
 
 | Propriedade | Descrição | Opções | Necessário |
 |:--- |:--- |:--- |:--- |
-| Método de Encriptação (EM)| O método que o condutor utiliza para encriptar os dados enviados entre o controlador e o servidor de base de dados. Por exemplo,`EncryptionMethod=<0/1/6>;`| 0 (Sem encriptação) **(Padrão)** / 1 (SSL) / 6 (RequestSSL) | Não |
-| ValidaserverCertificate (VSC) | Determina se o controlador valida o certificado que é enviado pelo servidor de base de dados quando a encriptação SSL está ativada (Método de Encriptação=1). Por exemplo,`ValidateServerCertificate=<0/1>;`| 0 (Desativado) **(Predefinido)** / 1 (Ativado) | Não |
+| Método de Encriptação (EM)| O método que o condutor utiliza para encriptar os dados enviados entre o controlador e o servidor de base de dados. Por exemplo,`EncryptionMethod=<0/1/6>;`| 0 (Sem encriptação) **(Padrão)** / 1 (SSL) / 6 (RequestSSL) | No |
+| ValidaçãoServerCertificato (VSC) | Determina se o controlador valida o certificado enviado pelo servidor de base de dados quando a encriptação SSL está ativada (Método de Encriptação=1). Por exemplo,`ValidateServerCertificate=<0/1>;`| 0 (Desativado) **(Predefinição)** / 1 (Habilitado) | No |
 
 **Exemplo:**
 
@@ -85,7 +85,7 @@ Uma corda de `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Pas
 }
 ```
 
-**Exemplo: palavra-passe de loja no Cofre de Chaves Azure**
+**Exemplo: armazenar senha em Azure Key Vault**
 
 ```json
 {
@@ -111,7 +111,7 @@ Uma corda de `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Pas
 }
 ```
 
-Se estava a utilizar o serviço de ligação PostgreSQL com a seguinte carga útil, ainda é suportado como está, enquanto é sugerido que utilize o novo para a frente.
+Se você estava usando o serviço ligado PostgreSQL com a seguinte carga útil, ele ainda é suportado como está, enquanto você é sugerido para usar o novo em frente.
 
 **Carga útil anterior:**
 
@@ -139,16 +139,16 @@ Se estava a utilizar o serviço de ligação PostgreSQL com a seguinte carga út
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo conjuntos de [dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados PostgreSQL.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [conjuntos de dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados PostgreSQL.
 
-Para copiar dados do PostgreSQL, são suportadas as seguintes propriedades:
+Para copiar dados da PostgreSQL, suportam-se as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **PostgreSqlTable** | Sim |
-| schema | Nome do esquema. |Não (se for especificada a "consulta" na fonte de atividade)  |
-| tabela | Nome da mesa. |Não (se for especificada a "consulta" na fonte de atividade)  |
-| tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` `table` e para nova carga de trabalho. | Não (se for especificada a "consulta" na fonte de atividade) |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **PostgreSqlTable** | Yes |
+| esquema | O nome do esquema. |Não (se for especificada "consulta" na fonte de atividade)  |
+| table | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
+| tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` e para nova carga de `table` trabalho. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
 
@@ -168,23 +168,23 @@ Para copiar dados do PostgreSQL, são suportadas as seguintes propriedades:
 }
 ```
 
-Se estiver `RelationalTable` a usar o conjunto de dados dactilografado, ainda é suportado como está, enquanto é sugerido que utilize o novo para a frente.
+Se estava a usar `RelationalTable` conjunto de dados dactilografado, ainda é suportado como está, enquanto é sugerido que use o novo para a frente.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas por fonte postgresQL.
+Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas por fonte PostgreSQL.
 
 ### <a name="postgresql-as-source"></a>PostgreSQL como fonte
 
-Para copiar dados do PostgreSQL, as seguintes propriedades são suportadas na secção de **origem** da atividade de cópia:
+Para copiar dados da PostgreSQL, as seguintes propriedades são suportadas na secção **de origem** da atividade da cópia:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo da fonte de atividade de cópia deve ser definida para: **PostgreSqlSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **PostgreSqlSource** | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 > [!NOTE]
-> O schema e os nomes das mesas são sensíveis aos casos. Encerre-os `""` em (orçamentos duplos) na consulta.
+> Schema e nomes de mesa são sensíveis a casos. Enr junto-os `""` em (cotações duplas) na consulta.
 
 **Exemplo:**
 
@@ -218,12 +218,12 @@ Para copiar dados do PostgreSQL, as seguintes propriedades são suportadas na se
 ]
 ```
 
-Se estiver `RelationalSource` a usar a fonte dactilografada, continua a ser suportada como está, enquanto é sugerido que utilize o novo para a frente.
+Se estava a usar `RelationalSource` uma fonte dactilografada, ainda é suportada como está, enquanto é sugerido que utilize a nova que vai para a frente.
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
-Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
+Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Azure Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

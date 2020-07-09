@@ -58,6 +58,8 @@
       href: network-best-practices.md
     - name: Proteção contra DDOS
       href: ddos-best-practices.md
+    - name: DNS pendente e aquisição de subdomínio
+      href: subdomain-takeover.md
     - name: Arquitetura de rede híbrida segura
       href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
 - name: Segurança de IaaS
@@ -94,6 +96,8 @@
       href: 'https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: Sistema de Proteção de Dados do Cliente
       href: customer-lockbox-overview.md
+    - name: Linha de base de segurança do Sistema de Proteção de Dados do Cliente
+      href: customer-lockbox-security-baseline.md
 - name: Aplicação
   items:
     - name: PaaS
@@ -139,3 +143,5 @@
       href: event-support-ticket.md
     - name: Testes de intrusão
       href: pen-testing.md
+    - name: Domínios do Azure
+      href: azure-domains.md

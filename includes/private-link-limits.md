@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-network
 author: KumudD
 ms.service: virtual-network
@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 04/21/2020
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: 1c790f10a310b6c4dea3aefd6cb02891b5bbcf9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c33d4988082496e53520254e0d85431497d8b38
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81768738"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84902740"
 ---
- Os seguintes limites aplicam-se à ligação privada azure:
+ Os seguintes limites aplicam-se à ligação privada Azure:
 
 |Recurso |Limite |
 |---------|---------|
 |Número de pontos finais privados por rede virtual     |  1000       |
 |Número de pontos finais privados por subscrição       |   64000       |
-|Número de serviço de ligação privada por subscrição         |   800      |
+|Número de serviços de ligação privada por subscrição         |   800      |
 |Número de Configurações IP num serviço de ligação privada     |  8 (Este número destina-se aos endereços IP NAT utilizados por PLS)       |
 |Número de pontos finais privados no mesmo serviço de ligação privada   |  1000       |
 |Número de pontos finais privados por cofre chave | 64 |

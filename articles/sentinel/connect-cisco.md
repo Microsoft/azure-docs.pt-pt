@@ -1,6 +1,6 @@
 ---
 title: Ligue os dados da Cisco ao Azure Sentinel. Microsoft Docs
-description: Saiba como ligar dados da Cisco ao Azure Sentinel.
+description: Saiba como ligar o seu aparelho Cisco ASA ao Azure Sentinel para ver os dashboards, criar alertas personalizados e melhorar a investigação.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,40 +15,40 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 264dab4fabc890ffe03d911f8ee3c08ef51375d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8a64dd3e47384ba2bf7579f8052177252634622
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588404"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85566039"
 ---
-# <a name="connect-cisco-asa-to-azure-sentinel"></a>Ligue cisco ASA ao Sentinela Azure
+# <a name="connect-cisco-asa-to-azure-sentinel"></a>Ligue cisco ASA a Azure Sentinel
 
 
 
-Este artigo explica como ligar o seu aparelho Cisco ASA ao Azure Sentinel. O conector de dados Cisco ASA permite-lhe ligar facilmente os seus registos Cisco ASA com o Azure Sentinel, ver dashboards, criar alertas personalizados e melhorar a investigação. A utilização da Cisco ASA no Azure Sentinel irá fornecer-lhe mais informações sobre o uso da Internet da sua organização e aumentará as suas capacidades de operação de segurança. 
+Este artigo explica como ligar o seu aparelho Cisco ASA ao Azure Sentinel. O conector de dados Cisco ASA permite-lhe conectar facilmente os seus registos Cisco ASA com a Azure Sentinel, para ver dashboards, criar alertas personalizados e melhorar a investigação. A utilização da Cisco ASA no Azure Sentinel irá fornecer-lhe mais informações sobre o uso da Internet da sua organização e irá melhorar as suas capacidades de operação de segurança. 
 
 
 
-## <a name="forward-cisco-asa-logs-to-the-syslog-agent"></a>Encaminhaos cisco ASA para o agente Syslog
+## <a name="forward-cisco-asa-logs-to-the-syslog-agent"></a>Avançados registos cisco ASA para o agente Syslog
 
-A Cisco ASA não suporta o CEF, pelo que os registos são enviados como Syslog e o agente Azure Sentinel sabe como analisá-los como se fossem registos CEF. Configure a Cisco ASA para encaminhar mensagens Syslog para o seu espaço de trabalho Azure através do agente Syslog:
+A Cisco ASA não suporta o CEF, por isso os registos são enviados como Syslog e o agente Azure Sentinel sabe como analisá-los como se fossem registos CEF. Configure a Cisco ASA para encaminhar mensagens Syslog para o seu espaço de trabalho Azure através do agente Syslog:
 
 1. Vá enviar [mensagens Syslog para um servidor Syslog externo](https://aka.ms/asi-syslog-cisco-forwarding)e siga as instruções para configurar a ligação. Utilize estes parâmetros quando solicitado:
-    - Detete a **porta** para 514 ou a porta que coloque no agente.
-    - Coloque **syslog_ip** no endereço IP do agente.
+    - Desateia a **porta** para o 514 ou a porta que definiu no agente.
+    - Desaponhe **syslog_ip** no endereço IP do agente.
 
-1. Para utilizar o esquema relevante no Log Analytics para `CommonSecurityLog`os eventos cisco, procure .
+1. Para utilizar o esquema relevante no Log Analytics para os eventos cisco, procure `CommonSecurityLog` .
 
-1. Continuar a [PASSO 3: Validar a conectividade.](connect-cef-verify.md)
-
-
+1. Continuar a [PASSO 3: Validar a conectividade](connect-cef-verify.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
-Neste documento, aprendeu a ligar os aparelhos Cisco ASA ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
-- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)
-- [Utilize livros](tutorial-monitor-your-data.md) de trabalho para monitorizar os seus dados.
+
+
+## <a name="next-steps"></a>Próximos passos
+Neste documento, aprendeu a ligar os eletrodomésticos Cisco ASA ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
+- Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
+- Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)
+- [Utilize livros para](tutorial-monitor-your-data.md) monitorizar os seus dados.
 
 

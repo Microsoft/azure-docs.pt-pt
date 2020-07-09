@@ -1,49 +1,49 @@
 ---
 title: Características - LUIS
 titleSuffix: Azure Cognitive Services
-description: Use a Compreensão da Linguagem (LUIS) para adicionar funcionalidades de aplicações que possam melhorar a deteção ou previsão de intenções e entidades que categorias e padrões
+description: Use o Com understanding idioma (LUIS) para adicionar funcionalidades de aplicações que possam melhorar a deteção ou previsão de intenções e entidades que categorias e padrões
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 8b52102ec26ec94097e4b5b9aa1b1730787cfa4b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7d9f1e520ab5c96b9c5288383324b165a4cd74f0
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654091"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344446"
 ---
-# <a name="use-features-to-boost-signal-of-word-list"></a>Utilize funcionalidades para aumentar o sinal da lista de palavras
+# <a name="use-features-to-boost-signal-of-word-list"></a>Use funcionalidades para aumentar o sinal da lista de palavras
 
-Pode adicionar funcionalidades à sua aplicação LUIS para melhorar a sua precisão. As funcionalidades ajudam o LUIS, fornecendo dicas de que certas palavras e frases fazem parte de um vocabulário de domínio de aplicação.
+Pode adicionar funcionalidades à sua app LUIS para melhorar a sua precisão. As funcionalidades ajudam o LUIS, fornecendo dicas de que certas palavras e frases fazem parte de um vocabulário de domínio de aplicações.
 
-Reveja [os conceitos](luis-concept-feature.md) para entender quando e porquê usar uma funcionalidade.
+Reveja [conceitos](luis-concept-feature.md) para entender quando e porquê usar uma funcionalidade.
 
-## <a name="add-phrase-list-as-a-feature"></a>Adicione a lista de frases como recurso
+## <a name="add-phrase-list-as-a-feature"></a>Adicione a lista de frases como uma característica
 
-1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **De Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
+1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **de Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
 1. Abra a sua aplicação selecionando o seu nome na página **My Apps.**
 1. Selecione **Build**e, em seguida, selecione **Funcionalidades** no painel esquerdo da sua aplicação.
 
-1. Na página **Funcionalidades,** selecione **+ Criar**.
+1. Na página **'Funcionalidades',** selecione **+ Criar**.
 
-1. Na **nova lista** de frases, introduza um nome como `Cities` . Na caixa **Valor,** insira exemplos das cidades, tais como `Seattle` . Pode escrever um valor de cada vez, ou um conjunto de valores separados por vírgulas e, em seguida, pressionar **Enter**.
+1. Na caixa de diálogo **de lista de novas frases,** introduza um nome como `Cities` . Na caixa **de valor,** insira exemplos das cidades, tais `Seattle` como. Pode escrever um valor de cada vez, ou um conjunto de valores separados por vírgulas e, em seguida, **premir Enter**.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot de adicionar recurso (lista de frases) Cidades](./media/luis-add-features/add-phrase-list-cities.png)
 
     Depois de ter introduzido valores suficientes para o LUIS, surgem sugestões. Pode **+ Adicionar todos os** valores propostos ou selecionar termos individuais.
 
-1. Mantenha **estes valores verificados intercambiáveis** se as frases puderem ser utilizadas de forma interpermutada.
+1. Manter **estes valores são permutáveis** verificados se as frases podem ser utilizadas intercambiavelmente.
 
-1. A lista de frases pode aplicar-se a toda a aplicação com a definição **Global,** ou a um modelo específico (intenção ou entidade). Se criar a lista de frases, como _recurso_ de uma intenção ou entidade, o toggle não está definido para global. Neste caso, o significado do alternância é que a funcionalidade é local apenas para esse modelo, portanto, _não global_ para a aplicação.
+1. A lista de frases pode aplicar-se a toda a aplicação com a configuração **Global,** ou a um modelo específico (intenção ou entidade). Se criar a lista de frases, como _recurso_ de uma intenção ou entidade, o toggle não está definido para global. Neste caso, o significado do toggle é que a funcionalidade é local apenas para este modelo, portanto, _não global_ para a aplicação.
 
-1. Selecione **Done** (Concluído). A nova funcionalidade é adicionada à página **ml Features.**
+1. Selecione **Done** (Concluído). A nova funcionalidade é adicionada à página **ML Features.**
 
 <a name="edit-phrase-list"></a>
 <a name="delete-phrase-list"></a>
@@ -51,22 +51,22 @@ Reveja [os conceitos](luis-concept-feature.md) para entender quando e porquê us
 
 
 > [!Note]
-> Pode eliminar ou desativar uma lista de frases a partir da barra de ferramentas contextual na página **ml Features.**
+> Pode eliminar ou desativar uma lista de frases da barra de ferramentas contextual na página **ML Features.**
 
 ## <a name="global-phrase-list-applies-to-entire-app"></a>Lista global de frases aplica-se a toda a app
 
-Uma lista de frases deve ser aplicada à intenção ou entidade que se destina a ajudar, mas pode haver momentos em que uma lista de frases deve ser aplicada a toda a aplicação como uma funcionalidade **Global.**
+Uma lista de frases deve ser aplicada à intenção ou entidade que se destina a ajudar, mas pode haver momentos em que uma lista de frases deve ser aplicada a toda a app como uma funcionalidade **Global.**
 
-Na página ML Features, selecione a lista de frases e, em seguida, selecione **Tornar global** na barra de ferramentas contextual superior.
+Na página ML Features, selecione a lista de frases e, em seguida, **selecione Tornar global** na barra de ferramentas contextual superior.
 
 ## <a name="model-as-a-feature"></a>Modelo como recurso
 
 Uma entidade pode ser uma [característica para uma intenção ou entidade.](luis-concept-feature.md)
 
-Para adicionar uma entidade como funcionalidade a uma intenção, selecione a intenção da página Intents e, em seguida, selecione **+ Adicione a funcionalidade** acima da barra de ferramentas contextual. A lista incluirá todas as listas de frases e entidades que podem ser aplicadas como funcionalidades.
+Para adicionar uma entidade como recurso a uma intenção, selecione a intenção na página Intenções e, em seguida, **selecione + Adicione a funcionalidade** acima da barra de ferramentas contextual. A lista incluirá todas as listas de frases e entidades que podem ser aplicadas como funcionalidades.
 
-Para adicionar uma entidade como funcionalidade a outra entidade, pode adicionar a funcionalidade na página de detalhes intentada utilizando a Paleta de [Entidades](label-entity-example-utterance.md#adding-entity-as-a-feature-from-the-entity-palette) ou pode [adicionar a funcionalidade](luis-how-to-add-entities.md#add-a-feature-to-a-machine-learned-entity) na página de detalhes da Entidade.
+Para adicionar uma entidade como recurso a outra entidade, pode adicionar a funcionalidade na página de detalhes de Intenção utilizando a [Paleta de Entidade](label-entity-example-utterance.md#adding-entity-as-a-feature-from-the-entity-palette) ou pode adicionar a [funcionalidade](luis-how-to-add-entities.md#add-a-feature-to-a-machine-learned-entity) na página de detalhes da Entidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Depois de adicionar, editar, apagar ou desativar uma funcionalidade, [treinar e testar novamente a app](luis-interactive-test.md) para ver se o desempenho melhora.
+Depois de adicionar, editar, eliminar ou desativar uma funcionalidade, [treine e teste novamente a aplicação](luis-interactive-test.md) para ver se o desempenho melhora.

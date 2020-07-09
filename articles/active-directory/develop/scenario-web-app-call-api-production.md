@@ -1,6 +1,6 @@
 ---
-title: Mude para a produção uma aplicação web que chama APIs web - plataforma de identidade microsoft / Azure
-description: Aprenda a mover-se para a produção de uma aplicação web que chama APIs web.
+title: Mover para a produção de uma aplicação web que chama APIs web - plataforma de identidade Microsoft / Rio Azure
+description: Saiba como mover-se para a produção de uma aplicação web que chama APIs web.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,30 +12,29 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 6404d00b87b9ee745b9e3a92c646404e574417c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881666"
 ---
-# <a name="a-web-app-that-calls-web-apis-move-to-production"></a>Uma aplicação web que chama APIs web: Mover-se para a produção
+# <a name="a-web-app-that-calls-web-apis-move-to-production"></a>Uma aplicação web que chama APIs web: Mover para a produção
 
-Agora que sabe como adquirir um símbolo para ligar para a Web APIs, aprenda a mudar-se para a produção.
+Agora que sabe como adquirir um símbolo para chamar APIs web, aprenda a mudar-se para a produção.
 
 [!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais experimentando o tutorial completo e progressivo para ASP.NET aplicações web Core. O tutorial:
+Saiba mais experimentando o tutorial completo e progressivo para ASP.NET web Core. O tutorial:
 
 - Mostra como inscrever os utilizadores em vários públicos ou em nuvens nacionais, ou usando identidades sociais.
-- Liga para o Microsoft Graph.
-- Liga para várias APIs da Microsoft.
+- Chama o Microsoft Graph.
+- Chama várias APIs da Microsoft.
 - Lida com o consentimento incremental.
 - Chama a sua própria API web.
 
 > [!div class="nextstepaction"]
-> [tutorial de aplicação web ASP.NET Core](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)
+> [Tutorial de aplicativo web core ASP.NET](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)
 
 <!--- Removing this diagram as it's already shown from the next step linked tutorial
 

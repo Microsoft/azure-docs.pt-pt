@@ -1,59 +1,52 @@
 ---
 title: Tamanhos Azure VM - GPU / Microsoft Docs
-description: Lista os diferentes tamanhos otimizados da GPU disponíveis para máquinas virtuais em Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como a entrada de armazenamento e largura de banda da rede para tamanhos nesta série.
-services: virtual-machines
-documentationcenter: ''
-author: vikancha
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
+description: Lista os diferentes tamanhos otimizados da GPU disponíveis para máquinas virtuais em Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como o armazenamento e largura de banda de rede para tamanhos nesta série.
+author: vikancha-MSFT
 ms.service: virtual-machines
-ms.devlang: na
+ms.subservice: sizes
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
-ms.author: jonbeck
-ms.openlocfilehash: 5d36ba05d2138a06ebb2ef4e49aadb6032b62b92
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.author: jushiman
+ms.openlocfilehash: bbd81730ea822381f1d0f0e15011fb4ed0c29e64
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82627046"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84735919"
 ---
-# <a name="gpu-optimized-virtual-machine-sizes"></a>GPU otimizado tamanhos de máquina virtual
+# <a name="gpu-optimized-virtual-machine-sizes"></a>GPU otimizado tamanhos de máquinas virtuais
 
-Os tamanhos de VM otimizados por GPU são máquinas virtuais especializadas disponíveis com GPUs simples, múltiplos ou fracionários. Estes tamanhos são projetados para cargas de trabalho intensivas em cálculo, gráficos-intensivos e visualização. Este artigo fornece informações sobre o número e o tipo de GPUs, vCPUs, discos de dados e NICs. A produção de armazenamento e a largura de banda da rede também estão incluídas para cada tamanho neste agrupamento.
+Os tamanhos de VM otimizados da GPU são máquinas virtuais especializadas disponíveis com GPUs individuais, múltiplas ou fracionadas. Estes tamanhos são projetados para cargas de trabalho de computação intensiva, gráfica intensiva e visualização. Este artigo fornece informações sobre o número e tipo de GPUs, vCPUs, discos de dados e NICs. A produção de armazenamento e a largura de banda da rede também estão incluídas para cada tamanho neste agrupamento.
 
-- [Série NC](nc-series.md), [série NCv2,](ncv2-series.md)tamanhos da [série NCv3](ncv3-series.md) são otimizados para aplicações e algoritmos intensivos de computação e de rede. Alguns exemplos são aplicações e simulações baseadas em CUDA e OpenCL, IA e Deep Learning. A série NCv3 está focada em cargas de trabalho de computação de alto desempenho com o GPU Tesla V100 da NVIDIA. A série NC utiliza o processador Intel Xeon E5-2690 v3 2.60GHz v3 (Haswell) e o processador NCv2 série e NCv3 da série VMs usam o processador Intel Xeon E5-2690 v4 (Broadwell).
+- [Série NC](nc-series.md), [série NCv2,](ncv2-series.md)tamanhos [da série NCv3](ncv3-series.md) são otimizados para aplicações e algoritmos intensivos de computação intensiva e de rede. Alguns exemplos são aplicações e simulações baseadas em CUDA e OpenCL, IA e Deep Learning. A série NCv3 está focada em cargas de trabalho de computação de alto desempenho com o Tesla V100 GPU da NVIDIA. A série NC utiliza o processador Intel Xeon E5-2690 v3 2.60GHz v3 (Haswell) e os VMs da série NCv2 e NCv3 utilizam o processador Intel Xeon E5-2690 v4 (Broadwell).
 
-- [As séries ND](nd-series.md)e os tamanhos das [séries NDv2](ndv2-series.md) estão focados em cenários de treino e inferência para uma aprendizagem profunda. Utilizam o GPU NVIDIA Tesla P40 e o processador Intel Xeon E5-2690 v4 (Broadwell). A série NDv2 utiliza o processador Intel Xeon Platinum 8168 (Skylake).
+- [As séries ND](nd-series.md)e os tamanhos [da série NDv2](ndv2-series.md) estão focados em cenários de treino e inferência para aprendizagem profunda. Utilizam o GPU P40 da NVIDIA e o processador Intel Xeon E5-2690 v4 (Broadwell). A série NDv2 utiliza o processador Intel Xeon Platinum 8168 (Skylake).
 
-- Os tamanhos das [séries NV](nv-series.md) e [NVv3](nvv3-series.md) são otimizados e projetados para visualização remota, streaming, jogos, codificação e cenários vDI usando estruturas como OpenGL e DirectX. Estes VMs são apoiados pela NVIDIA Tesla M60 GPU.
+- Os tamanhos [da série NV](nv-series.md) e [NVv3](nvv3-series.md) são otimizados e projetados para visualização remota, streaming, jogos, codificação e cenários VDI usando quadros como OpenGL e DirectX. Estes VMs são apoiados pelo GPU NVIDIA Tesla M60.
 
-- [Série NVv4](nvv4-series.md) Tamanhos VM otimizados e projetados para VDI e visualização remota. Com GPUs divididos, o NVv4 oferece o tamanho certo para cargas de trabalho que requerem recursos de GPU menores. Estes VMs são apoiados pela AMD Radeon Instinct MI25 GPU. Atualmente, os VMs NVv4 suportam apenas o sistema operativo windows.
+- [Série NVv4](nvv4-series.md) Tamanhos VM otimizados e projetados para VDI e visualização remota. Com GPUs divididos, o NVv4 oferece o tamanho certo para cargas de trabalho que requerem recursos de GPU mais pequenos. Estes VMs são apoiados pela GPU AMD Radeon Instinct MI25. Atualmente, os VMS NVv4 suportam apenas o sistema operativo para hóspedes do Windows.
 
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operativos e controladores suportados
 
-Para tirar partido das capacidades de GPU dos pilotos de GpMs da série N Azure, da NVIDIA ou da AMD GPU devem ser instalados.
+Para tirar partido das capacidades da GPU dos condutores da série Azure N VMs, NVIDIA ou AMD GPU devem ser instalados.
 
-- Para VMs apoiados por GPUs da [NVIDIA, a Extensão do Condutor GPU da NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) instala os controladores Adequados nVIDIA CUDA ou GRID. Instale ou gerea extensão utilizando o portal Azure ou ferramentas como os modelos Azure PowerShell ou Azure Resource Manager. Consulte a documentação de extensão do [condutor da NVIDIA GPU](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para sistemas operativos suportados e etapas de implementação. Para obter informações gerais sobre extensões VM, consulte [extensões e funcionalidades da máquina virtual Azure.](/azure/virtual-machines/extensions/overview)
+- Para os VMs apoiados pela NVIDIA GPUs, a [Extensão do Condutor GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) instala controladores adequados NVIDIA CUDA ou GRID. Instale ou gerencie a extensão utilizando o portal Azure ou ferramentas como os modelos Azure PowerShell ou Azure Resource Manager. Consulte a documentação da [extensão do condutor do GPU da NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para sistemas operativos suportados e etapas de implantação. Para obter informações gerais sobre extensões de VM, consulte [extensões e funcionalidades de máquinas virtuais Azure](/azure/virtual-machines/extensions/overview).
 
-   Em alternativa, pode instalar manualmente os controladores GPU da NVIDIA. Consulte a instalação de [controladores GPU da NVIDIA em VMs da série N](/azure/virtual-machines/windows/n-series-driver-setup) que executam windows ou [instale controladores GPU nVIDIA em VMs da série N executando Linux](/azure/virtual-machines/linux/n-series-driver-setup) para sistemas operativos suportados, controladores, instalação e etapas de verificação.
+   Em alternativa, pode instalar manualmente os controladores da NVIDIA GPU. Consulte [os controladores GPU da NVIDIA em VMs da série N que executam o Windows](/azure/virtual-machines/windows/n-series-driver-setup) ou [instale os controladores GU NVIDIA em VMs da série N que executam o Linux](/azure/virtual-machines/linux/n-series-driver-setup) para sistemas operativos suportados, controladores, instalações e etapas de verificação.
 
-- Para VMs apoiados por GPUs DA AMD, consulte [Instalar controladores GPU DA AMD em VMs da série N que executam o Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup) para sistemas operativos, controladores, instalação e verificação suportados.
+- Para VMs apoiados por GPUs AMD, consulte [os controladores DE GPU da AMD em VMs da série N que executam o Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup) para sistemas operativos suportados, controladores, instalações e etapas de verificação.
 
 ## <a name="deployment-considerations"></a>Considerações sobre implementação
 
-- Para disponibilidade de VMs da série N, consulte [Produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
+- Para obter disponibilidade de VMs da série N, consulte [produtos disponíveis por região.](https://azure.microsoft.com/regions/services/)
 
 - Os VMs da série N só podem ser implantados no modelo de implementação do Gestor de Recursos.
 
-- Os VMs da série N diferem no tipo de Armazenamento Azure que suportam para os seus discos. Os VMs NC e NV suportam apenas discos VM que são apoiados pelo Armazenamento de Discos Standard (HDD). NCv2, NCv3, ND, NDv2 e NVv2 VMs suportam apenas discos VM que são apoiados por Armazenamento de Discos Premium (SSD).
+- Os VMs da série N diferem no tipo de Armazenamento Azure que suportam para os seus discos. Os VMs NC e NV suportam apenas discos VM que são apoiados por Armazenamento Padrão de Disco (HDD). NCv2, NCv3, ND, NDv2 e NVv2 VMs suportam apenas discos VM que são apoiados por Premium Disk Storage (SSD).
 
 - Se quiser implementar mais do que alguns VMs da série N, considere uma subscrição pay-as-you-go ou outras opções de compra. Se estiver a utilizar uma [conta gratuita do Azure](https://azure.microsoft.com/free/), pode utilizar apenas um número limitado de núcleos de computação do Azure.
 
-- Poderá ser necessário aumentar a quota de núcleos (por região) na sua subscrição Azure e aumentar a quota separada para núcleos NC, NCv2, NCv3, ND, NDv2, NV ou NVv2. Para solicitar um aumento de quota, [abra um pedido de apoio](../azure-portal/supportability/how-to-create-azure-support-request.md) ao cliente online gratuitamente. Os limites de predefinição podem variar dependendo da sua categoria de subscrição.
+- Você pode precisar aumentar a quota de núcleos (por região) na sua assinatura Azure, e aumentar a quota separada para núcleos NC, NCv2, NCv3, ND, NDv2, NV ou NVv2. Para solicitar um aumento de quota, [abra gratuitamente um pedido de apoio](../azure-portal/supportability/how-to-create-azure-support-request.md) ao cliente online. Os limites predefinidos podem variar dependendo da sua categoria de subscrição.
 
 ## <a name="other-sizes"></a>Outros tamanhos
 
@@ -64,6 +57,6 @@ Para tirar partido das capacidades de GPU dos pilotos de GpMs da série N Azure,
 - [Com otimização de armazenamento](sizes-storage.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre como as unidades de [computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho da computação em Azure SKUs.
+Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

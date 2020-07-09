@@ -1,104 +1,106 @@
 ---
 title: Perguntas mais frequentes
-description: Respostas para perguntas frequentes relacionadas com o serviço Decasos de Contentores Azure
+description: Respostas para perguntas frequentes relacionadas com o serviço de Instâncias de Contentores Azure
 author: dkkapur
 ms.topic: article
-ms.date: 04/10/2020
-ms.openlocfilehash: 4fca198356c8db006c4190e0f16b20f78dc1d477
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/02/2020
+ms.openlocfilehash: 21643ccfb6bb256e29114435ccb39a009d1b8dae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115232"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806606"
 ---
-# <a name="frequently-asked-questions-about-azure-container-instances"></a>Perguntas frequentes sobre instâncias de contentores de Azure
+# <a name="frequently-asked-questions-about-azure-container-instances"></a>Perguntas frequentes sobre instâncias de contentores Azure
 
-Este artigo aborda frequentemente perguntas sobre instâncias de contentores do Azure.
+Este artigo aborda perguntas frequentes sobre casos de contentores Azure.
 
 ## <a name="deployment"></a>Implementação
 
 ### <a name="how-large-can-my-container-image-be"></a>Quão grande pode ser a minha imagem de contentor?
 
-O tamanho máximo para uma imagem de recipiente implantável em Instâncias de Contentores Azure é de 15 GB. Poderá ser capaz de implementar imagens maiores dependendo da disponibilidade exata no momento em que se implementa, mas isso não está garantido.
+O tamanho máximo para uma imagem de recipiente implantável em Instâncias de Contentores Azure é de 15 GB. Pode ser capaz de implementar imagens maiores dependendo da disponibilidade exata no momento em que implementar, mas isso não está garantido.
 
-O tamanho da imagem do seu recipiente afeta o tempo que demora a ser implantado, pelo que geralmente pretende manter as imagens do recipiente o mais pequenas possível.
+O tamanho da sua imagem do recipiente tem impacto no tempo que leva a ser implantado, por isso, em geral, pretende manter as imagens do seu contentor o mais pequenas possível.
 
 ### <a name="how-can-i-speed-up-the-deployment-of-my-container"></a>Como posso acelerar a colocação do meu contentor?
 
-Como um dos principais determinantes dos tempos de implantação é o tamanho da imagem, procure formas de reduzir o tamanho. Remova camadas de que não precisa, ou reduza o tamanho das camadas na imagem (escolhendo uma imagem de Os base mais leve). Por exemplo, se estiver a executar contentores Linux, considere usar a Alpine como imagem base em vez de um Servidor Ubuntu completo. Da mesma forma, para os recipientes Windows, utilize uma imagem base nana server, se possível. 
+Porque um dos principais determinantes dos tempos de implantação é o tamanho da imagem, procure formas de reduzir o tamanho. Remova as camadas de que não precisa, ou reduza o tamanho das camadas na imagem (escolhendo uma imagem de SO base mais leve). Por exemplo, se estiver a executar recipientes Linux, considere usar o Alpine como a sua imagem base em vez de um Servidor Ubuntu completo. Da mesma forma, para recipientes Windows, utilize uma imagem base do Nano Server, se possível. 
 
-Deve também verificar a lista de imagens pré-cached em Imagens de Contentores Azure, disponíveis através da [Lista Imagens Em Cached](/rest/api/container-instances/listcachedimages) API. Pode ser capaz de trocar uma camada de imagem por uma das imagens pré-cached. 
+Deve também consultar a lista de imagens pré-em cache em Imagens de Contentores Azure, disponíveis através da [Lista cached Images](/rest/api/container-instances/location/listcachedimages) API. Pode ser capaz de trocar uma camada de imagem por uma das imagens pré-em cache. 
 
-Consulte [uma orientação](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) mais detalhada sobre a redução do tempo de arranque dos contentores.
+Consulte [orientações](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) mais detalhadas sobre a redução do tempo de arranque do contentor.
 
-### <a name="what-windows-base-os-images-are-supported"></a>Que imagens do Sistema operativo Windows base são suportadas?
+### <a name="what-windows-base-os-images-are-supported"></a>Quais as imagens OS base do Windows suportadas?
+
+> [!NOTE]
+> Devido a problemas com retrocompatibilidade após as atualizações do Windows em 2020, as seguintes versões de imagem incluem o número de versão mínima que recomendamos que utilize na sua imagem base. As implementações atuais que utilizam versões de imagem mais antigas não são impactadas, mas as novas implementações devem aderir às seguintes imagens base. 
 
 #### <a name="windows-server-2016-base-images"></a>Imagens base do Windows Server 2016
 
-* [Nano](https://hub.docker.com/_/microsoft-windows-nanoserver)Server `10.0.14393.x`: ,`sac2016`
-* [Núcleo do](https://hub.docker.com/_/microsoft-windows-servercore) `ltsc2016`Servidor do Windows : ,`10.0.14393.x`
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `sac2016` , ou mais `10.0.14393.3506` recente
+* [Núcleo do Servidor do Windows](https://hub.docker.com/_/microsoft-windows-servercore): , ou mais `ltsc2016` `10.0.14393.3506` recente
 
 > [!NOTE]
-> As imagens do Windows baseadas no lançamento do Canal 1709 ou 1803 não são suportadas.
+> As imagens do Windows baseadas na versão semi-anual do Canal 1709 ou 1803 não são suportadas.
 
-#### <a name="windows-server-2019-and-client-base-images-preview"></a>Windows Server 2019 e imagens base de cliente (pré-visualização)
+#### <a name="windows-server-2019-and-client-base-images-preview"></a>Windows Server 2019 e imagens base do cliente (pré-visualização)
 
-* [Nano](https://hub.docker.com/_/microsoft-windows-nanoserver)Server `1809` `10.0.17763.914` : , ou mais cedo
-* [Núcleo](https://hub.docker.com/_/microsoft-windows-servercore)do `ltsc2019`Servidor `1809` `10.0.17763.914` do Windows : , ou mais cedo
-* [Janelas](https://hub.docker.com/_/microsoft-windows) `1809` `10.0.17763.914` : , ou mais cedo
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809` , ou mais `10.0.17763.1040` recente
+* [Núcleo do Servidor do Windows:](https://hub.docker.com/_/microsoft-windows-servercore) `ltsc2019` , ou mais `1809` `10.0.17763.1040` recente
+* [Janelas](https://hub.docker.com/_/microsoft-windows): `1809` , ou mais `10.0.17763.1040` recentes
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>Que camada de imagem .NET ou .NET Core devo usar no meu recipiente? 
 
-Use a imagem mais pequena que satisfaz os seus requisitos. Para o Linux, pode utilizar uma imagem de base .NET Core *invertada,* que tem sido suportada desde o lançamento do .NET Core 2.1. Para windows, se estiver a utilizar a estrutura completa .NET, então precisa de utilizar uma imagem do Windows Server Core (imagem apenas de tempo de execução, como *4.7.2 windowsservercore-ltsc2016*). As imagens apenas com tempo de execução são menores, mas não suportam cargas de trabalho que requerem o SDK .NET.
+Use a imagem mais pequena que satisfaça os seus requisitos. Para o Linux, pode utilizar uma imagem *de runtime-alpine* .NET Core, que foi suportada desde o lançamento de .NET Core 2.1. Para o Windows, se estiver a utilizar o quadro .NET completo, então tem de utilizar uma imagem do Núcleo do Servidor do Windows (imagem apenas em funcionamento, como *4.7.2-windowsservercore-ltsc2016).* As imagens apenas de tempo de execução são menores, mas não suportam cargas de trabalho que requeiram o .NET SDK.
 
 ## <a name="availability-and-quotas"></a>Disponibilidade e quotas
 
 ### <a name="how-many-cores-and-memory-should-i-allocate-for-my-containers-or-the-container-group"></a>Quantos núcleos e memória devo atribuir para os meus contentores ou para o grupo de contentores?
 
-Isto depende da sua carga de trabalho. Inicie um pequeno desempenho e teste para ver como se fazem os seus recipientes. [Monitorize](container-instances-monitor.md)o CPU e o uso de recursos de memória e adicione, em seguida, núcleos ou memória com base no tipo de processos que implementa no recipiente.
+Isto depende da sua carga de trabalho. Inicie um desempenho pequeno e teste para ver como se saem os seus recipientes. [Monitorize o CPU e o uso do recurso de memória](container-instances-monitor.md)e, em seguida, adicione núcleos ou memória com base no tipo de processos que implementa no recipiente.
 
-Certifique-se também de verificar a disponibilidade de [recursos](container-instances-region-availability.md#availability---general) para a região que está a implantar para os limites superiores dos núcleos de CPU e da memória disponível por grupo de contentores. 
+Certifique-se também de verificar a disponibilidade de [recursos](container-instances-region-availability.md#availability---general) para a região em que está a implantar para os limites superiores nos núcleos de CPU e memória disponível por grupo de contentores. 
 
 > [!NOTE]
-> Uma pequena quantidade de recursos de um grupo de contentores é utilizada pela infraestrutura subjacente do serviço. Os seus contentores poderão aceder à maioria, mas não todos os recursos atribuídos ao grupo. Por esta razão, planeie um pequeno tampão de recursos ao solicitar recursos para contentores no grupo.
+> Uma pequena quantidade de recursos de um grupo de contentores é utilizada pela infraestrutura subjacente do serviço. Os seus contentores poderão aceder à maioria, mas não a todos os recursos atribuídos ao grupo. Por esta razão, planeie um pequeno tampão de recursos ao solicitar recursos para contentores no grupo.
 
-### <a name="what-underlying-infrastructure-does-aci-run-on"></a>Em que infraestruturas subjacentes a ACI funciona?
+### <a name="what-underlying-infrastructure-does-aci-run-on"></a>Que infraestrutura subjacente funciona?
 
-O Azure Container Instances pretende ser um serviço de contentores sem servidores a pedido, por isso queremos que se concentre no desenvolvimento dos seus contentores e não se preocupe com a infraestrutura! Para aqueles que são curiosos ou que querem fazer comparações sobre o desempenho, o ACI funciona em conjuntos de VMs Azure de várias SKUs, principalmente da série F e D. Esperamos que isto mude no futuro à medida que continuamos a desenvolver e otimizar o serviço. 
+A Azure Container Instances pretende ser um serviço de contentores sem servidor a pedido, por isso queremos que esteja focado no desenvolvimento dos seus contentores, e não se preocupe com a infraestrutura! Para aqueles que são curiosos ou que querem fazer comparações sobre o desempenho, o ACI corre em conjuntos de VMs Azure de vários SKUs, principalmente da série F e D. Esperamos que isso mude no futuro à medida que continuamos a desenvolver e otimizar o serviço. 
 
-### <a name="i-want-to-deploy-thousand-of-cores-on-aci---can-i-get-my-quota-increased"></a>Quero implantar milhares de núcleos no ACI- posso aumentar a minha quota?
+### <a name="i-want-to-deploy-thousand-of-cores-on-aci---can-i-get-my-quota-increased"></a>Quero colocar milhares de núcleos no ACI - posso aumentar a minha quota?
  
-Sim (às vezes). Consulte o artigo [quotas e limites](container-instances-quotas.md) para as quotas correntes e quais os limites que podem ser aumentados metodoveis.
+Sim (às vezes). Consulte o artigo [de quotas e limites](container-instances-quotas.md) para as quotas correntes e quais os limites que podem ser aumentados por pedido.
 
 ### <a name="can-i-deploy-with-more-than-4-cores-and-16-gb-of-ram"></a>Posso implantar com mais de 4 núcleos e 16 GB de RAM?
 
 Ainda não. Atualmente, estes são os máximos para um grupo de contentores. Contacte o Suporte Azure com requisitos ou pedidos específicos. 
 
-### <a name="when-will-aci-be-in-a-specific-region"></a>Quando é que a ACI estará numa região específica?
+### <a name="when-will-aci-be-in-a-specific-region"></a>Quando estará o ACI numa região específica?
 
-A disponibilidade atual da região é publicada [aqui.](container-instances-region-availability.md#availability---general) Se tiver um requisito para uma região específica, contacte o Suporte Azure.
+A disponibilidade da região atual é publicada [aqui.](container-instances-region-availability.md#availability---general) Se tiver um requisito para uma região específica, contacte o Suporte Azure.
 
 ## <a name="features-and-scenarios"></a>Características e cenários
 
-### <a name="how-do-i-scale-a-container-group"></a>Como escalo um grupo de contentores?
+### <a name="how-do-i-scale-a-container-group"></a>Como posso escalar um grupo de contentores?
 
-Atualmente, a escala não está disponível para contentores ou grupos de contentores. Se precisar de executar mais instâncias, use a nossa API para automatizar e criar mais pedidos de criação de grupo de contentores para o serviço. 
+Atualmente, a escala não está disponível para contentores ou grupos de contentores. Se precisar de executar mais instâncias, use a nossa API para automatizar e criar mais pedidos de criação de grupos de contentores ao serviço. 
 
-### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>Quais as funcionalidades disponíveis para casos que correm num VNet personalizado?
+### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>Quais as funcionalidades disponíveis para as instâncias em execução num VNet personalizado?
 
-Você pode implantar grupos de [contentores numa rede virtual Azure](container-instances-vnet.md) à sua escolha, e delegar iPs privados para os grupos de contentores para direcionar o tráfego dentro do VNet através dos seus recursos Azure. A implantação de um grupo de contentores numa rede virtual está atualmente disponível para cargas de trabalho de produção num subconjunto das regiões de Azure.
+Você pode [implantar grupos de contentores numa rede virtual Azure](container-instances-vnet.md) à sua escolha, e delegar IPs privados para os grupos de contentores para encaminhar o tráfego dentro do VNet através dos seus recursos Azure. A implantação de um grupo de contentores numa rede virtual está atualmente disponível para cargas de trabalho de produção num subconjunto de regiões de Azure.
 
 ## <a name="pricing"></a>Preços
 
 ### <a name="when-does-the-meter-start-running"></a>Quando é que o taxímetro começa a funcionar?
 
-A duração do grupo de contentores é calculada a partir do momento em que começamos a puxar a imagem do seu primeiro contentor (para uma nova implantação) ou o seu grupo de contentores é reiniciado (se já estiver implantado), até que o grupo de contentores seja parado. Consulte os detalhes no preço das instâncias de [contentores](https://azure.microsoft.com/pricing/details/container-instances/).
+A duração do grupo do contentor é calculada a partir do momento em que começamos a puxar a imagem do seu primeiro recipiente (para uma nova implantação) ou o seu grupo de contentores é reiniciado (se já estiver implantado), até que o grupo de contentores seja parado. Consulte os detalhes do [preço de Container Instances](https://azure.microsoft.com/pricing/details/container-instances/).
 
-### <a name="do-i-stop-being-charged-when-my-containers-are-stopped"></a>Paro de ser carregado quando os meus contentores estão parados?
+### <a name="do-i-stop-being-charged-when-my-containers-are-stopped"></a>Parei de ser cobrado quando os meus contentores estão parados?
 
-Os contadores param de funcionar assim que todo o seu grupo de contentores estiver parado. Enquanto um contentor do seu grupo de contentores estiver em funcionamento, guardamos os recursos no caso de querer relançar os contentores. 
+Os contadores param de funcionar assim que todo o grupo de contentores estiver parado. Enquanto um contentor do seu grupo de contentores estiver em funcionamento, nós guardamos os recursos no caso de querer voltar a ligar os contentores. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Saiba mais](container-instances-overview.md) sobre as instâncias de contentores azure.
-* [Problemas de resolução de problemas](container-instances-troubleshooting.md) em casos de contentores de Azure.
+* [Saiba mais](container-instances-overview.md) sobre as Instâncias do Contentor Azure.
+* [Resolver problemas comuns](container-instances-troubleshooting.md) em instâncias de contentores Azure.

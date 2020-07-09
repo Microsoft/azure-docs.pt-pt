@@ -1,32 +1,31 @@
 ---
-title: Especificar o número da porta de um serviço utilizando parâmetros
+title: Especifique o número da porta de um serviço usando parâmetros
 description: Mostra-lhe como usar parâmetros para especificar a porta para uma aplicação em Tecido de Serviço
 author: mikkelhegn
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: mikhegn
 ms.openlocfilehash: a53626b8fd362397ba89df30b099fa3c9ff7b0a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75609864"
 ---
-# <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Como especificar o número de porta de um serviço utilizando parâmetros em Tecido de Serviço
+# <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Como especificar o número de porta de um serviço usando parâmetros em Tecido de Serviço
 
-Este artigo mostra como especificar o número de porta de um serviço usando parâmetros em Tecido de Serviço utilizando o Estúdio Visual.
+Este artigo mostra-lhe como especificar o número de porta de um serviço usando parâmetros em Tecido de Serviço usando o Visual Studio.
 
 ## <a name="procedure-for-specifying-the-port-number-of-a-service-using-parameters"></a>Procedimento para especificar o número de porta de um serviço utilizando parâmetros
 
-Neste exemplo, define o número de porta para o seu asp.net Web API utilizando um parâmetro.
+Neste exemplo, define o número de porta para o seu asp.net API web core utilizando um parâmetro.
 
-1. Open Visual Studio e criar uma nova aplicação Service Fabric.
-1. Escolha o modelo apátrida ASP.NET Core.
-1. Escolha a Web API.
+1. Abra o Estúdio Visual e crie uma nova aplicação de Tecido de Serviço.
+1. Escolha o modelo de núcleo ASP.NET apátrida.
+1. Escolha web API.
 1. Abra o ficheiro ServiceManifest.xml.
 1. Note o nome do ponto final especificado para o seu serviço. A predefinição é `ServiceEndpoint`.
 1. Abra o ficheiro ApplicationManifest.xml
-1. No `ServiceManifestImport` elemento, adicione `RessourceOverrides` um novo elemento com uma referência ao ponto final do seu ficheiro ServiceManifest.xml.
+1. No `ServiceManifestImport` elemento, adicione um novo `RessourceOverrides` elemento com uma referência ao ponto final no seu ficheiro ServiceManifest.xml.
 
     ```xml
       <ServiceManifestImport>
@@ -40,7 +39,7 @@ Neste exemplo, define o número de porta para o seu asp.net Web API utilizando u
       </ServiceManifestImport>
     ```
 
-1. No `Endpoint` elemento, pode agora anular qualquer atributo utilizando um parâmetro. Neste exemplo, especifice `Port` e coloque-o num nome de parâmetro utilizando suportes quadrados - por exemplo,`[MyWebAPI_PortNumber]`
+1. No `Endpoint` elemento, pode agora substituir qualquer atributo utilizando um parâmetro. Neste exemplo, `Port` especifica-se e define-o para um nome de parâmetro utilizando suportes quadrados - por exemplo,`[MyWebAPI_PortNumber]`
 
     ```xml
       <ServiceManifestImport>
@@ -54,7 +53,7 @@ Neste exemplo, define o número de porta para o seu asp.net Web API utilizando u
       </ServiceManifestImport>
     ```
 
-1. Ainda no ficheiro ApplicationManifest.xml, então especifica `Parameters` o parâmetro no elemento
+1. Ainda no ficheiro ApplicationManifest.xml, então especifique o parâmetro no `Parameters` elemento
 
     ```xml
       <Parameters>
@@ -71,7 +70,7 @@ Neste exemplo, define o número de porta para o seu asp.net Web API utilizando u
     ```
 
 1. Abra a pasta ApplicationParameters e o `Cloud.xml` ficheiro
-1. Para especificar uma porta diferente a utilizar ao publicar num cluster remoto, adicione o parâmetro com o número da porta a este ficheiro.
+1. Para especificar uma porta diferente a ser utilizada ao publicar num cluster remoto, adicione o parâmetro com o número de porta a este ficheiro.
 
     ```xml
       <Parameters>
@@ -81,7 +80,7 @@ Neste exemplo, define o número de porta para o seu asp.net Web API utilizando u
 
 Ao publicar a sua aplicação no Visual Studio utilizando o perfil de publicação Cloud.xml, o seu serviço está configurado para utilizar a porta 80. Se implementar a aplicação sem especificar o parâmetro MyWebAPI_PortNumber, o serviço utiliza a porta 8080.
 
-## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre alguns dos conceitos fundamentais que são discutidos neste artigo, consulte as [aplicações de Gestão para artigos de vários ambientes.](service-fabric-manage-multiple-environment-app-configuration.md)
+## <a name="next-steps"></a>Próximos passos
+Para saber mais sobre alguns dos conceitos fundamentais que são discutidos neste artigo, consulte as [aplicações Manage para vários artigos de ambientes.](service-fabric-manage-multiple-environment-app-configuration.md)
 
-Para obter informações sobre outras capacidades de gestão de aplicações que estão disponíveis no Estúdio Visual, consulte [Gerir as suas aplicações de Tecido de Serviço no Estúdio Visual](service-fabric-manage-application-in-visual-studio.md).
+Para obter informações sobre outras capacidades de gestão de aplicações que estão disponíveis no Visual Studio, consulte [Gerir as aplicações de Service Fabric no Visual Studio](service-fabric-manage-application-in-visual-studio.md).

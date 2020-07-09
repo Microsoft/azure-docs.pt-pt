@@ -15,68 +15,67 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: ad446180b3bd864c5b6df808e6e4efac7d6c1c65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687528"
 ---
-# <a name="design-and-implement-an-oracle-database-in-azure"></a>Conceber e implementar uma base de dados da Oracle em Azure
+# <a name="design-and-implement-an-oracle-database-in-azure"></a>Conceça e implemente uma base de dados oracle em Azure
 
 ## <a name="assumptions"></a>Pressupostos
 
-- Estás a planear migrar uma base de dados da Oracle do local para o Azure.
-- Tem o Pacote de [Diagnósticos](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) para a Base de Dados Oracle que pretende migrar
+- Estás a planear migrar uma base de dados do Oráculo do local para o Azure.
+- Tem o [Pacote de Diagnósticos](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) para a Base de Dados do Oráculo que pretende migrar
 - Tem uma compreensão das várias métricas nos relatórios da Oracle AWR.
-- Tem uma compreensão base do desempenho da aplicação e da utilização da plataforma.
+- Tem uma compreensão de base do desempenho da aplicação e da utilização da plataforma.
 
 ## <a name="goals"></a>Objetivos
 
-- Entenda como otimizar a sua implantação oracle em Azure.
-- Explore as opções de afinação de desempenho para uma base de dados Daoracle num ambiente Azure.
+- Compreenda como otimizar a sua implantação oráculo em Azure.
+- Explore as opções de afinação de desempenho para uma base de dados Oracle num ambiente Azure.
 
 ## <a name="the-differences-between-an-on-premises-and-azure-implementation"></a>As diferenças entre uma implementação no local e a implementação do Azure 
 
-Seguem-se algumas coisas importantes a ter em mente quando se está a migrar para o Local aplicações para o Azure. 
+Seguem-se algumas coisas importantes a ter em mente quando se está a migrar para o Azure. 
 
-Uma diferença importante é que, numa implementação do Azure, recursos como VMs, discos e redes virtuais são partilhados entre outros clientes. Além disso, os recursos podem ser acelerados com base nos requisitos. Em vez de se concentrar em evitar falhas (MTBF), Azure está mais focado em sobreviver à falha (MTTR).
+Uma diferença importante é que numa implementação do Azure, recursos como VMs, discos e redes virtuais são partilhados entre outros clientes. Além disso, os recursos podem ser estrangulados com base nos requisitos. Em vez de se concentrar em evitar falhar (MTBF), o Azure está mais focado em sobreviver à falha (MTTR).
 
-O quadro seguinte enumera algumas das diferenças entre uma implementação no local e uma implementação do Azure de uma base de dados da Oracle.
+O quadro que se segue enumera algumas das diferenças entre uma implementação no local e uma implementação Azure de uma base de dados oracle.
 
 > 
 > |  | **Implementação no local** | **Implementação do Azure** |
 > | --- | --- | --- |
-> | **Redes** |LAN/WAN  |SDN (networking definido por software)|
-> | **Grupo de segurança** |Ferramentas de restrição IP/porta |[Grupo de Segurança da Rede (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
-> | **Resiliência** |MTBF (tempo médio entre falhas) |MTTR (tempo médio para recuperação)|
-> | **Manutenção planeada** |Remendar/atualizar|[Conjuntos de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (patching/upgrades geridos pelo Azure) |
+> | **Redes** |LAN/WAN  |SDN (rede definida por software)|
+> | **Grupo de segurança** |Ferramentas de restrição IP/porta |[Grupo de Segurança de Rede (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
+> | **Resiliência** |MTBF (tempo médio entre falhas) |MTTR (tempo médio para a recuperação)|
+> | **Manutenção planeada** |Remendos/upgrades|[Conjuntos de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (patching/upgrades geridos pelo Azure) |
 > | **Recurso** |Dedicada  |Partilhado com outros clientes|
 > | **Regiões** |Datacenters |[Pares de região](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
-> | **Armazenamento** |SAN/discos físicos |[Armazenamento gerido pelo Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+> | **Armazenamento** |DISCOS SAN/Físicos |[Armazenamento gerido pelo Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 > | **Escala** |Escala vertical |Dimensionamento horizontal|
 
 
-### <a name="requirements"></a>Requisitos
+### <a name="requirements"></a>Requirements
 
-- Determina o tamanho e a taxa de crescimento da base de dados.
-- Determine os requisitos do IOPS, que pode estimar com base em relatórios da Oracle AWR ou outras ferramentas de monitorização da rede.
+- Determine o tamanho e a taxa de crescimento da base de dados.
+- Determine os requisitos do IOPS, que pode estimar com base em relatórios oracle AWR ou outras ferramentas de monitorização da rede.
 
 ## <a name="configuration-options"></a>Opções de configuração
 
 Existem quatro áreas potenciais que pode sintonizar para melhorar o desempenho num ambiente Azure:
 
 - Tamanho da máquina virtual
-- Entrada de rede
-- Tipos e configurações de disco
-- Definições de cache do disco
+- Produção de rede
+- Tipos e configurações de discos
+- Definições de cache de disco
 
-### <a name="generate-an-awr-report"></a>Gerar um relatório aWR
+### <a name="generate-an-awr-report"></a>Gerar um relatório da AWR
 
-Se tiver uma base de dados oráculo existente e estiver a planear migrar para O Azure, tem várias opções. Se tiver o Pacote de Diagnóstico sinuoso para os seus [casos](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) de Oráculo, pode executar o relatório Oracle AWR para obter as métricas (IOPS, Mbps, GiBs, e assim por diante). Em seguida, escolha o VM com base nas métricas que recolheu. Ou pode contactar a sua equipa de infraestruturas para obter informações semelhantes.
+Se tem uma base de dados Oráculo existente e planeia migrar para Azure, tem várias opções. Se tiver o [Pacote de Diagnóstico para](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) as suas instâncias Oráculos, pode executar o relatório da Oracle AWR para obter as métricas (IOPS, Mbps, GiBs, e assim por diante). Em seguida, escolha o VM com base nas métricas que recolheu. Ou pode contactar a sua equipa de infraestruturas para obter informações semelhantes.
 
-Pode considerar executar o seu relatório de AWR durante as cargas de trabalho regulares e máximas, para que possa comparar. Com base nestes relatórios, pode dimensionar os VMs com base na carga de trabalho média ou na carga de trabalho máxima.
+Você pode considerar executar o seu relatório de AWR durante cargas de trabalho regulares e picos, para que você possa comparar. Com base nestes relatórios, pode dimensionar os VMs com base na carga de trabalho média ou na carga de trabalho máxima.
 
-Segue-se um exemplo de como gerar um relatório AWR (Gere os seus relatórios DeWR utilizando o seu Oracle Enterprise Manager, se a sua instalação atual tiver um):
+Segue-se um exemplo de como gerar um relatório de AWR (Gere os seus relatórios de AWR utilizando o seu Oracle Enterprise Manager, se a sua instalação atual tiver um):
 
 ```bash
 $ sqlplus / as sysdba
@@ -86,153 +85,153 @@ SQL> @?/rdbms/admin/awrrpt.sql
 
 ### <a name="key-metrics"></a>Principais métricas
 
-Seguem-se as métricas que pode obter do relatório AWR:
+Seguem-se as métricas que pode obter a partir do relatório da AWR:
 
 - Número total de núcleos
 - Velocidade do relógio CPU
 - Memória total em GB
 - Utilização da CPU
 - Taxa máxima de transferência de dados
-- Taxa de alterações de I/O (ler/escrever)
+- Taxa de alterações de E/S (ler/escrever)
 - Taxa de registo de redo (MBPs)
-- Entrada de rede
+- Produção de rede
 - Taxa de latência da rede (baixa/alta)
 - Tamanho da base de dados em GB
 - Bytes recebidos via SQL*Net de/para cliente
 
 ### <a name="virtual-machine-size"></a>Tamanho da máquina virtual
 
-#### <a name="1-estimate-vm-size-based-on-cpu-memory-and-io-usage-from-the-awr-report"></a>1. Estimar o tamanho do VM com base na CPU, na memória e na utilização de I/S do relatório AWR
+#### <a name="1-estimate-vm-size-based-on-cpu-memory-and-io-usage-from-the-awr-report"></a>1. Estimativa do tamanho dos VM com base no uso de CPU, memória e I/S do relatório AWR
 
-Uma coisa que se pode ver são os cinco primeiros eventos de primeiro plano cronometrados que indicam onde estão os estrangulamentos do sistema.
+Uma coisa que você pode olhar são os cinco melhores eventos de primeiro plano cronometrado que indicam onde estão os estrangulamentos do sistema.
 
-Por exemplo, no diagrama seguinte, a sincronização do ficheiro de registo está na parte superior. Indica o número de esperas necessárias antes de o LGWR escrever o tampão de registo para o ficheiro de registo de refazer. Estes resultados indicam que são necessários armazenamentos ou discos com melhor desempenho. Além disso, o diagrama também mostra o número de CPU (núcleos) e a quantidade de memória.
+Por exemplo, no diagrama seguinte, a sincronização do ficheiro de registo está na parte superior. Indica o número de esperas que são necessárias antes de o LGWR escrever o tampão de registo para o ficheiro de registo de redo. Estes resultados indicam que são necessários armazenamento ou discos de melhor desempenho. Além disso, o diagrama também mostra o número de CPU (núcleos) e a quantidade de memória.
 
 ![Screenshot da página de relatório da AWR](./media/oracle-design/cpu_memory_info.png)
 
-O diagrama seguinte mostra o total de I/O de ler e escrever. Foram lidas 59 GB e 247,3 GB escritas durante o tempo do relatório.
+O diagrama seguinte mostra o total de E/O de ler e escrever. Foram 59 GB lidos e 247,3 GB escritos durante o período do relatório.
 
 ![Screenshot da página de relatório da AWR](./media/oracle-design/io_info.png)
 
 #### <a name="2-choose-a-vm"></a>2. Escolha um VM
 
-Com base nas informações recolhidas no relatório da AWR, o próximo passo é escolher um VM de tamanho semelhante que cumpra os seus requisitos. Pode encontrar uma lista de VMs disponíveis no artigo [Memória otimizada](../../linux/sizes-memory.md).
+Com base nas informações que recolheu do relatório da AWR, o próximo passo é escolher um VM de tamanho semelhante que satisfaça os seus requisitos. Pode encontrar uma lista de VMs disponíveis no artigo [Memória otimizada.](../../linux/sizes-memory.md)
 
-#### <a name="3-fine-tune-the-vm-sizing-with-a-similar-vm-series-based-on-the-acu"></a>3. Afinar o tamanho vm com uma série VM semelhante baseada na ACU
+#### <a name="3-fine-tune-the-vm-sizing-with-a-similar-vm-series-based-on-the-acu"></a>3. Afinar o tamanho VM com uma série de VM semelhante baseada na ACU
 
-Depois de escolher o VM, preste atenção à ACU para o VM. Você pode escolher um VM diferente com base no valor da ACU que melhor se adequa às suas necessidades. Para mais informações, consulte a [unidade de cálculo Azure](https://docs.microsoft.com/azure/virtual-machines/windows/acu).
+Depois de ter escolhido o VM, preste atenção à ACU para o VM. Você pode escolher um VM diferente com base no valor ACU que melhor se adequa aos seus requisitos. Para mais informações, consulte [a unidade de computação Azure](https://docs.microsoft.com/azure/virtual-machines/windows/acu).
 
-![Screenshot da página unidades da ACU](./media/oracle-design/acu_units.png)
+![Screenshot da página das unidades da ACU](./media/oracle-design/acu_units.png)
 
-### <a name="network-throughput"></a>Entrada de rede
+### <a name="network-throughput"></a>Produção de rede
 
-O diagrama seguinte mostra a relação entre a entrada e o IOPS:
+O diagrama a seguir mostra a relação entre a produção e o IOPS:
 
-![Screenshot da entrada](./media/oracle-design/throughput.png)
+![Screenshot de produção](./media/oracle-design/throughput.png)
 
-A produção total da rede é estimada com base nas seguintes informações:
-- Tráfego sQL*Net
-- MBps x número de servidores (fluxo de saída, como Oráculo Data Guard)
+O rendimento total da rede é estimado com base nas seguintes informações:
+- Tráfego SQL*Net
+- MBps x número de servidores (fluxo de saída, como Oracle Data Guard)
 - Outros fatores, como a replicação da aplicação
 
-![Screenshot da entrada SQL*Net](./media/oracle-design/sqlnet_info.png)
+![Screenshot da produção SQL*Net](./media/oracle-design/sqlnet_info.png)
 
-Com base nos requisitos de largura de banda da rede, existem vários tipos de gateway para você escolher. Estes incluem básico, VpnGw, e Azure ExpressRoute. Para mais informações, consulte a página de preços do [gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/?v=17.23h).
+Com base nos requisitos de largura de banda da sua rede, existem vários tipos de gateway para escolher. Estes incluem básico, VpnGw, e Azure ExpressRoute. Para mais informações, consulte a [página de preços da porta de entrada VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/?v=17.23h).
 
 **Recomendações**
 
-- A latência da rede é maior em comparação com uma implantação no local. A redução das viagens de ida e volta em rede pode melhorar consideravelmente o desempenho.
-- Para reduzir as viagens de ida e volta, consolide aplicações que tenham transações elevadas ou aplicações "tagarela" na mesma máquina virtual.
-- Utilize máquinas virtuais com [networking acelerado](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) para um melhor desempenho da rede.
-- Para certas destrubutions linux, considere permitir o [apoio TRIM/UNMAP](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
-- Instale o [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) numa máquina virtual separada.
-- Páginas enormes não são ativadas em linux por padrão. Considere permitir páginas enormes `use_large_pages = ONLY` e colocar no Oracle DB. Isto pode ajudar a aumentar o desempenho. Mais informações podem ser encontradas [aqui.](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390)
+- A latência da rede é maior em comparação com uma implantação no local. A redução das viagens de ida e volta na rede pode melhorar consideravelmente o desempenho.
+- Para reduzir as viagens de ida e volta, consolidar aplicações que tenham transações elevadas ou aplicações "chatty" na mesma máquina virtual.
+- Utilize máquinas virtuais com [rede acelerada](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) para um melhor desempenho da rede.
+- Para certas distruções do Linux, considere permitir o [suporte TRIM/UNMAP](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
+- Instale [o Gestor da Empresa Oracle](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) numa máquina virtual separada.
+- As páginas enormes não são ativadas no linux por defeito. Considere ativar páginas enormes e definir `use_large_pages = ONLY` no Oráculo DB. Isto pode ajudar a aumentar o desempenho. Mais informações podem ser [encontradas aqui.](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390)
 
-### <a name="disk-types-and-configurations"></a>Tipos e configurações de disco
+### <a name="disk-types-and-configurations"></a>Tipos e configurações de discos
 
-- *Discos osso padrão*: Estes tipos de disco oferecem dados persistentes e cache. Estão otimizados para acesso a OS no arranque, e não são projetados para cargas de trabalho de armazém de dados ou de dados (analíticas).
+- *Discos de OS predefinidos*: Estes tipos de disco oferecem dados persistentes e cacheing. São otimizados para acesso ao SISTEMA no arranque, e não são projetados para cargas de trabalho transacionais ou de data warehouse (analítico).
 
-- *Discos não geridos*: Com estes tipos de discos, gere as contas de armazenamento que armazenam os ficheiros de disco rígido virtual (VHD) que correspondem aos seus discos VM. Os ficheiros VHD são armazenados como bolhas de página nas contas de armazenamento do Azure.
+- *Discos não geridos*: Com estes tipos de discos, gere as contas de armazenamento que armazenam os ficheiros de disco rígido virtual (VHD) que correspondem aos seus discos VM. Os ficheiros VHD são armazenados como bolhas de página nas contas de armazenamento Azure.
 
-- *Discos geridos*: O Azure gere as contas de armazenamento que utiliza para os seus discos VM. Especifica o tipo de disco (premium ou standard) e o tamanho do disco de que necessita. O Azure cria e gere o disco para si.
+- *Discos geridos*: O Azure gere as contas de armazenamento que utiliza para os discos VM. Especifica o tipo de disco (premium ou standard) e o tamanho do disco de que necessita. O Azure cria e gere o disco para si.
 
-- Discos de *armazenamento premium:* Estes tipos de disco são mais adequados para cargas de trabalho de produção. O armazenamento premium suporta discos VM que podem ser anexados a VMs de séries de tamanhoespecífico, tais como DS, DSv2, GS e VMs da série F. O disco premium vem com diferentes tamanhos, e pode escolher entre discos que variam entre 32 GB e 4.096 GB. Cada tamanho do disco tem as suas próprias especificações de desempenho. Dependendo dos seus requisitos de candidatura, pode anexar um ou mais discos ao seu VM.
+- *Discos de armazenamento premium*: Estes tipos de disco são os mais adequados para cargas de trabalho de produção. O armazenamento premium suporta discos VM que podem ser ligados a VMs específicos da série de tamanho, tais como DS, DSv2, GS e VMs sérieS F. O disco premium vem com diferentes tamanhos, e você pode escolher entre discos que variam de 32 GB a 4,096 GB. Cada tamanho do disco tem as suas próprias especificações de desempenho. Dependendo dos requisitos da sua aplicação, pode anexar um ou mais discos ao seu VM.
 
-Quando cria um novo disco gerido a partir do portal, pode escolher o **tipo conta** para o tipo de disco que pretende utilizar. Tenha em mente que nem todos os discos disponíveis são mostrados no menu suspenso. Depois de escolher um tamanho VM particular, o menu mostra apenas o armazenamento premium disponível SKUs que são baseados nesse tamanho vM.
+Quando criar um novo disco gerido a partir do portal, pode escolher o **tipo de Conta** para o tipo de disco que pretende utilizar. Tenha em mente que nem todos os discos disponíveis são mostrados no menu suspenso. Depois de escolher um determinado tamanho VM, o menu mostra apenas os SKUs de armazenamento premium disponíveis que são baseados nesse tamanho VM.
 
 ![Screenshot da página de disco gerido](./media/oracle-design/premium_disk01.png)
 
-Depois de configurar o seu armazenamento num VM, é melhor carregar os discos antes de criar uma base de dados. Conhecer a taxa de I/S em termos de latência e de entrada pode ajudá-lo a determinar se os VMs suportam o resultado esperado com alvos de latência.
+Depois de configurar o seu armazenamento num VM, é melhor carregar os discos antes de criar uma base de dados. Conhecer a taxa de E/S em termos de latência e produção pode ajudá-lo a determinar se os VMs suportam a produção esperada com alvos de latência.
 
 Existem várias ferramentas para testes de carga de aplicações, tais como Oracle Orion, Sysbench e Fio.
 
-Faça o teste de carga novamente depois de ter implantado uma base de dados da Oracle. Inicie as suas cargas de trabalho regulares e máximas, e os resultados mostram-lhe a linha de base do seu ambiente.
+Faça o teste de carga de novo depois de ter implantado uma base de dados oracle. Inicie as suas cargas de trabalho regulares e máximas, e os resultados mostram-lhe a linha de base do seu ambiente.
 
-Pode ser mais importante dimensionar o armazenamento com base na taxa IOPS em vez do tamanho do armazenamento. Por exemplo, se o IOPS necessário for de 5.000, mas só precisa de 200 GB, ainda pode obter o disco premium classe P30, mesmo que venha com mais de 200 GB de armazenamento.
+Pode ser mais importante dimensionar o armazenamento com base na taxa IOPS em vez do tamanho do armazenamento. Por exemplo, se o IOPS necessário for de 5.000, mas só precisa de 200 GB, ainda poderá obter o disco premium classe P30, mesmo que venha com mais de 200 GB de armazenamento.
 
-A taxa iops pode ser obtida a partir do relatório AWR. É determinado pelo registo de redo, leituras físicas e taxa de escrita.
+A taxa IOPS pode ser obtida a partir do relatório da AWR. É determinado pelo registo de redo, leituras físicas e taxa de escrita.
 
 ![Screenshot da página de relatório da AWR](./media/oracle-design/awr_report.png)
 
 Por exemplo, o tamanho do redo é de 12.200.000 bytes por segundo, o que equivale a 11,63 MBPs.
-O IOPS é 12.200.000 / 2.358 = 5.174.
+O IOPS é de 12.200.000 / 2.358 = 5.174.
 
-Depois de ter uma imagem clara dos requisitos de I/S, pode escolher uma combinação de unidades que são mais adequadas para satisfazer esses requisitos.
+Depois de ter uma imagem clara dos requisitos de E/S, pode escolher uma combinação de unidades que sejam mais adequadas para satisfazer esses requisitos.
 
 **Recomendações**
 
-- Para o espaço de tabela de dados, espalhe a carga de trabalho em I/S através de vários discos utilizando armazenamento gerido ou Oracle ASM.
-- À medida que o tamanho do bloco de I/S aumenta para operações intensivas de leitura e de write-intensivo, adicione mais discos de dados.
+- Para o espaço de tabela de dados, espalhe a carga de trabalho de E/S através de vários discos utilizando armazenamento gerido ou Oracle ASM.
+- À medida que o tamanho do bloco de E/S aumenta para operações intensivas de leitura e de escrita intensiva, adicione mais discos de dados.
 - Aumente o tamanho do bloco para grandes processos sequenciais.
-- Utilize a compressão de dados para reduzir o I/S (tanto para dados como para índices).
-- Separe os registos de refazer, sistema e temperaturas, e desfaça tS em discos de dados separados.
-- Não coloque ficheiros de aplicação em discos os devidos (/dev/sda). Estes discos não estão otimizados para tempos de arranque vm rápidos, e podem não fornecer um bom desempenho para a sua aplicação.
-- Quando utilizar VMs da Série M no armazenamento Premium, ative o [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) no disco de registos de redo.
+- Utilize a compressão de dados para reduzir a E/S (tanto para dados como para índices).
+- Separe os registos, o sistema e as temperaturas e desfaça o TS em discos de dados separados.
+- Não coloque ficheiros de aplicação em discos de OS predefinidos (/dev/sda). Estes discos não estão otimizados para tempos de arranque rápidos em VM, e podem não proporcionar um bom desempenho para a sua aplicação.
+- Ao utilizar VMs da Série M no armazenamento Premium, ative [o Acelerador de Escrita](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) no disco de registos de redo.
 
-### <a name="disk-cache-settings"></a>Definições de cache do disco
+### <a name="disk-cache-settings"></a>Definições de cache de disco
 
-Existem três opções para o caching anfitrião:
+Existem três opções para o caching hospedeiro:
 
-- *Leia Também:* Todos os pedidos estão em cache para leituras futuras. Todas as escritas são percecionadas diretamente para o armazenamento de Azure Blob.
+- *Leia Também:* Todos os pedidos estão em cache para futuras leituras. Todas as escritas são persistiu diretamente para o armazenamento da Azure Blob.
 
-- *Leia:* Este é um algoritmo "read-ahead". As leituras e os escritos estão em cache para leituras futuras. As escritas não escritas são persistidas primeiro na cache local. Também fornece a latência de disco mais baixa para cargas de trabalho leves. Utilizar a cache ReadWrite com uma aplicação que não lida com a persistência dos dados necessários pode levar à perda de dados, se o VM falhar.
+- *Leia :* Este é um algoritmo de "ler-a-frente". As leituras e as escritas estão em cache para futuras leituras. As gravações não-escritas são persistiu primeiro para a cache local. Também fornece a latência mais baixa do disco para cargas de trabalho leves. A utilização da cache ReadWrite com uma aplicação que não lida com a persistência dos dados necessários pode levar à perda de dados, se o VM falhar.
 
-- *Nenhum* (desativado): Ao utilizar esta opção, pode contornar a cache. Todos os dados são transferidos para o disco e persistem para o Armazenamento Azure. Este método dá-lhe a maior taxa de I/S para cargas de trabalho intensivas. Também precisa de ter em consideração o "custo de transação".
+- *Nenhum* (desativado): Ao utilizar esta opção, pode contornar a cache. Todos os dados são transferidos para o disco e persistiram no Azure Storage. Este método dá-lhe a maior taxa de E/S para cargas de trabalho intensivas de I/O. Também é necessário ter em consideração o "custo de transação".
 
 **Recomendações**
 
-Para maximizar a entrada, recomendamos que comece com **nenhum** para o caching hospedeiro. Para o Armazenamento Premium, lembre-se de que deve desativar as "barreiras" quando montar o sistema de ficheiros com as opções **ReadOnly** ou **None.** Atualize o ficheiro /etc/fstab com o UUID para os discos.
+Para maximizar a produção, recomendamos que comece com **Nenhum** para o caching hospedeiro. Para o Armazenamento Premium, tenha em mente que deve desativar as "barreiras" quando monta o sistema de ficheiros com as opções **ReadOnly** ou **None.** Atualize o ficheiro /etc/fstab com o UUID para os discos.
 
 ![Screenshot da página de disco gerido](./media/oracle-design/premium_disk02.png)
 
-- Para os discos OS, utilize o predefinido **Ler/Escrever** cache.
-- Para sistema, TEMP e UNDO usam **nenhum** para cache.
-- Para DATA, use **Nenhum** para cache. Mas se a sua base de dados for apenas para leitura ou para leitura intensiva, use o caching **apenas de leitura.**
+- Para discos OS, utilize o cache padrão **de leitura/escrita.**
+- Para SISTEMA, TEMP e UNDO utilize **Nenhum** para caching.
+- Para DATA, utilize **Nenhum** para caching. Mas se a sua base de dados for apenas de leitura ou de leitura intensiva, use o caching apenas de **Leitura.**
 
-Depois de a definição do disco de dados ser guardada, não pode alterar a definição de cache do hospedeiro a menos que desmonte a unidade ao nível de OS e, em seguida, remonte-a depois de ter feito a alteração.
+Depois de a definição do disco de dados ser guardada, não pode alterar a definição de cache do anfitrião a menos que desmonte a unidade ao nível de SO e, em seguida, remonte-a depois de ter feito a alteração.
 
 ## <a name="security"></a>Segurança
 
-Depois de configurar e configurar o seu ambiente Azure, o próximo passo é proteger a sua rede. Aqui ficam algumas recomendações:
+Depois de configurar e configurar o seu ambiente Azure, o próximo passo é proteger a sua rede. Aqui estão algumas recomendações:
 
-- *Política NSG*: NSG pode ser definido por uma sub-rede ou NIC. É mais simples controlar o acesso ao nível da sub-rede, tanto para segurança como para forçar o encaminhamento para coisas como firewalls de aplicações.
+- *Política NSG*: O NSG pode ser definido por uma sub-rede ou NIC. É mais simples controlar o acesso ao nível da sub-rede, tanto para segurança como para encaminhamento de forças para coisas como firewalls de aplicações.
 
-- *Jumpbox*: Para um acesso mais seguro, os administradores não devem ligar-se diretamente ao serviço de aplicação ou à base de dados. Uma caixa de salto é usada como um meio de comunicação entre a máquina de administrador e os recursos Azure.
-![Screenshot da página de topologia Jumpbox](./media/oracle-design/jumpbox.png)
+- *Jumpbox*: Para um acesso mais seguro, os administradores não devem ligar-se diretamente ao serviço de aplicações ou à base de dados. Uma caixa de salto é usada como um meio de comunicação entre a máquina de administrador e os recursos Azure.
+![Screenshot da página de topologia jumpbox](./media/oracle-design/jumpbox.png)
 
-    A máquina de administrador deve oferecer apenas acesso restrito a IP à caixa de salto. A caixa de salto deve ter acesso à aplicação e base de dados.
+    A máquina de administrador deve oferecer acesso restrito a IP apenas à caixa de salto. A caixa de salto deve ter acesso à aplicação e à base de dados.
 
-- *Rede privada* (subnets): Recomendamos que tenha o serviço de aplicação e base de dados em subredes separadas, para que um melhor controlo possa ser definido pela política NSG.
+- *Rede privada* (sub-redes): Recomendamos que tenha o serviço de aplicação e base de dados em sub-redes separadas, para que um melhor controlo possa ser definido pela política NSG.
 
 
 ## <a name="additional-reading"></a>Leitura adicional
 
 - [Configurar Oracle ASM](configure-oracle-asm.md)
 - [Configurar o Oracle Data Guard](configure-oracle-dataguard.md)
-- [Configure Oráculo Golden Gate](configure-oracle-golden-gate.md)
-- [Backup e recuperação da Oracle](oracle-backup-recovery.md)
+- [Configure Portão Dourado oráculo](configure-oracle-golden-gate.md)
+- [Apoio e recuperação da Oráculo](oracle-backup-recovery.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Tutorial: Criar VMs altamente disponíveis](../../linux/create-cli-complete.md)
-- [Explore as amostras azure CLI de implantação vm](../../linux/cli-samples.md)
+- [Explore amostras de CLI de implantação VM](../../linux/cli-samples.md)

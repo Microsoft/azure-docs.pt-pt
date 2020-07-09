@@ -1,52 +1,51 @@
 ---
 title: Versões suportadas - Base de Dados Azure para MySQL
-description: Saiba quais as versões do servidor MySQL que são suportadas na Base de Dados Azure para o serviço MySQL.
+description: Saiba quais as versões do servidor MySQL suportadas no serviço Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 197b3100190711a51cfe125fe1214a59c18e1491
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 6/3/2020
+ms.openlocfilehash: 4d5b858e2384ffc7dd531444aaff17ca3739b408
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536977"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84337704"
 ---
-# <a name="supported-azure-database-for-mysql-server-versions"></a>Base de Dados Azure suportada para versões de servidorMySQL
+# <a name="supported-azure-database-for-mysql-server-versions"></a>Banco de dados Azure suportado para versões de servidor MySQL
 
-A Base de Dados Azure para mySQL foi desenvolvida a partir da [MySQL Community Edition,](https://www.mysql.com/products/community/)utilizando o motor InnoDB.
+A Azure Database for MySQL foi desenvolvida a partir da [MySQL Community Edition,](https://www.mysql.com/products/community/)utilizando o motor InnoDB.
 
-MySQL usa o esquema de nomeação X.Y.Z. X é a versão principal, Y é a versão menor, e Z é o lançamento da correção do bug. Para obter mais informações sobre o esquema, consulte a [documentação MySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
+MySQL usa o esquema de nomeação X.Y.Z. X é a versão principal, Y é a versão menor, e Z é o lançamento da correção de erro. Para obter mais informações sobre o esquema, consulte a [documentação mySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
 > [!NOTE]
 > No serviço, é utilizado um gateway para redirecionar as ligações para as instâncias de servidor. Depois de a ligação ser estabelecida, o cliente MySQL apresenta a versão do MySQL definida no gateway, não a versão real em execução na instância do servidor MySQL. Para determinar a versão da instância do servidor MySQL, utilize o comando `SELECT VERSION();` no prompt do MySQL.
 
-A Base de Dados Azure para MySQL suporta atualmente as seguintes versões:
+A Azure Database for MySQL suporta atualmente as seguintes versões:
 
-## <a name="mysql-version-56"></a>Versão MySQL 5.6
+## <a name="mysql-version-56"></a>MySQL Versão 5.6
 
-Lançamento da correção do bug: 5.6.45
+Desbloqueio de correção de erros: 5.6.47
 
-Consulte as notas de [lançamento](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-45.html) do MySQL para saber mais sobre melhorias e correções nesta versão.
+Consulte as [notas de lançamento](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) do MySQL para saber mais sobre melhorias e correções nesta versão.
 
-## <a name="mysql-version-57"></a>Versão MySQL 5.7
+## <a name="mysql-version-57"></a>MySQL Versão 5.7
 
-Lançamento da correção do bug: 5.7.27
+Desbloqueio de correção de erros: 5.7.29
 
-Consulte as notas de [lançamento](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-27.html) do MySQL para saber mais sobre melhorias e correções nesta versão.
+Consulte as [notas de lançamento](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) do MySQL para saber mais sobre melhorias e correções nesta versão.
 
-## <a name="mysql-version-80"></a>Versão MySQL 8.0
+## <a name="mysql-version-80"></a>MySQL Versão 8.0
 
-Lançamento da correção do bug: 8.0.15
+Desbloqueio de correção de erro: 8.0.15
 
-Consulte as notas de [lançamento](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) do MySQL para saber mais sobre melhorias e correções nesta versão.
+Consulte as [notas de lançamento](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) do MySQL para saber mais sobre melhorias e correções nesta versão.
 
-## <a name="managing-updates-and-upgrades"></a>Gestão de atualizações e atualizações
-O serviço gere automaticamente a correção para atualizações da versão de correção de erros. Por exemplo, 5.7.20 a 5.7.21.  
+## <a name="managing-updates-and-upgrades"></a>Gerir atualizações e atualizações
+O serviço gere automaticamente a correção para atualizações de versões de correção de erros. Por exemplo, 5.7.20 a 5.7.21.  
 
 Atualmente, não há suporte para as atualizações das versões principais e secundárias. Por exemplo, não há suporte para a atualização do MySQL 5.6 para o MySQL 5.7. Se quiser atualizar da 5.6 para a 5.7, efetue [uma captura e um restauro](./concepts-migrate-dump-restore.md) para um servidor que foi criado com a nova versão do motor.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter informações sobre quotas e limitações específicas de recursos com base no seu **nível de serviço,** consulte [os níveis](./concepts-pricing-tiers.md) de serviço
+Para obter informações sobre quotas e limitações específicas de recursos com base no seu **nível de serviço,** consulte [os níveis de serviço](./concepts-pricing-tiers.md)

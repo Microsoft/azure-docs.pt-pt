@@ -2,19 +2,19 @@
 title: Mover suporte de operação por tipo de recurso
 description: Lista os tipos de recursos Azure que podem ser transferidos para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: 4f2ed7f1cb24b9896b533fb5d18ac4e57db48e2c
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.date: 06/15/2020
+ms.openlocfilehash: 785243676040fc86d42e3125684239ebe6da2061
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780332"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134677"
 ---
 # <a name="move-operation-support-for-resources"></a>Suporte da operação de movimentação para recursos
 
-Este artigo enumera se um tipo de recurso Azure suporta a operação de movimento. Também fornece informações sobre condições especiais a considerar ao mover um recurso.
+Este artigo indica se um tipo de recurso Azure suporta a operação de movimento. Também fornece informações sobre condições especiais a ter em conta ao mover um recurso.
 
-Salte para um espaço de nome do fornecedor de recursos:
+Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
 > - [microsoft.aadiam](#microsoftaadiam)
@@ -29,14 +29,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.AppService](#microsoftappservice)
 > - [Microsoft.Attestation](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
-> - [Microsoft.Automação](#microsoftautomation)
+> - [Microsoft.Automation](#microsoftautomation)
 > - [Microsoft.AVS](#microsoftavs)
 > - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
 > - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
 > - [Microsoft.Batch](#microsoftbatch)
-> - [Microsoft.Batchai](#microsoftbatchai)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
 > - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
@@ -45,7 +44,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.Blueprint](#microsoftblueprint)
 > - [Microsoft.BotService](#microsoftbotservice)
 > - [Microsoft.Cache](#microsoftcache)
-> - [Microsoft.Capacidade](#microsoftcapacity)
+> - [Microsoft.Capacity](#microsoftcapacity)
 > - [Microsoft.Cdn](#microsoftcdn)
 > - [Microsoft.CertificateRegistration](#microsoftcertificateregistration)
 > - [Microsoft.ChangeAnalysis](#microsoftchangeanalysis)
@@ -54,12 +53,10 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
 > - [Microsoft.ClassicStorage](#microsoftclassicstorage)
 > - [Microsoft.ClassicSubscription](#microsoftclassicsubscription)
-> - [Microsoft.Cognição](#microsoftcognition)
-> - [Microsoft.Serviços Cognitivos](#microsoftcognitiveservices)
+> - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft.Commerce](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
-> - [Microsoft.Consumo](#microsoftconsumption)
-> - [Microsoft.Container](#microsoftcontainer)
+> - [Microsoft.Consumption](#microsoftconsumption)
 > - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
@@ -74,7 +71,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
 > - [Microsoft.DataCatalog](#microsoftdatacatalog)
-> - [Microsoft.dataConnect](#microsoftdataconnect)
+> - [Microsoft.DataConnect](#microsoftdataconnect)
 > - [Microsoft.DataExchange](#microsoftdataexchange)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
 > - [Microsoft.DataLake](#microsoftdatalake)
@@ -85,10 +82,10 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.DataShare](#microsoftdatashare)
 > - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
 > - [Microsoft.DBforMySQL](#microsoftdbformysql)
-> - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
+> - [Microsoft.DbforPostgresql](#microsoftdbforpostgresql)
 > - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
 > - [Microsoft.DesktopVirtualization](#microsoftdesktopvirtualization)
-> - [Microsoft.Dispositivos](#microsoftdevices)
+> - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft.DevOps](#microsoftdevops)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
@@ -98,10 +95,10 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
 > - [Microsoft.EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
-> - [Microsoft.Experimentação](#microsoftexperimentation)
+> - [Microsoft.Experimentation](#microsoftexperimentation)
 > - [Microsoft.Falcon](#microsoftfalcon)
 > - [Microsoft.Features](#microsoftfeatures)
-> - [Microsoft.Genómica](#microsoftgenomics)
+> - [Microsoft.Geómica](#microsoftgenomics)
 > - [Microsoft.GuestConfiguration](#microsoftguestconfiguration)
 > - [Microsoft.HanaOnAzure](#microsofthanaonazure)
 > - [Microsoft.HardwareSecurityModules](#microsofthardwaresecuritymodules)
@@ -109,6 +106,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.HealthcareApis](#microsofthealthcareapis)
 > - [Microsoft.HybridCompute](#microsofthybridcompute)
 > - [Microsoft.HybridData](#microsofthybriddata)
+> - [Microsoft.HybridNetwork](#microsofthybridnetwork)
 > - [Microsoft.Hydra](#microsofthydra)
 > - [Microsoft.ImportExport](#microsoftimportexport)
 > - [microsoft.insights](#microsoftinsights)
@@ -116,7 +114,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
 > - [Microsoft.KeyVault](#microsoftkeyvault)
 > - [Microsoft.Kubernetes](#microsoftkubernetes)
-> - [Microsoft.KubernetesConfiguração](#microsoftkubernetesconfiguration)
+> - [Microsoft.KubernetesConfiguration](#microsoftkubernetesconfiguration)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft.LabServices](#microsoftlabservices)
 > - [Microsoft.LocationBasedServices](#microsoftlocationbasedservices)
@@ -125,10 +123,9 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.MachineLearning](#microsoftmachinelearning)
 > - [Microsoft.MachineLearningCompute](#microsoftmachinelearningcompute)
 > - [Microsoft.MachineLearningExperimentation](#microsoftmachinelearningexperimentation)
-> - [Microsoft.MachineLearningModelManagement](#microsoftmachinelearningmodelmanagement)
-> - [Microsoft.MachineLearningOperacionalização](#microsoftmachinelearningoperationalization)
+> - [Microsoft.MachineLearningModelagement](#microsoftmachinelearningmodelmanagement)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
-> - [Microsoft.Manutenção](#microsoftmaintenance)
+> - [Microsoft.Maintenance](#microsoftmaintenance)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
 > - [Microsoft.ManagedNetwork](#microsoftmanagednetwork)
 > - [Microsoft.ManagedServices](#microsoftmanagedservices)
@@ -151,19 +148,18 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.Peering](#microsoftpeering)
 > - [Microsoft.PolicyInsights](#microsoftpolicyinsights)
 > - [Microsoft.Portal](#microsoftportal)
-> - [Microsoft.PortalSdk](#microsoftportalsdk)
 > - [Microsoft.PowerBI](#microsoftpowerbi)
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
+> - [Microsoft.PowerPlatform](#microsoftpowerplatform)
 > - [Microsoft.ProjectBabylon](#microsoftprojectbabylon)
-> - [Microsoft.ProjectOxford](#microsoftprojectoxford)
 > - [Microsoft.ProviderHub](#microsoftproviderhub)
 > - [Microsoft.Quantum](#microsoftquantum)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
-> - [Microsoft.RedHatOpenShift](#microsoftredhatopenshift)
+> - [Microsoft.RedHatopenShift](#microsoftredhatopenshift)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft.ResourceGraph](#microsoftresourcegraph)
 > - [Microsoft.ResourceHealth](#microsoftresourcehealth)
-> - [Microsoft.Recursos](#microsoftresources)
+> - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
@@ -176,10 +172,9 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.Services](#microsoftservices)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
-> - [Microsoft.Soluções](#microsoftsolutions)
+> - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft.Sql](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
-> - [Microsoft.SqlVM](#microsoftsqlvm)
 > - [Microsoft.Storage](#microsoftstorage)
 > - [Microsoft.StorageCache](#microsoftstoragecache)
 > - [Microsoft.StorageSync](#microsoftstoragesync)
@@ -191,7 +186,6 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.Subscrição](#microsoftsubscription)
 > - [microsoft.support](#microsoftsupport)
 > - [Microsoft.Synapse](#microsoftsynapse)
-> - [Microsoft.TerraformOSS](#microsoftterraformoss)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.Token](#microsofttoken)
 > - [Microsoft.VirtualMachineImages](#microsoftvirtualmachineimages)
@@ -203,6 +197,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.Web](#microsoftweb)
 > - [Microsoft.WindowsESU](#microsoftwindowsesu)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
+> - [Microsoft.WorkloadBuilder](#microsoftworkloadbuilder)
 > - [Microsoft.WorkloadMonitor](#microsoftworkloadmonitor)
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
@@ -211,8 +206,8 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | serviços de domínio | Não | Não |
-> | serviços de domínio / oucontentor | Não | Não |
-> | locais | Não | Não |
+> | serviços de domínio / oucontainer | Não | Não |
+> | localizações | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | operações | Não | Não |
 
@@ -221,32 +216,35 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | privatelinkforazuread | Não | Não |
-> | inquilinos | Não | Não |
+> | diagnósticos | Não | Não |
+> | diagnósticoscategorias | Não | Não |
+> | operações | Não | Não |
+> | privatelinkforazuread | Sim | Sim |
+> | inquilinos | Sim | Sim |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | resultados de operação | Não | Não |
+> | resultados de operações | Não | Não |
 > | operações | Não | Não |
-> | fornecedores de apoio | Não | Não |
+> | supportproviders | Não | Não |
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | adsupportcases | Não | Não |
-> | adiciona serviços | Não | Não |
+> | aadsupportcases | Não | Não |
+> | adds serviços | Não | Não |
 > | agentes | Não | Não |
-> | utilizadores anónimos | Não | Não |
+> | anónimos | Não | Não |
 > | configuração | Não | Não |
 > | registos | Não | Não |
 > | operações | Não | Não |
 > | relatórios | Não | Não |
-> | servicehealthmetrics | Não | Não |
+> | serviços de saúde | Não | Não |
 > | services | Não | Não |
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
@@ -255,7 +253,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | configurações | Não | Não |
-> | gerarecomendações | Não | Não |
+> | gerar recommendações | Não | Não |
 > | do IdP | Não | Não |
 > | operações | Não | Não |
 > | recomendações | Não | Não |
@@ -268,10 +266,10 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | regras de ação | Sim | Sim |
 > | alerts | Não | Não |
-> | alerta | Não | Não |
-> | alertasmetametametas | Não | Não |
-> | alerta | Não | Não |
-> | alertassummarylist | Não | Não |
+> | lista de alertas | Não | Não |
+> | alertasmetadata | Não | Não |
+> | alertasummary | Não | Não |
+> | alertasummarylista | Não | Não |
 > | operações | Não | Não |
 > | smartdetectoralertrules | Sim | Sim |
 > | grupos inteligentes | Não | Não |
@@ -281,10 +279,10 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | locais | Não | Não |
-> | localizações / checknamedisponibilidade | Não | Não |
+> | localizações | Não | Não |
+> | localizações / checknameavailability | Não | Não |
 > | localizações / resultados de operações | Não | Não |
-> | localizações / estados de funcionamento | Não | Não |
+> | localizações / operações | Não | Não |
 > | operações | Não | Não |
 > | servidores | Sim | Sim |
 
@@ -293,27 +291,27 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checkfeedback necessário | Não | Não |
-> | checknamedisponibilidade | Não | Não |
-> | checkservicenamedisponibilidade | Não | Não |
+> | checkfeedrequired | Não | Não |
+> | checknamedilability | Não | Não |
+> | check-innamedilability | Não | Não |
 > | operações | Não | Não |
-> | relatório feedback | Não | Não |
+> | reportfeedback | Não | Não |
 > | serviço | Sim | Sim |
-> | validando o nome de serviço | Não | Não |
+> | validar nome de serviço | Não | Não |
 
 > [!IMPORTANT]
-> Um serviço de Gestão API que está definido para o SKU de Consumo não pode ser movido.
+> Um serviço de Gestão API que está definido para o SKU de consumo não pode ser movido.
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checknamedisponibilidade | Não | Não |
-> | lojas de configuração | Sim | Sim |
-> | lojas de configuração / filtros de eventgrid | Não | Não |
-> | locais | Não | Não |
-> | locais / estado de operações | Não | Não |
+> | checknamedilability | Não | Não |
+> | lojas de configurações | Sim | Sim |
+> | lojas de configurações / filtros de eventos | Não | Não |
+> | localizações | Não | Não |
+> | localizações / operaçõesstatus | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftappplatform"></a>Microsoft.AppPlatform
@@ -321,12 +319,14 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | locais | Não | Não |
-> | localizações / checknamedisponibilidade | Não | Não |
+> | localizações | Não | Não |
+> | localizações / checknameavailability | Não | Não |
 > | localizações / resultados de operações | Não | Não |
-> | localizações / estado de funcionamento | Não | Não |
+> | localizações / operaçõestatus | Não | Não |
 > | operações | Não | Não |
 > | primavera | Sim | Sim |
+> | primavera / aplicativos | Não | Não |
+> | mola / apps / implementações | Não | Não |
 
 ## <a name="microsoftappservice"></a>Microsoft.AppService
 
@@ -334,18 +334,18 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | apiapps | Não | Não |
-> | appidentities | Não | Não |
-> | gateways | Não | Não |
+> | appidentidades | Não | Não |
+> | portais | Não | Não |
 
 > [!IMPORTANT]
-> Consulte [a orientação de movimento do Serviço de Aplicações](./move-limitations/app-service-move-limitations.md).
+> Consulte a [orientação do movimento do Serviço de Aplicações](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | fornecedores de attestations | Sim | Sim |
+> | atesstationproviders | Sim | Sim |
 > | operações | Não | Não |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
@@ -353,61 +353,67 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | check-access | Não | Não |
-> | administradores clássicos | Não | Não |
+> | checkacesss | Não | Não |
+> | classicadministradores | Não | Não |
 > | dataaliases | Não | Não |
-> | negar atribuições | Não | Não |
-> | elevar o acesso | Não | Não |
-> | encontrar tarefas de rolemóórfão | Não | Não |
+> | denyassignments | Não | Não |
+> | elevateaccess | Não | Não |
+> | findorphanroleassignments | Não | Não |
 > | fechaduras | Não | Não |
 > | operações | Não | Não |
+> | operaçõestatus | Não | Não |
 > | permissões | Não | Não |
-> | atribuições políticas | Não | Não |
-> | definições políticas | Não | Não |
-> | definições políticas | Não | Não |
-> | operações de prestadores | Não | Não |
+> | assinaturas políticas | Não | Não |
+> | definições de políticas | Não | Não |
+> | políticas dedefinições | Não | Não |
+> | privatelinkassociations | Não | Não |
+> | operações de fornecedores | Não | Não |
+> | recursos gestagementprivatelinks | Não | Não |
 > | roleassignments | Não | Não |
 > | roleassignmentsusagemetrics | Não | Não |
-> | definições de roledefinitions | Não | Não |
+> | papéis dedefinições | Não | Não |
 
-## <a name="microsoftautomation"></a>Microsoft.Automação
+## <a name="microsoftautomation"></a>Microsoft.Automation
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | contas de automação | Sim | Sim |
 > | contas/configurações de automação | Sim | Sim |
-> | contas de automação / empregos | Não | Não |
-> | contas de automação / privateendpointconnectionproxies | Não | Não |
-> | contas de automação / privateendpointconnections | Não | Não |
-> | contas de automação / privatelinkresources | Não | Não |
-> | contas de automação / livros de execução | Sim | Sim |
-> | automatizações de contas / configurações de atualizações de software | Não | Não |
-> | contas de automação / webhooks | Não | Não |
+> | automação contas / empregos | Não | Não |
+> | automatização contas / privateendpointconnectionproxies | Não | Não |
+> | automação de contas / privateendpointconnections | Não | Não |
+> | automatização de contas / recursos de privatelinkresources | Não | Não |
+> | contas de automação / runbooks | Sim | Sim |
+> | licenças de automação / softwareupdateconfigurations | Não | Não |
+> | automação contas / webhooks | Não | Não |
 > | operações | Não | Não |
 
 > [!IMPORTANT]
-> Os livros de execução devem existir no mesmo grupo de recursos que a Conta de Automação.
+> Os runbooks devem existir no mesmo grupo de recursos que a Conta De Automação.
+>
+> Para obter informações, consulte [mover a sua conta Azure Automation para outra subscrição](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftavs"></a>Microsoft.AVS
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | locais | Não | Não |
-> | localizações /checkcotdisponibilidade | Não | Não |
+> | localizações | Não | Não |
+> | localizações / checkquotaailability | Não | Não |
+> | localizações / checktrialavailability | Não | Não |
 > | operações | Não | Não |
 > | nuvens privadas | Sim | Sim |
-> | nuvens privadas / aglomerados | Não | Não |
+> | nuvens privadas / clusters | Não | Não |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | b2cdirecties | Sim | Sim |
+> | b2direões | Sim | Sim |
 > | b2ctenants | Não | Não |
-> | checknamedisponibilidade | Não | Não |
+> | checknamedilability | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftazuredata"></a>Microsoft.AzureData
@@ -415,22 +421,22 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | controladores de dados | Não | Não |
-> | gestores de dados híbridos | Não | Não |
+> | datacontrollers | Não | Não |
+> | híbridos gerentes | Não | Não |
 > | operações | Não | Não |
-> | postgresinstances | Não | Não |
-> | sqlinstâncias | Não | Não |
-> | sqlmanagedinstâncias | Não | Não |
-> | casos de sqlserver | Não | Não |
-> | registos sqlserver | Sim | Sim |
-> | registos sqlserver / sqlserverservers | Não | Não |
+> | pós-insinstâncias | Não | Não |
+> | sqlinstances | Não | Não |
+> | sqlmanagedinstances | Não | Não |
+> | sqlserverinstances | Não | Não |
+> | sqlserverregistrations | Sim | Sim |
+> | sqlserverregistrations / sqlservers | Não | Não |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | cloudmanifestofiles | Não | Não |
+> | cloudmanifestfiles | Não | Não |
 > | operações | Não | Não |
 > | registos | Sim | Sim |
 > | registos / assinaturas de clientes | Não | Não |
@@ -449,27 +455,12 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | contas de lote | Sim | Sim |
-> | locais | Não | Não |
-> | localizações /resultados de operações de conta | Não | Não |
-> | localizações / checknamedisponibilidade | Não | Não |
+> | lotaccounts | Sim | Sim |
+> | localizações | Não | Não |
+> | locais / resultados da operação de conta | Não | Não |
+> | localizações / checknameavailability | Não | Não |
 > | localizações / quotas | Não | Não |
 > | operações | Não | Não |
-
-## <a name="microsoftbatchai"></a>Microsoft.Batchai
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Subscrição |
-> | ------------- | ----------- | ---------- |
-> | aglomerados | Não | Não |
-> | servidores de ficheiros | Não | Não |
-> | empregos | Não | Não |
-> | operações | Não | Não |
-> | áreas de trabalho | Não | Não |
-> | espaços de trabalho / aglomerados | Não | Não |
-> | espaços de trabalho / experiências | Não | Não |
-> | espaços de trabalho / experiências / empregos | Não | Não |
-> | espaços de trabalho / fileservers | Não | Não |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
@@ -477,105 +468,105 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | contas de faturação | Não | Não |
-> | contas/acordos de faturação | Não | Não |
-> | contas de faturação / permissões de faturação | Não | Não |
-> | contas de faturação / perfis de faturação | Não | Não |
-> | contas de faturação / perfis de faturação / saldo disponível | Não | Não |
-> | contas de faturação / perfis de faturação / permissões de faturação | Não | Não |
-> | contas de faturação / perfis de faturação / atribuição de faturações | Não | Não |
-> | contas de faturação / perfis de faturação / definições de billingrole | Não | Não |
-> | contas de faturação / perfis de faturação / assinaturas de faturação | Não | Não |
-> | contas de faturação / perfis de faturação / atribuição de roleta de faturação | Não | Não |
-> | contas de faturação / perfis de faturação / clientes | Não | Não |
-> | contas de faturação / perfis de faturação / instruções | Não | Não |
-> | contas de faturação / perfis de faturação / faturas | Não | Não |
-> | contas de faturação / perfis de faturação / faturas / folha de preço | Não | Não |
-> | contas de faturação / perfis de faturação / faturas / transações | Não | Não |
-> | contas de faturação / perfis de faturação / secções de faturas | Não | Não |
-> | contas de faturação / perfis de faturação / secções de faturas / permissões de faturação | Não | Não |
-> | contas de faturação / perfis de faturação / secções de faturas / billingroleassignments | Não | Não |
-> | contas de faturação / perfis de faturação / secções de faturas / definições de billingrole | Não | Não |
-> | contas de faturação / perfis de faturação / secções de faturas / assinaturas de faturas | Não | Não |
-> | contas de faturação / perfis de faturação / secções de faturas / atribuição de roleta de faturação | Não | Não |
-> | contas de faturação / perfis de faturação / secções de faturas / transferência iniciada | Não | Não |
-> | contas de faturação / perfis de faturação / secções de faturas / produtos | Não | Não |
-> | contas de faturação / perfis de faturação / secções de faturas / produtos / transferência | Não | Não |
-> | contas de faturação / perfis de faturação / secções de faturas / produtos / atualização automática | Não | Não |
-> | contas de faturação / perfis de faturação / secções de faturas / transações | Não | Não |
-> | contas de faturação / perfis de faturação / secções de faturas / transferências | Não | Não |
-> | contas de faturação / perfis de faturação / patchoperations | Não | Não |
-> | contas de faturação / perfis de faturação / métodos de pagamento | Não | Não |
-> | contas de faturação / perfis de faturação / políticas | Não | Não |
-> | contas de faturação / perfis de faturação / folha de preço | Não | Não |
-> | contas de faturação / perfis de faturação / operações de descarregamento de folhas de preço | Não | Não |
-> | contas de faturação / perfis de faturação / produtos | Não | Não |
-> | contas de faturação / perfis de faturação / transações | Não | Não |
-> | contas de faturação / atribuição de faturações | Não | Não |
-> | contas de faturação / definições de billingrole | Não | Não |
-> | contas de faturação / assinaturas de faturação | Não | Não |
-> | contas de faturação / assinaturas de faturação / faturas | Não | Não |
-> | contas de faturação / atribuição de roleta de faturação | Não | Não |
-> | contas de faturação / operações de criação de secções de voz | Não | Não |
+> | faturação/acordos | Não | Não |
+> | contas de faturação / faturações | Não | Não |
+> | contas de faturação / faturação | Não | Não |
+> | faturação / faturação / equilíbrio disponível | Não | Não |
+> | faturações / faturações / faturações | Não | Não |
+> | faturação / faturação / billingroleassignments | Não | Não |
+> | contas de faturação / faturação / faturação | Não | Não |
+> | faturação / faturação / faturação | Não | Não |
+> | faturação / faturação / createbillingroleassignment | Não | Não |
+> | faturação / faturação / clientes | Não | Não |
+> | faturação / faturação / instruções | Não | Não |
+> | faturação / faturas | Não | Não |
+> | faturação / faturas / faturas / folha de preços | Não | Não |
+> | faturação / faturas / transações | Não | Não |
+> | faturação / faturação / faturação | Não | Não |
+> | faturação / faturação / faturações / faturações / faturações | Não | Não |
+> | faturação / faturação / faturações / faturas / billingroleassignments | Não | Não |
+> | faturação / faturação / faturações / faturações / faturantes | Não | Não |
+> | faturação / faturação / faturação / faturações / faturasubsubscriptions | Não | Não |
+> | faturação / faturação / faturação / faturas / createbillingroleasignment | Não | Não |
+> | faturação / faturação / faturações / secções de faturação / iniciar transtransfer | Não | Não |
+> | faturação / faturação / faturações / produtos | Não | Não |
+> | faturação / faturação / faturações / produtos / transferência | Não | Não |
+> | faturação / faturação / faturações / produtos / updateautorenew | Não | Não |
+> | faturação / faturação / faturações / transações de faturas | Não | Não |
+> | faturação / faturação / faturações / transferências | Não | Não |
+> | faturação / faturação / patchoperações | Não | Não |
+> | faturação / faturação / métodos de pagamento | Não | Não |
+> | faturação / faturação / políticas | Não | Não |
+> | faturação / faturação / folha de preços | Não | Não |
+> | faturação / faturação / operações de carga de downdown de preços | Não | Não |
+> | faturação / faturação / produtos | Não | Não |
+> | faturação / faturação / transações | Não | Não |
+> | billingaccounts / billingroleassignments | Não | Não |
+> | contas de faturação / faturação | Não | Não |
+> | contas de faturação / faturações | Não | Não |
+> | faturações / faturas | Não | Não |
+> | billingaccounts / createbillingroleassignment | Não | Não |
+> | billingaccounts / criações de operaçãos | Não | Não |
 > | contas de faturação / clientes | Não | Não |
-> | contas de faturação / clientes / permissões de faturação | Não | Não |
-> | contas de faturação / clientes / assinaturas de faturação | Não | Não |
-> | contas de faturação / clientes / transferência iniciada | Não | Não |
-> | contas de faturação / clientes / políticas | Não | Não |
-> | contas de faturação / clientes / produtos | Não | Não |
+> | contas de faturação / clientes / faturações | Não | Não |
+> | contas de faturação / clientes / subscrições de faturação | Não | Não |
+> | faturação / clientes / iniciar transtransfer | Não | Não |
+> | faturação / clientes / políticas | Não | Não |
+> | faturação / clientes / produtos | Não | Não |
 > | contas de faturação / clientes / transações | Não | Não |
-> | contas de faturação / clientes / transferências | Não | Não |
-> | contas de faturação / departamentos | Não | Não |
-> | contas de faturação/contas de matrículas | Não | Não |
-> | contas de faturação / faturas | Não | Não |
-> | contas de faturação / secções de faturas | Não | Não |
-> | contas de faturação / secções de faturas / operações de billingsubscriptionmove | Não | Não |
-> | contas de faturação / faturas / assinaturas de faturação | Não | Não |
-> | contas de faturação / faturas / assinaturas de faturação / transferência | Não | Não |
-> | contas de faturação / secções de faturas / elevação | Não | Não |
-> | contas de faturação / secções de faturas / transferência iniciada | Não | Não |
-> | contas de faturação / secções de faturas / patchoperations | Não | Não |
-> | contas de faturação / secções de faturas / operações de movimento de produtos | Não | Não |
-> | contas de faturação / secções de faturas / produtos | Não | Não |
-> | contas de faturação / faturas / produtos / transferência | Não | Não |
-> | contas de faturação / faturas / produtos / atualização automática | Não | Não |
-> | contas de faturação / secções de faturas / resultados de transferências de produtos | Não | Não |
-> | contas de faturação / faturas / transações | Não | Não |
-> | contas de faturação / secções de faturas / transferências | Não | Não |
-> | contas de faturação / lineofcredit | Não | Não |
-> | contas de faturação / listinvoicesectionswithcreatesubscriptionpermission | Não | Não |
+> | faturação / clientes / transfers | Não | Não |
+> | contas de faturação /departamentos | Não | Não |
+> | contas de faturação / matrículas | Não | Não |
+> | faturas de faturas | Não | Não |
+> | faturações / faturações | Não | Não |
+> | faturações / faturações / faturasubscrições | Não | Não |
+> | contas de faturação / faturações / faturasubsubscriptions | Não | Não |
+> | faturações / faturações / faturasubsubscriptions / transfer | Não | Não |
+> | faturações / faturas / elevação | Não | Não |
+> | faturações / faturas / iniciar transtransferição | Não | Não |
+> | faturações / faturações / patchoperações | Não | Não |
+> | faturações / faturações / operações de produtos | Não | Não |
+> | faturações / faturas / produtos | Não | Não |
+> | faturação / faturas / produtos / transferência | Não | Não |
+> | faturações / faturas / produtos / updateautorenew | Não | Não |
+> | faturações / faturações / resultados de transferências de produtos | Não | Não |
+> | faturações / faturas / transações | Não | Não |
+> | faturações / faturas / transferências | Não | Não |
+> | contas de faturação / linha de crédito | Não | Não |
+> | billingaccounts / listinvoicesectionswithcreatesubscriptionpersion | Não | Não |
 > | contas de faturação / resultados de operações | Não | Não |
-> | contas de faturação / patchoperations | Não | Não |
+> | contas de faturação / patchoperações | Não | Não |
 > | contas de faturação / métodos de pagamento | Não | Não |
-> | contas de faturação / produtos | Não | Não |
-> | contas de faturação /transações | Não | Não |
-> | períodos de faturação | Não | Não |
-> | permissões de faturação | Não | Não |
-> | propriedade de faturação | Não | Não |
-> | atribuição de faturações | Não | Não |
-> | definições de billingrole | Não | Não |
-> | criação de roleassignment de faturação | Não | Não |
+> | faturação / produtos | Não | Não |
+> | contas de faturação / transações | Não | Não |
+> | faturantes | Não | Não |
+> | faturações | Não | Não |
+> | billingproperty | Não | Não |
+> | billingroleassignments | Não | Não |
+> | billingroledefinitions | Não | Não |
+> | createbillingroleassignment | Não | Não |
 > | departamentos | Não | Não |
-> | contas de matrículas | Não | Não |
+> | matrículas | Não | Não |
 > | faturas | Não | Não |
-> | resultados de operação | Não | Não |
+> | resultados de operações | Não | Não |
 > | operações | Não | Não |
-> | estado de funcionamento | Não | Não |
+> | operaçõestatus | Não | Não |
 > | transferências | Não | Não |
-> | transferências / aceitação transferência | Não | Não |
-> | transferências /transferência seleto | Não | Não |
-> | transferências / estado de funcionamento | Não | Não |
-> | transferências / validação de transferências | Não | Não |
-> | validação | Não | Não |
+> | transferências / aceitatransfer | Não | Não |
+> | transferências / declíniotransfer | Não | Não |
+> | transferências / operaçõestatus | Não | Não |
+> | transferências / validar transfera | Não | Não |
+> | validação de morada | Não | Não |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | preferência por listcomunhões | Não | Não |
+> | listcommunicationpreference | Não | Não |
 > | mapapis | Não | Não |
 > | operações | Não | Não |
-> | preferência de atualização de comunicações | Não | Não |
+> | atualização da atribuição de prescrições | Não | Não |
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 
@@ -589,13 +580,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | blockchainmembers | Não | Não |
+> | membros blockchain | Não | Não |
 > | cordamembers | Não | Não |
-> | locais | Não | Não |
+> | localizações | Não | Não |
 > | localizações / blockchainmemberoperationresults | Não | Não |
-> | localizações / checknamedisponibilidade | Não | Não |
-> | localizações /listconsortiums | Não | Não |
-> | locais /resultados de operações de observadores | Não | Não |
+> | localizações / checknameavailability | Não | Não |
+> | localizações / listconsortiums | Não | Não |
+> | locais / observadores resultados da operação | Não | Não |
 > | operações | Não | Não |
 > | observadores | Não | Não |
 
@@ -605,7 +596,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | operações | Não | Não |
-> | tokenservices | Não | Não |
+> | serviços de token | Não | Não |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
@@ -626,11 +617,11 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | serviços bots | Sim | Sim |
+> | botservices | Sim | Sim |
 > | botservices / canais | Não | Não |
 > | botservices / conexões | Não | Não |
-> | checknamedisponibilidade | Não | Não |
-> | Fornecedores de serviços de listauthservices | Não | Não |
+> | checknamedilability | Não | Não |
+> | listar de aprequantoers | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
@@ -638,87 +629,87 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checknamedisponibilidade | Não | Não |
-> | locais | Não | Não |
+> | checknamedilability | Não | Não |
+> | localizações | Não | Não |
 > | localizações / resultados de operações | Não | Não |
-> | locais / estado de operações | Não | Não |
+> | localizações / operaçõesstatus | Não | Não |
 > | operações | Não | Não |
 > | redis | Sim | Sim |
-> | redis / privateendpointconnections | Não | Não |
+> | redis / eventgridfilters | Não | Não |
 > | redis / privatelinkresources | Não | Não |
 > | redisenterprise | Não | Não |
 
 > [!IMPORTANT]
-> Se o caso Azure Cache for Redis estiver configurado com uma rede virtual, a instância não pode ser transferida para uma subscrição diferente. Ver [limitações](./move-limitations/networking-move-limitations.md)de movimento em rede .
+> Se a cache Azure para a instância Redis estiver configurada com uma rede virtual, o caso não pode ser movido para uma subscrição diferente. Ver [limitações de movimento de rede](./move-limitations/networking-move-limitations.md).
 
-## <a name="microsoftcapacity"></a>Microsoft.Capacidade
+## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | reservas aplicadas | Não | Não |
-> | calcular troca | Não | Não |
+> | reservações aplicadas | Não | Não |
+> | calcular a troca | Não | Não |
 > | calcular preço | Não | Não |
-> | calcular preço de compra | Não | Não |
+> | calcular o preço da compra | Não | Não |
 > | catálogos | Não | Não |
-> | cheques | Não | Não |
-> | check-status de compra | Não | Não |
-> | cheques | Não | Não |
-> | ordens de reservas comerciais | Não | Não |
+> | checkoffers | Não | Não |
+> | checkpurchasestatus | Não | Não |
+> | checkscópios | Não | Não |
+> | ordenadores de reservação comercial | Não | Não |
 > | troca | Não | Não |
-> | benefícios de lista | Não | Não |
+> | listbenefits | Não | Não |
 > | operações | Não | Não |
-> | placebuyorder | Não | Não |
-> | ordens de reserva | Não | Não |
-> | ordens de reserva / disponíveiscópios | Não | Não |
-> | ordens de reserva / calcular o reembolso | Não | Não |
-> | ordens de reserva / fusão | Não | Não |
-> | pedidos de reservas / reservas | Não | Não |
-> | pedidos de reservas / reservas / disponíveiscópios | Não | Não |
-> | pedidos de reservas / reservas / revisões | Não | Não |
-> | ordens de reserva / devolução | Não | Não |
-> | ordens de reserva / divisão | Não | Não |
-> | ordens de reserva / troca | Não | Não |
+> | placepurchaseorder | Não | Não |
+> | encomendas de reservas | Não | Não |
+> | pedidos de reservas / disponíveisscópios | Não | Não |
+> | encomendas de reservas / calcular refinanciamento | Não | Não |
+> | encomendas de reservas / fusão | Não | Não |
+> | encomendas de reservas / reservas | Não | Não |
+> | encomendas de reservas / reservas / disponíveisscópios | Não | Não |
+> | encomendas de reservas / reservas / revisões | Não | Não |
+> | pedidos de reservas / devolução | Não | Não |
+> | pedidos de reservas / divisão | Não | Não |
+> | pedidos de reservas / swap | Não | Não |
 > | reservas | Não | Não |
 > | resources | Não | Não |
-> | validar ordem de reservas | Não | Não |
+> | validação encomenda de reservas | Não | Não |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | cdnwebapplicationfirewallmanagedrulesets | Não | Não |
+> | cdnwebapplication firewallmanagedrulesets | Não | Não |
 > | cdnwebapplicationfirewallpolicies | Sim | Sim |
-> | checknamedisponibilidade | Não | Não |
-> | checkresource | Não | Não |
-> | talhenos | Não | Não |
-> | resultados de operação | Não | Não |
-> | resultados de operações / perfis | Não | Não |
-> | resultados de operações / resultados de perfis / resultados finais | Não | Não |
-> | resultados de operações / resultados de perfis / resultados finais / resultados de domínio personalizado | Não | Não |
-> | resultados de funcionamento / resultados de perfis / resultados finais / origingroupresults | Não | Não |
-> | resultados de funcionamento / resultados de perfis / resultados finais / resultados de origens | Não | Não |
+> | checknamedilability | Não | Não |
+> | checkresourceusage | Não | Não |
+> | edgenodes | Não | Não |
+> | resultados de operações | Não | Não |
+> | resultados de operações / resultados de perfis | Não | Não |
+> | resultados de operações / perfis / resultados finais | Não | Não |
+> | resultados de operações / perfis / resultados finais / resultados personalizados | Não | Não |
+> | resultados de operações / perfis / resultados finais / resultados de grupos de origem | Não | Não |
+> | resultados de operações / perfis / resultados de ponto final / resultados de origem | Não | Não |
 > | operações | Não | Não |
 > | perfis | Sim | Sim |
 > | perfis / pontos finais | Sim | Sim |
-> | perfis / pontos finais / domínios personalizados | Não | Não |
-> | perfis / pontos finais / grupos de origens | Não | Não |
+> | perfis / pontos finais / personaldomains | Não | Não |
+> | perfis / pontos finais / grupos de origem | Não | Não |
 > | perfis / pontos finais / origens | Não | Não |
-> | validação sonda | Não | Não |
+> | validarprobe | Não | Não |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | certificados | Sim | Sim |
-> | certificados/ certificados | Não | Não |
+> | certificadores | Sim | Sim |
+> | certificadores /certificados | Não | Não |
 > | operações | Não | Não |
-> | validação de informação sobre registo de certificados | Não | Não |
+> | validar a informação de registo certificado | Não | Não |
 
 > [!IMPORTANT]
-> Consulte [a orientação de movimento do Serviço de Aplicações](./move-limitations/app-service-move-limitations.md).
+> Consulte a [orientação do movimento do Serviço de Aplicações](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftchangeanalysis"></a>Microsoft.ChangeAnalysis
 
@@ -733,40 +724,40 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | capacidades | Não | Não |
-> | checkdomínionamedisponibilidade | Não | Não |
-> | nomes de domínio | Sim | Não |
-> | nomes de domínio / capacidades | Não | Não |
-> | nomes de domínio / desequilibradores internos | Não | Não |
-> | nomes de domínio / certificados de serviço | Não | Não |
-> | nomes de domínio / slots | Não | Não |
-> | nomes de domínio / slots / funções | Não | Não |
-> | nomes de domínio / slots / papéis / definições métricas | Não | Não |
-> | nomes de domínio / slots / papéis / métricas | Não | Não |
-> | mover recursos de subscrição | Não | Não |
-> | famílias de sistemas operativos | Não | Não |
+> | checkdomainmedilability | Não | Não |
+> | temas de domínio | Sim | Não |
+> | domínios / capacidades | Não | Não |
+> | domainnames / caixas de carga internas | Não | Não |
+> | domínios / certificados de serviço | Não | Não |
+> | temas de domínio / slots | Não | Não |
+> | domínios / slots / funções | Não | Não |
+> | domínios / slots / funções / métricas | Não | Não |
+> | domínios / slots / funções / métricas | Não | Não |
+> | movesubscriptionresources | Não | Não |
+> | operaçãofamários de sistemas | Não | Não |
 > | sistemas operativos | Não | Não |
 > | operações | Não | Não |
-> | estados de funcionamento | Não | Não |
+> | operações | Não | Não |
 > | quotas | Não | Não |
-> | tipos de recursos | Não | Não |
-> | validando a disponibilidade de movimentos de subscrição | Não | Não |
-> | máquinas virtuais | Sim | Não |
-> | virtualmachines / definições de diagnóstico | Não | Não |
-> | virtualmachines / definições métricas | Não | Não |
-> | máquinas virtuais / métricas | Não | Não |
+> | recursos | Não | Não |
+> | valida a subscrição demovedabilidade | Não | Não |
+> | virtualmachines | Sim | Não |
+> | virtualmachines / diagnósticos | Não | Não |
+> | virtualmachines / metricdefinitions | Não | Não |
+> | virtualmachines / métricas | Não | Não |
 
 > [!IMPORTANT]
-> Consulte a orientação de movimento de movimento de [implementação clássica](./move-limitations/classic-model-move-limitations.md). Os recursos de implantação clássicos podem ser movidos através de subscrições com uma operação específica para esse cenário.
+> Consulte a [orientação do movimento de implementação clássica](./move-limitations/classic-model-move-limitations.md). Os recursos de implantação clássicos podem ser movidos através de subscrições com uma operação específica para esse cenário.
 
 ## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | recursos clássicos de infraestruturas | Não | Não |
+> | classicinfrastructureresources | Não | Não |
 
 > [!IMPORTANT]
-> Consulte a orientação de movimento de movimento de [implementação clássica](./move-limitations/classic-model-move-limitations.md). Os recursos de implantação clássicos podem ser movidos através de subscrições com uma operação específica para esse cenário.
+> Consulte a [orientação do movimento de implementação clássica](./move-limitations/classic-model-move-limitations.md). Os recursos de implantação clássicos podem ser movidos através de subscrições com uma operação específica para esse cenário.
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
@@ -774,19 +765,19 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | capacidades | Não | Não |
-> | conexões de vias cruzadas expressroute | Não | Não |
-> | conexões /espreitamentos expressroutecross | Não | Não |
-> | dispositivos suportados gateway | Não | Não |
+> | expressroute crossconnections | Não | Não |
+> | expressroutecrossconnections / peerings | Não | Não |
+> | gatewaysupporteddes | Não | Não |
 > | networksecuritygroups | Não | Não |
 > | operações | Não | Não |
 > | quotas | Não | Não |
-> | reservas | Não | Não |
-> | redes virtuais | Não | Não |
-> | redes virtuais / proxies de redes virtuais remotas | Não | Não |
-> | redes virtuais / virtualnetworkpeerings | Não | Não |
+> | reservedips | Não | Não |
+> | virtualnetworks | Não | Não |
+> | virtualnetworks / remotevirtualnetworkpeeringproxies | Não | Não |
+> | virtualnetworks / virtualnetworkpeerings | Não | Não |
 
 > [!IMPORTANT]
-> Consulte a orientação de movimento de movimento de [implementação clássica](./move-limitations/classic-model-move-limitations.md). Os recursos de implantação clássicos podem ser movidos através de subscrições com uma operação específica para esse cenário.
+> Consulte a [orientação do movimento de implementação clássica](./move-limitations/classic-model-move-limitations.md). Os recursos de implantação clássicos podem ser movidos através de subscrições com uma operação específica para esse cenário.
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
@@ -794,30 +785,30 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | capacidades | Não | Não |
-> | checkstorage accountdisponibilidade | Não | Não |
+> | verificação da contagemcountsailabilidade | Não | Não |
 > | discos | Não | Não |
 > | imagens | Não | Não |
 > | operações | Não | Não |
-> | imagens | Não | Não |
-> | imagens de asplataforma | Não | Não |
+> | osimagems | Não | Não |
+> | osplatformimages | Não | Não |
 > | imagens públicas | Não | Não |
 > | quotas | Não | Não |
 > | contas de armazenamento | Sim | Não |
 > | contas de armazenamento / blobservices | Não | Não |
-> | contas de armazenamento / serviços de arquivo | Não | Não |
-> | contas de armazenamento / definições métricas | Não | Não |
+> | contas de armazenamento / serviços de ficheiros | Não | Não |
+> | contas de armazenamento / métricas | Não | Não |
 > | contas de armazenamento / métricas | Não | Não |
 > | contas de armazenamento / serviços de fila | Não | Não |
 > | contas de armazenamento / serviços | Não | Não |
-> | contas de armazenamento / serviços / definições de diagnóstico | Não | Não |
-> | contas de armazenamento / serviços / definições métricas | Não | Não |
+> | contas de armazenamento / serviços / diagnósticos | Não | Não |
+> | contas de armazenamento / serviços / métricas | Não | Não |
 > | contas de armazenamento / serviços / métricas | Não | Não |
 > | contas de armazenamento / serviços de mesa | Não | Não |
 > | contas de armazenamento / vmimages | Não | Não |
 > | vmimages | Não | Não |
 
 > [!IMPORTANT]
-> Consulte a orientação de movimento de movimento de [implementação clássica](./move-limitations/classic-model-move-limitations.md). Os recursos de implantação clássicos podem ser movidos através de subscrições com uma operação específica para esse cenário.
+> Consulte a [orientação do movimento de implementação clássica](./move-limitations/classic-model-move-limitations.md). Os recursos de implantação clássicos podem ser movidos através de subscrições com uma operação específica para esse cenário.
 
 ## <a name="microsoftclassicsubscription"></a>Microsoft.ClassicSubscription
 
@@ -827,24 +818,17 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | operações | Não | Não |
 
 > [!IMPORTANT]
-> Consulte a orientação de movimento de movimento de [implementação clássica](./move-limitations/classic-model-move-limitations.md). Os recursos de implantação clássicos podem ser movidos através de subscrições com uma operação específica para esse cenário.
+> Consulte a [orientação do movimento de implementação clássica](./move-limitations/classic-model-move-limitations.md). Os recursos de implantação clássicos podem ser movidos através de subscrições com uma operação específica para esse cenário.
 
-## <a name="microsoftcognition"></a>Microsoft.Cognição
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Subscrição |
-> | ------------- | ----------- | ---------- |
-> | contas sintéticas | Não | Não |
-
-## <a name="microsoftcognitiveservices"></a>Microsoft.Serviços Cognitivos
+## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | accounts | Sim | Sim |
-> | checkdomíniodisponibilidade | Não | Não |
-> | locais | Não | Não |
-> | localizações /checkskudisponibilidade | Não | Não |
+> | checkdomainailability | Não | Não |
+> | localizações | Não | Não |
+> | localizações / checkskuavailability | Não | Não |
 > | localizações / deletevirtualnetworkorsubnets | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | operações | Não | Não |
@@ -856,16 +840,16 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | operações | Não | Não |
 > | cartão de taxa | Não | Não |
-> | agregados de uso | Não | Não |
+> | usageaggregates | Não | Não |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | conjuntos de disponibilidade | Sim | Sim |
-> | acessos de discos | Não | Não |
-> | conjuntos de encriptação de discos | Não | Não |
+> | conjuntos de disponibilidades | Sim | Sim |
+> | diskaccesses | Não | Não |
+> | conjuntos de diskencrypations | Não | Não |
 > | discos | Sim | Sim |
 > | galerias | Não | Não |
 > | galerias / imagens | Não | Não |
@@ -873,48 +857,48 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | grupos de anfitriões | Não | Não |
 > | grupos de anfitriões / anfitriões | Não | Não |
 > | imagens | Sim | Sim |
-> | locais | Não | Não |
-> | locais / editores de artefactos | Não | Não |
-> | localizações / operações de caps | Não | Não |
-> | localizações /operações de discos | Não | Não |
+> | localizações | Não | Não |
+> | localizações / artefactospublishers | Não | Não |
+> | localizações / capsoperações | Não | Não |
+> | localizações / operações de discos | Não | Não |
 > | localizações / loganalytics | Não | Não |
-> | locais/operações | Não | Não |
-> | localizações /editores | Não | Não |
-> | localizações / comandos de execução | Não | Não |
+> | localizações / operações | Não | Não |
+> | localizações / editores | Não | Não |
+> | localizações / runcommands | Não | Não |
 > | localizações / utilizações | Não | Não |
-> | localizações / máquinas virtuais | Não | Não |
+> | localizações / virtualmachines | Não | Não |
 > | localizações / vmsizes | Não | Não |
-> | localizações / vsmoperations | Não | Não |
+> | localizações / vsmoperações | Não | Não |
 > | operações | Não | Não |
-> | grupos de proximidade | Sim | Sim |
-> | restaurospointcoles | Não | Não |
-> | restaurosdepontos / pontos de restauro | Não | Não |
-> | extensões partilhadas | Não | Não |
+> | grupos de destacamentos de proximidade | Sim | Sim |
+> | restaurar as recordações de pontos | Não | Não |
+> | restaurar acolecções / pontos de restauro | Não | Não |
+> | partilha de milhões de pessoas | Não | Não |
 > | sharedvmimages | Não | Não |
 > | sharedvmimages / versões | Não | Não |
 > | instantâneos | Sim | Sim |
 > | sshpublickeys | Não | Não |
-> | máquinas virtuais | Sim | Sim |
-> | virtualmachines / extensões | Sim | Sim |
-> | virtualmachines / definições métricas | Não | Não |
-> | máquinas virtuais / comandos de execução | Não | Não |
-> | conjuntos de escala seleções virtuais | Sim | Sim |
-> | conjuntos de escalas de máquinas virtuais / extensões | Não | Não |
+> | virtualmachines | Sim | Sim |
+> | virtualmachines /extensões | Sim | Sim |
+> | virtualmachines / metricdefinitions | Não | Não |
+> | virtualmachines / runcommands | Não | Não |
+> | virtualmachinescalesets | Sim | Sim |
+> | virtualmachinescalesets /extensões | Não | Não |
 > | virtualmachinescalesets / networkinterfaces | Não | Não |
-> | conjuntos de escalas virtualmachine / publicipaddresss | Não | Não |
-> | virtualmachinescalesets / máquinas virtuais | Não | Não |
+> | virtualmachinescalesets / publicipaddresss | Não | Não |
+> | virtualmachinescalesets / virtualmachines | Não | Não |
 > | virtualmachinescalesets / virtualmachines / networkinterfaces | Não | Não |
 
 > [!IMPORTANT]
-> Ver [Máquinas Virtuais mover orientação](./move-limitations/virtual-machines-move-limitations.md).
+> Veja [a orientação das Máquinas Virtuais.](./move-limitations/virtual-machines-move-limitations.md)
 
-## <a name="microsoftconsumption"></a>Microsoft.Consumo
+## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | custo agregado | Não | Não |
-> | equilíbrios | Não | Não |
+> | agregados de cussão | Não | Não |
+> | saldos | Não | Não |
 > | orçamentos | Não | Não |
 > | encargos | Não | Não |
 > | costtags | Não | Não |
@@ -923,27 +907,20 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | previsões | Não | Não |
 > | lotes | Não | Não |
 > | mercados | Não | Não |
-> | resultados de operação | Não | Não |
+> | resultados de operações | Não | Não |
 > | operações | Não | Não |
-> | estado de funcionamento | Não | Não |
+> | operaçõestatus | Não | Não |
 > | folhas de preços | Não | Não |
 > | produtos | Não | Não |
-> | detalhes da reserva | Não | Não |
-> | detalhes da recomendação de reservas | Não | Não |
-> | recomendações de reservas | Não | Não |
-> | resumos de reservas | Não | Não |
+> | detalhes de reservas | Não | Não |
+> | reservas recommendaçõesdedetails | Não | Não |
+> | reservas recommendações | Não | Não |
+> | reservas | Não | Não |
 > | transações de reservas | Não | Não |
 > | etiquetas | Não | Não |
 > | inquilinos | Não | Não |
 > | termos | Não | Não |
-> | detalhes de uso | Não | Não |
-
-## <a name="microsoftcontainer"></a>Microsoft.Container
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Subscrição |
-> | ------------- | ----------- | ---------- |
-> | grupos de contentores | Não | Não |
+> | usagedetails | Não | Não |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
@@ -951,71 +928,71 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | grupos de contentores | Não | Não |
-> | locais | Não | Não |
-> | localizações / imagens em cache | Não | Não |
+> | localizações | Não | Não |
+> | localizações / cachedimages | Não | Não |
 > | localizações / capacidades | Não | Não |
 > | localizações / deletevirtualnetworkorsubnets | Não | Não |
-> | locais/operações | Não | Não |
+> | localizações / operações | Não | Não |
 > | localizações / utilizações | Não | Não |
 > | operações | Não | Não |
-> | ligações de associação de serviços | Não | Não |
+> | ligações de serviços de ações | Não | Não |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checknamedisponibilidade | Não | Não |
-> | locais | Não | Não |
+> | checknamedilability | Não | Não |
+> | localizações | Não | Não |
 > | localizações / autorizar | Não | Não |
 > | localizações / deletevirtualnetworkorsubnets | Não | Não |
 > | localizações / resultados de operações | Não | Não |
-> | localizações / configuração | Não | Não |
+> | localizações / configuração de dois | Não | Não |
 > | operações | Não | Não |
 > | registos | Sim | Sim |
-> | registos / grupos de agentes | Sim | Sim |
-> | registos / listade piscinas / listqueuestatus | Não | Não |
+> | registos / agentpools | Sim | Sim |
+> | registos / agentpools / listqueuestatus | Não | Não |
 > | registos / construções | Não | Não |
-> | registos / construções / cancelamento | Não | Não |
+> | registos / construções / cancelar | Não | Não |
 > | registos / construções / getloglink | Não | Não |
-> | registos / tarefas de construção | Sim | Sim |
-> | registos / tarefas de construção / listsourcerepositoryproperties | Não | Não |
-> | registos / tarefas de construção / passos | Não | Não |
-> | registos / tarefas de construção / passos / listbuildarguments | Não | Não |
-> | registos / filtros de eventgrid | Não | Não |
-> | registos / oleodutos de exportação | Não | Não |
-> | registos / credenciais de geração | Não | Não |
+> | registos / buildtasks | Sim | Sim |
+> | registos / buildtasks / listsourcerepositoryproperties | Não | Não |
+> | registos / buildtasks / passos | Não | Não |
+> | registos / buildtasks / passos / listbuildarguments | Não | Não |
+> | registos / filtros de eventgridfilters | Não | Não |
+> | registos / exportpipelines | Não | Não |
+> | registos / gerarcredentais | Não | Não |
 > | registos / getbuildsourceuploadurl | Não | Não |
-> | registos / getcredenciais | Não | Não |
+> | registos / obtercredentais | Não | Não |
 > | registos / importimage | Não | Não |
-> | registos / oleodutos de importação | Não | Não |
+> | registos / importações | Não | Não |
 > | registos / listbuildsourceuploadurl | Não | Não |
-> | registos / credenciais de lista | Não | Não |
-> | registos / políticas de listas | Não | Não |
+> | registos / listcredentais | Não | Não |
+> | registos / listpolidades | Não | Não |
 > | registos / listusages | Não | Não |
-> | registos / pipelineruns | Não | Não |
+> | registos / gasodutos | Não | Não |
 > | registos / privateendpointconnectionproxies | Não | Não |
 > | registos / privateendpointconnectionproxies / validar | Não | Não |
 > | registos / privateendpointconnections | Não | Não |
-> | registos / privatelinkresources | Não | Não |
+> | registos / recursos de privatelinkresources | Não | Não |
 > | registos / queuebuild | Não | Não |
-> | registos / regeneratecredential | Não | Não |
-> | registos / credenciais regeneradas | Não | Não |
+> | registos / regeneração | Não | Não |
+> | registos / regeneração decredentais | Não | Não |
 > | registos / replicações | Sim | Sim |
-> | registos / execuções | Não | Não |
-> | registos / execuções / cancelar | Não | Não |
-> | registos / executões / listlogsasurl | Não | Não |
-> | registos / programação | Não | Não |
-> | registos / mapas de âmbito | Não | Não |
+> | registos / corre | Não | Não |
+> | registos / corre / cancela | Não | Não |
+> | registos / runs / listlogsasurl | Não | Não |
+> | registos / schedulerun | Não | Não |
+> | registos / scopemaps | Não | Não |
 > | registos / taskruns | Não | Não |
 > | registos / taskruns / listdetails | Não | Não |
 > | registos / tarefas | Sim | Sim |
-> | registos / tarefas / dados de listas | Não | Não |
+> | registos / tarefas / listdetails | Não | Não |
 > | registos / fichas | Não | Não |
-> | registos / políticas de atualização | Não | Não |
+> | registos / atualização de políticas | Não | Não |
 > | registos / webhooks | Sim | Sim |
-> | registos / webhooks / getcallbackconfig | Não | Não |
-> | registos / webhooks / eventos de listas | Não | Não |
+> | registros / webhooks / getcallbackconfig | Não | Não |
+> | registos / webhooks / listevents | Não | Não |
 > | registos / webhooks / ping | Não | Não |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
@@ -1024,13 +1001,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | serviços de contentores | Não | Não |
-> | locais | Não | Não |
+> | localizações | Não | Não |
 > | localizações / aglomerados de turno aberto | Não | Não |
 > | localizações / resultados de operações | Não | Não |
-> | locais/operações | Não | Não |
-> | locais / orquestradores | Não | Não |
-> | clusters geridos | Não | Não |
-> | openshiftmanagedclusters | Não | Não |
+> | localizações / operações | Não | Não |
+> | localizações / orquestradores | Não | Não |
+> | geremclusters | Não | Não |
+> | aglomerados de gestão de turnos abertos | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
@@ -1055,30 +1032,30 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | alerts | Não | Não |
 > | contas de faturação | Não | Não |
 > | orçamentos | Não | Não |
-> | conectores de nuvem | Não | Não |
+> | cloudconnectors | Não | Não |
 > | conectores | Sim | Sim |
 > | departamentos | Não | Não |
 > | dimensões | Não | Não |
-> | contas de matrículas | Não | Não |
+> | matrículas | Não | Não |
 > | exportações | Não | Não |
-> | contas de faturação externa | Não | Não |
-> | contas/alertas de faturação externa | Não | Não |
-> | contas/dimensões de faturação externa | Não | Não |
-> | contas de faturação externa /previsão | Não | Não |
-> | contas de faturação externa / consulta | Não | Não |
+> | contas de falcão externos | Não | Não |
+> | contas /alertas de avaliação externa | Não | Não |
+> | contas/dimensões de avaliação externa | Não | Não |
+> | contas /previsão de avaliação externa | Não | Não |
+> | contas /consultas de externalbillings | Não | Não |
 > | subscrições externas | Não | Não |
-> | subscrições/alertas externos | Não | Não |
+> | subscrições /alertas externos | Não | Não |
 > | subscrições/dimensões externas | Não | Não |
-> | subscrições externas /previsão | Não | Não |
+> | subscrições externas / previsão | Não | Não |
 > | subscrições externas / consulta | Não | Não |
 > | forecast | Não | Não |
 > | operações | Não | Não |
 > | consulta | Não | Não |
 > | registar | Não | Não |
-> | reportconfigs | Não | Não |
+> | configs relatório | Não | Não |
 > | relatórios | Não | Não |
-> | settings | Não | Não |
-> | regras de showback | Não | Não |
+> | definições | Não | Não |
+> | showbackrules | Não | Não |
 > | Modos de exibição | Não | Não |
 
 ## <a name="microsoftcostmanagementexports"></a>Microsoft.CostManagementExports
@@ -1109,10 +1086,10 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | associações | Não | Não |
-> | locais | Não | Não |
-> | localizações / estados de funcionamento | Não | Não |
+> | localizações | Não | Não |
+> | localizações / operações | Não | Não |
 > | operações | Não | Não |
-> | fornecedores de recursos | Sim | Sim |
+> | recursosproviders | Sim | Sim |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
@@ -1120,13 +1097,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | empregos | Não | Não |
-> | locais | Não | Não |
+> | localizações | Não | Não |
 > | localizações / availableskus | Não | Não |
-> | localizações / checknamedisponibilidade | Não | Não |
+> | localizações / checknameavailability | Não | Não |
 > | localizações / resultados de operações | Não | Não |
-> | localizações / configuração de regiões | Não | Não |
-> | localizações / validação | Não | Não |
-> | localizações / validações | Não | Não |
+> | localizações / configuração da região | Não | Não |
+> | localizações / validação de morada | Não | Não |
+> | localizações / validar inputções | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
@@ -1134,8 +1111,9 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | dispositivos de databoxedge | Não | Não |
-> | dispositivos de databoxedge / checknamedisponibilidade | Não | Não |
+> | availableskus | Não | Não |
+> | databoxedgedevices | Sim | Sim |
+> | databoxedgedevices / checknameavailability | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
@@ -1143,12 +1121,12 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | locais | Não | Não |
-> | localizações / obterpolíticas de rede | Não | Não |
-> | localizações / estados de funcionamento | Não | Não |
+> | localizações | Não | Não |
+> | localizações / obter redes políticas | Não | Não |
+> | localizações / operações | Não | Não |
 > | operações | Não | Não |
 > | áreas de trabalho | Não | Não |
-> | espaços de trabalho / dbworkspaces | Não | Não |
+> | espaços de trabalho / espaço de trabalho | Não | Não |
 > | espaços de trabalho / virtualnetworkpeerings | Não | Não |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -1157,19 +1135,19 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | catálogos | Sim | Sim |
-> | checknamedisponibilidade | Não | Não |
-> | catálogos de dados | Não | Não |
-> | locais | Não | Não |
+> | checknamedilability | Não | Não |
+> | datacatalogs | Não | Não |
+> | localizações | Não | Não |
 > | localizações / empregos | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | operações | Não | Não |
 
-## <a name="microsoftdataconnect"></a>Microsoft.dataConnect
+## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | gestores de conexão | Não | Não |
+> | gerentes de conexão | Não | Não |
 
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 
@@ -1184,16 +1162,16 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checkazuredatadisponibilidade de nomes de fábrica | Não | Não |
-> | checkdatafactorynamedisponibilidade | Não | Não |
-> | fábricas de dados | Sim | Sim |
-> | fábricas de dados / definições de diagnóstico | Não | Não |
-> | fábricas de dados / definições métricas | Não | Não |
+> | checkazuredatafactorynamedilability | Não | Não |
+> | checkdatafactorynamedilability | Não | Não |
+> | datafactories | Sim | Sim |
+> | datafactories / diagnósticos | Não | Não |
+> | datafactories / metricdefinitions | Não | Não |
 > | datafactoryschema | Não | Não |
 > | fábricas | Sim | Sim |
-> | fábricas / integrações runtime | Não | Não |
-> | locais | Não | Não |
-> | localizações / configurefactoryrepo | Não | Não |
+> | fábricas / integrações tempos | Não | Não |
+> | localizações | Não | Não |
+> | localizações / configurafactoryrepo | Não | Não |
 > | localizações / getfeaturevalue | Não | Não |
 > | operações | Não | Não |
 
@@ -1202,7 +1180,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | datalakecontas | Não | Não |
+> | datalakeaccounts | Não | Não |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
@@ -1210,13 +1188,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | accounts | Sim | Sim |
-> | contas / contas datalakestore | Não | Não |
-> | contas /contas de armazenamento | Não | Não |
+> | contas / datalakestoreaccounts | Não | Não |
+> | contas / contas de armazenamento | Não | Não |
 > | contas / contas de armazenamento / contentores | Não | Não |
 > | contas / contas de armazenamento / contentores / listastokens | Não | Não |
-> | locais | Não | Não |
+> | localizações | Não | Não |
 > | localizações / capacidade | Não | Não |
-> | localizações / checknamedisponibilidade | Não | Não |
+> | localizações / checknameavailability | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / utilizações | Não | Não |
 > | operações | Não | Não |
@@ -1227,11 +1205,11 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | accounts | Sim | Sim |
-> | contas / filtros de eventgrid | Não | Não |
+> | contas / filtros de eventgridfilters | Não | Não |
 > | contas / firewallrules | Não | Não |
-> | locais | Não | Não |
+> | localizações | Não | Não |
 > | localizações / capacidade | Não | Não |
-> | localizações / checknamedisponibilidade | Não | Não |
+> | localizações / checknameavailability | Não | Não |
 > | localizações / deletevirtualnetworkorsubnets | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / utilizações | Não | Não |
@@ -1242,10 +1220,10 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | locais | Não | Não |
-> | localizações / checknamedisponibilidade | Não | Não |
+> | localizações | Não | Não |
+> | localizações / checknameavailability | Não | Não |
 > | localizações / resultados de operações | Não | Não |
-> | localizações / estados de funcionamento | Não | Não |
+> | localizações / operações | Não | Não |
 > | operações | Não | Não |
 > | services | Não | Não |
 > | serviços / projetos | Não | Não |
@@ -1257,7 +1235,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | backupvaults | Não | Não |
-> | locais | Não | Não |
+> | localizações | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftdatashare"></a>Microsoft.DataShare
@@ -1269,17 +1247,17 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | contas / ações | Não | Não |
 > | contas / ações / conjuntos de dados | Não | Não |
 > | contas / ações / convites | Não | Não |
-> | contas / ações / assinaturas de partilhas de fornecedores | Não | Não |
+> | contas / ações / subscrições de partilha de fornecedores | Não | Não |
 > | contas / ações / sincronizações | Não | Não |
 > | contas / subscrições de ações | Não | Não |
 > | contas / subscrições de ações / conjuntos de dados de fontes de consumo | Não | Não |
 > | contas / subscrições de ações / datasetmappings | Não | Não |
 > | contas / subscrições de ações / gatilhos | Não | Não |
-> | listconvites | Não | Não |
-> | locais | Não | Não |
-> | locais / convites para consumidores | Não | Não |
+> | listinvitações | Não | Não |
+> | localizações | Não | Não |
+> | localizações / consumidores | Não | Não |
 > | localizações / resultados de operações | Não | Não |
-> | localizações / convite rejeitado | Não | Não |
+> | localizações / rejeição | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
@@ -1287,118 +1265,118 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checknamedisponibilidade | Não | Não |
-> | locais | Não | Não |
-> | localizações / operação azureasync | Não | Não |
+> | checknamedilability | Não | Não |
+> | localizações | Não | Não |
+> | localizações / azureasyncoperação | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / performancetiers | Não | Não |
 > | localizações / privateendpointconnectionazureasyncoperation | Não | Não |
-> | localizações / privateendpointconnectionresultados | Não | Não |
+> | localizações / resultados da operação de operação de privateendpointconnection | Não | Não |
 > | localizações / privateendpointconnectionproxyazureasyncoperation | Não | Não |
 > | localizações / privateendpointconnectionproxyoperationresults | Não | Não |
-> | localizações / recomendadoactionsessionsazureasyncoperation | Não | Não |
-> | locais / resultados recomendados de sessões de ação | Não | Não |
-> | localizações /segurançaalertapolíticasazureasyncoperation | Não | Não |
-> | localizações /segurançaalertapoliciesresultados | Não | Não |
-> | localizações / servidorkeyazureasyncoperation | Não | Não |
-> | localizações / resultados de operações de servidor | Não | Não |
+> | localizações / recomendações de essãosazureasyncoperação | Não | Não |
+> | localizações / recomendações de operaçãos de operações | Não | Não |
+> | localizações / securityalertpoliciesazuresyncoperation | Não | Não |
+> | localizações / securityalertpoliciesoperatórios | Não | Não |
+> | localizações / serverkeyazureasyncoperação | Não | Não |
+> | localizações / servidores de operações de operações | Não | Não |
 > | operações | Não | Não |
 > | servidores | Sim | Sim |
-> | servidores /conselheiros | Não | Não |
+> | servidores / assessores | Não | Não |
 > | servidores / privateendpointconnectionproxies | Não | Não |
 > | servidores / privateendpointconnections | Não | Não |
-> | servidores / privatelinkresources | Não | Não |
+> | servidores / recursos de privatelinkresources | Não | Não |
 > | servidores / textos de consulta | Não | Não |
 > | servidores / servidores recuperáveis | Não | Não |
-> | servidores / estatísticas topquery | Não | Não |
+> | servidores / topquerystatistics | Não | Não |
 > | servidores / regras de rede virtual | Não | Não |
-> | servidores / estatísticas de espera | Não | Não |
+> | servidores / estatistas | Não | Não |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checknamedisponibilidade | Não | Não |
-> | locais | Não | Não |
-> | localizações /administradorazureasyncoperation | Não | Não |
-> | localizações /administradores resultados de operação | Não | Não |
-> | localizações / operação azureasync | Não | Não |
+> | checknamedilability | Não | Não |
+> | localizações | Não | Não |
+> | localizações / administradorazureasyncoperação | Não | Não |
+> | locais / administradores resultados operacionais | Não | Não |
+> | localizações / azureasyncoperação | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / performancetiers | Não | Não |
 > | localizações / privateendpointconnectionazureasyncoperation | Não | Não |
-> | localizações / privateendpointconnectionresultados | Não | Não |
+> | localizações / resultados da operação de operação de privateendpointconnection | Não | Não |
 > | localizações / privateendpointconnectionproxyazureasyncoperation | Não | Não |
 > | localizações / privateendpointconnectionproxyoperationresults | Não | Não |
-> | localizações / recomendadoactionsessionsazureasyncoperation | Não | Não |
-> | locais / resultados recomendados de sessões de ação | Não | Não |
-> | localizações /segurançaalertapolíticasazureasyncoperation | Não | Não |
-> | localizações /segurançaalertapoliciesresultados | Não | Não |
-> | localizações / servidorkeyazureasyncoperation | Não | Não |
-> | localizações / resultados de operações de servidor | Não | Não |
+> | localizações / recomendações de essãosazureasyncoperação | Não | Não |
+> | localizações / recomendações de operaçãos de operações | Não | Não |
+> | localizações / securityalertpoliciesazuresyncoperation | Não | Não |
+> | localizações / securityalertpoliciesoperatórios | Não | Não |
+> | localizações / serverkeyazureasyncoperação | Não | Não |
+> | localizações / servidores de operações de operações | Não | Não |
 > | operações | Não | Não |
 > | servidores | Sim | Sim |
-> | servidores /conselheiros | Não | Não |
-> | servidores / teclas | Não | Não |
+> | servidores / assessores | Não | Não |
+> | servidores / chaves | Não | Não |
 > | servidores / privateendpointconnectionproxies | Não | Não |
 > | servidores / privateendpointconnections | Não | Não |
-> | servidores / privatelinkresources | Não | Não |
+> | servidores / recursos de privatelinkresources | Não | Não |
 > | servidores / textos de consulta | Não | Não |
 > | servidores / servidores recuperáveis | Não | Não |
-> | servidores / estatísticas topquery | Não | Não |
+> | servidores / topquerystatistics | Não | Não |
 > | servidores / regras de rede virtual | Não | Não |
-> | servidores / estatísticas de espera | Não | Não |
+> | servidores / estatistas | Não | Não |
 
-## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
+## <a name="microsoftdbforpostgresql"></a>Microsoft.DbforPostgresql
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checknamedisponibilidade | Não | Não |
-> | locais | Não | Não |
-> | localizações /administradorazureasyncoperation | Não | Não |
-> | localizações /administradores resultados de operação | Não | Não |
-> | localizações / operação azureasync | Não | Não |
+> | checknamedilability | Não | Não |
+> | localizações | Não | Não |
+> | localizações / administradorazureasyncoperação | Não | Não |
+> | locais / administradores resultados operacionais | Não | Não |
+> | localizações / azureasyncoperação | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / performancetiers | Não | Não |
 > | localizações / privateendpointconnectionazureasyncoperation | Não | Não |
-> | localizações / privateendpointconnectionresultados | Não | Não |
+> | localizações / resultados da operação de operação de privateendpointconnection | Não | Não |
 > | localizações / privateendpointconnectionproxyazureasyncoperation | Não | Não |
 > | localizações / privateendpointconnectionproxyoperationresults | Não | Não |
-> | localizações / recomendadoactionsessionsazureasyncoperation | Não | Não |
-> | locais / resultados recomendados de sessões de ação | Não | Não |
-> | localizações /segurançaalertapolíticasazureasyncoperation | Não | Não |
-> | localizações /segurançaalertapoliciesresultados | Não | Não |
-> | localizações / servidorkeyazureasyncoperation | Não | Não |
-> | localizações / resultados de operações de servidor | Não | Não |
+> | localizações / recomendações de essãosazureasyncoperação | Não | Não |
+> | localizações / recomendações de operaçãos de operações | Não | Não |
+> | localizações / securityalertpoliciesazuresyncoperation | Não | Não |
+> | localizações / securityalertpoliciesoperatórios | Não | Não |
+> | localizações / serverkeyazureasyncoperação | Não | Não |
+> | localizações / servidores de operações de operações | Não | Não |
 > | operações | Não | Não |
 > | grupos de servidores | Não | Não |
 > | servidores | Sim | Sim |
-> | servidores /conselheiros | Não | Não |
-> | servidores / teclas | Não | Não |
+> | servidores / assessores | Não | Não |
+> | servidores / chaves | Não | Não |
 > | servidores / privateendpointconnectionproxies | Não | Não |
 > | servidores / privateendpointconnections | Não | Não |
-> | servidores / privatelinkresources | Não | Não |
+> | servidores / recursos de privatelinkresources | Não | Não |
 > | servidores / textos de consulta | Não | Não |
 > | servidores / servidores recuperáveis | Não | Não |
-> | servidores / estatísticas topquery | Não | Não |
+> | servidores / topquerystatistics | Não | Não |
 > | servidores / regras de rede virtual | Não | Não |
-> | servidores / estatísticas de espera | Não | Não |
-> | servidorsv2 | Sim | Sim |
-> | servidores únicos | Sim | Sim |
+> | servidores / estatistas | Não | Não |
+> | servidorv2 | Sim | Sim |
+> | solteiroservers | Sim | Sim |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | fontes de artefactos | Sim | Sim |
-> | resultados de operação | Não | Não |
+> | artefactos | Sim | Sim |
+> | resultados de operações | Não | Não |
 > | operações | Não | Não |
-> | lançamentos | Sim | Sim |
-> | servicetopologies | Sim | Sim |
-> | serviços /serviços | Sim | Sim |
-> | serviços / serviços / unidades de serviço | Sim | Sim |
+> | rollouts | Sim | Sim |
+> | topologias de serviço | Sim | Sim |
+> | topologias de serviços / serviços | Sim | Sim |
+> | topologias de serviços / serviços / unidades de serviço | Sim | Sim |
 > | passos | Sim | Sim |
 
 ## <a name="microsoftdesktopvirtualization"></a>Microsoft.DesktopVirtualization
@@ -1407,31 +1385,32 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | grupos de aplicações | Sim | Sim |
-> | grupos de aplicações/aplicações | Não | Não |
+> | grupos de aplicações / aplicações | Não | Não |
 > | grupos de aplicações / desktops | Não | Não |
 > | grupos de aplicações / startmenuitems | Não | Não |
-> | piscinas de acolhimento | Sim | Sim |
-> | hostpools / anfitriões de sessões | Não | Não |
-> | hostpools / sessões de sessões / usersessions | Não | Não |
-> | hostpools / usersessions | Não | Não |
+> | hostpools | Sim | Sim |
+> | hostpools / sessão | Não | Não |
+> | hostpools / sessionhosts / utilizadores | Não | Não |
+> | hostpools / utilizadores | Não | Não |
 > | operações | Não | Não |
 > | áreas de trabalho | Sim | Sim |
 
-## <a name="microsoftdevices"></a>Microsoft.Dispositivos
+## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checknamedisponibilidade | Não | Não |
-> | check-provisioningservicenamedisponibilidade | Não | Não |
+> | checknamedilability | Não | Não |
+> | checkprovisioningservicenamedilability | Não | Não |
 > | elásticos | Não | Não |
-> | elasticpools / iothubtenants | Não | Não |
+> | elásticos / iothubtenants | Não | Não |
 > | iothubs | Sim | Sim |
-> | iothubs / filtros de eventgrid | Não | Não |
-> | resultados de operação | Não | Não |
+> | iothubs / eventgridfilters | Não | Não |
+> | iothubs / seguranças | Não | Não |
+> | resultados de operações | Não | Não |
 > | operações | Não | Não |
-> | serviços de prestação | Sim | Sim |
-> | utilizações | Não | Não |
+> | serviços de provisionamento | Sim | Sim |
+> | usos | Não | Não |
 
 ## <a name="microsoftdevops"></a>Microsoft.DevOps
 
@@ -1446,8 +1425,8 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | controladores | Sim | Sim |
-> | controladores / dados de ligação de listas | Não | Não |
-> | locais | Não | Não |
+> | controladores / listconnectiondetails | Não | Não |
+> | localizações | Não | Não |
 > | localizações / checkcontainerhostmapping | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | operações | Não | Não |
@@ -1461,9 +1440,9 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | laboratórios | Sim | Não |
 > | laboratórios / ambientes | Sim | Sim |
 > | laboratórios / corredores de serviço | Sim | Sim |
-> | laboratórios / máquinas virtuais | Sim | Não |
-> | locais | Não | Não |
-> | locais/operações | Não | Não |
+> | laboratórios / virtualmachines | Sim | Não |
+> | localizações | Não | Não |
+> | localizações / operações | Não | Não |
 > | operações | Não | Não |
 > | horários | Sim | Sim |
 
@@ -1472,8 +1451,9 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | instâncias digitaltwins | Não | Não |
-> | locais | Não | Não |
+> | digitaltwinsinstances | Não | Não |
+> | resultados digitais /operação | Não | Não |
+> | localizações | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
@@ -1481,13 +1461,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | nomes de contas de bases de dados | Não | Não |
-> | contas de bases de dados | Sim | Sim |
-> | locais | Não | Não |
+> | números de dados | Não | Não |
+> | contas de base de dados | Sim | Sim |
+> | localizações | Não | Não |
 > | localizações / deletevirtualnetworkorsubnets | Não | Não |
 > | localizações / resultados de operações | Não | Não |
-> | locais / estado de operações | Não | Não |
-> | resultados de operação | Não | Não |
+> | localizações / operaçõesstatus | Não | Não |
+> | resultados de operações | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
@@ -1495,21 +1475,21 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checkdomíniodisponibilidade | Não | Não |
+> | checkdomainailability | Não | Não |
 > | domínios | Sim | Sim |
-> | domínios / identificadores de domínio | Não | Não |
-> | gerassopedido | Não | Não |
-> | recomendações de domínio de lista | Não | Não |
+> | domínios / domainownershipidentifiers | Não | Não |
+> | gerassorequest | Não | Não |
+> | listdomainrecommendations | Não | Não |
 > | operações | Não | Não |
-> | domínios de nível superior | Não | Não |
-> | validaçãodeinformação de registode domínio | Não | Não |
+> | topleveldomains | Não | Não |
+> | validação da informação sobreregistration | Não | Não |
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | locais | Não | Não |
+> | localizações | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | operações | Não | Não |
 > | services | Sim | Sim |
@@ -1520,25 +1500,24 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | domínios | Sim | Sim |
-> | eventoSSubscrições | Não - não pode ser movido independentemente, mas automaticamente movido com recurso subscrito. | Não - não pode ser movido independentemente, mas automaticamente movido com recurso subscrito. |
 > | domínios / tópicos | Não | Não |
-> | assinaturas de eventos | Não - não pode ser movido independentemente, mas automaticamente movido com recurso subscrito. | Não - não pode ser movido independentemente, mas automaticamente movido com recurso subscrito. |
-> | tópicos de extensão | Não | Não |
-> | locais | Não | Não |
-> | localizações / assinaturas de eventos | Não | Não |
+> | subscrições de eventos | Não - não pode ser movido de forma independente, mas automaticamente movido com recurso subscrito. | Não - não pode ser movido de forma independente, mas automaticamente movido com recurso subscrito. |
+> | extensõestópicas | Não | Não |
+> | localizações | Não | Não |
+> | localizações / subscrições de eventos | Não | Não |
 > | localizações / resultados de operações | Não | Não |
-> | locais / estado de operações | Não | Não |
+> | localizações / operaçõesstatus | Não | Não |
 > | localizações / tópicos | Não | Não |
-> | resultados de operação | Não | Não |
+> | resultados de operações | Não | Não |
 > | operações | Não | Não |
-> | estado de operações | Não | Não |
-> | espaços de nome de parceiro | Sim | Sim |
-> | espaços de nome de parceiros / canais de eventos | Não | Não |
+> | operastatus | Não | Não |
+> | partnernamespaces | Sim | Sim |
+> | partnernamespaces / eventchannels | Não | Não |
 > | registos de parceiros | Não | Não |
-> | tópicos parceiro | Sim | Sim |
-> | partnertopics / assinaturas de eventos | Não | Não |
-> | tópicos sistematópicas | Sim | Sim |
-> | sistematópicos / assinaturas de eventos | Não | Não |
+> | partnertopics | Sim | Sim |
+> | partnertopics / eventsubscriptions | Não | Não |
+> | sistematópicos | Sim | Sim |
+> | sistematópicos / subscrições de eventos | Não | Não |
 > | tópicos | Sim | Sim |
 > | tópicos | Não | Não |
 
@@ -1547,31 +1526,31 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | regiões de aglomerados disponíveis | Não | Não |
-> | checknamedisponibilidade | Não | Não |
-> | checknamespaceavailabilit | Não | Não |
+> | regiões declusters disponíveis | Não | Não |
+> | checknamedilability | Não | Não |
+> | checknamespaceailability | Não | Não |
 > | aglomerados | Sim | Sim |
-> | locais | Não | Não |
+> | localizações | Não | Não |
 > | localizações / deletevirtualnetworkorsubnets | Não | Não |
 > | espaços de nome | Sim | Sim |
 > | espaços de nomes / regras de autorização | Não | Não |
-> | espaços de nomes / desastres recoveryconfigs | Não | Não |
-> | espaços de nome / desastresrecoveryconfigs / checknamedisponibilidade | Não | Não |
-> | espaços de nomes / centros de eventos | Não | Não |
-> | espaços de nome / eventhubs / regras de autorização | Não | Não |
-> | espaços de nome / eventhubs / grupos de consumidores | Não | Não |
-> | espaços de nome / conjuntos de regras de rede | Não | Não |
+> | espaços de nome / disasterrecoveryconfigs | Não | Não |
+> | espaços de nome / disasterrecoveryconfigs / checknameavailability | Não | Não |
+> | espaços de nomes / eventhubs | Não | Não |
+> | espaços de nome / eventhubs / autorizações | Não | Não |
+> | espaços de nomes / eventhubs / grupos de consumidores | Não | Não |
+> | espaços de nome / redes de regras | Não | Não |
 > | operações | Não | Não |
 > | sku | Não | Não |
 
-## <a name="microsoftexperimentation"></a>Microsoft.Experimentação
+## <a name="microsoftexperimentation"></a>Microsoft.Experimentation
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | experimentosespaços | Não | Não |
-> | locais | Não | Não |
-> | locais/operações | Não | Não |
+> | espaços de trabalho experimenta | Não | Não |
+> | localizações | Não | Não |
+> | localizações / operações | Não | Não |
 
 ## <a name="microsoftfalcon"></a>Microsoft.Falcon
 
@@ -1585,13 +1564,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | fornecedores de recursos | Não | Não |
+> | recursosproviders | Não | Não |
 > | funcionalidades | Não | Não |
 > | operações | Não | Não |
 > | fornecedores | Não | Não |
-> | registos de recursos de subscrição | Não | Não |
+> | subscrições de registos de assinaturas | Não | Não |
 
-## <a name="microsoftgenomics"></a>Microsoft.Genómica
+## <a name="microsoftgenomics"></a>Microsoft.Geómica
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -1603,23 +1582,23 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | contas autogeridas | Não | Não |
-> | perfis de reconfiguração autogeredm | Não | Não |
-> | atribuições de guestconfigurações | Não | Não |
+> | auto-administradores | Não | Não |
+> | autogeridavmconfigurationprofils | Não | Não |
+> | convidadoconfigurationasssignments | Não | Não |
 > | operações | Não | Não |
 > | software | Não | Não |
-> | softwareupdateperfil | Não | Não |
-> | atualizações de software | Não | Não |
+> | softwareupdateprofile | Não | Não |
+> | datas de software | Não | Não |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | hanainstâncias | Não | Não |
-> | locais | Não | Não |
-> | locais/operações | Não | Não |
-> | locais / estado de operações | Não | Não |
+> | hanainstances | Não | Não |
+> | localizações | Não | Não |
+> | localizações / operações | Não | Não |
+> | localizações / operaçõesstatus | Não | Não |
 > | operações | Não | Não |
 > | sapmonitors | Sim | Sim |
 
@@ -1629,7 +1608,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | dedicados | Não | Não |
-> | locais | Não | Não |
+> | localizações | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
@@ -1639,18 +1618,18 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | aglomerados | Sim | Sim |
 > | clusters / aplicações | Não | Não |
-> | clusters / resultados de operação | Não | Não |
-> | locais | Não | Não |
-> | localizações / operações azureasyncoperations | Não | Não |
+> | clusters / resultados de operações | Não | Não |
+> | localizações | Não | Não |
+> | localizações / azureasyncoperações | Não | Não |
 > | localizações / billingspecs | Não | Não |
 > | localizações / capacidades | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / utilizações | Não | Não |
-> | localizações / validação de pedido | Não | Não |
+> | localizações / validadoreques | Não | Não |
 > | operações | Não | Não |
 
 > [!IMPORTANT]
-> Pode mover os clusters HDInsight para uma nova subscrição ou grupo de recursos. No entanto, não é possível mover-se através de subscrições dos recursos de rede ligados ao cluster HDInsight (como a rede virtual, NIC ou balanceador de carga). Além disso, não é possível mover-se para um novo grupo de recursos um NIC que está ligado a uma máquina virtual para o cluster.
+> Pode mover os clusters HDInsight para um novo grupo de subscrição ou recursos. No entanto, não é possível mover-se através de subscrições os recursos de networking ligados ao cluster HDInsight (como a rede virtual, NIC ou equilibrador de carga). Além disso, não é possível mover-se para um novo grupo de recursos um NIC que esteja ligado a uma máquina virtual para o cluster.
 >
 > Ao mover um cluster HDInsight para uma nova subscrição, primeiro mova outros recursos (como a conta de armazenamento). Em seguida, mova o cluster HDInsight por si só.
 
@@ -1659,21 +1638,24 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checknamedisponibilidade | Não | Não |
-> | locais | Não | Não |
+> | checknamedilability | Não | Não |
+> | localizações | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | operações | Não | Não |
 > | services | Sim | Sim |
 > | serviços / privateendpointconnections | Não | Não |
-> | serviços / privatelinkresources | Não | Não |
+> | serviços / recursos privados | Não | Não |
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
+> | localizações | Não | Não |
+> | localizações / resultados de operações | Não | Não |
+> | localizações / operaçõestatus | Não | Não |
 > | máquinas | Sim | Sim |
-> | máquinas / extensões | Não | Não |
+> | máquinas / extensões | Sim | Sim |
 > | operações | Não | Não |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
@@ -1681,8 +1663,19 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | gestores de dados | Sim | Sim |
+> | datamanagers | Sim | Sim |
 > | operações | Não | Não |
+
+## <a name="microsofthybridnetwork"></a>Microsoft.HybridNetwork
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Grupo de recursos | Subscrição |
+> | ------------- | ----------- | ---------- |
+> | dispositivos | Não | Não |
+> | localizações | Não | Não |
+> | localizações / operações | Não | Não |
+> | operações | Não | Não |
+> | vnfs | Não | Não |
 
 ## <a name="microsofthydra"></a>Microsoft.Hydra
 
@@ -1690,8 +1683,8 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | componentes | Não | Não |
-> | locais | Não | Não |
-> | cóscopos de rede | Não | Não |
+> | localizações | Não | Não |
+> | networkscopes | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
@@ -1700,7 +1693,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | empregos | Sim | Sim |
-> | locais | Não | Não |
+> | localizações | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | operações | Não | Não |
 
@@ -1710,66 +1703,68 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | grupos de ação | Sim | Sim |
-> | alertas de atividade | Não | Não |
-> | regras de alerta | Sim | Sim |
-> | definições de escala automática | Sim | Sim |
+> | activitylogalerts | Não | Não |
+> | alertas | Sim | Sim |
+> | autoescala | Sim | Sim |
 > | linha de base | Não | Não |
-> | calcular base | Não | Não |
+> | calcularbaseline | Não | Não |
 > | componentes | Sim | Sim |
 > | componentes / eventos | Não | Não |
-> | componentes / contas de armazenamento ligados | Não | Não |
+> | componentes / linkedstorageaccounts | Não | Não |
+> | componentes / metadados | Não | Não |
 > | componentes / métricas | Não | Não |
 > | componentes / planos de preços | Não | Não |
 > | componentes / consulta | Não | Não |
-> | regras de recolha de dados | Não | Não |
-> | definições de diagnóstico | Não | Não |
-> | categorias de definições de diagnóstico | Não | Não |
-> | categorias de eventos | Não | Não |
+> | datacollectionrules | Não | Não |
+> | diagnósticos | Não | Não |
+> | diagnósticoscategorias | Não | Não |
+> | eventcategorias | Não | Não |
 > | tipos de eventos | Não | Não |
-> | definições de diagnóstico alargadas | Não | Não |
-> | definições de diagnóstico de convidados | Não | Não |
-> | listademigração | Não | Não |
-> | locais | Não | Não |
+> | diagnósticosgnósticos estendidos | Não | Não |
+> | guestdiagnosticsettings | Não | Não |
+> | listmigrationdate | Não | Não |
+> | localizações | Não | Não |
 > | localizações / resultados de operações | Não | Não |
-> | definições de log | Não | Não |
-> | perfis de registo | Não | Não |
+> | início de ções | Não | Não |
+> | logprofiles | Não | Não |
 > | registos | Não | Não |
-> | alertas métricos | Não | Não |
-> | linhas de base métricas | Não | Não |
+> | metricalerts | Não | Não |
+> | bases métricas | Não | Não |
 > | metricbatch | Não | Não |
-> | definições métricas | Não | Não |
-> | espaços de nomemétrico | Não | Não |
+> | métricas | Não | Não |
+> | espaços de nomes métricos | Não | Não |
 > | metrics | Não | Não |
-> | regras de alerta migratório | Não | Não |
-> | modelo de emigração de novos preços | Não | Não |
-> | meus livros | Não | Não |
+> | migratealertrules | Não | Não |
+> | migrar modelo dericing | Não | Não |
+> | livros de trabalho | Não | Não |
 > | grupos de notificações | Não | Não |
 > | operações | Não | Não |
-> | privatelinkscopeoperationoperationstatuses | Não | Não |
+> | privatelinkscope operastatus | Não | Não |
 > | privatelinkscopes | Não | Não |
 > | privatelinkscopes / privateendpointconnectionproxies | Não | Não |
 > | privatelinkscopes / privateendpointconnections | Não | Não |
-> | privatelinkscopes / recursos de âmbito | Não | Não |
-> | modelo de preços de retrocesso | Não | Não |
-> | regras de agendamento | Sim | Sim |
+> | privatelinkscopes / scopedresources | Não | Não |
+> | modelo de backbacktolegacypricing | Não | Não |
+> | queryrules agendados | Sim | Sim |
 > | topology | Não | Não |
 > | transações | Não | Não |
-> | vminsightsboardingstatuses | Não | Não |
-> | webtestes | Sim | Sim |
+> | vminsightsonboardingstatuses | Não | Não |
+> | webtests | Sim | Sim |
+> | webtests / obtertestesultfile | Não | Não |
 > | livros | Sim | Sim |
-> | modelos de livro | Sim | Sim |
+> | estalagens de livros | Sim | Sim |
 
 > [!IMPORTANT]
-> Certifique-se de que a mudança para uma nova subscrição não excede [as quotas de subscrição.](azure-subscription-service-limits.md#azure-monitor-limits)
+> Certifique-se de que a mudança para uma nova subscrição não excede as [quotas de subscrição](azure-subscription-service-limits.md#azure-monitor-limits).
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | modelos de aplicações | Não | Não |
-> | checknamedisponibilidade | Não | Não |
-> | checksubdomíniodisponibilidade | Não | Não |
+> | apliques | Não | Não |
+> | checknamedilability | Não | Não |
+> | verificaçõesubdomaindilability | Não | Não |
 > | iotapps | Sim | Sim |
 > | operações | Não | Não |
 
@@ -1778,7 +1773,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checknamedisponibilidade | Sim | Sim |
+> | checknamedilability | Sim | Sim |
 > | gráfico | Sim | Sim |
 > | operações | Não | Não |
 
@@ -1787,17 +1782,18 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checknamedisponibilidade | Não | Não |
-> | apaga-se cofres | Não | Não |
+> | checknamedilability | Não | Não |
+> | deletedvaults | Não | Não |
 > | hsmpools | Não | Não |
-> | locais | Não | Não |
-> | localizações / cofres apagados | Não | Não |
+> | localizações | Não | Não |
+> | localizações / deletedvaults | Não | Não |
 > | localizações / deletevirtualnetworkorsubnets | Não | Não |
 > | localizações / resultados de operações | Não | Não |
+> | geredhsmos | Não | Não |
 > | operações | Não | Não |
 > | cofres | Sim | Sim |
 > | cofres / políticas de acesso | Não | Não |
-> | cofres / filtros de eventgrid | Não | Não |
+> | cofres / filtros eventgrid | Não | Não |
 > | cofres / segredos | Não | Não |
 
 > [!IMPORTANT]
@@ -1808,13 +1804,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | clusters conectados | Sim | Sim |
-> | locais | Não | Não |
-> | localizações / estados de funcionamento | Não | Não |
+> | aglomerados conectados | Sim | Sim |
+> | localizações | Não | Não |
+> | localizações / operações | Não | Não |
 > | operações | Não | Não |
-> | subscrições registadas | Não | Não |
+> | assinaturas registadas | Não | Não |
 
-## <a name="microsoftkubernetesconfiguration"></a>Microsoft.KubernetesConfiguração
+## <a name="microsoftkubernetesconfiguration"></a>Microsoft.KubernetesConfiguration
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -1827,14 +1823,14 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | aglomerados | Sim | Sim |
-> | clusters / configurações de bases de dados anexadas | Não | Não |
+> | clusters / confinações de base de dados | Não | Não |
 > | clusters / bases de dados | Não | Não |
 > | clusters / bases de dados / ligações de dados | Não | Não |
-> | clusters / bases de dados / eventhubconnections | Não | Não |
-> | clusters / bases de dados / principais atribuições | Não | Não |
-> | clusters / principados | Não | Não |
-> | locais | Não | Não |
-> | localizações / checknamedisponibilidade | Não | Não |
+> | clusters / bases de dados / ligações eventhub | Não | Não |
+> | clusters / bases de dados / principais assinaturas | Não | Não |
+> | aglomerados / principais destacamentos | Não | Não |
+> | localizações | Não | Não |
+> | localizações / checknameavailability | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | operações | Não | Não |
 
@@ -1844,8 +1840,8 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | contas de laboratório | Não | Não |
-> | locais | Não | Não |
-> | locais/operações | Não | Não |
+> | localizações | Não | Não |
+> | localizações / operações | Não | Não |
 > | operações | Não | Não |
 > | utilizadores | Não | Não |
 
@@ -1868,12 +1864,12 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | ambientes de hospedagem | Não | Não |
+> | hospedar ambientes | Não | Não |
 > | contas de integração | Sim | Sim |
-> | integraçõesambientes de serviços | Sim | Não |
-> | integraçõesambientes de serviços / managedapis | Sim | Não |
+> | integração de ambientes | Sim | Não |
+> | integração de ambientesvírus /managedapis | Sim | Não |
 > | ambientes isolados | Não | Não |
-> | locais | Não | Não |
+> | localizações | Não | Não |
 > | localizações / fluxos de trabalho | Não | Não |
 > | operações | Não | Não |
 > | fluxos de trabalho | Sim | Sim |
@@ -1884,11 +1880,11 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | planos de compromisso | Não | Não |
-> | locais | Não | Não |
-> | locais/operações | Não | Não |
-> | locais / estado de operações | Não | Não |
+> | localizações | Não | Não |
+> | localizações / operações | Não | Não |
+> | localizações / operaçõesstatus | Não | Não |
 > | operações | Não | Não |
-> | webservices | Sim | Não |
+> | serviços web | Sim | Não |
 > | áreas de trabalho | Sim | Sim |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
@@ -1896,7 +1892,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | clusters de operacionalização | Não | Não |
+> | grupos de operacionalização | Não | Não |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 
@@ -1907,47 +1903,40 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | contas / espaços de trabalho | Não | Não |
 > | contas / espaços de trabalho / projetos | Não | Não |
 > | contas de equipa | Não | Não |
-> | contas de equipas / espaços de trabalho | Não | Não |
-> | teamaccounts / espaços de trabalho / projetos | Não | Não |
+> | contas de equipa / espaços de trabalho | Não | Não |
+> | teamaccounts / workspaces / projetos | Não | Não |
 
-## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
+## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelagement
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | accounts | Não | Não |
 
-## <a name="microsoftmachinelearningoperationalization"></a>Microsoft.MachineLearningOperacionalização
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Subscrição |
-> | ------------- | ----------- | ---------- |
-> | contas de hospedagem | Não | Não |
-
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | locais | Não | Não |
-> | localizações / computação | Não | Não |
+> | localizações | Não | Não |
+> | localizações / computeoperationsstatus | Não | Não |
 > | localizações / quotas | Não | Não |
-> | localizações / quotas de atualização | Não | Não |
+> | localizações / atualizações | Não | Não |
 > | localizações / utilizações | Não | Não |
 > | localizações / vmsizes | Não | Não |
 > | localizações / workspaceoperationsstatus | Não | Não |
 > | operações | Não | Não |
 > | áreas de trabalho | Não | Não |
-> | espaços de trabalho / computação | Não | Não |
-> | espaços de trabalho / filtros de eventgrid | Não | Não |
+> | espaços de trabalho / computas | Não | Não |
+> | espaços de trabalho / filtros de eventos | Não | Não |
 
-## <a name="microsoftmaintenance"></a>Microsoft.Manutenção
+## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | aplicar atualizações | Não | Não |
-> | atribuições de configuração | Não | Não |
+> | candidaturas | Não | Não |
+> | configurações de assinaturas | Não | Não |
 > | configurações de manutenção | Sim | Sim |
 > | atualizações | Não | Não |
 
@@ -1958,16 +1947,16 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | identidades | Não | Não |
 > | operações | Não | Não |
-> | userassignedidentidades | Não | Não |
+> | usassignedidentidades | Não | Não |
 
 ## <a name="microsoftmanagednetwork"></a>Microsoft.ManagedNetwork
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | redes geridas | Não | Não |
-> | redes geridas /grupos de redes geridas | Não | Não |
-> | redes geridas / políticas geridas de networkpeering | Não | Não |
+> | managednetworks | Não | Não |
+> | gerednetworks / grupos de redes geridas | Não | Não |
+> | managednetworks / managednetworkpeeringpolicies | Não | Não |
 > | notificação | Não | Não |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
@@ -1975,27 +1964,27 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | definições de registo de marketplace | Não | Não |
+> | marketplaceregistrationdefinitions | Não | Não |
 > | operações | Não | Não |
-> | estados de funcionamento | Não | Não |
-> | atribuição de inscrições | Não | Não |
-> | definições de registo | Não | Não |
+> | operações | Não | Não |
+> | inscrições | Não | Não |
+> | definições de registos | Não | Não |
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checknamedisponibilidade | Não | Não |
-> | getentidades | Não | Não |
+> | checknamedilability | Não | Não |
+> | getentities | Não | Não |
 > | managementgroups | Não | Não |
 > | grupos de gestão / configurações | Não | Não |
-> | resultados de operação | Não | Não |
-> | resultados de operação / operação de sincronia | Não | Não |
+> | resultados de operações | Não | Não |
+> | resultados de operações / assincoperação | Não | Não |
 > | operações | Não | Não |
 > | resources | Não | Não |
-> | starttenantbackfill | Não | Não |
-> | inquilinopres | Não | Não |
+> | filtro de backback starttenant | Não | Não |
+> | inquilinosfillstatus | Não | Não |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 
@@ -2003,7 +1992,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | accounts | Sim | Sim |
-> | contas / filtros de eventgrid | Não | Não |
+> | contas / filtros de eventgridfilters | Não | Não |
 > | contas / privateatlases | Sim | Sim |
 > | operações | Não | Não |
 
@@ -2012,23 +2001,23 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | listavailableoffers | Não | Não |
+> | listas de ofertas disponíveis | Não | Não |
 > | ofertas | Não | Não |
-> | ofertas | Não | Não |
-> | ofertas / editores | Não | Não |
-> | ofertas / editores / ofertas | Não | Não |
-> | ofertas / editores / ofertas / planos | Não | Não |
-> | ofertas / editores / ofertas / planos / acordos | Não | Não |
-> | ofertas / editores / ofertas / planos / configs | Não | Não |
-> | ofertas / editores / ofertas / planos / configs / importimage | Não | Não |
+> | tipos de ofertas | Não | Não |
+> | tipos de ofertas / editores | Não | Não |
+> | tipos de ofertas / editoras / ofertas | Não | Não |
+> | tipos de ofertas / editoras / ofertas / planos | Não | Não |
+> | tipos de ofertas / editoras / ofertas / planos / acordos | Não | Não |
+> | tipos de ofertas / editoras / ofertas / planos / configs | Não | Não |
+> | tipos de ofertas / editoras / ofertas / planos / configs / importimage | Não | Não |
 > | operações | Não | Não |
-> | privategalleryitems | Não | Não |
-> | cliente de privatestore | Não | Não |
+> | privadas | Não | Não |
+> | privatestoreclient | Não | Não |
 > | lojas privadas | Não | Não |
 > | lojas privadas / ofertas | Não | Não |
 > | produtos | Não | Não |
 > | editores | Não | Não |
-> | editoras / ofertas | Não | Não |
+> | editores / ofertas | Não | Não |
 > | editores / ofertas / alterações | Não | Não |
 > | registar | Não | Não |
 
@@ -2037,10 +2026,10 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | serviços clássicos | Não | Não |
-> | preferência por listcomunhões | Não | Não |
+> | classicdevservices | Não | Não |
+> | listcommunicationpreference | Não | Não |
 > | operações | Não | Não |
-> | preferência de atualização de comunicações | Não | Não |
+> | atualização da atribuição de prescrições | Não | Não |
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
 
@@ -2048,7 +2037,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | acordos | Não | Não |
-> | ofertas | Não | Não |
+> | tipos de ofertas | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
@@ -2056,25 +2045,25 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checknamedisponibilidade | Não | Não |
-> | locais | Não | Não |
-> | localizações / checknamedisponibilidade | Não | Não |
-> | serviços de media | Sim | Sim |
+> | checknamedilability | Não | Não |
+> | localizações | Não | Não |
+> | localizações / checknameavailability | Não | Não |
+> | mediaservices | Sim | Sim |
 > | mediaservices / filtros de conta | Não | Não |
-> | serviços de media / ativos | Não | Não |
+> | mediaserviços / ativos | Não | Não |
 > | mediaservices / ativos / filtros de ativos | Não | Não |
 > | mediaservices / contentkeypolicies | Não | Não |
 > | mediaservices / eventgridfilters | Não | Não |
-> | mediaservices / liveeventoperations | Não | Não |
+> | mediaservices / liveeventoperações | Não | Não |
 > | mediaservices / liveevents | Sim | Sim |
 > | mediaservices / liveevents / liveoutputs | Não | Não |
-> | mediaservices / liveoutputoperations | Não | Não |
-> | serviços de media / streamingendpointoperations | Não | Não |
+> | mediaservices / liveoutputoperações | Não | Não |
+> | mediaservices / streamingendpointoperações | Não | Não |
 > | mediaservices / streamingendpoints | Sim | Sim |
 > | mediaservices / streaminglocators | Não | Não |
-> | mediaservices / políticas de streaming | Não | Não |
+> | mediaservices / streamingpolicies | Não | Não |
 > | mediaservices / transforma | Não | Não |
-> | mediaservices / transforma /empregos | Não | Não |
+> | mediaservices / transforma / empregos | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftmicroservices4spring"></a>Microsoft.Microservices4Spring
@@ -2082,19 +2071,19 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | appclusters | Não | Não |
+> | apclusters | Não | Não |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | projetos de avaliação | Sim | Sim |
-> | locais | Não | Não |
-> | localizações/opções de avaliação | Não | Não |
-> | localizações / checknamedisponibilidade | Não | Não |
-> | projetos migratórios | Sim | Sim |
-> | move-secoles | Não | Não |
+> | projetos de avaliação | Não | Não |
+> | localizações | Não | Não |
+> | localizações / opções de avaliação | Não | Não |
+> | localizações / checknameavailability | Não | Não |
+> | migrarprojects | Não | Não |
+> | câmaras de mudança | Não | Não |
 > | operações | Não | Não |
 > | projetos | Não | Não |
 
@@ -2103,25 +2092,25 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | contas holográficas de transmissão | Não | Não |
-> | locais | Não | Não |
-> | localizações / checknamedisponibilidade | Não | Não |
-> | contas de entendimento de objetos | Não | Não |
+> | holográficosbroscastaccounts | Não | Não |
+> | localizações | Não | Não |
+> | localizações / checknameavailability | Não | Não |
+> | contas objectunderstanding | Não | Não |
 > | operações | Não | Não |
-> | contas de renderização remota | Sim | Sim |
-> | contas de âncoras espaciais | Sim | Sim |
+> | contas de reconeradores remotos | Sim | Sim |
+> | spatialanchorsaccounts | Sim | Sim |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | netappaccounts | Não | Não |
-> | netappaccounts / backuppolicies | Não | Não |
-> | netappaccounts / pools de capacidade | Não | Não |
-> | netappaccounts / capacitypools / volumes | Não | Não |
-> | netappaccounts / capacitypools / volumes / mounttargets | Não | Não |
-> | netappaccounts / capacitypools / volumes / instantâneos | Não | Não |
+> | contas netappac | Não | Não |
+> | contas netappaccounts / backuppolicies | Não | Não |
+> | contas de netappacs /capacitypools | Não | Não |
+> | contas de netappacs / capacitypools / volumes | Não | Não |
+> | contas netappaccounts / capacitypools / volumes / mounttargets | Não | Não |
+> | contas de netappacs / capacitypools / volumes / snapshots | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
@@ -2129,91 +2118,93 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | applicationgatewaydisponíveisrequestheaders | Não | Não |
-> | applicationgatewaydisponíveisresponseheaders | Não | Não |
-> | applicationgatewayavailableservervariáves | Não | Não |
-> | aplicagatewayavailablesloptions | Não | Não |
-> | aplicagatewayavailablewafrulesets | Não | Não |
-> | applicationgateways | Não | Não |
-> | aplicaçõesgatewaywebapplicationfirewallpolicies | Não | Não |
-> | grupos de segurança de aplicações | Sim | Sim |
+> | applicationgateway disponívelrequestheaders | Não | Não |
+> | applicationgateway disponívelreseheaders | Não | Não |
+> | applicationgatewayservervariables | Não | Não |
+> | applicationgateway disponível opções | Não | Não |
+> | applicationgateway disponívelwafrulesets | Não | Não |
+> | pistas de aplicação | Não | Não |
+> | applicationgatewaywebapplicationfirewallpolicies | Não | Não |
+> | grupos de aplicações | Sim | Sim |
 > | azurefirewallfqdntags | Não | Não |
 > | azurefirewalls | Não | Não |
-> | bastionários | Não | Não |
-> | comunidades de serviços bgpservice | Não | Não |
-> | checkfrontdoornamedisponibilidade | Não | Não |
-> | checktrafficmanagernamedisponibilidade | Não | Não |
+> | bastionhosts | Não | Não |
+> | bgpservicecommunidades | Não | Não |
+> | checkdoornamedilability | Não | Não |
+> | checktrafficmanagernamedilability | Não | Não |
 > | conexões | Sim | Sim |
-> | ddoscustompolíticas | Sim | Sim |
+> | ddoscustompolicias | Sim | Sim |
 > | ddosprotectionplans | Não | Não |
-> | resultados de operação | Não | Não |
+> | dnsoperationresults | Não | Não |
 > | dnsoperationstatuses | Não | Não |
-> | zonas de dnszone | Sim | Sim |
+> | dnszones | Sim | Sim |
 > | dnszones / a | Não | Não |
 > | dnszones / aaaa | Não | Não |
-> | zonas de dnszones / todos | Não | Não |
+> | dnszones / todos os | Não | Não |
 > | dnszones / caa | Não | Não |
 > | dnszones / cname | Não | Não |
 > | dnszones / mx | Não | Não |
 > | dnszones / ns | Não | Não |
 > | dnszones / ptr | Não | Não |
-> | dnszones / conjuntos de recordes | Não | Não |
+> | dnszones / recordets | Não | Não |
 > | dnszones / soa | Não | Não |
 > | dnszones / srv | Não | Não |
 > | dnszones / txt | Não | Não |
-> | circuitos de rotação expresso | Não | Não |
-> | expressroutegateways | Não | Não |
-> | prestadores de serviços de rotação expressroute | Não | Não |
-> | firewallpolíticas | Sim | Sim |
-> | frontdooroperationresultados | Não | Não |
-> | portas da frente | Não | Não |
+> | expressroutecircuits | Não | Não |
+> | vias expressas | Não | Não |
+> | expressrouteserviceproviders | Não | Não |
+> | firewallpolicies | Sim | Sim |
+> | frontdooroperationresults | Não | Não |
+> | frontdoors | Não | Não |
+> | frontdoors / frontendendpoints | Não | Não |
 > | frontdoorwebapplicationfirewallmanagedrulesets | Não | Não |
-> | frontdoorwebapplicationapplicationfirewallpolicies | Não | Não |
-> | obterdnsresourcereference | Não | Não |
-> | notificação interna | Não | Não |
-> | ipgroups | Sim | Sim |
-> | loadbalancers | Sim - SKU Básico<br>Não - Standard SKU | Sim - SKU Básico<br>Não - Standard SKU |
-> | locaisdenetworkgateways | Sim | Sim |
-> | locais | Não | Não |
-> | localizações / serviços de privatelink autoaprovados | Não | Não |
-> | localizações /delegações disponíveis | Não | Não |
-> | localizações / pontos finais privados disponíveis | Não | Não |
-> | localizações / disponíveisservicealiases | Não | Não |
-> | localizações / inquilinos baremetal | Não | Não |
-> | localizações / batchnotifyprivateendpointsforresource | Não | Não |
+> | frontdoorwebapplicationfirewallpolicies | Não | Não |
+> | obter re-referência de recursos | Não | Não |
+> | internalnotificar | Não | Não |
+> | ipallocations | Sim | Sim |
+> | ipgrupos | Sim | Sim |
+> | loadbalancers | Sim - SKU Básico<br>Não - SKU Padrão | Sim - SKU Básico<br>Não - SKU Padrão |
+> | vias de rede locais | Sim | Sim |
+> | localizações | Não | Não |
+> | localizações / serviços deprivatelinks auto-aprovados | Não | Não |
+> | localizações / deslegações disponíveis | Não | Não |
+> | localizações / disponíveis deponts de nomeação | Não | Não |
+> | localizações / serviços disponíveis | Não | Não |
+> | localizações / descalços | Não | Não |
+> | localizações / batchnotifyprivateendpointsforresourcemove | Não | Não |
 > | localizações / batchvalidateprivateendpointsforresourcemove | Não | Não |
 > | localizações / checkacceleratednetworkingsupport | Não | Não |
-> | localizações /checkdnsnameavailabilit | Não | Não |
+> | localizações / checkdnsnamedilability | Não | Não |
 > | localizações / checkprivatelinkservicevisibilidade | Não | Não |
-> | localizações / comprometerinternalazurenetworkmanagerreconfigurção | Não | Não |
-> | localizações / propriedade eficaz de recursos | Não | Não |
-> | localizações / resultados de nfvoperation | Não | Não |
+> | localizações / cometer internalazurenetworksconfiguration | Não | Não |
+> | localizações / efetivo descentralização | Não | Não |
+> | localizações / resultados de nfvoperations | Não | Não |
 > | localizações / nfvoperations | Não | Não |
 > | localizações / resultados de operações | Não | Não |
-> | locais/operações | Não | Não |
-> | localizações / etiquetas de serviço | Não | Não |
-> | localizações / setresourceownership | Não | Não |
-> | localizações /suportevirtualsizes | Não | Não |
+> | localizações / operações | Não | Não |
+> | localizações / marcas de serviço | Não | Não |
+> | localizações / setresourceeese | Não | Não |
+> | localizações / suportadavirtualmachinesizes | Não | Não |
 > | localizações / utilizações | Não | Não |
-> | localizações / validação de recursos | Não | Não |
-> | localizações / serviços de endpointdisponíveis virtual | Não | Não |
+> | localizações / validação de fontes | Não | Não |
+> | localizações / virtualnetworkavailableendpointservices | Não | Não |
 > | natgateways | Sim | Sim |
-> | perfis de experiência de rede | Não | Não |
-> | políticas de intenções de rede | Sim | Sim |
-> | interfaces de rede | Sim | Sim |
-> | perfis de rede | Não | Não |
+> | projetos de bioperiment de rede | Não | Não |
+> | políticas de networkintent | Sim | Sim |
+> | networkinterfaces | Sim | Sim |
+> | redes de mentofils | Não | Não |
 > | networksecuritygroups | Sim | Sim |
 > | observadores de rede | Sim | Não |
-> | networkwatchers / monitores de ligação | Sim | Não |
-> | networkwatchers / flowlogs | Sim | Não |
-> | networkwatchers / pingmeshes | Sim | Não |
+> | observadores de rede / suportes de conexão | Sim | Não |
+> | networkwatchers / fluxologs | Sim | Não |
+> | observadores de rede / pingmeshes | Sim | Não |
 > | operações | Não | Não |
 > | p2svpngateways | Não | Não |
-> | resultados privados de operação | Não | Não |
-> | privatednsoperationstatuses | Não | Não |
+> | privados resultados operacionais | Não | Não |
+> | privatednsoperationstatus | Não | Não |
 > | zonas privadas | Sim | Sim |
 > | privatednszones / a | Não | Não |
-> | privatednszones / aaaaa | Não | Não |
+> | privatednszones / aaaa | Não | Não |
 > | privatednszones / todos | Não | Não |
 > | privatednszones / cname | Não | Não |
 > | privatednszones / mx | Não | Não |
@@ -2223,42 +2214,42 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | privatednszones / txt | Não | Não |
 > | privatednszones / virtualnetworklinks | Sim | Sim |
 > | privatednszonesinternal | Não | Não |
-> | mapas de privateendpointredirectmaps | Não | Não |
-> | pontos de privateend | Sim | Sim |
-> | serviços privatelink | Não | Não |
-> | publicipaddresss | Sim - SKU Básico<br>Não - Standard SKU | Sim - SKU Básico<br>Não - Standard SKU |
-> | publicipprefixes | Sim | Sim |
-> | filtros de rotas | Não | Não |
-> | rotações | Sim | Sim |
-> | prestadores de parceiros de segurança | Sim | Sim |
-> | políticas de pontos de serviço | Sim | Sim |
-> | hierarquias geográficas de trafficmanager | Não | Não |
-> | perfis de gestor de tráfego | Sim | Sim |
-> | perfis de gestor de tráfego / mapas de calor | Não | Não |
+> | privateendpointredirectmaps | Não | Não |
+> | pontos privados | Sim | Sim |
+> | serviços de privatelink | Não | Não |
+> | endereços publicitários | Sim - SKU Básico<br>Não - SKU Padrão | Sim - SKU Básico<br>Não - SKU Padrão |
+> | publicipprefixos | Sim | Sim |
+> | filtros de rota | Não | Não |
+> | routetables | Sim | Sim |
+> | segurançapartnerproviders | Sim | Sim |
+> | serviceendpointpolicies | Sim | Sim |
+> | trafficmanagergeographichierarchies | Não | Não |
+> | trafficmanagerprofiles | Sim | Sim |
+> | trafficmanagerprofiles / heatmaps | Não | Não |
 > | trafficmanagerusermetricskeys | Não | Não |
 > | virtualhubs | Não | Não |
-> | virtualnetworkgateways | Sim | Sim |
-> | redes virtuais | Sim | Sim |
+> | vias virtualnetworkgateways | Sim | Sim |
+> | virtualnetworks | Sim | Sim |
 > | virtualnetworktaps | Não | Não |
-> | routers virtuais | Sim | Sim |
+> | virtualrouters | Sim | Sim |
 > | virtualwans | Não | Não |
-> | vpngateways (Virtual WAN) | Não | Não |
-> | vpnserverconfiguras | Não | Não |
-> | vpnsites (Virtual WAN) | Não | Não |
+> | VPNgateways (Wan Virtual) | Não | Não |
+> | vpnsnserverconfigurations | Não | Não |
+> | vpnsites (WAN virtual) | Não | Não |
 
 > [!IMPORTANT]
-> Consulte [a orientação](./move-limitations/networking-move-limitations.md)do movimento em rede .
+> Consulte [a orientação do movimento em rede](./move-limitations/networking-move-limitations.md).
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checknamedisponibilidade | Não | Não |
-> | checknamespaceavailabilit | Não | Não |
+> | checknamedilability | Não | Não |
+> | checknamespaceailability | Não | Não |
 > | espaços de nome | Sim | Sim |
-> | espaços de nomes / centros de notificações | Sim | Sim |
-> | resultados de operação | Não | Não |
+> | espaços de nomes / notificações | Sim | Sim |
+> | resultados de operações | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftobjectstore"></a>Microsoft.ObjectStore
@@ -2266,18 +2257,18 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | espaços de osnome | Sim | Sim |
+> | osnamepas | Sim | Sim |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | hipervsites | Sim | Sim |
-> | locais de importação | Sim | Sim |
+> | hipervsites | Não | Não |
+> | importações | Não | Não |
 > | operações | Não | Não |
-> | servidores | Sim | Sim |
-> | vmwaresites | Sim | Sim |
+> | servidores | Não | Não |
+> | vmwaresites | Não | Não |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
@@ -2287,29 +2278,29 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | aglomerados | Não | Não |
 > | espaços de trabalho apagados | Não | Não |
 > | linktargets | Não | Não |
-> | locais | Não | Não |
-> | localizações / estados de funcionamento | Não | Não |
+> | localizações | Não | Não |
+> | localizações / operações | Não | Não |
 > | operações | Não | Não |
-> | armazenamentoinsightconfigs | Não | Não |
+> | storageinsightconfigs | Não | Não |
 > | áreas de trabalho | Sim | Sim |
 > | espaços de trabalho / fontes de dados | Não | Não |
-> | espaços de trabalho / serviços ligados | Não | Não |
-> | espaços de trabalho / contas de armazenamento ligados | Não | Não |
+> | espaços de trabalho / serviços de linkedservices | Não | Não |
+> | workspaces / linkedstorageaccounts | Não | Não |
 > | espaços de trabalho / metadados | Não | Não |
 > | espaços de trabalho / consulta | Não | Não |
 > | espaços de trabalho / scopedprivatelinkproxies | Não | Não |
 
 > [!IMPORTANT]
-> Certifique-se de que a mudança para uma nova subscrição não excede as quotas de [subscrição.](azure-subscription-service-limits.md#azure-monitor-limits)
+> Certifique-se de que a mudança para uma nova subscrição não exceda as [quotas de subscrição](azure-subscription-service-limits.md#azure-monitor-limits).
 >
-> Espaços de trabalho que têm uma conta de automação ligada não podem ser movidos. Antes de iniciar uma operação de movimento, certifique-se de desligar quaisquer contas de automação.
+> Espaços de trabalho que têm uma conta de automação ligada não podem ser movidos. Antes de iniciar uma operação de movimento, certifique-se de desvincular quaisquer contas de automação.
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | associações de gestão | Não | Não |
+> | sociedades de gestão | Não | Não |
 > | configurações de gestão | Sim | Sim |
 > | operações | Não | Não |
 > | soluções | Sim | Sim |
@@ -2320,28 +2311,28 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checkserviceproviderdisponibilidade | Não | Não |
+> | check-serviceproviderdispondibilidade | Não | Não |
 > | legacypeerings | Não | Não |
 > | operações | Não | Não |
 > | peerasns | Não | Não |
-> | peeringlocations | Não | Não |
-> | os pares | Sim | Sim |
-> | peeringservicepaíses | Não | Não |
-> | peeringservicelocations | Não | Não |
+> | peeringlocações | Não | Não |
+> | espreiteiros | Não | Não |
+> | países de serviço de peering | Não | Não |
+> | localização de serviços de espre éming | Não | Não |
 > | peeringserviceproviders | Não | Não |
-> | serviços de peering | Não | Não |
+> | serviços de espreiteiros | Não | Não |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | resultados de operações de asincronia | Não | Não |
+> | resultados das operações de ayncoperação | Não | Não |
 > | operações | Não | Não |
-> | eventos políticos | Não | Não |
-> | estados políticos | Não | Não |
-> | recursos de política | Não | Não |
-> | reparações | Não | Não |
+> | eventos de política | Não | Não |
+> | estados de política | Não | Não |
+> | recursos de recursos de pista de política | Não | Não |
+> | remediações | Não | Não |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
@@ -2350,27 +2341,20 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | Consolas do | Não | Não |
 > | dashboards | Sim | Sim |
-> | locais | Não | Não |
+> | localizações | Não | Não |
 > | localizações / consolas | Não | Não |
-> | localizações / definições de utilizadores | Não | Não |
+> | localizações / utilizadores | Não | Não |
 > | operações | Não | Não |
-> | definições de utilizadores | Não | Não |
-
-## <a name="microsoftportalsdk"></a>Microsoft.PortalSdk
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Subscrição |
-> | ------------- | ----------- | ---------- |
-> | recursos radiculares | Não | Não |
+> | utilizadores | Não | Não |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | locais | Não | Não |
-> | localizações / checknamedisponibilidade | Não | Não |
-> | workspacecollections | Sim | Sim |
+> | localizações | Não | Não |
+> | localizações / checknameavailability | Não | Não |
+> | trabalhopascoscollections | Sim | Sim |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
@@ -2378,10 +2362,17 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | capacidades | Sim | Sim |
-> | locais | Não | Não |
-> | localizações / checknamedisponibilidade | Não | Não |
+> | localizações | Não | Não |
+> | localizações / checknameavailability | Não | Não |
 > | localizações / resultados de operações | Não | Não |
-> | localizações / estados de funcionamento | Não | Não |
+> | localizações / operações | Não | Não |
+> | operações | Não | Não |
+
+## <a name="microsoftpowerplatform"></a>Microsoft.PowerPlatform
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Grupo de recursos | Subscrição |
+> | ------------- | ----------- | ---------- |
 > | operações | Não | Não |
 
 ## <a name="microsoftprojectbabylon"></a>Microsoft.ProjectBabylon
@@ -2390,15 +2381,8 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | accounts | Não | Não |
-> | checknamedisponibilidade | Não | Não |
+> | checknamedilability | Não | Não |
 > | operações | Não | Não |
-
-## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Subscrição |
-> | ------------- | ----------- | ---------- |
-> | accounts | Não | Não |
 
 ## <a name="microsoftproviderhub"></a>Microsoft.ProviderHub
 
@@ -2407,16 +2391,16 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | contas disponíveis | Não | Não |
 > | registos de fornecedores | Não | Não |
-> | registos de fornecedores / recursos | Não | Não |
-> | lançamentos | Não | Não |
+> | registos de fornecedores / registos de tipos de recursos | Não | Não |
+> | rollouts | Não | Não |
 
 ## <a name="microsoftquantum"></a>Microsoft.Quantum
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | locais | Não | Não |
-> | localizações / estados de funcionamento | Não | Não |
+> | localizações | Não | Não |
+> | localizações / operações | Não | Não |
 > | operações | Não | Não |
 > | áreas de trabalho | Não | Não |
 
@@ -2425,36 +2409,36 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | backupprotecteditems | Não | Não |
-> | locais | Não | Não |
-> | localizações /carimbo atribuído | Não | Não |
-> | localizações / carimbo de atribuição | Não | Não |
-> | localizações / backupaadproperties | Não | Não |
+> | backupprotectesites | Não | Não |
+> | localizações | Não | Não |
+> | localizações / alocação de estamp | Não | Não |
+> | localizações / atribuiçãoestamp | Não | Não |
+> | localizações / backupaproperties | Não | Não |
 > | localizações / backupcrossregionrestore | Não | Não |
 > | localizações / backupcrrjob | Não | Não |
-> | localizações / backupcrrjobs | Não | Não |
-> | localizações / backupcrroperationresults | Não | Não |
+> | localizações / trabalhos de backupcrr | Não | Não |
+> | localizações / resultados de retrocesso | Não | Não |
 > | localizações / backupcrroperationsstatus | Não | Não |
-> | localizações / backupprevalidateprotection | Não | Não |
+> | localizações / backupprevalidateprotete | Não | Não |
 > | localizações / backupstatus | Não | Não |
 > | localizações / backupvalidatefeatures | Não | Não |
-> | localizações / checknamedisponibilidade | Não | Não |
+> | localizações / checknameavailability | Não | Não |
 > | operações | Não | Não |
-> | resultados de elegibilidade de replicação | Não | Não |
+> | replicationeligibilityres | Não | Não |
 > | cofres | Sim | Sim |
 
 > [!IMPORTANT]
-> Consulte [os Serviços de Recuperação a mover orientação.](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
+> Consulte a [orientação dos Serviços de Recuperação](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
 
-## <a name="microsoftredhatopenshift"></a>Microsoft.RedHatOpenShift
+## <a name="microsoftredhatopenshift"></a>Microsoft.RedHatopenShift
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | locais | Não | Não |
+> | localizações | Não | Não |
 > | localizações / resultados de operações | Não | Não |
-> | locais / estado de operações | Não | Não |
-> | openshiftclusters | Não | Não |
+> | localizações / operaçõesstatus | Não | Não |
+> | aglomerados de turnos abertos | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
@@ -2462,14 +2446,14 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checknamedisponibilidade | Não | Não |
+> | checknamedilability | Não | Não |
 > | espaços de nome | Sim | Sim |
 > | espaços de nomes / regras de autorização | Não | Não |
-> | espaços de nome / ligações híbridas | Não | Não |
+> | namespaces / ligações híbridas | Não | Não |
 > | espaços de nome / ligações híbridas / regras de autorização | Não | Não |
 > | espaços de nome / privateendpointconnections | Não | Não |
-> | espaços de nome / wcfrelays | Não | Não |
-> | espaços de nome / wcfrelays / regras de autorização | Não | Não |
+> | espaços de nomes / wcfrelays | Não | Não |
+> | espaços de nome / wcfrelays / autorizações | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
@@ -2479,57 +2463,58 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | operações | Não | Não |
 > | consultas | Sim | Sim |
-> | detalhes de mudança de recursos | Não | Não |
+> | resourcechangedetails | Não | Não |
 > | mudanças de recursos | Não | Não |
 > | resources | Não | Não |
-> | recursoshistória | Não | Não |
-> | estatuto de subscrição | Não | Não |
+> | recursos história | Não | Não |
+> | subscriçõesstatus | Não | Não |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | estados de disponibilidade | Não | Não |
-> | estados de disponibilidade de crianças | Não | Não |
-> | recursos infantis | Não | Não |
-> | questões emergentes | Não | Não |
+> | estatísticas de disponibilidade | Não | Não |
+> | estatísticas de pensão infantil | Não | Não |
+> | fontes infantis | Não | Não |
+> | emergentes | Não | Não |
 > | eventos | Não | Não |
 > | do IdP | Não | Não |
 > | notificações | Não | Não |
 > | operações | Não | Não |
 
-## <a name="microsoftresources"></a>Microsoft.Recursos
+## <a name="microsoftresources"></a>Microsoft.Resources
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | verificação de conformidade política | Não | Não |
-> | nome de cheques | Não | Não |
+> | calculartemplatehash | Não | Não |
+> | verificar a política | Não | Não |
+> | nome de checkresource | Não | Não |
 > | implementações | Não | Não |
-> | destacamentos /operações | Não | Não |
-> | implantscripts | Não | Não |
-> | implantscripts / registos | Não | Não |
+> | implantações / operações | Não | Não |
+> | descrições de implementação | Não | Não |
+> | implementações / registos | Não | Não |
 > | ligações | Não | Não |
-> | locais | Não | Não |
-> | localizações /implementaçãoscriptresultados | Não | Não |
-> | notificarempregos | Não | Não |
-> | resultados de operação | Não | Não |
+> | localizações | Não | Não |
+> | localizações / destacamentos de operações de funcionamento | Não | Não |
+> | notificar resourcejobs | Não | Não |
+> | resultados de operações | Não | Não |
 > | operações | Não | Não |
 > | fornecedores | Não | Não |
 > | grupos de recursos | Não | Não |
 > | resources | Não | Não |
 > | assinaturas | Não | Não |
-> | assinaturas /localizações | Não | Não |
-> | assinaturas / resultados de operações | Não | Não |
+> | assinaturas / localizações | Não | Não |
+> | subscrições / resultados de operações | Não | Não |
 > | assinaturas /fornecedores | Não | Não |
-> | assinaturas / grupos de recursos | Não | Não |
-> | assinaturas / grupos de recursos / recursos | Não | Não |
-> | assinaturas / recursos | Não | Não |
-> | assinaturas / tagnames | Não | Não |
-> | assinaturas / tagnames / tagvalues | Não | Não |
+> | subscrições / grupos de recursos | Não | Não |
+> | subscrições / grupos de recursos / recursos | Não | Não |
+> | subscrições / recursos | Não | Não |
+> | subscrições / tagnames | Não | Não |
+> | subscrições / tagnames / tagvalues | Não | Não |
 > | etiquetas | Não | Não |
-> | modelos | Não | Não |
+> | modelospecs | Não | Não |
 > | modelos / versões | Não | Não |
 > | inquilinos | Não | Não |
 
@@ -2539,81 +2524,81 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | aplicações | Sim | Não |
-> | checkmodernidade | Não | Não |
-> | checknamedisponibilidade | Não | Não |
-> | resultados de operação | Não | Não |
+> | checkmoderneligibility | Não | Não |
+> | checknamedilability | Não | Não |
+> | resultados de operações | Não | Não |
 > | operações | Não | Não |
-> | recursos saasrecursos | Não | Não |
+> | saasresources | Não | Não |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checknamedisponibilidade | Não | Não |
-> | checkservicenamedisponibilidade | Não | Não |
+> | checknamedilability | Não | Não |
+> | check-innamedilability | Não | Não |
 > | operações | Não | Não |
-> | recursossshealthmetametais | Não | Não |
+> | resourcehealthmetadata | Não | Não |
 > | serviços de pesquisa | Sim | Sim |
 
 > [!IMPORTANT]
-> Não se pode mover vários recursos de busca em diferentes regiões numa só operação. Em vez disso, movê-los em operações separadas.
+> Não se pode mover vários recursos de pesquisa em diferentes regiões numa só operação. Em vez disso, mova-os em operações separadas.
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | adaptivenetworkhardenings | Não | Não |
-> | definições avançadas de proteção contra ameaças | Não | Não |
+> | adaptíostas de redes | Não | Não |
+> | advancedthreatprotectionsettings | Não | Não |
 > | alerts | Não | Não |
-> | conexões permitidas | Não | Não |
-> | aplicaçõeswhitelistings | Não | Não |
-> | metadados de avaliação | Não | Não |
+> | permitidas ligações | Não | Não |
+> | listas de aplicaçõeswhitelistings | Não | Não |
+> | avaliaçãometadata | Não | Não |
 > | avaliações | Não | Não |
-> | regras de alertas auto-dismiss | Não | Não |
+> | autodismissalertsrules | Não | Não |
 > | automações | Sim | Sim |
-> | definições de autoprovisionamento | Não | Não |
+> | autoprovisionings | Não | Não |
 > | resultados de conformidade | Não | Não |
-> | cumprimentos | Não | Não |
-> | datacollectionagents | Não | Não |
-> | grupos de segurança de dispositivos | Não | Não |
-> | descobertas soluções de segurança | Não | Não |
-> | soluções de segurança externa | Não | Não |
+> | conformidades | Não | Não |
+> | datacollectionagentes | Não | Não |
+> | grupos de dispositivos de insegurança | Não | Não |
+> | descobertas sões de inseguranças | Não | Não |
+> | sões de segurança externa | Não | Não |
 > | políticas de proteção de informação | Não | Não |
-> | soluções iotsecurity | Sim | Sim |
+> | soluções de iotsecuritys | Sim | Sim |
 > | iotsecuritysolutions / analyticsmodels | Não | Não |
-> | soluções iotsecuritysolutions / analyticsmodels / agregadalerts | Não | Não |
-> | soluções iotsecuritysolutions / analíticos / recomendações agregadas | Não | Não |
-> | jitnetworkaccesspolíticas | Não | Não |
-> | locais | Não | Não |
-> | locais / alertas | Não | Não |
-> | localizações / conexões permitidas | Não | Não |
-> | localizações /listas de aplicações whitelisting | Não | Não |
-> | localizações / descobertas soluções de segurança | Não | Não |
+> | iotsecuritysolutions / analyticsmodels / agregados | Não | Não |
+> | iotsecuritysolutions / analyticsmodels / aggregatedrecommendations | Não | Não |
+> | jitnetworkacsspolicies | Não | Não |
+> | localizações | Não | Não |
+> | localizações / alertas | Não | Não |
+> | localizações / ligações permitidas | Não | Não |
+> | localizações / listas de aplicações | Não | Não |
+> | localizações / soluções de inseguranças descobertas | Não | Não |
 > | localizações / soluções de segurança externa | Não | Não |
-> | localizações / políticas de acesso a rede jitnetwork | Não | Não |
+> | localizações / jitnetworkaccesspolicies | Não | Não |
 > | localizações / soluções de segurança | Não | Não |
-> | localizações / securitysolutionsreferencedatadatadata | Não | Não |
+> | localizações / securitysolutionsreferencedata | Não | Não |
 > | localizações / tarefas | Não | Não |
-> | localizações / topoologias | Não | Não |
+> | localizações / topologias | Não | Não |
 > | operações | Não | Não |
 > | políticas | Não | Não |
 > | preços | Não | Não |
-> | normas de conformidade regulamentar | Não | Não |
-> | normas de conformidade regulamentar / controlos de conformidade regulamentar | Não | Não |
-> | normas de conformidade regulamentar / controlos regulamentares / avaliações de conformidade regulamentar | Não | Não |
+> | padrões de regulação | Não | Não |
+> | padrões de regulação /regulatórios | Não | Não |
+> | padrões de regulação / regulatórios de controlo /regulatórios | Não | Não |
 > | contactos de segurança | Não | Não |
-> | soluções de segurança | Não | Não |
-> | dados de referência soluções de segurança | Não | Não |
-> | seguranças | Não | Não |
-> | segurançasstatusesresumos | Não | Não |
-> | avaliações de vulnerabilidade de servidores | Não | Não |
-> | settings | Não | Não |
-> | subavaliações | Não | Não |
+> | garantias de segurança | Não | Não |
+> | securitysolutionsreferencedata | Não | Não |
+> | estados de segurança | Não | Não |
+> | securitystatusessummaries | Não | Não |
+> | servidorvulnerabilityaments | Não | Não |
+> | definições | Não | Não |
+> | subassessments | Não | Não |
 > | tarefas | Não | Não |
-> | topologies | Não | Não |
-> | ambientes de espaço de trabalho | Não | Não |
+> | topologias | Não | Não |
+> | espaços de trabalho | Não | Não |
 
 ## <a name="microsoftsecurityinsights"></a>Microsoft.SecurityInsights
 
@@ -2621,19 +2606,20 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | agregações | Não | Não |
-> | regras de alerta | Não | Não |
-> | modelos de regras de alerta | Não | Não |
+> | alertas | Não | Não |
+> | alertaruletemplas | Não | Não |
+> | regras automation | Não | Não |
 > | marcadores | Não | Não |
 > | casos | Não | Não |
-> | ligação de dados | Não | Não |
-> | requisitos de verificação de conectores de dados | Não | Não |
+> | dataconnectors | Não | Não |
+> | verificação de dataconnectors | Não | Não |
 > | entidades | Não | Não |
-> | entidades | Não | Não |
+> | entidadequeries | Não | Não |
 > | incidentes | Não | Não |
-> | consentimentos de escritório | Não | Não |
+> | escritórioconsents | Não | Não |
 > | operações | Não | Não |
-> | settings | Não | Não |
-> | ameaça inteligência | Não | Não |
+> | definições | Não | Não |
+> | ameaçaintelligence | Não | Não |
 
 ## <a name="microsoftserialconsole"></a>Microsoft.SerialConsole
 
@@ -2641,8 +2627,8 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | serviços de consola | Não | Não |
-> | locais | Não | Não |
-> | localizações / consolas | Não | Não |
+> | localizações | Não | Não |
+> | localizações / serviços de consola | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
@@ -2650,32 +2636,32 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | gateways | Não | Não |
-> | nódoas | Não | Não |
+> | portais | Não | Não |
+> | osdes | Não | Não |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checknamedisponibilidade | Não | Não |
-> | checknamespaceavailabilit | Não | Não |
-> | locais | Não | Não |
+> | checknamedilability | Não | Não |
+> | checknamespaceailability | Não | Não |
+> | localizações | Não | Não |
 > | localizações / deletevirtualnetworkorsubnets | Não | Não |
 > | espaços de nome | Sim | Sim |
 > | espaços de nomes / regras de autorização | Não | Não |
-> | espaços de nomes / desastres recoveryconfigs | Não | Não |
-> | espaços de nome / desastresrecoveryconfigs / checknamedisponibilidade | Não | Não |
-> | espaços de nome / filtros de eventgrid | Não | Não |
-> | espaços de nome / conjuntos de regras de rede | Não | Não |
-> | espaços de nome / filas | Não | Não |
-> | espaços de nome / filas / regras de autorização | Não | Não |
-> | espaços de nome / tópicos | Não | Não |
-> | espaços de nome / tópicos / regras de autorização | Não | Não |
-> | espaços de nome / tópicos / subscrições | Não | Não |
-> | espaços de nome / tópicos / subscrições / regras | Não | Não |
+> | espaços de nome / disasterrecoveryconfigs | Não | Não |
+> | espaços de nome / disasterrecoveryconfigs / checknameavailability | Não | Não |
+> | espaços de nomes / filtros de eventos | Não | Não |
+> | espaços de nome / redes de regras | Não | Não |
+> | espaços de nomes / filas | Não | Não |
+> | espaços de nome / filas / autorizações | Não | Não |
+> | espaços de nomes / tópicos | Não | Não |
+> | espaços de nome / tópicos / autorizações | Não | Não |
+> | espaços de nomes / tópicos / subscrições | Não | Não |
+> | espaços de nomes / tópicos / subscrições / regras | Não | Não |
 > | operações | Não | Não |
-> | regiões de mensagens premium | Não | Não |
+> | premiummessaging regiões | Não | Não |
 > | sku | Não | Não |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
@@ -2687,14 +2673,14 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | aglomerados | Sim | Sim |
 > | clusters / aplicações | Não | Não |
 > | grupos de contentores | Não | Não |
-> | conjuntos de grupos de contentores | Não | Não |
-> | aglomerados de bordas | Não | Não |
-> | locais | Não | Não |
-> | localizações / clusterversions | Não | Não |
+> | conjuntos de contentores | Não | Não |
+> | edgeclusters | Não | Não |
+> | localizações | Não | Não |
+> | localizações / agrupações | Não | Não |
 > | localizações / ambientes | Não | Não |
 > | localizações / resultados de operações | Não | Não |
-> | locais/operações | Não | Não |
-> | clusters geridos | Não | Não |
+> | localizações / operações | Não | Não |
+> | geremclusters | Não | Não |
 > | redes | Não | Não |
 > | operações | Não | Não |
 > | lojas secretas | Não | Não |
@@ -2707,13 +2693,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | aplicações | Sim | Sim |
 > | grupos de contentores | Não | Não |
-> | gateways | Sim | Sim |
-> | locais | Não | Não |
-> | localizações /operações de aplicação | Não | Não |
+> | portais | Sim | Sim |
+> | localizações | Não | Não |
+> | localizações / operações de aplicação | Não | Não |
 > | localizações / operações de gateway | Não | Não |
-> | localizações / operações de rede | Não | Não |
-> | localizações / operações secretas | Não | Não |
-> | localizações / operações de volume | Não | Não |
+> | localizações / operações em rede | Não | Não |
+> | localizações / secretoperações | Não | Não |
+> | localizações / volumeoperações | Não | Não |
 > | redes | Sim | Sim |
 > | operações | Não | Não |
 > | segredos | Sim | Sim |
@@ -2724,42 +2710,40 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | registos de fornecedores | Não | Não |
-> | registos de fornecedores / recursos | Não | Não |
-> | lançamentos | Não | Não |
+> | rollouts | Não | Não |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | locais | Não | Não |
-> | localizações / checknamedisponibilidade | Não | Não |
+> | localizações | Não | Não |
+> | localizações / checknameavailability | Não | Não |
 > | localizações / resultados de operações | Não | Não |
-> | localizações / estados de funcionamento | Não | Não |
+> | localizações / operações | Não | Não |
 > | localizações / utilizações | Não | Não |
 > | operações | Não | Não |
 > | signalr | Sim | Sim |
-> | filtros de sinalizador / eventgrid | Não | Não |
+> | signalr / eventgridfilters | Não | Não |
 
 ## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | benefícios híbridos | Não | Não |
+> | híbridosbenefits | Não | Não |
 > | operações | Não | Não |
 
-## <a name="microsoftsolutions"></a>Microsoft.Soluções
+## <a name="microsoftsolutions"></a>Microsoft.Solutions
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | definições de aplicações | Não | Não |
+> | aplicações dedefinições | Não | Não |
 > | aplicações | Não | Não |
 > | jitrequests | Não | Não |
-> | locais | Não | Não |
-> | localizações / estados de funcionamento | Não | Não |
+> | localizações | Não | Não |
+> | localizações / operações | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
@@ -2767,225 +2751,217 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checknamedisponibilidade | Não | Não |
+> | checknamedilability | Não | Não |
 > | instâncias | Não | Não |
-> | locais | Sim | Sim |
-> | locais | Não | Não |
-> | localizações /administradorazureasyncoperation | Não | Não |
-> | localizações /administradores resultados de operação | Não | Não |
-> | localizações /auditoriasdefiniçõesazureasyncoperation | Não | Não |
-> | localizações /auditorias resultados de operação | Não | Não |
+> | localizações | Sim | Sim |
+> | localizações / administradorazureasyncoperação | Não | Não |
+> | locais / administradores resultados operacionais | Não | Não |
+> | localizações / auditingsazureasyncoperação | Não | Não |
+> | localizações / auditoresettings Resultados operacionais | Não | Não |
 > | localizações / capacidades | Não | Não |
-> | localizações /base de dadosazureasyncoperation | Não | Não |
-> | localizações /bases de dadosresultados de operação | Não | Não |
-> | localizações /base de dadosrestoreazureasyncoperation | Não | Não |
+> | localizações / databaseazureasyncoperation | Não | Não |
+> | locais / resultados operacionais da base de dados | Não | Não |
+> | localizações / databaserestoreazureasyncoperação | Não | Não |
 > | localizações / deletevirtualnetworkorsubnets | Não | Não |
 > | localizações / deletevirtualnetworkorsubnetsazureasyncoperation | Não | Não |
-> | localizações / eliminar resultados de operações de redes virtuais | Não | Não |
-> | localizações / dnsaliasasyncoperation | Não | Não |
-> | locais / resultados de operações | Não | Não |
-> | localizações / operação elásticapoolazureasync | Não | Não |
-> | localizações / resultados de operação elástica | Não | Não |
-> | localizações / encriptaçãoprotectorazureasync | Não | Não |
-> | localizações / encriptaçãoprotectoraresultados | Não | Não |
-> | localizações / ampliação de definições de auditoriaazureasyncoperation | Não | Não |
-> | localizações / resultados de auditoria seleção alargada | Não | Não |
+> | localizações / deletevirtualnetworkorsubnetsoperationress | Não | Não |
+> | localizações / dnsaliasasyncoperação | Não | Não |
+> | locais / dnsalias operatórios resultados | Não | Não |
+> | localizações / elasticpoolazureasyncoperação | Não | Não |
+> | localizações / resultados de operações de elasticpool | Não | Não |
+> | localizações / encriptaçãoprotectorazureasyncoperação | Não | Não |
+> | localizações / encriptaçãoprotectorres de operações | Não | Não |
+> | localizações / alargamento saquetandosazureasyncoperação | Não | Não |
+> | localizações / alargamento saquesettingsoperatórios | Não | Não |
 > | localizações / failovergroupazureasyncoperation | Não | Não |
 > | localizações / failovergroupoperationresults | Não | Não |
-> | localizações /firewallrulesazureasyncoperation | Não | Não |
+> | localizações / firewallrulesazureasyncoperation | Não | Não |
 > | localizações / firewallrulesoperationresults | Não | Não |
-> | localizações / instânciasovergroupazureasyncoperation | Não | Não |
-> | localizações / instânciasfailovergroupoperationresultados | Não | Não |
+> | localizações / instânciafailovergroupazureasyncoperation | Não | Não |
+> | localizações / instânciafailovergroupoperatórios | Não | Não |
 > | localizações / instânciasfailovergroups | Não | Não |
-> | localizações / instânciaspoolazureasyncoperation | Não | Não |
-> | localizações / instânciasresultados de operação | Não | Não |
-> | localizações / jobagentazureasyncoperation | Não | Não |
-> | localizações /resultados de operações de agente de emprego | Não | Não |
-> | localizações / Operação de backupazureasynceasync | Não | Não |
-> | localizações / Resultados de operações de backup de longo prazo | Não | Não |
-> | localizações / backups de longo prazo | Não | Não |
-> | localizações / Operações de retenção de longo prazogeridasbackupazureasync | Não | Não |
-> | localizações / Resultados de operações de backupdes geridos por longo prazo | Não | Não |
-> | localizações / backups de instâncias geridas por longo prazo | Não | Não |
-> | localizações / instâncias geridas a longo prazo | Não | Não |
-> | localizações / Operação de política de longo prazoazureasync | Não | Não |
-> | localizações / Resultados de operações de política de longo prazo | Não | Não |
-> | localizações / servidores de retenção a longo prazo | Não | Não |
-> | localizações /geridosoperação azureasync | Não | Não |
-> | localizações /geridaoperação de restauroscompletesazureasync | Não | Não |
-> | localizações / resultados de operações de restauro completes de base de dados geridas | Não | Não |
-> | localizações /resultados geridos de operações de base de dados | Não | Não |
-> | localizações /geridaoperação de restauraçãoazureasync | Não | Não |
-> | localizações /resultados geridos de operações de restauro de bases de dados | Não | Não |
-> | localizações /geridosoperação de sincronina | Não | Não |
-> | localizações / managedinstancecryptonprotectorazureasyncoperation | Não | Não |
-> | localizações /resultados geridos de encriptaçãodeencriptação | Não | Não |
-> | localizações /geridosoperação keyazureasync | Não | Não |
-> | localizações /resultados geridos de operações key | Não | Não |
-> | localizações / gestão de longo prazosoperaçõesdeinosssincronização | Não | Não |
-> | localizações / resultados geridos de longo prazoderesdespolíticas | Não | Não |
-> | localizações /resultados geridos de operações | Não | Não |
-> | localizações /geridosinstancetdecertazureasyncoperation | Não | Não |
-> | localizações /resultados geridos de operações | Não | Não |
-> | localizações /geridoservidorssegurançapolíticasazureasync | Não | Não |
-> | localizações /resultados geridos de políticas de alerta de segurança do servidor | Não | Não |
-> | localizações / geridoshorttermretentionpolicyazureasyncoperation | Não | Não |
-> | localizações / resultados geridos de política de retenção de curto prazo | Não | Não |
-> | localizações /operação notificaazureasync | Não | Não |
+> | localizações / instancepoolazureasyncoperação | Não | Não |
+> | localizações / resultados da operação de instânciapool | Não | Não |
+> | localizações / jobagentazureasyncoperação | Não | Não |
+> | localizações / resultados operacionais do jobagent | Não | Não |
+> | localizações / longtermretentionbackupazureasyncoperation | Não | Não |
+> | localizações / longtermretention backupoperationress | Não | Não |
+> | localizações / backups de retenção de longo prazo | Não | Não |
+> | localizações / longtermretentionmanagedinstancebackupazureasyncoperation | Não | Não |
+> | localizações / longtermretentionmanagedinstance backupoperationresults | Não | Não |
+> | localizações / longtermretentionmanagedinstanceups | Não | Não |
+> | localizações / longtermretentionmanagedinstances | Não | Não |
+> | localizações / longtermretentionpolicyazuresyncoperation | Não | Não |
+> | localizações / longtermretentionpolioperationress | Não | Não |
+> | localizações / observadores de retenção de longo prazo | Não | Não |
+> | localizações / gestão dedatabaseazureasyncoperação | Não | Não |
+> | localizações / gestão dedatabasecompleterestoreazureasyncoperação | Não | Não |
+> | localizações / resultados de operações de bases de dados geridos | Não | Não |
+> | localizações / resultados de operações de base de dados geridos | Não | Não |
+> | localizações / gestão de databaserestoreazureasyncoperação | Não | Não |
+> | localizações / resultados de operações de bases de dados geridos | Não | Não |
+> | localizações / managedinanceazureasyncoperation | Não | Não |
+> | localizações / managedinstanceencryptionprotectorazureasyncoperation | Não | Não |
+> | locais / gerdinastanceencryptionprotectorsoperatórios | Não | Não |
+> | localizações / managedinstancekeyazureasyncoperation | Não | Não |
+> | localizações / gerdinstancekeyoperaresults | Não | Não |
+> | localizações / managedinstancelongtermretentionpolicyazureasyncoperation | Não | Não |
+> | localizações / managedinstancelongtermretentionpolioperationresressults | Não | Não |
+> | locais / resultados da operação de gestão | Não | Não |
+> | localizações / managedinstancetdecertazuresyncoperação | Não | Não |
+> | localizações / gerdinstancetdecertoperationres | Não | Não |
+> | localizações / manageersecurityalertpoliciesazuresyncoperation | Não | Não |
+> | localizações / manageersecurityalertpoliciesoperações | Não | Não |
+> | localizações / managedshorttermretentionpolicyazureasyncoperation | Não | Não |
+> | localizações / manageshorttermretentionpolioperationress | Não | Não |
+> | localizações / notificaçãoazuresyncoperação | Não | Não |
 > | localizações / privateendpointconnectionazureasyncoperation | Não | Não |
-> | localizações / privateendpointconnectionresultados | Não | Não |
+> | localizações / resultados da operação de operação de privateendpointconnection | Não | Não |
 > | localizações / privateendpointconnectionproxyazureasyncoperation | Não | Não |
 > | localizações / privateendpointconnectionproxyoperationresults | Não | Não |
-> | localizações /segurançaalertapolíticasazureasyncoperation | Não | Não |
-> | localizações /segurançaalertapoliciesresultados | Não | Não |
-> | localizações /servidoradministradorazureasyncoperation | Não | Não |
-> | localizações /resultados de operação de administrador de servidores | Não | Não |
-> | localizações / servidorazureasyncoperation | Não | Não |
-> | localizações / servidorkeyazureasyncoperation | Não | Não |
-> | localizações / resultados de operações de servidor | Não | Não |
-> | localizações /resultados de operação de servidores | Não | Não |
-> | localizações / operação de curto prazo | Não | Não |
-> | localizações / resultados de operações de política de retenção de curto prazo | Não | Não |
-> | localizações /resultados de operações de sintetário | Não | Não |
-> | localizações / sincopeids | Não | Não |
-> | localizações /resultados de sincopamento | Não | Não |
-> | localizações /resultados de sincopamento | Não | Não |
-> | localizações / operação tdecertazureasync | Não | Não |
-> | localizações / tdecertoperationresults | Não | Não |
+> | localizações / securityalertpoliciesazuresyncoperation | Não | Não |
+> | localizações / securityalertpoliciesoperatórios | Não | Não |
+> | localizações / serveradministratorazureasyncoperação | Não | Não |
+> | localizações / servidoradministrator operatórios resultados | Não | Não |
+> | localizações / serverazureasyncoperação | Não | Não |
+> | localizações / serverkeyazureasyncoperação | Não | Não |
+> | localizações / servidores de operações de operações | Não | Não |
+> | locais / resultados da operação do servidor | Não | Não |
+> | localizações / shorttermretentionpolicyazuresyncoperation | Não | Não |
+> | localizações / shorttermretentionpolioperationress | Não | Não |
+> | localizações / resultados de operações sincronizadas | Não | Não |
+> | localizações / sincronizados | Não | Não |
+> | localizações / resultados de operações de sincronização | Não | Não |
+> | locais / resultados da operação syncmember | Não | Não |
+> | localizações / tdecertazureasyncoperação | Não | Não |
+> | locais / resultados da operação tdecert | Não | Não |
 > | localizações / utilizações | Não | Não |
-> | localizações / operação virtualclusterazureasync | Não | Não |
-> | localizações / resultados de operações de clustervirtual | Não | Não |
+> | localizações / virtualclusterazureasyncoperação | Não | Não |
+> | localizações / resultados de operações de operador virtual | Não | Não |
 > | localizações / virtualnetworkrulesazureasyncoperation | Não | Não |
-> | localizações / resultados de operações de redes virtuais | Não | Não |
-> | localizações /vulnerabilidadesavaliaçõescanazureasync | Não | Não |
-> | localizações /vulnerabilidadesavaliaçõesresultados de operação | Não | Não |
-> | casos geridos | Não | Não |
-> | casos geridos /administradores | Não | Não |
-> | casos geridos / bases de dados | Não | Não |
-> | casos geridos / bases de dados / backuplongretentionpolicies | Não | Não |
-> | casos geridos / bases de dados / avaliações de vulnerabilidades | Não | Não |
-> | casos geridos / definições métricas | Não | Não |
-> | casos geridos / métricas | Não | Não |
-> | casos geridos / bases de dados recuperáveis | Não | Não |
-> | casos geridos / tdecertificates | Não | Não |
-> | casos geridos / avaliações de vulnerabilidades | Não | Não |
+> | localizações / virtualnetworkrulesoperationresults | Não | Não |
+> | localizações / vulnerabilidadesssmentscanazureasyncoperation | Não | Não |
+> | localizações / vulnerabilidadessmentscanoperationresults | Não | Não |
+> | managedinstances | Não | Não |
+> | managedinstances /administradores | Não | Não |
+> | managedinstances / bases de dados | Não | Não |
+> | managedinstances / bases de dados / backuplongtermretentionpolicies | Não | Não |
+> | managedinstances / bases de dados / avaliações de vulnerabilidades | Não | Não |
+> | managedinstances / metricdefinitions | Não | Não |
+> | managedinstances / métricas | Não | Não |
+> | managedinstances / bases de dados recuperáveis | Não | Não |
+> | managedstances / tdecertificates | Não | Não |
+> | managedinstances / avaliações de vulnerabilidades | Não | Não |
 > | operações | Não | Não |
 > | servidores | Sim | Sim |
-> | servidores / administradores resultados de operação | Não | Não |
+> | servidores / administradores resultados operacionais | Não | Não |
 > | servidores / administradores | Não | Não |
-> | servidores /conselheiros | Não | Não |
-> | servidores / base de dados agregada | Não | Não |
+> | servidores / assessores | Não | Não |
+> | servidores /baseimétricas de dados agregados | Não | Não |
 > | servidores / políticas de auditoria | Não | Não |
-> | servidores / definições de auditoria | Não | Não |
-> | servidores / afinação automática | Não | Não |
+> | servidores / auditings | Não | Não |
+> | servidores / sintonização automática | Não | Não |
 > | servidores / ligações de comunicação | Não | Não |
 > | servidores / políticas de conexão | Não | Não |
 > | servidores / bases de dados | Sim | Sim |
 > | servidores / bases de dados / conselheiros | Não | Não |
 > | servidores / bases de dados / políticas de auditoria | Não | Não |
-> | servidores / bases de dados / definições de auditoria | Não | Não |
+> | servidores / bases de dados / auditings | Não | Não |
 > | servidores / bases de dados / registos de auditoria | Não | Não |
-> | servidores / bases de dados / afinação automática | Não | Não |
-> | servidores / bases de dados / backuplongretentionpolicies | Não | Não |
+> | servidores / bases de dados / sintonização automática | Não | Não |
+> | servidores / bases de dados / backuplongtermretentionpolicies | Não | Não |
 > | servidores / bases de dados / backupshorttermretentionpolicies | Não | Não |
 > | servidores / bases de dados / políticas de conexão | Não | Não |
-> | servidores / bases de dados / políticas de masking de dados | Não | Não |
+> | servidores / bases de dados / datamaskingpolicies | Não | Não |
 > | servidores / bases de dados / datamaskingpolicies / regras | Não | Não |
 > | servidores / bases de dados / extensões | Não | Não |
-> | servidores / bases de dados / geopolítica | Não | Não |
-> | servidores / bases de dados / definições métricas | Não | Não |
+> | servidores / bases de dados / geopolíticas | Não | Não |
 > | servidores / bases de dados / métricas | Não | Não |
-> | servidores / bases de dados / rótulos de sensibilidade recomendados | Não | Não |
-> | servidores / bases de dados / políticas de alerta de segurança | Não | Não |
-> | servidores / bases de dados / syncgroups | Não | Não |
-> | servidores / bases de dados / syncgroups / syncmembers | Não | Não |
+> | servidores / bases de dados / métricas | Não | Não |
+> | servidores / bases de dados / rótulos desensitividade recomendados | Não | Não |
+> | servidores / bases de dados / seguranças | Não | Não |
+> | servidores / bases de dados / syncgrupos | Não | Não |
+> | servidores / bases de dados / syncmgroups / syncmembers | Não | Não |
 > | servidores / bases de dados / topqueries | Não | Não |
-> | servidores / bases de dados / topqueries / questiontext | Não | Não |
-> | servidores / bases de dados / encriptação transparente de dataencriptação | Não | Não |
-> | servidores / bases de dados / avaliação de vulnerabilidade | Não | Não |
+> | servidores / bases de dados / topqueries / querytext | Não | Não |
+> | servidores / bases de dados / análise de dados transparentes | Não | Não |
+> | servidores / bases de dados / avaliação de vulnerabilidades | Não | Não |
 > | servidores / bases de dados / avaliações de vulnerabilidades | Não | Não |
-> | servidores / bases de dados / vulnerabilidades | Não | Não |
-> | servidores / bases de dados / definições de avaliação de vulnerabilidades | Não | Não |
-> | servidores / bases de dados / grupos de carga | Não | Não |
-> | servidores / políticas de segurança de base de dados | Não | Não |
-> | servidores / configuração de recuperação de desastres | Não | Não |
+> | servidores / bases de dados / vulnerabilidadesssscans | Não | Não |
+> | servidores / bases de dados / vulnerabilidades de avaliações | Não | Não |
+> | servidores / bases de dados / grupos de carga de trabalho | Não | Não |
+> | servidores / políticas de segurança de bases de dados | Não | Não |
+> | servidores / recuperação de desastresconfiguação | Não | Não |
 > | servidores / dnsaliases | Não | Não |
 > | servidores / elasticpoolestimates | Não | Não |
 > | servidores / elásticos | Sim | Sim |
 > | servidores / elásticos / conselheiros | Não | Não |
-> | servidores / elásticos / definições métricas | Não | Não |
 > | servidores / elásticos / métricas | Não | Não |
-> | servidores / encriptaçãoprotetor | Não | Não |
-> | servidores / definições de auditoria alargada | Não | Não |
-> | servidores / failovergroups | Não | Não |
+> | servidores / elásticos / métricas | Não | Não |
+> | servidores / projeto de encriptação | Não | Não |
+> | servidores / ampliações | Não | Não |
+> | servidores / grupos de failover | Não | Não |
 > | servidores / importação | Não | Não |
-> | servidores / resultados de operações de exportação de importações | Não | Não |
+> | servidores / importexoperationresults | Não | Não |
 > | servidores / contas de emprego | Sim | Sim |
 > | servidores / agentes de trabalho | Sim | Sim |
 > | servidores / agentes de trabalho / empregos | Não | Não |
 > | servidores / agentes de trabalho / empregos / execuções | Não | Não |
 > | servidores / agentes de trabalho / empregos / passos | Não | Não |
-> | servidores / teclas | Não | Não |
-> | servidores / resultados de operação | Não | Não |
-> | servidores / piscinas elásticas recomendadas | Não | Não |
+> | servidores / chaves | Não | Não |
+> | servidores / resultados de operações | Não | Não |
+> | servidores /elasticpools recomendados | Não | Não |
 > | servidores / bases de dados recuperáveis | Não | Não |
-> | servidores / restorabledropbases bases de dados | Não | Não |
-> | servidores / políticas de alerta de segurança | Não | Não |
-> | servidores / objetivos de serviço | Não | Não |
-> | servidores / sincronia | Não | Não |
-> | servidores / tdecertificates | Não | Não |
+> | servidores / bases de dados restauradoras | Não | Não |
+> | servidores / seguranças | Não | Não |
+> | servidores /objetivos de serviço | Não | Não |
+> | servidores / sincronizadores | Não | Não |
+> | servidores / tdecertificados | Não | Não |
 > | servidores / utilizações | Não | Não |
 > | servidores / regras de rede virtual | Não | Não |
-> | servidores / avaliações de vulnerabilidade | Não | Não |
-> | aglomerados virtuais | Sim | Sim |
+> | servidores / avaliações de vulnerabilidades | Não | Não |
+> | virtualclusters | Sim | Sim |
 
 > [!IMPORTANT]
-> Uma base de dados e um servidor devem estar no mesmo grupo de recursos. Quando se move um servidor SQL, todas as suas bases de dados também são movidas. Este comportamento aplica-se às bases de dados azure SQL e Azure SQL Data Warehouse.
+> Uma base de dados e um servidor devem estar no mesmo grupo de recursos. Quando se move um servidor SQL, todas as suas bases de dados também são movidas. Este comportamento aplica-se às bases de dados Azure SQL Database e Azure Synapse Analytics.
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | locais | Não | Não |
-> | localizações /disponibilidadegrouplisteneroperationresultados | Não | Não |
+> | localizações | Não | Não |
+> | locais / disponibilidadegrouplisteneroperationresults | Não | Não |
 > | localizações / tipos de operação | Não | Não |
-> | localizações / sqlvirtualmachinegroupoperationresults | Não | Não |
-> | localizações / resultados de operação sqlvirtualmachineoperation | Não | Não |
+> | localizações / sqlvirtualmachinegroupoperatórios | Não | Não |
+> | localizações / sqlvirtualmachineoperationresults | Não | Não |
 > | operações | Não | Não |
-> | grupos de máquinas sqlvirtual | Sim | Sim |
-> | grupos de máquinas sqlvirtual / ouvintes do grupo de disponibilidade | Não | Não |
-> | máquinas sqlvirtual | Sim | Sim |
-
-## <a name="microsoftsqlvm"></a>Microsoft.SqlVM
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Subscrição |
-> | ------------- | ----------- | ---------- |
-> | dwvm | Não | Não |
+> | grupos sqlvirtualmachineinegroups | Sim | Sim |
+> | sqlvirtualmachinegroups / availabilitygrouplisteners | Não | Não |
+> | sqlvirtualmachines | Sim | Sim |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checknamedisponibilidade | Não | Não |
-> | locais | Não | Não |
-> | localizações / operações de sincronia | Não | Não |
-> | localizações / checknamedisponibilidade | Não | Não |
+> | checknamedilability | Não | Não |
+> | localizações | Não | Não |
+> | localizações / assincoperações | Não | Não |
+> | localizações / checknameavailability | Não | Não |
 > | localizações / deletevirtualnetworkorsubnets | Não | Não |
 > | localizações / utilizações | Não | Não |
 > | operações | Não | Não |
 > | contas de armazenamento | Sim | Sim |
 > | contas de armazenamento / blobservices | Não | Não |
-> | contas de armazenamento / serviços de arquivo | Não | Não |
+> | contas de armazenamento / serviços de ficheiros | Não | Não |
 > | contas de armazenamento / listaccountsas | Não | Não |
 > | contas de armazenamento / listservicesas | Não | Não |
 > | contas de armazenamento / serviços de fila | Não | Não |
 > | contas de armazenamento / serviços | Não | Não |
-> | contas de armazenamento / serviços / definições métricas | Não | Não |
+> | contas de armazenamento / serviços / métricas | Não | Não |
 > | contas de armazenamento / serviços de mesa | Não | Não |
-> | utilizações | Não | Não |
+> | usos | Não | Não |
 
 ## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 
@@ -2999,30 +2975,32 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | locais | Não | Não |
-> | localizações / checknamedisponibilidade | Não | Não |
+> | localizações | Não | Não |
+> | localizações / checknameavailability | Não | Não |
+> | localizações / resultados de operações | Não | Não |
+> | localizações / operações | Não | Não |
 > | localizações / fluxos de trabalho | Não | Não |
 > | operações | Não | Não |
-> | serviços de armazenamentos | Sim | Sim |
-> | serviços de armazenamento /servidores registados | Não | Não |
-> | serviços de armazenamento/syncgroups | Não | Não |
-> | serviços de armazenamento / syncgroups / cloudendpoints | Não | Não |
-> | serviços de armazenamento / syncgroups / pontos de terminação de servidores | Não | Não |
-> | serviços de armazenamento / fluxos de trabalho | Não | Não |
+> | storagesyncservices | Sim | Sim |
+> | storagesyncservices /servers registados | Não | Não |
+> | storagesyncservices / syncgroups | Não | Não |
+> | storagesyncservices / syncgroups / cloudendpoints | Não | Não |
+> | storagesyncservices / syncgroups / serverendpoints | Não | Não |
+> | storagesyncservices / workflows | Não | Não |
 
 ## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | serviços de armazenamentos | Não | Não |
+> | storagesyncservices | Não | Não |
 
 ## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | serviços de armazenamentos | Não | Não |
+> | storagesyncservices | Não | Não |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
@@ -3038,13 +3016,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | aglomerados | Não | Não |
-> | locais | Não | Não |
+> | localizações | Não | Não |
 > | localizações / quotas | Não | Não |
 > | operações | Não | Não |
 > | streamingjobs | Sim | Sim |
 
 > [!IMPORTANT]
-> Os trabalhos da Stream Analytics não podem ser movidos quando estão em estado de gestão.
+> Os trabalhos da Stream Analytics não podem ser movidos quando estão em funcionamento.
 
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
 
@@ -3053,7 +3031,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | ambientes | Não | Não |
 > | ambientes / fontes de eventos | Não | Não |
-> | instâncias | Não | Não |
+> | casos | Não | Não |
 > | instâncias / ambientes | Não | Não |
 > | instâncias / ambientes / fontes de eventos | Não | Não |
 
@@ -3063,12 +3041,12 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | cancelar | Não | Não |
-> | criar subscrição | Não | Não |
+> | criação de subscrição | Não | Não |
 > | ativar | Não | Não |
-> | resultados de operação | Não | Não |
+> | resultados de operações | Não | Não |
 > | operações | Não | Não |
 > | mudar o nome | Não | Não |
-> | definições de assinaturas | Não | Não |
+> | subscrições | Não | Não |
 > | operações de subscrição | Não | Não |
 > | assinaturas | Não | Não |
 
@@ -3077,12 +3055,12 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checknamedisponibilidade | Não | Não |
-> | resultados de operação | Não | Não |
+> | checknamedilability | Não | Não |
+> | resultados de operações | Não | Não |
 > | operações | Não | Não |
-> | estado de operações | Não | Não |
+> | operastatus | Não | Não |
 > | services | Não | Não |
-> | serviços /classificações de problemas | Não | Não |
+> | serviços / classificações de problemas | Não | Não |
 > | bilhetes de apoio | Não | Não |
 
 ## <a name="microsoftsynapse"></a>Microsoft.Synapse
@@ -3090,21 +3068,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | checknamedisponibilidade | Não | Não |
+> | checknamedilability | Não | Não |
 > | operações | Não | Não |
 > | áreas de trabalho | Sim | Sim |
 > | espaços de trabalho / bigdatapools | Sim | Sim |
 > | espaços de trabalho / resultados de operações | Não | Não |
-> | espaços de trabalho / estados de funcionamento | Não | Não |
+> | espaços de trabalho / operações | Não | Não |
 > | espaços de trabalho / sqlpools | Sim | Sim |
-
-## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Subscrição |
-> | ------------- | ----------- | ---------- |
-> | registos de fornecedores | Não | Não |
-> | resources | Não | Não |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
@@ -3125,14 +3095,17 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | lojas | Sim | Sim |
 > | lojas / políticas de acesso | Não | Não |
 > | lojas / serviços | Não | Não |
-> | lojas / serviços / fichas | Não | Não |
+> | lojas / serviços / tokens | Não | Não |
 
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | modelos de imagem | Não | Não |
+> | imagens | Não | Não |
+> | linhas de imagens / runoutputs | Não | Não |
+> | localizações | Não | Não |
+> | localizações / operações | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
@@ -3141,13 +3114,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | conta | Não | Não |
-> | conta /extensão | Não | Não |
+> | conta / extensão | Não | Não |
 > | conta / projeto | Não | Não |
-> | checknamedisponibilidade | Não | Não |
+> | checknamedilability | Não | Não |
 > | operações | Não | Não |
 
 > [!IMPORTANT]
-> Para alterar a subscrição do Azure DevOps, consulte [a alteração da subscrição Azure utilizada para a faturação](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
+> Para alterar a subscrição de Azure DevOps, consulte [alterar a subscrição Azure utilizada para faturação](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftvmware"></a>Microsoft.VMware
 
@@ -3155,32 +3128,32 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | arczones | Não | Não |
-> | locais | Não | Não |
-> | localizações / estados de funcionamento | Não | Não |
+> | localizações | Não | Não |
+> | localizações / operações | Não | Não |
 > | operações | Não | Não |
-> | recursos pools | Não | Não |
-> | vcentros | Não | Não |
-> | máquinas virtuais | Não | Não |
-> | modelos de máquinas virtuais | Não | Não |
-> | redes virtuais | Não | Não |
+> | recursos | Não | Não |
+> | vcenters | Não | Não |
+> | virtualmachines | Não | Não |
+> | virtualmachinetemplates | Não | Não |
+> | virtualnetworks | Não | Não |
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | dedicados cloudnodes | Não | Não |
-> | serviços dedicados em nuvem | Não | Não |
-> | locais | Não | Não |
+> | não-100 dedicados | Não | Não |
+> | serviços decloud dedicados | Não | Não |
+> | localizações | Não | Não |
 > | localizações / disponibilidades | Não | Não |
 > | localizações / resultados de operações | Não | Não |
-> | locais / nuvens privadas | Não | Não |
-> | localizações / nuvens privadas / recursos | Não | Não |
-> | localizações / nuvens privadas / modelos de máquinas virtuais | Não | Não |
-> | localizações / nuvens privadas / redes virtuais | Não | Não |
+> | localizações / nuvens privadas | Não | Não |
+> | localizações / nuvems privadas / recursos | Não | Não |
+> | localizações / privateclouds / virtualmachinetemplates | Não | Não |
+> | localizações / nuvems privadas / virtualnetworks | Não | Não |
 > | localizações / utilizações | Não | Não |
 > | operações | Não | Não |
-> | máquinas virtuais | Não | Não |
+> | virtualmachines | Não | Não |
 
 ## <a name="microsoftvnfmanager"></a>Microsoft.VnfManager
 
@@ -3188,8 +3161,8 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | dispositivos | Não | Não |
-> | locais | Não | Não |
-> | localizações / estados de funcionamento | Não | Não |
+> | localizações | Não | Não |
+> | localizações / operações | Não | Não |
 > | operações | Não | Não |
 > | vnfs | Não | Não |
 
@@ -3201,75 +3174,76 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | accounts | Não | Não |
 > | operações | Não | Não |
 > | planos | Não | Não |
+> | assinaturas registadas | Não | Não |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | pilhas disponíveis | Não | Não |
-> | contadores de faturação | Não | Não |
+> | disponíveis mochilas | Não | Não |
+> | billingmeters | Não | Não |
 > | certificados | Não | Sim |
-> | checknamedisponibilidade | Não | Não |
-> | connectiongateways | Sim | Sim |
+> | checknamedilability | Não | Não |
+> | vias de conexão | Sim | Sim |
 > | conexões | Sim | Sim |
-> | prismapa | Sim | Sim |
-> | sites eliminados | Não | Não |
+> | customapis | Sim | Sim |
+> | deletedsites | Não | Não |
 > | implantações | Não | Não |
 > | geo-regiões | Não | Não |
-> | ambientes de hospedagem | Não | Não |
-> | ambientes de hospedagem / filtros de eventgrid | Não | Não |
-> | ambientes de hospedagem / multirolepools | Não | Não |
-> | ambientes de hospedagem / piscinas de trabalhadores | Não | Não |
-> | ishostingenvironmentname disponível | Não | Não |
+> | hospedar ambientes | Não | Não |
+> | hospedar ambientes / filtros de eventgrid | Não | Não |
+> | hospedamento de ambientes / multirolepools | Não | Não |
+> | hospedamento de ambientes /casas de trabalho | Não | Não |
+> | nome ishostingenvironment disponível | Não | Não |
 > | ishostname disponível | Não | Não |
 > | isusername disponível | Não | Não |
 > | kubeenvironments | Sim | Sim |
-> | listsitesatribuídostohostname | Não | Não |
-> | locais | Não | Não |
-> | localizações / apioperations | Não | Não |
-> | localizações / instalações de conexãogateway | Não | Não |
-> | localizações / locais eliminados | Não | Não |
+> | nome de nome de listasassignedtohostname | Não | Não |
+> | localizações | Não | Não |
+> | localizações / apiperações | Não | Não |
+> | localizações / instalações de connectiongateway | Não | Não |
+> | localizações / locais apagados | Não | Não |
 > | localizações / deletevirtualnetworkorsubnets | Não | Não |
-> | localizações / extratosdefinições fromwsdl | Não | Não |
-> | localizações / obterpolíticas de rede | Não | Não |
+> | localizações / extractapidefinitionfromwsdl | Não | Não |
+> | localizações / obter redes políticas | Não | Não |
 > | localizações / listwsdlinterfaces | Não | Não |
 > | localizações / managedapis | Não | Não |
 > | localizações / resultados de operações | Não | Não |
-> | locais/operações | Não | Não |
+> | localizações / operações | Não | Não |
 > | localizações / tempos de execução | Não | Não |
 > | operações | Não | Não |
-> | utilizadores editoriais | Não | Não |
+> | editores | Não | Não |
 > | recomendações | Não | Não |
-> | recursossshealthmetametais | Não | Não |
+> | resourcehealthmetadata | Não | Não |
 > | tempos de execução | Não | Não |
-> | servidores fazendas | Sim | Sim |
+> | serverfarms | Sim | Sim |
 > | serverfarms / eventgridfilters | Não | Não |
 > | sites | Sim | Sim |
-> | sites / eventgridfilters | Não | Não |
+> | sites / filtros de eventos | Não | Não |
 > | sites / hostnamebindings | Não | Não |
-> | sites / networkconfig | Não | Não |
+> | sites /config de rede | Não | Não |
 > | sites / premieraddons | Sim | Sim |
 > | sites / slots | Sim | Sim |
 > | sites / slots / eventgridfilters | Não | Não |
 > | sites / slots / hostnamebindings | Não | Não |
 > | sites / slots / networkconfig | Não | Não |
 > | controlos de fontes | Não | Não |
-> | estaticos | Não | Não |
+> | estáticasites | Não | Não |
 > | validar | Não | Não |
-> | verificar hospedagemambientevnet | Não | Não |
+> | verificar o desvio de ambiente | Não | Não |
 
 > [!IMPORTANT]
-> Consulte [a orientação de movimento do Serviço de Aplicações](./move-limitations/app-service-move-limitations.md).
+> Consulte a [orientação do movimento do Serviço de Aplicações](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftwindowsesu"></a>Microsoft.WindowsESU
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | locais | Não | Não |
-> | localizações / estados de funcionamento | Não | Não |
-> | múltiplas teclas de ativação | Não | Não |
+> | localizações | Não | Não |
+> | localizações / operações | Não | Não |
+> | multipleactivationkeys | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
@@ -3280,24 +3254,34 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | serviços de dispositivos | Não | Não |
 > | operações | Não | Não |
 
+## <a name="microsoftworkloadbuilder"></a>Microsoft.WorkloadBuilder
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Grupo de recursos | Subscrição |
+> | ------------- | ----------- | ---------- |
+> | localizações | Não | Não |
+> | localizações / operações | Não | Não |
+> | operações | Não | Não |
+> | cargas de trabalho | Não | Não |
+
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | componentes | Não | Não |
-> | componentesssssumário | Não | Não |
+> | consumada de componentes | Não | Não |
 > | monitorinstâncias | Não | Não |
-> | monitorinstânciassummary | Não | Não |
+> | monitorinstancessummary | Não | Não |
 > | monitores | Não | Não |
-> | definições de notificações | Não | Não |
+> | notificações | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="third-party-services"></a>Serviços de terceiros
 
-Atualmente, os serviços de terceiros não apoiam a operação de mudança.
+Os serviços de terceiros não suportam atualmente a operação de mudança.
 
-## <a name="next-steps"></a>Passos seguintes
-Para que os comandos movam recursos, consulte [mover recursos para um novo grupo de recursos ou subscrição](move-resource-group-and-subscription.md).
+## <a name="next-steps"></a>Próximos passos
+Para que os comandos movimentem recursos, consulte [mover recursos para novo grupo de recursos ou subscrição](move-resource-group-and-subscription.md).
 
-Para obter os mesmos dados que um ficheiro de valores separados de vírem, descarregue [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).
+Para obter os mesmos dados que um ficheiro de valores separados por vírgula, faça o download [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).

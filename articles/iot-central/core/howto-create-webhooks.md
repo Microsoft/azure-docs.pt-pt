@@ -1,6 +1,6 @@
 ---
-title: Criar webhooks sobre regras no Azure IoT Central [ Microsoft Docs
-description: Crie webhooks na Azure IoT Central para notificar automaticamente outras aplicações quando as regras disparam.
+title: Criar webhooks sobre regras no Azure IoT Central Microsoft Docs
+description: Crie webhooks no Azure IoT Central para notificar automaticamente outras aplicações quando as regras dispararem.
 author: viv-liu
 ms.author: viviali
 ms.date: 04/03/2020
@@ -9,31 +9,31 @@ ms.service: iot-central
 services: iot-central
 manager: corywink
 ms.openlocfilehash: 7cb80b54c75d637842c5f50d9336629dedf758fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82100129"
 ---
-# <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Criar ações de webhook sobre regras na Azure IoT Central
+# <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Criar ações de webhook sobre regras no Azure IoT Central
 
 *Este tópico aplica-se a construtores e administradores.*
 
-Os Webhooks permitem-lhe ligar a sua aplicação IoT Central a outras aplicações e serviços para monitorização remota e notificações. Os Webhooks notificam automaticamente outras aplicações e serviços que liga sempre que uma regra é desencadeada na sua aplicação IoT Central. A sua aplicação IoT Central envia um pedido post para o ponto final http da outra aplicação sempre que uma regra é desencadeada. A carga útil contém detalhes do dispositivo e detalhes do gatilho da regra.
+Os webhooks permitem-lhe ligar a sua aplicação IoT Central a outras aplicações e serviços para monitorização remota e notificações. Os Webhooks notificam automaticamente outras aplicações e serviços que liga sempre que uma regra é desencadeada na sua aplicação IoT Central. A sua aplicação IoT Central envia um pedido DE POST para o ponto final HTTP da outra aplicação sempre que uma regra é desencadeada. A carga útil contém detalhes do dispositivo e detalhes do gatilho de regras.
 
 ## <a name="set-up-the-webhook"></a>Configurar o webhook
 
-Neste exemplo, liga-se ao RequestBin para ser notificado quando as regras disparam utilizando webhooks.
+Neste exemplo, você conecta-se ao RequestBin para ser notificado quando as regras disparam usando webhooks.
 
 1. Open [RequestBin](https://requestbin.net/).
 
-1. Crie um novo RequestBin e copie o URL do **bin**.
+1. Crie um novo RequestBin e copie o **URL do Bin.**
 
-1. Criar uma regra de [telemetria.](tutorial-create-telemetry-rules.md) Salve a regra e adicione uma nova ação.
+1. Criar uma regra de [telemetria](tutorial-create-telemetry-rules.md). Salve a regra e adicione uma nova ação.
 
     ![Tela de criação webhook](media/howto-create-webhooks/webhookcreate.png)
 
-1. Escolha a ação webhook e forneça um nome de exibição e colhe o URL do Bin como URL de Callback.
+1. Escolha a ação webhook e forneça um nome de exibição e cole o URL do Bin como URL de callback.
 
 1. Salve a regra.
 
@@ -41,7 +41,7 @@ Agora, quando a regra é desencadeada, vê-se um novo pedido aparecer no Request
 
 ## <a name="payload"></a>Carga útil
 
-Quando uma regra é desencadeada, é feito um pedido HTTP POST para o URL de callback contendo uma carga útil json com os dados de telemetria, dispositivo, regra e aplicação. A carga pode parecer a seguinte:
+Quando uma regra é desencadeada, é feito um pedido HTTP POST para o URL de retorno que contém uma carga de json com a telemetria, o dispositivo, a regra e os detalhes da aplicação. A carga útil pode parecer o seguinte:
 
 ```json
 {
@@ -109,11 +109,11 @@ Se a regra monitorizar a telemetria agregada durante um período de tempo, a car
 }
 ```
 
-## <a name="data-format-change-notice"></a>Aviso de alteração de formato de dados
+## <a name="data-format-change-notice"></a>Aviso de alteração do formato de dados
 
-Se tiver um ou mais webhooks criados e guardados antes de 3 de abril de **2020,** terá de eliminar o webhook e criar um novo webhook. Isto porque os webhooks mais antigos usam um formato de carga útil mais antigo que será depreciado no futuro.
+Se tiver um ou mais webhooks criados e guardados antes **de 3 de abril de 2020,** terá de eliminar o webhook e criar um novo webhook. Isto porque os webhooks mais antigos usam um formato de carga útil mais antigo que será depreciado no futuro.
 
-### <a name="webhook-payload-format-deprecated-as-of-3-april-2020"></a>Carga útil webhook (formato depreciado a partir de 3 de abril de 2020)
+### <a name="webhook-payload-format-deprecated-as-of-3-april-2020"></a>Carga útil webhook (formato preifrido a partir de 3 de abril de 2020)
 
 ```json
 {
@@ -152,10 +152,10 @@ Se tiver um ou mais webhooks criados e guardados antes de 3 de abril de **2020,*
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 
-Atualmente não existe uma forma programática de subscrever/cancelar estes webhooks através de uma API.
+Atualmente não existe uma forma programática de subscrever/cancelar a subscrição destes webhooks através de uma API.
 
-Se tiver ideias para melhorar esta funcionalidade, publique as suas sugestões no nosso fórum de [voz do Utilizador](https://feedback.azure.com/forums/911455-azure-iot-central).
+Se tiver ideias para melhorar esta funcionalidade, publique as suas sugestões no nosso [fórum de voz do Utilizador.](https://feedback.azure.com/forums/911455-azure-iot-central)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que aprendeu a configurar e usar webhooks, o próximo passo sugerido é explorar a configuração dos Grupos de [Ação do Monitor do Azure](howto-use-action-groups.md).
+Agora que aprendeu a configurar e usar webhooks, o próximo passo sugerido é explorar os [grupos de ação do Monitor Azure.](howto-use-action-groups.md)

@@ -1,289 +1,162 @@
-- name: Documentação do DevTest Labs
+- name: Documentação do Lab Services
   href: index.yml
-- name: Documentação sobre como mudar para o Lab Services
-  href: classroom-labs/classroom-labs-overview.md
 - name: Descrição geral
   items:
-    - name: Sobre o DevTest Labs
-      href: devtest-lab-overview.md
-    - name: Azure DevTest Labs e Lab Services
+    - name: Acerca do Lab Services
       href: lab-services-overview.md
 - name: Tutoriais
   items:
-    - name: 1. Configurar um laboratório
-      href: tutorial-create-custom-lab.md
-    - name: 2. Aceder a um laboratório
-      href: tutorial-use-custom-lab.md
-- name: Amostras
-  items:
-    - name: Modelos do Resource Manager
-      href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates'
-    - name: Azure PowerShell
-      href: samples-powershell.md
-      items:
-        - name: Adicionar um utilizador externo a um laboratório
-          href: scripts/add-external-user-to-lab.md
-        - name: Adicionar imagens do marketplace a um laboratório
-          href: scripts/add-marketplace-images-to-lab.md
-        - name: Criar uma imagem personalizada a partir de um VHD
-          href: scripts/create-custom-image-from-vhd.md
-        - name: Criar uma função personalizada num laboratório
-          href: scripts/create-custom-role-in-lab.md
-        - name: Definir tamanhos de VM permitidos num laboratório
-          href: scripts/set-allowed-vm-sizes-in-lab.md
-    - name: Azure PowerShell - módulo Az.DevTestLabs2
-      href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library'
-    - name: CLI do Azure
-      href: samples-cli.md
-      items:
-        - name: Criar e verificar a disponibilidade de uma VM
-          href: scripts/create-verify-virtual-machine-in-lab-cli.md
-        - name: Iniciar uma VM
-          href: scripts/start-connect-virtual-machine-in-lab-cli.md
-        - name: Parar e eliminar uma VM
-          href: scripts/stop-delete-virtual-machine-in-lab-cli.md
+    - name: Configurar uma conta de laboratório
+      href: tutorial-setup-lab-account.md
+    - name: Configurar um laboratório de sala de aula
+      href: tutorial-setup-classroom-lab.md
+    - name: Aceder a um laboratório de sala de aula
+      href: tutorial-connect-virtual-machine-classroom-lab.md
+    - name: Controlar a utilização de um laboratório de sala de aula
+      href: tutorial-track-usage.md
 - name: Conceitos
   items:
-    - name: Conceitos de Laboratórios DevTest
-      href: devtest-lab-concepts.md
-    - name: Melhores práticas de desenvolvimento distribuído e de colaboração
-      href: best-practices-distributive-collaborative-development-environment.md
-    - name: Integração com o Azure DevOps
-      href: devtest-lab-dev-ops.md
+    - name: Descrição geral dos Laboratórios de Sala de Aula
+      href: classroom-labs-overview.md
+    - name: Conceitos dos Laboratórios de Sala de Aula
+      href: classroom-labs-concepts.md
+    - name: Fundamentos da arquitetura dos Laboratórios de Sala de Aula
+      href: classroom-labs-fundamentals.md
+    - name: Limites de capacidade
+      href: capacity-limits.md
     - name: Cenários
       items:
-        - name: Cenários populares para utilizar o DevTest Labs
-          href: devtest-lab-guidance-get-started.md
-        - name: Utilizar laboratórios para programadores
-          href: devtest-lab-developer-lab.md
-        - name: Utilizar laboratórios para ambientes de teste
-          href: devtest-lab-test-env.md
-        - name: Utilizar laboratórios para fins de formação
-          href: devtest-lab-training-lab.md
-        - name: Cenários para utilizar VMs reclamáveis
-          href: devtest-lab-use-claim-capabilities.md
+        - name: Utilizar o Lab Services para lecionar as aulas
+          href: classroom-labs-scenarios.md
+        - name: Utilizar o Lab Services para o hackathon
+          href: hackathon-labs.md
+        - name: Laboratórios de sala de aula - tipos de aula
+          items:
+            - name: Descrição geral dos tipos de aula
+              href: class-types.md
+            - name: Aprendizagem profunda no processamento de linguagem natural
+              href: class-type-deep-learning-natural-language-processing.md
+            - name: Script de Shell no Linux
+              href: class-type-shell-scripting-linux.md
+            - name: Acesso ilícito ético
+              href: class-type-ethical-hacking.md
+            - name: Gestão de bases de dados
+              href: class-type-database-management.md
+            - name: Gestão e desenvolvimento da Base de Dados SQL do Azure
+              href: class-type-sql-server.md
+            - name: Blocos de Notas do Jupyter e Python
+              href: class-type-jupyter-notebook.md
+            - name: Desenvolvimento de aplicações móveis com o Android Studio
+              href: class-type-mobile-dev-android-studio.md
+            - name: Análise de macrodados
+              href: class-type-big-data-analytics.md
+            - name: MATLAB
+              href: class-type-matlab.md
+            - name: Conceção assistida por computador (CAD) do SolidWorks
+              href: class-type-solidworks.md
 - name: Guias de procedimentos
   items:
-    - name: Configurar um laboratório
+    - name: Guia do administrador
+      href: administrator-guide.md
+    - name: Guia acelerado de configuração da conta de laboratório
+      href: account-setup-guide.md
+    - name: Guia acelerado de configuração do laboratório
+      href: setup-guide.md
+    - name: Criar e configurar contas de laboratório (proprietário de conta de laboratório)
       items:
-        - name: Criar um laboratório
-          href: devtest-lab-create-lab.md
-        - name: Criar ou modificar laboratórios com o modelo do Resource Manager
-          href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
-        - name: Especificar o grupo de recursos para as máquinas virtuais de laboratório
-          href: resource-group-control.md
-        - name: Adicionar informações de suporte a um laboratório
-          href: devtest-lab-internal-support-message.md
-        - name: Definir políticas e agendamentos
-          href: devtest-lab-set-lab-policy.md
-        - name: Configurar um laboratório para utilizar um gateway de ambiente de trabalho remoto
-          href: configure-lab-remote-desktop-gateway.md
-        - name: Publicar anúncio num laboratório
-          href: devtest-lab-announcements.md
-        - name: Ativar a ligação ao browser em VMs
-          href: enable-browser-connection-lab-virtual-machines.md
-        - name: Configurar gestão de custos
-          href: devtest-lab-configure-cost-management.md
-        - name: Definir o arranque automático das máquinas virtuais de laboratório
-          href: devtest-lab-auto-startup-vm.md
-        - name: Dimensionar o laboratório
-          href: devtest-lab-scale-lab.md
-        - name: Ativar identidades geridas para VMs de laboratório
-          href: enable-managed-identities-lab-vms.md
-        - name: Gerir bases de máquinas virtuais
+        - name: Criar e gerir contas de laboratório
+          href: how-to-manage-lab-accounts.md
+        - name: Gerir laboratórios numa conta de laboratório
+          href: manage-labs.md
+        - name: Configurar o encerramento automático de VMs
+          href: how-to-configure-lab-accounts.md
+        - name: Adicionar um criador do laboratório
+          href: add-lab-creator.md
+        - name: Permitir que o criador do laboratório escolha a localização do laboratório
+          href: allow-lab-creator-pick-lab-location.md
+        - name: Ligar a um elemento da rede virtual
+          href: how-to-connect-peer-virtual-network.md
+        - name: Como criar um laboratório com um recurso partilhado
+          href: how-to-create-a-lab-with-shared-resource.md
+        - name: Anexar ou desanexar uma galeria de imagens partilhadas
+          href: how-to-attach-detach-shared-image-gallery.md
+        - name: Adicionar mais proprietários a um laboratório de sala de aula
+          href: how-to-add-user-lab-owner.md
+        - name: Configurar as definições da firewall
+          href: how-to-configure-firewall-settings.md
+        - name: Especificar imagens do Marketplace para laboratórios
+          href: specify-marketplace-images.md
+        - name: Especificar informações de suporte (proprietário de conta de laboratório)
+          href: lab-account-owner-support-information.md
+        - name: Gestão de custos para laboratórios
+          href: cost-management-guide.md
+    - name: Criar e configurar laboratórios de sala de aula (educador)
+      items:
+        - name: Criar e gerir laboratórios de sala de aula
+          href: how-to-manage-classroom-labs.md
+        - name: Utilizar o dashboard
+          href: use-dashboard.md
+        - name: 'Configurar, personalizar e publicar modelos'
+          href: how-to-create-manage-template.md
+        - name: Configurar e gerir o conjunto de máquinas virtuais
+          href: how-to-set-virtual-machine-passwords.md
+        - name: Adicionar e gerir utilizadores de laboratório
+          href: how-to-configure-student-usage.md
+        - name: Criar e gerir agendamentos
+          href: how-to-create-schedules.md
+        - name: Utilizar uma galeria de imagens partilhadas
+          href: how-to-use-shared-image-gallery.md
+        - name: Ativar a ligação de ambiente de trabalho remoto para Linux
+          href: how-to-enable-remote-desktop-linux.md
+        - name: Ativar encerramento automático ao desligar
+          href: how-to-enable-shutdown-disconnect.md
+        - name: Ativar a virtualização aninhada numa VM de modelo
           items:
-            - name: Configurar imagens do Azure Marketplace
-              href: devtest-lab-configure-marketplace-images.md
-            - name: Ativar uma imagem licenciada
-              href: devtest-lab-enable-licensed-images.md
-            - name: Configurar uma galeria de imagens partilhadas
-              href: configure-shared-image-gallery.md
-        - name: Configurar etiquetas
-          href: devtest-lab-add-tag.md
-        - name: Configurar o controlo de acesso
-          items:
-            - name: Adicionar proprietários e utilizadores de laboratório
-              href: devtest-lab-add-devtest-user.md
-            - name: Personalizar permissões com funções personalizadas
-              href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
-            - name: Automatizar a adição de um utilizador de laboratório
-              href: automate-add-lab-user.md
-        - name: Gerir redes virtuais
-          items:
-            - name: Configurar redes virtuais
-              href: devtest-lab-configure-vnet.md
-            - name: Selecionar a opção de configuração do IP
-              href: devtest-lab-shared-ip.md
-        - name: Eliminar um laboratório ou uma VM num laboratório
-          href: devtest-lab-delete-lab-vm.md
-        - name: Exportar ou eliminar dados pessoais
-          href: personal-data-delete-export.md
-    - name: Utilizar VMs num laboratório
+            - name: Descrição geral da ativação da virtualização aninhada numa VM de modelo
+              href: how-to-enable-nested-virtualization-template-vm.md
+            - name: Ativar a virtualização aninhada numa VM de modelo com a IU
+              href: how-to-enable-nested-virtualization-template-vm-ui.md
+            - name: Ativar a virtualização aninhada numa VM de modelo com um script
+              href: how-to-enable-nested-virtualization-template-vm-using-script.md
+        - name: Configurar um laboratório com GPUs
+          href: how-to-setup-lab-gpu.md
+        - name: Preparar uma VM de modelo do Windows
+          href: how-to-prepare-windows-template.md
+        - name: Controlar o comportamento de encerramento do Windows
+          href: how-to-windows-shutdown.md
+        - name: Ver informações de suporte (educador)
+          href: lab-creator-support-information.md
+        - name: Aceder às VMs dos estudantes a partir da vista do educador
+          href: instructor-access-virtual-machines.md
+    - name: Ligar-se a VMs em laboratórios de sala de aula (estudante)
       items:
-        - name: Criar uma VM - Portal do Azure
-          href: devtest-lab-add-vm.md
-        - name: Criar uma VM - Azure PowerShell
-          href: devtest-lab-vm-powershell.md
-        - name: Criar uma VM - CLI do Azure
-          href: devtest-lab-vmcli.md
-        - name: Criar uma VM - modelo do Resource Manager
-          href: devtest-lab-use-resource-manager-template.md
-        - name: Criar uma VM com uma imagem da galeria de imagens partilhadas
-          href: add-vm-use-shared-image.md
-        - name: Ligar-se à sua VM através de um browser
-          href: connect-virtual-machine-through-browser.md
-        - name: Iniciar ou parar uma VM com o PowerShell ou com a CLI
-          href: use-command-line-start-stop-virtual-machines.md
-        - name: Reiniciar uma VM
-          href: devtest-lab-restart-vm.md
-        - name: Redimensionar uma VM
-          href: devtest-lab-resize-vm.md
-        - name: Reimplementar uma VM
-          href: devtest-lab-redeploy-vm.md
-        - name: Configurar o encerramento automático das VMs de computação e laboratório
-          href: devtest-lab-auto-shutdown.md
-        - name: Criar e gerir VMs reclamáveis
-          href: devtest-lab-add-claimable-vm.md
-        - name: Configurar segredos
-          href: devtest-lab-store-secrets-in-key-vault.md
-        - name: Ligar e desligar discos de dados
-          href: devtest-lab-attach-detach-data-disk.md
-        - name: Iniciar VMs com runbooks da Automatização
-          href: start-machines-use-automation-runbooks.md
-        - name: Importar as máquinas virtuais a partir de outro laboratório
-          href: import-virtual-machines-from-another-lab.md
-    - name: Utilizar ambientes num laboratório
-      items:
-        - name: Criar um ambiente
-          href: devtest-lab-create-environment-from-arm.md
-        - name: Utilizar serviços de Plataforma enquanto serviço (PaaS)
-          href: use-paas-services.md
-        - name: Ambientes públicos
-          items:
-            - name: Configurar e utilizar ambientes públicos
-              href: devtest-lab-configure-use-public-environments.md
-            - name: Criar um ambiente com o cluster do Service Fabric
-              href: create-environment-service-fabric-cluster.md
-        - name: Ligar um ambiente à rede virtual do seu laboratório
-          href: connect-environment-lab-virtual-network.md
-        - name: Configurar ambientes de teste com modelos aninhados
-          href: deploy-nested-template-environments.md
-        - name: Usar identidades geridas do Azure para implementar ambientes
-          href: use-managed-identities-environments.md
-        - name: Alertas de segurança para ambientes
-          href: environment-security-alerts.md
-    - name: Gerir modelos reutilizáveis
-      items:
-        - name: Imagens vs. fórmulas personalizadas
-          href: devtest-lab-comparing-vm-base-image-types.md
-        - name: Gerir modelos de ambiente
-          items:
-            - name: Adicionar um repositório de Git de artefactos e modelos
-              href: devtest-lab-add-artifact-repo.md
-        - name: Gerir imagens personalizadas
-          items:
-            - name: Criar uma imagem personalizada a partir de uma VM
-              href: devtest-lab-create-custom-image-from-vm-using-portal.md
-            - name: Criar uma imagem personalizada a partir de um VHD - Portal do Azure
-              href: devtest-lab-create-template.md
-            - name: Criar uma imagem personalizada a partir de um VHD - PowerShell
-              href: devtest-lab-create-custom-image-from-vhd-using-powershell.md
-            - name: Carregar o ficheiro VHD com o AzCopy
-              href: devtest-lab-upload-vhd-using-azcopy.md
-            - name: Carregar o ficheiro VHD com o PowerShell
-              href: devtest-lab-upload-vhd-using-powershell.md
-            - name: Carregar o ficheiro VHD com o Explorador de Armazenamento
-              href: devtest-lab-upload-vhd-using-storage-explorer.md
-        - name: Gerir fórmulas
-          href: devtest-lab-manage-formulas.md
-        - name: Criar uma fábrica de imagens
-          href: image-factory-create.md
-          items:
-            - name: Executar uma fábrica de imagens a partir do Azure DevOps
-              href: image-factory-set-up-devops-lab.md
-            - name: Guardar imagens personalizadas e distribuir para vários laboratórios
-              href: image-factory-save-distribute-custom-images.md
-            - name: Definir política de retenção e executar scripts de limpeza
-              href: image-factory-set-retention-policy-cleanup.md
-    - name: Gerir artefactos
-      items:
-        - name: Adicionar artefactos a uma VM
-          href: add-artifact-vm.md
-        - name: Criar artefacto personalizado
-          href: devtest-lab-artifact-author.md
-        - name: Adicionar um repositório de artefacto para um laboratório
-          href: add-artifact-repository.md
-        - name: Especificar artefactos obrigatórios
-          href: devtest-lab-mandatory-artifacts.md
-        - name: Resolver problemas relacionados com a aplicação de artefactos
-          href: devtest-lab-troubleshoot-apply-artifacts.md
-    - name: Integração com CI/CD
-      items:
-        - name: Integrar laboratórios no seu pipeline CI/CD dos Pipelines do Azure
-          href: devtest-lab-integrate-ci-cd.md
-        - name: Integrar ambientes no seu pipeline CI/CD dos Pipelines do Azure
-          href: integrate-environments-devops-pipeline.md
-        - name: Utilizar o DevTest Labs nos pipelines de compilação e versão dos Pipelines do Azure
-          href: use-devtest-labs-build-release-pipelines.md
-    - name: Expandir o DevTest Labs
-      items:
-        - name: Utilizar as Funções do Azure para expandir o DevTest Labs
-          href: extend-devtest-labs-azure-functions.md
-    - name: Comunicar a utilização dos laboratórios
-      href: report-usage-across-multiple-labs-subscriptions.md
-    - name: DevTest Labs na empresa
-      items:
-        - name: DevTest Labs de nível empresarial
-          href: devtest-lab-guidance-prescriptive-adoption.md
-        - name: Arquitetura de referência
-          href: devtest-lab-reference-architecture.md
-        - name: Fornecer a prova de conceito
-          href: deliver-proof-concept.md
-        - name: Aumentar verticalmente a sua implementação do DevTest Labs
-          href: devtest-lab-guidance-scale.md
-        - name: Orquestrar a implementação do DevTest Labs
-          href: devtest-lab-guidance-orchestrate-implementation.md
-        - name: Governação da infraestrutura dos laboratórios DevTest
-          items:
-            - name: Recursos
-              href: devtest-lab-guidance-governance-resources.md
-            - name: Custo e propriedade
-              href: devtest-lab-guidance-governance-cost-ownership.md
-            - name: Política e conformidade
-              href: devtest-lab-guidance-governance-policy-compliance.md
-            - name: Migração e integração de aplicações
-              href: devtest-lab-guidance-governance-application-migration-integration.md
-    - name: Testar a aplicação no Azure
-      href: test-app-azure.md
-    - name: Resolução de problemas
-      items:
-        - name: Resolver problemas de falhas de criação de VM e de ambiente
-          href: troubleshoot-vm-environment-creation-failures.md
-        - name: Resolver problemas de falhas de artefactos
-          href: devtest-lab-troubleshoot-artifact-failure.md
+        - name: Aceder a laboratórios de sala de aula
+          href: how-to-use-classroom-lab.md
+        - name: Ligar a VMs do Linux
+          href: how-to-use-remote-desktop-linux-student.md
+        - name: Ligar a uma VM a partir de Mac com o protocolo RDP
+          href: connect-virtual-machine-mac-remote-desktop.md
+        - name: Ligar a uma VM a partir do Chromebook com o protocolo RDP
+          href: connect-virtual-machine-chromebook-remote-desktop.md
+        - name: Definir ou repor palavras-passe de máquinas virtuais
+          href: how-to-set-virtual-machine-passwords-student.md
+        - name: Ver informações de suporte (estudante)
+          href: lab-user-support-information.md
 - name: Referência
   items:
-    - name: CLI
-      href: /cli/azure/lab
-    - name: PowerShell
-      href: /powershell/module/az.devtestlabs
-    - name: PowerShell - módulo de exemplo Az.DevTestLabs2
-      href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library'
     - name: API REST
-      href: 'https://docs.microsoft.com/rest/api/dtl/'
-    - name: Modelo do Resource Manager
-      href: /azure/templates/microsoft.devtestlab/allversions
+      href: 'https://docs.microsoft.com/rest/api/labservices/'
+    - name: Módulo do PowerShell Az.LabServices (pré-visualização)
+      href: reference-powershell-module.md
 - name: Recursos
   items:
+    - name: Blogue do Azure Lab Services
+      href: 'https://aka.ms/azlabs-blog'
     - name: Atualizações do Azure
-      href: 'https://azure.microsoft.com/updates/?product=devtest-lab'
+      href: 'https://azure.microsoft.com/updates/?product=lab-services'
     - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/devtest-lab/'
-    - name: Página de perguntas das Perguntas e Respostas da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-devtestlabs.html'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-devtest-labs'
-    - name: Vídeos
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=devtest-lab'
+      href: 'https://azure.microsoft.com/pricing/details/lab-services/'
+    - name: Fórum da Tech Community
+      href: 'https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices'
     - name: Perguntas mais frequentes
-      href: devtest-lab-faq.md
+      href: classroom-labs-faq.md

@@ -1,6 +1,6 @@
 ---
-title: Delegar funções por tarefa de administração - Diretório Ativo Azure / Microsoft Docs
-description: Funções para delegar em tarefas de identidade no Diretório Ativo do Azure
+title: Delegado por tarefa de administração - Azure Ative Directory / Microsoft Docs
+description: Funções para delegar para tarefas de identidade no Azure Ative Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -8,37 +8,37 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: reference
 ms.date: 05/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de89b7f5a4b14bd4142ea3e9b9c8c0dceabd63dd
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 3bc1546566e5bb79a207899fab7418480e5cfab0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779965"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117884"
 ---
-# <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administração no Diretório Ativo azure
+# <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administração no Azure Ative Directory
 
-Neste artigo, pode encontrar as informações necessárias para restringir as permissões de administrador de um utilizador, atribuindo papéis menos privilegiados no Azure Ative Directory (Azure AD). Encontrará tarefas de administrador organizadas por área de recurso e a função menos privilegiada necessária para executar cada tarefa, juntamente com funções adicionais de Administrador Não Global que possam executar a tarefa.
+Neste artigo, pode encontrar as informações necessárias para restringir as permissões de administrador de um utilizador, atribuindo funções menos privilegiadas no Azure Ative Directory (Azure AD). Encontrará tarefas de administrador organizadas pela área de recurso e a função menos privilegiada necessária para executar cada tarefa, juntamente com funções adicionais de Administrador Não Global que possam desempenhar a tarefa.
 
 ## <a name="application-proxy"></a>Proxy da aplicação
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Configure app proxy de aplicação | Administrador de candidatura | 
-Configure propriedades do grupo de conector | Administrador de candidatura | 
-Criar registo de aplicação quando a capacidade é desativada para todos os utilizadores | Desenvolvedor de aplicações | Administrador de aplicação em nuvem, administrador de aplicação
-Criar grupo de conector | Administrador de candidatura | 
-Eliminar o grupo de conectores | Administrador de candidatura | 
-Desativar proxy de aplicações | Administrador de candidatura | 
-Baixar serviço de conector | Administrador de candidatura | 
-Leia todas as configurações | Administrador de candidatura | 
+Configure aplicação proxy app | Administrador de aplicação | 
+Configure as propriedades do grupo de conector | Administrador de aplicação | 
+Crie o registo de aplicações quando a capacidade é desativada para todos os utilizadores | Desenvolvedor de aplicações | Administrador de aplicação na nuvem, administrador de aplicações
+Criar grupo de conector | Administrador de aplicação | 
+Eliminar grupo de conector | Administrador de aplicação | 
+Desativar proxy de aplicações | Administrador de aplicação | 
+Serviço de conector de descarregamento | Administrador de aplicação | 
+Leia todas as configurações | Administrador de aplicação | 
 
-## <a name="b2c"></a>B2C
+## <a name="external-identitiesb2c"></a>Identidades Externas/B2C
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
@@ -46,106 +46,114 @@ Criar diretórios Azure AD B2C | Todos os utilizadores não convidados[(ver docu
 Criar aplicações B2C | Administrador Global | 
 Criar aplicações empresariais | Administrador de Aplicações na Cloud | Administrador da Aplicação
 Criar, ler, atualizar e eliminar políticas B2C | Administrador de Política B2C IEF | 
-Criar, ler, atualizar e eliminar fornecedores de identidade | Administrador de Fornecedor de Identidade Externa | 
-Criar, ler, atualizar e eliminar fluxos de utilizadores de redefinição de palavras-passe | Administrador de fluxo de utilizador B2C | 
-Criar, ler, atualizar e eliminar fluxos de utilizadores de edição de perfis | Administrador de fluxo de utilizador B2C | 
-Criar, ler, atualizar e eliminar fluxos de utilizador de entrada | Administrador de fluxo de utilizador B2C | 
-Criar, ler, atualizar e eliminar o fluxo de utilizador de inscrição |Administrador de fluxo de utilizador B2C | 
-Criar, ler, atualizar e eliminar atributos do utilizador | Administrador de atributo de fluxo de utilizador B2C | 
-Criar, ler, atualizar e eliminar utilizadores | Administrador de Utilizadores
+Criar, ler, atualizar e eliminar fornecedores de identidade | Administrador de fornecedor de identidade externa | 
+Criar, ler, atualizar e eliminar fluxos de utilizador de redefinição de palavra-passe | Administrador de fluxo de id externo | 
+Criar, ler, atualizar e eliminar fluxos de utilizadores de edição de perfis | Administrador de fluxo de id externo | 
+Criar, ler, atualizar e eliminar fluxos de utilizador de entrada | Administrador de fluxo de id externo | 
+Criar, ler, atualizar e eliminar o fluxo de utilizador de inscrição |Administrador de fluxo de id externo | 
+Criar, ler, atualizar e eliminar atributos do utilizador | Administrador de atributo de fluxo de id do utilizador externo | 
+Criar, ler, atualizar e eliminar utilizadores | Administrador do Utilizador
 Leia todas as configurações | Leitor global | 
-Ler registos de auditoria B2C | Leitor global[(ver documentação)](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs) | 
+Leia os registos de auditoria b2C | Leitor global[(ver documentação)](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs) | 
 
 > [!NOTE]
-> Os leitores da Azure AD B2C Global não têm as mesmas permissões que os administradores globais da Azure AD. Se tiver privilégios de administrador global Azure AD B2C, certifique-se de que está num diretório Azure AD B2C e não num diretório Azure AD.
+> Os leitores Azure AD B2C Global não têm as mesmas permissões que os administradores globais da Azure AD. Se tiver privilégios globais de administrador Azure AD B2C, certifique-se de que está num diretório AZure AD B2C e não num diretório AD AZure.
 
 ## <a name="company-branding"></a>Imagem corporativa
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
 Configurar o branding da empresa | Administrador Global | 
-Leia todas as configurações | Leitores de diretório | Função de utilizador padrão[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)
+Leia todas as configurações | Leitores de diretório | Papel de utilizador predefinido[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)
 
 ## <a name="company-properties"></a>Propriedades da empresa
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Configurar propriedades da empresa | Administrador Global | 
+Configure propriedades da empresa | Administrador Global | 
 
 ## <a name="connect"></a>Ligar
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Autenticação de passagem | Administrador de Identidade Híbrida  | 
+Autenticação passthrough | Administrador Global  | 
+Leia todas as configurações | Leitor global | Administrador Global  |
+Único sinal sem emenda | Administrador Global  | 
+
+## <a name="cloud-provisioning"></a>Provisionamento de Nuvens
+
+Tarefa | Papel menos privilegiado | Funções adicionais
+---- | --------------------- | ----------------
+Autenticação passthrough | Administrador de Identidade Híbrida  | 
 Leia todas as configurações | Leitor global | Administrador de Identidade Híbrida  |
-Inscrição única sem emenda | Administrador de Identidade Híbrida  | 
+Único sinal sem emenda | Administrador de Identidade Híbrida  | 
 
 ## <a name="connect-health"></a>Connect Health
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Adicionar ou eliminar serviços | Proprietário[(ver documentação)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations) | 
+Adicionar ou apagar serviços | Proprietário[(ver documentação)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations) | 
 Aplicar correções para sincronizar erro | Contribuinte[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context) | Proprietário
 Configurar notificações | Contribuinte[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context) | Proprietário
 Configurar definições | Proprietário[(ver documentação)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations) | 
-Configurar notificações de sincronização | Contribuinte[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context) | Proprietário
-Ler relatórios de segurança da ADFS | Leitor de Segurança | Contribuinte, Proprietário
-Leia todas as configurações | Leitor[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context) | Contribuinte, Proprietário
-Ler erros de sincronização | Leitor[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context) | Contribuinte, Proprietário
-Ler serviços de sincronização | Leitor[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context) | Contribuinte, Proprietário
-Ver métricas e alertas | Leitor[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context) | Contribuinte, Proprietário
-Ver métricas e alertas | Leitor[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context) | Contribuinte, Proprietário
-Ver métricas e alertas de serviço sincronizado | Leitor[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context) | Contribuinte, Proprietário
+Configure notificações de sincronização | Contribuinte[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context) | Proprietário
+Leia os relatórios de segurança da ADFS | Leitor de Segurança | Colaborador, Proprietário
+Leia todas as configurações | Leitor[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context) | Colaborador, Proprietário
+Leia erros de sincronização | Leitor[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context) | Colaborador, Proprietário
+Ler serviços de sincronização | Leitor[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context) | Colaborador, Proprietário
+Ver métricas e alertas | Leitor[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context) | Colaborador, Proprietário
+Ver métricas e alertas | Leitor[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context) | Colaborador, Proprietário
+Ver métricas e alertas de serviço sincronizado | Leitor[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context) | Colaborador, Proprietário
 
 ## <a name="custom-domain-names"></a>Nomes de domínio personalizados
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
 Gerir domínios | Administrador Global | 
-Leia todas as configurações | Leitores de diretório | Função de utilizador padrão[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)
+Leia todas as configurações | Leitores de diretório | Papel de utilizador predefinido[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)
 
 ## <a name="domain-services"></a>Serviços de Domínio
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Criar a instância de Serviços de Domínio Azure AD | Administrador Global | 
-Execute todas as tarefas de Serviços de Domínio Azure AD | Grupo de administradores da AD DC Azure[(ver documentação)](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-an-azure-ad-ds-managed-domain) | 
-Leia todas as configurações | Leitor na subscrição do Azure contendo serviço AD DS | 
+Criar exemplo de serviços de domínio Azure AD | Administrador Global | 
+Executar todas as tarefas dos Serviços de Domínio AZure AD | Grupo de Administradores Azure AD DC[(ver documentação)](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-a-managed-domain) | 
+Leia todas as configurações | Leitor na subscrição Azure contendo serviço AD DS | 
 
 ## <a name="devices"></a>Dispositivos
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Dispositivo de desativação | Administrador de dispositivos de nuvem | 
-Ativar dispositivo | Administrador de dispositivos de nuvem | 
-Ler configuração básica | Função de utilizador padrão[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
-Ler teclas BitLocker | Leitor de Segurança | Administrador de passwords, administrador de segurança
+Dispositivo de desativação | Administrador de dispositivos em nuvem | 
+Ativar dispositivo | Administrador de dispositivos em nuvem | 
+Ler configuração básica | Papel de utilizador predefinido[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
+Leia as teclas BitLocker | Leitor de Segurança | Administrador de password, administrador de segurança
 
 ## <a name="enterprise-applications"></a>Aplicações Empresariais
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Consentimento para quaisquer permissões delegadas | Administrador de aplicação em nuvem | Administrador de candidatura
-Consentimento para permissões de aplicação que não incluem o Microsoft Graph | Administrador de aplicação em nuvem | Administrador de candidatura
-Consentimento para permissões de aplicação para o Microsoft Graph | Administrador privilegiado | 
-Consentimento para aplicações de acesso a dados próprios | Função de utilizador padrão[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
-Criar aplicação empresarial | Administrador de aplicação em nuvem | Administrador de candidatura
-Gerir procuração de aplicação | Administrador de candidatura | 
+Consentimento para quaisquer permissões delegadas | Administrador de aplicação em nuvem | Administrador de aplicação
+Consentimento para permissões de aplicação que não incluam o Microsoft Graph | Administrador de aplicação em nuvem | Administrador de aplicação
+Consentimento para permissões de aplicação no Microsoft Graph | Administrador privilegiado | 
+Consentimento para aplicações que acedam a dados próprios | Papel de utilizador predefinido[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
+Criar aplicação de empresa | Administrador de aplicação em nuvem | Administrador de aplicação
+Gerir o Proxy de Aplicações | Administrador de aplicação | 
 Gerir as definições do utilizador | Administrador Global | 
 Leia a revisão de acesso de um grupo ou de uma app | Leitor de Segurança | Administrador de Segurança, Administrador de Utilizador
-Leia todas as configurações | Função de utilizador padrão[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
-Atualizar atribuições de aplicações empresariais | Proprietário de aplicação empresarial[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Administrador de aplicação em nuvem, administrador de aplicações
-Atualizar os proprietários de aplicações empresariais | Proprietário de aplicação empresarial[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Administrador de aplicação em nuvem, administrador de aplicações
-Atualizar propriedades de aplicações empresariais | Proprietário de aplicação empresarial[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Administrador de aplicação em nuvem, administrador de aplicações
-Atualizar o provisionamento de aplicações empresariais | Proprietário de aplicação empresarial[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Administrador de aplicação em nuvem, administrador de aplicações
-Atualizar o self-service da aplicação empresarial | Proprietário de aplicação empresarial[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Administrador de aplicação em nuvem, administrador de aplicações
-Atualizar propriedades de inscrição única | Proprietário de aplicação empresarial[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Administrador de aplicação em nuvem, administrador de aplicações
+Leia todas as configurações | Papel de utilizador predefinido[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
+Atualizar as atribuições de aplicações da empresa | Proprietário de aplicações empresariais[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Administrador de aplicação em nuvem, administrador de aplicações
+Atualizar os proprietários de aplicações empresariais | Proprietário de aplicações empresariais[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Administrador de aplicação em nuvem, administrador de aplicações
+Atualizar propriedades de aplicações empresariais | Proprietário de aplicações empresariais[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Administrador de aplicação em nuvem, administrador de aplicações
+Atualizar o fornecimento de aplicações da empresa | Proprietário de aplicações empresariais[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Administrador de aplicação em nuvem, administrador de aplicações
+Atualizar o self-service da aplicação da empresa | Proprietário de aplicações empresariais[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Administrador de aplicação em nuvem, administrador de aplicações
+Atualizar propriedades de s-on única | Proprietário de aplicações empresariais[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Administrador de aplicação em nuvem, administrador de aplicações
 
 ## <a name="entitlement-management"></a>Gestão de direitos
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Adicione recursos a um catálogo | Administrador de utilizadores | Com a gestão de direitos, pode delegar esta tarefa ao proprietário do catálogo[(ver documentação)](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)
-Adicionar sites Online SharePoint para catalogar | Administrador global
+Adicionar recursos a um catálogo | Administrador de utilizadores | Com a gestão de direitos, pode delegar esta tarefa ao proprietário do catálogo[(ver documentação)](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)
+Adicione sites SharePoint Online para catalogar | Administrador global
 
 
 ## <a name="groups"></a>Grupos
@@ -153,28 +161,29 @@ Adicionar sites Online SharePoint para catalogar | Administrador global
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
 Atribuir licença | Administrador de utilizadores | 
-Criar grupos | Administrador de utilizadores | 
-Criar, atualizar ou excluir a revisão de acesso de um grupo ou de uma aplicação | Administrador de utilizadores | 
+Criar grupos | Administrador de grupos | Administrador de utilizadores
+Criar, atualizar ou eliminar a revisão de acesso de um grupo ou de uma aplicação | Administrador de utilizadores | 
 Gerir a expiração do grupo | Administrador de utilizadores | 
-Gerir definições do grupo | Administrador de Grupos | Administrador de Utilizadores | 
-Ler todas as configurações (exceto membros ocultos) | Leitores de diretório | Função de utilizador padrão[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)
-Ler adesão escondida | Membro do grupo | Proprietário do grupo, administrador de passwords, administrador de troca, administrador do SharePoint, administrador de equipas, administrador de utilizador
-Leia a adesão a grupos com adesão oculta | Administrador de Helpdesk | Administrador de utilizadores, administrador de equipas
-Revogar licença | Administrador de licença | Administrador de utilizadores
-Atualizar a adesão ao grupo | Proprietário do grupo[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Administrador de utilizadores
-Atualizar os proprietários do grupo | Proprietário do grupo[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Administrador de utilizadores
-Atualizar propriedades do grupo | Proprietário do grupo[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Administrador de utilizadores
+Gerir definições do grupo | Administrador de Grupos | Administrador do Utilizador | 
+Leia todas as configurações (exceto a adesão escondida) | Leitores de diretório | Papel de utilizador predefinido[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)
+Ler membros escondidos | Membro do grupo | Proprietário do grupo, administrador de password, administrador de troca, administrador sharePoint, administrador de equipas, administrador do utilizador
+Ler membros de grupos com adesão oculta | Administrador helpdesk | Administrador de utilizadores, administrador de equipas
+Revogar licença | Administrador de licenças | Administrador de utilizadores
+Atualizar a adesão ao grupo | Dono do grupo[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Administrador de utilizadores
+Atualizar os proprietários do grupo | Dono do grupo[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Administrador de utilizadores
+Atualizar propriedades de grupo | Dono do grupo[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Administrador de utilizadores
+Eliminar grupo | Administrador de grupos | Administrador de utilizadores
 
 ## <a name="identity-protection"></a>Identity Protection
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Configurar notificações de alerta| Administrador de Segurança | 
-Configure e ative ou desative a política de MFA| Administrador de Segurança | 
-Configure e ative ou desative a política de risco de entrada| Administrador de Segurança | 
-Configure e ative ou desative a política de risco do utilizador | Administrador de Segurança | 
-Configurar digestões semanais | Administrador de Segurança| 
-Descartar todas as deteções de risco | Administrador de Segurança | 
+Configure notificações de alerta| Administrador de Segurança | 
+Configure e permita ou desative a política de MFA| Administrador de Segurança | 
+Configurar e permitir ou desativar a política de risco de inscrição| Administrador de Segurança | 
+Configurar e ativar ou desativar a política de risco do utilizador | Administrador de Segurança | 
+Configurar digestão semanal | Administrador de Segurança| 
+Dispensar todas as deteções de risco | Administrador de Segurança | 
 Corrigir ou descartar vulnerabilidade | Administrador de Segurança | 
 Leia todas as configurações | Leitor de Segurança | 
 Leia todas as deteções de risco | Leitor de Segurança | 
@@ -184,9 +193,9 @@ Ler vulnerabilidades | Leitor de Segurança |
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Atribuir licença | Administrador de licença | Administrador de utilizadores
-Leia todas as configurações | Leitores de diretório | Função de utilizador padrão[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)
-Revogar licença | Administrador de licença | Administrador de utilizadores
+Atribuir licença | Administrador de licenças | Administrador de utilizadores
+Leia todas as configurações | Leitores de diretório | Papel de utilizador predefinido[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)
+Revogar licença | Administrador de licenças | Administrador de utilizadores
 Tente ou compre subscrição | Administrador de faturação | 
 
 
@@ -200,7 +209,7 @@ Ler registos de auditoria | Leitor de relatórios | Leitor de Segurança, Admini
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Ler registos de login | Leitor de relatórios | Leitor de Segurança, Administrador de Segurança
+Ler registos de inscrição | Leitor de relatórios | Leitor de Segurança, Administrador de Segurança
 
 ## <a name="multi-factor-authentication"></a>Multi-factor authentication
 
@@ -209,24 +218,24 @@ Tarefa | Papel menos privilegiado | Funções adicionais
 Eliminar todas as palavras-passe de aplicações existentes geradas pelos utilizadores selecionados | Administrador Global | 
 Desativar o MFA | Administrador Global | 
 Ativar MFA | Administrador Global | 
-Gerir as definições de serviço mfa | Administrador Global | 
+Gerir as definições de serviço MFA | Administrador Global | 
 Exigir que os utilizadores selecionados forneçam novamente métodos de contacto | Administrador de Autenticação | 
-Restaurar a autenticação de vários fatores em todos os dispositivos recordados  | Administrador de Autenticação | 
+Restaurar a autenticação de vários fatores em todos os dispositivos lembrados  | Administrador de Autenticação | 
 
 ## <a name="mfa-server"></a>Servidor MFA
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Bloquear/desbloquear utilizadores | Administrador Global | 
-Configurar o bloqueio da conta | Administrador Global | 
-Regras de cache configuração | Administrador Global | 
-Configurar alerta de fraude | Administrador Global
+Utilizadores de bloco/desbloqueio | Administrador Global | 
+Configurar bloqueio de conta | Administrador Global | 
+Configurar regras de caching | Administrador Global | 
+Alerta de fraude de configuração | Administrador Global
 Configurar notificações | Administrador Global | 
-Configurar um bypass único | Administrador Global | 
-Configurar as definições de chamada telefónica | Administrador Global | 
-Configure os fornecedores | Administrador Global | 
+Configure um bypass único | Administrador Global | 
+Configurar as definições de chamadas telefónicas | Administrador Global | 
+Configure fornecedores | Administrador Global | 
 Configurar as definições do servidor | Administrador Global | 
-Ler relatório de atividade | Leitor global | 
+Ler relatório de atividades | Leitor global | 
 Leia todas as configurações | Leitor global | 
 Ler estado do servidor | Leitor global |  
 
@@ -234,7 +243,7 @@ Ler estado do servidor | Leitor global |
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Gerir fornecedores de identidade | Administrador de Fornecedor de Identidade Externa | 
+Gerir fornecedores de identidade | Administrador de fornecedor de identidade externa | 
 Gerir definições | Administrador Global | 
 Gerir termos de utilização | Administrador Global | 
 Leia todas as configurações | Leitor global | 
@@ -243,13 +252,13 @@ Leia todas as configurações | Leitor global |
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Métodos de autenticação configurar | Administrador Global |
+Configurar métodos de autenticação | Administrador Global |
 Configurar a personalização | Administrador Global |
-Configurar a notificação | Administrador Global |
+Notificação de configure | Administrador Global |
 Configurar a integração no local | Administrador Global |
-Configurar propriedades de reset de palavra-passe | Administrador de Utilizadores | Administrador Global
-Configurar o registo | Administrador Global |
-Leia todas as configurações | Administrador de Segurança | Administrador de Utilizadores |
+Configure propriedades de reset de palavra-passe | Administrador do Utilizador | Administrador Global
+Configure registo | Administrador Global |
+Leia todas as configurações | Administrador de Segurança | Administrador do Utilizador |
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
@@ -258,42 +267,44 @@ Tarefa | Papel menos privilegiado | Funções adicionais
 Atribuir utilizadores a funções | Administrador privilegiado | 
 Configurar as definições de função | Administrador privilegiado | 
 Ver atividade de auditoria | Leitor de segurança | 
-Ver membros de papéis | Leitor de segurança | 
+Ver membros de funções | Leitor de segurança | 
 
 ## <a name="roles-and-administrators"></a>Funções e administradores
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
 Gerir atribuições de funções | Administrador privilegiado | 
-Leia a revisão de acesso de um papel da AD Azure  | Leitor de Segurança | Administrador de segurança, administrador privilegiado
-Leia todas as configurações | Função de utilizador padrão[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
+Leia a revisão de acesso de um papel de AD Azure  | Leitor de Segurança | Administrador de segurança, administrador privilegiado
+Leia todas as configurações | Papel de utilizador predefinido[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
 
 ## <a name="security---authentication-methods"></a>Segurança - Métodos de autenticação
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Métodos de autenticação configurar | Administrador Global | 
+Configurar métodos de autenticação | Administrador Global | 
+Proteção de senhas de configuração | Administrador de segurança
+Configurar o bloqueio inteligente | Administrador de segurança
 Leia todas as configurações | Leitor global | 
 
 ## <a name="security---conditional-access"></a>Segurança - Acesso Condicional
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Configure endereços IP fidedignos do MFA | Administrador de Acesso Condicional | 
-Criar controlos personalizados | Administrador de Acesso Condicional | Administrador de segurança
-Criar locais nomeados | Administrador de Acesso Condicional | Administrador de segurança
-Criar políticas | Administrador de Acesso Condicional | Administrador de segurança
-Criar termos de utilização | Administrador de Acesso Condicional | Administrador de segurança
-Criar certificado de conectividade VPN | Administrador de Acesso Condicional | Administrador de segurança
-Eliminar a política clássica | Administrador de Acesso Condicional | Administrador de segurança
-Eliminar termos de utilização | Administrador de Acesso Condicional | Administrador de segurança
-Eliminar certificado de conectividade VPN | Administrador de Acesso Condicional | Administrador de segurança
-Desativar a política clássica | Administrador de Acesso Condicional | Administrador de segurança
-Gerir controlos personalizados | Administrador de Acesso Condicional | Administrador de segurança
-Gerir locais nomeados | Administrador de Acesso Condicional | Administrador de segurança
-Gerir termos de utilização | Administrador de Acesso Condicional | Administrador de segurança
+Configure endereços IP fidedignos da MFA | Administrador de acesso condicional | 
+Criar controlos personalizados | Administrador de acesso condicional | Administrador de segurança
+Criar localizações nomeadas | Administrador de acesso condicional | Administrador de segurança
+Criar políticas | Administrador de acesso condicional | Administrador de segurança
+Criar termos de utilização | Administrador de acesso condicional | Administrador de segurança
+Criar certificado de conectividade VPN | Administrador de acesso condicional | Administrador de segurança
+Excluir a política clássica | Administrador de acesso condicional | Administrador de segurança
+Eliminar termos de utilização | Administrador de acesso condicional | Administrador de segurança
+Eliminar certificado de conectividade VPN | Administrador de acesso condicional | Administrador de segurança
+Desativar a política clássica | Administrador de acesso condicional | Administrador de segurança
+Gerir controlos personalizados | Administrador de acesso condicional | Administrador de segurança
+Gerir localizações nomeadas | Administrador de acesso condicional | Administrador de segurança
+Gerir termos de utilização | Administrador de acesso condicional | Administrador de segurança
 Leia todas as configurações | Leitor de segurança | Administrador de segurança
-Ler locais nomeados | Leitor de segurança | Administrador de Acesso Condicional, administrador de segurança
+Ler locais nomeados | Leitor de segurança | Administrador de acesso condicional, administrador de segurança
 
 ## <a name="security---identity-security-score"></a>Segurança - Pontuação de segurança de identidade
 
@@ -303,12 +314,12 @@ Leia todas as configurações | Leitor de segurança | Administrador de seguran�
 Leia a pontuação de segurança | Leitor de segurança | Administrador de segurança
 Atualizar o estado do evento | Administrador de segurança | 
 
-## <a name="security---risky-sign-ins"></a>Segurança - Inscrições arriscadas
+## <a name="security---risky-sign-ins"></a>Segurança - Entradas arriscadas
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
 Leia todas as configurações | Leitor de Segurança | 
-Ler inscrições arriscadas | Leitor de Segurança | 
+Leia insusição arriscada | Leitor de Segurança | 
 
 ## <a name="security---users-flagged-for-risk"></a>Segurança - Utilizadores sinalizados para risco
 
@@ -316,29 +327,29 @@ Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
 Dispensar todos os eventos | Administrador de Segurança | 
 Leia todas as configurações | Leitor de Segurança | 
-Ler utilizadores sinalizados para o risco | Leitor de Segurança | 
+Leia os utilizadores sinalizados para o risco | Leitor de Segurança | 
 
 ## <a name="users"></a>Utilizadores
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Adicionar o utilizador ao papel de diretório | Administrador privilegiado | 
+Adicione o utilizador ao papel de diretório | Administrador privilegiado | 
 Adicionar utilizador ao grupo | Administrador de utilizadores | 
-Atribuir licença | Administrador de licença | Administrador de utilizadores
-Criar o utilizador convidado | Convidado convidado | Administrador de utilizadores
+Atribuir licença | Administrador de licenças | Administrador de utilizadores
+Criar utilizador convidado | Convidado convidado | Administrador de utilizadores
 Criar utilizador | Administrador de utilizadores | 
 Eliminar utilizadores | Administrador de utilizadores | 
-Invalidar fichas de atualização de administradores limitados (ver documentação) | Administrador de utilizadores | 
-Invalidar fichas de atualização de não administradores (ver documentação) | Administrador de palavras-passe | Administrador de utilizadores
-Invalidar fichas de atualização de administradores privilegiados (ver documentação) | Administrador de Autenticação Privilegiada | 
-Ler configuração básica | Função de utilizador padrão[(ver documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
+Tokens de atualização invalidado de administradores limitados (ver documentação) | Administrador de utilizadores | 
+Tokens de atualização invalidado de administradores não administrativos (ver documentação) | Administrador de palavras-passe | Administrador de utilizadores
+Tokens de atualização invalidado de administradores privilegiados (ver documentação) | Administrador de Autenticação Privilegiada | 
+Ler configuração básica | Papel de utilizador predefinido[(ver documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
 Redefinir a palavra-passe para administradores limitados (ver documentação) | Administrador de utilizadores | 
-Repor a palavra-passe de não administradores (ver documentação) | Administrador de palavras-passe | Administrador de utilizadores
-Redefinir palavra-passe de administradores privilegiados | Administrador de Autenticação Privilegiada | 
-Revogar licença | Administrador de licença | Administrador de utilizadores
-Atualizar todas as propriedades, exceto Nome Principal do Utilizador | Administrador de utilizadores | 
-Atualizar nome principal do utilizador para administradores limitados (ver documentação) | Administrador de utilizadores | 
-Atualizar propriedade nome principal do utilizador em administradores privilegiados (ver documentação) | Administrador Global | 
+Redefinir a palavra-passe dos administradores não administrativos (ver documentação) | Administrador de palavras-passe | Administrador de utilizadores
+Redefinir a palavra-passe dos administradores privilegiados | Administrador de Autenticação Privilegiada | 
+Revogar licença | Administrador de licenças | Administrador de utilizadores
+Atualizar todas as propriedades, exceto o nome principal do utilizador | Administrador de utilizadores | 
+Atualizar Nome Principal do Utilizador para administradores limitados (ver documentação) | Administrador de utilizadores | 
+Atualizar propriedade do nome principal do utilizador em administradores privilegiados (ver documentação) | Administrador Global | 
 Atualizar as definições do utilizador | Administrador Global | 
 
 
@@ -346,9 +357,9 @@ Atualizar as definições do utilizador | Administrador Global |
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Enviar bilhete de apoio | Administrador de Serviços | Administrador de aplicação, Administrador de Proteção de Informação Azure, Administrador de Faturação, Administrador de Aplicação em Nuvem, Administrador de Conformidade, Administrador da Dynamics 365, Administrador de Análise de Desktop, Administrador de Troca, Administrador de Passwords, Administrador intune, Skype para Administrador de Negócios, Administrador de Energia, Administrador de Autenticação Privilegiada, Administrador de Dados, Administrador de Comunicações de Equipas, Administrador de Equipas, Administrador de Utilizador, Administrador de Análise de Local de Trabalho
+Envie bilhete de apoio | Administrador de Serviços | Administrador de Aplicação, Administrador de Proteção de Informação Azure, Administrador de Faturação, Administrador de Aplicação na Nuvem, Administrador de Conformidade, Administrador dinâmico 365, Administrador de Análise de Ambiente, Administrador de Intercâmbio, Administrador de Password, Administrador Intune, Administrador de Negócios, Administrador de Power BI, Administrador de Autenticação Privilegiada, Administrador de Partilha de Comunicações, Administrador de Equipas, Administrador de Equipas, Administrador de Análise de Utilizador, Administrador de Análise de Trabalho
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Como atribuir ou remover funções de administrador da AD azure](directory-manage-roles-portal.md)
+* [Como atribuir ou remover funções de administrador ad azul](directory-manage-roles-portal.md)
 * [Referência de funções de administrador da AD Azure](directory-assign-admin-roles.md)

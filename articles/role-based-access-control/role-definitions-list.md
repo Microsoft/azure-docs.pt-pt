@@ -1,6 +1,6 @@
 ---
-title: Definições de papel da Lista Azure - Azure RBAC
-description: Saiba como listar as funções integradas e personalizadas do Azure utilizando o portal Azure, O PowerShell, o Azure CLI ou o REST API.
+title: Lista Azure definições de função - Azure RBAC
+description: Saiba como listar funções azure incorporadas e personalizadas usando o portal Azure PowerShell, Azure CLI ou REST API.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,48 +8,47 @@ manager: mtillman
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/06/2020
+ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e691e37a85604132a6b1c4b2af3501f2c8636e18
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.openlocfilehash: 9819b90ba390e8601cc33a17338ce9b16bf3b3cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891258"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84982497"
 ---
-# <a name="list-azure-role-definitions"></a>Lista de definições de papéis azure
+# <a name="list-azure-role-definitions"></a>Lista Azure definições de função
 
-Uma definição de papel é uma coleção de permissões que podem ser realizadas, tais como ler, escrever e excluir. Normalmente chama-se um papel. O [controlo de acesso baseado em funções azure (Azure RBAC)](overview.md) tem mais de 120 [funções incorporadas](built-in-roles.md) ou pode criar as suas próprias funções personalizadas. Este artigo descreve como listar as funções incorporadas e personalizadas que pode usar para dar acesso aos recursos do Azure.
+Uma definição de papel é uma coleção de permissões que podem ser realizadas, tais como ler, escrever e apagar. Normalmente chama-se papel. [O controlo de acesso baseado em funções (Azure RBAC)](overview.md) tem mais de 120 [funções incorporadas](built-in-roles.md) ou pode criar as suas próprias funções personalizadas. Este artigo descreve como listar as funções incorporadas e personalizadas que pode usar para conceder acesso aos recursos da Azure.
 
-Para ver a lista de funções de administrador para o Diretório Ativo do Azure, consulte [permissões de funções de administrador no Diretório Ativo do Azure](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Para ver a lista de funções de administrador para o Diretório Ativo Azure, consulte [permissões de função de administrador no Diretório Ativo Azure](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-### <a name="list-all-roles"></a>Enumerar todas as funções
+### <a name="list-all-roles"></a>Listar todos os papéis
 
-Siga estes passos para enumerar todas as funções no portal Azure.
+Siga estes passos para listar todas as funções no portal Azure.
 
-1. No portal Azure, clique em **Todos os serviços** e, em seguida, selecione qualquer âmbito. Por exemplo, pode selecionar grupos de **Gestão**, **Subscrições, Grupos** **de Recursos**ou um recurso.
+1. No portal Azure, clique em **Todos os serviços** e, em seguida, selecione qualquer âmbito. Por exemplo, pode selecionar **grupos de Gestão,** **Assinaturas, Grupos** **de Recursos**ou um recurso.
 
 1. Clique no recurso específico.
 
-1. Clique em **Controlo de acesso (IAM)**.
+1. Clique em **Controlo de acesso (IAM)** .
 
-1. Clique no separador **Roles** para ver uma lista de todas as funções incorporadas e personalizadas.
+1. Clique no **separador Funções** para ver uma lista de todas as funções incorporadas e personalizadas.
 
-   Pode ver o número de utilizadores e grupos que são atribuídos a cada função no âmbito atual.
+   Pode ver o número de utilizadores e grupos que são atribuídos a cada papel no âmbito atual.
 
    ![Lista de funções](./media/role-definitions-list/roles-list.png)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-### <a name="list-all-roles"></a>Enumerar todas as funções
+### <a name="list-all-roles"></a>Listar todos os papéis
 
-Para listar todas as funções no Azure PowerShell, utilize [a Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+Para listar todas as funções em Azure PowerShell, utilize [a Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition | FT Name, Description
@@ -69,7 +68,7 @@ Automation Operator                               Automation Operators are able 
 ...
 ```
 
-### <a name="list-a-role-definition"></a>Enumerar uma definição de papel
+### <a name="list-a-role-definition"></a>Listar uma definição de papel
 
 Para listar os detalhes de uma função específica, utilize [a Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
@@ -92,7 +91,7 @@ NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
-### <a name="list-a-role-definition-in-json-format"></a>Enumerar uma definição de papel no formato JSON
+### <a name="list-a-role-definition-in-json-format"></a>Listar uma definição de papel no formato JSON
 
 Para listar uma função no formato JSON, utilize [a Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
@@ -126,7 +125,7 @@ PS C:\> Get-AzRoleDefinition "Contributor" | ConvertTo-Json
 }
 ```
 
-### <a name="list-permissions-of-a-role-definition"></a>Lista de permissões de uma definição de papel
+### <a name="list-permissions-of-a-role-definition"></a>Permissões de lista de uma definição de papel
 
 Para listar as permissões para uma função específica, utilize [a Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
@@ -164,98 +163,104 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-### <a name="list-all-roles"></a>Enumerar todas as funções
+### <a name="list-all-roles"></a>Listar todos os papéis
 
-Para listar todas as funções no Azure CLI, utilize a [lista de definição de papéis az](/cli/azure/role/definition#az-role-definition-list).
+Para listar todas as funções no Azure CLI, utilize [a lista de definição de funções az](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
 az role definition list
 ```
 
-O exemplo seguinte enumera o nome e a descrição de todas as definições de funções disponíveis:
+O exemplo a seguir enumera o nome e a descrição de todas as definições de funções disponíveis:
 
 ```azurecli
-az role definition list --output json | jq '.[] | {"roleName":.roleName, "description":.description}'
+az role definition list --output json --query '[].{roleName:roleName, description:description}'
 ```
 
-```Output
-{
-  "roleName": "API Management Service Contributor",
-  "description": "Can manage service and the APIs"
-}
-{
-  "roleName": "API Management Service Operator Role",
-  "description": "Can manage service but not the APIs"
-}
-{
-  "roleName": "API Management Service Reader Role",
-  "description": "Read-only access to service and APIs"
-}
+```json
+[
+  {
+    "description": "Can manage service and the APIs",
+    "roleName": "API Management Service Contributor"
+  },
+  {
+    "description": "Can manage service but not the APIs",
+    "roleName": "API Management Service Operator Role"
+  },
+  {
+    "description": "Read-only access to service and APIs",
+    "roleName": "API Management Service Reader Role"
+  },
 
-...
+  ...
+
+]
 ```
 
-O exemplo seguinte enumera todas as funções incorporadas.
+O exemplo a seguir enumera todas as funções incorporadas.
 
 ```azurecli
-az role definition list --custom-role-only false --output json | jq '.[] | {"roleName":.roleName, "description":.description, "roleType":.roleType}'
+az role definition list --custom-role-only false --output json --query '[].{roleName:roleName, description:description, roleType:roleType}'
 ```
 
-```Output
-{
-  "roleName": "API Management Service Contributor",
-  "description": "Can manage service and the APIs",
-  "roleType": "BuiltInRole"
-}
-{
-  "roleName": "API Management Service Operator Role",
-  "description": "Can manage service but not the APIs",
-  "roleType": "BuiltInRole"
-}
-{
-  "roleName": "API Management Service Reader Role",
-  "description": "Read-only access to service and APIs",
-  "roleType": "BuiltInRole"
-}
+```json
+[
+  {
+    "description": "Can manage service and the APIs",
+    "roleName": "API Management Service Contributor",
+    "roleType": "BuiltInRole"
+  },
+  {
+    "description": "Can manage service but not the APIs",
+    "roleName": "API Management Service Operator Role",
+    "roleType": "BuiltInRole"
+  },
+  {
+    "description": "Read-only access to service and APIs",
+    "roleName": "API Management Service Reader Role",
+    "roleType": "BuiltInRole"
+  },
+  
+  ...
 
-...
+]
 ```
 
-### <a name="list-a-role-definition"></a>Enumerar uma definição de papel
+### <a name="list-a-role-definition"></a>Listar uma definição de papel
 
-Para listar detalhes de um papel, use a lista de definição de [papéis az](/cli/azure/role/definition#az-role-definition-list).
+Para listar detalhes de uma [função, utilize a lista de definição de função az](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
-az role definition list --name <role_name>
+az role definition list --name {roleName}
 ```
 
-O exemplo seguinte enumera a definição de função *do Contribuinte:*
+O exemplo a seguir enumera a definição de função *contribuinte:*
 
 ```azurecli
 az role definition list --name "Contributor"
 ```
 
-```Output
+```json
 [
   {
-    "additionalProperties": {},
     "assignableScopes": [
       "/"
     ],
     "description": "Lets you manage everything except access to resources.",
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+    "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
     "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
     "permissions": [
       {
         "actions": [
           "*"
         ],
-        "additionalProperties": {},
         "dataActions": [],
         "notActions": [
           "Microsoft.Authorization/*/Delete",
           "Microsoft.Authorization/*/Write",
-          "Microsoft.Authorization/elevateAccess/Action"
+          "Microsoft.Authorization/elevateAccess/Action",
+          "Microsoft.Blueprint/blueprintAssignments/write",
+          "Microsoft.Blueprint/blueprintAssignments/delete"
         ],
         "notDataActions": []
       }
@@ -267,48 +272,59 @@ az role definition list --name "Contributor"
 ]
 ```
 
-### <a name="list-permissions-of-a-role-definition"></a>Lista de permissões de uma definição de papel
+### <a name="list-permissions-of-a-role-definition"></a>Permissões de lista de uma definição de papel
 
-O exemplo seguinte enumera apenas as *ações* e *não as ações* do papel de *Contribuinte.*
-
-```azurecli
-az role definition list --name "Contributor" --output json | jq '.[] | {"actions":.permissions[0].actions, "notActions":.permissions[0].notActions}'
-```
-
-```Output
-{
-  "actions": [
-    "*"
-  ],
-  "notActions": [
-    "Microsoft.Authorization/*/Delete",
-    "Microsoft.Authorization/*/Write",
-    "Microsoft.Authorization/elevateAccess/Action"
-  ]
-}
-```
-
-O exemplo seguinte enumera apenas as ações do papel de Colaborador de *Máquina Virtual.*
+O exemplo a seguir enumera apenas as *ações* e *não asacções* do papel *do Contribuinte.*
 
 ```azurecli
-az role definition list --name "Virtual Machine Contributor" --output json | jq '.[] | .permissions[0].actions'
+az role definition list --name "Contributor" --output json --query '[].{actions:permissions[0].actions, notActions:permissions[0].notActions}'
 ```
 
-```Output
+```json
 [
-  "Microsoft.Authorization/*/read",
-  "Microsoft.Compute/availabilitySets/*",
-  "Microsoft.Compute/locations/*",
-  "Microsoft.Compute/virtualMachines/*",
-  "Microsoft.Compute/virtualMachineScaleSets/*",
-  "Microsoft.Insights/alertRules/*",
-  "Microsoft.Network/applicationGateways/backendAddressPools/join/action",
-  "Microsoft.Network/loadBalancers/backendAddressPools/join/action",
+  {
+    "actions": [
+      "*"
+    ],
+    "notActions": [
+      "Microsoft.Authorization/*/Delete",
+      "Microsoft.Authorization/*/Write",
+      "Microsoft.Authorization/elevateAccess/Action",
+      "Microsoft.Blueprint/blueprintAssignments/write",
+      "Microsoft.Blueprint/blueprintAssignments/delete"
+    ]
+  }
+]
+```
 
-  ...
+O exemplo a seguir enumera apenas as ações do *papel de Contribuinte de Máquina Virtual.*
 
-  "Microsoft.Storage/storageAccounts/listKeys/action",
-  "Microsoft.Storage/storageAccounts/read"
+```azurecli
+az role definition list --name "Virtual Machine Contributor" --output json --query '[].permissions[0].actions'
+```
+
+```json
+[
+  [
+    "Microsoft.Authorization/*/read",
+    "Microsoft.Compute/availabilitySets/*",
+    "Microsoft.Compute/locations/*",
+    "Microsoft.Compute/virtualMachines/*",
+    "Microsoft.Compute/virtualMachineScaleSets/*",
+    "Microsoft.Compute/disks/write",
+    "Microsoft.Compute/disks/read",
+    "Microsoft.Compute/disks/delete",
+    "Microsoft.DevTestLab/schedules/*",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Network/applicationGateways/backendAddressPools/join/action",
+    "Microsoft.Network/loadBalancers/backendAddressPools/join/action",
+
+    ...
+
+    "Microsoft.Storage/storageAccounts/listKeys/action",
+    "Microsoft.Storage/storageAccounts/read",
+    "Microsoft.Support/*"
+  ]
 ]
 ```
 
@@ -316,7 +332,7 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 
 ### <a name="list-role-definitions"></a>Listar definições de função
 
-Para listar definições de papéis, utilize as [Definições](/rest/api/authorization/roledefinitions/list) de Papel - Lista REST API. Para refinar os seus resultados, especifice um âmbito e um filtro opcional.
+Para listar definições de funções, utilize as [Definições de Função - Lista](/rest/api/authorization/roledefinitions/list) REST API. Para refinar os seus resultados, especifique um âmbito e um filtro opcional.
 
 1. Comece com o seguinte pedido:
 
@@ -324,7 +340,7 @@ Para listar definições de papéis, utilize as [Definições](/rest/api/authori
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?$filter={$filter}&api-version=2015-07-01
     ```
 
-1. Dentro do URI, substitua *{scope}* com o âmbito para o qual pretende enumerar as definições de função.
+1. Dentro do URI, substitua *{scope}* pelo âmbito para o qual pretende listar as definições de funções.
 
     > [!div class="mx-tableFixed"]
     > | Âmbito | Tipo |
@@ -334,15 +350,15 @@ Para listar definições de papéis, utilize as [Definições](/rest/api/authori
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Grupo de recursos |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Recurso |
 
-    No exemplo anterior, o microsoft.web é um fornecedor de recursos que se refere a uma instância do Serviço de Aplicações. Da mesma forma, pode utilizar quaisquer outros fornecedores de recursos e especificar o âmbito. Para mais informações, consulte [os fornecedores e tipos de recursos da Azure](../azure-resource-manager/management/resource-providers-and-types.md) e apoiou as operações de fornecedor de recursos do Gestor de [Recursos Azure.](resource-provider-operations.md)  
+    No exemplo anterior, o microsoft.web é um fornecedor de recursos que se refere a uma instância do Serviço de Aplicações. Da mesma forma, pode utilizar quaisquer outros fornecedores de recursos e especificar o âmbito. Para obter mais informações, consulte [os fornecedores e tipos de recursos da Azure Resource](../azure-resource-manager/management/resource-providers-and-types.md) e as operações de [fornecedores de recursos do Azure Resource Manager.](resource-provider-operations.md)  
      
-1. Substitua *{filter}* com a condição que pretende aplicar para filtrar a lista de definição de funções.
+1. Substitua *{filter}* pela condição que pretende aplicar para filtrar a lista de definição de funções.
 
     > [!div class="mx-tableFixed"]
-    > | Filtro | Descrição |
+    > | Filtrar | Descrição |
     > | --- | --- |
-    > | `$filter=atScopeAndBelow()` | Enumera as definições de funções para o âmbito especificado e quaisquer subscópios. |
-    > | `$filter=type+eq+'{type}'` | Lista as definições de funções do tipo especificado. Tipo de papel `CustomRole` `BuiltInRole`pode ser ou . |
+    > | `$filter=atScopeAndBelow()` | Lista definições de funções para o âmbito especificado e quaisquer subscópios. |
+    > | `$filter=type+eq+'{type}'` | Lista definições de funções do tipo especificado. Tipo de papel pode ser `CustomRole` ou `BuiltInRole` . . |
 
 O seguinte pedido lista definições de funções personalizadas no âmbito da subscrição:
 
@@ -393,9 +409,9 @@ O seguinte mostra um exemplo da saída:
 }
 ```
 
-### <a name="list-a-role-definition"></a>Enumerar uma definição de papel
+### <a name="list-a-role-definition"></a>Listar uma definição de papel
 
-Para listar os detalhes de uma função específica, utilize as [Definições](/rest/api/authorization/roledefinitions/get) de Papel - Obter ou [Definições](/rest/api/authorization/roledefinitions/getbyid) de Papel - Obter Por Id REST API.
+Para listar os detalhes de uma função específica, use as [Definições de Função - Obter](/rest/api/authorization/roledefinitions/get) ou [Definições de Função - Obter por Id](/rest/api/authorization/roledefinitions/getbyid) REST API.
 
 1. Comece com o seguinte pedido:
 
@@ -403,13 +419,13 @@ Para listar os detalhes de uma função específica, utilize as [Definições](/
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
     ```
 
-    Para uma definição de função de nível de diretório, pode utilizar este pedido:
+    Para uma definição de papel ao nível do diretório, pode utilizar este pedido:
 
     ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
     ```
 
-1. Dentro do URI, substitua *{scope}* com o âmbito para o qual pretende enumerar a definição de função.
+1. Dentro do URI, substitua *{scope}* pelo âmbito para o qual pretende listar a definição de função.
 
     > [!div class="mx-tableFixed"]
     > | Âmbito | Tipo |
@@ -419,9 +435,9 @@ Para listar os detalhes de uma função específica, utilize as [Definições](/
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Grupo de recursos |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Recurso |
      
-1. Substitua *{roleDefinitionId}* com o identificador de definição de funções.
+1. Substitua *{roleDefinitionId}* pelo identificador de definição de função.
 
-O seguinte pedido lista a definição de função [do Leitor:](built-in-roles.md#reader)
+O seguinte pedido lista a definição de função [Reader:](built-in-roles.md#reader)
 
 ```http
 GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7?api-version=2015-07-01
@@ -457,9 +473,9 @@ O seguinte mostra um exemplo da saída:
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Papéis azure embutidos](built-in-roles.md)
-- [Papéis personalizados do Azure](custom-roles.md)
-- [Lista de atribuições de funções azure usando o portal Azure](role-assignments-list-portal.md)
-- [Adicione ou remova atribuições de funções Azure utilizando o portal Azure](role-assignments-portal.md)
+- [Funções incorporadas de Azure](built-in-roles.md)
+- [Funções personalizadas Azure](custom-roles.md)
+- [Liste atribuições de funções Azure usando o portal Azure](role-assignments-list-portal.md)
+- [Adicione ou remova atribuições de funções Azure usando o portal Azure](role-assignments-portal.md)

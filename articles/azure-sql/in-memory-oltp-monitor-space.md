@@ -1,6 +1,6 @@
 ---
-title: Monitor armazenamento de memória xtp
-description: Estimar e monitorizar o uso de armazenamento de memória xTP, capacidade; resolver erro de capacidade 41823
+title: Monitor XTP Armazenamento na memória
+description: Estimar e monitorizar a utilização, capacidade de armazenamento de memória XTP; resolver erro de capacidade 41823
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -11,21 +11,20 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 6ab303c06f1ca6c7ab6a7a192532b79505676811
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: a4747fcd3a68c91e10d13a03adcbc4930bd9d759
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046881"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84345262"
 ---
-# <a name="monitor-in-memory-oltp-storage-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitor armazenamento OLTP em Azure SQL Database e Azure SQL Managed Instance
+# <a name="monitor-in-memory-oltp-storage-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitor de armazenamento OLTP na memória OLTP em Azure SQL Database e Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-Ao utilizar [o OLTP in-memory](in-memory-oltp-overview.md), os dados em tabelas otimizadas de memória e variáveis de mesa residem no armazenamento OLTP in-Memory.
+Quando se utiliza [o OLTP in-memory](in-memory-oltp-overview.md), os dados em tabelas otimizadas pela memória e variáveis de tabela residem no armazenamento de OLTP in-memory.
 
-## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Determine se os dados se enquadram na tampa de armazenamento OLTP em memória
+## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Determinar se os dados se enquadram na tampa de armazenamento OLTP in-memory
 
-Determine as tampas de armazenamento dos diferentes níveis de serviço. Cada nível de serviço Premium e Business Critical tem um tamanho máximo de armazenamento OLTP em Memória.
+Determine as tampas de armazenamento dos diferentes níveis de serviço. Cada nível de serviço Premium e Business Critical tem um tamanho máximo de armazenamento OLTP in-memory.
 
 - [Limites de recursos baseados em DTU - base de dados única](database/resource-limits-dtu-single-databases.md)
 - [Limites de recursos baseados em DTU - piscinas elásticas](database/resource-limits-dtu-elastic-pools.md)
@@ -33,40 +32,40 @@ Determine as tampas de armazenamento dos diferentes níveis de serviço. Cada n�
 - [limites de recursos baseados em vCore - piscinas elásticas](database/resource-limits-vcore-elastic-pools.md)
 - [limites de recursos baseados em vCore - instância gerida](managed-instance/resource-limits.md)
 
-Estimar os requisitos de memória para uma tabela otimizada pela memória funciona da mesma forma para o Servidor SQL como no Azure SQL Database e Azure SQL Managed Instance. Derelhe alguns minutos para rever [Os requisitos](/sql/relational-databases/in-memory-oltp/estimate-memory-requirements-for-memory-optimized-tables)de memória de estimativa .
+Estimar os requisitos de memória para uma tabela otimizada pela memória funciona da mesma forma para o SQL Server do que na Base de Dados Azure SQL e na Azure SQL Managed Instance. Dedem alguns minutos a rever [os requisitos de memória de estimativa](/sql/relational-databases/in-memory-oltp/estimate-memory-requirements-for-memory-optimized-tables).
 
-As linhas variáveis de tabela e mesa, bem como os índices, contam para o tamanho máximo dos dados dos utilizadores. Além disso, a ALTER TABLE necessita de espaço suficiente para criar uma nova versão de toda a tabela e dos seus índices.
+As linhas variáveis de tabela e tabela, bem como os índices, contam para o tamanho máximo dos dados do utilizador. Além disso, o ALTER TABLE necessita de espaço suficiente para criar uma nova versão de toda a tabela e seus índices.
 
-Uma vez ultrapassado este limite, as operações de inserção e atualização podem começar a falhar com o erro 41823 para bases de dados únicas na Base de Dados Azure SQL e bases de dados em 1ª Instância Gerida Azure SQL, e erro 41840 para piscinas elásticas na Base de Dados Azure SQL. Nessa altura, é necessário eliminar dados para recuperar a memória, ou atualizar o nível de serviço ou calcular o tamanho da sua base de dados.
+Uma vez ultrapassado este limite, as operações de inserção e atualização podem começar a falhar com o erro 41823 para bases de dados únicas na Base de Dados Azure SQL e bases de dados em Azure SQL Managed Instance, e erro 41840 para piscinas elásticas na Base de Dados Azure SQL. Nessa altura, é necessário eliminar dados para recuperar a memória, ou atualizar o nível de serviço ou o tamanho do cálculo da sua base de dados.
 
 ## <a name="monitoring-and-alerting"></a>Monitorização e alertas
 
-Pode monitorizar o armazenamento em memória em percentagem da tampa de armazenamento para o seu tamanho de computação no [portal Azure:](https://portal.azure.com/)
+Pode monitorizar a utilização do armazenamento na memória em percentagem da tampa de armazenamento para o seu tamanho de cálculo no [portal Azure](https://portal.azure.com/):
 
-1. Na lâmina base de dados, localize a caixa de utilização do Recurso e clique em Editar.
+1. Na lâmina base de dados, localize a caixa de utilização de recursos e clique em Editar.
 2. Selecione a métrica `In-Memory OLTP Storage percentage` .
-3. Para adicionar um alerta, clique na caixa de utilização de recursos para abrir a lâmina Métrica e, em seguida, clique em Adicionar alerta.
+3. Para adicionar um alerta, clique na caixa de utilização de recursos para abrir a lâmina métrica e, em seguida, clique em Adicionar alerta.
 
-Ou utilize a seguinte consulta para mostrar a utilização do armazenamento em memória:
+Ou utilize a seguinte consulta para mostrar a utilização do armazenamento na memória:
 
 ```sql
     SELECT xtp_storage_percent FROM sys.dm_db_resource_stats
 ```
 
-## <a name="correct-out-of-in-memory-oltp-storage-situations---errors-41823-and-41840"></a>Corrigir situações de armazenamento oLTP fora de memória - Erros 41823 e 41840
+## <a name="correct-out-of-in-memory-oltp-storage-situations---errors-41823-and-41840"></a>Corrigir situações de armazenamento OLTP fora de memória - Erros 41823 e 41840
 
-Bater na tampa de armazenamento OLTP em memória na sua base de dados resulta em operações INSERT, UPDATE, ALTER e CREATE falhando com a mensagem de erro 41823 (para bases de dados únicas) ou erro 41840 (para piscinas elásticas). Ambos os erros fazem com que a transação ativa aborte.
+A touca de armazenamento OLTP na sua base de dados resulta em operações INSERT, UPDATE, ALTER e CREATE que falham com a mensagem de erro 41823 (para bases de dados únicas) ou erro 41840 (para piscinas elásticas). Ambos os erros fazem com que a transação ativa aborte.
 
-As mensagens de erro 41823 e 41840 indicam que as tabelas otimizadas pela memória e as variáveis de mesa na base de dados ou piscina atingiram o tamanho máximo de armazenamento OLTP em Memória.
+As mensagens de erro 41823 e 41840 indicam que as tabelas e variáveis de tabela otimizadas pela memória na base de dados ou na piscina atingiram o tamanho máximo de armazenamento de OLTP in-memory.
 
 Para resolver este erro, também:
 
 - Eliminar dados das tabelas otimizadas pela memória, potencialmente descarregando os dados para tabelas tradicionais baseadas em discos; ou,
-- Atualize o nível de serviço para um com armazenamento suficiente na memória para os dados que precisa de guardar em tabelas otimizadas pela memória.
+- Atualize o nível de serviço para um com armazenamento de memória suficiente para os dados que precisa de manter em tabelas otimizadas pela memória.
 
 > [!NOTE]
-> Em casos raros, os erros 41823 e 41840 podem ser transitórios, o que significa que há armazenamento oLTP suficiente disponível em Memória, e tentar a operação tem sucesso. Recomendamos, portanto, monitorizar o armazenamento geral disponível em Memória OLTP e retentar quando encontrar o erro 41823 ou 41840. Para obter mais informações sobre a lógica de retry, consulte a Lógica de [Deteção de Conflitos e Retry com OLTP in-memory](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
+> Em casos raros, os erros 41823 e 41840 podem ser transitórios, o que significa que há armazenamento OLTP disponível suficiente e a reorientação da operação tem sucesso. Por isso, recomendamos que monitorize o armazenamento geral disponível em memória OLTP e que refaça quando encontrar o erro 41823 ou 41840. Para obter mais informações sobre a lógica de relemissão, consulte [a Lógica de Deteção de Conflitos e Retripsto com OLTP in-memory](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para obter orientação de monitorização, consulte [a monitorização utilizando pontos](database/monitoring-with-dmvs.md)de vista dinâmicos de gestão .
+Para orientar a monitorização, consulte [a monitorização utilizando pontos de vista dinâmicos de gestão](database/monitoring-with-dmvs.md).

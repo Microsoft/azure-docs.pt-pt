@@ -3,12 +3,12 @@ title: Complete uma recuperação de desastres de máquinas virtuais
 description: Este artigo mostra como completar uma recuperação de desastres de máquinas virtuais usando AVS
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 5fdfc252486d94fcc22ebba9705fa5e259539921
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 5ccaa009c8e3e059597636a8bb78cc3bd255fe68
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148162"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84749958"
 ---
 # <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Complete uma recuperação de desastres de máquinas virtuais usando Azure VMware Solution
 
@@ -56,7 +56,7 @@ Se necessário, selecione as opções de replicação predefinidos:
 
 - **Ativar a Quiescence:** Pausa o VM para garantir que uma cópia consistente é sincronizada com o site remoto.
 
-- **Armazenamento de destino:** Selecione a loja de dados remota para os VM(s) protegidos. Numa nuvem privada AVS, esta seleção deve ser a loja de dados VSAN.
+- **Armazenamento de destino:** Selecione a loja de dados remota para os VM(s) protegidos. Numa nuvem privada AVS, esta seleção deve ser a loja de dados vSAN.
 
 - **Recipiente de computação:** O cluster remoto vSphere ou piscina de recursos.
 

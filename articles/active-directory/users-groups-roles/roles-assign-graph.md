@@ -1,36 +1,35 @@
 ---
-title: Atribuir funções de administrador da AD Azure com a Microsoft Graph API [ Microsoft Docs
-description: Atribuir e remover funções de administrador da AD Azure com Gráfico API no Diretório Ativo Azure
+title: Atribuir funções de administração Azure AD com a Microsoft Graph API Microsoft Docs
+description: Atribuir e remover funções de administrador da AD Azure com API de gráfico no Diretório Ativo Azure
 services: active-directory
 author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ac6f06a936893f26c634951e50a3579401c15d5
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: MT
+ms.openlocfilehash: 44299a55424f9b0338ee49d2742aeedf16db22e8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869615"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84732094"
 ---
-# <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Atribuir funções de administração personalizada utilizando o Microsoft Graph API no Diretório Ativo Azure 
+# <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Atribuir funções de administração personalizadas utilizando a API do Gráfico microsoft em Azure Ative Directory 
 
-Pode automatizar a forma como atribui funções às contas dos utilizadores utilizando a API do Microsoft Graph. Este artigo abrange operações POST, GET e DELETE em tarefas.
+Pode automatizar a forma como atribui funções a contas de utilizador utilizando a API do Microsoft Graph. Este artigo abrange as operações post, GET e DELETE sobre funções Assignments.
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
-Ligue-se à sua organização Azure AD utilizando uma conta de administrador global ou administrador de Identidade Privilegiada para atribuir ou remover funções.
+Conecte-se à sua organização Azure AD usando uma conta de administrador global ou administrador de identidade privilegiada para atribuir ou remover funções.
 
-## <a name="post-operations-on-roleassignment"></a>Operações POST na Atribuição de Funções
+## <a name="post-operations-on-roleassignment"></a>Operações POST sobre RoleAssignment
 
-HTTP solicita a criação de uma atribuição de funções entre um utilizador e uma definição de função.
+HTTP solicitação para criar uma atribuição de papel entre um utilizador e uma definição de função.
 
 POST
 
@@ -55,7 +54,7 @@ Resposta
 HTTP/1.1 201 Created
 ```
 
-PEDIDO HTTP para criar uma atribuição de funções onde a definição principal ou de função não existe
+HTTP solicitação para criar uma atribuição de função onde a definição principal ou de função não existe
 
 POST
 
@@ -79,10 +78,10 @@ Resposta
 HTTP/1.1 404 Not Found
 ```
 
-Http solicita a criação de uma atribuição de funções de recurso único numa definição de função incorporada.
+HTTP solicita a criação de uma atribuição de papel de âmbito único de recursos numa definição de função incorporada.
 
 > [!NOTE] 
-> As funções incorporadas têm hoje uma limitação em que só podem ser orientadas para o âmbito "/" da organização ou para o âmbito "/AU/*". A deteção de recursos únicos não funciona para funções incorporadas, mas funciona para funções personalizadas.
+> As funções incorporadas têm hoje uma limitação em que podem ser apenas a nível da organização ou do âmbito "/AU/*". A deteção de recursos únicos não funciona para funções incorporadas, mas funciona para funções personalizadas.
 
 POST
 
@@ -124,9 +123,9 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-## <a name="get-operations-on-roleassignment"></a>GET Operações em RoleAssignment
+## <a name="get-operations-on-roleassignment"></a>Get Operações no RoleAssignment
 
-HTTP solicita obter uma atribuição de funções para um determinado principal
+HTTP solicita para obter uma atribuição de papel para um dado diretor
 
 GET
 
@@ -152,7 +151,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-HTTP solicita obter uma atribuição de funções para uma determinada definição de papel.
+HTTP solicita para obter uma atribuição de papel para uma determinada definição de função.
 
 GET
 
@@ -172,7 +171,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-HTTP solicita obter uma atribuição de funções por ID.
+HTTP solicita para obter uma atribuição de papel por ID.
 
 GET
 
@@ -192,9 +191,9 @@ HTTP/1.1 200 OK
 }
 ```
 
-## <a name="delete-operations-on-roleassignment"></a>ELIMINAR Operações na Atribuição de Funções
+## <a name="delete-operations-on-roleassignment"></a>EXCLUIR Operações sobre a assinatura de roleAssignment
 
-HTTP solicita a eliminação de uma atribuição de funções entre um utilizador e uma definição de função.
+HTTP solicita para eliminar uma atribuição de funções entre um utilizador e uma definição de função.
 
 DELETE
 
@@ -207,7 +206,7 @@ Resposta
 HTTP/1.1 204 No Content
 ```
 
-HTTP solicita a eliminação de uma atribuição de funções que já não existe
+HTTP solicita para apagar uma atribuição de função que já não existe
 
 DELETE
 
@@ -221,7 +220,7 @@ Resposta
 HTTP/1.1 404 Not Found
 ```
 
-PEDIDO HTTP para eliminar uma atribuição de funções entre a definição de função auto-incorporada
+HTTP solicita para apagar uma atribuição de papel entre definição de função auto e incorporada
 
 DELETE
 
@@ -247,8 +246,8 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Sinta-se livre para partilhar connosco no fórum de [funções administrativas da Azure AD.](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
-* Para mais informações sobre funções e atribuição de funções de administrador, consulte [as funções de administrador de atribuição](directory-assign-admin-roles.md).
-* Para obter permissões de utilizador predefinidas, consulte uma [comparação das permissões padrão dos hóspedes e dos utilizadores dos membros](../fundamentals/users-default-permissions.md).
+* Sinta-se livre para compartilhar conosco no fórum de [funções administrativas Azure AD.](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
+* Para obter mais informações sobre funções e atribuição de funções de Administrador, consulte [as funções de administrador de atribuição](directory-assign-admin-roles.md).
+* Para obter permissões de utilizador predefinidos, consulte uma [comparação entre as permissões de utilizador e de hóspedes predefinidos](../fundamentals/users-default-permissions.md).

@@ -1,66 +1,66 @@
 ---
 title: Gerir servidor - Portal Azure - Base de Dados Azure para MariaDB
-description: Saiba como gerir uma Base de Dados Azure para o servidor MariaDB a partir do portal Azure.
+description: Saiba como gerir uma Base de Dados Azure para servidor MariaDB a partir do portal Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 43004f8c52bbec17f78ed4be024cf75224dbd179
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 196b1dda17de1c9430ab048ac90d1d10b6a595b4
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79530245"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104695"
 ---
-# <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Gerir uma Base de Dados Azure para servidor MariaDB utilizando o portal Azure
-Este artigo mostra-lhe como gerir a sua Base de Dados Azure para servidores MariaDB. As tarefas de gestão incluem a análise e o dimensionamento de armazenamento, o reset da palavra-passe de administrador e os detalhes do servidor de visualização.
+# <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Gerir uma base de dados Azure para servidor MariaDB utilizando o portal Azure
+Este artigo mostra-lhe como gerir a sua Base de Dados Azure para servidores MariaDB. As tarefas de gestão incluem o dimensionamento de cálculo e armazenamento, o reset da palavra-passe de administração e a visualização de detalhes do servidor.
 
 ## <a name="sign-in"></a>Iniciar sessão
 Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-server"></a>Criar um servidor
-Visite o [quickstart](quickstart-create-mariadb-server-database-using-azure-portal.md) para aprender a criar e começar com uma Base de Dados Azure para servidor MariaDB.
+Visite o [quickstart](quickstart-create-mariadb-server-database-using-azure-portal.md) para aprender a criar e começar com uma Base de Dados Azure para o servidor MariaDB.
 
-## <a name="scale-compute-and-storage"></a>Cálculo de escala e armazenamento
+## <a name="scale-compute-and-storage"></a>Cálculo e armazenamento em escala
 
-Após a criação do servidor, pode escalar entre os níveis De Propósito Geral e Memória Otimizados à medida que as suas necessidades mudam. Também pode escalar a computação e a memória aumentando ou diminuindo os vCores. O armazenamento pode ser dimensionado (no entanto, não é possível reduzir o armazenamento).
+Após a criação do servidor, pode escalar entre os níveis de Finalidade Geral e Memória Otimizados à medida que as suas necessidades mudam. Também pode escalar o cálculo e a memória aumentando ou diminuindo os vCores. O armazenamento pode ser dimensionado (no entanto, não é possível reduzir o armazenamento).
 
-### <a name="scale-between-general-purpose-and-memory-optimized-tiers"></a>Escala entre propósito geral e níveis otimizados de memória
+### <a name="scale-between-general-purpose-and-memory-optimized-tiers"></a>Escala entre os níveis otimizados de propósito geral e memória
 
-Pode escalar de Propósito Geral para Memória Otimizada e vice-versa. A alteração de e para o nível Básico após a criação do servidor não é suportada. 
+Pode escalar de Final geral para memória Otimizada e vice-versa. A alteração de e para o nível Básico após a criação do servidor não é suportada. 
 
-1. Selecione o seu servidor no portal Azure. Selecione **o nível**de preços, localizado na secção **Definições.**
+1. Selecione o seu servidor no portal Azure. Selecione **o nível de preços,** localizado na secção **Definições.**
 
-2. Selecione **Propósito Geral** ou **Memória Otimizada,** dependendo do que está a escalonar. 
+2. Selecione **Final Geral** ou **Memória Otimizada,** dependendo do que está a escalar. 
 
-    ![mudança de preços-nível](./media/howto-create-manage-server-portal/change-pricing-tier.png)
+    ![nível de alteração dos preços](./media/howto-create-manage-server-portal/change-pricing-tier.png)
 
     > [!NOTE]
-    > Mudar de nível provoca o reinício do servidor.
+    > A mudança de camadas provoca o reinício do servidor.
 
 4. Selecione **OK** para guardar alterações.
 
 
 ### <a name="scale-vcores-up-or-down"></a>Escala vCores para cima ou para baixo
 
-1. Selecione o seu servidor no portal Azure. Selecione **o nível**de preços, localizado na secção **Definições.**
+1. Selecione o seu servidor no portal Azure. Selecione **o nível de preços,** localizado na secção **Definições.**
 
-2. Altere a definição **vCore** movendo o slider para o valor desejado.
+2. Altere a definição **vCore** movendo o slider para o valor pretendido.
 
-    ![escala-computação](./media/howto-create-manage-server-portal/scaling-compute.png)
+    ![cálculo em escala](./media/howto-create-manage-server-portal/scaling-compute.png)
 
     > [!NOTE]
-    > A escalação de vCores provoca o reinício do servidor.
+    > O escalonamento vCores provoca o reinício do servidor.
 
 3. Selecione **OK** para guardar alterações.
 
 
-### <a name="scale-storage-up"></a>Armazenamento em escala para cima
+### <a name="scale-storage-up"></a>Armazenamento em escala
 
-1. Selecione o seu servidor no portal Azure. Selecione **o nível**de preços, localizado na secção **Definições.**
+1. Selecione o seu servidor no portal Azure. Selecione **o nível de preços,** localizado na secção **Definições.**
 
-2. Altere a definição de **Armazenamento** movendo o slider até ao valor desejado.
+2. Altere a definição **de Armazenamento** movendo o deslizador para o valor pretendido.
 
     ![armazenamento em escala](./media/howto-create-manage-server-portal/scaling-storage.png)
 
@@ -70,10 +70,10 @@ Pode escalar de Propósito Geral para Memória Otimizada e vice-versa. A altera�
 3. Selecione **OK** para guardar alterações.
 
 
-## <a name="update-admin-password"></a>Atualizar a palavra-passe do administrador
-Pode alterar a palavra-passe do administrador utilizando o portal Azure.
+## <a name="update-admin-password"></a>Atualizar senha de administração
+Pode alterar a palavra-passe da função do administrador utilizando o portal Azure.
 
-1. Selecione o seu servidor no portal Azure. Na janela **'Visão geral'** selecione **a palavra-passe De reset**.
+1. Selecione o seu servidor no portal Azure. Na janela **'Vista Geral'** **selecione redefinir a palavra-passe**.
 
    ![descrição geral](./media/howto-create-manage-server-portal/overview-reset-password.png)
 
@@ -84,11 +84,11 @@ Pode alterar a palavra-passe do administrador utilizando o portal Azure.
 3. Selecione **OK** para guardar a nova senha.
 
 
-## <a name="delete-a-server"></a>Eliminar um servidor
+## <a name="delete-a-server"></a>Excluir um servidor
 
-Pode eliminar o seu servidor se já não precisar. 
+Pode eliminar o seu servidor se já não precisar dele. 
 
-1. Selecione o seu servidor no portal Azure. Na janela **'Visão Geral'** selecione **Delete**.
+1. Selecione o seu servidor no portal Azure. Na janela **'Vista Geral'** selecione **Eliminar**.
 
     ![delete](./media/howto-create-manage-server-portal/overview-delete.png)
 
@@ -102,6 +102,6 @@ Pode eliminar o seu servidor se já não precisar.
 3. Selecione **Eliminar**.
 
 
-## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre [backups e restauro](howto-restore-server-portal.md) do servidor
-- Saiba mais sobre opções de [afinação e monitorização na Base de Dados Azure para MariaDB](concepts-monitoring.md)
+## <a name="next-steps"></a>Próximos passos
+- Saiba mais [sobre backups e restauro do servidor](howto-restore-server-portal.md)
+- Saiba mais sobre [opções de afinação e monitorização na Base de Dados Azure para MariaDB](concepts-monitoring.md)

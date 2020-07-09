@@ -1,74 +1,73 @@
 ---
-title: Criar o tempo de execução da integração Azure na Fábrica de Dados Azure
-description: Saiba como criar o tempo de funcionação da integração Azure na Azure Data Factory, que é usada para copiar dados e despachar atividades de transformação.
+title: Criar tempo de integração do Azure na Azure Data Factory
+description: Saiba como criar o tempo de integração do Azure na Azure Data Factory, que é usada para copiar dados e enviar atividades de transformação.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 901761c8a5dc17cd7f00c3f04153c8e9aa99b648
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: c7880fd7fb687483409ce591059e0f5b2d2e2991
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858034"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659706"
 ---
-# <a name="how-to-create-and-configure-azure-integration-runtime"></a>Como criar e configurar o Tempo de Funcionação de Integração Azure
+# <a name="how-to-create-and-configure-azure-integration-runtime"></a>Como criar e configurar o tempo de execução da integração do Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-O Tempo de Integração (IR) é a infraestrutura computacional utilizada pela Azure Data Factory para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para mais informações sobre o IR, consulte o tempo de [execução da Integração.](concepts-integration-runtime.md)
+O Tempo de Integração (IR) é a infraestrutura de computação utilizada pela Azure Data Factory para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter mais informações sobre o IR, consulte [o tempo de execução da Integração.](concepts-integration-runtime.md)
 
-O Azure IR fornece uma computação totalmente gerida para realizar de forma nativa o movimento de dados e enviar atividades de transformação de dados para calcular serviços como o HDInsight. Está alojado em ambiente Azure e apoia a ligação aos recursos em ambiente de rede pública com pontos finais acessíveis ao público.
+O Azure IR fornece um cálculo totalmente gerido para realizar atividades de movimento de dados e despachar atividades de transformação de dados para serviços de computação como o HDInsight. Está hospedado em ambiente Azure e apoia a ligação a recursos em ambiente de rede pública com pontos finais acessíveis ao público.
 
-Este documento introduz como pode criar e configurar o Tempo de Funcionação de Integração Azure. 
+Este documento introduz como pode criar e configurar o Tempo de Execução da Integração Azure. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="default-azure-ir"></a>Default Azure IR
-Por padrão, cada fábrica de dados tem um IR Azure no backend que suporta operações em lojas de dados em nuvem e serviços de computação em rede pública. A localização do Azure IR é auto-resolvida. Se a **propriedade connectVia** não estiver especificada na definição de serviço ligada, o Inete padrão é utilizado. Basta criar explicitamente um IR Azure quando quiser definir explicitamente a localização do IR, ou se quiser praticamente agrupar as execuções de atividade em diferentes IRs para fins de gestão. 
+## <a name="default-azure-ir"></a>Azure IR padrão
+Por padrão, cada fábrica de dados tem um Azure IR no backend que suporta operações em lojas de dados em nuvem e serviços de computação na rede pública. A localização do Azure IR é a autoresolve. Se a propriedade **connectVia** não for especificada na definição de serviço ligada, o Azure IR predefinido é utilizado. Só precisa de criar explicitamente um Azure IR quando pretender definir explicitamente a localização do IR, ou se pretender agrupar virtualmente as execuções de atividade em diferentes IRs para fins de gestão. 
 
-## <a name="create-azure-ir"></a>Criar o Azure IR
+## <a name="create-azure-ir"></a>Criar Azure IR
 
-Para criar e configurar um IR Azure, pode utilizar os seguintes procedimentos.
+Para criar e configurar um Azure IR, pode utilizar os seguintes procedimentos.
 
-### <a name="create-an-azure-ir-via-azure-powershell"></a>Criar um IR Azure via Azure PowerShell
-Integração O tempo de execução pode ser criado utilizando o **set-AzDataFactoryV2IntegrationRuntime** PowerShell cmdlet. Para criar um IR Azure, especifique o nome, localização e tipo ao comando. Aqui está um comando de amostra para criar um IR Azure com localização definida para "Europa Ocidental":
+### <a name="create-an-azure-ir-via-azure-powershell"></a>Criar um Azure IR via Azure PowerShell
+O tempo de execução de integração pode ser criado utilizando o cmdlet PowerShell do **Set-AzDataFactoryV2IntegrationRuntime.** Para criar um Azure IR, especifique o nome, localização e digite para o comando. Aqui está um comando de amostra para criar um Azure IR com localização definida para "Europa Ocidental":
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -Name "MySampleAzureIR" -ResourceGroupName "ADFV2SampleRG" -Type Managed -Location "West Europe"
 ```  
-Para o Azure IR, o tipo deve ser definido para **gerido**. Não é necessário especificar detalhes da computação porque é totalmente gerido elástico na nuvem. Especifique detalhes computacionais como o tamanho do nó e a contagem do nó quando quiser criar o Ir Azure-SSIS. Para mais informações, consulte [Create and Configure Azure-SSIS IR](create-azure-ssis-integration-runtime.md).
+Para O Azure IR, o tipo deve ser definido para **Managed**. Não precisa de especificar detalhes do cálculo porque é totalmente gerido elásticamente em nuvem. Especifique detalhes do cálculo como o tamanho do nó e a contagem de nós quando pretende criar O Azure-SSIS IR. Para obter mais informações, consulte [Create and Configure Azure-SSIS IR](create-azure-ssis-integration-runtime.md).
 
-Pode configurar um Ir Azure existente para alterar a sua localização utilizando o Set-AzDataFactoryV2IntegrationTimePowerShell cmdlet. Para obter mais informações sobre a localização de um IR Azure, consulte Introdução ao tempo de execução da [integração.](concepts-integration-runtime.md)
+Pode configurar um Azure IR existente para alterar a sua localização utilizando o cmdlet PowerShell set-AzDataFactoryV2IntegrationRuntime. Para obter mais informações sobre a localização de um Azure IR, consulte [Introdução ao tempo de execução da integração.](concepts-integration-runtime.md)
 
-### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Criar um IR Azure via Azure Data Factory UI
-Utilize os seguintes passos para criar um Ir Azure utilizando a Azure Data Factory UI.
+### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Criar um Azure IR via Azure Data Factory UI
+Utilize os seguintes passos para criar um Azure IR utilizando uI Azure Data Factory.
 
-1. Na página **Let's start** da Azure Data Factory UI, selecione o separador **Autor** no painel esquerdo.
+1. Na página **Let's get start** of Azure Data Factory UI, selecione o [separador Gerir](https://docs.microsoft.com/azure/data-factory/author-management-hub) a partir do painel mais à esquerda.
 
-   ![O botão de autor da página inicial](media/doc-common-process/get-started-page-author-button.png)
+   ![O botão de gerir a página inicial](media/doc-common-process/get-started-page-manage-button.png)
 
-1. Selecione Ligações na parte inferior do painel esquerdo e selecione **tempos** de **integração** na janela **Ligações.** **Selecione +Novo**.
+1. Selecione **os tempos de integração** no painel esquerdo e, em seguida, selecione **+New**.
 
-   ![Criar um integration runtime](media/create-azure-integration-runtime/new-integration-runtime.png)
+   ![Criar um integration runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
-1. Na página de configuração do tempo de execução da **Integração,** selecione **Azure, Self-Hosted,** e, em seguida, selecione **Continue**. 
+1. Na página de configuração do tempo de execução da **Integração,** selecione **Azure, Self-Hosted**e, em seguida, selecione **Continue**. 
 
-1. Na página seguinte, selecione **Azure** para criar um Ir Azure e, em seguida, selecione **Continuar**.
+1. Na página seguinte, selecione **Azure** para criar um Azure IR e, em seguida, **selecione Continue**.
    ![Criar um integration runtime](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
 
-1. Introduza um nome para o seu Azure IR e selecione **Criar**.
-   ![Criar um IR Azure](media/create-azure-integration-runtime/create-azure-integration-runtime.png)
+1. Insira um nome para o seu Azure IR e selecione **Criar**.
+   ![Criar um Azure IR](media/create-azure-integration-runtime/create-azure-integration-runtime.png)
 
-1. Verá uma notificação pop-up quando a criação terminar. Na página de Tempos de **Integração,** certifique-se de ver o IR recém-criado na lista.
+1. Verá uma notificação pop-up quando a criação terminar. Na página de **tempos de execução da Integração,** certifique-se de que vê o recém-criado IR na lista.
 
-## <a name="use-azure-ir"></a>Utilizar o Azure IR
+## <a name="use-azure-ir"></a>Use Azure IR
 
-Uma vez criado um IR Azure, pode referenciar na definição do Serviço Linked. Abaixo está uma amostra de como pode fazer referência ao Tempo de Funcionação de Integração Azure criado acima a partir de um Serviço Ligado ao Armazenamento Azure:
+Uma vez criado um Azure IR, pode fazê-lo referenciar na definição de Serviço Linked. Abaixo está uma amostra de como você pode referenciar o Tempo de Execução de Integração Azure criado acima a partir de um Serviço Ligado ao Armazenamento Azure:
 
 ```json
 {
@@ -87,8 +86,8 @@ Uma vez criado um IR Azure, pode referenciar na definição do Serviço Linked. 
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-Consulte os seguintes artigos sobre como criar outros tipos de tempos de integração:
+## <a name="next-steps"></a>Próximos passos
+Consulte os seguintes artigos sobre como criar outros tipos de períodos de integração:
 
 - [Create self-hosted integration runtime](create-self-hosted-integration-runtime.md) (Criar o runtime de integração autoalojado)
 - [Criar o runtime de integração de SSIS do Azure](create-azure-ssis-integration-runtime.md)

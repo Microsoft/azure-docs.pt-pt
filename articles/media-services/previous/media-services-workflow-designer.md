@@ -1,6 +1,6 @@
 ---
-title: Criar fluxos de trabalho de codificação avançada com workflow designer [ Microsoft Docs
-description: Saiba como criar fluxos de trabalho avançados de codificação com o Workflow Designer.
+title: Criar fluxos de trabalho de codificação avançada com designer de fluxo de trabalho / Microsoft Docs
+description: Saiba como criar fluxos de trabalho de codificação avançados com o Workflow Designer.
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -16,33 +16,33 @@ ms.date: 03/20/2019
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
 ms.openlocfilehash: 4dceb558532305c6d2e84563e25ab05508423090
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72801950"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Criar Fluxos de Trabalho de Codificação Avançados com o Estruturador de Fluxos de Trabalho  
-## <a name="overview"></a>Descrição geral
-O **Workflow Designer** é uma ferramenta de desktop windows que é usada para projetar e construir fluxos de trabalho personalizados para codificação com **media Encoder Premium Workflow**.
-Ao utilizar o poder da ferramenta de designer de fluxo de trabalho, pode projetar e criar fluxos de trabalho complexos que serão executados em **Media Encoder Premium**.  
+## <a name="overview"></a>Descrição Geral
+O **Workflow Designer** é uma ferramenta de ambiente de trabalho do Windows que é usada para conceber e construir fluxos de trabalho personalizados para codificação com o fluxo de **trabalho Premium Media Encoder**.
+Ao utilizar a potência da ferramenta de design de fluxo de trabalho, pode projetar e criar fluxos de trabalho complexos que irão funcionar no **Media Encoder Premium.**  
 
-Os fluxos de trabalho podem incluir a lógica da decisão do cliente e a ramificação com base nas propriedades do ficheiro fonte de entrada. Pode criar fluxos de trabalho com propriedades demasiado divertáveis e valores dinâmicos para tornar até as tarefas de codificação mais complexas fáceis de repetir e personalizar na nuvem.
+Os fluxos de trabalho podem incluir a lógica de decisão do cliente e a ramificação com base nas propriedades do ficheiro de origem de entrada. Pode criar fluxos de trabalho com propriedades e valores dinâmicos supervaveis para tornar até as tarefas de codificação mais complexas fáceis de repetir e personalizar na nuvem.
 
 Exemplo de fluxos de trabalho que pode criar incluem:
 
-* Fluxos de trabalho baseados na decisão que inspecionam o conteúdo de origem para resolução e codificam apenas as vias de saída desejadas.  Isto é útil eliminando as faixas desperdiçadas que seriam geradas através da subida inadvertida do conteúdo da fonte.
+* Fluxos de trabalho baseados em decisão que inspecionam o conteúdo de origem para resolução e codificam apenas as faixas de saída desejadas.  Isto é útil eliminando as faixas desperdiçadas que seriam geradas aumentando inadvertidamente o conteúdo da fonte.
 * Vários ficheiros de entrada podem ser usados para suportar legendas, sobreposições e costurar conteúdo. 
 
-Esta ferramenta também pode ser usada para modificar qualquer um dos nossos fluxos de [trabalho publicados.](media-services-workflow-designer.md#existing_workflows) 
+Esta ferramenta também pode ser usada para modificar qualquer um dos [nossos fluxos de trabalho publicados.](media-services-workflow-designer.md#existing_workflows) 
 
 > [!NOTE]
-> Para obter a sua cópia da ferramenta mepd@microsoft.comWorkflow Designer, contacte .
+> Para obter a sua cópia da ferramenta Workflow Designer, mepd@microsoft.com contacte.
 
-Uma vez criado um ficheiro de fluxo de trabalho, pode ser carregado como um Ativo e, em seguida, ser usado para codificar ficheiros de mídia. Para obter informações sobre como codificar com **media Encoder Premium Workflow** utilizando **.NET,** consulte Codificação avançada com fluxo de [trabalho Premium Media Encoder](media-services-encode-with-premium-workflow.md).
+Uma vez criado um ficheiro de fluxo de trabalho, pode ser carregado como Um Ativo e, em seguida, ser usado para codificar ficheiros de mídia. Para obter informações sobre como codificar com o Fluxo de **Trabalho Premium Media Encoder** utilizando **.NET**, consulte codificação avançada com o fluxo de [trabalho premium media Encoder](media-services-encode-with-premium-workflow.md).
 
 ## <a name="modify-existing-workflows"></a><a id="existing_workflows"></a>Modificar os fluxos de trabalho existentes
-Os [fluxos](media-services-workflow-designer.md#existing_workflows) de trabalho publicados por defeito podem ser modificados utilizando a ferramenta de design. Pode obter aqui os [ficheiros](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)de fluxo de trabalho padrão . A pasta também contém a descrição destes ficheiros.
+Os [fluxos de trabalho publicados por defeito](media-services-workflow-designer.md#existing_workflows) podem ser modificados utilizando a ferramenta de design. Pode obter os ficheiros de fluxo de trabalho [predefinidos aqui.](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows) A pasta também contém a descrição destes ficheiros.
 
 Os seguintes vídeos demonstram como usar o designer.
 
@@ -50,8 +50,8 @@ Os seguintes vídeos demonstram como usar o designer.
 Capas de vídeo do dia 1:
 
 * Visão geral do designer
-* Fluxos básicos de trabalho - "Hello World"
-* Criação de vários ficheiros MP4 de saída para uso com o streaming Azure Media Services
+* Fluxos básicos de trabalho – "Hello World"
+* Criação de vários ficheiros MP4 de saída para utilização com o streaming Azure Media Services
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-1/player]
 > 
@@ -60,9 +60,9 @@ Capas de vídeo do dia 1:
 ### <a name="day-2"></a>Dia 2
 Capas de vídeo do dia 2:
 
-* Vários cenários de ficheiros Source – manipulação de áudio
-* Fluxos de trabalho com lógica avançada
-* Etapas de gráficos
+* Diferentes cenários de ficheiros Source – manuseamento de áudio
+* Fluxos de trabalho com Lógica avançada
+* Estágios de gráfico
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-2/player]
 > 
@@ -71,8 +71,8 @@ Capas de vídeo do dia 2:
 ### <a name="day-3"></a>Dia 3
 Capas de vídeo do dia 3:
 
-* Scripting dentro de Workflows/Blueprints
-* Restrições com o atual Codificador
+* Scripting dentro de workflows/Plantas
+* Restrições com o atual Codificar
 * Perguntas e Respostas
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
@@ -81,7 +81,7 @@ Capas de vídeo do dia 3:
 
 ## <a name="need-help"></a>Precisa de ajuda?
 
-Você pode abrir um bilhete de apoio navegando para [novo pedido](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) de apoio
+Você pode abrir um bilhete de apoio navegando para [novo pedido de apoio](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="next-step"></a>Passo seguinte
 Rever os percursos de aprendizagem dos Serviços de Multimédia
@@ -91,6 +91,6 @@ Rever os percursos de aprendizagem dos Serviços de Multimédia
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Veja também
-[Azure Premium Encoder Workflow Designer Training Videos](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
+## <a name="see-also"></a>Consulte também
+[Vídeos de formação de designers de fluxo de trabalho Azure Premium](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 

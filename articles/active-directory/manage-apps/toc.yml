@@ -3,20 +3,20 @@
 - name: Descrição geral
   expanded: true
   items:
-    - name: O que é a gestão de aplicações da cloud e o início de sessão único?
+    - name: O que é a gestão de aplicações?
       href: what-is-application-management.md
-    - name: O que é o Proxy de Aplicações para aplicações no local?
-      href: what-is-application-proxy.md
-    - name: Cenários comuns de gestão de aplicações
-      href: common-scenarios.md
-    - name: O que é o aprovisionamento de aplicações?
-      href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
 - name: Guias de Início Rápido
   items:
-    - name: Adicionar uma aplicação da cloud a partir da galeria
-      href: add-application-portal.md
-    - name: Ver as aplicações empresariais
+    - name: Ver as suas aplicações
       href: view-applications-portal.md
+    - name: Adicionar uma aplicação
+      href: add-application-portal.md
+    - name: Configurar uma aplicação
+      href: add-application-portal-configure.md
+    - name: Configurar o início de sessão único
+      href: add-application-portal-setup-sso.md
+    - name: Eliminar uma aplicação
+      href: delete-application-portal.md
 - name: Tutoriais
   items:
     - name: 'Aplicações de galeria integradas (por exemplo, ServiceNow, Salesforce, Dropbox)'
@@ -32,6 +32,8 @@
   items:
     - name: Melhores práticas de gestão de aplicações
       href: application-management-fundamentals.md
+    - name: Cenários comuns de gestão de aplicações
+      href: common-scenarios.md
     - name: Aplicações da cloud e início de sessão único
       items:
         - name: Planear uma integração de aplicações da cloud
@@ -80,6 +82,8 @@
       items:
         - name: Proxy da aplicação
           href: application-proxy.md
+        - name: O que é o proxy de aplicações para aplicações no local?
+          href: what-is-application-proxy.md
         - name: Planear uma implementação do Proxy de Aplicações
           href: application-proxy-deployment-plan.md
         - name: Conectores
@@ -101,12 +105,8 @@
       items:
         - name: Adicionar uma aplicação da cloud
           items:
-            - name: Adicionar uma aplicação de galeria
-              href: add-gallery-app.md
             - name: Adicionar uma aplicação que não seja de galeria
               href: add-non-gallery-app.md
-            - name: Alterar o nome ou o logótipo da aplicação
-              href: change-name-or-logo-portal.md
         - name: Configurar o início de sessão único
           items:
             - name: Configurar o início de sessão único baseado em SAML
@@ -303,8 +303,6 @@
               href: application-proxy-page-load-speed-problem.md
             - name: As ligações na página da aplicação não funcionam
               href: application-proxy-page-links-broken-problem.md
-            - name: Que portas devo abrir para a minha aplicação
-              href: application-proxy-connectivity-ports-how-to.md
             - name: Não existe nenhum conector que funcione num grupo de conectores da minha aplicação
               href: application-proxy-connectivity-no-working-connector.md
             - name: Configurar no portal de administração

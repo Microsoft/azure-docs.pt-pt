@@ -1,39 +1,39 @@
 ---
-title: Design Azure Cosmos DB tabelas para escala e performance
-description: 'Guia de design de armazenamento de mesa azure: mesas escaláveis e performantes no armazenamento Azure Cosmos DB e Azure Table'
+title: Design Azure Cosmos DB tabelas para escalar e performance
+description: 'Guia de design de armazenamento de mesa azure: mesas escaláveis e performantes no armazenamento da Azure Cosmos DB e da Azure Table'
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
-ms.topic: conceptual
-ms.date: 05/21/2019
+ms.topic: how-to
+ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: 78a38938ad31bb349b7215f0a26dda69f4fec966
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b5e2dc56ad84504f0bf5ced09d865d7cb4e467fa
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651918"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027797"
 ---
-# <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guia de design de mesa de armazenamento de mesa azure: tabelas escaláveis e performantes
+# <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guia de design de mesa de armazenamento de mesa de mesa Azure: tabelas escaláveis e performantes
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 Para criar tabelas dimensionáveis e de alto desempenho, tem de considerar uma variedade de fatores, incluindo o custo. Se tiver criado anteriormente esquemas para bases de dados relacionais, estará familiarizado com estas considerações. No entanto, embora existam algumas semelhanças entre o Armazenamento de tabelas do Azure e os modelos relacionais, também há muitas diferenças importantes. Estas diferenças levam normalmente a diferentes designs que podem parecer incorretos ou não intuitivos para alguém familiarizado com bases de dados relacionais, mas isso faz sentido se estiver a criar um arquivo de chaves/valores NoSQL, como o Armazenamento de tabelas.
 
-O armazenamento de mesas destina-se a apoiar aplicações em escala em nuvem que possam conter milhares de milhões de entidades ("linhas" na terminologia relacional da base de dados) de dados, ou para conjuntos de dados que devem suportar volumes de transações elevados. Por isso, é preciso pensar de forma diferente sobre como armazena os seus dados e compreender como funciona o armazenamento de mesa. Uma loja de dados NoSQL bem concebida pode permitir que a sua solução escale muito mais (e a um custo mais baixo) do que uma solução que utiliza uma base de dados relacional. Este guia ajuda-o com estes tópicos.  
+O armazenamento de mesas destina-se a apoiar aplicações em escala em nuvem que podem conter milhares de milhões de entidades ("linhas" na terminologia de bases de dados relacionais) de dados ou para conjuntos de dados que devem suportar volumes de transações elevados. Por isso, tem de pensar de forma diferente sobre como armazena os seus dados e compreender como funciona o armazenamento da Tabela. Uma loja de dados NoSQL bem concebida pode permitir que a sua solução se dimensione muito mais (e a um custo mais baixo) do que uma solução que utilize uma base de dados relacional. Este guia ajuda-o com estes tópicos.  
 
-## <a name="about-azure-table-storage"></a>Sobre o armazenamento da Mesa Azure
-Esta secção destaca algumas das principais características do armazenamento de mesa seletivas que são especialmente relevantes para o design para o desempenho e escalabilidade. Se for novo no armazenamento de Armazenamento e Mesa do Azure, consulte introdução [ao Armazenamento Microsoft Azure](../storage/common/storage-introduction.md) e [inicie-se com o armazenamento da Mesa Azure utilizando .NET](table-storage-how-to-use-dotnet.md) antes de ler o restante deste artigo. Embora o foco deste guia esteja no armazenamento de mesa, inclui alguma discussão sobre o armazenamento de fila Azure e armazenamento Azure Blob, e como você pode usá-los juntamente com armazenamento de mesa em uma solução.  
+## <a name="about-azure-table-storage"></a>Sobre o armazenamento da mesa Azure
+Esta secção destaca algumas das principais características do armazenamento da mesa que são especialmente relevantes para a conceção de desempenho e escalabilidade. Se é novo no armazenamento de armazenamento e mesa do Azure, consulte [Introdução ao Armazenamento do Microsoft Azure](../storage/common/storage-introduction.md) e [inicie-se com o armazenamento da tabela Azure utilizando .NET](table-storage-how-to-use-dotnet.md) antes de ler o restante deste artigo. Embora o foco deste guia esteja no armazenamento de mesa, ele inclui alguma discussão sobre o armazenamento da Azure Queue e o armazenamento Azure Blob, e como você pode usá-los juntamente com o armazenamento de mesa em uma solução.  
 
-O armazenamento de mesa utiliza um formato tabular para armazenar dados. Na terminologia padrão, cada linha da tabela representa uma entidade, e as colunas armazenam as várias propriedades dessa entidade. Cada entidade tem um par de chaves para identificá-lo de forma única, e uma coluna de carimbo de tempo que o armazenamento de mesa usa para rastrear quando a entidade foi atualizada pela última vez. O campo de carimbo saciado automaticamente e não pode substituir manualmente a marca de tempo com um valor arbitrário. O armazenamento de mesa utiliza este carimbo temporal (LMT) modificado para gerir a conmoeda otimista.  
+O armazenamento de mesa utiliza um formato tabular para armazenar dados. Na terminologia padrão, cada fileira da tabela representa uma entidade, e as colunas armazenam as várias propriedades dessa entidade. Cada entidade tem um par de chaves para identificá-lo de forma única, e uma coluna de timetamp que o armazenamento da mesa usa para rastrear quando a entidade foi atualizada pela última vez. O campo de tempos é adicionado automaticamente e não é possível substituir manualmente a placa de tempo com um valor arbitrário. O armazenamento de mesa utiliza esta última etiqueta de tempo modificada (LMT) para gerir a concordância otimista.  
 
 > [!NOTE]
-> Armazenamento de mesa AS operações da API também devolvem um `ETag` valor que obtém do LMT. Neste documento, os termos ETag e LMT são utilizados intercambiavelmente, porque se referem aos mesmos dados subjacentes.  
+> Armazenamento de mesaS AS operações da API também devolvem um `ETag` valor que obtém do LMT. Neste documento, os termos ETag e LMT são utilizados intercambiavelmente, porque se referem aos mesmos dados subjacentes.  
 > 
 > 
 
-O exemplo que se segue mostra um design de mesa simples para armazenar funcionários e entidades de departamento. Muitos dos exemplos mostrados mais tarde neste guia são baseados neste design simples.  
+O exemplo a seguir mostra um design de mesa simples para armazenar funcionários e entidades de departamento. Muitos dos exemplos mostrados mais tarde neste guia são baseados neste design simples.  
 
 <table>
 <tr>
@@ -45,14 +45,14 @@ O exemplo que se segue mostra um design de mesa simples para armazenar funcioná
 <tr>
 <td>Marketing</td>
 <td>00001</td>
-<td>2014-08-22t00:50:32Z</td>
+<td>2014-08-22T00:50:32Z</td>
 <td>
 <table>
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
 <th>Idade</th>
-<th>Email</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Don</td>
@@ -65,18 +65,18 @@ O exemplo que se segue mostra um design de mesa simples para armazenar funcioná
 <tr>
 <td>Marketing</td>
 <td>00002</td>
-<td>2014-08-22t00:50:34Z</td>
+<td>2014-08-22T00:50:34Z</td>
 <td>
 <table>
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
 <th>Idade</th>
-<th>Email</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Jun</td>
-<td>Rio Cao</td>
+<td>Cao</td>
 <td>47</td>
 <td>junc@contoso.com</td>
 </tr>
@@ -85,12 +85,12 @@ O exemplo que se segue mostra um design de mesa simples para armazenar funcioná
 <tr>
 <td>Marketing</td>
 <td>Departamento</td>
-<td>2014-08-22t00:50:30Z</td>
+<td>2014-08-22T00:50:30Z</td>
 <td>
 <table>
 <tr>
 <th>DepartmentName</th>
-<th>Contagem de funcionários</th>
+<th>Contagem de Funcionários</th>
 </tr>
 <tr>
 <td>Marketing</td>
@@ -102,14 +102,14 @@ O exemplo que se segue mostra um design de mesa simples para armazenar funcioná
 <tr>
 <td>Sales</td>
 <td>00010</td>
-<td>2014-08-22t00:50:44Z</td>
+<td>2014-08-22T00:50:44Z</td>
 <td>
 <table>
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
 <th>Idade</th>
-<th>Email</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Ken</td>
@@ -123,25 +123,25 @@ O exemplo que se segue mostra um design de mesa simples para armazenar funcioná
 </table>
 
 
-Até agora, este design parece semelhante a uma tabela numa base de dados relacional. As principais diferenças são as colunas obrigatórias e a capacidade de armazenar vários tipos de entidades na mesma tabela. Além disso, cada uma das propriedades definidas pelo utilizador, como **o FirstName** ou **a Age,** tem um tipo de dados, como o número inteiro ou o string, tal como uma coluna numa base de dados relacional. No entanto, ao contrário de uma base de dados relacional, a natureza sem esquemas de armazenamento de mesas significa que um imóvel não precisa de ter o mesmo tipo de dados em cada entidade. Para armazenar tipos de dados complexos numa única propriedade, deve utilizar um formato serializado como JSON ou XML. Para mais informações, consulte [Understanding Table storage data model](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+Até agora, este design parece semelhante a uma tabela numa base de dados relacional. As principais diferenças são as colunas obrigatórias e a capacidade de armazenar vários tipos de entidades na mesma tabela. Além disso, cada uma das propriedades definidas pelo utilizador, como **o FirstName** ou **o Age,** tem um tipo de dados, como o número inteiro ou o fio, tal como uma coluna numa base de dados relacional. No entanto, ao contrário de uma base de dados relacional, a natureza sem esquemas de armazenamento de mesa significa que uma propriedade não precisa de ter o mesmo tipo de dados em cada entidade. Para armazenar tipos de dados complexos numa única propriedade, deve utilizar um formato serializado como JSON ou XML. Para obter mais informações, consulte [o modelo de dados de armazenamento de tabelas de compreensão.](https://msdn.microsoft.com/library/azure/dd179338.aspx)
 
-Sua escolha e é fundamental para um bom design de `PartitionKey` `RowKey` mesa. Todas as entidades armazenadas numa mesa devem ter uma combinação única de `PartitionKey` e `RowKey` . Tal como acontece com as teclas numa tabela de bases de dados relacional, os `PartitionKey` valores e `RowKey` valores são indexados para criar um índice agrupado que permite uma rápida pesquisa. O armazenamento de mesas, no entanto, não cria quaisquer índices secundários, por isso estas são as duas únicas propriedades indexadas (alguns dos padrões descritos mais tarde mostram como você pode trabalhar em torno desta limitação aparente).  
+Sua escolha e é fundamental para um bom design de `PartitionKey` `RowKey` mesa. Todas as entidades armazenadas numa mesa devem ter uma combinação única de `PartitionKey` e `RowKey` . Tal como acontece com as chaves numa tabela de bases de dados relacional, os `PartitionKey` valores e `RowKey` valores são indexados para criar um índice agrupado que permite visualizações rápidas. O armazenamento de mesa, no entanto, não cria quaisquer índices secundários, por isso estas são as duas únicas propriedades indexadas (alguns dos padrões descritos mais tarde mostram como você pode trabalhar em torno desta limitação aparente).  
 
-Uma tabela é composta por uma ou mais divisórias, e muitas das decisões de design que tomar será em torno de escolher um adequado `PartitionKey` e `RowKey` otimizar a sua solução. Uma solução pode consistir apenas numa única tabela que contém todas as suas entidades organizadas em divisórias, mas tipicamente uma solução tem várias tabelas. As tabelas ajudam-no a organizar logicamente as suas entidades e a ajudá-lo a gerir o acesso aos dados utilizando listas de controlo de acesso. Pode largar uma mesa inteira utilizando uma única operação de armazenamento.  
+Uma tabela é composta por uma ou mais divisórias, e muitas das decisões de design que tomarão estarão por perto escolhendo um adequado `PartitionKey` e `RowKey` otimizando a sua solução. Uma solução pode consistir em apenas uma tabela que contém todas as suas entidades organizadas em divisórias, mas tipicamente uma solução tem várias tabelas. As tabelas ajudam-no a organizar logicamente as suas entidades e a ajudá-lo a gerir o acesso aos dados utilizando listas de controlo de acesso. Pode deixar cair uma mesa inteira utilizando uma única operação de armazenamento.  
 
 ### <a name="table-partitions"></a>Divisórias de mesa
-O nome da conta, o nome da tabela `PartitionKey` e, em conjunto, identificam a partição dentro do serviço de armazenamento onde o armazenamento de mesa armazena a entidade. Além de fazerem parte do regime de endereçamento das entidades, as divisórias definem uma margem de manobra para transações (ver a secção posterior neste artigo, [entidade seletiva de operações),](#entity-group-transactions)e formam a base de como as tabelas de armazenamento de tabelas. Para obter mais informações sobre divisórias de mesa, consulte a lista de [verificação de desempenho e escalabilidade para armazenamento](../storage/tables/storage-performance-checklist.md)de mesa .  
+O nome da conta, o nome da tabela e, `PartitionKey` em conjunto, identificam a partição dentro do serviço de armazenamento onde o armazenamento de mesa armazena a entidade. Além de fazerem parte do regime de endereçamento das entidades, as divisórias definem um âmbito de transação (ver secção mais tarde neste artigo, [operações de grupo da Entidade),](#entity-group-transactions)e formam a base de como as escalas de armazenamento do quadro. Para obter mais informações sobre divisórias de mesa, consulte [a lista de verificação de desempenho e escalabilidade para armazenamento de mesas.](../storage/tables/storage-performance-checklist.md)  
 
-No armazenamento de mesa, um nó individual presta serviços uma ou mais divisórias completas, e as escalas de serviço através de divisórias dinamicamente equilibradas em nós. Se um nó estiver sob carga, o armazenamento de mesa pode dividir a gama de divisórias servidas por esse nó em diferentes nós. Quando o tráfego diminui, o armazenamento de mesa pode fundir as divisórias desde nós silenciosos de volta a um único nó.  
+No armazenamento de mesa, um nó individual presta uma ou mais divisórias completas, e as balanças de serviço por divisórias de equilíbrio dinâmico de carga em nós. Se um nó estiver carregado, o armazenamento da mesa pode dividir a gama de divisórias servidas por esse nó em diferentes nós. Quando o tráfego diminui, o armazenamento de mesa pode fundir as gamas de divisórias de nós silenciosos de volta para um único nó.  
 
-Para obter mais informações sobre os detalhes internos do armazenamento de mesa, e em particular como gere as divisórias, consulte o [Microsoft Azure Storage: Um serviço de armazenamento em nuvem altamente disponível com forte consistência.](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency)  
+Para obter mais informações sobre os detalhes internos do armazenamento da mesa, e em particular a forma como gere as divisórias, consulte [o Microsoft Azure Storage: Um serviço de armazenamento em nuvem altamente disponível com forte consistência](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
 
 ### <a name="entity-group-transactions"></a>Transações de grupos de entidades
-No armazenamento em tabela, as transações de grupos de entidades (EGTs) são o único mecanismo incorporado para a realização de atualizações atómicas em várias entidades. Os EGTs também são referidos como transações de *lote.* Os EGTs só podem operar em entidades armazenadas na mesma divisória (partilhando a mesma chave de partição numa determinada tabela), pelo que sempre que necessitar de comportamento transacional atómico em várias entidades, certifique-se de que essas entidades estão na mesma divisão. Esta é muitas vezes uma razão para manter vários tipos de entidades na mesma tabela (e partição), e não usar várias tabelas para diferentes tipos de entidades. Um único EGT pode operar no máximo 100 entidades.  Se submeter vários EGTs simultâneos para processamento, é importante garantir que esses EGTs não operam em entidades que são comuns em todos os EGTs. Caso contrário, arrisca-se a atrasar o processamento.
+No armazenamento de mesas, as transações de grupos de entidades (EGTs) são o único mecanismo incorporado para a realização de atualizações atómicas em várias entidades. Os EGTs são também referidos como *transações de lote*. As EGTs só podem operar em entidades armazenadas na mesma partição (partilhando a mesma chave de partição numa tabela específica), por isso, sempre que precisar de comportamento transacional atómico entre várias entidades, certifique-se de que essas entidades estão na mesma divisão. Esta é frequentemente uma razão para manter vários tipos de entidades na mesma tabela (e partição), e não usar várias tabelas para diferentes tipos de entidades. Um único EGT pode operar no máximo 100 entidades.  Se submeter vários EGTs simultâneos para processamento, é importante garantir que esses EGTs não operam em entidades que são comuns em todos os EGTs. Caso contrário, arrisca-se a atrasar o processamento.
 
-Os EGTs também introduzem uma potencial compensação para você avaliar no seu design. A utilização de mais divisórias aumenta a escalabilidade da sua aplicação, porque o Azure tem mais oportunidades para pedidos de equilíbrio de carga em nós. Mas isto pode limitar a capacidade da sua aplicação para realizar transações atómicas e manter uma forte consistência para os seus dados. Além disso, existem alvos específicos de escalabilidade ao nível de uma partição que podem limitar a entrada de transações que você pode esperar para um único nó.
+Os EGTs também introduzem uma potencial compensação para que possa avaliar no seu design. A utilização de mais divisórias aumenta a escalabilidade da sua aplicação, porque o Azure tem mais oportunidades para pedidos de equilíbrio de carga em nós. Mas isso pode limitar a capacidade da sua aplicação de realizar transações atómicas e manter uma forte consistência para os seus dados. Além disso, existem alvos específicos de escalabilidade ao nível de uma partição que podem limitar o rendimento das transações que se pode esperar de um único nó.
 
-Para obter mais informações sobre os alvos de escalabilidade das contas de armazenamento do Azure, consulte os objetivos de [escalabilidade para as contas de armazenamento padrão](../storage/common/scalability-targets-standard-account.md). Para obter mais informações sobre os objetivos de escalabilidade para o armazenamento de mesas, consulte [a escalabilidade e os objetivos de desempenho para](../storage/tables/scalability-targets.md)o armazenamento de mesas . Secções posteriores deste guia discutem várias estratégias de design que o ajudam a gerir as compensações como esta, e discutam a melhor forma de escolher a sua chave de partição com base nos requisitos específicos da sua aplicação cliente.  
+Para obter mais informações sobre os objetivos de escalabilidade das contas de armazenamento Azure, consulte [os objetivos de Escalaability para contas de armazenamento padrão](../storage/common/scalability-targets-standard-account.md). Para obter mais informações sobre os objetivos de escalabilidade para armazenamento de mesa, consulte [metas de escalabilidade e desempenho para armazenamento de mesa.](../storage/tables/scalability-targets.md) Secções posteriores deste guia discutem várias estratégias de design que o ajudam a gerir trade-offs como este, e discutem a melhor forma de escolher a sua chave de partição com base nos requisitos específicos da sua aplicação ao cliente.  
 
 ### <a name="capacity-considerations"></a>Considerações de capacidade
 A tabela a seguir inclui alguns dos valores-chave a ter em conta quando está a desenhar uma solução de armazenamento de mesa:  
@@ -149,182 +149,182 @@ A tabela a seguir inclui alguns dos valores-chave a ter em conta quando está a 
 | Capacidade total de uma conta de armazenamento Azure | 500 TB |
 | --- | --- |
 | Número de tabelas numa conta de armazenamento Azure |Limitado apenas pela capacidade da conta de armazenamento. |
-| Número de divisórias em uma mesa |Limitado apenas pela capacidade da conta de armazenamento. |
+| Número de divisórias numa tabela |Limitado apenas pela capacidade da conta de armazenamento. |
 | Número de entidades em partição |Limitado apenas pela capacidade da conta de armazenamento. |
-| Tamanho de uma entidade individual |Até 1 MB, com um máximo de 255 propriedades (incluindo `PartitionKey` o, `RowKey` e `Timestamp` ). |
+| Tamanho de uma entidade individual |Até 1 MB, com um máximo de 255 propriedades (incluindo o `PartitionKey` `RowKey` , e `Timestamp` . |
 | Tamanho do`PartitionKey` |Uma corda até 1 KB de tamanho. |
 | Tamanho do`RowKey` |Uma corda até 1 KB de tamanho. |
-| Tamanho de uma transação de grupo de entidades |Uma transação pode incluir no máximo 100 entidades, e a carga útil deve ter menos de 4 MB de tamanho. Um EGT só pode atualizar uma entidade uma vez. |
+| Dimensão de uma transação de grupo de entidades |Uma transação pode incluir no máximo 100 entidades, e a carga útil deve ter um tamanho inferior a 4 MB. Um EGT só pode atualizar uma entidade uma vez. |
 
-Para mais informações, consulte Compreender o modelo de [dados do serviço tabela](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
+Para obter mais informações, consulte [o modelo de dados de serviço de tabela.](https://msdn.microsoft.com/library/azure/dd179338.aspx)  
 
 ### <a name="cost-considerations"></a>Considerações de custos
-O armazenamento de mesa é relativamente barato, mas deve incluir estimativas de custos tanto para o uso da capacidade como para a quantidade de transações como parte da sua avaliação de qualquer solução que utilize o armazenamento de mesa. Em muitos cenários, no entanto, armazenar dados desnormalizados ou duplicados de forma a melhorar o desempenho ou escalabilidade da sua solução é uma abordagem válida a tomar. Para obter mais informações sobre preços, consulte o preço do [Armazenamento De Azure.](https://azure.microsoft.com/pricing/details/storage/)  
+O armazenamento de mesa é relativamente barato, mas deve incluir estimativas de custos tanto para o uso da capacidade como para a quantidade de transações como parte da sua avaliação de qualquer solução que utilize o armazenamento da mesa. Em muitos cenários, no entanto, armazenar dados denormalizados ou duplicados de forma a melhorar o desempenho ou escalabilidade da sua solução é uma abordagem válida a tomar. Para obter mais informações sobre preços, consulte [os preços de Armazenamento Azure](https://azure.microsoft.com/pricing/details/storage/).  
 
 ## <a name="guidelines-for-table-design"></a>Orientações do design da tabela
-Estas listas resumem algumas das principais diretrizes que deve ter em mente quando está a desenhar as suas tabelas. Este guia aborda-os com mais detalhes mais tarde. Estas diretrizes são diferentes das diretrizes que normalmente seguiria para o design relacional da base de dados.  
+Estas listas resumem algumas das principais diretrizes que deve ter em mente quando estiver a desenhar as suas tabelas. Este guia aborda-os a todos mais detalhadamente mais tarde. Estas diretrizes são diferentes das diretrizes que normalmente seguiria para o design de bases de dados relacionais.  
 
-Projetando o seu armazenamento de mesa para ser *lido* eficientemente:
+Projetar o seu armazenamento de mesa para ser *lido* eficientemente:
 
-* **Design para consulta em aplicações pesadas de leitura.** Quando estiver a desenhar as suas mesas, pense nas consultas (especialmente as sensíveis à latência) que irá executar antes de pensar em como irá atualizar as suas entidades. Isto normalmente resulta numa solução eficiente e executante.  
-* **Especifique tanto `PartitionKey` e `RowKey` nas suas consultas.** Consultas de *pontos* como estas são as consultas de armazenamento de mesa mais eficientes.  
+* **Design para consulta em aplicações pesadas de leitura.** Quando estiver a desenhar as suas tabelas, pense nas consultas (especialmente nas sensíveis à latência) que irá correr antes de pensar em como atualizar as suas entidades. Isto normalmente resulta numa solução eficiente e performante.  
+* **Especifique tanto `PartitionKey` como `RowKey` nas suas consultas.** *Consultas pontuais* como estas são as consultas de armazenamento de mesa mais eficientes.  
 * **Considere armazenar cópias duplicadas de entidades.** O armazenamento de mesa é barato, por isso considere armazenar a mesma entidade várias vezes (com chaves diferentes), para permitir consultas mais eficientes.  
-* **Considere desnormalizar os seus dados.** O armazenamento de mesa é barato, por isso considere desnormalizar os seus dados. Por exemplo, armazenar entidades sumárias para que as consultas de dados agregados só precisem de aceder a uma única entidade.  
-* **Utilize valores-chave compostos.** As únicas chaves que tens são `PartitionKey` `RowKey` e. Por exemplo, utilize valores-chave compostos para permitir caminhos de acesso alternativos às entidades.  
+* **Considere desnormalizar os seus dados.** O armazenamento de mesa é barato, por isso considere desnormalizar os seus dados. Por exemplo, armazenar entidades sumárias para que as consultas por dados agregados apenas precisem de aceder a uma única entidade.  
+* **Utilize valores-chave compostos.** As únicas chaves que tem são `PartitionKey` `RowKey` e. Por exemplo, utilize valores-chave compostos para permitir caminhos de acesso com chave suplente às entidades.  
 * **Use a projeção de consulta.** Pode reduzir a quantidade de dados que transfere através da rede utilizando consultas que selecionam apenas os campos de que necessita.  
 
-Projetando o seu armazenamento de mesa para ser *eficiente:*  
+Projetar o seu armazenamento de mesa para ser *eficiente:*  
 
-* **Não crie divisórias quentes.** Escolha as chaves que lhe permitem espalhar os seus pedidos por várias divisórias a qualquer momento.  
-* **Evite picos no trânsito.** Distribua o tráfego por um período de tempo razoável e evite picos de tráfego.
-* **Não crie necessariamente uma tabela separada para cada tipo de entidade.** Quando você requer transações atómicas através de tipos de entidades, você pode armazenar estes vários tipos de entidades na mesma tabela na mesma tabela.
-* **Considere o máximo de entrada que deve conseguir.** Deve estar ciente dos alvos de escalabilidade para o armazenamento de mesa, e certifique-se de que o seu design não fará com que exceda-os.  
+* **Não crie divisórias quentes.** Escolha as teclas que lhe permitem espalhar os seus pedidos através de várias divisórias a qualquer momento.  
+* **Evite picos no trânsito.** Distribua o tráfego durante um período de tempo razoável e evite picos de tráfego.
+* **Não crie necessariamente uma tabela separada para cada tipo de entidade.** Quando necessitar de transações atómicas entre tipos de entidades, pode armazenar estes múltiplos tipos de entidades na mesma divisória na mesma tabela.
+* **Considere a produção máxima que deve alcançar.** Deve estar ciente dos alvos de escalabilidade para armazenamento de mesa, e certifique-se de que o seu design não fará com que os exceda.  
 
 Mais tarde neste guia, você verá exemplos que colocam todos estes princípios em prática.  
 
 ## <a name="design-for-querying"></a>Design das consultas
-O armazenamento de mesa pode ser lido intensivamente, escrever intensivo, ou uma mistura dos dois. Esta secção considera a conceção para apoiar as operações de leitura de forma eficiente. Tipicamente, um design que suporta as operações de leitura de forma eficiente também é eficiente para as operações de escrita. No entanto, existem considerações adicionais na conceção de apoio às operações de escrita. Estes são discutidos na secção seguinte, [Design para modificação de dados](#design-for-data-modification).
+O armazenamento de mesa pode ser lido intensivamente, escrever intensivo, ou uma mistura dos dois. Esta secção considera conceber para apoiar as operações de leitura de forma eficiente. Tipicamente, um design que suporta operações de leitura eficientemente também é eficiente para operações de escrita. No entanto, existem considerações adicionais na conceção para apoiar operações de escrita. Estes são discutidos na secção seguinte, [Design para modificação de dados.](#design-for-data-modification)
 
-Um bom ponto de partida para lhe permitir ler dados de forma eficiente é perguntar "Que consultas a minha aplicação terá de executar para recuperar os dados de que necessita?"  
+Um bom ponto de partida para permitir que leia os dados de forma eficiente é perguntar "Que consultas a minha aplicação precisará de correr para recuperar os dados de que precisa?"  
 
 > [!NOTE]
-> Com o armazenamento de mesa, é importante ter o design correto na frente, porque é difícil e caro mudá-lo mais tarde. Por exemplo, numa base de dados relacional, é frequentemente possível abordar problemas de desempenho simplesmente adicionando índices a uma base de dados existente. Esta não é uma opção com armazenamento de mesa.  
+> Com o armazenamento de mesa, é importante corrigir o design na frente, porque é difícil e caro mudá-lo mais tarde. Por exemplo, numa base de dados relacional, é frequentemente possível abordar problemas de desempenho simplesmente adicionando índices a uma base de dados existente. Isto não é uma opção com armazenamento de mesa.  
 
 ### <a name="how-your-choice-of-partitionkey-and-rowkey-affects-query-performance"></a>Como a sua escolha e afeta o desempenho da `PartitionKey` `RowKey` consulta
-Os seguintes exemplos assumem que o armazenamento de mesa está a armazenar entidades de empregados com a seguinte estrutura (a maioria dos exemplos omitem o `Timestamp` imóvel para clareza):  
+Os exemplos a seguir assumem que o armazenamento de mesa está a armazenar entidades de empregados com a seguinte estrutura (a maioria dos exemplos omitem o `Timestamp` imóvel para maior clareza):  
 
 | Nome da coluna | Tipo de dados |
 | --- | --- |
 | `PartitionKey`(Nome do departamento) |String |
-| `RowKey`(Identificação dos empregados) |String |
-| `FirstName` |String |
-| `LastName` |String |
+| `RowKey`(ID do empregado) |Cadeia |
+| `FirstName` |Cadeia |
+| `LastName` |Cadeia |
 | `Age` |Número inteiro |
 | `EmailAddress` |String |
 
-Aqui estão algumas diretrizes gerais para a conceção de consultas de armazenamento de mesa. A sintaxe do filtro utilizada nos seguintes exemplos é da API de armazenamento de mesa REST API. Para mais informações, consulte [as entidades de Consulta.](https://msdn.microsoft.com/library/azure/dd179421.aspx)  
+Aqui estão algumas diretrizes gerais para a conceção de consultas de armazenamento de mesa. A sintaxe do filtro utilizada nos seguintes exemplos é da API DE ARMAZENAMENTO DE MESA. Para mais informações, consulte [as entidades de Consulta.](https://msdn.microsoft.com/library/azure/dd179421.aspx)  
 
-* Uma *consulta* pontual é a procura mais eficiente a ser usada, e é recomendada para procuras de alto volume ou para procurações que requerem a latência mais baixa. Tal consulta pode usar os índices para localizar uma entidade individual de forma eficiente, especificando tanto os valores como os `PartitionKey` `RowKey` valores. Por exemplo: `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`.  
-* O segundo melhor é uma consulta de *alcance.* Utiliza os `PartitionKey` filtros e filtros numa gama de `RowKey` valores para devolver mais do que uma entidade. O `PartitionKey` valor identifica uma partição específica, e os `RowKey` valores identificam um subconjunto das entidades nessa partição. Por exemplo: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
-* O terceiro melhor é uma *varredura de partição.* Utiliza o e filtra outra `PartitionKey` propriedade não chave e pode devolver mais do que uma entidade. O `PartitionKey` valor identifica uma partição específica, e os valores de propriedade selecionam para um subconjunto das entidades nessa partição. Por exemplo: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
-* Uma *digitalização* de mesa não inclui o `PartitionKey` , e é ineficiente porque procura todas as divisórias que compõem a sua mesa para quaisquer entidades correspondentes. Executa uma digitalização de mesa independentemente de o seu filtro utilizar ou não o `RowKey` . Por exemplo: `$filter=LastName eq 'Jones'`.  
-* Consultas de armazenamento de mesa azure que devolvem várias entidades ordenam-nas `PartitionKey` e `RowKey` encomendam. Para evitar recorrer às entidades do cliente, escolha um `RowKey` que defina a ordem de classificação mais comum. Os resultados da consulta devolvidos pela API da Tabela Azure em Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças de características, consulte [diferenças entre a Tabela API no armazenamento de Azure Cosmos DB e Azure Table.](table-api-faq.md#table-api-vs-table-storage)
+* Uma *consulta de pontos* é a procura mais eficiente para usar, e é recomendado para consultas ou procuras de alto volume que requerem a latência mais baixa. Tal consulta pode usar os índices para localizar uma entidade individual de forma eficiente, especificando tanto os valores como os `PartitionKey` `RowKey` valores. Por exemplo: `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`.  
+* O segundo melhor é uma *consulta de alcance.* Utiliza o `PartitionKey` , e filtra numa gama de `RowKey` valores para devolver mais do que uma entidade. O `PartitionKey` valor identifica uma divisória específica, e os `RowKey` valores identificam um subconjunto das entidades nessa partição. Por exemplo: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
+* O terceiro melhor é uma *varredura de partição.* Usa o `PartitionKey` , e filtros em outra propriedade não chave e pode devolver mais do que uma entidade. O `PartitionKey` valor identifica uma divisória específica, e os valores de propriedade selecionam para um subconjunto das entidades nessa partição. Por exemplo: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
+* Uma tomografia de *mesa* não inclui o , e `PartitionKey` é ineficiente porque procura todas as divisórias que compõem a sua mesa para quaisquer entidades correspondentes. Executa uma verificação de mesa independentemente de o filtro utilizar ou não o `RowKey` . Por exemplo: `$filter=LastName eq 'Jones'`.  
+* Consultas de armazenamento de mesa Azure que devolvem várias entidades classificam-nas `PartitionKey` e `RowKey` encomendam. Para evitar recorrer às entidades do cliente, escolha uma `RowKey` que defina a ordem de classificação mais comum. Os resultados de consulta devolvidos pela Azure Table API em Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças de características, consulte [as diferenças entre a Tabela API no Azure Cosmos DB e o armazenamento da tabela Azure](table-api-faq.md#table-api-vs-table-storage).
 
-A utilização de um "**ou**" para especificar um filtro com base em `RowKey` valores resulta numa varredura de divisória, e não é tratada como uma consulta de alcance. Por isso, evite consultas que utilizem filtros tais como: `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')` .  
+Usar um "**ou**" para especificar um filtro com base `RowKey` em valores resulta numa varredura de partição, e não é tratado como uma consulta de alcance. Por isso, evite consultas que utilizem filtros como: `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')` .  
 
-Por exemplo, o código do lado do cliente que usa a Biblioteca do Cliente de Armazenamento para executar consultas eficientes, consulte:  
+Por exemplo, o código do lado do cliente que utiliza a Biblioteca do Cliente de Armazenamento para executar consultas eficientes, consulte:  
 
-* [Executar uma consulta pontual usando a Biblioteca do Cliente de Armazenamento](#run-a-point-query-by-using-the-storage-client-library)
+* [Executar uma consulta de pontos utilizando a Biblioteca do Cliente de Armazenamento](#run-a-point-query-by-using-the-storage-client-library)
 * [Recuperar várias entidades utilizando o LINQ](#retrieve-multiple-entities-by-using-linq)
 * [Projeção do lado do servidor](#server-side-projection)  
 
-Por exemplo, de código do lado do cliente que pode lidar com vários tipos de entidades armazenados na mesma tabela, consulte:  
+Por exemplo, código do lado do cliente que pode lidar com vários tipos de entidades armazenados na mesma tabela, consulte:  
 
 * [Trabalhar com tipos de entidades heterogéneas](#work-with-heterogeneous-entity-types)  
 
 ### <a name="choose-an-appropriate-partitionkey"></a>Escolha um apropriado`PartitionKey`
-A sua escolha `PartitionKey` deve equilibrar a necessidade de permitir a utilização de EGTs (para garantir a consistência) contra a exigência de distribuir as suas entidades por várias divisórias (para garantir uma solução escalável).  
+A sua escolha `PartitionKey` deve equilibrar a necessidade de permitir a utilização de EGTs (para garantir a consistência) contra a exigência de distribuir as suas entidades por múltiplas divisórias (para garantir uma solução escalável).  
 
-Num extremo, pode armazenar todas as suas entidades numa única divisória. Mas isto pode limitar a escalabilidade da sua solução, e impediria que o armazenamento de mesa saisse capaz de carregar pedidos de equilíbrio. No outro extremo, pode armazenar uma entidade por partição. Isto é altamente escalável e permite que o armazenamento de tabelas faça pedidos de equilíbrio de carga, mas impede-o de utilizar transações de grupos de entidades.  
+Num extremo, pode armazenar todas as suas entidades numa única divisória. Mas isso pode limitar a escalabilidade da sua solução, e impedir que o armazenamento da Mesa seja capaz de carregar pedidos de equilíbrio. No outro extremo, pode armazenar uma entidade por partição. Isto é altamente escalável e permite o armazenamento de mesa para pedidos de equilíbrio de carga, mas impede-o de usar transações de grupos de entidades.  
 
-Um ideal `PartitionKey` permite-lhe utilizar consultas eficientes e tem divisórias suficientes para garantir que a sua solução é escalável. Normalmente, você vai descobrir que as suas entidades terão um imóvel adequado que distribui as suas entidades através de divisórias suficientes.
+Um ideal `PartitionKey` permite-lhe usar consultas eficientes, e tem divisórias suficientes para garantir que a sua solução é escalável. Normalmente, você vai descobrir que as suas entidades terão um imóvel adequado que distribui suas entidades através de divisórias suficientes.
 
 > [!NOTE]
-> Por exemplo, num sistema que armazena informações sobre utilizadores ou funcionários, `UserID` pode ser um bom `PartitionKey` . Pode ter várias entidades que usam um particular `UserID` como chave de partição. Cada entidade que armazena dados sobre um utilizador é agrunada numa única partição. Estas entidades são acessíveis através de EGTs, mantendo-se ainda altamente escaláveis.
+> Por exemplo, num sistema que armazena informações sobre utilizadores ou funcionários, `UserID` pode ser um bom `PartitionKey` . Pode ter várias entidades que usam um particular `UserID` como chave de partição. Cada entidade que armazena dados sobre um utilizador é agrupada numa única divisória. Estas entidades são acessíveis através de EGTs, sendo ainda altamente escaláveis.
 > 
 > 
 
-Existem considerações adicionais na sua escolha `PartitionKey` que dizem respeito à forma como insere, atualiza e elimina as entidades. Para mais informações, consulte [design para modificação](#design-for-data-modification) de dados mais tarde neste artigo.  
+Existem considerações adicionais na sua escolha `PartitionKey` que se relacionam com a forma como insere, atualiza e apaga entidades. Para mais informações, consulte [Design para modificação de dados](#design-for-data-modification) mais tarde neste artigo.  
 
 ### <a name="optimize-queries-for-table-storage"></a>Otimizar consultas para armazenamento de mesa
-O armazenamento de mesaindexa automaticamente as suas entidades utilizando os `PartitionKey` valores e `RowKey` valores num único índice agrupado. Esta é a razão pela qual as consultas de pontos são as mais eficientes de usar. No entanto, não existem outros índices que não os do índice agrupado na `PartitionKey` e `RowKey` .
+O armazenamento de mesa indexa automaticamente as suas entidades utilizando os `PartitionKey` valores e `RowKey` valores num único índice agrupado. Esta é a razão pela qual as consultas pontuais são as mais eficientes de usar. No entanto, não existem outros índices que não os do índice agrupado no `PartitionKey` e `RowKey` .
 
-Muitos desenhos devem satisfazer os requisitos para permitir a procura de entidades com base em múltiplos critérios. Por exemplo, localizar entidades de empregados com base em e-mail, identificação do empregado ou apelido. Os seguintes padrões na secção Padrões de design de [tabelas](#table-design-patterns) abordam este tipo de requisitos. Os padrões também descrevem formas de trabalhar em torno do facto de que o armazenamento de mesa não fornece índices secundários.  
+Muitos projetos devem satisfazer requisitos para permitir a procura de entidades com base em múltiplos critérios. Por exemplo, localizar entidades de empregados com base em e-mail, ID do empregado ou apelido. Os seguintes padrões na secção [Os padrões de design](#table-design-patterns) da tabela abordam este tipo de requisitos. Os padrões também descrevem formas de trabalhar em torno do facto de que o armazenamento de mesa não fornece índices secundários.  
 
-* [Padrão de índice secundário intra-partição](#intra-partition-secondary-index-pattern): Armazenar várias cópias de cada entidade utilizando `RowKey` valores diferentes (na mesma divisória). Isto permite procurações rápidas e eficientes, e alternar ordens de classificação utilizando `RowKey` diferentes valores.  
-* Padrão de [índice secundário inter-divisória](#inter-partition-secondary-index-pattern): Armazenar várias cópias de cada entidade utilizando `RowKey` valores diferentes em divisórias separadas ou em tabelas separadas. Isto permite procurações rápidas e eficientes, e alternar ordens de classificação utilizando `RowKey` diferentes valores.  
-* [Padrão de entidades](#index-entities-pattern)indexadas : Manter entidades indexadas para permitir pesquisas eficientes que devolução de listas de entidades.  
+* [Padrão de índice secundário intraparteção](#intra-partition-secondary-index-pattern): Armazenar várias cópias de cada entidade utilizando `RowKey` valores diferentes (na mesma partição). Isto permite sondagens rápidas e eficientes e ordens de classificação alternativas utilizando `RowKey` valores diferentes.  
+* [Padrão de índice secundário inter-partição](#inter-partition-secondary-index-pattern): Armazenar várias cópias de cada entidade utilizando `RowKey` valores diferentes em divisórias separadas ou em tabelas separadas. Isto permite sondagens rápidas e eficientes e ordens de classificação alternativas utilizando `RowKey` valores diferentes.  
+* [Padrão de entidades indexadas](#index-entities-pattern): Manter entidades indexadas para permitir pesquisas eficientes que devolvam listas de entidades.  
 
-### <a name="sort-data-in-table-storage"></a>Ordenar dados no armazenamento de tabelas
+### <a name="sort-data-in-table-storage"></a>Ordenar dados no armazenamento de mesa
 
-O armazenamento de tabelas devolve os resultados da consulta ordenadas em ordem ascendente, com base `PartitionKey` e depois por `RowKey` .
+Os resultados da consulta de armazenamento de mesas ordenados em ordem ascendente, com base em `PartitionKey` e depois por `RowKey` .
 
 > [!NOTE]
-> Os resultados da consulta devolvidos pela API da Tabela Azure em Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças de características, consulte [diferenças entre a Tabela API no armazenamento de Azure Cosmos DB e Azure Table.](table-api-faq.md#table-api-vs-table-storage)
+> Os resultados de consulta devolvidos pela Azure Table API em Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças de características, consulte [as diferenças entre a Tabela API no Azure Cosmos DB e o armazenamento da tabela Azure](table-api-faq.md#table-api-vs-table-storage).
 
-As chaves no armazenamento da mesa são valores de cordas. Para garantir que os valores numéricos se classificam corretamente, deve convertê-los num comprimento fixo e remar com zeros. Por exemplo, se o valor de identificação do empregado que usa como o é um valor inteiro, deve converter o `RowKey` ID **123** do empregado para **00000123**. 
+As teclas no armazenamento da mesa são valores de corda. Para garantir que os valores numéricos se classificam corretamente, deve convertê-los num comprimento fixo e remá-los com zeros. Por exemplo, se o valor de identificação do empregado que usa como valor inteiro, deve converter o `RowKey` ID do empregado **123** a **00000123**. 
 
-Muitas aplicações têm requisitos para utilizar dados classificados em diferentes encomendas: por exemplo, classificar os colaboradores pelo nome ou aderir à data. Os seguintes padrões na secção Padrões de design de [tabelas](#table-design-patterns) abordam como alternar ordens de classificação para as suas entidades:  
+Muitas aplicações têm requisitos para usar dados classificados em diferentes ordens: por exemplo, classificar os colaboradores pelo nome, ou aderir à data. Os seguintes padrões na secção [Os padrões de design](#table-design-patterns) da tabela abordam como alternar ordens de classificação para as suas entidades:  
 
-* [Padrão de índice secundário intra-partição](#intra-partition-secondary-index-pattern): Armazenar várias cópias de cada entidade utilizando `RowKey` valores diferentes (na mesma divisória). Isto permite procurações rápidas e eficientes, e alternar ordens de classificação utilizando `RowKey` diferentes valores.  
-* Padrão de [índice secundário inter-divisória](#inter-partition-secondary-index-pattern): Armazenar várias cópias de cada entidade utilizando `RowKey` valores diferentes em divisórias separadas em tabelas separadas. Isto permite procurações rápidas e eficientes, e alternar ordens de classificação utilizando `RowKey` diferentes valores.
-* [Padrão de cauda de log](#log-tail-pattern): Recuperar as entidades *n* mais recentemente adicionadas a uma partição, utilizando um valor que se classifica na data e ordem de `RowKey` tempo inversa.  
+* [Padrão de índice secundário intraparteção](#intra-partition-secondary-index-pattern): Armazenar várias cópias de cada entidade utilizando `RowKey` valores diferentes (na mesma partição). Isto permite sondagens rápidas e eficientes e ordens de classificação alternativas utilizando `RowKey` valores diferentes.  
+* [Padrão de índice secundário inter-partição](#inter-partition-secondary-index-pattern): Armazenar várias cópias de cada entidade utilizando `RowKey` diferentes valores em divisórias separadas em tabelas separadas. Isto permite sondagens rápidas e eficientes e ordens de classificação alternativas utilizando `RowKey` valores diferentes.
+* [Padrão de cauda](#log-tail-pattern)de log : Recupere as entidades *n* mais recentemente adicionadas a uma partição, utilizando um valor que se classifica em ordem de data e `RowKey` hora inversa.  
 
 ## <a name="design-for-data-modification"></a>Design da modificação de dados
-Esta secção centra-se nas considerações de design para otimizar inserções, atualizações e eliminações. Em alguns casos, terá de avaliar a compensação entre desenhos que otimizam a consulta contra designs que otimizam a modificação de dados. Esta avaliação é semelhante à que se faz nos desenhos para bases de dados relacionais (embora as técnicas de gestão das compensações de design sejam diferentes numa base de dados relacional). Os [padrões](#table-design-patterns) de design de tabela da secção descrevem alguns padrões de design detalhados para armazenamento de mesa, e destaca algumas destas trocas. Na prática, você vai descobrir que muitos projetos otimizados para consultas entidades também funcionam bem para modificar entidades.  
+Esta secção centra-se nas considerações de design para otimizar inserções, atualizações e eliminações. Em alguns casos, você precisará avaliar o trade-off entre designs que otimizam para consulta contra designs que otimizam para modificação de dados. Esta avaliação é semelhante à que se faz nos desenhos para bases de dados relacionais (embora as técnicas de gestão das trocas de design sejam diferentes numa base de dados relacional). Os [padrões](#table-design-patterns) de design de tabela de secção descreve alguns padrões de design detalhados para armazenamento de mesa, e destaca alguns destes trade-offs. Na prática, você vai descobrir que muitos projetos otimizados para consultas entidades também funcionam bem para modificar entidades.  
 
-### <a name="optimize-the-performance-of-insert-update-and-delete-operations"></a>Otimizar o desempenho de inserção, atualização e eliminação de operações
-Para atualizar ou eliminar uma entidade, deve ser capaz de identificá-la utilizando os `PartitionKey` valores e `RowKey` valores. A este respeito, a sua escolha `PartitionKey` de e para modificar `RowKey` entidades deve seguir critérios semelhantes à sua escolha para apoiar consultas de pontos. Quer identificar as entidades da forma mais eficiente possível. Não pretende utilizar uma partilha ou digitalização de mesa ineficiente para localizar uma entidade de forma a descobrir os `PartitionKey` valores e `RowKey` valores que necessita para atualizá-la ou apagar.  
+### <a name="optimize-the-performance-of-insert-update-and-delete-operations"></a>Otimizar o desempenho das operações de inserção, atualização e exclusão
+Para atualizar ou eliminar uma entidade, deve ser capaz de identificá-la utilizando os `PartitionKey` valores e `RowKey` valores. A este respeito, a sua escolha e modificação de `PartitionKey` `RowKey` entidades deve seguir critérios semelhantes à sua escolha para apoiar consultas de pontos. Quer identificar as entidades da forma mais eficiente possível. Não pretende utilizar uma partição ineficiente ou uma verificação de tabela para localizar uma entidade para descobrir os `PartitionKey` `RowKey` valores necessários para a atualizar ou eliminar.  
 
-Os seguintes padrões no endereço de design de [tabela](#table-design-patterns) seletiva otimizam o desempenho da sua inserção, atualização e eliminação de operações:  
+Os seguintes padrões na secção [Os padrões de design](#table-design-patterns) da tabela endereçam otimizar o desempenho da sua inserção, atualização e apagar operações:  
 
-* Padrão de [eliminação](#high-volume-delete-pattern)de alto volume : Permitir a eliminação de um elevado volume de entidades armazenando todas as entidades para eliminação simultânea na sua própria tabela separada. Elimina as entidades eliminando a tabela.  
-* [Padrão](#data-series-pattern)de série de dados : Armazenar séries completas de dados numa única entidade para minimizar o número de pedidos que efaz.  
+* [Padrão de eliminação](#high-volume-delete-pattern)de volume elevado : Permitir a supressão de um elevado volume de entidades armazenando todas as entidades para eliminação simultânea na sua própria tabela separada. Apaga-se as entidades apagando a mesa.  
+* [Padrão da série de](#data-series-pattern)dados : Guarde séries de dados completas numa única entidade para minimizar o número de pedidos que es faz.  
 * [Padrão de entidades amplas](#wide-entities-pattern): Utilize múltiplas entidades físicas para armazenar entidades lógicas com mais de 252 propriedades.  
-* [Padrão de grandes entidades:](#large-entities-pattern)Use o armazenamento de blob para armazenar grandes valores de propriedade.  
+* [Padrão de grandes entidades](#large-entities-pattern): Use o armazenamento de bolhas para armazenar grandes valores de propriedade.  
 
-### <a name="ensure-consistency-in-your-stored-entities"></a>Garantir a consistência nas suas entidades armazenadas
-O outro fator-chave que influencia a sua escolha de chaves para otimizar modificações de dados é como garantir a consistência utilizando transações atómicas. Só pode utilizar um EGT para operar em entidades armazenadas na mesma divisória.  
+### <a name="ensure-consistency-in-your-stored-entities"></a>Garantir consistência nas suas entidades armazenadas
+O outro fator-chave que influencia a escolha das chaves para otimizar as modificações de dados é como garantir a consistência utilizando transações atómicas. Só pode utilizar um EGT para operar em entidades armazenadas na mesma divisão.  
 
-Os seguintes padrões na secção Padrões de design de [tabelas](#table-design-patterns) abordam a consistência da gestão:  
+Os seguintes padrões na secção [Os padrões de design](#table-design-patterns) da tabela abordam a consistência da gestão:  
 
-* [Padrão de índice secundário intra-partição](#intra-partition-secondary-index-pattern): Armazenar várias cópias de cada entidade utilizando `RowKey` valores diferentes (na mesma divisória). Isto permite procurações rápidas e eficientes, e alternar ordens de classificação utilizando `RowKey` diferentes valores.  
-* Padrão de [índice secundário inter-divisória](#inter-partition-secondary-index-pattern): Armazenar várias cópias de cada entidade utilizando `RowKey` valores diferentes em divisórias separadas ou em tabelas separadas. Isto permite procurações rápidas e eficientes, e alternar ordens de classificação utilizando `RowKey` diferentes valores.  
-* [Eventualmente consistente padrão de transações](#eventually-consistent-transactions-pattern): Ativar eventualmente um comportamento consistente através dos limites da divisória ou dos limites do sistema de armazenamento usando as filas Azure.
-* [Padrão de entidades](#index-entities-pattern)indexadas : Manter entidades indexadas para permitir pesquisas eficientes que devolução de listas de entidades.  
-* Padrão de [desnormalização](#denormalization-pattern): Combine dados relacionados numa única entidade, para que possa recuperar todos os dados necessários com uma consulta de ponto único.  
-* [Padrão](#data-series-pattern)de série de dados : Armazenar séries completas de dados numa única entidade, para minimizar o número de pedidos que efaz.  
+* [Padrão de índice secundário intraparteção](#intra-partition-secondary-index-pattern): Armazenar várias cópias de cada entidade utilizando `RowKey` valores diferentes (na mesma partição). Isto permite sondagens rápidas e eficientes e ordens de classificação alternativas utilizando `RowKey` valores diferentes.  
+* [Padrão de índice secundário inter-partição](#inter-partition-secondary-index-pattern): Armazenar várias cópias de cada entidade utilizando `RowKey` valores diferentes em divisórias separadas ou em tabelas separadas. Isto permite sondagens rápidas e eficientes e ordens de classificação alternativas utilizando `RowKey` valores diferentes.  
+* [Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern): Permitir um comportamento eventualmente consistente através dos limites de partição ou do sistema de armazenamento utilizando as filas Azure.
+* [Padrão de entidades indexadas](#index-entities-pattern): Manter entidades indexadas para permitir pesquisas eficientes que devolvam listas de entidades.  
+* [Padrão de desnormalização](#denormalization-pattern): Combine dados relacionados numa única entidade, para que possa recuperar todos os dados de que necessita com uma consulta de ponto único.  
+* [Padrão da série de](#data-series-pattern)dados : Armazenar séries de dados completas numa única entidade, para minimizar o número de pedidos que es faz.  
 
-Para mais informações, consulte [as transações](#entity-group-transactions) do grupo Entity mais tarde neste artigo.  
+Para mais informações, consulte [as transações do grupo Entity](#entity-group-transactions) mais tarde neste artigo.  
 
-### <a name="ensure-your-design-for-efficient-modifications-facilitates-efficient-queries"></a>Garantir o seu design para modificações eficientes facilita consultas eficientes
-Em muitos casos, um design para consulta eficiente resulta em modificações eficientes, mas você deve sempre avaliar se este é o caso para o seu cenário específico. Alguns dos padrões da secção Padrões de design de [tabela avaliam](#table-design-patterns) explicitamente as trocas entre consultas e entidades modificantes, e deve sempre ter em conta o número de cada tipo de operação.  
+### <a name="ensure-your-design-for-efficient-modifications-facilitates-efficient-queries"></a>Certifique-se de que o seu design para modificações eficientes facilita consultas eficientes
+Em muitos casos, um design para consultas eficientes resulta em modificações eficientes, mas deve sempre avaliar se este é o caso para o seu cenário específico. Alguns dos padrões na secção [Os padrões](#table-design-patterns) de design de mesa avaliam explicitamente as compensações entre as entidades que questionam e modificam, e deve sempre ter em conta o número de cada tipo de operação.  
 
-Os seguintes padrões na secção Padrões de design de [tabelas](#table-design-patterns) abordam as compensações entre a conceção de consultas eficientes e a conceção de uma modificação eficiente dos dados:  
+Os seguintes padrões na secção [Os padrões](#table-design-patterns) de conceção da tabela abordam as compensações entre a conceção de consultas eficientes e a conceção de uma modificação eficiente dos dados:  
 
-* [Padrão de chave composta:](#compound-key-pattern)Utilize `RowKey` valores compostos para permitir que um cliente procure dados relacionados com uma consulta de ponto único.  
-* [Padrão de cauda de log](#log-tail-pattern): Recuperar as entidades *n* mais recentemente adicionadas a uma partição, utilizando um valor que se classifica na data e ordem de `RowKey` tempo inversa.  
+* [Padrão de chave composto](#compound-key-pattern): Utilize `RowKey` valores compostos para permitir que um cliente procure dados relacionados com uma consulta de ponto único.  
+* [Padrão de cauda](#log-tail-pattern)de log : Recupere as entidades *n* mais recentemente adicionadas a uma partição, utilizando um valor que se classifica em ordem de data e `RowKey` hora inversa.  
 
-## <a name="encrypt-table-data"></a>Encriptar dados de tabela
-A biblioteca de clientes .NET Azure Storage suporta encriptação de propriedades de entidades de cadeia para inserir e substituir operações. As cordas encriptadas são armazenadas no serviço como propriedades binárias, e são convertidas de volta às cordas após a desencriptação.    
+## <a name="encrypt-table-data"></a>Criptografe dados de tabela
+A biblioteca de clientes .NET Azure Storage suporta a encriptação das propriedades da entidade de cordas para inserir e substituir operações. As cordas encriptadas são armazenadas no serviço como propriedades binárias, e são convertidas de volta em cordas após a desencriptação.    
 
-Para as tabelas, para além da política de encriptação, os utilizadores devem especificar as propriedades a encriptar. Ou especifica um `EncryptProperty` atributo (para entidades POCO que `TableEntity` derivam), ou especifica um resolver de encriptação nas opções de pedido. Um resolver de encriptação é um delegado que pega uma chave de partição, chave de linha e nome de propriedade, e devolve um Boolean que indica se essa propriedade deve ser encriptada. Durante a encriptação, a biblioteca do cliente usa esta informação para decidir se uma propriedade deve ser encriptada enquanto escreve ao fio. O delegado também fornece a possibilidade de lógica em torno de como as propriedades são encriptadas. (Por exemplo, se X, em seguida, encriptar propriedade A; de outra forma encriptar propriedades A e B.) Não é necessário fornecer esta informação enquanto lê ou consulta entidades.
+Para as tabelas, além da política de encriptação, os utilizadores devem especificar as propriedades a encriptar. Ou especificar um `EncryptProperty` atributo (para entidades POCO que derivam `TableEntity` de), ou especificar uma encriptação resolver nas opções de pedido. Um resolver de encriptação é um delegado que pega numa chave de partição, chave de linha e nome de propriedade, e devolve um Boolean que indica se essa propriedade deve ser encriptada. Durante a encriptação, a biblioteca do cliente utiliza esta informação para decidir se uma propriedade deve ser encriptada enquanto escreve para o fio. O delegado também prevê a possibilidade de lógica em torno de como as propriedades são encriptadas. (Por exemplo, se X, em seguida, encriptar a propriedade A; caso contrário, encriptar propriedades A e B.) Não é necessário fornecer esta informação enquanto lê ou consulta entidades.
 
-A fusão não é apoiada atualmente. Como um subconjunto de propriedades poderia ter sido encriptado anteriormente usando uma chave diferente, simplesmente fundir as novas propriedades e atualizar os metadados resultará na perda de dados. A fusão requer fazer chamadas de serviço extra para ler a entidade pré-existente a partir do serviço, ou usar uma nova chave por imóvel. Nenhum destes são adequados por razões de desempenho.     
+A fusão não é suportada atualmente. Porque um subconjunto de propriedades poderia ter sido encriptado anteriormente usando uma chave diferente, simplesmente fundir as novas propriedades e atualizar os metadados resultará na perda de dados. A fusão requer fazer chamadas de serviço extra para ler a entidade pré-existente a partir do serviço, ou usar uma nova chave por propriedade. Nenhum destes é adequado por razões de desempenho.     
 
-Para obter informações sobre encriptar dados de tabelas, consulte [encriptação do lado do cliente e cofre de chaves Azure para o Armazenamento Microsoft Azure](../storage/common/storage-client-side-encryption.md).  
+Para obter informações sobre a encriptação de dados da tabela, consulte [a encriptação do lado do cliente e o cofre da chave Azure para o Armazenamento do Microsoft Azure](../storage/common/storage-client-side-encryption.md).  
 
-## <a name="model-relationships"></a>Relacionamentos modelo
-Construir modelos de domínio é um passo fundamental na conceção de sistemas complexos. Normalmente, utiliza-se o processo de modelação para identificar entidades e as relações entre elas, como forma de compreender o domínio do negócio e informar o design do seu sistema. Esta secção centra-se na forma como pode traduzir alguns dos tipos de relacionamento comuns encontrados em modelos de domínio para desenhos para armazenamento de mesa. O processo de mapeamento de um modelo de dados lógico para um modelo de dados físico baseado no NoSQL é diferente do utilizado na conceção de uma base de dados relacional. O design de bases de dados relacionais normalmente assume um processo de normalização de dados otimizado para minimizar o despedimento. Tal design também assume uma capacidade de consulta declarativa que abstrae a implementação de como a base de dados funciona.  
+## <a name="model-relationships"></a>Relacionamentos de modelo
+Os modelos de domínio de construção são um passo fundamental na conceção de sistemas complexos. Normalmente, utiliza-se o processo de modelação para identificar entidades e as relações entre elas, como forma de compreender o domínio do negócio e informar o design do seu sistema. Esta secção centra-se em como você pode traduzir alguns dos tipos de relacionamento comuns encontrados em modelos de domínio para designs para armazenamento de mesa. O processo de mapeamento de um modelo de dados lógico para um modelo de dados físico baseado no NoSQL é diferente do utilizado na conceção de uma base de dados relacional. O design de bases de dados relacionais normalmente pressupõe um processo de normalização de dados otimizado para minimizar a redundância. Tal design também assume uma capacidade de consulta declarativa que abstrata a implementação de como a base de dados funciona.  
 
-### <a name="one-to-many-relationships"></a>Relações de um a muitas
-As relações entre objetos de domínio de negócio soam frequentemente: por exemplo, um departamento tem muitos colaboradores. Existem várias formas de implementar relações de um a muitas em armazenamento de mesa, cada uma com prós e contras que podem ser relevantes para o cenário particular.  
+### <a name="one-to-many-relationships"></a>Relacionamentos de um a muitos
+Relacionamentos entre objetos de domínio de negócios ocorrem frequentemente: por exemplo, um departamento tem muitos funcionários. Existem várias formas de implementar relações one-to-many no armazenamento de mesa, cada uma com prós e contras que podem ser relevantes para o cenário particular.  
 
-Considere o exemplo de uma grande multinacional com dezenas de milhares de departamentos e entidades de funcionários. Cada departamento tem muitos empregados e cada empregado está associado a um departamento específico. Uma abordagem é armazenar entidades separadas de departamento e empregados, tais como:  
+Considere o exemplo de uma grande multinacional com dezenas de milhares de departamentos e entidades de funcionários. Todos os departamentos têm muitos empregados e cada empregado está associado a um departamento específico. Uma abordagem é armazenar departamentos separados e entidades de empregados, tais como:  
 
-![Gráfico mostrando uma entidade de departamento e uma entidade colaboradora][1]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE01.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
 
 Este exemplo mostra uma relação implícita entre os tipos, com base no `PartitionKey` valor. Cada departamento pode ter muitos empregados.  
 
-Este exemplo mostra também uma entidade de departamento e as suas entidades colaboradoras relacionadas na mesma divisão. Pode optar por utilizar diferentes divisórias, tabelas ou até mesmo contas de armazenamento para os diferentes tipos de entidades.  
+Este exemplo mostra também uma entidade de departamento e as suas entidades associadas na mesma divisão. Pode optar por utilizar diferentes contas de divisórias, tabelas ou até mesmo armazenamento para os diferentes tipos de entidades.  
 
-Uma abordagem alternativa é desnormalizar os seus dados e armazenar apenas entidades de empregados com dados dedepartamentodesdes, como mostra o exemplo seguinte. Neste cenário em particular, esta abordagem desnormalizada pode não ser a melhor se tiver a obrigação de poder alterar os detalhes de um gestor de departamento. Para isso, terias de atualizar todos os empregados do departamento.  
+Uma abordagem alternativa é desnormalizar os seus dados e armazenar apenas entidades de empregados com dados desnormalizados do departamento, como mostra o exemplo seguinte. Neste cenário específico, esta abordagem desnormalizada pode não ser a melhor se tiver a obrigação de poder alterar os detalhes de um gerente de departamento. Para isso, precisaria de atualizar todos os funcionários do departamento.  
 
-![Gráfico da entidade colaboradora][2]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE02.png" alt-text="Gráfico da entidade dos colaboradores":::
 
-Para mais informações, consulte o [padrão de Desnormalização](#denormalization-pattern) mais tarde neste guia.  
+Para mais informações, consulte o [padrão de desnormalização](#denormalization-pattern) mais tarde neste guia.  
 
-A tabela que se segue resume os prós e os contras de cada uma das abordagens para armazenar entidades de funcionários e departamentos que têm uma relação de um a muitos. Deve também considerar a frequência com que espera realizar várias operações. Pode ser aceitável ter um desenho que inclua uma operação dispendiosa se essa operação acontecer apenas com pouca frequência.  
+A tabela seguinte resume os prós e os contras de cada uma das abordagens para armazenar entidades de empregados e departamentos que têm uma relação de um para muitos. Também deve considerar a frequência com que espera realizar várias operações. Pode ser aceitável ter um desenho que inclua uma operação dispendiosa se essa operação só acontecer com pouca frequência.  
 
 <table>
 <tr>
@@ -333,34 +333,34 @@ A tabela que se segue resume os prós e os contras de cada uma das abordagens pa
 <th>Contras</th>
 </tr>
 <tr>
-<td>Tipos de entidades separados, mesma partição, mesma tabela</td>
+<td>Tipos de entidades separadas, mesma divisória, mesma tabela</td>
 <td>
 <ul>
 <li>Pode atualizar uma entidade do departamento com uma única operação.</li>
-<li>Pode utilizar um EGT para manter a consistência se tiver a obrigação de modificar uma entidade de departamento sempre que atualizar/inserir/eliminar uma entidade colaboradora. Por exemplo, se mantiver uma contagem de empregados departamentais para cada departamento.</li>
+<li>Pode utilizar um EGT para manter a consistência se tiver a obrigação de modificar uma entidade de departamento sempre que atualizar/inserir/eliminar uma entidade do colaborador. Por exemplo, se mantiver uma contagem de funcionários do departamento para cada departamento.</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Talvez precise de recuperar um empregado e uma entidade do departamento para algumas atividades de clientes.</li>
+<li>Você pode precisar de recuperar um funcionário e uma entidade do departamento para algumas atividades do cliente.</li>
 <li>As operações de armazenamento acontecem na mesma divisória. Em volumes de transações elevados, isto pode resultar num hotspot.</li>
-<li>Não se pode transferir um empregado para um novo departamento usando um EGT.</li>
+<li>Não se pode mudar um empregado para um novo departamento usando um EGT.</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>Tipos de entidades separados, divisórias diferentes ou tabelas ou contas de armazenamento</td>
+<td>Tipos de entidades separadas, diferentes divisórias, ou tabelas ou contas de armazenamento</td>
 <td>
 <ul>
-<li>Pode atualizar uma entidade de departamento ou entidade colaboradora com uma única operação.</li>
+<li>Pode atualizar uma entidade do departamento ou entidade de empregados com uma única operação.</li>
 <li>Em volumes de transações elevados, isto pode ajudar a espalhar a carga por mais divisórias.</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Talvez precise de recuperar um empregado e uma entidade do departamento para algumas atividades de clientes.</li>
-<li>Não é possível utilizar EGTs para manter a consistência quando atualiza/insere/elimina um funcionário e atualize um departamento. Por exemplo, atualizar uma contagem de empregados numa entidade de departamento.</li>
-<li>Não se pode transferir um empregado para um novo departamento usando um EGT.</li>
+<li>Você pode precisar de recuperar um funcionário e uma entidade do departamento para algumas atividades do cliente.</li>
+<li>Não é possível utilizar EGTs para manter a consistência quando atualiza/insere/apaga um funcionário e atualiza um departamento. Por exemplo, atualizar a contagem de funcionários numa entidade do departamento.</li>
+<li>Não se pode mudar um empregado para um novo departamento usando um EGT.</li>
 </ul>
 </td>
 </tr>
@@ -373,202 +373,203 @@ A tabela que se segue resume os prós e os contras de cada uma das abordagens pa
 </td>
 <td>
 <ul>
-<li>Pode ser dispendioso manter a consistência se precisar de atualizar informações do departamento (isto exigiria que atualizasse todos os colaboradores de um departamento).</li>
+<li>Pode ser caro manter a consistência se precisar de atualizar as informações do departamento (isto exigiria que atualizasse todos os funcionários de um departamento).</li>
 </ul>
 </td>
 </tr>
 </table>
 
-A forma como escolhe entre estas opções, e qual dos prós e contras são mais significativos, depende dos seus cenários específicos de candidatura. Por exemplo, com que frequência modifica as entidades do departamento? Todas as suas consultas de empregados precisam de informações adicionais do departamento? Qual a sua proximidade com os limites de escalabilidade das suas divisórias ou da sua conta de armazenamento?  
+A forma como escolhes entre estas opções, e qual dos prós e contras são mais significativos, depende dos teus cenários específicos de aplicação. Por exemplo, com que frequência modifica entidades do departamento? Todas as suas consultas de empregados precisam de informações adicionais do departamento? Quão perto está dos limites de escalabilidade das suas divisórias ou da sua conta de armazenamento?  
 
 ### <a name="one-to-one-relationships"></a>Relações um-para-um
-Os modelos de domínio podem incluir relações um-a-um entre entidades. Se precisa implementar uma relação um-para-um no armazenamento de mesa, também deve escolher como ligar as duas entidades relacionadas quando precisa de recuperar as duas. Este link pode ser implícito, com base numa convenção nos valores-chave, ou explícito, armazenando um link sob a forma de `PartitionKey` e `RowKey` valores em cada entidade à sua entidade coligada. Para uma discussão sobre se deve armazenar as entidades relacionadas na mesma partilha, consulte a secção [Relações One-a-many](#one-to-many-relationships).  
+Os modelos de domínio podem incluir relações um-para-um entre entidades. Se precisa implementar uma relação um-para-um no armazenamento de mesa, também deve escolher como ligar as duas entidades relacionadas quando precisa de recuperar as duas. Este link pode ser implícito, com base numa convenção nos valores-chave, ou explícito, armazenando um link sob a forma `PartitionKey` e `RowKey` valores de cada entidade à sua entidade relacionada. Para uma discussão sobre se deve armazenar as entidades relacionadas na mesma divisão, consulte a secção [Um a muitos relacionamentos](#one-to-many-relationships).  
 
-Existem também considerações de implementação que podem levá-lo a implementar relações um-para-um no armazenamento de tabelas:  
+Existem também considerações de implementação que podem levá-lo a implementar relações um-para-um no armazenamento de mesa:  
 
-* Manuseamento de grandes entidades (para mais informações, consulte [o padrão de grandes entidades).](#large-entities-pattern)  
-* Implementação de controlos de acesso (para mais informações, consulte [o acesso ao Controlo com assinaturas de acesso partilhado).](#control-access-with-shared-access-signatures)  
+* Manusear grandes entidades (para mais informações, consulte [o padrão das grandes entidades).](#large-entities-pattern)  
+* Implementando controlos de acesso (para obter mais informações, consulte [o acesso ao Controlo com assinaturas de acesso partilhado).](#control-access-with-shared-access-signatures)  
 
 ### <a name="join-in-the-client"></a>Junte-se ao cliente
-Embora existam formas de modelar relações no armazenamento de mesa, não se esqueça que as duas principais razões para usar o armazenamento de mesa são a escalabilidade e desempenho. Se descobrir que está a modelar muitas relações que comprometem o desempenho e a escalabilidade da sua solução, deve perguntar-se se é necessário construir todas as relações de dados no design da sua tabela. Poderá simplificar o design e melhorar a escalabilidade e desempenho da sua solução, caso deixe a sua aplicação de cliente realizar as juntas necessárias.  
+Embora existam formas de modelar relações no armazenamento de mesa, não se esqueça que as duas principais razões para usar o armazenamento de mesa são a escalabilidade e o desempenho. Se você acha que você está modelando muitas relações que comprometem o desempenho e escalabilidade da sua solução, você deve perguntar a si mesmo se é necessário construir todas as relações de dados no seu design de mesa. Poderá simplificar o design e melhorar a escalabilidade e desempenho da sua solução, se deixar que a sua aplicação ao cliente execute as junções necessárias.  
 
-Por exemplo, se tiver pequenas tabelas que contenham dados que não mudam frequentemente, pode recuperar estes dados uma vez, e cache-lo no cliente. Isto pode evitar viagens repetidas para recuperar os mesmos dados. Nos exemplos que temos olhado neste guia, o conjunto de departamentos de uma pequena organização é provável que seja pequeno e mude pouco frequentemente. Isto faz com que seja um bom candidato para dados que uma aplicação de cliente pode descarregar uma vez e cache como dados de procura.  
+Por exemplo, se tiver pequenas tabelas que contenham dados que não mudam frequentemente, pode recuperar estes dados uma vez, e cache-os no cliente. Isto pode evitar repetidas velhagens para recuperar os mesmos dados. Nos exemplos que vimos neste guia, o conjunto de departamentos de uma pequena organização é provável que seja pequeno e mude de forma rara. Isto faz com que seja um bom candidato para dados que uma aplicação de cliente pode descarregar uma vez e cache como dados de procura.  
 
 ### <a name="inheritance-relationships"></a>Relações de herança
-Se a sua aplicação de cliente utilizar um conjunto de classes que fazem parte de uma relação de herança para representar entidades empresariais, pode facilmente persistir essas entidades no armazenamento de Mesa. Por exemplo, pode ter o seguinte conjunto de aulas definidas na sua aplicação de cliente, onde `Person` é uma classe abstrata.
+Se a sua aplicação ao cliente utilizar um conjunto de classes que fazem parte de uma relação de herança para representar entidades empresariais, pode facilmente persistir essas entidades no armazenamento de mesa. Por exemplo, pode ter o seguinte conjunto de aulas definidas na sua aplicação de cliente, onde `Person` é uma classe abstrata.
 
-![Diagrama de relações de herança][3]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE03.png" alt-text="Diagrama de relações de herança":::
 
-Pode persistir casos das duas classes concretas no armazenamento de mesa utilizando uma única `Person` mesa. Utilize entidades que se pareçam com as seguintes:  
+Pode persistir casos das duas classes de betão no armazenamento de mesa utilizando uma única `Person` tabela. Utilize entidades que se pareçam com o seguinte:  
 
-![Gráfico mostrando entidade cliente e entidade colaboradora][4]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE04.png" alt-text="Entidade de clientes de exibição gráfica e entidade de colaboradores":::
 
-Para obter mais informações sobre o trabalho com vários tipos de entidades na mesma tabela no código do cliente, consulte Trabalhar com tipos de [entidades heterogéneas](#work-with-heterogeneous-entity-types) mais tarde neste guia. Isto fornece exemplos de como reconhecer o tipo de entidade no código do cliente.  
+Para obter mais informações sobre o trabalho com vários tipos de entidades na mesma tabela no código do cliente, consulte [Trabalhar com tipos de entidades heterogéneas](#work-with-heterogeneous-entity-types) mais tarde neste guia. Isto fornece exemplos de como reconhecer o tipo de entidade no código do cliente.  
 
 ## <a name="table-design-patterns"></a>Padrões de design da tabela
-Em secções anteriores, aprendeu a otimizar o design da sua tabela tanto para recuperar dados da entidade, utilizando consultas, como para inserir, atualizar e apagar dados da entidade. Esta secção descreve alguns padrões adequados para uso com armazenamento de mesa. Além disso, você verá como você pode praticamente abordar algumas das questões e compensações levantadas anteriormente neste guia. O diagrama seguinte resume as relações entre os diferentes padrões:  
+Em secções anteriores, aprendeu sobre como otimizar o design da sua tabela tanto para recuperar dados da entidade, utilizando consultas, como para inserir, atualizar e eliminar dados da entidade. Esta secção descreve alguns padrões adequados para utilização com armazenamento de mesa. Além disso, você verá como você pode praticamente abordar algumas das questões e trade-offs levantadas anteriormente neste guia. O diagrama seguinte resume as relações entre os diferentes padrões:  
 
-![Diagrama de padrões de design de mesa][5]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE05.png" alt-text="Diagrama de padrões de design de mesa":::
 
-O mapa de padrões destaca algumas relações entre padrões (azul) e anti-padrões (laranja) que são documentados neste guia. Há, naturalmente, muitos outros padrões que valem a pena considerar. Por exemplo, um dos cenários-chave para o armazenamento de mesa é usar o padrão de [visão materializado](https://msdn.microsoft.com/library/azure/dn589782.aspx) a partir do padrão de segregação de responsabilidade de consulta de [comando.](https://msdn.microsoft.com/library/azure/jj554200.aspx)  
+O mapa de padrões destaca algumas relações entre padrões (azul) e anti-padrões (laranja) que são documentados neste guia. Há, naturalmente, muitos outros padrões que vale a pena considerar. Por exemplo, um dos cenários-chave para o armazenamento da mesa é usar o padrão de [vista materializado](https://msdn.microsoft.com/library/azure/dn589782.aspx) a partir do padrão de segregação de [responsabilidade de comando.](https://msdn.microsoft.com/library/azure/jj554200.aspx)  
 
-### <a name="intra-partition-secondary-index-pattern"></a>Padrão de índice secundário intra-partição
-Armazenar várias cópias de cada entidade utilizando `RowKey` valores diferentes (na mesma divisória). Isto permite procurações rápidas e eficientes, e alternar ordens de classificação utilizando `RowKey` diferentes valores. As atualizações entre cópias podem ser mantidas consistentes utilizando EGTs.  
+### <a name="intra-partition-secondary-index-pattern"></a>Padrão do índice secundário intra-partição
+Armazenar várias cópias de cada entidade utilizando `RowKey` valores diferentes (na mesma partição). Isto permite sondagens rápidas e eficientes e ordens de classificação alternativas utilizando `RowKey` valores diferentes. As atualizações entre cópias podem ser mantidas consistentes utilizando EGTs.  
 
 #### <a name="context-and-problem"></a>Contexto e problema
-O armazenamento de mesa indexa automaticamente as entidades utilizando os `PartitionKey` valores e `RowKey` valores. Isto permite que uma aplicação do cliente recupere uma entidade de forma eficiente utilizando estes valores. Por exemplo, utilizando a seguinte estrutura de tabela, uma aplicação de cliente pode usar uma consulta pontual para recuperar uma entidade de empregado individual utilizando o nome do departamento e o ID do empregado (o `PartitionKey` e `RowKey` valores). Um cliente também pode recuperar entidades ordenadas por identificação de empregado dentro de cada departamento.
+O armazenamento de mesa indexa automaticamente as entidades utilizando os `PartitionKey` valores e `RowKey` valores. Isto permite que uma aplicação do cliente recupere uma entidade de forma eficiente utilizando estes valores. Por exemplo, utilizando a seguinte estrutura de tabela, uma aplicação de cliente pode usar uma consulta de ponto para recuperar uma entidade de colaborador individual, utilizando o nome do departamento e o ID do empregado (os `PartitionKey` `RowKey` valores). Um cliente também pode recuperar entidades classificadas por identificação de funcionários dentro de cada departamento.
 
-![Gráfico da entidade colaboradora][6]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE06.png" alt-text="Gráfico da entidade dos colaboradores":::
 
-Se também quiser encontrar uma entidade colaboradora com base no valor de outra propriedade, como o endereço de e-mail, deve utilizar uma verificação de divisórias menos eficiente para encontrar uma correspondência. Isto porque o armazenamento de mesa não fornece índices secundários. Além disso, não há opção de solicitar uma lista de funcionários classificados numa ordem diferente da `RowKey` ordem.  
+Se também quiser encontrar uma entidade de colaboradores com base no valor de outra propriedade, como endereço de e-mail, deve utilizar uma verificação de partição menos eficiente para encontrar uma correspondência. Isto porque o armazenamento de mesa não fornece índices secundários. Além disso, não há opção de solicitar uma lista de funcionários classificados numa ordem diferente da `RowKey` encomenda.  
 
 #### <a name="solution"></a>Solução
-Para contornar a falta de índices secundários, pode armazenar várias cópias de cada entidade, com cada cópia utilizando um `RowKey` valor diferente. Se armazenar uma entidade com as seguintes estruturas, pode recuperar eficientemente as entidades dos colaboradores com base no endereço de e-mail ou na identificação do empregado. Os valores prefixos `RowKey` `empid_` para, e `email_` permitem-lhe consultar um único empregado, ou um leque de colaboradores, utilizando uma série de endereços de e-mail ou iDs de empregados.  
+Para contornar a falta de índices secundários, pode armazenar várias cópias de cada entidade, com cada cópia usando um `RowKey` valor diferente. Se armazenar uma entidade com as seguintes estruturas, poderá recuperar eficientemente entidades de colaboradores com base em endereço de e-mail ou ID do funcionário. Os valores do prefixo para `RowKey` `empid_` , e `email_` permitem-lhe consultar um único empregado, ou uma série de colaboradores, utilizando uma série de endereços de e-mail ou IDs de funcionários.  
 
-![Gráfico mostrando entidade colaboradora com valores rowKey variados][7]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE07.png" alt-text="Entidade de colaboradores de exibição gráfica com valores RowKey variados":::
 
-Os dois critérios de filtro seguintes (um olhando para cima por id do empregado, e um olhando para cima por endereço de e-mail) ambos especificam consultas de ponto:  
+Os dois critérios de filtro a seguir (um olhando para cima por ID do empregado, e um procurando por endereço de e-mail) ambos especificam consultas de ponto:  
 
 * $filter=(PartitionKey eq 'Sales') e (RowKey eq 'empid_000223')  
-* $filter=(PartitionKey eq 'Sales') e (RowKey email_jonesj@contoso.com eq')  
+* $filter=(PartitionKey eq 'Sales') e (RowKey eq' email_jonesj@contoso.com ')  
 
-Se consultar uma série de entidades de empregados, pode especificar uma gama ordenada na ordem de identificação do empregado, ou um intervalo classificado na ordem de endereço de e-mail. Consulta para entidades com o prefixo apropriado no `RowKey` .  
+Se consultar uma série de entidades de colaboradores, pode especificar um intervalo classificado na ordem de identificação do empregado ou um intervalo ordenado por encomenda de endereço de e-mail. Consulta para entidades com o prefixo apropriado no `RowKey` .  
 
-* Para encontrar todos os colaboradores do departamento de Vendas com identificação de empregado na gama 000100 a 000199, use: $filter=(PartitionKey eq 'Sales') e (RowKey ge 'empid_000100') e (RowKey le 'empid_000199')  
-* Para encontrar todos os colaboradores do departamento de Vendas com um endereço de e-mail a começar pela letra "a", use: $filter=(PartitionKey eq 'Sales') e (RowKey ge 'email_a') e (RowKey lt 'email_b')  
+* Para encontrar todos os colaboradores do departamento de Vendas com um ID de empregado na gama 000100 a 000199, utilize: $filter=(PartitionKey eq 'Sales') e (RowKey ge 'empid_000100') e (RowKey le 'empid_000199')  
+* Para encontrar todos os colaboradores do departamento de Vendas com um endereço de e-mail a começar pela letra "a", utilize: $filter=(PartitionKey eq 'Sales') e (RowKey ge 'email_a') e (RowKey lt 'email_b')  
   
-A sintaxe do filtro utilizada nos exemplos anteriores é da API de armazenamento de mesa REST API. Para mais informações, consulte [as entidades de Consulta.](https://msdn.microsoft.com/library/azure/dd179421.aspx)  
+A sintaxe do filtro utilizada nos exemplos anteriores é da API DE ARMAZENAMENTO DE MESA. Para mais informações, consulte [as entidades de Consulta.](https://msdn.microsoft.com/library/azure/dd179421.aspx)  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
-* O armazenamento de mesas é relativamente barato de usar, pelo que o custo de armazenamento de dados duplicados não deve ser uma grande preocupação. No entanto, deverá sempre avaliar o custo do seu design com base nos seus requisitos de armazenamento antecipados, e apenas adicionar entidades duplicadas para suportar as consultas que a sua aplicação de cliente irá executar.  
-* Como as entidades do índice secundário são armazenadas na mesma divisória que as entidades originais, certifique-se de que não excede os objetivos de escalabilidade para uma partição individual.  
-* Pode manter as suas entidades duplicadas consistentes entre si, utilizando EGTs para atualizar atomicamente as duas cópias da entidade. Isto implica que deve armazenar todas as cópias de uma entidade na mesma divisória. Para mais informações, consulte as transações do [grupo Use.](#entity-group-transactions)  
+* O armazenamento de mesas é relativamente barato de usar, por isso o custo de armazenamento de dados duplicados não deve ser uma grande preocupação. No entanto, deve sempre avaliar o custo do seu design com base nos seus requisitos de armazenamento previstos, e apenas adicionar entidades duplicadas para suportar as consultas que a sua aplicação do cliente irá executar.  
+* Como as entidades de índice secundário são armazenadas na mesma divisão que as entidades originais, certifique-se de que não excede os objetivos de escalabilidade para uma partição individual.  
+* Pode manter as suas entidades duplicadas consistentes entre si, utilizando EGTs para atualizar as duas cópias da entidade atomicamente. Isto implica que deve armazenar todas as cópias de uma entidade na mesma divisão. Para obter mais informações, consulte [as transações do grupo de entidades.](#entity-group-transactions)  
 * O valor utilizado para o `RowKey` deve ser único para cada entidade. Considere usar valores-chave compostos.  
-* Acolchoamento de valores numéricos no `RowKey` (por exemplo, o ID do empregado 000223) permite a triagem e filtragem corretas com base nos limites superiores e inferiores.  
-* Não precisa necessariamente de duplicar todas as propriedades da sua entidade. Por exemplo, se as consultas que procuram as entidades utilizando o endereço de e-mail na `RowKey` idade do trabalhador nunca precisar, estas entidades podem ter a seguinte estrutura:
+* Os valores numéricos de enchimento no `RowKey` (por exemplo, o ID 000223 do empregado) permitem a triagem e filtragem corretas com base nos limites superior e inferior.  
+* Não precisa necessariamente de duplicar todas as propriedades da sua entidade. Por exemplo, se as consultas que procuram as entidades utilizando o endereço de e-mail `RowKey` nunca precisar da idade do trabalhador, estas entidades podem ter a seguinte estrutura:
 
-  ![Gráfico da entidade colaboradora][8]
+  :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE08.png" alt-text="Gráfico da entidade dos colaboradores":::
 
-* Normalmente, é melhor armazenar dados duplicados e garantir que pode recuperar todos os dados necessários com uma única consulta, do que usar uma consulta para localizar uma entidade e outra para procurar os dados necessários.  
+* Normalmente, é melhor armazenar dados duplicados e garantir que pode recuperar todos os dados de que necessita com uma única consulta, do que usar uma consulta para localizar uma entidade e outra para procurar os dados necessários.  
 
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
 Utilize este padrão quando:
 
-- A sua aplicação de cliente precisa de recuperar entidades utilizando uma variedade de chaves diferentes.
-- O seu cliente precisa de recuperar entidades em ordens de tipo diferentes.
+- A sua aplicação ao cliente precisa de recuperar entidades utilizando uma variedade de chaves diferentes.
+- O seu cliente precisa de recuperar entidades em ordens de tipo diferente.
 - Pode identificar cada entidade utilizando uma variedade de valores únicos.
 
-No entanto, certifique-se de que não excede os limites de escalabilidade da divisória quando está a realizar procuras de entidades utilizando os `RowKey` diferentes valores.  
+No entanto, certifique-se de que não excede os limites de escalabilidade da partição quando estiver a realizar sondagens de entidades utilizando os diferentes `RowKey` valores.  
 
 #### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem também podem ser relevantes ao implementar este padrão:  
 
-* [Padrão de índice secundário inter-divisória](#inter-partition-secondary-index-pattern)
+* [Padrão do índice secundário inter-partição](#inter-partition-secondary-index-pattern)
 * [Padrão de chave composto](#compound-key-pattern)
 * [Transações de grupos de entidades](#entity-group-transactions)
 * [Trabalhar com tipos de entidades heterogéneas](#work-with-heterogeneous-entity-types)
 
-### <a name="inter-partition-secondary-index-pattern"></a>Padrão de índice secundário inter-divisória
-Armazenar várias cópias de cada entidade utilizando `RowKey` valores diferentes em divisórias separadas ou em tabelas separadas. Isto permite procurações rápidas e eficientes, e alternar ordens de classificação utilizando `RowKey` diferentes valores.  
+### <a name="inter-partition-secondary-index-pattern"></a>Padrão do índice secundário inter-partição
+Armazenar várias cópias de cada entidade utilizando `RowKey` valores diferentes em divisórias separadas ou em tabelas separadas. Isto permite sondagens rápidas e eficientes e ordens de classificação alternativas utilizando `RowKey` valores diferentes.  
 
 #### <a name="context-and-problem"></a>Contexto e problema
-O armazenamento de mesa indexa automaticamente as entidades utilizando os `PartitionKey` valores e `RowKey` valores. Isto permite que uma aplicação do cliente recupere uma entidade de forma eficiente utilizando estes valores. Por exemplo, utilizando a seguinte estrutura de tabela, uma aplicação de cliente pode usar uma consulta pontual para recuperar uma entidade de empregado individual utilizando o nome do departamento e o ID do empregado (o `PartitionKey` e `RowKey` valores). Um cliente também pode recuperar entidades ordenadas por identificação de empregado dentro de cada departamento.  
+O armazenamento de mesa indexa automaticamente as entidades utilizando os `PartitionKey` valores e `RowKey` valores. Isto permite que uma aplicação do cliente recupere uma entidade de forma eficiente utilizando estes valores. Por exemplo, utilizando a seguinte estrutura de tabela, uma aplicação de cliente pode usar uma consulta de ponto para recuperar uma entidade de colaborador individual, utilizando o nome do departamento e o ID do empregado (os `PartitionKey` `RowKey` valores). Um cliente também pode recuperar entidades classificadas por identificação de funcionários dentro de cada departamento.  
 
-![Gráfico da entidade colaboradora][9]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="Gráfico da entidade dos empregados":::[9]
 
-Se também pretende encontrar uma entidade colaboradora com base no valor de outra propriedade, como o endereço de e-mail, deve utilizar uma verificação de divisórias menos eficiente para encontrar uma correspondência. Isto porque o armazenamento de mesa não fornece índices secundários. Além disso, não há opção de solicitar uma lista de funcionários classificados numa ordem diferente da `RowKey` ordem.  
+Se também quiser encontrar uma entidade de colaboradores com base no valor de outra propriedade, como endereço de e-mail, deve utilizar uma verificação de partição menos eficiente para encontrar uma correspondência. Isto porque o armazenamento de mesa não fornece índices secundários. Além disso, não há opção de solicitar uma lista de funcionários classificados numa ordem diferente da `RowKey` encomenda.  
 
-Está a antecipar um grande volume de transações contra estas entidades e quer minimizar o risco de a taxa de armazenamento da Tabela limitar o seu cliente.  
+Está a antecipar um grande volume de transações contra estas entidades, e quer minimizar o risco da taxa de armazenamento da Tabela que limita o seu cliente.  
 
 #### <a name="solution"></a>Solução
-Para contornar a falta de índices secundários, pode armazenar várias cópias de cada entidade, com cada cópia utilizando `PartitionKey` `RowKey` valores diferentes e valores. Se armazenar uma entidade com as seguintes estruturas, pode recuperar eficientemente as entidades dos colaboradores com base no endereço de e-mail ou na identificação do empregado. Os valores prefixos `PartitionKey` `empid_` para, e `email_` permitem identificar que índice pretende utilizar para uma consulta.  
+Para contornar a falta de índices secundários, pode armazenar várias cópias de cada entidade, com cada cópia usando `PartitionKey` valores e `RowKey` valores diferentes. Se armazenar uma entidade com as seguintes estruturas, poderá recuperar eficientemente entidades de colaboradores com base em endereço de e-mail ou ID do funcionário. Os valores do prefixo para `PartitionKey` `empid_` , e `email_` permitem-lhe identificar qual o índice que pretende utilizar para uma consulta.  
 
-![Entidade de colaboradores com índice primário e entidade de empregados com índice secundário][10]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE10.png" alt-text="Entidade de colaboradores de exposição gráfica com índice primário e entidade de empregados com índice secundário":::
 
-Os dois critérios de filtro seguintes (um olhando para cima por id do empregado, e um olhando para cima por endereço de e-mail) ambos especificam consultas de ponto:  
+Os dois critérios de filtro a seguir (um olhando para cima por ID do empregado, e um procurando por endereço de e-mail) ambos especificam consultas de ponto:  
 
 * $filter=(PartitionKey eq 'empid_Sales') e (RowKey eq '000223')
-* $filter=(PartitionKey eq 'email_Sales') e (RowKey jonesj@contoso.com eq')  
+* $filter=(PartitionKey eq 'email_Sales') e (RowKey eq ' jonesj@contoso.com ')  
 
-Se consultar uma série de entidades de empregados, pode especificar uma gama ordenada na ordem de identificação do empregado, ou um intervalo classificado na ordem de endereço de e-mail. Consulta para entidades com o prefixo apropriado no `RowKey` .  
+Se consultar uma série de entidades de colaboradores, pode especificar um intervalo classificado na ordem de identificação do empregado ou um intervalo ordenado por encomenda de endereço de e-mail. Consulta para entidades com o prefixo apropriado no `RowKey` .  
 
-* Para encontrar todos os colaboradores do departamento de Vendas com identificação de empregado na gama **000100** a **000199**, ordenado por ordem de identificação dos funcionários, use: $filter=(PartitionKey eq 'empid_Sales') e (RowKey ge '000100') e (RowKey le '000199')  
-* Para encontrar todos os colaboradores do departamento de Vendas com um endereço de e-mail que comece com "a", classificado na ordem de endereço de e-mail, use: $filter=(PartitionKey eq 'email_Sales') e (RowKey ge 'a') e (RowKey lt 'b')  
+* Para encontrar todos os colaboradores do departamento de Vendas com um ID de empregado na gama **000100** a **000199**, classificados em ordem de ID dos funcionários, utilize: $filter=(PartitionKey eq 'empid_Sales') e (RowKey ge '000100') e (RowKey le '000199')  
+* Para encontrar todos os colaboradores do departamento de Vendas com um endereço de e-mail que comece com "a", classificado em ordem de endereço de e-mail, use: $filter=(PartitionKey eq 'email_Sales') e (RowKey ge 'a') e (RowKey lt 'b')  
 
-Note que a sintaxe do filtro utilizada nos exemplos anteriores é da Mesa de armazenamento REST API. Para mais informações, consulte [as entidades de Consulta.](https://msdn.microsoft.com/library/azure/dd179421.aspx)  
+Note que a sintaxe do filtro utilizada nos exemplos anteriores é da API DE ARMAZENAMENTO DE MESA. Para mais informações, consulte [as entidades de Consulta.](https://msdn.microsoft.com/library/azure/dd179421.aspx)  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
-* Pode manter as suas entidades duplicadas eventualmente consistentes entre si, utilizando o padrão de [transações eventualmente consistente](#eventually-consistent-transactions-pattern) para manter as entidades de índice primário e secundário.  
-* O armazenamento de mesas é relativamente barato de utilizar, pelo que o custo de armazenamento de dados duplicados não deve ser uma grande preocupação. No entanto, avalie sempre o custo do seu design com base nos seus requisitos de armazenamento antecipados, e adicione apenas entidades duplicadas para suportar as consultas que a sua aplicação de cliente irá executar.  
+* Pode manter as suas entidades duplicadas eventualmente consistentes entre si, utilizando o [padrão de transações eventualmente consistente](#eventually-consistent-transactions-pattern) para manter as entidades de índice primário e secundário.  
+* O armazenamento de mesas é relativamente barato de utilizar, pelo que a despesa com o armazenamento de dados duplicados não deve ser uma grande preocupação. No entanto, avalie sempre o custo do seu design com base nos seus requisitos de armazenamento previstos e apenas adicione entidades duplicadas para suportar as consultas que a sua aplicação do cliente irá executar.  
 * O valor utilizado para o `RowKey` deve ser único para cada entidade. Considere usar valores-chave compostos.  
-* Acolchoamento de valores numéricos no `RowKey` (por exemplo, o ID do empregado 000223) permite a triagem e filtragem corretas com base nos limites superiores e inferiores.  
-* Não precisa necessariamente de duplicar todas as propriedades da sua entidade. Por exemplo, se as consultas que procuram as entidades utilizando o endereço de e-mail na `RowKey` idade do trabalhador nunca precisar, estas entidades podem ter a seguinte estrutura:
+* Os valores numéricos de enchimento no `RowKey` (por exemplo, o ID 000223 do empregado) permitem a triagem e filtragem corretas com base nos limites superior e inferior.  
+* Não precisa necessariamente de duplicar todas as propriedades da sua entidade. Por exemplo, se as consultas que procuram as entidades utilizando o endereço de e-mail `RowKey` nunca precisar da idade do trabalhador, estas entidades podem ter a seguinte estrutura:
   
-  ![Gráfico mostrando entidade colaboradora com índice secundário][11]
-* Normalmente, é melhor armazenar dados duplicados e garantir que pode recuperar todos os dados necessários com uma única consulta, do que usar uma consulta para localizar uma entidade usando o índice secundário e outra para procurar os dados necessários no índice primário.  
+  :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE11.png" alt-text="Entidade de colaborador de exposição gráfica com índice secundário":::
+
+* Normalmente, é melhor armazenar dados duplicados e garantir que pode recuperar todos os dados de que necessita com uma única consulta, do que usar uma consulta para localizar uma entidade utilizando o índice secundário e outra para procurar os dados necessários no índice primário.  
 
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
 Utilize este padrão quando:
 
-- A sua aplicação de cliente precisa de recuperar entidades utilizando uma variedade de chaves diferentes.
-- O seu cliente precisa de recuperar entidades em ordens de tipo diferentes.
+- A sua aplicação ao cliente precisa de recuperar entidades utilizando uma variedade de chaves diferentes.
+- O seu cliente precisa de recuperar entidades em ordens de tipo diferente.
 - Pode identificar cada entidade utilizando uma variedade de valores únicos.
 
-Utilize este padrão quando pretender evitar exceder os limites de escalabilidade da divisória quando estiver a realizar procuras de entidades utilizando os `RowKey` diferentes valores.  
+Utilize este padrão quando pretender evitar exceder os limites de escalabilidade da partição quando estiver a realizar sondagens de entidades utilizando os diferentes `RowKey` valores.  
 
 #### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem também podem ser relevantes ao implementar este padrão:  
 
-* [Eventualmente consistente padrão de transações](#eventually-consistent-transactions-pattern)  
-* [Padrão de índice secundário intra-partição](#intra-partition-secondary-index-pattern)  
+* [Padrão de transações eventualmente consistente](#eventually-consistent-transactions-pattern)  
+* [Padrão do índice secundário intra-partição](#intra-partition-secondary-index-pattern)  
 * [Padrão de chave composto](#compound-key-pattern)  
 * [Transações de grupos de entidades](#entity-group-transactions)  
 * [Trabalhar com tipos de entidades heterogéneas](#work-with-heterogeneous-entity-types)  
 
-### <a name="eventually-consistent-transactions-pattern"></a>Eventualmente consistente padrão de transações
-Ativar um comportamento eventualmente consistente através dos limites da divisória ou dos limites do sistema de armazenamento utilizando as filas Azure.  
+### <a name="eventually-consistent-transactions-pattern"></a>Padrão de transações eventualmente consistente
+Ativar um comportamento eventualmente consistente através dos limites da partição ou dos limites do sistema de armazenamento utilizando as filas do Azure.  
 
 #### <a name="context-and-problem"></a>Contexto e problema
-Os EGTs permitem transações atómicas em várias entidades que partilham a mesma chave de partição. Por razões de desempenho e escalabilidade, poderá decidir armazenar entidades que tenham requisitos de consistência em divisórias separadas ou num sistema de armazenamento separado. Neste cenário, não se pode usar EGTs para manter a consistência. Por exemplo, pode ter a obrigação de manter uma eventual consistência entre:  
+As EGTs permitem transações atómicas em várias entidades que partilham a mesma chave de partição. Por razões de desempenho e escalabilidade, poderá decidir armazenar entidades que tenham requisitos de consistência em divisórias separadas ou num sistema de armazenamento separado. Em tal cenário, não se pode usar EGTs para manter a consistência. Por exemplo, pode ter a obrigação de manter uma eventual consistência entre:  
 
 * Entidades armazenadas em duas divisórias diferentes na mesma tabela, em tabelas diferentes, ou em diferentes contas de armazenamento.  
-* Uma entidade armazenada em armazenamento de mesa e uma bolha armazenada no armazenamento Blob.  
+* Uma entidade armazenada no armazenamento de mesa e uma bolha armazenada no armazenamento blob.  
 * Uma entidade armazenada no armazenamento de mesa e um ficheiro num sistema de ficheiros.  
-* Uma entidade armazenada no armazenamento de mesa, ainda indexada pela utilização de Pesquisa Cognitiva Azure.  
+* Uma entidade armazenada no armazenamento de mesa, mas indexada através da pesquisa cognitiva Azure.  
 
 #### <a name="solution"></a>Solução
 Ao utilizar as filas Azure, pode implementar uma solução que proporciona uma eventual consistência em duas ou mais divisórias ou sistemas de armazenamento.
 
-Para ilustrar esta abordagem, assuma que tem a obrigação de poder arquivar antigas entidades de funcionários. As entidades antigas colaboradoras raramente são questionadas, devendo ser excluídas de quaisquer atividades que tratem com os atuais colaboradores. Para implementar este requisito, armazena colaboradores ativos na tabela **Current** e antigos colaboradores na tabela **Arquivo.** Arquivar um empregado requer que você elimine a entidade da tabela **Current,** e adicione a entidade à tabela **Arquivo.**
+Para ilustrar esta abordagem, assuma que tem a obrigação de arquivar ex-entidades de funcionários. As antigas entidades de trabalhadores raramente são questionadas e devem ser excluídas de quaisquer atividades que lidem com os atuais colaboradores. Para implementar este requisito, armazena funcionários ativos na tabela **Current** e antigos funcionários na tabela **Archive.** Arquivar um funcionário requer que elimine a entidade da tabela **Current** e adicione a entidade à tabela **Archive.**
 
-Mas não pode usar um EGT para realizar estas duas operações. Para evitar o risco de uma falha fazer com que uma entidade apareça em ambas as tabelas ou em nenhuma das tabelas, a operação de arquivo deve ser eventualmente consistente. O diagrama de sequência a seguir descreve os passos desta operação.  
+Mas não pode usar um EGT para realizar estas duas operações. Para evitar o risco de uma falha fazer com que uma entidade apareça em ambas ou em nenhuma das tabelas, a operação de arquivo deve ser eventualmente consistente. O diagrama de sequência a seguir descreve os passos desta operação.  
 
-![Diagrama de solução para eventual consistência][12]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE12.png" alt-text="Diagrama de solução para uma eventual consistência":::
 
-Um cliente inicia a operação de arquivo colocando uma mensagem numa fila Azure (neste exemplo, para arquivar #456 dos funcionários). Um papel de trabalhador sondage a fila para novas mensagens; quando encontra uma, lê a mensagem e deixa uma cópia escondida na fila. O papel do trabalhador em seguida requer uma cópia da entidade da tabela **Atual,** insere uma cópia na tabela **Arquivo** e, em seguida, elimina o original da tabela **Atual.** Finalmente, se não houve erros dos passos anteriores, o papel do trabalhador elimina a mensagem escondida da fila.  
+Um cliente inicia a operação de arquivo colocando uma mensagem numa fila Azure (neste exemplo, para arquivar #456 dos colaboradores). Um papel de trabalhador sonda a fila para novas mensagens; quando encontra um, lê a mensagem e deixa uma cópia escondida na fila. A função do trabalhador em seguida recolhe uma cópia da entidade da tabela **Corrente,** insere uma cópia na tabela **Archive** e, em seguida, elimina o original da tabela **Current.** Finalmente, se não houve erros dos passos anteriores, o papel do trabalhador elimina a mensagem escondida da fila.  
 
-Neste exemplo, o passo 4 do diagrama insere o empregado na tabela **Archive.** Pode adicionar o empregado a uma bolha no armazenamento blob ou a um ficheiro num sistema de ficheiros.  
+Neste exemplo, o passo 4 no diagrama insere o funcionário na tabela **Archive.** Pode adicionar o empregado a uma bolha no armazenamento blob ou a um ficheiro num sistema de ficheiros.  
 
 #### <a name="recover-from-failures"></a>Recuperar de falhas
-É importante que as operações nos passos 4-5 no diagrama sejam *idempotentes* no caso de o papel do trabalhador precisar de reiniciar a operação de arquivo. Se estiver a utilizar o armazenamento de mesa, para o passo 4 deve utilizar uma operação de "inserir ou substituir"; para o passo 5, deve utilizar uma operação de "apagar se existir" na biblioteca de clientes que está a usar. Se estiver a utilizar outro sistema de armazenamento, deve utilizar uma operação idempotente adequada.  
+É importante que as operações nos passos 4-5 no diagrama sejam *idempotentes* no caso de a função do trabalhador necessitar de reiniciar a operação de arquivo. Se estiver a utilizar o armazenamento da mesa, para o passo 4 deve utilizar uma operação de "inserir ou substituir"; para o passo 5, deve utilizar uma operação de "excluir se existir" na biblioteca do cliente que está a utilizar. Se estiver a utilizar outro sistema de armazenamento, deve utilizar uma operação idempotente apropriada.  
 
-Se a função do trabalhador nunca completar o passo 6 no diagrama, então, após um intervalo, a mensagem reaparece na fila pronta para o papel do trabalhador tentar reprocessá-la. O papel do trabalhador pode verificar quantas vezes uma mensagem na fila foi lida e, se necessário, sinalizá-la como uma mensagem "venenosa" para investigação enviando-a para uma fila separada. Para obter mais informações sobre a leitura de mensagens de fila e a verificação da contagem de filas, consulte [Obter mensagens](https://msdn.microsoft.com/library/azure/dd179474.aspx).  
+Se o papel do trabalhador nunca completar o passo 6 no diagrama, então, após um intervalo, a mensagem reaparece na fila pronta para o papel do trabalhador tentar reprocessá-lo. O papel do trabalhador pode verificar quantas vezes uma mensagem na fila foi lida e, se necessário, sinalizá-la como uma mensagem "venenosa" para investigação enviando-a para uma fila separada. Para obter mais informações sobre a leitura de mensagens de fila e a verificação da contagem de deques, consulte [obter mensagens](https://msdn.microsoft.com/library/azure/dd179474.aspx).  
 
-Alguns erros do armazenamento de mesa e armazenamento de fila são erros transitórios, e a sua aplicação do cliente deve incluir uma lógica de retry adequada para lidar com eles.  
+Alguns erros do armazenamento de mesa e do armazenamento da fila são erros transitórios, e a aplicação do seu cliente deve incluir lógica de repetição adequada para lidar com eles.  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
-* Esta solução não prevê o isolamento de transações. Por exemplo, um cliente poderia ler as tabelas **Current** and **Archive** quando o papel do trabalhador estava entre os passos 4-5 no diagrama, e ver uma visão inconsistente dos dados. Os dados serão consistentes eventualmente.  
-* Deve ter a certeza de que os passos 4-5 são idempotentes para garantir uma eventual consistência.  
-* Pode escalar a solução utilizando várias filas e exemplos de papéis do trabalhador.  
+* Esta solução não prevê o isolamento de transações. Por exemplo, um cliente pode ler as tabelas **Corrente** e **Arquivo** quando o papel do trabalhador estava entre os passos 4-5 no diagrama, e ver uma visão inconsistente dos dados. Os dados serão consistentes eventualmente.  
+* Deve certificar-se de que os passos 4-5 são idempotentes para garantir uma eventual consistência.  
+* Pode escalar a solução utilizando várias filas e instâncias de função do trabalhador.  
 
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
-Utilize este padrão quando quiser garantir uma eventual consistência entre entidades que existem em diferentes divisórias ou tabelas. Pode estender este padrão para garantir uma eventual consistência para operações através do armazenamento de mesa e armazenamento blob, e outras fontes de dados de armazenamento não-Azure, como uma base de dados ou o sistema de ficheiros.  
+Utilize este padrão quando pretender garantir uma eventual consistência entre entidades que existem em diferentes divisórias ou tabelas. Pode estender este padrão para garantir uma eventual consistência para operações através do armazenamento de mesa e armazenamento blob, e outras fontes de dados de armazenamento não-Azure, como uma base de dados ou o sistema de ficheiros.  
 
 #### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem também podem ser relevantes ao implementar este padrão:  
@@ -577,106 +578,106 @@ Os padrões e orientações que se seguem também podem ser relevantes ao implem
 * [Fundir ou substituir](#merge-or-replace)  
 
 > [!NOTE]
-> Se o isolamento de transações for importante para a sua solução, considere redesenhar as suas tabelas para permitir que utilize EGTs.  
+> Se o isolamento de transações for importante para a sua solução, considere redesenhar as suas tabelas para permitir a utilização de EGTs.  
 > 
 > 
 
-### <a name="index-entities-pattern"></a>Padrão de entidades indexadas
-Manter entidades indexadas para permitir pesquisas eficientes que devolução de listas de entidades.  
+### <a name="index-entities-pattern"></a>Padrão de entidades de índice
+Manter entidades indexadas para permitir pesquisas eficientes que devolvam listas de entidades.  
 
 #### <a name="context-and-problem"></a>Contexto e problema
-O armazenamento de mesa indexa automaticamente as entidades utilizando os `PartitionKey` valores e `RowKey` valores. Isto permite que uma aplicação do cliente recupere uma entidade de forma eficiente, utilizando uma consulta pontual. Por exemplo, utilizando a seguinte estrutura de tabela, uma aplicação cliente pode recuperar eficientemente uma entidade de empregados individuais utilizando o nome do departamento e o ID do empregado (o `PartitionKey` e `RowKey` ).  
+O armazenamento de mesa indexa automaticamente as entidades utilizando os `PartitionKey` valores e `RowKey` valores. Isto permite que uma aplicação do cliente recupere uma entidade de forma eficiente utilizando uma consulta de ponto. Por exemplo, utilizando a seguinte estrutura de tabela, uma aplicação do cliente pode recuperar eficientemente uma entidade de colaborador individual utilizando o nome do departamento e o ID do funcionário (o `PartitionKey` e `RowKey` ).  
 
-![Gráfico da entidade colaboradora][13]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE13.png" alt-text="Gráfico da entidade dos colaboradores":::
 
-Se também pretende recuperar uma lista de entidades colaboradoras com base no valor de outra propriedade não única, como o apelido, deve utilizar uma verificação de partição menos eficiente. Esta varredura encontra fósforos, em vez de usar um índice para os procurar diretamente. Isto porque o armazenamento de mesa não fornece índices secundários.  
+Se também quiser ser capaz de recuperar uma lista de entidades de colaboradores com base no valor de outra propriedade não única, como o apelido, deve utilizar uma verificação de partição menos eficiente. Esta digitalização encontra fósforos, em vez de usar um índice para os procurar diretamente. Isto porque o armazenamento de mesa não fornece índices secundários.  
 
 #### <a name="solution"></a>Solução
-Para permitir a procura por último nome com a estrutura da entidade anterior, deve manter listas de IDs dos empregados. Se quiser recuperar as entidades colaboradoras com um nome em particular, como o Jones, tem primeiro de localizar a lista de identificações dos empregados para funcionários com o Jones como apelido e, em seguida, recuperar essas entidades de empregados. Existem três opções principais para armazenar as listas de IDs dos empregados:  
+Para ativar o apelido com a estrutura da entidade anterior, deve manter as listas de IDs dos colaboradores. Se quiser recuperar as entidades de empregados com um apelido particular, como o Jones, tem primeiro de localizar a lista de identificações dos empregados para funcionários com o Jones como apelido e, em seguida, recuperar essas entidades de empregados. Existem três opções principais para armazenar as listas de IDs dos funcionários:  
 
-* Use o armazenamento blob.  
-* Criar entidades indexadas na mesma partilha que as entidades colaboradoras.  
-* Crie entidades indexadas numa divisória ou mesa separada.  
+* Use o armazenamento Blob.  
+* Criar entidades indexárias na mesma divisão que as entidades de trabalho.  
+* Criar entidades indexárias numa divisória ou tabela separada.  
 
 Opção 1: Utilizar o armazenamento blob  
 
-Crie uma bolha para cada apelido único, e em cada blob armazenar uma lista dos `PartitionKey` valores (departamento) e `RowKey` (ID do empregado) para os funcionários que têm esse apelido. Ao adicionar ou excluir um empregado, certifique-se de que o conteúdo da bolha relevante é eventualmente consistente com as entidades colaboradoras.  
+Crie uma bolha para cada apelido único, e em cada blob guarde uma lista dos `PartitionKey` valores (departamento) e `RowKey` (ID do empregado) para os funcionários que tenham esse apelido. Quando adicionar ou eliminar um empregado, certifique-se de que o conteúdo da bolha relevante é eventualmente consistente com as entidades do colaborador.  
 
-Opção 2: Criar entidades indexadas na mesma partilha  
+Opção 2: Criar entidades indexárias na mesma partição  
 
-Utilize entidades indexadas que armazenem os seguintes dados:  
+Utilize entidades indexárias que armazenam os seguintes dados:  
 
-![Entidade de funcionário sintetista gráfico, com cadeia contendo uma lista de IDs de empregados com o mesmo apelido][14]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE14.png" alt-text="Entidade de colaboradores de exibição gráfica, com uma cadeia contendo uma lista de IDs de funcionário com o mesmo apelido":::
 
-A `EmployeeIDs` propriedade contém uma lista de iDs de empregados para empregados com o apelido armazenado no `RowKey` .  
+A `EmployeeIDs` propriedade contém uma lista de IDs de empregados para funcionários com o último nome armazenado no `RowKey` .  
 
-Os seguintes passos delineiam o processo que deve seguir quando estiver a adicionar um novo empregado. Neste exemplo, estamos adicionando um empregado com ID 000152 e sobrenome Jones no departamento de vendas:  
+Os seguintes passos descrevem o processo que deve seguir quando estiver a adicionar um novo funcionário. Neste exemplo, estamos adicionando um empregado com ID 000152 e sobrenome Jones no departamento de Vendas:  
 
-1. Recupere a entidade indexante com um `PartitionKey` valor "Vendas", e o `RowKey` valor "Jones". Guarde o ETag desta entidade para utilizar no passo 2.  
-2. Criar uma transação de grupo de entidades (isto é, uma operação de lote) que insere a nova entidade colaboradora ( `PartitionKey` valor "Vendas" e `RowKey` valor "000152"), e atualiza a entidade indexada ( `PartitionKey` valor "Vendas" e `RowKey` valor "Jones"). O EGT fá-lo adicionando o novo ID do empregado à lista no campo dos Funcionários. Para mais informações sobre EGTs, consulte [as transações do grupo Entidade.](#entity-group-transactions)  
-3. Se o EGT falhar devido a um erro de condivisa otimista (isto é, outra pessoa modificou a entidade indexada), então precisa recomeçar no passo 1.  
+1. Recupere a entidade indexa com um `PartitionKey` valor "Vendas", e o `RowKey` valor "Jones". Guarde o ETag desta entidade para utilizar no passo 2.  
+2. Criar uma transação de grupo de entidades (isto é, uma operação de lote) que insira a nova entidade de empregados `PartitionKey` (valor "Vendas" e `RowKey` valor "000152"), e atualiza a entidade indexada `PartitionKey` (valor "Vendas" e `RowKey` valor "Jones"). O EGT faz isso adicionando o novo ID do funcionário à lista no campo Dos Colaboradores. Para obter mais informações sobre EGTs, consulte [as transações do grupo Entity](#entity-group-transactions).  
+3. Se o EGT falhar devido a um erro de concordância otimista (ou seja, alguém modificou a entidade de índice), então tem de começar de novo no passo 1.  
 
-Pode utilizar uma abordagem semelhante para apagar um empregado se estiver a usar a segunda opção. Mudar o apelido de um colaborador é um pouco mais complexo, porque é preciso executar um EGT que atualiza três entidades: a entidade colaboradora, a entidade indexada ao antigo apelido, e a entidade indexada para o novo apelido. Deve recuperar cada entidade antes de efetuar quaisquer alterações, de forma a recuperar os valores Do ETag que pode utilizar para realizar as atualizações utilizando uma moeda otimista.  
+Pode usar uma abordagem semelhante para eliminar um empregado se estiver a usar a segunda opção. Mudar o apelido de um colaborador é um pouco mais complexo, pois é necessário executar um EGT que atualiza três entidades: a entidade de colaboradores, a entidade indexa para o apelido antigo e a entidade indexa para o novo apelido. Tem de recuperar cada entidade antes de efetuar quaisquer alterações, de modo a recuperar os valores ETag que pode utilizar para executar as atualizações utilizando a concordância otimista.  
 
-Os seguintes passos delineiam o processo que deve seguir quando precisa de procurar todos os colaboradores com um nome especial num departamento. Neste exemplo, estamos procurando todos os empregados com o sobrenome Jones no departamento de vendas:  
+Os seguintes passos descrevem o processo que deve seguir quando precisa de procurar todos os colaboradores com um sobrenome particular num departamento. Neste exemplo, estamos a procurar todos os empregados com apelido Jones no departamento de vendas:  
 
-1. Recupere a entidade indexante com um `PartitionKey` valor "Vendas", e o `RowKey` valor "Jones".  
+1. Recupere a entidade indexa com um `PartitionKey` valor "Vendas", e o `RowKey` valor "Jones".  
 2. Analise a lista de identificações dos empregados no `EmployeeIDs` terreno.  
-3. Se necessitar de informações adicionais sobre cada um destes colaboradores (como os seus endereços de e-mail), recupere cada uma das entidades colaboradoras utilizando o `PartitionKey` valor "Vendas", e `RowKey` valores da lista de colaboradores que obteve no passo 2.  
+3. Se precisar de informações adicionais sobre cada um destes colaboradores (como os seus endereços de e-mail), recupere cada uma das entidades colaboradoras utilizando `PartitionKey` o valor "Vendas", e `RowKey` valores da lista de colaboradores que obteve na 2.º etapa.  
 
-Opção 3: Criar entidades indexadas numa divisória ou tabela separada  
+Opção 3: Criar entidades indexárias numa divisória ou tabela separada  
 
-Para esta opção, utilize entidades indexadas que armazenem os seguintes dados:  
+Para esta opção, utilize entidades indexárias que armazenem os seguintes dados:  
 
-![Entidade de funcionário sintetista gráfico, com cadeia contendo uma lista de IDs de empregados com o mesmo apelido][15]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE15.png" alt-text="Entidade de colaboradores de exibição gráfica, com uma cadeia contendo uma lista de IDs de funcionário com o mesmo apelido":::
 
-A `EmployeeIDs` propriedade contém uma lista de iDs de empregados para empregados com o apelido armazenado no `RowKey` .  
+A `EmployeeIDs` propriedade contém uma lista de IDs de empregados para funcionários com o último nome armazenado no e `RowKey` `PartitionKey` .  
 
-Não é possível utilizar EGTs para manter a consistência, porque as entidades indexadas estão numa divisão separada das entidades colaboradoras. Certifique-se de que as entidades indexadas são eventualmente consistentes com as entidades colaboradoras.  
+Não pode usar EGTs para manter a consistência, porque as entidades indexam-se numa divisão separada das entidades dos colaboradores. Certifique-se de que as entidades indexam eventualmente são consistentes com as entidades dos colaboradores.  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
-* Esta solução requer pelo menos duas consultas para recuperar entidades correspondentes: uma para consultar as entidades indexadas para obter a lista de `RowKey` valores, e depois consultas para recuperar cada entidade na lista.  
-* Como uma entidade individual tem um tamanho máximo de 1 MB, a opção 2 e a opção 3 na solução assumem que a lista de IDs de empregados para qualquer apelido em particular nunca é superior a 1 MB. Se a lista de IDs dos empregados for suscetível de ter mais de 1 MB de tamanho, utilize a opção 1 e guarde os dados do índice no armazenamento blob.  
-* Se utilizar a opção 2 (utilizando EGTs para lidar com a adição e a pagando colaboradores e alterando o apelido de um empregado), deve avaliar se o volume de transações se aproximará dos limites de escalabilidade numa determinada partição. Se for esse o caso, deverá considerar uma solução eventualmente consistente (opção 1 ou opção 3). Estes utilizam filas para lidar com os pedidos de atualização e permitem-lhe armazenar as suas entidades indexadas numa partilha separada das entidades colaboradoras.  
-* A opção 2 nesta solução pressupõe que pretende procurar pelo último nome dentro de um departamento. Por exemplo, quer recuperar uma lista de empregados com um sobrenome Jones no departamento de vendas. Se quiser procurar todos os empregados com um apelido Jones em toda a organização, use a opção 1 ou a opção 3.
-* Pode implementar uma solução baseada na fila que proporciona uma eventual consistência. Para mais detalhes, consulte o padrão de [transações eventualmente consistente](#eventually-consistent-transactions-pattern).  
+* Esta solução requer pelo menos duas consultas para recuperar entidades correspondentes: uma para consultar as entidades indexam para obter a lista de `RowKey` valores e, em seguida, consultas para recuperar cada entidade na lista.  
+* Como uma entidade individual tem um tamanho máximo de 1 MB, a opção 2 e a opção 3 na solução assumem que a lista de IDs dos empregados para qualquer apelido em particular nunca é superior a 1 MB. Se a lista de IDs dos empregados for provavelmente superior a 1 MB de tamanho, use a opção 1 e guarde os dados do índice no armazenamento blob.  
+* Se utilizar a opção 2 (utilizando EGTs para lidar com a adição e eliminação de funcionários e alterando o apelido de um empregado), deve avaliar se o volume de transações se aproximará dos limites de escalabilidade numa determinada divisão. Se for esse o caso, deve considerar uma solução eventualmente consistente (opção 1 ou opção 3). Estas utilizam filas para lidar com os pedidos de atualização e permitem armazenar as suas entidades indexárias numa divisão separada das entidades dos colaboradores.  
+* A opção 2 nesta solução pressupõe que pretende procurar pelo apelido dentro de um departamento. Por exemplo, quer recuperar uma lista de empregados com apelido Jones no departamento de vendas. Se quiser ser capaz de procurar todos os empregados com um sobrenome Jones em toda a organização, use a opção 1 ou a opção 3.
+* Pode implementar uma solução baseada em filas que proporciona uma eventual consistência. Para obter mais detalhes, consulte o [padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern).  
 
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
-Use este padrão quando quiser procurar um conjunto de entidades que todos partilham um valor de propriedade comum, como todos os colaboradores com o apelido Jones.  
+Use este padrão quando quiser procurar um conjunto de entidades que todos partilham um valor de propriedade comum, como todos os funcionários com o sobrenome Jones.  
 
 #### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem também podem ser relevantes ao implementar este padrão:  
 
 * [Padrão de chave composto](#compound-key-pattern)  
-* [Eventualmente consistente padrão de transações](#eventually-consistent-transactions-pattern)  
+* [Padrão de transações eventualmente consistente](#eventually-consistent-transactions-pattern)  
 * [Transações de grupos de entidades](#entity-group-transactions)  
 * [Trabalhar com tipos de entidades heterogéneas](#work-with-heterogeneous-entity-types)  
 
 ### <a name="denormalization-pattern"></a>Padrão de desnormalização
-Combine dados relacionados numa única entidade para que possa recuperar todos os dados necessários com uma consulta de ponto único.  
+Combine dados relacionados numa única entidade para que possa recuperar todos os dados de que necessita com uma única consulta de ponto.  
 
 #### <a name="context-and-problem"></a>Contexto e problema
-Numa base de dados relacional, normalmente normalmente normaliza-se os dados para remover a duplicação que ocorre quando as consultas recuperam dados de várias tabelas. Se normalizar os seus dados em tabelas Azure, tem de fazer várias viagens de ida e volta do cliente ao servidor para recuperar os dados relacionados. Por exemplo, com a seguinte estrutura de mesa, você precisa de duas viagens de ida e volta para recuperar os detalhes para um departamento. Uma viagem vai buscar a entidade do departamento que inclui o ID do gestor, e a segunda viagem traz os detalhes do gestor numa entidade de empregados.  
+Numa base de dados relacional, normalmente normaliza os dados para remover a duplicação que ocorre quando as consultas recuperam dados de várias tabelas. Se normalizar os seus dados nas tabelas Azure, deve efetuar várias viagens de ida e volta do cliente ao servidor para recuperar os seus dados relacionados. Por exemplo, com a seguinte estrutura de mesa, você precisa de duas viagens de ida e volta para recuperar os detalhes para um departamento. Uma viagem vai buscar a entidade do departamento que inclui o ID do gerente, e a segunda viagem recolhe os detalhes do gestor numa entidade de empregados.  
 
-![Gráfico da entidade do departamento e entidade colaboradora][16]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE16.png" alt-text="Gráfico de entidade de departamento e entidade de empregados":::
 
 #### <a name="solution"></a>Solução
-Em vez de armazenar os dados em duas entidades distintas, desnormalize os dados e guarde uma cópia dos dados do gestor na entidade do departamento. Por exemplo:  
+Em vez de armazenar os dados em duas entidades distintas, desnormalizar os dados e guardar uma cópia dos detalhes do gestor na entidade do departamento. Por exemplo:  
 
-![Gráfico de entidade dedepartamento desnormalizada e combinada][17]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE17.png" alt-text="Gráfico de entidade de departamento desnormalizada e combinada":::
 
-Com entidades de departamento armazenadas com estas propriedades, agora pode recuperar todos os detalhes que precisa sobre um departamento usando uma consulta pontual.  
+Com entidades de departamento armazenadas com estas propriedades, você pode agora recuperar todos os detalhes que você precisa sobre um departamento usando uma consulta de ponto.  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
-* Há alguns custos associados ao armazenamento de alguns dados duas vezes. O benefício de desempenho resultante de menos pedidos de armazenamento de mesa normalmente supera o aumento marginal dos custos de armazenamento. Além disso, este custo é parcialmente compensado por uma redução do número de transações que você precisa para obter os detalhes de um departamento.  
-* Deve manter a consistência das duas entidades que armazenam informação sobre gestores. Pode lidar com a questão da consistência utilizando EGTs para atualizar várias entidades numa única transação atómica. Neste caso, a entidade do departamento e a entidade colaboradora do gestor do departamento são armazenadas na mesma divisão.  
+* Há algumas despesas associadas ao armazenamento de alguns dados duas vezes. O benefício de desempenho resultante de menos pedidos de armazenamento de mesa normalmente supera o aumento marginal dos custos de armazenamento. Além disso, este custo é parcialmente compensado por uma redução do número de transações que você precisa para obter os detalhes de um departamento.  
+* Deve manter a consistência das duas entidades que armazenam informação sobre os gestores. Pode lidar com a questão da consistência utilizando EGTs para atualizar várias entidades numa única transação atómica. Neste caso, a entidade do departamento e a entidade de empregados do gerente do departamento estão armazenadas na mesma divisão.  
 
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
-Use este padrão quando precisa frequentemente de procurar informações relacionadas. Este padrão reduz o número de consultas que o seu cliente deve fazer para recuperar os dados necessários.  
+Use este padrão quando precisar de procurar informações relacionadas. Este padrão reduz o número de consultas que o seu cliente deve fazer para recuperar os dados que necessita.  
 
 #### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem também podem ser relevantes ao implementar este padrão:  
@@ -689,59 +690,59 @@ Os padrões e orientações que se seguem também podem ser relevantes ao implem
 Utilize `RowKey` valores compostos para permitir que um cliente procure dados relacionados com uma consulta de ponto único.  
 
 #### <a name="context-and-problem"></a>Contexto e problema
-Numa base de dados relacional, é natural que se utilizem juntas em consultas para devolver peças de dados relacionadas ao cliente numa única consulta. Por exemplo, pode utilizar o ID do empregado para procurar uma lista de entidades relacionadas que contenham dados de desempenho e revisão para esse funcionário.  
+Numa base de dados relacional, é natural usar juntas em consultas para devolver peças de dados relacionadas ao cliente numa única consulta. Por exemplo, pode usar o ID do empregado para procurar uma lista de entidades relacionadas que contêm dados de desempenho e revisão para esse funcionário.  
 
 Assuma que está a armazenar entidades de empregados no armazenamento de mesa utilizando a seguinte estrutura:  
 
-![Gráfico da entidade colaboradora][18]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE18.png" alt-text="Gráfico da entidade dos colaboradores":::
 
-Também precisa de armazenar dados históricos relativos a avaliações e desempenho para cada ano que o colaborador tem trabalhado para a sua organização, e precisa de ter acesso a essa informação por ano. Uma opção é criar outra tabela que armazene entidades com a seguinte estrutura:  
+Também precisa de armazenar dados históricos relativos a avaliações e desempenho para cada ano que o colaborador tenha trabalhado para a sua organização, e precisa de ter acesso a esta informação por ano. Uma opção é criar outra tabela que armazena entidades com a seguinte estrutura:  
 
-![Gráfico da entidade de revisão de funcionários][19]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE19.png" alt-text="Gráfico da entidade de revisão de funcionários":::
 
-Com esta abordagem, poderá decidir duplicar algumas informações (como o primeiro nome e apelido) na nova entidade, para lhe permitir recuperar os seus dados com um único pedido. No entanto, não pode manter uma forte consistência porque não pode usar um EGT para atualizar atomicamente as duas entidades.  
+Com esta abordagem, poderá decidir duplicar algumas informações (como o primeiro nome e apelido) na nova entidade, para que possa recuperar os seus dados com um único pedido. No entanto, não é possível manter uma forte consistência porque não pode usar um EGT para atualizar as duas entidades atomicamente.  
 
 #### <a name="solution"></a>Solução
-Guarde um novo tipo de entidade na sua tabela original utilizando entidades com a seguinte estrutura:  
+Armazenar um novo tipo de entidade na sua tabela original utilizando entidades com a seguinte estrutura:  
 
-![Gráfico da entidade do empregado com chave composta][20]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE20.png" alt-text="Gráfico da entidade do empregado com chave composta":::
 
-Note como a `RowKey` chave é agora uma chave composta, composta pela identificação do empregado e o ano dos dados de revisão. Isto permite-lhe recuperar o desempenho do colaborador e rever os dados com um único pedido para uma única entidade.  
+Note como `RowKey` a é agora uma chave composta, composta pela identificação do empregado e pelo ano dos dados de revisão. Isto permite-lhe recuperar o desempenho do colaborador e rever os dados com um único pedido para uma única entidade.  
 
-O exemplo que se segue descreve como pode recuperar todos os dados de revisão para um determinado empregado (como o funcionário 000123 no departamento de Vendas):  
+O exemplo a seguir descreve como pode recuperar todos os dados de revisão para um determinado empregado (como o empregado 000123 no departamento de Vendas):  
 
-$filter=(PartitionKey eq 'Sales') e (RowKey ge 'empid_000123') e (RowKey lt 'empid_000124')&$select=RowKey,Manager Rating,Peer Rating,Comments  
+$filter=(PartitionKey eq 'Sales') e (RowKey ge 'empid_000123') e (RowKey lt 'empid_000124')&$select=RowKey,Manager Rating,Peer Rating,Comentários  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
 * Deve utilizar um carácter separador adequado que facilite a análise do `RowKey` valor: por exemplo, **000123_2012**.  
-* Também está a armazenar esta entidade na mesma partilha que outras entidades que contêm dados relacionados para o mesmo colaborador. Isto significa que pode usar EGTs para manter uma forte consistência.
-* Deve considerar a frequência com que irá consultar os dados para determinar se este padrão é apropriado. Por exemplo, se aceder frequentemente aos dados de revisão, e os principais dados dos colaboradores, deve mantê-los como entidades separadas.  
+* Também está a armazenar esta entidade na mesma divisão que outras entidades que contêm dados relacionados para o mesmo funcionário. Isto significa que pode usar EGTs para manter uma forte consistência.
+* Deve considerar a frequência com que irá consultar os dados para determinar se este padrão é apropriado. Por exemplo, se aceder aos dados de revisão com pouca frequência, e os principais dados dos colaboradores frequentemente, deverá mantê-los como entidades separadas.  
 
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
-Use este padrão quando precisa armazenar uma ou mais entidades relacionadas que consulta frequentemente.  
+Use este padrão quando precisar de armazenar uma ou mais entidades relacionadas que consulta com frequência.  
 
 #### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem também podem ser relevantes ao implementar este padrão:  
 
 * [Transações de grupos de entidades](#entity-group-transactions)  
 * [Trabalhar com tipos de entidades heterogéneas](#work-with-heterogeneous-entity-types)  
-* [Eventualmente consistente padrão de transações](#eventually-consistent-transactions-pattern)  
+* [Padrão de transações eventualmente consistente](#eventually-consistent-transactions-pattern)  
 
 ### <a name="log-tail-pattern"></a>Padrão de cauda de log
-Recupere as entidades *n* mais recentemente adicionadas a uma partição usando um `RowKey` valor que classifica na data e ordem de tempo inversa.  
+Recupere as entidades *n* mais recentemente adicionadas a uma partição utilizando um `RowKey` valor que se classifica em ordem de data e hora inversa.  
 
 > [!NOTE]
-> Os resultados da consulta devolvidos pela API da Tabela Azure em Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Assim, embora este padrão seja adequado para armazenamento de mesa, não é adequado para Azure Cosmos DB. Para obter uma lista detalhada das diferenças de funcionalidades, consulte [diferenças entre a Tabela API em Azure Cosmos DB e Azure Table Storage](table-api-faq.md#table-api-vs-table-storage).
+> Os resultados de consulta devolvidos pela Azure Table API em Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Assim, embora este padrão seja adequado para armazenamento de mesa, não é adequado para Azure Cosmos DB. Para obter uma lista detalhada das diferenças de características, consulte [as diferenças entre a Tabela API em Azure Cosmos DB e O Armazenamento de MesaS Azure](table-api-faq.md#table-api-vs-table-storage).
 
 #### <a name="context-and-problem"></a>Contexto e problema
-Um requisito comum é poder recuperar as entidades mais recentemente criadas, por exemplo, os dez pedidos de despesas mais recentes apresentados por um empregado. As consultas de mesa suportam uma `$top` operação de consulta para devolver as primeiras entidades *n* de um conjunto. Não há nenhuma operação de consulta equivalente para devolver as últimas entidades *num* conjunto.  
+Um requisito comum é poder recuperar as entidades mais recentemente criadas, por exemplo, os dez pedidos de despesas mais recentes apresentados por um trabalhador. As consultas de tabela suportam uma `$top` operação de consulta para devolver as primeiras *entidades n* de um conjunto. Não há nenhuma operação de consulta equivalente para devolver as últimas entidades *n* num conjunto.  
 
 #### <a name="solution"></a>Solução
-Armazenar as entidades utilizando um `RowKey` que naturalmente seclassifica em data/hora inversa, pelo que a entrada mais recente é sempre a primeira da tabela.  
+Armazenar as entidades utilizando uma `RowKey` que naturalmente classifica em ordem de data/hora inversa, pelo que a entrada mais recente é sempre a primeira na tabela.  
 
-Por exemplo, para poder recuperar os dez pedidos de despesas mais recentes apresentados por um empregado, pode utilizar um valor de carraça inversa derivado da data/hora atual. A seguinte amostra de código C# mostra uma maneira de criar um valor adequado de "carrapatos invertidos" para um `RowKey` que se sorts do mais recente ao mais antigo:  
+Por exemplo, para poder recuperar os dez pedidos de despesas mais recentes apresentados por um empregado, pode utilizar um valor de tique reverso derivado da data/hora corrente. A amostra de código C# que se segue mostra uma forma de criar um valor adequado de "tiques invertidos" para um `RowKey` que se separa do mais recente ao mais antigo:  
 
 `string invertedTicks = string.Format("{0:D19}", DateTime.MaxValue.Ticks - DateTime.UtcNow.Ticks);`  
 
@@ -749,50 +750,50 @@ Pode voltar ao valor da data/hora utilizando o seguinte código:
 
 `DateTime dt = new DateTime(DateTime.MaxValue.Ticks - Int64.Parse(invertedTicks));`  
 
-A consulta de mesa é assim:  
+A consulta da mesa é assim:  
 
 `https://myaccount.table.core.windows.net/EmployeeExpense(PartitionKey='empid')?$top=10`  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
-* Deve remar o valor do tique-taque inverso com os zeros principais, para garantir que o valor da cadeia classifica como esperado.  
-* Deve estar ciente dos alvos de escalabilidade ao nível de uma partição. Tenha cuidado para não criar divisórias de ponto sinuoso.  
+* Deve remar o valor do tique-taque invertido com os principais zeros, para garantir que o valor da corda se classifica como esperado.  
+* Deve estar ciente dos alvos de escalabilidade ao nível de uma partição. Tenha cuidado para não criar divisórias de ponto quente.  
 
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
-Utilize este padrão quando necessitar de aceder a entidades em data/hora inversa, ou quando necessitar de aceder às entidades mais recentes.  
+Utilize este padrão quando precisar de aceder a entidades em ordem de data/hora inversa, ou quando precisar de aceder às entidades mais recentemente adicionadas.  
 
 #### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem também podem ser relevantes ao implementar este padrão:  
 
-* [Prepend / apêndice anti-padrão](#prepend-append-anti-pattern)  
+* [Prepend / apêndio anti-padrão](#prepend-append-anti-pattern)  
 * [Recuperar entidades](#retrieve-entities)  
 
-### <a name="high-volume-delete-pattern"></a>Padrão de eliminação de alto volume
-Permitir a eliminação de um elevado volume de entidades armazenando todas as entidades para eliminação simultânea na sua própria tabela separada. Elimina as entidades eliminando a tabela.  
+### <a name="high-volume-delete-pattern"></a>Padrão de eliminação de volume elevado
+Permitir a supressão de um elevado volume de entidades armazenando todas as entidades para a supressão simultânea na sua própria tabela separada. Apaga-se as entidades apagando a mesa.  
 
 #### <a name="context-and-problem"></a>Contexto e problema
-Muitas aplicações apagam dados antigos que já não precisam de estar disponíveis para uma aplicação do cliente, ou que a aplicação foi arquivada para outro meio de armazenamento. Normalmente identifica esses dados por uma data. Por exemplo, tem a obrigação de apagar registos de todos os pedidos de inscrição com mais de 60 dias de idade.  
+Muitas aplicações eliminam dados antigos que já não precisam de estar disponíveis para uma aplicação de cliente, ou que a aplicação tenha arquivado para outro suporte de armazenamento. Normalmente identifica esses dados por data. Por exemplo, tem a obrigação de apagar registos de todos os pedidos de inscrição com mais de 60 dias.  
 
-Um dos desenhos possíveis é utilizar a data e a hora do pedido de inscrição no `RowKey` :  
+Um dos projetos possíveis é utilizar a data e a hora do pedido de inscrição no `RowKey` :  
 
-![Gráfico da entidade de tentativa de login][21]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE21.png" alt-text="Gráfico da entidade de tentativa de login":::
 
-Esta abordagem evita os hotspots de partição, uma vez que a aplicação pode inserir e eliminar entidades de inscrição para cada utilizador numa divisória separada. No entanto, esta abordagem pode ser dispendiosa e morosa se tiver um grande número de entidades. Em primeiro lugar, é necessário efetuar uma digitalização de tabela para identificar todas as entidades a eliminar, e depois tem de apagar cada entidade antiga. Pode reduzir o número de viagens de ida e volta ao servidor necessárias para eliminar as entidades antigas, emitindo vários pedidos de eliminação em EGTs.  
+Esta abordagem evita hotspots de partição, porque a aplicação pode inserir e eliminar entidades de inscrição para cada utilizador numa divisória separada. No entanto, esta abordagem pode ser dispendiosa e morosa se tiver um grande número de entidades. Primeiro, é necessário efetuar uma verificação de tabelas para identificar todas as entidades para eliminar, e depois deve eliminar cada entidade antiga. Pode reduzir o número de viagens de ida e volta ao servidor necessárias para eliminar as entidades antigas, desemargando vários pedidos de eliminação em EGTs.  
 
 #### <a name="solution"></a>Solução
-Utilize uma tabela separada para cada dia de tentativas de inscrição. Pode utilizar o design da entidade anterior para evitar hotspots quando estiver a inserir entidades. A apagar entidades antigas é agora simplesmente uma questão de apagar uma mesa todos os dias (uma única operação de armazenamento), em vez de encontrar e apagar centenas e milhares de entidades individuais de inscrição todos os dias.  
+Utilize uma tabela separada para cada dia de tentativas de inscrição. Pode utilizar o design da entidade anterior para evitar hotspots quando estiver a inserir entidades. A supressão de entidades idosas é agora apenas uma questão de apagar uma mesa todos os dias (uma única operação de armazenamento), em vez de encontrar e apagar centenas e milhares de entidades individuais de inscrição todos os dias.  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
-* O seu design suporta outras formas de utilizar os dados, tais como procurar entidades específicas, ligar-se a outros dados ou gerar informação agregada?  
+* O seu design suporta outras formas de a sua aplicação utilizar os dados, tais como procurar entidades específicas, ligar-se a outros dados ou gerar informação agregada?  
 * O seu design evita pontos quentes quando está a inserir novas entidades?  
 * Espere um atraso se quiser reutilizar o mesmo nome de mesa depois de o apagar. É melhor usar sempre nomes de mesa únicos.  
-* Espere um pouco de limitação de tarifas quando utilizar pela primeira vez uma nova tabela, enquanto o armazenamento de mesa aprende os padrões de acesso e distribui as divisórias através dos nós. Deve considerar a frequência com que precisa de criar novas tabelas.  
+* Espere alguma limitação de tarifas quando usar uma nova tabela, enquanto o armazenamento de mesa aprende os padrões de acesso e distribui as divisórias através dos nós. Deve considerar a frequência com que necessita para criar novas tabelas.  
 
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
-Utilize este padrão quando tiver um elevado volume de entidades que deve eliminar ao mesmo tempo.  
+Use este padrão quando tiver um grande volume de entidades que deve apagar ao mesmo tempo.  
 
 #### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem também podem ser relevantes ao implementar este padrão:  
@@ -800,28 +801,28 @@ Os padrões e orientações que se seguem também podem ser relevantes ao implem
 * [Transações de grupos de entidades](#entity-group-transactions)
 * [Modificar entidades](#modify-entities)  
 
-### <a name="data-series-pattern"></a>Padrão de série de dados
-Guarde séries de dados completas numa única entidade para minimizar o número de pedidos que efaz.  
+### <a name="data-series-pattern"></a>Padrão da série de dados
+Armazenar séries de dados completas numa única entidade para minimizar o número de pedidos que es faz.  
 
 #### <a name="context-and-problem"></a>Contexto e problema
-Um cenário comum é uma aplicação para armazenar uma série de dados que normalmente precisa para recuperar tudo de uma vez. Por exemplo, a sua aplicação pode registar quantas mensagens im cada funcionário envia a cada hora, e depois usar esta informação para traçar quantas mensagens cada utilizador enviou nas 24 horas anteriores. Um dos desenhos pode ser armazenar 24 entidades para cada colaborador:  
+Um cenário comum é uma aplicação para armazenar uma série de dados que normalmente precisa para recuperar tudo de uma vez. Por exemplo, a sua aplicação pode registar quantas mensagens IM cada funcionário envia a cada hora e, em seguida, usar esta informação para traçar quantas mensagens cada utilizador enviou nas 24 horas anteriores. Um dos projetos poderá ser armazenar 24 entidades para cada colaborador:  
 
-![Entidade gráfica de estatísticas de mensagens][22]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE22.png" alt-text="Gráfico da entidade de estatísticas de mensagens":::
 
-Com este design, pode facilmente localizar e atualizar a entidade para atualizar para cada colaborador sempre que a aplicação precisar atualizar o valor da contagem de mensagens. No entanto, para recuperar a informação para traçar um gráfico da atividade para as 24 horas anteriores, deve recuperar 24 entidades.  
+Com este design, pode localizar e atualizar facilmente a entidade para atualizar para cada colaborador sempre que a aplicação precisar de atualizar o valor da contagem de mensagens. No entanto, para recuperar a informação para traçar um gráfico da atividade nas 24 horas anteriores, deve recuperar 24 entidades.  
 
 #### <a name="solution"></a>Solução
-Utilize o seguinte design, com uma propriedade separada para armazenar a contagem de mensagens por cada hora:  
+Utilize o seguinte design, com uma propriedade separada para armazenar a contagem de mensagens para cada hora:  
 
-![Gráfico mostrando mensagem stats entidade com propriedades separadas][23]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE23.png" alt-text="Entidade de estatísticas de mensagem de exibição gráfica com propriedades separadas":::
 
-Com este design, pode utilizar uma operação de fusão para atualizar a contagem de mensagens para um empregado durante uma hora específica. Agora, você pode recuperar toda a informação que precisa para traçar o gráfico usando um pedido para uma única entidade.  
+Com este design, pode utilizar uma operação de fusão para atualizar a contagem de mensagens para um empregado durante uma hora específica. Agora, pode recuperar toda a informação que precisa para traçar o gráfico usando um pedido para uma única entidade.  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
-* Se a sua série completa de dados não encaixar numa única entidade (uma entidade pode ter até 252 propriedades), utilize uma loja de dados alternativa, como uma bolha.  
-* Se tiver vários clientes a atualizar uma entidade simultaneamente, utilize o **ETag** para implementar uma conmoeda otimista. Se tiver muitos clientes, poderá ter muita controvérsia.  
+* Se a sua série completa de dados não se encaixar numa única entidade (uma entidade pode ter até 252 propriedades), utilize uma loja de dados alternativa, como uma bolha.  
+* Se tiver vários clientes a atualizar uma entidade simultaneamente, utilize o **ETag** para implementar uma concordância otimista. Se tiver muitos clientes, pode sentir grande contenção.  
 
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
 Utilize este padrão quando necessitar de atualizar e recuperar uma série de dados associada a uma entidade individual.  
@@ -831,20 +832,20 @@ Os padrões e orientações que se seguem também podem ser relevantes ao implem
 
 * [Padrão de grandes entidades](#large-entities-pattern)  
 * [Fundir ou substituir](#merge-or-replace)  
-* [Eventualmente consistente padrão de transações](#eventually-consistent-transactions-pattern) (se estiver armazenando a série de dados em uma bolha)  
+* [Eventualmente padrão de transações consistentes](#eventually-consistent-transactions-pattern) (se estiver a armazenar a série de dados numa bolha)  
 
 ### <a name="wide-entities-pattern"></a>Padrão de entidades amplas
 Utilize múltiplas entidades físicas para armazenar entidades lógicas com mais de 252 propriedades.  
 
 #### <a name="context-and-problem"></a>Contexto e problema
-Uma entidade individual não pode ter mais de 252 propriedades (excluindo as propriedades do sistema obrigatório), e não pode armazenar mais de 1 MB de dados no total. Numa base de dados relacional, normalmente, você trabalharia em torno de quaisquer limites no tamanho de uma linha adicionando uma nova tabela, e aplicando uma relação 1-a-1 entre eles.  
+Uma entidade individual não pode ter mais de 252 propriedades (excluindo as propriedades obrigatórias do sistema), e não pode armazenar mais de 1 MB de dados no total. Numa base de dados relacional, normalmente, trabalharia em torno de quaisquer limites do tamanho de uma linha adicionando uma nova tabela, e aplicando uma relação de 1 a 1 entre eles.  
 
 #### <a name="solution"></a>Solução
-Ao utilizar o armazenamento de mesa, pode armazenar várias entidades para representar um único objeto de negócio com mais de 252 propriedades. Por exemplo, se pretender armazenar uma contagem do número de mensagens IM enviadas por cada colaborador nos últimos 365 dias, pode utilizar o seguinte design que utiliza duas entidades com diferentes esquemas:  
+Ao utilizar o armazenamento de mesa, pode armazenar várias entidades para representar um único objeto de negócio grande com mais de 252 propriedades. Por exemplo, se pretender armazenar uma contagem do número de mensagens IM enviadas por cada colaborador nos últimos 365 dias, pode utilizar o seguinte design que utiliza duas entidades com esquemas diferentes:  
 
-![Gráfico mostrando mensagem stats entidade com Rowkey 01 e entidade estatísticas de mensagens com Rowkey 02][24]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE24.png" alt-text="Entidade de estatísticas de mensagem de exibição gráfica com Rowkey 01 e entidade de estatísticas de mensagens com Rowkey 02":::
 
-Se precisar de fazer uma alteração que exija atualizar ambas as entidades para as manter sincronizadas entre si, pode utilizar um EGT. Caso contrário, pode utilizar uma única operação de fusão para atualizar a contagem de mensagens para um dia específico. Para recuperar todos os dados de um funcionário individual, deve recuperar ambas as entidades. Pode fazê-lo com dois pedidos eficientes que utilizam um valor e um `PartitionKey` `RowKey` valor.  
+Se precisar de fazer uma alteração que exija atualizar ambas as entidades para mantê-las sincronizadas entre si, pode utilizar um EGT. Caso contrário, pode utilizar uma única operação de fusão para atualizar a contagem de mensagens para um dia específico. Para recuperar todos os dados para um funcionário individual, deve recuperar ambas as entidades. Pode fazê-lo com dois pedidos eficientes que usam um `PartitionKey` valor e um `RowKey` valor.  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Considere o seguinte ponto ao decidir como implementar este padrão:  
@@ -861,21 +862,21 @@ Os padrões e orientações que se seguem também podem ser relevantes ao implem
 * [Fundir ou substituir](#merge-or-replace)
 
 ### <a name="large-entities-pattern"></a>Padrão de grandes entidades
-Utilize o armazenamento Blob para armazenar grandes valores de propriedade.  
+Use o armazenamento Blob para armazenar grandes valores de propriedade.  
 
 #### <a name="context-and-problem"></a>Contexto e problema
-Uma entidade individual não pode armazenar mais de 1 MB de dados no total. Se uma ou várias das suas propriedades armazenarem valores que fazem com que o tamanho total da sua entidade exceda este valor, não pode armazenar toda a entidade no armazenamento de Mesa.  
+Uma entidade individual não pode armazenar mais de 1 MB de dados no total. Se um ou vários dos valores da loja das suas propriedades que fazem com que o tamanho total da sua entidade exceda este valor, não pode armazenar toda a entidade no armazenamento de Mesa.  
 
 #### <a name="solution"></a>Solução
-Se a sua entidade exceder 1 MB de tamanho porque uma ou mais propriedades contêm uma grande quantidade de dados, pode armazenar dados no armazenamento Blob e, em seguida, armazenar o endereço da bolha numa propriedade da entidade. Por exemplo, pode armazenar a foto de um empregado no armazenamento blob, e armazenar um link para a foto na `Photo` propriedade da sua entidade colaboradora:  
+Se a sua entidade exceder 1 MB de tamanho porque uma ou mais propriedades contêm uma grande quantidade de dados, pode armazenar dados no armazenamento Blob e, em seguida, armazenar o endereço da bolha numa propriedade da entidade. Por exemplo, pode armazenar a foto de um empregado no armazém da Blob e armazenar um link para a foto na `Photo` propriedade da sua entidade colaboradora:  
 
-![Gráfico mostrando entidade colaboradora com corda para foto apontando para armazenamento Blob][25]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE25.png" alt-text="Entidade de colaborador de exibição gráfica com string para foto apontando para o armazenamento blob":::
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
-* Para manter uma eventual consistência entre a entidade no armazenamento de mesa e os dados no armazenamento blob, utilize o padrão de [transações eventualmente consistente](#eventually-consistent-transactions-pattern) para manter as suas entidades.
-* A recuperação de uma entidade completa envolve pelo menos duas transações de armazenamento: uma para recuperar a entidade e outra para recuperar os dados blob.  
+* Para manter uma eventual consistência entre a entidade no armazenamento de mesa e os dados no armazenamento blob, utilize o [padrão de transações eventualmente consistente](#eventually-consistent-transactions-pattern) para manter as suas entidades.
+* A recuperação de uma entidade completa envolve pelo menos duas transações de armazenamento: uma para recuperar a entidade e outra para recuperar os dados do blob.  
 
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
 Utilize este padrão quando necessitar de armazenar entidades cujo tamanho exceda os limites para uma entidade individual no armazenamento de mesa.  
@@ -883,34 +884,34 @@ Utilize este padrão quando necessitar de armazenar entidades cujo tamanho exced
 #### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem também podem ser relevantes ao implementar este padrão:  
 
-* [Eventualmente consistente padrão de transações](#eventually-consistent-transactions-pattern)  
+* [Padrão de transações eventualmente consistente](#eventually-consistent-transactions-pattern)  
 * [Padrão de entidades amplas](#wide-entities-pattern)
 
 <a name="prepend-append-anti-pattern"></a>
 
 ### <a name="prependappend-anti-pattern"></a>Prepend/apêndice anti-padrão
-Quando tiver um grande volume de inserções, aumente a escalabilidade espalhando as inserções em várias divisórias.  
+Quando tiver um grande volume de inserções, aumente a escalabilidade espalhando as inserções através de múltiplas divisórias.  
 
 #### <a name="context-and-problem"></a>Contexto e problema
-As entidades de pré-gastos ou despesas com as suas entidades armazenadas normalmente resultam na aplicação adicionando novas entidades à primeira ou última partição de uma sequência de divisórias. Neste caso, todas as inserções em qualquer momento em particular estão a ocorrer na mesma divisória, criando um hotspot. Isto impede que o armazenamento de tabelas se insira em vários nós e, possivelmente, faz com que a sua aplicação atinja os alvos de escalabilidade para a partilha. Por exemplo, considere o caso de uma aplicação que regista a rede e o acesso de recursos por parte dos colaboradores. Uma estrutura de entidade como a seguinte pode levar a que a partição da hora atual se torne um ponto de interesse, se o volume de transações atingir o objetivo de escalabilidade para uma partição individual:  
+A premissão ou a anexação de entidades às suas entidades armazenadas normalmente resulta na adição de novas entidades à primeira ou última partição de uma sequência de divisórias. Neste caso, todas as inserções em qualquer momento estão a decorrer na mesma partição, criando um hotspot. Isto impede o armazenamento da mesa de inserções de equilíbrio de carga em vários nós, e possivelmente faz com que a sua aplicação atinja os alvos de escalabilidade para a partição. Por exemplo, considere o caso de uma aplicação que regista o acesso à rede e ao acesso de recursos por parte dos colaboradores. Uma estrutura de entidades como a seguinte pode resultar em que a partição da hora atual se torne um hotspot, se o volume de transações atingir o objetivo de escalabilidade para uma partição individual:  
 
-![Gráfico da entidade colaboradora][26]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE26.png" alt-text="Gráfico da entidade dos colaboradores":::
 
 #### <a name="solution"></a>Solução
-A seguinte estrutura de entidade alternativa evita um hotspot em qualquer partição em particular, uma vez que a aplicação regista eventos:  
+A seguinte estrutura de entidade alternativa evita um hotspot em qualquer partição específica, uma vez que a aplicação regista eventos:  
 
-![Gráfico mostrando entidade colaboradora com RowKey composto o ano, mês, dia, hora e id do evento][27]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE27.png" alt-text="Entidade de colaboradores de exibição gráfica com RowKey composto o Ano, Mês, Dia, Hora e ID do Evento":::
 
-Note com este exemplo como as chaves compostas e as `PartitionKey` `RowKey` chaves compostas. O `PartitionKey` departamento e a identificação do empregado para distribuir o registo através de várias divisórias.  
+Note com este exemplo como ambas as `PartitionKey` `RowKey` teclas e são compostas. Usa `PartitionKey` o departamento e a identificação dos funcionários para distribuir o registo através de várias divisórias.  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
-* A estrutura-chave alternativa que evita criar divisórias quentes em inserções suporta eficazmente as consultas que a sua aplicação cliente faz?  
-* O seu volume antecipado de transações significa que é provável que atinja os alvos de escalabilidade para uma partição individual e seja estrangulado pelo armazenamento de mesa?  
+* A estrutura de chave alternativa que evita a criação de divisórias quentes em inserções suporta de forma eficiente as consultas que a sua aplicação do cliente faz?  
+* O seu volume previsto de transações significa que é provável que atinja os objetivos de escalabilidade para uma divisória individual e seja estrangulado pelo armazenamento da mesa?  
 
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
-Evite o anti-padrão de preparação/apêndice quando o seu volume de transações é suscetível de resultar na limitação da taxa pelo armazenamento de mesa quando aceder a uma divisória quente.  
+Evite o anti-padrão pré-preento/apêndice quando o seu volume de transações é suscetível de resultar na limitação da taxa pelo armazenamento da mesa quando aceder a uma divisória quente.  
 
 #### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem também podem ser relevantes ao implementar este padrão:  
@@ -919,40 +920,40 @@ Os padrões e orientações que se seguem também podem ser relevantes ao implem
 * [Padrão de cauda de log](#log-tail-pattern)  
 * [Modificar entidades](#modify-entities)  
 
-### <a name="log-data-anti-pattern"></a>Log data anti-padrão
-Normalmente, deve utilizar o armazenamento Blob em vez do armazenamento de mesa para armazenar dados de registo.  
+### <a name="log-data-anti-pattern"></a>Registar dados anti-padrão
+Normalmente, deve utilizar o armazenamento blob em vez do armazenamento de mesa para armazenar dados de registo.  
 
 #### <a name="context-and-problem"></a>Contexto e problema
-Um caso de utilização comum para dados de registo é recuperar uma seleção de entradas de registo para um intervalo de data/hora específico. Por exemplo, pretende encontrar todos os erros e mensagens críticas que a sua aplicação registou entre as 15:04 e as 15:06 numa data específica. Não pretende utilizar a data e a hora da mensagem de registo para determinar a partição a que guarda entidades de registo. Isto resulta numa partição quente porque, em qualquer momento, todas as entidades de registo partilharão o mesmo `PartitionKey` valor (ver [o anti-padrão Prepend/apêndice).](#prepend-append-anti-pattern) Por exemplo, o esquema da entidade seguinte para uma mensagem de log resulta numa partição quente, porque a aplicação escreve todas as mensagens de registo na partição para a data e hora atuais:  
+Um caso de utilização comum para os dados de registo é recuperar uma seleção de entradas de registo para um intervalo específico de data/hora. Por exemplo, pretende encontrar todos os erros e mensagens críticas que a sua aplicação registou entre as 15:04 e as 15:06 numa data específica. Não pretende utilizar a data e a hora da mensagem de registo para determinar a partição para a qual guarda entidades de registo. Isto resulta numa partição quente porque em qualquer momento específico, todas as entidades de log partilharão o mesmo `PartitionKey` valor (ver [prepend/append anti-padrão).](#prepend-append-anti-pattern) Por exemplo, o esquema de entidade a seguir para uma mensagem de registo resulta numa partição quente, porque a aplicação escreve todas as mensagens de registo para a partição para a data e hora em atuais:  
 
-![Gráfico da entidade de mensagens de log][28]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE28.png" alt-text="Gráfico da entidade de mensagem de registo":::
 
-Neste exemplo, a `RowKey` data e hora da mensagem de registo para garantir que as mensagens de registo estão classificadas em data/hora. O também inclui um ID de `RowKey` mensagem, caso várias mensagens de registo partilhem a mesma data e hora.  
+Neste exemplo, `RowKey` inclui a data e a hora da mensagem de registo para garantir que as mensagens de registo são classificadas na ordem data/hora. O `RowKey` também inclui um ID de mensagem, caso várias mensagens de registo partilhem a mesma data e hora.  
 
-Outra abordagem é usar um `PartitionKey` que garanta que a aplicação escreve mensagens em várias divisórias. Por exemplo, se a fonte da mensagem de registo fornecer uma forma de distribuir mensagens em muitas divisórias, pode utilizar o seguinte esquema de entidade:  
+Outra abordagem é usar uma `PartitionKey` que garanta que a aplicação escreve mensagens em várias divisórias. Por exemplo, se a origem da mensagem de registo fornecer uma forma de distribuir mensagens em muitas divisórias, pode utilizar o seguinte esquema de entidade:  
 
-![Gráfico da entidade de mensagens de log][29]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE29.png" alt-text="Gráfico da entidade de mensagem de registo":::
 
-No entanto, o problema com este esquema é que para recuperar todas as mensagens de registo por um período de tempo específico, você deve pesquisar todas as divisórias na tabela.
+No entanto, o problema com este esquema é que para recuperar todas as mensagens de registo por um período de tempo específico, você deve pesquisar todas as divisões na tabela.
 
 #### <a name="solution"></a>Solução
-A secção anterior destacou o problema de tentar utilizar o armazenamento de mesa para armazenar entradas de registo, e sugeriu dois desenhos insatisfatórios. Uma solução levou a uma partição quente com o risco de escrever mensagens de registo de mau desempenho. A outra solução resultou num fraco desempenho de consulta, devido à exigência de digitalizar todas as divisórias da tabela para recuperar mensagens de registo durante um período de tempo específico. O armazenamento blob oferece uma solução melhor para este tipo de cenário, e é assim que a análise do Armazenamento Azure armazena os dados de registo que recolhe.  
+A secção anterior destacou o problema de tentar utilizar o armazenamento de mesa para armazenar entradas de registo, e sugeriu dois desenhos insatisfatórios. Uma solução levou a uma divisória quente com o risco de mau desempenho escrevendo mensagens de registo. A outra solução resultou num fraco desempenho de consulta, devido à exigência de digitalizar todas as divisórias da tabela para recuperar mensagens de registo para um período de tempo específico. O armazenamento blob oferece uma melhor solução para este tipo de cenário, e é assim que a Azure Storage analytics armazena os dados de registo que recolhe.  
 
-Esta secção descreve como a análise de armazenamento armazena dados de log no armazenamento blob, como uma ilustração desta abordagem para armazenar dados que você normalmente consulta por alcance.  
+Esta secção descreve como a Analytics de Armazenamento armazena dados de registo no armazenamento blob, como uma ilustração desta abordagem para armazenar dados que normalmente consulta por gama.  
 
-A análise de armazenamento armazena mensagens de log num formato delimitado em várias bolhas. O formato delimitado facilita a análise dos dados por parte de uma aplicação do cliente na mensagem de registo.  
+A análise de armazenamento armazena mensagens de registo num formato delimitado em várias bolhas. O formato delimitado facilita a análise dos dados na mensagem de registo.  
 
-A análise de armazenamento utiliza uma convenção de nomeação para bolhas que lhe permite localizar a bolha (ou bolhas) que contêm as mensagens de registo para as quais está a pesquisar. Por exemplo, uma bolha chamada "queue/2014/07/31/1800/000001.log" contém mensagens de registo que se relacionam com o serviço de fila para a hora a partir das 18:00 do dia 31 de julho de 2014. O "000001" indica que este é o primeiro ficheiro de registo deste período. A análise de armazenamento também regista os carimbos de tempo das primeiras e últimas mensagens de registo armazenadas no ficheiro, como parte dos metadados da bolha. A API para armazenamento Blob permite localizar bolhas num recipiente com base num prefixo de nome. Para localizar todas as bolhas que contenham dados de registo de fila para a hora a partir das 18:00, pode utilizar o prefixo "fila/2014/07/31/1800".  
+A análise de armazenamento utiliza uma convenção de nomeação para bolhas que lhe permite localizar a bolha (ou bolhas) que contêm as mensagens de registo para as quais está a pesquisar. Por exemplo, uma bolha chamada "queue/2014/07/31/1800/000001.log" contém mensagens de registo que dizem respeito ao serviço de fila para a hora a partir das 18:00 de 31 de julho de 2014. O "000001" indica que este é o primeiro ficheiro de registo deste período. A análise de armazenamento também regista os termos tempotamos das primeira e últimas mensagens de registo armazenadas no ficheiro, como parte dos metadados da bolha. A API para armazenamento Blob permite localizar bolhas num recipiente com base num prefixo de nome. Para localizar todas as bolhas que contêm dados de registo de fila para a hora a partir das 18:00, pode utilizar o prefixo "fila/2014/07/31/1800".  
 
-Os tampões de análise de armazenamento registam mensagens internamente e, em seguida, atualiza periodicamente a bolha apropriada ou cria uma nova com o mais recente lote de entradas de registo. Isto reduz o número de escritos que deve executar para o armazenamento blob.  
+Os buffers de análise de armazenamento registam as mensagens internamente e, em seguida, atualiza periodicamente a bolha apropriada ou cria uma nova com o mais recente lote de entradas de registo. Isto reduz o número de escritos que deve executar para o armazenamento blob.  
 
-Se estiver a implementar uma solução semelhante na sua própria aplicação, considere como gerir a compensação entre fiabilidade e custo e escalabilidade. Por outras palavras, avalie o efeito de escrever cada entrada de registo no armazenamento blob à medida que acontece, em comparação com atualizações de tampão na sua aplicação e escrevendo-as para o armazenamento blob em lotes.  
+Se estiver a implementar uma solução semelhante na sua própria aplicação, considere como gerir o trade-off entre fiabilidade e custo e escalabilidade. Por outras palavras, avalie o efeito de escrever cada entrada de registo no armazenamento blob à medida que acontece, em comparação com as atualizações de tamponamento na sua aplicação e escrevendo-as para o armazenamento blob em lotes.  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Considere os seguintes pontos ao decidir como armazenar dados de registo:  
 
-* Se criar um design de mesa que evite potenciais divisórias quentes, poderá descobrir que não consegue aceder aos seus dados de registo de forma eficiente.  
-* Para processar dados de registo, um cliente muitas vezes precisa de carregar muitos registos.  
+* Se criar um design de mesa que evite potenciais divisórias quentes, poderá descobrir que não pode aceder aos seus dados de registo de forma eficiente.  
+* Para processar dados de registo, um cliente precisa muitas vezes de carregar muitos registos.  
 * Embora os dados de registo sejam muitas vezes estruturados, o armazenamento blob pode ser uma solução melhor.  
 
 ### <a name="implementation-considerations"></a>Considerações de implementação
@@ -961,8 +962,8 @@ Esta secção discute algumas das considerações a ter em conta quando implemen
 ### <a name="retrieve-entities"></a>Recuperar entidades
 Como discutido na secção [Design para consulta,](#design-for-querying)a consulta mais eficiente é uma consulta pontual. No entanto, em alguns cenários poderá ser necessário recuperar várias entidades. Esta secção descreve algumas abordagens comuns para recuperar entidades utilizando a Biblioteca do Cliente de Armazenamento.  
 
-#### <a name="run-a-point-query-by-using-the-storage-client-library"></a>Executar uma consulta pontual usando a Biblioteca do Cliente de Armazenamento
-A maneira mais fácil de fazer uma consulta pontual é usar a operação da tabela **Recuperar.** Como mostra o seguinte código C# snippet, esta operação recupera uma entidade com um `PartitionKey` valor "Vendas", e um `RowKey` valor "212":  
+#### <a name="run-a-point-query-by-using-the-storage-client-library"></a>Executar uma consulta de pontos utilizando a Biblioteca do Cliente de Armazenamento
+A maneira mais fácil de executar uma consulta de ponto é utilizar a operação da mesa **Recuperar.** Como mostrado no seguinte corte de código C#, esta operação recupera uma entidade com um `PartitionKey` valor "Vendas", e um `RowKey` de valor "212":  
 
 ```csharp
 TableOperation retrieveOperation = TableOperation.Retrieve<EmployeeEntity>("Sales", "212");
@@ -974,10 +975,10 @@ if (retrieveResult.Result != null)
 }  
 ```
 
-Note como este exemplo espera que a entidade que recupera seja de `EmployeeEntity` tipo.  
+Note como este exemplo espera que a entidade que recupera seja do tipo `EmployeeEntity` .  
 
 #### <a name="retrieve-multiple-entities-by-using-linq"></a>Recuperar várias entidades utilizando o LINQ
-Pode recuperar várias entidades utilizando o LINQ com biblioteca de clientes de armazenamento e especificando uma consulta com uma cláusula **de local.** Para evitar uma digitalização de tabela, deve sempre incluir o `PartitionKey` valor na cláusula de sempre e, se possível, o valor para evitar digitalizações de tabela e `RowKey` partição. A armazenagem de mesa suporta um conjunto limitado de operadores de comparação (superior estoiro ou igual, inferior a, menos ou iguais, iguais e não iguais) para utilizar na cláusula em que. O seguinte código C# snippet encontra todos os empregados cujo apelido começa com "B" (assumindo que as lojas o último nome) no departamento de `RowKey` Vendas (assumindo as `PartitionKey` lojas o nome do departamento):  
+Pode recuperar várias entidades utilizando o LINQ com a Biblioteca do Cliente de Armazenamento e especificando uma consulta com uma cláusula **onde.** Para evitar uma digitalização de tabela, deve incluir sempre o `PartitionKey` valor na cláusula "onde" e, se possível, o `RowKey` valor para evitar sondagens de mesa e partição. O armazenamento de mesa suporta um conjunto limitado de operadores de comparação (maiores do que iguais ou iguais, menos do que, menos ou iguais, iguais e não iguais) para serem utilizados na cláusula em que. O seguinte código de corte C# encontra todos os empregados cujo apelido começa por "B" (assumindo que as `RowKey` lojas o último nome) no departamento de Vendas (assumindo que as `PartitionKey` lojas o nome do departamento):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = employeeTable.CreateQuery<EmployeeEntity>();
@@ -989,9 +990,9 @@ var query = (from employee in employeeQuery
 var employees = query.Execute();  
 ```
 
-Note como a consulta especifica tanto a a `RowKey` como a para garantir um melhor `PartitionKey` desempenho.  
+Note como a consulta especifica tanto a `RowKey` a como a para garantir um melhor `PartitionKey` desempenho.  
 
-A amostra de código seguinte mostra uma funcionalidade equivalente utilizando a API fluente (para mais informações sobre APIs fluentes em geral, consulte [as melhores práticas para conceber uma API fluente):](https://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)  
+A amostra de código que se segue mostra uma funcionalidade equivalente utilizando a API fluente (para obter mais informações sobre APIs fluentes em geral, consulte [as melhores práticas para a conceção de uma API fluente):](https://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(
@@ -1011,22 +1012,22 @@ var employees = employeeTable.ExecuteQuery(employeeQuery);
 ```
 
 > [!NOTE]
-> A amostra nidifica vários `CombineFilters` métodos para incluir as três condições do filtro.  
+> A amostra aninha vários `CombineFilters` métodos para incluir as três condições do filtro.  
 > 
 > 
 
 #### <a name="retrieve-large-numbers-of-entities-from-a-query"></a>Recuperar um grande número de entidades a partir de uma consulta
-Uma consulta ideal devolve uma entidade individual com base num `PartitionKey` valor e `RowKey` valor. No entanto, em alguns cenários poderá ter a obrigação de devolver muitas entidades da mesma divisão, ou mesmo de muitas divisórias. Deve testar sempre totalmente o desempenho da sua aplicação nesses cenários.  
+Uma consulta ideal devolve uma entidade individual com base num `PartitionKey` valor e num `RowKey` valor. No entanto, em alguns cenários poderá ter a obrigação de devolver muitas entidades da mesma partição, ou mesmo de muitas divisórias. Deve sempre testar totalmente o desempenho da sua aplicação nesses cenários.  
 
-Uma consulta contra o armazenamento de mesa pode devolver um máximo de 1.000 entidades de uma só vez, e correr por um máximo de cinco segundos. O armazenamento em mesa devolve um sinal de continuação para permitir ao pedido do cliente o próximo conjunto de entidades, se alguma das seguintes entidades for verdadeira:
+Uma consulta contra o armazenamento de mesa pode devolver um máximo de 1.000 entidades de uma vez, e funcionar por um máximo de cinco segundos. O armazenamento de mesa devolve um token de continuação para permitir que o pedido do cliente solicite o próximo conjunto de entidades, se alguma das seguintes forem verdadeiras:
 
 - O conjunto de resultados contém mais de 1.000 entidades.
 - A consulta não terminou em cinco segundos.
-- A consulta cruza o limite da divisória. 
+- A consulta cruza o limite da partição. 
 
-Para obter mais informações sobre como funcionam os tokens de continuação, consulte [o tempo de paragem e a paginação](https://msdn.microsoft.com/library/azure/dd135718.aspx)da Consulta.  
+Para obter mais informações sobre como funcionam os tokens de continuação, consulte [o tempo limite de consulta e a paginação.](https://msdn.microsoft.com/library/azure/dd135718.aspx)  
 
-Se estiver a utilizar a Biblioteca do Cliente de Armazenamento, pode lidar automaticamente com fichas de continuação para si, uma vez que devolve entidades do armazenamento de Mesa. Por exemplo, a seguinte amostra de código C# lida automaticamente com tokens de continuação se o armazenamento de tabelaos os devolver numa resposta:  
+Se estiver a utilizar a Biblioteca do Cliente de Armazenamento, pode lidar automaticamente com fichas de continuação para si, uma vez que devolve entidades do armazenamento de mesa. Por exemplo, a seguinte amostra de código C# lida automaticamente com fichas de continuação se o armazenamento da mesa os devolver numa resposta:  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition(
@@ -1041,7 +1042,7 @@ foreach (var emp in employees)
 }  
 ```
 
-O código C# seguinte trata explicitamente as fichas de continuação:  
+O seguinte código C# lida explicitamente com fichas de continuação:  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition(
@@ -1063,14 +1064,14 @@ do
 } while (continuationToken != null);  
 ```
 
-Ao utilizar fichas de continuação explicitamente, pode controlar quando a sua aplicação recuperar o próximo segmento de dados. Por exemplo, se a sua aplicação cliente permitir que os utilizadores páginam através das entidades armazenadas numa tabela, um utilizador pode decidir não páginar através de todas as entidades recuperadas pela consulta. A sua aplicação utilizaria apenas um sinal de continuação para recuperar o próximo segmento quando o utilizador tivesse terminado de prestar apagões através de todas as entidades do segmento atual. Esta abordagem tem vários benefícios:  
+Ao utilizar tokens de continuação explicitamente, pode controlar quando a sua aplicação recupera o próximo segmento de dados. Por exemplo, se a aplicação do seu cliente permitir que os utilizadores a página através das entidades armazenadas numa tabela, um utilizador pode decidir não páginar através de todas as entidades recuperadas pela consulta. A sua aplicação apenas usaria um token de continuação para recuperar o segmento seguinte quando o utilizador tivesse terminado de ligar todas as entidades do segmento atual. Esta abordagem tem vários benefícios:  
 
-* Pode limitar a quantidade de dados a obter do armazenamento da Tabela e que se move sobre a rede.  
-* Pode realizar I/O assíncrono em .NET.  
-* Pode serializar o símbolo de continuação para armazenamento persistente, para que possa continuar em caso de falha de aplicação.  
+* Pode limitar a quantidade de dados a obter do armazenamento de mesa e deslocar-se pela rede.  
+* Pode executar I/O assíncronos em .NET.  
+* Você pode serializar o token de continuação para armazenamento persistente, para que você possa continuar em caso de quebra de aplicação.  
 
 > [!NOTE]
-> Um símbolo de continuação normalmente devolve um segmento contendo 1.000 entidades, embora possa conter menos. É também o caso se limitar o número de entradas que uma consulta devolve usando **o Take** para devolver as primeiras entidades n que correspondem aos seus critérios de procuração. O armazenamento de mesapode devolver um segmento com menos do que n entidades, juntamente com um símbolo de continuação que lhe permita recuperar as restantes entidades.  
+> Um símbolo de continuação normalmente devolve um segmento contendo 1.000 entidades, embora possa conter menos. Este é também o caso se limitar o número de entradas que uma consulta devolve usando **Take** para devolver as primeiras entidades n que correspondem aos seus critérios de procura. O armazenamento de mesas poderá devolver um segmento que contenha menos do que as entidades n, juntamente com um token de continuação para que possa recuperar as restantes entidades.  
 > 
 > 
 
@@ -1081,7 +1082,7 @@ employeeQuery.TakeCount = 50;
 ```
 
 #### <a name="server-side-projection"></a>Projeção do lado do servidor
-Uma única entidade pode ter até 255 propriedades e ter até 1 MB de tamanho. Quando consulta a tabela e recupera entidades, pode não precisar de todas as propriedades, e pode evitar a transferência de dados desnecessariamente (para ajudar a reduzir a latência e o custo). Pode utilizar a projeção do lado do servidor para transferir apenas as propriedades de que necessita. O exemplo seguinte recupera apenas a `Email` propriedade (juntamente `PartitionKey` `RowKey` com, `Timestamp` , e ) `ETag` das entidades selecionadas pela consulta.  
+Uma única entidade pode ter até 255 propriedades e ter até 1 MB de tamanho. Quando consulta a tabela e recupera entidades, pode não precisar de todas as propriedades, e pode evitar a transferência de dados desnecessariamente (para ajudar a reduzir a latência e o custo). Pode utilizar a projeção do lado do servidor para transferir apenas as propriedades necessárias. O exemplo a seguir recupera apenas a `Email` propriedade (juntamente `PartitionKey` `RowKey` com, `Timestamp` e ) das `ETag` entidades selecionadas pela consulta.  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition(
@@ -1100,27 +1101,27 @@ foreach (var e in entities)
 Note como o `RowKey` valor está disponível mesmo que não esteja incluído na lista de propriedades para recuperar.  
 
 ### <a name="modify-entities"></a>Modificar entidades
-A Biblioteca do Cliente de Armazenamento permite modificar as suas entidades armazenadas no armazenamento de mesa, inserindo, apagando e atualizando entidades. Pode utilizar EGTs para emlotar múltiplas inserções, atualizar e eliminar as operações em conjunto, para reduzir o número de viagens redondas necessárias e melhorar o desempenho da sua solução.  
+A Biblioteca do Cliente de Armazenamento permite modificar as suas entidades armazenadas no armazenamento de mesa, inserindo, eliminando e atualizando entidades. Pode utilizar EGTs para lotar várias inserções, atualizar e eliminar operações em conjunto, para reduzir o número de viagens de ida e volta necessárias e melhorar o desempenho da sua solução.  
 
-As exceções lançadas quando a Biblioteca de Clientes de Armazenamento executa um EGT normalmente incluem o índice da entidade que fez com que o lote falhasse. Isto é útil quando se está a depurar o código que utiliza EGTs.  
+As exceções lançadas quando a Biblioteca do Cliente de Armazenamento executa um EGT normalmente incluem o índice da entidade que fez com que o lote falhasse. Isto é útil quando está a depurar código que utiliza EGTs.  
 
-Deve também considerar como o seu design afeta a forma como a sua aplicação de cliente lida com operações de concurrency e atualização.  
+Também deve considerar como o seu design afeta a forma como a sua aplicação de cliente lida com as operações de conuncy e atualização.  
 
 #### <a name="managing-concurrency"></a>Gerir a simultaneidade
-Por predefinição, o armazenamento de mesa implementa controlos de moeda optimistaao nível de entidades individuais para inserir, fundir e eliminar operações, embora seja possível que um cliente force o armazenamento de mesa a contornar estes controlos. Para mais informações, consulte [Gerir a moeda no Armazenamento Microsoft Azure](../storage/common/storage-concurrency.md).  
+Por predefinição, o armazenamento de mesa implementa controlos de concordância otimistas ao nível de entidades individuais para inserir, fundir e apagar operações, embora seja possível para um cliente forçar o armazenamento da Mesa a contornar estas verificações. Para obter mais informações, consulte [Managing concurrency no Microsoft Azure Storage](../storage/common/storage-concurrency.md).  
 
 #### <a name="merge-or-replace"></a>Fundir ou substituir
-O `Replace` método da classe substitui sempre a entidade completa no armazenamento de `TableOperation` mesa. Se não incluir um imóvel no pedido quando esse imóvel existe na entidade armazenada, o pedido retira esse imóvel da entidade armazenada. A menos que pretenda remover uma propriedade explicitamente de uma entidade armazenada, deve incluir todos os imóveis no pedido.  
+O `Replace` método da classe substitui sempre a entidade completa no armazenamento de `TableOperation` mesa. Se não incluir um imóvel no pedido quando esse imóvel existe na entidade armazenada, o pedido retira esse imóvel da entidade armazenada. A menos que queira remover um imóvel explicitamente de uma entidade armazenada, deve incluir todos os bens no pedido.  
 
-Pode utilizar o método da classe para reduzir a quantidade de dados que envia para o armazenamento de `Merge` Mesa quando pretende atualizar uma `TableOperation` entidade. O `Merge` método substitui quaisquer imóveis na entidade armazenada por valores patrimoniais da entidade incluída no pedido. Este método deixa intactas quaisquer propriedades na entidade armazenada que não estejam incluídas no pedido. Isto é útil se tiver grandes entidades, e apenas precisa atualizar um pequeno número de propriedades num pedido.  
+Pode utilizar o `Merge` método da classe para reduzir a quantidade de `TableOperation` dados que envia para o armazenamento de mesa quando pretende atualizar uma entidade. O `Merge` método substitui quaisquer propriedades na entidade armazenada por valores patrimoniais da entidade incluída no pedido. Este método deixa intactas quaisquer propriedades na entidade armazenada que não estejam incluídas no pedido. Isto é útil se você tem grandes entidades, e apenas precisa atualizar um pequeno número de propriedades em um pedido.  
 
 > [!NOTE]
-> Os `*Replace` `Merge` métodos e os métodos falham se a entidade não existir. Como alternativa, pode usar os `InsertOrReplace` métodos e `InsertOrMerge` métodos que criam uma nova entidade se não existir.  
+> Os `*Replace` `Merge` métodos falham se a entidade não existir. Como alternativa, pode usar os `InsertOrReplace` `InsertOrMerge` métodos e métodos que criam uma nova entidade se ela não existir.  
 > 
 > 
 
 ### <a name="work-with-heterogeneous-entity-types"></a>Trabalhar com tipos de entidades heterogéneas
-O armazenamento de mesa é uma loja de mesa *sem esquemas.* Isto significa que uma única mesa pode armazenar entidades de vários tipos, proporcionando uma grande flexibilidade no seu design. O exemplo que se segue ilustra uma tabela que armazena entidades de funcionários e departamentos:  
+O armazenamento de mesa é uma loja de mesa *sem esquemas.* Isto significa que uma única mesa pode armazenar entidades de vários tipos, proporcionando uma grande flexibilidade no seu design. O exemplo a seguir ilustra uma tabela que armazena tanto entidades de empregados como de departamento:  
 
 <table>
 <tr>
@@ -1139,7 +1140,7 @@ O armazenamento de mesa é uma loja de mesa *sem esquemas.* Isto significa que u
 <th>FirstName</th>
 <th>LastName</th>
 <th>Idade</th>
-<th>Email</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -1159,7 +1160,7 @@ O armazenamento de mesa é uma loja de mesa *sem esquemas.* Isto significa que u
 <th>FirstName</th>
 <th>LastName</th>
 <th>Idade</th>
-<th>Email</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -1177,7 +1178,7 @@ O armazenamento de mesa é uma loja de mesa *sem esquemas.* Isto significa que u
 <table>
 <tr>
 <th>DepartmentName</th>
-<th>Contagem de funcionários</th>
+<th>Contagem de Funcionários</th>
 </tr>
 <tr>
 <td></td>
@@ -1196,7 +1197,7 @@ O armazenamento de mesa é uma loja de mesa *sem esquemas.* Isto significa que u
 <th>FirstName</th>
 <th>LastName</th>
 <th>Idade</th>
-<th>Email</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -1209,10 +1210,10 @@ O armazenamento de mesa é uma loja de mesa *sem esquemas.* Isto significa que u
 </tr>
 </table>
 
-Cada entidade deve ainda `PartitionKey` ter, `RowKey` e `Timestamp` valores, mas pode ter qualquer conjunto de propriedades. Além disso, não há nada que indique o tipo de entidade, a menos que decida armazenar essa informação em algum lugar. Existem duas opções para identificar o tipo de entidade:  
+Cada entidade ainda deve `PartitionKey` ter, `RowKey` e `Timestamp` valores, mas pode ter qualquer conjunto de propriedades. Além disso, não há nada que indique o tipo de entidade a menos que escolha armazenar essa informação em algum lugar. Existem duas opções para identificar o tipo de entidade:  
 
-* Prepare o tipo de entidade para o `RowKey` (ou possivelmente o `PartitionKey` ). Por exemplo, `EMPLOYEE_000123` ou `DEPARTMENT_SALES` como `RowKey` valores.  
-* Utilize uma propriedade separada para registar o tipo de entidade, como mostra a tabela seguinte.  
+* Prepend o tipo de entidade para o `RowKey` (ou possivelmente o `PartitionKey` ). Por exemplo, `EMPLOYEE_000123` ou `DEPARTMENT_SALES` como `RowKey` valores.  
+* Utilize uma propriedade separada para registar o tipo de entidade, como mostrado na tabela seguinte.  
 
 <table>
 <tr>
@@ -1232,7 +1233,7 @@ Cada entidade deve ainda `PartitionKey` ter, `RowKey` e `Timestamp` valores, mas
 <th>FirstName</th>
 <th>LastName</th>
 <th>Idade</th>
-<th>Email</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Empregado</td>
@@ -1254,7 +1255,7 @@ Cada entidade deve ainda `PartitionKey` ter, `RowKey` e `Timestamp` valores, mas
 <th>FirstName</th>
 <th>LastName</th>
 <th>Idade</th>
-<th>Email</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Empregado</td>
@@ -1274,7 +1275,7 @@ Cada entidade deve ainda `PartitionKey` ter, `RowKey` e `Timestamp` valores, mas
 <tr>
 <th>EntityType</th>
 <th>DepartmentName</th>
-<th>Contagem de funcionários</th>
+<th>Contagem de Funcionários</th>
 </tr>
 <tr>
 <td>Departamento</td>
@@ -1295,7 +1296,7 @@ Cada entidade deve ainda `PartitionKey` ter, `RowKey` e `Timestamp` valores, mas
 <th>FirstName</th>
 <th>LastName</th>
 <th>Idade</th>
-<th>Email</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Empregado</td>
@@ -1309,23 +1310,23 @@ Cada entidade deve ainda `PartitionKey` ter, `RowKey` e `Timestamp` valores, mas
 </tr>
 </table>
 
-A primeira opção, pré-gastando o tipo de entidade para o, é útil se houver a possibilidade de `RowKey` duas entidades de diferentes tipos poderem ter o mesmo valor-chave. Também agrupa entidades do mesmo tipo juntas na partição.  
+A primeira opção, pré-pendente do tipo de entidade ao `RowKey` , é útil se houver a possibilidade de duas entidades de diferentes tipos poderem ter o mesmo valor-chave. Também agru se junta entidades do mesmo tipo na partição.  
 
-As técnicas discutidas nesta secção são especialmente relevantes para a discussão sobre[as relações de Herança.](#inheritance-relationships)  
+As técnicas discutidas nesta secção são especialmente relevantes para a discussão sobre[as relações de herança.](#inheritance-relationships)  
 
 > [!NOTE]
 > Considere incluir um número de versão no valor do tipo de entidade, para permitir que as aplicações do cliente evoluam objetos POCO e trabalhem com diferentes versões.  
 > 
 > 
 
-O restante desta secção descreve algumas das funcionalidades na Biblioteca do Cliente de Armazenamento que facilitam o trabalho com vários tipos de entidades na mesma tabela.  
+O restante desta secção descreve algumas das funcionalidades na Biblioteca do Cliente de Armazenamento que facilitam o funcionamento com vários tipos de entidades na mesma tabela.  
 
 #### <a name="retrieve-heterogeneous-entity-types"></a>Recuperar tipos de entidades heterogéneas
-Se estiver a utilizar a Biblioteca de Clientes de Armazenamento, tem três opções para trabalhar com vários tipos de entidades.  
+Se estiver a utilizar a Biblioteca do Cliente de Armazenamento, tem três opções para trabalhar com vários tipos de entidades.  
 
-Se conhecer o tipo de entidade armazenada com valores específicos `RowKey` e `PartitionKey` valores, então pode especificar o tipo de entidade quando recuperar a entidade. Viu isto nos dois exemplos anteriores que recuperam entidades de tipo : Faça uma consulta pontual utilizando a Biblioteca de Clientes de `EmployeeEntity` [Armazenamento](#run-a-point-query-by-using-the-storage-client-library) e [recupere várias entidades utilizando o LINQ](#retrieve-multiple-entities-by-using-linq).  
+Se conhecer o tipo de entidade armazenada com `RowKey` valores e `PartitionKey` valores específicos, então pode especificar o tipo de entidade quando recuperar a entidade. Viu isto nos dois exemplos anteriores que recuperam entidades do tipo : Executar uma consulta de `EmployeeEntity` ponto utilizando a Biblioteca do Cliente de [Armazenamento](#run-a-point-query-by-using-the-storage-client-library) e [Recuperar várias entidades utilizando o LINQ.](#retrieve-multiple-entities-by-using-linq)  
 
-A segunda opção é usar o tipo (um saco de `DynamicTableEntity` propriedade), em vez de um tipo de entidade POCO de betão. Esta opção também pode melhorar o desempenho, porque não há necessidade de serializar e desserializar a entidade para os tipos .NET. O código C# que se segue potencialmente recupera várias entidades de diferentes tipos da tabela, mas devolve todas as entidades como `DynamicTableEntity` instâncias. Em seguida, utiliza a `EntityType` propriedade para determinar o tipo de cada entidade:  
+A segunda opção é usar o `DynamicTableEntity` tipo (um saco de propriedade), em vez de um tipo de entidade POCO de betão. Esta opção também pode melhorar o desempenho, porque não há necessidade de serializar e deserizar a entidade para os tipos .NET. O seguinte código C# potencialmente recupera várias entidades de diferentes tipos da tabela, mas devolve todas as entidades como `DynamicTableEntity` instâncias. Em seguida, utiliza a `EntityType` propriedade para determinar o tipo de cada entidade:  
 
 ```csharp
 string filter = TableQuery.CombineFilters(
@@ -1360,7 +1361,7 @@ if (e.Properties.TryGetValue("EntityType", out entityTypeProperty))
 
 Para recuperar outras propriedades, deve utilizar o `TryGetValue` método na propriedade da `Properties` `DynamicTableEntity` classe.  
 
-Uma terceira opção é combinar usando o `DynamicTableEntity` tipo e uma `EntityResolver` instância. Isto permite-lhe resolver vários tipos de POCO na mesma consulta. Neste exemplo, o `EntityResolver` delegado está a usar o `EntityType` imóvel para distinguir entre os dois tipos de entidade que a consulta devolve. O `Resolve` método utiliza o delegado para resolver `resolver` `DynamicTableEntity` casos em `TableEntity` instâncias.  
+Uma terceira opção é combinar usando o `DynamicTableEntity` tipo e um `EntityResolver` caso. Isto permite-lhe resolver vários tipos de POCO na mesma consulta. Neste exemplo, o `EntityResolver` delegado está a usar o `EntityType` imóvel para distinguir entre os dois tipos de entidade que a consulta devolve. O `Resolve` método utiliza o delegado para resolver `resolver` `DynamicTableEntity` casos em `TableEntity` casos.  
 
 ```csharp
 EntityResolver<TableEntity> resolver = (pk, rk, ts, props, etag) =>
@@ -1405,7 +1406,7 @@ foreach (var e in entities)
 ```
 
 #### <a name="modify-heterogeneous-entity-types"></a>Modificar tipos de entidades heterogéneas
-Não precisa de saber o tipo de entidade para a apagar, e conhece sempre o tipo de entidade quando a insere. No entanto, pode utilizar o `DynamicTableEntity` tipo para atualizar uma entidade sem conhecer o seu tipo, e sem utilizar uma classe de entidade POCO. A amostra de código seguinte recupera uma única entidade, e verifica se a propriedade existe antes de `EmployeeCount` atualizá-la.  
+Não é preciso saber o tipo de entidade para o apagar, e sabe sempre o tipo de entidade quando a insere. No entanto, pode utilizar o `DynamicTableEntity` tipo para atualizar uma entidade sem conhecer o seu tipo, e sem utilizar uma classe de entidade POCO. A amostra de código que se segue recupera uma única entidade e verifica se a `EmployeeCount` propriedade existe antes de a atualizar.  
 
 ```csharp
 TableResult result =
@@ -1424,23 +1425,23 @@ employeeTable.Execute(TableOperation.Merge(department));
 ```
 
 ### <a name="control-access-with-shared-access-signatures"></a>Controlar o acesso com assinaturas de acesso partilhado
-Pode utilizar fichas de assinatura de acesso partilhado (SAS) para permitir que as aplicações do cliente modifiquem diretamente (e consulta) entidades de tabela, sem necessidade de autenticar diretamente com armazenamento de mesa. Normalmente, existem três principais benefícios para a utilização de SAS na sua aplicação:  
+Pode utilizar fichas de assinatura de acesso partilhado (SAS) para permitir que as aplicações do cliente modifiquem (e questionem) entidades de mesa diretamente, sem necessidade de autenticar diretamente com o armazenamento da Mesa. Normalmente, existem três principais benefícios para a utilização de SAS na sua aplicação:  
 
-* Não é necessário distribuir a chave da sua conta de armazenamento para uma plataforma insegura (como um dispositivo móvel) de forma a permitir que esse dispositivo aceda e modifique entidades no armazenamento de Mesa.  
-* Pode descarregar parte do trabalho que as funções web e dos trabalhadores desempenham na gestão das suas entidades. Pode descarregar para dispositivos clientes, como computadores de utilizador final e dispositivos móveis.  
-* Pode atribuir um conjunto limitado de permissões a um cliente (como permitir o acesso apenas a recursos específicos).  
+* Não é necessário distribuir a chave da sua conta de armazenamento para uma plataforma insegura (como um dispositivo móvel) para permitir que esse dispositivo aceda e modifique entidades no armazenamento de mesa.  
+* Pode descarregar parte do trabalho que as funções web e trabalhadora desempenham na gestão das suas entidades. Pode descarregar para dispositivos clientes, como computadores de utilizador final e dispositivos móveis.  
+* Pode atribuir um conjunto limitado de permissões a um cliente (como permitir o acesso apenas à leitura a recursos específicos).  
 
-Para obter mais informações sobre a utilização de tokens SAS com armazenamento de mesa, consulte Utilizar assinaturas de [acesso partilhado (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).  
+Para obter mais informações sobre a utilização de fichas SAS com armazenamento de mesa, consulte [utilizando assinaturas de acesso partilhado (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).  
 
-No entanto, ainda deve gerar as fichas SAS que concedem uma aplicação de cliente às entidades em armazenamento de mesa. Faça-o num ambiente que tenha acesso seguro às chaves da sua conta de armazenamento. Normalmente, utiliza uma função web ou trabalhadora para gerar as fichas SAS e entregá-las às aplicações do cliente que precisam de acesso às suas entidades. Como ainda há uma sobrecarga envolvida na geração e entrega de fichas SAS aos clientes, deve considerar a melhor forma de reduzir esta sobrecarga, especialmente em cenários de grande volume.  
+No entanto, ainda deve gerar os tokens SAS que concedem um pedido de cliente às entidades de armazenamento de mesa. Faça isto num ambiente que tenha acesso seguro às chaves da sua conta de armazenamento. Normalmente, usa uma função web ou trabalhadora para gerar os tokens SAS e entregá-los às aplicações do cliente que precisam de acesso às suas entidades. Como ainda existe uma sobrecarga envolvida na geração e entrega de fichas SAS aos clientes, deve considerar a melhor forma de reduzir esta sobrecarga, especialmente em cenários de grande volume.  
 
-É possível gerar um símbolo SAS que dá acesso a um subconjunto das entidades numa tabela. Por padrão, cria-se um símbolo SAS para uma mesa inteira. Mas também é possível especificar que o token SAS concede acesso a uma gama de `PartitionKey` valores, ou a uma gama de `PartitionKey` e `RowKey` valores. Pode optar por gerar tokens SAS para utilizadores individuais do seu sistema, de modo a que o token SAS de cada utilizador só lhes permita aceder às suas próprias entidades no armazenamento de Mesa.  
+É possível gerar um token SAS que dá acesso a um subconjunto das entidades numa tabela. Por padrão, cria-se um token SAS para uma mesa inteira. Mas também é possível especificar que o símbolo SAS concede acesso a uma gama de `PartitionKey` valores, ou a uma gama de `PartitionKey` `RowKey` valores. Pode optar por gerar fichas SAS para utilizadores individuais do seu sistema, de modo a que o token SAS de cada utilizador apenas lhes permita aceder às suas próprias entidades no armazenamento de mesa.  
 
-### <a name="asynchronous-and-parallel-operations"></a>Operações assíncronas e paralelas
-Desde que esteja a espalhar os seus pedidos por várias divisórias, pode melhorar a capacidade de entrada e capacidade de resposta do cliente utilizando consultas assíncronas ou paralelas.
-Por exemplo, pode ter duas ou mais instâncias de função operária acedendo às suas mesas em paralelo. Pode ter funções individuais de trabalhador responsável por determinados conjuntos de divisórias, ou simplesmente ter múltiplas instâncias de função de trabalhador, cada uma capaz de aceder a todas as divisórias numa tabela.  
+### <a name="asynchronous-and-parallel-operations"></a>Operações assíncronos e paralelas
+Desde que esteja a difundir os seus pedidos através de múltiplas divisórias, pode melhorar a produção e a capacidade de resposta do cliente utilizando consultas assíncronos ou paralelas.
+Por exemplo, pode ter duas ou mais instâncias de trabalho a aceder em paralelo às suas tabelas. Pode ter funções individuais de trabalhadores responsáveis por determinados conjuntos de divisórias, ou simplesmente ter múltiplas instâncias de função dos trabalhadores, cada uma capaz de aceder a todas as divisórias numa tabela.  
 
-Dentro de uma instância de cliente, você pode melhorar a entrada executando operações de armazenamento assincronicamente. A Biblioteca do Cliente de Armazenamento facilita a escrita de consultas e modificações assíncronas. Por exemplo, pode começar com o método sincronizado que recupera todas as entidades numa partição, como mostra o seguinte código C#:  
+Dentro de uma instância do cliente, você pode melhorar a produção executando operações de armazenamento assíncroneamente. A Biblioteca do Cliente de Armazenamento facilita a escrita de consultas e modificações assíncronos. Por exemplo, pode começar pelo método sincronizado que recupera todas as entidades numa partição, como mostra o seguinte código C#:  
 
 ```csharp
 private static void ManyEntitiesQuery(CloudTable employeeTable, string department)
@@ -1465,7 +1466,7 @@ private static void ManyEntitiesQuery(CloudTable employeeTable, string departmen
 }  
 ```
 
-Pode modificar facilmente este código de modo a que a consulta seja executado assincronicamente, da seguinte forma:  
+Pode modificar facilmente este código de modo a que a consulta seja assíncronea, da seguinte forma:  
 
 ```csharp
 private static async Task ManyEntitiesQueryAsync(CloudTable employeeTable, string department)
@@ -1489,16 +1490,16 @@ private static async Task ManyEntitiesQueryAsync(CloudTable employeeTable, strin
 }  
 ```
 
-Neste exemplo assíncrono, pode ver as seguintes alterações a partir da versão sincronizada:  
+Neste exemplo assíncronos, pode ver as seguintes alterações a partir da versão sincronizada:  
 
 * A assinatura do método agora inclui o `async` modificador, e devolve uma `Task` instância.  
-* Em vez de chamar o `ExecuteSegmented` método para recuperar resultados, o método chama agora o `ExecuteSegmentedAsync` método. O método utiliza o `await` modificador para recuperar resultados assincronicamente.  
+* Em vez de chamar o `ExecuteSegmented` método para recuperar resultados, o método agora chama o `ExecuteSegmentedAsync` método. O método utiliza o `await` modificador para obter resultados assíncronos.  
 
-A aplicação do cliente pode chamar este método várias vezes, com valores diferentes para o `department` parâmetro. Cada consulta corre num fio separado.  
+A aplicação do cliente pode chamar este método várias vezes, com valores diferentes para o `department` parâmetro. Cada consulta funciona num fio separado.  
 
-Não existe uma versão assíncrona do `Execute` método na `TableQuery` classe, porque a interface não suporta `IEnumerable` uma enumeração assíncrona.  
+Não existe uma versão assíncronea do `Execute` método na `TableQuery` classe, porque a interface não suporta `IEnumerable` a enumeração assíncronea.  
 
-Também pode inserir, atualizar e eliminar as entidades de forma assíncrona. O exemplo C# seguinte mostra um método simples e sincronizado para inserir ou substituir uma entidade colaboradora:  
+Também pode inserir, atualizar e eliminar asincronizando asinerróneas. O exemplo C# a seguir mostra um método simples e sincronizado para inserir ou substituir uma entidade do empregado:  
 
 ```csharp
 private static void SimpleEmployeeUpsert(CloudTable employeeTable,
@@ -1510,7 +1511,7 @@ private static void SimpleEmployeeUpsert(CloudTable employeeTable,
 }  
 ```
 
-Pode modificar facilmente este código de modo a que a atualização seja recorrida assincronicamente, da seguinte forma:  
+Pode modificar facilmente este código de modo a que a atualização seja assíncronea, da seguinte forma:  
 
 ```csharp
 private static async Task SimpleEmployeeUpsertAsync(CloudTable employeeTable,
@@ -1522,41 +1523,10 @@ private static async Task SimpleEmployeeUpsertAsync(CloudTable employeeTable,
 }  
 ```
 
-Neste exemplo assíncrono, pode ver as seguintes alterações a partir da versão sincronizada:  
+Neste exemplo assíncronos, pode ver as seguintes alterações a partir da versão sincronizada:  
 
 * A assinatura do método agora inclui o `async` modificador, e devolve uma `Task` instância.  
-* Em vez de chamar o `Execute` método para atualizar a entidade, o método chama agora o `ExecuteAsync` método. O método utiliza o `await` modificador para recuperar resultados assincronicamente.  
+* Em vez de chamar o `Execute` método para atualizar a entidade, o método agora chama o `ExecuteAsync` método. O método utiliza o `await` modificador para obter resultados assíncronos.  
 
 A aplicação do cliente pode chamar vários métodos assíncronos como este, e cada invocação de método corre em um fio separado.  
-
-
-[1]: ./media/storage-table-design-guide/storage-table-design-IMAGE01.png
-[2]: ./media/storage-table-design-guide/storage-table-design-IMAGE02.png
-[3]: ./media/storage-table-design-guide/storage-table-design-IMAGE03.png
-[4]: ./media/storage-table-design-guide/storage-table-design-IMAGE04.png
-[5]: ./media/storage-table-design-guide/storage-table-design-IMAGE05.png
-[6]: ./media/storage-table-design-guide/storage-table-design-IMAGE06.png
-[7]: ./media/storage-table-design-guide/storage-table-design-IMAGE07.png
-[8]: ./media/storage-table-design-guide/storage-table-design-IMAGE08.png
-[9]: ./media/storage-table-design-guide/storage-table-design-IMAGE09.png
-[10]: ./media/storage-table-design-guide/storage-table-design-IMAGE10.png
-[11]: ./media/storage-table-design-guide/storage-table-design-IMAGE11.png
-[12]: ./media/storage-table-design-guide/storage-table-design-IMAGE12.png
-[13]: ./media/storage-table-design-guide/storage-table-design-IMAGE13.png
-[14]: ./media/storage-table-design-guide/storage-table-design-IMAGE14.png
-[15]: ./media/storage-table-design-guide/storage-table-design-IMAGE15.png
-[16]: ./media/storage-table-design-guide/storage-table-design-IMAGE16.png
-[17]: ./media/storage-table-design-guide/storage-table-design-IMAGE17.png
-[18]: ./media/storage-table-design-guide/storage-table-design-IMAGE18.png
-[19]: ./media/storage-table-design-guide/storage-table-design-IMAGE19.png
-[20]: ./media/storage-table-design-guide/storage-table-design-IMAGE20.png
-[21]: ./media/storage-table-design-guide/storage-table-design-IMAGE21.png
-[22]: ./media/storage-table-design-guide/storage-table-design-IMAGE22.png
-[23]: ./media/storage-table-design-guide/storage-table-design-IMAGE23.png
-[24]: ./media/storage-table-design-guide/storage-table-design-IMAGE24.png
-[25]: ./media/storage-table-design-guide/storage-table-design-IMAGE25.png
-[26]: ./media/storage-table-design-guide/storage-table-design-IMAGE26.png
-[27]: ./media/storage-table-design-guide/storage-table-design-IMAGE27.png
-[28]: ./media/storage-table-design-guide/storage-table-design-IMAGE28.png
-[29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
 

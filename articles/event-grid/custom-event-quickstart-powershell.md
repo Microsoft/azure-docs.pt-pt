@@ -1,22 +1,16 @@
 ---
-title: 'Quickstart: Envie eventos personalizados para web endpoint - Event Grid, PowerShell'
+title: 'Quickstart: Enviar eventos personalizados para o ponto final da web - Grade de Eventos, PowerShell'
 description: 'Quickstart: Use Azure Event Grid e PowerShell para publicar um tópico personalizado e subscreva eventos para esse tópico. Os eventos são tratados por uma aplicação web.'
-services: event-grid
-keywords: ''
-author: spelluru
-ms.author: spelluru
-ms.date: 11/05/2019
+ms.date: 07/07/2020
 ms.topic: quickstart
-ms.service: event-grid
-ms.custom: seodec18
-ms.openlocfilehash: bc92e0cf579bc008fdb09c9cbb576d8cac0191cb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4dbed993b4123045ae6233466cd9ca0565465a1e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73721428"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115031"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Quickstart: Route eventos personalizados para web endpoint com PowerShell e Event Grid
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Quickstart: Encaminhe eventos personalizados para o ponto final da Web com PowerShell e Grade de Eventos
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, o Azure PowerShell é utilizado para criar um tópico personalizado, subscrever o tópico e acionar o evento para ver o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
 
@@ -28,13 +22,13 @@ Quando tiver terminado, verá que os dados do evento foram enviados para a aplic
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-Este artigo requer a utilização da versão mais recente do Azure PowerShell. Se precisar de instalar ou atualizar, consulte [Instalar e configurar o PowerShell Azure](/powershell/azure/install-Az-ps).
+Este artigo requer a utilização da versão mais recente do Azure PowerShell. Se precisar de instalar ou atualizar, consulte [instalar e configurar a Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Os tópicos do Event Grid são recursos do Azure e têm de ser colocados num grupo de recursos do Azure. Um grupo de recursos é uma coleção lógica na qual os recursos do Azure são implementados e geridos.
 
-Crie um grupo de recursos com o comando [New-AzResourceGroup.](/powershell/module/az.resources/new-azresourcegroup)
+Criar um grupo de recursos com o comando [New-AzResourceGroup.](/powershell/module/az.resources/new-azresourcegroup)
 
 O exemplo seguinte cria um grupo de recursos com o nome *gridResourceGroup* na localização *westus2*.
 
@@ -46,7 +40,7 @@ New-AzResourceGroup -Name gridResourceGroup -Location westus2
 
 ## <a name="create-a-custom-topic"></a>Criar um tópico personalizado
 
-Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual publica os eventos. O exemplo seguinte cria o tópico personalizado no seu grupo de recursos. Substitua `<your-topic-name>` por um nome exclusivo para o seu tópico. O nome do tópico deve ser exclusivo, porque faz parte da entrada DNS. Além disso, deve ser entre 3-50 caracteres e conter apenas valores a-z, A-Z, 0-9 e "-"
+Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual publica os eventos. O exemplo seguinte cria o tópico personalizado no seu grupo de recursos. Substitua `<your-topic-name>` por um nome exclusivo para o seu tópico. O nome do tópico deve ser exclusivo, porque faz parte da entrada DNS. Além disso, deve estar entre 3-50 caracteres e conter apenas valores a-z, A-Z, 0-9 e "-"
 
 ```powershell-interactive
 $topicname="<your-topic-name>"
@@ -163,7 +157,7 @@ Se quiser continuar a trabalhar com este evento ou com a aplicação de visualiz
 Remove-AzResourceGroup -Name gridResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

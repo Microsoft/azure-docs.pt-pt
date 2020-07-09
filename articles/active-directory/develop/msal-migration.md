@@ -1,7 +1,7 @@
 ---
 title: Migrar para a Microsoft Authentication Library (MSAL)
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre as diferenças entre a Microsoft Authentication Library (MSAL) e a Azure AD Authentication Library (ADAL) e como migrar para o MSAL.
+description: Conheça as diferenças entre a Microsoft Authentication Library (MSAL) e a Azure AD Authentication Library (ADAL) e como migrar para o MSAL.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -9,33 +9,71 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/27/2020
+ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 3af18eb09fd9906a0caaebda0b786795400467f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52a4a7131c85231107a2a23a1916016776b219fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78164935"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367432"
 ---
 # <a name="migrate-applications-to-microsoft-authentication-library-msal"></a>Migrar aplicações para a Microsoft Authentication Library (MSAL)
 
-Tanto a Microsoft Authentication Library (MSAL) como a Azure AD Authentication Library (ADAL) são usadas para autenticar entidades da AD Azure e solicitar fichas da Azure AD. Até agora, a maioria dos desenvolvedores tem trabalhado com a Azure AD para a plataforma de desenvolvedores (v1.0) para autenticar identidades azure AD (contas de trabalho e escola) solicitando fichas usando a Biblioteca de Autenticação AD Azure (ADAL). Utilizando a MSAL:
+Muitos desenvolvedores construíram e implementaram aplicações usando a Azure Ative Directory Authentication Library (ADAL). Recomendamos agora a utilização da Biblioteca de Autenticação da Microsoft (MSAL) para autenticação e autorização de entidades AZure AD.
 
-- Pode autenticar um conjunto mais amplo de identidades da Microsoft (identidades AD Azure e contas microsoft, e contas sociais e locais através do Azure AD B2C) uma vez que utiliza o ponto final da plataforma de identidade microsoft.
-- Os seus utilizadores terão a melhor experiência de inscrição individual.
-- A sua aplicação pode permitir o consentimento incremental e apoiar o Acesso Condicional é mais fácil.
-- Beneficia-se da inovação.
+Utilizando o MSAL em vez de ADAL:
 
-**MSAL é agora a biblioteca auth recomendada para usar com a plataforma de identidade Microsoft**. Não serão implementadas novas funcionalidades no ADAL. Os esforços centram-se na melhoria do MSAL.
+- Pode autenticar um conjunto mais amplo de identidades:
+  - Identidades da AD AZure
+  - Contas microsoft
+  - Contas sociais e locais utilizando Azure AD B2C
+- Os seus utilizadores terão a melhor experiência de um único sinal.
+- A sua aplicação pode permitir o consentimento incremental.
+- Apoiar o Acesso Condicional é mais fácil.
+- Beneficia-se da inovação. Como todos os esforços de desenvolvimento da Microsoft estão agora focados no MSAL, nenhuma nova funcionalidade será implementada no ADAL.
 
-Os seguintes artigos descrevem as diferenças entre as bibliotecas MSAL e ADAL e ajudam-no a migrar para a MSAL:
-- [Migrar para MSAL.NET](msal-net-migration.md)
-- [Migrar para MSAL.js](msal-compare-msal-js-and-adal-js.md)
+**A MSAL é agora a biblioteca de autenticação recomendada para utilização com a plataforma de identidade microsoft**.
+
+## <a name="migration-guidance"></a>Orientação da migração
+
+Os seguintes artigos podem ajudá-lo a migrar para o MSAL:
+
 - [Migrar para MSAL.Android](migrate-android-adal-msal.md)
 - [Migrar para MSAL.iOS/macOS](migrate-objc-adal-msal.md)
+- [Migrar para MSAL Java](migrate-adal-msal-java.md)
+- [Migrar para MSAL.js](msal-compare-msal-js-and-adal-js.md)
+- [Migrar para MSAL.NET](msal-net-migration.md)
 - [Migrar para MSAL Python](migrate-python-adal-msal.md)
-- [Migrar para MSAL para Java](migrate-adal-msal-java.md)
 - [Migrar aplicações Xamarin com mediadores para o MSAL.NET](msal-net-migration-ios-broker.md)
+
+## <a name="frequently-asked-questions-faq"></a>Perguntas Frequentes (FAQ)
+
+__P: A ADAL está a ser depreciada?__  
+R: Sim. A partir de 30 de junho de 2020, deixaremos de adicionar novas funcionalidades à ADAL. Continuaremos a adicionar correções críticas de segurança à ADAL até 30 de junho de 2022.
+
+__P: Como sei qual das minhas aplicações está a usar a ADAL?__  
+R: Se tiver o código-fonte para a aplicação, pode referenciar os guias de migração acima para ajudar a determinar que biblioteca a aplicação utiliza e como migrar para o MSAL. Se não tiver acesso ao código fonte da sua aplicação, pode [abrir um pedido](developer-support-help-options.md#open-a-support-request) de apoio para obter uma lista das suas aplicações registadas e a biblioteca utiliza cada candidatura.
+
+__P: As minhas aplicações ADAL existentes continuarão a funcionar?__  
+R: As suas aplicações existentes continuarão a funcionar sem modificações. Se planeia mantê-los para além de 30 de junho de 2022, deve considerar atualizá-los para o MSAL para mantê-los seguros, mas migrar para o MSAL não é necessário para manter a funcionalidade existente.
+
+__P: Por que devo investir na mudança para a MSAL?__  
+R: O MSAL contém novas funcionalidades não no ADAL, incluindo consentimento incremental, súpido único e gestão de cache simbólica. Além disso, ao contrário da ADAL, a MSAL continuará a receber patches de segurança para além de 30 de junho de 2022. [Saiba mais](msal-overview.md).
+
+__P: Vai lançar uma ferramenta que me ajuda a mover as minhas aplicações de ADAL para MSAL?__  
+R: Não. As diferenças entre as bibliotecas exigiriam a dedicação de recursos ao desenvolvimento e manutenção da ferramenta que, de outra forma, seriam gastas a melhorar a MSAL. No entanto, fornecemos o conjunto anterior de guias de migração para ajudá-lo a fazer as alterações necessárias na sua aplicação.
+
+__P: Como funciona a MSAL com a AD FS?__  
+R: MSAL.NET apoia certos cenários para autenticar contra a AD FS 2019. Se a sua aplicação precisar de adquirir fichas diretamente da versão anterior do AD FS, deverá permanecer no ADAL. [Saiba mais](msal-net-adfs-support.md).
+
+__P: Como consigo ajuda a migrar a minha candidatura?__  
+R: Consulte a secção de orientação para a [migração](#migration-guidance) deste artigo. Se, depois de ler o guia para a plataforma da sua aplicação, tiver perguntas adicionais, pode publicar no Stack Overflow com a etiqueta `[adal-deprecation]` ou abrir um problema no repositório GitHub da biblioteca. Consulte a secção [de Línguas e Quadros](msal-overview.md#languages-and-frameworks) do artigo de visão geral do MSAL para obter links para o repo de cada biblioteca.
+
+## <a name="next-steps"></a>Próximos passos
+
+- [Atualize as suas aplicações para utilizar a Microsoft Authentication Library e a Microsoft Graph API](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/update-your-applications-to-use-microsoft-authentication-library/ba-p/1257363)
+- [Saiba mais sobre a plataforma de identidade da Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
+- [Reveja as nossas amostras de código MSAL](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code)

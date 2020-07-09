@@ -1,33 +1,32 @@
 ---
 title: Depurar contentores do Windows com o Service Fabric e VS
-description: Saiba como depurar os recipientes Windows em Tecido de Serviço Azure utilizando o Visual Studio 2019.
+description: Saiba como depurar recipientes Windows em Azure Service Fabric utilizando o Visual Studio 2019.
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: mikhegn
 ms.openlocfilehash: 2a00a352d09562ffe46dc8e6e63a5d4963ac3a3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127633"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84701154"
 ---
-# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Como: Debug Windows contentores em Tecido de Serviço Azure usando O Estúdio Visual 2019
+# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Como: Debug Recipientes Windows em Tecido de Serviço Azure usando Visual Studio 2019
 
-Com o Visual Studio 2019, pode depurar as aplicações .NET em contentores como serviços de Fabricação de Serviço. Este artigo mostra-lhe como configurar o seu ambiente e, em seguida, depurar uma aplicação .NET num contentor que funciona num cluster de Tecido de Serviço local.
+Com o Visual Studio 2019, pode depurar aplicações .NET em contentores como serviços de Service Fabric. Este artigo mostra-lhe como configurar o seu ambiente e, em seguida, depurar uma aplicação .NET num recipiente que funciona num cluster de Tecido de Serviço local.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * No Windows 10, siga este quickstart para [configurar o Windows 10 para executar recipientes Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)
-* No Windows Server 2016, siga este quickstart para [configurar o Windows 2016 para executar os recipientes windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)
-* Instale o seu ambiente de Tecido de Serviço local seguindo [prepare o seu ambiente](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) de desenvolvimento no Windows
+* No Windows Server 2016, siga este quickstart para [configurar o Windows 2016 para executar contentores Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)
+* Configurar o seu ambiente de Tecido de Serviço local, seguindo [o seu ambiente de desenvolvimento no Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
 
-## <a name="configure-your-developer-environment-to-debug-containers"></a>Configure o seu ambiente de desenvolvimento para depurar recipientes
+## <a name="configure-your-developer-environment-to-debug-containers"></a>Configure o seu ambiente de desenvolvimento para depurar contentores
 
-1. Certifique-se de que o serviço Docker for Window está em execução antes de prosseguir com o próximo passo.
+1. Certifique-se de que o serviço de janelas do Docker está a funcionar antes de prosseguir com o próximo passo.
 
-1. Para apoiar a resolução de DNS entre contentores, terá de configurar o seu cluster de desenvolvimento local, utilizando o nome da máquina. Estes passos também são necessários se quiser endereçar serviços através do proxy inverso.
+1. Para apoiar a resolução de DNS entre contentores, terá de configurar o seu cluster de desenvolvimento local, utilizando o nome da máquina. Estes passos também são necessários se pretender dirigir-se aos serviços através do representante inverso.
    1. Open PowerShell como administrador
-   2. Navegue para a pasta de configuração `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`do Cluster SDK, tipicamente .
+   2. Navegue para a pasta de configuração do Cluster SDK, normalmente `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup` .
    3. Executar o script`DevClusterSetup.ps1`
 
       ``` PowerShell
@@ -35,41 +34,41 @@ Com o Visual Studio 2019, pode depurar as aplicações .NET em contentores como 
       ```
 
       > [!NOTE]
-      > Pode usar `-CreateOneNodeCluster` o conjunto de um nó. O padrão criará um aglomerado local de cinco nós.
+      > Pode utilizar `-CreateOneNodeCluster` o para configurar um agrupamento de um nó. O padrão criará um aglomerado local de cinco nós.
       >
 
-      Para saber mais sobre o Serviço DNS em Tecido de Serviço, consulte o [Serviço DNS em Tecido de Serviço Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). Para saber mais sobre a utilização do proxy inverso do Tecido de Serviço a partir de serviços que estão a funcionar num contentor, consulte o [manuseamento especial de procuração reversa para serviços em funcionamento em contentores](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
+      Para saber mais sobre o Serviço DNS em Tecido de Serviço, consulte o [Serviço DNS em Azure Service Fabric.](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice) Para saber mais sobre a utilização de proxy reverso do Service Fabric a partir de serviços em execução num contentor, consulte [o tratamento especial de procuração inversa para serviços em funcionamento em contentores.](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers)
 
-### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>Limitações conhecidas ao depurar contentores em Tecido de Serviço
+### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>Limitações conhecidas ao depurar contentores em tecido de serviço
 
-Abaixo está uma lista de limitações conhecidas com contentores de depuração em Tecido de Serviço e possíveis resoluções:
+Abaixo está uma lista de limitações conhecidas com depurações de contentores em Tecido de Serviço e possíveis resoluções:
 
-* A utilização de hospedeiro local para clusterFQDNorIP não suporta a resolução de DNS em contentores.
+* A utilização de locais para clusterFQDNorIP não suporta a resolução de DNS em contentores.
     * Resolução: Configurar o cluster local utilizando o nome da máquina (ver acima)
-* Executar o Windows10 numa Máquina Virtual não vai fazer com que o DNS responda de volta ao recipiente.
-    * Resolução: Desativar a descarga de verificação uDP para IPv4 no NIC das Máquinas Virtuais
-    * Executar o Windows10 irá degradar o desempenho da rede na máquina.
+* Executar o Windows10 numa Máquina Virtual não receberá resposta de DNS de volta ao recipiente.
+    * Resolução: Desativar o descarregamento de checkum da UDP para o IPv4 no NIC das Máquinas Virtuais
+    * O funcionamento do Windows10 irá degradar o desempenho da rede na máquina.
     * https://github.com/Azure/service-fabric-issues/issues/1061
-* A resolução de serviços na mesma aplicação utilizando o nome de serviço DNS não funciona no Windows10, caso a aplicação tenha sido implementada utilizando o Docker Compose
-    * Resolução: Use servicename.applicationname para resolver pontos finais do serviço
+* A resolução de serviços na mesma aplicação utilizando o nome do serviço DNS não funciona no Windows10, se a aplicação foi implementada usando o Docker Compose
+    * Resolução: Use nome de serviço.nome de aplicação para resolver pontos finais de serviço
     * https://github.com/Azure/service-fabric-issues/issues/1062
-* Se utilizar o endereço IP para clusterFQDNorIP, alterar o IP primário no hospedeiro quebrará a funcionalidade DNS.
-    * Resolução: Recrie o cluster utilizando o novo IP primário no hospedeiro ou utilize o nome da máquina. Esta rutura é por desígnio.
+* Se utilizar o endereço IP para ClusterFQDNorIP, alterar o IP primário no hospedeiro quebrará a funcionalidade DNS.
+    * Resolução: Recriar o cluster utilizando o novo IP primário no anfitrião ou utilizar o nome da máquina. Esta rutura é por desígnio.
 * Se o FQDN com o qual o cluster foi criado não for resolúvel na rede, o DNS falhará.
     * Resolução: Recriar o cluster local utilizando o IP primário do hospedeiro. Esta falha é por desígnio.
-* Ao depurar um recipiente, os registos de estivadores só estarão disponíveis na janela de saída do Estúdio Visual, não através de APIs de Tecido de Serviço, incluindo o Service Fabric Explorer
+* Ao depurar um contentor, os registos de estivadores só estarão disponíveis na janela de saída do Estúdio Visual, não através de APIs de Tecido de Serviço, incluindo o Service Fabric Explorer
 
-## <a name="debug-a-net-application-running-in-docker-containers-on-service-fabric"></a>Depurar uma aplicação .NET em contentores de estivadores no Tecido de Serviço
+## <a name="debug-a-net-application-running-in-docker-containers-on-service-fabric"></a>Depurar uma aplicação .NET em execução em contentores de estivadores em Tecido de Serviço
 
 1. Executar o Estúdio Visual como administrador.
 
 1. Abra uma aplicação .NET existente ou crie uma nova.
 
-1. Clique no projeto à direita e selecione **Adicionar -> Suporte de Orquestrador de Contentores -> Tecido de Serviço**
+1. Clique com o botão direito no projeto e **selecione Add -> Container Orchestrator Support -> Service Fabric**
 
-1. Pressione **f5** para começar a depurar a aplicação.
+1. Prima **F5** para começar a depurar a aplicação.
 
-    O Visual Studio suporta os tipos de projetos de consola e ASP.NET para .NET e .NET Core.
+    O Visual Studio suporta os tipos de consolas e ASP.NET de projetos para .NET e .NET Core.
 
-## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre as capacidades do Tecido de Serviço e dos recipientes, consulte a visão geral dos [recipientes de tecido de serviço](service-fabric-containers-overview.md).
+## <a name="next-steps"></a>Próximos passos
+Para saber mais sobre as capacidades do Tecido de Serviço e dos recipientes, consulte a [visão geral dos recipientes de Tecido de Serviço.](service-fabric-containers-overview.md)

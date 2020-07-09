@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: media-services
 author: Juliako
 ms.service: media-services
@@ -9,19 +9,19 @@ ms.date: 05/01/2019
 ms.author: juliako
 ms.custom: include file
 ms.openlocfilehash: 9d8de8826fc3dfcc2360eb3b6c82b3ff8d65d845
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79461236"
 ---
 ### <a name="access-the-media-services-api"></a>Aceder à API dos Serviços de Multimédia
 
 Para ligar às APIs dos Serviços de Multimédia do Azure, utilize a autenticação do principal de serviço do Azure AD. O comando seguinte cria uma aplicação do Azure AD e anexa um principal de serviço à conta. Deve utilizar os valores devolvidos para configurar a aplicação.
 
-Antes de executar o script, deve substituir o `amsaccount` e `amsResourceGroup` os nomes que escolheu ao criar estes recursos. `amsaccount` é o nome da conta dos Serviços de Multimédia do Azure à qual o principal de serviço será anexado.
+Antes de executar o script, deve substituir o `amsaccount` e `amsResourceGroup` pelos nomes que escolheu ao criar estes recursos. `amsaccount` é o nome da conta dos Serviços de Multimédia do Azure à qual o principal de serviço será anexado.
 
-Se tiver acesso a várias subscrições, detetou primeiro a subscrição ativa da subscrição onde foi criada a conta Media Services.
+Se tiver acesso a várias subscrições, primeiro deslo sente a subscrição ativa da subscrição onde foi criada a conta Dos Serviços de Comunicação.
 
 ```azurecli
 az account set --subscription subscriptionId

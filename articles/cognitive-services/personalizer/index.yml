@@ -3,7 +3,7 @@ title: Documentação do Personalizador
 summary: Saiba como utilizar o Personalizador para permitir que a sua aplicação escolha a melhor experiência para os seus utilizadores, ao aprender com o respetivo comportamento em tempo real.
 metadata:
   ms.topic: landing-page
-  ms.date: 05/01/2020
+  ms.date: 06/11/2020
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -12,12 +12,12 @@ metadata:
   title: Documentação do Personalizador
   titleSuffix: Azure Cognitive Services
   description: O Personalizador do Azure é um serviço de API com base na cloud que lhe permite escolher a melhor experiência para os seus utilizadores, ao aprender com o respetivo comportamento em tempo real.
-  ms.openlocfilehash: ef18921e9211bb1a3659fffc84bde922d500d0b0
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.openlocfilehash: 0c8e99ab2817cd9aaa2de60b9996b3d47b10a1ff
+  ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83586325"
+  ms.lasthandoff: 06/11/2020
+  ms.locfileid: "84717922"
 landingContent:
 - title: Acerca do Personalizador
   linkLists:
@@ -45,6 +45,12 @@ landingContent:
       url: concepts-features.md
     - text: Como calcular uma recompensa
       url: concept-rewards.md
+  - linkListType: tutorial
+    links:
+    - text: Utilizar o Personalizador numa aplicação Web .NET
+      url: tutorial-use-personalizer-web-app.md
+    - text: Utilizar o Personalizador com um bloco de notas do Azure
+      url: tutorial-use-azure-notebook-generate-loop-data.md
   - linkListType: how-to-guide
     links:
     - text: Como criar e configurar o Personalizador

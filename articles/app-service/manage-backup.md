@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45a313318bc8005b433536d1b109f6153bc79e01
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: d611be27d8d576748019dee46022ca4cb70e966a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170618"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253448"
 ---
 # <a name="back-up-your-app-in-azure"></a>Efetuar cópia de segurança da sua aplicação no Azure
 A funcionalidade de Backup e Restauro no [Azure App Service](overview.md) permite-lhe criar facilmente cópias de segurança de aplicações manualmente ou em horário. Pode configurar as cópias de segurança para serem mantidas até um tempo indefinido. Pode restaurar a aplicação para uma imagem instantânea de um estado anterior, sobressacando a aplicação existente ou restaurando para outra aplicação.
@@ -74,7 +74,7 @@ As seguintes soluções de base de dados são suportadas com recurso de backup:
 
 4. Escolha o seu destino de reserva selecionando uma **Conta de Armazenamento** e Um **Recipiente.** A conta de armazenamento deve pertencer à mesma subscrição que a aplicação que pretende fazer. Se desejar, pode criar uma nova conta de armazenamento ou um novo recipiente nas respetivas páginas. Quando terminar, clique em **Select**.
 
-5. Na página **de Configuração de Cópia de Segurança** que ainda está aberta, pode configurar a Base de **Dados de Backup,** em seguida, selecione as bases de dados que pretende incluir nas cópias de segurança (base de dados SQL ou MySQL), em seguida, clique em **OK**.
+5. Na página **de Configuração de Cópia de Segurança** que ainda está aberta, pode configurar a Base de **Dados de Backup,** em seguida, selecione as bases de dados que pretende incluir nas cópias de segurança (SQL Database ou MySQL), em seguida, clique em **OK**.
 
     ![Escolha a conta de armazenamento](./media/manage-backup/configure-database.png)
 
@@ -150,7 +150,7 @@ Execute cópias de segurança da mesma forma que normalmente o faria, [manualmen
 ## <a name="how-backups-are-stored"></a>Como as cópias de segurança são armazenadas
 Depois de ter feito uma ou mais cópias de segurança para a sua aplicação, as cópias de segurança estão visíveis na página **de Contentores** da sua conta de armazenamento e na sua aplicação. Na conta de armazenamento, cada cópia de segurança consiste num `.zip` ficheiro que contém os dados de backup e um ficheiro que contém um manifesto do conteúdo do `.xml` `.zip` ficheiro. Pode desapertar e navegar nestes ficheiros se quiser aceder às suas cópias de segurança sem realmente realizar uma restauração de aplicações.
 
-A cópia de segurança da base de dados da aplicação é armazenada na raiz do ficheiro .zip. Para uma base de dados SQL, este é um ficheiro BACPAC (sem extensão de ficheiro) e pode ser importado. Para criar uma base de dados SQL baseada na exportação BACPAC, consulte [importar um ficheiro BACPAC para criar uma nova base de dados de utilizadores.](https://technet.microsoft.com/library/hh710052.aspx)
+A cópia de segurança da base de dados da aplicação é armazenada na raiz do ficheiro .zip. Para a Base de Dados SQL, este é um ficheiro BACPAC (sem extensão de ficheiro) e pode ser importado. Para criar uma base de dados na Base de Dados Azure SQL com base na exportação BACPAC, consulte [importar um ficheiro BACPAC para criar uma base de dados na Base de Dados Azure SQL](../azure-sql/database/database-import.md).
 
 > [!WARNING]
 > Alterar qualquer um dos ficheiros do seu contentor **de backups** do seu website pode fazer com que a cópia de segurança se torne inválida e, portanto, não seja restauradora.
@@ -164,7 +164,7 @@ Pode automatizar a gestão de backup com scripts, utilizando o [Azure CLI](/cli/
 Para amostras, consulte:
 
 - [Exemplos da CLI do Azure](samples-cli.md)
-- [Amostras Azure PowerShell](samples-powershell.md)
+- [Exemplos do Azure PowerShell](samples-powershell.md)
 
 <a name="nextsteps"></a>
 

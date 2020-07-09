@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 4ec2f9101f724d0c5c6c5e52bb69fea82513efe5
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 96733ffaae101bb2cf716fda7500a8269ce8e357
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118027"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970489"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Perguntas frequentes
 
@@ -22,12 +22,12 @@ Sim. Pode criar até 500 cofres dos Serviços de Recuperação, por região supo
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Existem limites no número de servidores/máquinas que podem ser registados em relação a cada cofre?
 
-Pode registar até 1000 máquinas virtuais do Azure por cofre. Se estiver a utilizar o Agente de Backup Microsoft Azure, pode registar até 50 agentes MARS por cofre. E pode registar 50 servidores MABS/servidores DPM num cofre.
+Pode registar até 1000 máquinas virtuais do Azure por cofre. Se estiver a utilizar o Agente de Backup do Microsoft Azure, pode registar até 50 agentes MARS por cofre. E pode registar 50 servidores MABS/DPM num cofre.
 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Quantas origens de dados/itens podem ser protegidos num cofre?
 
 Pode proteger até 2000 origens de dados/itens em todas as cargas de trabalho (VM IaaS, SQL, AFS, etc.) num cofre.
-Por exemplo, se já tiver protegido 500 VMs e 400 partilhas dos Ficheiros do Azure no cofre, só poderá proteger até 1100 bases de dados SQL nesse mesmo cofre.
+Por exemplo, se já protegeu 500 VMs e 400 Azure Files no cofre, só pode proteger até 1100 bases de dados SQL nele.
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>Quantas políticas posso criar por cofre?
 
@@ -47,12 +47,16 @@ Não. Os dados da cópia de segurança armazenados num cofre não podem ser movi
 
 ### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>Posso mudar do GRS para o LRS após uma cópia de segurança?
 
-Não. Os cofres dos Serviços de Recuperação só podem alterar as opções de armazenamento antes do armazenamento de uma cópia de segurança.
+O tipo de replicação de armazenamento por padrão é definido para armazenamento geo-redundante (GRS). Uma vez configurada a cópia de segurança, a opção de modificar é desativada e não pode ser alterada.
+
+![Tipo de replicação de armazenamento](./media/backup-azure-backup-faq/storage-replication-type.png)
+
+Se já configurar a cópia de segurança e tiver de passar de GRS para LRS, então veja [Como mudar de GRS para LRS após configurar o backup](backup-create-rs-vault.md#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Posso fazer um Restauro ao Nível dos Itens (ILR) em VMs com cópia de segurança num cofre de Serviços de Recuperação?
 
 - O ILR é suportado nas VMs do Azure com cópia de segurança efetuada pela cópia de segurança da VM do Azure. Para obter mais informações, veja este [artigo](backup-azure-restore-files-from-vm.md)
-- O ILR não é suportado para pontos de recuperação online de VMs no local com cópia de segurança efetuada pelo Azure Backup Server ou pelo System Center DPM.
+- O ILR não é suportado para pontos de recuperação on-line de VMs no local apoiados pelo Azure backup Server ou System Center DPM.
 
 ## <a name="azure-backup-agent"></a>Agente do Backup do Azure
 
@@ -107,7 +111,7 @@ Windows 8 ou posterior | 54 400 GB
 Windows 7 |1700 GB
 Windows Server 2012 ou posterior | 54 400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-VM do Azure | Consulte a matriz de [suporte para backup Azure VM](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support)
+VM do Azure | Consulte a [matriz de suporte para backup Azure VM](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support)
 
 ### <a name="how-is-the-data-source-size-determined"></a>Como é determinado o tamanho da origem de dados?
 
@@ -116,14 +120,14 @@ A tabela seguinte explica a forma como é determinado cada tamanho da origem de 
 **Origem de Dados** | **Detalhes**
 --- | ---
 Volume |A quantidade de dados para a cópia de segurança a partir de único volume de VM para a cópia de segurança.
-Base de dados do SQL Server |Tamanho da base de dados SQL única para a cópia de segurança.
+Base de dados do SQL Server |Tamanho do tamanho de uma única base de dados sendo apoiado.
 SharePoint | Soma das bases de dados de conteúdo e de configuração dentro de um farm do SharePoint para a cópia de segurança.
 Troca |Soma de todas as bases de dados do Exchange num servidor Exchange para a cópia de segurança.
 BMR/Estado do sistema |Cada cópia individual da BMR ou estado do sistema do computador cuja cópia de segurança está a ser feita.
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Existe algum limite à quantidade de dados para os quais são criadas cópias de segurança com um cofre dos Serviços de Recuperação?
 
-Não há limite para a quantidade total de dados que pode fazer o back-up usando um cofre dos Serviços de Recuperação. As fontes de dados individuais (com além dos VMs Azure), podem ter um máximo de 54.400 GB de tamanho. Para obter mais informações sobre limites, consulte a secção de limites do [cofre na matriz de suporte](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support).
+Não há limite para a quantidade total de dados que pode fazer com o cofre dos Serviços de Recuperação. As fontes de dados individuais (com além dos VMs Azure), podem ter um tamanho máximo de 54.400 GB. Para obter mais informações sobre limites, consulte a [secção limites](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support)do cofre na matriz de suporte .
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Por que é que o tamanho dos dados transferidos para o cofre dos Serviços de Recuperação é mais pequeno do que os dados selecionados para cópia de segurança?
 
@@ -190,7 +194,7 @@ Não. A recuperação é gratuita e não lhe é cobrado o tráfego de saída.
 
 Quando é aplicada uma nova política, são seguidas o agendamento e a retenção dessa nova política.
 
-- Se a retenção for estendida, os pontos de recuperação existentes serão marcados para que estejam em conformidade com a política nova.
+- Se a retenção for prolongada, os pontos de recuperação existentes serão marcados para os manter de acordo com a nova política.
 - Se a retenção for reduzida, serão marcados para eliminação na tarefa de limpeza seguinte e, posteriormente, eliminados.
 
 ## <a name="encryption"></a>Encriptação

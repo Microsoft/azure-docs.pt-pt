@@ -1,5 +1,5 @@
 ---
-title: Executar oleodutos de aprendizagem automática Azure
+title: Executar gasodutos de aprendizagem automática Azure
 description: Aprenda a executar os seus oleodutos Azure Machine Learning nos seus oleodutos Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,23 +11,23 @@ author: djpmsft
 manager: anandsub
 ms.date: 10/10/2019
 ms.openlocfilehash: f033651eb7e52ba60cce9b74941a4ef0eb376d2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81419005"
 ---
-# <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Executar oleodutos de aprendizagem automática azure em Fábrica de Dados Azure
+# <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Execute os oleodutos Azure Machine Learning na Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Execute os seus oleodutos Azure Machine Learning como um passo nos seus oleodutos Azure Data Factory. A atividade do Pipeline de Execução de Machine Learning permite cenários de previsão de lotes, tais como identificar possíveis incumprimentos de empréstimos, determinar o sentimento e analisar padrões de comportamento do cliente.
+Executar os seus oleodutos Azure Machine Learning como um passo nos seus oleodutos Azure Data Factory. A atividade de Machine Learning Execut Pipeline permite cenários de previsão de lotes tais como identificar possíveis incumprimentos de empréstimos, determinar o sentimento e analisar padrões de comportamento do cliente.
 
 O vídeo abaixo apresenta uma introdução de seis minutos e demonstração desta funcionalidade.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/How-to-execute-Azure-Machine-Learning-service-pipelines-in-Azure-Data-Factory/player]
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 ```json
 {
@@ -48,28 +48,28 @@ O vídeo abaixo apresenta uma introdução de seis minutos e demonstração dest
 
 ```
 
-## <a name="type-properties"></a>Propriedades de tipo
+## <a name="type-properties"></a>Tipo de propriedades
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade no oleoduto | String | Sim
-tipo | Tipo de atividade é 'AzureMLExecutePipeline' | String | Sim
-linkedServiceName | Serviço Ligado à Aprendizagem automática Azure | Referência de serviço ligada | Sim
-mlPipelineId | ID do oleoduto azure machine learning publicado | Corda (ou expressão com resultadoTipo de corda) | Sim
-experimentoNome | Executar nome da experiência de história da corrida do pipeline machine learning | Corda (ou expressão com resultadoTipo de corda) | Não
-mlPipelineParameters | Chave, pares de valor a serem passados para o ponto final do pipeline Azure Machine Learning publicado. As teclas devem coincidir com os nomes dos parâmetros do gasoduto definidos no gasoduto de Aprendizagem automática publicado | Objeto com pares de valor chave (ou Expressão com objeto resultaType) | Não
-mlParentRunId | O pipeline de machine learning azure-mãe executar ID | Corda (ou expressão com resultadoTipo de corda) | Não
-continuarOnStepFailure | Se continuar a execução de outros passos no gasoduto machine learning executado se um passo falhar | boolean | Não
+name | Nome da atividade no oleoduto | String | Yes
+tipo | Tipo de atividade é 'AzureMLExecutePipeline' | String | Yes
+linkedServiceName | Serviço ligado à aprendizagem automática Azure | Referência de serviço ligada | Yes
+mlPipelineId | ID do oleoduto de aprendizagem automática Azure publicado | Corda (ou expressão com resultadoType de corda) | Yes
+experimentName | Executar o nome da experiência de história do gasoduto Machine Learning | Corda (ou expressão com resultadoType de corda) | No
+mlPipelineParametros | Chave, pares de valor a serem passados para o ponto final do pipeline Azure Machine Learning publicado. As teclas devem corresponder aos nomes dos parâmetros do gasoduto definidos no pipeline de Machine Learning publicado | Objeto com pares de valor chave (ou Expressão com objeto de tipo resultado) | No
+mlParentRunId | O oleoduto de aprendizagem da máquina de azure pai executar iD | Corda (ou expressão com resultadoType de corda) | No
+continueOnStepFailure | Se continuar a execução de outros passos no gasoduto machine learning executado se um passo falhar | boolean | Não
 
-## <a name="next-steps"></a>Passos seguintes
-Consulte os seguintes artigos que explicam como transformar dados de outras formas:
+## <a name="next-steps"></a>Próximos passos
+Veja os seguintes artigos que explicam como transformar dados de outras formas:
 
 * [Executar atividade de Fluxo de Dados](control-flow-execute-data-flow-activity.md)
-* [Atividade U-SQL](transform-data-using-data-lake-analytics.md)
+* [Atividade u-SQL](transform-data-using-data-lake-analytics.md)
 * [Atividade da colmeia](transform-data-using-hadoop-hive.md)
-* [Atividade de porco](transform-data-using-hadoop-pig.md)
-* [MapReduzir a atividade](transform-data-using-hadoop-map-reduce.md)
-* [Atividade de streaming de hadoop](transform-data-using-hadoop-streaming.md)
+* [Atividade do porco](transform-data-using-hadoop-pig.md)
+* [Atividade mapReduce](transform-data-using-hadoop-map-reduce.md)
+* [Atividade de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
 * [Atividade de faísca](transform-data-using-spark.md)
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
 * [Atividade de procedimento armazenado](transform-data-using-stored-procedure.md)

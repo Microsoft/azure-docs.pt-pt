@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: bastion
 author: cherylmc
 ms.service: bastion
@@ -9,14 +9,14 @@ ms.date: 05/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b4cdb787fe65c52a77fa4761a65e9108e7927c40
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83721380"
 ---
 >[!NOTE]
->Estamos a trabalhar arduamente para acrescentar regiões adicionais. Quando uma região for adicionada, vamos adicioná-la a esta lista.
+>Estamos a trabalhar arduamente para acrescentar regiões adicionais. Quando uma região é adicionada, vamos adicioná-la a esta lista.
 >
 
 **Américas**
@@ -34,12 +34,12 @@ ms.locfileid: "83721380"
 **Europa**
 * França Central
 * Europa do Norte
-* Noruega Leste
-* Noroeste da Noruega
+* Leste da Noruega
+* Oeste da Noruega
 * Suíça Norte
 * Sul do Reino Unido
 * Oeste do Reino Unido
-* Europa ocidental
+* Europa Ocidental
 
 **Ásia-Pacífico**
 * Austrália Central 2
@@ -56,7 +56,7 @@ ms.locfileid: "83721380"
 
 **Médio Oriente e África**
 * África do Sul Norte
-* Central dos Emirados Emirados Unidos
+* Centro dos Emirados Árabes Unidos
 
 **Azure Government**
 * US DoD Centro

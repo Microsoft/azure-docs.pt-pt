@@ -1,6 +1,6 @@
 ---
-title: Variáveis do sistema na Fábrica de Dados Azure
-description: Este artigo descreve variáveis do sistema suportadas pela Azure Data Factory. Pode utilizar estas variáveis em expressões ao definir entidades da Fábrica de Dados.
+title: Variáveis do sistema na Azure Data Factory
+description: Este artigo descreve variáveis do sistema suportadas pela Azure Data Factory. Pode utilizar estas variáveis em expressões ao definir entidades da Data Factory.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,45 +12,45 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.openlocfilehash: 2690ded0ac45719cb1082c85ab535c91ad491172
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417968"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variáveis do sistema suportadas pela Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve variáveis do sistema suportadas pela Azure Data Factory. Pode utilizar estas variáveis em expressões ao definir entidades da Fábrica de Dados.
+Este artigo descreve variáveis do sistema suportadas pela Azure Data Factory. Pode utilizar estas variáveis em expressões ao definir entidades da Data Factory.
 
-## <a name="pipeline-scope"></a>Âmbito do gasoduto
-Estas variáveis do sistema podem ser referenciadas em qualquer lugar do pipeline JSON.
+## <a name="pipeline-scope"></a>Extensão do gasoduto
+Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gasoduto JSON.
 
-| Nome da Variável | Descrição |
+| Nome da Variável | Description |
 | --- | --- |
-| @pipeline(). DataFactory |Nome da fábrica de dados que o gasoduto está a funcionar dentro |
+| @pipeline(). DataFactory |Nome da fábrica de dados o gasoduto está a funcionar dentro |
 | @pipeline(). Gasoduto |Nome do oleoduto |
-| @pipeline(). Runid | ID da execução específica do gasoduto |
+| @pipeline(). RunId | ID do gasoduto específico |
 | @pipeline(). TriggerType | Tipo do gatilho que invocou o gasoduto (Manual, Agendador) |
-| @pipeline(). Desencadeador| Identificação do gatilho que invoca o oleoduto |
+| @pipeline(). TriggerId| ID do gatilho que invoca o oleoduto |
 | @pipeline(). Nome do gatilho| Nome do gatilho que invoca o oleoduto |
-| @pipeline(). Hora do gatilho| Hora do gatilho que invocou o oleoduto. O tempo do gatilho é o tempo de disparo, não a hora programada. Por exemplo, `13:20:08.0149599Z` é devolvido em vez de`13:20:00.00Z` |
+| @pipeline(). Hora do Gatilho| Hora em que o gatilho que invocou o oleoduto. O tempo de disparo é a hora do disparo real, não a hora programada. Por exemplo, `13:20:08.0149599Z` é devolvido em vez de`13:20:00.00Z` |
 
-## <a name="schedule-trigger-scope"></a>Agendar âmbito do gatilho
-Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho JSON se o gatilho for de tipo: "ScheduleTrigger".
+## <a name="schedule-trigger-scope"></a>Programação Detonador
+Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho JSON se o gatilho for do tipo: "ScheduleTrigger".
 
-| Nome da Variável | Descrição |
+| Nome da Variável | Description |
 | --- | --- |
-| @trigger().horário programado |Hora do gatilho para invocar a execução do oleoduto. Por exemplo, para um gatilho que dispara a `2017-06-01T22:20:00Z`cada `2017-06-01T22:25:00Z` `2017-06-01T22:30:00Z` 5 min, esta variável voltaria, respectivamente.|
-| @trigger().inícioTime |Está na altura de o **gatilho** disparar para invocar a execução do oleoduto. Por exemplo, para um gatilho que dispara a cada 5 `2017-06-01T22:20:00.4061448Z` `2017-06-01T22:25:00.7958577Z`min, esta variável pode devolver algo assim, `2017-06-01T22:30:00.9935483Z` respectivamente. (Nota: A marca de tempo é por defeito no formato ISO 8601)|
+| @trigger().Horário programado |Hora em que o gatilho estava programado para invocar o curso do oleoduto. Por exemplo, para um gatilho que dispara a cada 5 minutos, esta variável `2017-06-01T22:20:00Z` `2017-06-01T22:25:00Z` regressaria, `2017-06-01T22:30:00Z` respectivamente.|
+| @trigger().startTime |Tempo em que o gatilho **disparou** para invocar o gasoduto. Por exemplo, para um gatilho que dispara a cada 5 minutos, esta variável pode devolver algo `2017-06-01T22:20:00.4061448Z` assim, `2017-06-01T22:25:00.7958577Z` `2017-06-01T22:30:00.9935483Z` respectivamente. (Nota: A estada de tempo é por defeito no formato ISO 8601)|
 
-## <a name="tumbling-window-trigger-scope"></a>Scope do gatilho da janela caindo
-Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho JSON se o gatilho for de tipo: "TumblingWindowTrigger".
-(Nota: A marca de tempo é por defeito no formato ISO 8601)
+## <a name="tumbling-window-trigger-scope"></a>Telescópio do gatilho da janela de tumbling
+Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho JSON se o gatilho for do tipo: "TumblingWindowTrigger".
+(Nota: A estada de tempo é por defeito no formato ISO 8601)
 
-| Nome da Variável | Descrição |
+| Nome da Variável | Description |
 | --- | --- |
-| @trigger(.outputs.windowStartTime |Início da janela quando o gatilho estava programado para invocar a execução do gasoduto. Se o gatilho da janela de tropeçar tiver uma frequência de "hora a hora" esta seria a hora no início da hora.|
-| @trigger(.outputs.windowEndTime |Fim da janela quando o gatilho estava programado para invocar a execução do oleoduto. Se o gatilho da janela de tropeçar tiver uma frequência de "hora a hora" esta seria a hora no final da hora.|
+| @trigger().outputs.windowStartTime |Início da janela quando o gatilho estava programado para invocar o gasoduto. Se o gatilho da janela caindo tiver uma frequência de "hora a hora" esta seria a hora no início da hora.|
+| @trigger().outputs.windowEndTime |Fim da janela quando o gatilho estava programado para invocar o gasoduto. Se o gatilho da janela caindo tiver uma frequência de "hora a hora" esta seria a hora no final da hora.|
 ## <a name="next-steps"></a>Passos seguintes
-Para obter informações sobre como estas variáveis são usadas em expressões, consulte a [linguagem de expressão & funções.](control-flow-expression-language-functions.md)
+Para obter informações sobre como estas variáveis são usadas em expressões, consulte [as funções de linguagem de expressão &](control-flow-expression-language-functions.md).

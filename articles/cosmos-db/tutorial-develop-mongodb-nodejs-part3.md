@@ -1,5 +1,5 @@
 ---
-title: Crie a app Angular UI com a API do Azure Cosmos DB para MongoDB (Part3)
+title: Criar a aplicação Angular UI com API da Azure Cosmos DB para a MongoDB (Parte3)
 description: Parte 3 da série do tutorial sobre como criar uma aplicação MongoDB com Angular e Node no Azure Cosmos DB mediante a utilização das mesmas APIs que são utilizadas para MongoDB.
 author: johnpapa
 ms.service: cosmos-db
@@ -10,16 +10,16 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: c9467aef1dd7d28b41c2e05b5f157a158d7377ab
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 64085c55376ec85e20244abb452c2e365aa0aeec
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75444731"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114389"
 ---
-# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Crie uma app Angular com API da Azure Cosmos DB para MongoDB - Construa o UI com Angular
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Criar uma app angular com API da Azure Cosmos DB para a MongoDB - Construa a UI com a Angular
 
-Este tutorial em várias partes demonstra como criar uma nova app escrita no Node.js com Express e Angular e, em seguida, conectá-la à sua [conta Cosmos configurada com a API da Cosmos DB para MongoDB](mongodb-introduction.md).
+Este tutorial multi-partes demonstra como criar uma nova app escrita em Node.js com o Express e angular e, em seguida, conectá-la à sua [conta Cosmos configurada com a API da Cosmos DB para a MongoDB.](mongodb-introduction.md)
 
 A Parte 3 do tutorial é a continuação da [Parte 2](tutorial-develop-mongodb-nodejs-part2.md) e abrange as seguintes tarefas:
 
@@ -51,7 +51,7 @@ Antes de iniciar esta parte do tutorial, certifique-se de que concluiu os passos
 
     A janela de terminal apresenta a confirmação dos componentes novos.
 
-    ![Instalar componente do hero](./media/tutorial-develop-mongodb-nodejs-part3/install-heros-component.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/install-heros-component.png" alt-text="Instalar componente do hero":::
 
     Vamos ver os ficheiros que foram criados e atualizados. 
 
@@ -62,7 +62,7 @@ Antes de iniciar esta parte do tutorial, certifique-se de que concluiu os passos
 
 4. Na mesma pasta, abra o ficheiro **app.module.ts** e repare que este adicionou `HeroesComponent` à declaração na linha 5 e que também o importou na linha 10.
 
-    ![Abra o ficheiro app-module.ts](./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png" alt-text="Abra o ficheiro app-module.ts":::
 
 5. Regresse ao ficheiro **heroes.component.html** e copie este código. O `<div>` é o contentor para a página inteira. Dentro do contentor, há uma lista de heroes que temos de criar para que, quando clicar num, pode selecioná-lo e editá-lo ou eliminá-lo na IU. Em seguida, no HTML, temos alguns estilos, para que saiba qual deles está selecionado. Há também uma área de edição, que lhe permite adicionar um hero novo ou editar um já existente. 
 
@@ -394,7 +394,7 @@ Agora que temos o componente, como podemos proceder para que apareça no ecrã? 
 
 5. Clique com o botão esquerdo do rato no termo `Hero` e o Visual Studio mostra um ícone de lâmpada no lado esquerdo do bloco de código. 
 
-    ![Lâmpada no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png" alt-text="Lâmpada no Visual Studio Code":::
 
 6. Clique na lâmpada e clique em **Importar Hero de "/app/hero.** ou em **Import Hero from "./hero"** (Importar Hero de "./hero"). (A mensagem é diferente consoante a sua configuração).
 
@@ -416,7 +416,7 @@ Agora que temos o componente, como podemos proceder para que apareça no ecrã? 
 
 2. No Visual Studio Code, regresse a **heroes.components.ts**. Repare que, na linha `constructor(private heroService: HeroService) {}` (linha 13), `HeroService` tem uma linha vermelha por baixo. Clique em `HeroService` e obterá a lâmpada no lado esquerdo do bloco de código. Clique na lâmpada e, em seguida, clique em **Import HeroService from "./hero.service ".** (Importar HeroService de "./hero.service ".) ou em **(Importar HeroService de "/app/hero.service".**
 
-    Clicar na lâmpada insere uma linha de código nova na linha 2. Se a linha 2 se referir à pasta /app/hero.service, modifique-a de modo a referir o ficheiro herói da pasta local (./hero.service). A linha 2 deve ter o seguinte aspeto:
+    Clicar na lâmpada insere uma linha de código nova na linha 2. Se a linha 2 referenciar a pasta /app/herói.service, modifique-a de modo a que faça referência ao ficheiro herói da pasta local (./hero.service). A linha 2 deve ter o seguinte aspeto:
     
     ```javascript
     import { HeroService } from "./hero.service"
@@ -490,7 +490,7 @@ Agora que temos o componente, como podemos proceder para que apareça no ecrã? 
 
 3. Agora, abra um browser e navegue para **localhost:3000** e veja a aplicação a ser executada localmente.
 
-     ![Aplicação Hero em execução local](./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png)
+     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png" alt-text="Aplicação Hero em execução local":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

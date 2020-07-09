@@ -1,5 +1,5 @@
 ---
-title: Instale a Atualização 5.1 no dispositivo da série StorSimple 8000 [ StorSimple 8000] Microsoft Docs
+title: Instalar atualização 5.1 no dispositivo da série StorSimple 8000 / Microsoft Docs
 description: Explica como instalar o StorSimple 8000 Series Update 5.1 no seu dispositivo da série StorSimple 8000.
 services: storsimple
 documentationcenter: NA
@@ -7,31 +7,31 @@ author: priestlg
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/05/2020
 ms.author: v-grpr
-ms.openlocfilehash: b90f0f35f908d16b0746075e638fe66769939a64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fb2123bdb0e12571a58a32e414a610665935ebb6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80658043"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508219"
 ---
-# <a name="install-update-51-on-your-storsimple-device"></a>Instale a Atualização 5.1 no seu dispositivo StorSimple
+# <a name="install-update-51-on-your-storsimple-device"></a>Instale a atualização 5.1 no seu dispositivo StorSimple
 
 ## <a name="overview"></a>Descrição geral
 
-Este tutorial explica como instalar o Update 5.1 num dispositivo StorSimple que executa uma versão anterior do software através do portal Azure. <!--The hotfix method is used when you are trying to install Update 5.1 on a device running pre-Update 3 versions. The hotfix method is also used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.-->
+Este tutorial explica como instalar o Update 5.1 num dispositivo StorSimple que executa uma versão de software anterior através do portal Azure. <!--The hotfix method is used when you are trying to install Update 5.1 on a device running pre-Update 3 versions. The hotfix method is also used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.-->
 
 A atualização 5.1 inclui atualizações de segurança não disruptivas. As atualizações não disruptivas ou regulares podem ser aplicadas através do portal Azure <!--or by the hotfix method-->.
 
 > [!IMPORTANT]
 >
-> * A atualização 5.1 é uma atualização obrigatória e deve ser instalada imediatamente. Para mais informações, consulte as notas de [lançamento do Update 5.1](storsimple-update51-release-notes.md).
-> * Um conjunto de pré-verificações manuais e automáticas são feitos antes da instalação para determinar a saúde do dispositivo em termos de estado de hardware e conectividade de rede. Estas pré-verificações só são realizadas se aplicar as atualizações do portal Azure.
-> * Se pretender instalar utilizando o método de fixação de calor, contacte o Suporte da [Microsoft](mailto:support@microsoft.com).
+> * A atualização 5.1 é uma atualização obrigatória e deve ser instalada imediatamente. Para obter mais informações, consulte [as notas de lançamento do Update 5.1](storsimple-update51-release-notes.md).
+> * Um conjunto de pré-verificações manuais e automáticas são feitos antes da instalação para determinar a saúde do dispositivo em termos de estado de hardware e conectividade de rede. Estas pré-verificações só são realizadas se aplicar as atualizações a partir do portal Azure.
+> * Se pretender instalar utilizando o método hotfix, contacte o [Microsoft Support](mailto:support@microsoft.com).
 
 <!--
 > * We strongly recommend that when updating a device running versions prior to Update 3, you install the updates using hotfix method. If you encounter any issues, [log a support ticket](storsimple-8000-contact-microsoft-support.md). 
@@ -45,9 +45,9 @@ A atualização 5.1 inclui atualizações de segurança não disruptivas. As atu
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
-## <a name="install-update-51-through-the-azure-portal"></a>Instalar a Atualização 5.1 através do portal Azure
+## <a name="install-update-51-through-the-azure-portal"></a>Instalar atualização 5.1 através do portal Azure
 
-Execute os seguintes passos para atualizar o seu dispositivo para [Atualizar 5.1](storsimple-update51-release-notes.md).
+Execute os seguintes passos para atualizar o seu dispositivo para [atualizar 5.1](storsimple-update51-release-notes.md).
 
 > [!NOTE]
 > A Microsoft retira informações adicionais de diagnóstico do dispositivo. Como resultado, quando a nossa equipa de operações identifica dispositivos que estão com problemas, estamos mais bem equipados para recolher informações do dispositivo e diagnosticar problemas.
@@ -58,17 +58,17 @@ Execute os seguintes passos para atualizar o seu dispositivo para [Atualizar 5.1
 
     ![Selecione dispositivo](./media/storsimple-8000-install-update-51/update1.png)
 
-2. Navegar para **as atualizações** > do**dispositivo**.
+2. Navegue para **as definições do dispositivo**As  >  **atualizações do dispositivo**.
 
-    ![Clique em atualizações do Dispositivo](./media/storsimple-8000-install-update-51/update2.png)
+    ![Clique em atualizações do dispositivo](./media/storsimple-8000-install-update-51/update2.png)
 
-3. Uma notificação aparece se novas atualizações estiverem disponíveis. Em alternativa, na lâmina de atualizações do **Dispositivo,** clique em **Atualizações de Digitalização**. É criada uma tarefa para procurar as atualizações disponíveis. É notificado quando a tarefa for concluída com êxito.
+3. Uma notificação aparece se novas atualizações estiverem disponíveis. Em alternativa, na lâmina de atualização do **dispositivo,** clique em **'Actualizar' 'Scan's**. É criada uma tarefa para procurar as atualizações disponíveis. É notificado quando a tarefa for concluída com êxito.
 
-    ![Clique em atualizações do Dispositivo](./media/storsimple-8000-install-update-51/update3.png)
+    ![Clique em atualizações do dispositivo](./media/storsimple-8000-install-update-51/update3.png)
 
-4. Recomendamos que reveja as notas de versão antes de aplicar uma atualização ao seu dispositivo. Para aplicar atualizações, clique em **instalar atualizações**. Na lâmina **de atualizações regulares do Confirm,** reveja os pré-requisitos para completar antes de aplicar atualizações. Selecione a caixa de verificação para indicar que está pronto para atualizar o dispositivo e, em seguida, clique em **Instalar**.
+4. Recomendamos que reveja as notas de versão antes de aplicar uma atualização ao seu dispositivo. Para aplicar atualizações, clique **em Instalar atualizações**. Na lâmina **de atualizações regulares Confirm,** reveja os pré-requisitos para completar antes de aplicar atualizações. Selecione a caixa de verificação para indicar que está pronto para atualizar o dispositivo e, em seguida, clique em **Instalar**.
 
-    ![Clique em atualizações do Dispositivo](./media/storsimple-8000-install-update-51/update4.png)
+    ![Clique em atualizações do dispositivo](./media/storsimple-8000-install-update-51/update4.png)
 
 5. Um conjunto de verificações de pré-requisitos é iniciado. Estas verificações incluem:
    
@@ -76,9 +76,9 @@ Execute os seguintes passos para atualizar o seu dispositivo para [Atualizar 5.1
    * **Verificações do estado de funcionamento do componente de hardware** para verificar se todos os componentes de hardware do seu dispositivo StorSimple estão em bom estado de funcionamento.
    * **Verificações de DATA 0** para verificar se DATA 0 está ativado no seu dispositivo. Se esta interface não estiver ativada, terá de ativá-la e, em seguida, tentar novamente.
 
-     A atualização só é descarregada e instalada se todas as verificações estiverem concluídas com sucesso. Será notificado quando as verificações estiverem em curso. Se os pré-controlos falharem, receberão as razões da falha. Abordar estas questões e, em seguida, voltar a tentar a operação. Poderá ter de contactar o Suporte da Microsoft se não conseguir resolver estes problemas.
+     A atualização é descarregada e instalada apenas se todas as verificações forem concluídas com sucesso. Será notificado quando as verificações estiverem em curso. Se os pré-verificações falharem, serão fornecidos os motivos do fracasso. Resolva estas questões e, em seguida, re-tentar a operação. Poderá ter de contactar o Suporte da Microsoft se não conseguir resolver estes problemas.
 
-7. Após a conclusão dos pré-controlos, é criado um trabalho de atualização. Será notificado quando a tarefa de atualização for criada com êxito.
+7. Após a conclusão dos pré-testes com sucesso, é criado um trabalho de atualização. Será notificado quando a tarefa de atualização for criada com êxito.
    
     ![Criação de tarefa de atualização](./media/storsimple-8000-install-update-51/update6.png)
    
@@ -88,14 +88,14 @@ Execute os seguintes passos para atualizar o seu dispositivo para [Atualizar 5.1
 
     ![Criação de tarefa de atualização](./media/storsimple-8000-install-update-51/update8.png)
 
-     Também pode monitorizar o andamento do trabalho de atualização a partir das **definições**do dispositivo > Jobs . Na lâmina **Jobs,** pode ver o progresso da atualização.
+     Também pode monitorizar o progresso do trabalho de atualização a partir das **definições**do Dispositivo > Jobs . Na lâmina **Jobs,** pode ver o progresso da atualização.
 
      ![Criação de tarefa de atualização](./media/storsimple-8000-install-update-51/update7.png)
 
-10. Depois de concluída a função, navegue para as definições do **Dispositivo > atualizações**do Dispositivo . A versão do software deve agora ser atualizada.
+10. Depois de concluído o trabalho, navegue para as definições do **dispositivo > atualizações do dispositivo**. A versão do software deve agora ser atualizada.
 
 
-Verifique se o seu dispositivo está a executar **storSimple 8000 Series Update 5.1 (6.3.9600.17885)**. A **última data atualizada** deve ser modificada.
+Verifique se o seu dispositivo está a executar **StorSimple 8000 Series Update 5.1 (6.3.9600.17885)**. A **última data atualizada** deve ser alterada.
 <!-- 5.1 - KB 4542887-->
 
 <!--You will now see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates). The steps to install maintenance mode update are detailed in the next section.
@@ -166,6 +166,6 @@ Perform the following steps to download and install the hotfixes.
 [!INCLUDE [storsimple-8000-install-troubleshooting](../../includes/storsimple-8000-install-troubleshooting.md)]
 -->
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre o lançamento da [Atualização 5.1](storsimple-update51-release-notes.md).
+Saiba mais sobre a [versão Update 5.1](storsimple-update51-release-notes.md).

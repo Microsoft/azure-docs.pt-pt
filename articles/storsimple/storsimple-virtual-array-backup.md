@@ -1,5 +1,5 @@
 ---
-title: Tutorial de backup microsoft Azure StorSimple Virtual Array Microsoft Docs
+title: Microsoft Azure StorSimple Virtual Array tutorial de backup Microsoft Docs
 description: Descreve como apoiar as ações e volumes da StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
@@ -9,52 +9,51 @@ editor: ''
 ms.assetid: e3cdcd9e-33b1-424d-82aa-b369d934067e
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 26bf018d8823495c00b09af3a40b39315dadb31c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60581399"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513671"
 ---
-# <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Back up shares ou volumes no seu StorSimple Virtual Array
+# <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Retorquir ações ou volumes no seu StorSimple Virtual Array
 
 ## <a name="overview"></a>Descrição geral
 
-O StorSimple Virtual Array é um dispositivo virtual híbrido de armazenamento em nuvem no local que pode ser configurado como um servidor de ficheiros ou um servidor iSCSI. A matriz virtual permite ao utilizador criar cópias de segurança agendadas e manuais de todas as partilhas ou volumes do dispositivo. Quando configurado como um servidor de ficheiros, também permite a recuperação do nível do item. Este tutorial descreve como criar backups agendados e manuais e executar a recuperação do nível do item para restaurar um ficheiro eliminado na sua matriz virtual.
+O StorSimple Virtual Array é um dispositivo virtual de armazenamento em nuvem híbrido no local que pode ser configurado como um servidor de ficheiros ou um servidor iSCSI. A matriz virtual permite ao utilizador criar cópias de segurança programadas e manuais de todas as partilhas ou volumes do dispositivo. Quando configurado como um servidor de ficheiros, também permite a recuperação do nível de item. Este tutorial descreve como criar cópias de segurança programadas e manuais e realizar recuperação ao nível do item para restaurar um ficheiro eliminado na sua matriz virtual.
 
-Este tutorial aplica-se apenas às Matrizes Virtuais StorSimple. Para obter informações sobre a série 8000, vá criar um dispositivo de [backup para 8000 séries](storsimple-manage-backup-policies-u2.md)
+Este tutorial aplica-se apenas às Matrizes Virtuais StorSimple. Para obter informações sobre a série 8000, vá para [criar uma cópia de segurança para dispositivo da série 8000](storsimple-manage-backup-policies-u2.md)
 
-## <a name="back-up-shares-and-volumes"></a>Back up shares and volumes
+## <a name="back-up-shares-and-volumes"></a>Apoio de ações e volumes
 
-As cópias de segurança proporcionam proteção pontual, melhoram a recuperabilidade e minimizam os tempos de restauro das ações e volumes. Pode fazer o back up de uma parte ou volume no seu dispositivo StorSimple de duas formas: **Agendado** ou **Manual**. Cada um dos métodos é discutido nas seguintes secções.
+As cópias de segurança fornecem proteção pontual, melhoram a recuperabilidade e minimizam os tempos de restauração das ações e volumes. Pode fazer uma parte ou volume no seu dispositivo StorSimple de duas maneiras: **Agendado** ou **Manual**. Cada um dos métodos é discutido nas seguintes secções.
 
-## <a name="change-the-backup-start-time"></a>Alterar a hora de início de reserva
+## <a name="change-the-backup-start-time"></a>Mude a hora de início de backup
 
 > [!NOTE]
-> Nesta versão, as cópias de segurança programadas são criadas por uma política padrão que funciona diariamente num determinado momento e faz backup de todas as ações ou volumes do dispositivo. Não é possível criar políticas personalizadas para backups agendados neste momento.
+> Nesta versão, as cópias de segurança programadas são criadas por uma política padrão que funciona diariamente num determinado momento e que confirma todas as ações ou volumes do dispositivo. Não é possível criar políticas personalizadas para cópias de segurança programadas neste momento.
 
 
-O Seu StorSimple Virtual Array tem uma política de backup padrão que começa a uma hora especificada do dia (22:30) e faz backup de todas as ações ou volumes do dispositivo uma vez por dia. Pode alterar o tempo em que a cópia de segurança começa, mas a frequência e a retenção (que especifica o número de cópias de segurança a reter) não podem ser alteradas. Durante estas cópias de segurança, todo o dispositivo virtual está apoiado. Isto pode potencialmente afetar o desempenho do dispositivo e afetar as cargas de trabalho implementadas no dispositivo. Por isso, recomendamos que agende estes backups para horas fora do pico.
+O seu StorSimple Virtual Array tem uma política de backup padrão que começa a uma hora especificada do dia (22:30) e faz backup de todas as ações ou volumes do dispositivo uma vez por dia. Pode alterar a hora em que a cópia de segurança começa, mas a frequência e a retenção (que especifica o número de backups a reter) não podem ser alteradas. Durante estas cópias de segurança, todo o dispositivo virtual está apoiado. Isto pode potencialmente afetar o desempenho do dispositivo e afetar as cargas de trabalho implementadas no dispositivo. Por isso, recomendamos que marque estas cópias de segurança para horas fora do pico.
 
- Para alterar o tempo de arranque de reserva predefinido, execute os seguintes passos no [portal Azure](https://portal.azure.com/).
+ Para alterar a hora de início de backup predefinida, execute os seguintes passos no [portal Azure](https://portal.azure.com/).
 
-#### <a name="to-change-the-start-time-for-the-default-backup-policy"></a>Para alterar o tempo de início da política de backup padrão
+#### <a name="to-change-the-start-time-for-the-default-backup-policy"></a>Para alterar a hora de início da política de backup predefinido
 
 1. Ir para **dispositivos.** Será apresentada a lista de dispositivos registados no seu serviço StorSimple Device Manager. 
    
     ![navegar para dispositivos](./media/storsimple-virtual-array-backup/changebuschedule1.png)
 
-2. Selecione e clique no seu dispositivo. A lâmina **Definições** será exibida. Vá para **gerir as políticas de backup >.**
+2. Selecione e clique no seu dispositivo. A lâmina **de definições** será exibida. Vá para **gerir > políticas de backup**.
    
-    ![selecionar o seu dispositivo](./media/storsimple-virtual-array-backup/changebuschedule2.png)
+    ![selecione o seu dispositivo](./media/storsimple-virtual-array-backup/changebuschedule2.png)
 
-3. Na lâmina das políticas de **backup,** a hora de início padrão é 22:30. Pode especificar a nova hora de início do horário diário no fuso horário do dispositivo.
+3. Na lâmina **das políticas de backup,** a hora de início por defeito é 22:30. Pode especificar a nova hora de início para o horário diário no fuso horário do dispositivo.
    
     ![navegar para políticas de backup](./media/storsimple-virtual-array-backup/changebuschedule5.png)
 
@@ -62,57 +61,57 @@ O Seu StorSimple Virtual Array tem uma política de backup padrão que começa a
 
 ### <a name="take-a-manual-backup"></a>Pegue uma cópia de segurança manual
 
-Além das cópias de segurança programadas, pode obter uma cópia de segurança manual (on-demand) dos dados do dispositivo a qualquer momento.
+Além das cópias de segurança programadas, pode fazer uma cópia de segurança manual (a pedido) dos dados do dispositivo a qualquer momento.
 
 #### <a name="to-create-a-manual-backup"></a>Para criar uma cópia de segurança manual
 
-1. Ir para **dispositivos.** Selecione o seu dispositivo e clique à **direita...** na linha da extrema direita na linha selecionada. A partir do menu de contexto, selecione **Tomar cópia de segurança**.
+1. Ir para **dispositivos.** Selecione o seu dispositivo e clique à **direita...** na extrema direita na linha selecionada. A partir do menu de contexto, **selecione Take backup**.
    
-    ![navegar para receber reforços](./media/storsimple-virtual-array-backup/takebackup1m.png)
+    ![navegar para tomar backup](./media/storsimple-virtual-array-backup/takebackup1m.png)
 
-2. Na lâmina **de reserva Tomar,** clique em **retirar a cópia**de segurança . Isto irá fazer backup de todas as ações do servidor de ficheiros ou de todos os volumes do seu servidor iSCSI. 
+2. Na lâmina **de reserva Take,** clique **em Retirar backup**. Isto irá fazer backup de todas as ações no servidor de ficheiros ou de todos os volumes no seu servidor iSCSI. 
    
-    ![backup começando](./media/storsimple-virtual-array-backup/takebackup2m.png)
+    ![início de backup](./media/storsimple-virtual-array-backup/takebackup2m.png)
    
-    Um reforço a pedido começa e vê-se que começou um trabalho de reserva.
+    Começa-se um backup a pedido e vê-se que começou um trabalho de reserva.
    
-    ![backup começando](./media/storsimple-virtual-array-backup/takebackup3m.png) 
+    ![início de backup](./media/storsimple-virtual-array-backup/takebackup3m.png) 
    
-    Uma vez concluído o trabalho com sucesso, será novamente notificado. O processo de reserva começa então.
+    Uma vez concluído o trabalho com sucesso, é notificado novamente. O processo de reserva começa então.
    
     ![trabalho de backup criado](./media/storsimple-virtual-array-backup/takebackup4m.png)
 
-3. Para acompanhar o progresso das cópias de segurança e ver os detalhes do trabalho, clique na notificação. Isto leva-o a **detalhes de Trabalho.**
+3. Para acompanhar o progresso das cópias de segurança e ver os detalhes do trabalho, clique na notificação. Isto leva-o aos **detalhes do Trabalho.**
    
-     ![detalhes do trabalho de backup](./media/storsimple-virtual-array-backup/takebackup5m.png)
+     ![detalhes de trabalho de backup](./media/storsimple-virtual-array-backup/takebackup5m.png)
 
-4. Depois de concluída a cópia de segurança, vá ao **catálogo de Backup Management >**. Você verá uma imagem em nuvem de todas as ações (ou volumes) no seu dispositivo.
+4. Depois de a cópia de segurança estar completa, vá ao **catálogo Management > Backup**. Verá uma imagem em nuvem de todas as ações (ou volumes) do seu dispositivo.
    
-    ![Cópia de segurança concluída](./media/storsimple-virtual-array-backup/takebackup19m.png) 
+    ![Cópia de segurança completa](./media/storsimple-virtual-array-backup/takebackup19m.png) 
 
 ## <a name="view-existing-backups"></a>Ver backups existentes
 Para visualizar as cópias de segurança existentes, execute os seguintes passos no portal Azure.
 
-#### <a name="to-view-existing-backups"></a>Para ver os backups existentes
+#### <a name="to-view-existing-backups"></a>Para ver as cópias de segurança existentes
 
-1. Vai para a lâmina **dos Dispositivos.** Selecione e clique no seu dispositivo. Na lâmina **Definições,** vá ao **'Management > Backup Catalog**.
+1. Vai para a lâmina **dos dispositivos.** Selecione e clique no seu dispositivo. Na lâmina **Definições,** aceda ao **Catálogo de Cópias de Segurança > Gestão**.
    
-    ![Navegue para o catálogo de backup](./media/storsimple-virtual-array-backup/viewbackups1.png)
-2. Especifique os seguintes critérios a utilizar para a filtragem:
+    ![Navegue para catálogo de backup](./media/storsimple-virtual-array-backup/viewbackups1.png)
+2. Especificar os seguintes critérios a utilizar para filtragem:
    
-   - **Intervalo** de tempo – pode ser **passado 1 hora,** **passados 24 horas,** **últimos 7 dias,** **últimos 30 dias,** **ano passado,** e **data personalizada.**
+   - **Intervalo de tempo** – pode ser **passado 1 hora,** **Últimas 24 horas,** **Passados 7 dias,** **Passados 30 dias,** **Último ano**e **Data Personalizada**.
     
-   - **Dispositivos** – selecione a partir da lista de servidores de ficheiros ou servidores iSCSI registados com o seu serviço StorSimple Device Manager.
+   - **Dispositivos** – selecione a partir da lista de servidores de ficheiros ou servidores iSCSI registados no seu serviço StorSimple Device Manager.
    
-   - **Iniciado** – pode ser **automaticamente agendado** (por uma política de backup) ou iniciado **manualmente** (por si).
+   - **Iniciado** – pode ser automaticamente **agendado** (por uma política de backup) ou iniciado **manualmente** (por si).
    
-     ![Backups de filtro](./media/storsimple-virtual-array-backup/viewbackups2.png)
+     ![Backups de filtros](./media/storsimple-virtual-array-backup/viewbackups2.png)
 
-3. Clique em **Aplicar**. A lista filtrada de backups é apresentada na lâmina do **catálogo De reserva.** Note que apenas 100 elementos de reserva podem ser apresentados num dado momento.
+3. Clique em **Aplicar**. A lista filtrada de cópias de segurança é apresentada na lâmina do **catálogo Backup.** Note que apenas 100 elementos de backup podem ser exibidos num dado momento.
    
     ![Catálogo de backup atualizado](./media/storsimple-virtual-array-backup/viewbackups3.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [a administração do seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 

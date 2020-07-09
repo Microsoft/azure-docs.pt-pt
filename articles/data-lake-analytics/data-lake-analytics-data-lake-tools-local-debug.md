@@ -1,55 +1,57 @@
 ---
-title: Código de Análise de Dados Debug Azure Data
-description: Aprenda a usar ferramentas de lago de dados Azure para estúdio visual para depurar empregos u-SQL na sua estação de trabalho local.
+title: Código Debug Azure Data Lake Analytics localmente
+description: Saiba como usar o Azure Data Lake Tools para o Visual Studio para depurar empregos U-SQL na sua estação de trabalho local.
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 0827311218202de447e5cf27356e00c4da020e94
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 580f23fa2b4fc9c5afee4eb8435e74a8bfa1fbe9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "61472996"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106956"
 ---
-# <a name="debug-azure-data-lake-analytics-code-locally"></a>Código de Análise de Dados Debug Azure Data
+# <a name="debug-azure-data-lake-analytics-code-locally"></a>Código Debug Azure Data Lake Analytics localmente
 
-Pode utilizar ferramentas de lago de dados Azure para o Estúdio Visual para executar e depurar o código Azure Data Lake Analytics na sua estação de trabalho local, tal como pode no serviço Azure Data Lake Analytics.
+Você pode usar Azure Data Lake Tools para o Visual Studio para executar e depurar o código Azure Data Lake Analytics na sua estação de trabalho local, assim como você pode no serviço Azure Data Lake Analytics.
 
-Aprenda a [executar o script U-SQL na sua máquina local](data-lake-analytics-data-lake-tools-local-run.md).
+Saiba como [executar o script U-SQL na sua máquina local.](data-lake-analytics-data-lake-tools-local-run.md)
 
 ## <a name="debug-scripts-and-c-assemblies-locally"></a>Depurar scripts e assemblagens C# localmente
 
-Pode depurar as assembleias C# sem as submeter e registar no serviço Azure Data Lake Analytics. Pode definir pontos de rutura no ficheiro code-behind e num projeto C# referenciado.
+Pode depurar as assembléias C# sem submeter e registar no serviço Azure Data Lake Analytics. Pode definir pontos de rutura tanto no ficheiro por trás do código como num projeto C# referenciado.
 
-### <a name="debug-local-code-in-a-code-behind-file"></a>Depurar código local num ficheiro de código por trás
+### <a name="debug-local-code-in-a-code-behind-file"></a>Depurar código local num ficheiro por trás do código
 
-1. Detete pontos de rutura no ficheiro por trás do código.
+1. Desaponte pontos de rutura no ficheiro de detrás de código.
 2. Selecione **F5** para depurar o script localmente.
 
 > [!NOTE]
-   > O procedimento seguinte funciona apenas no Visual Studio 2015. Nas versões mais antigas do Visual Studio, poderá ser necessário adicionar manualmente os ficheiros **PDB.**  
+   > O procedimento a seguir funciona apenas no Visual Studio 2015. Nas versões mais antigas do Visual Studio, poderá ter de adicionar manualmente os ficheiros **PDB.**  
    >
    >
 
-### <a name="debug-local-code-in-a-referenced-c-project"></a>Depurar código local em um projeto C# referenciado
+### <a name="debug-local-code-in-a-referenced-c-project"></a>Debug código local em um projeto C# referenciado
 
 1. Crie um projeto de montagem C# e construa-o para gerar o ficheiro **DLL** de saída.
 2. Registe o ficheiro **DLL** utilizando uma declaração U-SQL:
 
-        CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
-        
+   ```sql
+   CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+   ```
+   
 3. Defina pontos de interrupção no código C#.
-4. Selecione **F5** para depurar o script fazendo referência ao ficheiro C# **DLL** localmente.
+4. Selecione **F5** para depurar o script referindo-se ao ficheiro **C# DLL** localmente.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Para um exemplo de uma consulta mais complexa, consulte registos de [websites da Analyze utilizando o Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-- Para ver detalhes de trabalho, consulte [Use Job Browser e Job View para trabalhos de Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).
-- Para utilizar a vista de execução do vértice, consulte Use a vista de [execução vertex em ferramentas](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)de data lake para estúdio visual .
+- Para um exemplo de uma consulta mais complexa, consulte [os registos do site da Análise utilizando o Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+- Para ver detalhes do trabalho, consulte [use job browser e job view para trabalhos Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).
+- Para utilizar a vista de execução do vértice, consulte [a vista de execução do vertex em ferramentas do lago de dados para estúdio visual](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).

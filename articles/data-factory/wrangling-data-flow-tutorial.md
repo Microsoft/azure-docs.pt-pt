@@ -1,62 +1,65 @@
 ---
-title: Começar com o fluxo de dados em Azure Data Factory
-description: Um tutorial sobre como preparar dados na Azure Data Factory usando fluxo de dados de estrangulamento
+title: Começar com o fluxo de dados na Azure Data Factory
+description: Um tutorial sobre como preparar dados na Azure Data Factory usando o fluxo de dados
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: f5a7f372f286a7b26a4a9916ed9df913b151e967
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: f9b5380fa219d768651703eeb9fe445fcd215332
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628474"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921776"
 ---
-# <a name="prepare-data-with-wrangling-data-flow"></a>Preparar dados com fluxo de dados de estrangulamento
+# <a name="prepare-data-with-wrangling-data-flow"></a>Preparar dados com o fluxo de dados de estrangulamento
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-## <a name="create-a-wrangling-data-flow"></a>Criar um fluxo de dados de sangling
+> [!NOTE]
+> O fluxo de dados de estrangulamento é atualmente avilável na visualização pública
 
-Existem duas formas de criar um fluxo de dados em Azure Data Factory. Uma maneira é clicar no ícone plus e selecionar **O Fluxo** de Dados no painel de recursos da fábrica.
+## <a name="create-a-wrangling-data-flow"></a>Criar um fluxo de dados de estrangulamento
 
-![Distúrbios](media/wrangling-data-flow/tutorial7.png)
+Há duas formas de criar um fluxo de dados na Azure Data Factory. Uma maneira é clicar no ícone plus e selecionar o **Fluxo de Dados** no painel de recursos da fábrica.
 
-O outro método está no painel de atividades da tela do gasoduto. Abra o acordeão **Move and Transform** e arraste a atividade de fluxo de **dados** para a tela.
+![Brigas](media/wrangling-data-flow/tutorial7.png)
 
-Em ambos os métodos, no painel lateral que se abre, selecione **Criar novos fluxos** de dados e escolha o fluxo de **dados de Wrangling**. Clique em OK.
+O outro método está no painel de atividades da tela do gasoduto. Abra o **acordeão Move and Transform** e arraste a atividade **de fluxo de dados** para a tela.
 
-![Distúrbios](media/wrangling-data-flow/tutorial1.png)
+Em ambos os métodos, no painel lateral que se abre, **selecione Criar um novo fluxo de dados** e escolher o fluxo de **dados de Wrangling**. Clique em OK.
+
+![Brigas](media/wrangling-data-flow/tutorial1.png)
 
 ## <a name="author-a-wrangling-data-flow"></a>Autor de um fluxo de dados de estrangulamento
 
-Adicione um conjunto de **dados Source** para o seu fluxo de dados de sangling. Pode escolher um conjunto de dados existente ou criar um novo. Também pode selecionar um conjunto de dados de sumidouro. Pode escolher um ou mais conjuntos de dados de origem, mas apenas um lavatório é permitido neste momento. A escolha de um conjunto de dados de sumidouro é opcional, mas é necessário pelo menos um conjunto de dados de origem.
+Adicione um **conjunto de dados Source** para o fluxo de dados de problemas. Pode escolher um conjunto de dados existente ou criar um novo. Também pode selecionar um conjunto de dados de pia. Pode escolher um ou mais conjuntos de dados de origem, mas apenas uma pia é permitida neste momento. Escolher um conjunto de dados de lavatório é opcional, mas pelo menos um conjunto de dados de origem é necessário.
 
 > [!NOTE]
 > Apenas o Texto Delimitado ADLS Gen 2 é suportado para pré-visualização limitada. 
 
-![Distúrbios](media/wrangling-data-flow/tutorial4.png)
+![Brigas](media/wrangling-data-flow/tutorial4.png)
 
-Clique em **Criar** para abrir o editor de mashup Power Query Online.
+Clique em **Criar** para abrir o editor de mashup online da Power Query.
 
-![Distúrbios](media/wrangling-data-flow/tutorial5.png)
+![Brigas](media/wrangling-data-flow/tutorial5.png)
 
-Autor do fluxo de dados de sangling utilizando a preparação de dados sem código. Para a lista de funções disponíveis, consulte funções de [transformação](wrangling-data-flow-functions.md)/
+Autore o fluxo de dados de luta utilizando a preparação de dados sem código. Para a lista de funções disponíveis, consulte funções de [transformação](wrangling-data-flow-functions.md)/
 
-![Distúrbios](media/wrangling-data-flow/tutorial6.png)
+![Brigas](media/wrangling-data-flow/tutorial6.png)
 
-## <a name="running-and-monitoring-a-wrangling-data-flow"></a>Funcionamento e monitorização de um fluxo de dados de estrangulamento
+## <a name="running-and-monitoring-a-wrangling-data-flow"></a>Executar e monitorizar um fluxo de dados de estrangulamento
 
-Para executar uma execução de depuração de gasoduto de um fluxo de dados de estrangulamento, clique em **Debug** na tela do gasoduto. Assim que publicar o seu fluxo de dados, o Trigger executa **agora** uma execução a pedido do último oleoduto publicado. Os fluxos de dados de contorcer podem ser agendados com todos os gatilhos da Fábrica de Dados Azure existentes.
+Para executar uma execução de depurar o gasoduto de um fluxo de dados de distúrbios, clique em **Debug** na tela do gasoduto. Assim que publicar o fluxo de dados, **o Trigger** executa agora uma execução a pedido do último oleoduto publicado. Os fluxos de dados de estrangulamento podem ser programados com todos os gatilhos existentes da Azure Data Factory.
 
-![Distúrbios](media/wrangling-data-flow/tutorial3.png)
+![Brigas](media/wrangling-data-flow/tutorial3.png)
 
-Vá ao separador **Monitor** para visualizar a saída de uma execução de fluxo de fluxo de dados desencadeado.
+Vá ao **separador Monitor** para visualizar a saída de uma atividade de fluxo de dados desencadeada.
 
-![Distúrbios](media/wrangling-data-flow/tutorial2.png)
+![Brigas](media/wrangling-data-flow/tutorial2.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Aprenda a criar um fluxo de [dados de mapeamento.](tutorial-data-flow.md)
+Saiba como [criar um fluxo de dados de mapeamento.](tutorial-data-flow.md)

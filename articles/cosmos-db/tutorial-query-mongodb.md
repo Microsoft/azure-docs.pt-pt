@@ -1,6 +1,6 @@
 ---
-title: Dados de consulta com API da Azure Cosmos DB para MongoDB
-description: Saiba como consultar dados da API da Azure Cosmos DB para mongoDB utilizando comandos de conchas MongoDB
+title: Dados de consulta com a API da Azure Cosmos DB para a MongoDB
+description: Saiba como consultar dados da API da Azure Cosmos DB para a MongoDB utilizando comandos de conchas MongoDB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,21 +8,21 @@ ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 5b9bc78f6af833d89a3404de0295ddad78ebdf20
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5283916194d407cebd30ef072907c56ded1c6cb0
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74870144"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848942"
 ---
-# <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Dados de consulta utilizando a API da Azure Cosmos DB para mongoDB
+# <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Dados de consulta utilizando a API da Azure Cosmos DB para a MongoDB
 
-A [API do Azure Cosmos DB para MongoDB](mongodb-introduction.md) suporta [consultas mongoDB.](https://docs.mongodb.com/manual/tutorial/query-documents/) 
+A [API da Azure Cosmos DB para a MongoDB](mongodb-introduction.md) apoia [as consultas do MongoDB.](https://docs.mongodb.com/manual/tutorial/query-documents/) 
 
 Este artigo abrange as seguintes tarefas: 
 
 > [!div class="checklist"]
-> * Consulta de dados armazenados na sua base de dados cosmos usando concha MongoDB
+> * Consulta de dados armazenados na sua base de dados Cosmos usando a concha mongoDB
 
 Para começar, pode utilizar os exemplos neste documento e ver o vídeo [Query Azure Cosmos DB with MongoDB shell](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/) (Consultar o Azure Cosmos DB com a shell do MongoDB).
 
@@ -63,12 +63,15 @@ As consultas neste artigo utilizam o documento de exemplo seguinte.
 Tendo em conta o documento de família de exemplo acima, a seguinte consulta devolve os documentos em que o campo ID corresponde a `WakefieldFamily`.
 
 **Consulta**
-    
-    db.families.find({ id: "WakefieldFamily"})
+
+```bash
+db.families.find({ id: "WakefieldFamily"})
+```
 
 **Resultados**
 
-    {
+```json
+{
     "_id": "ObjectId(\"58f65e1198f3a12c7090e68c\")",
     "id": "WakefieldFamily",
     "parents": [
@@ -106,19 +109,23 @@ Tendo em conta o documento de família de exemplo acima, a seguinte consulta dev
     },
     "creationDate": 1431620462,
     "isRegistered": false
-    }
+}
+```
 
 ## <a name="example-query-2"></a><a id="examplequery2"></a>Consulta de exemplo 2 
 
 A seguinte consulta devolve todos os elementos subordinados na família. 
 
 **Consulta**
-    
-    db.families.find( { id: "WakefieldFamily" }, { children: true } )
+
+```bash 
+db.families.find( { id: "WakefieldFamily" }, { children: true } )
+``` 
 
 **Resultados**
 
-    {
+```json
+{
     "_id": "ObjectId("58f65e1198f3a12c7090e68c")",
     "children": [
       {
@@ -138,28 +145,37 @@ A seguinte consulta devolve todos os elementos subordinados na família.
         "grade": 8
       }
     ]
-    }
-
+}
+```
 
 ## <a name="example-query-3"></a><a id="examplequery3"></a>Consulta de exemplo 3 
 
 A consulta seguinte devolve todas as famílias que estão registadas. 
 
 **Consulta**
-    
-    db.families.find( { "isRegistered" : true })
-**Resultados** nenhum documento vai ser devolvido. 
+
+```bash
+db.families.find( { "isRegistered" : true })
+``` 
+
+**Resultados**
+
+Nenhum documento será devolvido. 
 
 ## <a name="example-query-4"></a><a id="examplequery4"></a>Consulta de exemplo 4
 
 A consulta seguinte devolve todas as famílias que não estão registadas. 
 
 **Consulta**
-    
-    db.families.find( { "isRegistered" : false })
+
+```bash
+db.families.find( { "isRegistered" : false })
+``` 
+
 **Resultados**
 
-     {
+```json
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -193,18 +209,22 @@ A consulta seguinte devolve todas as famílias que não estão registadas.
     "creationDate": 1431620462,
     "isRegistered": false
 }
+```
 
 ## <a name="example-query-5"></a><a id="examplequery5"></a>Consulta de exemplo 5
 
 A consulta seguinte devolve todas as famílias que não estão registadas e o estado é NY. 
 
 **Consulta**
-    
-     db.families.find( { "isRegistered" : false, "address.state" : "NY" })
+
+```bash
+db.families.find( { "isRegistered" : false, "address.state" : "NY" })
+``` 
 
 **Resultados**
 
-     {
+```json
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -238,19 +258,22 @@ A consulta seguinte devolve todas as famílias que não estão registadas e o es
     "creationDate": 1431620462,
     "isRegistered": false
 }
-
+```
 
 ## <a name="example-query-6"></a><a id="examplequery6"></a>Consulta de exemplo 6
 
 A consulta seguinte devolve todas as famílias em que as classificações de elementos subordinados são 8.
 
 **Consulta**
-  
-     db.families.find( { children : { $elemMatch: { grade : 8 }} } )
+
+```bash
+db.families.find( { children : { $elemMatch: { grade : 8 }} } )
+```
 
 **Resultados**
 
-     {
+```json
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -284,14 +307,17 @@ A consulta seguinte devolve todas as famílias em que as classificações de ele
     "creationDate": 1431620462,
     "isRegistered": false
 }
+```
 
 ## <a name="example-query-7"></a><a id="examplequery7"></a>Consulta de exemplo 7
 
 A consulta seguinte devolve todas as famílias em que a matriz de elementos subordinados é 3.
 
 **Consulta**
-  
-      db.Family.find( {children: { $size:3} } )
+
+```bash
+db.Family.find( {children: { $size:3} } )
+```
 
 **Resultados**
 
@@ -302,7 +328,7 @@ Não serão devolvidos resultados, porque não há famílias com mais de dois su
 Neste tutorial, fez o seguinte:
 
 > [!div class="checklist"]
-> * Aprendeu a consultar usando a API da Cosmos DB para o MongoDB
+> * Aprendi a consultar a API da Cosmos DB para o MongoDB
 
 Agora pode avançar para o tutorial seguinte para saber como distribuir dados globalmente.
 

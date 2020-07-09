@@ -1,142 +1,144 @@
 ---
 title: Métricas, alertas e registos de diagnóstico
-description: Grave e analise eventos de registo de diagnóstico para recursos da conta Azure Batch, como piscinas e tarefas.
+description: Grave e analise os eventos de registo de diagnóstico para recursos de conta Azure Batch, como piscinas e tarefas.
 ms.topic: how-to
-ms.date: 12/05/2018
+ms.date: 05/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0a33f71cd185a327bfe6852b9acd7d7317b94c2c
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.openlocfilehash: 6e10a4fc6cd13854682f094274c975931b056365
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726745"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960729"
 ---
-# <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas e registos de lote para avaliação e monitorização de diagnóstico
-
+# <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas e registos de diagnóstico
  
-Este artigo explica como monitorizar uma conta de Lote utilizando características do [Monitor Azure](../azure-monitor/overview.md). O Azure Monitor recolhe [métricas](../azure-monitor/platform/data-platform-metrics.md) e [registos de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) para recursos na sua conta Batch. Recolha e consuma estes dados de várias formas de monitorizar a sua conta de Lote e diagnosticar problemas. Também pode configurar [alertas métricos](../azure-monitor/platform/alerts-overview.md) para que receba notificações quando uma métrica atinge um valor especificado. 
+Este artigo explica como monitorizar uma conta batch utilizando características do [Azure Monitor](../azure-monitor/overview.md). O Azure Monitor recolhe [métricas](../azure-monitor/platform/data-platform-metrics.md) e [registos de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) para recursos na sua conta Batch. Recolher e consumir estes dados de várias formas de monitorizar a sua conta Batch e diagnosticar problemas. Também pode configurar [alertas métricos](../azure-monitor/platform/alerts-overview.md) para que receba notificações quando uma métrica atinge um valor especificado.
 
-## <a name="batch-metrics"></a>Métricas do lote
+## <a name="batch-metrics"></a>Métricas de lote
 
-As métricas são dados de telemetria Azure (também chamados contadores de desempenho) emitidos pelos seus recursos Azure que são consumidos pelo serviço Azure Monitor. As métricas de exemplo numa conta de Lote incluem: Pool Create Events, Low-Priority Node Count e Task Complete Events. 
+As métricas são dados de telemetria Azure (também chamados contadores de desempenho) que são emitidos pelos seus recursos Azure e consumidos pelo serviço Azure Monitor. Exemplos de métricas numa conta de Lote são Eventos de Criação de Pool, Contagem de Nós de Baixa Prioridade e Eventos Completos de Tarefas.
 
-Consulte a [lista de métricas de lote suportado](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
+Consulte a [lista de métricas do Lote suportado.](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts)
 
 As métricas são:
 
-* Ativado por padrão em cada conta de Lote sem configuração adicional
-* Gerado a cada 1 minuto
-* Não persistiu automaticamente, mas tem um histórico de 30 dias. Pode persistir métricas de atividade como parte da exploração de diagnóstico.
+- Ativado por padrão em cada conta Batch sem configuração adicional
+- Gerado a cada 1 minuto
+- Não persistiram automaticamente, mas têm uma história de 30 dias. Pode persistir métricas de atividade como parte do registo de diagnóstico.
 
-### <a name="view-metrics"></a>Ver métricas
+## <a name="view-batch-metrics"></a>Ver métricas de lote
 
-Consulte as métricas da sua conta Batch no portal Azure. A página **de visão geral** da conta por padrão mostra o nó chave, o núcleo e as métricas de tarefa. 
+No portal Azure, a página **'Visão Geral'** da conta apresentará por predeza as métricas do nó, núcleo e tarefa da chave.
 
-Para ver todas as métricas da conta do Lote: 
+Para ver todas as métricas da conta do Lote no portal Azure:
 
-1. No portal, clique em **todas as**contas do Lote de  >  **serviços**e, em seguida, clique no nome da sua conta Batch.
-2. Em **Monitorização,** clique em **Métricas**.
-3. Selecione uma ou mais métricas. Se desejar, selecione métricas de recursos adicionais utilizando as **Subscrições,** **grupo de recursos,** **tipo de recurso**e desistências de **recursos.**
-    * Para métricas baseadas na contagem (como "Contagem central dedicada" ou "Contagem de nódeos de baixa prioridade"), utilize a agregação "Média". Para métricas baseadas em eventos (como "Pool Resize Complete Events"), utilize a agregação "Count".
+1. No portal Azure, selecione **todas as**contas de Lote de  >  **Serviços**e, em seguida, selecione o nome da sua conta Batch.
+2. Em **Monitorização**, selecione **Métricas**.
+3. **Selecione Adicione a métrica** e, em seguida, escolha uma métrica da lista de dropdown.
+4. Selecione uma opção **de agregação** para a métrica. Para métricas baseadas na contagem (como "Contagem de Núcleos Dedicado" ou "Contagem de nó de baixa prioridade"), utilize a agregação **média.** Para métricas baseadas em eventos (como "Pool Resize Complete Events"), utilize a agregação **do Conde.**
 
-> [!WARNING]
-> Não utilize a agregação "Soma", que acrescenta os valores de todos os pontos de dados recebidos durante o período do gráfico
-> 
-> 
+   > [!WARNING]
+   > Não utilize a agregação "Sum", que adiciona os valores de todos os pontos de dados recebidos durante o período do gráfico.
 
-    ![Batch metrics](media/batch-diagnostics/metrics-portal.png)
+5. Para adicionar métricas adicionais, repita os passos 3 e 4.
 
-Para recuperar as métricas programáticamente, utilize as APIs do Monitor Azure. Por exemplo, consulte [as métricas do Monitor Retrieve Azure com .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/).
+Também pode obter métricas programáticas com as APIs do Monitor Azure. Por exemplo, consulte [as métricas do Monitor De Recuperação com .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/).
 
-## <a name="batch-metric-reliability"></a>Fiabilidade métrica do lote
+### <a name="batch-metric-reliability"></a>Fiabilidade da métrica do lote
 
-As métricas destinam-se a ser utilizadas para a tendência e análise de dados. A entrega métrica não está garantida e está sujeita a entrega fora de serviço, perda de dados e/ou duplicação. Não é aconselhável utilizar eventos únicos para alertar ou acionar funções. Consulte a secção de [alertas métricos do Lote](#batch-metric-alerts) para obter mais detalhes sobre como definir limiares para alertar.
+As métricas podem ajudar a identificar tendências e podem ser usadas para análise de dados. É importante notar que a entrega métrica não está garantida, podendo estar sujeita a entrega fora de encomenda, perda de dados e/ou duplicação. Por isso, não é recomendado o uso de eventos individuais para alertar ou acionar funções. Consulte a secção seguinte para obter mais detalhes sobre como definir limiares para alerta.
 
-As métricas emitidas nos últimos 3 minutos podem ainda ser agregação. Durante este período de tempo, os valores métricos podem ser subnoticiados.
+As métricas emitidas nos últimos 3 minutos podem ainda ser agregadas, pelo que os valores métricos podem ser subnoticiados durante este período de tempo.
 
 ## <a name="batch-metric-alerts"></a>Alertas métricos do lote
 
-Opcionalmente, configure *alertas métricos* em tempo real que disparam quando o valor de uma métrica especificada cruza um limiar que atribui. O alerta gera uma [notificação](../monitoring-and-diagnostics/insights-alerts-portal.md) que escolhe quando o alerta é "Ativado" (quando o limiar é ultrapassado e a condição de alerta é cumprida) bem como quando é "Resolvido" (quando o limiar é ultrapassado novamente e a condição já não está cumprida). O alerta com base em pontos de dados únicos não é recomendado, uma vez que as métricas estão sujeitas a entregas fora de ordem, perda de dados e/ou duplicação. O alerta deve utilizar os limiares para ter em conta estas inconsistências.
+Pode configurar perto de *alertas métricos* em tempo real que desencadeiam quando o valor de uma métrica especificada cruza um limiar que atribui. O alerta gera uma notificação quando o alerta é "Ativado" (quando o limiar é cruzado e a condição de alerta é cumprida) bem como quando é "Resolvido" (quando o limiar é cruzado novamente e a condição já não é cumprida).
 
-Por exemplo, é possível configurar um alerta métrico quando a sua contagem de núcleos de baixa prioridade cai para um determinado nível, para que possa ajustar a composição das suas piscinas. Recomenda-se fixar um período de 10 ou mais minutos em que os alertas disparem se a contagem média de núcleos de baixa prioridade descer abaixo do valor limiar durante todo o período. Não é aconselhável alertar num período de 1 a 5 minutos, uma vez que as métricas podem ainda estar a agregar-se.
+Os alertas que desencadeiam um único ponto de dados não são recomendados, uma vez que as métricas estão sujeitas a entrega fora de encomenda, perda de dados e/ou duplicação. Ao criar os seus alertas, pode utilizar limiares para responder a estas inconsistências.
 
-Para configurar um alerta métrico no portal:
+Por exemplo, é melhor configurar um alerta métrico quando a sua contagem de núcleo de baixa prioridade cai para um determinado nível, para que possa ajustar a composição das suas piscinas. Para obter os melhores resultados, desaccione um período de 10 ou mais minutos, onde os alertas disparam se a contagem média de base de baixa prioridade ficar abaixo do valor limiar de todo o período. Isto permite que mais tempo para as métricas se agregarem para obter resultados mais precisos. 
 
-1. Clique em **todas as**contas do Lote de  >  **Serviços**e, em seguida, clique no nome da sua conta Batch.
-2. Sob **monitorização,** clique em regras de **alerta**Adicione  >  **alerta métrico**.
-3. Selecione uma métrica, uma condição de alerta (como quando uma métrica excede um valor específico durante um período) e uma ou mais notificações.
+Para configurar um alerta métrico no portal Azure:
 
-Também pode configurar um alerta quase em tempo real utilizando a [API REST](https://docs.microsoft.com/rest/api/monitor/). Para mais informações, consulte a visão geral dos [Alertas](../azure-monitor/platform/alerts-overview.md). Para incluir trabalho, tarefa ou informações específicas do pool nos seus alertas, consulte as informações sobre consultas de pesquisa em [Responder a eventos com Alertas de Monitor Estoque Azure](../azure-monitor/learn/tutorial-response.md)
+1. Selecione **todas as**contas do Lote de  >  **Serviços**e, em seguida, selecione o nome da sua conta Batch.
+2. Em **Monitorização**, selecione **Alertas**e, em seguida, selecione **Nova regra de alerta**.
+3. Clique **Em Selecionar a condição**e, em seguida, escolha uma métrica. Confirme os valores relativos ao **período de gráfico**, tipo **limiar,** **operador**e tipo **de agregação,** e introduza um **valor limiar**. Em seguida, selecione **Done** (Concluído).
+4. Adicione um grupo de ação ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
+5. Na secção de detalhes da **regra de alerta,** insira um **nome de regra de alerta** e **descrição** e selecione a **Severidade**
+6. Selecione **Criar regra de alerta**.
+
+Para obter mais informações sobre a criação de alertas métricos, consulte [Como os alertas métricos funcionam no Azure Monitor](../azure-monitor/platform/alerts-metric-overview.md) e [Criar, ver e gerir alertas métricos usando o Azure Monitor](../azure-monitor/platform/alerts-metric.md).
+
+Também pode configurar um alerta quase em tempo real utilizando a [API do](/rest/api/monitor/)Monitor Azure . Para mais informações, consulte [a visão geral dos alertas no Microsoft Azure](../azure-monitor/platform/alerts-overview.md). Para incluir informações específicas de trabalho, tarefa ou piscina nos seus alertas, consulte as informações sobre consultas de pesquisa em [Responder a eventos com Alertas monitores Azure](../azure-monitor/learn/tutorial-response.md).
 
 ## <a name="batch-diagnostics"></a>Batch diagnostics (Diagnósticos do Batch)
 
-Os registos de diagnóstico contêm informações emitidas pelos recursos do Azure que descrevem o funcionamento de cada recurso. Para o Batch, pode recolher os seguintes registos:
+Os registos de diagnóstico contêm informações emitidas pelos recursos da Azure que descrevem o funcionamento de cada recurso. Para o Lote, pode recolher os seguintes registos:
 
-* **Eventos** de registos de serviço emitidos pelo serviço Azure Batch durante a vida útil de um recurso de lote individual como uma piscina ou tarefa. 
+- **Serviço regista eventos emitidos** pelo serviço Azure Batch durante o tempo de vida de um recurso individual do Batch como uma piscina ou tarefa.
+- **Registos de métricas** ao nível da conta.
 
-* **Registos de métricas** ao nível da conta. 
+As definições para permitir a recolha de registos de diagnóstico não são ativadas por predefinição. Ativar explicitamente as definições de diagnóstico de cada conta Batch que pretende monitorizar.
 
-As definições para permitir a recolha de registos de diagnóstico não são ativadas por defeito. Ative explicitamente as definições de diagnóstico de cada conta do Lote que pretende monitorizar.
+### <a name="log-destinations"></a>Destinos de registo
 
-### <a name="log-destinations"></a>Destinos de log
+Um cenário comum é selecionar uma conta de Armazenamento Azure como destino de registo. Para armazenar registos no Azure Storage, crie a conta antes de ativar a recolha de registos. Se associar uma conta de armazenamento à sua conta Batch, pode escolher essa conta como destino de registo.
 
-Um cenário comum é selecionar uma conta de Armazenamento Azure como destino de registo. Para armazenar registos no Armazenamento Azure, crie a conta antes de permitir a recolha de registos. Se associou uma conta de armazenamento à sua conta Batch, pode escolher essa conta como destino de registo. 
+Alternadamente, pode:
 
-Outros destinos opcionais para registos de diagnóstico:
-
-* Stream Batch diagnóstico log eventos para um Hub de [Eventos Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Os Hubs de Eventos podem ingerir milhões de eventos por segundo, que pode então transformar e armazenar usando qualquer fornecedor de análise em tempo real. 
-
-* Envie registos de diagnóstico para [registos do Monitor Azure,](../log-analytics/log-analytics-overview.md)onde pode analisá-los ou exportá-los para análise em Power BI ou Excel.
+- Stream Batch diagnostic registrs para um [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Os Centros de Eventos podem ingerir milhões de eventos por segundo, que podes transformar e armazenar usando qualquer fornecedor de análise em tempo real. 
+- Envie registos de diagnóstico para [registos do Azure Monitor,](../log-analytics/log-analytics-overview.md)onde pode analisá-los ou exportá-los para análise em Power BI ou Excel.
 
 > [!NOTE]
 > Pode incorrer em custos adicionais para armazenar ou processar dados de registo de diagnóstico com os serviços Azure. 
->
 
-### <a name="enable-collection-of-batch-diagnostic-logs"></a>Ativar a recolha de registos de diagnóstico do Lote
+### <a name="enable-collection-of-batch-diagnostic-logs"></a>Ativar a recolha de registos de diagnóstico batch
 
-1. No portal, clique em **todas as**contas do Lote de  >  **serviços**e, em seguida, clique no nome da sua conta Batch.
-2. Em **Monitorização,** clique em **registos de diagnóstico**Ligue os  >  **diagnósticos**.
-3. Nas **definições de Diagnóstico,** introduza um nome para a definição e escolha um destino de registo (conta de armazenamento existente, Hub de Eventos ou registos do Monitor Azure). Selecione o **ServiceLog** e o **AllMetrics**.
+Para criar uma nova definição de diagnóstico no portal Azure, siga os passos abaixo.
 
-    Quando selecionar uma conta de armazenamento, delineie opcionalmente uma política de retenção. Se não especificar alguns dias para retenção, os dados são retidos durante a vida útil da conta de armazenamento.
+1. No portal Azure, selecione **todas as**contas de Lote de  >  **Serviços**e, em seguida, selecione o nome da sua conta Batch.
+2. Em **Monitorização**, selecione **Definições de diagnóstico**.
+3. Nas **definições de Diagnóstico**, selecione Adicionar a **definição de diagnóstico**.
+4. Insira um nome para a definição.
+5. Selecione um destino: **Enviar para Log Analytics,** **Arquivar para uma conta de armazenamento,** ou **transmitir para um Centro de Eventos.** Se selecionar uma conta de armazenamento, pode definir opcionalmente uma política de retenção. Se não especificar um número de dias para a retenção, os dados são retidos durante a vida útil da conta de armazenamento.
+6. **Selecione ServiceLog**, **AllMetrics,** ou ambos.
+7. **Selecione Guardar** para criar a definição de diagnóstico.
 
-4. Clique em **Guardar**.
+Também pode [ativar a recolha através do Azure Monitor no portal Azure](../azure-monitor/platform/diagnostic-settings.md) para configurar definições de diagnóstico, utilizando um [modelo de Gestor de Recursos](../azure-monitor/platform/diagnostic-settings-template.md), ou com a Azure PowerShell ou o Azure CLI. Para mais informações, consulte [a visão geral dos registos da plataforma Azure](../azure-monitor/platform/platform-logs-overview.md).
 
-    ![Batch diagnostics (Diagnósticos do Batch)](media/batch-diagnostics/diagnostics-portal.png)
+### <a name="access-diagnostics-logs-in-storage"></a>Aceder a registos de diagnósticos no armazenamento
 
-Outras opções para ativar a recolha de registos incluem: use o Monitor Azure no portal para configurar as definições de diagnóstico, utilize um modelo de Gestor de [Recursos,](../azure-monitor/platform/diagnostic-settings-template.md)ou utilize o Azure PowerShell ou o Azure CLI. ver [Recolher e consumir dados de registo dos seus recursos Azure.](../azure-monitor/platform/platform-logs-overview.md)
+Se arquivar registos de diagnóstico do Batch numa conta de armazenamento, é criado um recipiente de armazenamento na conta de armazenamento assim que ocorre um evento relacionado. As bolhas são criadas de acordo com o seguinte padrão de nomeação:
 
-
-### <a name="access-diagnostics-logs-in-storage"></a>Aceder a registos de diagnóstico no armazenamento
-
-Se arquivar os registos de diagnóstico do Lote numa conta de armazenamento, um recipiente de armazenamento é criado na conta de armazenamento assim que um evento relacionado ocorre. As bolhas são criadas de acordo com o seguinte padrão de nomeação:
-
-```
+```json
 insights-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/
 RESOURCEGROUPS/{resource group name}/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/{Batch account name}/y={four-digit numeric year}/
 m={two-digit numeric month}/d={two-digit numeric day}/
 h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
-Exemplo:
 
-```
+Por exemplo:
+
+```json
 insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-Cada `PT1H.json` ficheiro blob contém eventos formados por JSON que ocorreram dentro da hora especificada no URL blob (por exemplo, `h=12` ). Durante a hora atual, os eventos são anexados ao `PT1H.json` ficheiro à medida que ocorrem. O valor minúsculo é sempre, uma vez que os eventos de `m=00` registo de diagnóstico são `00` divididos em bolhas individuais por hora. (Todos os tempos estão na UTC.)
 
-Abaixo está um exemplo de uma entrada num ficheiro de `PoolResizeCompleteEvent` `PT1H.json` registo. Inclui informações sobre o número atual e alvo de nós dedicados e de baixa prioridade, bem como o tempo de início e fim da operação:
+Cada `PT1H.json` ficheiro blob contém eventos formatados por JSON que ocorreram dentro da hora especificada no URL blob (por exemplo, `h=12` ). Durante a hora presente, os eventos são anexados ao ficheiro à `PT1H.json` medida que ocorrem. O valor minúsculo `m=00` é sempre , uma vez que os `00` eventos de registo de diagnóstico são divididos em bolhas individuais por hora. (Todos os tempos estão na UTC.)
 
-```
+Abaixo está um exemplo de uma `PoolResizeCompleteEvent` entrada num ficheiro de `PT1H.json` registo. Inclui informações sobre o número atual e alvo de nós dedicados e de baixa prioridade, bem como sobre o início e o fim da operação:
+
+```json
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-Para obter mais informações sobre o esquema dos registos de diagnóstico na conta de armazenamento, consulte registos de [diagnóstico do Archive Azure](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-platform-logs-in-storage-account). Para aceder aos registos na sua conta de armazenamento programáticamente, utilize as APIs de Armazenamento. 
+Para obter mais informações sobre o esquema dos registos de diagnóstico na conta de armazenamento, consulte [os registos de recursos do Archive Azure para a conta de armazenamento.](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-platform-logs-in-storage-account) Para aceder aos registos na sua conta de armazenamento programáticamente, utilize as APIs de armazenamento.
 
-### <a name="service-log-events"></a>Eventos de Registo de Serviço
-Os registos de serviço de lote azure, se recolhidos, contêm eventos emitidos pelo serviço De lote Azure durante o tempo de vida de um recurso de lote individual como uma piscina ou tarefa. Cada evento emitido pelo Batch é registado no formato JSON. Por exemplo, este é o corpo de uma piscina de **amostras criar evento:**
+### <a name="service-log-events"></a>Eventos de registo de serviço
+
+Os registos de serviço Azure Batch, se recolhidos, contêm eventos emitidos pelo serviço Azure Batch durante o período de vida de um recurso individual do Batch, como uma piscina ou tarefa. Cada evento emitido pelo Batch é registado no formato JSON. Por exemplo, este é o corpo de um **evento de criação**de amostras:
 
 ```json
 {
@@ -160,22 +162,19 @@ Os registos de serviço de lote azure, se recolhidos, contêm eventos emitidos p
 }
 ```
 
-O serviço Batch emite atualmente os seguintes eventos de Registo de Serviço. Esta lista pode não ser exaustiva, uma vez que podem ter sido adicionados eventos adicionais desde que este artigo foi atualizado pela última vez.
+Os eventos de registo de serviço emitidos pelo serviço Batch incluem o seguinte:
 
-| **Eventos de Registo de Serviço** |
-| --- |
-| [Piscina criar](batch-pool-create-event.md) |
-| [Piscina apaga início](batch-pool-delete-start-event.md) |
-| [Piscina apaga completo](batch-pool-delete-complete-event.md) |
-| [Início de redimensionado da piscina](batch-pool-resize-start-event.md) |
-| [Redimensionar a piscina completa](batch-pool-resize-complete-event.md) |
-| [Início da tarefa](batch-task-start-event.md) |
-| [Tarefa completa](batch-task-complete-event.md) |
-| [Falha de tarefa](batch-task-fail-event.md) |
-
-
+- [Criar piscina](batch-pool-create-event.md)
+- [Início de eliminação de piscinas](batch-pool-delete-start-event.md)
+- [Excluir piscina completa](batch-pool-delete-complete-event.md)
+- [Início de redimensionar piscina](batch-pool-resize-start-event.md)
+- [Piscina redimensionar completo](batch-pool-resize-complete-event.md)
+- [Início de tarefa](batch-task-start-event.md)
+- [Tarefa concluída](batch-task-complete-event.md)
+- [Falha de tarefa](batch-task-fail-event.md)
 
 ## <a name="next-steps"></a>Próximos passos
 
-* Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.
-* Saiba mais sobre a monitorização das [soluções do Lote](monitoring-overview.md).
+- Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.
+- Saiba mais sobre [a monitorização das soluções do Batch.](monitoring-overview.md)
+

@@ -1,33 +1,33 @@
 ---
-title: Implementar app com uma identidade gerida atribuída pelo utilizador
-description: Este artigo mostra-lhe como implementar aplicação Service Fabric com uma identidade gerida atribuída pelo utilizador
+title: Implementar aplicativo com uma identidade gerida atribuída ao utilizador
+description: Este artigo mostra-lhe como implementar a aplicação De Tecido de Serviço com uma identidade gerida atribuída pelo utilizador
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 9aef81db7a455b72c83cf96898a0c228f1c382fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415635"
 ---
-# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Implementar aplicação de tecido de serviço com uma identidade gerida atribuída pelo utilizador
+# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Implementar aplicação de tecido de serviço com uma identidade gerida atribuída ao utilizador
 
-Para implementar uma aplicação de Tecido de Serviço com identidade gerida, a aplicação precisa de ser implementada através do Gestor de Recursos Azure, tipicamente com um modelo de Gestor de Recursos Azure. Para obter mais informações sobre como implementar a aplicação service Fabric através do Gestor de Recursos Azure, consulte [gerir aplicações e serviços como recursos do Gestor de Recursos Azure.](service-fabric-application-arm-resource.md)
+Para implementar uma aplicação de Tecido de Serviço com identidade gerida, a aplicação precisa de ser implementada através do Azure Resource Manager, tipicamente com um modelo de Gestor de Recursos Azure. Para obter mais informações sobre como implementar a aplicação de Tecido de Serviço através do Azure Resource Manager, consulte [Gerir aplicações e serviços como recursos do Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 > [!NOTE] 
 > 
-> Aplicações que não são implementadas como recurso Azure **não podem** ter Identidades Geridas. 
+> As aplicações que não são implantadas como um recurso Azure **não podem** ter Identidades Geridas. 
 >
-> A implementação da aplicação Service Fabric com `"2019-06-01-preview"`identidade gerida é suportada com versão API . Também pode utilizar a mesma versão API para o tipo de aplicação, versão tipo de aplicação e recursos de serviço.
+> A implementação da aplicação de tecido de serviço com identidade gerida é suportada com a versão `"2019-06-01-preview"` API. Também pode utilizar a mesma versão API para tipo de aplicação, versão tipo de aplicação e recursos de serviço.
 >
 
 ## <a name="user-assigned-identity"></a>Identidade atribuída ao utilizador
 
-Para ativar a aplicação com identidade Atribuída pelo Utilizador, adicione primeiro a propriedade **de identidade** ao recurso da aplicação com o utilizador do tipo **Assigned** e as identidades atribuídas ao utilizador referenciadas. Em seguida, adicione uma secção de **identidades geridas** dentro da secção **de propriedades** para o recurso de **aplicação** que contém uma lista de nome amigável para mapeamento principalid para cada uma das identidades atribuídas pelo utilizador. Para obter mais informações sobre identidades atribuídas ao utilizador consulte [Criar, listar ou eliminar uma identidade gerida atribuída pelo utilizador](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell).
+Para ativar a aplicação com identidade atribuída ao Utilizador, adicione primeiro a propriedade **de identidade** ao recurso de aplicação com o tipo **de utilizadorAssigned** e as identidades atribuídas pelo utilizador referenciado. Em seguida, adicione uma secção **de identificação gerida** dentro da secção de **propriedades** para o recurso de **aplicação** que contém uma lista de nome amigável para mapeamento principal para cada uma das identidades atribuídas pelo utilizador. Para obter mais informações sobre identidades atribuídas ao utilizador consulte [Criar, listar ou eliminar uma identidade gerida atribuída pelo utilizador.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell)
 
 ### <a name="application-template"></a>Modelo de aplicação
 
-Para ativar a aplicação com identidade atribuída ao Utilizador, primeiro adicione propriedade **de identidade** ao recurso de aplicação com o utilizador **do tipoAssigned** e as identidades atribuídas ao utilizador referenciado, em seguida, adicione um objeto **de identidades geridas** dentro da secção **de propriedades** que contém uma lista de nome amigável para mapeamento principalId para cada um dos utilizadores designados identidades.
+Para ativar a aplicação com identidade atribuída ao utilizador, adicione primeiro a propriedade **de identidade** ao recurso de aplicação com o **utilizador tipoAssigned** e as identidades atribuídas pelo utilizador referenciado, em seguida, adicione um objeto **de identificação gerida** dentro da secção de **propriedades** que contém uma lista de nome amigável para mapeamento principal para cada uma das identidades atribuídas pelo utilizador.
 
     {
       "apiVersion": "2019-06-01-preview",
@@ -58,11 +58,11 @@ Para ativar a aplicação com identidade atribuída ao Utilizador, primeiro adic
       }
     }
 
-No exemplo acima do nome de recurso da identidade atribuída ao utilizador está a ser usado como o nome amigável da identidade gerida para a aplicação. Os exemplos que se seguem assumem que o nome verdadeiro é "AdminUser".
+No exemplo acima, o nome de recurso da identidade atribuída ao utilizador está a ser usado como o nome amigável da identidade gerida para a aplicação. Os exemplos a seguir assumem que o nome verdadeiro amigável é "AdminUser".
 
-### <a name="application-package"></a>Pacote de candidatura
+### <a name="application-package"></a>Pacote de candidaturas
 
-1. Para cada identidade `managedIdentities` definida na secção do modelo do `<ManagedIdentity>` Gestor de Recursos Azure, adicione uma etiqueta no manifesto de aplicação sob a secção **principais.** O `Name` atributo precisa `name` de corresponder `managedIdentities` à propriedade definida na secção.
+1. Para cada identidade definida na `managedIdentities` secção no modelo Azure Resource Manager, adicione uma `<ManagedIdentity>` etiqueta no manifesto de aplicação na secção **Principais.** O `Name` atributo precisa de corresponder à propriedade definida na `name` `managedIdentities` secção.
 
     **ApplicationManifest.xml**
 
@@ -74,7 +74,7 @@ No exemplo acima do nome de recurso da identidade atribuída ao utilizador está
       </Principals>
     ```
 
-2. Na secção **ServiceManifestImport,** adicione uma Política de **Ligação de Identidade** para o serviço que utiliza a Identidade Gerida. Esta política `AdminUser` mapeia a identidade para um nome de identidade específico do serviço que precisa de ser adicionado ao manifesto de serviço mais tarde.
+2. Na secção **ServiceManifestImport,** adicione uma **IdentityBindingPolicy** para o serviço que utiliza a Identidade Gerida. Esta política mapeia a `AdminUser` identidade para um nome de identidade específico de serviço que precisa de ser adicionado ao manifesto de serviço mais tarde.
 
     **ApplicationManifest.xml**
 
@@ -86,7 +86,7 @@ No exemplo acima do nome de recurso da identidade atribuída ao utilizador está
       </ServiceManifestImport>
     ```
 
-3. Atualize o manifesto de serviço para adicionar uma **Identidade Gerida** `IdentityBindingPolicy` dentro da secção **Recursos** com o nome correspondente `ServiceIdentityRef` ao do manifesto de aplicação:
+3. Atualizar o manifesto de serviço para adicionar uma **Entidade ManagedId** dentro da secção **Recursos** com o nome correspondente `ServiceIdentityRef` ao manifesto da `IdentityBindingPolicy` aplicação:
 
     **ServiceManifest.xml**
 
@@ -101,5 +101,5 @@ No exemplo acima do nome de recurso da identidade atribuída ao utilizador está
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Como utilizar identidade gerida no código de aplicação de tecido de serviço](how-to-managed-identity-service-fabric-app-code.md)
-* [Como conceder acesso à aplicação de serviço fabric a outros recursos Azure](how-to-grant-access-other-resources.md)
+* [Como utilizar identidade gerida no código de aplicação do tecido de serviço](how-to-managed-identity-service-fabric-app-code.md)
+* [Como conceder acesso à aplicação Service Fabric a outros recursos da Azure](how-to-grant-access-other-resources.md)

@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 06/19/2019
 ms.openlocfilehash: b9ca241b5deebc4d23e0ff648eddee0782617e0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79536994"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Introdução aos Hubs de Notificação utilizando o Baidu
@@ -41,8 +41,8 @@ Este tutorial requer:
 
 Para começar, faça o seguinte:
 
-1. Crie uma conta Baidu.
-2. Crie um projeto de empurrar a nuvem baidu e tome nota da chave API e chave secreta.
+1. Criar uma conta Baidu.
+2. Crie um projeto de push em nuvem Baidu e tome nota da chave EPI e da chave secreta.
 
 ## <a name="configure-a-new-notification-hub"></a>Configurar um novo Notification Hub
 
@@ -68,7 +68,7 @@ Tome nota da `DefaultListenSharedAccessSignature` e da `DefaultFullSharedAccessS
 
 2. Introduza um Nome da Aplicação e certifique-se de que a versão do SDK Mínimo Necessário está definida como API 16: Android 4.1. **Certifique-se também de que o seu nome do pacote (应用包名) é igual ao do Portal Push da Cloud do Baidu**
 
-    ![Hubs de notificação Azure -](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png) ![Baidu Min SDK1 Azure Centros de Notificação - Baidu Min SDK2](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)
+    ![Hubs de Notificação Azure - Baidu Min SDK1 ](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png) ![ Azure Notification Hubs - Baidu Min SDK2](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)
 
 3. Clique em Seguinte e continue a seguir o assistente até aparecer a janela Criar Atividade. Certifique-se de que a opção Atividade Vazia está selecionada e, por fim, selecione Concluir para criar uma nova Aplicação Android.
 
@@ -93,7 +93,7 @@ Tome nota da `DefaultListenSharedAccessSignature` e da `DefaultFullSharedAccessS
     }
     ```
 
-    Para evitar o conflito da Lista, adicione `Manifest.xml` o seguinte código no ficheiro do projeto:
+    Para evitar o conflito da Lista, adicione o seguinte código no ficheiro do `Manifest.xml` projeto:
 
     ```xml
     <manifest package="YOUR.PACKAGE.NAME"
@@ -112,11 +112,11 @@ Tome nota da `DefaultListenSharedAccessSignature` e da `DefaultFullSharedAccessS
 
     ![Hubs de Notificação do Azure – Bibliotecas do SDK do Baidu](./media/notification-hubs-baidu-get-started/BaiduSDKLib.png)
 
-7. Na pasta do `libs` projeto, clique `pushervice-x.y.z.jar` no ficheiro; selecione **Adicionar como Biblioteca** a incluir esta biblioteca no projeto.
+7. Na pasta do `libs` projeto, clique à direita no `pushervice-x.y.z.jar` ficheiro; selecione **Adicionar como Biblioteca** para incluir esta biblioteca no projeto.
 
     ![Hubs de Notificação do Azure – Adicionar Como Biblioteca do Baidu](./media/notification-hubs-baidu-get-started/BaiduAddAsALib.jpg)
 
-8. Abra o ficheiro `AndroidManifest.xml` do projeto Android e adicione as permissões exigidas pelo Baidu SDK. **Substitua `YOURPACKAGENAME` pelo nome do pacote**.
+8. Abra o ficheiro do projeto Android `AndroidManifest.xml` e adicione as permissões necessárias pelo Baidu SDK. **Substitua `YOURPACKAGENAME` pelo nome do pacote**.
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET" />

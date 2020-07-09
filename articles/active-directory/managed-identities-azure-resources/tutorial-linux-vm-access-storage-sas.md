@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Armazenamento de Acesso Azure utilizando uma credencial SAS - Linux - Azure AD'
+title: 'Tutorial: Access Azure Storage usando uma credencial SAS - Linux - Azure AD'
 description: Um tutorial que mostra como utilizar uma identidade gerida atribuída pelo sistema de uma VM do Linux para aceder ao Armazenamento do Azure através de uma credencial de SAS, em vez de uma chave de acesso à conta de armazenamento.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 670ae329943610ba16411da3782bc1da079c6490
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6a173fe36c20e9f13f1b1c1f27efc36821c8264a
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74183201"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266309"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Linux para aceder ao Armazenamento do Azure através de uma credencial de SAS
 
@@ -29,7 +29,7 @@ ms.locfileid: "74183201"
 Este tutorial mostra como utilizar uma identidade gerida atribuída pelo sistema de uma VM do Linux para obter uma credencial de Assinatura de Acesso Partilhado (SAS) de armazenamento. Especificamente, uma [credencial de SAS de Serviço](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 > [!NOTE]
-> A chave SAS gerada neste tutorial não será restrita/vinculada ao VM.  
+> A chave SAS gerada neste tutorial não será restrita/ligada ao VM.  
 
 Um SAS de Serviço permite conceder acesso limitado aos objetos numa conta de armazenamento durante um período limitado e num serviço específico (no nosso caso, o serviço de blobs), sem expor uma chave de acesso da conta. Pode utilizar uma credencial de SAS como habitualmente ao fazer operações de armazenamento, por exemplo, ao utilizar o SDK de Armazenamento. Para este tutorial, vamos demonstrar como carregar e transferir um blob com a CLI de Armazenamento do Azure. Vai aprender a:
 
@@ -50,10 +50,10 @@ Se ainda não tiver uma, irá agora criar uma conta de armazenamento.  Também p
 
 1. Clique no botão **+/Criar novo serviço**, no canto superior esquerdo do portal do Azure.
 2. Clique em **Armazenamento**, em seguida, em **Conta de Armazenamento**, e um novo painel "Criar a conta de armazenamento" será apresentado.
-3. Insira um **Nome** para a conta de armazenamento, que utilizará mais tarde.  
+3. Introduza um **Nome** para a conta de armazenamento, que utilizará mais tarde.  
 4. O **Modelo de implementação** e o **Tipo de conta** devem ser definidos como "Gestor de recursos" e "Fins gerais", respetivamente. 
 5. Certifique-se de que a **Subscrição** e o **Grupo de Recursos** correspondem aos perfis que especificou quando criou a VM no passo anterior.
-6. Clique em **Criar**.
+6. Clique **em Criar**.
 
     ![Criar nova conta de armazenamento](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
@@ -74,7 +74,7 @@ O Armazenamento do Azure não suporta nativamente a autenticação do Azure AD. 
 
 1. Navegue de volta para a sua conta de armazenamento recentemente criada.
 2. Clique na ligação **Controlo de acesso (IAM)** no painel esquerdo.  
-3. Clique + Adicione a atribuição de **funções** em cima da página para adicionar uma nova atribuição de funções para o seu VM
+3. Clique + Adicione a atribuição de **funções** no topo da página para adicionar uma nova atribuição de função para o seu VM
 4. Defina **Função** como "Contribuidor de Conta de Armazenamento", no lado direito da página. 
 5. Na lista pendente seguinte, defina **Atribuir acesso a** ao recurso "Máquina Virtual".  
 6. Em seguida, certifique-se de que a subscrição adequada está listada na lista pendente **Subscrição** e, em seguida, defina **Grupo de Recursos** para "Todos os grupos de recursos".  
@@ -101,7 +101,7 @@ Para concluir estes passos, precisará de um cliente SSH. Se estiver a utilizar 
     
     > [!NOTE]
     > No pedido anterior, o valor do parâmetro "recurso" tem de ser uma correspondência exata para o que é esperado pelo Azure AD. Ao utilizar o ID de recurso do Azure Resource Manager, tem de incluir a barra à direita no URI.
-    > Na resposta seguinte, o elemento access_token foi abreviado para não ser tão extenso.
+    > Na resposta seguinte, o elemento access_token foi encurtado para a brevidade.
     
     ```bash
     {"access_token":"eyJ0eXAiOiJ...",

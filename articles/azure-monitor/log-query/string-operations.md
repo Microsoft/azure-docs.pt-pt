@@ -1,33 +1,32 @@
 ---
-title: Trabalhe com cordas em consultas de registo do Monitor Azure [ Microsoft Docs
-description: Descreve como editar, comparar, pesquisar e realizar uma variedade de outras operações em cordas em consultas de registo do Monitor Azure.
+title: Trabalhe com cordas em consultas de log do Azure Monitor Microsoft Docs
+description: Descreve como editar, comparar, pesquisar e executar uma variedade de outras operações em cadeias em consultas de log do Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75397473"
 ---
-# <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabalhe com cordas em consultas de registo do Monitor Azure
+# <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabalhe com cordas em consultas de log do Azure Monitor
 
 
 > [!NOTE]
-> Deve completar [O Get started com o Azure Monitor Log Analytics](get-started-portal.md) e começar com consultas de registo do [Azure Monitor](get-started-queries.md) antes de concluir este tutorial.
+> Deve completar [Começar com a Azure Monitor Log Analytics](get-started-portal.md) e começar com as consultas de registo do [Azure Monitor](get-started-queries.md) antes de concluir este tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Este artigo descreve como editar, comparar, pesquisar e realizar uma variedade de outras operações em cordas.
 
-Cada personagem numa corda tem um número de índice, de acordo com a sua localização. O primeiro personagem está no índice 0, o próximo personagem é 1, e assim por diante. Funções de cadeia diferentes utilizam números de índice como mostrado nas seguintes secções. Muitos dos seguintes exemplos usam o comando **de impressão** para demonstrar manipulação de cordas sem usar uma fonte de dados específica.
+Cada personagem numa cadeia tem um número de índice, de acordo com a sua localização. O primeiro caractere está no índice 0, o próximo caracter é 1, e assim por diante. Diferentes funções de cadeia utilizam números de índice como mostrado nas secções seguintes. Muitos dos exemplos seguintes usam o comando **de impressão** para demonstrar manipulação de cordas sem usar uma fonte de dados específica.
 
 
-## <a name="strings-and-escaping-them"></a>Cordas e escapando-as
-Os valores das cordas são embrulhados com caracteres de cotação simples ou dupla. Backslash\\é usado para escapar de personagens para o personagem que o segue, \" como \t para tab, \n para newline, e o próprio personagem de citação.
+## <a name="strings-and-escaping-them"></a>Cordas e escapando-lhes
+Os valores das cordas são embrulhados com caracteres de citação única ou dupla. Backslash \\ () é usado para escapar de caracteres para o personagem que o segue, como \t para aba, \n para newline, e \" o próprio personagem de citação.
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
@@ -37,7 +36,7 @@ print "this is a 'string' literal in double \" quotes"
 print 'this is a "string" literal in single \' quotes'
 ```
 
-Para evitar\\que " " de agir\@como um personagem de fuga, adicione " como um prefixo para a corda:
+Para evitar que \\ " " aja como um personagem de fuga, adicione \@ " como um prefixo à corda:
 
 ```Kusto
 print @"C:\backslash\not\escaped\with @ prefix"
@@ -46,62 +45,62 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>Comparações de cordas
 
-Operador       |Descrição                         |Sensível a casos|Exemplo (rendimentos) `true`
+Operador       |Descrição                         |Sensível a casos|Exemplo `true` (rendimentos)
 ---------------|------------------------------------|--------------|-----------------------
 `==`           |É igual a                              |Sim           |`"aBc" == "aBc"`
 `!=`           |Não é igual                          |Sim           |`"abc" != "ABC"`
 `=~`           |É igual a                              |Não            |`"abc" =~ "ABC"`
 `!~`           |Não é igual                          |Não            |`"aBc" !~ "xyz"`
-`has`          |Lado direito é um termo inteiro no lado esquerdo |Não|`"North America" has "america"`
-`!has`         |Lado direito não é um termo completo no lado esquerdo       |Não            |`"North America" !has "amer"` 
-`has_cs`       |Lado direito é um termo inteiro no lado esquerdo |Sim|`"North America" has_cs "America"`
-`!has_cs`      |Lado direito não é um termo completo no lado esquerdo       |Sim            |`"North America" !has_cs "amer"` 
-`hasprefix`    |Lado direito é um termo prefixo no lado esquerdo         |Não            |`"North America" hasprefix "ame"`
-`!hasprefix`   |Lado direito não é um termo prefixo no lado esquerdo     |Não            |`"North America" !hasprefix "mer"` 
-`hasprefix_cs`    |Lado direito é um termo prefixo no lado esquerdo         |Sim            |`"North America" hasprefix_cs "Ame"`
-`!hasprefix_cs`   |Lado direito não é um termo prefixo no lado esquerdo     |Sim            |`"North America" !hasprefix_cs "CA"` 
-`hassuffix`    |Lado direito é um termo sufixo no lado esquerdo         |Não            |`"North America" hassuffix "ica"`
-`!hassuffix`   |Lado direito não é um termo sufixo no lado esquerdo     |Não            |`"North America" !hassuffix "americ"`
-`hassuffix_cs`    |Lado direito é um termo sufixo no lado esquerdo         |Sim            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |Lado direito não é um termo sufixo no lado esquerdo     |Sim            |`"North America" !hassuffix_cs "icA"`
-`contains`     |O lado direito ocorre como uma subsequência do lado esquerdo  |Não            |`"FabriKam" contains "BRik"`
+`has`          |O lado direito é um termo inteiro no lado esquerdo |Não|`"North America" has "america"`
+`!has`         |O lado direito não é um termo completo no lado esquerdo       |Não            |`"North America" !has "amer"` 
+`has_cs`       |O lado direito é um termo inteiro no lado esquerdo |Sim|`"North America" has_cs "America"`
+`!has_cs`      |O lado direito não é um termo completo no lado esquerdo       |Sim            |`"North America" !has_cs "amer"` 
+`hasprefix`    |O lado direito é um prefixo de termo no lado esquerdo         |Não            |`"North America" hasprefix "ame"`
+`!hasprefix`   |O lado direito não é um prefixo de termo no lado esquerdo     |Não            |`"North America" !hasprefix "mer"` 
+`hasprefix_cs`    |O lado direito é um prefixo de termo no lado esquerdo         |Sim            |`"North America" hasprefix_cs "Ame"`
+`!hasprefix_cs`   |O lado direito não é um prefixo de termo no lado esquerdo     |Sim            |`"North America" !hasprefix_cs "CA"` 
+`hassuffix`    |O lado direito é um sufixo de termo no lado esquerdo         |Não            |`"North America" hassuffix "ica"`
+`!hassuffix`   |O lado direito não é um sufixo de termo no lado esquerdo     |Não            |`"North America" !hassuffix "americ"`
+`hassuffix_cs`    |O lado direito é um sufixo de termo no lado esquerdo         |Sim            |`"North America" hassuffix_cs "ica"`
+`!hassuffix_cs`   |O lado direito não é um sufixo de termo no lado esquerdo     |Sim            |`"North America" !hassuffix_cs "icA"`
+`contains`     |O lado direito ocorre como uma subsequância do lado esquerdo  |Não            |`"FabriKam" contains "BRik"`
 `!contains`    |O lado direito não ocorre no lado esquerdo           |Não            |`"Fabrikam" !contains "xyz"`
-`contains_cs`   |O lado direito ocorre como uma subsequência do lado esquerdo  |Sim           |`"FabriKam" contains_cs "Kam"`
+`contains_cs`   |O lado direito ocorre como uma subsequância do lado esquerdo  |Sim           |`"FabriKam" contains_cs "Kam"`
 `!contains_cs`  |O lado direito não ocorre no lado esquerdo           |Sim           |`"Fabrikam" !contains_cs "Kam"`
-`startswith`   |Lado direito é uma subsequência inicial do lado esquerdo|Não            |`"Fabrikam" startswith "fab"`
-`!startswith`  |O lado direito não é uma subsequência inicial do lado esquerdo|Não        |`"Fabrikam" !startswith "kam"`
-`startswith_cs`   |Lado direito é uma subsequência inicial do lado esquerdo|Sim            |`"Fabrikam" startswith_cs "Fab"`
-`!startswith_cs`  |O lado direito não é uma subsequência inicial do lado esquerdo|Sim        |`"Fabrikam" !startswith_cs "fab"`
-`endswith`     |Lado direito é uma subsequência de fecho do lado esquerdo|Não             |`"Fabrikam" endswith "Kam"`
-`!endswith`    |O lado direito não é uma subsequência de fecho do lado esquerdo|Não         |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |Lado direito é uma subsequência de fecho do lado esquerdo|Sim             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |O lado direito não é uma subsequência de fecho do lado esquerdo|Sim         |`"Fabrikam" !endswith "brik"`
-`matches regex`|O lado esquerdo contém uma partida para o lado direito        |Sim           |`"Fabrikam" matches regex "b.*k"`
-`in`           |Igual a um dos elementos       |Sim           |`"abc" in ("123", "345", "abc")`
+`startswith`   |O lado direito é uma subsequância inicial do lado esquerdo|Não            |`"Fabrikam" startswith "fab"`
+`!startswith`  |O lado direito não é uma subsequância inicial do lado esquerdo|Não        |`"Fabrikam" !startswith "kam"`
+`startswith_cs`   |O lado direito é uma subsequância inicial do lado esquerdo|Sim            |`"Fabrikam" startswith_cs "Fab"`
+`!startswith_cs`  |O lado direito não é uma subsequância inicial do lado esquerdo|Sim        |`"Fabrikam" !startswith_cs "fab"`
+`endswith`     |O lado direito é uma subsequância de fecho do lado esquerdo|Não             |`"Fabrikam" endswith "Kam"`
+`!endswith`    |O lado direito não é uma subsequância de fecho do lado esquerdo|Não         |`"Fabrikam" !endswith "brik"`
+`endswith_cs`     |O lado direito é uma subsequância de fecho do lado esquerdo|Sim             |`"Fabrikam" endswith "Kam"`
+`!endswith_cs`    |O lado direito não é uma subsequância de fecho do lado esquerdo|Sim         |`"Fabrikam" !endswith "brik"`
+`matches regex`|lado esquerdo contém uma correspondência para o lado direito        |Sim           |`"Fabrikam" matches regex "b.*k"`
+`in`           |É igual a um dos elementos       |Sim           |`"abc" in ("123", "345", "abc")`
 `!in`          |Não é igual a nenhum dos elementos   |Sim           |`"bca" !in ("123", "345", "abc")`
 
 
-## <a name="countof"></a>condede
+## <a name="countof"></a>contagem de
 
-Conta as ocorrências de um substring numa corda. Pode combinar cordas simples ou usar regex. Os fósforos de corda simples podem sobrepor-se enquanto os fósforos de regex não.
+Conta ocorrências de um sub-cordão numa corda. Pode combinar cordas simples ou usar regex. Os fósforos de cordas simples podem sobrepor-se enquanto os jogos da Regex não.
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 ```
 countof(text, search [, kind])
 ```
 
 ### <a name="arguments"></a>Argumentos:
-- `text`- A corda de entrada 
-- `search`- Corda simples ou expressão regular para combinar texto interno.
-- `kind` - _normal_ | _regex_ normal (padrão: normal).
+- `text`- A cadeia de entrada 
+- `search`- Corda simples ou expressão regular para combinar com texto interno.
+- `kind` - _normal_  |  _regex_ (predefinição: normal).
 
-### <a name="returns"></a>Devolve
+### <a name="returns"></a>Devoluções
 
-O número de vezes que a cadeia de pesquisa pode ser igualada no recipiente. Os fósforos de corda simples podem sobrepor-se enquanto os fósforos de regex não.
+O número de vezes que a cadeia de pesquisa pode ser igualada no recipiente. Os fósforos de cordas simples podem sobrepor-se enquanto os jogos da Regex não.
 
 ### <a name="examples"></a>Exemplos
 
-#### <a name="plain-string-matches"></a>Fósforos de corda simples
+#### <a name="plain-string-matches"></a>Combinam com cordas simples
 
 ```Kusto
 print countof("The cat sat on the mat", "at");  //result: 3
@@ -111,7 +110,7 @@ print countof("ababa", "ab", "normal");  //result: 2
 print countof("ababa", "aba");  //result: 2
 ```
 
-#### <a name="regex-matches"></a>Jogos regex
+#### <a name="regex-matches"></a>Jogos do Regex
 
 ```Kusto
 print countof("The cat sat on the mat", @"\b.at\b", "regex");  //result: 3
@@ -120,9 +119,9 @@ print countof("abcabc", "a.c", "regex");  // result: 2
 ```
 
 
-## <a name="extract"></a>extrair
+## <a name="extract"></a>extrato
 
-Obtém uma correspondência para uma expressão regular de uma determinada corda. Opcionalmente também converte a subcadeia extraída para o tipo especificado.
+Obtém uma correspondência para uma expressão regular de uma determinada corda. Opcionalmente também converte o sublmotor extraído para o tipo especificado.
 
 ### <a name="syntax"></a>Sintaxe
 
@@ -133,17 +132,17 @@ extract(regex, captureGroup, text [, typeLiteral])
 ### <a name="arguments"></a>Argumentos
 
 - `regex`- Uma expressão regular.
-- `captureGroup`- Uma constante de inteiro positivo indicando o grupo de captura para extrair. 0 para todo o jogo, 1 pelo valor igualado pelo primeiro 'parênteses')' na expressão regular, 2 ou mais para os parênteses subsequentes.
+- `captureGroup`- Uma constante de inteiros positivo que indica o grupo de captura a extrair. 0 para todo o jogo, 1 pelo valor combinado pelo primeiro 'parênteses')' na expressão regular, 2 ou mais para parênteses subsequentes.
 - `text`- Uma corda para procurar.
-- `typeLiteral`- Um tipo literal de tipo opcional (por exemplo, tipo (longo)). Se fornecido, o substring extraído é convertido para este tipo.
+- `typeLiteral`- Um tipo opcional literal (por exemplo, tipo de (longo)). Se fornecido, o sublpetor extraído é convertido para este tipo.
 
-### <a name="returns"></a>Devolve
-O substring combinado com o grupo de captura indicado capturaGroup, opcionalmente convertido para tipoLiteral.
-Se não houver correspondência, ou se a conversão do tipo falhar, volte a ser nula.
+### <a name="returns"></a>Devoluções
+O sub-cordão corresponde ao grupo de captura de captura indicado, opcionalmente convertido em typeLiteral.
+Se não houver correspondência, ou o tipo de conversão falhar, devolva nulo.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo que se segue extrai o último octeto de *ComputerIP* de um registo de batimentos cardíacos:
+O exemplo a seguir extrai o último octeto de *ComputerIP* de um registo de batimentos cardíacos:
 ```Kusto
 Heartbeat
 | where ComputerIP != "" 
@@ -151,7 +150,7 @@ Heartbeat
 | project ComputerIP, last_octet=extract("([0-9]*$)", 1, ComputerIP) 
 ```
 
-O exemplo seguinte extrai o último octeto, lança-o para um tipo *real* (número) e calcula o próximo valor IP
+O exemplo a seguir extrai o último octeto, lança-o para um tipo *real* (número) e calcula o próximo valor IP
 ```Kusto
 Heartbeat
 | where ComputerIP != "" 
@@ -161,7 +160,7 @@ Heartbeat
 | project ComputerIP, last_octet, next_ip
 ```
 
-No exemplo abaixo, o *trace de* cadeia é procurado por uma definição de "Duração". A partida é lançada para *real* e multiplicada por uma constante de tempo (1 s) *que lança duração para escrever a hora de tempo*.
+No exemplo abaixo, o *traço de* corda é procurado por uma definição de "Duração". A partida é lançada ao *real* e multiplicada por uma constante de tempo (1 s) *que lança a Duração para o intervalo de tempos do tipo*.
 ```Kusto
 let Trace="A=12, B=34, Duration=567, ...";
 print Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real));  //result: 567
@@ -169,12 +168,12 @@ print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) 
 ```
 
 
-## <a name="isempty-isnotempty-notempty"></a>é vazio, não é vazio, não vazio
+## <a name="isempty-isnotempty-notempty"></a>isempty, isnotempty, notampty
 
-- *isempty* returns true if the argument is a empty string or null (ver também *é nulo).*
-- *isnotempty* returns true if the argument not is a empty string or a null (ver também *é não nulo).* pseudónimo: *não vazio.*
+- *isempty* retorna verdadeiro se o argumento é uma corda vazia ou nula (ver também *isnull*).
+- *isnotempty* retorna verdadeiro se o argumento não é uma corda vazia ou um nulo (ver também *énonull).* pseudónimo: *nota.*
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 
 ```Kusto
 isempty(value)
@@ -198,9 +197,9 @@ Heartbeat | where isnotempty(ComputerIP) | take 1  // return 1 Heartbeat record 
 
 ## <a name="parseurl"></a>parseurl
 
-Divide um URL nas suas partes (protocolo, anfitrião, porta, etc.), e devolve um objeto dicionário contendo as peças como cordas.
+Divide um URL nas suas partes (protocolo, hospedeiro, porta, etc.) e devolve um objeto dicionário que contém as peças como cordas.
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 
 ```
 parseurl(urlstring)
@@ -229,7 +228,7 @@ O resultado será:
 
 ## <a name="replace"></a>substituir
 
-Substitui todos os fósforos regex por outra corda. 
+Substitui todos os jogos regex por outra corda. 
 
 ### <a name="syntax"></a>Sintaxe
 
@@ -239,12 +238,12 @@ replace(regex, rewrite, input_text)
 
 ### <a name="arguments"></a>Argumentos
 
-- `regex`- A expressão regular para combinar. Pode conter grupos de captura em 'parheses')».
-- `rewrite`- O regex de substituição para qualquer partida feita por regex correspondente. Use \0 para se referir a toda a partida, \1 para o primeiro grupo de captura, \2, e assim por diante para grupos de captura subsequentes.
-- `input_text`- A corda de entrada para procurar.
+- `regex`- A expressão regular para combinar. Pode conter grupos de captura em '('parênteses')'.
+- `rewrite`- O regex de substituição para qualquer partida feita por regex correspondente. Utilize \0 para se referir a toda a correspondência, \1 para o primeiro grupo de captura, \2, e assim por diante para grupos de captura subsequentes.
+- `input_text`- A cadeia de entrada para procurar.
 
-### <a name="returns"></a>Devolve
-O texto após a substituição de todos os jogos de regex por avaliações de reescrita. Os fósforos não se sobrepõem.
+### <a name="returns"></a>Devoluções
+O texto após a substituição de todos os jogos do regex por avaliações de reescrita. Os fósforos não se sobrepõem.
 
 ### <a name="examples"></a>Exemplos
 
@@ -264,18 +263,18 @@ Atividade                                        |substituído
 
 ## <a name="split"></a>dividir
 
-Divide uma determinada corda de acordo com um delimitador especificado e devolve uma série das subcordas resultantes.
+Divide uma determinada corda de acordo com um delimiter especificado, e devolve uma matriz das sublufações resultantes.
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 ```
 split(source, delimiter [, requestedIndex])
 ```
 
 ### <a name="arguments"></a>Argumentos:
 
-- `source`- A corda a dividir de acordo com o delimitador especificado.
-- `delimiter`- O delimitador que será utilizado para dividir a cadeia de origem.
-- `requestedIndex`- Um índice opcional de base zero. Se fornecido, a matriz de cordas devolvida suporá apenas esse item (se existir).
+- `source`- A corda a ser dividida de acordo com o delimiter especificado.
+- `delimiter`- O declimiter que será usado para dividir a cadeia de origem.
+- `requestedIndex`- Um índice opcional baseado em zero. Se for fornecida, a matriz de corda devolvida apenas manterá esse item (se existir).
 
 
 ### <a name="examples"></a>Exemplos
@@ -291,9 +290,9 @@ print split("aabbcc", "bb");        // result: ["aa","cc"]
 
 ## <a name="strcat"></a>strcat
 
-Concatenates argumentos de cordas (apoia 1-16 argumentos).
+Concatenates argumentos de corda (suporta 1-16 argumentos).
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 ```
 strcat("string1", "string2", "string3")
 ```
@@ -308,7 +307,7 @@ print strcat("hello", " ", "world") // result: "hello world"
 
 Devolve o comprimento de uma corda.
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 ```
 strlen("text_to_evaluate")
 ```
@@ -321,18 +320,18 @@ print strlen("hello")   // result: 5
 
 ## <a name="substring"></a>substring
 
-Extrai um substring a partir de uma determinada cadeia de origem, a partir do índice especificado. Opcionalmente, o comprimento do substring solicitado pode ser especificado.
+Extrai um sublaminho de uma determinada cadeia de origem, a partir do índice especificado. Opcionalmente, o comprimento do sublpeso solicitado pode ser especificado.
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 ```
 substring(source, startingIndex [, length])
 ```
 
 ### <a name="arguments"></a>Argumentos:
 
-- `source`- A cadeia de origem da de onde o substring será retirado.
-- `startingIndex`- A posição de carácter inicial de base zero do substring solicitado.
-- `length`- Um parâmetro opcional que pode ser utilizado para especificar o comprimento solicitado do substring devolvido.
+- `source`- A cadeia de origem de onde o sub-adcões será retirado.
+- `startingIndex`- A posição de caracteres initenta da sub-formação solicitada.
+- `length`- Um parâmetro opcional que pode ser utilizado para especificar o comprimento solicitado do sublmotor devolvido.
 
 ### <a name="examples"></a>Exemplos
 ```Kusto
@@ -343,11 +342,11 @@ print substring("ABCD", 0, 2);  // result: "AB"
 ```
 
 
-## <a name="tolower-toupper"></a>mais lento, toia
+## <a name="tolower-toupper"></a>tolower, toupper
 
-Converte uma determinada corda em todos os casos inferiores ou superiores.
+Converte uma corda dada a todos os casos inferiores ou superiores.
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 ```
 tolower("value")
 toupper("value")
@@ -361,11 +360,11 @@ print toupper("hello"); // result: "HELLO"
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Continue com os tutoriais avançados:
 * [Funções de agregação](aggregations.md)
 * [Agregações avançadas](advanced-aggregations.md)
 * [Gráficos e diagramas](charts.md)
 * [Trabalhar com a JSON e estruturas de dados](json-data-structures.md)
 * [Escrita de consulta avançada](advanced-query-writing.md)
-* [Junta-se - análise cruzada](joins.md)
+* [Joins - análise cruzada](joins.md)

@@ -17,36 +17,40 @@
       href: quick-create-python.md
 - name: Tutoriais
   items:
-    - name: Importar chaves protegidas por HSM
+    - name: Importar chaves protegidas por HSM (descrição geral)
       href: hsm-protected-keys.md
-    - name: Importar chaves protegidas por HSM (pré-visualização)
-      href: hsm-protected-keys-vendor-agnostic-byok.md
-    - name: Importa chaves protegidas por HSM (legado)
-      href: hsm-protected-keys-legacy.md
+    - name: Importar chaves protegidas por HSM (BYOK)
+      href: hsm-protected-keys-byok.md
+    - name: Importar chaves protegidas por HSM (nCipher)
+      href: hsm-protected-keys-ncipher.md
 - name: Amostras
   items:
+    - name: Exemplos de Código do Key Vault
+      href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
     - name: Incorporações do Azure Policy
       displayName: 'samples, policies, definitions'
       href: ../policy-samples.md?toc=/azure/key-vault/keys/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: Referência
   items:
     - name: Azure PowerShell
-      href: '/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault'
+      href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
     - name: CLI do Azure
       href: /cli/azure/keyvault
     - name: .NET
-      href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+      href: /dotnet/api/overview/azure/security.keyvault.keys-readme?view=azure-dotnet
     - name: Java
       href: /java/api/overview/azure/keyvault?view=azure-java-stable
     - name: Node.js
       href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
     - name: Python
-      href: /python/api/overview/azure/key-vault?view=azure-python
+      href: /python/api/overview/azure/keyvault-keys-readme?view=azure-python
     - name: REST
       href: /rest/api/keyvault
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.keyvault/allversions
       displayName: ARM
+    - name: Especificação Traga a sua própria chave
+      href: byok-specification.md
 - name: Recursos
   items:
     - name: Desenvolva as suas competências com o Microsoft Learn

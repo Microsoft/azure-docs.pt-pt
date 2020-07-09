@@ -1,53 +1,53 @@
 ---
-title: Automate a auditoria da NSG - Visão de grupo de segurança
+title: Automatizar a auditoria NSG - Vista do grupo de segurança
 titleSuffix: Azure Network Watcher
-description: Esta página fornece instruções sobre como configurar a auditoria de um Grupo de Segurança da Rede
+description: Esta página fornece instruções sobre como configurar a auditoria de um Grupo de Segurança de Rede
 services: network-watcher
 documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 59c1b6e6c281a736a79d110bd7d943344bcd5130
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10abd1065fe47556109ed69d36493c165dec1418
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76840983"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738231"
 ---
-# <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatizar auditoria da NSG com visão do grupo De segurança do Observador da Rede Azure
+# <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatizar a auditoria da NSG com a visão do grupo de segurança do observador da rede Azure
 
-Os clientes são muitas vezes confrontados com o desafio de verificar a postura de segurança da sua infraestrutura. Este desafio não é diferente para os seus VMs em Azure. É importante ter um perfil de segurança semelhante baseado nas regras do Grupo de Segurança da Rede (NSG) aplicadas. Utilizando a Visão de Grupo de Segurança, pode agora obter a lista de regras aplicadas a um VM dentro de um NSG. Pode definir um perfil de segurança NSG dourado e iniciar a Visão de Grupo de Segurança numa cadência semanal e comparar a saída com o perfil dourado e criar um relatório. Desta forma, pode identificar com facilidade todos os VMs que não estejam em conformidade com o perfil de segurança prescrito.
+Os clientes são muitas vezes confrontados com o desafio de verificar a postura de segurança da sua infraestrutura. Este desafio não é diferente para os seus VMs em Azure. É importante ter um perfil de segurança semelhante com base nas regras do Grupo de Segurança da Rede (NSG) aplicadas. Utilizando a Vista do Grupo de Segurança, pode agora obter a lista de regras aplicadas a um VM dentro de um NSG. Pode definir um perfil de segurança NSG dourado e iniciar a Vista do Grupo de Segurança numa cadência semanal e comparar a saída com o perfil dourado e criar um relatório. Desta forma pode identificar com facilidade todos os VMs que não estão em conformidade com o perfil de segurança prescrito.
 
-Se não estiver familiarizado com os Grupos de Segurança da Rede, consulte a [visão geral da Segurança da Rede](../virtual-network/security-overview.md).
+Se não estiver familiarizado com os Grupos de Segurança da Rede, consulte [a Visão Geral de Segurança da Rede](../virtual-network/security-overview.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Neste cenário, compara-se uma boa linha de base conhecida com os resultados de visualização do grupo de segurança devolvidos para uma máquina virtual.
 
-Este cenário pressupõe que já seguiu os passos na [Create a Network Watcher](network-watcher-create.md) para criar um Observador de Rede. O cenário também pressupõe que existe um Grupo de Recursos com uma máquina virtual válida para ser utilizado.
+Este cenário pressupõe que já seguiu os passos na [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede. O cenário pressupõe ainda que exista um Grupo de Recursos com uma máquina virtual válida.
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 O cenário abordado neste artigo obtém a visão do grupo de segurança para uma máquina virtual.
 
 Neste cenário, irá:
 
-- Recuperar um conjunto de regras de boa regra conhecido
-- Recupere uma máquina virtual com API de descanso
+- Recupere um conjunto de regras de boa regra conhecido
+- Recupere uma máquina virtual com API de repouso
 - Obtenha vista de grupo de segurança para máquina virtual
-- Avaliar resposta
+- Avaliar Resposta
 
-## <a name="retrieve-rule-set"></a>Recuperar conjunto de regras
+## <a name="retrieve-rule-set"></a>Conjunto de regras de recuperação
 
-O primeiro passo neste exemplo é trabalhar com uma linha de base existente. O exemplo seguinte é um json extraído de um `Get-AzNetworkSecurityGroup` grupo de segurança de rede existente usando o cmdlet que é usado como base para este exemplo.
+O primeiro passo neste exemplo é trabalhar com uma linha de base existente. O exemplo a seguir é algum json extraído de um grupo de segurança de rede existente usando o `Get-AzNetworkSecurityGroup` cmdlet que é usado como base para este exemplo.
 
 ```json
 [
@@ -114,9 +114,9 @@ O primeiro passo neste exemplo é trabalhar com uma linha de base existente. O e
 ]
 ```
 
-## <a name="convert-rule-set-to-powershell-objects"></a>Converter regra definida para objetos PowerShell
+## <a name="convert-rule-set-to-powershell-objects"></a>Converter conjunto de regras para objetos PowerShell
 
-Neste passo, estamos a ler um ficheiro JSON que foi criado anteriormente com as regras que se espera que estejam no Grupo de Segurança da Rede para este exemplo.
+Neste passo, estamos a ler um ficheiro json que foi criado anteriormente com as regras que se espera que estejam no Grupo de Segurança da Rede para este exemplo.
 
 ```powershell
 $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
@@ -124,7 +124,7 @@ $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
 
 ## <a name="retrieve-network-watcher"></a>Observador de rede de recuperação
 
-O próximo passo é recuperar a instância do Observador da Rede. A `$networkWatcher` variável é `AzNetworkWatcherSecurityGroupView` passada para o cmdlet.
+O próximo passo é recuperar a instância do Observador de Rede. A `$networkWatcher` variável é passada para o `AzNetworkWatcherSecurityGroupView` cmdlet.
 
 ```powershell
 $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
@@ -132,15 +132,15 @@ $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network
 
 ## <a name="get-a-vm"></a>Obter um VM
 
-É necessária uma máquina virtual `Get-AzNetworkWatcherSecurityGroupView` para passar o cmdlet contra. O exemplo que se segue recebe um objeto VM.
+É necessária uma máquina virtual para executar o `Get-AzNetworkWatcherSecurityGroupView` cmdlet contra. O exemplo a seguir obtém um objeto VM.
 
 ```powershell
 $VM = Get-AzVM -ResourceGroupName "testrg" -Name "testvm1"
 ```
 
-## <a name="retrieve-security-group-view"></a>Recuperar a visão do grupo de segurança
+## <a name="retrieve-security-group-view"></a>Recuperar vista do grupo de segurança
 
-O próximo passo é recuperar o resultado da visão do grupo de segurança. Este resultado é comparado com o json "baseline" que foi mostrado anteriormente.
+O próximo passo é recuperar o resultado da vista do grupo de segurança. Este resultado é comparado com o json "baseline" que foi mostrado anteriormente.
 
 ```powershell
 $secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
@@ -148,9 +148,9 @@ $secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatche
 
 ## <a name="analyzing-the-results"></a>Analisar os resultados
 
-A resposta é agrunada por interfaces de rede. Os diferentes tipos de regras devolvidas são regras de segurança eficazes e predefinidas. O resultado é ainda desfeito pela forma como é aplicado, seja numa subneta ou num NIC virtual.
+A resposta é agrupada por interfaces de rede. Os diferentes tipos de regras devolvidas são regras de segurança eficazes e predefinidos. O resultado é ainda dividido pela forma como é aplicado, quer numa sub-rede, quer num NIC virtual.
 
-O seguinte script PowerShell compara os resultados da Visão de Grupo de Segurança a uma saída existente de um NSG. O exemplo que se segue é um simples `Compare-Object` exemplo de como os resultados podem ser comparados com cmdlet.
+O seguinte script PowerShell compara os resultados da Vista do Grupo de Segurança com uma saída existente de um NSG. O exemplo a seguir é um exemplo simples de como os resultados podem ser comparados com `Compare-Object` o cmdlet.
 
 ```powershell
 Compare-Object -ReferenceObject $nsgbaserules `
@@ -158,7 +158,7 @@ Compare-Object -ReferenceObject $nsgbaserules `
 -Property Name,Description,Protocol,SourcePortRange,DestinationPortRange,SourceAddressPrefix,DestinationAddressPrefix,Access,Priority,Direction
 ```
 
-O exemplo que se segue é o resultado. Pode ver-se que duas das regras que estavam no primeiro conjunto de regras não estavam presentes na comparação.
+O exemplo a seguir é o resultado. Pode ver-se que duas das regras que estavam na primeira regra definida não estavam presentes na comparação.
 
 ```
 Name                     : My2ndRuleDoNotDelete
@@ -186,9 +186,9 @@ Direction                : Inbound
 SideIndicator            : <=
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Se as definições tiverem sido alteradas, consulte [a Manage Network Security Groups](../virtual-network/manage-network-security-group.md) para localizar o grupo de segurança da rede e as regras de segurança que estão em causa.
+Se as definições tiverem sido alteradas, consulte [Os Grupos de Segurança da Rede](../virtual-network/manage-network-security-group.md) para localizar o grupo de segurança da rede e as regras de segurança que estão em causa.
 
 
 

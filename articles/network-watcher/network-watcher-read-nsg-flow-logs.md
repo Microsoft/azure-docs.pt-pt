@@ -1,43 +1,43 @@
 ---
-title: Leia os registos de fluxo da NSG [ Microsoft Docs
-description: Este artigo mostra como analisar os registos de fluxo da NSG
+title: Leia os registos de fluxo do NSG Microsoft Docs
+description: Este artigo mostra como analisar os registos de fluxo NSG
 services: network-watcher
 documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: damendo
-ms.openlocfilehash: 47d927f9f17580767526ec6683e819256fc5e994
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ffbf37730d5064edcd067c3383fe18c342a2b053
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77619919"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738503"
 ---
 # <a name="read-nsg-flow-logs"></a>Ler registos do fluxo do NSG
 
-Saiba como ler entradas de registos de fluxo NSG com powerShell.
+Saiba como ler entradas de registos de fluxo NSG com PowerShell.
 
-Os registos de fluxo NSG são armazenados numa conta de armazenamento em [blocos de bolhas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). As bolhas de bloco são compostas por blocos menores. Cada tronco é uma bolha de bloco separada que é gerada a cada hora. Novos registos são gerados a cada hora, os registos são atualizados com novas entradas a cada poucos minutos com os dados mais recentes. Neste artigo aprende-se a ler porções dos registos de fluxo.
+Os registos de fluxo NSG são armazenados numa conta de armazenamento em [blocos.](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) As bolhas de bloco são compostas por blocos menores. Cada tronco é uma bolha de bloco separada que é gerada a cada hora. Novos registos são gerados a cada hora, os registos são atualizados com novas entradas a cada poucos minutos com os dados mais recentes. Neste artigo aprende-se a ler partes dos registos de fluxo.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
-No seguinte cenário, tem um registo de fluxo de exemplo que é armazenado numa conta de armazenamento. Aprende-se a ler seletivamente os últimos eventos nos registos de fluxo da NSG. Neste artigo utiliza-se o PowerShell, no entanto, os conceitos discutidos no artigo não se limitam à linguagem de programação, e aplicam-se a todas as línguas suportadas pelas APIs de Armazenamento Azure.
+No cenário seguinte, tem um registo de fluxo de exemplo que é armazenado numa conta de armazenamento. Aprende-se a ler seletivamente os eventos mais recentes nos registos de fluxo do NSG. Neste artigo utiliza-se o PowerShell, no entanto, os conceitos discutidos no artigo não se limitam à linguagem de programação, e são aplicáveis a todas as línguas suportadas pelas APIs de Armazenamento Azure.
 
 ## <a name="setup"></a>Configuração
 
-Antes de começar, deve ter o Fluxo de Registo do Grupo de Segurança da Rede ativado num ou muitos Grupos de Segurança de Rede na sua conta. Para obter instruções sobre a ativação dos registos de fluxo de segurança da rede, consulte o seguinte artigo: [Introdução à exploração de fluxos de registo para grupos](network-watcher-nsg-flow-logging-overview.md)de segurança da rede .
+Antes de começar, tem de ter o Fluxo de Fluxo de Rede ativado em um ou em muitos Grupos de Segurança da Rede na sua conta. Para obter instruções sobre a ativação dos registos de fluxo de segurança da rede, consulte o seguinte artigo: [Introdução à registo de fluxo para grupos de segurança da rede](network-watcher-nsg-flow-logging-overview.md).
 
-## <a name="retrieve-the-block-list"></a>Recuperar a lista de blocos
+## <a name="retrieve-the-block-list"></a>Recupere a lista de blocos
 
-O seguinte PowerShell configura as variáveis necessárias para consultar a bolha de log de fluxo NSG e listar os blocos dentro da bolha do bloco [CloudBlockBlob.](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) Atualize o script para conter valores válidos para o seu ambiente.
+O PowerShell seguinte configura as variáveis necessárias para consultar a bolha de registo de fluxo NSG e listar os blocos dentro da bolha do bloco [CloudBlockBlob.](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) Atualize o script para conter valores válidos para o seu ambiente.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
@@ -96,7 +96,7 @@ $CloudBlockBlob = Get-NSGFlowLogCloudBlockBlob -subscriptionId "yourSubscription
 $blockList = Get-NSGFlowLogBlockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-A `$blockList` variável devolve uma lista dos blocos na bolha. Cada bloco de bolhas contém pelo menos dois blocos.  O primeiro bloco tem `12` um comprimento de bytes, este bloco contém os suportes de abertura do tronco json. O outro bloco é o suporte de `2` fecho e tem um comprimento de bytes.  Como pode ver, o seguinte registo de exemplo tem sete entradas nele, sendo cada uma uma entrada individual. Todas as novas entradas no registo são adicionadas ao final mesmo antes do bloco final.
+A `$blockList` variável devolve uma lista dos blocos na bolha. Cada bloco blob contém pelo menos dois blocos.  O primeiro bloco tem um comprimento de `12` bytes, este bloco contém os suportes de abertura do log json. O outro bloco são os suportes de fecho e tem um comprimento de `2` bytes.  Como pode ver, o seguinte registo de exemplo tem sete entradas nele, sendo cada uma uma entrada individual. Todas as novas entradas no registo são adicionadas ao fim imediatamente antes do bloco final.
 
 ```
 Name                                         Length Committed
@@ -114,7 +114,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## <a name="read-the-block-blob"></a>Leia a bolha do bloco
 
-Em seguida, você `$blocklist` precisa ler a variável para recuperar os dados. Neste exemplo, iteramos através da lista de bloqueios, lemos os bytes de cada quarteirão e os históriamos numa matriz. Utilize o método [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) para recuperar os dados.
+Em seguida, precisa ler a `$blocklist` variável para recuperar os dados. Neste exemplo, iteramos através da lista de bloqueios, lemos os bytes de cada quarteirão e os contamos numa matriz. Utilize o método [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) para recuperar os dados.
 
 ```powershell
 function Get-NSGFlowLogReadBlock  {
@@ -158,7 +158,7 @@ function Get-NSGFlowLogReadBlock  {
 $valuearray = Get-NSGFlowLogReadBlock -blockList $blockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-Agora `$valuearray` a matriz contém o valor de cadeia de cada bloco. Para verificar a entrada, obtenha o segundo até `$valuearray[$valuearray.Length-2]`ao último valor da matriz executando . Não quer o último valor, porque é o suporte de fecho.
+Agora a `$valuearray` matriz contém o valor de cadeia de cada bloco. Para verificar a entrada, obtenha o segundo ao último valor da matriz executando `$valuearray[$valuearray.Length-2]` . Não quer o último valor, porque é o suporte de fecho.
 
 Os resultados deste valor são apresentados no seguinte exemplo:
 
@@ -182,13 +182,13 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
         }
 ```
 
-Este cenário é um exemplo de como ler entradas em registos de fluxo nsg sem ter que analisar todo o registo. Pode ler novas entradas no registo tal como são escritas utilizando o ID do bloco ou rastreando o comprimento dos blocos armazenados na bolha do bloco. Isto permite-lhe ler apenas as novas entradas.
+Este cenário é um exemplo de como ler entradas em registos de fluxo NSG sem ter que analisar todo o log. Pode ler novas entradas no registo à medida que são escritas utilizando o ID do bloco ou rastreando o comprimento dos blocos armazenados na bolha de bloco. Isto permite-lhe ler apenas as novas entradas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 
-Visite [Use Elástico Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), Use [Grafana](network-watcher-nsg-grafana.md)e [Use Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) para saber mais sobre formas de ver os registos de fluxo nsg. Uma abordagem da Função Open Source Azure para consumir as bolhas diretamente e emitir a vários consumidores de análise de registo pode ser encontrada aqui: [Azure Network Watcher NSG Flow Logs Connector](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
+Visite [Use Elástico Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), Use [Grafana](network-watcher-nsg-grafana.md)e [Use Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) para saber mais sobre formas de ver os registos de fluxo NSG. Uma abordagem da Função Open Source Azure para consumir as bolhas diretamente e emitir para vários consumidores de análise de registo pode ser encontrada aqui: [Azure Network Watcher NSG Flow Logs Connector](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
-Pode utilizar o [Azure Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) para obter informações sobre os seus fluxos de tráfego. O Traffic Analytics utiliza [o Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) para tornar o seu fluxo de tráfego consultado.
+Você pode usar [a Azure Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) para obter informações sobre os seus fluxos de tráfego. Traffic Analytics utiliza [o Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) para tornar o seu fluxo de tráfego questionável.
 
-Para saber mais sobre a visita de blobs de armazenamento: [Azure Functions Blob encaderna](../azure-functions/functions-bindings-storage-blob.md)
+Para saber mais sobre as bolhas de armazenamento visite: [Azure Functions Blob encadernações de armazenamento](../azure-functions/functions-bindings-storage-blob.md)

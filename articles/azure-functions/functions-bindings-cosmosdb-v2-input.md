@@ -1,41 +1,42 @@
 ---
-title: Ligação de entrada Azure Cosmos DB para funções 2.x
-description: Aprenda a utilizar a ligação de entrada Azure Cosmos DB em Funções Azure.
+title: Ligação de entrada DB Azure Cosmos para funções 2.x e superior
+description: Aprenda a utilizar a ligação de entrada DB Azure Cosmos em Funções Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.openlocfilehash: eabcf40e28927919215979ccc46fa029d19adbfe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 5e41f5d2189cce19dab3e0b48943ef0568ddedb8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78943429"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807014"
 ---
-# <a name="azure-cosmos-db-input-binding-for-azure-functions-2x"></a>Ligação de entrada Azure Cosmos DB para funções Azure 2.x
+# <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Ligação de entrada DB Azure Cosmos para Funções Azure 2.x e superior
 
 O enlace de entrada do Azure Cosmos DB utiliza a API do SQL para obter um ou mais documentos do Azure Cosmos DB e passa-os para o parâmetro de entrada da função. Os parâmetros de consulta ou o ID do documento podem ser determinados com base no acionador que invoca a função.
 
-Para obter informações sobre os detalhes da configuração e configuração, consulte a [visão geral](./functions-bindings-cosmosdb-v2.md).
+Para obter informações sobre detalhes de configuração e configuração, consulte a [visão geral](./functions-bindings-cosmosdb-v2.md).
 
 > [!NOTE]
-> Se a recolha estiver [dividida,](../cosmos-db/partition-data.md#logical-partitions)as operações de procuração devem também especificar o valor-chave da partilha.
+> Se a recolha for [dividida,](../cosmos-db/partition-data.md#logical-partitions)as operações de procura também devem especificar o valor da chave de partição.
 >
 
 <a id="example" name="example"></a>
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Esta secção contém os seguintes exemplos:
 
-* [Gatilho de fila, procure identificação da JSON](#queue-trigger-look-up-id-from-json-c)
-* [HTTP gatilho, procure o ID da corda de consulta](#http-trigger-look-up-id-from-query-string-c)
-* [HTTP gatilho, procure id a partir de dados de rota](#http-trigger-look-up-id-from-route-data-c)
-* [GATILHO HTTP, procure id a partir de dados de rota, usando SqlQuery](#http-trigger-look-up-id-from-route-data-using-sqlquery-c)
-* [GATILHO HTTP, obtenha vários docs, usando SqlQuery](#http-trigger-get-multiple-docs-using-sqlquery-c)
-* [GATILHO HTTP, obtenha vários docs, usando o DocumentClient](#http-trigger-get-multiple-docs-using-documentclient-c)
+* [Gatilho da fila, procure o ID de JSON](#queue-trigger-look-up-id-from-json-c)
+* [HTTP trigger, procure o ID a partir da cadeia de consulta](#http-trigger-look-up-id-from-query-string-c)
+* [HTTP trigger, procure o ID a partir de dados de rota](#http-trigger-look-up-id-from-route-data-c)
+* [Detonador HTTP, procure o ID a partir de dados de rota, usando SqlQuery](#http-trigger-look-up-id-from-route-data-using-sqlquery-c)
+* [Detonador HTTP, obtenha vários docs, usando SqlQuery](#http-trigger-get-multiple-docs-using-sqlquery-c)
+* [Detonador HTTP, obtenha vários docs, utilizando o DocumentClient](#http-trigger-get-multiple-docs-using-documentclient-c)
 
-Os exemplos referem-se a um tipo simples: `ToDoItem`
+Os exemplos referem-se a um `ToDoItem` tipo simples:
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -51,9 +52,9 @@ namespace CosmosDBSamplesV2
 
 <a id="queue-trigger-look-up-id-from-json-c"></a>
 
-### <a name="queue-trigger-look-up-id-from-json"></a>Gatilho de fila, procure identificação da JSON 
+### <a name="queue-trigger-look-up-id-from-json"></a>Gatilho da fila, procure o ID de JSON 
 
-O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que recupera um único documento. A função é desencadeada por uma mensagem de fila que contém um objeto JSON. O gatilho da fila analisa o JSON num objeto de tipo, `ToDoItemLookup`que contém o id e o valor da chave da divisória para procurar. Esse valor chave de identificação `ToDoItem` e partição é usado para recuperar um documento da base de dados e recolha especificadas.
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que recupera um único documento. A função é desencadeada por uma mensagem de fila que contém um objeto JSON. O gatilho da fila analisa o JSON num objeto do `ToDoItemLookup` tipo, que contém o valor de ID e partição para olhar para cima. Esse valor de ID e chave de partição são usados para recuperar um `ToDoItem` documento da base de dados e recolha especificadas.
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -104,12 +105,12 @@ namespace CosmosDBSamplesV2
 
 <a id="http-trigger-look-up-id-from-query-string-c"></a>
 
-### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP gatilho, procure o ID da corda de consulta
+### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP trigger, procure o ID a partir da cadeia de consulta
 
-O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o valor da chave de identificação e divisória para procurar. Esse valor chave de identificação `ToDoItem` e partição é usado para recuperar um documento da base de dados e recolha especificadas.
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o valor da chave de ID e partição para procurar. Esse valor de ID e chave de partição são usados para recuperar um `ToDoItem` documento da base de dados e recolha especificadas.
 
 >[!NOTE]
->O parâmetro de corda http consulta é sensível a casos.
+>O parâmetro de cadeia de consulta HTTP é sensível a maiíssícolas.
 >
 
 ```cs
@@ -154,9 +155,9 @@ namespace CosmosDBSamplesV2
 
 <a id="http-trigger-look-up-id-from-route-data-c"></a>
 
-### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP gatilho, procure id a partir de dados de rota
+### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP trigger, procure o ID a partir de dados de rota
 
-O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que recupera um único documento. A função é desencadeada por um pedido http que utiliza dados de rota para especificar o valor da chave de id e partição para procurar. Esse valor chave de identificação `ToDoItem` e partição é usado para recuperar um documento da base de dados e recolha especificadas.
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza dados de rota para especificar o valor da chave de ID e partição para procurar. Esse valor de ID e chave de partição são usados para recuperar um `ToDoItem` documento da base de dados e recolha especificadas.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -200,14 +201,14 @@ namespace CosmosDBSamplesV2
 
 <a id="http-trigger-look-up-id-from-route-data-using-sqlquery-c"></a>
 
-### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery"></a>GATILHO HTTP, procure id a partir de dados de rota, usando SqlQuery
+### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery"></a>Detonador HTTP, procure o ID a partir de dados de rota, usando SqlQuery
 
-O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que recupera um único documento. A função é desencadeada por um pedido http que utiliza dados de rota para especificar o ID para procurar. O ID é usado `ToDoItem` para recuperar um documento da base de dados e recolha especificadas.
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza dados de rota para especificar o ID para procurar. Essa identificação é usada para recuperar um `ToDoItem` documento da base de dados e recolha especificadas.
 
-O exemplo mostra como usar uma `SqlQuery` expressão de ligação no parâmetro. Pode passar os dados `SqlQuery` da rota para o parâmetro como mostrado, mas atualmente [não pode passar os valores](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583)das cordas de consulta.
+O exemplo mostra como usar uma expressão de ligação no `SqlQuery` parâmetro. Pode passar os dados de rota para o `SqlQuery` parâmetro como mostrado, mas atualmente [não pode passar valores de cadeia de consulta](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
 
 > [!NOTE]
-> Se precisar de consultar apenas o ID, recomenda-se utilizar um look up, como os [exemplos anteriores](#http-trigger-look-up-id-from-query-string-c), uma vez que consumirá menos [unidades](../cosmos-db/request-units.md)de pedido . As operações de leitura de pontos (GET) são [mais eficientes](../cosmos-db/optimize-cost-queries.md) do que as consultas por ID.
+> Se precisar de consultar apenas o ID, recomenda-se a utilização de um look up, como os [exemplos anteriores,](#http-trigger-look-up-id-from-query-string-c)pois consumirá menos [unidades de pedido](../cosmos-db/request-units.md). As operações de leitura de pontos (GET) são [mais eficientes](../cosmos-db/optimize-cost-queries.md) do que as consultas por ID.
 >
 
 ```cs
@@ -247,9 +248,9 @@ namespace CosmosDBSamplesV2
 
 <a id="http-trigger-get-multiple-docs-using-sqlquery-c"></a>
 
-### <a name="http-trigger-get-multiple-docs-using-sqlquery"></a>GATILHO HTTP, obtenha vários docs, usando SqlQuery
+### <a name="http-trigger-get-multiple-docs-using-sqlquery"></a>Detonador HTTP, obtenha vários docs, usando SqlQuery
 
-O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que recupera uma lista de documentos. A função é desencadeada por um pedido HTTP. A consulta é especificada `SqlQuery` na propriedade do atributo.
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que recupera uma lista de documentos. A função é desencadeada por um pedido HTTP. A consulta é especificada na `SqlQuery` propriedade do atributo.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -290,9 +291,9 @@ namespace CosmosDBSamplesV2
 
 <a id="http-trigger-get-multiple-docs-using-documentclient-c"></a>
 
-### <a name="http-trigger-get-multiple-docs-using-documentclient"></a>GATILHO HTTP, obtenha vários docs, usando o DocumentClient
+### <a name="http-trigger-get-multiple-docs-using-documentclient"></a>Detonador HTTP, obtenha vários docs, utilizando o DocumentClient
 
-O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que recupera uma lista de documentos. A função é desencadeada por um pedido HTTP. O código `DocumentClient` utiliza uma instância fornecida pelo Azure Cosmos DB vinculando-se para ler uma lista de documentos. A `DocumentClient` instância também poderia ser utilizada para as operações de escrita.
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que recupera uma lista de documentos. A função é desencadeada por um pedido HTTP. O código utiliza uma `DocumentClient` instância fornecida pela ligação Azure Cosmos DB para ler uma lista de documentos. O `DocumentClient` caso também pode ser utilizado para operações de escrita.
 
 > [!NOTE]
 > Também pode utilizar a interface [IDocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet) para facilitar o teste.
@@ -357,14 +358,14 @@ namespace CosmosDBSamplesV2
 
 Esta secção contém os seguintes exemplos:
 
-* [Gatilho de fila, procure identificação da corda](#queue-trigger-look-up-id-from-string-c-script)
+* [Gatilho da fila, procure o ID da corda](#queue-trigger-look-up-id-from-string-c-script)
 * [Gatilho de fila, obter vários docs, usando SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-c-script)
-* [HTTP gatilho, procure o ID da corda de consulta](#http-trigger-look-up-id-from-query-string-c-script)
-* [HTTP gatilho, procure id a partir de dados de rota](#http-trigger-look-up-id-from-route-data-c-script)
-* [GATILHO HTTP, obtenha vários docs, usando SqlQuery](#http-trigger-get-multiple-docs-using-sqlquery-c-script)
-* [GATILHO HTTP, obtenha vários docs, usando o DocumentClient](#http-trigger-get-multiple-docs-using-documentclient-c-script)
+* [HTTP trigger, procure o ID a partir da cadeia de consulta](#http-trigger-look-up-id-from-query-string-c-script)
+* [HTTP trigger, procure o ID a partir de dados de rota](#http-trigger-look-up-id-from-route-data-c-script)
+* [Detonador HTTP, obtenha vários docs, usando SqlQuery](#http-trigger-get-multiple-docs-using-sqlquery-c-script)
+* [Detonador HTTP, obtenha vários docs, utilizando o DocumentClient](#http-trigger-get-multiple-docs-using-documentclient-c-script)
 
-Os exemplos do gatilho `ToDoItem` HTTP referem-se a um tipo simples:
+Os exemplos de gatilho HTTP referem-se a um `ToDoItem` tipo simples:
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -379,11 +380,11 @@ namespace CosmosDBSamplesV2
 
 <a id="queue-trigger-look-up-id-from-string-c-script"></a>
 
-### <a name="queue-trigger-look-up-id-from-string"></a>Gatilho de fila, procure identificação da corda
+### <a name="queue-trigger-look-up-id-from-string"></a>Gatilho da fila, procure o ID da corda
 
-O exemplo seguinte mostra uma ligação de entrada Cosmos DB num ficheiro *function.json* e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função lê um único documento e atualiza o valor de texto do documento.
+O exemplo a seguir mostra uma ligação de entrada Cosmos DB numa *function.jsno* ficheiro e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função lê um único documento e atualiza o valor de texto do documento.
 
-Aqui estão os dados vinculativos no ficheiro *função.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -397,9 +398,9 @@ Aqui estão os dados vinculativos no ficheiro *função.json:*
     "direction": "in"
 }
 ```
-A secção de [configuração](#configuration) explica estas propriedades.
+A secção [de configuração](#configuration) explica estas propriedades.
 
-Aqui está o código de script C#:
+Aqui está o código do guião C:
 
 ```cs
     using System;
@@ -415,11 +416,11 @@ Aqui está o código de script C#:
 
 ### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Gatilho de fila, obter vários docs, usando SqlQuery
 
-O exemplo seguinte mostra uma ligação de entrada Azure Cosmos DB num ficheiro *function.json* e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função recupera vários documentos especificados por uma consulta SQL, utilizando um gatilho de fila para personalizar os parâmetros de consulta.
+O exemplo a seguir mostra uma ligação de entrada DB Azure Cosmos numa *function.jsno* ficheiro e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função recupera vários documentos especificados por uma consulta SQL, utilizando um gatilho de fila para personalizar os parâmetros de consulta.
 
-O gatilho da fila `departmentId`fornece um parâmetro . Uma mensagem `{ "departmentId" : "Finance" }` de fila devolveria todos os registos para o Departamento de Finanças.
+O gatilho da fila fornece um parâmetro `departmentId` . Uma mensagem de fila `{ "departmentId" : "Finance" }` devolveria todos os registos para o Departamento de Finanças.
 
-Aqui estão os dados vinculativos no ficheiro *função.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -433,9 +434,9 @@ Aqui estão os dados vinculativos no ficheiro *função.json:*
 }
 ```
 
-A secção de [configuração](#configuration) explica estas propriedades.
+A secção [de configuração](#configuration) explica estas propriedades.
 
-Aqui está o código de script C#:
+Aqui está o código do guião C:
 
 ```csharp
     public static void Run(QueuePayload myQueueItem, IEnumerable<dynamic> documents)
@@ -454,11 +455,11 @@ Aqui está o código de script C#:
 
 <a id="http-trigger-look-up-id-from-query-string-c-script"></a>
 
-### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP gatilho, procure o ID da corda de consulta
+### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP trigger, procure o ID a partir da cadeia de consulta
 
-O exemplo seguinte mostra uma [função de script C#](functions-reference-csharp.md) que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o valor da chave de identificação e divisória para procurar. Esse valor chave de identificação `ToDoItem` e partição é usado para recuperar um documento da base de dados e recolha especificadas.
+O exemplo a seguir mostra uma [função de script C#](functions-reference-csharp.md) que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o valor da chave de ID e partição para procurar. Esse valor de ID e chave de partição são usados para recuperar um `ToDoItem` documento da base de dados e recolha especificadas.
 
-Aqui está o ficheiro *função.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -493,7 +494,7 @@ Aqui está o ficheiro *função.json:*
 }
 ```
 
-Aqui está o código de script C#:
+Aqui está o código do guião C:
 
 ```cs
 using System.Net;
@@ -517,11 +518,11 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
 <a id="http-trigger-look-up-id-from-route-data-c-script"></a>
 
-### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP gatilho, procure id a partir de dados de rota
+### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP trigger, procure o ID a partir de dados de rota
 
-O exemplo seguinte mostra uma [função de script C#](functions-reference-csharp.md) que recupera um único documento. A função é desencadeada por um pedido http que utiliza dados de rota para especificar o valor da chave de id e partição para procurar. Esse valor chave de identificação `ToDoItem` e partição é usado para recuperar um documento da base de dados e recolha especificadas.
+O exemplo a seguir mostra uma [função de script C#](functions-reference-csharp.md) que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza dados de rota para especificar o valor da chave de ID e partição para procurar. Esse valor de ID e chave de partição são usados para recuperar um `ToDoItem` documento da base de dados e recolha especificadas.
 
-Aqui está o ficheiro *função.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -557,7 +558,7 @@ Aqui está o ficheiro *função.json:*
 }
 ```
 
-Aqui está o código de script C#:
+Aqui está o código do guião C:
 
 ```cs
 using System.Net;
@@ -581,11 +582,11 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
 <a id="http-trigger-get-multiple-docs-using-sqlquery-c-script"></a>
 
-### <a name="http-trigger-get-multiple-docs-using-sqlquery"></a>GATILHO HTTP, obtenha vários docs, usando SqlQuery
+### <a name="http-trigger-get-multiple-docs-using-sqlquery"></a>Detonador HTTP, obtenha vários docs, usando SqlQuery
 
-O exemplo que se segue mostra uma [função de script C#](functions-reference-csharp.md) que recupera uma lista de documentos. A função é desencadeada por um pedido HTTP. A consulta é especificada `SqlQuery` na propriedade do atributo.
+O exemplo a seguir mostra uma [função de script C#](functions-reference-csharp.md) que recupera uma lista de documentos. A função é desencadeada por um pedido HTTP. A consulta é especificada na `SqlQuery` propriedade do atributo.
 
-Aqui está o ficheiro *função.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -619,7 +620,7 @@ Aqui está o ficheiro *função.json:*
 }
 ```
 
-Aqui está o código de script C#:
+Aqui está o código do guião C:
 
 ```cs
 using System.Net;
@@ -639,11 +640,11 @@ public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoIt
 
 <a id="http-trigger-get-multiple-docs-using-documentclient-c-script"></a>
 
-### <a name="http-trigger-get-multiple-docs-using-documentclient"></a>GATILHO HTTP, obtenha vários docs, usando o DocumentClient
+### <a name="http-trigger-get-multiple-docs-using-documentclient"></a>Detonador HTTP, obtenha vários docs, utilizando o DocumentClient
 
-O exemplo que se segue mostra uma [função de script C#](functions-reference-csharp.md) que recupera uma lista de documentos. A função é desencadeada por um pedido HTTP. O código `DocumentClient` utiliza uma instância fornecida pelo Azure Cosmos DB vinculando-se para ler uma lista de documentos. A `DocumentClient` instância também poderia ser utilizada para as operações de escrita.
+O exemplo a seguir mostra uma [função de script C#](functions-reference-csharp.md) que recupera uma lista de documentos. A função é desencadeada por um pedido HTTP. O código utiliza uma `DocumentClient` instância fornecida pela ligação Azure Cosmos DB para ler uma lista de documentos. O `DocumentClient` caso também pode ser utilizado para operações de escrita.
 
-Aqui está o ficheiro *função.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -676,7 +677,7 @@ Aqui está o ficheiro *função.json:*
 }
 ```
 
-Aqui está o código de script C#:
+Aqui está o código do guião C:
 
 ```cs
 #r "Microsoft.Azure.Documents.Client"
@@ -718,20 +719,20 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Esta secção contém os seguintes exemplos que lêem um único documento especificando um valor de id de várias fontes:
+Esta secção contém os seguintes exemplos que lêem um único documento especificando um valor de ID de várias fontes:
 
-* [Gatilho de fila, procure identificação da JSON](#queue-trigger-look-up-id-from-json-javascript)
-* [HTTP gatilho, procure o ID da corda de consulta](#http-trigger-look-up-id-from-query-string-javascript)
-* [HTTP gatilho, procure id a partir de dados de rota](#http-trigger-look-up-id-from-route-data-javascript)
+* [Gatilho da fila, procure o ID de JSON](#queue-trigger-look-up-id-from-json-javascript)
+* [HTTP trigger, procure o ID a partir da cadeia de consulta](#http-trigger-look-up-id-from-query-string-javascript)
+* [HTTP trigger, procure o ID a partir de dados de rota](#http-trigger-look-up-id-from-route-data-javascript)
 * [Gatilho de fila, obter vários docs, usando SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
 
 <a id="queue-trigger-look-up-id-from-json-javascript"></a>
 
-### <a name="queue-trigger-look-up-id-from-json"></a>Gatilho de fila, procure identificação da JSON
+### <a name="queue-trigger-look-up-id-from-json"></a>Gatilho da fila, procure o ID de JSON
 
-O exemplo seguinte mostra uma ligação de entrada Cosmos DB num ficheiro *function.json* e uma [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função lê um único documento e atualiza o valor de texto do documento.
+O exemplo a seguir mostra uma ligação de entrada de Cosmos DB numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função lê um único documento e atualiza o valor de texto do documento.
 
-Aqui estão os dados vinculativos no ficheiro *função.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -756,7 +757,7 @@ Aqui estão os dados vinculativos no ficheiro *função.json:*
 }
 ```
 
-A secção de [configuração](#configuration) explica estas propriedades.
+A secção [de configuração](#configuration) explica estas propriedades.
 
 Aqui está o código JavaScript:
 
@@ -771,11 +772,11 @@ Aqui está o código JavaScript:
 
 <a id="http-trigger-look-up-id-from-query-string-javascript"></a>
 
-### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP gatilho, procure o ID da corda de consulta
+### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP trigger, procure o ID a partir da cadeia de consulta
 
-O exemplo seguinte mostra uma [função JavaScript](functions-reference-node.md) que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o valor da chave de identificação e divisória para procurar. Esse valor chave de identificação `ToDoItem` e partição é usado para recuperar um documento da base de dados e recolha especificadas.
+O exemplo a seguir mostra uma [função JavaScript](functions-reference-node.md) que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o valor da chave de ID e partição para procurar. Esse valor de ID e chave de partição são usados para recuperar um `ToDoItem` documento da base de dados e recolha especificadas.
 
-Aqui está o ficheiro *função.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -830,11 +831,11 @@ module.exports = function (context, req, toDoItem) {
 
 <a id="http-trigger-look-up-id-from-route-data-javascript"></a>
 
-### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP gatilho, procure id a partir de dados de rota
+### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP trigger, procure o ID a partir de dados de rota
 
-O exemplo seguinte mostra uma [função JavaScript](functions-reference-node.md) que recupera um único documento. A função é desencadeada por um pedido http que utiliza dados de rota para especificar o valor da chave de id e partição para procurar. Esse valor chave de identificação `ToDoItem` e partição é usado para recuperar um documento da base de dados e recolha especificadas.
+O exemplo a seguir mostra uma [função JavaScript](functions-reference-node.md) que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza dados de rota para especificar o valor da chave de ID e partição para procurar. Esse valor de ID e chave de partição são usados para recuperar um `ToDoItem` documento da base de dados e recolha especificadas.
 
-Aqui está o ficheiro *função.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -860,7 +861,7 @@ Aqui está o ficheiro *função.json:*
       "name": "toDoItem",
       "databaseName": "ToDoItems",
       "collectionName": "Items",
-      "connection": "CosmosDBConnection",
+      "connectionStringSetting": "CosmosDBConnection",
       "direction": "in",
       "Id": "{id}",
       "PartitionKey": "{partitionKeyValue}"
@@ -892,11 +893,11 @@ module.exports = function (context, req, toDoItem) {
 
 ### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Gatilho de fila, obter vários docs, usando SqlQuery
 
-O exemplo seguinte mostra uma ligação de entrada Azure Cosmos DB num ficheiro *function.json* e uma [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função recupera vários documentos especificados por uma consulta SQL, utilizando um gatilho de fila para personalizar os parâmetros de consulta.
+O exemplo a seguir mostra uma ligação de entrada DB Azure Cosmos numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função recupera vários documentos especificados por uma consulta SQL, utilizando um gatilho de fila para personalizar os parâmetros de consulta.
 
-O gatilho da fila `departmentId`fornece um parâmetro . Uma mensagem `{ "departmentId" : "Finance" }` de fila devolveria todos os registos para o Departamento de Finanças.
+O gatilho da fila fornece um parâmetro `departmentId` . Uma mensagem de fila `{ "departmentId" : "Finance" }` devolveria todos os registos para o Departamento de Finanças.
 
-Aqui estão os dados vinculativos no ficheiro *função.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -910,7 +911,7 @@ Aqui estão os dados vinculativos no ficheiro *função.json:*
 }
 ```
 
-A secção de [configuração](#configuration) explica estas propriedades.
+A secção [de configuração](#configuration) explica estas propriedades.
 
 Aqui está o código JavaScript:
 
@@ -927,20 +928,20 @@ Aqui está o código JavaScript:
 
 # <a name="python"></a>[Python](#tab/python)
 
-Esta secção contém os seguintes exemplos que lêem um único documento especificando um valor de id de várias fontes:
+Esta secção contém os seguintes exemplos que lêem um único documento especificando um valor de ID de várias fontes:
 
-* [Gatilho de fila, procure identificação da JSON](#queue-trigger-look-up-id-from-json-python)
-* [HTTP gatilho, procure o ID da corda de consulta](#http-trigger-look-up-id-from-query-string-python)
-* [HTTP gatilho, procure id a partir de dados de rota](#http-trigger-look-up-id-from-route-data-python)
+* [Gatilho da fila, procure o ID de JSON](#queue-trigger-look-up-id-from-json-python)
+* [HTTP trigger, procure o ID a partir da cadeia de consulta](#http-trigger-look-up-id-from-query-string-python)
+* [HTTP trigger, procure o ID a partir de dados de rota](#http-trigger-look-up-id-from-route-data-python)
 * [Gatilho de fila, obter vários docs, usando SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-python)
 
 <a id="queue-trigger-look-up-id-from-json-python"></a>
 
-### <a name="queue-trigger-look-up-id-from-json"></a>Gatilho de fila, procure identificação da JSON
+### <a name="queue-trigger-look-up-id-from-json"></a>Gatilho da fila, procure o ID de JSON
 
-O exemplo seguinte mostra uma ligação de entrada Cosmos DB num ficheiro *function.json* e uma [função Python](functions-reference-python.md) que usa a ligação. A função lê um único documento e atualiza o valor de texto do documento.
+O exemplo a seguir mostra uma ligação de entrada cosmos DB numa *function.jsem* ficheiro e uma [função Python](functions-reference-python.md) que usa a ligação. A função lê um único documento e atualiza o valor de texto do documento.
 
-Aqui estão os dados vinculativos no ficheiro *função.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -965,7 +966,7 @@ Aqui estão os dados vinculativos no ficheiro *função.json:*
 }
 ```
 
-A secção de [configuração](#configuration) explica estas propriedades.
+A secção [de configuração](#configuration) explica estas propriedades.
 
 Aqui está o código Python:
 
@@ -982,11 +983,11 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Docu
 
 <a id="http-trigger-look-up-id-from-query-string-python"></a>
 
-### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP gatilho, procure o ID da corda de consulta
+### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP trigger, procure o ID a partir da cadeia de consulta
 
-O exemplo que se segue mostra uma [função Python](functions-reference-python.md) que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o valor da chave de identificação e divisória para procurar. Esse valor chave de identificação `ToDoItem` e partição é usado para recuperar um documento da base de dados e recolha especificadas.
+O exemplo a seguir mostra uma [função Python](functions-reference-python.md) que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o valor da chave de ID e partição para procurar. Esse valor de ID e chave de partição são usados para recuperar um `ToDoItem` documento da base de dados e recolha especificadas.
 
-Aqui está o ficheiro *função.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -1017,7 +1018,6 @@ Aqui está o ficheiro *função.json:*
       "PartitionKey": "{Query.partitionKeyValue}"
     }
   ],
-  "disabled": true,
   "scriptFile": "__init__.py"
 }
 ```
@@ -1041,11 +1041,11 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 <a id="http-trigger-look-up-id-from-route-data-python"></a>
 
-### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP gatilho, procure id a partir de dados de rota
+### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP trigger, procure o ID a partir de dados de rota
 
-O exemplo que se segue mostra uma [função Python](functions-reference-python.md) que recupera um único documento. A função é desencadeada por um pedido http que utiliza dados de rota para especificar o valor da chave de id e partição para procurar. Esse valor chave de identificação `ToDoItem` e partição é usado para recuperar um documento da base de dados e recolha especificadas.
+O exemplo a seguir mostra uma [função Python](functions-reference-python.md) que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza dados de rota para especificar o valor da chave de ID e partição para procurar. Esse valor de ID e chave de partição são usados para recuperar um `ToDoItem` documento da base de dados e recolha especificadas.
 
-Aqui está o ficheiro *função.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -1102,11 +1102,11 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 ### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Gatilho de fila, obter vários docs, usando SqlQuery
 
-O exemplo seguinte mostra uma ligação de entrada Azure Cosmos DB num ficheiro *function.json* e uma [função Python](functions-reference-python.md) que utiliza a ligação. A função recupera vários documentos especificados por uma consulta SQL, utilizando um gatilho de fila para personalizar os parâmetros de consulta.
+O exemplo a seguir mostra uma ligação de entrada DB Azure Cosmos numa *function.jsem* ficheiro e uma [função Python](functions-reference-python.md) que utiliza a ligação. A função recupera vários documentos especificados por uma consulta SQL, utilizando um gatilho de fila para personalizar os parâmetros de consulta.
 
-O gatilho da fila `departmentId`fornece um parâmetro . Uma mensagem `{ "departmentId" : "Finance" }` de fila devolveria todos os registos para o Departamento de Finanças.
+O gatilho da fila fornece um parâmetro `departmentId` . Uma mensagem de fila `{ "departmentId" : "Finance" }` devolveria todos os registos para o Departamento de Finanças.
 
-Aqui estão os dados vinculativos no ficheiro *função.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -1120,7 +1120,7 @@ Aqui estão os dados vinculativos no ficheiro *função.json:*
 }
 ```
 
-A secção de [configuração](#configuration) explica estas propriedades.
+A secção [de configuração](#configuration) explica estas propriedades.
 
 Aqui está o código Python:
 
@@ -1136,13 +1136,13 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList):
 
 Esta secção contém os seguintes exemplos:
 
-* [GATILHO HTTP, procure o ID da corda de consulta - Parâmetro de corda](#http-trigger-look-up-id-from-query-string---string-parameter-java)
-* [GATILHO HTTP, procure id da corda de consulta - parâmetro POJO](#http-trigger-look-up-id-from-query-string---pojo-parameter-java)
-* [HTTP gatilho, procure id a partir de dados de rota](#http-trigger-look-up-id-from-route-data-java)
-* [GATILHO HTTP, procure id a partir de dados de rota, usando SqlQuery](#http-trigger-look-up-id-from-route-data-using-sqlquery-java)
-* [GATILHO HTTP, obtenha vários docs a partir de dados de rota, usando SqlQuery](#http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java)
+* [HTTP trigger, procure o ID a partir da cadeia de consulta - Parâmetro de corda](#http-trigger-look-up-id-from-query-string---string-parameter-java)
+* [Http trigger, procure o ID a partir da cadeia de consulta - parâmetro POJO](#http-trigger-look-up-id-from-query-string---pojo-parameter-java)
+* [HTTP trigger, procure o ID a partir de dados de rota](#http-trigger-look-up-id-from-route-data-java)
+* [Detonador HTTP, procure o ID a partir de dados de rota, usando SqlQuery](#http-trigger-look-up-id-from-route-data-using-sqlquery-java)
+* [Detonador HTTP, obtenha vários docs a partir de dados de rota, usando SqlQuery](#http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java)
 
-Os exemplos referem-se a um tipo simples: `ToDoItem`
+Os exemplos referem-se a um `ToDoItem` tipo simples:
 
 ```java
 public class ToDoItem {
@@ -1167,9 +1167,9 @@ public class ToDoItem {
 
 <a id="http-trigger-look-up-id-from-query-string---string-parameter-java"></a>
 
-### <a name="http-trigger-look-up-id-from-query-string---string-parameter"></a>GATILHO HTTP, procure o ID da corda de consulta - Parâmetro de corda
+### <a name="http-trigger-look-up-id-from-query-string---string-parameter"></a>HTTP trigger, procure o ID a partir da cadeia de consulta - Parâmetro de corda
 
-O exemplo seguinte mostra uma função Java que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o valor da chave de identificação e divisória para procurar. Este id e o valor chave da divisória são usados para recuperar um documento da base de dados e recolha especificada, em forma de String.
+O exemplo a seguir mostra uma função Java que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o valor da chave de ID e partição para procurar. Esse valor de ID e chave de partição são usados para recuperar um documento da base de dados e recolha especificadas, em forma de corda.
 
 ```java
 public class DocByIdFromQueryString {
@@ -1211,13 +1211,13 @@ public class DocByIdFromQueryString {
 }
  ```
 
-Na biblioteca de tempo de funcionamento das [funções java,](/java/api/overview/azure/functions/runtime)use a `@CosmosDBInput` anotação em parâmetros de função cujo valor viria de Cosmos DB.  Esta anotação pode ser usada com tipos nativos de `Optional<T>`Java, POJOs ou valores nuníveis usando .
+Na biblioteca de [funções java,](/java/api/overview/azure/functions/runtime)use a `@CosmosDBInput` anotação em parâmetros de função cujo valor viria do Cosmos DB.  Esta anotação pode ser usada com tipos nativos de Java, POJOs ou valores anulados usando `Optional<T>` .
 
 <a id="http-trigger-look-up-id-from-query-string---pojo-parameter-java"></a>
 
-### <a name="http-trigger-look-up-id-from-query-string---pojo-parameter"></a>GATILHO HTTP, procure id da corda de consulta - parâmetro POJO
+### <a name="http-trigger-look-up-id-from-query-string---pojo-parameter"></a>Http trigger, procure o ID a partir da cadeia de consulta - parâmetro POJO
 
-O exemplo seguinte mostra uma função Java que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o valor da chave de identificação e divisória para procurar. Esse valor de identificação e divisória usado para recuperar um documento da base de dados e recolha especificadas. O documento é então convertido ```ToDoItem``` para um caso do POJO anteriormente criado, e passado como um argumento para a função.
+O exemplo a seguir mostra uma função Java que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o valor da chave de ID e partição para procurar. Esse valor de identificação e chave de partição usado para recuperar um documento da base de dados e recolha especificadas. O documento é então convertido para uma instância do ```ToDoItem``` POJO anteriormente criado, e passado como um argumento para a função.
 
 ```java
 public class DocByIdFromQueryStringPojo {
@@ -1259,9 +1259,9 @@ public class DocByIdFromQueryStringPojo {
 
 <a id="http-trigger-look-up-id-from-route-data-java"></a>
 
-### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP gatilho, procure id a partir de dados de rota
+### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP trigger, procure o ID a partir de dados de rota
 
-O exemplo seguinte mostra uma função Java que recupera um único documento. A função é desencadeada por um pedido http que utiliza um parâmetro de rota para especificar o id e o valor da chave de partição para procurar. Esse valor chave de identificação e partição é utilizado para recuperar ```Optional<String>```um documento da base de dados e recolha especificadas, devolvendo-o como um .
+O exemplo a seguir mostra uma função Java que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza um parâmetro de rota para especificar o valor da chave de id e partição para procurar. Esse valor de identificação e chave de partição são usados para recuperar um documento da base de dados e recolha especificadas, devolvendo-o como ```Optional<String>``` um .
 
 ```java
 public class DocByIdFromRoute {
@@ -1306,12 +1306,12 @@ public class DocByIdFromRoute {
 
  <a id="http-trigger-look-up-id-from-route-data-using-sqlquery-java"></a>
 
-### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery"></a>GATILHO HTTP, procure id a partir de dados de rota, usando SqlQuery
+### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery"></a>Detonador HTTP, procure o ID a partir de dados de rota, usando SqlQuery
 
-O exemplo seguinte mostra uma função Java que recupera um único documento. A função é desencadeada por um pedido http que utiliza um parâmetro de rota para especificar o ID para procurar. Esse ID é utilizado para recuperar um documento da base de dados ```ToDoItem[]```e recolha especificadas, convertendo o resultado definido para um , uma vez que muitos documentos podem ser devolvidos, dependendo dos critérios de consulta.
+O exemplo a seguir mostra uma função Java que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza um parâmetro de rota para especificar o ID para procurar. Esse ID é utilizado para recuperar um documento da base de dados e recolha especificadas, convertendo o resultado definido para um ```ToDoItem[]``` , uma vez que muitos documentos podem ser devolvidos, dependendo dos critérios de consulta.
 
 > [!NOTE]
-> Se precisar de consultar apenas o ID, recomenda-se utilizar um look up, como os [exemplos anteriores](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), uma vez que consumirá menos [unidades](../cosmos-db/request-units.md)de pedido . As operações de leitura de pontos (GET) são [mais eficientes](../cosmos-db/optimize-cost-queries.md) do que as consultas por ID.
+> Se precisar de consultar apenas o ID, recomenda-se a utilização de um look up, como os [exemplos anteriores,](#http-trigger-look-up-id-from-query-string---pojo-parameter-java)pois consumirá menos [unidades de pedido](../cosmos-db/request-units.md). As operações de leitura de pontos (GET) são [mais eficientes](../cosmos-db/optimize-cost-queries.md) do que as consultas por ID.
 >
 
 ```java
@@ -1354,9 +1354,9 @@ public class DocByIdFromRouteSqlQuery {
 
  <a id="http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java"></a>
 
-### <a name="http-trigger-get-multiple-docs-from-route-data-using-sqlquery"></a>GATILHO HTTP, obtenha vários docs a partir de dados de rota, usando SqlQuery
+### <a name="http-trigger-get-multiple-docs-from-route-data-using-sqlquery"></a>Detonador HTTP, obtenha vários docs a partir de dados de rota, usando SqlQuery
 
-O exemplo que se segue mostra uma função Java que recupera vários documentos. A função é desencadeada por um pedido ```desc``` HTTP que utiliza um parâmetro ```description``` de rota para especificar a cadeia para procurar no campo. O termo de pesquisa é usado para recuperar uma coleção de documentos da ```ToDoItem[]``` base de dados e recolha especificadas, convertendo o resultado definido para um e passando-o como um argumento para a função.
+O exemplo a seguir mostra uma função Java que recupera vários documentos. A função é desencadeada por um pedido HTTP que utiliza um parâmetro de rota ```desc``` para especificar a cadeia a procurar no ```description``` campo. O termo de pesquisa é utilizado para recuperar uma recolha de documentos da base de dados e recolha especificadas, convertendo o resultado definido para um ```ToDoItem[]``` e passando-o como argumento para a função.
 
 ```java
 public class DocsFromRouteSqlQuery {
@@ -1400,15 +1400,15 @@ public class DocsFromRouteSqlQuery {
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Nas [bibliotecas da classe C#,](functions-dotnet-class-library.md)use o atributo [CosmosDB.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs)
+Nas [bibliotecas de classe C,](functions-dotnet-class-library.md)utilize o atributo [CosmosDB.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs)
 
-O construtor do atributo tem o nome da base de dados e o nome da coleção. Para obter informações sobre essas definições e outras propriedades que possa configurar, consulte a seguinte secção de [configuração](#configuration).
+O construtor do atributo tem o nome da base de dados e o nome da recolha. Para obter informações sobre as configurações e outras propriedades que possa configurar, consulte [a seguinte secção de configuração](#configuration).
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Os atributos não são suportados por C# Script.
+Os atributos não são suportados pelo Script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -1420,54 +1420,54 @@ Os atributos não são suportados pela Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-A partir da biblioteca de tempo `@CosmosDBOutput` de funcionamento das [funções java,](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)use a anotação em parâmetros que escrevem para Cosmos DB. O tipo de parâmetro de `OutputBinding<T>`anotação deve ser, onde `T` é um tipo java nativo ou um POJO.
+A partir da [biblioteca de funções java,](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)use a `@CosmosDBOutput` anotação em parâmetros que escrevem para Cosmos DB. O tipo de parâmetro de anotação deve ser `OutputBinding<T>` , onde é um tipo java nativo ou um `T` POJO.
 
 ---
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no `CosmosDB` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `CosmosDB` atributo.
 
-|propriedade fun.json | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**     | n/d | Tem de `cosmosDB`ser definido para.        |
-|**direção**     | n/d | Tem de `in`ser definido para.         |
-|**nome**     | n/d | Nome do parâmetro de ligação que representa o documento na função.  |
-|**nome da base de dados** |**DatabaseName** |A base de dados que contém o documento.        |
-|**coleçãoNome** |**CollectionName** | O nome da coleção que contém o documento. |
-|**ID**    | **Id** | A identificação do documento para recuperar. Esta propriedade suporta [expressões vinculativas.](./functions-bindings-expressions-patterns.md) Não detete `id` as propriedades de **eqlquery.** Se não definir nenhum dos dois, toda a coleção é recuperada. |
-|**sqlQuery**  |**SqlQuery**  | Uma consulta Azure Cosmos DB SQL usada para recuperar vários documentos. A propriedade suporta encadernações de `SELECT * FROM c where c.departmentId = {departmentId}`tempo de execução, como neste exemplo: . Não desloque `id` `sqlQuery` as propriedades e propriedades. Se não definir nenhum dos dois, toda a coleção é recuperada.|
-|**conexãoStringSetting**     |**Definição de cordas de ligação**|O nome da configuração da aplicação que contém a sua cadeia de ligação Azure Cosmos DB. |
-|**partiçãoChave**|**PartitionKey**|Especifica o valor-chave da divisória para a procura. Pode incluir parâmetros de ligação. É necessário para procuras em coleções [divididas.](../cosmos-db/partition-data.md#logical-partitions)|
-|**preferredLocalizações**| **Localizações Preferenciais**| (Opcional) Define localizações preferenciais (regiões) para contas de base de dados geo-replicadas no serviço Azure Cosmos DB. Os valores devem ser separados pela vírposta. Por exemplo, "Leste dos EUA, Centro-Sul dos EUA, Norte da Europa". |
+|**tipo**     | n/a | Deve ser definido para `cosmosDB` .        |
+|**direção**     | n/a | Deve ser definido para `in` .         |
+|**nome**     | n/a | Nome do parâmetro de ligação que representa o documento na função.  |
+|**base de dados Nome** |**DatabaseName** |A base de dados que contém o documento.        |
+|**coleçãoName** |**CollectionName** | O nome da coleção que contém o documento. |
+|**id**    | **ID** | A identificação do documento para recuperar. Esta propriedade suporta [expressões vinculativas.](./functions-bindings-expressions-patterns.md) Não desconte as `id` propriedades e **sqlQuery.** Se não definir nenhum dos dois, toda a coleção será recuperada. |
+|**sqlQuery**  |**SqlQuery**  | Uma consulta Azure Cosmos DB SQL usada para recuperar vários documentos. A propriedade suporta encadernações de tempo de execução, como neste exemplo: `SELECT * FROM c where c.departmentId = {departmentId}` . Não coloque as `id` propriedades e `sqlQuery` as propriedades. Se não definir nenhum dos dois, toda a coleção será recuperada.|
+|**conexãoStringSetting**     |**ConexãoStringSetting**|O nome da definição da aplicação que contém a sua cadeia de ligação Azure Cosmos DB. |
+|**partitionKey**|**PartitionKey**|Especifica o valor da chave de partição para a procura. Pode incluir parâmetros de ligação. É necessário para procurar em coleções [divididas.](../cosmos-db/partition-data.md#logical-partitions)|
+|**preferênciasLoções**| **PreferênciasLocações**| (Opcional) Define localizações preferenciais (regiões) para contas de base de dados geo-replicadas no serviço DB Azure Cosmos. Os valores devem ser separados por vírgula. Por exemplo, "Leste dos EUA, Centro Sul dos EUA, Norte da Europa". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Utilização
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Quando a função sai com sucesso, quaisquer alterações feitas no documento de entrada através de parâmetros de entrada nomeados são automaticamente persistidas.
+Quando a função sai com sucesso, quaisquer alterações efetuadas no documento de entrada através de parâmetros de entrada nomeados são automaticamente persistiu.
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Quando a função sai com sucesso, quaisquer alterações feitas no documento de entrada através de parâmetros de entrada nomeados são automaticamente persistidas.
+Quando a função sai com sucesso, quaisquer alterações efetuadas no documento de entrada através de parâmetros de entrada nomeados são automaticamente persistiu.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-As atualizações não são feitas automaticamente após a saída da função. Em vez `context.bindings.<documentName>In` `context.bindings.<documentName>Out` disso, use e faça atualizações. Consulte o exemplo JavaScript.
+As atualizações não são efetuadas automaticamente após a saída da função. Em vez disso, use `context.bindings.<documentName>In` e `context.bindings.<documentName>Out` faça atualizações. Consulte o exemplo JavaScript.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Os dados são disponibilizados `DocumentList` à função através de um parâmetro. As alterações feitas ao documento não são automaticamente persistiu.
+Os dados são disponibilizados à função através de um `DocumentList` parâmetro. As alterações introduzidas no documento não são automaticamente persistiu.
 
 # <a name="java"></a>[Java](#tab/java)
 
-A partir da biblioteca de [@CosmosDBInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput) tempo de funcionamento das [funções java,](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)a anotação expõe os dados do Cosmos DB à função. Esta anotação pode ser usada com tipos nativos de `Optional<T>`Java, POJOs ou valores nuníveis usando .
+A partir da [biblioteca de funções Java,](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)a [@CosmosDBInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput) anotação expõe os dados do Cosmos DB à função. Esta anotação pode ser usada com tipos nativos de Java, POJOs ou valores anulados usando `Optional<T>` .
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Executar uma função quando um documento Azure Cosmos DB é criado ou modificado (Gatilho)](./functions-bindings-cosmosdb-v2-trigger.md)
-- [Guardar alterações num documento Azure Cosmos DB (Encadernação de saída)](./functions-bindings-cosmosdb-v2-output.md)
+- [Executar uma função quando um documento DB Azure Cosmos é criado ou modificado (Gatilho)](./functions-bindings-cosmosdb-v2-trigger.md)
+- [Guardar alterações num documento DB do Azure Cosmos (ligação à saída)](./functions-bindings-cosmosdb-v2-output.md)

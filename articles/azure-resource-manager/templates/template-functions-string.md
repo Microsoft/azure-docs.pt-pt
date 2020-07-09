@@ -3,48 +3,48 @@ title: Funções do modelo - cadeia
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para trabalhar com cordas.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: c0517375b273384f263e8ba421995d4afb6c193b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42df0317658971b9e9bf3fb805c9a5ff44efaf45
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80982419"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962072"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funções de corda para modelos ARM
 
-O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas nos seus modelos de Gestor de Recursos Azure (ARM):
+O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas nos seus modelos Azure Resource Manager (ARM):
 
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
-* [base64Tostring](#base64tostring)
+* [base64ToString](#base64tostring)
 * [concat](#concat)
 * [contém](#contains)
 * [dataUri](#datauri)
-* [datauritostring](#datauritostring)
+* [dataUriToString](#datauritostring)
 * [vazio](#empty)
-* [terminaCom](#endswith)
+* [terminaWith](#endswith)
 * [primeiro](#first)
 * [formato](#format)
 * [guid](#guid)
-* [indexof](#indexof)
-* [última](#last)
-* [últimoIndexOf](#lastindexof)
+* [indexOf](#indexof)
+* [último](#last)
+* [lastIndexOf](#lastindexof)
 * [comprimento](#length)
 * [newGuid](#newguid)
 * [padLeft](#padleft)
 * [substituir](#replace)
 * [saltar](#skip)
-* [dividir](#split)
-* [começaCom](#startswith)
+* [divisão](#split)
+* [começacom](#startswith)
 * [string](#string)
 * [substring](#substring)
 * [tomar](#take)
 * [toLower](#tolower)
-* [toUpper](#toupper)
-* [aparar](#trim)
-* [único String](#uniquestring)
+* [toupper](#toupper)
+* [guarnição](#trim)
+* [exclusivosastragem](#uniquestring)
 * [uri](#uri)
-* [uriComponent](#uricomponent)
+* [uriComponente](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
 
 ## <a name="base64"></a>base64
@@ -65,11 +65,11 @@ Uma corda contendo a representação base64.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) de exemplo seguinte mostra como usar a função base64.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) a seguir mostra como utilizar a função base64.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringData": {
@@ -106,11 +106,11 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| paraStringOutput | String | Um dois três |
-| toJsonOutput | Objeto | {"um": "a", "dois": "b"} |
+| base64Outout | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | Um dois três |
+| toJsonOutput | Objeto | {"one": "a", "two": "b"} |
 
 ## <a name="base64tojson"></a>base64ToJson
 
@@ -122,7 +122,7 @@ Converte uma representação base64 num objeto JSON.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| base64Valor |Sim |string |A representação base64 para converter-se em um objeto JSON. |
+| base64Value |Sim |string |A representação base64 para converter-se a um objeto JSON. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -130,11 +130,11 @@ Um objeto JSON.
 
 ### <a name="examples"></a>Exemplos
 
-O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) de exemplo utiliza a função base64ToJson para converter um valor base64:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) a seguir utiliza a função base64ToJson para converter um valor base64:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringData": {
@@ -171,13 +171,13 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| paraStringOutput | String | Um dois três |
-| toJsonOutput | Objeto | {"um": "a", "dois": "b"} |
+| base64Outout | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | Um dois três |
+| toJsonOutput | Objeto | {"one": "a", "two": "b"} |
 
-## <a name="base64tostring"></a>base64Tostring
+## <a name="base64tostring"></a>base64ToString
 
 `base64ToString(base64Value)`
 
@@ -187,19 +187,19 @@ Converte uma representação base64 numa corda.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| base64Valor |Sim |string |A representação base64 para converter-se em uma corda. |
+| base64Value |Sim |string |A representação base64 para converter-se a uma corda. |
 
 ### <a name="return-value"></a>Valor devolvido
 
-Uma cadeia do valor base64 convertido.
+Uma sequência do valor base 64 convertido.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) de exemplo seguinte utiliza a função base64ToString para converter um valor base64:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) a seguir utiliza a função base64ToString para converter um valor base64:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringData": {
@@ -236,38 +236,38 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| paraStringOutput | String | Um dois três |
-| toJsonOutput | Objeto | {"um": "a", "dois": "b"} |
+| base64Outout | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | Um dois três |
+| toJsonOutput | Objeto | {"one": "a", "two": "b"} |
 
 ## <a name="concat"></a>concat
 
 `concat (arg1, arg2, arg3, ...)`
 
-Combina múltiplos valores de cordas e devolve a corda concatenada, ou combina várias matrizes e devolve a matriz concatenada.
+Combina múltiplos valores de cordas e devolve a corda concatenated, ou combina várias matrizes e devolve a matriz concatenated.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |corda ou matriz |A primeira corda ou matriz para a concatenação. |
-| argumentos adicionais |Não |corda ou matriz |Cordas ou matrizes adicionais em ordem sequencial de concatenação. |
+| arg1 |Sim |cadeia ou matriz |A primeira corda ou matriz para concatenação. |
+| argumentos adicionais |Não |cadeia ou matriz |Cordas ou matrizes adicionais em ordem sequencial para a concatenação. |
 
-Esta função pode assumir qualquer número de argumentos, e pode aceitar cordas ou matrizes para os parâmetros. No entanto, não é possível fornecer matrizes e cordas para parâmetros. As cordas só são concatenadas com outras cordas.
+Esta função pode assumir qualquer número de argumentos, e pode aceitar cordas ou matrizes para os parâmetros. No entanto, não é possível fornecer tanto matrizes como cordas para parâmetros. As cordas só são concatenadas com outras cordas.
 
 ### <a name="return-value"></a>Valor devolvido
 
-Uma cadeia ou uma série de valores concatenados.
+Uma cadeia ou matriz de valores concatenados.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) de exemplo seguinte mostra como combinar dois valores de corda e devolver uma corda concatenada.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) a seguir mostra como combinar dois valores de corda e devolver uma corda concatenated.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "prefix": {
@@ -287,32 +287,32 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
 | concatOutput | String | prefixo-5yj4yjf5mbg72 |
 
-O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) de exemplo mostra como combinar duas matrizes.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) a seguir mostra como combinar duas matrizes.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": { 
-        "firstArray": { 
-            "type": "array", 
-            "defaultValue": [ 
-                "1-1", 
-                "1-2", 
-                "1-3" 
-            ] 
+    "parameters": {
+        "firstArray": {
+            "type": "array",
+            "defaultValue": [
+                "1-1",
+                "1-2",
+                "1-3"
+            ]
         },
         "secondArray": {
-            "type": "array", 
-            "defaultValue": [ 
-                "2-1", 
+            "type": "array",
+            "defaultValue": [
+                "2-1",
                 "2-2",
-                "2-3" 
-            ] 
+                "2-3"
+            ]
         }
     },
     "resources": [
@@ -328,15 +328,15 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
 | regressar | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-## <a name="contains"></a>contém
+## <a name="contains"></a>contains
 
 `contains (container, itemToFind)`
 
-Verifica se uma matriz contém um valor, um objeto contém uma chave, ou uma corda contém um substring. A comparação de cordas é sensível a casos. No entanto, ao testar se um objeto contém uma chave, a comparação é insensível a casos.
+Verifica se uma matriz contém um valor, um objeto contém uma chave, ou uma corda contém um sub-adcção. A comparação de cordas é sensível a casos. No entanto, ao testar se um objeto contém uma chave, a comparação é insensível ao caso.
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -347,15 +347,15 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave, ou uma cor
 
 ### <a name="return-value"></a>Valor devolvido
 
-**É verdade** se o item for encontrado; caso contrário, **Falso.**
+**Verdade** se o item for encontrado; caso contrário, **Falso**.
 
 ### <a name="examples"></a>Exemplos
 
-O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) de exemplo mostra como usar contém com diferentes tipos:
+O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) de exemplo a seguir mostra como usar contém com diferentes tipos:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringToTest": {
@@ -404,26 +404,26 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| cordaTrue | Booleano | Verdadeiro |
-| cadeiaFalso | Booleano | Falso |
-| objetoVerdadeiro | Booleano | Verdadeiro |
-| objetoFalso | Booleano | Falso |
+| stringTrue | Booleano | Verdadeiro |
+| stringFalse | Booleano | Falso |
+| objectTrue | Booleano | Verdadeiro |
+| objectFalse | Booleano | Falso |
 | arrayTrue | Booleano | Verdadeiro |
-| arrayFalso | Booleano | Falso |
+| arrayFalse | Booleano | Falso |
 
 ## <a name="datauri"></a>dataUri
 
 `dataUri(stringToConvert)`
 
-Converte um valor para um URI de dados.
+Converte um valor para um dado URI.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToConverter |Sim |string |O valor para converter para um URI de dados. |
+| stringToConvert |Sim |string |O valor para converter para um dado URI. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -431,11 +431,11 @@ Uma corda formatada como um URI de dados.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) de exemplo seguinte converte um valor para um URI de dados, e converte um URI de dados para uma cadeia:
+O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) de exemplo a seguir converte um valor para um URI de dados e converte um URI de dados numa cadeia:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringToTest": {
@@ -463,22 +463,22 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
 | dataUriOutput | String | dados:texto/planície;charset=utf8;base64,SGVsbG8= |
-| paraStringOutput | String | Olá, mundo! |
+| toStringOutput | String | Olá, mundo! |
 
-## <a name="datauritostring"></a>datauritostring
+## <a name="datauritostring"></a>dataUriToString
 
 `dataUriToString(dataUriToConvert)`
 
-Converte um valor formatado URI de dados para uma corda.
+Converte um valor formatado por URI de dados para uma cadeia.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| datauriToconverter |Sim |string |Os dados URI valorizam a conversão. |
+| dadosUriToConvert |Sim |string |O valor URI de dados para converter. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -486,11 +486,11 @@ Uma corda contendo o valor convertido.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) de exemplo seguinte converte um valor para um URI de dados, e converte um URI de dados para uma cadeia:
+O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) de exemplo a seguir converte um valor para um URI de dados e converte um URI de dados numa cadeia:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringToTest": {
@@ -518,10 +518,10 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
 | dataUriOutput | String | dados:texto/planície;charset=utf8;base64,SGVsbG8= |
-| paraStringOutput | String | Olá, mundo! |
+| toStringOutput | String | Olá, mundo! |
 
 ## <a name="empty"></a>vazio
 
@@ -537,15 +537,15 @@ Determina se uma matriz, objeto ou corda está vazia.
 
 ### <a name="return-value"></a>Valor devolvido
 
-Devoluções **Verdadeiras** se o valor estiver vazio; caso contrário, **Falso.**
+Devoluções **Verdadeiras** se o valor estiver vazio; caso contrário, **Falso**.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) de exemplo seguinte verifica se uma matriz, objeto e corda estão vazios.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) a seguir verifica se uma matriz, objeto e corda estão vazios.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -582,11 +582,11 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| matrizVazio | Booleano | Verdadeiro |
-| objetoVazio | Booleano | Verdadeiro |
-| cordaVazio | Booleano | Verdadeiro |
+| arrayEmpty | Booleano | Verdadeiro |
+| objetoEmpty | Booleano | Verdadeiro |
+| stringEmpty | Booleano | Verdadeiro |
 
 ## <a name="endswith"></a>endsWith
 
@@ -603,15 +603,15 @@ Determina se uma corda termina com um valor. A comparação é insensível a cas
 
 ### <a name="return-value"></a>Valor devolvido
 
-**Verdade** se o último personagem ou caracteres da corda correspondem ao valor; caso contrário, **Falso.**
+**É verdade** se o último personagem ou caracteres da corda corresponder ao valor; caso contrário, **Falso**.
 
 ### <a name="examples"></a>Exemplos
 
-O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) de exemplo mostra como usar os arranquesCom e terminaCom funções:
+O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) de exemplo a seguir mostra como usar o arranqueCom e terminaCom as funções:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -645,14 +645,14 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| começaTrue | Booleano | Verdadeiro |
-| começaCapTrue | Booleano | Verdadeiro |
-| começaFalso | Booleano | Falso |
+| startsTrue | Booleano | Verdadeiro |
+| startsCapTrue | Booleano | Verdadeiro |
+| começaFalse | Booleano | Falso |
 | terminaTrue | Booleano | Verdadeiro |
 | terminaCapTrue | Booleano | Verdadeiro |
-| terminaFalso | Booleano | Falso |
+| terminaFalse | Booleano | Falso |
 
 ## <a name="first"></a>primeiro
 
@@ -664,19 +664,19 @@ Devolve o primeiro personagem da corda, ou primeiro elemento da matriz.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou corda |O valor para recuperar o primeiro elemento ou personagem. |
+| arg1 |Sim |matriz ou corda |O valor para recuperar o primeiro elemento ou caráter. |
 
 ### <a name="return-value"></a>Valor devolvido
 
-Uma sequência do primeiro personagem, ou do tipo (corda, int, matriz ou objeto) do primeiro elemento de uma matriz.
+Uma sequência do primeiro personagem, ou o tipo (corda, int, matriz ou objeto) do primeiro elemento de uma matriz.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) de exemplo seguinte mostra como usar a primeira função com uma matriz e uma corda.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) a seguir mostra como usar a primeira função com uma matriz e corda.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -701,10 +701,10 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | String | um |
-| cadeiaOutput | String | O |
+| intervalo de matriz | String | um |
+| stringOutput | String | O |
 
 ## <a name="format"></a>formato
 
@@ -717,20 +717,20 @@ Cria uma cadeia formatada a partir de valores de entrada.
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | formatString | Sim | string | A cadeia de formato composto. |
-| arg1 | Sim | corda, inteiro, ou booleano | O valor a incluir na corda formatada. |
-| argumentos adicionais | Não | corda, inteiro, ou booleano | Valores adicionais a incluir na corda formatada. |
+| arg1 | Sim | corda, inteiro, ou boolean | O valor a incluir na cadeia formatada. |
+| argumentos adicionais | Não | corda, inteiro, ou boolean | Valores adicionais para incluir na cadeia formatada. |
 
 ### <a name="remarks"></a>Observações
 
-Use esta função para formatar uma corda no seu modelo. Utiliza as mesmas opções de formatação que o método [System.String.Format](/dotnet/api/system.string.format) em .NET.
+Utilize esta função para formatar uma corda no seu modelo. Utiliza as mesmas opções de formatação que o método [System.String.Format](/dotnet/api/system.string.format) em .NET.
 
 ### <a name="examples"></a>Exemplos
 
-O modelo de exemplo seguinte mostra como usar a função de formato.
+O modelo de exemplo a seguir mostra como utilizar a função de formato.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "greeting": {
@@ -759,9 +759,9 @@ O modelo de exemplo seguinte mostra como usar a função de formato.
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| formatoTeste | String | Olá, Utilizador. Número formato: 8.175.133 |
+| formatoTest | String | Olá, Utilizador. Número formatado: 8.175.133 |
 
 ## <a name="guid"></a>guid
 
@@ -774,29 +774,29 @@ Cria um valor no formato de um identificador globalmente único com base nos val
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | baseString |Sim |string |O valor utilizado na função hash para criar o GUID. |
-| parâmetros adicionais, conforme necessário |Não |string |Pode adicionar o máximo de cordas necessárias para criar o valor que especifica o nível de singularidade. |
+| parâmetros adicionais, conforme necessário |Não |string |Pode adicionar o número de cordas necessárias para criar o valor que especifica o nível de singularidade. |
 
 ### <a name="remarks"></a>Observações
 
-Esta função é útil quando precisa de criar um valor no formato de um identificador globalmente único. Fornece valores parâmetros que limitam o âmbito de singularidade para o resultado. Pode especificar se o nome é exclusivo até à subscrição, grupo de recursos ou implementação.
+Esta função é útil quando precisa de criar um valor no formato de um identificador globalmente único. Fornece-se valores de parâmetros que limitam o âmbito de singularidade para o resultado. Pode especificar se o nome é exclusivo para subscrição, grupo de recursos ou implementação.
 
-O valor devolvido não é uma corda aleatória, mas sim o resultado de uma função de hash nos parâmetros. O valor devolvido tem 36 caracteres de comprimento. Não é globalmente único. Para criar um novo GUID que não se baseie no valor do haxixe dos parâmetros, use a nova função [Guid.](#newguid)
+O valor devolvido não é uma corda aleatória, mas sim o resultado de uma função de haxixe nos parâmetros. O valor devolvido tem 36 caracteres de comprimento. Não é globalmente único. Para criar um novo GUID que não seja baseado nesse valor de haxixe dos parâmetros, use a nova função [Guia.](#newguid)
 
-Os seguintes exemplos mostram como usar o guid para criar um valor único para níveis comumente usados.
+Os exemplos a seguir mostram como usar o guia para criar um valor único para níveis comumente usados.
 
-Exclusivo com vista à subscrição
+Âmbito único à subscrição
 
 ```json
 "[guid(subscription().subscriptionId)]"
 ```
 
-Exclusivo do grupo de recursos
+Âmbito único para grupo de recursos
 
 ```json
 "[guid(resourceGroup().id)]"
 ```
 
-Um espaço único para a implantação de um grupo de recursos
+Âmbito único para implantação de um grupo de recursos
 
 ```json
 "[guid(resourceGroup().id, deployment().name)]"
@@ -804,15 +804,15 @@ Um espaço único para a implantação de um grupo de recursos
 
 ### <a name="return-value"></a>Valor devolvido
 
-Uma cadeia contendo 36 caracteres no formato de um identificador globalmente único.
+Uma corda contendo 36 caracteres no formato de um identificador globalmente único.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json) de exemplo seguinte retorna os resultados do guia:
+O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json) de exemplo a seguir de volta resulta do guia:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {},
     "variables": {},
@@ -834,7 +834,7 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-## <a name="indexof"></a>indexof
+## <a name="indexof"></a>indexOf
 
 `indexOf(stringToSearch, stringToFind)`
 
@@ -849,15 +849,15 @@ Devolve a primeira posição de um valor dentro de uma corda. A comparação é 
 
 ### <a name="return-value"></a>Valor devolvido
 
-Um inteiro que representa a posição do item a encontrar. O valor é baseado em zero. Se o item não for encontrado, -1 será devolvido.
+Um inteiro que representa a posição do item para encontrar. O valor é baseado em zero. Se o artigo não for encontrado, -1 é devolvido.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) de exemplo seguinte mostra como usar as funções indexOf e lastIndexOf:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) a seguir mostra como utilizar as funções IndexOf e LastIndexOf:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -887,15 +887,15 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| primeiroT | int | 0 |
+| firstT | int | 0 |
 | últimoT | int | 3 |
-| primeiraString | int | 2 |
-| última String | int | 0 |
-| não Encontrado | int | -1 |
+| firstString | int | 2 |
+| últimastragem | int | 0 |
+| não Confuso | int | -1 |
 
-## <a name="last"></a>última
+## <a name="last"></a>último
 
 `last (arg1)`
 
@@ -905,19 +905,19 @@ Devolve o último personagem da corda, ou o último elemento da matriz.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou corda |O valor para recuperar o último elemento ou personagem. |
+| arg1 |Sim |matriz ou corda |O valor para recuperar o último elemento ou caráter. |
 
 ### <a name="return-value"></a>Valor devolvido
 
-Uma sequência do último personagem, ou do tipo (corda, int, matriz ou objeto) do último elemento numa matriz.
+Uma sequência do último personagem, ou o tipo (corda, int, matriz ou objeto) do último elemento numa matriz.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) de exemplo seguinte mostra como usar a última função com uma matriz e uma corda.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) a seguir mostra como usar a última função com uma matriz e corda.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -942,12 +942,12 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | String | três |
-| cadeiaOutput | String | e |
+| intervalo de matriz | String | três |
+| stringOutput | String | e |
 
-## <a name="lastindexof"></a>últimoIndexOf
+## <a name="lastindexof"></a>lastIndexOf
 
 `lastIndexOf(stringToSearch, stringToFind)`
 
@@ -962,15 +962,15 @@ Devolve a última posição de um valor dentro de uma corda. A comparação é i
 
 ### <a name="return-value"></a>Valor devolvido
 
-Um inteiro que representa a última posição do item a encontrar. O valor é baseado em zero. Se o item não for encontrado, -1 será devolvido.
+Um inteiro que representa a última posição do item para encontrar. O valor é baseado em zero. Se o artigo não for encontrado, -1 é devolvido.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) de exemplo seguinte mostra como usar as funções indexOf e lastIndexOf:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) a seguir mostra como utilizar as funções IndexOf e LastIndexOf:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -1000,37 +1000,37 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| primeiroT | int | 0 |
+| firstT | int | 0 |
 | últimoT | int | 3 |
-| primeiraString | int | 2 |
-| última String | int | 0 |
-| não Encontrado | int | -1 |
+| firstString | int | 2 |
+| últimastragem | int | 0 |
+| não Confuso | int | -1 |
 
 ## <a name="length"></a>length
 
 `length(string)`
 
-Devolve o número de caracteres numa corda, elementos numa matriz ou propriedades de nível raiz num objeto.
+Devolve o número de caracteres numa corda, elementos numa matriz ou propriedades de nível de raiz num objeto.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz, corda ou objeto |A matriz a utilizar para obter o número de elementos, a corda a utilizar para obter o número de caracteres, ou o objeto a usar para obter o número de propriedades de nível raiz. |
+| arg1 |Sim |matriz, corda ou objeto |A matriz a usar para obter o número de elementos, a cadeia para usar para obter o número de caracteres, ou o objeto a usar para obter o número de propriedades de nível de raiz. |
 
 ### <a name="return-value"></a>Valor devolvido
 
-Um int. 
+Um int.
 
 ### <a name="examples"></a>Exemplos
 
-O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) de exemplo mostra como usar o comprimento com uma matriz e uma corda:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) a seguir mostra como usar o comprimento com uma matriz e uma corda:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -1078,11 +1078,11 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
-| objetoComprimento | int | 4 |
+| objectLength | int | 4 |
 
 ## <a name="newguid"></a>newGuid
 
@@ -1092,29 +1092,29 @@ Devolve um valor no formato de um identificador globalmente único. **Esta funç
 
 ### <a name="remarks"></a>Observações
 
-Só pode utilizar esta função dentro de uma expressão para o valor padrão de um parâmetro. A utilização desta função em qualquer outro lugar de um modelo devolve um erro. A função não é permitida noutras partes do modelo porque devolve um valor diferente cada vez que é chamada. A implantação do mesmo modelo com os mesmos parâmetros não produziria os mesmos resultados.
+Só pode utilizar esta função dentro de uma expressão para o valor predefinido de um parâmetro. A utilização desta função em qualquer outro lugar de um modelo retorna um erro. A função não é permitida noutras partes do modelo porque devolve um valor diferente cada vez que é chamado. A implantação do mesmo modelo com os mesmos parâmetros não produziria de forma fiável os mesmos resultados.
 
-A nova função Guid difere da função [guida](#guid) porque não leva nenhum parâmetro. Quando se chama guia com o mesmo parâmetro, devolve o mesmo identificador de cada vez. Use guia quando precisa de gerar o mesmo GUID de forma fiável para um ambiente específico. Use newGuid quando precisar de um identificador diferente de cada vez, como a implantação de recursos para um ambiente de teste.
+A função newGuid difere da função [de guia](#guid) porque não toma quaisquer parâmetros. Quando chama guid com o mesmo parâmetro, retorna o mesmo identificador de cada vez. Utilize o guia quando necessitar de gerar de forma fiável o mesmo GUID para um ambiente específico. Use o newGuid quando precisar de um identificador diferente de cada vez, como a implantação de recursos para um ambiente de teste.
 
-A nova função Guid utiliza a [estrutura Guid](/dotnet/api/system.guid) no .NET Framework para gerar o identificador globalmente único.
+A nova função Guid utiliza a [estrutura Guid](/dotnet/api/system.guid) no Quadro .NET para gerar o identificador globalmente único.
 
-Se utilizar a [opção de reimplantar uma implementação mais recente](rollback-on-error.md)e bem sucedida, e a implementação anterior inclui um parâmetro que utiliza o newGuid, o parâmetro não é reavaliado. Em vez disso, o valor do parâmetro da implementação anterior é automaticamente reutilizado na implementação de reversão.
+Se utilizar a [opção de recolocar uma implementação com sucesso anterior](rollback-on-error.md), e a implementação anterior inclui um parâmetro que utiliza o newGuid, o parâmetro não é reavaliado. Em vez disso, o valor do parâmetro da implementação anterior é automaticamente reutilizado na implementação de reversão.
 
-Num ambiente de teste, poderá ser necessário mobilizar repetidamente recursos que apenas vivem por um curto período de tempo. Em vez de construir nomes únicos, pode usar o newGuid com string [único](#uniquestring) para criar nomes únicos.
+Num ambiente de teste, poderá ser necessário utilizar repetidamente recursos que apenas vivam por um curto período de tempo. Em vez de construir nomes únicos, você pode usar newGuid com [un uniqueString](#uniquestring) para criar nomes únicos.
 
-Tenha cuidado ao recolocar um modelo que dependa da função newGuid para um valor predefinido. Quando reimplanta e não fornece um valor para o parâmetro, a função é reavaliada. Se quiser atualizar um recurso existente em vez de criar um novo, passe o valor do parâmetro a partir da implementação anterior.
+Tenha cuidado ao recolocar um modelo que dependa da função newGuid para um valor predefinido. Quando se recoloca e não fornece um valor para o parâmetro, a função é reavaliada. Se pretender atualizar um recurso existente em vez de criar um novo, passe o valor do parâmetro a partir da implementação anterior.
 
 ### <a name="return-value"></a>Valor devolvido
 
-Uma cadeia contendo 36 caracteres no formato de um identificador globalmente único.
+Uma corda contendo 36 caracteres no formato de um identificador globalmente único.
 
 ### <a name="examples"></a>Exemplos
 
-O modelo de exemplo seguinte mostra um parâmetro com um novo identificador.
+O modelo de exemplo a seguir mostra um parâmetro com um novo identificador.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "guidValue": {
@@ -1135,15 +1135,15 @@ O modelo de exemplo seguinte mostra um parâmetro com um novo identificador.
 
 A saída do exemplo anterior varia para cada implantação, mas será semelhante a:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
 | guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
-O exemplo que se segue utiliza a nova função Guid para criar um nome único para uma conta de armazenamento. Este modelo pode funcionar para o ambiente de teste onde a conta de armazenamento existe por um curto período de tempo e não é reimplantada.
+O exemplo a seguir utiliza a função newGuid para criar um nome único para uma conta de armazenamento. Este modelo pode funcionar para o ambiente de teste onde a conta de armazenamento existe por um curto período de tempo e não é redistribuído.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "guidValue": {
@@ -1178,9 +1178,9 @@ O exemplo que se segue utiliza a nova função Guid para criar um nome único pa
 
 A saída do exemplo anterior varia para cada implantação, mas será semelhante a:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| nomeSaída | string | storagenziwvyru7uxie |
+| nomeOutput | string | storagenziwvyru7uxie |
 
 
 ## <a name="padleft"></a>padLeft
@@ -1193,11 +1193,11 @@ Devolve uma corda alinhada à direita adicionando caracteres à esquerda até at
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| valueToPad |Sim |corda ou int |O valor para alinhar à direita. |
-| totalComprimento |Sim |int |O número total de caracteres na corda devolvida. |
-| acolchoadoPersonage |Não |personagem único |O carácter a utilizar para o acolchoamento esquerdo até que o comprimento total seja atingido. O valor padrão é um espaço. |
+| valorToPad |Sim |corda ou int |O valor para o alinhamento certo. |
+| totalLength |Sim |int |O número total de caracteres na cadeia devolvida. |
+| afiliaçãoCharacter |Não |personagem único |O carácter a utilizar para o acolchoamento esquerdo até atingir o comprimento total. O valor predefinido é um espaço. |
 
-Se a cadeia original for mais comprida do que o número de caracteres a revestir, não são adicionados caracteres.
+Se a corda original for maior do que o número de caracteres a remar, não são adicionados caracteres.
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1205,11 +1205,11 @@ Uma corda com pelo menos o número de caracteres especificados.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json) de exemplo seguinte mostra como remar o valor do parâmetro fornecido pelo utilizador adicionando o caráter zero até atingir o número total de caracteres. 
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json) a seguir mostra como apadrinhar o valor do parâmetro fornecido pelo utilizador adicionando o carácter zero até atingir o número total de caracteres.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testString": {
@@ -1229,21 +1229,21 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| cadeiaOutput | String | 0000000123 |
+| stringOutput | String | 0000000123 |
 
 ## <a name="replace"></a>substituir
 
 `replace(originalString, oldString, newString)`
 
-Devolve uma nova corda com todos os casos de uma corda substituída por outra corda.
+Devolve uma nova corda com todas as instâncias de uma corda substituída por outra corda.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| String original |Sim |string |O valor que tem todos os casos de uma corda substituída por outra corda. |
+| originalString |Sim |string |O valor que tem todos os casos de uma corda substituída por outra corda. |
 | oldString |Sim |string |A corda a ser removida da corda original. |
 | newString |Sim |string |A corda para adicionar no lugar da corda removida. |
 
@@ -1253,11 +1253,11 @@ Uma corda com os caracteres substituídos.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/replace.json) de exemplo seguinte mostra como remover todos os traços da corda fornecida pelo utilizador e como substituir parte da corda por outra corda.
+O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/replace.json) de exemplo a seguir mostra como remover todos os traços da corda fornecida pelo utilizador e como substituir parte da cadeia por outra corda.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testString": {
@@ -1281,23 +1281,23 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| primeiraSaída | String | 1231231234 |
-| segundaSaída | String | 123-123-xxxx |
+| firstOutput | String | 1231231234 |
+| secondOutput | String | 123-123-xxxx |
 
 ## <a name="skip"></a>saltar
 
 `skip(originalValue, numberToSkip)`
 
-Devolve uma corda com todos os caracteres após o número especificado de caracteres, ou uma matriz com todos os elementos após o número especificado de elementos.
+Retorna uma cadeia com todos os caracteres após o número especificado de caracteres, ou uma matriz com todos os elementos após o número especificado de elementos.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sim |matriz ou corda |A matriz ou corda para usar para saltar. |
-| númeroToSkip |Sim |int |O número de elementos ou caracteres a saltar. Se este valor for de 0 ou menos, todos os elementos ou caracteres do valor são devolvidos. Se for maior do que o comprimento da matriz ou corda, uma matriz ou corda vazia é devolvida. |
+| numberToSkip |Sim |int |O número de elementos ou caracteres a saltar. Se este valor for 0 ou menos, todos os elementos ou caracteres do valor são devolvidos. Se for maior do que o comprimento da matriz ou da corda, uma matriz ou corda vazia é devolvida. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1305,11 +1305,11 @@ Uma matriz ou corda.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) de exemplo seguinte ignora o número especificado de elementos na matriz e o número especificado de caracteres numa corda.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) a seguir ignora o número especificado de elementos na matriz e o número especificado de caracteres numa cadeia.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -1349,35 +1349,35 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Matriz | ["três"] |
-| cadeiaOutput | String | dois três |
+| intervalo de matriz | Matriz | ["três"] |
+| stringOutput | String | dois três |
 
 ## <a name="split"></a>dividir
 
 `split(inputString, delimiter)`
 
-Devolve uma série de cordas que contém as subcordas da cadeia de entrada que são delimitadas pelos delimitadores especificados.
+Devolve uma matriz de cordas que contém os sublutos da cadeia de entrada que são delimitadas pelos delimitadores especificados.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| inputString |Sim |string |A corda para partir. |
-| delimitador |Sim |cadeia ou matriz de cordas |O delimitador a utilizar para dividir a corda. |
+| inputString |Sim |string |A corda para dividir. |
+| delimitador |Sim |cadeia ou matriz de cordas |O delimiter para usar para dividir a corda. |
 
 ### <a name="return-value"></a>Valor devolvido
 
-Uma variedade de cordas.
+Uma série de cordas.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/split.json) de exemplo seguinte divide a cadeia de entrada com uma vírgula, e com uma vírgula ou um ponto e vírgula.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/split.json) a seguir divide a cadeia de entrada com uma vírgula, e com uma vírgula ou um ponto e vírgula.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstString": {
@@ -1408,10 +1408,10 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| primeiraSaída | Matriz | ["um", "dois", "três"] |
-| segundaSaída | Matriz | ["um", "dois", "três"] |
+| firstOutput | Matriz | ["um", "dois", "três"] |
+| secondOutput | Matriz | ["um", "dois", "três"] |
 
 ## <a name="startswith"></a>startsWith
 
@@ -1428,15 +1428,15 @@ Determina se uma corda começa com um valor. A comparação é insensível a cas
 
 ### <a name="return-value"></a>Valor devolvido
 
-**Verdade** se o primeiro personagem ou caracteres da corda correspondem ao valor; caso contrário, **Falso.**
+**É verdade** se o primeiro carácter ou caracteres da corda corresponder ao valor; caso contrário, **Falso**.
 
 ### <a name="examples"></a>Exemplos
 
-O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) de exemplo mostra como usar os arranquesCom e terminaCom funções:
+O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) de exemplo a seguir mostra como usar o arranqueCom e terminaCom as funções:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -1470,26 +1470,26 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| começaTrue | Booleano | Verdadeiro |
-| começaCapTrue | Booleano | Verdadeiro |
-| começaFalso | Booleano | Falso |
+| startsTrue | Booleano | Verdadeiro |
+| startsCapTrue | Booleano | Verdadeiro |
+| começaFalse | Booleano | Falso |
 | terminaTrue | Booleano | Verdadeiro |
 | terminaCapTrue | Booleano | Verdadeiro |
-| terminaFalso | Booleano | Falso |
+| terminaFalse | Booleano | Falso |
 
 ## <a name="string"></a>string
 
 `string(valueToConvert)`
 
-Converte o valor especificado numa corda.
+Converte o valor especificado para uma cadeia.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| valorToConverter |Sim | Qualquer |O valor para converter em corda. Qualquer tipo de valor pode ser convertido, incluindo objetos e matrizes. |
+| valorToConvert |Sim | Qualquer |O valor para converter em corda. Qualquer tipo de valor pode ser convertido, incluindo objetos e matrizes. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1497,11 +1497,11 @@ Uma cadeia do valor convertido.
 
 ### <a name="examples"></a>Exemplos
 
-O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/string.json) de exemplo mostra como converter diferentes tipos de valores em cordas:
+O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/string.json) de exemplo a seguir mostra como converter diferentes tipos de valores em cordas:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testObject": {
@@ -1544,50 +1544,50 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| objetoSaída | String | {"valueA":10,"valueB":"Exemplo Texto"} |
-| arrayOutput | String | ["a", "b", "c"] |
+| objetoOutput | String | {"valueA":10,"valueB":"Texto exemplo"} |
+| intervalo de matriz | String | ["a","b","c"] |
 | intOutput | String | 5 |
 
 ## <a name="substring"></a>substring
 
 `substring(stringToParse, startIndex, length)`
 
-Devolve um substring que começa na posição de caracteres especificada e contém o número especificado de caracteres.
+Devolve um sub-adc de substring que começa na posição de caracteres especificado e contém o número especificado de caracteres.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Sim |string |A corda original a partir da qual a subcorda é extraída. |
-| startIndex |Não |int |A posição de personagem inicial de base zero para o substring. |
-| length |Não |int |O número de caracteres para o substring. Deve referir-se a um local dentro da corda. Deve ser zero ou maior. |
+| stringToParse |Sim |string |A corda original a partir da qual o sublmoão é extraído. |
+| startIndex |Não |int |A posição de caracteres ini por si só para o sub-adiscão. |
+| length |Não |int |O número de caracteres para o sub-adcção. Deve consultar uma localização dentro da cadeia. Deve ser zero ou maior. |
 
 ### <a name="return-value"></a>Valor devolvido
 
-O substring. Ou uma corda vazia se o comprimento for zero.
+O sub-cordão. Ou uma corda vazia se o comprimento for zero.
 
 ### <a name="remarks"></a>Observações
 
-A função falha quando a subcadeia se estende para além da extremidade da corda, ou quando o comprimento é inferior a zero. O exemplo seguinte falha com o erro "Os parâmetros de índice e comprimento devem referir-se a uma localização dentro da corda. O parâmetro de índice: '0', o parâmetro de comprimento: '11', o comprimento do parâmetro da corda: '10'."
+A função falha quando o sub-adc de sublagem se estende para além da extremidade da corda, ou quando o comprimento é inferior a zero. O exemplo a seguir falha com o erro "Os parâmetros de índice e comprimento devem consultar-se para uma localização dentro da cadeia. O parâmetro do índice: '0', o parâmetro de comprimento: '11', o comprimento do parâmetro da corda: '10'.".
 
 ```json
 "parameters": {
     "inputString": { "type": "string", "value": "1234567890" }
 },
-"variables": { 
+"variables": {
     "prefix": "[substring(parameters('inputString'), 0, 11)]"
 }
 ```
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/substring.json) de exemplo seguinte extrai uma subcadeia de um parâmetro.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/substring.json) a seguir extrai um sublaminho de um parâmetro.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testString": {
@@ -1607,7 +1607,7 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
 | substringOutput | String | dois |
 
@@ -1615,14 +1615,14 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 `take(originalValue, numberToTake)`
 
-Devolve uma corda com o número especificado de caracteres desde o início da cadeia, ou uma matriz com o número especificado de elementos desde o início da matriz.
+Devolve uma cadeia com o número especificado de caracteres desde o início da cadeia, ou uma matriz com o número especificado de elementos desde o início da matriz.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sim |matriz ou corda |A matriz ou corda para retirar os elementos. |
-| númeroToTake |Sim |int |O número de elementos ou caracteres a tomar. Se este valor for de 0 ou menos, uma matriz ou corda vazia é devolvida. Se for maior do que o comprimento da dada matriz ou corda, todos os elementos da matriz ou corda são devolvidos. |
+| originalValue |Sim |matriz ou corda |A matriz ou corda para tirar os elementos. |
+| numberToTake |Sim |int |O número de elementos ou caracteres a tomar. Se este valor for 0 ou menos, uma matriz ou corda vazia é devolvida. Se for maior do que o comprimento da matriz ou corda dada, todos os elementos da matriz ou da corda são devolvidos. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1630,11 +1630,11 @@ Uma matriz ou corda.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) de exemplo seguinte retira o número especificado de elementos da matriz, e caracteres de uma corda.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) a seguir retira o número especificado de elementos da matriz e caracteres de uma cadeia.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -1674,34 +1674,34 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Matriz | ["um", "dois"] |
-| cadeiaOutput | String | em |
+| intervalo de matriz | Matriz | ["um", "dois"] |
+| stringOutput | String | em |
 
 ## <a name="tolower"></a>toLower
 
 `toLower(stringToChange)`
 
-Converte a corda especificada para minúscula.
+Converte a cadeia especificada para minúscula.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sim |string |O valor para converter em minúsculas. |
+| stringToChange |Sim |string |O valor para converter para minúsculas. |
 
 ### <a name="return-value"></a>Valor devolvido
 
-A corda converteu-se em minúscula.
+A corda convertida em minúsculas.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) de exemplo seguinte converte um valor de parâmetro para minúscula e para maiúscula.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) a seguir converte um valor de parâmetro para minúscula e para maiússão.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testString": {
@@ -1725,34 +1725,34 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
 | toLowerOutput | String | Um dois três |
 | toUpperOutput | String | Um dois três |
 
-## <a name="toupper"></a>toUpper
+## <a name="toupper"></a>toupper
 
 `toUpper(stringToChange)`
 
-Converte a corda especificada para a caixa superior.
+Converte a cadeia especificada para a caixa superior.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sim |string |O valor para converter em maiúscula. |
+| stringToChange |Sim |string |O valor para converter em maiúsão. |
 
 ### <a name="return-value"></a>Valor devolvido
 
-A corda converteu-se em maiúscula.
+A corda convertida em maiúsão.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) de exemplo seguinte converte um valor de parâmetro para minúscula e para maiúscula.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) a seguir converte um valor de parâmetro para minúscula e para maiússão.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testString": {
@@ -1776,16 +1776,16 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
 | toLowerOutput | String | Um dois três |
 | toUpperOutput | String | Um dois três |
 
-## <a name="trim"></a>aparar
+## <a name="trim"></a>guarnição
 
 `trim (stringToTrim)`
 
-Remove todos os caracteres de espaço branco líder esistantes e seguidos da corda especificada.
+Remove todos os caracteres de espaço branco líder e trailing da cadeia especificada.
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -1795,15 +1795,15 @@ Remove todos os caracteres de espaço branco líder esistantes e seguidos da cor
 
 ### <a name="return-value"></a>Valor devolvido
 
-A corda sem liderar e seguir personagens do espaço branco.
+A corda sem liderar e seguir personagens de espaço branco.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/trim.json) de exemplo seguinte apara os caracteres do espaço branco do parâmetro.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/trim.json) a seguir apara os caracteres do espaço branco a partir do parâmetro.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testString": {
@@ -1823,61 +1823,61 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
 | regressar | String | Um dois três |
 
-## <a name="uniquestring"></a>único String
+## <a name="uniquestring"></a>exclusivosastragem
 
 `uniqueString (baseString, ...)`
 
-Cria uma cadeia de hash determinista baseada nos valores fornecidos como parâmetros. 
+Cria uma cadeia de haxixe determinística com base nos valores fornecidos como parâmetros.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseString |Sim |string |O valor utilizado na função hash para criar uma cadeia única. |
-| parâmetros adicionais, conforme necessário |Não |string |Pode adicionar o máximo de cordas necessárias para criar o valor que especifica o nível de singularidade. |
+| baseString |Sim |string |O valor usado na função hash para criar uma corda única. |
+| parâmetros adicionais, conforme necessário |Não |string |Pode adicionar o número de cordas necessárias para criar o valor que especifica o nível de singularidade. |
 
 ### <a name="remarks"></a>Observações
 
-Esta função é útil quando precisa de criar um nome único para um recurso. Fornece valores parâmetros que limitam o âmbito de singularidade para o resultado. Pode especificar se o nome é exclusivo até à subscrição, grupo de recursos ou implementação. 
+Esta função é útil quando precisa de criar um nome único para um recurso. Fornece-se valores de parâmetros que limitam o âmbito de singularidade para o resultado. Pode especificar se o nome é exclusivo para subscrição, grupo de recursos ou implementação.
 
-O valor devolvido não é uma corda aleatória, mas sim o resultado de uma função de hash. O valor devolvido tem 13 caracteres de comprimento. Não é globalmente único. Você pode querer combinar o valor com um prefixo da sua convenção de nomeação para criar um nome que seja significativo. O exemplo seguinte mostra o formato do valor devolvido. O valor real varia em consoantes pelos parâmetros fornecidos.
+O valor devolvido não é uma corda aleatória, mas sim o resultado de uma função de haxixe. O valor devolvido tem 13 caracteres de comprimento. Não é globalmente único. Você pode querer combinar o valor com um prefixo da sua convenção de nomeação para criar um nome que seja significativo. O exemplo a seguir mostra o formato do valor devolvido. O valor real varia de acordo com os parâmetros fornecidos.
 
-    tcvhiyu5h2o5o
+`tcvhiyu5h2o5o`
 
-Os exemplos seguintes mostram como usar string único para criar um valor único para níveis comumente usados.
+Os exemplos a seguir mostram como usar o UniqueString para criar um valor único para níveis comumente usados.
 
-Exclusivo com vista à subscrição
+Âmbito único à subscrição
 
 ```json
 "[uniqueString(subscription().subscriptionId)]"
 ```
 
-Exclusivo do grupo de recursos
+Âmbito único para grupo de recursos
 
 ```json
 "[uniqueString(resourceGroup().id)]"
 ```
 
-Um espaço único para a implantação de um grupo de recursos
+Âmbito único para implantação de um grupo de recursos
 
 ```json
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-O exemplo que se segue mostra como criar um nome único para uma conta de armazenamento baseada no seu grupo de recursos. Dentro do grupo de recursos, o nome não é único se construído da mesma forma.
+O exemplo a seguir mostra como criar um nome único para uma conta de armazenamento baseada no seu grupo de recursos. Dentro do grupo de recursos, o nome não é único se construído da mesma forma.
 
 ```json
-"resources": [{ 
-    "name": "[concat('storage', uniqueString(resourceGroup().id))]", 
-    "type": "Microsoft.Storage/storageAccounts", 
+"resources": [{
+    "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+    "type": "Microsoft.Storage/storageAccounts",
     ...
 ```
 
-Se precisar de criar um novo nome único cada vez que implementar um modelo, e não pretender atualizar o recurso, pode utilizar a função [utcNow](template-functions-date.md#utcnow) com string único. Poderia usar esta abordagem num ambiente de teste. Por exemplo, consulte [utcNow](template-functions-date.md#utcnow).
+Se precisar de criar um novo nome único cada vez que implementar um modelo, e não pretender atualizar o recurso, pode utilizar a função [utcNow](template-functions-date.md#utcnow) com um ExclusivoString. Pode usar esta abordagem num ambiente de teste. Por exemplo, consulte [utcNow](template-functions-date.md#utcnow).
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1885,11 +1885,11 @@ Uma corda contendo 13 caracteres.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json) de exemplo seguinte retorna os resultados de uma corda única:
+O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json) de exemplo a seguir resulta de um ensaio único:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -1909,23 +1909,23 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 `uri (baseUri, relativeUri)`
 
-Cria um URI absoluto combinando a baseUri e a corda relativaUri.
+Cria um URI absoluto combinando a baseUri e a cadeiauri relativa.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseUri |Sim |string |A corda uri base. Tenha cuidado para observar o comportamento em relação ao manuseamento do corte de rasto ('/'), como descrito seguindo esta tabela.  |
-| parenteUri |Sim |string |A corda uri relativa para adicionar à cadeia uri base. |
+| baseUri |Sim |string |A corda uri base. Tenha o cuidado de observar o comportamento relativo ao manuseamento do corte de fuga ('/'), conforme descrito na sequência desta tabela.  |
+| relativoUri |Sim |string |A cadeia uri relativa para adicionar à cadeia uri base. |
 
-* Se **baseUri** terminar em um corte de rasto, o resultado é simplesmente **baseUri** seguido por **parenteUri**.
+* Se **o BaseUri** terminar num corte de fuga, o resultado é simplesmente **baseUri** seguido **poruriuri relativo**.
 
-* Se a **baseUri** não acabar num corte de rastos, uma de duas coisas acontece.  
+* Se **a BaseUri** não acabar num corte de fuga, uma de duas coisas acontece.
 
-   * Se **baseUri** não tiver cortes (além do "//" perto da frente), o resultado é simplesmente **baseUri** seguido por **relativaUri**.
+   * Se **o BaseUri** não tiver cortes de todo (além do "// " próximo da frente) o resultado é simplesmente **baseUri** seguido **poruriuri relativo**.
 
-   * Se **baseUri** tiver alguns cortes, mas não termina com um corte, tudo a partir do último corte para a frente é removido da **baseUri** e o resultado é **baseUri** seguido por **parenteUri**.
-     
+   * Se **o BaseUri** tiver alguns cortes, mas não terminar com um corte, tudo a partir do último corte é removido da **baseUri** e o resultado é **baseUri** seguido **poruriUri**.
+
 Eis alguns exemplos:
 
 ```
@@ -1934,7 +1934,7 @@ uri('http://contoso.org/firstpath/', 'myscript.sh') -> http://contoso.org/firstp
 uri('http://contoso.org/firstpath/azuredeploy.json', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
 uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://contoso.org/firstpath/azuredeploy.json/myscript.sh
 ```
-Para mais detalhes, os parâmetros **baseUri** e **relativosUri** são resolvidos conforme especificado no [RFC 3986, secção 5](https://tools.ietf.org/html/rfc3986#section-5).
+Para mais detalhes completos, os parâmetros **baseUri** e **RelativoUri** são resolvidos conforme especificado no [RFC 3986, secção 5](https://tools.ietf.org/html/rfc3986#section-5).
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1942,21 +1942,21 @@ Uma corda que representa o URI absoluto para a base e valores relativos.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo seguinte mostra como construir uma ligação a um modelo aninhado com base no valor do modelo dos pais.
+O exemplo a seguir mostra como construir uma ligação a um modelo aninhado com base no valor do modelo principal.
 
 ```json
 "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 ```
 
-O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) de exemplo mostra como usar uri, uriComponent e uriComponentToString:
+O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) de exemplo a seguir mostra como usar uricomponent e uriComponentToString:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "variables": {
         "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
-        "uriEncoded": "[uriComponent(variables('uriFormat'))]" 
+        "uriEncoded": "[uriComponent(variables('uriFormat'))]"
     },
     "resources": [
     ],
@@ -1979,13 +1979,13 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentesSaída de produção | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| paraStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componenteOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
-## <a name="uricomponent"></a>uriComponent
+## <a name="uricomponent"></a>uriComponente
 
 `uricomponent(stringToEncode)`
 
@@ -1999,19 +1999,19 @@ Codifica um URI.
 
 ### <a name="return-value"></a>Valor devolvido
 
-Uma cadeia do valor codificado pela URI.
+Uma sequência do valor codificado uri.
 
 ### <a name="examples"></a>Exemplos
 
-O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) de exemplo mostra como usar uri, uriComponent e uriComponentToString:
+O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) de exemplo a seguir mostra como usar uricomponent e uriComponentToString:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "variables": {
         "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
-        "uriEncoded": "[uriComponent(variables('uriFormat'))]" 
+        "uriEncoded": "[uriComponent(variables('uriFormat'))]"
     },
     "resources": [
     ],
@@ -2034,39 +2034,39 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentesSaída de produção | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| paraStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componenteOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
 `uriComponentToString(uriEncodedString)`
 
-Devolve uma série de um valor codificado por URI.
+Devolve uma sequência de valor codificado URI.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| string uriEncoded |Sim |string |O URI codificado valor para converter-se em uma corda. |
+| uriEncodedString |Sim |string |O valor codificado uri para converter-se a uma corda. |
 
 ### <a name="return-value"></a>Valor devolvido
 
-Uma cadeia de valor codificado de URI descodificada.
+Uma cadeia descodificada de valor codificado URI.
 
 ### <a name="examples"></a>Exemplos
 
-O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) de exemplo mostra como usar uri, uriComponent e uriComponentToString:
+O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) de exemplo a seguir mostra como usar uricomponent e uriComponentToString:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "variables": {
         "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
-        "uriEncoded": "[uriComponent(variables('uriFormat'))]" 
+        "uriEncoded": "[uriComponent(variables('uriFormat'))]"
     },
     "resources": [
     ],
@@ -2089,15 +2089,15 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentesSaída de produção | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| paraStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componenteOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
-## <a name="next-steps"></a>Passos seguintes
-* Para uma descrição das secções num modelo de Gestor de Recursos Azure, consulte os modelos de [Gestor de Recursos Azure da Autoria](template-syntax.md).
-* Para fundir vários modelos, consulte [Utilizar modelos ligados com](linked-templates.md)o Gestor de Recursos Azure .
-* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [Criar múltiplas instâncias de recursos no Gestor de Recursos Azure](copy-resources.md).
-* Para ver como implementar o modelo que criou, consulte [implementar uma aplicação com o modelo de Gestor](deploy-powershell.md)de Recursos Azure .
+## <a name="next-steps"></a>Próximos passos
+* Para obter uma descrição das secções num modelo do Gestor de Recursos Azure, consulte [os modelos do Gestor de Recursos Azure.](template-syntax.md)
+* Para fundir vários modelos, consulte [utilizando modelos ligados com O Gestor de Recursos Azure](linked-templates.md).
+* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [Criar múltiplas instâncias de recursos no Azure Resource Manager](copy-resources.md).
+* Para ver como implementar o modelo que criou, consulte [implementar uma aplicação com o modelo Azure Resource Manager](deploy-powershell.md).
 

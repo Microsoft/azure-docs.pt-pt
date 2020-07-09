@@ -1,5 +1,5 @@
 ---
-title: Gerir o Azure CDN com a PowerShell [ Microsoft Docs
+title: Gerir a Azure CDN com a PowerShell Microsoft Docs
 description: Aprenda a utilizar os cmdlets Azure PowerShell para gerir o Azure CDN.
 services: cdn
 documentationcenter: ''
@@ -11,32 +11,32 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/20/2019
 ms.author: allensu
-ms.openlocfilehash: 22602a1ea64e3dbca34d0c366cf6aa0dc6f35662
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba67ea9455c8d7f077eae87f582f05b5c2672735
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260552"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887615"
 ---
-# <a name="manage-azure-cdn-with-powershell"></a>Gerir o Azure CDN com a PowerShell
-A PowerShell fornece um dos métodos mais flexíveis para gerir os seus perfis e pontos finais Azure CDN.  Pode utilizar o PowerShell interativamente ou escrevendo scripts para automatizar tarefas de gestão.  Este tutorial demonstra várias das tarefas mais comuns que pode realizar com a PowerShell para gerir os seus perfis e pontos finais Azure CDN.
+# <a name="manage-azure-cdn-with-powershell"></a>Gerir a Azure CDN com a PowerShell
+O PowerShell fornece um dos métodos mais flexíveis para gerir os seus perfis e pontos finais do Azure CDN.  Pode utilizar o PowerShell de forma interativa ou escrevendo scripts para automatizar tarefas de gestão.  Este tutorial demonstra várias das tarefas mais comuns que pode realizar com o PowerShell para gerir os seus perfis e pontos finais do Azure CDN.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para utilizar o PowerShell para gerir os seus perfis e pontos finais Azure CDN, tem de ter o módulo PowerShell Azure instalado.  Para aprender a instalar o Azure PowerShell `Connect-AzAccount` e ligar-se ao Azure utilizando o cmdlet, consulte Como instalar e configurar o [Azure PowerShell](/powershell/azure/overview).
+Para utilizar o PowerShell para gerir os perfis e pontos finais do Azure CDN, tem de ter o módulo Azure PowerShell instalado.  Para aprender a instalar a Azure PowerShell e ligar-se ao Azure utilizando o `Connect-AzAccount` cmdlet, consulte [Como instalar e configurar a Azure PowerShell](/powershell/azure/overview).
 
 > [!IMPORTANT]
-> Tem de fazer `Connect-AzAccount` login antes de poder executar os cmdlets Azure PowerShell.
+> Tem de iniciar sessão `Connect-AzAccount` antes de poder executar cmdlets Azure PowerShell.
 > 
 > 
 
 ## <a name="listing-the-azure-cdn-cmdlets"></a>Listagem dos cmdlets Azure CDN
-Pode listar todos os cmdlets Azure `Get-Command` CDN utilizando o cmdlet.
+Pode listar todos os cmdlets Azure CDN utilizando o `Get-Command` cmdlet.
 
 ```text
 PS C:\> Get-Command -Module Az.Cdn
@@ -80,7 +80,7 @@ Cmdlet          Unpublish-AzCdnEndpointContent                     1.4.0      Az
 ```
 
 ## <a name="getting-help"></a>Obter ajuda
-Pode obter ajuda com qualquer um destes `Get-Help` cmdlets usando o cmdlet.  `Get-Help`fornece uso e sintaxe, e opcionalmente mostra exemplos.
+Você pode obter ajuda com qualquer um destes cmdlets usando o `Get-Help` cmdlet.  `Get-Help`fornece uso e sintaxe, e opcionalmente mostra exemplos.
 
 ```text
 PS C:\> Get-Help Get-AzCdnProfile
@@ -110,7 +110,7 @@ REMARKS
 
 ```
 
-## <a name="listing-existing-azure-cdn-profiles"></a>Listagem de perfis CDN azure existentes
+## <a name="listing-existing-azure-cdn-profiles"></a>Listagem de perfis Azure CDN existentes
 O `Get-AzCdnProfile` cmdlet sem parâmetros recupera todos os perfis cdN existentes.
 
 ```powershell
@@ -138,7 +138,7 @@ Get-AzCdnProfile -ProfileName CdnDemo -ResourceGroupName CdnDemoRG
 > 
 > 
 
-## <a name="listing-existing-cdn-endpoints"></a>Listagem de pontos finais cdn existentes
+## <a name="listing-existing-cdn-endpoints"></a>Listagem dos pontos finais cdn existentes
 `Get-AzCdnEndpoint`pode recuperar um ponto final individual ou todos os pontos finais de um perfil.  
 
 ```powershell
@@ -156,7 +156,7 @@ Get-AzCdnProfile | Get-AzCdnEndpoint | Where-Object { $_.ResourceState -eq "Runn
 ```
 
 ## <a name="creating-cdn-profiles-and-endpoints"></a>Criação de perfis e pontos finais da CDN
-`New-AzCdnProfile`e `New-AzCdnEndpoint` são usados para criar perfis e pontos finais de CDN. As seguintes SKUs são suportadas:
+`New-AzCdnProfile`e `New-AzCdnEndpoint` são usados para criar perfis de CDN e pontos finais. São apoiados os seguintes SKUs:
 - Standard_Verizon
 - Premium_Verizon
 - Custom_Verizon
@@ -176,8 +176,8 @@ New-AzCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku Stan
 
 ```
 
-## <a name="checking-endpoint-name-availability"></a>Verificação da disponibilidade de nome de ponto final
-`Get-AzCdnEndpointNameAvailability`devolve um objeto indicando se existe um nome de ponto final disponível.
+## <a name="checking-endpoint-name-availability"></a>Verificar disponibilidade do nome do ponto final
+`Get-AzCdnEndpointNameAvailability`retorna um objeto indicando se um nome de ponto final está disponível.
 
 ```powershell
 # Retrieve availability
@@ -192,7 +192,7 @@ Else { Write-Host "No, that endpoint name is not available." }
 `New-AzCdnCustomDomain`adiciona um nome de domínio personalizado a um ponto final existente.
 
 > [!IMPORTANT]
-> Deve configurar o CNAME com o seu fornecedor DNS, conforme descrito em Como mapear domínio personalizado para ponto final da Rede de [Entrega de Conteúdos (CDN).](cdn-map-content-to-custom-domain.md)  Pode testar o mapeamento antes de `Test-AzCdnCustomDomain`modificar o seu ponto final utilizando .
+> Tem de configurar o CNAME com o seu fornecedor DNS, conforme descrito no ponto final de [Como mapear o Domínio Personalizado para a Rede de Entrega de Conteúdos (CDN).](cdn-map-content-to-custom-domain.md)  Pode testar o mapeamento antes de modificar o seu ponto final utilizando `Test-AzCdnCustomDomain` .
 > 
 > 
 
@@ -207,7 +207,7 @@ $result = Test-AzCdnCustomDomain -CdnEndpoint $endpoint -CustomDomainHostName "c
 If($result.CustomDomainValidated){ New-AzCdnCustomDomain -CustomDomainName Contoso -HostName "cdn.contoso.com" -CdnEndpoint $endpoint }
 ```
 
-## <a name="modifying-an-endpoint"></a>Modificação de um ponto final
+## <a name="modifying-an-endpoint"></a>Modificar um ponto final
 `Set-AzCdnEndpoint`modifica um ponto final existente.
 
 ```powershell
@@ -222,8 +222,8 @@ $endpoint.ContentTypesToCompress = "text/javascript","text/css","application/jso
 Set-AzCdnEndpoint -CdnEndpoint $endpoint
 ```
 
-## <a name="purgingpre-loading-cdn-assets"></a>Ativos CDN de purga/pré-carregamento
-`Unpublish-AzCdnEndpointContent`purga ativos em cache, enquanto `Publish-AzCdnEndpointContent` pré-carrega ativos em pontos finais suportados.
+## <a name="purgingpre-loading-cdn-assets"></a>Purgar/Pré-carregamento de ativos cdn
+`Unpublish-AzCdnEndpointContent`purga os ativos em cache, enquanto `Publish-AzCdnEndpointContent` pré-carrega ativos em pontos finais suportados.
 
 ```powershell
 # Purge some assets.
@@ -236,7 +236,7 @@ Publish-AzCdnEndpointContent -ProfileName CdnDemo -ResourceGroupName CdnDemoRG -
 Get-AzCdnProfile | Get-AzCdnEndpoint | Unpublish-AzCdnEndpointContent -PurgeContent "/images/*"
 ```
 
-## <a name="startingstopping-cdn-endpoints"></a>Pontos finais de Início/Paragem do CDN
+## <a name="startingstopping-cdn-endpoints"></a>Pontos finais de INÍCIO/Paragem do CDN
 `Start-AzCdnEndpoint`e `Stop-AzCdnEndpoint` pode ser usado para iniciar e parar pontos finais individuais ou grupos de pontos finais.
 
 ```powershell
@@ -250,8 +250,8 @@ Get-AzCdnProfile | Get-AzCdnEndpoint | Stop-AzCdnEndpoint
 Get-AzCdnProfile | Get-AzCdnEndpoint | Start-AzCdnEndpoint
 ```
 
-## <a name="creating-standard-rules-engine-policy-and-applying-to-an-existing-cdn-endpoint"></a>Criação de regras padrão de política de motores e aplicação a um ponto final cdn existente
-`New-AzCdnDeliveryRule`, `New=AzCdnDeliveryRuleCondition`e `New-AzCdnDeliveryRuleAction` pode ser usado para configurar o motor De regras padrão Azure CDN em Azure CDN a partir de perfis da Microsoft. 
+## <a name="creating-standard-rules-engine-policy-and-applying-to-an-existing-cdn-endpoint"></a>Criar a política de motores Standard Rules e aplicar-se a um ponto final cdn existente
+`New-AzCdnDeliveryRule`, `New=AzCdnDeliveryRuleCondition` e pode ser usado para `New-AzCdnDeliveryRuleAction` configurar o motor Azure CDN Standard Rules no Azure CDN a partir dos perfis da Microsoft. 
 
 ```powershell
 # Create a new http to https redirect rule
@@ -273,7 +273,7 @@ $ep.DeliveryPolicy = $Policy
 Set-AzCdnEndpoint -CdnEndpoint $ep
 ```
 
-## <a name="deleting-cdn-resources"></a>Apagando os recursos da CDN
+## <a name="deleting-cdn-resources"></a>Eliminação dos recursos da CDN
 `Remove-AzCdnProfile`e `Remove-AzCdnEndpoint` pode ser usado para remover perfis e pontos finais.
 
 ```powershell
@@ -290,5 +290,5 @@ Remove-AzCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba como automatizar o CDN do Azure com [.NET](cdn-app-dev-net.md) ou [node. js](cdn-app-dev-node.md).
 
-Para saber mais sobre as funcionalidades do CDN, consulte a [visão geral do CDN](cdn-overview.md).
+Para saber mais sobre as funcionalidades do CDN, consulte [a Visão Geral do CDN](cdn-overview.md).
 

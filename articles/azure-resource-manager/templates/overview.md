@@ -1,64 +1,64 @@
 ---
 title: Descrição geral de modelos
-description: Descreve os benefícios usando modelos do Gestor de Recursos Azure para a implantação de recursos.
+description: Descreve os benefícios usando modelos de Gestor de Recursos Azure para a implementação de recursos.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: b3b5fb383ac89d0968a437f35aab656afa1913f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/22/2020
+ms.openlocfilehash: b1c61d5eac012f2b807c0121460804c46b12c8d0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086339"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119366"
 ---
 # <a name="what-are-arm-templates"></a>O que são modelos do ARM?
 
-Com a mudança para a nuvem, muitas equipas adotaram métodos de desenvolvimento ágeis. Estas equipas iteram rapidamente. Precisam de implantar repetidamente as suas soluções na nuvem, e sabem que as suas infraestruturas estão num estado fiável. À medida que as infraestruturas se tornaram parte do processo iterativo, a divisão entre operações e desenvolvimento desapareceu. As equipas precisam de gerir a infraestrutura e o código de aplicação através de um processo unificado.
+Com a mudança para a nuvem, muitas equipas adotaram métodos de desenvolvimento ágeis. Estas equipas iteram rapidamente. Precisam de implementar repetidamente as suas soluções para a nuvem, e saber que as suas infraestruturas estão num estado fiável. À medida que as infraestruturas se tornaram parte do processo iterativo, a divisão entre operações e desenvolvimento desapareceu. As equipas precisam de gerir o código de infraestruturas e aplicações através de um processo unificado.
 
-Para responder a estes desafios, pode automatizar implementações e usar a prática da infraestrutura como código. Em código, define-se a infraestrutura que precisa de ser implantada. O código de infraestrutura torna-se parte do seu projeto. Tal como o código de aplicação, armazena-se o código de infraestrutura num repositório de origem e versão-o. Qualquer um da sua equipa pode executar o código e implementar ambientes semelhantes.
+Para responder a estes desafios, pode automatizar implementações e usar a prática da infraestrutura como código. Em código, define-se a infraestrutura que precisa de ser implantada. O código de infraestrutura torna-se parte do seu projeto. Tal como o código de aplicação, armazena-se o código de infraestrutura num repositório de origem e versão-o. Qualquer um na sua equipa pode executar o código e implementar ambientes semelhantes.
 
-Para implementar a infraestrutura como código para as suas soluções Azure, utilize os modelos Azure Resource Manager (ARM). O modelo é um ficheiro JavaScript Object Notation (JSON) que define a infraestrutura e a configuração para o seu projeto. O modelo usa sintaxe declarativa, que permite indicar o que pretende implementar sem ter de escrever a sequência de comandos de programação para criá-la. No modelo, especifica os recursos para implantar e as propriedades para esses recursos.
+Para implementar a infraestrutura como código para as suas soluções Azure, utilize os modelos Azure Resource Manager (ARM). O modelo é um ficheiro JavaScript Object Notation (JSON) que define a infraestrutura e configuração para o seu projeto. O modelo usa sintaxe declarativa, que permite indicar o que pretende implementar sem ter de escrever a sequência de comandos de programação para criá-la. No modelo, você especifica os recursos a implementar e as propriedades para esses recursos.
 
-## <a name="why-choose-arm-templates"></a>Por que escolher os modelos ARM?
+## <a name="why-choose-arm-templates"></a>Porquê escolher modelos ARM?
 
-Se estiver a tentar decidir entre usar modelos ARM e uma das outras infraestruturas como serviços de código, considere as seguintes vantagens de usar modelos:
+Se estiver a tentar decidir entre a utilização de modelos ARM e uma das outras infraestruturas como serviços de código, considere as seguintes vantagens de usar modelos:
 
-* **Sintaxe declarativa:** Os modelos ARM permitem criar e implantar toda uma infraestrutura Azure declarativamente. Por exemplo, pode implantar não só máquinas virtuais, mas também a infraestrutura de rede, sistemas de armazenamento e quaisquer outros recursos que possa necessitar.
+* **Sintaxe declarativa**: Os modelos ARM permitem criar e implantar uma infraestrutura Azure inteira declarativamente. Por exemplo, pode implementar não só máquinas virtuais, mas também a infraestrutura de rede, sistemas de armazenamento e quaisquer outros recursos que possa necessitar.
 
-* **Resultados repetíveis**: Implemente repetidamente a sua infraestrutura durante todo o ciclo de vida de desenvolvimento e tenha confiança de que os seus recursos são implantados de forma consistente. Os modelos são idempotentes, o que significa que você pode implementar o mesmo modelo muitas vezes e obter os mesmos tipos de recursos no mesmo estado. Você pode desenvolver um modelo que representa o estado desejado, em vez de desenvolver muitos modelos separados para representar atualizações.
+* **Resultados repetíveis**: Implemente repetidamente a sua infraestrutura ao longo do ciclo de vida do desenvolvimento e tenha confiança de que os seus recursos são utilizados de forma consistente. Os modelos são idempotentes, o que significa que você pode implementar o mesmo modelo muitas vezes e obter os mesmos tipos de recursos no mesmo estado. Pode desenvolver um modelo que represente o estado pretendido, em vez de desenvolver muitos modelos separados para representar atualizações.
 
-* **Orquestração**: Não tem que se preocupar com as complexidades das operações de encomenda. O Gestor de Recursos orquestra a implantação de recursos interdependentes para que sejam criados na ordem correta. Quando possível, o Gestor de Recursos implanta recursos em paralelo para que as suas implementações terminem mais rapidamente do que as implementações em série. Você implanta o modelo através de um comando, em vez de através de múltiplos comandos imperativos.
+* **Orquestração**: Não é preciso preocupar-se com as complexidades das operações de encomenda. O Gestor de Recursos orquestra a implantação de recursos interdependentes para que sejam criados na ordem correta. Quando possível, o Gestor de Recursos implementa recursos em paralelo para que as suas implementações terminem mais rapidamente do que as implementações em série. Implementa o modelo através de um comando, em vez de através de múltiplos comandos imperativos.
 
-   ![Comparação de implementação de modelos](./media/overview/template-processing.png)
+   ![Comparação de implementação do modelo](./media/overview/template-processing.png)
 
-* **Ficheiros modulares:** Pode quebrar os seus modelos em componentes mais pequenos e reutilizáveis e ligá-los no momento da implantação. Você também pode nidificar um modelo dentro de outro modelo.
+* **Ficheiros modulares**: Pode partir os seus modelos em componentes menores e reutilizáveis e ligá-los no momento da implementação. Você também pode nidificar um modelo dentro de outro modelo.
 
-* **Crie qualquer recurso Azure:** Pode utilizar imediatamente novos serviços e funcionalidades azure em modelos. Assim que um fornecedor de recursos introduzir novos recursos, pode implementar esses recursos através de modelos. Não é preciso esperar que as ferramentas ou módulos sejam atualizados antes de utilizar os novos serviços.
+* **Crie qualquer recurso Azure**: Pode utilizar imediatamente novos serviços e funcionalidades da Azure nos modelos. Assim que um fornecedor de recursos introduz novos recursos, pode implementar esses recursos através de modelos. Não é preciso esperar que as ferramentas ou módulos sejam atualizados antes de utilizar os novos serviços.
 
-* **Extensibility**: Com scripts de [implementação,](deployment-script-template.md)pode adicionar scripts PowerShell ou Bash aos seus modelos. Os scripts de implantação alargam a sua capacidade de criar recursos durante a implantação. Um script pode ser incluído no modelo, ou armazenado numa fonte externa e referenciado no modelo. Os scripts de implementação dão-lhe a capacidade de completar a configuração do ambiente de ponta a ponta num único modelo ARM.
+* **Extensibilidade**: Com [scripts de implementação,](deployment-script-template.md)pode adicionar scripts PowerShell ou Bash aos seus modelos. Os scripts de implantação ampliam a sua capacidade de configurar recursos durante a implantação. Um script pode ser incluído no modelo, ou armazenado numa fonte externa e referenciado no modelo. Os scripts de implementação dão-lhe a capacidade de completar a configuração do ambiente de ponta a ponta num único modelo ARM.
 
-* **Teste**: Pode certificar-se de que o seu modelo segue as diretrizes recomendadas testando-a com o kit de ferramentas do modelo ARM (arm-ttk). Este kit de teste é um script PowerShell que pode supor a partir do [GitHub.](https://github.com/Azure/arm-ttk) O kit de ferramentas facilita o desenvolvimento de conhecimentos especializados utilizando a linguagem do modelo.
+* **Testes**: Pode certificar-se de que o seu modelo segue as orientações recomendadas testando-as com o kit de ferramentas do modelo ARM (arm-ttk). Este kit de teste é um script PowerShell que pode descarregar a partir do [GitHub](https://github.com/Azure/arm-ttk). O kit de ferramentas facilita o desenvolvimento de conhecimentos especializados utilizando a linguagem do modelo.
 
-* **Alterações de pré-visualização**: Pode utilizar a [operação "what-if"](template-deploy-what-if.md) para obter uma pré-visualização das alterações antes de implementar o modelo. Com o e-se, você vê quais os recursos que serão criados, atualizados ou eliminados, e quaisquer propriedades de recursos que irão mudar. A operação e se a operação verifica o estado atual do seu ambiente e elimina a necessidade de gerir o estado.
+* **Alterações de pré-visualização**: Pode utilizar a [operação "e se"](template-deploy-what-if.md) para obter uma pré-visualização das alterações antes de implantar o modelo. Com o "e se", vê quais os recursos que serão criados, atualizados ou eliminados, e quaisquer propriedades de recursos que se alterem. A operação "e se" verifica o estado atual do seu ambiente e elimina a necessidade de gerir o estado.
 
-* **Validação incorporada**: O seu modelo só é implantado após a passagem da validação. O Gestor de Recursos verifica o modelo antes de iniciar a implementação para se certificar de que a implementação terá sucesso. O seu destacamento é menos provável que pare num estado semi-acabado.
+* **Validação incorporada**: O seu modelo é implantado apenas após a validação de passagem. O Gestor de Recursos verifica o modelo antes de iniciar a implementação para se certificar de que a implementação será bem sucedida. A sua implantação é menos provável de parar num estado semi-acabado.
 
-* **Implementações rastreadas**: No portal Azure, pode rever o histórico de implementação e obter informações sobre a implementação do modelo. Pode ver o modelo que foi implantado, os valores do parâmetro passados e quaisquer valores de saída. Outras infraestruturas como serviços de código não são rastreadas através do portal.
+* **Implementações rastreadas**: No portal Azure, pode rever o histórico de implementação e obter informações sobre a implementação do modelo. Pode ver o modelo que foi implementado, os valores dos parâmetros passados e quaisquer valores de saída. Outras infraestruturas como serviços de código não são rastreadas através do portal.
 
    ![Histórico de implantação](./media/overview/deployment-history.png)
 
-* **Política como código**: [A Política Azure](../../governance/policy/overview.md) é uma política como quadro de código para automatizar a governação. Se estiver a usar as políticas do Azure, a reparação de políticas é feita em recursos não conformes quando implementada através de modelos.
+* **Política como código**: [A política azul](../../governance/policy/overview.md) é uma política como quadro de código para automatizar a governação. Se estiver a utilizar as políticas do Azure, a remediação de políticas é feita em recursos não conformes quando implementados através de modelos.
 
-* **Planos de implementação:** Pode aproveitar as plantas fornecidas pela Microsoft para cumprir as [normas](../../governance/blueprints/overview.md) regulamentares e de conformidade. Estas plantas incluem modelos pré-construídos para várias arquiteturas.
+* **Plantas de implementação**: Pode aproveitar as Plantas fornecidas pela Microsoft para cumprir as [normas regulamentares](../../governance/blueprints/overview.md) e de conformidade. Estas plantas incluem modelos pré-construídos para várias arquiteturas.
 
-* **Integração CI/CD:** Pode integrar modelos nas suas ferramentas de integração contínua e implantação contínua (CI/CD), que podem automatizar os seus gasodutos de libertação para atualizações rápidas e fiáveis de aplicações e infraestruturas. Ao utilizar a tarefa de modelo Azure DevOps e Resource Manager, pode utilizar os Pipelines Azure para construir e implementar continuamente projetos de modelo sarm. Para saber mais, consulte o [projeto VS com oleodutos](add-template-to-azure-pipelines.md) e tutorial: Integração contínua de modelos de Gestor de [Recursos Azure com Pipelines Azure](./deployment-tutorial-pipeline.md).
+* **Integração CI/CD**: Pode integrar modelos nas suas ferramentas de integração contínua e implementação contínua (CI/CD), que podem automatizar os seus oleodutos de libertação para atualizações rápidas e fiáveis de aplicações e infraestruturas. Ao utilizar a tarefa do modelo Azure DevOps e Resource Manager, pode utilizar pipelines Azure para construir e implementar continuamente projetos de modelo ARM. Para saber mais, consulte [o projeto VS com oleodutos](add-template-to-azure-pipelines.md) e [Tutorial: Integração contínua dos modelos Azure Resource Manager com Pipelines Azure](./deployment-tutorial-pipeline.md).
 
-* **Código exportável**: Pode obter um modelo para um grupo de recursos existente, exportando o estado atual do grupo de recursos, ou visualizando o modelo utilizado para uma determinada implantação. Ver o [modelo exportado](export-template-portal.md) é uma forma útil de aprender sobre a sintaxe do modelo.
+* **Código exportável**: Pode obter um modelo para um grupo de recursos existente exportando o estado atual do grupo de recursos, ou visualizando o modelo utilizado para uma determinada implantação. Ver o [modelo exportado](export-template-portal.md) é uma forma útil de aprender sobre a sintaxe do modelo.
 
-* **Ferramentas de autoria**: Pode autor modelos com [Código de Estúdio Visual](use-vs-code-to-create-template.md) e a extensão da ferramenta de modelo. Obtém-se intellisense, sintaxe realçando, ajuda em linha e muitas outras funções linguísticas. Além do código Visual Studio, também pode utilizar o [Visual Studio.](create-visual-studio-deployment-project.md)
+* **Ferramentas de autoria**: Pode autor de modelos com [Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md) e a extensão da ferramenta do modelo. Você tem intellisense, destaque de sintaxe, ajuda em linha, e muitas outras funções linguísticas. Além do código Visual Studio, também pode utilizar [o Visual Studio.](create-visual-studio-deployment-project.md)
 
-## <a name="template-file"></a>Ficheiro de modelo
+## <a name="template-file"></a>Arquivo de modelo
 
-Dentro do seu modelo, pode escrever [expressões](template-expressions.md) de modelo que alargam as capacidades da JSON. Estas expressões utilizam as [funções](template-functions.md) fornecidas pelo Gestor de Recursos.
+Dentro do seu modelo, pode escrever [expressões de modelo que](template-expressions.md) prolongam as capacidades de JSON. Estas expressões utilizam as [funções fornecidas](template-functions.md) pelo Gestor de Recursos.
 
 O modelo tem as seguintes secções:
 
@@ -66,11 +66,11 @@ O modelo tem as seguintes secções:
 
 * [Variáveis](template-variables.md) - Defina valores que são reutilizados nos seus modelos. Podem ser construídos a partir de valores de parâmetros.
 
-* [Funções definidas pelo utilizador](template-user-defined-functions.md) - Crie funções personalizadas que simplificam o seu modelo.
+* [Funções definidas pelo utilizador](template-user-defined-functions.md) - Crie funções personalizadas que simplifiquem o seu modelo.
 
-* [Recursos](template-syntax.md#resources) - Especificar os recursos a implantar.
+* [Recursos](template-syntax.md#resources) - Especifique os recursos a utilizar.
 
-* [Saídas](template-outputs.md) - Valores de devolução dos recursos implantados.
+* [Saídas](template-outputs.md) - Retorno dos valores dos recursos implantados.
 
 ## <a name="template-deployment-process"></a>Processo de implementação do modelo
 
@@ -124,8 +124,9 @@ Se imaginar as suas camadas com ciclos de vida separados, pode implementar as tr
 
 Para obter mais informações sobre modelos aninhados, veja [Utilizar modelos ligados com o Azure Resource Manager](linked-templates.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para um tutorial passo a passo que o guia através do processo de criação de um modelo, consulte [Tutorial: Crie e implante o seu primeiro modelo ARM](template-tutorial-create-first-template.md).
-* Para obter informações sobre as propriedades em ficheiros de modelos, consulte [Compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
-* Para aprender sobre modelos de exportação, consulte [Quickstart: Crie e implante modelos ARM utilizando o portal Azure](quickstart-create-templates-use-the-portal.md).
+* Para um tutorial passo a passo que o guia através do processo de criação de um modelo, consulte [Tutorial: Crie e implemente o seu primeiro modelo ARM](template-tutorial-create-first-template.md).
+* Para obter informações sobre as propriedades em ficheiros de modelos, consulte [compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
+* Para saber mais sobre os modelos de exportação, consulte [Quickstart: Crie e implemente modelos ARM utilizando o portal Azure](quickstart-create-templates-use-the-portal.md).
+* Para obter respostas a perguntas comuns, consulte [perguntas frequentes sobre modelos ARM](frequently-asked-questions.md).

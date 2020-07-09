@@ -1,35 +1,34 @@
 ---
-title: Ligação de saída da Rede de Eventos Azure para funções Azure
-description: Aprenda a enviar um evento da Grelha de Eventos em Funções Azure.
+title: Ligação de saída da grelha de eventos Azure para funções Azure
+description: Aprenda a enviar um evento de Grade de Eventos em Funções Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 4df0faf3f74ef3423dcd42c2c76af8b39a889a92
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.custom: fasttrack-edit, tracking-python
+ms.openlocfilehash: 2eaa2202ac6c2f0fac0f53c6eeb2f5d08c764f1e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773958"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413353"
 ---
-# <a name="azure-event-grid-output-binding-for-azure-functions"></a>Ligação de saída da Rede de Eventos Azure para funções Azure
+# <a name="azure-event-grid-output-binding-for-azure-functions"></a>Ligação de saída da grelha de eventos Azure para funções Azure
 
-Utilize a ligação de saída da Rede de Eventos para escrever eventos para um tópico personalizado. Deve ter uma chave de acesso válida [para o tópico personalizado](../event-grid/security-authentication.md#authenticate-publishing-clients-using-sas-or-key).
+Utilize a ligação de saída da Grelha de Eventos para escrever eventos a um tópico personalizado. Deve ter uma chave de acesso válida [para o tópico personalizado.](../event-grid/security-authenticate-publishing-clients.md)
 
-Para obter informações sobre os detalhes da configuração e configuração, consulte a [visão geral](./functions-bindings-event-grid.md).
+Para obter informações sobre detalhes de configuração e configuração, consulte a [visão geral](./functions-bindings-event-grid.md).
 
 > [!NOTE]
-> A ligação de saída da Rede de Eventos não suporta assinaturas de acesso partilhado (tokens SAS). Deve usar a chave de acesso do tópico.
+> A ligação de saída da Grelha de Eventos não suporta assinaturas de acesso partilhada (fichas SAS). Tem de usar a chave de acesso do tópico.
 
 > [!IMPORTANT]
-> A ligação de saída da Rede de Eventos só está disponível para funções 2.x e superiores.
+> A ligação de saída da Grelha de Eventos só está disponível para funções 2.x e superior.
 
 ## <a name="example"></a>Exemplo
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que escreve uma mensagem para um tópico personalizado da Rede de Eventos, utilizando o valor de retorno do método como saída:
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que escreve uma mensagem para um tópico personalizado da Grade de Eventos, utilizando o valor de retorno do método como saída:
 
 ```csharp
 [FunctionName("EventGridOutput")]
@@ -40,7 +39,7 @@ public static EventGridEvent Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTim
 }
 ```
 
-O exemplo que se segue mostra como usar a `IAsyncCollector` interface para enviar um lote de mensagens.
+O exemplo a seguir mostra como usar a `IAsyncCollector` interface para enviar um lote de mensagens.
 
 ```csharp
 [FunctionName("EventGridAsyncOutput")]
@@ -59,7 +58,7 @@ public static async Task Run(
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-O exemplo seguinte mostra os dados de ligação de saída da Rede de Eventos no ficheiro *fun.json.*
+O exemplo a seguir mostra os dados de ligação à saída da Grelha de Eventos no *function.jsficheiro.*
 
 ```json
 {
@@ -102,7 +101,7 @@ public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo seguinte mostra os dados de ligação de saída da Rede de Eventos no ficheiro *fun.json.*
+O exemplo a seguir mostra os dados de ligação à saída da Grelha de Eventos no *function.jsficheiro.*
 
 ```json
 {
@@ -162,9 +161,9 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo seguinte mostra uma ligação do gatilho num ficheiro *function.json* e uma [função Python](functions-reference-python.md) que utiliza a ligação. Em seguida, envia em um evento para o tópico de Grelha de Eventos personalizado, conforme especificado pelo `topicEndpointUri` .
+O exemplo a seguir mostra uma ligação do gatilho numa *function.jsem* ficheiro e uma [função Python](functions-reference-python.md) que utiliza a ligação. Em seguida, envia num evento para o tópico personalizado, conforme especificado pelo `topicEndpointUri` .
 
-Aqui estão os dados vinculativos no ficheiro *função.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -187,7 +186,7 @@ Aqui estão os dados vinculativos no ficheiro *função.json:*
 }
 ```
 
-Aqui está a amostra python para enviar um evento para um tópico personalizado da Grelha de Eventos, definindo o `EventGridOutputEvent` :
+Aqui está a amostra python para enviar um evento para um tópico personalizado, definindo o `EventGridOutputEvent` :
 
 ```python
 import logging
@@ -212,7 +211,7 @@ def main(eventGridEvent: func.EventGridEvent,
 
 # <a name="java"></a>[Java](#tab/java)
 
-A ligação de saída da Rede de Eventos não está disponível para java.
+A ligação de saída da Grade de Eventos não está disponível para a Java.
 
 ---
 
@@ -222,7 +221,7 @@ A ligação de saída da Rede de Eventos não está disponível para java.
 
 Para [bibliotecas de classe C#,](functions-dotnet-class-library.md)utilize o atributo [EventGridAttribute.](https://github.com/Azure/azure-functions-eventgrid-extension/blob/dev/src/EventGridExtension/OutputBinding/EventGridAttribute.cs)
 
-O construtor do atributo tem o nome de uma definição de app que contém o nome do tópico personalizado, e o nome de uma definição de app que contém a chave do tópico. Para obter mais informações sobre estas definições, consulte [Saída - configuração](#configuration). Aqui está um exemplo de `EventGrid` atributo:
+O construtor do atributo tem o nome de uma definição de app que contém o nome do tópico personalizado, e o nome de uma definição de aplicação que contém a chave de tópico. Para obter mais informações sobre estas definições, consulte [a configuração De saída -](#configuration). Aqui está um `EventGrid` exemplo de atributo:
 
 ```csharp
 [FunctionName("EventGridOutput")]
@@ -233,11 +232,11 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-Para um exemplo completo, consulte o [exemplo](#example).
+Para um exemplo completo, veja [o exemplo.](#example)
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Os atributos não são suportados por C# Script.
+Os atributos não são suportados pelo Script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -245,25 +244,25 @@ Os atributos não são suportados pelo JavaScript.
 
 # <a name="python"></a>[Python](#tab/python)
 
-A ligação de saída da Rede de Eventos não está disponível para python.
+A ligação de saída da Grade de Eventos não está disponível para Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-A ligação de saída da Rede de Eventos não está disponível para java.
+A ligação de saída da Grade de Eventos não está disponível para a Java.
 
 ---
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no `EventGrid` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `EventGrid` atributo.
 
-|propriedade fun.json | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para "eventGrid". |
 |**direção** | n/a | Deve ser definido para "fora". Este parâmetro é definido automaticamente quando cria a ligação no portal Azure. |
-|**name** | n/a | O nome variável usado no código de função que representa o evento. |
-|**topicEndpointUri** |**TopicEndpointUri** | O nome de uma definição de aplicação que contém o URI para o tópico personalizado, como `MyTopicEndpointUri` . |
-|**tópicoKeySetting** |**Definição de tópicos** | O nome de uma definição de aplicação que contém uma chave de acesso para o tópico personalizado. |
+|**nome** | n/a | O nome variável usado no código de função que representa o evento. |
+|**tópicoEndpointUri** |**TópicoEndpointUri** | O nome de uma definição de aplicação que contém o URI para o tópico personalizado, como `MyTopicEndpointUri` . |
+|**tópicoSetting** |**TópicoKeySetting** | O nome de uma definição de aplicação que contém uma chave de acesso para o tópico personalizado. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -274,26 +273,26 @@ A tabela a seguir explica as propriedades de configuração de ligação que def
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Envie mensagens utilizando um parâmetro de método como `out EventGridEvent paramName` . Para escrever várias mensagens, pode utilizar `ICollector<EventGridEvent>` ou no lugar de `IAsyncCollector<EventGridEvent>` `out EventGridEvent` .
+Envie mensagens utilizando um parâmetro de método, como `out EventGridEvent paramName` . Para escrever várias mensagens, pode utilizar `ICollector<EventGridEvent>` ou no lugar de `IAsyncCollector<EventGridEvent>` `out EventGridEvent` .
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Envie mensagens utilizando um parâmetro de método como `out EventGridEvent paramName` . No script C#, `paramName` é o valor especificado na propriedade da `name` *função.json*. Para escrever várias mensagens, pode utilizar `ICollector<EventGridEvent>` ou no lugar de `IAsyncCollector<EventGridEvent>` `out EventGridEvent` .
+Envie mensagens utilizando um parâmetro de método, como `out EventGridEvent paramName` . No script C# `paramName` é o valor especificado na propriedade defunction.js`name` *em*. Para escrever várias mensagens, pode utilizar `ICollector<EventGridEvent>` ou no lugar de `IAsyncCollector<EventGridEvent>` `out EventGridEvent` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aceda ao evento de saída utilizando `context.bindings.<name>` onde está o valor `<name>` especificado na propriedade da `name` *função.json*.
+Aceda ao evento de saída utilizando `context.bindings.<name>` onde está o valor especificado na propriedade defunction.js`<name>` `name` *em*.
 
 # <a name="python"></a>[Python](#tab/python)
 
-A ligação de saída da Rede de Eventos não está disponível para python.
+A ligação de saída da Grade de Eventos não está disponível para Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-A ligação de saída da Rede de Eventos não está disponível para java.
+A ligação de saída da Grade de Eventos não está disponível para a Java.
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Despachar um evento da Grelha de Eventos](./functions-bindings-event-grid-trigger.md)
+* [Despachar um evento de Grade de Eventos](./functions-bindings-event-grid-trigger.md)

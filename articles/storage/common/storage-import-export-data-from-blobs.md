@@ -4,16 +4,16 @@ description: Saiba como criar empregos de exportação no portal Azure para tran
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: fe58f59147db43b1c15298f83a2945b50766f8a8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: c9ce265707743d98f6c93d3facca33e16d1b75ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169207"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513504"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilizar o serviço Importar/Exportar do Microsoft Azure para exportar dados do Armazenamento de blobs do Azure
 
@@ -39,7 +39,7 @@ Tens de o fazer:
 
 Execute os seguintes passos para criar uma função de exportação no portal Azure.
 
-1. Faça login em https://portal.azure.com/ .
+1. Faça login em <https://portal.azure.com/> .
 2. Aceda a **todos os serviços > armazenamento > empregos de importação/exportação.**
 
     ![Ir para os postos de trabalho de importação/exportação](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
@@ -129,7 +129,11 @@ A exportação está completa.
 
 Se utilizar a versão 1.4.0.300 da ferramenta WAImportExport, utilize o seguinte comando para desbloquear a unidade:
 
-   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file> /driveLetter:<Drive letter>`  
+
+Aqui está um exemplo da entrada da amostra.
+
+   `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
 
 Se utilizar versões anteriores da ferramenta, utilize o diálogo BitLocker para desbloquear a unidade.
 
@@ -143,11 +147,11 @@ Este passo *opcional* ajuda-o a determinar o número de unidades necessárias pa
 2. Desaperte a pasta predefinido `waimportexportv1` . Por exemplo, `C:\WaImportExportV1`.
 3. Abra uma janela de linha PowerShell ou de linha de comando com privilégios administrativos. Para alterar o diretório para a pasta desapertado, execute o seguinte comando:
 
-    `cd C:\WaImportExportV1`
+   `cd C:\WaImportExportV1`
 
 4. Para verificar o número de discos necessários para as bolhas selecionadas, verifique o seguinte comando:
 
-    `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
+   `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
 
     Os parâmetros são descritos no quadro seguinte:
 
@@ -212,8 +216,8 @@ A tabela a seguir mostra exemplos de caminhos de bolhas válidos:
    | Começa com |/livro |Exporta todas as bolhas em qualquer recipiente que comece com **livro** de prefixos |
    | Começa com |/música/ |Exporta todas as bolhas na **música** de contentores |
    | Começa com |/música/amor |Exporta todas as bolhas na **música** de recipiente que começam com **amor** prefixo |
-   | Igual a |$root/logo.bmp |Exportações **blob logo.bmp** no recipiente raiz |
-   | Igual a |videos/story.mp4 |Exportações blob **story.mp4** em **vídeos** de contentores |
+   | Igual a |$root/logo.bmp |Exportações blob **logo.bmp** no recipiente raiz |
+   | Igual a |vídeos/story.mp4 |Exportações blob **story.mp4** em **vídeos** de contentores |
 
 ## <a name="next-steps"></a>Próximos passos
 

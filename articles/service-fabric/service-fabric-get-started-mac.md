@@ -1,15 +1,15 @@
 ---
-title: Instale o seu ambiente de dev no macOS
-description: Instale o runtime, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de concluir esta configuração, estará pronto para construir aplicações no macOS.
+title: Configurar o seu ambiente dev no macOS
+description: Instale o runtime, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de completar esta configuração, estará pronto para construir aplicações no macOS.
 author: suhuruli
 ms.topic: conceptual
 ms.date: 11/17/2017
 ms.author: suhuruli
 ms.openlocfilehash: c7e2d556c4fb8bebc0b75bdf9d4c209c27f86971
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82193399"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar o ambiente de desenvolvimento no Mac OS X
@@ -44,11 +44,11 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    Pode atualizar estas definições diretamente no ficheiro daemon.json no caminho de instalação do Docker. Pode modificar diretamente as definições de configuração da daemon no Docker. Selecione o **ícone de Docker**e, em seguida, selecione **Preferências** > **Daemon** > **Avançadas**.
+    Pode atualizar estas definições diretamente no ficheiro daemon.json no caminho de instalação do Docker. Pode modificar diretamente as definições de daemon no Docker. Selecione o **ícone de Docker**e, em seguida, selecione **Preferências** > **Daemon** > **Avançadas**.
     
     >[!NOTE]
     >
-    >Modificar o daemon diretamente no Docker é recomendado porque a localização do ficheiro daemon.json pode variar de máquina para máquina. Por exemplo, ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
+    >Recomenda-se modificar o daemon diretamente no Docker porque a localização do daemon.jsno ficheiro pode variar de máquina para máquina. Por exemplo, ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
 
     >[!TIP]
@@ -76,7 +76,7 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
     >Por exemplo, se adicionar `RUN apt-get install nodejs -y` irá permitir o suporte para aplicações `nodejs` como convidado executáveis.
     
     >[!TIP]
-    > Por predefinição, isto irá extrair a imagem com a versão mais recente do Service Fabric. Para revisões particulares, visite a página [do Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/)
+    > Por predefinição, isto irá extrair a imagem com a versão mais recente do Service Fabric. Para revisões específicas, visite a página [do Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/)
 
 3. Para criar a imagem reutilizável a partir do `Dockerfile`, abra um terminal e `cd` para o diretório que contém o `Dockerfile` e, em seguida, execute:
 
@@ -101,7 +101,7 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
     >
 
-5. O aglomerado vai demorar um pouco para começar. Quando estiver em funcionamento, pode ver os registos utilizando o seguinte `http://localhost:19080`comando ou saltar para o painel de instrumentos para ver a saúde dos clusters:
+5. O aglomerado vai demorar um pouco para começar. Quando estiver em funcionamento, pode visualizar registos utilizando o seguinte comando ou saltar para o painel de instrumentos para ver a saúde dos `http://localhost:19080` clusters:
 
     ```bash 
     docker logs sftestcluster
@@ -109,7 +109,7 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
 
 
 
-6. Para parar e limpar o recipiente, utilize o seguinte comando. No entanto, usaremos este recipiente no próximo passo.
+6. Para parar e limpar o recipiente, utilize o seguinte comando. No entanto, vamos utilizar este contentor no próximo passo.
 
     ```bash 
     docker rm -f sftestcluster
@@ -166,8 +166,8 @@ O Service Fabric fornece ferramentas estruturais que o ajudam a criar uma aplica
     ```
 
     > [!IMPORTANT]
-    > As versões atuais podem `brew cask install java` instalar uma versão mais recente do JDK.
-    > Certifique-se de instalar o JDK 8.
+    > As versões atuais `brew cask install java` podem instalar uma versão mais recente do JDK.
+    > Certifique-se de instalar jDK 8.
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>Implementar a aplicação no seu Mac a partir do terminal
 

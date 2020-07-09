@@ -1,6 +1,6 @@
 ---
-title: Copiar dados do Square (Pré-visualização)
-description: Saiba como copiar dados da Square para lojas de dados de sink suportadas utilizando uma atividade de cópia num pipeline azure Data Factory.
+title: Copiar dados da Square (Pré-visualização)
+description: Saiba como copiar dados da Square para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num oleoduto Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.author: jingwang
@@ -13,52 +13,52 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: ac968271685c66c8fab8d7723d994a446f49e85f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81410319"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copiar dados da Square utilizando a Azure Data Factory (Pré-visualização)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados da Square. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados da Square. Baseia-se no artigo [de visão geral](copy-activity-overview.md) da atividade de cópia que apresenta uma visão geral da atividade da cópia.
 
 > [!IMPORTANT]
-> Este conector encontra-se atualmente em pré-visualização. Pode sacá-lo e dar-nos feedback. Se quiser realizar uma dependência em conectores de pré-visualização na sua solução, contacte o [Suporte do Azure](https://azure.microsoft.com/support/).
+> Este conector encontra-se atualmente em pré-visualização. Pode experimentar e dar-nos feedback. Se quiser realizar uma dependência em conectores de pré-visualização na sua solução, contacte o [Suporte do Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
 Este conector Quadrado é suportado para as seguintes atividades:
 
-- [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/pia suportada](copy-activity-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)
 
 
-Pode copiar dados da Square para qualquer loja de dados suportada. Para obter uma lista de lojas de dados que são suportadas como fontes/pias pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
+Pode copiar dados da Square para qualquer loja de dados de lavatórios suportados. Para obter uma lista de lojas de dados suportadas como fontes/pias pela atividade de cópia, consulte a tabela [de lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-A Azure Data Factory fornece um controlador incorporado para permitir a conectividade, pelo que não necessita de instalar manualmente qualquer controlador utilizando este conector.
+A Azure Data Factory fornece um controlador incorporado para permitir a conectividade, pelo que não é necessário instalar manualmente qualquer controlador utilizando este conector.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades data Factory específicas do conector Quadrado.
+As secções seguintes fornecem detalhes sobre propriedades que são usadas para definir entidades da Data Factory específicas do conector Square.
 
-## <a name="linked-service-properties"></a>Propriedades de serviço seletos
+## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 
-As seguintes propriedades são suportadas para o serviço square linked:
+As seguintes propriedades são suportadas para o serviço ligado à Square:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Quadrado** | Sim |
-| anfitrião | A URL da instância Square. (isto é, mystore.mysquare.com)  | Sim |
-| clientId | A identificação do cliente associada à sua aplicação Square.  | Sim |
-| clienteSecret | O segredo do cliente associado à sua aplicação Square. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Sim |
-| redirecionamentoUri | O URL de redirecionamento atribuído no painel de aplicações Square. (ou é, http:\//localhost:2500)  | Sim |
-| useEncryptedEndpoints | Especifica se os pontos finais da fonte de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
-| utilizaçãoVerificação de anfitriões | Especifica se deve exigir o nome de anfitrião no certificado do servidor para corresponder ao nome de anfitrião do servidor ao ligar-se ao TLS. O valor predefinido é true.  | Não |
-| utilizaçãoPeerVerification | Especifica se deve verificar a identidade do servidor ao ligar-se através do TLS. O valor predefinido é true.  | Não |
+| tipo | A propriedade tipo deve ser definida para: **Quadrado** | Yes |
+| anfitrião | A URL da instância square. (isto é, mystore.mysquare.com)  | Yes |
+| clientId | A identificação do cliente associada à sua aplicação Square.  | Yes |
+| segredo de clientes | O segredo do cliente associado à sua aplicação Square. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| redirectUri | O URL de redirecionamento atribuído no painel de aplicações Square. (isto é, http: \/ /localhost:2500)  | Yes |
+| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | No |
+| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | No |
+| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | No |
 
 **Exemplo:**
 
@@ -82,14 +82,14 @@ As seguintes propriedades são suportadas para o serviço square linked:
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo conjuntos de [dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados Square.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [conjuntos de dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas por conjunto de dados Square.
 
-Para copiar dados da Square, detete a propriedade do tipo do conjunto de dados para **SquareObject**. As seguintes propriedades são suportadas:
+Para copiar dados da Square, defina a propriedade tipo do conjunto de dados para **o SquareObject**. As seguintes propriedades são suportadas:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **SquareObject** | Sim |
-| tableName | Nome da mesa. | Não (se for especificada a "consulta" na fonte de atividade) |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **SquareObject** | Yes |
+| tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
 
@@ -110,15 +110,15 @@ Para copiar dados da Square, detete a propriedade do tipo do conjunto de dados p
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas por fonte quadrada.
+Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela Square source.
 
 ### <a name="square-as-source"></a>Quadrado como fonte
 
-Para copiar dados da Square, delineie o tipo de origem na atividade de cópia para **o SquareSource**. As seguintes propriedades são suportadas na secção de **origem** da atividade de cópia:
+Para copiar dados da Square, desagrafe o tipo de origem na atividade da cópia para **o SquareSource**. As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **SquareSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **SquareSource** | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM Business"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
@@ -155,7 +155,7 @@ Para copiar dados da Square, delineie o tipo de origem na atividade de cópia pa
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
-Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
+Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Azure Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

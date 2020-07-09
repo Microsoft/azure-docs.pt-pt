@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -8,16 +8,15 @@ ms.topic: include
 ms.date: 07/10/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 01c1c7c0bdf8e55b002b73682407a3e03ee30b8f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 95f0e542022f64a5a5bf7d7009c79382e25392df
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085790"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86035738"
 ---
-Crie uma [aplicação web](../articles/app-service/containers/app-service-linux-intro.md) no plano de `myAppServicePlan` Serviço de Aplicações. 
+Crie uma [aplicação web](../articles/app-service/containers/app-service-linux-intro.md) no `myAppServicePlan` plano de Serviço de Aplicações. 
 
-Na Cloud Shell, podes [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest) usar o comando. No exemplo a seguir, substitua `<app-name>` com um nome de aplicação globalmente exclusivo (os carateres válidos são `a-z`, `0-9` e `-`). O runtime está definido como `RUBY|2.3`. Para ver todos os tempos de corrida suportados, corra. [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest) 
+Na Cloud Shell, podes usar o [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest) comando. No exemplo a seguir, substitua `<app-name>` com um nome de aplicação globalmente exclusivo (os carateres válidos são `a-z`, `0-9` e `-`). O runtime está definido como `RUBY|2.6.2`. Para ver todos os tempos de execução suportados, [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest) corra. 
 
 ```azurecli-interactive
 # Bash

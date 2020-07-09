@@ -10,11 +10,11 @@ ms.topic: overview
 ms.date: 09/17/2019
 ms.author: alkohli
 ms.openlocfilehash: a3e27cf427de3a33f71d6f4a0af9b1590abeb573
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240717"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707689"
 ---
 # <a name="what-is-azure-data-box"></a>O que é o Azure Data Box?
 
@@ -56,14 +56,14 @@ O Data Box foi concebido para mover grandes quantidades de dados para o Azure co
 
 O dispositivo Data Box tem as seguintes funcionalidades nesta versão.
 
-| Especificações                                          | Descrição              |
+| Especificações                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | Peso                                                  | < 23 kg                |
 | Dimensões                                              | Dispositivo – Largura: 309,0 mm Altura: 430,4 mm Profundidade: 502,0 mm |            
 | Espaço em rack                                              | 7 U quando colocado no rack ao seu lado (não pode ser montado em rack)|
 | Cabos necessários                                         | 1 x cabo de alimentação (incluído) <br> 2 cabos RJ45 <br> 2 X cabos de cobre SFP + Twinax|
 | Capacidade de armazenamento                                        | O dispositivo de 100 TB tem a capacidade utilizável de 80 TB depois da proteção de RAID 5|
-| Classificação de potência                                            | A unidade de alimentação está classificada para 700 W. <br> Tipicamente, a unidade desenha 375 W.|
+| Classificação de potência                                            | A unidade de alimentação está classificada para 700 W. <br> Normalmente, a unidade desenha 375 W.|
 | Interfaces de rede                                      | 2 x interfaces de 1 GbE – MGMT, DATA 3. <br> MGMT – para gestão, não configurável pelo utilizador, utilizada para a configuração inicial <br> DATA3 – para dados, configurável pelo utilizador, dinâmica por predefinição <br> As interfaces MGMT e DATA 3 também podem funcionar como 10 GbE <br> 2 X interfaces de 10 GbE – DATA 1, DATA 2 <br> Ambas são para dados, podem ser configuradas como dinâmicas (predefinição) ou estáticas |
 | Suporte de transferência de dados                                     | RJ45, SFP + Ethernet 10 GbE de cobre  |
 | Segurança                                                | Caixa robusta do dispositivo com parafusos personalizados à prova de adulteração <br> Autocolantes invioláveis colocados na parte inferior do dispositivo|
@@ -109,9 +109,9 @@ Ao longo deste processo, será notificado por e-mail sobre todas as alterações
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-A Data Box pode transferir dados com base na região em que o serviço é implantado, país/região para o qual o dispositivo é enviado, e na conta de armazenamento-alvo do Azure onde transfere os dados. 
+A Data Box pode transferir dados com base na região em que o serviço é implantado, país/região para onde o dispositivo é enviado, e a conta de armazenamento target Azure onde você transfere os dados. 
 
-- **Disponibilidade de serviço** - Para informações sobre a disponibilidade da região, vá aos [produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all) A Caixa de Dados também pode ser implantada na Nuvem do Governo Azure. Para mais informações, veja o que é o [Governo de Azure?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
+- **Disponibilidade de serviço** - Para obter informações sobre a disponibilidade da região, aceda aos [produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all) A Caixa de Dados também pode ser implantada na Nuvem do Governo de Azure. Para mais informações, veja [o que é o Governo Azure?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
 
 - **Contas de Armazenamento de Destino** - as contas de armazenamento que armazenam os dados estão disponíveis em todas as regiões do Azure onde o serviço estiver disponível.  
 

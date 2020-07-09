@@ -1,6 +1,6 @@
 ---
-title: Máquina virtual Azure não responde ao aplicar política
-description: Este artigo fornece medidas para resolver problemas em que o ecrã de carga está preso ao aplicar uma apólice durante o arranque num VM Azure.
+title: A máquina virtual Azure não responde ao aplicar a política
+description: Este artigo fornece medidas para resolver problemas em que o ecrã de carga não responde quando se aplica uma política durante o arranque de um VM Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: TobyTu
@@ -14,24 +14,23 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 30f833bc49f92dcabfc75f0a1507c6f540bdea24
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.openlocfilehash: 187098f557cb691e023abb282a265b11e975c544
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749278"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629252"
 ---
-# <a name="vm-becomes-unresponsive-while-applying-group-policy-local-users--groups-policy"></a>VM torna-se insensível ao aplicar a política de "política de grupo utilizadores locais & grupos"
+# <a name="vm-is-unresponsive-when-applying-group-policy-local-users-and-groups-policy"></a>VM não responde ao aplicar a política de utilizadores e grupos locais de política de grupo
 
-Este artigo fornece medidas para resolver problemas em que o ecrã de carga está preso ao aplicar uma apólice durante o arranque num VM Azure.
+Este artigo fornece medidas para resolver problemas em que o ecrã de carga não responde quando uma máquina virtual Azure (VM) aplica uma política durante o arranque.
 
 ## <a name="symptoms"></a>Sintomas
 
-Ao utilizar os diagnósticos boot para visualizar uma imagem do VM, o ecrã fica preso a carregar com a mensagem: ' Aplicação da política de*grupo Utilizadores locais e de grupos'.* [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics)
+Quando está a utilizar [diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para visualizar uma imagem do VM, o ecrã está preso a carregar com a mensagem: "Aplicando a política de utilizadores e grupos locais de política de grupos."
 
-:::image type="content" source="media//unresponsive-vm-apply-group-policy/applying-group-policy-1.png" alt-text="Screenshot da aplicação da política do grupo Utilizadores locais e carregamento de grupos (Windows Server 2012 R2).":::
+:::image type="content" source="media//unresponsive-vm-apply-group-policy/applying-group-policy-1.png" alt-text="Screenshot de Aplicação da Política de Grupo Utilizadores locais e grupos de carregamento de políticas (Windows Server 2012 R2).":::
 
-:::image type="content" source="media/unresponsive-vm-apply-group-policy/applying-group-policy-2.png" alt-text="Screenshot da aplicação da política do grupo Utilizadores locais e carregamento de grupos (Windows Server 2012).":::
+:::image type="content" source="media/unresponsive-vm-apply-group-policy/applying-group-policy-2.png" alt-text="Screenshot de Aplicação da Política de Grupo Utilizadores locais e grupos de carregamento de políticas (Windows Server 2012).":::
 
 ## <a name="cause"></a>Causa
 
@@ -40,7 +39,7 @@ Há bloqueios contraditórios quando a política tenta limpar perfis antigos dos
 > [!NOTE]
 > Isto aplica-se apenas ao Windows Server 2012 e ao Windows Server 2012 R2.
 
-Aqui está a política problemática:
+Eis a política problemática:
 
 `Computer Configuration\Policies\Administrative Templates\System/User Profiles\Delete user profiles older than a specified number of days on system restart`
 
@@ -49,70 +48,68 @@ Aqui está a política problemática:
 ### <a name="process-overview"></a>Visão geral do processo
 
 1. [Criar e aceder a um VM de reparação](#step-1-create-and-access-a-repair-vm)
-2. [Desativar a política](#step-2-disable-the-policy)
-3. [Ativar a consola em série e a recolha de despejo de memória](#step-3-enable-serial-console-and-memory-dump-collection)
-4. [Reconstruir o VM](#step-4-rebuild-the-vm)
+1. [Desativar a política](#step-2-disable-the-policy)
+1. [Ativar a recolha de consolas em série e de despejo de memória](#step-3-enable-serial-console-and-memory-dump-collection)
+1. [Reconstruir o VM](#step-4-rebuild-the-vm)
 
 > [!NOTE]
-> Se encontrar este erro de arranque, o Os convidado não está operacional. Tens de resolver problemas no modo Offline.
+> Se encontrar este erro de arranque, o so convidado não está operacional. Tem de resolver problemas no modo Offline.
 
 ### <a name="step-1-create-and-access-a-repair-vm"></a>Passo 1: Criar e aceder a um VM de reparação
 
 1. Utilize [os passos 1-3 dos comandos de reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para preparar um VM de reparação.
-2. Utilize a ligação remota de ambiente de trabalho à VM de reparação.
+2. Utilize ligação de ambiente de trabalho remoto para ligar ao VM de reparação.
 
 ### <a name="step-2-disable-the-policy"></a>Passo 2: Desativar a política
 
-1. Na reparação, abra o Editor de Registo.
-2. Localize a **HKEY_LOCAL_MACHINE** chave e selecione **File**  >  **Load Hive...** do menu.
+1. Na VM de reparação, abra o Editor de Registos.
+1. Localize a **chave HKEY_LOCAL_MACHINE** e selecione a Colmeia de Carga de **Ficheiros**no  >  **Load Hive** menu.
 
-    :::image type="content" source="media/unresponsive-vm-apply-group-policy/registry.png" alt-text="A screenshot mostra HKEY_LOCAL_MACHINE realçadas e o menu contendo Load Hive.":::
+    :::image type="content" source="media/unresponsive-vm-apply-group-policy/registry.png" alt-text="A screenshot mostra HKEY_LOCAL_MACHINE e o menu contendo Load Hive.":::
 
-    - A Load Hive permite-lhe carregar as teclas de registo de um sistema offline, neste caso o disco partido ligado ao VM de reparação.
+    - Pode utilizar a Colmeia de Carga para carregar as chaves de registo de um sistema offline. Neste caso, o sistema é o disco partido ligado à VM de reparação.
     - As definições em todo o sistema são armazenadas `HKEY_LOCAL_MACHINE` e podem ser abreviadas como "HKLM".
-3. No disco anexo, vá ao `\windows\system32\config\SOFTWARE` ficheiro e abra-o.
+1. No disco anexo, vá ao `\windows\system32\config\SOFTWARE` ficheiro e abra-o.
 
-    1. Será solicitado para um nome. Introduza o SOFTWARE QUEBRADO.<br/>
-    2. Para verificar se o BROKENSOFTWARE foi carregado, expanda **HKEY_LOCAL_MACHINE** e procure a tecla BROKENSOFTWARE adicionada.
-4. Navegue para BROKENSOFTWARE e verifique se a chave CleanupProfile existe na colmeia carregada.
+    1. Quando lhe pedirem um nome, insira BROKENSOFTWARE.
+    1. Para verificar se brokensoftware foi carregado, expanda **HKEY_LOCAL_MACHINE** e procure a chave BROKENSOFTWARE adicionada.
+1. Vá ao BROKENSOFTWARE e verifique se existe a chave CleanupProfile na colmeia carregada.
 
-    1. Se a chave existir, então a política CleanupProfile é definida, o seu valor representa a política de retenção em dias. Continua a apagar a chave.<br/>
-    2. Se a chave não existir, a política cleanupProfile não está definida. [Envie um bilhete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), incluindo o ficheiro memory.dmp localizado no diretório windows do disco OS anexo.
+    1. Se a chave existir, a política cleanupProfile está definida. O seu valor representa a política de retenção medida em dias. Continua a apagar a chave.
+    1. Se a chave não existir, a política do CleanupProfile não está definida. [Envie um bilhete de suporte,](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)incluindo o ficheiro memory.dmp localizado no diretório windows do disco OS anexado.
 
-5. Eliminar a tecla CleanupProfiles utilizando este comando:
+1. Elimine a tecla CleanupProfiles utilizando este comando:
 
     ```
     reg delete "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows\System" /v CleanupProfiles /f
     ```
-6.  Descarregue a colmeia BROKENSOFTWARE utilizando este comando:
+1.  Descarregue a colmeia BROKENSOFTWARE utilizando este comando:
 
     ```
     reg unload HKLM\BROKENSOFTWARE
     ```
 
-### <a name="step-3-enable-serial-console-and-memory-dump-collection"></a>Passo 3: Ativar a consola em série e a recolha de despejo de memória
+### <a name="step-3-enable-serial-console-and-memory-dump-collection"></a>Passo 3: Ativar a recolha de consolas em série e de despejo de memória
 
-Para permitir a recolha de despejo de memória e consola em série, execute este script:
+Para ativar a recolha de lixo de memória e a consola em série, execute este script:
 
-1. Abra uma sessão de solicitação de comando elevada (Corra como administrador).
-2. Execute estes comandos:
-
-    **Ativar a consola em série:** 
+1. Abra uma sessão de pedido de comando elevado. (Executar como administrador.)
+1. Executar estes comandos para ativar a consola em série:
     
     ```
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON
     ```
 
     ```
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200 
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
     ```
-3. Verifique se o espaço livre no disco OS é pelo menos igual ao tamanho da memória do VM (RAM).
+1. Verifique se o espaço livre no disco de so é pelo menos igual ao tamanho da memória do VM (RAM).
 
-    Se não houver espaço suficiente no disco OS, altere a localização do depósito de memória e remeta-o para um disco de dados anexo com espaço livre suficiente. Para alterar a localização, substitua "%SystemRoot%" pela letra de unidade (por exemplo, "F:") do disco de dados nos comandos abaixo.
+    Se não houver espaço suficiente no disco de so, altere o local de despejo de memória e encaminhe-o para um disco de dados anexado com espaço livre suficiente. Para alterar a localização, substitua "%SystemRoot%" pela letra de unidade (por exemplo, "F:") do disco de dados nos seguintes comandos.
 
-    **Configuração sugerida para ativar o despejo de OS:**
+    **Configuração sugerida para permitir o despejo de SO**
 
-    Disco operativo osso avariado de carga:
+    Carregar o disco de OSSO quebrado:
 
     ```
     REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM
@@ -134,22 +131,22 @@ Para permitir a recolha de despejo de memória e consola em série, execute este
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
     ```
     
-    Descarregar disco operativo quebrado:
-    
+    Descarregar disco de OSSO quebrado:
+
     ```
     REG UNLOAD HKLM\BROKENSYSTEM
     ```
 
 ### <a name="step-4-rebuild-the-vm"></a>Passo 4: Reconstruir o VM
 
-Utilize [o passo 5 dos Comandos de Reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para remontar o VM.
+Utilize [o passo 5 dos comandos de reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para remontar o VM.
 
-Se a questão for corrigida, a política foi desativada localmente. Para uma solução permanente, não utilize a política CleanupProfiles em VMs. Utilize um método diferente para efetuar limpezas de perfis.
+Se a questão for corrigida, a política é agora desativada localmente. Para uma solução permanente, não utilize a política de LimpezaProfiles em VMs. Utilize um método diferente para realizar limpezas de perfis.
 
 Não use esta política:
 
 `Machine\Admin Templates\System\User Profiles\Delete user profiles older than a specified number of days on system restart`
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Se encontrar problemas ao aplicar o Windows Update, veja que [o VM não responde com o erro "C01A001D" ao aplicar o Windows Update](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-windows-update).
+Se tiver problemas quando aplicar o Windows Update, veja que [o VM não responde com o erro "C01A001D" ao aplicar o Windows Update](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-windows-update).

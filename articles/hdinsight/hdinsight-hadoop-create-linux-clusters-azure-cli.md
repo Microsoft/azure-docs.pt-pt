@@ -1,39 +1,39 @@
 ---
-title: Crie clusters Apache Hadoop usando O ClI Azure - Azure HDInsight
-description: Aprenda a criar clusters Azure HDInsight utilizando o Azure CLI de plataforma cruzada.
+title: Criar clusters Apache Hadoop usando Azure CLI - Azure HDInsight
+description: Saiba como criar clusters Azure HDInsight utilizando a plataforma cruzada Azure CLI.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/03/2020
-ms.openlocfilehash: 5cab7f962a829ab8609325e8bb1b35498568726c
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 04def98108bf996a8f8cabe0ad36c022011aa533
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994188"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080725"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Criar clusters HDInsight utilizando o Azure CLI
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Os passos neste documento através da criação de um cluster HDInsight 3.6 utilizando o Azure CLI.
+Os passos neste documento walk-through criando um cluster HDInsight 3.6 usando o Azure CLI.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Azure CLI. Se ainda não instalou o Azure CLI, consulte [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) para os passos.
+Azure CLI. Se ainda não instalou o Azure CLI, consulte [a Instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) para obter etapas.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-cluster"></a>Criar um cluster
 
-1. Faça login na sua assinatura Azure. Se planeia utilizar a Azure Cloud Shell, então selecione **Experimente no** canto superior direito do bloco de código. Caso contrário, insira o comando abaixo:
+1. Faça login na sua assinatura Azure. Se pretender utilizar o Azure Cloud Shell, selecione **Experimente-o** no canto superior direito do bloco de código. Caso contrário, insira o comando abaixo:
 
     ```azurecli-interactive
     az login
@@ -42,16 +42,16 @@ Azure CLI. Se ainda não instalou o Azure CLI, consulte [Instalar o Azure CLI](h
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. Definir variáveis ambientais. O uso de variáveis neste artigo é baseado em Bash. Serão necessárias ligeiras variações para outros ambientes. Consulte [az-hdinsight-create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) para obter uma lista completa de possíveis parâmetros para a criação de clusters.
+2. Definir variáveis ambientais. O uso de variáveis neste artigo baseia-se em Bash. Serão necessárias ligeiras variações para outros ambientes. Consulte [a az-hdinsight-create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) para obter uma lista completa de possíveis parâmetros para a criação de clusters.
 
     |Parâmetro | Descrição |
     |---|---|
-    |`--workernode-count`| O número de nós operários no agrupamento. Este artigo usa `clusterSizeInNodes` a variável `--workernode-count`à medida que o valor passou para . |
-    |`--version`| A versão do cluster HDInsight. Este artigo usa `clusterVersion` a variável `--version`à medida que o valor passou para . Ver também: [Versões HDInsight suportadas](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
-    |`--type`| Tipo de cluster HDInsight, como: hadoop, interactivehive, hbase, kafka, tempestade, faísca, rserver, mlservices.  Este artigo usa `clusterType` a variável `--type`à medida que o valor passou para . Ver também: [Tipos de cluster e configuração](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type).|
-    |`--component-version`|As versões de vários componentes Hadoop, em versões separadas pelo espaço em formato 'component=version'. Este artigo usa `componentVersion` a variável `--component-version`à medida que o valor passou para . Ver também: [Componentes Hadoop](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions).|
+    |`--workernode-count`| O número de nós de trabalhadores no aglomerado. Este artigo utiliza a variável `clusterSizeInNodes` à medida que o valor passado para `--workernode-count` . |
+    |`--version`| A versão do cluster HDInsight. Este artigo utiliza a variável `clusterVersion` à medida que o valor passado para `--version` . Ver também: [Versões HDInsight suportadas](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
+    |`--type`| Tipo de aglomerado HDInsight, como: hadoop, interactivehive, hbase, kafka, storm, spark, rserver, mlservices.  Este artigo utiliza a variável `clusterType` à medida que o valor passado para `--type` . Consulte também: [Tipos de agrupamento e configuração](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type).|
+    |`--component-version`|As versões de vários componentes Hadoop, em versões separadas pelo espaço em formato 'component=version'. Este artigo utiliza a variável `componentVersion` à medida que o valor passado para `--component-version` . Ver também: [Componentes hadoop](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions).|
 
-    Substitua, `CLUSTERNAME` `RESOURCEGROUPNAME` `LOCATION` `STORAGEACCOUNTNAME`, `PASSWORD` e com os valores desejados. Alterar valores para as outras variáveis como desejado. Em seguida, introduza os comandos CLI.
+    `RESOURCEGROUPNAME`Substitua, , , , e pelos `LOCATION` `CLUSTERNAME` `STORAGEACCOUNTNAME` `PASSWORD` valores desejados. Alterar valores para as outras variáveis como desejado. Em seguida, insira os comandos da CLI.
 
     ```azurecli-interactive
     export resourceGroupName=RESOURCEGROUPNAME
@@ -68,7 +68,7 @@ Azure CLI. Se ainda não instalou o Azure CLI, consulte [Instalar o Azure CLI](h
     export componentVersion=Hadoop=2.7
     ```
 
-3. [Crie o grupo de recursos](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) entrando no comando abaixo:
+3. [Crie o grupo de recursos](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) introduzindo o comando abaixo:
 
     ```azurecli-interactive
     az group create \
@@ -76,9 +76,9 @@ Azure CLI. Se ainda não instalou o Azure CLI, consulte [Instalar o Azure CLI](h
         --name $resourceGroupName
     ```
 
-    Para uma lista de locais `az account list-locations` válidos, utilize o comando e, em seguida, utilize uma das localizações a partir do `name` valor.
+    Para uma lista de locais válidos, use o `az account list-locations` comando e, em seguida, use uma das localizações a partir do `name` valor.
 
-4. [Crie uma conta de Armazenamento Azure](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) inserindo o comando abaixo:
+4. [Crie uma conta de Armazenamento Azure](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) introduzindo o comando abaixo:
 
     ```azurecli-interactive
     # Note: kind BlobStorage is not available as the default storage account.
@@ -91,7 +91,7 @@ Azure CLI. Se ainda não instalou o Azure CLI, consulte [Instalar o Azure CLI](h
         --sku Standard_LRS
     ```
 
-5. [Extrair a chave principal da conta de Armazenamento Azure](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) e armazená-la numa variável, inserindo o comando abaixo:
+5. [Extrair a chave primária da conta de Armazenamento Azure](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) e armazená-la numa variável introduzindo o comando abaixo:
 
     ```azurecli-interactive
     export AZURE_STORAGE_KEY=$(az storage account keys list \
@@ -100,7 +100,7 @@ Azure CLI. Se ainda não instalou o Azure CLI, consulte [Instalar o Azure CLI](h
         --query [0].value -o tsv)
     ```
 
-6. [Crie um recipiente](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) de armazenamento Azure entrando no comando abaixo:
+6. [Crie um recipiente de armazenamento Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) introduzindo o comando abaixo:
 
     ```azurecli-interactive
     az storage container create \
@@ -132,11 +132,11 @@ Azure CLI. Se ainda não instalou o Azure CLI, consulte [Instalar o Azure CLI](h
     > [!IMPORTANT]  
     > Os clusters HDInsight vêm em vários tipos, que correspondem à carga de trabalho ou tecnologia para a qual o cluster está sintonizado. Não existe um método suportado para criar um cluster que combine vários tipos, tais como Storm e HBase em um cluster.
 
-    Pode levar vários minutos para que o processo de criação do cluster seja concluído. Normalmente por volta das 15.
+    Pode levar vários minutos para o processo de criação do cluster estar concluído. Normalmente por volta das 15.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de concluir o artigo, pode achar conveniente eliminar o cluster. Com o HDInsight, os seus dados são armazenados no Armazenamento Azure, para que possa eliminar com segurança um cluster quando não estiver a ser utilizado. Também é cobrado por um cluster HDInsight, mesmo quando não está a ser utilizado. Uma vez que as taxas para o cluster são muitas vezes mais do que as taxas de armazenamento, faz sentido económico apagar clusters quando não estão em uso.
+Depois de concluir o artigo, pode achar conveniente eliminar o cluster. Com o HDInsight, os seus dados são armazenados no Azure Storage, para que possa eliminar com segurança um cluster quando este não estiver a ser utilizado. Também é cobrado por um cluster HDInsight, mesmo quando não está a ser utilizado. Uma vez que as taxas para o cluster são muitas vezes mais do que os encargos de armazenamento, faz sentido económico apagar clusters quando não estão a ser utilizados.
 
 Insira todos ou alguns dos seguintes comandos para remover recursos:
 
@@ -165,22 +165,22 @@ az group delete \
 
 Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Agora que criou com sucesso um cluster HDInsight utilizando o Azure CLI, use o seguinte para aprender a trabalhar com o seu cluster:
+Agora que criou com sucesso um cluster HDInsight usando o Azure CLI, use o seguinte para aprender a trabalhar com o seu cluster:
 
-### <a name="apache-hadoop-clusters"></a>Aglomerados Apache Hadoop
+### <a name="apache-hadoop-clusters"></a>Aglomerados apache Hadoop
 
 * [Use a Colmeia Apache com HDInsight](hadoop/hdinsight-use-hive.md)
-* [Utilizar mapeiaReduzir com HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Use MapReduce com HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Aglomerados Apache HBase
 
-* [Começa com Apache HBase no HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Desenvolver aplicações Java para Apache HBase no HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
+* [Começar com Apache HBase em HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Desenvolver aplicações Java para Apache HBase em HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="apache-storm-clusters"></a>Aglomerados de tempestade apache
 
-* [Desenvolva topoologias java para tempestade Apache no HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Utilize componentes Python na Tempestade Apache no HDInsight](storm/apache-storm-develop-python-topology.md)
-* [Implementar e monitorizar topoologias com tempestade Apache no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
+* [Desenvolver topologias de Java para a Tempestade Apache em HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Use componentes Python em Apache Storm em HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Implementar e monitorizar topologias com a Tempestade Apache em HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

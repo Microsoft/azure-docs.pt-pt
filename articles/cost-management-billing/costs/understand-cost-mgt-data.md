@@ -7,12 +7,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.openlocfilehash: 5fce5c8de3b2224ef471b0b3eec5ff29a869a9f6
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: a25a34db99a4c1550ed78b5f084501fb8badfacf
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844527"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791287"
 ---
 # <a name="understand-cost-management-data"></a>Compreender os dados do Cost Management
 
@@ -75,7 +75,12 @@ As seguintes ofertas ainda não são suportadas:
 | **Planos de Suporte** | Suporte Pro-Direct do Azure Government | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **Planos de Suporte** | Suporte para Programadores do Azure Government  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
-## <a name="determine-your-offer-type"></a>Determinar o tipo de oferta
+### <a name="free-trial-to-pay-as-you-go-upgrade"></a>Atualização de avaliação gratuita para pay as you go
+
+Para obter mais informações sobre a disponibilidade dos serviços de avaliação gratuita depois de atualizar da Avaliação Gratuita para os preços pay as you go, veja as [FAQ da conta gratuita do Azure](https://azure.microsoft.com/free/free-account-faq/).
+
+### <a name="determine-your-offer-type"></a>Determinar o tipo de oferta
+
 Se não vir os dados de uma subscrição e quiser determinar se a sua subscrição se enquadra nas ofertas suportadas, poderá validar o suporte da sua subscrição. Para validar o suporte de uma subscrição do Azure, inicie sessão no [portal do Azure](https://portal.azure.com). Em seguida, selecione **Todos os Serviços** no menu à esquerda. Na lista de serviços, selecione **Subscrições**. No menu da lista de subscrições, selecione a subscrição pretende verificar. A sua subscrição é mostrada no separador Descrição geral e pode ver a **Oferta** e o **ID de Oferta**. A imagem seguinte mostra um exemplo.
 
 ![Exemplo do separador Descrição geral da Subscrição que mostra a Oferta e o ID de Oferta](./media/understand-cost-mgt-data/offer-and-offer-id.png)
@@ -106,7 +111,7 @@ O Azure Cost Management recebe etiquetas como parte de cada registo de utilizaç
 - As etiquetas de recursos são suportadas apenas para recursos implementados em grupos de recursos.
 - Alguns recursos implementados podem não suportar etiquetas ou não incluir etiquetas nos dados de utilização – veja [Suporte de etiquetas para recursos do Azure](../../azure-resource-manager/tag-support.md).
 - As etiquetas de recursos só são incluídas nos dados de utilização enquanto a etiqueta é aplicada – as etiquetas não são aplicadas a dados históricos.
-- As etiquetas de recursos só estão disponíveis no Cost Management depois de os dados serem atualizados – veja [A frequência de atualização dos dados de utilização é variável](#usage-data-update-frequency-varies).
+- As etiquetas de recursos só estão disponíveis no Cost Management depois de os dados serem atualizados – veja [Atualizações e retenção de dados de custos e utilização](#cost-and-usage-data-updates-and-retention).
 - As etiquetas de recursos só estão disponíveis no Cost Management quando o recurso estiver ativo/em execução e a produzir registos de utilização (por exemplo, quando uma VM está desalocada).
 - A gestão das etiquetas requer acesso de contribuidor a cada recurso.
 - A gestão das políticas de etiquetas requer acesso de proprietário ou de contribuidor de política a um grupo de gestão, subscrição ou grupo de recursos.
@@ -114,9 +119,10 @@ O Azure Cost Management recebe etiquetas como parte de cada registo de utilizaç
 Se não vir uma etiqueta específica no Cost Management, considere o seguinte:
 
 - A etiqueta foi aplicada diretamente no recurso?
-- A etiqueta foi aplicada há mais de 24 horas? Veja [A frequência de atualização dos dados de utilização é variável](#usage-data-update-frequency-varies)
+- A etiqueta foi aplicada há mais de 24 horas? Veja [Atualizações e retenção de dados de custos e utilização](#cost-and-usage-data-updates-and-retention)
 - O tipo de recurso suporta etiquetas? Os seguintes tipos de recursos não suportam etiquetas nos dados de utilização a partir de 1 de dezembro de 2019. Veja [Suporte de etiquetas para recursos do Azure](../../azure-resource-manager/tag-support.md) para obter a lista completa do que é suportado.
     - Diretórios do Azure Active Directory B2C
+    - Azure Bastion
     - Azure Firewalls
     - Azure NetApp Files
     - Data Factory
@@ -134,24 +140,22 @@ Eis algumas sugestões para trabalhar com etiquetas:
 - Utilize a API de Etiquetas em conjunto com Query ou UsageDetails para obter todos os custos com base nas etiquetas atuais.
 
 
-## <a name="free-trial-to-pay-as-you-go-upgrade"></a>Atualização de avaliação gratuita para pay as you go
+## <a name="cost-and-usage-data-updates-and-retention"></a>Atualizações e retenção de dados de custos e utilização
 
-Para obter mais informações sobre a disponibilidade dos serviços de avaliação gratuita depois de atualizar da Avaliação Gratuita para os preços pay as you go, veja as [FAQ da conta gratuita do Azure](https://azure.microsoft.com/free/free-account-faq/).
+Os dados de custos e utilização estão normalmente disponíveis em Cost Management + Faturação no portal do Azure e em [APIs de suporte](../index.yml) dentro de 8 a 24 horas. Tenha em consideração os seguintes pontos ao rever os custos:
 
-## <a name="rated-usage-data-refresh-schedule"></a>Agendamento de atualização de dados de utilização classificada
-
-Os dados de custos e utilização estão disponíveis em Cost Management + Faturação no portal do Azure e em [APIs de suporte](../index.yml). Tenha em consideração os seguintes pontos ao rever os custos:
-
+- Cada serviço do Azure (como Armazenamento, Computação e SQL) emite a utilização em intervalos diferentes. Pode ver os dados de alguns serviços mais cedo do que outros.
 - Os custos estimados para o atual período de faturação são atualizados seis vezes por dia.
 - Os custos estimados para o atual período de faturação pode ser alterado à medida que incorre em mais utilização.
 - Cada atualização é cumulativa e inclui todos os itens de linha e informações da atualização anterior.
 - O Azure finaliza ou _fecha_ o período de faturação atual até 72 horas (três dias do calendário) após a terminação do período de faturação.
 
-Os seguintes exemplos ilustram a forma como os períodos de faturação podem terminar.
+Os seguintes exemplos ilustram a forma como os períodos de faturação podem terminar:
 
-Subscrições de Contrato Enterprise (EA) – se o mês de faturação terminar em 31 de março, os custos estimados serão atualizados até 72 horas depois. Neste exemplo, até à meia-noite (UTC) de 4 de abril.
+* Subscrições de Contrato Enterprise (EA) – se o mês de faturação terminar em 31 de março, os custos estimados serão atualizados até 72 horas depois. Neste exemplo, até à meia-noite (UTC) de 4 de abril.
+* Subscrições Pay As You Go – se o mês de faturação terminar em 15 de maio, os custos estimados poderão ser atualizados até 72 horas depois. Neste exemplo, até à meia-noite (UTC) de 19 de maio.
 
-Subscrições Pay As You Go – se o mês de faturação terminar em 15 de maio, os custos estimados poderão ser atualizados até 72 horas depois. Neste exemplo, até à meia-noite (UTC) de 19 de maio.
+Depois de os dados de custos e utilização ficarem disponíveis em Cost Management + Faturação, serão mantidos durante, pelo menos, 7 anos.
 
 ### <a name="rerated-data"></a>Dados reclassificados
 
@@ -166,16 +170,6 @@ Os custos apresentados no Cost Management são arredondados. Os custos devolvido
   - Custo 2: 0,004 €
   -    Custo agregado produzido: 0,004 + 0,004 = 0,008. O custo apresentado é 0,01 €.
 - API Query - os custos são mostrados com oito casas decimais e não são arredondados.
-
-
-## <a name="usage-data-update-frequency-varies"></a>A frequência de atualização dos dados de utiliza é variável
-
-A disponibilidade dos dados da utilização incorrida no Cost Management depende de um par de fatores:
-
-- Com que frequência os serviços do Azure (como Armazenamento, Computação, CDN e SQL) emitem a utilização.
-- A duração do processamento dos dados de utilização através do motor de classificação e dos pipelines de gestão de custos.
-
-Alguns serviços emitem a utilização com maior frequência do que outros. Por isso, poderá ver dados no Cost Management relativos a alguns serviços mais cedo do que noutros serviços que emitem os dados com menor frequência. Normalmente, a utilização dos serviços demora entre 8 e 24 horas a aparecer no Cost Management. Lembre-se de que os dados de um mês ainda aberto são atualizados à medida que incorre em mais utilização, pois as atualizações são cumulativas.
 
 ## <a name="historical-data-might-not-match-invoice"></a>Os dados históricos poderão não corresponder à fatura
 

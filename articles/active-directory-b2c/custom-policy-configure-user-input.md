@@ -1,56 +1,56 @@
 ---
 title: Adicione reclamações e personalize a entrada do utilizador em políticas personalizadas
 titleSuffix: Azure AD B2C
-description: Saiba como personalizar a entrada do utilizador e adicionar reclamações à viagem de inscrição ou inscrição no Azure Ative Directory B2C.
+description: Saiba como personalizar a entrada do utilizador e adicione reclamações à viagem de inscrição ou de inscrição no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85f2ab6f8c3e5edda027e44eeda13a3279a88321
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 47fdf445fa11693dd3a998b8c73ac0c3ed8452a8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79473681"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389365"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Adicione reclamações e personalize a entrada do utilizador usando políticas personalizadas no Azure Ative Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Neste artigo, você recolhe um novo atributo durante a sua jornada de inscrição no Azure Ative Directory B2C (Azure AD B2C). Você vai obter a cidade dos utilizadores, configurá-la como uma gota e definir se é necessário fornecer.
+Neste artigo, você recolhe um novo atributo durante a sua viagem de inscrição em Azure Ative Directory B2C (Azure AD B2C). Você vai obter a cidade dos utilizadores, configurá-la como uma entrega, e definir se é necessário fornecer.
 
 > [!NOTE]
-> Esta amostra usa a reivindicação incorporada "cidade". Em vez disso, pode escolher um dos [atributos integrados Azure AD B2C suportados](user-profile-attributes.md) ou um atributo personalizado. Para utilizar um atributo personalizado, [ative atributos personalizados na sua política.](custom-policy-custom-attributes.md) Para utilizar um atributo incorporado ou personalizado diferente, substitua a 'cidade' pelo atributo da sua escolha, por exemplo, o trabalho de atribuição incorporado *Título* ou um atributo personalizado como *extension_loyaltyId*.  
+> Esta amostra usa a reivindicação incorporada "cidade". Em vez disso, pode escolher um dos [atributos incorporados Azure AD B2C suportados](user-profile-attributes.md) ou um atributo personalizado. Para utilizar um atributo personalizado, [ative atributos personalizados na sua política](custom-policy-custom-attributes.md). Para utilizar um atributo incorporado ou personalizado diferente, substitua a 'cidade' pelo atributo à sua escolha, por exemplo, o *atributo incorporado, o JobTit* ou um atributo personalizado como *extension_loyaltyId*.  
 
-Pode recolher dados iniciais dos seus utilizadores utilizando a viagem de inscrição ou de inscrição no utilizador. As reclamações adicionais podem ser recolhidas mais tarde, utilizando uma viagem de utilizador de edição de perfil. Sempre que o Azure AD B2C recolhe informações diretamente do utilizador interactivamente, o Quadro de Experiência de Identidade utiliza o seu [perfil técnico autoafirmado](self-asserted-technical-profile.md). Nesta amostra, você:
+Pode recolher dados iniciais dos seus utilizadores utilizando a viagem de utilizador de inscrição ou de inscrição. As reclamações adicionais podem ser recolhidas mais tarde utilizando uma viagem de utilizador de edição de perfil. Sempre que a Azure AD B2C recolhe informações diretamente do utilizador interativamente, o Quadro de Experiência de Identidade utiliza o seu [perfil técnico autoafirmado.](self-asserted-technical-profile.md) Nesta amostra, você:
 
 1. Defina uma reivindicação de "cidade". 
-1. Pergunte ao utilizador pela sua cidade.
-1. Persistir a cidade até ao perfil de utilizador no diretório Azure AD B2C.
-1. Leia a reivindicação da cidade do diretório Azure AD B2C em cada entrada.
-1. Devolva a cidade à sua candidatura de festa de base após inscrição ou inscrição.  
+1. Peça ao utilizador pela sua cidade.
+1. Persistir a cidade para o perfil de utilizador no diretório Azure AD B2C.
+1. Leia a reclamação da cidade do diretório Azure AD B2C em cada inscrição.
+1. Devolva a cidade à sua candidatura de festa de gestão após a inscrição ou inscrição.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Complete os passos em [Get started com políticas personalizadas.](custom-policy-get-started.md) Você deve ter uma política personalizada de trabalho para inscrição e inscrição com contas sociais e locais.
+Complete os passos em [Começar com políticas personalizadas.](custom-policy-get-started.md) Você deve ter uma política personalizada de trabalho para se inscrever e iniciar sação com contas sociais e locais.
 
 ## <a name="define-a-claim"></a>Definir uma reclamação
 
-Uma reclamação fornece um armazenamento temporário de dados durante uma execução política Azure AD B2C. O [esquema das alegações](claimsschema.md) é o lugar onde declaras as tuas alegações. São utilizados os seguintes elementos para definir a alegação:
+Uma reclamação fornece um armazenamento temporário de dados durante uma execução política Azure AD B2C. O [esquema de reclamações](claimsschema.md) é o lugar onde declara as suas reivindicações. São utilizados os seguintes elementos para definir a alegação:
 
-- **Nome do ecrã** - Uma cadeia que define a etiqueta virada para o utilizador.
+- **DisplayName** - Uma corda que define a etiqueta virada para o utilizador.
 - [DataType](claimsschema.md#datatype) - O tipo de reclamação.
 - **UserHelpText** - Ajuda o utilizador a compreender o que é necessário.
-- [UserInputType](claimsschema.md#userinputtype) - O tipo de controlo de entrada, como caixa de texto, seleção de rádio, lista de drop-down ou várias seleções.
+- [UserInputType](claimsschema.md#userinputtype) - O tipo de controlo de entrada, como caixa de texto, seleção de rádio, lista de abandono ou múltiplas seleções.
 
-Abra o ficheiro de extensões da sua apólice. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
+Abra o ficheiro de extensões da sua apólice. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 
-1. Procure o elemento [BuildingBlocks.](buildingblocks.md) Se o elemento não existir, adicione-o.
+1. Procure o elemento [Blocos de Construção.](buildingblocks.md) Se o elemento não existir, adicione-o.
 1. Localize o elemento [ClaimsSchema.](claimsschema.md) Se o elemento não existir, adicione-o.
 1. Adicione a reivindicação da cidade ao elemento **ClaimsSchema.**  
 
@@ -67,15 +67,15 @@ Abra o ficheiro de extensões da sua apólice. Por exemplo, <em> `SocialAndLocal
 </ClaimType>
 ```
 
-## <a name="add-a-claim-to-the-user-interface"></a>Adicione uma reclamação à interface do utilizador
+## <a name="add-a-claim-to-the-user-interface"></a>Adicionar uma reclamação à interface de utilizador
 
 Os seguintes perfis técnicos são [autoafirmados,](self-asserted-technical-profile.md)invocados quando se espera que um utilizador forneça informações:
 
 - **LocalAccountSignUpWithLogonEmail** - Fluxo de inscrição de conta local.
-- **SelfAsserted-Social** - Conta federada pela primeira vez.
-- **AutoAfirmou-ProfileUpdate** - Editar fluxo de perfil.
+- **SelfAsserted-Social** - Conta federada insinusado pela primeira vez.
+- **SelfAsserted-ProfileUpdate** - Editar o fluxo de perfil.
 
-Para recolher a reivindicação da cidade durante a inscrição, `LocalAccountSignUpWithLogonEmail` deve ser adicionada como uma reivindicação de saída ao perfil técnico. Anular este perfil técnico no ficheiro de extensão. Especifique toda a lista de pedidos de saída para controlar a ordem que as reclamações são apresentadas no ecrã. Encontre o elemento **ClaimsProviders.** Adicione um novo ClaimsProviders da seguinte forma:
+Para recolher a reclamação da cidade durante a inscrição, deve ser adicionado como uma reivindicação de saída ao `LocalAccountSignUpWithLogonEmail` perfil técnico. Substitua este perfil técnico no ficheiro de extensão. Especifique toda a lista de pedidos de saída para controlar a ordem que as reclamações são apresentadas no ecrã. Encontre o elemento **ClaimsProviders.** Adicione um novo ClaimsProviders da seguinte forma:
 
 ```xml
 <ClaimsProvider>
@@ -98,7 +98,7 @@ Para recolher a reivindicação da cidade durante a inscrição, `LocalAccountSi
 <ClaimsProvider>
 ```
 
-Para recolher a reclamação da cidade após o início de sessão com `SelfAsserted-Social` uma conta federada, deve ser adicionada como uma reivindicação de saída ao perfil técnico. Para que os utilizadores de conta locais e federados possam editar `SelfAsserted-ProfileUpdate` os seus dados de perfil mais tarde, adicione a alegação de saída ao perfil técnico. Anular estes perfis técnicos no ficheiro de extensão. Especifique toda a lista das alegações de saída para controlar a ordem que as reclamações são apresentadas no ecrã. Encontre o elemento **ClaimsProviders.** Adicione um novo ClaimsProviders da seguinte forma:
+Para recolher a reclamação da cidade após a iniciação inicial com uma conta federada, deve ser adicionado como um pedido de saída ao `SelfAsserted-Social` perfil técnico. Para que os utilizadores de contas locais e federados possam editar os seus dados de perfil mais tarde, adicione a reivindicação de saída ao `SelfAsserted-ProfileUpdate` perfil técnico. Substitua estes perfis técnicos no ficheiro de extensão. Especifique toda a lista dos pedidos de saída para controlar a ordem que as reclamações são apresentadas no ecrã. Encontre o elemento **ClaimsProviders.** Adicione um novo ClaimsProviders da seguinte forma:
 
 ```xml
   <DisplayName>Self Asserted</DisplayName>
@@ -125,12 +125,12 @@ Para recolher a reclamação da cidade após o início de sessão com `SelfAsser
 </ClaimsProvider>
 ```
 
-## <a name="read-and-write-a-claim"></a>Ler e escrever uma reclamação
+## <a name="read-and-write-a-claim"></a>Leia e escreva uma reclamação
 
-Os seguintes perfis técnicos são [perfis técnicos ative diretórios,](active-directory-technical-profile.md)que lêem e escrevem dados para o Azure Ative Directory.  
-Utilizar `PersistedClaims` para escrever dados para `OutputClaims` o perfil do utilizador e para ler dados do perfil do utilizador dentro dos respetivos perfis técnicos do Diretório Ativo.
+Os seguintes perfis técnicos são [perfis técnicos do Ative Directory,](active-directory-technical-profile.md)que lêem e escrevem dados para o Azure Ative Directory.  
+Utilize `PersistedClaims` para escrever dados para o perfil do utilizador e `OutputClaims` para ler dados a partir do perfil do utilizador dentro dos respetivos perfis técnicos do Ative Directory.
 
-Anular estes perfis técnicos no ficheiro de extensão. Encontre o elemento **ClaimsProviders.**  Adicione um novo ClaimsProviders da seguinte forma:
+Substitua estes perfis técnicos no ficheiro de extensão. Encontre o elemento **ClaimsProviders.**  Adicione um novo ClaimsProviders da seguinte forma:
 
 ```xml
 <ClaimsProvider>
@@ -170,9 +170,9 @@ Anular estes perfis técnicos no ficheiro de extensão. Encontre o elemento **Cl
 </ClaimsProvider>
 ```
 
-## <a name="include-a-claim-in-the-token"></a>Incluir uma reclamação no símbolo 
+## <a name="include-a-claim-in-the-token"></a>Incluir uma reclamação no token 
 
-Para devolver a reivindicação da cidade à aplicação do <em> `SocialAndLocalAccounts/` </em> partido que depende, adicione uma reclamação de saída ao ficheiro. A alegação de saída será adicionada ao símbolo após uma viagem bem sucedida do utilizador, e será enviada para a aplicação. Modifique o elemento de perfil técnico dentro da secção do partido de fiação para adicionar a cidade como uma reivindicação de saída.
+Para devolver o pedido da cidade ao pedido do partido, adicione um pedido de saída ao <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> ficheiro. A alegação de saída será adicionada ao token após uma viagem bem sucedida do utilizador, e será enviada para a aplicação. Modifique o elemento de perfil técnico dentro da secção do partido dependente para adicionar a cidade como uma reivindicação de saída.
  
 ```xml
 <RelyingParty>
@@ -195,21 +195,21 @@ Para devolver a reivindicação da cidade à aplicação do <em> `SocialAndLocal
 </RelyingParty>
 ```
 
-## <a name="test-the-custom-policy"></a>Testar a política personalizada
+## <a name="test-the-custom-policy"></a>Teste a política personalizada
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino Azure AD.
-3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione registos de **Aplicações**.
-4. Selecione Quadro de **Experiência de Identidade**.
-5. Selecione **'Upload Custom Policy'** e, em seguida, faça upload dos dois ficheiros de política que alterou.
+2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD selecionando o filtro **de subscrição Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino Azure AD.
+3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **as inscrições da App.**
+4. Selecione **o Quadro de Experiência de Identidade.**
+5. Selecione **''Personal's Personal Policy ' 'Upload'** e, em seguida, faça o upload dos dois ficheiros de política que alterou.
 2. Selecione a política de inscrição ou de inscrição que fez o upload e clique no botão **Executar agora.**
-3. Deverá poder inscrever-se através de um endereço de e-mail.
+3. Deverá inscrever-se através de um endereço de e-mail.
 
 O ecrã de inscrição deve ser semelhante ao seguinte screenshot:
 
 ![Screenshot da opção de inscrição modificada](./media/custom-policy-configure-user-input/signup-with-city-claim-dropdown-example.png)
 
-O símbolo enviado de volta `city` para o seu pedido inclui a reclamação.
+O token enviado de volta para o seu pedido inclui a `city` reclamação.
 
 ```json
 {
@@ -235,7 +235,7 @@ O símbolo enviado de volta `city` para o seu pedido inclui a reclamação.
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o elemento [ClaimsSchema](claimsschema.md) na referência IEF.
-- Aprenda a [usar atributos personalizados numa política](custom-policy-custom-attributes.md)de edição de perfil personalizado.
+- Saiba como [usar atributos personalizados numa política de edição de perfis personalizados.](custom-policy-custom-attributes.md)

@@ -1,31 +1,30 @@
 ---
-title: CI/CD para Nuvem de primavera Azure
-description: CI/CD para Nuvem de primavera Azure
+title: CI/CD para Azure Spring Cloud
+description: CI/CD para Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: brendm
 ms.openlocfilehash: f329fb5472c5a2eab6f22a2e81b19d90e7045330
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76278519"
 ---
-# <a name="cicd-for-azure-spring-cloud"></a>CI/CD para Nuvem de primavera Azure
+# <a name="cicd-for-azure-spring-cloud"></a>CI/CD para Azure Spring Cloud
 
-A integração contínua e as ferramentas de entrega contínua supor em rápido aos desenvolvedores a implementação rápida de atualizações para aplicações existentes com o mínimo de esforço e risco. A Azure DevOps ajuda-o a organizar e a controlar estes trabalhos-chave. Atualmente, a Azure Spring Cloud não oferece um plugin Azure DevOps específico.  No entanto, pode integrar as suas aplicações Spring Cloud com DevOps utilizando uma [tarefa Azure CLI](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli?view=azure-devops). Este artigo irá mostrar-lhe como usar uma tarefa Azure CLI com a Azure Spring Cloud para integrar com o Azure DevOps.
+A integração contínua e as ferramentas de entrega contínua permitem aos desenvolvedores implementar rapidamente atualizações para aplicações existentes com o mínimo de esforço e risco. A Azure DevOps ajuda-o a organizar e controlar estes trabalhos-chave. Atualmente, a Azure Spring Cloud não oferece um plugin Azure DevOps específico.  No entanto, pode integrar as suas aplicações Spring Cloud com DevOps utilizando uma [tarefa Azure CLI](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli?view=azure-devops). Este artigo irá mostrar-lhe como usar uma tarefa Azure CLI com Azure Spring Cloud para integrar com Azure DevOps.
 
-## <a name="create-an-azure-resource-manager-service-connection"></a>Criar uma ligação de serviço do Gestor de Recursos Azure
+## <a name="create-an-azure-resource-manager-service-connection"></a>Criar uma ligação de serviço Azure Resource Manager
 
-Leia [este artigo](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) para aprender a criar uma ligação de serviço do Gestor de Recursos Azure ao seu projeto Azure DevOps. Certifique-se de selecionar a mesma subscrição que está a utilizar para a sua instância de serviço Azure Spring Cloud.
+Leia [este artigo](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) para aprender a criar uma ligação de serviço Azure Resource Manager ao seu projeto Azure DevOps. Certifique-se de selecionar a mesma subscrição que está a usar para a sua instância de serviço Azure Spring Cloud.
 
-## <a name="azure-cli-task-templates"></a>Modelos de tarefa sintetizar
+## <a name="azure-cli-task-templates"></a>Modelos de tarefa Azure CLI
 
-### <a name="deploy-artifacts"></a>Implementar artefactos
+### <a name="deploy-artifacts"></a>Implantar artefactos
 
-Pode construir e implementar os seus `tasks`projetos usando uma série de . Este corte define primeiro uma tarefa Maven para construir a aplicação, seguida de uma segunda tarefa que implementa o ficheiro JAR utilizando a extensão Azure Spring Cloud Azure CLI.
+Pode construir e implementar os seus projetos utilizando uma série de `tasks` . Este snippet define primeiro uma tarefa Maven para construir a aplicação, seguida de uma segunda tarefa que implementa o ficheiro JAR usando a extensão Azure Spring Cloud CLI.
 
 ```yaml
 steps:
@@ -44,7 +43,7 @@ steps:
 
 ### <a name="deploy-from-source"></a>Implantação a partir da fonte
 
-É possível implantar diretamente em Azure sem um passo de construção separado.
+É possível deslocar-se diretamente para Azure sem um passo de construção separado.
 
 ```yaml
 - task: AzureCLI@1

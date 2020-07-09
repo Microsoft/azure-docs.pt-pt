@@ -15,30 +15,30 @@ ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 08def16f53cb0f544513c39a85f26e97c3606a42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154479"
 ---
-# <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Permissões e consentimento no Diretório Ativo Azure v1.0 endpoint
+# <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Permissões e consentimento no Azure Ative Directory v1.0 endpoint
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
 O Azure Active Directory (Azure AD) utiliza intensivamente as permissões tanto para fluxos de OAuth, como de OpenID Connect (OICD). Quando a sua aplicação recebe um token de acesso do Azure AD, o token de acesso irá incluir afirmações que descrevem as permissões que a aplicação tem relativamente a um determinado recurso.
 
-*As permissões*, também conhecidas como *âmbitos*, facilitam a autorização para o recurso, uma vez que o recurso apenas precisa de verificar se o token contém a permissão adequada para qualquer API que a app esteja a chamar.
+*As permissões*– também conhecidas como âmbitos de *aplicação*– facilitam a autorização para o recurso, uma vez que o recurso apenas necessita de verificar se o token contém a permissão adequada para qualquer API que a app esteja a chamar.
 
 ## <a name="types-of-permissions"></a>Tipos de permissões
 
 O Azure AD define dois tipos de permissões:
 
-* **Permissões delegadas** - são utilizadas por aplicações que têm um utilizador com sessão iniciada presente. Nestas aplicações, ou o utilizador ou um administrador autoriza as permissões que a aplicação pede e é delegada a esta permissão para agir como o utilizador com sessão iniciada quando forem feitas chamadas para uma API. Dependendo da API, o utilizador pode não ser capaz de consentir diretamente com a API e, em vez disso, exigiria que [um administrador fornecesse "consentimento administrativo".](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)
-* **Permissões de aplicação** - são utilizadas por aplicações que são executadas sem um utilizador com sessão iniciada presente; por exemplo, as aplicações que são executadas como serviços em segundo plano ou daemons. As permissões de aplicação só podem ser [consentidas pelos administradores](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) porque são tipicamente poderosas e permitem o acesso a dados através dos limites do utilizador, ou dados que de outra forma seriam restritos aos administradores. Os utilizadores que sejam definidos como proprietários da aplicação de recursos (ou seja, a API que publica as permissões) também estão autorizados a conceder permissões de pedido para as APIs que possuem.
+* **Permissões delegadas** - são utilizadas por aplicações que têm um utilizador com sessão iniciada presente. Nestas aplicações, ou o utilizador ou um administrador autoriza as permissões que a aplicação pede e é delegada a esta permissão para agir como o utilizador com sessão iniciada quando forem feitas chamadas para uma API. Dependendo da API, o utilizador pode não ser capaz de consentir diretamente com a API e, em vez disso, [exigiria que um administrador fornecesse "consentimento administrativo".](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)
+* **Permissões de aplicação** - são utilizadas por aplicações que são executadas sem um utilizador com sessão iniciada presente; por exemplo, as aplicações que são executadas como serviços em segundo plano ou daemons. As permissões de aplicação só podem ser [consentidas pelos administradores](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) porque são tipicamente poderosas e permitem o acesso a dados através dos limites do utilizador, ou dados que de outra forma seriam restritos aos administradores. Os utilizadores que são definidos como proprietários da aplicação de recursos (ou seja, a API que publica as permissões) também podem conceder permissões de pedido para as APIs que possuem.
 
 As permissões efetivas são aquelas que a sua aplicação terá quando fizer pedidos para uma API. 
 
-* Relativamente às permissões delegadas, as permissões efetivas da aplicação serão o ponto comum com menos privilégios das permissões delegadas que a aplicação concedeu (através do consentimento) e dos privilégios do utilizador com sessão iniciada atualmente. A aplicação nunca pode ter mais privilégios do que o utilizador com sessão iniciada. Nas organizações, os privilégios do utilizador com sessão iniciada podem ser determinados por uma política ou por associação a uma ou mais funções de administrador. Para saber quais as funções de administrador que podem consentir com permissões delegadas, consulte [permissões de funções do Administrador em Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* Relativamente às permissões delegadas, as permissões efetivas da aplicação serão o ponto comum com menos privilégios das permissões delegadas que a aplicação concedeu (através do consentimento) e dos privilégios do utilizador com sessão iniciada atualmente. A aplicação nunca pode ter mais privilégios do que o utilizador com sessão iniciada. Nas organizações, os privilégios do utilizador com sessão iniciada podem ser determinados por uma política ou por associação a uma ou mais funções de administrador. Para saber quais as funções de administrador que podem consentir com permissões delegadas, consulte [permissões de função do Administrador em Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
     Por exemplo, suponha foi foi concedida à sua aplicação a permissão delegada `User.ReadWrite.All` no Microsoft Graph. Esta permissão concede nominalmente permissão à aplicação para ler e atualizar o perfil de todos os utilizadores de uma organização. Se o utilizador com sessão iniciada for administrador global, a aplicação poderá atualizar o perfil de todos os utilizadores da organização. No entanto, se o utilizador com sessão iniciada não tiver uma função de administrador, a aplicação só poderá atualizar o perfil desse utilizador. Não poderá atualizar os perfis dos outros utilizadores da organização porque o utilizador em cujo nome tem permissão para agir não tem esses privilégios.
 * Relativamente às permissões da aplicação, as permissões efetivas da sua aplicação são o nível completo de privilégios implícitos nas permissões. Por exemplo, uma aplicação que tenha a permissão de aplicação `User.ReadWrite.All` pode atualizar o perfil de cada utilizador da organização.
 
@@ -78,7 +78,7 @@ As aplicações no Azure AD dependem de consentimento para ter acesso a recursos
 * **Consentimento de utilizador dinâmico** - é uma funcionalidade do modelo de aplicações do Azure AD v2. Neste cenário, a aplicação pede um conjunto de permissões de que precisa no [fluxo de autorização de OAuth 2.0 para aplicações de v2](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent). Se o utilizador ainda não tiver consentido, ser-lhe-á pedido que consinta neste momento. [Saiba mais sobre o consentimento dinâmico](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
 
     > [!IMPORTANT]
-    > O consentimento dinâmico pode ser prático, mas apresenta um desafio grande para as permissões que precisam de consentimento de administrador, uma vez que a experiência deste tipo de consentimento desconhece essas permissões no momento do consentimento. Se necessitar de permissões privilegiadas ou se a sua aplicação utilizar consentimento dinâmico, deve registar todas as permissões no portal Azure (e não apenas o subconjunto de permissões que requerem consentimento administrativo). Isto permite aos administradores inquilinos consentir em nome de todos os seus utilizadores.
+    > O consentimento dinâmico pode ser prático, mas apresenta um desafio grande para as permissões que precisam de consentimento de administrador, uma vez que a experiência deste tipo de consentimento desconhece essas permissões no momento do consentimento. Se necessitar de permissões privilegiadas de administração ou se a sua aplicação utilizar o consentimento dinâmico, deverá registar todas as permissões no portal Azure (e não apenas o subconjunto de permissões que requerem consentimento administrativo). Isto permite que os administradores inquilinos consintam em nome de todos os seus utilizadores.
   
 * **Consentimento de administrador** - é necessário quando a aplicação precisa de aceder a determinadas permissões de privilégio elevado. O consentimento do administrador garante que os administradores têm alguns controlos adicionais antes de autorizarem as aplicações ou os utilizadores a aceder a dados com privilégios elevados da organização. [Saiba mais sobre como conceder o consentimento de administrador](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
@@ -99,7 +99,7 @@ As aplicações no Azure AD dependem de consentimento para ter acesso a recursos
 - Os recursos devem marcar todas as permissões que permitem acesso aos dados em limites do utilizador como permissões `Admin`.
 - Os recursos devem seguir o padrão de nomenclatura `Subject.Permission[.Modifier]`, em que:
   - `Subject`corresponde ao tipo de dados que está disponível
-  - `Permission`corresponde à ação que um utilizador pode assumir sobre que os dados
+  - `Permission`corresponde à ação que um utilizador pode assumir sobre esses dados
   - `Modifier`é usado opcionalmente para descrever especializações de outra permissão
     
     Por exemplo:

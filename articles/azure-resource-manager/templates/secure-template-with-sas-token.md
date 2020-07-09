@@ -1,22 +1,22 @@
 ---
 title: Implementar de forma segura o modelo com token SAS
-description: Desloque recursos para o Azure com um modelo de Gestor de Recursos Azure que é protegido por um token SAS. Mostra Azure PowerShell e Azure CLI.
+description: Implemente recursos para a Azure com um modelo de Gestor de Recursos Azure que esteja protegido por um token SAS. Mostra Azure PowerShell e Azure CLI.
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.openlocfilehash: 42eaae316d4fd0575102323933f849a3058228a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80156400"
 ---
-# <a name="deploy-private-arm-template-with-sas-token"></a>Implementar modelo de ARM privado com token SAS
+# <a name="deploy-private-arm-template-with-sas-token"></a>Implementar modelo arm privado com token SAS
 
-Quando o seu modelo De gestor de recursos Azure (ARM) estiver localizado numa conta de armazenamento, pode restringir o acesso ao modelo para evitar expô-lo publicamente. Você acede a um modelo seguro criando um símbolo de assinatura de acesso partilhado (SAS) para o modelo, e fornecendo esse símbolo durante a implementação. Este artigo explica como usar o Azure PowerShell ou o Azure CLI para implementar um modelo com um token SAS.
+Quando o seu modelo Azure Resource Manager (ARM) estiver localizado numa conta de armazenamento, pode restringir o acesso ao modelo para evitar expô-lo publicamente. Acede a um modelo seguro criando um símbolo de assinatura de acesso partilhado (SAS) para o modelo e fornecendo esse token durante a implementação. Este artigo explica como usar a Azure PowerShell ou Azure CLI para implementar um modelo com um token SAS.
 
 ## <a name="create-storage-account-with-secured-container"></a>Criar conta de armazenamento com recipiente seguro
 
-O seguinte guião cria uma conta de armazenamento e um contentor com acesso público desligado.
+O seguinte script cria uma conta de armazenamento e um recipiente com acesso público desligado.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -85,12 +85,12 @@ az storage blob upload \
 
 ---
 
-## <a name="provide-sas-token-during-deployment"></a>Fornecer token SAS durante a implantação
+## <a name="provide-sas-token-during-deployment"></a>Fornecer ficha SAS durante a implantação
 
-Para implantar um modelo privado numa conta de armazenamento, gere uma ficha SAS e inclua-a no URI para o modelo. Detete o tempo de validade para permitir tempo suficiente para completar a implantação.
+Para implementar um modelo privado numa conta de armazenamento, gere um token SAS e inclua-o no URI para o modelo. Desavenda o prazo de validade para permitir tempo suficiente para completar a implantação.
 
 > [!IMPORTANT]
-> A bolha que contém o modelo é acessível apenas ao proprietário da conta. No entanto, quando se cria um símbolo SAS para a bolha, a bolha é acessível a qualquer pessoa com esse URI. Se outro utilizador intercetar o URI, esse utilizador poderá aceder ao modelo. Um token SAS é uma boa forma de limitar o acesso aos seus modelos, mas não deve incluir dados sensíveis como palavras-passe diretamente no modelo.
+> A bolha que contém o gabarito está acessível apenas ao proprietário da conta. No entanto, quando se cria um símbolo SAS para a bolha, a bolha é acessível a qualquer pessoa com esse URI. Se outro utilizador intercetar o URI, esse utilizador é capaz de aceder ao modelo. Um token SAS é uma boa maneira de limitar o acesso aos seus modelos, mas não deve incluir dados sensíveis como palavras-passe diretamente no modelo.
 >
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -136,9 +136,9 @@ az deployment group create \
 
 ---
 
-Para um exemplo de utilização de um símbolo SAS com modelos ligados, consulte [Utilizar modelos ligados com](linked-templates.md)o Gestor de Recursos Azure .
+Para um exemplo de utilização de um token SAS com modelos ligados, consulte [utilizar modelos ligados com o Azure Resource Manager](linked-templates.md).
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Para uma introdução aos modelos de implantação, consulte [os recursos de implantação com modelos ARM e Azure PowerShell](deploy-powershell.md).
-* Para definir parâmetros no modelo, consulte [os modelos de autor](template-syntax.md#parameters).
+* Para uma introdução aos modelos de implantação, consulte [implementar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).
+* Para definir parâmetros no modelo, consulte [os modelos de autoria](template-syntax.md#parameters).

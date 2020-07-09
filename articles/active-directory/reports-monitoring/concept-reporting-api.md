@@ -1,6 +1,6 @@
 ---
-title: Começar com a AD Azure reportando API [ Microsoft Docs
-description: Como começar com o Diretório Ativo Azure reportando API
+title: Começar com a AZure AD reportando API / Microsoft Docs
+description: Como começar com o Azure Ative Directory reportando API
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,57 +18,56 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5dbfca54227895de53b984dcf5c7a1f8c5fbf51d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83647410"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Começar com o Diretório Ativo Azure reportando API
 
 O Azure Ative Directory fornece-lhe uma variedade de [relatórios,](overview-reports.md)contendo informações úteis para aplicações como sistemas SIEM, auditoria e ferramentas de inteligência empresarial. 
 
-Ao utilizar o Microsoft Graph API para relatórios AD Azure, pode obter acesso programático aos dados através de um conjunto de APIs baseados em REST. Pode chamar estas APIs a partir de várias linguagens e ferramentas de programação.
+Ao utilizar a API do Gráfico da Microsoft para relatórios AD do Azure, pode obter acesso programático aos dados através de um conjunto de APIs baseadas em REST. Pode chamar estas APIs a partir de várias linguagens e ferramentas de programação.
 
-Este artigo fornece-lhe uma visão geral da API reportando, incluindo formas de aceder ao mesmo.
+Este artigo fornece-lhe uma visão geral da API que reporta, incluindo formas de aceder ao mesmo.
 
-Se tiver problemas, veja como obter apoio para o [Diretório Ativo azure](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
+Se tiver problemas, veja [como obter apoio para o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para aceder à API reporte, com ou sem intervenção do utilizador, é necessário:
+Para aceder à API de reporte, com ou sem intervenção do utilizador, é necessário:
 
-1. Atribuir funções (Security Reader, Security Admin, Global Admin)
+1. Atribuir funções (Leitor de Segurança, Administrador de Segurança, Administrador Global)
 2. Registar uma aplicação
 3. Conceder permissões
 4. Recolher configurações de configuração
 
-Para obter instruções detalhadas, consulte os [pré-requisitos para aceder ao Diretório Ativo Azure reportando API](howto-configure-prerequisites-for-reporting-api.md). 
+Para obter instruções detalhadas, consulte os [pré-requisitos para aceder ao Diretório Ativo Azure.](howto-configure-prerequisites-for-reporting-api.md) 
 
-## <a name="api-endpoints"></a>Pontos Finais da API 
+## <a name="api-endpoints"></a>Pontos finais da API 
 
-O ponto final da Microsoft Graph API para registos de auditoria é `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` e o ponto final da Microsoft Graph API para iniciar sessão é `https://graph.microsoft.com/v1.0/auditLogs/signIns` . Para mais informações, consulte a referência da [API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/directoryaudit) de auditoria e a [referência de api.](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/signIn)
+O ponto final da Microsoft Graph API para registos de auditoria é `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` e o ponto final da Microsoft Graph API para iniciar sessão é `https://graph.microsoft.com/v1.0/auditLogs/signIns` . Para obter mais informações, consulte a [referência da API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/directoryaudit) de auditoria e [a referência API de acesso](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/signIn)a sinal .
 
-Além disso, pode utilizar a API de deteção de risco de [Proteção de Identidade](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) para obter acesso programático a deteções de segurança usando o Microsoft Graph. Para mais informações, consulte [Start start with Azure Ative Directory Identity Protection and Microsoft Graph](../identity-protection/graph-get-started.md). 
+Além disso, pode utilizar a [API de deteção de risco de Proteção de Identidade](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) para obter acesso programático a deteções de segurança utilizando o Microsoft Graph. Para obter mais informações, consulte [Começar com a Azure Ative Directory Identity Protection e microsoft Graph](../identity-protection/graph-get-started.md). 
   
 ## <a name="apis-with-microsoft-graph-explorer"></a>APIs com Microsoft Graph Explorer
 
-Pode utilizar o explorador do [Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) para verificar os seus dados de sessão e auditoria da API. Certifique-se de que insere na sua conta utilizando ambos os botões de início de sessão no Graph Explorer UI e desemace **o AuditLog.Read.All** and **Directy.Read.Todas as** permissões para o seu inquilino, conforme mostrado.   
+Pode utilizar o explorador de [gráficos](https://developer.microsoft.com/graph/graph-explorer) da Microsoft para verificar o seu sômis e auditar dados de API. Certifique-se de iniciar sposição na sua conta usando ambos os botões de inscrição no UI do Graph Explorer e de definir **AuditLog.Read.All** and **Directory.Read.Todas as** permissões para o seu inquilino, como mostrado.   
 
-![Explorador de Gráficos](./media/concept-reporting-api/graph-explorer.png)
+![Graph Explorer](./media/concept-reporting-api/graph-explorer.png)
 
 ![Modificar permissões UI](./media/concept-reporting-api/modify-permissions.png)
 
-## <a name="use-certificates-to-access-the-azure-ad-reporting-api"></a>Utilize certificados para aceder à AD Azure reportando API 
+## <a name="use-certificates-to-access-the-azure-ad-reporting-api"></a>Utilize certificados para aceder à API de reporte de Azure 
 
-Utilize a APi de Reporte AD Azure com certificados se pretender recuperar dados de reporte sem a intervenção do utilizador.
+Utilize a API de Reporte AZURE com certificados se pretender recuperar dados de reporte sem a intervenção do utilizador.
 
-Para obter instruções detalhadas, consulte Obtenha dados utilizando a APi de [Reporte aD Azure com certificados](tutorial-access-api-with-certificates.md).
+Para obter instruções detalhadas, consulte [obter dados utilizando a API de reporte da Azure AD reportando com certificados](tutorial-access-api-with-certificates.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
- * [Pré-requisitos para aceder à API reportando](howto-configure-prerequisites-for-reporting-api.md) 
+ * [Pré-requisitos para aceder à API de reporte](howto-configure-prerequisites-for-reporting-api.md) 
  * [Utilizar a API de Relatórios do Azure AD com certificados para obter dados](tutorial-access-api-with-certificates.md)
- * [Erros de resolução de problemas na AD Azure reportam API](troubleshoot-graph-api.md)
+ * [Erros de resolução de problemas na AZure AD reportando API](troubleshoot-graph-api.md)
 
 

@@ -1,6 +1,6 @@
 ---
 title: Pontos finais de streaming de escala com o portal Azure / Microsoft Docs
-description: Este tutorial acompanha-o através dos degraus de pontas de streaming de escala com o portal Azure.
+description: Este tutorial acompanha-o através dos passos de escalar pontos finais de streaming com o portal Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 40820170bae275f090c5f898387698fc562e59ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80985546"
 ---
 # <a name="scale-streaming-endpoints-with-the-azure-portal"></a>Dimensionar os pontos finais de transmissão em fluxo com o Portal do Azure
@@ -29,7 +28,7 @@ ms.locfileid: "80985546"
 > 
 > 
 
-Os pontos finais de transmissão em fluxo **Premium** são adequadas para cargas de trabalho avançadas, ao fornecer uma capacidade de largura de banda dimensionável e dedicada. Por predefinição, os clientes que têm os pontos finais de transmissão em fluxo **Premium** recebem uma unidade de transmissão em fluxo (SU). O ponto final de transmissão em fluxo pode ser dimensionado mediante a adição de mais SUs. Cada SU fornece capacidade de largura de banda adicional à aplicação. Para obter mais informações sobre os tipos de pontofinal de streaming e a configuração do CDN, consulte o tópico de [visão geral do Streaming Endpoint.](media-services-streaming-endpoints-overview.md)
+Os pontos finais de transmissão em fluxo **Premium** são adequadas para cargas de trabalho avançadas, ao fornecer uma capacidade de largura de banda dimensionável e dedicada. Por predefinição, os clientes que têm os pontos finais de transmissão em fluxo **Premium** recebem uma unidade de transmissão em fluxo (SU). O ponto final de transmissão em fluxo pode ser dimensionado mediante a adição de mais SUs. Cada SU fornece capacidade de largura de banda adicional à aplicação. Para obter mais informações sobre os tipos de pontos finais de streaming e a configuração do CDN, consulte o tópico [de visão geral do Ponto final do streaming.](media-services-streaming-endpoints-overview.md)
  
 Este tópico mostra como escalar um ponto final de streaming.
 
@@ -44,13 +43,13 @@ Para alterar o número de unidades de streaming, faça o seguinte:
 3. Clique no ponto final de streaming que pretende escalar. 
 
     > [!NOTE] 
-    > Só pode escalar os pontos finais de streaming **Premium.**
+    > Só é possível escalar pontos finais de streaming **Premium.**
 
-4. Mova o slider para especificar o número de unidades de streaming.
+4. Mova o deslizador para especificar o número de unidades de streaming.
 
     ![Ponto final de transmissão em fluxo](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Rever os percursos de aprendizagem dos Serviços de Multimédia
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

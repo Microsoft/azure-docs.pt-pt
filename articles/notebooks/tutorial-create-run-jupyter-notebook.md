@@ -1,76 +1,77 @@
 ---
-title: Tutorial - crie e execute um caderno Jupyter - Pré-visualização de cadernos Azure
-description: Aprenda a criar e executar um caderno Jupyter em Azure Notebooks Preview que demonstre o processo de regressão linear na ciência dos dados.
+title: Tutorial - crie e execute um caderno Jupyter - Azure Notebooks Preview
+description: Aprenda a criar e executar um caderno Jupyter em Azure Notebooks Preview que demonstra o processo de regressão linear na ciência dos dados.
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.openlocfilehash: 8a1c13f41ef1588b040b3540b852d83764c6ce79
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: fd7fc324894595a991074c6d83ffc0f9fa3cff75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75660822"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85834136"
 ---
-# <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: crie e execute um caderno Jupyter com Python
-
-Este tutorial acompanha-o através do processo de utilização de Cadernos Azure para criar um caderno jupyter completo que demonstra uma simples regressão linear. No decorrer deste tutorial, familiariza-se com o II do caderno Jupyter, que inclui a criação de diferentes células, células correntes e a apresentação do caderno como uma apresentação de diapositivos.
-
-O caderno completo pode ser encontrado no [GitHub - Amostras de Cadernos Azure](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). Este tutorial, no entanto, começa com um novo projeto e um caderno vazio para que possa experimentar criá-lo passo a passo.
+# <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: criar e executar um caderno Jupyter com Python
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Este tutorial acompanha-o através do processo de utilização de Cadernos Azure para criar um notebook Jupyter completo que demonstra uma simples regressão linear. No decorrer deste tutorial, você se familiariza com o UI do bloco de notas Jupyter, que inclui a criação de diferentes células, células de execução, e apresentando o caderno como uma apresentação de diapositivos.
+
+O caderno completo pode ser encontrado em [Amostras de Cadernos GitHub - Azure Notebooks](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). Este tutorial, no entanto, começa com um novo projeto e um caderno vazio para que você possa experimentar criá-lo passo a passo.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Crie um caderno de projeto com alguns dados de amostra
+> * Criar um caderno de projeto com alguns dados da amostra
 > * Use a interface do portátil para criar uma variedade de tipos de células
 > * Executar o bloco de notas
-> * Salve o caderno
-> * Desinvejo o caderno no Código do Estúdio Visual
+> * Guarde o caderno
+> * Depurar o caderno no Código do Estúdio Visual
 
 ## <a name="create-the-project"></a>Criar o projeto
 
-1. Vá aos [Cadernos Azure](https://notebooks.azure.com) e inscreva-se. (Para mais detalhes, consulte [Quickstart - Inscreva-se nos Cadernos Azure).](quickstart-sign-in-azure-notebooks.md)
+1. Vá aos [Cadernos Azure](https://notebooks.azure.com) e inscreva-se. (Para mais detalhes, consulte [Quickstart - Inicie súm em Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
 
-1. Na sua página de perfil público, selecione **My Projects** no topo da página:
+1. Na sua página de perfil público, selecione **Os Meus Projetos** no topo da página:
 
-    ![My Projects link no topo da janela do navegador](media/quickstarts/my-projects-link.png)
+    ![O meu link de projetos no topo da janela do navegador](media/quickstarts/my-projects-link.png)
 
-1. Na página **My Projects,** selecione **+ Novo Projeto** (atalho de teclado: n); o botão só **+** pode aparecer como se a janela do navegador fosse estreita:
+1. Na página **My Projects,** selecione **+ Novo Projeto** (atalho de teclado: n); o botão só pode aparecer como **+** se a janela do navegador fosse estreita:
 
-    ![Novo comando do Projeto na página my projects](media/quickstarts/new-project-command.png)
+    ![Novo comando do projeto na página My Projects](media/quickstarts/new-project-command.png)
 
-1. No popup **Create New Project** que aparece, introduza ou detetete os seguintes detalhes, em seguida, selecione **Criar:**
+1. No popup **Create New Project** que aparece, introduz ou define os seguintes detalhes e, em seguida, selecione **Criar**:
 
-   - **Nome do projeto**: Exemplo de Regressão Linear - Chilrear de Críquete
-   - **Id do projeto**: exemplo linear de regressão
-   - **Projeto público**: (apurado)
+   - **Nome do projeto**: Exemplo linear de regressão - Cricket Chirps
+   - **ID do projeto**: exemplo linear-regressão
+   - **Projeto público**: (limpo)
    - **Criar um README.md:**(limpo)
 
-1. Após alguns momentos, os Cadernos Azure navegam para o novo projeto.
+1. Após alguns momentos, a Azure Notebooks navega para o novo projeto.
 
 ## <a name="create-the-data-file"></a>Criar o ficheiro de dados
 
-O modelo linear de regressão que cria no caderno extrai dados de um ficheiro do seu projeto chamado *cricket_chirps.csv*. Pode criar este ficheiro copiando-o a partir de Amostras de [Cadernos GitHub - Azure,](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)ou através da introdução direta dos dados. As seguintes secções descrevem ambas as abordagens.
+O modelo linear de regressão que cria no caderno extrai dados de um ficheiro do seu projeto chamado *cricket_chirps.csv*. Pode criar este ficheiro copiando-o a partir de [Amostras de Cadernos GitHub - Azure,](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)ou introduzindo os dados diretamente. As seguintes secções descrevem ambas as abordagens.
 
-### <a name="upload-the-data-file"></a>Faça upload do ficheiro de dados
+### <a name="upload-the-data-file"></a>Faça o upload do ficheiro de dados
 
-1. No seu painel de instrumentos de projeto em Cadernos Azure, selecione **Upload** > **From URL**
-1. No popup, introduza o URL seguinte no URL de **ficheiro** e *cricket_chirps.csv* no Nome do **Ficheiro**e, em seguida, selecione **Done**.
+1. No painel de instrumentos do seu projeto em Azure Notebooks, **selecione Upload**  >  **From URL**
+1. No popup, introduza o seguinte URL em **URL de ficheiro** e *cricket_chirps.csv* no Nome **de Ficheiro,** selecione **'Fazer'**
 
     ```url
     https://raw.githubusercontent.com/Microsoft/AzureNotebooks/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps/cricket_chirps.csv
     ```
 
-1. O ficheiro *cricket_chirps.csv* deve agora figurar na lista de ficheiros do seu projeto:
+1. O *ficheirocricket_chirps.csv* deve agora constar da lista de ficheiros do seu projeto:
 
-    ![Arquivo CSV recém-criado mostrando na lista de ficheiros do projeto](media/tutorial/csv-file-in-project.png)
+    ![Arquivo CSV recentemente criado mostrando na lista de ficheiros do projeto](media/tutorial/csv-file-in-project.png)
 
-### <a name="create-a-file-from-scratch"></a>Criar um ficheiro do zero
+### <a name="create-a-file-from-scratch"></a>Criar um arquivo a partir do zero
 
-1. No seu painel de instrumentos de projeto em Cadernos Azure, selecione **+ New** > **Blank File**
+1. No painel de instrumentos do seu projeto em Azure Notebooks, **selecione + Novo**Ficheiro Em  >  **Branco**
 1. Um campo aparece na lista de ficheiros do projeto. Introduza *cricket_chirps.csv* e prima Enter.
-1. Clique à direita *cricket_chirps.csv* e **selecione Editar File**.
-1. No editor que aparece, introduza os seguintes dados:
+1. *Clique*cricket_chirps.csvà direita e selecione **Editar File**.
+1. No editor que aparece, insira os seguintes dados:
 
     ```csv
     Chirps/Minute,Temperature
@@ -91,13 +92,13 @@ O modelo linear de regressão que cria no caderno extrai dados de um ficheiro do
     14.4,76.3
     ```
 
-1. Selecione **Guardar Ficheiro** para guardar o ficheiro e voltar ao painel de instrumentos do projeto.
+1. **Selecione Guardar ficheiro** para guardar o ficheiro e regressar ao painel de instrumentos do projeto.
 
 ## <a name="install-project-level-packages"></a>Instalar pacotes de nível de projeto
 
-Dentro de um bloco de notas, pode sempre utilizar comandos como `!pip install` numa célula de código para instalar as embalagens necessárias. No entanto, tais comandos são executados cada vez que executa as células de código do caderno, e pode levar um tempo considerável. Por esta razão, pode, em vez disso, instalar pacotes ao nível do projeto utilizando um `requirements.txt` ficheiro.
+Dentro de um caderno, pode sempre usar comandos como `!pip install` numa célula de código para instalar as embalagens necessárias. No entanto, tais comandos são executados cada vez que você executar as células de código do caderno, e pode levar um tempo considerável. Por esta razão, pode instalar pacotes ao nível do projeto utilizando um `requirements.txt` ficheiro.
 
-1. Utilize o processo descrito em Criar um ficheiro `requirements.txt` de [raiz](#create-a-file-from-scratch) para criar um ficheiro nomeado com o seguinte conteúdo:
+1. Utilize o processo descrito na [Criar um ficheiro a partir do zero](#create-a-file-from-scratch) para criar um ficheiro com o seguinte `requirements.txt` conteúdo:
 
     ```text
     matplotlib==3.0.0
@@ -106,78 +107,78 @@ Dentro de um bloco de notas, pode sempre utilizar comandos como `!pip install` n
     scikit-learn==0.20.0
     ```
 
-    Também pode fazer `requirements.txt` o upload de um ficheiro do seu computador local, se preferir, conforme descrito no [Upload do ficheiro de dados](#upload-the-data-file).
+    Também pode fazer o upload de um `requirements.txt` ficheiro a partir do seu computador local, se preferir, conforme descrito no Upload do ficheiro de [dados](#upload-the-data-file).
 
 1. No painel de instrumentos do projeto, selecione **Definições de Projeto**.
-1. No popup que aparece, selecione o separador **Ambiente** e, em seguida, selecione **+Adicionar**.
-1. No primeiro controlo de queda (a operação) em **passos**de configuração do ambiente, escolha **Requirements.txt**.
-1. No segundo controlo de entrega (o nome do ficheiro), escolha *requisitos.txt* (o ficheiro que criou).
-1. No terceiro controlo de queda (a versão Python), escolha **a Versão Python 3.6**.
+1. No popup que aparece, selecione o **separador Ambiente** e, em seguida, selecione **+Adicionar**.
+1. No primeiro controlo de queda (a operação) em **Etapas de Configuração do Ambiente,** escolha **Requirements.txt**.
+1. No segundo controlo de entrega (o nome do ficheiro), escolha *requirements.txt* (o ficheiro que criou).
+1. No terceiro controlo de drop-down (a versão Python), escolha **a Versão Python 3.6**.
 1. Selecione **Guardar**.
 
-![O separador Ambiente de Definições do Projeto especificando um ficheiro requisitos.txt](media/tutorial/tutorial-requirements-txt.png)
+![O separador Ambiente de Definições de Projeto especificando um ficheiro requirements.txt](media/tutorial/tutorial-requirements-txt.png)
 
-Com este passo de configuração, qualquer caderno que execute no projeto será executado num ambiente onde esses pacotes estão instalados.
+Com este passo de configuração no lugar, qualquer caderno que você executar no projeto será executado em um ambiente onde esses pacotes estão instalados.
 
 ## <a name="create-and-run-a-notebook"></a>Criar e executar um bloco de notas
 
-Com o ficheiro de dados pronto e o conjunto de ambiente do projeto, agora pode criar e abrir o caderno.
+Com o ficheiro de dados pronto e o conjunto de ambiente do projeto, pode agora criar e abrir o caderno.
 
-1. No painel de instrumentos do projeto, selecione **+ Novo** > **Caderno**.
-1. No popup, insira *Linear Regression Exemplo - Cricket Chirps.ipynb* for **Item Name**, escolha **Python 3.6** para o idioma, em seguida, selecione **New**.
-1. Depois de aparecer o novo caderno na lista de ficheiros, selecione-o para iniciar o caderno. Um novo separador de navegador abre automaticamente.
-1. Como tem um ficheiro *requisitos.txt* nas definições ambientais, vê a mensagem: "À espera que o seu recipiente termine de ser preparado." Pode selecionar **OK** para fechar a mensagem e continuar a trabalhar no caderno; no entanto, não se pode executar células de código até que o ambiente esteja totalmente configurado.
+1. No painel de instrumentos do projeto, selecione **+**  >  **Novo Caderno.**
+1. No pop-up, insira *o Exemplo linear de regressão - Cricket Chirps.ipynb* para o nome do **item,** escolha **Python 3.6** para o idioma e, em seguida, selecione **New**.
+1. Depois de aparecer o novo caderno na lista de ficheiros, selecione-o para iniciar o portátil. Um novo separador de navegador abre automaticamente.
+1. Como tem um ficheiro *requirements.txt* nas definições ambientais, vê a mensagem: "À espera que o seu contentor termine de ser preparado." Pode selecionar **OK** para fechar a mensagem e continuar a trabalhar no caderno; não é possível executar células de código, no entanto, até que o ambiente seja totalmente configurado.
 1. O caderno abre na interface Jupyter com uma única célula de código vazia como padrão.
 
     [![Vista inicial de um novo caderno em Cadernos Azure](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
-## <a name="tour-the-notebook-interface"></a>Visite a interface do caderno
+## <a name="tour-the-notebook-interface"></a>Visite a interface do portátil
 
-Com o caderno em execução, pode adicionar código e células Markdown, executar essas células e gerir o funcionamento do caderno. Primeiro, no entanto, vale a pena demorar alguns minutos para se familiarizar com a interface. Para obter documentação completa, selecione o comando do menu ajuda do Caderno **de Ajuda.** > **Notebook Help**
+Com o caderno em funcionamento, pode adicionar células code e Markdown, executar essas células e gerir o funcionamento do caderno. Primeiro, porém, vale a pena demorar alguns minutos a familiarizar-se com a interface. Para obter documentação **Help**completa, selecione o comando do menu  >  **Ajuda do Bloco de Ajuda.**
 
 Ao longo da parte superior da janela vê-se os seguintes itens:
 
 (A) O nome do seu caderno, que pode editar clicando.
-(B) Botões para navegar para o projeto contendo e o seu painel de projetos, que abrem novos separadores no seu navegador.
+(B) Botões para navegar para o projeto contendo e o painel de instrumentos dos seus projetos, que abrem novos separadores no seu navegador.
 (C) Um menu com comandos para trabalhar com o caderno.
-D Uma barra de ferramentas com atalhos para operações comuns.
-(E) a tela de edição contendo células.
-(F) indicador de se o caderno é fidedigno (o predefinido não é **fiável).**
+(D) uma barra de ferramentas com atalhos para operações comuns.
+(E) a tela de edição que contém células.
+(F) indicador de se o caderno é confiável (o padrão não é **fidedigno**).
 (G) o núcleo utilizado para executar o caderno juntamente com um indicador de atividade.
 
 [![Áreas primárias de UI da interface Jupyter](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
-Jupyter proporciona um passeio embutido dos elementos primários da UI. Inicie o passeio selecionando o comando **Help** > **User Interface Tour** e clicando nos popups.
+Jupyter fornece um tour incorporado dos elementos primários da UI. Inicie o tour selecionando o comando **Help**  >  **User Interface Tour** e clicando através dos popups.
 
 Os grupos de comandos de menu são os seguintes:
 
-| Menu | Descrição |
+| Menu | Description |
 | --- | --- |
-| Ficheiro | Comandos para gerir o ficheiro de caderno, incluindo comandos para criar e copiar cadernos, mostrar uma pré-visualização de impressão e baixar o caderno em vários formatos. |
-| Editar | Os comandos típicos para cortar, copiar e colar células, encontrar e substituir valores, gerir anexos celulares e inserir imagens.  |
-| Vista | Ordena controlar a visibilidade de diferentes partes da UI jupyter. |
-| Inserir | Ordena a inserção de uma nova célula acima ou abaixo da célula atual. Usa-se estes comandos com frequência ao criar um caderno. |
-| Cell | Os vários comandos **Run** executam uma ou mais células em diferentes combinações. Os comandos **do Tipo Celular** alteram o tipo de célula entre **Código,** **Markdown**e **Raw NBConvert** (texto simples). As **saídas atuais** e **os comandos de todas as saídas** controlam a forma como a saída do código de execução é mostrada e incluem um comando para limpar toda a saída. |
-| Kernel | Comandos para gerir como o código está sendo executado no núcleo, juntamente com **change kernel** para alterar a linguagem ou versão Python usado para executar o caderno. |
-| Dados | Comandos para fazer upload e download de ficheiros do projeto ou da sessão. Ver [Trabalhar com ficheiros](work-with-project-data-files.md) de dados do projeto |
-| Widgets | Comandos para gerir [Jupyter Widgets](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html), que fornecem capacidades adicionais para visualização, mapeamento e conspiração.|
+| Ficheiro | Os comandos para gerir o ficheiro do portátil, incluindo comandos para criar e copiar cadernos, mostrar uma pré-visualização de impressão e descarregar o caderno em vários formatos. |
+| Editar | Comandos típicos para cortar, copiar e colar células, encontrar e substituir valores, gerir os anexos celulares e inserir imagens.  |
+| Vista | Comandos para controlar a visibilidade de diferentes partes da UI Jupyter. |
+| Inserir | Ordena a inserção de uma nova célula acima ou abaixo da célula atual. Utiliza estes comandos frequentemente ao criar um caderno. |
+| Cell | Os vários comandos **Run** executam uma ou mais células em diferentes combinações. Os comandos **do Tipo de Célula** alteram o tipo de célula entre **Código**, **Markdown**e **Raw NBConvert** (texto simples). Os **comandos Current Outputs** e **All Outputs** controlam a forma como a saída do código de execução é mostrada e inclui um comando para limpar toda a saída. |
+| Kernel | Comandos para gerir como o código está sendo executado no núcleo, juntamente com **Change kernel** para alterar a versão idioma ou Python usada para executar o caderno. |
+| Dados | Comandos para carregar e descarregar ficheiros do projeto ou sessão. Ver [Trabalhar com ficheiros de dados do projeto](work-with-project-data-files.md) |
+| Widgets | Comandos para gerir [Jupyter Widgets,](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html)que fornecem capacidades adicionais para visualização, mapeamento e conspiração.|
 | Ajuda | Comandos que fornecem ajuda e documentação para a interface Jupyter. |
 
-A maioria dos comandos na barra de ferramentas têm comandos de menu equivalentes. Uma exceção é **Enter/Edit RISE Slideshow,** que é discutido em [Share e apresentar cadernos](present-jupyter-notebooks-slideshow.md).
+A maioria dos comandos na barra de ferramentas tem comandos de menu equivalentes. Uma exceção é **Enter/Edit RISE Slideshow,** que é discutido em [Partilhar e apresentar cadernos.](present-jupyter-notebooks-slideshow.md)
 
-Usa-se alguns destes comandos enquanto povoa o caderno nas secções que se seguem.
+Usa-se vários destes comandos à medida que preenche o caderno nas secções que se seguem.
 
-## <a name="create-a-markdown-cell"></a>Criar uma célula De markdown
+## <a name="create-a-markdown-cell"></a>Criar uma célula Markdown
 
-1. Clique na primeira célula vazia mostrada na tela do caderno. Por padrão, uma célula é um tipo **código,** o que significa que foi concebida para conter código runnável para o núcleo selecionado (Python, R ou F#). O tipo atual é mostrado no tipo de queda na barra de ferramentas:
+1. Clique na primeira célula vazia mostrada na tela do caderno. Por predefinição, uma célula é um tipo de **código,** o que significa que foi concebida para conter código runível para o núcleo selecionado (Python, R ou F#). O tipo atual é indicado no tipo de queda na barra de ferramentas:
 
-    ![Barra de ferramentas tipo pilha cai](media/tutorial/tutorial-cell-type-drop-down.png)
+    ![Queda da barra de ferramentas do tipo de pilha](media/tutorial/tutorial-cell-type-drop-down.png)
 
-1. Mude o tipo de célula para **Markdown** utilizando a barra de ferramentas que cai; alternadamente, utilize o comando do menu > **Demarcação** do > **Tipo** **Celular:**
+1. Altere o tipo de célula para **Markdown** utilizando a barra de ferramentas para baixo; alternadamente, **Cell**utilize o comando do  >  menu de marcação do tipo**de célula**  >  **celular:**
 
-    ![Comando de menu tipo celular](media/tutorial/tutorial-cell-type-menu.png)
+    ![Comando do menu do tipo de pilha](media/tutorial/tutorial-cell-type-menu.png)
 
-1. Clique na célula para começar a editar e, em seguida, introduza o seguinte Markdown:
+1. Clique na célula para começar a editar e, em seguida, insira o seguinte Markdown:
 
     ```markdown
     # Example Linear Regression
@@ -198,9 +199,9 @@ Usa-se alguns destes comandos enquanto povoa o caderno nas secções que se segu
     When you run a code cell, Jupyter executes the code; when you run a Markdown cell, Jupyter renders all the formatting into text that's suitable for presentation.
     ```
 
-1. Para tornar o Markdown em HTML para o navegador, selecione o comando **Executar** na barra de ferramentas ou utilize o comando **Cell** > **Run Cells.** O código Markdown para formatação e links aparece agora como espera num navegador.
+1. Para tornar o Markdown em HTML para o navegador, selecione **Cell**o comando **'Executar'** na barra de ferramentas ou utilize o comando  >  **Cell Run Cells.** O código Markdown para formatação e links aparece agora como espera que eles apareçam num browser.
 
-1. Quando executas a última célula do caderno, o Jupyter cria automaticamente uma nova célula abaixo da que geriste. Coloque mais Markdown nesta célula repetindo os passos nesta secção com o seguinte Markdown:
+1. Quando executas a última célula no caderno, o Jupyter cria automaticamente uma nova célula abaixo daquela que correste. Coloque mais Markdown nesta célula repetindo os passos nesta secção com o seguinte Markdown:
 
     ```markdown
     ## Install packages using pip or conda
@@ -214,13 +215,13 @@ Usa-se alguns destes comandos enquanto povoa o caderno nas secções que se segu
     \```
     ```
 
-1. Para editar novamente o Markdown, clique duas vezes na célula renderizada. Para tornar o HTML novamente após fazer alterações, executar a célula.
+1. Para editar novamente o Markdown, clique duas vezes na célula renderizada. Para tornar o HTML novamente depois de es fazer alterações, executar a célula.
 
 ## <a name="create-a-code-cell-with-commands"></a>Criar uma célula de código com comandos
 
-Como explicou a célula Markdown anterior, pode incluir comandos diretamente no caderno. Pode utilizar comandos para instalar pacotes, correr caracol ou wget para recuperar dados, ou qualquer outra coisa. Os cadernos jupyter funcionam eficazmente dentro de uma máquina virtual Linux, por isso tem o conjunto completo de comandolinux para trabalhar.
+Como a célula markdown anterior explicou, pode incluir comandos diretamente no caderno. Pode utilizar comandos para instalar pacotes, executar caracóis ou wget para recuperar dados, ou qualquer outra coisa. Os cadernos Jupyter funcionam eficazmente dentro de uma máquina virtual Linux, por isso tens o comando Linux completo preparado para trabalhar.
 
-1. Introduza os comandos abaixo na célula de código que apareceu depois de ter usado **run** na célula Markdown anterior. Se não vir uma nova célula, crie uma com **+** insert **insert** > cell**below** ou use o botão na barra de ferramentas.
+1. Introduza os comandos abaixo na célula de código que apareceu depois de ter usado **Run** na célula Markdown anterior. Se não vir uma nova célula, **Insert**crie uma com  >  **insira a célula abaixo** ou utilize o **+** botão na barra de ferramentas.
 
     ```bash
     !pip install numpy
@@ -229,21 +230,21 @@ Como explicou a célula Markdown anterior, pode incluir comandos diretamente no 
     !pip install sklearn
     ```
 
-1. Antes de executar a célula, **+** crie uma nova célula com o botão na barra de ferramentas, detetetete-a para Markdown e introduza a seguinte explicação:
+1. Antes de executar a célula, crie uma nova célula com o **+** botão na barra de ferramentas, coloque-a em Markdown e introduza a seguinte explicação:
 
     ```markdown
     Note that when you run a code block that contains install commands, and also those with `import` statements, it make take the notebooks a little time to complete the task. To the left of the code block you see `In [*]` to indicate that execution is happening. The Notebook's kernel on the upper right also shows a filled-in circle to indicate "busy."
     ```
 
-1. Selecione o comando **Cell** > **Run Todos** os comandos para executar todas as células do caderno. Note que as células Markdown são renderizadas como HTML, e o comando corre no núcleo, e observe o indicador de kernel como descrito no próprio Markdown:
+1. Selecione o comando **Cell**  >  **Run All** para executar todas as células do caderno. Note que as células Markdown prestam como HTML, e o comando funciona no núcleo, e observe o indicador do núcleo tal como descrito na própria Marca:
 
-    ![Indicador ocupado para o núcleo de caderno](media/tutorial/tutorial-kernel-busy.png)
+    ![Indicador ocupado para o núcleo do caderno](media/tutorial/tutorial-kernel-busy.png)
 
-1. Também leva algum tempo para `pip install` que todos os comandos sejam executados, e porque já instalou estes pacotes no ambiente do projeto (e porque também estão incluídos nos Cadernos Azure por padrão), vê muitas mensagens que lêem: "Requisito já satisfeito". Toda esta saída pode ser visualmente distraída, por isso selecione essa célula (usando um único clique), em seguida, use as saídas de **células** > **celulares** > **Toggle** para ocultar a saída. Também pode utilizar o comando **Clear** no mesmo submenu para remover completamente a saída.
+1. Também leva algum tempo para que todos os `pip install` comandos sejam executados, e porque já instalou estes pacotes no ambiente do projeto (e porque também estão incluídos nos Cadernos Azure por defeito), vê-se muitas mensagens que dizem: "Requisito já satisfeito". Toda esta saída pode ser distrativa visualmente, por isso selecione **Cell**essa célula (usando um único clique), em seguida, use o  >  Toggle de**saídas de células**  >  **celulares** para ocultar a saída. Também pode utilizar o comando **Clear** no mesmo submenu para remover completamente a saída.
 
     O comando **Toggle** esconde apenas a saída mais recente da célula; se voltar a executar a célula, a saída reaparece.
 
-1. Uma vez que as embalagens estão instaladas no ambiente do projeto, comente os `! pip install` comandos utilizando; `#` desta forma podem permanecer no caderno como material instrutivo, mas não levarão tempo a correr e não produzirão uma saída desnecessária. Neste caso, manter os comandos comentados no caderno também indica as dependências do caderno.
+1. Como os pacotes estão instalados no ambiente do projeto, comente os `! pip install` comandos `#` usando; desta forma podem permanecer no caderno como material instrutivo, mas não demorarão algum tempo a ser executados e não produzirão saídas desnecessárias. Neste caso, manter os comandos comentados no caderno também indica as dependências do caderno.
 
     ```bash
     # !pip install numpy
@@ -254,13 +255,13 @@ Como explicou a célula Markdown anterior, pode incluir comandos diretamente no 
 
 ## <a name="create-the-remaining-cells"></a>Criar as células restantes
 
-Para povoar o resto do caderno, cria-se uma série de células De Markdown e código. Para cada célula listada abaixo, primeiro crie a nova célula, depois desloque o tipo e, em seguida, comente o conteúdo.
+Para preencher o resto do caderno, cria-se uma série de markdown e células de código. Para cada célula listada abaixo, primeiro crie a nova célula, em seguida, desa estalhe o tipo e, em seguida, cole no conteúdo.
 
-Embora possa esperar para executar o caderno depois de criar cada célula, é interessante executar cada célula à medida que a cria. Nem todas as células mostram saída; se não vir erros, assuma que a célula funcionou normalmente.
+Embora possa esperar para executar o caderno depois de criar cada célula, é interessante executar cada célula à medida que o cria. Nem todas as células mostram a produção; se não vir nenhum erro, assuma que a célula correu normalmente.
 
-Cada célula de código depende do código que foi executado em células anteriores, e se você negligenciar a execução de uma das células, as células posteriores podem produzir erros. Se descobrir que esqueceu de gerir uma célula, tente usar a **Célula** > **Executar Tudo Acima** antes de executar a célula atual.
+Cada célula de código depende do código que foi executado em células anteriores, e se você não executar uma das células, as células posteriores podem produzir erros. Se descobrir que se esqueceu de executar uma célula, tente usar a **célula**  >  **Run All Above** antes de executar a célula atual.
 
-Se vir resultados inesperados (o que provavelmente verá!), verifique se cada célula está definida para "Código" ou "Markdown" conforme necessário. Por exemplo, um erro de "sintaxe inválido" ocorre normalmente quando se entra no Markdown na célula Código.
+Se vir resultados inesperados (o que provavelmente verá!), verifique se cada célula está definida como "Código" ou "Markdown" se necessário. Por exemplo, um erro de "sintaxe inválida" ocorre normalmente quando inseriu o Código na célula Code.
 
 1. Célula de marcação:
 
@@ -270,7 +271,7 @@ Se vir resultados inesperados (o que provavelmente verá!), verifique se cada c�
     In this example we're using numpy, pandas, and matplotlib. Data is in the file cricket_chirps.csv. Because this file is in the same project as this present Notebook, we can just load it using a relative pathname.
     ```
 
-1. Célula de código; quando executado, mostra o conteúdo da tabela como saída. Pode suprimir a saída comentando `print` a declaração.
+1. Célula de código; quando executado, mostra o conteúdo da tabela como saída. Pode suprimir a saída comentando a `print` declaração.
 
     ```python
     import numpy as np
@@ -311,7 +312,7 @@ Se vir resultados inesperados (o que provavelmente verá!), verifique se cada c�
     The regressor's `fit` method here creates the line, which algebraically is of the form `y = x*b1 + b0`, where b1 is the coefficient or slope of the line (which you can get to through `regressor.coef_`), and b0 is the intercept of the line at x=0 (which you can get to through `regressor.intercept_`).
     ```
 
-1. Célula de código; quando executado, esta célula `LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,normalize=False)`mostra a saída, .
+1. Célula de código; quando executado, esta célula mostra a saída, `LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,normalize=False)` .
 
     ```python
     from sklearn.linear_model import LinearRegression
@@ -332,7 +333,7 @@ Se vir resultados inesperados (o que provavelmente verá!), verifique se cada c�
     In the code, the `y_test` matrix (from when we split the set) contains the real observations. `y_pred` assigned here contains the predictions for the same `X_test` inputs. It's not expected that the test or training points exactly fit the regression; the regression is trying to find the model that we can use to make predictions with new observations of the independent variables.
     ```
 
-1. Célula de código; quando executado, esta célula `[79.49588055 75.98873911 77.87719989 80.03544077 75.17939878]`mostra resultados como .
+1. Célula de código; quando executado, esta célula mostra resultados como `[79.49588055 75.98873911 77.87719989 80.03544077 75.17939878]` .
 
     ```python
     y_pred = regressor.predict(X_test)
@@ -359,7 +360,7 @@ Se vir resultados inesperados (o que provavelmente verá!), verifique se cada c�
     The following code generates a plot: green dots are training data, red dots are test data, blue dots are predictions. Gray line is the regression itself. You see that all the blue dots are exactly on the line, as they should be, because the predictions exactly fit the model (the line).
     ```
 
-1. Célula de código; quando executado, esta célula produz um enredo gráfico. Se não vir o enredo da primeira vez (e em vez disso ver "Figura tamanho 640x480 com 1 Machados"), volte a executar a célula.
+1. Célula de código; quando executado, esta célula produz um enredo gráfico. Se não vir o enredo pela primeira vez (e em vez disso ver "Figura tamanho 640x480 com 1 Machados"), volte a executar a célula.
 
     ```python
     import matplotlib.pyplot as plt
@@ -374,7 +375,7 @@ Se vir resultados inesperados (o que provavelmente verá!), verifique se cada c�
     plt.show()
     ```
 
-    ![Saída de enredo do código matplotlib](media/tutorial/tutorial-plot-output.png)
+    ![Saída do enredo do código matplotlib](media/tutorial/tutorial-plot-output.png)
 
 1. Célula de marcação:
 
@@ -388,47 +389,47 @@ Se vir resultados inesperados (o que provavelmente verá!), verifique se cada c�
     Again, once you are working with more than one or two independent variables, it's much easier to use machine learning to crunch the numbers than to try to visualize it graphically.
     ```
 
-## <a name="clear-outputs-and-rerun-all-cells"></a>Limpar saídas e reexecutar todas as células
+## <a name="clear-outputs-and-rerun-all-cells"></a>Limpar saídas e refazer todas as células
 
 Depois de seguir os passos na secção anterior para povoar todo o caderno, criou um código de execução no contexto de um tutorial completo sobre regressão linear. Esta combinação direta de código e texto é uma das grandes vantagens dos cadernos!
 
-Tente reexecutar todo o caderno agora:
+Tente refazer o caderno inteiro agora:
 
-1. Limpe todos os dados da sessão do kernel e toda a saída celular selecionando **Kernel** > **Restart & Clear Output**. Este comando é sempre bom para executar quando se completa um caderno, apenas para ter certeza de que não criou nenhuma dependência estranha entre células de código.
+1. Limpe todos os dados de sessão do kernel e toda a saída celular selecionando **Kernel**  >  **Restart & Clear Output**. Este comando é sempre bom de correr quando se completa um caderno, só para ter a certeza de que não criou nenhuma dependência estranha entre as células de código.
 
-1. Reexecutar o caderno utilizando **cell** > **run all**. Note que o indicador de kernel está preenchido enquanto o código está em funcionamento.
+1. Reexame o caderno utilizando **Cell**  >  **Run All**. Note que o indicador do núcleo é preenchido enquanto o código está em funcionamento.
 
-    Se tiver algum código que se prolonge por muito tempo ou se ficar preso, pode parar o núcleo utilizando o comando **Kernel** > **Interrupt.**
+    Se tiver algum código que seja executado durante demasiado tempo ou se ficar preso de outra forma, pode parar o núcleo utilizando o comando **Kernel**  >  **Interrupt.**
 
-1. Percorra o caderno para examinar os resultados. (Se, mais uma vez, o enredo não aparecer, repita a célula.)
+1. Percorra o caderno para examinar os resultados. (Se, mais uma vez, o enredo não aparecer, volte a repetir a célula.)
 
-## <a name="save-halt-and-close-the-notebook"></a>Salvar, parar e fechar o caderno
+## <a name="save-halt-and-close-the-notebook"></a>Poupe, pare e feche o caderno
 
-Durante o tempo em que está a editar um portátil, pode guardar o seu estado atual com o comando **de** > **guardar ficheiros e de verificação** de dados ou o botão de salvamento na barra de ferramentas. Um "checkpoint" cria um instantâneo a que pode voltar a qualquer momento durante a sessão. Os pontos de verificação permitem-lhe fazer uma série de alterações experimentais, e se essas alterações não funcionarem, pode simplesmente voltar a um ponto de verificação utilizando o comando **'Rever' para o Checkpoint** do **Ficheiro.** >  Uma abordagem alternativa é criar células extras e comentar qualquer código que não queira executar; de qualquer forma funciona.
+Durante o período em que está a editar um **File**caderno, pode guardar o seu estado atual com o comando  >  **'Guardar e Checkpoint'** ou com o botão de guardar na barra de ferramentas. Um "checkpoint" cria uma imagem a que pode voltar a qualquer momento durante a sessão. Os pontos de verificação permitem-lhe fazer uma série de alterações experimentais, e se essas alterações não funcionarem, pode simplesmente reverter para um ponto de verificação utilizando o comando **Desatada**de Ficheiro  >  **reverte para Checkpoint.** Uma abordagem alternativa é criar células extras e comentar qualquer código que não queira executar; de qualquer forma funciona.
 
-Também pode utilizar o comando **File** > **Make a Copy** a qualquer momento para fazer uma cópia do estado atual do caderno num novo ficheiro no seu projeto. Essa cópia abre automaticamente num novo separador de navegador.
+Também pode utilizar o comando **File**  >  **Make a Copy** a qualquer momento para fazer uma cópia do estado atual do caderno num novo ficheiro no seu projeto. Essa cópia abre automaticamente num novo separador de navegador.
 
-Quando terminar com um caderno, use o comando De Perto de **Ficheiros** > **e pare,** que fecha o caderno e desliga o núcleo que o tem gerido. Os Cadernos Azure fecham automaticamente o separador do navegador.
+Quando terminar com um caderno, use o comando **'File**  >  **Close' e stop,** que fecha o caderno e desliga o núcleo que o tem feito. Azure Notebooks, em seguida, fecha o separador do navegador automaticamente.
 
-## <a name="debug-notebooks-using-visual-studio-code"></a>Depuração de cadernos usando código de estúdio visual
+## <a name="debug-notebooks-using-visual-studio-code"></a>Cadernos de depurar usando Código de Estúdio Visual
 
-Se as células de código do seu caderno não se comportarem da forma que espera, poderá ter bugs de código ou outros defeitos. No entanto, `print` além de usar declarações para mostrar o valor das variáveis, um ambiente típico de Jupyter não oferece nenhuma instalação de depuração.
+Se as células de código do seu caderno não se comportarem da forma que espera, poderá ter erros de código ou outros defeitos. No entanto, além de usar `print` declarações para mostrar o valor das variáveis, um ambiente típico do Jupyter não oferece nenhuma instalação de depurar.
 
-Felizmente, pode descarregar o ficheiro *.ipynb* do caderno e, em seguida, abri-lo no Código do Estúdio Visual utilizando a extensão Python. A extensão importa diretamente um caderno como um único ficheiro de código, preservando as suas células Markdown em comentários. Depois de importar o caderno, pode usar o código do estúdio visual para passar pelo seu código, definir pontos de rutura, examinar o estado, e assim por diante. Depois de espaçar o seu código, exporta o ficheiro *.ipynb* do Visual Studio Code e envia-o de volta para os Cadernos Azure.
+Felizmente, pode descarregar o ficheiro *.ipynb* do portátil e depois abri-lo no Código do Estúdio Visual utilizando a extensão Python. A extensão importa diretamente um caderno como um único ficheiro de código, preservando as suas células Markdown em comentários. Uma vez importada o caderno, pode usar o depurador do Código do Estúdio Visual para passar pelo seu código, definir pontos de rutura, examinar o estado, e assim por diante. Depois de fazer correções ao seu código, em seguida, exporta o ficheiro *.ipynb* do Código do Estúdio Visual e envia-o de volta para os Cadernos Azure.
 
 Para mais informações, consulte [debug um caderno Jupyter](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) na documentação do Código do Estúdio Visual.
 
-Consulte também [o Visual Studio Code - Suporte jupyter](https://code.visualstudio.com/docs/python/jupyter-support) para funcionalidades adicionais do Código do Estúdio Visual para os cadernos Jupyter.
+Consulte também [o Visual Studio Code - Suporte jupyter](https://code.visualstudio.com/docs/python/jupyter-support) para funcionalidades adicionais do Código do Estúdio Visual para cadernos Jupyter.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Explore os cadernos de amostras](azure-notebooks-samples.md)
+- [Explore cadernos de amostras](azure-notebooks-samples.md)
 
-Artigos:
+Artigos de como fazer:
 
 - [Criar e clonar projetos](create-clone-jupyter-notebooks.md)
 - [Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-- [Instale pacotes dentro de um caderno](install-packages-jupyter-notebook.md)
+- [Instalar pacotes a partir de um caderno](install-packages-jupyter-notebook.md)
 - [Apresentar diapositivos](present-jupyter-notebooks-slideshow.md)
 - [Trabalhar com ficheiros de dados](work-with-project-data-files.md)
 - [Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)

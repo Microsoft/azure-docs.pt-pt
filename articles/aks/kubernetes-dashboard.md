@@ -1,37 +1,61 @@
 ---
 title: Gerir um cluster de serviço Azure Kubernetes com o painel web
-description: Saiba como usar o painel de instrumentos ui web kubernetes incorporado para gerir um cluster azure Kubernetes Service (AKS)
+description: Saiba como utilizar o painel de instrumentos web de UI de Kubernetes incorporado para gerir um cluster Azure Kubernetes Service (AKS)
 services: container-service
+author: mlearned
 ms.topic: article
-ms.date: 10/08/2018
-ms.openlocfilehash: 15fcf765be0a754575713eebcdaa7d68e1c299b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/03/2020
+ms.author: mlearned
+ms.openlocfilehash: 1754e166cd5c5a3d7309bc8c6f6459cdd0852396
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77595353"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84762909"
 ---
-# <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Aceda ao painel web da Kubernetes no Serviço Azure Kubernetes (AKS)
+# <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Aceda ao painel web Kubernetes no Serviço Azure Kubernetes (AKS)
 
-Kubernetes inclui um painel web que pode ser usado para operações básicas de gestão. Este dashboard permite-lhe visualizar o estado básico de saúde e as métricas para as suas aplicações, criar e implementar serviços e editar as aplicações existentes. Este artigo mostra-lhe como aceder ao dashboard Kubernetes utilizando o Azure CLI e, em seguida, guia-o através de algumas operações básicas do dashboard.
+Kubernetes inclui um painel web que pode ser usado para operações básicas de gestão. Este dashboard permite-lhe visualizar o estado básico de saúde e as métricas para as suas aplicações, criar e implementar serviços e editar as aplicações existentes. Este artigo mostra-lhe como aceder ao dashboard de Kubernetes usando o Azure CLI e, em seguida, guia-o através de algumas operações básicas do dashboard.
 
-Para obter mais informações sobre o dashboard Kubernetes, consulte [kubernetes Web UI Dashboard][kubernetes-dashboard].
+Para obter mais informações sobre o dashboard kubernetes, consulte [o Painel de Instrumentos da Web UI da Kubernetes.][kubernetes-dashboard] AKS utiliza a versão 2.0 e maior do painel de instrumentos de código aberto.
 
-## <a name="before-you-begin"></a>Antes de começar
+> [!WARNING]
+> **O addon do painel AKS está definido para depreciação.** 
+> * O dashboard Kubernetes é ativado por padrão para clusters que executam uma versão Kubernetes inferior a 1.18.
+> * O addon do painel será desativado por padrão para todos os novos clusters criados em Kubernetes 1.18 ou superior. 
+ > * Começando com Kubernetes 1.19 em pré-visualização, a AKS deixará de suportar a instalação do addon de kube-dashboard gerido. 
+ > * Os clusters existentes com o complemento ativado não serão afetados. Os utilizadores continuarão a ser capazes de instalar manualmente o painel de instrumentos de código aberto como software instalado pelo utilizador.
 
-Os passos detalhados neste documento assumem que criou `kubectl` um cluster AKS e estabeleceu uma ligação com o cluster. Se precisar de criar um cluster AKS, consulte o arranque rápido da [AKS.][aks-quickstart]
+## <a name="before-you-begin"></a>Before you begin
 
-Precisa também da versão 2.0.46 ou posterior da CLI do Azure instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
+Os passos detalhados neste documento assumem que criou um cluster AKS e estabeleceu uma `kubectl` ligação com o cluster. Se precisar de criar um cluster AKS, consulte o arranque rápido da [AKS][aks-quickstart].
 
-## <a name="start-the-kubernetes-dashboard"></a>Inicie o dashboard Kubernetes
+Também precisa da versão Azure CLI 2.6.0 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
 
-Para iniciar o dashboard Kubernetes, use o comando de [navegação az aks.][az-aks-browse] O exemplo seguinte abre o painel de instrumentos para o cluster chamado *myAKSCluster* no grupo de recursos chamado *myResourceGroup*:
+## <a name="disable-the-kubernetes-dashboard"></a>Desative o painel de instrumentos Kubernetes
+
+O addon kube-dashboard é **ativado por padrão em clusters mais antigos que K8s 1.18**. O addon pode ser desativado executando o seguinte comando.
+
+``` azure-cli
+az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
+```
+
+## <a name="start-the-kubernetes-dashboard"></a>Inicie o painel kubernetes
+
+Para iniciar o painel kubernetes num cluster, utilize o comando [de navegação az aks.][az-aks-browse] Este comando requer a instalação do addon kube-dashboard no cluster, que é incluído por padrão em clusters que executam qualquer versão mais antiga que Kubernetes 1.18.
+
+O exemplo a seguir abre o painel de instrumentos para o cluster denominado *myAKSCluster* no grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Este comando cria um proxy entre o seu sistema de desenvolvimento e a API Kubernetes, e abre um navegador web para o dashboard Kubernetes. Se um navegador web não se abrir ao painel de instrumentos kubernetes, copie e `http://127.0.0.1:8001`cole o endereço URL anotado no Azure CLI, tipicamente .
+Este comando cria um proxy entre o seu sistema de desenvolvimento e a API de Kubernetes, e abre um navegador web para o dashboard kubernetes. Se um navegador web não abrir para o painel kubernetes, copie e cole o endereço URL indicado no CLI Azure, normalmente `http://127.0.0.1:8001` .
+
+> [!NOTE]
+> Se não vir o painel de `http://127.0.0.1:8001` instrumentos, pode encaminhar manualmente para os seguintes endereços. Os agrupamentos em 1.16 ou mais https de utilização e requerem um ponto final separado.
+> * K8s 1.16 ou superior:`http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+> * K8s 1.15 e abaixo:`http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard:/proxy`
 
 <!--
 ![The login page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-login.png)
@@ -62,72 +86,113 @@ You have the following options to sign in to your cluster's dashboard:
 > For more information on using the different authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
 
 After you choose a method to sign in, the Kubernetes dashboard is displayed. If you chose to use *token* or *skip*, the Kubernetes dashboard will use the permissions of the currently logged in user to access the cluster.
--->
 
 > [!IMPORTANT]
-> Se o seu cluster AKS utilizar o RBAC, deve ser criado um *ClusterRoleBinding* antes de poder aceder corretamente ao painel de instrumentos. Por predefinição, o painel kubernetes é implantado com o mínimo de acesso de leitura e apresenta erros de acesso RBAC. O dashboard Kubernetes não suporta atualmente credenciais fornecidas pelo utilizador para determinar o nível de acesso, mas utiliza as funções concedidas à conta de serviço. Um administrador de cluster pode optar por conceder acesso adicional à conta de serviço *kubernetes-dashboard,* no entanto este pode ser um vetor para a escalada de privilégios. Também pode integrar a autenticação do Diretório Ativo Azure para proporcionar um nível de acesso mais granular.
+> If your AKS cluster uses RBAC, a *ClusterRoleBinding* must be created before you can correctly access the dashboard. By default, the Kubernetes dashboard is deployed with minimal read access and displays RBAC access errors. The Kubernetes dashboard does not currently support user-provided credentials to determine the level of access, rather it uses the roles granted to the service account. A cluster administrator can choose to grant additional access to the *kubernetes-dashboard* service account, however this can be a vector for privilege escalation. You can also integrate Azure Active Directory authentication to provide a more granular level of access.
 > 
-> Para criar uma ligação, use o [kubectl criar][kubectl-create-clusterrolebinding] um comando de clusterrolebinding. O exemplo seguinte mostra como criar uma ligação da amostra, no entanto, esta encadernação da amostra não aplica componentes adicionais de autenticação e pode levar a uma utilização insegura. O painel kubernetes está aberto a qualquer pessoa com acesso ao URL. Não exponha publicamente o painel kubernetes.
+> To create a binding, use the [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] command. The following example shows how to create a sample binding, however, this sample binding does not apply any additional authentication components and may lead to insecure use. The Kubernetes dashboard is open to anyone with access to the URL. Do not expose the Kubernetes dashboard publicly.
 >
 > ```console
 > kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
 > ```
 > 
-> Para obter mais informações sobre a utilização dos diferentes métodos de autenticação, consulte o painel de instrumentos Kubernetes wiki nos [controlos][dashboard-authentication]de acesso .
+> For more information on using the different authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
+-->
+
+## <a name="sign-in-to-the-dashboard-kubernetes-116"></a>Inscreva-se no painel de instrumentos (kubernetes 1.16+)
+
+> [!IMPORTANT]
+> A partir de [v1.10.1 do dashboard de Kubernetes](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) ou kubernetes v1.16+ a conta de serviço "kubernetes-dashboard" já não pode ser utilizada para recuperar recursos devido a uma [correção de segurança nesse lançamento](https://github.com/kubernetes/dashboard/pull/3400). Como resultado, os pedidos sem informação de auth devolvem um erro não autorizado 401. Um token ao portador recuperado de uma conta de serviço ainda pode ser usado como neste [exemplo do Painel de Instrumentos de Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), mas isso impacta o fluxo de login do add-on do dashboard em comparação com as versões mais antigas.
+>
+>Se ainda executar uma versão antes do 1.16, ainda pode dar permissões à conta de serviço "kubernetes-dashboard", mas isso não é **recomendado:**
+> ```console
+> kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+> ```
+
+O ecrã inicial apresentado requer um kubeconfig ou um token. Ambas as opções requerem permissões de recursos para exibir esses recursos no painel de instrumentos.
+
+![ecrã de login](./media/kubernetes-dashboard/login.png)
+
+**Use um kubeconfig**
+
+Para clusters AZure AD ativados e não AD azure, um kubeconfig pode ser passado dentro Certifique-se de que os tokens de acesso são válidos, se as suas fichas estiverem expiradas, pode atualizar fichas através de kubectl.
+
+1. Desconfig de administrador com`az aks get-credentials -a --resource-group <RG_NAME> --name <CLUSTER_NAME>`
+1. Selecione `Kubeconfig` e clique para abrir o seletor de `Choose kubeconfig file` ficheiros
+1. Selecione o seu ficheiro kubeconfig (predefinições para $HOME/.kube/config)
+1. Clique `Sign In`
+
+**Use um símbolo**
+
+1. Para **o cluster ativado por AD não Azure,** corra `kubectl config view` e copie o símbolo associado à conta de utilizador do seu cluster.
+1. Cole na opção simbólica no início do s.A.    
+1. Clique `Sign In`
+
+Para aglomerados Azure AD ativados, recupere o seu token AAD com o seguinte comando. Valide que substituiu o grupo de recursos e o nome do cluster no comando.
+
+```
+## Update <RESOURCE_GROUP and <AKS_NAME> with your input.
+
+kubectl config view -o jsonpath='{.users[?(@.name == "clusterUser_<RESOURCE GROUP>_<AKS_NAME>")].user.auth-provider.config.access-token}'
+```
+
+Uma vez bem sucedido, será exibida uma página semelhante à seguinte.
 
 ![A página geral do painel web kubernetes](./media/kubernetes-dashboard/dashboard-overview.png)
 
 ## <a name="create-an-application"></a>Criar uma aplicação
 
-Para ver como o dashboard Kubernetes pode reduzir a complexidade das tarefas de gestão, vamos criar uma aplicação. Pode criar uma aplicação a partir do dashboard Kubernetes fornecendo entrada de texto, um ficheiro YAML ou através de um assistente gráfico.
+As seguintes medidas exigem que o utilizador tenha permissões para os respetivos recursos. 
+
+Para ver como o dashboard kubernetes pode reduzir a complexidade das tarefas de gestão, vamos criar uma aplicação. Pode criar uma aplicação a partir do dashboard Kubernetes fornecendo entrada de texto, um ficheiro YAML ou através de um assistente gráfico.
 
 Para criar uma aplicação, complete os seguintes passos:
 
 1. Selecione o botão **Criar** na janela superior direita.
-1. Para utilizar o assistente gráfico, opte por **Criar uma aplicação**.
-1. Fornecer um nome para a implantação, como *o nginx*
-1. Introduza o nome para a imagem do recipiente a utilizar, como *nginx:1.15.5*
-1. Para expor a porta 80 para tráfego web, cria um serviço Kubernetes. Em **Serviço**, selecione **External,** em seguida, insira **80** para a porta e porta-alvo.
-1. Quando estiver pronto, selecione **Implementar** para criar a aplicação.
+1. Para utilizar o assistente gráfico, opte por **criar uma aplicação.**
+1. Fornecer um nome para a implantação, como *nginx*
+1. Introduza o nome para a imagem do recipiente a utilizar, tal como *nginx:1.15.5*
+1. Para expor a porta 80 para tráfego web, você cria um serviço Kubernetes. Em **Serviço**, selecione **External**, em seguida, introduza **80** para a porta e porta-alvo.
+1. Quando estiver pronto, **selecione Implementar** para criar a aplicação.
 
-![Implementar uma aplicação no painel web da Kubernetes](./media/kubernetes-dashboard/create-app.png)
+![Implementar uma aplicação no painel web de Kubernetes](./media/kubernetes-dashboard/create-app.png)
 
-Leva um minuto ou dois para que um endereço IP externo público seja atribuído ao serviço Kubernetes. No tamanho esquerdo, em **Discovery e Load Balanceing** select **Services**. O serviço da sua aplicação está listado, incluindo os *pontos finais externos,* como mostra o seguinte exemplo:
+Demora um minuto ou dois para que um endereço IP externo público seja atribuído ao serviço Kubernetes. No tamanho esquerdo, sob **serviços selecionados de Discovery e Load Balanceing** . **Services** O serviço da sua aplicação está listado, incluindo os *pontos finais externos,* como mostra o seguinte exemplo:
 
 ![Ver lista de serviços e pontos finais](./media/kubernetes-dashboard/view-services.png)
 
-Selecione o endereço final para abrir uma janela do navegador web para a página padrão NGINX:
+Selecione o endereço de ponto final para abrir uma janela do navegador web para a página NGINX predefinido:
 
-![Ver a página padrão NGINX da aplicação implementada](./media/kubernetes-dashboard/default-nginx.png)
+![Ver a página NGINX predefinida da aplicação implementada](./media/kubernetes-dashboard/default-nginx.png)
 
-## <a name="view-pod-information"></a>Ver informações sobre pod
+## <a name="view-pod-information"></a>Ver informações do pod
 
-O painel de instrumentos kubernetes pode fornecer métricas básicas de monitorização e informações de resolução de problemas, tais como registos.
+O dashboard Kubernetes pode fornecer métricas básicas de monitorização e informações de resolução de problemas, tais como registos.
 
-Para ver mais informações sobre as suas cápsulas de aplicação, selecione **Pods** no menu à esquerda. A lista de cápsulas disponíveis é mostrada. Escolha o seu casulo *nginx* para visualizar informações, tais como o consumo de recursos:
+Para ver mais informações sobre as suas cápsulas de aplicação, selecione **Pods** no menu esquerdo. A lista de cápsulas disponíveis é mostrada. Escolha o seu vômo *nginx* para visualizar informações, tais como o consumo de recursos:
 
-![Ver informações sobre pod](./media/kubernetes-dashboard/view-pod-info.png)
+![Ver informações do pod](./media/kubernetes-dashboard/view-pod-info.png)
 
 ## <a name="edit-the-application"></a>Editar a aplicação
 
 Além de criar e visualizar aplicações, o dashboard Kubernetes pode ser usado para editar e atualizar implementações de aplicações. Para fornecer redundância adicional para a aplicação, vamos aumentar o número de réplicas NGINX.
 
-Para editar uma implantação:
+Para editar uma implementação:
 
-1. Selecione **Implementações** no menu esquerdo e, em seguida, escolha a sua implantação *nginx.*
+1. Selecione **Implementações** no menu da esquerda e, em seguida, escolha a sua implementação *nginx.*
 1. **Selecione Editar** na barra de navegação superior direita.
-1. Localize `spec.replica` o valor, em torno da linha 20. Para aumentar o número de réplicas para a aplicação, altere este valor de *1* para *3*.
-1. Selecione **Atualizar** quando estiver pronto.
+1. Localize o `spec.replica` valor, em torno da linha 20. Para aumentar o número de réplicas para a aplicação, altere este valor de *1* para *3*.
+1. Selecione **Update** quando estiver pronto.
 
 ![Editar a implementação para atualizar o número de réplicas](./media/kubernetes-dashboard/edit-deployment.png)
 
-São precisos alguns momentos para as novas cápsulas serem criadas dentro de um conjunto de réplicas. No menu à esquerda, escolha **Conjuntos de Réplicas**e, em seguida, escolha o conjunto de *réplicas de nginx.* A lista de cápsulas reflete agora a contagem de réplicas atualizada, como mostra a seguinte saída de exemplo:
+Leva alguns momentos para que as novas cápsulas sejam criadas dentro de um conjunto de réplicas. No menu da esquerda, escolha **Replica Sets**e, em seguida, escolha o seu conjunto *de réplicas nginx.* A lista de cápsulas reflete agora a contagem de réplicas atualizada, como mostra a seguinte saída de exemplo:
 
 ![Ver informações sobre o conjunto de réplicas](./media/kubernetes-dashboard/view-replica-set.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre o dashboard Kubernetes, consulte o Painel De [UI web kubernetes][kubernetes-dashboard].
+Para obter mais informações sobre o dashboard Kubernetes, consulte o [Painel de Instrumentos web da Kubernetes.][kubernetes-dashboard]
 
 <!-- LINKS - external -->
 [dashboard-authentication]: https://github.com/kubernetes/dashboard/wiki/Access-control

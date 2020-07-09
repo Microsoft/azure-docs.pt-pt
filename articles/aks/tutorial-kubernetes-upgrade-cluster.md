@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 22aad0e601c600e582cbea0cea82dd67a20a2c06
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a89e8bb42bec4323d2189ca93dfe73171c4a128c
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81392682"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887990"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Tutorial: Atualizar o Kubernetes no Serviço Kubernetes do Azure (AKS)
 
@@ -25,46 +25,64 @@ Neste tutorial, parte sete de sete, é atualizado um cluster do Kubernetes. Saib
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Em tutoriais anteriores, uma aplicação foi embalada numa imagem de contentor. Esta imagem foi enviada para o Registo de Contentores Azure, e você criou um cluster AKS. A aplicação foi então implantada para o cluster AKS. Se não tiver feito estes passos, e gostaria de seguir em frente, comece com tutorial 1 – Criar imagens de [contentores.][aks-tutorial-prepare-app]
+Em tutoriais anteriores, uma aplicação foi embalada numa imagem de contentor. Esta imagem foi enviada para o Registo de Contentores Azure, e você criou um cluster AKS. A aplicação foi então implantada no cluster AKS. Se não tiver feito estes passos, e gostaria de seguir em frente, comece com [Tutorial 1 – Crie imagens de contentores.][aks-tutorial-prepare-app]
 
-Este tutorial requer que esteja a executar a versão Azure CLI 2.0.53 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
+Este tutorial requer que esteja a executar a versão Azure CLI 2.0.53 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 ## <a name="get-available-cluster-versions"></a>Obter versões de cluster disponíveis
 
 Antes de atualizar um cluster, utilize o comando [az aks get-upgrades][] para verificar que versões do Kubernetes estão disponíveis para atualização:
 
 ```azurecli
-az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
+az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-No exemplo seguinte, a versão atual é *de 1.14.8*, e as versões disponíveis são mostradas na coluna *Upgrades.*
+No exemplo seguinte, a versão atual é *1.15.11*, e as versões disponíveis são *mostradas*em atualizações .
 
-```
-Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
--------  ---------------  ---------------  -----------------  --------------
-default  myResourceGroup  1.14.8           1.14.8             1.15.5, 1.15.7
+```json
+{
+  "agentPoolProfiles": null,
+  "controlPlaneProfile": {
+    "kubernetesVersion": "1.15.11",
+    ...
+    "upgrades": [
+      {
+        "isPreview": null,
+        "kubernetesVersion": "1.16.8"
+      },
+      {
+        "isPreview": null,
+        "kubernetesVersion": "1.16.9"
+      }
+    ]
+  },
+  ...
+}
 ```
 
 ## <a name="upgrade-a-cluster"></a>Atualizar um cluster
 
-Para minimizar a perturbação das aplicações em execução, os nós AKS são cuidadosamente isolados e drenados. Neste processo, são realizados os seguintes passos:
+Para minimizar a perturbação das aplicações de funcionamento, os nós AKS são cuidadosamente isolados e drenados. Neste processo, são realizadas as seguintes etapas:
 
-1. O programador Kubernetes evita que as cápsulas adicionais sejam programadas num nó que deve ser atualizado.
-1. As cápsulas de funcionamento no nó estão programadas em outros nós do cluster.
+1. O programador Kubernetes impede que sejam agendadas cápsulas adicionais num nó que deve ser atualizado.
+1. As cápsulas de corrida no nó estão programadas noutros nós do cluster.
 1. É criado um nó que executa os mais recentes componentes kubernetes.
-1. Quando o novo nó está pronto e se juntou ao cluster, o programador kubernetes começa a executar cápsulas nele.
-1. O nó antigo é apagado, e o próximo nó no cluster inicia o processo de cordão e drenagem.
+1. Quando o novo nó estiver pronto e unidos ao cluster, o programador Kubernetes começa a executar cápsulas nele.
+1. O nó velho é apagado, e o próximo nó no cluster inicia o processo de cordão e drenagem.
 
-Utilize o comando [az aks upgrade][] para atualizar o cluster do AKS. O exemplo seguinte atualiza o cluster para a versão Kubernetes *1.14.6*.
-
-> [!NOTE]
-> Pode atualizar apenas uma versão secundária de cada vez. Por exemplo, pode fazer upgrade de *1.14.x* para *1.15.x,* mas não pode fazer upgrade de *1.14.x* para *1.16.x* diretamente. Para atualizar de *1.14.x* para *1.16.x*, primeiro upgrade de *1.14.x* para *1.15.x,* em seguida, execute outra atualização de *1.15.x* para *1.16.x*.
+Utilize o comando [az aks upgrade][] para atualizar o cluster do AKS.
 
 ```azurecli
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.15.5
+az aks upgrade \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --kubernetes-version KUBERNETES_VERSION
 ```
 
-A saída de exemplo condensado seguinte mostra que a *kubernetesVersion* reporta agora *1.15.5*:
+> [!NOTE]
+> Pode atualizar apenas uma versão secundária de cada vez. Por exemplo, pode fazer upgrade de *1.14.x* para *1.15.x*, mas não pode fazer upgrade de *1.14.x* para *1.16.x* diretamente. Para atualizar de *1.14.x* para *1.16.x,* a primeira atualização de *1.14.x* para *1.15.x,* em seguida, executar outra atualização de *1,15.x* para *1,16.x*.
+
+A seguinte saída de exemplo condensada mostra o resultado da atualização para *1.16.8*. Note que a *kubernetesVersion* agora reporta *1.16.8*:
 
 ```json
 {
@@ -82,7 +100,7 @@ A saída de exemplo condensado seguinte mostra que a *kubernetesVersion* reporta
   "enableRbac": false,
   "fqdn": "myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io",
   "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
-  "kubernetesVersion": "1.15.5",
+  "kubernetesVersion": "1.16.8",
   "location": "eastus",
   "name": "myAKSCluster",
   "type": "Microsoft.ContainerService/ManagedClusters"
@@ -97,24 +115,24 @@ Confirme se a atualização foi concluída com êxito com o comando [az aks show
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-A saída de exemplo seguinte mostra que o cluster AKS executa *kubernetesVersion 1.15.5*:
+A saída de exemplo a seguir mostra que o cluster AKS executa *KubernetesVersion 1.16.8*:
 
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.15.5               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.16.8               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="delete-the-cluster"></a>Eliminar o cluster
 
-Como este tutorial é a última parte da série, você pode querer apagar o cluster AKS. Uma vez que os nós do Kubernetes são executados em máquinas virtuais (VMs) do Azure, continuam a incorrer em custos, mesmo que não utilize o cluster. Utilize o comando [az group delete][az-group-delete] para remover o grupo de recursos, o serviço de contentores e todos os recursos relacionados.
+Como este tutorial é a última parte da série, é melhor apagar o cluster AKS. Uma vez que os nós do Kubernetes são executados em máquinas virtuais (VMs) do Azure, continuam a incorrer em custos, mesmo que não utilize o cluster. Utilize o comando [az group delete][az-group-delete] para remover o grupo de recursos, o serviço de contentores e todos os recursos relacionados.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete]. Se usou uma identidade gerida, a identidade é gerida pela plataforma e não o obriga a fornecer ou rodar quaisquer segredos.
+> Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete]. Se usou uma identidade gerida, a identidade é gerida pela plataforma e não requer que forneça ou rode quaisquer segredos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

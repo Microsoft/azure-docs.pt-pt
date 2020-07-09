@@ -1,6 +1,6 @@
 ---
-title: Geofiltração num domínio para A Porta Frontal Azure [ Microsoft Docs
-description: Neste artigo, você aprende sobre a política de geofiltração para A Porta da Frente Azure
+title: Geo-filtração num domínio para Azure Front Door / Microsoft Docs
+description: Neste artigo, você aprende sobre a política de geo-filtragem para Azure Front Door
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -14,21 +14,20 @@ ms.date: 03/21/2019
 ms.author: kumud
 ms.reviewer: tyao
 ms.openlocfilehash: 98c86d839868eb0714c7106d5267d1c55e6e99d5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83739316"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>O que é a filtragem geográfica num domínio do Azure Front Door?
 
-Por predefinição, a Porta Frontal Azure responde aos pedidos dos utilizadores, independentemente da localização do utilizador que efaz o pedido. No entanto, em alguns casos, poderá querer restringir o acesso às suas aplicações web por país/região. O serviço de firewall de aplicações web (WAF) na Porta frontal permite-lhe definir uma política utilizando regras de acesso personalizadas para um caminho específico no seu ponto final para permitir ou bloquear o acesso de países/regiões especificados. 
+Por predefinição, a Porta Frontal Azure responde às solicitações do utilizador, independentemente da localização do utilizador que es faz o pedido. No entanto, em alguns casos, poderá querer restringir o acesso às suas aplicações web por país/região. O serviço de firewall de aplicação web (WAF) na Porta frontal permite-lhe definir uma política usando regras de acesso personalizado para uma trajetória específica no seu ponto final para permitir ou bloquear o acesso de países/regiões especificados. 
 
-Uma política waf geralmente inclui um conjunto de regras personalizadas. Uma regra é constituída por condições de correspondência, uma ação e uma prioridade. Numa condição de correspondência, vai definir uma variável de correspondência, um operador e um valor de correspondência.  Para a regra de filtragem geo, a variável de correspondência é REMOTE_ADDR, o operador é GeoMatch, o valor é o código de interesse país/região de duas letras. Pode combinar uma condição GeoMatch e uma condição de correspondência de cadeia de carateres REQUEST_URI para criar uma regra de filtragem geográfica baseada no caminho.
+Uma política da WAF geralmente inclui um conjunto de regras personalizadas. Uma regra é constituída por condições de correspondência, uma ação e uma prioridade. Numa condição de correspondência, vai definir uma variável de correspondência, um operador e um valor de correspondência.  Para a regra de filtragem geo, a variável de correspondência é REMOTE_ADDR, o operador é GeoMatch, valor é o código de interesse país/região de duas letras. Pode combinar uma condição GeoMatch e uma condição de correspondência de cadeia de carateres REQUEST_URI para criar uma regra de filtragem geográfica baseada no caminho.
 
-Pode configurar uma política de geofiltração para a sua Porta Frontal utilizando o [Azure PowerShell](front-door-tutorial-geo-filtering.md) ou utilizando o nosso [modelo de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
+Pode configurar uma política de geo-filtragem para a sua Porta frontal utilizando [o Azure PowerShell](front-door-tutorial-geo-filtering.md) ou utilizando o nosso [modelo de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
-## <a name="countryregion-code-reference"></a>Referência do código país/região
+## <a name="countryregion-code-reference"></a>Referência de código país/região
 
 |Código país/região | Nome país/região |
 | ----- | ----- |
@@ -210,7 +209,7 @@ Pode configurar uma política de geofiltração para a sua Porta Frontal utiliza
 | ZM | Zâmbia|
 | ZW | Zimbabué|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre a [segurança de camada de aplicação com o Front Door](front-door-application-security.md).
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).

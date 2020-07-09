@@ -1,6 +1,6 @@
 ---
-title: SAP MaxDB, liveCache e implementação do Content Server em VMs Azure [ Microsoft Docs
-description: SAP MaxDB, liveCache e implementação do Content Server no Azure
+title: IMPLANTAÇÃO SAP MaxDB, liveCache e Servidor de Conteúdo em VMs Azure Microsoft Docs
+description: IMPLEMENTAÇÃO DE SAP MaxDB, liveCache e Servidor de Conteúdo no Azure
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -16,13 +16,12 @@ ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5a7343bcf6ba4388beda118b242fa47d13baaa89
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84022595"
 ---
-# <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>SAP MaxDB, liveCache e implementação de Servidor de Conteúdo em VMs Azure
+# <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>IMPLANTAÇÃO DE SAP MaxDB, liveCache e Servidor de Conteúdo em VMs Azure
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -309,165 +308,165 @@ ms.locfileid: "84022595"
 
 
 
-Este documento abrange várias áreas diferentes a considerar ao implementar MaxDB, liveCache e Content Server no Azure IaaS. Como condição prévia para este documento, deve ter lido o documento Considerações para a implantação de [DBMS de Máquinas Virtuais Azure para carga de trabalho SAP,](dbms_guide_general.md) bem como outros guias na carga de trabalho [SAP sobre documentação Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+Este documento abrange várias áreas diferentes a ter em conta ao implementar MaxDB, liveCache e Content Server em Azure IaaS. Como condição prévia para este documento, deveria ter lido o documento [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP,](dbms_guide_general.md) bem como outros guias na [carga de trabalho SAP sobre documentação Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
 
-## <a name="specifics-for-the-sap-maxdb-deployments-on-windows"></a>Especificidades para as implementações do SAP MaxDB no Windows
-### <a name="sap-maxdb-version-support-on-azure"></a>Suporte de versão SAP MaxDB no Azure
-Atualmente, o SAP suporta a versão 7.9 do SAP MaxDB para utilização com produtos baseados em SAP NetWeaver no Azure. Todas as atualizações para os controladores SAP MaxDB, ou JDBC e ODBC a utilizar com produtos baseados em SAP NetWeaver são fornecidas exclusivamente através do SAP Service Marketplace <https://support.sap.com/swdc> em .
+## <a name="specifics-for-the-sap-maxdb-deployments-on-windows"></a>Especificidades para as implementações DOE MaxDB no Windows
+### <a name="sap-maxdb-version-support-on-azure"></a>Suporte de versão SAP MaxDB em Azure
+A SAP suporta atualmente a versão 7.9 ou superior do SAP MaxDB para utilização com produtos à base de SAP NetWeaver em Azure. Todas as atualizações para o servidor SAP MaxDB, ou os controladores JDBC e ODBC a serem utilizados com produtos à base de SAP NetWeaver são fornecidos exclusivamente através do SAP Service Marketplace em <https://support.sap.com/swdc> .
 Informações gerais sobre a execução do SAP NetWeaver no SAP MaxDB podem ser encontradas em <https://www.sap.com/community/topic/maxdb.html> .
 
-### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-maxdb-dbms"></a>Microsoft Windows Versions e tipos de VM Azure para SAP MaxDB DBMS
-Para encontrar a versão suportada do Microsoft Windows para SAP MaxDB DBMS no Azure, consulte:
+### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-maxdb-dbms"></a>Suportadas versões microsoft Windows e tipos de VM Azure para DBMS SAP MaxDB
+Para encontrar a versão suportada do Microsoft Windows para DBMS SAP MaxDB no Azure, consulte:
 
-* [Matriz de disponibilidade de produtos SAP (PAM)][sap-pam]
+* [Matriz de disponibilidade de produto SAP (PAM)][sap-pam]
 * Nota SAP [1928533]
 
 É altamente recomendado utilizar a versão mais recente do sistema operativo Microsoft Windows, que é o Microsoft Windows 2016.
 
-### <a name="available-sap-maxdb-documentation-for-maxdb"></a>Documentação SAP MaxDB disponível para MaxDB
-Pode encontrar a lista atualizada da documentação SAP MaxDB na seguinte Nota [SAP 767598]
+### <a name="available-sap-maxdb-documentation-for-maxdb"></a>Documentação MAXDB disponível para MaxDB
+Pode encontrar a lista atualizada de documentação SAP MaxDB na seguinte Nota [SAP 767598]
 
-### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Diretrizes de Configuração SAP MaxDB para instalações SAP em VMs Azure
+### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Diretrizes de configuração SAP MaxDB para instalações SAP em VMs Azure
 #### <a name="storage-configuration"></a><a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Configuração de armazenamento
-As melhores práticas de armazenamento do Azure para o SAP MaxDB seguem as recomendações gerais mencionadas no capítulo [Estrutura de armazenamento de um VM para implantações de RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
+As melhores práticas de armazenamento da Azure para o SAP MaxDB seguem as recomendações gerais mencionadas na estrutura de armazenamento do capítulo [de um VM para implantações RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
 
 > [!IMPORTANT]
-> À semelhança de outras bases de dados, o SAP MaxDB também tem dados e ficheiros de registo. No entanto, na terminologia SAP MaxDB o termo correto é "volume" (não "ficheiro"). Por exemplo, existem volumes de dados SAP MaxDB e volumes de registo. Não os confunda com volumes de disco osso. 
+> À semelhança de outras bases de dados, o SAP MaxDB também tem ficheiros de dados e registos. No entanto, na terminologia SAP MaxDB o termo correto é "volume" (não "ficheiro"). Por exemplo, existem volumes de dados SAP MaxDB e volumes de registo. Não confunda isto com volumes de disco sonoro. 
 > 
 > 
 
 Em suma, tem que:
 
-* Se utilizar as contas de Armazenamento Azure, delineie a conta de armazenamento Azure que detém os dados e volumes de registo SAP MaxDB (dados e ficheiros de registo) para **armazenamento redundante local (LRS),** conforme especificado em [Considerações para a implantação de DBMS de Máquinas Virtuais Azure para carga de trabalho SAP](dbms_guide_general.md).
-* Separe o caminho IO para volumes de dados SAP MaxDB (ficheiros de dados) do caminho IO para volumes de registo (ficheiros de registo). Significa que os volumes de dados do SAP MaxDB (ficheiros de dados) têm de ser instalados numa unidade lógica e os volumes de registo SAP MaxDB (ficheiros de registo) têm de ser instalados noutra unidade lógica.
-* Delineie o tipo de cache adequado para cada disco, dependendo se o utiliza para dados SAP MaxDB ou volumes de registo (dados e ficheiros de registo), e se utiliza o Azure Standard ou o Azure Premium Storage, conforme descrito em Considerações para a implantação de [DBMS de Máquinas Virtuais Azure para carga de trabalho SAP](dbms_guide_general.md).
-* Enquanto a quota atual do IOPS por disco satisfazer os requisitos, é possível armazenar todos os volumes de dados num único disco montado e também armazenar todos os volumes de registo de bases de dados num único disco montado.
-* Se forem necessários mais IOPS e/ou espaço, recomenda-se a utilização de Pools de Armazenamento de Janelas do Microsoft (apenas disponíveis no Microsoft Windows Server 2012 ou superior) para criar um grande dispositivo lógico sobre vários discos montados. Para mais detalhes, consulte também considerações para a [implantação de DBMS de Máquinas Virtuais Azure para carga de trabalho SAP](dbms_guide_general.md). Esta abordagem simplifica a administração para gerir o espaço do disco e evita o esforço de distribuição manual de ficheiros através de vários discos montados.
-* é altamente recomendado utilizar o Armazenamento Azure Premium para implementações MaxDB. 
+* Se utilizar as contas de armazenamento do Azure, detenha a conta de armazenamento Azure que detém os dados e os volumes de registo SAP MaxDB (ficheiros de dados e registos) para **armazenamento redundante local (LRS),** conforme especificado em [Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md).
+* Separe o caminho IO para volumes de dados SAP MaxDB (ficheiros de dados) da trajetória IO para volumes de registo (ficheiros de registo). Significa que os volumes de dados SAP MaxDB (ficheiros de dados) têm de ser instalados numa unidade lógica e os volumes de registo SAP MaxDB (ficheiros de registo) têm de ser instalados noutra unidade lógica.
+* Descreva o tipo de cache adequado para cada disco, dependendo se o utiliza para os dados SAP MaxDB ou volumes de registo (ficheiros de dados e registos), e se utiliza o Azure Standard ou o Azure Premium Storage, conforme descrito em [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md).
+* Desde que a quota atual do IOPS por disco satisfaça os requisitos, é possível armazenar todos os volumes de dados num único disco montado e também armazenar todos os volumes de registo de base de dados em outro disco montado único.
+* Se forem necessários mais IOPS e/ou espaço, é aconselhável utilizar os Pools de Armazenamento de Janelas do Microsoft (apenas disponíveis no Microsoft Windows Server 2012 e superiores) para criar um grande dispositivo lógico sobre vários discos montados. Para obter mais detalhes, consulte também [considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md). Esta abordagem simplifica a sobrecarga da administração para gerir o espaço do disco e evita o esforço de distribuir manualmente ficheiros por vários discos montados.
+* é altamente recomendado utilizar o Azure Premium Storage para implementações MaxDB. 
 
-![Configuração de referência do VM Azure IaaS para SAP MaxDB DBMS](./media/dbms_maxdb_deployment_guide/Simple_disk_structure_maxdb.PNG)
+![Configuração de referência do Azure IaaS VM para SAP MaxDB DBMS](./media/dbms_maxdb_deployment_guide/Simple_disk_structure_maxdb.PNG)
 
 
 #### <a name="backup-and-restore"></a><a name="23c78d3b-ca5a-4e72-8a24-645d141a3f5d"></a>Backup e Restauro
-Ao implantar o SAP MaxDB no Azure, tem de rever a sua metodologia de backup. Mesmo que o sistema não seja um sistema produtivo, a base de dados SAP alojada pelo SAP MaxDB deve ser apoiada periodicamente. Uma vez que o Armazenamento Azure mantém três imagens, um backup é agora menos importante em termos de proteção do seu sistema contra falhas de armazenamento e falhas operacionais ou administrativas mais importantes. A principal razão para manter um plano de backup e restauro adequado é para que possa compensar erros lógicos ou manuais fornecendo capacidades de recuperação ponto-a-tempo. Assim, o objetivo é utilizar cópias de backup para restaurar a base de dados a um determinado ponto do tempo ou utilizar as cópias de segurança em Azure para semear outro sistema copiando a base de dados existente. 
+Ao colocar o SAP MaxDB no Azure, tem de rever a sua metodologia de backup. Mesmo que o sistema não seja um sistema produtivo, a base de dados SAP hospedada pelo SAP MaxDB deve ser apoiada periodicamente. Uma vez que o Azure Storage mantém três imagens, uma cópia de segurança é agora menos importante em termos de proteção do seu sistema contra falhas de armazenamento e falhas operacionais ou administrativas mais importantes. A principal razão para manter um plano de backup e restauro adequado é para que possa compensar erros lógicos ou manuais fornecendo capacidades de recuperação pontuais. Assim, o objetivo é usar backups para restaurar a base de dados a um determinado ponto no tempo ou usar as cópias de segurança em Azure para semear outro sistema copiando a base de dados existente. 
 
-O backup e restauro de uma base de dados no Azure funciona da mesma forma que para os sistemas no local, para que possa utilizar ferramentas padrão de backup/restauro SAP MaxDB, que são descritas num dos documentos de documentação SAP MaxDB listados na Nota [767598]. 
+O backup e restauro de uma base de dados em Azure funciona da mesma forma que funciona para os sistemas no local, para que possa utilizar ferramentas de backup/restauro SAP MaxDB padrão, que são descritas num dos documentos de documentação SAP MaxDB listados no SAP Note [767598]. 
 
 #### <a name="performance-considerations-for-backup-and-restore"></a><a name="77cd2fbb-307e-4cbf-a65f-745553f72d2c"></a>Considerações de desempenho para backup e restauro
-Tal como nas implementações de metal nu, o desempenho de backup e restauro depende de quantos volumes podem ser lidos em paralelo e na entrada desses volumes. Portanto, pode-se assumir:
+Tal como nas implementações de metal nu, o desempenho de backup e restauro depende de quantos volumes podem ser lidos em paralelo e da produção desses volumes. Portanto, pode-se supor:
 
-* Quanto menor o número de discos usados para armazenar os dispositivos de base de dados, menor a produção geral de leitura
-* Quanto menos alvos (Diretórios de Listras, discos) escrever em cópia de segurança, menor a entrada
+* Quanto menos o número de discos usados para armazenar os dispositivos de base de dados, menor é a produção geral de leitura
+* Quanto menos alvos (Listras, discos) para escrever a cópia de segurança, menor a produção
 
-Para aumentar o número de alvos a quem escrever, existem duas opções que pode utilizar, possivelmente em combinação, dependendo das suas necessidades:
+Para aumentar o número de alvos para escrever, existem duas opções que pode utilizar, possivelmente em combinação, dependendo das suas necessidades:
 
-* Dedicar volumes separados para backup
-* Despir o volume do alvo de reserva sobre vários discos montados de modo a melhorar a entrada do IOPS nesse volume de disco listrado
-* Ter dispositivos de disco lógicodedicados separados para:
-  * Volumes de cópia de segurança SAP MaxDB (ou seja, ficheiros)
-  * Volumes de dados SAP MaxDB (ou seja, ficheiros)
-  * Volumes de registo SAP MaxDB (ou seja, ficheiros)
+* Dedicando volumes separados para backup
+* Despojando o volume de alvo de backup sobre vários discos montados de modo a melhorar a produção do IOPS no volume de disco listrado
+* Ter dispositivos de disco lógicos separados para:
+  * Volumes de backup SAP MaxDB (isto é, ficheiros)
+  * Volumes de dados DO SAP MaxDB (isto é, ficheiros)
+  * Volumes de registo SAP MaxDB (isto é, ficheiros)
 
-A desmontagem de um volume sobre vários discos montados foi discutida anteriormente em Considerações para a implantação de [DBMS de Máquinas Virtuais Azure para carga de trabalho SAP](dbms_guide_general.md). 
+A despojamento de um volume sobre vários discos montados foi discutida anteriormente em [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md). 
 
 #### <a name="other-considerations"></a><a name="f77c1436-9ad8-44fb-a331-8671342de818"></a>Outras considerações
-Todas as outras áreas gerais, como os Conjuntos de Disponibilidade azure ou a monitorização do SAP, também se aplicam, conforme descrito em Considerações para a implantação de [DBMS de Máquinas Virtuais Azure para carga de trabalho SAP](dbms_guide_general.md).  para implantações de VMs com a base de dados SAP MaxDB.
-Outras configurações específicas do SAP MaxDB são transparentes para Os VMs Azure e são descritas em diferentes documentos listados na Nota [SAP 767598] e nestas notas SAP:
+Todas as outras áreas gerais, tais como conjuntos de disponibilidade de Azure ou monitorização SAP também se aplicam como descrito em [Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md).  para a implantação de VMs com a base de dados SAP MaxDB.
+Outras definições específicas do SAP MaxDB são transparentes para os VMs Azure e são descritas em diferentes documentos listados na Nota [SAP 767598] e nestas Notas SAP:
 
 * [826037] 
 * [1139904]
 * [1173395]
 
 ## <a name="specifics-for-sap-livecache-deployments-on-windows"></a>Especificidades para implementações sap liveCache no Windows
-### <a name="sap-livecache-version-support"></a>Suporte de versão SAP liveCache
-Versão mínima do SAP liveCache suportado em Máquinas Virtuais Azure é **SAP LC/LCAPPS 10.0 SP 25** incluindo **liveCache 7.9.08.31** e **LCA-Build 25**, lançado para **EhP 2 para SAP SCM 7.0** e posteriores lançamentos.
+### <a name="sap-livecache-version-support"></a>Suporte para versão SAP liveCache
+Versão mínima do SAP liveCache suportado em Azure Virtual Machines é **SAP LC/LCAPPS 10.0 SP 25,** incluindo **liveCache 7.9.08.31** e **LCA-Build 25**, lançado para **EhP 2 para SAP SCM 7.0** e lançamentos posteriores.
 
-### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-livecache-dbms"></a>Microsoft Windows Versions e tipos de VM Azure para SAP liveCache DBMS
-Para encontrar a versão suportada do Microsoft Windows para SAP liveCache no Azure, consulte:
+### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-livecache-dbms"></a>Suportadas versões microsoft Windows e tipos de VM Azure para SAP liveCache DBMS
+Para encontrar a versão suportada do Microsoft Windows para o SAP liveCache no Azure, consulte:
 
-* [Matriz de disponibilidade de produtos SAP (PAM)][sap-pam]
+* [Matriz de disponibilidade de produto SAP (PAM)][sap-pam]
 * Nota SAP [1928533]
 
 É altamente recomendado utilizar a versão mais recente do sistema operativo Microsoft Windows Server. 
 
-### <a name="sap-livecache-configuration-guidelines-for-sap-installations-in-azure-vms"></a>SAP liveCache Configuration Guidelines for SAP Installations in Azure VMs
-#### <a name="recommended-azure-vm-types-for-livecache"></a>Tipos De VM Azure recomendados para liveCache
-Como sap liveCache é uma aplicação que realiza cálculos enormes, a quantidade e velocidade da RAM e CPU tem uma grande influência no desempenho do SAP liveCache. 
+### <a name="sap-livecache-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Diretrizes de configuração de sapares para instalações SAP em VMs Azure
+#### <a name="recommended-azure-vm-types-for-livecache"></a>Tipos Azure VM recomendados para liveCache
+Como o SAP liveCache é uma aplicação que realiza cálculos enormes, a quantidade e rapidez da RAM e CPU tem uma grande influência no desempenho do SAP liveCache. 
 
-Para os tipos de VM Azure suportados pela SAP (Nota [SAP 1928533),]todos os recursos de CPU virtuais atribuídos ao VM são apoiados por recursos de CPU físicos dedicados do hipervisor. Não se realiza qualquer sobreprovisionamento (e, portanto, não existe qualquer concorrência para os recursos da CPU).
+Para os tipos Azure VM suportados pelo SAP (SAP Note [1928533),]todos os recursos virtuais da CPU atribuídos ao VM são apoiados por recursos físicos dedicados do CPU do hipervisor. Não se realiza uma sobreprovisão (e, portanto, não existe concorrência para os recursos da CPU).
 
-Da mesma forma, para todos os tipos de instâncias De VM Azure suportados pela SAP, a memória VM está 100% mapeada para a memória física - o excesso de provisionamento (sobre-compromisso), por exemplo, não é utilizado.
+Da mesma forma, para todos os tipos de instânciaS Azure VM suportados pelo SAP, a memória VM é 100% mapeada para a memória física - o excesso de provisionamento (excesso de compromisso), por exemplo, não é usado.
 
-Nesta perspetiva, é altamente recomendado usar os VMs mais recentes da série Dv2, Dv3, Ev3 e M. A escolha dos diferentes tipos de VM depende da memória que precisa para o liveCache e os recursos cpu de que necessita. Tal como acontece com todas as outras implementações do DBMS, é aconselhável alavancar o Armazenamento Premium Azure para volumes críticos de desempenho.
+Nesta perspetiva, é altamente recomendado usar os VMs mais recentes do Dv2, Dv3, Ev3 e M-series. A escolha dos diferentes tipos de VM depende da memória necessária para o liveCache e os recursos da CPU de que necessita. Tal como acontece com todas as outras implementações do DBMS, é aconselhável alavancar o Azure Premium Storage para volumes críticos de desempenho.
 
 #### <a name="storage-configuration-for-livecache-in-azure"></a>Configuração de armazenamento para liveCache em Azure
-Como o SAP liveCache é baseado na tecnologia SAP MaxDB, todas as recomendações de boas práticas de armazenamento Azure mencionadas para sap MaxDB descritas neste documento também são válidas para SAP liveCache. 
+Como o SAP liveCache é baseado na tecnologia SAP MaxDB, todas as recomendações de boas práticas de armazenamento Azure mencionadas para SAP MaxDB descritas neste documento também são válidas para o SAP liveCache. 
 
-#### <a name="dedicated-azure-vm-for-livecache-scenario"></a>Azure Dedicado VM para cenário liveCache
-Como o SAP liveCache usa intensivamente o poder computacional, para uso produtivo é altamente recomendado para implantar numa máquina virtual Azure dedicada. 
+#### <a name="dedicated-azure-vm-for-livecache-scenario"></a>Dedicado Azure VM para o cenário liveCache
+Como SAP liveCache usa intensivamente o poder computacional, para uso produtivo é altamente recomendado para implementar em uma máquina virtual Azure dedicada. 
 
-![Azure VM dedicado para liveCache para caso de uso produtivo](./media/dbms_maxdb_deployment_guide/700-livecach-prod.PNG)
+![Dedicado Azure VM para liveCache para caso de uso produtivo](./media/dbms_maxdb_deployment_guide/700-livecach-prod.PNG)
 
 
 #### <a name="backup-and-restore-for-livecache-in-azure"></a>Backup e Restauro para liveCache em Azure
-backup e restauro, incluindo considerações de desempenho, já estão descritos nos capítulos SAP MaxDB relevantes neste documento. 
+cópia de segurança e restauro, incluindo considerações de desempenho, já estão descritos nos capítulos SAP MaxDB relevantes neste documento. 
 
 #### <a name="other-considerations"></a>Outras considerações
 Todas as outras áreas gerais já estão descritas no capítulo SAP MaxDB relevante. 
 
-## <a name="specifics-for-the-sap-content-server-deployment-on-windows-in-azure"></a>Especificidades para a implementação do Servidor de Conteúdo SAP no Windows em Azure
-O SAP Content Server é um componente separado baseado no servidor para armazenar conteúdos como documentos eletrónicos em diferentes formatos. O SAP Content Server é fornecido pelo desenvolvimento da tecnologia e deve ser utilizado através de aplicações SAP. Está instalado num sistema separado. O conteúdo típico é material de formação e documentação do Knowledge Warehouse ou desenhos técnicos originários do mySAP PLM Document Management System. 
+## <a name="specifics-for-the-sap-content-server-deployment-on-windows-in-azure"></a>Especificidades para a implementação do Servidor de Conteúdo SAP no Windows in Azure
+O SAP Content Server é um componente separado baseado no servidor para armazenar conteúdos como documentos eletrónicos em diferentes formatos. O SAP Content Server é fornecido pelo desenvolvimento de tecnologia e deve ser utilizado através de aplicações cruzadas para quaisquer aplicações SAP. Está instalado num sistema separado. O conteúdo típico é material de formação e documentação do Knowledge Warehouse ou desenhos técnicos originários do mySAP PLM Document Management System. 
 
-### <a name="sap-content-server-version-support-for-azure-vms"></a>Suporte de versão de servidor de conteúdo SAP para VMs Azure
-A Tualmente, a SAP apoia:
+### <a name="sap-content-server-version-support-for-azure-vms"></a>Suporte à versão do servidor de conteúdo SAP para VMs Azure
+A SAP suporta atualmente:
 
-* Servidor de **conteúdo SAP** com versão **6.50 (e superior)**
-* **Versão 7.9 do SAP MaxDB**
+* **Servidor de conteúdo SAP** com a versão **6.50 (e superior)**
+* **VERSÃO SAP MaxDB 7.9**
 * **Microsoft IIS (Internet Information Server) versão 8.0 (e superior)**
 
-É altamente recomendado utilizar a versão mais recente do SAP Content Server, e a versão mais recente do **Microsoft IIS.** 
+É altamente recomendado utilizar a versão mais recente do SAP Content Server, e a versão mais recente do **Microsoft IIS**. 
 
-Verifique as versões mais recentes suportadas do SAP Content Server e do Microsoft IIS na Matriz de Disponibilidade de [Produto SAP (PAM)][sap-pam].
+Consulte as versões mais recentes suportadas do SAP Content Server e do Microsoft IIS na [Matriz de Disponibilidade de Produto SAP (PAM)][sap-pam].
 
-### <a name="supported-microsoft-windows-and-azure-vm-types-for-sap-content-server"></a>Microsoft Windows suportado e tipos de VM Azure para Servidor de Conteúdo SAP
-Para descobrir a versão suportada do Windows para o SAP Content Server no Azure, consulte:
+### <a name="supported-microsoft-windows-and-azure-vm-types-for-sap-content-server"></a>Tipos de VM suportados do Microsoft Windows e Azure para o Servidor de Conteúdo SAP
+Para obter a versão suportada do Windows para o SERVIDOR de Conteúdo SAP no Azure, consulte:
 
-* [Matriz de disponibilidade de produtos SAP (PAM)][sap-pam]
+* [Matriz de disponibilidade de produto SAP (PAM)][sap-pam]
 * Nota SAP [1928533]
 
 É altamente recomendado utilizar a versão mais recente do Microsoft Windows Server.
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Diretrizes de configuração do servidor de conteúdo SAP para instalações SAP em VMs Azure
 #### <a name="storage-configuration-for-content-server-in-azure"></a>Configuração de armazenamento para servidor de conteúdo em Azure
-Se configurar o SAP Content Server para armazenar ficheiros na base de dados SAP MaxDB, todas as recomendações de boas práticas de armazenamento do Azure mencionadas para o SAP MaxDB neste documento também são válidas para o cenário do Servidor de Conteúdo SAP. 
+Se configurar o SAP Content Server para armazenar ficheiros na base de dados SAP MaxDB, todas as recomendações de boas práticas de armazenamento Azure mencionadas para o SAP MaxDB neste documento também são válidas para o cenário do Servidor de Conteúdo SAP. 
 
-Se configurar o SAP Content Server para armazenar ficheiros no sistema de ficheiros, recomenda-se a utilização de uma unidade lógica dedicada. A utilização de espaços de armazenamento windows permite-lhe também aumentar o tamanho lógico do disco e a entrada de IOPS, conforme descrito em Considerações para a [implementação de DBMS de Máquinas Virtuais Azure para carga de trabalho SAP](dbms_guide_general.md). 
+Se configurar o SAP Content Server para armazenar ficheiros no sistema de ficheiros, é aconselhável utilizar uma unidade lógica dedicada. A utilização de Espaços de Armazenamento do Windows permite-lhe também aumentar o tamanho do disco lógico e a produção de IOPS, conforme descrito em [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md). 
 
 #### <a name="sap-content-server-location"></a>Localização do servidor de conteúdo SAP
-O SAP Content Server tem de ser implantado na mesma região azure e Azure VNET onde o sistema SAP está implantado. É livre de decidir se pretende implementar componentes do SAP Content Server num Azure VM dedicado ou no mesmo VM onde o sistema SAP está em funcionamento. 
+O SERVIDOR de Conteúdo SAP tem de ser implantado na mesma região de Azure e Azure VNET onde o sistema SAP está implantado. É livre de decidir se pretende implantar componentes do SERVIDOR de Conteúdo SAP num VM Azure dedicado ou no mesmo VM onde o sistema SAP está a funcionar. 
 
-![Azure VM dedicado para servidor de conteúdo SAP](./media/dbms_maxdb_deployment_guide/800-azure-vm-sap-content-server.png)
+![Azure VM dedicado para o Servidor de Conteúdo SAP](./media/dbms_maxdb_deployment_guide/800-azure-vm-sap-content-server.png)
 
 
-#### <a name="sap-cache-server-location"></a>Localização do servidor cache SAP
-O SAP Cache Server é um componente adicional baseado no servidor para fornecer acesso a documentos (cached) localmente. O SAP Cache Server cacheos os documentos de um Servidor de Conteúdo SAP. Isto é para otimizar o tráfego da rede se os documentos tiverem de ser recuperados mais de uma vez de diferentes locais. A regra geral é que o SAP Cache Server tem de estar fisicamente próximo do cliente que acede ao Servidor cache SAP. 
+#### <a name="sap-cache-server-location"></a>Localização do servidor de cache SAP
+O SERVIDOR CACHE SAP é um componente adicional baseado no servidor para fornecer acesso a documentos (em cache) localmente. O Servidor cache SAP cache cache os documentos de um Servidor de Conteúdo SAP. Isto é para otimizar o tráfego de rede se os documentos tiverem de ser recuperados mais de uma vez de diferentes locais. A regra geral é que o Servidor cache SAP tem de estar fisicamente próximo do cliente que acede ao Servidor cache SAP. 
 
 Aqui tem duas opções:
 
-1. **Cliente é um sistema SAP de backend** Se um sistema SAP de backend estiver configurado para aceder ao SAP Content Server, esse sistema SAP é um cliente. Como tanto o sistema SAP como o SAP Content Server são implantados na mesma região do Azure, no mesmo datacenter Azure, estão fisicamente próximos uns dos outros. Portanto, não há necessidade de ter um Servidor De Cache SAP dedicado. Os clientes SAP UI (SAP GUI ou navegador web) acedem diretamente ao sistema SAP e o sistema SAP recupera documentos do Servidor de Conteúdo SAP.
-2. **Cliente é um navegador web no local** O Servidor de Conteúdo SAP pode ser configurado para ser acedido diretamente pelo navegador web. Neste caso, um navegador web que executa no local é um cliente do Servidor de Conteúdo SAP. No local, o datacenter e o centro de dados Azure são colocados em diferentes locais físicos (idealmente próximos uns dos outros). O seu datacenter no local está ligado ao Azure via Azure Site-to-Site VPN ou ExpressRoute. Embora ambas as opções ofereçam uma ligação segura da rede VPN ao Azure, a ligação de rede site-to-site não oferece uma largura de banda de rede e latência SLA entre o datacenter no local e o datacenter Azure. Para acelerar o acesso aos documentos, pode fazer um dos seguintes documentos:
-   1. Instale o SAP Cache Server no local, perto do navegador web no local (opção na figura abaixo)
-   2. Configure Azure ExpressRoute, que oferece uma ligação de rede dedicada de alta velocidade e baixa latência entre o datacenter no local e o centro de dados Azure.
+1. **O cliente é um sistema SAP backend** Se um sistema SAP backend estiver configurado para aceder ao Sap Content Server, esse sistema SAP é um cliente. Uma vez que tanto o sistema SAP como o SAP Content Server são implantados na mesma região do Azure, no mesmo datacenter Azure, estão fisicamente próximos uns dos outros. Portanto, não há necessidade de ter um servidor sap cache dedicado. Os clientes SAP UI (SAP GUI ou web browser) acedem diretamente ao sistema SAP e o sistema SAP recupera documentos do Servidor de Conteúdo SAP.
+2. **O cliente é um navegador web no local** O SERVIDOR de Conteúdo SAP pode ser configurado para ser acedido diretamente pelo navegador web. Neste caso, um navegador web em execução no local é um cliente do Servidor de Conteúdo SAP. O datacenter no local e o datacenter Azure são colocados em diferentes locais físicos (idealmente próximos uns dos outros). O seu datacenter no local está ligado ao Azure via Azure Site-to-Site VPN ou ExpressRoute. Embora ambas as opções ofereçam ligação segura da rede VPN ao Azure, a ligação de rede site-to-site não oferece uma largura de banda de rede e um SLA de latência entre o datacenter no local e o datacenter Azure. Para acelerar o acesso aos documentos, pode fazer um dos seguintes:
+   1. Instale o SERVIDOR SAP Cache nas instalações, perto do navegador web no local (opção na figura abaixo)
+   2. Configure Azure ExpressRoute, que oferece uma ligação de rede dedicada de alta velocidade e baixa latência entre o datacenter no local e o datacenter Azure.
 
-![Opção de instalar o SAP Cache Server no local](./media/dbms_maxdb_deployment_guide/900-sap-cache-server-on-premises.png)
+![Opção de instalar o SERVIDOR CACHE SAP no local](./media/dbms_maxdb_deployment_guide/900-sap-cache-server-on-premises.png)
 <a name="642f746c-e4d4-489d-bf63-73e80177a0a8"></a>
 
 #### <a name="backup--restore"></a>Backup / Restaurar
-Se configurar o Servidor de Conteúdo SAP para armazenar ficheiros na base de dados SAP MaxDB, o procedimento de cópia de segurança/restauro e considerações de desempenho já estão descritos nos capítulos SAP MaxDB deste documento. 
+Se configurar o Servidor de Conteúdo SAP para armazenar ficheiros na base de dados SAP MaxDB, o procedimento de backup/restauro e as considerações de desempenho já estão descritos nos capítulos SAP MaxDB deste documento. 
 
-Se configurar o Servidor de Conteúdo SAP para armazenar ficheiros no sistema de ficheiros, uma opção é executar a cópia de segurança manual/restauro de toda a estrutura de ficheiros onde os documentos estão localizados. Semelhante à cópia de segurança/restauro SAP MaxDB, recomenda-se que tenha um volume de disco dedicado para fins de backup. 
+Se configurar o Servidor de Conteúdo SAP para armazenar ficheiros no sistema de ficheiros, uma opção é executar a cópia de segurança/restauro manual de toda a estrutura de ficheiros onde os documentos estão localizados. Semelhante ao backup/restauro SAP MaxDB, recomenda-se ter um volume de disco dedicado para fins de backup. 
 
-#### <a name="other"></a>Outro
+#### <a name="other"></a>Outros
 Outras definições específicas do Servidor de Conteúdo SAP são transparentes para VMs Azure e são descritas em vários documentos e notas SAP:
 
 * <https://service.sap.com/contentserver> 

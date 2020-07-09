@@ -1,40 +1,56 @@
 ---
-title: Monitorização e exploração madeireira de firewall de aplicação web Azure
-description: Aprenda firewall de aplicação web (WAF) com monitorização frontdoor e registo
+title: Monitorização e registo de firewall de aplicação web Azure
+description: Aprenda Firewall de Aplicação Web (WAF) com monitorização e registo frontal
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 08/21/2019
+ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: b4f666415a96307b89022c6caf6af90581f294f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 596374d4f3f188e08a10bd25b36b178cc79a6e57
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115368"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808958"
 ---
-# <a name="azure-web-application-firewall-monitoring-and-logging"></a>Monitorização e exploração madeireira de firewall de aplicação web Azure 
+# <a name="azure-web-application-firewall-monitoring-and-logging"></a>Monitorização e registo de firewall de aplicação web Azure
 
-A monitorização e exploração madeireira azure Web Application Firewall (WAF) são fornecidas através da exploração madeireira e integração com registos do Monitor Azure e do Monitor Azure.
+A monitorização e registo de registos do Azure Web Application Firewall (WAF) são fornecidos através de registos e integração com registos Azure Monitor e Azure Monitor.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-WaF com log FrontDoor está integrado com [o Monitor Azure](../../azure-monitor/overview.md). O Monitor Azure permite-lhe rastrear informações de diagnóstico, incluindo alertas waf e registos. Pode configurar a monitorização waf dentro do recurso Porta Frontal no portal sob o separador **Diagnóstico ou** através do serviço Azure Monitor diretamente.
+O waf com log FrontDoor está integrado com [o Azure Monitor](../../azure-monitor/overview.md). O Azure Monitor permite-lhe rastrear informações de diagnóstico, incluindo alertas e registos waf. Pode configurar a monitorização da WAF dentro do recurso Porta Frontal no portal sob o separador **Diagnóstico ou** através do serviço Azure Monitor diretamente.
 
-Do portal Azure, vá para o tipo de recurso da Porta Da Frente. A partir do separador**Métricas** de **Monitorização**/à esquerda, pode adicionar **webApplicationFirewallRequestCount** para rastrear o número de pedidos que correspondem às regras waf. Filtros personalizados podem ser criados com base em tipos de ação e nomes de regras.
+A partir do portal Azure, vá para o tipo de recurso Front Door. A partir do **separador Métricas de Monitorização** / **Metrics** à esquerda, pode adicionar **WebApplicationFirewallRequestCount** para rastrear o número de pedidos que correspondem às regras da WAF. Os filtros personalizados podem ser criados com base em tipos de ação e nomes de regras.
 
-![WAFMetrics](../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png)
+:::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="WAFMetrics":::
 
 ## <a name="logs-and-diagnostics"></a>Registos e diagnósticos
 
-WaF com Porta Frontal fornece relatórios detalhados sobre cada ameaça que deteta. Os registos estão integrados no Diagnóstico do Azure e os registos e alertas são registados no formato json. Estes registos podem ser integrados com [registos do Monitor Azure](../../azure-monitor/insights/azure-networking-analytics.md).
+A WAF com porta frontal fornece relatórios detalhados sobre cada ameaça que deteta. Os registos estão integrados no Diagnóstico do Azure e os registos e alertas são registados no formato json. Estes registos podem ser integrados com [registos do Azure Monitor](../../azure-monitor/insights/azure-networking-analytics.md).
 
 ![WAFDiag](../media/waf-frontdoor-monitor/waf-frontdoor-diagnostics.png)
 
-FrontdoorAccessLog regista todos os pedidos que são encaminhados para back-ends do cliente. FrontdoorWebApplicationFirewallLog regista qualquer pedido que corresponda a uma regra WAF.
+[FrontdoorAccessLog](../../frontdoor/front-door-diagnostics.md) regista todos os pedidos. FrontdoorWebApplicationFirewallLog regista qualquer pedido que corresponda a uma regra WAF com o esquema abaixo:
 
-A seguinte consulta de exemplo obtém registos waf em pedidos bloqueados:
+| Propriedade  | Descrição |
+| ------------- | ------------- |
+|Ação|Medidas tomadas no pedido|
+| ClientIp | O endereço IP do cliente que fez o pedido. Se houve um cabeçalho X-Forwarded-For no pedido, então o IP do Cliente é escolhido no campo de cabeçalho. |
+| ClientPort | A porta IP do cliente que fez o pedido. |
+| Detalhes|Detalhes adicionais sobre o pedido combinado |
+|| matchVariableName: http nome do parâmetro do pedido coincide, por exemplo, com nomes de cabeçalho|
+|| matchVariableValue: valores que desencadearam a partida|
+| Anfitrião | O cabeçalho anfitrião do pedido combinado |
+| Política | O nome da política da WAF que o pedido correspondia. |
+| PolicyMode | Modo de operações da política da WAF. Os valores possíveis são "Prevenção" e "Deteção" |
+| RequestUri | URI completo do pedido combinado. |
+| Nome de Regras | O nome da regra da WAF que o pedido correspondia. |
+| SocketIp | O endereço IP de origem visto pela WAF. Este endereço IP baseia-se na sessão TCP, independente de quaisquer cabeçalhos de pedido.|
+| TrackingReference | A cadeia de referência única que identifica um pedido servido pela Porta da Frente, também enviada como cabeçalho X-Azure-Ref para o cliente. Necessário para pesquisar detalhes nos registos de acesso para um pedido específico. |
+
+O exemplo de consulta que se segue devolve os registos da WAF em pedidos bloqueados:
 
 ``` WAFlogQuery
 AzureDiagnostics
@@ -47,26 +63,34 @@ Aqui está um exemplo de um pedido registado no registo WAF:
 
 ``` WAFlogQuerySample
 {
-    "PreciseTimeStamp": "2020-01-25T00:11:19.3866091Z",
-    "time": "2020-01-25T00:11:19.3866091Z",
+    "time":  "2020-06-09T22:32:17.8376810Z",
     "category": "FrontdoorWebApplicationFirewallLog",
-    "operationName": "Microsoft.Network/FrontDoor/WebApplicationFirewallLog/Write",
-    "properties": {
-        "clientIP": "xx.xx.xxx.xxx",
-        "socketIP": "xx.xx.xxx.xxx",
-        "requestUri": "https://wafdemofrontdoorwebapp.azurefd.net:443/?q=../../x",
-        "ruleName": "Microsoft_DefaultRuleSet-1.1-LFI-930100",
-        "policy": "WafDemoCustomPolicy",
-        "action": "Block",
-        "host": "wafdemofrontdoorwebapp.azurefd.net",
-        "refString": "0p4crXgAAAABgMq5aIpu0T6AUfCYOroltV1NURURHRTA2MTMANjMxNTAwZDAtOTRiNS00YzIwLTljY2YtNjFhNzMyOWQyYTgy",
-        "policyMode": "prevention"
-    }
+    "operationName": "Microsoft.Network/FrontDoorWebApplicationFirewallLog/Write",
+    "properties":
+    {
+        "clientIP":"xxx.xxx.xxx.xxx",
+        "clientPort":"52097",
+        "socketIP":"xxx.xxx.xxx.xxx",
+        "requestUri":"https://wafdemofrontdoorwebapp.azurefd.net:443/?q=%27%20or%201=1",
+        "ruleName":"Microsoft_DefaultRuleSet-1.1-SQLI-942100",
+        "policy":"WafDemoCustomPolicy",
+        "action":"Block",
+        "host":"wafdemofrontdoorwebapp.azurefd.net",
+        "trackingReference":"08Q3gXgAAAAAe0s71BET/QYwmqtpHO7uAU0pDRURHRTA1MDgANjMxNTAwZDAtOTRiNS00YzIwLTljY2YtNjFhNzMyOWQyYTgy",
+        "policyMode":"prevention",
+        "details":
+            {
+            "matches":
+                [{
+                "matchVariableName":"QueryParamValue:q",
+                "matchVariableValue":"' or 1=1"
+                }]
+            }
+     }
 }
+```
 
-``` 
-
-A consulta de exemplo seguinte obtém entradas de AccessLogs:
+A seguinte consulta de exemplo devolve entradas de AccessLogs:
 
 ``` AccessLogQuery
 AzureDiagnostics
@@ -74,35 +98,40 @@ AzureDiagnostics
 
 ```
 
-Aqui está um exemplo de um pedido registado no registo de Acesso:
+Aqui está um exemplo de um pedido registado no registo de acesso:
 
 ``` AccessLogSample
 {
-    "PreciseTimeStamp": "2020-01-25T00:11:12.0160150Z",
-    "time": "2020-01-25T00:11:12.0160150Z",
-    "category": "FrontdoorAccessLog",
-    "operationName": "Microsoft.Network/FrontDoor/AccessLog/Write",
-    "properties": {
-        "trackingReference": "0n4crXgAAAACnRKbdALbyToAqNfSHssDvV1NURURHRTA2MTMANjMxNTAwZDAtOTRiNS00YzIwLTljY2YtNjFhNzMyOWQyYTgy",
-        "httpMethod": "GET",
-        "httpVersion": "2.0",
-        "requestUri": "https://wafdemofrontdoorwebapp.azurefd.net:443/",
-        "requestBytes": "710",
-        "responseBytes": "3116",
-        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4017.0 Safari/537.36 Edg/81.0.389.2",
-        "clientIp": "xx.xx.xxx.xxx",
-        "timeTaken": "0.598",
-        "securityProtocol": "TLS 1.2",
-        "routingRuleName": "WAFdemoWebAppRouting",
-        "backendHostname": "wafdemouksouth.azurewebsites.net:443",
-        "sentToOriginShield": false,
-        "httpStatusCode": "200",
-        "httpStatusDetails": "200"
+"time": "2020-06-09T22:32:17.8383427Z",
+"category": "FrontdoorAccessLog",
+"operationName": "Microsoft.Network/FrontDoor/AccessLog/Write",
+ "properties":
+    {
+    "trackingReference":"08Q3gXgAAAAAe0s71BET/QYwmqtpHO7uAU0pDRURHRTA1MDgANjMxNTAwZDAtOTRiNS00YzIwLTljY2YtNjFhNzMyOWQyYTgy",
+    "httpMethod":"GET",
+    "httpVersion":"2.0",
+    "requestUri":"https://wafdemofrontdoorwebapp.azurefd.net:443/?q=%27%20or%201=1",
+    "requestBytes":"715",
+    "responseBytes":"380",
+    "userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4157.0 Safari/537.36 Edg/85.0.531.1",
+    "clientIp":"xxx.xxx.xxx.xxx",
+    "socketIp":"xxx.xxx.xxx.xxx",
+    "clientPort":"52097",
+    "timeTaken":"0.003",
+    "securityProtocol":"TLS 1.2",
+    "routingRuleName":"WAFdemoWebAppRouting",
+    "rulesEngineMatchNames":[],
+    "backendHostname":"wafdemowebappuscentral.azurewebsites.net:443",
+    "sentToOriginShield":false,
+    "httpStatusCode":"403",
+    "httpStatusDetails":"403",
+    "pop":"SJC",
+    "cacheStatus":"CONFIG_NOCACHE"
     }
 }
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a Porta da Frente.](../../frontdoor/front-door-overview.md)

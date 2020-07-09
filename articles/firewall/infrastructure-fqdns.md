@@ -1,5 +1,5 @@
 ---
-title: Infraestrutura FQDN para Firewall Azure
+title: Infraestrutura FQDN para firewall Azure
 description: O Azure Firewall inclui uma coleção de regras incorporadas para os FQDNs de infraestrutura que são permitidos por predefinição.
 services: firewall
 author: vhorne
@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
 ms.openlocfilehash: d4de81bad1ddda2f5b54f47c1be78925ad4cdbf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74168971"
 ---
 # <a name="infrastructure-fqdns"></a>FQDNs de Infraestrutura
@@ -20,14 +19,14 @@ O Azure Firewall inclui uma coleção de regras incorporadas para os FQDNs de in
 
 Os seguintes serviços estão incluídos na coleção de regras incorporada:
 
-- Acesso computacional ao repositório de imagem da plataforma de armazenamento (PIR)
-- Acesso ao estado dos discos geridos
-- Diagnósticos e Exploração Madeureiro (MDS)
+- Aceda ao acesso à plataforma de armazenamento Repositório de Imagem (PIR)
+- Acesso ao armazenamento de estado dos discos geridos
+- Diagnósticos e Registos Azure (MDS)
 
-## <a name="overriding"></a>Primordial 
+## <a name="overriding"></a>Sobrepução 
 
-Você pode sobrepor-se a esta coleção de regras de infraestrutura incorporada, criando uma negação de toda a coleção de regras de aplicação que é processada por último. Será sempre processada antes da coleção de regras de infraestrutura. Qualquer item que não esteja na coleção de regras de infraestrutura é negado por predefinição.
+Você pode anular esta coleção de regras de infraestrutura incorporada, criando uma coleção de regras de aplicação que é processada por último. Será sempre processada antes da coleção de regras de infraestrutura. Qualquer item que não esteja na coleção de regras de infraestrutura é negado por predefinição.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Aprenda a [implementar e configurar uma Firewall Azure](tutorial-firewall-deploy-portal.md).
+- Saiba como [implantar e configurar um Azure Firewall](tutorial-firewall-deploy-portal.md).

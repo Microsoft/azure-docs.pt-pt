@@ -41,7 +41,7 @@
       href: ./concepts/managed-applications.md
 - name: Guias de procedimentos
   items:
-    - name: Integrar um cliente na gestão de recursos delegados do Azure
+    - name: Incluir um cliente no Azure Lighthouse
       displayName: resource management
       href: ./how-to/onboard-customer.md
     - name: Publicar ofertas de Serviço Gerido no Azure Marketplace
@@ -69,6 +69,8 @@
         - name: Implementar uma política que pode ser corrigida
           displayName: 'deployIfNotExists, modify, managed identities, managed identity'
           href: ./how-to/deploy-policy-remediation.md
+    - name: Integração do Azure Sentinel
+      href: ./how-to/manage-sentinel-workspaces.md
     - name: Ações de cliente
       items:
         - name: Ver e gerir fornecedores de serviços
@@ -80,23 +82,23 @@
 - name: Referência
   items:
     - name: CLI do Azure
-      href: 'https://docs.microsoft.com/cli/azure/managedservices?view=azure-cli-latest'
+      href: /cli/azure/managedservices?view=azure-cli-latest
     - name: Azure PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/az.managedservices/?view=azps-2.4.0#managed_services'
+      href: /powershell/module/az.managedservices/?view=azps-2.4.0#managed_services
     - name: SDK do Azure para .NET
-      href: 'https://docs.microsoft.com/dotnet/api/Microsoft.Azure.Management.ManagedServices?view=azure-dotnet'
+      href: /dotnet/api/Microsoft.Azure.Management.ManagedServices?view=azure-dotnet
     - name: SDK do Azure para .NET (NuGet)
       href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/'
     - name: SDK do Azure para Python
-      href: 'https://docs.microsoft.com/python/api/azure-mgmt-managedservices'
+      href: /python/api/azure-mgmt-managedservices
     - name: REST
-      href: 'https://docs.microsoft.com/rest/api/managedservices/'
+      href: /rest/api/managedservices/
     - name: OpenAPI
       href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview'
 - name: Recursos
   items:
     - name: Perguntas e Respostas da Microsoft para o Azure Lighthouse
-      href: 'https://docs.microsoft.com/en-us/answers/topics/azure-lighthouse.html'
+      href: /answers/topics/azure-lighthouse.html
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Calculadora de preços

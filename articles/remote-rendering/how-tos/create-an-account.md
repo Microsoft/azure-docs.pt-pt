@@ -1,103 +1,107 @@
 ---
 title: Criar uma conta do Azure Remote Rendering
-description: Descreve os passos para criar uma conta para a renderização remota de Azure
+description: Descreve os passos para criar uma conta para renderização remota do Azure
 author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 58757dba9a8956d97c19269c2ac913d801f73746
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.openlocfilehash: cf74322725c6e86ee455f83aadc4aade07000835
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844510"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057675"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Criar uma conta do Azure Remote Rendering
 
-Este capítulo guia-o através dos passos para criar uma conta para o serviço de **renderização remota Azure.** Uma conta válida é obrigatória para completar qualquer um dos quickstarts ou tutoriais.
+Este capítulo guia-o através dos passos para criar uma conta para o serviço **de renderização remota Azure.** Uma conta válida é obrigatória para o preenchimento de qualquer um dos quickstarts ou tutoriais.
 
 ## <a name="create-an-account"></a>Criar uma conta
 
 São necessários os seguintes passos para criar uma conta para o serviço de renderização remota Azure:
 
-1. Vá à página de [pré-visualização](https://aka.ms/MixedRealityPrivatePreview) da realidade mista
+1. Aceda à [página de pré-visualização da realidade mista](https://aka.ms/MixedRealityPrivatePreview)
 1. Clique no botão 'Criar um recurso'
-1. No campo de pesquisa ("Search the marketplace"), escreva em "Remote Rendering" e bata 'enter'.
-1. Na lista de resultados, clique no azulejo "Remote Rendering"
-1. No ecrã seguinte, clique no botão "Criar". Um formulário abre-se para criar uma nova conta de renderização remota:
-    1. Definir 'Nome de recurso' para o nome da conta
+1. No campo de pesquisa ("Procurar no mercado"), digite em "Renderização Remota" e acerte 'entrar'.
+1. Na lista de resultados, clique no azulejo "Renderização Remota"
+1. No ecrã seguinte, clique no botão "Criar". Abre-se um formulário para criar uma nova conta de renderização remota:
+    1. Definir 'Nome de Recurso' para o nome da conta
     1. Atualizar 'Subscrição' se necessário
-    1. Desloque o 'grupo de recursos' para um grupo de recursos à sua escolha
-1. Uma vez criada a conta, navegue para ela e:
-    1. No separador *'Visão Geral',* note o 'ID da conta'
-    1. No separador *Definições > Access Keys,* note a 'Chave Primária' - esta é a chave da conta secreta da conta
+    1. Desaprote o 'grupo de recursos' para um grupo de recursos à sua escolha
+    1. Selecione uma região a partir do dropdown 'Location' onde este recurso deve ser criado. Consulte as observações nas [regiões de conta](create-an-account.md#account-regions) abaixo.
+1. Assim que a conta for criada, navegue para ela e:
+    1. No *separador 'Visão Geral',* note o 'ID da conta'
+    1. No *separador 'Definições > Chaves de Acesso',* note a 'chave principal' - esta é a chave secreta da conta da conta
+
+### <a name="account-regions"></a>Regiões de conta
+A localização especificada durante o tempo de criação de conta de uma conta determina a região a que o recurso de conta é atribuído. Isto não pode ser alterado após a criação. No entanto, a conta pode ser usada para se ligar a uma sessão de Renderização Remota em qualquer [região suportada](./../reference/regions.md), independentemente da localização da conta.
 
 ### <a name="retrieve-the-account-information"></a>Recuperar a informação da conta
 
-As amostras e tutoriais requerem que forneça o ID da conta e uma chave. Por exemplo, no ficheiro **arrconfig.json** que é usado para os scripts da amostra PowerShell:
+As amostras e tutoriais requerem que forneça a identificação da conta e uma chave. Por exemplo, no **arrconfig.jsno** ficheiro que é usado para os scripts da amostra PowerShell:
 
 ```json
-    "accountSettings": {
-        "arrAccountId": "<fill in the account ID from the Azure portal>",
-        "arrAccountKey": "<fill in the account key from the Azure portal>",
-        "region": "<select from available regions>"
-    },
+"accountSettings": {
+    "arrAccountId": "<fill in the account ID from the Azure portal>",
+    "arrAccountKey": "<fill in the account key from the Azure portal>",
+    "region": "<select from available regions>"
+},
 ```
 
-Consulte a [lista das regiões disponíveis](../reference/regions.md) para o preenchimento da opção da *região.*
+Consulte a [lista das regiões disponíveis](../reference/regions.md) para preencher a opção *região.*
 
-Os valores para **`arrAccountId`** e **`arrAccountKey`** podem ser encontrados no portal, conforme descrito nos seguintes passos:
+Os valores para **`arrAccountId`** e **`arrAccountKey`** podem ser encontrados no portal conforme descrito nos seguintes passos:
 
 * Vá ao [portal Azure](https://www.portal.azure.com)
-* Encontre a sua "Conta de **Renderização Remota"** - deve estar na lista **de "Recursos Recentes".** Pode também procurá-lo na barra de pesquisa no topo. Nesse caso, certifique-se de que a subscrição que pretende utilizar é selecionada no filtro de subscrição Predefinido (ícone de filtro ao lado da barra de pesquisa):
+* Encontre a sua **"Conta de Renderização Remota"** - deve estar na lista **de "Recursos Recentes".** Também pode pesquisar na barra de pesquisa no topo. Nesse caso, certifique-se de que a subscrição que pretende utilizar está selecionada no filtro de subscrição Predefinido (ícone de filtro ao lado da barra de pesquisa):
 
 ![Filtro de assinatura](./media/azure-subscription-filter.png)
 
-Clicar na sua conta leva-o a este ecrã, que mostra imediatamente o ID da **Conta:**
+Clicar na sua conta leva-o a este ecrã, que mostra imediatamente o **ID da Conta:**
 
 ![ID da conta Azure](./media/azure-account-id.png)
 
-Para a tecla, selecione **Access Keys** no painel à esquerda. A página seguinte mostra uma chave primária e secundária:
+Para a tecla, selecione **Teclas de acesso** no painel à esquerda. A página seguinte mostra uma chave primária e secundária:
 
 ![Chaves de acesso Azure](./media/azure-account-primary-key.png)
 
 O valor para **`arrAccountKey`** pode ser a chave primária ou secundária.
 
-## <a name="link-storage-accounts"></a>Contade armazenamento de ligação
+## <a name="link-storage-accounts"></a>Contas de armazenamento de ligação
 
-Este parágrafo explica como ligar as contas de armazenamento à sua conta de Renderização Remota. Quando uma conta de armazenamento está ligada não é necessário gerar um SAS URI sempre que pretende interagir com os dados da sua conta, por exemplo, ao carregar um modelo. Em vez disso, pode utilizar os nomes da conta de armazenamento diretamente conforme descrito na [secção de carregamento de um modelo](../concepts/models.md#loading-models).
+Este parágrafo explica como ligar as contas de armazenamento à sua conta de Renderização Remota. Quando uma conta de armazenamento está ligada não é necessário gerar um SAS URI sempre que pretende interagir com os dados na sua conta, por exemplo, ao carregar um modelo. Em vez disso, pode utilizar os nomes da conta de armazenamento diretamente como descrito na [secção de carregamento de um modelo](../concepts/models.md#loading-models).
 
-Os passos deste parágrafo devem ser executados para cada conta de armazenamento que deve utilizar este método de acesso alternativo. Se ainda não criou contas de armazenamento, pode percorrer o respetivo passo na [conversão de um modelo para renderização rápida](../quickstarts/convert-model.md#storage-account-creation).
+Os passos deste parágrafo devem ser realizados para cada conta de armazenamento que deve utilizar este método de acesso alternativo. Se ainda não criou contas de armazenamento, pode percorrer o respetivo passo na [conversão de um modelo para renderização rápida](../quickstarts/convert-model.md#storage-account-creation).
 
-Agora presume-se que tem uma conta de armazenamento. Navegue para a conta de armazenamento no portal e aceda ao separador Controlo de **Acesso (IAM)** para essa conta de armazenamento:
+Agora presume-se que tem uma conta de armazenamento. Navegue para a conta de armazenamento no portal e vá ao **separador Controlo de Acesso (IAM)** para essa conta de armazenamento:
 
 ![Conta de armazenamento IAM](./media/azure-storage-account.png)
 
- Certifique-se de que tem permissões do proprietário sobre esta conta de armazenamento para garantir que pode adicionar atribuições de funções. Se não tiver acesso, a opção **adicionar uma função** de atribuição será desativada.
+ Certifique-se de que tem permissões do proprietário sobre esta conta de armazenamento para garantir que pode adicionar atribuições de funções. Se não tiver acesso, a opção Adicionar uma tarefa de **função** será desativada.
 
- É necessário adicionar três funções distintas, como descrito nos próximos passos. Se não fornecer os três níveis de acesso, haverá problemas de permissão enquanto tenta aceder à conta de armazenamento.
+ É necessário adicionar três papéis distintos, como descrito nos próximos passos. Se não fornecer os três níveis de acesso, haverá problemas de permissão enquanto tenta aceder à conta de armazenamento.
 
- Clique no botão **Adicionar** no azulejo "Adicionar uma função" para adicionar a primeira função:
+ Clique no botão **Adicionar** no azulejo "Adicionar uma tarefa de função" para adicionar a primeira função:
 
 ![Conta de armazenamento IAM](./media/azure-add-role-assignment.png)
 
-* O primeiro papel a atribuir é **proprietário** como mostrado na imagem acima.
-* Selecione **Conta de Renderização Remota** a partir do acesso de atribuição **a** dropdown.
-* Selecione a sua conta de subscrição e renderização remota nas últimas descidas.
+* A primeira função a atribuir é **o Proprietário,** como mostrado na imagem acima.
+* Selecione **Conta de Renderização Remota** a partir do acesso de Atribuição **ao** dropdown.
+* Selecione a sua conta de subscrição e renderização remota nas últimas desistências.
 
 > [!WARNING]
-> Caso a sua conta de renderização remota não esteja listada, consulte esta secção de resolução de [problemas](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
+> Caso a sua conta de renderização remota não esteja listada, consulte esta [secção de resolução de problemas](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
-Repita a adição de novos papéis mais duas vezes para as respetivas seleções do abandono do **papel:**
+Repita a adição de novas funções mais duas vezes para as respetivas seleções da queda do **papel:**
+
 * **Contribuidor de Conta de Armazenamento**
-* **Contribuinte de dados blob de armazenamento**
+* **Colaborador de dados blob de armazenamento**
 
 As outras descidas são selecionadas como no primeiro passo.
 
-Se tiver adicionado as três funções, a sua conta de Renderização Remota Azure tem acesso à sua conta de armazenamento utilizando identidades de serviço geridas.
+Se adicionou as três funções, a sua conta de Renderização Remota Azure tem acesso à sua conta de armazenamento utilizando identidades de serviço gerido atribuídos pelo sistema.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Autenticação](authentication.md)
-* [Utilização das APIs Frontend Azure para autenticação](frontend-apis.md)
+* [Utilização das APIs frontendas Azure para autenticação](frontend-apis.md)
 * [Scripts do PowerShell de exemplo](../samples/powershell-example-scripts.md)

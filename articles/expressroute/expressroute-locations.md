@@ -6,34 +6,34 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 05/05/2020
+ms.date: 06/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: 70f90026e4a67fe1f8b1d5f790aed87652975045
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 42c8dd298c1fa0de04449945c7bb82e8b8bd6ff0
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798627"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856607"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
 > [!div class="op_single_selector"]
 > * [Localizações por Fornecedor](expressroute-locations.md)
-> * [Fornecedores por localização](expressroute-locations-providers.md)
+> * [Fornecedores por Localização](expressroute-locations-providers.md)
 
 
-As tabelas deste artigo fornecem informações sobre cobertura geográfica expressRoute e localizações, fornecedores de conectividade ExpressRoute e Integradores do Sistema ExpressRoute (SIs).
+Os quadros deste artigo fornecem informações sobre cobertura geográfica ExpressRoute e locais, fornecedores de conectividade ExpressRoute e Integradores de Sistemas ExpressRoute (SIs).
 
 > [!Note]
-> As regiões azure e as localizações ExpressRoute são dois conceitos distintos e diferentes, compreender a diferença entre as duas é fundamental para explorar a conectividade híbrida azure em rede. 
+> As regiões azure e as localizações ExpressRoute são dois conceitos distintos e diferentes, entendendo a diferença entre os dois é fundamental para explorar a conectividade híbrida Azure. 
 >
 >
 
 ## <a name="azure-regions"></a>Regiões do Azure
-As regiões de Azure são centros de dados globais onde estão localizados os recursos de computação, networking e armazenamento do Azure. Ao criar um recurso Azure, um cliente precisa selecionar uma localização de recursos. A localização do recurso determina em que centro de dados Azure (ou zona de disponibilidade) o recurso é criado.
+As regiões do Azul são centros de dados globais onde estão localizados os recursos de computação, networking e armazenamento do Azure. Ao criar um recurso Azure, um cliente precisa de selecionar uma localização de recursos. A localização do recurso determina em que centro de dados Azure (ou zona de disponibilidade) o recurso é criado.
 
 ## <a name="expressroute-locations"></a>Localizações do ExpressRoute
-As localizações expressRoute (por vezes referidas como locais de observação ou locais de encontro- me)são instalações de co-localização onde estão localizados dispositivos Microsoft Enterprise Edge (MSEE). As localizações expressRoute são o ponto de entrada para a rede da Microsoft – e estão distribuídas globalmente, proporcionando aos clientes a oportunidade de se conectarem à rede da Microsoft em todo o mundo. Estas localizações são onde os parceiros ExpressRoute e os clientes ExpressRoute Direct emitem ligações cruzadas à rede da Microsoft. Em geral, a localização ExpressRoute não precisa de corresponder à região de Azure. Por exemplo, um cliente pode criar um circuito ExpressRoute com a localização de recursos *East US,* na localização *Seattle* Peering.
+As localizações expressRoute (por vezes designadas como locais de observação ou locais de encontro)) são instalações de co-localização onde estão localizados os dispositivos Microsoft Enterprise Edge (MSEE). As localizações do ExpressRoute são o ponto de entrada da rede da Microsoft – e estão distribuídas globalmente, proporcionando aos clientes a oportunidade de se conectarem à rede da Microsoft em todo o mundo. Estas localizações são onde os parceiros ExpressRoute e ExpressRoute Direct emitem ligações cruzadas à rede da Microsoft. Em geral, a localização ExpressRoute não precisa de corresponder à região de Azure. Por exemplo, um cliente pode criar um circuito ExpressRoute com a localização de recursos *East US,* no local *de Observação* de Seattle.
 
 Terá acesso aos serviços do Azure em todas as regiões numa região geopolítica se estiver ligado a, pelo menos, uma localização do ExpressRoute numa região geopolítica.
 
@@ -43,15 +43,15 @@ A tabela seguinte fornece um mapa de regiões do Azure para localizações do Ex
 | **Região geopolítica** | **Regiões do Azure** | **Localizações do ExpressRoute** |
 | --- | --- | --- |
 | **Governo da Austrália** |Austrália Central, Austrália Central 2 |Camberra, Camberra2 |
-| **Europa** | France Central, França Sul, Alemanha Norte, Alemanha West Central, Norte Europa, Noruega Leste, Noruega Oeste, Suíça Norte, Suíça Oeste, Reino Unido Oeste, Reino Unido Sul, Europa Ocidental |Amesterdão, Amesterdão2, Berlim, Copenhague, Dublin, Frankfurt, Genebra, Londres, Londres2, Marselha, Milão, Munique, Newport (País de Gales), Oslo, Paris, Stavanger, Estocolmo, Zurique |
-| **América do Norte** |E.U.A. Leste, E.U.A. Oeste, E.U.A. Leste 2, E.U.A. Oeste 2, E.U.A. Central, E.U.A. Centro-Sul, E.U.A. Centro-Norte, E.U.A. Centro-Oeste, Canadá Central, Leste do Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, Nova Iorque, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec City, Toronto, Vancouver |
+| **Europa** | França Central, França Sul, Alemanha Norte, Alemanha West Central, Norte da Europa, Noruega Leste, Noruega Oeste, Suíça Norte, Suíça Oeste, Reino Unido Oeste, Reino Unido Sul, Europa Ocidental |Amesterdão, Amesterdão2, Berlim, Copenhague, Dublin, Frankfurt, Genebra, Londres, Londres2, Marselha, Milão, Munique, Newport(País de Gales), Oslo, Paris, Stavanger, Estocolmo, Zurique |
+| **América do Norte** |E.U.A. Leste, E.U.A. Oeste, E.U.A. Leste 2, E.U.A. Oeste 2, E.U.A. Central, E.U.A. Centro-Sul, E.U.A. Centro-Norte, E.U.A. Centro-Oeste, Canadá Central, Leste do Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, Minneapolis, Nova Iorque, Queretaro (México), San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec City, Toronto, Vancouver |
 | **Ásia** | Ásia Leste, Ásia Sudeste | Banguecoque, Hong Kong, Hong Kong2, Jacarta, Kuala Lumpur, Singapura, Singapura2, Taipei |
 | **Índia** | Oeste da Índia, Índia Central, Sul da Índia |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japão** | Oeste do Japão, Leste do Japão |Osaka, Tóquio, Tóquio2 |
 | **Oceânia** | Austrália Sudeste, Leste da Austrália |Auckland, Melbourne, Perth, Sydney, Sydney2 |
 | **Coreia do Sul** | Coreia do Sul Central, Sul da Coreia do Sul |Busan, Seul|
-| **E.A.U.** | UAE Central, Eau Norte | Dubai |
-| **África do Sul** | África do Sul Oeste, África do Sul Norte |Cidade do Cabo, Joanesburgo |
+| **E.A.U.** | UAE Central, UAE North | Dubai |
+| **África do Sul** | África do Sul Ocidental, África do Sul Norte |Cidade do Cabo, Joanesburgo |
 | **América do Sul** | Sul do Brasil |São Paulo |
 
 
@@ -60,9 +60,9 @@ A tabela abaixo fornece informações sobre regiões e limites geopolíticos par
 
 | **Região geopolítica** | **Regiões do Azure** | **Localizações do ExpressRoute** |
 | --- | --- | --- |
-| **Nuvem do US Gov** |US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD Central, US DoD East  |Atlanta, Chicago, Dallas, Nova Iorque, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
+| **Nuvem do US Gov** |US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD Central, US DoD East  |Atlanta,Chicago, Dallas, Nova Iorque, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
 | **Leste da China** |Leste da China, Leste da China 2 |Xangai |
-| **Norte da China** |Norte da China, Norte da China 2 |Pequim |
+| **Norte da China** |Norte da China, Norte da China 2 |Pequim, Pequim2 |
 | **Alemanha** |Alemanha Central, Leste da Alemanha |Berlim, Frankfurt |
 
 A conectividade em regiões geopolíticas não é suportada no SKU do ExpressRoute standard. Terá de ativar o suplemento ExpressRoute Premium para suportar a conetividade global. A conectividade com ambientes em nuvem nacionais não é suportada. Pode trabalhar com o seu fornecedor de conectividade, se tal for necessário.
@@ -78,38 +78,39 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/connectivity-services/azure-expressroute)** |Suportado |Suportado |Melbourne, Sydney |
 | **[Airtel](https://www.airtel.in/business/#/)** | Suportado | Suportado | Chennai2, Mumbai2 |
-| **[AIS](https://business.ais.co.th/solution/en/azure-expressroute.html)** | Suportado | Suportado | Banguecoque |
+| **[RIO AIS](https://business.ais.co.th/solution/en/azure-expressroute.html)** | Suportado | Suportado | Rio Banguecoque |
 | **[Redes Aryaka](https://www.aryaka.com/)** |Suportado |Suportado |Amesterdão, Chicago, Dallas, Hong Kong SAR, São Paulo, Seattle, Silicon Valley, Singapura, Tóquio, Washington DC |
 | **[Datacenters da Ascenty](https://www.ascenty.com/en/cloud/microsoft-express-route)** |Suportado |Suportado |São Paulo |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Suportado |Suportado |Amesterdão, Chicago, Dallas, Frankfurt, Londres, Silicon Valley, Singapura, Sydney, Tóquio, Toronto, Washington DC |
 | **[EM TÓQUIO](https://www.attokyo.com/service/cloudsconnection/forazure.html)** | Suportado | Suportado | Tóquio2 |
 | **[BBIX](https://www.bbix.net/en/service/ix/)** | Suportado | Suportado | Tóquio |
-| **[BCX](https://www.bcx.co.za/solutions)** |Suportado |Suportado |Cidade do Cabo, Joanesburgo|
+| **[BCX](https://www.bcx.co.za/solutions/connectivity/data-networks)** |Suportado |Suportado |Cidade do Cabo, Joanesburgo|
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Suportado |Suportado |Montreal, Toronto, Cidade do Quebeque |
-| **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** |Suportado |Suportado |Amesterdão, Hong Kong SAR, Joanesburgo, Londres, Newport (País de Gales), São Paulo, Silicon Valley, Singapura, Sydney, Tóquio, Washington DC |
+| **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** |Suportado |Suportado |Amesterdão, Hong Kong SAR, Joanesburgo, Londres, Newport(País de Gales), São Paulo, Silicon Valley, Singapura, Sydney, Tóquio, Washington DC |
 | **[C3ntro](https://www.c3ntro.com/data1/express-route1.php)** |Suportado |Suportado |Miami |
 | **CDC** | Suportado | Suportado | Camberra, Camberra2 |
-| **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Suportado |Suportado |Amsterdam2, Chicago, Frankfurt, Hong Kong, Las Vegas, Londres2, Nova Iorque, Paris, San Antonio, Silicon Valley, Tóquio, Toronto, Washington DC, Washington DC2 |
+| **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Suportado |Suportado |Amesterdão2, Chicago, Frankfurt, Hong Kong, Las Vegas, Londres2, Nova Iorque, Paris, San Antonio, Silicon Valley, Tóquio, Toronto, Washington DC, Washington DC2 |
 | **[Chefe de Telecomunicações](https://www.chief.com.tw/dispPageBox/ct.aspx?ddsPageID=ENCLOUDSERVICE&dbid=4852937342)** |Suportado |Suportado |Hong Kong |
-| **China Mobile International** |Suportado |Suportado | Singapura |
+| **China Mobile International** |Suportado |Suportado | Hong Kong, Hong Kong2, Singapura |
 | **China Telecom Global** |Suportado |Suportado |Hong Kong |
 | **China Unicom Global** |Suportado |Suportado | Singapura2 |
-| **[Chunghwa Telecom](https://www.cht.com.tw/en/home/cht/about-cht/products-and-services/International/Cloud-Service)** |Suportado |Suportado |Taipé |
-| **[Claro](https://www.usclaro.com/enterprise-mnc/connectivity/mpls/)** | Suportado | Suportado | Miami |
-| **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Suportado |Suportado |Chicago, Dallas, Montreal, Toronto, Vancouver, Washington DC |
-| **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Suportado |Suportado |Amesterdão, Amesterdão2, Chicago, Dublin, Frankfurt, Londres, Londres2, Newport, Nova Iorque, Osaka, Paris, Silicon Valley, Silicon Valley2, Singapura2, Tóquio, Washington DC |
+| **[Telecomunicações Chunghwa](https://www.cht.com.tw/en/home/cht/about-cht/products-and-services/International/Cloud-Service)** |Suportado |Suportado |Taipé |
+| **[Claro](https://www.usclaro.com/enterprise-mnc/connectivity/mpls/)** |Suportado |Suportado |Miami |
+| **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Suportado |Suportado |Chicago, Dallas, Minneapolis, Montreal, Toronto, Vancouver, Washington DC |
+| **[Colt](https://www.colt.net/direct-connect/azure/)** |Suportado |Suportado |Amesterdão, Amesterdão2, Chicago, Dublin, Frankfurt, Londres, Londres2, Newport, Nova Iorque, Osaka, Paris, Silicon Valley, Silicon Valley2, Singapura2, Tóquio, Washington DC |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Suportado |Suportado |Chicago, Silicon Valley, Washington D.C. |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Suportado |Suportado |Chicago, Denver, Los Angeles, Nova Iorque, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |
-| **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange/find-a-cloud-service/detail/microsoft-azure)** | Suportado |Suportado |Amsterdam2, Frankfurt, Marselha|
-| **[Devoli](https://devoli.com/expressroute)** | Suportado |Suportado | Auckland, Melbourne, Sydney |
+| **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange/find-a-cloud-service/detail/microsoft-azure)** | Suportado |Suportado |Amesterdão2, Dubai2, Frankfurt, Marselha, Mumbai, Munique, Nova Iorque |
+| **[Devoli](https://devoli.com/expressroute)** | Suportado |Suportado | Auckland |
 | **du datamena** |Suportado |Suportado | Dubai2 |
 | **eir** |Suportado |Suportado |Dublin|
-| **[Comunicações Globais da Epsilon](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Suportado |Suportado |Singapura, Singapura2 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportado |Amesterdão, Atlanta, Chicago, Dallas, Dublin, Frankfurt, Genebra, Hong Kong SAR, Londres, Londres2, Los Angeles, Melbourne, Miami, Nova Iorque, Osaka, Paris, São Paulo, Seattle, Silicon Valley, Singapura, Estocolmo, Sydney, Tóquio, Toronto, Washington DC |
-| **Emirados Emirados Emirados Unidos** |Suportado |Suportado |Rio Dubai|
-| **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Suportado |Suportado |Amsterdão, Amesterdão2, Dublin, Londres |
+| **[Comunicações Globais Epsilon](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Suportado |Suportado |Singapura, Singapura2 |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportado |Amesterdão, Atlanta, Chicago, Dallas, Dublin, Frankfurt, Genebra, Hong Kong SAR, Londres, Londres2, Los Angeles, Melbourne, Miami, Milão, Nova Iorque, Osaka, Paris, São Paulo, Seattle, Silicon Valley, Singapura, Estocolmo, Sydney, Tóquio, Toronto, Washington DC |
+| **Emirados Árabes Unidos** |Suportado |Suportado |Rio Dubai|
+| **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Suportado |Suportado |Amsterdão, Amesterdão2, Dublin, Frankfurt, Londres |
 | **FarEasTone** |Suportado |Suportado |Taipé|
-| **GÉANT** |Suportado |Suportado |Amsterdão, Frankfurt, Marselha |
+| **GÉANT** |Suportado |Suportado |Amsterdão, Dublin, Frankfurt, Marselha |
+| **GTT** |Suportado |Suportado |Londres2 |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Suportado| Suportado | Chennai, Mumbai |
 | **Intelsat** | Suportado | Suportado | Washington DC2 |
 | **[InterCloud](https://www.intercloud.com/)** |Suportado |Suportado |Amesterdão, Chicago, Hong Kong, Londres, Nova Iorque, Paris, Silicon Valley, Singapura, Washington DC, Zurique |
@@ -117,7 +118,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Internet Initiative Japan Inc. – IIJ](https://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Suportado |Suportado |Osaka, Tóquio |
 | **[Soluções de Internet - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Suportado |Suportado |Cidade do Cabo, Joanesburgo, Londres |
 | **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Suportado |Suportado |Amesterdão, Amesterdão2, Copenhague, Dublin, Frankfurt, Londres, Marselha, Paris, Zurique |
-| **[Alcance IX](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Suportado |Suportado | Amesterdão, Londres2, Silicon Valley, Toronto, Washington DC |
+| **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Suportado |Suportado | Amsterdão, Londres2, Silicon Valley, Toronto, Washington DC |
 | **Rede Jaguar** |Suportado |Suportado |Marselha|
 | **[Jisc](https://www.jisc.ac.uk/microsoft-azure-expressroute)** |Suportado |Suportado |Londres |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Suportado |Suportado |Seoul |
@@ -127,21 +128,22 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Comunicações de nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Suportado |Suportado |Amesterdão, Chicago, Dallas, Londres, Newport (País de Gales), São Paulo, Seattle, Silicon Valley, Singapura, Washington DC |
 | **LG CNS** |Suportado |Suportado |Busan, Seul |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |Suportado |Suportado |Cidade do Cabo, Joanesburgo |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado |Suportado |Amesterdão, Atlanta, Auckland, Chicago, Dallas, Denver, Dubai2, Dublin, Frankfurt, Genebra, Hong Kong SAR, Las Vegas, Londres, Londres2, Los Angeles, Melbourne, Miami, Montreal, Nova Iorque, Oslo, Perth, Quebec City, San Antonio, Seattle, Silicon Valley, Singapura, Singapura2, Sydney, Sydney2, Tóquio, Toronto, Washington DC, Zurique |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado |Suportado |Amesterdão, Atlanta, Auckland, Chicago, Dallas, Denver, Dubai2, Dublin, Frankfurt, Genebra, Hong Kong SAR, Las Vegas, Londres, Londres2, Los Angeles, Melbourne, Miami, Montreal, Nova Iorque, Oslo, Perth, Quebec City, San Antonio, Seattle, Silicon Valley, Singapura2, Stavanger, Estocolmo, Sydney, Sydney2, Tóquio, Tóquio, Washington DC2, |
 | **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** |Suportado |Suportado |Londres |
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |Suportado |Suportado |Dallas, Los Angeles, Miami, São Paulo, Washington DC |
 | **[Next Generation Data](https://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Suportado |Suportado |Newport (País de Gales) |
 | **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** |Suportado |Suportado |Melbourne, Perth, Sydney, Sydney2 |
 | **[Comunicações NTT](https://www.ntt.com/en/services/network/virtual-private-network.html)** |Suportado |Suportado |Amesterdão, Hong Kong SAR, Londres, Los Angeles, Osaka, Singapura, Sydney, Tóquio, Washington DC |
-| **[NTT EAST](https://flets.com/cloudgateway/crossconnect/)** |Suportado |Suportado |Tóquio |
+| **[NTT EAST](https://business.ntt-east.co.jp/service/crossconnect/)** |Suportado |Suportado |Tóquio |
 | **[NTT Global DataCenters EMEA](https://www.ntt.com/en/services/data-center.html)** |Suportado |Suportado |Berlim |
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |Suportado |Suportado |Osaka |
-| **[Ligação da Nuvem de Ooredoo](https://www.ooredoo.qa/portal/OoredooQatar/cloud-connect-expressroute)** |Suportado |Suportado |Marselha |
+| **[Ooredoo Cloud Connect](https://www.ooredoo.qa/portal/OoredooQatar/cloud-connect-expressroute)** |Suportado |Suportado |Marselha |
 | **[Optus](https://www.optus.com.au/enterprise/)** |Suportado |Suportado |Melbourne, Sydney |
-| **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |Suportado |Suportado |Amesterdão, Amesterdão2, Dubai2, Frankfurt, Hong Kong SAR, Joanesburgo, Londres, Paris, São Paulo, Silicon Valley, Singapura, Sydney, Tóquio, Washington DC |
+| **[Laranja](https://www.orange-business.com/en/products/business-vpn-galerie)** |Suportado |Suportado |Amesterdão, Amesterdão2, Dubai2, Frankfurt, Hong Kong SAR, Joanesburgo, Londres, Paris, São Paulo, Silicon Valley, Singapura, Sydney, Tóquio, Washington DC |
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Suportado | Suportado | Dubai2 |
 | **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Suportado |Suportado |Chicago, Silicon Valley, Washington D.C. |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Suportado |Suportado |Chicago, Hong Kong, Hong Kong2, Londres, Singapura2 |
+| **[Retelit](https://www.retelit.it/en/services/enterprises-and-public-sector/data-center-e-cloud/cloud-services/direct-cloud-4-azure-expressroute.aspx)** | Suportado | Suportado | Milão | 
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Suportado |Suportado |Seoul |
 | **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | Suportado |Suportado | Washington DC |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Suportado |Suportado |Chennai, Mumbai2 |
@@ -154,26 +156,27 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Suportado |Suportado |Amesterdão, São Paulo |
 | **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |Suportado |Suportado |Londres, Londres2 |
 | **Telenor** |Suportado |Suportado |Amsterdão, Londres, Oslo |
-| **[Transportadora de Telia](https://www.teliacarrier.com/)** | Suportado | Suportado |Amesterdão, Chicago, Dallas, Frankfurt, Hong Kong, Londres, Oslo, Paris, Silicon Valley, Estocolmo, Washington DC |
+| **[Telia Carrier](https://www.teliacarrier.com/)** | Suportado | Suportado |Amesterdão, Chicago, Dallas, Frankfurt, Hong Kong, Londres, Oslo, Paris, Silicon Valley, Estocolmo, Washington DC |
 | **TELMEX Uninet**| Suportado | Suportado | Dallas |
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Suportado |Suportado |Melbourne, Singapura, Sydney |
-| **[Telus](https://www.telus.com)** |Suportado |Suportado |Montreal, Seattle, Toronto |
+| **[Telus](https://www.telus.com)** |Suportado |Suportado |Montreal |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Suportado |Suportado |Cidade do Cabo, Joanesburgo |
 | **[TIME dotCom](https://www.time.com.my/enterprise/connectivity/direct-cloud)** | Suportado | Suportado | Kuala Lumpur |
-| **[Transtelco](https://transtelco.net/enterprise-services/)** |Suportado |Suportado |Dallas, Los Angeles|
+| **[Transtelco](https://transtelco.net/enterprise-services/)** |Suportado |Suportado |Dallas, Queretaro (México)|
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Suportado |Suportado |São Paulo |
+| **[UIH](https://www.uih.co.th/en/network-solutions/global-network/cloud-direct-for-microsoft-azure-expressroute)** | Suportado | Suportado | Rio Banguecoque |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Suportado |Suportado |Amesterdão, Chicago, Dallas, Hong Kong SAR, Londres, Mumbai, Silicon Valley, Singapura, Sydney, Tóquio, Toronto, Washington DC |
 | **[Viasat](http://www.directcloud.viasatbusiness.com/)** | Suportado | Suportado | Washington DC2 |
 | **[Grupo Vocus NZ](https://www.vocus.co.nz/business/cloud-data-centres)** | Suportado | Suportado | Auckland |
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Suportado |Suportado |Amsterdam2, Londres, Singapura |
-| **[Ideia Vodafone](https://discover.vodafone.in/business/enterprise-solutions/connectivity/vpn-extended-connect)** | Suportado | Suportado | Mumbai |
+| **[Ideia Vodafone](https://discover.vodafone.in/business/enterprise-solutions/connectivity/vpn-extended-connect)** | Suportado | Suportado | Mumbai2 |
 | **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Suportado |Suportado |Amesterdão, Chicago, Dallas, Denver, Londres, Los Angeles, Montreal, Nova Iorque, Paris, Seattle, Silicon Valley, Toronto, Washington DC, Washington DC2 |
 
  **+** denota em breve
 
 ### <a name="national-cloud-environment"></a>Ambientes em nuvens nacionais
 
-As nuvens nacionais azure estão isoladas umas das outras e do azure comercial global. A Rota Expressa para uma nuvem Azure não pode ligar-se às regiões de Azure nas outras. 
+As nuvens nacionais azure são isoladas umas das outras e do Azure comercial global. ExpressRoute para uma nuvem Azure não pode ligar-se às regiões de Azure nas outras. 
 
 ### <a name="us-government-cloud"></a>Nuvem do US Gov
 
@@ -181,7 +184,7 @@ As nuvens nacionais azure estão isoladas umas das outras e do azure comercial g
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Suportado |Suportado |Chicago, Phoenix, Silicon Valley, Washington DC |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Suportado |Suportado |Nova Iorque, Phoenix, San Antonio, Washington DC |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportado |Atlanta, Chicago, Dallas, Nova Iorque, Seattle, Silicon Valley, Washington DC |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportado |Atlanta,Chicago, Dallas, Nova Iorque, Seattle, Silicon Valley, Washington DC |
 | **[Comunicações de nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Suportado |Suportado |Chicago, Silicon Valley, Washington D.C. |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado | Suportado | Chicago, Dallas, San Antonio, Seattle, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Suportado |Suportado |Chicago, Dallas, Nova Iorque, Silicon Valley, Washington DC |
@@ -191,8 +194,8 @@ As nuvens nacionais azure estão isoladas umas das outras e do azure comercial g
 | **Fornecedor de serviços** | **Microsoft Azure** | **Office 365** | **Localizações** |
 | --- | --- | --- | --- |
 | **China Telecom** |Suportado |Não suportado |Pequim, Pequim2, Xangai, Xangai2 |
-| **China Unicom** | Suportado | Não suportado | Pequim2 |
-| **[GDS](http://www.gds-services.com/en/about_2.html)** |Suportado |Não suportado |Pequim2 |
+| **China Unicom** | Suportado | Não suportado | Beijing2 |
+| **[GDS](http://www.gds-services.com/en/about_2.html)** |Suportado |Não suportado |Beijing2 |
 
 Para saber mais, veja [ExpressRoute na China](http://www.windowsazure.cn/home/features/expressroute/).
 
@@ -200,7 +203,7 @@ Para saber mais, veja [ExpressRoute na China](http://www.windowsazure.cn/home/fe
 
 | **Fornecedor de serviços** | **Microsoft Azure** | **Office 365** | **Localizações** |
 | --- | --- | --- | --- |
-| **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Suportado |Não suportado |Frankfurt |
+| **[Colt](https://www.colt.net/direct-connect/azure/)** |Suportado |Não suportado |Frankfurt |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Suportado |Não suportado |Frankfurt |
 | **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroutetm)** |Suportado |Não suportado |Berlim |
 | **Interxion** |Suportado |Não suportado |Frankfurt |
@@ -255,7 +258,7 @@ Se você é remoto e não tem conectividade de fibra ou você quer explorar outr
 | **[CloudXpress](https://www2.telenet.be/fr/business/produits-services/internet/cloudxpress/)** | Equinix | Amesterdão | 
 | **[CMC Telecom](https://cmctelecom.vn/san-pham/value-added-service-and-it/cmc-telecom-cloud-express-en/)** | Equinix | Singapura | 
 | **[Tecnologias Aptum](https://aptum.com/services/cloud/managed-azure/)**| Equinix | Montreal, Toronto |
-| **[CoreAzure](http://www.coreazure.com/expressroute/)**| Equinix | Londres |
+| **[CoreAzure](http://www.coreazure.com/)**| Equinix | Londres |
 | **[Cox Business](https://www.cox.com/business/networking/cloud-connectivity.html)**| Equinix | Dallas, Silicon Valley, Washington DC |
 | **[Castelo da Coroa](https://fiber.crowncastle.com/solutions/added/cloud-connect)**| Equinix | Atlanta, Chicago, Dallas, Los Angeles, Nova Iorque, Washington DC |
 | **[Data Foundry](https://www.datafoundry.com/services/cloud-connect)** | Megaport | Dallas |
@@ -282,7 +285,7 @@ Se você é remoto e não tem conectividade de fibra ou você quer explorar outr
 | **[QSC AG](https://www.qsc.de/de/produkte-loesungen/cloud-services-und-it-outsourcing/pure-enterprise-cloud/multi-cloud-management/azure-expressroute/)** |Interxion | Frankfurt |  
 | **[RETN](https://retn.net/services/cloud-connect/)** | Equinix | Amesterdão |
 | **Rogers** | Cologix, Equinix | Montreal, Toronto |
-| **[Empresa de Espectro](https://enterprise.spectrum.com/services/cloud/cloud-connect.html)** | Equinix | Chicago, Dallas, Los Angeles, Nova Iorque, Silicon Valley | 
+| **[Empresa spectrum](https://enterprise.spectrum.com/services/cloud/cloud-connect.html)** | Equinix | Chicago, Dallas, Los Angeles, Nova Iorque, Silicon Valley | 
 | **[Tamares Telecom](http://www.tamarestelecom.com/our-services/#Connectivity)** | Equinix | Londres | 
 | **[TDC Erhverv](https://tdc.dk/Produkter/cloudaccessplus)** | Equinix | Amesterdão | 
 | **[Telecom Italia Sparkle](https://www.tisparkle.com/our-platform/corporate-platform/sparkle-cloud-connect#catalogue)**| Equinix | Amesterdão |
@@ -302,20 +305,20 @@ Se você é remoto e não tem conectividade de fibra ou você quer explorar outr
 
 | **Fornecedor** | **Exchange** |
 | --- | --- |
-| **[CyrusOne](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/cloud-connectivity-reaching-amazon-microsoft-google-and-more/microsoft-azure-expressroute/?doing_wp_cron=1498512235.6733090877532958984375)** | Megaport, PacketFabric |
-| **[Cyxtera](https://www.cyxtera.com/data-center-services/interconnection)** | Megaport, PacketFabric |
+| **[CyrusOne](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/cloud-connectivity-reaching-amazon-microsoft-google-and-more/microsoft-azure-expressroute/?doing_wp_cron=1498512235.6733090877532958984375)** | Megaport |
+| **[Cyxtera](https://www.cyxtera.com/data-center-services/interconnection)** | Megaport |
 | **[Banco de dados](https://www.databank.com/platforms/connectivity/cloud-direct-connect/)** | Megaport |
 | **[DataFoundry](https://www.datafoundry.com/services/cloud-connect/)** | Megaport |
 | **[Digital Realty](https://www.digitalrealty.com/services/interconnection/service-exchange/)** | IX Reach, Megaport PacketFabric |
-| **[EdgeConnex](https://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport, PacketFabric |
-| **[Flexionial](https://www.flexential.com/connectivity/cloud-connect-microsoft-azure-expressroute)** | IX Reach, Megaport, PacketFabric |
-| **[Centros de Dados QTS](https://www.qtsdatacenters.com/hybrid-solutions/connectivity/azure-cloud )** | Megaport, PacketFabric |
+| **[EdgeConnex](https://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport |
+| **[Flexential](https://www.flexential.com/connectivity/cloud-connect-microsoft-azure-expressroute)** | IX Reach, Megaport, PacketFabric |
+| **[Centros de Dados QTS](https://www.qtsdatacenters.com/hybrid-solutions/connectivity/azure-cloud )** | Megaport |
 | **[Centros de Dados de Fluxo]( https://www.streamdatacenters.com/products-services/network-cloud/ )** | Megaport |
 | **[RagingWire Data Centers](https://www.ragingwire.com/wholesale/wholesale-data-centers-worldwide-nexcenters)** | IX Reach, Megaport, PacketFabric |
 | **[vXchnge](https://www.vxchnge.com/colocation-services/interconnection)** | IX Reach |
 | **[T5 Datacenters](https://t5datacenters.com/network-cloud-connect/)** | IX Reach |
 
-## <a name="connectivity-through-national-research-and-education-networks-nren"></a>Conectividade através das Redes Nacionais de Investigação e Educação (NREN)
+## <a name="connectivity-through-national-research-and-education-networks-nren"></a>Conectividade através de Redes Nacionais de Investigação e Educação (NREN)
 
 | **Fornecedor**|
 | --- |
@@ -325,7 +328,7 @@ Se você é remoto e não tem conectividade de fibra ou você quer explorar outr
 | **GÉANT**|
 | **HEAnet, através da GÉANT**|
 | **Internet2**|
-| **JISC**|
+| **RIO JISC**|
 | **RedIRIS, através da GÉANT**|
 | **SINET**|
 | **Surfnet, através da GÉANT**|
@@ -357,8 +360,8 @@ A ativação da conectividade privada para atender as suas necessidades pode ser
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | América do Sul |
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | Austrália |
 
-## <a name="next-steps"></a>Passos seguintes
-* Para mais informações sobre o ExpressRoute, consulte o [ExpressRoute FAQ](expressroute-faqs.md).
+## <a name="next-steps"></a>Próximos passos
+* Para obter mais informações sobre o ExpressRoute, consulte as [FAQ ExpressRoute.](expressroute-faqs.md)
 * Confirme que todos os pré-requisitos são cumpridos. Veja os [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md).
 
 <!--Image References-->

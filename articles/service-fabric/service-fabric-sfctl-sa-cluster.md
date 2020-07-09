@@ -1,81 +1,80 @@
 ---
-title: Tecido de serviço Azure CLI-sfctl sa-cluster
-description: Conheça o sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para gerir clusters autónomos.
+title: Azure Service Fabric CLI-sfctl sa-cluster
+description: Saiba mais sobre o sfctl, a interface de linha de comando do Azure Service Fabric. Inclui uma lista de comandos para gerir agrupamentos autónomos.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 233148c04fb1a9c6cf1d6c7042c12c54eebd0205
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76904920"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
-Gerencie os clusters de tecido de serviço autónomos.
+Gerir clusters de tecido de serviço autónomos.
 
 ## <a name="commands"></a>Comandos
 
 |Comando|Descrição|
 | --- | --- |
-| config | Obtenha a configuração autónoma do cluster service Fabric. |
-| config-upgrade | Comece a atualizar a configuração de um cluster autónomo de Tecido de Serviço. |
-| estado de atualização | Obtenha o estado de upgrade de configuração do cluster de um cluster autónomo de Tecido de Serviço. |
+| config | Obtenha a configuração de cluster autónomo do Tecido de Serviço. |
+| config-upgrade | Inicie a atualização da configuração de um cluster autónomo de Tecido de Serviço. |
+| estado de atualização | Obtenha o estado de atualização da configuração do cluster de um cluster autónomo do Tecido de Serviço. |
 
 ## <a name="sfctl-sa-cluster-config"></a>sfctl sa-cluster config
-Obtenha a configuração autónoma do cluster service Fabric.
+Obtenha a configuração de cluster autónomo do Tecido de Serviço.
 
-A configuração do cluster contém propriedades do cluster que incluem diferentes tipos de nó no cluster, configurações de segurança, falhas e topoologias de domínio de upgrade, etc.
+A configuração do cluster contém propriedades do cluster que incluem diferentes tipos de nós no cluster, configurações de segurança, falha e topologias de domínio de upgrade, etc.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --configuração-api-versão [Obrigatório] | A versão API da configuração de json cluster autónomo. |
-| --timeout -t | O tempo de funcionamento do servidor para a execução da operação em segundos. Este prazo especifica a duração do tempo que o cliente está disposto a esperar que a operação solicitada esteja concluída. O valor padrão para este parâmetro é de 60 segundos.  Padrão\: 60. |
+| --configuração-versão api[Necessária] | A versão API da configuração de json cluster autónomo. |
+| --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
-| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
-| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
-| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
+| --output -o | Formato de saída.  Valores permitidos \: json, jsonc, mesa, tsv.  \:Json padrão. |
+| -consulta | Cadeia de consulta JMESPath. Consulte http \: //jmespath.org/ para obter mais informações e exemplos. |
+| -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 ## <a name="sfctl-sa-cluster-config-upgrade"></a>sfctl sa-cluster config-upgrade
-Comece a atualizar a configuração de um cluster autónomo de Tecido de Serviço.
+Inicie a atualização da configuração de um cluster autónomo de Tecido de Serviço.
 
-Valide os parâmetros de atualização de configuração fornecidos e comece a atualizar a configuração do cluster se os parâmetros forem válidos.
+Valide os parâmetros de atualização de configuração fornecidos e inicie a atualização da configuração do cluster se os parâmetros forem válidos.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
 | --cluster-config [Obrigatório] | A configuração do cluster. |
-| --aplicação-políticas de saúde | JSON codificadicionário codificado de pares de nome tipo de aplicação e percentagem máxima insalubre antes de aumentar o erro. |
-| --delta-insalubre-nódosos | A percentagem máxima permitida de degradação da saúde delta durante a atualização. Os valores permitidos são valores inteiros de zero a 100. |
-| --saúde-check-retry | O período de tempo entre as tentativas de realização de verificações de saúde se a aplicação ou o cluster não forem saudáveis.  PT0H0M0s padrão.\: |
-| --saúde-check-estável | O tempo que a aplicação ou o cluster devem manter-se saudáveis antes da atualização passar para o próximo domínio de atualização.  PT0H0M0s padrão.\: <br><br> É interpretado pela primeira vez como uma corda que representa uma duração ISO 8601. Se isso falhar, então é interpretado como um número que representa o número total de milissegundos. |
-| --saúde-check-wait | O tempo de espera após completar um domínio de atualização antes de iniciar o processo de verificação de saúde.  PT0H0M0s padrão.\: |
-| --timeout -t | Padrão\: 60. |
+| --aplicações-políticas de saúde | JSON codificava o dicionário de pares de nomes do tipo de aplicação e a percentagem máxima não saudável antes de elevar o erro. |
+| --delta-não-saudável-nódoas | A percentagem máxima permitida de degradação da saúde delta durante a atualização. Os valores permitidos são valores inteiros de zero a 100. |
+| --verificação da saúde-redação | O período de tempo entre tentativas de efetuar controlos de saúde se a aplicação ou o agrupamento não forem saudáveis.  \:PT0H0M0s predefinidos. |
+| --saúde-check-estável | O tempo que a aplicação ou cluster deve permanecer saudável antes da atualização avançar para o próximo domínio de atualização.  \:PT0H0M0s predefinidos. <br><br> É interpretado pela primeira vez como uma corda que representa uma duração ISO 8601. Se isso falhar, então é interpretado como um número que representa o número total de milissegundos. |
+| --saúde-check-espera | O tempo de espera após completar um domínio de upgrade antes de iniciar o processo de verificação de saúde.  \:PT0H0M0s predefinidos. |
+| --timeout -t | Padrão \: 60. |
 | --aplicações pouco saudáveis | A percentagem máxima permitida de aplicações não saudáveis durante a atualização. Os valores permitidos são valores inteiros de zero a 100. |
-| ---não-saudáveis-nódosos | A percentagem máxima permitida de nódosos não saudáveis durante a atualização. Os valores permitidos são valores inteiros de zero a 100. |
-| -upgrade-domínio-delta-insalubre-nódosos | A percentagem máxima permitida de degradação delta do domínio de upgrade durante a atualização. Os valores permitidos são valores inteiros de zero a 100. |
-| --upgrade-tempo de domínio | O tempo que cada domínio de atualização tem de completar antes da execução da Ação de Falha.  PT0H0M0s padrão.\: <br><br> É interpretado pela primeira vez como uma corda que representa uma duração ISO 8601. Se isso falhar, então é interpretado como um número que representa o número total de milissegundos. |
-| --upgrade-timeout | O tempo que a atualização global tem de completar antes da execução da FailAction.  PT0H0M0s padrão.\: <br><br> É interpretado pela primeira vez como uma corda que representa uma duração ISO 8601. Se isso falhar, então é interpretado como um número que representa o número total de milissegundos. |
+| --nó-insalubres | A percentagem máxima permitida de nós não saudáveis durante a atualização. Os valores permitidos são valores inteiros de zero a 100. |
+| --upgrade-domínio-delta-unhealthy-nodes | A percentagem máxima permitida de upgrade do domínio delta saúde degradação durante a atualização. Os valores permitidos são valores inteiros de zero a 100. |
+| --upgrade-tempo limite de domínio | O tempo que cada domínio de atualização tem de completar antes da execução do FailureAction.  \:PT0H0M0s predefinidos. <br><br> É interpretado pela primeira vez como uma corda que representa uma duração ISO 8601. Se isso falhar, então é interpretado como um número que representa o número total de milissegundos. |
+| --upgrade-tempo limite | O tempo que a atualização global tem de ser concluída antes da execução do FailureAction.  \:PT0H0M0s predefinidos. <br><br> É interpretado pela primeira vez como uma corda que representa uma duração ISO 8601. Se isso falhar, então é interpretado como um número que representa o número total de milissegundos. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
-| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
-| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
-| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
+| --output -o | Formato de saída.  Valores permitidos \: json, jsonc, mesa, tsv.  \:Json padrão. |
+| -consulta | Cadeia de consulta JMESPath. Consulte http \: //jmespath.org/ para obter mais informações e exemplos. |
+| -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 ### <a name="examples"></a>Exemplos
 
@@ -86,27 +85,27 @@ policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
 ```
 
 ## <a name="sfctl-sa-cluster-upgrade-status"></a>sfctl sa-cluster upgrade-status
-Obtenha o estado de upgrade de configuração do cluster de um cluster autónomo de Tecido de Serviço.
+Obtenha o estado de atualização da configuração do cluster de um cluster autónomo do Tecido de Serviço.
 
-Obtenha os detalhes do estado de upgrade de configuração do cluster de um cluster autónomo de Tecido de Serviço.
+Obtenha os detalhes do estado de atualização de configuração do cluster de um cluster autónomo do Tecido de Serviço.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --timeout -t | O tempo de funcionamento do servidor para a execução da operação em segundos. Este prazo especifica a duração do tempo que o cliente está disposto a esperar que a operação solicitada esteja concluída. O valor padrão para este parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
-| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
-| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
-| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
+| --output -o | Formato de saída.  Valores permitidos \: json, jsonc, mesa, tsv.  \:Json padrão. |
+| -consulta | Cadeia de consulta JMESPath. Consulte http \: //jmespath.org/ para obter mais informações e exemplos. |
+| -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 
-## <a name="next-steps"></a>Passos seguintes
-- [Instale](service-fabric-cli.md) o CLI de tecido de serviço.
-- Aprenda a utilizar o CLI de tecido de serviço utilizando as [scripts de amostra](/azure/service-fabric/scripts/sfctl-upgrade-application).
+## <a name="next-steps"></a>Próximos passos
+- [Configurar](service-fabric-cli.md) o CLI de Tecido de Serviço.
+- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](/azure/service-fabric/scripts/sfctl-upgrade-application)da amostra .

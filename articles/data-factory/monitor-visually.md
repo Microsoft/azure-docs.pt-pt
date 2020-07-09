@@ -9,132 +9,131 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/15/2020
-ms.openlocfilehash: 44a95430ece9c55bb088ae5b968c33691f25b4c5
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: MT
+ms.date: 06/30/2020
+ms.openlocfilehash: b65b5b847712ce32c6723d725be9cf2ed1f99050
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860835"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801541"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Monitorizar visualmente o Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Depois de ter criado e publicado um oleoduto na Azure Data Factory, pode associá-lo a um gatilho ou iniciar manualmente uma corrida ad hoc. Pode monitorizar todas as suas operações de pipeline de forma nativa na experiência do utilizador da Azure Data Factory. Para abrir a experiência de monitorização, selecione o **Monitor & Gerir** o azulejo na lâmina da fábrica de dados do portal [Azure](https://portal.azure.com/). Se já estiver no ADF UX, clique no ícone **Monitor** na barra lateral esquerda.
+Uma vez criado e publicado um oleoduto na Azure Data Factory, pode associá-lo a um gatilho ou iniciar manualmente uma corrida ad hoc. Pode monitorizar todo o seu oleoduto funciona de forma nativa na experiência do utilizador da Azure Data Factory. Para abrir a experiência de monitorização, selecione o **telha Monitor & Gerir** na lâmina de fábrica de dados do [portal Azure](https://portal.azure.com/). Se já estiver no ADF UX, clique no ícone **Monitor** na barra lateral esquerda.
 
-Todas as operações de fábrica de dados são exibidas no fuso horário local do navegador. Se alterar o fuso horário, todos os campos de data/hora encaixem no que selecionou.
+Todas as operações da fábrica de dados são exibidas no fuso horário local do navegador. Se alterar o fuso horário, todos os campos de data/hora encaixam-se no que selecionou.
 
 ## <a name="monitor-pipeline-runs"></a>Monitorizar execuções de pipeline
 
-A vista de monitorização predefinida é a lista de funcionamento do gasoduto no período de tempo selecionado. São apresentadas as seguintes colunas:
+A visão de monitorização predefinida é a lista de gasodutos executados no período de tempo selecionado. São apresentadas as seguintes colunas:
 
 | **Nome da coluna** | **Descrição** |
 | --- | --- |
-| Nome do oleoduto | Nome do oleoduto |
-| Ações | Ícones que lhe permitem ver detalhes de atividade, cancelar ou reexecutar o pipeline |
+| Nome do pipeline | Nome do oleoduto |
+| Ações | Ícones que lhe permitem ver detalhes da atividade, cancelar ou refazer o pipeline |
 | Início de execução | Data e hora de início para a execução do gasoduto (MM/DD/YYYY, HH:MM:SS AM/PM) |
 | Duração | Duração da execução (HH:MM:SS) |
 | Desencadeado por | O nome do gatilho que iniciou o oleoduto |
-| Estado | **Falhado,** **Sucedido**, **Em Progresso,** **Cancelado,** ou **Fila** |
+| Estado | **Falhado,** **Bem sucedido,** **Em Curso,** **Cancelado,** ou **Em Fila** |
 | Anotações | Etiquetas filtradas associadas a um gasoduto  |
 | Parâmetros | Parâmetros para a execução do gasoduto (pares de nome/valor) |
 | Erro | Se o gasoduto falhou, o erro de execução |
-| o ID da Execução | ID da execução do gasoduto |
+| o ID da Execução | ID da corrida do gasoduto |
 
-![Vista de lista para monitorização de gasodutos](media/monitor-visually/pipeline-runs.png)
+![Vista da lista para monitorização de gasodutos](media/monitor-visually/pipeline-runs.png)
 
-É necessário selecionar manualmente o botão **Refresh** para atualizar a lista de gasodutos e funcionamento de atividade. A atualização automática não é suportada atualmente.
+É necessário selecionar manualmente o botão **Refresh** para atualizar a lista de gasodutos e de execuções de atividade. A autorefresh não está atualmente apoiada.
 
 ![Botão de atualização](media/monitor-visually/refresh.png)
 
 ## <a name="monitor-activity-runs"></a>Monitorização de execuções de atividade
 
-Para ver as corridas de atividade para cada execução do gasoduto, selecione a **atividade do View executa** o ícone sob a coluna **Ações.** A vista da lista mostra que a atividade funciona que corresponde a cada execução de gasoduto.
+Para visualizar as operações executadas para cada corrida de gasoduto, selecione o ícone **de atividade 'Ver' corre** sob a coluna **Ações.** A visualização da lista mostra que as operações correspondem a cada corrida de gasodutos.
 
 | **Nome da coluna** | **Descrição** |
 | --- | --- |
 | Nome da Atividade | Nome da atividade dentro do oleoduto |
-| Tipo de Atividade | Tipo de atividade, tais como **Copy,** **ExecuteDataFlow,** ou **AzureMLExecutePipeline** |
-| Ações | Ícones que lhe permitem ver informações de entrada jSON, informações de saída jSON ou experiências detalhadas de monitorização específicas da atividade | 
-| Início de execução | Data e hora de início para a execução da atividade (MM/DD/YYYY, HH:MM:SS AM/PM) |
+| Tipo de Atividade | Tipo de atividade, como **Copy,** **ExecuteDataFlow,** ou **AzureMLExecutePipeline** |
+| Ações | Ícones que lhe permitem ver informações de entrada JSON, informações de saída JSON ou experiências de monitorização detalhadas específicas da atividade | 
+| Início de execução | Data e hora de início da atividade executada (MM/DD/YYYY, HH:MM:SS AM/PM) |
 | Duração | Duração da execução (HH:MM:SS) |
-| Estado | **Falhado,** **Bem sucedido,** **Em Progresso**, ou **Cancelado** |
-| Tempo de execução de integração | Qual Integração Tempo de Execução a atividade foi executado em |
+| Estado | **Falhado,** **bem sucedido,** **em curso,** ou **cancelado** |
+| Tempo de execução de integração | Qual integração Runtime a atividade foi executado em |
 | Propriedades do Utilizador | Propriedades definidas pelo utilizador da atividade |
 | Erro | Se a atividade falhou, o erro de execução |
-| o ID da Execução | ID da execução de atividade |
+| o ID da Execução | ID da atividade executado |
 
-![Vista de lista para monitorização de executantes de atividades](media/monitor-visually/activity-runs.png)
+![A vista da lista para monitorização da atividade corre](media/monitor-visually/activity-runs.png)
 
-### <a name="promote-user-properties-to-monitor"></a>Promover propriedades dos utilizadores para monitorizar
+### <a name="promote-user-properties-to-monitor"></a>Promover propriedades de utilizadores para monitorizar
 
-Promova qualquer propriedade de atividade de pipeline como propriedade do utilizador para que se torne uma entidade que monitoriza. Por exemplo, pode promover as propriedades **Fonte** e **Destino** da atividade de cópia no seu pipeline como propriedades do utilizador. Selecione **Auto Generate** para gerar as propriedades do utilizador **Fonte** e **Destino** para uma atividade de cópia.
+Promover qualquer propriedade de atividade de pipeline como propriedade do utilizador para que se torne uma entidade que você monitorize. Por exemplo, pode promover as propriedades **de Origem** e **Destino** da atividade de cópia no seu pipeline como propriedades do utilizador. Selecione **Auto Generate** para gerar as propriedades do utilizador **Source** and **Destination** para uma atividade de cópia.
 
-![Criar propriedades do utilizador](media/monitor-visually/monitor-user-properties-image1.png)
+![Criar propriedades de utilizador](media/monitor-visually/monitor-user-properties-image1.png)
 
 > [!NOTE]
-> Só pode promover até cinco propriedades de atividade de pipeline como propriedades do utilizador.
+> Só é possível promover até cinco propriedades de atividade de gasoduto como propriedades do utilizador.
 
-Depois de criar as propriedades do utilizador, pode monitorizá-las nas vistas da lista de monitorização. Se a fonte para a atividade de cópia for um nome de mesa, pode monitorizar o nome da tabela de origem como uma coluna na vista da lista para as execuções de atividade.
+Depois de criar as propriedades do utilizador, pode monitorá-las nas vistas da lista de monitorização. Se a fonte para a atividade da cópia for um nome de mesa, pode monitorizar o nome da tabela de origem como uma coluna na vista da lista para a atividade.
 
-![A lista de executações de atividade sem propriedades do utilizador](media/monitor-visually/monitor-user-properties-image2.png)
+![A atividade executa a lista sem propriedades do utilizador](media/monitor-visually/monitor-user-properties-image2.png)
 
-![Adicione colunas para propriedades do utilizador na lista de executantes de atividade](media/monitor-visually/monitor-user-properties-image3.png)
+![Adicione colunas para propriedades de utilizador à lista de execuções de atividades](media/monitor-visually/monitor-user-properties-image3.png)
 
-![A lista de executa a atividade com colunas para propriedades do utilizador](media/monitor-visually/monitor-user-properties-image4.png)
+![A atividade executa a lista com colunas para propriedades do utilizador](media/monitor-visually/monitor-user-properties-image4.png)
 
-## <a name="configure-the-list-view"></a>Configure a vista da lista
+## <a name="configure-the-list-view"></a>Configurar a vista da lista
 
-### <a name="order-and-filter"></a>Encomenda e filtro
+### <a name="order-and-filter"></a>Encomendar e filtrar
 
-Altere se as condutas de gasoduto saem em descida ou ascendente de acordo com a hora de início da corrida. O gasoduto de filtro funciona utilizando as seguintes colunas:
+Alternar se o gasoduto funciona em descida ou subida de acordo com a hora de início de funcionação. O gasoduto do filtro funciona utilizando as seguintes colunas:
 
 | **Nome da coluna** | **Descrição** |
 | --- | --- |
-| Nome do oleoduto | Filtre pelo nome do oleoduto. |
-| Início de execução |  Determine o intervalo de tempo do gasoduto exposto. As opções incluem filtros rápidos para **as últimas 24 horas,** **na semana passada,** e **últimos 30 dias** ou para selecionar uma data e hora personalizadas. |
-| Estado de execução | O filtro corre por estado: **Bem sucedido,** **falhado,** **fila,** **cancelado**ou **em curso**. |
-| Anotações | Filtro por etiquetas aplicadas a cada pipeline |
-| Execuções | Filtre se quer ver gasodutos recorridos |
+| Nome do pipeline | Filtrar pelo nome do oleoduto. |
+| Início de execução |  Determine o intervalo de tempo dos cursos de conduta visualizados. As opções incluem filtros rápidos para **as últimas 24 horas**, **última semana,** e **últimos 30 dias** ou para selecionar uma data e hora personalizadas. |
+| Estado de execução | Filtro funciona por estado: **Bem sucedido,** **Falhado,** **Em Fila,** **Cancelado**ou **Em Curso**. |
+| Anotações | Filtro por etiquetas aplicadas a cada oleoduto |
+| Execuções | Filtre se deseja ver os oleodutos reran |
 
-![Opções para filtragem](media/monitor-visually/filter.png)
+![Opções de filtragem](media/monitor-visually/filter.png)
 
 ### <a name="add-or-remove-columns"></a>Adicionar ou remover colunas
-Clique no cabeçalho da visualização da lista e escolha colunas que pretende aparecer na vista da lista.
+Clique com o botão direito no cabeçalho da lista e escolha as colunas que pretende aparecer na vista da lista.
 
 ![Opções para colunas](media/monitor-visually/columns.png)
 
-### <a name="adjust-column-widths"></a>Ajustar as larguras das colunas
-Aumente e diminua as larguras da coluna na vista da lista pairando sobre o cabeçalho da coluna.
+### <a name="adjust-column-widths"></a>Ajustar larguras de coluna
+Aumente e diminua as larguras da coluna na vista da lista, pairando sobre o cabeçalho da coluna.
 
-## <a name="rerun-activities-inside-a-pipeline"></a>Reexecutar atividades dentro de um oleoduto
+## <a name="rerun-activities-inside-a-pipeline"></a>Repercutam atividades dentro de um oleoduto
 
-Pode refazer atividades dentro de um oleoduto. Selecione **a atividade do View**e, em seguida, selecione a atividade no seu pipeline a partir do qual pretende reproduzir o seu pipeline.
+Pode refazer atividades dentro de um oleoduto. Selecione **A atividade de 'Ver' é executado**e, em seguida, selecione a atividade no seu pipeline a partir do qual pretende voltar a fazer a sua tubagem.
 
 ![Ver execuções de atividades](media/monitor-visually/rerun-activities-image1.png)
 
-![Selecione uma execução de atividade](media/monitor-visually/rerun-activities-image2.png)
+![Selecione uma atividade executada](media/monitor-visually/rerun-activities-image2.png)
 
-### <a name="rerun-from-failed-activity"></a>Reexecutar da atividade falhada
+### <a name="rerun-from-failed-activity"></a>Repetição da atividade falhada
 
-Se uma atividade falhar, vezes fora ou for cancelada, pode reexecutar o gasoduto a partir dessa atividade falhada selecionando **Rerun de atividade falhada**.
+Se uma atividade falhar, o tempo fora ou for cancelada, pode voltar a fazer o pipeline a partir dessa atividade falhada selecionando **a Repetição da atividade falhada**.
 
-![Reexecutar atividade falhada](media/monitor-visually/rerun-failed-activity.png)
+![Rerun atividade falhada](media/monitor-visually/rerun-failed-activity.png)
 
-### <a name="view-rerun-history"></a>Ver história de rerun
+### <a name="view-rerun-history"></a>Ver refazer a história
 
-Pode ver a história da reexecução para todos os pipelines que correm na vista da lista.
+Pode ver o histórico de repetição de todas as correções de pipeline na vista da lista.
 
 ![Ver histórico](media/monitor-visually/rerun-history-image1.png)
 
-Você também pode ver a história de recorrer para uma determinada execução de gasoduto.
+Também pode ver a história da repetição para uma determinada corrida de gasodutos.
 
 ![Ver história para uma corrida de gasodutos](media/monitor-visually/rerun-history-image2.png)
 
 ## <a name="monitor-consumption"></a>Monitorizar o consumo
 
-Pode ver os recursos consumidos por um gasoduto executado clicando no ícone de consumo ao lado da corrida. 
+Pode ver os recursos consumidos por um oleoduto executado clicando no ícone de consumo ao lado da corrida. 
 
 ![Monitorizar o consumo](media/monitor-visually/monitor-consumption-1.png)
 
@@ -142,43 +141,43 @@ Clicar no ícone abre um relatório de consumo dos recursos utilizados por esse 
 
 ![Monitorizar o consumo](media/monitor-visually/monitor-consumption-2.png)
 
-Pode ligar estes valores à calculadora de [preços Azure](https://azure.microsoft.com/pricing/details/data-factory/) para estimar o custo da execução do gasoduto. Para obter mais informações sobre os preços da Fábrica de Dados Azure, consulte [a compreensão dos preços.](pricing-concepts.md)
+Pode ligar estes valores à [calculadora de preços Azure](https://azure.microsoft.com/pricing/details/data-factory/) para estimar o custo do gasoduto. Para obter mais informações sobre os preços da Azure Data Factory, consulte [os preços de Compreensão](pricing-concepts.md).
 
 > [!NOTE]
-> Estes valores devolvidos pela calculadora de preços são uma estimativa. Não reflete o valor exato que será cobrado pela Azure Data Factory 
+> Estes valores devolvidos pela calculadora de preços são uma estimativa. Não reflete a quantia exata que será faturada pela Azure Data Factory 
 
 ## <a name="gantt-views"></a>Vistas de Gantt
 
-Use vistas gantt para visualizar rapidamente os seus oleodutos e corridas de atividade.
+Utilize vistas gantt para visualizar rapidamente os seus oleodutos e operações.
 
 ![Exemplo de um gráfico de Gantt](media/monitor-visually/gantt1.png)
 
-Você pode olhar para a vista Gantt por oleoduto ou grupo por anotações/tags que você criou nos seus oleodutos.
+Pode olhar para a vista Gantt por oleoduto ou grupo através de anotações/tags que criou nos seus oleodutos.
 
-![Anotações de gráficos de Gantt](media/monitor-visually/gantt2.png)
+![Anotações de gráfico de Gantt](media/monitor-visually/gantt2.png)
 
 O comprimento da barra informa a duração do gasoduto. Também pode selecionar a barra para ver mais detalhes.
 
 ![Duração do gráfico de Gantt](media/monitor-visually/gantt3.png)
 
 ## <a name="guided-tours"></a>Visitas guiadas
-Selecione o ícone **Informação** na parte inferior esquerda. Em seguida, selecione **Guided Tours** para obter instruções passo a passo sobre como monitorizar o seu pipeline e funciona a atividade.
+Selecione o ícone **Informação** no lado inferior esquerdo. Em seguida, **selecione Visitas Guiadas** para obter instruções passo a passo sobre como monitorizar o seu oleoduto e a sua atividade.
 
 ![Visitas guiadas](media/monitor-visually/guided-tours.png)
 
 ## <a name="alerts"></a>Alertas
 
-Pode levantar alertas sobre métricas suportadas na Data Factory. Selecione **Monitor**  >  **Alerts & métricas** na página de monitorização da Fábrica de Dados para começar.
+Pode levantar alertas sobre métricas suportadas na Data Factory. Selecione **Monitor**  >  **Alertas monitor & métricas** na página de monitorização da Data Factory para começar.
 
-![Página de Monitor de fábrica de dados](media/monitor-visually/start-page.png)
+![Página do Monitor da fábrica de dados](media/monitor-visually/start-page.png)
 
-Para uma introdução de sete minutos e demonstração desta funcionalidade, veja o seguinte vídeo:
+Para uma introdução e demonstração de sete minutos desta funcionalidade, veja o seguinte vídeo:
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Monitor-your-Azure-Data-Factory-pipelines-proactively-with-alerts/player]
 
 ### <a name="create-alerts"></a>Criar alertas
 
-1.  Selecione **Nova regra de alerta** para criar um novo alerta.
+1.  Selecione **nova regra de alerta** para criar um novo alerta.
 
     ![Novo botão de regra de alerta](media/monitor-visually/new-alerts.png)
 
@@ -192,9 +191,13 @@ Para uma introdução de sete minutos e demonstração desta funcionalidade, vej
 
     ![Lista de critérios](media/monitor-visually/add-criteria-2.png)
 
-1.  Configure a lógica de alerta. Pode criar um alerta para a métrica selecionada para todos os oleodutos e atividades correspondentes. Também pode selecionar um determinado tipo de atividade, nome de atividade, nome do pipeline ou tipo de falha.
+    ![Lista de critérios](media/monitor-visually/add-criteria-3.png)
 
-    ![Opções para configurar lógica de alerta](media/monitor-visually/alert-logic.png)
+    Pode criar alertas em várias métricas, incluindo as de contagem/tamanho de entidade ADF, operações/gasoduto/gatilho, utilização/utilização do CPU de integração (IR) de utilização/memória/contagem/fila de nó, bem como para execuções de pacotes SSIS e operações de arranque/paragem do SSIS IR.
+
+1.  Configurar a lógica de alerta. Pode criar um alerta para a métrica selecionada para todos os oleodutos e atividades correspondentes. Também pode selecionar um determinado tipo de atividade, nome de atividade, nome do gasoduto ou tipo de falha.
+
+    ![Opções para configurar a lógica de alerta](media/monitor-visually/alert-logic.png)
 
 1.  Configure e-mails, SMS, push e notificações de voz para o alerta. Crie um grupo de ação, ou escolha um existente, para as notificações de alerta.
 
@@ -206,6 +209,6 @@ Para uma introdução de sete minutos e demonstração desta funcionalidade, vej
 
     ![Opções para criar uma regra de alerta](media/monitor-visually/create-alert-rule.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para aprender sobre monitorização e gestão de gasodutos, consulte o Monitor e gere o artigo [de pipelines programáticamente.](https://docs.microsoft.com/azure/data-factory/monitor-programmatically)
+Para aprender sobre a monitorização e gestão de gasodutos, consulte o [Monitor e gere os oleodutos programáticamente.](https://docs.microsoft.com/azure/data-factory/monitor-programmatically)

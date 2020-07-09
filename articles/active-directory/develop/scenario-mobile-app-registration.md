@@ -1,7 +1,7 @@
 ---
-title: Registe aplicações móveis que liguem para a web APIs [ APIs] Azure
+title: Registar aplicações móveis que chamam APIs web Rio Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como construir uma aplicação móvel que chama APIs web (configuração de código da aplicação)
+description: Saiba como construir uma aplicação móvel que chame APIs web (configuração de código da app)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -14,13 +14,13 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: f24b3c9256f759b87c705aae9b93c2d6bc74d30c
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652648"
 ---
-# <a name="register-mobile-apps-that-call-web-apis"></a>Registe aplicações móveis que liguem para apis web
+# <a name="register-mobile-apps-that-call-web-apis"></a>Registar aplicativos móveis que chamam APIs web
 
 Este artigo contém instruções para o ajudar a registar uma aplicação móvel que está a criar.
 
@@ -28,64 +28,64 @@ Este artigo contém instruções para o ajudar a registar uma aplicação móvel
 
 Os tipos de conta que as suas aplicações móveis suportam dependem da experiência que pretende ativar e dos fluxos que pretende utilizar.
 
-### <a name="audience-for-interactive-token-acquisition"></a>Público para aquisição interativa de token
+### <a name="audience-for-interactive-token-acquisition"></a>Público para aquisição de fichas interativas
 
-A maioria das aplicações móveis usam autenticação interativa. Se a sua aplicação utilizar este formulário de autenticação, pode inscrever utilizadores a partir de qualquer tipo de [conta](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+A maioria das aplicações móveis usam a autenticação interativa. Se a sua aplicação utilizar esta forma de autenticação, pode iniciar sação nos utilizadores a partir de qualquer tipo de [conta.](quickstart-register-app.md#register-a-new-application-using-the-azure-portal)
 
 ### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Público para autenticação integrada do Windows, username-password e B2C
 
-Se tiver uma aplicação Universal Windows Platform (UWP), pode utilizar a autenticação Integrada do Windows para iniciar sessão nos utilizadores. Para utilizar a autenticação integrada do Windows ou a autenticação de palavra-passe de username, a sua aplicação precisa de iniciar sessão de informação sobre os utilizadores no seu próprio inquilino de desenvolvimento de linha de negócio (LOB). Num cenário independente de fornecedor de software (ISV), a sua aplicação pode inscrever utilizadores em organizações de Diretório Sonérrios Ativos do Azure. Estes fluxos de autenticação não são suportados para contas pessoais da Microsoft.
+Se tiver uma aplicação Universal Windows Platform (UWP), pode utilizar a autenticação Integrada do Windows para iniciar súpido nos utilizadores. Para utilizar a autenticação integrada do Windows ou a autenticação de senha de utilizador, a sua aplicação precisa de se inscrever nos utilizadores no seu próprio inquilino de desenvolvimento de linha de negócios (LOB). Num cenário de fornecedor de software independente (ISV), a sua aplicação pode iniciar súm em utilizadores em organizações do Azure Ative Directory. Estes fluxos de autenticação não são suportados para contas pessoais da Microsoft.
 
-Também pode inscrever os utilizadores utilizando identidades sociais que passam por uma autoridade e política B2C. Para utilizar este método, só pode utilizar autenticação interativa e autenticação de palavra-passe de utilizador. A autenticação username-password é atualmente suportada apenas em Xamarin.iOS, Xamarin.Android e UWP.
+Também pode assinar nos utilizadores usando identidades sociais que passam por uma autoridade e política B2C. Para utilizar este método, pode utilizar apenas a autenticação interativa e a autenticação de senha de utilizador. A autenticação username-password é atualmente suportada apenas em Xamarin.iOS, Xamarin.Android e UWP.
 
-Para mais informações, consulte [Cenários e fluxos de autenticação suportados](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) e [Cenários e plataformas e idiomas suportados.](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages)
+Para mais informações, consulte [Cenários e fluxos](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) e Cenários de autenticação [suportados e plataformas e idiomas suportados.](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages)
 
-## <a name="platform-configuration-and-redirect-uris"></a>Configuração da plataforma e redirecionamento de URIs  
+## <a name="platform-configuration-and-redirect-uris"></a>Configuração da plataforma e REdireccionamento uris  
 
 ### <a name="interactive-authentication"></a>Autenticação interativa
 
-Quando se constrói uma aplicação móvel que utiliza a autenticação interativa, o passo de registo mais crítico é o redirecionamento do URI. Pode definir a autenticação interativa através da [configuração da plataforma na lâmina **de autenticação** ](https://aka.ms/MobileAppReg).
+Quando se constrói uma aplicação móvel que utiliza a autenticação interativa, o passo de registo mais crítico é o URI redirecionamento. Pode definir a autenticação interativa através da configuração da [plataforma na lâmina de **autenticação** ](https://aka.ms/MobileAppReg).
 
-Esta experiência permitirá que a sua aplicação obtenha um único sinal (SSO) através do Microsoft Authenticator (e intune Company Portal on Android). Também apoiará as políticas de gestão de dispositivos.
+Esta experiência permitirá que a sua aplicação obtenha um único sign-on (SSO) através do Microsoft Authenticator (e do Portal da Empresa Intune no Android). Também apoiará as políticas de gestão de dispositivos.
 
-O portal de registo de aplicações fornece uma experiência de pré-visualização para ajudá-lo a calcular a resposta intermediada URI para aplicações iOS e Android:
+O portal de registo de aplicações proporciona uma experiência de pré-visualização para ajudá-lo a calcular a resposta intermediada URI para aplicações iOS e Android:
 
-1. No portal de registo da aplicação, selecione **Autenticação** > **Experimente a nova experiência**.
+1. No portal de registo de aplicações, selecione **Autenticação**  >  **Experimente a nova experiência.**
 
-   ![A lâmina de autenticação, onde escolhe uma nova experiência](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
+   ![A lâmina de autenticação, onde se escolhe uma nova experiência](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
-2. Selecione **Adicionar uma plataforma**.
+2. **Selecione Adicionar uma plataforma**.
 
-   ![Adicione uma plataforma](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
+   ![Adicionar uma plataforma](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
 
 3. Quando a lista de plataformas for suportada, selecione **iOS**.
 
    ![Escolha uma aplicação móvel](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
-4. Introduza o seu ID de pacote e, em seguida, selecione **Registar**.
+4. Introduza o seu ID do pacote e, em seguida, **selecione Registar- se**.
 
-   ![Insira o seu ID de pacote](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
+   ![Insira o seu iD do pacote](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
-Quando completar os passos, o URI redirecionamento é calculado para si, como na imagem seguinte.
+Quando completar os passos, o URI de redirecionamento é calculado para si, como na imagem seguinte.
 
-![O redirecionamento uri resultante](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
+![O URI redirecionado resultante](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
 
-Se preferir configurar manualmente o URI redirecionamento, pode fazê-lo através do manifesto de aplicação. Aqui está o formato recomendado para o manifesto:
+Se preferir configurar manualmente o URI de redirecionamento, pode fazê-lo através do manifesto de aplicação. Aqui está o formato recomendado para o manifesto:
 
-- **iOS**:`msauth.<BUNDLE_ID>://auth` 
-  - Por exemplo, inserir`msauth.com.yourcompany.appName://auth`
-- **Android**:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
-  - Pode gerar o hash de assinatura Android utilizando a chave de lançamento ou chave de depuração através do comando KeyTool.
+- **iOS:**`msauth.<BUNDLE_ID>://auth` 
+  - Por exemplo, introduzir`msauth.com.yourcompany.appName://auth`
+- **Android:**`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+  - Pode gerar o hash de assinatura Android utilizando a chave de desbloqueio ou depuração através do comando KeyTool.
 
-### <a name="username-password-authentication"></a>Autenticação de palavra-passe-nome de utilizador
+### <a name="username-password-authentication"></a>Autenticação de nome de utilizador-senha
 
-Se a sua aplicação utilizar apenas a autenticação de username-password, não precisa de registar um URI redirecionado para a sua aplicação. Este fluxo faz uma viagem de ida e volta à versão 2.0 final da plataforma de identidade da Microsoft. A sua candidatura não será chamada de volta a nenhum URI específico. 
+Se a sua aplicação utilizar apenas a autenticação de nome de utilizador-password, não precisa de registar um URI de redirecionamento para a sua aplicação. Este fluxo faz uma viagem de ida e volta à versão 2.0 da plataforma de identidade da Microsoft. A sua candidatura não será chamada de volta em nenhum URI específico. 
 
-No entanto, precisa identificar a sua aplicação como uma aplicação de cliente público. Para isso, comece na secção **autenticação** da sua aplicação. Na subsecção **de configurações Avançadas,** no parágrafo **do tipo de cliente Predefinido,** para a pergunta **Tratar aplicação como cliente público,** selecione **Sim**.
+No entanto, tem de identificar a sua aplicação como uma aplicação de cliente público. Para tal, comece na secção **autenticação** da sua aplicação. Na subsecção **de definições Avançadas,** no parágrafo padrão do **tipo cliente,** para a **pergunta Tratar a aplicação como cliente público,** selecione **Sim**.
 
 ## <a name="api-permissions"></a>Permissões de API
 
-As aplicações móveis ligam para APIs em nome do utilizador inscrito. A sua aplicação precisa de solicitar permissões delegadas. Estas permissões também são chamadas de âmbitos. Dependendo da experiência que deseja, pode solicitar permissões delegadas estáticamente através do portal Azure. Ou pode solicitá-los dinamicamente no tempo de execução. 
+As aplicações móveis chamam APIs em nome do utilizador inscrito. A sua aplicação precisa de solicitar permissões delegadas. Estas permissões também são chamadas de âmbitos. Dependendo da experiência que pretende, pode solicitar permissões delegadas estáticamente através do portal Azure. Ou podes pedir-lhes dinamicamente no tempo de execução. 
 
 Ao registar estáticamente permissões, permite que os administradores aprovem facilmente a sua aplicação. Recomenda-se o registo estático.
 

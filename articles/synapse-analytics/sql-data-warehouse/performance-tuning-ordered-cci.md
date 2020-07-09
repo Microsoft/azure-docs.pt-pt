@@ -1,34 +1,34 @@
 ---
 title: Otimização do desempenho com índice columnstore em cluster ordenado
-description: Recomendações e considerações que deve saber ao usar índice de colunas agrupadas ordenado para melhorar o seu desempenho de consulta.
+description: Recomendações e considerações que deve conhecer ao utilizar o índice de loja de colunas agrupado encomendado para melhorar o seu desempenho de consulta.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 088a0d10b96a30ef830b4e8a8dc12c19127141db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6cd81031f27d772912383fa050e0f946bf9964c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417045"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204664"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Otimização do desempenho com índice columnstore em cluster ordenado  
 
-Quando os utilizadores consultam uma tabela de colunas na piscina SYnapse SQL, o optimizador verifica os valores mínimos e máximos armazenados em cada segmento.  Segmentos que estão fora dos limites do predicado de consulta não são lidos do disco à memória.  Uma consulta pode obter um desempenho mais rápido se o número de segmentos para ler e seu tamanho total são pequenos.   
+Quando os utilizadores consultam uma tabela de lojas de colunas na piscina Synapse SQL, o optimizador verifica os valores mínimos e máximos armazenados em cada segmento.  Segmentos que estão fora dos limites do predicado de consulta não são lidos do disco para a memória.  Uma consulta pode obter um desempenho mais rápido se o número de segmentos para ler e seu tamanho total são pequenos.   
 
-## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Índice de lojas de colunas agrupadas não ordenados
+## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Índice de colunas agrupados não encomendado
 
-Por predefinição, para cada tabela criada sem uma opção de índice, um componente interno (construtor de índices) cria um índice de loja de colunas agrupada não ordenado (CCI) nele.  Os dados de cada coluna são comprimidos num segmento separado do grupo de remo CCI.  Há metadados na gama de valores de cada segmento, por isso segmentos que estão fora dos limites do predicado de consulta não são lidos a partir do disco durante a execução da consulta.  O CCI oferece o mais alto nível de compressão de dados e reduz o tamanho dos segmentos para ler para que as consultas possam correr mais rápido. No entanto, como o construtor de índices não classifica os dados antes de os comprimir em segmentos, podem ocorrer segmentos com gamas de valor sobrepostas, fazendo com que as consultas leiam mais segmentos a partir do disco e demorem mais tempo a terminar.  
+Por padrão, para cada tabela criada sem uma opção de índice, um componente interno (index builder) cria nele um índice de colunas agrupado não encomendado (CCI).  Os dados de cada coluna são comprimidos num segmento de grupo de linha CCI separado.  Há metadados na gama de valor de cada segmento, por isso os segmentos que estão fora dos limites da consulta predicado não são lidos a partir do disco durante a execução de consultas.  O CCI oferece o mais alto nível de compressão de dados e reduz o tamanho dos segmentos para ler para que as consultas possam correr mais rapidamente. No entanto, como o construtor de índices não classifica dados antes de os comprimir em segmentos, segmentos com gamas de valor sobrepostos podem ocorrer, fazendo com que as consultas leiam mais segmentos a partir do disco e levem mais tempo a terminar.  
 
-Ao criar um CCI ordenado, o motor SQL synapse classifica os dados existentes na memória pela chave de ordem(s) antes que o construtor de índices os comprime em segmentos de índice.  Com os dados classificados, a sobreposição de segmentos é reduzida permitindo que as consultas tenham uma eliminação de segmento mais eficiente e, portanto, um desempenho mais rápido porque o número de segmentos a ler a partir do disco é menor.  Se todos os dados puderem ser classificados na memória de uma só vez, então a sobreposição do segmento pode ser evitada.  Devido a grandes tabelas em armazéns de dados, este cenário não acontece com frequência.  
+Ao criar um CCI ordenado, o motor Synapse SQL classifica os dados existentes na memória pela ou na tecla de encomenda antes que o construtor de índice os comprima em segmentos de índice.  Com dados classificados, a sobreposição de segmentos é reduzida permitindo que as consultas tenham uma eliminação de segmento mais eficiente e, portanto, um desempenho mais rápido porque o número de segmentos a ler a partir do disco é menor.  Se todos os dados puderem ser classificados na memória de uma só vez, então a sobreposição de segmento pode ser evitada.  Devido a grandes tabelas em armazéns de dados, este cenário não acontece com frequência.  
 
-Para verificar as gamas de segmentos para uma coluna, execute o seguinte comando com o nome da tabela e o nome da coluna:
+Para verificar os intervalos de segmento de uma coluna, execute o seguinte comando com o nome da sua mesa e nome da coluna:
 
 ```sql
 SELECT o.name, pnp.index_id, 
@@ -50,18 +50,18 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> Numa tabela CCI ordenada, os novos dados resultantes do mesmo lote de DML ou de operações de carregamento de dados estão classificados dentro desse lote, não existe uma triagem global em todos os dados da tabela.  Os utilizadores podem reconstruir o CCI ordenado para classificar todos os dados da tabela.  Em Synapse SQL, o índice de colunas REBUILD é uma operação offline.  Para uma mesa dividida, a REBUILD é feita uma partição de cada vez.  Os dados da partição que está a ser reconstruída estão "offline" e indisponíveis até que a REBUILD esteja completa para essa partição. 
+> Numa tabela de CCI encomendada, os novos dados resultantes do mesmo lote de DML ou operações de carregamento de dados são classificados dentro desse lote, não existindo uma triagem global em todos os dados da tabela.  Os utilizadores podem reconstruir o CCI ordenado para classificar todos os dados na tabela.  No Synapse SQL, o índice de loja de colunas REBUILD é uma operação offline.  Para uma mesa dividida, o REBUILD é feito uma divisória de cada vez.  Os dados na partição que está a ser reconstruída estão "offline" e indisponíveis até que o REBUILD esteja completo para essa partição. 
 
 ## <a name="query-performance"></a>Desempenho de consultas
 
-O ganho de desempenho de uma consulta de um CCI ordenado depende dos padrões de consulta, do tamanho dos dados, da forma como os dados estão bem classificados, da estrutura física dos segmentos, e da Classe DWU e de recursos escolhidos para a execução da consulta.  Os utilizadores devem rever todos estes fatores antes de escolher as colunas de encomenda ao conceber uma tabela CCI ordenada.
+O ganho de desempenho de uma consulta a partir de um CCI ordenado depende dos padrões de consulta, do tamanho dos dados, do quão bem os dados são classificados, da estrutura física dos segmentos, e da DWU e da classe de recursos escolhidas para a execução de consultas.  Os utilizadores devem rever todos estes fatores antes de escolher as colunas de encomenda ao conceber uma tabela CCI encomendada.
 
 Consultas com todos estes padrões normalmente correm mais rápido com CCI ordenado.  
-1. As consultas têm igualdade, desigualdade ou intervalo predicados
-1. As colunas predicadas e as colunas CCI ordenadas são as mesmas.  
-1. As colunas predicadas são utilizadas na mesma ordem que a coluna ordinal das colunas CCI ordenadas.  
+1. As consultas têm igualdade, desigualdade ou predicados de alcance
+1. As colunas predicados e as colunas CCI ordenadas são as mesmas.  
+1. As colunas predicados são utilizadas na mesma ordem que a coluna ordinal das colunas CCI ordenadas.  
  
-Neste exemplo, a tabela T1 tem um índice de colunas agrupado encomendado na sequência de Col_C, Col_B e Col_A.
+Neste exemplo, a tabela T1 tem um índice de loja de colunas agrupado encomendado na sequência de Col_C, Col_B e Col_A.
 
 ```sql
 
@@ -70,7 +70,7 @@ ORDER (Col_C, Col_B, Col_A)
 
 ```
 
-O desempenho da consulta 1 pode beneficiar mais do CCI ordenado do que das outras três consultas. 
+O desempenho da consulta 1 pode beneficiar mais do CCI encomendado do que das outras três consultas. 
 
 ```sql
 -- Query #1: 
@@ -89,27 +89,27 @@ SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
 
 ```
 
-## <a name="data-loading-performance"></a>Desempenho de carregamento de dados
+## <a name="data-loading-performance"></a>Desempenho do carregamento de dados
 
-O desempenho do carregamento de dados numa tabela CCI ordenada é semelhante a uma tabela dividida.  O carregamento de dados numa tabela CCI ordenada pode demorar mais tempo do que uma tabela CCI não ordenada devido à operação de triagem de dados, no entanto as consultas podem ser executadas mais rapidamente com o CCI ordenado.  
+O desempenho do carregamento de dados numa tabela de CCI encomendada é semelhante a uma tabela dividida.  O carregamento de dados numa tabela de CCI ordenada pode demorar mais tempo do que uma tabela CCI não encomendada devido à operação de triagem de dados, no entanto as consultas podem ser executadas mais rapidamente depois com CCI encomendado.  
 
-Aqui está uma comparação de desempenho exemplo de carregar dados em tabelas com diferentes esquemas.
+Aqui está um exemplo de comparação de desempenho de carregar dados em tabelas com esquemas diferentes.
 
 ![Performance_comparison_data_loading](./media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
 
 
-Eis um exemplo de comparação de desempenho entre o CCI e o CCI ordenado.
+Aqui está um exemplo de comparação de desempenho de consulta entre CCI e CCI ordenado.
 
 ![Performance_comparison_data_loading](./media/performance-tuning-ordered-cci/occi_query_performance.png)
 
  
-## <a name="reduce-segment-overlapping"></a>Reduzir a sobreposição do segmento
+## <a name="reduce-segment-overlapping"></a>Reduzir a sobreposição de segmentos
 
-O número de segmentos sobrepostos depende da dimensão dos dados para classificar, da memória disponível e do grau máximo de definição de paralelismo (MAXDOP) durante a criação ordenada do CCI. Abaixo estão as opções para reduzir a sobreposição do segmento ao criar o CCI ordenado.
+O número de segmentos sobrepostos depende do tamanho dos dados para classificar, da memória disponível e do grau máximo de paralelismo (MAXDOP) durante a criação ordenada do CCI. Abaixo estão as opções para reduzir a sobreposição de segmentos ao criar CCI ordenado.
 
-- Utilize a classe de recursos xbiggerc num DWU mais elevado para permitir mais memória para a triagem de dados antes que o construtor de índices comprime os dados em segmentos.  Uma vez num segmento de índice, a localização física dos dados não pode ser alterada.  Não há data seletiva dentro de um segmento ou em segmentos.  
+- Utilize a classe de recursos xlargerc num DWU mais elevado para permitir uma maior memória para a triagem de dados antes que o construtor de índice comprima os dados em segmentos.  Uma vez num segmento de índice, a localização física dos dados não pode ser alterada.  Não há triagem de dados dentro de um segmento ou em segmentos.  
 
-- Crie CCI encomendado com MAXDOP = 1.  Cada fio utilizado para a criação ordenada de CCI trabalha num subconjunto de dados e classifica-os localmente.  Não há classificação global através de dados classificados por diferentes fios.  A utilização de fios paralelos pode reduzir o tempo para criar um CCI encomendado, mas gerará segmentos mais sobrepostos do que usar um único fio.  Atualmente, a opção MAXDOP só é suportada na criação de uma tabela CCI ordenada utilizando o comando CREATE TABLE AS SELECT.  A criação de um CCI ordenado através do CREATE INDEX ou dos comandos CREATE TABLE não suporta a opção MAXDOP. Por exemplo,
+- Criar CCI encomendado com MAXDOP = 1.  Cada fio utilizado para a criação de CCI ordenado trabalha num subconjunto de dados e classifica-os localmente.  Não há triagem global entre dados classificados por diferentes fios.  A utilização de fios paralelos pode reduzir o tempo para criar um CCI ordenado, mas gerará mais segmentos sobrepostos do que usando um único fio.  Atualmente, a opção MAXDOP só é suportada na criação de uma tabela CCI ordenada utilizando o comando CREATE TABLE AS SELECT.  A criação de um CCI ordenado através de comandos CREATE INDEX ou CREATE TABLE não suporta a opção MAXDOP. Por exemplo,
 
 ```sql
 CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX ORDER(c1) )
@@ -117,26 +117,26 @@ AS SELECT * FROM ExampleTable
 OPTION (MAXDOP 1);
 ```
 
-- Pré-classificar os dados pela ou chaves de classificação antes de os colocar em tabelas.
+- Pré-ordenar os dados pela ou das teclas de classificação antes de os colocar em tabelas.
 
-Eis um exemplo de uma distribuição ordenada da tabela CCI que tem zero segmento sem sobreposição seguindo recomendações acima. A tabela CCI ordenada é criada numa base de dados DWU1000c via CTAS a partir de uma tabela de 20 GB de heap utilizando MAXDOP 1 e xbiggerc.  O CCI é encomendado numa coluna BIGINT sem duplicados.  
+Aqui está um exemplo de uma distribuição ordenada da tabela CCI que tem um segmento zero sobreposto seguindo as recomendações acima. A tabela CCI ordenada é criada numa base de dados DWU1000c via CTAS a partir de uma tabela de pilhas de 20 GB usando MAXDOP 1 e xlargerc.  O CCI é encomendado numa coluna BIGINT sem duplicados.  
 
 ![Segment_No_Overlapping](./media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 
-## <a name="create-ordered-cci-on-large-tables"></a>Criar CCI encomendado em mesas grandes
+## <a name="create-ordered-cci-on-large-tables"></a>Criar CCI ordenado em grandes mesas
 
-Criar um CCI ordenado é uma operação offline.  Para tabelas sem divisórias, os dados não serão acessíveis aos utilizadores até que o processo de criação de CCI ordenado esteja concluído.   Para as tabelas divididas, uma vez que o motor cria a partição ordenada do CCI por partição, os utilizadores ainda podem aceder aos dados em divisórias onde a criação ordenada do CCI não está em processo.   Pode utilizar esta opção para minimizar o tempo de inatividade durante a criação ordenada do CCI em grandes tabelas: 
+Criar um CCI ordenado é uma operação offline.  Para tabelas sem divisórias, os dados não serão acessíveis aos utilizadores até que o processo de criação de CCI ordenado esteja concluído.   Para as tabelas divididas, uma vez que o motor cria a partição CCI ordenada por partição, os utilizadores ainda podem aceder aos dados em divisórias onde a criação de CCI ordenada não está em processo.   Pode utilizar esta opção para minimizar o tempo de inatividade durante a criação ordenada do CCI em grandes tabelas: 
 
-1.    Crie divisórias na mesa grande alvo (chamada Table_A).
-2.    Crie uma mesa CCI ordenada vazia (chamada Table_B) com a mesma mesa e esquema de partição que a tabela A.
-3.    Mude uma divisória do quadro A para a tabela B.
-4.    Executar O índice alter <Ordered_CCI_Index>> on <Table_B> REBUILD PARTITION = <Partition_ID Partition_ID> no quadro B para reconstruir a divisória comutada.  
+1.    Criar divisórias na tabela de grandes alvos (chamada Table_A).
+2.    Crie uma mesa CCI vazia (chamada Table_B) com a mesma tabela e esquema de partição que a tabela A.
+3.    Mude uma divisória da tabela A para a tabela B.
+4.    Executar <Ordered_CCI_Index> DE ÍNDICE ALTER ON <Table_B> RECONSTRUIR PARTIÇÃO = <Partition_ID> na tabela B para reconstruir a partição comutado.  
 5.    Repita os passos 3 e 4 para cada partição em Table_A.
-6.    Uma vez que todas as divisórias são trocadas de Table_A para Table_B e foram reconstruídas, deixe Table_A e mude o nome Table_B para Table_A. 
+6.    Uma vez que todas as divisórias são mudadas de Table_A para Table_B e foram reconstruídas, deixe cair Table_A e mude o nome Table_B para Table_A. 
 
 ## <a name="examples"></a>Exemplos
 
-**A. Para verificar se há colunas ordenadas e ordem ordenada:**
+**A. Verificar se há colunas e encomendas ordinais encomendados:**
 
 ```sql
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
@@ -145,7 +145,7 @@ JOIN sys.columns c ON i.object_id = c.object_id AND c.column_id = i.column_id
 WHERE column_store_order_ordinal <>0
 ```
 
-**B. Alterar a coluna de colunas, adicionar ou remover colunas da lista de encomendas ou mudar do CCI para o CCI ordenado:**
+**B. Alterar coluna ordinal, adicionar ou remover colunas da lista de encomendas ou alterar de CCI para CCI ordenado:**
 
 ```sql
 CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales
@@ -153,6 +153,6 @@ ORDER (ProductKey, SalesAmount)
 WITH (DROP_EXISTING = ON)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter mais dicas de desenvolvimento, consulte a [visão geral do desenvolvimento.](sql-data-warehouse-overview-develop.md)
+Para obter mais dicas de desenvolvimento, consulte [a visão geral do desenvolvimento.](sql-data-warehouse-overview-develop.md)

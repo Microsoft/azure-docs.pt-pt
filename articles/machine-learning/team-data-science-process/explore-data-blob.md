@@ -1,6 +1,6 @@
 ---
-title: Explore dados no armazenamento de blob Azure com pandas - Team Data Science Process
-description: Como explorar dados que são armazenados em recipiente de blob Azure usando o pacote pandas Python.
+title: Explore os dados no armazenamento de blob Azure com pandas - Processo de Ciência de Dados de Equipa
+description: Como explorar dados que são armazenados no recipiente de bolhas Azure usando o pacote pandas Python.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,29 +11,29 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e429dce497411305964cb1ec5298228dc4093b1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5a0804ae5ee2dbffaa57fc967fda29701562ab44
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685960"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085706"
 ---
-# <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Explore dados no armazenamento de blob Azure com pandas
+# <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Explore os dados no armazenamento de bolhas Azure com pandas
 
-Este artigo abrange como explorar dados que são armazenados em recipiente de blob Azure usando o pacote [Pandas](https://pandas.pydata.org/) Python.
+Este artigo abrange como explorar dados que são armazenados no recipiente blob Azure usando o pacote [pandas](https://pandas.pydata.org/) Python.
 
-Esta tarefa é um passo no Processo de Ciência de Dados da [Equipa.](overview.md)
+Esta tarefa é um passo no [Processo de Ciência de Dados](overview.md)da Equipa.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo assume que tem:
 
 * Criei uma conta de armazenamento Azure. Se precisar de instruções, consulte [Criar uma conta de Armazenamento Azure](../../storage/common/storage-account-create.md)
-* Guardei os seus dados numa conta de armazenamento de blob Azure. Se precisar de instruções, consulte [os dados em movimento de e para o Armazenamento Azure](../../storage/common/storage-moving-data.md)
+* Guarde os seus dados numa conta de armazenamento de blob Azure. Se precisar de instruções, consulte [a mudança de dados de e para o Armazenamento Azure](../../storage/common/storage-moving-data.md)
 
-## <a name="load-the-data-into-a-pandas-dataframe"></a>Carregue os dados num DataFrame pandas
-Para explorar e manipular um conjunto de dados, deve primeiro ser descarregado da fonte blob para um ficheiro local, que pode ser carregado num DataFrame pandas. Aqui estão os passos a seguir para este procedimento:
+## <a name="load-the-data-into-a-pandas-dataframe"></a>Carregue os dados num DataFrame de pandas
+Para explorar e manipular um conjunto de dados, deve primeiro ser descarregado da fonte blob para um ficheiro local, que pode ser carregado num DataFrame de pandas. Aqui estão os passos a seguir para este procedimento:
 
-1. Descarregue os dados da blob Azure com a seguinte amostra de código Python utilizando o serviço Blob. Substitua a variável no seguinte código com os seus valores específicos:
+1. Descarregue os dados da blob Azure com a seguinte amostra de código Python utilizando o serviço Blob. Substitua a variável no seguinte código pelos seus valores específicos:
 
     ```python
     from azure.storage.blob import BlockBlobService
@@ -51,7 +51,7 @@ Para explorar e manipular um conjunto de dados, deve primeiro ser descarregado d
     blob_service=BlockBlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
     blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
     t2=time.time()
-    print(("It takes %s seconds to download "+blobname) % (t2 - t1))
+    print(("It takes %s seconds to download "+BLOBNAME) % (t2 - t1))
     ```
 
 1. Leia os dados num DataFrame pandas a partir do ficheiro descarregado.
@@ -72,7 +72,7 @@ Aqui estão alguns exemplos de formas de explorar dados usando pandas:
     print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
     ```
 
-1. **Inspecione** as primeiras ou **últimas linhas** no conjunto de dados seguinte:
+1. **Inspecione** as primeiras ou **últimas linhas** no seguinte conjunto de dados:
 
     ```python
     dataframe_blobdata.head(10)
@@ -80,7 +80,7 @@ Aqui estão alguns exemplos de formas de explorar dados usando pandas:
     dataframe_blobdata.tail(10)
     ```
 
-1. Verifique o tipo de **dados de** cada coluna importada como utilizando o seguinte código de amostra
+1. Verifique se o **tipo de dados** de cada coluna foi importado como utilizando o seguinte código de amostra
 
     ```python
     for col in dataframe_blobdata.columns:
@@ -99,28 +99,28 @@ Aqui estão alguns exemplos de formas de explorar dados usando pandas:
     dataframe_blobdata['<column_name>'].value_counts()
     ```
 
-1. **Contar valores em falta** contra o número real de entradas em cada coluna utilizando o seguinte código de amostra
+1. **Conte os valores** em falta contra o número real de entradas em cada coluna utilizando o seguinte código de amostra
 
     ```python
     miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
     print miss_num
     ```
 
-1. Se tiver **valores em falta** para uma coluna específica nos dados, pode deixá-los cair da seguinte forma:
+1. Se tiver **valores em falta** para uma coluna específica nos dados, pode larhá-los da seguinte forma:
 
     ```python
     dataframe_blobdata_noNA = dataframe_blobdata.dropna()
     dataframe_blobdata_noNA.shape
     ```
 
-    Outra forma de substituir os valores em falta é a função de modo:
+    Outra forma de substituir os valores em falta é com a função de modo:
 
     ```python
     dataframe_blobdata_mode = dataframe_blobdata.fillna(
         {'<column_name>': dataframe_blobdata['<column_name>'].mode()[0]})
     ```
 
-1. Criar um enredo **histograma** usando o número variável de caixotes para traçar a distribuição de uma variável
+1. Crie um lote **de histograma** usando o número variável de caixotes para traçar a distribuição de uma variável
 
     ```python
     dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
@@ -128,7 +128,7 @@ Aqui estão alguns exemplos de formas de explorar dados usando pandas:
     np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
     ```
 
-1. Veja **as correlações** entre variáveis usando uma trama de dispersão ou usando a função de correlação incorporada
+1. Veja **as correlações** entre variáveis usando uma dispersão ou usando a função de correlação incorporada
 
     ```python
     # relationship between column_a and column_b using scatter plot

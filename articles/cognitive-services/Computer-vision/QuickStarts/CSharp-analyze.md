@@ -11,35 +11,37 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ed003e83d8343d2da0f1b11c6d82581b76d3168d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1ece80ce5337304d1b0d51e5e334cd64cc133619
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83679889"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84984411"
 ---
-# <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-c"></a>Quickstart: Analise uma imagem local utilizando a API e C de Visão Computacional #
+# <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-c"></a>Quickstart: Analise uma imagem local utilizando a API e C de Visão De Computador #
 
-Neste arranque rápido, irá analisar uma imagem armazenada localmente para extrair funcionalidades visuais utilizando a API DO REST da Visão Computacional. Com o método [De análise de imagem,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) pode extrair informações de recurso visual a partir de conteúdos de imagem.
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+Neste arranque rápido, irá analisar uma imagem armazenada localmente para extrair funcionalidades visuais utilizando a API de Visão de Computador. Com o método [Analisar imagem,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) pode extrair informações de recursos visuais a partir do conteúdo da imagem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Tem de ter o [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) ou posterior.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e corda final de serviço, nomeada `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
+* Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Você deve ter [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) ou mais tarde
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" crie um recurso de Visão de Computador crie um recurso de "  target="_blank"> Visão De Computador no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+    * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação ao serviço de Visão De Computador. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
+    * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
+* [Crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o URL chave e ponto final, nomeado `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
 
 ## <a name="create-and-run-the-sample-application"></a>Criar e executar a aplicação de exemplo
 
 Para criar o exemplo no Visual Studio, siga os seguintes passos:
 
-1. Crie uma nova solução/projeto visual studio no Estúdio Visual, utilizando o modelo de Aplicação de Consola Visual C# (.NET Core Framework).
+1. Crie uma nova solução/projeto visual Studio em Visual Studio, utilizando o modelo visual C# Console App (.NET Core Framework).
 1. Instale o pacote NuGet Newtonsoft.Json.
     1. No menu, clique em **Ferramentas**, selecione **Gestor de Pacotes NuGet** e, em seguida, **Gerir Pacotes NuGet para Solução**.
-    1. Clique no separador **Browse** e no tipo de caixa **de pesquisa** "Newtonsoft.Json" (se ainda não estiver apresentado).
-    1. Selecione **Newtonsoft.Json,** em seguida, clique na caixa de verificação ao lado do nome do seu projeto e **instale**.
-1. Copie/cole o snippet do código da amostra abaixo, no seu ficheiro Program.cs. Ajuste o nome do espaço de nome se for diferente daquele que criou.
-1. Adicione uma imagem da sua escolha à sua pasta bin/debug/netcoreappX.X e, em seguida, adicione o nome de imagem (com extensão) à variável 'imageFilePath'.
+    1. Clique no separador **Procurar** e no tipo de caixa **de busca** "Newtonsoft.Jsligado" (se ainda não estiver visualizado).
+    1. Selecione **Newtonsoft.Js, em**seguida, clique na caixa de verificação ao lado do nome do seu projeto e **instale**.
+1. Copiar/colar o corte do código de amostra abaixo, no seu ficheiro Program.cs. Ajuste o nome do espaço de nome se for diferente daquele que criou.
+1. Adicione uma imagem à sua escolha na pasta bin/debug/netcoreappX.X e, em seguida, adicione o nome de imagem (com extensão) à variável 'imageFilePath'.
 1. Execute o programa.
 
 ```csharp
@@ -231,9 +233,9 @@ Uma resposta bem sucedida é devolvida em JSON (com base na sua própria imagem 
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Explore uma aplicação básica do Windows que utilize a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem.
 
 > [!div class="nextstepaction"]
-> [Tutorial api API C# da Visão Computacional](../Tutorials/CSharpTutorial.md)
+> [Tutorial de Visão Computacional API C#](../Tutorials/CSharpTutorial.md)

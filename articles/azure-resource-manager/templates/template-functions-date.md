@@ -2,17 +2,17 @@
 title: Funções do modelo - data
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para trabalhar com datas.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 0c31b26361a262a502b2a9e0fb068391846cab4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/22/2020
+ms.openlocfilehash: abdc88ce15279b90f8f9dc05a38a2ae236498f12
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192302"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058049"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funções de data para modelos ARM
 
-O Gestor de Recursos fornece as seguintes funções para trabalhar com datas nos seus modelos de Gestor de Recursos Azure (ARM):
+O Gestor de Recursos fornece as seguintes funções para trabalhar com datas nos seus modelos Azure Resource Manager (ARM):
 
 * [dataTimeAdd](#datetimeadd)
 * [utcNow](#utcnow)
@@ -27,17 +27,17 @@ Adiciona uma duração de tempo a um valor base. Espera-se o formato ISO 8601.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| base | Sim | string | O valor da data de início para a adição. Utilize o formato de carimbo de [tempo ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
-| duration | Sim | string | O valor do tempo para adicionar à base. Pode ser um valor negativo. Utilize o formato de [duração ISO 8601.](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
-| formato | Não | string | O formato de saída para o resultado da hora da data. Se não for fornecido, é utilizado o formato do valor base. Utilize cordas de [formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cordas de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| base | Sim | string | O valor da data inicial para a adição. Utilize [o formato iso 8601 timetamp](https://en.wikipedia.org/wiki/ISO_8601). |
+| duration | Sim | string | O valor do tempo a adicionar à base. Pode ser um valor negativo. Utilize [o formato de duração ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
+| formato | Não | string | O formato de saída para o resultado da hora da data. Se não for fornecido, o formato do valor base é utilizado. Utilize [cordas de formato padrão](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cordas de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="return-value"></a>Valor devolvido
 
-O valor da data que resulta da adição do valor de duração ao valor base.
+O valor da data que resulta da adição do valor da duração ao valor base.
 
 ### <a name="examples"></a>Exemplos
 
-O modelo de exemplo seguinte mostra diferentes formas de adicionar valores de tempo.
+O modelo de exemplo a seguir mostra diferentes formas de adicionar valores de tempo.
 
 ```json
 {
@@ -72,15 +72,15 @@ O modelo de exemplo seguinte mostra diferentes formas de adicionar valores de te
 }
 ```
 
-Quando o modelo anterior é implantado com `2020-04-07 14:53:14Z`um tempo base de, a saída é:
+Quando o modelo anterior é implantado com um tempo de base `2020-04-07 14:53:14Z` de, a saída é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| adicionar3Anos | String | 4/7/2023 14:53:14 |
-| subtract9Days | String | 3/29/2020 14:53:14 |
-| adicionar1Hora | String | 4/7/2020 15:53:14 |
+| add3Years | String | 4/7/2023 14:53:14 |
+| subtrair9Days | String | 3/29/2020 14:53:14 |
+| add1Hour | String | 4/7/2020 15:53:14 |
 
-O modelo de exemplo seguinte mostra como definir a hora de início para um horário de Automação.
+O modelo de exemplo seguinte mostra como definir a hora de início para um horário de automação.
 
 ```json
 {
@@ -138,21 +138,21 @@ O modelo de exemplo seguinte mostra como definir a hora de início para um horá
 
 `utcNow(format)`
 
-Devolve o valor atual da data (UTC) no formato especificado. Se não for fornecido qualquer formato, é utilizado o formato ISO 8601 (yyyMMddTHHmmssZ). **Esta função só pode ser utilizada no valor predefinido para um parâmetro.**
+Devolve o valor atual (UTC) da data no formato especificado. Se não for fornecido nenhum formato, o formato ISO 8601 (yyyMddTHHmmssZ) é utilizado. **Esta função só pode ser utilizada no valor predefinido para um parâmetro.**
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| formato |Não |string |O URI codificado valor para converter-se em uma corda. Utilize cordas de [formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cordas de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| formato |Não |string |O valor codificado uri para converter-se a uma corda. Utilize [cordas de formato padrão](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cordas de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Observações
 
-Só pode utilizar esta função dentro de uma expressão para o valor padrão de um parâmetro. A utilização desta função em qualquer outro lugar de um modelo devolve um erro. A função não é permitida noutras partes do modelo porque devolve um valor diferente cada vez que é chamada. A implantação do mesmo modelo com os mesmos parâmetros não produziria os mesmos resultados.
+Só pode utilizar esta função dentro de uma expressão para o valor predefinido de um parâmetro. A utilização desta função em qualquer outro lugar de um modelo retorna um erro. A função não é permitida noutras partes do modelo porque devolve um valor diferente cada vez que é chamado. A implantação do mesmo modelo com os mesmos parâmetros não produziria de forma fiável os mesmos resultados.
 
-Se utilizar a [opção de reimplantar uma implementação mais precoce](rollback-on-error.md)e a implementação anterior inclui um parâmetro que utiliza utcNow, o parâmetro não é reavaliado. Em vez disso, o valor do parâmetro da implementação anterior é automaticamente reutilizado na implementação de reversão.
+Se utilizar a [opção de reversão do erro](rollback-on-error.md) para uma implementação com sucesso anterior, e a implementação anterior inclui um parâmetro que utiliza utcNow, o parâmetro não é reavaliado. Em vez disso, o valor do parâmetro da implementação anterior é automaticamente reutilizado na implementação de reversão.
 
-Tenha cuidado ao recolocar um modelo que dependa da função utcNow para um valor predefinido. Quando reimplanta e não fornece um valor para o parâmetro, a função é reavaliada. Se quiser atualizar um recurso existente em vez de criar um novo, passe o valor do parâmetro a partir da implementação anterior.
+Tenha cuidado ao recolocar um modelo que dependa da função utcNow para um valor predefinido. Quando se recoloca e não fornece um valor para o parâmetro, a função é reavaliada. Se pretender atualizar um recurso existente em vez de criar um novo, passe o valor do parâmetro a partir da implementação anterior.
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -160,11 +160,11 @@ O valor atual da data utc.
 
 ### <a name="examples"></a>Exemplos
 
-O modelo de exemplo seguinte mostra diferentes formatos para o valor da data.
+O modelo de exemplo a seguir mostra diferentes formatos para o valor da hora da data.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "utcValue": {
@@ -201,13 +201,13 @@ O modelo de exemplo seguinte mostra diferentes formatos para o valor da data.
 
 A saída do exemplo anterior varia para cada implantação, mas será semelhante a:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
 | utcOutput | string | 20190305T175318Z |
 | utcShortOutput | string | 03/05/2019 |
 | utcCustomOutput | string | 3 5 |
 
-O exemplo seguinte mostra como usar um valor a partir da função ao definir um valor de etiqueta.
+O exemplo seguinte mostra como utilizar um valor da função ao definir um valor de etiqueta.
 
 ```json
 {
@@ -243,6 +243,6 @@ O exemplo seguinte mostra como usar um valor a partir da função ao definir um 
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [Compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
+* Para obter uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).

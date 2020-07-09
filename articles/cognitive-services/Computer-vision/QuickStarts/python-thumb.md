@@ -10,24 +10,26 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 05/20/2020
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: 38fb7f3b0f2d85762161c384f4e5564078c9a63c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 968f9f1d658e79fb5213355358b91e98c353b07f
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745183"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84985696"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-python"></a>Quickstart: Gere uma miniatura utilizando a API e Python de Visão Computacional
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-python"></a>Quickstart: Gere uma miniatura utilizando a API e a Python da Visão Computacional
 
-Neste arranque rápido, você gerará uma miniatura a partir de uma imagem usando a API DE DESCANSO DE Visão Computacional. Com o método [Get Miniatura,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f20c) pode especificar a altura e largura desejadas, e a Computer Vision utiliza uma colheita inteligente para identificar inteligentemente a área de interesse e gerar coordenadas de cultura com base nessa região.
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/try/cognitive-services/) antes de começar.
+Neste arranque rápido, gerará uma miniatura a partir de uma imagem utilizando a API de Visão de Computador. Com o método [Get Thumbnail,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f20c) pode especificar a altura e largura desejadas, e a Visão Computacional utiliza uma cultura inteligente para identificar inteligentemente a área de interesse e gerar coordenadas de corte com base nessa região.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e corda final de serviço, nomeada `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
-- Um editor de código como [Visual Studio Code.](https://code.visualstudio.com/download)
+* Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" crie um recurso de Visão de Computador crie um recurso de "  target="_blank"> Visão De Computador no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+    * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação ao serviço de Visão De Computador. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
+    * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
+* [Crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o URL chave e ponto final, nomeado `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
+- Um editor de códigos como [Visual Studio Code](https://code.visualstudio.com/download).
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
@@ -79,24 +81,24 @@ thumbnail.show()
 
 Em seguida, faça o seguinte:
 
-1. (Opcional) Substitua o valor do `image_url` URL da sua própria imagem.
+1. (Opcional) Substitua o valor de `image_url` por URL da sua própria imagem.
 1. Guarde o código como um ficheiro com a extensão `.py`. Por exemplo, `get-thumbnail.py`.
 1. Abra uma janela da linha de comandos.
 1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python get-thumbnail.py`.
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-Uma resposta bem sucedida é devolvida como dados binários que representam os dados de imagem para a miniatura. A amostra deve apresentar esta imagem. Se o pedido falhar, a resposta é apresentada na janela de solicitação de comando e deve conter um código de erro.
+Uma resposta bem sucedida é devolvida como dados binários que representam os dados de imagem para a miniatura. A amostra deve exibir esta imagem. Se o pedido falhar, a resposta é apresentada na janela de pedido de comando e deve conter um código de erro.
 
 ## <a name="run-in-jupyter-optional"></a>Correr em Jupyter (opcional)
 
-Você pode executar opcionalmente este quickstart em uma forma passo-a-passo usando um caderno Jupyter em [MyBinder](https://mybinder.org). Para iniciar o Binder, selecione o botão seguinte:
+Você pode opcionalmente executar este quickstart em uma moda passo a passo usando um caderno Jupyter em [MyBinder](https://mybinder.org). Para iniciar o Binder, selecione o botão seguinte:
 
-[![Aglutinante](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
+[![Encadernação](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Em seguida, explore uma aplicação Python que utiliza a Visão Computacional para realizar o reconhecimento ótico de caracteres (OCR); criar miniaturas de corte inteligente; e detetar, categorizar, etiquetar e descrever características visuais em imagens.
+Em seguida, explore uma aplicação Python que usa a Visão Computacional para realizar o reconhecimento de caracteres óticos (OCR); criar miniaturas cortadas inteligentemente; e detetar, categorizar, etiquetar e descrever características visuais em imagens.
 
 > [!div class="nextstepaction"]
 > [Tutorial do Python de API de Imagem Digitalizada](../Tutorials/PythonTutorial.md)

@@ -1,8 +1,8 @@
 ---
-title: 'Azure AD Connect: Single Sign-On sem emenda - Perguntas frequentes Microsoft Docs'
-description: Respostas a perguntas frequentes sobre o Azure Ative Directory Seamless Single Sign-On.
+title: 'Azure AD Connect: Seamless Single Sign-On - Perguntas frequentes Microsoft Docs'
+description: Respostas a perguntas frequentes sobre O Diretório Ativo sem emenda sem emenda.
 services: active-directory
-keywords: o que é Azure AD Connect, instalar Diretório Ativo, componentes necessários para Azure AD, SSO, Sign-on Único
+keywords: o que é Azure AD Connect, instalar Ative Directory, componentes necessários para Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -11,145 +11,145 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: feea0266b3a724f3d85944073a47e260277cc362
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 674befe7d01d0ef88026afeb2cb9179b167a88ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860023"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357941"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Ative Directory Seamless Single Sign-On: Perguntas frequentes
 
-Neste artigo, abordamos frequentemente perguntas sobre o Azure Ative Directory Seamless Single Sign-On (Seamless SSO). Continua a verificar se há novos conteúdos.
+Neste artigo, abordamos perguntas frequentes sobre O Diretório Ativo Sem Emenda Sem Emenda (SSO sem emenda). Continua a verificar se há novos conteúdos.
 
-**P: Quais os métodos de inscrição que o SSO sem emenda funciona**
+**Q: Que métodos de inscrição funcionam sem emenda SSO com**
 
-O SSO sem emenda pode ser combinado com a Sincronização de [Hash password](how-to-connect-password-hash-synchronization.md) ou com os métodos de inscrição de [autenticação pass-through.](how-to-connect-pta.md) No entanto, esta funcionalidade não pode ser utilizada com serviços da Federação de Diretórios Ativos (ADFS).
+O SSO sem emenda pode ser combinado com os métodos de [sincronização de hash de palavra-passe](how-to-connect-password-hash-synchronization.md) ou com os métodos [de autenticação pass-through.](how-to-connect-pta.md) No entanto, esta funcionalidade não pode ser utilizada com serviços da Federação de Diretórios Ativos (ADFS).
 
-**P: O SSO SSO sem emenda é uma funcionalidade gratuita?**
+**P: Seamless SSO é uma funcionalidade gratuita?**
 
-O SSO Sso sem emenda é uma funcionalidade gratuita e não é preciso edições pagas do Azure AD para o utilizar.
+Seamless SSO é uma funcionalidade gratuita e você não precisa de edições pagas de Azure AD para usá-lo.
 
-**P: O SSO Sso sem emenda está disponível na nuvem da [Microsoft Azure Germany](https://www.microsoft.de/cloud-deutschland) e na [nuvem do Governo Microsoft Azure?](https://azure.microsoft.com/features/gov/)**
+**P: O SSO sem emenda está disponível na nuvem do [Microsoft Azure Germany](https://www.microsoft.de/cloud-deutschland) e na nuvem do [Governo Microsoft Azure](https://azure.microsoft.com/features/gov/)?**
 
-O SSO sem emenda está disponível para a nuvem do Governo Azure. Para mais detalhes, consulte considerações de [identidade híbrida para o Governo azure.](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud)
+O SSO sem emenda está disponível para a nuvem do Governo Azure. Para mais detalhes, consulte [As Considerações de Identidade Híbrida para o Governo Azure](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud).
 
-**P: Que aplicações aproveitam `domain_hint` ou capacidade de parâmetro do `login_hint` SSO SSO sem emenda?**
+**P: Que aplicações tiram partido ou capacidade de `domain_hint` `login_hint` parâmetro de SSO sem emenda?**
 
-Listado abaixo é uma lista não exaustiva de aplicações que podem enviar estes parâmetros para a AD Azure, e por isso fornece aos utilizadores uma experiência de inscrição silenciosa usando SSO sem emenda (isto é, não há necessidade de os seus utilizadores instarem os seus nomes de utilizador ou palavras-passe):
+Listado abaixo está uma lista não exaustiva de aplicações que podem enviar estes parâmetros para Azure AD, e, portanto, fornece aos utilizadores uma experiência de s-on silenciosa usando SSO sem emenda (ou seja, não há necessidade de os seus utilizadores inserirem os seus nomes de utilizador ou palavras-passe):
 
-| Nome da aplicação | URL de aplicação a ser usado |
+| Nome da aplicação | URL de aplicação a utilizar |
 | -- | -- |
 | Painel de acesso | https: \/ /myapps.microsoft.com/contoso.com |
-| Outlook na Web | https: \/ /outlook.office365.com/contoso.com |
-| Escritório 365 portais | https: \/ /portal.office.com?domain_hint=contoso.com, https: \/ /www.office.com?domain_hint=contoso.com |
+| Perspetivas na Web | https: \/ /outlook.office365.com/contoso.com |
+| Portais do Office 365 | https: \/ /portal.office.com?domain_hint=contoso.com, https: \/ /www.office.com?domain_hint=contoso.com |
 
-Além disso, os utilizadores obtêm uma experiência de inscrição silenciosa se uma aplicação enviar pedidos de inscrição para os pontos finais da Azure AD configurados como inquilinos - isto é, https: \/ https: /login.microsoftonline.com/contoso.com/<..> ou https: \/ /login.microsoftonline.com/<tenant_ID>/<.. > - em vez do ponto final comum da Azure AD - isto é, https: \/ /login.microsoftonline.com/common/<...>. Na lista abaixo está uma lista não exaustiva de aplicações que fazem este tipo de pedidos de inscrição.
+Além disso, os utilizadores obtêm uma experiência de inscrição silenciosa se uma aplicação enviar pedidos de inscrição para os pontos finais da Azure AD configurados como inquilinos - isto é, https: \/ /login.microsoftonline.com/contoso.com/<..> ou https: \/ /login.microsoftonline.com/<tenant_ID>/<.. > - em vez do ponto final comum da AD AD - isto é, https: \/ /login.microsoftonline.com/common/<...>. Listado abaixo está uma lista não exaustiva de aplicações que fazem este tipo de pedidos de inscrição.
 
-| Nome da aplicação | URL de aplicação a ser usado |
+| Nome da aplicação | URL de aplicação a utilizar |
 | -- | -- |
 | SharePoint Online | https: \/ /contoso.sharepoint.com |
 | Portal do Azure | https: \/ /portal.azure.com/contoso.com |
 
-Nas tabelas acima, substitua "contoso.com" pelo seu nome de domínio para chegar aos URLs de aplicação certos para o seu inquilino.
+Nas tabelas acima, substitua o "contoso.com" pelo seu nome de domínio para chegar aos URLs de aplicação certos para o seu inquilino.
 
 Se quiser outras aplicações utilizando a nossa experiência de inscrição silenciosa, informe-nos na secção de feedback.
 
-**P: O SSO SSO sem emenda suporta `Alternate ID` como nome de utilizador, em vez de `userPrincipalName` ?**
+**P: O SSO sem emenda suporta `Alternate ID` como nome de utilizador, em vez de `userPrincipalName` ?**
 
-Sim. SSO sem emenda suporta `Alternate ID` como nome de utilizador quando configurado no Azure AD Connect, como mostrado [aqui](how-to-connect-install-custom.md). Nem todos os suportes de candidaturas do Office `Alternate ID` 365. Consulte a documentação da aplicação específica para a declaração de suporte.
+Sim. O SSO sem emenda suporta `Alternate ID` como nome de utilizador quando configurado no Azure AD Connect como mostrado [aqui](how-to-connect-install-custom.md). Nem todos os pedidos do Office 365 suportam `Alternate ID` . Consulte a documentação específica do pedido para a declaração de apoio.
 
-**P: Qual é a diferença entre a única experiência de inscrição fornecida pela [Azure AD Join](../active-directory-azureadjoin-overview.md) e SSO SSO sem emenda?**
+**P: Qual é a diferença entre a experiência de inscrição única fornecida pela [Azure AD Join](../active-directory-azureadjoin-overview.md) e pela Seamless SSO?**
 
-[O Azure AD Join](../active-directory-azureadjoin-overview.md) fornece SSO aos utilizadores se os seus dispositivos estiverem registados no Azure AD. Estes dispositivos não têm necessariamente de ser unidos pelo domínio. O SSO é fornecido usando *fichas de refrescamento primários* ou *PRTs,* e não Kerberos. A experiência do utilizador é a mais ideal nos dispositivos Windows 10. O SSO acontece automaticamente no navegador Microsoft Edge. Também funciona no Chrome com a utilização de uma extensão de navegador.
+[O Azure AD Join](../active-directory-azureadjoin-overview.md) fornece SSO aos utilizadores se os seus dispositivos estiverem registados no Azure AD. Estes dispositivos não têm necessariamente de ser unidos pelo domínio. SSO é fornecido usando *tokens* de atualização primária ou *PRTs*, e não Kerberos. A experiência do utilizador é ideal em dispositivos Windows 10. SSO acontece automaticamente no navegador Microsoft Edge. Também funciona no Chrome com o uso de uma extensão de navegador.
 
-Você pode usar tanto Azure AD Join e Seamless SSO no seu inquilino. Estas duas características são complementares. Se ambas as funcionalidades forem ligadas, então o SSO do Azure AD Join tem precedência sobre o SSO SSO sem emenda.
+Você pode usar tanto Azure AD Join como Seamless SSO no seu inquilino. Estas duas características são complementares. Se ambas as funcionalidades estiverem ligadas, então o SSO da Azure AD Join tem precedência sobre o SSO sem emenda.
 
-**P: Quero registar dispositivos não Windows 10 com AD Azure, sem utilizar AD FS. Posso usar SSO SSO sem emenda?**
+**P: Quero registar dispositivos não-Windows 10 com Azure AD, sem utilizar O FS AD. Posso usar sSO sem emenda em vez disso?**
 
-Sim, este cenário precisa da versão 2.1 ou posterior do [cliente de adesão ao local de trabalho.](https://www.microsoft.com/download/details.aspx?id=53554)
+Sim, este cenário precisa da versão 2.1 ou posterior do cliente de junção ao [local de trabalho.](https://www.microsoft.com/download/details.aspx?id=53554)
 
 **P: Como posso passar a chave de desencriptação kerberos da conta do `AZUREADSSO` computador?**
 
-É importante rolar frequentemente sobre a chave de desencriptação Kerberos da conta de computador (que representa a `AZUREADSSO` AD Azure) criada na sua floresta ad-local.
+É importante rolar frequentemente sobre a chave de desencriptação Kerberos da `AZUREADSSO` conta do computador (que representa Azure AD) criada na sua floresta de AD no local.
 
 >[!IMPORTANT]
->Recomendamos vivamente que revire a chave de desencriptação Kerberos pelo menos a cada 30 dias.
+>Recomendamos vivamente que rebolar a chave de desencriptação Kerberos pelo menos a cada 30 dias.
 
-Siga estes passos no servidor no local onde está a executar o Azure AD Connect:
+Siga estes passos no servidor no local onde está a executar Azure AD Connect:
 
-   **Passo 1. Obtenha a lista de florestas aD onde o SSO Sem Emenda foi ativado**
+   **Passo 1. Obtenha a lista de florestas de AD onde o SSO sem emenda foi ativado**
 
-   1. Primeiro, descarregue e [instale o Azure AD PowerShell.](https://docs.microsoft.com/powershell/azure/active-directory/overview)
+   1. Primeiro, faça o download e instale [o Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
    2. Navegue para a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
-   3. Importar o módulo SSO PowerShell sem emenda utilizando este comando: `Import-Module .\AzureADSSO.psd1` .
-   4. Executar powerShell como administrador. Na PowerShell, `New-AzureADSSOAuthenticationContext` ligue. Este comando deve dar-lhe um popup para inserir as credenciais do Administrador Global do seu inquilino.
-   5. `Get-AzureADSSOStatus | ConvertFrom-Json`Ligue. Este comando fornece-lhe a lista de florestas aD (veja a lista de "Domínios") em que esta funcionalidade foi ativada.
+   3. Importar o módulo SSO PowerShell sem costura utilizando este comando: `Import-Module .\AzureADSSO.psd1` .
+   4. Executar PowerShell como administrador. Em PowerShell, `New-AzureADSSOAuthenticationContext` ligue. Este comando deve dar-lhe um pop-up para inserir as credenciais de Administrador Global do seu inquilino.
+   5. `Get-AzureADSSOStatus | ConvertFrom-Json`Ligue. Este comando fornece-lhe a lista de florestas de AD (veja a lista de "Domínios") nas quais esta funcionalidade foi ativada.
 
-   **Passo 2. Atualizar a chave de desencriptação Kerberos em cada floresta aD em que foi configurado em**
+   **Passo 2. Atualize a chave de desencriptação Kerberos em cada floresta AD em que foi configurado em**
 
-   1. `$creds = Get-Credential`Ligue. Quando solicitado, introduza as credenciais do Administrador de Domínio para a floresta AD pretendida.
+   1. `$creds = Get-Credential`Ligue. Quando solicitado, insira as credenciais do Administrador de Domínio para a floresta AD pretendida.
 
    > [!NOTE]
-   >As credenciais de utilizador do administrador de domínio devem ser inseridas no formato de nome da conta SAM (contoso\johndoe ou contoso.com\johndoe). Utilizamos a parte de domínio do nome de utilizador para localizar o Controlador de Domínio do Administrador de Domínio utilizando DNS.
+   >O nome de utilizador de credenciais de administrador de domínio deve ser inserido no formato nome da conta SAM (contoso\johndoe ou contoso.com\johndoe). Utilizamos a parte de domínio do nome de utilizador para localizar o Controlador de Domínio do Administrador de Domínio utilizando DNS.
 
    >[!NOTE]
-   >A conta de administrador de domínio utilizada não deve ser membro do grupo Utilizadores Protegidos. Em caso afirmativo, a operação falhará.
+   >A conta de administrador de domínio utilizada não deve ser membro do grupo de Utilizadores Protegidos. Em caso afirmativo, a operação falhará.
 
-   2. `Update-AzureADSSOForest -OnPremCredentials $creds`Ligue. Este comando atualiza a chave de desencriptação Kerberos para a `AZUREADSSO` conta de computador nesta floresta ad específica e atualiza-a em Azure AD.
-   3. Repita os passos anteriores para cada floresta aD em que configuraste a funcionalidade.
+   2. `Update-AzureADSSOForest -OnPremCredentials $creds`Ligue. Este comando atualiza a chave de desencriptação Kerberos para a `AZUREADSSO` conta do computador nesta floresta específica de AD e atualiza-a em Azure AD.
+   3. Repita os passos anteriores para cada floresta AD em que configurar a funcionalidade.
 
    >[!IMPORTANT]
-   >Certifique-se de que _não_ dirige o `Update-AzureADSSOForest` comando mais de uma vez. Caso contrário, a funcionalidade deixa de funcionar até ao momento em que os bilhetes kerberos dos seus utilizadores expiram e são reemitidos pelo seu Diretório Ativo no local.
+   >Certifique-se de que _não_ dirige o comando mais de `Update-AzureADSSOForest` uma vez. Caso contrário, a funcionalidade deixa de funcionar até ao momento em que os bilhetes Kerberos dos seus utilizadores expiram e são reemitidos pelo seu Ative Directory no local.
 
 **P: Como posso desativar o SSO sem emenda?**
 
-   **Passo 1. Desative a funcionalidade no seu inquilino**
+   **Passo 1. Desativar a funcionalidade no seu inquilino**
 
-   **Opção A: Desative utilizando a Ligação AD Azure**
+   **Opção A: Desativar usando Azure AD Connect**
     
-   1. Executar O Azure AD Connect, escolha alterar a **página de entrada do utilizador** e clique em **Next**.
-   2. Desverifique o **sinal único enable na** opção. Continue através do feiticeiro.
+   1. Executar Azure AD Connect, escolher **Alterar página de súmis do utilizador** e clicar em **Seguinte**.
+   2. Desmarque o **sinal único de ativação na** opção. Continue através do assistente.
 
-   Depois de completar o assistente, o SSO SSO sem emenda será desativado no seu inquilino. No entanto, verá uma mensagem no ecrã que diz o seguinte:
+   Após completar o assistente, o Seamless SSO será desativado no seu inquilino. No entanto, verá uma mensagem no ecrã que diz o seguinte:
 
-   "O único sinal está agora desativado, mas existem passos manuais adicionais a executar para completar a limpeza. Saiba mais"
+   "O único sinal de sação está agora desativado, mas existem passos manuais adicionais a serem cumpridos para completar a limpeza. Saiba mais"
 
-   Para completar o processo de limpeza, siga os passos 2 e 3 no servidor no local onde está a executar o Azure AD Connect.
+   Para completar o processo de limpeza, siga os passos 2 e 3 no servidor no local onde está a executar O AZure AD Connect.
 
-   **Opção B: Desative utilizando powerShell**
+   **Opção B: Desativar usando o PowerShell**
 
-   Faça os seguintes passos no servidor no local onde está a executar o Azure AD Connect:
+   Execute os seguintes passos no servidor no local onde está a executar Azure AD Connect:
 
-   1. Primeiro, descarregue e [instale o Azure AD PowerShell.](https://docs.microsoft.com/powershell/azure/active-directory/overview)
+   1. Primeiro, faça o download e instale [o Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
    2. Navegue para a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
-   3. Importar o módulo SSO PowerShell sem emenda utilizando este comando: `Import-Module .\AzureADSSO.psd1` .
-   4. Executar powerShell como administrador. Na PowerShell, `New-AzureADSSOAuthenticationContext` ligue. Este comando deve dar-lhe um popup para inserir as credenciais do Administrador Global do seu inquilino.
+   3. Importar o módulo SSO PowerShell sem costura utilizando este comando: `Import-Module .\AzureADSSO.psd1` .
+   4. Executar PowerShell como administrador. Em PowerShell, `New-AzureADSSOAuthenticationContext` ligue. Este comando deve dar-lhe um pop-up para inserir as credenciais de Administrador Global do seu inquilino.
    5. `Enable-AzureADSSO -Enable $false`Ligue.
 
    >[!IMPORTANT]
-   >Desativar o SSO sem emenda utilizando o PowerShell não mudará o estado no Azure AD Connect. O SSO sem emenda mostrará como está ativado na página **de sessão de sessão** do utilizador Change.
+   >Desativar o SSO sem emenda usando o PowerShell não mudará o estado no Azure AD Connect. O SSO sem emenda mostrará como ativado na página **de insusição** do utilizador Change.
 
-   **Passo 2. Obtenha a lista de florestas aD onde o SSO Sem Emenda foi ativado**
+   **Passo 2. Obtenha a lista de florestas de AD onde o SSO sem emenda foi ativado**
 
-   Siga as tarefas 1 a 4 abaixo se tiver desativado o SSO SSO sem emenda utilizando o Azure AD Connect. Se tiver desativado o SSO sem emenda utilizando o PowerShell, salte para a tarefa 5 abaixo.
+   Siga as tarefas 1 a 4 abaixo se tiver desativado o Seamless SSO utilizando o Azure AD Connect. Se tiver desativado o Seamless SSO utilizando o PowerShell, avance para a tarefa 5 abaixo.
 
-   1. Primeiro, descarregue e [instale o Azure AD PowerShell.](https://docs.microsoft.com/powershell/azure/active-directory/overview)
+   1. Primeiro, faça o download e instale [o Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
    2. Navegue para a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
-   3. Importar o módulo SSO PowerShell sem emenda utilizando este comando: `Import-Module .\AzureADSSO.psd1` .
-   4. Executar powerShell como administrador. Na PowerShell, `New-AzureADSSOAuthenticationContext` ligue. Este comando deve dar-lhe um popup para inserir as credenciais do Administrador Global do seu inquilino.
-   5. `Get-AzureADSSOStatus | ConvertFrom-Json`Ligue. Este comando fornece-lhe a lista de florestas aD (veja a lista de "Domínios") em que esta funcionalidade foi ativada.
+   3. Importar o módulo SSO PowerShell sem costura utilizando este comando: `Import-Module .\AzureADSSO.psd1` .
+   4. Executar PowerShell como administrador. Em PowerShell, `New-AzureADSSOAuthenticationContext` ligue. Este comando deve dar-lhe um pop-up para inserir as credenciais de Administrador Global do seu inquilino.
+   5. `Get-AzureADSSOStatus | ConvertFrom-Json`Ligue. Este comando fornece-lhe a lista de florestas de AD (veja a lista de "Domínios") nas quais esta funcionalidade foi ativada.
 
-   **Passo 3. Elimine manualmente a `AZUREADSSO` conta de computador de cada floresta aD que vê listada.**
+   **Passo 3. Elimine manualmente a `AZUREADSSO` conta do computador de cada floresta AD que vê listada.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [**Quickstart**](how-to-connect-sso-quick-start.md) - Prepare-se e execute Azure AD Seamless SSO.
-- [**Mergulho Técnico Deep**](how-to-connect-sso-how-it-works.md) - Entenda como esta funcionalidade funciona.
-- [**Troubleshoot**](tshoot-connect-sso.md) - Aprenda a resolver problemas comuns com a funcionalidade.
+- [**Quickstart**](how-to-connect-sso-quick-start.md) - Levante-se e execute Azure AD Seamless SSO.
+- [**Mergulho Profundo Técnico**](how-to-connect-sso-how-it-works.md) - Entenda como funciona esta funcionalidade.
+- [**Resolução de problemas**](tshoot-connect-sso.md) - Aprenda a resolver problemas comuns com a funcionalidade.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - Para arquivar novos pedidos de funcionalidades.

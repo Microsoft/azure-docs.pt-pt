@@ -1,6 +1,6 @@
 ---
 title: Reagindo aos eventos da Azure Media Services Microsoft Docs
-description: Este artigo descreve como usar a Rede de Eventos Azure para subscrever eventos de Media Services.
+description: Este artigo descreve como usar a Azure Event Grid para subscrever eventos de Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,37 +12,36 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: juliako
 ms.openlocfilehash: e24bacb0ea7ab406442022915872fc77e9cc1a5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74887889"
 ---
 # <a name="handling-event-grid-events"></a>A processar eventos do Event Grid
 
-Os eventos dos Media Services permitem que as aplicações reajam a diferentes eventos (por exemplo, o evento de mudança de estado de emprego) utilizando arquiteturas modernas sem servidores. Fá-lo sem a necessidade de código sumo ou serviços de sondagens dispendiosos e ineficientes. Em vez disso, os eventos são empurrados através da Rede de [Eventos Azure](https://azure.microsoft.com/services/event-grid/) para manipuladores de eventos como [Funções Azure,](https://azure.microsoft.com/services/functions/) [Aplicações Lógicas Azure,](https://azure.microsoft.com/services/logic-apps/)ou até mesmo para o seu próprio Webhook, e você só paga pelo que você usa. Para obter informações sobre preços, consulte [os preços da Grelha de Eventos](https://azure.microsoft.com/pricing/details/event-grid/).
+Os eventos de Media Services permitem que as aplicações reajam a diferentes eventos (por exemplo, o evento de mudança de estado de trabalho) usando arquiteturas modernas sem servidor. Fá-lo sem a necessidade de um código complicado ou de serviços de sondagens dispendiosos e ineficientes. Em vez disso, os eventos são empurrados através [da Azure Event Grid](https://azure.microsoft.com/services/event-grid/) para manipuladores de eventos como [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), ou mesmo para o seu próprio Webhook, e você só paga pelo que você usa. Para obter informações sobre preços, consulte [os preços da Grade de Eventos.](https://azure.microsoft.com/pricing/details/event-grid/)
 
-A disponibilidade para eventos de Serviços de Media está ligada à [disponibilidade](../../event-grid/overview.md) da Rede de Eventos e ficará disponível noutras regiões, como faz a Event Grid.  
+A disponibilidade para eventos de Serviços de Mídia está ligada à [disponibilidade](../../event-grid/overview.md) da Grade de Eventos e ficará disponível noutras regiões, como faz a Grade de Eventos.  
 
-## <a name="media-services-events-and-schemas"></a>Eventos e schemas de Serviços de Media
+## <a name="media-services-events-and-schemas"></a>Eventos e esquemas de Serviços de Mídia
 
-A grelha do evento utiliza subscrições de [eventos](../../event-grid/concepts.md#event-subscriptions) para direcionar mensagens de eventos para assinantes. Os eventos dos Serviços de Media contêm todas as informações necessárias para responder a alterações nos seus dados. Pode identificar um evento de Media Services porque a propriedade eventType começa com "Microsoft.Media.".
+A grelha de eventos utiliza [subscrições de eventos](../../event-grid/concepts.md#event-subscriptions) para encaminhar mensagens de evento para assinantes. Os eventos dos Serviços de Comunicação Social contêm toda a informação necessária para responder às alterações nos seus dados. Pode identificar um evento de Media Services porque a propriedade eventType começa com "Microsoft.Media.".
 
-Para mais informações, consulte o [evento de Media Services.](media-services-event-schemas.md)
+Para mais informações, consulte [os esquemas de eventos dos Media Services.](media-services-event-schemas.md)
 
 ## <a name="practices-for-consuming-events"></a>Práticas para consumir eventos
 
-As aplicações que lidam com eventos de Serviços de Media devem seguir algumas práticas recomendadas:
+As aplicações que lidam com eventos de Serviços de Mídia devem seguir algumas práticas recomendadas:
 
-* Como várias subscrições podem ser configuradas para direcionar eventos para o mesmo manipulador de eventos, é importante não assumir que os eventos são de uma determinada fonte, mas para verificar o tópico da mensagem para garantir que vem da conta de armazenamento que você está esperando.
-* Da mesma forma, verifique se o eventoType é um que está preparado para processar, e não assuma que todos os eventos que receber serão os tipos que espera.
-* Ignore campos que não entende.  Esta prática ajudará a mantê-lo resiliente a novas funcionalidades que poderão ser adicionadas no futuro.
-* Utilize os fósforos de prefixo e sufixo "sujeito" para limitar os eventos a um determinado evento.
+* Como várias subscrições podem ser configuradas para encaminhar eventos para o mesmo manipulador de eventos, é importante não assumir que os eventos são de uma determinada fonte, mas para verificar o tópico da mensagem para garantir que ele vem da conta de armazenamento que você está esperando.
+* Da mesma forma, verifique se o eventType é aquele que está preparado para processar, e não assuma que todos os eventos que receber serão os tipos que espera.
+* Ignore campos que não entende.  Esta prática irá ajudá-lo a manter-se resiliente a novas funcionalidades que poderão ser adicionadas no futuro.
+* Utilize o prefixo "sujeito" e os jogos de sufixo para limitar os eventos a um determinado evento.
 
 > [!NOTE]
-> Os eventos estão sujeitos ao Acordo de Nível de Serviço da Grelha de Eventos [(SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/). Se quiser receber notificações de eventos utilizando APIs, consulte exemplos de como consumir eventos, com [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet) ou [Java SDK](https://github.com/Azure-Samples/media-services-v3-java).
+> Os eventos estão sujeitos ao Acordo de Nível de Serviço de Grelha de [Eventos (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/). Se pretender obter notificações de eventos utilizando APIs, consulte exemplos sobre como consumir eventos, com [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet) ou [Java SDK](https://github.com/Azure-Samples/media-services-v3-java).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Monitorizar eventos - portal](monitor-events-portal-how-to.md)
 * [Monitorizar eventos - CLI](job-state-events-cli-how-to.md)

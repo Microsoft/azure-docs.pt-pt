@@ -24,27 +24,6 @@
       items:
         - name: Desenvolver com o Helm
           href: quickstart-helm.md
-        - name: Espaços de Programador do Azure
-          expanded: true
-          items:
-            - name: Utilizar o Azure Dev Spaces para desenvolvimento em equipa
-              href: ../dev-spaces/quickstart-team-development.md
-              maintainContext: true
-            - name: Utilizar o Visual Studio Code
-              href: ../dev-spaces/quickstart-netcore.md
-              maintainContext: true
-            - name: Utilizar o Visual Studio
-              href: ../dev-spaces/quickstart-netcore-visualstudio.md
-              maintainContext: true
-            - name: Utilizar a CLI
-              href: ../dev-spaces/quickstart-cli.md
-              maintainContext: true
-            - name: Utilizar o Azure Dev Spaces com Java
-              href: ../dev-spaces/quickstart-java.md
-              maintainContext: true
-            - name: Utilizar o Node.js do Azure Dev Spaces
-              href: ../dev-spaces/quickstart-nodejs.md
-              maintainContext: true
 - name: Tutoriais
   items:
     - name: 1 - Preparar a aplicação para o AKS
@@ -116,7 +95,27 @@
     - name: Quotas e limites regionais
       href: quotas-skus-regions.md
     - name: Migrar para o AKS
-      href: aks-migration.md
+      items:
+        - name: Planear e executar uma migração
+          href: aks-migration.md
+        - name: Spring Boot
+          href: /azure/developer/java/migration/migrate-spring-boot-to-azure-kubernetes-service
+          maintainContext: false
+        - name: Tomcat
+          href: /azure/developer/java/migration/migrate-tomcat-to-containers-on-azure-kubernetes-service
+          maintainContext: false
+        - name: Wildfly
+          href: /azure/developer/java/migration/migrate-wildfly-to-wildfly-on-azure-kubernetes-service
+          maintainContext: false
+        - name: WebLogic
+          href: /azure/developer/java/migration/migrate-weblogic-to-wildfly-on-azure-kubernetes-service
+          maintainContext: false
+        - name: WebSphere
+          href: /azure/developer/java/migration/migrate-websphere-to-wildfly-on-azure-kubernetes-service
+          maintainContext: false
+        - name: JBoss EAP
+          href: /azure/developer/java/migration/migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service
+          maintainContext: false
     - name: Versão suportada do Kubernetes
       href: supported-kubernetes-versions.md
     - name: Proteção de Segurança no SO do anfitrião
@@ -133,6 +132,10 @@
           href: upgrade-cluster.md
         - name: Utilizar SLA de Tempo de Atividade
           href: uptime-sla.md
+        - name: Utilizar grupos de colocação por proximidade (pré-visualização)
+          href: reduce-latency-ppg.md
+        - name: Atualizar a imagem do nó (pré-visualização)
+          href: node-image-upgrade.md
         - name: Atualizações do sistema operacional do nó de processos
           href: node-updates-kured.md
         - name: Configurar um cluster do AKS
@@ -200,6 +203,9 @@
               href: http-application-routing.md
             - name: Usar a rede interna
               href: ingress-internal-ip.md
+            - name: Ativar o suplemento AGIC para um cluster AKS existente
+              href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
+              maintainContext: true
             - name: Utilizar o TLS com os seus próprios certificados
               href: ingress-own-tls.md
             - name: Usar o TLS com Let's Encrypt
@@ -222,6 +228,8 @@
           href: control-kubeconfig-access.md
         - name: Proteger o tráfego de pod com as políticas de rede
           href: use-network-policies.md
+        - name: Pods seguros com o Azure Policy (pré-visualização)
+          href: use-pod-security-on-azure-policy.md
         - name: Utilizar políticas de segurança de pod (pré-visualização)
           href: use-pod-security-policies.md
         - name: Definir os intervalos de IP autorizados por servidor de API
@@ -234,12 +242,12 @@
           href: limit-egress-traffic.md
         - name: Ativar a integração do Azure Active Directory
           items:
-            - name: Integrar o Azure AD (pré-visualização)
+            - name: AAD gerido pelo AKS (pré-visualização)
               href: managed-aad.md
             - name: Utilizar a CLI do Azure
               href: azure-ad-integration-cli.md
-            - name: Utilizar o portal do Azure
-              href: azure-ad-integration.md
+        - name: Utilizar o RBAC do Azure para Autorização do Kubernetes (pré-visualização)
+          href: manage-azure-rbac.md
         - name: Utilizar o RBAC do Kubernetes com a integração do Azure AD
           href: azure-ad-rbac.md
           maintainContext: true
@@ -279,54 +287,10 @@
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context'
     - name: Programar e executar aplicações
       items:
-        - name: Desenvolver com os Espaços de Programador
-          href: ../dev-spaces/azure-dev-spaces.md
-          maintainContext: true
-          items:
-            - name: Java (VS Code e CLI)
-              items:
-                - name: 1 - Introdução
-                  href: ../dev-spaces/get-started-java.md
-                  maintainContext: true
-                - name: 2 - Desenvolvimento de vários serviços
-                  href: ../dev-spaces/multi-service-java.md
-                  maintainContext: true
-                - name: 3 - Desenvolvimento em equipa
-                  href: ../dev-spaces/team-development-java.md
-                  maintainContext: true
-            - name: .NET Core (VS Code e CLI)
-              items:
-                - name: 1 - Introdução
-                  href: ../dev-spaces/get-started-netcore.md
-                  maintainContext: true
-                - name: 2 - Desenvolvimento de vários serviços
-                  href: ../dev-spaces/multi-service-netcore.md
-                  maintainContext: true
-                - name: 3 - Desenvolvimento em equipa
-                  href: ../dev-spaces/team-development-netcore.md
-                  maintainContext: true
-            - name: .NET Core (Visual Studio 2017)
-              items:
-                - name: 1 - Introdução
-                  href: ../dev-spaces/get-started-netcore-visualstudio.md
-                  maintainContext: true
-                - name: 2 - Desenvolvimento de vários serviços
-                  href: ../dev-spaces/multi-service-netcore-visualstudio.md
-                  maintainContext: true
-                - name: 3 - Desenvolvimento em equipa
-                  href: ../dev-spaces/team-development-netcore-visualstudio.md
-                  maintainContext: true
-            - name: Node.js (VS Code e CLI)
-              items:
-                - name: 1 - Introdução
-                  href: ../dev-spaces/get-started-nodejs.md
-                  maintainContext: true
-                - name: 2 - Desenvolvimento de vários serviços
-                  href: ../dev-spaces/multi-service-nodejs.md
-                  maintainContext: true
-                - name: 3 - Desenvolvimento em equipa
-                  href: ../dev-spaces/team-development-nodejs.md
-                  maintainContext: true
+        - name: Utilizar o Processo Local com o Kubernetes com o Visual Studio Code (pré-visualização)
+          href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+        - name: Utilizar o Processo Local com o Kubernetes com o Visual Studio (pré-visualização)
+          href: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
         - name: Instalar aplicações existentes com o Helm
           href: kubernetes-helm.md
         - name: Utilizar o OpenFaaS
@@ -396,7 +360,7 @@
     - name: REST
       href: /rest/api/aks
     - name: PowerShell
-      href: '/powershell/module/az.aks#aks'
+      href: /powershell/module/az.aks#aks
     - name: .NET
       href: /dotnet/api/overview/azure/containerservice
     - name: Python

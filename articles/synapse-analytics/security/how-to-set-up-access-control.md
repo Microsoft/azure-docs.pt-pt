@@ -1,44 +1,44 @@
 ---
 title: Proteja o seu espaço de trabalho Synapse (pré-visualização)
-description: Este artigo irá ensiná-lo a usar papéis e controlo de acesso para controlar atividades e acesso a dados no espaço de trabalho synapse.
+description: Este artigo irá ensiná-lo a usar funções e controlar o acesso a atividades de controlo e acesso a dados no espaço de trabalho da Synapse.
 services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 894f3002e292466a460c8f96bb7f35b590cb9552
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1a8023a700e83892fae9a16bb2bfbe2a2eb0b307
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015833"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85193418"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteja o seu espaço de trabalho Synapse (pré-visualização)
 
-Este artigo irá ensiná-lo a usar papéis e controlo de acesso para controlar atividades e acesso a dados. Seguindo estas instruções, o controlo de acesso no Azure Synapse Analytics é simplificado. Basta adicionar e remover os utilizadores a um dos três grupos de segurança.
+Este artigo irá ensiná-lo a usar funções e controlar o acesso a atividades de controlo e acesso a dados. Seguindo estas instruções, o controlo de acesso em Azure Synapse Analytics é simplificado. Basta adicionar e remover os utilizadores a um dos três grupos de segurança.
 
 ## <a name="overview"></a>Descrição geral
 
-Para garantir um espaço de trabalho Synapse (pré-visualização), seguirá um padrão de configuração dos seguintes itens:
+Para garantir um espaço de trabalho synapse (pré-visualização), seguirá um padrão de configuração dos seguintes itens:
 
-- Funções azure (como as incorporadas como Owner, Contributor, etc.)
-- Papéis sinapse – estes papéis são exclusivos da Synapse e não são baseados em papéis de Azure. Há três destes papéis:
-  - Administração do espaço de trabalho sinapse
-  - Administração Synapse SQL
-  - Apache Spark para administração azure synapse Analytics
-- Controlo de acesso a dados em Azure Data Lake Storage Gen 2 (ADLSGEN2).
+- Funções azure (como as incorporadas como Proprietário, Contribuinte, etc.)
+- Papéis de sinapse – estes papéis são exclusivos da Sinapse e não são baseados em papéis de Azure. Há três destes papéis:
+  - Administração do espaço de trabalho da Sinapse
+  - Administração Sinapse SQL
+  - Faísca Apache para administrador azure Synapse Analytics
+- Controlo de acesso para dados em Azure Data Lake Storage Gen 2 (ADLSGEN2).
 - Controlo de acesso para bases de dados Synapse SQL e Spark
 
-## <a name="steps-to-secure-a-synapse-workspace"></a>Passos para garantir um espaço de trabalho sinapse
+## <a name="steps-to-secure-a-synapse-workspace"></a>Passos para garantir um espaço de trabalho da Sinapse
 
 Este documento utiliza nomes padrão para simplificar as instruções. Substitua-os por quaisquer nomes à sua escolha.
 
 |Definição | Valor de exemplo | Descrição |
 | :------ | :-------------- | :---------- |
-| **Espaço de trabalho sinapse** | WS1 |  O nome que o espaço de trabalho synapse terá. |
+| **Espaço de trabalho sinapse** | WS1 |  O nome que o espaço de trabalho da Sinapse terá. |
 | **Conta ADLSGEN2** | STG1 | A conta ADLS para usar com o seu espaço de trabalho. |
 | **Contentor** | CNT1 | O recipiente em STG1 que o espaço de trabalho utilizará por defeito. |
 | **Inquilino de diretório ativo** | contoso | o nome de inquilino de diretório ativo.|
@@ -46,30 +46,30 @@ Este documento utiliza nomes padrão para simplificar as instruções. Substitua
 
 ## <a name="step-1-set-up-security-groups"></a>PASSO 1: Criar grupos de segurança
 
-Crie e povoetrês grupos de segurança para o seu espaço de trabalho:
+Crie e povoe três grupos de segurança para o seu espaço de trabalho:
 
 - **WS1 \_ WSAdmins** – para utilizadores que precisam de controlo total sobre o espaço de trabalho
-- **WS1 \_ SparkAdmins** – para os utilizadores que precisam de controlo total sobre os aspetos spark do espaço de trabalho
+- **WS1 \_ SparkAdmins** – para aqueles utilizadores que precisam de controlo completo sobre os aspetos de Faísca do espaço de trabalho
 - **WS1 \_ SQLAdmins** – para utilizadores que precisam de controlo total sobre os aspetos SQL do espaço de trabalho
-- Adicione ** \_ WS1 WSAdmins** à **WS1 \_ SQLAdmins**
-- Adicione ** \_ WS1 WSAdmins** à **WS1 \_ SparkAdmins**
+- Adicione **WS1 \_ WSAdmins** a **WS1 \_ SQLAdmins**
+- Adicione **WS1 \_ WSAdmins** a **WS1 \_ SparkAdmins**
 
-## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>PASSO 2: Prepare a sua conta Gen2 de Armazenamento de Lago de Dados
+## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>PASSO 2: Prepare a sua conta De Armazenamento de Dados Lake Gen2
 
 Identifique esta informação sobre o seu armazenamento:
 
-- A conta ADLSGEN2 para utilizar para o seu espaço de trabalho. Este documento chama-lhe STG1.  O STG1 é considerado a conta de armazenamento "primária" para o seu espaço de trabalho.
-- O recipiente dentro do WS1 que o seu espaço de trabalho Synapse utilizará por defeito. Este documento chama-lhe CNT1.  Este recipiente é utilizado para:
-  - Armazenar os ficheiros de dados de backup para tabelas Spark
+- A conta ADLSGEN2 para usar para o seu espaço de trabalho. Este documento chama-lhe STG1.  O STG1 é considerado a conta de armazenamento "primária" para o seu espaço de trabalho.
+- O recipiente dentro da WS1 que o seu espaço de trabalho Synapse utilizará por defeito. Este documento chama-lhe CNT1.  Este recipiente é utilizado para:
+  - Armazenar os ficheiros de dados de suporte para as tabelas Spark
   - Registos de execução para trabalhos de faísca
 
 - Utilizando o portal Azure, atribua aos grupos de segurança as seguintes funções na CNT1
 
-  - Atribuir ** \_ WS1 WSAdmins** à função de Contribuinte de **Dados blob** de armazenamento
-  - Atribuir **A WS1 \_ SparkAdmins** à função de Contribuinte de **Dados blob** de armazenamento
-  - Atribuir ** \_ WS1 SQLAdmins** à função de Contribuinte de **Dados blob de armazenamento**
+  - Atribuir **WS1 \_ WSAdmins** à função **de contribuinte de dados** de armazenamento blob
+  - Atribuir **WS1 \_ SparkAdmins** à função **de contribuinte de dados** do armazenamento blob
+  - Atribuir **WS1 \_ SQLAdmins** à função **de contribuinte de dados** de armazenamento blob
 
-## <a name="step-3-create-and-configure-your-synapse-workspace"></a>PASSO 3: Crie e configure o seu espaço de trabalho sinapse
+## <a name="step-3-create-and-configure-your-synapse-workspace"></a>PASSO 3: Criar e configurar o seu espaço de trabalho sinapse
 
 No portal Azure, crie um espaço de trabalho sinapse:
 
@@ -77,111 +77,111 @@ No portal Azure, crie um espaço de trabalho sinapse:
 - Escolha STG1 para a conta de Armazenamento
 - Escolha CNT1 para o recipiente que está a ser utilizado como "sistema de ficheiros".
 - Open WS1 no Estúdio Synapse
-- Selecione **Manage**  >  **Access Control** atribua os grupos de segurança às seguintes funções Synapse.
-  - Atribuir ** \_ wS1 WSAdmins** aos administradores do espaço de trabalho sinapse
-  - Atribuir **wS1 \_ SparkAdmins** aos administradores da Synapse Spark
-  - Atribuir **wS1 \_ SQLAdmins** a administradores Synapse SQL
+- **Selecione Gerir**  >  **o Controlo de Acesso** atribuir os grupos de segurança às seguintes funções de Sinapse.
+  - Atribuir **WS1 \_ WSAdmins** aos administradores do Espaço de Trabalho da Sinapse
+  - Atribuir **WS1 \_ SparkAdmins** aos administradores da Synapse Spark
+  - Atribuir **WS1 \_ SQLAdmins** aos administradores Sinapse SQL
 
-## <a name="step-4-configuring-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>PASSO 4: Configurar data lake storage Gen2 para uso por espaço de trabalho Synapse
+## <a name="step-4-configuring-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>PASSO 4: Configurar data lake storage gen2 para uso pelo espaço de trabalho Synapse
 
-O espaço de trabalho Synapse precisa de acesso ao STG1 e ao CNT1 para que possa executar gasodutos e executar tarefas do sistema.
+O espaço de trabalho synapse precisa de acesso a STG1 e CNT1 para que possa executar oleodutos e executar tarefas do sistema.
 
 - Abra o portal do Azure
 - Localizar STG1
-- Navegar para CNT1
-- Certifique-se de que o MSI (Identidade de Serviço Gerido) para a WS1 é atribuído à função de Contribuinte de **Dados blob** de armazenamento na CNT1
-  - Se não o vir atribuído, atribua-o.
-  - O MSI tem o mesmo nome que o espaço de trabalho. Neste caso, seria &quot; wS1 &quot; .
+- Navegue até CNT1
+- Certifique-se de que o MSI (Identidade de Serviço Gerido) para o WS1 é atribuído à função **de contribuinte de dados** de armazenamento blob na CNT1
+  - Se não o vir designado, atribua-o.
+  - O MSI tem o mesmo nome que o espaço de trabalho. Neste caso, seria &quot; &quot; WS1.
 
-## <a name="step-5-configure-admin-access-for-sql-pools"></a>PASSO 5: Configure acesso administrativo para piscinas SQL
+## <a name="step-5-configure-admin-access-for-sql-pools"></a>PASSO 5: Configurar acesso administrativo para piscinas SQL
 
 - Abra o portal do Azure
-- Navegar para wS1
-- Em **Definições,** clique em **administração de Diretório Ativo SQL**
-- Clique **em Configurar** administrador e escolha \_ WS1 SQLAdmins
+- Navegue até WS1
+- Em **Definições**, clique na administração do **Diretório Ativo SQL**
+- Clique **em Definir administração** e escolha WS1 \_ SQLAdmins
 
-## <a name="step-6-maintaining-access-control"></a>PASSO 6: Manutenção do controlo de acesso
+## <a name="step-6-maintaining-access-control"></a>PASSO 6: Manutenção do controlo de acessos
 
 A configuração está terminada.
 
 Agora, para gerir o acesso dos utilizadores, pode adicionar e remover os utilizadores aos três grupos de segurança.
 
-Embora possa atribuir manualmente os utilizadores às funções Synapse, se o fizer, não configurar as coisas de forma consistente. Em vez disso, adicione ou remova apenas os utilizadores aos grupos de segurança.
+Embora possa atribuir manualmente os utilizadores às funções de Sinapse, se o fizer, não configurará as coisas de forma consistente. Em vez disso, basta adicionar ou remover os utilizadores aos grupos de segurança.
 
 ## <a name="step-7-verify-access-for-users-in-the-roles"></a>PASSO 7: Verificar o acesso dos utilizadores nas funções
 
 Os utilizadores de cada função precisam de completar os seguintes passos:
 
-|   | Passo | Administradores de área de trabalho | Administradores de faíscas | Administradores da SQL |
+|   | Passo | Administradores de área de trabalho | Administradores de faíscas | Administradores SQL |
 | --- | --- | --- | --- | --- |
-| 1 | Faça upload de um ficheiro parquet para cnt1 | SIM | SIM | SIM |
-| 2 | Leia o ficheiro parquet usando a Pedido sQL | SIM | NO | SIM |
+| 1 | Faça o upload de um ficheiro parquet para a CNT1 | SIM | SIM | SIM |
+| 2 | Leia o ficheiro parquet usando SQL on demand | SIM | NO | SIM |
 | 3 | Criar uma piscina de faíscas | SIM [1] | SIM [1] | NO  |
-| 4 | Lê o arquivo de parquet com um Caderno | SIM | SIM | NO |
+| 4 | Lê o arquivo parquet com um Caderno | SIM | SIM | NO |
 | 5 | Crie um oleoduto a partir do Caderno e desencadeie o oleoduto para funcionar agora | SIM | NO | NO |
 | 6 | Crie uma piscina SQL e execute um script SQL como &quot; SELECT 1&quot; | SIM [1] | NO | SIM[1] |
 
 > [!NOTE]
-> [1] Para criar piscinas SQL ou Spark, o utilizador deve ter pelo menos uma função de Contribuinte no espaço de trabalho Synapse.
+> [1] Para criar piscinas SQL ou Spark, o utilizador deve ter pelo menos uma função contributiva no espaço de trabalho da Synapse.
 > [!TIP]
 >
-> - Alguns passos não serão deliberadamente permitidos dependendo do papel.
-> - Tenha em mente que algumas tarefas podem falhar se a segurança não estiver totalmente configurada. Estas tarefas são anotadas na tabela.
+> - Alguns passos deliberadamente não serão permitidos dependendo do papel.
+> - Tenha em mente que algumas tarefas podem falhar se a segurança não estiver totalmente configurada. Estas tarefas são anotados na tabela.
 
-## <a name="step-8-network-security"></a>PASSO 8: Segurança da Rede
+## <a name="step-8-network-security"></a>PASSO 8: Segurança da rede
 
-Para configurar a firewall do espaço de trabalho, a rede virtual e o [Private Link.](../../azure-sql/database/private-endpoint-overview.md)
+Para configurar a firewall do espaço de trabalho, a rede virtual e [o Private Link.](../../azure-sql/database/private-endpoint-overview.md)
 
 ## <a name="step-9-completion"></a>PASSO 9: Conclusão
 
 O seu espaço de trabalho está agora totalmente configurado e seguro.
 
-## <a name="how-roles-interact-with-synapse-studio"></a>Como os papéis interagem com o Estúdio Synapse
+## <a name="how-roles-interact-with-synapse-studio"></a>Como os papéis interagem com o Synapse Studio
 
-O Estúdio Synapse comportar-se-á de forma diferente com base nas funções dos utilizadores. Alguns itens podem ser ocultados ou desativados se um utilizador não for atribuído a funções que dêem o acesso adequado. A tabela que se segue resume o efeito no Estúdio Synapse.
+O Synapse Studio comportar-se-á de forma diferente com base nas funções dos utilizadores. Alguns itens podem ser escondidos ou desativados se um utilizador não estiver atribuído a funções que dêem o acesso adequado. A tabela seguinte resume o efeito no Synapse Studio.
 
-| Tarefa | Administradores do espaço de trabalho | Administradores de faíscas | Administradores da SQL |
+| Tarefa | Administradores do espaço de trabalho | Administradores de faíscas | Administradores SQL |
 | --- | --- | --- | --- |
 | Open Synapse Studio | SIM | SIM | SIM |
-| Ver home hub | SIM | SIM | SIM |
-| Ver Centro de Dados | SIM | SIM | SIM |
+| Ver Home hub | SIM | SIM | SIM |
+| Ver Data Hub | SIM | SIM | SIM |
 | Data Hub / Ver contas e contentores ADLS Gen2 ligados | SIM [1] | SIM[1] | SIM[1] |
 | Data Hub / Ver Bases de Dados | SIM | SIM | SIM |
 | Data Hub / Ver objetos em bases de dados | SIM | SIM | SIM |
-| Data Hub / Dados de acesso nas bases de dados do pool SQL | SIM   | NO   | SIM   |
-| Data Hub / Dados de acesso em bases de dados on-demand SQL | SIM [2]  | NO  | SIM [2]  |
-| Data Hub / Dados de acesso nas bases de dados spark | SIM [2] | SIM [2] | SIM [2] |
-| Use o hub Desenvolver | SIM | SIM | SIM |
-| Desenvolver scripts SQL Hub / autor | SIM | NO | SIM |
-| Desenvolver Definições de Trabalho de Hub / Autor | SIM | SIM | NO |
-| Desenvolver Cadernos Hub /autor | SIM | SIM | NO |
-| Desenvolver Hub / autor Dataflows | SIM | NO | NO |
-| Use o hub de Orquestração | SIM | SIM | SIM |
-| Centro de orquestração / usar pipelines | SIM | NO | NO |
-| Use o Manage Hub | SIM | SIM | SIM |
+| Data Hub / Dados de acesso em bases de dados de piscinas SQL | SIM   | NO   | SIM   |
+| Data Hub / Dados de acesso em bases de dados a pedido do SQL | SIM [2]  | NO  | SIM [2]  |
+| Data Hub / Dados de acesso em bases de dados Spark | SIM [2] | SIM [2] | SIM [2] |
+| Use o centro de desenvolvimento | SIM | SIM | SIM |
+| Desenvolver scripts SQL hub / autor | SIM | NO | SIM |
+| Desenvolver Hub / autor Spark Job Definições | SIM | SIM | NO |
+| Desenvolver Blocos de Notas / Autor | SIM | SIM | NO |
+| Desenvolver fluxos de dados hub /autor | SIM | NO | NO |
+| Use o hub Orchestrate | SIM | SIM | SIM |
+| Orquestrar hub / usar Pipelines | SIM | NO | NO |
+| Utilize o Hub de Gestão | SIM | SIM | SIM |
 | Gerir piscinas Hub / SQL | SIM | NO | SIM |
-| Gerir piscinas hub / spark | SIM | SIM | NO |
-| Gerir hub / gatilhos | SIM | NO | NO |
-| Gerir os serviços hub / Linked | SIM | SIM | SIM |
-| Gerir o Hub / Controlo de Acesso (atribuir utilizadores às funções do espaço de trabalho Synapse) | SIM | NO | NO |
-| Gerir os tempos de execução do Hub / Integração | SIM | SIM | SIM |
-| Use o Monitor Hub | SIM | SIM | SIM |
+| Gerir piscinas Hub / Spark | SIM | SIM | NO |
+| Gerir hub / Gatilhos | SIM | NO | NO |
+| Gerir o Hub / Serviços ligados | SIM | SIM | SIM |
+| Gerir o Hub / Controlo de Acesso (atribuir aos utilizadores as funções de espaço de trabalho sinapse) | SIM | NO | NO |
+| Gerir os tempos de funcionação do Hub / Integração | SIM | SIM | SIM |
+| Utilize o Monitor Hub | SIM | SIM | SIM |
 | Monitor Hub / Orquestração / Pipeline corre  | SIM | NO | NO |
-| Monitor Hub / Orquestração / Trigger runs  | SIM | NO | NO |
-| Monitor Hub / Orquestração / Tempos de execução de integração  | SIM | SIM | SIM |
-| Monitor Hub / Atividades / Aplicações Spark | SIM | SIM | NO  |
-| Monitor Hub / Atividades / Pedidos SQL | SIM | NO | SIM |
-| Monitor Hub / Atividades / Piscinas de Faíscas | SIM | SIM | NO  |
+| Monitor Hub / Orquestração / Gatilho corre  | SIM | NO | NO |
+| Monitor Hub / Orquestração / Tempos de integração  | SIM | SIM | SIM |
+| Monitor Hub / Atividades / Aplicações de faíscas | SIM | SIM | NO  |
+| Monitor Hub / Atividades / SQL pedidos | SIM | NO | SIM |
+| Monitor Hub / Atividades / Piscinas de faíscas | SIM | SIM | NO  |
 | Monitor Hub / Gatilhos | SIM | NO | NO |
-| Gerir os serviços hub / Linked | SIM | SIM | SIM |
-| Gerir o Hub / Controlo de Acesso (atribuir utilizadores às funções do espaço de trabalho Synapse) | SIM | NO | NO |
-| Gerir os tempos de execução do Hub / Integração | SIM | SIM | SIM |
+| Gerir o Hub / Serviços ligados | SIM | SIM | SIM |
+| Gerir o Hub / Controlo de Acesso (atribuir aos utilizadores as funções de espaço de trabalho sinapse) | SIM | NO | NO |
+| Gerir os tempos de funcionação do Hub / Integração | SIM | SIM | SIM |
 
 
 > [!NOTE]
 > [1] O acesso aos dados em contentores depende do controlo de acesso na ADLS Gen2. </br>
-> [2] As tabelas de OD SQL e as tabelas Spark armazenam os seus dados na ADLS Gen2 e o acesso requer as permissões adequadas na ADLS Gen2.
+> [2] As tabelas SQL OD e as tabelas Spark armazenam os seus dados na ADLS Gen2 e o acesso requer as permissões adequadas na ADLS Gen2.
 
 ## <a name="next-steps"></a>Próximos passos
 
-Criar um espaço de [trabalho sinapse](../quickstart-create-workspace.md)
+Criar um [espaço de trabalho sinapse](../quickstart-create-workspace.md)

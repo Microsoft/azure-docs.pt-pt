@@ -5,16 +5,15 @@ description: Exceções do módulo de resolução de problemas no designer de ap
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: reference
+ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 540c3eace72a1692a927916a48f772047115375f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.openlocfilehash: 2e84d2f7c1a45f1ef18e5dc32b58d75bb17e2516
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167252"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213759"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceções e códigos de erro para o designer (pré-visualização)
 
@@ -24,7 +23,7 @@ Pode encontrar a mensagem de erro no designer seguindo estes passos:
 
 - Selecione o módulo falhado, vá ao separador **Saídas+logs,** pode encontrar o registo detalhado no ficheiro **70_driver_log.txt** na categoria **de registos azureml.**
 
-- Para obter um erro detalhado do módulo, pode verificar na categoria error_info.json **em module_statistics.**
+- Para um erro detalhado do módulo, pode verificar na error_info.jsna categoria **module_statistics.**
 
 Seguem-se códigos de erro de módulos no designer.
 
@@ -1515,7 +1514,7 @@ Exceção da biblioteca interna.
 
 Este erro é fornecido para capturar erros internos do motor de outra forma não manipulados. Portanto, a causa deste erro pode ser diferente dependendo do módulo que gerou o erro.  
 
-Para obter mais ajuda, recomendamos que publique a mensagem detalhada que acompanha o erro no fórum Azure Machine Learning, juntamente com uma descrição do cenário, incluindo os dados utilizados como entradas. Este feedback ajudar-nos-á a priorizar os erros e a identificar as questões mais importantes para o trabalho suplementar.  
+Para obter mais ajuda, recomendamos que publique a mensagem detalhada que acompanha o erro no [fórum Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning.html), juntamente com uma descrição do cenário, incluindo os dados utilizados como entradas. Este feedback ajudar-nos-á a priorizar os erros e a identificar as questões mais importantes para o trabalho suplementar.  
 
 |Mensagens de Exceção|
 |------------------------|

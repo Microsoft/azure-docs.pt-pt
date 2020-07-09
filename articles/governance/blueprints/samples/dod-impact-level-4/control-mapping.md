@@ -1,14 +1,14 @@
 ---
 title: Controlos de amostra de amostra de tamanho do DoD Impact Level 4
 description: Controlo do mapeamento da amostra de planta do DoD Impact Level 4. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
-ms.date: 05/12/2020
+ms.date: 06/30/2020
 ms.topic: sample
-ms.openlocfilehash: 48734e62f47c38feb8bc34409f9ba41af2648e7a
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 54eb1807e4986bb56b72e064cdae9df973ed7a81
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168986"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800431"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Mapeamento de controlo da amostra de planta do DoD Impact Level 4
 
@@ -175,21 +175,21 @@ Esta política incorporada requer que especifique uma série de tipos de recurso
 
 ## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>CM-7 (2) Menor Funcionalidade / Impedir a execução do programa
 
-O controlo de aplicações adaptativas no Azure Security Center é uma solução inteligente e automatizada de whitelisting de aplicações que pode bloquear ou impedir que software específico seja funcionando nas suas máquinas virtuais. O controlo da aplicação pode ser executado num modo de execução que proíbe a execução de aplicações não aprovadas. Esta planta atribui uma definição de Política Azure que o ajuda a monitorizar máquinas virtuais onde uma lista de aplicações é recomendada mas ainda não foi configurada.
+O controlo de aplicações adaptativas no Azure Security Center é uma solução inteligente e automatizada de aplicação de ponta a ponta que permite a solução de lista de chamadas que pode bloquear ou impedir que softwares específicos sejam executadas nas suas máquinas virtuais. O controlo da aplicação pode ser executado num modo de execução que proíbe a execução de aplicações não aprovadas. Esta planta atribui uma definição de Política Azure que o ajuda a monitorizar máquinas virtuais onde uma lista de pedidos é recomendada, mas ainda não foi configurada.
 
-- Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais
+- Os controlos de aplicação adaptativos para definir aplicações seguras devem ser ativados nas suas máquinas
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM-7 (5) Menor Funcionalidade / Software autorizado / Whitelisting
 
-O controlo de aplicações adaptativas no Azure Security Center é uma solução inteligente e automatizada de whitelisting de aplicações que pode bloquear ou impedir que software específico seja funcionando nas suas máquinas virtuais. O controlo de aplicações ajuda-o a criar listas de candidaturas aprovadas para as suas máquinas virtuais. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais onde uma lista de aplicações é recomendada mas ainda não foi configurada.
+O controlo de aplicações adaptativas no Azure Security Center é uma solução inteligente e automatizada de aplicação de ponta a ponta que permite a solução de lista de chamadas que pode bloquear ou impedir que softwares específicos sejam executadas nas suas máquinas virtuais. O controlo de aplicações ajuda-o a criar listas de candidaturas aprovadas para as suas máquinas virtuais. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais onde uma lista de pedidos é recomendada, mas ainda não foi configurada.
 
-- Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais
+- Os controlos de aplicação adaptativos para definir aplicações seguras devem ser ativados nas suas máquinas
 
 ## <a name="cm-11-user-installed-software"></a>Software instalado pelo utilizador CM-11
 
-O controlo de aplicações adaptativas no Azure Security Center é uma solução inteligente e automatizada de whitelisting de aplicações que pode bloquear ou impedir que software específico seja funcionando nas suas máquinas virtuais. O controlo de aplicações pode ajudá-lo a impor e monitorizar o cumprimento das políticas de restrição de software. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais onde uma lista de aplicações é recomendada mas ainda não foi configurada.
+O controlo de aplicações adaptativas no Azure Security Center é uma solução inteligente e automatizada de aplicação de ponta a ponta que permite a solução de lista de chamadas que pode bloquear ou impedir que softwares específicos sejam executadas nas suas máquinas virtuais. O controlo de aplicações pode ajudá-lo a impor e monitorizar o cumprimento das políticas de restrição de software. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais onde uma lista de pedidos é recomendada, mas ainda não foi configurada.
 
-- Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais
+- Os controlos de aplicação adaptativos para definir aplicações seguras devem ser ativados nas suas máquinas
 
 ## <a name="cp-7-alternate-processing-site"></a>Cp-7 Local de Processamento Alternativo
 
@@ -415,7 +415,7 @@ A Advanced Threat Protection for Azure Storage deteta tentativas incomuns e pote
 > [!NOTE]
 > A disponibilidade de definições específicas da Política Azure pode variar no Governo de Azure e noutras nuvens nacionais. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que reviu o mapeamento de controlo da planta DoD Impact Level 4, visite os seguintes artigos para saber sobre a planta e como implementar esta amostra:
 
@@ -423,7 +423,7 @@ Agora que reviu o mapeamento de controlo da planta DoD Impact Level 4, visite os
 > [Projeto do DoD Impact Level 4 - Visão geral](./index.md) 
 >  [Projeto do DoD Impact Level 4 - Implementar etapas](./deploy.md)
 
-Artigos adicionais sobre esquemas e como utilizá-los:
+Artigos adicionais sobre esquemas e como os utilizar:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: ebe112103bc3eb30239e80095db9bb91a33bebf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184454"
 ---
 ## <a name="troubleshooting-update-failures"></a>Resolução de problemas de falhas na atualização
 **E se vir uma notificação informando-me de que as verificações de pré-atualização falharam?**
 
-Se uma pré-verificação falhar, certifique-se de que viu a barra de notificação detalhada na parte inferior da página. Isto fornece orientações relativamente a qual pré-verificação falhou. Por exemplo, recebe uma notificação de que o controlo de saúde do controlador e a verificação de saúde dos componentes de hardware falharam. Vá para monitor > saúde de **hardware.** Tens de ter a certeza de que ambos os controladores estão saudáveis e online. Também precisa de se certificar de que todos os componentes de hardware do dispositivo StorSimple são mostrados saudáveis nesta lâmina. Pode então tentar instalar atualizações. Se não conseguir corrigir os problemas dos componentes de hardware, terá de contactar o Suporte da Microsoft para obter os passos a seguir.
+Se uma pré-verificação falhar, certifique-se de que viu a barra de notificação detalhada na parte inferior da página. Isto fornece orientações relativamente a qual pré-verificação falhou. Por exemplo, recebe uma notificação de que o controlo de saúde do controlador e o exame de saúde dos componentes de hardware falharam. Vá ao **Monitor > saúde do hardware**. Tem de se certificar de que ambos os controladores estão saudáveis e online. Também é necessário certificar-se de que todos os componentes de hardware do dispositivo StorSimple são mostrados saudáveis nesta lâmina. Pode então tentar instalar atualizações. Se não conseguir corrigir os problemas dos componentes de hardware, terá de contactar o Suporte da Microsoft para obter os passos a seguir.
 
 **E se receber uma mensagem de erro “Não foi possível instalar as atualizações” e a recomendação for consultar o guia de resolução de problemas para determinar a causa da falha?**
 

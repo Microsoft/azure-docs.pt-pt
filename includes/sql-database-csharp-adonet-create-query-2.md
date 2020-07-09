@@ -4,55 +4,54 @@ ms.service: sql-database
 ms.topic: include
 ms.date: 12/10/2018
 ms.author: genemi
-ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 7943ea13d93fa68b76d333bda5438fb5738f5cd1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67184337"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050412"
 ---
 ## <a name="c-program-example"></a>Exemplo do programa C#
 
-As próximas secções deste artigo apresentam um programa C# que usa ADO.NET para enviar declarações de Transact-SQL (T-SQL) para a base de dados SQL. O programa C# demonstra as seguintes ações:
+As próximas secções deste artigo apresentam um programa C# que utiliza ADO.NET para enviar declarações de Transact-SQL (T-SQL) à Base de Dados SQL. O programa C# demonstra as seguintes ações:
 
-- [Ligue-se à base de dados SQL utilizando ADO.NET](#cs_1_connect)
+- [Ligue à Base de Dados SQL utilizando ADO.NET](#cs_1_connect)
 - [Métodos que devolvem declarações T-SQL](#cs_2_return)
     - Criar tabelas
     - Povoar tabelas com dados
-    - Atualizar, excluir e selecionar dados
-- [Submeter T-SQL à base de dados](#cs_3_submit)
+    - Atualizar, eliminar e selecionar dados
+- [Submeta T-SQL à base de dados](#cs_3_submit)
 
-### <a name="entity-relationship-diagram-erd"></a>Diagrama de relação de entidade (ERD)
+### <a name="entity-relationship-diagram-erd"></a>Diagrama de Relacionamento de Entidade (ERD)
 
-As `CREATE TABLE` declarações envolvem a palavra-chave **de REFERÊNCIAs** para criar uma relação *chave estrangeira* (FK) entre duas tabelas. Se estiver a usar *tempdb,* comente a `--REFERENCES` palavra-chave usando um par de traços principais.
+As `CREATE TABLE` declarações envolvem a **palavra-chave REFERENCES** para criar uma relação *de chave estrangeira* (FK) entre duas tabelas. Se estiver a utilizar *o tempdb,* comente a `--REFERENCES` palavra-chave usando um par de traços principais.
 
-O ERD mostra a relação entre as duas mesas. Os valores na **coluna infantil tabEmployee.DepartmentCode** *child* estão limitados a valores da *coluna-mãe* **do TabDepartment.DepartmentCode.**
+O PS mostra a relação entre as duas mesas. Os valores na coluna *criança* **tabEmployee.DepartmentCode** estão limitados a valores da coluna *parental* **tabDepartment.DepartmentCode.**
 
 ![ERD mostrando chave estrangeira](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
 
 > [!NOTE]
-> Tem a opção de editar o T-SQL para adicionar um líder `#` aos nomes de mesa, o que os cria como mesas temporárias em *tempdb*. Isto é útil para fins de demonstração, quando não há base de dados de teste disponível. Qualquer referência a chaves estrangeiras não é aplicada durante a sua utilização e as tabelas temporárias são eliminadas automaticamente quando a ligação termina após o fim do programa.
+> Tem a opção de editar o T-SQL para adicionar um líder `#` aos nomes das tabelas, o que os cria como tabelas temporárias em *temperatura.* Isto é útil para fins de demonstração, quando não existe uma base de dados de teste disponível. Qualquer referência a teclas estrangeiras não é aplicada durante a sua utilização e as tabelas temporárias são eliminadas automaticamente quando a ligação termina após o final do programa.
 
 ### <a name="to-compile-and-run"></a>Para compilar e correr
 
 O programa C# é logicamente um ficheiro .cs, e está fisicamente dividido em vários blocos de código, para tornar cada bloco mais fácil de entender. Para compilar e executar o programa, faça os seguintes passos:
 
-1. Crie um projeto C# no Estúdio Visual. O tipo de projeto deve ser uma *Consola,* encontrada em **Modelos** > **Visuais C#** > **Windows Desktop** > **Console App (.NET Framework)**.
+1. Criar um projeto C# no Visual Studio. O tipo de projeto deve ser uma *Consola*, encontrada nos **Modelos**  >  **Visual C#**  >  **Windows Desktop**  >  **Console App (.NET Framework)**.
 
-1. No ficheiro *Program.cs,* substitua as linhas de início do código pelas seguintes etapas:
+1. No ficheiro *Program.cs*, substitua as linhas de arranque do código pelos seguintes passos:
 
-    1. Copiar e colar os seguintes blocos de código, na mesma sequência que são apresentados, ver [Connect to database,](#cs_1_connect) [Generate T-SQL](#cs_2_return), e [Submeter-se à base](#cs_3_submit)de dados .
+    1. Copiar e colar os seguintes blocos de código, na mesma sequência que são apresentados, ver [Ligar à base de dados,](#cs_1_connect)Gerar [T-SQL](#cs_2_return)e [Submeter à base de dados](#cs_3_submit).
 
-    1. Alterar os seguintes `Main` valores no método:
+    1. Alterar os seguintes valores no `Main` método:
 
-        - *cb. DataSource*
+        - *cb. Fonte de Dados*
         - *cb. UserID*
         - *cb. Senha*
-        - *cb. Catálogo Inicial*
+        - *cb.InitialCatalog*
 
-1. Verifique se o Sistema de *Montagem.Data.dll* é referenciado. Para verificar, expanda o nó **de Referências** no painel **do Solution Explorer.**
+1. Verifique se a montagem *System.Data.dll* é referenciada. Para verificar, expanda o nó **referências** no painel **'Solução Explorer'.**
 
-1. Para construir e executar o programa a partir do Visual Studio, selecione o botão **Iniciar.** A saída do relatório é exibida numa janela do programa, embora os valores GUID variem entre os ensaios.
+1. Para construir e executar o programa a partir do Estúdio Visual, selecione o botão **Iniciar.** A saída do relatório é apresentada numa janela do programa, embora os valores DO GUID variem entre os testes.
 
     ```Output
     =================================
@@ -82,7 +81,7 @@ O programa C# é logicamente um ficheiro .cs, e está fisicamente dividido em v�
 
 <a name="cs_1_connect"/>
 
-### <a name="connect-to-sql-database-using-adonet"></a>Ligue-se à base de dados SQL utilizando ADO.NET
+### <a name="connect-to-sql-database-using-adonet"></a>Ligue à Base de Dados SQL utilizando ADO.NET
 
 ```csharp
 using System;
@@ -240,7 +239,7 @@ static string Build_6_Tsql_SelectEmployees()
 
 <a name="cs_3_submit"/>
 
-### <a name="submit-t-sql-to-the-database"></a>Submeter T-SQL à base de dados
+### <a name="submit-t-sql-to-the-database"></a>Submeta T-SQL à base de dados
 
 ```csharp
 static void Submit_6_Tsql_SelectEmployees(SqlConnection connection)

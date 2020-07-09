@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Criar uma fábrica de dados Azure usando python'
+title: 'Quickstart: Criar uma fábrica de dados Azure usando Python'
 description: Crie uma fábrica de dados do Azure para copiar dados de uma localização no armazenamento de Blobs do Azure para outra localização.
 services: data-factory
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
-ms.custom: seo-python-october2019
-ms.openlocfilehash: 85b61e03f1545b8a0e8263b799ac7a5b347be181
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: seo-python-october2019, tracking-python
+ms.openlocfilehash: 3a40ff7fbf021833ff382ad2288eb263378c96c2
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81419141"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512601"
 ---
-# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Quickstart: Criar uma fábrica de dados e um oleoduto usando python
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Quickstart: Criar uma fábrica de dados e oleoduto usando Python
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -28,11 +28,11 @@ ms.locfileid: "81419141"
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste arranque rápido, cria-se uma fábrica de dados utilizando python. O gasoduto desta fábrica de dados copia dados de uma pasta para outra pasta no armazenamento do Azure Blob.
+Neste arranque rápido, cria-se uma fábrica de dados utilizando o Python. O gasoduto nesta fábrica de dados copia dados de uma pasta para outra pasta no armazenamento Azure Blob.
 
-A Azure Data Factory é um serviço de integração de dados baseado na nuvem que permite criar fluxos de trabalho baseados em dados para orquestrar e automatizar o movimento de dados e a transformação de dados. Utilizando a Azure Data Factory, pode criar e programar fluxos de trabalho baseados em dados, chamados oleodutos.
+A Azure Data Factory é um serviço de integração de dados baseado na nuvem que permite criar fluxos de trabalho baseados em dados para orquestrar e automatizar movimentos de dados e transformação de dados. Utilizando a Azure Data Factory, pode criar e agendar fluxos de trabalho baseados em dados, chamados oleodutos.
 
-Os oleodutos podem ingerir dados de lojas de dados díspares. Os oleodutos processam ou transformam dados utilizando serviços de computação como O Hadoop Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics e Azure Machine Learning. Os oleodutos publicam dados de saída em lojas de dados como o Azure SQL Data Warehouse para aplicações de inteligência empresarial (BI).
+Os oleodutos podem ingerir dados de lojas de dados diferentes. Os oleodutos processam ou transformam dados utilizando serviços de computação como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics e Azure Machine Learning. Os oleodutos publicam dados de produção em lojas de dados como o Azure SQL Data Warehouse para aplicações de inteligência empresarial (BI).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,7 +44,7 @@ Os oleodutos podem ingerir dados de lojas de dados díspares. Os oleodutos proce
 
 * [Explorador de Armazenamento Azure](https://storageexplorer.com/) (opcional).
 
-* [Uma aplicação no Diretório Ativo Azure.](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) Tome nota dos seguintes valores a utilizar em etapas posteriores: ID da **aplicação,** **chave de autenticação,** e ID do **arrendatário**. Atribuir candidatura ao papel **de Contribuinte** seguindo instruções no mesmo artigo.
+* [Uma aplicação no Azure Ative Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Tome nota dos seguintes valores a utilizar em etapas posteriores: **ID de aplicação,** **chave de autenticação**e **identificação do inquilino.** Atribua a aplicação à **função Contribuinte** seguindo as instruções no mesmo artigo.
 
 ## <a name="create-and-upload-an-input-file"></a>Criar e carregar um ficheiro de entrada
 

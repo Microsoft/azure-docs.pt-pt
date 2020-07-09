@@ -1,31 +1,30 @@
 ---
-title: Execução de consulta SQL em Azure Cosmos DB
-description: Aprenda a criar uma consulta SQL e executá-la em Azure Cosmos DB. Este artigo descreve como criar e executar uma consulta SQL usando REST API, .Net SDK, JavaScript SDK e vários outros SDKs.
+title: EXECUção de consulta SQL em Azure Cosmos DB
+description: Aprenda a criar uma consulta SQL e execute-a em Azure Cosmos DB. Este artigo descreve como criar e executar uma consulta SQL usando REST API, .Net SDK, JavaScript SDK e vários outros SDKs.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 70eb81b6d13c57a7ebc131244c7aa318cb2b2fd4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74871266"
 ---
-# <a name="azure-cosmos-db-sql-query-execution"></a>Execução de consulta azure Cosmos DB SQL
+# <a name="azure-cosmos-db-sql-query-execution"></a>Execução de consulta Azure Cosmos DB SQL
 
-Qualquer idioma capaz de fazer pedidos HTTP/HTTPS pode chamar a Cosmos DB REST API. Cosmos DB também oferece bibliotecas de programação para .NET, Node.js, JavaScript e Python. A Rest API e as bibliotecas suportam todas as consultas através do SQL, e o .NET SDK também suporta [a consulta de LINQ](sql-query-linq-to-sql.md).
+Qualquer idioma capaz de fazer pedidos HTTP/HTTPS pode ligar para a API Cosmos DB REST. Cosmos DB também oferece bibliotecas de programação para linguagens de programação .NET, Node.js, JavaScript e Python. A API REST e as bibliotecas suportam a consulta através do SQL, e o .NET SDK também suporta [consultas LINQ.](sql-query-linq-to-sql.md)
 
-Os seguintes exemplos mostram como criar uma consulta e submetê-la contra uma conta de base de dados da Cosmos.
+Os exemplos a seguir mostram como criar uma consulta e submetê-la a uma conta de base de dados cosmos.
 
 ## <a name="rest-api"></a><a id="REST-API"></a>API REST
 
-Cosmos DB oferece um modelo de programação RESTful aberto em HTTP. O modelo de recursos consiste num conjunto de recursos sob uma conta de base de dados, que uma disposição de subscrição do Azure. A conta de base de dados é constituída por um conjunto de bases de *dados,* cada uma das quais pode conter *vários contentores,* que por sua vez contêm *itens,* UDFs e outros tipos de recursos. Cada recurso Cosmos DB é endereçado usando um URI lógico e estável. Um conjunto de recursos é chamado de *feed*. 
+Cosmos DB oferece um modelo de programação RESTful aberto em HTTP. O modelo de recursos consiste num conjunto de recursos numa conta de base de dados, que prevê uma assinatura Azure. A conta de base de dados consiste num conjunto de bases de *dados,* cada uma das quais pode conter *vários contentores,* que por sua vez contêm *itens,* UDFs e outros tipos de recursos. Cada recurso Cosmos DB é endereçado usando um URI lógico e estável. Um conjunto de recursos é chamado de *feed*. 
 
-O modelo básico de interação com estes `GET` `PUT`recursos `POST`é `DELETE`através dos verbos HTTP, e, com as suas interpretações padrão. Use `POST` para criar um novo recurso, executar um procedimento armazenado ou emitir uma consulta de Db Cosmos. As consultas são sempre operações apenas de leitura sem efeitos secundários.
+O modelo básico de interação com estes recursos é através dos verbos HTTP `GET` , e , com as suas `PUT` `POST` `DELETE` interpretações padrão. Use `POST` para criar um novo recurso, execute um procedimento armazenado ou emita uma consulta cosmos DB. As consultas são sempre operações só de leitura sem efeitos secundários.
 
-Os seguintes exemplos mostram uma `POST` consulta de API SQL contra os itens da amostra. A consulta tem um filtro simples `name` na propriedade JSON. O `x-ms-documentdb-isquery` tipo e `application/query+json` conteúdo: os cabeçalhos denotam que a operação é uma consulta. Substitua-a `mysqlapicosmosdb.documents.azure.com:443` com o URI para a sua conta Cosmos DB.
+Os exemplos a seguir mostram uma `POST` consulta de API SQL contra os itens de amostra. A consulta tem um filtro simples na `name` propriedade JSON. O `x-ms-documentdb-isquery` e Tipo de Conteúdo: os `application/query+json` cabeçalhos denotam que a operação é uma consulta. `mysqlapicosmosdb.documents.azure.com:443`Substitua-a pela URI pela sua conta Cosmos DB.
 
 ```json
     POST https://mysqlapicosmosdb.documents.azure.com:443/docs HTTP/1.1
@@ -91,7 +90,7 @@ Os resultados são:
     }
 ```
 
-A consulta seguinte, mais complexa, devolve vários resultados de uma adesão:
+A próxima consulta, mais complexa, retorna vários resultados de uma junção:
 
 ```json
     POST https://https://mysqlapicosmosdb.documents.azure.com:443/docs HTTP/1.1
@@ -143,19 +142,19 @@ Os resultados são:
     }
 ```
 
-Se os resultados de uma consulta não encaixarem numa única página, a `x-ms-continuation-token` API REST devolve um sinal de continuação através do cabeçalho de resposta. Os clientes podem paginar resultados, incluindo o cabeçalho nos resultados seguintes. Também pode controlar o número de `x-ms-max-item-count` resultados por página através do cabeçalho de número.
+Se os resultados de uma consulta não puderem caber numa única página, a API REST devolve um token de continuação através do `x-ms-continuation-token` cabeçalho de resposta. Os clientes podem paginar resultados incluindo o cabeçalho nos resultados seguintes. Também pode controlar o número de resultados por página através do cabeçalho de `x-ms-max-item-count` números.
 
-Se uma consulta tiver uma função de agregação como COUNT, a página de consulta pode devolver um valor parcialmente agregado em apenas uma página dos resultados. Os clientes devem realizar uma agregação de segundo nível sobre estes resultados para produzir os resultados finais. Por exemplo, soma sobre as contagens devolvidas nas páginas individuais para devolver a contagem total.
+Se uma consulta tiver uma função de agregação como o COUNT, a página de consulta pode devolver um valor parcialmente agregado sobre apenas uma página de resultados. Os clientes devem realizar uma agregação de segundo nível sobre estes resultados para produzir os resultados finais. Por exemplo, soma sobre as contagens devolvidas nas páginas individuais para devolver a contagem total.
 
-Para gerir a política de consistência de `x-ms-consistency-level` dados para consultas, use o cabeçalho como em todos os pedidos da Rest API. A consistência da sessão também `x-ms-session-token` requer eco do mais recente cabeçalho de cookie saque no pedido de consulta. A política de indexação do contentor consultado também pode influenciar a consistência dos resultados da consulta. Com as definições de política de indexação padrão para contentores, o índice é sempre atual com o conteúdo do item, e os resultados da consulta correspondem à consistência escolhida para os dados. Para obter mais informações, consulte [Níveis de consistência do Azure Cosmos DB][níveis de consistência].
+Para gerir a política de consistência de dados para consultas, utilize o `x-ms-consistency-level` cabeçalho como em todos os pedidos da API REST. A consistência da sessão também requer ecoar o mais recente `x-ms-session-token` cabeçalho de cookies no pedido de consulta. A política de indexação do contentor questionado também pode influenciar a consistência dos resultados da consulta. Com as definições de política de indexação padrão para contentores, o índice está sempre atual com o conteúdo do item, e os resultados de consulta correspondem à consistência escolhida para os dados. Para obter mais informações, consulte [Níveis de consistência DB de Azure Cosmos][níveis de consistência].
 
-Se a política de indexação configurada no recipiente não puder suportar a consulta especificada, o servidor Azure Cosmos DB devolve 400 "Pedido Mau". Esta mensagem de erro retorna para consultas com caminhos explicitamente excluídos da indexação. Pode especificar `x-ms-documentdb-query-enable-scan` o cabeçalho para permitir que a consulta efetue uma varredura quando um índice não estiver disponível.
+Se a política de indexação configurada no recipiente não puder suportar a consulta especificada, o servidor DB Azure Cosmos devolve 400 "Mau Pedido". Esta mensagem de erro retorna para consultas com caminhos explicitamente excluídos da indexação. Pode especificar o `x-ms-documentdb-query-enable-scan` cabeçalho para permitir que a consulta efetue uma verificação quando um índice não estiver disponível.
 
-Você pode obter métricas detalhadas sobre `x-ms-documentdb-populatequerymetrics` a `true`execução de consulta, definindo o cabeçalho para . Para mais informações, consulte as métricas de [consulta SQL para Azure Cosmos DB](sql-api-query-metrics.md).
+Pode obter métricas detalhadas sobre a execução de consultas, definindo o `x-ms-documentdb-populatequerymetrics` cabeçalho para `true` . Para obter mais informações, consulte [as métricas de consulta SQL para Azure Cosmos DB](sql-api-query-metrics.md).
 
 ## <a name="c-net-sdk"></a>C# (.NET SDK)
 
-O SDK .NET suporta a consulta linq e SQL. O exemplo que se segue mostra como realizar a consulta do filtro anterior com .NET:
+O .NET SDK suporta a consulta LINQ e SQL. O exemplo a seguir mostra como executar a consulta de filtro anterior com .NET:
 
 ```csharp
     foreach (var family in client.CreateDocumentQuery(containerLink,
@@ -189,7 +188,7 @@ O SDK .NET suporta a consulta linq e SQL. O exemplo que se segue mostra como rea
     }
 ```
 
-O exemplo seguinte compara duas propriedades para a igualdade dentro de cada item, e usa projeções anónimas.
+O exemplo a seguir compara duas propriedades para a igualdade dentro de cada item, e utiliza projeções anónimas.
 
 ```csharp
     foreach (var family in client.CreateDocumentQuery(containerLink,
@@ -217,7 +216,7 @@ O exemplo seguinte compara duas propriedades para a igualdade dentro de cada ite
     }
 ```
 
-O próximo exemplo mostra juntas, `SelectMany`expressas através do LINQ.
+O próximo exemplo mostra a união, expressa através do `SelectMany` LINQ.
 
 ```csharp
     foreach (var pet in client.CreateDocumentQuery(containerLink,
@@ -241,17 +240,17 @@ O próximo exemplo mostra juntas, `SelectMany`expressas através do LINQ.
     }
 ```
 
-O cliente .NET iterates automaticamente através de todas `foreach` as páginas de consulta resulta nos blocos, como mostrado no exemplo anterior. As opções de consulta introduzidas na secção [REST API](#REST-API) também estão `FeedOptions` `FeedResponse` disponíveis no `CreateDocumentQuery` .NET SDK, utilizando as e classes no método. Pode controlar o número de `MaxItemCount` páginas utilizando a definição.
+O cliente .NET itera automaticamente através de todas as páginas de consulta resulta nos `foreach` blocos, como mostra o exemplo anterior. As opções de consulta introduzidas na secção [API REST](#REST-API) também estão disponíveis no .NET SDK, utilizando as `FeedOptions` classes e classes no `FeedResponse` `CreateDocumentQuery` método. Pode controlar o número de páginas utilizando a `MaxItemCount` definição.
 
-Também pode controlar explicitamente `IDocumentQueryable` a `IQueryable` pagagem criando usando `ResponseContinuationToken` o objeto, `RequestContinuationToken` em `FeedOptions`seguida, lendo os valores e passando-os de volta como em . Pode definir `EnableScanInQuery` para ativar as digitalizações quando a consulta não é suportada pela política de indexação configurada. Para recipientes divididos, `PartitionKey` pode utilizar para executar a consulta contra uma única divisória, embora o Azure Cosmos DB possa extraí-lo automaticamente do texto de consulta. Você pode `EnableCrossPartitionQuery` usar para executar consultas contra várias divisórias.
+Também pode controlar explicitamente a paging criando `IDocumentQueryable` usando o `IQueryable` objeto, em seguida, lendo os `ResponseContinuationToken` valores e passando-os de volta como `RequestContinuationToken` em `FeedOptions` . Pode `EnableScanInQuery` configurar para ativar as verificações quando a consulta não é suportada pela política de indexação configurada. Para recipientes divididos, pode utilizar `PartitionKey` para executar a consulta contra uma única partição, embora a Azure Cosmos DB possa extrair automaticamente isto do texto de consulta. Pode usar `EnableCrossPartitionQuery` para fazer consultas contra várias divisórias.
 
 Para obter mais amostras .NET com consultas, consulte as [amostras Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3) no GitHub.
 
-## <a name="javascript-server-side-api"></a><a id="JavaScript-server-side-API"></a>API do lado do servidor JavaScript
+## <a name="javascript-server-side-api"></a><a id="JavaScript-server-side-API"></a>JavaScript server-side API
 
-A Azure Cosmos DB fornece um modelo de programação para executar a lógica de [aplicação baseada no JavaScript](stored-procedures-triggers-udfs.md) diretamente em contentores, utilizando procedimentos e gatilhos armazenados. A lógica JavaScript registada ao nível do contentor pode então emitir operações de base de dados nos itens do recipiente, embrulhados em transações de ACID ambiente.
+A Azure Cosmos DB fornece um modelo de programação para executar a lógica [de aplicação baseada em JavaScript](stored-procedures-triggers-udfs.md) diretamente em recipientes, utilizando procedimentos e gatilhos armazenados. A lógica JavaScript registada ao nível do contentor pode então emitir operações de base de dados nos itens do contentor dado, envoltos em transações de ACID ambiente.
 
-O exemplo que se `queryDocuments` segue mostra como usar na API do servidor JavaScript para fazer consultas a partir de procedimentos e gatilhos armazenados internos:
+O exemplo a seguir mostra como usar `queryDocuments` na API do servidor JavaScript para fazer consultas a partir de procedimentos e gatilhos armazenados no interior:
 
 ```javascript
     function findName(givenName, familyName) {
@@ -285,8 +284,8 @@ O exemplo que se `queryDocuments` segue mostra como usar na API do servidor Java
     }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Introdução ao Azure Cosmos DB](introduction.md)
-- [Amostras Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Amostras de Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Níveis de consistência do Azure Cosmos DB](consistency-levels.md)

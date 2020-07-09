@@ -1,5 +1,5 @@
 ---
-title: Suporte linguístico - Leitor Imersivo
+title: Suporte linguístico - Leitor imersivo
 titleSuffix: Azure Cognitive Services
 description: Saiba mais sobre as línguas humanas que estão disponíveis com o Leitor Imersivo.
 services: cognitive-services
@@ -10,21 +10,21 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: metan
-ms.openlocfilehash: c4dae18a5040d475c246d244ea7702ccfdf85cd9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cdf21ed85933c2a629c5752659e9cc50107a3762
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538748"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309310"
 ---
 # <a name="language-support-for-immersive-reader"></a>Suporte linguístico para leitor imersivo
 
-Este artigo lista línguas humanas suportadas para funcionalidades imersivas do Leitor.
+Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Imersivo.
 
 
 ## <a name="text-to-speech"></a>Conversão de texto em voz
 
-| Idioma | Etiqueta |
+| Linguagem | Etiqueta |
 |----------|-----|
 | Árabe (egípcio) | ar-EG |
 | Árabe (Arábia Saudita) | ar-SA |
@@ -33,17 +33,17 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Catalão | ca-ES |
 | Chinês | zh |
 | Chinês (China) | zh-CN |
-| Chinês (Hong Kong) | zh-HK |
-| Chinês (Macau) | zh-MO |
+| Chinês (HONG KONG SAR) | zh-HK |
+| Chinês (SAR de Macau) | zh-MO |
 | Chinês (Singapura) | zh-SG |
 | Chinês (Taiwan) | zh-TW |
 | Chinês simplificado | zh-Hans |
 | Chinês Simplificado (China) | zh-Hans-CN |
-| Simplificado chinês (Singapura) | zh-Hans-SG |
+| Chinês Simplificado (Singapura) | zh-Hans-SG |
 | Chinês tradicional | zh-Hant-CN |
-| Tradicional chinês (Hong Kong) | zh-Hant-HK |
-| Tradicional chinês (Macau) | zh-Hant-MO |
-| Tradicional chinês (Taiwan) | zh-Hant-TW |
+| Tradicional Chinês (Hong Kong SAR) | zh-Hant-HK |
+| Tradicional Chinês (SAR de Macau) | zh-Hant-MO |
+| Tradicional Chinês (Taiwan) | zh-Hant-TW |
 | Croata | hr |
 | Croata (Croácia) | hr-HR |
 | Checo | cs |
@@ -53,9 +53,9 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Neerlandês | nl |
 | Neerlandês (Países Baixos) | nl-NL |
 | Inglês | en |
-| Inglês (Austrália) | en-UA |
+| Inglês (Austrália) | en-AU |
 | Inglês (Canadá) | en-CA |
-| Inglês (Hong Kong SAR) | en-HK |
+| Inglês (HONG KONG SAR) | en-HK |
 | Inglês (Índia) | en-IN |
 | Inglês (Irlanda) | en-IE |
 | Inglês (Nova Zelândia) | en-NZ |
@@ -81,7 +81,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Húngaro (Hungria) | hu-HU |
 | Indonésio | ID |
 | Indonésio (Indonésia) | id-ID |
-| Italiano | lo |
+| Italiano | que |
 | Italiano (Itália) | it-IT |
 | Japonês | ja |
 | Japonês (Japão) | ja-JP |
@@ -119,33 +119,33 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Turco | tr |
 | Turco (Turquia) | tr-TR |
 | Vietnamita | vi |
-| Vietnamitas (Vietname) | vi-VN |
+| Vietnamita (Vietname) | vi-VN |
 
 ## <a name="translation"></a>Tradução
 
-| Idioma | Etiqueta |
+| Linguagem | Etiqueta |
 |----------|-----|
 | Afrikaans | af |
 | Árabe (egípcio) | ar-EG |
 | Árabe (Arábia Saudita) | ar-SA |
-| Rio Bangla | bn |
+| Bangla | bn |
 | Bósnio | bs |
 | Búlgaro | bg |
 | Búlgaro (Bulgária) | bg-BG |
 | Catalão | ca-ES |
 | Chinês | zh |
 | Chinês (China) | zh-CN |
-| Chinês (Hong Kong) | zh-HK |
-| Chinês (Macau) | zh-MO |
+| Chinês (HONG KONG SAR) | zh-HK |
+| Chinês (SAR de Macau) | zh-MO |
 | Chinês (Singapura) | zh-SG |
 | Chinês (Taiwan) | zh-TW |
 | Chinês simplificado | zh-Hans |
 | Chinês Simplificado (China) | zh-Hans-CN |
-| Simplificado chinês (Singapura) | zh-Hans-SG |
+| Chinês Simplificado (Singapura) | zh-Hans-SG |
 | Chinês tradicional | zh-Hant-CN |
-| Tradicional chinês (Hong Kong) | zh-Hant-HK |
-| Tradicional chinês (Macau) | zh-Hant-MO |
-| Tradicional chinês (Taiwan) | zh-Hant-TW |
+| Tradicional Chinês (Hong Kong SAR) | zh-Hant-HK |
+| Tradicional Chinês (SAR de Macau) | zh-Hant-MO |
+| Tradicional Chinês (Taiwan) | zh-Hant-TW |
 | Croata | hr |
 | Croata (Croácia) | hr-HR |
 | Checo | cs |
@@ -155,9 +155,9 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Neerlandês | nl |
 | Neerlandês (Países Baixos) | nl-NL |
 | Inglês | en |
-| Inglês (Austrália) | en-UA |
+| Inglês (Austrália) | en-AU |
 | Inglês (Canadá) | en-CA |
-| Inglês (Hong Kong SAR) | en-HK |
+| Inglês (HONG KONG SAR) | en-HK |
 | Inglês (Índia) | en-IN |
 | Inglês (Irlanda) | en-IE |
 | Inglês (Nova Zelândia) | en-NZ |
@@ -178,7 +178,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Alemão (Suíça)| de-CH |
 | Grego | el |
 | Grego (Grécia) | el-GR |
-| Haitiano (Crioulo) | hT |
+| Haitiano (crioulo) | ht |
 | Hebraico | ele |
 | Hebraico (Israel) | he-IL |
 | Hindi | Olá |
@@ -190,7 +190,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Indonésio | ID |
 | Indonésio (Indonésia) | id-ID |
 | Irlandês | ga |
-| Italiano | lo |
+| Italiano | que |
 | Italiano (Itália) | it-IT |
 | Japonês | ja |
 | Japonês (Japão) | ja-JP |
@@ -220,8 +220,8 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Romeno (Roménia) | ro-RO |
 | Russo | ru |
 | Russo (Rússia) | ru-RU |
-| Samoano | sm |
-| Sérvio | sr. |
+| Samoa | sm |
+| Sérvio | sr |
 | Sérvio (cirílico) | sr-Cyrl |
 | Sérvio (Latim) | sr-Latn |
 | Eslovaco | sk |
@@ -247,15 +247,15 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Ucraniano | Reino Unido |
 | Urdu | o seu |
 | Vietnamita | vi |
-| Vietnamitas (Vietname) | vi-VN |
+| Vietnamita (Vietname) | vi-VN |
 | Galês | cy |
-| Maia yucateca | yua |
+| Maia-de-iucatec | yua |
 | Yue Chinês | yue |
 
 
 ## <a name="language-detection"></a>Deteção de idioma
 
-| Idioma | Etiqueta |
+| Linguagem | Etiqueta |
 |----------|-----|
 | Árabe (egípcio) | ar-EG |
 | Árabe (Arábia Saudita) | ar-SA |
@@ -265,11 +265,11 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Catalão | ca-ES |
 | Chinês simplificado | zh-Hans |
 | Chinês Simplificado (China) | zh-Hans-CN |
-| Simplificado chinês (Singapura) | zh-Hans-SG |
+| Chinês Simplificado (Singapura) | zh-Hans-SG |
 | Chinês tradicional | zh-Hant-CN |
-| Tradicional chinês (Hong Kong) | zh-Hant-HK |
-| Tradicional chinês (Macau) | zh-Hant-MO |
-| Tradicional chinês (Taiwan) | zh-Hant-TW |
+| Tradicional Chinês (Hong Kong SAR) | zh-Hant-HK |
+| Tradicional Chinês (SAR de Macau) | zh-Hant-MO |
+| Tradicional Chinês (Taiwan) | zh-Hant-TW |
 | Croata | hr |
 | Croata (Croácia) | hr-HR |
 | Checo | cs |
@@ -279,9 +279,9 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Neerlandês | nl |
 | Neerlandês (Países Baixos) | nl-NL |
 | Inglês | en |
-| Inglês (Austrália) | en-UA |
+| Inglês (Austrália) | en-AU |
 | Inglês (Canadá) | en-CA |
-| Inglês (Hong Kong SAR) | en-HK |
+| Inglês (HONG KONG SAR) | en-HK |
 | Inglês (Índia) | en-IN |
 | Inglês (Irlanda) | en-IE |
 | Inglês (Nova Zelândia) | en-NZ |
@@ -310,7 +310,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Islandês | é |
 | Indonésio | ID |
 | Indonésio (Indonésia) | id-ID |
-| Italiano | lo |
+| Italiano | que |
 | Italiano (Itália) | it-IT |
 | Japonês | ja |
 | Japonês (Japão) | ja-JP |
@@ -323,7 +323,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Malaio (Malásia) | ms-MY |
 | Norueguês Bokmal| nb |
 | Bokmal norueguês (Noruega) | nb-NO |
-| Norueguês Nynorsk | nn |
+| Norueguês (Nynorsk) | nn |
 | Polaco | pl |
 | Polaco (Polónia) | pl-PL |
 | Português | pt |
@@ -355,12 +355,12 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Turco (Turquia) | tr-TR |
 | Ucraniano | Reino Unido |
 | Vietnamita | vi |
-| Vietnamitas (Vietname) | vi-VN |
+| Vietnamita (Vietname) | vi-VN |
 | Galês | cy |
 
 ## <a name="syllabification"></a>Syllabificação
 
-| Idioma | Etiqueta |
+| Linguagem | Etiqueta |
 |----------|-----|
 | Basco | eu |
 | Búlgaro | bg |
@@ -375,9 +375,9 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Neerlandês | nl |
 | Neerlandês (Países Baixos) | nl-NL |
 | Inglês | en |
-| Inglês (Austrália) | en-UA |
+| Inglês (Austrália) | en-AU |
 | Inglês (Canadá) | en-CA |
-| Inglês (Hong Kong SAR) | en-HK |
+| Inglês (HONG KONG SAR) | en-HK |
 | Inglês (Índia) | en-IN |
 | Inglês (Irlanda) | en-IE |
 | Inglês (Nova Zelândia) | en-NZ |
@@ -400,14 +400,14 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Húngaro | hu |
 | Húngaro (Hungria) | hu-HU |
 | Islandês | é |
-| Italiano | lo |
+| Italiano | que |
 | Italiano (Itália) | it-IT |
 | Cazaque | kk |
 | Letão | lv |
 | Lituano | lt |
 | Norueguês Bokmal| nb |
 | Bokmal norueguês (Noruega) | nb-NO |
-| Norueguês Nynorsk | nn |
+| Norueguês (Nynorsk) | nn |
 | Polaco | pl |
 | Polaco (Polónia) | pl-PL |
 | Português | pt |
@@ -417,7 +417,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Romeno (Roménia) | ro-RO |
 | Russo | ru |
 | Russo (Rússia) | ru-RU |
-| Sérvio | sr. |
+| Sérvio | sr |
 | Sérvio (cirílico) | sr-Cyrl |
 | Sérvio (Latim) | sr-Latn |
 | Eslovaco | sk |
@@ -437,16 +437,16 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 
 ## <a name="picture-dictionary"></a>Dicionário de imagem
 
-| Idioma | Etiqueta |
+| Linguagem | Etiqueta |
 |----------|-----|
 | Dinamarquês | da |
 | Dinamarquês (Dinamarca) | da-DK |
 | Neerlandês | nl |
 | Neerlandês (Países Baixos) | nl-NL |
 | Inglês | en |
-| Inglês (Austrália) | en-UA |
+| Inglês (Austrália) | en-AU |
 | Inglês (Canadá) | en-CA |
-| Inglês (Hong Kong SAR) | en-HK |
+| Inglês (HONG KONG SAR) | en-HK |
 | Inglês (Índia) | en-IN |
 | Inglês (Irlanda) | en-IE |
 | Inglês (Nova Zelândia) | en-NZ |
@@ -462,7 +462,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Alemão (Áustria) | de-AT |
 | Alemão (Alemanha) | de-DE |
 | Alemão (Suíça)| de-CH |
-| Italiano | lo |
+| Italiano | que |
 | Italiano (Itália) | it-IT |
 | Japonês | ja |
 | Japonês (Japão) | ja-JP |
@@ -485,7 +485,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 
 ## <a name="parts-of-speech"></a>Partes da fala
 
-| Idioma | Etiqueta |
+| Linguagem | Etiqueta |
 |----------|-----|
 | Árabe (egípcio) | ar-EG |
 | Árabe (Arábia Saudita) | ar-SA |
@@ -494,9 +494,9 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Neerlandês | nl |
 | Neerlandês (Países Baixos) | nl-NL |
 | Inglês | en |
-| Inglês (Austrália) | en-UA |
+| Inglês (Austrália) | en-AU |
 | Inglês (Canadá) | en-CA |
-| Inglês (Hong Kong SAR) | en-HK |
+| Inglês (HONG KONG SAR) | en-HK |
 | Inglês (Índia) | en-IN |
 | Inglês (Irlanda) | en-IE |
 | Inglês (Nova Zelândia) | en-NZ |
@@ -512,7 +512,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Alemão (Áustria) | de-AT |
 | Alemão (Alemanha) | de-DE |
 | Alemão (Suíça)| de-CH |
-| Italiano | lo |
+| Italiano | que |
 | Italiano (Itália) | it-IT |
 | Japonês | ja |
 | Japonês (Japão) | ja-JP |
@@ -520,7 +520,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Coreano (Coreia) | ko-KR |
 | Norueguês Bokmal| nb |
 | Bokmal norueguês (Noruega) | nb-NO |
-| Norueguês Nynorsk | nn |
+| Norueguês (Nynorsk) | nn |
 | Polaco | pl |
 | Polaco (Polónia) | pl-PL |
 | Português | pt |
@@ -536,12 +536,12 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 
 ## <a name="dictionary"></a>Dicionário
 
-| Idioma | Etiqueta |
+| Linguagem | Etiqueta |
 |----------|-----|
 | Inglês | en |
-| Inglês (Austrália) | en-UA |
+| Inglês (Austrália) | en-AU |
 | Inglês (Canadá) | en-CA |
-| Inglês (Hong Kong SAR) | en-HK |
+| Inglês (HONG KONG SAR) | en-HK |
 | Inglês (Índia) | en-IN |
 | Inglês (Irlanda) | en-IE |
 | Inglês (Nova Zelândia) | en-NZ |
@@ -555,7 +555,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades imersivas do 
 | Alemão (Áustria) | de-AT |
 | Alemão (Alemanha) | de-DE |
 | Alemão (Suíça)| de-CH |
-| Italiano | lo |
+| Italiano | que |
 | Italiano (Itália) | it-IT |
 | Espanhol | es |
 | Espanhol (América Latina) | es-419 |

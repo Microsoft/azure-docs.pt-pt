@@ -1,6 +1,6 @@
 ---
-title: Plataforma de dados Azure Monitor [ Microsoft Docs
-description: Os dados de monitorização recolhidos pelo Azure Monitor são separados em métricas leves e capazes de suportar cenários e registos em tempo real que são utilizados para análises avançadas.
+title: Plataforma de dados Azure Monitor Microsoft Docs
+description: Os dados de monitorização recolhidos pelo Azure Monitor são separados em métricas leves e capazes de suportar cenários e registos em tempo real que são utilizados para análise avançada.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -10,83 +10,83 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: 58f542238c952088777ed9809b57dae3cdb9cf12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81457268"
 ---
 # <a name="azure-monitor-data-platform"></a>Plataforma de dados Azure Monitor
 
-Permitir a observabilidade em todos os complexos ambientes informáticos de hoje em dia que executam aplicações distribuídas que dependem tanto de serviços em nuvem como no local, requer a recolha de dados operacionais de todas as camadas e todos os componentes do sistema distribuído. Você precisa ser capaz de realizar insights profundos sobre estes dados e consolidá-lo em um único painel de vidro com diferentes perspetivas para apoiar a multiplicidade de stakeholders na sua organização.
+Permitindo a observabilidade em todos os ambientes de computação complexos de hoje em dia, executando aplicações distribuídas que dependem tanto de serviços em nuvem como no local, requer a recolha de dados operacionais de cada camada e cada componente do sistema distribuído. Você precisa ser capaz de realizar insights profundos sobre estes dados e consolidá-lo em um único painel de vidro com diferentes perspetivas para apoiar a multiplicidade de stakeholders na sua organização.
 
-[O Azure Monitor](../overview.md) recolhe e agrega dados de uma variedade de fontes para uma plataforma de dados comum onde pode ser usado para análise, visualização e alerta. Proporciona uma experiência consistente em além de dados de várias fontes, o que lhe dá informações profundas sobre todos os seus recursos monitorizados e até mesmo com dados de outros serviços que armazenam os seus dados no Monitor Azure.
+[O Azure Monitor](../overview.md) recolhe e agrega dados de várias fontes numa plataforma comum de dados onde pode ser usado para análise, visualização e alerta. Fornece uma experiência consistente em além de dados de múltiplas fontes, o que lhe dá informações profundas em todos os seus recursos monitorizados e até mesmo com dados de outros serviços que armazenam os seus dados no Azure Monitor.
 
 
 ![Descrição geral do Azure Monitor](media/data-platform/overview.png)
 
 ## <a name="observability-data-in-azure-monitor"></a>Dados de observabilidade no Monitor Azure
-Métricas, troncos e vestígios distribuídos são comumente referidos como os três pilares da observabilidade. Estes são os diferentes tipos de dados que uma ferramenta de monitorização deve recolher e analisar para proporcionar uma observabilidade suficiente de um sistema monitorizado. A observabilidade pode ser alcançada correlando dados de vários pilares e agregando dados em todo o conjunto de recursos que estão a ser monitorizados. Uma vez que o Azure Monitor armazena dados de várias fontes em conjunto, os dados podem ser correlacionados e analisados utilizando um conjunto comum de ferramentas. Também correlaciona dados em várias subscrições e inquilinos do Azure, além de hospedar dados para outros serviços.
+Métricas, troncos e vestígios distribuídos são geralmente referidos como os três pilares da observabilidade. Estes são os diferentes tipos de dados que uma ferramenta de monitorização deve recolher e analisar para fornecer uma visibilidade suficiente de um sistema monitorizado. A observabilidade pode ser alcançada correlacionando dados de múltiplos pilares e agregando dados em todo o conjunto de recursos que estão sendo monitorizados. Como o Azure Monitor armazena dados de várias fontes em conjunto, os dados podem ser correlacionados e analisados usando um conjunto comum de ferramentas. Também correlaciona dados em várias subscrições e inquilinos da Azure, além de hospedar dados para outros serviços.
 
-Os recursos do Azure geram uma quantidade significativa de dados de monitorização. O Azure Monitor consolida estes dados juntamente com a monitorização de dados de outras fontes numa plataforma de Métricas ou Registos. Cada um é otimizado para cenários de monitorização particulares, e cada um suporta diferentes funcionalidades no Monitor Azure. Funcionalidades como análise de dados, visualizações ou alertas exigem que compreenda as diferenças para que possa implementar o seu cenário exigido da forma mais eficiente e rentável. Insights no Monitor Azure, tais como [Application Insights](../app/app-insights-overview.md) ou [Azure Monitor para VMs,](../insights/vminsights-overview.md) têm ferramentas de análise que permitem focar-se no cenário de monitorização específico sem ter de compreender as diferenças entre os dois tipos de dados. 
+Os recursos azure geram uma quantidade significativa de dados de monitorização. O Azure Monitor consolida estes dados juntamente com a monitorização de dados de outras fontes numa plataforma Métrica ou Logs. Cada um é otimizado para cenários de monitorização específicos, e cada um suporta diferentes funcionalidades no Azure Monitor. Funcionalidades como análise de dados, visualizações ou alerta requerem que compreenda as diferenças para que possa implementar o cenário necessário da forma mais eficiente e rentável. Insights no Azure Monitor, como [Application Insights](../app/app-insights-overview.md) ou [Azure Monitor para VMs,](../insights/vminsights-overview.md) têm ferramentas de análise que permitem focar-se no cenário de monitorização particular sem ter de compreender as diferenças entre os dois tipos de dados. 
 
 
 ### <a name="metrics"></a>Métricas
-[As métricas](data-platform-metrics.md) são valores numéricos que descrevem algum aspeto de um sistema num determinado momento do tempo. São recolhidos regularmente e identificados com uma marca de tempo, um nome, um valor e um ou mais rótulos definidores. As métricas podem ser agregadas usando uma variedade de algoritmos, em comparação com outras métricas, e analisadas para tendências ao longo do tempo. 
+[As métricas](data-platform-metrics.md) são valores numéricos que descrevem algum aspeto de um sistema num determinado momento do tempo. São recolhidos a intervalos regulares e são identificados com uma marca de tempo, um nome, um valor e uma ou mais etiquetas de definição. As métricas podem ser agregadas usando uma variedade de algoritmos, em comparação com outras métricas, e analisadas para tendências ao longo do tempo. 
 
-As métricas do Monitor Azure são armazenadas numa base de dados da série temporal que é otimizada para analisar dados carimbados no tempo. Isto torna as métricas particularmente adequadas para alertar e detetar rapidamente os problemas. Eles podem dizer-lhe como o seu sistema está a funcionar, mas normalmente precisa ser combinado com registos para identificar a causa principal dos problemas.
+As métricas no Azure Monitor são armazenadas numa base de dados de séries temporais que é otimizada para analisar dados com carimbo temporal. Isto torna as métricas particularmente adequadas para alertar e detetar rapidamente problemas. Eles podem dizer-lhe como o seu sistema está a funcionar, mas normalmente precisam de ser combinados com registos para identificar a causa principal dos problemas.
 
-As métricas estão disponíveis para análise interativa no portal Azure com [o Azure Metrics Explorer.](../platform/metrics-getting-started.md) Podem ser adicionados a um [painel azure](../learn/tutorial-app-dashboards.md) para visualização em combinação com outros dados e utilizados para [alerta](alerts-metric.md)em tempo quase real .
+As métricas estão disponíveis para análise interativa no portal Azure com [o Azure Metrics Explorer.](../platform/metrics-getting-started.md) Podem ser adicionados a um [dashboard Azure](../learn/tutorial-app-dashboards.md) para visualização em combinação com outros dados e utilizados para [alertar](alerts-metric.md)em tempo real.
 
-Leia mais sobre as Métricas do Monitor Azure, incluindo as suas fontes de dados em [Métricas no Monitor Azure](data-platform-metrics.md).
+Leia mais sobre as Métricas do Monitor Azure, incluindo as suas fontes de [dados em Métricas no Azure Monitor](data-platform-metrics.md).
 
 ### <a name="logs"></a>Registos
-[Os registos](data-platform-logs.md) são eventos que ocorreram dentro do sistema. Podem conter diferentes tipos de dados e podem ser estruturados ou texto de formulário livre com uma marca de tempo. Podem ser criados esporadicamente à medida que os eventos no ambiente geram entradas de registo, e um sistema sob carga pesada normalmente gera mais volume de registo.
+[Os registos](data-platform-logs.md) são eventos que ocorreram dentro do sistema. Podem conter diferentes tipos de dados e podem ser estruturados ou em formato livre texto com uma datatamp. Podem ser criados esporadicamente à medida que os eventos no ambiente geram entradas de registo, e um sistema sob carga pesada normalmente gerará mais volume de registo.
 
-Os registos no Monitor Azure são armazenados num espaço de trabalho do Log Analytics baseado no [Azure Data Explorer,](/azure/data-explorer/) que fornece um poderoso motor de análise e [linguagem de consulta rica.](/azure/kusto/query/) Os registos normalmente fornecem informações suficientes para fornecer o contexto completo do problema que está a ser identificado e são valiosos para identificar caso raiz de problemas.
+Os registos no Azure Monitor são armazenados num espaço de trabalho log analytics baseado no [Azure Data Explorer,](/azure/data-explorer/) que fornece um poderoso motor de análise e [uma linguagem de consulta rica.](/azure/kusto/query/) Os registos normalmente fornecem informações suficientes para fornecer o contexto completo da questão que está a ser identificada e são valiosos para identificar casos de raiz de problemas.
 
 > [!NOTE]
-> É importante distinguir entre registos do Monitor Azure e fontes de dados de registo em Azure. Por exemplo, os eventos de nível de subscrição em Azure são escritos para um registo de [atividade](platform-logs-overview.md) que você pode ver a partir do menu Do Monitor Azure. A maioria dos recursos irá escrever informações operacionais para um registo de [recursos](platform-logs-overview.md) que você pode encaminhar para diferentes locais. O Azure Monitor Logs é uma plataforma de dados de registo que recolhe registos de atividade sonantes e registos de recursos, juntamente com outros dados de monitorização, para fornecer uma análise profunda em todo o conjunto de recursos.
+> É importante distinguir entre registos do Monitor Azure e fontes de dados de registo em Azure. Por exemplo, os eventos de nível de subscrição em Azure são escritos para um registo de [atividade](platform-logs-overview.md) que você pode ver a partir do menu Azure Monitor. A maioria dos recursos escreverá informações operacionais para um [registo de recursos](platform-logs-overview.md) que pode encaminhar para diferentes locais. O Azure Monitor Logs é uma plataforma de dados de registo que recolhe registos de atividade e registos de recursos, juntamente com outros dados de monitorização para fornecer uma análise profunda em todo o seu conjunto de recursos.
 
 
- Pode trabalhar com consultas de [log](../log-query/log-query-overview.md) interactivamente com [log Analytics](../log-query/portals.md) no portal Azure ou adicionar os resultados a um dashboard [Azure](../learn/tutorial-app-dashboards.md) para visualização em combinação com outros dados. Também pode criar [alertas](alerts-log.md) de registo que desencadearão um alerta com base nos resultados de uma consulta de horário.
+ Pode trabalhar com [consultas de registo](../log-query/log-query-overview.md) interativamente com o Log [Analytics](../log-query/portals.md) no portal Azure ou adicionar os resultados a um [dashboard Azure](../learn/tutorial-app-dashboards.md) para visualização em combinação com outros dados. Também pode criar [alertas de registo](alerts-log.md) que irão desencadear um alerta com base nos resultados de uma consulta de agendamento.
 
-Leia mais sobre os Registos do Monitor Azure, incluindo as suas fontes de dados em [Registos no Monitor Azure](data-platform-logs.md).
+Leia mais sobre os Registos do Monitor Azure, incluindo as suas fontes de [dados em Registos no Azure Monitor](data-platform-logs.md).
 
 ### <a name="distributed-traces"></a>Vestígios distribuídos
-Os vestígios são uma série de eventos relacionados que seguem um pedido do utilizador através de um sistema distribuído. Podem ser usados para determinar o comportamento do código de aplicação e o desempenho de diferentes transações. Embora os registos sejam muitas vezes criados por componentes individuais de um sistema distribuído, um vestígio mede o funcionamento e o desempenho da sua aplicação em todo o conjunto de componentes.
+Os vestígios são uma série de eventos relacionados que seguem um pedido do utilizador através de um sistema distribuído. Podem ser usados para determinar o comportamento do código de aplicação e a realização de diferentes transações. Embora os registos sejam muitas vezes criados por componentes individuais de um sistema distribuído, um traço mede o funcionamento e desempenho da sua aplicação em todo o conjunto de componentes.
 
-O rastreio distribuído no Monitor Azure está ativado com o SDK de Insights de [Aplicação,](../app/distributed-tracing.md)e os dados de rastreio são armazenados com outros dados de registo de aplicações recolhidos pela Application Insights. Isto disponibiliza-o para as mesmas ferramentas de análise que outros dados de registo, incluindo consultas de registo, dashboards e alertas.
+O rastreio distribuído no Azure Monitor é ativado com o [Application Insights SDK](../app/distributed-tracing.md), e os dados de rastreio são armazenados com outros dados de registo de aplicações recolhidos pela Application Insights. Isto coloca-o à disposição das mesmas ferramentas de análise que outros dados de registo, incluindo consultas de registo, dashboards e alertas.
 
-Ler mais sobre rastreiodistribuído no [What is Distributed Tracing?](../app/distributed-tracing.md)
+Leia mais sobre rastreio distribuído no [What is Distributed Tracing?](../app/distributed-tracing.md)
 
 
-## <a name="compare-azure-monitor-metrics-and-logs"></a>Compare métricas e registos do Monitor Azure
+## <a name="compare-azure-monitor-metrics-and-logs"></a>Compare métricas e registos do monitor Azure
 
-A tabela seguinte compara métricas e registos no Monitor Azure.
+A tabela a seguir compara métricas e registos no Azure Monitor.
 
 | Atributo  | Métricas | Registos |
 |:---|:---|:---|
-| Benefícios | Leve e capaz de cenários quase em tempo real, como alertar. Ideal para deteção rápida de problemas. | Analisado com linguagem de consulta rica. Ideal para análise profunda e identificação de causa raiz. |
-| Dados | Apenas valores numéricos | Texto ou dados numéricos |
-| Estrutura | Conjunto padrão de propriedades, incluindo tempo de amostra, recurso a ser monitorizado, um valor numérico. Algumas métricas incluem múltiplas dimensões para mais definição. | Conjunto único de propriedades dependendo do tipo de log. |
+| Benefícios | Leve e capaz de cenários em tempo real, como alertar. Ideal para deteção rápida de problemas. | Analisado com uma linguagem de consulta rica. Ideal para análise profunda e identificação da causa raiz. |
+| Dados | Valores numéricos apenas | Dados de texto ou numéricos |
+| Estrutura | Conjunto padrão de propriedades, incluindo tempo de amostra, monitorização de recursos, um valor numérico. Algumas métricas incluem múltiplas dimensões para uma definição posterior. | Conjunto único de propriedades dependendo do tipo de registo. |
 | Coleção | Recolhidos em intervalos regulares. | Pode ser recolhido esporadicamente à medida que os eventos desencadeiam um registo a ser criado. |
 | Ver no portal do Azure | Explorador de Métricas | Log Analytics |
-| Fontes de dados incluem | Métricas da plataforma recolhidas a partir de recursos Azure.<br>Aplicações monitorizadas por Insights de Aplicação.<br>Personalizado definido por aplicação ou API. | Registos de aplicação e recursos.<br>Soluções de monitorização.<br>Agentes e extensões VM.<br>Pedidos de candidatura e exceções.<br>Centro de Segurança Azure.<br>Data Collector API. |
+| As fontes de dados incluem | Métricas de plataforma recolhidas a partir de recursos Azure.<br>Aplicações monitorizadas por Application Insights.<br>Personalizado definido por aplicação ou API. | Registos de aplicações e recursos.<br>Soluções de monitorização.<br>Agentes e extensões de VM.<br>Pedidos de inscrição e exceções.<br>Centro de Segurança Azure.<br>API de Colecionador de Dados. |
 
 ## <a name="collect-monitoring-data"></a>Recolher dados de monitorização
-Diferentes [fontes de dados para o Monitor Azure](data-sources.md) escreverão para um espaço de trabalho de Log Analytics (Registos) ou para a base de dados de métricas do Monitor Azure (Métricas) ou ambas. Algumas fontes escreverão diretamente para estas lojas de dados, enquanto outras podem escrever para outro local, como o armazenamento do Azure e exigir alguma configuração para povoar registos ou métricas. 
+Diferentes [fontes de dados para o Azure Monitor](data-sources.md) escreverão para um espaço de trabalho Log Analytics (Logs) ou para a base de dados de métricas do Monitor Azure (Métricas) ou ambos. Algumas fontes escreverão diretamente para estas lojas de dados, enquanto outras podem escrever para outro local, como o armazenamento de Azure e exigir alguma configuração para preencher registos ou métricas. 
 
-Consulte [métricas no Monitor Azure](data-platform-metrics.md) e [em Registos no Monitor Azure](data-platform-logs.md) para obter uma listagem de diferentes fontes de dados que povoam cada tipo.
+Consulte [métricas no Monitor E](data-platform-metrics.md) [Registos Azure no Monitor Azure](data-platform-logs.md) para obter uma lista de diferentes fontes de dados que povoam cada tipo.
 
 
 ## <a name="stream-data-to-external-systems"></a>Transmitir dados para sistemas externos
-Além de utilizar as ferramentas no Azure para analisar dados de monitorização, poderá ter a obrigação de encaminhar para uma ferramenta externa, como um produto de informação de segurança e gestão de eventos (SIEM). Este encaminhamento é normalmente feito diretamente a partir de recursos monitorizados através de Hubs de [Eventos Azure](/azure/event-hubs/). Algumas fontes podem ser configuradas para enviar dados diretamente para um centro de eventos, enquanto você pode usar outro processo, como uma App Lógica para recuperar os dados necessários. Consulte os dados de [monitorização do Stream Azure num centro](stream-monitoring-data-event-hubs.md) de eventos para consumo por uma ferramenta externa para obter mais detalhes.
+Além de utilizar as ferramentas em Azure para analisar os dados de monitorização, poderá ter a obrigação de encaminhá-los para uma ferramenta externa, como um produto de informação de segurança e gestão de eventos (SIEM). Este reencaminhamento é normalmente feito diretamente a partir de recursos monitorizados através de [Azure Event Hubs](/azure/event-hubs/). Algumas fontes podem ser configuradas para enviar dados diretamente para um centro de eventos enquanto você pode usar outro processo, como uma App Lógica para recuperar os dados necessários. Consulte [os dados de monitorização do Stream Azure num centro de eventos para consumo através de uma ferramenta externa](stream-monitoring-data-event-hubs.md) para obter mais detalhes.
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Leia mais sobre [Métricas no Monitor Azure.](data-platform-metrics.md)
-- Leia mais sobre [logs no Monitor Azure](data-platform-logs.md).
-- Conheça os [dados de monitorização disponíveis](data-sources.md) para diferentes recursos no Azure.
+- Leia mais sobre [Registos no Monitor Azure](data-platform-logs.md).
+- Conheça os [dados de monitorização disponíveis](data-sources.md) para diferentes recursos em Azure.

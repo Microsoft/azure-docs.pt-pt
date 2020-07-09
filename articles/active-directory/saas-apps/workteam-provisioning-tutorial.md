@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure workteam para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
-description: Aprenda a configurar o Diretório Ativo Azure para fornecer e desfornecer automaticamente contas de utilizadores ao Workteam.
+title: 'Tutorial: Configure Workteam para o fornecimento automático de utilizadores com diretório Azure Ative Microsoft Docs'
+description: Saiba como configurar o Azure Ative Directory para provisão automática e desa provisionamento de contas de utilizador à Workteam.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,66 +16,65 @@ ms.topic: article
 ms.date: 08/17/2019
 ms.author: Zhchia
 ms.openlocfilehash: e9b1e93cf543836b282525c53756752630d5e4f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77062807"
 ---
-# <a name="tutorial-configure-workteam--for-automatic-user-provisioning"></a>Tutorial: Configure o workteam para o fornecimento automático de utilizadores
+# <a name="tutorial-configure-workteam--for-automatic-user-provisioning"></a>Tutorial: Configure Workteam para o fornecimento automático de utilizadores
 
-O objetivo deste tutorial é demonstrar os passos a serem realizados no Workteam e no Azure Ative Directory (Azure AD) para configurar a AD Azure para fornecer e desfornecer automaticamente utilizadores e/ou grupos para o Workteam.
+O objetivo deste tutorial é demonstrar os passos a serem realizados na Workteam e no Azure Ative Directory (Azure AD) para configurar a Azure AD para fornecimento e desa provisionamento automaticamente de utilizadores e/ou grupos à Workteam.
 
 > [!NOTE]
-> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Da AD Azure. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
+> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [automatizar o fornecimento e desprovisionamento de aplicações saaS com diretório Azure Ative.](../app-provisioning/user-provisioning.md)
 >
-> Este conector encontra-se atualmente em Pré-visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [os Termos Suplementares de Utilização para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> Este conector encontra-se atualmente em Visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
 * Um inquilino do Azure AD.
-* [Um inquilino de workteam](https://workte.am/pricing.html)
-* Uma conta de utilizador no Workteam com permissões admin.
+* [Um inquilino da workteam](https://workte.am/pricing.html)
+* Uma conta de utilizador em Workteam com permissões de Administração.
 
-## <a name="assigning-users-to-workteam"></a>Atribuir utilizadores ao Workteam 
+## <a name="assigning-users-to-workteam"></a>Atribuir utilizadores à Workteam 
 
-O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de utilizadores, apenas os utilizadores e/ou grupos que tenham sido atribuídos a uma aplicação em AD Azure são sincronizados.
+O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de utilizadores, apenas os utilizadores e/ou grupos que foram designados para uma aplicação em Azure AD são sincronizados.
 
-Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao Workteam. Uma vez decidido, pode atribuir estes utilizadores e/ou grupos ao Workteam seguindo as instruções aqui:
+Antes de configurar e permitir o fornecimento automático do utilizador, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso à workteam. Uma vez decididos, pode atribuir estes utilizadores e/ou grupos à Workteam seguindo as instruções aqui:
 * [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-workteam"></a>Dicas importantes para atribuir utilizadores ao Workteam 
+## <a name="important-tips-for-assigning-users-to-workteam"></a>Dicas importantes para atribuir utilizadores à Workteam 
 
-* Recomenda-se que um único utilizador da AD Azure seja atribuído ao Workteam para testar a configuração automática de fornecimento do utilizador. Posteriormente, os utilizadores e/ou grupos adicionais podem ser atribuídos.
+* Recomenda-se que um único utilizador Azure AD seja designado para o Workteam para testar a configuração automática de provisionamento do utilizador. Utilizadores e/ou grupos adicionais podem ser atribuídos mais tarde.
 
-* Ao atribuir um utilizador ao Workteam, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
+* Ao atribuir um utilizador à Workteam, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **Acesso Predefinido** estão excluídos do provisionamento.
 
-## <a name="setup-workteam--for-provisioning"></a>Configuração do workteam para o provisionamento
+## <a name="setup-workteam--for-provisioning"></a>Equipa de Trabalho de Configuração para provisionamento
 
-Antes de configurar o Workteam para o fornecimento automático de utilizadores com a AD Azure, terá de ativar o fornecimento de SCIM no Workteam.
+Antes de configurar a workteam para o fornecimento automático de utilizadores com Azure AD, terá de permitir o fornecimento de SCIM na Workteam.
 
-1. Inicie sessão no [Workteam](https://app.workte.am/account/signin). Clique em > **definições** **de organização**.
+1. Faça login na [workteam](https://app.workte.am/account/signin). Clique **nas definições da Organização**  >  **Definições**.
 
     ![Workteam](media/workteam-provisioning-tutorial/settings.png)
 
-2. Percorra para baixo e ative as capacidades de provisionamento do Workteam.
+2. Percorra para baixo e ative as capacidades de provisionamento da Workteam.
 
     ![Workteam](media/workteam-provisioning-tutorial/icon.png)
 
-3. Copie o **Url base** e o token do **portador.** Estes valores serão inseridos no **campo URL**do Inquilino e no Campo **Secreto token** no separador de fornecimento da sua aplicação Workteam no portal Azure.
+3. Copie o **Url base** e **o Token do Portador.** Estes valores serão inseridos no campo **URL**e **Secret Token** no separador Provisioning da sua aplicação Workteam no portal Azure.
 
     ![Workteam](media/workteam-provisioning-tutorial/scim.png)
 
 
-## <a name="add-workteam--from-the-gallery"></a>Adicione workteam da galeria
+## <a name="add-workteam--from-the-gallery"></a>Adicionar Workteam da galeria
 
-Para configurar o Workteam para o fornecimento automático de utilizadores com a AD Azure, é necessário adicionar o Workteam da galeria de aplicações Azure AD à sua lista de aplicações SaaS geridas.
+Para configurar o Workteam para o fornecimento automático de utilizadores com Azure AD, é necessário adicionar workteam da galeria de aplicações AD AD do Azure à sua lista de aplicações geridas pelo SaaS.
 
-**Para adicionar workteam da galeria de aplicações Azure AD, execute os seguintes passos:**
+**Para adicionar workteam da galeria de aplicações AZure, execute os seguintes passos:**
 
-1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação esquerdo, selecione **Azure Ative Directory**.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, selecione **Azure Ative Directory**.
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -87,76 +86,76 @@ Para configurar o Workteam para o fornecimento automático de utilizadores com a
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, introduza o **Workteam**, selecione **workteam** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, **introduza workteam,** selecione **Workteam** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![Workteam na lista de resultados](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-workteam"></a>Configurar o fornecimento automático de utilizadores ao Workteam  
+## <a name="configuring-automatic-user-provisioning-to-workteam"></a>Configurar o fornecimento automático de utilizadores à Workteam  
 
-Esta secção guia-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no Workteam com base em atribuições de utilizador e/ou grupo em Azure AD.
+Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos na Workteam com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Também pode optar por ativar um único sinal baseado em SAML para o Workteam, seguindo as instruções fornecidas no tutorial de [sinalização workteam Single](workteam-tutorial.md). O único sinal de inscrição pode ser configurado independentemente do fornecimento automático de utilizadores, embora estas duas funcionalidades se elogiem mutuamente
+> Pode também optar por ativar o sign-on único baseado em SAML para workteam, seguindo as instruções fornecidas no [tutorial de inscrição única da workteam.](workteam-tutorial.md) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
 
-### <a name="to-configure-automatic-user-provisioning-for-workteam--in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para workteam em Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-workteam--in-azure-ad"></a>Para configurar o provisionamento automático do utilizador para workteam em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Workteam**.
+2. Na lista de candidaturas, selecione **Workteam**.
 
     ![O link Workteam na lista de Aplicações](common/all-applications.png)
 
-3. Selecione o separador **Provisioning.**
+3. Selecione o **separador Provisioning.**
 
-    ![Guia de provisionamento](common/provisioning.png)
+    ![Separador de provisionamento](common/provisioning.png)
 
-4. Detete o **modo de provisionamento** para **automático**.
+4. Desa ajuste o **modo de provisionamento** para **automático**.
 
-    ![Guia de provisionamento](common/provisioning-automatic.png)
+    ![Separador de provisionamento](common/provisioning-automatic.png)
 
-5. De acordo com a secção de Credenciais de Administrador, insera os valores de **URL base** e **token** do portador recuperados anteriormente em URL de **Inquilino** e **Token Secreto,** respectivamente. Clique na **ligação de teste** para garantir que o Azure AD pode ligar-se ao Workteam. Se a ligação falhar, certifique-se de que a sua conta Workteam tem permissões de administrador e tente novamente.
+5. Sob a secção credenciais de administração, insira os valores **de BASE URL** e **Bearer Token** recuperados anteriormente em URL de **Inquilino** e **Token Secreto,** respectivamente. Clique em **Testar a Ligação** para garantir que o Azure AD pode ligar-se à equipa de trabalho. Se a ligação falhar, certifique-se de que a sua conta Workteam tem permissões de Administração e tente novamente.
 
-    ![URL do inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
+    ![INQUILINO URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo de email de **notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e verificar a caixa de verificação - Envie uma notificação por **e-mail quando ocorrer uma falha**.
+6. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e verifique a caixa de verificação - **Envie uma notificação de e-mail quando ocorrer uma falha**.
 
-    ![Email de notificação](common/provisioning-notification-email.png)
+    ![E-mail de notificação](common/provisioning-notification-email.png)
 
 7. Clique em **Guardar**.
 
-8. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to Workteam**.
+8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Workteam**.
 
-    ![Mapeamento de utilizador de team de trabalho](media/workteam-provisioning-tutorial/usermapping.png)
+    ![Mapeamentos de utilizadores de workteam](media/workteam-provisioning-tutorial/usermapping.png)
 
-9. Reveja os atributos do utilizador que são sincronizados de Azure AD para Workteam na secção De Mapeamento de **Atributos.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas do utilizador no Workteam para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
+9. Reveja os atributos do utilizador que são sincronizados de AD AD a Workteam na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador na Workteam para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    ![Atributos do utilizador do team de trabalho](media/workteam-provisioning-tutorial/userattribute.png)
+    ![Atributos do utilizador workteam](media/workteam-provisioning-tutorial/userattribute.png)
 
-11. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+11. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. Para ativar o serviço de provisionamento de AD Azure para workteam, altere o Estado de **Provisionamento** para **Ligado** na secção **Definições.**
+12. Para ativar o serviço de prestação de Ad Azure para a equipa de trabalho, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
-    ![Estatuto de provisionamento Alternado](common/provisioning-toggle-on.png)
+    ![Estatuto de Provisionamento Toggled On](common/provisioning-toggle-on.png)
 
-13. Defina os utilizadores e/ou grupos que deseja fornecer ao Workteam, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
+13. Defina os utilizadores e/ou grupos que deseja prestar à Workteam, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
     ![Âmbito de provisionamento](common/provisioning-scope.png)
 
-14. Quando estiver pronto para fornecer, clique em **Guardar**.
+14. Quando estiver pronto para a provisão, clique em **Guardar**.
 
-    ![Configuração de fornecimento de poupança](common/provisioning-configuration-save.png)
+    ![Configuração de provisionamento de poupança](common/provisioning-configuration-save.png)
 
-Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a executar do que as sincronizações subsequentes. Para obter mais informações sobre quanto tempo demorará os utilizadores e/ou grupos a fornecer, veja [quanto tempo demorará a fornecer aos utilizadores](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser efetua do que as sincronizações subsequentes. Para obter mais informações sobre o tempo que os utilizadores e/ou grupos demorarão a providenciar, consulte [quanto tempo demorará a providenciar aos utilizadores](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-Pode utilizar a secção **Estado Atual** para monitorizar o progresso e seguir ligações ao seu relatório de atividade de provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento de AD Azure no Workteam. Para mais informações, [consulte Verifique o estado do fornecimento do utilizador](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
+Pode utilizar a secção **Estado Atual** para monitorizar o progresso e seguir links para o seu relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de fornecimento de Ad Azure na workteam. Para obter mais informações, [consulte verifique o estado do fornecimento do utilizador](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os registos de provisionamento da AD Azure, consulte [reportar sobre o provisionamento automático da conta de utilizador](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

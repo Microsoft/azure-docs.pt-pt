@@ -1,18 +1,18 @@
 ---
-title: 'ExpressRoute: Mover circuitos do clássico para o Gestor de Recursos Azure'
-description: Visão geral da ponte entre os modelos clássicos e de implementação do Gestor de Recursos.
+title: 'ExpressRoute: Mover circuitos do clássico para o Azure Resource Manager'
+description: Visão geral da ponte entre os modelos clássicos e os modelos de implementação do Gestor de Recursos.
 services: expressroute
 author: ganesr
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.author: ganesr
-ms.openlocfilehash: c4fed30f7f4b723f04cd59b2a987b498e3d614a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b6fb087e0faecc51b44b5b796fed29756356e669
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75645910"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738824"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Mover circuitos ExpressRoute do modelo de implementação clássica para o modelo do Resource Manager
 Este artigo fornece uma descrição geral sobre o que significa mover um circuito Azure ExpressRoute do modelo de implementação clássica Azure Resource Manager.
@@ -57,7 +57,7 @@ As seguintes operações clássicas são suportadas num circuito ExpressRoute qu
 * Criar/atualizar/obter/eliminar ligações de rede virtual em redes virtuais clássicas
 * Criar/atualizar/obter/eliminar autorizações de ligações de rede virtual para conectividade entre subscrições
 
-No entanto, quando **o permitirOClassicOperations** está definido para TRUE, não é possível realizar as seguintes operações clássicas:
+No entanto, quando **permitir que as Operações Desafetadas** estão definidas para TRUE, não é possível realizar as seguintes operações clássicas:
 
 * Criar/atualizar/obter/eliminar peerings do protocolo BGP (Border Gateway Protocol) para peerings do Azure privado, Azure público e da Microsoft
 * Eliminar um circuito do ExpressRoute
@@ -90,7 +90,7 @@ Esta secção descreve o que não é suportado para circuitos ExpressRoute:
 ## <a name="configuration"></a>Configuração
 Siga as instruções descritas em [Mover um circuito ExpressRoute do modelo de implementação clássica para o modelo do Resource Manager](expressroute-howto-move-arm.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Migrar as redes virtuais ligadas ao circuito ExpressRoute a partir do modelo clássico ao modelo do Azure Resource Manager](expressroute-migration-classic-resource-manager.md)
 * Para obter informações sobre o fluxo de trabalho, veja [Circuito ExpressRoute aprovisiona fluxos de trabalho e estados de circuitos](expressroute-workflows.md).
 * Para configurar a ligação do ExpressRoute:

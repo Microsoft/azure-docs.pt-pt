@@ -10,39 +10,38 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: add08d7b8ef39322f03e0faf78959b08a6ae2a14
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82797061"
 ---
 # <a name="copy-an-image-from-another-gallery"></a>Copiar uma imagem de outra galeria
 
-Se tiver várias galerias na sua organização, também pode criar versões de imagem a partir de versões de imagem existentes armazenadas noutras galerias. Por exemplo, você pode ter uma galeria de desenvolvimento e teste para criar e testar novas imagens. Quando estiverem prontos para serem utilizados em produção, pode copiá-los numa galeria de produção usando este exemplo. Também pode criar uma imagem a partir de uma imagem numa outra galeria usando [o Azure PowerShell.](image-version-another-gallery-powershell.md)
+Se tiver várias galerias na sua organização, também pode criar versões de imagem a partir de versões de imagem existentes armazenadas noutras galerias. Por exemplo, você pode ter uma galeria de desenvolvimento e teste para criar e testar novas imagens. Quando estiverem prontos para serem utilizados na produção, pode copiá-los numa galeria de produção utilizando este exemplo. Também pode criar uma imagem a partir de uma imagem em outra galeria usando [Azure PowerShell](image-version-another-gallery-powershell.md).
 
 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
-Para completar este artigo, deve ter uma galeria de origem existente, definição de imagem e versão de imagem. Você também deve ter uma galeria de destino. 
+Para completar este artigo, você deve ter uma galeria de origem existente, definição de imagem e versão de imagem. Você também deve ter uma galeria de destino. 
 
-A versão de imagem de origem deve ser replicada para a região onde se encontra a sua galeria de destino. 
+A versão de imagem de origem deve ser replicada na região onde está localizada a sua galeria de destino. 
 
-Ao trabalhar através deste artigo, substitua os nomes de recursos sempre que necessário.
+Ao trabalhar neste artigo, substitua os nomes dos recursos sempre que necessário.
 
 
 
-## <a name="get-information-from-the-source-gallery"></a>Obtenha informações na galeria de origem
+## <a name="get-information-from-the-source-gallery"></a>Obtenha informações da galeria de origem
 
-Você precisará de informações da definição de imagem de origem para que você possa criar uma cópia dela na sua nova galeria.
+Você precisará de informações da definição de imagem de origem para que possa criar uma cópia na sua nova galeria.
 
-Liste informações sobre as galerias de imagem disponíveis usando a [lista az sig](/cli/azure/sig#az-sig-list) para encontrar informações sobre a galeria de origem.
+Liste informações sobre as galerias de imagem disponíveis usando [a lista az sig](/cli/azure/sig#az-sig-list) para encontrar informações sobre a galeria de origem.
 
 ```azurecli-interactive 
 az sig list -o table
 ```
 
-Enumera as definições de imagem numa galeria, utilizando a [lista de definição de imagem az sig](/cli/azure/sig/image-definition#az-sig-image-definition-list). Neste exemplo, estamos à procura de definições de imagem na galeria chamada *myGallery* no grupo de recursos *myGalleryRG.*
+Listar as definições de imagem numa galeria, utilizando [a lista de definição de imagem az sig](/cli/azure/sig/image-definition#az-sig-image-definition-list). Neste exemplo, procuramos definições de imagem na galeria chamada *myGallery* no grupo de recursos *myGalleryRG.*
 
 ```azurecli-interactive 
 az sig image-definition list \
@@ -51,7 +50,7 @@ az sig image-definition list \
    -o table
 ```
 
-Liste as versões de uma imagem numa galeria, utilizando a lista de [versão de imagem az sig](/cli/azure/sig/image-version#az-sig-image-version-list) para encontrar a versão de imagem que pretende copiar na sua nova galeria. Neste exemplo, estamos à procura de todas as versões de imagem que fazem parte da definição de imagem *myImageDefinition.*
+Enuste as versões de uma imagem numa galeria, utilizando [a lista de versão az sig](/cli/azure/sig/image-version#az-sig-image-version-list) para encontrar a versão de imagem que pretende copiar na sua nova galeria. Neste exemplo, estamos à procura de todas as versões de imagem que fazem parte da definição de imagem *myImageDefinition.*
 
 ```azurecli-interactive
 az sig image-version list \
@@ -61,7 +60,7 @@ az sig image-version list \
    -o table
 ```
 
-Assim que tiver toda a informação de que necessita, pode obter a identificação da versão de imagem de origem utilizando o programa de [versão de imagem az sig](/cli/azure/sig/image-version#az-sig-image-version-show).
+Uma vez que tenha toda a informação de que precisa, pode obter o ID da versão de imagem de origem usando [o az sig image-version show](/cli/azure/sig/image-version#az-sig-image-version-show).
 
 ```azurecli-interactive
 az sig image-version show \
@@ -75,7 +74,7 @@ az sig image-version show \
 
 ## <a name="create-the-image-definition"></a>Criar a definição de imagem 
 
-É necessário criar uma definição de imagem que corresponda à definição de imagem da sua versão de imagem de origem. Pode ver toda a informação necessária para recriar a definição de imagem na sua nova galeria usando [az sig image-definition show](/cli/azure/sig/image-definition#az-sig-image-definition-show).
+É necessário criar uma definição de imagem que corresponda à definição de imagem da sua versão de imagem de origem. Pode ver todas as informações necessárias para recriar a definição de imagem na sua nova galeria utilizando [um show de definição de imagem az sig](/cli/azure/sig/image-definition#az-sig-image-definition-show).
 
 ```azurecli-interactive
 az sig image-definition show \
@@ -114,7 +113,7 @@ A saída será semelhante à seguinte:
 }
 ```
 
-Crie uma nova definição de imagem, na sua nova galeria, utilizando a informação da saída acima.
+Crie uma nova definição de imagem, na sua nova galeria, utilizando as informações da saída acima.
 
 
 ```azurecli-interactive 
@@ -133,11 +132,11 @@ az sig image-definition create \
 
 ## <a name="create-the-image-version"></a>Criar a versão de imagem
 
-Criar versões utilizando a [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). Terá de passar a identificação da imagem gerida para utilizar como base para criar a versão de imagem. Pode usar a [lista de imagens az](/cli/azure/image?view#az-image-list) para obter informações sobre imagens que estão num grupo de recursos. 
+Criar versões utilizando [a az galeria de imagens criar versão de imagem](/cli/azure/sig/image-version#az-sig-image-version-create). Terá de passar no ID da imagem gerida para usar como base para criar a versão de imagem. Pode utilizar [a lista de imagens az](/cli/azure/image?view#az-image-list) para obter informações sobre imagens que estão num grupo de recursos. 
 
-Os caracteres permitidos para a versão de imagem são números e períodos. Os números devem estar dentro do alcance de um inteiro de 32 bits. Formato: *MajorVersion*. *Versão menor.* *Patch*.
+Os caracteres permitidos para a versão de imagem são números e períodos. Os números devem estar dentro do alcance de um inteiro de 32 bits. Formato: *MajorVersion*. *Menorversão.* *Patch*.
 
-Neste exemplo, a versão da nossa imagem é *1.0.0* e vamos criar uma réplica na região *centro-sul dos EUA* e uma réplica na região *leste dos EUA* utilizando armazenamento redundante em zonas.
+Neste exemplo, a versão da nossa imagem é *1.0.0* e vamos criar 1 réplica na região *sul dos EUA* e 1 réplica na região leste dos *EUA* usando armazenamento redundante de zona.
 
 
 ```azurecli-interactive 
@@ -152,13 +151,13 @@ az sig image-version create \
 ```
 
 > [!NOTE]
-> É preciso esperar que a versão de imagem termine completamente de ser construída e replicada antes de poder utilizar a mesma imagem gerida para criar outra versão de imagem.
+> É necessário esperar que a versão de imagem termine completamente de ser construída e replicada antes de poder utilizar a mesma imagem gerida para criar outra versão de imagem.
 >
-> Também pode armazenar a sua imagem no `--storage-account-type  premium_lrs`armazenamento Premiun através `--storage-account-type  standard_zrs` de um armazenamento de adição ou [Zona Redundante](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando quando criar a versão de imagem.
+> Também pode armazenar a sua imagem no armazenamento premiun através de um armazenamento `--storage-account-type  premium_lrs` , ou [Armazenamento Redundante zona,](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando `--storage-account-type  standard_zrs` quando cria a versão de imagem.
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Crie um VM a partir de uma versão de imagem [generalizada](vm-generalized-image-version-cli.md) ou [especializada.](vm-specialized-image-version-cli.md)
 
-Além disso, experimentar [o Azure Image Builder (pré-visualização)](./linux/image-builder-overview.md) pode ajudar a automatizar a criação da versão de imagem, pode até usá-la para atualizar e criar uma nova versão de imagem a partir de uma versão de [imagem existente.](./linux/image-builder-gallery-update-image-version.md) 
+Além disso, experimente [o Azure Image Builder (pré-visualização)](./linux/image-builder-overview.md) pode ajudar a automatizar a criação de versão de imagem, podendo até usá-la para atualizar e [criar uma nova versão de imagem a partir de uma versão de imagem existente.](./linux/image-builder-gallery-update-image-version.md) 

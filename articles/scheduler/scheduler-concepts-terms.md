@@ -10,18 +10,17 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80878396"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades no Azure Scheduler
 
 > [!IMPORTANT]
-> [A Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Programador Azure, que está [a ser reformado.](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date) Para continuar a trabalhar com os trabalhos que criou no Scheduler, por [favor, emigre para as Aplicações Lógicas Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) o mais rapidamente possível. 
+> [A Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Azure Scheduler, que está [a ser reformado.](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date) Para continuar a trabalhar com os trabalhos que estabeleceu no Scheduler, [por favor, migra para a Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) o mais rápido possível. 
 >
-> O agendador já não está disponível no portal Azure, mas os cmdlets Rest [API](/rest/api/scheduler) e [Azure Scheduler PowerShell](scheduler-powershell-reference.md) permanecem disponíveis neste momento para que possa gerir os seus empregos e recolhas de emprego.
+> O programador já não está disponível no portal Azure, mas os cmdlets [REST API](/rest/api/scheduler) e [Azure Scheduler PowerShell](scheduler-powershell-reference.md) permanecem disponíveis neste momento para que possa gerir os seus empregos e coleções de emprego.
 
 ## <a name="entity-hierarchy"></a>Hierarquia de entidades
 
@@ -66,7 +65,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 O Azure Scheduler suporta vários tipos de tarefas: 
 
-* EMPREGOS HTTP, incluindo empregos HTTPS que suportam TLS, para quando você tem o ponto final para um serviço ou carga de trabalho existente
+* Empregos HTTPS, incluindo empregos HTTPS que suportam TLS, para quando você tem o ponto final para um serviço ou carga de trabalho existente
 * Tarefas da fila do Armazenamento para cargas de trabalho que utilizam as filas do Armazenamento, como publicar mensagens nas filas do Armazenamento
 * Tarefas de fila do Service Bus para cargas de trabalho que utilizam as filas do Service Bus
 * Tarefas do tópico do Service Bus para cargas de trabalho que utilizam os tópicos do Service Bus
@@ -82,13 +81,13 @@ A um nível elevado, uma tarefa do Scheduler tem estas partes básicas:
 
 A tarefa também inclui os dados fornecidos pelo sistema, como o próximo tempo de execução agendado da tarefa. A definição do código da tarefa é um objeto no formato JavaScript Object Notation (JSON), que tem estes elementos:
 
-| Elemento | Necessário | Descrição | 
+| Elemento | Obrigatório | Descrição | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | Não | A hora de início da tarefa com um desvio de fuso horário no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**ação**](#action) | Sim | Os detalhes da ação principal, que pode incluir um objeto **errorAction** | 
 | [**errorAction**](#error-action) | Não | Os detalhes da ação secundária que será executada se a ação principal falhar |
 | [**recorrência**](#recurrence) | Não | Os detalhes, como a frequência e o intervalo de uma tarefa periódica | 
-| [**retryPolicy**](#retry-policy) | Não | Os detalhes de quantas vezes se repete uma ação | 
+| [**retriptaPolícia**](#retry-policy) | Não | Os detalhes de quantas vezes se repete uma ação | 
 | [**estado**](#state) | Sim | Os detalhes do estado atual da tarefa |
 | [**estado**](#status) | Sim | Os detalhes do estado atual da tarefa, que é controlado pelo serviço |
 ||||
@@ -250,14 +249,14 @@ Uma tarefa voltará a ocorrer se a definição JSON da tarefa incluir o objeto *
 |----------|----------|-------|-------------| 
 | **frequência** | Sim, quando a **periodicidade** é utilizada | “Minuto”, “Hora”, “Dia”, “Semana”, “Mês”, “Ano” | A unidade de tempo entre ocorrências | 
 | **intervalo** | Não | 1 a 1000, inclusive | Um número inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base na **frequência** | 
-| **agenda** | Não | Varia | Os detalhes das agendas mais complexas e avançadas. Veja **hours**, **hours**, **weekDays**, **months** e **monthDays** | 
+| **agendar** | Não | Varia | Os detalhes das agendas mais complexas e avançadas. Veja **hours**, **hours**, **weekDays**, **months** e **monthDays** | 
 | **horas** | Não | 1 a 24 | Um matriz com a hora marca quando a tarefa será executada | 
 | **minutos** | Não | 0 a 59 | Um matriz com os minutos marca quando a tarefa será executada | 
 | **months** | Não | 1 a 12 | Um matriz com os meses marca quando a tarefa será executada | 
 | **monthDays** | Não | Varia | Um matriz com os dias do mês marca quando a tarefa será executada | 
 | **weekDays** | Não | “Segunda-feira”, “Terça-feira”, “Quarta-feira”, “Quinta-feira”, “Sexta-feira”, “Sábado”, “Domingo” | Um matriz com os dias da semana marca quando a tarefa será executada | 
-| **contar** | Não | <*nenhum*> | O número de repetições. A predefinição é a repetição infinita. Não pode utilizar **count** e **endTime** em simultâneo, será respeitada a primeira regra a ser concluída. | 
-| **endTime** | Não | <*nenhum*> | A data e hora para quando parar a periodicidade. A predefinição é a repetição infinita. Não pode utilizar **count** e **endTime** em simultâneo, será respeitada a primeira regra a ser concluída. | 
+| **contar** | Não | <*nenhuma*> | O número de repetições. A predefinição é a repetição infinita. Não pode utilizar **count** e **endTime** em simultâneo, será respeitada a primeira regra a ser concluída. | 
+| **endTime** | Não | <*nenhuma*> | A data e hora para quando parar a periodicidade. A predefinição é a repetição infinita. Não pode utilizar **count** e **endTime** em simultâneo, será respeitada a primeira regra a ser concluída. | 
 ||||
 
 Para obter mais informações sobre estes elementos, veja [Criar agendas complexas e periodicidades avançadas](../scheduler/scheduler-advanced-complexity.md).
@@ -320,7 +319,7 @@ Por exemplo:
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar agendas complexas e periodicidade avançada](scheduler-advanced-complexity.md)
 * [Referência da API REST do Azure Scheduler](/rest/api/scheduler)

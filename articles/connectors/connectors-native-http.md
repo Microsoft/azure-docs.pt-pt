@@ -1,125 +1,119 @@
 ---
-title: Pontos finais do serviço de chamada utilizando HTTP ou HTTPS
-description: Envie pedidos de saída http ou HTTPS para serviço de pontos finais de Aplicações Lógicas Azure
+title: Ligue para os pontos finais do serviço utilizando HTTP ou HTTPS
+description: Enviar pedidos http ou HTTPS de saída para atender pontos finais a partir de Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 06/09/2020
 tags: connectors
-ms.openlocfilehash: 9ed3d960b3f5653ea8706b39559c9d5a71c45a6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 23c6a555909d43f640fb5089fb60da8bac065886
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81867638"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609534"
 ---
-# <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Pontos finais do serviço de chamada sobre HTTP ou HTTPS de Aplicações Lógicas Azure
+# <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chamar pontos finais de serviço através de HTTP ou HTTPS a partir do Azure Logic Apps
 
-Com [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) e o gatilho ou ação HTTP incorporado, pode criar tarefas e fluxos de trabalho automatizados que enviam pedidos para pontos finais de serviço em HTTP ou HTTPS. Por exemplo, pode monitorizar o ponto final do serviço para o seu website, verificando esse ponto final numa programação específica. Quando o evento especificado acontece nesse ponto final, como o seu site a descer, o evento despoleta o fluxo de trabalho da sua aplicação lógica e executa as ações nesse fluxo de trabalho. Se quiser receber e responder às chamadas HTTPS de entrada, utilize o gatilho de pedido incorporado [ou a ação resposta](../connectors/connectors-native-reqres.md).
+Com [as Azure Logic Apps](../logic-apps/logic-apps-overview.md) e o gatilho ou ação HTTP incorporados, pode criar tarefas automatizadas e fluxos de trabalho que enviam pedidos para pontos finais de serviço em HTTP ou HTTPS. Por exemplo, pode monitorizar o ponto final de serviço do seu website verificando esse ponto final num horário específico. Quando o evento especificado acontece nesse ponto final, como o seu site a descer, o evento desencadeia o fluxo de trabalho da sua aplicação lógica e executa as ações nesse fluxo de trabalho. Se pretender receber e responder às chamadas HTTPS de entrada, utilize a ação [de detonador ou resposta incorporada](../connectors/connectors-native-reqres.md).
 
-> [!NOTE]
-> Baseado na capacidade do ponto final do alvo, o conector HTTP suporta as versões Transport Layer Security (TLS) 1.0, 1.1 e 1.2. Logic Apps negoceia com o ponto final sobre a utilização da versão suportada mais alta possível. Assim, por exemplo, se o ponto final suportar 1.2, o conector utiliza 1.2 primeiro. Caso contrário, o conector utiliza a versão suportada mais alta.
->
-> O conector HTTP não suporta certificados intermédios TLS/SSL para autenticação.
+* Para verificar ou *sondar* um ponto final num horário recorrente, [adicione o gatilho HTTP](#http-trigger) como o primeiro passo no seu fluxo de trabalho. Cada vez que o gatilho verifica o ponto final, o gatilho chama ou envia um *pedido* para o ponto final. A resposta do ponto final determina se o fluxo de trabalho da sua aplicação lógica funciona. O gatilho transmite qualquer conteúdo da resposta do ponto final às ações da sua aplicação lógica.
 
-Para verificar ou *fazer uma sondagem* sobre um calendário recorrente, [adicione o gatilho HTTP](#http-trigger) como o primeiro passo no seu fluxo de trabalho. Cada vez que o gatilho verifica o ponto final, o gatilho chama ou envia um *pedido* para o ponto final. A resposta do ponto final determina se o fluxo de trabalho da sua aplicação lógica funciona. O gatilho transmite qualquer conteúdo da resposta do ponto final às ações na sua aplicação lógica.
+* Para chamar um ponto final de qualquer outro lugar do seu fluxo de trabalho, [adicione a ação HTTP](#http-action). A resposta do ponto final determina como as restantes ações do seu fluxo de trabalho funcionam.
 
-Para chamar um ponto final de qualquer outro lugar do seu fluxo de trabalho, [adicione a ação HTTP](#http-action). A resposta do ponto final determina como as restantes ações do seu fluxo de trabalho funcionam.
-
-> [!IMPORTANT]
-> Se um gatilho ou ação HTTP incluir estes cabeçalhos, as Aplicações Lógicas removem estes cabeçalhos da mensagem de pedido gerada sem mostrar qualquer aviso ou erro:
->
-> * `Accept-*`
-> * `Allow`
-> * `Content-*`com estas exceções: `Content-Disposition`, `Content-Encoding`e`Content-Type`
-> * `Cookie`
-> * `Expires`
-> * `Host`
-> * `Last-Modified`
-> * `Origin`
-> * `Set-Cookie`
-> * `Transfer-Encoding`
->
-> Embora as Aplicações Lógicas não o impeçam de salvar aplicações lógicas que usam um gatilho ou ação HTTP com estes cabeçalhos, as Aplicações Lógicas ignoram estes cabeçalhos.
-
-Este artigo mostra como adicionar um gatilho ou ação HTTP ao fluxo de trabalho da sua aplicação lógica.
+Este artigo mostra como adicionar um gatilho HTTP ou ação ao fluxo de trabalho da sua aplicação lógica.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* O URL para o ponto final do alvo que você quer chamar
+* O URL para o ponto final alvo que você quer chamar
 
-* Conhecimento básico sobre [como criar aplicações lógicas.](../logic-apps/quickstart-create-first-logic-app-workflow.md) Se é novo em aplicações lógicas, reveja [o que são as Aplicações Lógicas Do Azure?](../logic-apps/logic-apps-overview.md)
+* Conhecimento básico sobre [como criar aplicações lógicas.](../logic-apps/quickstart-create-first-logic-app-workflow.md) Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-* A aplicação lógica de onde pretende chamar o ponto final do alvo. Para começar com o gatilho HTTP, [crie uma aplicação lógica em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para utilizar a ação HTTP, inicie a sua aplicação lógica com qualquer gatilho que pretenda. Este exemplo utiliza o gatilho HTTP como primeiro passo.
+* A aplicação lógica de onde pretende chamar o ponto final do alvo. Para começar com o gatilho HTTP, [crie uma aplicação lógica em branco.](../logic-apps/quickstart-create-first-logic-app-workflow.md) Para utilizar a ação HTTP, inicie a sua aplicação lógica com o gatilho que pretende. Este exemplo utiliza o gatilho HTTP como primeiro passo.
 
 <a name="http-trigger"></a>
 
 ## <a name="add-an-http-trigger"></a>Adicione um gatilho HTTP
 
-Este gatilho incorporado faz uma chamada http para o URL especificado para um ponto final e devolve uma resposta.
+Este gatilho incorporado faz uma chamada HTTP para o URL especificado para um ponto final e devolve uma resposta.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica em branco no Logic App Designer.
 
-1. Sob a caixa de pesquisa do designer, selecione **Incorporado**. Na caixa de `http` pesquisa, introduza como filtro. A partir da lista **de Gatilhos,** selecione o gatilho **HTTP.**
+1. Sob a caixa de pesquisa do designer, selecione **Built-in**. Na caixa de pesquisa, introduza `http` como filtro. Na lista **de gatilhos,** selecione o gatilho **HTTP.**
 
-   ![Selecione gatilho HTTP](./media/connectors-native-http/select-http-trigger.png)
+   ![Selecione o gatilho HTTP](./media/connectors-native-http/select-http-trigger.png)
 
-   Este exemplo renomeia o gatilho para "HTTP trigger" de modo a que o passo tenha um nome mais descritivo. Além disso, o exemplo adiciona mais tarde uma ação HTTP, e ambos os nomes devem ser únicos.
+   Este exemplo renomea o gatilho para "HTTP trigger" para que o passo tenha um nome mais descritivo. Além disso, o exemplo adiciona mais tarde uma ação HTTP, e ambos os nomes devem ser únicos.
 
-1. Forneça os valores para os [parâmetros](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger) do gatilho HTTP que pretende incluir na chamada para o ponto final do alvo. Configurar a recorrência para saber quantas vezes pretende que o gatilho verifique o ponto final do alvo.
+1. Forneça os valores para os [parâmetros do gatilho HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger) que pretende incluir na chamada para o ponto final do alvo. Encete a recorrência para a frequência com que pretende que o gatilho verifique o ponto final do alvo.
 
    ![Introduza os parâmetros do gatilho HTTP](./media/connectors-native-http/http-trigger-parameters.png)
 
-   Se selecionar um tipo de autenticação diferente do **Nenhum,** as definições de autenticação diferem com base na sua seleção. Para obter mais informações sobre os tipos de autenticação disponíveis para HTTP, consulte estes tópicos:
+   Se selecionar um tipo de autenticação diferente de **Nenhum,** as definições de autenticação diferem em função da sua seleção. Para obter mais informações sobre os tipos de autenticação disponíveis para HTTP, consulte estes tópicos:
 
    * [Adicionar autenticação a chamadas de saída](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
    * [Autenticar o acesso a recursos com identidades geridas](../logic-apps/create-managed-service-identity.md)
 
-1. Para adicionar outros parâmetros disponíveis, abra a **lista de novos parâmetros E** selecione os parâmetros que deseja.
+1. Para adicionar outros parâmetros disponíveis, abra a nova lista **de parâmetros add** e selecione os parâmetros que deseja.
 
 1. Continue a construir o fluxo de trabalho da sua aplicação lógica com ações que funcionam quando o gatilho dispara.
 
-1. Quando terminar, lembre-se de guardar a sua aplicação lógica. Na barra de ferramentas de design, selecione **Guardar**.
+1. Quando terminar, lembre-se de guardar a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
 
 <a name="http-action"></a>
 
 ## <a name="add-an-http-action"></a>Adicione uma ação HTTP
 
-Esta ação incorporada faz uma chamada http para o URL especificado para um ponto final e devolve uma resposta.
+Esta ação incorporada faz uma chamada HTTP para o URL especificado para um ponto final e devolve uma resposta.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica no Logic App Designer.
 
    Este exemplo utiliza o gatilho HTTP como primeiro passo.
 
-1. Sob o passo onde pretende adicionar a ação HTTP, selecione **Novo passo**.
+1. Sob o passo em que pretende adicionar a ação HTTP, selecione **Novo passo**.
 
-   Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre os degraus. Selecione o**+** sinal de mais ( ) que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Para adicionar uma ação entre os degraus, mova o ponteiro sobre a seta entre os degraus. Selecione o sinal de mais **+** () que aparece e, em seguida, selecione **Adicione uma ação**.
 
-1. Em **'Escolha uma ação**', selecione **Incorporado**' . Na caixa de `http` pesquisa, introduza como filtro. Na lista **de Ações,** selecione a ação **HTTP.**
+1. Em **Escolha uma ação**, selecione **Built-in**. Na caixa de pesquisa, introduza `http` como filtro. Na lista **de Ações,** selecione a ação **HTTP.**
 
    ![Selecione ação HTTP](./media/connectors-native-http/select-http-action.png)
 
-   Este exemplo renomea a ação para "HTTP action" de modo a que o passo tenha um nome mais descritivo.
+   Este exemplo renomea a ação para "AÇÃO HTTP" para que o passo tenha um nome mais descritivo.
 
-1. Forneça os valores para os [parâmetros](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) de ação HTTP que pretende incluir na chamada para o ponto final do alvo.
+1. Forneça os valores para os [parâmetros de ação HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) que pretende incluir na chamada para o ponto final do destino.
 
-   ![Insira os parâmetros de ação HTTP](./media/connectors-native-http/http-action-parameters.png)
+   ![Introduza parâmetros de ação HTTP](./media/connectors-native-http/http-action-parameters.png)
 
-   Se selecionar um tipo de autenticação diferente do **Nenhum,** as definições de autenticação diferem com base na sua seleção. Para obter mais informações sobre os tipos de autenticação disponíveis para HTTP, consulte estes tópicos:
+   Se selecionar um tipo de autenticação diferente de **Nenhum,** as definições de autenticação diferem em função da sua seleção. Para obter mais informações sobre os tipos de autenticação disponíveis para HTTP, consulte estes tópicos:
 
    * [Adicionar autenticação a chamadas de saída](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
    * [Autenticar o acesso a recursos com identidades geridas](../logic-apps/create-managed-service-identity.md)
 
-1. Para adicionar outros parâmetros disponíveis, abra a **lista de novos parâmetros E** selecione os parâmetros que deseja.
+1. Para adicionar outros parâmetros disponíveis, abra a nova lista **de parâmetros add** e selecione os parâmetros que deseja.
 
-1. Quando terminar, lembre-se de guardar a sua aplicação lógica. Na barra de ferramentas de design, selecione **Guardar**.
+1. Quando terminar, lembre-se de guardar a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
 
-## <a name="content-with-multipartform-data-type"></a>Conteúdo com tipo de dados multipart/formulário
+<a name="tls-support"></a>
 
-Para lidar com `multipart/form-data` o conteúdo que tem tipo em pedidos HTTP, `$content-type` `$multipart` pode adicionar um objeto JSON que inclui o corpo do pedido HTTP utilizando este formato.
+## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
+
+Com base na capacidade do ponto final do ponto final, as chamadas de saída suportam a Segurança da Camada de Transporte (TLS), que anteriormente era Secure Sockets Layer (SSL), versões 1.0, 1.1 e 1.2. A Logic Apps negoceia com o ponto final utilizando a versão mais suportada possível.
+
+Por exemplo, se o ponto final suportar 1.2, o conector HTTP utiliza primeiro o 1.2. Caso contrário, o conector utiliza a próxima versão suportada mais alta.
+
+<a name="self-signed"></a>
+
+## <a name="self-signed-certificates"></a>Certificados auto-assinados
+
+* Para aplicações lógicas no ambiente global e multi-inquilino Azure, o conector HTTP não permite certificados TLS/SSL auto-assinados. Se a sua aplicação lógica fizer uma chamada HTTP para um servidor e apresentar um certificado auto-assinado TLS/SSL, a chamada HTTP falha com um `TrustFailure` erro.
+
+* Para aplicações lógicas num [ambiente de serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)o conector HTTP permite certificados auto-assinados para apertos de mão TLS/SSL. No entanto, primeiro deve [ativar o suporte de certificado auto-assinado](../logic-apps/create-integration-service-environment-rest-api.md#request-body) para um ISE existente ou novo ISE, utilizando a API de Aplicações Lógicas e instalar o certificado público no `TrustedRoot` local.
+
+## <a name="content-with-multipartform-data-type"></a>Conteúdo com tipo multiparte/dados de formulário
+
+Para lidar com conteúdo que tenha `multipart/form-data` tipo em pedidos HTTP, pode adicionar um objeto JSON que inclua o `$content-type` e atribui ao corpo do pedido HTTP utilizando este `$multipart` formato.
 
 ```json
 "body": {
@@ -135,11 +129,11 @@ Para lidar com `multipart/form-data` o conteúdo que tem tipo em pedidos HTTP, `
 }
 ```
 
-Por exemplo, suponha que tenha uma aplicação lógica que envia um pedido HTTP POST para um `multipart/form-data` ficheiro Excel para um website usando a API desse site, que suporta o tipo. Eis como esta ação pode parecer:
+Por exemplo, suponha que tem uma aplicação lógica que envia um pedido HTTP POST para um ficheiro Excel para um website utilizando a API desse site, que suporta o `multipart/form-data` tipo. Eis o que esta ação pode parecer:
 
 ![Dados de formulários multipartes](./media/connectors-native-http/http-action-multipart.png)
 
-Aqui está o mesmo exemplo que mostra a definição JSON da ação HTTP na definição subjacente de fluxo de trabalho:
+Aqui está o mesmo exemplo que mostra a definição JSON da ação HTTP na definição de fluxo de trabalho subjacente:
 
 ```json
 "HTTP_action": {
@@ -163,22 +157,106 @@ Aqui está o mesmo exemplo que mostra a definição JSON da ação HTTP na defin
 }
 ```
 
+<a name="asynchronous-pattern"></a>
+
+## <a name="asynchronous-request-response-behavior"></a>Comportamento assíncronos de pedido-resposta
+
+Por padrão, todas as ações baseadas em HTTP em Azure Logic Apps seguem o [padrão de funcionamento assíncrona.](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) Este padrão especifica que após uma chamada de ação HTTP ou enviar um pedido para um ponto final, serviço, sistema ou API, o recetor devolve imediatamente uma resposta ["202 ACCEPTED".](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) Este código confirma que o recetor aceitou o pedido mas ainda não terminou o processamento. A resposta pode incluir um `location` cabeçalho que especifica o URL e um ID de atualização que o chamador pode usar para pesquisar ou verificar o estado do pedido assíncronos até que o recetor pare de processar e devolva uma resposta de sucesso ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) ou outra resposta não-202. No entanto, o chamador não tem que esperar pelo pedido para terminar o processamento e pode continuar a executar a próxima ação. Para mais informações, consulte [a integração de microserviços Asynchronous que impõe autonomia de microserviços.](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging)
+
+* No Logic App Designer, a ação HTTP, mas não desencadeada, tem uma definição **de Padrão Assíncronos,** que é ativada por padrão por padrão. Esta definição especifica que o chamador não espera que o processamento termine e pode passar para a próxima ação, mas continua a verificar o estado até que o processamento pare. Se desativado, esta definição especifica que o chamador aguarda que o processamento termine antes de passar para a ação seguinte.
+
+  Para encontrar esta definição, siga estes passos:
+
+  1. Na barra de títulos http action, selecione o botão elipses **(...**) que abre as definições da ação.
+
+  1. Encontre a **definição de padrão assíncronos.**
+
+     ![Definição de "Padrão Assíncronos"](./media/connectors-native-http/asynchronous-pattern-setting.png)
+
+* A definição de Notação de Objetos JavaScript (JSON) subjacente da ação HTTP segue implicitamente o padrão de funcionamento assíncrona.
+
+<a name="disable-asynchronous-operations"></a>
+
+## <a name="disable-asynchronous-operations"></a>Desativar operações assíncronos
+
+Por vezes, pode querer o comportamento assíncrodo da ação HTTP em cenários específicos, por exemplo, quando pretende:
+
+* [Evite intervalos de tempo HTTP para tarefas de longa duração](#avoid-http-timeouts)
+* [Desativar cabeçalhos de localização de verificação](#disable-location-header-check)
+
+<a name="turn-off-asynchronous-pattern-setting"></a>
+
+### <a name="turn-off-asynchronous-pattern-setting"></a>Desligue **a definição de padrão assíncronos**
+
+1. No Logic App Designer, na barra de títulos http action, selecione o botão elipses **(...**) que abre as definições da ação.
+
+1. Encontre a **definição de padrão assíncronos,** ligue a definição para **desligar** se ativada e selecione **Feito**.
+
+   ![Desative a definição "Padrão Assíncronos"](./media/connectors-native-http/disable-asynchronous-pattern-setting.png)
+
+<a name="add-disable-async-pattern-option"></a>
+
+### <a name="disable-asynchronous-pattern-in-actions-json-definition"></a>Desativar o padrão assíncronos na definição JSON da ação
+
+Na definição JSON subjacente da ação HTTP, adicione a opção de [ `"DisableAsyncPattern"` operação](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options) à definição da ação de modo a que a ação siga o padrão de funcionamento sincronizado. Para obter mais informações, consulte também [executar ações num padrão de funcionamento sincronizado.](../logic-apps/logic-apps-workflow-actions-triggers.md#disable-asynchronous-pattern)
+
+<a name="avoid-http-timeouts"></a>
+
+## <a name="avoid-http-timeouts-for-long-running-tasks"></a>Evite intervalos de tempo HTTP para tarefas de longa duração
+
+Os pedidos HTTP têm um [limite de tempo.](../logic-apps/logic-apps-limits-and-config.md#http-limits) Se tiver uma ação HTTP de longa duração que se esgota devido a este limite, tem estas opções:
+
+* [Desative o padrão de funcionamento assíncronos da ação HTTP](#disable-asynchronous-operations) para que a ação não faça uma sondagem contínua ou verifique o estado do pedido. Em vez disso, a ação aguarda que o recetor responda com o estado e os resultados após o pedido terminar o processamento.
+
+* Substitua a ação HTTP pela ação [HTTP Webhook,](../connectors/connectors-native-webhook.md)que aguarda que o recetor responda com o estado e os resultados após o processamento do pedido.
+
+<a name="disable-location-header-check"></a>
+
+## <a name="disable-checking-location-headers"></a>Desativar cabeçalhos de localização de verificação
+
+Alguns pontos finais, serviços, sistemas ou APIs devolvem uma resposta "202 ACCEPTED" que não tem `location` cabeçalho. Para evitar que uma ação HTTP verifique continuamente o estado do pedido quando o `location` cabeçalho não existe, pode ter estas opções:
+
+* [Desative o padrão de funcionamento assíncronos da ação HTTP](#disable-asynchronous-operations) para que a ação não faça uma sondagem contínua ou verifique o estado do pedido. Em vez disso, a ação aguarda que o recetor responda com o estado e os resultados após o pedido terminar o processamento.
+
+* Substitua a ação HTTP pela ação [HTTP Webhook,](../connectors/connectors-native-webhook.md)que aguarda que o recetor responda com o estado e os resultados após o processamento do pedido.
+
+## <a name="known-issues"></a>Problemas conhecidos
+
+<a name="omitted-headers"></a>
+
+### <a name="omitted-http-headers"></a>Cabeçalhos HTTP omitidos
+
+Se um gatilho ou ação HTTP incluir estes cabeçalhos, as Aplicações Lógicas removem estes cabeçalhos da mensagem de pedido gerada sem mostrar qualquer aviso ou erro:
+
+* `Accept-*`
+* `Allow`
+* `Content-*`com estas exceções: `Content-Disposition` `Content-Encoding` , e`Content-Type`
+* `Cookie`
+* `Expires`
+* `Host`
+* `Last-Modified`
+* `Origin`
+* `Set-Cookie`
+* `Transfer-Encoding`
+
+Embora as Aplicações Lógicas não o impeçam de guardar aplicações lógicas que usam um gatilho HTTP ou ação com estes cabeçalhos, as Aplicações Lógicas ignoram estes cabeçalhos.
+
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter mais informações sobre os parâmetros de disparo e ação, consulte estas secções:
+Para obter mais informações sobre os parâmetros de desencadeamento e ação, consulte estas secções:
 
-* [Parâmetros de gatilho HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
+* [Parâmetros de disparo HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
 * [Parâmetros de ação HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
 ### <a name="output-details"></a>Detalhes da saída
 
-Aqui está mais informações sobre as saídas de um gatilho ou ação HTTP, que devolve esta informação:
+Aqui está mais informações sobre as saídas de um gatilho http ou ação, que devolve esta informação:
 
-| Nome da propriedade | Tipo | Descrição |
-|---------------|------|-------------|
-| cabeçalhos | objeto | Os cabeçalhos do pedido |
-| body | objeto | Objeto JSON | O objeto com o conteúdo do corpo a partir do pedido |
-| código de estado | int | O código de estado do pedido |
+| Propriedade | Tipo | Descrição |
+|----------|------|-------------|
+| `headers` | Objeto JSON | Os cabeçalhos do pedido |
+| `body` | Objeto JSON | O objeto com o conteúdo do corpo do pedido |
+| `status code` | Número inteiro | O código de estado do pedido |
 |||
 
 | Código de estado | Descrição |
@@ -189,9 +267,9 @@ Aqui está mais informações sobre as saídas de um gatilho ou ação HTTP, que
 | 401 | Não autorizado |
 | 403 | Proibido |
 | 404 | Não encontrado |
-| 500 | Erro interno do servidor. Erro desconhecido ocorreu. |
+| 500 | Erro interno do servidor. Ocorreu um erro desconhecido. |
 |||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Saiba mais sobre outros [conectores de Aplicações Lógicas](../connectors/apis-list.md)
+* Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)

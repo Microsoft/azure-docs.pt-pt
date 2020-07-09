@@ -1,31 +1,31 @@
 ---
-title: Crie uma ASP.NET aplicação web com Azure Cache para Redis
-description: Neste arranque rápido, aprende-se a criar uma ASP.NET aplicação web com Azure Cache for Redis
+title: Crie uma aplicação web ASP.NET com Azure Cache para Redis
+description: Neste quickstart, você aprende a criar uma ASP.NET web app com Azure Cache para Redis
 author: yegu-ms
 ms.service: cache
 ms.topic: quickstart
-ms.date: 03/26/2018
+ms.date: 06/18/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 155993bb3da781e698398ed8ddffa626e8f6cb2d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c9dfc7c9b396ec6ecd27891298ba0b0f1fc3e186
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74927075"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117850"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Quickstart: Use Azure Cache para Redis com uma aplicação web ASP.NET 
 
-Neste arranque rápido, você usa o Visual Studio 2019 para criar uma aplicação web ASP.NET que se conecta ao Azure Cache para redis para armazenar e recuperar dados da cache. Em seguida, implementa a aplicação para o Azure App Service.
+Neste quickstart, você usa o Visual Studio 2019 para criar uma aplicação web ASP.NET que se conecta ao Azure Cache para redis para armazenar e obter dados da cache. Em seguida, implementa a aplicação para o Azure App Service.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/)
-- [Visual Studio 2019](https://www.visualstudio.com/downloads/) com o **ASP.NET e desenvolvimento web** e cargas de trabalho de desenvolvimento **Azure.**
+- Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) com o **ASP.NET e desenvolvimento web e** cargas de trabalho de desenvolvimento **Azure.**
 
 ## <a name="create-the-visual-studio-project"></a>Criar o projeto do Visual Studio
 
-1. Open Visual Studio, e depois selecione **File** >**New** > **Project**.
+1. Abra o Estúdio Visual e, em seguida, e selecione **File**  > **New**  >  **Project**.
 
 2. Na caixa de diálogo **Novo Projeto**, siga os passos seguintes:
 
@@ -65,7 +65,7 @@ Em seguida, crie a cache para a aplicação.
 
     ```xml
     <appSettings>
-        <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<access-key>"/>
+        <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,allowAdmin=true,password=<access-key>"/>
     </appSettings>
     ```
 
@@ -80,7 +80,7 @@ Em seguida, crie a cache para a aplicação.
 
 ## <a name="update-the-mvc-application"></a>Atualizar a aplicação MVC
 
-Nesta secção, atualiza a aplicação para suportar uma nova vista que apresenta um teste simples contra o Azure Cache para Redis.
+Nesta secção, atualiza a aplicação para suportar uma nova visão que exibe um teste simples contra a Cache Azure para Redis.
 
 * [Atualizar o ficheiro web.config com uma definição de aplicação para a cache](#update-the-webconfig-file-with-an-app-setting-for-the-cache)
 * Configurar a aplicação para utilizar o cliente StackExchange.Redis
@@ -89,7 +89,7 @@ Nesta secção, atualiza a aplicação para suportar uma nova vista que apresent
 
 ### <a name="update-the-webconfig-file-with-an-app-setting-for-the-cache"></a>Atualizar o ficheiro web.config com uma definição de aplicação para a cache
 
-Quando executa a aplicação localmente, a informação em *CacheSecrets.config* é usada para ligar ao seu Azure Cache para a instância Redis. Posteriormente, vai implementar esta aplicação no Azure. Nessa altura, vai configurar uma definição de aplicação no Azure que a aplicação utiliza para obter as informações de ligação da cache em vez deste ficheiro. 
+Quando executa a aplicação localmente, a informação em *CacheSecrets.config* é usada para ligar à sua Cache Azure para a instância Redis. Posteriormente, vai implementar esta aplicação no Azure. Nessa altura, vai configurar uma definição de aplicação no Azure que a aplicação utiliza para obter as informações de ligação da cache em vez deste ficheiro. 
 
 Uma vez que o ficheiro *CacheSecrets.config* não está implementado no Azure com a sua aplicação, só pode utilizá-lo durante o teste da aplicação localmente. Mantenha estas informações o mais seguras possíveis para impedir o acesso malicioso aos seus dados em cache.
 
@@ -103,7 +103,7 @@ Uma vez que o ficheiro *CacheSecrets.config* não está implementado no Azure co
 * Antes: `<appSettings>`
 * Depois:`<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
-O tempo de execução do ASP.NET une o conteúdo do ficheiro externo e a marcação no elemento `<appSettings>`. O tempo de execução ignora o atributo de ficheiro se não for possível localizar o ficheiro especificado. Os segredos (a cadeia de ligação para a cache) não são incluídos como parte do código fonte da aplicação. Quando implementa a sua aplicação web para o Azure, o ficheiro *CacheSecrets.config* não está implantado.
+O tempo de execução do ASP.NET une o conteúdo do ficheiro externo e a marcação no elemento `<appSettings>`. O tempo de execução ignora o atributo de ficheiro se não for possível localizar o ficheiro especificado. Os segredos (a cadeia de ligação para a cache) não são incluídos como parte do código fonte da aplicação. Quando implementa a sua aplicação web para o Azure, o ficheiro *CacheSecrets.config* não é implementado.
 
 ### <a name="to-configure-the-application-to-use-stackexchangeredis"></a>Para configurar a aplicação para utilizar o StackExchange.Redis
 
@@ -115,7 +115,7 @@ O tempo de execução do ASP.NET une o conteúdo do ficheiro externo e a marcaç
     Install-Package StackExchange.Redis
     ```
 
-3. O pacote NuGet descarrega e adiciona as referências de montagem necessárias para a sua aplicação de cliente aceder ao Azure Cache para Redis com o StackExchange.Azure Cache para o cliente Redis. Se preferir utilizar uma versão com um nome forte da biblioteca de cliente `StackExchange.Redis`, instale o pacote `StackExchange.Redis.StrongName`.
+3. O pacote NuGet descarrega e adiciona as referências de montagem necessárias para a sua aplicação de cliente aceder a Azure Cache para Redis com o StackExchange.Azure Cache para o cliente Redis. Se preferir utilizar uma versão com um nome forte da biblioteca de cliente `StackExchange.Redis`, instale o pacote `StackExchange.Redis.StrongName`.
 
 ### <a name="to-update-the-homecontroller-and-layout"></a>Para atualizar o HomeController e o Esquema
 
@@ -131,19 +131,22 @@ O tempo de execução do ASP.NET une o conteúdo do ficheiro externo e a marcaç
 3. Adicione o seguinte método à classe `HomeController` para suportar uma nova ação `RedisCache` que executa alguns comandos numa nova cache.
 
     ```csharp
-        public ActionResult RedisCache()
+    public ActionResult RedisCache()
+    {
+        ViewBag.Message = "A simple example with Azure Cache for Redis on ASP.NET.";
+
+        var lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
         {
-            ViewBag.Message = "A simple example with Azure Cache for Redis on ASP.NET.";
+            string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
+            return ConnectionMultiplexer.Connect(cacheConnection);
+        });
 
-            var lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-            {
-                string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
-                return ConnectionMultiplexer.Connect(cacheConnection);
-            });
-
-            // Connection refers to a property that returns a ConnectionMultiplexer
-            // as shown in the previous example.
-            IDatabase cache = lazyConnection.Value.GetDatabase();
+        // Connection refers to a property that returns a ConnectionMultiplexer
+        // as shown in the previous example.
+            
+        using (ConnectionMultiplexer redis = lazyConnection.Value)
+        {
+            IDatabase cache = redis.GetDatabase();
 
             // Perform cache operations using the cache object...
 
@@ -164,12 +167,37 @@ O tempo de execução do ASP.NET une o conteúdo do ficheiro externo e a marcaç
 
             // Get the client list, useful to see if connection list is growing...
             ViewBag.command5 = "CLIENT LIST";
-            ViewBag.command5Result = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
+            StringBuilder sb = new StringBuilder();
 
-            lazyConnection.Value.Dispose();
+            var endpoint = (System.Net.DnsEndPoint)Connection.GetEndPoints()[0];
+            var server = Connection.GetServer(endpoint.Host, endpoint.Port);
+            var clients = server.ClientList();
 
-            return View();
+            sb.AppendLine("Cache response :");
+            foreach (var client in clients)
+            {
+                sb.AppendLine(client.Raw);
+            }
+
+            ViewBag.command5Result = sb.ToString();
+
+        return View();
+    }
+                
+    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+    {
+        string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
+        return ConnectionMultiplexer.Connect(cacheConnection);
+    });
+
+    public static ConnectionMultiplexer Connection
+    {
+        get
+        {
+            return lazyConnection.Value;
         }
+    }
+
     ```
 
 4. No **Explorador de Soluções**, expanda a pasta **Vistas** > **Partilhado**. Em seguida, abra o ficheiro *_Layout.cshtml*.
@@ -188,9 +216,9 @@ O tempo de execução do ASP.NET une o conteúdo do ficheiro externo e a marcaç
 
 ### <a name="to-add-a-new-rediscache-view"></a>Para adicionar uma nova vista da RedisCache
 
-1. No **Explorador de Soluções**, expanda a pasta **Vistas** e, em seguida, clique com o botão direito do rato na pasta **Raiz**. Escolha **adicionar** > **vista...**.
+1. No **Explorador de Soluções**, expanda a pasta **Vistas** e, em seguida, clique com o botão direito do rato na pasta **Raiz**. Escolha **Adicionar**  >  **Vista...**.
 
-2. Na caixa de diálogo **Adicionar Vista**, introduza **RedisCache** como o Nome da Vista. Em seguida, selecione **Adicionar**.
+2. Na caixa de diálogo **Adicionar Vista**, introduza **RedisCache** como o Nome da Vista. Em seguida, **selecione Adicionar**.
 
 3. Substitua o código no ficheiro *RedisCache.cshtml* pelo código seguinte:
 
@@ -232,14 +260,14 @@ O tempo de execução do ASP.NET une o conteúdo do ficheiro externo e a marcaç
 
 ## <a name="run-the-app-locally"></a>Executar a aplicação localmente
 
-Por padrão, o projeto está configurado para hospedar a app localmente no [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) para testes e depuração.
+Por padrão, o projeto está configurado para acolher a app localmente no [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) para testes e depuração.
 
 ### <a name="to-run-the-app-locally"></a>Para executar a aplicação localmente
-1. No Estúdio Visual, selecione **Debug** > **Start Debugging** para construir e iniciar a aplicação localmente para testes e depuração.
+1. No Visual Studio, selecione **Debug**  >  **Start Debugging** para construir e iniciar a aplicação localmente para testes e depuragem.
 
-2. No navegador, **selecione Azure Cache para Redis Test** na barra de navegação.
+2. No navegador, selecione **Azure Cache para Teste Redis** na barra de navegação.
 
-3. No exemplo seguinte, `Message` a chave anteriormente tinha um valor em cache, que foi definido através da utilização da consola Azure Cache para Redis no portal. A aplicação atualizou esse valor em cache. A aplicação também executou os comandos `PING` e `CLIENT LIST`.
+3. No exemplo seguinte, a `Message` chave anteriormente tinha um valor em cache, que foi definido pela utilização da Cache Azure para a consola Redis no portal. A aplicação atualizou esse valor em cache. A aplicação também executou os comandos `PING` e `CLIENT LIST`.
 
     ![Teste simples concluído no local](./media/cache-web-app-howto/cache-simple-test-complete-local.png)
 
@@ -259,12 +287,12 @@ Depois de ter testado com êxito a aplicação localmente, pode implementar a ap
 
 3. Na caixa de diálogo **Criar Serviço de Aplicações**, faça as seguintes alterações:
 
-    | Definição | Valor recomendado | Descrição |
+    | Definição | Valor recomendado | Description |
     | ------- | :---------------: | ----------- |
     | **Nome da aplicação** | Utilize a predefinição. | O nome da aplicação é o nome do anfitrião da aplicação quando é implementada no Azure. O nome pode ter um sufixo de carimbo de data/hora adicionado ao mesmo para torná-lo exclusivo, caso seja necessário. |
     | **Subscrição** | Escolha a sua subscrição do Azure. | Esta subscrição é debitada relativamente a quaisquer custos de alojamento relacionados. Se tiver várias subscrições do Azure, verifique se a subscrição pretendida está selecionada.|
     | **Grupo de recursos** | Utilize o mesmo grupo de recursos onde criou a cache (por exemplo, *TestResourceGroup*). | O grupo de recursos ajuda-o a gerir todos os recursos como um grupo. Mais tarde, quando pretender eliminar a aplicação, basta apenas eliminar o grupo. |
-    | **Plano de serviço de aplicações** | Selecione **Novo** e, em seguida, crie um novo plano do Serviço de Aplicações com o nome *TestingPlan*. <br />Utilize a mesma **Localização** que serviu para criar a cache. <br />Escolha **Gratuito** para o tamanho. | Um plano de Serviço de Aplicações define um conjunto de recursos de computação para a execução da aplicação Web. |
+    | **Plano de Serviço de Aplicações** | Selecione **Novo** e, em seguida, crie um novo plano do Serviço de Aplicações com o nome *TestingPlan*. <br />Utilize a mesma **Localização** que serviu para criar a cache. <br />Escolha **Gratuito** para o tamanho. | Um plano de Serviço de Aplicações define um conjunto de recursos de computação para a execução da aplicação Web. |
 
     ![Caixa de diálogo Serviço de Aplicações](./media/cache-web-app-howto/cache-create-app-service-dialog.png)
 
@@ -292,7 +320,7 @@ Depois de a nova aplicação ter sido publicada, adicione uma nova definição d
 
 No browser, aceda ao URL da aplicação. O URL é apresentado nos resultados da operação de publicação na janela de saída do Visual Studio. Também é fornecido no portal do Azure na página de descrição geral da aplicação que criou.
 
-Selecione **Azure Cache para Redis Test** na barra de navegação para testar o acesso à cache.
+Selecione **Azure Cache para teste redis** na barra de navegação para testar o acesso à cache.
 
 ![Teste simples concluído do Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 

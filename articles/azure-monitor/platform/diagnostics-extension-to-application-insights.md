@@ -1,22 +1,21 @@
 ---
-title: Envie dados de Diagnóstico Azure para Insights de Aplicação
-description: Atualize a configuração pública do Azure Diagnostics para enviar dados para A aplicação Insights.
+title: Enviar dados de Diagnósticos Azure para Insights de Aplicação
+description: Atualize a configuração pública do Azure Diagnostics para enviar dados para Insights de Aplicação.
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/19/2016
 ms.openlocfilehash: 80d971abd248ca8253a374b488c693ea9aa2ea3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77672332"
 ---
-# <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Envie dados de diagnóstico de serviço em nuvem, máquina virtual ou tecido de serviço para Insights de Aplicação
-Serviços em nuvem, máquinas virtuais, conjuntos de escala de máquina virtual e tecido de serviço todos utilizam a extensão de Diagnóstico Azure para recolher dados.  O diagnóstico azure envia dados para as tabelas de Armazenamento Azure.  No entanto, também pode canalizar todos ou um subconjunto dos dados para outros locais utilizando a extensão 1.5 ou posterior do Azure Diagnostics.
+# <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Enviar dados de diagnóstico de Cloud Service, Virtual Machine ou Service Fabric para Application Insights
+Serviços em nuvem, máquinas virtuais, conjuntos de balanças de máquinas virtuais e tecido de serviço todos usam a extensão Azure Diagnostics para recolher dados.  O diagnóstico Azure envia dados para as tabelas de armazenamento Azure.  No entanto, também pode canalizar a totalidade ou um subconjunto dos dados para outros locais utilizando a extensão Azure Diagnostics 1.5 ou posterior.
 
-Este artigo descreve como enviar dados da extensão de Diagnóstico sinuoso do Azure para os Insights de Aplicação.
+Este artigo descreve como enviar dados da extensão Azure Diagnostics para Insights de Aplicação.
 
 ## <a name="diagnostics-configuration-explained"></a>Configuração de diagnóstico explicada
 A extensão de diagnóstico Azure 1.5 introduziu pias, que são locais adicionais onde pode enviar dados de diagnóstico.
@@ -56,35 +55,35 @@ Configuração de exemplo de um lavatório para Insights de Aplicação:
     ]
 }
 ```
-- O atributo do *nome* **Sink** é um valor de cadeia que identifica exclusivamente a pia.
+- O atributo *do nome* **Sink** é um valor de corda que identifica exclusivamente a pia.
 
-- O elemento **ApplicationInsights** especifica a chave de instrumentação do recurso de insights da Aplicação para onde os dados de diagnóstico do Azure são enviados.
-    - Se não tiver um recurso de Insights de Aplicação existente, consulte Criar um novo recurso De sininsights de [aplicação](../../azure-monitor/app/create-new-resource.md ) para obter mais informações sobre a criação de um recurso e obter a chave de instrumentação.
-    - Se estiver a desenvolver um Serviço cloud com Azure SDK 2.8 e mais tarde, esta chave de instrumentação é automaticamente povoada. O valor **baseia-se** na definição de configuração do serviço APPINSIGHTS_INSTRUMENTATIONKEY ao embalar o projeto Cloud Service. Consulte [a utilização de insights de aplicação com serviços](../../azure-monitor/app/cloudservices.md)em nuvem .
+- O elemento **ApplicationInsights** especifica a chave de instrumentação do recurso de insights de aplicação onde os dados de diagnóstico do Azure são enviados.
+    - Se não tiver um recurso de Insights de Aplicação existente, consulte [criar um novo recurso Application Insights](../../azure-monitor/app/create-new-resource.md ) para obter mais informações sobre a criação de um recurso e obter a chave de instrumentação.
+    - Se estiver a desenvolver um Serviço cloud com Azure SDK 2.8 e mais tarde, esta chave de instrumentação é automaticamente povoada. O valor baseia-se na configuração da configuração do serviço **APPINSIGHTS_INSTRUMENTATIONKEY** ao embalar o projeto Cloud Service. Consulte [o Uso de Insights de Aplicações com Serviços na Nuvem](../../azure-monitor/app/cloudservices.md).
 
-- O elemento **Canais** contém um ou mais elementos **do Canal.**
-    - O *atributo* de nome refere-se exclusivamente a esse canal.
-    - O atributo *de loglevel* permite especificar o nível de registo que o canal permite. Os níveis de registo disponíveis por ordem da maioria a menos informação são:
+- O elemento **Channels** contém um ou mais elementos **do Canal.**
+    - O *atributo de nome* refere-se exclusivamente a esse canal.
+    - O atributo *loglevel* permite especificar o nível de registo que o canal permite. Os níveis de registo disponíveis na ordem da maioria das informações são:
         - Verboso
         - Informações
         - Aviso
         - Erro
-        - Crítica
+        - Crítico
 
-Um canal age como um filtro e permite selecionar níveis de registo específicos para enviar para o lavatório alvo. Por exemplo, pode recolher registos verbosos e enviá-los para armazenamento, mas enviar apenas Erros para a pia.
+Um canal funciona como um filtro e permite-lhe selecionar níveis de registo específicos para enviar para a pia do alvo. Por exemplo, pode recolher registos verbosos e enviá-los para armazenamento, mas enviar apenas Erros para a pia.
 
-O gráfico seguinte mostra esta relação.
+O gráfico que se segue mostra esta relação.
 
-![Configuração pública de Diagnósticos](media/diagnostics-extension-to-application-insights/AzDiag_Channels_App_Insights.png)
+![Configuração pública de diagnóstico](media/diagnostics-extension-to-application-insights/AzDiag_Channels_App_Insights.png)
 
-O gráfico seguinte resume os valores de configuração e como funcionam. Pode incluir vários lavatórios na configuração a diferentes níveis da hierarquia. A pia ao mais alto nível funciona como um cenário global e a especificada no elemento individual age como uma sobreposição a esse cenário global.
+O gráfico que se segue resume os valores de configuração e como funcionam. Pode incluir vários lavatórios na configuração em diferentes níveis da hierarquia. A pia ao nível superior funciona como um cenário global e a especificada no elemento individual age como uma sobreposição a esse cenário global.
 
-![Diagnóstico sumidouros configuração com insights de aplicação](media/diagnostics-extension-to-application-insights/Azure_Diagnostics_Sinks.png)
+![Configuração de sumidouros de diagnóstico com insights de aplicação](media/diagnostics-extension-to-application-insights/Azure_Diagnostics_Sinks.png)
 
 ## <a name="complete-sink-configuration-example"></a>Exemplo completo de configuração do lavatório
-Aqui está um exemplo completo do arquivo de configuração pública que
-1. envia todos os erros para Insights de Aplicação (especificado no nó **de Configuração DiagnosticMonitor)**
-2. também envia registos de nível Verbose para os Registos de Aplicação (especificados no nó de **Registos).**
+Aqui está um exemplo completo do ficheiro de configuração pública que
+1. envia todos os erros para o Application Insights (especificado no nó **de Confirmação do DiagnosticMonitor)**
+2. também envia registos de nível Verbose para os Registos de Aplicação (especificados no nó **de Logs).**
 
 ```XML
 <WadCfg>
@@ -170,7 +169,7 @@ Aqui está um exemplo completo do arquivo de configuração pública que
 ```
 Na configuração anterior, as seguintes linhas têm os seguintes significados:
 
-### <a name="send-all-the-data-that-is-being-collected-by-azure-diagnostics"></a>Envie todos os dados que estão a ser recolhidos pelos diagnósticos do Azure
+### <a name="send-all-the-data-that-is-being-collected-by-azure-diagnostics"></a>Envie todos os dados que estão a ser recolhidos pelos diagnósticos da Azure
 
 ```XML
 <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights">
@@ -182,7 +181,7 @@ Na configuração anterior, as seguintes linhas têm os seguintes significados:
 }
 ```
 
-### <a name="send-only-error-logs-to-the-application-insights-sink"></a>Envie apenas registos de erro para o afundatório de Insights de Aplicação
+### <a name="send-only-error-logs-to-the-application-insights-sink"></a>Envie apenas registos de erro para a pia Application Insights
 
 ```XML
 <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights.MyTopDiagdata">
@@ -194,7 +193,7 @@ Na configuração anterior, as seguintes linhas têm os seguintes significados:
 }
 ```
 
-### <a name="send-verbose-application-logs-to-application-insights"></a>Envie registos de aplicação verbose para Insights de Aplicação
+### <a name="send-verbose-application-logs-to-application-insights"></a>Enviar registos de aplicações verbose para Insights de Aplicação
 
 ```XML
 <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>
@@ -208,12 +207,12 @@ Na configuração anterior, as seguintes linhas têm os seguintes significados:
 
 ## <a name="limitations"></a>Limitações
 
-- **Os canais apenas tipo de log e não contadores de desempenho.** Se especificar um canal com um elemento contador de desempenho, é ignorado.
-- **O nível de registo de um canal não pode exceder o nível de registo para o que está a ser recolhido pelos diagnósticos do Azure.** Por exemplo, não é possível recolher erros de Registo de Aplicação no elemento Logs e tentar enviar registos verbose para o afundatório Devisão de Aplicações. O atributo *agendadoDoTransferLogLevelFilter* deve sempre recolher registos iguais ou mais do que os registos que está a tentar enviar para uma pia.
-- **Não é possível enviar dados blob recolhidos pela extensão de diagnóstico do Azure aos Insights de Aplicação.** Por exemplo, qualquer coisa especificada no nó dos *Diretórios.* Para dumps crash, o depósito de lixo de colisão real é enviado para armazenamento de bolhas e apenas uma notificação de que o dump de crash foi gerado é enviado para Application Insights.
+- **Os canais apenas registam o tipo e não os contadores de desempenho.** Se especificar um canal com um elemento de contador de desempenho, este é ignorado.
+- **O nível de registo de um canal não pode exceder o nível de registo para o que está a ser recolhido pelos diagnósticos Azure.** Por exemplo, não é possível recolher erros de Registo de Aplicações no elemento Logs e tentar enviar registos Verbose para a pia 'Insight de aplicação'. O atributo *DesferrLogLevelFilter programado* deve sempre recolher registos iguais ou mais do que os registos que está a tentar enviar para uma pia.
+- **Não é possível enviar dados blob recolhidos pela extensão de diagnóstico da Azure para a Application Insights.** Por exemplo, qualquer coisa especificada no nó *de Diretórios.* Para crash dumps o depósito de colisão real é enviado para o armazenamento de bolhas e apenas uma notificação de que o depósito de colisão foi gerado é enviado para a Application Insights.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba como ver a informação de [diagnóstico do Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices) em Insights de Aplicação.
-* Utilize o [PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) para ativar a extensão de diagnóstico azure para a sua aplicação.
-* Utilize o [Estúdio Visual](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) para ativar a extensão de diagnóstico do Azure para a sua aplicação
+* Saiba como ver as informações de [diagnóstico do Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices) em Application Insights.
+* Utilize [o PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) para ativar a extensão de diagnóstico Azure para a sua aplicação.
+* Utilize o [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) para ativar a extensão de diagnóstico Azure para a sua aplicação
 

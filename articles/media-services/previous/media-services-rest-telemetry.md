@@ -1,6 +1,6 @@
 ---
-title: Configurar telemetria dos Serviços de Media Azure com REST Microsoft Docs
-description: Este artigo mostra-lhe como usar a telemetria dos Serviços De Mídia Azure utilizando a REST API..
+title: Configurar a telemetria da Azure Media Services com REST Microsoft Docs
+description: Este artigo mostra-lhe como utilizar a telemetria Azure Media Services utilizando a API REST..
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,36 +15,35 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 4cf2bc919ecb8b39a23b23df95a6f37396f50603
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76774871"
 ---
-# <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configurar telemetria dos Serviços de Mídia Azure com REST
+# <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configurar telemetria Azure Media Services com REST
 
-Este tópico descreve os passos gerais que poderá tomar ao configurar a telemetria dos Serviços De Mídia Azure (AMS) utilizando a API REST. 
+Este tópico descreve os passos gerais que pode tomar ao configurar a telemetria Azure Media Services (AMS) utilizando a API REST. 
 
 >[!NOTE]
->Para obter a explicação detalhada do que é a telemetria da AMS e como consumi-la, consulte o tema [da visão geral.](media-services-telemetry-overview.md)
+>Para obter uma explicação detalhada do que é a telemetria AMS e como consumi-la, consulte o tópico [da visão geral.](media-services-telemetry-overview.md)
 
 Os passos descritos neste tópico são:
 
-- Obter a conta de armazenamento associada a uma conta de Media Services
-- Obtenção dos pontos finais da notificação
+- Obter a conta de armazenamento associada a uma conta de Serviços de Mídia
+- Obtenção dos Pontos Finais de Notificação
 - Criação de um ponto final de notificação para monitorização. 
 
-    Para criar um ponto final de notificação, delineie o EndPointType para AzureTable (2) e endPontAddress definido na tabela de armazenamento (por exemplo, https:\//telemetryvalidationstore.table.core.windows.net/).
+    Para criar um Ponto Final de Notificação, desaponte o EndPointType para AzureTable (2) e endPontAddress definido para a mesa de armazenamento (por exemplo, https: \/ /telemetryvalidationstore.table.core.windows.net/).
   
 - Obtenha as configurações de monitorização
 
-    Crie uma configuração de configuração de monitorização para os serviços que pretende monitorizar. Não é permitida a penas de configuração de monitorização. 
+    Crie definições de configuração de monitorização para os serviços que pretende monitorizar. Não é permitido mais do que uma definição de configuração de monitorização. 
 
-- Adicione uma configuração de monitorização
+- Adicionar uma configuração de monitorização
 
 
  
-## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Obtenha a conta de armazenamento associada a uma conta de Media Services
+## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Obtenha a conta de armazenamento associada a uma conta de Serviços de Mídia
 
 ### <a name="request"></a>Pedir
 
@@ -72,7 +71,7 @@ Os passos descritos neste tópico são:
     
     {"d":{"results":[{"__metadata":{"id":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts('telemetryvalidationstore')","uri":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts('telemetryvalidationstore')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.StorageAccount"},"Name":"telemetryvalidationstore","IsDefault":true,"BytesUsed":null}]}}
 
-## <a name="get-the-notification-endpoints"></a>Obtenha os pontos finais da notificação
+## <a name="get-the-notification-endpoints"></a>Receba os pontos finais de notificação
 
 ### <a name="request"></a>Pedir
 
@@ -126,7 +125,7 @@ Os passos descritos neste tópico são:
     }
 
 > [!NOTE]
-> Não se esqueça de alterar\/o valor "https: /telemetryvalidationstore.table.core.windows.net" para a sua conta de armazenamento.
+> Não se esqueça de alterar o valor "https: \/ /telemetryvalidationstore.table.core.windows.net" para a sua conta de armazenamento.
 
 ### <a name="response"></a>Resposta
 
@@ -177,7 +176,7 @@ Os passos descritos neste tópico são:
     
     {"d":{"results":[]}}
 
-## <a name="add-a-monitoring-configuration"></a>Adicione uma configuração de monitorização
+## <a name="add-a-monitoring-configuration"></a>Adicionar uma configuração de monitorização
 
 ### <a name="request"></a>Pedir
 
@@ -233,11 +232,11 @@ Os passos descritos neste tópico são:
     Content-Type: application/json; charset=utf-8
     Host: wamsbnp1clus001rest-hs.cloudapp.net
 
-## <a name="consuming-telemetry-information"></a>Consumir informação sobre telemetria
+## <a name="consuming-telemetry-information"></a>Informação de telemetria consumista
 
-Para obter informações sobre o consumo de informação sobre telemetria, consulte [este](media-services-telemetry-overview.md) tópico.
+Para obter informações sobre o consumo de informações sobre telemetria, consulte [este](media-services-telemetry-overview.md) tópico.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

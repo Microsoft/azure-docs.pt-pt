@@ -1,5 +1,5 @@
 ---
-title: Serviços de Mídia Azure frequentemente fazem perguntas
+title: Azure Media Services frequentemente fez perguntas
 description: Este artigo dá respostas às perguntas frequentes sobre a Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -13,71 +13,73 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 67c7955316d4c9670509affb478813df0768f261
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 73b24de0e66ca8fbe2097f7da39b64aaea8b1ac4
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832559"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057998"
 ---
-# <a name="media-services-v2-frequently-asked-questions"></a>Serviços de Media v2 frequentemente questionados
+# <a name="media-services-v2-frequently-asked-questions"></a>Serviços de Comunicação Social v2 frequentemente perguntas
 
-Este artigo aborda frequentemente questões levantadas pela comunidade de utilizadores da Azure Media Services (AMS).
+Este artigo aborda questões frequentemente colocadas pela comunidade de utilizadores da Azure Media Services (AMS).
 
-## <a name="general-ams-faqs"></a>FaQs gerais da AMS
+## <a name="general-ams-faqs"></a>Perguntas gerais da AMS
 
-P: Como é que transmite para dispositivos apple iOS?
+P: Como é que transmite para dispositivos Apple iOS?
 
-A: adicione o caminho "(formato=m3u8-aapl)" para a parte "/Manifesto" do URL para dizer ao servidor de origem streaming para devolver conteúdo hls de volta para consumo em dispositivos nativos apple iOS (para detalhes, ver [conteúdo de entrega),](media-services-deliver-content-overview.md)
+A: adicionar caminho "(formato=m3u8-aapl)" à parte "/Manifesto" do URL para dizer ao servidor de origem de streaming para devolver o conteúdo HLS para consumo em dispositivos nativos Apple iOS (para mais detalhes, ver [o conteúdo da entrega),](media-services-deliver-content-overview.md)
 
-P: Como escala a indexação?
+P: Como escalar a indexação?
 
-R: As unidades reservadas são as mesmas para tarefas de codificação e indexação. Siga as instruções sobre [como escalar as unidades reservadas](media-services-scale-media-processing-overview.md)de codificação . **Note** que o desempenho do Indexer não é afetado pelo Tipo de Unidade Reservado.
+R: As unidades reservadas são as mesmas para tarefas de codificação e indexação. Siga as instruções sobre [como escalar as unidades reservadas de codificação](media-services-scale-media-processing-overview.md). **Note** que o desempenho do Indexer não é afetado pelo Tipo de Unidade Reservada.
 
-P: Carreguei, codificado e publiquei um vídeo. Qual seria a razão pela qual o vídeo não toca quando tento transmiti-lo?
+P: Fiz o upload, codificado e publiquei um vídeo. Qual seria a razão pela qual o vídeo não é reproduzo quando tento transmiti-lo?
 
-R: Uma das razões mais comuns é que não tens o ponto final de streaming a partir do qual estás a tentar jogar no estado **de Running.**  
+R: Uma das razões mais comuns é que não tens o ponto final de streaming a partir do qual estás a tentar reproduzir o estado **de Corrida.**  
 
-P: Posso fazer compositing em um live stream?
+P: Posso fazer a composição num live stream?
 
-R: A composição em streams ao vivo não é atualmente oferecida no Azure Media Services, pelo que teria de se pré-compor no seu computador.
+R: A composição em streams ao vivo não é atualmente oferecida no Azure Media Services, pelo que teria de pré-compor no seu computador.
 
-P: Posso usar O CDN Azure com Live Streaming?
+P: Posso usar a Azure CDN com live streaming?
 
-R: Media Services suporta integração com o Azure CDN (para mais informações, consulte [Como Gerir os Pontos Finais](media-services-portal-manage-streaming-endpoints.md)de Streaming numa Conta de Serviços de Media).  Pode utilizar o live streaming com o CDN. A Azure Media Services fornece saídas smooth streaming, HLS e MPEG-DASH. Todos estes formatos utilizam http para transferir dados e obter benefícios de cache http. Em streaming ao vivo os dados reais de vídeo/áudio são divididos em fragmentos e estes fragmentos individuais ficam em cache em CDN. Só os dados precisam de ser atualizados são os dados manifestos. A CDN atualiza periodicamente os dados manifestos.
+R: Os Serviços de Media suportam a integração com a Azure CDN (para mais informações, ver [Como Gerir os Pontos Finais de Streaming numa Conta de Serviços de Mídia).](media-services-portal-manage-streaming-endpoints.md)  Pode utilizar o streaming ao vivo com CDN. A Azure Media Services fornece saídas Smooth Streaming, HLS e MPEG-DASH. Todos estes formatos utilizam HTTP para transferir dados e obter benefícios do caching HTTP. Em transmissão ao vivo, os dados reais de vídeo/áudio são divididos em fragmentos e estes fragmentos individuais ficam em cache na CDN. Apenas os dados precisam de ser atualizados são os dados manifestos. A CDN atualiza periodicamente os dados manifestos.
 
-P: Os serviços da Azure Media suportam armazenar imagens?
+P: Os serviços da Azure Media suportam o armazenamento de imagens?
 
-R: Se você está apenas procurando armazenar imagens JPEG ou PNG, você deve mantê-las em Armazenamento Azure Blob. Não há nenhum benefício em colocá-los na sua conta de Serviços de Media a menos que queira mantê-los associados aos seus Ativos de Vídeo ou Áudio. Ou se tiver a necessidade de usar as imagens como sobreposições no codificador de vídeo. Media Encoder Standard suporta sobrepor imagens em cima de vídeos, e é isso que ele lista JPEG e PNG como formatos de entrada suportados. Para mais informações, consulte [Creating Overlays](media-services-advanced-encoding-with-mes.md#overlay).
+R: Se estiver apenas à procura de armazenar imagens JPEG ou PNG, deve guardá-las no Azure Blob Storage. Não há qualquer benefício em colocá-los na sua conta de Media Services a menos que queira mantê-los associados aos seus Ativos de Vídeo ou Áudio. Ou se tiver necessidade de usar as imagens como sobreposições no codificar de vídeo. A Media Encoder Standard suporta a sobreposição de imagens em cima de vídeos, e é isso que lista JPEG e PNG como formatos de entrada suportados. Para obter mais informações, consulte [Criar Sobreposições.](media-services-advanced-encoding-with-mes.md#overlay)
 
-P: Como posso copiar ativos de uma conta de Serviços de Media para outra?
+P: Como posso copiar os ativos de uma conta dos Serviços de Comunicação Social para outra?
 
-R: Para copiar ativos de uma conta de Media Services para outra utilizando .NET, utilize o método de extensão [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) disponível no repositório de extensões de [extensões Azure Media Services .NET SDK.](https://github.com/Azure/azure-sdk-for-media-services-extensions/) Para mais informações, consulte [este](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) fio do fórum.
+R: Para copiar ativos de uma conta dos Serviços de Mídia para outra utilizando .NET, utilize o método de extensão [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) disponível no repositório de [extensões Azure Media Services .NET SDK Extensions.](https://github.com/Azure/azure-sdk-for-media-services-extensions/) Para mais informações, consulte [este](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) fio do fórum.
 
-P: Quais são os caracteres suportados para nomear ficheiros ao trabalhar com a AMS?
+P: Quais são os caracteres suportados para nomear ficheiros quando trabalham com a AMS?
 
-R: Os Serviços de Media utilizam o valor da propriedade IAssetFile.Name ao construir URLs para o conteúdo de streaming (por exemplo, http://AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParâmetros.) Por esta razão, não é permitida a codificação por cento. O valor da propriedade **Name** não pode ter nenhum dos seguintes [caracteres reservados](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)por cento de codificação : !*'(:@&=+$,/%%#].". Além disso, só pode haver um '.' para a extensão do nome do ficheiro.
+R: Os Serviços de Mídia utilizam o valor da propriedade IAssetFile.Name ao construir URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razão, não é permitido codificar por cento. O valor da propriedade **Name** não pode ter nenhum dos [seguintes caracteres reservados por cento:](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)!*'(;:@&=+$,/?%#]". Além disso, só pode haver um ''' para a extensão do nome do ficheiro.
 
-P: Como ligar-se usando o REST?
+P: Como ligar usando REST?
 
-R: Para obter informações sobre como ligar à AMS API, consulte [Aceda à API dos Serviços de Comunicação Social Azure com autenticação Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+R: Para obter informações sobre como ligar-se à AMS API, consulte [Aceda à API dos Serviços de Media Azure com a autenticação AD Azure](media-services-use-aad-auth-to-access-ams-api.md). 
 
 P: Como posso rodar um vídeo durante o processo de codificação?
 
-R: A [Norma Media Encoder](media-services-dotnet-encode-with-media-encoder-standard.md) suporta a rotação por ângulos de 90/180/270. O comportamento predefinido é "Auto", onde tenta detetar os metadados de rotação no ficheiro MP4/MOV que se aproxima e compensar. Incluir o seguinte elemento **Fontes** a uma das predefinições json definidas [aqui:](media-services-mes-presets-overview.md)
+R: A [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) suporta a rotação por ângulos de 90/180/270. O comportamento predefinido é "Auto", onde tenta detetar os metadados de rotação no ficheiro MP4/MOV que chega e compensar o mesmo. Inclua o seguinte elemento **Fontes** a uma das predefinições json definidas [aqui:](media-services-mes-presets-overview.md)
 
-    "Version": 1.0,
-    "Sources": [
-    {
-      "Streams": [],
-      "Filters": {
-        "Rotation": "90"
-      }
-    }
-    ],
-    "Codecs": [
+```json
+"Version": 1.0,
+"Sources": [
+{
+  "Streams": [],
+  "Filters": {
+    "Rotation": "90"
+  }
+}
+],
+"Codecs": [
 
-    ...
+...
+```
 
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services

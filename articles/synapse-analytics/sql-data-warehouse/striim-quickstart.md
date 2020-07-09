@@ -1,68 +1,68 @@
 ---
-title: Início rápido de Striim
-description: Começar rapidamente com o Striim e o Azure SQL Data Warehouse.
+title: Striim arranque rápido
+description: Começa rapidamente com o Striim e o Azure SQL Data Warehouse.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e963d62df8d2c416726852ee3d46daf1cd22936e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 945bcd03bc3bf13517836e7a5624bd5142782183
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80349948"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208557"
 ---
-# <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Guia de instalação de oferta de mercado Striim Azure SQL DW
+# <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Striim Azure SQL DW Marketplace Guia de instalação
 
-Este quickstart pressupõe que já tem uma instância pré-existente de SQL Data Warehouse.
+Este quickstart pressupõe que já tem uma instância pré-existente do SQL Data Warehouse.
 
-Procure striim no Mercado Azure e selecione o Striim para integração de dados para o Armazém de Dados SQL (Encenado) 
+Procure por Striim no Mercado Azure e selecione o Striim for Data Integration to SQL Data Warehouse (Staged) 
 
 ![Instalar Striim][install]
 
-Configure o VM Striim com propriedades especificadas, observando o nome do cluster Striim, palavra-passe e senha de administração
+Configure o Striim VM com propriedades especificadas, anotendo o nome do cluster Striim, palavra-passe e senha de administração
 
-![Configure Striim][configure]
+![Configurar Striim][configure]
 
-Uma vez implementado, \<clique em Nome VM>-masternode no portal Azure, clique em Connect e copie o Login usando a conta local VM 
+Uma vez implementado, clique em \<VM Name> -masternode no portal Azure, clique em Connect e copie o Login usando a conta local VM 
 
-![Ligar striim ao Armazém de Dados SQL][connect]
+![Ligue striim ao Armazém de Dados SQL][connect]
 
-Descarregue o sqljdbc42.jar de para <https://www.microsoft.com/en-us/download/details.aspx?id=54671> a sua máquina local. 
+Descarregue o sqljdbc42.jar <https://www.microsoft.com/en-us/download/details.aspx?id=54671> para a sua máquina local. 
 
-Abra uma janela de linha de comando e mude de direção para onde descarregou o frasco JDBC. SCP o ficheiro do frasco para o seu Striim VM, obtendo o endereço e senha do portal Azure
+Abra uma janela de linha de comando e mude os diretórios para onde descarregou o frasco JDBC. SCP o ficheiro do frasco para o seu Striim VM, obtendo o endereço e senha do portal Azure
 
-![Arquivo de frasco de cópia para o seu VM][copy-jar]
+![Copy jar file para o seu VM][copy-jar]
 
-Abra outra janela de linha de comando, ou use um utilitário ssh para entrar no cluster Striim
+Abra outra janela de linha de comando, ou use um utilitário ssh para ssh no cluster Striim
 
 ![SSH no cluster][ssh]
 
-Execute os seguintes comandos para mover o ficheiro do frasco JDBC para o diretório de lib da Striim, e iniciar e parar o servidor.
+Execute os seguintes comandos para mover o ficheiro do frasco JDBC para o diretório de lib-lib do Striim e iniciar e parar o servidor.
 
    1. sudo su
    2. cd /tmp
    3. mv sqljdbc42.jar /opt/striim/lib
-   4. sistemactl parar striim-nó
-   5. sistemactl parar striim-dbms
-   6. systemctl iniciar striim-dbms
-   7. systemctl iniciar striim-nó
+   4. sistema stop striim-node
+   5. paragem sistemacídlia striim-dbms
+   6. sistema iniciar striim-dbms
+   7. sistema iniciar striim-node
 
-![Inicie o aglomerado Striim][start-striim]
+![Inicie o cluster Striim][start-striim]
 
-Agora, abra o seu \<navegador favorito e navegue para DNS Name>:9080
+Agora, abra o seu navegador favorito e navegue até \<DNS Name> :9080
 
 ![Navegue para o ecrã de login][navigate]
 
-Inicie sessão com o nome de utilizador e a palavra-passe que configura no portal Azure e selecione o seu assistente preferido para começar, ou vá à página apps para começar a usar o arrasto e largar UI
+Faça login com o nome de utilizador e a palavra-passe que criou no portal Azure e selecione o seu assistente preferido para iniciar, ou vá à página apps para começar a usar o UI de arrasto e de lançamento
 
-![Iniciar sessão com credenciais do servidor][login]
+![Faça login com credenciais de servidor][login]
 
 
 

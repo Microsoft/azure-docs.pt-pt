@@ -1,49 +1,48 @@
 ---
-title: Configure a preferência de encaminhamento para um VM - Azure CLI
-description: Aprenda a criar um VM com um endereço IP público com escolha de preferência de encaminhamento utilizando a interface de linha de comando Azure (CLI).
+title: Configure preferência de encaminhamento para um VM - Azure CLI
+description: Saiba como criar um VM com um endereço IP público com escolha de preferência de encaminhamento utilizando a interface de linha de comando Azure (CLI).
 services: virtual-network
 documentationcenter: na
 author: KumudD
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: 59583d6d9e643c7b3f4c86198da04bde6b2db324
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.openlocfilehash: d5ea44e7059ae01204dbafd454c187e10f85e4e8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598186"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707553"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-cli"></a>Configure a preferência de encaminhamento para um VM utilizando o Azure CLI
 
 Este artigo mostra-lhe como configurar a preferência de encaminhamento para uma máquina virtual. O tráfego ligado à Internet a partir do VM será encaminhado através da rede ISP quando escolher a **Internet** como a sua opção de preferência de encaminhamento . O encaminhamento padrão é através da rede global da Microsoft.
 
-Este artigo mostra-lhe como criar uma máquina virtual com um IP público que está definido para direcionar o tráfego através da internet pública usando o Azure CLI.
+Este artigo mostra-lhe como criar uma máquina virtual com um IP público que está definido para encaminhar o tráfego através da internet pública usando O Azure CLI.
 
 > [!IMPORTANT]
-> A preferência por encaminhamento está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> A preferência de encaminhamento está atualmente em visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="register-the-feature-for-your-subscription"></a>Registe a funcionalidade para a sua subscrição
-A função De Preferência de Encaminhamento está atualmente em pré-visualização. Registe a funcionalidade para a sua subscrição da seguinte forma:
+## <a name="register-the-feature-for-your-subscription"></a>Registe a funcionalidade da sua subscrição
+A função 'Preferência de encaminhamento' está atualmente em pré-visualização. Registe a funcionalidade da sua subscrição da seguinte forma:
 ```azurecli
 az feature register --namespace Microsoft.Network --name AllowRoutingPreferenceFeature
 ```
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-1. Se utilizar a Casca de Nuvem, salte para o passo 2. Abra uma sessão de comando e assine em Azure com `az login` .
-2. Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos na região de East US Azure:
+1. Se utilizar a Cloud Shell, salte para o passo 2. Abra uma sessão de comando e assine em Azure com `az login` .
+2. Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos na região de Azure oriental dos EUA:
 
     ```azurecli
     az group create --name myResourceGroup --location eastus
     ```
 
 ## <a name="create-a-public-ip-address"></a>Crie um endereço IP público
-Para aceder às suas máquinas virtuais a partir da Internet, é necessário criar um endereço IP público. Criar um endereço IP público com [az network public-ip create](/cli/azure/network/public-ip). O exemplo seguinte cria um ip público de tipo de rotação de *internet* na região *leste dos EUA:*
+Para aceder às suas máquinas virtuais a partir da Internet, precisa de criar um endereço IP público. Criar um endereço IP público com [az network public-ip create](/cli/azure/network/public-ip). O exemplo a seguir cria um ip público de linhagem de preferência *tipo Internet* na região leste *dos EUA:*
 
 ```azurecli
 az network public-ip create \
@@ -58,11 +57,11 @@ az network public-ip create \
 
 ## <a name="create-network-resources"></a>Criar recursos de rede
 
-Antes de implementar um VM, deve criar recursos de rede de suporte - grupo de segurança de rede, rede virtual e NIC virtual.
+Antes de implementar um VM, tem de criar recursos de rede de suporte - grupo de segurança de rede, rede virtual e NIC virtual.
 
 ### <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
-Crie um grupo de segurança de rede para as regras que regem a comunicação de entrada e saída no seu VNet com a [rede az nsg criar](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)
+Crie um grupo de segurança de rede para as regras que regem a comunicação de entrada e saída no seu VNet com [a rede az nsg criar](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)
 
 ```azurecli
 az network nsg create \
@@ -73,7 +72,7 @@ az network nsg create \
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Crie uma rede virtual com [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create). O exemplo seguinte cria uma rede virtual chamada *myVNET* com subredes *mySubNet:*
+Crie uma rede virtual com [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create). O exemplo a seguir cria uma rede virtual chamada *myVNET* com sub-redes *mySubNet*:
 
 ```azurecli
 # Create a virtual network
@@ -93,7 +92,7 @@ az network vnet subnet create \
 
 ### <a name="create-a-nic"></a>Criar um NIC
 
-Crie um NIC virtual para o VM com a [criação de nic de rede Az](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create). O exemplo seguinte cria um NIC virtual, que será anexado ao VM.
+Crie um NIC virtual para o VM com [a criação de rede Az.](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) O exemplo a seguir cria um NIC virtual, que será anexado ao VM.
 
 ```azurecli-interactive
 # Create a NIC
@@ -109,7 +108,7 @@ az network nic create \
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-Crie uma VM com [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create). O exemplo seguinte cria um VM do servidor windows 2019 e os componentes de rede virtual necessários se eles ainda não existirem.
+Crie uma VM com [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create). O exemplo a seguir cria um VM do servidor windows 2019 e os componentes de rede virtual necessários se ainda não existirem.
 
 ```azurecli
 az vm create \
@@ -129,8 +128,8 @@ Quando já não for necessário, pode utilizar [az group delete](/cli/azure/grou
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais sobre [a preferência de encaminhamento em endereços IP públicos](routing-preference-overview.md).
+- Saiba mais sobre [a preferência de encaminhamento em endereços IP públicos.](routing-preference-overview.md)
 - Saiba mais sobre [endereços IP públicos](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) em Azure.
-- Saiba mais sobre [as definições de endereçoIP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).
+- Saiba mais sobre [as definições de endereço IP público .](virtual-network-public-ip-address.md#create-a-public-ip-address)

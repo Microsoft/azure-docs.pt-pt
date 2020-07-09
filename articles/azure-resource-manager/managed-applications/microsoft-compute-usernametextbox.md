@@ -1,20 +1,19 @@
 ---
-title: UserNameTextBox UI
-description: Descreve o elemento Microsoft.Compute.UserNameTextBox UI para o portal Azure. Permite que os utilizadores forneçam nomes de utilizadores windows ou Linux.
+title: Elemento UI do UserNameTextBox
+description: Descreve o elemento microsoft.compute.userNameTextBox UI para o portal Azure. Permite que os utilizadores forneçam nomes de utilizador Windows ou Linux.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: c7544ae7d872a64547cb6c57ce8af9a09fc6c3d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651907"
 ---
-# <a name="microsoftcomputeusernametextbox-ui-element"></a>Microsoft.Compute.userNameTextBox UI
+# <a name="microsoftcomputeusernametextbox-ui-element"></a>Microsoft.Compute.UserNameTextBox UI elemento
 
-Um controlo de caixa de texto com validação incorporada para nomes de utilizadores Windows e Linux.
+Um controlo de caixa de texto com validação incorporada para nomes de utilizador Windows e Linux.
 
 ## <a name="ui-sample"></a>Amostra de UI
 
@@ -47,13 +46,13 @@ Um controlo de caixa de texto com validação incorporada para nomes de utilizad
 
 ## <a name="remarks"></a>Observações
 
-- Se `constraints.required` for definido como **verdadeiro,** então a caixa de texto deve ter um valor para validar com sucesso. O valor padrão é **verdadeiro.**
-- `osPlatform`deve ser especificado e pode ser **Windows** ou **Linux**.
-- `constraints.regex`é um padrão de expressão regular JavaScript. Se especificado, então o valor da caixa de texto deve corresponder ao padrão para validar com sucesso. O valor predefinido é **nulo.**
-- `constraints.validationMessage`é uma corda para exibir quando o valor da caixa `constraints.regex`de texto falha na validação especificada por . Se não especificadas, as mensagens de validação incorporadas da caixa de texto são utilizadas. O valor predefinido é **nulo.**
-- Este elemento tem validação incorporada que se baseia `osPlatform`no valor especificado para . A validação incorporada pode ser usada juntamente com uma expressão regular personalizada. Se `constraints.regex` for especificado um valor, as validações incorporadas e personalizadas são desencadeadas.
+- Se `constraints.required` for definida como **verdadeira,** a caixa de texto deve ter um valor para validar com sucesso. O valor predefinido é **verdadeiro.**
+- `osPlatform`deve ser especificado, e pode ser **windows** ou **Linux**.
+- `constraints.regex`é um padrão de expressão regular JavaScript. Se especificado, o valor da caixa de texto deve corresponder ao padrão para validar com sucesso. O valor por defeito é **nulo.**
+- `constraints.validationMessage`é uma cadeia para visualizar quando o valor da caixa de texto falha na validação especificada por `constraints.regex` . Se não for especificado, as mensagens de validação incorporadas da caixa de texto são utilizadas. O valor por defeito é **nulo.**
+- Este elemento tem validação incorporada que se baseia no valor especificado para `osPlatform` . A validação incorporada pode ser usada juntamente com uma expressão regular personalizada. Se for especificado um `constraints.regex` valor, então ambas as validações incorporadas e personalizadas são desencadeadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição das propriedades comuns nos elementos UI, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).
+* Para obter uma descrição das propriedades comuns em elementos de UI, consulte [os elementos CreateUiDefinition](create-uidefinition-elements.md).

@@ -5,34 +5,33 @@ description: Instruções para parceiros do Peering Service
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: d626d98613bd5d988b599d0980c885d7f73bb958
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 75ec1a4ededfea4f9b40461d69b6e16d947e6919
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76720253"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712484"
 ---
 # <a name="peering-service-partner-walkthrough"></a>Instruções para parceiros do Peering Service
 
-Esta secção explica os passos que um fornecedor precisa de seguir para permitir um desvio direto para o Serviço de Peering.
+Esta secção explica os passos que um provedor precisa seguir para permitir um olhar direto para o Serviço de Observação.
 
-## <a name="create-direct-peering-connection-for-peering-service"></a>Criar conexão de peering direto para o Serviço de Peering
-Os Prestadores de Serviços podem expandir o seu alcance geográfico criando um novo epeering direto que suporta o Serviço de Peering. Para realizar isto,
-1. Torne-se um parceiro de serviço de peering se ainda não
-1. Siga as instruções para [Criar ou modificar um olhar direto utilizando o portal](howto-direct-portal.md). Certifique-se de que satisfaz os requisitos de alta disponibilidade.
-1. Em seguida, siga os passos para ativar o [Serviço de Peering num desvio direto utilizando o portal](howto-peering-service-portal.md).
+## <a name="create-direct-peering-connection-for-peering-service"></a>Criar ligação de espreitamento direto para o serviço de peering
+Os Fornecedores de Serviços podem expandir o seu alcance geográfico criando um novo espreitamento direto que suporta o Serviço de Observação. Para conseguir isto,
+1. Torne-se um parceiro de Serviço de Observação, se não for já
+1. Siga as instruções para [criar ou modificar um espreitamento direto utilizando o portal](howto-direct-portal.md). Certifique-se de que cumpre os requisitos de alta disponibilidade.
+1. Em seguida, siga os passos para [Ativar o Serviço de Observação de Pares num espreitamento direto utilizando o portal](howto-peering-service-portal.md).
 
-## <a name="use-legacy-direct-peering-connection-for-peering-service"></a>Utilize a conexão de peering direto legado para o Serviço de Peering
-Se tem legado Direto que pretende usar para apoiar o Serviço de Peering,
-1. Torne-se um parceiro de Serviço de Peering se ainda não.
-1. Siga as instruções para converter um legado Direto para o [recurso Azure utilizando o portal](howto-legacy-direct-portal.md). Se necessário, encomende circuitos adicionais para satisfazer os requisitos de alta disponibilidade.
-1. Em seguida, siga os passos para ativar o [Serviço de Peering num desvio direto utilizando o portal](howto-peering-service-portal.md).
+## <a name="use-legacy-direct-peering-connection-for-peering-service"></a>Use a ligação de observação direta legado para o Serviço de Peering
+Se tiver um legado, olhando diretamente que pretende utilizar para apoiar o Serviço de Peering,
+1. Torne-se um parceiro de Serviço de Observação, se não for já.
+1. Siga as instruções para [converter um legado Espreitar diretamente para o recurso Azure utilizando o portal](howto-legacy-direct-portal.md). Se necessário, encomende circuitos adicionais para satisfazer os requisitos de alta disponibilidade.
+1. Em seguida, siga os passos para [Ativar o Serviço de Observação de Pares num espreitamento direto utilizando o portal](howto-peering-service-portal.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Aprenda sobre a política de [pares.](https://peering.azurewebsites.net/peering)
-* Para aprender sobre os passos para configurar o direct peering com a Microsoft, siga o [direct peering walkthrough](walkthrough-direct-all.md).
-* Para aprender sobre os passos para configurar o Exchange peering com a Microsoft, siga o [exchange peering walkthrough](walkthrough-exchange-all.md).
+* Saiba mais sobre [a política de espreitar.](https://peering.azurewebsites.net/peering)
+* Para aprender sobre os passos para configurar o persigo direto com a Microsoft, siga [o walkthrrough de observação direto](walkthrough-direct-all.md).
+* Para aprender sobre os passos para configurar o Exchange peering com a Microsoft, siga [o Exchange peering walkthrough](walkthrough-exchange-all.md).

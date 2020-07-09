@@ -1,20 +1,20 @@
 ---
 title: Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais do Azure
-description: Como configurar algumas das propriedades de rede mais avançadas para conjuntos de escala de máquinas virtuais Azure.
+description: Como configurar algumas das propriedades de rede mais avançadas para conjuntos de escala de máquina virtual Azure.
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: networking
-ms.date: 07/17/2017
+ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 46a12006274ca8516c936e37189c9233dde9b410
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 0f8075af53752da0e0abc2dec7ab49c28af2e3ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125201"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374734"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -42,27 +42,29 @@ As Redes Aceleradas do Azure melhoram o desempenho da rede ao permitirem a virtu
 }
 ```
 
-## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Conjuntos de escala de máquina seleção azul com equilíbrio de carga Azure
+## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Conjuntos de balança de máquina virtual Azure com Equilibrador de Carga Azure
 
-Ao trabalhar com conjuntos de escala de máquina virtual e equilibrador de carga, deve considerar-se o seguinte:
+Ao trabalhar com conjuntos de balança de máquina virtual e balanceador de carga, devem ser considerados os seguintes itens:
 
-* **Vários conjuntos**de escala de máquina virtual não podem usar o mesmo equilíbrio de carga .
-* **Regras de Encaminhamento portuário e regras nat de entrada:**
-  * Cada conjunto de escala de máquina virtual deve ter uma regra NAT de entrada.
-  * Após a criação do conjunto de calcário, a porta de backend não pode ser modificada para uma regra de equilíbrio de carga utilizada por uma sonda de saúde do equilibrador de carga. Para alterar a porta, pode remover a sonda de saúde atualizando o conjunto de escala de máquina virtual Azure, atualizar a porta e, em seguida, configurar novamente a sonda de saúde.
-  * Ao utilizar a balança de máquinavirtual definida na piscina de backend do equilibrador de carga, as regras de entrada padrão na NAT são criadas automaticamente.
+* **Vários conjuntos de escala de máquina virtual não podem usar o mesmo equilibrador de carga**.
+* **Regras de encaminhamento e entrada de entrada:**
+  * Cada conjunto de balança de máquina virtual deve ter uma regra NAT de entrada.
+  * Após a criação do conjunto de escala, a porta de backend não pode ser modificada para uma regra de equilíbrio de carga utilizada por uma sonda sanitária do equilibrador de carga. Para alterar a porta, pode remover a sonda de saúde atualizando o conjunto de escala de máquina virtual Azure, atualizar a porta e, em seguida, configurar novamente a sonda de saúde.
+  * Ao utilizar a balança de máquina virtual definida no pool de backend do balanceador de carga, as regras NAT de entrada padrão são criadas automaticamente.
+* **Piscina NAT de entrada:**
+  * A piscina NAT de entrada é uma coleção de regras NAT de entrada. Uma piscina NAT de entrada não suporta vários conjuntos de escala de máquina virtual.
 * **Regras de equilíbrio de carga:**
-  * Ao utilizar a balança de máquinavirtual definida na piscina de backend do equilibrador de carga, a regra de equilíbrio de carga predefinida é criada automaticamente.
+  * Quando se utiliza a balança de máquina virtual definida no pool de backend do balanceador de carga, a regra de equilíbrio de carga padrão é criada automaticamente.
 * **Regras de saída:**
-  *  Para criar uma regra de saída para um pool backend que já é referenciado por uma regra de equilíbrio de carga, você precisa primeiro marcar **"Criar regras implícitas** de saída" como **Não** no portal quando a regra de equilíbrio de carga de entrada é criada.
+  *  Para criar uma regra de saída para um pool de backend que já é referenciado por uma regra de equilíbrio de carga, é necessário primeiro marcar **"Criar regras implícitas de saída"** como **Não** no portal quando a regra de equilíbrio de carga de entrada é criada.
 
   :::image type="content" source="./media/vmsslb.png" alt-text="Criação de regras de equilíbrio de carga" border="true":::
 
-Os seguintes métodos podem ser utilizados para implantar um conjunto de escala de máquina virtual com um equilibrador de carga Azure existente.
+Os seguintes métodos podem ser utilizados para implantar uma balança de máquina virtual definida com um equilibrador de carga Azure existente.
 
-* Configure um conjunto de escala de máquina virtual com um equilíbrio de [carga Azure existente utilizando o portal Azure](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-portal).
-* Configure um conjunto de escala de máquina virtual com um equilíbrio de [carga Azure existente utilizando o Azure PowerShell](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-powershell).
-* Configure um conjunto de escala de máquina virtual com um equilíbrio de [carga Azure existente utilizando o Azure CLI](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-cli).
+* [Configure uma balança de máquina virtual definida com um Equilibrador de Carga Azure existente utilizando o portal Azure](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-portal).
+* [Configure uma balança de máquina virtual definida com um Equilibrador de Carga Azure existente utilizando a Azure PowerShell](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-powershell).
+* [Configure uma balança de máquina virtual definida com um Equilibrador de Carga Azure existente utilizando o Azure CLI](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-cli).
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Criar um conjunto de dimensionamento que referencie um Gateway de Aplicação
 Para criar um conjunto de dimensionamento que utiliza um gateway de aplicação, referencie o conjunto de endereços de back-end do gateway de aplicação na secção ipConfigurations do seu conjunto de dimensionamento como nesta configuração de modelo ARM:
@@ -105,7 +107,7 @@ Para configurar servidores DNS personalizados num modelo do Azure, adicione uma 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Criar um conjunto de dimensionamento com nomes de domínio de máquinas virtuais configuráveis
 Para criar um conjunto de dimensionamento com um nome DNS personalizado para as máquinas virtuais através da CLI, adicione o argumento **--vm-domain-name** ao comando **virtual machine scale set create**, seguido por uma cadeia de carateres que representa o nome de domínio.
 
-Para definir o nome de domínio num modelo Azure, adicione uma propriedade **dnsSettings** à secção de configurações de configurações de rede de conjunto de **escalaInterfaceS.** Por exemplo:
+Para definir o nome de domínio num modelo Azure, adicione uma propriedade **dnsSettings** à secção de rede de conjunto de **escalaInterfaceConfigurations.** Por exemplo:
 
 ```json
 "networkProfile": {
@@ -144,14 +146,14 @@ O resultado para um nome dns de máquina virtual individual teria o formato segu
 ```
 
 ## <a name="public-ipv4-per-virtual-machine"></a>IPv4 Público por máquina virtual
-Em geral, as máquinas virtuais de conjuntos de dimensionamento do Azure não precisam de ter os seus próprios endereços IP públicos. Na maioria dos cenários, é mais económico e seguro associar um endereço IP público a um balanceador de carga ou a uma máquina virtual individual (também chamada “jumpbox”), que depois encamihna as ligações de entrada às máquinas virtuais do conjunto de dimensionamento, conforme necessário (por exemplo, através de regras NAT de entrada).
+Em geral, as máquinas virtuais de conjuntos de dimensionamento do Azure não precisam de ter os seus próprios endereços IP públicos. Para a maioria dos cenários, é mais económico e seguro associar um endereço IP público a um equilibrador de carga ou a uma máquina virtual individual (também conhecida como uma caixa de salto), que, em seguida, encaminha as ligações de entrada para a escala definir máquinas virtuais conforme necessário (por exemplo, através de regras NAT de entrada).
 
 No entanto, alguns cenários requerem que as máquinas virtuais do conjunto de dimensionamento tenham os seus próprios endereços IP públicos. Um exemplo de um cenário destes são os jogos, em que uma consola tem de fazer uma ligação direta a uma máquina virtual na cloud, que está a fazer o processamento físico do jogo. Outro exemplo é quando as máquinas virtuais têm de fazer ligações externas a outras em várias regiões numa base de dados distribuída.
 
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Criar um conjunto de dimensionamento com IP público por máquina virtual
 Para criar um conjunto de dimensionamento que atribui um endereço IP público a cada máquina virtual através da CLI, adicione o parâmetro **--public-ip-per-vm** ao comando **vmss create**. 
 
-Para criar um conjunto de escala utilizando um modelo Azure, certifique-se de que a versão API do recurso Microsoft.Compute/virtualMachineScaleSets é pelo menos **2017-03-30**, e adicione uma propriedade jSON de **configuração ipson publicamente** na secção de configurações ipConfiguras definidas em escala. Por exemplo:
+Para criar um conjunto de escala usando um modelo Azure, certifique-se de que a versão API do recurso Microsoft.Compute/virtualMachineScaleSets é pelo menos **2017-03-30**, e adicione uma propriedade **públicaIpAddressConfiguration** JSON à secção ipConfigurations definida. Por exemplo:
 
 ```json
 "publicIpAddressConfiguration": {
@@ -167,7 +169,7 @@ Modelo do exemplo: [201-vmss-public-ip-linux](https://github.com/Azure/azure-qui
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Consultar os endereços IP públicos das máquinas virtuais num conjunto de dimensionamento
 Para listar os endereços IP públicos atribuídos às máquinas virtuais do conjunto de dimensionamento através da CLI, utilize o comando **az vmss list-instance-public-ips**.
 
-Para listar a escala, detete endereços IP públicos utilizando o PowerShell, utilize o comando _Get-AzPublicIpAddress._ Por exemplo:
+Para listar os endereços IP públicos definidos na escala utilizando o PowerShell, utilize o comando _Get-AzPublicIpAddress._ Por exemplo:
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
@@ -403,5 +405,5 @@ az vmss show \
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre redes virtuais do Azure, veja [Descrição geral das redes virtuais do Azure](../virtual-network/virtual-networks-overview.md).

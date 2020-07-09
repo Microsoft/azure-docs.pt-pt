@@ -1,5 +1,5 @@
 ---
-title: Utilize a solução de Monitorização Remota para detetar problemas de dispositivos - Azure / Microsoft Docs
+title: Utilize a solução de Monitorização Remota para detetar problemas do dispositivo - Azure / Microsoft Docs
 description: Este tutorial mostra-lhe como utilizar as regras e ações para detetar automaticamente problemas com dispositivos baseados no limiar na solução de Monitorização Remota.
 author: dominicbetts
 manager: timlt
@@ -10,11 +10,11 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239519"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712518"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutorial: Detetar problemas dos dispositivos ligados à sua solução de monitorização
 
@@ -33,7 +33,7 @@ Neste tutorial:
 > * Editar uma regra existente
 > * Ativar e desativar regras
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -54,7 +54,7 @@ Para criar uma regra que gera um aviso quando a pressão num dispositivo de arre
 | Definição          | Valor                                 |
 | ---------------- | ------------------------------------- |
 | Nome da regra        | Aviso do sistema de arrefecimento                       |
-| Descrição      | A pressão do sistema de arrefecimento excedeu 150 PSI |
+| Description      | A pressão do sistema de arrefecimento excedeu 150 PSI |
 | Grupo de dispositivos     | Grupo de dispositivos do **sistema de arrefecimento**             |
 | Cálculo      | Instantâneo                               |
 | Condição 1 Campo| pressure                              |
@@ -77,16 +77,16 @@ Para criar uma regra com várias condições que gera um alerta crítico quando,
 | Definição          | Valor                                 |
 | ---------------- | ------------------------------------- |
 | Nome da regra        | Humidade de arrefecimento e temp essenciais    |
-| Descrição      | A humidade e a temperatura são essenciais |
+| Description      | A humidade e a temperatura são essenciais |
 | Grupo de dispositivos     | Grupo de dispositivos do **sistema de arrefecimento**             |
 | Cálculo      | Média                               |
 | Período de tempo      | 5                                     |
 | Condição 1 Campo| humidade                              |
 | Condição 1 operador | Maior que                      |
 | Condição 1 valor    | 80                                |
-| Nível de gravidade  | Crítica                              |
+| Nível de gravidade  | Crítico                              |
 
-[![Criar a regra da condição múltipla parte um](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-expanded.png#lightbox)
+[![Criar a regra de várias condições parte um](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-expanded.png#lightbox)
 
 Para adicionar a segunda condição, clique em "+Adicionar condição". Utilize os seguintes valores para a nova condição:
 
@@ -96,7 +96,7 @@ Para adicionar a segunda condição, clique em "+Adicionar condição". Utilize 
 | Condição 2 operador | Maior que                      |
 | Condição 2 valor    | 75                                |
 
-[![Criar a regra da condição múltipla parte dois](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-expanded.png#lightbox)
+[![Criar a regra de várias condições parte dois](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-expanded.png#lightbox)
 
 Para guardar a nova regra, clique em **Aplicar**.
 
@@ -108,13 +108,13 @@ Pode ver quando a regra está acionada na página **Regras** ou na página **Das
 
 Para fazer uma alteração a uma regra existente, selecione-a na lista de regras e clique em **Editar**:
 
-[![Regra de edição](./media/iot-accelerators-remote-monitoring-automate/rulesactionsedit_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsedit_v2-expanded.png#lightbox)
+[![Editar regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsedit_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsedit_v2-expanded.png#lightbox)
 
 ## <a name="disable-a-rule"></a>Desativar uma regra
 
 Para desativar temporariamente uma regra, pode desativá-la na lista de regras. Selecione a regra a desativar e, em seguida, escolha **Desativar**. O **Estado** da regra é alterado na lista para indicar que a regra está agora desativada. Pode voltar a ativar uma regra que desativou anteriormente com o mesmo procedimento.
 
-[![Regra de desativar](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-expanded.png#lightbox)
+[![Regra de desativação](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-expanded.png#lightbox)
 
 Pode ativar e desativar várias regras ao mesmo tempo, ao selecionar várias regras na lista.
 
@@ -122,11 +122,11 @@ Pode ativar e desativar várias regras ao mesmo tempo, ao selecionar várias reg
 
 Para eliminar permanentemente uma regra, pode eliminá-la na lista de regras. Selecione a regra a eliminar e, em seguida, escolha **Eliminar**.
 
-[![Excluir regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
+[![Eliminar regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
 
 Depois de confirmar que pretende eliminar a regra, é-lhe dada a oportunidade de eliminar todos os alertas associados à regra na página **Manutenção**.
 
-[![Excluir regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-expanded.png#lightbox)
+[![Eliminar regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-expanded.png#lightbox)
 
 Só é possível eliminar uma regra de cada vez.
 

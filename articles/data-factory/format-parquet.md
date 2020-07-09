@@ -1,5 +1,5 @@
 ---
-title: Formato Parquet na Fábrica de Dados Azure
+title: Formato parquet na Azure Data Factory
 description: Este tópico descreve como lidar com o formato Parquet na Azure Data Factory.
 author: linda33wj
 manager: shwang
@@ -7,21 +7,20 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 06/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 223b1b996b82acaa753eb55723e251dc5901bbec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9ad0ccdabd0320d8821d0760ca9802db37049149
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417713"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84611064"
 ---
-# <a name="parquet-format-in-azure-data-factory"></a>Formato Parquet na Fábrica de Dados Azure
+# <a name="parquet-format-in-azure-data-factory"></a>Formato parquet na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Siga este artigo quando pretender **analisar os ficheiros Parquet ou escrever os dados no formato Parquet**. 
+Siga este artigo quando quiser **analisar os ficheiros Parquet ou escrever os dados no formato Parquet**. 
 
-O formato Parquet é suportado para os seguintes conectores: [Amazon S3,](connector-amazon-simple-storage-service.md) [Azure Blob,](connector-azure-blob-storage.md) [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage,](connector-azure-file-storage.md) [File System,](connector-file-system.md) [FTP,](connector-ftp.md) [Google Cloud Storage,](connector-google-cloud-storage.md) [HDFS,](connector-hdfs.md) [HTTP](connector-http.md)e [SFTP](connector-sftp.md).
+O formato Parquet é suportado para os seguintes conectores: [Amazon S3,](connector-amazon-simple-storage-service.md) [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), Azure File Storage Gen2 , [Azure File Storage](connector-azure-file-storage.md), File [System](connector-file-system.md), [FTP,](connector-ftp.md) [Google Cloud Storage,](connector-google-cloud-storage.md) [HDFS,](connector-hdfs.md) [HTTP](connector-http.md)e [SFTP](connector-sftp.md).
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
@@ -29,14 +28,14 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 | Propriedade         | Descrição                                                  | Necessário |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| tipo             | A propriedade tipo do conjunto de dados deve ser definida para **Parquet**. | Sim      |
-| localização         | Definições de localização dos ficheiros. Cada conector baseado em ficheiros tem `location`o seu próprio tipo de localização e propriedades suportadas em . Consulte os detalhes na secção de propriedades do conjunto de dados **do conector ->**. | Sim      |
-| compressãoCodec | O código de compressão para usar ao escrever para ficheiros Parquet. Ao ler os ficheiros Parquet, as Fábricas de Dados determinam automaticamente o código de compressão com base nos metadados do ficheiro.<br>Os tipos suportados são "**nenhum**", "**gzip**", "**snappy**" (padrão) e "**lzo**". Nota atualmente A atividade da Cópia não suporta a LZO ao ler/escrever ficheiros Parquet. | Não       |
+| tipo             | A propriedade do tipo do conjunto de dados deve ser definida para **Parquet**. | Sim      |
+| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . **Consulte os detalhes na secção de propriedades do conector -> Dataset**. | Sim      |
+| compressãoCodec | O codec de compressão para usar ao escrever para ficheiros Parquet. Ao ler os ficheiros Parquet, as Fábricas de Dados determinam automaticamente o código de compressão com base nos metadados do ficheiro.<br>Os tipos suportados são "**nenhum**", "**gzip**", "**snappy**" (padrão), e "**lzo**". Nota atualmente A atividade copy não suporta LZO quando lê/escreve ficheiros Parquet. | Não       |
 
 > [!NOTE]
-> O espaço branco em nome da coluna não é suportado para ficheiros Parquet.
+> O espaço branco no nome da coluna não é suportado para ficheiros Parquet.
 
-Abaixo está um exemplo de conjunto de dados parquet no armazenamento de Blob Azure:
+Abaixo está um exemplo do conjunto de dados do Parquet no Armazenamento Azure Blob:
 
 ```json
 {
@@ -62,55 +61,113 @@ Abaixo está um exemplo de conjunto de dados parquet no armazenamento de Blob Az
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela fonte parquet e pia.
+Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de imóveis suportados pela fonte parquet e pia.
 
 ### <a name="parquet-as-source"></a>Parquet como fonte
 
-As seguintes propriedades são suportadas na secção de *** \*origem\* *** da atividade de cópia.
+As seguintes propriedades são suportadas na secção *** \* de origem \* *** da atividade de cópia.
 
 | Propriedade      | Descrição                                                  | Necessário |
 | ------------- | ------------------------------------------------------------ | -------- |
 | tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida para **ParquetSource**. | Sim      |
-| lojasDefinições | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros `storeSettings`tem as suas próprias definições de leitura suportadas em . . Consulte os detalhes na secção de propriedades de propriedade do artigo do **conector -> Copiar**. | Não       |
+| lojaSs | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | Não       |
 
 ### <a name="parquet-as-sink"></a>Parquet como pia
 
-As seguintes propriedades são suportadas na secção de *** \*sumidouro\* *** da atividade de cópia.
+As seguintes propriedades são suportadas na secção de *** \* lavatório \* *** de atividade de cópia.
 
 | Propriedade      | Descrição                                                  | Necessário |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida para **ParquetSink**. | Sim      |
-| lojasDefinições | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros `storeSettings`tem as suas próprias definições de escrita suportadas em baixo . Consulte os detalhes na secção de propriedades de propriedade do artigo do **conector -> Copiar**. | Não       |
+| tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **ParquetSink**. | Sim      |
+| lojaSs | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | Não       |
 
-## <a name="mapping-data-flow-properties"></a>Mapeando propriedades de fluxo de dados
+## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
 
-Aprenda detalhes da transformação de [fontes](data-flow-source.md) e [transformação](data-flow-sink.md) de afundar no fluxo de dados de mapeamento.
+No mapeamento dos fluxos de dados, pode ler e escrever para o formato parquet nas seguintes lojas de dados: [Azure Blob Storage,](connector-azure-blob-storage.md#mapping-data-flow-properties) [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), e [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
 
-## <a name="data-type-support"></a>Suporte de tipo de dados
+### <a name="source-properties"></a>Propriedades de origem
 
-Os tipos de dados complexos de Parquet não são atualmente suportados (por exemplo, MAP, LIST, STRUCT).
+A tabela abaixo lista as propriedades suportadas por uma fonte de parquet. Pode editar estas propriedades no separador **Opções Fonte.**
 
-## <a name="using-self-hosted-integration-runtime"></a>Utilização do Tempo de Integração Auto-Hospedado
+| Name | Descrição | Necessário | Valores permitidos | Propriedade de script de fluxo de dados |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Formatar | Formato deve ser`parquet` | sim | `parquet` | formato |
+| Caminhos de wild card | Todos os ficheiros correspondentes ao caminho wildcard serão processados. Substitui a pasta e o caminho do ficheiro definido no conjunto de dados. | não | Corda[] | wildcardPaths |
+| Caminho da raiz da partição | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | não | String | partitionRootPath |
+| Lista de ficheiros | Se a sua fonte está a apontar para um ficheiro de texto que lista ficheiros para processar | não | `true` ou `false` | fileList |
+| Coluna para armazenar nome de ficheiro | Criar uma nova coluna com o nome e caminho do ficheiro de origem | não | String | rowUrlColumn |
+| Após a conclusão | Elimine ou mova os ficheiros após o processamento. O caminho do arquivo começa a partir da raiz do recipiente | não | Excluir: `true` ou`false` <br> Mover-se:`[<from>, <to>]` | purgeFiles <br> moveFiles |
+| Filtrar por última modificação | Opte por filtrar ficheiros com base na última alteração que foram alterados | não | Carimbo de data/hora | modificado Depois <br> modificadoSForo antes |
+
+### <a name="source-example"></a>Exemplo de origem
+
+A imagem abaixo é um exemplo de uma configuração de origem parquet nos fluxos de dados de mapeamento.
+
+![Fonte parquet](media/data-flow/parquet-source.png)
+
+O script de fluxo de dados associado é:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    rowUrlColumn: 'fileName',
+    format: 'parquet') ~> ParquetSource
+```
+
+### <a name="sink-properties"></a>Propriedades de pia
+
+A tabela abaixo lista as propriedades suportadas por uma fonte de parquet. Pode editar estas propriedades no separador **Opções Fonte.**
+
+| Name | Descrição | Necessário | Valores permitidos | Propriedade de script de fluxo de dados |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Formatar | Formato deve ser`parquet` | sim | `parquet` | formato |
+| Limpe a pasta | Se a pasta de destino for apurada antes de escrever | não | `true` ou `false` | truncato |
+| Opção de nome de ficheiro | O formato de nomeação dos dados escritos. Por predefinição, um ficheiro por partição em formato`part-#####-tid-<guid>` | não | Padrão: Corda <br> Por partição: String[] <br> Como dados na coluna: String <br> Saída para um único ficheiro:`['<fileName>']` | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+
+### <a name="sink-example"></a>Exemplo de pia
+
+A imagem abaixo é um exemplo de uma configuração de pia de parquet em fluxos de dados de mapeamento.
+
+![Pia de parquet](media/data-flow/parquet-sink.png)
+
+O script de fluxo de dados associado é:
+
+```
+ParquetSource sink(
+    format: 'parquet',
+    filePattern:'output[n].parquet',
+    truncate: true,
+    allowSchemaDrift: true,
+    validateSchema: false,
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> ParquetSink
+```
+
+## <a name="data-type-support"></a>Suporte ao tipo de dados
+
+Os tipos de dados complexos de parquet não são atualmente suportados (por exemplo, MAPA, LIST, STRUCT).
+
+## <a name="using-self-hosted-integration-runtime"></a>Utilização do tempo de execução de integração auto-hospedado
 
 > [!IMPORTANT]
-> Para cópia sufiada por Tempo de Integração Auto-hospedado, por exemplo, entre as lojas de dados no local e as lojas de dados em nuvem, se não estiver a copiar os ficheiros Parquet **como está,** precisa de instalar o **JRE 8 de 64 bits (Java Runtime Environment) ou OpenJDK** e **Microsoft Visual C++ 2010 Redistribuable Package** na sua máquina de INFRAVERMELHOS. Consulte o parágrafo seguinte com mais detalhes.
+> Para cópias habilitadas pelo Self-hosted Integration Runtime, por exemplo, entre as lojas de dados no local e na nuvem, se não estiver a copiar ficheiros Parquet **como-is,** precisa de instalar o **JRE 8 (Java Runtime Environment) de 64 bits ou o OpenJDK** e **o Microsoft Visual C++ 2010 Redistributable Package** na sua máquina DE IR. Consulte o parágrafo seguinte com mais detalhes.
 
-Para cópia sintetizada em IR auto-hospedado com serialização/desserialização de ficheiros Parquet, *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* a ADF localiza o tempo de *`JAVA_HOME`* funcionamento de Java verificando primeiro o registo de JRE, se não for encontrado, verificando em segundo lugar a variável do sistema para OpenJDK.
+Para a cópia em execução em IR auto-hospedado com serialização/deserialização de ficheiros Parquet, a ADF localiza o tempo de execução de Java, verificando primeiro o registo *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* de JRE, se não for encontrado, verificando em segundo lugar a variável do sistema *`JAVA_HOME`* de verificação para OpenJDK.
 
-- **Para utilizar JRE**: O IR de 64 bits requer 64 bits JRE. Pode encontrá-lo [daqui.](https://go.microsoft.com/fwlink/?LinkId=808605)
-- Para utilizar o **OpenJDK**: É suportado desde a versão 3.13 do IR. Emba o jvm.dll com todos os outros conjuntos necessários do OpenJDK em máquina de INFRAVERMELHOS auto-hospedada, e coloque a variável do ambiente do sistema JAVA_HOME em conformidade.
-- Para instalar o **Pacote Redistribuível Visual C++ 2010**: O Pacote Redistribuível Visual C++ 2010 não está instalado com instalações de INFRAVERMELHOs auto-hospedadas. Pode encontrá-lo [daqui.](https://www.microsoft.com/download/details.aspx?id=14632)
+- **Para utilizar o JRE**: O IR de 64 bits requer JRE de 64 bits. Pode encontrá-lo [daqui.](https://go.microsoft.com/fwlink/?LinkId=808605)
+- **Para utilizar o OpenJDK:** É suportado desde a versão IV 3.13. Embale o jvm.dll com todos os outros conjuntos necessários de OpenJDK na máquina de INFRAVERMELHO Auto-hospedada, e definir a variável do ambiente do sistema JAVA_HOME em conformidade.
+- **Para instalar o Pacote Redistribuable Visual C++ 2010**: O Pacote Redistribuable Visual C++ 2010 não está instalado com instalações de INFRA auto-hospedadas. Pode encontrá-lo [daqui.](https://www.microsoft.com/download/details.aspx?id=14632)
 
 > [!TIP]
-> Se copiar dados para/a partir do formato Parquet utilizando o Tempo de Execução de Integração Auto-hospedado e atingir um erro dizendo "Ocorreu um erro ao invocar java, mensagem: **java.lang.OutOfMemoryError:Java heap space",** pode adicionar uma variável `_JAVA_OPTIONS` ambiental na máquina que acolhe o IR auto-hospedado para ajustar o tamanho do monte min/max para jVM para capacitar tal cópia, em seguida, reexecutar o pipeline.
+> Se copiar dados para/de Parquet utilizando o tempo de execução de integração auto-hospedado e o erro de sucesso dizendo "Ocorreu um erro ao invocar java, mensagem: **java.lang.OutOfMemoryError:Java heap space**", pode adicionar uma variável ambiental `_JAVA_OPTIONS` na máquina que hospeda o IR auto-hospedado para ajustar o tamanho da pilha min/max para JVM para capacitar tal cópia, em seguida, reenexerte o pipeline.
 
-![Definir o tamanho da pilha JVM no IR auto-hospedado](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
+![Definir o tamanho da pilha JVM em IR auto-hospedado](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
-Exemplo: definir `_JAVA_OPTIONS` variável com valor `-Xms256m -Xmx16g`. A `Xms` bandeira especifica o conjunto inicial de atribuição de memória `Xmx` para uma Máquina Virtual Java (JVM), enquanto especifica o conjunto máximo de atribuição de memória. Isto significa que o JVM será iniciado com `Xms` uma quantidade `Xmx` de memória e será capaz de usar um máximo de quantidade de memória. Por predefinição, a ADF utiliza min 64 MB e máx.
+Exemplo: definir variável `_JAVA_OPTIONS` com valor `-Xms256m -Xmx16g` . A bandeira `Xms` especifica o conjunto inicial de atribuição de memória para uma Máquina Virtual Java (JVM), enquanto `Xmx` especifica o conjunto máximo de atribuição de memória. Isto significa que jVM será iniciado com `Xms` quantidade de memória e será capaz de usar um máximo de quantidade de `Xmx` memória. Por predefinição, a ADF utiliza min 64 MB e máx 1G.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Descrição geral da atividade de cópia](copy-activity-overview.md)
-- [Mapeando o fluxo de dados](concepts-data-flow-overview.md)
+- [Visão geral da atividade da cópia](copy-activity-overview.md)
+- [Fluxo de dados de mapeamento](concepts-data-flow-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)
-- [Obtenha atividade de Metadados](control-flow-get-metadata-activity.md)
+- [Atividade getMetadata](control-flow-get-metadata-activity.md)

@@ -12,12 +12,12 @@ metadata:
   author: dlepow
   ms.author: danlep
   ms.date: 11/08/2019
-  ms.openlocfilehash: f73794898f00d78c5253c19f985f8ff531ae3c11
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 55ac9d470f85059bd8ebb6949da08f651fb2289b
+  ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "74895530"
+  ms.lasthandoff: 07/07/2020
+  ms.locfileid: "86027125"
 landingContent:
 - title: Sobre o Azure Container Registry
   linkLists:
@@ -35,6 +35,8 @@ landingContent:
       url: container-registry-get-started-azure-cli.md
     - text: Criar registo de contentor - Portal
       url: container-registry-get-started-portal.md
+    - text: Criar registo de contentor - modelo do Resource Manager
+      url: container-registry-get-started-geo-replication-template.md
     - text: Emitir e solicitar uma imagem com o Docker
       url: container-registry-get-started-docker-cli.md
   - linkListType: concept

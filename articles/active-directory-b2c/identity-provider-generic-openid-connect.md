@@ -1,73 +1,73 @@
 ---
-title: Configurar o início e iniciar sessão com o OpenID Connect
+title: Configurar inscrição e iniciar sôm-in com o OpenID Connect
 titleSuffix: Azure AD B2C
-description: Instale o início e o início de sessão com qualquer fornecedor de identidade OpenID Connect (IdP) no Diretório Ativo Azure B2C.
+description: Confiúde a inscrição e inscrição com qualquer fornecedor de identidade OpenID Connect (IdP) no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c72abf79f0a420309ebe229673be9439fd99b74c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b71a7b8ab29e8083a5f119a41ef6de312518301
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188261"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388277"
 ---
-# <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configurar o sign-up e iniciar sessão com o OpenID Connect utilizando o Diretório Ativo Azure B2C
+# <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com OpenID Connect utilizando o Azure Ative Directory B2C
 
-[OpenID Connect](openid-connect.md) é um protocolo de autenticação construído em cima do OAuth 2.0 que pode ser usado para iniciar sessão de utilizador segura. A maioria dos fornecedores de identidade que utilizam este protocolo são suportados no Azure AD B2C. Este artigo explica como pode adicionar fornecedores de identidade OpenID Connect personalizados aos fluxos do utilizador.
+[OpenID Connect](openid-connect.md) é um protocolo de autenticação construído em cima do OAuth 2.0 que pode ser usado para iniciar sent-in seguro do utilizador. A maioria dos fornecedores de identidade que utilizam este protocolo são suportados no Azure AD B2C. Este artigo explica como pode adicionar fornecedores de identidade OpenID Connect personalizados aos fluxos do utilizador.
 
 ## <a name="add-the-identity-provider"></a>Adicione o fornecedor de identidade
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador global do inquilino do Azure AD B2C.
-1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C clicando no filtro de **subscrição Do Diretório +** + no menu superior e escolhendo o diretório que contém o seu inquilino.
+1. Certifique-se de que está a utilizar o diretório que contém o seu inquilino Azure AD B2C clicando no filtro **de subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
 1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
-1. Selecione **fornecedores de identidade**e, em seguida, selecione **o fornecedor New OpenID Connect**.
+1. Selecione **os fornecedores de identidade**e, em seguida, selecione novo fornecedor **OpenID Connect**.
 
 ## <a name="configure-the-identity-provider"></a>Configure o fornecedor de identidade
 
-Todos os fornecedores de identidade OpenID Connect descrevem um documento de metadados que contém a maioria das informações necessárias para realizar o sessão. Isto inclui informações como os URLs a utilizar e a localização das chaves de assinatura pública do serviço. O documento de metadados OpenID Connect está sempre `.well-known\openid-configuration`localizado num ponto final que termina em . Para o fornecedor de identidade OpenID Connect que procura adicionar, introduza o seu URL de metadados.
+Cada fornecedor de identidade OpenID Connect descreve um documento de metadados que contém a maioria das informações necessárias para realizar o sismo. Isto inclui informações como os URLs a utilizar e a localização das chaves de assinatura pública do serviço. O documento de metadados OpenID Connect está sempre localizado num ponto final que termina em `.well-known/openid-configuration` . Para o fornecedor de identidade OpenID Connect que procura adicionar, introduza o URL de metadados.
 
 ## <a name="client-id-and-secret"></a>ID do cliente e segredo
 
-Para permitir que os utilizadores assinem, o fornecedor de identidade exige que os desenvolvedores registem uma aplicação no seu serviço. Esta aplicação tem um ID que é referido como o ID do **cliente** e um segredo do **cliente**. Copie estes valores do fornecedor de identidade e insira-os nos campos correspondentes.
+Para permitir que os utilizadores se inscrevam, o fornecedor de identidade exige que os desenvolvedores registem uma aplicação no seu serviço. Esta aplicação tem um ID que é referido como o **ID** do cliente e um **segredo de cliente.** Copie estes valores do fornecedor de identidade e introduza-os nos campos correspondentes.
 
 > [!NOTE]
-> O segredo do cliente é opcional. No entanto, deve introduzir um segredo de cliente se quiser utilizar o fluxo de código de [autorização](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), que usa o segredo para trocar o código pelo símbolo.
+> O segredo do cliente é opcional. No entanto, deve inserir um segredo de cliente se quiser utilizar o fluxo de código de [autorização](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), que utiliza o segredo para trocar o código pelo token.
 
 ## <a name="scope"></a>Âmbito
 
-O Âmbito define as informações e permissões que pretende recolher do seu fornecedor de identidade personalizado. Os pedidos openID Connect `openid` devem conter o valor de âmbito para receber o símbolo de identificação do fornecedor de identidade. Sem o token ID, os utilizadores não podem iniciar sessão no Azure AD B2C utilizando o fornecedor de identidade personalizado. Outros âmbitos podem ser anexados separados pelo espaço. Consulte a documentação do fornecedor de identidade personalizada para ver que outros âmbitos podem estar disponíveis.
+O Scope define as informações e permissões que procura recolher do seu fornecedor de identidade personalizado. Os pedidos do OpenID Connect devem conter o valor de `openid` âmbito para receber o token de ID do fornecedor de identidade. Sem o token de ID, os utilizadores não podem entrar no Azure AD B2C usando o fornecedor de identidade personalizado. Outros âmbitos podem ser anexados separados pelo espaço. Consulte a documentação do fornecedor de identidade personalizado para ver que outros âmbitos podem estar disponíveis.
 
 ## <a name="response-type"></a>Tipo de resposta
 
-O tipo de resposta descreve que tipo de informação é enviada na chamada inicial para o `authorization_endpoint` fornecedor de identidade personalizada. Podem ser utilizados os seguintes tipos de resposta:
+O tipo de resposta descreve que tipo de informação é enviada na chamada inicial para o `authorization_endpoint` fornecedor de identidade personalizado. Podem ser utilizados os seguintes tipos de resposta:
 
-* `code`: De acordo com o fluxo de código de [autorização,](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)um código será devolvido ao Azure AD B2C. O Azure AD B2C `token_endpoint` continua a ligar para trocar o código pelo símbolo.
-* `id_token`: Um token de identificação é devolvido ao Azure AD B2C do fornecedor de identidade personalizada.
+* `code`: De acordo com o fluxo de código de [autorização,](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)um código será devolvido ao Azure AD B2C. A Azure AD B2C procede à chamada `token_endpoint` para a troca do código pelo token.
+* `id_token`: Um token de ID é devolvido ao Azure AD B2C do fornecedor de identidade personalizado.
 
 ## <a name="response-mode"></a>Modo de resposta
 
-O modo de resposta define o método que deve ser usado para enviar os dados de volta do fornecedor de identidade personalizado para O Azure AD B2C. Podem ser utilizados os seguintes modos de resposta:
+O modo de resposta define o método que deve ser utilizado para enviar os dados de volta do fornecedor de identidade personalizado para Azure AD B2C. Podem ser utilizados os seguintes modos de resposta:
 
-* `form_post`: Este modo de resposta é recomendado para uma melhor segurança. A resposta é transmitida `POST` através do método HTTP, com o código ou `application/x-www-form-urlencoded` token a ser codificado no organismo utilizando o formato.
+* `form_post`: Este modo de resposta é recomendado para uma melhor segurança. A resposta é transmitida através do `POST` método HTTP, com o código ou ficha a ser codificado no corpo utilizando o `application/x-www-form-urlencoded` formato.
 * `query`: O código ou ficha é devolvido como parâmetro de consulta.
 
-## <a name="domain-hint"></a>Sugestão de domínio
+## <a name="domain-hint"></a>Dica de domínio
 
-A dica de domínio pode ser usada para saltar diretamente para o sinal na página do fornecedor de identidade especificado, em vez de o utilizador fazer uma seleção entre a lista de fornecedores de identidade disponíveis. Para permitir este tipo de comportamento, insira um valor para a dica de domínio. Para saltar para o fornecedor de identidade `domain_hint=<domain hint value>` personalizado, acomode o parâmetro até ao final do seu pedido ao ligar para o Azure AD B2C para iniciar sessão.
+A dica de domínio pode ser usada para saltar diretamente para o sinal na página do fornecedor de identidade especificado, em vez de ter o utilizador a fazer uma seleção entre a lista de fornecedores de identidade disponíveis. Para permitir este tipo de comportamento, insira um valor para a sugestão de domínio. Para saltar para o fornecedor de identidade personalizado, apromte o parâmetro `domain_hint=<domain hint value>` para o fim do seu pedido ao ligar para Azure AD B2C para iniciar sação.
 
 ## <a name="claims-mapping"></a>Mapeamento de reclamações
 
-Depois de o fornecedor de identidade personalizado enviar um token de identidade para o Azure AD B2C, o Azure AD B2C precisa de ser capaz de mapear as reclamações do token recebido para as alegações que o Azure AD B2C reconhece e utiliza. Para cada um dos seguintes mapeamentos, consulte a documentação do fornecedor de identidade personalizada para compreender as alegações devolvidas nas fichas do fornecedor de identidade:
+Depois de o fornecedor de identidade personalizado enviar um símbolo de identificação para Azure AD B2C, o Azure AD B2C precisa de ser capaz de mapear as reclamações do token recebido para as alegações que a Azure AD B2C reconhece e utiliza. Para cada um dos seguintes mapeamentos, consulte a documentação do fornecedor de identidade personalizado para compreender as alegações que são devolvidas nos tokens do fornecedor de identidade:
 
-* **ID do utilizador**: Introduza a reclamação que fornece o *identificador único* para o utilizador inscrito.
-* **Nome**do ecrã : Introduza a alegação que fornece o nome do *visor* ou *o nome completo* para o utilizador.
-* **Nome :** Insira a reclamação que fornece o *primeiro nome* do utilizador.
-* **Sobrenome**: Introduza a reclamação que fornece o *último nome* do utilizador.
-* **Email**: Insira a reclamação que fornece o endereço de *e-mail* do utilizador.
+* **ID do utilizador**: Introduza a alegação que fornece o *identificador único* para o utilizador inscrito.
+* **Nome do visor**: Introduza a alegação que fornece o nome de *exibição* ou *nome completo* para o utilizador.
+* **Nome dado**: Introduza a reclamação que fornece o *primeiro nome* do utilizador.
+* **Apelido**: Introduza a reclamação que fornece o *apelido* do utilizador.
+* **Email**: Introduza a reclamação que fornece o endereço de *e-mail* do utilizador.

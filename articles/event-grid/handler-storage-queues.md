@@ -1,30 +1,26 @@
 ---
-title: Fila de armazenamento como manipulador de eventos para eventos azure event grid
-description: Descreve como pode usar as filas de armazenamento Azure como manipuladores de eventos para eventos da Rede de Eventos Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
+title: Fila de armazenamento como manipulador de eventos para eventos Azure Event Grid
+description: Descreve como pode usar as filas de armazenamento Azure como manipuladores de eventos para eventos Azure Event Grid.
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.author: spelluru
-ms.openlocfilehash: f62f2b5bc01518af29bd1deb17a38e9fe105a4ed
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.date: 07/07/2020
+ms.openlocfilehash: 502b44f276253be69362424c9de0fd516d20ad9a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800562"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105647"
 ---
-# <a name="storage-queue-as-an-event-handler-for-azure-event-grid-events"></a>Fila de armazenamento como manipulador de eventos para eventos azure event grid
-Um manipulador de eventos é o local onde o evento é enviado. O manipulador toma mais medidas para processar o evento. Vários serviços Azure são configurados automaticamente para lidar com eventos e **o Azure Queue Storage** é um deles. 
+# <a name="storage-queue-as-an-event-handler-for-azure-event-grid-events"></a>Fila de armazenamento como manipulador de eventos para eventos Azure Event Grid
+Um manipulador de eventos é o local onde o evento é enviado. O manipulador toma mais algumas medidas para processar o evento. Vários serviços Azure são configurados automaticamente para lidar com eventos e **o Azure Queue Storage** é um deles. 
 
-Utilize o Armazenamento de **Fila** para receber eventos que precisam de ser puxados. Pode utilizar o armazenamento da fila quando tiver um processo de longa duração que demora muito tempo a responder. Ao enviar eventos para o armazenamento de fila, a aplicação pode puxar e processar eventos na sua própria agenda.
+Utilize **o Armazenamento de Fila** para receber eventos que precisam de ser puxados. Pode utilizar o armazenamento da fila quando tiver um processo de execução longo que demora muito tempo a responder. Ao enviar eventos para o armazenamento da fila, a aplicação pode puxar e processar eventos na sua própria programação.
 
 ## <a name="tutorials"></a>Tutoriais
-Consulte o seguinte tutorial para um exemplo de utilização do armazenamento de fila como manipulador de eventos. 
+Consulte o seguinte tutorial para um exemplo de utilização do armazenamento da fila como manipulador de eventos. 
 
 |Título  |Descrição  |
 |---------|---------|
-| [Quickstart: enverede eventos personalizados para armazenamento de fila Azure com Azure CLI e Grade de Eventos](custom-event-to-queue-storage.md) | Descreve como enviar eventos personalizados para um armazenamento de fila. |
+| [Quickstart: encaminhar eventos personalizados para o armazenamento da Fila Azure com Azure CLI e Grade de Eventos](custom-event-to-queue-storage.md) | Descreve como enviar eventos personalizados para um armazenamento de fila. |
 
 ## <a name="rest-examples-for-put"></a>Exemplos de REPOUSO (para PUT)
 
@@ -48,7 +44,7 @@ Consulte o seguinte tutorial para um exemplo de utilização do armazenamento de
 }
 ```
 
-### <a name="storage-queue-as-the-event-handler---delivery-with-managed-identity"></a>Fila de armazenamento como manipulador de eventos - entrega com identidade gerida
+### <a name="storage-queue-as-the-event-handler---delivery-with-managed-identity"></a>Fila de armazenamento como o manipulador de eventos - entrega com identidade gerida
 
 ```json
 {
@@ -75,7 +71,7 @@ Consulte o seguinte tutorial para um exemplo de utilização do armazenamento de
 }
 ```
 
-### <a name="storage-queue-as-a-deadletter-destination"></a>Fila de armazenamento como destino de carta morta
+### <a name="storage-queue-as-a-deadletter-destination"></a>Fila de armazenamento como destino de deadletter
 
 ```json
 {
@@ -105,7 +101,7 @@ Consulte o seguinte tutorial para um exemplo de utilização do armazenamento de
 }
 ```
 
-### <a name="storage-queue-as-a-deadletter-destination---managed-identity"></a>Fila de armazenamento como destino de carta morta - identidade gerida
+### <a name="storage-queue-as-a-deadletter-destination---managed-identity"></a>Fila de armazenamento como destino de deadletter - identidade gerida
 
 ```json
 {
@@ -141,5 +137,5 @@ Consulte o seguinte tutorial para um exemplo de utilização do armazenamento de
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-Consulte o artigo de manipuladores de [eventos](event-handlers.md) para obter uma lista de manipuladores de eventos suportados. 
+## <a name="next-steps"></a>Próximos passos
+Consulte o artigo [dos manipuladores do Evento](event-handlers.md) para obter uma lista de manipuladores de eventos suportados. 

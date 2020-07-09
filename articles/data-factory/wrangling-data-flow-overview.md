@@ -1,44 +1,47 @@
 ---
-title: Fluxos de dados em Azure Data Factory
-description: Uma visão geral dos fluxos de dados em Azure Data Factory
+title: Fluxos de dados na Fábrica de Dados do Azure
+description: Uma visão geral dos fluxos de dados de distúrbios na Azure Data Factory
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3b8632eaf7662d705235adaad7cd03d2e7e4904b
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: 203e5fcaa99f7aebeda34e6968f636ed72851ec8
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626876"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921536"
 ---
-# <a name="what-are-wrangling-data-flows"></a>O que são fluxos de dados?
+# <a name="what-are-wrangling-data-flows"></a>O que estão a mexer nos fluxos de dados?
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-As organizações precisam de fazer a preparação de dados e a luta para uma análise precisa de dados complexos que continuam a crescer todos os dias. É necessária a preparação de dados para que as organizações possam utilizar os dados em vários processos de negócio e reduzir o tempo para valorizar.
 
-Os fluxos de dados em Azure Data Factory permitem-lhe fazer a preparação de dados sem código sem código sem escala em escala de nuvem iterativamente. Os fluxos de dados de contorcer-se integram-se com a [Power Query Online](https://docs.microsoft.com/power-query/) e disponibiliza funções de Power Query M para utilizadores de fábricas de dados.
+As organizações precisam de fazer a preparação de dados e a luta para uma análise precisa de dados complexos que continuam a crescer todos os dias. A preparação de dados é necessária para que as organizações possam usar os dados em vários processos de negócio e reduzir o tempo de valor.
 
-O fluxo de dados de sangling traduz M gerado pelo Power Query Online Mashup Editor em código de faísca para execução em escala de nuvem.
+Os fluxos de dados de escoaragem na Azure Data Factory permitem-lhe fazer a preparação de dados sem código em iterativas à escala de nuvem. Os fluxos de dados de esticão integram-se com [a Power Query Online](https://docs.microsoft.com/power-query/) e disponibilizam funções de Power Query M para os utilizadores da fábrica de dados.
 
-Os fluxos de dados de contorcer em conflito são especialmente úteis para engenheiros de dados ou "integradores de dados dos cidadãos".
+O fluxo de dados de wrangling traduz M gerado pelo Power Query Online Mashup Editor em código de faísca para a execução em escala de nuvem.
+
+Os fluxos de dados de estrangulamento são especialmente úteis para engenheiros de dados ou "integradores de dados de cidadãos".
+
+> [!NOTE]
+> O fluxo de dados de estrangulamento é atualmente avilável na visualização pública
 
 ## <a name="use-cases"></a>Casos de utilização
 
-### <a name="fast-interactive-data-exploration-and-preparation"></a>Exploração e preparação de dados interativos rápidos
+### <a name="fast-interactive-data-exploration-and-preparation"></a>Rápida exploração e preparação de dados interativos
 
-Vários engenheiros de dados e integradores de dados de cidadãos podem explorar e preparar conjuntos de dados em escala de nuvem. Com o aumento do volume, variedade e velocidade dos dados nos lagos de dados, os utilizadores precisam de uma forma eficaz de explorar e preparar conjuntos de dados. Por exemplo, poderá ter de criar um conjunto de dados que "tenha toda a informação demográfica do cliente para novos clientes desde 2017". Não estás a mapear um alvo conhecido. Estás a explorar, a discutir e a preparar conjuntos de dados para satisfazer um requisito antes de o publicares no lago. Os fluxos de dados de estrangulamento são frequentemente usados para cenários de análise menos formais. Os conjuntos de dados preparados podem ser usados para fazer transformações e operações de aprendizagem automática a jusante.
+Vários engenheiros de dados e integradores de dados de cidadãos podem explorar e preparar conjuntos de dados interativamente à escala de nuvem. Com o aumento do volume, variedade e velocidade dos dados em lagos de dados, os utilizadores precisam de uma forma eficaz de explorar e preparar conjuntos de dados. Por exemplo, poderá ser necessário criar um conjunto de dados que "tenha todas as informações demográficas dos clientes para novos clientes desde 2017". Não estás a mapear um alvo conhecido. Estás a explorar, a discutir e a preparar conjuntos de dados para cumprir um requisito antes de o publicares no lago. Os fluxos de dados de estrangulamento são frequentemente usados para cenários de análise menos formais. Os conjuntos de dados preparados podem ser utilizados para fazer transformações e operações de aprendizagem automática a jusante.
 
 ### <a name="code-free-agile-data-preparation"></a>Preparação de dados ágeis sem código
 
-Os integradores de dados dos cidadãos passam mais de 60% do seu tempo à procura e a preparar dados. Querem fazê-lo de forma livre de códigos para melhorar a produtividade operacional. Permitir aos integradores de dados dos cidadãos enriquecer, moldar e publicar dados usando ferramentas conhecidas como Power Query Online de uma forma escalável melhora drasticamente a sua produtividade. O fluxo de dados em Azure Data Factory permite ao conhecido editor de mashup Power Query Online permitir que os integradores de dados dos cidadãos corrijam erros rapidamente, padronizem dados e produzam dados de alta qualidade para apoiar decisões empresariais.
+Os integradores de dados do cidadão passam mais de 60% do seu tempo à procura e preparação de dados. Querem fazê-lo de forma livre de códigos para melhorar a produtividade operacional. Permitir que os integradores de dados dos cidadãos enriqueçam, moldem e publiquem dados utilizando ferramentas conhecidas como a Power Query Online de uma forma escalável melhora drasticamente a sua produtividade. O fluxo de dados na Azure Data Factory permite ao familiar editor de mashup online power query online permitir que os integradores de dados dos cidadãos corrijam erros rapidamente, padronizem dados e produzam dados de alta qualidade para apoiar decisões empresariais.
 
 ### <a name="data-validation"></a>Validação de dados
 
-Digitalmente, digitalize os seus dados de forma livre de códigos para remover quaisquer anomalias, anomalias e adaptá-la a uma forma para análiserápida rápida.
+Digitalize visualmente os seus dados de forma livre de códigos para remover quaisquer anomalias, anomalias e conformá-lo com uma forma de análise rápida.
 
 ## <a name="supported-sources"></a>Fontes apoiadas
 
@@ -52,18 +55,18 @@ Digitalmente, digitalize os seus dados de forma livre de códigos para remover q
 
 ## <a name="the-mashup-editor"></a>O editor de mashup
 
-Quando cria um fluxo de dados de sangling, todos os conjuntos de dados de origem tornam-se consultas de conjunto de dados e são colocados na pasta **ADFResource.** Por predefinição, o UserQuery apontará para a consulta do conjunto de dados. Todas as transformações devem ser feitas no UserQuery, uma vez que as alterações às consultas de conjunto de dados não são suportadas nem serão perspercadas. Renomear, adicionar e apagar consultas não é atualmente suportado.
+Quando cria um fluxo de dados de problemas, todos os conjuntos de dados de origem tornam-se consultas de conjunto de dados e são colocados na pasta **ADFResource.** Por predefinição, o UserQuery apontará para a primeira consulta de conjunto de dados. Todas as transformações devem ser feitas no UserQuery, uma vez que as alterações às consultas de dataset não são suportadas nem serão persistidos. Renomear, adicionar e eliminar consultas não é atualmente suportado.
 
-![Distúrbios](media/wrangling-data-flow/editor.png)
+![Brigas](media/wrangling-data-flow/editor.png)
 
-Atualmente, nem todas as funções power query M são suportadas para a discussão de dados, apesar de estarem disponíveis durante a autoria. Ao construir os fluxos de dados de sangling, será solicitado com a seguinte mensagem de erro se uma função não for suportada:
+Atualmente nem todas as funções power query M são suportadas para a luta de dados, apesar de estarem disponíveis durante a autoria. Ao construir os fluxos de dados de luta, será solicitado com a seguinte mensagem de erro se uma função não for suportada:
 
 `The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
 
-Para obter mais informações sobre transformações suportadas, consulte [as funções de fluxo](wrangling-data-flow-functions.md)de dados .
+Para obter mais informações sobre as transformações apoiadas, consulte [as funções de fluxo de dados](wrangling-data-flow-functions.md).
 
-Atualmente, o fluxo de dados de suposição apenas suporta a escrita a uma pia.
+Atualmente, o fluxo de dados de luta só suporta escrever para um lavatório.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Aprenda a criar um fluxo de [dados em discussão.](wrangling-data-flow-tutorial.md)
+Saiba como [criar um fluxo de dados de estrangulamento.](wrangling-data-flow-tutorial.md)

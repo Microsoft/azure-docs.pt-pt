@@ -1,43 +1,33 @@
 ---
-title: 'Quickstart: Criar um hub de eventos com grupo de consumidores - Azure Event Hubs'
-description: 'Quickstart: Criar um espaço de nome de Hubs de Eventos com um hub de eventos e um grupo de consumidores usando modelos de Gestor de Recursos Azure'
-services: event-hubs
-documentationcenter: .net
-author: spelluru
-editor: ''
-ms.assetid: 28bb4591-1fd7-444f-a327-4e67e8878798
-ms.service: event-hubs
-ms.devlang: tbd
+title: 'Quickstart: Criar um centro de eventos com o grupo de consumidores - Azure Event Hubs'
+description: 'Quickstart: Criar um espaço de nomes de Centros de Eventos com um centro de eventos e um grupo de consumidores usando modelos de Gestor de Recursos Azure'
 ms.topic: quickstart
-ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 02/11/2020
-ms.author: spelluru
 ms.custom: subject-armqs
-ms.openlocfilehash: c2221fe5b5ab38afbdde167e5bcbf6b47ed4f861
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 1aa1dc0a4be8c74651a764788184ae1eefe17e75
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79528086"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038094"
 ---
-# <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>Quickstart: Criar um hub de eventousando um modelo de Gestor de Recursos Azure
+# <a name="quickstart-create-an-event-hub-by-using-an-arm-template"></a>Quickstart: Criar um centro de eventos usando um modelo ARM
 
-Os Hubs de Eventos do Azure são uma plataforma de fluxo de Macrodados e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md). Neste arranque rápido, você cria um hub de eventousando um modelo de Gestor de [Recursos Azure](../azure-resource-manager/management/overview.md). Você implementa um modelo de Gestor de Recursos Azure para criar um espaço de nome de hubs de [eventos](event-hubs-what-is-event-hubs.md)tipo, com um hub de evento.
+Os Hubs de Eventos do Azure são uma plataforma de fluxo de Macrodados e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md). Neste arranque rápido, você cria um centro de eventos usando um [modelo de Gestor de Recursos Azure (modelo ARM)](../azure-resource-manager/management/overview.md). Você implementa um modelo ARM para criar um espaço de nome de tipo [Event Hubs,](event-hubs-what-is-event-hubs.md)com um hub de evento.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+
+[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-eventhubs-create-namespace-and-eventhub%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Nenhum.
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="create-an-event-hub"></a>Criar um hub de eventos
+## <a name="review-the-template"></a>Rever o modelo
 
-### <a name="review-the-template"></a>Reveja o modelo
-
-O modelo utilizado neste quickstart é de [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/101-eventhubs-create-namespace-and-eventhub/).
+O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-eventhubs-create-namespace-and-eventhub/).
 
 :::code language="json" source="~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json" range="1-61" highlight="32-59":::
 
@@ -48,11 +38,11 @@ Os recursos definidos no modelo incluem:
 
 Para encontrar mais amostras de modelo, consulte [os modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/?term=eventhub&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Implementar o modelo
+## <a name="deploy-the-template"></a>Implementar o modelo
 
-Para implantar o modelo:
+Para implementar o modelo:
 
-1. Selecione **Experimente** a partir do seguinte bloco de código e, em seguida, siga as instruções para iniciar sessão na Casca de Nuvem Azure.
+1. Selecione **Experimente-o** a partir do bloco de códigos que se segue e, em seguida, siga as instruções para iniciar sação na Azure Cloud Shell.
 
    ```azurepowershell-interactive
    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -68,12 +58,12 @@ Para implantar o modelo:
 
    Leva alguns momentos para criar um centro de eventos.
 
-1. Selecione **Copiar** para copiar o script PowerShell.
-1. Clique na consola da concha e, em seguida, selecione **Paste**.
+1. Selecione **Copy** para copiar o script PowerShell.
+1. Clique com o botão direito na consola da concha e, em seguida, **selecione Pasta**.
 
-## <a name="verify-the-deployment"></a>Verificar a implementação
+## <a name="validate-the-deployment"></a>Validar a implementação
 
-Para verificar a implementação, pode abrir o grupo de recursos a partir do [portal Azure,](https://portal.azure.com)ou utilizar o seguinte script Azure PowerShell.  Se a Cloud Shell ainda estiver aberta, não precisa de copiar/executar a primeira linha (Read-Host).
+Para verificar a implementação, pode abrir o grupo de recursos a partir do [portal Azure](https://portal.azure.com), ou utilizar o seguinte script Azure PowerShell. Se a Cloud Shell ainda estiver aberta, não precisa copiar/executar a primeira linha (Read-Host).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
@@ -87,7 +77,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos. Se a Cloud Shell ainda estiver aberta, não precisa de copiar/executar a primeira linha (Read-Host).
+Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos. Se a Cloud Shell ainda estiver aberta, não precisa copiar/executar a primeira linha (Read-Host).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
@@ -98,14 +88,14 @@ Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste artigo, criou um espaço de nome sem nome do Event Hubs e um hub de eventos no espaço de nome. Para instruções passo a passo para enviar eventos para (ou) receber eventos de um centro de eventos, consulte o **Envio e receba** tutoriais de eventos:
+Neste artigo, você criou um espaço de nomes de Event Hubs, e um centro de eventos no espaço de nomes. Para instruções passo a passo para enviar eventos para (ou) receber eventos de um centro de eventos, consulte os tutoriais **de Envio e receber eventos:**
 
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](get-started-java-send-v2.md)
 - [Python](get-started-python-send-v2.md)
-- [JavaScript](get-started-java-send-v2.md)
+- [JavaScript](get-started-node-send-v2.md)
 - [Ir](event-hubs-go-get-started-send.md)
 - [C (apenas enviar)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (apenas receber)](event-hubs-storm-getstarted-receive.md)

@@ -27,11 +27,11 @@
               href: tutorial-c-module.md
             - name: Módulos C para dispositivos Windows
               href: tutorial-c-module-windows.md
-        - name: 'C#'
+        - name: C#
           items:
-            - name: 'Módulos C# para dispositivos Linux'
+            - name: Módulos C# para dispositivos Linux
               href: tutorial-csharp-module.md
-            - name: 'Módulos C# para dispositivos Windows'
+            - name: Módulos C# para dispositivos Windows
               href: tutorial-csharp-module-windows.md
         - name: Java
           href: tutorial-java-module.md
@@ -177,6 +177,8 @@
       items:
         - name: Monitorizar implementações do IoT Edge
           href: how-to-monitor-iot-edge-deployments.md
+        - name: Monitorizar módulos duplos
+          href: how-to-monitor-module-twins.md
         - name: Métodos diretos EdgeAgent
           href: how-to-edgeagent-direct-method.md
     - name: Utilizar dispositivos do IoT Edge como gateways
@@ -197,6 +199,12 @@
           href: how-to-store-data-blob.md
         - name: Implementar módulos de armazenamento de blobs
           href: how-to-deploy-blob.md
+    - name: SQL do Azure no Edge no IoT Edge
+      items:
+        - name: Compreender o SQL do Azure na periferia
+          href: ../azure-sql-edge/overview.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
+        - name: Implementar módulos do SQL do Azure no Edge
+          href: ../azure-sql-edge/deploy-portal.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
     - name: Gerir com ferramentas de DevOps
       items:
         - name: Azure DevOps Projects
@@ -211,6 +219,10 @@
           href: troubleshoot.md
         - name: Resoluções de erros comuns
           href: troubleshoot-common-errors.md
+- name: Referência
+  items:
+    - name: CLI do Azure
+      href: /cli/azure/azure-cli-reference-for-IoT
 - name: Recursos
   items:
     - name: Opções de suporte e ajuda
@@ -236,12 +248,12 @@
     - name: SDKs do Azure IoT
       items:
         - name: SDKs do Serviço de IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: SDKs do Dispositivo IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Exemplos de IoT do Azure
       items:
-        - name: 'C# (.NET)'
+        - name: C# (.NET)
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
         - name: Node.js
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
@@ -263,16 +275,12 @@
       href: 'https://github.com/Azure/azure-iot-explorer'
     - name: Ferramenta iothub-diagnostics
       href: 'https://github.com/Azure/iothub-diagnostics'
-    - name: Página de perguntas das Perguntas e Respostas da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-iot-edge.html'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/iot-edge/'
     - name: Calculadora de preços
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?product=iot-edge'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-iot-edge'
     - name: Estudos de caso técnicos
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: Vídeos

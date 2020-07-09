@@ -12,6 +12,13 @@
   items:
     - name: Monitorizar o recurso do Azure
       href: learn/quick-monitor-azure-resource.md
+    - name: Enviar o Registo de atividades para uma área de trabalho
+      items:
+        - name: Portal do Azure
+          href: learn/quick-collect-activity-log-portal.md
+        - name: Modelo ARM
+          displayName: Resource Manager
+          href: learn/quick-collect-activity-log-arm.md
     - name: Monitorizar máquinas virtuais
       items:
         - name: VMs do Azure
@@ -114,6 +121,8 @@
         - name: Tempo de ingestão de dados do registo
           displayname: latency
           href: platform/data-ingestion-time.md
+        - name: Transmitir dados para os Hubs de Eventos
+          href: platform/stream-monitoring-data-event-hubs.md
     - name: Informações
       href: insights/insights-overview.md
     - name: Segurança de dados
@@ -155,6 +164,8 @@
           displayname: VM
     - name: Gerir e configurar
       items:
+        - name: Implementar à escala
+          href: platform/deploy-scale.md
         - name: Permissões e segurança de funções
           href: platform/roles-permissions-security.md
         - name: Endereços IP
@@ -195,7 +206,7 @@
             - name: Descrição geral
               href: platform/agents-overview.md
             - name: FAQ
-              href: 'faq.md#agents'
+              href: faq.md#agents
             - name: Extensão do Diagnóstico do Azure
               items:
                 - name: Descrição geral
@@ -230,7 +241,7 @@
                     - name: Histórico de versões
                       href: platform/diagnostics-extension-versions.md
                     - name: Formato dos registos de recursos JSON Lines
-                      href: platform/diagnostic-logs-append-blobs.md
+                      href: platform/resource-logs-append-blobs.md
                     - name: Resolução de problemas
                       href: platform/diagnostics-extension-troubleshooting.md
                 - name: Linux
@@ -297,36 +308,12 @@
           displayName: 'Platform logs, Resource logs, Activity log'
           href: platform/platform-logs-overview.md
         - name: Registo de atividades
-          items:
-            - name: Ver no portal do Azure
-              displayName: 'Platform logs, Activity log'
-              href: platform/activity-log-view.md
-            - name: Recolher e analisar
-              displayName: 'Platform logs, Activity log'
-              href: platform/activity-log-collect.md
-            - name: Exportação (legada)
-              displayname: Activity log
-              href: platform/activity-log-export.md
-        - name: Enviar para a área de trabalho do Log Analytics
-          displayname: 'Resource logs, Activity log, Platform logs'
-          href: platform/resource-logs-collect-workspace.md
-        - name: Enviar para o Armazenamento do Azure
-          displayname: 'Resource logs, Activity log, Platform logs'
-          href: platform/resource-logs-collect-storage.md
-        - name: Enviar para os Hubs de Eventos
-          displayname: 'Resource logs, Activity log, Platform logs'
-          href: platform/resource-logs-stream-event-hubs.md
-        - name: Criar definição de diagnóstico
+          href: platform/activity-log.md
+        - name: Registos do recurso
+          href: platform/resource-logs.md
+        - name: Definições de diagnóstico
           displayName: 'Platform logs, Resource logs, Activity log'
           href: platform/diagnostic-settings.md
-        - name: Criar definição de diagnóstico com o Resource Manager
-          displayName: 'diagnostic setting, Platform logs, Resource logs, Activity log'
-          href: platform/diagnostic-settings-template.md
-        - name: Alterar para o formato de armazenamento de blobs
-          displayname: Diagnostic settings
-          href: platform/resource-logs-blob-format.md
-        - name: Transmitir dados para os Hubs de Eventos
-          href: platform/stream-monitoring-data-event-hubs.md
     - name: Log Analytics
       items:
         - name: Descrição geral das consultas de registo
@@ -402,6 +389,8 @@
               href: log-query/unify-app-resource-data.md
         - name: Exemplos e documentação de orientação
           items:
+            - name: Consultas de exemplo
+              href: log-query/saved-queries.md
             - name: Exemplos de consultas de registo
               href: log-query/examples.md
             - name: Exemplos de análise inteligente
@@ -464,6 +453,8 @@
               href: platform/alerts-metric-logs.md
             - name: Com o modelo do Resource Manager
               href: platform/alerts-metric-create-templates.md
+            - name: Resolver problemas dos alertas de métricas
+              href: platform/alerts-troubleshoot-metric.md
         - name: Regras de alerta de registos
           items:
             - name: Configurar alertas nas consultas de análise
@@ -473,7 +464,7 @@
             - name: Ações do webhook
               href: platform/alerts-log-webhook.md
             - name: Resolver problemas de alertas de registos
-              href: platform/alert-log-troubleshoot.md
+              href: platform/alerts-troubleshoot-log.md
         - name: Regras de alerta de registo de atividade
           items:
             - name: Alerta num evento de registo de atividades
@@ -524,6 +515,8 @@
           href: platform/api-alerts.md
         - name: Alertas de resolução de problemas
           href: platform/alerts-troubleshoot.md
+        - name: Alertas e mudanças de região
+          href: platform/alerts-resource-move.md
         - name: Gestão de Serviços de TI
           items:
             - name: Conector da Gestão de Serviços de TI
@@ -620,6 +613,10 @@
                   href: app/javascript.md
                 - name: Mapa de origem para JavaScript
                   href: app/source-map-support.md
+                - name: Resolução de problemas
+                  items:
+                    - name: Falhas de carregamento do SDK
+                      href: app/javascript-sdk-load-failure.md
             - name: Resumo da API do Application Insights
               displayname: 'SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency'
               href: app/api-custom-events-metrics.md
@@ -629,6 +626,8 @@
               href: app/remove-application-insights.md
         - name: Monitorização sem código
           items:
+            - name: Descrição geral
+              href: app/codeless-overview.md
             - name: VM do Azure e conjunto de dimensionamento
               href: app/azure-vm-vmss-apps.md
             - name: Serviço de Aplicações do Azure
@@ -741,6 +740,8 @@
               href: app/profiler-settings.md
             - name: Acompanhar pedidos para a Criação de Perfis
               href: app/profiler-trackrequests.md
+            - name: Configurar o BYOS (Traga o Seu Próprio Armazenamento)
+              href: app/profiler-bring-your-own-storage.md
             - name: Resolução de problemas do Profiler
               href: app/profiler-troubleshooting.md
         - name: Depurador de Instantâneos
@@ -754,6 +755,8 @@
               href: app/snapshot-debugger-vm.md
             - name: Atualizar o Snapshot Debugger
               href: app/snapshot-debugger-upgrade.md
+            - name: Configurar o BYOS (Traga o Seu Próprio Armazenamento)
+              href: app/profiler-bring-your-own-storage.md
             - name: Resolução de problemas do Snapshot Debugger
               displayname: 'troubleshoot, troubleshooting'
               href: app/snapshot-debugger-troubleshoot.md
@@ -893,7 +896,7 @@
         - name: FAQ sobre Disponibilidade Geral
           href: insights/vminsights-ga-release-faq.md
         - name: FAQ
-          href: 'faq.md#azure-monitor-for-vms'
+          href: faq.md#azure-monitor-for-vms
         - name: Ativar monitorização
           items:
             - name: Ativar descrição geral da monitorização
@@ -925,7 +928,7 @@
         - name: Descrição geral
           href: insights/container-insights-overview.md
         - name: FAQ
-          href: 'faq.md#azure-monitor-for-containers'
+          href: faq.md#azure-monitor-for-containers
         - name: Ativar monitorização
           items:
             - name: Ativar descrição geral da monitorização
@@ -934,6 +937,8 @@
               href: insights/container-insights-enable-new-cluster.md
             - name: Ativar para o cluster existente do AKS
               href: insights/container-insights-enable-existing-clusters.md
+            - name: Ativar o cluster ativado pelo Arc
+              href: insights/container-insights-enable-arc-enabled-clusters.md
             - name: Ativar para cluster híbrido
               href: insights/container-insights-hybrid-setup.md
             - name: Ativar para o Azure Red Hat OpenShift v3
@@ -972,6 +977,8 @@
           href: insights/container-insights-update-metrics.md
         - name: Configuração da monitorização do estado de funcionamento
           href: insights/container-insights-health-monitors-config.md
+        - name: Gerir os custos e a utilização
+          href: insights/container-insights-cost.md
         - name: Desativar a monitorização
           items:
             - name: Desativar a monitorização do AKS
@@ -990,15 +997,17 @@
           href: insights/redis-cache-insights-overview.md
         - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
-        - name: Cofre de Chaves
-          href: insights/key-vault-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md
+        - name: Cofre de Chaves
+          href: insights/key-vault-insights-overview.md
         - name: Armazenamento
           displayname: 'storage, monitor, insights, storage accounts, azure storage'
           href: insights/storage-insights-overview.md
         - name: Grupos de recursos
           href: insights/resource-group-insights.md
+        - name: Informações de resolução de problemas
+          href: insights/troubleshoot-workbooks.md
     - name: Soluções
       items:
         - name: Descrição geral
@@ -1077,23 +1086,10 @@
               href: platform/view-designer-parts.md
             - name: Filtros
               href: platform/view-designer-filters.md
-        - name: Soluções personalizadas
-          items:
-            - name: Estrutura e compilação
-              href: insights/solutions-creating.md
-            - name: Ficheiro de solução
-              href: insights/solutions-solution-file.md
-            - name: Recursos de automatização
-              href: insights/solutions-resources-automation.md
-            - name: Pesquisas de registos e alertas
-              href: insights/solutions-resources-searches-alerts.md
-            - name: Vistas
-              href: insights/solutions-resources-views.md
-            - name: Melhores práticas
-              href: insights/solutions-best-practices.md
     - name: Livros
       items:
         - name: Descrição geral
+          displayname: Workbooks
           href: platform/workbooks-overview.md
         - name: Visualizações
           href: platform/workbooks-visualizations.md
@@ -1131,6 +1127,8 @@
               href: learn/tutorial-logs-dashboards.md
             - name: Dashboard com os dados da aplicação
               href: learn/tutorial-app-dashboards.md
+            - name: Atualizar os Dashboards do Log Analytics
+              href: log-query/dashboard-upgrade.md
         - name: Enviar dados para o Grafana
           href: platform/grafana-plugin.md
     - name: Recolha e análise de dados personalizados
@@ -1182,10 +1180,12 @@
           href: platform/alerts-metric-near-real-time.md
     - name: Registos da plataforma
       items:
-        - name: Esquemas do registo de recursos
-          href: platform/diagnostic-logs-schema.md
         - name: Esquema de registo de atividades
           href: platform/activity-log-schema.md
+        - name: Esquemas do registo de recursos
+          href: platform/resource-logs-schema.md
+        - name: Categorias de registo de recursos suportadas
+          href: platform/resource-logs-categories.md
     - name: Esquemas da extensão de diagnóstico
       items:
         - name: Extensão de diagnóstico do Windows
@@ -1204,6 +1204,10 @@
           href: app/custom-endpoints.md
         - name: Funções do Azure
           href: app/azure-functions-supported-features.md
+        - name: Notas de versão
+          items:
+            - name: Extensão de aplicação Web
+              href: app/web-app-extension-release-notes.md
         - name: Modelo de dados
           items:
             - name: Descrição geral
@@ -1272,6 +1276,9 @@
           href: platform/oms-portal-transition.md
         - name: Descontinuação das métricas de disco
           href: platform/portal-disk-metrics-deprecation.md
+        - name: Alterar para o formato de armazenamento de blobs
+          displayname: Diagnostic settings
+          href: platform/resource-logs-blob-format.md
 - name: Recursos
   items:
     - name: Mapa do Azure

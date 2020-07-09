@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d41b86b902d9a58b144e251e6922fbd95d459031
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67671214"
 ---
-1. Instale dapl, rdmacm, ibverbs e mlx4
+1. Instalar dapl, rdmacm, ibverbs e mlx4
 
    ```bash
    sudo apt-get update
@@ -20,7 +20,7 @@ ms.locfileid: "67671214"
 
    ```
 
-2. Em /etc/waagent.conf, ative rdMA descoando as seguintes linhas de configuração. Precisa de acesso de raiz para editar este ficheiro.
+2. Em /etc/waagent.conf, permitir RDMA descoduando as seguintes linhas de configuração. Precisa de acesso à raiz para editar este ficheiro.
   
    ```
    OS.EnableRDMA=y
@@ -28,7 +28,7 @@ ms.locfileid: "67671214"
    OS.UpdateRdmaDriver=y
    ```
 
-3. Adicione ou altere as seguintes definições de memória em KB no ficheiro /etc/security/limits.conf. Precisa de acesso de raiz para editar este ficheiro. Para efeitos de teste, pode definir memlock para ilimitado. Por exemplo: `<User or group name>   hard    memlock   unlimited`.
+3. Adicione ou altere as seguintes definições de memória em KB no ficheiro /etc/security/limits.conf. Precisa de acesso à raiz para editar este ficheiro. Para efeitos de teste, pode definir o memlock para ilimitado. Por exemplo: `<User or group name>   hard    memlock   unlimited`.
 
    ```
    <User or group name> hard    memlock <memory required for your application in KB>
@@ -42,11 +42,11 @@ ms.locfileid: "67671214"
    wget http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/9278/l_mpi_p_5.1.3.223.tgz
    ```
  
-   Apenas os tempos de execução intel MPI 5.x são suportados.
+   Apenas os tempos de execução do INTEL MPI 5.x são suportados.
  
-   Para as etapas de instalação, consulte o Guia de [Instalação da Biblioteca Intel MPI](https://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
+   Para etapas de instalação, consulte o [Guia de Instalação da Biblioteca Intel MPI](https://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
 
-5. Ativar o ptrace para processos não-desactivados não-radiculares (necessários para as versões mais recentes do INTEL MPI).
+5. Ativar os processos de não-depuração sem raiz (necessários para as versões mais recentes do INTEL MPI).
  
    ```bash
    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope

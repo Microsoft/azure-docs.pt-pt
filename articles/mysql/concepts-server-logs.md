@@ -1,63 +1,62 @@
 ---
-title: Registos de consultas lentas - Base de Dados Azure para MySQL
-description: Descreve os registos de consulta lenta disponíveis na Base de Dados Azure para mySQL, e os parâmetros disponíveis para permitir diferentes níveis de exploração.
+title: Registos de consulta lenta - Base de Dados Azure para MySQL
+description: Descreve os registos de consulta lenta disponíveis na Base de Dados Azure para o MySQL e os parâmetros disponíveis para permitir diferentes níveis de registo.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: f834ba3355d362e59e2e44f37eca0560b9bf4d7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81271986"
 ---
-# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Registos de consultas lentas na Base de Dados Azure para MySQL
-Na Base de Dados Azure para MySQL, o registo de consulta lenta está disponível para os utilizadores. O acesso ao registo de transações não é suportado. O registo de consulta lenta pode ser usado para identificar estrangulamentos de desempenho para resolução de problemas.
+# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Registos de consulta lenta na Base de Dados Azure para o MySQL
+Na Base de Dados Azure para o MySQL, o registo de consulta lenta está disponível para os utilizadores. O acesso ao registo de transações não é suportado. O registo de consulta lenta pode ser usado para identificar estrangulamentos de desempenho para a resolução de problemas.
 
-Para obter mais informações sobre o registo de consulta lenta MySQL, consulte a secção de registo de [consulta lenta](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)do manual de referência MySQL .
+Para obter mais informações sobre o registo de consulta lenta mySQL, consulte a [secção de registo de consulta lenta](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)do manual de referência mySQL .
 
-## <a name="configure-slow-query-logging"></a>Configure a exploração de consultas lentas 
-Por defeito, o registo de consulta lenta é desativado. Para o ativar, coloque-o `slow_query_log` em ON. Isto pode ser ativado utilizando o portal Azure ou o Azure CLI. 
+## <a name="configure-slow-query-logging"></a>Configurar a consulta lenta 
+Por predefinição, o registo de consulta lenta é desativado. Para a capacitá-lo, desatado `slow_query_log` para ON. Isto pode ser ativado utilizando o portal Azure ou O Azure CLI. 
 
 Outros parâmetros que pode ajustar incluem:
 
-- **long_query_time:** se uma consulta demorar mais do que long_query_time (em segundos) que a consulta é registada. A predefinição é de 10 segundos.
-- **log_slow_admin_statements:** se a ON incluir declarações administrativas como ALTER_TABLE e ANALYZE_TABLE nas declarações escritas à slow_query_log.
-- **log_queries_not_using_indexes:** determina se as consultas que não utilizam índices estão registadas na slow_query_log
-- **log_throttle_queries_not_using_indexes**: Este parâmetro limita o número de consultas não indexadas que podem ser escritas no registo de consulta lenta. Este parâmetro entra em vigor quando log_queries_not_using_indexes está definido para ON.
-- **log_output:** se "File", permitir que o registo de consulta lenta seja escrito tanto no armazenamento do servidor local como nos registos de diagnóstico do Monitor Azure. Se "Nenhum", o registo de consulta lenta só será escrito para registos de diagnóstico do Monitor Azure. 
+- **long_query_time:** se uma consulta demorar mais do que long_query_time (em segundos) essa consulta é registada. A predefinição é de 10 segundos.
+- **log_slow_admin_statements**: se a ON incluir declarações administrativas como ALTER_TABLE e ANALYZE_TABLE nas declarações escritas à slow_query_log.
+- **log_queries_not_using_indexes**: determina se as consultas que não utilizam índices são registadas no slow_query_log
+- **log_throttle_queries_not_using_indexes**: Este parâmetro limita o número de consultas não indexados que podem ser escritas para o registo de consulta lenta. Este parâmetro entra em vigor quando log_queries_not_using_indexes está definido para ON.
+- **log_output:** se "File", permite que o registo de consulta lenta seja escrito tanto para o armazenamento do servidor local como para os Registos de Diagnóstico do Monitor Azure. Se for “Nenhum”, o registo de consultas lentas só será escrito nos Registos de Diagnósticos do Azure Monitor. 
 
 > [!IMPORTANT]
-> Se as suas tabelas não `log_queries_not_using_indexes` `log_throttle_queries_not_using_indexes` estiverem indexadas, a definição dos parâmetros e parâmetros para ON pode afetar o desempenho do MySQL, uma vez que todas as consultas que correm contra estas tabelas não indexadas serão escritas para o registo de consulta lenta.<br><br>
-> Se planeia registar consultas lentas durante um longo período de `log_output` tempo, recomenda-se que se ajuste a "Nenhuma". Se definidos para "File", estes registos são escritos para o armazenamento do servidor local e podem afetar o desempenho do MySQL. 
+> Se as suas tabelas não estiverem indexadas, definir os `log_queries_not_using_indexes` parâmetros e os parâmetros para ON pode afetar o `log_throttle_queries_not_using_indexes` desempenho do MySQL, uma vez que todas as consultas que correm contra estas tabelas não indexadas serão escritas para o registo de consulta lenta.<br><br>
+> Se planeia registar consultas lentas durante um longo período de tempo, recomenda-se que se ajuste `log_output` a "Nenhuma". Se definidos como "Ficheiro", estes registos são escritos para o armazenamento do servidor local e podem afetar o desempenho do MySQL. 
 
-Consulte a [documentação](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) de registo de consulta lenta MySQL para obter descrições completas dos parâmetros de registo de consultas lentas.
+Consulte a [documentação](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) de registo de consulta lenta MySQL para obter descrições completas dos parâmetros de registo de consulta lenta.
 
-## <a name="access-slow-query-logs"></a>Aceder a registos de consultas lentas
-Existem duas opções para aceder a registos de consultas lentas na Base de Dados Azure para MySQL: armazenamento de servidorlocal ou Registos de Diagnóstico do Monitor Azure. Isto é definido `log_output` com o parâmetro.
+## <a name="access-slow-query-logs"></a>Aceder a registos de consulta lenta
+Existem duas opções para aceder a registos de consulta lenta na Base de Dados Azure para o MySQL: armazenamento de servidor local ou Registos de Diagnóstico do Monitor Azure. Isto é definido usando o `log_output` parâmetro.
 
-Para armazenamento de servidorlocal, pode listar e transferir registos de consultas lentas utilizando o portal Azure ou o Azure CLI. No portal Azure, navegue para o seu servidor no portal Azure. Na rubrica **Monitoring,** selecione a página Registos do **Servidor.** Para obter mais informações sobre o Azure CLI, consulte [Configure e aceda a registos de consultas lentas utilizando o Azure CLI](howto-configure-server-logs-in-cli.md). 
+Para o armazenamento de servidores locais, pode listar e descarregar registos de consulta lenta utilizando o portal Azure ou o CLI Azure. No portal Azure, navegue para o seu servidor no portal Azure. No título **de Monitorização,** selecione a página **'Registos do Servidor'.** Para obter mais informações sobre o Azure CLI, consulte [configurar e aceder a registos de consultas lentas utilizando O Azure CLI](howto-configure-server-logs-in-cli.md). 
 
-Os registos de diagnóstico do Monitor Azure permitem-lhe canalizar registos de consultas lentas para registos de monitores Azure (Log Analytics), Armazenamento Azure ou Centros de Eventos. Veja [abaixo](concepts-server-logs.md#diagnostic-logs) para mais informações.
+Os Registos de Diagnóstico do Monitor Azure permitem-lhe canalizar registos de consulta lenta para registos de monitores Azure (Log Analytics), Azure Storage ou Event Hubs. Veja [abaixo](concepts-server-logs.md#diagnostic-logs) mais informações.
 
-## <a name="local-server-storage-log-retention"></a>Retenção de registo de armazenamento de servidorlocal
-Ao iniciar sessão no armazenamento local do servidor, os registos estão disponíveis até sete dias a partir da sua criação. Se o tamanho total dos registos disponíveis exceder 7 GB, então os ficheiros mais antigos são eliminados até que o espaço esteja disponível.
+## <a name="local-server-storage-log-retention"></a>Retenção de registos de armazenamento de servidores locais
+Ao iniciar sessão no armazenamento local do servidor, os registos estão disponíveis até sete dias após a sua criação. Se o tamanho total dos registos disponíveis exceder 7 GB, então os ficheiros mais antigos são eliminados até que o espaço esteja disponível.
 
-Os registos são rodados a cada 24 horas ou 7 GB, o que vier primeiro.
+Os troncos são rodados a cada 24 horas ou 7 GB, o que vier primeiro.
 
 > [!Note]
-> A retenção de registoacima não se aplica aos registos que são canalizados utilizando registos de diagnóstico do Monitor Azure. Pode alterar o período de retenção para os sumidouros de dados que estão a ser emitidos (ex. Armazenamento Azure).
+> A retenção de registos acima não se aplica aos registos que são canalizados utilizando registos de diagnóstico do Monitor Azure. Pode alterar o período de retenção para os sumidouros de dados a que são emitidos (ex. Armazenamento Azure).
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
-A Base de Dados Azure para MySQL está integrada com registos de diagnóstico do Monitor Azure. Depois de ter ativado registos de consultas lentas no seu servidor MySQL, pode optar por que sejam emitidos para registos do Monitor Azure, Hubs de Eventos ou Armazenamento Azure. Para saber mais sobre como ativar os registos de diagnóstico, consulte como secção da documentação de [registos](../azure-monitor/platform/platform-logs-overview.md)de diagnóstico .
+A Base de Dados Azure para o MySQL está integrada com registos de diagnóstico do Monitor Azure. Uma vez que tenha ativado registos de consulta lenta no seu servidor MySQL, pode optar por esemitir os registos do Azure Monitor, Dos Centros de Eventos ou do Azure Storage. Para saber mais sobre como ativar registos de diagnóstico, consulte a secção da documentação dos [registos](../azure-monitor/platform/platform-logs-overview.md)de diagnóstico .
 
-A tabela seguinte descreve o que está em cada tronco. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
+A tabela seguinte descreve o que está em cada registo. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
 
 | **Propriedade** | **Descrição** |
 |---|---|
-| `TenantId` | Sua identificação do inquilino |
+| `TenantId` | Sua iD do seu inquilino |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated`[UTC] | Carimbo de tempo quando o registo foi gravado na UTC |
 | `Type` | Tipo de tronco. Sempre`AzureDiagnostics` |
@@ -65,32 +64,32 @@ A tabela seguinte descreve o que está em cada tronco. Dependendo do método de 
 | `ResourceGroup` | Nome do grupo de recursos a que o servidor pertence |
 | `ResourceProvider` | Nome do fornecedor de recursos. Sempre`MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
-| `ResourceId` | Recurso URI |
+| `ResourceId` | URI de recursos |
 | `Resource` | Nome do servidor |
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Nome do servidor |
-| `start_time_t`[UTC] | Hora da consulta começar |
-| `query_time_s` | Tempo total em segundos que a consulta demorou a executar |
+| `start_time_t`[UTC] | Quando a consulta começou |
+| `query_time_s` | Tempo total em segundos a consulta levou a executar |
 | `lock_time_s` | Tempo total em segundos a consulta foi bloqueada |
 | `user_host_s` | Nome de utilizador |
-| `rows_sent_s` | Número de filas enviadas |
+| `rows_sent_s` | Número de linhas enviadas |
 | `rows_examined_s` | Número de linhas examinadas |
 | `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
 | `insert_id_s` | Inserir ID |
 | `sql_text_s` | Consulta completa |
-| `server_id_s` | O ID do servidor |
-| `thread_id_s` | ID da linha |
-| `\_ResourceId` | Recurso URI |
+| `server_id_s` | ID do servidor |
+| `thread_id_s` | ID de fio |
+| `\_ResourceId` | URI de recursos |
 
 > [!Note]
-> Para `sql_text`, o registo será truncado se exceder 2048 caracteres.
+> Para `sql_text` , log será truncado se exceder os caracteres de 2048.
 
-## <a name="analyze-logs-in-azure-monitor-logs"></a>Analisar registos em registos do Monitor Azure
+## <a name="analyze-logs-in-azure-monitor-logs"></a>Analisar registos em Registos monitores Azure
 
-Uma vez que os seus registos de consulta lenta são canalizados para registos do Monitor Azure através de registos de diagnóstico, pode efetuar uma análise mais aprofundada das suas consultas lentas. Abaixo estão algumas consultas de amostra para ajudá-lo a começar. Certifique-se de atualizar o abaixo com o nome do servidor.
+Uma vez que os seus registos de consulta lenta são canalizados para Registos do Monitor Azure através de Registos de Diagnóstico, pode efetuar uma análise mais aprofundada das suas consultas lentas. Abaixo estão algumas consultas de amostra para ajudá-lo a começar. Certifique-se de atualizar o abaixo com o nome do seu servidor.
 
-- Consultas superiores a 10 segundos num determinado servidor
+- Consultas superiores a 10 segundos num servidor em particular
 
     ```Kusto
     AzureDiagnostics
@@ -100,7 +99,7 @@ Uma vez que os seus registos de consulta lenta são canalizados para registos do
     | where query_time_d > 10
     ```
 
-- Lista rindo as 5 consultas mais longas num determinado servidor
+- Listar as 5 consultas mais longas de um servidor em particular
 
     ```Kusto
     AzureDiagnostics
@@ -111,7 +110,7 @@ Uma vez que os seus registos de consulta lenta são canalizados para registos do
     | take 5
     ```
 
-- Resumir consultas lentas pelo mínimo, máximo, média e tempo padrão de consulta de desvio em um determinado servidor
+- Resumir consultas lentas por tempo mínimo, máximo, médio e padrão de desvio num servidor particular
 
     ```Kusto
     AzureDiagnostics
@@ -121,7 +120,7 @@ Uma vez que os seus registos de consulta lenta são canalizados para registos do
     | summarize count(), min(query_time_d), max(query_time_d), avg(query_time_d), stdev(query_time_d), percentile(query_time_d, 95) by LogicalServerName_s
     ```
 
-- Grafe a distribuição de consulta lenta num determinado servidor
+- Graf a distribuição de consulta lenta num servidor particular
 
     ```Kusto
     AzureDiagnostics
@@ -132,7 +131,7 @@ Uma vez que os seus registos de consulta lenta são canalizados para registos do
     | render timechart
     ```
 
-- Consultas de exibição superiores a 10 segundos em todos os servidores MySQL com Registos de Diagnóstico ativados
+- Visualizar consultas com mais de 10 segundos em todos os servidores do MySQL com Registos de Diagnóstico ativados
 
     ```Kusto
     AzureDiagnostics
@@ -142,5 +141,5 @@ Uma vez que os seus registos de consulta lenta são canalizados para registos do
     ```    
     
 ## <a name="next-steps"></a>Passos Seguintes
-- [Como configurar registos de consulta lenta do portal Azure](howto-configure-server-logs-in-portal.md)
+- [Como configurar registos de consulta lenta a partir do portal Azure](howto-configure-server-logs-in-portal.md)
 - [Como configurar registos de consulta lenta do Azure CLI](howto-configure-server-logs-in-cli.md).

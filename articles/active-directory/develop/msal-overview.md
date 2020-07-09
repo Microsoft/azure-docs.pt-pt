@@ -1,7 +1,7 @@
 ---
-title: Saiba mais sobre o MSAL Azure
+title: Saiba mais sobre o MSAL Rio Azure
 titleSuffix: Microsoft identity platform
-description: A Microsoft Authentication Library (MSAL) permite que os desenvolvedores de aplicações adquiram fichas para ligar para APIs web seguros. Estas APIs web podem ser o Microsoft Graph, outras APIs da Microsoft, APIs web de terceiros ou a sua própria API web. A MSAL suporta múltiplas arquiteturas e plataformas de aplicações.
+description: A Microsoft Authentication Library (MSAL) permite que os desenvolvedores de aplicações adquiram fichas de forma a chamar APIs web seguras. Estas APIs web podem ser o Microsoft Graph, outros APIs da Microsoft, APIs web de terceiros ou a sua própria API web. A MSAL suporta múltiplas arquiteturas e plataformas de aplicações.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,51 +14,51 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 7aa7dea65df507c0bb35a30bf2a68049a7625137
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82181788"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Visão geral da Biblioteca de Autenticação da Microsoft (MSAL)
-A Microsoft Authentication Library (MSAL) permite que os desenvolvedores adquiram [fichas](developer-glossary.md#security-token) do ponto final da plataforma de identidade da Microsoft para aceder a APIs web protegidos. Estas APIs web podem ser o Microsoft Graph, outras APIs da Microsoft, APIs web de terceiros ou a sua própria API web. O MSAL está disponível para .NET, JavaScript, Android e iOS, que suportam muitas arquiteturas e plataformas de aplicações diferentes.
+A Microsoft Authentication Library (MSAL) permite que os desenvolvedores adquiram [fichas](developer-glossary.md#security-token) a partir do ponto final da plataforma de identidade da Microsoft, de forma a aceder a APIs web seguras. Estas APIs web podem ser o Microsoft Graph, outros APIs da Microsoft, APIs web de terceiros ou a sua própria API web. O MSAL está disponível para .NET, JavaScript, Android e iOS, que suportam muitas arquiteturas e plataformas de aplicações diferentes.
 
-A MSAL dá-lhe muitas formas de obter fichas, com uma API consistente para várias plataformas. A utilização do MSAL proporciona os seguintes benefícios:
+A MSAL dá-lhe muitas formas de obter fichas, com uma API consistente para várias plataformas. A utilização da MSAL proporciona os seguintes benefícios:
 
-* Não é necessário utilizar diretamente as bibliotecas oAuth ou o código contra o protocolo na sua aplicação.
+* Não é necessário utilizar diretamente as bibliotecas ou códigos OAuth contra o protocolo da sua aplicação.
 * Adquire fichas em nome de um utilizador ou em nome de uma aplicação (quando aplicável à plataforma).
-* Mantém uma cache simbólica e atualiza tokens para si quando estão perto de expirar. Não precisas de lidar com a expiração do token sozinho.
-* Ajuda-o a especificar em que público pretende que a sua aplicação entre (o seu org, vários orgs, trabalho e contas pessoais escolares e da Microsoft, identidades sociais com O Azure AD B2C, utilizadores em nuvens soberanas e nacionais).
-* Ajuda-o a configurar a sua aplicação a partir de ficheiros de configuração.
-* Ajuda-o a resolver problemas com a aplicação expondo exceções atoladas, exploração madeireira e telemetria.
+* Mantém uma cache simbólica e refresca fichas para si quando estão perto de expirar. Não precisas de lidar com a expiração por conta própria.
+* Ajuda-o a especificar em que público pretende que a sua aplicação entre (o seu orgs, várias orgs, trabalho e contas pessoais da escola e da Microsoft, identidades sociais com Azure AD B2C, utilizadores em nuvens soberanas e nacionais).
+* Ajuda a configurar a sua aplicação a partir de ficheiros de configuração.
+* Ajuda-o a resolver problemas com a sua aplicação expondo exceções acccionáveis, registos e telemetria.
 
 ## <a name="application-types-and-scenarios"></a>Tipos de aplicação e cenários
-Utilizando o MSAL, um símbolo pode ser adquirido a partir de vários tipos de aplicações: aplicações web, APIs web, aplicações de página única (JavaScript), aplicações móveis e nativas, e daemons e aplicações do lado do servidor.
+Utilizando o MSAL, um token pode ser adquirido a partir de uma série de tipos de aplicações: aplicações web, APIs web, aplicações de página única (JavaScript), aplicações móveis e nativas, e daemons e aplicações do lado do servidor.
 
-O MSAL pode ser utilizado em muitos cenários de aplicação, incluindo o seguinte:
+A MSAL pode ser utilizada em muitos cenários de aplicação, incluindo os seguintes:
 
 * [Aplicações de página única (JavaScript)](scenario-spa-overview.md)
-* [Sessão de aplicações web nos utilizadores](scenario-web-app-sign-user-overview.md)
-* [Sessão de aplicação web num utilizador e chamada de API web em nome do utilizador](scenario-web-app-call-api-overview.md)
-* [Proteger uma API web para que apenas os utilizadores autenticados possam aceder a ela](scenario-protected-web-api-overview.md)
+* [Web app assinando em utilizadores](scenario-web-app-sign-user-overview.md)
+* [Assinatura de aplicação web em um utilizador e chamando uma API web em nome do utilizador](scenario-web-app-call-api-overview.md)
+* [Proteger uma API web para que apenas utilizadores autenticados possam acessá-lo](scenario-protected-web-api-overview.md)
 * [Web API chamando outra API web a jusante em nome do utilizador inscrito](scenario-web-api-call-api-overview.md)
 * [Aplicação de ambiente de trabalho chamando uma API web em nome do utilizador inscrito](scenario-desktop-overview.md)
-* [Aplicação móvel chamando uma API web em nome do utilizador que assinou interativamente](scenario-mobile-overview.md).
-* [Aplicação de daemon de desktop/serviço chamando web API em nome de si mesma](scenario-daemon-overview.md)
+* [Aplicação móvel chamando uma API web em nome do utilizador que se inscreveu interativamente](scenario-mobile-overview.md).
+* [Aplicação de ambiente de trabalho/serviço da daemon chamando a API web em nome de si mesma](scenario-daemon-overview.md)
 
 ## <a name="languages-and-frameworks"></a>Línguas e quadros
 
-| Biblioteca | Plataformas e quadros suportados|
+| Biblioteca | Plataformas e quadros apoiados|
 | --- | --- |
 | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET Framework, .NET Core, Xamarin Android, Xamarin iOS, Universal Windows Platform|
 | [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| Quadros JavaScript/TypeScript tais como AngularJS, Ember.js ou Durandal.js|
 | [MSAL para Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | [MSAL para iOS e macOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS e macOS|
-| [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Janelas, macOS, Linux|
-| [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)|Janelas, macOS, Linux|
+| [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Windows, macOS, Linux|
+| [Pitão MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-python)|Windows, macOS, Linux|
 
-## <a name="differences-between-adal-and-msal"></a>Diferenças entre a ADAL e a MSAL
+## <a name="differences-between-adal-and-msal"></a>Diferenças entre ADAL e MSAL
 
-A Ative Directory Authentication Library (ADAL) integra-se com o Ponto final do Azure AD para programadores (v1.0), onde a MSAL se integra com a plataforma de identidade da Microsoft (v2.0) endpoint. O ponto final v1.0 suporta contas de trabalho, mas não contas pessoais. O ponto final v2.0 é a unificação de contas pessoais da Microsoft e contas de trabalho num único sistema de autenticação. Além disso, com mSAL também pode obter autenticações para Azure AD B2C.
+A Ative Directory Authentication Library (ADAL) integra-se com o AD AZure para programadores (v1.0), onde o MSAL se integra com a plataforma de identidade da Microsoft (v2.0). O ponto final v1.0 suporta contas de trabalho, mas não contas pessoais. O ponto final v2.0 é a unificação das contas pessoais da Microsoft e contas de trabalho num único sistema de autenticação. Além disso, com o MSAL também pode obter autenticações para Azure AD B2C.
 
-Para obter informações mais específicas, leia sobre [a migração para MSAL.NET de ADAL.NET](msal-net-migration.md) e migrar para [MSAL.js da ADAL.js](msal-compare-msal-js-and-adal-js.md).
+Para obter informações mais específicas, leia sobre [migração para MSAL.NET a partir de ADAL.NET](msal-net-migration.md) e [migrar para MSAL.js a partir de ADAL.js](msal-compare-msal-js-and-adal-js.md).

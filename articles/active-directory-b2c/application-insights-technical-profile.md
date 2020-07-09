@@ -1,7 +1,7 @@
 ---
-title: Defina um perfil técnico de Insights de Aplicação numa política personalizada
+title: Definir um perfil técnico de Insights de Aplicação numa política personalizada
 titleSuffix: Azure AD B2C
-description: Defina um perfil técnico de Insights de Aplicação numa política personalizada no Diretório Ativo Azure B2C.
+description: Defina um perfil técnico de Insights de Aplicação numa política personalizada no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,30 +11,30 @@ ms.topic: reference
 ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f50373b0841b7626bc405f121015c15ae1587a97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77bb53e2605913fcee6999284acb04616efc53af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80108578"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201417"
 ---
 # <a name="define-an-application-insights-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Defina um perfil técnico de Insights de Aplicação numa política personalizada Azure AD B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure Ative Directory B2C (Azure AD B2C) suporta o envio de dados do evento diretamente para [a Application Insights](../azure-monitor/app/app-insights-overview.md) utilizando a chave de instrumentação fornecida ao Azure AD B2C.  Com um perfil técnico da Application Insights, pode obter registos de eventos detalhados e personalizados para as suas viagens de utilizador para:
+O Azure Ative Directory B2C (Azure AD B2C) suporta o envio de dados de eventos diretamente para [a Application Insights](../azure-monitor/app/app-insights-overview.md) utilizando a chave de instrumentação fornecida ao Azure AD B2C.  Com um perfil técnico do Application Insights, pode obter registos de eventos detalhados e personalizados para as viagens do utilizador para:
 
 * Obtenha informações sobre o comportamento do utilizador.
-* Problemas de suposição das suas próprias políticas em desenvolvimento ou em produção.
+* Resolva as suas próprias políticas de desenvolvimento ou produção.
 * Medir o desempenho.
-* Crie notificações a partir de Insights de Aplicação.
+* Criar notificações a partir de Insights de Aplicação.
 
 
 ## <a name="protocol"></a>Protocolo
 
-O **atributo** nome do elemento **protocolo** `Proprietary`tem de ser definido para . O atributo **do manipulador** deve conter o nome totalmente qualificado do conjunto de manipulador esprotocolo que é utilizado pelo Azure AD B2C para Insights de Aplicação:`Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
+O **atributo nome** do elemento **Protocolo** tem de ser definido para `Proprietary` . O atributo **handler** deve conter o nome totalmente qualificado do conjunto de manipuladores de protocolo que é utilizado pela Azure AD B2C para insights de aplicação:`Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
-O exemplo seguinte mostra o perfil técnico comum de Insights de Aplicação. Outros perfis técnicos de Insights de Aplicação incluem o AzureInsights-Common para alavancar a sua configuração.  
+O exemplo a seguir mostra o perfil técnico comum de Insights de Aplicação. Outros perfis técnicos de Insights de Aplicação incluem o AzureInsights-Common para alavancar a sua configuração.  
 
 ```xml
 <TechnicalProfile Id="AzureInsights-Common">
@@ -45,9 +45,9 @@ O exemplo seguinte mostra o perfil técnico comum de Insights de Aplicação. Ou
 
 ## <a name="input-claims"></a>Reclamações de entrada
 
-O elemento **InputClaims** contém uma lista de reclamações a enviar para Insights de Aplicação. Também pode mapear o nome da sua reclamação para um nome que prefere aparecer no Application Insights. O exemplo que se segue mostra como enviar telemetrias para Application Insights. As propriedades de um evento são `{property:NAME}`adicionadas através da sintaxe, onde o NOME é adicionado ao evento. O DefaultValue pode ser um valor estático ou um valor resolvido por uma das resoluções de [reclamações](claim-resolver-overview.md)suportadas.
+O elemento **InputClaims** contém uma lista de reclamações a enviar para Insights de Aplicação. Também pode mapear o nome da sua reclamação para um nome que prefere aparecer no Application Insights. O exemplo a seguir mostra como enviar telemetrias para Application Insights. As propriedades de um evento são adicionadas através da `{property:NAME}` sintaxe, onde name é propriedade sendo adicionada ao evento. DefaultValue pode ser um valor estático ou um valor que é resolvido por um dos [resolveres de reclamações suportados](claim-resolver-overview.md).
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="PolicyId" PartnerClaimType="{property:Policy}" DefaultValue="{Policy:PolicyId}" />
   <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:JourneyId}" DefaultValue="{Context:CorrelationId}" />
@@ -56,13 +56,13 @@ O elemento **InputClaims** contém uma lista de reclamações a enviar para Insi
 </InputClaims>
 ```
 
-O elemento **InputClaimsTransformations** pode conter uma coleção de elementos **de transformação inputClaims** que são usados para modificar as reclamações de entrada ou gerar novos antes de enviar para Application Insights.
+O elemento **InputClaimsTransformations** pode conter uma coleção de **elementos inputClaimsTransformation** que são utilizados para modificar as reclamações de entrada ou gerar novos antes de enviar para Insights de Aplicação.
 
 ## <a name="persist-claims"></a>Persistir reivindicações
 
 O elemento PersistedClaims não é utilizado.
 
-## <a name="output-claims"></a>Reclamações de produção
+## <a name="output-claims"></a>Reclamações de saída
 
 Os elementos OutputClaims e OutputClaimsTransformations não são utilizados.
 
@@ -73,14 +73,14 @@ O elemento CryptographicKeys não é utilizado.
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Chave de Instrumentação| Sim | A chave de [instrumentação](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key)Application Insights, que será utilizada para registar os eventos. | 
-| Modo de Desenvolvimento| Não | Um Boolean que indica se o modo de desenvolvimento está ativado. Valores `true` possíveis: ou `false` (padrão). Estes metadados controlam a forma como os eventos são tamponados. Num ambiente de desenvolvimento com o mínimo volume de eventos, permitir que o modo de desenvolvimento resulte em eventos enviados imediatamente para Application Insights.|  
-|Telemetria desativação |Não |Um Boolean que indica se a telemetria deve ser ativada ou não. Valores `true` possíveis: ou `false` (padrão).| 
+| InstrumentaçãoKey| Sim | A [chave de instrumentação](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key)Application Insights , que será utilizada para registar os eventos. | 
+| DeveloperMode| Não | Um Boolean que indica se o modo de desenvolvimento está ativado. Valores possíveis: `true` ou `false` (predefinição). Estes metadados controlam a forma como os eventos são tamponados. Num ambiente de desenvolvimento com volume mínimo de eventos, permitir que o modo de desenvolvimento resulte em eventos enviados imediatamente para a Application Insights.|  
+|Desativação DeTelemetria |Não |Um Booleano que indique se a telemetria deve ser ativada ou não. Valores possíveis: `true` ou `false` (predefinição).| 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Criar um recurso Deinsights de Aplicação](../azure-monitor/app/create-new-resource.md)
-- Saiba como acompanhar o [comportamento do utilizador no Diretório Ativo Azure B2C usando insights](analytics-with-application-insights.md) de aplicação
+- [Criar um recurso do Application Insights](../azure-monitor/app/create-new-resource.md)
+- Saiba como rastrear o [comportamento do utilizador no Azure Ative Directory B2C usando Insights de Aplicação](analytics-with-application-insights.md)

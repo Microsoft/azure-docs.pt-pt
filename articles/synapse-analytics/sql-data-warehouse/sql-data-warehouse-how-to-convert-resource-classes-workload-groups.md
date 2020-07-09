@@ -1,33 +1,32 @@
 ---
 title: Converter classe de recursos para um grupo de carga de trabalho
-description: Aprenda a criar um grupo de carga de trabalho semelhante a uma classe de recursos no Azure SQL Data Warehouse.
+description: Saiba como criar um grupo de carga de trabalho semelhante a uma classe de recursos no Azure SQL Data Warehouse.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f0cc0cd7233d0c16cae8389fcddd50a16cf96bd2
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.openlocfilehash: 8032e8809f7849ab7497da7821788c017adff12d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683634"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212059"
 ---
-# <a name="convert-resource-classes-to-workload-groups"></a>Converter classes de recursos para grupos de carga de trabalho
+# <a name="convert-resource-classes-to-workload-groups"></a>Converter classes de recursos em grupos de carga de trabalho
 
-Os grupos de carga de trabalho fornecem um mecanismo para isolar e conter os recursos do sistema.  Além disso, os grupos de carga de trabalho permitem-lhe definir regras de execução para os pedidos que estão a decorrer neles.  Uma regra de execução de tempo de consulta permite que as consultas em fuga sejam canceladas sem a intervenção do utilizador.  Este artigo explica como tomar uma classe de recursos existente e criar um grupo de carga de trabalho com uma configuração semelhante.  Além disso, é adicionada uma regra de tempo de consulta opcional.
+Os grupos de trabalho fornecem um mecanismo para isolar e conter recursos do sistema.  Além disso, os grupos de carga de trabalho permitem definir regras de execução para os pedidos que neles são executados.  Uma regra de execução de tempo de consulta permite que consultas em fuga sejam canceladas sem a intervenção do utilizador.  Este artigo explica como fazer uma classe de recursos existente e criar um grupo de carga de trabalho com uma configuração semelhante.  Além disso, é adicionada uma regra de tempo de consulta opcional.
 
 > [!NOTE]
-> Consulte as atribuições da classe de recursos de mistura com a secção de [classificadores](sql-data-warehouse-workload-classification.md#mixing-resource-class-assignments-with-classifiers) no documento de [classificação](sql-data-warehouse-workload-classification.md) da carga de trabalho para orientação sobre a utilização de grupos de carga de trabalho e aulas de recursos ao mesmo tempo.
+> Consulte as atribuições da [classe de recursos de mistura com classificadores](sql-data-warehouse-workload-classification.md#mixing-resource-class-assignments-with-classifiers) no documento do conceito de [classificação da carga de trabalho](sql-data-warehouse-workload-classification.md) para obter orientações sobre a utilização de grupos de carga de trabalho e classes de recursos ao mesmo tempo.
 
-## <a name="understanding-the-existing-resource-class-configuration"></a>Compreender a configuração da classe de recursos existente
+## <a name="understanding-the-existing-resource-class-configuration"></a>Compreender a configuração de classe de recursos existente
 
-Os grupos de carga de trabalho requerem um parâmetro chamado `REQUEST_MIN_RESOURCE_GRANT_PERCENT` que especifica a percentagem dos recursos globais do sistema atribuídos por pedido.  A atribuição de recursos é feita para as classes de [recursos,](resource-classes-for-workload-management.md#what-are-resource-classes) atribuindo slots de moeda.  Para determinar o valor a `REQUEST_MIN_RESOURCE_GRANT_PERCENT` especificar, utilize o <link tbd> DMV sys.dm_workload_management_workload_groups_stats.  Por exemplo, a consulta abaixo devolve um valor que pode ser usado para o parâmetro para criar um grupo de carga de `REQUEST_MIN_RESOURCE_GRANT_PERCENT` trabalho semelhante ao estáticarc40.
+Os grupos de carga de trabalho exigem um parâmetro chamado `REQUEST_MIN_RESOURCE_GRANT_PERCENT` que especifica a percentagem de recursos globais do sistema atribuídos por pedido.  A atribuição de recursos é feita para [as classes de recursos](resource-classes-for-workload-management.md#what-are-resource-classes) através da atribuição de faixas horárias de conuncy.  Para determinar o valor a `REQUEST_MIN_RESOURCE_GRANT_PERCENT` especificar, utilize o Sys.dm_workload_management_workload_groups_stats <link tbd> DMV.  Por exemplo, a consulta abaixo devolve um valor que pode ser usado para o `REQUEST_MIN_RESOURCE_GRANT_PERCENT` parâmetro para criar um grupo de carga de trabalho semelhante ao staticrc40.
 
 ```sql
 SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant_percent
@@ -38,13 +37,13 @@ SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant
 > [!NOTE]
 > Os grupos de carga de trabalho operam com base na percentagem dos recursos globais do sistema.  
 
-Dado que os grupos de carga de trabalho operam com base na percentagem dos recursos globais do sistema, à medida que se escala para cima e para baixo, a percentagem de recursos atribuídos a classes de recursos estáticos em relação às alterações globais dos recursos do sistema.  Por exemplo, a estática rc40 em DW1000c atribui 19,2% dos recursos globais do sistema.  Em DW2000c, 9,6% são atribuídos.  Este modelo é semelhante se pretender aumentar para a moeda contra a atribuição de mais recursos por pedido.
+Como os grupos de carga de trabalho operam com base na percentagem dos recursos globais do sistema, à medida que se escala e desce, a percentagem de recursos atribuídos a classes de recursos estáticos em relação às alterações globais dos recursos do sistema.  Por exemplo, o staticrc40 no DW1000c atribui 19,2% dos recursos globais do sistema.  No DW2000c, 9,6% são atribuídos.  Este modelo é semelhante se desejar aumentar a sua concordância em vez de atribuir mais recursos por pedido.
 
-## <a name="create-workload-group"></a>Criar grupo de carga de trabalho
+## <a name="create-workload-group"></a>Criar Grupo de Trabalho
 
-Com o `REQUEST_MIN_RESOURCE_GRANT_PERCENT` conhecido, pode utilizar a sintaxe CREATE WORKLOAD GROUP <link> para criar o grupo de carga de trabalho.  Pode especificar opcionalmente um `MIN_PERCENTAGE_RESOURCE` que é maior do que zero para isolar os recursos para o grupo de carga de trabalho.  Além disso, pode especificar opcionalmente `CAP_PERCENTAGE_RESOURCE` menos de 100 para limitar a quantidade de recursos que o grupo de carga de trabalho pode consumir.  
+Com o `REQUEST_MIN_RESOURCE_GRANT_PERCENT` conhecido, pode utilizar a sintaxe do GRUPO DE CARGA DE TRABALHO <link> CREATE para criar o grupo de carga de trabalho.  Pode especificar opcionalmente um `MIN_PERCENTAGE_RESOURCE` que seja maior do que zero para isolar recursos para o grupo de carga de trabalho.  Além disso, pode especificar opcionalmente `CAP_PERCENTAGE_RESOURCE` menos de 100 para limitar a quantidade de recursos que o grupo de carga de trabalho pode consumir.  
 
-O exemplo abaixo define o `MIN_PERCENTAGE_RESOURCE` dededicar 9,6% dos recursos do sistema e garante que uma consulta será capaz de `wgDataLoads` executar todas as vezes.  Adicionalmente, `CAP_PERCENTAGE_RESOURCE` está fixado em 38,4% e limita este grupo de carga de trabalho a quatro pedidos simultâneos.  Ao definir o `QUERY_EXECUTION_TIMEOUT_SEC` parâmetro para 3600, qualquer consulta que se prolonge por mais de 1 hora será automaticamente cancelada.
+O exemplo abaixo define `MIN_PERCENTAGE_RESOURCE` a dedicar 9,6% dos recursos do sistema `wgDataLoads` e garante que uma consulta será capaz de executar todos os tempos.  Adicionalmente, `CAP_PERCENTAGE_RESOURCE` está fixado em 38,4% e limita este grupo de carga de trabalho a quatro pedidos simultâneos.  Ao definir o `QUERY_EXECUTION_TIMEOUT_SEC` parâmetro para 3600, qualquer consulta que se prolongue por mais de 1 hora será automaticamente cancelada.
 
 ```sql
 CREATE WORKLOAD GROUP wgDataLoads WITH  
@@ -56,10 +55,10 @@ CREATE WORKLOAD GROUP wgDataLoads WITH
 
 ## <a name="create-the-classifier"></a>Criar o Classificador
 
-Anteriormente, o mapeamento de consultas às aulas de recursos era feito com [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Para obter a mesma funcionalidade e pedidos de mapas para grupos de carga de trabalho, utilize a sintaxe [CREATE WORKLOAD CLASSIFIER.](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  Usar sp_addrolemember só lhe permitiu mapear recursos para um pedido baseado num login.  Um classificador fornece opções adicionais além do login, tais como:
+Anteriormente, o mapeamento de consultas às aulas de recursos foi feito com [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Para obter a mesma funcionalidade e mapa pedidos para grupos de carga de trabalho, utilize a sintaxe [CREATE WORKLOAD CLASSIFIER.](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  A utilização de sp_addrolemember só lhe permitiu mapear recursos para um pedido com base num login.  Um classificador oferece opções adicionais para além do login, tais como:
     - etiqueta
     - sessão
-    - tempo O exemplo abaixo atribui consultas do login que também têm o RÓTULO DE `AdfLogin` [OPÇÃO](sql-data-warehouse-develop-label.md) definido para o grupo de carga de `factloads` trabalho acima `wgDataLoads` criado.
+    - tempo O exemplo abaixo atribui consultas do `AdfLogin` login que também têm o RÓTULO DE [OPPÇÃO](sql-data-warehouse-develop-label.md) definido `factloads` para o grupo de carga de trabalho acima `wgDataLoads` criado.
 
 ```sql
 CREATE WORKLOAD CLASSIFIER wcDataLoads WITH  
@@ -86,9 +85,9 @@ SELECT request_id, [label], classifier_name, group_name, command
   ORDER BY submit_time DESC
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Isolamento da carga de trabalho](sql-data-warehouse-workload-isolation.md)
-- [Como criar um grupo de carga de trabalho](quickstart-configure-workload-isolation-tsql.md)
-- [CRIAR A CLASSIFIER DE CARGA DE TRABALHO (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?&view=azure-sqldw-latest)
-- [CREATE WORKLOAD GROUP (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
+- [Como criar um grupo de trabalho](quickstart-configure-workload-isolation-tsql.md)
+- [CRIAR CLASSIFICAÇÃO DE CARGA DE TRABALHO (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?&view=azure-sqldw-latest)
+- [CRIAR GRUPO DE CARGA DE TRABALHO (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)

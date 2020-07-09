@@ -1,6 +1,6 @@
 ---
-title: Problemas de resolução de problemas Azure IoT Hub erro 403004 DispositivoMaximumQueueDepthExceeded
-description: Entenda como corrigir o erro 403004 DispositivoMaximumQueueDepthExceeded
+title: Resolução de problemas Erro do Hub Azure IoT 403004 DispositivoMaximumQueueDepthExceed
+description: Entenda como corrigir erro 403004 DispositivoMaximumQueueDepthEded
 author: jlian
 manager: briz
 ms.service: iot-hub
@@ -12,30 +12,29 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 5cc8bae0f0245f5c4b45ca0cd446582b04788c21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758765"
 ---
 # <a name="403004-devicemaximumqueuedepthexceeded"></a>403004 DeviceMaximumQueueDepthExceeded
 
-Este artigo descreve as causas e soluções para **erros 403004 DispositivoMaximumDepthDepthDepthExceeded.**
+Este artigo descreve as causas e soluções para **403004 DeviceMaximumQueueDepthExceeded.**
 
 ## <a name="symptoms"></a>Sintomas
 
-Ao tentar enviar uma mensagem cloud-to-device, o pedido falha com o erro **403004** ou **dispositivoMaximumDepthDepthExceeded**.
+Ao tentar enviar uma mensagem nuvem-para-dispositivo, o pedido falha com o erro **403004** ou **o DeviceMaximumQueueDepthExceed .**
 
 ## <a name="cause"></a>Causa
 
-A causa subjacente é que o número de mensagens enquecidas para o dispositivo excede o limite de [fila (50)](./iot-hub-devguide-quotas-throttling.md#other-limits).
+A causa subjacente é que o número de mensagens encadeadas para o dispositivo excede o limite de [fila (50)](./iot-hub-devguide-quotas-throttling.md#other-limits).
 
-A razão mais provável para estar a escorrer para este limite é porque está `ReceiveAsync`a usar https para receber a mensagem, o que leva a uma votação contínua usando , resultando em IoT Hub a estrangular o pedido.
+A razão mais provável para estar a entrar neste limite é porque está a usar https para receber a mensagem, o que leva a uma votação contínua utilizando `ReceiveAsync` , resultando em estrangulamento do IoT Hub.
 
 ## <a name="solution"></a>Solução
 
-O padrão suportado para mensagens cloud-to-device com HTTPS é intermitentemente conectado dispositivos que verificam mensagens com pouca frequência (menos de 25 minutos). Para reduzir a probabilidade de correr para o limite de fila, mude para AMQP ou MQTT para mensagens cloud-to-device.
+O padrão suportado para mensagens nuvem-a-dispositivo com HTTPS é dispositivos intermitentemente ligados que verificam mensagens com pouca frequência (menos de 25 em 25 minutos). Para reduzir a probabilidade de correr para o limite da fila, mude para AMQP ou MQTT para mensagens nuvem-dispositivo.
 
-Alternativamente, melhore a lógica lateral do dispositivo para completar, rejeitar ou abandonar rapidamente as mensagens em fila, encurtar o tempo de vida ou considerar enviar menos mensagens. Veja [Vida útil das mensagens C2D](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live).
+Em alternativa, melhore a lógica do lado do dispositivo para completar, rejeitar ou abandonar mensagens em fila rapidamente, encurtar o tempo de vida ou considerar o envio de menos mensagens. Veja [Vida útil das mensagens C2D](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live).
 
-Por último, considere utilizar a [API](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/purgecommandqueue) da Fila de Purga para limpar periodicamente as mensagens pendentes antes de o limite ser atingido.
+Por último, considere utilizar a [API de purga para](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/purgecommandqueue) limpar periodicamente as mensagens pendentes antes de atingir o limite.

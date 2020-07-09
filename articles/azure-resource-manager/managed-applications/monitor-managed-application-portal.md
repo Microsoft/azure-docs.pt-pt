@@ -1,26 +1,25 @@
 ---
-title: Utilize o portal Azure para monitorizar uma aplicação gerida
+title: Use o portal Azure para monitorizar uma aplicação gerida
 description: Mostra como usar o portal Azure para monitorizar a disponibilidade e alertas para uma aplicação gerida.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: afe78dd00ecebdc54b6d73c4c8324729e117d95b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651751"
 ---
-# <a name="monitor-a-deployed-instance-of-a-managed-application"></a>Monitorizar uma instância implementada de uma aplicação gerida
+# <a name="monitor-a-deployed-instance-of-a-managed-application"></a>Monitorize uma instância implantada de uma aplicação gerida
 
-Depois de ter implementado uma aplicação gerida para a sua subscrição Azure, poderá querer verificar o estado da aplicação. Este artigo mostra opções no portal Azure para verificar o estado. Pode monitorizar a disponibilidade dos recursos na sua aplicação gerida. Também pode configurar e ver alertas.
+Depois de ter implementado uma aplicação gerida para a sua subscrição Azure, poderá querer verificar o estado da aplicação. Este artigo mostra opções no portal Azure para verificar o estado. Pode monitorizar a disponibilidade dos recursos na sua aplicação gerida. Também pode configurar e visualizar alertas.
 
 ## <a name="view-resource-health"></a>Ver o estados de funcionamento dos recursos
 
-1. Selecione a sua instância de candidatura gerida.
+1. Selecione a sua instância de aplicação gerida.
 
-   ![Selecione aplicação gerida](./media/monitor-managed-application-portal/select-managed-application.png)
+   ![Selecione a aplicação gerida](./media/monitor-managed-application-portal/select-managed-application.png)
 
 1. Selecione **Saúde de Recursos**.
 
@@ -40,13 +39,13 @@ Depois de ter implementado uma aplicação gerida para a sua subscrição Azure,
 
    ![Ver alertas](./media/monitor-managed-application-portal/view-alerts.png)
 
-1. Para adicionar regras de alerta, **selecione + Nova regra de alerta**.
+1. Para adicionar regras de alerta, selecione **+ Nova regra de alerta**.
 
    ![Criar alerta](./media/monitor-managed-application-portal/create-new-alert.png)
 
-Pode criar alertas para a sua instância de candidatura gerida ou para os recursos na aplicação gerida. Para obter informações sobre a criação de alertas, consulte a [visão geral dos alertas no Microsoft Azure](../../azure-monitor/platform/alerts-overview.md).
+Pode criar alertas para a sua aplicação gerida ou para os recursos na aplicação gerida. Para obter informações sobre a criação de alertas, consulte [a visão geral dos alertas no Microsoft Azure](../../azure-monitor/platform/alerts-overview.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para exemplos de aplicações geridas, consulte [projetos de amostra para aplicações geridas pelo Azure.](sample-projects.md)
-* Para implementar uma aplicação gerida, consulte a aplicação de catálogo de [serviços Deploy através do portal Azure](deploy-service-catalog-quickstart.md).
+* Para exemplos de aplicações geridos, consulte [projetos de amostra para aplicações geridas pela Azure](sample-projects.md).
+* Para implementar uma aplicação gerida, consulte [a aplicação do catálogo de serviços Implementar através do portal Azure.](deploy-service-catalog-quickstart.md)

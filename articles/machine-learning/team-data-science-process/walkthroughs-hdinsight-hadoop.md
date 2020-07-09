@@ -1,6 +1,6 @@
 ---
-title: Analytics on Hadoop Azure HDInsight usando Hive - Team Data Science Process
-description: Exemplos do Processo de Ciência de Dados da Equipa que passam pelo uso da Hive no Hadoop Azure HDInsight para fazer análises preditivas.
+title: Analytics on Azure HDInsight Hadoop usando Hive - Processo de Ciência de Dados de Equipa
+description: Exemplos do Processo de Ciência de Dados de Equipa que percorrem o uso da Colmeia no Azure HDInsight Hadoop para fazer análises preditivas.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,36 +12,35 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: f72ea6ed5f0eec076d181ef56c99c4f1308a7741
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75864167"
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>HDInsight Hadoop data science walkthroughs usando Hive on Azure 
 
-Estes passadiços usam a Hive com um aglomerado de Hadoop HDInsight para fazer análises preditivas. Seguem os passos delineados no Processo de Ciência de Dados da Equipa. Para uma visão geral do Processo de Ciência de Dados da Equipa, consulte o [Processo de Ciência](overview.md)de Dados . Para uma introdução ao Azure HDInsight, consulte [Introdução ao Azure HDInsight, à pilha de tecnologia Hadoop e aos clusters Hadoop.](../../hdinsight/hadoop/apache-hadoop-introduction.md)
+Estes walkthroughs usam a Colmeia com um cluster HDInsight Hadoop para fazer análises preditivas. Seguem os passos delineados no Processo de Ciência de Dados da Equipa. Para uma visão geral do processo de ciência de dados da equipa, consulte o [Processo de Ciência de Dados.](overview.md) Para uma introdução ao Azure HDInsight, consulte [Introdução ao Azure HDInsight, a pilha de tecnologia Hadoop e clusters Hadoop](../../hdinsight/hadoop/apache-hadoop-introduction.md).
 
-Os walkthroughs adicionais de ciência de dados que executam o Processo de Ciência de Dados da Equipa são agrupados pela **plataforma** que utilizam. Consulte [walkthroughs executando o Processo](walkthroughs.md) de Ciência de Dados da Equipa para uma itemização destes exemplos.
+As análises adicionais da ciência dos dados que executam o Processo de Ciência de Dados de Equipa são agrupadas pela **plataforma** que utilizam. Consulte [Walkthroughs executando o Processo de Ciência de Dados de Equipa](walkthroughs.md) para uma itemização destes exemplos.
 
 
-## <a name="predict-taxi-tips-using-hive-with-hdinsight-hadoop"></a>Prever dicas de táxi usando hive com Hadoop HDInsight
+## <a name="predict-taxi-tips-using-hive-with-hdinsight-hadoop"></a>Prever dicas de táxi usando Hive com HDInsight Hadoop
 
-Os [clusters de Hadoop Use HDInsight](hive-walkthrough.md) usam dados de táxis de Nova Iorque para prever: 
+Os [clusters Use HDInsight Hadoop](hive-walkthrough.md) utilizam dados de táxis de Nova Iorque para prever: 
 
 - Se uma gorjeta é paga 
-- A distribuição dos valores das gorjetas
+- A distribuição de montantes de gorjeta
 
-O cenário é implementado usando a Hive com um [cluster hadoop Azure HDInsight](https://azure.microsoft.com/services/hdinsight/). Você aprende a armazenar, explorar e recursos dados de engenheiro sacar dados de uma viagem de táxi e datação de tarifas de NYC publicamente disponíveis. Também utiliza o Azure Machine Learning para construir e implementar os modelos.
+O cenário é implementado usando a Colmeia com um [cluster Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/). Você aprende a armazenar, explorar e apresentar dados de engenheiros de uma viagem de táxi e dataset de tarifas de NYC publicamente disponíveis. Também utiliza a Azure Machine Learning para construir e implementar os modelos.
 
-## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>Prever cliques de publicidade usando hive com Hadoop HDInsight
+## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>Prever cliques de anúncio usando Hive com HDInsight Hadoop
 
-Os [Clusters hadoop Do Uso Azure HDInsight num](hive-criteo-walkthrough.md) conjunto de dados de 1 TB utilizam um conjunto de dados de clique supérbio disponível publicamente para prever se uma gorjeta é paga e os valores esperados. [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) O cenário é implementado usando a Hive com um [cluster Hadoop Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar, engenheiro de recursos e dados de amostras. Utiliza o Azure Machine Learning para construir, treinar e marcar um modelo de classificação binário que prevê se um utilizador clica num anúncio. O walkthrough conclui mostrando como publicar um destes modelos como um serviço Web.
+O [Use Azure HDInsight Hadoop Clusters em um walkthrough de conjunto de dados de 1-TB](hive-criteo-walkthrough.md) utiliza um conjunto de dados de clique [criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) disponível publicamente para prever se uma gorjeta é paga e os valores esperados. O cenário é implementado usando a Hive com um [cluster Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar, criar engenheiro e diminuir os dados da amostra. Utiliza a Azure Machine Learning para construir, treinar e marcar um modelo de classificação binária prevendo se um utilizador clica num anúncio. O walkthrough conclui mostrando como publicar um destes modelos como um serviço Web.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para uma discussão sobre os componentes-chave que compõem o Processo de Ciência de Dados da Equipa, consulte a visão geral do Processo de Ciência de Dados da [Equipa.](overview.md)
+Para uma discussão dos componentes-chave que compõem o Processo de Ciência de Dados de Equipa, consulte [a visão geral do Processo de Ciência de Dados da Equipa.](overview.md)
 
-Para uma discussão sobre o ciclo de vida do Processo de Ciência de Dados da Equipa que pode usar para estruturar os seus projetos de ciência de dados, consulte o ciclo de vida do Processo de Ciência de [Dados da Equipa.](lifecycle.md) O ciclo de vida traça os passos, do início ao fim, que os projetos geralmente seguem quando são executados. 
+Para uma discussão sobre o ciclo de vida do Processo de Ciência de Dados de Equipa que pode utilizar para estruturar os seus projetos de ciência de dados, consulte [o ciclo de vida do Processo de Ciência de Dados de Equipa.](lifecycle.md) O ciclo de vida descreve os passos, do início ao fim, que os projetos geralmente seguem quando são executados. 
 

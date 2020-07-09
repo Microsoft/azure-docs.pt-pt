@@ -13,12 +13,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: f29a20ddeb93ec3d4aa98bbcb36f50456b543667
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a002479375d835f7fafe031517e5b2fe61b77b5b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81452575"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608694"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Descrição geral do Agente da Máquina Virtual do Azure
 O Agente da Máquina Virtual do Microsoft Azure (Agente da VM) é um processo leve e seguro que gere a interação da máquina virtual (VM) com o Controlador de Recursos de Infraestrutura do Microsoft Azure. O Agente da VM tem uma função primária na ativação e na execução de extensões de máquina virtual do Azure. As extensões de VM permitem a configuração pós-implementação da VM, por exemplo, instalar e configurar o software. As extensões de VM também permitem funcionalidades de recuperação, como a reposição da palavra-passe administrativa de uma VM. Sem o Agente da VM do Azure, as extensões de VM não podem ser executadas.
@@ -58,7 +57,7 @@ Para iniciar uma VM, deve ter o PA instalado na VM. No entanto, o WinGA não pre
 Se não tiver os Agentes instalados, não poderá utilizar alguns serviços do Azure, como o Azure Backup ou o Azure Security. Estes serviços precisam de uma extensão para serem instalados. Se tiver implementado uma VM sem o WinGA, poderá instalar a versão mais recente do agente posteriormente.
 
 ### <a name="manual-installation"></a>Instalação manual
-O agente da VM do Windows pode ser instalado manualmente com um pacote do Windows Installer. Pode ser necessária a instalação manual quando cria uma imagem da VM personalizada que é implementada no Azure. Para instalar manualmente o Agente da VM do Windows, [transfira o programa de instalação do Agente da VM](https://go.microsoft.com/fwlink/?LinkID=394789). O Agente da VM é suportado no Windows Server 2008 R2 e posterior.
+O agente da VM do Windows pode ser instalado manualmente com um pacote do Windows Installer. Pode ser necessária a instalação manual quando cria uma imagem da VM personalizada que é implementada no Azure. Para instalar manualmente o Agente da VM do Windows, [transfira o programa de instalação do Agente da VM](https://go.microsoft.com/fwlink/?LinkID=394789). O Agente VM é suportado no Windows Server 2008 (64 bit) e mais tarde.
 
 > [!NOTE]
 > É importante atualizar a opção AllowExtensionOperations após a instalação manual do VMAgent numa VM que foi implementada a partir da imagem sem ativar o ProvisionVMAgent.
@@ -69,7 +68,7 @@ $vm | Update-AzVM
 ```
 
 ### <a name="prerequisites"></a>Pré-requisitos
-- O Agente da VM do Windows precisa, pelo menos, do Windows Server 2008 R2 (64 bits) para ser executado, com o .Net Framework 4.0. Veja [Suporte de versão mínima para agentes de máquina virtual no Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
+- O Agente VM do Windows precisa de pelo menos o Windows Server 2008 (64-bit) para ser executado, com o .Net Framework 4.0. Veja [Suporte de versão mínima para agentes de máquina virtual no Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
 
 - Confirme que a VM tem acesso ao endereço IP 168.63.129.16. Para obter mais informações, veja [O que é o endereço IP 168.63.129.16?](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)
 

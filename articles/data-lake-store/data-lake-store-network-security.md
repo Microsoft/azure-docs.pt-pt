@@ -1,6 +1,6 @@
 ---
 title: Segurança de rede no Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Compreenda como funciona a integração virtual da rede em Azure Data Lake Storage Gen1
+description: Entenda como a integração de rede virtual funciona no Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -8,21 +8,21 @@ manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 7d6c826df2a509ffb378809e3682073bd5ab1301
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9066c53fce750b1c8402c5a0ccbd10debd5ec431
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60612574"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855718"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integração de rede virtual para Azure Data Lake Storage Gen1
 
-Este artigo introduz a integração de rede virtual para o Azure Data Lake Storage Gen1. Com a integração da rede virtual, pode configurar as suas contas para que aceitem o tráfego apenas de redes virtuais e sub-redes específicas. 
+Este artigo introduz integração de rede virtual para a Azure Data Lake Storage Gen1. Com a integração da rede virtual, pode configurar as suas contas para que aceitem o tráfego apenas de redes virtuais e sub-redes específicas. 
 
 Esta funcionalidade ajuda a proteger a sua conta do Data Lake Storage de ameaças externas.
 
@@ -46,17 +46,17 @@ Uma das principais vantagens dos pontos finais de serviço de rede virtual é o 
 
 **Endereço IP público do Data Lake Storage** – utilize o endereço IP público das suas contas do Data Lake Storage Gen1. Para identificar os endereços IP das contas do Data Lake Storage Gen1, [resolva os nomes DNS](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-connectivity-from-vnets#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) das suas contas. Crie uma entrada separada para cada endereço.
 
-    ```azurecli
-    # Create a route table for your resource group.
-    az network route-table create --resource-group $RgName --name $RouteTableName
-    
-    # Create route table rules for Data Lake Storage public IP addresses.
-    # There's one rule per Data Lake Storage public IP address. 
-    az network route-table route create --name toADLSregion1 --resource-group $RgName --route-table-name $RouteTableName --address-prefix <ADLS Public IP Address> --next-hop-type Internet
-    
-    # Update the virtual network, and apply the newly created route table to it.
-    az network vnet subnet update --vnet-name $VnetName --name $SubnetName --resource-group $RgName --route-table $RouteTableName
-    ```
+```azurecli
+# Create a route table for your resource group.
+az network route-table create --resource-group $RgName --name $RouteTableName
+
+# Create route table rules for Data Lake Storage public IP addresses.
+# There's one rule per Data Lake Storage public IP address. 
+az network route-table route create --name toADLSregion1 --resource-group $RgName --route-table-name $RouteTableName --address-prefix <ADLS Public IP Address> --next-hop-type Internet
+
+# Update the virtual network, and apply the newly created route table to it.
+az network vnet subnet update --vnet-name $VnetName --name $SubnetName --resource-group $RgName --route-table $RouteTableName
+```
 
 ## <a name="data-exfiltration-from-the-customer-virtual-network"></a>Exfiltração de dados da rede virtual do cliente
 
@@ -73,11 +73,11 @@ Algumas opções disponíveis são:
 
 ## <a name="limitations"></a>Limitações
 
-- Os clusters HDInsight que foram criados antes de data Lake Storage Gen1 suporte de integração virtual de rede deve ser recriado para suportar esta nova funcionalidade.
+- Os clusters HDInsight que foram criados antes do suporte de integração da rede virtual Desinsight Gen1 foi disponibilizado deve ser recriado para suportar esta nova funcionalidade.
  
-- Quando cria um cluster do HDInsight novo e seleciona uma conta do Data Lake Storage Gen1 com a integração de rede virtual ativada, o processo falha. Primeiro, desative a regra de rede virtual. No painel **Firewall and virtual networks** (Firewall e redes virtuais) da conta do Data Lake Storage, selecione **Allow access from all networks and services** (Permitir acesso a partir de todas as redes e serviços). Em seguida, crie o cluster HDInsight antes de finalmente reativar a regra da rede virtual ou desseleccionar **Permitir o acesso de todas as redes e serviços**. Para obter mais informações, veja a secção [Exceções](#exceptions).
+- Quando cria um cluster do HDInsight novo e seleciona uma conta do Data Lake Storage Gen1 com a integração de rede virtual ativada, o processo falha. Primeiro, desative a regra de rede virtual. No painel **Firewall and virtual networks** (Firewall e redes virtuais) da conta do Data Lake Storage, selecione **Allow access from all networks and services** (Permitir acesso a partir de todas as redes e serviços). Em seguida, crie o cluster HDInsight antes de, finalmente, voltar a permitir a regra da rede virtual ou desescodionar **Permitir o acesso de todas as redes e serviços**. Para obter mais informações, veja a secção [Exceções](#exceptions).
 
-- Data Lake Storage Gen1 integração virtual de rede não funciona com [identidades geridas para recursos Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+- A integração virtual da rede de armazenamento de dados Gen1 não funciona com [identidades geridas para recursos Azure.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
   
 - Os dados de ficheiros e pastas na conta do Data Lake Storage Gen1 com a rede virtual ativada não estão acessíveis a partir do portal. Esta restrição inclui acesso a partir de uma VM que esteja dentro da rede virtual, bem como atividades como a utilização do Data Explorer. As atividades de gestão da conta continuam a funcionar. Os dados de ficheiros e pastas na conta do Data Lake Storage com a rede virtual ativada estão acessíveis a partir de todos os recursos externos ao portal. Esses recursos incluem acesso de SDK, scripts do PowerShell e outros serviços do Azure quando não tenham origem no portal. 
 

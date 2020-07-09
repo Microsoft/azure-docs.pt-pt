@@ -1,78 +1,81 @@
 ---
 title: Controlos de subvenções na política de acesso condicional - Diretório Ativo Azure
-description: O que são controlos de subvenções numa política de acesso condicional da AD Azure
+description: O que são controlos de concessão numa política de acesso condicional AD Azure
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01c625bebbcd2e619a8125fdfb92673cd02966b2
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: d1d30a32a58dd2385a214d813307c645c56afdc8
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583209"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024466"
 ---
-# <a name="conditional-access-grant"></a>Acesso Condicional: Subvenção
+# <a name="conditional-access-grant"></a>Acesso Condicional: Concessão
 
-No âmbito de uma política de Acesso Condicional, um administrador pode utilizar os controlos de acesso para conceder ou bloquear o acesso aos recursos.
+Dentro de uma política de Acesso Condicional, um administrador pode recorrer aos controlos de acesso para conceder ou bloquear o acesso aos recursos.
 
-![Política de Acesso Condicional com controlo de subvenções que requer a autenticação de vários fatores](./media/concept-conditional-access-grant/conditional-access-grant.png)
+![Política de acesso condicional com controlo de subvenções que requer autenticação de vários fatores](./media/concept-conditional-access-grant/conditional-access-grant.png)
 
 ## <a name="block-access"></a>Bloquear o acesso
 
 O Bloco tem em conta quaisquer atribuições e impede o acesso com base na configuração da política de Acesso Condicional.
 
-O bloco é um controlo poderoso que deve ser controlado com conhecimento apropriado. É algo que os administradores devem utilizar o [modo apenas para](concept-conditional-access-report-only.md) testar antes de ativar.
+O bloco é um controlo poderoso que deve ser exercido com conhecimentos apropriados. As políticas com declarações de blocos podem ter efeitos colaterais não intencionais. Os testes e validações adequados são vitais antes de permitir em escala. Os administradores devem utilizar ferramentas como [o modo de relatório de acesso condicional](concept-conditional-access-report-only.md) e a ferramenta What If in [Conditional Access](what-if-tool.md) ao eseme fazer alterações.
 
 ## <a name="grant-access"></a>Conceder acesso
 
-Os administradores podem optar por impor um ou mais controlos ao conceder acesso. Estes controlos incluem as seguintes opções: 
+Os administradores podem optar por impor um ou mais controlos ao conceder o acesso. Estes controlos incluem as seguintes opções: 
 
-- [Exigir autenticação multi-factor (autenticação azure multi-factor)](../authentication/concept-mfa-howitworks.md)
+- [Requerem autenticação multi-factor (Autenticação multi-factor Azure)](../authentication/concept-mfa-howitworks.md)
 - [Exigir que o dispositivo seja marcado como conforme (Microsoft Intune)](/intune/protect/device-compliance-get-started)
-- [Requerer dispositivo híbrido Azure AD](../devices/concept-azure-ad-join-hybrid.md)
-- [Exigir aplicação de cliente aprovada](app-based-conditional-access.md)
+- [Requerem o dispositivo híbrido Azure AD](../devices/concept-azure-ad-join-hybrid.md)
+- [Requera uma aplicação de cliente aprovada](app-based-conditional-access.md)
 - [Pedir uma política de proteção de aplicações](app-protection-based-conditional-access.md)
+- [Requerem alteração da palavra-passe](#require-password-change)
 
-Quando os administradores optarem por combinar estas opções, podem escolher os seguintes métodos:
+Quando os administradores optam por combinar estas opções, podem escolher os seguintes métodos:
 
-- Exigir todos os comandos selecionados (controlo **e** controlo)
-- Exigir um dos comandos selecionados (controlo **OU** controlo)
+- Exigir todos os controlos selecionados (controlo **E** controlo)
+- Exigir um dos controlos selecionados (controlo **DE CONTROLO)**
 
 Por predefinição, o Acesso Condicional requer todos os controlos selecionados.
 
-### <a name="require-multi-factor-authentication"></a>Exigir autenticação de vários fatores
+### <a name="require-multi-factor-authentication"></a>Requerem autenticação de vários fatores
 
-A seleção desta caixa de verificação exigirá que os utilizadores realizem a autenticação de vários fatores Do Azure. Mais informações sobre a implementação da autenticação de multi-factores azure podem ser encontradas no artigo [Planejando uma implementação de autenticação azure multi-factor baseada na nuvem.](../authentication/howto-mfa-getstarted.md)
+A seleção desta caixa de verificação exigirá que os utilizadores realizem a autenticação multi-factor Azure. Mais informações sobre a implementação da autenticação multi-factor Azure podem ser encontradas no artigo [Planejando uma implementação de autenticação multi-factor Azure baseada na nuvem](../authentication/howto-mfa-getstarted.md).
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>Exigir que o dispositivo seja marcado como conforme
 
-As organizações que implementaram o Microsoft Intune podem utilizar as informações devolvidas dos seus dispositivos para identificar dispositivos que satisfaçam os requisitos específicos de conformidade. Esta informação de conformidade política é transmitida de Intune para AD Azure, onde o Acesso Condicional pode tomar decisões para conceder ou bloquear o acesso aos recursos. Para obter mais informações sobre as políticas de conformidade, consulte o artigo [Definir regras sobre dispositivos para permitir o acesso aos recursos na sua organização usando o Intune](/intune/protect/device-compliance-get-started).
+As organizações que implementaram o Microsoft Intune podem utilizar as informações devolvidas dos seus dispositivos para identificar dispositivos que satisfaçam requisitos específicos de conformidade. Esta informação de conformidade de política é reencaminhada de Intune para Azure AD onde o Acesso Condicional pode tomar decisões para conceder ou bloquear o acesso aos recursos. Para obter mais informações sobre as políticas de conformidade, consulte o artigo [Definir regras sobre dispositivos para permitir o acesso aos recursos na sua organização utilizando o Intune.](/intune/protect/device-compliance-get-started)
 
-Um dispositivo pode ser marcado como conforme por Intune (para qualquer dispositivo OS) ou por um sistema DEM de terceiros para dispositivos Windows 10. O Jamf Pro é o único sistema MDM suportado por terceiros. Mais informações sobre integração podem ser encontradas no artigo, [Integrao Jamf Pro com Intune para o cumprimento.](/intune/protect/conditional-access-integrate-jamf)
+Um dispositivo pode ser marcado como conforme pelo Intune (para qualquer dispositivo OS) ou por um sistema MDM de terceiros para dispositivos Windows 10. Jamf pro é o único sistema de MDM suportado por terceiros. Mais informações sobre a integração podem ser encontradas no artigo, Integre o [Jamf Pro com o Intune para o cumprimento.](/intune/protect/conditional-access-integrate-jamf)
 
-Os dispositivos devem ser registados em Azure AD antes de poderem ser marcados como conformes. Mais informações sobre o registo do dispositivo podem ser encontradas no artigo, O que é uma identidade do [dispositivo.](../devices/overview.md)
+Os dispositivos devem ser registados em Azure AD antes de poderem ser marcados como conformes. Mais informações sobre o registo do dispositivo podem ser encontradas no artigo, [O que é uma identidade do dispositivo.](../devices/overview.md)
 
-### <a name="require-hybrid-azure-ad-joined-device"></a>Requerer dispositivo híbrido Azure AD
+### <a name="require-hybrid-azure-ad-joined-device"></a>Requerem o dispositivo híbrido Azure AD
 
-As organizações podem optar por utilizar a identidade do dispositivo como parte da sua política de Acesso Condicional. As organizações podem exigir que os dispositivos sejam híbridos Azure AD unidos usando esta caixa de verificação. Para obter mais informações sobre identidades do dispositivo, consulte o artigo O que é uma identidade de [dispositivo?](../devices/overview.md)
+As organizações podem optar por usar a identidade do dispositivo como parte da sua política de Acesso Condicional. As organizações podem exigir que os dispositivos sejam híbridos Azure AD unidos através desta caixa de verificação. Para obter mais informações sobre identidades do dispositivo, veja o artigo [O que é uma identidade do dispositivo?](../devices/overview.md)
 
-### <a name="require-approved-client-app"></a>Exigir aplicação de cliente aprovada
+Ao utilizar o [fluxo OAuth do código do dispositivo,](../develop/v2-oauth2-device-code.md)o controlo de concessão do dispositivo gerido requerido ou a condição do estado do dispositivo não é suportado. Isto porque o dispositivo que executa a autenticação não pode fornecer o estado do seu dispositivo ao dispositivo que fornece um código e o estado do dispositivo no token está bloqueado ao dispositivo que executa a autenticação. Utilize o controlo de concessão de autenticação multi-factor requerendo.
 
-As organizações podem exigir que uma tentativa de acesso às aplicações de nuvem selecionadas seja feita a partir de uma aplicação de cliente aprovada. Estas aplicações de clientes aprovadas suportam políticas de proteção de [aplicações Intune](/intune/app-protection-policy) independentes de qualquer solução de gestão de dispositivos móveis (MDM).
+### <a name="require-approved-client-app"></a>Requera uma aplicação de cliente aprovada
 
-Para alavancar este controlo de subvenções, o Acesso Condicional exige que o dispositivo seja registado no Diretório Ativo do Azure, que requer a utilização de uma aplicação de corretor. A aplicação de mediador pode ser o Microsoft Authenticator para iOS ou o Portal da Empresa da Microsoft para dispositivos Android. Se uma aplicação de corretor não for instalada no dispositivo quando o utilizador tenta autenticar, o utilizador é redirecionado para a loja de aplicações para instalar a aplicação de corretagem.
+As organizações podem exigir que uma tentativa de acesso às aplicações de nuvem selecionadas tenha de ser feita a partir de uma aplicação de cliente aprovada. Estas aplicações de clientes aprovadas suportam políticas de proteção de [aplicações Intune](/intune/app-protection-policy) independentes de qualquer solução de gestão de dispositivos móveis (MDM).
+
+Para alavancar este controlo de subvenção, o Conditional Access exige que o dispositivo seja registado no Azure Ative Directory, o que requer a utilização de uma aplicação de corretor. A aplicação de mediador pode ser o Microsoft Authenticator para iOS ou o Portal da Empresa da Microsoft para dispositivos Android. Se uma aplicação de corretor não for instalada no dispositivo quando o utilizador tentar autenticar, o utilizador é redirecionado para a loja de aplicações para instalar a aplicação do corretor.
 
 Esta definição aplica-se às seguintes aplicações iOS e Android:
 
-- Proteção de Informação do Microsoft Azure
-- Reservas da Microsoft
+- Microsoft Azure Information Protection
+- Reservas microsoft
 - Microsoft Cortana
 - Microsoft Dynamics 365
 - Microsoft Edge
@@ -81,12 +84,12 @@ Esta definição aplica-se às seguintes aplicações iOS e Android:
 - Browser Gerido do Microsoft Intune
 - Faturação da Microsoft
 - Microsoft Kaizala
-- Lançador microsoft
+- Microsoft Launcher
 - Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
-- Planejador da Microsoft
+- Microsoft Planner
 - Microsoft PowerApps
 - Microsoft Power BI
 - Microsoft PowerPoint
@@ -99,45 +102,60 @@ Esta definição aplica-se às seguintes aplicações iOS e Android:
 - Microsoft Visio
 - Microsoft Word
 - Microsoft Yammer
-- Placa branca da Microsoft
+- Microsoft Whiteboard
 
 **Observações**
 
 - As aplicações de clientes aprovadas suportam a funcionalidade de gestão de aplicações móveis Intune.
-- O requisito da **aplicação de cliente aprovado Requer:**
-   - Apenas suporta o iOS e Android para o estado da plataforma do dispositivo.
-   - É necessária uma aplicação de corretor para registar o dispositivo. No iOS, a aplicação de corretor é o Microsoft Authenticator e no Android, é a aplicação Intune Company Portal.
+- O requisito **da aplicação do cliente aprovado requerido:**
+   - Suporta apenas o iOS e Android para o sistema de plataforma do dispositivo.
+   - É necessária uma aplicação de corretor para registar o dispositivo. No iOS, a aplicação de corretor é Microsoft Authenticator e no Android, é a aplicação Intune Company Portal.
 - O Acesso Condicional não pode considerar o Microsoft Edge no modo InPrivate uma aplicação de cliente aprovada.
 
-Consulte o artigo, [Como: Exigir aplicações de clientes aprovadas para acesso](app-based-conditional-access.md) a aplicações na nuvem com Acesso Condicional para exemplos de configuração.
+Consulte o artigo, [Como: Exigir aplicações de clientes aprovadas para acesso a aplicações na nuvem com Acesso Condicional](app-based-conditional-access.md) para exemplos de configuração.
 
 ### <a name="require-app-protection-policy"></a>Pedir uma política de proteção de aplicações
 
-Na sua política de Acesso Condicional, pode exigir que esteja presente uma política de proteção de [aplicações Intune](/intune/app-protection-policy) na aplicação do cliente antes de o acesso estar disponível para as aplicações na nuvem selecionadas. 
+Na sua política de Acesso Condicional, pode exigir que uma [política de proteção de aplicações Intune](/intune/app-protection-policy) esteja presente na aplicação do cliente antes de o acesso estar disponível para as aplicações de nuvem selecionadas. 
 
-Para alavancar este controlo de subvenções, o Acesso Condicional exige que o dispositivo seja registado no Diretório Ativo do Azure, que requer a utilização de uma aplicação de corretor. A aplicação de mediador pode ser o Microsoft Authenticator para iOS ou o Portal da Empresa da Microsoft para dispositivos Android. Se uma aplicação de corretor não for instalada no dispositivo quando o utilizador tenta autenticar, o utilizador é redirecionado para a loja de aplicações para instalar a aplicação de corretagem.
+Para alavancar este controlo de subvenção, o Conditional Access exige que o dispositivo seja registado no Azure Ative Directory, o que requer a utilização de uma aplicação de corretor. A aplicação de mediador pode ser o Microsoft Authenticator para iOS ou o Portal da Empresa da Microsoft para dispositivos Android. Se uma aplicação de corretor não for instalada no dispositivo quando o utilizador tentar autenticar, o utilizador é redirecionado para a loja de aplicações para instalar a aplicação do corretor.
 
 Esta definição aplica-se às seguintes aplicações de clientes:
 
 - Microsoft Cortana
 - Microsoft OneDrive
 - Microsoft Outlook
-- Planejador da Microsoft
+- Microsoft Planner
 
 **Observações**
 
-- Aplicativos para política de proteção de aplicações suportam a funcionalidade de gestão de aplicações móveis Intune com proteção de políticas.
-- Os requisitos da política de **proteção de aplicações Exigem:**
-    - Apenas suporta o iOS e Android para o estado da plataforma do dispositivo.
-    - É necessária uma aplicação de corretor para registar o dispositivo. No iOS, a aplicação de corretor é o Microsoft Authenticator e no Android, é a aplicação Intune Company Portal.
+- As aplicações para a política de proteção de aplicações suportam a funcionalidade de gestão de aplicações móveis Intune com proteção de políticas.
+- Os requisitos **de política de proteção de aplicações requerem:**
+    - Suporta apenas o iOS e Android para o sistema de plataforma do dispositivo.
+    - É necessária uma aplicação de corretor para registar o dispositivo. No iOS, a aplicação de corretor é Microsoft Authenticator e no Android, é a aplicação Intune Company Portal.
 
-Consulte o artigo, Como: Exigir a política de [proteção de aplicações e uma aplicação de cliente aprovada para acesso](app-protection-based-conditional-access.md) a aplicações na nuvem com Acesso Condicional para exemplos de configuração.
+Consulte o artigo, [Como: Requer a política de proteção de aplicações e uma aplicação de cliente aprovada para acesso a aplicações na nuvem com Acesso Condicional](app-protection-based-conditional-access.md) para exemplos de configuração.
+
+### <a name="require-password-change"></a>Requerem alteração da palavra-passe 
+
+Quando o risco do utilizador é detetado, utilizando as condições de política de risco do utilizador, os administradores podem optar por alterar de forma segura a palavra-passe utilizando a palavra-passe de autosserviço AZure AD. Se o risco do utilizador for detetado, os utilizadores podem efetuar uma palavra-passe de autosserviço reposta para autorreparação, isto irá encerrar o evento de risco do utilizador para evitar ruídos desnecessários para os administradores. 
+
+Quando um utilizador é solicitado a alterar a sua palavra-passe, primeiro será necessário para completar a autenticação de vários fatores. Deverá certificar-se de que todos os seus utilizadores se registaram para autenticação de vários fatores, para que estejam preparados caso o risco seja detetado para a sua conta.  
+
+> [!WARNING]
+> Os utilizadores devem ter-se registado previamente para reiniciar a palavra-passe de autosserviço antes de desencadear a política de risco do utilizador. 
+
+Existe uma restrição de casal quando configura uma política usando o controlo de mudança de senha.  
+
+1. A política deve ser atribuída a "todas as aplicações em nuvem". Isto impede que um intruso utilize uma aplicação diferente para alterar a palavra-passe do utilizador e redefinir o risco de conta, simplesmente assinando numa aplicação diferente. 
+1. A alteração da palavra-passe não pode ser utilizada com outros controlos, como exigir um dispositivo compatível.  
+1. O controlo de alteração de palavra-passe só pode ser utilizado com a condição de atribuição de utilizadores e grupos, a condição de atribuição de aplicações em nuvem (que deve ser definida para todos) e as condições de risco do utilizador. 
 
 ### <a name="terms-of-use"></a>Termos de utilização
 
-Se a sua organização tiver criado termos de utilização, opções adicionais podem ser visíveis sob controlo de subvenções. Estas opções permitem que os administradores exijam o reconhecimento dos termos de utilização como condição de acesso aos recursos protegidos pela política. Mais informações sobre os termos de utilização podem ser encontradas no artigo, [Azure Ative Diretório termos de utilização.](terms-of-use.md)
+Se a sua organização criou termos de utilização, opções adicionais podem ser visíveis sob controlo de subvenção. Estas opções permitem que os administradores exijam o reconhecimento dos termos de utilização como condição de acesso aos recursos protegidos pela política. Mais informações sobre os termos de utilização podem ser encontradas no artigo, [termos de utilização do Azure Ative Directory](terms-of-use.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Acesso Condicional: Controlos de sessão](concept-conditional-access-session.md)
 

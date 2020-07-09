@@ -1,46 +1,46 @@
 ---
-title: Crie um pacote de suporte da série StorSimple 8000
+title: Criar um pacote de suporte da série StorSimple 8000
 description: Aprenda a criar, desencriptar e editar um pacote de suporte para o seu dispositivo da série StorSimple 8000.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 9ca033f6f786c0142261dafa31b93b71a8b3336a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f8f84542cd52d8ad4affd64627637d4e95b1fb10
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76277063"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514043"
 ---
-# <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Crie e gerencie um pacote de suporte para a série StorSimple 8000
+# <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Criar e gerir um pacote de suporte para a série StorSimple 8000
 
 ## <a name="overview"></a>Descrição geral
 
-Um pacote de suporte StorSimple é um mecanismo fácil de usar que recolhe todos os registos relevantes para ajudar o Microsoft Support a resolver problemas com qualquer problema com o dispositivo StorSimple. Os registos recolhidos são encriptados e comprimidos.
+Um pacote de suporte StorSimple é um mecanismo de fácil utilização que recolhe todos os registos relevantes para ajudar o Microsoft Support a resolver problemas em quaisquer problemas do dispositivo StorSimple. Os registos recolhidos são encriptados e comprimidos.
 
-Este tutorial inclui instruções passo a passo para criar e gerir o pacote de suporte para o seu dispositivo da série StorSimple 8000. Se estiver a trabalhar com um StorSimple Virtual Array, vá [gerar um pacote](storsimple-ova-web-ui-admin.md#generate-a-log-package)de log .
+Este tutorial inclui instruções passo a passo para criar e gerir o pacote de suporte para o seu dispositivo da série StorSimple 8000. Se estiver a trabalhar com uma Matriz Virtual StorSimple, vá [gerar um pacote de registos](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
-## <a name="create-a-support-package"></a>Criar um pacote de apoio
+## <a name="create-a-support-package"></a>Criar um pacote de suporte
 
-Em alguns casos, terá de criar manualmente o pacote de suporte através do Windows PowerShell para o StorSimple. Por exemplo:
+Em alguns casos, terá de criar manualmente o pacote de suporte através do Windows PowerShell para storSimple. Por exemplo:
 
 * Se precisar de remover informações sensíveis dos seus ficheiros de registo antes de partilhar com o Microsoft Support.
 * Se tiver dificuldade em carregar o pacote devido a problemas de conectividade.
 
-Pode partilhar o seu pacote de suporte gerado manualmente com o Microsoft Support por e-mail. Execute os seguintes passos para criar um pacote de suporte no Windows PowerShell para o StorSimple.
+Pode partilhar o seu pacote de suporte gerado manualmente com o Microsoft Support por e-mail. Execute os seguintes passos para criar um pacote de suporte no Windows PowerShell para StorSimple.
 
-#### <a name="to-create-a-support-package-in-windows-powershell-for-storsimple"></a>Para criar um pacote de suporte no Windows PowerShell para storSimple
+#### <a name="to-create-a-support-package-in-windows-powershell-for-storsimple"></a>Para criar um pacote de suporte no Windows PowerShell para StorSimple
 
-1. Para iniciar uma sessão do Windows PowerShell como administrador no computador remoto que é utilizado para ligar ao seu dispositivo StorSimple, introduza o seguinte comando:
+1. Para iniciar uma sessão Do Windows PowerShell como administrador no computador remoto utilizado para ligar ao seu dispositivo StorSimple, insira o seguinte comando:
    
     `Start PowerShell`
-2. Na sessão do Windows PowerShell, ligue-se à consola SSAdmin do seu dispositivo:
+2. Na sessão Windows PowerShell, ligue-se à Consola SSAdmin do seu dispositivo:
    
    1. Na linha de comandos, escreva:
      
        `$MS = New-PSSession -ComputerName <IP address for DATA 0> -Credential SSAdmin -ConfigurationName "SSAdminConsole"`
-   2. Na caixa de diálogo que abre, introduza a palavra-passe do administrador do dispositivo. A palavra-passe padrão é _Password1_.
+   2. Na caixa de diálogo que abre, introduza a palavra-passe do administrador do dispositivo. A palavra-passe predefinida é _Palavra-passe1_.
      
       ![Caixa de diálogo credencial PowerShell](./media/storsimple-8000-create-manage-support-package/IC740962.png)
    3. Selecione **OK**.
@@ -49,60 +49,60 @@ Pode partilhar o seu pacote de suporte gerado manualmente com o Microsoft Suppor
       `Enter-PSSession $MS`
 3. Na sessão que abre, insira o comando apropriado.
    
-   * Para partilhas de rede protegidas por palavra-passe, introduza:
+   * Para ações de rede protegidas por palavra-passe, insira:
      
        `Export-HcsSupportPackage -Path <\\IP address\location of the shared folder> -Include Default -Credential domainname\username`
      
-       Será solicitado para uma palavra-passe e uma palavra-passe de encriptação (porque o pacote de suporte está encriptado). Um pacote de suporte é então criado na pasta predefinida (nome do dispositivo anexado com data e hora atuais).
-   * Para ações que não estejam protegidas por `-Credential` palavra-passe, não precisa do parâmetro. Escreva o seguinte:
+       Será solicitado uma palavra-passe e uma palavra-passe de encriptação (porque o pacote de suporte está encriptado). Um pacote de suporte é então criado na pasta predefinida (nome do dispositivo anexado à data e hora atuais).
+   * Para ações que não estão protegidas por palavra-passe, não precisa do `-Credential` parâmetro. Escreva o seguinte:
      
        `Export-HcsSupportPackage`
      
-       O pacote de suporte é criado para ambos os controladores na pasta predefinida. O pacote é um ficheiro encriptado e comprimido que pode ser enviado para o Microsoft Support para resolução de problemas. Para mais informações, consulte [contacte](storsimple-8000-contact-microsoft-support.md)o Suporte da Microsoft .
+       O pacote de suporte é criado para ambos os controladores na pasta predefinidora. O pacote é um ficheiro encriptado e comprimido que pode ser enviado para o Microsoft Support para resolução de problemas. Para obter mais informações, consulte [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
-### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Os parâmetros de cmdlet Export-HcsSupportPackage
+### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Os parâmetros cmdlet Export-HcsSupportPackage
 
 Pode utilizar os seguintes parâmetros com o cmdlet Export-HcsSupportPackage.
 
 | Parâmetro | Obrigatório/Opcional | Descrição |
 | --- | --- | --- |
-| `-Path` |Necessário |Utilize para fornecer a localização da pasta partilhada da rede na qual o pacote de suporte é colocado. |
-| `-EncryptionPassphrase` |Necessário |Utilize para fornecer uma frase-passe para ajudar a encriptar o pacote de suporte. |
-| `-Credential` |Opcional |Utilize para fornecer credenciais de acesso para a pasta partilhada pela rede. |
-| `-Force` |Opcional |Utilize para saltar o passo de confirmação da frase de encriptação. |
-| `-PackageTag` |Opcional |Utilize para especificar um diretório no âmbito do *Caminho* em que o pacote de suporte é colocado. O predefinido é [nome do dispositivo]-[data e hora atual:yyyy-MM-dd-HH-mm-ss]. |
-| `-Scope` |Opcional |Especifique como **Cluster** (predefinido) para criar um pacote de suporte para ambos os controladores. Se pretender criar uma embalagem apenas para o controlador atual, especifique o **Controlador**. |
+| `-Path` |Necessário |Utilize para fornecer a localização da pasta partilhada na rede na qual o pacote de suporte é colocado. |
+| `-EncryptionPassphrase` |Necessário |Utilize para fornecer uma palavra-passe para ajudar a encriptar o pacote de suporte. |
+| `-Credential` |Opcional |Utilize para fornecer credenciais de acesso para a pasta partilhada na rede. |
+| `-Force` |Opcional |Utilize para saltar o passo de confirmação da palavra-passe de encriptação. |
+| `-PackageTag` |Opcional |Utilize para especificar um diretório em *caminho* no qual o pacote de suporte é colocado. O padrão é [nome do dispositivo]-[data e hora corrente:yyyy-MM-dd-HH-mm-ss]. |
+| `-Scope` |Opcional |Especifique como **Cluster** (predefinido) para criar um pacote de suporte para ambos os controladores. Se pretender criar um pacote apenas para o controlador atual, especifique **o Controlador**. |
 
 ## <a name="edit-a-support-package"></a>Editar um pacote de suporte
 
-Depois de ter gerado um pacote de suporte, poderá ser necessário editar o pacote para remover informações sensíveis. Isto pode incluir nomes de volume, endereços IP do dispositivo e nomes de backup dos ficheiros de registo.
+Depois de ter gerado um pacote de suporte, poderá ter de editar a embalagem para remover informações sensíveis. Isto pode incluir nomes de volume, endereços IP do dispositivo e nomes de backup dos ficheiros de registo.
 
 > [!IMPORTANT]
-> Só é possível editar um pacote de suporte que foi gerado através do Windows PowerShell para o StorSimple. Não é possível editar um pacote criado no portal Azure com o serviço StorSimple Device Manager.
+> Só é possível editar um pacote de suporte que foi gerado através do Windows PowerShell para storSimple. Não é possível editar um pacote criado no portal Azure com o serviço StorSimple Device Manager.
 
-Para editar um pacote de suporte antes de o enviar no site do Suporte do Microsoft, primeiro desencriptar o pacote de suporte, editar os ficheiros e, em seguida, reencriptar. Realize os seguintes passos.
+Para editar um pacote de suporte antes de o enviar no site do Microsoft Support, desencriptar primeiro o pacote de suporte, editar os ficheiros e, em seguida, reencrimá-lo novamente. Realize os seguintes passos.
 
-#### <a name="to-edit-a-support-package-in-windows-powershell-for-storsimple"></a>Para editar um pacote de suporte no Windows PowerShell para storSimple
+#### <a name="to-edit-a-support-package-in-windows-powershell-for-storsimple"></a>Para editar um pacote de suporte no Windows PowerShell para StorSimple
 
-1. Gere um pacote de suporte como descrito anteriormente, para criar um pacote de [suporte no Windows PowerShell para storSimple](#to-create-a-support-package-in-windows-powershell-for-storsimple).
+1. Gere um pacote de suporte como descrito anteriormente, em [Criar um pacote de suporte no Windows PowerShell para StorSimple](#to-create-a-support-package-in-windows-powershell-for-storsimple).
 2. [Descarregue o script](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) localmente no seu cliente.
-3. Importar o módulo PowerShell do Windows. Especifique o caminho para a pasta local em que descarregou o script. Para importar o módulo, insira:
+3. Importe o módulo Windows PowerShell. Especifique o caminho para a pasta local na qual descarregou o script. Para importar o módulo, insira:
    
     `Import-module <Path to the folder that contains the Windows PowerShell script>`
-4. Todos os ficheiros são ficheiros *.aes* que são comprimidos e encriptados. Para descomprimir e desencriptar ficheiros, introduza:
+4. Todos os ficheiros são *ficheiros .aes* que são comprimidos e encriptados. Para descomprimir e desencriptar ficheiros, insira:
    
     `Open-HcsSupportPackage <Path to the folder that contains support package files>`
    
-    Note que as extensões de ficheiros reais estão agora apresentadas para todos os ficheiros.
+    Note que as extensões de ficheiros reais são agora apresentadas para todos os ficheiros.
    
     ![Editar pacote de suporte](./media/storsimple-8000-create-manage-support-package/IC750706.png)
-5. Quando for solicitado para a frase-passe de encriptação, introduza a frase-passe que usou quando o pacote de suporte foi criado.
+5. Quando for solicitado para a palavra-passe de encriptação, introduza a frase de passe que usou quando o pacote de suporte foi criado.
    
         cmdlet Open-HcsSupportPackage at command pipeline position 1
    
         Supply values for the following parameters:EncryptionPassphrase: ****
-6. Navegue na pasta que contém os ficheiros de registo. Como os ficheiros de registo estão agora descomprimidos e desencriptados, estes terão extensões de ficheiros originais. Modifique estes ficheiros para remover quaisquer informações específicas do cliente, tais como nomes de volume e endereços IP do dispositivo, e guarde os ficheiros.
-7. Feche os ficheiros para os comprimir com gzip e encripte-os com AES-256. Isto é para rapidez e segurança na transferência do pacote de suporte para uma rede. Para comprimir e encriptar ficheiros, introduza o seguinte:
+6. Navegue na pasta que contém os ficheiros de registo. Como os ficheiros de registo estão agora descomprimidos e desencriptados, estes terão extensões de ficheiros originais. Modifique estes ficheiros para remover qualquer informação específica do cliente, como nomes de volume e endereços IP do dispositivo, e guarde os ficheiros.
+7. Feche os ficheiros para comprimi-los com gzip e criptografá-los com AES-256. Isto é para a rapidez e segurança na transferência do pacote de apoio para uma rede. Para comprimir e encriptar ficheiros, introduza o seguinte:
    
     `Close-HcsSupportPackage <Path to the folder that contains support package files>`
    
@@ -111,11 +111,11 @@ Para editar um pacote de suporte antes de o enviar no site do Suporte do Microso
    
         cmdlet Close-HcsSupportPackage at command pipeline position 1
         Supply values for the following parameters:EncryptionPassphrase: ****
-9. Escreva a nova frase de passe, para que possa partilhá-la com o Microsoft Support quando solicitado.
+9. Escreva a nova palavra-passe, para que possa partilhá-la com o Microsoft Support quando solicitado.
 
-### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Exemplo: Editar ficheiros num pacote de suporte numa ação protegida por palavra-passe
+### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Exemplo: Editar ficheiros num pacote de suporte numa partilha protegida por palavra-passe
 
-O exemplo que se segue mostra como desencriptar, editar e encriptar um pacote de suporte.
+O exemplo a seguir mostra como desencriptar, editar e reencrimar um pacote de suporte.
 
         PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
 
@@ -137,9 +137,9 @@ O exemplo que se segue mostra como desencriptar, editar e encriptar um pacote de
 
         PS C:\WINDOWS\system32>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Conheça as [informações recolhidas no pacote de suporte](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
-* Aprenda a utilizar pacotes de [suporte e registos de dispositivos para perturbar a implementação do dispositivo](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
-* Aprenda a [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+* Conheça as [informações recolhidas no pacote De Apoio](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
+* Saiba como [utilizar pacotes de suporte e registos de dispositivos para resolver problemas na implementação do seu dispositivo](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
+* Saiba como [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

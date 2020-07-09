@@ -1,5 +1,5 @@
 ---
-title: 'Azure HDInsight: Amostras de Python'
+title: 'Azure HDInsight: Amostras de python'
 description: Encontre exemplos python no GitHub para tarefas comuns usando o HDInsight SDK para Python.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,23 +7,24 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 11/08/2019
-ms.openlocfilehash: 64e1f172a947cb08795272fe2a022e9d7beac7a6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: 4348eebdeccdd0dfc0a2e4af6ca58b7099d62109
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74215730"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610989"
 ---
-# <a name="azure-hdinsight-python-samples"></a>Azure HDInsight: Amostras de Python
+# <a name="azure-hdinsight-python-samples"></a>Azure HDInsight: Amostras de python
 
 > [!div class="op_single_selector"]
-> * [Exemplos python](hdinsight-sdk-python-samples.md)
+> * [Exemplos de Python](hdinsight-sdk-python-samples.md)
 > * [Exemplos .NET](hdinsight-sdk-dotnet-samples.md)
 > * [Exemplos de Java](hdinsight-sdk-java-samples.md)
 <!-- * [Go Examples](hdinsight-sdk-go-samples.md)-->
 
 > [!Important]
-> Python 2.7 será depreciado no dia 1 de janeiro de 2020. Se ainda estiver a utilizar o Python 2.7, atualize para 3.7 para utilizar o HDInsight Python SDK.  
+> Python 2.7 será depreciado a 1 de janeiro de 2020. Se ainda estiver a utilizar o Python 2.7, atualize para 3.7 para utilizar o HDInsight Python SDK.  
 
 Este artigo fornece:
 
@@ -40,11 +41,11 @@ Este artigo fornece:
 
 * [Criar um cluster do Apache Kafka](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_kafka_cluster_sample.py)
 * [Criar um cluster do Apache Spark](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_spark_cluster_sample.py)
-* [Crie um cluster apache spark com Azure Data Lake Storage Gen2](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_hadoop_cluster_with_adls_gen2_sample.py)
-* [Criar um cluster Apache Spark com pacote de segurança empresarial (ESP)](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_esp_cluster_sample.py)
+* [Criar um cluster Apache Spark com Azure Data Lake Storage Gen2](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_hadoop_cluster_with_adls_gen2_sample.py)
+* [Criar um cluster Apache Spark com Pacote de Segurança Empresarial (ESP)](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_esp_cluster_sample.py)
 
-Você pode obter estas amostras para Python clonando o repositório [gitHub-amostras hdinsight-python-sdk.](https://github.com/Azure-Samples/hdinsight-python-sdk-samples)
+Você pode obter estas amostras para Python clonando o [hdinsight-python-sdk-samples](https://github.com/Azure-Samples/hdinsight-python-sdk-samples) GitHub repositório.
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-Os fragmentos de código para esta funcionalidade SDK adicional podem ser encontrados no [HDInsight SDK para documentação](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python)de referência Python .
+Os snippets de código para esta funcionalidade SDK adicional podem ser encontrados na [documentação de referência hdInsight SDK para a documentação de referência python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python).

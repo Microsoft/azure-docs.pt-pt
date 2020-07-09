@@ -1,23 +1,23 @@
 ---
-title: HTTP para HTTPS redirecionamento usando CLI
+title: HTTP para reorientação HTTPS usando O LÍI
 titleSuffix: Azure Application Gateway
-description: Aprenda a criar um gateway de aplicação e adicione um certificado para a rescisão de TLS utilizando o Azure CLI.
+description: Saiba como criar um gateway de aplicação e adicione um certificado de rescisão de TLS utilizando o Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: 6bf8f3b7bfb446db78f0c97a246977fec6cd54cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19bfaf611093f6ca178a627123d4d0f9c8ccf3ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312147"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84804417"
 ---
-# <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Criar um portal de aplicação com http para https redirection usando o Azure CLI
+# <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Criar um gateway de aplicações com HTTP para https redirecionamento usando o Azure CLI
 
-Pode utilizar o Azure CLI para criar um gateway de [aplicação](overview.md) com um certificado para a rescisão TLS/SSL. Uma regra de encaminhamento é usada para redirecionar o tráfego HTTP para a porta HTTPS no seu gateway de aplicação. Neste exemplo, também cria um conjunto de escala de [máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para o conjunto de backend do gateway de aplicação que contém duas instâncias de máquina virtual.
+Pode utilizar o CLI Azure para criar um [gateway de aplicação](overview.md) com um certificado de rescisão TLS/SSL. Uma regra de encaminhamento é utilizada para redirecionar o tráfego HTTPS para a porta HTTPS no seu gateway de aplicações. Neste exemplo, também cria uma [balança de máquina virtual definida](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para o pool backend do gateway de aplicações que contém duas instâncias de máquina virtual.
 
 Neste artigo, vai aprender a:
 
@@ -25,10 +25,10 @@ Neste artigo, vai aprender a:
 > * Criar um certificado autoassinado
 > * Configurar uma rede
 > * Criar um gateway de aplicação com o certificado
-> * Adicione uma regra de escuta e reorientação
+> * Adicione uma regra de ouvinte e redirecionamento
 > * Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -36,7 +36,7 @@ Se optar por instalar e usar a CLI localmente, este tópico requer a execução 
 
 ## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
 
-Para utilização da produção, deve importar um certificado válido assinado por um fornecedor de confiança. Neste tutorial, vai criar um certificado autoassinado e um ficheiro pfx com o comando openssl.
+Para uso de produção, deve importar um certificado válido assinado por um fornecedor de confiança. Neste tutorial, vai criar um certificado autoassinado e um ficheiro pfx com o comando openssl.
 
 ```console
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
@@ -115,11 +115,11 @@ az network application-gateway create \
 - *appGatewayFrontendIP* - atribui *myAGPublicIPAddress* a *appGatewayHttpListener*.
 - *rule1* - a regra de encaminhamento predefinida associada a *appGatewayHttpListener*.
 
-## <a name="add-a-listener-and-redirection-rule"></a>Adicione uma regra de escuta e reorientação
+## <a name="add-a-listener-and-redirection-rule"></a>Adicione uma regra de ouvinte e redirecionamento
 
 ### <a name="add-the-http-port"></a>Adicione a porta HTTP
 
-Pode utilizar a criação da porta frontal de porta frontal de [gateway de aplicação az](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create) para adicionar a porta HTTP ao gateway de aplicação.
+Pode utilizar [a porta frontal de porta frontend de gateway de aplicações az](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create) para adicionar a porta HTTP ao gateway de aplicações.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -131,7 +131,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-the-http-listener"></a>Adicione o ouvinte HTTP
 
-Pode utilizar o [gateway de aplicação da rede Az para](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create) adicionar o ouvinte chamado *myListener* ao gateway da aplicação.
+Pode utilizar [o http-listener de aplicação da rede Az](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create) para adicionar o ouvinte nomeado *myListener* ao gateway de aplicações.
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -142,9 +142,9 @@ az network application-gateway http-listener create \
   --gateway-name myAppGateway
 ```
 
-### <a name="add-the-redirection-configuration"></a>Adicione a configuração de reorientação
+### <a name="add-the-redirection-configuration"></a>Adicione a configuração de redirecionamento
 
-Adicione a configuração de redirecionamento HTTP ao gateway de aplicação utilizando a criação de [redirecione de gateway de aplicação de rede Az](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
+Adicione a configuração de reorientação HTTPS ao gateway de aplicações utilizando [a az rede de aplicações-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -159,7 +159,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-the-routing-rule"></a>Adicione a regra de encaminhamento
 
-Adicione a regra de encaminhamento denominada *regra 2* com a configuração de redirecionamento ao gateway da aplicação utilizando a regra de [aplicação de aplicação de rede az criar](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
+Adicione a regra de encaminhamento denominada *regra 2* com a configuração de redireccionamento para o gateway de aplicação utilizando [a regra de gateway de aplicação de rede az criar](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -173,7 +173,7 @@ az network application-gateway rule create \
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Criar um conjunto de dimensionamento de máquinas virtuais
 
-Neste exemplo, cria-se um conjunto de escala de máquina virtual chamado *myvmss* que fornece servidores para o backend pool no gateway da aplicação. As máquinas virtuais no conjunto de dimensionamento são associadas a *myBackendSubnet* e *appGatewayBackendPool*. Para criar o conjunto de dimensionamento, pode utilizar [az vmss create](/cli/azure/vmss#az-vmss-create).
+Neste exemplo, cria-se um conjunto de escala de máquina virtual chamado *Myvmss* que fornece servidores para o pool backend no gateway de aplicações. As máquinas virtuais no conjunto de dimensionamento são associadas a *myBackendSubnet* e *appGatewayBackendPool*. Para criar o conjunto de dimensionamento, pode utilizar [az vmss create](/cli/azure/vmss#az-vmss-create).
 
 ```azurecli-interactive
 az vmss create \
@@ -218,7 +218,7 @@ az network public-ip show \
 
 ![Aviso de segurança](./media/redirect-http-to-https-cli/application-gateway-secure.png)
 
-Para aceitar o aviso de segurança se usou um certificado auto-assinado, selecione **Detalhes** **e,** em seguida, vá para a página web . O site NGINX protegido é apresentado como no exemplo seguinte:
+Para aceitar o aviso de segurança se usou um certificado auto-assinado, selecione **Detalhes** e, em seguida, **vá para a página web**. O site NGINX protegido é apresentado como no exemplo seguinte:
 
 ![Testar o URL base no gateway de aplicação](./media/redirect-http-to-https-cli/application-gateway-nginxtest.png)
 
@@ -230,7 +230,7 @@ Neste tutorial, ficou a saber como:
 > * Criar um certificado autoassinado
 > * Configurar uma rede
 > * Criar um gateway de aplicação com o certificado
-> * Adicione uma regra de escuta e reorientação
+> * Adicione uma regra de ouvinte e redirecionamento
 > * Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
 
 

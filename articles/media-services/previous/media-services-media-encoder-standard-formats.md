@@ -1,6 +1,6 @@
 ---
-title: Media Encoder Standard formatos e codecs - Azure
-description: Este artigo fornece uma visão geral dos formatos e códigos Media Encoder Standard.
+title: Media Encoder Formatos e códigos standard - Azure
+description: Este artigo fornece uma visão geral dos formatos e códigos Standard da Media Encoder.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,11 +15,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: e2ccce13e4ef09426d0f3a02dcbce2f330b0ead8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251027"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712297"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Formatos e Codecs do Codificador de Multimédia Standard
 
@@ -29,7 +28,7 @@ ms.locfileid: "79251027"
 
 Este documento contém uma lista dos formatos de ficheiros de importação e exportação mais comuns que pode utilizar com a Media Encoder Standard.
 
-## <a name="input-containerfile-formats"></a>Formatos de recipiente de entrada/ficheiro
+## <a name="input-containerfile-formats"></a>Formatos de recipiente/ficheiro de entrada
 | Formatos de ficheiro (extensões de ficheiro) | Suportado |
 | --- | --- |
 | FLV (com codecs H.264 e AAC) (.flv) |Sim |
@@ -45,21 +44,21 @@ Este documento contém uma lista dos formatos de ficheiros de importação e exp
 | QuickTime (.mov) |Sim |
 
 > [!NOTE]
-> Acima encontra-se uma lista das extensões de ficheiro encontradas mais frequentemente. Media Encoder Standard suporta muitos outros (por exemplo: .m2ts, .mpeg2video, .qt). Se tentar codificar um ficheiro e receber uma mensagem de erro sobre o formato não ser suportado, forneça o seu feedback [aqui](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
+> Acima encontra-se uma lista das extensões de ficheiro encontradas mais frequentemente. Media Encoder Standard suporta muitos outros (por exemplo: .m2ts, .mpeg2video, .qt). Se tentar codificar um ficheiro e receber uma mensagem de erro sobre o formato não estar a ser suportado, forneça [aqui](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/)o seu feedback .
 > 
 > 
 
-### <a name="audio-formats-in-input-containers"></a>Formatos de áudio em recipientes de entrada
-Media Encoder Standard suporta o transporte dos seguintes formatos áudio em recipientes de entrada:
+### <a name="audio-formats-in-input-containers"></a>Formatos áudio em recipientes de entrada
+A Media Encoder Standard suporta o transporte dos seguintes formatos áudio em recipientes de entrada:
 
-* Ficheiros MXF, GXF e QuickTime, que têm faixas áudio com estéreo intercalada ou 5.1 amostras
+* Ficheiros MXF, GXF e QuickTime, que têm faixas áudio com amostras de som intercalada ou 5,1
 
 ou
 
 * ficheiros do MXF, do GXF e do QuickTime onde o áudio é executado como faixas PCM em separado, mas o mapeamento do canal (para estéreo ou 5.1) pode ser reduzido a partir dos metadados de ficheiro
 
-## <a name="input-video-codecs"></a>Input video codecs
-| Input video codecs | Suportado |
+## <a name="input-video-codecs"></a>Inserir códigos de vídeo
+| Inserir códigos de vídeo | Suportado |
 | --- | --- |
 | AVC 8-bits/10-bits, até 4:2:2, incluindo AVCIntra |8 bits 4:2:0 e 4:2:2 |
 | Avid DNxHD (no MXF) |Sim |
@@ -79,9 +78,9 @@ ou
 | Apple ProRes Proxy |Sim |
 | Apple ProRes 4444 |Sim |
 | Apple ProRes 4444 XQ |Sim |
-| HEVC/H.265| Perfis principais e principais 10 (&#42;)<br/>O suporte principal 10 Perfil destina-se a conteúdo de 8bit 4:2:0. |
+| HEVC/H.265| Perfis Principais e Principais 10 (&#42;)<br/>Suporte principal de perfil 10 destina-se ao conteúdo de 8bit 4:2:0. |
 
-## <a name="input-audio-codecs"></a>Codificadores de áudio de entrada
+## <a name="input-audio-codecs"></a>Inserir códigos de áudio
 | Codecs de Entrada de Áudio | Suportado |
 | --- | --- |
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1) |Sim |
@@ -99,11 +98,11 @@ ou
 | Dolby® Digital Plus (E-AC3) |Não |
 
 ## <a name="output-formats-and-codecs"></a>Formatos de saída e codecs
-A tabela que se segue lista os códigos e os formatos de ficheiros que são suportados para exportação.
+A tabela que se segue lista os formatos de códigos e ficheiros suportados para exportação.
 
-| Formato do Ficheiro | Código de Vídeo | Código de Áudio |
+| Formato do Ficheiro | Código de vídeo | Codec áudio |
 | --- | --- | --- |
-| MP4 <br/><br/>(incluindo recipientes MP4 multibitados) |H.264 (Perfis altos, principais e de base) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+| MP4 <br/><br/>(incluindo recipientes MP4 multi-bitrate) |H.264 (Perfis altos, principais e de base) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 | MPEG2-TS |H.264 (Perfis altos, principais e de base) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
@@ -112,8 +111,8 @@ A tabela que se segue lista os códigos e os formatos de ficheiros que são supo
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 [Codificação de conteúdos a pedido com serviços de mídia Azure](media-services-encode-asset.md)
 
-[Como codificar com media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
+[Como codificar com o Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 

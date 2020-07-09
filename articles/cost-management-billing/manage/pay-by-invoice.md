@@ -6,14 +6,14 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 06/23/2020
 ms.author: banders
-ms.openlocfilehash: 12ad1f09c988171b0d6212d79ca61d93acf92d80
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5fb8a9cd5e00bf3a6ebeddaf44a09ac48b94fe7c
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199607"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849076"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Pagamento das suas subscrições do Azure por fatura
 
@@ -42,28 +42,28 @@ Se alternar para o pagamento por fatura, significa que pagará a fatura no prazo
 
 5. Introduza as informações a seguir na caixa **Detalhes** e, em seguida, selecione **Seguinte**.
 
-         New or existing customer:
-         If existing, current payment method:
-         Order ID (requesting for invoice option):
-         Account Admins Live ID (or Org ID) (should be company domain):
-         Commerce Account ID:
-         Company Name (as registered under VAT or Government Website):
-         Company Address (as registered under VAT or Government Website):
-         Company Website:
-         Country:
-         TAX ID/ VAT ID:
-         Company Established on (Year):
-         Any prior business with Microsoft:
-         Contact Name:
-         Contact Phone:
-         Contact Email:
-         Justification on why you prefer Invoice option over credit card:
+     Cliente novo ou atual:<br>
+     Se for atual, o método de pagamento que utiliza:<br>
+     ID da Encomenda (opção para pedir fatura):<br>
+     Live ID (ou ID de Organização) dos Administradores de Conta (deve ser o domínio da empresa):<br>
+     ID de Conta de Comércio:<br>
+     Nome da Empresa (conforme registado junto do Registo Comercial):<br>
+     Morada da Empresa (conforme registado junto do Registo Comercial):<br>
+     Site da Empresa:<br>
+     País:<br>
+     NIF:<br>
+     Empresa Constituída em (Ano):<br>
+     Já fez negócios com a Microsoft anteriormente:<br>
+     Nome do Contacto:<br>
+     Telefone do Contacto:<br>
+     E-mail de Contacto:<br>
+     Motivo pelo qual prefere a opção Fatura em vez de cartão de crédito:<br>
 
-         For cores increase, provide the following additional information:
+     Para aumentar os núcleos, indique as informações adicionais seguintes:<br>
 
-         (Old quota) Existing Cores:
-         (New quota) Requested cores:
-         Specific region & series of Subscription:
+     (Quota antiga) Núcleos Existentes:<br>
+     (Quota nova) Núcleos Pedidos:<br>
+     Região específica e Série da Subscrição:<br>
 
     - O **Nome da empresa** e o **Endereço da empresa** devem corresponder às informações fornecidas por si para a conta do Azure. Para visualizar ou atualizar as informações, veja [Alterar as suas informações de perfil de conta do Azure](change-azure-account-profile.md).
     - Adicione as suas informações de contacto de faturação no portal do Azure antes que o limite de crédito possa ser aprovado. Os detalhes de contacto devem estar relacionados ao departamento de Contas a pagar ou Finanças da empresa. Para atualizar as informações de contacto de faturação, vá para o [Centro de Contas do Azure](https://account.azure.com/Profile).
@@ -113,10 +113,19 @@ Siga os passos abaixo para alternar um perfil de faturação para cheque/transfe
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso ao Contrato de Cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+
+*Por que recebi um pedido de documento legal?*
+
+Ocasionalmente, a Microsoft precisa de documentação legal se as informações que forneceu estiverem incompletas ou não forem verificáveis. Os exemplos podem incluir:
+
+* Diferença de nomes entre o nome da conta e o nome da empresa
+* Alteração de nome
+
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
 Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Se necessário, atualize as suas informações de contacto de faturação no [Centro de Contas do Azure](https://account.azure.com/Profile).
+* Se necessário, atualize as suas informações de contacto de faturação no [Centro de Contas do Azure](https://account.azure.com/Profile).

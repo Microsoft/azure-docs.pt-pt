@@ -1,6 +1,6 @@
 ---
-title: ASIN em língua de consulta de Azure Cosmos DB
-description: Saiba como o sistema SQL (Arcsine (ASIN) em Azure Cosmos DB devolve o ângulo, em radianos, cujo seno é a expressão numérica especificada
+title: ASIN em Azure Cosmos DB linguagem de consulta
+description: Saiba como o sistema SQL Arcsine (ASIN) funciona em Azure Cosmos DB devolve o ângulo, em radians, cujo sine é a expressão numérica especificada
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,13 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 8b70738a439b6c64a84a63adf63c83995530e92e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78302700"
 ---
 # <a name="asin-azure-cosmos-db"></a>ASIN (Azure Cosmos DB)
- Devolve o ângulo, em radianos, cujo seno é a expressão numérica especificada. Isto também é chamado de arcsina.  
+ Devolve o ângulo, em radians, cujo seno é a expressão numérica especificada. Isto também é chamado de arcsine.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,7 +33,7 @@ ASIN(<numeric_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte `ASIN` devolve o de -1.  
+  O exemplo a seguir devolve o `ASIN` de -1.  
   
 ```sql
 SELECT ASIN(-1) AS asin  
@@ -50,8 +49,8 @@ SELECT ASIN(-1) AS asin
 
 Esta função do sistema não utilizará o índice.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

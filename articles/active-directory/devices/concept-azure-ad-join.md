@@ -1,5 +1,5 @@
 ---
-title: O que é um dispositivo azure ad?
+title: O que é um dispositivo AZure AD?
 description: Saiba como a gestão da identidade do dispositivo pode ajudá-lo a gerir dispositivos que estão a aceder a recursos no seu ambiente.
 services: active-directory
 ms.service: active-directory
@@ -11,45 +11,45 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e4521cb67ae95a1cd4a3e728a13e43bfd5773ab
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ca08b81a71cd61e727b11bbeb88c0c235d25c5e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737032"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554907"
 ---
 # <a name="azure-ad-joined-devices"></a>Dispositivos associados ao Azure AD
 
-A adesão à Azure AD destina-se a organizações que queiram ser apenas em nuvem ou em nuvem. Qualquer organização pode implementar dispositivos azure ad não importa o tamanho ou a indústria. A Azure AD junta-se a obras mesmo num ambiente híbrido, permitindo o acesso a aplicações e recursos em nuvem e no local.
+A ad a ad azure destina-se a organizações que querem ser apenas cloud-first ou cloud-only. Qualquer organização pode implementar dispositivos aderidos a Azure AD independentemente do tamanho ou indústria. A Azure AD junta-se a obras mesmo num ambiente híbrido, permitindo o acesso a apps e recursos em nuvem e no local.
 
-|   | Associação ao Azure AD |
+| Associação ao Azure AD | Descrição |
 | --- | --- |
-| **Definição** | Juntou-se apenas à Azure AD exigindo que a conta organizacional assinasse o dispositivo |
-| **Audiência primária** | Adequado tanto para organizações só em nuvem como híbridas. |
+| **Definição** | Juntou-se apenas à Azure AD exigindo conta organizacional para iniciar seduca no dispositivo |
+| **Público primário** | Adequado para organizações apenas em nuvem e híbridas. |
 |   | Aplicável a todos os utilizadores de uma organização |
 | **Propriedade dos dispositivos** | Organização |
-| **Sistemas Operativos** | Todos os dispositivos do Windows 10 |
+| **Sistemas Operativos** | Todos os dispositivos Windows 10 |
 | **Aprovisionamento** | Self-service: Windows OOBE ou Definições |
 |   | Inscrição em massa |
 |   | Windows Autopilot |
-| **Sinal de dispositivo em opções** | Contas organizacionais utilizando: |
+| **Sinal do dispositivo em opções** | Contas organizacionais utilizando: |
 |   | Palavra-passe |
 |   | Windows Hello para empresas |
-|   | Chaves de segurança FIDO2.0 (pré-visualização) |
+|   | Teclas de segurança FIDO2.0 (pré-visualização) |
 | **Gestão de dispositivos** | Gestão de Dispositivos Móveis (exemplo: Microsoft Intune) |
-|   | Cogestão com microsoft Intune e Microsoft Endpoint Configuration Manager |
-| **Principais capacidades** | SSO tanto para os recursos de nuvem como para o local |
-|   | Acesso Condicional através da inscrição do MDM e avaliação de conformidade com o MDM |
-|   | Reset de palavra-passe de autosserviço e reset PIN do Windows Hello PIN no ecrã de bloqueio |
-|   | Roaming do Estado Da Empresa através de dispositivos |
+|   | Cogestão com o Microsoft Intune e o Microsoft Endpoint Configuration Manager |
+| **Principais capacidades** | SSO para recursos de nuvem e no local |
+|   | Acesso Condicional através da inscrição de MDM e avaliação de conformidade do MDM |
+|   | Redefinição de password de autosserviço e reset do Windows Hello PIN no ecrã de bloqueio |
+|   | Roaming do Estado da Empresa através de dispositivos |
 
-Os dispositivos aderes à Azure AD são assinados para usar uma conta aD organizacional Azure. O acesso aos recursos na organização pode ser ainda limitado com base nessa conta Azure AD e nas políticas de [Acesso Condicional](../conditional-access/howto-conditional-access-policy-compliant-device.md) aplicadas à identidade do dispositivo.
+Os dispositivos aderidos a Azure AD são assinados para usar uma conta AZure AD organizacional. O acesso aos recursos na organização pode ser ainda limitado com base na conta AD Azure e [nas políticas de Acesso Condicional](../conditional-access/howto-conditional-access-policy-compliant-device.md) aplicadas à identidade do dispositivo.
 
-Os administradores podem proteger e controlar ainda mais o Azure AD juntou-se a dispositivos utilizando ferramentas de Gestão de Dispositivos Móveis (MDM) como o Microsoft Intune ou em cenários de cogestão utilizando o Microsoft Endpoint Configuration Manager. Estas ferramentas fornecem um meio para impor configurações exigidas pela organização, como exigir que o armazenamento seja encriptado, complexidade de passwords, instalações de software e atualizações de software. Os administradores podem disponibilizar aplicações de organização para o Azure AD, utilizando o Gestor de Configuração para [gerir aplicações a partir da Microsoft Store for Business and Education.](/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business)
+Os administradores podem proteger e controlar ainda mais os dispositivos aderidos ao Azure AD utilizando ferramentas de Gestão de Dispositivos Móveis (MDM) como o Microsoft Intune ou em cenários de cogestão utilizando o Microsoft Endpoint Configuration Manager. Estas ferramentas fornecem um meio para impor configurações exigidas pela organização, como exigir que o armazenamento seja encriptado, complexidade de palavras-passe, instalações de software e atualizações de software. Os administradores podem disponibilizar aplicações de organização para dispositivos aderidos ao Azure AD utilizando o Gestor de Configuração para [Gerir aplicações da Microsoft Store para negócios e educação.](/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business)
 
-A adesão ao Azure AD pode ser realizada usando opções de self-service como a out of Box Experience (OOBE), inscrição a granel ou [Windows Autopilot](/intune/enrollment-autopilot).
+A ad a ad azure pode ser realizada usando opções de self-service como a Experiência out of Box (OOBE), a inscrição a granel ou [o Windows Autopilot](/intune/enrollment-autopilot).
 
-Os dispositivos aderes à Azure AD ainda podem manter um único acesso de entrada aos recursos no local quando estão na rede da organização. Os dispositivos que são Azure AD juntos ainda podem autenticar servidores no local, como ficheiros, impressão e outras aplicações.
+Os dispositivos aderidos a Azure AD ainda podem manter um único acesso de acesso a recursos no local quando estão na rede da organização. Os dispositivos que são Azure AD unidos ainda podem autenticar para servidores no local como ficheiros, impressão e outras aplicações.
 
 ## <a name="scenarios"></a>Cenários
 
@@ -68,7 +68,7 @@ O objetivo dos dispositivos associados ao Azure AD é simplificar:
 - As implementações de dispositivos detidos pela organização no Windows
 - O acesso a aplicações e recursos da organização a partir de qualquer dispositivo Windows
 - A gestão baseada na cloud de dispositivos detidos pela organização
-- Os utilizadores podem iniciar sessão nos seus dispositivos com o seu Azure AD ou com o trabalho de Diretório Ativo sincronizado ou contas escolares.
+- Os utilizadores devem inscrever-se nos seus dispositivos com o seu AD Azure ou com contas de Ative Directory ou escola sincronizadas.
 
 ![Dispositivos associados ao Azure AD](./media/concept-azure-ad-join/azure-ad-joined-device.png)
 
@@ -81,6 +81,6 @@ A Associação do Azure AD pode ser implementada com um dos seguintes métodos:
 ## <a name="next-steps"></a>Próximos passos
 
 - [Planear a sua implementação de associação do Azure AD](azureadjoin-plan.md)
-- [Como gerir o grupo de administradores locais em Azure AD aderiu a dispositivos](assign-local-admin.md)
+- [Como gerir o grupo de administradores locais em Azure AD juntou dispositivos](assign-local-admin.md)
 - [Gerir identidades do dispositivo utilizando o portal Azure](device-management-azure-portal.md)
-- [Gerir dispositivos velhos em Azure AD](manage-stale-devices.md)
+- [Gerir dispositivos em Azure AD](manage-stale-devices.md)

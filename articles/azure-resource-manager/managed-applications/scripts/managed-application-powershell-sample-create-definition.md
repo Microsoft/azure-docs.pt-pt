@@ -1,19 +1,18 @@
 ---
 title: Criar definição de aplicação gerida - Azure PowerShell
-description: Fornece uma amostra de script Azure PowerShell que cria uma definição de aplicação gerida na subscrição Azure.
+description: Fornece uma amostra de script Azure PowerShell que cria uma definição de aplicação gerida na subscrição do Azure.
 author: tfitzmac
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 09fe1455f0dba57fd23aeeb66acb1f99fc2513d4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: b605d63db09b81bfe73eca8f4abd7a38d2325004
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75650206"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056026"
 ---
-# <a name="create-a-managed-application-definition-with-powershell"></a>Criar uma definição de aplicação gerida com a PowerShell
+# <a name="create-a-managed-application-definition-with-powershell"></a>Criar uma definição de aplicação gerida com o PowerShell
 
 Este script publica uma definição da aplicação gerida num catálogo de serviço.
 
@@ -32,10 +31,10 @@ Este script utiliza o seguinte comando para criar a definição da aplicação g
 
 | Comando | Notas |
 |---|---|
-| [Definição de aplicação nova-az-gerida](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplicationdefinition) | Criar uma definição da aplicação gerida. Forneça o pacote que contém os ficheiros necessários. |
+| [New-AzManagedApplicationDefinition](/powershell/module/az.resources/new-azmanagedapplicationdefinition) | Criar uma definição da aplicação gerida. Forneça o pacote que contém os ficheiros necessários. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter uma introdução às aplicações geridas, veja [Descrição geral da Aplicação Gerida do Azure](../overview.md).
-* Para obter mais informações sobre o PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Para obter mais informações sobre o PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/get-started-azureps).

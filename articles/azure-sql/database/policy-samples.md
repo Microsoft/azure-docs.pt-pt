@@ -1,27 +1,27 @@
 ---
-title: Definições políticas incorporadas para base de dados Azure SQL
-description: Lista definições políticas integradas da Política Azure para a Base de Dados Azure SQL e a Instância Gerida SQL. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 04/30/2020
+title: Definições políticas incorporadas para Azure SQL Database
+description: Lista definições de políticas incorporadas da Azure Policy para Azure SQL Database e SQL Managed Instance. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
+ms.date: 06/23/2020
 ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.service: sql-database
 ms.custom: subject-policy-samples
-ms.openlocfilehash: bc778f60fa4cb0c794be1cd0cf901c4cac6692a2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 879321d119fb5213eed4b9c399d81a63f806fb4a
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053364"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85315984"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-sql-database--sql-managed-instance"></a>Definições políticas integradas da Azure SQL & Instância Gerida sQL
+# <a name="azure-policy-built-in-definitions-for-azure-sql-database--sql-managed-instance"></a>Definições incorporadas da Política Azure para a Base de Dados Azure SQL & sql Gestd instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Esta página é um índice de definições políticas integradas da [Política Azure](../../governance/policy/overview.md) para a Base de Dados Azure SQL e a Instância Gerida SQL. Para obter mais insins de política azure para outros serviços, consulte [definições in-in da Política Azure.](../../governance/policy/samples/built-in-policies.md)
+Esta página é um índice de definições de política incorporadas da [Azure Policy](../../governance/policy/overview.md) para Azure SQL Database e SQL Managed Instance. Para obter mais incorporados em Azure Policy para outros serviços, consulte [definições incorporadas da Política Azure](../../governance/policy/samples/built-in-policies.md).
 
-O nome de cada definição política incorporada está ligado à definição de política no portal Azure. Utilize o link na coluna **GitHub** para visualizar a fonte no repo da [política azure GitHub](https://github.com/Azure/azure-policy).
+O nome de cada definição de política incorporada liga-se à definição de política no portal Azure. Utilize o link na coluna **versão** para visualizar a fonte no [repo GitHub da Política Azure](https://github.com/Azure/azure-policy).
 
-## <a name="azure-sql-database--sql-managed-instance"></a>Base de Dados Azure SQL & Instância Gerida SQL 
+## <a name="azure-sql-database--sql-managed-instance"></a>Azure SQL Database & SQL Gestd Instance 
 
 [!INCLUDE [azure-policy-samples-service-sqldatabase](../../../includes/policy/samples/byrp/microsoft.sql.md)]
 

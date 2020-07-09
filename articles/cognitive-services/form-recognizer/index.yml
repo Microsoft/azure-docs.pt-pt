@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: de869fd9beb66a4122c1204648d17cff480e4b7f
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: f90782dc2edc9ce21b82c6b18e4efe014d160c20
+  ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "78206491"
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86086743"
 landingContent:
 - title: Sobre o Reconhecedor de Formato
   linkLists:
@@ -37,9 +37,13 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Utilizar o SDK .NET
-      url: quickstarts/dotnet-sdk.md
-    - text: Utilizar a API REST (Python)
-      url: quickstarts/python-train-extract.md
+      url: quickstarts/client-library.md?pivots=programming-language-csharp
+    - text: Utilizar o SDK Python
+      url: quickstarts/client-library.md?pivots=programming-language-python
+    - text: Utilizar o SDK Java
+      url: quickstarts/client-library.md?pivots=programming-language-java
+    - text: Utilizar o SDK JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript
     - text: Utilizar a API REST (cURL)
       url: quickstarts/curl-train-extract.md
   - linkListType: tutorial
@@ -68,14 +72,32 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Utilizar a API REST (Python)
-      url: quickstarts/python-receipts.md
+    - text: Utilizar o SDK .NET
+      url: quickstarts/client-library.md?pivots=programming-language-csharp
+    - text: Utilizar o SDK Python
+      url: quickstarts/client-library.md?pivots=programming-language-python
+    - text: Utilizar o SDK Java
+      url: quickstarts/client-library.md?pivots=programming-language-java
+    - text: Utilizar o SDK JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript
+    - text: Utilizar a API REST (cURL)
+      url: quickstarts/curl-train-extract.md
     - text: Utilizar a API REST (cURL)
       url: quickstarts/curl-receipts.md
 - title: Obter informações de esquema de texto
   linkLists:
   - linkListType: quickstart
     links:
+    - text: Utilizar o SDK .NET
+      url: quickstarts/client-library.md?pivots=programming-language-csharp
+    - text: Utilizar o SDK Python
+      url: quickstarts/client-library.md?pivots=programming-language-python
+    - text: Utilizar o SDK Java
+      url: quickstarts/client-library.md?pivots=programming-language-java
+    - text: Utilizar o SDK JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript
+    - text: Utilizar a API REST (cURL)
+      url: quickstarts/curl-train-extract.md
     - text: Utilizar a API REST (Python)
       url: quickstarts/python-layout.md
 - title: Utilizar contentores
@@ -97,15 +119,15 @@ landingContent:
   - linkListType: reference
     links:
     - text: API do Reconhecedor de Formato v2.0
-      url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
     - text: API do Reconhecedor de Formato v1.0
       url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel
     - text: SDK .NET
-      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
+      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer
     - text: Azure PowerShell
       url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
     - text: Interface de Linha de Comandos do Azure (CLI)
-      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices#az-cognitiveservices-list
 - title: Ajuda e comentários
   linkLists:
   - linkListType: reference

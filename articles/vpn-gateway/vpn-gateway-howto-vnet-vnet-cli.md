@@ -5,15 +5,14 @@ services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: a354f8031c26ca86876dc6f3a2092610226cc84b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e93bae91827b2807ef577d7659924a5d37454fa4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75834577"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987110"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurar uma ligação de gateway de VPN de VNet a VNet com a CLI do Azure
 
@@ -78,7 +77,7 @@ Neste exercício, pode combinar configurações ou escolher apenas aquela com qu
 
 ## <a name="connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>Ligar VNets que estão na mesma subscrição
 
-### <a name="before-you-begin"></a>Antes de começar
+### <a name="before-you-begin"></a>Before you begin
 
 Antes de começar, instale a versão mais recente dos comandos da CLI (2.0 ou posterior). Para obter informações sobre como instalar os comandos da CLI, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -292,7 +291,7 @@ Ao criar ligações adicionais, é importante garantir que o espaço de endereç
 
 ### <a name="step-7---create-and-configure-testvnet5"></a><a name="TestVNet5"></a>Passo 7 – Criar e configurar a TestVNet5
 
-Este passo tem de ser realizado no contexto da subscrição nova, a Subscrição 5. Esta parte pode ser realizada pelo administrador noutra organização que seja proprietária da subscrição. Para alternar `az account list --all` entre subscrições, utilize para listar `az account set --subscription <subscriptionID>` as subscrições disponíveis na sua conta, em seguida, use para mudar para a subscrição que pretende utilizar.
+Este passo tem de ser realizado no contexto da subscrição nova, a Subscrição 5. Esta parte pode ser realizada pelo administrador noutra organização que seja proprietária da subscrição. Para alternar entre subscrições, utilize `az account list --all` para listar as subscrições disponíveis na sua conta e, em seguida, use `az account set --subscription <subscriptionID>` para mudar para a subscrição que pretende utilizar.
 
 1. Confirme que está ligado à Subscrição 5 e crie um grupo de recursos.
 
@@ -331,7 +330,7 @@ Este passo tem de ser realizado no contexto da subscrição nova, a Subscrição
 
 ### <a name="step-8---create-the-connections"></a><a name="connections5"></a>Passo 8 - Criar as ligações
 
-Este passo foi dividido em duas sessões da CLI marcadas como **[Subscription 1]** e **[Subscription 5]**, porque os gateways estão nestas duas subscrições diferentes. Para alternar `az account list --all` entre subscrições, utilize para listar `az account set --subscription <subscriptionID>` as subscrições disponíveis na sua conta, em seguida, use para mudar para a subscrição que pretende utilizar.
+Este passo foi dividido em duas sessões da CLI marcadas como **[Subscription 1]** e **[Subscription 5]**, porque os gateways estão nestas duas subscrições diferentes. Para alternar entre subscrições, utilize `az account list --all` para listar as subscrições disponíveis na sua conta e, em seguida, use `az account set --subscription <subscriptionID>` para mudar para a subscrição que pretende utilizar.
 
 1. **[Subscrição 1]** Inicie sessão e ligue-se a Subscrição 1. Execute o comando seguinte para obter o nome e o ID do Gateway a partir da saída:
 
@@ -375,7 +374,7 @@ Este passo foi dividido em duas sessões da CLI marcadas como **[Subscription 1]
 ## <a name="vnet-to-vnet-faq"></a><a name="faq"></a>FAQ da ligação VNet a VNet
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja a [documentação das Máquinas Virtuais](https://docs.microsoft.com/azure/).
 * Para obter informações sobre o BGP, veja a [Descrição Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).

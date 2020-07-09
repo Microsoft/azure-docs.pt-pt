@@ -1,7 +1,7 @@
 ---
-title: Obter ficha & ligue para o Microsoft Graph com identidade de app de consolas Azure
+title: Receba & chamada Microsoft Graph com identidade de app de consolas Rio Azure
 titleSuffix: Microsoft identity platform
-description: Aprenda a obter um símbolo e ligue para um Microsoft Graph API protegido com ele a partir de uma aplicação .NET Core
+description: Saiba como obter um token e chame uma API protegida do Microsoft Graph com ele a partir de uma aplicação .NET Core
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 0a41165a77ff5f98a6a0bb408da62cb6c4cb35f8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f2be5a4ffb239b445381b5e7c84de15c0bcea371
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81536085"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85553913"
 ---
-# <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Quickstart: Adquira um símbolo e ligue para a Microsoft Graph API usando a identidade da app de consola
+# <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Quickstart: Adquira um token e ligue para a Microsoft Graph API usando a identidade da app da consola
 
-Neste arranque rápido, você aprenderá a escrever uma aplicação .NET Core que pode obter um token de acesso usando a própria identidade da aplicação e, em seguida, ligar para a Microsoft Graph API para apresentar uma [lista de utilizadores](https://docs.microsoft.com/graph/api/user-list) no diretório. Este cenário é útil para situações em que o trabalho sem cabeça, sem supervisão ou um serviço de janelas precisa de ser executado com uma identidade de aplicação, em vez da identidade de um utilizador. (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
+Neste arranque rápido, você vai aprender a escrever uma aplicação .NET Core que pode obter um token de acesso usando a própria identidade da aplicação e, em seguida, ligar para a Microsoft Graph API para mostrar uma [lista de utilizadores](https://docs.microsoft.com/graph/api/user-list) no diretório. Este cenário é útil para situações em que um trabalho sem cabeça, sem supervisão ou um serviço de janelas precisa de ser executado com uma identidade de aplicação, em vez da identidade de um utilizador. (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,11 +32,11 @@ Este arranque rápido requer [.NET Core 2.2](https://www.microsoft.com/net/downl
 
 > [!div renderon="docs" class="sxs-lookup"]
 >
-> Tem duas opções para iniciar a sua aplicação quickstart: Express (Opção 1 abaixo) e Manual (Opção 2)
+> Tem duas opções para iniciar a sua aplicação de arranque rápido: Express (Opção 1 abaixo) e Manual (Opção 2)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código
 >
-> 1. Vá ao novo portal Azure - Painel de inscrições de [aplicativos.](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs)
+> 1. Aceda ao novo [portal Azure - Painel de inscrições](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs) da App.
 > 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 > 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação com um só clique.
 >
@@ -48,23 +48,23 @@ Este arranque rápido requer [.NET Core 2.2](https://www.microsoft.com/net/downl
 >
 > 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-> 1. Navegue na plataforma de identidade da Microsoft para programadores da página de registos de [aplicações.](https://go.microsoft.com/fwlink/?linkid=2083908)
+> 1. Navegue para a plataforma de identidade da Microsoft para programadores [Página de registos de aplicações.](https://go.microsoft.com/fwlink/?linkid=2083908)
 > 1. Selecione **Novo registo**.
-> 1. Quando aparecer uma página de **inscrição,** insira as informações de registo da sua candidatura.
-> 1. Na secção **Nome,** introduza um nome de aplicação significativo que `Daemon-console`será apresentado aos utilizadores da aplicação, por exemplo, e selecione **O Registo** para criar a aplicação.
-> 1. Uma vez registado, selecione o menu **de Certificados & segredos.**
-> 1. Sob **os segredos do Cliente**, selecione + Novo segredo de **cliente.** Dê-lhe um nome e selecione **Adicionar**. Copie o segredo num local seguro. Vai precisar que seja usado no seu código.
-> 1. Agora, selecione o menu **DePermissões API,** selecione + Adicione um botão **de permissão,** selecione **Microsoft Graph**.
-> 1. Selecione **permissões de pedido**.
-> 1. Sob o nó **do Utilizador,** selecione **User.Read.All**e, em seguida, selecione **Adicionar permissões**
+> 1. Quando aparecer uma página de **inscrição,** insira as informações de registo do seu pedido.
+> 1. Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por `Daemon-console` exemplo, selecione **Registar-se** para criar a aplicação.
+> 1. Uma vez registado, selecione o menu **Certificados & segredos.**
+> 1. Sob **os segredos do Cliente,** selecione **+ Novo segredo de cliente.** Dê-lhe um nome e **selecione Adicionar**. Copie o segredo num local seguro. Vai precisar dele para usar no seu código.
+> 1. Agora, selecione o menu **API Permissões,** selecione + Adicione um botão **de permissão,** selecione **Microsoft Graph**.
+> 1. Selecione **permissões de aplicação**.
+> 1. No nó **do utilizador,** selecione **User.Read.All**e, em seguida, selecione **Adicionar permissões**
 
 > [!div class="sxs-lookup" renderon="portal"]
-> ### <a name="download-and-configure-your-quickstart-app"></a>Descarregue e configure a sua aplicação quickstart
+> ### <a name="download-and-configure-your-quickstart-app"></a>Faça o download e configuure a sua app quickstart
 >
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar a aplicação no portal do Azure
-> Para a amostra de código para este início rápido funcionar, você precisa criar um segredo de cliente, e adicionar O Utilizador da API **graph.Read.Todas as** permissões de aplicação.
+> Para que a amostra de código para este arranque rápido funcione, é necessário criar um segredo de cliente e adicionar a permissão de aplicação do **Graph API.Read.All.**
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Faça estas mudanças para mim]()
+> > [Faça estas alterações para mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurada](media/quickstart-v2-netcore-daemon/green-check.png) A sua aplicação está configurada com estes atributos.
@@ -72,7 +72,7 @@ Este arranque rápido requer [.NET Core 2.2](https://www.microsoft.com/net/downl
 #### <a name="step-2-download-your-visual-studio-project"></a>Passo 2: Transfira o seu projeto do Visual Studio
 
 > [!div renderon="docs"]
-> [Descarregue o projeto Estúdio Visual](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
+> [Descarregue o projeto Visual Studio](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Executar o projeto usando o Visual Studio 2019.
@@ -88,7 +88,7 @@ Este arranque rápido requer [.NET Core 2.2](https://www.microsoft.com/net/downl
 >
 > 1. Extraia o ficheiro zip para uma pasta local próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
 > 1. Abra a solução em Visual Studio - **1-Call-MSGraph\daemon-console.sln** (opcional).
-> 1. Editar **appssettings.json** e substituir os `ClientId` `Tenant` valores dos campos, e `ClientSecret` com os seguintes:
+> 1. Editar **appsettings.js** e substituir os valores dos `ClientId` campos, `Tenant` e com os `ClientSecret` seguintes:
 >
 >    ```json
 >    "Tenant": "Enter_the_Tenant_Id_Here",
@@ -97,34 +97,34 @@ Este arranque rápido requer [.NET Core 2.2](https://www.microsoft.com/net/downl
 >    ```
 >   Em que:
 >   - `Enter_the_Application_Id_Here` - é o **ID da Aplicação (cliente)** que registou.
->   - `Enter_the_Tenant_Id_Here`- substituir este valor pelo nome id ou inquilino **do arrendatário** (por exemplo, contoso.microsoft.com) **Tenant name**
->   - `Enter_the_Client_Secret_Here`- substitua este valor pelo segredo do cliente criado no passo 1.
+>   - `Enter_the_Tenant_Id_Here`- substituir este valor pelo **nome** **de Inquilino Ou** Inquilino (por exemplo, contoso.microsoft.com)
+>   - `Enter_the_Client_Secret_Here`- substituir este valor pelo segredo do cliente criado no passo 1.
 
 > [!div renderon="docs"]
 > > [!TIP]
-> > Para encontrar os valores de Id de **Aplicação (cliente),** **Id de Diretório (inquilino),** vá à página de **visão geral** da aplicação no portal Azure. Para gerar uma nova chave, vá à página **de Certificados & segredos.**
+> > Para encontrar os valores de ID de **aplicação (cliente),** **ID de diretório (inquilino),** aceda à página **geral** da aplicação no portal Azure. Para gerar uma nova chave, aceda à página **de segredos & Certificados.**
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-3-admin-consent"></a>Passo 3: Consentimento do administrador
+> #### <a name="step-3-admin-consent"></a>Passo 3: Consentimento administrativo
 
 > [!div renderon="docs"]
-> #### <a name="step-4-admin-consent"></a>Passo 4: Consentimento do administrador
+> #### <a name="step-4-admin-consent"></a>Passo 4: Consentimento administrativo
 
-Se tentar executar a aplicação neste momento, receberá *HTTP 403* `Insufficient privileges to complete the operation`- Erro proibido: . Isto acontece porque qualquer *permissão apenas de aplicações* requer consentimento da Admin, o que significa que um administrador global do seu diretório deve dar consentimento à sua aplicação. Selecione uma das opções abaixo, dependendo do seu papel:
+Se tentar executar a aplicação neste momento, receberá *HTTP 403 - Erro proibido:* `Insufficient privileges to complete the operation` . Isto acontece porque qualquer *permissão apenas de aplicação* requer o consentimento do Administrador, o que significa que um administrador global do seu diretório deve dar consentimento à sua aplicação. Selecione uma das opções abaixo, dependendo da sua função:
 
-##### <a name="global-tenant-administrator"></a>Administrador global de inquilinos
+##### <a name="global-tenant-administrator"></a>Administrador de inquilino global
 
 > [!div renderon="docs"]
-> Se você é um administrador de inquilino global, vá à página **de Permissões API** no Registo de Inscrição de Candidatura do Portal Azure (Pré-visualização) e selecione **Grant admin consent for {Tenant Name}** (Onde {Nome do inquilino} é o nome do seu diretório).
+> Se for administrador de inquilino global, vá à página **de Permissões da API** no Registo de Pedidos do Portal Azure (Pré-visualização) e selecione **o consentimento de administração de subvenção para {Nome do Inquilino}** (Onde {Nome do Inquilino} é o nome do seu diretório).
 
 > [!div renderon="portal" class="sxs-lookup"]
-> Se você é um administrador global, vá à página **de Permissões API** selecione **o consentimento do administrador grant para Enter_the_Tenant_Name_Here**
+> Se for um administrador global, vá à página **de permissões da API** selecionar **o consentimento de administração do Grant para Enter_the_Tenant_Name_Here**
 > > [!div id="apipermissionspage"]
-> > [Vá à página de Permissões DaPi]()
+> > [Aceda à página de Permissões da API]()
 
 ##### <a name="standard-user"></a>Utilizador padrão
 
-Se é um utilizador padrão do seu inquilino, então precisa pedir a um administrador global que conceda consentimento administrativo para a sua candidatura. Para tal, dê o seguinte URL ao seu administrador:
+Se é um utilizador padrão do seu inquilino, então precisa pedir a um administrador global que conceda consentimento administrativo para a sua aplicação. Para isso, dê o seguinte URL ao seu administrador:
 
 ```url
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
@@ -132,11 +132,11 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 > [!div renderon="docs"]
 >> Em que:
->> * `Enter_the_Tenant_Id_Here`- substituir este valor pelo nome id ou inquilino **do arrendatário** (por exemplo, contoso.microsoft.com) **Tenant name**
+>> * `Enter_the_Tenant_Id_Here`- substituir este valor pelo **nome** **de Inquilino Ou** Inquilino (por exemplo, contoso.microsoft.com)
 >> * `Enter_the_Application_Id_Here` - é o **ID da Aplicação (cliente)** que registou.
 
 > [!NOTE]
-> Pode ver o erro *'AADSTS50011: Não está registado nenhum endereço de resposta para a aplicação'* depois de conceder o consentimento à aplicação utilizando o URL anterior. Isto acontece porque esta aplicação e o URL não têm um URI redirecionado - por favor ignore o erro.
+> Pode ver o erro *'AADSTS50011: Nenhum endereço de resposta está registado para o pedido'* depois de conceder o consentimento à app utilizando o URL anterior. Isto acontece porque esta aplicação e o URL não têm um URI redirecionado - por favor ignore o erro.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-4-run-the-application"></a>Passo 4: Executar a aplicação
@@ -144,7 +144,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 > [!div renderon="docs"]
 > #### <a name="step-5-run-the-application"></a>Passo 5: Executar a aplicação
 
-Se estiver a utilizar o Visual Studio, prima **F5** para executar a aplicação, caso contrário, executar a aplicação através de pedido de comando ou consola:
+Se estiver a utilizar o Visual Studio, prima **F5** para executar a aplicação, caso contrário, execute a aplicação através do pedido através do pedido de comando ou consola:
 
 ```console
 cd {ProjectFolder}\daemon-console\1-Call-Graph
@@ -152,23 +152,23 @@ dotnet run
 ```
 
 > Em que:
-> * *{ProjectFolder}* é a pasta onde extraiu o ficheiro zip. Exemplo **C:\Azure-Samples\active-directy-dotnetcore-daemon-v2**
+> * *{ProjectFolder}* é a pasta onde extraiu o ficheiro zip. Exemplo **C:\Azure-Samples\active-directory-dotnetcore-daemon-v2**
 
-Como resultado, deverá ver uma lista de utilizadores no seu diretório Azure AD.
+Como resultado, deverá ver uma lista de utilizadores no seu diretório AD Azure.
 
 > [!IMPORTANT]
-> Esta aplicação quickstart usa um segredo de cliente para se identificar como cliente confidencial. Uma vez que o segredo do cliente é adicionado como um texto simples aos seus ficheiros de projeto, por razões de segurança, recomenda-se que utilize um certificado em vez de um segredo de cliente antes de considerar a aplicação como aplicação de produção. Para obter mais informações sobre como utilizar um certificado, consulte [estas instruções](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates) no repositório GitHub para esta amostra.
+> Esta aplicação quickstart usa um segredo de cliente para se identificar como cliente confidencial. Como o segredo do cliente é adicionado como um texto simples aos seus ficheiros do projeto, por razões de segurança, recomenda-se que utilize um certificado em vez de um segredo de cliente antes de considerar a aplicação como aplicação de produção. Para obter mais informações sobre como utilizar um certificado, consulte [estas instruções](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates) no repositório GitHub para esta amostra.
 
 ## <a name="more-information"></a>Mais informações
 
 ### <a name="how-the-sample-works"></a>Como funciona a amostra
-![Mostra como funciona a aplicação de amostragerada por este quickstart](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
+![Mostra como funciona a app de amostras gerada por este quickstart](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL[(Microsoft.Identity.Client)](https://www.nuget.org/packages/Microsoft.Identity.Client)é a biblioteca utilizada para assinar utilizadores e solicitar fichas usadas para aceder a uma API protegida pela plataforma de identidade microsoft. Como descrito, este quickstart solicita tokens usando a própria identidade da aplicação em vez de permissões delegadas. O fluxo de autenticação utilizado neste caso é conhecido como fluxo de credenciais de *[cliente.](v2-oauth2-client-creds-grant-flow.md)* Para obter mais informações sobre como usar MSAL.NET com fluxo de credenciais de cliente, consulte [este artigo](https://aka.ms/msal-net-client-credentials).
+MSAL ([Microsoft.Identity.Client)](https://www.nuget.org/packages/Microsoft.Identity.Client)é a biblioteca utilizada para assinar nos utilizadores e solicitar fichas usadas para aceder a uma API protegida pela plataforma de identidade Microsoft. Como descrito, este quickstart solicita fichas usando a própria identidade da aplicação em vez de permissões delegadas. O fluxo de autenticação utilizado neste caso é conhecido como *[o fluxo de credenciais de clientes](v2-oauth2-client-creds-grant-flow.md)*. Para obter mais informações sobre como utilizar MSAL.NET com o fluxo de credenciais do cliente, consulte [este artigo](https://aka.ms/msal-net-client-credentials).
 
- Pode instalar MSAL.NET executando o seguinte comando na Consola de Gestor de **Pacotes**do Estúdio Visual:
+ Pode instalar MSAL.NET executando o seguinte comando na **Consola de Gestor de Pacotes**do Estúdio Visual:
 
 ```powershell
 Install-Package Microsoft.Identity.Client
@@ -198,28 +198,28 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-> | Em que: ||
+> | Em que: | Description |
 > |---------|---------|
 > | `config.ClientSecret` | É o segredo do cliente criado para a aplicação no Portal Azure. |
 > | `config.ClientId` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
-> | `config.Authority`    | (Opcional) O ponto final do STS para o utilizador autenticar. Normalmente <https://login.microsoftonline.com/{tenant}> para a nuvem pública, onde {inquilino} é o nome do seu inquilino ou do seu inquilino ID.|
+> | `config.Authority`    | (Opcional) O ponto final STS para o utilizador autenticar. Normalmente <https://login.microsoftonline.com/{tenant}> para nuvem pública, onde {inquilino} é o nome do seu inquilino ou do seu id do seu inquilino.|
 
-Para mais informações, consulte a [documentação `ConfidentialClientApplication` ](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet) de referência para
+Para mais informações, consulte a [documentação de referência para `ConfidentialClientApplication` ](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet)
 
 ### <a name="requesting-tokens"></a>Pedir tokens
 
-Para solicitar um símbolo utilizando a `AcquireTokenForClient` identidade da aplicação, utilize o método:
+Para solicitar um token usando a identidade da app, use `AcquireTokenForClient` o método:
 
 ```csharp
 result = await app.AcquireTokenForClient(scopes)
                   .ExecuteAsync();
 ```
 
-> |Em que:| |
+> |Em que:| Description |
 > |---------|---------|
-> | `scopes` | Contém os âmbitos solicitados. Para clientes confidenciais, este deve `{Application ID URI}/.default` utilizar o formato semelhante ao que indica que os âmbitos que estão a ser `{Application ID URI}` solicitados `https://graph.microsoft.com`são os que são definidos estáticamente no objeto da aplicação definido no Portal Azure (para o Microsoft Graph, aponta para ). Para APIs web `{Application ID URI}` personalizados, é definido em Expor uma secção **DeAPi** no Registo de Aplicação do Portal Azure (Pré-visualização). |
+> | `scopes` | Contém os âmbitos solicitados. Para clientes confidenciais, este deve utilizar o formato semelhante `{Application ID URI}/.default` para indicar que os âmbitos que estão a ser solicitados são os que estão definidos estáticamente no objeto da aplicação definido no Portal Azure (para o Microsoft Graph, aponta `{Application ID URI}` `https://graph.microsoft.com` para). Para APIs web personalizado, `{Application ID URI}` é definido em Expor uma secção **API** no Registo de Aplicação do Portal Azure (Pré-visualização). |
 
-Para mais informações, consulte a [documentação `AcquireTokenForClient` ](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet) de referência para
+Para mais informações, consulte a [documentação de referência para `AcquireTokenForClient` ](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
@@ -230,7 +230,7 @@ Para saber mais sobre aplicações daemon, consulte a página de aterragem do ce
 > [!div class="nextstepaction"]
 > [Aplicação Daemon que chama APIs web](scenario-daemon-overview.md)
 
-Para o tutorial de aplicação daemon, consulte:
+Para o tutorial de aplicação da daemon, consulte:
 
 > [!div class="nextstepaction"]
 > [Tutorial de consola Daemon .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
@@ -240,7 +240,7 @@ Saiba mais sobre permissões e consentimento:
 > [!div class="nextstepaction"]
 > [Permissões e Consentimento](v2-permissions-and-consent.md)
 
-Para saber mais sobre o fluxo de auth para este cenário, consulte o fluxo de credenciais de cliente Oauth 2.0:
+Para saber mais sobre o fluxo de auth para este cenário, consulte o fluxo de credenciais de clientes de 2.0 do Óau:
 
 > [!div class="nextstepaction"]
 > [Credenciais de cliente Oauth flow](v2-oauth2-client-creds-grant-flow.md)

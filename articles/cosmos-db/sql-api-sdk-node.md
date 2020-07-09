@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: SQL Node.js API, SDK e recursos'
-description: Saiba tudo sobre a API e a SDK do SQL Node.js, incluindo datas de lançamento, datas de reforma e alterações feitas entre cada versão do Azure Cosmos DB Node.js SDK.
+title: 'Azure Cosmos DB: SQL Node.js API, SDK & recursos'
+description: Saiba tudo sobre o SQL Node.js API e SDK, incluindo datas de lançamento, datas de aposentadoria e alterações feitas entre cada versão do Azure Cosmos DB Node.js SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,27 +8,27 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 66597f0807e27e421d5f7001550533090d5936c0
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.openlocfilehash: 67b85c34c72d8c4b4dc7cecaeb74a9b164133702
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171604"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391966"
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK para SQL API: Lançar notas e recursos
+# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK para API SQL: Lançar notas e recursos
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [SDK .NET v3](sql-api-sdk-dotnet-standard.md)
+> * [SDK .NET v2](sql-api-sdk-dotnet.md)
+> * [SDK v2 de .NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [SDK v4 de Java](sql-api-sdk-java-v4.md)
 > * [SDK v2 Java assíncrono](sql-api-sdk-async-java.md)
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [REST](/rest/api/cosmos-db/)
+> * [Fornecedor de Recursos REST](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Executor a granel - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor a granel - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor a granel - Java](sql-api-sdk-bulk-executor-java.md)
 
 |Recurso  |Ligação  |
@@ -37,9 +37,9 @@ ms.locfileid: "84171604"
 |Documentação API  |  [Documentação de referência javaScript SDK](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
 |Instruções de instalação da SDK  |  [Instruções de instalação](https://github.com/Azure/azure-cosmos-js#installation)
 |Contribuir para a SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
-| Amostras | [Amostras de código node.js](sql-api-nodejs-samples.md)
+| Amostras | [Node.js amostras de código](sql-api-nodejs-samples.md)
 | Começar tutorial | [Começar com o JavaScript SDK](sql-api-nodejs-get-started.md)
-| Tutorial de aplicativo web | [Construa uma aplicação web Node.js usando Azure Cosmos DB](sql-api-nodejs-application.md)
+| Tutorial de aplicativo web | [Construa uma aplicação web Node.js utilizando a Azure Cosmos DB](sql-api-nodejs-application.md)
 | Plataforma suportada atual | [Node.js v12.x](https://nodejs.org/en/blog/release/v12.7.0/) - SDK Versão 3.x.x<br/>[Node.js v10.x](https://nodejs.org/en/blog/release/v10.6.0/) - SDK Versão 3.x.x<br/>[Node.js v8.x](https://nodejs.org/en/blog/release/v8.16.0/) - SDK Versão 3.x.x<br/>[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - SDK Versão 2.x.x<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)- SDK Versão 1.x.x<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)- SDK Versão 1.x.x<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)- SDK Versão 1.x.x
 
 ## <a name="release-notes"></a>Notas de versão
@@ -50,7 +50,7 @@ ms.locfileid: "84171604"
 
 ### <a name="304"></a><a name="3.0.4"></a>3.0.4
 * Permitir que os cabeças-de-cartaz inicial desempecem explicitamente o cabeçalho da chave de partição
-* Use ficheiros package.json#para evitar que ficheiros extraneos sejam publicados
+* Utilize package.jsem ficheiros #para evitar que ficheiros extranésos sejam publicados
 * Corrigir erro de classificação do mapa de encaminhamento na versão mais antiga do nó+v8
 * Corrige bug quando o utilizador fornece opções parciais de retíduos
 
@@ -150,7 +150,7 @@ Os pedidos falhados lançam agora o erro adequado ou subclasses de Erro. Anterio
 
 #### <a name="new-features"></a>Novas funcionalidades
 ##### <a name="user-cancelable-requests"></a>Pedidos de cancelamento do utilizador
-O movimento para obter internamente permite-nos usar o navegador AbortController API para suportar operações canceláveis pelo utilizador. No caso de operações em que vários pedidos estão potencialmente em curso (como consultas de partição cruzada), todos os pedidos para a operação serão cancelados. Os utilizadores de navegador modernos já terão AbortController. Os utilizadores do Node.js terão de usar uma biblioteca de polifill
+O movimento para obter internamente permite-nos usar o navegador AbortController API para suportar operações canceláveis pelo utilizador. No caso de operações em que vários pedidos estão potencialmente em curso (como consultas de partição cruzada), todos os pedidos para a operação serão cancelados. Os utilizadores de navegador modernos já terão AbortController. Node.js utilizadores terão de usar uma biblioteca de polifill
 
 ``` js
  const controller = new AbortController()
@@ -181,7 +181,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 ```
 
 #### <a name="improved-browser-experience"></a>Experiência melhorada do navegador
-Embora fosse possível utilizar o V2 SDK no navegador, não foi uma experiência ideal. Você precisava de poliar várias bibliotecas incorporadas de nós e usar um pacote como Webpack ou Parcel. O V3 SDK torna a experiência fora da caixa muito melhor para os utilizadores do navegador.
+Embora fosse possível utilizar o V2 SDK no navegador, não foi uma experiência ideal. Você precisava de poliar várias bibliotecas node.js incorporadas e usar um pacote como Webpack ou Parcel. O V3 SDK torna a experiência fora da caixa muito melhor para os utilizadores do navegador.
 
 * Substitua os internos do pedido por busca (#245)
 * Remover a utilização do tampão (#330)
@@ -420,7 +420,7 @@ Qualquer pedido à Cosmos DB usando um SDK reformado será rejeitado pelo servi�
 >
 <br/>
 
-| Versão | Data de Lançamento | Data de Aposentadoria |
+| Versão | Data de Lançamento | Data de Extinção |
 | --- | --- | --- |
 | [3.1.0](#3.1.0) |26 de julho de 2019 |--- |
 | [3.0.4](#3.0.4) |22 de julho de 2019 |--- |

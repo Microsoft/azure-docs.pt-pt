@@ -1,24 +1,24 @@
 ---
 title: Definições de esquema de alerta no Monitor Azure
-description: Compreender as definições comuns de esquemade alerta para o Monitor Azure
+description: Compreender as definições comuns de esquema de alerta para o Azure Monitor
 author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 7f0c99899b647c677025dbb38480b4d7f64c24fa
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 951894bcd047d93809b41f47213ad670823a27e0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739993"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85445377"
 ---
 # <a name="common-alert-schema-definitions"></a>Definições do esquema de alertas comuns
 
-Este artigo descreve as [definições comuns](https://aka.ms/commonAlertSchemaDocs) de esquema de alerta para o Monitor Azure, incluindo as de webhooks, Azure Logic Apps, Azure Functions e Azure Automation runbooks. 
+Este artigo descreve as [definições comuns de esquema de alerta](https://aka.ms/commonAlertSchemaDocs) para o Azure Monitor, incluindo as de webhooks, Azure Logic Apps, Azure Functions e Azure Automation. 
 
 Qualquer instância de alerta descreve o recurso que foi afetado e a causa do alerta. Estes casos são descritos no esquema comum nas seguintes secções:
-* **Essencial**: Um conjunto de campos padronizados, comuns em todos os tipos de alerta, que descrevem em que recurso o alerta está ligado, juntamente com metadados de alerta comum adicionais (por exemplo, gravidade ou descrição). 
-* **Contexto**de alerta : Um conjunto de campos que descreve a causa do alerta, com campos que variam em função do tipo de alerta. Por exemplo, um alerta métrico inclui campos como o nome métrico e o valor métrico no contexto de alerta, enquanto um alerta de registo de atividade tem informações sobre o evento que gerou o alerta. 
+* **Essenciais**: Um conjunto de campos padronizados, comuns em todos os tipos de alerta, que descrevem em que recurso o alerta está ligado, juntamente com metadados de alerta comuns adicionais (por exemplo, gravidade ou descrição). 
+* **Contexto de alerta**: Um conjunto de campos que descreve a causa do alerta, com campos que variam em função do tipo de alerta. Por exemplo, um alerta métrico inclui campos como o nome métrico e o valor métrico no contexto de alerta, enquanto um alerta de registo de atividade tem informações sobre o evento que gerou o alerta. 
 
 **Carga útil de alerta de amostra**
 ```json
@@ -74,18 +74,18 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 | Campo | Descrição|
 |:---|:---|
 | alertId | O GUID identifica exclusivamente a instância de alerta. |
-| alertaRule | O nome da regra de alerta que gerou a instância de alerta. |
+| alertaRule | O nome da regra de alerta que gerou a hora de alerta. |
 | Gravidade | A gravidade do alerta. Valores possíveis: Sev0, Sev1, Sev2, Sev3 ou Sev4. |
-| sinalTipo | Identifica o sinal em que a regra de alerta foi definida. Valores possíveis: Registo métrico, log ou registo de atividade. |
-| monitorCondição | Quando um alerta dispara, o estado de monitorização do alerta está definido para **disparar**. Quando a condição subjacente que causou o alerta a disparar, a condição do monitor está definida para **resolver**.   |
+| sinalType | Identifica o sinal em que a regra de alerta foi definida. Valores possíveis: Métrica, Log ou Registo de Atividade. |
+| monitorizaçãoCondição | Quando um alerta dispara, o estado do monitor do alerta está definido para **disparado**. Quando a condição subjacente que causou o alerta para o incêndio se apaga, a condição do monitor é definida para **resolver**.   |
 | serviço de monitorização | O serviço de monitorização ou solução que gerou o alerta. Os campos para o contexto de alerta são ditados pelo serviço de monitorização. |
-| alertTargetIds | A lista dos IDs do Gestor de Recursos Azure que são alvos afetados de um alerta. Para um alerta de log definido num espaço de trabalho log Analytics ou na instância de Insights de Aplicação, é o respetivo espaço de trabalho ou aplicação. |
-| origemAlertId | A identificação da instância de alerta, gerada pelo serviço de monitorização que o gere. |
-| despedidoDateTime | A data e a hora em que a instância de alerta foi disparada em Tempo Universal Coordenado (UTC). |
-| resolvidoDataTime | A data e a hora em que a condição do monitor para a instância de alerta está definida para **resolver** na UTC. Atualmente apenas aplicável para alertas métricos.|
+| alertaTargetIds | A lista dos IDs do Gestor de Recursos Azure que são alvos afetados de um alerta. Para um alerta de registo definido num espaço de trabalho do Log Analytics ou no exemplo de Application Insights, é o respetivo espaço de trabalho ou aplicação. |
+| originAlertId | O ID da instância de alerta, tal como gerado pelo serviço de monitorização que o gera. |
+| firedDateTime | A data e a hora em que a instância de alerta foi disparada no Tempo Universal Coordenado (UTC). |
+| resolvidoDateTime | A data e a hora em que a condição do monitor para a instância de alerta está definida para **resolvida** na UTC. Atualmente apenas aplicável para alertas métricos.|
 | descrição | A descrição, tal como definida na regra de alerta. |
 |essencialVersão| O número da versão para a secção essencial.|
-|alertContextVersion | O número da versão para a `alertContext` secção. |
+|alertaContextVersão | O número da versão para a `alertContext` secção. |
 
 **Valores da amostra**
 ```json
@@ -149,72 +149,81 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 ### <a name="log-alerts"></a>Alertas de registo
 
 > [!NOTE]
-> Para alertas de registo que tenham um sujeito de e-mail personalizado e/ou carga útil JSON definida, permitindo que o esquema comum reverta o assunto do e-mail e/ou o esquema de carga útil para o descrito da seguinte forma. Os alertas com o esquema comum ativado têm um limite de tamanho superior de 256 KB por alerta. Os resultados da pesquisa não estão incorporados na carga útil dos alertas de registo se fizerem com que o tamanho do alerta atravesse este limiar. Pode determinar isto verificando a `IncludeSearchResults` bandeira. Quando os resultados da pesquisa não estiverem incluídos, deve utilizar a consulta de pesquisa em conjunto com a [API](https://docs.microsoft.com/rest/api/loganalytics/dataaccess/query/get)log analytics . 
+> Para alertas de registo que tenham um sujeito de e-mail personalizado e/ou carga útil JSON definida, permitir que o esquema comum reverte o sujeito de e-mail e/ou esquema de carga útil para o descrito da seguinte forma. Os alertas com o esquema comum ativado têm um limite de tamanho superior de 256 KB por alerta. Os resultados da pesquisa não estão incorporados na carga útil dos alertas de registo se fizerem com que o tamanho do alerta ultrapasse este limiar. Pode determinar isto verificando a `IncludeSearchResults` bandeira. Quando os resultados da pesquisa não estiverem incluídos, deverá utilizar a consulta de pesquisa em conjunto com a [API do Log Analytics](https://docs.microsoft.com/rest/api/loganalytics/dataaccess/query/get). 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
 **Valores da amostra**
 ```json
 {
-  "alertContext": {
-    "SearchQuery": "search * \n| where Type == \"Heartbeat\" \n| where Category == \"Direct Agent\" \n| where TimeGenerated > ago(30m) ",
-    "SearchIntervalStartTimeUtc": "3/22/2019 1:36:31 PM",
-    "SearchIntervalEndtimeUtc": "3/22/2019 1:51:31 PM",
-    "ResultCount": 2,
-    "LinkToSearchResults": "https://portal.azure.com#@72f988bf-86f1-41af-91ab-2d7cd011db47/blade/Microsoft_OperationsManagementSuite_Workspace/AnalyticsBlade/initiator/AnalyticsShareLinkToQuery/isQueryEditorVisible/true/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%<subscription ID>%2FresourceGroups%2Fpipelinealertrg%2Fproviders%2FMicrosoft.OperationalInsights%2Fworkspaces%2FINC-OmsAlertRunner%22%7D%5D%7D/query/search%20%2A%20%0A%7C%20where%20Type%20%3D%3D%20%22Heartbeat%22%20%0A%7C%20where%20Category%20%3D%3D%20%22Direct%20Agent%22%20%0A%7C%20where%20TimeGenerated%20%3E%20%28datetime%282019-03-22T13%3A51%3A31.0000000%29%20-%2030m%29%20%20/isQuerybase64Compressed/false/timespanInIsoFormat/2019-03-22T13%3a36%3a31.0000000Z%2f2019-03-22T13%3a51%3a31.0000000Z",
-    "SeverityDescription": "Warning",
-    "WorkspaceId": "2a1f50a7-ef97-420c-9d14-938e77c2a929",
-    "SearchIntervalDurationMin": "15",
-    "AffectedConfigurationItems": [
-      "INC-Gen2Alert"
-    ],
-    "SearchIntervalInMinutes": "15",
-    "Threshold": 10000,
-    "Operator": "Less Than",
-    "SearchResults": {
-      "tables": [
-        {
-          "name": "PrimaryResult",
-          "columns": [
+    "alertContext": {
+        "SearchQuery": "Perf | where ObjectName == \"Processor\" and CounterName == \"% Processor Time\" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer",
+        "SearchIntervalStartTimeUtc": "3/22/2019 1:36:31 PM",
+        "SearchIntervalEndtimeUtc": "3/22/2019 1:51:31 PM",
+        "ResultCount": 2,
+        "LinkToSearchResults": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+        "LinkToFilteredSearchResultsUI": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+        "LinkToSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
+        "LinkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
+        "SeverityDescription": "Warning",
+        "WorkspaceId": "12345a-1234b-123c-123d-12345678e",
+        "SearchIntervalDurationMin": "15",
+        "AffectedConfigurationItems": [
+            "INC-Gen2Alert"
+        ],
+        "SearchIntervalInMinutes": "15",
+        "Threshold": 10000,
+        "Operator": "Less Than",
+        "Dimensions": [
             {
-              "name": "$table",
-              "type": "string"
-            },
-            {
-              "name": "Id",
-              "type": "string"
-            },
-            {
-              "name": "TimeGenerated",
-              "type": "datetime"
+                "name": "Computer",
+                "value": "INC-Gen2Alert"
             }
-          ],
-          "rows": [
-            [
-              "Fabrikam",
-              "33446677a",
-              "2018-02-02T15:03:12.18Z"
-            ],
-            [
-              "Contoso",
-              "33445566b",
-              "2018-02-02T15:16:53.932Z"
+        ],
+        "SearchResults": {
+            "tables": [
+                {
+                    "name": "PrimaryResult",
+                    "columns": [
+                        {
+                            "name": "$table",
+                            "type": "string"
+                        },
+                        {
+                            "name": "Computer",
+                            "type": "string"
+                        },
+                        {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        }
+                    ],
+                    "rows": [
+                        [
+                            "Fabrikam",
+                            "33446677a",
+                            "2018-02-02T15:03:12.18Z"
+                        ],
+                        [
+                            "Contoso",
+                            "33445566b",
+                            "2018-02-02T15:16:53.932Z"
+                        ]
+                    ]
+                }
             ]
-          ]
-        }
-      ],
-      "dataSources": [
-        {
-          "resourceId": "/subscriptions/a5ea27e2-7482-49ba-90b3-60e7496dd873/resourcegroups/nrt-tip-kc/providers/microsoft.operationalinsights/workspaces/nrt-tip-kc",
-          "tables": [
-            "Heartbeat"
-          ]
-        }
-      ]
-    },
+        },
+        "dataSources": [
+            {
+                "resourceId": "/subscriptions/a5ea55e2-7482-49ba-90b3-60e7496dd873/resourcegroups/test/providers/microsoft.operationalinsights/workspaces/test",
+                "tables": [
+                    "Heartbeat"
+                ]
+            }
+        ]
     "IncludeSearchResults": "True",
-    "AlertType": "Number of results"
-  }
+    "AlertType": "Metric measurement"
+    }
 }
 ```
 
@@ -223,61 +232,70 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 **Valores da amostra**
 ```json
 {
-  "alertContext": {
-    "SearchQuery": "search *",
-    "SearchIntervalStartTimeUtc": "3/22/2019 1:36:33 PM",
-    "SearchIntervalEndtimeUtc": "3/22/2019 1:51:33 PM",
-    "ResultCount": 2,
-    "LinkToSearchResults": "https://portal.azure.com#@72f988bf-86f1-41af-91ab-2d7cd011db47/blade/Microsoft_OperationsManagementSuite_Workspace/AnalyticsBlade/initiator/AnalyticsShareLinkToQuery/isQueryEditorVisible/true/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%<subscription ID>%2FresourceGroups%2FPipeLineAlertRG%2Fproviders%2Fmicrosoft.insights%2Fcomponents%2FWEU-AIRunner%22%7D%5D%7D/query/search%20%2A/isQuerybase64Compressed/false/timespanInIsoFormat/2019-03-22T13%3a36%3a33.0000000Z%2f2019-03-22T13%3a51%3a33.0000000Z",
-    "SearchIntervalDurationMin": "15",
-    "SearchIntervalInMinutes": "15",
-    "Threshold": 10000,
-    "Operator": "Less Than",
-    "ApplicationId": "8e20151d-75b2-4d66-b965-153fb69d65a6",
-    "SearchResults": {
-      "tables": [
-        {
-          "name": "PrimaryResult",
-          "columns": [
+    "alertContext": {
+        "SearchQuery": "requests | where resultCode == \"500\" | summarize AggregatedValue = Count by bin(Timestamp, 5m), IP",
+        "SearchIntervalStartTimeUtc": "3/22/2019 1:36:33 PM",
+        "SearchIntervalEndtimeUtc": "3/22/2019 1:51:33 PM",
+        "ResultCount": 2,
+        "LinkToSearchResults": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+        "LinkToFilteredSearchResultsUI": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+        "LinkToSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
+        "LinkToFilteredSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
+        "SearchIntervalDurationMin": "15",
+        "SearchIntervalInMinutes": "15",
+        "Threshold": 10000,
+        "Operator": "Less Than",
+        "ApplicationId": "8e20151d-75b2-4d66-b965-153fb69d65a6",
+        "Dimensions": [
             {
-              "name": "$table",
-              "type": "string"
-            },
-            {
-              "name": "Id",
-              "type": "string"
-            },
-            {
-              "name": "TimeGenerated",
-              "type": "datetime"
+                "name": "IP",
+                "value": "1.1.1.1"
             }
-          ],
-          "rows": [
-            [
-              "Fabrikam",
-              "33446677a",
-              "2018-02-02T15:03:12.18Z"
+        ],
+        "SearchResults": {
+            "tables": [
+                {
+                    "name": "PrimaryResult",
+                    "columns": [
+                        {
+                            "name": "$table",
+                            "type": "string"
+                        },
+                        {
+                            "name": "Id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "Timestamp",
+                            "type": "datetime"
+                        }
+                    ],
+                    "rows": [
+                        [
+                            "Fabrikam",
+                            "33446677a",
+                            "2018-02-02T15:03:12.18Z"
+                        ],
+                        [
+                            "Contoso",
+                            "33445566b",
+                            "2018-02-02T15:16:53.932Z"
+                        ]
+                    ]
+                }
             ],
-            [
-              "Contoso",
-              "33445566b",
-              "2018-02-02T15:16:53.932Z"
+            "dataSources": [
+                {
+                    "resourceId": "/subscriptions/a5ea27e2-7482-49ba-90b3-52e7496dd873/resourcegroups/test/providers/microsoft.operationalinsights/workspaces/test",
+                    "tables": [
+                        "Heartbeat"
+                    ]
+                }
             ]
-          ]
-        }
-      ],
-      "dataSources": [
-        {
-          "resourceId": "/subscriptions/a5ea27e2-7482-49ba-90b3-60e7496dd873/resourcegroups/nrt-tip-kc/providers/microsoft.operationalinsights/workspaces/nrt-tip-kc",
-          "tables": [
-            "Heartbeat"
-          ]
-        }
-      ]
-    },
-    "IncludeSearchResults": "True",
-    "AlertType": "Number of results"
-  }
+        },
+        "IncludeSearchResults": "True",
+        "AlertType": "Metric measurement"
+    }
 }
 ```
 
@@ -479,8 +497,8 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais sobre o esquema de [alerta comum.](https://aka.ms/commonAlertSchemaDocs)
-- Aprenda [a criar uma aplicação lógica que usa o esquema de alerta comum para lidar com todos os seus alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations). 
+- Saiba mais sobre o [esquema de alerta comum.](https://aka.ms/commonAlertSchemaDocs)
+- Saiba [como criar uma aplicação lógica que utilize o esquema de alerta comum para lidar com todos os seus alertas.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
 

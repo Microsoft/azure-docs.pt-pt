@@ -14,17 +14,17 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: fedec6ea764394d36f5b4d7c883f7cb9f9520a29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3adbb9471cc501861b65efd0321b3b4f72b07aea
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "64869028"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057862"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Introdução ao SDK de cliente Java para os Serviços de Multimédia do Azure  
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Este tutorial explica-lhe os passos para implementar um serviço básico de entrega de conteúdos de vídeo com os Serviços de Multimédia do Azure através do SDK de cliente Java.
 
@@ -42,7 +42,7 @@ Para começar a utilizar o SDK de Serviços de Multimédia para Java, adicione u
 
 Por exemplo, se a sua ferramenta de compilação for `gradle`, adicione a seguinte dependência ao seu ficheiro `build.gradle`:
 
-    compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
+`compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'`
 
 >[!IMPORTANT]
 >A partir da versão do pacote `azure-media``0.9.8`, o SDK adicionou suporte para autenticação do Azure Active Directory (AAD) e removeu o suporte para a autenticação do Serviço de Controlo de Acesso (ACS) do Azure. Recomendamos que migre para o modelo de autenticação do Azure AD assim que for possível. Para obter detalhes sobre a migração, leia o artigo [Aceder à API de Serviços de Multimédia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
@@ -53,7 +53,7 @@ Por exemplo, se a sua ferramenta de compilação for `gradle`, adicione a seguin
 ## <a name="how-to-use-azure-media-services-with-java"></a>Como: utilizar os Serviços de Multimédia do Azure com Java
 
 >[!NOTE]
->Quando a sua conta De serviços de media é criada, um ponto final de streaming **predefinido** é adicionado à sua conta no estado **Deter.** Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**.
+>Quando a sua conta De Serviços de Media é criada, um ponto final de streaming **padrão** é adicionado à sua conta no estado **Stop.** Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**.
 
 O código seguinte mostra como criar um elemento, carregar um ficheiro de multimédia para o elemento, executar uma função com uma tarefa para transformar o elemento e criar um localizador para transmitir o vídeo.
 

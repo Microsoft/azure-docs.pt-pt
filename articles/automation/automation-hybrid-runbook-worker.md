@@ -1,136 +1,117 @@
 ---
-title: Visão geral do trabalhador do livro híbrido azure automation
-description: Este artigo fornece uma visão geral do Trabalhador do Livro Híbrido, que pode utilizar para executar livros de execução em máquinas no seu datacenter local ou fornecedor de nuvem.
+title: Visão geral do trabalhador do runbook híbrido da Azure Automation
+description: Este artigo fornece uma visão geral do Trabalhador de Runbook Híbrido, que pode usar para executar livros de execução em máquinas no seu datacenter local ou fornecedor de nuvem.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/05/2019
+ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9305d0d6443c923c680af0d5fafc58887dadb902
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d921ecc390ae9361c9b36b4738e73a499aa2e8a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835296"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361817"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Descrição geral das Funções de Trabalho de Runbook Híbridas (Hybrid Runbook Worker overview)
 
-Os livros de corridas da Azure Automation podem não ter acesso a recursos noutras nuvens ou no seu ambiente no local porque funcionam na plataforma de nuvem Azure. Você pode usar a funcionalidade Hybrid Runbook Worker da Azure Automation para executar livros de execução diretamente no computador que está hospedando o papel e contra recursos no ambiente para gerir esses recursos locais. Os livros de execução são armazenados e geridos na Azure Automation e depois entregues a um ou mais computadores atribuídos.
+Os runbooks na Azure Automation podem não ter acesso a recursos noutras nuvens ou no seu ambiente no local porque funcionam na plataforma cloud Azure. Você pode usar a funcionalidade Hybrid Runbook Worker da Azure Automation para executar runbooks diretamente na máquina que está hospedando o papel e contra recursos no ambiente para gerir esses recursos locais. Os runbooks são armazenados e geridos na Azure Automation e depois entregues a uma ou mais máquinas atribuídas.
 
-A imagem seguinte ilustra esta funcionalidade:
+A imagem a seguir ilustra esta funcionalidade:
 
 ![Descrição geral das Funções de Trabalho de Runbook Híbridas (Hybrid Runbook Worker overview)](media/automation-hybrid-runbook-worker/automation.png)
 
-Um Trabalhador híbrido do livro de corridas pode executar o Windows ou o sistema operativo Linux. Para a monitorização, requer a utilização do Monitor Azure e de um agente Log Analytics para o sistema operativo suportado. Para mais informações, consulte [o Monitor Azure.](automation-runbook-execution.md#azure-monitor)
+Um Trabalhador De Runbook Híbrido pode funcionar tanto no Windows como no sistema operativo Linux. Depende do relatório do [agente Log Analytics](../azure-monitor/platform/log-analytics-agent.md) para um espaço de trabalho do Azure Monitor [Log Analytics](../azure-monitor/platform/design-logs-deployment.md). O espaço de trabalho não é apenas para monitorizar a máquina para o sistema operativo suportado, mas também para descarregar os componentes necessários para o Trabalhador de Runbook Híbrido.
 
-Cada Trabalhador De Runbook Híbrido é membro de um grupo híbrido runbook worker que especifica quando instala o agente. Um grupo pode incluir um único agente, mas você pode instalar vários agentes em um grupo para alta disponibilidade. Cada máquina pode acolher um trabalhador híbrido reportando a uma conta de Automação. 
+Cada Trabalhador de Runbook Híbrido é membro de um grupo híbrido de trabalhador de runbook que especifica quando instala o agente. Um grupo pode incluir um único agente, mas pode instalar vários agentes num grupo para uma alta disponibilidade. Cada máquina pode hospedar um trabalhador híbrido reportando a uma conta Automation.
 
-Quando inicia um livro de corridas num Trabalhador Híbrido do Livro de Corridas, especifica o grupo em que funciona. Cada trabalhador do grupo faz sondagens À Azure Automation para ver se existem postos de trabalho disponíveis. Se um emprego está disponível, o primeiro trabalhador a conseguir o emprego aceita-o. O tempo de processamento da fila de trabalho depende do perfil e carga de hardware dos trabalhadores híbridos. Não pode especificar um trabalhador em particular. 
+Quando iniciar um livro de execução num Trabalhador de Runbook Híbrido, especifica o grupo em que funciona. Cada trabalhador do grupo vota Azure Automation para ver se há empregos disponíveis. Se houver um emprego disponível, o primeiro trabalhador a conseguir o emprego aceita-o. O tempo de processamento da fila de trabalhos depende do perfil e da carga do trabalhador híbrido. Não se pode especificar um trabalhador em particular.
 
-Utilize um Trabalhador de Runbook Híbrido em vez de uma caixa de [areia Azure](automation-runbook-execution.md#runbook-execution-environment) porque não tem muitos dos [limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) da caixa de areia no espaço, memória ou tomadas de rede do disco. Os limites para um trabalhador híbrido estão apenas relacionados com os recursos próprios do trabalhador. 
+Utilize um Trabalhador de Runbook Híbrido em vez de uma caixa de [areia Azure](automation-runbook-execution.md#runbook-execution-environment) porque não tem muitos dos [limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) da caixa de areia no espaço do disco, na memória ou nas tomadas de rede. Os limites para um trabalhador híbrido estão apenas relacionados com os recursos próprios do trabalhador.
 
 > [!NOTE]
-> Os trabalhadores híbridos do livro de corridas não estão limitados pelo limite de tempo [de partilha justa](automation-runbook-execution.md#fair-share) que as caixas de areia Azure têm. 
+> Os trabalhadores híbridos não estão limitados pelo justo limite de tempo de [partilha](automation-runbook-execution.md#fair-share) que as caixas de areia Azure têm.
 
-## <a name="hybrid-runbook-worker-installation"></a>Instalação híbrida do trabalhador do livro de corridas
+## <a name="hybrid-runbook-worker-installation"></a>Instalação híbrida do trabalhador runbook
 
-O processo de instalação de um Trabalhador do Livro De Execução Híbrido depende do sistema operativo. A tabela abaixo define os tipos de implantação.
+O processo de instalação de um Trabalhador De Runbook Híbrido depende do sistema operativo. A tabela abaixo define os tipos de implantação.
 
 |Sistema Operativo  |Tipos de implantação  |
 |---------|---------|
 |Windows     | [Automatizada](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#install-a-linux-hybrid-runbook-worker)        |
 
-O método de instalação recomendado é utilizar um livro de execução da Automatização Azure para automatizar completamente o processo de configuração de um computador Windows. O segundo método consiste em seguir um procedimento passo a passo para instalar manualmente e configurar a função. Para as máquinas Linux, executa um guião Python para instalar o agente na máquina.
+O método de instalação recomendado é utilizar um manual de automação Azure para automatizar completamente o processo de configuração de uma máquina Windows. Se isso não for viável, pode seguir um procedimento passo a passo para instalar e configurar manualmente o papel. Para máquinas Linux, você executou um script Python para instalar o agente na máquina.
 
 ## <a name="network-planning"></a><a name="network-planning"></a>Planeamento da rede
 
-Para que o Trabalhador do Livro Híbrido se ligue e registe-se com a Automação Azure, deve ter acesso ao número de porta e URLs descritos nesta secção. O trabalhador deve também ter acesso às [portas e URLs necessários para](../azure-monitor/platform/agent-windows.md) que o agente Log Analytics se ligue ao espaço de trabalho Azure Monitor Log Analytics.
+Para que o Trabalhador de Runbook Híbrido se conecte e registe com a Azure Automation, deve ter acesso ao número de porta e URLs descritos nesta secção. O trabalhador também deve ter acesso às [portas e URLs necessários para](../azure-monitor/platform/agent-windows.md) que o agente Log Analytics se conecte ao espaço de trabalho Azure Monitor Log Analytics.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-São necessários os seguintes portes e URLs para o Trabalhador do Livro Híbrido:
+São necessários os seguintes portos e URLs para o Trabalhador de Runbook Híbrido:
 
-* Porta: Apenas TCP 443 necessário para acesso à Internet de saída
-* URL global: *.azure-automation.net
-* URL global do US Gov – Virginia: *.azure-automation.us
-* Serviço de agente: https:// \< espaço de trabalhoId \> .agentsvc.azure-automation.net
+* Porto: Apenas TCP 443 necessário para acesso à Internet de saída
+* URL global:`*.azure-automation.net`
+* URL global de Us Gov Virginia:`*.azure-automation.us`
+* Serviço de agente:`https://<workspaceId>.agentsvc.azure-automation.net`
 
-Recomendamos que utilize os endereços listados ao definir [exceções](automation-runbook-execution.md#exceptions). Para endereços IP, pode descarregar os intervalos IP do [Microsoft Azure Datacenter](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Este ficheiro é atualizado semanalmente, e tem as gamas atualmente implementadas e quaisquer alterações futuras nas gamas IP.
+Se tiver uma conta Automation que está definida para uma região específica, pode restringir a comunicação do Trabalhador Do Runbook Híbrido a esse datacenter regional. Reveja os [registos DNS utilizados pela Azure Automation](how-to/automation-region-dns-records.md) para obter os registos DNS necessários.
 
-### <a name="dns-records-per-region"></a>Registos de DNS por região
+### <a name="proxy-server-use"></a>Uso do servidor proxy
 
-Se tiver uma conta de Automação definida para uma região específica, pode restringir a comunicação do Trabalhador do Livro Híbrido a esse datacenter regional. A tabela seguinte fornece o registo de DNS para cada região.
+Se utilizar um servidor proxy para comunicação entre a Azure Automation e as máquinas que executam o agente Log Analytics, certifique-se de que os recursos adequados estão acessíveis. O tempo limite para pedidos dos serviços híbridos de trabalho e automação é de 30 segundos. Após três tentativas, um pedido falha.
 
-| **Região** | **Registo dNS** |
-| --- | --- |
-| Austrália Central |ac-jobruntimedata-prod-su1.azure-automation.net</br>ac-agentservice-prod-1.azure-automation.net |
-| Leste da Austrália |ae-jobruntimedata-prod-su1.azure-automation.net</br>ae-agentservice-prod-1.azure-automation.net |
-| Sudeste da Austrália |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
-| Canadá Central |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
-| Índia Central |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
-| E.U.A. Leste 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
-| Leste do Japão |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
-| Europa do Norte |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
-| E.U.A. Centro-Sul |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
-| Ásia Sudeste |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
-| Sul do Reino Unido | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| US Gov - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
-| E.U.A. Centro-Oeste | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
-| Europa ocidental |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
-| E.U.A.Oeste 2 |wus2-jobruntimedata-prod-su1.azure-automation.net</br>wus2-agentservice-prod-1.azure-automation.net |
+### <a name="firewall-use"></a>Uso de firewall
 
-Para obter uma lista de endereços IP da região em vez de nomes de região, descarregue o ficheiro XML do [endereço IP do Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653) do Microsoft Download Center. Um ficheiro de endereço IP atualizado é publicado semanalmente. 
+Se utilizar uma firewall para restringir o acesso à internet, tem de configurar a firewall para permitir o acesso. Se utilizar o gateway Log Analytics como procuração, certifique-se de que está configurado para trabalhadores híbridos runbook. Consulte a porta de [entrada do Log Analytics para trabalhadores híbridos automations.](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway)
 
-O ficheiro de endereço IP lista as gamas de endereços IP que são utilizadas nos datacenters do Microsoft Azure. Inclui gamas de cálculo, SQL e armazenamento, e reflete gamas atualmente implantadas e quaisquer alterações futuras nas gamas IP. As novas gamas que aparecem no ficheiro não são usadas nos centros de dados durante pelo menos uma semana.
+### <a name="service-tags"></a>Etiquetas de serviço
 
-É uma boa ideia descarregar o novo ficheiro ip todas as semanas. Em seguida, atualize o seu site para identificar corretamente os serviços em funcionamento no Azure. 
+A Azure Automation suporta tags de serviço de rede virtual Azure, começando com a tag de serviço [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Pode utilizar tags de serviço para definir controlos de acesso à rede em [grupos de segurança](../virtual-network/security-overview.md#security-rules) de rede ou [Azure Firewall](../firewall/service-tags.md). As etiquetas de serviço podem ser utilizadas no lugar de endereços IP específicos quando cria regras de segurança. Ao especificar o nome da etiqueta de serviço **GuestAndHybridManagement** no campo de origem ou destino apropriado de uma regra, pode permitir ou negar o tráfego para o serviço Dem automação. Esta etiqueta de serviço não suporta permitir um maior controlo granular limitando as gamas IP a uma região específica.
 
-> [!NOTE]
-> Se estiver a utilizar o Azure ExpressRoute, lembre-se de que o ficheiro de endereçoIP é utilizado para atualizar o anúncio do Protocolo de Gateway de Fronteira (BGP) do espaço Azure na primeira semana de cada mês.
+A etiqueta de serviço para o serviço Azure Automation apenas fornece IPs utilizados para os seguintes cenários:
 
-### <a name="proxy-server-use"></a>Utilização do servidor Proxy
+* Trigger webhooks de dentro da sua rede virtual
+* Permitir que trabalhadores híbridos runbook ou agentes de configuração do Estado no seu VNet comuniquem com o serviço de Automação
 
-Se utilizar um servidor proxy para comunicação entre a Automação Azure e o agente Log Analytics, certifique-se de que os recursos adequados estão acessíveis. O prazo para pedidos dos serviços híbridos de trabalho e automação é de 30 segundos. Depois de três tentativas, um pedido falha. 
+>[!NOTE]
+>A tag de serviço **GuestAndHybridManagement** atualmente não suporta a execução de trabalho de runbook numa caixa de areia Azure, apenas diretamente em um Trabalhador De Runbook Híbrido.
 
-### <a name="firewall-use"></a>Utilização de firewall
+## <a name="update-management-on-hybrid-runbook-worker"></a>Gestão de atualização no trabalhador de runbook híbrido
 
-Se utilizar uma firewall para restringir o acesso à internet, tem de configurar a firewall para permitir o acesso. Se utilizar o gateway Log Analytics como procuração, certifique-se de que está configurado para trabalhadores híbridos do livro de corridas. Consulte [a configuração da porta de entrada Log Analytics para Automação de Trabalhadores Híbridos](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
+Quando a Azure Automation [Update Management](automation-update-management.md) estiver ativada, qualquer máquina ligada ao seu espaço de trabalho Log Analytics é automaticamente configurada como Um Trabalhador De Runbook Híbrido. Cada trabalhador pode suportar livros de execução direcionados para a gestão de atualizações.
 
-## <a name="update-management-on-hybrid-runbook-worker"></a>Gestão de Atualização no Trabalhador do Livro híbrido
+Uma máquina configurada desta forma não está registada em nenhum grupo híbrido de trabalhador de runbook já definido na sua conta Automation. Pode adicionar a máquina a um grupo híbrido de trabalhador runbook, mas tem de utilizar a mesma conta tanto para a Gestão de Atualização como para a associação do grupo Híbrido Runbook Worker. Esta funcionalidade foi adicionada à versão 7.2.12024.0 da Hybrid Runbook Worker.
 
-Quando a [Azure](automation-update-management.md) Automation Update Management está ativada, qualquer computador ligado ao seu espaço de trabalho Log Analytics é automaticamente configurado como um Trabalhador de Livro Híbrido. Cada trabalhador pode suportar os livros de execução direcionados para a gestão da atualização. 
+### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Endereços de gestão de atualização para trabalhador de runbook híbrido
 
-Um computador configurado desta forma não está registado em nenhum grupo híbrido de trabalho de runbook já definido na sua conta Deautomação. Pode adicionar o computador a um grupo híbrido de trabalho de runbook, mas deve utilizar a mesma conta tanto para a Atualização como para a associação do grupo Hybrid Runbook Worker. Esta funcionalidade foi adicionada à versão 7.2.12024.0 do Hybrid Runbook Worker.
-
-### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Endereços de Gestão de Atualização para Trabalhador de Livro de Corridas Híbrido
-
-Além dos endereços padrão e portas que o Trabalhador do Livro híbrido necessita, a Atualização de Gestão precisa dos endereços na tabela seguinte. A comunicação a estes endereços utiliza a porta 443.
+Além dos endereços e portas padrão que o Trabalhador do Runbook Híbrido necessita, a Gestão de Atualização precisa dos endereços na tabela seguinte. A comunicação a estes endereços utiliza a porta 443.
 
 |Azure Público  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     | *.ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
+|`*.ods.opinsights.azure.com`     | `*.ods.opinsights.azure.us`         |
+|`*.oms.opinsights.azure.com`     | `*.oms.opinsights.azure.us`        |
+|`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
 
-## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Configuração do Estado da Automação Azure em um trabalhador de livro híbrido
+## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Configuração do Estado da Automação Azure em um trabalhador de runbook híbrido
 
-Pode executar a Configuração do Estado de [Automação Azure](automation-dsc-overview.md) num Trabalhador Híbrido do Livro. Para gerir a configuração dos servidores que suportam o Trabalhador do Livro de Execução Híbrido, tem de adicionar os servidores como nós DSC. Consulte [máquinas Ativas para gestão pela Configuração do Estado da Automação Azure](automation-dsc-onboarding.md).
+Pode executar [a configuração do Estado da Automação Azure](automation-dsc-overview.md) num Trabalhador de Runbook Híbrido. Para gerir a configuração dos servidores que suportam o Trabalhador de Runbook Híbrido, tem de adicionar os servidores como nós DSC. Ver [Ativar máquinas para gestão através da Configuração do Estado da Automação Azure](automation-dsc-onboarding.md).
 
-## <a name="runbooks-on-a-hybrid-runbook-worker"></a>Livros de corridas em um trabalhador híbrido do livro de corridas
+## <a name="runbooks-on-a-hybrid-runbook-worker"></a>Runbooks em um trabalhador de runbook híbrido
 
-Você pode ter livros de execução que gerem recursos no computador local ou correm contra recursos no ambiente local onde um Trabalhador De Rrunde Híbrido é implantado. Neste caso, pode optar por executar os seus livros de execução sobre o trabalhador híbrido em vez de numa conta de Automação. Os livros de execução executados num Trabalhador de Livro Híbrido são idênticos em estrutura aos que executa na conta Automation. See [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+Você pode ter livros que gerem recursos na máquina local ou correr contra recursos no ambiente local onde um Trabalhador De Runbook Híbrido é implantado. Neste caso, pode optar por executar os seus livros no trabalhador híbrido em vez de numa conta Automation. Os runbooks executados num Trabalhador De Runbook Híbrido são idênticos em estrutura àqueles que você gere na conta Automation. Consulte [os runbooks de execução num trabalhador de runbook híbrido](automation-hrw-run-runbooks.md).
 
-### <a name="hybrid-runbook-worker-jobs"></a>Empregos híbridos de trabalhador de runbook
+### <a name="hybrid-runbook-worker-jobs"></a>Empregos de trabalhadores de runbook híbridos
 
-Os empregos híbridos do Runbook Worker funcionam sob a conta **do Sistema** local no Windows ou na conta [de nxautomation](automation-runbook-execution.md#log-analytics-agent-for-linux) no Linux. A Azure Automation trata de trabalhos em Trabalhadores de Livro Híbrido de forma um pouco diferente dos empregos executados em caixas de areia Azure. Ver O ambiente de execução do Livro de [Corridas.](automation-runbook-execution.md#runbook-execution-environment)
+Os empregos híbridos do Runbook Worker são geridos sob a conta **do Sistema** local no Windows ou na conta [de nxautomation](automation-runbook-execution.md#log-analytics-agent-for-linux) no Linux. A Azure Automation lida com empregos em Trabalhadores De Runbook Híbridos de forma um pouco diferente dos empregos geridos em caixas de areia Azure. Consulte [o ambiente de execução do Runbook](automation-runbook-execution.md#runbook-execution-environment).
 
-Se a máquina de anfitriões Hybrid Runbook Worker reiniciar, qualquer trabalho de resta em execução reinicia desde o início, ou a partir do último ponto de verificação para os livros de execução powerShell Workflow. Depois de um trabalho de rés-do-livro ser reiniciado mais de três vezes, está suspenso.
+Se a máquina de anfitrião Do Trabalhador Do Runbook Híbrido reiniciar, qualquer trabalho de runbook em execução reinicia desde o início ou do último ponto de verificação para os livros de fluxo de trabalho PowerShell. Depois de um trabalho de runbook ser reiniciado mais de três vezes, é suspenso.
 
-### <a name="runbook-permissions-for-a-hybrid-runbook-worker"></a>Permissões de livro de corridas para um trabalhador híbrido do livro de corridas
+### <a name="runbook-permissions-for-a-hybrid-runbook-worker"></a>Permissões de runbook para um trabalhador de runbook híbrido
 
-Uma vez que acedem a recursos não-Azure, os livros de execução que funcionam num Trabalhador de Runbook Híbrido não podem utilizar o mecanismo de autenticação normalmente utilizado por livros de execução autenticando recursos Azure. Um livro de execução ou fornece a sua própria autenticação aos recursos locais, ou confunde a autenticação usando [identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). Também pode especificar uma conta Run As para fornecer um contexto de utilizador para todos os livros de execução.
+Uma vez que acedem a recursos não-Azure, os runbooks em execução num Trabalhador De Runbook Híbrido não podem usar o mecanismo de autenticação normalmente utilizado por runbooks autenticando recursos Azure. Um livro de aplicação fornece a sua própria autenticação aos recursos locais, ou configura a autenticação utilizando [identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). Também pode especificar uma conta Run As para fornecer um contexto de utilizador para todos os livros.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para aprender a configurar os seus livros de execução para automatizar processos no seu centro de dados no local ou em outro ambiente em nuvem, consulte [run run run book em um Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
-* Para aprender a resolver os seus Trabalhadores híbridos, consulte problemas do Trabalhador do Livro Híbrido de [Troubleshoot.](troubleshoot/hybrid-runbook-worker.md#general)
+* Para aprender a configurar os seus livros para automatizar processos no seu datacenter no local ou noutro ambiente em nuvem, consulte [runbooks Runbooks num Trabalhador de Runbook Híbrido](automation-hrw-run-runbooks.md).
+* Para aprender a resolver problemas com os seus Trabalhadores de Runbook Híbridos, consulte problemas de trabalho híbrido de [resolução de problemas.](troubleshoot/hybrid-runbook-worker.md#general)

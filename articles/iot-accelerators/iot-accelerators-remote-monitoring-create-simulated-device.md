@@ -1,6 +1,6 @@
 ---
 title: Simulação de dispositivo com monitorização remota IoT - Azure / Microsoft Docs
-description: Este guia de como fazer mostra como utilizar o simulador do dispositivo com o acelerador de solução de monitorização remota.
+description: Este guia de como usar o simulador do dispositivo com o acelerador de solução de monitorização remota.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -10,38 +10,37 @@ ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: mqtt
 ms.openlocfilehash: d31e520dac1c7e2a13fbd9e24a0cd3167f69e904
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81682013"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Criar e testar um novo dispositivo simulado
 
-O acelerador de solução de monitorização remota permite definir os seus próprios dispositivos simulados. Este artigo mostra-lhe como definir um novo dispositivo de lâmpada simulada e depois testá-lo localmente. O acelerador de solução inclui dispositivos simulados, como refrigeradores e camiões. No entanto, pode definir os seus próprios dispositivos simulados para testar as suas soluções IoT antes de implementar dispositivos reais.
+O acelerador de solução de monitorização remota permite definir os seus próprios dispositivos simulados. Este artigo mostra-lhe como definir um novo dispositivo de lâmpada simulado e, em seguida, testá-lo localmente. O acelerador de solução inclui dispositivos simulados, como refrigeradores e camiões. No entanto, pode definir os seus próprios dispositivos simulados para testar as suas soluções IoT antes de implementar dispositivos reais.
 
 > [!NOTE]
-> Este artigo descreve como utilizar dispositivos simulados hospedados no serviço de simulação do dispositivo. Se pretender criar um dispositivo real, consulte [A Ligação do seu dispositivo ao acelerador de solução](iot-accelerators-connecting-devices.md)de monitorização remota .
+> Este artigo descreve como usar dispositivos simulados alojados no serviço de simulação do dispositivo. Se pretender criar um dispositivo real, consulte [ligar o seu dispositivo ao acelerador de solução de monitorização remota.](iot-accelerators-connecting-devices.md)
 
-Este guia de como personalizar o microserviço de simulação do dispositivo. Este microserviço faz parte do acelerador de solução de monitorização remota. Para mostrar as capacidades de simulação do dispositivo, este guia utiliza dois cenários na aplicação Contoso IoT:
+Este guia de como personalizar o microserviço de simulação do dispositivo. Este microserviço faz parte do acelerador de soluções de monitorização remota. Para mostrar as capacidades de simulação do dispositivo, este guia de como guiar utiliza dois cenários na aplicação Contoso IoT:
 
-No primeiro cenário, adicione um novo tipo de telemetria ao tipo de dispositivo **Chiller** existente de Contoso.
+No primeiro cenário, adiciona-se um novo tipo de telemetria ao tipo de dispositivo **Chiller** existente na Contoso.
 
-No segundo cenário, Contoso quer testar um novo dispositivo de lâmpada inteligente. Para executar os testes, cria um novo dispositivo simulado com as seguintes características:
+No segundo cenário, a Contoso quer testar um novo dispositivo de lâmpada inteligente. Para realizar os testes, cria-se um novo dispositivo simulado com as seguintes características:
 
 *Propriedades*
 
-| Nome                     | Valores                      |
+| Name                     | Valores                      |
 | ------------------------ | --------------------------- |
 | Cor                    | Branco, Vermelho, Azul            |
 | Luminosidade               | 0 a 100                    |
-| Vida remanescente estimada | Contagem regressiva de 10.000 horas |
+| Vida estimada | Contagem regressiva de 10.000 horas |
 
 *Telemetria*
 
-A tabela que se segue mostra os dados que a lâmpada reporta à nuvem como um fluxo de dados:
+A tabela seguinte mostra os dados que a lâmpada reporta à nuvem como um fluxo de dados:
 
-| Nome   | Valores      |
+| Name   | Valores      |
 | ------ | ----------- |
 | Estado | "on", "off" |
 | Temperatura | Graus F |
@@ -52,41 +51,41 @@ A tabela que se segue mostra os dados que a lâmpada reporta à nuvem como um fl
 
 *Métodos*
 
-A tabela que se segue mostra as ações que o novo dispositivo suporta:
+A tabela a seguir mostra as ações que o novo dispositivo suporta:
 
-| Nome        |
+| Name        |
 | ----------- |
 | Ligar   |
 | Desligar  |
 
 *Estado inicial*
 
-O quadro seguinte mostra o estado inicial do dispositivo:
+A tabela a seguir mostra o estado inicial do dispositivo:
 
-| Nome                     | Valores |
+| Name                     | Valores |
 | ------------------------ | -------|
 | Cor inicial            | Branco  |
 | Brilho inicial       | 75     |
 | Vida remanescente inicial   | 10,000 |
-| Estado inicial da telemetria | "On"   |
+| Estado inicial da telemetria | "on"   |
 | Temperatura inicial da telemetria | 200   |
 
-Para completar os passos neste guia de como guiar, precisa de uma subscrição azure ativa.
+Para completar os passos neste guia de como fazer, precisa de uma subscrição ativa do Azure.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir este guia como fazer, precisa de:
+Para acompanhar este guia, precisa:
 
 * Visual Studio Code. Você pode [baixar Visual Studio Code para Mac, Linux e Windows](https://code.visualstudio.com/download).
-* .NET Core. Pode baixar [.NET Core para Mac, Linux e Windows](https://www.microsoft.com/net/download).
+* .NET Core. Pode baixar [.NET Core para Mac, Linux e Windows.](https://www.microsoft.com/net/download)
 * [C# para o Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-* Carteiro. Você pode baixar [O Carteiro para Mac, Windows ou Linux](https://www.getpostman.com/apps).
-* Um [hub IoT implantado na sua subscrição Azure.](../../articles/iot-hub/iot-hub-create-through-portal.md) Você precisa da cadeia de ligação do centro IoT para completar os passos neste guia. Pode obter a corda de ligação do portal Azure.
-* Uma base de dados Cosmos DB que utiliza a API SQL e que está configurada para [uma forte consistência.](../../articles/cosmos-db/how-to-manage-database-account.md) Precisa da cadeia de ligação da base de dados Cosmos DB para completar os passos deste guia. Pode obter a corda de ligação do portal Azure.
+* Carteiro. Você pode baixar [Carteiro para Mac, Windows ou Linux](https://www.getpostman.com/apps).
+* Um [hub IoT implantado na sua subscrição Azure](../../articles/iot-hub/iot-hub-create-through-portal.md). Você precisa da cadeia de ligação do hub IoT para completar os passos neste guia. Pode obter a cadeia de ligação do portal Azure.
+* Uma base de dados Cosmos DB que utiliza a API SQL e que está configurada para [uma forte consistência.](../../articles/cosmos-db/how-to-manage-database-account.md) Precisa da cadeia de ligação da base de dados Cosmos DB para completar os passos deste guia. Pode obter a cadeia de ligação do portal Azure.
 
 ## <a name="prepare-your-development-environment"></a>Preparar o ambiente de desenvolvimento
 
@@ -94,31 +93,31 @@ Complete as seguintes tarefas para preparar o seu ambiente de desenvolvimento:
 
 * Descarregue a fonte para o microserviço de simulação do dispositivo.
 * Descarregue a fonte para o microserviço do adaptador de armazenamento.
-* Executar o microserviço adaptador de armazenamento localmente.
+* Executar o microserviço do adaptador de armazenamento localmente.
 
-As instruções deste artigo assumem que está a usar o Windows. Se estiver a utilizar outro sistema operativo, poderá ter de ajustar alguns dos caminhos e comandos de ficheiros para se adequar ao seu ambiente.
+As instruções deste artigo pressupõem que está a usar o Windows. Se estiver a utilizar outro sistema operativo, poderá ter de ajustar alguns dos caminhos e comandos de ficheiros para se adequar ao seu ambiente.
 
 ### <a name="download-the-microservices"></a>Descarregue os microserviços
 
-Descarregue e descarregue os [microserviços](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) de monitorização remota do GitHub para um local adequado na sua máquina local. O artigo assume que o nome desta pasta é controlo **remoto-serviços-dotnet-master**.
+Faça o download e desaperte os [microserviços](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) de monitorização remota do GitHub para uma localização adequada na sua máquina local. O artigo pressupõe que o nome desta pasta é **serviços de monitorização remota-dotnet-master**.
 
-Descarregue e desaperte o microserviço de [simulação](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) do dispositivo do GitHub para um local adequado na sua máquina local. O artigo assume que o nome desta pasta é **dispositivo-simulação-dotnet-master**.
+Faça o download e desaperte o [microserviço](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) de simulação do dispositivo do GitHub para uma localização adequada na sua máquina local. O artigo assume que o nome desta pasta é **device-simulation-dotnet-master**.
 
-### <a name="run-the-storage-adapter-microservice"></a>Executar o microserviço adaptador de armazenamento
+### <a name="run-the-storage-adapter-microservice"></a>Executar o microserviço do adaptador de armazenamento
 
-Abra a pasta de adaptação de armazenamento de **serviços de monitorização remota-dotnet-master\no** Código do Estúdio Visual. Clique em botões **restaurar** para corrigir quaisquer dependências não resolvidas.
+Abra a pasta **de adaptação de serviços de monitorização remota-dotnet-master\storage-adapter** no Código do Estúdio Visual. Clique em quaisquer botões **De restauro** para corrigir quaisquer dependências não resolvidas.
 
-Abra o **adaptador de armazenamento/WebService/appsettings.ini** e atribua a sua cadeia de ligação Cosmos DB à variável **documentDBConnectionString.**
+Abra o ficheiro **adaptador de armazenamento/WebService/appsettings.ini** e atribua a sua cadeia de ligação Cosmos DB à variável **documentDBConnectionString.**
 
-Para executar o microserviço localmente, clique em **Debug > Começar Depuração**.
+Para executar o microserviço localmente, clique em **Debug > Start Debugging**.
 
-A janela **Terminal** em Código de Estúdio Visual mostra saída do microserviço [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status)em execução, incluindo um URL para a verificação de saúde do serviço web: . Quando navegar para este endereço, o estado deve ser "OK: Vivo e bem".
+A janela **terminal** em Visual Studio Code mostra a saída do microserviço em execução, incluindo um URL para a verificação de saúde do serviço web: [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status) . Quando navegar para este endereço, o estado deve ser "OK: Vivo e bem".
 
-Deixe o microserviço adaptador de armazenamento em funcionamento neste caso de Visual Studio Code enquanto completa os próximos passos.
+Deixe o microserviço do adaptador de armazenamento em funcionamento neste caso de Visual Studio Code enquanto completa os próximos passos.
 
-## <a name="modify-the-chiller"></a>Modificar o refrigerador
+## <a name="modify-the-chiller"></a>Modifique o refrigerador
 
-Nesta secção, adicione um novo tipo de telemetria **de temperatura interna** ao tipo de dispositivo **Chiller** existente:
+Nesta secção, adicione um novo tipo de telemetria **de temperatura interna** ao tipo de dispositivo **chiller** existente:
 
 1. Crie uma nova pasta **C:\temp\devicemodels** na sua máquina local.
 
@@ -126,23 +125,23 @@ Nesta secção, adicione um novo tipo de telemetria **de temperatura interna** a
 
     | Origem | Destino |
     | ------ | ----------- |
-    | Serviços\data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
-    | Serviços\data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |
-    | Serviços\data\devicemodels\scripts\Reboot-method.js | C:\temp\devicemodels\scripts\Reboot-method.js |
-    | Serviços\data\devicemodels\scripts\FirmwareUpdate-method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-method.js |
-    | Serviços\data\devicemodels\scripts\EmergencyValveRelease-method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-method.js |
-    | Serviços\data\devicemodels\scripts\IncreasePressure-method.js | C:\temp\devicemodels\scripts\IncreasePressure-method.js |
+    | Services\data\devicemodels\chiller-01.jsem | C:\temp\devicemodels\chiller-01.jsem |
+    | Services\data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |
+    | Services\data\devicemodels\scripts\Reboot-method.js | C:\temp\devicemodels\scripts\Reboot-method.js |
+    | Services\data\devicemodels\scripts\FirmwareUpdate-method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-method.js |
+    | Services\data\devicemodels\scripts\EmergencyValveRelease-method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-method.js |
+    | Services\data\devicemodels\scripts\IncreasePressure-method.js | C:\temp\devicemodels\scripts\IncreasePressure-method.js |
 
-1. Abra o ficheiro **C:\temp\devicemodels\chiller-01.json.**
+1. Abra a **C:\temp\devicemodels\chiller-01.jsarquivada.**
 
-1. Na secção **InitialState,** adicione as seguintes duas definições:
+1. Na secção **Estado Inicial,** adicione as seguintes duas definições:
 
     ```json
     "internal_temperature": 65.0,
     "internal_temperature_unit": "F",
     ```
 
-1. Na matriz de **Telemetria,** adicione a seguinte definição:
+1. Na matriz de **telemetria,** adicione a seguinte definição:
 
     ```json
     {
@@ -159,11 +158,11 @@ Nesta secção, adicione um novo tipo de telemetria **de temperatura interna** a
     },
     ```
 
-1. Guarde o ficheiro **C:\temp\devicemodels\chiller-01.json.**
+1. Guarde o **C:\temp\devicemodels\chiller-01.jsarquivado.**
 
 1. Abra o ficheiro **C:\temp\devicemodels\scripts\chiller-01-state.js.**
 
-1. Adicione os seguintes campos à variável **do Estado:**
+1. Adicione os seguintes campos à variável **do estado:**
 
     ```js
     internal_temperature: 65.0,
@@ -206,9 +205,9 @@ Nesta secção, adicione um novo tipo de telemetria **de temperatura interna** a
 
 ## <a name="create-the-lightbulb"></a>Criar a lâmpada
 
-Nesta secção, define um novo tipo de dispositivo **de lâmpada:**
+Nesta secção, define-se um novo tipo de dispositivo **de lâmpada:**
 
-1. Criar um ficheiro **C:\temp\devicemodels\lightbulb-01.json** e adicionar o seguinte conteúdo:
+1. Crie um ficheiro **C:\temp\devicemodels\lightbulb-01.js** e adicione o seguinte conteúdo:
 
     ```json
     {
@@ -272,9 +271,9 @@ Nesta secção, define um novo tipo de dispositivo **de lâmpada:**
     }
     ```
 
-    Guarde as alterações para **C:\temp\devicemodels\lightbulb-01.json**.
+    Guarde as alterações para **C:\temp\devicemodels\lightbulb-01.jsligados**.
 
-1. Criar um ficheiro **C:\temp\devicemodels\scripts\lightbulb-01-state.js** e adicionar o seguinte conteúdo:
+1. Crie um **C:\temp\devicemodels\scripts\lightbulb-01-state.js** de ficheiros e adicione o seguinte conteúdo:
 
     ```javascript
     "use strict";
@@ -363,7 +362,7 @@ Nesta secção, define um novo tipo de dispositivo **de lâmpada:**
 
     Guarde as alterações para **C:\temp\devicemodels\scripts\lightbulb-01-state.js**.
 
-1. Criar um ficheiro **C:\temp\devicemodels\scripts\SwitchOn-method.js** e adicionar o seguinte conteúdo:
+1. Crie um **C:\temp\devicemodels\scripts\SwitchOn-method.js** de ficheiros e adicione o seguinte conteúdo:
 
     ```javascript
     "use strict";
@@ -389,7 +388,7 @@ Nesta secção, define um novo tipo de dispositivo **de lâmpada:**
 
     Guarde as alterações para **C:\temp\devicemodels\scripts\SwitchOn-method.js**.
 
-1. Criar um ficheiro **C:\temp\devicemodels\scripts\SwitchOff-method.js** e adicionar o seguinte conteúdo:
+1. Crie um **C:\temp\devicemodels\scripts\SwitchOff-method.js** de ficheiros e adicione o seguinte conteúdo:
 
     ```javascript
     "use strict";
@@ -415,17 +414,17 @@ Nesta secção, define um novo tipo de dispositivo **de lâmpada:**
 
     Guarde as alterações para **C:\temp\devicemodels\scripts\SwitchOff-method.js**.
 
-Criou agora uma versão personalizada do tipo de dispositivo **Chiller** e criou um novo tipo de dispositivo **lightbulb.**
+Criou agora uma versão personalizada do tipo dispositivo **Chiller** e criou um novo tipo de dispositivo **lightbulb.**
 
 ## <a name="test-the-devices"></a>Testar os dispositivos
 
-Nesta secção, testa os tipos de dispositivos que criou nas secções anteriores localmente.
+Nesta secção, teste os tipos de dispositivo que criou nas secções anteriores localmente.
 
 ### <a name="run-the-device-simulation-microservice"></a>Executar o microserviço de simulação do dispositivo
 
-Abra a pasta de **simulação-dotnet-master** de dispositivo que descarregou do GitHub numa nova instância de Visual Studio Code. Clique em botões **restaurar** para corrigir quaisquer dependências não resolvidas.
+Abra a pasta **de simulação-dotnet-master** que descarregou do GitHub num novo exemplo do Visual Studio Code. Clique em quaisquer botões **De restauro** para corrigir quaisquer dependências não resolvidas.
 
-Abra o ficheiro **WebService/appsettings.ini** e atribua a sua cadeia de ligação Cosmos DB à **variável documentdb_connstring** e também modifique as definições da seguinte forma:
+Abra o ficheiro **WebService/appsettings.ini** e atribua a sua cadeia de ligação Cosmos DB à variável **documentdb_connstring** e também modifique as definições da seguinte forma:
 
 ```ini
 device_models_folder = C:\temp\devicemodels\
@@ -433,17 +432,17 @@ device_models_folder = C:\temp\devicemodels\
 device_models_scripts_folder = C:\temp\devicemodels\scripts\
 ```
 
-Para executar o microserviço localmente, clique em **Debug > Começar Depuração**.
+Para executar o microserviço localmente, clique em **Debug > Start Debugging**.
 
-A janela **Terminal** em Código de Estúdio Visual mostra saída do microserviço em execução.
+A janela **Terminal** em Visual Studio Code mostra a saída do microserviço em execução.
 
-Deixe o microserviço de simulação do dispositivo em funcionamento nesta instância de Código de Estúdio Visual enquanto completa os próximos passos.
+Deixe o microserviço de simulação do dispositivo em funcionamento neste caso de Visual Studio Code enquanto completa os próximos passos.
 
-### <a name="set-up-a-monitor-for-device-events"></a>Configurar um monitor para eventos de dispositivos
+### <a name="set-up-a-monitor-for-device-events"></a>Criar um monitor para eventos de dispositivos
 
-Nesta secção, utiliza o Azure CLI para configurar um monitor de eventos para visualizar a telemetria enviada dos dispositivos ligados ao seu hub IoT.
+Nesta secção, utiliza o CLI Azure para configurar um monitor de eventos para visualizar a telemetria enviada dos dispositivos ligados ao seu hub IoT.
 
-O seguinte script pressupõe que o nome do seu hub IoT é **teste de simulação de dispositivos**.
+O seguinte script pressupõe que o nome do seu hub IoT é **teste de simulação de dispositivo**.
 
 ```azurecli-interactive
 # Install the IoT extension if it's not already installed
@@ -455,52 +454,52 @@ az iot hub monitor-events --hub-name device-simulation-test
 
 Deixe o monitor de eventos em funcionamento enquanto testa os dispositivos simulados.
 
-### <a name="create-a-simulation-with-the-updated-chiller-device-type"></a>Criar uma simulação com o tipo de dispositivo de refrigeração atualizado
+### <a name="create-a-simulation-with-the-updated-chiller-device-type"></a>Criar uma simulação com o tipo de dispositivo de refrigerador atualizado
 
-Nesta secção, utiliza a ferramenta Postman para solicitar o microserviço de simulação do dispositivo para executar uma simulação utilizando o tipo de dispositivo de refrigeração atualizado. O carteiro é uma ferramenta que permite enviar pedidos REST para um serviço web. Os ficheiros de configuração do Carteiro de que necessita estão na cópia local do repositório **de simulação-dotnet** do dispositivo.
+Nesta secção, utilize a ferramenta Postman para solicitar o microserviço de simulação do dispositivo para executar uma simulação utilizando o tipo de dispositivo de refrigeração atualizado. O Carteiro é uma ferramenta que permite enviar pedidos DE REST para um serviço web. Os ficheiros de configuração do Carteiro que precisa estão na sua cópia local do repositório **de simulação-dotnet** do dispositivo.
 
-Para criar o Carteiro:
+Para configurar o Carteiro:
 
-1. Abre o Carteiro na tua máquina local.
+1. Abra o Carteiro na sua máquina local.
 
-1. Clique em **File > Import**. Em seguida, clique em **Escolher Ficheiros**.
+1. Clique **em "File > Import**". Em seguida, clique em **Escolher Ficheiros**.
 
-1. Navegue para a pasta **dispositivo-simulação-dotnet-master/docs/postman.** Selecione Acelerador de simulação de **dispositivo Azure IoT.postman_collection** e acelerador de simulação de **dispositivo Solução Azure IoT.postman_environment** e clique **em Open**.
+1. Navegue para a pasta **device-simulation-dotnet-master/docs/postman.** Selecione O acelerador de **solução de simulação de dispositivo Azure IoT.postman_collection** e o acelerador de **simulação de dispositivo Azure IoT.postman_environment** e clique **em Abrir**.
 
-1. Expanda o acelerador de simulação de **dispositivo Solução Azure IoT** para os pedidos que pode enviar.
+1. Expanda o acelerador de **simulação de dispositivoS Azure IoT** para os pedidos que pode enviar.
 
-1. Clique **em No Environment** e selecione Acelerador de simulação de dispositivo **Azure IoT**.
+1. Clique **em No Environment** e selecione o acelerador de **simulação de dispositivoS Azure IoT**.
 
-Tem agora uma recolha e ambiente carregados no seu espaço de trabalho do Carteiro que pode usar para interagir com o microserviço de simulação do dispositivo.
+Tem agora uma coleção e ambiente carregados no seu espaço de trabalho do Carteiro que pode usar para interagir com o microserviço de simulação do dispositivo.
 
 Para configurar e executar a simulação:
 
-1. Na coleção Postman, selecione **Criar simulação de refrigeração modificada** e clique em **Enviar**. Este pedido cria quatro instâncias do tipo de dispositivo de refrigeração simulado.
+1. Na coleção Postman, **selecione Criar simulação de refrigeração modificada** e clique em **Enviar**. Este pedido cria quatro instâncias do tipo de dispositivo de refrigeração simulado.
 
-1. A saída do monitor de eventos na janela Azure CLI mostra a telemetria dos dispositivos simulados, incluindo os novos valores **internal_temperature.**
+1. A saída do monitor do evento na janela Azure CLI mostra a telemetria dos dispositivos simulados, incluindo os novos **valores internal_temperature.**
 
-Para parar a simulação, selecione o pedido de **simulação Stop** no Carteiro e clique em **Enviar**.
+Para interromper a simulação, selecione o pedido **de simulação Stop** no Carteiro e clique em **Enviar**.
 
 ### <a name="create-a-simulation-with-the-lightbulb-device-type"></a>Criar uma simulação com o tipo de dispositivo de lâmpada
 
-Nesta secção, utiliza a ferramenta Postman para solicitar o microserviço de simulação do dispositivo para executar uma simulação utilizando o tipo de dispositivo de lâmpada. O carteiro é uma ferramenta que permite enviar pedidos REST para um serviço web.
+Nesta secção, utilize a ferramenta Postman para solicitar o microserviço de simulação do dispositivo para executar uma simulação utilizando o tipo de dispositivo de lâmpada. O Carteiro é uma ferramenta que permite enviar pedidos DE REST para um serviço web.
 
 Para configurar e executar a simulação:
 
-1. Na coleção Postman, selecione **Criar simulação de lâmpada** e clique em **Enviar**. Este pedido cria duas instâncias do tipo de dispositivo de lâmpada simulada.
+1. Na coleção Postman, **selecione Criar simulação de lâmpada** e clique em **Enviar**. Este pedido cria duas instâncias do tipo de dispositivo de lâmpada simulado.
 
-1. A saída do monitor de eventos na janela Azure CLI mostra a telemetria das lâmpadas simuladas.
+1. A saída do monitor do evento na janela Azure CLI mostra a telemetria das lâmpadas simuladas.
 
-Para parar a simulação, selecione o pedido de **simulação Stop** no Carteiro e clique em **Enviar**.
+Para interromper a simulação, selecione o pedido **de simulação Stop** no Carteiro e clique em **Enviar**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Pode parar os dois microserviços de funcionamento local nas suas instâncias de Código de Estúdio Visual (**Debug > Stop Debugging).**
+Pode parar os dois microserviços de funcionamento local nas suas instâncias do Código do Estúdio Visual **(Debug > Stop Debugging).**
 
-Se já não necessitar dos casos IoT Hub e Cosmos DB, elimine-os da subscrição do Azure para evitar quaisquer encargos desnecessários.
+Se já não necessitar das instâncias IoT Hub e Cosmos DB, elimine-as da sua assinatura Azure para evitar eventuais encargos desnecessários.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Este guia mostrou-lhe como criar um dispositivo simulado personalizado e testá-los executando o microserviço de simulação do dispositivo localmente.
+Este guia mostrou-lhe como criar um tipo de dispositivo simulado personalizado e testá-los executando o microserviço de simulação do dispositivo localmente.
 
-O próximo passo sugerido é aprender a implementar os tipos de dispositivos simulados personalizados para o acelerador de [soluções de monitorização remota](iot-accelerators-remote-monitoring-deploy-simulated-device.md).
+O próximo passo sugerido é aprender a implementar os seus tipos de dispositivos simulados personalizados para o [acelerador de solução de monitorização remota.](iot-accelerators-remote-monitoring-deploy-simulated-device.md)

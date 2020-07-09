@@ -1,6 +1,6 @@
 ---
-title: Formato de dados GeoJSON para geovetes Microsoft Azure Maps
-description: Neste artigo, você aprenderá sobre como preparar os dados geovetes que podem ser usados no Microsoft Azure Maps GET e POST Geofence API.
+title: Formato de dados GeoJSON para geofence Microsoft Azure Maps
+description: Neste artigo, você vai aprender sobre como preparar os dados de geofência que podem ser usados no Microsoft Azure Maps GET e POST Geofence API.
 author: philmea
 ms.author: philmea
 ms.date: 02/14/2019
@@ -9,40 +9,40 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 7b9860908dd3bdf3dcda727f350578a97b890cac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335611"
 ---
-# <a name="geofencing-geojson-data"></a>Geofencing GeoJSON
+# <a name="geofencing-geojson-data"></a>Geofencing Dados geojSON
 
-Os Mapas Azure [GET Geofence](/rest/api/maps/spatial/getgeofence) e [POST Geofence](/rest/api/maps/spatial/postgeofence) APIs permitem-lhe recuperar a proximidade de uma coordenada relativa a uma geoveda ou conjunto de cercas fornecidas. Este artigo detalha como preparar os dados geovetes que podem ser usados no Azure Maps GET e POST API.
+Os Azure Maps [GET Geofence](/rest/api/maps/spatial/getgeofence) e [POST Geofence](/rest/api/maps/spatial/postgeofence) APIs permitem-lhe recuperar a proximidade de uma coordenada relativa a uma geofência fornecida ou conjunto de cercas. Este artigo detalha como preparar os dados de geofência que podem ser usados no Azure Maps GET e POST API.
 
-Os dados relativos a geovetes ou `Feature` conjunto `FeatureCollection` de `GeoJSON` geovedações são representados por Object e Object em formato, que é definido em [rfc7946](https://tools.ietf.org/html/rfc7946). Além disso:
+Os dados relativos à geofência ou conjunto de geofências são representados por `Feature` Object and Object em `FeatureCollection` `GeoJSON` formato, que é definido em [rfc7946](https://tools.ietf.org/html/rfc7946). Além disso:
 
-* O tipo de objeto GeoJSON pode ser um `Feature` Objeto ou um `FeatureCollection` Objeto.
-* O tipo de Objeto `Point`de `MultiPoint` `LineString`Geometria pode ser um, `MultiLineString`, `Polygon`, , `MultiPolygon`e `GeometryCollection`.
-* Todas as propriedades `geometryId`da funcionalidade devem conter um , que é usado para identificar a geovedação.
-* A `Point`funcionalidade `MultiPoint` `LineString`com, , deve `MultiLineString` conter-se `radius` nas propriedades. `radius`o valor é medido `radius` em metros, o valor varia de 1 a 10000.
-* A `polygon` funcionalidade `multipolygon` com e o tipo de geometria não tem uma propriedade de raio.
-* `validityTime`é uma propriedade opcional que permite ao utilizador definir prazo expirado e prazo de validade para os dados de geovedação. Se não for especificado, os dados nunca expiram e são sempre válidos.
-* Esta `expiredTime` é a data de validade e a hora dos dados geofencing. Se o `userTime` valor do pedido for posterior ao deste valor, os dados geovetes correspondentes são considerados como dados caducados e não são consultados. Após o qual, a geometria destes dados `expiredGeofenceGeometryId` geovetes será incluída na matriz dentro da resposta geoveda.
-* É `validityPeriod` uma lista de prazo de validade da geoveda. Se o `userTime` valor do pedido for fora do período de validade, os dados geovetes correspondentes são considerados inválidos e não serão consultados. A geometria destes dados geovetes está incluída na `invalidPeriodGeofenceGeometryId` matriz dentro da resposta geoveda. O quadro seguinte mostra as propriedades do elemento período de validade.
+* O tipo de Objeto GeoJSON pode ser um `Feature` objeto ou um `FeatureCollection` objeto.
+* O tipo de Objeto de Geometria pode ser um `Point` , , , , , e `MultiPoint` `LineString` `MultiLineString` `Polygon` `MultiPolygon` `GeometryCollection` .
+* Todas as propriedades de recurso devem conter um `geometryId` , que é usado para identificar a geofence.
+* Característica com `Point` , , deve conter `MultiPoint` `LineString` `MultiLineString` `radius` propriedades. `radius`valor é medido em metros, o `radius` valor varia de 1 a 10000.
+* Recurso com `polygon` e `multipolygon` tipo de geometria não tem uma propriedade de raio.
+* `validityTime`é uma propriedade opcional que permite ao utilizador definir o tempo e prazo de validade para os dados de geofência. Se não forem especificados, os dados nunca expiram e são sempre válidos.
+* É `expiredTime` a data de validade e a hora dos dados de geofencagem. Se o valor do `userTime` pedido for posterior a este valor, os dados de geofência correspondentes são considerados dados caducados e não são consultados. Sobre o qual a geometriaId destes dados de geofência será incluída na `expiredGeofenceGeometryId` matriz dentro da resposta de geofência.
+* `validityPeriod`Trata-se de uma lista de períodos de validade da geo-fence. Se o valor do `userTime` pedido ficar fora do período de validade, os dados de geofência correspondentes são considerados inválidos e não serão consultados. A geometriaId destes dados de geofência está incluída na `invalidPeriodGeofenceGeometryId` matriz dentro da resposta de geofência. A tabela a seguir mostra as propriedades do elemento validadePeriod.
 
-| Nome | Tipo | Necessário  | Descrição |
+| Name | Tipo | Necessário  | Descrição |
 | :------------ |:------------: |:---------------:| :-----|
-| startTime | Datetime  | true | A data de início do período de validade. |
-| endTime   | Datetime  | true |  A data limite do período de validade. |
-| recorrênciaType | string | false |   O tipo de recorrência do período. O valor `Daily`pode `Weekly` `Monthly`ser, `Yearly`ou . O valor `Daily`predefinido é .|
-| businessDayOnly | Booleano | false |  Indique se os dados só são válidos durante os dias úteis. O valor `false`predefinido é .|
+| startTime | Datetime  | true | A data de início do período de tempo de validade. |
+| endTime   | Datetime  | true |  A data de fim do período de tempo de validade. |
+| recorrênciaType | string | false |   O tipo de recorrência do período. O valor pode `Daily` `Weekly` ser, `Monthly` , ou . `Yearly` . O valor predefinido é `Daily` .|
+| businessDayOnly | Booleano | false |  Indicar se os dados são válidos apenas durante os dias úteis. O valor predefinido é `false` .|
 
 
-* Todos os valores de coordenadasão representados como `WGS84`[longitude, latitude] definidos em .
-* Para cada Funcionalidade, `MultiPoint` `MultiLineString`que `MultiPolygon` contém, ou `GeometryCollection`, as propriedades são aplicadas a todos os elementos. por exemplo: Todos `MultiPoint` os pontos em utilizarão o mesmo raio para formar uma geocerca de círculo múltiplo.
-* No cenário de círculo de pontos, uma `Point` geometria do círculo pode ser representada usando um objeto de geometria com propriedades elaboradas nas [geometrias GeoJSON de Extensão](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
+* Todos os valores de coordenadas são representados como [longitude, latitude] definido em `WGS84` .
+* Para cada Recurso, que contém `MultiPoint` , ou , as propriedades são `MultiLineString` `MultiPolygon` `GeometryCollection` aplicadas a todos os elementos. por exemplo: Todos os pontos em `MultiPoint` vão usar o mesmo raio para formar uma geofência de múltiplos círculos.
+* Em cenário de círculo pontual, uma geometria do círculo pode ser representada usando um `Point` objeto de geometria com propriedades elaboradas na [extensão das geometrias geoJSON.](https://docs.microsoft.com/azure/azure-maps/extend-geojson)      
 
-Segue-se um corpo de pedido de amostra para uma `GeoJSON` geoveda representada como uma geometria geoveda de círculo na utilização de um ponto central e um raio. O período válido dos dados geovetes começa de 2018-10-22, das 9h às 17h, repetido todos os dias, exceto para o fim de semana. `expiredTime`indica que estes dados de geovedação serão considerados caducados, se `userTime` no pedido for posterior mente inferior a `2019-01-01`.  
+Segue-se um corpo de pedido de amostra para uma geofence representada como geometria de geofência de círculo na `GeoJSON` utilização de um ponto central e um raio. O período válido dos dados de geofência começa de 2018-10-22, das 9h às 17h, repetidos todos os dias, exceto ao fim de semana. `expiredTime`indica que estes dados de geofência serão considerados expirados, se `userTime` no pedido for mais tarde do que `2019-01-01` .  
 
 ```json
 {

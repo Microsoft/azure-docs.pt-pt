@@ -1,5 +1,5 @@
 ---
-title: Azure ADAL para vídeos de migração da MSAL Azure
+title: Azure ADAL para msal vídeos de migração / Rio Azure
 description: Vídeos que o ajudam a migrar da plataforma de desenvolvimento do Azure Ative Directory para a plataforma de identidade da Microsoft
 services: active-directory
 author: mmacy
@@ -14,19 +14,18 @@ ms.custom: aaddev
 ms.reviewer: celested
 titleSuffix: Microsoft identity platform
 ms.openlocfilehash: e71f555f7a9cefef3aeada79031db3a07e3db49a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77202063"
 ---
-# <a name="azure-active-directory-developer-platform-videos"></a>Vídeos da plataforma de desenvolvimento do Diretório Ativo Azure
+# <a name="azure-active-directory-developer-platform-videos"></a>Vídeos da plataforma de desenvolvimento do Azure Ative Directory
 
-Conheça a nova plataforma de identidade da Microsoft e como migrar para ela a partir da plataforma de desenvolvimento do Azure Ative Directory (Azure AD). Os vídeos têm normalmente 1-2 minutos de duração.
+Conheça a nova plataforma de identidade da Microsoft e como migrar para ela a partir da plataforma de desenvolvimento Azure Ative (Azure AD). Os vídeos têm normalmente 1-2 minutos de duração.
 
 ## <a name="migrate-from-v10-to-v20"></a>Migrar de v1.0 para v2.0
 
-**Saiba sobre a migração para a versão mais recente da plataforma de identidade da Microsoft**
+**Saiba mais sobre migração para a versão mais recente da plataforma de identidade da Microsoft**
 
 :::row:::
     :::column:::
@@ -50,7 +49,7 @@ Conheça a nova plataforma de identidade da Microsoft e como migrar para ela a p
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
      :::column:::
-        Migrando a sua base de código ADAL para a MSAL
+        Migrando a sua base de código ADAL para MSAL
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/xgL_z9yCnrE]
@@ -58,7 +57,7 @@ Conheça a nova plataforma de identidade da Microsoft e como migrar para ela a p
 :::row-end:::
 :::row:::
     :::column:::
-        Por que migrar da ADAL para a MSAL
+        Porquê migrar de ADAL para MSAL
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
@@ -71,6 +70,6 @@ Conheça a nova plataforma de identidade da Microsoft e como migrar para ela a p
     :::column-end:::
 :::row-end:::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Conheça a nova [plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop)

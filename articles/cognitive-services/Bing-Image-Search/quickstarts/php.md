@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Procure imagens usando a API e PHP de pesquisa de imagem bing'
+title: 'Quickstart: Procure imagens utilizando a API de Pesquisa de Imagem Bing e PHP'
 titleSuffix: Azure Cognitive Services
-description: Utilize este quickstart para enviar pedidos de pesquisa de imagem para a API de pesquisa de imagem bing image usando PHP, e receber respostas JSON.
+description: Utilize este quickstart para enviar pedidos de pesquisa de imagem para a API de pesquisa de imagem Bing usando PHP e receba respostas JSON.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 50ce929904df7d4cf4e6ee83d77a9ad16c5f8cff
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: aad804179739a77010446a146d32cd51ac6e6757
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118844"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603371"
 ---
-# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Quickstart: Procure imagens usando a API e PHP de pesquisa de imagem bing
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Quickstart: Procure imagens utilizando a API de Pesquisa de Imagem Bing e PHP
 
 Utilize este guia de início rápido para fazer a sua primeira chamada à API de Pesquisa de Imagens do Bing e receber uma resposta JSON. A aplicação simples neste artigo envia uma consulta de pesquisa e mostra os resultados não processados.
 
@@ -33,15 +33,15 @@ O código fonte deste exemplo está disponível [no GitHub](https://github.com/A
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-Para mais informações, consulte [Preços dos Serviços Cognitivos - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Para mais informações, consulte [preços dos serviços cognitivos - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
 Para executar esta aplicação, siga estes passos:
 
-1. Certifique-se de que o suporte HTTP seguro está ativado no seu ficheiro `php.ini`. Para windows, este ficheiro está localizado em *C:\windows*.
+1. Certifique-se de que o suporte HTTP seguro está ativado no seu ficheiro `php.ini`. Para o Windows, este ficheiro está localizado em *C:\windows*.
 2. Crie um novo projeto PHP no seu IDE ou editor preferido.
-3. Defina o ponto final da API, a sua chave de subscrição e o termo de pesquisa. O ponto final pode ser o ponto final global no seguinte código, ou o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+3. Defina o ponto final da API, a sua chave de subscrição e o termo de pesquisa. O ponto final pode ser o ponto final global no seguinte código, ou o ponto final [personalizado subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
     ```php
     $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/images/search';
@@ -50,9 +50,9 @@ Para executar esta aplicação, siga estes passos:
     $term = 'tropical ocean';
     ```
 
-## <a name="construct-and-perform-an-http-request"></a>Construir e executar um pedido http
+## <a name="construct-and-perform-an-http-request"></a>Construa e execute um pedido HTTP
 
-1. Utilize as variáveis do último passo para preparar um pedido http para a API de Pesquisa de Imagem.
+1. Utilize as variáveis do último passo para preparar um pedido HTTP para a API de Pesquisa de Imagem.
 
     ```php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
@@ -61,7 +61,7 @@ Para executar esta aplicação, siga estes passos:
                             'method' => 'GET' ));
     ```
 
-2. Envie o pedido da web e obtenha a resposta JSON.
+2. Envie o pedido web e obtenha a resposta JSON.
 
     ```php
     $context = stream_context_create($options);
@@ -83,7 +83,7 @@ $headers = array();
     return array($headers, $result);
 ```
 
-## <a name="example-json-response"></a>Exemplo resposta JSON
+## <a name="example-json-response"></a>Exemplo JSON resposta
 
 As respostas da API de Pesquisa de Imagens do Bing são devolvidas como JSON. Esta resposta de amostra foi truncada para mostrar um único resultado.
 
@@ -139,8 +139,7 @@ As respostas da API de Pesquisa de Imagens do Bing são devolvidas como JSON. Es
 ## <a name="see-also"></a>Ver também
 
 * [O que é a API de Pesquisa de Imagens do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Experimente uma demonstração interativa online.](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
-* [Detalhes de preços para as APIs](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)de Pesquisa bing . 
-* [Obtenha uma chave de acesso gratuita aos Serviços Cognitivos.](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
-* [Documentação dos Serviços Cognitivos Azure.](https://docs.microsoft.com/azure/cognitive-services)
-* [Referência da API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)de Pesquisa de Imagem bing .
+* [Experimentar uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* [Detalhes dos preços das APIs de pesquisa de Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) 
+* [Documentação dos Serviços Cognitivos da Azure](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

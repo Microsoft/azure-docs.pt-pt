@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: banders
-ms.openlocfilehash: 6b01253d12b67c327bc67416ca569ccb7ee469ae
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 609ca56419ed14f3cf4e449e9b906a75a4ff20ab
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780645"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85807786"
 ---
 # <a name="buy-a-reservation"></a>Comprar uma reserva
 
@@ -72,7 +72,7 @@ Pode comprar reservas no portal, nas APIs, no PowerShell e na CLI do Azure. Leia
 - [Dedicated Host](../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md)
 - [Planos de software](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Armazenamento](../../storage/blobs/storage-blob-reserved-capacity.md)
-- [Base de Dados SQL](../../sql-database/sql-database-reserved-capacity.md)
+- [Base de Dados SQL](../../azure-sql/database/reserved-capacity-overview.md)
 - [Base de Dados do Azure para PostgreSQL](../../postgresql/concept-reserved-pricing.md)
 - [Base de Dados do Azure para MySQL](../../mysql/concept-reserved-pricing.md)
 - [Azure Database for MariaDB](../../mariadb/concept-reserved-pricing.md)
@@ -85,7 +85,7 @@ Pode pagar as reservas através de pagamentos mensais. Ao contrário de uma comp
 
 Se a reserva for comprada através do Contrato de Cliente Microsoft (MCA), o montante de pagamento mensal pode variar consoante a taxa de câmbio da moeda local.
 
-Os pagamentos mensais não estão disponíveis para: Databricks, reservas de SUSE Linux, Planos do Red Hat e Computação do Azure Red Hat OpenShift.
+Os pagamentos mensais não estão disponíveis para: Databricks, reservas de SUSE Linux, Planos do Red Hat e Licenças do Azure Red Hat OpenShift.
 
 ### <a name="view-payments-made"></a>Ver os pagamentos efetuados
 

@@ -1,63 +1,62 @@
 ---
 title: Windows Virtual Desktop PowerShell - Azure
-description: Como resolver problemas com a PowerShell quando configura um ambiente de ambiente de trabalho virtual windows.
+description: Como resolver problemas com o PowerShell quando configurar um ambiente de ambiente de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ce19c670df5062a11bf86e9c383a322f9033818d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: 6e4459eea07f60d90dad692d6625dd45c5038093
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612015"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84456968"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à atualização da primavera de 2020 com os objetos de ambiente de trabalho virtual do Gestor de Recursos Do Azure Windows. Se estiver a utilizar o lançamento do Windows Virtual Desktop Fall 2019 sem objetos do Gestor de Recursos Azure, consulte [este artigo](./virtual-desktop-fall-2019/troubleshoot-powershell-2019.md).
+>Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure. Se estiver a utilizar o desbloqueio virtual do Windows Desktop Fall 2019 sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/troubleshoot-powershell-2019.md).
 >
-> A atualização Do Windows Virtual Desktop Spring 2020 encontra-se atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos usá-la para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
-> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> A atualização Virtual Desktop Spring 2020 do Windows está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
+> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Utilize este artigo para resolver erros e problemas ao utilizar o PowerShell com o Windows Virtual Desktop. Para obter mais informações sobre os serviços de ambiente de trabalho remotoPowerShell, consulte [o Windows Virtual Desktop PowerShell](/powershell/module/windowsvirtualdesktop/).
+Utilize este artigo para resolver erros e problemas ao utilizar o PowerShell com o Windows Virtual Desktop. Para obter mais informações sobre o PowerShell dos Serviços de Ambiente de Trabalho Remoto, consulte [o Windows Virtual Desktop PowerShell](/powershell/module/windowsvirtualdesktop/).
 
 ## <a name="provide-feedback"></a>Enviar comentários
 
-Visite o [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para discutir o serviço de desktop virtual windows com a equipa de produtos e membros ativos da comunidade.
+Visite a [Comunidade Virtual desktop tech do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para discutir o serviço de desktop virtual do Windows com a equipa de produtos e membros da comunidade ativa.
 
-## <a name="powershell-commands-used-during-windows-virtual-desktop-setup"></a>Comandos PowerShell utilizados durante a configuração do Ambiente de Trabalho Virtual do Windows
+## <a name="powershell-commands-used-during-windows-virtual-desktop-setup"></a>Comandos PowerShell utilizados durante a configuração do Windows Virtual Desktop
 
 Esta secção lista os comandos PowerShell que são normalmente utilizados durante a configuração do Windows Virtual Desktop e fornece formas de resolver problemas que podem ocorrer durante a sua utilização.
 
-### <a name="error-new-azroleassignment-the-provided-information-does-not-map-to-an-ad-object-id"></a>Erro: New-AzRoleAssignment: As informações fornecidas não mapeiam para um ID de objeto ad
+### <a name="error-new-azroleassignment-the-provided-information-does-not-map-to-an-ad-object-id"></a>Erro: Designação de Novas AzRole: As informações fornecidas não mapeiam para um ID de objeto AD
 
 ```powershell
-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
 ```
 
 **Causa:** O utilizador especificado pelo parâmetro *-SignInName* não pode ser encontrado no Diretório Ativo Azure ligado ao ambiente de ambiente de trabalho virtual do Windows. 
 
 **Correção:** Certifique-se das seguintes coisas.
 
-- O utilizador deve ser sincronizado com o Diretório Ativo Azure.
-- O utilizador não deve estar ligado ao comércio entre empresas e consumidores (B2C) ou de negócios a empresas (B2B).
-- O ambiente de ambiente de trabalho virtual do Windows deve estar ligado ao diretório Ativo Azure correto.
+- O utilizador deve ser sincronizado com o Azure Ative Directory.
+- O utilizador não deve estar ligado ao comércio entre empresas e consumidores (B2C) ou a empresas (B2B).
+- O ambiente de ambiente de trabalho virtual do Windows deve ser ligado à correção do Azure Ative Directory.
 
-### <a name="error-new-azroleassignment-the-client-with-object-id-does-not-have-authorization-to-perform-action-over-scope-code-authorizationfailed"></a>Erro: New-AzRoleAssignment: "O cliente com id de objeto não tem autorização para realizar ação sobre o âmbito (código: AutorizaçãoFalhada)"
+### <a name="error-new-azroleassignment-the-client-with-object-id-does-not-have-authorization-to-perform-action-over-scope-code-authorizationfailed"></a>Erro: New-AzRoleAssignment: "O cliente com id de objeto não tem autorização para realizar ação sobre âmbito (código: AutorizaçãoFailed)"
 
-**Causa 1:** A conta que está a ser usada não tem permissões do Proprietário na subscrição. 
+**Causa 1:** A conta que está a ser utilizada não tem permissões do Proprietário na subscrição. 
 
-**Correção 1:** Um utilizador com permissões do Proprietário precisa executar a atribuição de funções. Em alternativa, o utilizador tem de ser atribuído à função de Administrador de Acesso ao Utilizador para atribuir um utilizador a um grupo de aplicações.
+**Correção 1:** Um utilizador com permissões do Proprietário precisa de executar a atribuição de funções. Em alternativa, o utilizador precisa de ser atribuído à função de Administrador de Acesso ao Utilizador para atribuir um utilizador a um grupo de aplicações.
 
 **Causa 2:** A conta que está a ser utilizada tem permissões do Proprietário, mas não faz parte do Diretório Ativo Azure do ambiente ou não tem permissões para consultar o Diretório Ativo Azure onde o utilizador está localizado.
 
-**Correção 2:** Um utilizador com permissões de Diretório Ativo precisa executar a atribuição de funções.
+**Correção 2:** Um utilizador com permissões de Ative Directory precisa de executar a atribuição de funções.
 
-### <a name="error-new-azwvdhostpool----the-location-is-not-available-for-resource-type"></a>Erro: New-AzWvdHostPool -- a localização não está disponível para o tipo de recursos
+### <a name="error-new-azwvdhostpool----the-location-is-not-available-for-resource-type"></a>Erro: New-AzWvdHostPool -- a localização não está disponível para o tipo de recurso
 
 ```powershell
 New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'. 
@@ -73,17 +72,17 @@ Correção: Na mensagem de erro, será publicada uma lista de regiões apoiadas.
 New-AzWvdApplicationGroup_CreateExpanded: ActivityId: e5fe6c1d-5f2c-4db9-817d-e423b8b7d168 Error: ApplicationGroup must be in same location as associated HostPool
 ```
 
-**Causa:** Há uma incompatibilidade de localização. Todas as piscinas de anfitriões, grupos de aplicações e espaços de trabalho têm uma localização para armazenar metadados de serviço. Quaisquer objetos que criem que estejam associados uns aos outros devem estar no mesmo local. Por exemplo, se um `eastus`pool de anfitriões estiver dentro `eastus`, então você também precisa criar os grupos de aplicação em . Se criar um espaço de trabalho para registar estes grupos `eastus` de aplicações, esse espaço de trabalho também precisa de estar.
+**Causa:** Há uma incompatibilidade de localização. Todas as piscinas hospedeiras, grupos de aplicações e espaços de trabalho têm uma localização para armazenar metadados de serviço. Quaisquer objetos que criem associados entre si devem estar no mesmo local. Por exemplo, se uma piscina de anfitriões estiver em `eastus` , então também precisa criar os grupos de aplicação em `eastus` . Se criar um espaço de trabalho para registar estes grupos de aplicação, esse espaço de trabalho também precisa de `eastus` estar.
 
-**Correção:** Recupere a localização onde a piscina anfitriã foi criada e, em seguida, atribua o grupo de aplicações que está a criar para o mesmo local.
+**Correção:** Recupere a localização em que a piscina de anfitrião foi criada e, em seguida, atribua o grupo de aplicação que está a criar para o mesmo local.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Para uma visão geral sobre a resolução de problemas do Windows Virtual Desktop e as faixas de escalada, consulte a [visão geral, feedback e suporte](troubleshoot-set-up-overview.md)de Resolução de Problemas.
-- Para resolver problemas ao configurar o ambiente de ambiente de trabalho virtual do Windows e piscinas de hospeda, consulte ambiente e criação de [piscinas de hospedas.](troubleshoot-set-up-issues.md)
-- Para resolver problemas ao configurar uma máquina virtual (VM) no Windows Virtual Desktop, consulte a [configuração virtual](troubleshoot-vm-configuration.md)do anfitrião da sessão .
-- Para resolver problemas com as ligações do cliente do Windows Virtual Desktop, consulte [as ligações](troubleshoot-service-connection.md)de serviço do Windows Virtual Desktop .
-- Para resolver problemas com clientes do Desktop Remoto, consulte [Troubleshoot o cliente Remote Desktop](troubleshoot-client.md)
-- Para saber mais sobre o serviço, consulte o ambiente de ambiente de [trabalho virtual do Windows](environment-setup.md).
-- Para conhecer as ações de auditoria, consulte operações de [auditoria com o Gestor de Recursos.](../azure-resource-manager/management/view-activity-logs.md)
-- Para aprender sobre as ações para determinar os erros durante a implementação, consulte as operações de [implantação do View](../azure-resource-manager/templates/deployment-history.md).
+- Para obter uma visão geral sobre a resolução de problemas do Windows Virtual Desktop e as faixas de escalada, consulte [a visão geral da resolução de problemas, o feedback e o suporte](troubleshoot-set-up-overview.md).
+- Para resolver problemas durante a configuração do ambiente de ambiente de trabalho virtual do Windows e das piscinas de anfitrião, consulte [ambiente e criação de piscina de anfitrião.](troubleshoot-set-up-issues.md)
+- Para resolver problemas enquanto configura uma máquina virtual (VM) no Windows Virtual Desktop, consulte a [configuração da máquina virtual do anfitrião da Sessão](troubleshoot-vm-configuration.md).
+- Para resolver problemas com as ligações do cliente virtual do Windows Desktop, consulte [as ligações do serviço de desktop virtual do Windows](troubleshoot-service-connection.md).
+- Para resolver problemas com clientes de ambiente de trabalho remoto, consulte [Troubleshoot o cliente Remote Desktop](troubleshoot-client.md)
+- Para saber mais sobre o serviço, consulte o [ambiente de ambiente de trabalho virtual do Windows.](environment-setup.md)
+- Para conhecer as ações de auditoria, consulte [as operações de Auditoria com o Gestor de Recursos.](../azure-resource-manager/management/view-activity-logs.md)
+- Para obter ações para determinar os erros durante a implementação, consulte [as operações de implantação](../azure-resource-manager/templates/deployment-history.md)da visualização .

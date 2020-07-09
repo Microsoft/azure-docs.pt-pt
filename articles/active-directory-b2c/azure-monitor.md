@@ -7,89 +7,89 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
-ms.openlocfilehash: 99e04c95156e40eed8c2b9aa88a2bee6f39e90c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3106e5a640ed66828558078e6986979ad7195450
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392884"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386220"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitor Azure AD B2C com Monitor Azure
 
-Utilize o Monitor Azure para encaminhar o Diretório Ativo Azure B2C (Azure AD B2C) e os registos de [auditoria](view-audit-logs.md) a diferentes soluções de monitorização. Pode reter os registos para uso a longo prazo ou integrar-se com ferramentas de informação de segurança de terceiros e gestão de eventos (SIEM) para obter informações sobre o seu ambiente.
+Utilize o Azure Monitor para encaminhar o Azure Ative Directory B2C (Azure AD B2C) para iniciar sessão de registos e [auditorias](view-audit-logs.md) para diferentes soluções de monitorização. Pode reter os registos para uso a longo prazo ou integrar-se com ferramentas de segurança de terceiros e gestão de eventos (SIEM) para obter informações sobre o seu ambiente.
 
 Pode encaminhar eventos de registo para:
 
-* Uma [conta de armazenamento](../storage/blobs/storage-blobs-introduction.md)Azure.
-* Um hub de [eventos](../event-hubs/event-hubs-about.md) Azure (e integrar-se com as suas instâncias Splunk e Sumo Logic).
-* Um espaço de [trabalho de Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) (para analisar dados, criar dashboards e alertar sobre eventos específicos).
+* Uma conta [de armazenamento](../storage/blobs/storage-blobs-introduction.md)Azure.
+* Um [espaço de trabalho Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) (para analisar dados, criar dashboards e alertar para eventos específicos).
+* Um hub [de eventos](../event-hubs/event-hubs-about.md) Azure (e integrar-se com as suas instâncias Splunk e Sumo Logic).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar os passos deste artigo, implementa um modelo de Gestor de Recursos Azure utilizando o módulo PowerShell Azure.
+Para completar os passos deste artigo, implementa um modelo de Gestor de Recursos Azure utilizando o módulo Azure PowerShell.
 
-* Versão do [módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) 6.13.1 ou superior
+* [Azure PowerShell módulo](https://docs.microsoft.com/powershell/azure/install-az-ps) versão 6.13.1 ou superior
 
-Também pode utilizar o [Azure Cloud Shell,](https://shell.azure.com)que inclui a versão mais recente do módulo PowerShell Azure.
+Também pode utilizar o [Azure Cloud Shell](https://shell.azure.com), que inclui a versão mais recente do módulo Azure PowerShell.
 
-## <a name="delegated-resource-management"></a>Gestão de recursos delegados
+## <a name="delegated-resource-management"></a>Gestão delegada de recursos
 
-Azure AD B2C alavanca [a monitorização do Diretório Ativo Azure](../active-directory/reports-monitoring/overview-monitoring.md). Para ativar *as definições* de Diagnóstico no Diretório Ativo Azure dentro do seu inquilino Azure AD B2C, utiliza a [gestão de recursos delegada.](../lighthouse/concepts/azure-delegated-resource-management.md)
+Azure AD B2C aproveita [a monitorização do Azure Ative Directory](../active-directory/reports-monitoring/overview-monitoring.md). Para ativar *as definições de Diagnóstico* no Azure Ative Directory dentro do seu inquilino Azure AD B2C, utiliza a [gestão de recursos delegada.](../lighthouse/concepts/azure-delegated-resource-management.md)
 
-Autoriza um utilizador ou grupo no seu diretório Azure AD B2C (o Prestador de **Serviços)** a configurar a instância Do Monitor Azure dentro do inquilino que contém a sua assinatura Azure (o **Cliente).** Para criar a autorização, você implementa um modelo de Gestor de [Recursos Azure](../azure-resource-manager/index.yml) para o seu inquilino Azure AD contendo a subscrição. As seguintes secções percorrem-no durante o processo.
+Você autoriza um utilizador ou grupo no seu diretório Azure AD B2C (o **Fornecedor de Serviços)** para configurar a instância do Azure Monitor dentro do inquilino que contém a sua assinatura Azure (o **Cliente).** Para criar a autorização, você implementa um modelo [de Gestor de Recursos Azure](../azure-resource-manager/index.yml) para o seu inquilino AZure AD contendo a subscrição. As seguintes secções acompanham-no através do processo.
 
 ## <a name="create-or-choose-resource-group"></a>Criar ou escolher grupo de recursos
 
-Este é o grupo de recursos que contém a conta de armazenamento do destino Azure, o centro de eventos ou o espaço de trabalho log Analytics para receber dados do Azure Monitor. Especifica o nome do grupo de recursos quando implementa o modelo do Gestor de Recursos Azure.
+Este é o grupo de recursos que contém a conta de armazenamento de destino Azure, centro de eventos ou espaço de trabalho Log Analytics para receber dados do Azure Monitor. Especifica o nome do grupo de recursos quando implementar o modelo Azure Resource Manager.
 
-[Crie um grupo](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) de recursos ou escolha um existente no inquilino Azure Ative Directory (Azure AD) que contenha a sua assinatura Azure, *e não* o diretório que contém o seu inquilino Azure AD B2C.
+[Crie um grupo de recursos](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) ou escolha um existente no inquilino Azure Ative Directory (Azure AD) que contenha a sua assinatura Azure, e *não* o diretório que contém o seu inquilino Azure AD B2C.
 
-Este exemplo utiliza um grupo de recursos chamado *azure-ad-b2c-monitor* na região *centro dos EUA.*
+Este exemplo utiliza um grupo de recursos chamado *azure-ad-b2c-monitor* na região *central dos EUA.*
 
 ## <a name="delegate-resource-management"></a>Gestão de recursos delegados
 
-Em seguida, recolher as seguintes informações:
+Em seguida, reúna as seguintes informações:
 
-ID do **diretório** do seu diretório Azure AD B2C (também conhecido como ID do inquilino).
+**ID do diretório** do seu diretório Azure AD B2C (também conhecido como ID do inquilino).
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/) como utilizador com a função de administrador do *Utilizador* (ou superior).
-1. Selecione o ícone **de Diretório + Subscrição** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
-1. Selecione **Diretório Ativo Azure,** selecione **Propriedades**.
-1. Grave o ID do **Diretório.**
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) como utilizador com a função *de administrador do Utilizador* (ou superior).
+1. Selecione o ícone **de Inscrição + Diretório** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
+1. Selecione **Azure Ative Directory**, selecione **Properties**.
+1. Grave a identificação do **Diretório.**
 
-**Id** de objeto do grupo Ou utilizador Azure AD AD que pretende dar permissão ao *Colaborador* para o grupo de recursos que criou anteriormente no diretório que contém a sua subscrição.
+**ID** de objeto do grupo Azure AD B2C ou utilizador que pretende dar permissão ao *Contribuinte* para o grupo de recursos que criou anteriormente no diretório que contém a sua subscrição.
 
-Para facilitar a gestão, recomendamos a utilização de *grupos* de utilizadores Da Azure AD para cada função, permitindo-lhe adicionar ou remover utilizadores individuais ao grupo em vez de atribuir permissões diretamente a esse utilizador. Nesta passagem, adicione um utilizador.
+Para facilitar a gestão, recomendamos a utilização de *grupos* de utilizadores AZure AD para cada função, permitindo-lhe adicionar ou remover utilizadores individuais ao grupo em vez de atribuir permissões diretamente a esse utilizador. Nesta passagem, adicione um utilizador.
 
-1. Com o **Diretório Ativo Azure** ainda selecionado no portal Azure, selecione **Utilizadores**e, em seguida, selecione um utilizador.
-1. Grave o ID do **objeto**do utilizador .
+1. Com **o Azure Ative Directory** ainda selecionado no portal Azure, selecione **Utilizadores**e, em seguida, selecione um utilizador.
+1. Grave o **ID**do objeto do utilizador.
 
-### <a name="create-an-azure-resource-manager-template"></a>Criar um modelo de Gestor de Recursos Azure
+### <a name="create-an-azure-resource-manager-template"></a>Crie um modelo de gestor de recursos Azure
 
-Para embarcar no seu inquilino Azure AD (o **Cliente),** crie um modelo de Gestor de [Recursos Azure](../lighthouse/how-to/onboard-customer.md) para a sua oferta com as seguintes informações. Os `mspOfferName` `mspOfferDescription` valores e valores são visíveis quando vê detalhes da oferta na página de fornecedores de [serviços](../lighthouse/how-to/view-manage-service-providers.md) do portal Azure.
+Para embarcar no seu inquilino Azure AD (o **Cliente),** crie um [modelo de Gestor de Recursos Azure](../lighthouse/how-to/onboard-customer.md) para a sua oferta com as seguintes informações. Os `mspOfferName` `mspOfferDescription` valores e valores são visíveis quando vê detalhes da oferta na página de [prestadores](../lighthouse/how-to/view-manage-service-providers.md) de serviços do portal Azure.
 
 | Campo   | Definição |
 |---------|------------|
-| `mspOfferName`                     | Um nome que descreve esta definição. Por exemplo, *Serviços Geridos Azure AD B2C*. Este valor é apresentado ao cliente como título da oferta. |
-| `mspOfferDescription`              | Uma breve descrição da sua oferta. Por exemplo, ativa o *Monitor Azure em Azure AD B2C*.|
-| `rgName`                           | O nome do grupo de recursos que cria mais cedo no seu inquilino Azure AD. Por exemplo, *monitor azure-ad-b2c*. |
-| `managedByTenantId`                | A ID do **Diretório** do seu inquilino Azure AD B2C (também conhecido como id do inquilino). |
-| `authorizations.value.principalId` | O Id do **Objeto** do grupo B2C ou utilizador que terá acesso aos recursos nesta subscrição do Azure. Para esta passagem, especifique o ID do objeto do utilizador que gravou anteriormente. |
+| `mspOfferName`                     | Um nome descrevendo esta definição. Por exemplo, *Serviços Geridos Azure AD B2C*. Este valor é apresentado ao cliente como título da oferta. |
+| `mspOfferDescription`              | Uma breve descrição da sua oferta. Por exemplo, *Ativa o Monitor Azure em Azure AD B2C*.|
+| `rgName`                           | O nome do grupo de recursos que cria anteriormente no seu inquilino AZure AD. Por exemplo, *azure-ad-b2c-monitor*. |
+| `managedByTenantId`                | O **Diretório ID** do seu inquilino Azure AD B2C (também conhecido como iD do inquilino). |
+| `authorizations.value.principalId` | O **ID** do Objeto do grupo B2C ou utilizador que terá acesso a recursos nesta subscrição do Azure. Para esta passagem, especifique o ID do objeto do utilizador que gravou anteriormente. |
 
-Descarregue o modelo de gestor de recursos azure e os ficheiros de parâmetros:
+Descarregue o modelo e os ficheiros de parâmetros do Azure Resource Manager:
 
-- [rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
-- [rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
+- [rgDelegatedResourceManagement.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
+- [rgDelegatedResourceManagement.parameters.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
 
-Em seguida, atualize o ficheiro de parâmetros com os valores que registou anteriormente. O seguinte snippet JSON mostra um exemplo de um ficheiro de parâmetros de modelo do Gestor de Recursos Azure. Para `authorizations.value.roleDefinitionId`, use o valor de papel `b24988ac-6180-42a0-ab88-20f7382dd24c` [incorporado](../role-based-access-control/built-in-roles.md) para o papel de *Contribuinte,*.
+Em seguida, atualize o ficheiro de parâmetros com os valores que gravou anteriormente. O seguinte snippet JSON mostra um exemplo de um ficheiro de parâmetros do Azure Resource Manager. Para `authorizations.value.roleDefinitionId` , utilizar o valor de [função incorporado](../role-based-access-control/built-in-roles.md) para o papel de *Contribuinte,* `b24988ac-6180-42a0-ab88-20f7382dd24c` .
 
-```JSON
+```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
@@ -121,15 +121,15 @@ Em seguida, atualize o ficheiro de parâmetros com os valores que registou anter
 
 ### <a name="deploy-the-azure-resource-manager-templates"></a>Implementar os modelos do Gestor de Recursos Azure
 
-Assim que atualizar o ficheiro de parâmetros, implemente o modelo do Gestor de Recursos Azure no inquilino Azure como uma implementação de nível de subscrição. Como se trata de uma implantação ao nível da subscrição, não pode ser iniciada no portal Azure. Pode ser implantado utilizando o módulo Azure PowerShell ou o Azure CLI. O método Azure PowerShell é mostrado abaixo.
+Uma vez atualizado o seu ficheiro de parâmetros, coloque o modelo de Gestor de Recursos Azure no inquilino Azure como uma implementação de nível de subscrição. Por se trata de uma implementação de nível de subscrição, não pode ser iniciada no portal Azure. Pode ser implantado utilizando o módulo Azure PowerShell ou o Azure CLI. O método Azure PowerShell é mostrado abaixo.
 
-Inscreva-se no diretório que contém a sua subscrição utilizando o [Connect-AzAccount](/powershell/azure/authenticate-azureps). Utilize `-tenant` a bandeira para forçar a autenticação ao diretório correto.
+Inscreva-se no diretório que contém a sua subscrição utilizando [o Connect-AzAccount](/powershell/azure/authenticate-azureps). Utilize a `-tenant` bandeira para forçar a autenticação ao diretório correto.
 
 ```PowerShell
 Connect-AzAccount -tenant contoso.onmicrosoft.com
 ```
 
-Utilize o cmdlet [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) para listar as subscrições a que a conta corrente pode aceder ao abrigo do inquilino Azure AD. Grave a identificação da subscrição que pretende projetar no seu inquilino Azure AD B2C.
+Utilize o [cmdlet Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) para listar as subscrições a que a conta corrente pode aceder sob o inquilino Azure AD. Grave o ID da subscrição que pretende projetar para o seu inquilino Azure AD B2C.
 
 ```PowerShell
 Get-AzSubscription
@@ -141,7 +141,7 @@ Em seguida, mude para a subscrição que pretende projetar para o inquilino Azur
 Select-AzSubscription <subscription ID>
 ```
 
-Por fim, implemente o modelo de gestor de recursos azure e os ficheiros de parâmetros que descarregou e atualizou anteriormente. Substitua `Location` `TemplateFile`os `TemplateParameterFile` valores e valores em conformidade.
+Por fim, implemente o modelo do Gestor de Recursos Azure e os ficheiros de parâmetros que descarregou e atualizou anteriormente. Substitua o `Location` `TemplateFile` , e os `TemplateParameterFile` valores em conformidade.
 
 ```PowerShell
 New-AzDeployment -Name "AzureADB2C" `
@@ -151,7 +151,7 @@ New-AzDeployment -Name "AzureADB2C" `
                  -Verbose
 ```
 
-A implantação bem sucedida do modelo produz uma saída semelhante à seguinte (saída truncada para brevidade):
+A implantação bem sucedida do modelo produz uma saída semelhante à seguinte (saída truncada para a brevidade):
 
 ```Console
 PS /usr/csuser/clouddrive> New-AzDeployment -Name "AzureADB2C" `
@@ -191,60 +191,60 @@ Parameters              :
 ...
 ```
 
-Depois de implementar o modelo, pode levar alguns minutos para que a projeção do recurso esteja concluída. Pode ter de esperar alguns minutos (normalmente não mais do que cinco) antes de passar para a secção seguinte para selecionar a subscrição.
+Depois de implementar o modelo, pode levar alguns minutos para a projeção do recurso ser concluída. Pode ter de esperar alguns minutos (normalmente não mais do que cinco) antes de passar para a secção seguinte para selecionar a subscrição.
 
-## <a name="select-your-subscription"></a>Selecione a sua subscrição
+## <a name="select-your-subscription"></a>Selecionar a sua subscrição
 
-Uma vez implementado o modelo e tenha esperado alguns minutos para que a projeção do recurso esteja concluída, associe a sua subscrição ao seu diretório Azure AD B2C com os seguintes passos.
+Depois de ter implementado o modelo e ter esperado alguns minutos para que a projeção do recurso esteja concluída, associe a sua subscrição ao seu diretório Azure AD B2C com os seguintes passos.
 
-1. **Assine pelo** portal Azure se estiver inscrito. Este e o passo seguinte são feitos para refrescar as suas credenciais na sessão do portal.
-1. Inscreva-se no [portal Azure](https://portal.azure.com) com a sua conta administrativa Azure AD AD B2C.
-1. Selecione o ícone **de Diretório + Subscrição** na barra de ferramentas do portal.
+1. **Assine fora** do portal Azure se estiver a assinar. Este e o seguinte passo são feitos para refrescar as suas credenciais na sessão do portal.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) com a sua conta administrativa Azure AD B2C.
+1. Selecione o ícone **de inscrição + Diretório** na barra de ferramentas do portal.
 1. Selecione o diretório que contém a sua subscrição.
 
     ![Trocar diretório](./media/azure-monitor/azure-monitor-portal-03-select-subscription.png)
-1. Verifique se selecionou o diretório e a subscrição corretos. Neste exemplo, todos os diretórios e subscrições são selecionados.
+1. Verifique se selecionou o diretório e subscrição corretos. Neste exemplo, todos os diretórios e subscrições são selecionados.
 
-    ![Todos os diretórios selecionados no filtro de subscrição de & de Diretório](./media/azure-monitor/azure-monitor-portal-04-subscriptions-selected.png)
+    ![Todos os diretórios selecionados no filtro de subscrição de & do Diretório](./media/azure-monitor/azure-monitor-portal-04-subscriptions-selected.png)
 
-## <a name="configure-diagnostic-settings"></a>Configurar as definições de diagnóstico
+## <a name="configure-diagnostic-settings"></a>Configurar configurações de diagnóstico
 
-As definições de diagnóstico definem onde devem ser enviados registos e métricas para um recurso. Os destinos possíveis são:
+As definições de diagnóstico definem onde devem ser enviados registos e métricas de um recurso. Os destinos possíveis são:
 
-- [Conta de armazenamento azure](../azure-monitor/platform/resource-logs-collect-storage.md)
-- Soluções de hubs de [eventos.](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+- [Conta de armazenamento Azure](../azure-monitor/platform/resource-logs-collect-storage.md)
+- [Soluções de centros](../azure-monitor/platform/resource-logs-stream-event-hubs.md) de eventos.
 - [Área de trabalho do Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md)
 
-Se ainda não o fez, crie uma instância do seu tipo de destino escolhido no grupo de recursos especificado no modelo do Gestor de [Recursos Azure](#create-an-azure-resource-manager-template).
+Se ainda não o fez, crie uma instância do seu tipo de destino escolhido no grupo de recursos especificado no [modelo Azure Resource Manager](#create-an-azure-resource-manager-template).
 
 ### <a name="create-diagnostic-settings"></a>Criar definições de diagnóstico
 
-Está pronto para [criar configurações](../active-directory/reports-monitoring/overview-monitoring.md) de diagnóstico no portal Azure.
+Está pronto para [criar definições de diagnóstico](../active-directory/reports-monitoring/overview-monitoring.md) no portal Azure.
 
-Para configurar as definições de monitorização dos registos de atividade do Azure AD B2C:
+Para configurar as definições de monitorização dos registos de atividade Azure AD B2C:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-1. Selecione o ícone **de Diretório + Subscrição** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
-1. Selecione **Diretório Ativo Azure**
+1. Selecione o ícone **de Inscrição + Diretório** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
+1. Selecione **Azure Ative Directory**
 1. Em **Monitorização**, selecione **Definições de diagnóstico**.
-1. Se existirem definições existentes no recurso, verá uma lista de definições já configuradas. **Selecione Adicionar definição de diagnóstico** para adicionar uma nova definição, ou **editar** a definição para editar uma existente. Cada definição não pode ter mais do que um dos tipos de destino..
+1. Se houver definições existentes no recurso, verá uma lista de definições já configuradas. **Selecione Adicionar a definição de diagnóstico** para adicionar uma nova definição ou **editar** a definição existente. Cada definição não pode ter mais do que um dos tipos de destino..
 
     ![Painel de definições de diagnóstico no portal Azure](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
 
-1. Dê um nome ao seu cenário se já não tiver um.
-1. Verifique a caixa para cada destino para enviar os registos. **Selecione Configurar** para especificar as suas definições conforme descrito na tabela seguinte.
+1. Dê um nome se já não tiver um.
+1. Verifique a caixa para cada destino para enviar os registos. Selecione **Configurar** para especificar as suas definições conforme descrito no quadro seguinte.
 
     | Definição | Descrição |
     |:---|:---|
     | Arquivar numa conta de armazenamento | Nome da conta de armazenamento. |
-    | Transmitir em fluxo para um hub de eventos | O espaço de nome onde o hub do evento é criado (se esta for a sua primeira vez em diários de streaming) ou transmitido para (se já existem recursos que estão a transmitir essa categoria de log para este espaço de nome).
+    | Transmitir em fluxo para um hub de eventos | O espaço de nome onde o centro de eventos é criado (se esta for a sua primeira vez de registos de streaming) ou transmitido para (se já existem recursos que estão a transmitir essa categoria de registo para este espaço de nome).
     | Enviar para o Log Analytics | Nome do espaço de trabalho. |
 
-1. Selecione **Registos de Auditoria** e **SignInLogs**.
+1. Selecione **AuditLogs** e **SignInLogs**.
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre a adição e configuração das definições de diagnóstico no Monitor Azure, consulte [Tutorial: Colete e analise registos de recursos a partir de um recurso Azure](../azure-monitor/insights/monitor-azure-resource.md).
+Para obter mais informações sobre a adição e configuração das definições de diagnóstico no Azure Monitor, consulte [Tutorial: Colete e analise os registos de recursos a partir de um recurso Azure](../azure-monitor/insights/monitor-azure-resource.md).
 
-Para obter informações sobre o streaming de registos de Anúncios Azure para um centro de [eventos, consulte Tutorial: Stream Azure Ative Directory logy para um hub de eventos Azure](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
+Para obter informações sobre o streaming de registos Azure AD para um centro de eventos, consulte [Tutorial: Stream Azure Ative Directory para um centro de eventos Azure](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).

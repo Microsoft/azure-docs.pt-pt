@@ -7,14 +7,13 @@ ms.topic: article
 ms.date: 01/31/2020
 ms.author: cynthn
 ms.openlocfilehash: 092dafff6622d3402322eb96d0fe4215e52e16b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76964928"
 ---
 # <a name="change-the-availability-set-for-a-vm"></a>Alterar o conjunto de disponibilidade de uma VM
-Os seguintes passos descrevem como alterar o conjunto de disponibilidade de um VM utilizando o Azure PowerShell. Um VM só pode ser adicionado a um conjunto de disponibilidade quando é criado. Para alterar o conjunto de disponibilidade, é necessário apagar e, em seguida, recriar a máquina virtual. 
+Os seguintes passos descrevem como alterar o conjunto de disponibilidade de um VM utilizando a Azure PowerShell. Um VM só pode ser adicionado a um conjunto de disponibilidade quando é criado. Para alterar o conjunto de disponibilidade, é necessário eliminar e, em seguida, recriar a máquina virtual. 
 
 Este artigo aplica-se tanto aos VMs Linux como ao Windows.
 
@@ -23,7 +22,7 @@ Este artigo foi testado pela última vez em 2/12/2019 utilizando a [Azure Cloud 
 
 ## <a name="change-the-availability-set"></a>Alterar o conjunto de disponibilidade 
 
-O seguinte script fornece um exemplo de recolha das informações necessárias, apagando o VM original e, em seguida, recriando-o em um novo conjunto de disponibilidade.
+O seguinte script fornece um exemplo de recolha das informações necessárias, eliminando o VM original e, em seguida, recriando-as em um novo conjunto de disponibilidade.
 
 ```powershell
 # Set variables
@@ -102,7 +101,7 @@ O seguinte script fornece um exemplo de recolha das informações necessárias, 
        -DisableBginfoExtension
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Adicione armazenamento adicional ao seu VM adicionando um disco de [dados](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)adicional .
+Adicione armazenamento adicional ao seu VM adicionando um disco de [dados](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)adicional.
 

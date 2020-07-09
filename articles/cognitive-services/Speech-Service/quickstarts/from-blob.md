@@ -1,24 +1,24 @@
 ---
-title: 'Quickstart: Reconhecer discurso armazenado no armazenamento de blob'
+title: 'Quickstart: Reconhecer a fala armazenada no armazenamento de bolhas'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, você usará a API DE REPOUSO DE TRANSCRIPTION do Lote para reconhecer assincronicamente o discurso armazenado numa bolha SAS.
+description: Neste arranque rápido, você usará a API de Transcrição de Lote para reconhecer assincroticamente a fala armazenada numa bolha SAS.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 02/10/2020
-ms.author: dapine
+ms.date: 06/25/2020
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 2f604a5094da88196d2149571b700ea6172ed5ac
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 1469e02b675af9458b6cbdf9d05edca0185ab984
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980407"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391677"
 ---
-# <a name="quickstart-recognize-speech-stored-in-blob-storage"></a>Quickstart: Reconhecer discurso armazenado no armazenamento de blob
+# <a name="quickstart-recognize-speech-stored-in-blob-storage"></a>Quickstart: Reconhecer a fala armazenada no armazenamento de bolhas
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/from-blob/header.md)]

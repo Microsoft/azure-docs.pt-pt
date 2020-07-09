@@ -1,29 +1,28 @@
 ---
-title: Regras de rede virtual - Base de Dados Azure para PostgreSQL - Servidor Único
+title: Regras de rede virtual - Azure Database for PostgreSQL - Single Server
 description: Saiba como utilizar pontos finais de serviço de rede virtual (vnet) para ligar à Base de Dados Azure para PostgreSQL - Servidor Único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 512ad8f93da53afb618491cd1769645d8edb0b14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bee705e33267a765c1fb5300c0bfe2d04ff2015d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75965830"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85099655"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Utilize pontos finais e regras do serviço de rede virtual para base de dados Azure para PostgreSQL - Servidor Único
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Utilize pontos finais de serviço de rede virtual e regras para Azure Database for PostgreSQL - Single Server
 
-*As regras* de rede virtual são uma funcionalidade de segurança de firewall que controla se a base de dados Azure para o servidor PostgreSQL aceita comunicações que são enviadas de determinadas subredes em redes virtuais. Este artigo explica porque é que a funcionalidade de regra da rede virtual é, por vezes, a sua melhor opção para permitir a comunicação segura à sua Base de Dados Azure para servidor PostgreSQL.
+*As regras de rede virtual* são uma funcionalidade de segurança de firewall que controla se a sua Base de Dados Azure para servidor PostgreSQL aceita comunicações que são enviadas a partir de sub-redes específicas em redes virtuais. Este artigo explica porque é que a funcionalidade de regra de rede virtual é, por vezes, a sua melhor opção para permitir a comunicação com a sua Base de Dados Azure para o servidor PostgreSQL.
 
-Para criar uma regra de rede virtual, deve primeiro existir uma [rede virtual][vm-virtual-network-overview] (VNet) e um ponto final de serviço de [rede virtual][vm-virtual-network-service-endpoints-overview-649d] para a regra de referência. A imagem seguinte ilustra como um ponto final do serviço de rede virtual funciona com a Base de Dados Azure para PostgreSQL:
+Para criar uma regra de rede virtual, deve primeiro existir uma [rede virtual][vm-virtual-network-overview] (VNet) e um ponto final de serviço de [rede virtual][vm-virtual-network-service-endpoints-overview-649d] para a regra a referência. A imagem a seguir ilustra como um ponto final de serviço de rede virtual funciona com a Base de Dados Azure para PostgreSQL:
 
-![Exemplo de como funciona um Endpoint de Serviço VNet](media/concepts-data-access-and-security-vnet/vnet-concept.png)
+![Exemplo de como funciona um VNet Service Endpoint](media/concepts-data-access-and-security-vnet/vnet-concept.png)
 
 > [!NOTE]
-> Esta funcionalidade está disponível em todas as regiões da nuvem pública de Azure, onde a Base de Dados Azure para PostgreSQL está implantada para servidores otimizados para fins gerais e memória.
-> No caso de vNet espreitar, se o tráfego estiver fluindo através de um VNet Gateway comum com pontos finais de serviço e é suposto fluir para o par, por favor crie uma regra ACL/VNet para permitir que as Máquinas Virtuais Azure no Gateway VNet acedam à Base de Dados Azure para servidor PostgreSQL.
+> Esta funcionalidade encontra-se disponível em todas as regiões da nuvem pública do Azure, onde a Base de Dados Azure para PostgreSQL é implantada para servidores otimizados para fins gerais e memória.
+> Em caso de observação de VNet, se o tráfego estiver a fluir através de um VNet Gateway comum com pontos finais de serviço e for suposto fluir para o par, por favor crie uma regra ACL/VNet para permitir que as Máquinas Virtuais Azure no Gateway VNet acedam à Base de Dados Azure para o servidor PostgreSQL.
 
 <a name="anch-terminology-and-description-82f" />
 
@@ -31,119 +30,119 @@ Para criar uma regra de rede virtual, deve primeiro existir uma [rede virtual][v
 
 **Rede virtual:** Pode ter redes virtuais associadas à sua subscrição Azure.
 
-**Subnet:** Uma rede virtual contém **subredes.** Quaisquer máquinas virtuais Azure (VMs) que tenha sacado a subredes. Uma subnet pode conter vários VMs ou outros nódosos de computação. Os nódosos computacionais que estão fora da sua rede virtual não podem aceder à sua rede virtual a menos que configure a sua segurança para permitir o acesso.
+**Sub-rede:** Uma rede virtual contém **sub-redes.** Quaisquer máquinas virtuais Azure (VMs) que tenha estão atribuídas a sub-redes. Uma sub-rede pode conter vários VMs ou outros nós computacional. Os nós computacional que estão fora da sua rede virtual não podem aceder à sua rede virtual a menos que configuure a sua segurança para permitir o acesso.
 
-Ponto final do serviço de **rede virtual:** Um ponto final de [serviço de Rede Virtual][vm-virtual-network-service-endpoints-overview-649d] é uma subnet cujos valores de propriedade incluem um ou mais nomes formais do tipo de serviço Azure. Neste artigo estamos interessados no nome tipo **microsoft.Sql**, que se refere ao serviço Azure chamado SQL Database. Esta etiqueta de serviço também se aplica à Base de Dados Azure para serviços PostgreSQL e MySQL. É importante notar que ao aplicar a etiqueta de serviço **Microsoft.Sql** a um ponto final do serviço VNet irá configurar o tráfego final do serviço para toda a Base de Dados Azure SQL, Base de Dados Azure para PostgreSQL e Base de Dados Azure para servidores MySQL na subnet. 
+**Ponto final do serviço de rede virtual:** Um [ponto final de serviço de Rede Virtual][vm-virtual-network-service-endpoints-overview-649d] é uma sub-rede cujos valores de propriedade incluem um ou mais nomes formais de tipo de serviço Azure. Neste artigo estamos interessados no nome-tipo do **Microsoft.Sql,** que se refere ao serviço Azure denominado SQL Database. Esta etiqueta de serviço também se aplica à Base de Dados Azure para os serviços PostgreSQL e MySQL. É importante notar que ao aplicar a etiqueta de serviço **Microsoft.Sql** num ponto final de serviço VNet irá configurar o tráfego de ponto final de serviço para toda a Base de Dados Azure SQL, Base de Dados Azure para postgresQL e Base de Dados Azure para servidores MySQL na sub-rede. 
 
-**Regra da rede virtual:** Uma regra de rede virtual para a sua Base de Dados Azure para servidor PostgreSQL é uma subnet listada na lista de controlo de acesso (ACL) da sua Base de Dados Azure para servidor PostgreSQL. Para estar na ACL para a sua Base de Dados Azure para o servidor PostgreSQL, a sub-rede deve conter o nome do tipo **Microsoft.Sql.**
+**Regra de rede virtual:** Uma regra de rede virtual para o seu servidor PostgreSQL é uma sub-rede listada na lista de controlo de acesso (ACL) do seu servidor Azure Database for PostgreSQL. Para estar no ACL para o seu servidor PostgreSQL, a sub-rede deve conter o nome do tipo **Microsoft.Sql.**
 
-Uma regra de rede virtual diz ao seu servidor Azure Database para o servidor PostgreSQL para aceitar comunicações de todos os nós que estão na subnet.
-
-
+Uma regra de rede virtual diz à sua Base de Dados Azure para o servidor PostgreSQL aceitar comunicações de todos os nó que estiverem na sub-rede.
 
 
 
 
 
-<a name="anch-benefits-of-a-vnet-rule-68b" />
+
+
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>Benefícios de uma regra de rede virtual
 
-Até que tome medidas, os VMs nas suas subredes não podem comunicar com a sua Base de Dados Azure para servidor PostgreSQL. Uma ação que estabelece a comunicação é a criação de uma regra de rede virtual. A razão para escolher a abordagem da regra VNet requer uma discussão de comparação e contraste envolvendo as opções de segurança concorrentes oferecidas pela firewall.
+Até tomar medidas, os VMs nas suas sub-redes não podem comunicar com a sua Base de Dados Azure para o servidor PostgreSQL. Uma ação que estabelece a comunicação é a criação de uma regra de rede virtual. A razão para escolher a abordagem da regra VNet requer uma discussão de comparação e contraste envolvendo as opções de segurança concorrentes oferecidas pela firewall.
 
 ### <a name="a-allow-access-to-azure-services"></a>R. Permitir acesso aos serviços do Azure
 
-O painel de segurança de ligação tem um botão **ON/OFF** que está rotulado **Permitir o acesso aos serviços Azure**. A definição **ON** permite comunicações de todos os endereços IP Azure e todas as subredes Azure. Estes IPs ou subredes Azure podem não ser propriedade de si. Esta definição **ON** é provavelmente mais aberta do que deseja que a sua Base de Dados Azure para base de dados PostgreSQL seja. A função de regra da rede virtual oferece um controlo granular muito mais fino.
+O painel de segurança Connection tem um botão **ON/OFF** com a etiqueta **Permitir o acesso aos serviços Azure**. A definição **ON** permite comunicações a partir de todos os endereços Azure IP e de todas as sub-redes Azure. Estes IPs ou sub-redes Azure podem não ser propriedade de si. Esta definição **ON** é provavelmente mais aberta do que pretende que a sua Base de Dados Azure para a Base de Dados PostgreSQL seja. A funcionalidade de regra de rede virtual oferece um controlo granular muito mais fino.
 
-### <a name="b-ip-rules"></a>B. Regras ip
+### <a name="b-ip-rules"></a>B. Regras de IP
 
-A Base de Dados Azure para firewall PostgreSQL permite especificar intervalos de endereçoIP a partir dos quais as comunicações são aceites na Base de Dados Azure para base de dados PostgreSQL. Esta abordagem é boa para endereços IP estáveis que estão fora da rede privada Azure. Mas muitos nódosos dentro da rede privada Azure estão configurados com endereços IP *dinâmicos.* Os endereços IP dinâmicos podem mudar, como quando o vM é reiniciado. Seria uma loucura especificar um endereço IP dinâmico numa regra de firewall, num ambiente de produção.
+A Base de Dados Azure para firewall PostgreSQL permite especificar as gamas de endereços IP a partir das quais as comunicações são aceites na Base de Dados Azure para a Base de Dados Pós-SQL. Esta abordagem é boa para endereços IP estáveis que estão fora da rede privada Azure. Mas muitos nós dentro da rede privada Azure estão configurados com endereços IP *dinâmicos.* Os endereços IP dinâmicos podem mudar, como quando o seu VM é reiniciado. Seria uma loucura especificar um endereço IP dinâmico numa regra de firewall, num ambiente de produção.
 
-Pode salvar a opção IP obtendo um endereço IP *estático* para o seu VM. Para mais detalhes, consulte os [endereços IP privados para uma máquina virtual utilizando o portal Azure][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
+Pode salvar a opção IP obtendo um endereço IP *estático* para o seu VM. Para mais informações, consulte [endereços IP privados configurar uma máquina virtual utilizando o portal Azure][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
 
 No entanto, a abordagem ip estática pode tornar-se difícil de gerir, e é dispendiosa quando feita em escala. As regras de rede virtual são mais fáceis de estabelecer e gerir.
 
-### <a name="c-cannot-yet-have-azure-database-for-postgresql-on-a-subnet-without-defining-a-service-endpoint"></a>C. Ainda não é possível ter base de dados Azure para PostgreSQL numa subnet sem definir um ponto final de serviço
+### <a name="c-cannot-yet-have-azure-database-for-postgresql-on-a-subnet-without-defining-a-service-endpoint"></a>C. Ainda não é possível ter a Base de Dados Azure para PostgreSQL numa sub-rede sem definir um ponto final de serviço
 
-Se o seu servidor **Microsoft.Sql** fosse um nó numa subnet na sua rede virtual, todos os nós dentro da rede virtual poderiam comunicar com a sua Base de Dados Azure para servidor PostgreSQL. Neste caso, os seus VMs poderiam comunicar com a Base de Dados Azure para postgreSQL sem precisar de quaisquer regras de rede virtual ou regras ip.
+Se o seu servidor **Microsoft.Sql** fosse um nó numa sub-rede na sua rede virtual, todos os nós dentro da rede virtual poderiam comunicar com o seu Azure Database para o servidor PostgreSQL. Neste caso, os seus VMs podem comunicar com a Base de Dados Azure para PostgreSQL sem precisar de quaisquer regras de rede virtuais ou regras de IP.
 
-No entanto, a partir de agosto de 2018, a Base de Dados Azure para o serviço PostgreSQL ainda não está entre os serviços que podem ser atribuídos diretamente a uma subrede.
+No entanto, a partir de agosto de 2018, a Base de Dados Azure para o serviço PostgreSQL ainda não está entre os serviços que podem ser atribuídos diretamente a uma sub-rede.
 
-<a name="anch-details-about-vnet-rules-38q" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
-## <a name="details-about-virtual-network-rules"></a>Detalhes sobre as regras da rede virtual
+## <a name="details-about-virtual-network-rules"></a>Detalhes sobre regras de rede virtual
 
-Esta secção descreve vários detalhes sobre as regras da rede virtual.
+Esta secção descreve vários detalhes sobre as regras de rede virtual.
 
 ### <a name="only-one-geographic-region"></a>Apenas uma região geográfica
 
-Cada ponto final do serviço de Rede Virtual aplica-se a apenas uma região azure. O objetivo final não permite que outras regiões aceitem a comunicação da sub-rede.
+Cada ponto final de serviço da Rede Virtual aplica-se apenas a uma região de Azure. O ponto final não permite que outras regiões aceitem a comunicação a partir da sub-rede.
 
-Qualquer regra de rede virtual limita-se à região a que o seu ponto final subjacente se aplica.
+Qualquer regra de rede virtual limita-se à região a que se aplica o seu ponto final subjacente.
 
 ### <a name="server-level-not-database-level"></a>Nível de servidor, não nível de base de dados
 
-Cada regra de rede virtual aplica-se a toda a sua Base de Dados Azure para servidor PostgreSQL, e não apenas a uma base de dados específica no servidor. Por outras palavras, a regra da rede virtual aplica-se ao nível do servidor, e não ao nível da base de dados.
+Cada regra de rede virtual aplica-se a toda a sua Base de Dados Azure para servidor PostgreSQL, e não apenas a uma base de dados específica no servidor. Por outras palavras, a regra da rede virtual aplica-se ao nível do servidor e não ao nível da base de dados.
 
 #### <a name="security-administration-roles"></a>Funções de administração de segurança
 
-Existe uma separação das funções de segurança na administração de pontos finais de serviço da Rede Virtual. São necessárias ações de cada uma das seguintes funções:
+Existe uma separação de funções de segurança na administração dos pontos finais de serviço de Rede Virtual. São necessárias medidas de cada uma das seguintes funções:
 
-- **Administração da rede:** &nbsp; Ligue o ponto final.
-- **Administração da base de dados:** &nbsp; Atualize a lista de controlo de acesso (ACL) para adicionar a subnet dada à Base de Dados Azure para servidor PostgreSQL.
+- **Administração de rede:** &nbsp; Ligue o ponto final.
+- **Administração de base de dados:** &nbsp; Atualize a lista de controlo de acesso (ACL) para adicionar a sub-rede dada à base de dados Azure para servidor PostgreSQL.
 
 *Alternativa RBAC:*
 
-Os papéis da Administração de Rede e da Base de Dados Admin têm mais capacidades do que as necessárias para gerir as regras de rede virtuais. Só é necessário um subconjunto das suas capacidades.
+Os papéis de Administração de Rede e Administração de Bases de Dados têm mais capacidades do que as necessárias para gerir as regras de rede virtuais. Apenas um subconjunto das suas capacidades é necessário.
 
-Tem a opção de utilizar o controlo de [acesso baseado em funções (RBAC)][rbac-what-is-813s] em Azure para criar uma única função personalizada que tenha apenas o subconjunto necessário de capacidades. O papel personalizado poderia ser usado em vez de envolver o Administrador da Rede ou o Administrador de Base de Dados. A área de superfície da sua exposição à segurança é menor se adicionar um utilizador a uma função personalizada, versus adicionar o utilizador às outras duas principais funções de administrador.
+Tem a opção de usar o controlo de acesso baseado em [funções (RBAC)][rbac-what-is-813s] em Azure para criar um único papel personalizado que tenha apenas o subconjunto de capacidades necessário. O papel personalizado poderia ser usado em vez de envolver o Administrador de Rede ou o Administrador de Base de Dados. A área de superfície da sua exposição à segurança é menor se adicionar um utilizador a uma função personalizada, em vez de adicionar o utilizador às outras duas principais funções de administrador.
 
 > [!NOTE]
-> Em alguns casos, a Base de Dados Azure para PostgreSQL e a vNet-subnet estão em diferentes subscrições. Nestes casos deve assegurar as seguintes configurações:
+> Em alguns casos, a Base de Dados Azure para PostgreSQL e a sub-rede VNet estão em diferentes subscrições. Nestes casos, deve assegurar as seguintes configurações:
 > - Ambas as subscrições devem estar no mesmo inquilino do Azure Ative Directory.
-> - O utilizador possui as permissões necessárias para iniciar operações, tais como permitir pontos finais de serviço e adicionar uma sub-rede VNet ao servidor dado.
-> - Certifique-se de que ambas as subscrições têm o fornecedor de recursos **Microsoft.Sql** registado. Para mais informações consulte o [registo de recursos-gestor][resource-manager-portal]
+> - O utilizador tem as permissões necessárias para iniciar operações, tais como ativar pontos finais de serviço e adicionar uma sub-rede VNet ao servidor dado.
+> - Certifique-se de que ambos os fornecedores de recursos **microsoft.Sql** e **Microsoft.DBforPostgreSQL** estão registados. Para mais informações, consulte [o gestor de recursos-registo][resource-manager-portal]
 
 ## <a name="limitations"></a>Limitações
 
-Para a Base de Dados Azure para PostgreSQL, a funcionalidade de regras de rede virtual tem as seguintes limitações:
+Para a base de dados Azure para PostgreSQL, a funcionalidade de regras de rede virtual tem as seguintes limitações:
 
-- Uma Aplicação Web pode ser mapeada para um IP privado numa VNet/subnet. Mesmo que os pontos finais do serviço sejam ligados a partir da dada VNet/subnet, as ligações da Web App para o servidor terão uma fonte IP pública Azure, e não uma fonte VNet/sub-rede. Para permitir a conectividade de uma Web App a um servidor que tenha regras de firewall VNet, deve permitir que os serviços Azure acedam ao servidor no servidor.
+- Uma Aplicação Web pode ser mapeada para um IP privado numa VNet/sub-rede. Mesmo que os pontos finais de serviço sejam ligados a partir da determinada VNet/sub-rede, as ligações da Web App para o servidor terão uma fonte IP pública Azure, e não uma fonte VNet/sub-rede. Para ativar a conectividade de uma Web App para um servidor que tenha regras de firewall VNet, tem de permitir que os serviços do Azure acedam ao servidor no servidor.
 
-- Na firewall para a sua Base de Dados Azure para PostgreSQL, cada regra de rede virtual refere uma sub-rede. Todas estas subredes referenciadas devem ser alojadas na mesma região geográfica que acolhe a Base de Dados Azure para PostgreSQL.
+- Na firewall da sua Base de Dados Azure para PostgreSQL, cada regra de rede virtual refere uma sub-rede. Todas estas sub-redes referenciadas devem ser alojadas na mesma região geográfica que acolhe a Base de Dados Azure para PostgreSQL.
 
 - Cada Base de Dados Azure para servidor PostgreSQL pode ter até 128 entradas ACL para qualquer rede virtual.
 
-- As regras de rede virtual aplicam-se apenas às redes virtuais do Gestor de Recursos Do Azure; e não para redes de modelos de [implantação clássicas.][arm-deployment-model-568f]
+- As regras de rede virtuais aplicam-se apenas às redes virtuais do Azure Resource Manager; e não para redes [de modelos de implantação clássicas.][arm-deployment-model-568f]
 
-- Ligar os pontos finais do serviço de rede virtual para a Base de Dados Azure para PostgreSQL utilizando a etiqueta de serviço **Microsoft.Sql** também permite os pontos finais de todos os serviços de Base de Dados Azure: Base de Dados Azure para MySQL, Base de Dados Azure para PostgreSQL, Base de Dados Azure SQL e Armazém de Dados Azure SQL.
+- Ligar os pontos finais do serviço de rede virtual ON para Azure Database for PostgreSQL utilizando a tag de serviço **Microsoft.Sql** também permite os pontos finais para todos os serviços de Base de Dados Azure: Base de Dados Azure para MySQL, Base de Dados Azure para PostgreSQL, Base de Dados Azure SQL e Armazém de Dados Azure SQL.
 
-- O suporte para os pontos finais do serviço VNet destina-se apenas a servidores otimizados para fins gerais e memória.
+- O suporte para os pontos finais do serviço VNet é apenas para servidores otimizados para fins gerais e memória.
 
 - Na firewall, as gamas de endereços IP aplicam-se aos seguintes itens de rede, mas as regras de rede virtuais não:
-    - [Rede privada virtual site-to-site (S2S) (VPN)][vpn-gateway-indexmd-608y]
+    - [Rede privada virtual local-a-local (S2S) (VPN)][vpn-gateway-indexmd-608y]
     - No local via [ExpressRoute][expressroute-indexmd-744v]
 
 ## <a name="expressroute"></a>ExpressRoute
 
-Se a sua rede estiver ligada à rede Azure através da utilização do [ExpressRoute,][expressroute-indexmd-744v]cada circuito está configurado com dois endereços IP públicos no Microsoft Edge. Os dois endereços IP são usados para ligar aos Serviços microsoft, como o Azure Storage, utilizando o Azure Public Peering.
+Se a sua rede estiver ligada à rede Azure através da utilização do [ExpressRoute,][expressroute-indexmd-744v]cada circuito está configurado com dois endereços IP públicos no Microsoft Edge. Os dois endereços IP são utilizados para se conectarem aos Serviços microsoft, como o Azure Storage, utilizando o Azure Public Peering.
 
-Para permitir a comunicação do seu circuito à Base de Dados Azure para postgreSQL, deve criar regras de rede IP para os endereços IP públicos dos seus circuitos. Para encontrar os endereços IP públicos do seu circuito ExpressRoute, abra um bilhete de apoio com a ExpressRoute utilizando o portal Azure.
+Para permitir a comunicação do seu circuito para a Base de Dados Azure para PostgreSQL, tem de criar regras de rede IP para os endereços IP públicos dos seus circuitos. Para encontrar os endereços IP públicos do seu circuito ExpressRoute, abra um bilhete de apoio com o ExpressRoute utilizando o portal Azure.
 
-## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionar uma regra de Firewall VNET ao seu servidor sem ligar pontos finais do serviço VNET
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionar uma regra de Firewall VNET ao seu servidor sem ligar pontos finais de serviço VNET
 
-Apenas definir uma regra de Firewall não ajuda a fixar o servidor no VNet. Também deve ligar **os** pontos finais do serviço VNet para que a segurança entre em vigor. Quando ligar os pontos finais do **serviço,** a sua subnet VNet experimenta tempo de inatividade até completar a transição de **Off** para **On**. Isto é especialmente verdade no contexto dos grandes VNets. Pode utilizar a bandeira **IgnoreMissingServiceEndpoint** para reduzir ou eliminar o tempo de inatividade durante a transição.
+Apenas definir uma regra de Firewall não ajuda a fixar o servidor ao VNet. Também tem de ligar os **pontos** finais do serviço VNet para que a segurança produza efeitos. Quando gira os pontos finais de serviço **On,** a sua sub-rede VNet experimenta tempo de inatividade até completar a transição de **Off** para **On**. Isto é especialmente verdade no contexto dos grandes VNets. Pode utilizar a bandeira **IgnoreMissingServiceEndpoint** para reduzir ou eliminar o tempo de inatividade durante a transição.
 
 Pode definir a bandeira **IgnoreMissingServiceEndpoint** utilizando o Azure CLI ou portal.
 
 ## <a name="related-articles"></a>Artigos relacionados
 - [Redes virtuais Azure][vm-virtual-network-overview]
-- [Pontos finais do serviço de rede virtual Azure][vm-virtual-network-service-endpoints-overview-649d]
+- [Pontos finais de serviço de rede virtual Azure][vm-virtual-network-service-endpoints-overview-649d]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para artigos sobre a criação de regras VNet, consulte:
-- [Crie e gerea Base de Dados Azure para as regras da VNet PostgreSQL utilizando o portal Azure](howto-manage-vnet-using-portal.md)
-- [Crie e gerea Base de Dados Azure para regras VNet PostgreSQL usando o Azure CLI](howto-manage-vnet-using-cli.md)
+- [Criar e gerir a Base de Dados de Azure para as regras postgreSQL VNet utilizando o portal Azure](howto-manage-vnet-using-portal.md)
+- [Criar e gerir a Base de Dados de Azure para regras postgreSQL VNet usando Azure CLI](howto-manage-vnet-using-cli.md)
 
 
 <!-- Link references, to text, Within this same GitHub repo. -->

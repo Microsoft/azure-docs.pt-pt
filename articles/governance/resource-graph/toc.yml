@@ -4,25 +4,40 @@
   items:
     - name: O que é o Azure Resource Graph?
       displayName: 'Resource Manager, query language, rbac, permissions'
-      href: overview.md
+      href: ./overview.md
 - name: Guias de Início Rápido
   expanded: true
   items:
-    - name: Executar a sua primeira consulta - portal do Azure
+    - name: Executar a sua primeira consulta - Portal
       displayName: 'portal, resource, graph, explorer'
-      href: first-query-portal.md
+      href: ./first-query-portal.md
     - name: Executar a sua primeira consulta - CLI do Azure
       displayName: 'extension, docker'
-      href: first-query-azurecli.md
-    - name: Executar a sua primeira consulta - PowerShell
+      href: ./first-query-azurecli.md
+    - name: Executar a sua primeira consulta - Azure PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
-      href: first-query-powershell.md
+      href: ./first-query-powershell.md
+    - name: Executar a sua primeira consulta - .NET
+      displayName: 'core, auth, dotnet'
+      href: ./first-query-dotnet.md
+    - name: Executar a sua primeira consulta - Go
+      displayName: 'package, sdk, golang'
+      href: ./first-query-go.md
+    - name: Executar a sua primeira consulta - JavaScript
+      displayName: 'library, node, arm-resourcegraph'
+      href: ./first-query-javascript.md
     - name: Executar a sua primeira consulta - Python
       displayName: 'library, azure-mgmt, cli'
-      href: first-query-python.md
+      href: ./first-query-python.md
+    - name: Executar a sua primeira consulta - REST
+      displayName: 'armclient, postman'
+      href: ./first-query-rest-api.md
+    - name: Criar uma consulta partilhada - CLI do Azure
+      displayName: 'extension, docker, queries'
+      href: ./shared-query-azure-cli.md
     - name: Implementar uma consulta partilhada - modelo ARM
       displayName: 'resource manager, queries'
-      href: shared-query-template.md
+      href: ./shared-query-template.md
 - name: Tutoriais
   items:
     - name: Criar e partilhar uma consulta no portal do Azure
@@ -50,6 +65,10 @@
     - name: Documentação de orientação para pedidos limitados
       displayName: 'pagination, batching, throttling, parallel'
       href: ./concepts/guidance-for-throttled-requests.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança para a Referência de Segurança do Azure
+          href: ./concepts/azure-security-benchmark-baseline.md
 - name: Guias de procedimentos
   items:
     - name: Obter alterações do recurso
@@ -74,7 +93,7 @@
       href: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
     - name: SDK do Azure para Java (Maven)
       href: 'https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar'
-    - name: SDK do Azure para Node
+    - name: SDK do Azure para JavaScript
       href: /javascript/api/@azure/arm-resourcegraph
     - name: SDK do Azure para Python
       href: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph

@@ -4,15 +4,15 @@ description: Saiba como criar um principal serviço para automatizar tarefas adm
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9797b4c8f8059f9cfefbb70672aa202c7a3f4825
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 28947d1fa4ece5d6285651ef07342cae06ad8bc8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168340"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077376"
 ---
 # <a name="automation-with-service-principals"></a>Automatização com principais de serviço
 
@@ -20,7 +20,7 @@ Os principais de serviço são um recurso de aplicações do Azure Active Direct
 
 Nos Serviços de Análise, os principais serviços são utilizados com a Azure Automation, o modo PowerShell sem supervisão, aplicações personalizadas para clientes e aplicações web para automatizar tarefas comuns. Por exemplo, o fornecimento de servidores, modelos de implementação, atualização de dados, escala para cima/para baixo e pausa/currículo podem ser automatizados utilizando os principais serviços. As permissões são atribuídas aos principais de serviço através da adesão à função, à semelhança das contas regulares da Azure AD UPN.
 
-Os Serviços de Análise também apoiam operações realizadas por identidades geridas utilizando os princípios de serviço. Para saber mais, consulte [identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) e [serviços Azure que suportam a autenticação AD AZure.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services)  
+Os Serviços de Análise também apoiam operações realizadas por identidades geridas utilizando os princípios de serviço. Para saber mais, consulte [identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) e [serviços Azure que suportam a autenticação AD AZure.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services)    
 
 ## <a name="create-service-principals"></a>Criar principais de serviço
  
@@ -38,7 +38,7 @@ As credenciais e certificados principais do serviço podem ser armazenados de fo
 
 ## <a name="add-service-principals-to-server-admin-role"></a>Adicione os principais de serviço ao papel de administração do servidor
 
-Antes de poder utilizar um principal de serviço para operações de gestão de servidores de serviços de análise, deve adicioná-lo à função de administrador do servidor. Para saber mais, consulte [Adicionar um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md).
+Antes de poder utilizar um principal de serviço para operações de gestão de servidores de serviços de análise, deve adicioná-lo à função de administrador do servidor. Os princípios de serviço devem ser adicionados diretamente à função de administrador do servidor. Adicionar um principal de serviço a um grupo de segurança e, em seguida, adicionar que o grupo de segurança à função de administrador do servidor não é suportado. Para saber mais, consulte [Adicionar um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md).
 
 ## <a name="service-principals-in-connection-strings"></a>Principais de serviço em cadeias de ligação
 
@@ -92,7 +92,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO e ADOMD 
 
-Ao ligar-se a aplicações Web e aplicações cliente, os pacotes instaláveis das [bibliotecas cliente AMO e ADOMD](analysis-services-data-providers.md) (versão 15.0.2 e superior) do NuGet suportam principais de serviço em cadeias de ligação através da seguinte sintaxe: `app:AppID` e palavra-passe ou `cert:thumbprint`. 
+Ao ligar-se a aplicações Web e aplicações cliente, os pacotes instaláveis das [bibliotecas cliente AMO e ADOMD](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) (versão 15.0.2 e superior) do NuGet suportam principais de serviço em cadeias de ligação através da seguinte sintaxe: `app:AppID` e palavra-passe ou `cert:thumbprint`. 
 
 No seguinte exemplo, `appID` e `password` são utilizados para executar uma operação de atualização da base de dados modelo:
 

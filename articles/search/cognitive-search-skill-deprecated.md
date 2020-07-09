@@ -1,5 +1,5 @@
 ---
-title: Habilidades cognitivas depreciadas
+title: Competências cognitivas preprecadas
 titleSuffix: Azure Cognitive Search
 description: Esta página contém uma lista de habilidades cognitivas que são consideradas depreciadas e não serão suportadas num futuro próximo em habilidades de Pesquisa Cognitiva Azure.
 manager: nitinme
@@ -9,22 +9,22 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 5f3587e4398be28cbaa2372be720258196bb48ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72792026"
 ---
-# <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Habilidades cognitivas depreciadas na Pesquisa Cognitiva Azure
+# <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Competências cognitivas preprecadas na Pesquisa Cognitiva Azure
 
 Este documento descreve habilidades cognitivas que são consideradas depreciadas. Utilize o seguinte guia para o conteúdo:
 
-* Nome de habilidade: O nome da habilidade que será depreciada, mapeia para o @odata.type atributo.
-* Última versão disponível da API: A última versão da API pública de Pesquisa Cognitiva Azure através da qual podem ser criadas/atualizadas as competências que contêm a habilidade depreciada correspondente.
-* Fim do suporte: O último dia após o qual a habilidade correspondente é considerada não suportada. As habilidades previamente criadas devem continuar a funcionar, mas recomenda-se aos utilizadores que migram para longe de uma habilidade depreciada.
-* Recomendações: Caminho de migração para a frente para usar uma habilidade apoiada. Os utilizadores são aconselhados a seguir as recomendações para continuar a receber apoio.
+* Nome da habilidade: O nome da habilidade que será depreciada, mapeia para o @odata.type atributo.
+* Última versão disponível da API: A última versão da API pública de Pesquisa Cognitiva Azure através da qual os skillsets que contêm a habilidade preiférida correspondente podem ser criados/atualizados.
+* Fim do apoio: O último dia após o qual a competência correspondente é considerada não suportada. As competências criadas anteriormente ainda devem continuar a funcionar, mas os utilizadores são recomendados a migrar para longe de uma habilidade precída.
+* Recomendações: Caminho de migração para a frente para usar uma habilidade apoiada. Os utilizadores são aconselhados a seguir as recomendações para continuarem a receber suporte.
 
-## <a name="microsoftskillstextnamedentityrecognitionskill"></a>Microsoft.Skills.Text.NamedEntityRecognitionSkill
+## <a name="microsoftskillstextnamedentityrecognitionskill"></a>Microsoft.Skills.text.namedEntityRecognitionSkill
 
 ### <a name="last-available-api-version"></a>Última versão api disponível
 
@@ -36,24 +36,24 @@ Este documento descreve habilidades cognitivas que são consideradas depreciadas
 
 ### <a name="recommendations"></a>Recomendações 
 
-Utilize [microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) em vez disso. Fornece a maior parte da funcionalidade do NomeadoEntityRecognitionSkill com uma qualidade mais elevada. Também tem informação mais rica nos seus complexos campos de produção.
+Utilize [microsoft.skills.text.EntityRecognitionSkill.](cognitive-search-skill-entity-recognition.md) Fornece a maior parte da funcionalidade do Denominado EntidadeRecognitionSkill com uma maior qualidade. Também tem informação mais rica nos seus complexos campos de produção.
 
-Para migrar para a Habilidade de Reconhecimento de [Entidades,](cognitive-search-skill-entity-recognition.md)terá de realizar uma ou mais das seguintes alterações à sua definição de competência. Pode atualizar a definição de habilidade utilizando a [API update skillset](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
+Para migrar para a Habilidade de Reconhecimento de [Entidade,](cognitive-search-skill-entity-recognition.md)terá de efetuar uma ou mais das seguintes alterações à sua definição de habilidade. Pode atualizar a definição de habilidades utilizando a [API de Atualização Skillset](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
 > [!NOTE]
-> Atualmente, a pontuação da confiança como conceito não é suportada. O `minimumPrecision` parâmetro existe `EntityRecognitionSkill` no futuro uso e para retrocompatibilidade.
+> Atualmente, a pontuação de confiança como conceito não é apoiada. O `minimumPrecision` parâmetro existe no para uso futuro e para `EntityRecognitionSkill` retrocompatibilidade.
 
-1. *(Obrigatório)* Mude `@odata.type` o `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` `"#Microsoft.Skills.Text.EntityRecognitionSkill"`de .
+1. *(Obrigatório)* Mude o `@odata.type` `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` de. para `"#Microsoft.Skills.Text.EntityRecognitionSkill"` .
 
-2. *(Opcional)* Se estiver a utilizar `entities` a saída, utilize `namedEntities` a `EntityRecognitionSkill` saída complexa da recolha a partir da. Pode usar `targetName` a definição de habilidade para mapeá-la para uma anotação chamada `entities`.
+2. *(Opcional)* Se estiver a utilizar a `entities` saída, utilize a `namedEntities` saída complexa de recolha a partir do em vez `EntityRecognitionSkill` disso. Pode utilizar a `targetName` definição de habilidade para mapeá-la para uma anotação chamada `entities` .
 
-3. *(Opcional)* Se não especificar explicitamente `categories` `EntityRecognitionSkill` o , pode devolver diferentes tipos de categorias para além das que foram apoiadas pelo `NamedEntityRecognitionSkill`. Se este comportamento for indesejável, certifique-se de definir explicitamente o `categories` parâmetro para `["Person", "Location", "Organization"]`.
+3. *(Opcional)* Se não especificar explicitamente o `categories` , `EntityRecognitionSkill` pode devolver diferentes tipos de categorias para além das que foram suportadas pelo `NamedEntityRecognitionSkill` . Se este comportamento for indesejável, certifique-se de definir explicitamente o `categories` parâmetro para `["Person", "Location", "Organization"]` .
 
-    _Definições de migração da amostra_
+    _Definições de migração de amostras_
 
     * Migração simples
 
-        _(Antes) Definição de competências de Reconhecimento de Entidades Nomeadas_
+        _(Antes) Definição de habilidades de reconhecimento de entidades nomeadas_
         ```json
         {
             "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
@@ -73,7 +73,7 @@ Para migrar para a Habilidade de Reconhecimento de [Entidades,](cognitive-search
             ]
         }
         ```
-        _(Depois) Definição de competências de Reconhecimento de Entidades_
+        _(Depois) Definição de habilidades de reconhecimento de entidades_
         ```json
         {
             "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
@@ -96,7 +96,7 @@ Para migrar para a Habilidade de Reconhecimento de [Entidades,](cognitive-search
     
     * Migração ligeiramente complicada
 
-        _(Antes) Definição de competências de Reconhecimento de Entidades Nomeadas_
+        _(Antes) Definição de habilidades de reconhecimento de entidades nomeadas_
         ```json
         {
             "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
@@ -119,7 +119,7 @@ Para migrar para a Habilidade de Reconhecimento de [Entidades,](cognitive-search
             ]
         }
         ```
-        _(Depois) Definição de competências de Reconhecimento de Entidades_
+        _(Depois) Definição de habilidades de reconhecimento de entidades_
         ```json
         {
             "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
@@ -145,8 +145,8 @@ Para migrar para a Habilidade de Reconhecimento de [Entidades,](cognitive-search
         }
         ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
-+ [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)
-+ [Habilidade de Reconhecimento de Entidades](cognitive-search-skill-entity-recognition.md)
++ [Como definir um skillset](cognitive-search-defining-skillset.md)
++ [Competência de Reconhecimento de Entidades](cognitive-search-skill-entity-recognition.md)

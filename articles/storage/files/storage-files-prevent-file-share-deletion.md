@@ -1,56 +1,57 @@
 ---
-title: Evitar a supressão acidental - Ações de ficheiro sinuosa
-description: Saiba mais sobre a eliminação suave para as partilhas de ficheiros Azure e como pode usá-lo para a recuperação de dados e evitar a eliminação acidental.
+title: Prevenir a eliminação acidental - Azure file shares
+description: Saiba mais sobre a eliminação suave das ações de ficheiros Azure e como pode usá-lo para a recuperação de dados e prevenir a eliminação acidental.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 9ffc065cb877c7f87cd38671f586f0754a42b2b8
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
-ms.translationtype: MT
+ms.openlocfilehash: 6ee38dd6f9a2e254c57d6f79c09eee7bccfcd0aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141590"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84204689"
 ---
-# <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Evitar a supressão acidental de ações de ficheiros do Azure
+# <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Evitar a supressão acidental das ações de ficheiros Azure
 
-O Azure Storage oferece agora uma eliminação suave para partilhas de ficheiros (pré-visualização). A eliminação suave permite-lhe recuperar os seus dados quando estes são erroneamente eliminados por uma aplicação ou outro utilizador de conta de armazenamento.
+O Azure Storage oferece agora uma exclusão suave para ações de ficheiros (pré-visualização). A eliminação suave permite-lhe recuperar os seus dados quando estes são erroneamente eliminados por uma aplicação ou outro utilizador de conta de armazenamento.
 
-## <a name="how-soft-delete-preview-works"></a>Como funciona o soft delete (pré-visualização)
+## <a name="how-soft-delete-preview-works"></a>Como a eliminação suave (pré-visualização) funciona
 
-Quando ativado, a eliminação suave permite-lhe guardar e recuperar as suas ações de ficheiro quando são eliminadas. Quando os dados são eliminados, transita para um estado suave apagado em vez de ser permanentemente apagado. Pode configurar a quantidade de tempo que os dados apagados suaves são recuperáveis antes de ser eliminado permanentemente.
+Quando a eliminação suave das ações de ficheiros Azure é ativada, se uma partilha de ficheiros for eliminada, ela transite para um estado de eliminação suave em vez de ser permanentemente apagada. Pode configurar a quantidade de tempo que os dados suaves eliminados são recuperáveis antes de serem permanentemente eliminados.
 
-A eliminação suave pode ser ativada em ações de ficheiros novas ou existentes. O soft delete também é compatível com o retrocesso, por isso não é preciso fazer alterações nas suas aplicações para tirar partido das proteções de eliminação suave. 
+A eliminação suave pode ser ativada em ações de ficheiros novas ou existentes. O soft delete também é compatível com o contrário, pelo que não tem de fazer alterações nas suas aplicações para tirar partido das proteções de eliminação suave. 
 
-No caso das ações de ficheiros premium eliminados, a quota de partilha de ficheiros (o tamanho provisionado de uma parte de ficheiro) é utilizada no cálculo total da quota de depósito até à data de validade da parte eliminada, quando a ação for totalmente eliminada.
+Para eliminar permanentemente uma partilha de ficheiros num estado de exclusão suave antes do seu termo, tem de desativar a parte, desativar a exclusão suave e, em seguida, apagar novamente a partilha. Em seguida, deve voltar a permitir a eliminação suave, uma vez que quaisquer outras ações de ficheiros nessa conta de armazenamento ficarão vulneráveis à eliminação acidental enquanto a eliminação suave estiver desligada.
 
-### <a name="availability"></a>Disponibilidade
+Para as ações de ficheiros premium eliminados suavemente, a quota de ações de ficheiro (a dimensão prevista de uma ação de ficheiro) é utilizada no cálculo total da quota de conta de armazenamento até à data de validade da ação de ações eliminadas suavemente, quando a ação for totalmente eliminada.
 
-A eliminação suave para as partilhas de ficheiros Azure (pré-visualização) está disponível em todos os níveis de armazenamento, em todos os tipos de conta de armazenamento e em todas as regiões onde o Azure Files está disponível.
+## <a name="availability"></a>Disponibilidade
+
+A eliminação suave para ações de ficheiros Azure (pré-visualização) está disponível em todos os níveis de armazenamento, todos os tipos de conta de armazenamento e em todas as regiões em que os Ficheiros Azure estão disponíveis.
 
 ## <a name="configuration-settings"></a>Definições de configuração
 
-A eliminação suave para as partilhas de ficheiros está ativada ao nível da conta de armazenamento, as definições de eliminação suave aplicam-se a todas as ações de ficheiro dentro de uma conta de armazenamento. Quando cria uma nova conta de armazenamento, a eliminação suave é desligada por defeito. A eliminação suave também está desligada por padrão para as contas de armazenamento existentes. Pode alternar suavemente apagar a qualquer momento.
+### <a name="enabling-or-disabling-soft-delete"></a>Ativar ou desativar a eliminação suave
 
-Se ativar a eliminação suave das ações de ficheiros, elimine algumas ações de ficheiros e, em seguida, desative a eliminação suave, se as ações foram guardadas nesse período, ainda pode aceder e recuperar essas ações de ficheiro. Quando ativa a eliminação suave, também precisa de configurar o período de retenção.
+A eliminação suave para ações de ficheiros é ativada ao nível da conta de armazenamento, por isso, as definições de eliminação suave aplicam-se a todas as ações de ficheiros dentro de uma conta de armazenamento. Pode ativar ou desativar a qualquer momento a eliminação suave. Quando cria uma nova conta de armazenamento, a exclusão suave para ações de ficheiros é desativada por padrão. A eliminação suave também é desativada por padrão para as contas de armazenamento existentes. Se tiver configurado [a cópia de segurança da partilha de ficheiros Azure](../../backup/azure-file-share-backup-overview.md) para uma partilha de ficheiros Azure, então a eliminação suave para ações de ficheiros Azure será automaticamente ativada na conta de armazenamento dessa ação.
 
-O período de retenção indica o tempo em que as ações de ficheiros eliminados suaves são armazenadas e disponíveis para recuperação. Para ações de ficheiros explicitamente eliminadas, o relógio do período de retenção começa quando os dados são eliminados. Atualmente pode manter as ações apagadas suaves entre 1 e 365 dias.
+Se ativar a eliminação suave para ações de ficheiros, elimine algumas ações de ficheiros e, em seguida, desative a eliminação suave, se as ações forem guardadas nesse período, ainda pode aceder e recuperar essas ações de ficheiros. Quando ativar a eliminação suave, também precisa de configurar o período de retenção.
 
-Pode alterar o período de retenção de eliminação suave a qualquer momento. Um período de retenção atualizado só se aplicará às ações eliminadas após a atualização do período de retenção. As ações eliminadas antes da atualização do período de retenção expirarão com base no período de retenção que foi configurado quando esses dados foram eliminados.
+### <a name="retention-period"></a>Período de retenção
 
-Para eliminar permanentemente uma parte de ficheiro num estado de eliminação suave antes do seu tempo de validade, deve desapagar a parte, desativar suavemente a eliminação e, em seguida, apagar novamente a parte. Em seguida, deve reativar a eliminação suave, uma vez que quaisquer outras ações de ficheiro nessa conta de armazenamento ficarão vulneráveis a uma eliminação acidental enquanto a eliminação suave está desligada.
+O período de retenção é o período de tempo em que as ações de ficheiros apagadas suaves são armazenadas e disponíveis para recuperação. Para as ações de ficheiros que são explicitamente eliminadas, o relógio do período de retenção começa quando os dados são eliminados. Atualmente pode especificar um período de retenção entre 1 e 365 dias. Pode alterar o período de retenção de eliminação suave a qualquer momento. Um período de retenção atualizado só será aplicável às ações eliminadas após a atualização do período de retenção. As ações eliminadas antes da atualização do período de retenção expirarão com base no período de retenção configurado quando esses dados foram eliminados.
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
 
-Tanto as ações de ficheiros standard como premium são faturadas na capacidade utilizada quando eliminadas suaves, em vez da capacidade provisionada. Adicionalmente, as ações de ficheiropremium são faturadas à taxa de instantâneo enquanto no estado de eliminação suave. As ações de ficheiro padrão são faturadas à taxa normal enquanto no estado de eliminação suave. Não será cobrado por dados que sejam permanentemente eliminados após o período de retenção configurado.
+Tanto as ações de ficheiros standard como premium são faturadas na capacidade utilizada quando eliminadas suavemente, em vez de capacidade suplêntida. Além disso, as ações de ficheiro premium são faturadas à taxa instantânea enquanto estão no estado de exclusão suave. As ações de ficheiros standard são faturadas à taxa normal enquanto estão no estado de exclusão suave. Não será cobrado por dados que sejam permanentemente eliminados após o período de retenção configurado.
 
-Para obter mais informações sobre os preços do Armazenamento de Ficheiros Azure em geral, consulte a página de preços de armazenamento de [ficheiros Azure](https://azure.microsoft.com/pricing/details/storage/files/).
+Para obter mais informações sobre os preços do Armazenamento de Ficheiros Azure em geral, consulte a [página de preços de armazenamento de ficheiros Azure](https://azure.microsoft.com/pricing/details/storage/files/).
 
-Quando inicialmente ativa a eliminação suave, recomendamos que utilize um pequeno período de retenção para entender melhor como a funcionalidade afeta a sua conta.
+Quando inicialmente ativar a eliminação suave, recomendamos a utilização de um pequeno período de retenção para entender melhor como a funcionalidade afeta a sua conta.
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para aprender a ativar e utilizar o soft delete, continue a [permitir eliminar suavemente](storage-files-enable-soft-delete.md)
+Para aprender a ativar e utilizar a eliminação suave, continue a ativar a [eliminação suave](storage-files-enable-soft-delete.md).

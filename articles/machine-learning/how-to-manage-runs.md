@@ -1,34 +1,34 @@
 ---
 title: Iniciar, monitorizar e cancelar treinos em Python
 titleSuffix: Azure Machine Learning
-description: Aprenda a começar, definir o estado de, etiquetar e organizar as suas experiências de aprendizagem automática.
+description: Aprenda a começar, definir o estado de. Marcar e organizar as suas experiências de aprendizagem automática.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 01/09/2020
-ms.openlocfilehash: d6dc2eeb572eeed17281677945c93067bbadee94
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: c6d2e05104e2801129544b1cc91d3d7a00161f86
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628576"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560157"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Iniciar, monitorizar e cancelar treinos em Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-O Estúdio [Azure Machine Learning SDK para Python,](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) [Machine Learning CLI](reference-azure-machine-learning-cli.md)e [Azure Machine Learning](https://ml.azure.com) fornecem vários métodos para monitorizar, organizar e gerir as suas corridas para treino e experimentação.
+O [Azure Machine Learning SDK para Python,](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) [Machine Learning CLI](reference-azure-machine-learning-cli.md)e a [Azure Machine Learning studio](https://ml.azure.com) fornecem vários métodos para monitorizar, organizar e gerir as suas corridas para treino e experimentação.
 
-Este artigo apresenta exemplos das seguintes tarefas:
+Este artigo mostra exemplos das seguintes tarefas:
 
-* Monitor desempenho de execução.
-* Cancelar ou falhar corridas.
-* Criar corridas infantis.
-* Etiqueta e encontrar corridas.
+* Monitorize o desempenho da execução.
+* Cancelar ou falhar corre.
+* Criar corridas de crianças.
+* Marque e encontre corridas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,9 +36,9 @@ Vai precisar dos seguintes itens:
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
 
-* Um [espaço de trabalho azure machine learning.](how-to-manage-workspace.md)
+* Um [espaço de trabalho de aprendizagem automática Azure.](how-to-manage-workspace.md)
 
-* O Azure Machine Learning SDK para Python (versão 1.0.21 ou posterior). Para instalar ou atualizar para a versão mais recente do SDK, consulte [Instalar ou atualizar o SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* O Azure Machine Learning SDK para Python (versão 1.0.21 ou mais tarde). Para instalar ou atualizar para a versão mais recente do SDK, consulte [instalar ou atualizar o SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
     Para verificar a sua versão do Azure Machine Learning SDK, utilize o seguinte código:
 
@@ -46,13 +46,13 @@ Vai precisar dos seguintes itens:
     print(azureml.core.VERSION)
     ```
 
-* A extensão [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) e [CLI para Aprendizagem automática Azure](reference-azure-machine-learning-cli.md).
+* A extensão [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) e [CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
-## <a name="start-a-run-and-its-logging-process"></a>Inicie uma corrida e o seu processo de exploração madeireira
+## <a name="start-a-run-and-its-logging-process"></a>Inicie uma corrida e o seu processo de registo
 
 ### <a name="using-the-sdk"></a>Utilizar o SDK
 
-Crie a sua experiência importando as classes [Workspace,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) [Experiment,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py)e [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) do pacote [azureml.core.](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py)
+Desconfie da sua experiência importando as classes [Workspace,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) [Experiment,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py)e [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) a partir do pacote [azureml.core.](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py)
 
 ```python
 import azureml.core
@@ -63,18 +63,18 @@ ws = Workspace.from_config()
 exp = Experiment(workspace=ws, name="explore-runs")
 ```
 
-Inicie uma corrida e o [`start_logging()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) seu processo de exploração madeireira com o método.
+Inicie uma corrida e o seu processo de registo com o [`start_logging()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) método.
 
 ```python
 notebook_run = exp.start_logging()
 notebook_run.log(name="message", value="Hello from run!")
 ```
 
-### <a name="using-the-cli"></a>Usando o CLI
+### <a name="using-the-cli"></a>Utilização do CLI
 
-Para iniciar uma série da sua experiência, use os seguintes passos:
+Para iniciar uma série da sua experiência, utilize os seguintes passos:
 
-1. A partir de um pedido de cartão ou comando, utilize o Azure CLI para autenticar a sua assinatura Azure:
+1. A partir de uma concha ou pedido de comando, utilize o CLI Azure para autenticar a sua subscrição Azure:
 
     ```azurecli-interactive
     az login
@@ -82,36 +82,36 @@ Para iniciar uma série da sua experiência, use os seguintes passos:
     
     [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-1. Fixe uma configuração de espaço de trabalho à pasta que contém o seu script de treino. Substitua-o `myworkspace` pelo seu espaço de trabalho Azure Machine Learning. Substitua-o `myresourcegroup` pelo grupo de recursos Azure que contém o seu espaço de trabalho:
+1. Fixe uma configuração de espaço de trabalho à pasta que contém o seu script de treino. `myworkspace`Substitua-o pelo seu espaço de trabalho de aprendizagem da máquina Azure. `myresourcegroup`Substitua-se pelo grupo de recursos Azure que contém o seu espaço de trabalho:
 
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
 
-    Este comando `.azureml` cria um subdiretório que contém ficheiros de ambiente runconfig e conda exemplo. Também contém `config.json` um ficheiro que é usado para comunicar com o seu espaço de trabalho Azure Machine Learning.
+    Este comando cria uma `.azureml` subdiretória que contém ficheiros de ambiente runconfig e conda. Também contém um `config.json` ficheiro que é usado para comunicar com o seu espaço de trabalho Azure Machine Learning.
 
-    Para mais informações, consulte a anexação da [pasta Az ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
+    Para obter mais informações, consulte [o az ml pasta anexa .](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach)
 
-2. Para iniciar a corrida, utilize o seguinte comando. Ao utilizar este comando, especifique o nome \*do ficheiro runconfig (o texto antes de .runconfig se estiver a olhar para o seu sistema de ficheiros) contra o parâmetro -c.
+2. Para iniciar a execução, utilize o seguinte comando. Ao utilizar este comando, especifique o nome do ficheiro runconfig (o texto antes \* de .runconfig se estiver a olhar para o seu sistema de ficheiros) contra o parâmetro -c.
 
     ```azurecli-interactive
     az ml run submit-script -c sklearn -e testexperiment train.py
     ```
 
     > [!TIP]
-    > O `az ml folder attach` comando `.azureml` criou um subdiretório, que contém dois exemplos de ficheiros runconfig.
+    > O `az ml folder attach` comando criou uma `.azureml` subdiretório, que contém dois ficheiros runconfig de exemplo.
     >
-    > Se tiver um script Python que cria um objeto de configuração de execução programáticamente, pode utilizar [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) para guardá-lo como ficheiro runconfig.
+    > Se tiver um script Python que crie um objeto de configuração de execução programáticamente, pode utilizar [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) para o guardar como ficheiro runconfig.
     >
-    > Para mais exemplo, ficheiros [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/)runconfig, consulte .
+    > Para mais ficheiros runconfig, consulte [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/) .
 
-    Para mais informações, consulte [az ml executar envie um sub-script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
+    Para obter mais informações, consulte [o roteiro de submissão az ml run](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
 
 ### <a name="using-azure-machine-learning-studio"></a>Usando o estúdio Azure Machine Learning
 
 Para iniciar uma execução de pipeline no designer (pré-visualização), utilize os seguintes passos:
 
-1. Detete um alvo de computação padrão para o seu oleoduto.
+1. Desaponte um alvo de computação padrão para o seu pipeline.
 
 1. Selecione **Executar** na parte superior da tela do gasoduto.
 
@@ -121,26 +121,26 @@ Para iniciar uma execução de pipeline no designer (pré-visualização), utili
 
 ### <a name="using-the-sdk"></a>Utilizar o SDK
 
-Obtenha o estado de [`get_status()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-status--) uma corrida com o método.
+Obtenha o estado de uma corrida com o [`get_status()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-status--) método.
 
 ```python
 print(notebook_run.get_status())
 ```
 
-Para obter o ID de execução, o tempo [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#get-details--) de execução e detalhes adicionais sobre a execução, use o método.
+Para obter o ID de execução, tempo de execução e detalhes adicionais sobre a execução, use o [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#get-details--) método.
 
 ```python
 print(notebook_run.get_details())
 ```
 
-Quando a sua corrida terminar [`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) com sucesso, utilize o método para o marcar como concluído.
+Quando a sua execução terminar com sucesso, utilize o [`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) método para o marcar como concluído.
 
 ```python
 notebook_run.complete()
 print(notebook_run.get_status())
 ```
 
-Se utilizar o `with...as` padrão de design da Python, o percurso marcar-se-á automaticamente como concluído quando a execução estiver fora de alcance. Não precisa de marcar manualmente a corrida como concluída.
+Se utilizar o padrão de design da `with...as` Python, a execução marcar-se-á automaticamente como concluída quando a execução estiver fora de alcance. Não é preciso marcar manualmente a execução como concluído.
 
 ```python
 with exp.start_logging() as notebook_run:
@@ -150,9 +150,9 @@ with exp.start_logging() as notebook_run:
 print(notebook_run.get_status())
 ```
 
-### <a name="using-the-cli"></a>Usando o CLI
+### <a name="using-the-cli"></a>Utilização do CLI
 
-1. Para ver uma lista de corridas para a sua experiência, use o seguinte comando. Substitua-o `experiment` pelo nome da sua experiência:
+1. Para visualizar uma lista de execuções para a sua experiência, use o seguinte comando. `experiment`Substitua-o pelo nome da sua experiência:
 
     ```azurecli-interactive
     az ml run list --experiment-name experiment
@@ -160,9 +160,9 @@ print(notebook_run.get_status())
 
     Este comando devolve um documento JSON que lista informações sobre execuções para esta experiência.
 
-    Para mais informações, consulte a lista de [experiências az ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
+    Para mais informações, consulte [a lista de experiências az ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
 
-2. Para visualizar informações sobre uma execução específica, utilize o seguinte comando. Substitua-a `runid` pela identificação da execução:
+2. Para visualizar informações numa execução específica, utilize o seguinte comando. `runid`Substitua-a pelo ID da execução:
 
     ```azurecli-interactive
     az ml run show -r runid
@@ -170,31 +170,31 @@ print(notebook_run.get_status())
 
     Este comando devolve um documento JSON que lista informações sobre a execução.
 
-    Para mais informações, consulte [az ml run show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-show).
+    Para mais informações, consulte [o az ml run show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-show).
 
 
 ### <a name="using-azure-machine-learning-studio"></a>Usando o estúdio Azure Machine Learning
 
-Para ver o número de corridas ativas para a sua experiência no estúdio.
+Para ver o número de execuções ativas para a sua experiência no estúdio.
 
 1. Navegue para a secção **de Experiências.** 
 
 1. Selecione uma experiência.
 
-    Na página da experiência, pode ver o número de alvos de computação ativa e a duração de cada execução. 
+    Na página de experiências, pode ver o número de alvos de computação ativa e a duração de cada execução. 
 
 1. Selecione um número de execução específico.
 
-1. No separador **Logs,** pode encontrar registos de diagnóstico e erro para o seu pipeline.
+1. No **separador 'Registar',** pode encontrar registos de diagnóstico e erro para o seu pipeline.
 
 
-## <a name="cancel-or-fail-runs"></a>Cancelar ou falhar corridas
+## <a name="cancel-or-fail-runs"></a>Cancelar ou falhar corre
 
 Se notar um erro ou se a sua corrida estiver a demorar muito tempo a terminar, pode cancelar a corrida.
 
 ### <a name="using-the-sdk"></a>Utilizar o SDK
 
-Para cancelar uma execução utilizando o [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) SDK, utilize o método:
+Para cancelar uma execução utilizando o SDK, utilize o [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) método:
 
 ```python
 run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
@@ -205,7 +205,7 @@ local_script_run.cancel()
 print(local_script_run.get_status())
 ```
 
-Se a sua execução terminar, mas contém um erro (por exemplo, [`fail()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)#fail-error-details-none--error-code-none---set-status-true-) o script de treino incorreto foi usado), pode usar o método para o marcar como falhado.
+Se a sua execução terminar, mas contiver um erro (por exemplo, o script de treino incorreto foi utilizado), pode utilizar o [`fail()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)#fail-error-details-none--error-code-none---set-status-true-) método para o marcar como falhado.
 
 ```python
 local_script_run = exp.submit(run_config)
@@ -213,35 +213,35 @@ local_script_run.fail()
 print(local_script_run.get_status())
 ```
 
-### <a name="using-the-cli"></a>Usando o CLI
+### <a name="using-the-cli"></a>Utilização do CLI
 
-Para cancelar uma corrida utilizando o CLI, utilize o seguinte comando. Substitua-a `runid` com a identificação da corrida
+Para cancelar uma execução utilizando o CLI, utilize o seguinte comando. `runid`Substitua-se pelo ID da execução
 
 ```azurecli-interactive
 az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
-Para mais informações, consulte [az ml de cancelamento](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel).
+Para mais informações, consulte [a corrida az ml cancelar](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel).
 
 ### <a name="using-azure-machine-learning-studio"></a>Usando o estúdio Azure Machine Learning
 
 Para cancelar uma corrida no estúdio, utilizando os seguintes passos:
 
-1. Vá para o gasoduto de corrida na secção **Experiências** ou **Gasodutos.** 
+1. Vá para o gasoduto de funcionamento na secção **Experiments** ou **Pipelines.** 
 
-1. Selecione o número de execução do gasoduto que pretende cancelar.
+1. Selecione o número de funcionação do gasoduto que pretende cancelar.
 
 1. Na barra de ferramentas, selecione **Cancelar**
 
 
-## <a name="create-child-runs"></a>Criar corridas infantis
+## <a name="create-child-runs"></a>Criar corridas de crianças
 
-Criar corridas para agrupar as corridas relacionadas com a criança, tais como para diferentes iterações de afinação de hiperparâmetros.
+Criar corridas infantis para agrupar corridas relacionadas, tais como para diferentes iterações de afinação de hiperparímetros.
 
 > [!NOTE]
-> As corridas infantis só podem ser criadas usando o SDK.
+> As corridas para crianças só podem ser criadas utilizando o SDK.
 
-Este exemplo de `hello_with_children.py` código usa o script para criar um lote de [`child_run()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#child-run-name-none--run-id-none--outputs-none-) cinco crianças que corre dentro de uma execução submetida usando o método:
+Este exemplo de código utiliza o `hello_with_children.py` script para criar um lote de cinco crianças executadas a partir de uma execução submetida utilizando o [`child_run()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#child-run-name-none--run-id-none--outputs-none-) método:
 
 ```python
 !more hello_with_children.py
@@ -258,20 +258,20 @@ with exp.start_logging() as parent_run:
 ```
 
 > [!NOTE]
-> À medida que se movem fora de alcance, as corridas de crianças são automaticamente marcadas como concluídas.
+> À medida que se afastam do alcance, as corridas para crianças são automaticamente marcadas como concluídas.
 
-Para criar muitas crianças [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-) corre eficientemente, use o método. Porque cada criação resulta numa chamada de rede, criar um lote de execuções é mais eficiente do que criá-los um a um.
+Para criar muitas crianças funciona de forma eficiente, use o [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-) método. Como cada criação resulta numa chamada de rede, criar um lote de runs é mais eficiente do que criá-las uma a uma.
 
 ### <a name="submit-child-runs"></a>Submeter corridas de crianças
 
-As corridas de crianças também podem ser submetidas a partir de uma execução dos pais. Isto permite criar hierarquias de pais e filhos. 
+As corridas para crianças também podem ser submetidas a partir de uma corrida de pais. Isto permite-lhe criar hierarquias de pais e filhos. 
 
-Pode desejar que o seu filho corra para utilizar uma configuração de execução diferente da execução dos pais. Por exemplo, pode utilizar uma configuração baseada em CPU menos potente para o progenitor, enquanto utiliza configurações baseadas em GPU para os seus filhos. Outro desejo comum é passar por cada criança diferentes argumentos e dados. Para personalizar uma criança `RunConfiguration` correr, passe um `ScriptRunConfig` objeto ao construtor da criança. Este exemplo de código, que `ScriptRunConfig` faria parte do guião do objeto-mãe:
+Pode desejar que o seu filho corra para utilizar uma configuração de execução diferente da execução dos pais. Por exemplo, pode utilizar uma configuração menos potente e baseada em CPU para o progenitor, enquanto utiliza configurações baseadas em GPU para os seus filhos. Outro desejo comum é passar a cada criança diferentes argumentos e dados. Para personalizar uma corrida de crianças, passe um `RunConfiguration` objeto ao construtor da `ScriptRunConfig` criança. Este exemplo de código, que seria parte do `ScriptRunConfig` script do objeto-mãe:
 
-- Cria `RunConfiguration` uma recuperação de um recurso computacional nomeado`"gpu-compute"`
-- Iterates sobre diferentes valores de `ScriptRunConfig` argumento a serem passados para os objetos das crianças
-- Cria e submete uma nova corrida para crianças, usando o recurso e argumento personalizados
-- Bloqueia até que toda a criança corra completa
+- Cria um `RunConfiguration` recurso de computação nomeado`"gpu-compute"`
+- Iterates sobre diferentes valores de argumento a serem passados para os objetos das `ScriptRunConfig` crianças
+- Cria e submete uma nova corrida infantil, usando o recurso e argumento de computação personalizado
+- Bloqueia até que toda a criança fique completa
 
 ```python
 # parent.py
@@ -298,9 +298,9 @@ for child in run.get_children():
     child.wait_for_completion()
 ```
 
-Para criar muitas corridas infantis com configurações, argumentos e [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-) inputs idênticos de forma eficiente, use o método. Porque cada criação resulta numa chamada de rede, criar um lote de execuções é mais eficiente do que criá-los um a um.
+Para criar muitas corridas de crianças com configurações, argumentos e entradas idênticas de forma eficiente, utilize o [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-) método. Como cada criação resulta numa chamada de rede, criar um lote de runs é mais eficiente do que criá-las uma a uma.
 
-Dentro de uma corrida de crianças, você pode ver o ID executar dos pais:
+Dentro de uma corrida de crianças, você pode ver o iD do pai executar:
 
 ```python
 ## In child run script
@@ -308,30 +308,30 @@ child_run = Run.get_context()
 child_run.parent.id
 ```
 
-### <a name="query-child-runs"></a>Pergunta criança corre
+### <a name="query-child-runs"></a>A consulta da criança corre
 
-Para consultar a criança corre de um [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) progenitor específico, use o método. O ``recursive = True`` argumento permite-lhe consultar uma árvore aninhada de crianças e netos.
+Para consultar a criança de um progenitor específico, utilize o [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) método. O ``recursive = True`` argumento permite-lhe consultar uma árvore aninhada de filhos e netos.
 
 ```python
 print(parent_run.get_children())
 ```
 
-## <a name="tag-and-find-runs"></a>Marque e encontre corridas
+## <a name="tag-and-find-runs"></a>Etiquetar e encontrar corridas
 
 No Azure Machine Learning, pode utilizar propriedades e tags para ajudar a organizar e consultar as suas corridas para obter informações importantes.
 
-### <a name="add-properties-and-tags"></a>Adicione propriedades e tags
+### <a name="add-properties-and-tags"></a>Adicionar propriedades e etiquetas
 
 #### <a name="using-the-sdk"></a>Utilizar o SDK
 
-Para adicionar metadados pesquisáveis [`add_properties()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#add-properties-properties-) às suas execuções, utilize o método. Por exemplo, o seguinte `"author"` código adiciona a propriedade à execução:
+Para adicionar metadados pesjáveis às suas execuções, utilize o [`add_properties()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#add-properties-properties-) método. Por exemplo, o seguinte código adiciona a `"author"` propriedade à execução:
 
 ```Python
 local_script_run.add_properties({"author":"azureml-user"})
 print(local_script_run.get_properties())
 ```
 
-As propriedades são imutáveis, por isso criam um registo permanente para fins de auditoria. O seguinte exemplo de código resulta `"azureml-user"` num `"author"` erro, porque já adicionámos como valor de propriedade no código anterior:
+As propriedades são imutáveis, por isso criam um registo permanente para fins de auditoria. O exemplo de código a seguir resulta num erro, pois já adicionámos `"azureml-user"` como `"author"` valor patrimonial no código anterior:
 
 ```Python
 try:
@@ -340,7 +340,7 @@ except Exception as e:
     print(e)
 ```
 
-Ao contrário das propriedades, as etiquetas são mutáveis. Para adicionar informações pesquisáveis e significativas para os consumidores da sua experiência, utilize o [`tag()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#tag-key--value-none-) método.
+Ao contrário das propriedades, as etiquetas são mutáveis. Para adicionar informações pes pes que pesjáveis e significativas para os consumidores da sua experiência, utilize o [`tag()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#tag-key--value-none-) método.
 
 ```Python
 local_script_run.tag("quality", "great run")
@@ -350,17 +350,17 @@ local_script_run.tag("quality", "fantastic run")
 print(local_script_run.get_tags())
 ```
 
-Também pode adicionar etiquetas de corda simples. Quando estas etiquetas aparecem no dicionário de etiquetas `None`como chaves, têm um valor de .
+Também pode adicionar etiquetas de corda simples. Quando estas etiquetas aparecem no dicionário de etiquetas como teclas, têm um valor de `None` .
 
 ```Python
 local_script_run.tag("worth another look")
 print(local_script_run.get_tags())
 ```
 
-#### <a name="using-the-cli"></a>Usando o CLI
+#### <a name="using-the-cli"></a>Utilização do CLI
 
 > [!NOTE]
-> Utilizando o CLI, só pode adicionar ou atualizar etiquetas.
+> Utilizando o CLI, só é possível adicionar ou atualizar tags.
 
 Para adicionar ou atualizar uma etiqueta, utilize o seguinte comando:
 
@@ -368,11 +368,11 @@ Para adicionar ou atualizar uma etiqueta, utilize o seguinte comando:
 az ml run update -r runid --add-tag quality='fantastic run'
 ```
 
-Para mais informações, consulte [a az ml de atualização](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update)de execução .
+Para mais informações, consulte [a atualização de execução az ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update).
 
-### <a name="query-properties-and-tags"></a>Propriedades e etiquetas de consulta
+### <a name="query-properties-and-tags"></a>Propriedades e tags de consulta
 
-Você pode consultar executa dentro de uma experiência para devolver uma lista de execuções que correspondem a propriedades e etiquetas específicas.
+Você pode consultar corre dentro de uma experiência para devolver uma lista de runs que correspondem a propriedades e etiquetas específicas.
 
 #### <a name="using-the-sdk"></a>Utilizar o SDK
 
@@ -381,9 +381,9 @@ list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantasti
 list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
 ```
 
-#### <a name="using-the-cli"></a>Usando o CLI
+#### <a name="using-the-cli"></a>Utilização do CLI
 
-O Azure CLI suporta consultas [JMESPath,](http://jmespath.org) que podem ser usadas para filtrar execuções com base em propriedades e etiquetas. Para utilizar uma consulta JMESPath com o CLI `--query` Azure, especifique-a com o parâmetro. Os seguintes exemplos mostram consultas básicas utilizando propriedades e etiquetas:
+O Azure CLI suporta consultas [JMESPath,](http://jmespath.org) que podem ser usadas para filtrar corridas com base em propriedades e etiquetas. Para utilizar uma consulta JMESPath com o CLI Azure, especifique-a com o `--query` parâmetro. Os exemplos a seguir mostram consultas básicas utilizando propriedades e etiquetas:
 
 ```azurecli-interactive
 # list runs where the author property = 'azureml-user'
@@ -394,23 +394,23 @@ az ml run list --experiment-name experiment [?tags.keys(@)[?starts_with(@, 'wort
 az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
 ```
 
-Para obter mais informações sobre a consulta dos resultados do Azure CLI, consulte a saída de [comando DoCe Azure CLI](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest).
+Para obter mais informações sobre os resultados do Azure CLI, consulte [a saída do comando Do CLI da Consulta .](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest)
 
 ### <a name="using-azure-machine-learning-studio"></a>Usando o estúdio Azure Machine Learning
 
 1. Navegue para a secção **Pipelines.**
 
-1. Utilize a barra de pesquisa para filtrar os gasodutos utilizando etiquetas, descrições, nomes de experiências e nomes de apresentadores.
+1. Utilize a barra de pesquisa para filtrar os oleodutos utilizando etiquetas, descrições, nomes de experiências e nome do apresentador.
 
-## <a name="example-notebooks"></a>Exemplo de cadernos
+## <a name="example-notebooks"></a>Blocos de notas de exemplo
 
 Os seguintes cadernos demonstram os conceitos deste artigo:
 
-* Para saber mais sobre as APIs de exploração, consulte o [caderno API de registo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api/logging-api.ipynb).
+* Para saber mais sobre as APIs de registo, consulte o [caderno API de registo.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api/logging-api.ipynb)
 
-* Para obter mais informações sobre gestão de corridas com o Azure Machine Learning SDK, consulte o [caderno de gestão executa](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/manage-runs/manage-runs.ipynb).
+* Para obter mais informações sobre a gestão de corridas com o Azure Machine Learning SDK, consulte o [caderno de gestão](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/manage-runs/manage-runs.ipynb).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para aprender a registar métricas para as suas experiências, consulte métricas de [log durante os treinos](how-to-track-experiments.md).
-* Para aprender a monitorizar recursos e registos da Azure Machine Learning, consulte a Monitorização de [Machine Learning Azure](monitor-azure-machine-learning.md).
+* Para aprender a registar métricas para as suas experiências, consulte [as métricas do Registo durante os treinos](how-to-track-experiments.md).
+* Para aprender a monitorizar recursos e registos da Azure Machine Learning, consulte [monitorar a Azure Machine Learning](monitor-azure-machine-learning.md).

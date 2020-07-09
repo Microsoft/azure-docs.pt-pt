@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 06/25/2020
 ms.author: aahi
-ms.openlocfilehash: c0e71ffcc88a85caf4b76c34940293663c4acf66
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 367e214a3945ec9d6ed0ffc5b11e6af25dc41503
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142168"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413336"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Suporte linguístico API v3 de API de análise de texto 
 
 > [!IMPORTANT]
-> A versão 3.x do Text Analytics API está atualmente indisponível nas seguintes regiões: Índia Central, Fairfax, UAE Norte, África do Sul Norte, China Norte 2, China Leste.
+> A versão 3.x da Text Analytics API está atualmente indisponível nas seguintes regiões: Índia Central, Uae North, China Norte 2, China Leste.
 
 
 #### <a name="sentiment-analysis"></a>[Análise de Sentimentos](#tab/sentiment-analysis)
@@ -57,7 +57,7 @@ ms.locfileid: "84142168"
 #### <a name="named-entity-recognition-ner"></a>[Reconhecimento de Entidades Nomeadas (NER)](#tab/named-entity-recognition)
 
 > [!NOTE]
-> * Atualmente, o NER v3 apenas suporta a língua inglesa. Se ligar para o NER v3 com um idioma diferente, a API devolverá os resultados v2.1, desde que o idioma seja suportado na versão 2.1.
+> * O NER v3 suporta atualmente apenas línguas inglesa e espanhola. Se ligar para o NER v3 com um idioma diferente, a API devolverá os resultados v2.1, desde que o idioma seja suportado na versão 2.1.
 > * v2.1 apenas devolve o conjunto completo de entidades disponíveis para as línguas inglesa, chinesa-simplificada, francesa, alemã e espanhola.  As entidades "Pessoa", "Localização" e "Organização" são devolvidas para as outras línguas apoiadas.
 
 | Linguagem               | Código do idioma | v2.1 apoio | v3 suporte | Começando com a versão do modelo V3: |       Notas        |
@@ -82,7 +82,7 @@ ms.locfileid: "84142168"
 | Português (Portugal) |    `pt-PT`    |     ✓      |            |                                 | `pt`também aceitou |
 | Português (Brasil)   |    `pt-BR`    |     ✓      |            |                                 |                    |
 | Russo              |     `ru`      |     ✓      |            |                                 |                    |
-| Espanhol               |     `es`      |     ✓      |            |                                 |                    |
+| Espanhol               |     `es`      |     ✓      |     ✓       |              2020-04-01                   |                    |
 | Sueco               |     `sv`      |     ✓      |            |                                 |                    |
 | Turco               |     `tr`      |     ✓      |            |                                 |                    |
 
@@ -123,6 +123,6 @@ Se tiver conteúdo expresso num idioma menos utilizado, pode tentar a Deteção 
 
 ---
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [O que é a API de Análise de Texto?](overview.md)   

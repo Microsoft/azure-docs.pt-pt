@@ -1,26 +1,25 @@
 ---
-title: Infraestrutura de tecido de serviço Azure como Código Boas Práticas
-description: Boas práticas e considerações de design para a gestão do Tecido de Serviço Azure como infraestrutura como código.
+title: Infraestrutura de tecido de serviço Azure como código das melhores práticas
+description: Boas práticas e considerações de design para gerir o Azure Service Fabric como infraestrutura como código.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: 1c044d5fd973d3c577088a887f2fac413d2ab79d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75551833"
 ---
 # <a name="infrastructure-as-code"></a>Infraestrutura como código
 
-Num cenário de produção, crie clusters de tecido de serviço Azure utilizando modelos de Gestor de Recursos. Os modelos do Gestor de Recursos proporcionam um maior controlo das propriedades dos recursos e asseguram-se de que tem um modelo de recursos consistente.
+Num cenário de produção, crie clusters de tecido de serviço Azure usando modelos de Gestor de Recursos. Os modelos do Gestor de Recursos proporcionam um maior controlo das propriedades dos recursos e asseguram que tem um modelo de recursos consistente.
 
-Os modelos do Sample Resource Manager estão disponíveis para Windows e Linux nas [amostras Azure no GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Estes modelos podem ser usados como ponto de partida para o seu modelo de cluster. Descarregue `azuredeploy.json` e `azuredeploy.parameters.json` edite-os para satisfazer os seus requisitos personalizados.
+Os modelos do Gestor de Recursos da Amostra estão disponíveis para Windows e Linux nas [amostras Azure no GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Estes modelos podem ser usados como ponto de partida para o seu modelo de cluster. Faça o download `azuredeploy.json` e `azuredeploy.parameters.json` edite-os para satisfazer os seus requisitos personalizados.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para implementar `azuredeploy.json` `azuredeploy.parameters.json` os modelos e modelos que descarregou acima, utilize os seguintes comandos Azure CLI:
+Para implementar os `azuredeploy.json` modelos e `azuredeploy.parameters.json` modelos que descarregou acima, utilize os seguintes comandos Azure CLI:
 
 ```azurecli
 ResourceGroupName="sfclustergroup"
@@ -30,7 +29,7 @@ az group create --name $ResourceGroupName --location $Location
 az group deployment create --name $ResourceGroupName  --template-file azuredeploy.json --parameters @azuredeploy.parameters.json
 ```
 
-Criar um recurso usando powershell
+Criar um recurso usando Powershell
 
 ```powershell
 $ResourceGroupName="sfclustergroup"
@@ -42,9 +41,9 @@ New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -TemplateParameterFile $Parameters
 ```
 
-## <a name="azure-service-fabric-resources"></a>Recursos tecidos de serviço Azure
+## <a name="azure-service-fabric-resources"></a>Recursos de tecido de serviço Azure
 
-Pode implementar aplicações e serviços no seu cluster Service Fabric através do Azure Resource Manager. Consulte [a Manage aplicações e serviços como recursos do Gestor de Recursos Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) para mais detalhes. Seguem-se os recursos específicos de aplicação de aplicação service fabric de boas práticas para incluir nos recursos do seu modelo de Gestor de Recursos.
+Pode implementar aplicações e serviços no seu cluster de Tecidos de Serviço através do Azure Resource Manager. Consulte [as aplicações e serviços de Gestão como Recursos Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) para obter mais detalhes. Seguem-se recursos específicos de aplicação de tecido de serviço de boas práticas para incluir nos recursos do modelo do Gestor de Recursos.
 
 ```json
 {
@@ -73,7 +72,7 @@ Pode implementar aplicações e serviços no seu cluster Service Fabric através
 }
 ```
 
-Para implementar a sua aplicação utilizando o Gestor de Recursos Azure, primeiro deve criar um pacote de aplicação de tecido de serviço [sfpkg.](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg) O seguinte guião python é um exemplo de como criar um sfpkg:
+Para implementar a sua aplicação utilizando o Azure Resource Manager, primeiro tem de criar um pacote de aplicação de tecido de serviço [sfpkg.](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg) O seguinte script python é um exemplo de como criar um sfpkg:
 
 ```python
 # Create SFPKG that needs to be uploaded to Azure Storage Blob Container
@@ -90,8 +89,8 @@ for root, dirs, files in os.walk(self.microservices_app_package_path):
 microservices_sfpkg.close()
 ```
 
-## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Configuração automática de upgrade automática do sistema operativo de máquinas virtuais Azure 
-A atualização das suas máquinas virtuais é uma operação iniciada pelo utilizador, e recomenda-se que utilize a [atualização automática](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) do sistema operativo automático para os clusters de tecido de serviço Azure; Patch Orchestration Application é uma solução alternativa que se destina quando hospedada fora de Azure, embora poA possa ser usado em Azure, com a sobrecarga de hospedagem poa em Azure sendo uma razão comum para preferir o Sistema Operativo Virtual Máquina Automática upgrade em vez de POA. Seguem-se as propriedades do modelo de gestor de recursos de conjunto de escala de máquina virtual computacional para permitir a atualização do Auto OS:
+## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Configuração automática de upgrade do sistema operativo da máquina virtual Azure 
+A atualização das suas máquinas virtuais é uma operação iniciada pelo utilizador, e recomenda-se que utilize [a atualização do Sistema Operativo Automático conjunto de máquinas virtuais](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) para a gestão de patchs de anfitrião de clusters de tecidos de serviço Azure; Patch Orchestration Application é uma solução alternativa que se destina a quando hospedado fora de Azure, embora o POA possa ser usado em Azure, com a sobrecarga de hospedagem de POA em Azure sendo uma razão comum para preferir o Sistema Operativo Virtual Funcionamento Automático do Sistema Operativo em vez de POA. Seguem-se as propriedades do modelo do Gestor de Recursos do Conjunto de Máquinas Virtuais compute para permitir a atualização do Auto OS:
 
 ```json
 "upgradePolicy": {
@@ -102,11 +101,11 @@ A atualização das suas máquinas virtuais é uma operação iniciada pelo util
     }
 },
 ```
-Ao utilizar atualizações automáticas de OS com tecido de serviço, a nova imagem de OS é lançada um Domínio de Atualização de cada vez para manter uma elevada disponibilidade dos serviços em funcionamento no Tecido de Serviço. Para utilizar atualizações automáticas de OS em Tecido de Serviço, o seu cluster deve ser configurado para utilizar o Nível de Durabilidade prateada ou superior.
+Ao utilizar atualizações automáticas de OS com Tecido de Serviço, a nova imagem de SO é lançada um Domínio de Atualização de cada vez para manter uma elevada disponibilidade dos serviços em execução no Tecido de Serviço. Para utilizar atualizações automáticas de OS no Tecido de Serviço, o seu cluster deve ser configurado para utilizar o Nível de Durabilidade prateada ou superior.
 
-Certifique-se de que a seguinte tecla de registo está definida como falsa para evitar que as máquinas de hospedar do windows iniciem atualizações descoordenadas: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsUpdate\AU.
+Certifique-se de que a seguinte chave de registo está definida como falsa para evitar que as máquinas hospedeiras do windows iniciem atualizações descoordenadas: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
 
-Seguem-se as propriedades do modelo de gestor de recursos de conjunto de escala de máquina virtual Compute para definir a chave de registo do WindowsUpdate para falsas:
+Seguem-se as propriedades do modelo do Gestor de Recursos do Conjunto de Máquinas Virtuais compute para definir a chave de registo do WindowsUpdate para falso:
 ```json
 "osProfile": {
         "computerNamePrefix": "{vmss-name}",
@@ -119,20 +118,20 @@ Seguem-se as propriedades do modelo de gestor de recursos de conjunto de escala 
       },
 ```
 
-## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Configuração de upgrade de cluster de tecido de serviço azure
-Segue-se a propriedade de modelo de gestor de recursos de cluster de tecido de serviço para permitir a atualização automática:
+## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Configuração de upgrade de cluster de tecido de serviço Azure
+Segue-se a propriedade do modelo do Gestor de Recursos do Cluster de Tecido de Serviço para permitir a atualização automática:
 ```json
 "upgradeMode": "Automatic",
 ```
-Para atualizar manualmente o seu cluster, descarregue a distribuição de táxi/deb para uma máquina virtual de cluster e, em seguida, invoque o seguinte PowerShell:
+Para atualizar manualmente o seu cluster, descarregue a distribuição da cabina/deb para uma máquina virtual de cluster e, em seguida, invoque o seguinte PowerShell:
 ```powershell
 Copy-ServiceFabricClusterPackage -Code -CodePackagePath <"local_VM_path_to_msi"> -CodePackagePathInImageStore ServiceFabric.msi -ImageStoreConnectionString "fabric:ImageStore"
 Register-ServiceFabricClusterPackage -Code -CodePackagePath "ServiceFabric.msi"
 Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <"msi_code_version">
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Criar um cluster em VMs ou computadores que executam o Windows Server: [Criação](service-fabric-tutorial-create-vnet-and-windows-cluster.md) de cluster de tecido de serviço para Windows Server
-* Criar um cluster em VMs ou computadores em execução linux: [Criar um cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+* Criar um cluster em VMs ou computadores que executam o Windows Server: [Criação de cluster de tecido de serviço para windows server](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+* Criar um cluster em VMs ou computadores que executam o Linux: [Criar um cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 * Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)

@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -17,12 +17,11 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c335a4d30846f7c1b4dbd6b6aedc4d100a9b43a
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 5e1ac0033b7ed2de90ece481cd02d64970ff5f9f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74014277"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608114"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Resolução de problemas: Dados em falta nos registos de atividades do Azure Active Directory 
 
@@ -38,10 +37,10 @@ Efetuei algumas ações no portal do Azure e esperava ver os registos de auditor
 
 As ações não aparecem de imediato nos registos de atividade. A tabela abaixo enumera os nossos números de latência para registos de atividades. 
 
-| Relatório | &nbsp; | Latência (P95) | Latência (P99) |
-|--------|--------|---------------|---------------|
-| Auditoria de diretórios | &nbsp; | 2 mins | 5 mins |
-| Atividade de início de sessão | &nbsp; | 2 mins | 5 mins | 
+| Relatório | Latência (P95) | Latência (P99) |
+|--------|---------------|---------------|
+| Auditoria de diretórios | 2 mins | 5 mins |
+| Atividade de início de sessão | 2 mins | 5 mins |
 
 ### <a name="resolution"></a>Resolução
 
@@ -59,10 +58,10 @@ Iniciei sessão recentemente no portal do Azure e esperava ver os registos de in
 
 As ações não aparecem de imediato nos registos de atividade. A tabela abaixo enumera os nossos números de latência para registos de atividades. 
 
-| Relatório | &nbsp; | Latência (P95) | Latência (P99) |
-|--------|--------|---------------|---------------|
-| Auditoria de diretórios | &nbsp; | 2 mins | 5 mins |
-| Atividade de início de sessão | &nbsp; | 2 mins | 5 mins | 
+| Relatório | Latência (P95) | Latência (P99) |
+|--------|---------------|---------------|
+| Auditoria de diretórios | 2 mins | 5 mins |
+| Atividade de inscrição 2 minutos | 5 mins |
 
 ### <a name="resolution"></a>Resolução
 
@@ -80,10 +79,10 @@ Não consigo ver mais de 30 dias de dados de início de sessão e auditoria no p
 
 Dependendo da sua licença, as Ações do Azure Active Directory armazena relatórios de atividades para as durações seguintes:
 
-| Relatório           | &nbsp; |  Azure AD Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
-| ---              | ----   |  ---           | ---                 | ---                 |
-| Auditoria de Diretórios  | &nbsp; |   7 dias     | 30 dias             | 30 dias             |
-| Atividade de Início de Sessão | &nbsp; | Não disponível. Pode aceder aos seus próprios inícios de sessão por 7 dias a partir do painel de perfil de utilizador individual | 30 dias | 30 dias             |
+| Relatório           | Azure AD Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
+| ---              | ---           | ---                 | ---                 |
+| Auditoria de Diretórios  |  7 dias       | 30 dias             | 30 dias             |
+| Atividade de Início de Sessão | Não disponível. Pode aceder aos seus próprios inícios de sessão por 7 dias a partir do painel de perfil de utilizador individual | 30 dias | 30 dias             |
 
 Para obter mais informações, veja [Políticas de retenção de relatórios do Azure Active Directory](reference-reports-data-retention.md).  
 
@@ -91,9 +90,9 @@ Para obter mais informações, veja [Políticas de retenção de relatórios do 
 
 Tem duas opções para manter os dados durante mais de 30 dias. Pode utilizar as [APIs de Relatórios do Azure AD](concept-reporting-api.md) para recuperar os dados por meio programático e armazená-los numa base de dados. Em alternativa, pode integrar registos de auditoria num sistema SIEM de terceiros, como o Splunk ou o SumoLogic.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Retenção de relatórios do Azure AD](reference-reports-data-retention.md).
-* [Azure Ative Directory reportando latenciências.](reference-reports-latencies.md)
+* [Azure Ative Directory reportando latências](reference-reports-latencies.md).
 * [Azure Ative Directory reportando FAQ](reports-faq.md).
 

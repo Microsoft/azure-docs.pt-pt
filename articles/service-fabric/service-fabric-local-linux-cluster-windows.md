@@ -1,23 +1,23 @@
 ---
-title: Configurar o cluster Linux de tecido de serviço Azure no Windows
-description: Este artigo abrange como configurar clusters de tecido de serviço Linux em execução em máquinas de desenvolvimento windows. Isto é particularmente útil para o desenvolvimento de plataformas cruzadas.
+title: Configurar o cluster Linux de Tecido de Serviço Azure no Windows
+description: Este artigo abrange como configurar clusters de Service Fabric Linux em funcionamento em máquinas de desenvolvimento Windows. Isto é particularmente útil para o desenvolvimento de plataformas cruzadas.
 author: suhuruli
 ms.topic: conceptual
 ms.date: 11/20/2017
 ms.author: suhuruli
 ms.openlocfilehash: 1798d57f9fc4004fd2c7d1f1901fcddf850626c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82193331"
 ---
-# <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Instale um cluster de tecido de serviço Linux na sua máquina de desenvolvimento do Windows
+# <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Crie um cluster de tecido de serviço Linux na sua máquina de desenvolvedores Windows
 
-Este documento cobre como configurar um tecido de serviço Linux local em máquinas de desenvolvimento windows. A criação de um cluster Linux local é útil para testar rapidamente aplicações direcionadas para clusters Linux, mas são desenvolvidas numa máquina windows.
+Este documento abrange como configurar um tecido de serviço Linux local em máquinas de desenvolvimento Windows. A criação de um cluster Linux local é útil para testar rapidamente aplicações direcionadas para clusters Linux, mas são desenvolvidas numa máquina Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Os clusters de tecido de serviço baseadoem em Linux não funcionam de forma nativa no Windows. Para executar um cluster de tecido de serviço local, é fornecida uma imagem de recipiente Docker pré-configurada. Antes de começar, vai precisar do:
+Os clusters de tecido de serviço baseados em Linux não funcionam de forma nativa no Windows. Para executar um cluster de tecido de serviço local, é fornecida uma imagem pré-configurada do recipiente Docker. Antes de começar, vai precisar do:
 
 * De, pelo menos, 4 GB de RAM
 * Da versão mais recente do [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)
@@ -29,7 +29,7 @@ Os clusters de tecido de serviço baseadoem em Linux não funcionam de forma nat
 
 
 ## <a name="create-a-local-container-and-setup-service-fabric"></a>Criar um contentor local e configurar o Service Fabric
-Para configurar um recipiente Docker local e ter um cluster de tecido de serviço em funcionamento sobre ele, execute os seguintes passos na PowerShell:
+Para instalar um recipiente local do Docker e ter um conjunto de tecido de serviço a funcionar nele, execute os seguintes passos em PowerShell:
 
 
 1. Atualize a configuração do daemon do Docker no seu anfitrião com o seguinte e reinicie-o: 
@@ -40,7 +40,7 @@ Para configurar um recipiente Docker local e ter um cluster de tecido de serviç
       "fixed-cidr-v6": "2001:db8:1::/64"
     }
     ```
-    A forma aconselhada de atualizar é - vá a Docker Icon > Definições > Daemon > Advanced e atualize-o lá. Em seguida, reinicie o daemon docker para que as alterações entrem em vigor. 
+    A forma aconselhada de atualizar é - vá a Docker Icon > Settings > Daemon > Advanced e atualize-a lá. Em seguida, reinicie o daemon do Docker para que as alterações entrem em vigor. 
 
 2. Num novo diretório, crie um ficheiro com o nome `Dockerfile` para criar a Imagem do Service Fabric:
 
@@ -64,7 +64,7 @@ Para configurar um recipiente Docker local e ter um cluster de tecido de serviç
     >Por exemplo, se adicionar `RUN apt-get install nodejs -y` irá permitir o suporte para aplicações `nodejs` como convidado executáveis.
     
     >[!TIP]
-    > Por predefinição, isto irá extrair a imagem com a versão mais recente do Service Fabric. Para revisões particulares, visite a página [do Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/)
+    > Por predefinição, isto irá extrair a imagem com a versão mais recente do Service Fabric. Para revisões específicas, visite a página [do Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/)
 
 3. Para criar a imagem reutilizável a partir do `Dockerfile`, abra um terminal e `cd` para o diretório que contém o `Dockerfile` e, em seguida, execute:
 
@@ -95,12 +95,12 @@ Para configurar um recipiente Docker local e ter um cluster de tecido de serviç
     docker logs sftestcluster
     ```
 
-6. Depois do passo 5 ser concluído com ``http://localhost:19080`` sucesso, pode ir a partir do Windows e poderá ver o explorador de Tecido de Serviço. Neste ponto, pode ligar-se a este cluster utilizando quaisquer ferramentas da sua máquina de desenvolvimento windows e implementar aplicações direcionadas para clusters de Tecido de Serviço Linux. 
+6. Após o fim do passo 5 concluído com sucesso, pode ir para ``http://localhost:19080`` a partir do seu Windows e poderá ver o explorador de Tecido de Serviço. Neste momento, pode ligar-se a este cluster utilizando quaisquer ferramentas da sua máquina de desenvolvedores Windows e implementar uma aplicação direcionada para clusters de Tecido de Serviço Linux. 
 
     > [!NOTE]
     > O plug-in do Eclipse não é atualmente suportado no Windows. 
 
-7. Quando terminar, pare e limpe o recipiente com este comando:
+7. Quando terminar, pare e cleanup o recipiente com este comando:
 
     ```powershell 
     docker rm -f sftestcluster
@@ -113,8 +113,8 @@ Para configurar um recipiente Docker local e ter um cluster de tecido de serviç
  * O serviço DNS não é executado e não é suportado [Problema #132](https://github.com/Microsoft/service-fabric/issues/132)
 
 ## <a name="next-steps"></a>Passos seguintes
-* Começar com [eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)
-* Confira [outras amostras de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* Começa com o [Eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)
+* Confira outras [amostras de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 
 <!-- Image references -->

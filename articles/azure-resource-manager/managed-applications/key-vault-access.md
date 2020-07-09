@@ -1,26 +1,26 @@
 ---
-title: Use o Cofre chave ao implementar a aplicação gerida
-description: Mostra como usar segredos de acesso no Cofre chave Azure ao implementar aplicações geridas
+title: Use o Cofre chave ao implementar uma aplicação gerida
+description: Mostra como usar segredos de acesso no Cofre de Chaves Azure ao implementar aplicações geridas
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81458288"
 ---
-# <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Aceder ao segredo do cofre chave ao implementar aplicações geridas pelo Azure
+# <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Acesso chave cofre secreto ao implementar aplicações geridas a Azure
 
-Quando precisa passar um valor seguro (como uma palavra-passe) como parâmetro durante a implantação, pode recuperar o valor de um [Cofre de Chave Azure](../../key-vault/general/overview.md). Para aceder ao Cofre chave ao implementar aplicações geridas, deve conceder acesso ao principal serviço do Fornecedor de Recursos de **Eletrodomésticos.** O serviço De Aplicações Geridas utiliza esta identidade para executar operações. Para obter com sucesso um valor de um Cofre chave durante a implantação, o diretor de serviço deve ser capaz de aceder ao Cofre chave.
+Quando precisa de passar um valor seguro (como uma palavra-passe) como parâmetro durante a implementação, pode recuperar o valor de um [Cofre de Chave Azure](../../key-vault/general/overview.md). Para aceder ao Cofre-Chave ao implementar Aplicações Geridas, tem de conceder acesso ao principal do serviço **de fornecedores de recursos** do aparelho. O serviço Aplicações Geridas utiliza esta identidade para executar operações. Para obter com sucesso um valor de um Cofre chave durante a implantação, o principal de serviço deve ser capaz de aceder ao Cofre de Chaves.
 
-Este artigo descreve como configurar o Cofre chave para trabalhar com aplicações geridas.
+Este artigo descreve como configurar o Cofre de Chaves para trabalhar com Aplicações Geridas.
 
 ## <a name="enable-template-deployment"></a>Ativar a implementação do modelo
 
-1. No portal, selecione o seu Cofre chave.
+1. No portal, selecione o seu Cofre de Chaves.
 
 1. Selecione **Políticas de acesso**.   
 
@@ -30,13 +30,13 @@ Este artigo descreve como configurar o Cofre chave para trabalhar com aplicaçõ
 
    ![Mostrar políticas avançadas de acesso](./media/key-vault-access/advanced.png)
 
-1. Selecione **Ativar o acesso ao Gestor de Recursos Azure para a implementação do modelo**. Em seguida, selecione **Guardar**.
+1. **Selecione Ative o acesso ao Azure Resource Manager para a implementação do modelo**. Em seguida, **selecione Save**.
 
    ![Ativar a implementação do modelo](./media/key-vault-access/enable-template.png)
 
 ## <a name="add-service-as-contributor"></a>Adicionar serviço como contribuinte
 
-1. Selecione **o controlo de acesso (IAM)**.
+1. Selecione **Controlo de acesso (IAM)** .
 
    ![Selecione o controlo de acesso](./media/key-vault-access/access-control.png)
 
@@ -44,15 +44,15 @@ Este artigo descreve como configurar o Cofre chave para trabalhar com aplicaçõ
 
    ![Selecionar Adicionar](./media/key-vault-access/add-access-control.png)
 
-1. Selecione **Colaborador** para o papel. Procure o Fornecedor de **Recursos de Aparelhos** e selecione-o a partir das opções disponíveis.
+1. Selecione **Colaborador** para o papel. Procure o **Fornecedor de Recursos do Aparelho** e selecione-o entre as opções disponíveis.
 
-   ![Pesquisa por fornecedor](./media/key-vault-access/search-provider.png)
+   ![Pesquisa rumo ao fornecedor](./media/key-vault-access/search-provider.png)
 
 1. Selecione **Guardar**.
 
-## <a name="reference-key-vault-secret"></a>Segredo do cofre de chaves de referência
+## <a name="reference-key-vault-secret"></a>Segredo do cofre da chave de referência
 
-Para passar um segredo de um Cofre chave para um modelo na sua Aplicação Gerida, deve utilizar um [modelo ligado ou aninhado](../templates/linked-templates.md) e fazer referência ao Cofre chave nos parâmetros para o modelo ligado ou aninhado. Forneça a identificação do recurso do Cofre chave e o nome do segredo.
+Para passar um segredo de um Cofre-Chave para um modelo na sua Aplicação Gerida, deve utilizar um [modelo ligado ou aninhado](../templates/linked-templates.md) e fazer referência ao Cofre-Chave nos parâmetros para o modelo ligado ou aninhado. Forneça a identificação do recurso do Cofre-Chave e o nome do segredo.
 
 ```json
 {
@@ -164,8 +164,8 @@ Para passar um segredo de um Cofre chave para um modelo na sua Aplicação Gerid
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Configurou o seu Cofre chave para estar acessível durante a implementação de uma Aplicação Gerida.
+Configuraste o cofre para estar acessível durante a implementação de uma Aplicação Gerida.
 
-* Para obter informações sobre a passagem de um valor de um cofre chave como parâmetro de modelo, consulte [Use Azure Key Vault para passar o valor do parâmetro seguro durante](../templates/key-vault-parameter.md)a implementação .
-* Para exemplos de aplicações geridas, consulte [projetos de amostra para aplicações geridas pelo Azure.](sample-projects.md)
+* Para obter informações sobre a passagem de um valor de um Cofre de Chaves como parâmetro do modelo, consulte [use Azure Key Vault para passar o valor do parâmetro seguro durante a implementação](../templates/key-vault-parameter.md).
+* Para exemplos de aplicações geridos, consulte [projetos de amostra para aplicações geridas pela Azure](sample-projects.md).
 * Para saber como criar um ficheiro de definição de IU para uma aplicação gerida, veja [Introdução a CreateUiDefinition](create-uidefinition-overview.md).

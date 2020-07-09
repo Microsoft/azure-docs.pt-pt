@@ -1,39 +1,38 @@
 ---
-title: Configuração do cofre dos Serviços de Recuperação de Atualizações com Rest API
+title: Configuração do cofre de serviços de recuperação de atualização com API REST
 description: Neste artigo, aprenda a atualizar a configuração do cofre utilizando a API REST.
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 4c604fe067e73f5f9a17f4b5f810708121cff767
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
-ms.translationtype: MT
+ms.openlocfilehash: eadcebdaf4db3dbe6c0a62b8631ff7d76fa50fad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744572"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248231"
 ---
-# <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar as configurações do cofre dos serviços de recuperação azure utilizando a API REST
+# <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar configurações do cofre de serviços de recuperação do Azure usando a API REST
 
-Este artigo descreve como atualizar configurações relacionadas com backup no cofre dos Serviços de Recuperação do Azure utilizando a API REST.
+Este artigo descreve como atualizar configurações relacionadas com cópias de segurança no cofre dos Serviços de Recuperação Azure utilizando a API REST.
 
-## <a name="soft-delete-state"></a>Estado de eliminação suave
+## <a name="soft-delete-state"></a>Estado de exclusão suave
 
-A desminagem de cópias de segurança de um item protegido é uma operação significativa que tem de ser monitorizada. Para proteger contra supressões acidentais, o cofre dos Serviços de Recuperação Azure tem uma capacidade de eliminação suave. Esta capacidade permite que os clientes restaurem as cópias de segurança eliminadas, se necessário, num período de tempo após a eliminação.
+Eliminar cópias de segurança de um item protegido é uma operação significativa que tem de ser monitorizada. Para proteger contra supressões acidentais, o cofre da Azure Recovery Services tem uma capacidade de eliminação suave. Esta capacidade permite que os clientes restaurem cópias de segurança eliminadas, se necessário, dentro de um período de tempo após a eliminação.
 
-Mas há cenários em que esta capacidade não é necessária. Um cofre dos Serviços de Recuperação Azure não pode ser eliminado se houver itens de reserva dentro dele, mesmo os apagados. Isto pode ser um problema se o cofre precisar de ser imediatamente apagado. Por exemplo: as operações de implantação limpam frequentemente os recursos criados no mesmo fluxo de trabalho. Uma implementação pode criar um cofre, configurar cópias de segurança para um item, fazer um restauro de teste e, em seguida, proceder para apagar os itens de reserva e o cofre. Se a eliminação do cofre falhar, todo o destacamento pode falhar. Desativar a eliminação suave é a única forma de garantir a eliminação imediata.
+Mas há cenários em que esta capacidade não é necessária. Um cofre dos Serviços de Recuperação Azure não pode ser eliminado se existirem itens de backup dentro dele, mesmo os de apagamento suave. Isto pode constituir um problema se o cofre precisar de ser imediatamente apagado. Por exemplo: as operações de implantação limpam frequentemente os recursos criados no mesmo fluxo de trabalho. Uma implantação pode criar um cofre, configurar cópias de segurança para um item, fazer um restauro de teste e, em seguida, proceder para apagar os itens de reserva e o cofre. Se a eliminação do cofre falhar, toda a implantação pode falhar. Desativar a eliminação suave é a única forma de garantir a eliminação imediata.
 
-Por isso, o cliente precisa de escolher cuidadosamente se deve ou não desativar o soft-delete para um determinado cofre, dependendo do cenário. Para mais informações, consulte o [artigo soft-delete](backup-azure-security-feature-cloud.md).
+Por isso, tem de escolher cuidadosamente se desativa ou não a eliminação suave para um determinado cofre, dependendo do cenário. Para obter mais informações, consulte o [artigo de eliminação suave](backup-azure-security-feature-cloud.md).
 
-### <a name="fetch-soft-delete-state-using-rest-api"></a>Buscar estado de eliminação suave usando a API REST
+### <a name="fetch-soft-delete-state-using-rest-api"></a>Buscar estado de exclusão suave usando REST API
 
-Por predefinição, o estado de eliminação suave será ativado para qualquer cofre recém-criado dos Serviços de Recuperação. Para buscar/atualizar o estado de eliminação suave para um cofre, utilize o documento REST [API](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs) relacionado com o cofre de reserva
+Por predefinição, o estado de eliminação suave será ativado para qualquer cofre dos Serviços de Recuperação recém-criado. Para obter/atualizar o estado de exclusão suave para um cofre, utilize o [documento API](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs) relacionado com o cofre de cópia de segurança
 
-Para obter o estado atual de soft-delete para um cofre, use a seguinte operação *GET*
+Para obter o estado atual de exclusão suave para um cofre, use a seguinte operação *GET*
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
 ```
 
-O GET `{subscriptionId}`URI `{vaultName}` `{vaultresourceGroupName}` tem, parâmetros. Neste exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Como todos os parâmetros necessários são dados no URI, não há necessidade de um corpo de pedido separado.
+O GET URI `{subscriptionId}` tem, `{vaultName}` `{vaultresourceGroupName}` parâmetros. Neste exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Dado que todos os parâmetros necessários são dados no URI, não há necessidade de um corpo de pedido separado.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
@@ -49,7 +48,7 @@ A resposta bem sucedida para a operação 'GET' é mostrada abaixo:
 
 ##### <a name="example-response"></a>Resposta de exemplo
 
-Uma vez apresentado o pedido 'GET', uma resposta de 200 (bem-sucedidas) é devolvida.
+Uma vez apresentado o pedido 'GET', uma resposta de 200 (com sucesso) é devolvida.
 
 ```json
 {
@@ -63,15 +62,15 @@ Uma vez apresentado o pedido 'GET', uma resposta de 200 (bem-sucedidas) é devol
 }
 ```
 
-### <a name="update-soft-delete-state-using-rest-api"></a>Atualizar estado de eliminação suave usando rest API
+### <a name="update-soft-delete-state-using-rest-api"></a>Atualizar estado de exclusão suave usando REST API
 
-Para atualizar o estado de eliminação suave do cofre de serviços de recuperação utilizando a API REST, utilize a seguinte operação *PATCH*
+Para atualizar o estado de eliminação suave do cofre dos serviços de recuperação utilizando a API REST, utilize a seguinte operação *PATCH*
 
 ```http
 PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
 ```
 
-O PATCH `{subscriptionId}`URI `{vaultName}` `{vaultresourceGroupName}` tem, parâmetros. Neste exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Se substituirmos o URI por valores acima, então o URI será assim.
+O PATCH URI `{subscriptionId}` tem, `{vaultName}` `{vaultresourceGroupName}` parâmetros. Neste exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Se substituirmos o URI pelos valores acima, então o URI será assim.
 
 ```http
 PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
@@ -81,18 +80,18 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 THe seguindo definições comuns são usados para criar um corpo de pedido
 
-Para mais detalhes, consulte [a documentação rest API](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body)
+Para mais detalhes, consulte [a documentação da API REST](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body)
 
 |Name  |Necessário  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  ETag opcional       |
-|localização     |  true       |String         |   Localização dos recursos      |
+|localização     |  true       |String         |   Localização do recurso      |
 |propriedades     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
 |etiquetas     |         | Objeto        |     Etiquetas de recursos    |
 
 #### <a name="example-request-body"></a>Corpo de pedido de exemplo
 
-O exemplo seguinte é utilizado para atualizar o estado de eliminação suave para "desativado".
+O exemplo a seguir é utilizado para atualizar o estado de eliminação suave para "desativado".
 
 ```json
 {
@@ -113,7 +112,7 @@ A resposta bem sucedida para a operação 'PATCH' é mostrada abaixo:
 
 ##### <a name="example-response"></a>Resposta de exemplo
 
-Uma vez apresentado o pedido 'PATCH', uma resposta de 200 (bem-sucedida) é devolvida.
+Uma vez apresentado o pedido 'PATCH', é devolvida uma resposta de 200 (com sucesso).
 
 ```json
 {
@@ -127,11 +126,11 @@ Uma vez apresentado o pedido 'PATCH', uma resposta de 200 (bem-sucedida) é devo
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Crie uma política de backup para apoiar um VM Azure neste cofre.](backup-azure-arm-userestapi-createorupdatepolicy.md)
+[Crie uma política de backup para apoiar um VM Azure neste cofre](backup-azure-arm-userestapi-createorupdatepolicy.md).
 
 Para obter mais informações sobre as APIs do Azure REST, consulte os seguintes documentos:
 
-- [Prestador de serviços de recuperação azure REST API](/rest/api/recoveryservices/)
+- [Prestador de Serviços de Recuperação Azure REST API](/rest/api/recoveryservices/)
 - [Introdução à API REST do Azure](/rest/api/azure/)

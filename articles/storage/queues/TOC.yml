@@ -37,6 +37,8 @@
       href: ../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: JavaScript
       href: ../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Outras linguagens
+      href: ../common/storage-samples.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Conceitos
   items:
     - name: Contas de armazenamento
@@ -71,8 +73,18 @@
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Recuperação após desastre e ativação pós-falha
       href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Lista de verificação de desempenho e escalabilidade
-      href: storage-performance-checklist.md
+    - name: 'Desempenho, dimensionamento e otimização de custos'
+      items:
+        - name: Metas de escalabilidade e desempenho
+          items:
+            - name: Armazenamento de filas
+              href: scalability-targets.md
+            - name: Contas de armazenamento Standard
+              href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: Fornecedor de recursos de armazenamento
+              href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Lista de verificação de desempenho e escalabilidade
+          href: storage-performance-checklist.md
     - name: Simultaneidade
       href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Monitorizar e resolver problemas
@@ -214,54 +226,8 @@
           href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Referência
   items:
-    - name: Metas de escalabilidade e desempenho
-      items:
-        - name: Armazenamento de filas
-          href: scalability-targets.md
-        - name: Contas de armazenamento Standard
-          href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Fornecedor de recursos de armazenamento
-          href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Azure PowerShell
-      href: /powershell/module/az.storage
-    - name: CLI do Azure
-      href: /cli/azure/storage
-    - name: .NET
-      items:
-        - name: Filas (versão 11.x)
-          href: /dotnet/api/microsoft.azure.storage.queue
-        - name: Filas (versão 12.x)
-          href: /dotnet/api/azure.storage.queues
-        - name: Fornecedor de Recursos de Armazenamento
-          href: /dotnet/api/overview/azure/storage/management
-    - name: Java
-      items:
-        - name: Filas (versão 8.x)
-          href: /java/api/com.microsoft.azure.storage.queue
-        - name: Filas (versão 12.x)
-          href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html'
-        - name: Fornecedor de Recursos de Armazenamento
-          href: /java/api/overview/azure/storage/management
-    - name: JavaScript (versão 12.x)
-      href: /javascript/api/@azure/storage-queue
-    - name: Python (versão 12.x)
-      href: /python/api/azure-storage-queue/?view=azure-python
-    - name: REST
-      items:
-        - name: 'Blobs, Filas, Tabelas e Ficheiros'
-          href: /rest/api/storageservices
-        - name: Fornecedor de Recursos de Armazenamento
-          href: /rest/api/storagerp
-    - name: C++
-      href: 'https://azure.github.io/azure-storage-cpp'
-    - name: Ruby
-      href: 'https://azure.github.io/azure-storage-ruby'
-    - name: PHP
-      href: 'https://azure.github.io/azure-storage-php/'
-    - name: iOS
-      href: 'https://azure.github.io/azure-storage-ios/'
-    - name: Android
-      href: 'https://azure.github.io/azure-storage-android'
+    - name: Referência de armazenamento de Filas do Azure
+      href: ../queues/reference.md
     - name: Modelo do Resource Manager
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions

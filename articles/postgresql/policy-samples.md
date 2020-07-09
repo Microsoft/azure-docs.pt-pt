@@ -1,24 +1,24 @@
 ---
 title: Definições políticas incorporadas para base de dados Azure para PostgreSQL
-description: Lista definições políticas integradas da Política Azure para base de dados Azure para PostgreSQL. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 05/13/2020
+description: Lista definições de políticas incorporadas para Azure Database for PostgreSQL. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
+ms.date: 06/23/2020
 ms.topic: sample
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.custom: subject-policy-samples
-ms.openlocfilehash: a9df316ca6b51733a4497fe4a045a2b31010184b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 109c3ca274e46324a8c93ba089abf3db3b5cac68
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653395"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321441"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-database-for-postgresql"></a>Definições políticas integradas da Política Azure para base de dados Azure para PostgreSQL
+# <a name="azure-policy-built-in-definitions-for-azure-database-for-postgresql"></a>Definições incorporadas da Política Azure para a Base de Dados Azure para PostgreSQL
 
-Esta página é um índice de definições políticas incorporadas da [Política Azure](../governance/policy/overview.md) para a Base de Dados Azure para PostgreSQL. Para obter mais insins de política azure para outros serviços, consulte [definições in-in da Política Azure.](../governance/policy/samples/built-in-policies.md)
+Esta página é um índice de definições de política incorporadas da [Azure Policy](../governance/policy/overview.md) para Azure Database for PostgreSQL. Para obter mais incorporados em Azure Policy para outros serviços, consulte [definições incorporadas da Política Azure](../governance/policy/samples/built-in-policies.md).
 
-O nome de cada definição política incorporada está ligado à definição de política no portal Azure. Utilize o link na coluna **GitHub** para visualizar a fonte no repo da [política azure GitHub](https://github.com/Azure/azure-policy).
+O nome de cada definição de política incorporada liga-se à definição de política no portal Azure. Utilize o link na coluna **versão** para visualizar a fonte no [repo GitHub da Política Azure](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-database-for-postgresql"></a>Base de Dados do Azure para PostgreSQL
 

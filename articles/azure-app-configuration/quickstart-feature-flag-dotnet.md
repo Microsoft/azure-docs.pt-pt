@@ -1,6 +1,6 @@
 ---
-title: Quickstart para adicionar bandeiras de recurso às aplicações .NET Framework [ Microsoft Docs [ Docs] Microsoft Docs
-description: Um arranque rápido para adicionar bandeiras de recurso a aplicações .NET Framework e geri-las na Configuração de Aplicações Azure
+title: Quickstart para adicionar bandeiras de recurso às aplicações .NET Framework Microsoft Docs ! Microsoft Docs
+description: Um quickstart para adicionar bandeiras de funcionalidades a aplicações .NET Framework e geri-las na Configuração de Aplicações Azure
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -14,47 +14,47 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 5ea9749c07aadc7037e753160e9b053992bebae2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bf2ccd93a94036c6ab5b6224456cd1f5a13239c5
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77619330"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855011"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação .NET Framework
 
-Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa aplicação .NET Framework para criar uma implementação de ponta a ponta da gestão de funcionalidades. Pode utilizar o serviço de Configuração de Aplicações para armazenar centralmente todas as suas bandeiras de funcionalidades e controlar os seus estados. 
+Neste quickstart, incorpora a Configuração de Aplicações Azure numa aplicação .NET Framework para criar uma implementação de ponta a ponta da gestão de funcionalidades. Pode utilizar o serviço de Configuração de Aplicações para armazenar centralmente todas as suas bandeiras de funcionalidades e controlar os seus estados. 
 
-As bibliotecas .NET Feature Management alargam o quadro com um suporte abrangente de bandeira de recurso. Estas bibliotecas são construídas em cima do sistema de configuração .NET. Integram-se perfeitamente com a Configuração da App através do seu fornecedor de configuração .NET.
+As bibliotecas de Gestão de Recursos .NET alargam o quadro com suporte abrangente de bandeira de recurso. Estas bibliotecas são construídas em cima do sistema de configuração .NET. Integram-se perfeitamente com a Configuração de Aplicações através do seu fornecedor de configuração .NET.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/)
+- Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
-- [.Quadro líquido 4.8](https://dotnet.microsoft.com/download)
+- [.Net Framework 4.8](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Criar uma loja de configuração de aplicações
+## <a name="create-an-app-configuration-store"></a>Criar uma loja de configuração de aplicativos
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione > Gestor de **Funcionalidades** `Beta`**+Adicione** para adicionar uma bandeira de recurso chamada .
+6. Selecione **Feature Manager**  >  **+Adicione** para adicionar uma bandeira de recurso chamada `Beta` .
 
     > [!div class="mx-imgBorder"]
     > ![Ativar a bandeira de recurso chamada Beta](media/add-beta-feature-flag.png)
 
-    Deixe `label` indefinido por enquanto.
+    Deixe `label` indefinida por enquanto.
 
 ## <a name="create-a-net-console-app"></a>Criar uma aplicação de consola .NET
 
-1. Inicie o Estúdio Visual e selecione **File** > **New** > **Project**.
+1. Inicie o Estúdio Visual e selecione **File**  >  **New**  >  **Project**.
 
-1. Em **Criar um novo projeto,** filtre no tipo de projeto da **Consola** e clique na App **consola (.NET Framework)**. Clique em **Seguinte**.
+1. In **Create a new project**, filter on the **Console** project type and click on Console **App (.NET Framework)**. Clique em **Seguinte**.
 
-1. Em **Configure o seu novo projeto,** insira um nome de projeto. **No quadro**, selecione **.NET Quadro 4.8** ou superior. Clique em **Criar**.
+1. Em **Configurar o seu novo projeto,** insira um nome de projeto. No **quadro,** **selecione .NET Framework 4.8** ou superior. Clique em **Criar**.
 
-## <a name="connect-to-an-app-configuration-store"></a>Ligar a uma loja de configuração de aplicações
+## <a name="connect-to-an-app-configuration-store"></a>Conecte-se a uma loja de configuração de aplicativos
 
-1. Clique no seu projeto e selecione **Gerir pacotes NuGet**. No separador **Browse,** procure e adicione os seguintes pacotes NuGet ao seu projeto. Se não os encontrar, selecione a caixa de verificação **de pré-lançamento Incluir.**
+1. Clique com o botão direito no seu projeto e **selecione Gerir Pacotes NuGet**. No separador Procurar, procure e adicione os **seguintes** pacotes NuGet ao seu projeto. Se não conseguir encontrá-los, selecione a caixa de verificação **"Incluir pré-relançar".**
 
     ```
     Microsoft.Extensions.DependencyInjection
@@ -71,7 +71,7 @@ As bibliotecas .NET Feature Management alargam o quadro com um suporte abrangent
     using Microsoft.FeatureManagement;
     ```
 
-1. Atualize `Main` o método para se ligar `UseFeatureFlags` à Configuração da Aplicação, especificando a opção para que as bandeiras sejam recuperadas. Em seguida, mostre uma mensagem se a bandeira de `Beta` características estiver ativada.
+1. Atualize o `Main` método para ligar à Configuração da Aplicação, especificando a `UseFeatureFlags` opção para que as bandeiras de recurso sejam recuperadas. Em seguida, apresente uma mensagem se a bandeira de `Beta` funcionalidade estiver ativada.
 
     ```csharp
         public static async Task Main(string[] args)
@@ -101,19 +101,23 @@ As bibliotecas .NET Feature Management alargam o quadro com um suporte abrangent
         }
     ```
 
-## <a name="build-and-run-the-app-locally"></a>Construir e executar a app localmente
+## <a name="build-and-run-the-app-locally"></a>Construa e execute a app localmente
 
-1. Detete uma variável ambiental chamada **ConnectionString** para a cadeia de ligação da sua loja de configuração de aplicações. Se utilizar o pedido de comando do Windows, execute o seguinte comando:
+1. Desaprova uma variável ambiental chamada **ConnectionString** para a cadeia de ligação da sua loja de Configuração de Aplicações. Se utilizar o pedido de comando do Windows, execute o seguinte comando:
 
+    ```console
         setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
-    Se utilizar o Windows PowerShell, execute o seguinte comando:
+    Se utilizar o Windows PowerShell, executar o seguinte comando:
 
+    ```powershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
 
-1. Reiniciar o Estúdio Visual para permitir que a alteração faça efeito. 
+1. Reinicie o Estúdio Visual para permitir que a alteração entre em vigor. 
 
-1. Prima Ctrl + F5 para construir e executar a aplicação de consola.
+1. Prima Ctrl + F5 para construir e executar a aplicação da consola.
 
     ![App com bandeira de recurso ativada](./media/quickstarts/dotnet-app-feature-flag.png)
 
@@ -123,7 +127,7 @@ As bibliotecas .NET Feature Management alargam o quadro com um suporte abrangent
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criou uma bandeira de funcionalidade na Configuração de Aplicações e utilizou-a com uma aplicação de consola .NET Framework. Para aprender a atualizar dinamicamente as bandeiras de recurso e outros valores de configuração sem reiniciar a aplicação, continue para o próximo tutorial.
+Neste arranque rápido, criou uma bandeira de recurso na Configuração de Aplicações e utilizou-a com uma aplicação de consola .NET Framework. Para aprender a atualizar dinamicamente as bandeiras de funcionalidades e outros valores de configuração sem reiniciar a aplicação, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Ativar a configuração dinâmica](./enable-dynamic-configuration-dotnet.md)

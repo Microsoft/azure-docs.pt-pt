@@ -1,110 +1,110 @@
 ---
-title: Utilize o emulador Azurite para o desenvolvimento local do armazenamento azure
+title: Use emulador Azurite para o desenvolvimento local do armazenamento Azure
 description: O emulador de código aberto Azurite (pré-visualização) proporciona um ambiente local gratuito para testar as suas aplicações de armazenamento Azure.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 05/01/2020
 ms.service: storage
 ms.subservice: common
-ms.topic: conceptual
-ms.openlocfilehash: f4e0bbd546b770b9e81bb9142cdd97e3927db7bd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.topic: how-to
+ms.openlocfilehash: af846b0c203934468b7f6282234819142093286f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195949"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512135"
 ---
-# <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Utilize o emulador Azurite para desenvolvimento e teste de armazenamento azure local (pré-visualização)
+# <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Utilize o emulador Azurite para o desenvolvimento e testes locais de armazenamento da Azure (pré-visualização)
 
-O emulador de código aberto Azurite 3.2 (pré-visualização) proporciona um ambiente local gratuito para testar as suas aplicações de armazenamento de blob Azure e fila. Quando estiver satisfeito com a forma como a sua aplicação está a funcionar localmente, mude para a utilização de uma conta de Armazenamento Azure na nuvem. O emulador fornece suporte cross-platform no Windows, Linux e macOS. O Azurite v3 suporta APIs implementadas pelo serviço Azure Blob.
+O emulador de código aberto Azurite (pré-visualização) proporciona um ambiente local gratuito para testar as suas aplicações de blob Azure e armazenamento de filas. Quando estiver satisfeito com o funcionamento da sua aplicação localmente, mude para a utilização de uma conta de Armazenamento Azure na nuvem. O emulador fornece suporte de plataforma cruzada no Windows, Linux e macOS. A azurite v3 suporta APIs implementadas pelo serviço Azure Blob.
 
-Azurite é a futura plataforma de emulador de armazenamento. Azurite substitui o [Emulador de Armazenamento Azure.](storage-use-emulator.md) A Azurite continuará a ser atualizada para suportar as versões mais recentes das APIs de Armazenamento Azure.
+Azurite é a futura plataforma de emulador de armazenamento. Azurite substitui o [Emulador de Armazenamento Azure](storage-use-emulator.md). O Azurite continuará a ser atualizado para suportar as versões mais recentes das APIs de Armazenamento Azure.
 
-Existem várias formas diferentes de instalar e executar o Azurite no seu sistema local:
+Existem várias formas diferentes de instalar e executar a Azurite no seu sistema local:
 
   1. [Instale e execute a extensão do Código do Estúdio Visual Azurite](#install-and-run-the-azurite-visual-studio-code-extension)
-  1. [Instale e execute o Azurite utilizando o NPM](#install-and-run-azurite-by-using-npm)
-  1. [Instale e execute a imagem Azurite Docker](#install-and-run-the-azurite-docker-image)
-  1. [Clone, construa e gere azurite do repositório GitHub](#clone-build-and-run-azurite-from-the-github-repository)
+  1. [Instale e corra a Azurite utilizando o NPM](#install-and-run-azurite-by-using-npm)
+  1. [Instale e execute a imagem do Azurite Docker](#install-and-run-the-azurite-docker-image)
+  1. [Clone, construa e corra Azurite do repositório GitHub](#clone-build-and-run-azurite-from-the-github-repository)
 
 ## <a name="install-and-run-the-azurite-visual-studio-code-extension"></a>Instale e execute a extensão do Código do Estúdio Visual Azurite
 
-Dentro do Código do Estúdio Visual, selecione o painel **DE EXTENSÕES** e procure *azurite* nas **EXTENSÕES:MARKETPLACE**.
+No Código do Estúdio Visual, selecione o painel **EXTENSÕES** e procure *Azurite* nas **EXTENSÕES:MERCADO**.
 
-![Mercado de extensões de código de estúdio visual](media/storage-use-azurite/azurite-vs-code-extension.png)
+![Mercado de extensões de Código de Estúdio Visual](media/storage-use-azurite/azurite-vs-code-extension.png)
 
-Também pode navegar para o mercado de [extensão do Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) no seu navegador. Selecione o botão **Instalar** para abrir o Código do Estúdio Visual e vá diretamente para a página de extensão Azurite.
+Também pode navegar para o [mercado de extensão visual Studio Code](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) no seu navegador. Selecione o botão **Instalar** para abrir o Código do Estúdio Visual e vá diretamente para a página de extensão Azurite.
 
-Pode iniciar ou fechar rapidamente o Azurite na barra de estado do Código do Estúdio Visual. Clique em **[Serviço Azurite Blob]** ou [Serviço de **Fila Azurite]**.
+Pode iniciar ou fechar rapidamente a Azurite na barra de status do Código do Estúdio Visual. Clique em **[Serviço de Bolhas Azurite]** ou **[Serviço de Fila Azurite]**.
 
-A extensão suporta os seguintes comandos do Código do Estúdio Visual. Para abrir a paleta de comando, prima F1 no Código do Estúdio Visual. 
+A extensão suporta os seguintes comandos visual Studio Code. Para abrir a paleta de comando, prima F1 no Código do Estúdio Visual. 
 
-   - **Azurite: Clean** - Redefinir todos os serviços azurite persistem dados de persistência
+   - **Azurite: Clean** - Repor todos os dados de persistência dos serviços Azurite
    - **Azurite: Clean Blob Service** - Serviço de blob limpo
-   - **Azurite: Serviço** de fila limpa - Serviço de fila limpa
-   - **Azurite: Fechar** - Fechar todos os serviços azurite
-   - **Azurite: Serviço de Blob Close** - Serviço de blob de fecho
-   - **Azurite: Serviço de Fila de Encerramento** - Serviço de fila de encerramento
-   - **Azurite: Iniciar** - Iniciar todos os serviços azurite
-   - **Azurite: Start Blob Service** - Start blob service
-   - **Azurite: Iniciar o serviço de fila** - Iniciar o serviço de fila
+   - **Azurite: Serviço de fila limpa** - Serviço de fila limpo
+   - **Azurite: Fechar** - Fechar todos os serviços da Azurite
+   - **Azurite: Close Blob Service** - Serviço de blob de proximidade
+   - **Azurite: Serviço de fila de fecho** - Serviço de fila de fecho
+   - **Azurite: Início** - Iniciar todos os serviços da Azurite
+   - **Azurite: Iniciar serviço blob** - Iniciar serviço blob
+   - **Azurite: Iniciar serviço de fila** - Iniciar serviço de fila
 
-Para configurar o Azurite dentro do Código do Estúdio Visual, selecione o painel de extensões. Selecione o ícone **Gerir** (engrenagem) para **Azurite**. **Selecione Definições de extensão**.
+Para configurar a Azurite dentro do Código do Estúdio Visual, selecione o painel de extensões. Selecione o ícone **'Gerir'** (engrenagem) para **Azurite**. Selecione **definições de extensão**.
 
-![Configurar definições de extensão de Azurites](media/storage-use-azurite/azurite-configure-extension-settings.png)
+![Azurites configuram definições de extensão](media/storage-use-azurite/azurite-configure-extension-settings.png)
 
-As seguintes definições são suportadas:
+São suportadas as seguintes definições:
 
    - **Azurite: Blob Host** - O ponto final de escuta do serviço Blob. A definição predefinida é de 127.0.0.1.
-   - **Azurite: Blob Port** - A porta de escuta do serviço Blob. A porta padrão é 10000.
-   - **Azurite: Cert** - Caminho para um caminho de ficheiro de certificado PEM ou PFX de confiança local para ativar o modo HTTPS.
-   - **Azurite: Debug** - Saída o registo de depuração para o canal Azurite. O valor predefinido é **falso**.
-   - **Azurite: Chave** - Caminho para um ficheiro chave PEM de confiança local, necessário quando **Azurite: Cert** aponta para um ficheiro PEM.
-   - **Azurite: Localização** - O caminho de localização do espaço de trabalho. O padrão é a pasta de funcionamento do Código do Estúdio Visual.
-   - **Azurite: Loose** - Enable loose mode, que ignora cabeçalhos e parâmetros não suportados.
-   - **Azurite: Oauth** - Nível Opcional de OAuth.
+   - **Azurite: Blob Port** - A porta de escuta do serviço Blob. A porta padrão é 10.000.
+   - **Azurite: Cert** - Caminho para um caminho de arquivo de certificadoS PEM ou PFX de confiança local para ativar o modo HTTPS.
+   - **Azurite: Debug** - Desave o log de depurrão para o canal Azurite. O valor predefinido é **falso**.
+   - **Azurite: Chave** - Caminho para um ficheiro de chave PEM de confiança local, exigido quando **Azurite: Cert** aponta para um ficheiro PEM.
+   - **Azurite: Localização** - O caminho de localização do espaço de trabalho. O padrão é a pasta de trabalho do Código do Estúdio Visual.
+   - **Azurite: Solto** - Ativa o modo solto, que ignora os cabeçalhos e parâmetros não suportados.
+   - **Azurite: Oauth** - Nível opcional de OAuth.
    - **Azurite: Pwd** - Palavra-passe para ficheiro PFX. Necessário quando **Azurite: Cert** aponta para um ficheiro PFX.
-   - **Azurite: Anfitrião** de fila - O ponto final do serviço de fila. A definição predefinida é de 127.0.0.1.
+   - **Azurite: Anfitrião de fila** - O ponto final de audição do serviço de fila. A definição predefinida é de 127.0.0.1.
    - **Azurite: Porta de fila** - A porta de escuta do serviço de fila. A porta padrão é 10001.
-   - **Azurite: Modo silencioso** desativa o registo de acesso. O valor predefinido é **falso**.
+   - **Azurite: Silent** - Modo silencioso desativa o registo de acesso. O valor predefinido é **falso**.
 
-## <a name="install-and-run-azurite-by-using-npm"></a>Instale e execute o Azurite utilizando o NPM
+## <a name="install-and-run-azurite-by-using-npm"></a>Instale e corra a Azurite utilizando o NPM
 
-Este método de instalação requer que tenha a [versão Node.js 8.0 ou posteriormente](https://nodejs.org) instalada. Node Package Manager (npm) é a ferramenta de gestão de pacotes incluída em todas as instalações do Node.js. Depois de instalar o Node.js, execute o seguinte `npm` comando para instalar o Azurite.
+Este método de instalação requer que tenha [Node.js versão 8.0 ou posteriormente](https://nodejs.org) instalada. Node Package Manager (npm) é a ferramenta de gestão de pacotes incluída com todas as Node.js instalação. Depois de instalar Node.js, execute o `npm` seguinte comando para instalar o Azurite.
 
 ```console
 npm install -g azurite
 ```
 
-Depois de instalar o Azurite, consulte [run Azurite a partir de uma linha de comando](#run-azurite-from-a-command-line).
+Depois de instalar o Azurite, consulte [Run Azurite a partir de uma linha de comando](#run-azurite-from-a-command-line).
 
-## <a name="install-and-run-the-azurite-docker-image"></a>Instale e execute a imagem Azurite Docker
+## <a name="install-and-run-the-azurite-docker-image"></a>Instale e execute a imagem do Azurite Docker
 
-Utilize o [DockerHub](https://hub.docker.com/) para puxar a [mais recente imagem Azurite](https://hub.docker.com/_/microsoft-azure-storage-azurite) utilizando o seguinte comando:
+Utilize [o DockerHub](https://hub.docker.com/) para retirar a [mais recente imagem Azurite](https://hub.docker.com/_/microsoft-azure-storage-azurite) utilizando o seguinte comando:
 
 ```console
 docker pull mcr.microsoft.com/azure-storage/azurite
 ```
 
-**Executar a imagem Azurite Docker:**
+**Executar a imagem de Azurite Docker:**
 
-O comando seguinte executa a imagem azurite Docker. O `-p 10000:10000` parâmetro redireciona os pedidos da porta 10000 da máquina hospedeira para a instância Docker.
+O seguinte comando corre a imagem de Azurite Docker. O `-p 10000:10000` parâmetro redireciona os pedidos da porta 10000 da máquina hospedeira para a instância docker.
 
 ```console
 docker run -p 10000:10000 -p 10001:10001 \
     mcr.microsoft.com/azure-storage/azurite
 ```
 
-**Especifique a localização do espaço de trabalho:**
+**Especificar a localização do espaço de trabalho:**
 
-No exemplo seguinte, o `-v c:/azurite:/data` parâmetro especifica *c:/azurite* como o Azurite persistiu na localização dos dados. O diretório, *c:/azurite,* deve ser criado antes de executar o comando Docker.
+No exemplo seguinte, o `-v c:/azurite:/data` parâmetro especifica *c:/azurite* como a localização de dados persistido a Azurite. O diretório, *c:/azurite,* deve ser criado antes de executar o comando Docker.
 
 ```console
 docker run -p 10000:10000 -p 10001:10001 \
     -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
 ```
 
-**Executar apenas o serviço de blob**
+**Executar apenas o serviço blob**
 
 ```console
 docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite \
@@ -113,15 +113,15 @@ docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite \
 
 Para obter mais informações sobre a configuração do Azurite no arranque, consulte [as opções da linha de comando](#command-line-options).
 
-## <a name="clone-build-and-run-azurite-from-the-github-repository"></a>Clone, construa e gere azurite do repositório GitHub
+## <a name="clone-build-and-run-azurite-from-the-github-repository"></a>Clone, construa e corra Azurite do repositório GitHub
 
-Este método de instalação requer que tenha o [Git](https://git-scm.com/) instalado. Clone o [repositório GitHub](https://github.com/azure/azurite) para o projeto Azurite utilizando o seguinte comando de consola.
+Este método de instalação requer que tenha [o Git](https://git-scm.com/) instalado. Clone o [repositório GitHub](https://github.com/azure/azurite) para o projeto Azurite utilizando o seguinte comando de consola.
 
 ```console
 git clone https://github.com/Azure/Azurite.git
 ```
 
-Depois de clonar o código fonte, execute os seguintes comandos da raiz do repo clonado para construir e instalar o Azurite.
+Após a clonagem do código fonte, execute os comandos seguintes da raiz do repo clonado para construir e instalar a Azurite.
 
 ```console
 npm install
@@ -129,39 +129,39 @@ npm run build
 npm install -g
 ```
 
-Depois de instalar e construir azurite, consulte [Run Azurite a partir de uma linha de comando](#run-azurite-from-a-command-line).
+Depois de instalar e construir a Azurite, consulte [Run Azurite a partir de uma linha de comando](#run-azurite-from-a-command-line).
 
-## <a name="run-azurite-from-a-command-line"></a>Executar Azurite de uma linha de comando
+## <a name="run-azurite-from-a-command-line"></a>Executar Azurite a partir de uma linha de comando
 
 > [!NOTE]
-> A Azurite não pode ser executada a partir da linha de comando se apenas tiver instalado a extensão do Código do Estúdio Visual. Em vez disso, utilize a paleta de comando visual Studio Code. Para mais informações, consulte Instalar e executar a extensão do Código do [Estúdio Visual Azurite](#install-and-run-the-azurite-visual-studio-code-extension).
+> O Azurite não pode ser executado a partir da linha de comando se apenas instalar a extensão do Código do Estúdio Visual. Em vez disso, utilize a paleta de comando Visual Studio Code. Para obter mais informações, consulte [instalar e executar a extensão Azurite Visual Studio Code](#install-and-run-the-azurite-visual-studio-code-extension).
 
-Para começar imediatamente com a linha de comando, crie um diretório chamado *c:\azurite,* em seguida, lançar Azurite emitindo o seguinte comando:
+Para começar imediatamente com a linha de comando, crie um diretório chamado *c:\azurite,* em seguida, lance Azurite emitindo o seguinte comando:
 
 ```console
 azurite --silent --location c:\azurite --debug c:\azurite\debug.log
 ```
 
-Este comando diz à Azurite para armazenar todos os dados num determinado diretório, *c:\azurite*. Se a `--location` opção for omitida, utilizará o atual diretório de trabalho.
+Este comando diz à Azurite para armazenar todos os dados num determinado diretório, *c:\azurite*. Se a `--location` opção for omitida, utilizará o diretório de trabalho atual.
 
 ## <a name="command-line-options"></a>Opções da linha de comandos
 
-Esta secção detalha os interruptores da linha de comando disponíveis ao lançar o Azurite.
+Esta secção detalha os interruptores da linha de comando disponíveis no lançamento do Azurite.
 
 ### <a name="help"></a>Ajuda
 
-**Opcional** - Obtenha ajuda na linha de comando utilizando o `-h` interruptor ou o `--help` interruptor.
+**Opcional** - Obtenha ajuda de linha de comando utilizando o `-h` ou `--help` comutador.
 
 ```console
 azurite -h
 azurite --help
 ```
 
-### <a name="blob-listening-host"></a>Hospedeiro de escuta blob
+### <a name="blob-listening-host"></a>Anfitrião de escuta blob
 
-**Opcional** - Por padrão, o Azurite ouvirá 127.0.0.1 como servidor local. Utilize o `--blobHost` interruptor para definir o endereço às suas necessidades.
+**Opcional** - Por padrão, a Azurite ouvirá 127.0.0.1 como servidor local. Utilize o `--blobHost` interruptor para definir o endereço para os seus requisitos.
 
-Aceite pedidos apenas na máquina local:
+Aceite apenas pedidos na máquina local:
 
 ```console
 azurite --blobHost 127.0.0.1
@@ -176,9 +176,9 @@ azurite --blobHost 0.0.0.0
 > [!CAUTION]
 > Permitir pedidos remotos pode tornar o seu sistema vulnerável a ataques externos.
 
-### <a name="blob-listening-port-configuration"></a>Configuração da porta de escuta Blob
+### <a name="blob-listening-port-configuration"></a>Configuração da porta de escuta blob
 
-**Opcional** - Por padrão, a Azurite irá ouvir o serviço Blob na porta 10000. Utilize o interruptor para especificar a porta de `--blobPort` audição de que necessita.
+**Opcional** - Por padrão, a Azurite ouvirá o serviço Blob na porta 10000. Utilize o `--blobPort` interruptor para especificar a porta de audição que necessita.
 
 > [!NOTE]
 > Depois de utilizar uma porta personalizada, é necessário atualizar a cadeia de ligação ou a configuração correspondente nas suas ferramentas de Armazenamento Azure ou SDKs.
@@ -195,13 +195,13 @@ Deixe o sistema selecionar automaticamente uma porta disponível:
 azurite --blobPort 0
 ```
 
-A porta em uso é exibida durante a startup Azurite.
+A porta de utilização é apresentada durante o arranque Azurite.
 
 ### <a name="queue-listening-host"></a>Anfitrião de escuta de fila
 
-**Opcional** - Por padrão, o Azurite ouvirá 127.0.0.1 como servidor local. Utilize o `--queueHost` interruptor para definir o endereço às suas necessidades.
+**Opcional** - Por padrão, a Azurite ouvirá 127.0.0.1 como servidor local. Utilize o `--queueHost` interruptor para definir o endereço para os seus requisitos.
 
-Aceite pedidos apenas na máquina local:
+Aceite apenas pedidos na máquina local:
 
 ```console
 azurite --queueHost 127.0.0.1
@@ -216,14 +216,14 @@ azurite --queueHost 0.0.0.0
 > [!CAUTION]
 > Permitir pedidos remotos pode tornar o seu sistema vulnerável a ataques externos.
 
-### <a name="queue-listening-port-configuration"></a>Configuração da porta de escuta da fila
+### <a name="queue-listening-port-configuration"></a>Configuração da porta de escuta de fila
 
-**Opcional** - Por padrão, a Azurite irá ouvir o serviço de fila na porta 10001. Utilize o interruptor para especificar a porta de `--queuePort` audição de que necessita.
+**Opcional** - Por padrão, a Azurite ouvirá o serviço de Fila na porta 10001. Utilize o `--queuePort` interruptor para especificar a porta de audição que necessita.
 
 > [!NOTE]
 > Depois de utilizar uma porta personalizada, é necessário atualizar a cadeia de ligação ou a configuração correspondente nas suas ferramentas de Armazenamento Azure ou SDKs.
 
-Personalize a porta de escuta do serviço fila:
+Personalize a porta de escuta do serviço Queue:
 
 ```console
 azurite --queuePort 8888
@@ -235,11 +235,11 @@ Deixe o sistema selecionar automaticamente uma porta disponível:
 azurite --queuePort 0
 ```
 
-A porta em uso é exibida durante a startup Azurite.
+A porta de utilização é apresentada durante o arranque Azurite.
 
 ### <a name="workspace-path"></a>Caminho do espaço de trabalho
 
-**Opcional** - Azurite armazena dados no disco local durante a execução. Utilize o `-l` ou o interruptor para especificar um caminho como local do espaço de `--location` trabalho. Por predefinição, o diretório de trabalho do processo atual será utilizado. Reparem na minúscula 'l'.
+**Opcional** - A Azurite armazena dados para o disco local durante a execução. Utilize o `-l` ou `--location` comutador para especificar um caminho como local de espaço de trabalho. Por predefinição, o diretório de trabalho do processo atual será utilizado. Note o "l" minúsculo.
 
 ```console
 azurite -l c:\azurite
@@ -248,15 +248,15 @@ azurite --location c:\azurite
 
 ### <a name="access-log"></a>Registo de acesso
 
-**Opcional** - Por padrão, o registo de acesso é apresentado na janela da consola. Desative o visualização do registo de acesso utilizando o `-s` ou `--silent` o interruptor.
+**Opcional** - Por predefinição, o registo de acesso é apresentado na janela da consola. Desative o ecrã do registo de acesso utilizando o `-s` ou `--silent` comutador.
 
 ```console
 azurite -s
 azurite --silent
 ```
-### <a name="debug-log"></a>Registo de depuração
+### <a name="debug-log"></a>Log de depurg
 
-**Opcional** - O registo de depuração inclui informações detalhadas sobre cada pedido e rastreio de pilha de exceção. Ative o registo de depuração fornecendo um caminho de ficheiro local válido para o `-d` interruptor ou `--debug` comutado.
+**Opcional** - O registo de depurg inclui informações detalhadas sobre cada pedido e traço de stack de exceção. Ativar o registo de depuração fornecendo um caminho de ficheiro local válido para o `-d` ou `--debug` comutador.
 
 ```console
 azurite -d path/debug.log
@@ -265,7 +265,7 @@ azurite --debug path/debug.log
 
 ### <a name="loose-mode"></a>Modo solto
 
-**Opcional** - Por padrão, a Azurite aplica um modo rigoroso para bloquear cabeçalhos e parâmetros de pedido não suportados. Desative o modo rígido utilizando o `-L` ou `--loose` o interruptor. Reparem no "L" maiúsculo.
+**Opcional** - Por predefinição, a Azurite aplica um modo rigoroso para bloquear cabeçalhos e parâmetros de pedido não suportados. Desative o modo rígido utilizando o `-L` ou `--loose` o interruptor. Note a capital 'L'.
 
 ```console
 azurite -L
@@ -273,7 +273,7 @@ azurite --loose
 ```
 ### <a name="version"></a>Versão
 
-**Opcional** - Visualizar o número da versão Azurite instalado utilizando o `-v` interruptor ou o `--version` interruptor.
+**Opcional** - Mostrar o número de versão Azurite instalado utilizando o `-v` ou `--version` comutador.
 
 ```console
 azurite -v
@@ -282,51 +282,51 @@ azurite --version
 
 ### <a name="certificate-configuration-https"></a>Configuração do certificado (HTTPS)
 
-**Opcional** - Por padrão, a Azurite utiliza o protocolo HTTP. Ative o modo HTTPS fornecendo um caminho para um ficheiro de certificado de Correio Melhorado pela Privacidade (.pem) ou [Personal Information Exchange (.pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) para o `--cert` interruptor.
+**Opcional** - Por padrão, a Azurite utiliza o protocolo HTTP. Ativar o modo HTTPS fornecendo um caminho para um ficheiro de certificado de Privacy Enhanced Mail (.pem) ou [Personal Information Exchange (.pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) para o `--cert` switch.
 
-Quando `--cert` for fornecido um ficheiro PEM, deve fornecer um interruptor `--key` correspondente.
+Quando `--cert` estiver previsto um ficheiro PEM, deve fornecer um interruptor `--key` correspondente.
 
 ```console
 azurite --cert path/server.pem --key path/key.pem
 ```
 
-Quando `--cert` for fornecido um ficheiro PFX, deve fornecer um interruptor `--pwd` correspondente.
+Quando `--cert` estiver previsto um ficheiro PFX, deve fornecer um interruptor `--pwd` correspondente.
 
 ```console
 azurite --cert path/server.pfx --pwd pfxpassword
 ```
 
-Para obter informações detalhadas sobre a criação de ficheiros PEM e PFX, consulte [https Configuração](https://github.com/Azure/Azurite/blob/master/README.md#https-setup).
+Para obter informações detalhadas sobre a criação de ficheiros PEM e PFX, consulte [a configuração HTTPS](https://github.com/Azure/Azurite/blob/master/README.md#https-setup).
 
-### <a name="oauth-configuration"></a>Configuração OAuth
+### <a name="oauth-configuration"></a>Configuração de OAuth
 
-**Opcional** - Ativar a autenticação OAuth para o Azurite utilizando o `--oauth` interruptor.
+**Opcional** - Ativar a autenticação OAuth para a Azurite utilizando o `--oauth` interruptor.
 
 ```console
 azurite --oauth basic --cert path/server.pem --key path/key.pem
 ```
 
 > [!NOTE]
-> O AAuth requer um ponto final HTTPS. Certifique-se de que https está ativado fornecendo `--cert` o interruptor juntamente com o `--oauth` interruptor.
+> OAuth requer um ponto final HTTPS. Certifique-se de que o HTTPS está ativado fornecendo `--cert` o interruptor juntamente com o `--oauth` interruptor.
 
-A Azurite suporta a autenticação básica especificando o `basic` parâmetro para o `--oauth` interruptor. Azurite fará a autenticação básica, como validar o token do portador, verificar o emitente, o público e a caducidade. Azurite não verifica a assinatura ou permissões simbólicas.
+O Azurite suporta a autenticação básica especificando o `basic` parâmetro para o `--oauth` interruptor. A Azurite fará a autenticação básica, como validar o token do portador de entrada, verificar o emitente, o público e a caducidade. Azurite não vai verificar a assinatura ou permissões simbólicas.
 
-## <a name="authorization-for-tools-and-sdks"></a>Autorização para ferramentas e SDKs
+## <a name="authorization-for-tools-and-sdks"></a>Autorização de ferramentas e SDKs
 
-Ligue-se à Azurite a partir de SDKs ou ferramentas de armazenamento Azure, como [o Azure Storage Explorer,](https://azure.microsoft.com/features/storage-explorer/)utilizando qualquer estratégia de autenticação. É necessária autenticação. A Azurite apoia a autorização com a OAuth, Shared Key e assinaturas de acesso partilhada (SAS). Azurite também apoia o acesso anónimo a contentores públicos.
+Ligue-se ao Azurite a partir de SDKs de armazenamento Azure, como [o Azure Storage Explorer,](https://azure.microsoft.com/features/storage-explorer/)utilizando qualquer estratégia de autenticação. É necessária autenticação. A Azurite suporta a autorização com AAuth, Shared Key e assinaturas de acesso compartilhado (SAS). Azurite também apoia o acesso anónimo a contentores públicos.
 
-Se estiver a utilizar os SDKs Azure, inicie o Azurite com as `--oauth basic and --cert --key/--pwd` opções.
+Se estiver a utilizar os Azure SDKs, inicie a Azurite com as `--oauth basic and --cert --key/--pwd` opções.
 
 ### <a name="well-known-storage-account-and-key"></a>Conta de armazenamento bem conhecida e chave
 
-Azurite aceita a mesma conta conhecida e chave usada pelo legado emulador de armazenamento Azure.
+A Azurite aceita a mesma conta e chave bem conhecida usada pelo emulador de armazenamento Azure.
 
 - Nome da conta:`devstoreaccount1`
 - Chave da conta:`Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
 
-### <a name="custom-storage-accounts-and-keys"></a>Contas e chaves de armazenamento personalizados
+### <a name="custom-storage-accounts-and-keys"></a>Contas e chaves de armazenamento personalizado
 
-A Azurite suporta nomes e chaves de conta de armazenamento personalizado, definindo a `AZURITE_ACCOUNTS` variável ambiental no seguinte formato: `account1:key1[:key2];account2:key1[:key2];...` .
+A Azurite suporta nomes e chaves de conta de armazenamento personalizados, definindo a `AZURITE_ACCOUNTS` variável ambiente no seguinte formato: `account1:key1[:key2];account2:key1[:key2];...` .
 
 Por exemplo, utilize uma conta de armazenamento personalizada que tenha uma chave:
 
@@ -348,10 +348,10 @@ set AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
 export AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
 ```
 
-A Azurite atualiza os nomes e chaves de conta personalizadas da variável ambiental a cada minuto por padrão. Com esta funcionalidade, pode rodar dinamicamente a chave da conta ou adicionar novas contas de armazenamento sem reiniciar o Azurite.
+A azurite atualiza nomes de conta personalizados e chaves do ambiente variáveis a cada minuto por padrão. Com esta funcionalidade, pode rodar dinamicamente a chave da conta ou adicionar novas contas de armazenamento sem reiniciar o Azurite.
 
 > [!NOTE]
-> A conta de armazenamento predefinida `devstoreaccount1` é desativada quando define contas de armazenamento personalizadas.
+> A `devstoreaccount1` conta de armazenamento predefinido é desativada quando define contas de armazenamento personalizadas.
 
 ### <a name="connection-strings"></a>Cadeias de ligação
 
@@ -363,15 +363,15 @@ A forma mais fácil de ligar ao Azurite a partir da sua aplicação é configura
 </appSettings>
 ```
 
-#### <a name="http-connection-strings"></a>Cordas de ligação HTTP
+#### <a name="http-connection-strings"></a>Cadeias de conexão HTTP
 
-Pode passar as seguintes cordas de ligação aos [SDKs ou ferramentas Azure,](https://aka.ms/azsdk) como o Azure CLI 2.0 ou o Storage Explorer.
+Pode passar as seguintes cordas de ligação para os [Azure SDKs ou ferramentas,](https://aka.ms/azsdk) como O Azure CLI 2.0 ou Storage Explorer.
 
-A corda de ligação completa é:
+A cadeia de ligação completa é:
 
 `DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;`
 
-Para ligar apenas ao serviço de blob, a cadeia de ligação é:
+Para ligar apenas ao serviço blob, a cadeia de ligação é:
 
 `DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;`
 
@@ -379,13 +379,13 @@ Para ligar apenas ao serviço de fila, a cadeia de ligação é:
 
 `DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;`
 
-#### <a name="https-connection-strings"></a>Cordas de ligação HTTPS
+#### <a name="https-connection-strings"></a>Cadeias de ligação HTTPS
 
 A cadeia de ligação HTTPS completa é:
 
 `DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;`
 
-Para utilizar apenas o serviço de blob, a cadeia de ligação HTTPS é:
+Para utilizar apenas o serviço blob, a cadeia de ligação HTTPS é:
 
 `DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;`
 
@@ -393,17 +393,17 @@ Para utilizar apenas o serviço de fila, a cadeia de ligação HTTPS é:
 
 `DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;`
 
-Se tiver gerado `dotnet dev-certs` o seu certificado auto-assinado, utilize a seguinte cadeia de ligação.
+Se usou `dotnet dev-certs` para gerar o seu certificado auto-assinado, utilize o seguinte fio de ligação.
 
 `DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://localhost:10000/devstoreaccount1;QueueEndpoint=https://localhost:10001/devstoreaccount1;`
 
-Atualize a cadeia de ligação quando utilizar [contas e chaves de armazenamento personalizadas](#custom-storage-accounts-and-keys).
+Atualize a cadeia de ligação quando utilizar [contas e teclas de armazenamento personalizados](#custom-storage-accounts-and-keys).
 
-Para mais informações, consulte as cordas de ligação de [armazenamento Configure Azure](storage-configure-connection-string.md).
+Para obter mais informações, consulte as cordas de [conexão Configure Azure Storage](storage-configure-connection-string.md).
 
 ### <a name="azure-sdks"></a>SDKs do Azure
 
-Para utilizar o Azurite com os [SDKs Azure,](https://aka.ms/azsdk)utilize opções OAuth e HTTPS:
+Para utilizar a azurite com os [Azure SDKs,](https://aka.ms/azsdk)utilize opções OAuth e HTTPS:
 
 ```console
 azurite --oauth basic --cert certname.pem --key certname-key.pem
@@ -411,7 +411,7 @@ azurite --oauth basic --cert certname.pem --key certname-key.pem
 
 #### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 
-Em seguida, pode instantaneamente instantaneamente um BlobContainerClient, BlobServiceClient ou BlobClient.
+Em seguida, pode instantaneamente um BlobContainerClient, BlobServiceClient ou BlobClient.
 
 ```csharp
 // With container URL and DefaultAzureCredential
@@ -433,7 +433,7 @@ var client = new BlobContainerClient(
 
 #### <a name="azure-queue-storage"></a>Armazenamento de Filas do Azure
 
-Também pode instantaneamente um QueueClient ou QueueServiceClient.
+Também pode instantaneaizar um QueueClient ou QueueServiceClient.
 
 ```csharp
 // With queue URL and DefaultAzureCredential
@@ -455,69 +455,69 @@ var client = new QueueClient(
 
 ### <a name="microsoft-azure-storage-explorer"></a>Explorador de Armazenamento do Microsoft Azure
 
-Pode utilizar o Storage Explorer para ver os dados armazenados em Azurite.
+Pode utilizar o Storage Explorer para visualizar os dados armazenados no Azurite.
 
-#### <a name="connect-to-azurite-using-http"></a>Ligue-se a Azurite usando HTTP
+#### <a name="connect-to-azurite-using-http"></a>Ligue-se ao Azurite utilizando HTTP
 
-No Storage Explorer, ligue-se ao Azurite seguindo estes passos:
+No Explorador de Armazenamento, ligue-se a Azurite seguindo estes passos:
 
- 1. Selecione o ícone **'Gerir contas'**
+ 1. Selecione o ícone **'Gerir Contas'**
  1. **Selecione Adicionar uma conta**
  1. Selecione **Anexar a um emulador local**
- 1. Selecione **Next**
- 1. Editar o campo de **nome display** para um nome à sua escolha
+ 1. Selecione **Seguinte**
+ 1. Edite o campo **de nomes de Exibição** para um nome à sua escolha
  1. Selecione **Next** novamente
- 1. Selecione **Ligar**
+ 1. Selecione **Connect**
 
-#### <a name="connect-to-azurite-using-https"></a>Ligue-se a Azurite usando HTTPS
+#### <a name="connect-to-azurite-using-https"></a>Ligue-se ao Azurite utilizando HTTPS
 
-Por padrão, o Storage Explorer não abrirá um ponto final HTTPS que utilize um certificado auto-assinado. Se estiver a executar a Azurite com HTTPS, é provável que esteja a usar um certificado auto-assinado. No Storage Explorer, importar certificados **Edit**SSL através do diálogo de certificados de importação  ->  **de certificados SSL**de edição.  ->  **Import Certificates**
+Por predefinição, o Storage Explorer não abrirá um ponto final HTTPS que utiliza um certificado auto-assinado. Se estiver a executar a Azurite com HTTPS, provavelmente está a usar um certificado auto-assinado. No Explorador de Armazenamento, importar certificados SSL através do **Edit**  ->  diálogo editar certificados de importação de**certificados.**  ->  **Import Certificates**
 
-##### <a name="import-certificate-to-storage-explorer"></a>Certificado de Importação para Explorador de Armazenamento
+##### <a name="import-certificate-to-storage-explorer"></a>Certificado de importação para explorador de armazenamento
 
 1. Encontre o certificado na sua máquina local.
-1. No Storage Explorer, vá à **Edição**certificados de importação de  ->  **certificados SSL**  ->  **Import Certificates** e importe o seu certificado.
+1. No Storage Explorer, vá à **Editar**  ->  **Certificados SSL**  ->  **Certificados de Importação** e importe o seu certificado.
 
 Se não importar um certificado, terá um erro:
 
 `unable to verify the first certificate` ou `self signed certificate in chain`
 
-##### <a name="add-azurite-via-https-connection-string"></a>Adicione Azurite via fio de ligação HTTPS
+##### <a name="add-azurite-via-https-connection-string"></a>Adicione Azurite através da cadeia de conexão HTTPS
 
-Siga estes passos para adicionar Azurite HTTPS ao Storage Explorer:
+Siga estes passos para adicionar Azurite HTTPS ao Explorador de Armazenamento:
 
 1. Selecione **Toggle Explorer**
-1. Selecione **& Local Anexado**
-1. Clique à direita nas Contas de **Armazenamento** e selecione **Ligar ao Armazenamento Azure**.
+1. Selecione **local & anexado**
+1. Clique com o botão direito nas **contas de armazenamento** e selecione Connect to **Azure Storage**.
 1. Selecione **Utilize uma cadeia de ligação**
 1. Selecione **Seguinte**.
-1. Introduza um valor no campo de **nome display.**
-1. Introduza a cadeia de [ligação HTTPS](#https-connection-strings) da secção anterior deste documento
-1. Selecione **Next**
-1. Selecione **Ligar**
+1. Introduza um valor no campo **nome do Visor.**
+1. Introduza o fio de [ligação HTTPS](#https-connection-strings) a partir da secção anterior deste documento
+1. Selecione **Seguinte**
+1. Selecione **Connect**
 
 ## <a name="workspace-structure"></a>Estrutura do espaço de trabalho
 
-Os seguintes ficheiros e pastas podem ser criados no local do espaço de trabalho ao rubricar o Azurite.
+Os seguintes ficheiros e pastas podem ser criados no local do espaço de trabalho ao rubricar a Azurite.
 
-- `__blobstorage__`- Diretório contendo serviço de blob Azurite persistia dados binários
-- `__queuestorage__`- O diretório contendo o serviço de fila Azurite persistiu em dados binários
-- `__azurite_db_blob__.json`- Ficheiro de metadados de serviço de blob Azurite
-- `__azurite_db_blob_extent__.json`- Ficheiro de metadados de serviço de blob Azurite
-- `__azurite_db_queue__.json`- Ficheiro de metadados do serviço de fila Azurite
-- `__azurite_db_queue_extent__.json`- Ficheiro de metadados de fila azurite
+- `__blobstorage__`- Diretório contendo serviço de bolhas Azurite persistia dados binários
+- `__queuestorage__`- Diretório contendo serviço de fila Azurite persistido dados binários
+- `__azurite_db_blob__.json`- Ficheiro de metadados de serviço de blob azurite
+- `__azurite_db_blob_extent__.json`- Ficheiro de metadados de extensão de serviço de blob azurite
+- `__azurite_db_queue__.json`- Ficheiro de metadados de serviço de fila Azurite
+- `__azurite_db_queue_extent__.json`- Ficheiro de metadados de extensão de serviço de fila Azurite
 
-Para limpar o Azurite, elimine ficheiros e pastas acima e reinicie o emulador.
+Para limpar o Azurite, elimine os ficheiros e as pastas acima e reinicie o emulador.
 
-## <a name="differences-between-azurite-and-azure-storage"></a>Diferenças entre armazenamento Azurite e Azure
+## <a name="differences-between-azurite-and-azure-storage"></a>Diferenças entre Azurite e Azure Storage
 
-Existem diferenças funcionais entre um exemplo local de Azurite e uma conta de Armazenamento Azure na nuvem.
+Existem diferenças funcionais entre um caso local de Azurite e uma conta de Armazenamento Azure na nuvem.
 
-### <a name="endpoint-and-connection-url"></a>Endpoint e URL de ligação
+### <a name="endpoint-and-connection-url"></a>URL de ponto final e ligação
 
-Os pontos finais de serviço para a Azurite são diferentes dos pontos finais de uma conta de Armazenamento Azure. O computador local não faz resolução de nomes de domínio, exigindo que os pontos finais de Azurite sejam endereços locais.
+Os pontos finais de serviço para a Azurite são diferentes dos pontos finais de uma conta de Armazenamento Azure. O computador local não faz a resolução de nomes de domínio, exigindo que os pontos finais do Azurite sejam endereços locais.
 
-Quando se dirige a um recurso numa conta de Armazenamento Azure, o nome da conta faz parte do nome de anfitrião uri. O recurso que está a ser endereçado faz parte do caminho uri:
+Quando se dirige a um recurso numa conta de Armazenamento Azure, o nome da conta faz parte do nome de anfitrião URI. O recurso a ser tratado faz parte do caminho uri:
 
 `<http|https>://<account-name>.<service-name>.core.windows.net/<resource-path>`
 
@@ -525,7 +525,7 @@ O seguinte URI é um endereço válido para uma bolha numa conta de Armazenament
 
 `https://myaccount.blob.core.windows.net/mycontainer/myblob.txt`
 
-Uma vez que o computador local não faz resolução de nome de domínio, o nome da conta faz parte do caminho URI em vez do nome do anfitrião. Utilize o seguinte formato URI para um recurso em Azurite:
+Uma vez que o computador local não faz a resolução do nome de domínio, o nome da conta faz parte do caminho URI em vez do nome de anfitrião. Utilize o seguinte formato URI para um recurso em Azurite:
 
 `http://<local-machine-address>:<port>/<account-name>/<resource-path>`
 
@@ -533,25 +533,25 @@ O seguinte endereço pode ser utilizado para aceder a uma bolha em Azurite:
 
 `http://127.0.0.1:10000/myaccount/mycontainer/myblob.txt`
 
-### <a name="scaling-and-performance"></a>Escala e desempenho
+### <a name="scaling-and-performance"></a>Escala e performance
 
-A Azurite não suporta um grande número de clientes conectados. Não há garantia de desempenho. A Azurite destina-se a fins de desenvolvimento e teste.
+A azurite não suporta um grande número de clientes conectados. Não há garantia de desempenho. O Azurite destina-se a fins de desenvolvimento e teste.
 
 ### <a name="error-handling"></a>Processamento de erros
 
-A Azurite está alinhada com a lógica de manipulação de erros do Armazenamento Azure, mas há diferenças. Por exemplo, as mensagens de erro podem ser diferentes, enquanto os códigos de estado de erro se alinham.
+O Azurite está alinhado com a lógica de manuseamento de erros do Azure Storage, mas existem diferenças. Por exemplo, as mensagens de erro podem ser diferentes, enquanto os códigos de estado de erro se alinham.
 
 ### <a name="ra-grs"></a>RA-GRS
 
-A Azurite suporta a replicação georedundantde de acesso de leitura (RA-GRS). Para os recursos de armazenamento, aceda à localização secundária através da adesão `-secondary` ao nome da conta. Por exemplo, o seguinte endereço pode ser utilizado para aceder a uma bolha utilizando o secundário apenas de leitura em Azurite:
+A azurite suporta a replicação geo-redundante de acesso à leitura (RA-GRS). Para obter recursos de armazenamento, aceda à localização secundária através `-secondary` da anexação do nome da conta. Por exemplo, o seguinte endereço pode ser usado para aceder a uma bolha utilizando o secundário apenas de leitura em Azurite:
 
 `http://127.0.0.1:10000/devstoreaccount1-secondary/mycontainer/myblob.txt`
 
 ## <a name="azurite-is-open-source"></a>Azurite é de código aberto
 
-As contribuições e sugestões para o Azurite são bem-vindas. Vá à página de [projeto siogite gitHub](https://github.com/Azure/Azurite/projects) ou [problemas gitHub](https://github.com/Azure/Azurite/issues) para marcos e itens de trabalho que estamos rastreando para as próximas funcionalidades e correções de bugs. Os itens de trabalho detalhados também são rastreados no GitHub.
+As contribuições e sugestões para a Azurite são bem-vindas. Vá à página do projeto Azurite [GitHub](https://github.com/Azure/Azurite/projects) ou [aos problemas do GitHub](https://github.com/Azure/Azurite/issues) para marcos e itens de trabalho que estamos a seguir para as próximas funcionalidades e correções de bugs. Itens de trabalho detalhados também são rastreados no GitHub.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Utilize o emulador de armazenamento Azure para documentos](storage-use-emulator.md) de desenvolvimento e teste do legado emulador de armazenamento Azure, que está a ser substituído pela Azurite.
-- [Configurar as cordas](storage-configure-connection-string.md) de ligação de armazenamento Azure explica como montar uma cadeia de ligação Azure STorage válida.
+- [Utilize o emulador de armazenamento Azure para desenvolvimento e teste](storage-use-emulator.md) de documentos o emulador de armazenamento Azure, que está a ser substituído pela Azurite.
+- [As cordas de conexão de armazenamento Azure configure](storage-configure-connection-string.md) explicam como montar uma cadeia de ligação Azure STorage válida.

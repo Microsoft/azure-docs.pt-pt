@@ -13,6 +13,9 @@
       href: quick-create-powershell.md
     - name: Criar VM - CLI do Azure
       href: quick-create-cli.md
+    - name: Criar VM - Modelo ARM
+      displayName: 'Resource Manager, template, json'
+      href: quick-create-template.md
 - name: Tutoriais
   items:
     - name: 1 - Criar/gerir uma VM
@@ -189,6 +192,10 @@
               href: ../dv3-dsv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Séries Dav4 e Dasv4
               href: ../dav4-dasv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Séries Ddv4 e Ddsv4
+              href: ../ddv4-ddsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Séries Dv4 e Dsv4
+              href: ../dv4-dsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Com otimização de computação
           items:
             - name: Descrição geral
@@ -206,6 +213,10 @@
               href: ../ev3-esv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Séries Eav4 e Easv4
               href: ../eav4-easv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Séries Edv4 e Edsv4
+              href: ../edv4-edsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Séries Ev4 e Esv4
+              href: ../ev4-esv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Série M
               href: ../m-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Série Mv2
@@ -270,6 +281,8 @@
         - name: Spot VMs
           href: spot-vms.md
           displayName: 'pre-empt, preempt'
+        - name: VMs do Azure sem disco temporário
+          href: ../azure-vms-no-temp-disk.md
         - name: Gerações anteriores
           href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
           displayName: D-series Ds-series A-series Basic
@@ -338,9 +351,9 @@
     - name: Cópia de segurança e recuperação
       href: backup-recovery.md
     - name: Arquitetura de adoção da cloud
-      href: 'https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json'
+      href: 'https://docs.microsoft.com/azure/cloud-adoption-framework/get-started/?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json'
     - name: Centro de arquiteturas
-      href: 'https://docs.microsoft.com/en-us/azure/architecture/'
+      href: 'https://docs.microsoft.com/azure/architecture/'
     - name: Exemplo de infraestrutura
       href: infrastructure-example.md
 - name: Guias de procedimentos
@@ -364,7 +377,7 @@
               href: ../linux/spot-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Códigos de erro
               href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: 'Utilizar C#'
+        - name: Utilizar C#
           href: csharp.md
         - name: Utilizar disco especializado
           items:
@@ -372,7 +385,7 @@
               href: create-vm-specialized-portal.md
             - name: PowerShell
               href: create-vm-specialized.md
-        - name: 'Utilizar o modelo do Resource Manager com C#'
+        - name: Utilizar o modelo do Resource Manager com C#
           href: csharp-template.md
           displayName: Azure Resource Manager
         - name: Criar VM com Chef
@@ -449,6 +462,8 @@
                       href: ../image-version-another-gallery-cli.md
                 - name: Criar uma VM
                   items:
+                    - name: Especializada
+                      href: ../vm-specialized-image-version-cli.md
                     - name: Generalizada
                       href: ../vm-generalized-image-version-cli.md
                 - name: Atualizar recursos de imagem
@@ -478,6 +493,8 @@
               href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Utilizar a CLI do Azure
               href: image-builder.md
+            - name: Utilizar o Azure PowerShell
+              href: image-builder-powershell.md
             - name: Criar para galerias de imagens
               href: image-builder-gallery.md
             - name: Atualizar uma imagem existente
@@ -654,7 +671,7 @@
             - name: Descrição geral dos agentes
               href: ../../azure-monitor/platform/agents-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: FAQ
-              href: '../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#agents'
+              href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#agents
             - name: Extensão do Diagnóstico do Azure
               items:
                 - name: Descrição geral
@@ -664,7 +681,7 @@
                       items:
                         - name: Máquina Virtual
                           href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-                        - name: Conjunto de dimensionamento de VMs
+                        - name: Conjunto de dimensionamento
                           href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vmss.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                     - name: Enviar para os Hubs de Eventos
                       href: ../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -727,7 +744,7 @@
             - name: FAQ sobre Disponibilidade Geral
               href: ../../azure-monitor/insights/vminsights-ga-release-faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: FAQ
-              href: '../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#azure-monitor-for-vms'
+              href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#azure-monitor-for-vms
             - name: Ativar monitorização
               items:
                 - name: Ativar descrição geral da monitorização
@@ -838,6 +855,8 @@
           href: incremental-snapshots.md
         - name: Migração e conversão
           items:
+            - name: Converter em encriptação do lado do servidor
+              href: disks-ade-sse-conversion-powershell.md
             - name: Converter o disco entre Standard e Premium
               href: convert-disk-storage.md
             - name: Migrar para o armazenamento Premium com o Azure Site Recovery
@@ -854,8 +873,10 @@
               href: disks-enable-ultra-ssd.md
             - name: Criar um disco de referência
               href: disks-benchmarks.md
-        - name: Encontrar discos desanexados
+        - name: Localizar discos desanexados - PowerShell
           href: find-unattached-disks.md
+        - name: Localizar discos desanexados - Portal
+          href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: FAQ sobre discos
           href: faq-for-disks.md
     - name: Gerir redes

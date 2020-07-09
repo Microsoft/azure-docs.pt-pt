@@ -1,25 +1,21 @@
 ---
 title: Definições políticas incorporadas para o Serviço Azure Kubernetes
-description: Lista definições políticas integradas da Política Azure para o Serviço Azure Kubernetes. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 05/13/2020
+description: Lista definições de políticas incorporadas da Azure Policy para o Serviço Azure Kubernetes. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
+ms.date: 06/23/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 20371ed8faea09bcb8d6289bb8e4b0412b3327a4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 91484a412bd15e2150ff4ff89b6b2b13165be528
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649270"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319881"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-kubernetes-service"></a>Definições políticas integradas da Política Azure para o Serviço Azure Kubernetes
+# <a name="azure-policy-built-in-definitions-for-azure-kubernetes-service"></a>Definições incorporadas da Azure Policy para o Serviço Azure Kubernetes
 
-Esta página é um índice de definições políticas integradas da [Azure Policy](../governance/policy/overview.md) para o Serviço Azure Kubernetes. Para obter mais insins de política azure para outros serviços, consulte [definições in-in da Política Azure.](../governance/policy/samples/built-in-policies.md)
+Esta página é um índice de definições de política incorporadas da [Azure Policy](../governance/policy/overview.md) para o Serviço Azure Kubernetes. Para obter mais incorporados em Azure Policy para outros serviços, consulte [definições incorporadas da Política Azure](../governance/policy/samples/built-in-policies.md).
 
-O nome de cada definição política incorporada está ligado à definição de política no portal Azure. Utilize o link na coluna **GitHub** para visualizar a fonte no repo da [política azure GitHub](https://github.com/Azure/azure-policy).
-
-## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
-
-[!INCLUDE [azure-policy-samples-rp-aks-kubernetes](../../includes/policy/samples/byrp/microsoft.kubernetes.md)]
+O nome de cada definição de política incorporada liga-se à definição de política no portal Azure. Utilize o link na coluna **versão** para visualizar a fonte no [repo GitHub da Política Azure](https://github.com/Azure/azure-policy).
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 

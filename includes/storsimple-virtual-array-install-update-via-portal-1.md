@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: b4c3fcb86fb098263840accc561785a40b767952
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184447"
 ---
 #### <a name="to-install-updates-via-the-azure-portal"></a>Para instalar atualizações através do portal do Azure
@@ -25,7 +25,7 @@ ms.locfileid: "67184447"
 
     ![atualizar o dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate3m1.png)
 
-    É notificado quando a varredura começa e completa com sucesso.
+    É notificado quando a varredura começa e termina com sucesso.
 
     ![atualizar o dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate5m.png)
 
@@ -33,7 +33,7 @@ ms.locfileid: "67184447"
 
     ![atualizar o dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate6m.png)
 
-5. Na **lâmina de atualizações Novas,** reveja as notas de lançamento. Note também que depois de serem descarregadas as atualizações, terá de confirmar a instalação. Clique em **OK**.
+5. Na lâmina **de novas atualizações,** reveja as notas de lançamento. Note também que depois de as atualizações serem descarregadas, é necessário confirmar a instalação. Clique em **OK**.
 
     ![atualizar o dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate7m.png)
 
@@ -57,11 +57,11 @@ ms.locfileid: "67184447"
 
     ![atualizar o dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate15m1.png)
 
-    Esta ação leva-o à lâmina **'Atualizações de instalação'.** Pode ver informações detalhadas sobre a tarefa aqui.
+    Esta ação leva-o à lâmina **'Atualizações de Instalação'.** Pode ver informações detalhadas sobre a tarefa aqui.
 
     ![atualizar o dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate16m1.png)
 
-9. Se começou com uma versão de software de execução virtual Update 0.6 (10.0.10293.0), está agora a executar o Update 1 e está feito. Pode saltar os passos restantes. Se começou com uma matriz virtual executando uma versão de software antes do Update 0.6 (10.0.10293.0), está agora atualizado para Atualizar 0.6. Vê outra mensagem indicando que as atualizações estão disponíveis. Repita os passos 4-8 para instalar a Atualização 1.
+9. Se começou com uma versão virtual de software de execução Update 0.6 (10.0.10293.0), está agora a executar a Atualização 1 e está feito. Pode saltar os passos restantes. Se começou com uma matriz virtual a executar uma versão de software antes do Update 0.6 (10.0.10293.0), está agora atualizado para a Atualização 0.6. Vê outra mensagem indicando que as atualizações estão disponíveis. Repita os passos 4-8 para instalar a Atualização 1.
 
     ![atualizar o dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate17.png)
 

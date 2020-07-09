@@ -11,35 +11,35 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84c1cf798e88e4067da8a495c1591143d2ee1bd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6553b9ec120ca0e1e479b400495b61bc68c88cf3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189791"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201213"
 ---
-# <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de transformação de sinistros numa política personalizada do Diretório Ativo Azure B2C
+# <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de transformação de sinistros numa política personalizada do Azure Ative Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Um perfil técnico de transformação de sinistros permite-lhe chamar transformações de sinistros de saída para manipular valores de sinistros, validar reclamações ou definir valores padrão para um conjunto de reclamações de saída.
+Um perfil técnico de transformação de sinistros permite-lhe chamar transformações de reclamações de produção para manipular valores de sinistros, validar reclamações ou definir valores padrão para um conjunto de reclamações de saída.
 
 ## <a name="protocol"></a>Protocolo
 
-O **atributo** nome do elemento **protocolo** `Proprietary`tem de ser definido para . O atributo do **manipulador** deve conter o nome totalmente qualificado do conjunto de `Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`manipulador esprotocolo utilizado pelo Azure AD B2C: .
+O **atributo nome** do elemento **Protocolo** tem de ser definido para `Proprietary` . O **atributo do manipulador** deve conter o nome totalmente qualificado do conjunto de manipuladores de protocolo utilizado pela Azure AD B2C: `Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null` .
 
-O exemplo seguinte mostra um perfil técnico de transformação de sinistros:
+O exemplo a seguir mostra um perfil técnico de transformação de sinistros:
 
-```XML
+```xml
 <TechnicalProfile Id="Facebook-OAUTH-UnLink">
     <DisplayName>Unlink Facebook</DisplayName>
     <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   ...
 ```
 
-## <a name="output-claims"></a>Reclamações de produção
+## <a name="output-claims"></a>Reclamações de saída
 
-O elemento **OutputClaims** é obrigatório. Deve fornecer pelo menos uma reclamação de saída devolvida pelo perfil técnico. O exemplo que se segue mostra como definir valores predefinidos nas alegações de saída:
+O elemento **OutputClaims** é obrigatório. Deve fornecer pelo menos um pedido de saída devolvido pelo perfil técnico. O exemplo a seguir mostra como definir valores predefinidos nos pedidos de saída:
 
 ```xml
 <OutputClaims>
@@ -48,11 +48,11 @@ O elemento **OutputClaims** é obrigatório. Deve fornecer pelo menos uma reclam
 </OutputClaims>
 ```
 
-## <a name="output-claims-transformations"></a>Transformações de sinistros de produção
+## <a name="output-claims-transformations"></a>Produção reclama transformações
 
-O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **outputClaimsTransformation** que são usados para modificar reclamações ou gerar novos. O perfil técnico seguinte chama a **remoção DeFormaçãoIdByIdentityProvider** alega a transformação. Esta transformação de sinistros remove uma identificação social da coleção de **AlternativasSegurançaIds**. As alegações de saída deste perfil técnico são `facebook.com` **identidadeProvider2**, que está definida para , e **AlternativaSecurityIds**- que contém a lista de identidades sociais associadas a este utilizador após a remoção facebook.com identidade.
+O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos de **saídaClaimsTransformation** que são utilizados para modificar reclamações ou gerar novos. O seguinte perfil técnico chama a **RemoçãoAlternativeSecurityIdByIdentityProvider** alega transformação. Esta transformação de sinistros remove uma identificação social da coleção de **AlternativeSecurityIds.** As alegações de saída deste perfil técnico são **identidadeProvider2**, que está definida para `facebook.com` - e **AlternativeSecurityIds**- que contém a lista de identidades sociais associadas a este utilizador após facebook.com identidade é removida.
 
-```XML
+```xml
 <ClaimsTransformations>
   <ClaimsTransformation Id="RemoveAlternativeSecurityIdByIdentityProvider"
 TransformationMethod="RemoveAlternativeSecurityIdByIdentityProvider">
@@ -82,9 +82,9 @@ TransformationClaimType="collection" />
 </TechnicalProfile>
 ```
 
-O perfil técnico de transformação de sinistros permite-lhe executar uma transformação de sinistros a partir do passo de orquestração de qualquer viagem do utilizador. No exemplo seguinte, o passo da orquestração chama um dos perfis técnicos dedesvinculação, como **unLink-Facebook-OAUTH**. Este perfil técnico chama ao perfil técnico de transformação de sinistros **RemoveAlternativeSecurityIdByIdentityProvider,** que gera uma nova alegação **AlternativeSecurityIds2** que contém a lista de identidades sociais dos utilizadores, removendo a identidade do Facebook das coleções.
+O perfil técnico de transformação de reclamações permite-lhe executar uma transformação de reclamações a partir do passo de orquestração de qualquer viagem de utilizador. No exemplo seguinte, o passo de orquestração chama um dos perfis técnicos de unlink, como **UnLink-Facebook-OAUTH**. Este perfil técnico chama o perfil técnico de transformação de reclamações **RemoveAlternativeSecurityIdByIdentityProvider**, que gera uma nova alegação **AlternativaSecurityIds2** que contém a lista de identidades sociais dos utilizadores, ao mesmo tempo que remove a identidade do Facebook das coleções.
 
-```XML
+```xml
 <UserJourney Id="AccountUnLink">
   <OrchestrationSteps>
     ...
@@ -102,15 +102,15 @@ O perfil técnico de transformação de sinistros permite-lhe executar uma trans
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Incluir Requerer Resolução de Reclamações  | Não | Para pedidos de entrada e saída, especifica se a resolução de [sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores `true`possíveis: ou `false`  (padrão). Se pretender utilizar uma reclamação no perfil técnico, desempente-a para `true`. |
+| IncluirClaimResolvingInClaimsHandling  | Não | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false`   (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
 
 ## <a name="use-a-validation-technical-profile"></a>Utilize um perfil técnico de validação
 
-Um perfil técnico de transformação de sinistros pode ser usado para validar informação. No exemplo seguinte, o [perfil técnico autoafirmado](self-asserted-technical-profile.md) chamado **LocalAccountSignUpWithLogonEmail** pede ao utilizador que introduza o e-mail duas vezes, e depois liga para o perfil técnico de [validação](validation-technical-profile.md) chamado **Validate-Email** para validar os e-mails. O perfil técnico **validado-e-mail** chama a transformação de sinistros **AssertEmailAreEqual** para comparar os dois **e-mails** e **emails de reclamaçõesRepeat**, e lançar uma exceção se não forem iguais de acordo com a comparação especificada.
+Um perfil técnico de transformação de alegações pode ser usado para validar informações. No exemplo seguinte, o [perfil técnico autoafirmado](self-asserted-technical-profile.md) chamado **LocalAccountSignUpWithLogonMail** pede ao utilizador para introduzir o e-mail duas vezes, e depois chama o perfil técnico de [validação](validation-technical-profile.md) denominado **Validate-Email** para validar os e-mails. O perfil técnico **Valide-Email** chama a transformação de **sinistros AssertEmailAreEqual** para comparar os dois **emails** de reclamações e **e-mailRepeat,** e lançar uma exceção se não forem iguais de acordo com a comparação especificada.
 
-```XML
+```xml
 <ClaimsTransformations>
   <ClaimsTransformation Id="AssertEmailAreEqual" TransformationMethod="AssertStringClaimsAreEqual">
     <InputClaims>
@@ -124,9 +124,9 @@ Um perfil técnico de transformação de sinistros pode ser usado para validar i
 </ClaimsTransformations>
 ```
 
-O perfil técnico de transformação de sinistros chama a transformação de **reivindicações Da AssertEmailAreEqual,** que afirma que os e-mails fornecidos pelo utilizador são os mesmos.
+O perfil técnico de transformação de sinistros chama a **assertEmailAreEqual** de transformação, que afirma que os e-mails fornecidos pelo utilizador são os mesmos.
 
-```XML
+```xml
 <TechnicalProfile Id="Validate-Email">
   <DisplayName>Unlink Facebook</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -143,9 +143,9 @@ O perfil técnico de transformação de sinistros chama a transformação de **r
 </TechnicalProfile>
 ```
 
-Um perfil técnico autoafirmado pode ligar para o perfil técnico de validação e mostrar a mensagem de erro conforme especificado nos metadados **UserMessageIfClaimsTransformationStringsAreNotEqual.**
+Um perfil técnico autoafirmado pode ligar para o perfil técnico de validação e mostrar a mensagem de erro tal como especificado nos metadados **Desaformação do Utilizador,**
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>User ID signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

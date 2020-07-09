@@ -1,50 +1,50 @@
 ---
-title: Ligações de aplicativos móveis para funções azure
-description: Entenda como utilizar ligações de Aplicações Móveis Azure em Funções Azure.
+title: Ligações de Aplicativos Móveis para Funções Azure
+description: Entenda como utilizar as ligações Azure Mobile Apps em Funções Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 3f16f2ef077a1fc3c82075aaf7b7685f941d0a31
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82559586"
 ---
-# <a name="mobile-apps-bindings-for-azure-functions"></a>Ligações de aplicativos móveis para funções azure 
+# <a name="mobile-apps-bindings-for-azure-functions"></a>Ligações de Aplicativos Móveis para Funções Azure 
 
 > [!NOTE]
-> As ligações das Aplicações Móveis Azure só estão disponíveis para as Funções Azure 1.x. Não são suportados nas Funções Azure 2.x e superiores.
+> As ligações Azure Mobile Apps só estão disponíveis para as Funções Azure 1.x. Não são suportados nas Funções Azure 2.x ou superior.
 
-Este artigo explica como trabalhar com ligações [azure mobile apps](../app-service-mobile/app-service-mobile-value-prop.md) em Funções Azure. A Azure Functions suporta encadernações de entrada e saída para aplicações móveis.
+Este artigo explica como trabalhar com as ligações [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) em Funções Azure. A Azure Functions suporta entradas e encadernações de saída para aplicações móveis.
 
-As ligações das Aplicações Móveis permitem-lhe ler e atualizar tabelas de dados em aplicações móveis.
+As ligações para aplicações móveis permitem ler e atualizar tabelas de dados em aplicações móveis.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## <a name="packages---functions-1x"></a>Pacotes - Funções 1.x
 
-As ligações de aplicações móveis são fornecidas no pacote [Microsoft.Azure.WebJobs.Extensions.MobileApps](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet, versão 1.x. O código fonte para o pacote está no repositório [GitHub-extensões azure-webjobs-sdk.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/)
+As ligações para aplicações móveis são fornecidas no pacote [Microsoft.Azure.WebJobs.Extensions.MobileApps](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet, versão 1.x. O código fonte para o pacote está no [repositório GitHub.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/)
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="input"></a>Input
+## <a name="input"></a>Entrada
 
-A encadernação de entrada de Aplicativos Móveis carrega um registo a partir de um ponto final de mesa móvel e passa-o para a sua função. Nas funções C# e F#, quaisquer alterações feitas ao registo são automaticamente enviadas de volta para a tabela quando a função sai com sucesso.
+A entrada de Aplicativos Móveis carrega um registo a partir de um ponto final de tabela móvel e passa-o para a sua função. Nas funções C# e F#, quaisquer alterações efetuadas ao registo são automaticamente enviadas para a mesa quando a função sai com sucesso.
 
 ## <a name="input---example"></a>Entrada - exemplo
 
-Consulte o exemplo específico da linguagem:
+Veja o exemplo específico da linguagem:
 
 * [Script C# (.csx)](#input---c-script-example)
 * JavaScript
 
-### <a name="input---c-script-example"></a>Exemplo de argumento De Entrada - C#
+### <a name="input---c-script-example"></a>Entrada - Exemplo de script C#
 
-O exemplo seguinte mostra uma ligação de entrada de Aplicativos Móveis num ficheiro *function.json* e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função é desencadeada por uma mensagem de fila que tem um identificador de registo. A função lê o registo `Text` especificado e modifica a sua propriedade.
+O exemplo a seguir mostra uma ligação de entrada de Aplicações Móveis numa *function.jsno* ficheiro e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função é desencadeada por uma mensagem de fila que tem um identificador de registo. A função lê o registo especificado e modifica a sua `Text` propriedade.
 
-Aqui estão os dados vinculativos no ficheiro *função.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -68,9 +68,9 @@ Aqui estão os dados vinculativos no ficheiro *função.json:*
 ]
 }
 ```
-A secção de [configuração](#input---configuration) explica estas propriedades.
+A secção [de configuração](#input---configuration) explica estas propriedades.
 
-Aqui está o código de script C#:
+Aqui está o código do guião C:
 
 ```cs
 #r "Newtonsoft.Json"    
@@ -87,9 +87,9 @@ public static void Run(string myQueueItem, JObject record)
 
 ### <a name="input---javascript"></a>Entrada - JavaScript
 
-O exemplo seguinte mostra uma ligação de entrada de Aplicações Móveis num ficheiro *function.json* e uma [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função é desencadeada por uma mensagem de fila que tem um identificador de registo. A função lê o registo `Text` especificado e modifica a sua propriedade.
+O exemplo a seguir mostra uma ligação de entrada de Aplicações Móveis numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função é desencadeada por uma mensagem de fila que tem um identificador de registo. A função lê o registo especificado e modifica a sua `Text` propriedade.
 
-Aqui estão os dados vinculativos no ficheiro *função.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -113,7 +113,7 @@ Aqui estão os dados vinculativos no ficheiro *função.json:*
 ]
 }
 ```
-A secção de [configuração](#input---configuration) explica estas propriedades.
+A secção [de configuração](#input---configuration) explica estas propriedades.
 
 Aqui está o código JavaScript:
 
@@ -126,52 +126,52 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Entrada - atributos
 
-Nas [bibliotecas da classe C#,](functions-dotnet-class-library.md)utilize o atributo [MobileTable.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs)
+Nas [bibliotecas de classe C,](functions-dotnet-class-library.md)utilize o atributo [MobileTable.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs)
 
-Para obter informações sobre propriedades de atributo que possa configurar, consulte a seguinte secção de [configuração](#input---configuration).
+Para obter informações sobre propriedades de atributos que possa configurar, consulte [a seguinte secção de configuração](#input---configuration).
 
 ## <a name="input---configuration"></a>Entrada - configuração
 
-A tabela a seguir explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no `MobileTable` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `MobileTable` atributo.
 
-|propriedade fun.json | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
-| **tipo**| n/d | Deve ser definido para "mobileTable"|
-| **direção**| n/d |Deve ser definido para "in"|
-| **nome**| n/d | Nome do parâmetro de entrada na assinatura da função.|
+| **tipo**| n/a | Deve ser definido para "mobileTable"|
+| **direção**| n/a |Deve ser definido para "in"|
+| **nome**| n/a | Nome do parâmetro de entrada na assinatura da função.|
 |**tableName** |**Nome de mesa**|Nome da tabela de dados da aplicação móvel|
-| **ID**| **Id** | O identificador do registo para recuperar. Pode ser estática ou baseada no gatilho que invoca a função. Por exemplo, se utilizar um gatilho de `"id": "{queueTrigger}"` fila para a sua função, utilize o valor de cadeia da mensagem de fila como o ID de registo para recuperar.|
-|**conexão**|**Conexão**|O nome de uma definição de aplicação que tem o URL da aplicação móvel. A função utiliza este URL para construir as operações de REST necessárias contra a sua aplicação móvel. Crie uma definição de aplicação na sua aplicação de função que `connection` contenha o URL da aplicação móvel e, em seguida, especifique o nome da definição de aplicação na propriedade na sua encadernação de entrada. O URL `http://<appname>.azurewebsites.net`parece.
-|**apiKey**|**ApiKey**|O nome de uma definição de aplicação que tem a chave API da sua aplicação móvel. Forneça a tecla API se [implementar uma chave API na sua aplicação móvel Node.js,](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)ou [implementar uma chave API na sua aplicação móvel .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Para fornecer a chave, crie uma definição de aplicação na `apiKey` sua aplicação de função que contenha a chave API e, em seguida, adicione a propriedade na sua ligação de entrada com o nome da definição da aplicação. |
+| **id**| **ID** | O identificador do registo para recuperar. Pode ser estático ou baseado no gatilho que invoca a função. Por exemplo, se utilizar um gatilho de fila para a sua função, `"id": "{queueTrigger}"` utiliza o valor de cadeia da mensagem de fila como iD de registo para recuperar.|
+|**conexão**|**Ligação**|O nome de uma configuração de aplicação que tem o URL da aplicação móvel. A função utiliza este URL para construir as operações de REST necessárias contra a sua aplicação móvel. Crie uma definição de aplicação na sua aplicação de função que contenha o URL da aplicação móvel e, em seguida, especifique o nome da definição da aplicação na `connection` propriedade na sua ligação de entrada. A URL `http://<appname>.azurewebsites.net` parece.
+|**apiKey**|**ApiKey**|O nome de uma configuração de aplicação que tem a chave API da sua aplicação móvel. Forneça a chave API se [implementar uma chave API na sua aplicação móvel Node.js,](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)ou [implementar uma chave API na sua aplicação móvel .NET.](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key) Para fornecer a chave, crie uma definição de app na sua aplicação de função que contenha a chave API e, em seguida, adicione a `apiKey` propriedade na sua ligação de entrada com o nome da configuração da aplicação. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!IMPORTANT]
-> Não partilhe a chave API com os seus clientes de aplicações móveis. Só deve ser distribuído de forma segura a clientes do lado do serviço, como as Funções Azure. A Azure Functions armazena as suas informações de ligação e as teclas API como configurações da aplicação para que não sejam verificadas no seu repositório de controlo de fonte. Isto salvaguarda a sua informação sensível.
+> Não partilhe a chave API com os seus clientes de aplicações móveis. Só deve ser distribuído de forma segura a clientes do lado do serviço, como o Azure Functions. A Azure Functions armazena as suas informações de ligação e as teclas API como configurações de aplicações para que não sejam verificadas no seu repositório de controlo de origem. Isto salvaguarda a sua informação sensível.
 
 ## <a name="input---usage"></a>Entrada - utilização
 
-Nas funções C#, quando o registo com o ID especificado é encontrado, é passado para o parâmetro [JObject.](https://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) Quando o registo não é encontrado, `null`o valor do parâmetro é . 
+Nas funções C#, quando o registo com o ID especificado é encontrado, é passado para o chamado parâmetro [JObject.](https://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) Quando o registo não é encontrado, o valor do parâmetro é `null` . 
 
-Nas funções JavaScript, o registo `context.bindings.<name>` é passado para o objeto. Quando o registo não é encontrado, `null`o valor do parâmetro é . 
+Nas funções JavaScript, o registo é transmitido para o `context.bindings.<name>` objeto. Quando o registo não é encontrado, o valor do parâmetro é `null` . 
 
-Nas funções C# e F#, quaisquer alterações que efetuar no registo de entrada (parâmetro de entrada) são automaticamente enviadas de volta para a tabela quando a função sair com sucesso. Não é possível modificar um registo nas funções JavaScript.
+Nas funções C# e F#, quaisquer alterações que escote ao registo de entrada (parâmetro de entrada) são automaticamente enviadas para a tabela quando a função sai com sucesso. Não é possível modificar um registo nas funções JavaScript.
 
 ## <a name="output"></a>Saída
 
-Utilize a ligação de saída de Aplicações Móveis para escrever um novo disco para uma tabela de Aplicações Móveis.  
+Utilize a ligação de saída de Aplicações Móveis para escrever um novo disco numa tabela de Aplicações Móveis.  
 
 ## <a name="output---example"></a>Saída - exemplo
 
-Consulte o exemplo específico da linguagem:
+Veja o exemplo específico da linguagem:
 
 * [C#](#output---c-example)
 * [Script C# (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
-### <a name="output---c-example"></a>Saída - C# exemplo
+### <a name="output---c-example"></a>Saída - Exemplo C#
 
-O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que é desencadeada por uma mensagem de fila e cria um registo numa tabela de aplicações móveis.
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que é desencadeada por uma mensagem de fila e cria um registo numa tabela de aplicações móveis.
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -184,11 +184,11 @@ public static object Run(
 }
 ```
 
-### <a name="output---c-script-example"></a>Exemplo de script C#
+### <a name="output---c-script-example"></a>Saída - Exemplo de script C#
 
-O exemplo seguinte mostra uma ligação de saída de Aplicativos Móveis num ficheiro *function.json* e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função é desencadeada por uma mensagem de fila e cria `Text` um novo registo com valor codificado para a propriedade.
+O exemplo a seguir mostra uma ligação de saída de Aplicações Móveis numa *function.jsno* ficheiro e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função é desencadeada por uma mensagem de fila e cria um novo registo com valor codificado para a `Text` propriedade.
 
-Aqui estão os dados vinculativos no ficheiro *função.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -212,9 +212,9 @@ Aqui estão os dados vinculativos no ficheiro *função.json:*
 }
 ```
 
-A secção de [configuração](#output---configuration) explica estas propriedades.
+A secção [de configuração](#output---configuration) explica estas propriedades.
 
-Aqui está o código de script C#:
+Aqui está o código do guião C:
 
 ```cs
 public static void Run(string myQueueItem, out object record)
@@ -227,9 +227,9 @@ public static void Run(string myQueueItem, out object record)
 
 ### <a name="output---javascript-example"></a>Saída - Exemplo JavaScript
 
-O exemplo seguinte mostra uma ligação de saída de Aplicativos Móveis num ficheiro *function.json* e uma [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função é desencadeada por uma mensagem de fila e cria `Text` um novo registo com valor codificado para a propriedade.
+O exemplo a seguir mostra uma ligação de saída de Aplicações Móveis numa *function.jsem* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função é desencadeada por uma mensagem de fila e cria um novo registo com valor codificado para a `Text` propriedade.
 
-Aqui estão os dados vinculativos no ficheiro *função.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -254,7 +254,7 @@ Aqui estão os dados vinculativos no ficheiro *função.json:*
 }
 ```
 
-A secção de [configuração](#output---configuration) explica estas propriedades.
+A secção [de configuração](#output---configuration) explica estas propriedades.
 
 Aqui está o código JavaScript:
 
@@ -271,9 +271,9 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="output---attributes"></a>Saída - atributos
 
-Nas [bibliotecas da classe C#,](functions-dotnet-class-library.md)utilize o atributo [MobileTable.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs)
+Nas [bibliotecas de classe C,](functions-dotnet-class-library.md)utilize o atributo [MobileTable.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs)
 
-Para obter informações sobre propriedades de atributo que possa configurar, consulte [A Saída - configuração](#output---configuration). Aqui está `MobileTable` um exemplo de atributo numa assinatura de método:
+Para obter informações sobre propriedades de atributos que possa configurar, consulte [saída - configuração](#output---configuration). Aqui está um `MobileTable` exemplo de atributo numa assinatura de método:
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -286,37 +286,37 @@ public static object Run(
 }
 ```
 
-Para um exemplo completo, consulte [a saída - C# exemplo](#output---c-example).
+Para um exemplo completo, consulte [o exemplo de Saída - C#](#output---c-example).
 
 ## <a name="output---configuration"></a>Saída - configuração
 
-A tabela a seguir explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no `MobileTable` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `MobileTable` atributo.
 
-|propriedade fun.json | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
-| **tipo**| n/d | Deve ser definido para "mobileTable"|
-| **direção**| n/d |Deve ser definido para "fora"|
-| **nome**| n/d | Nome do parâmetro de saída na assinatura da função.|
+| **tipo**| n/a | Deve ser definido para "mobileTable"|
+| **direção**| n/a |Deve ser definido para "out"|
+| **nome**| n/a | Nome do parâmetro de saída na assinatura da função.|
 |**tableName** |**Nome de mesa**|Nome da tabela de dados da aplicação móvel|
-|**conexão**|**MobileAppuriSetting**|O nome de uma definição de aplicação que tem o URL da aplicação móvel. A função utiliza este URL para construir as operações de REST necessárias contra a sua aplicação móvel. Crie uma definição de aplicação na sua aplicação de função que `connection` contenha o URL da aplicação móvel e, em seguida, especifique o nome da definição de aplicação na propriedade na sua encadernação de entrada. O URL `http://<appname>.azurewebsites.net`parece.
-|**apiKey**|**ApiKeySetting**|O nome de uma definição de aplicação que tem a chave API da sua aplicação móvel. Forneça a tecla API se [implementar uma chave API no seu backend de aplicação móvel Node.js,](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)ou [implementar uma chave API no seu backend de aplicação móvel .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Para fornecer a chave, crie uma definição de aplicação na `apiKey` sua aplicação de função que contenha a chave API e, em seguida, adicione a propriedade na sua ligação de entrada com o nome da definição da aplicação. |
+|**conexão**|**MobileAppUriSetting**|O nome de uma configuração de aplicação que tem o URL da aplicação móvel. A função utiliza este URL para construir as operações de REST necessárias contra a sua aplicação móvel. Crie uma definição de aplicação na sua aplicação de função que contenha o URL da aplicação móvel e, em seguida, especifique o nome da definição da aplicação na `connection` propriedade na sua ligação de entrada. A URL `http://<appname>.azurewebsites.net` parece.
+|**apiKey**|**ApiKeySetting**|O nome de uma configuração de aplicação que tem a chave API da sua aplicação móvel. Forneça a chave API se [implementar uma chave API no seu backend de aplicações móveis Node.js,](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)ou [implementar uma chave API no seu backend de aplicações móveis .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Para fornecer a chave, crie uma definição de app na sua aplicação de função que contenha a chave API e, em seguida, adicione a `apiKey` propriedade na sua ligação de entrada com o nome da configuração da aplicação. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!IMPORTANT]
-> Não partilhe a chave API com os seus clientes de aplicações móveis. Só deve ser distribuído de forma segura a clientes do lado do serviço, como as Funções Azure. A Azure Functions armazena as suas informações de ligação e as teclas API como configurações da aplicação para que não sejam verificadas no seu repositório de controlo de fonte. Isto salvaguarda a sua informação sensível.
+> Não partilhe a chave API com os seus clientes de aplicações móveis. Só deve ser distribuído de forma segura a clientes do lado do serviço, como o Azure Functions. A Azure Functions armazena as suas informações de ligação e as teclas API como configurações de aplicações para que não sejam verificadas no seu repositório de controlo de origem. Isto salvaguarda a sua informação sensível.
 
 ## <a name="output---usage"></a>Saída - utilização
 
-Nas funções do script C#, utilize `out object` um parâmetro de saída de tipo nomeado para aceder ao registo de saída. Nas bibliotecas da `MobileTable` classe C#, o atributo pode ser utilizado com qualquer um dos seguintes tipos:
+Nas funções de script C# utilize um parâmetro de saída nomeado `out object` para aceder ao registo de saída. Nas bibliotecas de classe C#, o `MobileTable` atributo pode ser utilizado com qualquer um dos seguintes tipos:
 
-* `ICollector<T>`ou, `IAsyncCollector<T>` `T` onde `JObject` é ou qualquer `public string Id` tipo com uma propriedade.
+* `ICollector<T>`ou `IAsyncCollector<T>` , onde está ou qualquer tipo com uma `T` `JObject` `public string Id` propriedade.
 * `out JObject`
-* `out T`ou, `out T[]` `T` onde está qualquer `public string Id` Tipo com uma propriedade.
+* `out T`ou `out T[]` , onde está qualquer Tipo com uma `T` `public string Id` propriedade.
 
-Nas funções Node.js, utilize `context.bindings.<name>` para aceder ao registo de saída.
+Em Node.js funções, utilize `context.bindings.<name>` para aceder ao registo de saída.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre as funções azure gatilhos e encadernações](functions-triggers-bindings.md)
+> [Saiba mais sobre as funções Azure desencadeia e encaderna](functions-triggers-bindings.md)

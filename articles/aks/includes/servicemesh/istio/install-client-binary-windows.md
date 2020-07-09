@@ -4,15 +4,15 @@ ms.topic: include
 ms.date: 11/15/2019
 ms.author: pabouwer
 ms.openlocfilehash: e26a2c214a03243d6507296c1e981706be8c56db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81736078"
 ---
-## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Descarregue e instale o binário do cliente istioctl istioctl
+## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Descarregue e instale o binário de cliente istioctl Istio
 
-Numa concha baseada no PowerShell `Invoke-WebRequest` no Windows, utilize para descarregar `Expand-Archive` o lançamento istio e, em seguida, extrair com o seguinte:
+Numa concha baseada em PowerShell no Windows, utilize `Invoke-WebRequest` para descarregar a versão Istio e, em seguida, extrair com o `Expand-Archive` seguinte:
 
 ```powershell
 # Specify the Istio version that will be leveraged throughout these instructions
@@ -24,7 +24,7 @@ $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github
 Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 ```
 
-O `istioctl` binário do cliente funciona na sua máquina cliente e permite-lhe interagir com a malha de serviço Istio. Utilize os seguintes comandos `istioctl` para instalar o binário do cliente Istio numa concha baseada em PowerShell no Windows. Estes comandos `istioctl` copiam o binário do cliente para uma pasta Istio e, em seguida, disponibilizam-no `PATH`imediatamente (na concha atual) e permanentemente (através de reinícios de concha) através da sua . Não precisa de privilégios elevados (administradores) para executar estes comandos e não precisa reiniciar a sua concha.
+O `istioctl` binário cliente funciona na sua máquina de cliente e permite-lhe interagir com a malha de serviço Istio. Utilize os seguintes comandos para instalar o binário do cliente Istio `istioctl` numa concha baseada em PowerShell no Windows. Estes comandos copiam o binário do `istioctl` cliente para uma pasta Istio e, em seguida, disponibilizam-no imediatamente (na casca atual) e permanentemente (através do recomeço da concha) através do seu `PATH` . Não precisa de privilégios elevados (Administrador) para executar estes comandos e não precisa de reiniciar a sua concha.
 
 ```powershell
 # Copy istioctl.exe to C:\Istio

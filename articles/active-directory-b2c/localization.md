@@ -1,6 +1,6 @@
 ---
-title: Localização - Diretório Ativo Azure B2C
-description: Especifique o elemento de localização de uma política personalizada no Diretório Ativo Azure B2C.
+title: Localização - Azure Ative Directory B2C
+description: Especificar o elemento de localização de uma política personalizada no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -10,23 +10,23 @@ ms.topic: reference
 ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 94ff7ddda41f2df2634d927a7dbf8a5a0d4fc1d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69368ecd7234912bcaf5eb606545f62ddb7b30a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681420"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204188"
 ---
 # <a name="localization"></a>Localização
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O elemento **Localização** permite-lhe apoiar vários locais ou idiomas na política para as viagens do utilizador. O apoio à localização em políticas permite-lhe:
+O elemento **Localização** permite-lhe suportar vários locais ou idiomas na política para as viagens do utilizador. O apoio à localização nas políticas permite-lhe:
 
-- Configurar a lista explícita das línguas suportadas numa política e escolher uma linguagem padrão.
-- Forneça cordas e coleções específicas da linguagem.
+- Crie a lista explícita das línguas apoiadas numa política e escolha uma língua predefinida.
+- Fornecer cordas e coleções específicas da linguagem.
 
-```XML
+```xml
 <Localization Enabled="true">
   <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
     <SupportedLanguage>en</SupportedLanguage>
@@ -37,70 +37,70 @@ O elemento **Localização** permite-lhe apoiar vários locais ou idiomas na pol
   ...
 ```
 
-O elemento **Localização** contém os seguintes atributos:
+O elemento **de localização** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Ativado | Não | Valores `true` possíveis: ou `false`. |
+| Ativado | Não | Valores possíveis: `true` ou `false` . |
 
-O elemento **de localização** contém elementos XML que seguem
+O elemento **de localização** contém elementos XML
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Línguas suportadas | 1:n | Lista de línguas apoiadas. |
+| Apoio deGuages | 1:n | Lista de línguas apoiadas. |
 | Recursos Localizados | 0:n | Lista de recursos localizados. |
 
-## <a name="supportedlanguages"></a>Línguas suportadas
+## <a name="supportedlanguages"></a>Apoio deGuages
 
-O elemento **SupportEdLanguages** contém os seguintes atributos:
+O elemento **SuportadoLanguages** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | DefaultLanguage | Sim | A linguagem a ser usada como padrão para recursos localizados. |
-| Função Função Behavior | Não | Uma enumeração dos valores que são fundidos juntamente com qualquer ClaimType presente numa política-mãe com o mesmo identificador. Use este atributo quando substituir uma reclamação especificada na política de base. Valores `Append`possíveis: , `Prepend`ou `ReplaceAll`. O `Append` valor especifica que a recolha de dados presentes deve ser anexada ao fim da recolha especificada na política-mãe. O `Prepend` valor especifica que a recolha dos dados presentes deve ser adicionada antes da recolha especificada na política-mãe. O `ReplaceAll` valor especifica que a recolha de dados definida na política-mãe deve ser ignorada, utilizando, em vez disso, os dados definidos na política atual. |
+| FusõesBehavior | Não | Uma enumeração de valores que são fundidos juntamente com qualquer ClaimType presente numa política-mãe com o mesmo identificador. Utilize este atributo quando substituir uma reclamação especificada na política base. Valores possíveis: `Append` `Prepend` , ou . `ReplaceAll` . O `Append` valor especifica que a recolha de dados presentes deve ser anexada ao fim da recolha especificada na política-mãe. O `Prepend` valor especifica que a recolha de dados presentes deve ser adicionada antes da recolha especificada na política-mãe. O `ReplaceAll` valor especifica que a recolha de dados definidos na política-mãe deve ser ignorada, utilizando em vez dos dados definidos na política atual. |
 
-### <a name="supportedlanguages"></a>Línguas suportadas
+### <a name="supportedlanguages"></a>Apoio deGuages
 
-O elemento **SupportEdLanguages** contém os seguintes elementos:
+O elemento **Suportado Deguages** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Linguagem apoiada | 1:n | Exibe conteúdo em conformidade com uma etiqueta linguística por RFC 5646 - Tags para Identificar Idiomas. |
+| Apoio àguagem | 1:n | Exibe conteúdo satisfatório em conformidade com uma etiqueta linguística por RFC 5646 - Tags para Identificar Línguas. |
 
 ## <a name="localizedresources"></a>Recursos Localizados
 
-O elemento **Recursos Localizados** contém os seguintes atributos:
+O elemento **Imagens Locais** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Id | Sim | Um identificador que é usado para identificar recursos localizados de forma única. |
 
-O elemento **Recursos Localizados** contém os seguintes elementos:
+O elemento **LocaledResources** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Coleções Localizadas | 0:n | Define coleções inteiras em várias culturas. Uma coleção pode ter um número diferente de itens e diferentes cordas para várias culturas. Exemplos de coleções incluem as enumerações que aparecem nos tipos de reclamação. Por exemplo, uma lista país/região é mostrada ao utilizador numa lista de abandono. |
-| Strings localizados | 0:n | Define todas as cordas, exceto as cordas que aparecem em coleções, em várias culturas. |
+| Collections localizadas | 0:n | Define coleções inteiras em várias culturas. Uma coleção pode ter um número diferente de itens e diferentes cordas para várias culturas. Exemplos de coleções incluem as enumerações que aparecem nos tipos de reclamações. Por exemplo, uma lista de país/região é mostrada ao utilizador numa lista de abandono. |
+| Padrões Localizados | 0:n | Define todas as cordas, exceto as cordas que aparecem em coleções, em várias culturas. |
 
-### <a name="localizedcollections"></a>Coleções Localizadas
+### <a name="localizedcollections"></a>Collections localizadas
 
-O elemento **Coleções Localizadas** contém os seguintes elementos:
+O elemento **LocalizedCollections** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Coleção Localizada | 1:n | Lista de línguas apoiadas. |
+| Collecto Localizado | 1:n | Lista de línguas apoiadas. |
 
-#### <a name="localizedcollection"></a>Coleção Localizada
+#### <a name="localizedcollection"></a>Collecto Localizado
 
-O elemento **Coleção Localizada** contém os seguintes atributos:
+O elemento **Decolecção Localizada** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ElementType | Sim | Refere um elemento ClaimType ou um elemento de interface do utilizador no ficheiro de política. |
-| Elementide | Sim | Uma cadeia que contém uma referência a um tipo de reclamação já definido na secção ClaimsSchema que é usada se o **ElementType** for definido para um ClaimType. |
-| Coleção-alvo | Sim | A coleção do alvo. |
+| ElementoType | Sim | Refere um elemento ClaimType ou um elemento de interface do utilizador no ficheiro de política. |
+| ElementId | Sim | Uma cadeia que contém uma referência a um tipo de reclamação já definido na secção ClaimsSchema que é usada se **o ElementType** estiver definido para um ClaimType. |
+| TargetCollection | Sim | A coleção de alvos. |
 
-O elemento **Coleção Localizada** contém os seguintes elementos:
+O elemento **Decolecção Localizada** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
@@ -108,15 +108,15 @@ O elemento **Coleção Localizada** contém os seguintes elementos:
 
 O elemento **Item** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Texto | Sim | A cadeia de visualização fácil de utilizar que deve ser mostrada ao utilizador na interface do utilizador para esta opção. |
-| Valor | Sim | O valor da reclamação de cadeia associado à seleção desta opção. |
-| SelectByDefault | Não | Indica se esta opção deve ou não ser selecionada por defeito na UI. Valores possíveis: Verdadeiro ou Falso. |
+| Valor | Sim | O valor de reivindicação de cadeia associado à seleção desta opção. |
+| SelecioneByDefault | Não | Indica se esta opção deve ou não ser selecionada por padrão na UI. Valores possíveis: Verdadeiros ou Falsos. |
 
-O exemplo seguinte mostra a utilização do elemento **Coleções Localizadas.** Contém dois elementos **LocalizadoSCollection,** um para inglês e outro para espanhol. Ambos definiram a coleção `Gender` **restrição** da reclamação com uma lista de itens para inglês e espanhol.
+O exemplo a seguir mostra a utilização do elemento **Decollections Localizado.** Contém dois elementos **decolecção localizada,** um para inglês e outro para espanhol. Ambos definiram a coleção **de restrição** da reclamação `Gender` com uma lista de itens para inglês e espanhol.
 
-```XML
+```xml
 <LocalizedResources Id="api.selfasserted.en">
  <LocalizedCollections>
    <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
@@ -134,41 +134,41 @@ O exemplo seguinte mostra a utilização do elemento **Coleções Localizadas.**
 </LocalizedCollections>
 ```
 
-### <a name="localizedstrings"></a>Strings localizados
+### <a name="localizedstrings"></a>Padrões Localizados
 
-O elemento **"Strings" localizado** contém os seguintes elementos:
+O elemento **LocalizadoStrings** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| String localizado | 1:n | Uma corda localizada. |
+| Estamos localizados | 1:n | Uma corda localizada. |
 
-O elemento **LocalizedString** contém os seguintes atributos:
+O elemento **LocalizadoString** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ElementType | Sim | Valores possíveis: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [Predicado](#predicate), [Validação de Entrada](#inputvalidation), ou [UxElement](#uxelement).   | 
-| Elementide | Sim | Se o **ElementType** `Predicate`estiver `InputValidation`definido para, `ClaimType`ou , este elemento contém uma referência a um tipo de reclamação já definido na secção ClaimsSchema. |
-| Cadeia | Sim | Se o **ElementType** estiver `ClaimType`definido, este elemento contém uma referência a um atributo de um tipo de reclamação. Valores `DisplayName`possíveis: , `AdminHelpText`ou `PatternHelpText`. O `DisplayName` valor é utilizado para definir o nome do display de reclamação. O `AdminHelpText` valor é utilizado para definir o nome de texto de ajuda do utilizador da reclamação. O `PatternHelpText` valor é usado para definir o texto de ajuda do padrão de reclamação. Se o **ElementType** estiver `UxElement`definido, este elemento contém uma referência a um atributo de um elemento de interface do utilizador. Se o **ElementType** estiver `ErrorMessage`definido, este elemento especifica o identificador de uma mensagem de erro. Consulte [as identificações](localization-string-ids.md) de cordas de `UxElement` localização para obter uma lista completa dos identificadores.|
+| ElementoType | Sim | Valores possíveis: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [Predicate,](#predicate) [InputValidation](#inputvalidation), ou [UxElement](#uxelement).   | 
+| ElementId | Sim | Se **o ElementType** estiver definido para `ClaimType` , ou , este elemento contém uma referência a um tipo de `Predicate` `InputValidation` reclamação já definido na secção ClaimsSchema. |
+| StringId | Sim | Se **o ElementType** estiver definido `ClaimType` para, este elemento contém uma referência a um atributo de um tipo de reclamação. Valores possíveis: `DisplayName` `AdminHelpText` , ou . `PatternHelpText` . O `DisplayName` valor é utilizado para definir o nome de exibição de reclamação. O `AdminHelpText` valor é utilizado para definir o nome de texto de ajuda do utilizador de reclamação. O `PatternHelpText` valor é usado para definir o texto de ajuda do padrão de reclamação. Se **o ElementType** estiver definido `UxElement` para, este elemento contém uma referência a um atributo de um elemento de interface do utilizador. Se **o ElementType** estiver definido para `ErrorMessage` , este elemento especifica o identificador de uma mensagem de erro. Consulte [os IDs de cadeia de localização](localization-string-ids.md) para obter uma lista completa dos `UxElement` identificadores.|
 
-## <a name="elementtype"></a>ElementType
+## <a name="elementtype"></a>ElementoType
 
-O ElementType refere-se a um tipo de reclamação, a uma transformação de reclamações ou a um elemento de interface do utilizador na política a ser localizada.
+O ElementType refere-se a um tipo de reclamação, a uma transformação de reclamação ou a um elemento de interface de utilizador na política a ser localizada.
 
-| Elemento para localizar | ElementType | Elementide |Cadeia |
+| Elemento para localizar | ElementoType | ElementId |StringId |
 | --------- | -------- | ----------- |----------- |
-| Nome do fornecedor de identidade |`ClaimsProvider`| | A identificação do elemento ClaimsExchange|
-| Atributos do tipo de reclamação|`ClaimType`|Nome do tipo de reclamação| O atributo da reivindicação a ser localizada. Valores `AdminHelpText`possíveis: , `DisplayName`, `PatternHelpText`e `UserHelpText`.|
-|Mensagem de erro|`ErrorMessage`||A identificação da mensagem de erro |
-|Cópias de cordas localizadas em sinistros|`GetLocalizedStringsTra nsformationClaimType`||O nome da reivindicação de saída|
-|Mensagem de utilizador predicada|`Predicate`|O nome do predicado| O atributo do predicado a ser localizado. Valores `HelpText`possíveis: .|
-|Mensagem de utilizador do grupo predicado|`InputValidation`|Identificação do elemento Predicado Validação.|A identificação do elemento PredicadoGroup. O grupo predicado deve ser uma criança do elemento de validação predicado, tal como definido no ElementId.|
-|Elementos da interface de utilizador |`UxElement` | | A identificação do elemento interface do utilizador a ser localizada.|
+| Nome do fornecedor de identidade |`ClaimsProvider`| | O ID do elemento ClaimsExchange|
+| Atributos do tipo de reclamação|`ClaimType`|Nome do tipo de reclamação| O atributo da reivindicação a ser localizado. Valores possíveis: `AdminHelpText` `DisplayName` , , e `PatternHelpText` `UserHelpText` .|
+|Mensagem de erro|`ErrorMessage`||O ID da mensagem de erro |
+|Copia cordas localizadas em reclamações|`GetLocalizedStringsTra nsformationClaimType`||O nome da reivindicação de saída|
+|Mensagem de utilizador predicado|`Predicate`|O nome do predicado| O atributo do predicado a ser localizado. Valores possíveis: `HelpText` .|
+|Mensagem de utilizador do grupo predicado|`InputValidation`|A identificação do elemento PredicateValidation.|O ID do elemento Grupo Predicate. O grupo predicado deve ser uma criança do elemento de validação predicado, tal como definido no ElementId.|
+|Elementos da interface de utilizador |`UxElement` | | O ID do elemento de interface do utilizador a ser localizado.|
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="claimsprovider"></a>ReclamaçõesProvedor
+### <a name="claimsprovider"></a>Provívido de Reclamações
 
-O valor reclamação é utilizado para localizar um dos fornecedores de reclamações a exibir o nome. 
+O valor ClaimsProvider é utilizado para localizar um dos fornecedores de reclamações. 
 
 ```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
@@ -182,7 +182,7 @@ O valor reclamação é utilizado para localizar um dos fornecedores de reclama�
 
 ```
 
-O exemplo que se segue mostra como localizar o nome de exibição dos fornecedores de reclamações.
+O exemplo a seguir mostra como localizar o nome de exibição dos fornecedores de reclamações.
 
 ```xml
 <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
@@ -190,9 +190,9 @@ O exemplo que se segue mostra como localizar o nome de exibição dos fornecedor
 <LocalizedString ElementType="ClaimsProvider" StringId="LinkedInExchange">LinkedIn</LocalizedString>
 ```
 
-### <a name="claimtype"></a>Tipo de reclamação
+### <a name="claimtype"></a>ClaimType
 
-O valor Do ClaimType é utilizado para localizar um dos atributos de reclamação. 
+O valor ClaimType é utilizado para localizar um dos atributos de reclamação. 
 
 ```xml
 <ClaimType Id="email">
@@ -203,17 +203,17 @@ O valor Do ClaimType é utilizado para localizar um dos atributos de reclamaçã
 </ClaimType>
 ```
 
-O exemplo seguinte mostra como localizar os atributos DisplayName, UserHelpText e PatternHelpText do tipo de pedido de e-mail.
+O exemplo a seguir mostra como localizar os atributos DisplayName, UserHelpText e PatternHelpText do tipo de reclamação de e-mail.
 
-```XML
+```xml
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
 ```
 
-### <a name="errormessage"></a>Mensagem de erro
+### <a name="errormessage"></a>ErroS
 
-O valor ErrorMessage é utilizado para localizar uma das mensagens de erro do sistema. 
+O valor ErrorMessage é utilizado para localização de uma das mensagens de erro do sistema. 
 
 ```xml
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
@@ -225,16 +225,16 @@ O valor ErrorMessage é utilizado para localizar uma das mensagens de erro do si
 </TechnicalProfile>
 ```
 
-O exemplo que se segue mostra como localizar a mensagem de erro UserMessageIfClaimsPrincipalAlreadyExiste uma mensagem de erro.
+O exemplo a seguir mostra como rastrear a mensagem de erro do UserMessageIfClaimsPrincipalAlreadyExists.
 
 
-```XML
+```xml
 <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
 ```
 
 ### <a name="getlocalizedstringstransformationclaimtype"></a>GetLocalizedStringsTransformationClaimType
 
-O valor GetLocalizedStringsTransformationClaimType é usado para copiar cordas localizadas em sinistros. Para mais informações, consulte [GetLocalizedStringsTransformation reivindica a transformação](string-transformations.md#getlocalizedstringstransformation)
+O valor GetLocalizedStringsTransformationClaimType é utilizado para copiar cordas localizadas em sinistros. Para obter mais informações, consulte [a transformação de reclamações de pedidos de gestão getLocalizedStrings](string-transformations.md#getlocalizedstringstransformation)
 
 
 ```xml
@@ -248,7 +248,7 @@ O valor GetLocalizedStringsTransformationClaimType é usado para copiar cordas l
 </ClaimsTransformation>
 ```
 
-O exemplo seguinte mostra como localizar as alegações de saída da GetLocalizedStringsTransformation reivindica a transformação.
+O exemplo a seguir mostra como localização de alegações de produção da transformação de sinistros GetLocalizedStringsTransformation.
 
 ```xml
 <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
@@ -259,7 +259,7 @@ O exemplo seguinte mostra como localizar as alegações de saída da GetLocalize
 
 ### <a name="predicate"></a>Predicado
 
-O valor predicado é utilizado para localizar uma das mensagens de erro [predicadas.](predicates.md) 
+O valor Predicado é utilizado para localização de uma das mensagens de erro [predicados.](predicates.md) 
 
 ```xml
 <Predicates>
@@ -282,7 +282,7 @@ O valor predicado é utilizado para localizar uma das mensagens de erro [predica
 </Predicates>
 ```
 
-O exemplo que se segue mostra como localizar predicados ajudam o texto.
+O exemplo a seguir mostra como localizar os predicados ajudam o texto.
 
 ```xml
 <LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">The password must be between 6 and 64 characters.</LocalizedString>
@@ -290,9 +290,9 @@ O exemplo que se segue mostra como localizar predicados ajudam o texto.
 <LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">an uppercase letter</LocalizedString>
 ```
 
-### <a name="inputvalidation"></a>Validação de Entrada
+### <a name="inputvalidation"></a>InputValidation
 
-O valor de validação de entrada é utilizado para localizar uma das mensagens de erro do grupo [PredicateValidação.](predicates.md) 
+O valor InputValidation é utilizado para localização de uma das mensagens de erro do grupo [PredicateValidation.](predicates.md) 
 
 ```xml
 <PredicateValidations>
@@ -317,24 +317,24 @@ O valor de validação de entrada é utilizado para localizar uma das mensagens 
 </PredicateValidations>
 ```
 
-O exemplo que se segue mostra como localizar um grupo de validação predicado ajuda texto.
+O exemplo a seguir mostra como localização de um grupo de validação predicado ajuda texto.
 
-```XML
+```xml
 <LocalizedString ElementType="InputValidation" ElementId="CustomPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
 ```
 
 ### <a name="uxelement"></a>UxElement
 
-O valor UxElement é utilizado para localizar um dos elementos da interface do utilizador. O exemplo que se segue mostra como localizar os botões de continuação e cancelamento.
+O valor UxElement é utilizado para localizar um dos elementos de interface do utilizador. O exemplo a seguir mostra como localizar os botões de continuar e cancelar.
 
-```XML
+```xml
 <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
 <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte os seguintes artigos para exemplos de localização:
 
-- [Personalização linguística com política personalizada no Diretório Ativo Azure B2C](custom-policy-localization.md)
-- [Personalização linguística com fluxos de utilizadores no Diretório Ativo Azure B2C](user-flow-language-customization.md)
+- [Personalização linguística com política personalizada no Azure Ative Directory B2C](custom-policy-localization.md)
+- [Personalização linguística com fluxos de utilizadores no Azure Ative Directory B2C](user-flow-language-customization.md)

@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,15 +9,15 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b3907882df09bfae1d6453fbffbd3e7562554f7c
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184141"
 ---
-* **Baseado em Políticas:** As VPNs baseadas em políticas foram anteriormente chamadas de gateways de encaminhamento estático no modelo clássico de implantação. As VPNs baseadas em políticas encriptam e pacotes diretos através de túneis IPsec com base nas políticas do IPsec configuradas com as combinações de prefixos de endereço entre a sua rede no local e o Azure VNet. Normalmente, a política (ou o seletor de tráfego), é definido como uma lista de acesso na configuração do dispositivo VPN. O valor para um tipo VPN baseado em políticas é *PolicyBased*. Ao utilizar uma VPN baseada em políticas, tenha em mente as seguintes limitações:
+* **Política Integrada:** As VPNs de Política foram anteriormente chamadas de gateways de encaminhamento estático no modelo clássico de implantação. As VPNs baseadas em políticas encriptam e directizam pacotes através de túneis IPsec com base nas políticas IPsec configuradas com as combinações de prefixos de endereço entre a sua rede no local e o VNet Azure. Normalmente, a política (ou o seletor de tráfego), é definido como uma lista de acesso na configuração do dispositivo VPN. O valor para um tipo VPN baseado em política é *o PolicyBased*. Ao utilizar uma VPN VPN de 400% de política, tenha em mente as seguintes limitações:
   
-  * As VPNs baseadas em políticas **só** podem ser utilizadas no Gateway Basic SKU. Este tipo VPN não é compatível com outras SKUs de gateway.
-  * Só pode ter um túnel de 1 quando utilizar uma VPN baseada em políticas.
-  * Só é possível utilizar VPNs baseados em políticas para ligações S2S e apenas para determinadas configurações. A maioria das configurações de Gateway VPN requerem uma VPN baseada em rota.
-* **RouteBased**: As VPNs baseadas em rotas foram anteriormente chamadas de gateways de encaminhamento dinâmico no modelo clássico de implantação. As VPNs baseadas em rotas utilizam "rotas" na tabela de encaminhamento ou encaminhamento ip para direcionar os pacotes para as respetivas interfaces de túnel. As interfaces de túnel, em seguida, encriptam ou desencriptam os pacotes dentro e fora dos túneis. A política (ou seletor de tráfego) para VPNs baseados em rotas é configurada como qualquer um para qualquer (ou wild cards). O valor para um tipo VPN baseado em rota é *RouteBased*.
+  * As VPNs baseadas em políticas **só** podem ser utilizadas no Portal Básico SKU. Este tipo VPN não é compatível com outros SKUs de gateway.
+  * Só pode ter um túnel quando utilizar uma VPN de VPN de sVPN.
+  * Só pode utilizar VPNs baseados em Políticas para ligações S2S e apenas para determinadas configurações. A maioria das configurações do Gateway VPN requerem uma VPN RouteBased.
+* **RouteBased**: RouteBased VPNs foram anteriormente chamados gateways dinâmicos de encaminhamento no modelo de implementação clássico. As VPNs routebas utilizam "rotas" na tabela de encaminhamento ou encaminhamento IP para direcionar os pacotes para as respetivas interfaces de túneis. As interfaces de túnel, em seguida, encriptam ou desencriptam os pacotes dentro e fora dos túneis. A política (ou seletor de tráfego) para VPNs routebased são configuradas como qualquer qualquer -para-qualquer (ou cartões selvagens). O valor para um tipo VPN RouteBased é *RouteBased*.

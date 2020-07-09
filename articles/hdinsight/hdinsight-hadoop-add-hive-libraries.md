@@ -1,31 +1,31 @@
 ---
-title: Bibliotecas Apache Hive durante a criação de cluster - Azure HDInsight
-description: Aprenda a adicionar bibliotecas Apache Hive (ficheiros de frascos) a um cluster HDInsight durante a criação do cluster.
+title: Bibliotecas apaches colmeias durante a criação de cluster - Azure HDInsight
+description: Saiba como adicionar bibliotecas Apache Hive (ficheiros de frascos) a um cluster HDInsight durante a criação do cluster.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 02/14/2020
-ms.openlocfilehash: 0b746963cea5a950ba47d8b4dfeb074cb0910436
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c678372fbd54e528a8a16eacc601e815cfd32e58
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77471028"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082238"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Adicione bibliotecas personalizadas da Hive Apache ao criar o seu cluster HDInsight
 
-Saiba como pré-carregar as bibliotecas [apache hive](https://hive.apache.org/) no HDInsight. Este documento contém informações sobre a utilização de uma Ação de Script para pré-carregar bibliotecas durante a criação de clusters. As bibliotecas adicionadas usando os passos deste documento estão globalmente disponíveis na Colmeia - não há necessidade de usar [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) para carregá-las.
+Aprenda a pré-carregar bibliotecas [apache hive](https://hive.apache.org/) em HDInsight. Este documento contém informações sobre a utilização de uma Ação de Script para pré-carregar bibliotecas durante a criação do cluster. As bibliotecas adicionadas usando os passos deste documento estão globalmente disponíveis na Hive - não há necessidade de usar [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) para carregá-las.
 
 ## <a name="how-it-works"></a>Como funciona
 
-Ao criar um cluster, pode usar uma Ação de Script para modificar os nós de cluster à medida que são criados. O script neste documento aceita um único parâmetro, que é a localização das bibliotecas. Esta localização deve estar numa Conta de Armazenamento Azure, e as bibliotecas devem ser armazenadas como ficheiros de frascos.
+Ao criar um cluster, pode utilizar uma Ação de Script para modificar os nós do cluster à medida que são criados. O script neste documento aceita um único parâmetro, que é a localização das bibliotecas. Esta localização deve estar numa conta de armazenamento Azure, e as bibliotecas devem ser armazenadas como ficheiros de frascos.
 
-Durante a criação do cluster, o script `/usr/lib/customhivelibs/` enumera os ficheiros, copia-os para `hive.aux.jars.path` o diretório na cabeça e nos nós dos trabalhadores, acrescentando-os depois à propriedade no `core-site.xml` ficheiro. Nos clusters baseados no Linux, `hive-env.sh` também atualiza o ficheiro com a localização dos ficheiros.
+Durante a criação do cluster, o script enumera os ficheiros, copia-os para o `/usr/lib/customhivelibs/` diretório na cabeça e nos nós dos trabalhadores, e depois adiciona-os à `hive.aux.jars.path` propriedade no `core-site.xml` ficheiro. Nos clusters baseados no Linux, também atualiza o `hive-env.sh` ficheiro com a localização dos ficheiros.
 
-A utilização da ação do script neste artigo disponibiliza as bibliotecas quando se utiliza um cliente da Colmeia para **WebHCat**e **HiveServer2**.
+A utilização da ação de script neste artigo disponibiliza as bibliotecas ao utilizar um cliente Hive para **WebHCat,** e **HiveServer2**.
 
 ## <a name="the-script"></a>O guião
 
@@ -33,44 +33,44 @@ A utilização da ação do script neste artigo disponibiliza as bibliotecas qua
 
 [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-### <a name="requirements"></a>Requisitos
+### <a name="requirements"></a>Requirements
 
-* Os scripts devem ser aplicados tanto nos nós da **cabeça** como nos **nós do Trabalhador.**
+* Os scripts devem ser aplicados tanto nos **nós da Cabeça como** nos nós do **Trabalhador**.
 
-* Os frascos que pretende instalar devem ser guardados no Armazenamento De Blob Azure num **único recipiente**.
+* Os frascos que pretende instalar devem ser guardados num **único recipiente.**
 
-* A conta de armazenamento que contém a biblioteca de ficheiros de frascos **deve** ser ligada ao cluster HDInsight durante a criação. Deve ser a conta de armazenamento por defeito ou uma conta adicionada através das __Definições da Conta de Armazenamento__.
+* A conta de armazenamento que contém a biblioteca de ficheiros de frascos **deve** ser ligada ao cluster HDInsight durante a criação. Deve ser a conta de armazenamento predefinido ou uma conta adicionada através __das Definições de Conta de Armazenamento.__
 
-* O caminho WASB para o recipiente deve ser especificado como parâmetro para a Ação do Script. Por exemplo, se os frascos forem guardados num recipiente chamado **libs** numa `wasbs://libs@mystorage.blob.core.windows.net/`conta de armazenamento chamada **mystorage,** o parâmetro seria .
+* O caminho WASB para o recipiente deve ser especificado como um parâmetro para a Ação do Script. Por exemplo, se os frascos forem armazenados num recipiente denominado **libs** numa conta de armazenamento denominada **mystorage,** o parâmetro seria `wasbs://libs@mystorage.blob.core.windows.net/` .
 
   > [!NOTE]  
-  > Este documento pressupõe que já criou uma conta de armazenamento, um recipiente blob, e carregou os ficheiros para o mesmo.
+  > Este documento pressupõe que já criou uma conta de armazenamento, um recipiente blob e fez o upload dos ficheiros para o mesmo.
   >
-  > Se não criou uma conta de armazenamento, pode fazê-lo através do [portal Azure.](https://portal.azure.com) Em seguida, pode utilizar um utilitário como o [Azure Storage Explorer](https://storageexplorer.com/) para criar um recipiente na conta e enviar ficheiros para o mesmo.
+  > Se não criou uma conta de armazenamento, pode fazê-lo através do [portal Azure.](https://portal.azure.com) Em seguida, pode utilizar um utilitário como [o Azure Storage Explorer](https://storageexplorer.com/) para criar um contentor na conta e enviar ficheiros para a sua conta.
 
 ## <a name="create-a-cluster-using-the-script"></a>Criar um cluster usando o script
 
-1. Comece a fornecer um cluster utilizando os passos em [clusters Provision HDInsight em Linux](hdinsight-hadoop-provision-linux-clusters.md), mas não complete o fornecimento. Também pode utilizar o Azure PowerShell ou o HDInsight .NET SDK para criar um cluster utilizando este script. Para obter mais informações sobre a utilização destes métodos, consulte [customize os clusters HDInsight com as Ações](hdinsight-hadoop-customize-cluster-linux.md)do Script . Para o portal Azure, a partir do separador **De Configuração + preços,** selecione a **ação + Adicionar script**.
+1. Comece a agrupar um cluster utilizando os passos em [clusters De provision HDInsight no Linux,](hdinsight-hadoop-provision-linux-clusters.md)mas não complete o provisionamento. Também pode utilizar o Azure PowerShell ou o HDInsight .NET SDK para criar um cluster utilizando este script. Para obter mais informações sobre a utilização destes métodos, consulte [os clusters HDInsight personalizados com ações de script](hdinsight-hadoop-customize-cluster-linux.md). Para o portal Azure, a partir do **separador Configuração + preços,** selecione a **ação de script + Adicionar**.
 
-1. Para **armazenamento**, se a conta de armazenamento que contém a biblioteca de ficheiros de frascos for diferente da conta utilizada para o cluster, complete contas de **armazenamento adicionais**.
+1. Para **armazenamento**, se a conta de armazenamento que contém a biblioteca de ficheiros de frascos for diferente da conta utilizada para o cluster, preencha **contas de armazenamento adicionais**.
 
-1. Para **ações de script,** forneça as seguintes informações:
+1. Para **ações de script**, forneça as seguintes informações:
 
     |Propriedade |Valor |
     |---|---|
     |Tipo de script|- Personalizado|
-    |Nome|Bibliotecas |
-    |Roteiro de bash URI|`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`|
+    |Name|Bibliotecas |
+    |URI de guião de bash|`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`|
     |Tipo de nó(s)|Cabeça, Trabalhador|
-    |Parâmetros|Introduza o endereço WASB no recipiente e na conta de armazenamento que contém os frascos. Por exemplo, `wasbs://libs@mystorage.blob.core.windows.net/`.|
+    |Parâmetros|Introduza o endereço WASB na conta de contentores e armazenamento que contenham os frascos. Por exemplo, `wasbs://libs@mystorage.blob.core.windows.net/`.|
 
     > [!NOTE]
-    > Para Apache Spark 2.1, use `https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v00.sh`este roteiro de bash URI: .
+    > Para Apache Spark 2.1, use este guião de bash URI: `https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v00.sh` .
 
-1. Continue a fornecer o cluster conforme descrito nos [clusters Provision HDInsight no Linux](hdinsight-hadoop-provision-linux-clusters.md).
+1. Continue a agrupar o cluster descrito nos [clusters Provision HDInsight em Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
-Uma vez que a criação do cluster complete, você é capaz de usar `ADD JAR` os frascos adicionados através deste script da Hive sem ter que usar a declaração.
+Uma vez concluída a criação de clusters, você pode usar os frascos adicionados através deste script da Hive sem ter que usar a `ADD JAR` declaração.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre o trabalho com a [Hive, consulte Use Apache Hive com HDInsight](hadoop/hdinsight-use-hive.md)
+Para obter mais informações sobre o trabalho com a Colmeia, consulte [Use Apache Hive com HDInsight](hadoop/hdinsight-use-hive.md)

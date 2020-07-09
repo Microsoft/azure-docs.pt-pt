@@ -1,5 +1,5 @@
 ---
-title: Ligue uma aplicação Go à API da Azure Cosmos DB para o MongoDB
+title: Ligue uma aplicação Go à API da Azure Cosmos DB para a MongoDB
 description: Este quickstart demonstra como ligar uma aplicação Go existente à API da Azure Cosmos DB para o MongoDB.
 author: abhirockzz
 ms.author: abhishgu
@@ -8,14 +8,14 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/24/2020
-ms.openlocfilehash: ad7baea087cd6073659929cc41f626b597bbae63
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0c03c4f163ef36335dacdc3c28340164dcd23fba
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650339"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299199"
 ---
-# <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Quickstart: Ligue uma aplicação Go à API da Azure Cosmos DB para o MongoDB
+# <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Quickstart: Ligue uma aplicação Go à API da Azure Cosmos DB para a MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -26,15 +26,15 @@ ms.locfileid: "83650339"
 > * [Golang](create-mongodb-go.md)
 >  
 
-Azure Cosmos DB é um serviço de base de dados multi-modelo que permite criar e consultar rapidamente documentos, tabelas, basede-chaves e bases de dados de gráficos com capacidades de distribuição global e escala horizontal. Neste arranque rápido, cria-se e gere-se uma conta Azure Cosmos DB utilizando a Azure Cloud Shell, clone uma aplicação de amostra existente do GitHub e configure-a para trabalhar com o Azure Cosmos DB. 
+Azure Cosmos DB é um serviço de base de dados multi-modelo que permite criar e consultar rapidamente documentos, tabelas, valor-chave e bases de dados de gráficos com capacidades de distribuição global e escala horizontal. Neste quickstart, você cria e gere uma conta DB Azure Cosmos usando a Azure Cloud Shell, clone uma aplicação de amostra existente do GitHub e configuure-a para trabalhar com Azure Cosmos DB. 
 
-A aplicação da amostra é uma ferramenta de gestão baseada em linha de comando `todo` escrita em Go. A API da Azure Cosmos DB para mongoDB é [compatível com o protocolo de arame MongoDB,](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction#wire-protocol-compatibility)permitindo que qualquer condutor de cliente da MongoDB se conectem ao mesmo. Esta aplicação utiliza o [controlador Go para mongoDB](https://github.com/mongodb/mongo-go-driver) de uma forma transparente para a aplicação que os dados são armazenados numa base de dados Azure Cosmos DB.
+A aplicação da amostra é uma ferramenta de gestão baseada em linha de comando `todo` escrita em Go. A API da Azure Cosmos DB para a MongoDB é [compatível com o protocolo de fio MongoDB,](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction#wire-protocol-compatibility)permitindo que qualquer condutor cliente da MongoDB se conecte a ele. Esta aplicação utiliza o [controlador Go para a MongoDB](https://github.com/mongodb/mongo-go-driver) de uma forma transparente à aplicação que os dados são armazenados numa base de dados DB da Azure Cosmos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free) Ou [experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure. Também pode utilizar o [Emulador DB Azure Cosmos](https://aka.ms/cosmosdb-emulator) com a corda de ligação `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true` .
-- [Vá](https://golang.org/) instalado no seu computador, e um conhecimento de trabalho de Go.
+- Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free) Ou [experimente a Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure. Também pode utilizar o [Emulador Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) com a cadeia de ligação `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true` .
+- [Vá](https://golang.org/) instalado no seu computador, e um conhecimento funcional do Go.
 - [Git.](https://git-scm.com/downloads)
-- Se não quiser utilizar a Azure Cloud Shell, [Azure CLI 2.0+](/cli/azure/install-azure-cli).
+- Se não quiser utilizar a Azure Cloud Shell, [Azure CLI 2.0+](/cli/azure/install-azure-cli)
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -42,7 +42,7 @@ A aplicação da amostra é uma ferramenta de gestão baseada em linha de comand
 
 Execute os seguintes comandos para clonar o repositório de exemplo.
 
-1. Abra um pedido de comando, crie uma nova pasta chamada `git-samples` e feche o pedido de comando.
+1. Abra um pedido de comando, crie uma nova pasta chamada `git-samples` e, em seguida, feche o pedido de comando.
 
     ```bash
     mkdir "C:\git-samples"
@@ -62,7 +62,7 @@ Execute os seguintes comandos para clonar o repositório de exemplo.
 
 ## <a name="review-the-code"></a>Rever o código
 
-Este passo é opcional. Se estiver interessado em saber como funciona a aplicação, pode rever os seguintes excertos. Caso contrário, pode saltar para a frente para [executar a aplicação](#run-the-application). O layout da aplicação é o seguinte:
+Este passo é opcional. Se estiver interessado em saber como funciona a aplicação, pode rever os seguintes excertos. Caso contrário, pode adiantar-se para [executar a aplicação](#run-the-application). O layout da aplicação é o seguinte:
 
 ```bash
 .
@@ -75,7 +75,7 @@ Os seguintes fragmentos foram todos retirados do ficheiro `todo.go`.
 
 ### <a name="connecting-the-go-app-to-azure-cosmos-db"></a>Ligar a aplicação Go ao Azure Cosmos DB
 
-[`clientOptions`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions)encapsula a cadeia de ligação para O Azure Cosmos DB, que é passado usando uma variável ambiental (detalhes na próxima secção). A ligação é inicializada utilizando [`mongo.NewClient`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#NewClient) a qual a instância é `clientOptions` passada. [ `Ping` função](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Client.Ping) é invocada para confirmar conectividade bem sucedida (é uma estratégia de falha rápida)
+[`clientOptions`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions)encapsula a cadeia de ligação para Azure Cosmos DB, que é passada usando uma variável ambiental (detalhes na secção seguinte). A ligação é inicializada utilizando [`mongo.NewClient`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#NewClient) a qual a instância é `clientOptions` passada. [ `Ping` a função](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Client.Ping) é invocada para confirmar a conectividade bem sucedida (é uma estratégia de falha-rápido)
 
 ```go
     ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
@@ -96,12 +96,12 @@ Os seguintes fragmentos foram todos retirados do ficheiro `todo.go`.
 ```
 
 > [!NOTE] 
-> A [`SetDirect(true)`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions.SetDirect) utilização da configuração é importante, sem a qual terá o seguinte erro de conectividade:`unable to connect connection(cdb-ms-prod-<azure-region>-cm1.documents.azure.com:10255[-4]) connection is closed`
+> A [`SetDirect(true)`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions.SetDirect) utilização da configuração é importante, sem a qual obterá o seguinte erro de conectividade:`unable to connect connection(cdb-ms-prod-<azure-region>-cm1.documents.azure.com:10255[-4]) connection is closed`
 >
 
 ### <a name="create-a-todo-item"></a>Criar um `todo` item
 
-Para criar `todo` um, temos uma pega para um [`mongo.Collection`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection) e invocamos a [`InsertOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.InsertOne) função. 
+Para criar um `todo` , temos uma pega para um [`mongo.Collection`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection) e invocamos a [`InsertOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.InsertOne) função. 
 
 ```go
 func create(desc string) {
@@ -145,7 +145,7 @@ func list(status string) {
     }
 ```
 
-[`Find`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.Find)é usado para procurar por documentos com base no filtro e o resultado é convertido em uma fatia de`Todo`
+[`Find`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.Find)é usado para procurar documentos com base no filtro e o resultado é convertido em uma fatia de`Todo`
 
 ```go
     todoCollection := c.Database(database).Collection(collection)
@@ -181,7 +181,7 @@ Finalmente, a informação é prestada em formato tabular
 
 ### <a name="update-a-todo-item"></a>Atualizar um `todo` item
 
-A `todo` pode ser atualizado com base no seu `_id` . Um [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) filtro é criado com base no e outro é criado para a `_id` informação atualizada, que é um novo estado ( `completed` ou ) neste `pending` caso. Finalmente, a [`UpdateOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.UpdateOne) função é invocada com o filtro e o documento atualizado
+A `todo` pode ser atualizado com base na sua `_id` . Um [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) filtro é criado com base no e outro é criado para a `_id` informação atualizada, que é um novo estado `completed` (ou ) neste `pending` caso. Finalmente, a [`UpdateOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.UpdateOne) função é invocada com o filtro e o documento atualizado
 
 ```go
 func update(todoid, newStatus string) {
@@ -199,9 +199,9 @@ func update(todoid, newStatus string) {
     }
 ```
 
-### <a name="delete-a-todo"></a>Eliminar um`todo`
+### <a name="delete-a-todo"></a>Eliminar a`todo`
 
-A `todo` é eliminado com base no seu e é `_id` encapsulado sob a forma de um [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) caso. [`DeleteOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.DeleteOne)é invocado para apagar o documento.
+A `todo` é eliminada com base na sua e é `_id` encapsulada sob a forma de um [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) exemplo. [`DeleteOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.DeleteOne)é invocado para apagar o documento.
 
 ```go
 func delete(todoid string) {
@@ -221,7 +221,7 @@ func delete(todoid string) {
 
 ## <a name="build-the-application"></a>Criar a aplicação
 
-Mude para o diretório onde clonou a aplicação e a construa `go build` (utilizando).
+Mude para o diretório onde clonou a aplicação e a construa `go build` (usando).
 
 ```bash
 cd monogdb-go-quickstart
@@ -238,9 +238,9 @@ Para confirmar que a aplicação foi construída corretamente.
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [Instale o Azure CLI]. 
+Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [Instalar Azure CLI]. 
 
-Se estiver a utilizar um Azure CLI instalado, inicie sessão na subscrição do Azure com o comando [de login az](/cli/azure/reference-index#az-login) e siga as instruções no ecrã. Pode ignorar esta etapa se estiver a utilizar o Azure Cloud Shell.
+Se estiver a utilizar um Azure CLI instalado, inicie sessão na sua subscrição Azure com o comando [de login az](/cli/azure/reference-index#az-login) e siga as instruções no ecrã. Pode ignorar esta etapa se estiver a utilizar o Azure Cloud Shell.
 
 ```azurecli
 az login 
@@ -254,11 +254,11 @@ Se `cosmosdb` não estiver na lista de comandos de base, reinstale a [CLI do Azu
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Criar um [grupo de recursos](../azure-resource-manager/management/overview.md) com o grupo [Az criar](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure, como aplicações Web, bases de dados e contas de armazenamento, são implementados e geridos. 
+Criar um [grupo de recursos](../azure-resource-manager/management/overview.md) com o grupo [az criar](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure, como aplicações Web, bases de dados e contas de armazenamento, são implementados e geridos. 
 
 O exemplo seguinte cria um grupo de recursos na região Europa Ocidental. Escolha um nome exclusivo para o grupo de recursos.
 
-Se estiver a utilizar a Casca de Nuvem Azure, selecione **Try It**, siga as instruções no ecrã para iniciar sessão e, em seguida, copie o comando para o pedido de comando.
+Se estiver a utilizar o Azure Cloud Shell, selecione **Try It**, siga as instruções no ecrã para iniciar sessão e, em seguida, copie o comando para a solicitação de comando.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
@@ -266,9 +266,9 @@ az group create --name myResourceGroup --location "West Europe"
 
 ### <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
 
-Crie uma conta Cosmos com o [az cosmosdb criar](/cli/azure/cosmosdb#az-cosmosdb-create) comando.
+Crie uma conta Cosmos com o [cosmosdb az criar](/cli/azure/cosmosdb#az-cosmosdb-create) comando.
 
-No seguinte comando, substitua o seu nome único de conta Cosmos onde vê o `<cosmosdb-name>` espaço reservado. Este nome único será usado como parte do seu ponto final cosmos DB , por isso o nome precisa ser único em todas as contas da `https://<cosmosdb-name>.documents.azure.com/` Cosmos em Azure. 
+No seguinte comando, substitua o seu próprio nome exclusivo da conta Cosmos onde vê o `<cosmosdb-name>` espaço reservado. Este nome único será usado como parte do seu ponto final cosmos DB ( `https://<cosmosdb-name>.documents.azure.com/` ), por isso o nome precisa ser único em todas as contas cosmos em Azure. 
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
@@ -315,7 +315,7 @@ DB/databaseAccounts/<cosmosdb-name>",
 
 ### <a name="retrieve-the-database-key"></a>Obter a chave de base de dados
 
-Para se ligar a uma base de dados da Cosmos, precisa da chave de base de dados. Use o comando da lista de [chaves az cosmosdb](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) para recuperar a chave primária.
+Para se ligar a uma base de dados cosmos, precisa da chave de base de dados. Use o comando da [lista de chaves az cosmosdb](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) para recuperar a chave primária.
 
 ```azurecli-interactive
 az cosmosdb keys list --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
@@ -327,22 +327,22 @@ A CLI do Azure apresenta informações semelhantes ao exemplo seguinte.
 "RUayjYjixJDWG5xTqIiXjC..."
 ```
 
-## <a name="configure-the-application"></a>Configurar a aplicação 
+## <a name="configure-the-application"></a>Configure a aplicação 
 
 <a name="devconfig"></a>
-### <a name="export-the-connection-string-mongodb-database-and-collection-names-as-environment-variables"></a>Exportar a cadeia de ligação, a base de dados MongoDB e os nomes de recolha como variáveis ambientais. 
+### <a name="export-the-connection-string-mongodb-database-and-collection-names-as-environment-variables"></a>Exporte a cadeia de ligação, a base de dados mongoDB e os nomes de recolha como variáveis ambientais. 
 
 ```bash
 export MONGODB_CONNECTION_STRING="mongodb://<COSMOSDB_ACCOUNT_NAME>:<COSMOSDB_PASSWORD>@<COSMOSDB_ACCOUNT_NAME>.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@<COSMOSDB_ACCOUNT_NAME>@"
 ```
 
 > [!NOTE] 
-> A `ssl=true` opção é importante devido aos requisitos da Cosmos DB. Para mais informações, consulte [os requisitos](connect-mongodb-account.md#connection-string-requirements)de cadeia de ligação .
+> A `ssl=true` opção é importante devido aos requisitos da Cosmos DB. Para obter mais informações, consulte [os requisitos de cadeia de ligação](connect-mongodb-account.md#connection-string-requirements).
 >
 
-Para a `MONGODB_CONNECTION_STRING` variável ambiental, substitua os espaços reservados para `<COSMOSDB_ACCOUNT_NAME>` e`<COSMOSDB_PASSWORD>`
+Para a `MONGODB_CONNECTION_STRING` variável ambiente, substitua os espaços reservados `<COSMOSDB_ACCOUNT_NAME>` para e`<COSMOSDB_PASSWORD>`
 
-1. `<COSMOSDB_ACCOUNT_NAME>`: O nome da conta Azure Cosmos DB que criou
+1. `<COSMOSDB_ACCOUNT_NAME>`: O nome da conta DB Azure Cosmos que criou
 2. `<COSMOSDB_PASSWORD>`: A chave da base de dados extraída no passo anterior
 
 ```bash
@@ -350,11 +350,11 @@ export MONGODB_DATABASE=todo-db
 export MONGODB_COLLECTION=todos
 ```
 
-Pode escolher os seus valores preferidos e `MONGODB_DATABASE` `MONGODB_COLLECTION` ou deixá-los como estão.
+Pode escolher os seus valores preferidos `MONGODB_DATABASE` para e `MONGODB_COLLECTION` ou deixá-los como está.
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Para criar um`todo`
+Para criar uma`todo`
 
 ```bash
 ./todo --create "Create an Azure Cosmos DB database account"
@@ -372,13 +372,13 @@ Criar outro`todo`
 ./todo --create "Get the MongoDB connection string using the Azure CLI"
 ```
 
-Enumerar todos os `todo` s
+Listar todos os `todo` s
 
 ```bash
 ./todo --list all
 ```
 
-Você deve ver aqueles que você acabou de adicionar em um formato tabular como tal
+Você deve ver os que acabou de adicionar em um formato tabular como tal
 
 ```bash
 +----------------------------+--------------------------------+-----------+
@@ -397,7 +397,7 @@ Para atualizar o estado de um `todo` (por exemplo, alterá-lo para `completed` e
 ./todo --update 5e9fd6b1bcd2fa6bd267d4c4,completed
 ```
 
-Listar apenas os `todo` s concluídos
+Listar apenas os `todo` s completos
 
 ```bash
 ./todo --list completed
@@ -420,12 +420,12 @@ Os dados armazenados no Azure Cosmos DB estão disponíveis para visualização 
 
 Para ver, consultar e trabalhar com os dados do utilizador criados no passo anterior, inicie a sessão no [portal do Azure](https://portal.azure.com) no browser.
 
-Na caixa de pesquisa superior, entre em **Azure Cosmos DB**. Quando a sua lâmina de conta Cosmos abrir, selecione a sua conta Cosmos. Na navegação à esquerda, selecione **Data Explorer**. Expanda a coleção no painel Coleções e, em seguida, pode ver os documentos na coleção, consultar os dados e, ainda, criar e executar UDFs, acionadores e procedimentos armazenados. 
+Na caixa de pesquisa superior, **insira Azure Cosmos DB**. Quando a sua folha de conta Cosmos abrir, selecione a sua conta Cosmos. Na navegação à esquerda, selecione **Data Explorer**. Expanda a coleção no painel Coleções e, em seguida, pode ver os documentos na coleção, consultar os dados e, ainda, criar e executar UDFs, acionadores e procedimentos armazenados. 
 
-![O Data Explorer a mostrar o documento recentemente criado](./media/create-mongodb-go/go-cosmos-db-data-explorer.jpg)
+:::image type="content" source="./media/create-mongodb-go/go-cosmos-db-data-explorer.png" alt-text="O Data Explorer a mostrar o documento recentemente criado":::
 
 
-Eliminar um `todo` uso do seu ID
+Excluir um `todo` uso é ID
 
 ```bash
 ./todo --delete 5e9fd6b1bcd2fa6bd267d4c4,completed
@@ -452,9 +452,9 @@ O `todo` que acabou de apagar não deve estar presente.
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, aprendeu a criar uma conta API Azure Cosmos DB MongoDB usando a Azure Cloud Shell, e criar e executar uma app de linha de comando Go para gerir `todo` s. Agora, pode importar dados adicionais para a sua conta do Azure Cosmos DB.
+Neste quickstart, aprendeu a criar uma conta API Azure Cosmos DB MongoDB usando a Azure Cloud Shell, e criar e executar uma aplicação de linha de comando Go para gerir `todo` s. Agora, pode importar dados adicionais para a sua conta do Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
 > [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md) (Importar dados do MongoDB para o Azure Cosmos DB)

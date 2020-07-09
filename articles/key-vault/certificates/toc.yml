@@ -20,6 +20,8 @@
     - name: Incorporações do Azure Policy
       displayName: 'samples, policies, definitions'
       href: ../policy-samples.md?toc=/azure/key-vault/certificates/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+    - name: Exemplos de Código do Key Vault
+      href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
 - name: Tutoriais
   items:
     - name: Importar um certificado
@@ -34,20 +36,26 @@
       href: create-certificate-scenarios.md
     - name: Métodos de criação de certificados
       href: create-certificate.md
+    - name: Criar pedido de assinatura de certificado
+      href: create-certificate-signing-request.md
+- name: Guias de procedimentos
+  items:
+    - name: Integrar o Key Vault na AC da DigiCert
+      href: how-to-integrate-certificate-authority.md
 - name: Referência
   items:
     - name: Azure PowerShell
-      href: '/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault'
+      href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
     - name: CLI do Azure
       href: /cli/azure/keyvault
     - name: .NET
-      href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+      href: /dotnet/api/overview/azure/security.keyvault.certificates-readme?view=azure-dotnet
     - name: Java
       href: /java/api/overview/azure/keyvault?view=azure-java-stable
     - name: Node.js
       href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
     - name: Python
-      href: /python/api/overview/azure/key-vault?view=azure-python
+      href: /python/api/overview/azure/keyvault-certificates-readme?view=azure-python
     - name: REST
       href: /rest/api/keyvault
     - name: Modelo do Resource Manager

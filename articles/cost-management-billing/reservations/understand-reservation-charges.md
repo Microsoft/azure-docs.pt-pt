@@ -5,18 +5,20 @@ author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: f0b093950b7f8fbbfbb0ca8ceb48cb0aa6341e10
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e402eabce5fd7af6ca9f51a1d67175cd8e5e1ce4
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200287"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84726065"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Como um desconto de reserva é aplicado às Bases de Dados SQL do Azure
 
 Depois de comprar uma capacidade reservada da Base de Dados SQL do Azure, o desconto de reserva é automaticamente aplicado às Bases de Dados SQL que correspondam aos atributos e à quantidade da reserva. Uma reserva abrange os custos de computação da sua Base de Dados SQL. É-lhe cobrada uma taxa normal de software, armazenamento e rede. Pode cobrir os custos de licenciamento das Bases de Dados SQL com o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
+
+Note que os descontos de reserva não se aplicam à Base de Dados SQL do Azure sem servidor.
 
 Para as Azure Reserved Virtual Machine Instances, veja [Compreender o desconto das Azure Reserved VM Instances](../manage/understand-vm-reservation-charges.md).
 
@@ -52,7 +54,7 @@ Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 
 - [O que são as reservas do Azure?](save-compute-costs-reservations.md)
 - [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../../sql-database/sql-database-reserved-capacity.md)
+- [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../../azure-sql/database/reserved-capacity-overview.md)
 - [Gerir o Azure Reservations](manage-reserved-vm-instance.md)
 - [Compreender a utilização de reservas na sua subscrição Pay As You Go](understand-reserved-instance-usage.md)
 - [Compreender a utilização de reservas na inscrição Enterprise](understand-reserved-instance-usage-ea.md)

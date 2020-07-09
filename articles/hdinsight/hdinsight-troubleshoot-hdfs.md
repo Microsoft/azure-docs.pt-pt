@@ -1,6 +1,6 @@
 ---
-title: Sessão de problemas HDFS em Azure HDInsight
-description: Obtenha respostas a perguntas comuns sobre trabalhar com hDFS e Azure HDInsight.
+title: Resolução de problemas HDFS em Azure HDInsight
+description: Obtenha respostas a perguntas comuns sobre trabalhar com HDFS e Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,25 +9,25 @@ ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.custom: seodec18
 ms.openlocfilehash: 6de9e31c3e79f6d704ef8b4749d41329dcc0bddb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82190690"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Resolver problemas do HDFS do Apache Hadoop com o Azure HDInsight
 
-Aprenda as principais questões e resoluções ao trabalhar com o Sistema de Ficheiros Distribuídos Hadoop (HDFS). Para obter uma lista completa de comandos, consulte o Guia de [Comandos HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html) e o Guia de [Conchado do Sistema](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)de Ficheiros .
+Aprenda os principais problemas e resoluções ao trabalhar com o Hadoop Distributed File System (HDFS). Para obter uma lista completa de comandos, consulte o Guia de [Comandos HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html) e o Guia de [Conchas do Sistema de Ficheiros](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html).
 
-## <a name="how-do-i-access-the-local-hdfs-from-inside-a-cluster"></a><a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>Como posso aceder ao HDFS local de dentro de um aglomerado?
+## <a name="how-do-i-access-the-local-hdfs-from-inside-a-cluster"></a><a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>Como acesso o HDFS local de dentro de um aglomerado?
 
 ### <a name="issue"></a>Problema
 
-Aceda ao HDFS local a partir da linha de comando e código de aplicação em vez de utilizar o armazenamento de Azure Blob ou o Armazenamento de Lagos De Dados Azure a partir do interior do cluster HDInsight.
+Aceda ao HDFS local a partir da linha de comando e código de aplicação em vez de utilizar o armazenamento Azure Blob ou o Armazenamento do Lago de Dados Azure a partir de dentro do cluster HDInsight.
 
 ### <a name="resolution-steps"></a>Passos de resolução
 
-1. No pedido de `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` comando, use literalmente, como no seguinte comando:
+1. Na origem do comando, use `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` literalmente, como no seguinte comando:
 
     ```output
     hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
@@ -37,7 +37,7 @@ Aceda ao HDFS local a partir da linha de comando e código de aplicação em vez
     drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
     ```
 
-2. A partir do código `hdfs://mycluster/` fonte, utilize o URI literalmente, como na seguinte aplicação da amostra:
+2. A partir do código-fonte, utilize o URI `hdfs://mycluster/` literalmente, como na seguinte aplicação da amostra:
 
     ```Java
     import java.io.IOException;
@@ -62,7 +62,7 @@ Aceda ao HDFS local a partir da linha de comando e código de aplicação em vez
     }
     ```
 
-3. Executar o ficheiro .jar compilado (por `java-unit-tests-1.0.jar`exemplo, um ficheiro nomeado ) no cluster HDInsight com o seguinte comando:
+3. Executar o ficheiro .jar compilado (por exemplo, um ficheiro `java-unit-tests-1.0.jar` nomeado) no cluster HDInsight com o seguinte comando:
 
     ```apache
     hadoop jar java-unit-tests-1.0.jar JavaUnitTests
@@ -72,11 +72,11 @@ Aceda ao HDFS local a partir da linha de comando e código de aplicação em vez
     hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
     ```
 
-## <a name="storage-exception-for-write-on-blob"></a>Exceção de armazenamento para escrita em blob
+## <a name="storage-exception-for-write-on-blob"></a>Exceção de armazenamento para escrita no blob
 
 ### <a name="issue"></a>Problema
 
-Ao utilizar `hadoop` `hdfs dfs` os comandos ou comandos para escrever ficheiros que sejam de ~12 GB ou maiores num cluster HBase, pode deparar-se com o seguinte erro:
+Ao utilizar os `hadoop` `hdfs dfs` ou comandos para escrever ficheiros que sejam ~12 GB ou maiores num cluster HBase, poderá encontrar o seguinte erro:
 
 ```error
 ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
@@ -102,33 +102,33 @@ Caused by: com.microsoft.azure.storage.StorageException: The request body is too
 
 ### <a name="cause"></a>Causa
 
-HBase em clusters HDInsight padrão para um tamanho de bloco de 256 KB ao escrever para armazenamento Azure. Enquanto funciona para APIs de Base HBase ou APIs `hadoop` `hdfs dfs` REST, resulta num erro ao utilizar os utilitários ou linha de comando.
+HBase em clusters HDInsight predefinidos a um tamanho de bloco de 256 KB ao escrever para armazenamento Azure. Embora funcione para APIs HBase ou REST APIs, resulta num erro ao utilizar os `hadoop` utilitários ou `hdfs dfs` serviços de linha de comando.
 
 ### <a name="resolution"></a>Resolução
 
-Utilize `fs.azure.write.request.size` para especificar um tamanho maior do bloco. Pode fazer esta modificação por utilização `-D` utilizando o parâmetro. O seguinte comando é um exemplo `hadoop` utilizando este parâmetro com o comando:
+Utilize `fs.azure.write.request.size` para especificar um tamanho de bloco maior. Pode fazer esta modificação por utilização utilizando o `-D` parâmetro. O seguinte comando é um exemplo utilizando este parâmetro com o `hadoop` comando:
 
 ```bash
 hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
 ```
 
-Também pode aumentar o `fs.azure.write.request.size` valor global usando Apache Ambari. Os seguintes passos podem ser utilizados para alterar o valor na UI Web ambari:
+Você também pode aumentar o valor de `fs.azure.write.request.size` globalmente usando Apache Ambari. Os seguintes passos podem ser usados para alterar o valor na UI web Ambari:
 
-1. No seu navegador, vá à Ambari Web UI para o seu cluster. O URL `https://CLUSTERNAME.azurehdinsight.net`é, onde `CLUSTERNAME` está o nome do seu cluster. Quando solicitado, introduza o nome administrativo e a palavra-passe para o cluster.
-2. Do lado esquerdo do ecrã, selecione **HDFS**e, em seguida, selecione o separador **Configs.**
-3. No **campo do Filtro...** entra. `fs.azure.write.request.size`
-4. Mude o valor de 262144 (256 KB) para o novo valor. Por exemplo, 4194304 (4 MB).
+1. No seu navegador, vá ao Ambari Web UI para o seu cluster. A URL `https://CLUSTERNAME.azurehdinsight.net` é, onde `CLUSTERNAME` está o nome do seu aglomerado. Quando solicitado, insira o nome de administração e a palavra-passe para o cluster.
+2. Do lado esquerdo do ecrã, selecione **HDFS**e, em seguida, selecione o **separador Configs.**
+3. No **campo Filtro...** `fs.azure.write.request.size` enter, enter.
+4. Altere o valor de 262144 (256 KB) para o novo valor. Por exemplo, 4194304 (4 MB).
 
-    ![Imagem de alteração do valor através da Ambari Web UI](./media/hdinsight-troubleshoot-hdfs/hbase-change-block-write-size.png)
+    ![Imagem de mudar o valor através da Ambari Web UI](./media/hdinsight-troubleshoot-hdfs/hbase-change-block-write-size.png)
 
-Para obter mais informações sobre a utilização de Ambari, consulte [Gerir os clusters HDInsight utilizando o Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
+Para obter mais informações sobre a utilização de Ambari, consulte [gerir os clusters HDInsight utilizando o Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
 ## <a name="du"></a>du
 
-O [`-du`](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#du) comando exibe tamanhos de ficheiros e diretórios contidos no determinado diretório ou o comprimento de um ficheiro no caso de ser apenas um ficheiro.
+O [`-du`](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#du) comando exibe tamanhos de ficheiros e diretórios contidos no diretório dado ou no comprimento de um ficheiro no caso de ser apenas um ficheiro.
 
-A `-s` opção produz um resumo agregado de comprimentos de ficheiro que estão a ser apresentados.  
-A `-h` opção formata os tamanhos dos ficheiros.
+A `-s` opção produz um resumo agregado dos comprimentos dos ficheiros que estão a ser apresentados.  
+A `-h` opção forma os tamanhos dos ficheiros.
 
 Exemplo:
 
@@ -149,10 +149,10 @@ hdfs dfs -rm hdfs://mycluster/tmp/testfile
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
+Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
-* Obtenha respostas de especialistas do Azure através do [Apoio Comunitário de Azure.](https://azure.microsoft.com/support/community/)
+* Obtenha respostas de especialistas da Azure através do [Apoio Comunitário Azure.](https://azure.microsoft.com/support/community/)
 
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligar a comunidade Azure aos recursos certos: respostas, apoio e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligação da comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
-* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** a partir da barra de menus ou abra o centro de **suporte Ajuda +.** Para obter informações mais detalhadas, reveja [como criar um pedido de apoio azure.](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte do Azure.](https://azure.microsoft.com/support/plans/)
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).

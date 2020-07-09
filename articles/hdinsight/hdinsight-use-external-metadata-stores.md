@@ -1,115 +1,115 @@
 ---
-title: Utilize lojas externas de metadados - Azure HDInsight
+title: Utilize lojas de metadados externos - Azure HDInsight
 description: Utilize lojas de metadados externos com clusters Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/30/2020
-ms.openlocfilehash: d956a9c93280ac22c4707f22c0769853f0f36c83
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2d6ebcd720a5cea8d41bf3c05f753f2e9d4775d1
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015153"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085910"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Use external metadata stores in Azure HDInsight (Utilizar arquivos de metadados externos no Azure HDInsight)
 
-O HDInsight permite-lhe controlar os seus dados e metadados com lojas de dados externos. Esta funcionalidade está disponível para [metastore Apache Hive,](#custom-metastore) [metastore Apache Oozie](#apache-oozie-metastore)e base de [dados Apache Ambari.](#custom-ambari-db)
+O HDInsight permite-lhe assumir o controlo dos seus dados e metadados com lojas de dados externas. Esta funcionalidade está disponível para [metastore Apache Hive,](#custom-metastore) [metastóia Apache Oozie](#apache-oozie-metastore)e [base de dados Apache Ambari.](#custom-ambari-db)
 
-A metaloja Apache Hive em HDInsight é uma parte essencial da arquitetura Apache Hadoop. Uma metaloja é o repositório central do esquema. A metaloja é utilizada por outras ferramentas de acesso a big data, tais como Apache Spark, Interactive Query (LLAP), Presto ou Apache Pig. O HDInsight utiliza uma Base de Dados Azure SQL como metaloja da Hive.
+A metastópia Apache Hive em HDInsight é uma parte essencial da arquitetura Apache Hadoop. Uma metástore é o repositório central de esquemas. A metástore é usada por outras grandes ferramentas de acesso a dados como Apache Spark, Interactive Query (LLAP), Presto ou Apache Pig. O HDInsight utiliza uma Base de Dados Azure SQL como metásta de Colmeia.
 
-![Arquitetura da loja de metadados hive HDInsight](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
+![HdInsight Hive Metadata Store Arquitetura](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
 
-Existem duas formas de configurar uma metaloja para os seus clusters HDInsight:
+Há duas formas de configurar uma meta-loja para os seus clusters HDInsight:
 
-* [Metaloja padrão](#default-metastore)
-* [Metaloja personalizada](#custom-metastore)
+* [Metastlo padrão](#default-metastore)
+* [Metástases personalizadas](#custom-metastore)
 
-## <a name="default-metastore"></a>Metaloja padrão
+## <a name="default-metastore"></a>Metastlo padrão
 
-Por padrão, o HDInsight cria uma metaloja com cada tipo de cluster. Em vez disso, pode especificar uma metaloja personalizada. A metaloja predefinida inclui as seguintes considerações:
+Por padrão, o HDInsight cria uma meta-loja com cada tipo de cluster. Em vez disso, pode especificar uma meta-loja personalizada. A metástore predefinido inclui as seguintes considerações:
 
-* Sem custos adicionais. O HDInsight cria uma metaloja com cada tipo de cluster sem qualquer custo adicional para si.
+* Sem custo adicional. O HDInsight cria uma meta-loja com todos os tipos de cluster sem qualquer custo adicional para si.
 
-* Cada metaloja padrão faz parte do ciclo de vida do cluster. Quando elimina um cluster, a metaloja correspondente e os metadados também são eliminados.
+* Cada metástore padrão faz parte do ciclo de vida do cluster. Quando elimina um cluster, a metástase correspondente e os metadados também são eliminados.
 
-* Não pode partilhar a metaloja padrão com outros clusters.
+* Não pode partilhar a meta-loja padrão com outros clusters.
 
-* A metaloja predefinida utiliza a base de dados Básica Azure SQL, que tem um limite de cinco DTU (unidade de transação de base de dados).
-Esta metaloja padrão é normalmente utilizada para cargas de trabalho relativamente simples. Cargas de trabalho que não requerem vários clusters e não precisam de metadados preservados para além do ciclo de vida do cluster.
+* A metástore predefinida utiliza a base de dados Azure SQL básica, que tem um limite de cinco DTU (unidade de transação de bases de dados).
+Esta metásta padrão é normalmente usada para cargas de trabalho relativamente simples. Cargas de trabalho que não requerem múltiplos clusters e não precisam de metadados preservados para além do ciclo de vida do cluster.
 
-* Para cargas de trabalho de produção, recomendamos a migração para uma metaloja externa. Consulte a secção abaixo para mais detalhes.
+* Para cargas de trabalho de produção, recomendamos migrar para uma meta-loja externa. Consulte a secção abaixo para mais detalhes.
 
-## <a name="custom-metastore"></a>Metaloja personalizada
+## <a name="custom-metastore"></a>Metástases personalizadas
 
-O HDInsight também suporta metalojas personalizadas, que são recomendadas para clusters de produção:
+O HDInsight também suporta metastões personalizadas, que são recomendadas para clusters de produção:
 
-* Especifica a sua própria Base de Dados Azure SQL como metaloja.
+* Especifica a sua própria Base de Dados Azure SQL como a meta-loja.
 
-* O ciclo de vida da metaloja não está ligado a um ciclo de vida de clusters, para que possa criar e eliminar clusters sem perder metadados. Metadados como os seus schemas da Hive persistirão mesmo depois de eliminar e recriar o cluster HDInsight.
+* O ciclo de vida da metastore não está ligado a um ciclo de vida de clusters, para que possa criar e eliminar clusters sem perder metadados. Metadados como os seus esquemas de Hive persistirão mesmo depois de eliminar e recriar o cluster HDInsight.
 
-* Uma metaloja personalizada permite-lhe anexar vários clusters e tipos de cluster saqueados a essa metaloja. Por exemplo, uma única metaloja pode ser partilhada em clusters De Consulta Interativa, Hive e Spark em HDInsight.
+* Uma metásta personalizada permite-lhe anexar vários clusters e tipos de clusters a essa meta-loja. Por exemplo, uma única meta-loja pode ser partilhada através de clusters Interactive Query, Hive e Spark em HDInsight.
 
-* Paga-se pelo custo de uma metaloja (Base de Dados Azure SQL) de acordo com o nível de desempenho que escolher.
+* Você paga o custo de uma meta-loja (Azure SQL Database) de acordo com o nível de desempenho que você escolhe.
 
-* Pode escalar a metaloja conforme necessário.
+* Pode aumentar a meta-loja conforme necessário.
 
-* O cluster e a metaloja externa devem ser alojados na mesma região.
+* O aglomerado e a metastore externa devem ser alojados na mesma região.
 
-![Caso de utilização da loja de metadados hive HDInsight](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
+![Caso de utilização de loja de metadados de colmeia HDInsight](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
 
-### <a name="create-and-config-azure-sql-database-for-the-custom-metastore"></a>Criar e config Azure SQL Base de dados para a metaloja personalizada
+### <a name="create-and-config-azure-sql-database-for-the-custom-metastore"></a>Criar e configurar base de dados Azure SQL para a metásta personalizada
 
-Crie ou tenha uma base de dados Azure SQL existente antes de criar uma metaloja de Colmeia personalizada para um cluster HDInsight.  Para mais informações, consulte [Quickstart: Crie uma única base de dados na Base de Dados Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
+Crie ou tenha uma Base de Dados Azure SQL existente antes de configurar uma metásta de Hive personalizada para um cluster HDInsight.  Para obter mais informações, consulte [Quickstart: Crie uma única base de dados na Base de Dados Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
 
-Ao criar o cluster, o serviço HDInsight precisa de se ligar à metaloja externa e verificar as suas credenciais. Configure as regras de firewall da Base de Dados Azure SQL para permitir que os serviços e recursos do Azure acedam ao servidor. Ative esta opção no portal Azure selecionando a firewall do **servidor set**. Em seguida, selecione **No** under **Deny acesso**à rede pública , e **Sim** por baixo **permitir serviços e recursos Do Azure para aceder a este servidor** para Base de Dados SQL Azure. Para mais informações, consulte [Criar e gerir as regras de firewall IP](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+Ao criar o cluster, o serviço HDInsight precisa de se conectar à metásta externa e verificar as suas credenciais. Configure as regras de firewall da Base de Dados Azure SQL para permitir que os serviços e recursos da Azure acedam ao servidor. Ative esta opção no portal Azure selecionando **a firewall do servidor set**. Em seguida, **selecione No** under **Deny public network access**, e **Yes** under **Allow Azure services and resources to access this server** for Azure SQL Database. Para obter mais informações, consulte [Criar e gerir as regras de firewall IP](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
-Os pontos finais privados das lojas SQL não são suportados.
+Os pontos finais privados para lojas SQL não são suportados.
 
 ![definir botão de firewall do servidor](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
 
-![permitir o acesso dos serviços azure](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png)
+![permitir acesso de serviços azure](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png)
 
-### <a name="select-a-custom-metastore-during-cluster-creation"></a>Selecione uma metaloja personalizada durante a criação de cluster
+### <a name="select-a-custom-metastore-during-cluster-creation"></a>Selecione uma meta-loja personalizada durante a criação do cluster
 
-Pode indicar o seu cluster para uma base de dados Azure SQL previamente criada a qualquer momento. Para a criação de cluster através do portal, a opção é especificada a partir das definições de **Armazenamento > Metastore**.
+Pode apontar o seu cluster para uma Base de Dados Azure SQL previamente criada a qualquer momento. Para a criação de clusters através do portal, a opção é especificada a partir das **definições de Armazenamento > Metastore**.
 
-![HDInsight Hive Metadate Store Portal Azure](./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png)
+![HdInsight Hive Metadata Store Portal Azure](./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png)
 
-## <a name="hive-metastore-guidelines"></a>Diretrizes da metaloja da colmeia
+## <a name="hive-metastore-guidelines"></a>Diretrizes da metásta rodoviária de colmeia
 
-* Utilize uma metaloja personalizada sempre que possível, para ajudar a separar os recursos computacionais (o seu cluster de execução) e os metadados (armazenados na metaloja).
+* Utilize sempre que possível uma metásta personalizada para ajudar a separar os recursos de computação (o seu cluster de execução) e metadados (armazenados na metastore).
 
-* Comece com um nível S2, que fornece 50 DTU e 250 GB de armazenamento. Se vir um estrangulamento, pode aumentar a base de dados.
+* Comece com um nível S2, que fornece 50 DTU e 250 GB de armazenamento. Se vir um estrangulamento, pode escalar a base de dados.
 
-* Se pretender que vários clusters HDInsight acedam a dados separados, utilize uma base de dados separada para a metaloja em cada cluster. Se partilhar uma metaloja em vários clusters HDInsight, significa que os clusters utilizam os mesmos metadados e ficheiros de dados subjacentes aos utilizadores.
+* Se pretender que vários clusters HDInsight acedam a dados separados, utilize uma base de dados separada para a metastore de cada cluster. Se partilhar uma meta-loja em vários clusters HDInsight, significa que os clusters usam os mesmos metadados e ficheiros de dados subjacentes ao utilizador.
 
-* Volte periodicamente à sua metaloja personalizada. A Base de Dados Azure SQL gera cópias de segurança automaticamente, mas o prazo de retenção de cópia seleções varia. Para mais informações, consulte [Saiba mais sobre cópias automáticas](../azure-sql/database/automated-backups-overview.md)de backups da Base de Dados SQL .
+* Apoie periodicamente a sua metastore personalizada. A Azure SQL Database gera cópias de segurança automaticamente, mas o prazo de retenção de backup varia. Para obter mais informações, consulte [as cópias de segurança automáticas da Base de Dados SQL.](../azure-sql/database/automated-backups-overview.md)
 
-* Localize o seu cluster de metaloja e HDInsight na mesma região. Esta configuração proporcionará o maior desempenho e os encargos de rede mais baixos.
+* Localize o seu cluster de metastões e HDInsight na mesma região. Esta configuração fornecerá o desempenho mais alto e os mais baixos encargos de saída de rede.
 
-* Monitorize a sua metaloja para obter desempenho e disponibilidade utilizando ferramentas de monitorização de bases de dados Azure SQL ou registos do Monitor Azure.
+* Monitorize a sua meta-loja para obter desempenho e disponibilidade utilizando ferramentas de monitorização da base de dados Azure SQL ou registos do Monitor Azure.
 
-* Quando uma nova versão mais alta do Azure HDInsight é criada contra uma base de dados de metaloja personalizada existente, o sistema atualiza o esquema da metaloja. A atualização é irreversível sem restaurar a base de dados de cópias de segurança.
+* Quando uma nova versão mais alta do Azure HDInsight é criada contra uma base de dados de metástaria personalizada existente, o sistema atualiza o esquema da metastore. A atualização é irreversível sem restaurar a base de dados a partir de cópias de segurança.
 
-* Se partilhar uma metaloja em vários clusters, certifique-se de que todos os clusters são a mesma versão HDInsight. Diferentes versões da Hive usam diferentes esquemas de base de dados de metastore. Por exemplo, não é possível partilhar uma metaloja através da Hive 2.1 e da Hive 3.1.
+* Se partilhar uma meta-loja em vários clusters, certifique-se de que todos os clusters são a mesma versão HDInsight. Diferentes versões de Hive usam diferentes esquemas de base de dados de metastore. Por exemplo, não é possível partilhar uma meta-loja através da Hive 2.1 e dos clusters versados da Hive 3.1.
 
-* No HDInsight 4.0, a Spark e a Hive utilizam catálogos independentes para aceder a mesas SparkSQL ou Hive. Uma mesa criada pela Spark vive no catálogo spark. Uma mesa criada pela Hive vive no catálogo da Hive. Este comportamento é diferente do HDInsight 3.6 onde a Hive e a Spark partilharam o catálogo comum. A Integração da Hive e Spark no HDInsight 4.0 depende do Conector de Armazém hive (HWC). A HWC funciona como uma ponte entre A Faísca e a Colmeia. Saiba mais sobre o [Conector de Armazém da Colmeia.](../hdinsight/interactive-query/apache-hive-warehouse-connector.md)
+* No HDInsight 4.0, a Spark e a Hive utilizam catálogos independentes para aceder às tabelas SparkSQL ou Hive. Uma mesa criada por Spark vive no catálogo Spark. Uma mesa criada pela Hive vive no catálogo da Hive. Este comportamento é diferente do HDInsight 3.6 onde a Hive e a Spark partilhavam o catálogo comum. A integração de colmeias e faíscas em HDInsight 4.0 depende do Conector do Armazém da Colmeia (HWC). A HWC funciona como uma ponte entre a Spark e a Hive. [Saiba mais sobre o Conector do Armazém da Colmeia.](../hdinsight/interactive-query/apache-hive-warehouse-connector.md)
 
-* No HDInsight 4.0 se quiser partilhar a metaloja entre a Hive e a Spark, pode fazê-lo alterando a metastore da propriedade.catalog.default para colmeia no seu cluster Spark. Você pode encontrar esta propriedade em Ambari Advanced spark2-hive-site-override. É importante entender que a partilha de metaloja funciona apenas para mesas de colmeia externas, isso não funcionará se tiver mesas de colmeia internas/geridas ou mesas ACID.  
+* Em HDInsight 4.0 se quiser Partilhar a meta-loja entre a Hive e a Spark, pode fazê-lo alterando a propriedade metastore.catalog.default para colmeia no seu cluster Spark. Você pode encontrar esta propriedade em Ambari Advanced spark2-hive-site-override. É importante entender que a partilha de metastões só funciona para mesas de colmeia externas, isto não funcionará se tiver mesas de colmeias internas/geridas ou mesas ACID.  
 
-## <a name="apache-oozie-metastore"></a>Metastore Apache Oozie
+## <a name="apache-oozie-metastore"></a>Metastóia Apache Oozie
 
-O Apache Oozie é um sistema de coordenação de fluxos de trabalho que gere as tarefas do Hadoop. Oozie apoia os empregos de Hadoop para Apache MapReduce, Pig, Hive, entre outros.  A Oozie usa uma metaloja para armazenar detalhes sobre fluxos de trabalho. Para aumentar o desempenho ao utilizar o Oozie, pode utilizar a Base de Dados Azure SQL como uma metaloja personalizada. A metaloja fornece acesso aos dados de trabalho da Oozie depois de eliminar o seu cluster.
+O Apache Oozie é um sistema de coordenação de fluxos de trabalho que gere as tarefas do Hadoop. Oozie apoia os empregos de Hadoop para Apache MapReduce, Pig, Hive, e outros.  Oozie usa uma meta-loja para armazenar detalhes sobre fluxos de trabalho. Para aumentar o desempenho ao utilizar o Oozie, pode utilizar a Base de Dados Azure SQL como uma metástaria personalizada. A metástore fornece acesso aos dados de trabalho da Oozie depois de eliminar o seu cluster.
 
-Para obter instruções sobre a criação de uma metaloja Oozie com base de dados Azure SQL, consulte [Use Apache Oozie para fluxos de trabalho](hdinsight-use-oozie-linux-mac.md).
+Para obter instruções sobre a criação de uma meta-loja Oozie com base de dados Azure SQL, consulte [Use Apache Oozie para fluxos de trabalho](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="custom-ambari-db"></a>Ambari DB Personalizado
 
-Para utilizar a sua própria base de dados externa com Apache Ambari no HDInsight, consulte a base de [dados Custom Apache Ambari](hdinsight-custom-ambari-db.md).
+Para utilizar a sua própria base de dados externa com Apache Ambari na HDInsight, consulte [a base de dados Personalizada Apache Ambari.](hdinsight-custom-ambari-db.md)
 
 ## <a name="next-steps"></a>Próximos passos
 

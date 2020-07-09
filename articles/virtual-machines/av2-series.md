@@ -1,22 +1,21 @@
 ---
-title: Série Av2 - Máquinas Virtuais Azure
+title: Série Av2
 description: Especificações para os VMs da série Av2.
-services: virtual-machines
 author: migerdes
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: fe27a1cc78d1f37d535f364c03803a5196090a3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: jushiman
+ms.openlocfilehash: 7d2064ec89e107aa219f34520f71ed8704bb7aeb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78163952"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676935"
 ---
 # <a name="av2-series"></a>Série Av2
 
-Os VMs da série Av2 podem ser implantados numa variedade de tipos de hardware e processadores. Os VMs da série Av2 têm configurações de desempenho cpu e memória mais adequadas para cargas de trabalho de nível de entrada como desenvolvimento e teste. O tamanho é acelerado para oferecer um desempenho consistente do processador para a instância de execução, independentemente do hardware em que é implantado. Para determinar o hardware físico no qual este tamanho está implementado, consulte o hardware virtual a partir da Máquina Virtual. Alguns casos de uso de exemplo incluem servidores de desenvolvimento e teste, servidores web de tráfego baixo, bases de dados pequenas a médias, prova de conceitos e repositórios de código.
+Os VMs da série Av2 podem ser implantados numa variedade de tipos e processadores de hardware. Os VMs da série Av2 têm configurações de desempenho e memória de CPU mais adequadas para cargas de trabalho de nível de entrada como desenvolvimento e teste. O tamanho é acelerado para oferecer um desempenho consistente do processador para a instância de execução, independentemente do hardware em que é implantado. Para determinar o hardware físico no qual este tamanho está implementado, consulte o hardware virtual a partir da Máquina Virtual. Alguns casos de uso de exemplo incluem servidores de desenvolvimento e teste, servidores web de baixo tráfego, bases de dados pequenas a médias, prova de conceitos e repositórios de código.
 
 ACU: 100
 
@@ -24,11 +23,11 @@ Armazenamento Premium: Não Suportado
 
 Caching de armazenamento premium: Não suportado
 
-Migração Ao Vivo: Apoiado
+Migração ao Vivo: Suportado
 
-Atualizações de preservação da memória: Suportado
+Atualizações de preservação da memória: Suportadas
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Entrada de armazenamento de temperatura máxima: IOPS/Ler MBps/Write MBps | Disquetes/entradas de dados max: IOPS | Largura de banda de rede Max NICs/Esperado (Mbps) |
+| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Produção de armazenamento temporário máximo: IOPS/Read MBps/Write MBps | Discos de dados/produção de dados máximos: IOPS | Largura de banda de rede Max NICs/Expect (Mbps) |
 |---|---|---|---|---|---|---|
 | Standard_A1_v2  | 1 | 2  | 10 | 1000/20/10  | 2/2x500   | 2/250  |
 | Standard_A2_v2  | 2 | 4  | 20 | 2000/40/20  | 4/4x500   | 2/500  |
@@ -49,6 +48,6 @@ Atualizações de preservação da memória: Suportado
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre como as unidades de [computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho da computação em Azure SKUs.
+Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

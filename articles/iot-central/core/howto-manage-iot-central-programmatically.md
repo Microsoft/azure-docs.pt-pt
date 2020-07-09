@@ -1,6 +1,6 @@
 ---
-title: Gerir a IoT Central programáticamente [ Microsoft Docs
-description: Este artigo descreve como criar e gerir a sua IoT Central programáticamente. Pode visualizar, modificar e remover a aplicação utilizando SDKs de vários idiomas, tais como JavaScript, Python, C#, Ruby e Go.
+title: Gerir o IoT Central programáticamente Microsoft Docs
+description: Este artigo descreve como criar e gerir o seu IoT Central programáticamente. Pode visualizar, modificar e remover a aplicação utilizando múltiplos SDKs de linguagem, tais como JavaScript, Python, C#, Ruby e Go.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
@@ -8,21 +8,20 @@ ms.author: dobett
 ms.date: 05/19/2020
 ms.topic: how-to
 ms.openlocfilehash: ba0ee0a610299bbe6b7e550f204cd2fd50d6d71a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83749208"
 ---
 # <a name="manage-iot-central-programmatically"></a>Gerir o IoT Central programáticamente
 
 [!INCLUDE [iot-central-selector-manage](../../../includes/iot-central-selector-manage.md)]
 
-Em vez de criar e gerir aplicações IoT Central no site do gestor de [aplicações Azure IoT Central,](https://aka.ms/iotcentral) pode gerir as suas aplicações programáticamente utilizando os SDKs Azure. As línguas suportadas incluem JavaScript, Python, C#, Ruby e Go.
+Em vez de criar e gerir aplicações IoT Central no site do [gestor de aplicações Azure IoT Central,](https://aka.ms/iotcentral) pode gerir as suas aplicações programáticamente utilizando os Azure SDKs. Os idiomas suportados incluem JavaScript, Python, C#, Ruby e Go.
 
 ## <a name="install-the-sdk"></a>Instalar o SDK
 
-A tabela seguinte lista os repositórios SDK e comandos de instalação de pacotes:
+A tabela que se segue lista os repositórios SDK e os comandos de instalação de pacotes:
 
 | Repositório SDK | Instalação do pacote |
 | -------------- | ------------ |
@@ -35,8 +34,8 @@ A tabela seguinte lista os repositórios SDK e comandos de instalação de pacot
 
 ## <a name="samples"></a>Amostras
 
-O repositório de [amostras Arm SDK central Azure IoT](https://docs.microsoft.com/samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/) tem amostras de código para vários idiomas de programação que mostram como criar, atualizar, listar e eliminar aplicações Azure IoT Central.
+O repositório [de amostras Azure IoT Central ARM SDK](https://docs.microsoft.com/samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/) tem amostras de código para várias linguagens de programação que mostram como criar, atualizar, listar e eliminar aplicações Azure IoT Central.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Agora que aprendeu a gerir as aplicações Azure IoT Central programáticamente, um próximo passo sugerido é saber mais sobre o serviço [Azure Resource Manager.](../../azure-resource-manager/management/overview.md)
+Agora que aprendeu a gerir programáticamente aplicações Azure IoT Central, um passo sugerido é saber mais sobre o serviço [Azure Resource Manager.](../../azure-resource-manager/management/overview.md)

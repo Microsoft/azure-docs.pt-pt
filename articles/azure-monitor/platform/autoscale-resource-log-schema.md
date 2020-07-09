@@ -1,26 +1,25 @@
 ---
-title: Esquema de eventos de log de escala automática Azure
-description: Formato de registos para monitorização e resolução de ações de escala automática
+title: Esquema de eventos de registo de autoescala Azure
+description: Formato de registos para monitorização e resolução de problemas de ações de autoescala
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.subservice: autoscale
 ms.openlocfilehash: 3c32f15208a8e692054ee6c1f7effc6b7c89de3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75395937"
 ---
-# <a name="azure-monitor-autoscale-actions-resource-log-schema"></a>Azure Monitor ação slog schema de log
+# <a name="azure-monitor-autoscale-actions-resource-log-schema"></a>Azure Monitor autoscale ações esquema de registo de recursos
 
-Seguem-se os formatos gerais para registos de recursos de escala automática com dados de exemplo incluídos. Nem todos os exemplos abaixo são devidamente formados JSON porque podem incluir múltiplos valores que podem ser válidos para um determinado campo. 
+Seguem-se os formatos gerais de registos de recursos de autoescalação com dados de exemplo incluídos. Nem todos os exemplos abaixo são devidamente formados JSON porque podem incluir múltiplos valores que podem ser válidos para um determinado campo. 
 
-Utilize eventos deste tipo para resolver problemas que possa ter com a escala automática. Para mais informações, consulte problemas de [escala automática de resolução de problemas.](autoscale-troubleshoot.md)
+Utilize eventos deste tipo para resolver problemas que possa estar a ter com a autoescala. Para obter mais informações, consulte [problemas de resolução de problemas de escala automática](autoscale-troubleshoot.md).
 
 
-## <a name="profile-evaluation"></a>Avaliação de perfil
+## <a name="profile-evaluation"></a>Avaliação de perfis
 
-Gravado quando a escala automática olha pela primeira vez para um perfil de escala automática
+Gravado quando a autoescala olha pela primeira vez para um perfil de autoescala
 
 ```json
 {
@@ -37,9 +36,9 @@ Gravado quando a escala automática olha pela primeira vez para um perfil de esc
 }
 ```
 
-## <a name="profile-cooldown-evaluation"></a>Avaliação de arrefecimento do perfil
+## <a name="profile-cooldown-evaluation"></a>Avaliação de arrefecimento de perfis
 
-Gravada quando a escala automática avalia se não deve fazer uma escala devido a um período de arrefecimento. 
+Gravada quando a autoescala avalia se não deve fazer uma balança devido a um período de arrefecimento. 
 
 ```json
 {
@@ -62,7 +61,7 @@ Gravada quando a escala automática avalia se não deve fazer uma escala devido 
 
 ## <a name="rule-evaluation"></a>Avaliação de regras
 
-Gravada quando a escala automática começa a avaliar uma regra de escala específica. 
+Gravado quando a autoescala começa a avaliar uma determinada regra de escala. 
 
 ```json
 {
@@ -89,7 +88,7 @@ Gravada quando a escala automática começa a avaliar uma regra de escala espec�
 
 ## <a name="metric-evaluation"></a>Avaliação métrica
 
-Gravada quando a escala automática avaliou a métrica que estava a ser usada para desencadear uma ação de escala. 
+Gravada quando a autoescalada avaliou a métrica que está a ser usada para desencadear uma ação de escala. 
 
 ```json
 {
@@ -111,9 +110,9 @@ Gravada quando a escala automática avaliou a métrica que estava a ser usada pa
 }
 ```
 
-## <a name="instance-count-evaluation"></a>Avaliação da contagem de exemplos
+## <a name="instance-count-evaluation"></a>Avaliação da contagem de instâncias
 
-Gravada quando a escala automática avalia o número de casos já em execução para decidir se deve começar mais, desligar alguns ou não fazer nada. 
+Registado quando a autoescala avalia o número de casos já em execução para decidir se deve começar mais, desligar alguns ou não fazer nada. 
 
 ```json
 {
@@ -134,7 +133,7 @@ Gravada quando a escala automática avalia o número de casos já em execução 
 
 ## <a name="scale-action-evaluation"></a>Avaliação de ação em escala
 
-Gravada quando a escala automática iniciar a avaliação se uma ação de escala deve ocorrer. 
+Gravada quando a autoescala iniciar a avaliação se uma ação de escala deve ocorrer. 
 
 ```json
 {
@@ -152,9 +151,9 @@ Gravada quando a escala automática iniciar a avaliação se uma ação de escal
 }
 ```
 
-## <a name="instance-update-evaluation"></a>Avaliação da atualização de instâncias
+## <a name="instance-update-evaluation"></a>Avaliação de atualização de instâncias
 
-Gravado quando a escala automática atualiza o número de instâncias computadas em execução, para cima ou para baixo.
+Gravado quando a escala automática atualiza o número de casos de cálculo em execução, para cima ou para baixo.
 
 ```json
 {
@@ -173,9 +172,9 @@ Gravado quando a escala automática atualiza o número de instâncias computadas
 }
 ```
 
-## <a name="scale-action"></a>Ação à escala
+## <a name="scale-action"></a>Ação de escala
 
-Gravada quando a escala automática inicia uma ação de escala, para cima ou para baixo. 
+Gravada quando a autoescala inicia uma ação de escala, para cima ou para baixo. 
 ```json
 {
   "time": "2018-09-10 18:12:00.6132593",
@@ -198,7 +197,7 @@ Gravada quando a escala automática inicia uma ação de escala, para cima ou pa
 
 ## <a name="scale-action-tracking"></a>Rastreio de ação em escala
 
-Gravado em diferentes intervalos de uma ação de escala de instância.
+Registado em intervalos diferentes de uma ação de escala de exemplo.
 
 ```json
 {
@@ -216,5 +215,5 @@ Gravado em diferentes intervalos de uma ação de escala de instância.
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre [a escala automática](autoscale-overview.md)
+## <a name="next-steps"></a>Próximos passos
+Saiba mais sobre [autoescala](autoscale-overview.md)

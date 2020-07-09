@@ -1,6 +1,6 @@
 ---
 title: Atividade de Eliminação no Azure Data Factory
-description: Saiba como eliminar ficheiros em várias lojas de ficheiros com a Atividade de Eliminar na Fábrica de Dados Azure.
+description: Saiba como eliminar ficheiros em várias lojas de ficheiros com a Atividade de Eliminação na Fábrica de Dados Azure.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -13,38 +13,38 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: d90f38f83bd4d2d5311f277fcc928e442d7ea793
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416386"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Atividade de Eliminação no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
-Pode utilizar a Atividade de Exclusão na Fábrica de Dados Azure para eliminar ficheiros ou pastas de lojas de armazenamento no local ou lojas de armazenamento em nuvem. Utilize esta atividade para limpar ou arquivar ficheiros quando já não forem necessários.
+Pode utilizar a Atividade de Eliminar na Azure Data Factory para eliminar ficheiros ou pastas de lojas de armazenamento no local ou lojas de armazenamento em nuvem. Utilize esta atividade para limpar ou arquivar ficheiros quando já não são necessários.
 
 > [!WARNING]
-> Os ficheiros ou pastas eliminados não podem ser restaurados (a menos que o armazenamento tenha sido ativado por eliminação suave). Tenha cuidado ao utilizar a ação Eliminar para eliminar ficheiros ou pastas.
+> Os ficheiros ou pastas eliminados não podem ser restaurados (a menos que o armazenamento tenha ativado a eliminação suave). Tenha cuidado ao utilizar a ação Eliminar para eliminar ficheiros ou pastas.
 
 ## <a name="best-practices"></a>Melhores práticas
 
-Aqui ficam algumas recomendações para a utilização da atividade Delete:
+Aqui ficam algumas recomendações para a utilização da atividade Eliminar:
 
--   Faça cópias de tempo dos seus ficheiros antes de os eliminar com a atividade Delete, caso necessite de os restaurar no futuro.
+-   Faça o back up dos seus ficheiros antes de os eliminar com a atividade Eliminar, caso necessite de os restaurar no futuro.
 
--   Certifique-se de que a Data Factory tem permissões de escrita para eliminar pastas ou ficheiros do armazém.
+-   Certifique-se de que a Data Factory tem permissões de escrita para eliminar pastas ou ficheiros da loja de armazenamento.
 
 -   Certifique-se de que não está a apagar ficheiros que estão a ser escritos ao mesmo tempo. 
 
--   Se pretender eliminar ficheiros ou pastas de um sistema no local, certifique-se de que está a utilizar um tempo de funcionação de integração auto-hospedado com uma versão superior a 3.14.
+-   Se pretender eliminar ficheiros ou pastas de um sistema no local, certifique-se de que está a utilizar um tempo de integração auto-hospedado com uma versão superior a 3.14.
 
 ## <a name="supported-data-stores"></a>Arquivos de dados suportados
 
 -   [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md)
 -   [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md)
--   [Armazenamento do Azure Data Lake Ger2](connector-azure-data-lake-storage.md)
+-   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2)
 -   [Armazenamento de Ficheiros do Azure](connector-azure-file-storage.md)
 
 ### <a name="file-system-data-stores"></a>Lojas de dados do sistema de ficheiros
@@ -55,7 +55,7 @@ Aqui ficam algumas recomendações para a utilização da atividade Delete:
 -   [Amazon S3](connector-amazon-simple-storage-service.md)
 -   [Google Cloud Storage](connector-google-cloud-storage.md)
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 ```json
 {
@@ -80,25 +80,25 @@ Aqui ficam algumas recomendações para a utilização da atividade Delete:
 }
 ```
 
-## <a name="type-properties"></a>Propriedades de tipo
+## <a name="type-properties"></a>Tipo de propriedades
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| conjunto de dados | Fornece a referência do conjunto de dados para determinar quais ficheiros ou pasta a eliminar | Sim |
-| recursivo | Indica se os ficheiros são eliminados recursivamente das subpastas ou apenas da pasta especificada.  | Não. A predefinição é `false`. |
-| maxConcurrentConnections | O número das ligações para ligar simultaneamente à loja de armazenamento para apagar pasta ou ficheiros.   |  Não. A predefinição é `1`. |
-| habilitação de exploração | Indica se precisa de gravar a pasta ou os nomes de ficheiros que tenham sido eliminados. Se for verdade, é necessário fornecer ainda mais uma conta de armazenamento para guardar o ficheiro de registo, para que possa acompanhar os comportamentos da atividade do Delete através da leitura do ficheiro de registo. | Não |
-| logStorageSettings | Só aplicável quando ativar = verdadeiro.<br/><br/>Um grupo de propriedades de armazenamento que podem ser especificadas onde pretende guardar o ficheiro de registo contendo a pasta ou os nomes de ficheiros que tenham sido eliminados pela atividade Delete. | Não |
-| linkedServiceName | Só aplicável quando ativar = verdadeiro.<br/><br/>O serviço ligado ao [Armazenamento Azure,](connector-azure-blob-storage.md#linked-service-properties) [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties), ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar o ficheiro de registo que contém a pasta ou nomes de ficheiros que tenham sido eliminados pela atividade Delete. Esteja ciente de que deve ser configurado com o mesmo tipo de Tempo de Funcionação de Integração a partir do utilizado por eliminar a atividade para eliminar ficheiros. | Não |
-| path | Só aplicável quando ativar = verdadeiro.<br/><br/>O caminho para guardar o ficheiro de registo na sua conta de armazenamento. Se não fornecer um caminho, o serviço cria um recipiente para si. | Não |
+| conjunto de dados | Fornece a referência do conjunto de dados para determinar quais os ficheiros ou pasta a eliminar | Yes |
+| recursivo | Indica se os ficheiros são eliminados novamente das sub-dobradeiras ou apenas a partir da pasta especificada.  | Não. A predefinição é `false`. |
+| maxConcurrentConnections | O número de ligações a ligar ao armazenamento simultaneamente para eliminar pastas ou ficheiros.   |  Não. A predefinição é `1`. |
+| enableloging | Indica se precisa de gravar a pasta ou os nomes dos ficheiros que foram eliminados. Se for verdade, precisa de fornecer ainda mais uma conta de armazenamento para guardar o ficheiro de registo, para que possa rastrear os comportamentos da atividade Eliminar, lendo o ficheiro de registo. | No |
+| logStorageSettings | Só aplicável quando se ativar = verdadeiro.<br/><br/>Um grupo de propriedades de armazenamento que podem ser especificadas onde pretende guardar o ficheiro de registo contendo a pasta ou nomes de ficheiros que foram eliminados pela atividade Eliminar. | No |
+| linkedServiceName | Só aplicável quando se ativar = verdadeiro.<br/><br/>O serviço ligado do [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties), ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar o ficheiro de registo que contém as pastas ou nomes de ficheiros que foram eliminados pela atividade Delete. Tenha em atenção que deve ser configurado com o mesmo tipo de Tempo de Execução de Integração do utilizado pela atividade de exclusão para eliminar ficheiros. | No |
+| path | Só aplicável quando se ativar = verdadeiro.<br/><br/>O caminho para guardar o ficheiro de registo na sua conta de armazenamento. Se não providenciar um caminho, o serviço cria um recipiente para si. | No |
 
 ## <a name="monitoring"></a>Monitorização
 
-Existem dois locais onde pode ver e monitorizar os resultados da atividade Desativação: 
--   A partir da saída da atividade Delete.
+Existem dois locais onde pode ver e monitorizar os resultados da atividade Eliminar: 
+-   A partir da saída da atividade Eliminar.
 -   Do ficheiro de registo.
 
-### <a name="sample-output-of-the-delete-activity"></a>Saída da amostra da atividade Delete
+### <a name="sample-output-of-the-delete-activity"></a>Saída de amostra da atividade de Eliminação
 
 ```json
 { 
@@ -116,16 +116,16 @@ Existem dois locais onde pode ver e monitorizar os resultados da atividade Desat
 }
 ```
 
-### <a name="sample-log-file-of-the-delete-activity"></a>Arquivo de registo de amostras da atividade de Eliminar
+### <a name="sample-log-file-of-the-delete-activity"></a>Arquivo de registo de amostra da atividade eliminar
 
-| Nome | Categoria | Estado | Erro |
+| Name | Categoria | Estado | Erro |
 |:--- |:--- |:--- |:--- |
-| test1/yyy.json | Ficheiro | Eliminado |  |
+| test1/yyy.jsem | Ficheiro | Eliminado |  |
 | test2/hello789.txt | Ficheiro | Eliminado |  |
-| test2/test3/hello000.txt | Ficheiro | Eliminado |  |
-| test2/test3/zzz.json | Ficheiro | Eliminado |  |
+| teste2/test3/hello000.txt | Ficheiro | Eliminado |  |
+| test2/test3/zzz.jsem | Ficheiro | Eliminado |  |
 
-## <a name="examples-of-using-the-delete-activity"></a>Exemplos de utilização da atividade Delete
+## <a name="examples-of-using-the-delete-activity"></a>Exemplos de utilização da atividade Eliminar
 
 ### <a name="delete-specific-folders-or-files"></a>Eliminar pastas ou ficheiros específicos
 
@@ -133,9 +133,9 @@ A loja tem a seguinte estrutura de pasta:
 
 Raiz/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt
 
-Agora está a utilizar a atividade Delete para eliminar pastas ou ficheiros pela combinação de diferentes valores de propriedade do conjunto de dados e da atividade de Eliminar:
+Agora está a utilizar a atividade Eliminar para eliminar pastas ou ficheiros pela combinação de diferentes valores de propriedade do conjunto de dados e da atividade Eliminar:
 
-| folderPath (a partir de dataset) | nome de ficheiro (a partir de dataset) | recursivo (da atividade Eliminar) | Saída |
+| apoupa (a partir do conjunto de dados) | nome de ficheiro (a partir do conjunto de dados) | recursivo (da atividade Eliminar) | Saída |
 |:--- |:--- |:--- |:--- |
 | Raiz/ Folder_A_2 | NULL | Falso | Raiz/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt |
 | Raiz/ Folder_A_2 | NULL | Verdadeiro | Raiz/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_A_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_1/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>7.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8.txt</strike> |
@@ -144,7 +144,7 @@ Agora está a utilizar a atividade Delete para eliminar pastas ou ficheiros pela
 
 ### <a name="periodically-clean-up-the-time-partitioned-folder-or-files"></a>Limpe periodicamente a pasta ou ficheiros com divisórias de tempo
 
-Pode criar um pipeline para limpar periodicamente a pasta ou ficheiros divididos pelo tempo.  Por exemplo, a estrutura da `/mycontainer/2018/12/14/*.csv`pasta é semelhante a: .  Pode alavancar a variável do sistema ADF a partir do gatilho de agenda para identificar qual a pasta ou ficheiros que devem ser eliminados em cada execução do pipeline. 
+Pode criar um oleoduto para limpar periodicamente a pasta ou ficheiros com divisórias.  Por exemplo, a estrutura da pasta é semelhante à seguinte: `/mycontainer/2018/12/14/*.csv` .  Pode aproveitar a variável do sistema ADF a partir do gatilho do horário para identificar que pasta ou ficheiros devem ser eliminados em cada execução do pipeline. 
 
 #### <a name="sample-pipeline"></a>Gasoduto de amostra
 
@@ -262,9 +262,9 @@ Pode criar um pipeline para limpar periodicamente a pasta ou ficheiros divididos
 }
 ```
 
-### <a name="clean-up-the-expired-files-that-were-last-modified-before-201811"></a>Limpe os ficheiros expirados que foram modificados pela última vez antes de 2018.1.1
+### <a name="clean-up-the-expired-files-that-were-last-modified-before-201811"></a>Limpe os ficheiros caducados que foram modificados pela última vez antes de 2018.1.1
 
-Pode criar um pipeline para limpar os ficheiros antigos ou expirados, aproveitando o filtro de atributo supor ficheiros: "LastModificadod" no conjunto de dados.  
+Pode criar um pipeline para limpar os ficheiros antigos ou expirados, aproveitando o filtro de atributos de ficheiro: "LastModified" no conjunto de dados.  
 
 #### <a name="sample-pipeline"></a>Gasoduto de amostra
 
@@ -324,12 +324,12 @@ Pode criar um pipeline para limpar os ficheiros antigos ou expirados, aproveitan
 }
 ```
 
-### <a name="move-files-by-chaining-the-copy-activity-and-the-delete-activity"></a>Mover ficheiros acorrentando a atividade da Cópia e a atividade de Eliminar
+### <a name="move-files-by-chaining-the-copy-activity-and-the-delete-activity"></a>Mover ficheiros acorrentando a atividade copy e a atividade de Eliminar
 
-Pode mover um ficheiro utilizando uma atividade de cópia para copiar um ficheiro e, em seguida, eliminar uma atividade para eliminar um ficheiro num pipeline.  Quando pretender mover vários ficheiros, pode utilizar a atividade GetMetadata + Atividade de filtragem + Atividade foreach + Atividade de cópia + Eliminar a atividade como na seguinte amostra:
+Pode mover um ficheiro utilizando uma atividade de cópia para copiar um ficheiro e, em seguida, eliminar uma atividade para apagar um ficheiro num pipeline.  Quando pretende mover vários ficheiros, pode utilizar a atividade GetMetadata + Atividade do filtro + atividade de Foreach + Copiar a atividade + Eliminar a atividade como na amostra seguinte:
 
 > [!NOTE]
-> Se pretender mover toda a pasta definindo um conjunto de dados que contenha apenas um caminho de pasta e, em seguida, utilizando uma atividade de cópia e uma atividade de Eliminar para referência ao mesmo conjunto de dados que representa uma pasta, tem de ter muito cuidado. É porque tem de se certificar de que não haverá novos ficheiros que chegam à pasta entre a operação de cópia e a eliminação da operação.  Se houver novos ficheiros que chegam à pasta no momento em que a sua atividade de cópia acabou de completar a função de cópia, mas a atividade de Eliminar não foi encarada, é possível que a atividade do Delete apague este novo ficheiro de chegada que ainda não foi copiado para o destino, eliminando toda a pasta. 
+> Se pretender mover toda a pasta definindo um conjunto de dados que contenha apenas um percurso de pasta e, em seguida, utilizar uma atividade de cópia e uma atividade de Apagar para referência ao mesmo conjunto de dados que representa uma pasta, tem de ter muito cuidado. É porque tem de se certificar de que não haverá novos ficheiros a chegar à pasta entre a operação de cópia e a eliminação da operação.  Se houver novos ficheiros a chegar à pasta no momento em que a sua atividade de cópia acabou de completar a função de cópia, mas a atividade Delete não foi encarada, é possível que a atividade Desaclamar este novo ficheiro que não tenha sido copiado para o destino, eliminando ainda toda a pasta. 
 
 #### <a name="sample-pipeline"></a>Gasoduto de amostra
 
@@ -488,7 +488,7 @@ Pode mover um ficheiro utilizando uma atividade de cópia para copiar um ficheir
 
 #### <a name="sample-datasets"></a>Conjuntos de dados de exemplo
 
-Conjunto de dados utilizado pela atividade getMetadata para enumerar a lista de ficheiros.
+Conjunto de dados utilizado pela atividade GetMetadata para enumerar a lista de ficheiros.
 
 ```json
 {
@@ -507,7 +507,7 @@ Conjunto de dados utilizado pela atividade getMetadata para enumerar a lista de 
 }
 ```
 
-Conjunto de dados para fonte de dados utilizado pela atividade de cópia e pela atividade de Eliminar.
+Conjunto de dados para fonte de dados utilizado pela atividade de cópia e pela atividade Desaconseção.
 
 ```json
 {
@@ -540,7 +540,7 @@ Conjunto de dados para fonte de dados utilizado pela atividade de cópia e pela 
 }
 ```
 
-Conjunto de dados para destino de dados utilizado pela atividade de cópia.
+Conjunto de dados para destino de dados utilizado por atividade de cópia.
 
 ```json
 {
@@ -567,16 +567,16 @@ Conjunto de dados para destino de dados utilizado pela atividade de cópia.
 }
 ```
 
-Também pode obter o modelo para mover ficheiros a partir [daqui](solution-template-move-files.md).
+Também pode obter o modelo para mover ficheiros a partir [daqui.](solution-template-move-files.md)
 
 ## <a name="known-limitation"></a>Limitação conhecida
 
--   Eliminar atividade não suporta a eliminação da lista de pastas descritas por wildcard.
+-   A atividade de exclusão não suporta a eliminação da lista de pastas descritas por wildcard.
 
--   Quando utilizar o filtro de atributo de ficheiro: modificadoDatetimeStart e modificadoDatetimeEnd para selecionar ficheiros a eliminar, certifique-se de definir "fileName": "*" no conjunto de dados.
+-   Ao utilizar o filtro de atributos de ficheiro: ModificadoDatetimeStart e modificadoDatetimeEnd para selecionar ficheiros a eliminar, certifique-se de que define "fileName": "*" no conjunto de dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre a movimentação de ficheiros na Azure Data Factory.
+Saiba mais sobre a mudança de ficheiros na Azure Data Factory.
 
 -   [Ferramenta Copiar Dados no Azure Data Factory](copy-data-tool.md)

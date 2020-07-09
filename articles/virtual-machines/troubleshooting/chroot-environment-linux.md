@@ -1,6 +1,6 @@
 ---
-title: Ambiente chroot em um VM de resgate Linux.
-description: Este artigo descreve como resolver o ambiente de chroot na máquina virtual de resgate (VM) em Linux.
+title: Ambiente de cromo num VM de resgate linux.
+description: Este artigo descreve como resolver problemas no ambiente de cromos na máquina virtual Rescue (VM) em Linux.
 mservices: virtual-machines-linux
 documentationcenter: ''
 author: kailashmsft
@@ -14,29 +14,28 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 05/05/2020
 ms.author: kaib
 ms.openlocfilehash: d6605aa77cfa746f60fc3b23e120267a2614f7b1
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82864685"
 ---
-# <a name="chroot-environment-in-a-linux-rescue-vm"></a>Ambiente chroot em um VM de resgate linux
+# <a name="chroot-environment-in-a-linux-rescue-vm"></a>Ambiente cromo em um VM de resgate linux
 
-Este artigo descreve como resolver o ambiente de chroot na máquina virtual de resgate (VM) em Linux.
+Este artigo descreve como resolver problemas no ambiente de cromos na máquina virtual Rescue (VM) em Linux.
 
 ## <a name="ubuntu-16x--ubuntu-18x"></a>Ubuntu 16.x && Ubuntu 18.x
 
-1. Parar ou desalocar o VM afetado.
+1. Parar ou desatribuer o VM afetado.
 1. Crie uma imagem VM de resgate da mesma versão OS, no mesmo grupo de recursos (RSG) e localização utilizando o disco gerido.
-1. Utilize o portal Azure para tirar uma foto do disco operativo da máquina virtual afetada.
-1. Crie um disco a partir da imagem do disco OS e prenda-o ao VM de resgate.
-1. Uma vez criado o disco, Troubleshoot o ambiente de chroot no VM de resgate.
+1. Utilize o portal Azure para tirar uma fotografia do disco de oss da máquina virtual afetada.
+1. Crie um disco a partir da imagem do disco de so e prenda-o ao VM de resgate.
+1. Uma vez criado o disco, resolva o ambiente de cromo no VM de resgate.
 
-   1. Aceda ao seu VM como utilizador de raiz utilizando o seguinte comando:
+   1. Aceda ao seu VM como utilizador raiz utilizando o seguinte comando:
 
       `#sudo su -`
 
-   1. Encontre o `dmesg` disco utilizando (o método que utiliza para descobrir o seu novo disco pode variar). O exemplo seguinte utiliza **dmesg** para filtrar em discos **SCSI:**
+   1. Encontre o disco utilizando `dmesg` (o método que utiliza para descobrir o seu novo disco pode variar). O exemplo a seguir utiliza **o dmesg** para filtrar em discos **SCSI:**
 
       `dmesg | grep SCSI`
 
@@ -50,7 +49,7 @@ Este artigo descreve como resolver o ambiente de chroot na máquina virtual de r
       [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
       ```
 
-   1. Utilize os seguintes comandos para aceder ao ambiente de chroot:
+   1. Utilize os seguintes comandos para aceder ao ambiente cromoso:
 
       ```
       #mkdir /rescue
@@ -66,9 +65,9 @@ Este artigo descreve como resolver o ambiente de chroot na máquina virtual de r
       #chroot /rescue
       ```
 
-   1. Problemas atiram o ambiente de chroot.
+   1. Resolver problemas no ambiente de cromos.
 
-   1. Utilize os seguintes comandos para sair do ambiente de chroot:
+   1. Utilize os seguintes comandos para sair do ambiente croâmado:
 
       ```
       #exit
@@ -84,26 +83,26 @@ Este artigo descreve como resolver o ambiente de chroot na máquina virtual de r
       ```
 
       > [!NOTE]
-      > Se receber o `unable to unmount /rescue`erro, adicione a opção -l ao comando de umount.
+      > Se receber o `unable to unmount /rescue` erro, adicione a opção -l ao comando umount.
       >
       > Exemplo: `umount -l /rescue`
 
-1. Retire o disco do VM de resgate e realize uma troca de discos com o VM original.
+1. Retire o disco do VM de resgate e efetue uma troca de disco com o VM original.
 1. Inicie o VM original e verifique a sua conectividade.
 
-## <a name="rhelcentosoracle-6x--oracle-8x--rhelcentos-7x-with-raw-partitions"></a>RHEL/Centos/Oráculo 6.x && Oráculo 8.x && RHEL/Centos 7.x com Divisóriaraw
+## <a name="rhelcentosoracle-6x--oracle-8x--rhelcentos-7x-with-raw-partitions"></a>RHEL/Centos/Oráculo 6.x && Oráculo 8.x && RHEL/Centos 7.x com Partições RAW
 
-1. Parar ou desalocar o VM afetado.
-1. Crie uma imagem VM de resgate da mesma versão OS, no mesmo grupo de recursos (RSG) e localização utilizando o disco gerido.
-1. Utilize o portal Azure para tirar uma foto do disco operativo da máquina virtual afetada.
-1. Crie um disco a partir da imagem do disco OS e prenda-o ao VM de resgate.
-1. Uma vez criado o disco, Troubleshoot o ambiente de chroot no VM de resgate.
+1. Parar ou desatribuer o VM afetado.
+1. Crie uma imagem de Rescue VM da mesma versão SO, no mesmo grupo de recursos (RSG) e localização utilizando o disco gerido.
+1. Utilize o portal Azure para tirar uma fotografia do disco de oss da máquina virtual afetada.
+1. Crie um disco a partir da imagem do disco de so e prenda-o ao VM de resgate.
+1. Uma vez criado o disco, resolva o ambiente de cromo no VM de resgate.
 
-   1. Aceda ao seu VM como utilizador de raiz utilizando o seguinte comando:
+   1. Aceda ao seu VM como utilizador raiz utilizando o seguinte comando:
 
       `#sudo su -`
 
-   1. Encontre o `dmesg` disco utilizando (o método que utiliza para descobrir o seu novo disco pode variar). O exemplo seguinte utiliza **dmesg** para filtrar em discos **SCSI:**
+   1. Encontre o disco utilizando `dmesg` (o método que utiliza para descobrir o seu novo disco pode variar). O exemplo a seguir utiliza **o dmesg** para filtrar em discos **SCSI:**
 
       `dmesg | grep SCSI`
 
@@ -117,7 +116,7 @@ Este artigo descreve como resolver o ambiente de chroot na máquina virtual de r
       [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
       ```
 
-   1. Utilize os seguintes comandos para aceder ao ambiente de chroot:
+   1. Utilize os seguintes comandos para aceder ao ambiente cromoso:
 
       ```
       #mkdir /rescue
@@ -133,9 +132,9 @@ Este artigo descreve como resolver o ambiente de chroot na máquina virtual de r
       #chroot /rescue
       ```
 
-   1. Problemas atiram o ambiente de chroot.
+   1. Resolver problemas no ambiente de cromos.
 
-   1. Utilize os seguintes comandos para sair do ambiente de chroot:
+   1. Utilize os seguintes comandos para sair do ambiente croâmado:
 
       ```
       #exit
@@ -151,29 +150,29 @@ Este artigo descreve como resolver o ambiente de chroot na máquina virtual de r
       ```
 
       > [!NOTE]
-      > Se receber o `unable to unmount /rescue`erro, adicione a opção -l ao comando de umount.
+      > Se receber o `unable to unmount /rescue` erro, adicione a opção -l ao comando umount.
       >
       > Exemplo: `umount -l /rescue`
 
-1. Retire o disco do VM de resgate e realize uma troca de discos com o VM original.
+1. Retire o disco do VM de resgate e efetue uma troca de disco com o VM original.
 1. Inicie o VM original e verifique a sua conectividade.
 
 ## <a name="rhelcentos-7x-with-lvm"></a>RHEL/Centos 7.x com LVM
 
    > [!NOTE]
-   > Se o seu VM original incluir o Gestor de Volume Lógico (LVM) no Disco OS, crie o VM de resgate utilizando a imagem com divisórias cruas no disco osS.
+   > Se o seu VM original incluir o Gestor de Volume Lógico (LVM) no disco oss, crie o Rescue VM utilizando a imagem com divisórias cruas no disco OS.
 
-1. Parar ou desalocar o VM afetado.
-1. Crie uma imagem VM de resgate da mesma versão OS, no mesmo grupo de recursos (RSG) e localização utilizando o disco gerido.
-1. Utilize o portal Azure para tirar uma foto do disco operativo da máquina virtual afetada.
-1. Crie um disco a partir da imagem do disco OS e prenda-o ao VM de resgate.
-1. Uma vez criado o disco, Troubleshoot o ambiente de chroot no VM de resgate.
+1. Parar ou desatribuer o VM afetado.
+1. Crie uma imagem de Rescue VM da mesma versão SO, no mesmo grupo de recursos (RSG) e localização utilizando o disco gerido.
+1. Utilize o portal Azure para tirar uma fotografia do disco de oss da máquina virtual afetada.
+1. Crie um disco a partir da imagem do disco de so e prenda-o ao VM de resgate.
+1. Uma vez criado o disco, resolva o ambiente de cromo no VM de resgate.
 
-   1. Aceda ao seu VM como utilizador de raiz utilizando o seguinte comando:
+   1. Aceda ao seu VM como utilizador raiz utilizando o seguinte comando:
 
       `#sudo su -`
 
-   1. Encontre o `dmesg` disco utilizando (o método que utiliza para descobrir o seu novo disco pode variar). O exemplo seguinte utiliza **dmesg** para filtrar em discos **SCSI:**
+   1. Encontre o disco utilizando `dmesg` (o método que utiliza para descobrir o seu novo disco pode variar). O exemplo a seguir utiliza **o dmesg** para filtrar em discos **SCSI:**
 
       `dmesg | grep SCSI`
 
@@ -195,7 +194,7 @@ Este artigo descreve como resolver o ambiente de chroot na máquina virtual de r
       #lvscan
       ```
 
-   1. Utilize `lsblk` o comando para recuperar os nomes da LVM:
+   1. Use o `lsblk` comando para recuperar os nomes lvm:
 
       ```
       [user@myvm ~]$ lsblk
@@ -218,7 +217,7 @@ Este artigo descreve como resolver o ambiente de chroot na máquina virtual de r
         └─rootvg-rootlv 253:5    0    2G  0 lvm
       ```
 
-   1. Utilize os seguintes comandos para aceder ao ambiente de chroot:
+   1. Utilize os seguintes comandos para aceder ao ambiente cromoso:
 
       ```
       #mkdir /rescue
@@ -240,9 +239,9 @@ Este artigo descreve como resolver o ambiente de chroot na máquina virtual de r
       #chroot /rescue
       ```
 
-   1. Problemas atiram o ambiente de chroot.
+   1. Resolver problemas no ambiente de cromos.
 
-   1. Utilize os seguintes comandos para sair do ambiente de chroot:
+   1. Utilize os seguintes comandos para sair do ambiente croâmado:
 
       ```
       #exit
@@ -264,29 +263,29 @@ Este artigo descreve como resolver o ambiente de chroot na máquina virtual de r
       ```
 
       > [!NOTE]
-      > Se receber o `unable to unmount /rescue`erro, adicione a opção -l ao comando de umount.
+      > Se receber o `unable to unmount /rescue` erro, adicione a opção -l ao comando umount.
       >
       > Exemplo: `umount -l /rescue`
 
-1. Retire o disco do VM de resgate e realize uma troca de discos com o VM original.
+1. Retire o disco do VM de resgate e efetue uma troca de disco com o VM original.
 1. Inicie o VM original e verifique a sua conectividade.
 
 ## <a name="rhel-8x-with-lvm"></a>RHEL 8.x com LVM
 
    > [!NOTE]
-   > Se o seu VM original incluir o Gestor de Volume Lógico (LVM) no Disco OS, crie o VM de resgate utilizando a imagem com divisórias cruas no disco osS.
+   > Se o seu VM original incluir o Gestor de Volume Lógico (LVM) no disco oss, crie o Rescue VM utilizando a imagem com divisórias cruas no disco OS.
 
-1. Parar ou desalocar o VM afetado.
-1. Crie uma imagem VM de resgate da mesma versão OS, no mesmo grupo de recursos (RSG) e localização utilizando o disco gerido.
-1. Utilize o portal Azure para tirar uma foto do disco operativo da máquina virtual afetada.
-1. Crie um disco a partir da imagem do disco OS e prenda-o ao VM de resgate.
-1. Uma vez criado o disco, Troubleshoot o ambiente de chroot no VM de resgate.
+1. Parar ou desatribuer o VM afetado.
+1. Crie uma imagem de Rescue VM da mesma versão SO, no mesmo grupo de recursos (RSG) e localização utilizando o disco gerido.
+1. Utilize o portal Azure para tirar uma fotografia do disco de oss da máquina virtual afetada.
+1. Crie um disco a partir da imagem do disco de so e prenda-o ao VM de resgate.
+1. Uma vez criado o disco, resolva o ambiente de cromo no VM de resgate.
 
-   1. Aceda ao seu VM como utilizador de raiz utilizando o seguinte comando:
+   1. Aceda ao seu VM como utilizador raiz utilizando o seguinte comando:
 
       `#sudo su -`
 
-   1. Encontre o `dmesg` disco utilizando (o método que utiliza para descobrir o seu novo disco pode variar). O exemplo seguinte utiliza **dmesg** para filtrar em discos **SCSI:**
+   1. Encontre o disco utilizando `dmesg` (o método que utiliza para descobrir o seu novo disco pode variar). O exemplo a seguir utiliza **o dmesg** para filtrar em discos **SCSI:**
 
       `dmesg | grep SCSI`
 
@@ -308,7 +307,7 @@ Este artigo descreve como resolver o ambiente de chroot na máquina virtual de r
       #lvscan
       ```
 
-   1. Utilize `lsblk` o comando para recuperar os nomes da LVM:
+   1. Use o `lsblk` comando para recuperar os nomes lvm:
 
       ```
       [user@myvm ~]$ lsblk
@@ -330,7 +329,7 @@ Este artigo descreve como resolver o ambiente de chroot na máquina virtual de r
       └─sdc15             8:15   0  495M  0 part
       ```
 
-   1. Utilize os seguintes comandos para aceder ao ambiente de chroot:
+   1. Utilize os seguintes comandos para aceder ao ambiente cromoso:
 
       ```
       #mkdir /rescue
@@ -351,9 +350,9 @@ Este artigo descreve como resolver o ambiente de chroot na máquina virtual de r
       #chroot /rescue
       ```
 
-   1. Problemas atiram o ambiente de chroot.
+   1. Resolver problemas no ambiente de cromos.
 
-   1. Utilize os seguintes comandos para sair do ambiente de chroot:
+   1. Utilize os seguintes comandos para sair do ambiente croâmado:
 
       ```
       #exit
@@ -374,26 +373,26 @@ Este artigo descreve como resolver o ambiente de chroot na máquina virtual de r
       ```
 
       > [!NOTE]
-      > Se receber o `unable to unmount /rescue`erro, adicione a opção -l ao comando de umount.
+      > Se receber o `unable to unmount /rescue` erro, adicione a opção -l ao comando umount.
       >
       > Exemplo: `umount -l /rescue`
 
-1. Retire o disco do VM de resgate e realize uma troca de discos com o VM original.
+1. Retire o disco do VM de resgate e efetue uma troca de disco com o VM original.
 1. Inicie o VM original e verifique a sua conectividade.
 
 ## <a name="oracle-7x"></a>Oráculo 7.x
 
-1. Parar ou desalocar o VM afetado.
-1. Crie uma imagem VM de resgate da mesma versão OS, no mesmo grupo de recursos (RSG) e localização utilizando o disco gerido.
-1. Utilize o portal Azure para tirar uma foto do disco operativo da máquina virtual afetada.
-1. Crie um disco a partir da imagem do disco OS e prenda-o ao VM de resgate.
-1. Uma vez criado o disco, Troubleshoot o ambiente de chroot no VM de resgate.
+1. Parar ou desatribuer o VM afetado.
+1. Crie uma imagem de Rescue VM da mesma versão SO, no mesmo grupo de recursos (RSG) e localização utilizando o disco gerido.
+1. Utilize o portal Azure para tirar uma fotografia do disco de oss da máquina virtual afetada.
+1. Crie um disco a partir da imagem do disco de so e prenda-o ao VM de resgate.
+1. Uma vez criado o disco, resolva o ambiente de cromo no VM de resgate.
 
-   1. Aceda ao seu VM como utilizador de raiz utilizando o seguinte comando:
+   1. Aceda ao seu VM como utilizador raiz utilizando o seguinte comando:
 
       `#sudo su -`
 
-   1. Encontre o `dmesg` disco utilizando (o método que utiliza para descobrir o seu novo disco pode variar). O exemplo seguinte utiliza **dmesg** para filtrar em discos **SCSI:**
+   1. Encontre o disco utilizando `dmesg` (o método que utiliza para descobrir o seu novo disco pode variar). O exemplo a seguir utiliza **o dmesg** para filtrar em discos **SCSI:**
 
       `dmesg | grep SCSI`
 
@@ -407,7 +406,7 @@ Este artigo descreve como resolver o ambiente de chroot na máquina virtual de r
       [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
       ```
 
-   1. Utilize os seguintes comandos para aceder ao ambiente de chroot:
+   1. Utilize os seguintes comandos para aceder ao ambiente cromoso:
 
       ```
       #mkdir /rescue
@@ -424,9 +423,9 @@ Este artigo descreve como resolver o ambiente de chroot na máquina virtual de r
       ##chroot /rescue
       ```
 
-   1. Problemas atiram o ambiente de chroot.
+   1. Resolver problemas no ambiente de cromos.
 
-   1. Utilize os seguintes comandos para sair do ambiente de chroot:
+   1. Utilize os seguintes comandos para sair do ambiente croâmado:
 
       ```
       #exit
@@ -443,26 +442,26 @@ Este artigo descreve como resolver o ambiente de chroot na máquina virtual de r
       ```
 
       > [!NOTE]
-      > Se receber o `unable to unmount /rescue`erro, adicione a opção -l ao comando de umount.
+      > Se receber o `unable to unmount /rescue` erro, adicione a opção -l ao comando umount.
       >
       > Exemplo: `umount -l /rescue`
 
-1. Retire o disco do VM de resgate e realize uma troca de discos com o VM original.
+1. Retire o disco do VM de resgate e efetue uma troca de disco com o VM original.
 1. Inicie o VM original e verifique a sua conectividade.
 
-## <a name="suse-sles-12-sp4-suse-sles-12-sp4-for-sap---suse-sles-15-sp1-suse-sles-15-sp1-for-sap"></a>SUSE-SLES 12 SP4, SUSE-SLES 12 SP4 para SAP && ## SUSE-SLES 15 SP1, SUSE-SLES 15 SP1 para SAP
+## <a name="suse-sles-12-sp4-suse-sles-12-sp4-for-sap---suse-sles-15-sp1-suse-sles-15-sp1-for-sap"></a>SUSE-SLES 12 SP4, SUSE-SLES 12 SP4 Para SAP && ## SUSE-SLES 15 SP1, SUSE-SLES 15 SP1 PARA SAP
 
-1. Parar ou desalocar o VM afetado.
-1. Crie uma imagem VM de resgate da mesma versão OS, no mesmo grupo de recursos (RSG) e localização utilizando o disco gerido.
-1. Utilize o portal Azure para tirar uma foto do disco operativo da máquina virtual afetada.
-1. Crie um disco a partir da imagem do disco OS e prenda-o ao VM de resgate.
-1. Uma vez criado o disco, Troubleshoot o ambiente de chroot no VM de resgate.
+1. Parar ou desatribuer o VM afetado.
+1. Crie uma imagem de Rescue VM da mesma versão SO, no mesmo grupo de recursos (RSG) e localização utilizando o disco gerido.
+1. Utilize o portal Azure para tirar uma fotografia do disco de oss da máquina virtual afetada.
+1. Crie um disco a partir da imagem do disco de so e prenda-o ao VM de resgate.
+1. Uma vez criado o disco, resolva o ambiente de cromo no VM de resgate.
 
-   1. Aceda ao seu VM como utilizador de raiz utilizando o seguinte comando:
+   1. Aceda ao seu VM como utilizador raiz utilizando o seguinte comando:
 
       `#sudo su -`
 
-   1. Encontre o `dmesg` disco utilizando (o método que utiliza para descobrir o seu novo disco pode variar). O exemplo seguinte utiliza **dmesg** para filtrar em discos **SCSI:**
+   1. Encontre o disco utilizando `dmesg` (o método que utiliza para descobrir o seu novo disco pode variar). O exemplo a seguir utiliza **o dmesg** para filtrar em discos **SCSI:**
 
       `dmesg | grep SCSI`
 
@@ -476,7 +475,7 @@ Este artigo descreve como resolver o ambiente de chroot na máquina virtual de r
       [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
       ```
 
-   1. Utilize os seguintes comandos para aceder ao ambiente de chroot:
+   1. Utilize os seguintes comandos para aceder ao ambiente cromoso:
 
       ```
       #mkdir /rescue
@@ -493,9 +492,9 @@ Este artigo descreve como resolver o ambiente de chroot na máquina virtual de r
       #chroot /rescue
       ```
 
-   1. Problemas atiram o ambiente de chroot.
+   1. Resolver problemas no ambiente de cromos.
 
-   1. Utilize os seguintes comandos para sair do ambiente de chroot:
+   1. Utilize os seguintes comandos para sair do ambiente croâmado:
 
       ```
       #exit
@@ -512,13 +511,13 @@ Este artigo descreve como resolver o ambiente de chroot na máquina virtual de r
       ```
 
       > [!NOTE]
-      > Se receber o `unable to unmount /rescue`erro, adicione a opção -l ao comando de umount.
+      > Se receber o `unable to unmount /rescue` erro, adicione a opção -l ao comando umount.
       >
       > Exemplo: `umount -l /rescue`
 
-1. Retire o disco do VM de resgate e realize uma troca de discos com o VM original.
+1. Retire o disco do VM de resgate e efetue uma troca de disco com o VM original.
 1. Inicie o VM original e verifique a sua conectividade.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Ligação ssh de resolução de problemas](troubleshoot-ssh-connection.md)
+- [Resolução de problemas ligação ssh](troubleshoot-ssh-connection.md)

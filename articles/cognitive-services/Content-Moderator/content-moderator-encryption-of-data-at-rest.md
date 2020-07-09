@@ -1,7 +1,7 @@
 ---
-title: Encriptação moderadora de conteúdo de dados em repouso
+title: Encriptação do Moderador de Conteúdo dos dados em repouso
 titleSuffix: Azure Cognitive Services
-description: Encriptação moderadora de conteúdo de dados em repouso.
+description: Encriptação do Moderador de Conteúdo dos dados em repouso.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
@@ -9,35 +9,36 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: b41d822791f61fce274f628b87c478c3a986f4c3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 38fc21ee45db25f015a6b8b534b0d922efa636f2
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372163"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310551"
 ---
-# <a name="content-moderator-encryption-of-data-at-rest"></a>Encriptação moderadora de conteúdo de dados em repouso
+# <a name="content-moderator-encryption-of-data-at-rest"></a>Encriptação do Moderador de Conteúdo dos dados em repouso
 
-O Moderador de Conteúdo encripta automaticamente os seus dados quando é persistido na nuvem, ajudando a cumprir os seus objetivos de segurança organizacional e conformidade.
+O Moderador de Conteúdo encripta automaticamente os seus dados quando estes são percamados na nuvem, ajudando a cumprir os seus objetivos de segurança organizacional e conformidade.
 
-[!INCLUDE [cognitive-services-about-encryption](../../../includes/cognitive-services-about-encryption.md)]
+[!INCLUDE [cognitive-services-about-encryption](../includes/cognitive-services-about-encryption.md)]
 
 > [!IMPORTANT]
-> As chaves geridas pelo cliente só estão disponíveis no nível de preços E0. Para solicitar a capacidade de utilizar as chaves geridas pelo cliente, preencha e envie o Formulário de [Pedido de Chave Gerido](https://aka.ms/cogsvc-cmk)pelo Cliente do Moderador de Conteúdo . Levará aproximadamente 3-5 dias úteis para voltar a ouvir o estado do seu pedido. Dependendo da procura, pode ser colocado numa fila e aprovado à medida que o espaço se torna disponível. Uma vez aprovado para utilizar a CMK com o serviço moderador de conteúdo, terá de criar um novo recurso moderador de conteúdo e selecionar E0 como Nível de Preços. Assim que for criado o seu recurso Moderador de Conteúdo com o nível de preços E0, pode utilizar o Cofre de Chave Azure para configurar a sua identidade gerida.
+> As chaves geridas pelo cliente só estão disponíveis no nível de preços E0. Para solicitar a capacidade de utilizar chaves geridas pelo cliente, preencha e envie o [Formulário de Pedido de Chave Gerido pelo Cliente do Moderador de Conteúdo](https://aka.ms/cogsvc-cmk). Levará aproximadamente 3 a 5 dias úteis para ouvir de volta o estado do seu pedido. Dependendo da procura, você pode ser colocado em uma fila e aprovado à medida que o espaço fica disponível. Uma vez aprovado para a utilização da CMK com o serviço Desematado de Conteúdo, terá de criar um novo recurso de Moderador de Conteúdo e selecionar o E0 como O Nível de Preços. Uma vez criado o recurso do Seu Moderador de Conteúdo com o nível de preços E0, pode utilizar o Azure Key Vault para configurar a sua identidade gerida.
 
-[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk-regions.md)]
+[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
-[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk.md)]
+[!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 
-## <a name="enable-data-encryption-for-your-content-moderator-team"></a>Ativar encriptação de dados para a sua Equipa moderadora de conteúdo
+## <a name="enable-data-encryption-for-your-content-moderator-team"></a>Ativar a encriptação de dados para a sua Equipa moderadora de conteúdo
 
-Para ativar a encriptação de dados para a sua Equipa de Revisão de Moderadorde conteúdo, consulte o [Quickstart: Experimente](quick-start.md#create-a-review-team)o Moderador de Conteúdo na web .  
+Para ativar a encriptação de dados para a sua Equipa de Avaliação de Moderadores de Conteúdo, consulte o [Quickstart: Experimente o Moderador de Conteúdo na web](quick-start.md#create-a-review-team).  
 
 > [!NOTE]
-> Você precisará fornecer um ID de _recursos_ com o nível de preços Moderador de Conteúdo E0.
-
+> Terá de fornecer um _ID de recursos_ com o nível de preços do Moderador de Conteúdo E0.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Formulário de pedido de chave gerido pelo cliente por moderador de conteúdo](https://aka.ms/cogsvc-cmk)
-* [Saiba mais sobre o Cofre de Chaves Azure](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* Para obter uma lista completa de serviços que suportam a CMK, consulte [chaves geridas pelo cliente para serviços cognitivos](../encryption/cognitive-services-encryption-keys-portal.md)
+* [O que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Formulário de pedido de chave gerido pelo cliente de serviços cognitivos](https://aka.ms/cogsvc-cmk)
+

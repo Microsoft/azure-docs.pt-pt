@@ -1,6 +1,6 @@
 ---
-title: Ligue a Revelação ExtraHop(x) ao Azure Sentinel. Microsoft Docs
-description: Saiba como ligar extraHop Reveal (x) ao Azure Sentinel.
+title: Ligue ExtraHop Reveal(x) a Azure Sentinel/ Microsoft Docs
+description: Saiba como ligar extraHop Reveal(x) a Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,35 +15,34 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 8d82d8c5a76c34875e9a4aae22c547aec897c18a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588302"
 ---
 # <a name="connect-extrahop-revealx"></a>Ligar a ExtraHop Reveal(x)
 
-O conector extraHop Reveal(x) permite ligar facilmente o seu sistema Reveal(x) com o Azure Sentinel para ver dashboards, criar alertas personalizados e melhorar a investigação. Esta integração dá-lhe a capacidade de obter informações sobre a rede da sua organização e melhorar as suas capacidades de operação de segurança.
+O conector de dados ExtraHop Reveal(x) permite-lhe ligar facilmente o seu sistema Reveal(x) com o Azure Sentinel para visualizar dashboards, criar alertas personalizados e melhorar a investigação. Esta integração dá-lhe a capacidade de obter informações sobre a rede da sua organização e melhorar as suas capacidades de operação de segurança.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Leia e escreva permissões para o espaço de trabalho Azure Sentinel.
 
-- ExtraHop Discover ou Command aparelho com a versão 7.8 ou posterior com uma conta de utilizador que tem privilégios Ilimitados (administrador).
+- ExtraHop Descubra ou Command com a versão 7.8 do firmware ou posteriormente com uma conta de utilizador que tenha privilégios Ilimitados (administrador).
 
-## <a name="connect-azure-sentinel-to-extrahop-revealx"></a>Ligue o Sentinela Azure à Revelação ExtraHop (x)
+## <a name="connect-azure-sentinel-to-extrahop-revealx"></a>Ligue o Azure Sentinel à ExtraHop Reveal(x)
 
-1. No portal Azure, navegue para os**conectores** De Dados **Azure Sentinel** > e, em seguida, selecione o conector **ExtraHop Reveal(x).**
+1. No portal Azure, navegue nos conectores **Azure Sentinel**  >  **Data** e, em seguida, selecione o conector **ExtraHop Reveal(x).**
 
-2. Selecione página do **conector Aberto**.
+2. Selecione **Abrir a página do conector**.
 
-3. Siga as instruções na página **ExtraHop Reveal (x).**
+3. Siga as instruções na página **ExtraHop Reveal(x).**
 
-## <a name="next-steps"></a>Passos seguintes
-Neste documento, aprendeu a ligar extraHop Reveal(x) ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
-- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)
-- [Utilize livros](tutorial-monitor-your-data.md) de trabalho para monitorizar os seus dados.
+## <a name="next-steps"></a>Próximos passos
+Neste documento, aprendeu a ligar ExtraHop Reveal(x) a Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
+- Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
+- Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)
+- [Utilize livros para](tutorial-monitor-your-data.md) monitorizar os seus dados.
 
 

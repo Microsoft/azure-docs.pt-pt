@@ -7,16 +7,16 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 03/06/2020
+ms.date: 06/10/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.custom: mvc
-ms.openlocfilehash: 13a2a0bcc362a13b0c42650509d356f613527cfc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b5ca24a68b271c08ea7cd4196d5b8659eb0262d2
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80061317"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367381"
 ---
 # <a name="secure-access-to-application-data"></a>Acesso seguro aos dados da aplicação
 
@@ -39,11 +39,11 @@ Para concluir este tutorial, tem de ter concluído o tutorial de armazenamento a
 
 Nesta parte da série de tutoriais, os tokens SAS servem para aceder às miniaturas. Neste passo, definiu o acesso público do contentor de *miniaturas* como `off`.
 
-```azurecli-interactive 
+```bash
 blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
-    --name $blobStorageAccount --query [0].value --output tsv) 
+    --account-name $blobStorageAccount --query [0].value --output tsv) 
 
 az storage container set-permission \
     --account-name $blobStorageAccount \
@@ -52,15 +52,28 @@ az storage container set-permission \
     --public-access off
 ```
 
+```powershell
+$blobStorageAccount="<blob_storage_account>"
+
+blobStorageAccountKey=$(az storage account keys list -g myResourceGroup `
+    --account-name $blobStorageAccount --query [0].value --output tsv) 
+
+az storage container set-permission `
+    --account-name $blobStorageAccount `
+    --account-key $blobStorageAccountKey `
+    --name thumbnails `
+    --public-access off
+```
+
 ## <a name="configure-sas-tokens-for-thumbnails"></a>Configurar os tokens SAS para miniaturas
 
-Na primeira parte desta série de tutoriais, a aplicação Web estava a mostrar imagens de um contentor público. Nesta parte da série, utiliza fichas de acesso partilhadas (SAS) para recuperar as imagens das miniaturas. Os tokens SAS permitem-lhe proporcionar acesso restrito a um contentor ou blob com base em IP, protocolo, intervalo de tempo ou direitos permitidos. Para obter mais informações sobre o SAS, consulte Grant acesso limitado aos recursos de [Armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md).
+Na primeira parte desta série de tutoriais, a aplicação Web estava a mostrar imagens de um contentor público. Nesta parte da série, você usa fichas de acesso compartilhada (SAS) para recuperar as imagens de miniatura. Os tokens SAS permitem-lhe proporcionar acesso restrito a um contentor ou blob com base em IP, protocolo, intervalo de tempo ou direitos permitidos. Para obter mais informações sobre o SAS, consulte [Grant acesso limitado aos recursos de armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md).
 
 Neste exemplo, o repositório de código fonte utiliza o ramo `sasTokens`, que tem um exemplo de código atualizado. Elimine a implementação do GitHub existente com [az webapp deployment source delete](/cli/azure/webapp/deployment/source). Em seguida, configure a implementação do GitHub para a aplicação Web com o comando [az webapp deployment source config](/cli/azure/webapp/deployment/source).
 
 No comando seguinte, `<web-app>` é o nome da aplicação Web.
 
-```azurecli-interactive 
+```bash
 az webapp deployment source delete --name <web-app> --resource-group myResourceGroup
 
 az webapp deployment source config --name <web_app> \
@@ -68,7 +81,15 @@ az webapp deployment source config --name <web_app> \
     --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 
-O ramo `sasTokens` do repositório atualiza o ficheiro `StorageHelper.cs`. Substitui a tarefa `GetThumbNailUrls` pelo exemplo de código abaixo. A tarefa atualizada recupera os URLs da miniatura utilizando um [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) para especificar a hora de início, o tempo de validade e as permissões para o token SAS. Depois de implementada, a aplicação Web obtém as miniaturas com um URL através de um token SAS. A tarefa atualizada é mostrada no exemplo seguinte:
+```powershell
+az webapp deployment source delete --name <web-app> --resource-group myResourceGroup
+
+az webapp deployment source config --name <web_app> `
+    --resource-group myResourceGroup --branch sasTokens --manual-integration `
+    --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
+```
+
+O ramo `sasTokens` do repositório atualiza o ficheiro `StorageHelper.cs`. Substitui a tarefa `GetThumbNailUrls` pelo exemplo de código abaixo. A tarefa atualizada recupera os URLs de miniatura utilizando um [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) para especificar a hora de início, o tempo de validade e permissões para o token SAS. Depois de implementada, a aplicação Web obtém as miniaturas com um URL através de um token SAS. A tarefa atualizada é mostrada no exemplo seguinte:
 
 ```csharp
 public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _storageConfig)
@@ -135,11 +156,13 @@ As seguintes classes, propriedades e métodos são utilizados na tarefa anterior
 |[UriBuilder](/dotnet/api/system.uribuilder) | [Consulta](/dotnet/api/system.uribuilder.query) |  |
 |[Lista](/dotnet/api/system.collections.generic.list-1) | | [Adicionar](/dotnet/api/system.collections.generic.list-1.add) |
 
-## <a name="server-side-encryption"></a>Encriptação do lado do servidor
+## <a name="azure-storage-encryption"></a>Encriptação do Armazenamento do Azure
 
-A [Encriptação do Serviço de Armazenamento (SSE) do Azure](../common/storage-service-encryption.md) ajuda a proteger e a salvaguardar os seus dados. A SSE encripta os dados inativos, ao processar a encriptação, a desencriptação e a gestão de chaves. Todos os dados são encriptados através de uma [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uma das cifras em bloco mais fortes disponíveis.
+[A encriptação do Azure Storage](../common/storage-service-encryption.md) ajuda-o a proteger e a salvaguardar os seus dados encriptando os dados em repouso e manuseando encriptação e desencriptação. Todos os dados são encriptados através de uma [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uma das cifras em bloco mais fortes disponíveis.
 
-O SSE encripta automaticamente dados em todos os escalões de desempenho (Standard e Premium), todos os modelos de implementação (Azure Resource Manager e Clássico) e todos os serviços de Armazenamento do Azure (Blob, Fila, Tabela e Ficheiro). 
+Pode optar por ter a Microsoft a gerir as chaves de encriptação, ou pode trazer as suas próprias chaves com chaves geridas pelo cliente com o Azure Key Vault. Para obter mais informações, consulte [as teclas geridas pelo cliente com o Azure Key Vault para gerir a encriptação do Armazenamento Azure](../common/encryption-customer-managed-keys.md).
+
+A encriptação de armazenamento Azure encripta automaticamente os dados em todos os níveis de desempenho (Standard e Premium), todos os modelos de implementação (Azure Resource Manager e Classic) e todos os serviços de Armazenamento Azure (Blob, Fila, Tabela e Arquivo).
 
 ## <a name="enable-https-only"></a>Ativar apenas HTTPS
 

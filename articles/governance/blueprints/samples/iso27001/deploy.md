@@ -1,123 +1,122 @@
 ---
-title: Implementar a amostra de plantas ISO 27001
-description: Desloque os passos para a amostra de planta autónoma ISO 27001, incluindo detalhes do parâmetro do artefacto da planta.
+title: Implementar amostra de planta ISO 27001
+description: Implementar etapas para a amostra de planta ISO 27001 autónoma, incluindo detalhes do parâmetro do artefacto da planta.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: f5920541d49c454bd6648318c04ed607eada1dfb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 9eaf559f0c1e6c99d3a2469d63eddea1c1ae9867
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75922508"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044656"
 ---
-# <a name="deploy-the-iso-27001-blueprint-sample"></a>Implementar a amostra de plantas ISO 27001
+# <a name="deploy-the-iso-27001-blueprint-sample"></a>Implementar a amostra de planta ISO 27001
 
-Para implantar a amostra de plantas azure ISO 27001, devem ser tomadas as seguintes medidas:
+Para implantar a amostra de planta ISO 27001 da Azure Blueprints, devem ser tomadas as seguintes medidas:
 
 > [!div class="checklist"]
 > - Criar uma nova planta a partir da amostra
-> - Marque a sua cópia da amostra como **Publicado**
-> - Atribuir a sua cópia da planta a uma subscrição existente
+> - Marque a sua cópia da amostra como **Publicada**
+> - Atribua a sua cópia da planta a uma subscrição existente
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
-## <a name="create-blueprint-from-sample"></a>Criar a planta a partir da amostra
+## <a name="create-blueprint-from-sample"></a>Criar planta a partir de amostra
 
 Em primeiro lugar, implemente a amostra de planta criando uma nova planta no seu ambiente usando a amostra como entrada.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
 
-1. A partir da página **iniciar** à esquerda, selecione o botão **Criar** _uma planta_.
+1. A partir da página **'Iniciar'** à esquerda, selecione o botão **Criar** _uma plantação_.
 
-1. Encontre a amostra de plantas **ISO 27001** em _Outras Amostras_ e selecione **Utilize esta amostra**.
+1. Encontre a amostra de planta **ISO 27001** em _Outras Amostras_ e selecione **Utilize esta amostra**.
 
-1. Introduza os _Fundamentos_ da amostra de plantas:
+1. Introduza os _fundamentos_ da amostra da planta:
 
-   - **Nome**da planta : Forneça um nome para a sua cópia da amostra de plantas ISO 27001.
-   - **Localização da definição**: Utilize a elipse e selecione o grupo de gestão para guardar a sua cópia da amostra para.
+   - **Nome da planta**: Forneça um nome para a sua cópia da amostra de planta ISO 27001.
+   - **Localização de definição**: Utilize a elipse e selecione o grupo de gestão para guardar a sua cópia da amostra para.
 
-1. Selecione o separador _Artefactos_ na parte superior da página ou **Seguinte: Artefactos** na parte inferior da página.
+1. Selecione o _separador Artefactos_ na parte superior da página ou **seguinte: Artefactos** na parte inferior da página.
 
-1. Reveja a lista de artefactos que compõem a amostra da planta. Muitos dos artefactos têm parâmetros que definiremos mais tarde. Selecione **Guardar Rascunho** quando terminar de rever a amostra de plantas.
+1. Reveja a lista de artefactos que compõem a amostra de planta. Muitos dos artefactos têm parâmetros que definiremos mais tarde. **Selecione Save Draft** quando terminar de rever a amostra de planta.
 
-## <a name="publish-the-sample-copy"></a>Publicar a cópia da amostra
+## <a name="publish-the-sample-copy"></a>Publique a cópia da amostra
 
-A sua cópia da amostra de plantas foi agora criada no seu ambiente. É criado em modo **Draft** e deve ser **publicado** antes de ser atribuído e implantado. A cópia da amostra de plantas pode ser personalizada para o seu ambiente e necessidades, mas essa modificação pode afastá-la da norma ISO 27001.
+A sua cópia da amostra foi agora criada no seu ambiente. É criado no modo **Draft** e deve ser **publicado** antes de poder ser atribuído e implementado. A cópia da amostra de plantas pode ser personalizada para o seu ambiente e necessidades, mas essa modificação pode afastá-la da norma ISO 27001.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
 
-1. Selecione a página de **definições** de Blueprint à esquerda. Utilize os filtros para encontrar a sua cópia da amostra de plantas e, em seguida, selecione-a.
+1. Selecione a página **de definições de Planta** à esquerda. Utilize os filtros para encontrar a sua cópia da amostra de planta e, em seguida, selecione-a.
 
-1. Selecione **Publicar a planta** no topo da página. Na nova página à direita, forneça uma **Versão** para a sua cópia da amostra de plantas. Esta propriedade é útil para se fizer uma modificação mais tarde. Forneça notas de **alteração** como "Primeira versão publicada a partir da amostra de plantas ISO 27001." Em seguida, **selecione Publicar** na parte inferior da página.
+1. **Selecione Publicar** a planta no topo da página. Na nova página à direita, forneça uma **versão** para a sua cópia da amostra de planta. Esta propriedade é útil para se você fizer uma modificação mais tarde. Fornecer **notas de alteração** tais como "Primeira versão publicada a partir da amostra de planta ISO 27001." Em seguida, **selecione Publicar** na parte inferior da página.
 
 ## <a name="assign-the-sample-copy"></a>Atribuir a cópia da amostra
 
-Uma vez que a cópia da amostra de plantas tenha sido **publicada**com sucesso, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. Este passo é onde são fornecidos parâmetros para tornar cada implantação da cópia da amostra de plantas única.
+Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. Este passo é onde são fornecidos parâmetros para tornar cada implantação da cópia da amostra de planta única.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
 
-1. Selecione a página de **definições** de Blueprint à esquerda. Utilize os filtros para encontrar a sua cópia da amostra de plantas e, em seguida, selecione-a.
+1. Selecione a página **de definições de Planta** à esquerda. Utilize os filtros para encontrar a sua cópia da amostra de planta e, em seguida, selecione-a.
 
-1. Selecione **a planta de atribuição** na parte superior da página de definição de planta.
+1. Selecione Atribuir a **planta** no topo da página de definição de planta.
 
-1. Fornecer os valores do parâmetro para a atribuição do projeto:
+1. Fornecer os valores dos parâmetros para a atribuição do projeto:
 
    - Noções básicas
 
-     - **Assinaturas**: Selecione uma ou mais das subscrições que estão no grupo de gestão para a qual guardou a sua cópia da amostra de projeto. Se selecionar mais do que uma subscrição, será criada uma atribuição para cada utilização dos parâmetros introduzidos.
-     - **Nome de atribuição**: O nome é pré-povoado para si com base no nome da planta.
-       Mude conforme necessário ou saia como está.
-     - **Localização**: Selecione uma região para a identidade gerida a criar. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, consulte [identidades geridas para os recursos do Azure.](../../../../active-directory/managed-identities-azure-resources/overview.md)
-     - Versão de **definição**de planta : Escolha uma versão **publicada** da sua cópia da amostra de plantas.
+     - **Subscrições**: Selecione uma ou mais das subscrições que estão no grupo de gestão a que guardou a sua cópia da amostra de planta. Se selecionar mais de uma subscrição, será criada uma atribuição para cada um utilizando os parâmetros introduzidos.
+     - **Nome da atribuição**: O nome é pré-povoado para si com base no nome da planta.
+       Mude o que for necessário ou saia como for.
+     - **Localização**: Selecione uma região para a identidade gerida a criar. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, consulte [identidades geridas para recursos Azure.](../../../../active-directory/managed-identities-azure-resources/overview.md)
+     - **Versão de definição de planta**: Escolha uma versão **publicada** da sua cópia da amostra de planta.
 
    - Atribuição de bloqueio
 
-     Selecione a definição de bloqueio da planta para o seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../../concepts/resource-locking.md).
+     Selecione a definição de bloqueio de planta para o seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../../concepts/resource-locking.md).
 
    - Identidade Gerida
 
-     Deixe o sistema predefinido _atribuído_ à opção de identidade gerida.
+     Deixe a opção de identidade gerida _por defeito atribuída._
 
    - Parâmetros de esquema
 
-     Os parâmetros definidos nesta secção são utilizados por muitos dos artefactos na definição de planta para fornecer consistência.
+     Os parâmetros definidos nesta secção são usados por muitos dos artefactos na definição de planta para fornecer consistência.
 
-     - **Localização permitida para recursos e grupos**de recursos : Valor que indica as localizações permitidas para grupos de recursos e recursos.
+     - **Localização permitida para recursos e grupos de recursos**: Valor que indica as localizações permitidas para grupos de recursos e recursos.
 
-   - Parâmetros de artefacto
+   - Parâmetros de artefactos
 
-     Os parâmetros definidos nesta secção aplicam-se ao artefacto sob o qual é definido. Estes parâmetros são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters) uma vez que são definidos durante a atribuição da planta. Para obter uma lista completa ou parâmetros de artefactos e suas descrições, consulte a [tabela de parâmetros do Artefacto](#artifact-parameters-table).
+     Os parâmetros definidos nesta secção aplicam-se ao artefacto sob o qual é definido. Estes parâmetros são [parâmetros dinâmicos,](../../concepts/parameters.md#dynamic-parameters) uma vez que são definidos durante a atribuição da planta. Para obter uma lista completa ou parâmetros de artefactos e suas descrições, consulte [a tabela de parâmetros do Artefacto](#artifact-parameters-table).
 
-1. Uma vez introduzidos todos os parâmetros, **selecione Atribuir** na parte inferior da página. A atribuição da planta é criada e a implantação de artefactos começa. O destacamento demora cerca de uma hora. Para verificar o estado da implantação, abra a atribuição da planta.
+1. Uma vez introduzidos todos os parâmetros, **selecione Atribuir** na parte inferior da página. A atribuição da planta é criada e a implantação de artefactos começa. A implantação leva cerca de uma hora. Para verificar o estado de implantação, abra a atribuição do projeto.
 
 > [!WARNING]
-> O serviço Azure Blueprints e as amostras de plantas incorporadas estão **isentos de custos.** Os recursos azure são [avaliados pelo produto.](https://azure.microsoft.com/pricing/) Utilize a [calculadora](https://azure.microsoft.com/pricing/calculator/) de preços para estimar o custo dos recursos de funcionamento implantados por esta amostra de plantas.
+> O serviço Azure Blueprints e as amostras de plantas incorporadas estão **livres de custos.** Os recursos azure são [avaliados pelo produto.](https://azure.microsoft.com/pricing/) Utilize a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para estimar o custo de funcionamento dos recursos utilizados por esta amostra de planta.
 
-## <a name="artifact-parameters-table"></a>Tabela de parâmetros de artefactos
+## <a name="artifact-parameters-table"></a>Tabela de parâmetros de artefacto
 
-A tabela seguinte fornece uma lista dos parâmetros do artefacto da planta:
+A tabela a seguir fornece uma lista dos parâmetros do artefacto da planta:
 
 |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|\[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala SM (VMSS)|Atribuição de política|Log Analytics espaço de trabalho para conjuntos de escala De VM Linux (VMSS)|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similares) ao ID principal da atribuição de apólices.|
-|\[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala SM (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Sistema Linux OS para adicionar ao âmbito|Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:\[\]|
-|\[Pré-visualização\]: Implementar o Agente de Análise de Registo para VMs Linux|Atribuição de política|Log Analytics espaço de trabalho para VMs Linux|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similares) ao ID principal da atribuição de apólices.|
-|\[Pré-visualização\]: Implementar o Agente de Análise de Registo para VMs Linux|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Sistema Linux OS para adicionar ao âmbito|Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:\[\]|
-|\[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala seletivas VM Do Windows (VMSS)|Atribuição de política|Log Analytics espaço de trabalho para conjuntos de escala VM windows (VMSS)|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similares) ao ID principal da atribuição de apólices.|
-|\[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala seletivas VM Do Windows (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que têm suportado o Windows OS para adicionar ao âmbito|Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:\[\]|
-|\[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Log Analytics espaço de trabalho para VMs do Windows|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similares) ao ID principal da atribuição de apólices.|
-|\[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Opcional: Lista de imagens VM que têm suportado o Windows OS para adicionar ao âmbito|Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:\[\]|
+|\[Pré-visualização \] : Implementar o agente de análise de registo para conjuntos de escalas De VM Linux (VMSS)|Atribuição de política|Log Analytics espaço de trabalho para conjuntos de escala de VM Linux (VMSS)|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similar) ao ID principal da atribuição de políticas.|
+|\[Pré-visualização \] : Implementar o agente de análise de registo para conjuntos de escalas De VM Linux (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Linux OS para adicionar ao âmbito|Pode ser utilizado um conjunto vazio para indicar que não há parâmetros opcionais:\[\]|
+|\[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux|Atribuição de política|Log Analytics espaço de trabalho para VMs Linux|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similar) ao ID principal da atribuição de políticas.|
+|\[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Linux OS para adicionar ao âmbito|Pode ser utilizado um conjunto vazio para indicar que não há parâmetros opcionais:\[\]|
+|\[Pré-visualização \] : Implementar o agente de análise de registo para conjuntos de escala vm do Windows (VMSS)|Atribuição de política|Log Analytics espaço de trabalho para conjuntos de escala vm do Windows (VMSS)|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similar) ao ID principal da atribuição de políticas.|
+|\[Pré-visualização \] : Implementar o agente de análise de registo para conjuntos de escala vm do Windows (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Windows OS para adicionar ao âmbito|Pode ser utilizado um conjunto vazio para indicar que não há parâmetros opcionais:\[\]|
+|\[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows|Atribuição de política|Log Analytics espaço de trabalho para VMs windows|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similar) ao ID principal da atribuição de políticas.|
+|\[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Windows OS para adicionar ao âmbito|Pode ser utilizado um conjunto vazio para indicar que não há parâmetros opcionais:\[\]|
 |SKUs de contas de armazenamento permitidos|Atribuição de política|Lista de SKUs de armazenamento permitido|A lista de SKUs que pode ser especificada para contas de armazenamento.|
-|Máquina virtual permitida SKUs|Atribuição de política|Lista de SKUs máquina virtual permitida|A lista de SKUs que pode ser especificada para máquinas virtuais.|
-|Iniciativa blueprint para ISO 27001|Atribuição de política|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Valores aceitáveis podem ser encontrados em [registos de diagnóstico do Monitor Azure.](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)|
+|SKUs de máquina virtual permitida|Atribuição de política|Lista de SKUs de máquina virtual permitida|A lista de SKUs que pode ser especificada para máquinas virtuais.|
+|Iniciativa de planta para a ISO 27001|Atribuição de política|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Agora que reviu os passos para implementar a amostra de plantas ISO 27001, visite os seguintes artigos para saber sobre a arquitetura e o mapeamento de controlo:
+Agora que reviu os passos para implementar a amostra de planta ISO 27001, visite os seguintes artigos para aprender sobre a arquitetura e controlo do mapeamento:
 
 > [!div class="nextstepaction"]
-> [Iso 27001 blueprint - Visão geral](./index.md)
-> [ISO 27001 blueprint - Mapeamento](./control-mapping.md) de controlo
+> [Projeto ISO 27001 - Visão geral](./index.md) 
+>  [Projeto ISO 27001 - Controlo de mapeamento](./control-mapping.md)
 
 Artigos adicionais sobre esquemas e como os utilizar:
 

@@ -1,6 +1,6 @@
 ---
-title: Web API que chama APIs web - plataforma de identidade microsoft / Azure
-description: Aprenda a construir uma API web que chama APIs web.
+title: API web que chama APIs web - plataforma de identidade microsoft / Rio Azure
+description: Saiba como construir uma API web que chama APIs web.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,23 +12,22 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 6bbd24978891efd147b0c317c1746d13961ce5e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80885094"
 ---
-# <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Uma API web que chama APIs web: Ligue para um API
+# <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Uma API web que chama APIs web: Chame uma API
 
-Depois de ter um símbolo, pode chamar uma API protegida. Faz isto a partir do controlador da sua Web API.
+Depois de ter um token, pode chamar uma API web protegida. Faça isso a partir do controlador da sua API web.
 
-## <a name="controller-code"></a>Código de comando
+## <a name="controller-code"></a>Código do controlador
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-O seguinte código continua o código de exemplo que é mostrado em [API web que chama APIs web: Adquirir um símbolo para a aplicação](scenario-web-api-call-api-acquire-token.md). O código é chamado nas ações dos controladores DaPI. Chama a uma API a jusante chamada *todolista.*
+O seguinte código continua o código de exemplo que é mostrado numa [API web que chama APIs web: Adquira um símbolo para a aplicação](scenario-web-api-call-api-acquire-token.md). O código é chamado nas ações dos controladores da API. Chama a abaixo a API chamada *lista de todos os.*
 
-Depois de adquirir o símbolo, use-o como um símbolo portador para chamar a API a jusante.
+Depois de ter adquirido o símbolo, use-o como símbolo portador para chamar a API a jusante.
 
 ```csharp
 private async Task GetTodoList(bool isAppStarting)
@@ -58,9 +57,9 @@ HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + 
 
 # <a name="java"></a>[Java](#tab/java)
 
-O seguinte código continua o código de exemplo que é mostrado em [API web que chama APIs web: Adquirir um símbolo para a aplicação](scenario-web-api-call-api-acquire-token.md). O código é chamado nas ações dos controladores DaPI. Chama ao gráfico a jusante da API MS.
+O seguinte código continua o código de exemplo que é mostrado numa [API web que chama APIs web: Adquira um símbolo para a aplicação](scenario-web-api-call-api-acquire-token.md). O código é chamado nas ações dos controladores da API. Chama o gráfico a jusante da API MS.
 
-Depois de adquirir o símbolo, use-o como um símbolo portador para chamar a API a jusante.
+Depois de ter adquirido o símbolo, use-o como símbolo portador para chamar a API a jusante.
 
 ```Java
 private String callMicrosoftGraphMeEndpoint(String accessToken){
@@ -81,11 +80,11 @@ private String callMicrosoftGraphMeEndpoint(String accessToken){
 ```
 
 # <a name="python"></a>[Python](#tab/python)
-Uma amostra que demonstre este fluxo com a MSAL Python ainda não está disponível.
+Uma amostra que demonstra este fluxo com o MSAL Python ainda não está disponível.
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Uma API web que chama APIs web: Mover-se para a produção](scenario-web-api-call-api-production.md)
+> [Uma API web que chama APIs web: Mover para a produção](scenario-web-api-call-api-production.md)

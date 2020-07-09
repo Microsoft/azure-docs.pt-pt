@@ -1,7 +1,7 @@
 ---
 title: Transcrição de conversação em tempo real (Pré-visualização) - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Aprenda a usar a Transcrição de Conversação em tempo real com o SDK de Discurso. Disponível para C++, C#, e Java.
+description: Aprenda a usar a transcrição de conversação em tempo real com o SDK do discurso. Disponível para C++, C#e Java.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,34 +10,34 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
-ms.openlocfilehash: b8b874888d3a46a855c3d76d520d390725c40898
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: fc22dea201ccd19c4e7bee92a1092b4ff50117db
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735407"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134936"
 ---
-# <a name="real-time-conversation-transcription-preview"></a>Transcrição de conversação em tempo real (Pré-visualização)
+# <a name="real-time-conversation-transcription-preview"></a>Transcrição de conversação em tempo real (pré-visualização)
 
-A **API ConversationTranscriber** do Speech SDK permite-lhe transcrever reuniões e outras conversas com a capacidade de `PullStream` adicionar, remover e identificar múltiplos participantes através do streaming de áudio para o serviço de Fala usando ou `PushStream`. Este tópico requer que saiba como usar o Discurso-a-texto com o SDK do Discurso (versão 1.8.0 ou mais tarde). Para mais informações, consulte [o que são os serviços de Fala.](overview.md)
+A API de **ConversationTranscriber** da Speech SDK permite-lhe transcrever reuniões e outras conversas com a capacidade de adicionar, remover e identificar vários participantes através do streaming de áudio para o serviço de Discurso utilizando `PullStream` ou `PushStream` . Este tópico requer que saiba como utilizar o Discurso-a-Texto com o SDK do discurso (versão 1.8.0 ou posterior). Para mais informações, consulte [os serviços de Fala.](overview.md)
 
 ## <a name="limitations"></a>Limitações
 
-- O ConversationTranscriber API é suportado para C++, C#e Java no Windows, Linux e Android.
-- Atualmente disponível em línguas "en-US" e "zh-CN" nas seguintes regiões: _centrale_ _eastasia_.
-- Requer uma matriz circular de microfone circular de 7 micrômicos com um fluxo de referência de reprodução. A matriz do microfone deve cumprir as [nossas especificações.](https://aka.ms/sdsdk-microphone)
-- O [SDK dispositivos de fala](speech-devices-sdk.md) fornece dispositivos adequados e uma aplicação de amostra que demonstra a Transcrição de Conversas.
+- A API ConversationTranscriber é suportada por C++, C#e Java no Windows, Linux e Android.
+- Atualmente disponível em línguas "en-US" e "zh-CN" nas seguintes regiões: _central_ e _leste._
+- Requer uma matriz circular de microfone de 7 microfones com um fluxo de referência de reprodução. A matriz do microfone deve cumprir as [nossas especificações.](https://aka.ms/sdsdk-microphone)
+- O [Speech Devices SDK](speech-devices-sdk.md) fornece dispositivos adequados e uma aplicação de amostra que demonstra a transcrição de conversação.
 
-## <a name="optional-sample-code-resources"></a>Recursos opcionais do código da amostra
+## <a name="optional-sample-code-resources"></a>Recursos de código de amostra opcionais
 
-O Dispositivo de Fala SDK fornece código de amostra em Java para captura de áudio em tempo real usando 8 canais.
+O Dispositivo de Fala SDK fornece código de amostra em Java para captura de áudio em tempo real utilizando 8 canais.
 
-- [Código de amostra do dispositivo ROOBO](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/ConversationTranscription.java)
-- [Código de amostra azure Kinect Dev Kit](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
+- [Código de amostra de dispositivo ROOBO](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/ConversationTranscription.java)
+- [Código de amostra do Azure Kinect Dev Kit](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Uma assinatura do serviço de fala. Pode [sacá-lo se](https://azure.microsoft.com/try/cognitive-services/) não tiver uma.
+Uma subscrição de serviço de fala. Pode [obter uma assinatura de julgamento de discurso](https://azure.microsoft.com/try/cognitive-services/) se não tiver uma.
 
 ## <a name="create-voice-signatures"></a>Criar assinaturas de voz
 
@@ -45,12 +45,12 @@ O primeiro passo é criar assinaturas de voz para os participantes da conversa p
 
 ### <a name="audio-input-requirements"></a>Requisitos de entrada de áudio
 
-- O ficheiro de onda de áudio de entrada para a criação de assinaturas de voz deve estar em amostras de 16 bits, uma taxa de amostra de 16 kHz e um único formato de canal (mono).
+- O ficheiro de onda sonora de entrada para a criação de assinaturas de voz deve estar em amostras de 16 bits, taxa de amostra de 16 kHz e num único formato de canal (mono).
 - O comprimento recomendado para cada amostra de áudio é entre 30 segundos e dois minutos.
 
 ### <a name="sample-code"></a>Código de exemplo
 
-O exemplo seguinte mostra duas formas diferentes de criar a assinatura de voz [utilizando a API REST](https://aka.ms/cts/signaturegenservice) em C#. Tenha em anote que terá de substituir informações reais por "YourSubscriptionKey", o seu `{region}` nome de ficheiro de onda para "speakerVoice.wav", e a sua região para e "YourServiceRegion"_(centralou_ leste _da Ásia)._
+O exemplo a seguir mostra duas maneiras diferentes de criar assinatura de voz [utilizando a API REST](https://aka.ms/cts/signaturegenservice) em C#. Note que terá de substituir informações reais por "YourSubscriptionKey", o nome do seu ficheiro de onda para "speakerVoice.wav", e a sua região para `{region}` e "YourServiceRegion"_(central_ ou _leste)._
 
 ```csharp
 class Program
@@ -102,20 +102,20 @@ class Program
 }
 ```
 
-## <a name="transcribe-conversations"></a>Conversas transcritas
+## <a name="transcribe-conversations"></a>Transcrever conversas
 
-O seguinte código de amostra demonstra como transcrever conversas em tempo real para três oradores. Assume que já criou assinaturas de voz para cada orador, como mostrado acima. Substitua informações reais por "YourSubscriptionKey" e "YourServiceRegion" ao criar o objeto SpeechConfig.
+O seguinte código de amostra demonstra como transcrever as conversas em tempo real para três altifalantes. Pressupõe que já criou assinaturas de voz para cada orador, como mostrado acima. Substitua informações reais para "YourSubscriptionKey" e "YourServiceRegion" ao criar o objeto SpeechConfig.
 
 Os destaques do código da amostra incluem:
 
-- Criar `Conversation` um objeto `SpeechConfig` a partir do objeto usando um identificador de reunião gerado usando`Guid.NewGuid()`
-- Criar `ConversationTranscriber` um objeto e `JoinConversationAsync()` juntar a conversa com para começar a transcrição
-- Registar os acontecimentos de interesse
-- Adicionar ou remover os participantes à conversa utilizando o objeto Conversador
+- Criar um `Conversation` objeto a partir do objeto `SpeechConfig` usando um identificador de reunião gerado usando`Guid.NewGuid()`
+- Criar um `ConversationTranscriber` objeto e juntar a conversa com para começar a `JoinConversationAsync()` transcrição
+- Registo dos eventos de interesse
+- Adicionar ou remover os participantes à conversa usando o objeto Conversation
 - Streaming do áudio
-- Na versão 1.9.0 do Speech SDK e em frente tanto `int` como `string` os tipos de valor são suportados no campo da versão de assinatura de voz.
+- Na versão 1.9.0 da Speech SDK e em diante, tanto os `int` tipos como os tipos de valor são `string` suportados no campo da versão de assinatura de voz.
 
-A transcrição e o identificador do orador voltam nos eventos registados.
+A transcrição e o identificador de altifalantes voltam aos eventos registados.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -140,7 +140,7 @@ public class MyConversationTranscriber
             using (var conversation = await Conversation.CreateConversationAsync(config, meetingId).ConfigureAwait(false))
             {
                 // Create a conversation transcriber using audio stream input
-                using (var conversationTranscriber = new ConversationTranscriber    (audioInput))
+                using (var conversationTranscriber = new ConversationTranscriber(audioInput))
                 {
                     await conversationTranscriber.JoinConversationAsync(conversation);
 
@@ -215,7 +215,7 @@ public class MyConversationTranscriber
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Transcrição de Conversa assíncrona](how-to-async-conversation-transcription.md)
+> [Transcrição de conversa assíncronea](how-to-async-conversation-transcription.md)

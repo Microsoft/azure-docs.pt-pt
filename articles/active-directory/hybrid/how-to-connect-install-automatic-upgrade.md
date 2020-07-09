@@ -9,33 +9,33 @@ editor: ''
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/18/2020
+ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a05de8bf6a6e4ab79e63d6634ddb1b79fae6045f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 749c97549661f2b2d647f8f7ba718d7696ef8355
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680214"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85359012"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: atualização automática
-Esta funcionalidade foi introduzida com a build [1.1.105.0 (lançado em fevereiro de 2016)](reference-connect-version-history.md#111050).  Esta funcionalidade foi atualizada na [build 1.1.561](reference-connect-version-history.md#115610) e agora suporta cenários adicionais que anteriormente não eram suportados.
+Esta característica foi introduzida com a construção [1.1.105.0 (lançada fevereiro de 2016)](reference-connect-version-history.md#111050).  Esta funcionalidade foi atualizada na [build 1.1.561](reference-connect-version-history.md#115610) e agora suporta cenários adicionais que anteriormente não eram suportados.
 
 ## <a name="overview"></a>Descrição geral
-Certificar-se de que a instalação Azure AD Connect está sempre atualizada nunca foi tão fácil com a funcionalidade de **atualização automática.** Esta funcionalidade está ativada por padrão para instalações expressas e atualizações do DirSync. Quando uma nova versão é lançada, a sua instalação é automaticamente atualizada.
-A atualização automática está ativada por predefinição para o seguinte:
+Certificar-se de que a instalação Azure AD Connect está sempre atualizada nunca foi tão fácil com a funcionalidade **de atualização automática.** Esta funcionalidade é ativada por padrão para instalações expressas e atualizações dirSync. Quando uma nova versão é lançada, a sua instalação é automaticamente atualizada.
+A atualização automática é ativada por padrão para o seguinte:
 
-* Instalação de definições de expresso e upgrades dirSync.
+* Instalação de configurações expressas e atualizações dirSync.
 * Utilizando o SQL Express LocalDB, que é o que as definições express usam sempre. DirSync com SQL Express também usa LocalDB.
-* A conta AD é a conta MSOL_ predefinida criada pelas definições do Express e pelo DirSync.
-* Tenha menos de 100.000 objetos no metaverso.
+* A conta AD é a conta MSOL_ por defeito criada pelas definições Express e DirSync.
+* Tem menos de 100.000 objetos no metaverso.
 
-O estado atual de atualização automática pode ser visto com o cmdlet PowerShell `Get-ADSyncAutoUpgrade` . Tem os seguintes estados:
+O estado atual da atualização automática pode ser visualizado com o cmdlet PowerShell `Get-ADSyncAutoUpgrade` . Tem os seguintes estados:
 
 | Estado | Comentário |
 | --- | --- |
@@ -43,64 +43,61 @@ O estado atual de atualização automática pode ser visto com o cmdlet PowerShe
 | Suspenso |Definido apenas pelo sistema. O sistema não é **atualmente** elegível para receber atualizações automáticas. |
 | Desativado |A atualização automática está desativada. |
 
-Pode alterar entre **Ativado** e **Desativado** com `Set-ADSyncAutoUpgrade` . Só o sistema deve definir o estado **suspenso.**  Antes de 1.1.750.0 o cmdlet Set-ADSyncAutoUpgrade bloquearia a atualização automática se o estado de atualização automática fosse definido para suspenso. Esta funcionalidade mudou agora para que não bloqueie o AutoUpgrade.
+Pode alterar entre **Ativado** e **Desativado** com `Set-ADSyncAutoUpgrade` . Apenas o sistema deve definir o estado **suspenso**.  Antes de 1.1.750.0, o cmdlet Set-ADSyncAutoUpgrade bloquearia a auto-actualização se o estado de atualização automática fosse definido para suspenso. Esta funcionalidade mudou agora para não bloquear o AutoUpgrade.
 
-A atualização automática está a utilizar a Azure AD Connect Health para a infraestrutura de upgrade. Para que a atualização automática funcione, certifique-se de que abriu os URLs no seu servidor proxy para **a Azure AD Connect Health,** conforme documentado nas gamas de [endereços Do Office 365 URLs e IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+A atualização automática está a utilizar o Azure AD Connect Health para a infraestrutura de upgrade. Para o upgrade automático para funcionar, certifique-se de que abriu os URLs no seu servidor proxy para **Azure AD Connect Health,** conforme documentado nos [intervalos de URLs e endereço IP do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
 
-Se o Gestor **de Serviços** de Sincronização UI estiver a funcionar no servidor, a atualização é suspensa até que o UI esteja fechado.
+Se o **UI do Serviço de Sincronização** estiver a funcionar no servidor, a atualização é suspensa até que a UI esteja fechada.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-Se a instalação Connect não se atualizar como esperado, siga estes passos para saber o que pode estar errado.
+Se a instalação Connect não se atualizar como esperado, siga estes passos para descobrir o que pode estar errado.
 
-Em primeiro lugar, não deve esperar que a atualização automática seja tentada no primeiro dia em que uma nova versão seja lançada. Há uma aleatoriedade intencional antes de uma atualização ser tentada, por isso não se assuste se a sua instalação não for atualizada imediatamente.
+Em primeiro lugar, não deverá esperar que a atualização automática seja tentada no primeiro dia em que uma nova versão seja lançada. Há uma aleatoriedade intencional antes de uma atualização ser tentada, por isso não se assuste se a sua instalação não for atualizada imediatamente.
 
-Se achar que algo não está certo, então primeiro corra `Get-ADSyncAutoUpgrade` para garantir que a atualização automática está ativada.
+Se acha que algo não está bem, então primeiro corra `Get-ADSyncAutoUpgrade` para garantir que a atualização automática está ativada.
 
-Em seguida, certifique-se de que abriu os URLs necessários no seu proxy ou firewall. A atualização automática está a utilizar a Azure AD Connect Health, conforme descrito na [visão geral](#overview). Se utilizar um representante, certifique-se de que a Saúde foi configurada para utilizar um [servidor proxy](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Teste também a [conectividade de saúde](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) com a AD Azure.
+Se o estado for suspenso, pode usar `Get-ADSyncAutoUpgrade -Detail` para ver a razão.  A razão da suspensão pode conter qualquer valor de corda, mas normalmente conterá o valor de cadeia do UpgradeResult, `UpgradeNotSupportedNonLocalDbInstall` `UpgradeAbortedAdSyncExeInUse` ou.  Um valor composto também pode ser devolvido, tal como `UpgradeFailedRollbackSuccess-GetPasswordHashSyncStateFailed` .
 
-Com a conectividade com a Azure AD verificada, é hora de olhar para os logs de eventos. Inicie o espectador do evento e procure no log de eventos da **Aplicação.** Adicione um filtro de eventlog para a fonte **Azure AD Connect Upgrade** e o intervalo de id do evento **300-399**.  
-![Filtro de log de evento para atualização automática](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
+Também é possível obter um resultado que não seja um UpgradeResult, ou seja, 'AADHealthEndpointNotDefined' ou 'DirSyncInPlaceUpgradeNonLocalDb'.
 
-Pode agora ver os logs de eventos associados ao estado de atualização automática.  
-![Filtro de log de evento para atualização automática](./media/how-to-connect-install-automatic-upgrade/eventlogresult.png)  
+Em seguida, certifique-se de que abriu os URLs necessários no seu representante ou firewall. A atualização automática está a utilizar o Azure AD Connect Health, conforme descrito na [visão geral](#overview). Se utilizar um representante, certifique-se de que a Saúde foi configurada para utilizar um [servidor proxy](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Teste também a [conectividade de Saúde](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) ao Azure AD.
+
+Com a conectividade com a Azure AD verificada, é hora de olhar para os eventlogs. Inicie o espectador do evento e olhe no eventlog **da Aplicação.** Adicione um filtro de eventlog para a fonte **Azure AD Connect Upgrade** e a gama de id do evento **300-399**.  
+![Filtro Eventlog para upgrade automático](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
+
+Agora pode ver os registos associados ao estado de atualização automática.  
+![Filtro Eventlog para upgrade automático](./media/how-to-connect-install-automatic-upgrade/eventlogresult.png)  
 
 O código de resultados tem um prefixo com uma visão geral do estado.
 
 | Prefixo do código de resultados | Descrição |
 | --- | --- |
 | Êxito |A instalação foi atualizada com sucesso. |
-| UpgradeAbortado |Uma condição temporária parou a atualização. Será novamente julgado e a expectativa é que tenha sucesso mais tarde. |
-| UpgradeNotSupported |O sistema tem uma configuração que está a bloquear a atualização automática do sistema. Será novamente tentado para ver se o Estado está a mudar, mas a expectativa é que o sistema tenha de ser atualizado manualmente. |
+| UpgradeAborted |Uma condição temporária parou a atualização. Será novamente julgado e a expectativa é que tenha sucesso mais tarde. |
+| UpgradeNotSupported |O sistema tem uma configuração que está a impedir que o sistema seja automaticamente atualizado. Será novamente julgado para ver se o Estado está a mudar, mas a expectativa é que o sistema tenha de ser atualizado manualmente. |
 
-Aqui está uma lista das mensagens mais comuns que encontra. Não enumera tudo, mas a mensagem de resultados deve ser clara com o problema.
+Aqui está uma lista das mensagens mais comuns que encontra. Não enumera todos, mas a mensagem de resultados deve ser clara com o problema.
 
 | Mensagem de Resultados | Descrição |
 | --- | --- |
-| **UpgradeAbortado** | |
-| UpgradeNãoAlteradoNãoSetUpgradeMarker |Não podia escrever para o registo. |
-| UpgradeAbortedInávelDatabasePermissions |O grupo de administradores incorporados não tem permissões para a base de dados. Atualize manualmente para a versão mais recente do Azure AD Connect para resolver este problema. |
-| UpgradeAbortedIndDiskSpace |Não há espaço de disco suficiente para suportar uma atualização. |
-| UpgradeAbortedSecurityGroupsNotPresent |Não conseguiu encontrar e resolver todos os grupos de segurança utilizados pelo motor de sincronização. |
-| UpgradeAbortedServiceCanNotBeStarted |O serviço NT **Microsoft Azure AD Sync** não começou. |
-| UpgradeAbortedServiceCanNotBeStopped |O Serviço NT **Microsoft Azure AD Sync** não conseguiu parar. |
-| UpgradeAbortedServiceIsNotRunning |O serviço NT **Microsoft Azure AD Sync** não está a funcionar. |
-| UpgradeSyncCycleDisabled |A opção SyncCycle no [programador](how-to-connect-sync-feature-scheduler.md) foi desativada. |
-| UpgradeAbortedSyncExeInUse |O gestor de serviços de [sincronização UI](how-to-connect-sync-service-manager-ui.md) está aberto no servidor. |
-| UpgradeAbortedSyncorConfigurationInProgress |O assistente de instalação está em execução ou uma sincronização foi programada fora do programador. |
+| **UpgradeAborted** | |
+| UpgradeAbortedCouldNotSetUpgradeMarker |Não podia escrever ao registo. |
+| UpgradeAbortedInsuficientDatabasePermissions |O grupo de administradores incorporados não tem permissões para a base de dados. Atualização manual para a versão mais recente do Azure AD Connect para resolver este problema. |
+| UpgradeAbortedInsufficientDiskSpace |Não há espaço suficiente para suportar uma atualização. |
+| UpgradeAbortedSecurityGroupsNotPresent |Não consegui encontrar e resolver todos os grupos de segurança utilizados pelo motor de sincronização. |
+| UpgradeAbortedServiceCanNotBeStarted |O NT Service **Microsoft Azure AD Sync** não foi iniciado. |
+| UpgradeAbortedServiceCanNotBes coberto |O NT Service **Microsoft Azure AD Sync** não conseguiu parar. |
+| UpgradeAbortedServiceIsNotRunning |O NT Service **Microsoft Azure AD Sync** não está a funcionar. |
+| UpgradeAbortedSyncCycleDisabled |A opção SyncCycle no [programador](how-to-connect-sync-feature-scheduler.md) foi desativada. |
+| UpgradeAbortedSyncExeInUse |O [uI do gestor de serviços de sincronização](how-to-connect-sync-service-manager-ui.md) está aberto no servidor. |
+| UpgradeAbortedSyncOrConfigurationInProgress |O assistente de instalação está em execução ou foi agendada uma sincronização fora do programador. |
 | **UpgradeNotSupported** | |
-| UpgradeNotSupportedAdfsSignInMethod | Selecionou a Adfs como método de inscrição. |
-| UpgradeNotSupportedCustomizedSyncRules |Adicionou as suas próprias regras personalizadas à configuração. |
-| UpgradeNotSupportedDeviceWritebackEnabled |Ativou a funcionalidade de reprodução do [dispositivo.](how-to-connect-device-writeback.md) |
-| UpgradeNotSupportedGroupWritebackEnabled |Permitiu a funcionalidade de redação em grupo. |
-| UpgradeNotSupportedInvalidedPersistedState |A instalação não é uma definição express ou uma atualização DirSync. |
-| UpgradeNotSupportedMetaverseSizeMeadoeeded |Tem mais de 100.000 objetos no metaverso. |
-| UpgradeNotSupportedMultiForestSetup |Estás a ligar-te a mais do que uma floresta. A configuração expressa só se liga a uma floresta. |
-| UpgradeNotSupportedNonLocalDbInstall |Não está a utilizar uma base de dados LocalDB do SQL Server Express. |
-| UpgradeNotSupportedNonMsolAccount |A [conta AD DS Connector](reference-connect-accounts-permissions.md#ad-ds-connector-account) já não é a conta padrão MSOL_. |
-| UpgradeNotSupportedNotConfiguredSignInMethod | Ao configurar o AAD Connect, optou por *Não Configurar* ao selecionar o método de início de sessão. |
-| UpgradeNotSupportedStagingModeEnabled |O servidor está programado para estar no [modo de preparação](how-to-connect-sync-staging-server.md). |
-| UpgradeNotSupportedUserWritebackEnabled |Ativou a funcionalidade de [reutilização](how-to-connect-preview.md#user-writeback) do utilizador. |
+| UpgradeNotSupportouCustomizedSyncRules |Adicionou as suas próprias regras personalizadas à configuração. |
+| UpgradeNotSupportedInvalidPersistedState |A instalação não é uma definição Express ou uma atualização DirSync. |
+| UpgradeNotSupportoLocalDbinstall |Não está a utilizar uma base de dados SQL Server Express LocalDB. |
+|UpgradeNotSupedLocaldbSizeExceed|O tamanho DB local é maior ou igual a 8 GB|
+|UpgradeNotSupportedAADHealthUploadDisabled|Os uploads de dados de saúde foram desativados do portal|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

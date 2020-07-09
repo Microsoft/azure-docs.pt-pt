@@ -1,8 +1,14 @@
-- name: Compor um modelo com o Unity
-  href: render-model.md
-- name: Implementar exemplo do Unity no HoloLens
-  href: deploy-to-hololens.md
-- name: Implementar exemplo do Unity no Ambiente de Trabalho
-  href: deploy-to-desktop.md
+- name: Unidade
+  items:
+    - name: Compor um modelo com o Unity
+      href: render-model.md
+    - name: Implementar exemplo do Unity no HoloLens
+      href: deploy-to-hololens.md
+    - name: Implementar exemplo do Unity no Ambiente de Trabalho
+      href: deploy-to-desktop.md
+- name: C++ Nativo
+  items:
+    - name: Implementar exemplo de C++ nativo no HoloLens
+      href: native-cpp/hololens/deploy-native-cpp-tutorial.md
 - name: Converter um modelo para composição
   href: convert-model.md

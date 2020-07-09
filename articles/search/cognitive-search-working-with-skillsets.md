@@ -1,138 +1,232 @@
 ---
 title: Conceitos de skillset e fluxo de trabalho
 titleSuffix: Azure Cognitive Search
-description: Skillsets é onde você é autor de um oleoduto de enriquecimento de IA em Pesquisa Cognitiva Azure. Aprenda conceitos e detalhes importantes sobre a composição de skillset.
+description: Skillsets são onde você é autor de um oleoduto de enriquecimento de IA em Azure Cognitive Search. Aprenda conceitos e detalhes importantes sobre a composição skillset.
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: e8e263d29bc71ac76c374eeda78e5250a0af2095
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.date: 06/15/2020
+ms.openlocfilehash: f1d8715fcadeda5ccd1a98192a70939b0c359c88
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744797"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976681"
 ---
-# <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Conceitos de skillset e composição em Pesquisa Cognitiva Azure
+# <a name="skillset-concepts-in-azure-cognitive-search"></a>Conceitos de Skillset em Pesquisa Cognitiva Azure
 
-Este artigo é para desenvolvedores que precisam de uma compreensão mais profunda de como o gasoduto de enriquecimento funciona e assume que você tem uma compreensão conceptual do processo de enriquecimento de IA. Se você é novo este conceito, comece com:
-+ [Enriquecimento de IA em Pesquisa Cognitiva Azure](cognitive-search-concept-intro.md)
-+ [Arquivo de dados de conhecimento (pré-visualização)](knowledge-store-concept-intro.md)
+Este artigo destina-se a desenvolvedores que precisam de uma compreensão mais profunda dos conceitos e composição de skillset, e assume familiaridade com o processo de enriquecimento de IA. Se é novo neste conceito, comece com [o enriquecimento de IA na Azure Cognitive Search.](cognitive-search-concept-intro.md)
 
-## <a name="specify-the-skillset"></a>Especificar o Skillset
-Um skillset é um recurso reutilizável na Pesquisa Cognitiva Azure que especifica uma coleção de habilidades cognitivas usadas para analisar, transformar e enriquecer o conteúdo de texto ou imagem durante a indexação. A criação de um skillset permite-lhe anexar enriquecimentos de texto e imagem na fase de ingestão de dados, extraindo e criando novas informações e estruturas a partir de conteúdo bruto.
+## <a name="introducing-skillsets"></a>Introdução de skillsets
 
-Um skillset tem três propriedades:
+Um skillset é um recurso reutilizável na Pesquisa Cognitiva Azure que está ligado a um indexante, e especifica uma coleção de habilidades usadas para analisar, transformar e enriquecer o conteúdo de texto ou imagem durante a indexação. As competências têm entradas e saídas, e muitas vezes a saída de uma habilidade torna-se a entrada de outra numa cadeia ou sequência de processos.
 
-+    ```skills```, uma recolha de competências não ordenada para as quais a plataforma determina a sequência de execução com base nas inputs necessárias para cada habilidade
-+    ```cognitiveServices```, a chave dos serviços cognitivos necessária para a faturação das capacidades cognitivas invocadas
-+    ```knowledgeStore```, a conta de armazenamento onde os seus documentos enriquecidos serão projetados
+Um skillset tem três propriedades principais:
+
++ `skills`, uma recolha não ordenado de competências para as quais a plataforma determina a sequência de execução com base nas entradas necessárias para cada habilidade.
++ `cognitiveServices`, a chave de um recurso de Serviços Cognitivos que executa o processamento de imagem e texto para habilidades que incluem habilidades incorporadas.
++ `knowledgeStore`, (opcional) uma conta de Armazenamento Azure onde serão projetados os seus documentos enriquecidos. Os documentos enriquecidos também são consumidos por índices de pesquisa.
+
+Skillsets são da autoria em JSON. Segue-se um exemplo ligeiramente simplificado deste [skillset de avaliação hoteleira,](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_skillset.json)usado para ilustrar conceitos neste artigo. 
+
+As duas primeiras competências são mostradas abaixo:
+
++ Skill #1 é uma [habilidade de Divisão](cognitive-search-skill-textsplit.md) de Texto que aceita o conteúdo do campo "reviews_text" como entrada, e divide esse conteúdo em "páginas" de 5000 caracteres como saída.
++ Skill #2 é uma [habilidade de Deteção de Sentimento](cognitive-search-skill-sentiment.md) aceita "páginas" como entrada, e produz um novo campo chamado "Sentimento" como saída que contém os resultados da análise de sentimento.
 
 
-
-As habilidades são da autoria da JSON. Pode construir habilidades complexas com looping e [ramificação](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional) utilizando a linguagem de [expressão](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional). A linguagem de expressão usa a notação do caminho [do Ponteiro JSON](https://tools.ietf.org/html/rfc6901) com algumas modificações para identificar os nódosos na árvore de enriquecimento. Um ```"/"``` atravessa um nível mais baixo na árvore e ```"*"``` atua como um operador para cada um no contexto. Estes conceitos são melhor descritos com um exemplo. Para ilustrar alguns dos conceitos e capacidades, vamos percorrer as avaliações do [hotel.](knowledge-store-connect-powerbi.md) Para ver a habilidade depois de ter seguido o fluxo de trabalho de dados de importação, terá de usar um cliente rest API para [obter a habilidade.](https://docs.microsoft.com/rest/api/searchservice/get-skillset)
+```json
+{
+    "skills": [
+        {
+            "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+            "name": "#1",
+            "description": null,
+            "context": "/document/reviews_text",
+            "defaultLanguageCode": "en",
+            "textSplitMode": "pages",
+            "maximumPageLength": 5000,
+            "inputs": [
+                {
+                    "name": "text",
+                    "source": "/document/reviews_text"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "textItems",
+                    "targetName": "pages"
+                }
+            ]
+        },
+        {
+            "@odata.type": "#Microsoft.Skills.Text.SentimentSkill",
+            "name": "#2",
+            "description": null,
+            "context": "/document/reviews_text/pages/*",
+            "defaultLanguageCode": "en",
+            "inputs": [
+                {
+                    "name": "text",
+                    "source": "/document/reviews_text/pages/*",
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "score",
+                    "targetName": "Sentiment"
+                }
+            ]
+        },
+  "cognitiveServices": null,
+  "knowledgeStore": {  }
+}
+```
+> [!NOTE]
+> Você pode construir habilidades complexas com looping e ramificação, usando a [habilidade condicional](cognitive-search-skill-conditional.md) para criar as expressões. A sintaxe baseia-se na notação do caminho do [ponteiro JSON,](https://tools.ietf.org/html/rfc6901) com algumas modificações para identificar nós na árvore de enriquecimento. A `"/"` atravessa um nível mais baixo na árvore e `"*"` atua como um operador para cada operador no contexto. Numerosos exemplos neste artigo ilustram a sintaxe. 
 
 ### <a name="enrichment-tree"></a>Árvore de enriquecimento
 
-Para visualizar como uma habilidade enriquece progressivamente o seu documento, vamos começar com o que o documento parece antes de qualquer enriquecimento. A saída de quebra de documentos depende da fonte de dados e do modo específico de análise selecionado. Este é também o estado do documento que os [mapeamentos](search-indexer-field-mappings.md) de campo podem obter conteúdo a partir da adição de dados ao índice de pesquisa.
-![Loja de conhecimento no diagrama do oleoduto](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Loja de conhecimento no diagrama do oleoduto")
+Na progressão de etapas num gasoduto de [enriquecimento,](cognitive-search-concept-intro.md#enrichment-steps)o processamento de conteúdos segue a fase *de rachamento* do documento onde o texto e as imagens são extraídos da fonte. O conteúdo da imagem pode então ser encaminhado para competências que especificam o processamento de imagem, enquanto o conteúdo de texto é feito na fila para processamento de texto. Para documentos de origem que contenham grandes quantidades de texto, pode definir um modo de *análise* no indexante para segmentar texto em pedaços menores para um processamento mais ideal. 
 
-Uma vez que um documento está no oleoduto de enriquecimento, é representado como uma árvore de conteúdo e enriquecimentoassociado. Esta árvore é instantaneamente instantânea como a saída de documentos rachando. O formato de árvore de enriquecimento permite que o gasoduto de enriquecimento fixe metadados a tipos de dados até primitivos, não é um objeto JSON válido, mas pode ser projetado num formato JSON válido. A tabela que se segue mostra o estado de um documento que entra no gasoduto de enriquecimento:
+![Loja de conhecimento em diagrama de pipeline](./media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg "Loja de conhecimento em diagrama de pipeline")
 
-|Modo Fonte de Dados\Parsing|Predefinição|JSON, JSON Lines & CSV|
+Uma vez que um documento está no oleoduto de enriquecimento, é representado como uma árvore de conteúdo e enriquecimentos associados. Esta árvore é instantânea como a saída do documento rachando.  O formato da árvore de enriquecimento permite que o gasoduto de enriquecimento anexe metadados até tipos de dados primitivos, não é um objeto JSON válido, mas pode ser projetado num formato JSON válido. O quadro que se segue mostra o estado de um documento que entra no gasoduto de enriquecimento:
+
+|Fonte de dados\Modo de análise|Predefinição|JSON, JSON Lines & CSV|
 |---|---|---|
-|Blob Storage|/documento/conteúdo<br>/documento/normalized_images/*<br>…|/documento/{key1}<br>/documento/{key2}<br>…|
-|SQL|/documento/{column1}<br>/documento/{column2}<br>…|N/D |
+|Armazenamento de Blobs|/documento/conteúdo<br>/documento/normalized_images/*<br>…|/documento/{key1}<br>/documento/{key2}<br>…|
+|SQL|/document/{column1}<br>/document/{column2}<br>…|N/D |
 |BD do Cosmos|/documento/{key1}<br>/documento/{key2}<br>…|N/D|
 
- Como as habilidades executam, adicionam novos nós à árvore de enriquecimento. Estes novos nós podem então ser usados como entradas para competências a jusante, projetando para a loja de conhecimento, ou mapeando para campos indexados. Os enriquecimentos não são mutáveis: uma vez criados, os nós não podem ser editados. À medida que as suas habilidades se tornam mais complexas, também a sua árvore de enriquecimento, mas nem todos os nós na árvore de enriquecimento precisam chegar ao índice ou à loja de conhecimento. 
+ À medida que as habilidades executam, adicionam novos nós à árvore do enriquecimento. Estes novos nós podem então ser usados como entradas para habilidades a jusante, projetando para a loja de conhecimentos, ou mapeando para campos de indexação. Os enriquecimentos não são mutáveis: uma vez criados, os nós não podem ser editados. À medida que as suas habilidades se tornam mais complexas, também a sua árvore de enriquecimento, mas nem todos os nós na árvore do enriquecimento precisam de chegar ao índice ou à loja de conhecimento. 
 
-Pode persistir seletivamente apenas um subconjunto dos enriquecimentos ao índice ou à loja de conhecimento.
-Para o resto deste documento, vamos assumir que estamos a trabalhar com o exemplo de avaliações de [hotéis,](https://docs.microsoft.com/azure/search/knowledge-store-connect-powerbi)mas os mesmos conceitos aplicam-se ao enriquecimento de documentos de todas as outras fontes de dados.
+Pode persistir seletivamente apenas um subconjunto dos enriquecimentos para o índice ou para a loja de conhecimentos.
 
 ### <a name="context"></a>Contexto
+
 Cada habilidade requer um contexto. Um contexto determina:
-+    O número de vezes que a habilidade executa, com base nos nós selecionados. Para valores de contexto de recolha de tipo, adicionar um ```/*``` no final resultará na invoque da habilidade uma vez para cada instância na coleção. 
-+    Onde na árvore de enriquecimento as saídas de habilidade são adicionadas. As saídas são sempre adicionadas à árvore como crianças do nó de contexto. 
-+    Forma das inputs. Para coleções de vários níveis, definir o contexto para a coleção dos pais afetará a forma da entrada para a habilidade. Por exemplo, se tiver uma árvore de enriquecimento com uma lista de países/regiões, cada um enriquecido com uma lista de estados que contêm uma lista de códigos postal.
 
-|Contexto|Input|Forma de entrada|Invocação de Habilidades|
-|---|---|---|---|
-|```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |Uma lista de todos os códigos postal no país/região |Uma vez por país/região |
-|```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |Uma lista de códigos postais no estado | Uma vez por combinação de país/região e estado|
++ O número de vezes que a habilidade executa, com base nos nós selecionados. Para valores de contexto de coleção de tipo, a adição de um `/*` no final resultará na invocação da habilidade uma vez por cada instância na coleção. 
 
-### <a name="sourcecontext"></a>Contexto de Origem
++ Onde na árvore de enriquecimento são adicionadas as saídas de habilidades. As saídas são sempre adicionadas à árvore como crianças do nó de contexto. 
 
-O `sourceContext` é utilizado apenas em inputs e projeções de [habilidades.](knowledge-store-projection-overview.md) É usado para construir objetos aninhadas de vários níveis. Você pode precisar de criar um novo objeto para passá-lo como uma entrada para uma habilidade ou projeto para a loja de conhecimento. Como os nós de enriquecimento podem não ser um objeto JSON válido na árvore de enriquecimento e referenciar um nó na árvore apenas devolve esse estado do nó quando foi criado, usando os enriquecimentos como inputs de habilidade ou projeções requer que você crie um objeto JSON bem formado. O `sourceContext` permite-lhe construir um objeto hierárquico e anónimo, o que exigiria múltiplas habilidades se estivesse apenas a usar o contexto. A `sourceContext` utilização é mostrada na secção seguinte. Veja a saída de habilidade que gerou um enriquecimento para determinar se é um objeto JSON válido e não um tipo primitivo.
++ Forma das entradas. Para coleções de vários níveis, definir o contexto para a coleção dos pais irá afetar a forma da entrada para a habilidade. Por exemplo, se tiver uma árvore de enriquecimento com uma lista de países/regiões, cada uma enriquecida com uma lista de estados contendo uma lista de códigos ZIP.
 
-### <a name="projections"></a>Projeções
-
-Projeção é o processo de seleção dos nódosos da árvore de enriquecimento a serem guardados na loja de conhecimento. As projeções são formas personalizadas do documento (conteúdo e enriquecimento) que podem ser saídas como projeções de tabela ou objeto. Para saber mais sobre trabalhar com projeções, veja [trabalhar com projeções.](knowledge-store-projection-overview.md)
-
-![Opções de mapeamento de campo](./media/cognitive-search-working-with-skillsets/field-mapping-options.png "Opções de mapeamento de campo para o gasoduto de enriquecimento")
-
-O diagrama acima descreve o seletor com o qual trabalha com base no local onde está no gasoduto de enriquecimento.
+|Contexto|Entrada|Forma de Entrada|Invocação de Habilidades|
+|-------|-----|--------------|----------------|
+|`/document/countries/*` |`/document/countries/*/states/*/zipcodes/*` |Uma lista de todos os códigos ZIP no país/região |Uma vez por país/região |
+|`/document/countries/*/states/*` |«/documento/países/*/estados/*/zipcodes/*». |Uma lista de códigos ZIP no estado | Uma vez por combinação de país/região e estado|
 
 ## <a name="generate-enriched-data"></a>Gerar dados enriquecidos 
 
-Vamos agora analisar as competências do hotel, pode seguir o [tutorial](knowledge-store-connect-powerbi.md) para criar a habilidade ou [ver](https://github.com/Azure-Samples/azure-search-postman-samples/) o skillset. Vamos ver:
+Usando o [skillset de avaliações](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_skillset.json) de hotéis como um ponto de referência, vamos olhar:
 
-* como a árvore de enriquecimento evolui com a execução de cada habilidade 
-* como o contexto e as inputs trabalham para determinar quantas vezes uma habilidade executa 
-* qual a forma da entrada é baseada no contexto. 
++ Como a árvore de enriquecimento evolui com a execução de cada habilidade
++ Como o contexto e as entradas funcionam para determinar quantas vezes uma habilidade executa
++ Qual a forma da entrada é baseada no contexto
 
-Uma vez que estamos a usar o modo de análise de texto delimitado para o indexante, um documento dentro do processo de enriquecimento representa uma única linha dentro do ficheiro CSV.
+Um "documento" dentro do processo de enriquecimento representa uma única linha (uma revisão hoteleira) dentro do ficheiro de origem hotel_reviews.csv.
 
-### <a name="skill-1-split-skill"></a>Habilidade #1: Habilidade dividida 
+### <a name="skill-1-split-skill"></a>Skill #1: Habilidade dividida
+
+Quando o conteúdo da origem consiste em grandes pedaços de texto, é útil que o parta em componentes menores para uma maior precisão da linguagem, sentimento e deteção de frases-chave. Há dois grãos disponíveis: páginas e frases. Uma página é composta por aproximadamente 5000 caracteres.
+
+Uma habilidade dividida em texto é tipicamente a primeira numa habilidade.
+
+```json
+      "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+      "name": "#1",
+      "description": null,
+      "context": "/document/reviews_text",
+      "defaultLanguageCode": "en",
+      "textSplitMode": "pages",
+      "maximumPageLength": 5000,
+      "inputs": [
+        {
+          "name": "text",
+          "source": "/document/reviews_text"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "textItems",
+          "targetName": "pages"
+        }
+```
+
+Com o contexto de habilidade `"/document/reviews_text"` de, a habilidade dividida executará uma vez para o `reviews_text` . A produção de habilidades é uma lista onde o `reviews_text` é dividido em 5000 segmentos de caracteres. A saída da habilidade dividida é nomeada `pages` e é adicionada à árvore de enriquecimento. A `targetName` funcionalidade permite-lhe renomear uma produção de habilidades antes de ser adicionada à árvore de enriquecimento.
+
+A árvore de enriquecimento tem agora um novo nó colocado no contexto da habilidade. Este nó está disponível para qualquer habilidade, projeção ou mapeamento de campo de saída. Conceptualmente, a árvore parece o seguinte:
 
 ![árvore de enriquecimento após rachadura de documento](media/cognitive-search-working-with-skillsets/enrichment-tree-doc-cracking.png "Árvore de enriquecimento após rachadura de documento e antes da execução de habilidades")
 
-Com o contexto de habilidade de ```"/document/reviews_text"``` , esta habilidade executará uma vez para o `reviews_text` . A saída de habilidades é uma lista onde o `reviews_text` é dividido em 5000 segmentos de caracteres. A saída da habilidade dividida é nomeada `pages` e adicionada à árvore de enriquecimento. A funcionalidade permite-lhe renomear uma saída de habilidade antes de `targetName` ser adicionado à árvore de enriquecimento.
+O nó de raiz para todos os enriquecimentos é `"/document"` . Ao trabalhar com indexadores blob, o `"/document"` nó terá nódulos infantis de `"/document/content"` e `"/document/normalized_images"` . Ao trabalhar com dados de CSV, como estamos neste exemplo, os nomes das colunas mapeiam para nós abaixo `"/document"` . 
 
-A árvore de enriquecimento tem agora um novo nó colocado no contexto da habilidade. Este nó está disponível para qualquer habilidade, projeção ou mapeamento de campo de saída.
-
-
-O nó de raiz para todos os enriquecimentos `"/document"` é. Ao trabalhar com os indexadores de bolhas, o `"/document"` nó terá nós infantis de e `"/document/content"` `"/document/normalized_images"` . Ao trabalhar com dados csv, como estamos neste exemplo, os nomes das colunas irão mapear para nós abaixo `"/document"` . Para aceder a qualquer um dos enriquecimentos adicionados a um nó por uma habilidade, é necessário todo o caminho para o enriquecimento. Por exemplo, se quiser utilizar o texto do ```pages``` nó como entrada para outra habilidade, terá de especificá-lo como ```"/document/reviews_text/pages/*"``` .
+Para aceder a qualquer um dos enriquecimentos adicionados a um nó por uma habilidade, é necessário todo o caminho para o enriquecimento. Por exemplo, se pretender utilizar o texto do ```pages``` nó como entrada para outra habilidade, terá de especirá-lo como ```"/document/reviews_text/pages/*"``` .
  
  ![árvore de enriquecimento após habilidade #1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Árvore de enriquecimento após habilidade #1 executa")
 
-### <a name="skill-2-language-detection"></a>Habilidade #2 Deteção de Linguagem
- Embora a habilidade de deteção de linguagem seja a terceira habilidade (habilidade #3) definida no skillset, é a próxima habilidade a executar. Uma vez que não é bloqueada por exigir quaisquer inputs, executará em paralelo com a habilidade anterior. Tal como a habilidade dividida que a precedeu, a habilidade de deteção de linguagem também é invocada uma vez para cada documento. A árvore de enriquecimento agora tem um novo nó para a linguagem.
+### <a name="skill-2-language-detection"></a>Deteção de linguagens #2 habilidade
+
+Os documentos de revisão do hotel incluem feedback do cliente expresso em vários idiomas. A habilidade de deteção de linguagem determina qual a língua utilizada. O resultado é então passado para a extração de frases-chave e deteção de sentimentos, tendo em conta a linguagem ao detetar sentimentos e frases.
+
+Embora a habilidade de deteção de linguagem seja a terceira habilidade (habilidade #3) definida no skillset, é a próxima habilidade a executar. Uma vez que não é bloqueado exigindo quaisquer entradas, executará em paralelo com a habilidade anterior. Tal como a habilidade dividida que a precedeu, a habilidade de deteção de linguagem também é invocada uma vez para cada documento. A árvore do enriquecimento tem agora um novo nó para a linguagem.
+
  ![árvore de enriquecimento após habilidade #2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Árvore de enriquecimento após habilidade #2 executa")
  
  ### <a name="skill-3-key-phrases-skill"></a>Habilidade #3: Habilidade de frases-chave 
 
-Dado o contexto das ```/document/reviews_text/pages/*``` frases-chave, a habilidade será invocada uma vez para cada um dos itens da `pages` coleção. A saída da habilidade será um nó sob o elemento de página associado. 
+Dado o contexto das `/document/reviews_text/pages/*` frases-chave, a habilidade será invocada uma vez para cada um dos itens da `pages` coleção. A saída da habilidade será um nó sob o elemento de página associado. 
 
- Agora deve ser capaz de olhar para o resto das habilidades no skillset e visualizar como a árvore dos enriquecimentos continuará a crescer com a execução de cada habilidade. Algumas habilidades, como a habilidade de fusão e a habilidade do shaper, também criam novos nós, mas apenas usam dados de nós existentes e não criam novos enriquecimentos líquidos.
+ Agora deve ser capaz de olhar para o resto das habilidades na habilidade e visualizar como a árvore dos enriquecimentos continuará a crescer com a execução de cada habilidade. Algumas habilidades, como a habilidade de fusão e a habilidade do shaper, também criam novos nós, mas apenas usam dados de nós existentes e não criam novos enriquecimentos líquidos.
 
-![árvore de enriquecimento depois de todas as habilidades](media/cognitive-search-working-with-skillsets/enrichment-tree-final.png "Árvore de enriquecimento afinal de todas as habilidades")
+![árvore de enriquecimento depois de todas as habilidades](media/cognitive-search-working-with-skillsets/enrichment-tree-final.png "Árvore de enriquecimento depois de todas as habilidades")
 
-As cores dos conectores na árvore acima indicam que os enriquecimentos foram criados por diferentes habilidades e os nódosos terão de ser abordados individualmente e não farão parte do objeto devolvido ao selecionar o nó principal.
+As cores dos conectores na árvore acima indicam que os enriquecimentos foram criados por diferentes habilidades e os nós terão de ser abordados individualmente e não farão parte do objeto devolvido ao selecionar o nó-mãe.
 
-## <a name="save-enrichments-in-a-knowledge-store"></a>Poupe enriquecimentos numa loja de conhecimento 
+## <a name="save-enrichments"></a>Salvar enriquecimentos
 
-As habilidades também definem uma loja de conhecimentos onde os seus documentos enriquecidos podem ser projetados como mesas ou objetos. Para guardar os seus dados enriquecidos na loja de conhecimento, define um conjunto de projeções para o seu documento enriquecido. Para saber mais sobre a loja de conhecimento ver [visão geral da loja](knowledge-store-concept-intro.md) de conhecimento
+Na Pesquisa Cognitiva Azure, um indexante salva a saída que cria. Uma das saídas é sempre um [índice pesmável.](search-what-is-an-index.md) Especificar um índice é um requisito, e quando se anexa um skillset, os dados ingeridos por um índice incluem a substância dos enriquecimentos. Normalmente, as saídas de habilidades específicas, tais como frases-chave ou pontuações de sentimento, são ingeridas no índice num campo criado para o efeito.
+
+Opcionalmente, um indexante também pode enviar a saída para uma [loja de conhecimento](knowledge-store-concept-intro.md) para consumo em outras ferramentas ou processos. Uma loja de conhecimento é definida como parte do skillset. A sua definição determina se os seus documentos enriquecidos são projetados como tabelas ou objetos (ficheiros ou bolhas). As projeções tabulares são adequadas para análises interativas em ferramentas como o Power BI, enquanto ficheiros e bolhas são normalmente usados em ciência de dados ou processos semelhantes. Nesta secção, você vai aprender como a composição skillset pode moldar as tabelas ou objetos que você deseja projetar.
+
+### <a name="projections"></a>Projeções
+
+Para conteúdos direcionados para uma loja de conhecimento, irá querer considerar como o conteúdo é estruturado. *Projeção* é o processo de seleção dos nós da árvore do enriquecimento e criação de uma expressão física deles na loja de conhecimento. As projeções são formas personalizadas do documento (conteúdo e enriquecimentos) que podem ser saídas como projeções de tabela ou objeto. Para saber mais sobre trabalhar com projeções, consulte [trabalhar com projeções.](knowledge-store-projection-overview.md)
+
+![Opções de mapeamento de campo](./media/cognitive-search-working-with-skillsets/field-mapping-options.png "Opções de mapeamento de campo para o gasoduto de enriquecimento")
+
+### <a name="sourcecontext"></a>Texto de Origem
+
+O `sourceContext` elemento é utilizado apenas em entradas e projeções de habilidades. É usado para construir objetos aninhados de vários níveis. Pode ser necessário criar um novo objeto para passá-lo como entrada para uma habilidade ou projeto na loja de conhecimento. Como os nós de enriquecimento podem não ser um objeto JSON válido na árvore de enriquecimento e fazer referência a um nó na árvore apenas devolve esse estado do nó quando foi criado, usando os enriquecimentos como entradas ou projeções de habilidades requer que você crie um objeto JSON bem formado. `sourceContext`Permite-lhe construir um objeto hierárquico e anónimo, que exigiria múltiplas habilidades se estivesse apenas a usar o contexto. 
+
+A utilização `sourceContext` é mostrada nos seguintes exemplos. Veja a produção de habilidades que gerou um enriquecimento para determinar se é um objeto JSON válido e não um tipo primitivo.
 
 ### <a name="slicing-projections"></a>Projeções de corte
 
-Ao definir um grupo de projeção de mesa, um único nó na árvore de enriquecimento pode ser cortado em várias tabelas relacionadas. Se adicionar uma tabela com um caminho de origem que é filho de uma projeção de mesa existente, o nó infantil resultante não será uma criança da projeção da tabela existente, mas será projetado para a nova tabela, relacionada. Esta técnica de corte permite definir um único nó numa habilidade de formador que pode ser a fonte para todas as suas projeções de mesa. 
+Ao definir um grupo de projeção de mesa, um único nó na árvore de enriquecimento pode ser cortado em várias tabelas relacionadas. Se adicionar uma tabela com um caminho de origem que é filho de uma projeção de mesa existente, o nó de criança resultante não será uma criança da projeção da tabela existente, mas será projetado para a nova tabela, relacionada. Esta técnica de corte permite-lhe definir um único nó numa habilidade de formador que pode ser a fonte de todas as suas projeções de mesa. 
 
-### <a name="shaping-projections"></a>Projeções de modelação
+### <a name="shaping-projections"></a>Modelar projeções
 
-Há duas maneiras de definir uma projeção. Você poderia usar uma habilidade de shaper para criar um novo nó que é o nó raiz para todos os enriquecimentos que você está projetando. Então, nas suas projeções, só referenciaria a saída da habilidade do shaper. Também pode formar uma projeção dentro da própria definição de projeção.
+Há duas formas de definir uma projeção:
 
-A abordagem do shaper é mais verbosa do que a formação linear, mas garante que todas as mutações da árvore de enriquecimento estão contidas dentro das habilidades e que a saída é um objeto que pode ser reutilizado. A formação inline permite-lhe criar a forma de que necessita, mas é um objeto anónimo e só está disponível para a projeção para a qual é definida. As abordagens podem ser usadas em conjunto ou separadamente. A habilidade criada para si no fluxo de trabalho do portal contém ambos. Usa uma habilidade de shaper para as projeções da tabela, mas também usa a formação linear para projetar a tabela de frases-chave.
++ Utilize a habilidade do Modelador de Texto para criar um novo nó que é o nó de raiz para todos os enriquecimentos que está a projetar. Então, nas suas projeções, só referenciaria a saída da habilidade do shaper.
 
-Para estender o exemplo, pode optar por remover a formação inline e utilizar uma habilidade de shaper para criar um novo nó para as frases-chave. Para criar uma forma projetada em três tabelas, nomeadamente, `hotelReviewsDocument` `hotelReviewsPages` e as duas `hotelReviewsKeyPhrases` opções são descritas nas seguintes secções.
++ Utilize uma forma inline uma projeção dentro da própria definição de projeção.
 
+A abordagem do shaper é mais verbosa do que a formação inline, mas garante que todas as mutações da árvore de enriquecimento estão contidas nas habilidades e que a saída é um objeto que pode ser reutilizado. Em contraste, a formação inline permite-lhe criar a forma de que necessita, mas é um objeto anónimo e só está disponível para a projeção para a qual é definido. As abordagens podem ser usadas em conjunto ou separadamente. O skillset criado para si no fluxo de trabalho do portal contém ambos. Usa uma habilidade de formador para as projeções da mesa, mas também usa a formação inline para projetar a tabela de frases-chave.
 
-#### <a name="shaper-skill-and-projection"></a>Habilidade e projeção do shaper 
+Para estender o exemplo, pode optar por remover a modelação inline e usar uma habilidade de modelador para criar um novo nó para as frases-chave. Para criar uma forma projetada em três tabelas, ou seja, `hotelReviewsDocument` `hotelReviewsPages` as `hotelReviewsKeyPhrases` duas opções são descritas nas seguintes secções.
+
+#### <a name="shaper-skill-and-projection"></a>Habilidade e projeção do shaper
+
+Este 
 
 > [!Note]
-> Algumas das colunas da tabela de documentos foram removidas deste exemplo para a brevidade.
+> Algumas colunas da tabela de documentos foram removidas deste exemplo por brevidade.
 >
 ```json
 {
@@ -207,7 +301,7 @@ Para estender o exemplo, pode optar por remover a formação inline e utilizar u
 Com o `tableprojection` nó definido na secção `outputs` acima, podemos agora usar a função de corte para projetar partes do `tableprojection` nó em diferentes tabelas:
 
 > [!Note]
-> Este é apenas um corte da projeção dentro da configuração da loja de conhecimento.
+> Isto é apenas um corte da projeção dentro da configuração da loja de conhecimento.
 >
 ```json
 "projections": [
@@ -233,9 +327,9 @@ Com o `tableprojection` nó definido na secção `outputs` acima, podemos agora 
 ]
 ```
 
-#### <a name="inline-shaping-projections"></a>Projeções de modelação inline
+#### <a name="inline-shaping-projections"></a>Projeções de formação inline
 
-A abordagem de formação inline não requer uma habilidade de shaper, uma vez que todas as formas necessárias para as projeções são criadas no momento em que são necessárias. Para projetar os mesmos dados que o exemplo anterior, a opção de projeção inline seria assim:
+A abordagem de formação inline não requer uma habilidade de formador, uma vez que todas as formas necessárias para as projeções são criadas no momento em que são necessárias. Para projetar os mesmos dados que o exemplo anterior, a opção de projeção em linha seria assim:
 
 ```json
 "projections": [
@@ -295,11 +389,11 @@ A abordagem de formação inline não requer uma habilidade de shaper, uma vez q
 ]
 ```
   
-Uma observação de ambas as abordagens é como os valores `"Keyphrases"` são projetados usando o `"sourceContext"` . O `"Keyphrases"` nó, que contém uma coleção de cordas, é em si mesmo uma criança do texto da página. No entanto, como as projeções requerem um objeto JSON e a página é uma primitiva (corda), a `"sourceContext"` é usada para embrulhar a frase chave em um objeto com uma propriedade nomeada. Esta técnica permite que mesmo os primitivos sejam projetados de forma independente.
+Uma observação de ambas as abordagens é a forma como os valores `"Keyphrases"` são projetados utilizando o `"sourceContext"` . O `"Keyphrases"` nó, que contém uma coleção de cordas, é em si uma criança do texto da página. No entanto, como as projeções requerem um objeto JSON e a página é uma primitiva (corda), `"sourceContext"` é usada para envolver a frase chave num objeto com uma propriedade nomeada. Esta técnica permite que até os primitivos sejam projetados de forma independente.
 
 ## <a name="next-steps"></a>Próximos passos
 
-Como próximo passo, crie a sua primeira habilidade com habilidades cognitivas.
+Como próximo passo, crie o seu primeiro skillset com habilidades cognitivas.
 
 > [!div class="nextstepaction"]
-> [Crie a sua primeira habilidade.](cognitive-search-defining-skillset.md)
+> [Crie o seu primeiro skillset](cognitive-search-defining-skillset.md).

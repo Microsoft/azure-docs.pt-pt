@@ -1,6 +1,6 @@
 ---
 title: Integrar e gerir operações de segurança & Microsoft Graph Security
-description: Melhore a proteção, deteção e resposta de ameaça da sua aplicação com as Aplicações lógicas & Azure Da Microsoft Graph Security
+description: Melhorar a proteção, deteção e resposta de ameaças da sua aplicação com a Microsoft Graph Security & Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: preetikr
@@ -10,157 +10,156 @@ ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
 ms.openlocfilehash: b4f51b192d1a7c0ee14a769321793753e8217dea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77598838"
 ---
-# <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Melhorar a proteção contra ameaças integrando operações de segurança com as aplicações lógicas do Microsoft Graph Security & Azure Logic
+# <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Melhorar a proteção contra ameaças integrando operações de segurança com a Microsoft Graph Security & Azure Logic Apps
 
-Com [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) e o conector [Microsoft Graph Security,](https://docs.microsoft.com/graph/security-concept-overview) pode melhorar a forma como a sua aplicação deteta, protege e responde a ameaças através da criação de fluxos de trabalho automatizados para integrar produtos, serviços e parceiros de segurança da Microsoft. Por exemplo, pode criar [playbooks do Azure Security Center](../security-center/security-center-playbooks.md) que monitorizam e gerem entidades de Segurança do Microsoft Graph, como alertas. Aqui estão alguns cenários que são suportados pelo conector microsoft Graph Security:
+Com [as Apps Azure Logic](../logic-apps/logic-apps-overview.md) e o conector Microsoft [Graph Security,](https://docs.microsoft.com/graph/security-concept-overview) pode melhorar a forma como a sua aplicação deteta, protege e responde a ameaças criando fluxos de trabalho automatizados para integrar produtos, serviços e parceiros de segurança da Microsoft. Por exemplo, pode criar [playbooks do Azure Security Center](../security-center/security-center-playbooks.md) que monitorizam e gerem as entidades de Segurança de Gráficos da Microsoft, como alertas. Aqui estão alguns cenários que são suportados pelo conector microsoft Graph Security:
 
-* Receba alertas com base em consultas ou por id de alerta. Por exemplo, você pode obter uma lista que inclui alertas de alta gravidade.
+* Receba alertas com base em consultas ou por identificação de alerta. Por exemplo, pode obter uma lista que inclui alertas de alta gravidade.
 
-* Alertas de atualização. Por exemplo, pode atualizar as atribuições de alerta, adicionar comentários a alertas ou alertas de etiquetas.
+* Alertas de atualização. Por exemplo, pode atualizar as atribuições de alerta, adicionar comentários a alertas ou marcar alertas.
 
-* Monitorize quando os alertas são criados ou alterados através da criação de subscrições de [alerta (webhooks)](https://docs.microsoft.com/graph/api/resources/webhooks).
+* Monitorize quando os alertas forem criados ou alterados criando [subscrições de alerta (webhooks)](https://docs.microsoft.com/graph/api/resources/webhooks).
 
-* Gerencie as suas assinaturas de alerta. Por exemplo, pode obter subscrições ativas, prolongar o tempo de validade para uma subscrição ou eliminar subscrições.
+* Gerencie as suas subscrições de alerta. Por exemplo, pode obter subscrições ativas, prolongar o tempo de validade de uma subscrição ou eliminar subscrições.
 
-O fluxo de trabalho da sua aplicação lógica pode usar ações que obtêm respostas do conector Microsoft Graph Security e disponibilizar essa saída a outras ações no seu fluxo de trabalho. Também pode ter outras ações no seu fluxo de trabalho, utilizar a saída a partir das ações do conector Microsoft Graph Security. Por exemplo, se receber alertas de alta gravidade através do conector microsoft Graph Security, pode enviar esses alertas numa mensagem de e-mail utilizando o conector Outlook. 
+O fluxo de trabalho da sua aplicação lógica pode usar ações que obtenham respostas do conector microsoft Graph Security e disponibilizar essa saída para outras ações no seu fluxo de trabalho. Também pode ter outras ações no seu fluxo de trabalho, utilizar a saída das ações do conector de Segurança do Gráfico microsoft. Por exemplo, se receber alertas de alta gravidade através do conector Microsoft Graph Security, pode enviar esses alertas numa mensagem de correio eletrónico utilizando o conector Outlook. 
 
-Para saber mais sobre a Segurança do Microsoft Graph, consulte a visão geral da [Microsoft Graph Security API](https://aka.ms/graphsecuritydocs). Se é novo em aplicações lógicas, reveja [o que são as Aplicações Lógicas Azure?](../logic-apps/logic-apps-overview.md) Se procura o Microsoft Flow ou o PowerApps, veja [o que é Flow ou](https://flow.microsoft.com/) O que é [PowerApps?](https://powerapps.microsoft.com/)
+Para saber mais sobre a Microsoft Graph Security, consulte a visão geral da API de [Segurança de Gráficos da Microsoft](https://aka.ms/graphsecuritydocs). Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps?](../logic-apps/logic-apps-overview.md) Se procura o Microsoft Flow ou PowerApps, veja [o que é Flow ou](https://flow.microsoft.com/) O que é [PowerApps?](https://powerapps.microsoft.com/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/). 
 
-* Para utilizar o conector de Segurança do Microsoft Graph, tem de lhe ser *dado explicitamente* o consentimento de um administrador de inquilinos do Azure Active Directory (AD), o que faz parte dos [requisitos da Autenticação de Segurança do Microsoft Graph](https://aka.ms/graphsecurityauth). Este consentimento requer o ID e o nome do conector microsoft Graph Security, que também pode encontrar no [portal Azure:](https://portal.azure.com)
+* Para utilizar o conector de Segurança do Microsoft Graph, tem de lhe ser *dado explicitamente* o consentimento de um administrador de inquilinos do Azure Active Directory (AD), o que faz parte dos [requisitos da Autenticação de Segurança do Microsoft Graph](https://aka.ms/graphsecurityauth). Este consentimento requer o ID e nome da aplicação do conector de segurança do Gráfico microsoft, que também pode encontrar no [portal Azure:](https://portal.azure.com)
 
   | Propriedade | Valor |
   |----------|-------|
-  | **Nome da Aplicação** | `MicrosoftGraphSecurityConnector` |
-  | **ID de aplicação** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
+  | **Nome da aplicação** | `MicrosoftGraphSecurityConnector` |
+  | **ID da Aplicação** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
   |||
 
-  Para conceder o consentimento para o conector, o seu administrador de inquilino da AD Azure pode seguir qualquer uma destas etapas:
+  Para conceder o consentimento para o conector, o seu administrador inquilino Azure AD pode seguir estes passos:
 
   * [Dar consentimento ao administrador de inquilinos para as aplicações do Azure AD](../active-directory/develop/v2-permissions-and-consent.md).
 
   * Durante a primeira execução da sua aplicação lógica, a mesma poderá pedir o consentimento do seu administrador de inquilinos do Azure AD através da [experiência de consentimento da aplicação](../active-directory/develop/application-consent-experience.md).
    
-* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* A aplicação lógica onde pretende aceder às suas entidades de Segurança do Microsoft Graph, como alertas. Para utilizar um gatilho de Segurança do Microsoft Graph, precisa de uma aplicação lógica em branco. Para utilizar uma ação de Segurança do Microsoft Graph, precisa de uma aplicação lógica que comece com o gatilho apropriado para o seu cenário.
+* A aplicação lógica onde pretende aceder às suas entidades de Segurança de Gráficos da Microsoft, como alertas. Para utilizar um gatilho de Segurança do Gráfico microsoft, precisa de uma aplicação lógica em branco. Para utilizar uma ação de Segurança do Microsoft Graph, precisa de uma aplicação lógica que comece com o gatilho apropriado para o seu cenário.
 
-## <a name="connect-to-microsoft-graph-security"></a>Ligar à Segurança do Gráfico da Microsoft 
+## <a name="connect-to-microsoft-graph-security"></a>Ligue-se à Segurança do Gráfico da Microsoft 
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/)e abra a sua aplicação lógica no Logic App Designer, se ainda não estiver aberta.
+1. Inscreva-se no [portal Azure](https://portal.azure.com/)e abra a sua aplicação lógica no Logic App Designer, se não abrir já.
 
-1. Para aplicações lógicas em branco, adicione o gatilho e quaisquer outras ações que desejar antes de adicionar uma ação de Segurança do Microsoft Graph.
-
-   -ou-
-
-   Para aplicações lógicas existentes, sob o último passo em que pretende adicionar uma ação de Segurança do Microsoft Graph, selecione **Novo passo**.
+1. Para aplicações lógicas em branco, adicione o gatilho e quaisquer outras ações que pretenda antes de adicionar uma ação de Segurança do Gráfico da Microsoft.
 
    -ou-
 
-   Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre os degraus. Selecione o sinal de mais (+) que aparece e selecione **Adicionar uma ação**.
+   Para aplicações lógicas existentes, sob o último passo em que pretende adicionar uma ação de Segurança do Gráfico da Microsoft, selecione **Novo passo**.
 
-1. Na caixa de pesquisa, introduza "microsoft graph security" como filtro. Na lista de ações, selecione a ação que deseja.
+   -ou-
 
-1. Inscreva-se com as suas credenciais de Segurança do Microsoft Graph.
+   Para adicionar uma ação entre os degraus, mova o ponteiro sobre a seta entre os degraus. Selecione o sinal de mais (+) que aparece e **selecione Adicione uma ação**.
+
+1. Na caixa de pesquisa, introduza "segurança do gráfico microsoft" como filtro. Na lista de ações, selecione a ação desejada.
+
+1. Inscreva-se com as suas credenciais de Segurança do Gráfico microsoft.
 
 1. Forneça os detalhes necessários para a sua ação selecionada e continue a construir o fluxo de trabalho da sua aplicação lógica.
 
 ## <a name="add-triggers"></a>Adicionar gatilhos
 
-Nas Aplicações Lógicas Do Azure, todas as aplicações lógicas devem começar com um [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts), que dispara quando um evento específico acontece ou quando uma condição específica é satisfeita. Cada vez que o gatilho dispara, o motor Logic Apps cria uma instância de aplicação lógica e começa a executar o fluxo de trabalho da sua aplicação.
+Nas Azure Logic Apps, todas as aplicações lógicas devem começar com um [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts), que dispara quando um evento específico acontece ou quando uma condição específica é cumprida. Cada vez que o gatilho dispara, o motor Logic Apps cria uma instância lógica de aplicações e começa a executar o fluxo de trabalho da sua aplicação.
 
 > [!NOTE] 
-> Quando um gatilho dispara, o gatilho processa todos os novos alertas. Se não forem recebidos alertas, o gatilho é ignorado. A próxima sondagem de gatilho acontece com base no intervalo de recorrência que especifica nas propriedades do gatilho.
+> Quando um gatilho dispara, o gatilho processa todos os novos alertas. Se não forem recebidos alertas, o gatilho é ignorado. A próxima sondagem do gatilho acontece com base no intervalo de recorrência que se especifica nas propriedades do gatilho.
 
 Este exemplo mostra como pode iniciar um fluxo de trabalho de aplicações lógicas quando novos alertas são enviados para a sua aplicação.
 
-1.  No portal Azure ou Estúdio Visual, crie uma aplicação lógica em branco, que abre o Logic App Designer. Este exemplo utiliza o portal Azure.
+1.  No portal Azure ou Visual Studio, crie uma aplicação lógica em branco, que abre o Logic App Designer. Este exemplo utiliza o portal Azure.
 
-1.  No designer, na caixa de pesquisa, introduza "microsoft graph security" como filtro. A partir da lista de gatilhos, selecione este gatilho: **Em todos os novos alertas**
+1.  No designer, na caixa de pesquisa, introduza "segurança do gráfico microsoft" como filtro. A partir da lista de gatilhos, selecione este gatilho: **Em todos os novos alertas**
 
-1.  No gatilho, forneça informações sobre os alertas que pretende monitorizar. Para mais propriedades, abra a **lista de novos parâmetros** e selecione um parâmetro para adicionar essa propriedade ao gatilho.
+1.  No gatilho, forneça informações sobre os alertas que pretende monitorizar. Para mais propriedades, abra a nova lista **de parâmetros adicionar** e selecione um parâmetro para adicionar essa propriedade ao gatilho.
 
    | Propriedade | Propriedade (JSON) | Necessário | Tipo | Descrição |
    |----------|-----------------|----------|------|-------------|
-   | **Intervalo** | `interval` | Sim | Número inteiro | Um inteiro positivo que descreve a frequência com que o fluxo de trabalho funciona com base na frequência. Aqui estão os intervalos mínimos e máximos: <p><p>- Mês: 1-16 meses <br>- Dia: 1-500 dias <br>- Hora: 1-12.000 horas <br>- Minuto: 1-72.000 minutos <br>- Segundo: 1-9.999,999 segundos <p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", então a recorrência é a cada 6 meses. |
-   | **Frequência** | `frequency` | Sim | String | A unidade de tempo para a recorrência: **Segundo,** **Minuto,** **Hora,** **Dia,** **Semana,** ou **Mês** |
-   | **Time zone** (Fuso horário) | `timeZone` | Não | String | Aplica-se apenas quando especifica um tempo de início porque este gatilho não aceita [compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que pretende aplicar. |
-   | **Start time** (Hora de início) | `startTime` | Não | String | Forneça uma data e hora de início neste formato: <p><p>YYYY-MM-DDThh:mm:ss se selecionar um fuso horário <p>-ou- <p>YYYY-MM-DDThh:mm:ssZ se não selecionar um fuso horário <p>Por exemplo, se quiser 18 de setembro de 2017 às 14:00, especifique "2017-09-18T14:00:00" e selecione um fuso horário como o Tempo Padrão do Pacífico. Ou, especificar "2017-09-18T14:00:00Z" sem fuso horário. <p>**Nota:** Esta hora de início tem um máximo de 49 anos no futuro e deve seguir a especificação de [data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data utc,](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)mas sem [uma compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Se não selecionar um fuso horário, deve adicionar a letra "Z" no final sem espaços. Este "Z" refere-se ao [tempo náutico](https://en.wikipedia.org/wiki/Nautical_time)equivalente . <p>Para horários simples, a hora de início é a primeira ocorrência, enquanto para horários complexos, o gatilho não dispara tão cedo quanto a hora de início. [*Quais são as formas de usar a data e a hora de início?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Intervalo** | `interval` | Sim | Número inteiro | Um inteiro positivo que descreve com que frequência o fluxo de trabalho funciona com base na frequência. Aqui estão os intervalos mínimos e máximos: <p><p>- Mês: 1-16 meses <br>- Dia: 1-500 dias <br>- Hora: 1-12.000 horas <br>- Minuto: 1-72.000 minutos <br>- Segundo: 1-9.999,999 segundos <p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", então a recorrência é a cada 6 meses. |
+   | **Frequência** | `frequency` | Sim | String | A unidade de tempo para a recorrência: **Segundo,** **Minuto,** **Hora,** **Dia,** **Semana**ou **Mês** |
+   | **Fuso horário** | `timeZone` | Não | String | Aplica-se apenas quando especifica uma hora de início porque este gatilho não aceita [a compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que pretende aplicar. |
+   | **Hora de início** | `startTime` | Não | String | Fornecer uma data e hora de início neste formato: <p><p>YYYY-MM-DDThh:mm:mm se selecionar um fuso horário <p>-ou- <p>YYYY-MM-DDThh:mm:ssZ se não selecionar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 14:00, então especifique "2017-09-18T14:00:00" e selecione um fuso horário como o Horário Padrão do Pacífico. Ou, especificar "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** Este horário de início tem um máximo de 49 anos no futuro e deve seguir a [especificação de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data UTC,](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)mas sem [compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Se não selecionar um fuso horário, deve adicionar a letra "Z" no final sem espaços. Este "Z" refere-se ao [tempo náutico](https://en.wikipedia.org/wiki/Nautical_time)equivalente. <p>Para horários simples, a hora de início é a primeira ocorrência, enquanto para horários complexos, o gatilho não dispara tão cedo quanto a hora de início. [*Quais são as maneiras que posso usar a data de início e a hora?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||
 
-1.  Quando terminar, na barra de ferramentas de design, selecione **Save**.
+1.  Quando terminar, na barra de ferramentas do designer, **selecione Save**.
 
 1.  Agora continue a adicionar uma ou mais ações à sua aplicação lógica para as tarefas que pretende executar com os resultados do gatilho.
 
 ## <a name="add-actions"></a>Adicionar ações
 
-Aqui estão mais detalhes específicos sobre a utilização das várias ações disponíveis com o conector Microsoft Graph Security.
+Aqui estão mais detalhes específicos sobre a utilização das várias ações disponíveis com o conector microsoft Graph Security.
 
 ### <a name="manage-alerts"></a>Gerir alertas
 
-Para filtrar, classificar ou obter os resultados mais recentes, fornecer *apenas* os parâmetros de [consulta ODATA suportados pelo Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Não especifique* o URL base completo ou `https://graph.microsoft.com/v1.0/security/alerts`a `GET` ação `PATCH` HTTP, por exemplo, ou a ou operação. Aqui está um exemplo específico que mostra os parâmetros para uma ação **de alertas Get** quando você quer uma lista com alertas de alta gravidade:
+Para filtrar, classificar ou obter os resultados mais recentes, fornecer *apenas* os [parâmetros de consulta ODATA suportados pelo Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Não especifique* o URL de base completo ou a ação HTTP, por exemplo, `https://graph.microsoft.com/v1.0/security/alerts` ou o ou o `GET` `PATCH` funcionamento. Aqui está um exemplo específico que mostra os parâmetros para uma ação **de alertas** de obter quando você quer uma lista com alertas de alta gravidade:
 
 `Filter alerts value as Severity eq 'high'`
 
-Para obter mais informações sobre as consultas que pode utilizar com este conector, consulte o [Microsoft Graph Security alerta a documentação de referência](https://docs.microsoft.com/graph/api/alert-list). Para construir experiências melhoradas com este conector, saiba mais sobre as [propriedades do esquema alerta](https://docs.microsoft.com/graph/api/resources/alert) que o conector suporta.
+Para obter mais informações sobre as consultas que pode utilizar com este conector, consulte a documentação de referência do [Microsoft Graph Security](https://docs.microsoft.com/graph/api/alert-list). Para construir experiências melhoradas com este conector, saiba mais sobre os [alertas](https://docs.microsoft.com/graph/api/resources/alert) de propriedades de esquema que o conector suporta.
 
 | Ação | Descrição |
 |--------|-------------|
-| **Receba alertas** | Receba alertas filtrados com base numa ou `Provider eq 'Azure Security Center' or 'Palo Alto Networks'`mais propriedades de [alerta,](https://docs.microsoft.com/graph/api/resources/alert)por exemplo, . | 
-| **Receba alerta por ID** | Receba um alerta específico com base na identificação do alerta. | 
-| **Alerta de atualização** | Atualize um alerta específico com base no ID de alerta. Para se certificar de que passa as propriedades necessárias e editáveis a seu pedido, consulte as [propriedades editáveis para alertas](https://docs.microsoft.com/graph/api/alert-update). Por exemplo, para atribuir um alerta a um analista de segurança para que possam investigar, pode atualizar o alerta **atribuído à** propriedade. |
+| **Receba alertas** | Obtenha alertas filtrados com base numa ou mais [propriedades de alerta,](https://docs.microsoft.com/graph/api/resources/alert)por exemplo, `Provider eq 'Azure Security Center' or 'Palo Alto Networks'` . | 
+| **Receba alerta por ID** | Obtenha um alerta específico baseado na identificação de alerta. | 
+| **Alerta de atualização** | Atualize um alerta específico baseado no ID de alerta. Para se certificar de que passa as propriedades necessárias e editáveis no seu pedido, consulte as [propriedades editáveis para alertas.](https://docs.microsoft.com/graph/api/alert-update) Por exemplo, para atribuir um alerta a um analista de segurança para que possam investigar, pode atualizar o alerta **atribuído à** propriedade. |
 |||
 
 ### <a name="manage-alert-subscriptions"></a>Gerir subscrições de alerta
 
-O Microsoft Graph suporta [*subscrições*](https://docs.microsoft.com/graph/api/resources/subscription), ou [*webhooks.*](https://docs.microsoft.com/graph/api/resources/webhooks) Para obter, atualizar ou eliminar subscrições, fornecer os parâmetros de [consulta ODATA suportados pelo Microsoft Graph](https://docs.microsoft.com/graph/query-parameters) para a construção da entidade do Microsoft Graph e incluir `security/alerts` seguido seguem-se a consulta ODATA. *Não inclua* o URL base, `https://graph.microsoft.com/v1.0`por exemplo, . Em vez disso, utilize o formato neste exemplo:
+O Microsoft Graph suporta [*subscrições*](https://docs.microsoft.com/graph/api/resources/subscription)ou [*webhooks*](https://docs.microsoft.com/graph/api/resources/webhooks). Para obter, atualizar ou eliminar subscrições, forneça os [parâmetros de consulta ODATA suportados pelo Microsoft Graph](https://docs.microsoft.com/graph/query-parameters) para a construção da entidade do Gráfico Microsoft e inclua `security/alerts` a consulta ODATA. *Não inclua* o URL base, por `https://graph.microsoft.com/v1.0` exemplo, . Em vez disso, utilize o formato neste exemplo:
 
 `security/alerts?$filter=status eq 'New'`
 
 | Ação | Descrição |
 |--------|-------------|
 | **Criar subscrições** | [Crie uma subscrição](https://docs.microsoft.com/graph/api/subscription-post-subscriptions) que o notifique sobre quaisquer alterações. Pode filtrar esta subscrição para os tipos de alerta específicos que pretende. Por exemplo, pode criar uma subscrição que o notifique sobre alertas de alta gravidade. |
-| **Obtenha subscrições ativas** | [Obtenha subscrições não expiradas.](https://docs.microsoft.com/graph/api/subscription-list) | 
-| **Atualizar subscrição** | [Atualize uma subscrição](https://docs.microsoft.com/graph/api/subscription-update) fornecendo o ID de subscrição. Por exemplo, para estender a sua subscrição, pode atualizar a propriedade da `expirationDateTime` subscrição. | 
-| **Eliminar subscrição** | [Eliminar uma subscrição](https://docs.microsoft.com/graph/api/subscription-delete) fornecendo o ID de subscrição. | 
+| **Obter subscrições ativas** | [Obtenha subscrições não piradas](https://docs.microsoft.com/graph/api/subscription-list). | 
+| **Atualização subscrição** | [Atualizar uma subscrição](https://docs.microsoft.com/graph/api/subscription-update) fornecendo o ID de subscrição. Por exemplo, para estender a sua subscrição, pode atualizar a propriedade da `expirationDateTime` subscrição. | 
+| **Eliminar subscrição** | [Elimine uma subscrição](https://docs.microsoft.com/graph/api/subscription-delete) fornecendo o ID de subscrição. | 
 ||| 
 
 ### <a name="manage-threat-intelligence-indicators"></a>Gerir indicadores de inteligência de ameaças
 
-Para filtrar, classificar ou obter os resultados mais recentes, fornecer *apenas* os parâmetros de [consulta ODATA suportados pelo Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Não especifique* o URL base completo ou `https://graph.microsoft.com/beta/security/tiIndicators`a `GET` ação `PATCH` HTTP, por exemplo, ou a ou operação. Aqui está um exemplo específico que mostra os parâmetros para uma ação Get `DDoS` **tiIndicators** quando você quer uma lista que tem o tipo de ameaça:
+Para filtrar, classificar ou obter os resultados mais recentes, fornecer *apenas* os [parâmetros de consulta ODATA suportados pelo Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Não especifique* o URL de base completo ou a ação HTTP, por exemplo, `https://graph.microsoft.com/beta/security/tiIndicators` ou o ou o `GET` `PATCH` funcionamento. Aqui está um exemplo específico que mostra os parâmetros para uma ação **Get tiIndicators** quando você quer uma lista que tem o `DDoS` tipo de ameaça:
 
 `Filter threat intelligence indicator value as threatType eq 'DDoS'`
 
-Para obter mais informações sobre as consultas que pode utilizar com este conector, consulte ["Opcional Query Parameters" na documentação](https://docs.microsoft.com/graph/api/tiindicators-list?view=graph-rest-beta&tabs=http)de referência do indicador de referência de ameaças da Microsoft Graph Security . Para construir experiências melhoradas com este conector, saiba mais sobre o indicador de inteligência de ameaça de [propriedades de esquemas](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta) que o conector suporta.
+Para obter mais informações sobre as consultas que pode utilizar com este conector, consulte ["Parâmetros de consulta opcional" na documentação](https://docs.microsoft.com/graph/api/tiindicators-list?view=graph-rest-beta&tabs=http)de referência do indicador de inteligência da ameaça de segurança do Microsoft Graph. Para construir experiências melhoradas com este conector, saiba mais sobre o indicador de [inteligência de ameaça de ameaças](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta) de propriedades de esquema que o conector suporta.
 
 | Ação | Descrição |
 |--------|-------------|
-| **Obtenha indicadores de inteligência de ameaça** | Obter indicadores de tiIndicators filtrados com base em uma ou mais [propriedades tiIndicator,](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta)por exemplo,`threatType eq 'MaliciousUrl' or 'DDoS'` |
-| **Obtenha indicador de inteligência de ameaça por ID** | Obtenha um tiIndicator específico com base no ID do tiIndicator. | 
-| **Criar indicador de inteligência de ameaça** | Crie um novo tiIndicator colocando na coleção tiIndicators. Para se certificar de que passa as propriedades necessárias a seu pedido, consulte as [propriedades necessárias para criar o tiIndicator](https://docs.microsoft.com/graph/api/tiindicators-post?view=graph-rest-beta&tabs=http). |
-| **Submeta vários indicadores de inteligência de ameaça** | Crie vários novos tiIndicators publicando uma coleção de tiIndicators. Para se certificar de que passa as propriedades necessárias a seu pedido, consulte as propriedades necessárias para a apresentação de [vários tiIndicators](https://docs.microsoft.com/graph/api/tiindicator-submittiindicators?view=graph-rest-beta&tabs=http). |
-| **Atualizar indicador de inteligência de ameaça** | Atualize um tiIndicator específico com base no ID do tiIndicator. Para se certificar de que passa as propriedades necessárias e editáveis a seu pedido, consulte as [propriedades editáveis para tiIndicator](https://docs.microsoft.com/graph/api/tiindicator-update?view=graph-rest-beta&tabs=http). Por exemplo, para atualizar a ação a aplicar se o indicador for compatível com a ferramenta de segurança targetProduct, pode atualizar a propriedade de **ação** do tiIndicator. |
-| **Atualizar vários indicadores de inteligência de ameaça** | Atualizar vários tiIndicators. Para se certificar de que passa as propriedades necessárias a seu pedido, consulte as [propriedades necessárias para atualizar vários tiIndicators](https://docs.microsoft.com/graph/api/tiindicator-updatetiindicators?view=graph-rest-beta&tabs=http). |
-| **Eliminar indicador de inteligência de ameaça por ID** | Elimine um tiIndicator específico com base no ID do indicador de ti. |
-| **Eliminar vários indicadores de inteligência de ameaças por IDs** | Eliminar vários tiIndicators pelos seus IDs. Para se certificar de que passa as propriedades necessárias a seu pedido, consulte as [propriedades necessárias para apagar vários tiIndicators por IDs](https://docs.microsoft.com/graph/api/tiindicator-deletetiindicators?view=graph-rest-beta&tabs=http). |
-| **Eliminar múltiplos indicadores de inteligência de ameaças por IDs externos** | Eliminar vários tiIndicators pelos IDs externos. Para se certificar de que passa as propriedades necessárias a seu pedido, consulte as [propriedades necessárias para apagar vários tiIndicators por IDs externos](https://docs.microsoft.com/graph/api/tiindicator-deletetiindicatorsbyexternalid?view=graph-rest-beta&tabs=http). |
+| **Obtenha indicadores de inteligência de ameaça** | Obter tiIndicators filtrados com base em uma ou mais [propriedades tiIndicator,](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta)por exemplo,`threatType eq 'MaliciousUrl' or 'DDoS'` |
+| **Obtenha indicador de inteligência de ameaça por ID** | Obtenha um tiIndicator específico com base no iD do tiIndicator. | 
+| **Criar indicador de inteligência de ameaça** | Crie um novo tiIndicator publicando na coleção tiIndicators. Para se certificar de que passa as propriedades necessárias no seu pedido, consulte as [propriedades necessárias para a criação do tiIndicator](https://docs.microsoft.com/graph/api/tiindicators-post?view=graph-rest-beta&tabs=http). |
+| **Apresentar indicadores de inteligência de ameaça múltipla** | Crie vários novos tiIndicators publicando uma coleção de tiIndicators. Para se certificar de que passa as propriedades necessárias no seu pedido, consulte as [propriedades necessárias para a submissão de múltiplos tiDdicadores](https://docs.microsoft.com/graph/api/tiindicator-submittiindicators?view=graph-rest-beta&tabs=http). |
+| **Indicador de inteligência de ameaça de atualização** | Atualize um tiIndicator específico com base no iD do tiIndicator. Para se certificar de que passa as propriedades necessárias e editáveis no seu pedido, consulte as [propriedades editáveis para tiIndicator](https://docs.microsoft.com/graph/api/tiindicator-update?view=graph-rest-beta&tabs=http). Por exemplo, para atualizar a ação a aplicar se o indicador for compatível com a ferramenta de segurança TargetProduct, pode atualizar a propriedade de **ação** do tiIndicator. |
+| **Atualizar vários indicadores de inteligência de ameaça** | Atualize vários tiIndicators. Para se certificar de que passa as propriedades necessárias no seu pedido, consulte as [propriedades necessárias para a atualização de vários tiIndicadores](https://docs.microsoft.com/graph/api/tiindicator-updatetiindicators?view=graph-rest-beta&tabs=http). |
+| **Eliminar indicador de inteligência de ameaça por ID** | Elimine um tiIndicator específico com base no iD do tiIndicator. |
+| **Eliminar múltiplos indicadores de inteligência de ameaça por IDs** | Elimine vários tiIndicators pelos seus IDs. Para se certificar de que passa as propriedades necessárias no seu pedido, consulte as [propriedades necessárias para eliminar vários tiIndicadores por IDs](https://docs.microsoft.com/graph/api/tiindicator-deletetiindicators?view=graph-rest-beta&tabs=http). |
+| **Eliminar múltiplos indicadores de inteligência de ameaça por IDs externos** | Elimine vários tiIndicators pelos IDs externos. Para se certificar de que passa as propriedades necessárias no seu pedido, consulte as [propriedades necessárias para eliminar vários tiIndicadores por IDs externos.](https://docs.microsoft.com/graph/api/tiindicator-deletetiindicatorsbyexternalid?view=graph-rest-beta&tabs=http) |
 |||
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para detalhes técnicos sobre gatilhos, ações e limites, descritos pela descrição OpenAPI (ex-Swagger) do conector, reveja a página de [referência](https://aka.ms/graphsecurityconnectorreference)do conector .
+Para obter detalhes técnicos sobre gatilhos, ações e limites, descritos pela descrição openAPI (anteriormente Swagger) do conector, consulte a página de [referência](https://aka.ms/graphsecurityconnectorreference)do conector .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre outros [conectores de Aplicações Lógicas](../connectors/apis-list.md)
+Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)

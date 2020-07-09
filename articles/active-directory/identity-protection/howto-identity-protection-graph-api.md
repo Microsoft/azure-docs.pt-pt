@@ -1,166 +1,110 @@
 ---
-title: Microsoft Graph API para Proteção de Identidade de Diretório Ativo Azure
-description: Saiba como consultar as deteções de risco do Microsoft Graph e informações associadas do Diretório Ativo do Azure
+title: Microsoft Graph API para proteção de identidade de diretório ativo Azure
+description: Saiba como consultar as deteções de risco do Microsoft Graph e informações associadas a partir do Azure Ative Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: reference
-ms.date: 10/18/2019
+ms.topic: how-to
+ms.date: 06/29/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6fd62ccab4d6e32b23835d280732797e133ada8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f5e5a4075705e43dc0ac37181bf33b078013177
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78671627"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555222"
 ---
-# <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Começar com a Proteção de Identidade do Diretório Ativo azure e o Microsoft Graph
+# <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Começa com a Azure Ative Directory Identity Protection e o Microsoft Graph
 
-O Microsoft Graph é o ponto final unificado da Microsoft e a casa das APIs de Proteção de Identidade do [Diretório Ativo azure.](../active-directory-identityprotection.md) Existem quatro APIs que expõem informações sobre utilizadores de risco e inscrições. A primeira API, **riskDetection,** permite consultar o Microsoft Graph para uma lista de deteções de risco ligadas ao utilizador e de início de sessão e informações associadas sobre a deteção. A segunda API, **riskyUsers,** permite consultar o Microsoft Graph para obter informações sobre os utilizadores de Proteção de Identidade detetadas como risco. A terceira API, **signIn,** permite-lhe consultar o Microsoft Graph para obter informações sobre os sign-ins da AD Azure com propriedades específicas relacionadas com o estado de risco, detalhe e nível. A quarta API, **identidadeRiskEvents,** permite-lhe consultar o Microsoft Graph para obter uma lista de deteções de risco e informações [associadas.](../reports-monitoring/concept-risk-events.md) A identidadeRiskEvents API será depreciada a 10 de janeiro de 2020; sugerimos que utilize a API de **riscoDetecções.** Este artigo faz com que você começou com a ligação ao Microsoft Graph e consulta ndo estas APIs. Para uma introdução aprofundada, documentação completa e acesso ao Graph Explorer, consulte o site do [Microsoft Graph](https://graph.microsoft.io/) ou a documentação de referência específica para estas APIs:
+Microsoft Graph é o ponto final unificado da Microsoft EPI e a casa das APIs de [Proteção de Identidade do Diretório Ativo Azure.](../active-directory-identityprotection.md) Existem quatro APIs que expõem informações sobre utilizadores arriscados e inscrições. A primeira API, **riskDetection,** permite-lhe consultar o Microsoft Graph para uma lista de deteções de risco ligadas ao utilizador e de acesso e informações associadas sobre a deteção. A segunda API, **riskyUsers,** permite-lhe consultar o Microsoft Graph para obter informações sobre a Proteção de Identidade dos utilizadores detetadas como risco. A terceira API, **signIn,** permite-lhe consultar o Microsoft Graph para obter informações sobre os sign-ins Azure AD com propriedades específicas relacionadas com o estado de risco, detalhes e nível. A quarta API, **identidadeRiskEvents,** permite-lhe consultar o Microsoft Graph para uma lista de deteções de risco e informações [associadas.](../reports-monitoring/concept-risk-events.md) A identidadeRiskEvents API será depreciada a 10 de janeiro de 2020; sugerimos que use o **risco API dedetecções.** Este artigo faz com que se inicie a ligação ao Microsoft Graph e consulta estas APIs. Para uma introdução aprofundada, documentação completa e acesso ao Graph Explorer, consulte o site do [Microsoft Graph](https://graph.microsoft.io/) ou a documentação de referência específica para estas APIs:
 
-* [api de deteção de risco](/graph/api/resources/riskdetection?view=graph-rest-beta)
-* [API utilizadores arriscados](/graph/api/resources/riskyuser?view=graph-rest-beta)
-* [sinal Na API](/graph/api/resources/signin?view=graph-rest-beta)
-* [identidadeRiscos API](/graph/api/resources/identityriskevent?view=graph-rest-beta) *será depreciado 10 de janeiro de 2020*
+* [API de deteção de risco](/graph/api/resources/riskdetection?view=graph-rest-v1.0)
+* [aPI de riskyUsers](/graph/api/resources/riskyuser?view=graph-rest-v1.0)
+* [signIn API](/graph/api/resources/signin?view=graph-rest-v1.0)
 
-## <a name="connect-to-microsoft-graph"></a>Ligar ao gráfico da Microsoft
+## <a name="connect-to-microsoft-graph"></a>Ligue-se ao gráfico da Microsoft
 
-Existem quatro etapas para aceder aos dados de Proteção de Identidade através do Microsoft Graph:
+Existem quatro passos para aceder aos dados de Proteção de Identidade através do Microsoft Graph:
 
-1. Recupere o seu nome de domínio.
-2. Crie uma nova inscrição de aplicativos. 
-3. Utilize este segredo e algumas outras informações para autenticar no Microsoft Graph, onde recebe um símbolo de autenticação. 
-4. Utilize este símbolo para fazer pedidos ao ponto final da API e obter dados de Proteção de Identidade de volta.
+- [Recupere o nome de domínio](#retrieve-your-domain-name)
+- [Criar um novo registo de aplicações](#create-a-new-app-registration)
+- [Configure permissões da API](#configure-api-permissions)
+- [Configure uma credencial válida](#configure-a-valid-credential)
 
-Antes de começar, vai precisar de:
+### <a name="retrieve-your-domain-name"></a>Recupere o nome de domínio 
 
-* Administrador privilegia criar a aplicação na Azure AD
-* O nome do domínio do seu inquilino (por exemplo, contoso.onmicrosoft.com)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).  
+1. Navegue para a **Azure Ative Directory**  >  **Nomes de domínio personalizado .** 
+1. Tome nota do `.onmicrosoft.com` domínio, precisará desta informação num passo posterior.
 
-## <a name="retrieve-your-domain-name"></a>Recupere o seu nome de domínio 
+### <a name="create-a-new-app-registration"></a>Criar um novo registo de aplicações
 
-1. [Inscreva-se no](https://portal.azure.com) seu portal Azure como administrador. 
-1. No painel de navegação à esquerda, clique em **Diretório Ativo**. 
-
-   ![Criação de uma aplicação](./media/howto-identity-protection-graph-api/41.png)
-
-1. Na secção **Gerir,** clique em **Propriedades**.
-
-   ![Criação de uma aplicação](./media/howto-identity-protection-graph-api/42.png)
-
-1. Copie o seu nome de domínio.
-
-## <a name="create-a-new-app-registration"></a>Criar uma nova inscrição de aplicativos
-
-1. Na página **'Diretório Ativo',** na secção **Gerir,** clique nos **registos da App**.
-
-   ![Criação de uma aplicação](./media/howto-identity-protection-graph-api/42.png)
-
-1. No menu em cima, clique no novo registo de inscrição de **aplicação.**
-
-   ![Criação de uma aplicação](./media/howto-identity-protection-graph-api/43.png)
-
+1. No portal Azure, consulte as inscrições da **Azure Ative Directory**  >  **App**.
+1. Selecione **Novo registo**.
 1. Na página **Criar,** execute os seguintes passos:
+   1. Na caixa de texto **Name,** digite um nome para a sua aplicação (por exemplo: Azure AD Risk Detection API).
+   1. Nos **tipos de conta suportados,** selecione o tipo de contas que utilizarão as APIs.
+   1. Selecione **Registar**.
+1. Copiar o **ID do formulário de aplicação.**
 
-   ![Criação de uma aplicação](./media/howto-identity-protection-graph-api/44.png)
+### <a name="configure-api-permissions"></a>Configure permissões da API
 
-   1. Na caixa de texto **Name,** escreva um nome para a sua aplicação (por exemplo: Aplicação API de deteção de risco Azure AD).
+1. A partir da **Aplicação** que criou, selecione **permissões API.**
+1. Na página de **permissões configuradas,** na barra de ferramentas na parte superior, clique em **Adicionar uma permissão**.
+1. Na página **de acesso API,** clique em **Selecionar uma API.**
+1. Na página **Select a API,** selecione **o Microsoft Graph**e, em seguida, clique em **Select**.
+1. Na página de permissões da **API do Pedido:** 
+   1. Selecione **permissões de aplicação**.
+   1. Selecione as caixas de verificação ao lado `IdentityRiskEvent.Read.All` e `IdentityRiskyUser.Read.All` .
+   1. **Selecione Permissões de adicionar**.
+1. Selecione **Grant consentimento de administração para domínio** 
 
-   1. Como **Tipo,** selecione **Aplicação Web E / Ou Web API**.
+### <a name="configure-a-valid-credential"></a>Configure uma credencial válida
 
-   1. Na caixa de texto **smS sign-on URL,** escreva `http://localhost`.
+1. A partir da **Aplicação** que criou, selecione **Certificados & segredos.**
+1. Sob **os segredos do Cliente,** selecione **Novo segredo de cliente.**
+   1. Dê ao cliente uma **Descrição** secreta e desaprote o prazo de validade de acordo com as suas políticas organizacionais.
+   1. Selecione **Adicionar**.
 
-   1. Clique em **Criar**.
-1. Para abrir a página **Definições,** na lista de aplicações, clique no registo da aplicação recém-criada. 
-1. Copiar o ID da **aplicação**.
-
-## <a name="grant-your-application-permission-to-use-the-api"></a>Conceda a sua autorização de pedido para usar a API
-
-1. Na página **Definições,** clique em **permissões necessárias**.
-
-   ![Criação de uma aplicação](./media/howto-identity-protection-graph-api/15.png)
-
-1. Na página de **permissões necessárias,** na barra de ferramentas por cima, clique em **Adicionar**.
-
-   ![Criação de uma aplicação](./media/howto-identity-protection-graph-api/16.png)
-
-1. Na página de **acesso Add API,** clique **em Selecionar um API**.
-
-   ![Criação de uma aplicação](./media/howto-identity-protection-graph-api/17.png)
-
-1. Na página **Select a API,** selecione **Microsoft Graph**, e, em seguida, clique em **Selecionar**.
-
-   ![Criação de uma aplicação](./media/howto-identity-protection-graph-api/18.png)
-
-1. Na página de **acesso Add API,** clique em **Selecionar permissões**.
-
-   ![Criação de uma aplicação](./media/howto-identity-protection-graph-api/19.png)
-
-1. Na página **'Aceder',** clique em **Ler todas as informações de risco**de identidade e, em seguida, clique em **Selecionar**.
-
-   ![Criação de uma aplicação](./media/howto-identity-protection-graph-api/20.png)
-
-1. Na página de **acesso Add API,** clique **em Done**.
-
-   ![Criação de uma aplicação](./media/howto-identity-protection-graph-api/21.png)
-
-1. Na página de **Permissões Requeridas,** clique em **Permissões de Concessão,** e depois clique **em Sim**.
-
-   ![Criação de uma aplicação](./media/howto-identity-protection-graph-api/22.png)
-
-## <a name="get-an-access-key"></a>Obter uma chave de acesso
-
-1. Na página **Definições,** clique em **Teclas**.
-
-   ![Criação de uma aplicação](./media/howto-identity-protection-graph-api/23.png)
-
-1. Na página **Keys,** execute os seguintes passos:
-
-   ![Criação de uma aplicação](./media/howto-identity-protection-graph-api/24.png)
-
-   1. Na caixa de **texto de descrição chave,** escreva uma descrição (por exemplo, Deteção de *Risco AD Azure).*
-   1. Como **Duração,** selecione **Em 1 ano**.
-   1. Clique em **Guardar**.
-   1. Copie o valor-chave e, em seguida, cole-o num local seguro.   
-   
    > [!NOTE]
-   > Se perder esta chave, terá de voltar a esta secção e criar uma nova chave. Mantenha esta chave em segredo: qualquer pessoa que a tenha pode aceder aos seus dados.
-   > 
+   > Se perder esta chave, terá de voltar a esta secção e criar uma nova chave. Guarde esta chave em segredo: qualquer pessoa que a tenha pode aceder aos seus dados.
 
-## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-detections-api"></a>Autenticar para microsoft graph e consultar a API de Deteção de Risco de Identidade
+## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-detections-api"></a>Autenticar para o Microsoft Graph e consultar a API de Deteção de Risco de Identidade
 
-Neste momento, devia ter:
+Neste momento, deveria ter:
 
 - O nome do domínio do seu inquilino
-- O ID do cliente 
-- A chave 
+- O ID da Aplicação (cliente) 
+- O segredo ou certificado do cliente 
 
-Para autenticar, envie um `https://login.microsoft.com` pedido de correio com os seguintes parâmetros no corpo:
+Para autenticar, envie um pedido de correio `https://login.microsoft.com` com os seguintes parâmetros no corpo:
 
 - grant_type: "**client_credentials**"
 - recurso:`https://graph.microsoft.com`
-- client_id: \<identificação do seu cliente\>
-- client_secret: \<a sua chave\>
+- client_id:\<your client ID\>
+- client_secret:\<your key\>
 
-Se for bem sucedido, isto devolve um símbolo de autenticação.  
+Se for bem sucedido, este pedido devolve um token de autenticação.  
 Para chamar a API, crie um cabeçalho com o seguinte parâmetro:
 
 ```
 `Authorization`="<token_type> <access_token>"
 ```
 
-Ao autenticar, pode encontrar o tipo de ficha e o token de acesso no token devolvido.
+Ao autenticar, pode encontrar o tipo de símbolo e o token de acesso no token devolvido.
 
-Envie este cabeçalho como um pedido para o seguinte URL DaPi:`https://graph.microsoft.com/beta/identityRiskEvents`
+Envie este cabeçalho como um pedido para o seguinte URL API:`https://graph.microsoft.com/v1.0/identityProtection/riskDetections`
 
-A resposta, se for bem sucedida, é uma recolha de deteções de risco de identidade e dados associados no formato OData JSON, que pode ser analisado e tratado como entender.
+A resposta, se for bem sucedida, é uma recolha de deteções de risco de identidade e dados associados no formato OData JSON, que podem ser analisados e tratados da forma que entenderem.
 
-Aqui está o código da amostra para autenticar e chamar a API usando powerShell.  
-Adicione a identidade do seu cliente, a chave secreta e o domínio do inquilino.
+### <a name="sample"></a>Sample
+
+Aqui está o código de amostra para autenticar e chamar a API usando o PowerShell.  
+Adicione a identificação do seu cliente, a chave secreta, e o domínio do inquilino.
 
 ```PowerShell
     $ClientID       = "<your client ID here>"        # Should be a ~36 hex character string; insert your info here
@@ -178,7 +122,7 @@ Adicione a identidade do seu cliente, a chave secreta e o domínio do inquilino.
     if ($oauth.access_token -ne $null) {
         $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
 
-        $url = "https://graph.microsoft.com/beta/identityRiskEvents"
+        $url = "https://graph.microsoft.com/v1.0/identityProtection/riskDetections"
         Write-Output $url
 
         $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
@@ -194,42 +138,35 @@ Adicione a identidade do seu cliente, a chave secreta e o domínio do inquilino.
 
 ## <a name="query-the-apis"></a>Consulta das APIs
 
-Estas três APIs proporcionam uma multiplicidade de oportunidades para recuperar informações sobre utilizadores de risco e inscrições na sua organização. Abaixo estão alguns casos de uso comum para estas APIs e os pedidos de amostra associados. Pode executar estas consultas utilizando o código da amostra acima ou utilizando o [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+Estas três APIs fornecem uma multiplicidade de oportunidades para recuperar informações sobre utilizadores arriscados e inscrições na sua organização. Seguem-se alguns casos de utilização comum para estas APIs e os pedidos de amostra associadas. Pode executar estas consultas utilizando o código de amostra acima ou utilizando o [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
-### <a name="get-all-of-the-offline-risk-detections-riskdetection-api"></a>Obtenha todas as deteções de risco offline (API de deteção de risco)
+### <a name="get-all-of-the-offline-risk-detections-riskdetection-api"></a>Obtenha todas as deteções de risco offline (aPI de deteção de risco)
 
-Com políticas de risco de sinalização de proteção de identidade, pode aplicar condições quando o risco é detetado em tempo real. Mas e as deteções que são descobertas offline? Para entender que deteções ocorreram offline, e assim não teria desencadeado a política de risco de inscrição, pode consultar a API de deteção de risco.
-
-```
-GET https://graph.microsoft.com/beta/riskDetections?$filter=detectionTimingType eq 'offline'
-```
-
-### <a name="get-all-of-the-users-who-successfully-passed-an-mfa-challenge-triggered-by-risky-sign-ins-policy-riskyusers-api"></a>Obtenha todos os utilizadores que passaram com sucesso um desafio MFA desencadeado pela política de inscrição arriscada (API de utilizadores arriscados)
-
-Para compreender o impacto que as políticas baseadas no risco de Proteção de Identidade têm na sua organização, pode consultar todos os utilizadores que aprovaram com sucesso um desafio MFA desencadeado por uma política de inscrição arriscada. Estas informações podem ajudá-lo a entender quais os utilizadores que a Proteção de Identidade pode ter sido falsamente detetado como risco e quais dos seus utilizadores legítimos podem estar a realizar ações que a IA considera arriscadas.
+Com as políticas de risco de inscrição na Proteção de Identidade, pode aplicar condições quando o risco é detetado em tempo real. Mas e as deteções que são descobertas offline? Para entender que deteções ocorreram offline, e assim não teria desencadeado a política de risco de acesso, você pode consultar o risco API dedetecção.
 
 ```
-GET https://graph.microsoft.com/beta/riskyUsers?$filter=riskDetail eq 'userPassedMFADrivenByRiskBasedPolicy'
+GET https://graph.microsoft.com/v1.0/identityProtection/riskDetections?$filter=detectionTimingType eq 'offline'
 ```
 
-### <a name="get-all-the-risky-sign-ins-for-a-specific-user-signin-api"></a>Obtenha todos os sign-ins de risco para um utilizador específico (signIn API)
+### <a name="get-all-of-the-users-who-successfully-passed-an-mfa-challenge-triggered-by-risky-sign-ins-policy-riskyusers-api"></a>Obtenha todos os utilizadores que aprovaram com sucesso um desafio MFA desencadeado pela política de entradas de risco (riskyUsers API)
 
-Quando acredita que um utilizador pode ter sido comprometido, pode compreender melhor o estado do seu risco recuperando todos os seus insins arriscados. 
+Para entender o impacto que as políticas baseadas no risco de proteção de identidade têm na sua organização, você pode consultar todos os utilizadores que passaram com sucesso um desafio MFA desencadeado por uma política de ins- ins de risco. Estas informações podem ajudá-lo a entender quais os utilizadores que a Proteção de Identidade pode ter detetado falsamente como risco e qual dos seus utilizadores legítimos pode estar a realizar ações que a IA considera arriscadas.
 
 ```
-https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>' and riskState eq 'atRisk'
+GET https://graph.microsoft.com/v1.0/identityProtection/riskyUsers?$filter=riskDetail eq 'userPassedMFADrivenByRiskBasedPolicy'
 ```
-## <a name="next-steps"></a>Passos seguintes
+
+## <a name="next-steps"></a>Próximos passos
 
 Parabéns, acabaste de fazer a tua primeira chamada para o Microsoft Graph!  
 Agora pode consultar as deteções de risco de identidade e utilizar os dados como entender.
 
-Para saber mais sobre o Microsoft Graph e como construir aplicações usando a API graph, confira a [documentação](/graph/overview) e muito mais no site do [Microsoft Graph](https://developer.microsoft.com/graph). 
+Para saber mais sobre o Microsoft Graph e como construir aplicações utilizando a API do gráfico, consulte a [documentação](/graph/overview) e muito mais no site do [Microsoft Graph](https://developer.microsoft.com/graph). 
 
 Para obter informações relacionadas, consulte:
 
 - [Proteção de Identidade do Diretório Ativo Azure](../active-directory-identityprotection.md)
-- [Tipos de deteções de risco detetados pela Azure Ative Directory Identity Protection](../reports-monitoring/concept-risk-events.md)
+- [Tipos de deteções de risco detetadas pela Azure Ative Directory Identity Protection](../reports-monitoring/concept-risk-events.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
 - [Descrição Geral do Microsoft Graph](https://developer.microsoft.com/graph/docs)
-- [Raiz de serviço de proteção de identidade Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root)
+- [Raiz do serviço de proteção de identidade Azure Ad](https://docs.microsoft.com/graph/api/resources/identityprotectionroot?view=graph-rest-1.0)

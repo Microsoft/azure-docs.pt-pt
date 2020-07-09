@@ -1,26 +1,26 @@
 ---
-title: Utilização de trabalhos de borda de análise de fluxo azure com borda Azure SQL (pré-visualização)
-description: Saiba mais sobre a utilização de trabalhos stream analytics em Azure SQL Edge (Pré-visualização)
+title: Utilizando trabalhos Azure Stream Analytics Edge com Azure SQL Edge (Pré-visualização)
+description: Saiba mais sobre a utilização de trabalhos stream analytics em Azure SQL Edge (Preview)
 keywords: SQL Edge, análise de fluxo,
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 3b57cb8cae80381a6c2cd88358dd9284ba56c919
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: e323c56f22c3a7d32bda5afe03a3462d3263f0d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597318"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254077"
 ---
-# <a name="using-azure-stream-analytics-jobs-with-sql-edge"></a>Utilização de trabalhos de Analytics Azure Stream com SQL Edge
+# <a name="using-azure-stream-analytics-jobs-with-sql-edge"></a>Utilizando trabalhos de Azure Stream Analytics com SQL Edge
 
-Azure SQL Edge (Preview) é um motor de base de dados relacional otimizado, orientado para implantações ioT e borda. É construído com base nas versões mais recentes do Microsoft SQL Server Database Engine, que fornece capacidades de desempenho, segurança e processamento de consultas líderes na indústria. Juntamente com as principais capacidades de gestão de bases de dados relacionais líderes na indústria do SQL Server, o Azure SQL Edge fornece capacidade de streaming incorporada para análise em tempo real e processamento complexo de eventos.
+Azure SQL Edge (Preview) é um motor de base de dados relacional otimizado, orientado para implementações de IoT e bordas. É construído nas versões mais recentes do Microsoft SQL Server Database Engine, que fornece capacidades de processamento de desempenho, segurança e consulta líderes do setor. Juntamente com as capacidades de gestão de bases de dados relacionais líderes no setor do SQL Server, o Azure SQL Edge fornece capacidade de streaming incorporada para análise em tempo real e processamento complexo de eventos.
 
-O Azure SQL Edge tem uma implementação nativa do tempo de execução da análise do fluxo. Esta implementação permite-lhe criar um trabalho de borda Azure Stream Analytics e implementar esse trabalho como um trabalho de streaming SQL Edge. Os trabalhos de Azure Stream Analytics podem ser implantados para o SQL Edge utilizando o parâmetro ASAJobInfo exposto através `module twin's desired properties` da opção do módulo SQL Edge:
+Azure SQL Edge tem uma implementação nativa do tempo de execução da análise de fluxo. Esta implementação permite-lhe criar um trabalho de borda Azure Stream Analytics e implementar esse trabalho como um trabalho de streaming SQL Edge. Os trabalhos do Azure Stream Analytics podem ser implementados na SQL Edge utilizando o parâmetro ASAJobInfo exposto através `module twin's desired properties` da opção do módulo SQL Edge:
 
 ```json
 {
@@ -34,31 +34,31 @@ O Azure SQL Edge tem uma implementação nativa do tempo de execução da análi
 
 |Campo | Descrição |
 |------|-------------|
-| SqlPackage | Armazenamento Azure Blob URI para o ficheiro *.zip que contém o pacote DAC da Base de Dados De Base de Dados SQL.
-| ASAJobInfo | Armazenamento Azure Blob URI para o trabalho asa edge.
+| SqlPackage | Azure Blob armazenamento URI para o ficheiro *.zip que contém o pacote DAC base de dados SQL.
+| ASAJobInfo | Azure Blob armazenamento URI para o trabalho ASA Edge.
 
-## <a name="create-an-azure-stream-analytics-edge-job"></a>Crie um Trabalho de Borda de Análise de Fluxo Azure
+## <a name="create-an-azure-stream-analytics-edge-job"></a>Criar um trabalho de borda azure stream analytics
 
 1. Aceda ao portal do Azure.
 
-2. Crie um novo Azure Stream Analytics no trabalho **ioT Edge.** Escolha o ambiente de hospedagem que visa **edge**.
+2. Crie um novo **Azure Stream Analytics no trabalho IoT Edge.** Escolha o ambiente de hospedagem que visa **edge**.
 
-3. Defina uma entrada e saída para o trabalho de Azure Stream Analytics. Cada saída SQL, que vai instalar aqui, está ligada a uma única tabela na base de dados. Se precisar de transmitir dados para várias tabelas, terá de criar várias saídas de Base de Dados SQL. Pode configurar as saídas SQL para apontar para diferentes bases de dados.
+3. Defina uma entrada e saída para o trabalho Azure Stream Analytics. Cada saída SQL, que irá instalar aqui, está ligada a uma única tabela na base de dados. Se precisar de transmitir dados para várias tabelas, terá de criar várias saídas de Base de Dados SQL. Pode configurar as saídas SQL para apontar para diferentes bases de dados.
 
-    **Entrada**. Escolha o EdgeHub como entrada para o trabalho de borda e forneça a informação sobre recursos.
+    **Entrada**. Escolha o EdgeHub como entrada para o trabalho de borda e forneça a informação de recursos.
 
-    **Saída**. Selecione base de dados SQL como saída. Selecione fornecer as definições de base de **dados SQL manualmente**. Forneça os detalhes de configuração para a base de dados e a tabela.
+    **Saída**. Selecione a Base de Dados SQL como saída. **Selecione Fornecer manualmente as definições da base de dados SQL**. Forneça os detalhes de configuração para a base de dados e tabela.
 
     |Campo      | Descrição |
     |---------------|-------------|
     |Alias de saída | Nome do pseudónimo de saída.|
-    |Base de Dados | Nome da base de dados SQL. Tem de ser um nome válido de uma base de dados que exista na instância SQL Edge.|
-    |Nome do servidor | Nome (ou endereço IP) e detalhes do número da porta para a instância SQL. Para uma implementação SQL Edge, pode utilizar **tcp:..1433** para o nome do servidor.|
-    |Nome de utilizador | Conta de entrada sQL que tem o leitor de dados e o leitor de dados acesso à base de dados que especificou anteriormente.|
+    |Base de Dados | O nome da base de dados. Tem de ser um nome válido de uma base de dados que exista no caso SQL Edge.|
+    |Nome do servidor | Nome (ou endereço IP) e detalhes do número de porta para a instância SQL. Para uma implementação SQL Edge, pode utilizar **o tcp:.1433** para o nome do servidor.|
+    |Nome de utilizador | Conta de acesso SQL que tem o leitor de dados e o data writer acesso à base de dados que especificou anteriormente.|
     |Palavra-passe | Palavra-passe para a conta de entrada SQL que especificou anteriormente.|
     |Tabela | Nome da tabela que será a saída para o trabalho de streaming.|
-    |Divisão Herdada| Permite herdar o esquema de partição do seu passo ou entrada de consulta anterior. Quando esta opção estiver ativada, pode esperar ver melhor a sua entrada quando escreve para uma tabela baseada em disco e tem uma topologia totalmente paralela para o seu trabalho.|
-    |Tamanho do lote| O número máximo de registos que são enviados com todas as transações de inserção a granel.|
+    |Herança herdeira| Permite herdar o esquema de partição do seu passo ou entrada de consulta anterior. Quando esta opção está ativada, pode esperar ver melhor produção quando escrever para uma mesa baseada em disco e ter uma topologia totalmente paralela para o seu trabalho.|
+    |Tamanho do lote| O número máximo de registos enviados com cada transação de inserção a granel.|
 
     Aqui está uma configuração de entrada/saída de amostra:
 
@@ -82,32 +82,32 @@ O Azure SQL Edge tem uma implementação nativa do tempo de execução da análi
     ```
 
     > [!NOTE]
-    > Para obter mais informações sobre o adaptador de saída SQL para Azure Stream Analytics, consulte a saída do Azure Stream Analytics para a Base de [Dados Azure SQL](../stream-analytics/stream-analytics-sql-output-perf.md).
+    > Para obter mais informações sobre o adaptador de saída SQL para Azure Stream Analytics, consulte [a saída Azure Stream Analytics para a Base de Dados Azure SQL](../stream-analytics/stream-analytics-sql-output-perf.md).
 
-4. Defina a consulta de trabalho da ASA para o trabalho de borda. Esta consulta deve utilizar os pseudónimos de entrada/saída definidos como os nomes de entrada e saída na consulta. Para mais informações, consulte a [referência da Linguagem consulta da Análise do Fluxo](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
+4. Defina a consulta de trabalho da ASA para o trabalho de borda. Esta consulta deve utilizar os pseudónimos de entrada/saída definidos como os nomes de entrada e saída na consulta. Para obter mais informações, consulte [a referência para a linguagem da consulta stream Analytics.](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 
-5. Delineie as definições da conta de armazenamento para o trabalho de borda. A conta de armazenamento é usada como o alvo editorial para o trabalho de borda.
+5. Defina as definições da conta de armazenamento para o trabalho de borda. A conta de armazenamento é usada como o alvo de publicação para o trabalho de borda.
 
-6. Em **Configurar, selecione** **Publicar**e, em seguida, selecione o botão **Publicar.** Guarde o SAS URI para utilização com o módulo SQL Edge.
+6. Em **Configuração**, **selecione Publicar**e, em seguida, selecione o botão **Publicar.** Guarde o SAS URI para utilização com o módulo SQL Edge.
 
-## <a name="deploy-azure-stream-analytics-edge-job-to-sql-edge"></a>Implemente o trabalho de Azure Stream Analytics Edge para sQL Edge
+## <a name="deploy-azure-stream-analytics-edge-job-to-sql-edge"></a>Implementar o trabalho de Azure Stream Analytics Edge para SQL Edge
 
-Para implementar o trabalho de streaming para o módulo SQL Edge, atualize a configuração do módulo SQL Edge para incluir o SAS URI para o trabalho de streaming a partir do passo anterior. Para atualizar o módulo SQL Edge:
+Para implementar o trabalho de streaming no módulo SQL Edge, atualize a configuração do módulo SQL Edge para incluir o SAS URI para o trabalho de streaming a partir do passo anterior. Para atualizar o módulo SQL Edge:
 
-1. No portal Azure, vá ao seu ioT Hub implantação.
+1. No portal Azure, vá para a sua implantação IoT Hub.
 
 2. No painel esquerdo, selecione **IoT Edge**.
 
 3. Na página **IoT Edge,** encontre e selecione o IoT Edge onde o módulo SQL Edge está implantado.
 
-4. Na página do **dispositivo IoT Edge Device,** selecione **Módulo de Conjunto**.
+4. Na página do **dispositivo IoT Edge Device,** selecione **O Módulo de Conjunto**.
 
-5. Na página **de módulos set,** selecione **Configure** contra o módulo SQL Edge.
+5. Na página **de módulos set,** selecione **Configurar** contra o módulo SQL Edge.
 
-6. No painel **ioT Edge Custom Modules,** selecione **set module twin propriedades desejadas**. Atualize as propriedades desejadas para incluir o URI para a `ASAJobInfo` opção, como mostra o seguinte exemplo.
+6. No painel **IoT Edge Custom Modules,** selecione **Definir as propriedades desejadas do módulo Twin**. Atualize as propriedades desejadas para incluir o URI para a `ASAJobInfo` opção, como mostra o exemplo seguinte.
 
     > [!NOTE]
-    > O SAS URI no JSON seguinte é apenas um exemplo. Substitua o URI pelo URI real da sua implantação.
+    > O SAS URI no seguinte JSON é apenas um exemplo. Substitua o URI pelo URI real da sua implantação.
 
     ```json
         {
@@ -120,16 +120,16 @@ Para implementar o trabalho de streaming para o módulo SQL Edge, atualize a con
 
 7. Selecione **Guardar**.
 
-8. Na página **de módulos set,** selecione **Next**.
+8. Na página **de módulos set,** selecione **Seguinte**.
 
-9. Na página **de módulos set,** selecione **Seguinte** e, em seguida, **Submeta**.
+9. Na página **de módulos set,** selecione **Seguinte** e, em seguida, **Submeta.**
 
-10. Após a atualização do módulo, o ficheiro de trabalho de análise de fluxo é descarregado, desapertado e implantado contra a instância SQL Edge.
+10. Após a atualização do módulo, o ficheiro de trabalho de análise de streaming é descarregado, desapertado e implantado contra a instância SQL Edge.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Implementar o SQL Edge através](deploy-portal.md)do portal Azure .
+- [Implementar sql edge através do portal Azure](deploy-portal.md).
 
-- [Dados de fluxo](stream-data.md)
+- [Dados de Fluxo](stream-data.md)
 
 - [Machine learning e IA com ONNX em SQL Edge (Pré-visualização)](onnx-overview.md)

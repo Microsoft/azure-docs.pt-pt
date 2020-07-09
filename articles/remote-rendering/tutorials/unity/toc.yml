@@ -1,6 +1,14 @@
-- name: Configurar um projeto do Unity do zero
-  href: project-setup.md
-- name: Trabalhar com entidades remotas no Unity
-  href: working-with-remote-entities.md
-- name: Alterar o ambiente e os materiais
-  href: changing-environment-and-materials.md
+- name: Descrição geral
+  href: tutorial-landing.md
+- name: Ver um modelo composto remotamente
+  href: view-remote-models/view-remote-models.md
+- name: Interfaces e modelos personalizados
+  href: custom-models/custom-models.md
+- name: Manipular modelos
+  href: manipulate-models/manipulate-models.md
+- name: 'Refinar materiais, iluminação e efeitos'
+  href: materials-lighting-effects/materials-lighting-effects.md
+- name: Proteger o Azure Remote Rendering e o armazenamento de modelos
+  href: security/security.md
+- name: Criar uma aplicação do Azure Remote Rendering pronta para comercialização
+  href: commercial-ready/commercial-ready.md

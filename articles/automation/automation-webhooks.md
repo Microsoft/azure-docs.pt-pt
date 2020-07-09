@@ -1,111 +1,118 @@
 ---
-title: Inicie um livro de execução da Automação Azure a partir de um webhook
-description: Este artigo diz como usar um webhook para iniciar um livro de execução em Azure Automation a partir de uma chamada HTTP.
+title: Inicie um runbook Azure Automation a partir de um webhook
+description: Este artigo diz como usar um webhook para iniciar um livro de formulários na Azure Automation a partir de uma chamada HTTP.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/16/2020
+ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2578e15a60b2021d9e599018043c4834d0c07d34
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: e64f437b65964b585311aeae25e5f3a92275754a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830502"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361681"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Iniciar um runbook a partir de um webhook
 
-Um webhook permite que um serviço externo inicie um livro de execução específico na Automatização Azure através de um único pedido HTTP. Os serviços externos incluem serviços Azure DevOps, GitHub, registos Do Monitor Azure e aplicações personalizadas. Este serviço pode usar um webhook para iniciar um livro de execução sem implementar a API de Automação Azure completa. Pode comparar webhooks com outros métodos de iniciar um livro de execução em Iniciar um livro de [execução em Automação Azure](automation-starting-a-runbook.md).
+Um webhook permite que um serviço externo inicie um determinado runbook na Azure Automation através de um único pedido HTTP. Os serviços externos incluem serviços Azure DevOps, GitHub, registos Azure Monitor e aplicações personalizadas. Tal serviço pode usar um webhook para iniciar um runbook sem implementar a API total da Azure Automation. Pode comparar webhooks com outros métodos de iniciar um livro de formulários no [Início de um livro de formulários na Azure Automation](automation-starting-a-runbook.md).
 
 > [!NOTE]
-> Não é suportado o uso de um webhook para iniciar um livro de execução python.
+> Não é suportado o suporte de um webhook para iniciar um livro de aplicações Python.
 
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
+Para compreender os requisitos do cliente para TLS 1.2 com webhooks, consulte [a aplicação TLS 1.2 para a Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+
 ## <a name="webhook-properties"></a>Propriedades webhook
 
-A tabela seguinte descreve as propriedades que deve configurar para um webhook.
+A tabela a seguir descreve as propriedades que deve configurar para um webhook.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Name |Nome do gancho web. Pode fornecer o nome que quiser, já que não está exposto ao cliente. Só é usado para identificar o livro de execução na Automação Azure. Como uma boa prática, deve dar ao webhook um nome relacionado com o cliente que o utiliza. |
-| URL |URL do webhook. Este é o endereço único que um cliente liga com um POST HTTP para iniciar o livro de execução ligado ao webhook. É gerado automaticamente quando se cria o webhook. Não pode especificar um URL personalizado. <br> <br> O URL contém um símbolo de segurança que permite que um sistema de terceiros invoque o livro de execução sem mais autenticação. Por esta razão, deve tratar o URL como uma senha. Por razões de segurança, só pode ver o URL no portal Azure ao criar o webhook. Note o URL num local seguro para utilização futura. |
+| Name |O nome do webhook. Pode dar o nome que quiser, já que não está exposto ao cliente. Só é utilizado para identificar o livro de recortes na Azure Automation. Como uma boa prática, deve dar ao webhook um nome relacionado com o cliente que o utiliza. |
+| URL |URL do webhook. Este é o endereço único que um cliente chama com um HTTP POST para iniciar o livro de aplicação ligado ao webhook. É gerado automaticamente quando se cria o webhook. Não é possível especificar uma URL personalizada. <br> <br> O URL contém um símbolo de segurança que permite a um sistema de terceiros invocar o livro de bordo sem mais autenticação. Por esta razão, deve tratar o URL como uma palavra-passe. Por razões de segurança, só pode ver o URL no portal Azure ao criar o webhook. Note o URL num local seguro para utilização futura. |
 | Data de validade | Data de validade do webhook, após o qual já não pode ser utilizado. Pode modificar a data de validade após a criação do webhook, desde que o webhook não tenha expirado. |
-| Ativado | Regulação indicando se o webhook está ativado por padrão quando é criado. Se você definir esta propriedade para Deficientes, nenhum cliente pode usar o webhook. Você pode definir esta propriedade quando você criar o webhook ou qualquer outro momento após a sua criação. |
+| Ativado | Definição indicando se o webhook é ativado por padrão quando é criado. Se definir esta propriedade para Disabled, nenhum cliente pode usar o webhook. Você pode definir esta propriedade quando você criar o webhook ou qualquer outro tempo após a sua criação. |
 
-## <a name="parameters-used-when-the-webhook-starts-a-runbook"></a>Parâmetros usados quando o webhook inicia um livro de corridas
+## <a name="parameters-used-when-the-webhook-starts-a-runbook"></a>Parâmetros utilizados quando o webhook inicia um livro de bordo
 
-Um webhook pode definir valores para parâmetros de livro de execução que são usados quando o livro de execução começa. O webhook deve incluir valores para quaisquer parâmetros de livro obrigatórios e pode incluir valores para parâmetros opcionais. Um valor de parâmetro configurado para um webhook pode ser modificado mesmo após a criação do webhook. Vários webhooks ligados a um único livro de execução podem cada um usar diferentes valores de parâmetros de caderneta. Quando um cliente inicia um livro de execução usando um webhook, não pode sobrepor-se aos valores do parâmetro definidos no webhook.
+Um webhook pode definir valores para parâmetros de runbook que são usados quando o livro de execução começa. O webhook deve incluir valores para quaisquer parâmetros de runbook obrigatórios e pode incluir valores para parâmetros opcionais. Um valor de parâmetro configurado para um webhook pode ser modificado mesmo após a criação do webhook. Vários webhooks ligados a um único runbook podem cada um usar diferentes valores de parâmetros de runbook. Quando um cliente inicia um livro de aplicação usando um webhook, não pode sobrepor os valores de parâmetro definidos no webhook.
 
-Para receber dados do cliente, o livro de execução suporta um único parâmetro chamado `WebhookData` . Este parâmetro define um objeto que contém dados que o cliente inclui num pedido post.
+Para receber dados do cliente, o livro de recortes suporta um único parâmetro chamado `WebhookData` . Este parâmetro define um objeto contendo dados que o cliente inclui num pedido DEM.
 
-![Propriedades WebhookData](media/automation-webhooks/webhook-data-properties.png)
+![Propriedades webhookData](media/automation-webhooks/webhook-data-properties.png)
 
 O `WebhookData` parâmetro tem as seguintes propriedades:
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| `WebhookName` | Nome do gancho web. |
-| `RequestHeader` | Hashtable contendo os cabeçalhos do pedido de correio que chega. |
-| `RequestBody` | Corpo do pedido de correio que chega. Este corpo retém qualquer formatação de dados, tais como cordas, JSON, XML ou codificadas por formulários. O livro de execução deve ser escrito para trabalhar com o formato de dados que se espera. |
+| `WebhookName` | O nome do webhook. |
+| `RequestHeader` | Hashtable contendo os cabeçalhos do pedido de POST que chega. |
+| `RequestBody` | Corpo do pedido de entrada do CORREIO. Este corpo retém qualquer formatação de dados, tais como string, JSON, XML ou codificado por formulários. O livro deve ser escrito para funcionar com o formato de dados que se espera. |
 
-Não há configuração do webhook necessária para suportar o `WebhookData` parâmetro, e o livro de execução não é necessário para aceitá-lo. Se o livro de execução não definir o parâmetro, quaisquer detalhes do pedido enviado pelo cliente são ignorados.
+Não há nenhuma configuração do webhook necessária para suportar o `WebhookData` parâmetro, e o livro de execução não é obrigado a aceitá-lo. Se o livro não definir o parâmetro, quaisquer detalhes do pedido enviado do cliente são ignorados.
 
 > [!NOTE]
-> Ao ligar para um webhook, o cliente deve sempre armazenar quaisquer valores de parâmetro sintetizador caso a chamada falhe. Se houver uma falha de rede ou problema de ligação, a aplicação não pode recuperar chamadas falhadas do webhook.
+> Ao ligar para um webhook, o cliente deve sempre armazenar quaisquer valores de parâmetros caso a chamada falhe. Se houver uma falha de rede ou problema de ligação, a aplicação não pode recuperar chamadas falhadas do webhook.
 
-Se especificar um valor para a criação do `WebhookData` webhook, é ultrapassado quando o webhook inicia o livro de execução com os dados do pedido do cliente POST. Isto acontece mesmo que a aplicação não inclua quaisquer dados no organismo de pedido. 
+Se especificar um valor para `WebhookData` a criação do webhook, é ultrapassado quando o webhook inicia o livro com os dados do pedido do cliente POST. Isto acontece mesmo que a aplicação não inclua quaisquer dados no organismo de pedido. 
 
-Se iniciar um livro de execução que define `WebhookData` usando um mecanismo diferente de um webhook, pode fornecer um valor para que o livro de `WebhookData` execução reconheça. Este valor deve ser um objeto com as mesmas [propriedades](#webhook-properties) que o parâmetro para `WebhookData` que o livro de execução possa funcionar com ele assim como funciona com objetos reais `WebhookData` passados por um webhook.
+Se iniciar um runbook que define `WebhookData` usando um mecanismo diferente de um webhook, pode fornecer um valor para `WebhookData` o que o livro de bordo reconhece. Este valor deve ser um objeto com as [mesmas propriedades](#webhook-properties) que o `WebhookData` parâmetro para que o livro de execuções possa trabalhar com ele assim como funciona com objetos reais `WebhookData` passados por um webhook.
 
-Por exemplo, se estiver a iniciar o seguinte livro de execução do portal Azure e pretender passar alguns dados de webhook de amostra para testes, tem de passar os dados em JSON na interface do utilizador.
+Por exemplo, se estiver a iniciar o seguinte livro de aplicação a partir do portal Azure e quiser passar alguns dados do webhook de amostra para testes, tem de passar os dados em JSON na interface do utilizador.
 
 ![Parâmetro WebhookData da UI](media/automation-webhooks/WebhookData-parameter-from-UI.png)
 
-Para o próximo exemplo do livro de corridas, vamos definir as seguintes propriedades `WebhookData` para:
+Para o próximo exemplo do runbook, vamos definir as seguintes propriedades `WebhookData` para:
 
 * **WebhookName**: MyWebhook
-* **RequestBody**:`*[{'ResourceGroup': 'myResourceGroup','Name': 'vm01'},{'ResourceGroup': 'myResourceGroup','Name': 'vm02'}]*`
+* **PedidoCorpo:**`*[{'ResourceGroup': 'myResourceGroup','Name': 'vm01'},{'ResourceGroup': 'myResourceGroup','Name': 'vm02'}]*`
 
-Agora passamos o seguinte objeto JSON na UI para o `WebhookData` parâmetro. Este exemplo, com retornos de carruagem e caracteres de newline, corresponde ao formato que é passado a partir de um webhook.
+Agora passamos o seguinte objeto JSON na UI para o `WebhookData` parâmetro. Este exemplo, com devoluções de carruagens e caracteres newline, corresponde ao formato que é passado a partir de um webhook.
 
 ```json
 {"WebhookName":"mywebhook","RequestBody":"[\r\n {\r\n \"ResourceGroup\": \"vm01\",\r\n \"Name\": \"vm01\"\r\n },\r\n {\r\n \"ResourceGroup\": \"vm02\",\r\n \"Name\": \"vm02\"\r\n }\r\n]"}
 ```
 
-![Iniciar parâmetro WebhookData a partir de UI](media/automation-webhooks/Start-WebhookData-parameter-from-UI.png)
+![Iniciar o parâmetro WebhookData a partir da UI](media/automation-webhooks/Start-WebhookData-parameter-from-UI.png)
 
 > [!NOTE]
-> A Azure Automation regista os valores de todos os parâmetros de entrada com o trabalho do livro de execução. Assim, qualquer entrada fornecida pelo cliente no pedido webhook é registada e disponível para qualquer pessoa com acesso ao trabalho de automação. Por esta razão, deve ser cauteloso em incluir informações sensíveis em chamadas webhook.
+> A Azure Automation regista os valores de todos os parâmetros de entrada com a função de runbook. Assim, qualquer entrada fornecida pelo cliente no pedido webhook é registada e disponível para qualquer pessoa com acesso ao trabalho de automação. Por esta razão, deve ser cauteloso quanto à inclusão de informações sensíveis em chamadas webhook.
 
-## <a name="webhook-security"></a>Segurança webhook
+## <a name="webhook-security"></a>Segurança Webhook
 
-A segurança de um webhook depende da privacidade do seu URL, que contém um símbolo de segurança que permite que o webhook seja invocado. A Azure Automation não realiza qualquer autenticação num pedido desde que seja feita no URL correto. Por esta razão, os seus clientes não devem utilizar webhooks para livros de execução que realizem operações altamente sensíveis sem utilizar em meios alternativos de validação do pedido.
+A segurança de um webhook depende da privacidade do seu URL, que contém um símbolo de segurança que permite que o webhook seja invocado. A Azure Automation não efetua qualquer autenticação num pedido desde que seja feita ao URL correto. Por esta razão, os seus clientes não devem utilizar webhooks para runbooks que realizem operações altamente sensíveis sem utilizar um meio alternativo de validação do pedido.
 
-Você pode incluir lógica dentro de um livro de execução para determinar se é chamado por um webhook. Faça com que o livro de execução verifique a `WebhookName` propriedade do `WebhookData` parâmetro. O livro de execução pode realizar uma validação adicional procurando informações específicas nas `RequestHeader` propriedades e `RequestBody` propriedades.
+Considere as seguintes estratégias:
 
-Outra estratégia é fazer com que o livro de execução execute alguma validação de uma condição externa quando recebe um pedido de webhook. Por exemplo, considere um livro de corridas que é chamado pelo GitHub sempre que houver um novo compromisso com um repositório GitHub. O livro de execução pode ligar-se ao GitHub para validar que um novo compromisso ocorreu antes de continuar.
+* Pode incluir lógica dentro de um livro de aplicação para determinar se é chamado por um webhook. Que o livro verifique a `WebhookName` propriedade do `WebhookData` parâmetro. O runbook pode realizar uma validação adicional procurando informações específicas nas `RequestHeader` propriedades e `RequestBody` propriedades.
+
+* Peça ao livro de aplicação para realizar alguma validação de uma condição externa quando receber um pedido webhook. Por exemplo, considere um livro de corridas que é chamado pelo GitHub sempre que há um novo compromisso com um repositório GitHub. O livro pode ligar-se ao GitHub para validar que ocorreu um novo compromisso antes de continuar.
+
+* A Azure Automation suporta tags de serviço de rede virtual Azure, especificamente [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Pode utilizar tags de serviço para definir controlos de acesso à rede em [grupos de segurança](../virtual-network/security-overview.md#security-rules) de rede ou [Azure Firewall](../firewall/service-tags.md) e desencadear webhooks a partir da sua rede virtual. As etiquetas de serviço podem ser utilizadas no lugar de endereços IP específicos quando cria regras de segurança. Ao especificar o nome da etiqueta de serviço **GuestAndHybridManagement** no campo de origem ou destino apropriado de uma regra, pode permitir ou negar o tráfego para o serviço Dem automação. Esta etiqueta de serviço não suporta permitir um maior controlo granular limitando as gamas IP a uma região específica.
 
 ## <a name="create-a-webhook"></a>Criar um webhook
 
-Utilize o seguinte procedimento para criar um novo webhook ligado a um livro de execução no portal Azure.
+Utilize o seguinte procedimento para criar um novo webhook ligado a um livro de bordo no portal Azure.
 
-1. A partir da página Runbooks no portal Azure, clique no livro de execução que o webhook começa a visualizar os detalhes do livro de execução. Certifique-se de que o campo **de estado** do livro de execução está definido para **publicado**.
-2. Clique no **Webhook** na parte superior da página para abrir a página Adicionar Webhook.
-3. Clique em **Criar um novo webhook** para abrir a página Create Webhook.
-4. Preencha os campos **de data** de nome e **expiração** para o webhook e especifique se deve ser ativado. Consulte [as propriedades do Webhook](#webhook-properties) para obter mais informações sobre estas propriedades.
-5. Clique no ícone da cópia e prima Ctrl+C para copiar o URL do webhook. Então grave-o num lugar seguro. 
+1. Na página Runbooks no portal Azure, clique no runbook que o webhook começa a ver os detalhes do livro de aplicação. Certifique-se de que o campo **de estado do** livro de bordo está definido para **Publicado**.
+2. Clique em **Webhook** no topo da página para abrir a página Add Webhook.
+3. Clique **em Criar novo webhook** para abrir a página Criar Webhook.
+4. Preencha os campos **nome** e **data de validade** para o webhook e especifique se deve ser ativado. Consulte [as propriedades da Webhook](#webhook-properties) para obter mais informações sobre estas propriedades.
+5. Clique no ícone da cópia e prima Ctrl+C para copiar o URL do webhook. Em seguida, grave-o num lugar seguro. 
 
     > [!NOTE]
-    > Uma vez criado o webhook, não pode recuperar o URL novamente.
+    > Uma vez criado o webhook, não poderá recuperar o URL novamente.
 
    ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
 
-1. Clique em **Parâmetros** para fornecer valores para os parâmetros do livro de execução. Se o livro de execução tiver parâmetros obrigatórios, não pode criar o webhook a menos que forneça valores.
-1. Clique em **Criar** para criar o webhook.
+1. Clique em **Parâmetros** para fornecer valores para os parâmetros do livro de bordo. Se o livro de bordo tiver parâmetros obrigatórios, não pode criar o webhook a menos que forneça valores.
+
+2. Clique em **Criar** para criar o webhook.
 
 ## <a name="use-a-webhook"></a>Use um webhook
 
-Para utilizar um webhook depois de ter sido criado, o seu cliente deve emitir um pedido http `POST` com o URL para o webhook. A sintaxe é:
+Para utilizar um webhook depois de ter sido criado, o seu cliente deve emitir um pedido HTTP `POST` com o URL para o webhook. A sintaxe é:
 
 ```http
 http://<Webhook Server>/token?=<Token Value>
@@ -115,36 +122,36 @@ O cliente recebe um dos seguintes códigos de devolução do `POST` pedido.
 
 | Código | Texto | Descrição |
 |:--- |:--- |:--- |
-| 202 |Aceite |O pedido foi aceite, e o livro de corridas foi feito com sucesso na fila. |
-| 400 |Pedido Incorreto |O pedido não foi aceite por uma das seguintes razões: <ul> <li>O gancho expirou.</li> <li>O gancho de teia está desativado.</li> <li>O símbolo no URL é inválido.</li>  </ul> |
-| 404 |Não encontrado |O pedido não foi aceite por uma das seguintes razões: <ul> <li>O gancho não foi encontrado.</li> <li>O livro não foi encontrado.</li> <li>A conta não foi encontrada.</li>  </ul> |
-| 500 |Erro interno do servidor |O URL era válido, mas ocorreu um erro. Por favor, reenvie o pedido. |
+| 202 |Aceite |O pedido foi aceite, e o livro foi feito com sucesso. |
+| 400 |Pedido Incorreto |O pedido não foi aceite por uma das seguintes razões: <ul> <li>O webhook expirou.</li> <li>O webhook está desativado.</li> <li>O símbolo na URL é inválido.</li>  </ul> |
+| 404 |Não encontrado |O pedido não foi aceite por uma das seguintes razões: <ul> <li>O webhook não foi encontrado.</li> <li>O livro não foi encontrado.</li> <li>A conta não foi encontrada.</li>  </ul> |
+| 500 |Erro interno do servidor |A URL era válida, mas ocorreu um erro. Por favor, reenvia o pedido. |
 
-Assumindo que o pedido é bem sucedido, a resposta do webhook contém o ID de trabalho no formato JSON, como mostrado abaixo. Contém um único ID de trabalho, mas o formato JSON permite potenciais melhorias futuras.
+Assumindo que o pedido é bem sucedido, a resposta webhook contém o ID de trabalho no formato JSON, como mostrado abaixo. Contém um único ID de trabalho, mas o formato JSON permite potenciais melhorias futuras.
 
 ```json
 {"JobIds":["<JobId>"]}
 ```
 
-O cliente não pode determinar quando o trabalho do livro de reprodução termina ou o seu estado de conclusão a partir do webhook. Pode descobrir esta informação utilizando o ID de trabalho com outro mecanismo, como [o Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) ou a [API de Automação Azure](/rest/api/automation/job).
+O cliente não pode determinar quando o trabalho do runbook termina ou o seu estado de conclusão a partir do webhook. Pode descobrir esta informação utilizando o ID do trabalho com outro mecanismo, como o [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) ou a API da [Automação Azure](/rest/api/automation/job).
 
 ## <a name="renew-a-webhook"></a>Renovar um webhook
 
-Quando um webhook é criado, tem um prazo de validade de dez anos, após o qual expira automaticamente. Uma vez expirado um webhook, não pode reativar. Só pode removê-lo e recriá-lo. 
+Quando um webhook é criado, tem um período de validade de dez anos, após o qual expira automaticamente. Uma vez expirado um webhook, não se pode reativá-lo. Só pode removê-lo e depois recriá-lo. 
 
-Pode estender um webhook que não tenha atingido o seu tempo de validade. Para estender um webhook:
+Pode estender um webhook que não atingiu o seu tempo de validade. Para estender um webhook:
 
-1. Navegue para o livro de execução que contém o webhook. 
-2. Selecione **Webhooks** em **Recursos**. 
-3. Clique no webhook que pretende estender. 
+1. Navegue para o runbook que contém o webhook. 
+2. Selecione **Webhooks** em **Recursos.** 
+3. Clique no webhook que deseja estender. 
 4. Na página Webhook, escolha uma nova data e hora de validade e clique em **Guardar**.
 
 ## <a name="sample-runbook"></a>Livro de amostras
 
-O livro de execução da amostra seguinte aceita os dados do webhook e inicia as máquinas virtuais especificadas no organismo de pedido. Para testar este livro de execução, na sua conta De automação em **'Runbooks',** clique em Criar um livro de **execução**. Se não sabe criar um livro de corridas, consulte Criar um livro de [corridas.](automation-quickstart-create-runbook.md)
+O seguinte livro de amostras aceita os dados do webhook e inicia as máquinas virtuais especificadas no corpo de pedido. Para testar este livro de execução, na sua conta de Automação em **Runbooks,** clique em **Criar um runbook**. Se não sabe como criar um livro de bordo, consulte [criar um livro de recortes](automation-quickstart-create-runbook.md).
 
 > [!NOTE]
-> Para livros de execução powerShell não gráficos, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos de [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Pode utilizar estes cmdlets ou pode [atualizar os seus módulos](automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Pode precisar de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation.
+> Para livros de execução powershell não gráficos, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Pode utilizar estes cmdlets ou [atualizar os seus módulos](automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Poderá ter de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation.
 
 ```powershell
 param
@@ -199,9 +206,9 @@ else {
 
 ## <a name="test-the-sample"></a>Testar a amostra
 
-O exemplo que se segue utiliza o Windows PowerShell para iniciar um livro de execução com um webhook. Qualquer idioma que possa fazer um pedido HTTP pode usar um webhook. O Windows PowerShell é utilizado aqui como exemplo.
+O exemplo a seguir utiliza o Windows PowerShell para iniciar um livro com um webhook. Qualquer idioma que possa fazer um pedido HTTP pode usar um webhook. O Windows PowerShell é usado aqui como exemplo.
 
-O livro de recortes está à espera de uma lista de máquinas virtuais formatadas em JSON no corpo do pedido. O livro de execução também valida que os cabeçalhos contêm uma mensagem definida para validar que o chamador webhook é válido.
+O runbook está à espera de uma lista de máquinas virtuais formatadas em JSON no corpo do pedido. O runbook também valida que os cabeçalhos contêm uma mensagem definida para validar que o chamador webhook é válido.
 
 ```azurepowershell-interactive
 $uri = "<webHook Uri>"
@@ -216,7 +223,7 @@ $response = Invoke-WebRequest -Method Post -Uri $uri -Body $body -Headers $heade
 $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 ```
 
-O exemplo seguinte mostra o corpo do pedido que está disponível para o livro de execução na `RequestBody` propriedade de `WebhookData` . Este valor é formatado em JSON para ser compatível com o formato incluído no corpo do pedido.
+O exemplo a seguir mostra o corpo do pedido que está disponível para o livro de bordo na `RequestBody` propriedade de `WebhookData` . Este valor é formatado em JSON para ser compatível com o formato incluído no corpo do pedido.
 
 ```json
 [
@@ -231,10 +238,10 @@ O exemplo seguinte mostra o corpo do pedido que está disponível para o livro d
 ]
 ```
 
-A imagem seguinte mostra o pedido enviado do Windows PowerShell e a resposta resultante. O ID de trabalho é extraído da resposta e convertido em uma corda.
+A imagem que se segue mostra o pedido enviado do Windows PowerShell e a resposta resultante. A identificação do trabalho é extraída da resposta e convertida numa corda.
 
 ![Botão Webhooks](media/automation-webhooks/webhook-request-response.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para acionar um livro de execução a partir de um alerta, consulte Utilize um alerta para acionar um livro de [execução da Automação Azure](automation-create-alert-triggered-runbook.md).
+* Para ativar um livro de bordo a partir de um alerta, consulte [Utilize um alerta para acionar um livro de execução da Azure Automation](automation-create-alert-triggered-runbook.md).

@@ -11,23 +11,25 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: fae54baf3b08ae5e0fa0f640d011b58d686e443e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 355a450cbdcf44d79cf73904e3b932afb62b7f55
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683147"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987252"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-java"></a>Quickstart: Gere uma miniatura utilizando a API e Java de Visão Computacional
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-java"></a>Quickstart: Gere uma miniatura utilizando a API e Java da Visão De Computador
 
-Neste arranque rápido, você gerará uma miniatura a partir de uma imagem usando a API DE DESCANSO DE Visão Computacional. Especifica a altura e a largura, que podem ser diferentes da proporção da imagem de entrada. A Computer Vision utiliza uma cultura inteligente para identificar inteligentemente a área de interesse e gerar coordenadas de cultura baseadas nessa região.
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+Neste arranque rápido, irá gerar uma miniatura a partir de uma imagem utilizando a API de Visão de Computador. Especifica a altura e a largura, que podem ser diferentes da proporção da imagem de entrada. A Computer Vision utiliza a cultura inteligente para identificar inteligentemente a área de interesse e gerar coordenadas de corte com base nessa região.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Tem de ter a plataforma [Java&trade;, Standard Edition Development Kit 7 ou 8](https://aka.ms/azure-jdks) (JDK 7 ou 8) instalada.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e corda final de serviço, nomeada `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
+* Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* [Rio Java &trade; Plataforma, Kit de Desenvolvimento Standard Edition 7 ou 8](https://aka.ms/azure-jdks) (JDK 7 ou 8)
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" crie um recurso de Visão de Computador crie um recurso de "  target="_blank"> Visão De Computador no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+    * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação ao serviço de Visão De Computador. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
+    * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
+* [Crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o URL chave e ponto final, nomeado `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
 
 ## <a name="create-and-run-the-sample-application"></a>Criar e executar a aplicação de exemplo
 
@@ -36,7 +38,7 @@ Para criar e executar o exemplo, siga os seguintes passos:
 1. Crie um novo projeto Java no seu IDE ou editor favorito. Se a opção estiver disponível, crie o projeto Java a partir de um modelo de aplicação de linha de comandos.
 1. Importe as seguintes bibliotecas para o projeto Java. Se estiver a utilizar o Maven, as coordenadas do Maven são fornecidas para cada biblioteca.
    - [Cliente Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.X)
-   - [Núcleo Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.X)
+   - [Núcleo APACHE HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.X)
    - [Biblioteca JSON](https://github.com/stleary/JSON-java) (org.json:json:20180130)
 1. Adicione as `import` seguintes declarações à sua classe principal: 
 
@@ -58,9 +60,9 @@ Para criar e executar o exemplo, siga os seguintes passos:
     import org.json.JSONObject;
    ```
 
-1. Adicione o resto do código da amostra abaixo, abaixo das importações (mude para o seu nome de classe, se necessário).
-1. Adicione a sua chave de subscrição computer Vision e ponto final às variáveis ambientais.
-1. Opcionalmente, substitua o valor do `imageToAnalyze` URL da sua própria imagem.
+1. Adicione o resto do código de amostra abaixo, abaixo das importações (altere para o seu nome de classe, se necessário).
+1. Adicione a sua chave de subscrição de Visão de Computador e ponto final às variáveis do seu ambiente.
+1. Opcionalmente, substitua o valor de `imageToAnalyze` por URL da sua própria imagem.
 1. Guarde e, em seguida, crie o projeto Java.
 1. Se estiver a utilizar um IDE, execute `GenerateThumbnail`. Caso contrário, corra a partir da linha de comando (comandos abaixo).
 
@@ -166,9 +168,9 @@ public class GenerateThumbnail {
 
 É devolvida uma resposta com êxito como dados binários, que representa os dados da imagem da miniatura. Se o pedido for bem-sucedido, a miniatura é gerada a partir dos dados binários na resposta e apresentada numa janela separada, criada pela aplicação de exemplo. Se o pedido falhar, a resposta é apresentada na janela da consola. A resposta do pedido falhado contém um código de erro e uma mensagem para ajudar a determinar o que correu mal.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Explore uma aplicação Java Swing que utiliza a Visão Computacional para realizar o reconhecimento ótico de caracteres (OCR); criar miniaturas de corte inteligente; e detetar, categorizar, etiquetar e descrever características visuais em imagens.
+Explore uma aplicação Java Swing que usa a Visão de Computador para realizar reconhecimento de caracteres óticos (OCR); criar miniaturas cortadas inteligentemente; e detetar, categorizar, etiquetar e descrever características visuais em imagens.
 
 > [!div class="nextstepaction"]
 > [Tutorial de Java de API de Imagem Digitalizada](../Tutorials/java-tutorial.md)

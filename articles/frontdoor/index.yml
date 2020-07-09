@@ -10,12 +10,12 @@ metadata:
   author: vhorne
   ms.author: victorh
   ms.date: 03/03/2020
-  ms.openlocfilehash: 4bdb7c1765bdbd170d06eaef44b7578d1ddebedc
-  ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+  ms.openlocfilehash: f6059ee181095a7f60da02e192c32818fe5b542f
+  ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/29/2020
-  ms.locfileid: "82509640"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85321507"
 landingContent:
 - title: Saiba mais sobre o Azure Front Door
   linkLists:
@@ -85,3 +85,5 @@ landingContent:
     links:
     - text: Definir uma configuração do Motor de Regras
       url: front-door-tutorial-rules-engine.md
+    - text: Adicionar Cabeçalhos de Segurança com o Motor de Regras
+      url: front-door-security-headers.md

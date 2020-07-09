@@ -1,6 +1,6 @@
 ---
-title: Executar contentores privilegiados num aglomerado de OpenShift de chapéu vermelho azul [ Microsoft Docs
-description: Executar contentores privilegiados para monitorizar a segurança e o cumprimento.
+title: Executar contentores privilegiados num aglomerado Azure Red Hat OpenShift Microsoft Docs
+description: Executar recipientes privilegiados para monitorizar a segurança e a conformidade.
 author: makdaam
 ms.author: b-lejaku
 ms.service: container-service
@@ -8,30 +8,29 @@ ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: aro, openshift, aquasec, twistlock, chapéu vermelho
 ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78271363"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Executar contentores privilegiados num cluster do Azure Red Hat OpenShift
 
-Não se pode executar recipientes privilegiados arbitrários em aglomerados Azure Red Hat OpenShift.
-Duas soluções de monitorização de segurança e conformidade são autorizadas a funcionar em clusters ARO.
-Este documento descreve as diferenças da documentação genérica de implementação openshift dos fornecedores de produtos de segurança.
+Não pode executar recipientes privilegiados arbitrários em aglomerados Azure Red Hat OpenShift.
+Duas soluções de monitorização e conformidade de segurança são permitidas em clusters ARO.
+Este documento descreve as diferenças da documentação genérica de implantação OpenShift dos fornecedores de produtos de segurança.
 
 
 Leia estas instruções antes de seguir as instruções do vendedor.
-Os títulos da secção em passos específicos do produto abaixo referem-se diretamente aos títulos da secção na documentação dos fornecedores.
+Os títulos de secção em etapas específicas do produto abaixo referem-se diretamente aos títulos de secção na documentação do fornecedor.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 A documentação da maioria dos produtos de segurança pressupõe que você tem privilégios de administração de cluster.
-Os administradores dos clientes não têm todos os privilégios no Azure Red Hat OpenShift. As permissões necessárias para modificar os recursos em todo o cluster são limitadas.
+Os administradores de clientes não têm todos os privilégios no Azure Red Hat OpenShift. As permissões necessárias para modificar os recursos em todo o cluster são limitadas.
 
-Em primeiro lugar, certifique-se de que o utilizador está `oc get scc`ligado ao cluster como administrador do cliente, executando . Todos os utilizadores que são membros do grupo de administração do cliente têm permissões para visualizar os Constrangimentos de Contexto de Segurança (SCCs) no cluster.
+Em primeiro lugar, certifique-se de que o utilizador está ligado ao cluster como administrador de clientes, executando `oc get scc` . Todos os utilizadores que sejam membros do grupo de administração de clientes têm permissões para visualizar as Restrições de Contexto de Segurança (SCCs) no cluster.
 
-Em seguida, `oc` certifique-se `3.11.154`de que a versão binária é .
+Em seguida, certifique-se de que a `oc` versão binária é `3.11.154` .
 ```
 oc version
 oc v3.11.154
@@ -44,9 +43,9 @@ kubernetes v1.11.0+d4cacc0
 ```
 
 ## <a name="product-specific-steps-for-aqua-security"></a>Passos específicos do produto para a Segurança Aqua
-As instruções de base que serão modificadas podem ser encontradas na documentação de [implementação](https://docs.aquasec.com/docs/openshift-red-hat)da Segurança Aqua . Os passos aqui serão executados em conjunto com a documentação de implantação do Aqua.
+As instruções de base que vão ser modificadas podem ser encontradas na documentação de [implantação](https://docs.aquasec.com/docs/openshift-red-hat)da Aqua Security . Os passos aqui serão executados em conjunto com a documentação de implantação do Aqua.
 
-O primeiro passo é anotar os CSE necessários que serão atualizados. Estas anotações impedem que o Sync Pod do cluster reverta quaisquer alterações a estes SSCs.
+O primeiro passo é anotar os SCCs necessários que serão atualizados. Estas anotações impedem que o Sync Pod do cluster reverta quaisquer alterações a estes SSCs.
 
 ```
 oc annotate scc hostaccess openshift.io/reconcile-protect=true
@@ -54,7 +53,7 @@ oc annotate scc privileged openshift.io/reconcile-protect=true
 ```
 
 ### <a name="step-1-prepare-prerequisites"></a>Passo 1: Preparar pré-requisitos
-Lembre-se de iniciar sessão no cluster como administrador de clientes aro em vez da função de administrador de cluster.
+Lembre-se de iniciar sessão no cluster como um administrador de clientes ARO em vez do papel de administrador de cluster.
 
 Crie o projeto e a conta de serviço.
 ```
@@ -62,21 +61,21 @@ oc new-project aqua-security
 oc create serviceaccount aqua-account -n aqua-security
 ```
 
-Em vez de atribuir o papel de leitor de cluster, atribuir a função de cluster de cliente-administrador à conta aqua com o seguinte comando.
+Em vez de atribuir o papel de leitor de cluster, atribua o papel de cluster-administrador ao cliente com o seguinte comando.
 ```
 oc adm policy add-cluster-role-to-user customer-admin-cluster system:serviceaccount:aqua-security:aqua-account
 oc adm policy add-scc-to-user privileged system:serviceaccount:aqua-security:aqua-account
 oc adm policy add-scc-to-user hostaccess system:serviceaccount:aqua-security:aqua-account
 ```
 
-Continue a seguir as instruções restantes no passo 1.  Estas instruções descrevem a criação do segredo para o registo aqua.
+Continue seguindo as instruções restantes no passo 1.  Estas instruções descrevem a criação do segredo para o registo Aqua.
 
 ### <a name="step-2-deploy-the-aqua-server-database-and-gateway"></a>Passo 2: Implementar o Servidor Aqua, Base de Dados e Gateway
-Siga os passos fornecidos na documentação Aqua para a instalação do aqua-console.yaml.
+Siga os passos fornecidos na documentação Aqua para a instalação da aqua-consola.yaml.
 
-Modificar o `aqua-console.yaml`. fornecido .  Retire os dois objetos `kind: ClusterRole` `kind: ClusterRoleBinding`superiores rotulados e .  Estes recursos não serão criados, uma vez que o administrador `ClusterRole` `ClusterRoleBinding` do cliente não tem permissão neste momento para modificar e objetos.
+Modifique o fornecido `aqua-console.yaml` .  Retire os dois objetos de cima rotulados `kind: ClusterRole` e `kind: ClusterRoleBinding` .  Estes recursos não serão criados, uma vez que o administrador do cliente não tem permissão neste momento para modificar `ClusterRole` e `ClusterRoleBinding` objetos.
 
-A segunda modificação `kind: Route` será na `aqua-console.yaml`parte do . Substitua o seguinte yaml para o `kind: Route` objeto no `aqua-console.yaml` ficheiro.
+A segunda modificação será na `kind: Route` parte do `aqua-console.yaml` . . Substitua o seguinte yaml para o `kind: Route` objeto no `aqua-console.yaml` ficheiro.
 ```
 apiVersion: route.openshift.io/v1
 kind: Route
@@ -100,45 +99,45 @@ spec:
 
 Siga as instruções restantes.
 
-### <a name="step-3-login-to-the-aqua-server"></a>Passo 3: Iniciar sessão no Aqua Server
-Esta secção não é modificada de forma alguma.  Siga a documentação aqua.
+### <a name="step-3-login-to-the-aqua-server"></a>Passo 3: Iniciar sessão no Servidor Aqua
+Esta secção não é modificada de forma alguma.  Siga a documentação do Aqua.
 
 Utilize o seguinte comando para obter o endereço Aqua Console.
 ```
 oc get route aqua-web -n aqua-security
 ```
 
-### <a name="step-4-deploy-aqua-enforcers"></a>Passo 4: Implementar executores aquáticas
-Detete os seguintes campos ao utilizar os executores:
+### <a name="step-4-deploy-aqua-enforcers"></a>Passo 4: Implementar os executores aqua
+Definir os seguintes campos ao implantar executores:
 
 | Campo          | Valor         |
 | -------------- | ------------- |
 | Orchestrator   | OpenShift     |
-| ServiçoConta | aqua-conta  |
+| Contagem de serviços | conta aqua  |
 | Project        | aqua-segurança |
 
-## <a name="product-specific-steps-for-prisma-cloud--twistlock"></a>Passos específicos do produto para prisma cloud / Twistlock
+## <a name="product-specific-steps-for-prisma-cloud--twistlock"></a>Passos específicos do produto para Prisma Cloud / Twistlock
 
-As instruções de base que vamos modificar podem ser encontradas na documentação de implantação da [Nuvem prisma.](https://docs.paloaltonetworks.com/prisma/prisma-cloud/19-11/prisma-cloud-compute-edition-admin/install/install_openshift.html)
+As instruções base que vamos modificar podem ser encontradas na documentação de implantação da [Nuvem prisma](https://docs.paloaltonetworks.com/prisma/prisma-cloud/19-11/prisma-cloud-compute-edition-admin/install/install_openshift.html)
 
-Comece por instalar `twistcli` a ferramenta conforme descrito nas secções "Instalar prisma cloud" e "Descarregue o software Prisma Cloud".
+Comece por instalar a `twistcli` ferramenta como descrito nas secções "Instalar a Nuvem Prisma" e "Descarregar o software Prisma Cloud".
 
 Criar um novo projeto OpenShift
 ```
 oc new-project twistlock
 ```
 
-Saltar a secção opcional "Empurre as imagens da Nuvem Prisma para um registo privado". Não vai funcionar no Azure Red Hat Openshift. Em vez disso, utilize o registo online.
+Salte a secção opcional "Empurre as imagens da Nuvem Prisma para um registo privado". Não vai funcionar no Azure Red Hat Openshift. Use o registo on-line em vez disso.
 
-Pode seguir a documentação oficial aplicando as correções descritas abaixo.
+Pode seguir a documentação oficial enquanto aplica as correções descritas abaixo.
 Comece com a secção "Instalar consola".
 
 ### <a name="install-console"></a>Instalar consola
 
-Durante `oc create -f twistlock_console.yaml` o Passo 2, terá um Erro ao criar o espaço de nome.
-Pode ignorá-lo com segurança, o espaço de `oc new-project` nome foi criado anteriormente com o comando.
+Durante `oc create -f twistlock_console.yaml` o Passo 2, obterá um Erro ao criar o espaço de nomes.
+Pode ignorá-lo com segurança, o espaço de nome foi criado anteriormente com o `oc new-project` comando.
 
-Utilização `azure-disk` para o tipo de armazenamento.
+Utilização `azure-disk` para tipo de armazenamento.
 
 ### <a name="create-an-external-route-to-console"></a>Criar uma rota externa para consola
 
@@ -171,13 +170,13 @@ oc create -f twistlock_route.yaml
 
 Pode obter o URL atribuído à consola Twistlock com este comando:`oc get route twistlock-console -n twistlock`
 
-### <a name="configure-console"></a>Configure consola
+### <a name="configure-console"></a>Consola configurada
 
-Siga a documentação Twistlock.
+Siga a documentação twistlock.
 
 ### <a name="install-defender"></a>Instalar Defender
 
-Durante `oc create -f defender.yaml` o Passo 2, terá erros ao criar o Cluster Role e Cluster Role Binding.
+Durante `oc create -f defender.yaml` o Passo 2, você terá erros ao criar a role role cluster e a ligação de papel de cluster.
 Pode ignorá-los.
 
-Os defensores serão implantados apenas em nódeos de computação. Não tens de os limitar com um selecionador de nó.
+Os defensores serão implantados apenas em nós computacional. Não é preciso limitá-los com um seletor de nó.

@@ -1,25 +1,24 @@
 ---
 title: Configurar o escalão PremiumV2
-description: Aprenda a melhorar o desempenho da sua aplicação web, móvel e API no Azure App Service, escalando para o novo nível de preços PremiumV2.
+description: Saiba como melhorar o desempenho da sua aplicação web, móvel e API no Azure App Service, escalando para o novo nível de preços PremiumV2.
 keywords: serviço de aplicações, serviço de aplicações do azure, dimensionar, dimensionável, plano do serviço de aplicações, custo do serviço de aplicações
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 07/25/2018
 ms.custom: seodec18
 ms.openlocfilehash: f7f9f6d5617ad0f9be69c47ce514d395534fd892
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74672215"
 ---
-# <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configure premiumV2 nível para serviço de aplicações Azure
+# <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configure nível PremiumV2 para O Serviço de Aplicações Azure
 
-O novo nível de preços **PremiumV2** dá-lhe processadores mais rápidos, armazenamento SSD e duplica a relação memória-núcleo dos níveis de preços existentes. Com a vantagem de desempenho, você poderia economizar dinheiro executando as suas aplicações em menos casos. Neste artigo, aprende-se a criar uma aplicação no escalão **PremiumV2** ou a aumentar uma aplicação para o nível **PremiumV2.**
+O novo nível de preços **PremiumV2** dá-lhe processadores mais rápidos, armazenamento SSD e duplica a relação memória-core dos níveis de preços existentes. Com a vantagem de desempenho, poderia economizar dinheiro executando as suas aplicações em menos instâncias. Neste artigo, aprende-se a criar uma app no nível **PremiumV2** ou a escalar uma aplicação para o nível **PremiumV2.**
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para escalar uma aplicação para **PremiumV2,** é necessário ter uma app Azure App Service que seja de um nível de preços inferior ao **PremiumV2**, e a aplicação deve estar a funcionar numa implementação do App Service que suporta o PremiumV2.
+Para aumentar uma aplicação para **o PremiumV2,** é necessário ter uma aplicação do Azure App Service que funciona num nível de preços inferior ao **PremiumV2**, e a aplicação deve estar a ser executada numa implementação do App Service que suporte o PremiumV2.
 
 <a name="availability"></a>
 
@@ -27,7 +26,7 @@ Para escalar uma aplicação para **PremiumV2,** é necessário ter uma app Azur
 
 O nível **PremiumV2** está disponível para o Serviço de Aplicações tanto no _Windows_ como no _Linux._
 
-**PremiumV2** está disponível na maioria das regiões do Azure. Para ver se está disponível na sua região, execute o seguinte comando Azure CLI na [Concha da Nuvem Azure:](../cloud-shell/overview.md)
+**PremiumV2** está disponível na maioria das regiões de Azure. Para ver se está disponível na sua região, corra o seguinte comando Azure CLI na [Azure Cloud Shell:](../cloud-shell/overview.md)
 
 ```azurecli-interactive
 az appservice list-locations --sku P1V2
@@ -35,32 +34,32 @@ az appservice list-locations --sku P1V2
 
 <a name="create"></a>
 
-## <a name="create-an-app-in-premiumv2-tier"></a>Criar uma aplicação no escalão PremiumV2
+## <a name="create-an-app-in-premiumv2-tier"></a>Criar uma app no nível PremiumV2
 
-O nível de preços de uma aplicação do App Service está definido no plano do [App Service](overview-hosting-plans.md) em que funciona. Pode criar um plano de Serviço de Aplicações por si só ou como parte da criação de apps.
+O nível de preços de uma aplicação de Serviço de Aplicações está definido no plano de Serviço de [Aplicações](overview-hosting-plans.md) que executa. Pode criar um plano de Serviço de Aplicações por si só ou como parte da criação de aplicações.
 
-Ao configurar o plano de serviço de aplicações no <a href="https://portal.azure.com" target="_blank">portal Azure,</a>selecione **o nível**de preços . 
+Ao configurar o plano de Serviço de Aplicações no <a href="https://portal.azure.com" target="_blank">portal Azure,</a>selecione **o nível de preços**. 
 
-Selecione **Produção,** depois selecione **P1V2,** **P2V2**, ou **P3V2,** em seguida, clique **em Aplicar**.
+Selecione **Produção**, em seguida, selecione **P1V2,** **P2V2**ou **P3V2,** em seguida, clique em **Aplicar**.
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
-> Se não vir **p1V2,** **P2V2**e **P3V2** como opções, ou se as opções estiverem acinzentadas, então o **PremiumV2** provavelmente não está disponível na implementação subjacente do Serviço de Aplicações que contém o plano de Serviço de Aplicações. Consulte a Scale up de um grupo de [recursos não apoiados e uma combinação de região](#unsupported) para mais detalhes.
+> Se não vir **o P1V2,** **P2V2**e **P3V2** como opções, ou se as opções estiverem cinzentas, então o **PremiumV2** provavelmente não está disponível na implementação subjacente do Serviço de Aplicações que contém o plano de Serviço de Aplicações. Consulte [a Scale up a partir de um grupo de recursos não suportado e combinação de região](#unsupported) para obter mais detalhes.
 
-## <a name="scale-up-an-existing-app-to-premiumv2-tier"></a>Aumentar uma app existente para o nível PremiumV2
+## <a name="scale-up-an-existing-app-to-premiumv2-tier"></a>Dimensione uma app existente para o nível PremiumV2
 
-Antes de escalonar uma aplicação existente para o nível **PremiumV2,** certifique-se de que o **PremiumV2** está disponível. Para obter informações, consulte [a disponibilidade premiumV2](#availability). Se não estiver disponível, consulte scale up de um grupo de [recursos não apoiado e combinação de região](#unsupported).
+Antes de escalonar uma aplicação existente para o nível **PremiumV2,** certifique-se de que **o PremiumV2** está disponível. Para obter informações, consulte [a disponibilidade do PremiumV2.](#availability) Se não estiver disponível, consulte [Scale up de um grupo de recursos não suportado e combinação de região.](#unsupported)
 
 Dependendo do ambiente de hospedagem, a escalada pode exigir passos extra. 
 
-No <a href="https://portal.azure.com" target="_blank">portal Azure,</a>abra a sua página de aplicações do App Service.
+No <a href="https://portal.azure.com" target="_blank">portal Azure,</a>abra a sua página de aplicações do Serviço de Aplicações.
 
-Na navegação à esquerda da sua página de aplicações do App Service, selecione Scale up (plano de serviço de **aplicações)**.
+Na navegação à esquerda da sua página de aplicações do Serviço de Aplicações, selecione **Scale up (Plano de Serviço de Aplicações)**.
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
-Selecione **Produção,** depois selecione **P1V2,** **P2V2**, ou **P3V2,** em seguida, clique **em Aplicar**.
+Selecione **Produção**, em seguida, selecione **P1V2,** **P2V2**ou **P3V2,** em seguida, clique em **Aplicar**.
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
@@ -70,28 +69,28 @@ Se a sua operação terminar com sucesso, a página geral da sua aplicação mos
 
 ### <a name="if-you-get-an-error"></a>Se tiver um erro
 
-Alguns planos de Serviço de Aplicações não podem escalar até ao nível PremiumV2 se a implementação subjacente ao Serviço de Aplicações não suportar o PremiumV2.  Consulte a Scale up de um grupo de [recursos não apoiados e uma combinação de região](#unsupported) para mais detalhes.
+Alguns planos do Serviço de Aplicações não podem escalar até ao nível PremiumV2 se a implementação subjacente do Serviço de Aplicações não suportar o PremiumV2.  Consulte [a Scale up a partir de um grupo de recursos não suportado e combinação de região](#unsupported) para obter mais detalhes.
 
 <a name="unsupported"></a>
 
-## <a name="scale-up-from-an-unsupported-resource-group-and-region-combination"></a>Escala de um grupo de recursos não apoiados e combinação de região
+## <a name="scale-up-from-an-unsupported-resource-group-and-region-combination"></a>Dimensione a partir de um grupo de recursos não suportado e combinação de região
 
-Se a sua aplicação for implementada numa implementação do Serviço de Aplicações onde o **PremiumV2** não esteja disponível, ou se a sua aplicação for executado numa região que atualmente não suporta o **PremiumV2,** terá de reutilizar a sua aplicação para tirar partido do **PremiumV2**.  Tem duas opções:
+Se a sua aplicação funcionar numa implementação do Serviço de Aplicações onde o **PremiumV2** não está disponível, ou se a sua aplicação funcionar numa região que atualmente não suporta **o PremiumV2,** terá de voltar a implementar a sua app para tirar partido do **PremiumV2.**  Tem duas opções:
 
-- Crie um **novo** grupo de recursos e, em seguida, crie um **novo** plano de aplicação e app service no **novo** grupo de recursos, escolhendo a sua região azure desejada durante o processo de criação.  Deve **must** selecionar o plano **PremiumV2** no momento em que o novo plano de serviço de aplicações é criado.  Isto garante a combinação de grupo de recursos, plano de serviço de aplicações e região do Azure resultará na criação do plano de Serviço de Aplicações numa implementação do Serviço de Aplicações que suporta o **PremiumV2**.  Em seguida, recoloque o seu código de aplicação no plano de aplicação e serviço de aplicações recém-criado. Se desejar, poderá posteriormente reduzir o plano de Serviço de Aplicações do **PremiumV2** para economizar custos, e ainda assim poderá voltar a escalar com sucesso no futuro utilizando o **PremiumV2**.
-- Se a sua aplicação já estiver em funcionamento num nível **Premium** existente, então pode clonar a sua aplicação com todas as definições de aplicações, cordas de ligação e configuração de implementação num novo plano de serviço de aplicações que utiliza **premiumV2**.
+- Crie um **novo** grupo de recursos e, em seguida, crie um **novo** plano de app e App Service no **novo** grupo de recursos, escolhendo a região Azure desejada durante o processo de criação.  Tem **de** selecionar o plano **PremiumV2** no momento da criação do novo plano de serviço de aplicações.  Isto garante a combinação de grupo de recursos, plano de Serviço de Aplicações e região de Azure resultará na criação do plano de Serviço de Aplicações numa implementação do Serviço de Aplicações que suporta **o PremiumV2**.  Em seguida, reimplante o seu código de aplicação no plano de serviço de aplicações e aplicações recém-criado. Se desejar, poderá posteriormente reduzir o plano do Serviço de Aplicações a partir do **PremiumV2** para economizar custos, e ainda poderá voltar a escalar com sucesso no futuro usando o **PremiumV2**.
+- Se a sua aplicação já funciona num nível **Premium** existente, então pode clonar a sua aplicação com todas as definições de aplicações, cordas de ligação e configuração de implementação num novo plano de serviço de aplicações que utilize **o PremiumV2**.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)
 
-    Na página da **aplicação Clone,** pode criar um plano de Serviço de Aplicações utilizando **premiumV2** na região que deseja, e especificar as definições e configurações da aplicação que pretende clonar.
+    Na página de **aplicações Clone,** pode criar um plano de Serviço de Aplicações utilizando o **PremiumV2** na região que pretende e especificar as definições e configurações da aplicação que pretende clonar.
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 
-Pode automatizar a criação de aplicações no nível **PremiumV2** com scripts, utilizando o [Azure CLI](/cli/azure/install-azure-cli) ou [o Azure PowerShell.](/powershell/azure/overview)
+Pode automatizar a criação de aplicações no nível **PremiumV2** com scripts, utilizando o [Azure CLI](/cli/azure/install-azure-cli) ou [o Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-O seguinte comando cria um plano de Serviço de Aplicações em _P1V2_. Podes executá-lo na Cloud Shell. As opções para `--sku` são P1V2, _P2V2_e _P3V2_.
+O seguinte comando cria um plano de Serviço de Aplicações em _P1V2_. Podes executá-lo na Cloud Shell. As opções `--sku` para são P1V2, _P2V2_e _P3V2_.
 
 ```azurecli-interactive
 az appservice plan create \

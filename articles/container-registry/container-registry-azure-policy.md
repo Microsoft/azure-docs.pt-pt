@@ -1,59 +1,58 @@
 ---
-title: Conformidade usando a política azure
+title: Conformidade usando a Política Azure
 description: Atribuir políticas incorporadas na Política Azure para auditar o cumprimento dos seus registos de contentores Azure
 ms.topic: article
-ms.date: 02/26/2020
-ms.openlocfilehash: a2bfdc18f4bbf16fe8fa6bcbcba7bab18aedabf1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/11/2020
+ms.openlocfilehash: 6101db865749f98f50e04f1fec3b8009089b7908
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145011"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791899"
 ---
-# <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Auditoria cumprimento dos registos de contentores azure utilizando a Política Azure
+# <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Conformidade de auditoria dos registos de contentores da Azure utilizando a Política Azure
 
-[A Azure Policy](../governance/policy/overview.md) é um serviço em Azure que utiliza para criar, atribuir e gerir políticas. Estas políticas impõem diferentes regras e efeitos aos recursos, de forma a que esses recursos se mantenham em conformidade com as normas empresariais e os contratos de nível de serviço.
+[A Azure Policy](../governance/policy/overview.md) é um serviço em Azure que usa para criar, atribuir e gerir políticas. Estas políticas impõem diferentes regras e efeitos aos recursos, de forma a que esses recursos se mantenham em conformidade com as normas empresariais e os contratos de nível de serviço.
 
-Este artigo introduz políticas incorporadas (pré-visualização) para o Registo de Contentores Azure. Utilize estas políticas para auditar registos novos e existentes para o cumprimento.
+Este artigo introduz políticas incorporadas para o Registo de Contentores Azure. Utilize estas políticas para auditar novos registos existentes para o cumprimento.
 
 Não há acusações por usar a Política Azure.
 
-> [!IMPORTANT]
-> Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são disponibilizadas a si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
-
 ## <a name="built-in-policy-definitions"></a>Definições políticas incorporadas
 
-As seguintes definições políticas incorporadas são específicas do Registo de Contentores Azure:
+As seguintes definições de política incorporadas são específicas do Registo de Contentores de Azure:
 
 [!INCLUDE [azure-policy-samples-policies-container-registry](../../includes/policy/samples/bycat/policies-container-registry.md)]
 
-Consulte também a definição de política de rede incorporada: [[Pré-visualização] O registo](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78)de contentores deve utilizar um ponto final do serviço de rede virtual .
+Consulte também a definição de política de rede incorporada: [O registo de contentores deve utilizar um ponto final de serviço de rede virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78).
 
 ## <a name="assign-policies"></a>Políticas de atribuição
 
-* Atribuir políticas utilizando o [portal Azure,](../governance/policy/assign-policy-portal.md) [Azure CLI,](../governance/policy/assign-policy-azurecli.md)um modelo de Gestor de [Recursos,](../governance/policy/assign-policy-template.md)ou os SDKs de Política Azure.
-* Scope a policy assignment para um grupo de recursos, uma subscrição ou um grupo de [gestão Azure](../governance/management-groups/overview.md). As atribuições de política de registo de contentores aplicam-se aos registos existentes e novos de contentores no âmbito do âmbito.
-* Ativar ou desativar [a aplicação da política](../governance/policy/concepts/assignment-structure.md#enforcement-mode) a qualquer momento.
+* Atribuir políticas utilizando o [portal Azure](../governance/policy/assign-policy-portal.md), [Azure CLI,](../governance/policy/assign-policy-azurecli.md)um [modelo de Gestor de Recursos,](../governance/policy/assign-policy-template.md)ou os SDKs de Política Azure.
+* Âmbito de uma atribuição de políticas a um grupo de recursos, a uma subscrição ou a um [grupo de gestão Azure](../governance/management-groups/overview.md). As atribuições da política de registo de contentores aplicam-se aos registos existentes e novos de contentores no âmbito de aplicação.
+* Ativar ou desativar [a aplicação da política a](../governance/policy/concepts/assignment-structure.md#enforcement-mode) qualquer momento.
 
 > [!NOTE]
-> Depois de atribuir ou atualizar uma apólice, leva algum tempo para que a atribuição seja aplicada aos recursos no âmbito definido. Consulte informações sobre os gatilhos de [avaliação de políticas](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
+> Depois de atribuir ou atualizar uma apólice, leva algum tempo para que a atribuição seja aplicada aos recursos no âmbito definido. Consulte informações sobre [os gatilhos de avaliação de políticas](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
-## <a name="review-policy-compliance"></a>Rever o cumprimento da política
+## <a name="review-policy-compliance"></a>Rever cumprimento da política
 
-Aceda às informações de conformidade geradas pelas suas atribuições políticas utilizando o portal Azure, ferramentas de linha de comando Azure ou os SDKs de Política Azure. Para mais detalhes, consulte [Obter dados de conformidade dos recursos do Azure.](../governance/policy/how-to/get-compliance-data.md)
+Aceder a informações de conformidade geradas pelas suas atribuições de política utilizando o portal Azure, ferramentas de linha de comando Azure ou os SDKs de política Azure. Para mais informações, consulte [obter dados de conformidade dos recursos da Azure.](../governance/policy/how-to/get-compliance-data.md)
 
-Quando um recurso não é compatível, existem muitas razões possíveis. Para determinar a razão ou para encontrar a mudança responsável, consulte determinar o [incumprimento](../governance/policy/how-to/determine-non-compliance.md).
+Quando um recurso não é conforme, existem muitas razões possíveis. Para determinar a razão ou para encontrar a alteração responsável, consulte [determinar o incumprimento](../governance/policy/how-to/determine-non-compliance.md).
 
-### <a name="policy-compliance-in-the-portal"></a>Conformidade política no portal:
+### <a name="policy-compliance-in-the-portal"></a>Conformidade da política no portal:
 
-1. Selecione **todos os serviços**e procure **Política.**
+1. Selecione **Todos os serviços**e procure **por Política.**
 1. Selecione **Compliance**.
-1. Utilize os filtros para limitar os ![estados de](./media/container-registry-azure-policy/azure-policy-compliance.png)conformidade ou para procurar políticas de conformidade política no portal .
-1. Selecione uma política para rever detalhes e eventos agregados de conformidade. Se desejar, selecione um registo específico para a conformidade com os recursos.
+1. Utilize os filtros para limitar os estados de conformidade ou para procurar políticas.
 
-### <a name="policy-compliance-in-the-azure-cli"></a>Conformidade política no Azure CLI
+    ![Conformidade de política no portal](./media/container-registry-azure-policy/azure-policy-compliance.png)
+    
+1. Selecione uma política para rever detalhes e eventos de conformidade agregados. Se desejar, selecione um registo específico para a conformidade com os recursos.
 
-Também pode utilizar o Azure CLI para obter dados de conformidade. Por exemplo, utilize o comando da [lista de atribuição de políticas az](/cli/azure/policy/assignment#az-policy-assignment-list) no CLI para obter as identificações políticas das políticas de registo de contentores azure que são aplicadas:
+### <a name="policy-compliance-in-the-azure-cli"></a>Conformidade da política no Azure CLI
+
+Também pode utilizar o CLI Azure para obter dados de conformidade. Por exemplo, utilize o comando da [lista de atribuição de políticas az](/cli/azure/policy/assignment#az-policy-assignment-list) no CLI para obter os IDs de política das políticas de registo de contentores Azure que são aplicadas:
 
 ```azurecli
 az policy assignment list --query "[?contains(displayName,'Container Registries')].{name:displayName, ID:id}" --output table
@@ -64,18 +63,18 @@ Resultado do exemplo:
 ```
 Name                                                                                   ID
 -------------------------------------------------------------------------------------  --------------------------------------------------------------------------------------------------------------------------------
-[Preview]: Container Registries should not allow unrestricted network access           /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/b4faf132dc344b84ba68a441
-[Preview]: Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
+Container Registries should not allow unrestricted network access           /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/b4faf132dc344b84ba68a441
+Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
 ```
 
-Em [seguida,](/cli/azure/policy/state#az-policy-state-list) executar a lista de estado de política az para devolver o estado de conformidade formado jSON para todos os recursos sob uma identificação de política específica:
+Em [seguida,](/cli/azure/policy/state#az-policy-state-list) executar a lista de estado de política az para devolver o estado de conformidade formatado json para todos os recursos sob uma determinada iD de política:
 
 ```azurecli
 az policy state list \
   --resource <policyID>
 ```
 
-Ou executar a lista de estado de [política az](/cli/azure/policy/state#az-policy-state-list) para devolver o estado de conformidade formado pela JSON de um recurso específico de registo, como o *meu registo:*
+Ou executar [a lista de estados de política az](/cli/azure/policy/state#az-policy-state-list) para devolver o estado de conformidade formatado pelo JSON de um recurso de registo específico, como *o myregistry*:
 
 ```azurecli
 az policy state list \
@@ -85,14 +84,10 @@ az policy state list \
  --resource-group myresourcegroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Saiba mais sobre [definições](../governance/policy/concepts/definition-structure.md) e [efeitos](../governance/policy/concepts/effects.md) da Política Azure
+* Saiba mais sobre [definições](../governance/policy/concepts/definition-structure.md) e [efeitos](../governance/policy/concepts/effects.md)da Política Azure .
 
-* Criar uma [definição de política personalizada](../governance/policy/tutorials/create-custom-policy-definition.md)
+* Crie uma [definição de política personalizada.](../governance/policy/tutorials/create-custom-policy-definition.md)
 
-* Saiba mais sobre [as capacidades](../governance/index.yml) de governação em Azure
-
-
-<!-- LINKS - External -->
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+* Saiba mais sobre [as capacidades de governação](../governance/index.yml) em Azure.

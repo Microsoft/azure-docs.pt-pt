@@ -1,5 +1,5 @@
 ---
-title: Substitua um controlador StorSimple 8600 EBOD [ StorSimple 8600 EBOD] Microsoft Docs
+title: Substitua um controlador StorSimple 8600 EBOD Microsoft Docs
 description: Explica como remover e substituir um ou ambos os controladores EBOD num dispositivo StorSimple 8600.
 services: storsimple
 documentationcenter: ''
@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: b05d1f36d1e74b3d915e216676859654fbcbacf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdafb4288bf818928aba43d09f15d4dd75092b24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254888"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564234"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Substitua um controlador EBOD no seu dispositivo StorSimple
 
@@ -31,24 +31,24 @@ Este tutorial explica como substituir um módulo de controlador EBOD defeituoso 
 
 Considere as seguintes informações antes de começar:
 
-* Os módulos EBOD em branco devem ser inseridos em todas as ranhuras não utilizadas. O recinto não arrefece corretamente se uma ranhura for deixada aberta.
-* O controlador EBOD é permutável a quente e pode ser removido ou substituído. Não retire um módulo falhado até ter uma substituição. Quando iniciar o processo de substituição, deve terminá-lo dentro de 10 minutos.
+* Os módulos EBOD em branco devem ser inseridos em todas as ranhuras não ureadas. O invólucro não arrefece corretamente se uma ranhura for deixada aberta.
+* O controlador EBOD é permutável a quente e pode ser removido ou substituído. Não remova um módulo defeituoso até ter uma substituição. Quando iniciar o processo de substituição, deve terminá-lo dentro de 10 minutos.
 
 > [!IMPORTANT]
-> Antes de tentar remover ou substituir qualquer componente StorSimple, certifique-se de que revê as [convenções](storsimple-safety.md#safety-icon-conventions) do ícone de segurança e [outras precauções de segurança](storsimple-safety.md).
+> Antes de tentar remover ou substituir qualquer componente StorSimple, certifique-se de que revê as [convenções](storsimple-8000-safety.md#safety-icon-conventions) de ícones de segurança e [outras precauções de segurança](storsimple-8000-safety.md).
 
-## <a name="remove-an-ebod-controller"></a>Remova um controlador EBOD
-Antes de substituir o módulo de controlador EBOD falhado no seu dispositivo StorSimple, certifique-se de que o outro módulo de controlador EBOD está ativo e em funcionamento. O procedimento e a tabela que se aseguir explicam como remover o módulo do controlador EBOD.
+## <a name="remove-an-ebod-controller"></a>Remover um controlador EBOD
+Antes de substituir o módulo de controlador EBOD falhado no seu dispositivo StorSimple, certifique-se de que o outro módulo do controlador EBOD está ativo e em funcionamento. O procedimento e tabela seguintes explicam como remover o módulo controlador EBOD.
 
 #### <a name="to-remove-an-ebod-module"></a>Para remover um módulo EBOD
 1. Abra o portal do Azure.
-2. Vá ao seu dispositivo e navegue para a saúde do**hardware**de **Definições,** > e verifique se o estado do LED para o módulo de controlador EBOD ativo é verde e o LED para o módulo de controlador EBOD falhado é vermelho.
+2. Vá ao seu dispositivo e navegue para **a saúde**do hardware de definições  >  **Hardware health**, e verifique se o estado do LED para o módulo controlador EBOD ativo é verde e o LED para o módulo controlador EBOD falhado é vermelho.
 3. Localize o módulo de controlador EBOD falhado na parte de trás do dispositivo.
 4. Retire os cabos que ligam o módulo do controlador EBOD ao controlador antes de retirar o módulo EBOD do sistema.
-5. Tome nota da porta Exata SAS do módulo de comando EBOD que estava ligada ao controlador. Será necessário restaurar o sistema nesta configuração depois de substituir o módulo EBOD.
+5. Tome nota da porta SAS exata do módulo controlador EBOD que foi ligado ao controlador. Será necessário restaurar o sistema a esta configuração depois de substituir o módulo EBOD.
    
    > [!NOTE]
-   > Tipicamente, este será o Porto A, que é rotulado como **Anfitrião** no diagrama seguinte.
+   > Tipicamente, este será o Porto A, que é rotulado como **Anfitrião no** diagrama seguinte.
    
     ![Backplane do controlador EBOD](./media/storsimple-ebod-controller-replacement/IC741049.png)
    
@@ -56,35 +56,35 @@ Antes de substituir o módulo de controlador EBOD falhado no seu dispositivo Sto
    
    | Etiqueta | Descrição |
    |:--- |:--- |
-   | 1 |LED de falha |
-   | 2 |LED de alimentação |
+   | 1 |LED de avaria |
+   | 2 |LED de potência |
    | 3 |Conectores SAS |
    | 4 |SAS LEDs |
-   | 5 |Portas em série para uso de fábrica apenas |
+   | 5 |Portas em série apenas para uso de fábrica |
    | 6 |Porto A (Anfitrião em) |
    | 7 |Porta B (Anfitrião fora) |
-   | 8 |Porta C (apenas utilização da fábrica) |
+   | 8 |Porto C (apenas utilização da fábrica) |
 
 ## <a name="install-a-new-ebod-controller"></a>Instale um novo controlador EBOD
-O procedimento e a tabela que se aseguir explicam como instalar um módulo de controlador EBOD no seu dispositivo StorSimple.
+O procedimento e a tabela seguintes explicam como instalar um módulo controlador EBOD no seu dispositivo StorSimple.
 
 #### <a name="to-install-an-ebod-controller"></a>Para instalar um controlador EBOD
-1. Verifique se o dispositivo EBOD está danificado, especialmente no conector da interface. Não instale o novo controlador EBOD se os pinos estiverem dobrados.
-2. Com os fechos na posição aberta, deslize o módulo para dentro do compartimento até que os fechos se encaixem.
+1. Verifique se o dispositivo EBOD está danificado, especialmente no conector de interface. Não instale o novo controlador EBOD se houver pinos dobrados.
+2. Com os fechos na posição aberta, deslize o módulo para dentro do compartimento até os fechos se engatarem.
    
     ![Instalação do controlador EBOD](./media/storsimple-ebod-controller-replacement/IC741050.png)
    
     **Figura 2**  Instalação do módulo de controlador EBOD
-3. Feche o trinco. Deve ouvir um clique enquanto o trinco se engaça.
+3. Feche o trinco. Deve ouvir um clique à medida que o trinco se ativa.
    
-    ![Liberação do trinco EBOD](./media/storsimple-ebod-controller-replacement/IC741047.png)
+    ![Libertação do trinco EBOD](./media/storsimple-ebod-controller-replacement/IC741047.png)
    
-    **Figura 3**  Fechar o trinco do módulo EBOD
-4. Religue os cabos. Utilize a configuração exata que estava presente antes da substituição. Consulte o diagrama e a tabela que se aseguir procuram mais detalhes sobre como ligar os cabos.
+    **Figura 3**  Fecho do fecho do módulo EBOD
+4. Voltar a ligar os cabos. Utilize a configuração exata que estava presente antes da substituição. Consulte o diagrama e tabela a seguir para obter mais informações sobre como ligar os cabos.
    
-    ![Cabo o seu dispositivo 4U para energia](./media/storsimple-ebod-controller-replacement/IC770723.png)
+    ![Envie o seu dispositivo 4U para alimentação](./media/storsimple-ebod-controller-replacement/IC770723.png)
    
-    **Figura 4**. Redeligando cabos
+    **Figura 4**. Cabos de religação
    
    | Etiqueta | Descrição |
    |:--- |:--- |
@@ -95,9 +95,9 @@ O procedimento e a tabela que se aseguir explicam como instalar um módulo de co
    | 5 |Controlador 1 |
    | 6 |Controlador EBOD 0 |
    | 7 |Controlador EBOD 1 |
-   | 8 |Recinto eBOD |
+   | 8 |Recinto EBOD |
    | 9 |Unidades de Distribuição de Energia |
 
-## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre a substituição do componente de [hardware StorSimple](storsimple-8000-hardware-component-replacement.md).
+## <a name="next-steps"></a>Próximos passos
+Saiba mais sobre [a substituição do componente de hardware StorSimple](storsimple-8000-hardware-component-replacement.md).
 

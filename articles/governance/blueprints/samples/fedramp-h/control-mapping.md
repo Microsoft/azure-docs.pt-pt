@@ -3,12 +3,12 @@ title: FedRAMP High blueprint sample controls
 description: Controlo do mapeamento da amostra de planta da FedRAMP High. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
 ms.date: 05/12/2020
 ms.topic: sample
-ms.openlocfilehash: f57f753c405e736a4c83dd6f10b6f38184ce74b6
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: cf9db71a18654f973306637831ae1bcdf8dbef9e
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168884"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517206"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>Mapeamento de controlo da amostra de planta do FedRAMP High
 
@@ -355,7 +355,7 @@ A Advanced Threat Protection for Azure Storage deteta tentativas incomuns e pote
 > [!NOTE]
 > A disponibilidade de definições específicas da Política Azure pode variar no Governo de Azure e noutras nuvens nacionais. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que reviu o mapeamento de controlo do projeto fedRAMP High, visite os seguintes artigos para saber sobre a planta e como implementar esta amostra:
 
@@ -363,7 +363,7 @@ Agora que reviu o mapeamento de controlo do projeto fedRAMP High, visite os segu
 > [FedRAMP High blueprint - Visão geral](./index.md) 
 >  [FedRAMP High blueprint - Implementar etapas](./deploy.md)
 
-Artigos adicionais sobre esquemas e como utilizá-los:
+Artigos adicionais sobre esquemas e como os utilizar:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

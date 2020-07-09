@@ -1,27 +1,27 @@
 ---
-title: Apagar um convite na Partilha de Dados do Azure
-description: Saiba como eliminar um convite a um destinatário de partilha de dados na Partilha de Dados do Azure.
+title: Excluir um convite em Azure Data Share
+description: Saiba como apagar um convite a um destinatário de partilha de dados no Azure Data Share.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.openlocfilehash: 97068ce652881818527557dd63a186b5d63a9363
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 040e1c02913291c31865a0b2e1e03e28040b8d40
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73490499"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120216"
 ---
-# <a name="how-to-delete-an-invitation-to-a-recipient-in-azure-data-share"></a>Como apagar um convite a um destinatário na Partilha de Dados do Azure
+# <a name="how-to-delete-an-invitation-to-a-recipient-in-azure-data-share"></a>Como eliminar um convite a um destinatário em Azure Data Share
 
-Este artigo explica como apagar um convite a um destinatário antes de o aceitar. Isto irá impedi-los de criar uma subscrição de ações e nunca receberão quaisquer dados partilhados. Se apagar o convite a um consumidor que já criou uma subscrição de ações, apagar o convite não terá qualquer impacto.
+Este artigo explica como apagar um convite a um destinatário antes de o aceitar. Isto irá impedi-los de criar uma subscrição de ações e nunca receberão quaisquer dados partilhados. Se eliminar o convite a um consumidor que já criou uma subscrição de ações, a eliminação do seu convite não terá qualquer impacto.
 
 ## <a name="navigate-to-a-sent-data-share"></a>Navegue para uma partilha de dados enviada
 
-Na Azure Data Share, navegue para a sua parte enviada e selecione o separador **Convites.** Listados aqui estão todos os destinatários de convites para esta partilha de dados. Clique nas caixas ao lado dos destinatários cujos convites gostaria de apagar e, em seguida, clique em **Apagar**.
+Em Azure Data Share, navegue para a sua partilha enviada e selecione o separador **Convites.** Clique nas caixas ao lado dos destinatários cujos convites pretende eliminar e, em seguida, clique em **Eliminar**.
 
 ![Excluir Convite](./media/how-to/how-to-delete-invitation/delete-invitation.png)
 
-## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre como [revogar uma subscrição](how-to-revoke-share-subscription.md)de ações.
+## <a name="next-steps"></a>Próximos passos
+Saiba mais sobre como [revogar uma subscrição de ações.](how-to-revoke-share-subscription.md)

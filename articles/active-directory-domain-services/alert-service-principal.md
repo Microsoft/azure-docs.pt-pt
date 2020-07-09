@@ -1,6 +1,6 @@
 ---
-title: Resolver os principais alertas de serviço nos Serviços de Domínio da AD do Azure Microsoft Docs
-description: Saiba como resolver os principais alertas de configuração do serviço para os Serviços de Domínio de Diretório Ativo Azure
+title: Resolver alertas principais de serviço nos Serviços de Domínio Azure AD / Microsoft Docs
+description: Saiba como resolver os alertas principais de configuração do serviço para os Serviços de Domínio do Diretório Ativo Azure
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -11,45 +11,44 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: f72e98213977a09b97cab9966ec69194cd8439e8
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.openlocfilehash: 991bb3e296f18ef6d5182048d8ce4601c0fc09c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845972"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84735001"
 ---
-# <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Questões conhecidas: Principais alertas de serviço nos Serviços de Domínio de Diretório Ativo do Azure
+# <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Questões conhecidas: Alertas principais de serviço nos Serviços de Domínio do Diretório Ativo Azure
 
-[Os principais de serviço](../active-directory/develop/app-objects-and-service-principals.md) são aplicações que a plataforma Azure utiliza para gerir, atualizar e manter um domínio gerido pelo Azure AD DS. Se um diretor de serviço for eliminado, a funcionalidade no domínio gerido pelo Azure AD DS é impactada.
+[Os principais serviços](../active-directory/develop/app-objects-and-service-principals.md) são aplicações que a plataforma Azure utiliza para gerir, atualizar e manter um domínio gerido por Azure Ative Directory Domain Services (Azure AD DS). Se um principal de serviço for eliminado, a funcionalidade no domínio gerido é impactada.
 
-Este artigo ajuda-o a resolver problemas e a resolver alertas de configuração relacionados com o serviço.
+Este artigo ajuda-o a resolver problemas e a resolver alertas de configuração principais do serviço.
 
 ## <a name="alert-aadds102-service-principal-not-found"></a>Alerta AADDS102: Diretor de serviço não encontrado
 
 ### <a name="alert-message"></a>Mensagem de alerta
 
-*Um diretor de serviço necessário para que os Serviços de Domínio AD Azure funcionem corretamente foi eliminado do seu diretório Azure AD. Esta configuração afeta a capacidade da Microsoft de monitorizar, gerir, corrigir e sincronizar o seu domínio gerido.*
+*Um diretor de serviço necessário para que os Serviços de Domínio AZure AD funcionem corretamente foi eliminado do seu diretório AD Azure. Esta configuração tem impacto na capacidade da Microsoft de monitorizar, gerir, corrigir e sincronizar o seu domínio gerido.*
 
-Se um diretor de serviço necessário for eliminado, a plataforma Azure não pode executar tarefas de gestão automatizadas. O domínio gerido pelo Azure AD DS pode não aplicar corretamente atualizações ou receber cópias de segurança.
+Se um principal de serviço necessário for eliminado, a plataforma Azure não pode executar tarefas de gestão automatizadas. O domínio gerido pode não aplicar corretamente atualizações ou fazer backups.
 
-### <a name="check-for-missing-service-principals"></a>Verifique se faltam os diretores de serviço
+### <a name="check-for-missing-service-principals"></a>Verifique se faltam os principais de serviço
 
-Para verificar qual o diretor de serviço que falta e precisa de ser recriado, complete os seguintes passos:
+Para verificar qual o principal de serviço que falta e precisa de ser recriado, complete os seguintes passos:
 
-1. No portal Azure, selecione **Azure Ative Diretório** a partir do menu de navegação à esquerda.
-1. Selecione **aplicações Enterprise**. Escolha *todas as aplicações* do menu drop-down do Tipo de **Aplicação** e, em seguida, selecione **Aplicar**.
-1. Procure cada uma das identificações de aplicação. Se não for encontrada nenhuma aplicação existente, siga as medidas de *Resolução* para criar o diretor de serviço ou reregistar o espaço de nome.
+1. No portal Azure, selecione **Azure Ative Directory** a partir do menu de navegação à esquerda.
+1. Selecione **aplicações da Enterprise**. Escolha *todas as aplicações* do menu drop-down do Tipo de **Aplicação** e, em seguida, selecione **Aplicar**.
+1. Procure por cada um dos IDs de aplicação. Se não for encontrada nenhuma aplicação existente, siga as etapas de *Resolução* para criar o principal de serviço ou re-registar o espaço de nome.
 
     | ID da Aplicação | Resolução |
     | :--- | :--- |
     | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Recriar um diretor de serviço desaparecido](#recreate-a-missing-service-principal) |
-    | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Re-registe o espaço de nome microsoft.AAD](#re-register-the-microsoft-aad-namespace) |
-    | abba844e-bc0e-44b0-947a-dc74e5d09022 | [Re-registe o espaço de nome microsoft.AAD](#re-register-the-microsoft-aad-namespace) |
-    | d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Re-registe o espaço de nome microsoft.AAD](#re-register-the-microsoft-aad-namespace) |
+    | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Re-registrar o espaço de nomes Microsoft.AAD](#re-register-the-microsoft-aad-namespace) |
+    | abba844e-bc0e-44b0-947a-dc74e5d09022 | [Re-registrar o espaço de nomes Microsoft.AAD](#re-register-the-microsoft-aad-namespace) |
+    | d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Re-registrar o espaço de nomes Microsoft.AAD](#re-register-the-microsoft-aad-namespace) |
 
 ### <a name="recreate-a-missing-service-principal"></a>Recriar um diretor de serviço desaparecido
 
-Se a aplicação ID *2565bd9d-da50-47d4-8b85-4c97f669dc36* estiver ausente do seu diretório Azure AD, utilize a Azure AD PowerShell para completar os seguintes passos. Para mais informações, consulte a [instalação de PowerShell Azure AD](/powershell/azure/active-directory/install-adv2).
+Se faltar o ID da aplicação *2565bd9d-da50-47d4-8b85-4c97f669dc36* do seu diretório AD Azure, utilize a Azure AD PowerShell para completar os seguintes passos. Para obter mais informações, consulte [a instalação Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
 1. Instale o módulo Azure AD PowerShell e importe-o da seguinte forma:
 
@@ -58,36 +57,36 @@ Se a aplicação ID *2565bd9d-da50-47d4-8b85-4c97f669dc36* estiver ausente do se
     Import-Module AzureAD
     ```
 
-1. Agora recrie o diretor de serviço utilizando o cmdlet [New-AzureAdServicePrincipal:][New-AzureAdServicePrincipal]
+1. Agora recrie o principal de serviço usando o [cmdlet New-AzureAdServicePrincipal:][New-AzureAdServicePrincipal]
 
     ```powershell
     New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
     ```
 
-O Azure AD DS gerido a saúde do domínio atualiza-se automaticamente dentro de duas horas e remove o alerta.
+A saúde do domínio gerido atualiza-se automaticamente dentro de duas horas e remove o alerta.
 
-### <a name="re-register-the-microsoft-aad-namespace"></a>Re-registe o espaço de nome da Microsoft AAD
+### <a name="re-register-the-microsoft-aad-namespace"></a>Re-registrar o espaço de nomes Microsoft AAD
 
-Se a aplicação ID *443155a6-77f3-45e3-882b-22b3a8d431fb*, *abba844e-bc0e-44b0-947a-dc74e5d09022*, ou *d87dcbc6-a371-462e-88e3-28ad15ec4e64,* completar os seguintes passos para voltar a registar o fornecedor de recursos *Microsoft.AAD:*
+Se o ID *443155a6-77f3-45e3-882b-22b3a8d431fb*, *abba844e-bc0e-44b0-94 7a-dc74e5d09022,* ou *d87dcbc6-a371-462e-88e3-28ad15ec4e64,* completar as seguintes etapas para voltar a registar o fornecedor de recursos *Microsoft.AAD:*
 
 1. No portal Azure, procure e selecione **Subscrições.**
-1. Escolha a subscrição associada ao seu domínio gerido pelo Azure AD DS.
-1. A partir da navegação à esquerda, escolha **Fornecedores**de Recursos .
-1. Procure *microsoft.AAD*, em seguida, **selecione Re-registar**.
+1. Escolha a subscrição associada ao seu domínio gerido.
+1. A partir da navegação à esquerda, escolha **Fornecedores de Recursos.**
+1. Procure por *Microsoft.AAD*e, em seguida, **selecione Re-registrar**.
 
-O Azure AD DS gerido a saúde do domínio atualiza-se automaticamente dentro de duas horas e remove o alerta.
+A saúde do domínio gerido atualiza-se automaticamente dentro de duas horas e remove o alerta.
 
-## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Alerta AADDS105: Aplicação de sincronização de senha está desatualizada
+## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Alerta AADDS105: Aplicação de sincronização de palavras-passe está desatualizada
 
 ### <a name="alert-message"></a>Mensagem de alerta
 
-*O diretor de serviço com o ID da aplicação "d87dcbc6-a371-462e-88e3-28ad15ec4e64" foi eliminado e recriado. A recreação deixa para trás permissões inconsistentes nos recursos dos Serviços de Domínio Da AD Azure necessários para servir o seu domínio gerido. A sincronização de senhas no seu domínio gerido pode ser afetada.*
+*O principal do serviço com o ID da aplicação "d87dcbc6-a371-462e-88e3-28ad15ec4e64" foi apagado e depois recriado. A recreação deixa para trás permissões inconsistentes nos recursos dos Serviços de Domínio AD Azure necessários para o serviço ao seu domínio gerido. A sincronização de palavras-passe no seu domínio gerido pode ser afetada.*
 
-O Azure AD DS sincroniza automaticamente as contas de utilizador e credenciais da Azure AD. Se houver algum problema com a aplicação Azure AD utilizada para este processo, a sincronização credencial entre o Azure AD DS e o Azure AD falha.
+O Azure AD DS sincroniza automaticamente as contas e credenciais dos utilizadores do Azure AD. Se houver um problema com a aplicação AD Azure usada para este processo, a sincronização credencial entre Azure AD DS e Azure AD falha.
 
 ### <a name="resolution"></a>Resolução
 
-Para recriar a aplicação Azure AD utilizada para a sincronização credencial, utilize a Azure AD PowerShell para completar os seguintes passos. Para mais informações, consulte a [instalação de PowerShell Azure AD](/powershell/azure/active-directory/install-adv2).
+Para recriar a aplicação AD AD Azure utilizada para a sincronização de credenciais, utilize o Azure AD PowerShell para completar os seguintes passos. Para obter mais informações, consulte [a instalação Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
 1. Instale o módulo Azure AD PowerShell e importe-o da seguinte forma:
 
@@ -96,7 +95,7 @@ Para recriar a aplicação Azure AD utilizada para a sincronização credencial,
     Import-Module AzureAD
     ```
 
-2. Agora elimine a aplicação antiga e o objeto utilizando os seguintes cmdlets PowerShell:
+2. Agora elimine a aplicação e o objeto antigos utilizando os seguintes cmdlets PowerShell:
 
     ```powershell
     $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
@@ -105,11 +104,11 @@ Para recriar a aplicação Azure AD utilizada para a sincronização credencial,
     Remove-AzureADServicePrincipal -ObjectId $spObject
     ```
 
-Depois de eliminar ambas as aplicações, a plataforma Azure recria-as automaticamente e tenta retomar a sincronização da palavra-passe. O Azure AD DS gerido a saúde do domínio atualiza-se automaticamente dentro de duas horas e remove o alerta.
+Depois de eliminar ambas as aplicações, a plataforma Azure recria-as automaticamente e tenta retomar a sincronização da palavra-passe. A saúde do domínio gerido atualiza-se automaticamente dentro de duas horas e remove o alerta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Se ainda tiver problemas, abra um pedido de [apoio azure][azure-support] para assistência adicional para resolução de problemas.
+Se ainda tiver problemas, abra um pedido de [apoio ao Azure][azure-support] para assistência adicional à resolução de problemas.
 
 <!-- INTERNAL LINKS -->
 [azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md

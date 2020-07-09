@@ -1,19 +1,19 @@
 ---
-title: REST - Autenticação serviço-a-serviço - Data Lake Storage Gen1 - Azure
-description: Saiba como obter a autenticação de serviço-a-serviço com o Azure Data Lake Storage Gen1 e o Azure Ative Directory utilizando a API REST.
+title: REST - Autenticação de serviço-a-serviço - Data Lake Storage Gen1 - Azure
+description: Saiba como obter a autenticação de serviço-a-serviço com a Azure Data Lake Storage Gen1 e o Azure Ative Directory utilizando a API REST.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: d7d0ec39e9f0f294324eb18337f4234ddaa63e2c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 725490316ef4fcbce197d5a29b7665b7de7014c9
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688147"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857124"
 ---
-# <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticação serviço-a-serviço com Azure Data Lake Storage Gen1 usando REST API
+# <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticação de serviço-a-serviço com Azure Data Lake Storage Gen1 usando REST API
 > [!div class="op_single_selector"]
 > * [Utilizar o Java](data-lake-store-service-to-service-authenticate-java.md)
 > * [Com o .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
@@ -22,33 +22,37 @@ ms.locfileid: "82688147"
 > 
 > 
 
-Neste artigo, aprende a usar a API REST para fazer a autenticação de serviço a serviço com o Azure Data Lake Storage Gen1. Para autenticação de utilizador final com Data Lake Storage Gen1 utilizando a REST API, consulte a [autenticação do utilizador final com data Lake Storage Gen1 utilizando a REST API](data-lake-store-end-user-authenticate-rest-api.md).
+Neste artigo, você aprende a usar a API REST para fazer autenticação de serviço-a-serviço com Azure Data Lake Storage Gen1. Para autenticação do utilizador final com data lake storage gen1 usando REST API, consulte [a autenticação do utilizador final com a Data Lake Storage Gen1 utilizando REST API](data-lake-store-end-user-authenticate-rest-api.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma subscrição Azure.** Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma assinatura Azure**. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Criar uma aplicação de Diretório Ativo Azure .** Deve ter concluído os passos de [autenticação serviço-a-serviço com data Lake Storage Gen1 utilizando o Diretório Ativo Azure](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Criar uma aplicação "Web" do Diretório Ativo Azure**. Deve ter completado os passos na [autenticação de serviço-a-serviço com a Data Lake Storage Gen1 utilizando o Azure Ative Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="service-to-service-authentication"></a>Autenticação serviço a serviço
 
-Neste cenário, a aplicação fornece as suas próprias credenciais para a realização das operações. Para isso, deve emitir um pedido de CORREIO como o mostrado no seguinte corte:
+Neste cenário, a aplicação fornece as suas próprias credenciais para a realização das operações. Para isso, deve emitir um pedido DE POST como o mostrado no seguinte corte:
 
-    curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
-      -F grant_type=client_credentials \
-      -F resource=https://management.core.windows.net/ \
-      -F client_id=<CLIENT-ID> \
-      -F client_secret=<AUTH-KEY>
+```console
+curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
+  -F grant_type=client_credentials \
+  -F resource=https://management.core.windows.net/ \
+  -F client_id=<CLIENT-ID> \
+  -F client_secret=<AUTH-KEY>
+```
 
-A saída do pedido inclui um símbolo de `access-token` autorização (denotado na saída abaixo) que posteriormente passa com as suas chamadas REST API. Guarde o símbolo de autenticação num ficheiro de texto; você precisará dele ao fazer chamadas REST para Data Lake Storage Gen1.
+A saída do pedido inclui um token de autorização (denotado pela `access-token` saída abaixo) que posteriormente passa com as suas chamadas REST API. Guarde o símbolo de autenticação num ficheiro de texto; você vai precisar dele ao fazer chamadas REST para Data Lake Storage Gen1.
 
-    {"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
+```output
+{"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
+```
 
 Este artigo utiliza a abordagem **não interativa**. Para obter mais informações sobre a abordagem não interativa (chamadas serviço a serviço), veja [Chamadas serviço a serviço utilizando credenciais](https://msdn.microsoft.com/library/azure/dn645543.aspx).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste artigo, aprendeu a usar a autenticação serviço-a-serviço para autenticar com data Lake Storage Gen1 usando a REST API. Pode agora ver os seguintes artigos que falam sobre como usar a API REST para trabalhar com data Lake Storage Gen1.
+Neste artigo, aprendeu a usar a autenticação de serviço-a-serviço para autenticar com a Data Lake Storage Gen1 utilizando a API REST. Agora pode olhar para os seguintes artigos que falam sobre como usar a API REST para trabalhar com a Data Lake Storage Gen1.
 
-* [Operações de gestão de conta em Data Lake Storage Gen1 utilizando rest API](data-lake-store-get-started-rest-api.md)
-* [Operações de dados sobre data lake storage Gen1 usando REST API](data-lake-store-data-operations-rest-api.md)
+* [Operações de gestão de conta na Data Lake Storage Gen1 utilizando a API REST](data-lake-store-get-started-rest-api.md)
+* [Operações de dados em Data Lake Storage Gen1 usando REST API](data-lake-store-data-operations-rest-api.md)

@@ -1,45 +1,44 @@
 ---
-title: Instalar linkerd no Serviço Azure Kubernetes (AKS)
-description: Aprenda a instalar e utilizar o Linkerd para criar uma malha de serviço num cluster do Serviço Azure Kubernetes (AKS)
+title: Instalar Linkerd no Serviço Azure Kubernetes (AKS)
+description: Saiba como instalar e utilizar o Linkerd para criar uma malha de serviço num cluster Azure Kubernetes Service (AKS)
 author: paulbouwer
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: 419b61527b68299c82dec4f2f5da6b0220859cc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77593743"
 ---
-# <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>Instalar linkerd no Serviço Azure Kubernetes (AKS)
+# <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>Instalar Linkerd no Serviço Azure Kubernetes (AKS)
 
-[Linkerd][linkerd-github] é um projeto de incubação de malha de serviço de código aberto e [CNCF.][linkerd-cncf] Linkerd é uma malha de serviço ultraleve que fornece funcionalidades que incluem gestão de tráfego, identidade de serviço e segurança, fiabilidade e observabilidade. Para mais informações sobre linkerd, consulte a documentação oficial da [Linkerd FAQ][linkerd-faq] e [linkerd Architecture.][linkerd-architecture]
+[Linkerd][linkerd-github] é um projeto de incubação de malha de serviço de código aberto e [CNCF.][linkerd-cncf] Linkerd é uma malha de serviço ultraleve que fornece funcionalidades que incluem gestão de tráfego, identidade de serviço e segurança, fiabilidade e observabilidade. Para obter mais informações sobre linkerd, consulte a documentação oficial [da Linkerd FAQ][linkerd-faq] e [linkerd Architecture.][linkerd-architecture]
 
-Este artigo mostra-lhe como instalar o Linkerd. O binário `linkerd` do cliente Linkerd está instalado na sua máquina cliente e os componentes Linkerd são instalados num cluster Kubernetes no AKS.
+Este artigo mostra-lhe como instalar linkerd. O binário do cliente Linkerd `linkerd` está instalado na sua máquina cliente e os componentes Linkerd são instalados num cluster Kubernetes em AKS.
 
 > [!NOTE]
-> Estas instruções referem `stable-2.6.0`a versão Linkerd .
+> Estas instruções referem a versão Linkerd `stable-2.6.0` .
 >
-> O Linkerd `stable-2.6.x` pode ser executado contra `1.13+`versões Kubernetes . Pode encontrar versões linkerd adicionais estáveis e de borda no [GitHub - Linkerd Releases][linkerd-github-releases].
+> O Linkerd `stable-2.6.x` pode ser executado contra as versões de Kubernetes `1.13+` . Pode encontrar versões linkerd mais estáveis e edge no [GitHub - Linkerd Releases][linkerd-github-releases].
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
-> * Descarregue e instale o linkerd linkerd client binary
-> * Instale linkerd no AKS
+> * Descarregue e instale o binário de cliente linkerd Linkerd
+> * Instalar Linkerd em AKS
 > * Validar a instalação Linkerd
-> * Aceda ao Dashboard
-> * Desinstalar Linkerd a partir de AKS
+> * Aceda ao Painel de Instrumentos
+> * Desinstalar Linkerd da AKS
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
-Os passos detalhados neste artigo assumem que criou um `1.13` cluster AKS (Kubernetes ou `kubectl` acima, com RBAC habilitado) e estabeleceu uma ligação com o cluster. Se precisar de ajuda com algum destes itens, consulte o arranque rápido do [AKS.][aks-quickstart]
+Os passos detalhados neste artigo assumem que criou um cluster AKS (Kubernetes `1.13` e acima, com o RBAC habilitado) e estabeleceu uma `kubectl` ligação com o cluster. Se precisar de ajuda com algum destes itens, consulte o arranque rápido da [AKS][aks-quickstart].
 
-Todas as cápsulas Linkerd devem ser programadas para serem executadas em nós Linux - esta configuração é o padrão no método de instalação descrito abaixo e não requer configuração adicional.
+Todas as cápsulas Linkerd devem ser programadas para funcionar em nós Linux - esta configuração é o padrão no método de instalação descrito abaixo e não requer nenhuma configuração adicional.
 
-Este artigo separa a orientação de instalação linkerd em vários passos discretos. O resultado é o mesmo na estrutura que o Linkerd oficial iniciando [a orientação.][linkerd-getting-started]
+Este artigo separa a orientação de instalação linkerd em vários passos discretos. O resultado é o mesmo na estrutura que o Linkerd oficial começa a [orientar.][linkerd-getting-started]
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -59,9 +58,9 @@ Este artigo separa a orientação de instalação linkerd em vários passos disc
 
 ::: zone-end
 
-## <a name="install-linkerd-on-aks"></a>Instale linkerd no AKS
+## <a name="install-linkerd-on-aks"></a>Instalar Linkerd em AKS
 
-Antes de instalarmos o Linkerd, vamos fazer verificações de pré-instalação para determinar se o plano de controlo pode ser instalado no nosso cluster AKS:
+Antes de instalarmos o Linkerd, vamos executar verificações de pré-instalação para determinar se o plano de controlo pode ser instalado no nosso cluster AKS:
 
 ```console
 linkerd check --pre
@@ -117,26 +116,26 @@ linkerd-version
 Status check results are √
 ```
 
-Agora é hora de instalar os componentes Linkerd. Utilize `linkerd` os `kubectl` e binários para instalar os componentes Linkerd no seu cluster AKS. Será `linkerd` criado automaticamente um espaço de nome e os componentes serão instalados neste espaço de nome.
+Agora é hora de instalar os componentes Linkerd. Utilize os `linkerd` binários e `kubectl` binários para instalar os componentes Linkerd no seu cluster AKS. Um `linkerd` espaço de nome será criado automaticamente e os componentes serão instalados neste espaço de nome.
 
 ```console
 linkerd install | kubectl apply -f -
 ```
 
-Linkerd implementa uma série de objetos. Verá a lista da saída do `linkerd install` seu comando acima. A implantação dos componentes Linkerd deve demorar cerca de 1 minuto a ser concluída, dependendo do ambiente do cluster.
+Linkerd implanta uma série de objetos. Verá a lista a partir da saída do seu `linkerd install` comando acima. A colocação dos componentes Linkerd deve demorar cerca de 1 minuto a ser concluída, dependendo do ambiente do seu cluster.
 
-Neste momento, implantaste o Linkerd para o teu cluster AKS. Para garantir que temos uma implementação bem sucedida do Linkerd, vamos passar para a secção seguinte para [Validar a instalação Linkerd](#validate-the-linkerd-installation).
+Neste momento, lançou o Linkerd para o seu cluster AKS. Para garantir que temos uma implementação bem sucedida do Linkerd, vamos passar para a secção seguinte para [validar a instalação Linkerd](#validate-the-linkerd-installation).
 
 ## <a name="validate-the-linkerd-installation"></a>Validar a instalação Linkerd
 
-Confirme que os recursos foram criados com sucesso. Utilize o [kubectl get svc][kubectl-get] e [kubectl][kubectl-get] obtenha `linkerd` comandos de casulo para consultar o `linkerd install` espaço de nome, onde os componentes Linkerd foram instalados pelo comando:
+Confirme que os recursos foram criados com sucesso. Utilize o [kubectl get svc][kubectl-get] e [o kubectl obter][kubectl-get] comandos de pod para consultar o `linkerd` espaço de nomes, onde os componentes linkerd foram instalados pelo `linkerd install` comando:
 
 ```console
 kubectl get svc --namespace linkerd --output wide
 kubectl get pod --namespace linkerd --output wide
 ```
 
-A saída de exemplo seguinte mostra os serviços e cápsulas (programados nos nós linux) que devem estar agora a funcionar:
+A saída de exemplo a seguir mostra os serviços e cápsulas (programados nos nós Linux) que devem estar agora em execução:
 
 ```console
 NAME                     TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)             AGE  SELECTOR
@@ -163,7 +162,7 @@ linkerd-tap-5cd9fc566-ct988               2/2     Running   0          64s   10.
 linkerd-web-774c79b6d5-dhhwf              2/2     Running   0          65s   10.240.0.70   aks-linux-16165125-vmss000002   <none>           <none>
 ```
 
-A Linkerd fornece um `linkerd` comando através do binário do cliente para validar que o plano de controlo Linkerd foi instalado e configurado com sucesso.
+Linkerd fornece um comando através do binário do `linkerd` cliente para validar que o plano de controlo Linkerd foi instalado e configurado com sucesso.
 
 ```console
 linkerd check
@@ -226,13 +225,13 @@ Status check results are √
 
 ## <a name="access-the-dashboard"></a>Aceda ao painel de instrumentos
 
-Linkerd vem com um dashboard que fornece informações sobre a malha de serviço e cargas de trabalho. Para aceder ao painel `linkerd dashboard` de instrumentos, utilize o comando. Este comando aproveita a [porta kubectl][kubectl-port-forward] para criar uma ligação segura entre a sua máquina cliente e as cápsulas relevantes no seu cluster AKS. Em seguida, abrirá automaticamente o dashboard no seu navegador predefinido.
+Linkerd vem com um dashboard que fornece informações sobre a malha de serviço e cargas de trabalho. Para aceder ao painel, utilize o `linkerd dashboard` comando. Este comando aproveita [a porta de avanço do Kubectl][kubectl-port-forward] para criar uma ligação segura entre a sua máquina cliente e as cápsulas relevantes no seu cluster AKS. Em seguida, abrirá automaticamente o dashboard no seu navegador predefinido.
 
 ```console
 linkerd dashboard
 ```
 
-O comando também criará um porta-frente e devolverá um link para os painéis grafana.
+O comando também criará um porto-avançado e devolverá um link para os tabliers Grafana.
 
 ```console
 Linkerd dashboard available at:
@@ -242,29 +241,29 @@ http://127.0.0.1:50750/grafana
 Opening Linkerd dashboard in the default browser
 ```
 
-## <a name="uninstall-linkerd-from-aks"></a>Desinstalar Linkerd a partir de AKS
+## <a name="uninstall-linkerd-from-aks"></a>Desinstalar Linkerd da AKS
 
 > [!WARNING]
-> A desvinculação da Linkerd de um sistema de funcionamento pode resultar em problemas relacionados com o tráfego entre os seus serviços. Certifique-se de que disponibilizou disposições para que o seu sistema continue a funcionar corretamente sem linkerd antes de prosseguir.
+> A eliminação do Linkerd de um sistema de funcionamento pode resultar em problemas relacionados com o tráfego entre os seus serviços. Certifique-se de que eviscrou para que o seu sistema continue a funcionar corretamente sem o Linkerd antes de prosseguir.
 
-Primeiro terá de remover os proxies do avião de dados. Remova quaisquer [anotações automáticas][linkerd-automatic-proxy-injection] de injeção de proxy dos espaços de nome da carga de trabalho e desemjeite as suas implementações de carga de trabalho. As suas cargas de trabalho já não devem ter componentes de plano de dados associados.
+Primeiro, terá de remover os proxies do plano de dados. Remova quaisquer [anotações automáticas][linkerd-automatic-proxy-injection] de injeção de procuração dos espaços de nome da carga de trabalho e desenrolar as suas implementações de carga de trabalho. As suas cargas de trabalho não devem continuar a ter componentes de planos de dados associados.
 
-Finalmente, retire o plano de controlo da seguinte forma:
+Por último, retire o plano de controlo da seguinte forma:
 
 ```console
 linkerd install --ignore-cluster | kubectl delete -f -
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para explorar mais opções de instalação e configuração para linkerd, consulte as seguintes orientações oficiais do Linkerd:
+Para explorar mais opções de instalação e configuração para Linkerd, consulte as seguintes orientações oficiais do Linkerd:
 
-- [Linkerd - Instalação helm][linkerd-install-with-helm]
-- [Linkerd - Instalação em várias fases para atender privilégios de papel][linkerd-multi-stage-installation]
+- [Linkerd - Instalação de leme][linkerd-install-with-helm]
+- [Linkerd - Instalação em várias fases para atender privilégios de função][linkerd-multi-stage-installation]
 
-Também pode seguir cenários adicionais usando:
+Também pode seguir cenários adicionais utilizando:
 
-- [Demo de Linkerd emojivoto][linkerd-demo-emojivoto]
+- [Demonstração de emojivoto linkerd][linkerd-demo-emojivoto]
 - [Demonstração de livros linkerd][linkerd-demo-books]
 
 <!-- LINKS - external -->

@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Documentação do Azure Migrate
-summary: O Azure Migrate fornece um hub central de ferramentas que permite detetar, avaliar e migrar cargas de trabalho no local para o Azure.
+summary: Encontre artigos que o ajudam a detetar, avaliar e migrar o seu ambiente no local através de ferramentas do hub do Azure Migrate.
 metadata:
   title: Documentação do Azure Migrate
-  description: Utilize o Azure Migrate para migrar cargas de trabalho no local para o Azure.
+  description: Aprenda a usar ferramentas do hub do Azure Migrate para detetar, avaliar e migrar o seu ambiente no local para o Azure.
   ms.service: azure-migrate
   ms.topic: landing-page
   ms.collection: collection
   author: rayne-wiselman
   ms.author: raynew
-  ms.date: 11/19/2019
-  ms.openlocfilehash: 3f1d89d7e9c4c8a57c08d6b5880f707a01b7fcb2
-  ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+  ms.date: 07/08/2020
+  ms.openlocfilehash: a3c9be5e123892d5d1b8d8e4a0677eb520e34dc6
+  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/25/2020
-  ms.locfileid: "83835194"
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86112668"
 landingContent:
 - title: Acerca do Azure Migrate
   linkLists:
@@ -96,6 +96,6 @@ landingContent:
     - text: Pedir uma funcionalidade de serviço
       url: https://feedback.azure.com/forums/907195-azure-migrate
     - text: Faça uma pergunta no fórum
-      url: https://docs.microsoft.com/answers/topics/azure-migrate.html
+      url: /answers/topics/azure-migrate.html
     - text: Azure Tech Community
       url: https://techcommunity.microsoft.com/t5/Azure-Migration/bd-p/AzureMigration

@@ -1,30 +1,30 @@
 ---
-title: Modelos de ligação para implementação
-description: Descreve como usar modelos ligados num modelo de Gestor de Recursos Azure para criar uma solução de modelo modular. Mostra como passar os valores dos parâmetros, especificar um ficheiro de parâmetros e URLs criados dinamicamente.
+title: Modelos de ligação para implantação
+description: Descreve como usar modelos ligados num modelo de Gestor de Recursos Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um ficheiro de parâmetros e URLs criados dinamicamente.
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: f71d8cc62daf68b158bed444da1446e016194b56
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.date: 06/26/2020
+ms.openlocfilehash: 1b63ebc62a944b43aef3b777dd7d285369356c29
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609311"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056689"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar modelos ligados e aninhados ao implementar recursos do Azure
 
-Para implementar soluções complexas, pode quebrar o seu modelo em muitos modelos relacionados e, em seguida, implantá-los juntos através de um modelo principal. Os modelos relacionados podem ser ficheiros separados ou sintaxe de modelo que está incorporado no modelo principal. Este artigo usa o **modelo de ligação** termo para se referir a um ficheiro de modelo separado que é referenciado através de um link do modelo principal. Ele usa o **termo aninhado modelo** para se referir a sintaxe de modelo incorporado dentro do modelo principal.
+Para implementar soluções complexas, pode quebrar o seu modelo em muitos modelos relacionados e, em seguida, implantá-los juntos através de um modelo principal. Os modelos relacionados podem ser ficheiros separados ou sintaxe de modelo que está incorporado no modelo principal. Este artigo usa o **modelo de ligação** do termo para se referir a um ficheiro de modelo separado que é referenciado através de um link do modelo principal. Ele usa o modelo **aninhado** para se referir à sintaxe do modelo incorporado dentro do modelo principal.
 
-Para soluções pequenas a médias, um único modelo é mais fácil de entender e manter. Pode ver todos os recursos e valores num único ficheiro. Para cenários avançados, os modelos ligados permitem-lhe decompor a solução em componentes direcionados. Pode facilmente reutilizar estes modelos para outros cenários.
+Para soluções pequenas e médias, um único modelo é mais fácil de entender e manter. Pode ver todos os recursos e valores num único ficheiro. Para cenários avançados, os modelos ligados permitem-lhe decompor a solução em componentes direcionados. Pode reutilizar facilmente estes modelos para outros cenários.
 
-Para um tutorial, consulte [Tutorial: crie modelos ligados do Gestor de Recursos Azure.](template-tutorial-create-linked-templates.md)
+Para um tutorial, consulte [Tutorial: crie modelos ligados do Gestor de Recursos Azure](./deployment-tutorial-linked-template.md).
 
 > [!NOTE]
-> Para modelos ligados ou aninhados, só pode utilizar o modo de implantação [Incremental.](deployment-modes.md)
+> Para modelos ligados ou aninhados, só pode utilizar o modo de implementação [Incremental.](deployment-modes.md)
 >
 
 ## <a name="nested-template"></a>Modelo aninhado
 
-Para nidificar um modelo, adicione um recurso de [implantação](/azure/templates/microsoft.resources/deployments) ao seu modelo principal. Na propriedade do **modelo,** especifique a sintaxe do modelo.
+Para nidificar um modelo, adicione um [recurso de implementações](/azure/templates/microsoft.resources/deployments) ao seu modelo principal. Na propriedade do **modelo,** especifique a sintaxe do modelo.
 
 ```json
 {
@@ -34,9 +34,9 @@ Para nidificar um modelo, adicione um recurso de [implantação](/azure/template
   "variables": {},
   "resources": [
     {
-      "name": "nestedTemplate1",
-      "apiVersion": "2019-10-01",
       "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
         "template": {
@@ -50,7 +50,7 @@ Para nidificar um modelo, adicione um recurso de [implantação](/azure/template
 }
 ```
 
-O exemplo seguinte implementa uma conta de armazenamento através de um modelo aninhado.
+O exemplo a seguir implanta uma conta de armazenamento através de um modelo aninhado.
 
 ```json
 {
@@ -63,13 +63,13 @@ O exemplo seguinte implementa uma conta de armazenamento através de um modelo a
   },
   "resources": [
     {
-      "name": "nestedTemplate1",
-      "apiVersion": "2019-10-01",
       "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "resources": [
             {
@@ -94,9 +94,9 @@ O exemplo seguinte implementa uma conta de armazenamento através de um modelo a
 
 ### <a name="expression-evaluation-scope-in-nested-templates"></a>Âmbito de avaliação de expressão em modelos aninhados
 
-Ao utilizar um modelo aninhado, pode especificar se as expressões do modelo são avaliadas dentro do âmbito do modelo dos pais ou do modelo aninhado. O âmbito determina como os parâmetros, variáveis e funções como [o grupo de recursos](template-functions-resource.md#resourcegroup) e a [subscrição](template-functions-resource.md#subscription) são resolvidos.
+Ao utilizar um modelo aninhado, pode especificar se as expressões do modelo são avaliadas no âmbito do modelo dos pais ou no modelo aninhado. O âmbito determina como os parâmetros, variáveis e funções como [o grupo de recursos](template-functions-resource.md#resourcegroup) e a [subscrição](template-functions-resource.md#subscription) são resolvidos.
 
-Você define o `expressionEvaluationOptions` âmbito através da propriedade. Por padrão, `expressionEvaluationOptions` a propriedade `outer`está definida para, o que significa que utiliza o âmbito do modelo dos pais. Desdefinir `inner` o valor para fazer com que as expressões sejam avaliadas no âmbito do modelo aninhado.
+Você define o âmbito através da `expressionEvaluationOptions` propriedade. Por padrão, a `expressionEvaluationOptions` propriedade é definida para , o que significa que usa o âmbito do modelo dos `outer` pais. Desa estariremos o valor `inner` para fazer com que as expressões sejam avaliadas no âmbito do modelo aninhado.
 
 ```json
 {
@@ -110,7 +110,7 @@ Você define o `expressionEvaluationOptions` âmbito através da propriedade. Po
   ...
 ```
 
-O seguinte modelo demonstra como as expressões do modelo são resolvidas de acordo com o âmbito. Contém uma variável chamada `exampleVar` que é definida tanto no modelo dos pais como no modelo aninhado. Devolve o valor da variável.
+O modelo a seguir demonstra como as expressões do modelo são resolvidas de acordo com o âmbito. Contém uma variável nomeada `exampleVar` que é definida tanto no modelo dos pais como no modelo aninhado. Devolve o valor da variável.
 
 ```json
 {
@@ -132,7 +132,7 @@ O seguinte modelo demonstra como as expressões do modelo são resolvidas de aco
         },
         "mode": "Incremental",
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "variables": {
             "exampleVar": "from nested template"
@@ -158,18 +158,18 @@ O seguinte modelo demonstra como as expressões do modelo são resolvidas de aco
 }
 ```
 
-O valor `exampleVar` das variações dependendo `scope` do `expressionEvaluationOptions`valor do imóvel em . A tabela que se segue mostra os resultados de ambos os âmbitos.
+O valor das `exampleVar` alterações dependendo do valor do `scope` imóvel em `expressionEvaluationOptions` . A tabela seguinte mostra os resultados de ambos os âmbitos.
 
 | `expressionEvaluationOptions` `scope` | Saída |
 | ----- | ------ |
 | interior | do modelo aninhado |
 | exterior (ou padrão) | do modelo dos pais |
 
-O exemplo seguinte implementa um servidor SQL e recupera um segredo de cofre chave para usar para a palavra-passe. O âmbito é `inner` definido porque cria dinamicamente `adminPassword.reference.keyVault` o ID `parameters`do cofre chave (ver nos modelos externos) e passa-o como parâmetro para o modelo aninhado.
+O exemplo seguinte implementa um servidor SQL e recupera um segredo de cofre chave para usar para a palavra-passe. O âmbito é definido `inner` porque cria dinamicamente o ID do cofre chave (ver `adminPassword.reference.keyVault` nos modelos externos) `parameters` e passa-o como um parâmetro para o modelo aninhado.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -232,7 +232,7 @@ O exemplo seguinte implementa um servidor SQL e recupera um segredo de cofre cha
           }
         },
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {
             "adminLogin": {
@@ -277,11 +277,11 @@ O exemplo seguinte implementa um servidor SQL e recupera um segredo de cofre cha
 
 > [!NOTE]
 >
-> Quando o âmbito `outer`está definido, não `reference` pode utilizar a função na secção de saídas de um modelo aninhado para um recurso que implementou no modelo aninhado. Para devolver os valores de um recurso implantado `inner` num modelo aninhado, use o âmbito ou converta o seu modelo aninhado num modelo ligado.
+> Quando o âmbito está definido `outer` para , não é possível utilizar a `reference` função na secção de saídas de um modelo aninhado para um recurso que implementou no modelo aninhado. Para devolver os valores de um recurso implantado num modelo aninhado, utilize `inner` o âmbito ou converta o seu modelo aninhado num modelo ligado.
 
 ## <a name="linked-template"></a>Modelo ligado
 
-Para ligar um modelo, adicione um recurso de [implementação](/azure/templates/microsoft.resources/deployments) ao seu modelo principal. Na propriedade **templateLink,** especifique o URI do modelo para incluir. O exemplo seguinte liga-se a um modelo que implementa uma nova conta de armazenamento.
+Para ligar um modelo, adicione um [recurso de implementações](/azure/templates/microsoft.resources/deployments) ao seu modelo principal. Na propriedade **templateLink,** especifique o URI do modelo para incluir. O exemplo a seguir liga-se a um modelo que implementa uma nova conta de armazenamento.
 
 ```json
 {
@@ -308,19 +308,17 @@ Para ligar um modelo, adicione um recurso de [implementação](/azure/templates/
 }
 ```
 
-Ao referir um modelo ligado, o valor não `uri` deve ser um ficheiro local ou um ficheiro que só esteja disponível na sua rede local. Você deve fornecer um valor URI que descarregável como **http** ou **https**. 
+Ao fazer referência a um modelo ligado, o valor de `uri` não deve ser um ficheiro local ou um ficheiro que só esteja disponível na sua rede local. Tem de fornecer um valor URI que seja transferível em **http** ou **https**.
 
 > [!NOTE]
 >
-> Pode referir modelos utilizando parâmetros que, em última análise, resolvem `_artifactsLocation` algo que utiliza **http** ou **https,** por exemplo, utilizando o parâmetro como o seguinte:`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+> Pode fazer referências a modelos utilizando parâmetros que, em última análise, se resolvem a algo que utiliza **http** ou **https**, por exemplo, utilizando o `_artifactsLocation` parâmetro como assim:`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
 
+O Gestor de Recursos deve ser capaz de aceder ao modelo. Uma opção é colocar o seu modelo ligado numa conta de armazenamento e usar o URI para esse item.
 
+### <a name="parameters-for-linked-template"></a>Parâmetros para o modelo ligado
 
-O Gestor de Recursos deve ter acesso ao modelo. Uma opção é colocar o seu modelo ligado numa conta de armazenamento e usar o URI para esse item.
-
-### <a name="parameters-for-linked-template"></a>Parâmetros para modelo ligado
-
-Pode fornecer os parâmetros para o seu modelo ligado, seja num ficheiro externo ou inline. Ao fornecer um ficheiro de parâmetro externo, utilize a propriedade **parâmetrosLink:**
+Pode fornecer os parâmetros para o seu modelo ligado, quer num ficheiro externo, quer em linha. Ao fornecer um ficheiro de parâmetro externo, utilize a propriedade **parâmetrosLink:**
 
 ```json
 "resources": [
@@ -343,7 +341,7 @@ Pode fornecer os parâmetros para o seu modelo ligado, seja num ficheiro externo
 ]
 ```
 
-Para passar os valores dos parâmetros inline, utilize a propriedade dos **parâmetros.**
+Para passar os valores dos parâmetros em linha, utilize a propriedade dos **parâmetros.**
 
 ```json
 "resources": [
@@ -358,24 +356,24 @@ Para passar os valores dos parâmetros inline, utilize a propriedade dos **parâ
       "contentVersion":"1.0.0.0"
      },
      "parameters": {
-      "StorageAccountName":{"value": "[parameters('StorageAccountName')]"}
+      "storageAccountName":{"value": "[parameters('storageAccountName')]"}
     }
    }
   }
 ]
 ```
 
-Não pode usar os parâmetros inline e uma ligação a um ficheiro de parâmetros. A implantação falha com `parametersLink` um `parameters` erro quando ambos e são especificados.
+Não é possível utilizar os parâmetros inline e um link para um ficheiro de parâmetros. A implementação falha com um erro quando ambos `parametersLink` e `parameters` são especificados.
 
-## <a name="contentversion"></a>conteúdoVersão
+## <a name="contentversion"></a>parte de conteúdoVersão
 
-Você não tem que `contentVersion` fornecer a `templateLink` `parametersLink` propriedade para a propriedade ou propriedade. Se não fornecer um, `contentVersion`a versão atual do modelo é implementada. Se fornecer um valor para a versão de conteúdo, deve coincidir com a versão no modelo ligado; caso contrário, a implantação falha com um erro.
+Você não precisa fornecer a `contentVersion` propriedade para o ou `templateLink` `parametersLink` propriedade. Se não fornecer `contentVersion` um, a versão atual do modelo é implementada. Se fornecer um valor para a versão de conteúdo, deve corresponder à versão no modelo ligado; caso contrário, a implementação falha com um erro.
 
 ## <a name="using-variables-to-link-templates"></a>Usando variáveis para ligar modelos
 
-Os exemplos anteriores mostraram valores de URL codificados para as ligações do modelo. Esta abordagem pode funcionar para um modelo simples, mas não funciona bem para um grande conjunto de modelos modulares. Em vez disso, pode criar uma variável estática que armazena um URL base para o modelo principal e, em seguida, criar dinamicamente URLs para os modelos ligados a partir desse URL base. O benefício desta abordagem é que você pode facilmente mover ou bifurcar o modelo porque você precisa alterar apenas a variável estática no modelo principal. O modelo principal passa as URIs corretas em todo o modelo decomposto.
+Os exemplos anteriores mostravam valores de URL codificados por código rígido para os links do modelo. Esta abordagem pode funcionar para um modelo simples, mas não funciona bem para um grande conjunto de modelos modulares. Em vez disso, pode criar uma variável estática que armazena um URL de base para o modelo principal e, em seguida, criar urls dinâmicos para os modelos ligados a partir desse URL de base. O benefício desta abordagem é que você pode facilmente mover ou bifurcar o modelo porque você precisa alterar apenas a variável estática no modelo principal. O modelo principal passa os URIs corretos ao longo do modelo decomposto.
 
-O exemplo seguinte mostra como usar um URL base para criar dois URLs para modelos ligados **(sharedTemplateUrl** e **vmTemplate**).
+O exemplo a seguir mostra como usar um URL base para criar dois URLs para modelos ligados **(compartilhadoTemplateUrl** e **vmTemplate).**
 
 ```json
 "variables": {
@@ -385,7 +383,7 @@ O exemplo seguinte mostra como usar um URL base para criar dois URLs para modelo
 }
 ```
 
-Também pode usar a [implementação()](template-functions-deployment.md#deployment) para obter o URL base para o modelo de corrente, e usá-lo para obter o URL para outros modelos no mesmo local. Esta abordagem é útil se a sua localização do modelo mudar ou se pretender evitar URLs de codificação dura no ficheiro do modelo. A propriedade modeloLink só é devolvida quando se liga a um modelo remoto com um URL. Se você está usando um modelo local, essa propriedade não está disponível.
+Também pode usar [a implementação para](template-functions-deployment.md#deployment) obter o URL base para o modelo atual, e usá-lo para obter o URL para outros modelos no mesmo local. Esta abordagem é útil se a localização do seu modelo mudar ou se quiser evitar URLs de codificação dura no ficheiro do modelo. A propriedade templateLink só é devolvida quando se liga a um modelo remoto com um URL. Se você está usando um modelo local, essa propriedade não está disponível.
 
 ```json
 "variables": {
@@ -393,7 +391,7 @@ Também pode usar a [implementação()](template-functions-deployment.md#deploym
 }
 ```
 
-Em última análise, você usaria `uri` a `templateLink` variável na propriedade de uma propriedade.
+Em última análise, usaria a variável na `uri` propriedade de uma `templateLink` propriedade.
 
 ```json
 "templateLink": {
@@ -402,11 +400,11 @@ Em última análise, você usaria `uri` a `templateLink` variável na propriedad
 }
 ```
 
-## <a name="using-copy"></a>Usando cópia
+## <a name="using-copy"></a>Usando a cópia
 
-Para criar várias instâncias de um recurso com um modelo aninhado, adicione o elemento de cópia ao nível do recurso **Microsoft.Resources/deployments.** Ou, se o âmbito for interior, pode adicionar a cópia dentro do modelo aninhado.
+Para criar múltiplas instâncias de um recurso com um modelo aninhado, adicione o elemento de cópia ao nível do recurso **Microsoft.Resources/Deployments.** Ou, se o âmbito for interior, pode adicionar a cópia dentro do modelo aninhado.
 
-O modelo de exemplo seguinte mostra como usar a cópia com um modelo aninhado.
+O modelo de exemplo a seguir mostra como usar a cópia com um modelo aninhado.
 
 ```json
 "resources": [
@@ -425,7 +423,7 @@ O modelo de exemplo seguinte mostra como usar a cópia com um modelo aninhado.
     "scope": "inner"
     },
     "template": {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
       {
@@ -453,15 +451,15 @@ O modelo de exemplo seguinte mostra como usar a cópia com um modelo aninhado.
 
 ## <a name="get-values-from-linked-template"></a>Obter valores do modelo ligado
 
-Para obter um valor de saída a partir de um `"[reference('deploymentName').outputs.propertyName.value]"`modelo ligado, recupere o valor da propriedade com a sintaxe como: .
+Para obter um valor de saída a partir de um modelo ligado, recupere o valor da propriedade com sintaxe como: `"[reference('deploymentName').outputs.propertyName.value]"` .
 
 Ao obter uma propriedade de saída a partir de um modelo ligado, o nome da propriedade não deve incluir um traço.
 
-Os exemplos seguintes demonstram como referenciar um modelo ligado e recuperar um valor de saída. O modelo ligado devolve uma mensagem simples.  Primeiro, o modelo ligado:
+Os exemplos a seguir demonstram como fazer referência a um modelo ligado e recuperar um valor de saída. O modelo ligado devolve uma mensagem simples.  Primeiro, o modelo ligado:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {},
@@ -475,11 +473,11 @@ Os exemplos seguintes demonstram como referenciar um modelo ligado e recuperar u
 }
 ```
 
-O modelo principal implanta o modelo ligado e obtém o valor devolvido. Note que faz referência ao recurso de implantação pelo nome, e utiliza o nome da propriedade devolvida pelo modelo ligado.
+O modelo principal implementa o modelo ligado e obtém o valor devolvido. Note que faz referência ao recurso de implantação pelo nome, e utiliza o nome da propriedade devolvida pelo modelo ligado.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {},
@@ -508,11 +506,11 @@ O modelo principal implanta o modelo ligado e obtém o valor devolvido. Note que
 
 Tal como acontece com outros tipos de recursos, pode definir dependências entre o modelo ligado e outros recursos. Quando outros recursos requerem um valor de saída do modelo ligado, certifique-se de que o modelo ligado é implantado antes deles. Ou, quando o modelo ligado depender de outros recursos, certifique-se de que outros recursos são implantados antes do modelo ligado.
 
-O exemplo seguinte mostra um modelo que implementa um endereço IP público e devolve o ID de recursos do recurso Azure para esse IP público:
+O exemplo a seguir mostra um modelo que implanta um endereço IP público e devolve o ID de recurso do recurso Azure para esse IP público:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "publicIPAddresses_name": {
@@ -543,11 +541,11 @@ O exemplo seguinte mostra um modelo que implementa um endereço IP público e de
 }
 ```
 
-Para utilizar o endereço IP público do modelo anterior ao implantar um equilibrador de `Microsoft.Resources/deployments` carga, ligue-se ao modelo e declare uma dependência do recurso. O endereço IP público no equilibrista de carga é definido para o valor de saída do modelo ligado.
+Para utilizar o endereço IP público a partir do modelo anterior ao implementar um equilibrador de carga, ligue-o ao modelo e declare uma dependência do `Microsoft.Resources/deployments` recurso. O endereço IP público no balançador de carga é definido para o valor de saída a partir do modelo ligado.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "loadBalancers_name": {
@@ -612,15 +610,15 @@ Para utilizar o endereço IP público do modelo anterior ao implantar um equilib
 
 ## <a name="deployment-history"></a>Histórico de implantação
 
-O Gestor de Recursos processa cada modelo como uma implementação separada no histórico de implementação. Um modelo principal com três modelos ligados ou aninhados aparece na história da implantação como:
+O Gestor de Recursos processa cada modelo como uma implementação separada no histórico de implementação. Um modelo principal com três modelos ligados ou aninhados aparece no histórico de implementação como:
 
 ![Histórico de implantação](./media/linked-templates/deployment-history.png)
 
-Pode utilizar estas entradas separadas na história para recuperar valores de saída após a implantação. O seguinte modelo cria um endereço IP público e saídas do endereço IP:
+Pode utilizar estas entradas separadas no histórico para recuperar os valores de saída após a implantação. O modelo a seguir cria um endereço IP público e produz o endereço IP:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "publicIPAddresses_name": {
@@ -654,11 +652,11 @@ Pode utilizar estas entradas separadas na história para recuperar valores de sa
 }
 ```
 
-O modelo seguinte liga-se ao modelo anterior. Cria três endereços IP públicos.
+O modelo a seguir liga-se ao modelo anterior. Cria três endereços IP públicos.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
   },
@@ -699,7 +697,7 @@ for ($i = 0; $i -lt $loopCount; $i++)
 }
 ```
 
-Ou, guião Azure CLI numa concha bash:
+Ou, guião do Azure CLI numa concha bash:
 
 ```azurecli-interactive
 #!/bin/bash
@@ -715,17 +713,17 @@ done
 
 ## <a name="securing-an-external-template"></a>Assegurar um modelo externo
 
-Embora o modelo ligado tenha de estar disponível externamente, não precisa de estar geralmente disponível para o público. Pode adicionar o seu modelo a uma conta de armazenamento privada acessível apenas ao proprietário da conta de armazenamento. Em seguida, cria um símbolo de assinatura de acesso partilhado (SAS) para permitir o acesso durante a implementação. Adicione o token SAS ao URI para o modelo ligado. Embora o símbolo seja passado como uma corda segura, o URI do modelo ligado, incluindo o token SAS, está registado nas operações de implantação. Para limitar a exposição, estabeleça uma expiração para o símbolo.
+Embora o modelo ligado tenha de estar disponível externamente, não precisa de estar geralmente disponível para o público. Pode adicionar o seu modelo a uma conta de armazenamento privada que esteja acessível apenas ao proprietário da conta de armazenamento. Em seguida, cria um token de assinatura de acesso partilhado (SAS) para permitir o acesso durante a implementação. Adicione o símbolo SAS ao URI para o modelo ligado. Mesmo que o token seja passado como uma cadeia segura, o URI do modelo ligado, incluindo o token SAS, é registado nas operações de implantação. Para limitar a exposição, estabeleça uma expiração para o token.
 
-O ficheiro parâmetro também pode ser limitado ao acesso através de um token SAS.
+O ficheiro de parâmetros também pode ser limitado ao acesso através de um token SAS.
 
-Atualmente, não é possível ligar a um modelo numa conta de armazenamento que esteja por trás de uma [firewall de Armazenamento Azure](../../storage/common/storage-network-security.md).
+Atualmente, não é possível ligar-se a um modelo numa conta de armazenamento que está por detrás de uma [firewall de armazenamento Azure](../../storage/common/storage-network-security.md).
 
-O exemplo que se segue mostra como passar um símbolo SAS ao ligar-se a um modelo:
+O exemplo a seguir mostra como passar um token SAS ao ligar a um modelo:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
   "containerSasToken": { "type": "securestring" }
@@ -749,7 +747,7 @@ O exemplo que se segue mostra como passar um símbolo SAS ao ligar-se a um model
 }
 ```
 
-No PowerShell, obtém-se um símbolo para o recipiente e desdobra os modelos com os seguintes comandos. Note que o parâmetro **contentorSasToken** está definido no modelo. Não é um parâmetro no comando **new-AzResourceGroupDeployment.**
+No PowerShell, obtém-se um símbolo para o recipiente e implanta os modelos com os seguintes comandos. Note que o **parâmetro de ContainerAsToken** está definido no modelo. Não é um parâmetro no comando **New-AzResourceGroupDeployment.**
 
 ```azurepowershell-interactive
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
@@ -758,7 +756,7 @@ $url = (Get-AzStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
-Para o Azure CLI numa concha bash, obtém-se um símbolo para o recipiente e desdobra os modelos com o seguinte código:
+Para o Azure CLI numa concha bash, obtém-se um símbolo para o recipiente e implanta os modelos com o seguinte código:
 
 ```azurecli-interactive
 #!/bin/bash
@@ -785,17 +783,17 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 ## <a name="example-templates"></a>Modelos de exemplo
 
-Os exemplos seguintes mostram usos comuns de modelos ligados.
+Os exemplos a seguir mostram utilizações comuns de modelos ligados.
 
 |Modelo principal  |Modelo ligado |Descrição  |
 |---------|---------| ---------|
 |[Olá Mundo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Retorna a corda do modelo ligado. |
-|[Balancer de carga com endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Devolve o endereço IP público do modelo ligado e define esse valor no equilibrador de carga. |
-|[Vários endereços IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Cria vários endereços IP públicos no modelo ligado.  |
+|[Balanceador de carga com endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Devolve o endereço IP público do modelo ligado e define esse valor no equilibrador de carga. |
+|[Vários endereços IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Cria vários endereços IP públicos em modelo ligado.  |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para passar por um tutorial, consulte [Tutorial: crie modelos ligados do Gestor de Recursos Azure.](template-tutorial-create-linked-templates.md)
-* Para conhecer a definição da ordem de implantação dos seus recursos, consulte [dependências de definição nos modelos do Gestor](define-resource-dependency.md)de Recursos Azure .
-* Para aprender a definir um recurso mas criar muitos casos do mesmo, consulte [Criar múltiplas instâncias de recursos no Gestor de Recursos Azure.](copy-resources.md)
-* Para passos na configuração de um modelo numa conta de armazenamento e na geração de uma ficha SAS, consulte [a implantação de recursos com modelos](deploy-powershell.md) de Gestor de Recursos e o Azure PowerShell ou [desloque recursos com modelos](deploy-cli.md)de Gestor de Recursos e ClI Azure .
+* Para passar por um tutorial, consulte [Tutorial: crie modelos ligados do Gestor de Recursos Azure](./deployment-tutorial-linked-template.md).
+* Para saber mais sobre a definição da ordem de implantação dos seus recursos, consulte [definindo dependências nos modelos do Gestor de Recursos Azure](define-resource-dependency.md).
+* Para aprender a definir um recurso mas criar muitos casos do mesmo, consulte [Criar múltiplas instâncias de recursos no Azure Resource Manager.](copy-resources.md)
+* Para etapas na configuração de um modelo numa conta de armazenamento e na geração de um token SAS, consulte [recursos de implantação com modelos de gestor de recursos e recursos Azure PowerShell](deploy-powershell.md) ou [Implementar recursos com modelos de Gestor de Recursos e Azure CLI](deploy-cli.md).

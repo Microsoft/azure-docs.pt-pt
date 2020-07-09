@@ -1,7 +1,7 @@
 ---
-title: Instalar e executar contentores - Análise de Texto
+title: Instalar e executar recipientes - Text Analytics
 titleSuffix: Azure Cognitive Services
-description: Como descarregar, instalar e executar recipientes para Text Analytics neste tutorial de walkthrough.
+description: Como descarregar, instalar e executar recipientes para Text Analytics neste tutorial walkthrough.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,41 +9,42 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: efe76323b4159af01f1eaf470d9c1833edd0a186
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 8d08a0ab8f817d70343686f907ac444af392ea06
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702128"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108995"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contentores da Análise de Texto
 
 > [!NOTE]
-> * O recipiente para Análise de Sentimentos v3 está agora geralmente disponível. A frase-chave de extração e deteção de linguagens está disponível como pré-visualização pública ungida.
-> * Entidade seletiva e NER não estão atualmente disponíveis como recipiente.
+> * O recipiente para Análise de Sentimento v3 está agora geralmente disponível. A frase-chave de extração e de deteção de linguagem está disponível como uma pré-visualização pública não acompanhada.
+> * A ligação da entidade e o NER não estão atualmente disponíveis como recipiente.
+> * Atualmente, não será cobrado para text analytics para uso de recipientes de saúde.
 
-Os contentores permitem-lhe executar as APIs analíticas do texto no seu próprio ambiente e são ótimos para os seus requisitos específicos de segurança e governança de dados. Os recipientes Text Analytics fornecem processamento avançado de linguagem natural sobre texto cru, e incluem três funções principais: análise de sentimentos, extração de frases-chave e deteção de linguagem. 
+Os contentores permitem-lhe executar as APIs analíticas de texto no seu próprio ambiente e são ótimos para os seus requisitos específicos de segurança e governação de dados. Os recipientes Text Analytics fornecem processamento avançado da linguagem natural sobre o texto cru, e incluem três funções principais: análise de sentimento, extração de frases-chave e deteção de linguagem. 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!IMPORTANT]
-> A conta gratuita está limitada a 5.000 transações por mês e apenas os níveis de preços **Free** e **Standard** são <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">válidos <span class="docon docon-navigate-external x-hidden-focus"></span> </a> para contentores. Para obter mais informações sobre as taxas de pedido de transação, consulte [Limites de Dados](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
+> A conta gratuita está limitada a 5.000 transações por mês e apenas os níveis de preços **Gratuitos** e **Standard** são <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> válidos</a> para contentores. Para obter mais informações sobre as taxas de pedido de transação, consulte [Limites de Dados](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar qualquer um dos recipientes text Analytics, deve ter o computador de acolhimento e os ambientes de contentores.
+Para executar qualquer um dos recipientes text Analytics, você deve ter os ambientes do computador e do recipiente hospedeiro.
 
 ## <a name="preparation"></a>Preparação
 
-Deve cumprir os seguintes pré-requisitos antes de utilizar os recipientes Text Analytics:
+Deve encontrar os seguintes pré-requisitos antes de utilizar os recipientes text Analytics:
 
 |Necessário|Objetivo|
 |--|--|
-|Motor do Docker| Precisa do Motor Docker instalado num [computador de acolhimento.](#the-host-computer) O Docker oferece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os recipientes se conectem e enviem dados de faturação para o Azure. <br><br> **No Windows,** o Docker também deve ser configurado para suportar os recipientes Linux.<br><br>|
-|Familiaridade com Docker | Você deve ter uma compreensão básica dos conceitos docker, como registos, repositórios, contentores e imagens de contentores, bem como conhecimento de `docker` comandos básicos.| 
-|Recurso de Análise de Texto |Para utilizar o recipiente, deve ter:<br><br>Um recurso Azure [Text Analytics](../../cognitive-services-apis-create-account.md) para obter a chave API associada e o ponto final URI. Ambos os valores estão disponíveis nas páginas de Visão Geral e Chaves do portal Azure e são necessários para iniciar o recipiente.<br><br>**{API_KEY}**: Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}**: O ponto final fornecido na página **'Visão Geral'**|
+|Motor do Docker| Precisa do Motor Docker instalado num [computador anfitrião.](#the-host-computer) O Docker oferece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contentores se conectem e enviem dados de faturação para a Azure. <br><br> **No Windows,** o Docker também deve ser configurado para suportar recipientes Linux.<br><br>|
+|Familiaridade com Docker | Você deve ter uma compreensão básica de conceitos docker, como registos, repositórios, contentores e imagens de contentores, bem como conhecimento de `docker` comandos básicos.| 
+|Recurso de análise de texto |Para utilizar o recipiente, deve ter:<br><br>Um recurso Azure [Text Analytics](../../cognitive-services-apis-create-account.md) para obter a chave API associada e ponto final URI. Ambos os valores estão disponíveis nas páginas de Análise de Texto e Chaves do portal Azure e são obrigados a iniciar o contentor.<br><br>**{API_KEY}**: Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}**: O ponto final, conforme fornecido na página **'Vista Geral',**|
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
 
@@ -51,22 +52,24 @@ Deve cumprir os seguintes pré-requisitos antes de utilizar os recipientes Text 
 
 [!INCLUDE [Host Computer requirements](../../../../includes/cognitive-services-containers-host-computer.md)]
 
-### <a name="container-requirements-and-recommendations"></a>Requisitos e recomendações de contentores
+### <a name="container-requirements-and-recommendations"></a>Requisitos e recomendações do contentor
 
-O quadro seguinte descreve as especificações mínimas e recomendadas para os recipientes text Analytics. São necessários pelo menos 2 gigabytes (GB) de memória, e cada núcleo cpu deve ser pelo menos 2,6 gigahertz (GHz) ou mais rápido. As transações admissíveis por secção (TPS) também estão listadas.
+O quadro a seguir descreve as especificações mínimas e recomendadas para os recipientes Text Analytics. São necessários pelo menos 2 gigabytes (GB) de memória, e cada núcleo de CPU deve ser de pelo menos 2,6 gigahertz (GHz) ou mais rápido. As transações admissíveis por secção (TPS) também estão listadas.
 
-|  | Especificações mínimas de acolhimento | Especificações recomendadas para o hospedeiro | TPS mínimo | TPS máximo|
+|  | Especificações mínimas de anfitrião | Especificações recomendadas do anfitrião | TPS mínimos | TPS máximo|
 |---|---------|-------------|--|--|
-| **Deteção de linguagem, extração de frase-chave**   | 1 núcleo, 2GB de memória | 1 núcleo, 4GB de memória |15 | 30|
-| **Análise de Sentimento v3**   | 1 núcleo, 2GB de memória | 4 núcleos, 8GB de memória |15 | 30|
+| **Deteção de linguagem, extração de frases-chave**   | 1 núcleo, 2GB de memória | 1 núcleo, 4GB de memória |15 | 30|
+| **Análise de Sentimento v3**   | 1 núcleo, 2GB de memória | 4 núcleos, memória de 8GB |15 | 30|
+| **Análise de texto para a saúde - 1 documento/pedido**   |  4 núcleo, memória de 10GB | 6 núcleo, 12GB de memória |15 | 30|
+| **Análise de texto para saúde - 10 documentos/pedido**   |  6 núcleo, 16GB de memória | 8 núcleo, 20GB de memória |15 | 30|
 
-O núcleo e a memória do CPU correspondem às `--cpus` definições e `--memory` definições, que são utilizadas como parte do `docker run` comando.
+O núcleo e a memória do CPU correspondem às `--cpus` `--memory` definições e configurações, que são utilizadas como parte do `docker run` comando.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obtenha a imagem do recipiente com`docker pull`
 
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-As imagens do contentor para O Análise de Texto estão disponíveis no Registo de Contentores da Microsoft.
+As imagens do contentor para Análise de Texto estão disponíveis no Registo do Contentor da Microsoft.
 
 # <a name="sentiment-analysis-v3"></a>[Análise de Sentimento v3](#tab/sentiment)
 
@@ -80,30 +83,27 @@ As imagens do contentor para O Análise de Texto estão disponíveis no Registo 
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
+# <a name="text-analytics-for-health-preview"></a>[Análise de texto para saúde (pré-visualização)](#tab/healthcare)
+
+[!INCLUDE [docker-pull-health-container](../includes/docker-pull-health-container.md)]
+
 ***
 
-## <a name="how-to-use-the-container"></a>Como utilizar o recipiente
+## <a name="how-to-use-the-container"></a>Como usar o recipiente
 
-Uma vez que o recipiente esteja no [computador de acolhimento,](#the-host-computer)utilize o seguinte processo para trabalhar com o recipiente.
+Uma vez que o recipiente esteja no [computador anfitrião,](#the-host-computer)utilize o seguinte processo para trabalhar com o recipiente.
 
 1. [Executar o recipiente,](#run-the-container-with-docker-run)com as definições de faturação necessárias.
-1. [Consulta do ponto final da previsão do recipiente](#query-the-containers-prediction-endpoint).
+1. [Consultar o ponto final de previsão do recipiente.](#query-the-containers-prediction-endpoint)
 
 ## <a name="run-the-container-with-docker-run"></a>Executar o recipiente com`docker run`
 
-Utilize o comando de execução de [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar os contentores. O recipiente continuará a funcionar até o parar.
-
-Substitua os espaços reservados abaixo por valores próprios:
-
-| Marcador de posição | Valor | Formato ou exemplo |
-|-------------|-------|---|
-| **{API_KEY}** | A chave para o seu recurso Text Analytics. Pode encontrá-lo na **página chave e ponto final** do seu recurso, no portal Azure. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | O ponto final para aceder à API de Análise de Texto. Pode encontrá-lo na **página chave e ponto final** do seu recurso, no portal Azure. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+Use o comando de execução do [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar os contentores. O contentor continuará a funcionar até o parar.
 
 > [!IMPORTANT]
-> * Os comandos do estivador nas seguintes secções usam o corte traseiro, como um carácter de continuação da `\` linha. Substitua ou remova isto com base nos requisitos do sistema operativo do hospedeiro. 
-> * O `Eula` `Billing` , e as `ApiKey` opções devem ser especificadas para executar o recipiente; caso contrário, o recipiente não arranca.  Para mais informações, consulte [billing.](#billing)
-> * O recipiente v3 de análise de sentimento está agora geralmente disponível, o que devolve [etiquetas](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) de sentimento na resposta. A frase-chave de extração e dedetecção de linguagens utiliza v2 da API e está em pré-visualização.
+> * Os comandos do estivador nas seguintes secções usam o corte `\` traseiro, como um personagem de continuação de linha. Substitua ou remova isto com base nos requisitos do seu sistema operativo anfitrião. 
+> * As `Eula` `Billing` opções , e `ApiKey` opções devem ser especificadas para executar o recipiente; caso contrário, o recipiente não arranca.  Para mais informações, consulte [Billing.](#billing)
+> * O contentor v3 de análise de sentimento está agora geralmente disponível, que devolve [rótulos de sentimento](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) na resposta. Os recipientes de extração de frases-chave e de deteção de linguagem utilizam v2 da API e estão em pré-visualização.
 
 # <a name="sentiment-analysis-v3"></a>[Análise de Sentimento v3](#tab/sentiment)
 
@@ -117,15 +117,19 @@ Substitua os espaços reservados abaixo por valores próprios:
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
+# <a name="text-analytics-for-health-preview"></a>[Análise de texto para saúde (pré-visualização)](#tab/healthcare)
+
+[!INCLUDE [docker-run-health-container](../includes/docker-run-health-container.md)]
+
 ***
 
 [!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
-## <a name="query-the-containers-prediction-endpoint"></a>Consulta do ponto final da previsão do recipiente
+## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto final de previsão do contentor
 
-O recipiente fornece APIs finais de previsão de consulta baseadas em REST.
+O recipiente fornece APIs de previsão de consulta baseada em REST.
 
-Utilize o `http://localhost:5000` hospedeiro, para apis de contentor.
+Utilize o hospedeiro, `http://localhost:5000` para apis de contentores.
 
 <!--  ## Validate container is running -->
 
@@ -137,7 +141,7 @@ Utilize o `http://localhost:5000` hospedeiro, para apis de contentor.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Se executar o recipiente com um [suporte](../text-analytics-resource-container-config.md#mount-settings) de saída e uma exploração de madeira ativada, o recipiente gera ficheiros de registo que são úteis para resolver problemas que ocorrem durante o arranque ou funcionamento do recipiente.
+Se executar o recipiente com um [suporte](../text-analytics-resource-container-config.md#mount-settings) de saída e um registo ativado, o recipiente gera ficheiros de registo que são úteis para resolver problemas que ocorrem durante o arranque ou execução do recipiente.
 
 [!INCLUDE [Cognitive Services FAQ note](../../containers/includes/cognitive-services-faq-note.md)]
 
@@ -147,7 +151,7 @@ Os recipientes Text Analytics enviam informações de faturação para o Azure, 
 
 [!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Para mais informações sobre estas opções, consulte [os recipientes Configur.](../text-analytics-resource-container-config.md)
+Para obter mais informações sobre estas opções, consulte [os recipientes Configure](../text-analytics-resource-container-config.md).
 
 <!--blogs/samples/video course -->
 
@@ -155,22 +159,22 @@ Para mais informações sobre estas opções, consulte [os recipientes Configur.
 
 ## <a name="summary"></a>Resumo
 
-Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar e executar contentores de Text Analytics. Em resumo:
+Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar e executar recipientes de Text Analytics. Em resumo:
 
-* O Text Analytics fornece três recipientes Linux para o Docker, encapsulando várias capacidades:
+* A Text Analytics fornece três recipientes Linux para Docker, encapsulando várias capacidades:
    * *Análise de Sentimentos*
    * *Extração de frases-chave (pré-visualização)* 
    * *Deteção de Idiomas (pré-visualização)*
-   
-* As imagens de contentores são descarregadas a partir do Registo de Contentores da Microsoft (MCR) em Azure.
+   * *Análise de Texto para Saúde (pré-visualização)*
+* As imagens do contentor são descarregadas a partir do Registo de Contentores da Microsoft (MCR) ou do repositório de contentores de pré-visualização.
 * Imagens de contentores correm em Docker.
-* Pode utilizar a API REST ou SDK para ligar para operações em recipientes de Análise de Texto, especificando o uri hospedeiro do recipiente.
-* Deve especificar a informação de faturação ao instantaneamente um recipiente.
+* Pode utilizar a API REST ou a SDK para ligar para operações em recipientes Text Analytics especificando o hospedeiro URI do recipiente.
+* Deve especificar as informações de faturação ao instantaneamente um recipiente.
 
 > [!IMPORTANT]
-> Os recipientes dos Serviços Cognitivos não estão licenciados para funcionar sem serem ligados ao Azure para medição. Os clientes precisam de permitir que os contentores comuniquem sempre informações de faturação com o serviço de medição. Os recipientes dos Serviços Cognitivos não enviam dados dos clientes (por exemplo, texto que está a ser analisado) para a Microsoft.
+> Os recipientes dos Serviços Cognitivos não estão licenciados para funcionar sem estarem ligados ao Azure para a medição. Os clientes precisam de permitir que os contentores comuniquem informações de faturação com o serviço de medição em todos os momentos. Os recipientes de Serviços Cognitivos não enviam dados do cliente (por exemplo, texto que está a ser analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Rever [Configure recipientes](../text-analytics-resource-container-config.md) para configurações de configuração
-* Consulte [as perguntas frequentes (FAQ)](../text-analytics-resource-faq.md) para resolver problemas relacionados com a funcionalidade.
+* [Rever recipientes de configuração](../text-analytics-resource-container-config.md) para configurações de configuração
+* Consulte [perguntas frequentes (FAQ)](../text-analytics-resource-faq.md) para resolver problemas relacionados com a funcionalidade.

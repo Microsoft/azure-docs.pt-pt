@@ -1,37 +1,36 @@
 ---
-title: Problema de instalação do Conector de Agente proxy da aplicação [ Microsoft Docs
-description: Como resolver problemas que pode enfrentar ao instalar o Conector de Agente proxy de aplicação
+title: Problema na instalação do Agente Proxy de aplicação Connector ; Microsoft Docs
+description: Como resolver problemas que pode enfrentar ao instalar o Conector de Agente de Procuração de Aplicação
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f73d46b612c1dcf94554e10b4820c3f2442248f
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 602ca070bcaefd20585681e409ab85e9d455160a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82172411"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764694"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema ao instalar o Conector do Agente do Proxy de Aplicações
 
-O Conector proxy proxy da aplicação Microsoft AAD é um componente interno de domínio que utiliza ligações de saída para estabelecer a conectividade desde o ponto final disponível da nuvem até ao domínio interno.
+O Microsoft AAD Application Proxy Connector é um componente de domínio interno que utiliza ligações de saída para estabelecer a conectividade desde o ponto final disponível na nuvem até ao domínio interno.
 
-## <a name="general-problem-areas-with-connector-installation"></a>Áreas de problemas gerais com instalação de conector
+## <a name="general-problem-areas-with-connector-installation"></a>Áreas de problemas gerais com instalação do conector
 
-Quando a instalação de um conector falha, a causa da raiz é geralmente uma das seguintes áreas:
+Quando a instalação de um conector falha, a causa raiz é geralmente uma das seguintes áreas:
 
-1.  **Conectividade** – para completar uma instalação bem sucedida, o novo conector precisa de registar e estabelecer futuras propriedades fiducieis. Isto é feito ligando-se ao serviço de nuvem proxy de aplicação aAD.
+1.  **Conectividade** – para concluir uma instalação bem sucedida, o novo conector precisa de registar e estabelecer futuras propriedades fidediárias. Isto é feito ligando-se ao serviço de cloud Proxy da aplicação AAD.
 
 2.  **Trust Establishment** – o novo conector cria um certificado auto-assinado e regista-se no serviço de nuvem.
 
@@ -40,34 +39,34 @@ Quando a instalação de um conector falha, a causa da raiz é geralmente uma da
 > [!NOTE]
 > Os registos de instalação do Conector podem ser encontrados na pasta %TEMP% e podem ajudar a fornecer informações adicionais sobre o que está a causar uma falha de instalação.
 
-## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Verifique a conectividade com o serviço Proxy de Aplicação de Aplicação cloud e página de Login da Microsoft
+## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Verifique a conectividade com o serviço Proxy da Aplicação cloud e a página de Login do Microsoft
 
-**Objetivo:** Verifique se a máquina de conector pode ligar-se ao ponto final de registo proxy da aplicação AAD, bem como à página de login da Microsoft.
+**Objetivo:** Verifique se a máquina de conector pode ligar-se ao ponto de partida de registo do AAD Application Proxy, bem como à página de login da Microsoft.
 
-1.  No servidor do conector, efetue um teste de porta utilizando [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) ou outra ferramenta de teste de porta para verificar se as portas 443 e 80 estão abertas.
+1.  No servidor do conector, esgoe um teste de porta utilizando [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) ou outra ferramenta de teste de porta para verificar se as portas 443 e 80 estão abertas.
 
-2.  Se alguma dessas portas não for bem sucedida, verifique se o Firewall ou o proxy backend têm acesso aos domínios e portas necessários, [Prepare o ambiente no local.](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment)
+2.  Se alguma dessas portas não for bem sucedida, verifique se o Firewall ou o representante de backend têm acesso aos domínios e portas necessários, [prepare o ambiente no local](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
-3.  Abra um browser (separador) e vá `https://login.microsoftonline.com`para a seguinte página web: , certifique-se de que pode iniciar sessão nessa página.
+3.  Abra um browser (separador separado) e vá para a seguinte página web: `https://login.microsoftonline.com` , certifique-se de que pode iniciar sessão nessa página.
 
-## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-certificate"></a>Verificar suporte de componentes de máquina e backend para certificado de confiança proxy de aplicação
+## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-certificate"></a>Verifique o suporte de componentes de máquina e backend para certificado de confiança de procuração de aplicação
 
-**Objetivo:** Verifique se a máquina de conector, o proxy de backend e a firewall podem suportar o certificado criado pelo conector para futura confiança e se o certificado é válido.
+**Objetivo:** Verifique se a máquina de conector, o proxy e a firewall podem suportar o certificado criado pelo conector para futura confiança e se o certificado é válido.
 
 >[!NOTE]
->O conector tenta criar um certificado SHA512 que é suportado por TLS1.2. Se a máquina ou a firewall e o proxy não suportarem o TLS1.2, a instalação falha.
+>O conector tenta criar um certificado SHA512 que é suportado por TLS1.2. Se a máquina ou a firewall de backend e o proxy não suportam TLS1.2, a instalação falha.
 >
 >
 
-**Reveja os requisitos necessários:**
+**Rever os requisitos necessários:**
 
-1.  Verifique se a máquina suporta TLS1.2 – Todas as versões Windows após 2012 R2 devem suportar TLS 1.2. Se a sua máquina de conector for de uma versão de 2012 R2 ou anterior, certifique-se de que os seguintes KBs estão instalados na máquina:<https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
+1.  Verifique se a máquina suporta TLS1.2 – Todas as versões do Windows depois de 2012 R2 devem suportar TLS 1.2. Se a sua máquina de conector for de uma versão de 2012 R2 ou anterior, certifique-se de que os seguintes KBs estão instalados na máquina:<https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
 
-2.  Contacte o administrador da sua rede e peça para verificar se o proxy e firewall de backend não bloqueiam o SHA512 para tráfego de saída.
+2.  Contacte a sua administração de rede e peça para verificar se o representante e firewall de backend não bloqueiam o TRÁFEGO SHA512 para o tráfego de saída.
 
-**Para verificar o certificado de cliente:**
+**Para verificar o certificado do cliente:**
 
-Verifique a impressão digital do certificado de cliente atual. A loja de certificados pode ser encontrada em %ProgramData%\microsoft\Microsoft AAD Application Proxy Connector\Config\TrustSettings.xml
+Verifique a impressão digital do certificado de cliente atual. A loja de certificados pode ser encontrada em %ProgramData%\microsoft\microsoft\Microsoft AAD Application Proxy Connector\Config\TrustSettings.xml
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -81,29 +80,29 @@ Verifique a impressão digital do certificado de cliente atual. A loja de certif
 
 Aqui estão os possíveis valores e significados **da IsInUserStore:**
 
-- **falso** - O certificado de cliente foi criado durante a instalação ou registo iniciado pelo comando Register-AppProxyConnector. Encontra-se guardado no contentor pessoal no certificado da máquina local. 
+- **falso** - O certificado de cliente foi criado durante a instalação ou registo iniciado pelo comando Register-AppProxyConnector. Está guardado no contentor pessoal na loja de certificados da máquina local. 
 
-Siga as medidas para verificar o certificado:
+Siga as etapas para verificar o certificado:
 
 1. Executar **certlm.msc**
 2. Na consola de gestão expanda o recipiente Pessoal e clique em Certificados
-3. Localize o certificado emitido pela **connectorregistrationca.msappproxy.net**
+3. Localize o certificado emitido por **connectorregistrationca.msappproxy.net**
 
-- **verdadeiro** - O certificado renovado automaticamente é armazenado no recipiente pessoal no certificado de utilizador do Serviço de Rede. 
+- **verdadeiro** - O certificado renovado automaticamente é armazenado no contentor pessoal na loja de certificados de utilizador do Serviço de Rede. 
 
-Siga as medidas para verificar o certificado:
+Siga as etapas para verificar o certificado:
 
 1. Baixar [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
-2. [Extraio o PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) da embalagem e execute o **psexec -i -u "nt authority\network service" cmd.exe** de um pedido de comando elevado.
+2. Extrair [o PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) do pacote e executar **o psexec -i-u "nt authority\network service" cmd.exe** de uma solicitação de comando elevada.
 3. Executar **certmgr.msc** no pedido de comando recém-aparecido
 2. Na consola de gestão expanda o recipiente Pessoal e clique em Certificados
-3. Localize o certificado emitido pela **connectorregistrationca.msappproxy.net**
+3. Localize o certificado emitido por **connectorregistrationca.msappproxy.net**
 
 **Para renovar o certificado de cliente:**
 
-Se um conector não estiver ligado ao serviço durante vários meses, os seus certificados podem estar desatualizados. A falha da renovação do certificado conduz a um certificado caducado. Isto faz com que o serviço de conector deixe de funcionar. O evento 1000 é registado no registo administrativo do conector:
+Se um conector não estiver ligado ao serviço durante vários meses, os seus certificados podem estar desatualizados. A falta de renovação do certificado leva a um certificado caducado. Isto faz com que o serviço de conector deixe de funcionar. O evento 1000 é registado no registo administrativo do conector:
 
-"Falha na reinscrição do conector: O certificado de confiança connector expirou. Execute o PowerShell cmdlet Register-AppProxyConnector no computador no qual o Conector está a funcionar para voltar a registar o seu Conector."
+"O re-registo do conector falhou: o certificado de confiança do Conector expirou. Executar o PowerShell Register-AppProxyConnector no computador em que o Conector está a executar para voltar a registar o seu Conector."
 
 Neste caso, desinstale e reinstale o conector para acionar o registo ou pode executar os seguintes comandos PowerShell:
 
@@ -112,17 +111,17 @@ Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
 
-Para saber mais sobre o comando Register-AppProxyConnector, consulte Criar um script de [instalação sem supervisão para o conector proxy de aplicação ad azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
+Para saber mais sobre o comando Register-AppProxyConnector, consulte [Criar um script de instalação sem supervisão para o conector de aplicação AD Ad Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
 
-## <a name="verify-admin-is-used-to-install-the-connector"></a>Verifique se a administração é usada para instalar o conector
+## <a name="verify-admin-is-used-to-install-the-connector"></a>Verifique se a administração é utilizada para instalar o conector
 
 **Objetivo:** Verifique se o utilizador que tenta instalar o conector é um administrador com credenciais corretas. Atualmente, o utilizador deve ser pelo menos um administrador de aplicação para que a instalação tenha sucesso.
 
-**Para verificar se as credenciais estão corretas:**
+**Para verificar as credenciais estão corretas:**
 
-Ligue-se `https://login.microsoftonline.com` e use as mesmas credenciais. Certifique-se de que o login tem sucesso. Pode verificar a função do utilizador indo para utilizadores de **diretório sonorizadores**  - &gt; ativos do Azure **e grupos**  - &gt; **todos os utilizadores**. 
+Ligue-se `https://login.microsoftonline.com` e use as mesmas credenciais. Certifique-se de que o login é bem sucedido. Pode verificar a função do utilizador indo para Utilizadores e **Grupos de Diretório Azure Ative**  - &gt; **Users and Groups**  - &gt; **Todos os Utilizadores**. 
 
-Selecione a sua conta de utilizador e, em seguida, "Role de Direção" no menu resultante. Verifique se a função selecionada é "Administrador de Aplicação". Se não conseguir aceder a nenhuma das páginas ao longo destes passos, não tem o papel necessário.
+Selecione a sua conta de utilizador e, em seguida, "Papel de Diretório" no menu resultante. Verifique se a função selecionada é "Administrador de Aplicação". Se não conseguir aceder a nenhuma das páginas ao longo destes degraus, não tem o papel necessário.
 
-## <a name="next-steps"></a>Passos seguintes
-[Compreender os conectores de procuração de aplicação da AD Azure](application-proxy-connectors.md)
+## <a name="next-steps"></a>Próximos passos
+[Compreenda os conectores Proxy de aplicação AD Azure](application-proxy-connectors.md)

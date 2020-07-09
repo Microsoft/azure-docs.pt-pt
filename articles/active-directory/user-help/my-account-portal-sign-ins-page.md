@@ -1,6 +1,6 @@
 ---
-title: Veja e pesquise a sua recente atividade de entrada na página My Sign-in (pré-visualização) - Diretório Ativo Azure / Microsoft Docs
-description: Detalhes sobre como visualizar e pesquisar a sua recente atividade de inscrição na página My Sign-ins do portal My Account.
+title: Veja e pesque a sua recente atividade de inscrição a partir da página My Sign-in (pré-visualização) - Azure Ative Directory / Microsoft Docs
+description: Detalhes sobre como visualizar e pesquisar a sua recente atividade de acesso a partir da página My's Ins do portal My Account.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,19 +12,18 @@ ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
 ms.openlocfilehash: 0b3b0d686ae10f9b376c977bf165eccddda32239
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83744519"
 ---
-# <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Veja e procure a sua recente atividade de inscrição na página My Sign-ins (pré-visualização)
+# <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Ver e pesquisar a sua atividade de sposição recente a partir da página My's (pré-visualização)
 
-Pode ver todo o seu trabalho recente ou atividade de inscrição na conta escolar, a partir da página **My Sign-ins** do portal **My Account.** Rever o seu histórico de inscrições ajuda-o a verificar por atividades incomuns, ajudando-o a ver:
+Pode ver todo o seu trabalho recente ou atividade de inscrição na conta escolar, a partir da página **My's Ins** do portal **My Account.** Rever o seu histórico de inscrições ajuda-o a verificar se há atividades incomuns, ajudando-o a ver:
 
 - Se alguém está a tentar adivinhar a tua senha.
 
-- Se um intruso assinou com sucesso na sua conta, e a partir de que localização.
+- Se um agressor se inscreveu com sucesso na sua conta e a partir de que local.
 
 - Que aplicações o agressor tentou aceder.
 
@@ -32,44 +31,44 @@ Pode ver todo o seu trabalho recente ou atividade de inscrição na conta escola
 
 1. Inscreva-se na sua conta de trabalho ou escola e depois vá para a sua https://myaccount.microsoft.com/ página.
 
-2. Selecione **My Sign-ins (pré-visualização)** do painel de navegação esquerdo ou selecione o link de **atividade recente da Revisão** a partir do bloco My **sign-ins (pré-visualização).**
+2. Selecione **Os Meus Ins de Sação (pré-visualização)** a partir do painel de navegação esquerdo ou selecione o link de **atividade recente** do bloco **de ins-ins (pré-visualização) do Meu.I.A.**
 
-    ![A página da minha Conta, mostrando links de atividade sintetizados](media/my-account-portal/my-account-portal-sign-ins.png)
+    ![Página da Minha Conta, mostrando destaque Nos recentes links de atividade](media/my-account-portal/my-account-portal-sign-ins.png)
 
-3. Expandir e rever cada um dos itens de inscrição, certificando-se de que reconhece cada um deles. Se encontrar um item de entrada que não pareça familiar, recomendamos vivamente que altere a sua palavra-passe para ajudar a proteger a sua conta se esta estiver comprometida.
+3. Expanda e reveja cada um dos itens de inscrição, certificando-se de que reconhece cada um deles. Se encontrar um item de entrada que não pareça familiar, recomendamos vivamente que altere a sua palavra-passe para ajudar a proteger a sua conta se esta estiver comprometida.
 
-    ![Página de atividade recente com detalhes de inscrição expandidos](media/my-account-portal/my-account-portal-sign-ins-page.png)
+    ![Página de atividade recente com detalhes de inscrição expandido](media/my-account-portal/my-account-portal-sign-ins-page.png)
 
-### <a name="if-you-see-a-successful-sign-in"></a>Se vir um sessão de sucesso
+### <a name="if-you-see-a-successful-sign-in"></a>Se vir um sucesso de sindes
 
-Devia reconhecer a sua própria atividade como sendo normal. No entanto, se notar um sessão de acesso bem sucedido a partir de uma localização estranha, navegador ou sistema operativo, pode significar que um intruso teve acesso à sua conta. Nesta situação, recomendamos que altere imediatamente a sua palavra-passe e, em seguida, vá à página de [informações](https://mysignins.microsoft.com/security-info) de Segurança para atualizar as definições de segurança.
+Devia reconhecer a sua própria atividade como sendo normal. No entanto, se notar uma sing-in bem-sucedida a partir de uma localização, navegador ou sistema operativo estranho, pode significar que um intruso tenha tido acesso à sua conta. Nesta situação, recomendamos que altere imediatamente a sua palavra-passe e, em seguida, vá à página [de informações de Segurança](https://mysignins.microsoft.com/security-info) para atualizar as suas definições de segurança.
 
-Antes de determinar que algo está incorreto, certifique-se de que não está a ver um falso positivo (onde o item parece questionável, mas está bem). Por exemplo, determinamos a sua localização e mapa aproximados com base no seu Endereço IP. As redes móveis são especialmente difíceis de identificar, uma vez que, por vezes, encaminham o tráfego através de locais distantes. Por isso, se assinou o uso do seu dispositivo móvel no estado de Washington, o local pode mostrar o sinal vindo da Califórnia. Por causa disso, sugerimos vivamente que verifique mais detalhes, além da localização. Também deve certificar-se de que o sistema operativo, o navegador e a aplicação também fazem sentido.
+Antes de determinar que algo está errado, certifique-se de que não está a ver um falso positivo (onde o item parece questionável, mas está bem). Por exemplo, determinamos a sua localização e mapa aproximados com base no seu Endereço IP. As redes móveis são especialmente difíceis de identificar, uma vez que, por vezes, encaminham o tráfego através de locais distantes. Então, se se inscreveu usando o seu dispositivo móvel no estado de Washington, a localização pode mostrar o sinal vindo da Califórnia. Por causa disso, sugerimos fortemente que verifique mais detalhes, além da localização. Também deve certificar-se de que o sistema operativo, o navegador e a aplicação também fazem sentido.
 
-### <a name="if-you-see-an-unsuccessful-sign-in"></a>Se vir um insessão mal sucedido
+### <a name="if-you-see-an-unsuccessful-sign-in"></a>Se vir um s-in sem sucesso
 
-Um inserção mal sucedido, sem atividade de sessão, significa que o seu método de verificação primária (nome de utilizador/palavra-passe) falhou. Isto pode significar que enevoou o seu nome de utilizador ou palavra-passe, mas também pode significar que um intruso estava a tentar adivinhar a sua palavra-passe. Se acha que foi um intruso a tentar adivinhar sem sucesso a sua palavra-passe, não tem de alterar a sua palavra-passe, mas sugerimos fortemente que se registe para a Autenticação Multi-Factor (MFA) do Azure. Com o MFA, mesmo que o hacker adivinhe eventualmente a sua palavra-passe, não será suficiente para aceder à sua conta.
+Um inserção infrutífero, sem atividade de sessão, significa que o seu método de verificação primária (nome de utilizador/palavra-passe) falhou. Isto pode significar que desmarça mal o seu nome de utilizador ou palavra-passe, mas também pode significar que um intruso estava a tentar adivinhar a sua palavra-passe. Se acha que foi um intruso a tentar adivinhar sem sucesso a sua palavra-passe, não tem de alterar a sua palavra-passe, mas sugerimos fortemente que se registe na Autenticação Multi-Factor (MFA) do Azure. Com o MFA, mesmo que o hacker adivinhe a sua palavra-passe, não será suficiente para aceder à sua conta.
 
-Se vir um insessão mal sucedido, com uma nota no âmbito da atividade da Sessão que diz, **Verificação adicional falhou, código inválido,** significa que a sua autenticação primária (username/password) foi bem sucedida, mas o MFA falhou. Se isto fosse um intruso, eles adivinharam corretamente a sua palavra-passe, mas ainda não foram capazes de passar o desafio da MFA. Neste caso, recomendamos que ainda altere a sua palavra-passe, uma vez que o atacante acertou na peça e, em seguida, vá à página de [informações](https://mysignins.microsoft.com/security-info) de Segurança para atualizar as definições de segurança.
+Se vir um sessão de sessão mal sucedido, com uma nota na atividade de Sessão que diz que a **verificação adicional falhou, código inválido,** significa que a sua autenticação primária (nome de utilizador/palavra-passe) foi bem sucedida, mas a MFA falhou. Se isto foi um intruso, eles adivinharam corretamente a tua palavra-passe, mas mesmo assim não conseguiram passar o desafio da MFA. Neste caso, recomendamos que ainda altere a sua palavra-passe, uma vez que o intruso acertou na peça e, em seguida, vá à página [de informações de Segurança](https://mysignins.microsoft.com/security-info) para atualizar as suas definições de segurança.
 
-## <a name="search-for-specific-sign-in-activity"></a>Procurar atividade específica de iniciar sessão
+## <a name="search-for-specific-sign-in-activity"></a>Pesquisa rumo a uma atividade específica de inscrição
 
-Pode pesquisar a sua recente atividade de inscrição por qualquer uma das informações disponíveis. Por exemplo, pode pesquisar a sua recente atividade de sessão através do sistema operativo, localização, app, e assim por diante.
+Pode pesquisar a sua recente atividade de inscrição por qualquer informação disponível. Por exemplo, pode pesquisar a sua recente atividade de inscrição através do sistema operativo, localização, aplicação, e assim por diante.
 
-1. Na página de **atividades recentes do Reveja,** escreva as informações que pretende procurar na barra **de Pesquisa.** Por exemplo, digite `My Account` para procurar por toda a atividade recolhida pela aplicação My Account.
+1. Na página **de atividades recentes** do Rever, digite as informações que pretende procurar na barra de **Pesquisa.** Por exemplo, `My Account` escreva para procurar por toda a atividade recolhida pela aplicação My Account.
 
-2. Selecione o botão **'Procurar'** para começar a procurar.
+2. Selecione o botão **Procurar** para começar a procurar.
 
-    ![Página de Atividades recentes, mostrando barra de pesquisa destacada, botão de pesquisa e resultados](media/my-account-portal/my-account-portal-sign-ins-page-search.png)
+    ![Página de Atividades recentes, mostrando barra de pesquisa, botão de pesquisa e resultados](media/my-account-portal/my-account-portal-sign-ins-page-search.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de ver a sua recente atividade de inscrição, pode:
 
-- Veja ou gere a sua informação de [segurança.](user-help-security-info-overview.md)
+- Ver ou gerir a sua [informação de segurança.](user-help-security-info-overview.md)
 
-- Veja ou gerencie os seus [dispositivos conectados](my-account-portal-devices-page.md).
+- Ver ou gerir os [seus dispositivos ligados](my-account-portal-devices-page.md).
 
 - Ver ou gerir as suas [organizações.](my-account-portal-organizations-page.md)
 
-- Veja como a sua organização [utiliza os seus dados relacionados com](my-account-portal-privacy-page.md)a privacidade.
+- Veja como a sua organização [utiliza os seus dados relacionados com a privacidade.](my-account-portal-privacy-page.md)

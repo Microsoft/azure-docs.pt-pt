@@ -11,12 +11,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 05/07/2020
-  ms.openlocfilehash: 73d36c795ca4be905ac6e9bab31cfe00374bfa13
-  ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+  ms.openlocfilehash: ff16b175c3ea2a323ccca3c3b2eabc5f93520079
+  ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/08/2020
-  ms.locfileid: "82930629"
+  ms.lasthandoff: 05/29/2020
+  ms.locfileid: "84170431"
 landingContent:
 - title: Acerca do Balanceador de Carga
   linkLists:
@@ -90,6 +90,8 @@ landingContent:
       url: load-balancer-troubleshoot.md
     - text: Erros comuns do Balanceador de Carga do Azure
       url: load-balancer-common-deployment-errors.md
+    - text: Resolver problemas comuns de ligação de saída
+      url: troubleshoot-outbound-connection.md
 - title: Referência
   linkLists:
   - linkListType: reference

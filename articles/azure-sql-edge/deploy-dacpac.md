@@ -1,26 +1,25 @@
 ---
-title: Utilizando pacotes DAC de Base de Dados SQL - Borda SQL Azure (pré-visualização)
-description: Saiba mais sobre o uso de dacpacs em Azure SQL Edge (Pré-visualização)
+title: Utilização de pacotes DAC de base de dados SQL - Azure SQL Edge (Pré-visualização)
+description: Saiba mais sobre a utilização de dacpacs em Azure SQL Edge (Preview)
 keywords: SQL Edge, sqlpackage
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 17d0ba4d7298e60255477c4801e0bcb9b9a4ecac
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.openlocfilehash: 0ddd1544c6a51ff1e2f98a28e40d9eb2ee0b47c7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598270"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84233287"
 ---
-# <a name="sql-database-dac-packages-in-sql-edge"></a>Pacotes DAC da Base de Dados SQL em SQL Edge
+# <a name="sql-database-dac-packages-in-sql-edge"></a>Pacotes DAC de base de dados SQL em SQL Edge
 
-Azure SQL Edge (Preview) é um motor de base de dados relacional otimizado, orientado para implantações ioT e borda. É construído com base nas versões mais recentes do Microsoft SQL Server Database Engine, que fornece capacidades de desempenho, segurança e processamento de consultas líderes na indústria. Juntamente com as principais capacidades de gestão de bases de dados relacionais líderes na indústria do SQL Server, o Azure SQL Edge fornece capacidade de streaming incorporada para análise em tempo real e processamento complexo de eventos.
+Azure SQL Edge (Preview) é um motor de base de dados relacional otimizado, orientado para implementações de IoT e bordas. É construído nas versões mais recentes do Microsoft SQL Server Database Engine, que fornece capacidades de processamento de desempenho, segurança e consulta líderes do setor. Juntamente com as capacidades de gestão de bases de dados relacionais líderes no setor do SQL Server, o Azure SQL Edge fornece capacidade de streaming incorporada para análise em tempo real e processamento complexo de eventos.
 
-O Azure SQL Edge também fornece uma implementação nativa de SqlPackage.exe que lhe permite implementar um pacote DAC de Base de [Dados SQL](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) durante a implementação do SQL Edge. Os dacpacs da Base de Dados SQL podem ser implantados para SQL Edge utilizando o parâmetro SqlPackage exposto através `module twin's desired properties` da opção do módulo SQL Edge:
+O Azure SQL Edge também fornece uma implementação nativa de SqlPackage.exe que lhe permite implementar um pacote [DAC de base de dados SQL](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) durante a implementação do SQL Edge. Os dacpacs sql Database podem ser implantados na SQL Edge utilizando o parâmetro SqlPackage exposto através `module twin's desired properties` da opção do módulo SQL Edge:
 
 ```json
 {
@@ -34,35 +33,35 @@ O Azure SQL Edge também fornece uma implementação nativa de SqlPackage.exe qu
 
 |Campo | Descrição |
 |------|-------------|
-| SqlPackage | Armazenamento Azure Blob URI para o ficheiro *.zip que contém o pacote DAC da Base de Dados De Base de Dados SQL.
-| ASAJobInfo | Armazenamento Azure Blob URI para o trabalho asa edge.
+| SqlPackage | Azure Blob armazenamento URI para o ficheiro *.zip que contém o pacote DAC base de dados SQL.
+| ASAJobInfo | Azure Blob armazenamento URI para o trabalho ASA Edge.
 
-## <a name="use-a-sql-database-dac-package-with-sql-edge"></a>Utilize um pacote DAC de Base de Dados SQL com Borda SQL
+## <a name="use-a-sql-database-dac-package-with-sql-edge"></a>Utilize um pacote DAC de base de dados SQL com sql edge
 
-Para utilizar um pacote DAC de Base de Dados SQL (*.dacpac) com SQL Edge, siga estes passos:
+Para utilizar um pacote DAC sql Database (*.dacpac) com SQL Edge, siga estes passos:
 
-1. Crie ou extraia um pacote DAC de Base de Dados SQL. Consulte [a extração de um DAC a partir de uma base](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) de dados para obter informações sobre como gerar um pacote DAC para uma base de dados existente do Servidor SQL.
+1. Criar ou extrair um pacote DAC de base de dados SQL. Consulte [a extração de um DAC de uma base de dados](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) para obter informações sobre como gerar um pacote DAC para uma base de dados do SQL Server existente.
 
-2. Feche o *.dacpac e carregue-o para uma conta de armazenamento Azure Blob. Para obter mais informações sobre o upload de ficheiros para o armazenamento do Blob Azure, consulte upload, download e lista de [blobs com o portal Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
+2. Feche o *.dacpac e carreje-o para uma conta de armazenamento Azure Blob. Para obter mais informações sobre o upload de ficheiros para o armazenamento do Azure Blob, consulte [upload, download e liste blobs com o portal Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-3. Gere uma assinatura de acesso partilhado para o ficheiro zip utilizando o portal Azure. Para mais informações, consulte o [acesso do Delegado com assinaturas de acesso partilhado (SAS)](../storage/common/storage-sas-overview.md).
+3. Gere uma assinatura de acesso partilhado para o ficheiro zip utilizando o portal Azure. Para obter mais informações, consulte [o acesso do Delegado com assinaturas de acesso partilhado (SAS)](../storage/common/storage-sas-overview.md).
 
-4. Atualize a configuração do módulo SQL Edge para incluir o URI de acesso partilhado para o pacote DAC. Para atualizar o módulo SQL Edge, tome estas medidas:
+4. Atualize a configuração do módulo SQL Edge para incluir o URI de acesso partilhado para o pacote DAC. Para atualizar o módulo SQL Edge, tome estes passos:
 
-    1. No portal Azure, vá ao seu ioT Hub implantação.
+    1. No portal Azure, vá para a sua implantação IoT Hub.
 
     2. No painel esquerdo, selecione **IoT Edge**.
 
     3. Na página **IoT Edge,** encontre e selecione o IoT Edge onde o módulo SQL Edge está implantado.
 
-    4. Na página do **dispositivo IoT Edge Device,** selecione **Módulo de Conjunto**.
+    4. Na página do **dispositivo IoT Edge Device,** selecione **O Módulo de Conjunto**.
 
-    5. Na página **de módulos set,** selecione **Configure** contra o módulo SQL Edge.
+    5. Na página **de módulos set,** selecione **Configurar** contra o módulo SQL Edge.
 
-    6. No painel **ioT Edge Custom Modules,** selecione **set module twin propriedades desejadas**. Atualize as propriedades desejadas para incluir o URI para a `SQLPackage` opção, como mostra o seguinte exemplo.
+    6. No painel **IoT Edge Custom Modules,** selecione **Definir as propriedades desejadas do módulo Twin**. Atualize as propriedades desejadas para incluir o URI para a `SQLPackage` opção, como mostra o exemplo seguinte.
 
         > [!NOTE]
-        > O SAS URI no JSON seguinte é apenas um exemplo. Substitua o URI pelo URI real da sua implantação.
+        > O SAS URI no seguinte JSON é apenas um exemplo. Substitua o URI pelo URI real da sua implantação.
 
         ```json
             {
@@ -75,16 +74,16 @@ Para utilizar um pacote DAC de Base de Dados SQL (*.dacpac) com SQL Edge, siga e
 
     7. Selecione **Guardar**.
 
-    8. Na página **de módulos set,** selecione **Next**.
+    8. Na página **de módulos set,** selecione **Seguinte**.
 
-    9. Na página **de módulos set,** selecione **Seguinte** e, em seguida, **Submeta**.
+    9. Na página **de módulos set,** selecione **Seguinte** e, em seguida, **Submeta.**
 
-5. Após a atualização do módulo, o ficheiro de pacote SC é descarregado, desapertado e implantado contra a instância SQL Edge.
+5. Após a atualização do módulo, o ficheiro de pacotes DAC é descarregado, desapertado e implantado contra a instância SQL Edge.
 
-Em cada reinício do recipiente Azure SQL Edge, o pacote de ficheiros *.dacpac é descarregado e avaliado para alterações. Se for encontrada uma nova versão do ficheiro dacpac, as alterações são implementadas na base de dados do SQL Edge.
+Em cada reinicio do recipiente Azure SQL Edge, o pacote de ficheiros *.dacpac é descarregado e avaliado para alterações. Se for encontrada uma nova versão do ficheiro dacpac, as alterações são implementadas na base de dados em SQL Edge.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Implementar o SQL Edge através](deploy-portal.md)do portal Azure .
-- [Dados de fluxo](stream-data.md)
+- [Implementar sql edge através do portal Azure](deploy-portal.md).
+- [Dados de Fluxo](stream-data.md)
 - [Machine learning e IA com ONNX em SQL Edge (Pré-visualização)](onnx-overview.md)

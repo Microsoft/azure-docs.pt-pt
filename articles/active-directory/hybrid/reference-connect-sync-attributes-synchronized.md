@@ -1,6 +1,6 @@
 ---
-title: Atributos sincronizados por Azure AD Connect [ Ligação AD] Microsoft Docs
-description: Lista os atributos sincronizados com o Diretório Ativo Azure.
+title: Atributos sincronizados por Azure AD Connect Microsoft Docs
+description: Lista os atributos sincronizados ao Azure Ative Directory.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,113 +17,113 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab51030ad39e1360cabc7d63390af7c1654d2891
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82082123"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: atributos sincronizados com o Azure Active Directory
-Este tópico lista os atributos sincronizados pela sincronização Azure AD Connect.  
-Os atributos são agrupados pela aplicação Azure AD relacionada.
+Este tópico lista os atributos que são sincronizados pela sincronização Azure AD Connect.  
+Os atributos são agrupados pela aplicação AZure AD relacionada.
 
 ## <a name="attributes-to-synchronize"></a>Atributos para sincronizar
-Uma questão comum é *qual é a lista de atributos mínimos para sincronizar*. A abordagem padrão e recomendada é manter os atributos padrão para que uma GAL completa (Global Address List) possa ser construída na nuvem e obter todas as funcionalidades em cargas de trabalho do Office 365. Em alguns casos, existem alguns atributos que a sua organização não quer sincronizada na nuvem, uma vez que estes atributos contêm dados sensíveis ou PII (informação pessoalmente identificável), como neste exemplo:  
-![atributos maus](./media/reference-connect-sync-attributes-synchronized/badextensionattribute.png)
+Uma questão comum é *qual é a lista de atributos mínimos para sincronizar.* A abordagem padrão e recomendada é manter os atributos predefinidos para que um GAL completo (Global Address List) possa ser construído na nuvem e obter todas as funcionalidades no Office 365 cargas de trabalho. Em alguns casos, existem alguns atributos que a sua organização não quer sincronizado na nuvem uma vez que estes atributos contêm dados sensíveis ou PII (informações pessoalmente identificáveis), como neste exemplo:  
+![maus atributos](./media/reference-connect-sync-attributes-synchronized/badextensionattribute.png)
 
-Neste caso, comece com a lista de atributos neste tópico e identifique os atributos que contenham dados sensíveis ou PII e não possam ser sincronizados. Em seguida, desmarque esses atributos durante a instalação utilizando [a aplicação Azure AD e atribua a filtragem](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering).
+Neste caso, comece com a lista de atributos neste tópico e identifique os atributos que contêm dados sensíveis ou PII e não podem ser sincronizados. Em seguida, desseleccione esses atributos durante a instalação utilizando [a aplicação AD Azure e atribua a filtragem](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering)de atributos .
 
 > [!WARNING]
-> Ao desseleccionar atributos, deve ser cauteloso e apenas desseleccionar esses atributos absolutamente não é possível sincronizar. A desselecção de outros atributos pode ter um impacto negativo nas funcionalidades.
+> Ao desselecionar atributos, deve ser cauteloso e apenas dessele esses atributos absolutamente não possível sincronizar. Não seleção de outros atributos pode ter um impacto negativo nas funcionalidades.
 >
 >
 
 ## <a name="office-365-proplus"></a>Office 365 ProPlus
 | Nome do atributo | Utilizador | Comentário |
 | --- |:---:| --- |
-| contaEnabled |X |Define se uma conta está ativada. |
+| accountEnabled |X |Define se uma conta está ativada. |
 | cn |X | |
 | displayName |X | |
-| SIDobjeto |X |propriedade mecânica. Identificador de utilizador aD usado para manter a sincronização entre Azure AD e AD. |
-| pwdLastSet |X |propriedade mecânica. Costumava saber quando invalidar fichas já emitidas. Usado por ambos os sincroninos de hash de senha, autenticação pass-through e federação. |
+| SIDobjeto |X |propriedade mecânica. Identificador de utilizador de AD usado para manter a sincronização entre Azure AD e AD. |
+| pwdLastSet |X |propriedade mecânica. Costumava saber quando invalidar fichas já emitidas. Usado por sincronização de haxixe de palavra-passe, autenticação de passagem e federação. |
 |NomeContaSam|X| |
-| fonteÂncora |X |propriedade mecânica. Identificador imutável para manter a relação entre ADDS e Azure AD. |
+| fonteAnchor |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o Azure AD. |
 | utilizaçãoLocalização |X |propriedade mecânica. País/região do utilizador. Usado para atribuição de licença. |
-| userPrincipalName |X |A UPN é o ID de login para o utilizador. Na maioria das vezes o mesmo que o valor [do correio]. |
+| userPrincipalName |X |UPN é o ID de login para o utilizador. Na maioria das vezes, o mesmo valor que o valor [do correio]. |
 
 ## <a name="exchange-online"></a>Exchange Online
 | Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
-| contaEnabled |X | | |Define se uma conta está ativada. |
+| accountEnabled |X | | |Define se uma conta está ativada. |
 | assistente |X |X | | |
-| altRecipient |X | | |Requer azure AD Connect construir 1.1.552.0 ou depois. |
+| altRecipient |X | | |Requer a Azure AD Connect construir 1.1.552.0 ou depois. |
 | authOrig |X |X |X | |
 | c |X |X | | |
 | cn |X | |X | |
 | co |X |X | | |
 | empresa |X |X | | |
-| paísCódigo |X |X | | |
+| paísDesco |X |X | | |
 | departamento |X |X | | |
 | descrição | | |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
-| extensãoAtribuir1 |X |X |X | |
-| extensãoAtribuído10 |X |X |X | |
-| extensãoAtribuído11 |X |X |X | |
-| extensãoAtribuído12 |X |X |X | |
-| extensãoAtribuído13 |X |X |X | |
-| extensãoAtribuído14 |X |X |X | |
-| extensãoAtribuído15 |X |X |X | |
-| extensãoAtribuir2 |X |X |X | |
-| extensãoAtribuir3 |X |X |X | |
-| extensãoAtribuir4 |X |X |X | |
-| extensãoAtribuir5 |X |X |X | |
-| extensãoAtribuir6 |X |X |X | |
-| extensãoAtribuir7 |X |X |X | |
-| extensãoAtribuir8 |X |X |X | |
-| extensãoAtribuir9 |X |X |X | |
-| facsimilephonenumber |X |X | | |
+| extensãoAttribute1 |X |X |X | |
+| extensãoAttribute10 |X |X |X | |
+| extensãoTribui11 |X |X |X | |
+| extensãoAttribute12 |X |X |X | |
+| extensãoAttribute13 |X |X |X | |
+| extensãoAttribute14 |X |X |X | |
+| extensãoAttribute15 |X |X |X | |
+| extensãoAttribute2 |X |X |X | |
+| extensãoAttribute3 |X |X |X | |
+| extensãoAttribute4 |X |X |X | |
+| extensãoAttribute5 |X |X |X | |
+| extensãoAttribute6 |X |X |X | |
+| extensãoAttribute7 |X |X |X | |
+| extensãoAttribute8 |X |X |X | |
+| extensãoAttribute9 |X |X |X | |
+| facsimiletelephonenumber |X |X | | |
 | nomeDado |X |X | | |
 | homePhone |X |X | | |
 | informações |X |X |X |Este atributo não é atualmente consumido para grupos. |
 | Iniciais |X |X | | |
 | l |X |X | | |
 | legacyExchangeDN |X |X |X | |
-| mailApelido |X |X |X | |
+| mailSemame |X |X |X | |
 | managedBy | | |X | |
 | gestor |X |X | | |
 | membro | | |X | |
 | dispositivo móvel |X |X | | |
 | msDS-HABSeniorityIndex |X |X |X | |
-| msDS-PhoneticDisplayDisplayName |X |X |X | |
+| msDS-PhoneticDisplayName |X |X |X | |
 | msExchArchiveGUID |X | | | |
 | msExchArchiveName |X | | | |
 | msExchAssistantName |X |X | | |
 | msExchAuditAdmin |X | | | |
-| msExchAuditDelegate |X | | | |
-| msExchDelegateDelegateAdmin |X | | | |
+| msExchAuditDeegate |X | | | |
+| msExchAuditDeegateAdmin |X | | | |
 | msExchAuditOwner |X | | | |
 | msExchBlockedSendersHash |X |X | | |
 | msExchBypassAudit |X | | | |
-| msExchBypassModerationLink | | |X |Disponível na versão 1.1.1.524.0 do Azure AD Connect |
+| msExchBypassModerationLink | | |X |Disponível em Azure AD Connect versão 1.1.524.0 |
 | msExchCoManagedByLink | | |X | |
-| msExchDelegateListLink |X | | | |
-| msExchELCExpiraySuspensionEnd |X | | | |
-| msExchELCExpiraySuspensionStart |X | | | |
+| msExchDeegateListLink |X | | | |
+| msExchELCExpirySuspensionEnd |X | | | |
+| msExchELCExpirySuspensionStart |X | | | |
 | msExchELCMailboxFlags |X | | | |
-| msExchEnableModeração |X | |X | |
+| msExchEnableModeration |X | |X | |
 | msExchExtensionCustomAttribute1 |X |X |X |Este atributo não é atualmente consumido pela Exchange Online. |
 | msExchExtensionCustomAttribute2 |X |X |X |Este atributo não é atualmente consumido pela Exchange Online. |
 | msExchExtensionCustomAttribute3 |X |X |X |Este atributo não é atualmente consumido pela Exchange Online. |
 | msExchExtensionCustomAttribute4 |X |X |X |Este atributo não é atualmente consumido pela Exchange Online. |
 | msExchExtensionCustomAttribute5 |X |X |X |Este atributo não é atualmente consumido pela Exchange Online. |
 | msExchHideFromAddressLists |X |X |X | |
-| msExchImmutableID |X | | | |
+| MSExchImmutableID |X | | | |
 | msExchLitigationHoldDate |X |X |X | |
 | msExchLitigationHoldOwner |X |X |X | |
 | msExchMailboxAuditEnable |X | | | |
-| msExchMailboxAuditAuditAgeAgeLimit |X | | | |
+| msExchMailboxAuditLogAgeLimit |X | | | |
 | msExchMailboxGuid |X | | | |
 | msExchModeratedByLink |X |X |X | |
 | msExchModerationFlags |X |X |X | |
@@ -139,72 +139,72 @@ Neste caso, comece com a lista de atributos neste tópico e identifique os atrib
 | msExchRetentionURL |X |X |X | |
 | msExchSafeRecipientsHash |X |X | | |
 | msExchSafeSendersHash |X |X | | |
-| msExchSenderHintTradus |X |X |X | |
-| msExchTeamMailboxExpiração |X | | | |
+| msExchSenderHintTranslations |X |X |X | |
+| msExchTeamMailboxExpiration |X | | | |
 | msExchTeamMailboxOwners |X | | | |
 | msExchTeamMailboxSharePointUrl |X | | | |
 | msExchUserHoldPolicies |X | | | |
 | msOrg-IsOrganizational | | |X | |
-| SIDobjeto |X | |X |propriedade mecânica. Identificador de utilizador aD usado para manter a sincronização entre Azure AD e AD. |
-| oOFAnswerToOriginator | | |X | |
-| outrosFacsimilePhone |X |X | | |
-| outroHomePhone |X |X | | |
-| outro Telefone |X |X | | |
+| SIDobjeto |X | |X |propriedade mecânica. Identificador de utilizador de AD usado para manter a sincronização entre Azure AD e AD. |
+| oOFReplyToOriginator | | |X | |
+| outrosFacsimileTelephone |X |X | | |
+| outrosHomePhone |X |X | | |
+| outrostelefones |X |X | | |
 | pager |X |X | | |
-| physicalDeliveryOfficeName |X |X | | |
-| Código postal |X |X | | |
+| físicoDeliveryOfficeName |X |X | | |
+| código postal |X |X | | |
 | proxyAddresses |X |X |X | |
-| delegados públicos |X |X |X | |
-| pwdLastSet |X | | |propriedade mecânica. Costumava saber quando invalidar fichas já emitidas. Usado tanto pela sincronização de palavras-passe como pela federação. |
+| públicosDelegados |X |X |X | |
+| pwdLastSet |X | | |propriedade mecânica. Costumava saber quando invalidar fichas já emitidas. Usado tanto por sincronização de passwords como pela federação. |
 | reportToOriginator | | |X | |
-| relatórioToOwner | | |X | |
+| reportToOwner | | |X | |
 | sn |X |X | | |
-| fonteÂncora |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre ADDS e Azure AD. |
+| fonteAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o Azure AD. |
 | SC |X |X | | |
 | streetAddress |X |X | | |
-| endereço alvo |X |X | | |
-| telefoneAssistente |X |X | | |
-| telefoneNúmero |X |X | | |
-| miniaturafoto |X |X | | |
+| targetAddress |X |X | | |
+| telefoneSa resistente |X |X | | |
+| número de telefone |X |X | | |
+| thumbnailphoto |X |X | | |
 | título |X |X | | |
 | unauthOrig |X |X |X | |
 | utilizaçãoLocalização |X | | |propriedade mecânica. País/região do utilizador. Usado para atribuição de licença. |
 | userCertificate |X |X | | |
-| userPrincipalName |X | | |A UPN é o ID de login para o utilizador. Na maioria das vezes o mesmo que o valor [do correio]. |
-| userSMIMECertificados |X |X | | |
+| userPrincipalName |X | | |UPN é o ID de login para o utilizador. Na maioria das vezes, o mesmo valor que o valor [do correio]. |
+| utilizaçõesMIMECertifica |X |X | | |
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>SharePoint Online
 | Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
-| contaEnabled |X | | |Define se uma conta está ativada. |
+| accountEnabled |X | | |Define se uma conta está ativada. |
 | authOrig |X |X |X | |
 | c |X |X | | |
 | cn |X | |X | |
 | co |X |X | | |
 | empresa |X |X | | |
-| paísCódigo |X |X | | |
+| paísDesco |X |X | | |
 | departamento |X |X | | |
 | descrição |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
-| extensãoAtribuir1 |X |X |X | |
-| extensãoAtribuído10 |X |X |X | |
-| extensãoAtribuído11 |X |X |X | |
-| extensãoAtribuído12 |X |X |X | |
-| extensãoAtribuído13 |X |X |X | |
-| extensãoAtribuído14 |X |X |X | |
-| extensãoAtribuído15 |X |X |X | |
-| extensãoAtribuir2 |X |X |X | |
-| extensãoAtribuir3 |X |X |X | |
-| extensãoAtribuir4 |X |X |X | |
-| extensãoAtribuir5 |X |X |X | |
-| extensãoAtribuir6 |X |X |X | |
-| extensãoAtribuir7 |X |X |X | |
-| extensãoAtribuir8 |X |X |X | |
-| extensãoAtribuir9 |X |X |X | |
-| facsimilephonenumber |X |X | | |
+| extensãoAttribute1 |X |X |X | |
+| extensãoAttribute10 |X |X |X | |
+| extensãoTribui11 |X |X |X | |
+| extensãoAttribute12 |X |X |X | |
+| extensãoAttribute13 |X |X |X | |
+| extensãoAttribute14 |X |X |X | |
+| extensãoAttribute15 |X |X |X | |
+| extensãoAttribute2 |X |X |X | |
+| extensãoAttribute3 |X |X |X | |
+| extensãoAttribute4 |X |X |X | |
+| extensãoAttribute5 |X |X |X | |
+| extensãoAttribute6 |X |X |X | |
+| extensãoAttribute7 |X |X |X | |
+| extensãoAttribute8 |X |X |X | |
+| extensãoAttribute9 |X |X |X | |
+| facsimiletelephonenumber |X |X | | |
 | nomeDado |X |X | | |
 | hideDLMembership | | |X | |
 | homephone |X |X | | |
@@ -213,53 +213,53 @@ Neste caso, comece com a lista de atributos neste tópico e identifique os atrib
 | ipPhone |X |X | | |
 | l |X |X | | |
 | correio |X |X |X | |
-| apelido de correio |X |X |X | |
+| nome de mailnickname |X |X |X | |
 | managedBy | | |X | |
 | gestor |X |X | | |
 | membro | | |X | |
-| nome do meio |X |X | | |
+| nome médio |X |X | | |
 | dispositivo móvel |X |X | | |
-| msExchTeamMailboxExpiração |X | | | |
+| msExchTeamMailboxExpiration |X | | | |
 | msExchTeamMailboxOwners |X | | | |
 | msExchTeamMailboxSharePointLinkedBy |X | | | |
 | msExchTeamMailboxSharePointUrl |X | | | |
-| SIDobjeto |X | |X |propriedade mecânica. Identificador de utilizador aD usado para manter a sincronização entre Azure AD e AD. |
-| oOFAnswerToOriginator | | |X | |
-| outrosFacsimilePhone |X |X | | |
-| outroHomePhone |X |X | | |
-| outroIpPhone |X |X | | |
-| outrosMóvel |X |X | | |
-| outroPager |X |X | | |
-| outro Telefone |X |X | | |
+| SIDobjeto |X | |X |propriedade mecânica. Identificador de utilizador de AD usado para manter a sincronização entre Azure AD e AD. |
+| oOFReplyToOriginator | | |X | |
+| outrosFacsimileTelephone |X |X | | |
+| outrosHomePhone |X |X | | |
+| outrosIpPhone |X |X | | |
+| otherME |X |X | | |
+| outros Pager |X |X | | |
+| outrostelefones |X |X | | |
 | pager |X |X | | |
-| physicalDeliveryOfficeName |X |X | | |
-| Código postal |X |X | | |
+| físicoDeliveryOfficeName |X |X | | |
+| código postal |X |X | | |
 | postOfficeBox |X |X | |Este atributo não é atualmente consumido pelo SharePoint Online. |
-| língua preferida |X | | | |
+| preferiuLanguage |X | | | |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |propriedade mecânica. Costumava saber quando invalidar fichas já emitidas. Usado por ambos os sincroninos de hash de senha, autenticação pass-through e federação. |
+| pwdLastSet |X | | |propriedade mecânica. Costumava saber quando invalidar fichas já emitidas. Usado por sincronização de haxixe de palavra-passe, autenticação de passagem e federação. |
 | reportToOriginator | | |X | |
-| relatórioToOwner | | |X | |
+| reportToOwner | | |X | |
 | sn |X |X | | |
-| fonteÂncora |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre ADDS e Azure AD. |
+| fonteAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o Azure AD. |
 | SC |X |X | | |
 | streetAddress |X |X | | |
-| endereço alvo |X |X | | |
-| telefoneAssistente |X |X | | |
-| telefoneNúmero |X |X | | |
-| miniaturafoto |X |X | | |
+| targetAddress |X |X | | |
+| telefoneSa resistente |X |X | | |
+| número de telefone |X |X | | |
+| thumbnailphoto |X |X | | |
 | título |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
 | utilizaçãoLocalização |X | | |propriedade mecânica. País/região do utilizador
 . Usado para atribuição de licença. |
-| userPrincipalName |X | | |A UPN é o ID de login para o utilizador. Na maioria das vezes o mesmo que o valor [do correio]. |
+| userPrincipalName |X | | |UPN é o ID de login para o utilizador. Na maioria das vezes, o mesmo valor que o valor [do correio]. |
 | wWWHomePage |X |X | | |
 
-## <a name="teams-and-skype-for-business-online"></a>Equipas e Skype para Negócios Online
+## <a name="teams-and-skype-for-business-online"></a>Equipas e Skype para Business Online
 | Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
-| contaEnabled |X | | |Define se uma conta está ativada. |
+| accountEnabled |X | | |Define se uma conta está ativada. |
 | c |X |X | | |
 | cn |X | |X | |
 | co |X |X | | |
@@ -267,119 +267,119 @@ Neste caso, comece com a lista de atributos neste tópico e identifique os atrib
 | departamento |X |X | | |
 | descrição |X |X |X | |
 | displayName |X |X |X | |
-| facsimilephonenumber |X |X |X | |
+| facsimiletelephonenumber |X |X |X | |
 | nomeDado |X |X | | |
 | homephone |X |X | | |
 | ipPhone |X |X | | |
 | l |X |X | | |
 | correio |X |X |X | |
-| mailApelido |X |X |X | |
+| mailSemame |X |X |X | |
 | managedBy | | |X | |
 | gestor |X |X | | |
 | membro | | |X | |
 | dispositivo móvel |X |X | | |
 | msExchHideFromAddressLists |X |X |X | |
-| msRTCSIP-ApplicationOptions |X | | | |
+| msRTCSIP-AplicaçãoOptions |X | | | |
 | msRTCSIP-DeploymentLocator |X |X | | |
 | msRTCSIP-Line |X |X | | |
 | msRTCSIP-OptionFlags |X |X | | |
 | msRTCSIP-OwnerUrn |X | | | |
 | msRTCSIP-PrimaryUserAddress |X |X | | |
 | msRTCSIP-UserEnabled |X |X | | |
-| SIDobjeto |X | |X |propriedade mecânica. Identificador de utilizador aD usado para manter a sincronização entre Azure AD e AD. |
-| outro Telefone |X |X | | |
-| physicalDeliveryOfficeName |X |X | | |
-| Código postal |X |X | | |
-| língua preferida |X | | | |
+| SIDobjeto |X | |X |propriedade mecânica. Identificador de utilizador de AD usado para manter a sincronização entre Azure AD e AD. |
+| outrostelefones |X |X | | |
+| físicoDeliveryOfficeName |X |X | | |
+| código postal |X |X | | |
+| preferiuLanguage |X | | | |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |propriedade mecânica. Costumava saber quando invalidar fichas já emitidas. Usado por ambos os sincroninos de hash de senha, autenticação pass-through e federação. |
+| pwdLastSet |X | | |propriedade mecânica. Costumava saber quando invalidar fichas já emitidas. Usado por sincronização de haxixe de palavra-passe, autenticação de passagem e federação. |
 | sn |X |X | | |
-| fonteÂncora |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre ADDS e Azure AD. |
+| fonteAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o Azure AD. |
 | SC |X |X | | |
 | streetAddress |X |X | | |
-| telefoneNúmero |X |X | | |
-| miniaturafoto |X |X | | |
+| número de telefone |X |X | | |
+| thumbnailphoto |X |X | | |
 | título |X |X | | |
 | utilizaçãoLocalização |X | | |propriedade mecânica. País/região do utilizador. Usado para atribuição de licença. |
-| userPrincipalName |X | | |A UPN é o ID de login para o utilizador. Na maioria das vezes o mesmo que o valor [do correio]. |
+| userPrincipalName |X | | |UPN é o ID de login para o utilizador. Na maioria das vezes, o mesmo valor que o valor [do correio]. |
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
 | Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
-| contaEnabled |X | | |Define se uma conta está ativada. |
-| cn |X | |X |Nome comum ou pseudónimo. Na maioria das vezes o prefixo do valor [do correio]. |
-| displayName |X |X |X |Uma cadeia que representa o nome frequentemente mostrado como o nome amigável (nome do primeiro nome). |
+| accountEnabled |X | | |Define se uma conta está ativada. |
+| cn |X | |X |Nome comum ou pseudónimo. Na maioria das vezes, o prefixo do valor [do correio]. |
+| displayName |X |X |X |Uma corda que representa o nome frequentemente mostrado como o nome amigável (nome de primeiro nome). |
 | correio |X |X |X |endereço de e-mail completo. |
 | membro | | |X | |
-| SIDobjeto |X | |X |propriedade mecânica. Identificador de utilizador aD usado para manter a sincronização entre Azure AD e AD. |
-| proxyAddresses |X |X |X |propriedade mecânica. Usado pela Azure AD. Contém todos os endereços de e-mail secundários para o utilizador. |
+| SIDobjeto |X | |X |propriedade mecânica. Identificador de utilizador de AD usado para manter a sincronização entre Azure AD e AD. |
+| proxyAddresses |X |X |X |propriedade mecânica. Usado por Azure AD. Contém todos os endereços de e-mail secundários para o utilizador. |
 | pwdLastSet |X | | |propriedade mecânica. Costumava saber quando invalidar fichas já emitidas. |
-| fonteÂncora |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre ADDS e Azure AD. |
+| fonteAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o Azure AD. |
 | utilizaçãoLocalização |X | | |propriedade mecânica. País/região do utilizador. Usado para atribuição de licença. |
-| userPrincipalName |X | | |Esta UPN é o ID de login para o utilizador. Na maioria das vezes o mesmo que o valor [do correio]. |
+| userPrincipalName |X | | |Este UPN é o ID de login para o utilizador. Na maioria das vezes, o mesmo valor que o valor [do correio]. |
 
 ## <a name="intune"></a>Intune
 | Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
-| contaEnabled |X | | |Define se uma conta está ativada. |
+| accountEnabled |X | | |Define se uma conta está ativada. |
 | c |X |X | | |
 | cn |X | |X | |
 | descrição |X |X |X | |
 | displayName |X |X |X | |
 | correio |X |X |X | |
-| apelido de correio |X |X |X | |
+| nome de mailnickname |X |X |X | |
 | membro | | |X | |
-| SIDobjeto |X | |X |propriedade mecânica. Identificador de utilizador aD usado para manter a sincronização entre Azure AD e AD. |
+| SIDobjeto |X | |X |propriedade mecânica. Identificador de utilizador de AD usado para manter a sincronização entre Azure AD e AD. |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |propriedade mecânica. Costumava saber quando invalidar fichas já emitidas. Usado por ambos os sincroninos de hash de senha, autenticação pass-through e federação. |
-| fonteÂncora |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre ADDS e Azure AD. |
+| pwdLastSet |X | | |propriedade mecânica. Costumava saber quando invalidar fichas já emitidas. Usado por sincronização de haxixe de palavra-passe, autenticação de passagem e federação. |
+| fonteAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o Azure AD. |
 | utilizaçãoLocalização |X | | |propriedade mecânica. País/região do utilizador. Usado para atribuição de licença. |
-| userPrincipalName |X | | |A UPN é o ID de login para o utilizador. Na maioria das vezes o mesmo que o valor [do correio]. |
+| userPrincipalName |X | | |UPN é o ID de login para o utilizador. Na maioria das vezes, o mesmo valor que o valor [do correio]. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
 | Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
-| contaEnabled |X | | |Define se uma conta está ativada. |
+| accountEnabled |X | | |Define se uma conta está ativada. |
 | c |X |X | | |
 | cn |X | |X | |
 | co |X |X | | |
 | empresa |X |X | | |
-| paísCódigo |X |X | | |
+| paísDesco |X |X | | |
 | descrição |X |X |X | |
 | displayName |X |X |X | |
-| facsimilephonenumber |X |X | | |
+| facsimiletelephonenumber |X |X | | |
 | nomeDado |X |X | | |
 | l |X |X | | |
 | managedBy | | |X | |
 | gestor |X |X | | |
 | membro | | |X | |
 | dispositivo móvel |X |X | | |
-| SIDobjeto |X | |X |propriedade mecânica. Identificador de utilizador aD usado para manter a sincronização entre Azure AD e AD. |
-| physicalDeliveryOfficeName |X |X | | |
-| Código postal |X |X | | |
-| língua preferida |X | | | |
-| pwdLastSet |X | | |propriedade mecânica. Costumava saber quando invalidar fichas já emitidas. Usado por ambos os sincroninos de hash de senha, autenticação pass-through e federação. |
+| SIDobjeto |X | |X |propriedade mecânica. Identificador de utilizador de AD usado para manter a sincronização entre Azure AD e AD. |
+| físicoDeliveryOfficeName |X |X | | |
+| código postal |X |X | | |
+| preferiuLanguage |X | | | |
+| pwdLastSet |X | | |propriedade mecânica. Costumava saber quando invalidar fichas já emitidas. Usado por sincronização de haxixe de palavra-passe, autenticação de passagem e federação. |
 | sn |X |X | | |
-| fonteÂncora |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre ADDS e Azure AD. |
+| fonteAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o Azure AD. |
 | SC |X |X | | |
 | streetAddress |X |X | | |
-| telefoneNúmero |X |X | | |
+| número de telefone |X |X | | |
 | título |X |X | | |
 | utilizaçãoLocalização |X | | |propriedade mecânica. País/região do utilizador. Usado para atribuição de licença. |
-| userPrincipalName |X | | |A UPN é o ID de login para o utilizador. Na maioria das vezes o mesmo que o valor [do correio]. |
+| userPrincipalName |X | | |UPN é o ID de login para o utilizador. Na maioria das vezes, o mesmo valor que o valor [do correio]. |
 
 ## <a name="3rd-party-applications"></a>Candidaturas de terceiros
-Este grupo é um conjunto de atributos usados como os atributos mínimos necessários para uma carga de trabalho ou aplicação genérica. Pode ser usado para uma carga de trabalho não listada noutra secção ou para uma aplicação não Microsoft. É explicitamente utilizado para o seguinte:
+Este grupo é um conjunto de atributos usados como os atributos mínimos necessários para uma carga de trabalho genérica ou aplicação. Pode ser utilizado para uma carga de trabalho não listada noutra secção ou para uma aplicação não-Microsoft. É explicitamente utilizado para o seguinte:
 
 * Yammer (apenas o Utilizador é consumido)
-* [Cenários de colaboração cross-org híbridos (B2B) oferecidos por recursos como o SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
+* [Cenários de colaboração trans-org híbridos (B2B) oferecidos por recursos como o SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
 
-Este grupo é um conjunto de atributos que podem ser usados se o diretório Azure AD não for usado para apoiar o Office 365, Dynamics ou Intune. Tem um pequeno conjunto de atributos fundamentais. Note que o simples sign-on ou o fornecimento de algumas aplicações de terceiros requer configurar a sincronização de atributos para além dos atributos aqui descritos. Os requisitos de aplicação são descritos no tutorial da [aplicação SaaS](../saas-apps/tutorial-list.md) para cada aplicação.
+Este grupo é um conjunto de atributos que podem ser usados se o diretório AD Azure não for usado para apoiar o Office 365, Dynamics ou Intune. Tem um pequeno conjunto de atributos principais. Note que o único sign-on ou provisioning a algumas aplicações de terceiros requer a sincronização configurada de atributos para além dos atributos descritos aqui. Os requisitos de aplicação são descritos no tutorial da [aplicação SaaS](../saas-apps/tutorial-list.md) para cada aplicação.
 
 | Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
-| contaEnabled |X | | |Define se uma conta está ativada. |
+| accountEnabled |X | | |Define se uma conta está ativada. |
 | cn |X | |X | |
 | displayName |X |X |X | |
 | IDdefuncionário |X |  |  | |
@@ -388,89 +388,89 @@ Este grupo é um conjunto de atributos que podem ser usados se o diretório Azur
 | managedBy | | |X | |
 | mailNickName |X |X |X | |
 | membro | | |X | |
-| SIDobjeto |X | | |propriedade mecânica. Identificador de utilizador aD usado para manter a sincronização entre Azure AD e AD. |
+| SIDobjeto |X | | |propriedade mecânica. Identificador de utilizador de AD usado para manter a sincronização entre Azure AD e AD. |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |propriedade mecânica. Costumava saber quando invalidar fichas já emitidas. Usado por ambos os sincroninos de hash de senha, autenticação pass-through e federação. |
+| pwdLastSet |X | | |propriedade mecânica. Costumava saber quando invalidar fichas já emitidas. Usado por sincronização de haxixe de palavra-passe, autenticação de passagem e federação. |
 | sn |X |X | | |
-| fonteÂncora |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre ADDS e Azure AD. |
+| fonteAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o Azure AD. |
 | utilizaçãoLocalização |X | | |propriedade mecânica. País/região do utilizador. Usado para atribuição de licença. |
-| userPrincipalName |X | | |A UPN é o ID de login para o utilizador. Na maioria das vezes o mesmo que o valor [do correio]. |
+| userPrincipalName |X | | |UPN é o ID de login para o utilizador. Na maioria das vezes, o mesmo valor que o valor [do correio]. |
 
 ## <a name="windows-10"></a>Windows 10
-Um computador (dispositivo) unido ao domínio do Windows 10 sincroniza alguns atributos ao Azure AD. Para obter mais informações sobre os cenários, consulte [o Connect dispositivos ligados ao Domínio Para AD Azure para experiências do Windows 10](../active-directory-azureadjoin-devices-group-policy.md). Estes atributos sincronizam sempre e o Windows 10 não aparece como uma aplicação que pode desseleccionar. Um computador unido ao domínio do Windows 10 é identificado por ter o utilizador atributoCertificado preenchido.
+Um computador (dispositivo) associado a domínio do Windows 10 sincroniza alguns atributos do AZure AD. Para obter mais informações sobre os cenários, consulte [dispositivos ligados ao domínio do Azure para experiências com o Windows 10](../active-directory-azureadjoin-devices-group-policy.md). Estes atributos sincronizam-se sempre e o Windows 10 não aparece como uma aplicação que pode desmarcar. Um computador de domínio do Windows 10 é identificado por ter o atributo userCertificate preenchido.
 
 | Nome do atributo | Dispositivo | Comentário |
 | --- |:---:| --- |
-| contaEnabled |X | |
-| dispositivoTrustType |X |Valor codificado para computadores ligados ao domínio. |
+| accountEnabled |X | |
+| DispositivoTrustType |X |Valor codificado para computadores unidos por domínio. |
 | displayName |X | |
-| ms-DS-CreatorSID |X |Também chamado RegistradoOwnerReference. |
-| objectGUID |X |Também chamado de dispositivoID. |
-| SIDobjeto |X |Também chamado noLocalsSecurityIdentifier. |
+| MS-DS-CriadorSID |X |Também chamado de Referência Registada. |
+| objectGUID |X |Também chamado dispositivoID. |
+| SIDobjeto |X |Também apelou ao Deputado Desegurança. |
 | sistema operativo |X |Também chamado dispositivoOSType. |
-| operatingSystemVersion |X |Também chamado dispositivoOSVersion. |
+| sistema operativoVersão |X |Também chamado dispositivoOSVersion. |
 | userCertificate |X | |
 
 Estes atributos para **o utilizador** são além das outras aplicações que selecionou.  
 
 | Nome do atributo | Utilizador | Comentário |
 | --- |:---:| --- |
-| domínioFQDN |X |Também chamado dnsDomainName. Por exemplo, contoso.com. |
-| domínioNetBios |X |Também chamado netBiosName. Por exemplo, CONTOSO. |
-| msDS-KeyCredentialLink |X |Uma vez que o utilizador esteja inscrito no Windows Hello for Business. | 
+| domainFQDN |X |Também chamado dnsDomainName. Por exemplo, contoso.com. |
+| domainNetBios |X |Também chamado netBiosName. Por exemplo, CONTOSO. |
+| MSDS-KeyCredentialLink |X |Uma vez que o utilizador esteja inscrito no Windows Hello for Business. | 
 
-## <a name="exchange-hybrid-writeback"></a>Troca de recoudação híbrida
-Estes atributos são reescritos de Azure AD para no local Ative Directory quando seleciona para ativar o **Exchange hybrid**. Dependendo da sua versão Exchange, menos atributos podem ser sincronizados.
+## <a name="exchange-hybrid-writeback"></a>Troca de writeback híbrido
+Estes atributos são redigidos de Azure AD para o Ative Directory no local quando selecionar para ativar **o Exchange hybrid**. Dependendo da sua versão Exchange, menos atributos podem ser sincronizados.
 
-| Nome do atributo (AD no local) | Nome do atributo (Ligar UI) | Utilizador | Contacto | Grupo | Comentário |
+| Nome do Atributo (AD no local) | Nome do atributo (Connect UI) | Utilizador | Contacto | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |---|
-| msDS-ExternalDirectoryObjectID| ms-DS-External-Directório-Object-Id |X | | |Derivado da cloudAnchor em Azure AD. Este atributo é novo no Exchange 2016 e no Windows Server 2016 AD. |
-| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Arquivo Online: Permite aos clientes arquivar o correio. |
-| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtração: Escreve de volta no local a filtragem e os dados de remetentes seguros e bloqueados online dos clientes. |
-| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtração: Escreve de volta no local a filtragem e os dados de remetentes seguros e bloqueados online dos clientes. |
-| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtração: Escreve de volta no local a filtragem e os dados de remetentes seguros e bloqueados online dos clientes. |
+| MSDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Derivado da nuvemAnchor em Azure AD. Este atributo é novo no Exchange 2016 e no Windows Server 2016 AD. |
+| msExchArchiveStatus| Sra. Exch-ArchiveStatus |X | | |Arquivo Online: Permite que os clientes arquivam o correio. |
+| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtragem: Volta a escrever no local a filtragem e os dados de sender on-line seguros e bloqueados dos clientes. |
+| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtragem: Volta a escrever no local a filtragem e os dados de sender on-line seguros e bloqueados dos clientes. |
+| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtragem: Volta a escrever no local a filtragem e os dados de sender on-line seguros e bloqueados dos clientes. |
 | msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Ativar mensagens unificadas (UM) - Correio de voz online: Utilizado pela integração do Microsoft Lync Server para indicar ao Lync Server no local que o utilizador tem correio de voz em serviços online. |
-| msExchUserHoldPolicies| ms-Exch-UserHoldPolicies |X | | |Detenção de litígios: Permite aos serviços de nuvem determinar quais os utilizadores que estão sob o domínio do Contencioso. |
+| msExchUserHoldPolicies| ms-Exch-UserHoldPolicies |X | | |Hold de litígios: Permite que os serviços na nuvem determinem quais os utilizadores que estão sob o comando de Litígios. |
 | proxyAddresses| proxyAddresses |X |X |X |Apenas o endereço x500 do Exchange Online está inserido. |
-| delegados públicos| ms-Exch-Public-Delegados  |X | | |Permite que seja concedida uma caixa de correio Online de troca de direitos aos utilizadores com caixa de correio de troca no local. Requer azure AD Connect construir 1.1.552.0 ou depois. |
+| públicosDelegados| sra- Exch-Public-Delegados  |X | | |Permite que seja concedida uma caixa de correio Exchange Online aos utilizadores com caixa de correio exchange. Requer a Azure AD Connect construir 1.1.552.0 ou depois. |
 
-## <a name="exchange-mail-public-folder"></a>Pasta Pública de Troca de Correio
-Estes atributos são sincronizados a partir do diretório ativo no local para o Anúncio Azure quando seleciona para ativar a **pasta pública**de correio de troca .
+## <a name="exchange-mail-public-folder"></a>Troca de Correio Público Pasta
+Estes atributos são sincronizados desde o Diretório Ativo para Azure AD quando seleciona para ativar a **Pasta Pública do Correio de Câmbio**.
 
-| Nome do atributo | Pasta Pública | Comentário |
+| Nome do atributo | PublicFolder | Comentário |
 | --- | :---:| --- |
 | displayName | X |  |
 | correio | X |  |
 | msExchRecipientTypeDetails | X |  |
 | objectGUID | X |  |
 | proxyAddresses | X |  |
-| endereço alvo | X |  |
+| targetAddress | X |  |
 
 ## <a name="device-writeback"></a>Repetição de escrita do dispositivo
-Os objetos do dispositivo são criados em Diretório Ativo. Estes objetos podem ser dispositivos unidos a computadores Azure AD ou windows 10 unidos pelo domínio.
+Os objetos do dispositivo são criados no Ative Directory. Estes objetos podem ser dispositivos unidos ao Azure AD ou aos computadores do Windows 10 unidos pelo domínio.
 
 | Nome do atributo | Dispositivo | Comentário |
 | --- |:---:| --- |
-| altIdentidades de Segurança |X | |
+| altSecuritySes |X | |
 | displayName |X | |
 | dn |X | |
 | msDS-CloudAnchor |X | |
-| msDS-DeviceID |X | |
+| MSDS-DeviceID |X | |
 | msDS-DeviceObjectVersion |X | |
 | msDS-DeviceOSType |X | |
 | msDS-DeviceOSVersion |X | |
 | msDS-DevicePhysicalIDs |X | |
-| msDS-KeyCredentialLink |X |Apenas com esquema ad 2016 do Windows Server 2016 |
+| MSDS-KeyCredentialLink |X |Apenas com o esquema AD do Windows Server 2016 |
 | msDS-IsCompliant |X | |
 | msDS-IsEnabled |X | |
 | msDS-IsManaged |X | |
-| MsDS-RegisteredOwner |X | |
+| msDS-RegisteredOwner |X | |
 
 ## <a name="notes"></a>Notas
-* Ao utilizar um ID alternativo, o utilizador principal do utilizador no local é sincronizado com o atributo Azure AD noPremisesUserPrincipalName. O atributo de ID alternativo, por exemplo, correio, é sincronizado com o atributo Azure AD userPrincipalName.
-* Nas listas acima, o tipo de objeto **Utilizador** também se aplica ao tipo de objeto **iNetOrgPerson**.
+* Ao utilizar um ID Alternativo, o utilizador no local atribui o NomePrincipal é sincronizado com o atributo AZure AD no NomePrincipal DoMises. O atributo De ID Alternativo, por exemplo, por correio, é sincronizado com o utilizador de atributo AZure ADPrincipalName.
+* Nas listas acima, o tipo de objeto **O utilizador** também se aplica ao tipo de objeto **iNetOrgPerson**.
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre a configuração de [sincronização azure AD Connect.](how-to-connect-sync-whatis.md)
+Saiba mais sobre a configuração da [sincronização Azure AD Connect.](how-to-connect-sync-whatis.md)
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

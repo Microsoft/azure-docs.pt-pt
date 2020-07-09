@@ -1,103 +1,102 @@
 ---
 title: Saiba quando um utilizador específico poderá aceder a uma aplicação
-description: Como descobrir quando um utilizador criticamente importante pode aceder a uma aplicação que configurapara o fornecimento de utilizadores com AD Azure
+description: Como saber quando um utilizador criticamente importante pode aceder a uma aplicação que configura para o fornecimento de utilizadores com Azure AD
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/03/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 9d976785340e1a032aa4484dd2e8fd6cb2915129
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 03af572c94500e046265a5e9affa4f1742fae544
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593918"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782029"
 ---
-# <a name="check-the-status-of-user-provisioning"></a>Verifique o estado do fornecimento de utilizadores
+# <a name="check-the-status-of-user-provisioning"></a>Verifique o estado do fornecimento do utilizador
 
-O serviço de provisionamento da AD Azure executa um ciclo inicial de provisionamento contra o sistema de origem e o sistema de destino, seguido de ciclos incrementais periódicos. Quando configurar o fornecimento de uma aplicação, pode verificar o estado atual do serviço de provisionamento e ver quando é que um utilizador poderá aceder a uma aplicação.
+O serviço de fornecimento AZure AD executa um ciclo inicial de fornecimento contra o sistema de origem e o sistema alvo, seguido de ciclos incrementais periódicos. Ao configurar o fornecimento de uma aplicação, pode verificar o estado atual do serviço de fornecimento e ver quando um utilizador poderá aceder a uma aplicação.
 
-## <a name="view-the-provisioning-progress-bar"></a>Ver a barra de provisão de progresso
+## <a name="view-the-provisioning-progress-bar"></a>Ver a barra de provisão do progresso
 
- Na página de **Provisioning** para uma app, pode ver o estado do serviço de provisionamento de AD Azure. A secção **Estado Atual** na parte inferior da página mostra se um ciclo de provisionamento começou a fornecer contas de utilizador. Pode ver o progresso do ciclo, ver quantos utilizadores e grupos foram aprovisionados, e ver quantas funções são criadas.
+ Na página **de Provisionamento** de uma aplicação, pode ver o estado do serviço de prestação de Ad Azure. A secção **Estado Atual** na parte inferior da página mostra se um ciclo de provisionamento começou a aloque as contas dos utilizadores. Pode observar o progresso do ciclo, ver quantos utilizadores e grupos foram a provisionados e ver quantas funções são criadas.
 
-Quando configura o fornecimento automático pela primeira vez, a secção **Estado** atual na parte inferior da página mostra o estado do ciclo inicial de provisionamento. Esta secção atualiza cada vez que um ciclo incremental corre. Os seguintes detalhes são mostrados:
+Quando configura pela primeira vez o provisionamento automático, a secção **Estado De Corrente** na parte inferior da página mostra o estado do ciclo inicial de provisionamento. Esta secção atualiza cada vez que um ciclo incremental é executado. São apresentados os seguintes detalhes:
 - O tipo de ciclo de provisionamento (inicial ou incremental) que está atualmente em execução ou foi concluído pela última vez.
-- Uma barra de **progresso** que mostra a percentagem do ciclo de provisionamento que está concluído. A percentagem reflete a contagem de páginas aprovisionadas. Note que cada página pode conter vários utilizadores ou grupos, pelo que a percentagem não se relaciona diretamente com o número de utilizadores, grupos ou funções aprovisionadas.
+- Uma barra de **progresso** que mostra a percentagem do ciclo de provisionamento que terminou. A percentagem reflete a contagem de páginas a provisionadas. Note que cada página pode conter vários utilizadores ou grupos, de modo que a percentagem não está diretamente correlacionada com o número de utilizadores, grupos ou funções a provisionadas.
 - Um botão **Refresh** que pode utilizar para manter a vista atualizada.
-- O número de **Utilizadores** e **Grupos** na loja de dados do conector. A contagem aumenta sempre que um objeto é adicionado ao âmbito de provisionamento. A contagem não diminuirá se um utilizador for eliminado ou eliminado duramente, uma vez que este não remove o objeto da loja de dados do conector. A contagem será recalculada a primeira sincronização após a [redefinição](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) do CDS 
-- Um link **'Ver Registos de Auditoria',** que abre os registos de fornecimento de Anúncios Azure para mais detalhes sobre todas as operações executadas pelo serviço de provisionamento do utilizador, incluindo o estado de provisionamento para utilizadores individuais (ver a secção de registos de fornecimento de [utilização](#use-provisioning-logs-to-check-a-users-provisioning-status) abaixo).
+- O número de **Utilizadores** e **Grupos** na loja de dados do conector. A contagem aumenta sempre que um objeto é adicionado ao âmbito de provisão. A contagem não diminuirá se um utilizador for eliminado ou eliminado duramente, uma vez que este não remove o objeto da loja de dados do conector. A contagem será recalculada a primeira sincronização depois do CDS [ser reposto](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) 
+- Um link **'Registos de auditoria' view,** que abre os registos de provisionamento Azure AD para mais informações sobre todas as operações executadas pelo serviço de fornecimento de utilizadores, incluindo o estado de provisionamento para cada utilizador (consulte a secção de [registos de provisionamento de utilização](#use-provisioning-logs-to-check-a-users-provisioning-status) abaixo).
 
-Após a conclusão de um ciclo de provisionamento, a secção estatísticas até **à data** mostra o número acumulado de utilizadores e grupos que foram previstos até à data, juntamente com a data de conclusão e duração do último ciclo. O **ID de Atividade** identifica exclusivamente o ciclo de provisionamento mais recente. O **Job ID** é um identificador único para o trabalho de provisionamento, e é específico da app no seu inquilino.
+Após a conclusão de um ciclo de provisionamento, a secção **estatística até à data** mostra o número cumulativo de utilizadores e grupos que foram a provisionados até à data, juntamente com a data de conclusão e duração do último ciclo. O **ID de atividade** identifica exclusivamente o ciclo de provisionamento mais recente. O **Job ID** é um identificador único para o trabalho de provisionamento, e é específico para a app no seu inquilino.
 
-O progresso do provisionamento pode ser visto no portal Azure, no ** &gt; separador &gt; \[\] &gt; ** de aplicação de aplicações de aplicação de aplicações de aplicações de aplicações de aplicação de aplicações de aplicações de diretório ativo azure.
+O progresso do provisionamento pode ser visualizado no portal Azure, no **separador de &gt; &gt; \[ \] &gt; provisionamento do nome de aplicação Azure Ative Directory Enterprise Apps.**
 
 ![Barra de progresso da página de provisionamento](./media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
-## <a name="use-provisioning-logs-to-check-a-users-provisioning-status"></a>Utilize registos de fornecimento para verificar o estado de provisionamento de um utilizador
+## <a name="use-provisioning-logs-to-check-a-users-provisioning-status"></a>Utilize registos de provisionamento para verificar o estado de provisionamento de um utilizador
 
-Para ver o estado de provisionamento de um utilizador selecionado, consulte os registos de [provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) em Azure AD. Todas as operações executadas pelo serviço de fornecimento de utilizadores são registadas nos registos de fornecimento de AD Azure. Isto inclui todas as operações de leitura e escrita efetuadas para os sistemas de origem e alvo, e os dados do utilizador que foram lidos ou escritos durante cada operação.
+Para ver o estado de provisionamento de um utilizador selecionado, consulte os [registos de Provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) em Azure AD. Todas as operações executadas pelo serviço de fornecimento de utilizadores são registadas nos registos de fornecimento de AZure AD. Isto inclui todas as operações de leitura e escrita feitas para os sistemas de origem e alvo, e os dados do utilizador que foram lidos ou escritos durante cada operação.
 
-Pode aceder aos registos de fornecimento no portal Azure selecionando registos de provisionamento de &gt; **aplicações** &gt; de **diretório ativo azure** **(pré-visualização)** na secção **Atividade.** Pode pesquisar os dados de provisionamento com base no nome do utilizador ou no identificador no sistema de origem ou no sistema de destino. Para mais detalhes, consulte [os registos de provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
+Pode aceder aos registos de provisionamento no portal Azure selecionando registos de provisionamento de aplicações empresariais do **Azure Ative** &gt; **Enterprise Apps** &gt; **Directory (pré-visualização)** na secção **Atividade.** Pode pesquisar os dados de fornecimento com base no nome do utilizador ou do identificador no sistema de origem ou no sistema alvo. Para mais informações, consulte [registos de provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
-Os registos de fornecimento registam todas as operações efetuadas pelo serviço de provisionamento, incluindo:
+Os registos de provisionamento registam todas as operações realizadas pelo serviço de fornecimento, incluindo:
 
-* Consulta de Azure AD para utilizadores designados que estão no âmbito do provisionamento
+* Consulta Azure AD para utilizadores designados que estão em âmbito de provisão
 * Consulta da aplicação-alvo para a existência desses utilizadores
-* Comparando os objetos do utilizador entre o sistema
+* Comparando os objetos de utilizador entre o sistema
 * Adicionar, atualizar ou desativar a conta de utilizador no sistema-alvo com base na comparação
 
-Para obter mais informações sobre como ler os registos de fornecimento no portal Azure, consulte o guia de informação de [provisionamento](check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os registos de provisionamento no portal Azure, consulte o [guia de informação sobre](check-status-user-account-provisioning.md)o provisionamento .
 
-## <a name="how-long-will-it-take-to-provision-users"></a>Quanto tempo demorará a fornecer utilizadores?
-Ao utilizar o fornecimento automático de utilizadores com uma aplicação, o Azure AD disponibiliza e atualiza automaticamente as contas dos utilizadores numa aplicação baseada em coisas como a atribuição de [utilizador e grupo](../manage-apps/assign-user-or-group-access-portal.md) num intervalo de tempo regularmente programado, normalmente a cada 40 minutos.
+## <a name="how-long-will-it-take-to-provision-users"></a>Quanto tempo vai demorar a providenciar aos utilizadores?
+Ao utilizar o fornecimento automático de utilizadores com uma aplicação, o Azure AD fornece e atualiza automaticamente as contas dos utilizadores numa aplicação baseada em coisas como o utilizador e a atribuição de [grupos](../manage-apps/assign-user-or-group-access-portal.md) num intervalo de tempo regularmente programado, normalmente a cada 40 minutos.
 
-O tempo que um determinado utilizador demora a ser provisionado depende principalmente do facto de o seu trabalho de provisionamento estar a executar um ciclo inicial ou um ciclo incremental.
+O tempo que um determinado utilizador leva a ser a provisionado depende principalmente se o seu trabalho de provisionamento está a executar um ciclo inicial ou um ciclo incremental.
 
-- Para o **ciclo inicial,** o tempo de trabalho depende de muitos fatores, incluindo o número de utilizadores e grupos de âmbito de aplicação, e o número total de utilizadores e grupos no sistema de origem. A primeira sincronização entre a Azure AD e uma aplicação pode demorar entre 20 minutos e várias horas, dependendo do tamanho do diretório Azure AD e do número de utilizadores no âmbito do provisionamento. Uma lista completa de fatores que afetam o desempenho inicial do ciclo é resumida mais tarde nesta secção.
+- Para o **ciclo inicial**, o tempo de trabalho depende de muitos fatores, incluindo o número de utilizadores e grupos em possibilidade de provisão, e o número total de utilizadores e grupos no sistema de origem. A primeira sincronização entre a Azure AD e uma aplicação pode demorar entre 20 minutos e várias horas, dependendo do tamanho do diretório AZure AD e do número de utilizadores em possibilidade de provisionamento. Uma lista completa de fatores que afetam o desempenho do ciclo inicial são resumidos mais tarde nesta secção.
 
-- Para **ciclos incrementais** após o ciclo inicial, os tempos de trabalho tendem a ser mais rápidos (por exemplo, no prazo de 10 minutos), uma vez que o serviço de provisionamento armazena marcas de água que representam o estado de ambos os sistemas após o ciclo inicial, melhorando o desempenho das sincronizações subsequentes. O tempo de trabalho depende do número de alterações detetadas nesse ciclo de provisionamento. Se houver menos de 5.000 alterações de membros do utilizador ou do grupo, o trabalho pode terminar num único ciclo de provisionamento incremental. 
+- Para **ciclos incrementais** após o ciclo inicial, os tempos de trabalho tendem a ser mais rápidos (por exemplo, dentro de 10 minutos), uma vez que o serviço de fornecimento armazena marcas de água que representam o estado de ambos os sistemas após o ciclo inicial, melhorando o desempenho das sincronizações subsequentes. O tempo de trabalho depende do número de alterações detetadas nesse ciclo de provisionamento. Se houver menos de 5.000 alterações de membros de utilizadores ou grupos, o trabalho pode terminar dentro de um único ciclo de provisionamento incremental. 
 
-A tabela que se segue resume os tempos de sincronização para cenários comuns de provisionamento. Nestes cenários, o sistema de origem é Azure AD e o sistema alvo é uma aplicação SaaS. Os tempos de sincronização são derivados de uma análise estatística de trabalhos sincronizados para as aplicações SaaS ServiceNow, Workplace, Salesforce e G Suite.
+O quadro seguinte resume os tempos de sincronização para cenários comuns de provisionamento. Nestes cenários, o sistema de origem é Azure AD e o sistema alvo é uma aplicação SaaS. Os tempos de sincronização são derivados de uma análise estatística de trabalhos de sincronização para as aplicações SaaS ServiceNow, Workplace, Salesforce e G Suite.
 
 
-| Configuração de âmbito | Utilizadores, grupos e membros no âmbito | Tempo inicial do ciclo | Tempo de ciclo incremental |
+| Configuração de âmbito | Utilizadores, grupos e membros no âmbito | Tempo de ciclo inicial | Tempo incremental do ciclo |
 | -------- | -------- | -------- | -------- |
-| Sync apenas utilizadores e grupos atribuídos |  < 1.000 |  < 30 minutos | < 30 minutos |
-| Sync apenas utilizadores e grupos atribuídos |  1,000 - 10,000 | 142 - 708 minutos | < 30 minutos |
-| Sync apenas utilizadores e grupos atribuídos |   10,000 - 100,000 | 1.170 - 2.340 minutos | < 30 minutos |
-| Sincronizar todos os utilizadores e grupos em Azure AD |  < 1.000 | < 30 minutos  | < 30 minutos |
-| Sincronizar todos os utilizadores e grupos em Azure AD |  1,000 - 10,000 | < 30 - 120 minutos | < 30 minutos |
-| Sincronizar todos os utilizadores e grupos em Azure AD |  10,000 - 100,000  | 713 - 1.425 minutos | < 30 minutos |
-| Sincronizar todos os utilizadores em Azure AD|  < 1.000  | < 30 minutos | < 30 minutos |
-| Sincronizar todos os utilizadores em Azure AD | 1,000 - 10,000  | 43 - 86 minutos | < 30 minutos |
+| Apenas utilizadores e grupos designados por sincronização |  < 1.000 |  < 30 minutos | < 30 minutos |
+| Apenas utilizadores e grupos designados por sincronização |  1,000 - 10,000 | 142 - 708 minutos | < 30 minutos |
+| Apenas utilizadores e grupos designados por sincronização |   10,000 - 100,000 | 1.170 - 2.340 minutos | < 30 minutos |
+| Sincronia todos os utilizadores e grupos em Azure AD |  < 1.000 | < 30 minutos  | < 30 minutos |
+| Sincronia todos os utilizadores e grupos em Azure AD |  1,000 - 10,000 | < 30 - 120 minutos | < 30 minutos |
+| Sincronia todos os utilizadores e grupos em Azure AD |  10,000 - 100,000  | 713 - 1.425 minutos | < 30 minutos |
+| Sync todos os utilizadores em Azure AD|  < 1.000  | < 30 minutos | < 30 minutos |
+| Sync todos os utilizadores em Azure AD | 1,000 - 10,000  | 43 - 86 minutos | < 30 minutos |
 
 
-Para a configuração Sync apenas para **utilizadores e grupos atribuídos,** pode utilizar as seguintes fórmulas para determinar os tempos de **ciclo mínimo** e máximo esperados:
+Apenas para a configuração **Sync designado utilizador e grupos,** pode utilizar as seguintes fórmulas para determinar os tempos de **ciclo** mínimo e máximo esperados:
 
     Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
     Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
     
 Resumo dos fatores que influenciam o tempo que leva para completar um **ciclo inicial:**
 
-- O número total de utilizadores e grupos no âmbito do provisionamento.
+- O número total de utilizadores e grupos em possibilidade de provisionamento.
 
 - O número total de utilizadores, grupos e membros do grupo presentes no sistema de origem (Azure AD).
 
-- Se os utilizadores no âmbito de fornecimento são compatíveis com os utilizadores existentes na aplicação-alvo, ou precisam de ser criados pela primeira vez. Os trabalhos de sincronização para os quais todos os utilizadores são criados pela primeira vez demoram cerca do *dobro do tempo* de sincronização para os quais todos os utilizadores são compatíveis com os utilizadores existentes.
+- Se os utilizadores em possibilidade de provisionamento são compatíveis com os utilizadores existentes na aplicação-alvo, ou se precisam de ser criados pela primeira vez. Os trabalhos de sincronização para os quais todos os utilizadores são *criados* pela primeira vez demoram cerca do dobro do tempo em que os trabalhos de sincronização para os quais todos os utilizadores são compatíveis com os utilizadores existentes.
 
-- Número de erros nos registos de [provisionamento](check-status-user-account-provisioning.md). O desempenho é mais lento se houver muitos erros e o serviço de provisionamento entrou em estado de quarentena. 
+- Número de erros nos [registos de provisionamento](check-status-user-account-provisioning.md). O desempenho é mais lento se houver muitos erros e o serviço de fornecimento entrou em estado de quarentena. 
 
-- Limites de taxa de pedido e estrangulamento implementados pelo sistema-alvo. Alguns sistemas-alvo implementam limites de taxa de pedido e estrangulamento, que podem ter impacto no desempenho durante grandes operações de sincronização. Nestas condições, uma aplicação que recebe demasiados pedidos rapidamente pode abrandar a sua taxa de resposta ou fechar a ligação. Para melhorar o desempenho, o conector precisa de se ajustar não enviando os pedidos da aplicação mais rapidamente do que a aplicação pode processá-los. Os conectores de provisionamento construídos pela Microsoft fazem este ajuste. 
+- Limites de taxa de pedido e estrangulamento implementados pelo sistema-alvo. Alguns sistemas-alvo implementam limites de taxa de pedido e estrangulamento, que podem ter impacto no desempenho durante grandes operações de sincronização. Nestas condições, uma aplicação que recebe muitos pedidos demasiado rápido pode abrandar a sua taxa de resposta ou fechar a ligação. Para melhorar o desempenho, o conector precisa de se ajustar não enviando os pedidos da aplicação mais rapidamente do que a aplicação pode processá-los. Os conectores de provisionamento construídos pela Microsoft fazem este ajuste. 
 
-- O número e tamanhos dos grupos designados. Sincronizar grupos atribuídos demora mais tempo do que sincronizar os utilizadores. Tanto o número como os tamanhos dos grupos designados têm impacto no desempenho. Se uma aplicação tiver [mapeamentos habilitados para a sincronização de objetos](customize-application-attributes.md#editing-group-attribute-mappings)de grupo, propriedades de grupo, como nomes de grupo e membros, são sincronizadas para além dos utilizadores. Estas sincronizações adicionais demorarão mais tempo do que apenas sincronizar objetos de utilizador.
+- O número e tamanhos dos grupos designados. Sincronizar grupos atribuídos demora mais tempo do que sincronizar os utilizadores. Tanto o número como os tamanhos dos grupos atribuídos têm impacto no desempenho. Se uma aplicação tiver [mapeamentos ativados para sincronização de objetos](customize-application-attributes.md#editing-group-attribute-mappings)de grupo, propriedades de grupo como nomes de grupo e membros são sincronizadas para além dos utilizadores. Estas sincronizações adicionais demorarão mais do que sincronizar apenas objetos do utilizador.
 
-- Se o desempenho se tornar um problema e estiver a tentar fornecer a maioria dos utilizadores e grupos no seu inquilino, utilize filtros de digitalização. Os filtros de deteção permitem afinar os dados que o serviço de fornecimento extrai da AD Azure filtrando os utilizadores com base em valores específicos de atributos. Para obter mais informações sobre filtros de deteção, consulte o [fornecimento de aplicações baseado no Atributo com filtros](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)de deteção .
+- Se o desempenho se tornar um problema e estiver a tentar provisionar a maioria dos utilizadores e grupos no seu inquilino, utilize filtros de deteção. Os filtros de deteção permitem-lhe afinar os dados que o serviço de fornecimento extrai do Azure AD filtrando os utilizadores com base em valores específicos de atributos. Para obter mais informações sobre filtros de deteção, consulte [o provisionamento de aplicações baseados em Atributos com filtros de escoamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-## <a name="next-steps"></a>Passos seguintes
-[Automatizar o fornecimento e o desprovisionamento de utilizadores às aplicações SaaS com o Diretório Ativo azure](user-provisioning.md)
+## <a name="next-steps"></a>Próximos passos
+[Automatizar o fornecimento e desprovisionamento de utilizadores para aplicações SaaS com o Azure Ative Directory](user-provisioning.md)

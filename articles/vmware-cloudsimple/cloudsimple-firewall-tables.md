@@ -1,6 +1,6 @@
 ---
-title: Solução Azure VMware by CloudSimple - Tabelas firewall
-description: Saiba mais sobre as tabelas privadas de firewall da CloudSimple e as regras de firewall.
+title: Solução Azure VMware by CloudSimple - Tabelas de firewall
+description: Saiba mais sobre as tabelas de firewall de nuvem privada Cloud Simple e as regras de firewall.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -9,15 +9,14 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 89bef6cef48f2b972aa3f931008b0db84431b832
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025049"
 ---
 # <a name="firewall-tables-overview"></a>Visão geral das tabelas de firewall
 
-Uma tabela de firewall lista regras para filtrar o tráfego da rede de e para os recursos privados da Cloud. Pode aplicar tabelas de firewall a uma VLAN/subnet. As regras controlam o tráfego da rede entre uma rede de origem ou endereço IP e uma rede de destino ou endereço IP.
+Uma tabela de firewall lista regras para filtrar o tráfego da rede de e para os recursos private Cloud. Pode aplicar tabelas de firewall numa VLAN/sub-rede. As regras controlam o tráfego de rede entre uma rede de origem ou endereço IP e uma rede de destino ou endereço IP.
 
 ## <a name="firewall-rules"></a>Regras da firewall
 
@@ -26,40 +25,40 @@ A tabela seguinte descreve os parâmetros numa regra de firewall.
 | Propriedade | Detalhes |
 | ---------| --------|
 | **Nome** | Um nome que identifica exclusivamente a regra da firewall e o seu propósito. |
-| **Prioridade** | Um número entre 100 e 4096, sendo 100 a maior prioridade. As regras são processadas por ordem prioritária. Quando o trânsito encontra uma regra, o processamento de regras para. Como resultado, regras com prioridades mais baixas que têm os mesmos atributos que regras com prioridades mais altas não são processadas.  Tome cuidado para evitar regras contraditórias. |
+| **Priority** | Um número entre 100 e 4096, com 100 sendo a maior prioridade. As regras são processadas por ordem prioritária. Quando o tráfego encontra uma correspondência de regras, o processamento de regras para. Como resultado, regras com prioridades mais baixas que têm os mesmos atributos que as regras com prioridades mais elevadas não são processadas.  Cuidado para evitar regras contraditórias. |
 | **Rastreio do Estado** | O rastreio pode ser apátrida (Private Cloud, Internet ou VPN) ou stateful (IP público).  |
-| **Protocolo** | As opções incluem Qualquer, TCP ou UDP. Se precisar do ICMP, use qualquer. |
+| **Protocolo** | As opções incluem Any, TCP ou UDP. Se necessitar de ICMP, utilize Qualquer. |
 | **Direção** | Indica se a regra se aplica a tráfego de entrada ou de saída. |
 | **Ação** | Permitir ou negar o tipo de tráfego definido na regra. |
-| **Origem** | Um endereço IP, bloco de encaminhamento inter-domínio sem classe (CIDR) (10.0.0.0.0/24, por exemplo), ou Qualquer.  Especificar uma gama, uma etiqueta de serviço ou um grupo de segurança de aplicações permite-lhe criar menos regras de segurança. |
-| **Porto fonte** | Porto de onde provém o tráfego da rede.  Pode especificar uma porta ou uma gama individual de portas, tais como 443 ou 8000-8080. Especificar intervalos permite-lhe criar menos regras de segurança. |
-| **Destino** | Um endereço IP, bloco de encaminhamento inter-domínio sem classe (CIDR) (10.0.0.0.0/24, por exemplo), ou Qualquer.  Especificar uma gama, uma etiqueta de serviço ou um grupo de segurança de aplicações permite-lhe criar menos regras de segurança.  |
-| **Porto de Destino** | Porto para o qual o tráfego da rede flui.  Pode especificar uma porta ou uma gama individual de portas, tais como 443 ou 8000-8080. Especificar intervalos permite-lhe criar menos regras de segurança.|
+| **Origem** | Um endereço IP, um bloco de encaminhamento inter-domínio sem classe (CIDR) (10.0.0.0/24, por exemplo), ou Qualquer.  Especificar um intervalo, uma etiqueta de serviço ou um grupo de segurança de aplicações permite-lhe criar menos regras de segurança. |
+| **Porto fonte** | Porto de onde é originário o tráfego da rede.  Pode especificar uma porta ou uma gama individual de portas, tais como 443 ou 8000-8080. Especificar intervalos permite-lhe criar menos regras de segurança. |
+| **Destino** | Um endereço IP, um bloco de encaminhamento inter-domínio sem classe (CIDR) (10.0.0.0/24, por exemplo), ou Qualquer.  Especificar um intervalo, uma etiqueta de serviço ou um grupo de segurança de aplicações permite-lhe criar menos regras de segurança.  |
+| **Porto de Destino** | Porto para onde o tráfego da rede flui.  Pode especificar uma porta ou uma gama individual de portas, tais como 443 ou 8000-8080. Especificar intervalos permite-lhe criar menos regras de segurança.|
 
 ### <a name="stateless"></a>Sem estado
 
 Uma regra apátrida olha apenas para pacotes individuais e filtra-os com base na regra.  
-Podem ser exigidas regras adicionais para o fluxo de tráfego na direção inversa.  Utilize regras apátridas para o tráfego entre os seguintes pontos:
+Podem ser necessárias regras adicionais para o fluxo de tráfego no sentido inverso.  Utilize regras apátridas para o tráfego entre os seguintes pontos:
 
-* Subredes de nuvens privadas
-* Sub-rede no local e uma subnet private cloud
+* Sub-redes de Nuvens Privadas
+* Sub-rede no local e uma sub-rede Private Cloud
 * Tráfego de internet das Nuvens Privadas
 
 ### <a name="stateful"></a>Com monitorização de estado
 
- Uma regra imponente está ciente das ligações que passam por ela. É criado um registo de fluxo para as ligações existentes. A comunicação é permitida ou negada com base no estado da ligação do registo do fluxo.  Utilize este tipo de regra para endereços IP públicos para filtrar o tráfego da Internet.
+ Uma regra imponente está ciente das ligações que a atravessam. É criado um registo de fluxo para as ligações existentes. A comunicação é permitida ou negada com base no estado da ligação do registo do fluxo.  Utilize este tipo de regra para endereços IP públicos para filtrar o tráfego da Internet.
 
 ### <a name="default-rules"></a>Regras predefinidas
 
-As seguintes regras padrão são criadas em todas as tabelas de firewall.
+As seguintes regras predefinidos são criadas em todas as tabelas de firewall.
 
-|Prioridade|Nome|Rastreio do Estado|Direção|Tipo de tráfego|Protocolo|Origem|Porta de origem|Destino|Porta de destino|Ação|
+|Prioridade|Name|Rastreio do Estado|Direção|Tipo de tráfego|Protocolo|Origem|Porta de origem|Destino|Porta de destino|Ação|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
-|65000|permitir-tudo-para-internet|Com monitorização de estado|Saída|IP público ou tráfego de internet|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Permitir|
-|65001|negar-tudo-a-internet|Com monitorização de estado|Entrada|IP público ou tráfego de internet|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Negar|
-|65002|permitir-tudo-a-intranet|Sem estado|Saída|Tráfego interno ou VPN da Nuvem Privada|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Permitir|
-|65003|permitir-tudo-de-intranet|Sem estado|Entrada|Tráfego interno ou VPN da Nuvem Privada|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Permitir|
+|65000|permitir tudo-para-internet|Com monitorização de estado|Saída|IP público ou tráfego de internet|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Permitir|
+|65001|negar-tudo-da-internet|Com monitorização de estado|Entrada|IP público ou tráfego de internet|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Negar|
+|65002|permitir tudo-para-intranet|Sem estado|Saída|Tráfego interno ou VPN de Nuvem Privada|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Permitir|
+|65003|permitir tudo-a partir de intranet|Sem estado|Entrada|Tráfego interno ou VPN de Nuvem Privada|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Permitir|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurar tabelas e regras de firewall](firewall.md)

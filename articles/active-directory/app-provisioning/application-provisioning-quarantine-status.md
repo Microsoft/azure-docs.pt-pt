@@ -1,77 +1,80 @@
 ---
-title: Estatuto de Prestação de Candidaturas de Quarentena [ Microsoft Docs
-description: Quando configurar uma aplicação para o fornecimento automático de utilizadores, saiba o que significa um estado de provisionamento de Quarentena e como limpá-lo.
+title: Estatuto de Provisionamento de Aplicação de Quarentena / Microsoft Docs
+description: Quando tiver configurado um pedido de provisionamento automático do utilizador, saiba o que significa um estado de provisionamento de Quarentena e como limpá-lo.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 04/28/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: c1e0039133b7f9a7ae827e348640f6379b7f10ac
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: e5c0b00873cd97b255eff7e001f8b54cf0397462
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593935"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024575"
 ---
-# <a name="application-provisioning-in-quarantine-status"></a>Fornecimento de candidaturas em estado de quarentena
+# <a name="application-provisioning-in-quarantine-status"></a>Provisionamento de pedidos em estado de quarentena
 
-O serviço de provisionamento de AD Azure monitoriza a saúde da sua configuração e coloca aplicações pouco saudáveis num estado de "quarentena". Se a maioria ou todas as chamadas efetuadas contra o sistema alvo falharem constantemente devido a um erro, por exemplo, credenciais de administração inválidas, o trabalho de provisionamento é marcado como em quarentena.
+O serviço de fornecimento de Azure AD monitoriza a saúde da sua configuração e coloca aplicações pouco saudáveis num estado de "quarentena". Se a maioria ou todas as chamadas feitas contra o sistema-alvo falharem consistentemente devido a um erro, por exemplo, credenciais de administração inválidas, o trabalho de provisionamento é marcado como em quarentena.
 
-Enquanto está em quarentena, a frequência dos ciclos incrementais é gradualmente reduzida para uma vez por dia. O trabalho de provisionamento é removido da quarentena depois de todos os erros serem corrigidos e o próximo ciclo de sincronização começar. Se o emprego de provisionamento permanecer em quarentena por mais de quatro semanas, o trabalho de provisionamento é desativado (deixa de funcionar).
+Enquanto estiver em quarentena, a frequência dos ciclos incrementais é gradualmente reduzida para uma vez por dia. O trabalho de provisionamento é removido da quarentena depois de todos os erros serem corrigidos e o ciclo de sincronização seguinte começar. Se o trabalho de provisionamento permanecer em quarentena por mais de quatro semanas, o trabalho de provisionamento é deficiente (deixa de funcionar).
 
 ## <a name="how-do-i-know-if-my-application-is-in-quarantine"></a>Como sei se a minha candidatura está em quarentena?
 
 Há três formas de verificar se um pedido está em quarentena:
   
-- No portal Azure, navegue para **a Azure Ative Directory** > Enterprise aplica o nome&gt; > de > &lt;*aplicação***Provisioning** and review the progress bar for a quarantine message.**Enterprise applications**   
+- No portal Azure, navegue para a **Azure Ative Directory**  >  **Enterprise applications**  >  &lt; *applications Name* &gt;  >  **Provisioning** and review the progress bar for a quarantine message.   
 
   ![Barra de estado de provisionamento que mostra o estado de quarentena](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
-- No portal Azure, navegue para **o Azure Ative Directory** > **Audit Logs** > filtro em **Atividade: Quarentena** e revisão do histórico de quarentena. Embora a visão na barra de progresso, tal como acima descrita, mostre se o provisionamento está atualmente em quarentena, os registos de auditoria permitem-lhe ver o histórico de quarentena para uma aplicação. 
+- No portal Azure, navegue para **Azure Ative Directory**  >  **Audit Logs** > filtro on **Activity: Quarantine** e rever o histórico de quarentena. Embora a vista na barra de progresso, tal como acima descrita, mostre se o provisionamento está atualmente em quarentena, os registos de auditoria permitem-lhe ver o histórico de quarentena para uma aplicação. 
 
-- Utilize o pedido do Microsoft Graph [Obtenha sincronizaçãoJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) para obter programáticamente o estatuto do trabalho de provisionamento:
+- Utilize o pedido de Gráfico microsoft [Obter sincronizaçãoJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) para obter programáticamente o estado do trabalho de provisionamento:
 
         `GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/`
 
-- Verifique o seu e-mail. Quando um pedido é colocado em quarentena, é enviado um e-mail de notificação único. Se a razão da quarentena mudar, um e-mail atualizado é enviado mostrando a nova razão para a quarentena. Se não vir um e-mail:
+- Verifique o seu e-mail. Quando um pedido é colocado em quarentena, um e-mail de notificação único é enviado. Se a razão de quarentena mudar, é enviado um e-mail atualizado mostrando a nova razão para a quarentena. Se não vir um e-mail:
 
-  - Certifique-se de que especificou um email de **notificação** válido na configuração de fornecimento da aplicação.
-  - Certifique-se de que não há filtragem de correio publicitário não solicitado na caixa de entrada de e-mail de notificação.
-  - Certifique-se de que não foi dessubscrita dos e-mails.
+  - Certifique-se de que especificou um **Email de Notificação** válido na configuração de provisionamento para a aplicação.
+  - Certifique-se de que não existe filtragem de spam na caixa de entrada de e-mail de notificação.
+  - Certifique-se de que não foi subscrita de e-mails.
 
-## <a name="why-is-my-application-in-quarantine"></a>Por que a minha candidatura está em quarentena?
+## <a name="why-is-my-application-in-quarantine"></a>Porque é que o meu pedido está em quarentena?
 
 |Descrição|Ação Recomendada|
 |---|---|
-|Problema de conformidade com **o SCIM:** Uma resposta HTTP/404 Não Encontrada foi devolvida em vez da resposta esperada http/200 OK. Neste caso, o serviço de provisionamento da AD Azure fez um pedido ao pedido-alvo e recebeu uma resposta inesperada.|Verifique a secção de credenciais de administração para ver se a aplicação requer especificar o URL do arrendatário e certifique-se de que o URL está correto. Se não vir um problema, contacte o desenvolvedor de aplicações para garantir que o seu serviço está em conformidade com o SCIM. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
-|**Credenciais inválidas:** Ao tentar autorizar o acesso à aplicação-alvo recebemos uma resposta da aplicação-alvo que indica que as credenciais fornecidas são inválidas.|Por favor, navegue para a secção de credenciais de administração da UI de configuração de fornecimento e autorize o acesso novamente com credenciais válidas. Se a aplicação estiver na galeria, reveja o tutorial de configuração da aplicação para obter quaisquer passos adicionais necessários.|
-|**Funções duplicadas:** As funções importadas de determinadas aplicações, como a Salesforce e a Zendesk, devem ser únicas. |Navegue para o [manifesto](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) de aplicação no portal Azure e remova a função duplicada.|
+|**Problema de conformidade SCIM:** Foi devolvida uma resposta HTTP/404 Não Encontrada em vez da resposta HTTP/200 OK esperada. Neste caso, o serviço de fornecimento de Ad Azure fez um pedido ao pedido-alvo e recebeu uma resposta inesperada.|Consulte a secção de credenciais de administração para ver se o pedido requer especificar o URL do inquilino e certifique-se de que o URL está correto. Se não vir um problema, contacte o desenvolvedor da aplicação para garantir que o seu serviço está em conformidade com o SCIM. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
+|**Credenciais inválidas:** Ao tentar autorizar o acesso ao pedido de destino, recebemos uma resposta da aplicação-alvo que indica que as credenciais fornecidas são inválidas.|Navegue para a secção de credenciais de administração da configuração de provisionamento UI e autorize o acesso novamente com credenciais válidas. Se a aplicação estiver na galeria, reveja o tutorial de configuração da aplicação para quaisquer etapas adicionais necessárias.|
+|**Funções duplicadas:** As funções importadas de determinadas aplicações como a Salesforce e a Zendesk devem ser únicas. |Navegue para o [manifesto](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) de aplicação no portal Azure e retire a função duplicada.|
 
  Um pedido do Microsoft Graph para obter o estatuto do trabalho de provisionamento mostra a seguinte razão para a quarentena:
 
-- `EncounteredQuarantineException`indica que foram fornecidas credenciais inválidas. O serviço de provisionamento não pode estabelecer uma ligação entre o sistema de origem e o sistema-alvo.
+- `EncounteredQuarantineException`indica que foram fornecidas credenciais inválidas. O serviço de prestação de serviços não é capaz de estabelecer uma ligação entre o sistema de origem e o sistema-alvo.
 
-- `EncounteredEscrowProportionThreshold`indica que a provisão excedeu o limiar de caução. Esta condição ocorre quando mais de 60% dos eventos de provisionamento falharam.
+- `EncounteredEscrowProportionThreshold`indica que o provisionamento excedeu o limiar de depósito. Esta condição ocorre quando mais de 60% dos eventos de provisionamento falharam.
 
-- `QuarantineOnDemand`significa que detetámos um problema com a tua aplicação e definimo-lo manualmente para a quarentena.
+- `QuarantineOnDemand`significa que detetamos um problema com a sua aplicação e a definimos manualmente para a quarentena.
 
-## <a name="how-do-i-get-my-application-out-of-quarantine"></a>Como posso tirar a minha candidatura da quarentena?
+## <a name="how-do-i-get-my-application-out-of-quarantine"></a>Como consigo tirar a minha candidatura da quarentena?
 
 Primeiro, resolva a questão que fez com que o pedido fosse colocado em quarentena.
 
-- Verifique as definições de provisionamento da aplicação para se certificar de que [introduziu credenciais de administrador válidas](../app-provisioning/configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning). A Azure AD deve ser capaz de estabelecer um fundo com a aplicação-alvo. Certifique-se de que inseriu credenciais válidas e que a sua conta tem as permissões necessárias.
+- Verifique as definições de provisionamento da aplicação para se certificar de que [introduziu credenciais de administrador válidas](../app-provisioning/configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning). A Azure AD deve ser capaz de estabelecer uma confiança com a aplicação-alvo. Certifique-se de que introduziu credenciais válidas e que a sua conta tem as permissões necessárias.
 
-- Reveja os registos de [provisionamento](../reports-monitoring/concept-provisioning-logs.md) para investigar mais aprofundadamente quais os erros que estão a causar quarentena e resolver o erro. Aceda aos registos de provisionamento no portal Azure, indo para **o Azure Ative Directory** &gt; **Enterprise Apps** &gt; **Provisioning registos (pré-visualização)** na secção **Atividade.**
+- Reveja os [registos de provisionamento](../reports-monitoring/concept-provisioning-logs.md) para investigar melhor os erros que estão a causar quarentena e resolver o erro. Aceda aos registos de provisionamento no portal Azure indo para **Azure Ative Directory** &gt; **Enterprise Apps** &gt; **Provisioning registos (pré-visualização)** na secção **Atividade.**
 
-Depois de resolver o problema, reinicie o trabalho de provisionamento. Algumas alterações nas definições de provisionamento da aplicação, tais como mapeamentos de atributos ou filtros de deteção, reiniciarão automaticamente o fornecimento para si. A barra de progresso na página de **provisionamento** do pedido indica quando o fornecimento começou pela última vez. Se necessitar de reiniciar o trabalho de provisionamento manualmente, utilize um dos seguintes métodos:  
+Depois de resolver o problema, reinicie o trabalho de provisão. Algumas alterações nas definições de provisionamento da aplicação, tais como mapeamentos de atributos ou filtros de deteção, reiniciarão automaticamente o provisionamento para si. A barra de progresso na página de **Provisionamento** da aplicação indica quando o provisionamento começou pela última vez. Se precisar de reiniciar manualmente o trabalho de fornecimento, utilize um dos seguintes métodos:  
 
-- Utilize o portal Azure para reiniciar o trabalho de provisionamento. Na página de **provisionamento** da aplicação em **Definições,** selecione **clear state e reinicie** a sincronização e desemque o Estado de **Provisionamento** para **On**. Esta ação reinicia totalmente o serviço de provisionamento, que pode demorar algum tempo. Um ciclo inicial completo voltará a funcionar, o que limpa os esquástis, remove a aplicação da quarentena e limpa quaisquer marcas de água.
+- Utilize o portal Azure para reiniciar o trabalho de provisionamento. Na página de **Provisionamento** da aplicação em **Definições**, selecione **Limpar o estado e reiniciar a sincronização** e definir o Estado de **Provisionamento** para **On**. Esta ação reinicia totalmente o serviço de prestação de serviços, o que pode demorar algum tempo. Um ciclo inicial completo será executado novamente, o que limpa as cauções, remove a aplicação da quarentena e limpa quaisquer marcas de água.
 
-- Utilize o Microsoft Graph para [reiniciar o trabalho de provisionamento](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Terá supor o que reiniciar. Pode optar por limpar os escrows (para reiniciar o contador de caução que se acumula em relação ao estado de quarentena), quarentena clara (para remover a aplicação da quarentena) ou marcas de água claras. utilize o seguinte pedido:
+- Utilize o Microsoft Graph para [reiniciar o trabalho de provisionamento](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Terá controlo total sobre o que reinicia. Pode optar por limpar as cauções (reiniciar o contador de cauções que se acumula para o estado de quarentena), limpar a quarentena (para remover a aplicação da quarentena) ou marcas de água límpias. utilize o seguinte pedido:
  
        `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
+       
+Substitua "{id}" pelo valor do ID da aplicação e substitua "{jobId}" pelo [ID do trabalho de sincronização](https://docs.microsoft.com/graph/api/resources/synchronization-configure-with-directory-extension-attributes?view=graph-rest-beta&tabs=http#list-synchronization-jobs-in-the-context-of-the-service-principal). 
+

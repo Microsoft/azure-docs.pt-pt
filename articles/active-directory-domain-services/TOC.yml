@@ -47,6 +47,8 @@
       href: synchronization.md
     - name: Como funciona a sincronização de hash de palavra-passe
       href: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Benefícios clássicos da migração da implementação
+      href: concepts-migration-benefits.md
     - name: O que é o Azure Active Directory?
       href: ../active-directory/fundamentals/active-directory-whatis.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
     - name: Arquitetura do Azure Active Directory

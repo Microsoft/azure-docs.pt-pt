@@ -1,30 +1,29 @@
 ---
-title: 'Azure VPN Gateway: Anuncie rotas personalizadas para clientes VpN P2S'
-description: Passos para anunciar rotas personalizadas para os seus clientes ponto-a-site
+title: 'Azure VPN Gateway: Anuncie rotas personalizadas para clientes P2S VPN'
+description: Passos para anunciar rotas personalizadas para os seus clientes ponto-a-local
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3588755e2aab1c84d443e917eca8c7fca280b49a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ad007514e48ea751257884ba6e9ccb3965442d36
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756893"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987577"
 ---
-# <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>Anuncie rotas personalizadas para clientes VpN P2S
+# <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>Anuncie rotas personalizadas para clientes P2S VPN
 
-Pode querer anunciar rotas personalizadas para todos os seus clientes VPN ponto-a-site. Por exemplo, quando ativou pontos finais de armazenamento no seu VNet e quer que os utilizadores remotos possam aceder a estas contas de armazenamento através da ligação VPN. Pode anunciar o endereço IP do ponto final de armazenamento a todos os seus utilizadores remotos para que o tráfego para a conta de armazenamento atravesse o túnel VPN, e não a Internet pública.
+Você pode querer anunciar rotas personalizadas para todos os seus clientes VPN ponto a local. Por exemplo, quando tiver ativado os pontos finais de armazenamento no seu VNet e pretender que os utilizadores remotos possam aceder a estas contas de armazenamento sobre a ligação VPN. Pode anunciar o endereço IP do ponto final de armazenamento a todos os seus utilizadores remotos para que o tráfego para a conta de armazenamento se sobreponhe pelo túnel VPN e não pela Internet pública.
 
 ![Exemplo de ligação Multilocal de Gateway de VPN do Azure](./media/vpn-gateway-p2s-advertise-custom-routes/custom-routes.png)
 
 ## <a name="to-advertise-custom-routes"></a>Para anunciar rotas personalizadas
 
-Para anunciar rotas personalizadas, use o `Set-AzVirtualNetworkGateway cmdlet`. O exemplo que se segue mostra como anunciar o IP para as tabelas de contas de [armazenamento Contoso.](https://contoso.table.core.windows.net)
+Para anunciar rotas personalizadas, use o `Set-AzVirtualNetworkGateway cmdlet` . O exemplo a seguir mostra como anunciar o IP para as tabelas de [conta de armazenamento Contoso.](https://contoso.table.core.windows.net)
 
-1. Ping *contoso.table.core.windows.net* e note o endereço IP. Por exemplo:
+1. Ping *contoso.table.core.windows.net* e anotar o endereço IP. Por exemplo:
 
     ```cmd
     C:\>ping contoso.table.core.windows.net
@@ -38,14 +37,14 @@ Para anunciar rotas personalizadas, use o `Set-AzVirtualNetworkGateway cmdlet`. 
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute 13.88.144.250/32
     ```
 
-3. Para adicionar várias rotas personalizadas, utilize uma vírem e espaços para separar os endereços. Por exemplo:
+3. Para adicionar várias rotas personalizadas, utilize uma vírgula e espaços para separar os endereços. Por exemplo:
 
     ```azurepowershell-interactive
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute x.x.x.x/xx , y.y.y.y/yy
     ```
 ## <a name="to-view-custom-routes"></a>Para ver rotas personalizadas
 
-Utilize o seguinte exemplo para ver rotas personalizadas:
+Use o seguinte exemplo para visualizar rotas personalizadas:
 
   ```azurepowershell-interactive
   $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
@@ -59,6 +58,6 @@ Utilize o seguinte exemplo para eliminar rotas personalizadas:
   $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
   Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute @0
   ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter informações adicionais sobre o encaminhamento p2S, consulte [sobre o encaminhamento ponto-a-local](vpn-gateway-about-point-to-site-routing.md).
+Para obter informações adicionais sobre o encaminhamento P2S, consulte [sobre o encaminhamento ponto-a-local](vpn-gateway-about-point-to-site-routing.md).

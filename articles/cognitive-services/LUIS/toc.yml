@@ -30,9 +30,9 @@
     - name: Utilizar APIs REST
       items:
         - name: Obter a intenção
-          href: luis-get-started-get-intent-from-rest.md
+          href: luis-get-started-rest-get-intent.md
         - name: Alterar modelo
-          href: get-started-get-model-rest-apis.md
+          href: luis-get-started-rest-get-model.md
 - name: Tutoriais
   items:
     - name: Criar aplicações decompostas
@@ -52,7 +52,7 @@
           href: luis-tutorial-pattern.md
     - name: Utilizar com o bot
       items:
-        - name: 'Com C#'
+        - name: Com C#
           href: luis-csharp-tutorial-bf-v4.md
           displayName: 'bot framework, framework, sdk, abs'
         - name: Com o Node.js
@@ -60,6 +60,8 @@
           href: luis-nodejs-tutorial-bf-v4.md
 - name: Conceitos
   items:
+    - name: Inteligência artificial
+      href: artificial-intelligence.md
     - name: Ciclo de vida de desenvolvimento
       href: luis-concept-app-iteration.md
     - name: Planear a sua aplicação
@@ -103,9 +105,6 @@
           href: luis-concept-test.md
         - name: Testes em lote
           href: luis-concept-batch-test.md
-    - name: Chaves de criação e de runtime
-      displayName: 'shared, transfer, ownership, author, access, import'
-      href: luis-concept-keys.md
     - name: Gestão de dados
       items:
         - name: Alteração de dados
@@ -125,6 +124,14 @@
         - name: Estratégias de design
           href: luis-concept-enterprise.md
           displayName: import
+    - name: Aplicação de práticas de DevOps com LUIS
+      items:
+        - name: Estratégias de controlo de fontes e de sucursais para o LUIS
+          href: luis-concept-devops-sourcecontrol.md
+        - name: Testar para DevOps
+          href: luis-concept-devops-testing.md
+        - name: Fluxos de trabalho CI/CD
+          href: luis-concept-devops-automation.md
 - name: Guias de procedimentos
   items:
     - name: Iniciar uma nova aplicação
@@ -186,11 +193,7 @@
         - name: Migrar a partir da entidade composta
           href: migrate-from-composite-entity.md
         - name: Migrar para recurso de criação
-          items:
-            - name: Descrição geral
-              href: luis-migration-authoring.md
-            - name: Como Migrar
-              href: luis-migration-authoring-steps.md
+          href: luis-migration-authoring.md
         - name: Migrar para a API V3
           href: luis-migration-api-v3.md
     - name: Gerir aplicação
@@ -201,11 +204,7 @@
         - name: Definições de aplicações e versão
           href: how-to-application-settings-portal.md
         - name: Migrar para recurso de criação
-          items:
-            - name: Descrição geral
-              href: luis-migration-authoring.md
-            - name: Como Migrar
-              href: luis-migration-authoring-steps.md
+          href: luis-migration-authoring.md
         - name: Autores e colaboradores
           displayName: 'access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import'
           href: luis-how-to-collaborate.md
@@ -226,6 +225,12 @@
           href: luis-migration-api-v3.md
         - name: Migrar para a API V2
           href: luis-migration-api-v1-to-v2.md
+    - name: Utilizar APIs REST
+      items:
+        - name: Obter a intenção
+          href: luis-get-started-get-intent-from-rest.md
+        - name: Alterar modelo
+          href: get-started-get-model-rest-apis.md
     - name: Utilizar contentores
       items:
         - name: Instalar e executar contentores
@@ -238,11 +243,13 @@
         - name: Limitações de contentor
           href: luis-container-limitations.md
           displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+    - name: Utilizar o DevOps
+      href: luis-how-to-devops-with-github.md
     - name: Serviços relacionados
       items:
         - name: Azure Bot Service
           href: 'https://dev.botframework.com/'
-        - name: 'Bot Builder 4.x SDK C#'
+        - name: Bot Builder 4.x SDK C#
           href: 'https://github.com/Microsoft/botbuilder-dotnet'
         - name: QnA maker
           href: 'https://qnamaker.ai/'
@@ -284,7 +291,7 @@
               href: luis-reference-response-codes.md
         - name: SDKs
           items:
-            - name: 'C#'
+            - name: C#
               items:
                 - name: NuGet - criação
                   href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/'

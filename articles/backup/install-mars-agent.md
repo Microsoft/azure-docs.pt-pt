@@ -1,104 +1,106 @@
 ---
-title: Instale o agente microsoft Azure Recovery Services (MARS)
-description: Saiba como instalar o agente do Microsoft Azure Recovery Services (MARS) para fazer o back-up das máquinas Windows.
+title: Instale o agente Microsoft Azure Recovery Services (MARS)
+description: Saiba como instalar o agente Microsoft Azure Recovery Services (MARS) para fazer o back up das máquinas Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: d3932b66dbc41ff2631e2cccbe716c0877a509d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a43f585e978b7d6974ac89fbb5d93f15aebb1d7
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422921"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855227"
 ---
-# <a name="install-the-azure-backup-mars-agent"></a>Instale o agente MARS de backup Azure
+# <a name="install-the-azure-backup-mars-agent"></a>Instale o agente Azure Backup MARS
 
-Este artigo explica como instalar o agente do Microsoft Azure Recovery Services (MARS). Mars também é conhecido como o agente Azure Backup.
+Este artigo explica como instalar o agente Microsoft Azure Recovery Services (MARS). Mars também é conhecido como o agente Azure Backup.
 
 ## <a name="about-the-mars-agent"></a>Sobre o agente MARS
 
-O Azure Backup utiliza o agente MARS para fazer backup de ficheiros, pastas e estado de sistema a partir de máquinas no local e VMs Azure. Os reforços estão guardados num cofre dos Serviços de Recuperação em Azure. Pode dirigir o agente:
+O Azure Backup utiliza o agente MARS para fazer cópias de segurança de ficheiros, pastas e estado do sistema a partir de máquinas no local e VMs Azure. Esses reforços estão guardados num cofre dos Serviços de Recuperação em Azure. Pode executar o agente:
 
-* Diretamente no local, as máquinas Windows. Estas máquinas podem voltar diretamente para um cofre dos Serviços de Recuperação em Azure.
-* Nos VMs Azure que executam o Windows lado a lado com a extensão de backup Azure VM. O agente recoloca ficheiros e pastas específicos no VM.
-* Numa instância do Microsoft Azure Backup Server (MABS) ou num servidor do System Center Data Protection Manager (DPM). Neste cenário, as máquinas e cargas de trabalho voltam a ser MABS ou Gestor de Proteção de Dados. Em seguida, MABS ou Data Protection Manager usa o agente MARS para voltar a um cofre em Azure.
+* Diretamente nas máquinas Windows no local. Estas máquinas podem voltar diretamente para um cofre dos Serviços de Recuperação em Azure.
+* Em VMs Azure que executam o Windows lado a lado com a extensão de backup Azure VM. O agente regista ficheiros e pastas específicos no VM.
+* Numa instância do Microsoft Azure Backup Server (MABS) ou num servidor do System Center Data Protection Manager (DPM). Neste cenário, as máquinas e as cargas de trabalho voltam para o MABS ou gestor de proteção de dados. Em seguida, o MABS ou Gestor de Proteção de Dados utiliza o agente MARS para fazer o back até um cofre em Azure.
 
-Os dados disponíveis para cópia de segurança dependem de onde o agente está instalado.
+Os dados disponíveis para cópia de segurança dependem do local onde o agente está instalado.
 
 > [!NOTE]
-> Geralmente, você faz backup de um VM Azure usando uma extensão de backup Azure no VM. Este método apoia todo o VM. Se pretender fazer o back-up de ficheiros e pastas específicos no VM, instale e utilize o agente MARS ao lado da extensão. Para mais informações, consulte [Arquitetura de um backup Azure VM incorporado.](backup-architecture.md#architecture-built-in-azure-vm-backup)
+> Geralmente, você apoia um Azure VM usando uma extensão de Backup Azure no VM. Este método confirma todo o VM. Se pretender fazer o back up ficheiros e pastas específicos no VM, instale e utilize o agente MARS ao lado da extensão. Para mais informações, consulte [a Arquitetura de uma cópia de segurança Azure VM incorporada.](backup-architecture.md#architecture-built-in-azure-vm-backup)
 
-![Etapas do processo de backup](./media/backup-configure-vault/initial-backup-process.png)
+![Etapas de processo de backup](./media/backup-configure-vault/initial-backup-process.png)
 
 ## <a name="before-you-start"></a>Antes de começar
 
-* Saiba como o [Azure Backup utiliza o agente MARS para fazer backup](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders)das máquinas windows .
-* Conheça a [arquitetura de backup](backup-architecture.md#architecture-back-up-to-dpmmabs) que executa o agente MARS num servidor secundário de MABS ou Data Protection Manager.
-* Reveja [o que é suportado e o que pode apoiar](backup-support-matrix-mars-agent.md) pelo agente mars.
-* Certifique-se de que tem uma conta Azure se precisar de fazer o apoio a um servidor ou cliente ao Azure. Se não tiver uma conta, pode criar uma [gratuita](https://azure.microsoft.com/free/) em poucos minutos.
-* Verifique o acesso à Internet nas máquinas que pretende fazer apoio.
+* Saiba como o [Azure Backup utiliza o agente MARS para fazer backup de máquinas windows](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders).
+* Saiba mais sobre a [arquitetura de backup](backup-architecture.md#architecture-back-up-to-dpmmabs) que executa o agente MARS num servidor secundário de MABS ou Gestor de Proteção de Dados.
+* [Reveja o que é apoiado e o que pode apoiar](backup-support-matrix-mars-agent.md) pelo agente MARS.
+* Certifique-se de que tem uma conta Azure se precisar de fazer o back up de um servidor ou cliente para a Azure. Se não tiver uma conta, pode criar uma [gratuita](https://azure.microsoft.com/free/) em poucos minutos.
+* Verifique o acesso à Internet nas máquinas que pretende fazer.
 * Certifique-se de que o utilizador que executa a instalação e configuração do agente MARS tem privilégios de administrador local no servidor a proteger.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="modify-storage-replication"></a>Modificar a replicação do armazenamento
 
-Por padrão, os cofres utilizam [armazenamento geo-redundante (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+Por predefinição, os cofres utilizam [armazenamento geo-redundante (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
 
-* Se o cofre for o seu principal mecanismo de reserva, recomendamos que utilize GRS.
-* Pode utilizar [armazenamento redundante localmente (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para reduzir os custos de armazenamento do Azure.
+* Se o cofre for o seu mecanismo de reserva primário, recomendamos que utilize GRS.
+* Pode utilizar [o armazenamento localmente redundante (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para reduzir os custos de armazenamento da Azure.
 
 Para modificar o tipo de replicação de armazenamento:
 
 1. No novo cofre, selecione **Propriedades** sob a secção **Definições.**
 
-1. Na página **Propriedades,** sob **configuração de backup,** selecione **Atualização**.
+1. Na página **Propriedades,** em **Configuração de Cópia de Segurança,** selecione **Update**.
 
-1. Selecione o tipo de replicação de armazenamento e selecione **Guardar**.
+1. Selecione o tipo de replicação de armazenamento e **selecione Guardar**.
 
-    ![Configuração de backup de atualização](./media/backup-afs/backup-configuration.png)
+    ![Atualizar configuração de backup](./media/backup-afs/backup-configuration.png)
 
 > [!NOTE]
-> Não pode modificar o tipo de replicação de armazenamento depois de o cofre ser configurado e conter itens de reserva. Se queres fazer isto, tens de recriar o cofre.
+> Não é possível modificar o tipo de replicação de armazenamento depois de o cofre ser configurado e contém itens de reserva. Se queres fazer isto, tens de recriar o cofre.
 >
 
-### <a name="verify-internet-access"></a>Verificar o acesso à Internet
+### <a name="verify-internet-access"></a>Verificar acesso à Internet
 
-Se a sua máquina tiver acesso limitado à Internet, certifique-se de que as definições de firewall na máquina ou proxy permitem os seguintes URLs e endereços IP:
+Se a sua máquina tiver acesso limitado à Internet, certifique-se de que as definições de firewall na máquina ou procuração permitem os seguintes endereços URLs e IP:
 
 * URLs
-  * `www\.msftncsi.com`
+  * `www.msftncsi.com`
   * `*.Microsoft.com`
   * `*.WindowsAzure.com`
   * `*.microsoftonline.com`
   * `*.windows.net`
+  * `www.msftconnecttest.com`
 * Endereços IP
   * 20.190.128.0/18
   * 40.126.0.0/18
 
-### <a name="use-azure-expressroute"></a>Utilizar azure ExpressRoute
+### <a name="use-azure-expressroute"></a>Use Azure ExpressRoute
 
-Pode fazer o backup dos seus dados através do Azure ExpressRoute utilizando o público (disponível para circuitos antigos) e o peering da Microsoft. O apoio ao que o peering privado não é apoiado.
+Pode fazer o back up dos seus dados através do Azure ExpressRoute utilizando o espreitamento público (disponível para circuitos antigos) e o espreitamento da Microsoft. Backup sobre olhando privado não é apoiado.
 
-Para utilizar o público, primeiro garantir o acesso aos seguintes domínios e endereços:
+Para utilizar o espreguiçadamento público, primeiro garantir o acesso aos seguintes domínios e endereços:
 
 * `http://www.msftncsi.com/ncsi.txt`
+* `http://www.msftconnecttest.com/connecttest.txt`
 * `microsoft.com`
 * `.WindowsAzure.com`
 * `.microsoftonline.com`
 * `.windows.net`
 
-Para utilizar o peering da Microsoft, selecione os seguintes serviços, regiões e valores comunitários relevantes:
+Para utilizar o espreguio da Microsoft, selecione os seguintes serviços, regiões e valores comunitários relevantes:
 
 * Diretório Ativo Azure (12076:5060)
-* Região de Azure, de acordo com a localização do seu cofre dos Serviços de Recuperação
-* Armazenamento Azure, de acordo com a localização do seu cofre dos Serviços de Recuperação
+* Região de Azure, de acordo com a localização do cofre dos Serviços de Recuperação
+* Azure Storage, de acordo com a localização do cofre dos Serviços de Recuperação
 
-Para mais informações, consulte os requisitos de [encaminhamento expressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Para obter mais informações, consulte [os requisitos de encaminhamento ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 
 > [!NOTE]
-> O público está predestinado a novos circuitos.
+> O olhar público é depreciado para novos circuitos.
 
-Todos os URLs e endereços IP anteriores utilizam o protocolo HTTPS na porta 443.
+Todos os urls e endereços IP anteriores utilizam o protocolo HTTPS na porta 443.
 
 ### <a name="private-endpoints"></a>Pontos Finais Privados
 
@@ -106,60 +108,60 @@ Todos os URLs e endereços IP anteriores utilizam o protocolo HTTPS na porta 443
 
 ## <a name="download-the-mars-agent"></a>Descarregue o agente MARS
 
-Descarregue o agente MARS para que possa instalá-lo nas máquinas que pretende fazer recuar.
+Descarregue o agente MARS para que possa instalá-lo nas máquinas que pretende fazer.
 
-Se já instalou o agente em nenhuma máquina, certifique-se de que está a executar a versão mais recente do agente. Encontre a versão mais recente no portal ou vá diretamente para o [download](https://aka.ms/azurebackup_agent).
+Se já instalou o agente em alguma máquina, certifique-se de que está a executar a versão mais recente do agente. Encontre a versão mais recente no portal ou vá diretamente para o [download](https://aka.ms/azurebackup_agent).
 
-1. No cofre, sob **O Início,** selecione **Backup**.
+1. No cofre, em **"Getting Started",** selecione **Backup**.
 
     ![Abra o objetivo de reserva](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
-1. Em que está a funcionar a sua carga **de** **trabalho?** Selecione esta opção mesmo que pretenda instalar o agente MARS num VM Azure.
-1. Em que é que pretende fazer **Files and folders** **o backup?** Também pode selecionar **system state**. Muitas outras opções estão disponíveis, mas estas opções só são suportadas se estiver a executar um servidor de backup secundário. Selecione **Preparar infraestrutura**.
+1. Em Onde está a sua **On-premises**carga de trabalho **a funcionar?** Selecione esta opção mesmo que pretenda instalar o agente MARS num Azure VM.
+1. Em Que é que pretende fazer **Files and folders** **o back-up?** Também pode selecionar **o Estado do Sistema.** Muitas outras opções estão disponíveis, mas estas opções só são suportadas se estiver a executar um servidor de backup secundário. Selecione **Preparar Infraestrutura**.
 
-    ![Configure ficheiros e pastas](./media/backup-try-azure-backup-in-10-mins/set-file-folder.png)
+    ![Configurar ficheiros e pastas](./media/backup-try-azure-backup-in-10-mins/set-file-folder.png)
 
-1. Para **preparar a infraestrutura**, sob o agente de Serviços de **Recuperação de Instalações,** descarregue o agente MARS.
+1. Para **preparar a infraestrutura**, sob **o agente Install Recovery Services**, descarregue o agente MARS.
 
     ![Preparar a infraestrutura](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
 
-1. No menu de descarregamento, selecione **Guardar**. Por predefinição, o ficheiro *MARSagentinstaller.exe* é guardado na pasta Transferências.
+1. No menu de descarregamento, **selecione Save**. Por predefinição, o ficheiro *MARSagentinstaller.exe* é guardado na pasta Transferências.
 
-1. Selecione **Já descarregue ou use o mais recente Agente de Serviços**de Recuperação e, em seguida, baixe as credenciais do cofre.
+1. Selecione **Já faça o download ou utilize o mais recente Agente de Serviços de Recuperação**e, em seguida, baixe as credenciais do cofre.
 
     ![Transferir as credenciais do cofre](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-1. Selecione **Guardar**. O ficheiro é descarregado para a pasta Downloads. Não pode abrir o ficheiro de credenciais do cofre.
+1. Selecione **Guardar**. O ficheiro é descarregado para a sua pasta Downloads. Não pode abrir o arquivo de credenciais do cofre.
 
 ## <a name="install-and-register-the-agent"></a>Instalar e registar o agente
 
-1. Faça o ficheiro *MARSagentinstaller.exe* nas máquinas que pretende fazer recuar.
+1. Faça o ficheiro *MARSagentinstaller.exe* nas máquinas que pretende fazer.
 1. No assistente de configuração do agente MARS, selecione **Definições de instalação**. Lá, escolha onde instalar o agente e escolha um local para a cache. Em seguida, selecione **Seguinte**.
-   * A Azure Backup utiliza a cache para armazenar instantâneos de dados antes de enviá-los para o Azure.
-   * A localização da cache deve ter espaço livre igual a pelo menos 5% do tamanho dos dados que irá fazer.
+   * A Azure Backup utiliza a cache para armazenar imagens de dados antes de enviá-las para a Azure.
+   * A localização da cache deve ter espaço livre igual a pelo menos 5% do tamanho dos dados que irá apoiar.
 
     ![Escolha as definições de instalação no Assistente de Configuração do Agente MARS](./media/backup-configure-vault/mars1.png)
 
-1. Para **configuração proxy,** especifique como o agente que funciona na máquina do Windows irá ligar-se à internet. Em seguida, selecione **Seguinte**.
+1. Para **configuração proxy**, especifique como o agente que executa na máquina do Windows irá ligar-se à internet. Em seguida, selecione **Seguinte**.
 
-   * Se utilizar um proxy personalizado, especifique quaisquer definições e credenciais de procuração necessárias.
-   * Lembre-se que o agente precisa de acesso a [URLs específicos](#before-you-start).
+   * Se utilizar um representante personalizado, especifique as definições e credenciais necessárias.
+   * Lembre-se que o agente precisa de acesso a [URLs específicos.](#before-you-start)
 
-    ![Configurar o acesso à Internet no feiticeiro MARS](./media/backup-configure-vault/mars2.png)
+    ![Configurar o acesso à Internet no assistente MARS](./media/backup-configure-vault/mars2.png)
 
-1. Para **a instalação,** reveja os pré-requisitos e selecione **Instalar**.
-1. Depois de instalado o agente, selecione **Proceder à inscrição**.
-1. No **Register Server Wizard** > **Vault Identification,** navegue e selecione o ficheiro de credenciais que descarregou. Em seguida, selecione **Seguinte**.
+1. Para **instalação,** reveja os pré-requisitos e **selecione Instalar**.
+1. Depois de instalado o agente, **selecione Proceder ao Registo**.
+1. No Registo de Identificação do **Cofre do Assistente do Servidor,**  >  **Vault Identification**navegue e selecione o ficheiro de credenciais que descarregou. Em seguida, selecione **Seguinte**.
 
-    ![Adicione credenciais de cofre utilizando o Assistente do Servidor de Registo](./media/backup-configure-vault/register1.png)
+    ![Adicione credenciais de abóbada utilizando o Assistente do Servidor de Registo](./media/backup-configure-vault/register1.png)
 
-1. Na página de Definição de **Encriptação,** especifique uma palavra-passe que será usada para encriptar e desencriptar cópias de segurança para a máquina.
+1. Na página Definição de **Encriptação,** especifique uma palavra-passe que será usada para encriptar e desencriptar cópias de segurança para a máquina.
 
-    * Guarde a frase de passe num local seguro. Precisa para restaurar uma reserva.
-    * Se perder ou esquecer a frase de passe, a Microsoft não pode ajudá-lo a recuperar os dados de backup.
+    * Guarde a frase num local seguro. Precisa dele para restaurar uma reserva.
+    * Se perder ou esquecer a palavra-passe, a Microsoft não pode ajudá-lo a recuperar os dados de backup.
 
-1. Selecione **Concluir**. O agente está instalado e a sua máquina está registada no cofre. Está pronto para configurar e agendar a cópia de segurança.
+1. Selecione **Concluir**. O agente está agora instalado, e a sua máquina está registada no cofre. Está pronto para configurar e agendar a cópia de segurança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba como fazer backup das [máquinas windows utilizando o agente Azure Backup MARS](backup-windows-with-mars-agent.md)
+Saiba como [fazer backup das máquinas do Windows utilizando o agente Azure Backup MARS](backup-windows-with-mars-agent.md)

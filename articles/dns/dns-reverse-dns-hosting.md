@@ -1,58 +1,57 @@
 ---
-title: Hospedeira inverte zonas de procura dNS em DNS Azure
-description: Saiba como usar o Azure DNS para acolher as zonas de procura de DNS inversas para as suas gamas IP
+title: Host zonas de pesquisa de DNS inversas em Azure DNS
+description: Saiba como usar o Azure DNS para hospedar as zonas de pesquisa de DNS inversas para as suas gamas IP
 author: rohinkoul
 ms.service: dns
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: 78fc3428274be5e1998abe9189bea996f15e278c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d6fabd58baf8fb3dc30c2468efd5bdc8179d5f95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79454266"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84709203"
 ---
-# <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Hospedeira inverte zonas de procura dNS em DNS Azure
+# <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Host zonas de pesquisa de DNS inversas em Azure DNS
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Este artigo explica como hospedar as zonas de procura dNS inversas para as suas gamas IP atribuídas em Azure DNS. As gamas IP representadas pelas zonas de procura inversadevem devem ser atribuídas à sua organização, tipicamente pelo seu ISP.
+Este artigo explica como hospedar as zonas de pesquisa de DNS inversas para as gamas IP atribuídas no Azure DNS. As gamas IP representadas pelas zonas de procura inversa devem ser atribuídas à sua organização, tipicamente pelo seu ISP.
 
-Para configurar o DNS invertido para um endereço IP propriedade do Azure que é atribuído ao seu serviço Azure, consulte [Configure reverter DNS para serviços hospedados em Azure](dns-reverse-dns-for-azure-services.md).
+Para configurar o DNS invertido para um endereço IP de propriedade Azure que seja atribuído ao seu serviço Azure, consulte [o Configure reverse DNS para serviços hospedados no Azure](dns-reverse-dns-for-azure-services.md).
 
-Antes de ler este artigo, deve estar familiarizado com a [visão geral do DNS invertido e](dns-reverse-dns-overview.md)do apoio em Azure .
+Antes de ler este artigo, deve estar familiarizado com a [visão geral do DNS invertido e do suporte em Azure](dns-reverse-dns-overview.md).
 
-Este artigo percorre-o através dos passos para criar a sua primeira zona dNS de procura inversa e gravar utilizando o portal Azure, Azure PowerShell, Azure classic CLI ou Azure CLI.
+Este artigo percorre os passos para criar a sua primeira zona de DNS de pesquisa inversa e gravar utilizando o portal Azure PowerShell, Azure Classic CLI ou Azure CLI.
 
-## <a name="create-a-reverse-lookup-dns-zone"></a>Criar uma zona dNS de procura inversa
+## <a name="create-a-reverse-lookup-dns-zone"></a>Criar uma zona de DNS de pesquisa inversa
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. No menu **Hub,** selecione **New** > **Networking**, e, em seguida, selecione **a zona DNS**.
+1. No menu **Hub,** selecione **New**  >  **Networking**e, em seguida, selecione **a zona DNS**.
 
    ![Seleção "zona DNS"](./media/dns-reverse-dns-hosting/figure1.png)
 
-1. No painel de **zona Create DNS,** nomeie a sua zona DNS. O nome da zona é elaborado de forma diferente para os prefixos IPv4 e IPv6. Utilize as instruções para [iPv4](#ipv4) ou [IPv6](#ipv6) para nomear a sua zona. Quando terminar, selecione **Criar** para criar a zona.
+1. No painel **de zona Create DNS,** diga o nome da sua zona DNS. O nome da zona é elaborado de forma diferente para prefixos IPv4 e IPv6. Utilize as instruções para [iPv4](#ipv4) ou [IPv6](#ipv6) para nomear a sua zona. Quando terminar, **selecione Criar** para criar a zona.
 
 ### <a name="ipv4"></a>IPv4
 
-O nome de uma zona de procura inversa IPv4 baseia-se na gama IP que representa. Deve estar no seguinte `<IPv4 network prefix in reverse order>.in-addr.arpa`formato: . Por exemplo, consulte [a visão geral do DNS invertido e suporte em Azure](dns-reverse-dns-overview.md#ipv4).
+O nome de uma zona de procura inversa IPv4 baseia-se no intervalo IP que representa. Deve estar no seguinte formato: `<IPv4 network prefix in reverse order>.in-addr.arpa` . Por exemplo, consulte [a visão geral do DNS invertido e o suporte em Azure](dns-reverse-dns-overview.md#ipv4).
 
 > [!NOTE]
-> Quando estiver a criar zonas de procura dNS inversas sem classe em`-`DNS Azure,`/`deve utilizar um hífen ( ) em vez de um corte para a frente ( ) no nome da zona.
+> Quando estiver a criar zonas de pesquisa de DNS invertidos sem classe em Azure DNS, deve utilizar um hífen ( `-` ) em vez de um corte para a frente ( ) no nome da `/` zona.
 >
-> Por exemplo, para a gama IP 192.0.2.2.128/26, deve utilizar `128-26.2.0.192.in-addr.arpa` como nome de zona em vez de `128/26.2.0.192.in-addr.arpa`.
+> Por exemplo, para a gama IP 192.0.2.128/26, deve utilizar `128-26.2.0.192.in-addr.arpa` como nome de zona em vez de `128/26.2.0.192.in-addr.arpa` .
 >
-> Embora as normas DNS suportem ambos os métodos, o Azure DNS não suporta nomes de zona DNS que contenham para o caráter de barra avançada (`/`).
+> Embora os padrões DNS suportem ambos os métodos, O Azure DNS não suporta nomes de zonas DNS que contenham para o carácter de corte dianteiro `/` .
 
-O exemplo que se segue mostra como criar `2.0.192.in-addr.arpa` uma zona DNS inversa classe C nomeada em DNS Azure através do portal Azure:
+O exemplo a seguir mostra como criar uma zona DE DNS inversa classe C nomeada `2.0.192.in-addr.arpa` em Azure DNS através do portal Azure:
 
- ![Painel "Create DNS zone", com caixas preenchidas](./media/dns-reverse-dns-hosting/figure2.png)
+ ![Painel "Criar zona DNS", com caixas preenchidas](./media/dns-reverse-dns-hosting/figure2.png)
 
-**A localização** do grupo de recursos define a localização para o grupo de recursos. Não tem impacto na zona DNS. A localização da zona DNS é sempre “global” e não está apresentada.
+**A localização** do grupo de recursos define a localização para o grupo de recursos. Não tem impacto na zona do DNS. A localização da zona DNS é sempre “global” e não está apresentada.
 
-Os seguintes exemplos mostram como completar esta tarefa utilizando o Azure PowerShell e o Azure CLI.
+Os exemplos a seguir mostram como completar esta tarefa utilizando a Azure PowerShell e a Azure CLI.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -74,16 +73,16 @@ az network dns zone create -g MyResourceGroup -n 2.0.192.in-addr.arpa
 
 ### <a name="ipv6"></a>IPv6
 
-O nome de uma zona de procura inversa IPv6 deve estar na seguinte forma: `<IPv6 network prefix in reverse order>.ip6.arpa`.  Por exemplo, consulte [a visão geral do DNS invertido e suporte em Azure](dns-reverse-dns-overview.md#ipv6).
+O nome de uma zona de procura inversa IPv6 deve ser da seguinte forma: `<IPv6 network prefix in reverse order>.ip6.arpa` .  Por exemplo, consulte [a visão geral do DNS invertido e o suporte em Azure](dns-reverse-dns-overview.md#ipv6).
 
 
-O exemplo que se segue mostra como criar uma `0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa` zona de procuração DNS inversa IPv6 chamada em Azure DNS através do portal Azure:
+O exemplo a seguir mostra como criar uma zona de pesquisa de DNS inversa IPv6 nomeada `0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa` em Azure DNS através do portal Azure:
 
- ![Painel "Create DNS zone", com caixas preenchidas](./media/dns-reverse-dns-hosting/figure3.png)
+ ![Painel "Criar zona DNS", com caixas preenchidas](./media/dns-reverse-dns-hosting/figure3.png)
 
-**A localização** do grupo de recursos define a localização para o grupo de recursos. Não tem impacto na zona DNS. A localização da zona DNS é sempre “global” e não está apresentada.
+**A localização** do grupo de recursos define a localização para o grupo de recursos. Não tem impacto na zona do DNS. A localização da zona DNS é sempre “global” e não está apresentada.
 
-Os seguintes exemplos mostram como completar esta tarefa utilizando o Azure PowerShell e o Azure CLI.
+Os exemplos a seguir mostram como completar esta tarefa utilizando a Azure PowerShell e a Azure CLI.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -103,32 +102,32 @@ azure network dns zone create MyResourceGroup 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip
 az network dns zone create -g MyResourceGroup -n 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
-## <a name="delegate-a-reverse-dns-lookup-zone"></a>Delege uma zona de procuração dNS inversa
+## <a name="delegate-a-reverse-dns-lookup-zone"></a>Delegar uma zona de pesquisa de DNS inversa
 
-Agora que criou a sua zona de procura ção DNS inversa, tem de garantir que a zona é delegada a partir da zona dos pais. A delegação do DNS permite que o processo de resolução de nomes DNS encontre os servidores de nome que acolhem a sua zona de procura dNS inversa. Esses servidores de nome podem então responder a consultas inversas dNS para os endereços IP no seu intervalo de endereços.
+Agora que criou a sua zona de pesquisa de DNS inversa, deve garantir que a zona é delegada a partir da zona dos pais. A delegação do DNS permite que o processo de resolução do nome DNS encontre os servidores de nome que acolhem a sua zona de pesquisa de DNS inversa. Esses servidores de nomes podem então responder a consultas inversas dns para os endereços IP na sua gama de endereços.
 
-Para zonas de procura ção para a frente, o processo de delegação de uma zona DNS é descrito em [Delegar o seu domínio para O DNS Azure](dns-delegate-domain-azure-dns.md). A delegação para zonas de procura inversa funciona da mesma forma. A única diferença é que precisa de configurar os servidores de nome com o ISP que forneceu o seu intervalo IP, em vez do registo do seu nome de domínio.
+Para zonas de procura a dianteira, o processo de delegação de uma zona de DNS é descrito em [Delegado do seu domínio para Azure DNS](dns-delegate-domain-azure-dns.md). A delegação para zonas de procura inversa funciona da mesma forma. A única diferença é que precisa configurar os servidores de nome com o ISP que forneceu o seu intervalo de IP, em vez do seu registo de nome de domínio.
 
-## <a name="create-a-dns-ptr-record"></a>Criar um disco DNS PTR
+## <a name="create-a-dns-ptr-record"></a>Criar um registo DNS PTR
 
 ### <a name="ipv4"></a>IPv4
 
-O exemplo seguinte acompanha-o através do processo de criação de um registo PTR numa zona DNS inversa em DNS Azure. Para outros tipos de registo e para modificar registos existentes, consulte [Manage DNS records and record sets by using the Azure portal (Gerir registos DNS e conjuntos de registos com o portal do Azure)](dns-operations-recordsets-portal.md).
+O exemplo que se segue acompanha-o através do processo de criação de um registo PTR numa zona de DNS inversa em Azure DNS. Para outros tipos de registo e para modificar registos existentes, consulte [Manage DNS records and record sets by using the Azure portal (Gerir registos DNS e conjuntos de registos com o portal do Azure)](dns-operations-recordsets-portal.md).
 
-1. Na parte superior do painel de **zona DNS,** selecione **+ Conjunto de registo** para abrir o painel de conjunto de registo **saqueado.**
+1. No topo do painel de **zonas DNS,** selecione **+ Conjunto de record** para abrir o painel de **recordes Add.**
 
-   ![Botão para criar um conjunto de discos](./media/dns-reverse-dns-hosting/figure4.png)
+   ![Botão para criar um conjunto de registos](./media/dns-reverse-dns-hosting/figure4.png)
 
-1. O nome do registo estabelecido para um disco PTR tem de ser o resto do endereço IPv4 por ordem inversa. 
+1. O nome do recorde estabelecido para um registo DEPT tem de ser o resto do endereço IPv4 em ordem inversa. 
 
-   Neste exemplo, os três primeiros octetos já estão povoados como parte do nome da zona (.2.0.192). Portanto, apenas o último octeto é fornecido na caixa **nome.** Por exemplo, pode nomear o seu conjunto de **registos 15** para um recurso cujo endereço IP é 192.0.2.15.  
-1. Para **Tipo,** selecione **PTR**.  
-1. Para **NOME DE DOMÍNIO,** introduza o nome de domínio totalmente qualificado (FQDN) do recurso que utiliza o IP.
+   Neste exemplo, os três primeiros octetos já estão povoados como parte do nome da zona (.2.0.192). Portanto, apenas o último octeto é fornecido na caixa **Nome.** Por exemplo, pode nomear o seu recorde de **15** para um recurso cujo endereço IP é 192.0.2.15.  
+1. Para **Tipo**, selecione **PTR**.  
+1. Para **nome de domínio,** insira o nome de domínio totalmente qualificado (FQDN) do recurso que utiliza o IP.
 1. Selecione **OK** na parte inferior do painel para criar o registo DNS.
 
-   ![Painel "Adicionar recorde", com caixas preenchidas](./media/dns-reverse-dns-hosting/figure5.png)
+   ![Painel "Adicionar conjunto de recordes", com caixas preenchidas](./media/dns-reverse-dns-hosting/figure5.png)
 
-Os seguintes exemplos mostram como completar esta tarefa utilizando o PowerShell ou o Azure CLI.
+Os exemplos a seguir mostram como completar esta tarefa utilizando o PowerShell ou o Azure CLI.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -149,22 +148,22 @@ az network dns record-set ptr add-record -g MyResourceGroup -z 2.0.192.in-addr.a
 
 ### <a name="ipv6"></a>IPv6
 
-O exemplo que se segue acompanha-o através do processo de criação de um novo disco PTR. Para outros tipos de registo e para modificar registos existentes, consulte [Manage DNS records and record sets by using the Azure portal (Gerir registos DNS e conjuntos de registos com o portal do Azure)](dns-operations-recordsets-portal.md).
+O exemplo que se segue acompanha-o através do processo de criação de um novo registo PTR. Para outros tipos de registo e para modificar registos existentes, consulte [Manage DNS records and record sets by using the Azure portal (Gerir registos DNS e conjuntos de registos com o portal do Azure)](dns-operations-recordsets-portal.md).
 
-1. Na parte superior do painel de **zona DNS,** selecione **+ Conjunto de registo** para abrir o painel de conjunto de registo **saqueado.**
+1. No topo do painel de **zonas DNS,** selecione **+ Conjunto de record** para abrir o painel de **recordes Add.**
 
-   ![Botão para criar um conjunto de discos](./media/dns-reverse-dns-hosting/figure6.png)
+   ![Botão para criar um conjunto de registos](./media/dns-reverse-dns-hosting/figure6.png)
 
-2. O nome do registo estabelecido para um disco PTR tem de ser o resto do endereço IPv6 por ordem inversa. Não deve incluir qualquer compressão zero. 
+2. O nome do recorde estabelecido para um registo DEPT tem de ser o resto do endereço IPv6 em ordem inversa. Não deve incluir qualquer compressão zero. 
 
-   Neste exemplo, os primeiros 64 bits do IPv6 já estão povoados como parte do nome da zona (0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa). Portanto, apenas os últimos 64 bits são fornecidos na caixa **nome.** Os últimos 64 bits do endereço IP são introduzidos por ordem inversa, com um período como delimitador entre cada número hexadecimal. Por exemplo, pode nomear o seu recorde estabelecido **e.5.0.4.9.f.a.1.c.c.b.0.4.4.4.5.f** para um recurso cujo endereço IP é 2001:0db8:abdc:0000:f524:10bc:1af9:405e.  
-3. Para **Tipo,** selecione **PTR**.  
+   Neste exemplo, os primeiros 64 bits do IPv6 já estão povoados como parte do nome da zona (0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa). Portanto, apenas os últimos 64 bits são fornecidos na caixa **Nome.** Os últimos 64 bits do endereço IP são introduzidos em ordem inversa, com um período como o declimiter entre cada número hexadecimal. Por exemplo, pode nomear o seu recorde estabelecido **e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f** para um recurso cujo endereço IP é 2001:0db8:abdc:0000:f524:10bc:1af9:405e.  
+3. Para **Tipo**, selecione **PTR**.  
 4. Para **NOME DE DOMÍNIO,** introduza o FQDN do recurso que utiliza o IP.
 5. Selecione **OK** na parte inferior do painel para criar o registo DNS.
 
-![Painel "Adicionar recorde", com caixas preenchidas](./media/dns-reverse-dns-hosting/figure7.png)
+![Painel "Adicionar conjunto de recordes", com caixas preenchidas](./media/dns-reverse-dns-hosting/figure7.png)
 
-Os seguintes exemplos mostram como completar esta tarefa utilizando o PowerShell ou o Azure CLI.
+Os exemplos a seguir mostram como completar esta tarefa utilizando o PowerShell ou o Azure CLI.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -186,15 +185,15 @@ az network dns record-set ptr add-record -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8
 
 ## <a name="view-records"></a>Ver registos
 
-Para ver os registos que criou, navegue até à sua zona DNS no portal Azure. Na parte inferior do painel de **zona DNS,** pode ver os registos da zona DNS. Devias ver os registos padrão da NS e da SOA, mais quaisquer novos registos que tenhas criado. Os registos da NS e da SOA são criados em todas as zonas. 
+Para ver os registos que criou, navegue pela sua zona DNS no portal Azure. Na parte inferior do painel de **zonas DNS,** pode ver os registos da zona de DNS. Deve ver os registos NS e SOA predefinidos, além de quaisquer novos registos que tenha criado. Os registos NS e SOA são criados em todas as zonas. 
 
 ### <a name="ipv4"></a>IPv4
 
-O painel **de zona DNS** mostra os registos de PTR IPv4:
+O painel de **zonas DNS** mostra os registos do IPv4 PTR:
 
-![Painel "DNS zone" com registos IPv4](./media/dns-reverse-dns-hosting/figure8.png)
+![Painel "zona DNS" com registos IPv4](./media/dns-reverse-dns-hosting/figure8.png)
 
-Os exemplos seguintes mostram como visualizar os registos de PTR utilizando powerShell ou Azure CLI.
+Os exemplos a seguir mostram como visualizar os registos PTR utilizando o PowerShell ou o Azure CLI.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -216,11 +215,11 @@ az network dns record-set list -g MyResourceGroup -z 2.0.192.in-addr.arpa
 
 ### <a name="ipv6"></a>IPv6
 
-O painel **de zona DNS** mostra os registos de PTR IPv6:
+O painel de **zonas DNS** mostra os registos do IPv6 PTR:
 
-![Painel "DNS zone" com registos IPv6](./media/dns-reverse-dns-hosting/figure9.png)
+![Painel "zona DNS" com registos IPv6](./media/dns-reverse-dns-hosting/figure9.png)
 
-Os seguintes exemplos mostram como visualizar os registos utilizando powerShell ou Azure CLI.
+Os exemplos a seguir mostram como visualizar os registos utilizando o PowerShell ou o Azure CLI.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -242,28 +241,28 @@ az network dns record-set list -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0
 
 ## <a name="faq"></a>FAQ
 
-### <a name="can-i-host-reverse-dns-lookup-zones-for-my-isp-assigned-ip-blocks-on-azure-dns"></a>Posso alojar zonas de procura de DNS inversas para os meus blocos IP atribuídos ao ISP no Azure DNS?
+### <a name="can-i-host-reverse-dns-lookup-zones-for-my-isp-assigned-ip-blocks-on-azure-dns"></a>Posso apresentar zonas de pesquisa de DNS inversas para os meus blocos IP atribuídos pelo ISP no Azure DNS?
 
-Sim. O alojamento das zonas de procura inversa (ARPA) para as suas próprias gamas IP em Azure DNS está totalmente suportado.
+Sim. A hospedagem das zonas de procura inversa (ARPA) para as suas próprias gamas IP em Azure DNS está totalmente suportada.
 
-Crie a zona de procura inversa no DNS Azure, como explicado neste artigo, e depois trabalhe com o seu ISP para [delegar a zona](dns-domain-delegation.md). Em seguida, pode gerir os registos de PTR para cada procura inversa da mesma forma que outros tipos de discos.
+Crie a zona de pesquisa inversa em Azure DNS, conforme explicado neste artigo, e, em seguida, trabalhe com o seu ISP para [delegar a zona](dns-domain-delegation.md). Em seguida, pode gerir os registos PTR para cada procura inversa da mesma forma que outros tipos de registo.
 
-### <a name="how-much-does-hosting-my-reverse-dns-lookup-zone-cost"></a>Quanto custa a hospedagem da minha zona de procuração DNS inversa?
+### <a name="how-much-does-hosting-my-reverse-dns-lookup-zone-cost"></a>Quanto custa a minha zona de pesquisa de DNS inversa?
 
-Hospedar a zona de procura ção DNS inversa para o seu bloco IP atribuído a ISP em Azure DNS é cobrado às [tarifas padrão de DNS Azure](https://azure.microsoft.com/pricing/details/dns/).
+A hospedagem da zona de pesquisa de DNS inversa para o seu bloco IP atribuído ao ISP em Azure DNS é cobrada nas [tarifas padrão de DNS do Azure](https://azure.microsoft.com/pricing/details/dns/).
 
-### <a name="can-i-host-reverse-dns-lookup-zones-for-both-ipv4-and-ipv6-addresses-in-azure-dns"></a>Posso alojar zonas de procura de DNS inversas para endereços IPv4 e IPv6 em DNS Azure?
+### <a name="can-i-host-reverse-dns-lookup-zones-for-both-ipv4-and-ipv6-addresses-in-azure-dns"></a>Posso hospedar zonas de pesquisa de DNS inversas para endereços IPv4 e IPv6 em DNS de Azure?
 
-Sim. Este artigo explica como criar tanto as zonas de procura de DNS IPv4 como IPv6 em DNS Azure.
+Sim. Este artigo explica como criar zonas de pesquisa de DNS iPv4 e IPv6 inversas em Azure DNS.
 
-### <a name="can-i-import-an-existing-reverse-dns-lookup-zone"></a>Posso importar uma zona de procura ção dNS inversa?
+### <a name="can-i-import-an-existing-reverse-dns-lookup-zone"></a>Posso importar uma zona de pesquisa de DNS inversa existente?
 
-Sim. Pode utilizar o Azure CLI para importar zonas DNS existentes em DNS Azure. Este método funciona tanto para zonas de procura para a frente como para zonas de procura inversa.
+Sim. Você pode usar O Azure CLI para importar as zonas DNS existentes em Azure DNS. Este método funciona tanto para zonas de procura avançada como para zonas de procura inversa.
 
-Para mais informações, consulte [importar e exportar um ficheiro de zona DNS utilizando o Azure CLI](dns-import-export.md).
+Para obter mais informações, consulte [Importar e exportar um ficheiro de zona DNS utilizando o Azure CLI](dns-import-export.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre dNS invertidos, consulte a [procura inversa de DNS na Wikipédia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+Para obter mais informações sobre DNS invertidos, consulte [a pesquisa reversa do DNS na Wikipédia.](https://en.wikipedia.org/wiki/Reverse_DNS_lookup)
 <br>
-Saiba como [gerir registos dNS invertidos para os seus serviços Azure](dns-reverse-dns-for-azure-services.md).
+Saiba como [gerir registos DNS invertidos para os seus serviços Azure.](dns-reverse-dns-for-azure-services.md)

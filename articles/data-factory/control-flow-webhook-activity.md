@@ -1,6 +1,6 @@
 ---
-title: Atividade webhook na Fábrica de Dados Azure
-description: A atividade do webhook não continua a executar o pipeline até validar o conjunto de dados anexo com determinados critérios que o utilizador especifica.
+title: Atividade webhook na Azure Data Factory
+description: A atividade webhook não continua a execução do pipeline até validar o conjunto de dados anexado com determinados critérios que o utilizador especifica.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417883"
 ---
-# <a name="webhook-activity-in-azure-data-factory"></a>Atividade webhook na Fábrica de Dados Azure
+# <a name="webhook-activity-in-azure-data-factory"></a>Atividade webhook na Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Uma atividade de webhook pode controlar a execução de gasodutos através do seu código personalizado. Com a atividade do webhook, o código dos clientes pode ligar para um ponto final e passar-lhe um URL de callback. A execução do gasoduto aguarda a invocação do regresso antes de passar para a próxima atividade.
+Uma atividade webhook pode controlar a execução de oleodutos através do seu código personalizado. Com a atividade webhook, o código dos clientes pode chamar um ponto final e passar-lhe um URL de retorno de chamada. O gasoduto aguarda a invocação de retorno antes de passar para a próxima atividade.
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 ```json
 
@@ -51,29 +51,29 @@ Uma atividade de webhook pode controlar a execução de gasodutos através do se
 
 ```
 
-## <a name="type-properties"></a>Propriedades de tipo
+## <a name="type-properties"></a>Tipo de propriedades
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-**nome** | O nome da atividade do webhook. | String | Sim |
-**tipo** | Deve ser definido para "WebHook". | String | Sim |
-**método** | O método REST API para o ponto final do alvo. | Cadeia. O tipo suportado é "POST". | Sim |
-**url** | O ponto final e o caminho do alvo. | Uma corda ou uma expressão com o **valor do tipo de resultado** de uma corda. | Sim |
-**cabeçalhos** | Cabeçalhos que são enviados para o pedido. Aqui está um exemplo que define a linguagem `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`e escreve num pedido: . | Uma corda ou uma expressão com o **valor do tipo de resultado** de uma corda. | Sim. Um `Content-Type` cabeceamento `"headers":{ "Content-Type":"application/json"}` como é necessário. |
-**corpo** | Representa a carga útil que é enviada para o ponto final. | JSON válido ou uma expressão com o **valor tipo de json** resultado. Consulte solicitar esquema de [carga útil](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) para o esquema da carga útil do pedido. | Sim |
-**autenticação** | O método de autenticação usado para chamar o ponto final. Os tipos suportados são "Básico" e "Certificado de Cliente". Para obter mais informações, veja [Autenticação](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). Se a autenticação não for necessária, exclua esta propriedade. | Uma corda ou uma expressão com o **valor do tipo de resultado** de uma corda. | Não |
-**tempo limite** | Quanto tempo a atividade aguarda a chamada especificada pela **callBackUri** para ser invocada. O valor predefinido é de 10 minutos ("00:10:00"). Os valores têm o formato TimeSpan *d*. *hh:**mm*:*ss*. | String | Não |
-**Estado do relatório no callback** | Permite que um utilizador reporte o estado falhado de uma atividade de webhook. | Booleano | Não |
+**nome** | O nome da atividade webhook. | String | Yes |
+**tipo** | Deve ser definido como "WebHook". | String | Yes |
+**método** | O método REST API para o ponto final alvo. | Cadeia. O tipo suportado é "POST". | Yes |
+**url** | O ponto final e o caminho do alvo. | Uma corda ou uma expressão com o **resultado Valor** de um fio. | Yes |
+**cabeçalhos** | Cabeçalhos que são enviados para o pedido. Aqui está um exemplo que define o idioma e o tipo num pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Uma corda ou uma expressão com o **resultado Valor** de um fio. | Sim. Um `Content-Type` cabeçalho como `"headers":{ "Content-Type":"application/json"}` é necessário. |
+**corpo** | Representa a carga útil que é enviada para o ponto final. | JSON válido ou uma expressão com o **resultado Valor de** Tipo de JSON. Consulte [o esquema de carga útil do Pedido](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) para o esquema da carga útil do pedido. | Yes |
+**autenticação** | O método de autenticação usado para chamar o ponto final. Os tipos suportados são "Básico" e "ClientCertificate". Para obter mais informações, veja [Autenticação](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). Se a autenticação não for necessária, exclua esta propriedade. | Uma corda ou uma expressão com o **resultado Valor** de um fio. | No |
+**tempo limite** | Quanto tempo a atividade aguarda que a chamada especificada pelo **callBackUri** seja invocada. O valor predefinido é de 10 minutos ("00:10:00"). Os valores têm o formato TimeSpan *d*. *hh*:*mm*:*ss*. | String | No |
+**Estado do relatório sobre o retorno** | Permite que um utilizador reporte o estado falhado de uma atividade webhook. | Booleano | No |
 
 ## <a name="authentication"></a>Autenticação
 
-Uma atividade de webhook suporta os seguintes tipos de autenticação.
+Uma atividade webhook suporta os seguintes tipos de autenticação.
 
 ### <a name="none"></a>Nenhuma
 
-Se a autenticação não for necessária, não inclua a propriedade de **autenticação.**
+Se a autenticação não for necessária, não inclua o imóvel **de autenticação.**
 
-### <a name="basic"></a>Básico
+### <a name="basic"></a>Básica
 
 Especifique o nome de utilizador e a palavra-passe para utilizar com a autenticação básica.
 
@@ -99,7 +99,7 @@ Especifique o conteúdo codificado base64 de um ficheiro PFX e uma palavra-passe
 
 ### <a name="managed-identity"></a>Identidade gerida
 
-Utilize a identidade gerida pela fábrica de dados para especificar o recurso URI para o qual o token de acesso é solicitado. Para ligar para a API `https://management.azure.com/`de Gestão de Recursos Azure, utilize. Para obter mais informações sobre como funcionam as identidades geridas, consulte as identidades geridas para a visão geral dos [recursos do Azure.](/azure/active-directory/managed-identities-azure-resources/overview)
+Utilize a identidade gerida da fábrica de dados para especificar o recurso URI para o qual o token de acesso é solicitado. Para ligar para a API de Gestão de Recursos Azure, utilize `https://management.azure.com/` . Para obter mais informações sobre como funcionam as identidades geridas, consulte [as identidades geridas para a visão geral dos recursos Azure](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ```json
 "authentication": {
@@ -109,21 +109,21 @@ Utilize a identidade gerida pela fábrica de dados para especificar o recurso UR
 ```
 
 > [!NOTE]
-> Se a sua fábrica de dados estiver configurada com um repositório Git, deve armazenar as suas credenciais no Cofre de Chaves Azure para utilizar a autenticação básica ou de certificado de cliente. A Azure Data Factory não armazena senhas em Git.
+> Se a sua fábrica de dados estiver configurada com um repositório Git, deve armazenar as suas credenciais no Cofre da Chave Azure para utilizar a autenticação básica ou de certificado de cliente. A Azure Data Factory não armazena senhas em Git.
 
 ## <a name="additional-notes"></a>Notas adicionais
 
-Data Factory passa a propriedade adicional **callBackUri** no corpo enviado para o ponto final url. Data Factory espera que este URI seja invocado antes do valor limite especificado. Se o URI não for invocado, a atividade falha com o estatuto "TimedOut".
+Data Factory passa a chamada adicional **de propriedadeBackUri** no corpo enviado para o ponto final URL. A Data Factory espera que este URI seja invocado antes do valor de tempo limite especificado. Se o URI não for invocado, a atividade falha com o estado "TimedOut".
 
-A atividade do webhook falha quando a chamada para o ponto final personalizado falha. Qualquer mensagem de erro pode ser adicionada ao corpo de chamada e usada numa atividade posterior.
+A atividade webhook falha quando a chamada para o ponto final personalizado falha. Qualquer mensagem de erro pode ser adicionada ao corpo de retorno e usada numa atividade posterior.
 
-Para cada chamada rest API, o cliente horário se o ponto final não responder dentro de um minuto. Este comportamento é as melhores práticas padrão http. Para resolver este problema, implemente um padrão de 202. No caso em apreço, o ponto final devolve 202 (Aceito) e as sondagens dos clientes.
+Para cada chamada da API REST, o cliente termina se o ponto final não responder dentro de um minuto. Este comportamento é a melhor prática padrão HTTP. Para resolver este problema, implementar um padrão de 202. No caso em atualmente, o ponto final devolve 202 (Aceitos) e as sondagens dos clientes.
 
-O intervalo de um minuto no pedido não tem nada a ver com o tempo limite de atividade. Este último é utilizado para esperar pelo backback especificado pela **callbackUri**.
+O tempo limite de um minuto no pedido não tem nada a ver com o tempo limite de atividade. Este último é utilizado para aguardar a chamada especificada por **callbackUri**.
 
-O corpo passado de volta para o backback URI deve ser válido JSON. Coloque `Content-Type` o `application/json`cabeçalho para .
+O corpo passado de volta para o URI de retorno deve ser válido JSON. Desa estale o `Content-Type` cabeçalho para `application/json` .
 
-Quando utilizar o estado do Relatório na propriedade **de callback,** deve adicionar o seguinte código ao corpo quando efizer a chamada:
+Quando utilizar o estado do Relatório na propriedade **de retorno,** deve adicionar o seguinte código ao corpo quando fizer a chamada:
 
 ```json
 {

@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: machine-learning
 ms.service: machine-learning
 ms.custom: include file
@@ -9,24 +9,24 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/18/2019
 ms.openlocfilehash: e3cb977871af2e6cd7a59dd48505090dd29e8a76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75541806"
 ---
-1. Inscreva-se no [estúdio Azure Machine Learning.](https://ml.azure.com)
+1. Inscreva-se no [estúdio Azure Machine Learning](https://ml.azure.com).
 
 1. Atualize o seu espaço de trabalho para a edição da Enterprise.
 
-    Após a atualização, todas as suas experiências de interface visual converter-se-ão em rascunhos de pipeline no designer.
+    Após a atualização, todas as suas experiências de interface visual serão convertidas em rascunhos de pipeline no designer.
     
     > [!NOTE]
-    > Não é necessário fazer upgrade para a edição da Enterprise para converter serviços web de interface visual em pontos finais em tempo real.
+    > Não precisa de fazer upgrade para a edição da Enterprise para converter serviços web de interface visual em pontos finais em tempo real.
     
-1. Vá à secção de design do espaço de trabalho para ver a sua lista de rascunhos de pipeline. 
+1. Vá à secção de designers do espaço de trabalho para ver a sua lista de rascunhos de gasodutos. 
     
-    Os serviços web convertidos podem ser encontrados navegando até **pontos finais** > em**tempo real.**
+    Os serviços web convertidos podem ser encontrados navegando para **endpoints**  >  **pontos finais em tempo real.**
 
 1. Selecione um rascunho de gasoduto para abri-lo.
 
@@ -34,9 +34,9 @@ ms.locfileid: "75541806"
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
- Abaixo estão conhecidas questões de migração que precisam de ser abordadas manualmente:
+ Abaixo estão conhecidas as questões migratórias que precisam de ser abordadas manualmente:
 
-- **Dados de Importação** ou Módulos de **Dados de Exportação**
+- **Dados de Importação** ou Módulos **de Dados de Exportação**
         
-    Se tiver um módulo de **Dados de Importação** ou Dados de **Exportação** na experiência, precisa de atualizar a fonte de dados para utilizar uma datastore. Para aprender a criar uma loja de dados, consulte Como Aceder a Dados nos serviços de [armazenamento do Azure.](../articles/machine-learning/how-to-access-data.md) As informações da sua conta de armazenamento na nuvem foram adicionadas nos comentários do módulo de Dados de **Importação** ou Dados de **Exportação** para sua conveniência. 
+    Se tiver um módulo **de Dados de Importação** ou **Dados de Exportação** na experiência, precisa de atualizar a fonte de dados para utilizar uma datas-loja. Para aprender a criar uma loja de dados, consulte [Como Aceder aos Dados nos serviços de armazenamento Azure.](../articles/machine-learning/how-to-access-data.md) As informações da sua conta de armazenamento em nuvem foram adicionadas nos comentários do módulo **de Dados** de Importação ou **Dados de Exportação** para sua conveniência. 
       

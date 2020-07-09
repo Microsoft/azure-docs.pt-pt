@@ -1,7 +1,7 @@
 ---
 title: Metas de escalabilidade para contas de armazenamento de blocos premium
 titleSuffix: Azure Storage
-description: Conheça as contas de armazenamento de blocos de desempenho premium. As contas de armazenamento de blocos blob são otimizadas para aplicações que usam objetos de menor alcance de kilobyte.
+description: Saiba mais sobre contas de armazenamento de blocos de desempenho premium. As contas de armazenamento de blob de blocos são otimizadas para aplicações que usam objetos menores e de alcance de quilobyte.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,11 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 948b0f411e64fadc1e4e48c08f427e5ce4b2229d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75486030"
 ---
 # <a name="scalability-targets-for-premium-block-blob-storage-accounts"></a>Metas de escalabilidade para contas de armazenamento de blocos premium
 
-Uma conta de armazenamento de blocos de desempenho premium é otimizada para aplicações que usam objetos de menor alcance kilobyte. É ideal para aplicações que requerem altas taxas de transação ou armazenamento consistente de baixa latência. O armazenamento de bolhas de bloco de desempenho premium foi concebido para escalar com as suas aplicações. Se o seu cenário exigir que implemente aplicações que exijam centenas de milhares de pedidos por segundo ou petabytes de capacidade de armazenamento, contacte a Microsoft através da apresentação de um pedido de suporte no [portal Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Uma conta de armazenamento de blocos de desempenho premium é otimizada para aplicações que usam objetos menores de alcance de kilobyte. É ideal para aplicações que requerem altas taxas de transação ou armazenamento consistente de baixa latência. O armazenamento de blob de bloco de desempenho premium foi concebido para escalar com as suas aplicações. Se o seu cenário exigir que implemente aplicações que exijam centenas de milhares de pedidos por segundo ou petabytes de capacidade de armazenamento, contacte a Microsoft através da apresentação de um pedido de suporte no [portal Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

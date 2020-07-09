@@ -1,101 +1,101 @@
 ---
-title: Sobrepor o comportamento do HTTP com o Azure CDN - Motor de regras Verizon Premium
-description: O motor de regras permite-lhe personalizar a forma como os pedidos de HTTP são tratados pelo Azure CDN da Verizon Premium, tais como bloquear a entrega de certos tipos de conteúdo, definir uma política de cache e modificar os cabeçalhos HTTP.
+title: Anular comportamento HTTP com Azure CDN - Verizon Premium regras motor
+description: O motor de regras permite-lhe personalizar a forma como os pedidos HTTP são tratados pela Azure CDN da Verizon Premium, tais como bloquear a entrega de determinados tipos de conteúdo, definir uma política de caching e modificar os cabeçalhos HTTP.
 services: cdn
 author: asudbring
 ms.service: azure-cdn
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/31/2019
 ms.author: allensu
-ms.openlocfilehash: 2e5e4265f30631f8e68d8f9e7156ea578ae85e7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c61407b2a0c9d0423d1f856101400771e27d846
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253480"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887427"
 ---
-# <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Sobrepor o comportamento http usando o CDN Azure do motor de regras Verizon Premium
+# <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Anular o comportamento http usando o Azure CDN do motor de regras Verizon Premium
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Descrição geral
 
-O motor de regras do CDN Azure permite-lhe personalizar a forma como os pedidos http são tratados. Por exemplo, bloquear a entrega de certos tipos de conteúdo, definir uma política de cache ou modificar um cabeçalho HTTP. Este tutorial demonstra como criar uma regra que altera o comportamento de cache dos ativos da CDN. Para obter mais informações sobre as regras da sintaxe do motor, consulte a [referência do motor de regras do Azure CDN](cdn-verizon-premium-rules-engine-reference.md).
+O motor de regras Azure CDN permite-lhe personalizar a forma como os pedidos HTTP são tratados. Por exemplo, bloquear a entrega de certos tipos de conteúdo, definir uma política de caching ou modificar um cabeçalho HTTP. Este tutorial demonstra como criar uma regra que altera o comportamento de caching dos ativos da CDN. Para obter mais informações sobre a sintaxe do motor de regras, consulte [a referência do motor das regras do Azure CDN](cdn-verizon-premium-rules-engine-reference.md).
 
-## <a name="access"></a>Acesso
+## <a name="access"></a>Access
 
-Para aceder ao motor de regras, tem primeiro de selecionar **Gerir** a partir do topo da página de **perfil CDN** para aceder à página de gestão do CDN Azure. Dependendo se o seu ponto final está otimizado para a aceleração dinâmica do site (DSA), aceda ao motor de regras com o conjunto de regras apropriadas para o seu tipo de ponto final:
+Para aceder ao motor de regras, tem primeiro de selecionar **Gerir** a partir da parte superior da página de perfil do **CDN** para aceder à página de gestão do Azure CDN. Dependendo se o seu ponto final está otimizado para a aceleração dinâmica do site (DSA), aceda ao motor de regras com o conjunto de regras adequadas para o seu tipo de ponto final:
 
-- Pontos finais otimizados para entrega geral web ou outra otimização não-DSA:
+- Pontos finais otimizados para entrega geral da web ou outra otimização não-DSA:
     
-    Selecione o separador **HTTP Large** e, em seguida, selecione **O Motor de Regras**.
+    Selecione o separador **HTTP Large** e, em seguida, selecione **Rules Engine**.
 
-    ![Regras motor para HTTP](./media/cdn-rules-engine/cdn-http-rules-engine.png)
+    ![Motor de regras para HTTP](./media/cdn-rules-engine/cdn-http-rules-engine.png)
 
-- Pontos finais otimizados para AD:
+- Pontos finais otimizados para a DSA:
     
-    Selecione o separador **ADN** e, em seguida, selecione **O Motor de Regras**.
+    Selecione o **separador ADN** e, em seguida, selecione **O Motor de Regras**.
     
-    ADN é um termo usado pela Verizon para especificar o conteúdo da DSA. Quaisquer regras que crie aqui são ignoradas por quaisquer pontos finais do seu perfil que não estejam otimizados para a DSA.
+    ADN é um termo usado pela Verizon para especificar o conteúdo da DSA. Quaisquer regras que crie aqui são ignoradas por quaisquer pontos finais no seu perfil que não estejam otimizadas para a DSA.
 
-    ![Motor de regras para DSA](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
+    ![Motor de regras para a DSA](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
 
 ## <a name="tutorial"></a>Tutorial
 
-1. A partir da página de **perfil cdN,** selecione **Gerir**.
+1. Na página de perfil do **CDN,** **selecione Gerir**.
    
-    ![Perfil CDN Gerir botão](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![Botão de gestão de perfil CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
    
-    Abre o portal de gestão da CDN.
+    O portal de gestão cdn abre.
 
-2. Selecione o separador **HTTP Large** e, em seguida, selecione **O Motor de Regras**.
+2. Selecione o separador **HTTP Large** e, em seguida, selecione **Rules Engine**.
    
     As opções para uma nova regra são apresentadas.
    
     ![Novas opções de regras da CDN](./media/cdn-rules-engine/cdn-new-rule.png)
    
    > [!IMPORTANT]
-   > A ordem em que várias regras são listadas afeta a forma como são tratadas. Uma regra subsequente pode anular as ações especificadas por uma regra anterior.
+   > A ordem pela qual são listadas várias regras afeta a forma como são tratadas. Uma regra subsequente pode anular as ações especificadas por uma regra anterior.
    >
 
-3. Introduza um nome no **nome / Descrição** da caixa de texto.
+3. Introduza um nome na caixa de texto **Nome / Descrição.**
 
-4. Identifique o tipo de pedidos a que a regra se aplica. Utilize a condição de correspondência predefinida, **sempre**.
+4. Identifique o tipo de pedidos a que a regra se aplica. Utilize a condição de correspondência **predefinido, Sempre**.
    
-   ![Condição de correspondência da regra cdn](./media/cdn-rules-engine/cdn-request-type.png)
+   ![Condição de correspondência de regras CDN](./media/cdn-rules-engine/cdn-request-type.png)
    
    > [!NOTE]
-   > Várias condições de jogo estão disponíveis na lista de dropdown. Para obter informações sobre a condição de jogo atualmente selecionada, selecione o ícone informativo azul à sua esquerda.
+   > Várias condições de correspondência estão disponíveis na lista de espera. Para obter informações sobre a condição de correspondência atualmente selecionada, selecione o ícone informativo azul à sua esquerda.
    >
-   >  Para obter uma lista detalhada de expressões condicionais, consulte [as expressões condicionais](cdn-verizon-premium-rules-engine-reference-match-conditions.md)do motor.
+   >  Para obter uma lista detalhada de expressões condicionais, consulte [as expressões condicionais do motor rules](cdn-verizon-premium-rules-engine-reference-match-conditions.md).
    >  
-   > Para obter uma lista detalhada das condições de jogo, consulte Regras de [condições](cdn-verizon-premium-rules-engine-reference-match-conditions.md)de correspondência do motor .
+   > Para obter uma lista detalhada das condições de jogo, consulte [as condições de correspondência do motor regras](cdn-verizon-premium-rules-engine-reference-match-conditions.md).
    >
    >
 
-5. Para adicionar uma nova **+** funcionalidade, selecione o botão ao lado das **Funcionalidades**.  Na descida à esquerda, selecione **Force Internal Max-Age**.  Na caixa de texto que aparece, introduza **300**. Não altere os restantes valores predefinidos.
+5. Para adicionar uma nova funcionalidade, selecione o **+** botão ao lado **de Funcionalidades**.  No dropdown à esquerda, selecione **Force Internal Max-Age**.  Na caixa de texto que aparece, introduza **300**. Não altere os valores predefinidos restantes.
    
-   ![Recurso de regra CDN](./media/cdn-rules-engine/cdn-new-feature.png)
+   ![Função de regra CDN](./media/cdn-rules-engine/cdn-new-feature.png)
    
    > [!NOTE]
    > Várias funcionalidades estão disponíveis na lista de dropdown. Para obter informações sobre a funcionalidade atualmente selecionada, selecione o ícone informativo azul à sua esquerda.
    >
-   > Para a **Força Internal Max-Age,** os ativos `Cache-Control` e `Expires` os cabeçalhos são sobressados para controlar quando o nó de borda CDN refresca o ativo a partir da origem. Neste exemplo, o nó de borda CDN caches o ativo durante 300 segundos, ou 5 minutos, antes de refrescar o ativo a partir da sua origem.
+   > Para **a Força Interna Max-Age**, os ativos e os `Cache-Control` `Expires` cabeçalhos são ultrapassados para controlar quando o nó de borda CDN atualiza o ativo a partir da origem. Neste exemplo, o nó de borda CDN caches o ativo por 300 segundos, ou 5 minutos, antes de refrescar o ativo da sua origem.
    >
-   > Para obter uma lista detalhada de funcionalidades, consulte as [funcionalidades](cdn-verizon-premium-rules-engine-reference-features.md)do motor Rules .
+   > Para obter uma lista detalhada de funcionalidades, consulte [as características do motor Rules](cdn-verizon-premium-rules-engine-reference-features.md).
    >
    >
 
-6. Selecione **Adicionar** para salvar a nova regra.  A nova regra aguarda agora aprovação. Depois de aprovado, o estado muda de **Pendente XML** para **Ative XML**.
+6. **Selecione Adicionar** para guardar a nova regra.  A nova regra aguarda agora a aprovação. Depois de aprovado, o estado muda de **XML pendente** para **Ative XML**.
    
    > [!IMPORTANT]
    > As alterações de regras podem demorar até 10 minutos a propagar-se através do Azure CDN.
    >
    >
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
-- [Visão geral do CDN azure](cdn-overview.md)
+- [Visão geral do Azure CDN](cdn-overview.md)
 - [Referência do motor de regras](cdn-verizon-premium-rules-engine-reference.md)
 - [Condições de correspondência do motor de regras](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Expressões condicionais do motor de regras](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)

@@ -1,6 +1,6 @@
 ---
-title: H264 Bitrate Múltiplo 16x9 SD Microsoft Docs
-description: O tópico dá uma visão geral do predefinido de tarefa de **Bitrate Múltiplo H264 16x9 SD.**
+title: H264 Bitrate Múltiplo 16x9 SD/ Microsoft Docs
+description: O tópico apresenta uma visão geral da predefinição da tarefa **MÚLS 16x9 SD de Bitrate MÚLTIPO H264.**
 author: Juliako
 manager: femila
 editor: ''
@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: a0d272a01a6969f702ff4eedf05660833ba1f531
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61463721"
 ---
 # <a name="h264-multiple-bitrate-16x9-sd"></a>H264 Taxas de Bits Múltiplas 16x9 SD
-`Media Encoder Standard`define um conjunto de predefinições de codificação que pode usar ao criar trabalhos de codificação. Pode utilizar um `preset name` para especificar em que formato pretende codificar o seu ficheiro de mídia. Ou, pode criar os seus próprios presets baseados em JSON ou XML (utilizando a codificação UTF-8 ou UTF-16. Em seguida, passaria o predefinido personalizado para o codificador. Para a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificador, consulte predefinições de tarefa para Media [Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`define um conjunto de predefinições codificantes que pode usar ao criar trabalhos de codificação. Pode utilizar um `preset name` para especificar em que formato gostaria de codificar o seu ficheiro de mídia. Ou, pode criar as suas próprias predefinições baseadas em JSON ou XML (utilizando codificação UTF-8 ou UTF-16. Passaria então a predefinição personalizada para o codificar. Para a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificadores, consulte [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- Este tópico `H264 Multiple Bitrate 16x9 SD` mostra o predefinido no formato XML e JSON.  
+ Este tópico mostra a `H264 Multiple Bitrate 16x9 SD` predefinição no formato XML e JSON.  
   
- Este preset produz um conjunto de 5 ficheiros MP4 alinhados com GOP, que variam entre 1900 kbps e 400 kbps, e áudio AAC estéreo. Para obter informações detalhadas sobre o perfil, bitrate, taxa de amostragem, etc. deste predefinido, examine o XML ou JSON definidos abaixo. Para explicações sobre o que cada elemento nestas predefinições significa, e os valores válidos para cada elemento, consulte o tópico [de esquema sema media Encoder Standard.](media-services-mes-schema.md)  
+ Esta predefinição produz um conjunto de 5 ficheiros MP4 alinhados com GOP, que variam entre 1900 kbps e 400 kbps, e áudio AAC estéreo. Para obter informações detalhadas sobre o perfil, o bitrate, a taxa de amostragem, etc. desta predefinição, examine o XML ou JSON definido abaixo. Para obter explicações sobre o que significa cada elemento nestas predefinições e os valores válidos para cada elemento, consulte o tópico [de esquema padrão Media Encoder.](media-services-mes-schema.md)  
   
 > [!NOTE]
->  Ao modificar `Width` os `Height` valores e valores entre camadas, certifique-se de que a relação de aspeto permanece consistente. Por exemplo: 1920x1080, 1280x720, 1080x576, 640x360. Não deve utilizar uma mistura de rácios de aspetos, tais como: 1280x720, 720x480, 640x360.  
+>  Ao modificar os `Width` valores e `Height` valores através das camadas, certifique-se de que a relação de aspeto permanece consistente. Por exemplo: 1920x1080, 1280x720, 1080x576, 640x360. Não deve utilizar uma mistura de rácios de aspeto, tais como: 1280x720, 720x480, 640x360.  
   
  XML  
   

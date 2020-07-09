@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Keeper Password Manager & Digital Vault para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
-description: Aprenda a configurar o Diretório Ativo do Azure para fornecer e desfornecer automaticamente contas de utilizador ao Keeper Password Manager & Digital Vault.
+title: 'Tutorial: Configure Keeper Password Manager & Cofre Digital para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+description: Aprenda a configurar o Azure Ative Directory para provisões automáticas e desavisagem de contas de utilizador ao Keeper Password Manager & Digital Vault.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,36 +16,35 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 236527a9889879f872ef8c3867a7ec3c1b1ba0a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057532"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Tutorial: Configure Keeper Password Manager & Cofre Digital para fornecimento automático de utilizadores
 
-O objetivo deste tutorial é demonstrar os passos a serem realizados no Keeper Password Manager & Digital Vault e Azure Ative Directory (Azure AD) para configurar o Azure AD para fornecer e desfornecer automaticamente utilizadores e/ou grupos para Keeper Password Manager & Digital Vault.
+O objetivo deste tutorial é demonstrar os passos a serem realizados no Keeper Password Manager & Digital Vault e Azure Ative Directory (Azure AD) para configurar a Azure AD para fornecimento e/ou grupos de fornecimento e/ou grupos de keeper para Keeper Password Manager & Digital Vault.
 
 > [!NOTE]
-> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Da AD Azure. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
+> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [automatizar o fornecimento e desprovisionamento de aplicações saaS com diretório Azure Ative.](../app-provisioning/user-provisioning.md)
 >
-> Este conector encontra-se atualmente em Pré-visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [os Termos Suplementares de Utilização para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> Este conector encontra-se atualmente em Visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
-* Um inquilino da AD Azure
-* [Um gestor de passwords de guarda & inquilino do Cofre Digital](https://keepersecurity.com/pricing.html?t=e)
-* Uma conta de utilizador no Keeper Password Manager & Digital Vault com permissões de Administrador.
+* Um inquilino da AD AZure
+* [Um gestor de passwords do guardião & inquilino do cofre digital](https://keepersecurity.com/pricing.html?t=e)
+* Uma conta de utilizador no Keeper Password Manager & Digital Vault com permissões de administração.
 
 ## <a name="add-keeper-password-manager--digital-vault-from-the-gallery"></a>Adicione o Gestor de Passwords do Guardião & Cofre Digital da galeria
 
-Antes de configurar o Keeper Password Manager & Digital Vault para o fornecimento automático de utilizadores com a AD Azure, tem de adicionar o Gestor de Passwords do Guardião & Cofre Digital da galeria de aplicações Azure AD à sua lista de aplicações geridas do SaaS.
+Antes de configurar o Keeper Password Manager & Cofre Digital para fornecimento automático de utilizadores com Azure AD, tem de adicionar o Keeper Password Manager & Digital Vault da galeria de aplicações AD Azure à sua lista de aplicações geridas pelo SaaS.
 
-**Para adicionar o Gestor de Passwords keeper & Cofre Digital da galeria de aplicações Da AD Azure, execute os seguintes passos:**
+**Para adicionar Keeper Password Manager & Cofre Digital da galeria de aplicações AZure, execute os seguintes passos:**
 
-1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação esquerdo, selecione **Azure Ative Directory**.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, selecione **Azure Ative Directory**.
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -57,122 +56,122 @@ Antes de configurar o Keeper Password Manager & Digital Vault para o forneciment
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, introduza o **Gestor de Passwords do Guardião & Cofre Digital,** selecione **Keeper Password Manager & Digital Vault** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, insira o **Keeper Password Manager & Digital Vault**, selecione Keeper Password Manager & Digital **Vault** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-    ![Gestor de passwords do Guardião & Cofre Digital na lista de resultados](common/search-new-app.png)
+    ![Keeper Password Manager & Digital Vault na lista de resultados](common/search-new-app.png)
 
-## <a name="assigning-users-to-keeper-password-manager--digital-vault"></a>Atribuir utilizadores ao Gestor de Passwords keeper & Cofre Digital
+## <a name="assigning-users-to-keeper-password-manager--digital-vault"></a>Atribuir utilizadores ao Keeper Password Manager & Cofre Digital
 
-O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de utilizadores, apenas os utilizadores e/ou grupos que tenham sido atribuídos a uma aplicação em AD Azure são sincronizados.
+O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de utilizadores, apenas os utilizadores e/ou grupos que foram designados para uma aplicação em Azure AD são sincronizados.
 
-Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao Gestor de Passwords do Guardião & Cofre Digital. Uma vez decidido, pode atribuir estes utilizadores e/ou grupos ao Keeper Password Manager & Digital Vault seguindo as instruções aqui:
+Antes de configurar e permitir o fornecimento automático do utilizador, deverá decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao Keeper Password Manager & Digital Vault. Uma vez decididos, pode atribuir estes utilizadores e/ou grupos ao Keeper Password Manager & Digital Vault seguindo as instruções aqui:
 
 * [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-keeper-password-manager--digital-vault"></a>Dicas importantes para atribuir utilizadores ao Keeper Password Manager & Cofre Digital
 
-* Recomenda-se que um único utilizador da AD Azure seja atribuído ao Keeper Password Manager & Digital Vault para testar a configuração automática de fornecimento de utilizadores. Posteriormente, os utilizadores e/ou grupos adicionais podem ser atribuídos.
+* Recomenda-se que um único utilizador Azure AD seja designado para Keeper Password Manager & Digital Vault para testar a configuração automática de provisionamento do utilizador. Utilizadores e/ou grupos adicionais podem ser atribuídos mais tarde.
 
-* Ao atribuir um utilizador ao Gestor de Passwords do Guardião & Cofre Digital, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
+* Ao atribuir um utilizador ao Keeper Password Manager & Digital Vault, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **Acesso Predefinido** estão excluídos do provisionamento.
 
-## <a name="configuring-automatic-user-provisioning-to-keeper-password-manager--digital-vault"></a>Configurar o fornecimento automático de utilizadores ao Gestor de Passwords keeper & Cofre Digital 
+## <a name="configuring-automatic-user-provisioning-to-keeper-password-manager--digital-vault"></a>Configurar o fornecimento automático de utilizadores ao Keeper Password Manager & Cofre Digital 
 
-Esta secção guia-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no Keeper Password Manager & Digital Vault com base em atribuições de utilizador e/ou grupo em Azure AD.
+Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no Keeper Password Manager & Digital Vault com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Também pode optar por ativar um único sinal baseado em SAML para o Gestor de Passwords do Guardião & Cofre Digital, seguindo as instruções fornecidas no [Keeper Password Manager & tutorial de inscrição individual do Cofre Digital](keeperpasswordmanager-tutorial.md). O único sinal de inscrição pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente.
+> Pode também optar por ativar o sign-on único baseado em SAML para Keeper Password Manager & Digital Vault, seguindo as instruções fornecidas no Tutorial de [Assinatura do Keeper & Digital Vault.](keeperpasswordmanager-tutorial.md) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente.
 
-### <a name="to-configure-automatic-user-provisioning-for-keeper-password-manager--digital-vault-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para keeper Password Manager & Digital Vault in Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-keeper-password-manager--digital-vault-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para Keeper Password Manager & Digital Vault em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Keeper Password Manager & Digital Vault**.
 
-    ![O Gestor de Passwords keeper & ligação digital vault na lista de aplicações](common/all-applications.png)
+    ![O Gestor de Passwords do Guardião & link digital Vault na lista de aplicações](common/all-applications.png)
 
-3. Selecione o separador **Provisioning.**
+3. Selecione o **separador Provisioning.**
 
-    ![Guia de provisionamento](common/provisioning.png)
+    ![Separador de provisionamento](common/provisioning.png)
 
-4. Detete o **modo de provisionamento** para **automático**.
+4. Desa ajuste o **modo de provisionamento** para **automático**.
 
-    ![Guia de provisionamento](common/provisioning-automatic.png)
+    ![Separador de provisionamento](common/provisioning-automatic.png)
 
-5. De acordo com a secção **de Credenciais de Administrador,** insera o **URL** do Inquilino e o **Token Secreto** do seu Gestor de Passwords do Guardião & conta do Cofre Digital, conforme descrito no Passo 6.
+5. Sob a secção **de Credenciais de Administração,** insira o URL do **inquilino** e **o Token Secreto** do seu Keeper Password Manager & conta digital Vault conforme descrito no Passo 6.
 
-6. Inscreva-se na consola [Keeper Admin](https://keepersecurity.com/console/#login). Clique em **Admin** e selecione um nó existente ou crie um novo. Navegue para o separador **Provisioning** e selecione **Adicionar Método**.
+6. Inscreva-se na sua [Consola de Administração Keeper](https://keepersecurity.com/console/#login). Clique em **Administração** e selecione um nó existente ou crie um novo. Navegue no **separador Provisioning** e selecione **Add Method**.
 
-    ![Consola De Guardião Admin](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-admin-console.png)
+    ![Consola de Administrador Guardião](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-admin-console.png)
 
-    Selecione **SCIM (Sistema de Gestão de Identidade de Domínio Transversal**.
+    Selecione **SCIM (Sistema de Gestão de Identidade de Domínio Cruzado**.
 
-    ![Guardião Adicionar SCIM](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-add-scim.png)
+    ![Keeper Add SCIM](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-add-scim.png)
 
-    Clique em **Criar Token**de Provisionamento .
+    Clique **em Criar Ficha de Provisionamento**.
 
-    ![Guardião Criar Ponto Final](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-endpoint.png)
+    ![Keeper Criar Ponto final](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-endpoint.png)
 
-    Copie os valores para **URL** e **Token** e cole-os em **URL do Inquilino** e **Token Secreto** em Azure AD. Clique em **Guardar** para completar a configuração de provisionamento no Keeper.
+    Copie os valores para **URL** e **Token** e cole-os em **URL de inquilino** e **token secreto** em Azure AD. Clique **em Guardar** para completar a configuração de provisionamento no Keeper.
 
-    ![Guardião Criar Token](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-token.png)
+    ![Keeper Create Token](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-token.png)
 
-7. Ao povoar os campos mostrados no Passo 5, clique em **Test Connection** para garantir que o Azure AD pode ligar-se ao Keeper Password Manager & Digital Vault. Se a ligação falhar, certifique-se de que o gestor de passwords do Guardião & conta Digital Vault tem permissões de administrador e tente novamente.
+7. Ao povoar os campos mostrados no Passo 5, clique em **Test Connection** para garantir que o Azure AD pode ligar-se ao Keeper Password Manager & Digital Vault. Se a ligação falhar, certifique-se de que o seu Keeper Password Manager & conta Digital Vault tem permissões de administração e tente novamente.
 
-    ![URL do inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
+    ![INQUILINO URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-8. No campo de email de **notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e verificar a caixa de verificação - Envie uma notificação por **e-mail quando ocorrer uma falha**.
+8. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e verifique a caixa de verificação - **Envie uma notificação de e-mail quando ocorrer uma falha**.
 
-    ![Email de notificação](common/provisioning-notification-email.png)
+    ![E-mail de notificação](common/provisioning-notification-email.png)
 
 9. Clique em **Guardar**.
 
-10. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to Keeper Password Manager & Digital Vault**.
+10. Na secção **De Mapeamentos,** selecione **Synchronize Azure Ative Directory Users to Keeper Password Manager & Digital Vault**.
 
-    ![Mapeamento de utilizador de guardião](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-mappings.png)
+    ![Mapeamentos do utilizador do guardião](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-mappings.png)
 
-11. Reveja os atributos do utilizador que são sincronizados de Azure AD para Keeper Password Manager & Digital Vault na secção De mapeamento de **atributos.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador no Keeper Password Manager & Digital Vault para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
+11. Reveja os atributos do utilizador que são sincronizados do AD AD do Azure para keeper Password Manager & Digital Vault na secção **De Mapeamento** de Atributos. Os atributos selecionados como propriedades **de correspondência** são utilizados para corresponder às contas do utilizador no Keeper Password Manager & Digital Vault para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    ![Atributos do Utilizador do Guardião](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-attributes.png)
+    ![Atributos do utilizador do guardião](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-attributes.png)
 
-12. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Groups to Keeper Password Manager & Digital Vault**.
+12. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to Keeper Password Manager & Digital Vault**.
 
-    ![Mapeamentodo do Grupo Keeper](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-mappings.png)
+    ![Mapeamentos do grupo keeper](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-mappings.png)
 
-13. Reveja os atributos do grupo que são sincronizados de Azure AD para Keeper Password Manager & Digital Vault na secção De mapeamento de **atributos.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar os grupos em Keeper Password Manager & Digital Vault para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
+13. Reveja os atributos do grupo que são sincronizados de Azure AD para Keeper Password Manager & Digital Vault na secção **De Mapeamento** de Atributos. Os atributos selecionados como propriedades **de correspondência** são utilizados para corresponder aos grupos do Keeper Password Manager & Digital Vault para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
     ![Atributos do Grupo Keeper](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-attributes.png)
 
-14. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+14. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. Para ativar o serviço de provisionamento de Anúncios Azure para o Gestor de Passwords do Guardião & Cofre Digital, altere o Estado de **Provisionamento** para **On** na secção **Definições.**
+15. Para ativar o serviço de fornecimento de Ad Azure para Keeper Password Manager & Digital Vault, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
-    ![Estatuto de provisionamento Alternado](common/provisioning-toggle-on.png)
+    ![Estatuto de Provisionamento Toggled On](common/provisioning-toggle-on.png)
 
-16. Defina os utilizadores e/ou grupos que deseja fornecer ao Keeper Password Manager & Digital Vault, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
+16. Defina os utilizadores e/ou grupos que pretende prever ao Keeper Password Manager & Digital Vault, escolhendo os valores pretendidos no **Âmbito** na secção **Definições.**
 
     ![Âmbito de provisionamento](common/provisioning-scope.png)
 
-17. Quando estiver pronto para fornecer, clique em **Guardar**.
+17. Quando estiver pronto para a provisão, clique em **Guardar**.
 
-    ![Configuração de fornecimento de poupança](common/provisioning-configuration-save.png)
+    ![Configuração de provisionamento de poupança](common/provisioning-configuration-save.png)
 
-Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser desempenhada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento AD Azure esteja em funcionamento. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividadede provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento de Anúncios Azure no Keeper Password Manager & Digital Vault.
+Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de fornecimento AZure AD esteja em execução. Pode utilizar a secção Detalhes da **Sincronização** para monitorizar o progresso e seguir links para o relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de fornecimento de AD Azure no Keeper Password Manager & Digital Vault.
 
-Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
+Para obter mais informações sobre como ler os registos de provisionamento da AZure AD, consulte [Reportar sobre o provisionamento automático da conta de utilizador](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
-* O Gestor de Passwords do Guardião & Digital Vault requer **que os e-mails** e o **userName** tenham o mesmo valor de origem, uma vez que quaisquer atualizações para qualquer um dos atributos modificarão o outro valor.
-* O Gestor de Passwords do Guardião & o Cofre Digital não suporta que o utilizador apague, apenas desative. Os utilizadores com deficiência aparecerão como bloqueados na Consola Keeper Admin UI.
+* Keeper Password Manager & Digital Vault requer **que os e-mails** e **o nome do utilizador** tenham o mesmo valor de origem, uma vez que quaisquer atualizações de ambos os atributos irão modificar o outro valor.
+* Keeper Password Manager & Digital Vault não suporta exclusões de utilizador, apenas desativar. Os utilizadores desativado aparecerão como bloqueados na UI da Consola de Administrador do Guardião.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 

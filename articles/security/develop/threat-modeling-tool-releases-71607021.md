@@ -1,5 +1,5 @@
 ---
-title: Microsoft Threat Modeling Tool lança 7/2/2019
+title: Lançamento da ferramenta de modelação de ameaças da Microsoft 7/2/2019
 titleSuffix: Azure
 description: Documentando as notas de lançamento para a ferramenta de modelação de ameaças
 author: jegeib
@@ -9,41 +9,40 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: d4a97a10b8055af4401dbe163723b1fb38a5d12f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78269678"
 ---
-# <a name="threat-modeling-tool-update-release-71607021---722019"></a>Lançamento da atualização da Ferramenta de Modelação de Ameaças 7.1.60702.1 - 7/2/2019
+# <a name="threat-modeling-tool-update-release-71607021---722019"></a>Lançamento da atualização da ferramenta de modelação de ameaças 7.1.60702.1 - 7/2/2019
 
-A versão 7.1.60702.1 da Microsoft Threat Modeling Tool (TMT) foi lançada a 2 de julho de 2019 e contém as seguintes alterações:
+A versão 7.1.60702.1 da Ferramenta de Modelação de Ameaças da Microsoft (TMT) foi lançada a 2 de julho de 2019 e contém as seguintes alterações:
 
 - Melhorias de acessibilidade
 - Correções de erros
-- Inclusão de uma comunidade de código aberto forneceu conjunto de stencil
+- Inclusão de uma comunidade de código aberto fornecido conjunto de stencil
 
-## <a name="feature-changes"></a>Alterações de funcionalidades
+## <a name="feature-changes"></a>Alterações de recursos
 
-### <a name="a-new-medical-devices-stencil-set-provided-by-the-open-source-community-is-available"></a>Um novo conjunto de dispositivos médicos stencil fornecido pela comunidade de código aberto está disponível
+### <a name="a-new-medical-devices-stencil-set-provided-by-the-open-source-community-is-available"></a>Um novo conjunto de stencil de dispositivos médicos fornecido pela comunidade de código aberto está disponível
 
-Um conjunto de stencil para modelar dispositivos médicos foi contribuído pela comunidade de código aberto. Após a atualização, o novo conjunto de stencil aparecerá no menu de descida da seleção do modelo. Para obter informações sobre stencils ou conteúdos que contribuem para modelos, reveja as informações na [página GitHub](https://github.com/Microsoft/threat-modeling-templates)do projeto .
+Um conjunto de stencil para modelar dispositivos médicos foi contribuído pela comunidade de código aberto. Após a atualização, o novo conjunto de stencil aparecerá no menu de entrega de amostras de seleção do modelo. Para obter informações sobre stencils ou conteúdo para modelos, reveja as informações na [página gitHub](https://github.com/Microsoft/threat-modeling-templates)do projeto.
 
-![Opção de Validação de Modelos](./media/threat-modeling-tool-releases-71607021/tmt-template-selection.png)
+![Opção de validação de modelos](./media/threat-modeling-tool-releases-71607021/tmt-template-selection.png)
 
 ## <a name="system-requirements"></a>Requisitos de sistema
 
 - Sistemas Operativos Suportados
-  - [Microsoft Windows 10 Atualização](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) de Aniversário ou mais tarde
-- versão .NET necessária
-  - [.Rede 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou posterior
+  - [Atualização de Aniversário do Microsoft Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) ou mais tarde
+- .VERSÃO NET Necessária
+  - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou mais tarde
 - Requisitos Adicionais
   - É necessária uma ligação à Internet para receber atualizações da ferramenta, bem como modelos.
 
 ## <a name="documentation-and-feedback"></a>Documentação e feedback
 
-- A documentação para a Ferramenta de Modelação de Ameaças está localizada na [docs.microsoft.com,](threat-modeling-tool.md)e inclui informações [sobre a utilização da ferramenta.](threat-modeling-tool-getting-started.md)
+- A documentação da Ferramenta de Modelação de Ameaças encontra-se no [docs.microsoft.com](threat-modeling-tool.md), e inclui informações [sobre a utilização da ferramenta.](threat-modeling-tool-getting-started.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Descarregue a versão mais recente da Ferramenta de [Modelação de Ameaças da Microsoft](https://aka.ms/threatmodelingtool).
+Descarregue a versão mais recente da [Ferramenta de Modelação de Ameaças da Microsoft](https://aka.ms/threatmodelingtool).

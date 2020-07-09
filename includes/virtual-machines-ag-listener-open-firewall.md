@@ -5,27 +5,27 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184205"
 ---
-Neste passo, cria-se uma regra de firewall para abrir a porta da sonda para o ponto final equilibrado (59999, conforme especificado anteriormente) e outra regra para abrir a porta de escuta do grupo de disponibilidade. Uma vez que criou o ponto final equilibrado em carga nos VMs que contêm réplicas de grupo de disponibilidade, precisa abrir a porta da sonda e a porta de escuta nos respetivos VMs.
+Neste passo, cria-se uma regra de firewall para abrir a porta da sonda para o ponto final equilibrado de carga (59999, conforme especificado anteriormente) e outra regra para abrir a porta de ouvintes do grupo de disponibilidade. Como criou o ponto final equilibrado de carga nos VMs que contêm réplicas de grupo de disponibilidade, precisa de abrir a porta da sonda e a porta do ouvinte nos respetivos VMs.
 
-1. Nos VMs que acolhem réplicas, inicie **o Windows Firewall com Segurança Avançada**.
+1. Em VMs que acolhem réplicas, inicie **o Windows Firewall com Segurança Avançada.**
 
-2. Clique na direita regras de **entrada**e, em seguida, clique em **Nova Regra**.
+2. Clique nas **Regras de Entrada à**Direita e, em seguida, clique em Nova **Regra**.
 
-3. Na página **'Tipo de regra',** selecione **Porta**, e, em seguida, clique **em Seguinte**.
+3. Na página **'Tipo regra',** selecione **Porta**e, em seguida, clique em **Seguinte**.
 
-4. Na página **Protocolo e Portas,** selecione **TCP,** tipo **59999** na caixa **de portos locais específicos** e, em seguida, clique em **Seguinte**.
+4. Na página **Protocolo e Portas,** selecione **TCP**, tipo **59999** na caixa **de portas locais específica** e, em seguida, clique em **Seguinte**.
 
-5. Na página **Ação,** mantenha **permitir a ligação** selecionada e, em seguida, clique em **Seguinte**.
+5. Na página **Ação,** mantenha **a ligação** selecionada e, em seguida, clique em **Seguinte**.
 
-6. Na página **'Perfil',** aceite as definições predefinidas e, em seguida, clique em **Next**.
+6. Na página **'Perfil',** aceite as definições predefinidos e, em seguida, clique em **Seguinte**.
 
-7. Na página **Nome,** na caixa de texto **Nome,** especifique um nome de regra, como a porta de **sonda Always On Listener,** e, em seguida, clique em **Terminar**.
+7. Na página **Nome,** na caixa de texto **'Nome',** especifique um nome de regra, como **Porta sonda Always On Listener**, e, em seguida, clique em **Terminar**.
 
-8. Repita os passos anteriores para a porta de escuta do grupo de disponibilidade (conforme especificado anteriormente no parâmetro $EndpointPort do script), e, em seguida, especifique um nome de regra apropriado, como **a Porto de Escuta Sempre On Listener**.
+8. Repita os passos anteriores para a porta de ouvintes do grupo de disponibilidade (conforme especificado no parâmetro $EndpointPort do script) e, em seguida, especifique um nome de regra apropriado, como **Always On Listener Port**.
 

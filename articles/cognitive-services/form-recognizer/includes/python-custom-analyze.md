@@ -5,21 +5,20 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 3c6059e131eadf1144fd189c47691b2352176745
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: 0644dad9e8e6f2999acfa24ea1088207f6d5e692
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75446417"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028059"
 ---
 ## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>Analisar formulários para pares e tabelas de valor-chave
 
-Em seguida, você usará o seu modelo recém-treinado para analisar um documento e extrair pares e tabelas de valor-chave do mesmo. Ligue para a **[API do Formulário de Análise](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)** executando o seguinte código num novo script Python. Antes de executar o script, faça estas alterações:
+Em seguida, você usará o seu modelo recém-treinado para analisar um documento e extrair pares e tabelas de valor chave a partir dele. Ligue para a **[API do formulário de análise](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)** executando o seguinte código num novo script Python. Antes de executar o script, faça estas alterações:
 
-1. Substitua-a `<file path>` pelo caminho de ficheiro do seu formulário (por exemplo, C:\temp\file.pdf). Isto também pode ser o URL de um ficheiro remoto. Para este arranque rápido, pode utilizar os ficheiros sob a pasta **de teste** do conjunto de dados da [amostra](https://go.microsoft.com/fwlink/?linkid=2090451).
-1. Substitua `<model_id>` pelo ID modelo que recebeu na secção anterior.
-1. Substitua-o `<endpoint>` pelo ponto final que obteve com a chave de subscrição do Reconhecimento de Formulários. Pode encontrá-lo no separador de **visão geral** do recurso 'Reconhecimento de Formulários'.
-1. Substitua `<file type>` pelo tipo de ficheiro. Tipos `application/pdf`suportados: `image/jpeg` `image/png`, `image/tiff`, .
+1. `<file path>`Substitua-o pelo percurso de ficheiro do seu formulário (por exemplo, C:\temp\file.pdf). Este também pode ser o URL de um ficheiro remoto. Para este arranque rápido, pode utilizar os ficheiros sob a pasta **Teste** do conjunto de [dados](https://go.microsoft.com/fwlink/?linkid=2090451)da amostra .
+1. `<model_id>`Substitua-o pelo ID do modelo que recebeu na secção anterior.
+1. `<endpoint>`Substitua-o pelo ponto final que obteve pela tecla de subscrição do Form Recogniser. Pode encontrá-lo no separador **'Visão geral'** do recurso 'Reconhecimento de Formulário'.
+1. `<file type>`Substitua-o pelo tipo de ficheiro. Tipos suportados: `application/pdf` , , , . `image/jpeg` `image/png` `image/tiff` .
 1. Substitua `<subscription key>` pela sua chave de subscrição.
 
     ```python
@@ -32,7 +31,7 @@ Em seguida, você usará o seu modelo recém-treinado para analisar um documento
     endpoint = r"<endpoint>"
     apim_key = "<subsription key>"
     model_id = "<model_id>"
-    post_url = endpoint + "/formrecognizer/v2.0-preview/custom/models/%s/analyze" % model_id
+    post_url = endpoint + "/formrecognizer/v2.0/custom/models/%s/analyze" % model_id
     source = r"<file path>"
     params = {
         "includeTextDetails": True
@@ -62,11 +61,11 @@ Em seguida, você usará o seu modelo recém-treinado para analisar um documento
 1. Abra uma janela da linha de comandos.
 1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python form-recognizer-analyze.py`.
 
-Quando ligar para a API do Formulário `201 (Success)` de **Análise,** receberá uma resposta com um cabeçalho de Localização de **Operação.** O valor deste cabeçalho é um ID que utilizará para acompanhar os resultados da operação Analyze. O script acima imprime o valor deste cabeçalho para a consola.
+Quando ligar para a API **do Formulário de Análise,** receberá uma `201 (Success)` resposta com um **cabeçalho de localização de operação.** O valor deste cabeçalho é um ID que utilizará para acompanhar os resultados da operação Análise. O script acima imprime o valor deste cabeçalho para a consola.
 
 ## <a name="get-the-analyze-results"></a>Obtenha os resultados da Análise
 
-Adicione o seguinte código na parte inferior do seu script Python. Isto utiliza o valor de ID da chamada anterior numa nova chamada da API para recuperar os resultados da análise. A operação **Analyze Form** é assíncrona, pelo que este script chama a API em intervalos regulares até que os resultados estejam disponíveis. Recomendamos um intervalo de um segundo ou mais.
+Adicione o seguinte código na parte inferior do seu script Python. Isto utiliza o valor de ID da chamada anterior numa nova chamada da API para recuperar os resultados da análise. A operação **'Formulário de Análise'** é assíncrono, pelo que este script chama a API a intervalos regulares até que os resultados estejam disponíveis. Recomendamos um intervalo de um segundo ou mais.
 
 ```python 
 n_tries = 15

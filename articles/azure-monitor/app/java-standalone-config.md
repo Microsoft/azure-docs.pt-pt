@@ -1,20 +1,20 @@
 ---
-title: Monitor aplicativos Java em qualquer lugar - Azure Monitor Application Insights
-description: Monitorização do desempenho da aplicação sem código para aplicações Java em qualquer ambiente sem instrumentar a aplicação. Encontre a causa principal dos problemas d utilizando o rastreio distribuído e o mapa de aplicações.
+title: Monitorize aplicações java em qualquer lugar - Azure Monitor Application Insights
+description: Monitorização de desempenho de aplicações sem código para aplicações Java em qualquer ambiente sem instrumentar a aplicação. Encontre a causa principal dos problemas d usando o mapa de rastreio e aplicação distribuídos.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 478e42669339ac015076c89da103d91080090685
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 0c66ad01f265dde7da2f48b17b3ad4438d59a0ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509215"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85319691"
 ---
-# <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opções de configuração - Java agente autónomo para Insights de Aplicação do Monitor Azure
+# <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opções de configuração - Java agente autónomo para Azure Monitor Application Insights
 
 
 
-## <a name="connection-string-and-role-name"></a>Fio de ligação e nome de papel
+## <a name="connection-string-and-role-name"></a>Cadeia de conexão e nome de função
 
 ```json
 {
@@ -27,34 +27,34 @@ ms.locfileid: "82509215"
 }
 ```
 
-A cadeia de ligação é necessária e o nome do papel é importante sempre que estiver a enviar dados de diferentes aplicações para o mesmo recurso Desinformação de Aplicação.
+O fio de ligação é necessário, e o nome da função é importante sempre que estiver a enviar dados de diferentes aplicações para o mesmo recurso Application Insights.
 
 Encontrará mais detalhes e opções de configuração adicionais abaixo para mais detalhes.
 
-## <a name="configuration-file-path"></a>Caminho de ficheiro de configuração
+## <a name="configuration-file-path"></a>Caminho do arquivo de configuração
 
-Por predefinição, a Pré-visualização De Insights `ApplicationInsights.json`de Aplicação Java 3.0 `applicationinsights-agent-3.0.0-PREVIEW.4.jar`espera que o ficheiro de configuração seja nomeado , e que esteja localizado no mesmo diretório que .
+Por predefinição, a Pré-visualização do Application Insights Java 3.0 espera que o ficheiro de configuração seja nomeado `ApplicationInsights.json` , e que esteja localizado no mesmo diretório que `applicationinsights-agent-3.0.0-PREVIEW.5.jar` .
 
-Pode especificar o seu próprio caminho de ficheiro de configuração usando qualquer um dos dois
+Pode especificar o seu próprio caminho de ficheiro de configuração usando qualquer um
 
-* `APPLICATIONINSIGHTS_CONFIGURATION_FILE`variável ambiente, ou
+* `APPLICATIONINSIGHTS_CONFIGURATION_FILE`variável de ambiente, ou
 * `applicationinsights.configurationFile`Propriedade do sistema Java
 
-Se especificar um caminho relativo, será resolvido em `applicationinsights-agent-3.0.0-PREVIEW.4.jar` relação ao diretório onde se encontra.
+Se especificar um caminho relativo, será resolvido em relação ao diretório onde `applicationinsights-agent-3.0.0-PREVIEW.5.jar` está localizado.
 
 ## <a name="connection-string"></a>Cadeia de ligação
 
 Isto é necessário. Pode encontrar a sua cadeia de ligação no seu recurso Application Insights:
 
-:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Linha de ligação insights de aplicação":::
+:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Cadeia de conexão de insights de aplicação":::
 
-Também pode definir a cadeia de `APPLICATIONINSIGHTS_CONNECTION_STRING`ligação utilizando a variável ambiente .
+Também pode definir a cadeia de ligação utilizando a variável `APPLICATIONINSIGHTS_CONNECTION_STRING` ambiente.
 
-## <a name="cloud-role-name"></a>Nome de papel de nuvem
+## <a name="cloud-role-name"></a>Nome do papel da nuvem
 
 O nome da função cloud é usado para rotular o componente no mapa de aplicações.
 
-Se quiser definir o nome do papel da nuvem:
+Se quiser definir o nome da função de nuvem:
 
 ```json
 {
@@ -66,15 +66,15 @@ Se quiser definir o nome do papel da nuvem:
 }
 ```
 
-Se o nome da função cloud não estiver definido, o nome do recurso Application Insights será usado para rotular o componente no mapa de aplicações.
+Se o nome da função de nuvem não estiver definido, o nome do recurso Application Insights será utilizado para rotular o componente no mapa de aplicações.
 
-Também pode definir o nome da `APPLICATIONINSIGHTS_ROLE_NAME`função da nuvem utilizando a variável ambiental .
+Também pode definir o nome da função de nuvem usando a variável `APPLICATIONINSIGHTS_ROLE_NAME` ambiente.
 
-## <a name="cloud-role-instance"></a>Instância de papel de nuvem
+## <a name="cloud-role-instance"></a>Instância de papel em nuvem
 
-A função cloud exemplo de predefinição do nome da máquina.
+A instância de função em nuvem é padrão para o nome da máquina.
 
-Se quiser definir a função de nuvem para algo diferente do nome da máquina:
+Se quiser definir a instância de papel em nuvem para algo diferente do nome da máquina:
 
 ```json
 {
@@ -86,13 +86,13 @@ Se quiser definir a função de nuvem para algo diferente do nome da máquina:
 }
 ```
 
-Também pode definir a função de `APPLICATIONINSIGHTS_ROLE_INSTANCE`nuvem utilizando a variável ambiental .
+Também pode definir a instância de função em nuvem usando a variável `APPLICATIONINSIGHTS_ROLE_INSTANCE` ambiente.
 
 ## <a name="application-log-capture"></a>Captura de registo de aplicações
 
-Informações de aplicação Java 3.0 Preview captura automaticamente o registo de aplicações através de Log4j, Logback e java.util.logging.
+A pré-visualização de Informações Java 3.0 captura automaticamente a marcação de aplicações através de Log4j, Logback e java.util.logging.
 
-Por padrão, capturará todo `WARN` o registo realizado ao nível ou superior.
+Por predefinição, capturará todos os registos realizados ao `WARN` nível ou acima.
 
 Se quiser alterar este limiar:
 
@@ -110,24 +110,24 @@ Se quiser alterar este limiar:
 }
 ```
 
-Estes são `threshold` os valores válidos `ApplicationInsights.json` que pode especificar no ficheiro, e como correspondem aos níveis de registo em diferentes quadros de exploração madeireira:
+Estes são os `threshold` valores válidos que pode especificar no `ApplicationInsights.json` ficheiro e como correspondem aos níveis de registo em diferentes quadros de registo:
 
 | `threshold`  | Log4j  | Logback | JUL     |
 |--------------|--------|---------|---------|
 | OFF          | OFF    | OFF     | OFF     |
 | FATAL        | FATAL  | ERROR   | SEVERO  |
 | ERRO/GRAVE | ERROR  | ERROR   | SEVERO  |
-| AVISO/AVISO | ATENÇÃO   | ATENÇÃO    | AVISO |
-| INFORMAÇÃO         | INFORMAÇÃO   | INFORMAÇÃO    | INFORMAÇÃO    |
+| WARN/WARNING | ATENÇÃO   | ATENÇÃO    | AVISO |
+| INFO         | INFO   | INFO    | INFO    |
 | CONFIG       | DEPURAR  | DEPURAR   | CONFIG  |
-| DEPURAÇÃO/MULTA   | DEPURAR  | DEPURAR   | MULTA    |
-| Mais fino        | DEPURAR  | DEPURAR   | Mais fino   |
+| DEBUG/FINE   | DEPURAR  | DEPURAR   | TUDO BEM.    |
+| FINER        | DEPURAR  | DEPURAR   | FINER   |
 | TRAÇO/MELHOR | VESTÍGIOS  | VESTÍGIOS   | O MELHOR  |
-| TUDO          | TUDO    | TUDO     | TUDO     |
+| ALL          | ALL    | ALL     | ALL     |
 
 ## <a name="jmx-metrics"></a>Métricas JMX
 
-Se tiver algumas métricas JMX que está interessado em capturar:
+Se tiver algumas métricas JMX que esteja interessado em capturar:
 
 ```json
 {
@@ -150,11 +150,11 @@ Se tiver algumas métricas JMX que está interessado em capturar:
 }
 ```
 
-## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrómetro (incluindo métricas do Actuador de Botas de primavera)
+## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrometro (incluindo métricas do Actuador de Bota de Mola)
 
-Se a sua aplicação utilizar [o Micrometro](https://micrometer.io), Application Insights 3.0 (começando com Preview.2) captura agora as métricas enviadas para o registo global do Micrometro.
+Se a sua aplicação utilizar [o Micrometro](https://micrometer.io), o Application Insights 3.0 (a partir da Preview.2) captura agora as métricas enviadas para o registo global do Micrometro.
 
-Se a sua aplicação utilizar o Acionador de Arranque de [Mola](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), application Insights 3.0 (começando com Preview.4) captura agora métricas configuradas pelo Acionador de Arranque de Mola (que utiliza o Micrometro, mas não utiliza o registo global do Micrometro).
+Se a sua aplicação utilizar [o Actuador de Bota de Mola](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), o Application Insights 3.0 (a partir da Pré-visualização.4) captura agora métricas configuradas pelo Actuador de Bota de Mola (que utiliza o Micrometro, mas não utiliza o registo global do Micrometro).
 
 Se quiser desativar estas funcionalidades:
 
@@ -174,7 +174,7 @@ Se quiser desativar estas funcionalidades:
 
 ## <a name="heartbeat"></a>Heartbeat
 
-Por predefinição, a pré-visualização de Insights de Aplicação Java 3.0 envia uma métrica de batimento cardíaco uma vez a cada 15 minutos. Se estiver a usar a métrica do batimento cardíaco para desencadear alertas, pode aumentar a frequência deste batimento cardíaco:
+Por predefinição, a pré-visualização De Insights de Aplicação Java 3.0 envia uma métrica de batimento cardíaco a cada 15 minutos. Se estiver a usar a métrica do batimento cardíaco para desencadear alertas, pode aumentar a frequência deste batimento cardíaco:
 
 ```json
 {
@@ -189,16 +189,16 @@ Por predefinição, a pré-visualização de Insights de Aplicação Java 3.0 en
 ```
 
 > [!NOTE]
-> Não é possível diminuir a frequência deste batimento cardíaco, uma vez que os dados do batimento cardíaco também são usados para rastrear o uso de Insights de Aplicação.
+> Não é possível diminuir a frequência deste batimento cardíaco, uma vez que os dados do batimento cardíaco também são utilizados para rastrear o uso de Insights de Aplicação.
 
 ## <a name="sampling"></a>Amostragem
 
 A amostragem é útil se precisar de reduzir o custo.
-A amostragem é realizada em função do ID de funcionamento (também conhecido como identificação do rastreio), de modo que o mesmo ID de operação resultará sempre na mesma decisão de amostragem. Isto garante que não obterá partes de uma transação distribuída enquanto outras partes são amostradas.
+A amostragem é realizada como uma função no ID de funcionamento (também conhecido como identificação de vestígios), de modo que o mesmo ID de operação resultará sempre na mesma decisão de amostragem. Isto garante que não obterá partes de uma transação distribuída enquanto outras partes são amostradas.
 
-Por exemplo, se definir amostragem para 10%, só verá 10% das suas transações, mas cada uma dessas 10% terá detalhes completos de transação de ponta a ponta.
+Por exemplo, se definir a amostragem para 10%, só verá 10% das suas transações, mas cada uma dessas 10% terá detalhes de transações finais completas.
 
-Aqui está um exemplo de como definir a amostragem para **10% de todas as transações** - certifique-se de definir a taxa de amostragem que está correta para o seu caso de utilização:
+Aqui está um exemplo de como definir a amostragem para **10% de todas as transações** - certifique-se de definir a taxa de amostragem que está correta para o seu caso de uso:
 
 ```json
 {
@@ -216,7 +216,7 @@ Aqui está um exemplo de como definir a amostragem para **10% de todas as transa
 
 ## <a name="http-proxy"></a>HTTP Proxy
 
-Se a sua aplicação estiver por detrás de uma firewall e não conseguir ligar-se diretamente aos Insights de Aplicação (ver [endereços IP utilizados por Insights de Aplicação),](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)pode configurar os Insights de Aplicação Java 3.0 Preview para utilizar um proxy HTTP:
+Se a sua aplicação estiver por detrás de uma firewall e não puder ligar-se diretamente aos Insights de Aplicação (ver [endereços IP utilizados pelo Application Insights),](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)pode configurar a pré-visualização do Pedido Desconsejamento Java 3.0 para utilizar um proxy HTTP:
 
 ```json
 {
@@ -231,13 +231,13 @@ Se a sua aplicação estiver por detrás de uma firewall e não conseguir ligar-
 }
 ```
 
-## <a name="self-diagnostics"></a>Autodiagnóstico
+## <a name="self-diagnostics"></a>Autodiagnóssia
 
-"Auto-diagnóstico" refere-se ao registo interno a partir de Insights de Aplicação Java 3.0 Pré-visualização.
+"Autodiagnóstro" refere-se à sessão interna a partir de Pedidos de Informação Java 3.0 Preview.
 
 Isto pode ser útil para detetar e diagnosticar problemas com a própria Application Insights.
 
-Por predefinição, inicia-se `warn`para consolar com nível , correspondente a esta configuração:
+Por predefinição, regista-se para consolar com nível `warn` , correspondente a esta configuração:
 
 ```json
 {
@@ -252,9 +252,9 @@ Por predefinição, inicia-se `warn`para consolar com nível , correspondente a 
 }
 ```
 
-Os níveis `OFF`válidos são, `ERROR`, `WARN`, `INFO`e `DEBUG`. `TRACE`
+Os níveis válidos `OFF` são, `ERROR` , , , e `WARN` `INFO` `DEBUG` `TRACE` .
 
-Se quiser iniciar sessão num ficheiro em vez de iniciar sessão na consola:
+Se pretender iniciar sessão num ficheiro em vez de iniciar sessão na consola:
 
 ```json
 {
@@ -271,4 +271,4 @@ Se quiser iniciar sessão num ficheiro em vez de iniciar sessão na consola:
 }
 ```
 
-Ao utilizar o registo de `maxSizeMB`ficheiros, uma vez que o ficheiro seja introduzido, será reversão, mantendo apenas o ficheiro de registo mais recentemente concluído, para além do ficheiro de registo atual.
+Ao utilizar o registo de ficheiros, uma vez que o ficheiro `maxSizeMB` atinge, irá capotar, mantendo apenas o ficheiro de registo mais recentemente preenchido, para além do ficheiro de registo atual.

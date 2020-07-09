@@ -4,15 +4,15 @@ description: Resolva o problema do cartão de crédito rejeitado na inscrição 
 author: v-miegge
 ms.reviewer: judupont
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/13/2020
+ms.topic: troubleshooting
+ms.date: 06/05/2020
 ms.author: banders
-ms.openlocfilehash: 0eeddc26ac1a1f286d8ed253f3fe097f0e7de91f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: fe90c0e6022fc5fcd32ddf4e7bc66e58c126545d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409391"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102587"
 ---
 # <a name="troubleshoot-a-declined-card-at-azure-sign-up"></a>Resolução de problemas num cartão rejeitado na inscrição no Azure
 
@@ -20,9 +20,9 @@ Poderá deparar-se com um problema ou erro em que um cartão de crédito é recu
 
 Para resolver o problema, selecione o tópico abaixo que melhor corresponda ao seu erro.
 
-## <a name="the-credit-card-provider-is-not-accepted-for-your-country"></a>O fornecedor do cartão de crédito não é aceite no seu país
+## <a name="the-credit-card-provider-is-not-accepted-for-your-countryregion"></a>O fornecedor do cartão de crédito não é aceite no seu país/região
 
-Quando escolhe um cartão, o Azure apresenta as opções de cartão que são válidas no país selecionado. Contacte o seu banco ou o emissor do cartão para verificar se o seu cartão de crédito está habilitado para transações internacionais. Para obter mais informações sobre os países e as moedas compatíveis, veja as [FAQ sobre Compras do Azure](https://azure.microsoft.com/pricing/faq/).
+Quando escolhe um cartão, o Azure apresenta as opções de cartão que são válidas no país/região que selecionou. Contacte o seu banco ou o emissor do cartão para verificar se o seu cartão de crédito está habilitado para transações internacionais. Para obter mais informações sobre os países/regiões e as moedas suportadas, veja as [FAQ sobre Compras do Azure](https://azure.microsoft.com/pricing/faq/).
 
 >[!Note]
 >Neste momento, os cartões de crédito American Express não são aceites como um instrumento de pagamento na Índia. Não temos um período de tempo para quando poderão ser uma forma de pagamento aceite.
@@ -33,7 +33,7 @@ Os cartões de débito ou de crédito pré-pagos ou virtuais não são aceites c
 
 ## <a name="your-credit-information-is-inaccurate-or-incomplete"></a>As suas informações de crédito estão incorretas ou incompletas
 
-O nome, o endereço e o código CVV introduzidos devem corresponder exatamente ao que está impresso no cartão.
+O nome, o endereço e o código CVV introduzidos têm de corresponder exatamente ao que está impresso no cartão.
 
 ## <a name="the-card-is-inactive-or-blocked"></a>O cartão está inativo ou bloqueado
 
@@ -47,7 +47,7 @@ Para obter mais informações sobre como resolver problemas de inscrição no Az
 
 ## <a name="you-represent-a-business-that-doesnt-want-to-pay-by-card"></a>Representa uma empresa que não quer pagar com cartão
 
-Se representar uma empresa, pode usar métodos de pagamento por fatura, como cheques, cheques overnight ou transferências bancárias para pagar a sua subscrição do Azure. Depois de configurar a conta para pagar por fatura, não poderá mudar para outra opção de pagamento, a menos que tenha um Contrato de Cliente da Microsoft e se tenha inscrito no Azure através do site do Azure.
+Se representar uma empresa, pode usar métodos de pagamento por fatura, como cheques, cheques overnight ou transferências bancárias para pagar a sua subscrição do Azure. Depois de configurar a conta para pagar por fatura, não poderá mudar para outra opção de pagamento, a menos que tenha um Contrato de Cliente Microsoft e se tenha inscrito no Azure através do site do Azure.
 
 Para obter mais informações sobre como pagar por fatura, veja [Submit a request to pay Azure subscription by invoice](pay-by-invoice.md) (Enviar um pedido para pagar a subscrição do Azure por fatura).
 
@@ -55,7 +55,7 @@ Para obter mais informações sobre como pagar por fatura, veja [Submit a reques
 
 Para obter mais informações sobre como gerir as suas informações do cartão, incluindo a alteração ou a remoção de um cartão, veja [Add, update, or remove a credit for Azure](change-credit-card.md) (Adicionar, atualizar ou remover um crédito para o Azure).
 
-## <a name="additional-help-resources"></a>Recursos de ajuda adicional
+## <a name="additional-help-resources"></a>Recursos de ajuda adicionais
 
 Outros artigos de resolução de problemas para Subscrições e Faturação do Azure
 

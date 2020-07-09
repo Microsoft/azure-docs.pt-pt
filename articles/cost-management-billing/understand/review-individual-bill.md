@@ -6,20 +6,22 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 02/13/2020
+ms.date: 06/16/2020
 ms.author: banders
-ms.openlocfilehash: 8ebda9716df2e9e45050760ee8d0434c12838370
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5b0d30d31fbe65360c246282eb2dc2109a541a3f
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199131"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888313"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Tutorial: Analisar a fatura individual do Azure
 
 Este artigo ajuda a compreender e a analisar a fatura do Azure. Normalmente, recebe uma fatura por e-mail para cada período de faturação. A fatura é uma representação da conta do Azure. Estão disponíveis no portal do Azure as mesmas informações de custos descritas na fatura. Neste tutorial, vai comparar a fatura com o ficheiro detalhado de utilização diária e com a análise de custos no portal do Azure.
 
 Este tutorial aplica-se apenas aos clientes do Azure com uma subscrição individual. As subscrições individuais comuns do Azure são as subscrições com tarifas pay as you go compradas diretamente no site do Azure.
+
+Se precisar de ajuda para compreender custos inesperados, veja [Analisar custos inesperados](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started#analyze-unexpected-charges). Em alternativa, se precisar de cancelar a sua subscrição do Azure, veja [Cancelar a sua subscrição do Azure](../manage/cancel-azure-subscription.md).
 
 Neste tutorial, ficará a saber como:
 
@@ -47,7 +49,7 @@ O primeiro passo para comparar a utilização e os custos é transferir a fatura
 
 No portal do Azure, escreva *subscrições* na caixa de pesquisa e, em seguida, clique em [Subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-![Navegar para as subscrições](./media/review-individual-bill/navigate-subscriptions.png)
+[![Navegar para as subscrições](./media/review-individual-bill/navigate-subscriptions.png)](./media/review-individual-bill/navigate-subscriptions.png#lightbox)
 
 Na lista de subscrições, clique na subscrição.
 
@@ -98,7 +100,7 @@ A secção **Custos de Utilização** da fatura mostra o valor total (custo) de 
 
 ![Custos de utilização da fatura](./media/review-individual-bill/invoice-usage-charges.png)
 
-No ficheiro CSV de utilização, filtre por *MeterName* para o Recurso correspondente mostrado na fatura. Em seguida, some o valor do *Custo* dos itens na coluna. Veja a seguir um exemplo.
+No ficheiro CSV de utilização, filtre por *MeterName* para o Recurso correspondente mostrado na fatura. Em seguida, some o valor do *Custo* dos itens na coluna. Eis um exemplo focado no nome do medidor (discos P10) que corresponde ao mesmo item de linha na fatura.
 
 ![Valor somado do ficheiro de utilização para MeterName](./media/review-individual-bill/usage-file-usage-charge-resource.png)
 
@@ -147,7 +149,7 @@ Por exemplo, uma única máquina virtual (VM) criada no Azure pode ter os seguin
 
 Uma vez criada a VM, cada medidor começa a emitir registos de utilização. Esta utilização e o preço do medidor são monitorizados no sistema de medição do Azure.
 
-Pode ver os medidores que foram utilizados para calcular a faturação no ficheiro CSV de utilização.
+Pode ver os medidores que foram utilizados para calcular a faturação no ficheiro CSV de utilização, como no exemplo anterior.
 
 ## <a name="pay-your-bill"></a><a name="payment"></a>Pagar a fatura
 

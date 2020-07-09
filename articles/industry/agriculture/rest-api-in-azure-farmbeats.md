@@ -5,12 +5,11 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: 717a09d8377a7b95fe24300cc65222f307e7419f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c3a70ed905edfcf1dc60e0a12f50aca19060230f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437515"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488040"
 ---
 # <a name="references"></a>Referências
 
@@ -18,83 +17,83 @@ Este artigo descreve as APIs Azure FarmBeats.
 
 ## <a name="rest-api"></a>API REST
 
-As APIs Azure FarmBeats fornecem às empresas agrícolas uma interface restful padronizada com respostas baseadas em JSON para ajudá-lo a tirar partido das capacidades azure FarmBeats, tais como:
+As APIs Azure FarmBeats proporcionam às empresas agrícolas uma interface RESTful padronizada com respostas baseadas em JSON para ajudá-lo a tirar partido das capacidades do Azure FarmBeats, tais como:
 
-- APIs para obter dados de sensores, câmara, drone, tempo, satélite e curadoria.
-- Normalização e contextualização de dados entre fornecedores comuns de dados.
-- Acesso schematizado e capacidades de consulta em todos os dados ingeridos.
+- APIs para obter sensor, câmara, drone, tempo, satélite, e dados de terra curados.
+- Normalização e contextualização de dados em todos os fornecedores comuns de dados.
+- Capacidades de acesso e consulta schematizadas em todos os dados ingeridos.
 - Geração automática de metadados que podem ser consultados, com base em características agronómicas.
-- Agregações de sequência de tempo geradas automaticamente para a construção rápida de modelos.
-- Motor Azure Data Factory integrado para construir facilmente gasodutos de processamento de dados personalizados.
+- A sequência de tempo gerada automaticamente agrega os agregados de sequência de tempo para a construção rápida do modelo.
+- Motor integrado da Azure Data Factory para construir facilmente oleodutos de processamento de dados personalizados.
 
 ## <a name="application-development"></a>Programação de aplicações
 
-As APIs FarmBeats contêm documentação técnica swagger. Para obter informações sobre todas as APIs e os seus correspondentes pedidos ou respostas, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+As APIs FarmBeats contêm documentação técnica da Swagger. Para obter informações sobre todas as APIs e os respetivos pedidos ou respostas, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
 A tabela seguinte resume todos os objetos e recursos no FarmBeats Datahub:
 
 | Objetos e recursos | Descrição
 --- | ---|
-Quinta | A exploração corresponde a uma localização física de interesse dentro do sistema FarmBeats. Cada quinta tem um nome de fazenda e uma identificação única da fazenda. |
-Dispositivo  | O dispositivo corresponde a um dispositivo físico presente na quinta. Cada dispositivo tem um ID de dispositivo único. Um dispositivo é normalmente provisionado para uma fazenda com uma identificação agrícola.
-DeviceModel  | O DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, que é gateway ou nó.
+Quinta | A quinta corresponde a uma localização física de interesse dentro do sistema FarmBeats. Cada quinta tem um nome de fazenda e uma identificação única da fazenda. |
+Dispositivo  | O dispositivo corresponde a um dispositivo físico presente na quinta. Cada dispositivo tem um ID de dispositivo único. Um dispositivo é normalmente a provisionado para uma fazenda com uma identificação agrícola.
+DeviceModel  | O DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, que é um gateway ou nó.
 Sensor  | O sensor corresponde a um sensor físico que regista valores. Um sensor é normalmente ligado a um dispositivo com um ID do dispositivo.
-Modelo de Sensores  | O SensorModel corresponde aos metadados do sensor, como o fabricante, o tipo de sensor, que é analógico ou digital, e a medição do sensor, como temperatura ambiente e pressão.
+SensorModel  | SensorModel corresponde aos metadados do sensor, como o fabricante, o tipo de sensor, que é analógico ou digital, e a medição do sensor, como temperatura ambiente e pressão.
 Telemetria  | A telemetria fornece a capacidade de ler mensagens de telemetria para um determinado sensor e intervalo de tempo.
 Tarefa  | O trabalho corresponde a qualquer fluxo de trabalho de atividades que são executadas no sistema FarmBeats para obter uma saída desejada. Cada trabalho está associado a uma identificação de trabalho e tipo de trabalho.
-Tipo de Trabalho  | JobType corresponde a diferentes tipos de trabalho suportados pelo sistema. Estão incluídos os tipos de trabalho definidos pelo sistema e definidos pelo utilizador.
-Tipo alargado  | ExtendedType corresponde à lista de tipos definidos pelo sistema e pelo utilizador no sistema. ExtendedType ajuda a configurar um novo sensor, cena ou tipo de ficheiro de cena no sistema FarmBeats.
-Parceiro  | O parceiro corresponde ao parceiro de integração de sensores e imagens para farmBeats.
-Cena  | A cena corresponde a qualquer produção gerada no contexto de uma quinta. Cada cena tem uma identificação de cena, fonte de cena, tipo de cena e identificação da fazenda associada a ele. Cada identificação da cena pode ter vários ficheiros de cena associados.
-CenaFile |O SceneFile corresponde a todos os ficheiros gerados para uma única cena. Um único ID de cena pode ter vários IDs do SceneFile associados a ele.
-Regra  |A regra corresponde a uma condição para que os dados relacionados com a exploração desencadeiem um alerta. Cada regra está no contexto dos dados de uma fazenda.
-Alerta  | O alerta corresponde a uma notificação, que é gerada quando uma condição de regra é satisfeita. Cada alerta está no contexto de uma regra.
-Definição de papéis  | RoleDefinition define ações permitidas e desautorizadas para um papel.
-Atribuição de Funções  |A RoleAssignment corresponde à atribuição de uma função a um utilizador ou a um diretor de serviço.
+JobType  | JobType corresponde a diferentes tipos de trabalho suportados pelo sistema. Os tipos de trabalho definidos pelo sistema e definidos pelo utilizador estão incluídos.
+Tipo Estendido  | O Sistema Alargado corresponde à lista de tipos definidos pelo sistema e pelo utilizador no sistema. O ExtendedType ajuda a configurar um novo tipo de sensor, cena ou ficheiro de cena no sistema FarmBeats.
+Parceiro  | O parceiro corresponde ao parceiro de integração de sensores e imagens da FarmBeats.
+Cena  | A cena corresponde a qualquer produção gerada no contexto de uma quinta. Cada cena tem uma identificação de cena, fonte de cena, tipo cena, e identificação de fazenda associada a ela. Cada ID de cena pode ter vários ficheiros de cena associados a ele.
+CenaFile |O SceneFile corresponde a todos os ficheiros gerados para uma única cena. Um ID de cena único pode ter vários IDs sceneFile associados a ele.
+Regra  |A regra corresponde a uma condição para que os dados relacionados com a exploração desencadeiem um alerta. Cada regra está no contexto dos dados de uma quinta.
+Alerta  | O alerta corresponde a uma notificação, que é gerada quando uma condição de regra é cumprida. Cada alerta está no contexto de uma regra.
+Interpretação Definição  | RoleDefinition define ações permitidas e proibidas para um papel.
+Assinatura de Papéis  |FunAatribuição corresponde à atribuição de uma função a um utilizador ou a um principal de serviço.
 
 ### <a name="data-format"></a>Formato de dados
 
-JSON é um formato de dados independente da linguagem comum que fornece uma representação simples de texto de estruturas de dados arbitrárias. Para mais informações, consulte o site da [JSON.](https://www.json.org/)
+JSON é um formato comum de dados independente da linguagem que fornece uma simples representação de texto de estruturas de dados arbitrárias. Para mais informações, consulte o site da [JSON.](https://www.json.org/)
 
 ## <a name="authentication-and-authorization"></a>Autenticação e autorização
 
-Os pedidos http para a REST API estão protegidos com o Azure Ative Directory (Azure AD).
-Para fazer um pedido autenticado às APIs rest, o código do cliente requer autenticação com credenciais válidas antes de poder ligar para a API. A autenticação é coordenada entre os vários atores pela Azure AD. Fornece ao seu cliente um sinal de acesso como prova da autenticação. O símbolo é então enviado no cabeçalho de autorização http dos pedidos da API REST. Para saber mais sobre a autenticação da Azure AD, consulte [o Azure Ative Directory](https://portal.azure.com) para programadores.
+Os pedidos HTTP à API REST estão protegidos com diretório Azure Ative (Azure AD).
+Para escrutinar um pedido autenticado às APIs REST, o código do cliente requer autenticação com credenciais válidas antes de poder ligar para a API. A autenticação é coordenada entre os vários atores da Azure AD. Fornece ao seu cliente um token de acesso como prova da autenticação. O token é então enviado no cabeçalho de autorização HTTP dos pedidos da API REST. Para saber mais sobre a autenticação Azure AD, consulte [o Azure Ative Directory](https://portal.azure.com) para programadores.
 
-O sinal de acesso deve ser enviado em pedidos subsequentes de API, na secção cabeçalho, como:
+O token de acesso deve ser enviado em pedidos de API subsequentes, na secção de cabeçalho, como:
 
 ```
 headers = {"Authorization": "Bearer " + **access_token**}
 ```
 
-### <a name="http-request-headers"></a>HTTP solicitar cabeçalhos
+### <a name="http-request-headers"></a>HTTP solicitam cabeçalhos
 
-Aqui estão os cabeçalhos de pedido mais comuns que deve especificar quando faz uma chamada aPi para O Datahub Azure FarmBeats.
+Aqui estão os cabeçalhos de pedido mais comuns que deve especificar quando es faz uma chamada da API para o Azure FarmBeats Datahub.
 
 
 **Cabeçalho** | **Descrição e exemplo**
 --- | ---
-Content-Type  | O formato de pedido (Tipo de conteúdo: aplicação/<format>). Para a Azure FarmBeats Datahub APIs, o formato é JSON. Tipo de conteúdo: aplicação/json
-Autorização  | Especifica o sinal de acesso necessário para fazer uma chamada aPi. Autorização:> de acesso ao <do portador
-Aceitar | O formato de resposta. Para a Azure FarmBeats Datahub APIs, o formato é JSON. Aceitar: aplicação/json
+Content-Type  | O formato de pedido (Tipo de Conteúdo: aplicação/ <format> ). Para a Azure FarmBeats Datahub APIs, o formato é JSON. Tipo de conteúdo: aplicação/json
+Autorização  | Especifica o token de acesso necessário para fazer uma chamada da API. Autorização: Portador <> Access-Token
+Aceitar | O formato de resposta. Para a Azure FarmBeats Datahub APIs, o formato é JSON. Aceitar: candidatura/json
 
-### <a name="api-requests"></a>Pedidos da API
+### <a name="api-requests"></a>Pedidos de API
 
-Para fazer um pedido de API REST, combina o método HTTP (GET, POST, PUT ou DELETE), o URL ao serviço API, o URI a um recurso para consultar, submeter dados, atualizar ou excluir, e, em seguida, adicionar um ou mais cabeçalhos de pedido HTTP.
+Para esclartear um pedido de API DE REST, combina o método HTTP (GET, POST, PUT ou DELETE), o URL ao serviço API, o URI a um recurso para consultar, submeter dados para, atualizar ou apagar, e depois adicionar um ou mais cabeçalhos de pedido HTTP.
 
-O URL do serviço API é o seu\<URL Datahub, por exemplo, https:// o nome do site datahub>.azurewebsites.net.
+O URL do serviço API é o seu URL Datahub, por exemplo, https:// \<yourdatahub-website-name> .azurewebsites.net.
 
-Opcionalmente, pode incluir parâmetros de consulta nas chamadas GET para filtrar, limitar o tamanho e classificar os dados nas respostas.
+Opcionalmente, pode incluir parâmetros de consulta em chamadas GET para filtrar, limitar o tamanho e ordenar os dados nas respostas.
 
-O seguinte pedido de amostra é utilizado para obter a lista de dispositivos:
+É utilizado o seguinte pedido de amostra para obter a lista de dispositivos:
 
 ```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
 ```
 
-A maioria das chamadas GET, POST e PUT requerem um corpo de pedido da JSON.
+A maioria das chamadas GET, POST e PUT requerem um corpo de pedido JSON.
 
-O seguinte pedido de amostra cria um dispositivo. Este pedido tem entrada JSON com o órgão de pedido.
+O seguinte pedido de amostra cria um dispositivo. Este pedido tem entrada JSON com o corpo de pedido.
 
 ```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept: application/json" -H  "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,  \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
@@ -102,26 +101,26 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept:
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 
-Para chamadas REST GET, pode filtrar, limitar o tamanho e classificar os dados numa resposta DaPI, incluindo um ou mais parâmetros de consulta no pedido URI. Para os parâmetros de consulta, consulte a documentação da API e as chamadas get individuais.
-Por exemplo, quando se consulta a lista de dispositivos (GET call on /Device), podem ser especificados os seguintes parâmetros de consulta:
+Para chamadas REST GET, pode filtrar, limitar o tamanho e classificar os dados numa resposta API, incluindo um ou mais parâmetros de consulta sobre o pedido URI. Para os parâmetros de consulta, consulte a documentação da API e as chamadas GET individuais.
+Por exemplo, quando consulta a lista de dispositivos (chamada GET em /Dispositivo), podem ser especificados os seguintes parâmetros de consulta:
 
 ![Lista de dispositivos](./media/references-for-azure-farmbeats/query-parameters-device-1.png)
 
 ### <a name="error-handling"></a>Processamento de erros
 
-Azure FarmBeats Datahub APIs devolvem os erros padrão http. Os códigos de erro mais comuns são os seguintes:
+Azure FarmBeats Databeats Datahub APIs devolve os erros HTTP padrão. Os códigos de erro mais comuns são os seguintes:
 
  |Código de erro             | Descrição |
  |---                    | --- |
  |200                    | Êxito |
  |201                    | Criar (Post) Sucesso |
  |400                    | Mau pedido. Há um erro no pedido. |
- |401                    | Não autorizado. O autor da API não está autorizado a aceder ao recurso. |
+ |401                    | Não autorizado. O chamador da API não está autorizado a aceder ao recurso. |
  |404                    | Recurso não encontrado |
- |5XX                    | Erro do Servidor Interno. Os códigos de erro a partir do 5XX significam que há algum erro no servidor. Consulte os registos do servidor e a seguinte secção para obter mais detalhes. |
+ |5XX                    | Erro do Servidor Interno. Os códigos de erro que começam com o 5XX significa que há algum erro no servidor. Consulte os registos do servidor e a seguinte secção para obter mais detalhes. |
 
 
-Além dos erros padrão do HTTP, as APIs do Datahub Azure FarmBeats também devolvem erros internos no seguinte formato:
+Além dos erros HTTP padrão, a Azure FarmBeats Datahub APIs também devolve erros internos no seguinte formato:
 
 ```json
     {
@@ -132,7 +131,7 @@ Além dos erros padrão do HTTP, as APIs do Datahub Azure FarmBeats também devo
     }
 ```
 
-Neste exemplo, quando uma exploração foi criada, o campo obrigatório "Nome" não foi especificado na carga útil do input. A mensagem de erro resultante seria:
+Neste exemplo, quando uma quinta foi criada, o campo obrigatório "Nome" não foi especificado na carga útil de entrada. A mensagem de erro resultante seria:
 
  ```json    
     {
@@ -143,35 +142,44 @@ Neste exemplo, quando uma exploração foi criada, o campo obrigatório "Nome" n
     }
   ```
 
-## <a name="add-users-or-app-registrations-to-azure-active-directory"></a>Adicione registos de utilizadores ou aplicativos ao Azure Ative Directory
+## <a name="add-users-or-app-registrations-to-azure-active-directory"></a>Adicionar registos de utilizadores ou aplicações ao Azure Ative Directory
 
-As APIs Azure FarmBeats podem ser acedidas por um utilizador ou por uma inscrição de aplicações no Diretório Ativo Azure. Para criar uma inscrição de aplicativo no Azure Ative Directory, siga estes passos:
+As APIs Azure FarmBeats podem ser acedidas por um utilizador ou por um registo de aplicações no Azure Ative Directory. Para criar um registo de aplicações no Azure Ative Directory, siga estes passos:
 
-1. Vá ao [portal Azure](https://portal.azure.com)e selecione Registos de Aplicações de **Diretório** > Ativo Azure Novas**inscrições.** > **New registration** Em alternativa, pode utilizar uma conta existente.
+1. Aceda ao [portal Azure,](https://portal.azure.com)e selecione **Azure Ative Directory**  >  **App registro**  >  **Novas inscrições**. Em alternativa, pode utilizar uma conta existente.
 2. Para uma nova conta, faça o seguinte:
 
     - Insira um nome.
-    - Selecione **Contas apenas neste diretório organizacional (Inquilino Único)**.
+    - Selecione **Contas neste diretório organizacional apenas (inquilino único)**.
     - Utilize os valores predefinidos no resto dos campos.
     - Selecione **Registar**.
 
-3. No novo e existente painel **de visão geral** da aplicação, faça o seguinte:
+3. No novo painel de **visão geral** do registo de aplicações, faça o seguinte:
 
-    - Capture o ID do **Cliente** e o ID do **Inquilino**.
-    - Vá a **Certificados e Segredos** para gerar um novo segredo de cliente e capture o **Segredo do Cliente.**
-    - Volte à **visão geral**e selecione o link ao lado da Manage Application no **diretório local**.
-    - Vá a **Propriedades** para capturar o ID do **Objeto**.
+    - Capture a **identificação do cliente** e **o ID do inquilino.**
+    - Vá a **Certificados e Segredos** para gerar um novo segredo de cliente e capturar o **Segredo de Clientes.**
+    - Volte ao **Overview**, e selecione o link ao lado **da Aplicação Manage no diretório local.**
+    - Vá a **Propriedades** para capturar o **ID do objeto.**
 
-4. Vá ao seu Datahub<yourdatahub>Swagger (https://.azurewebsites.net/swagger/index.html) e faça o seguinte:
-    - Vá para a **RoleAssignment API.**
-    - Execute um POST para criar um objeto **roleAssignment** para o ID do **objeto** que acabou de criar.
+4. Vá ao seu Datahub Swagger (https:// <yourdatahub> .azurewebsites.net/swagger/index.html) e faça o seguinte:
+    - Vá para a **API de assinatura de papéis.**
+    - Execute um POST para criar um objeto **roleAssignment** para o **ID do objeto** que acabou de criar.
+ 
+```json
+{
+  "roleDefinitionId": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
+  "objectId": "objectId from step 3 above",
+  "objectIdType": "ServicePrincipalId",
+  "tenantId": "tenant id of your Azure subscription"
+}
+```
 
   > [!NOTE]
-  > Para obter mais informações sobre como adicionar utilizadores e registo de Diretório Ativo, consulte [o Diretório Ativo do Azure](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+  > Para obter mais informações sobre como adicionar utilizadores e registo de Diretório Ativo, consulte [o Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-Depois de terminar os passos anteriores, o registo da sua aplicação (cliente) pode ligar para as APIs Azure FarmBeats utilizando um sinal de acesso através da autenticação ao portador.
+Depois de terminar os passos anteriores, o registo da sua aplicação (cliente) pode ligar para as APIs Azure FarmBeats utilizando um token de acesso através da autenticação do portador.
 
-Utilize o sinal de acesso para enviá-lo em pedidos subsequentes de API na secção cabeçalho como:
+Utilize o token de acesso para enviá-lo em pedidos de API subsequentes na secção de cabeçalho como:
 
 ```
 headers = {"Authorization": "Bearer " + **access_token**, "Content-Type" : "application/json" }

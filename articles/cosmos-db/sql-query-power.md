@@ -1,6 +1,6 @@
 ---
-title: POWER na linguagem de consulta do Azure Cosmos DB
-description: Conheça a função do sistema SQL POWER em Azure Cosmos DB.
+title: POWER in Azure Cosmos DB linguagem de consulta
+description: Saiba mais sobre a função do sistema SQL POWER em Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 683c53c369f136ad4b917b93e9a92a71072d05e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71349631"
 ---
 # <a name="power-azure-cosmos-db"></a>POWER (Azure Cosmos DB)
- Devolve o valor da expressão especificada ao poder especificado.  
+ Devolve o valor da expressão especificada à potência especificada.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -29,7 +29,7 @@ POWER (<numeric_expr1>, <numeric_expr2>)
    É uma expressão numérica.  
   
 *numeric_expr2*  
-   É o poder para levantar *numeric_expr1.*  
+   É o poder para levantar *numeric_expr1*.  
   
 ## <a name="return-types"></a>Tipos de retorno
   
@@ -37,7 +37,7 @@ POWER (<numeric_expr1>, <numeric_expr2>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte demonstra elevar um número para a potência de 3 (o cubo do número).  
+  O exemplo a seguir demonstra elevar um número à potência de 3 (o cubo do número).  
   
 ```sql
 SELECT POWER(2, 3) AS pow1, POWER(2.5, 3) AS pow2  
@@ -52,5 +52,5 @@ SELECT POWER(2, 3) AS pow1, POWER(2.5, 3) AS pow2
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

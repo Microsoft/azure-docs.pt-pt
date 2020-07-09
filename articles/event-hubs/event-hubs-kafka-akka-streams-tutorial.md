@@ -1,32 +1,24 @@
 ---
-title: Utilização de Streams Akka para Apache Kafka - Hubs de eventos azure Microsoft Docs
+title: Usando Akka Streams para Apache Kafka - Azure Event Hubs / Microsoft Docs
 description: Este artigo fornece informações sobre como ligar a Akka Streams a um centro de eventos Azure.
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: how-to
-ms.date: 04/02/2020
-ms.author: shvija
-ms.openlocfilehash: 0b96f1448fd223aae2dde77c5c05a8c9bd74ee9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: ae3cc44d854aa0996a6a567e56ff4e70afe0492d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632848"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320212"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Utilizar o Akka Streams com os Hubs de Eventos para o Apache Kafka
-Este tutorial mostra-lhe como ligar a Akka Streams a um centro de eventos sem alterar os seus clientes protocolares ou executar os seus próprios clusters. O Azure Event Hubs para o Kafka suporta a [versão 1.0 da Apache Kafka.](https://kafka.apache.org/10/documentation.html)
+Este tutorial mostra-lhe como ligar a Akka Streams a um centro de eventos sem alterar os seus clientes de protocolo ou executar os seus próprios clusters. Azure Event Hubs para o Kafka suporta [a versão 1.0 de Apache Kafka.](https://kafka.apache.org/10/documentation.html)
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar um espaço de nomes dos Hubs de Eventos
 > * Clonar o projeto de exemplo
 > * Executar produtor de Akka Streams 
-> * Executar consumidor akka Streams
+> * Executar consumidor de Akka Streams
 
 > [!NOTE]
 > Este exemplo está disponível no [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/akka/java)
@@ -40,18 +32,18 @@ Para completar este tutorial, certifique-se de que tem os seguintes pré-requisi
 * [Java Development Kit (JDK) 1.8+](https://aka.ms/azure-jdks)
     * No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.
     * Certifique-se de que define a variável de ambiente JAVA_HOME para apontar para a pasta onde está instalado o JDK.
-* [Descarregue](https://maven.apache.org/download.cgi) e [instale](https://maven.apache.org/install.html) um arquivo binário Maven
+* [Faça o download](https://maven.apache.org/download.cgi) e [instale](https://maven.apache.org/install.html) um arquivo binário Maven
     * No Ubuntu, pode executar `apt-get install maven` para instalar o Maven.
 * [Git](https://www.git-scm.com/downloads)
     * No Ubuntu, pode executar `sudo apt-get install git` para instalar o Git.
 
 ## <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos
 
-Um espaço de nome de Event Hubs é necessário para enviar ou receber de qualquer serviço de Hubs de Eventos. Consulte [Criar um centro de eventos](event-hubs-create.md) para informações detalhadas. Certifique-se de copiar a cadeia de ligação De Eventos Hubs para posterior utilização.
+Um espaço de nomes do Event Hubs é necessário para enviar ou receber de qualquer serviço de Event Hubs. Consulte [Criar um centro de eventos](event-hubs-create.md) para obter informações detalhadas. Certifique-se de que copia o fio de ligação Do Event Hubs para utilização posterior.
 
 ## <a name="clone-the-example-project"></a>Clonar o projeto de exemplo
 
-Agora que tem uma cadeia de ligação Event Hubs, clone os Hubs `akka` de Eventos Azure para o repositório Kafka e navegue para a subpasta:
+Agora que tem uma cadeia de conexão Event Hubs, clone os Hubs de Eventos Azure para o repositório de Kafka e navegue até à `akka` sub-ligação:
 
 ```shell
 git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
@@ -60,13 +52,13 @@ cd azure-event-hubs-for-kafka/tutorials/akka/java
 
 ## <a name="run-akka-streams-producer"></a>Executar produtor de Akka Streams
 
-Utilizando o exemplo fornecido do produtor Akka Streams, envie mensagens para o serviço De eventos Hubs.
+Utilizando o exemplo de produtor Akka Streams fornecido, envie mensagens para o serviço Event Hubs.
 
-### <a name="provide-an-event-hubs-kafka-endpoint"></a>Forneça um ponto final do Event Hubs Kafka
+### <a name="provide-an-event-hubs-kafka-endpoint"></a>Fornecer um ponto final de Eventos Hubs Kafka
 
 #### <a name="producer-applicationconf"></a>Aplicação do produtor.conf
 
-Atualize `bootstrap.servers` `sasl.jaas.config` os `producer/src/main/resources/application.conf` valores e valores para direcionar o produtor para o ponto final do Event Hubs Kafka com a autenticação correta.
+Atualize os `bootstrap.servers` valores e `sasl.jaas.config` valores `producer/src/main/resources/application.conf` para direcionar o produtor para o ponto final do Event Hubs Kafka com a autenticação correta.
 
 ```xml
 akka.kafka.producer {
@@ -84,26 +76,26 @@ akka.kafka.producer {
 }
 ```
 
-### <a name="run-producer-from-the-command-line"></a>Executar produtor da linha de comando
+### <a name="run-producer-from-the-command-line"></a>Executar produtor a partir da linha de comando
 
-Para executar o produtor a partir da linha de comando, gere o JAR e, em seguida, correr de dentro de Maven (ou gerar o JAR usando Maven, em seguida, correr em Java adicionando o(s) kafka necessário ao caminho da classe):
+Para executar o produtor a partir da linha de comando, gere o JAR e, em seguida, corram a partir de Maven (ou gerem o JAR usando o Maven, e depois corram em Java adicionando os jar(s) necessários para o caminho de classe):
 
 ```shell
 mvn clean package
 mvn exec:java -Dexec.mainClass="AkkaTestProducer"
 ```
 
-O produtor começa a enviar eventos para o centro do evento no tópico `test`, e imprime os eventos para stdout.
+O produtor começa a enviar eventos para o centro de eventos no tema `test` , e imprime os eventos para stdout.
 
-## <a name="run-akka-streams-consumer"></a>Executar consumidor akka Streams
+## <a name="run-akka-streams-consumer"></a>Executar consumidor de Akka Streams
 
-Utilizando o exemplo do consumidor fornecido, receba mensagens do centro do evento.
+Utilizando o exemplo do consumidor fornecido, receba mensagens do centro de eventos.
 
-### <a name="provide-an-event-hubs-kafka-endpoint"></a>Forneça um ponto final do Event Hubs Kafka
+### <a name="provide-an-event-hubs-kafka-endpoint"></a>Fornecer um ponto final de Eventos Hubs Kafka
 
-#### <a name="consumer-applicationconf"></a>Aplicação do consumidor.conf
+#### <a name="consumer-applicationconf"></a>Aplicação ao consumidor.conf
 
-Atualize `bootstrap.servers` `sasl.jaas.config` os `consumer/src/main/resources/application.conf` valores e valores para direcionar o consumidor para o ponto final do Evento Hubs Kafka com a autenticação correta.
+Atualize os `bootstrap.servers` valores e `sasl.jaas.config` valores `consumer/src/main/resources/application.conf` para direcionar o consumidor para o ponto final do Event Hubs Kafka com a autenticação correta.
 
 ```xml
 akka.kafka.consumer {
@@ -124,25 +116,25 @@ akka.kafka.consumer {
 }
 ```
 
-### <a name="run-consumer-from-the-command-line"></a>Executar consumidor a partir da linha de comando
+### <a name="run-consumer-from-the-command-line"></a>Executar o consumidor a partir da linha de comando
 
-Para executar o consumidor a partir da linha de comando, gere o JAR e, em seguida, correr de dentro de Maven (ou gerar o JAR usando Maven, em seguida, correr em Java adicionando o(s) kafka necessário ao caminho de classe):
+Para executar o consumidor a partir da linha de comando, gere o JAR e, em seguida, corram a partir de Maven (ou gerem o JAR usando o Maven, e depois corram em Java adicionando os jar(s) necessários para o caminho de classe):
 
 ```shell
 mvn clean package
 mvn exec:java -Dexec.mainClass="AkkaTestConsumer"
 ```
 
-Se o centro de eventos tiver eventos (por exemplo, se o `test`seu produtor também estiver em execução), então o consumidor começa a receber eventos do tópico . 
+Se o centro de eventos tiver eventos (por exemplo, se o seu produtor também estiver em execução), então o consumidor começa a receber eventos do `test` tópico. 
 
-Consulte o [Guia Akka Streams Kafka](https://doc.akka.io/docs/akka-stream-kafka/current/home.html) para obter informações mais detalhadas sobre os Streams acádios.
+Consulte o [Guia kafka Akka Streams](https://doc.akka.io/docs/akka-stream-kafka/current/home.html) para obter informações mais detalhadas sobre a Akka Streams.
 
-## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre os Hubs de Eventos para Kafka, consulte os seguintes artigos:  
+## <a name="next-steps"></a>Próximos passos
+Para saber mais sobre os Centros de Eventos para Kafka, consulte os seguintes artigos:  
 
 - [Espelhar um mediador de Kafka num hub de eventos](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Ligar o Apache Spark a um hub de eventos](event-hubs-kafka-spark-tutorial.md)
 - [Ligar o Apache Flink a um hub de eventos](event-hubs-kafka-flink-tutorial.md)
-- [Integrar kafka Connect com um hub de eventos](event-hubs-kafka-connect-tutorial.md)
+- [Integre kafka Connect com um centro de eventos](event-hubs-kafka-connect-tutorial.md)
 - [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka) (Explorar exemplos no nosso GitHub)
-- [Guia de desenvolvimento apache Kafka para Hubs de Eventos Azure](apache-kafka-developer-guide.md)
+- [Guia de desenvolvimento apache Kafka para hubs de eventos Azure](apache-kafka-developer-guide.md)

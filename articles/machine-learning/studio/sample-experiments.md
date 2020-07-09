@@ -5,25 +5,25 @@ description: Aprenda a usar experiências de aprendizagem automática de exemplo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: a8743aeea6278588da308feb37016b679a4f0509
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 79251257e38c9a9b59f759192d3d536185396291
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929269"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706023"
 ---
-# <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Create Azure Machine Learning Studio (clássico) experiências a partir de exemplos de trabalho na Galeria Azure AI
+# <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Criar experiências do Azure Machine Learning Studio (clássico) a partir de exemplos de trabalho na Galeria Azure AI
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Saiba como iniciar experimentações de exemplo a partir da [Galeria de IA do Azure](https://gallery.azure.ai/), em vez de criar experimentações de machine learning do zero. Pode utilizar os exemplos para criar a sua própria solução de machine learning.
 
-A galeria tem experiências de exemplo da equipa do Microsoft Azure Machine Learning Studio (clássico), bem como exemplos partilhados pela comunidade de Machine Learning. Também pode colocar questões ou publicar comentários sobre experimentações.
+A galeria tem experiências exemplo da equipa do Microsoft Azure Machine Learning Studio (clássico), bem como exemplos partilhados pela comunidade machine learning. Também pode colocar questões ou publicar comentários sobre experimentações.
 
 Para saber como utilizar a galeria, veja o vídeo de 3 minutos [Copy other people's work to do data science (Copiar o trabalho de outras pessoas para efetuar ciência de dados)](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) da série [Data Science for Beginners (Ciência de Dados para Principiantes)](data-science-for-beginners-the-5-questions-data-science-answers.md).
 
@@ -43,7 +43,7 @@ Para procurar todas as experimentações:
 3. Pode encontrar experimentações que cumprem os requisitos de duas formas diferentes:
    * **Selecione filtros no lado esquerdo.** Por exemplo, para procurar experimentações que utilizem um algoritmo de deteção de anomalias baseado em PCA: em **Categorias**, clique em **Experimentação**. Em seguida, em **Algoritmos Utilizados**, clique em **Mostrar tudo** e, na caixa de diálogo, escolha **Deteção de Anomalias Baseada em PCA**. Poderá ter de deslocar para baixo para vê-la.<br></br>
      ![Selecionar filtros](./media/sample-experiments/choose-an-algorithm.png)
-   * **Utilize a caixa de pesquisa.** Por exemplo, para procurar experimentações que tenham feito parte da Microsoft e estejam relacionadas com o reconhecimento de dígitos que utilizam um algoritmo da máquina de vetor com suporte de classe dois, introduza "reconhecimento de dígitos" na caixa de pesquisa. Em seguida, selecione os filtros **Experiment,** **apenas conteúdo da Microsoft**e **máquina de vetores de suporte de duas classes:**<br></br>
+   * **Utilize a caixa de pesquisa.** Por exemplo, para procurar experimentações que tenham feito parte da Microsoft e estejam relacionadas com o reconhecimento de dígitos que utilizam um algoritmo da máquina de vetor com suporte de classe dois, introduza "reconhecimento de dígitos" na caixa de pesquisa. Em seguida, selecione os filtros **Experiment,** **apenas conteúdo da Microsoft**e **máquina de vetor de suporte de duas classes**:<br></br>
      ![Utilizar a caixa de pesquisa](./media/sample-experiments/search-for-experiments.png)
 4. Clique numa experimentação para saber mais acerca da mesma.
 5. Para executar e/ou modificar a experimentação, clique em **Abrir no Studio** na página de experimentação. <br></br>
@@ -56,7 +56,7 @@ Você também pode criar uma nova experiência no Machine Learning Studio (clás
 1. Inicie sessão com as credenciais da sua conta Microsoft no [Studio](https://studio.azureml.net) e, em seguida, clique em **Novo** para criar uma experimentação.
 2. Navegue no conteúdo de exemplos e clique num deles.
 
-Uma nova experiência é criada no seu espaço de trabalho machine learning studio (clássico) usando a experiência de exemplo como modelo.
+Uma nova experiência é criada no seu espaço de trabalho Machine Learning Studio (clássico) usando a experiência de exemplo como modelo.
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Importar dados de várias origens](import-data.md)

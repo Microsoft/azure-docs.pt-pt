@@ -58,7 +58,7 @@
       items:
         - name: Importar dados
           href: import-data.md
-        - name: Utilizar dados de SQL no local
+        - name: Utilizar dados a partir do SQL Server
           displayName: on-premises
           href: use-data-from-an-on-premises-sql-server.md
     - name: Preparar modelos

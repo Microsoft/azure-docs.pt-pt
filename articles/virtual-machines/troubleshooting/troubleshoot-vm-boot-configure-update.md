@@ -1,5 +1,5 @@
 ---
-title: A startup VM está presa em "Preparar o Windows. Não desligue o computador" em Azure Microsoft Docs
+title: A startup VM está presa em "Getting Windows ready. Não desligue o computador" em Azure Microsoft Docs
 description: Introduza os passos para resolver o problema em que a startup VM está presa em "Getting Windows ready. Não desligue o computador."
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: da45e24898bc3b5aead250077af69a61bdb33bab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 415895b894261ade9b2332eb3fb926eba74fe937
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73749634"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078413"
 ---
-# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>A startup VM está presa em "Preparar o Windows. Não desligue o computador" em Azure
+# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>A startup VM está presa em "Getting Windows ready. Não desligue o computador" em Azure
 
-Este artigo descreve os ecrãs "Getting Ready" e "Getting Windows ready" que poderá encontrar quando iniciar uma máquina virtual do Windows (VM) no Microsoft Azure. Fornece passos para ajudá-lo a recolher dados para um bilhete de apoio.
+Este artigo descreve os ecrãs "Preparar-se" e "Preparar o Windows" que poderá encontrar quando iniciar uma máquina virtual Windows (VM) no Microsoft Azure. Fornece passos para ajudá-lo a recolher dados para um bilhete de apoio.
 
  
 
 ## <a name="symptoms"></a>Sintomas
 
-Um VM windows não arranca. Quando utilizar **os diagnósticos boot** para obter a imagem do VM, poderá ver que o VM exibe a mensagem "Preparar-se" ou "Preparar o Windows".
+Um VM windows não é iniciado. Quando utilizar **diagnósticos boot** para obter a imagem do VM, poderá ver que o VM apresenta a mensagem "Preparar-se" ou "Preparar o Windows".
 
 ![Exemplo de mensagem para Windows Server 2012 R2](./media/troubleshoot-vm-configure-update-boot/message1.png)
 
@@ -36,34 +36,34 @@ Um VM windows não arranca. Quando utilizar **os diagnósticos boot** para obter
 
 ## <a name="cause"></a>Causa
 
-Normalmente este problema ocorre quando o servidor está a fazer o reboot final após a configuração ter sido alterada. A alteração de configuração pode ser inicializada pelas atualizações do Windows ou pelas alterações nas funções/funcionalidade do servidor. Para o Windows Update, se o tamanho das atualizações for grande, o sistema operativo necessita de mais tempo para reconfigurar as alterações.
+Normalmente, este problema ocorre quando o servidor está a fazer o reboot final após a configuração ter sido alterada. A alteração de configuração pode ser inicializada por atualizações do Windows ou pelas alterações nas funções/funcionalidade do servidor. Para o Windows Update, se o tamanho das atualizações fosse grande, o sistema operativo necessita de mais tempo para reconfigurar as alterações.
 
-## <a name="collect-an-os-memory-dump"></a>Recolher um depósito de memória de OS
+## <a name="collect-an-os-memory-dump"></a>Recolha um depósito de memória de SO
 
-Se o problema não for resolvido depois de esperar pelas alterações processando, terá de recolher um ficheiro de despejo de memória e suporte de contacto. Para recolher o ficheiro Dump, siga estes passos:
+Se o problema não se resolver depois de esperar pelas alterações ao processo, terá de recolher um ficheiro de despejo de memória e suporte de contacto. Para recolher o ficheiro de despejo, siga estes passos:
 
-### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Fixe o disco OS a um VM de recuperação
+### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Ligue o disco de SO a um VM de recuperação
 
-1. Tire uma foto do disco operativo do VM afetado como cópia de segurança. Para mais informações, consulte [snapshot um disco](../windows/snapshot-copy-managed-disk.md).
-2. [Fixe o disco OS a um VM](../windows/troubleshoot-recovery-disks-portal.md)de recuperação .
+1. Tire uma foto do disco de SO do VM afetado como cópia de segurança. Para mais informações, consulte [Snapshot um disco](../windows/snapshot-copy-managed-disk.md).
+2. [Fixe o disco DE A uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
 3. Ambiente de trabalho remoto para o VM de recuperação. 
-4. Se o disco OS estiver encriptado, tem de desligar a encriptação antes de passar para o próximo passo. Para obter mais informações, consulte [Desencriptar o disco OS encriptado no VM que não pode arrancar](troubleshoot-bitlocker-boot-error.md#solution).
+4. Se o disco DE estiver encriptado, deve desligar a encriptação antes de passar para o passo seguinte. Para obter mais informações, consulte [desencriptar o disco de OS encriptado no VM que não pode arrancar](troubleshoot-bitlocker-boot-error.md#solution).
 
 ### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Localize o ficheiro de despejo e envie um bilhete de apoio
 
-1. No VM de recuperação, vá para a pasta windows no disco OS anexado. Se a carta de condutor que é atribuída ao disco operativo em anexo for F, tem de ir para F:\Windows.
-2. Localize o ficheiro memory.dmp [e,](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) em seguida, envie um bilhete de apoio com o ficheiro de despejo. 
+1. No VM de recuperação, vá à pasta do windows no disco oss anexado. Se a carta do controlador que é atribuída ao disco de oss anexado for F, tem de ir para F:\Windows.
+2. Localize o ficheiro memory.dmp e, em seguida, [envie um bilhete de apoio](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o ficheiro de despejo. 
 
-Se não encontrar o ficheiro de despejo, desloque o próximo passo para ativar o registo de despejo e a Consola em Série.
+Se não conseguir encontrar o ficheiro de despejo, mova o próximo passo para ativar o registo de despejo e a Consola em Série.
 
 ### <a name="enable-dump-log-and-serial-console"></a>Ativar o registo de despejo e a consola em série
 
 Para ativar o registo de despejo e a Consola em Série, execute o seguinte script.
 
-1. Abrir a sessão de solicitação de comando elevado (Executar como administrador).
+1. Abrir sessão de pedido de comando elevado (Executar como administrador).
 2. Execute o seguintes script:
 
-    Neste guião, assumimos que a letra de unidade que é atribuída ao disco operativo em anexo é F.  Substitua-o pelo valor adequado no seu VM.
+    Neste script, assumimos que a letra de unidade que é atribuída ao disco de SO anexado é F.  Substitua-o pelo valor adequado no seu VM.
 
     ```powershell
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -87,22 +87,24 @@ Para ativar o registo de despejo e a Consola em Série, execute o seguinte scrip
     reg unload HKLM\BROKENSYSTEM
     ```
 
-    1. Certifique-se de que há espaço suficiente no disco para alocar tanta memória como a RAM, que depende do tamanho que está a selecionar para este VM.
-    2. Se não houver espaço suficiente ou se for uma série VM de grande tamanho (G, GS ou E), poderá então alterar a localização onde este ficheiro será criado e remeter isso para qualquer outro disco de dados que esteja ligado ao VM. Para isso, terá de alterar a seguinte tecla:
+    1. Certifique-se de que há espaço suficiente no disco para alocar tanta memória como a RAM, o que depende do tamanho que está a selecionar para este VM.
+    2. Se não houver espaço suficiente ou se este for um VM de grande tamanho (série G, GS ou E), poderá então alterar a localização onde este ficheiro será criado e encaminhá-lo para qualquer outro disco de dados que esteja ligado ao VM. Para isso, terá de alterar a seguinte tecla:
+    
+        ```console
+        reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
-            reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
 
-            REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
-            REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
+        reg unload HKLM\BROKENSYSTEM
+        ```
 
-            reg unload HKLM\BROKENSYSTEM
-
-3. [Retire o disco OS e, em seguida, religue o disco OS ao VM afetado](../windows/troubleshoot-recovery-disks-portal.md).
+3. [Retire o disco de SO e, em seguida, re-prenda o disco de SO ao VM afetado](../windows/troubleshoot-recovery-disks-portal.md).
 4. Inicie o VM e aceda à Consola em Série.
-5. Selecione **Enviar Interrupção Não-Máscara (NMI)** para acionar o depósito de memória.
-    ![a imagem sobre onde enviar Interrupção Não-Máscara](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
-6. Fixe o disco OS a um VM de recuperação novamente, colete ficheiro de despejo.
+5. Selecione **Enviar Interrupção Não Mascarada (NMI)** para ativar o despejo de memória.
+    ![a imagem sobre onde enviar Interrupção Não-Mascarada](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
+6. Fixe o disco DE A uma VM de recuperação novamente, colete o ficheiro de despejo.
 
 ## <a name="contact-microsoft-support"></a>Contacte o Suporte da Microsoft
 
-Depois de recolher o ficheiro de despejo, contacte o suporte da [Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para analisar a causa principal.
+Depois de recolher o ficheiro de despejo, contacte o [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para analisar a causa raiz.

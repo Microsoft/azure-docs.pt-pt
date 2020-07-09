@@ -1,114 +1,105 @@
 ---
-title: Migrar VMs hiper-V para Azure com migração do servidor migratório Azure
-description: Saiba como migrar no local Hiper-V VMs para Azure com migração de servidores migratórios Azure
+title: Migrar VMs Hiper-V para Azure com migração do servidor Azure Migrate
+description: Saiba como migrar no local Hiper-V VMs para Azure com migração do servidor Azure Migrate
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 3b50c11f43d29de354f04e1a4296818c5bd8cbab
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 0e909a91d610c032bc1d9d003efae7c555afd8bc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773526"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108231"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrar VMs Hyper-V para o Azure 
 
-Este artigo mostra-lhe como migrar no local Hiper-V V MMs para Azure, usando migração sem agente com a ferramenta Migração Azure: Server Migração.
+Este artigo mostra-lhe como migrar no local Hiper-V VMs para Azure com a ferramenta [Azure Migrate:Server Migration.](migrate-services-overview.md#azure-migrate-server-migration-tool)
 
-[A Azure Migrate](migrate-services-overview.md) fornece um centro central para acompanhar a descoberta, avaliação e migração das suas aplicações e cargas de trabalho no local, e VMs de nuvem privada/pública, para O Azure. O hub fornece ferramentas azure migrate para avaliação e migração, bem como ofertas de fornecedores de software independentes de terceiros (ISV).
+Este tutorial é o terceiro de uma série que demonstra como avaliar e migrar máquinas para Azure. 
 
-Este tutorial é o terceiro de uma série que demonstra como avaliar e migrar hyper-V para Azure usando a Avaliação do Servidor Migratório Azure e migração do servidor. Neste tutorial, vai aprender a:
+> [!NOTE]
+> Os tutoriais mostram-lhe o caminho de implantação mais simples para um cenário para que possa configurar rapidamente uma prova de conceito. Os tutoriais usam opções padrão sempre que possível e não mostram todas as definições e caminhos possíveis. 
 
+ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Prepare o Azure e o seu ambiente Hyper-V no local
-> * Instale o ambiente de origem.
-> * Configure o ambiente de destino.
-> * Ative a replicação.
-> * Faça uma migração de teste para ter certeza de que está tudo funcionando como esperado.
-> * Fazer uma migração completa para Azure.
+> * Adicione a ferramenta Azure Migration:Server Migration.
+> * Descubra VMs que quer migrar.
+> * Comece a replicar VMs.
+> * Faça um teste de migração para garantir que tudo está funcionando como esperado.
+> * Executar uma migração completa de VM.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+
 Antes de começar este tutorial, tem de:
 
 1. [Reveja](hyper-v-migration-architecture.md) a arquitetura de migração Hyper-V.
-2. [Revisão](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) Requisitos de hospedeiro hiper-V, e os URLs Azure que os anfitriões hyper-V precisam de aceder.
-3. [Reveja](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) os requisitos para VMs hiper-V que pretende migrar. Os VMs hiper-V devem estar em conformidade com [os requisitos de VM Azure](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
-2. Recomendamos que complete os tutoriais anteriores desta série. O [primeiro tutorial](tutorial-prepare-hyper-v.md) mostra-lhe como configurar Azure e Hyper-V para migração. O segundo tutorial mostra-lhe como [avaliar os VMs hiper-V](tutorial-assess-hyper-v.md) antes da migração, utilizando a Avaliação do Servidor Azure Migrate:Server. 
-    > [!NOTE]
-    > Embora recomendemos que experimente uma avaliação, não precisa fazer uma avaliação antes de migrar VMs.
-    > Para os VMs hiper-V migratórios, o Azure Migrate:Server Migration executa agentes de software (fornecedor de recuperação de websites microsoft Azure e agente do Serviço de Recuperação do Microsoft Azure) em Anfitriões Hiper-V ou nós de cluster, para orquestrar e replicar dados para o Azure Migrate. O [aparelho Azure Migrate](migrate-appliance.md) não é utilizado para a migração hyper-V.
+2. [Revisão](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) Requisitos de hospedeiro hiper-V para migração, e os URLs Azure aos quais os anfitriões e agrupamentos Hiper-V precisam de acesso para a migração de VM.
+3. [Reveja](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) os requisitos para Os Hiper-VMs que pretende migrar para Azure.
+4. Recomendamos que [avalie os Hiper-VM](tutorial-assess-hyper-v.md) antes de os migrar para Azure, mas não é preciso.
 
-3. Certifique-se de que a sua conta Azure é atribuída a função de Colaborador de Máquina Virtual, para que tenha permissões para:
+   
+## <a name="add-the-azure-migrateserver-migration-tool"></a>Adicione a ferramenta Azure Migrate:Server Migration
 
-    - Criar uma VM no grupo de recursos selecionado.
-    - Criar uma VM na rede virtual selecionada.
-    - Escreva para um disco gerido pelo Azure.
-4. [Criar uma rede Azure.](../virtual-network/manage-virtual-network.md#create-a-virtual-network) Quando se migra para o Azure, os VMs Azure criados juntam-se a uma rede Azure que especifica quando configura a migração.
-
-## <a name="add-the-azure-migrateserver-migration-tool"></a>Adicione a ferramenta de migração Azure Migrate:Server
-
-Adicione a ferramenta de migração De migração Azure Migrate:Server.
-
-- Se seguiu o segundo tutorial para avaliar os [VMs Hiper-V,](tutorial-assess-hyper-v.md)já criou um projeto Azure Migrate, e pode ir em frente e adicionar a ferramenta agora.
-- Se não seguiu o segundo[tutorial, siga estas instruções](how-to-add-tool-first-time.md) para criar um projeto Azure Migrate. Adicione a ferramenta de migração De migração Azure Migrate:Server quando criar o projeto.
+Adicione a ferramenta Azure Migrate:Server Migration. Se ainda não tem um projeto Azure [Migrate, crie isso primeiro](how-to-add-tool-first-time.md) para criar um projeto Azure Migrate. Adicione a ferramenta Azure Migrate:Server Migration quando cria o projeto.
 
 Se tiver um projeto configurado, adicione a ferramenta da seguinte forma:
 
 1. No projeto Azure Migrate, clique em **Visão Geral**. 
-2. No **Discover, avaliar e migrar servidores,** clique em **avaliar e migrar servidores**.
-3. Nas **ferramentas de migração,** selecione Clique aqui para adicionar uma ferramenta de **migração quando estiver pronto para migrar**.
+2. No **Discover, avaliar e migrar servidores,** clique em **Avaliar e migrar servidores**.
+3. Nas **ferramentas de migração,** selecione **Clique aqui para adicionar uma ferramenta de migração quando estiver pronto para migrar**.
 
     ![Selecione uma ferramenta](./media/tutorial-migrate-hyper-v/select-migration-tool.png)
 
-4. Na lista de ferramentas, selecione **Azure Migrate: Server Migration**  >  **Add tool**
+4. Na lista de ferramentas, selecione **Azure Migrate: Ferramenta De Migração de Servidor**  >  **Adicionar**
 
     ![Ferramenta de Migração do Servidor](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
 
-## <a name="prepare-hyper-v-hosts"></a>Prepare os anfitriões hyper-V
+## <a name="download-and-install-the-provider"></a>Descarregue e instale o fornecedor
 
+Para migrar VMs hiper-V, a Azure Migrate:Server Migration instala fornecedores de software (Provedor de Recuperação de Sítios Microsoft Azure e agente do Serviço de Recuperação do Microsoft Azure) em anfitriões hiper-V ou nós de cluster. Note que o [aparelho Azure Migrate](migrate-appliance.md) não é utilizado para a migração de Hiper-V.
 
-1. No projeto Azure Migrate > **Servers,** em **Azure Migrate: Server Migration**, clique **em Discover**.
-2. Em **Discover machines**  >  **As suas máquinas são virtualizadas?** **Yes, with Hyper-V**
-3. Na **região Target,** selecione a região de Azure para a qual pretende migrar as máquinas.
-6. Selecione **Confirmar que a região alvo para a migração é o nome da região**.
-7. Clique em **Criar recursos.** Isto cria um cofre de recuperação de sítios Azure em segundo plano.
-    - Se já criou a migração com a Migração do Servidor Migratório Migratório Migratório Migratório Migratório Azure, esta opção não aparecerá uma vez que os recursos foram criados anteriormente.
-    - Não pode alterar a região alvo deste projeto depois de clicar neste botão.
+1. No projeto Azure Migrate > **Servers,** em **Azure Migrate: Server Migration**, clique em **Discover**.
+2. In **Discover machines**  >  **Are your machines virtualized?** **Yes, with Hyper-V**
+3. Na **região Alvo,** selecione a região de Azure para a qual pretende migrar as máquinas.
+6. **Selecione Confirme que a região-alvo para a migração é o nome da região.**
+7. Clique **em Criar recursos.** Isto cria um cofre de recuperação do local de Azure em segundo plano.
+    - Se já estabeleceu migração com a Migração do Servidor Azure Migrate, esta opção não aparecerá uma vez que os recursos foram criados anteriormente.
+    - Não é possível alterar a região alvo deste projeto depois de clicar neste botão.
     - Todas as migrações subsequentes são para esta região.
     
-8. Em **Prepare os servidores anfitriões Hyper-V,** descarregue o fornecedor de replicação Hyper-V e o ficheiro chave de registo.
-    - A chave de registo é necessária para registar o hospedeiro Hyper-V com a Migração do Servidor Migratório Migratório Migratório Migratório Migratório Migratório Migratório Azure.
+8. No **Prepare os servidores anfitriões Hyper-V,** descarregue o fornecedor de replicação Hyper-V e o ficheiro chave de registo.
+    - A chave de registo é necessária para registar o anfitrião Hiper-V com a migração do servidor Azure Migrate.
     - A chave é válida durante cinco dias depois de gerá-la.
 
     ![Fornecedor de descarregamento e chave](./media/tutorial-migrate-hyper-v/download-provider-hyper-v.png)
 
-4. Copie o ficheiro de configuração do fornecedor e o ficheiro de chave de registo para cada anfitrião Hyper-V (ou nó de cluster) que executa VMs que pretende replicar.
-5. Executar o ficheiro de configuração do fornecedor em cada anfitrião, conforme descrito no procedimento seguinte.
-6. Depois de instalar o fornecedor nos anfitriões, nas **máquinas Discover,** clique em finalizar a **inscrição**.
+4. Copie o ficheiro de configuração do fornecedor e o ficheiro chave de registo para cada anfitrião Hiper-V (ou nó de cluster) que executa VMs que pretende replicar.
+5. Execute o ficheiro de configuração do fornecedor em cada anfitrião, conforme descrito no procedimento seguinte.
+6. Depois de instalar o fornecedor nos anfitriões, nas **máquinas Discover,** clique em **Finalizar.**
 
     ![Finalizar o registo](./media/tutorial-migrate-hyper-v/finalize-registration.png)
 
-Pode demorar até 15 minutos após finalizar o registo até que os VMs descobertos apareçam na Migração do Servidor Migratório De Migração de Migração de Migração de Migração de Migração de Migração. À medida que os VMs são descobertos, os **servidores descobertos contam aumentos.**
+Pode levar até 15 minutos após a finalização do registo até que os VMs descobertos apareçam na Migração do Servidor Azure Migrate. À medida que os VMs são descobertos, a contagem de **servidores descobertos** aumenta.
 
 ![Servidores descobertos](./media/tutorial-migrate-hyper-v/discovered-servers.png)
 
 
 ## <a name="replicate-hyper-v-vms"></a>Replicar VMs hiper-V
 
-Com a descoberta concluída, pode começar a replicar Os VMs Hiper-V para Azure.
+Com a descoberta concluída, pode começar a replicação de Hiper-VMs para Azure.
 
 > [!NOTE]
-> Podes replicar até 10 máquinas juntas. Se precisar de replicar mais, reproduza-os simultaneamente em lotes de 10.
+> Pode replicar até 10 máquinas juntas. Se precisar de replicar mais, replique-os simultaneamente em lotes de 10.
 
-1. No projeto Azure Migrate > **Servers,** **Azure Migrate: Server Migration**, clique em **Replicate**.
-2. Em **Replicate**, > **Configurações de origem**  >  **Estão as suas máquinas virtualizadas?** **Yes, with Hyper-V** Em seguida, clique em **Seguinte: Máquinas virtuais**.
+1. No projeto Azure Migrate > **Servers**, **Azure Migrate: Server Migration**, clique em **Replicar**.
+2. Em **Replicar,**> **Configurações de**  >  **Origem São virtualizadas?** **Yes, with Hyper-V** Em seguida, clique **em Seguinte: Máquinas virtuais**.
 3. Em **Máquinas virtuais**, selecione aquelas que quer replicar.
     - Se tiver executado uma avaliação para as VMs, poderá aplicar as recomendações de dimensionamento de VMs e tipo de discos (premium/standard) nos resultados da avaliação. Para tal, em **Importar definições de migração de uma avaliação do Azure Migrate?**, selecione a opção **Sim**.
     - Se não tiver executado uma avaliação ou não quiser utilizar as definições de avaliação, selecione as opções **Não**.
@@ -116,27 +107,27 @@ Com a descoberta concluída, pode começar a replicar Os VMs Hiper-V para Azure.
 
         ![Selecionar avaliação](./media/tutorial-migrate-hyper-v/select-assessment.png)
 
-4. Em **Máquinas virtuais**, procure VMs conforme necessário e marque cada VM que quer migrar. Em seguida, clique em **Seguinte: Definições de alvo**.
+4. Em **Máquinas virtuais**, procure VMs conforme necessário e marque cada VM que quer migrar. Em seguida, clique em **Seguinte: Definições de destino**.
 
     ![Selecione VMs](./media/tutorial-migrate-hyper-v/select-vms.png)
 
-5. Nas **definições do Target**, selecione a região alvo para a qual irá migrar, a subscrição e o grupo de recursos em que os VMs Azure irão residir após a migração.
-7. Na Conta de Armazenamento de **Replicação,** selecione a conta de Armazenamento Azure na qual os dados replicados serão armazenados em Azure.
-8. **Rede Virtual**, selecione o Azure VNet/subnet a que os VMs Azure serão aderidos após a migração.
+5. Nas **definições target**, selecione a região-alvo para a qual irá migrar, a subscrição e o grupo de recursos em que os VMs Azure residirão após a migração.
+7. Na **Conta de Armazenamento de Replicação**, selecione a conta de Armazenamento Azure na qual os dados replicados serão armazenados no Azure.
+8. **Rede Virtual**, selecione o Azure VNet/sub-rede ao qual os VMs Azure serão unidos após a migração.
 9. Em **Benefício Híbrido do Azure**:
 
-    - Selecione **Não** se não quiser aplicar o Benefício Híbrido do Azure. Em seguida, clique **em Next**.
+    - Selecione **Não** se não quiser aplicar o Benefício Híbrido do Azure. Em seguida, clique **em Seguinte**.
     - Selecione **Sim** se tiver computadores Windows Server abrangidos com subscrições ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que está a migrar. Em seguida, clique em **Seguinte**.
 
     ![Definições de destino](./media/tutorial-migrate-hyper-v/target-settings.png)
 
 10. Em **Computação**, analise o nome, o tamanho, o tipo de disco do SO e o conjunto de disponibilidade das VMs. As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
 
-    - **Tamanho VM**: Se estiver a utilizar recomendações de avaliação, a queda do tamanho do VM conterá o tamanho recomendado. Caso contrário, o Azure Migrate escolhe um tamanho com base na correspondência mais próxima na subscrição do Azure. Como alternativa, escolha um tamanho manual em **Tamanho de VMs do Azure**. 
-    - **Disco OS:** Especifique o disco OS (boot) para o VM. O disco do SO é o disco que possui o carregador e o instalador do sistema operativo. 
-    - **Conjunto de disponibilidade**: Se o VM estiver num conjunto de disponibilidade azure após a migração, especifique o conjunto. O conjunto deve estar no grupo de recursos de destino especificado para a migração.
+    - **Tamanho VM**: Se estiver a utilizar recomendações de avaliação, a queda do tamanho de VM conterá o tamanho recomendado. Caso contrário, o Azure Migrate escolhe um tamanho com base na correspondência mais próxima na subscrição do Azure. Como alternativa, escolha um tamanho manual em **Tamanho de VMs do Azure**. 
+    - **Disco de os:** Especifique o disco DE (arranque) para o VM. O disco do SO é o disco que possui o carregador e o instalador do sistema operativo. 
+    - **Conjunto de disponibilidade**: Se o VM deve estar num conjunto de disponibilidade de Azure após a migração, especifique o conjunto. O conjunto deve estar no grupo de recursos de destino especificado para a migração.
 
-    ![Definições de computação VM](./media/tutorial-migrate-hyper-v/compute-settings.png)
+    ![Definições de cálculo VM](./media/tutorial-migrate-hyper-v/compute-settings.png)
 
 11. Em **Discos**, especifique se os discos das VMs devem ser replicados para o Azure e selecione o tipo de disco (discos geridos SSD/HDD standard ou premium) no Azure. Em seguida, clique em **Seguinte**.
     - Pode excluir discos da replicação.
@@ -147,28 +138,28 @@ Com a descoberta concluída, pode começar a replicar Os VMs Hiper-V para Azure.
 10. Em **Analisar e iniciar a replicação**, analise as definições e clique em **Replicar** para iniciar a replicação inicial para os servidores.
 
 > [!NOTE]
-> Pode atualizar as definições de replicação a qualquer momento antes do início da replicação, em **Gerir**  >  **máquinas de replicação**. As definições não podem ser alteradas após o início da replicação.
+> Pode atualizar as definições de replicação a **Manage**qualquer momento antes de começar a replicação, em  >  **máquinas de replicação de gestão**. As definições não podem ser alteradas após o início da replicação.
 
-## <a name="provisioning-for-the-first-time"></a>Provisionamento pela primeira vez
+## <a name="provision-for-the-first-time"></a>Provisão pela primeira vez
 
-Se este é o primeiro VM que está a replicar no projeto Azure Migrate, o Azure Migrate: Server Migration disponibiliza automaticamente estes recursos no mesmo grupo de recursos que o projeto.
+Se este for o primeiro VM que está a replicar no projeto Azure Migrate, a Azure Migrate: A Migração de Servidores fornece automaticamente estes recursos no mesmo grupo de recursos que o projeto.
 
-- **Ônibus de serviço**: Azure Migrate: Server Migration usa o Ônibus de serviço para enviar mensagens de orquestração de replicação para o aparelho.
-- **Conta de armazenamento**gateway : Azure Migrate: Server Migration usa a conta de armazenamento de gateway para armazenar informações estatais sobre os VMs que estão sendo replicados.
-- **Conta de armazenamento de registos**: O aparelho Azure Migrate envia registos de replicação para VMs para uma conta de armazenamento de registo. A Azure Migrate aplica a informação de replicação aos discos geridos por réplicas.
-- **Cofre chave**: O aparelho Azure Migrate utiliza o cofre chave para gerir as cordas de ligação para o autocarro de serviço e as chaves de acesso para as contas de armazenamento utilizadas na replicação. Devia ter configurado as permissões de que o cofre-chave precisa para aceder à conta de armazenamento quando [preparou o Azure](tutorial-prepare-hyper-v.md#prepare-azure) para avaliação e migração de VM hiper-V. 
-
-
-## <a name="track-and-monitor"></a>Faixa e monitor
+- **Autocarro de**serviço : Azure Migrate: A Migração do Servidor utiliza o Service Bus para enviar mensagens de orquestração de replicação para o aparelho.
+- **Conta de armazenamento gateway**: Azure Migrate: A migração do servidor utiliza a conta de armazenamento gateway para armazenar informações estatais sobre os VMs que estão a ser replicados.
+- **Conta de armazenamento de**registo : O aparelho Azure Migrate envia registos de replicação de VMs para uma conta de armazenamento de registo. Azure Migrate aplica a informação de replicação aos discos geridos por réplicas.
+- **Cofre chave**: O aparelho Azure Migrate utiliza o cofre-chave para gerir as cordas de ligação do autocarro de serviço e as chaves de acesso para as contas de armazenamento utilizadas na replicação. Devia ter configurado as permissões de que o cofre-chave precisa para aceder à conta de armazenamento quando [preparou o Azure](tutorial-prepare-hyper-v.md#prepare-azure) para avaliação e migração de Hiper-VM. 
 
 
-- Quando clicar em **Replicar** começa um trabalho de replicação de arranque. 
-- Quando o trabalho de Replicação Inicial termina com sucesso, as máquinas iniciam a sua replicação inicial para Azure.
-- Após os acabamentos iniciais da replicação, começa a replicação delta. As alterações incrementais nos discos no local são periodicamente replicadas para O Azure.
+## <a name="track-and-monitor"></a>Rastreio e monitor
 
-Pode rastrear o estado do emprego nas notificações do portal.
 
-Pode monitorizar o estado de replicação clicando em **servidores de replicação** em **Azure Migrate: Server Migration**.
+- Quando clicar em **Replicar** um trabalho de replicação inicial começa. 
+- Quando o trabalho de Replicação inicial termina com sucesso, as máquinas iniciam a sua replicação inicial ao Azure.
+- Após o final da replicação inicial, começa a replicação delta. As alterações incrementais nos discos no local são periodicamente replicadas no Azure.
+
+Pode acompanhar o estado do trabalho nas notificações do portal.
+
+Pode monitorizar o estado de replicação clicando em **servidores replicantes** em **Azure Migrate: Migração do servidor**.
 ![Monitorizar a replicação](./media/tutorial-migrate-hyper-v/replicating-servers.png)
 
 
@@ -176,16 +167,16 @@ Pode monitorizar o estado de replicação clicando em **servidores de replicaç�
 ## <a name="run-a-test-migration"></a>Executar uma migração de teste
 
 
-Quando a replicação delta começar, você pode executar uma migração de teste para os VMs, antes de executar uma migração completa para Azure. Recomendamos vivamente que faça isto pelo menos uma vez por cada máquina, antes de a migrar.
+Quando a replicação delta começar, pode fazer uma migração de teste para os VMs, antes de executar uma migração completa para Azure. Recomendamos vivamente que o faça pelo menos uma vez por cada máquina, antes de a migrar.
 
-- A realização de um teste de migração verifica que a migração funcionará como esperado, sem afetar as máquinas no local, que permanecem operacionais, e continuam a replicar-se. 
-- A migração de teste simula a migração criando um VM Azure utilizando dados replicados (geralmente migrando para um Azure VNet não-produzido na sua assinatura Azure).
-- Pode utilizar o teste replicado Azure VM para validar a migração, realizar testes de aplicações e resolver quaisquer problemas antes da migração total.
+- A realização de um teste de controlos de migração de que a migração funcionará como esperado, sem afetar as máquinas no local, que permanecem operacionais, e continuam a replicar-se. 
+- A migração de testes simula a migração criando um VM Azure usando dados replicados (geralmente migrando para um Azure VNet não produtivo na sua assinatura Azure).
+- Pode utilizar o teste replicado Azure VM para validar a migração, realizar testes de aplicações e resolver quaisquer problemas antes da migração completa.
 
 Faça uma migração de teste da seguinte forma:
 
 
-1. Nos **objetivos de migração**  >  **Servidores**  >  **Azure Migram: Migração do Servidor,** clique em **servidores migrados de teste**.
+1. Nos **objetivos de migração**  >  **Servers**  >  **Azure Migrate: Server Migration**, clique em Test **servidores migrados**.
 
      ![Testar servidores migrados](./media/tutorial-migrate-hyper-v/test-migrated-servers.png)
 
@@ -193,7 +184,7 @@ Faça uma migração de teste da seguinte forma:
 
     ![Testar migração](./media/tutorial-migrate-hyper-v/test-migrate.png)
 
-3. Em **Teste migração,** selecione a rede virtual Azure na qual o Azure VM será localizado após a migração. Recomendamos que utilize uma rede virtual não-produção.
+3. Em **Test Migration**, selecione a rede virtual Azure na qual o VM Azure será localizado após a migração. Recomendamos que utilize uma rede virtual não-produtora.
 4. A tarefa **Teste de migração** é iniciada. Monitorize a tarefa nas notificações do portal.
 5. Após a conclusão da migração, veja a VM do Azure migrada em **Máquinas Virtuais** no portal do Azure. O nome do computador tem um sufixo **-Test**.
 6. Após terminar o teste, clique com o botão direito do rato na VM do Azure em **Replicar computadores** e clique em **Limpar teste de migração**.
@@ -205,12 +196,12 @@ Faça uma migração de teste da seguinte forma:
 
 Depois de verificar que a migração do teste funciona como esperado, pode migrar as máquinas no local.
 
-1. No projeto Azure Migrate > **Servers**  >  **Azure Migrate: Server Migration**, clique em **servidores de replicação**.
+1. No projeto Azure Migrate > **Servers**  >  **Azure Migrate: Server Migration**, clique em **Replicating servidores**.
 
     ![Replicar servidores](./media/tutorial-migrate-hyper-v/replicate-servers.png)
 
 2. Em **Replicar computadores**, clique com o botão direito do rato na VM > **Migrar**.
-3. Em **Migrate**  >  **Desligue as máquinas virtuais e realize uma migração planeada sem perda de dados**, selecione **Yes**  >  **OK**.
+3. Em **Migrar**  >  **Desligue as máquinas virtuais e realize uma migração planeada sem perda de dados**, selecione **Yes**  >  **OK**.
     - Por predefinição, o Azure Migrate desliga a VM no local e executa uma replicação a pedido para sincronizar quaisquer alterações à VM ocorridas desde a última replicação. Tal garante que não haja perda de dados.
     - Se não quiser desligar a VM, selecione **Não**
 4. Uma tarefa de migração é iniciada para a VM. Controle a tarefa nas notificações do Azure.
@@ -218,14 +209,14 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 
 ## <a name="complete-the-migration"></a>Complete a migração
 
-1. Depois da migração ser feita, clique à direita no VM > Parar a **migração**. Isto faz o seguinte:
+1. Depois de terminar a migração, clique com a direita na VM > **Parar a migração**. Isto faz o seguinte:
     - Para a replicação para a máquina no local.
-    - Remove a máquina da contagem de **servidores de replicação** em Migração Azure: Migração do Servidor.
-    - Limpa informações do estado de replicação para o VM.
-2. Instale o Azure VM [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) ou o agente [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) nas máquinas migradas.
+    - Remove a máquina da contagem de **servidores replicantes** em Azure Migrate: Migração do servidor.
+    - Limpa a informação do estado de replicação para o VM.
+2. Instale o Azure VM [Windows](../virtual-machines/extensions/agent-windows.md) ou o agente [Linux](../virtual-machines/extensions/agent-linux.md) nas máquinas migratórias.
 3. Execute otimizações de aplicação pós-migração, tais como atualizar cadeias de ligação de base de dados e configurações de servidor Web.
 4. Execute testes de aplicação final e de aceitação da migração na aplicação migrada em execução no Azure.
-5. Corte o tráfego para a instância azure vm migrada.
+5. Corte o tráfego para o exemplo de Azure VM migrado.
 6. Remova as VMs no local do seu inventário de VMs locais.
 7. Remova as VMs no local das cópias de segurança locais.
 8. Atualize qualquer documentação interna para mostrar a nova localização e endereço IP das VMs do Azure. 
@@ -236,14 +227,14 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
     - Mantenha os dados seguros ao fazer uma cópia de segurança das VMs do Azure através do serviço Azure Backup. [Saiba mais](../backup/quick-backup-vm-portal.md).
     - Mantenha as cargas de trabalho em execução e continuamente disponíveis ao replicar VMs do Azure para uma região secundária com o Site Recovery. [Saiba mais](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Para uma maior segurança:
-    - Bloqueie e limite o acesso ao tráfego de entrada com o [Azure Security Center - Mesmo na administração do tempo](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
-    - Restrinja o tráfego de rede para os pontos finais de gestão com os [Grupos de Segurança de Rede](https://docs.microsoft.com/azure/virtual-network/security-overview).
-    - Implemente o [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) para ajudar a proteger discos e a manter os dados protegidos contra roubo e acesso não autorizado.
+    - Bloqueie e limite o acesso ao tráfego de entrada com [o Azure Security Center - Mesmo a tempo da administração](../security-center/security-center-just-in-time.md).
+    - Restrinja o tráfego de rede para os pontos finais de gestão com os [Grupos de Segurança de Rede](../virtual-network/security-overview.md).
+    - Implemente o [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para ajudar a proteger discos e a manter os dados protegidos contra roubo e acesso não autorizado.
     - Leia mais sobre como [proteger recursos de IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) e aceda ao [Centro de Segurança do Azure](https://azure.microsoft.com/services/security-center/).
 - Para monitorização e gestão:
--  Considere implementar o [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) para monitorizar a utilização e as despesas do recurso.
+-  Considere implementar o [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para monitorizar a utilização e as despesas do recurso.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Investigue a viagem de [migração](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Adoção de Nuvens Azure.
+Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

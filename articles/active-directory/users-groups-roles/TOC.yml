@@ -58,6 +58,8 @@
           href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Restaurar utilizadores em massa
           href: users-bulk-restore.md
+        - name: Revogar o acesso de um utilizador
+          href: users-revoke-access.md
         - name: Fechar uma conta num diretório não gerido
           href: users-close-account.md
         - name: Adicionar utilizadores B2B
@@ -183,7 +185,7 @@
               href: directory-admin-roles-secure.md
             - name: Criar contas de emergência
               href: directory-emergency-access.md
-        - name: Unidade administrativa
+        - name: Unidades administrativas
           items:
             - name: Descrição geral das unidades administrativas
               href: directory-administrative-units.md

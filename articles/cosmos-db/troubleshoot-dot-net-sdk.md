@@ -3,22 +3,21 @@ title: Diagnosticar e resolver problemas ao utilizar o SDK de .NET do Azure Cosm
 description: Utilize funcionalidades como registo do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e resolver problemas problemas problemas com a Azure Cosmos DB quando utilizar .NET SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 05/06/2020
+ms.date: 06/16/2020
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 55c462795b29cd678a5fd7816211bce720d554e1
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.openlocfilehash: 0eb5d9cd86be05e5ad69bc9543231987e3c1dd2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170363"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85799270"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticar e resolver problemas ao utilizar o SDK de .NET do Azure Cosmos DB
 
 > [!div class="op_single_selector"]
-> * [Java SDK v4](troubleshoot-java-sdk-v4-sql.md)
+> * [SDK v4 de Java](troubleshoot-java-sdk-v4-sql.md)
 > * [SDK v2 Java assíncrono](troubleshoot-java-async-sdk.md)
 > * [.NET](troubleshoot-dot-net-sdk.md)
 > 
@@ -32,10 +31,10 @@ Considere a seguinte lista de verificação antes de transferir a sua aplicaçã
 *    Utilize o [SDK](sql-api-sdk-dotnet-standard.md)mais recente. Os SDKs de pré-visualização não devem ser utilizados para a produção. Isto evitará que se acertem questões conhecidas que já estão corrigidas.
 *    Reveja as [dicas de desempenho](performance-tips.md)e siga as práticas sugeridas. Isto ajudará a prevenir a escala, a latência e outros problemas de desempenho.
 *    Ative o registo SDK para ajudá-lo a resolver um problema. Ativar a exploração pode afetar o desempenho, por isso o melhor é permitir apenas problemas de resolução de problemas. Pode ativar os seguintes registos:
-    *    [Registar métricas](monitor-accounts.md) utilizando o portal Azure. As métricas do portal mostram a telemetria DB Azure Cosmos, que é útil para determinar se o problema corresponde à DB Azure Cosmos ou se é do lado do cliente.
-    *    Faça o registo da [cadeia de diagnósticos](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) no V2 SDK ou nos [diagnósticos](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics) em V3 SDK a partir das respostas de operação de ponto.
-    *    Registar as [Métricas de Consulta SQL](sql-api-query-metrics.md) de todas as respostas de consulta 
-    *    Siga a configuração para [a sessão SDK]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md)
+*    [Registar métricas](monitor-accounts.md) utilizando o portal Azure. As métricas do portal mostram a telemetria DB Azure Cosmos, que é útil para determinar se o problema corresponde à DB Azure Cosmos ou se é do lado do cliente.
+*    Faça o registo da [cadeia de diagnósticos](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) no V2 SDK ou nos [diagnósticos](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics) em V3 SDK a partir das respostas de operação de ponto.
+*    Registar as [Métricas de Consulta SQL](sql-api-query-metrics.md) de todas as respostas de consulta 
+*    Siga a configuração para [a sessão SDK]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md)
 
 Veja a secção [questões comuns e soluções alternativas](#common-issues-workarounds) neste artigo.
 
@@ -87,7 +86,7 @@ Esta latência pode ter múltiplas causas:
 
 ### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Exaustão portuária de Azure SNAT (PAT)
 
-Se a sua aplicação for implementada em [Máquinas Virtuais Azure sem endereço IP público,](../load-balancer/load-balancer-outbound-connections.md#defaultsnat)por padrão [as portas Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) estabelecem ligações a qualquer ponto final fora do seu VM. O número de ligações permitidas do VM ao ponto final DB Azure Cosmos é limitado pela [configuração Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). Esta situação pode levar a estrangulamentos de ligação, ao encerramento de ligações ou aos intervalos de tempo do pedido acima [mencionados](#request-timeouts).
+Se a sua aplicação for implementada em [Máquinas Virtuais Azure sem endereço IP público,](../load-balancer/load-balancer-outbound-connections.md)por padrão [as portas Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) estabelecem ligações a qualquer ponto final fora do seu VM. O número de ligações permitidas do VM ao ponto final DB Azure Cosmos é limitado pela [configuração Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). Esta situação pode levar a estrangulamentos de ligação, ao encerramento de ligações ou aos intervalos de tempo do pedido acima [mencionados](#request-timeouts).
 
  As portas Azure SNAT são utilizadas apenas quando o seu VM tem um endereço IP privado que está a ligar a um endereço IP público. Existem duas soluções alternativas para evitar a limitação do Azure SNAT (desde que já esteja a utilizar uma única instância de cliente em toda a aplicação):
 
@@ -109,14 +108,16 @@ As [métricas de consulta](sql-api-query-metrics.md) ajudarão a determinar onde
 * Se a consulta de back-end for lenta tente [otimizar a consulta](optimize-cost-queries.md) e olhar para a política de [indexação](index-overview.md) atual 
 
 ### <a name="http-401-the-mac-signature-found-in-the-http-request-is-not-the-same-as-the-computed-signature"></a>HTTP 401: A assinatura MAC encontrada no pedido HTTP não é a mesma que a assinatura computada
-Se recebeu a seguinte mensagem de erro 401: "A assinatura MAC encontrada no pedido HTTP não é a mesma que a assinatura computada." pode ser causado pelos seguintes cenários.
+Se recebeu a seguinte mensagem de erro 401: “A assinatura MAC encontrada no pedido HTTP não é igual à assinatura calculada.” pode ser causado pelos seguintes cenários.
 
-1. A chave foi girada e não seguiu as [melhores práticas.](secure-access-to-data.md#key-rotation) Normalmente, este é o caso. A rotação da chave da conta Do Cosmos DB pode demorar entre alguns segundos e possivelmente dias, dependendo do tamanho da conta Cosmos DB.
-   1. A assinatura 401 MAC é vista pouco depois de uma rotação da chave e acaba por parar sem alterações. 
-2. A chave está mal configurada na aplicação para que a chave não corresponda à conta.
-   1. 401 Emissão de assinatura MAC será consistente e acontece para todas as chamadas
-3. Há uma condição de corrida com criação de contentores. Uma instância de aplicação está a tentar aceder ao contentor antes de a criação do contentor estar completa. O cenário mais comum para isso se a aplicação estiver em execução, e o recipiente for eliminado e recriado com o mesmo nome enquanto a aplicação estiver em execução. O SDK tentará utilizar o novo recipiente, mas a criação do contentor ainda está em curso, pelo que não tem as chaves.
-   1. 401 A emissão de assinatura MAC é vista pouco depois da criação de um contentor, e só ocorrem até que a criação do contentor esteja concluída.
+1. A chave foi rodada e não seguiu as [melhores práticas](secure-access-to-data.md#key-rotation). Normalmente, é este o caso. A rotação da chave da conta Cosmos DB pode demorar entre alguns segundos e vários dias, consoante o tamanho da conta Cosmos DB.
+   1. A assinatura MAC 401 é vista pouco depois de uma rotação da chave e acaba por parar sem alterações. 
+1. A chave está incorretamente configurada na aplicação, pelo que não corresponde à conta.
+   1. O problema da assinatura MAC 401 será consistente e acontecerá para todas as chamadas
+1. A aplicação está a usar as [chaves apenas de leitura](secure-access-to-data.md#master-keys) para operações de escrita.
+   1. O problema da assinatura MAC 401 só acontecerá quando a aplicação estiver a realizar pedidos de escrita, mas os pedidos de leitura serão bem-sucedidos.
+1. Existe uma condição race com a criação do contentor. Uma instância da aplicação está a tentar aceder ao contentor antes de a criação do mesmo estar concluída. No cenário mais comum, tal acontece quando o contentor é eliminado e recriado com o mesmo nome enquanto a aplicação está em execução. O SDK tentará utilizar o novo contentor, mas a criação do contentor ainda está em curso, pelo que não tem as chaves.
+   1. O problema da assinatura MAC 401 é encontrado pouco depois da criação de um contentor e só ocorre até que a criação do contentor esteja concluída.
  
  ### <a name="http-error-400-the-size-of-the-request-headers-is-too-long"></a>HTTP Erro 400. O tamanho dos cabeçalhos de pedido é muito longo.
  O tamanho do cabeçalho cresceu para grande e excede o tamanho máximo permitido. É sempre recomendado usar o mais recente SDK. Certifique-se de que utiliza pelo menos a versão [3.x](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) ou [2.x](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md), que adiciona o tamanho do cabeçalho a rastrear a mensagem de exceção.

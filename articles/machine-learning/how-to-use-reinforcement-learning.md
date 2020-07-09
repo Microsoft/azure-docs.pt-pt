@@ -1,82 +1,82 @@
 ---
-title: Treine e implante um modelo de aprendizagem de reforço.
+title: Treine e implemente um modelo de aprendizagem de reforço.
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar a Aprendizagem de Reforço de Aprendizagem automática azure (RL) para formar um agente RL para jogar Pong.
+description: Aprenda a usar a Azure Machine Learning Reinforcement Learning (RL) para treinar um agente RL para jogar Pong.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
-ms.openlocfilehash: 01e7e6c84be13db839338928f8086bcceb2ea169
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: f8559733de9b7acfb23e2846e4d92ce6db5e2df0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654418"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84556946"
 ---
-# <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Aprendizagem de reforço (pré-visualização) com Aprendizagem automática Azure
+# <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Aprendizagem de reforço (pré-visualização) com Azure Machine Learning
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 > [!NOTE]
-> A Aprendizagem de Reforço de Aprendizagem automática Azure é atualmente uma funcionalidade de pré-visualização. Apenas os quadros ray e RLlib são apoiados neste momento.
+> A Azure Machine Learning Reinforcement Learning é atualmente uma funcionalidade de pré-visualização. Apenas as estruturas ray e RLlib são apoiadas neste momento.
 
-Neste artigo, aprende-se a treinar um agente de aprendizagem de reforço (RL) para jogar o jogo de vídeo Pong. Utilizará a biblioteca de código aberto [Python Ray RLlib](https://ray.readthedocs.io/en/master/rllib.html) com A Aprendizagem automática Azure para gerir a complexidade dos trabalhos rl distribuídos.
+Neste artigo, você aprende a treinar um agente de aprendizagem de reforço (RL) para jogar o videojogo Pong. Você usará a biblioteca python de código aberto [Ray RLlib](https://ray.readthedocs.io/en/master/rllib.html) com Azure Machine Learning para gerir a complexidade de trabalhos RL distribuídos.
 
-Neste artigo aprenderá a:
+Neste artigo você vai aprender a:
 > [!div class="checklist"]
-> * Preparar uma experiência
-> * Defina os nódosos da cabeça e dos trabalhadores
-> * Criar um estimador RL
-> * Submeta uma experiência para iniciar uma corrida
+> * Crie uma experiência
+> * Definir os acenos de cabeça e trabalhador
+> * Criar um estimador de RL
+> * Submeter uma experiência para começar uma corrida
 > * Ver resultados
 
-Este artigo baseia-se no exemplo do [RLlib Pong](https://aka.ms/azureml-rl-pong) que pode ser encontrado no [repositório gitHub](https://aka.ms/azureml-rl-notebooks)de aprendizagem automática azure.
+Este artigo baseia-se no [exemplo RLlib Pong](https://aka.ms/azureml-rl-pong) que pode ser encontrado no [repositório gitHub](https://aka.ms/azureml-rl-notebooks)do azure machine learning .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Executar este código em qualquer um dos seguintes ambientes. Recomendamos que experimente a computação azure machine learning para a experiência de arranque mais rápida. Os cadernos de amostras de reforço estão disponíveis para clonar e executar rapidamente em caso de computação de Machine Learning Azure.
+Execute este código em qualquer um dos seguintes ambientes. Recomendamos que experimente a azure machine learning para a experiência de arranque mais rápida. Os cadernos de amostra de reforço estão disponíveis para clonar rapidamente e funcionar em instância de cálculo Azure Machine Learning.
 
- - Instância computacional de aprendizagem automática azure
+ - Exemplo de computação de aprendizagem automática Azure
 
-     - Saiba clonar cadernos de amostras no [Tutorial: Ambiente de configuração e espaço de trabalho.](tutorial-1st-experiment-sdk-setup.md)
-         - Clone a pasta **"como usar-azureml"** em vez de **tutoriais**
-     - Executar o caderno de configuração da rede virtual localizado em portas de `/how-to-use-azureml/reinforcement-learning/setup/devenv_setup.ipynb` rede abertas usadas para a aprendizagem de reforço distribuído.
+     - Saiba como clonar cadernos de amostras em [Tutorial: Ambiente de configuração e espaço de trabalho.](tutorial-1st-experiment-sdk-setup.md)
+         - Clone a pasta **como usar-azureml** em vez de **tutoriais**
+     - Executar o caderno de configuração de rede virtual localizado `/how-to-use-azureml/reinforcement-learning/setup/devenv_setup.ipynb` em portas de rede abertas utilizadas para a aprendizagem de reforço distribuído.
      - Executar o caderno de amostras`/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb`
  
- - O seu próprio servidor jupyter Notebook
+ - O seu próprio servidor de cadernos Jupyter
 
-    - Instale o [SDK de Aprendizagem automática Azure](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+    - Instale o [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
     - Instale o [Azure Machine Learning RL SDK:](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py)`pip install --upgrade azureml-contrib-reinforcementlearning`
-    - Criar um ficheiro de [configuração do espaço de trabalho.](how-to-configure-environment.md#workspace)
-    - Executar o caderno de [configuração](https://aka.ms/azure-rl-env-setup) da rede virtual para abrir portas de rede usadas para a aprendizagem de reforço distribuído.
+    - Crie um [ficheiro de configuração do espaço de trabalho.](how-to-configure-environment.md#workspace)
+    - Executar o caderno de [configuração](https://aka.ms/azure-rl-env-setup) de rede virtual para abrir portas de rede utilizadas para a aprendizagem de reforço distribuído.
 
 
 ## <a name="how-to-train-a-pong-playing-agent"></a>Como treinar um agente pong-playing
 
-A aprendizagem de reforço (RL) é uma abordagem à aprendizagem automática que aprende fazendo. Enquanto outras técnicas de aprendizagem automática aprendem tomando passivamente dados de entrada e encontrando padrões dentro dele, o RL usa agentes de **formação** para tomar ativamente decisões e aprender com os seus resultados.
+A aprendizagem do reforço (RL) é uma abordagem à aprendizagem automática que aprende fazendo. Enquanto outras técnicas de machine learning aprendem tomando passivamente dados de entrada e encontrando padrões dentro dele, RL usa **agentes de formação** para tomar decisões ativamente e aprender com os seus resultados.
 
-Os seus agentes de treino aprendem a jogar Pong num **ambiente simulado.** Os agentes de treino tomam a decisão de cada frame do jogo para mover a raquete para cima, para baixo ou para ficar no lugar. Olha para o estado do jogo (uma imagem RGB do ecrã) para tomar uma decisão.
+Os seus agentes de treino aprendem a jogar Pong num **ambiente simulado.** Os agentes de treino tomam uma decisão em cada frame do jogo para mover a pá para cima, para baixo, ou para se manterem no lugar. Olha para o estado do jogo (uma imagem RGB do ecrã) para tomar uma decisão.
 
-A RL usa **recompensas** para dizer ao agente se as suas decisões são bem sucedidas. Neste ambiente, o agente recebe uma recompensa positiva quando marca um ponto e uma recompensa negativa quando um ponto é marcado contra ele. Ao longo de muitas iterações, o agente de formação aprende a escolher a ação, com base no seu estado atual, que otimiza para a soma das futuras recompensas esperadas.
+O RL usa **recompensas** para dizer ao agente se as suas decisões são bem sucedidas. Neste ambiente, o agente recebe uma recompensa positiva quando marca um ponto e uma recompensa negativa quando um ponto é marcado contra ele. Ao longo de muitas iterações, o agente de formação aprende a escolher a ação, com base no seu estado atual, que otimiza para a soma das recompensas futuras esperadas.
 
-É comum usar um modelo de **rede neural profunda** (DNN) para realizar esta otimização em RL. Inicialmente, o agente de aprendizagem terá um mau desempenho, mas cada jogo gerará amostras adicionais para melhorar ainda mais o modelo.
+É comum usar um modelo **de rede neural profunda** (DNN) para realizar esta otimização em RL. Inicialmente, o agente de aprendizagem irá ter um desempenho fraco, mas cada jogo gerará amostras adicionais para melhorar ainda mais o modelo.
 
 O treino termina quando o agente atinge uma pontuação média de recompensa de 18 numa época de treino. Isto significa que o agente venceu o seu adversário por uma média de pelo menos 18 pontos em partidas até 21.
 
-O processo de epísero através de simulação e reconversão de um DNN é computacionalmente caro, e requer grandes quantidades de dados. Uma forma de melhorar o desempenho dos empregos em RL é **paralelizando** o trabalho para que vários agentes de formação possam agir e aprender simultaneamente. No entanto, gerir um ambiente RL distribuído pode ser um empreendimento complexo.
+O processo de iteração através da simulação e da reconversão de um DNN é computacionalmente caro, e requer grandes quantidades de dados. Uma forma de melhorar o desempenho dos empregos RL é **paralelamente** ao trabalho para que vários agentes de formação possam agir e aprender simultaneamente. No entanto, gerir um ambiente RL distribuído pode ser uma empresa complexa.
 
-O Azure Machine Learning fornece a estrutura para gerir estas complexidades para aumentar as suas cargas de trabalho rl.
+A Azure Machine Learning fornece o enquadramento para gerir estas complexidades para escalar as suas cargas de trabalho RL.
 
 ## <a name="set-up-the-environment"></a>Configurar o ambiente
 
-Configure o ambiente RL local carregando os pacotes Python necessários, iniciando o seu espaço de trabalho, criando uma experiência e especificando uma rede virtual configurada.
+Configurar o ambiente RL local carregando os pacotes Python necessários, inicializando o seu espaço de trabalho, criando uma experiência e especificando uma rede virtual configurada.
 
 ### <a name="import-libraries"></a>Bibliotecas de importação
 
-Importar os pacotes python necessários para executar o resto deste exemplo.
+Importe os pacotes Python necessários para executar o resto deste exemplo.
 
 ```python
 # Azure ML Core imports
@@ -96,9 +96,9 @@ from azureml.contrib.train.rl import WorkerConfiguration
 
 ### <a name="initialize-a-workspace"></a>Inicializar um espaço de trabalho
 
-O [espaço de trabalho Azure Machine Learning](concept-workspace.md) é o recurso de alto nível para o Azure Machine Learning. Proporciona-lhe um lugar centralizado para trabalhar com todos os artefactos que cria.
+O espaço de [trabalho Azure Machine Learning](concept-workspace.md) é o recurso de alto nível para a Azure Machine Learning. Proporciona-lhe um lugar centralizado para trabalhar com todos os artefactos que cria.
 
-Inicialize um objeto espaço de trabalho a partir do `config.json` ficheiro criado na secção [pré-requisitos](#prerequisites). Se estiver a executar este código numa Instância de Computação de Aprendizagem automática Azure, o ficheiro de configuração já foi criado para si.
+Inicialize um objeto de espaço de trabalho a partir do `config.json` ficheiro criado na secção [pré-requisitos](#prerequisites). Se estiver a executar este código numa Instância de Cálculo de Aprendizagem de Máquinas Azure, o ficheiro de configuração já foi criado para si.
 
 ```Python
 ws = Workspace.from_config()
@@ -106,7 +106,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-reinforcement-learning-experiment"></a>Criar uma experiência de aprendizagem de reforço
 
-Crie uma [experiência](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) para acompanhar a sua corrida de aprendizagem de reforço. No Azure Machine Learning, as experiências são coleções lógicas de ensaios relacionados para organizar registos de execução, história, saídas e muito mais.
+Crie uma [experiência](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) para acompanhar a sua aprendizagem de reforço. Em Azure Machine Learning, as experiências são coleções lógicas de ensaios relacionados para organizar registos de corridas, história, saídas e muito mais.
 
 ```python
 experiment_name='rllib-pong-multi-node'
@@ -116,21 +116,21 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="specify-a-virtual-network"></a>Especificar uma rede virtual
 
-Para trabalhos rl que utilizam vários alvos de computação, deve especificar uma rede virtual com portas abertas que permitam que nós de trabalhadores e nós de cabeça se comuniquem entre si. A rede virtual pode estar em qualquer grupo de recursos, mas deve estar na mesma região que o seu espaço de trabalho. Para obter mais informações sobre a configuração da sua rede virtual, consulte o caderno de [configuração](https://aka.ms/azure-rl-env-setup) do espaço de trabalho que pode ser encontrado na secção de pré-requisitos. Aqui, especifica o nome da rede virtual no seu grupo de recursos.
+Para trabalhos RL que usam vários alvos de computação, deve especificar uma rede virtual com portas abertas que permita que nós de trabalhadores e nós de cabeça se comuniquem entre si. A rede virtual pode estar em qualquer grupo de recursos, mas deve estar na mesma região que o seu espaço de trabalho. Para obter mais informações sobre a configuração da sua rede virtual, consulte o [caderno de configuração](https://aka.ms/azure-rl-env-setup) do espaço de trabalho que pode ser encontrado na secção pré-requisitos. Aqui, especifique o nome da rede virtual no seu grupo de recursos.
 
 ```python
 vnet = 'your_vnet'
 ```
 
-## <a name="define-head-and-worker-compute-targets"></a>Defina os alvos da computação de cabeça e trabalhador
+## <a name="define-head-and-worker-compute-targets"></a>Definir alvos de computação de cabeça e trabalhador
 
-Este exemplo usa alvos de computação separados para a cabeça de Ray e os nós dos trabalhadores. Estas definições permitem-lhe escalar os seus recursos de computação para cima e para baixo, dependendo da carga de trabalho esperada. Desloque o número de nós e o tamanho de cada nó, com base nas necessidades da sua experiência.
+Este exemplo usa alvos de computação separados para os nós da cabeça de Ray e dos trabalhadores. Estas definições permitem escalar os seus recursos de cálculo para cima e para baixo, dependendo da carga de trabalho esperada. Desa ajuste o número de nós e o tamanho de cada nó, com base nas necessidades da sua experiência.
 
 ### <a name="head-computing-target"></a>Alvo de computação de cabeça
 
-Este exemplo usa um cluster de cabeça equipado com GPU para otimizar o desempenho da aprendizagem profunda. O nó da cabeça treina a rede neural que o agente usa para tomar decisões. O nó de cabeça também recolhe pontos de dados dos nódosos operários para treinar ainda mais a rede neural.
+Este exemplo usa um cluster de cabeça equipado com GPU para otimizar o desempenho da aprendizagem profunda. O nó de cabeça treina a rede neural que o agente usa para tomar decisões. O nó da cabeça também recolhe pontos de dados dos nós dos trabalhadores para treinar ainda mais a rede neural.
 
-O cálculo da cabeça usa uma única [ `STANDARD_NC6` máquina virtual](https://docs.microsoft.com/azure/virtual-machines/nc-series) (VM). Tem 6 CPUs virtuais, o que significa que pode distribuir trabalho em 6 CPUs funcionais.
+O cálculo da cabeça utiliza uma única [ `STANDARD_NC6` máquina virtual](https://docs.microsoft.com/azure/virtual-machines/nc-series) (VM). Tem 6 CPUs virtuais, o que significa que pode distribuir trabalho em 6 CPUs funcionais.
 
 
 ```python
@@ -168,11 +168,11 @@ else:
     print(head_compute_target.get_status().serialize())
 ```
 
-### <a name="worker-computing-cluster"></a>Cluster de computação dos trabalhadores
+### <a name="worker-computing-cluster"></a>Cluster de computação de trabalhadores
 
-Este exemplo utiliza quatro [ `STANDARD_D2_V2` VMs](https://docs.microsoft.com/azure/virtual-machines/nc-series) para o alvo da computação do trabalhador. Cada nó de trabalhador tem 2 CPUs disponíveis para um total de 8 CPUs disponíveis para paralelor o trabalho.
+Este exemplo utiliza quatro [ `STANDARD_D2_V2` VMs](https://docs.microsoft.com/azure/virtual-machines/nc-series) para o alvo de computação do trabalhador. Cada nó de trabalhador tem 2 CPUs disponíveis para um total de 8 CPUs disponíveis para paralelizar o trabalho.
 
-As GPUs não são necessárias para os nós dos trabalhadores, uma vez que não estão a fazer aprendizagens profundas. Os trabalhadores executam as simulações do jogo e recolhem dados.
+As GPUs não são necessárias para os nós operários, uma vez que não estão a realizar aprendizagens profundas. Os trabalhadores executam as simulações do jogo e recolhem dados.
 
 ```python
 # choose a name for your Ray worker cluster
@@ -210,13 +210,13 @@ else:
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>Criar um estimador de aprendizagem de reforço
 
-Nesta secção, aprende-se a utilizar o [ReforçoLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py) para submeter um trabalho de formação à Azure Machine Learning.
+Nesta secção, você aprende a usar o [ReforçoLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py) para submeter um trabalho de formação ao Azure Machine Learning.
 
-O Azure Machine Learning utiliza aulas de estimadores para encapsular as informações de configuração de execução. Isto permite especificar facilmente como configurar uma execução de script. Para obter mais informações sobre o padrão de estimativa de aprendizagem automática azure, consulte [como treinar modelos usando estimadores](how-to-train-ml-models.md).
+A Azure Machine Learning usa aulas de estimador para encapsular informações de configuração de execução. Isto permite especificar facilmente como configurar uma execução de script. Para obter mais informações sobre o padrão do estimador Azure Machine Learning, consulte [Como treinar modelos utilizando estimadores](how-to-train-ml-models.md).
 
-### <a name="define-a-worker-configuration"></a>Definir uma configuração do trabalhador
+### <a name="define-a-worker-configuration"></a>Definir uma configuração de trabalhador
 
-O objeto De Configuração dos Trabalhadores diz ao Azure Machine Learning como inicializar o cluster de trabalhadores que executará o script de entrada.
+O objeto de Configuração do Trabalhador diz à Azure Machine Learning como inicializar o cluster de trabalhadores que irá executar o script de entrada.
 
 ```python
 # Pip packages we will use for both head and worker
@@ -241,11 +241,11 @@ worker_conf = WorkerConfiguration(
 
 ### <a name="define-script-parameters"></a>Definir parâmetros de script
 
-O script de entrada `pong_rllib.py` aceita uma lista de parâmetros que define como executar o trabalho de formação. Passar estes parâmetros através do estimador como uma camada de encapsulamento facilita a alteração dos parâmetros do script e executar configurações independentemente umas das outras.
+O roteiro de entrada `pong_rllib.py` aceita uma lista de parâmetros que definem como executar o trabalho de formação. Passar estes parâmetros através do estimador como uma camada de encapsulamento torna fácil alterar os parâmetros do script e executar configurações independentemente uns dos outros.
 
-Especificar o correto `num_workers` aproveitará ao máximo os seus esforços de paraleção. Fixar o número de trabalhadores no mesmo número de CPUs disponíveis. Para este exemplo, pode calcular isto da seguinte forma:
+Especificar o correto `num_workers` tirará o máximo partido dos seus esforços de paralelização. Fixar o número de trabalhadores para o mesmo número de CPUs disponíveis. Para este exemplo, pode calcular isto da seguinte forma:
 
-O nó da cabeça é um [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) com 6 vCPUs. O cluster de trabalhadores é de 4 [Standard_D2_V2 VMs](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs#dv2-series) com 2 CPUs cada, num total de 8 CPUs. No entanto, deve subtrair 1 CPU da contagem de trabalhadores, uma vez que 1 deve ser dedicado ao papel do nó de cabeça. 6 CPUs + 8 CPUs - 1 cpU de cabeça = 13 trabalhadores simultâneos. O Azure Machine Learning utiliza aglomerados de cabeça e de trabalhadores para distinguir os recursos computacionais. No entanto, ray não distingue entre cabeça e trabalhadores, e todos os CPUs estão disponíveis CPUs para execução de fios de trabalhador.
+O nó da cabeça é um [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) com 6 vCPUs. O cluster operário é de 4 [Standard_D2_V2 VMs](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs#dv2-series) com 2 CPUs cada, num total de 8 CPUs. No entanto, deve subtrair 1 CPU da contagem de trabalhadores, uma vez que 1 deve ser dedicado ao papel do nó de cabeça. 6 CPUs + 8 CPUs - 1 CPU de cabeça = 13 trabalhadores simultâneos. A Azure Machine Learning usa aglomerados de cabeça e trabalhadores para distinguir recursos computacional. No entanto, Ray não distingue entre cabeça e trabalhadores, e todos os CPUs estão disponíveis CPUs para execução de fio de trabalhador.
 
 
 ```python
@@ -273,7 +273,7 @@ script_params = {
 }
 ```
 
-### <a name="define-the-reinforcement-learning-estimator"></a>Defina o estimador de aprendizagem de reforço
+### <a name="define-the-reinforcement-learning-estimator"></a>Definir o estimador de aprendizagem de reforço
 
 Utilize a lista de parâmetros e o objeto de configuração do trabalhador para construir o estimador.
 
@@ -319,11 +319,11 @@ rl_estimator = ReinforcementLearningEstimator(
 )
 ```
 
-### <a name="entry-script"></a>Script de entrada
+### <a name="entry-script"></a>Roteiro de entrada
 
-O [script de entrada](https://aka.ms/azure-rl-pong-script) treina uma rede neural usando o ambiente `pong_rllib.py` [OpenAI Gym](https://github.com/openai/gym/) `PongNoFrameSkip-v4` . Os Ginásios OpenAI são interfaces padronizadas para testar algoritmos de aprendizagem de reforço em jogos clássicos da Atari.
+O [script de entrada](https://aka.ms/azure-rl-pong-script) treina uma rede neural utilizando o ambiente `pong_rllib.py` [openai gym](https://github.com/openai/gym/) `PongNoFrameSkip-v4` . OpenAI Gyms são interfaces padronizadas para testar algoritmos de aprendizagem de reforço em jogos clássicos da Atari.
 
-Este exemplo usa um algoritmo de formação conhecido como [IMPALA](https://arxiv.org/abs/1802.01561) (Importância Ponderada Actor-Aprendiz Arquitetura). O IMPALA paralelo cada ator de aprendizagem individual para escalar em muitos nós de computação sem sacrificar a velocidade ou a estabilidade.
+Este exemplo usa um algoritmo de formação conhecido como [IMPALA](https://arxiv.org/abs/1802.01561) (Import importance Weighted Actor-Learner Architecture). O IMPALA paraliza cada ator de aprendizagem individual para escalar em muitos nós computacional sem sacrificar a velocidade ou a estabilidade.
 
 [Ray Tune](https://ray.readthedocs.io/en/latest/tune.html) orquestra as tarefas dos trabalhadores do IMPALA.
 
@@ -371,10 +371,10 @@ if __name__ == "__main__":
              local_dir='./logs')
 ```
 
-### <a name="logging-callback-function"></a>Função de recuo de exploração de login
+### <a name="logging-callback-function"></a>Função de retorno de registo
 
 
-O script de entrada utiliza uma função de utilidade para definir uma [função de chamada RLlib personalizada](https://docs.ray.io/en/latest/rllib-training.html#callbacks-and-custom-metrics) para registar métricas no seu espaço de trabalho De Aprendizagem automática Azure. Saiba como visualizar estas métricas na secção [monitor e ver resultados.](#monitor-and-view-results)
+O script de entrada utiliza uma função de utilidade para definir uma [função de retorno RLlib personalizada](https://docs.ray.io/en/latest/rllib-training.html#callbacks-and-custom-metrics) para registar métricas no seu espaço de trabalho de Aprendizagem de Máquinas Azure. Saiba como ver estas métricas na secção [Monitor e ver resultados.](#monitor-and-view-results)
 
 ```python
 '''RLlib callbacks module:
@@ -396,17 +396,17 @@ def on_train_result(info):
 
 ## <a name="submit-a-run"></a>Submeter uma corrida
 
-[A corrida](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) lida com a história de execução de trabalhos em curso ou completos. 
+[Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) lida com o histórico de trabalhos em curso ou completos. 
 
 ```python
 run = exp.submit(config=rl_estimator)
 ```
 > [!NOTE]
-> A corrida pode demorar entre 30 a 45 minutos para ser concluída.
+> A corrida pode demorar até 30 a 45 minutos para ser concluída.
 
 ## <a name="monitor-and-view-results"></a>Monitorizar e visualizar resultados
 
-Utilize o widget De Aprendizagem automática Azure Para ver o estado das suas corridas em tempo real. Neste exemplo, o widget mostra duas corridas de crianças: uma para a cabeça e outra para os trabalhadores. 
+Utilize o widget Azure Machine Learning Jupyter para ver o estado das suas corridas em tempo real. Neste exemplo, o widget mostra duas corridas de crianças: uma para a cabeça e outra para os trabalhadores. 
 
 ```python
 from azureml.widgets import RunDetails
@@ -415,19 +415,19 @@ RunDetails(run).show()
 run.wait_for_completion()
 ```
 
-1. Espere que o widget carregue.
-1. Selecione a corrida de cabeça na lista de execuções.
+1. Aguarde que o widget carregue.
+1. Selecione a cabeça na lista de corridas.
 
-Selecione **Clique aqui para ver a execução no estúdio Azure Machine Learning** para obter informações adicionais no estúdio. Pode aceder a esta informação enquanto a execução estiver em curso, ou depois de concluída.
+**Selecione Clique aqui para ver a execução no estúdio Azure Machine Learning** para obter informações adicionais sobre a execução no estúdio. Pode aceder a esta informação enquanto a execução está em curso, ou depois de concluída.
 
-![Gráfico de linha mostrando como os detalhes de execução widget](./media/how-to-use-reinforcement-learning/pong-run-details-widget.png)
+![Gráfico de linha mostrando como executar widget de detalhes](./media/how-to-use-reinforcement-learning/pong-run-details-widget.png)
 
-O **enredo episode_reward_mean** mostra o número médio de pontos marcados por época de treino. Pode ver que o agente de treino inicialmente teve um mau desempenho, perdendo os seus jogos sem marcar um único ponto (mostrado por um reward_mean de -21). Em 100 iterações, o agente de treino aprendeu a vencer o oponente do computador por uma média de 18 pontos.
+O **enredo episode_reward_mean** mostra o número médio de pontos marcados por época de treino. Pode ver que o agente de treino inicialmente teve um mau desempenho, perdendo os seus jogos sem marcar um único ponto (mostrado por um reward_mean de -21). Em 100 iterações, o agente de treino aprendeu a vencer o oponente por uma média de 18 pontos.
 
-Se navegar nos registos da corrida da criança, pode ver os resultados da avaliação registados no ficheiro driver_log.txt. Pode ter de esperar alguns minutos até que estas métricas fiquem disponíveis na página 'Correr'.
+Se navegar em registos da execução da criança, pode ver os resultados da avaliação registados driver_log.txt ficheiro. Pode ter de esperar alguns minutos até que estas métricas fiquem disponíveis na página 'Executar'.
 
-Em curto trabalho, aprendeu a configurar vários recursos computacionais para formar um agente de aprendizagem de reforço para jogar Pong muito bem.
+Em pouco trabalho, aprendeu a configurar múltiplos recursos computacional para formar um agente de aprendizagem de reforço para jogar Pong muito bem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste artigo, aprendeu a formar um agente de aprendizagem de reforço usando um agente de aprendizagem IMPALA. Para ver exemplos adicionais, vá ao [repositório de aprendizagem de aprendizagem automática Azure Learning GitHub](https://aka.ms/azureml-rl-notebooks).
+Neste artigo, aprendeu a treinar um agente de aprendizagem de reforço usando um agente de aprendizagem IMPALA. Para ver exemplos adicionais, vá ao [repositório de aprendizagem do GitHub do Azure Machine Learning.](https://aka.ms/azureml-rl-notebooks)

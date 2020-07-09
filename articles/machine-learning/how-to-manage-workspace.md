@@ -1,34 +1,34 @@
 ---
-title: Criar espaços de trabalho azure machine learning no portal
+title: Criar espaços de trabalho no portal
 titleSuffix: Azure Machine Learning
-description: Aprenda a criar, visualizar e eliminar espaços de trabalho de Aprendizagem automática Azure no portal Azure.
+description: Aprenda a criar, ver e apagar espaços de trabalho de Aprendizagem automática Azure no portal Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4b4b64bcca57e1dc98cdba10626597532ae1461c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71bb85c5812a3e779570cdd87c5092e5b0de52f9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81269738"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045710"
 ---
-# <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Criar e gerir espaços de trabalho azure machine learning no portal Azure
+# <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Criar e gerir espaços de trabalho de aprendizagem automática Azure no portal Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, você vai criar, visualizar e eliminar espaços de [**trabalho Azure Machine Learning**](concept-workspace.md) no portal Azure para [Aprendizagem automática Azure](overview-what-is-azure-ml.md).  O portal é a forma mais fácil de começar com espaços de trabalho, mas à medida que as suas necessidades mudam ou os requisitos para a automação aumentam, também pode criar e eliminar espaços de trabalho [utilizando o CLI,](reference-azure-machine-learning-cli.md) [com código Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou através da [extensão do Código VS](tutorial-setup-vscode-extension.md).
+Neste artigo, você vai criar, visualizar e eliminar [**espaços de trabalho de Aprendizagem automática Azure**](concept-workspace.md) no portal Azure para [aprendizagem automática Azure](overview-what-is-azure-ml.md).  O portal é a forma mais fácil de começar com espaços de trabalho, mas à medida que as suas necessidades mudam ou os requisitos para o aumento da automatização também pode criar e apagar espaços de trabalho [utilizando o CLI,](reference-azure-machine-learning-cli.md) [com o código Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou através da [extensão do Código VS.](tutorial-setup-vscode-extension.md)
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
-Para criar um espaço de trabalho, precisa de uma subscrição Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
+Para criar um espaço de trabalho, precisa de uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) utilizando as credenciais para a sua subscrição Azure. 
 
-1. No canto superior esquerdo do portal Azure, selecione **+ Crie um recurso**.
+1. No canto superior esquerdo do portal Azure, selecione **+ Criar um recurso**.
 
       ![Criar um novo recurso](./media/how-to-manage-workspace/create-workspace.gif)
 
@@ -36,67 +36,67 @@ Para criar um espaço de trabalho, precisa de uma subscrição Azure. Se não ti
 
 1. Selecione **Machine Learning**.
 
-1. No painel **machine learning,** selecione **Criar** para começar.
+1. No painel **de aprendizagem** automática, selecione **Criar** para começar.
 
 1. Forneça as seguintes informações para configurar o seu novo espaço de trabalho:
 
    Campo|Descrição 
    ---|---
-   Nome da área de trabalho |Introduza um nome único que identifique o seu espaço de trabalho. Neste exemplo, utilizamos **docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de recordar e para diferenciar dos espaços de trabalho criados por outros. O nome do espaço de trabalho é insensível a casos.
+   Nome da área de trabalho |Insira um nome único que identifique o seu espaço de trabalho. Neste exemplo, **usamos docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de recordar e diferenciar dos espaços de trabalho criados por outros. O nome do espaço de trabalho é insensível a caso.
    Subscrição |Selecione a subscrição do Azure que pretende utilizar.
-   Grupo de recursos | Utilize um grupo de recursos já existente na sua subscrição ou introduza um nome para criar um grupo de recursos novo. Um grupo de recursos detém recursos relacionados para uma solução Azure. Neste exemplo, utilizamos **docs-aml**. 
+   Grupo de recursos | Utilize um grupo de recursos já existente na sua subscrição ou introduza um nome para criar um grupo de recursos novo. Um grupo de recursos detém recursos relacionados para uma solução Azure. Neste exemplo, **usamos docs-aml**. 
    Localização | Selecione a localização mais próxima dos seus utilizadores e os recursos de dados para criar o seu espaço de trabalho.
-   Edição do espaço de trabalho | Selecione **Basic** ou **Enterprise**.  Esta edição do espaço de trabalho determina as funcionalidades a que terá acesso e preços. Saiba mais sobre as ofertas de [edição Basic e Enterprise.](overview-what-is-azure-ml.md#sku) 
+   Edição do espaço de trabalho | Selecione **Basic** ou **Enterprise**.  Esta edição do espaço de trabalho determina as funcionalidades a que terá acesso e preços. Saiba mais sobre [as ofertas de edição Básica e Empresarial.](overview-what-is-azure-ml.md#sku) 
 
     ![Configure o seu espaço de trabalho](./media/how-to-manage-workspace/select-edition.png)
 
 1. Quando terminar de configurar o espaço de trabalho, selecione **Review + Create**.
-2. Reveja as definições e efelo quaisquer alterações ou correções adicionais. Quando estiver satisfeito com as definições, selecione **Criar**.
+2. Reveja as definições e escdave quaisquer alterações ou correções adicionais. Quando estiver satisfeito com as definições, **selecione Criar**.
 
    > [!Warning] 
    > Pode levar vários minutos para criar o seu espaço de trabalho na nuvem.
 
    Quando o processo está concluído, aparece uma mensagem de sucesso de implantação. 
  
- 1. Para ver o novo espaço de trabalho, selecione **Ir para o recurso**.
+ 1. Para visualizar o novo espaço de trabalho, selecione **Ir para o recurso**.
 
 ### <a name="download-a-configuration-file"></a>Descarregue um ficheiro de configuração
 
-1. Se estiver a criar uma [instância de cálculo,](tutorial-1st-experiment-sdk-setup.md#azure)ignore este passo.
+1. Se estiver a criar uma [instância computacional,](tutorial-1st-experiment-sdk-setup.md#azure)ignore este passo.
 
-1. Se planeia utilizar o código no seu ambiente local que faz referência a este espaço de trabalho, selecione **Download config.json** da secção **de visão geral** do espaço de trabalho.  
+1. Se pretender utilizar código no seu ambiente local que faça referência a este espaço de trabalho, selecione **Baixar config.jsna** secção **visão geral** do espaço de trabalho.  
 
-   ![Baixar config.json](./media/how-to-manage-workspace/configure.png)
+   ![Baixar config.jsem](./media/how-to-manage-workspace/configure.png)
    
-   Coloque o ficheiro na estrutura do diretório com os seus scripts Python ou Cadernos Jupyter. Pode estar no mesmo diretório, um subdiretório chamado *.azureml,* ou num directório-mãe. Quando cria uma instância de cálculo, este ficheiro é adicionado ao diretório correto no VM para si.
+   Coloque o ficheiro na estrutura do diretório com os seus scripts Python ou Cadernos Jupyter. Pode estar no mesmo diretório, num subdiretório chamado *.azureml,* ou num diretório-mãe. Quando cria uma instância de computação, este ficheiro é adicionado ao diretório correto no VM para si.
 
 ## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a>Upgrade para edição enterprise
 
-Pode atualizar o seu espaço de trabalho da edição Basic para a edição Enterprise para aproveitar as funcionalidades melhoradas, tais como experiências de baixo código e funcionalidades de segurança melhoradas.
+Você pode atualizar o seu espaço de trabalho da edição Basic para a edição Enterprise para tirar partido das funcionalidades melhoradas, tais como experiências de baixo código e funcionalidades de segurança melhoradas.
 
-1. Inscreva-se no [estúdio Azure Machine Learning.](https://ml.azure.com)
+1. Inscreva-se no [estúdio Azure Machine Learning](https://ml.azure.com).
 
-1. Selecione o espaço de trabalho que pretende atualizar.
+1. Selecione o espaço de trabalho que deseja atualizar.
 
-1. Selecione **Saiba mais** na parte superior direita da página.
+1. **Selecione Saiba mais** no topo direito da página.
 
-   [![Atualizar um](./media/how-to-manage-workspace/upgrade.png) espaço de trabalho](./media/how-to-manage-workspace/upgrade.png#lightbox)
+   [![Atualizar um espaço de ](./media/how-to-manage-workspace/upgrade.png) trabalho](./media/how-to-manage-workspace/upgrade.png#lightbox)
 
 1. Selecione **Upgrade** na janela que aparece.
 
 
 > [!IMPORTANT]
-> Não é possível desvalorizar um espaço de trabalho da edição da Enterprise para um espaço de trabalho de edição básica. 
+> Não é possível desvalorizar um espaço de trabalho da edição enterprise para um espaço de trabalho de edição básica. 
 
 ## <a name="find-a-workspace"></a><a name="view"></a>Encontre um espaço de trabalho
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. No campo de pesquisa superior, digite **Machine Learning**.  
+1. No campo de pesquisa superior, **escreva Machine Learning**.  
 
 1. Selecione **Machine Learning**.
 
-   ![Pesquisa por espaço de trabalho azure machine learning](./media/how-to-manage-workspace/find-workspaces.png)
+   ![Pesquisa de espaço de trabalho para aprendizagem automática Azure](./media/how-to-manage-workspace/find-workspaces.png)
 
 1. Veja a lista de espaços de trabalho encontrados. Pode filtrar com base em subscrições, grupos de recursos e locais.  
 
@@ -104,9 +104,9 @@ Pode atualizar o seu espaço de trabalho da edição Basic para a edição Enter
 
 ## <a name="delete-a-workspace"></a>Eliminar uma área de trabalho
 
-No [portal Azure,](https://portal.azure.com/)selecione **Apagar** na parte superior do espaço de trabalho que pretende eliminar.
+No [portal Azure,](https://portal.azure.com/) **selecione Delete** na parte superior do espaço de trabalho que pretende eliminar.
 
-:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Eliminar espaço de trabalho":::
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Apagar espaço de trabalho":::
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -118,20 +118,20 @@ No [portal Azure,](https://portal.azure.com/)selecione **Apagar** na parte super
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
 
-### <a name="moving-the-workspace"></a>Movendo o espaço de trabalho
+### <a name="moving-the-workspace"></a>Mover o espaço de trabalho
 
 > [!WARNING]
-> A mudança do seu espaço de trabalho Azure Machine Learning para uma subscrição diferente, ou a mudança da subscrição própria para um novo inquilino, não é suportada. Fazê-lo pode causar erros.
+> Mover o seu espaço de trabalho Azure Machine Learning para uma subscrição diferente, ou mover a subscrição proprietária para um novo inquilino, não é suportado. Fazê-lo pode causar erros.
 
-### <a name="deleting-the-azure-container-registry"></a>Apagando o Registo de Contentores Azure
+### <a name="deleting-the-azure-container-registry"></a>Eliminação do Registo do Contentor de Azure
 
-O espaço de trabalho Azure Machine Learning utiliza o Registo de Contentores Azure (ACR) para algumas operações. Criará automaticamente uma instância ACR quando precisar primeiro de uma.
+O espaço de trabalho Azure Machine Learning utiliza o Registo do Contentor Azure (ACR) para algumas operações. Criará automaticamente uma instância ACR quando precisa primeiro de uma.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Siga o tutorial de corpo inteiro para aprender a usar um espaço de trabalho para construir, treinar e implementar modelos com O Machine Learning Azure.
+Siga o tutorial de corpo inteiro para aprender a usar um espaço de trabalho para construir, treinar e implementar modelos com Azure Machine Learning.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Modelos de comboio](tutorial-train-models-with-aml.md)

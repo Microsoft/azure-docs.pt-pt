@@ -1,46 +1,46 @@
 ---
-title: Usar identidade gerida com uma aplicação
-description: Como utilizar identidades geridas no código de aplicação Azure Service Fabric para aceder aos Serviços Azure.
+title: Utilizar identidade gerida com uma aplicação
+description: Como utilizar identidades geridas no código de aplicação do Azure Service Fabric para aceder aos Serviços Azure.
 ms.topic: article
 ms.date: 10/09/2019
 ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81461570"
 ---
-# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Como alavancar a identidade gerida de uma aplicação de Tecido de Serviço para aceder aos serviços Azure
+# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Como alavancar a identidade gerida de uma aplicação de Service Fabric para aceder aos serviços da Azure
 
-As aplicações service Fabric podem aproveitar identidades geridas para aceder a outros recursos Azure que suportam a autenticação baseada no Diretório Ativo azure. Uma aplicação pode obter um [token](../active-directory/develop/developer-glossary.md#access-token) de acesso que represente a sua identidade, que pode ser atribuída ao sistema ou atribuída ao utilizador, e usá-la como um símbolo 'portador' para se autenticar a outro serviço - também conhecido como servidor de [recursos protegidos.](../active-directory/develop/developer-glossary.md#resource-server) O símbolo representa a identidade atribuída à aplicação Service Fabric, e só será emitida aos recursos da Azure (incluindo aplicações SF) que partilhem essa identidade. Consulte a documentação de visão geral de [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) para uma descrição detalhada das identidades geridas, bem como a distinção entre identidades atribuídas ao sistema e identidades atribuídas ao utilizador. Referimo-nos a uma aplicação de Tecido de Serviço com identidade gerida como [aplicação](../active-directory/develop/developer-glossary.md#client-application) do cliente ao longo deste artigo.
-
-> [!IMPORTANT]
-> Uma identidade gerida representa a associação entre um recurso Azure e um diretor de serviço no correspondente inquilino da AD Azure associado à subscrição que contém o recurso. Como tal, no contexto do Service Fabric, as identidades geridas só são suportadas para aplicações implementadas como recursos Azure. 
+As aplicações de Tecido de Serviço podem alavancar identidades geridas para aceder a outros recursos Azure que suportam a autenticação baseada no Diretório Azure Ative. Uma aplicação pode obter um símbolo de [acesso](../active-directory/develop/developer-glossary.md#access-token) que represente a sua identidade, que pode ser atribuído ao sistema ou atribuído ao utilizador, e usá-lo como um símbolo 'portador' para se autenticar para outro serviço - também conhecido como [um servidor de recursos protegido](../active-directory/develop/developer-glossary.md#resource-server). O token representa a identidade atribuída à aplicação Service Fabric, e só será emitido aos recursos da Azure (incluindo aplicações SF) que partilhem essa identidade. Consulte a documentação geral de [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) para uma descrição detalhada das identidades geridas, bem como a distinção entre identidades atribuídas ao sistema e identidades atribuídas pelo utilizador. Referimo-nos a uma aplicação de Tecido de Serviço gerida como [a aplicação](../active-directory/develop/developer-glossary.md#client-application) do cliente ao longo deste artigo.
 
 > [!IMPORTANT]
-> Antes de utilizar a identidade gerida de uma aplicação Service Fabric, a aplicação do cliente deve ter acesso ao recurso protegido. Consulte a lista de [serviços azure que suportam a autenticação da Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) para verificar o apoio e, em seguida, a documentação do respetivo serviço para medidas específicas para conceder acesso de identidade aos recursos de interesse. 
+> Uma identidade gerida representa a associação entre um recurso Azure e um principal de serviço no inquilino AD correspondente Azure associado à subscrição que contém o recurso. Como tal, no contexto do Service Fabric, as identidades geridas são apenas suportadas para aplicações implementadas como recursos Azure. 
 
-## <a name="acquiring-an-access-token-using-rest-api"></a>Adquirir um token de acesso utilizando a API REST
-Em clusters habilitados para a identidade gerida, o tempo de execução do Tecido de Serviço expõe um ponto final do hospedeiro local que as aplicações podem usar para obter fichas de acesso. O ponto final está disponível em cada nó do cluster, e é acessível a todas as entidades nesse nó. Os chamadores autorizados podem obter fichas de acesso, ligando para este ponto final e apresentando um código de autenticação; o código é gerado pelo tempo de execução do Tecido de Serviço para cada ativação de pacote de código de serviço distinto, e está ligado ao tempo de vida do processo que acolhe o pacote de código de serviço.
+> [!IMPORTANT]
+> Antes de utilizar a identidade gerida de uma aplicação Service Fabric, a aplicação do cliente deve ter acesso ao recurso protegido. Consulte a lista de [serviços da Azure que suportam a autenticação Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) para verificar o apoio e, em seguida, para a documentação do respetivo serviço para etapas específicas para conceder um acesso identitário aos recursos de interesse. 
+
+## <a name="acquiring-an-access-token-using-rest-api"></a>Aquisição de um token de acesso utilizando REST API
+Em clusters habilitados para identidade gerida, o tempo de execução do Tecido de Serviço expõe um ponto final local que as aplicações podem usar para obter fichas de acesso. O ponto final está disponível em cada nó do cluster, e é acessível a todas as entidades nesse nó. Os chamadores autorizados podem obter fichas de acesso através do chamado final e da apresentação de um código de autenticação; o código é gerado pelo tempo de funcionamento do Tecido de Serviço para cada ativação de pacote de código de serviço distinto, e está ligado ao tempo de vida útil do processo de hospedagem desse pacote de código de serviço.
 
 Especificamente, o ambiente de um serviço de tecido de serviço gerido com identidade será semeado com as seguintes variáveis:
-- 'IDENTITY_ENDPOINT': o ponto final do local correspondente à identidade gerida do serviço
+- «IDENTITY_ENDPOINT»: o ponto final local correspondente à identidade gerida do serviço
 - 'IDENTITY_HEADER': um código de autenticação único que representa o serviço no nó atual
 - 'IDENTITY_SERVER_THUMBPRINT' : Impressão digital do servidor de identidade gerido por tecido de serviço
 
 > [!IMPORTANT]
-> O código de aplicação deve considerar o valor da variável ambiente "IDENTITY_HEADER" como dados sensíveis - não deve ser registado ou divulgado de outra forma. O código de autenticação não tem qualquer valor fora do nó local, ou após o processo de hospedagem do serviço ter terminado, mas representa a identidade do serviço de Tecido de Serviço, pelo que deve ser tratado com as mesmas precauções que o próprio token de acesso.
+> O código de aplicação deve considerar o valor da variável ambiente "IDENTITY_HEADER" como dados sensíveis - não deve ser registado ou divulgado de outra forma. O código de autenticação não tem qualquer valor fora do nó local, ou após o processo de hospedagem do serviço ter terminado, mas representa a identidade do serviço De Serviço Fabric, pelo que deve ser tratado com as mesmas precauções que o próprio token de acesso.
 
-Para obter um símbolo, o cliente executa os seguintes passos:
-- forma um URI concatenando o ponto final de identidade gerido (valor IDENTITY_ENDPOINT) com a versão API e o recurso (público) necessário para o símbolo
-- cria um pedido GET http(s) para o URI especificado
+Para obter um token, o cliente executa os seguintes passos:
+- forma um URI através da concatenato do ponto final de identidade gerido (IDENTITY_ENDPOINT valor) com a versão API e o recurso (público) necessário para o token
+- cria um pedido get http(s) para o URI especificado
 - adiciona lógica de validação de certificado de servidor apropriado
 - adiciona o código de autenticação (IDENTITY_HEADER valor) como cabeçalho ao pedido
 - submete o pedido
 
-Uma resposta bem sucedida conterá uma carga útil JSON que representa o token de acesso resultante, bem como metadados descrevendo-o. Uma resposta falhada incluirá também uma explicação do fracasso. Veja abaixo mais detalhes sobre o manuseamento de erros.
+Uma resposta bem sucedida conterá uma carga útil JSON que representa o token de acesso resultante, bem como metadados que o descrevem. Uma resposta falhada incluirá também uma explicação do fracasso. Veja abaixo os detalhes adicionais sobre o manuseamento de erros.
 
-As fichas de acesso serão cached by Service Fabric a vários níveis (nó, cluster, serviço de prestador de recursos), pelo que uma resposta bem sucedida não implica necessariamente que o símbolo tenha sido emitido diretamente em resposta ao pedido da aplicação do utilizador. Os tokens serão cached por menos do que a sua vida, e assim uma aplicação é garantida para receber um token válido. Recomenda-se que o código de aplicação caches quaisquer fichas de acesso que adquire; a chave de cache deve incluir (uma derivação de) o público. 
+Os tokens de acesso serão cached pela Service Fabric a vários níveis (nó, cluster, serviço de fornecedor de recursos), pelo que uma resposta bem sucedida não implica necessariamente que o token tenha sido emitido diretamente em resposta ao pedido da aplicação do utilizador. Os tokens serão em cache por menos do que a sua vida útil, e por isso uma aplicação é garantida para receber um token válido. Recomenda-se que o código de aplicação cache em si quaisquer fichas de acesso que adquira; a chave de caching deve incluir (uma derivação de) o público. 
 
 Pedido de amostra:
 ```http
@@ -48,13 +48,13 @@ GET 'https://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-0
 ```
 em que:
 
-| Elemento | Descrição |
+| Elemento | Description |
 | ------- | ----------- |
-| `GET` | O verbo HTTP, indicando que pretende recuperar dados do ponto final. Neste caso, um sinal de acesso da OAuth. | 
+| `GET` | O verbo HTTP, indicando que pretende obter dados do ponto final. Neste caso, um token de acesso OAuth. | 
 | `https://localhost:2377/metadata/identity/oauth2/token` | O ponto final de identidade gerido para aplicações de Tecido de Serviço, fornecido através da variável ambiente IDENTITY_ENDPOINT. |
-| `api-version` | Um parâmetro de corda de consulta, especificando a versão API do Serviço de Fichas de Identidade Gerida; atualmente o único `2019-07-01-preview`valor aceite é , e está sujeito a alterações. |
-| `resource` | Um parâmetro de corda de consulta, indicando o ID da aplicação URI do recurso alvo. Isto será refletido `aud` como a (audiência) reivindicação do símbolo emitido. Este exemplo solicita um sinal de acesso ao Azure Key Vault, cujo ID de aplicação URI é https:\//vault.azure.net/. |
-| `Secret` | Um campo de cabeçalho de pedido HTTP, exigido pelo Serviço de Ficha de Identidade Gerida por Tecidos de Serviço para os serviços de tecido de serviço para autenticar o chamador. Este valor é fornecido pelo sf tempo de execução através de IDENTITY_HEADER variável ambiental. |
+| `api-version` | Um parâmetro de cadeia de consulta, especificando a versão API do Serviço de Token de Identidade Gerida; atualmente, o único valor aceite é `2019-07-01-preview` , e está sujeito a alterações. |
+| `resource` | Um parâmetro de cadeia de consulta, indicando o ID URI da aplicação do recurso-alvo. Isto refletir-se-á como a `aud` reivindicação (do público) do token emitido. Este exemplo solicita um token para aceder ao Azure Key Vault, cujo iD URI de aplicação é https: \/ /vault.azure.net/. |
+| `Secret` | Um campo de cabeçalho de pedido HTTP, exigido pelo Serviço de Token de Identidade Gerido de Tecido de Serviço para serviços de Tecido de Serviço para autenticar o chamador. Este valor é fornecido pelo tempo de execução do SF através IDENTITY_HEADER variável ambiental. |
 
 
 Resposta da amostra:
@@ -70,15 +70,15 @@ Content-Type: application/json
 ```
 em que:
 
-| Elemento | Descrição |
+| Elemento | Description |
 | ------- | ----------- |
-| `token_type` | O tipo de ficha; neste caso, um símbolo de acesso "Portador", o que significa que o apresentador ('portador') deste símbolo é o tema pretendido do símbolo. |
-| `access_token` | O sinal de acesso solicitado. Ao chamar uma API DE REPOUSO segura, `Authorization` o símbolo está incorporado no campo de cabeçalho de pedido como um símbolo "portador", permitindo que a API autenticar o chamador. | 
-| `expires_on` | O carimbo de tempo da expiração do sinal de acesso; representado como o número de segundos de "1970-01-01T0:0:0Z UTC" `exp` e corresponde à reivindicação do token. Neste caso, o token expira em 2019-08-08T06:10:11+00:00 (em RFC 3339)|
-| `resource` | O recurso para o qual o sinal de `resource` acesso foi emitido, especificado através do parâmetro de corda de consulta do pedido; corresponde à alegação "aud" do token. |
+| `token_type` | O tipo de símbolo; neste caso, um token de acesso "Portador", o que significa que o apresentador ('portador') deste símbolo é o tema pretendido do símbolo. |
+| `access_token` | O sinal de acesso solicitado. Ao chamar uma API REST segura, o token está incorporado no campo do cabeçalho de `Authorization` pedido como um símbolo "portador", permitindo à API autenticar o chamador. | 
+| `expires_on` | O prazo de data de validade do token de acesso; representado como o número de segundos de "1970-01-01T0:0:0Z UTC" e corresponde à reivindicação do `exp` token. Neste caso, o token expira em 2019-08-08T06:10:11+00:00 (em RFC 3339)|
+| `resource` | O recurso para o qual o token de acesso foi emitido, especificado através do `resource` parâmetro de cadeia de consulta do pedido; corresponde à alegação 'aud' do token. |
 
 
-## <a name="acquiring-an-access-token-using-c"></a>Adquirir um token de acesso usando C #
+## <a name="acquiring-an-access-token-using-c"></a>Aquisição de um token de acesso usando C #
 O acima torna-se, em C#:
 
 ```C#
@@ -172,8 +172,8 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
     } // class AccessTokenAcquirer
 } // namespace Azure.ServiceFabric.ManagedIdentity.Samples
 ```
-## <a name="accessing-key-vault-from-a-service-fabric-application-using-managed-identity"></a>Aceder ao cofre chave a partir de uma aplicação de tecido de serviço usando identidade gerida
-Esta amostra baseia-se no acima para demonstrar o acesso a um segredo armazenado num Cofre chave usando identidade gerida.
+## <a name="accessing-key-vault-from-a-service-fabric-application-using-managed-identity"></a>Aceder ao Cofre de Chaves a partir de uma aplicação de tecido de serviço usando identidade gerida
+Esta amostra baseia-se no acima para demonstrar o acesso a um segredo armazenado num Cofre-Chave usando identidade gerida.
 
 ```C#
         /// <summary>
@@ -321,59 +321,59 @@ Esta amostra baseia-se no acima para demonstrar o acesso a um segredo armazenado
 ```
 
 ## <a name="error-handling"></a>Processamento de erros
-O campo "código de estado" do cabeçalho de resposta HTTP indica o estado de sucesso do pedido; um estado de '200 OK' indica sucesso, e a resposta incluirá o sinal de acesso descrito acima. Seguem-se uma breve enumeração de possíveis respostas de erro.
+O campo 'código de estado' do cabeçalho de resposta HTTP indica o estado de sucesso do pedido; um estatuto de '200 OK' indica sucesso, e a resposta incluirá o token de acesso como descrito acima. Segue-se uma breve enumeração de possíveis respostas de erro.
 
-| Código de Estado | Razão do erro | Como lidar |
+| Código de Estado | Razão de erro | Como lidar |
 | ----------- | ------------ | ------------- |
-| 404 não encontrados. | Código de autenticação desconhecido, ou o pedido não foi atribuído a uma identidade gerida. | Retificar a configuração da aplicação ou o código de aquisição simbólico. |
-| 429 pedidos a mais. |  Limite de aceleração atingido, imposto pela AAD ou SF. | Retry com Backoff Exponencial. Consulte a orientação abaixo. |
-| Erro 4xx a pedido. | Um ou mais dos parâmetros de pedido estavam incorretos. | Não tente de novo.  Examine os detalhes do erro para mais informações.  Erros 4xx são erros de tempo de design.|
-| Erro 5xx do serviço. | O subsistema de identidade gerido ou o Diretório Ativo Azure devolveu um erro transitório. | É seguro voltar a tentar depois de um curto período de tempo. Pode atingir uma condição de estrangulamento (429) ao tentar novamente.|
+| 404 Não encontrado. | Código de autenticação desconhecido, ou a aplicação não foi atribuída uma identidade gerida. | Retificar a configuração da aplicação ou o código de aquisição de fichas. |
+| 429 Pedidos a mais. |  Limite de aceleração atingido, imposto pela AAD ou SF. | Re-tentar com o Recuo Exponencial. Consulte a orientação abaixo. |
+| Erro 4xx a pedido. | Um ou mais dos parâmetros do pedido estavam incorretos. | Não redaça.  Examine os detalhes do erro para obter mais informações.  Erros 4xx são erros de tempo de conceção.|
+| Erro 5xx do serviço. | O subsistema de identidade gerido ou o Azure Ative Directory devolveu um erro transitório. | É seguro voltar a tentar depois de um curto período de tempo. Pode atingir uma condição de estrangulamento (429) ao voltar a tentar.|
 
-Se ocorrer um erro, o corpo de resposta http correspondente contém um objeto JSON com os detalhes do erro:
+Se ocorrer um erro, o respetivo organismo de resposta HTTP contém um objeto JSON com os detalhes de erro:
 
-| Elemento | Descrição |
+| Elemento | Description |
 | ------- | ----------- |
 | code | Código de erro. |
-| correlationId | Uma identificação de correlação que pode ser usada para depurar. |
-| message | Verbose descrição de erro. **As descrições de erros podem mudar a qualquer momento. Não dependa da mensagem de erro em si.**|
+| correlationId | Um ID de correlação que pode ser usado para depurar. |
+| message | Descrição verbosa do erro. **As descrições de erros podem ser alteradas a qualquer momento. Não dependa da própria mensagem de erro.**|
 
-Erro da amostra:
+Erro de amostra:
 ```json
 {"error":{"correlationId":"7f30f4d3-0f3a-41e0-a417-527f21b3848f","code":"SecretHeaderNotFound","message":"Secret is not found in the request headers."}}
 ```
 
-Segue-se uma lista de erros típicos do Tecido de Serviço específicos das identidades geridas:
+Segue-se uma lista de erros típicos do Tecido de Serviço específicos para identidades geridas:
 
 | Código | Mensagem | Descrição | 
 | ----------- | ----- | ----------------- |
-| Cabeçalho SecretoNão Encontrado | O segredo não se encontra nos cabeçalhos do pedido. | O código de autenticação não foi fornecido com o pedido. | 
-| Identidade GeridaNãoEncontrado | Identidade gerida não encontrada para o anfitrião de aplicação especificado. | O pedido não tem identidade, ou o código de autenticação é desconhecido. |
-| ArgumentnullorEmpty | O parâmetro "recurso" não deve ser nulo ou de corda vazia. | O recurso (público) não foi fornecido no pedido. |
-| InvalidApiVersion | A versão api '' não é suportada. A versão suportada é '2019-07-01-preview'. | Versão API em falta ou não suportada especificada no pedido URI. |
-| InternalServerError | Ocorreu um erro. | Foi encontrado um erro no subsistema de identidade gerido, possivelmente fora da pilha de Tecido de Serviço. A causa mais provável é um valor incorreto especificado para o recurso (verifique se está a seguir '/'?) | 
+| SecretHeaderNotFound | O segredo não está nos cabeçalhos do pedido. | O código de autenticação não foi fornecido com o pedido. | 
+| ManagedIdentityNotFound | Identidade gerida não encontrada para o anfitrião de aplicação especificado. | O pedido não tem identidade, ou o código de autenticação é desconhecido. |
+| ArgumentNullOrEmpty | O parâmetro 'recurso' não deve ser nulo ou deso porramento. | O recurso (público) não foi fornecido no pedido. |
+| InvalidApiVersion | A versão api '' não é suportada. Versão suportada é '2019-07-01-preview'. | Versão API em falta ou não suportada especificada no pedido URI. |
+| InternalServerError | Ocorreu um erro. | Foi encontrado um erro no subsistema de identidade gerido, possivelmente fora da pilha de Tecido de Serviço. A causa mais provável é um valor incorreto especificado para o recurso (verificar se existe o rasto '/'?) | 
 
-## <a name="retry-guidance"></a>Orientação de retry 
+## <a name="retry-guidance"></a>Orientação de retíria 
 
-Tipicamente, o único código de erro retível é 429 (Pedidos demasiados); erros internos do servidor/códigos de erro 5xx podem ser retível, embora a causa possa ser permanente. 
+Normalmente, o único código de erro redapto é 429 (Pedidos demasiados); os erros internos do servidor/códigos de erro de 5xx podem ser retripáveis, embora a causa possa ser permanente. 
 
-Os limites de estrangulamento aplicam-se ao número de chamadas efetuadas ao subsistema de identidade gerido - especificamente as dependências "a montante" (o serviço Managed Identity Azure, ou o serviço de fichas seguras). Serviço Tecido caches tokens em vários níveis do oleoduto, mas dada a natureza distribuída dos componentes envolvidos, o chamador pode experimentar respostas de estrangulamento inconsistentes (isto é, ser estrangulado em um nó/instância de uma aplicação, mas não em um nó diferente enquanto solicita um símbolo para a mesma identidade.) Quando a condição de estrangulamento estiver definida, os pedidos subsequentes da mesma aplicação podem falhar com o código de estado HTTP 429 (Demasiados Pedidos) até que a condição seja desmarcada.  
+Os limites de estrangulamento aplicam-se ao número de chamadas efetuadas ao subsistema de identidade gerida - especificamente as dependências 'a montante' (o serviço Managed Identity Azure ou o serviço de fichas seguras). O tecido de serviço caches tokens em vários níveis no oleoduto, mas dada a natureza distribuída dos componentes envolvidos, o chamador pode experimentar respostas de estrangulamento inconsistentes (isto é, ser estrangulado em um nó/instância de uma aplicação, mas não em um nó diferente enquanto solicita um símbolo para a mesma identidade.) Quando a condição de estrangulamento for definida, os pedidos subsequentes da mesma aplicação podem falhar com o código de estado HTTP 429 (Pedidos de Muitos) até que a condição seja apurada.  
 
-Recomenda-se que os pedidos falhados devido à estrangulamento sejam novamente experimentados com um recuo exponencial, da seguinte forma: 
+Recomenda-se que os pedidos falhados devido ao estrangulamento sejam novamente julgados com um recuo exponencial, da seguinte forma: 
 
-| Índice de chamada | Ação para receber 429 | 
+| Índice de chamadas | Ação sobre a receção 429 | 
 | --- | --- | 
-| 1 | Espere 1 segundo e tente novamente |
-| 2 | Aguarde 2 segundos e tente novamente |
-| 3 | Aguarde 4 segundos e tente novamente |
-| 4 | Espere 8 segundos e tente novamente |
-| 4 | Espere 8 segundos e tente novamente |
-| 5 | Aguarde 16 segundos e tente novamente |
+| 1 | Espere 1 segundo e redaça |
+| 2 | Espere 2 segundos e redaça |
+| 3 | Espere 4 segundos e redaça |
+| 4 | Espere 8 segundos e redaça |
+| 4 | Espere 8 segundos e redaça |
+| 5 | Espere 16 segundos e redaça |
 
 ## <a name="resource-ids-for-azure-services"></a>IDs de recursos para serviços Azure
-Consulte [os serviços Azure que suportam a autenticação Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md) para uma lista de recursos que suportam a Azure AD, e as respetivas IDs de recursos.
+Consulte [os serviços Azure que suportam a autenticação Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md) para uma lista de recursos que suportam a Azure AD e os respetivos IDs de recursos.
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Implementar uma aplicação Azure Service Fabric com uma identidade gerida atribuída pelo sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [Implementar uma aplicação Azure Service Fabric com uma identidade gerida atribuída ao sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 * [Implementar uma aplicação Azure Service Fabric com uma identidade gerida atribuída pelo utilizador](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-* [Conceder um acesso à aplicação Azure Service Fabric a outros recursos azure](./how-to-grant-access-other-resources.md)
+* [Conceder a uma aplicação Azure Service Fabric acesso a outros recursos da Azure](./how-to-grant-access-other-resources.md)

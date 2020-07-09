@@ -1,5 +1,5 @@
 ---
-title: Fase de implantação do ciclo de vida do Processo de Ciência de Dados da Equipa
+title: Fase de implantação do ciclo de vida do processo de ciência de dados da equipa
 description: Os objetivos, tarefas e entregas para a fase de implantação dos seus projetos de ciência de dados
 services: machine-learning
 author: marktab
@@ -12,15 +12,14 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1138c95274c769186a9a29aa4d35517e378baeae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76720491"
 ---
-# <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Fase de implantação do ciclo de vida do Processo de Ciência de Dados da Equipa
+# <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Fase de implantação do ciclo de vida do processo de ciência de dados da equipa
 
-Este artigo descreve os objetivos, tarefas e entregas associados à implementação do Processo de Ciência de Dados da Equipa (TDSP). Este processo fornece um ciclo de vida recomendado que pode usar para estruturar os seus projetos de ciência de dados. O ciclo de vida descreve as principais etapas que os projetos normalmente executam, muitas vezes iterativamente:
+Este artigo descreve os objetivos, tarefas e entregas associados à implementação do Processo de Ciência de Dados de Equipa (TDSP). Este processo fornece um ciclo de vida recomendado que pode usar para estruturar os seus projetos de ciência de dados. O ciclo de vida descreve as principais fases que os projetos normalmente executam, muitas vezes iterativamente:
 
    1. **Noções sobre empresas**
    2. **Aquisição e compreensão de dados**
@@ -28,21 +27,21 @@ Este artigo descreve os objetivos, tarefas e entregas associados à implementaç
    4. **Implementação**
    5. **Aceitação do cliente**
 
-Aqui está uma representação visual do ciclo de vida da TDSP: 
+Aqui está uma representação visual do ciclo de vida TDSP: 
 
 ![Ciclo de vida TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
 ## <a name="goal"></a>Objetivo
-Implementar modelos com um pipeline de dados para um ambiente de produção ou produção para aceitação final do utilizador. 
+Implementar modelos com um pipeline de dados para um ambiente de produção ou produção para a aceitação final do utilizador. 
 
 ## <a name="how-to-do-it"></a>Como fazê-lo
 A principal tarefa abordada nesta fase:
 
-**Operacionalizar o modelo**: Implantar o modelo e o oleoduto num ambiente de produção ou produção para consumo de aplicação.
+**Operacionalizar o modelo**: Implantar o modelo e o gasoduto num ambiente de produção ou produção para consumo de aplicações.
 
 ### <a name="operationalize-a-model"></a>Operacionalizar um modelo
-Depois de ter um conjunto de modelos que funcionam bem, pode operacionalizá-los para outras aplicações consumirem. Dependendo dos requisitos do negócio, as previsões são feitas em tempo real ou numa base de lote. Para implementar modelos, expõe-nos com uma interface API aberta. A interface permite que o modelo seja facilmente consumido a partir de várias aplicações, tais como:
+Depois de ter um conjunto de modelos que funcionam bem, pode operacionalizá-los para outras aplicações consumirem. Dependendo dos requisitos do negócio, as previsões são feitas em tempo real ou em lote. Para implementar modelos, expõe-nos com uma interface API aberta. A interface permite que o modelo seja facilmente consumido a partir de várias aplicações, tais como:
 
    * Sites online
    * Folhas de cálculo 
@@ -50,25 +49,25 @@ Depois de ter um conjunto de modelos que funcionam bem, pode operacionalizá-los
    * Aplicações de linha de negócio 
    * Aplicações de back-end 
 
-Por exemplo, de operacionalização de modelos com um serviço web Azure Machine Learning, consulte [Implementar um serviço web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md). É uma boa prática construir telemetria e monitorização no modelo de produção e no pipeline de dados que implementa. Esta prática ajuda com relatórios de estado do sistema subsequentes e resolução de problemas.  
+Para exemplos de operacionalização de modelos com um serviço web Azure Machine Learning, consulte [implementar um serviço web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md). É uma boa prática construir telemetria e monitorização no modelo de produção e no pipeline de dados que implementa. Esta prática ajuda na subsequente comunicação do estado do sistema e na resolução de problemas.  
 
 ## <a name="artifacts"></a>Artefactos
 
-* Um painel de instrumentos de estado que exibe a saúde do sistema e métricas-chave
-* Um relatório final de modelação com detalhes de implementação
-* Um documento final de arquitetura de solução
+* Um painel de estado que exibe a saúde do sistema e as principais métricas
+* Um relatório final de modelação com detalhes de implantação
+* Um documento de arquitetura de solução final
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Aqui estão os links para cada passo no ciclo de vida do TDSP:
+Aqui estão as ligações a cada passo no ciclo de vida do TDSP:
 
    1. [Noções sobre empresas](lifecycle-business-understanding.md)
-   2. [Aquisição e compreensão de dados](lifecycle-data.md)
+   2. [Aquisição e compreensão de Dados](lifecycle-data.md)
    3. [Modelação](lifecycle-modeling.md)
    4. [Implementação](lifecycle-deployment.md)
    5. [Aceitação do cliente](lifecycle-acceptance.md)
 
-Fornecemos passeios completos que demonstram todos os passos no processo para cenários específicos. O artigo de [walkthroughs Exemplo](walkthroughs.md) fornece uma lista dos cenários com links e descrições de miniaturas. Os passadiços ilustram como combinar cloud, ferramentas no local e serviços em um fluxo de trabalho ou pipeline para criar uma aplicação inteligente. 
+Fornecemos passos completos que demonstram todos os passos no processo para cenários específicos. O artigo [exemplo walkthroughs](walkthroughs.md) fornece uma lista dos cenários com links e descrições de miniaturas. As caminhadas ilustram como combinar ferramentas de nuvem, ferramentas no local e serviços em um fluxo de trabalho ou oleoduto para criar uma aplicação inteligente. 
 
-Por exemplo, como executar passos em TDSPs que usam o Estúdio de Aprendizagem automática Azure, consulte [Utilize o TDSP com aprendizagem automática azure](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Por exemplo, como executar passos em TDSPs que utilizam o Azure Machine Learning Studio, consulte [utilizar o TDSP com Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).

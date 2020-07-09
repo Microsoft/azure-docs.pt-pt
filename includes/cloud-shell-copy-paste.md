@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: 21bfc632a6e8744fc549abb05a7013bb296ca254
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184595"
 ---
-* Windows: `Ctrl-c` copiar é suportado `Shift-insert` mas usado para colar.
-  * O FireFox/IE pode não suportar corretamente as permissões de prancheta.
-* Mac OS: `Cmd-c` copiar `Cmd-v` e colar.
+* Windows: `Ctrl-c` copiar é suportado, mas use para `Shift-insert` colar.
+  * O FireFox/IE pode não suportar adequadamente as permissões de prancheta.
+* Mac OS: `Cmd-c` copiar e `Cmd-v` colar.

@@ -1,21 +1,21 @@
 ---
-title: Use o portal Azure para resolver problemas azure Stack Edge [ Microsoft Docs
-description: Descreve como resolver problemas com problemas com os problemas do Azure Stack Edge.
+title: Use o portal Azure para resolver problemas Azure Stack Edge Microsoft Docs
+description: Descreve como resolver problemas com problemas de Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 03/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 8e3c595720d8900acbc5f7f18dc01d96d71ffac9
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 00aae3386b3f648eafdef31dccb640d8120f7ad8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82569241"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564001"
 ---
-# <a name="troubleshoot-your-azure-stack-edge-issues"></a>Problemas de resolução dos seus problemas de Azure Stack Edge 
+# <a name="troubleshoot-your-azure-stack-edge-issues"></a>Resolução de problemas dos seus problemas com a Azure Stack Edge
 
 Este artigo descreve como resolver problemas no seu Azure Stack Edge. 
 
@@ -37,7 +37,7 @@ Para diagnosticar e resolver quaisquer erros do dispositivo, pode executar os te
  
 2. Depois de os testes estarem concluídos, os resultados são apresentados. 
 
-    ![Analisar os resultados dos testes](media/azure-stack-edge-troubleshoot/run-diag-2.png)
+    ![Rever os resultados dos testes](media/azure-stack-edge-troubleshoot/run-diag-2.png)
 
     Se um teste falhar, é apresentado um URL para a ação recomendada. Pode clicar no URL para ver a ação recomendada.
  
@@ -64,7 +64,7 @@ Quaisquer erros ocorridos durante os processos de carregamento e atualização s
 
 1. Para ver os ficheiros de erro, aceda à partilha e clique na partilha para ver o conteúdo. 
 
-      ![Conecte e veja conteúdos de partilha](media/azure-stack-edge-troubleshoot/troubleshoot-logs-1.png)
+      ![Ligar e visualizar conteúdos de partilha](media/azure-stack-edge-troubleshoot/troubleshoot-logs-1.png)
 
 2. Clique na _pasta Microsoft Azure Stack Edge_. Esta pasta tem duas subpastas:
 
@@ -84,6 +84,6 @@ Quaisquer erros ocorridos durante os processos de carregamento e atualização s
     [!INCLUDE [data-box-edge-edge-upload-error-reference](../../includes/data-box-edge-gateway-upload-error-reference.md)]
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre os [problemas conhecidos nesta versão](data-box-gateway-release-notes.md).

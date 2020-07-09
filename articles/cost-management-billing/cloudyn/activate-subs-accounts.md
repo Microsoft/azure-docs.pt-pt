@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: secdec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 62138163b3c3f94d60c55cf93d84db5dff446823
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 24ff2d2b5855c2624f12c2a1523611933a426ebe
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79474667"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513861"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Ativar subscrições e contas do Azure com o Cloudyn
 
@@ -65,7 +65,7 @@ Ao adicionar uma conta ou atualizar uma subscrição, concede ao Cloudyn acesso 
     2. No portal do Azure, selecione **Azure Active Directory**.
     3. Para obter o ID de inquilino, selecione as **Propriedades** do seu inquilino do Azure AD.
     4. Copie o GUID do ID do Diretório. Este valor é o ID do inquilino.
-    Para obter mais informações, veja [Obter o ID de inquilino](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+    Para obter mais informações, veja [Obter o ID de inquilino](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 3. Se for necessário, selecione o ID de Taxa. Se não souber o ID de Taxa, siga os passos abaixo para o encontrar:
     1. No canto superior direito do portal do Azure, clique nas suas informações de utilizador e em **Ver a minha fatura**.
     2. Em **Conta de Faturação**, clique em **Subscrições**.

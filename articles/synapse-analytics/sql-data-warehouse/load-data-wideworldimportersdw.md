@@ -1,32 +1,32 @@
 ---
-title: 'Tutorial: Carregar dados usando portal Azure & SSMS'
-description: Tutorial usa portal Azure e SQL Server Management Studio para carregar o armazém de dados WideWorldImportersDW de uma bolha azure global para uma piscina Azure Synapse Analytics SQL.
+title: 'Tutorial: Dados de carga usando portal Azure & SSMS'
+description: Tutorial usa o portal Azure e o SQL Server Management Studio para carregar o armazém de dados WideWorldImportersDW de uma bolha global de Azure para uma piscina SQL Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 14868b2642b2b77ce6bc7315e58a7ae2dc0f115d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: bb05a817ae553872fa1a6c364da4c075ae454e1f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019933"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211181"
 ---
-# <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutorial: Carregue dados para piscina Azure Synapse Analytics SQL
+# <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutorial: Carregar dados para a piscina SQL Azure Synapse Analytics
 
-Este tutorial utiliza a PolyBase para carregar o armazém de dados WideWorldImportersDW do armazenamento azure Blob para o seu armazém de dados na piscina Azure Synapse Analytics SQL. Este tutorial utiliza o [portal do Azure](https://portal.azure.com) e o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) para:
+Este tutorial utiliza a PolyBase para carregar o armazém de dados WideWorldImportersDW do armazenamento de Azure Blob para o seu armazém de dados na piscina SQL Azure Synapse Analytics. Este tutorial utiliza o [portal do Azure](https://portal.azure.com) e o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) para:
 
 > [!div class="checklist"]
 >
-> * Criar um armazém de dados utilizando piscina SQL no portal Azure
+> * Criar um armazém de dados usando piscina SQL no portal Azure
 > * Configurar uma regra de firewall ao nível do servidor no portal do Azure
-> * Ligue-se à piscina SQL com SSMS
+> * Conecte-se à piscina SQL com SSMS
 > * Criar um utilizador designado para carregar dados
 > * Criar tabelas externas que utilizam o blob do Azure como origem de dados
 > * Utilizar a instrução CTAS T-SQL para carregar dados para o armazém de dados
@@ -34,9 +34,9 @@ Este tutorial utiliza a PolyBase para carregar o armazém de dados WideWorldImpo
 > * Gerar um ano de dados nas tabelas de factos de dimensão e vendas de data
 > * Criar estatísticas dos dados recentemente carregados
 
-Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Antes de começar este tutorial, transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
@@ -46,42 +46,42 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>Criar um armazém de dados em branco na piscina SQL
 
-Um pool SQL é criado com um conjunto definido de [recursos computacionais.](memory-concurrency-limits.md) O pool SQL é criado dentro de um grupo de [recursos Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e num [servidor sQL lógico.](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Uma piscina SQL é criada com um conjunto definido de [recursos computativos.](memory-concurrency-limits.md) A piscina SQL é criada dentro de um [grupo de recursos Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e num [servidor SQL lógico](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 Siga estes passos para criar uma piscina SQL em branco.
 
-1. Selecione **Criar um recurso** no portal Azure.
+1. **Selecione Criar um recurso** no portal Azure.
 
-1. Selecione Bases de **Dados** da **nova** página e selecione **Azure Synapse Analytics** em **Destaque** na **nova** página.
+1. Selecione **Bases de Dados** **da** nova página e selecione **Azure Synapse Analytics** em **destaque** na página **Nova.**
 
     ![criar piscina SQL](./media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
 
-1. Preencha a secção detalhes do **projeto** com as seguintes informações:
+1. Preencha a secção Detalhes do **Projeto** com as seguintes informações:
 
    | Definição | Exemplo | Descrição |
    | ------- | --------------- | ----------- |
    | **Subscrição** | A sua subscrição  | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
    | **Grupo de recursos** | myResourceGroup | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Atribuição de nomes de regras e restrições). |
 
-1. De acordo com os detalhes da **piscina SQL,** forneça um nome para a sua piscina SQL. Em seguida, selecione um servidor existente a partir da queda para baixo, ou selecione **Criar novo** sob as definições **do Servidor** para criar um novo servidor. Preencha o formulário com as informações seguintes:
+1. Em **detalhes da piscina SQL,** forneça um nome para a sua piscina SQL. Em seguida, selecione um servidor existente a partir da queda ou selecione **Criar novas** definições sob as definições do **Servidor** para criar um novo servidor. Preencha o formulário com as informações seguintes:
 
     | Definição | Valor sugerido | Descrição |
     | ------- | --------------- | ----------- |
     |**Nome da piscina SQL**|SampleDW| Para nomes de bases de dados válidos, veja [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Identificadores de Bases de Dados). |
     | **Nome do servidor** | Qualquer nome globalmente exclusivo | Para nomes de servidores válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Atribuição de nomes de regras e restrições). |
-    | **Login de administrador do servidor** | Qualquer nome válido | Para nomes de início de sessão válidos, veja [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Identificadores de Bases de Dados).|
+    | **Início de administração do servidor** | Qualquer nome válido | Para nomes de início de sessão válidos, veja [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Identificadores de Bases de Dados).|
     | **Palavra-passe** | Qualquer palavra-passe válida | A sua palavra-passe deve ter, pelo menos, oito carateres e deve conter carateres de três das seguintes categorias: carateres maiúsculos, carateres minúsculos, números e carateres não alfanuméricos. |
     | **Localização** | Nenhuma localização válida | Para obter mais informações sobre regiões, veja [Azure Regions](https://azure.microsoft.com/regions/) (Regiões do Azure). |
 
     ![criar servidor](./media/load-data-wideworldimportersdw/create-database-server.png)
 
-1. **Selecione o nível de desempenho**. O slider por padrão está definido para **DW1000c**. Mova o slider para cima e para baixo para escolher a escala de desempenho desejada.
+1. **Selecione o nível de desempenho**. O slider por defeito está definido para **DW1000c**. Mova o deslizador para cima e para baixo para escolher a escala de desempenho desejada.
 
     ![criar servidor 2](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
 
-1. Na página **Definições Adicionais,** delineie os **dados existentes** para Nenhum e deixe a **Colagem** por defeito de *SQL_Latin1_General_CP1_CI_AS*.
+1. Na página **Definições Adicionais,** defina os **dados existentes** para Nenhum e deixe a **Colagem** por defeito de *SQL_Latin1_General_CP1_CI_AS*.
 
-1. Selecione **Review + crie** para rever as suas definições e, em seguida, selecione **Criar** para criar o seu armazém de dados. Pode monitorizar o seu progresso abrindo a página de **implementação em curso** a partir do menu **Notificações.**
+1. Selecione **Rever + criar** para rever as suas definições e, em seguida, selecione **Criar** para criar o seu armazém de dados. Pode monitorizar o seu progresso abrindo a página de **implementação em progresso** a partir do menu **Notificações.**
 
      ![notificação](./media/load-data-wideworldimportersdw/notification.png)
 
@@ -90,40 +90,40 @@ Siga estes passos para criar uma piscina SQL em branco.
 O serviço Azure Synapse Analytics cria uma firewall ao nível do servidor que impede que aplicações e ferramentas externas se conectem ao servidor ou a quaisquer bases de dados no servidor. Para permitir a conectividade, pode adicionar regras de firewall que permitem a conectividade para endereços IP específicos.  Siga estes passos para criar uma [regra de firewall ao nível do servidor](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para o endereço IP do cliente.
 
 > [!NOTE]
-> A piscina Azure Synapse Analytics SQL comunica sobre a porta 1433. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Em caso afirmativo, não poderá ligar-se ao seu servidor a menos que o seu departamento de TI abra a porta 1433.
+> A piscina Azure Synapse Analytics SQL comunica sobre a porta 1433. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Em caso afirmativo, não é possível ligar-se ao seu servidor a menos que o seu departamento de TI abra a porta 1433.
 >
 
-1. Depois de concluída a implementação, procure o nome da piscina na caixa de pesquisa no menu de navegação e selecione o recurso de piscina SQL. Selecione o nome do servidor.
+1. Após a implementação concluída, procure o nome da piscina na caixa de pesquisa no menu de navegação e selecione o recurso de piscina SQL. Selecione o nome do servidor.
 
     ![ir para o seu recurso](./media/load-data-wideworldimportersdw/search-for-sql-pool.png)
 
 1. Selecione o nome do servidor.
     ![server name](././media/load-data-wideworldimportersdw/find-server-name.png)
 
-1. Selecione **Mostrar definições de firewall**. A página de **definições de Firewall** para o servidor abre.
+1. Selecione **as definições de firewall**do Show . A página **de definições de Firewall** para o servidor abre.
 
     ![definições do servidor](./media/load-data-wideworldimportersdw/server-settings.png)
 
-1. Na página **Firewalls e redes virtuais,** selecione **Adicionar IP do cliente** para adicionar o seu endereço IP atual a uma nova regra de firewall. Uma regra de firewall consegue abrir a porta 1433 para um único endereço IP ou para um intervalo de endereços IP.
+1. Na página **firewalls e redes virtuais,** selecione **Adicionar o IP** do cliente para adicionar o seu endereço IP atual a uma nova regra de firewall. Uma regra de firewall consegue abrir a porta 1433 para um único endereço IP ou para um intervalo de endereços IP.
 
     ![regra de firewall do servidor](./media/load-data-wideworldimportersdw/server-firewall-rule.png)
 
-1. Selecione **Guardar**. Uma regra de firewall de nível de servidor é criada para a sua porta de abertura de endereço IP atual 1433 no servidor.
+1. Selecione **Guardar**. Uma regra de firewall ao nível do servidor é criada para o seu endereço IP atual que abre a porta 1433 no servidor.
 
-Agora pode ligar-se ao servidor utilizando o endereço IP do seu cliente. A ligação funciona a partir do SQL Server Management Studio ou de outra ferramenta à sua escolha. Ao ligar, utilize a conta serveradmin que criou anteriormente.  
+Pode agora ligar-se ao servidor utilizando o endereço IP do seu cliente. A ligação funciona a partir do SQL Server Management Studio ou de outra ferramenta à sua escolha. Ao ligar, utilize a conta serveradmin que criou anteriormente.  
 
 > [!IMPORTANT]
 > Por predefinição, o acesso através da firewall da Base de Dados SQL está ativado para todos os serviços do Azure. Clique em **DESATIVADO** nesta página e, em seguida, clique em **Guardar** para desativar a firewall para todos os serviços do Azure.
 
 ## <a name="get-the-fully-qualified-server-name"></a>Obter o nome de servidor completamente qualificado
 
-O nome do servidor totalmente qualificado é o que é usado para ligar ao servidor. Vá ao seu recurso de piscina SQL no portal Azure e veja o nome totalmente qualificado sob o **nome do Servidor**.
+O nome do servidor totalmente qualificado é o que é usado para ligar ao servidor. Vá ao seu recurso de piscina SQL no portal Azure e veja o nome totalmente qualificado sob **o nome do Servidor**.
 
 ![nome do servidor](././media/load-data-wideworldimportersdw/find-server-name.png)
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Ligar ao servidor como administrador do servidor
 
-Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) para estabelecer uma ligação ao seu servidor.
+Esta secção utiliza [o SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) para estabelecer uma ligação ao seu servidor.
 
 1. Abra o SQL Server Management Studio.
 
@@ -141,13 +141,13 @@ Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-se
 
 3. Clique em **Ligar**. A janela do Object Explorer é aberta no SSMS.
 
-4. No Object Explorer, expanda **Databases**. Em seguida, expanda **Bases de dados do sistema** e **mestre** para ver os objetos na base de dados mestra.  Expanda o **SampleDW** para ver os objetos na sua nova base de dados.
+4. No Object Explorer, expanda **Databases**. Em seguida, expanda **Bases de dados do sistema** e **mestre** para ver os objetos na base de dados mestra.  Expanda **o SampleDW** para visualizar os objetos na sua nova base de dados.
 
     ![objetos da base de dados](./media/load-data-wideworldimportersdw/connected.png)
 
 ## <a name="create-a-user-for-loading-data"></a>Criar um utilizador para carregar dados
 
-A conta de administrador do servidor destina-se a efetuar operações de gestão e não é adequada para executar consultas em dados do utilizador. O carregamento de dados é uma operação de memória intensiva. Os máximos de memória são definidos de acordo com a geração de piscina SQL que você está usando, unidades de armazém de [dados,](what-is-a-data-warehouse-unit-dwu-cdwu.md)e [classe de recursos](resource-classes-for-workload-management.md).
+A conta de administrador do servidor destina-se a efetuar operações de gestão e não é adequada para executar consultas em dados do utilizador. O carregamento de dados é uma operação de memória intensiva. Os máximos de memória são definidos de acordo com a geração de piscina SQL que está a usar, [unidades de armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md)e [classe de recursos.](resource-classes-for-workload-management.md)
 
 É melhor criar um início de sessão e utilizador dedicado para carregar dados. Em seguida, adicione o utilizador de carregamento a uma [classe de recursos](resource-classes-for-workload-management.md) que permita uma alocação de memória máxima adequada.
 
@@ -198,9 +198,9 @@ O primeiro passo para o carregamento de dados é iniciar sessão como LoaderRC60
 
 ## <a name="create-external-tables-and-objects"></a>Criar tabelas externas e objetos
 
-Está pronto para iniciar o processo de carregamento de dados para o novo armazém de dados. Para referência futura, para aprender a levar os seus dados ao armazenamento do Azure Blob ou a carregá-lo diretamente da sua fonte para a piscina SQL, consulte a [visão geral](design-elt-data-loading.md)do carregamento .
+Está pronto para iniciar o processo de carregamento de dados para o novo armazém de dados. Para referência futura, para aprender a levar os seus dados para o armazenamento da Azure Blob ou para os carregar diretamente da sua fonte para a piscina SQL, consulte a [visão geral](design-elt-data-loading.md)de carregamento .
 
-Execute os seguintes scripts SQL para especificar informações sobre os dados que quer carregar. Estas informações incluem a localização dos dados, o formato do conteúdo dos dados e a definição da tabela dos dados. Os dados estão localizados num Azure Blob global.
+Execute os seguintes scripts SQL para especificar informações sobre os dados que quer carregar. Estas informações incluem a localização dos dados, o formato do conteúdo dos dados e a definição da tabela dos dados. Os dados estão localizados numa Bolha Azure global.
 
 1. Na secção anterior, iniciou sessão no armazém de dados como LoaderRC60. No SSMS, clique com o botão direito do rato em **SampleDW** na ligação LoaderRC60 e selecione **Nova Consulta**.  É apresentada uma nova janela de consulta.
 
@@ -214,7 +214,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
     CREATE MASTER KEY;
     ```
 
-4. Execute a seguinte instrução [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para definir a localização do blob do Azure. Esta é a localização dos dados dos importadores mundiais externos.  Para executar um comando que anexou à janela de consulta, realce os comandos que pretende executar e clique em **Executar**.
+4. Execute a seguinte instrução [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para definir a localização do blob do Azure. Esta é a localização dos dados dos importadores externos a nível mundial.  Para executar um comando que anexou à janela de consulta, realce os comandos que pretende executar e clique em **Executar**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -523,13 +523,13 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
     );
     ```
 
-8. No Object Explorer, expanda a SampleDW para ver a lista de tabelas externas que criou.
+8. No Object Explorer, expanda o SampleDW para ver a lista de tabelas externas que criou.
 
     ![Ver tabelas externas](./media/load-data-wideworldimportersdw/view-external-tables.png)
 
-## <a name="load-the-data-into-sql-pool"></a>Carregue os dados no pool SQL
+## <a name="load-the-data-into-sql-pool"></a>Carregue os dados na piscina SQL
 
-Esta secção utiliza as tabelas externas que definiu para carregar os dados da amostra de Azure Blob para piscina SQL.  
+Esta secção utiliza as tabelas externas que definiu para carregar os dados da amostra de Azure Blob para a piscina SQL.  
 
 > [!NOTE]
 > Este tutorial carrega os dados diretamente para a tabela final. Num ambiente de produção, normalmente, utilizará CREATE TABLE AS SELECT para carregar para uma tabela de testes. Enquanto os dados estiverem na tabela de teste, pode efetuar quaisquer transformações necessárias. Para acrescentar os dados na tabela de teste a uma tabela de produção, pode utilizar a instrução INSERT...SELECT. Para obter mais informações, veja [Inserir dados na tabela de produção](guidance-for-loading-data.md#inserting-data-into-a-production-table).
@@ -685,7 +685,7 @@ Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. E
     ;
     ```
 
-2. Veja os dados à medida que são carregados. Está a carregar vários GBs de dados e a comprimi-lo em índices de lojas de colunas altamente performantes. Abra uma nova janela de consulta em SampleDW e execute a seguinte consulta para mostrar o estado do carregamento. Depois de iniciar a consulta, tome um café e um lanche enquanto a piscina SQL faz alguns levantamentos pesados.
+2. Veja os dados à medida que são carregados. Está a carregar vários GBs de dados e a comprimi-lo em índices de colunas agrupados altamente performantes. Abra uma nova janela de consulta em SampleDW e execute a seguinte consulta para mostrar o estado do carregamento. Depois de iniciar a consulta, tome um café e um lanche enquanto a piscina SQL faz alguns levantamentos pesados.
 
     ```sql
     SELECT
@@ -732,7 +732,7 @@ Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. E
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>Criar tabelas e procedimentos para gerar as tabelas Data e Vendas
 
-Esta secção cria as mesas wwi.dimension_Date e wwi.fact_Sale. Também cria procedimentos armazenados que podem gerar milhões de linhas nas tabelas wwi.dimension_Date e wwi.fact_Sale.
+Esta secção cria as tabelas wwi.dimension_Date e wwi.fact_Sale. Também cria procedimentos armazenados que podem gerar milhões de linhas nas tabelas wwi.dimension_Date e wwi.fact_Sale.
 
 1. Crie as tabelas dimension_Date e fact_Sale.  
 
@@ -933,7 +933,7 @@ Esta secção cria as mesas wwi.dimension_Date e wwi.fact_Sale. Também cria pro
 
 ## <a name="generate-millions-of-rows"></a>Gerar milhões de linhas
 
-Utilize os procedimentos armazenados que criou para gerar milhões de linhas na tabela wwi.fact_Sale e os dados correspondentes na tabela wwi.dimension_Date.
+Utilize os procedimentos armazenados para gerar milhões de linhas na tabela wwi.fact_Sale e os dados correspondentes na tabela wwi.dimension_Date.
 
 1. Execute este procedimento para preencher o [wwi].[seed_Sale] com mais linhas.
 
@@ -941,7 +941,7 @@ Utilize os procedimentos armazenados que criou para gerar milhões de linhas na 
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. Execute este procedimento para povoar a wwi.fact_Sale com 100.000 filas por dia por cada dia no ano 2000.
+2. Executar este procedimento para povoar wwi.fact_Sale com 100.000 linhas por dia para cada dia no ano 2000.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
@@ -961,7 +961,7 @@ Utilize os procedimentos armazenados que criou para gerar milhões de linhas na 
 
 ## <a name="populate-the-replicated-table-cache"></a>Povoar a cache da tabela replicada
 
-A piscina SQL replica uma tabela, apertando os dados a cada nó Compute. A cache é povoada quando é executada uma consulta na tabela. Por conseguinte, a primeira consulta numa tabela replicada pode precisar de tempo adicional para povoar a cache. Depois de a cache ser povoada, as consultas em tabelas replicadas são executadas mais rapidamente.
+A piscina SQL replica uma tabela caching os dados para cada nó compute. A cache é povoada quando é executada uma consulta na tabela. Por conseguinte, a primeira consulta numa tabela replicada pode precisar de tempo adicional para povoar a cache. Depois de a cache ser povoada, as consultas em tabelas replicadas são executadas mais rapidamente.
 
 Execute estas consultas SQL para povoar a cache da tabela replicada nos nós de Computação.
 
@@ -1083,11 +1083,11 @@ Siga estes passos para limpar os recursos conforme quiser.
 
     ![Limpar recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Se quiser manter os dados no armazenamento, pode interromper a computação quando não estiver a utilizar o armazém de dados. Ao fazer uma pausa na computação, só será cobrado o armazenamento de dados e poderá retomar a computação sempre que estiver pronto para trabalhar com os dados. Para interromper a computação, clique no botão **Pausar**. Quando o armazém de dados estiver em pausa, verá um botão **Iniciar**.  Para retomar a computação, clique em **Iniciar**.
+2. Se quiser manter os dados no armazenamento, pode interromper a computação quando não estiver a utilizar o armazém de dados. Ao fazer uma pausa no cálculo, será cobrado apenas pelo armazenamento de dados e poderá retomar o cálculo sempre que estiver pronto para trabalhar com os dados. Para interromper a computação, clique no botão **Pausar**. Quando o armazém de dados estiver em pausa, verá um botão **Iniciar**.  Para retomar a computação, clique em **Iniciar**.
 
 3. Se quiser remover futuras cobranças, pode eliminar o armazém de dados. Para remover o armazém de dados para não lhe vir a ser cobrada a computação ou o armazenamento, clique em **Eliminar**.
 
-4. Para remover o servidor que criou, clique em **sample-svr.database.windows.net** na imagem anterior e, em seguida, clique em **Eliminar**.  Tenha cuidado, uma vez que eliminar o servidor também eliminará todas as bases de dados atribuídas ao mesmo.
+4. Para remover o servidor criado, clique **em sample-svr.database.windows.net** na imagem anterior e, em seguida, clique em **Eliminar**.  Tenha cuidado, uma vez que eliminar o servidor também eliminará todas as bases de dados atribuídas ao mesmo.
 
 5. Para remover o grupo de recursos, clique em **SampleRG** e, em seguida, clique em **Eliminar grupo de recursos**.
 
@@ -1098,7 +1098,7 @@ Neste tutorial, aprendeu a criar um armazém de dados e a criar um utilizador pa
 Fez tudo isto:
 > [!div class="checklist"]
 >
-> * Criou um armazém de dados usando piscina SQL no portal Azure
+> * Criei um armazém de dados usando piscina SQL no portal Azure
 > * Configurar uma regra de firewall ao nível do servidor no portal do Azure
 > * Ligado à piscina SQL com SSMS
 > * Criou um utilizador designado para carregar dados
@@ -1107,7 +1107,7 @@ Fez tudo isto:
 > * Viu o progresso dos dados à medida que são carregados
 > * Criou estatísticas dos dados recentemente carregados
 
-Avance para a visão geral do desenvolvimento para aprender a migrar uma base de dados existente para a piscina Azure Synapse SQL.
+Avance para a visão geral do desenvolvimento para aprender a migrar uma base de dados existente para a piscina SQL Azure Synapse.
 
 > [!div class="nextstepaction"]
->[Decisões de conceção para migrar uma base de dados existente para piscina SQL](sql-data-warehouse-overview-develop.md)
+>[Decisões de design para migrar uma base de dados existente para a piscina SQL](sql-data-warehouse-overview-develop.md)

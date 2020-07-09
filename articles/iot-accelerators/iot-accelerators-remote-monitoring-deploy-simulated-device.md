@@ -1,6 +1,6 @@
 ---
-title: IoT implementa dispositivos simulados personalizados - Azure / Microsoft Docs
-description: Este guia de como fazer mostra como implementar dispositivos simulados personalizados para o acelerador de soluções de monitorização remota.
+title: IoT implementar dispositivos simulados personalizados - Azure / Microsoft Docs
+description: Este guia de como fazer mostra-lhe como implantar dispositivos simulados personalizados no acelerador de solução de monitorização remota.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -9,17 +9,17 @@ services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: 7cbab38db859935c9f4490d79a131d6c9a7e302b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "66427577"
 ---
 # <a name="deploy-a-new-simulated-device"></a>Implementar um novo dispositivo simulado
 
-Os aceleradores de solução de monitorização remota e simulação do dispositivo permitem-lhe definir os seus próprios dispositivos simulados. Este artigo mostra-lhe como implementar um tipo de dispositivo de refrigeração personalizado e um novo tipo de dispositivo de lâmpada para o acelerador de solução de monitorização remota.
+Os aceleradores de solução de monitorização remota e simulação de dispositivos permitem definir os seus próprios dispositivos simulados. Este artigo mostra-lhe como implantar um tipo de dispositivo de refrigeração personalizado e um novo tipo de dispositivo de lâmpada para o acelerador de solução de monitorização remota.
 
-Os passos neste artigo assumem que completou o [Create e testa um novo dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md) como guiar e tem os ficheiros que definem o refrigerador personalizado e os novos tipos de dispositivos de lâmpada.
+Os passos deste artigo assumem que completou o [Create e testa um novo dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md) como orientar e tem os ficheiros que definem o refrigerador personalizado e novos tipos de dispositivos de lâmpada.
 
 Os passos neste guia de como guiar mostram-lhe como:
 
@@ -27,29 +27,29 @@ Os passos neste guia de como guiar mostram-lhe como:
 
 1. Configure o Docker para carregar os modelos do dispositivo a partir de um local fora do contentor Docker.
 
-1. Executar o acelerador de soluções de monitorização remota utilizando ficheiros de modelos de dispositivopersonalizados.
+1. Executar o acelerador de solução de monitorização remota utilizando ficheiros de modelos de dispositivos personalizados.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Para completar os passos neste guia de como guiar, precisa de uma subscrição azure ativa.
+Para completar os passos neste guia de como fazer, precisa de uma subscrição ativa do Azure.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir este guia como fazer, precisa de:
+Para acompanhar este guia, precisa:
 
-- Uma instância implantada do acelerador de solução de [monitorização remota](https://www.azureiotsolutions.com/Accelerators#solutions/types/RM2).
-- Uma **concha** local para `ssh` `scp` executar e comanda. No Windows, uma maneira fácil de instalar **a bash** é instalar [git](https://git-scm.com/download/win).
-- Os ficheiros do modelo do seu dispositivo personalizado, como os descritos no [Create e testam um novo dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md).
+- Uma instância implantada do [acelerador de solução de monitorização remota](https://www.azureiotsolutions.com/Accelerators#solutions/types/RM2).
+- Uma **carapaça** local para executar os `ssh` `scp` comandos e comandos. No Windows, uma forma fácil de instalar **bash** é instalar [git](https://git-scm.com/download/win).
+- Os ficheiros de modelos do seu dispositivo personalizado, como os descritos no [Create e testar um novo dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 [!INCLUDE [iot-solution-accelerators-access-vm](../../includes/iot-solution-accelerators-access-vm.md)]
 
 ## <a name="configure-docker"></a>Configure Docker
 
-Nesta secção, configura o Docker para carregar os ficheiros do modelo do dispositivo a partir da pasta **/tmp/devicemodels** na máquina virtual e não no interior do recipiente Docker. Execute os comandos nesta secção **numa** concha na sua máquina local:
+Nesta secção, configurar o Docker para carregar os ficheiros dos modelos do dispositivo a partir da pasta **/tmp/devicemodels** na máquina virtual e não no interior do contentor Docker. Coloque os comandos nesta secção numa **casca de choque** na sua máquina local:
 
-Nesta secção, configura o Docker para carregar os ficheiros do modelo do dispositivo a partir da pasta **/tmp/devicemodels** na máquina virtual e não no interior do recipiente Docker. Execute os comandos nesta secção **numa** concha na sua máquina local:
+Nesta secção, configurar o Docker para carregar os ficheiros dos modelos do dispositivo a partir da pasta **/tmp/devicemodels** na máquina virtual e não no interior do contentor Docker. Coloque os comandos nesta secção numa **casca de choque** na sua máquina local:
 
 1. Utilize o SSH para ligar à máquina virtual em Azure a partir da sua máquina local. O seguinte comando pressupõe que o endereço IP público da máquina virtual **vm-vikxv** é **104.41.128.108** -- substitua este valor pelo endereço IP público da sua máquina virtual da secção anterior:
 
@@ -57,15 +57,15 @@ Nesta secção, configura o Docker para carregar os ficheiros do modelo do dispo
     ssh azureuser@104.41.128.108
     ```
 
-    Siga as instruções para iniciar sessão na máquina virtual com a palavra-passe definida na secção anterior.
+    Siga as instruções para iniciar sôm na máquina virtual com a palavra-passe que definiu na secção anterior.
 
-1. Configure o serviço de simulação do dispositivo para carregar os modelos do dispositivo de fora do recipiente. Primeiro abra o ficheiro de configuração do Docker:
+1. Configure o serviço de simulação do dispositivo para carregar os modelos do dispositivo do lado de fora do recipiente. Primeiro abra o ficheiro de configuração do Docker:
 
     ```sh
     sudo nano /app/docker-compose.yml
     ```
 
-    Localize as definições do recipiente de **simulação** do dispositivo e edite a definição de **volumes,** tal como mostrado no seguinte corte:
+    Localize as definições para o recipiente **de identificação** do dispositivo e edite a definição de **volumes** como mostrado no seguinte corte:
 
     ```yml
     devicesimulation:
@@ -85,22 +85,22 @@ Nesta secção, configura o Docker para carregar os ficheiros do modelo do dispo
 
     Guarde as alterações.
 
-1. Copie os ficheiros do modelo do dispositivo existentes do recipiente para o novo local. Em primeiro lugar, encontre o ID do recipiente para o recipiente de simulação do dispositivo:
+1. Copie os ficheiros de modelos do dispositivo existentes do recipiente para o novo local. Primeiro, encontre a identificação do recipiente para o recipiente de simulação do dispositivo:
 
     ```sh
     sudo docker ps
     ```
 
-    Em seguida, copie os ficheiros do modelo do dispositivo para a pasta **TMP** na máquina virtual. O seguinte comando pressupõe que o ID do recipiente é c378d6878407 -- substitua este valor com o id do recipiente de simulação do dispositivo:
+    Em seguida, copie os ficheiros do modelo do dispositivo para a pasta **tmp** na máquina virtual. O seguinte comando pressupõe que o ID do contentor é c378d6878407 -- substitua este valor pelo ID do seu contentor de simulação do dispositivo:
 
     ```sh
     sudo docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
     sudo chown -R azureuser /tmp/devicemodels/
     ```
 
-    Mantenha a janela da **festa** com a sua sessão ssh aberta.
+    Mantenha a janela da **festa** com a sessão SSH aberta.
 
-1. Copie os ficheiros do modelo do seu dispositivo personalizado para a máquina virtual. Execute este comando em outra concha de **bash** na máquina onde criou os seus modelos de dispositivopersonalizados. Em primeiro lugar, navegue para a pasta local que contém os ficheiros JSON do modelo do seu dispositivo. Os seguintes comandos assumem que o endereço IP público da máquina virtual é **104.41.128.108** -- substitua este valor pelo endereço IP público da sua máquina virtual. Introduza a sua senha de máquina virtual quando solicitada:
+1. Copie os ficheiros de modelos do seu dispositivo personalizado na máquina virtual. Executar este comando em outra casca **de pancada** na máquina onde criou os seus modelos de dispositivos personalizados. Primeiro, navegue para a pasta local que contém os ficheiros JSON do seu modelo de dispositivo. Os seguintes comandos assumem que o endereço IP público da máquina virtual é **104.41.128.108** -- substitua este valor pelo endereço IP público da sua máquina virtual. Introduza a palavra-passe da máquina virtual quando solicitado:
 
     ```sh
     scp *json azureuser@104.41.128.108:/tmp/devicemodels
@@ -108,40 +108,40 @@ Nesta secção, configura o Docker para carregar os ficheiros do modelo do dispo
     scp *js azureuser@104.41.128.108:/tmp/devicemodels/scripts
     ```
 
-1. Reiniciar o recipiente de simulação do dispositivo Docker para utilizar os novos modelos do dispositivo. Executar os seguintes comandos na concha da **bash** com a sessão SSH aberta para a máquina virtual:
+1. Reinicie a simulação do dispositivo O recipiente Docker para utilizar os novos modelos do dispositivo. Executar os seguintes comandos na casca de **bash** com a sessão SSH aberta para a máquina virtual:
 
     ```sh
     sudo /app/start.sh
     ```
 
-    Se quiser ver o estado dos contentores do Docker em funcionamento e das suas identificações de contentores, utilize o seguinte comando:
+    Se pretender ver o estado dos recipientes estivadores em funcionamento e as suas identificações de contentores, utilize o seguinte comando:
 
     ```sh
     sudo docker ps
     ```
 
-    Se quiser ver o registo do recipiente de simulação do dispositivo, execute o seguinte comando. Substitua o ID do recipiente pela identificação do seu recipiente de simulação do dispositivo:
+    Se pretender ver o registo do recipiente de simulação do dispositivo, execute o seguinte comando. Substitua o ID do recipiente pelo ID do seu recipiente de simulação do dispositivo:
 
     ```sh
     sudo docker logs -f 5d3f3e78822e
     ```
 
-## <a name="run-simulation"></a>Executar simulação
+## <a name="run-simulation"></a>Simulação de execução
 
-Pode agora utilizar os seus modelos de dispositivos personalizados na solução de Monitorização Remota:
+Agora pode utilizar os seus modelos de dispositivos personalizados na solução de Monitorização Remota:
 
-1. Lance o seu painel de monitorização remota a partir dos aceleradores de [soluções Microsoft Azure IoT](https://www.azureiotsolutions.com/Accelerators#dashboard).
+1. Lance o seu painel de monitorização remota a partir dos aceleradores de [solução IoT do Microsoft Azure](https://www.azureiotsolutions.com/Accelerators#dashboard).
 
-1. Utilize a página **Dispositivos** para adicionar dispositivos simulados. Quando adiciona um novo dispositivo simulado, os seus novos modelos de dispositivo saem disponíveis para escolher.
+1. Utilize a página **dispositivos** para adicionar dispositivos simulados. Quando adiciona um novo dispositivo simulado, os seus novos modelos de dispositivo estão disponíveis para escolher.
 
-1. Pode utilizar o painel de instrumentos para visualizar os métodos de telemetria do dispositivo e chamar.
+1. Pode utilizar o painel de instrumentos para visualizar os métodos de telemetria e dispositivo de chamada do dispositivo.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se planeia explorar mais, deixe o acelerador de solução de monitorização remota implantado.
+Se pretende explorar mais, deixe o acelerador de solução de Monitorização Remota implantado.
 
-Se já não necessitar do acelerador de solução, elimine-o da página de [soluções Provisionadas,](https://www.azureiotsolutions.com/Accelerators#dashboard) selecionando-a e clicando em **Eliminar a Solução**.
+Se já não precisar do acelerador de solução, elimine-o da página [de soluções Provisionadas,](https://www.azureiotsolutions.com/Accelerators#dashboard) selecionando-a e clicando em **Eliminar Solution**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este guia mostrou-lhe como implementar modelos de dispositivos personalizados para o acelerador de soluções de monitorização remota. O próximo passo sugerido é aprender a [ligar um dispositivo real à sua solução](iot-accelerators-connecting-devices-node.md)de Monitorização Remota .
+Este guia mostrou-lhe como implementar modelos de dispositivos personalizados para o acelerador de solução de monitorização remota. O próximo passo sugerido é aprender a [ligar um dispositivo real à sua solução de Monitorização Remota](iot-accelerators-connecting-devices-node.md).

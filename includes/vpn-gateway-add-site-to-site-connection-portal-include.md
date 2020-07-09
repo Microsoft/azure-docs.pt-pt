@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,14 +9,14 @@ ms.date: 08/02/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5149973fe63f867b49e55c970779c005e12536b9
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68780249"
 ---
-1. Abra a página para o seu portal de rede virtual. Existem múltiplas formas de efetuar este procedimento. Pode navegar até ao portal indo ao **Nome do seu VNet -> Visão Geral -> Dispositivos Conectados - > Nome do seu portal**.
-2. Na página para o gateway, clique em **Ligações**. No topo da página Ligações, clique em **+Adicionar** para abrir a página **Adicionar ligação**.
+1. Abra a página para o seu portal de rede virtual. Existem múltiplas formas de efetuar este procedimento. Pode navegar até ao portal indo para o **nome do seu VNet -> visão geral -> dispositivos conectados -> Nome do seu gateway**.
+2. Na página para o portal, clique em **Ligações**. No topo da página Ligações, clique em **+Adicionar** para abrir a página **Adicionar ligação**.
 
    ![Criar uma ligação Site a Site](./media/vpn-gateway-add-site-to-site-connection-portal-include/configure-site-to-site-connection.png)
 3. Na página **Adicionar ligação**, configure os valores para a ligação.

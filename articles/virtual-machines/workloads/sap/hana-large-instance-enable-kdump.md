@@ -1,6 +1,6 @@
 ---
-title: Script para permitir Kdump em SAP HANA (Grandes Instâncias); Microsoft Docs
-description: Script para permitir kdump em SAP HANA (Grandes Instâncias) HLI Tipo I, HLI Tipo II
+title: Script para ativar Kdump em SAP HANA (Grandes Instâncias)/ Microsoft Docs
+description: Script para permitir Kdump em SAP HANA (Grandes Instâncias) HLI Tipo I, HLI Tipo II
 services: virtual-machines-linux
 documentationcenter: ''
 author: prtyag
@@ -13,74 +13,88 @@ ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 16dc15b4369904643d0138a4b8e5b94c47868d31
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: 6d723e95212e457a81eedf7726bf3c5bd2499643
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204939"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488890"
 ---
 # <a name="enable-kdump-service"></a>Ativar o serviço Kdump
 
-Este documento descreve os detalhes sobre como ativar o serviço Kdump em Azure HANA Large Instance **(Tipo I e Tipo II)**
+Este documento descreve os detalhes sobre como ativar o serviço Kdump em Azure HANA Large Instance **(Tipo I e Tipo II).**
 
-## <a name="supported-skus"></a>SKUs suportados
+## <a name="supported-skus"></a>SKUs apoiados
 
-|  Tipo de caso grande hana   |  Fornecedor de OS   |  Versão do pacote sO   |  SKU        |
+|  Tipo Hana Large Instance   |  Fornecedor de OS   |  Versão pacote de SO   |  SKU        |
 |-----------------------------|--------------|-----------------------|-------------|
-|   Tipo I                    |  SuSE        |   SLES 12 SP3         |  S224m      |
-|   Tipo I                    |  SuSE        |   SLES 12 SP4         |  S224m      |
-|   Tipo I                    |  SuSE        |   SLES 12 SP2         |  S72m       |
-|   Tipo I                    |  SuSE        |   SLES 12 SP3         |  S72m       |
-|   Tipo I                    |  SuSE        |   SLES 12 SP2         |  S96        |
-|   Tipo I                    |  SuSE        |   SLES 12 SP3         |  S96        |
-|   Tipo II                   |  SuSE        |   SLES 12 SP3         |  S384       |
-|   Tipo II                   |  SuSE        |   SLES 12 SP3         |  S576m      |
-|   Tipo II                   |  SuSE        |   SLES 12 SP3         |  S384xm     |
-|   Tipo II                   |  SuSE        |   SLES 12 SP4         |  S384xm     |
+|   Tipo I                    |  Rio Suse        |   SLES 12 SP3         |  S224m      |
+|   Tipo I                    |  Rio Suse        |   SLES 12 SP4         |  S224m      |
+|   Tipo I                    |  Rio Suse        |   SLES 12 SP2         |  S72        |
+|   Tipo I                    |  Rio Suse        |   SLES 12 SP2         |  S72m       |
+|   Tipo I                    |  Rio Suse        |   SLES 12 SP3         |  S72m       |
+|   Tipo I                    |  Rio Suse        |   SLES 12 SP2         |  S96        |
+|   Tipo I                    |  Rio Suse        |   SLES 12 SP3         |  S96        |
+|   Tipo I                    |  Rio Suse        |   SLES 12 SP2         |  S192       |
+|   Tipo I                    |  Rio Suse        |   SLES 12 SP3         |  S192       |
+|   Tipo I                    |  Rio Suse        |   SLES 12 SP4         |  S192       |
+|   Tipo I                    |  Rio Suse        |   SLES 12 SP2         |  S192m      |
+|   Tipo I                    |  Rio Suse        |   SLES 12 SP3         |  S192m      |
+|   Tipo I                    |  Rio Suse        |   SLES 12 SP4         |  S192m      |
+|   Tipo I                    |  Rio Suse        |   SLES 12 SP2         |  S144       |
+|   Tipo I                    |  Rio Suse        |   SLES 12 SP3         |  S144       |
+|   Tipo I                    |  Rio Suse        |   SLES 12 SP2         |  S144m      |
+|   Tipo I                    |  Rio Suse        |   SLES 12 SP3         |  S144m      |
+|   Tipo II                   |  Rio Suse        |   SLES 12 SP2         |  S384       |
+|   Tipo II                   |  Rio Suse        |   SLES 12 SP3         |  S384       |
+|   Tipo II                   |  Rio Suse        |   SLES 12 SP4         |  S384       |
+|   Tipo II                   |  Rio Suse        |   SLES 12 SP2         |  S384xm     |
+|   Tipo II                   |  Rio Suse        |   SLES 12 SP3         |  S384xm     |
+|   Tipo II                   |  Rio Suse        |   SLES 12 SP4         |  S384xm     |
+|   Tipo II                   |  Rio Suse        |   SLES 12 SP2         |  S576m      |
+|   Tipo II                   |  Rio Suse        |   SLES 12 SP3         |  S576m      |
+|   Tipo II                   |  Rio Suse        |   SLES 12 SP4         |  S576m      |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- O serviço `/var/crash` Kdump usa diretório para escrever lixeiras, certifique-se de que a partição corresponde a este diretório tem espaço suficiente para acomodar despejos.
+- O serviço Kdump usa `/var/crash` diretório para escrever despejos, certifique-se de que a partição corresponde a este diretório tem espaço suficiente para acomodar despejos.
 
 ## <a name="setup-details"></a>Detalhes da configuração
 
-- Script para ativar Kdump pode ser encontrado [aqui](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh)
+- O script para ativar kdump pode ser encontrado [aqui](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh)
 
 - Execute este script em HANA Large Instance usando o comando abaixo
 
     > [!NOTE]
-    > privilégio sudo necessário para dirigir este comando.
+    > privilégio sudo necessário para executar este comando.
 
     ```bash
     sudo bash enable-kdump.sh
     ```
 
-- Se as saídas de comando Kdump estiverem ativadas com sucesso, por favor reinicie o sistema para aplicar a alteração, então o Kdump está ativado com sucesso. Reiniciar o sistema para aplicar alterações.
+- Se as saídas de comando Kdump estiverem ativadas com sucesso, reinicie o sistema para aplicar a alteração, então o Kdump está ativado com sucesso. Reinicie o sistema para aplicar alterações.
 
-- Se a saída de comando não for concluída, a saída!!!!, então o serviço Kdump não está ativado. Consulte a [questão](#support-issue)do suporte da secção .
+- Se a saída do comando não for conseguida para fazer determinada operação, sair!!!!, então o serviço Kdump não está ativado. Consulte a [questão de suporte da](#support-issue)secção .
 
 ## <a name="test-kdump"></a>Teste Kdump
 
 > [!NOTE]
->  A operação abaixo irá desencadear uma falha no núcleo e reiniciar o sistema.
+>  Abaixo da operação irá desencadear uma falha no núcleo e reiniciar o sistema.
 
-- Desencadear uma queda de miolo
+- Desencadear um acidente de núcleo
 
     ```bash
-    echo 1 > /proc/sys/kernel/sysrq
     echo c > /proc/sysrq-trigger
     ```
 
-- Depois de o sistema reiniciar `/var/crash` com sucesso, verifique se o diretório está a ver se há troncos de colisão com o kernel.
+- Depois de o sistema reiniciar com sucesso, verifique se o `/var/crash` diretório se verifica se há registos de colisão com o kernel.
 
-- Se `/var/crash` o diretório tem a data atual, então o Kdump está ativado com sucesso.
+- Se o `/var/crash` diretório tiver diretório com a data atual, então o Kdump está habilitado com sucesso.
 
 ## <a name="support-issue"></a>Questão de apoio
 
-Se o script falhar com um erro ou o Kdump não estiver ativado, levante o pedido de serviço com a equipa de suporte da Microsoft com os seguintes detalhes.
+Se o script falhar com um erro ou o Kdump não estiver ativado, aumente o pedido de serviço com a equipa de suporte da Microsoft com os seguintes detalhes.
 
-* ID de subscrição hli
+* ID de assinatura HLI
 
 * Nome do servidor
 

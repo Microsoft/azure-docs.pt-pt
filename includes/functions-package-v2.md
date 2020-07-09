@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: functions
 author: craigshoemaker
 manager: gwallace
@@ -10,17 +10,17 @@ ms.date: 01/28/2020
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: 2eb82eb8b4a64cbbfef91539f46ba084aa73f207
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77205732"
 ---
-Adicione suporte no ambiente de desenvolvimento preferido usando os seguintes métodos.
+Adicione suporte no ambiente de desenvolvimento preferido utilizando os seguintes métodos.
 
 | Ambiente de programação  | Tipo de aplicação      | Para adicionar suporte |
 |--------------------------|-----------------------|----------------|
-| Visual Studio            | Biblioteca de classe C#      | [Instale o pacote NuGet](../articles/azure-functions/functions-bindings-register.md#vs) |
-| Visual Studio Code       | Baseado em [ferramentas nucleares](../articles/azure-functions/functions-run-local.md) | [Registe o pacote de extensão](../articles/azure-functions/functions-bindings-register.md#extension-bundles)<br><br>Recomenda-se a instalação da [extensão Ferramentas Azure.](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) |
-| Qualquer outro editor/IDE     | Baseado em [ferramentas nucleares](../articles/azure-functions/functions-run-local.md) | [Registe o pacote de extensão](../articles/azure-functions/functions-bindings-register.md#extension-bundles) |
-| Portal do Azure             | Online apenas no portal | Instala ao adicionar uma ligação<br /><br /> Consulte [a Atualização das extensões](../articles/azure-functions/install-update-binding-extensions-manual.md) para atualizar as extensões de ligação existentes sem ter de voltar a publicar a sua aplicação de funções. |
+| Visual Studio            | Biblioteca de classes C#      | [Instale o pacote NuGet](../articles/azure-functions/functions-bindings-register.md#vs) |
+| Visual Studio Code       | Baseado em [ferramentas centrais](../articles/azure-functions/functions-run-local.md) | [Registar o pacote de extensão](../articles/azure-functions/functions-bindings-register.md#extension-bundles)<br><br>Recomenda-se a instalação da [extensão Azure Tools.](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) |
+| Qualquer outro editor/IDE     | Baseado em [ferramentas centrais](../articles/azure-functions/functions-run-local.md) | [Registar o pacote de extensão](../articles/azure-functions/functions-bindings-register.md#extension-bundles) |
+| Portal do Azure             | Online apenas no portal | Instala ao adicionar uma encadernação<br /><br /> Consulte [Update your extensions](../articles/azure-functions/install-update-binding-extensions-manual.md) to updateing existentes binding extensions without ter to republicar a sua app de função. |

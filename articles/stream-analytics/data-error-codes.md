@@ -1,29 +1,29 @@
 ---
 title: Códigos de erro de dados - Azure Stream Analytics
-description: Problemas De sacado Azure Stream Analytics emite problemas com códigos de erro de dados.
+description: Resolução de problemas Problemas Azure Stream Analytics problemas com códigos de erro de dados.
 ms.author: mamccrea
 author: mamccrea
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: f7383a56a11ac9b567c80e73cc84944174c30ac8
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 56d7527eebb91bd09895f6cd0238721574df1015
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597017"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037329"
 ---
-# <a name="azure-stream-analytics-configuration-error-codes"></a>Códigos de erro de configuração Azure Stream Analytics
+# <a name="azure-stream-analytics-data-error-codes"></a>Códigos de erro de dados do Azure Stream Analytics
 
-Pode utilizar registos de atividade e registos de recursos para ajudar a desimpedir comportamentos inesperados do seu trabalho no Azure Stream Analytics. Este artigo lista a descrição de cada código de erro de dados. Erros de dados ocorrem quando há dados maus no fluxo, como um esquema de registo inesperado.
+Pode utilizar registos de atividades e registos de recursos para ajudar a depurar comportamentos inesperados do seu trabalho Azure Stream Analytics. Este artigo lista a descrição de cada código de erro de erro de dados. Erros de dados ocorrem quando há dados maus no fluxo, como um esquema de registo inesperado.
 
 ## <a name="inputdeserializationerror"></a>InputDeserializationError
 
-* **Causa:** Houve um erro ao desserializar os dados de entrada.
+* **Causa:** Houve um erro ao deseritar os dados de entrada.
 
 ## <a name="inputeventtimestampnotfound"></a>InputEventTimestampNotFound
 
-* **Causa:** Stream Analytics é incapaz de obter uma marca de tempo para o recurso. 
+* **Causa**: Stream Analytics é incapaz de obter uma hora de tempo para obter o recurso. 
 
 ## <a name="inputeventtimestampbyovervaluenotfound"></a>InputEventTimestampByOverValueNotFound
 
@@ -31,15 +31,15 @@ Pode utilizar registos de atividade e registos de recursos para ajudar a desimpe
 
 ## <a name="inputeventlatebeyondthreshold"></a>InputEventLateBeyondThreshold
 
-* **Causa**: Um evento de entrada foi enviado mais tarde do que a tolerância configurada.
+* **Causa:** Um evento de entrada foi enviado mais tarde do que a tolerância configurada.
 
 ## <a name="inputeventearlybeyondthreshold"></a>InputEventEarlyBeyondThreshold
 
-* **Causa**: A hora de chegada do evento de entrada é mais cedo do que o limiar de carimbo de tempo de aplicação do evento de entrada.
+* **Causa**: A hora de chegada do evento de entrada é mais cedo do que o limiar de tempo de tempo de aplicação do evento de entrada.
 
-## <a name="azurefunctionmessagesizeexceeded"></a>Tamanho sinuoso do AzureFunctionMessageExceeded
+## <a name="azurefunctionmessagesizeexceeded"></a>AzureFunctionMessageSizeExceed
 
-* **Causa**: A saída da mensagem para funções Azure excede o limite de tamanho.
+* **Causa**: A saída da mensagem para as funções Azure excede o limite de tamanho.
 
 ## <a name="eventhuboutputrecordexceedssizelimit"></a>EventHubOutputRecordExceedsSizeLimit
 
@@ -47,38 +47,38 @@ Pode utilizar registos de atividade e registos de recursos para ajudar a desimpe
 
 ## <a name="cosmosdboutputinvalidid"></a>CosmosDBOutputInvalidId
 
-* **Causa**: O valor ou o tipo de uma coluna específica é inválido.
-* **Recomendação**: Forneça cordas não vazias únicas que não sejam superiores a 255 caracteres.
+* **Causa**: O valor ou o tipo de coluna em particular é inválido.
+* **Recomendação**: Forneça cordas únicas não vazias que não sejam superiores a 255 caracteres.
 
 ## <a name="cosmosdboutputinvalididcharacter"></a>CosmosDBOutputInvalidIdCharacter
 
-* **Causa**: O ID documento do registo de saída contém um carácter inválido.
+* **Causa**: O ID do documento do registo de saída contém um carácter inválido.
 
 ## <a name="cosmosdboutputmissingid"></a>CosmosDBOutputMissingId
 
-* **Causa**: O registo de saída não contém o id da \[ coluna] para usar como a principal propriedade chave.
+* **Causa**: O registo de saída não contém o id da \[ coluna] para usar como propriedade principal.
 
 ## <a name="cosmosdboutputmissingidcolumn"></a>CosmosDBOutputMissingIdColumn
 
-* **Causa:** O registo de saída não contém a propriedade documental. 
-* **Recomendação**: Certifique-se de que a saída de consulta contém a coluna com uma corda não vazia única inferior a caracteres de 255.
+* **Causa:** O registo de saída não contém a propriedade de Documento ID. 
+* **Recomendação**: Certifique-se de que a saída de consulta contém a coluna com uma corda única não vazia inferior a '255'.
 
-## <a name="cosmosdboutputmissingpartitionkey"></a>CosmosDBOutputFaltapartpartitionKey
+## <a name="cosmosdboutputmissingpartitionkey"></a>CosmosDBOutputMissingPartitionKey
 
-* **Causa**: O registo de saída está a faltar uma coluna para utilizar como propriedade chave de partição.
+* **Causa:** Falta o registo de saída da coluna para utilizar como propriedade chave de partição.
 
 ## <a name="cosmosdboutputsinglerecordtoolarge"></a>CosmosDBOutputSingleRecordTooLarge
 
 * **Causa:** Um único disco escrito para Cosmos DB é muito grande.
 
-## <a name="sqldatabaseoutputdataerror"></a>Erro de dados de saída de base de dados sqlDatabase
+## <a name="sqldatabaseoutputdataerror"></a>SQLDatabaseOutputDataError
 
-* **Causa**: Stream Analytics não pode escrever eventos na Base de Dados SQL devido a problemas nos dados.
+* **Causa:** Stream Analytics não pode escrever eventos(s) para a Base de Dados SQL devido a problemas nos dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Resolver problemas em ligações de entrada](stream-analytics-troubleshoot-input.md)
-* [Saídas de Troubleshoot Azure Stream Analytics](stream-analytics-troubleshoot-output.md)
-* [Consultas de Troubleshoot Azure Stream Analytics](stream-analytics-troubleshoot-query.md)
-* [Troubleshoot Azure Stream Analytics usando registos de recursos](stream-analytics-job-diagnostic-logs.md)
+* [Resolução de problemas Saídas Azure Stream Analytics](stream-analytics-troubleshoot-output.md)
+* [Resolução de problemas Azure Stream Análises](stream-analytics-troubleshoot-query.md)
+* [Resolução de problemas Azure Stream Analytics usando registos de recursos](stream-analytics-job-diagnostic-logs.md)
 * [Erros de dados do Azure Stream Analytics](data-errors.md)

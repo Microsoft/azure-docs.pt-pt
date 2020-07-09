@@ -1,24 +1,24 @@
 ---
 title: 'Quickstart: Reconhecer discurso, intenções e entidades - Serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, utilizará o SDK do Discurso para reconhecer interativamente a fala a partir de dados áudio capturados a partir de um microfone.
+description: Neste arranque rápido, você usará o Speech SDK para reconhecer interativamente a fala a partir de dados áudio capturados a partir de um microfone.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 06/25/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 96130ea2ac08b51a86c0578fb05b20fadcc74ef8
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 67a3b812fef92b0cee25b6710ff9fdd3b3800ee9
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82979693"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391660"
 ---
-# <a name="quickstart-recognize-speech-intents-and-entities-with-language-understanding-luis"></a>Quickstart: Reconhecer discurso, intenções e entidades com Compreensão da Linguagem (LUIS)
+# <a name="quickstart-recognize-speech-intents-and-entities-with-language-understanding-luis"></a>Quickstart: Reconhecer a fala, as intenções e as entidades com Compreensão linguística (LUIS)
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/intent-recognition/header.md)]

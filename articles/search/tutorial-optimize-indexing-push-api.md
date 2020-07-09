@@ -1,36 +1,36 @@
 ---
-title: C# tutorial otimizar indexação com a API push
+title: C# tutorial otimizar indexante com a API push
 titleSuffix: Azure Cognitive Search
-description: Aprenda a indexar eficientemente os dados usando a API push da Pesquisa Cognitiva Azure. Este tutorial e código de amostra estão em C#.
+description: Aprenda a indexar eficientemente os dados usando a API push API da Azure Cognitive Search. Este tutorial e o código de amostra estão em C#.
 manager: liamca
 author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: 85ac56eb20eabf308d6686a047d8c5ede914fed9
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: ef1f0c607eb1d0152a5dd5f5acc812bb9364e47a
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966443"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079219"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Tutorial: Otimizar a indexação com a API push
 
-A Azure Cognitive Search suporta [duas abordagens básicas](search-what-is-data-import.md) para importar dados num índice de pesquisa: *empurrar* os seus dados para o índice programáticamente, ou apontar um [indexador](search-indexer-overview.md) de pesquisa cognitiva Azure numa fonte de dados suportada para *puxar* os dados.
+A Azure Cognitive Search suporta [duas abordagens básicas](search-what-is-data-import.md) para importar dados para um índice de pesquisa: *empurrar* os seus dados para o índice programáticamente, ou apontar um [indexante de Pesquisa Cognitiva Azure](search-indexer-overview.md) numa fonte de dados suportada para *obter* os dados.
 
-Este tutorial descreve como indexar eficientemente os dados usando o [modelo push,](search-what-is-data-import.md#pushing-data-to-an-index) através de pedidos de lotação e usando uma estratégia exponencial de retry backoff. Pode [descarregar e executar a aplicação.](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing) Este artigo explica os aspectos-chave da aplicação e fatores a ter em conta na indexação dos dados.
+Este tutorial descreve como indexar eficientemente os dados usando o [modelo push](search-what-is-data-import.md#pushing-data-to-an-index) através de pedidos de loteamento e usando uma estratégia de recuo exponencial. Você pode [baixar e executar a aplicação](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing). Este artigo explica os aspectos-chave da aplicação e os fatores a ter em conta na indexação dos dados.
 
-Este tutorial utiliza C# e o [.NET SDK](https://aka.ms/search-sdk) para executar as seguintes tarefas:
+Este tutorial utiliza C# e o [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) para executar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar um índice
-> * Testar vários tamanhos do lote para determinar o tamanho mais eficiente
-> * Dados do índice assincronicamente
+> * Teste vários tamanhos de lote para determinar o tamanho mais eficiente
+> * Dados de índice assíncronosamente
 > * Use vários fios para aumentar as velocidades de indexação
-> * Use uma estratégia exponencial de retry backoff para retentar itens falhados
+> * Use uma estratégia de retrocesso exponencial para revassar itens falhados
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,41 +44,41 @@ São necessários os seguintes serviços e ferramentas para este tutorial.
 
 ## <a name="download-files"></a>Transferir ficheiros
 
-O código fonte deste tutorial encontra-se na pasta de [indexação de dados otimizado](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing) no repositório GitHub de amostras de [azure-amostras de pesquisa-pontotnet.](https://github.com/Azure-Samples/azure-search-dotnet-samples)
+O código-fonte para este tutorial encontra-se na pasta [de indexação de dados optimzize](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing) no repositório gitHub de amostras de [azure-search-dotnet.](https://github.com/Azure-Samples/azure-search-dotnet-samples)
 
 ## <a name="key-considerations"></a>Considerações principais
 
-Ao empurrar os dados para um índice, há várias considerações-chave que impactam as velocidades de indexação. Pode saber mais sobre estes fatores no artigo de grandes conjuntos de [dados do índice.](search-howto-large-index.md)
+Ao empurrar dados para um índice, há várias considerações fundamentais que impactam a velocidade de indexação. Pode saber mais sobre estes fatores no [índice de grandes conjuntos de dados artigo](search-howto-large-index.md).
 
 Seis factores-chave a ter em conta são:
 
 + **Nível de serviço e número de divisórias/réplicas** - Adicionar divisórias e aumentar o seu nível aumentará as velocidades de indexação.
-+ **Index Schema** - Adicionar campos e adicionar propriedades adicionais a campos (como *pesquisável,* *faceta,* ou *filtrante*) ambos reduzem as velocidades de indexação.
-+ **Tamanho** do lote - O tamanho ideal do lote varia em função do seu esquema de índice e conjunto de dados.
++ **Esquema de Índice** - Adicionar campos e adicionar propriedades adicionais aos campos (como *pescável,* *facetável*ou *filtrado*) reduzem as velocidades de indexação.
++ **Tamanho do lote** - O tamanho ideal do lote varia em função do seu esquema de índice e do conjunto de dados.
 + **Número de fios/trabalhadores** - um único fio não tirará o máximo partido das velocidades de indexação
-+ **Estratégia de retry** - Uma estratégia exponencial de retry backoff deve ser usada para otimizar a indexação.
-+ **Velocidades** de transferência de dados de rede - Velocidades de transferência de dados podem ser um fator limitativo. Indexe dados de dentro do seu ambiente Azure para aumentar as velocidades de transferência de dados.
++ **Estratégia de retíria** - Uma estratégia de retrocesso exponencial deve ser usada para otimizar a indexação.
++ **Velocidades de transferência de dados de rede** - As velocidades de transferência de dados podem ser um fator limitativo. Dados de índice dentro do seu ambiente Azure para aumentar as velocidades de transferência de dados.
 
 
-## <a name="1---create-azure-cognitive-search-service"></a>1 - Criar serviço de pesquisa cognitiva Azure
+## <a name="1---create-azure-cognitive-search-service"></a>1 - Criar serviço de Pesquisa Cognitiva Azure
 
-Para completar este tutorial, você precisará de um serviço de Pesquisa Cognitiva Azure, que você pode [criar no portal](search-create-service-portal.md). Recomendamos que utilize o mesmo nível que pretende utilizar na produção para que possa testar e otimizar com precisão as velocidades de indexação.
+Para completar este tutorial, você precisará de um serviço de Pesquisa Cognitiva Azure, que pode [criar no portal.](search-create-service-portal.md) Recomendamos a utilização do mesmo nível que pretende utilizar na produção para que possa testar e otimizar com precisão as velocidades de indexação.
 
-### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Obtenha uma chave de api-key e URL para pesquisa cognitiva azure
+### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Obtenha uma api-chave de administrador e URL para pesquisa cognitiva Azure
 
-As chamadas API requerem o URL de serviço e uma chave de acesso. Um serviço de pesquisa é criado com ambos, por isso, se você adicionar Pesquisa Cognitiva Azure à sua subscrição, siga estes passos para obter as informações necessárias:
+As chamadas da API requerem o URL de serviço e uma chave de acesso. Um serviço de pesquisa é criado com ambos, por isso, se adicionar Azure Cognitive Search à sua subscrição, siga estes passos para obter as informações necessárias:
 
-1. [Inscreva-se no portal Azure](https://portal.azure.com/), e na página de **visão geral** do seu serviço de pesquisa, obtenha o URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
+1. [Inscreva-se no portal Azure,](https://portal.azure.com/)e na página **geral do** seu serviço de pesquisa, obtenha o URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-1. Em **Definições** > **Keys,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio no caso de precisar de rolar uma. Pode utilizar a chave primária ou secundária nos pedidos de adição, modificação e aparas de objetos.
+1. Em **Definições**  >  **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio, caso precise de rolar uma. Pode utilizar a tecla primária ou secundária nos pedidos de adição, modificação e eliminação de objetos.
 
-   ![Obtenha um ponto final http e chave de acesso](media/search-get-started-postman/get-url-key.png "Obtenha um ponto final http e chave de acesso")
+   ![Obtenha uma chave de acesso http e acesso](media/search-get-started-postman/get-url-key.png "Obtenha uma chave de acesso http e acesso")
 
-## <a name="2---set-up-your-environment"></a>2 - Instale o seu ambiente
+## <a name="2---set-up-your-environment"></a>2 - Configurar o seu ambiente
 
-1. Inicie o Estúdio Visual e abra **optimizeDataIndexing.sln**.
-1. No Solution Explorer, abra **as definições.json** para fornecer informações de ligação.
-1. Pois, `searchServiceName`se o URLhttps://my-demo-service.search.windows.netcompleto for " ", o nome de serviço a fornecer é "my-demo-service".
+1. Inicie o Visual Studio e abra **OptimizeDataIndexing.sln**.
+1. No Solution Explorer, abra **appsettings.js** para fornecer informações de ligação.
+1. Pois, `searchServiceName` se o URL completo for " ", o nome de serviço a fornecer é https://my-demo-service.search.windows.net "my-demo-service".
 
 ```json
 {
@@ -88,32 +88,32 @@ As chamadas API requerem o URL de serviço e uma chave de acesso. Um serviço de
 }
 ```
 
-## <a name="3---explore-the-code"></a>3 - Explore o código
+## <a name="3---explore-the-code"></a>3 - Explorar o código
 
-Uma vez atualizado as *definições de appsettings.json*, o programa de amostras em **OptimizeDataIndexing.sln** deve estar pronto para construir e executar.
+Uma vez atualizado *appsettings.jsligado,* o programa de amostras em **OptimizeDataIndexing.sln** deve estar pronto para construir e executar.
 
-Este código é derivado do [C# Quickstart](search-get-started-dotnet.md). Pode encontrar informações mais detalhadas sobre o básico de trabalhar com o .NET SDK nesse artigo.
+Este código é derivado do [C# Quickstart](search-get-started-dotnet.md). Pode encontrar informações mais detalhadas sobre os fundamentos de trabalhar com o .NET SDK nesse artigo.
 
 Esta simples aplicação de consola C#/.NET executa as seguintes tarefas:
 
-+ Cria um novo índice com base na estrutura de dados da classe Hotel C# (que também faz referência à classe Address).
++ Cria um novo índice baseado na estrutura de dados da classe C# Hotel (que também faz referência à classe Address).
 + Testa vários tamanhos de lote para determinar o tamanho mais eficiente
-+ Dados de índices assincronicamente
++ Índices dados assíncronos
     + Usando vários fios para aumentar as velocidades de indexação
-    + Usando uma estratégia exponencial de retry backoff para retentar itens falhados
+    + Usando uma estratégia de recuo exponencial para re-julgar itens falhados
 
- Antes de executar o programa, dedique um minuto para estudar o código e as definições de índice para esta amostra. O código relevante está em vários ficheiros:
+ Antes de executar o programa, desem um minuto para estudar o código e as definições de índice para esta amostra. O código relevante está em vários ficheiros:
 
   + **Hotel.cs** e **Address.cs** contém o esquema que define o índice
   + **DataGenerator.cs** contém uma classe simples para facilitar a criação de grandes quantidades de dados do hotel
-  + **ExponentialBackoff.cs** contém código para otimizar o processo de indexação como descrito abaixo
-  + **Program.cs** contém funções que criam e eliminam o índice de pesquisa cognitiva Azure, indexam lotes de dados e testam diferentes tamanhos de lote
+  + **ExponentialBackoff.cs** contém código para otimizar o processo de indexação, conforme descrito abaixo
+  + **Program.cs** contém funções que criam e eliminam o índice de Pesquisa Cognitiva Azure, indexa lotes de dados e testa diferentes tamanhos de lote
 
-### <a name="creating-the-index"></a>Criação do índice
+### <a name="creating-the-index"></a>Criar o índice
 
-Este programa de amostras utiliza o SDK .NET para definir e criar um índice de Pesquisa Cognitiva Azure. Aproveita a classe [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) para gerar uma estrutura de índice a partir de uma classe de modelo de dados C#.
+Este programa de amostragem utiliza o .NET SDK para definir e criar um índice de Pesquisa Cognitiva Azure. Aproveita a classe [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) para gerar uma estrutura de índice a partir de uma classe de modelo de dados C#.
 
-O modelo de dados é definido pela classe Hotel, que também contém referências à classe Endereço. O FieldBuilder perfura através de várias definições de classe para gerar uma estrutura de dados complexa para o índice. As etiquetas de metadados são usadas para definir os atributos de cada campo, tais como se é pesquisável ou classificativa.
+O modelo de dados é definido pela classe Hotel, que também contém referências à classe Address. O FieldBuilder perfura através de múltiplas definições de classe para gerar uma estrutura de dados complexa para o índice. As tags de metadados são usadas para definir os atributos de cada campo, tais como se é pesmável ou ordenado.
 
 Os seguintes excertos do ficheiro **Hotel.cs** mostram como um único campo, e uma referência a outra classe de modelo de dados, podem ser especificados.
 
@@ -126,7 +126,7 @@ public Address Address { get; set; }
 . . .
 ```
 
-No ficheiro **Program.cs,** o índice é definido com um nome `FieldBuilder.BuildForType<Hotel>()` e uma coleção de campo gerada pelo método, e depois criado da seguinte forma:
+No ficheiro **Program.cs,** o índice é definido com um nome e uma coleção de campo gerada pelo `FieldBuilder.BuildForType<Hotel>()` método, e depois criado da seguinte forma:
 
 ```csharp
 private static async Task CreateIndex(string indexName, SearchServiceClient searchService)
@@ -143,11 +143,11 @@ private static async Task CreateIndex(string indexName, SearchServiceClient sear
 }
 ```
 
-### <a name="generating-data"></a>Gerar dados
+### <a name="generating-data"></a>Geração de dados
 
-Uma classe simples é implementada no ficheiro **DataGenerator.cs** para gerar dados para testes. O único propósito desta classe é facilitar a geração de um grande número de documentos com um ID único para indexação.
+Uma classe simples é implementada no ficheiro **DataGenerator.cs** para gerar dados para testes. O único objetivo desta classe é facilitar a geração de um grande número de documentos com um ID único para indexação.
 
-Para obter uma lista de 100.000 hotéis com iDs únicos, você executaria as seguintes duas linhas de código:
+Para obter uma lista de 100.000 hotéis com IDs únicos, você executaria as seguintes duas linhas de código:
 
 ```csharp
 DataGenerator dg = new DataGenerator();
@@ -158,23 +158,23 @@ Existem dois tamanhos de hotéis disponíveis para testes nesta amostra: **peque
 
 O esquema do seu índice pode ter um impacto significativo nas velocidades de indexação. Devido a este impacto, faz sentido converter esta classe para gerar dados correspondentes ao seu esquema de índice pretendido depois de passar por este tutorial.
 
-## <a name="4---test-batch-sizes"></a>4 - Tamanho sinuoso do lote
+## <a name="4---test-batch-sizes"></a>4 - Tamanhos do lote de teste
 
-A Pesquisa Cognitiva Azure suporta as seguintes APIs para carregar documentos únicos ou múltiplos num índice:
+A Azure Cognitive Search suporta as seguintes APIs para carregar documentos únicos ou múltiplos num índice:
 
 + [Adicionar, Atualizar ou Eliminar Documentos (API REST)](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents)
 + [Classe indexAction](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) ou [classe indexBatch](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet)
 
-A indexação de documentos em lotes melhorará significativamente o desempenho da indexação. Estes lotes podem ter até 1000 documentos, ou até cerca de 16 MB por lote.
+A indexação de documentos em lotes melhorará significativamente o desempenho da indexação. Estes lotes podem ser até 1000 documentos, ou até cerca de 16 MB por lote.
 
-Determinar o tamanho ideal do lote para os seus dados é um componente chave para otimizar velocidades de indexação. Os dois fatores primários que influenciam o tamanho ideal do lote são:
+Determinar o tamanho ideal do lote para os seus dados é um componente chave para otimizar as velocidades de indexação. Os dois fatores primários que influenciam o tamanho ideal do lote são:
 
 + O esquema do seu índice
 + O tamanho dos seus dados
 
-Como o tamanho ideal do lote depende do seu índice e dos seus dados, a melhor abordagem é testar diferentes tamanhos de lote para determinar o que resulta nas velocidades de indexação mais rápidas para o seu cenário.
+Como o tamanho ideal do lote depende do seu índice e dos seus dados, a melhor abordagem é testar diferentes tamanhos de lote para determinar quais os resultados nas velocidades de indexação mais rápidas para o seu cenário.
 
-A função seguinte demonstra uma abordagem simples para testar o tamanho do lote.
+A seguinte função demonstra uma abordagem simples para testar tamanhos de lote.
 
 ```csharp
 public static async Task TestBatchSizes(ISearchIndexClient indexClient, int min = 100, int max = 1000, int step = 100, int numTries = 3)
@@ -210,7 +210,7 @@ public static async Task TestBatchSizes(ISearchIndexClient indexClient, int min 
 }
 ```
 
-Como nem todos os documentos têm o mesmo tamanho (embora estejam nesta amostra), estimamos o tamanho dos dados que estamos a enviar para o serviço de pesquisa. Fazemos isto usando a função abaixo que primeiro converte o objeto em json e, em seguida, determina o seu tamanho em bytes. Esta técnica permite-nos determinar quais os tamanhos do lote mais eficientes em termos de velocidades de indexação MB/s.
+Como nem todos os documentos têm o mesmo tamanho (embora estejam nesta amostra), estimamos o tamanho dos dados que estamos a enviar para o serviço de pesquisa. Fazemos isto usando a função abaixo que primeiro converte o objeto em json e, em seguida, determina o seu tamanho em bytes. Esta técnica permite-nos determinar quais os tamanhos dos lotes mais eficientes em termos de velocidades de indexação MB/s.
 
 ```csharp
 public static double EstimateObjectSize(object data)
@@ -233,43 +233,43 @@ public static double EstimateObjectSize(object data)
 }
 ```
 
-A função `ISearchIndexClient` requer um, bem como o número de tentativas que gostaria de testar para cada tamanho do lote. Como pode haver alguma variabilidade nos tempos de indexação para cada lote, tentamos cada lote três vezes por padrão para tornar os resultados estatisticamente mais significativos.
+A função requer um `ISearchIndexClient` bem como o número de tentativas que gostaria de testar para cada tamanho do lote. Como pode haver alguma variabilidade nos tempos de indexação para cada lote, tentamos cada lote três vezes por padrão para tornar os resultados mais significativos estatisticamente.
 
 ```csharp
 await TestBatchSizes(indexClient, numTries: 3);
 ```
 
-Quando executar a função, deve ver uma saída como a de baixo na sua consola:
+Quando executar a função, deve ver uma saída como abaixo na sua consola:
 
-   ![Saída da função de tamanho do lote de ensaio](media/tutorial-optimize-data-indexing/test-batch-sizes.png "Saída da função de tamanho do lote de ensaio")
+   ![Saída da função de tamanho do lote de teste](media/tutorial-optimize-data-indexing/test-batch-sizes.png "Saída da função de tamanho do lote de teste")
 
-Identifique qual o tamanho do lote mais eficiente e, em seguida, use o tamanho do lote no próximo passo do tutorial. Pode ver um planalto em MB/s em diferentes tamanhos de lote.
+Identifique qual o tamanho do lote mais eficiente e, em seguida, use o tamanho do lote no próximo passo do tutorial. Você pode ver um planalto em MB/s em diferentes tamanhos de lote.
 
 ## <a name="5---index-data"></a>5 - Dados do índice
 
 Agora que identificamos o tamanho do lote que pretendemos usar, o próximo passo é começar a indexar os dados. Para indexar os dados de forma eficiente, esta amostra:
 
-* Usa vários fios/trabalhadores.
-* Implementa uma estratégia exponencial de retry backoff.
+* Utiliza vários fios/trabalhadores.
+* Implementa uma estratégia de retrocesso exponencial.
 
-### <a name="use-multiple-threadsworkers"></a>Utilize vários fios/trabalhadores
+### <a name="use-multiple-threadsworkers"></a>Use vários fios/trabalhadores
 
-Para tirar o máximo partido das velocidades de indexação da Azure Cognitive Search, provavelmente terá de usar vários fios para enviar pedidos de indexação de lotes simultaneamente para o serviço.  
+Para tirar o máximo partido das velocidades de indexação da Azure Cognitive Search, provavelmente terá de usar vários fios para enviar pedidos de indexação de lotes simultaneamente ao serviço.  
 
-Várias das principais considerações acima mencionadas têm impacto no número ideal de fios. Pode modificar esta amostra e testar com diferentes contagens de fio para determinar a contagem ideal de fio para o seu cenário. No entanto, desde que tenha vários fios a funcionar em simultâneo, deverá poder tirar partido da maioria dos ganhos de eficiência.
+Várias das principais considerações acima mencionadas afetam o número ideal de fios. Pode modificar esta amostra e testar com diferentes contagens de fios para determinar a contagem ideal de roscas para o seu cenário. No entanto, desde que tenha vários fios a funcionar simultaneamente, deverá poder tirar partido da maioria dos ganhos de eficiência.
 
-À medida que aumenta os pedidos que atingem o serviço de pesquisa, poderá encontrar [códigos](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) de estado HTTP indicando que o pedido não teve sucesso. Durante a indexação, dois códigos comuns de estado http são:
+À medida que aumenta os pedidos que atingem o serviço de pesquisa, poderá encontrar [códigos de estado HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) que indiquem que o pedido não foi totalmente bem sucedido. Durante a indexação, dois códigos de estado HTTP comuns são:
 
 + **503 Serviço Indisponível** - Este erro significa que o sistema está sob carga pesada e o seu pedido não pode ser processado neste momento.
 + **207 Multi-Status** - Este erro significa que alguns documentos foram bem sucedidos, mas pelo menos um falhou.
 
-### <a name="implement-an-exponential-backoff-retry-strategy"></a>Implementar uma estratégia exponencial de retry backoff
+### <a name="implement-an-exponential-backoff-retry-strategy"></a>Implementar uma estratégia de retrocesso exponencial
 
-Se ocorrer uma falha, os pedidos devem ser novamente julgados utilizando uma estratégia exponencial de [retry backoff](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
+Se uma falha acontecer, os pedidos devem ser novamente julgados utilizando uma [estratégia de retrocesso exponencial](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
-O SDK .NET da Azure Cognitive Search retenta automaticamente 503s e outros pedidos falhados, mas terá de implementar a sua própria lógica para voltar a tentar 207s. Ferramentas de código aberto como [a Polly](https://github.com/App-vNext/Polly) também podem ser usadas para implementar uma estratégia de retry. 
+Azure Cognitive Search.NET SDK retrifica automaticamente 503s e outros pedidos falhados, mas terá de implementar a sua própria lógica para voltar a tentar 207s. Ferramentas de código aberto como [Polly](https://github.com/App-vNext/Polly) também podem ser usadas para implementar uma estratégia de relíndi. 
 
-Nesta amostra, implementamos a nossa própria estratégia exponencial de retry backoff. Para implementar esta estratégia, começamos por definir `maxRetryAttempts` algumas `delay` variáveis, incluindo a e a inicial para um pedido falhado:
+Nesta amostra, implementamos a nossa própria estratégia de retrocesso exponencial. Para implementar esta estratégia, começamos por definir algumas variáveis, incluindo a `maxRetryAttempts` e a inicial para um pedido `delay` falhado:
 
 ```csharp
 // Create batch of documents for indexing
@@ -281,9 +281,9 @@ TimeSpan delay = delay = TimeSpan.FromSeconds(2);
 int maxRetryAttempts = 5;
 ```
 
-É importante apanhar [o IndexBatchException,](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception?view=azure-dotnet) uma vez que estas exceções indicam que a operação de indexação só foi parcialmente bem sucedida (207s). Os itens falhados devem ser `FindFailedActionsToRetry` novamente experimentados utilizando o método que facilita a criação de um novo lote contendo apenas os itens falhados.
+É importante apanhar o [IndexBatchException](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception?view=azure-dotnet) uma vez que estas exceções indicam que a operação de indexação só foi parcialmente bem sucedida (207s). Os itens falhados devem ser novamente experimentados utilizando o `FindFailedActionsToRetry` método que facilita a criação de um novo lote contendo apenas os itens falhados.
 
-Exceções que `IndexBatchException` não devem também ser apanhadas e indicam que o pedido falhou completamente. Estas exceções são menos comuns, particularmente com o .NET SDK, uma vez que se retenta automaticamente 503s.
+Exceções que `IndexBatchException` não devem ser apanhadas e indicam que o pedido falhou completamente. Estas exceções são menos comuns, particularmente com o .NET SDK, uma vez que retribe 503s automaticamente.
 
 ```csharp
 // Implement exponential backoff
@@ -322,31 +322,31 @@ do
 } while (true);
 ```
 
-A partir daqui, embrulhamos o código de backoff exponencial numa função para que possa ser facilmente chamado.
+A partir daqui, embrulhamos o código exponencial de backoff numa função para que possa ser facilmente chamado.
 
-Outra função é então criada para gerir os fios ativos. Para a simplicidade, essa função não está incluída aqui, mas pode ser encontrada em [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/OptimizeDataIndexing/ExponentialBackoff.cs). A função pode ser chamada `hotels` com o seguinte comando `1000` onde estão `8` os dados que queremos carregar, é o tamanho do lote, e é o número de fios simultâneos:
+Outra função é então criada para gerir os fios ativos. Para a simplicidade, esta função não está incluída aqui, mas pode ser encontrada em [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/OptimizeDataIndexing/ExponentialBackoff.cs). A função pode ser chamada com o seguinte comando onde `hotels` estão os dados que queremos carregar, `1000` é o tamanho do lote, e é o número de fios `8` simultâneos:
 
 ```csharp
 ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8).Wait();
 ```
 
-Quando executa a função, deve ver uma saída como a seguir:
+Quando executar a função, deve ver uma saída como abaixo:
 
-![Saída da função de dados de índice](media/tutorial-optimize-data-indexing/index-data-start.png "Saída da função de dados de índice")
+![Produção da função de dados indexados](media/tutorial-optimize-data-indexing/index-data-start.png "Produção da função de dados indexados")
 
-Quando um lote de documentos falha, é impresso um erro que indica a falha e que o lote está a ser novamente experimentado:
+Quando um lote de documentos falha, é impresso um erro que indica a falha e que o lote está a ser novamente julgado:
 
-![Erro da função de dados do índice](media/tutorial-optimize-data-indexing/index-data-error.png "Saída da função de tamanho do lote de ensaio")
+![Erro da função de dados do índice](media/tutorial-optimize-data-indexing/index-data-error.png "Saída da função de tamanho do lote de teste")
 
-Após a função terminar, pode verificar se todos os documentos foram adicionados ao índice.
+Depois de terminada a função, pode verificar se todos os documentos foram adicionados ao índice.
 
-## <a name="6---explore-index"></a>6 - Explore o índice
+## <a name="6---explore-index"></a>6 - Explorar índice
 
-Pode explorar o índice de pesquisa preenchido depois de o programa ter sido executado programaticamente ou usando o explorador de [**pesquisa**](search-explorer.md) no portal.
+Pode explorar o índice de pesquisa povoado após o programa ter executado programaticamente ou utilizando o [**explorador de Pesquisa**](search-explorer.md) no portal.
 
 ### <a name="programatically"></a>Programaticamente
 
-Existem duas opções principais para verificar o número de documentos num índice: a API dos [Documentos de Contagem](https://docs.microsoft.com/rest/api/searchservice/count-documents) e a API estatísticas de [índices](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics). Ambos os caminhos podem exigir algum tempo adicional para atualizar, por isso não se assuste se o número de documentos devolvidos for inferior ao esperado inicialmente.
+Existem duas opções principais para verificar o número de documentos num índice: a [API dos Documentos de Contagem](https://docs.microsoft.com/rest/api/searchservice/count-documents) e a [API de Estatísticas do Índice](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics)de Obter . Ambos os caminhos podem requerer algum tempo adicional para atualizar, por isso não se assuste se o número de documentos devolvidos for inferior ao inicialmente esperado.
 
 #### <a name="count-documents"></a>Documentos de Contagem
 
@@ -356,9 +356,9 @@ A operação Documentos de Contagem recupera uma contagem do número de document
 long indexDocCount = indexClient.Documents.Count();
 ```
 
-#### <a name="get-index-statistics"></a>Obter Estatísticas de Índices
+#### <a name="get-index-statistics"></a>Obter Estatísticas de Índice
 
-A operação Get Index Statistics devolve uma contagem de documentos para o índice atual, mais o uso de armazenamento. As estatísticas do índice demorarão mais tempo do que a contagem de documentos para atualizar.
+A operação Get Index Statistics devolve uma contagem de documentos para o índice atual, mais o uso de armazenamento. As estatísticas de índices demorarão mais tempo do que a contagem de documentos para atualizar.
 
 ```csharp
 IndexGetStatisticsResult indexStats = serviceClient.Indexes.GetStatistics(configuration["SearchIndexName"]);
@@ -366,29 +366,29 @@ IndexGetStatisticsResult indexStats = serviceClient.Indexes.GetStatistics(config
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-No portal Azure, abra a página de visão **geral** do serviço de pesquisa e encontre o índice **de indexação otimizado** na lista de **Índices.**
+No portal Azure, abra a página **de visão geral** do serviço de pesquisa e encontre o índice **de indexação otimizado** na lista **de Índices.**
 
-  ![Lista de índices de pesquisa cognitiva azure](media/tutorial-optimize-data-indexing/portal-output.png "Lista de índices de pesquisa cognitiva azure")
+  ![Lista de índices de Pesquisa Cognitiva Azure](media/tutorial-optimize-data-indexing/portal-output.png "Lista de índices de Pesquisa Cognitiva Azure")
 
-O *tamanho da contagem de documentos* e do *armazenamento* baseia-se na [API](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) de Estatísticas do Índice e pode demorar vários minutos a atualizar.
+O *número de documentos* e *o tamanho do armazenamento* são baseados na [API de Estatísticas de Índice](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) e podem demorar vários minutos a atualizar.
 
 ## <a name="reset-and-rerun"></a>Repor e executar novamente
 
-Nas fases experimentais iniciais de desenvolvimento, a abordagem mais prática para a iteração do design é apagar os objetos da Pesquisa Cognitiva Azure e permitir que o seu código os reconstrua. Os nomes dos recursos são exclusivos. Quando elimina um objeto, pode recriá-lo com o mesmo nome.
+Nas fases experimentais iniciais de desenvolvimento, a abordagem mais prática para a iteração de design é eliminar os objetos da Azure Cognitive Search e permitir que o seu código os reconstrua. Os nomes dos recursos são exclusivos. Quando elimina um objeto, pode recriá-lo com o mesmo nome.
 
-O código de amostra para este tutorial verifica os índices existentes e elimina-os para que possa reexecutar o seu código.
+O código de amostra deste tutorial verifica os índices existentes e elimina-os para que possa voltar a verificar o seu código.
 
 Também pode utilizar o portal para eliminar índices.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando se trabalha na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+Quando se está a trabalhar na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
-Pode encontrar e gerir recursos no portal, utilizando a ligação **De Todos os recursos** ou **grupos de Recursos** no painel de navegação à esquerda.
+Pode encontrar e gerir recursos no portal, utilizando a ligação **de todos os recursos** ou **grupos** de recursos no painel de navegação à esquerda.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que está familiarizado com o conceito de ingerir dados de forma eficiente, vamos olhar mais de perto para a arquitetura de consulta Lucene e como funciona a pesquisa completa de texto em Azure Cognitive Search.
+Agora que está familiarizado com o conceito de ingerir dados de forma eficiente, vamos olhar mais de perto a arquitetura da consulta de Lucene e como funciona a pesquisa completa de texto na Azure Cognitive Search.
 
 > [!div class="nextstepaction"]
 > [Como funciona a pesquisa em texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)

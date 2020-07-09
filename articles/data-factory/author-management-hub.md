@@ -1,0 +1,64 @@
+---
+title: Hub de gestão
+description: Gerir as suas ligações, configuração de controlo de fontes e propriedades de autoria global no centro de gestão da Azure Data Factory
+services: data-factory
+ms.service: data-factory
+ms.workload: data-services
+ms.topic: conceptual
+author: djpmsft
+ms.author: daperlov
+manager: anandsub
+ms.date: 06/02/2020
+ms.openlocfilehash: 308d19fde78edacebb168b8d4e459169338acc41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.contentlocale: pt-PT
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84346046"
+---
+# <a name="management-hub-in-azure-data-factory"></a>Centro de gestão na Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+O centro de gestão, acedido pelo *separador Manage* no Azure Data Factory UX, é um portal que acolhe ações de gestão global para a sua fábrica de dados. Aqui, pode gerir as suas ligações a lojas de dados e cálculos externos, configuração de controlo de fontes e definições de gatilho.
+
+## <a name="manage-connections"></a>Gerir ligações
+
+### <a name="linked-services"></a>Serviços ligados
+
+Os serviços ligados definem as informações de ligação para a Azure Data Factory para se conectar a lojas de dados externas e ambientes computacional. Para mais informações, consulte [os conceitos de serviços ligados.](concepts-linked-services.md) A criação, edição e eliminação de serviços ligados são feitas no centro de gestão.
+
+![Gerir serviços ligados](media/author-management-hub/management-hub-linked-services.png)
+
+### <a name="integration-runtimes"></a>Tempos de integração
+
+Um tempo de integração é uma infraestrutura de computação usada pela Azure Data Factory para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para mais informações, saiba sobre [conceitos de integração em tempo de execução.](concepts-integration-runtime.md) No centro de gestão, pode criar, excluir e monitorizar os tempos de integração.
+
+![Gerir os tempos de integração](media/author-management-hub/management-hub-integration-runtime.png)
+
+## <a name="manage-source-control"></a>Gerir o controlo de origem
+
+### <a name="git-configuration"></a>Configuração de Git
+
+Ver e editar as definições configuradas do repositório de git no centro de gestão. Para mais informações, saiba mais sobre [o controlo de fontes na Azure Data Factory.](source-control.md)
+
+![Gerir git repo](media/author-management-hub/management-hub-git.png)
+
+### <a name="parameterization-template"></a>Modelo de parametrização
+
+Para anular os parâmetros do modelo gerados do Gestor de Recursos ao publicar a partir do ramo de colaboração, pode gerar ou editar um ficheiro de parâmetros personalizados. Para obter mais informações, aprenda a [usar parâmetros personalizados no modelo de Gestor de Recursos.](continuous-integration-deployment.md#use-custom-parameters-with-the-resource-manager-template) O modelo de parametrização só está disponível quando se trabalha num repositório de git. Se o *arm-template-parameters-definition.jsno* ficheiro não existir no ramo de trabalho, a edição do modelo predefinido gera-o.
+
+![Gerir params personalizados](media/author-management-hub/management-hub-custom-parameters.png)
+
+## <a name="manage-authoring"></a>Gerir a autoria
+
+### <a name="triggers"></a>Acionadores
+
+Os gatilhos determinam quando deve ser iniciada uma conduta. Atualmente, os gatilhos podem estar no horário do relógio de parede, operar num intervalo periódico ou depender de um evento. Para mais informações, saiba sobre [a execução do gatilho.](concepts-pipeline-execution-triggers.md#trigger-execution) No centro de gestão, pode criar, editar, excluir ou ver o estado atual de um gatilho.
+
+![Gerir params personalizados](media/author-management-hub/management-hub-triggers.png)
+
+## <a name="next-steps"></a>Próximos passos
+
+Aprenda a [configurar um repositório de git](source-control.md) para o seu ADF
+
+

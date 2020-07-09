@@ -5,15 +5,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 06a4bdb8a8ee5d458347d30b53f740952151799e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2196fe825570c371f4590868e994780b16a9c552
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426213"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040950"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulação de negociação de elevada frequência com o Stream Analytics
 A combinação da linguagem SQL e das funções definidas pelo utilizador (UDFs) e dos agregados definidos pelo utilizador (UDAs) de JavaScript no Azure Stream Analytics permite aos utilizadores realizar análises avançadas. As análises avançadas podem incluir preparação e classificação de machine learning online, bem como simulação de processos sem estado. Este artigo descreve como realizar uma regressão linear num trabalho do Azure Stream Analytics que faz preparação e classificação contínua num cenário comercial de elevada frequência.
@@ -64,13 +63,13 @@ Seguem-se alguns eventos de exemplo gerados:
 >O carimbo de data/hora do evento é **lastUpdated**, no formato de hora “epoch”.
 
 ### <a name="predictive-model-for-high-frequency-trading"></a>Modelo preditivo para negociação de elevada frequência
-Para efeitos de demonstração, usamos um modelo linear descrito por Darryl Shen no [seu artigo.](https://docplayer.net/23038840-Order-imbalance-based-strategy-in-high-frequency-trading.html)
+Para fins de demonstração, usamos um modelo linear descrito por Darryl Shen no [seu trabalho.](https://docplayer.net/23038840-Order-imbalance-based-strategy-in-high-frequency-trading.html)
 
 O Volume Order Imbalance (VOI) é uma função do preço e volume de compra/venda atual e do preço e volume de compra/venda desde o último tick. O documento identifica a correlação entre o VOI e o movimento de preços futuro. Cria um modelo linear entre os cinco últimos valores de VOI e a alteração do preço nos dez ticks seguintes. Para preparar o modelo, são utilizados os dados do dia anterior com regressão linear. 
 
 O modelo preparado é, então, utilizado para fazer predições das alterações dos preços em cotações no dia de negociação atual em tempo real. Quando é prevista uma alteração dos preços suficientemente grande, é executada uma negociação. Consoante a definição do limiar, podem ser esperadas milhares de negociações para uma única ação durante um dia de negociação.
 
-![Definição de desequilíbrio de ordem de volume](./media/stream-analytics-high-frequency-trading/volume-order-imbalance-formula.png)
+![Definição de desequilíbrio da ordem de volume](./media/stream-analytics-high-frequency-trading/volume-order-imbalance-formula.png)
 
 Agora, vamos expressar as operações de preparação e predição num trabalho do Azure Stream Analytics.
 
@@ -202,7 +201,7 @@ modelInput AS (
 
 Uma vez que o Azure Stream Analytics não tem uma função de regressão linear incorporada, utilizamos as agregações **SUM** e **AVG** para calcular os coeficientes do modelo linear.
 
-![Fórmula de matemática de regressão linear](./media/stream-analytics-high-frequency-trading/linear-regression-formula.png)
+![Fórmula matemática linear de regressão](./media/stream-analytics-high-frequency-trading/linear-regression-formula.png)
 
 ```SQL
 modelagg AS (

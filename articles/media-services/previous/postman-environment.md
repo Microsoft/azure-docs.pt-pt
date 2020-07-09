@@ -1,6 +1,6 @@
 ---
-title: Importar o ambiente dos Carteiros para chamadas de REST azure Media Services
-description: Este tópico fornece uma definição do ambiente carteiro para chamadas DE REST azure Media Services.
+title: Importe o ambiente do Carteiro para chamadas REST da Azure Media Services
+description: Este tópico fornece uma definição do ambiente do Carteiro para chamadas Azure Media Services REST.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,18 +14,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8254d121c62a20de0a1593920b7793195f8eb50e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78926718"
 ---
 # <a name="import-the-postman-environment"></a>Importar o ambiente do Carteiro  
 
-Este artigo contém uma definição das variáveis ambientais **do Carteiro** que são usadas na coleção [do Carteiro](postman-collection.md) que contém pedidos http agrupados que chamam media services REST APIs. O ambiente e os ficheiros de recolha são utilizados pelo [Configure Postman for Media Services REST API chama tutorial.](media-rest-apis-with-postman.md)
+Este artigo contém uma definição das variáveis ambientais do **Carteiro** que são usadas na [coleção Do Carteiro](postman-collection.md) que contém pedidos HTTP agrupados que chamam APIs de Serviços de Mídia. O ambiente e os ficheiros de recolha são utilizados pelo [Carteiro Configurar para Serviços de Media REST API chama](media-rest-apis-with-postman.md) tutorial.
 
 > [!NOTE]
-> O valor `AzureADSTSEndpoint `  =  `https://login.microsoftonline.com/{{TenantId}}/oauth2/token`de . Para obter o seu ID de inquilino, pode pairar sobre o seu rato sobre o seu nome de utilizador no portal (no canto superior direito) e estará no "Diretório: Microsoft ({{TENANTID}} ) .
+> O valor `AzureADSTSEndpoint `  =  `https://login.microsoftonline.com/{{TenantId}}/oauth2/token` de. Para obter o seu ID do inquilino, pode pairar sobre o seu rato sobre o seu nome de utilizador no portal (no canto superior direito) e estará no "Diretório: Microsoft ({{TENANTID}} ) .
 
 ```
 {

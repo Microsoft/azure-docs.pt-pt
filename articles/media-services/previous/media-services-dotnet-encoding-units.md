@@ -1,5 +1,5 @@
 ---
-title: Processamento de meios de escala adicionando unidades de codificação - Azure [  Microsoft Docs
+title: Dimensionamento de meios de comunicação adicionando unidades de codificação - Azure /  Microsoft Docs
 description: Este artigo demonstra como adicionar unidades de codificação com a Azure Media Services .NET.
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milangada
-ms.openlocfilehash: 86fd923c121b9d46109529f75bc3d0d040f1a7a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd2a94a1d10e4c8078e5437959bf7e101b3c6dd7
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74887293"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964775"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Como dimensionar a codificação com o .NET SDK
 > [!div class="op_single_selector"]
@@ -34,25 +34,27 @@ ms.locfileid: "74887293"
 
 ## <a name="overview"></a>Descrição geral
 > [!IMPORTANT]
-> Certifique-se de rever a [visão geral](media-services-scale-media-processing-overview.md) para obter mais informações sobre o processamento de meios de escala.
+> Certifique-se de rever a [Visão Geral](media-services-scale-media-processing-overview.md) para obter mais informações sobre o processamento de mídia de escala.
 > 
 > 
 
-Para alterar o tipo de unidade reservada e o número de unidades reservadas de codificação utilizando o .NET SDK, faça o seguinte:
+Para alterar o tipo de unidade reservada e o número de unidades reservadas de codificação utilizando .NET SDK, faça o seguinte:
 
-    IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
-    encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
-    encodingS1ReservedUnit.Update();
-    Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
+```csharp
+IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
+encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
+encodingS1ReservedUnit.Update();
+Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
 
-    encodingS1ReservedUnit.CurrentReservedUnits = 2;
-    encodingS1ReservedUnit.Update();
+encodingS1ReservedUnit.CurrentReservedUnits = 2;
+encodingS1ReservedUnit.Update();
 
-    Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
+Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
+```
 
 ## <a name="opening-a-support-ticket"></a>Abertura de um bilhete de apoio
 
-Por predefinição, todas as contas de Serviços de Media podem escalar até 10 Unidades Reservadas s2 ou S3 Media (MRUs) ou 25 S1 MRUs e 5 Unidades Reservadas de Streaming A Pedido. Você pode pedir um limite mais alto abrindo um bilhete de apoio.
+Por predefinição, todas as contas dos Serviços de Comunicação Social podem escalar até 10 Unidades Reservadas s2 ou S3 Media (MRUs) ou 25 MRUs S1 e 5 Unidades Reservadas de Streaming a Pedido. Você pode solicitar um limite mais alto abrindo um bilhete de apoio.
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

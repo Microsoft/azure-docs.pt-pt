@@ -123,6 +123,8 @@
     - name: Planear e implementar o SAP NetWeaver no Azure
       href: planning-guide.md
       items:
+        - name: Tipos de Armazenamento do Azure para a carga de trabalho SAP
+          href: planning-guide-storage.md
         - name: Carga de trabalho SAP em cenários de máquinas virtuais do Azure suportados
           href: sap-planning-supported-configurations.md
         - name: Qual o software SAP suportado para implementações do Azure
@@ -230,7 +232,7 @@
             - name: RHEL com múltiplos SIDs Pacemaker para a Instância (A)SCS
               href: high-availability-guide-rhel-multi-sid.md
     - name: Azure Site Recovery para Recuperação após Desastre do SAP
-      href: '../../../site-recovery/site-recovery-workload.md#protect-sap'
+      href: ../../../site-recovery/site-recovery-workload.md#protect-sap
     - name: Azure Proximity Placement Groups para latência de rede otimizada com aplicações SAP
       href: sap-proximity-placement-scenarios.md
 - name: Integração de Identidade do AAD SAP e Início de Sessão único
@@ -259,6 +261,18 @@
       href: 'https://docs.microsoft.com/power-bi/desktop-sap-bw-connector'
     - name: O Azure Data Factory oferece integração de dados do SAP HANA e Business Warehouse
       href: 'https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration'
+- name: Azure Monitor para Soluções SAP
+  items:
+    - name: Descrição Geral do Azure Monitor para Soluções SAP
+      href: azure-monitor-overview.md
+    - name: Fornecedores do Azure Monitor para Soluções SAP
+      href: azure-monitor-providers.md
+    - name: FAQ do Azure Monitor para Soluções SAP
+      href: azure-monitor-faq.md
+- name: Referência
+  items:
+    - name: CLI do Azure
+      href: /cli/azure/ext/sap-hana/hanainstance
 - name: Recursos
   items:
     - name: Mapa do Azure

@@ -1,26 +1,25 @@
 ---
-title: CRIAR FLUXO EXTERNO (Transact-SQL) - Borda SQL Azure (Pré-visualização)
-description: Conheça a declaração create external STREAM em Azure SQL Edge (Pré-visualização)
+title: CRIAR FLUXO EXTERNO (Transact-SQL) - Aresta SQL Azure (Pré-visualização)
+description: Conheça a declaração DE FLUXO EXTERNO CREATE em Azure SQL Edge (Pré-visualização)
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: d4ad446d43c90eee1c48ee2ba94585242805fa7d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.openlocfilehash: 9e1f672a62ee7687fec9cea96ca03240c893ba95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597934"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84233336"
 ---
 # <a name="create-external-stream-transact-sql"></a>CRIAR FLUXO EXTERNO (Transact-SQL)
 
-O objeto STREAM EXTERNO tem um duplo propósito tanto de uma entrada como de saída. Pode ser usado como uma entrada para consultar dados de streaming de serviços de ingestão de eventos, tais como hubs De Evento Sou OIT ou usado como uma saída para especificar onde e como armazenar resultados de uma consulta de streaming.
+O objeto STREAM EXTERNO tem um duplo propósito tanto de entrada como de saída. Pode ser usado como uma entrada para consultar dados de streaming de serviços de ingestão de eventos, tais como hubs Azure Event ou IoT ou usado como uma saída para especificar onde e como armazenar resultados de uma consulta de streaming.
 
-Um STREAM EXTERNO também pode ser especificado e criado como uma saída e entrada para serviços como O Hub de Eventos ou armazenamento blob. Isto é para cenários de acorrentar em que uma consulta de streaming persiste resultados para o fluxo externo como saída e outra leitura de consulta de streaming a partir do mesmo fluxo externo que a entrada. 
+Um FLUXO EXTERNO também pode ser especificado e criado como uma saída e entrada para serviços como o Event Hub ou o armazenamento blob. Isto é para cenários de acorrentamento em que uma consulta de streaming está persistindo resulta no fluxo externo como saída e outra consulta de streaming a partir do mesmo fluxo externo que a entrada. 
 
 
 ## <a name="syntax"></a>Sintaxe
@@ -64,48 +63,48 @@ WITH
 
 
 - [FONTE DE DADOS EXTERNOS](/sql/t-sql/statements/create-external-data-source-transact-sql/)
-- [FORMATO DE ARQUIVO EXTERNO](/sql/t-sql/statements/create-external-file-format-transact-sql/)
-- **LOCALIZAÇÃO**: Especifica o nome dos dados reais ou localização na fonte de dados. No caso de um objeto de fluxo Edge Hub ou Kafka, a localização especifica o nome do tópico Edge Hub ou Kafka para ler ou escrever.
-- **INPUT_OPTIONS**: Especificar opções como pares de valor-chave para serviços como O Evento e Hubs IOT que são inputs para consultas de streaming
+- [FORMATO DE FICHEIRO EXTERNO](/sql/t-sql/statements/create-external-file-format-transact-sql/)
+- **LOCALIZAÇÃO**: Especifica o nome para os dados reais ou localização na fonte de dados. No caso de um edge hub ou objeto de fluxo Kafka, a localização especifica o nome do tópico Edge Hub ou Kafka para ler ou escrever para.
+- **INPUT_OPTIONS**: Especifique as opções como pares de valor-chave para serviços como Os Hubs de Evento e IOT que são entradas para consultas de streaming
     - CONSUMER_GROUP: Os Hubs de Eventos e IoT limitam o número de leitores dentro de um grupo de consumidores (a 5). Deixar este campo vazio utilizará o grupo de consumidores "$Default".
-      - Aplica-se aos Hubs de Eventos e IOT
-    - TIME_POLICY: Descreve se deve abandonar os eventos ou ajustar o tempo do evento quando eventos tardios ou fora de ordem passam o seu valor de tolerância.
-      - Aplica-se aos Hubs de Eventos e IOT
-    - LATE_EVENT_TOLERANCE: O atraso máximo aceitável. O atraso representa a diferença entre a marca ção do evento e o relógio do sistema.
-      - Aplica-se aos Hubs de Eventos e IOT
-    - OUT_OF_ORDER_EVENT_TOLERANCE: Os eventos podem chegar fora de ordem depois de terem feito a viagem desde a entrada até à consulta de streaming. Estes eventos podem ser aceites como está, ou pode optar por fazer uma pausa por um determinado período para os reencomendar.
-      - Aplica-se aos Hubs de Eventos e IOT
-- **OUTPUT_OPTIONS**: Especificar opções como pares de valor-chave para serviços suportados que são saídas para consultas de streaming 
-  - REJECT_POLICY: DROP [ DROP ] RETRY Species as políticas de tratamento de erros de dados quando ocorrem erros de conversão de dados. 
+      - Aplica-se a Centros de Eventos e IOT
+    - TIME_POLICY: Descreve se deve deixar cair eventos ou ajustar o tempo do evento quando eventos tardios ou eventos fora de ordem passam o seu valor de tolerância.
+      - Aplica-se a Centros de Eventos e IOT
+    - LATE_EVENT_TOLERANCE: O máximo de atraso aceitável. O atraso representa a diferença entre a marca de tempo do evento e o relógio do sistema.
+      - Aplica-se a Centros de Eventos e IOT
+    - OUT_OF_ORDER_EVENT_TOLERANCE: Os eventos podem chegar fora de ordem depois de terem feito a viagem desde a entrada até à consulta de streaming. Estes eventos podem ser aceites como está, ou pode optar por uma pausa por um período definido para reordená-los.
+      - Aplica-se a Centros de Eventos e IOT
+- **OUTPUT_OPTIONS**: Especifique as opções como pares de valor-chave para serviços suportados que são saídas para consultas de streaming 
+  - REJECT_POLICY: DROP / ReTRY Espécies as políticas de tratamento de erros de dados quando ocorrem erros de conversão de dados. 
     - Aplica-se a todas as saídas suportadas 
   - MINIMUM_ROWS:  
-    Filas mínimas exigidas por lote escrito a uma saída. Para o Parquet, cada lote criará um novo ficheiro. 
+    Filas mínimas necessárias por lote escrito para uma saída. Para o Parquet, cada lote criará um novo ficheiro. 
     - Aplica-se a todas as saídas suportadas 
   - MAXIMUM_TIME:  
-    Tempo máximo de espera por lote. Após este tempo, o lote será escrito à saída mesmo que o requisito mínimo das linhas não seja cumprido. 
+    Tempo máximo de espera por lote. Após este período, o lote será escrito para a saída mesmo que o requisito de linhas mínimas não seja cumprido. 
     - Aplica-se a todas as saídas suportadas 
   - PARTITION_KEY_COLUMN:  
     A coluna que é usada para a chave de partição. 
-    - Aplica-se ao tópico do Hub de Eventos e do Autocarro de Serviço 
+    - Aplica-se ao tema Event Hub e Service Bus 
   - PROPERTY_COLUMNS:  
-    Uma lista separada da vírvia dos nomes das colunas de saída que serão anexadas a mensagens como propriedades personalizadas se fornecidas.  
-    - Aplica-se ao tópico e fila do Event Hub e do Ônibus de Serviço 
+    Uma lista separada por vírgula dos nomes das colunas de saída que serão anexadas a mensagens como propriedades personalizadas se fornecidas.  
+    - Aplica-se ao tópico e à fila do Event Hub e do Service Bus 
   - SYSTEM_PROPERTY_COLUMNS:  
-    Uma coleção formatada jSON de nome/valor par de nomes de propriedade do sistema e colunas de saída a serem povoadas em mensagens de ônibus de serviço. por exemplo{ "MessageId": "column1", "PartitionKey": "column2"} 
-    - Aplica-se ao tópico e fila do ônibus de serviço 
+    Uma coleção com formato JSON de nome/pars de valor de nomes de propriedades do sistema e colunas de saída a serem povoadas em mensagens de Service Bus. por exemplo, {"MessageId": "coluna1", "PartitionKey": "coluna2"} 
+    - Aplica-se ao tópico e fila do Service Bus 
   - PARTITION_KEY:  
-    O nome da coluna de saída que contém a chave de partição. A chave de partição é um identificador único para a partição dentro de uma determinada tabela que forma a primeira parte da chave primária de uma entidade. É um valor de cadeia que pode ter até 1 KB de tamanho. 
-    - Aplica-se ao armazenamento de mesa e à função Azure 
+    O nome da coluna de saída que contém a chave de partição. A chave de partição é um identificador único para a partição dentro de uma dada tabela que forma a primeira parte da chave primária de uma entidade. É um valor de cadeia que pode ter até 1 KB de tamanho. 
+    - Aplica-se ao armazenamento de mesa e função Azure 
   - ROW_KEY:  
-    O nome da coluna de saída que contém a tecla da linha. A chave da linha é um identificador único para uma entidade dentro de uma determinada partição. Forma a segunda parte da chave principal de uma entidade. A chave da linha é um valor de cadeia que pode ter até 1 KB de tamanho. 
-    - Aplica-se ao armazenamento de mesa e à função Azure 
+    O nome da coluna de saída que contém a tecla de linha. A chave de linha é um identificador único para uma entidade dentro de uma determinada partição. É a segunda parte da chave primária de uma entidade. A tecla de linha é um valor de corda que pode ter até 1 KB de tamanho. 
+    - Aplica-se ao armazenamento de mesa e função Azure 
   - BATCH_SIZE:  
-    Isto representa o número de transações para armazenamento de mesa onde o máximo pode ir até 100 registos. Para as Funções Azure, isto representa o tamanho do lote em bytes enviados para a função por chamada - o padrão é de 256 kB. 
-    - Aplica-se ao armazenamento de mesa e à função Azure 
+    Isto representa o número de transações para armazenamento de mesas onde o máximo pode ir até 100 registos. Para as Funções Azure, isto representa o tamanho do lote nos bytes enviados para a função por chamada - o padrão é de 256 kB. 
+    - Aplica-se ao armazenamento de mesa e função Azure 
   - MAXIMUM_BATCH_COUNT:  
-    Número máximo de eventos enviados para a função por chamada para função Azure - predefinido é de 100. Para a Base de Dados SQL, isto representa o número máximo de registos enviados com cada transação de inserção a granel - o padrão é de 10.000. 
-    - Aplica-se à Base de Dados SQL e à função Azure 
-  - STAGING_AREA: OBJETO DE FONTE DE DADOS EXTERNOs ao Armazenamento de Blob A área de preparação para ingestão de dados de alta suposição no Armazém de Dados SQL 
+    O número máximo de eventos enviados para a função por chamada para a função Azure - o padrão é de 100. Para a Base de Dados SQL, este número representa o número máximo de registos enviados com cada transação de inserção a granel - o padrão é de 10.000. 
+    - Aplica-se à base de dados SQL e à função Azure 
+  - STAGING_AREA: DADOS EXTERNOS OBJETO FONTE DE DADOS para Armazenamento blob A área de paragem para ingestão de dados de alto rendimento no SQL Data Warehouse 
     - Aplica-se ao Armazém de Dados SQL
 
 
@@ -113,13 +112,13 @@ WITH
 
 ### <a name="example-1---edgehub"></a>Exemplo 1 - EdgeHub
 
-Tipo: Entrada ou Saída<br>
+Tipo: Entrada ou saída<br>
 Parâmetros:
-- Entrada ou Saída
+- Entrada ou saída
   - Alias 
   - Formato de serialização de eventos 
   - Encoding 
-- Entrada apenas: 
+- Apenas entrada: 
   - Tipo de compressão de eventos 
 
 Sintaxe:
@@ -148,18 +147,18 @@ WITH
 ```
 
 
-### <a name="example-2---azure-sql-database-azure-sql-edge-sql-server"></a>Exemplo 2 - Base de Dados Azure SQL, Borda SQL Azur, Servidor SQL
+### <a name="example-2---azure-sql-database-azure-sql-edge-sql-server"></a>Exemplo 2 - Base de Dados Azure SQL, Aresta Azure SQL, Servidor SQL
 
 Tipo: Saída<br>
 Parâmetros:
 - Alias de saída  
-- Base de Dados (necessária para base de dados SQL) 
-- Servidor (necessário para base de dados SQL) 
-- Nome de utilizador (necessário para base de dados SQL) 
+- Base de dados (necessária para base de dados SQL) 
+- Servidor (obrigatório para base de dados SQL) 
+- Nome de utilizador (obrigatório para base de dados SQL) 
 - Palavra-passe (necessária para base de dados SQL) 
 - Tabela 
-- Fundir todas as divisórias de entrada num único esquema de repartição de escrita ou herdade de etapa ou entrada de consulta anterior (necessária para base de dados SQL) 
-- Contagem máxima de lote 
+- Fundir todas as divisórias de entrada num único esquema de partilha de escrita ou de herança de passo ou entrada de consulta anterior (necessário para a Base de Dados SQL) 
+- Contagem de lotes max 
 
 Sintaxe:
 
@@ -203,9 +202,9 @@ WITH
 Tipo: Entrada<br>
 Parâmetros:
 
-- Servidor de botas Kafka 
-- Nome tópico de Kafka 
-- Contagem de divisórias de origem 
+- Servidor de bootstrap kafka 
+- Nome do tópico kafka 
+- Contagem de partição de origem 
 
 Sintaxe:
 
@@ -242,7 +241,7 @@ WITH
 
 ### <a name="example-4---blob-storage"></a>Exemplo 4 - Armazenamento blob
 
-Tipo: Entrada ou Saída<br>
+Tipo: Entrada ou saída<br>
 Parâmetros:
 - Entrada ou saída:
   - Alias 
@@ -254,11 +253,11 @@ Parâmetros:
   - Formato de tempo 
   - Formato de serialização de eventos 
   - Encoding 
-- Entrada apenas: 
+- Apenas entrada: 
   - Divisórias (entrada) 
-  - Tipo de compressão de eventos (entrada) 
+  - Tipo de compressão de evento (entrada) 
 - Apenas saída: 
-  - Filas mínimas (saída) 
+  - Linhas mínimas (saída) 
   - Tempo máximo (saída) 
   - Modo de autenticação (saída) 
 
@@ -306,22 +305,22 @@ WITH
 
 ### <a name="example-5---event-hub"></a>Exemplo 5 - Centro de Eventos
 
-Tipo: Entrada ou Saída<br>
+Tipo: Entrada ou saída<br>
 Parâmetros:
 - Entrada ou saída:
   - Alias 
   - Espaço de nome de ônibus de serviço 
   - O nome do hub de eventos 
   - Nome da política do Hub de Eventos 
-  - Chave política do Hub de Eventos 
+  - Chave política do Centro de Eventos 
   - Formato de serialização de eventos 
   - Encoding 
-- Entrada apenas: 
+- Apenas entrada: 
   - Grupo de consumidor do Hub de Eventos 
   - Tipo de compressão de eventos 
 - Apenas saída: 
-  - Coluna de chaves de partição 
-  - Colunas de propriedades 
+  - Coluna-chave de partição 
+  - Colunas de propriedade 
 
 Sintaxe:
 
@@ -364,7 +363,7 @@ WITH
 );
 ```
 
-### <a name="example-6---iot-hub"></a>Exemplo 6 - Hub IoT
+### <a name="example-6---iot-hub"></a>Exemplo 6 - IOT Hub
 
 Tipo: Entrada<br>
 Parâmetros:
@@ -373,7 +372,7 @@ Parâmetros:
 - IoT Hub 
 - Ponto Final 
 - Nome da política de acesso partilhado 
-- Chave da política de acesso partilhado 
+- Chave de política de acesso compartilhado 
 - Grupo de consumidores 
 - Formato de serialização de eventos 
 - Encoding 
@@ -418,11 +417,11 @@ Tipo: Saída<br>
 Parâmetros:
 - Alias de saída 
 - Base de Dados 
-- Servidor 
+- Server 
 - Nome de utilizador 
 - Palavra-passe 
 - Tabela 
-- Área de preparação (para COPY) 
+- Área de paragem (para COPY) 
 
 Sintaxe:
 
@@ -489,16 +488,16 @@ WITH (
 ```
 
 
-### <a name="example-9---service-bus-topic-same-properties-as-queue"></a>Exemplo 9 - Tópico de Autocarro de Serviço (as mesmas propriedades que a fila)
+### <a name="example-9---service-bus-topic-same-properties-as-queue"></a>Exemplo 9 - Tópico de autocarro de serviço (as mesmas propriedades da fila)
 
 Tipo: Saída<br>
 Parâmetros:
 - Alias de saída 
 - Espaço de nome de ônibus de serviço 
 - Nome tópico 
-- Nome da política do tópico 
-- Chave da política do tópico 
-- Colunas de propriedades 
+- Nome da política de tópicos 
+- Chave de política de tópicos 
+- Colunas de propriedade 
 - Colunas de propriedade do sistema 
 - Formato de serialização de eventos 
 - Encoding 
@@ -549,7 +548,7 @@ Parâmetros:
 - Chave de conta 
 - Base de Dados 
 - Nome do contentor 
-- Id documento 
+- ID do documento 
 
 
 Sintaxe:
@@ -612,15 +611,15 @@ WITH (
 );
 ```
 
-### <a name="example-12---azure-function"></a>Exemplo 12 - Função Azure
+### <a name="example-12---azure-function"></a>Exemplo 12 - Função azul
 
 Tipo: Saída<br>
 Parâmetros:
 - Function app 
 - Função 
 - Chave 
-- Tamanho máximo do lote 
-- Contagem máxima de lote 
+- Tamanho do lote máximo 
+- Contagem de lotes max 
 
 Sintaxe:
 
@@ -649,7 +648,7 @@ WITH (
 ```
 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [ALTER FLUXO EXTERNO (Transact-SQL)](alter-external-stream-transact-sql.md) 
 - [FLUXO EXTERNO DROP (Transact-SQL)](drop-external-stream-transact-sql.md) 

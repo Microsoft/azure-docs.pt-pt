@@ -1,6 +1,6 @@
 ---
-title: Sondagens operações de longa duração Microsoft Docs
-description: A Azure Media Services oferece APIs que enviam pedidos aos Serviços de Media para iniciar operações (por exemplo, criar, iniciar, parar ou apagar um canal), estas operações são de longa duração. Este tópico mostra como fazer sondagens de longa duração.
+title: Sondagem de longa duração Operações Microsoft Docs
+description: A Azure Media Services oferece APIs que enviam pedidos aos Serviços de Comunicação Social para iniciar operações (por exemplo, criar, iniciar, parar ou apagar um canal), estas operações são de longa duração. Este tópico mostra como sondar operações de longa duração.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,26 +15,25 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 43d9a6adc935010eab6e5e52d73f2019c8afcf5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74887187"
 ---
-# <a name="delivering-live-streaming-with-azure-media-services"></a>Entrega de streaming ao vivo com serviços de mídia azure
+# <a name="delivering-live-streaming-with-azure-media-services"></a>Entrega de streaming ao vivo com serviços de media Azure
 
 ## <a name="overview"></a>Descrição geral
 
-O Microsoft Azure Media Services oferece APIs que enviam pedidos aos Serviços de Media para iniciar operações (por exemplo: criar, iniciar, parar ou apagar um canal). Estas operações são de longa data.
+O Microsoft Azure Media Services oferece APIs que enviam pedidos aos Media Services para iniciar operações (por exemplo: criar, iniciar, parar ou apagar um canal). Estas operações são longas.
 
-O Media Services .NET SDK fornece APIs que enviam o pedido e aguardam que a operação esteja concluída (internamente, as APIs estão a votar para o progresso da operação em alguns intervalos). Por exemplo, quando liga para o canal. Início(), o método retorna após o início do canal. Também pode utilizar a versão assíncrona: aguarde o canal. StartAsync() (para informações sobre o Padrão Assíncrono baseado em Tarefas, ver [TAP](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). As APIs que enviam um pedido de operação e depois fazem sondagem para o estado até que a operação esteja concluída são chamadas de "métodos de sondagem". Estes métodos (especialmente a versão Async) são recomendados para aplicações de clientes ricos e/ou serviços imponentes.
+O Serviço de Comunicação Social .NET SDK fornece APIs que enviam o pedido e aguardam que a operação esteja concluída (internamente, as APIs estão a sondar para o progresso da operação em alguns intervalos). Por exemplo, quando liga para o canal. Start(), o método regressa após o início do canal. Também pode utilizar a versão assíncronea: aguarde o canal. StartAsync() (para obter informações sobre o Padrão Assíncrodo baseado em Tarefas, consulte [TAP](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). As APIs que enviam um pedido de operação e depois pesquisam o estado até que a operação esteja concluída são chamadas de "métodos de votação". Estes métodos (especialmente a versão Async) são recomendados para aplicações de clientes ricos e/ou serviços estatais.
 
-Há cenários em que uma candidatura não pode esperar por um pedido de http de longa duração e quer fazer sondagens para o progresso da operação manualmente. Um exemplo típico seria um navegador interagindo com um serviço web apátrida: quando o navegador solicita a criação de um canal, o serviço web inicia uma operação de longa duração e devolve o ID de operação ao navegador. O navegador poderia então pedir ao serviço web para obter o estado de operação com base no ID. O Media Services .NET SDK fornece APIs que são úteis para este cenário. Estas APIs são chamadas de "métodos não-eleitorais".
-Os "métodos não-eleitorais" têm o seguinte padrão de nomeação: Enviar Operação*Operação Nome*(por exemplo, Operação EnviarCriar). Enviar*Métodos*de operação Operação Operação Devolva o objeto **IOperação;** o objeto devolvido contém informações que podem ser usadas para rastrear a operação. Os*métodos OperationName OperationAsync*devolvem **a tarefa\<IOperação>**.
+Há cenários em que uma aplicação não pode esperar por um pedido http de longa duração e quer fazer sondagens para a operação avançar manualmente. Um exemplo típico seria um navegador interagindo com um serviço web apátrida: quando o navegador solicita a criação de um canal, o serviço web inicia uma longa operação e devolve o ID de operação ao navegador. O navegador poderia então pedir ao serviço web para obter o estado de funcionamento com base no ID. O Media Services .NET SDK fornece APIs que são úteis para este cenário. Estas APIs são chamadas de "métodos não-eleitorais".
+Os "métodos de não votação" têm o seguinte padrão de nomeação: Enviar*Operação Operação Natal*(por exemplo, Envio de Operações). Enviar*OperaçãoName*Métodos de operação devolvem o objeto **IOperação;** o objeto devolvido contém informações que podem ser usadas para rastrear a operação. Os métodos de regresso da*Operação Operação Operação Operação*Operação OperaçãoSync **. \<IOperation> **
 
-Atualmente, as seguintes classes apoiam métodos de não-sondagem: **Canal,** **StreamingEndpoint**, e **Programa**.
+Atualmente, as seguintes classes apoiam métodos de não votação: **Canal,** **StreamingEndpoint**e **Programa**.
 
-Para fazer uma sondagem sobre o estado de funcionamento, utilize o método **GetOperation** na classe **OperationBaseCollection.** Utilize os seguintes intervalos para verificar o estado de funcionamento: para as operações **do Canal** e **do StreamingEndpoint,** utilize 30 segundos; para operações de **programa,** utilize 10 segundos.
+Para fazer uma sondagem para o estado de funcionamento, utilize o método **GetOperation** na classe **OperationBaseCollection.** Utilizar os seguintes intervalos para verificar o estado de funcionamento: para as operações **channel** and **streamingEndpoint,** utilize 30 segundos; para operações **do programa,** utilize 10 segundos.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
 
@@ -42,7 +41,7 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
 
 ## <a name="example"></a>Exemplo
 
-O exemplo seguinte define uma classe chamada **ChannelOperations**. Esta definição de classe pode ser um ponto de partida para a definição da sua classe de serviço web. Para a simplicidade, os seguintes exemplos utilizam as versões não-assinizadas dos métodos.
+O exemplo a seguir define uma classe chamada **ChannelOperations**. Esta definição de classe pode ser um ponto de partida para a definição da sua classe de serviço web. Para simplificar, os seguintes exemplos utilizam as versões de métodos não async.
 
 O exemplo também mostra como o cliente pode usar esta classe.
 

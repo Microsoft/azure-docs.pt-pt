@@ -1,5 +1,5 @@
 ---
-title: 'Gateway Azure VPN: Visão geral - Configurações de gateway altamente disponíveis'
+title: 'Azure VPN Gateway: Visão geral - Configurações de gateway altamente disponíveis'
 description: Este artigo disponibiliza uma descrição geral das opções de configurações de elevada disponibilidade através de Gateways de VPN do Azure.
 services: vpn-gateway
 author: yushwang
@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 09/24/2016
 ms.author: yushwang
 ms.openlocfilehash: 91fb0896238881130bd02916f8fd579eee9bd16b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75779625"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Conectividade em Vários Locais de Elevada Disponibilidade e VNet a VNet
@@ -36,12 +35,12 @@ Pode utilizar vários dispositivos VPN da sua rede no local para ligar ao Gatewa
 
 Esta configuração fornece vários túneis ativos do mesmo gateway de VPN do Azure para os dispositivos no local na mesma localização. Existem alguns requisitos e limitações:
 
-1. Tem de criar várias ligações VPN S2S dos dispositivos VPN para o Azure. Quando liga vários dispositivos VPN da mesma rede no local ao Azure, é necessário criar uma porta de entrada de rede local para cada dispositivo VPN e uma ligação desde o portal Azure VPN até cada gateway de rede local.
+1. Tem de criar várias ligações VPN S2S dos dispositivos VPN para o Azure. Quando liga vários dispositivos VPN da mesma rede no local ao Azure, precisa de criar um gateway de rede local para cada dispositivo VPN e uma ligação do seu gateway Azure VPN para cada porta de entrada de rede local.
 2. Os gateways de rede local correspondentes aos dispositivos VPN têm de ter endereços IP públicos exclusivos na propriedade "GatewayIpAddress".
 3. O BGP é necessário para esta configuração. Cada gateway de rede local que representa um dispositivo VPN tem de ter um endereço IP de elemento de rede BGP especificado na propriedade “BgpPeerIpAddress”.
 4. O campo da propriedade AddressPrefix de cada gateway de rede local não se pode sobrepor. Deve especificar "BgpPeerIpAddress" no formato /32 CIDR no campo AddressPrefix, por exemplo, 10.200.200.254/32.
 5. Deve utilizar o BGP para anunciar os mesmos prefixos dos mesmos prefixos da rede no local ao gateway de VPN do Azure e o tráfego será encaminhado através destes túneis simultaneamente.
-6. Deve utilizar o encaminhamento multi-caminho de custo igual (ECMP).
+6. Deve utilizar o roteamento multi-caminhos de custo igual (ECMP).
 7. Cada ligação é contabilizada face ao número máximo de túneis do seu gateway de VPN do Azure, 10 para os SKUs Básico e Standard e 30 para o SKU HighPerformance. 
 
 Nesta configuração, o gateway de VPN do Azure continua no modo ativo-em espera, pelo que o mesmo comportamento de ativação pós-falha e a breve interrupção ainda vão ocorrer, conforme descrito [anteriormente](#activestandby). Contudo, esta configuração protege de falhas ou interrupções na sua rede no local e nos seus dispositivos VPN.
@@ -75,6 +74,6 @@ Também pode aplicar a mesma configuração ativa-ativa a ligações VNet a VNet
 
 Desta forma, é garantido que há sempre um par de túneis entre as duas redes virtuais para eventuais eventos de manutenção planeada, proporcionando uma disponibilidade ainda melhor. Apesar de a mesma topologia para conectividade em vários locais precisar de duas ligações, a topologia de VNet a VNet mostrada anteriormente requer apenas uma ligação para cada gateway. Além disso, o BGP é opcional, a não ser que o encaminhamento do trânsito através da ligação VNet a VNet seja um requisito.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Veja [Configuring Active-Active VPN Gateways for Cross-Premises and VNet-to-VNet Connections (Configurar Gateways de VPN Ativos-Ativos para Ligações em Vários Locais e VNet a VNet)](vpn-gateway-activeactive-rm-powershell.md) para obter os passos para configurar ligações ativas-ativas em vários locais e VNet a VNet.
 

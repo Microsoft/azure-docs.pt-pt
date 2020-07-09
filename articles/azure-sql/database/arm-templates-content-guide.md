@@ -1,9 +1,8 @@
 ---
-title: Modelos do Azure Resource Manager
-titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Utilize modelos do Gestor de Recursos Azure para criar e configurar a Base de Dados Azure SQL e a Instância Gerida Azure SQL.
+title: Modelos de Gestor de Recursos Azure - Azure SQL Database & SQL Managed Instance
+description: Utilize modelos de Gestor de Recursos Azure para criar e configurar a Base de Dados Azure SQL e a Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: overview-samples sqldbrb=2
 ms.devlang: ''
@@ -12,46 +11,47 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 0e3688fdbeabd525e54aad1b9e36c82b9c86751f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ee2c6580285246d3b170602e507aed038b2507f4
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053292"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983644"
 ---
-# <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Modelos de Gestor de Recursos Azure para Base de Dados Azure SQL & Instância Gerida SQL
+# <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Modelos de gestor de recursos Azure para Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Os modelos do Gestor de Recursos Azure permitem definir a sua infraestrutura como código e implementar as suas soluções para a nuvem Azure para a sua Base de Dados Azure SQL e Instância Gerida Azure SQL.
+Os modelos do Azure Resource Manager permitem definir a infraestrutura como código e implementar as soluções na cloud do Azure para a Base de Dados SQL e o Azure SQL Managed Instance.
 
 ## <a name="azure-sql-database"></a>[Base de Dados SQL do Azure](#tab/single-database)
 
-A tabela seguinte inclui links para os modelos do Gestor de Recursos Azure para a Base de Dados Azure SQL.
+A tabela seguinte inclui links para modelos de Gestor de Recursos Azure para Azure SQL Database.
 
-| |  |
+|Ligação |Description|
 |---|---|
-| [Base de Dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create) | Este modelo do Gestor de Recursos Azure cria uma única base de dados na Base de Dados Azure SQL e configura as regras de firewall IP ao nível do servidor. |
-| [Servidor](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Este modelo de Gestor de Recursos Azure cria um servidor para base de dados Azure SQL. |
-| [Conjunto elástico](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create) | Este modelo permite-lhe implantar uma piscina elástica e atribuir bases de dados. |
-| [Grupos failover](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | Este modelo cria dois servidores, uma única base de dados e um grupo de failover na Base de Dados Azure SQL.|
-| [Deteção de Ameaças](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | Este modelo permite-lhe implementar um servidor e um conjunto de bases de dados com Deteção de Ameaças ativada, com um endereço de e-mail para alertas para cada base de dados. A Deteção de Ameaças faz parte da oferta de Proteção de Ameaças Avançadas (ATP) da SQL e fornece uma camada de segurança que responde a potenciais ameaças sobre servidores e bases de dados.|
-| [Auditoria ao Armazenamento de Blob Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) | Este modelo permite-lhe implementar um servidor com auditoria habilitada a escrever registos de auditoria para um armazenamento de bolhas. A auditoria da Base de Dados Azure SQL rastreia os eventos da base de dados e escreve-os num registo de auditoria que pode ser colocado na sua conta de armazenamento Azure, espaço de trabalho OMS ou Hubs de Eventos.|
-| [Auditoria ao Azure Event Hub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | Este modelo permite-lhe implementar um servidor com auditoria habilitada a escrever registos de auditoria para um Hub de Eventos existente. Para enviar eventos de auditoria para o Event Hub, detete as definições de auditoria `Enabled` `State` e desempor `IsAzureMonitorTargetEnabled` como `true` . Além disso, configure as Definições de Diagnóstico com `SQLSecurityAuditEvents` categoria de registo na base de dados (para auditoria de `master` nível de serviço). A auditoria rastreia os eventos da base de dados e escreve-os num registo de auditoria que pode ser colocado na sua conta de armazenamento Azure, espaço de trabalho OMS ou Hubs de Eventos.|
-| [Aplicação Web Azure com Base de Dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database) | Esta amostra cria uma Web App Azure gratuita e uma base de dados na Base de Dados Azure SQL ao nível de serviço "Basic".|
-| [Azure Web App e Redis Cache com Base de Dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) | Este modelo cria uma Web App, Redis Cache e SQL Database no mesmo grupo de recursos, e cria duas cordas de ligação na Web App para a Base de Dados SQL e Redis Cache.|
-| [Dados de importação de armazenamento de blob utilizando ADF V2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-v2-blob-to-sql-copy) | Este modelo de Gestor de Recursos Azure cria a Azure Data Factory V2 que copia dados do Armazenamento De Blob Azure para a Base de Dados SQL.|
-| [Cluster HDInsight com uma Base de Dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Este modelo permite criar um cluster HDInsight, um servidor SQL lógico, uma base de dados e duas tabelas. Este modelo é usado pelo [Use Sqoop com Hadoop no artigo HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop) |
-| [App Azure Logic que executa um Procedimento Armazenado SQL em um horário](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | Este modelo permite-lhe criar uma Aplicação Lógica que executará um procedimento armazenado por SQL no horário. Quaisquer argumentos para o procedimento podem ser colocados na secção do corpo do modelo.|
+| [Base de Dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create) | Este modelo de Gestor de Recursos Azure cria uma única base de dados na Base de Dados Azure SQL e configura as regras de firewall IP de nível do servidor. |
+| [Servidor](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Este modelo de Gestor de Recursos Azure cria um servidor para a Base de Dados Azure SQL. |
+| [Conjunto elástico](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create) | Este modelo permite-lhe implantar uma piscina elástica e atribuir-lhe bases de dados. |
+| [Grupos de failover](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | Este modelo cria dois servidores, uma única base de dados e um grupo de failover na Base de Dados Azure SQL.|
+| [Deteção de Ameaças](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | Este modelo permite-lhe implementar um servidor e um conjunto de bases de dados com Deteção de Ameaças ativadas, com um endereço de e-mail para alertas para cada base de dados. A Deteção de Ameaças faz parte da oferta de Proteção avançada de ameaças (ATP) sql e fornece uma camada de segurança que responde a potenciais ameaças sobre servidores e bases de dados.|
+| [Auditoria ao armazenamento da Azure Blob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) | Este modelo permite-lhe implementar um servidor com auditoria habilitada a escrever registos de auditoria para um armazenamento blob. A auditoria ao Azure SQL Database rastreia eventos de base de dados e escreve-os para um registo de auditoria que pode ser colocado na sua conta de armazenamento Azure, espaço de trabalho OMS ou Centros de Eventos.|
+| [Auditoria ao Azure Event Hub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | Este modelo permite-lhe implementar um servidor com auditoria habilitada a escrever registos de auditoria para um centro de eventos existente. Para enviar eventos de auditoria para os Centros de Eventos, defina definições de auditoria `Enabled` `State` com, e definir `IsAzureMonitorTargetEnabled` como `true` . Além disso, configurar definições de diagnóstico com a `SQLSecurityAuditEvents` categoria de registo na base de `master` dados (para auditoria ao nível do servidor). A auditoria rastreia eventos de base de dados e escreve-os para um registo de auditoria que pode ser colocado na sua conta de armazenamento Azure, espaço de trabalho OMS ou Centros de Eventos.|
+| [App Azure Web com Base de Dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database) | Esta amostra cria uma aplicação web Azure gratuita e uma base de dados na Base de Dados Azure SQL ao nível de serviço "Básico".|
+| [Azure Web App e Redis Cache com Base de Dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) | Este modelo cria uma aplicação web, Redis Cache, e base de dados no mesmo grupo de recursos e cria duas cadeias de conexão na aplicação web para a base de dados e Redis Cache.|
+| [Dados de importação do armazenamento blob utilizando a ADF V2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-v2-blob-to-sql-copy) | Este modelo de Gestor de Recursos Azure cria uma instância de Azure Data Factory V2 que copia dados do armazenamento de Azure Blob para a Base de Dados SQL.|
+| [Cluster HDInsight com uma base de dados](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Este modelo permite criar um cluster HDInsight, um servidor SQL lógico, uma base de dados e duas tabelas. Este modelo é utilizado pelo [Use Sqoop com Hadoop em artigo HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop). |
+| [Azure Logic App que executa um Procedimento MLD armazenado em um horário](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | Este modelo permite criar uma aplicação lógica que executará um procedimento armazenado SQL no horário. Quaisquer argumentos para o procedimento podem ser colocados na secção do corpo do modelo.|
 
-## <a name="azure-sql-managed-instance"></a>[Instância Gerida do Azure SQL](#tab/managed-instance)
+## <a name="azure-sql-managed-instance"></a>[Instância Gerida do SQL no Azure](#tab/managed-instance)
 
-A tabela seguinte inclui links para os modelos do Gestor de Recursos Azure para a Instância Gerida Azure SQL.
+A tabela seguinte inclui links para modelos de Gestor de Recursos Azure para Azure SQL Managed Instance.
 
-| |  |
+|Ligação|Description|
 |---|---|
-| [SQL Managed Instance em um novo VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet) | Este modelo de Gestor de Recursos Azure cria um novo Azure VNet configurado e SQL Managed Instance no VNet. |
-| [Ambiente de rede para Instância Gerida SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | Esta implementação criará uma Rede Virtual Azure configurada com duas subredes - uma que será dedicada às suas Instâncias Geridas SQL, e outra onde poderá colocar outros recursos (por exemplo VMs, ambientes de App Service, etc.). Este modelo criará um ambiente de rede devidamente configurado, onde pode implementar instâncias geridas pelo SQL. |
-| [Instância gerida SQL com ligação P2S](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-point-to-site-vpn) | Esta implantação criará uma Rede Virtual Azure com duas subredes `ManagedInstance` e `GatewaySubnet` . A Instância Gerida sQL será implantada na subnet ManagedInstance. O gateway de rede virtual será criado em `GatewaySubnet` subnet e configurado para a ligação VPN ponto-a-site. |
-| [Instância gerida sQL com máquina virtual](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | Esta implantação criará uma Rede Virtual Azure com duas subredes `ManagedInstance` e `Management` . A Instância Gerida sQL será implantada na `ManagedInstance` sub-rede. A máquina virtual com a versão mais recente do SQL Server Management Studio (SSMS) será implantada na `Management` sub-rede. |
+| [SQL Managed Instance em um novo VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet) | Este modelo de Gestor de Recursos Azure cria uma nova rede virtual Azure configurada e gerido na rede virtual. |
+| [Ambiente de rede para sql caso gerido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | Esta implementação criará uma rede virtual Azure configurada com duas sub-redes, uma que será dedicada às suas instâncias geridas e outra onde poderá colocar outros recursos (por exemplo, VMs, ambientes de Serviço de Aplicações, etc.). Este modelo criará um ambiente de networking devidamente configurado onde pode implementar casos geridos. |
+| [Sql Caso gerido com ligação P2S](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-point-to-site-vpn) | Esta implementação criará uma rede virtual Azure com duas sub-redes, `ManagedInstance` e `GatewaySubnet` . Sql Managed Instance será implantado na sub-rede ManagedInstance. Um gateway de rede virtual será criado na `GatewaySubnet` sub-rede e configurado para a ligação VPN ponto-a-local. |
+| [SQL Caso gerido com uma máquina virtual](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | Esta implementação criará uma rede virtual Azure com duas sub-redes, `ManagedInstance` e `Management` . SQL Managed Instance será implantado na `ManagedInstance` sub-rede. Uma máquina virtual com a versão mais recente do SQL Server Management Studio (SSMS) será implantada na `Management` sub-rede. |
 
 ---
+

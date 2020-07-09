@@ -1,6 +1,6 @@
 ---
-title: Mapeando colunas de conjunto de dados na Fábrica de Dados de Azure
-description: Aprenda a mapear colunas de origem para colunas de destino.
+title: Mapeamento de colunas de conjuntos de dados na Fábrica de Dados Azure
+description: Saiba como mapear colunas de origem para colunas de destino.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,35 +11,35 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6eb7012e28319ee6cc86de5ee56090743d681068
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af7a1e40f21b6c9af490abe6f58edcaf798818b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74923875"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318880"
 ---
-# <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Map source dataset columns to destination dataset columns
+# <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Colunas de conjunto de dados de origem do mapa para colunas de conjunto de dados de destino
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. 
 
-O mapeamento da coluna pode ser utilizado para especificar como as colunas especificadas na "estrutura" do mapa da tabela de origem às colunas especificadas na "estrutura" da tabela de sumidouros. A propriedade **columnMapping** está disponível na secção **typeProperties** da atividade Copy.
+O mapeamento de colunas pode ser utilizado para especificar como as colunas especificadas na "estrutura" do mapa do quadro de origem para colunas especificadas na "estrutura" da tabela do lavatório. A **propriedade de cartografamento de colunas** está disponível na secção **de tipoProperties** da atividade Copy.
 
 O mapeamento da coluna suporta os seguintes cenários:
 
-* Todas as colunas da estrutura de conjunto de dados de origem estão mapeadas para todas as colunas na estrutura do conjunto de dados do lavatório.
+* Todas as colunas na estrutura do conjunto de dados de origem estão mapeadas para todas as colunas na estrutura do conjunto de dados do lavatório.
 * Um subconjunto das colunas na estrutura do conjunto de dados de origem é mapeado para todas as colunas na estrutura do conjunto de dados do lavatório.
 
 Seguem-se as condições de erro que resultam numa exceção:
 
-* Ou menos colunas ou mais colunas na "estrutura" da tabela do lavatório do que especificado no mapeamento.
+* Ou menos colunas ou mais colunas na "estrutura" da mesa do lavatório do que as especificadas no mapeamento.
 * Mapeamento duplicado.
 * O resultado da consulta SQL não tem um nome de coluna especificado no mapeamento.
 
 > [!NOTE]
-> As seguintes amostras são para O SQL e o Blob Azure, mas são aplicáveis a qualquer loja de dados que suporte conjuntos de dados retangulares. Ajuste as definições de conjunto de dados e de serviço satiseleções em exemplos para apontar aos dados na fonte de dados relevante.
+> As seguintes amostras são para Azure SQL e Azure Blob, mas são aplicáveis a qualquer loja de dados que suporte conjuntos de dados retangulares. Ajuste o conjunto de dados e as definições de serviços ligados em exemplos para apontar para os dados na fonte de dados relevante.
 
-## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>Amostra 1 – mapeamento de colunas de Azure SQL para blob Azure
-Nesta amostra, a tabela de entrada tem uma estrutura e aponta para uma tabela SQL numa base de dados Azure SQL.
+## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>Amostra 1 – mapeamento de colunas de Azure SQL a Azure blob
+Nesta amostra, a tabela de entrada tem uma estrutura e aponta para uma tabela SQL na Base de Dados Azure SQL.
 
 ```json
 {
@@ -105,7 +105,7 @@ Nesta amostra, a tabela de saída tem uma estrutura e aponta para uma bolha num 
 }
 ```
 
-O seguinte JSON define uma atividade de cópia num oleoduto. As colunas da fonte mapeadas para colunas em sumidouro **(columnMappings**) utilizando a propriedade **tradutora.**
+O seguinte JSON define uma atividade de cópia num oleoduto. As colunas desde a fonte mapeadas a colunas em pia **(columnMappings**) utilizando a propriedade **Tradutor.**
 
 ```json
 {
@@ -139,8 +139,8 @@ O seguinte JSON define uma atividade de cópia num oleoduto. As colunas da fonte
 
 ![Fluxo de mapeamento de coluna](./media/data-factory-map-columns/column-mapping-flow.png)
 
-## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Amostra 2 – mapeamento de colunas com consulta SQL de Azure SQL a Blob Azure
-Nesta amostra, uma consulta SQL é usada para extrair dados do Azure SQL em vez de simplesmente especificar o nome da tabela e os nomes da coluna na secção "estrutura". 
+## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Amostra 2 - mapeamento de coluna com consulta SQL de Azure SQL a Azure blob
+Nesta amostra, é utilizada uma consulta SQL para extrair dados do Azure SQL em vez de simplesmente especificar o nome da tabela e os nomes das colunas na secção "estrutura". 
 
 ```json
 {
@@ -172,13 +172,13 @@ Nesta amostra, uma consulta SQL é usada para extrair dados do Azure SQL em vez 
         }
 }
 ```
-Neste caso, os resultados da consulta são primeiro mapeados para colunas especificadas em "estrutura" de origem. Em seguida, as colunas da "estrutura" da fonte são mapeadas para colunas em "estrutura" de afundar com regras especificadas em colunaSMaps.  Suponha que a consulta rederede 5 colunas, mais duas colunas do que as especificadas na "estrutura" da fonte.
+Neste caso, os resultados da consulta são mapeados pela primeira vez para colunas especificadas em "estrutura" de origem. Em seguida, as colunas da "estrutura" de origem são mapeadas para colunas em "estrutura" do lavatório com regras especificadas em colunasMappings.  Suponha que a consulta retorna 5 colunas, mais duas colunas do que as especificadas na "estrutura" da fonte.
 
 **Fluxo de mapeamento de coluna**
 
 ![Fluxo de mapeamento de coluna-2](./media/data-factory-map-columns/column-mapping-flow-2.png)
 
-## <a name="next-steps"></a>Passos seguintes
-Consulte o artigo para um tutorial sobre a utilização da Atividade de Cópia: 
+## <a name="next-steps"></a>Próximos passos
+Consulte o artigo para um tutorial sobre a utilização da Copy Activity: 
 
-- [Copiar dados do Armazenamento Blob para a Base de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Copiar dados do Blob Storage para a Base de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

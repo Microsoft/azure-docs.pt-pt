@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Reconheça tinta digital com o Reconhecimento de Tinta REST API e Java'
+title: 'Quickstart: Reconhecer tinta digital com a API de Reconhecimento de Tinta e Java'
 titleSuffix: Azure Cognitive Services
 description: Utilize a API do Reconhecimento de Tinta para começar a reconhecer traços de tinta digital neste arranque rápido.
 services: cognitive-services
@@ -8,32 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 06/30/2020
 ms.author: aahi
-ms.openlocfilehash: d2cd4e56477ea39587ce318538c9ddd84c51b03b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bc7dfcef45917081ec9ea1e97f4c36e4348dd9e7
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448129"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985280"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Quickstart: Reconheça tinta digital com o Reconhecimento de Tinta REST API e Java
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Quickstart: Reconhecer tinta digital com a API de Reconhecimento de Tinta e Java
 
-Utilize este arranque rápido para começar a utilizar a API do Reconhecimento de Tinta em traços de tinta digitais. Esta aplicação Java envia um pedido de API contendo dados de traçado de tinta formada jSON, e obtém a resposta.
+Utilize este arranque rápido para começar a utilizar a API do Reconhecimento de Tinta em traços de tinta digital. Esta aplicação Java envia um pedido de API contendo dados de traçado de tinta formatados por JSON, e obtém a resposta.
 
-Embora esta aplicação esteja escrita em Java, a API é um serviço web RESTful compatível com a maioria dos idiomas de programação.
+Embora esta aplicação esteja escrita em Java, a API é um serviço web RESTful compatível com a maioria das linguagens de programação.
 
-Normalmente, chamaria a API de uma aplicação de tinta digital. Este quickstart envia dados de traçado de tinta para a seguinte amostra manuscrita de um ficheiro JSON.
+Normalmente, você chamaria a API de uma aplicação digital de tinta. Este quickstart envia dados de traçado de tinta para a seguinte amostra manuscrita a partir de um ficheiro JSON.
 
 ![uma imagem de texto manuscrito](../media/handwriting-sample.jpg)
 
-O código fonte para este arranque rápido pode ser encontrado no [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
+O código-fonte para este arranque rápido pode ser encontrado no [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- O Kit de [Desenvolvimento java&trade; (JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) ou mais tarde.
+- O [Kit de Desenvolvimento de Java &trade; (JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) ou mais tarde.
 
-- Importar estas bibliotecas do Repositório Maven
+- Importe estas bibliotecas do Repositório de Maven
     - [JSON no](https://mvnrepository.com/artifact/org.json/json) pacote Java
     - [Pacote Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient)
 
@@ -49,29 +49,29 @@ O código fonte para este arranque rápido pode ser encontrado no [GitHub](https
     
     [!code-java[import statements](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=imports)]
 
-2. Crie variáveis para a sua chave de subscrição, ponto final e ficheiro JSON. O ponto final será posteriormente anexado ao reconhecedor de tinta URI.
+2. Crie variáveis para a sua chave de subscrição, ponto final e ficheiro JSON. O ponto final será posteriormente anexado ao URI do reconhecimento de tinta.
 
     [!code-java[initial vars](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=vars)]
 
 ## <a name="create-a-function-to-send-requests"></a>Criar uma função para enviar pedidos
 
-1. Crie uma `sendRequest()` nova função chamada que leve as variáveis criadas acima. Em seguida, execute os seguintes passos.
+1. Criar uma nova função chamada `sendRequest()` que leva as variáveis criadas acima. Em seguida, execute os seguintes passos.
 
-2. Crie `CloseableHttpClient` um objeto que possa enviar pedidos para a API. Envie o pedido `HttpPut` a um objeto de pedido combinando o seu ponto final e o URL do Reconhecimento de Tinta.
+2. Crie um `CloseableHttpClient` objeto que possa enviar pedidos para a API. Envie o pedido para um `HttpPut` objeto de pedido combinando o seu ponto final e o URL do Reconhecimento de Tinta.
 
-3. Utilize a função `setHeader()` do `Content-Type` pedido `application/json`para definir o cabeçalho `Ocp-Apim-Subscription-Key` e adicione a sua chave de subscrição ao cabeçalho.
+3. Utilize a função do pedido `setHeader()` para definir o `Content-Type` cabeçalho para , e adicione a `application/json` sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
 
-4. Utilize a função do `setEntity()` pedido para os dados a enviar.   
+4. Utilize a função do pedido `setEntity()` para os dados a enviar.   
 
-5. Use a função do `execute()` cliente para enviar o `CloseableHttpResponse` pedido e guarde-o para um objeto. 
+5. Use a função do cliente `execute()` para enviar o pedido e guarde-o para um `CloseableHttpResponse` objeto. 
 
-6. Crie `HttpEntity` um objeto para armazenar o conteúdo de resposta. Obtenha o `getEntity()`conteúdo com . Se a resposta não estiver vazia, devolva-a.
+6. Crie um `HttpEntity` objeto para armazenar o conteúdo da resposta. Obtenha o conteúdo com `getEntity()` . Se a resposta não estiver vazia, devolva-a.
     
     [!code-java[send a request](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=sendRequest)]
 
-## <a name="send-an-ink-recognition-request"></a>Envie um pedido de reconhecimento de tinta
+## <a name="send-an-ink-recognition-request"></a>Enviar um pedido de reconhecimento de tinta
 
-Crie um `recognizeInk()` método chamado para reconhecer os dados do traçado de tinta. Ligue `sendRequest()` para o método acima criado com o seu ponto final, url, chave de subscrição e dados json. Obtenha o resultado e imprima-o para a consola.
+Crie um método chamado `recognizeInk()` para reconhecer os seus dados de traçado de tinta. Ligue para o `sendRequest()` método acima criado com o seu ponto final, url, chave de subscrição e dados json. Obtenha o resultado e imprima-o na consola.
 
 [!code-java[recognizeInk](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=recognizeInk)]
 
@@ -79,14 +79,14 @@ Crie um `recognizeInk()` método chamado para reconhecer os dados do traçado de
 
 1. No método principal da sua aplicação, leia no ficheiro JSON contendo os dados que serão adicionados aos pedidos.
 
-2. Ligue para a função de reconhecimento de tinta criada acima.
+2. Chame a função de reconhecimento de tinta criada acima.
     
     [!code-java[main method](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=main)]
 
 
 ## <a name="run-the-application-and-view-the-response"></a>Executar a aplicação e ver a resposta
 
-Execute a aplicação. Uma resposta bem sucedida é devolvida em formato JSON. Também pode encontrar a resposta JSON no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json).
+Execute a aplicação. Uma resposta bem sucedida é devolvida no formato JSON. Também pode encontrar a resposta JSON no [GitHub.](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json)
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -94,7 +94,7 @@ Execute a aplicação. Uma resposta bem sucedida é devolvida em formato JSON. T
 > [Referência da API REST](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 
-Para ver como funciona a API de Reconhecimento de Tinta numa aplicação de tinta digital, veja as seguintes aplicações de amostra no GitHub:
+Para ver como funciona a API de Reconhecimento de Tinta numa aplicação digital de tinta, veja as seguintes aplicações de amostra no GitHub:
 * [C# e Plataforma Universal do Windows (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
 * [C# e Windows Presentation Foundation (WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
 * [Aplicação de browser Javascript](https://go.microsoft.com/fwlink/?linkid=2089908)       

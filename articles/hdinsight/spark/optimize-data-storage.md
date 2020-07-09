@@ -1,107 +1,107 @@
 ---
 title: Otimizar o armazenamento de dados para Apache Spark - Azure HDInsight
-description: Saiba como otimizar o armazenamento de dados para uso com a Apache Spark no Azure HDInsight.
+description: Aprenda a otimizar o armazenamento de dados para uso com Apache Spark em Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 5728a8e254074cd96ae1f13cb053220f347e3983
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 7162e2e8c42f3e83a47c46d739f93cfc4cfcaac6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83791044"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737636"
 ---
-# <a name="data-storage-optimization"></a>Otimização do armazenamento de dados
+# <a name="data-storage-optimization-for-apache-spark"></a>Otimização de armazenamento de dados para Apache Spark
 
-Este artigo discute estratégias para otimizar o armazenamento de dados para uma execução eficiente do trabalho da Apache Spark no Azure HDInsight.
+Este artigo discute estratégias para otimizar o armazenamento de dados para uma eficiente execução de emprego apache spark em Azure HDInsight.
 
 ## <a name="overview"></a>Descrição geral
 
 A faísca suporta muitos formatos, tais como csv, json, xml, parquet, orc e avro. A faísca pode ser estendida para suportar muitos mais formatos com fontes de dados externas - para mais informações, consulte [os pacotes Apache Spark](https://spark-packages.org).
 
-O melhor formato para o desempenho é o parquet com *compressão snappy*, que é o padrão em Spark 2.x. Parquet armazena dados em formato colunaar, e é altamente otimizado em Spark.
+O melhor formato para desempenho é o parquet com *compressão snappy,* que é o padrão em Spark 2.x. O Parquet armazena dados em formato colunar, e está altamente otimizado em Spark.
 
 ## <a name="choose-data-abstraction"></a>Escolha a abstração de dados
 
-As versões anteriores da Spark usam RDDs para dados abstratos, Spark 1.3 e 1.6 introduziram DataFrames e DataSets, respectivamente. Considere os seguintes méritos relativos:
+As versões Spark anteriores usam RDDs para dados abstratos, Spark 1.3 e 1.6 introduzidos DataFrames e DataSets, respectivamente. Considere os seguintes méritos relativos:
 
 * **DataFrames**
     * A melhor escolha na maioria das situações.
     * Fornece otimização de consulta através do Catalyst.
-    * Geração de códigos em palco inteiro.
+    * Geração de códigos em todo o estágio.
     * Acesso direto à memória.
     * Baixa recolha de lixo (GC) por cima.
-    * Não tão amigável para o desenvolvedor como DataSets, uma vez que não existem verificações de tempo de compilação ou programação de objetos de domínio.
+    * Não tão amigável como os DataSets, uma vez que não existem verificações de tempo de compilação ou programação de objetos de domínio.
 * **Conjuntos de Dados**
     * Bom em oleodutos ETL complexos onde o impacto de desempenho é aceitável.
-    * Não é bom em agregações onde o impacto do desempenho pode ser considerável.
+    * Não é bom em agregações onde o impacto no desempenho pode ser considerável.
     * Fornece otimização de consulta através do Catalyst.
-    * Amigável para o desenvolvedor, fornecendo programação de objetos de domínio e compilação de verificações de tempo.
-    * Adiciona a sobrecarga de serialização/desserialização.
-    * Altas despesas de GC.
-    * Quebra a geração de códigos em palco inteiro.
-* **RdDs**
+    * Amiga do programador, fornecendo programação de objetos de domínio e verificações de tempo de compilação.
+    * Adiciona serialização/deserialização por cima.
+    * Alta GC sobrecarga.
+    * Quebra a geração de códigos de todo o estágio.
+* **RDDs**
     * Não precisa de usar RDDs, a não ser que precise de construir um novo RDD personalizado.
-    * Sem otimização de consultas através do Catalyst.
-    * Nenhuma geração de códigos em estágio inteiro.
-    * Altas despesas de GC.
-    * Deve usar AFIs legado Spark 1.x.
+    * Sem otimização de consulta através do Catalyst.
+    * Nenhuma geração de código de todo o estágio.
+    * Alta GC sobrecarga.
+    * Deve utilizar as APIs do legado Spark 1.x.
 
-## <a name="select-default-storage"></a>Selecione armazenamento por defeito
+## <a name="select-default-storage"></a>Selecione o armazenamento predefinido
 
-Quando criar um novo cluster Spark, pode selecionar o Armazenamento de Blob Azure ou o Armazenamento do Lago De dados Azure como armazenamento padrão do seu cluster. Ambas as opções dão-lhe o benefício do armazenamento a longo prazo para clusters transitórios. Assim, os seus dados não são automaticamente apagados quando elimina o seu cluster. Pode recriar um cluster transitório e ainda aceder aos seus dados.
+Quando criar um novo cluster Spark, pode selecionar o Azure Blob Storage ou o Azure Data Lake Storage como o armazenamento padrão do seu cluster. Ambas as opções dão-lhe o benefício do armazenamento a longo prazo para clusters transitórios. Para que os seus dados não sejam automaticamente eliminados quando elimina o seu cluster. Pode recriar um cluster transitório e ainda aceder aos seus dados.
 
-| Store Type | Sistema de Ficheiros | Velocidade | Transitória | Casos de Utilização |
+| Store Type | Sistema de Ficheiros | Velocidade | Transitório | Casos de Utilização |
 | --- | --- | --- | --- | --- |
 | Armazenamento de Blobs do Azure | **wasb:**//url/ | **Standard** | Sim | Aglomerado transitório |
-| Armazenamento De Blob Azure (seguro) | **wasbs:**//url/ | **Standard** | Sim | Aglomerado transitório |
+| Armazenamento Azure Blob (seguro) | **wasbs:**//url/ | **Standard** | Sim | Aglomerado transitório |
 | Azure Data Lake Storage Gen2| **abfs:**//url/ | **Mais rápido** | Sim | Aglomerado transitório |
-| Armazenamento de lagos azure data gen 1| **adl:**//url/ | **Mais rápido** | Sim | Aglomerado transitório |
-| HDFS locais | **Hdfs:**//url/ | **Mais rápido** | Não | Cluster interativo 24/7 |
+| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Mais rápido** | Sim | Aglomerado transitório |
+| HDFs locais | **hdfs:**//url/ | **Mais rápido** | Não | Cluster interativo 24/7 |
 
-Para obter uma descrição completa das opções de armazenamento, consulte Compare opções de [armazenamento para utilização com clusters Azure HDInsight](../hdinsight-hadoop-compare-storage-options.md).
+Para obter uma descrição completa das opções de armazenamento, consulte opções de [armazenamento compare para utilização com clusters Azure HDInsight](../hdinsight-hadoop-compare-storage-options.md).
 
-## <a name="use-the-cache"></a>Use a cache
+## <a name="use-the-cache"></a>Utilizar a cache
 
-A faísca fornece os seus próprios mecanismos nativos de cache, que podem ser usados através de diferentes métodos, tais `.persist()` `.cache()` como, e `CACHE TABLE` . Este cache nativo é eficaz com pequenos conjuntos de dados e em oleodutos ETL onde você precisa cache resultados intermédios. No entanto, o caching nativo spark atualmente não funciona bem com a divisão, uma vez que uma mesa em cache não mantém os dados de divisão. Uma técnica de cache mais genérica e fiável é o cache da camada de *armazenamento.*
+A faísca fornece os seus próprios mecanismos nativos de caching, que podem ser usados através de diferentes métodos, tais `.persist()` `.cache()` como, e `CACHE TABLE` . Este cache nativo é eficaz com pequenos conjuntos de dados e em oleodutos ETL onde você precisa cache resultados intermédios. No entanto, o caching nativo de Spark atualmente não funciona bem com a partição, uma vez que uma mesa em cache não mantém os dados de partição. Uma técnica de caching mais genérica e fiável é *o caching da camada de armazenamento*.
 
-* Caching de faísca nativa (não recomendado)
+* Caching de faíscas nativas (não recomendado)
     * Bom para pequenos conjuntos de dados.
-    * Não funciona com a partilha, o que pode mudar nos futuros lançamentos da Spark.
+    * Não funciona com partição, o que pode mudar em futuros lançamentos de Spark.
 
-* Cacheching nível de armazenamento (recomendado)
-    * Pode ser implementado no HDInsight utilizando a função [IO Cache.](apache-spark-improve-performance-iocache.md)
-    * Usa na memória e caching SSD.
+* Caching nível de armazenamento (recomendado)
+    * Pode ser implementado em HDInsight utilizando a função [Cache IO.](apache-spark-improve-performance-iocache.md)
+    * Usa a memória e o caching SSD.
 
 * HDFS local (recomendado)
     * `hdfs://mycluster`caminho.
-    * Usa o cache de SSD.
-    * Os dados em cache perder-se-ão quando eliminar o cluster, exigindo uma reconstrução em cache.
+    * Usa caching SSD.
+    * Os dados em cache serão perdidos quando eliminar o cluster, exigindo uma reconstrução de cache.
 
 ## <a name="optimize-data-serialization"></a>Otimizar a serialização de dados
 
 Os trabalhos de faísca são distribuídos, por isso a serialização adequada dos dados é importante para o melhor desempenho.  Existem duas opções de serialização para a Spark:
 
 * A serialização de Java é o padrão.
-* `Kryo`serialização é um formato mais recente e pode resultar em serialização mais rápida e compacta do que Java.  `Kryo`requer que registe as aulas no seu programa, e ainda não suporta todos os tipos serlizáveis.
+* `Kryo`a serialização é um formato mais recente e pode resultar numa serialização mais rápida e compacta do que java.  `Kryo`requer que registe as aulas no seu programa, e ainda não suporta todos os tipos serializáveis.
 
-## <a name="use-bucketing"></a>Use baldes
+## <a name="use-bucketing"></a>Utilizar os registos
 
-Baldeé semelhante à divisão de dados. Mas cada balde pode conter um conjunto de valores de coluna em vez de apenas um. Este método funciona bem para a divisão em grandes números (nos milhões ou mais) de valores, tais como identificadores de produto. Um balde é determinado por hashing a chave do balde da fila. As mesas em balde oferecem otimizações únicas porque armazenam metadados sobre como foram baldeados e classificados.
+O balde é semelhante à partição de dados. Mas cada balde pode segurar um conjunto de valores de coluna em vez de apenas um. Este método funciona bem para a divisão em grandes (milhões ou mais) números de valores, tais como identificadores de produtos. Um balde é determinado por hashing a chave do balde da linha. As mesas baldeadas oferecem otimizações únicas porque armazenam metadados sobre como foram baldes e classificados.
 
 Algumas características avançadas de balde são:
 
-* Otimização de consulta com base na meta-informação de balde.
+* Otimização de consultas com base em meta-informação de balde.
 * Agregações otimizadas.
 * Juntas otimizadas.
 
 Pode usar divisórias e baldes ao mesmo tempo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Otimizar o processamento de dados para a Apache Spark](optimize-cluster-configuration.md)
+* [Otimizar o processamento de dados para Apache Spark](optimize-cluster-configuration.md)
 * [Otimizar o uso da memória para Apache Spark](optimize-memory-usage.md)
 * [Otimizar a configuração do cluster para Apache Spark](optimize-cluster-configuration.md)

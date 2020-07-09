@@ -1,25 +1,24 @@
 ---
 title: Conceitos - Armazenamento
-description: Conheça as principais capacidades de armazenamento na Azure VMware Solution (AVS) Preview nuvens privadas.
+description: Saiba mais sobre as principais capacidades de armazenamento em Azure VMware Solution (AVS) Pré-visualizar nuvens privadas.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 7e58a829a40d590b7936a58ccdc866211a4f5cb4
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
-ms.translationtype: MT
+ms.openlocfilehash: 7f92e8f961422f8354e55192ebdddd077d61acd1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740359"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84604121"
 ---
-# <a name="azure-vmware-solution-avs-preview-storage-concepts"></a>Conceitos de armazenamento de solução Azure VMware (AVS)
+# <a name="azure-vmware-solution-avs-preview-storage-concepts"></a>Azure VMware Solution (AVS) Pré-visualização de conceitos de armazenamento
 
-As nuvens privadas AVS fornecem armazenamento nativo, em todo o cluster com VMware vSAN. Todo o armazenamento local de cada anfitrião num cluster é usado numa loja de dados vSAN, e a encriptação de dados em repouso está disponível e ativada por padrão. Pode utilizar os recursos de Armazenamento Azure para alargar as capacidades de armazenamento das suas nuvens privadas.
+As nuvens privadas AVS fornecem armazenamento nativo, em todo o cluster, com VMware vSAN. Todo o armazenamento local de cada hospedeiro num cluster é usado numa loja de dados vSAN, e a encriptação de dados em repouso está disponível e ativada por padrão. Você pode usar recursos de armazenamento Azure para estender as capacidades de armazenamento das suas nuvens privadas.
 
-## <a name="vsan-clusters"></a>aglomerados vSAN
+## <a name="vsan-clusters"></a>vSAN clusters
 
-O armazenamento local em cada anfitrião do cluster é usado como parte de uma loja de dados vSAN. Todos os grupos de discos utilizam um nível de cache NVMe de 1.6 TB com a capacidade bruta, por hospedeiro, baseada em SSD de 15,4 TB. O tamanho do nível de capacidade bruta de um cluster é a capacidade por hospedeiro vezes o número de hospedeiros. Por exemplo, um cluster de quatro hospedeiros fornecerá capacidade bruta de 61,6 TB no nível de capacidade vSAN.
+O armazenamento local em cada hospedeiro de cluster é usado como parte de uma loja de dados vSAN. Todos os grupos de discos utilizam um nível de cache NVMe de 1.6 TB com a capacidade bruta, por hospedeiro, baseada em SSD de 15,4 TB. O tamanho do nível de capacidade bruta de um cluster é a capacidade por hospedeiro vezes o número de hospedeiros. Por exemplo, um cluster de quatro hospedeiros fornecerá capacidade bruta de 61,6-TB no nível de capacidade vSAN.
 
-O armazenamento local em hospedeiros de cluster é utilizado na loja de dados vSAN em todo o cluster. Todas as lojas de dados são criadas como parte de uma implantação privada na nuvem e estão disponíveis para uso imediatamente. O utilizador da cloudadmin e todos os utilizadores do grupo CloudAdmin podem gerir as lojas de dados com estes privilégios vSAN:
-- Datastore.AllocateSpace
+O armazenamento local em hospedeiros de cluster é usado na loja de dados vSAN em todo o cluster. Todas as datas são criadas como parte de uma implementação de nuvem privada e estão disponíveis para uso imediato. O utilizador cloudadmin e todos os utilizadores do grupo CloudAdmin podem gerir as datas com estes privilégios vSAN:
+- Datastore.AlocarSpace
 - Datastore.Browse
 - Datastore.Config
 - Datastore.DeleteFile
@@ -28,22 +27,22 @@ O armazenamento local em hospedeiros de cluster é utilizado na loja de dados vS
 
 ## <a name="data-at-rest-encryption"></a>Encriptação de dados em repouso
 
-as lojas de dados vSAN utilizam encriptação de dados em repouso por padrão. A solução de encriptação é baseada em KMS e suporta operações vCenter para gestão chave. As chaves são armazenadas encriptadas, embrulhadas por uma chave master Azure Key Vault baseada em HSM. Quando um hospedeiro é removido de um cluster por qualquer motivo, os dados sobre SSDs são imediatamente invalidados.
+vSAN datastores usam encriptação de dados em repouso por padrão. A solução de encriptação é baseada em KMS e suporta operações vCenter para gestão de chaves. As chaves são armazenadas encriptadas, embrulhadas por uma chave master Azure Key Vault baseada em HSM. Quando um hospedeiro é removido de um cluster por qualquer motivo, os dados sobre SSDs são invalidados imediatamente.
 
 ## <a name="scaling"></a>Dimensionamento
 
-A capacidade de armazenamento de clusters nativos é dimensionada adicionando hospedeiros a um cluster. Para os clusters que utilizam os hospedeiros HE, a capacidade bruta de aglomerado é aumentada em 15,4 TB a cada hospedeiro adicional. Os aglomerados que são construídos com anfitriões GP têm a sua capacidade bruta aumentada em 7,7 TB com cada hospedeiro adicional. Em ambos os tipos de agrupamentos, os anfitriões demoram cerca de 10 minutos a ser adicionados a um aglomerado. Consulte o [tutorial de nuvem privada de escala][tutorial-escala-nuvem privada] para obter instruções sobre clusters de escala.
+A capacidade de armazenamento de clusters nativo é dimensionada adicionando hospedeiros a um cluster. Para os agrupamentos que utilizam hospedeiros HE, a capacidade bruta de cluster é aumentada em 15,4 TB com cada hospedeiro adicional. Os clusters que são construídos com anfitriões GP têm a sua capacidade bruta aumentada em 7,7 TB com cada hospedeiro adicional. Em ambos os tipos de aglomerados, os anfitriões demoram cerca de 10 minutos a serem adicionados a um cluster. Consulte o [tutorial de nuvem privada][tutorial-scale-private-cloud] de escala para obter instruções sobre aglomerados de escala.
 
-## <a name="azure-storage-integration"></a>Integração de armazenamento azure
+## <a name="azure-storage-integration"></a>Integração de armazenamento azul
 
-Pode utilizar serviços de armazenamento Azure em cargas de trabalho em funcionamento na sua nuvem privada. Os serviços de armazenamento Azure incluem Contas de Armazenamento, Armazenamento de Mesa e Armazenamento blob. A ligação das cargas de trabalho aos serviços de armazenamento azure não atravessa a internet. Esta conectividade proporciona segurança adicional e permite-lhe utilizar serviços de armazenamento Azure baseados em SLA nas suas cargas de trabalho privadas em nuvem.
+Você pode usar serviços de armazenamento Azure em cargas de trabalho em execução na sua nuvem privada. Os serviços de armazenamento Azure incluem Contas de Armazenamento, Armazenamento de Mesa e Armazenamento de Blob. A ligação de cargas de trabalho aos serviços de armazenamento Azure não atravessa a internet. Esta conectividade proporciona segurança adicional e permite-lhe utilizar serviços de armazenamento Azure baseados em SLA nas suas cargas de trabalho em nuvem privada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-O próximo passo é aprender sobre [conceitos privados][concepts-identity]de identidade na nuvem.
+O próximo passo é aprender sobre [conceitos privados de identidade em nuvem.][concepts-identity]
 
 <!-- LINKS - external-->
 
 <!-- LINKS - internal -->
-[tutorials-scale-private-cloud]: ./tutorials-scale-private-cloud.md
+[tutorial-scale-private-cloud]: ./tutorial-scale-private-cloud.md
 [concepts-identity]: ./concepts-identity.md

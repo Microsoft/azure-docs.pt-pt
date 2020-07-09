@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Sync casos de serviço / Microsoft Docs'
-description: Esta página documenta considerações especiais para instâncias da AD Azure.
+title: 'Azure AD Connect: Sync service instances / Microsoft Docs'
+description: Esta página documenta considerações especiais para instâncias Azure AD.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,14 +17,14 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c342eac5460d8d52422b0497b1283f367660eb3c
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "66298818"
 ---
-# <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Considerações especiais por exemplo
-O Azure AD Connect é mais comumente usado com a instância mundial de Azure AD e Office 365. Mas há também outros casos e estes têm requisitos diferentes para urls e outras considerações especiais.
+# <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Considerações especiais para casos
+Azure AD Connect é mais comumente usado com o exemplo mundial de Azure AD e Office 365. Mas há também outros casos e estes têm requisitos diferentes para URLs e outras considerações especiais.
 
 ## <a name="microsoft-cloud-germany"></a>Microsoft Cloud Alemanha
 A [Microsoft Cloud Germany](https://www.microsoft.de/cloud-deutschland) é uma nuvem soberana operada por um administrador de dados alemão.
@@ -35,37 +35,37 @@ A [Microsoft Cloud Germany](https://www.microsoft.de/cloud-deutschland) é uma n
 | \*.windows.net |
 | +Listas de Revogação de Certificados |
 
-Quando você inscreveu o seu inquilino Azure AD, você deve usar uma conta no domínio onmicrosoft.de.
+Ao entrar no seu inquilino AZure AD, deve utilizar uma conta no domínio onmicrosoft.de.
 
-Funcionalidades atualmente não presentes na Microsoft Cloud Alemanha:
+Funcionalidades atualmente não presentes na Microsoft Cloud Germany:
 
-* **A reescrita de palavra-passe** está disponível para pré-visualização com a versão 1.1.570.0 do Azure AD Connect e depois.
+* **A gravação da palavra-passe** está disponível para pré-visualização com a versão 1.1.570.0 e depois do Azure AD Connect.
 * Outros serviços Azure AD Premium não estão disponíveis.
 
-## <a name="microsoft-azure-government"></a>Governo Microsoft Azure
+## <a name="microsoft-azure-government"></a>Governo microsoft Azure
 A [nuvem do Governo do Microsoft Azure](https://azure.microsoft.com/features/gov/) é uma nuvem para o governo dos EUA.
 
-Esta nuvem foi suportada por lançamentos anteriores do DirSync. A partir da construção 1.1.180 do Azure AD Connect, a próxima geração da nuvem é suportada. Esta geração está a usar pontos finais baseados apenas nos EUA e tem uma lista diferente de URLs para abrir no seu servidor proxy.
+Esta nuvem foi apoiada por lançamentos anteriores de DirSync. A partir da construção 1.1.180 do Azure AD Connect, a próxima geração da nuvem é suportada. Esta geração está a usar pontos finais baseados apenas nos EUA e tem uma lista diferente de URLs para abrir no seu servidor proxy.
 
 | URLs para abrir no servidor proxy |
 | --- |
 | \*.microsoftonline.com |
 | \*.microsoftonline.us |
-| \*.windows.net (necessário para deteção automática de inquilinos do Governo Azure) |
+| \*.windows.net (Requerida para deteção automática de inquilinos do Governo Azure) |
 | \*.gov.us.microsoftonline.com |
 | +Listas de Revogação de Certificados |
 
 > [!NOTE]
-> A partir da versão 1.1.647.0 do Azure AD Connect, a definição do valor AzureInstance no registo já não é exigida desde que *.windows.net esteja aberta no seu servidor de procuração. No entanto, para clientes que não permitem a conectividade da Internet a partir dos seus servidores Azure AD Connect, pode ser utilizada a seguinte configuração manual.
+> A partir da versão 1.1.647.0 do Azure AD Connect, a definição do valor AzureInstance no registo já não é necessária desde que a *.windows.net esteja aberta no servidor(s) do seu proxy. No entanto, para clientes que não permitem a conectividade da Internet a partir dos seus servidores Azure AD Connect, pode ser utilizada a seguinte configuração manual.
 
-### <a name="manual-configuration"></a>Configuração Manual
+### <a name="manual-configuration"></a>Configuração manual
 
-São utilizados os seguintes passos de configuração manual para garantir que o Azure AD Connect utiliza pontos finais de sincronização do Governo Azure.
+Os seguintes passos de configuração manual são utilizados para garantir que o Azure AD Connect utiliza pontos finais de sincronização do Governo Azure.
 
 1. Inicie a instalação Azure AD Connect.
-2. Quando vir a primeira página onde deve aceitar o EULA, não continue a deixar o assistente de instalação em funcionamento.
-3. Inicie a regedite e `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` altere `4`a chave de registo para o valor .
-4. Volte ao assistente de instalação Azure AD Connect, aceite o EULA e continue. Durante a instalação, certifique-se de que utiliza o caminho de instalação de **configuração personalizado** (e não a instalação Express), em seguida, continue a instalação como de costume.
+2. Quando vir a primeira página onde deve aceitar o EULA, não continue, mas deixe o assistente de instalação em funcionamento.
+3. Inicie o regedit e altere a chave de registo `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` para o valor `4` .
+4. Volte para o assistente de instalação Azure AD Connect, aceite o EULA e continue. Durante a instalação, certifique-se de que utiliza o caminho de instalação de **configuração personalizada** (e não a instalação Do Expresso), e continue a instalação como de costume.
 
 ## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

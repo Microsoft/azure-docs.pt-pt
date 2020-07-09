@@ -1,57 +1,57 @@
 ---
-title: Complemento excel para serviços web
+title: Excel add-in para serviços web
 titleSuffix: ML Studio (classic) - Azure
-description: Como utilizar os serviços Web de Aprendizagem automática Azure diretamente no Excel sem escrever qualquer código.
+description: Como utilizar os serviços web de aprendizagem automática Azure diretamente no Excel sem escrever qualquer código.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: ae51ed2ce39705e66e82ee28442374e8bcd0f901
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 8565e3c62ea1b74879f2e127abed772576563886
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118454"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211328"
 ---
-# <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Excel Add-in para serviços web Azure Machine Learning Studio (clássico)
+# <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Excel Add-in para Azure Machine Learning Studio (clássico) serviços web
 
-O Excel facilita a chamada de serviços web diretamente sem a necessidade de escrever qualquer código.
+O Excel facilita a chamada diretamente dos serviços web sem a necessidade de escrever qualquer código.
 
-## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Passos para usar um serviço web existente no Livro
+## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Passos para utilizar um serviço web existente no Livro
 
-1. Abra o ficheiro Excel da [amostra,](https://aka.ms/amlexcel-sample-2)que contém o add-in Excel e dados sobre passageiros no Titanic. 
+1. Abra o ficheiro Excel da [amostra,](https://aka.ms/amlexcel-sample-2)que contém o add-in excel e dados sobre passageiros no Titanic. 
  
     > [!NOTE]
-    > Verá a lista dos Serviços Web relacionadas com o ficheiro e na parte inferior uma caixa de verificação para "Auto-predict". Se permitir prever automaticamente as previsões de **todos os** seus serviços serão atualizadas sempre que houver uma alteração nas inputs. Se não for verificado, terá de clicar em "Prever Tudo" para ser atualizado. Para permitir a previsão automática a nível de serviço, vá para o passo 6.
+    > Verá a lista dos Serviços Web relacionados com o ficheiro e na parte inferior uma caixa de verificação para "Auto-previsão". Se ativar automaticamente as previsões de **todos os** seus serviços serão atualizadas sempre que houver uma alteração nas entradas. Se não for verificado, terá de clicar em "Predict All" para atualização. Para permitir a previsão automática a um nível de serviço, vá para o passo 6.
 
-2. Escolha o serviço web clicando nele - "Titanic Survivor Predictor (Excel Add-in Sample) [Pontuação]" neste exemplo.
+2. Escolha o serviço web clicando nele - "Titanic Survivor Predictor (Excel Add-in Sample) [Score]" neste exemplo.
    
     ![Selecione serviço Web](./media/excel-add-in-for-web-services/image1.png)
-3. Isto leva-te à secção **Previsão.**  Este livro já contém dados de amostra, mas para um livro em branco pode selecionar uma célula no Excel e clicar **em utilizar dados da amostra**.
-4. Selecione os dados com cabeçalhos e clique no ícone da gama de dados de entrada.  Certifique-se de que a caixa "Os meus dados têm cabeçalhos" é verificada.
-5. Em **'Saída',** introduza o número de telemóvel onde pretende que a saída esteja, por exemplo "H1" aqui.
-6. Clique em **Prever**. Se selecionar a caixa de verificação "auto-prever" qualquer alteração nas áreas selecionadas (as especificadas como entrada) desencadeará um pedido e uma atualização das células de saída sem a necessidade de carregar no botão de previsão.
+3. Isto leva-o à secção **de Previsão.**  Este livro já contém dados de amostra, mas para um livro em branco pode selecionar uma célula no Excel e clicar em **Utilizar dados de amostras.**
+4. Selecione os dados com cabeçalhos e clique no ícone de gama de dados de entrada.  Certifique-se de que a caixa "Os meus dados têm cabeçalhos" está verificada.
+5. Em **Saída**, introduza o número de célula onde deseja que a saída esteja, por exemplo , "H1" aqui.
+6. Clique **em Prever**. Se selecionar a caixa de verificação "auto-prever" qualquer alteração nas áreas selecionadas (as especificadas como entrada) irá desencadear um pedido e uma atualização das células de saída sem a necessidade de premir o botão de previsão.
    
-    ![Prever a secção](./media/excel-add-in-for-web-services/image1.png)
+    ![Previsão de secção](./media/excel-add-in-for-web-services/image1.png)
 
-Implemente um serviço web ou utilize um serviço Web existente. Para obter mais informações sobre a implementação de um serviço web, consulte [Tutorial 3: Implementar modelo](tutorial-part3-credit-risk-deploy.md)de risco de crédito .
+Implemente um serviço web ou utilize um serviço Web existente. Para obter mais informações sobre a implementação de um serviço web, consulte [Tutorial 3: Implementar modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md).
 
-Obtenha a chave API para o seu serviço web. Onde realiza esta ação depende se publicou um serviço web Classic Machine Learning de um serviço web New Machine Learning.
+Obtenha a chave API para o seu serviço web. Onde executa esta ação depende se publicou um serviço web Classic Machine Learning de um serviço web New Machine Learning.
 
 **Use um serviço web clássico** 
 
 1. No Machine Learning Studio (clássico), clique na secção **WEB SERVICES** no painel esquerdo e, em seguida, selecione o serviço web.
    
     ![Estúdio selecione um serviço Web](./media/excel-add-in-for-web-services/image4.png)
-2. Copie a tecla API para o serviço web.
+2. Copie a chave API para o serviço web.
    
     ![Chave API do estúdio](./media/excel-add-in-for-web-services/image5.png)
 3. No **separador DASHBOARD** para o serviço web, clique no link **REQUEST/RESPONSE.**
-4. Procure a secção **Request URI.**  Copie e guarde o URL.
+4. Procure a secção **URI do Pedido.**  Copie e guarde a URL.
 
 > [!NOTE]
 > Agora é possível assinar no portal [Azure Machine Learning Web Services](https://services.azureml.net) para obter a chave API para um serviço web Classic Machine Learning.
@@ -60,27 +60,27 @@ Obtenha a chave API para o seu serviço web. Onde realiza esta ação depende se
 
 **Use um novo serviço web**
 
-1. No portal [Azure Machine Learning Web Services,](https://services.azureml.net) clique em **Web Services**e, em seguida, selecione o seu serviço web. 
+1. No portal [Azure Machine Learning Web Services,](https://services.azureml.net) clique em **Serviços Web**e, em seguida, selecione o seu serviço web. 
 2. Clique **em Consumir**.
-3. Procure a secção de informação de **consumo básico.** Copie e guarde a **Chave Primária** e o URL de Resposta **a Pedido.**
+3. Procure a secção **de informações básicas sobre consumo.** Copie e guarde a **Chave Primária** e o URL de Resposta **a Pedidos.**
 
 ## <a name="steps-to-add-a-new-web-service"></a>Passos para adicionar um novo serviço web
 
-1. Implemente um serviço web ou utilize um serviço Web existente. Para obter mais informações sobre a implementação de um serviço web, consulte [Tutorial 3: Implementar modelo](tutorial-part3-credit-risk-deploy.md)de risco de crédito .
+1. Implemente um serviço web ou utilize um serviço Web existente. Para obter mais informações sobre a implementação de um serviço web, consulte [Tutorial 3: Implementar modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md).
 2. Clique **em Consumir**.
-3. Procure a secção de informação de **consumo básico.** Copie e guarde a **Chave Primária** e o URL de Resposta **a Pedido.**
-4. No Excel, vá à secção **de Serviços Web** (se estiver na secção **Previsão,** clique na seta traseira para ir à lista de serviços web).
+3. Procure a secção **de informações básicas sobre consumo.** Copie e guarde a **Chave Primária** e o URL de Resposta **a Pedidos.**
+4. No Excel, aceda à secção **Serviços Web** (se estiver na secção **'Prever',** clique na seta traseira para ir à lista de serviços web).
    
-    ![Ir à seleção de serviços Web](./media/excel-add-in-for-web-services/image3.png)
-5. Clique em **Adicionar Serviço Web**.
-6. Colar o URL no URL de caixa de texto do Excel com o rótulo de **URL**.
-7. Colar a tecla API/Primary na **tecla API**da caixa de texto marcada .
+    ![Ir para a seleção de serviços Web](./media/excel-add-in-for-web-services/image3.png)
+5. Clique **em Adicionar Serviço Web**.
+6. Cole o URL na caixa de texto do Excel com a etiqueta **URL**.
+7. Cole a chave API/Primária na chave **API**com a etiqueta de texto .
 8. Clique em **Adicionar**.
    
-    ![URL e chave API para um serviço Web clássico.](./media/excel-add-in-for-web-services/image6.png)
-9. Para utilizar o serviço web, siga as instruções anteriores: "Passos para utilizar um serviço web existente."
+    ![Chave URL e API para um serviço Web clássico.](./media/excel-add-in-for-web-services/image6.png)
+9. Para utilizar o serviço web, siga as instruções anteriores, "Passos para utilizar um serviço web existente".
 
-## <a name="sharing-your-workbook"></a>Partilhar o Seu Livro
-Se guardar o seu livro de trabalho, então a chave API/Primary para os serviços web que adicionou também é guardada. Isso significa que só deves partilhar o livro com indivíduos em quem confias.
+## <a name="sharing-your-workbook"></a>Partilhar O Seu Livro
+Se guardar o seu livro, a chave API/Primária para os serviços web que adicionou também é guardada. Isso significa que só deves partilhar o livro com indivíduos em quem confias.
 
-Faça quaisquer perguntas na secção de comentários seguintes ou no nosso [fórum](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
+Faça qualquer pergunta na secção de comentários a seguir ou no nosso [fórum.](https://docs.microsoft.com/answers/topics/azure-machine-learning.html)

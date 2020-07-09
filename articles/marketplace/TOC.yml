@@ -73,223 +73,6 @@
               href: ./marketplace-faq-publisher-guide.md
             - name: Disponibilidade geográfica e moedas
               href: ./marketplace-geo-availability-currencies.md
-- name: Portal de Parceiros da Cloud
-  href: ./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md
-  items:
-    - name: Apresentação do portal
-      href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
-      items:
-        - name: Navegação no Portal
-          href: ./cloud-partner-portal/portal-tour/cpp-portal-navigation.md
-        - name: Novo menu de oferta
-          href: ./cloud-partner-portal/portal-tour/cpp-new-offer-menu.md
-        - name: Página com todas as ofertas
-          href: ./cloud-partner-portal/portal-tour/cpp-all-offers-page.md
-        - name: Página de aprovações
-          href: ./cloud-partner-portal/portal-tour/cpp-approvals-page.md
-        - name: Página com todos os editores
-          href: ./cloud-partner-portal/portal-tour/cpp-all-publishers-page.md
-        - name: Página de utilizadores
-          href: ./cloud-partner-portal/portal-tour/cpp-users-page.md
-        - name: Página de histórico de auditoria
-          href: ./cloud-partner-portal/portal-tour/cpp-history-page.md
-        - name: Página de informações
-          href: ./cloud-partner-portal/portal-tour/cpp-insights-page.md
-    - name: Gestão do portal
-      href: ./cloud-partner-portal/portal-manage/cpp-portal-management.md
-      items:
-        - name: Pré-requisitos para gerir contas
-          href: ./cloud-partner-portal/portal-manage/cpp-manage-prerequisites.md
-        - name: Gerir perfis de publicador
-          href: ./cloud-partner-portal/portal-manage/cpp-manage-publisher-profile.md
-        - name: Gerir utilizadores
-          href: ./cloud-partner-portal/portal-manage/cpp-manage-users.md
-    - name: Gestão de negócio
-      items:
-        - name: Orientação de SEO
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md
-        - name: Conformidade com o RGPD
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md
-        - name: SKUs privados
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md
-        - name: Gerir oportunidades potenciais
-          items:
-            - name: Configurar oportunidades potenciais
-              href: ./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md
-            - name: Tabela do Azure
-              href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md
-            - name: Dynamics
-              href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md
-            - name: Ponto Final de HTTPS
-              href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md
-            - name: Marketo
-              href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md
-            - name: Salesforce
-              href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md
-        - name: Informações do Vendedor
-          items:
-            - name: Introdução
-              href: ./cloud-partner-portal-orig/si-getting-started.md
-            - name: Análise Web
-              href: ./cloud-partner-portal-orig/web-analytics.md
-            - name: Definições
-              href: ./cloud-partner-portal-orig/si-insights-definitions-v4.md
-            - name: FAQ de Informações
-              href: ./cloud-partner-portal-orig/si-faqs.md
-    - name: Ofertas do Marketplace
-      href: ./cloud-partner-portal/cpp-marketplace-offers.md
-      items:
-        - name: Gerir ofertas
-          href: ./cloud-partner-portal/manage-offers/cpp-manage-offers.md
-          items:
-            - name: Criar oferta
-              href: ./cloud-partner-portal/manage-offers/cpp-create-offer.md
-            - name: Publicar oferta
-              href: ./cloud-partner-portal/manage-offers/cpp-publish-offer.md
-            - name: Ver estado da oferta
-              href: ./cloud-partner-portal/manage-offers/cpp-view-status-offer.md
-            - name: Atualizar a oferta
-              href: ./cloud-partner-portal/manage-offers/cpp-update-offer.md
-            - name: Eliminar oferta
-              href: ./cloud-partner-portal/manage-offers/cpp-delete-offer.md
-        - name: Versão de Teste
-          items:
-            - name: O que é a Versão de Teste?
-              href: ./cloud-partner-portal/test-drive/what-is-test-drive.md
-            - name: Versão de Teste do Azure Resource Manager
-              href: ./cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md
-            - name: Versão de Teste Alojada
-              href: ./cloud-partner-portal/test-drive/hosted-test-drive.md
-            - name: Versão de Teste de Aplicação Lógica
-              href: ./cloud-partner-portal/test-drive/logic-app-test-drive.md
-            - name: Transformar exemplos para a Versão de Teste
-              href: ./cloud-partner-portal/test-drive/transforming-examples-for-test-drive.md
-            - name: Marketing e melhores práticas
-              href: ./cloud-partner-portal/test-drive/marketing-and-best-practices.md
-        - name: Oferta da aplicação do Azure
-          href: ./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md
-          items:
-            - name: Pré-requisitos
-              href: ./cloud-partner-portal/azure-applications/cpp-prerequisites.md
-            - name: Criar oferta de aplicação do Azure
-              href: ./cloud-partner-portal/azure-applications/cpp-create-offer.md
-              items:
-                - name: Separador Definições de Oferta
-                  href: ./cloud-partner-portal/azure-applications/cpp-offer-settings-tab.md
-                - name: Separador de SKUs
-                  href: ./cloud-partner-portal/azure-applications/cpp-skus-tab.md
-                - name: Separador Versão de Teste
-                  href: ./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md
-                - name: Separador Marketplace
-                  href: ./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md
-                - name: Separador Suporte
-                  href: ./cloud-partner-portal/azure-applications/cpp-support-tab.md
-            - name: Criar recursos técnicos
-              href: ./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md
-            - name: Publicar oferta de aplicação do Azure
-              href: ./cloud-partner-portal/azure-applications/cpp-publish-offer.md
-            - name: Processar comentários de crítica
-              href: ./cloud-partner-portal/azure-applications/cpp-handling-review-feedback.md
-            - name: Atualizar oferta existente
-              href: ./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md
-        - name: Serviços de consultadoria
-          href: ./cloud-partner-portal/consulting-services/consulting-services-offer.md
-        - name: Oferta de contentores
-          href: ./cloud-partner-portal/containers/cpp-containers-offer.md
-        - name: Oferta do Dynamics 365 for Business Central
-          href: ./cloud-partner-portal-orig/cpp-business-central-offer.md
-          items:
-            - name: Descrição geral da publicação
-              href: ./cloud-partner-portal-orig/d365-finance-overview-publish-your-app.md
-            - name: Criar nova oferta
-              href: ./cloud-partner-portal-orig/d365-finance-create-new-offer.md
-            - name: Definições da oferta
-              href: ./cloud-partner-portal-orig/d365-finance-create-offer-settings.md
-            - name: Detalhes técnicos
-              href: ./cloud-partner-portal-orig/d365-finance-create-offer-technical-details.md
-            - name: Detalhes da loja
-              href: ./cloud-partner-portal-orig/d365-finance-create-storefront-details.md
-            - name: Processo de publicação
-              href: ./cloud-partner-portal-orig/d365-finance-app-publishing-process.md
-        - name: Oferta do Dynamics 365 for Customer Engagement
-          href: ./cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer.md
-          items:
-            - name: Pré-requisitos
-              href: ./cloud-partner-portal/dyn365ce/cpp-prerequisites.md
-            - name: Criar oferta de Compromisso com o Cliente
-              href: ./cloud-partner-portal/dyn365ce/cpp-create-offer.md
-              items:
-                - name: Separador Definições de Oferta
-                  href: ./cloud-partner-portal/dyn365ce/cpp-offer-settings-tab.md
-                - name: Separador Informações Técnicas
-                  href: ./cloud-partner-portal/dyn365ce/cpp-technical-info-tab.md
-                - name: Separador Versão de Teste
-                  href: ./cloud-partner-portal/dyn365ce/cpp-testdrive-tab.md
-                - name: Separador de detalhes da vitrine
-                  href: ./cloud-partner-portal/dyn365ce/cpp-storefront-details-tab.md
-                - name: Separador Contactos
-                  href: ./cloud-partner-portal/dyn365ce/cpp-contacts-tab.md
-            - name: Criar recursos técnicos de Envolvimento com o Cliente
-              href: ./cloud-partner-portal/dyn365ce/cpp-create-technical-assets.md
-            - name: Publicar oferta de Envolvimento com o Cliente
-              href: ./cloud-partner-portal/dyn365ce/cpp-publish-offer.md
-        - name: Oferta do Dynamics 365 for Operations
-          href: ./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md
-          items:
-            - name: Pré-requisitos
-              href: ./cloud-partner-portal-orig/pre-requisites.md
-            - name: Como publicar
-              href: ./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md
-            - name: Subscrição LCS
-              href: ./cloud-partner-portal-orig/lcs-subscription.md
-            - name: Atualização do código
-              href: ./cloud-partner-portal-orig/code-upgrade.md
-            - name: Entidades de dados
-              href: ./cloud-partner-portal-orig/data-entities.md
-            - name: BPM e metodologias
-              href: ./cloud-partner-portal-orig/bpm-and-methodologies.md
-            - name: Wiki de ajuda
-              href: ./cloud-partner-portal-orig/help-wiki.md
-        - name: Oferta do módulo do IoT Edge
-          href: ./cloud-partner-portal/iot-edge-module/iot-edge-module-offer.md
-        - name: Oferta da aplicação do Power BI
-          href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
-        - name: Oferta da aplicação SaaS
-          href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
-        - name: Oferta de máquina virtual
-          href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
-    - name: Referência da API
-      items:
-        - name: Descrição geral
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
-        - name: Pré-requisitos
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
-        - name: Considerações
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md
-        - name: Controlo de simultaneidade
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-concurrency-control.md
-        - name: Obter ofertas
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md
-        - name: Obter oferta específica
-          href: ./cloud-partner-portal-orig//cloud-partner-portal-api-retrieve-specific-offer.md
-        - name: Adicionar ou modificar uma oferta
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md
-        - name: Obter estado da oferta
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offer-status.md
-        - name: Publicar uma oferta
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-publish-offer.md
-        - name: Obter operações
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-operations.md
-        - name: Cancelar operações
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-cancel-operations.md
-        - name: Entrar em direto
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md
-        - name: Preços das ofertas de máquina virtual
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md
-        - name: Resolver erros de autenticação
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
-    - name: Obter suporte
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
 - name: Marketplace comercial no Partner Center
   items:
     - name: Descrição geral do marketplace comercial
@@ -330,6 +113,8 @@
               href: ./partner-center-portal/azure-vm-create-offer.md
             - name: Criar um recurso técnico de VM do Azure
               items:
+                - name: Certificação de máquinas virtuais - problemas e soluções
+                  href: ./partner-center-portal/vm-certification-issues-solutions.md
                 - name: Criar um recurso técnico de VM do Azure
                   href: ./partner-center-portal/create-azure-vm-technical-asset.md
                 - name: FAQ dos recursos técnicos de VM do Azure
@@ -378,8 +163,6 @@
               href: ./partner-center-portal/offer-creation-checklist.md
             - name: Criar uma oferta SaaS
               href: ./partner-center-portal/create-new-saas-offer.md
-            - name: Faturação limitada SaaS
-              href: ./partner-center-portal/saas-metered-billing.md
             - name: SaaS Fulfillment APIs
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:
@@ -391,6 +174,8 @@
                   href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
                 - name: FAQ - SaaS fulfillment APIs
                   href: ./partner-center-portal/saas-fulfillment-apis-faq.md
+            - name: Faturação limitada SaaS
+              href: ./partner-center-portal/saas-metered-billing.md
         - name: Descrição geral da gestão de oportunidades potenciais
           href: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
           items:
@@ -408,14 +193,22 @@
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
         - name: Serviço de medição do Marketplace
           items:
+            - name: Serviço de deteção de anomalias
+              href: ./partner-center-portal/anomaly-detection-service-for-metered-billing.md
             - name: Estratégias de autenticação
               href: ./partner-center-portal/marketplace-metering-service-authentication.md
             - name: APIs do serviço de medição do Marketplace
               href: ./partner-center-portal/marketplace-metering-service-apis.md
             - name: FAQ - APIs do serviço de medição do Marketplace
               href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
-        - name: Experimente a Versão de Teste da sua oferta
-          href: ./partner-center-portal/test-drive.md
+        - name: Versão de Teste
+          items:
+            - name: O que é uma versão de teste?
+              href: ./what-is-test-drive.md
+            - name: Configuração técnica da versão de teste
+              href: ./test-drive-technical-configuration.md
+            - name: Versão de teste do Azure Resource Manager
+              href: ./azure-resource-manager-test-drive.md
         - name: Opção de venda conjunta
           href: ./partner-center-portal/commercial-marketplace-co-sell.md
           items:
@@ -423,14 +216,12 @@
               href: ./partner-center-portal/commercial-marketplace-co-sell-countries.md
             - name: Códigos de estado
               href: ./partner-center-portal/commercial-marketplace-co-sell-states.md
-    - name: Estado de publicação
-      href: ./partner-center-portal/publishing-status.md
+    - name: Rever e publicar
+      href: review-publish-offer.md
     - name: Atualizar ofertas existentes
       href: ./partner-center-portal/update-existing-offer.md
     - name: Ativar benefícios
       href: ./partner-center-portal/marketplace-rewards.md
-    - name: Opções de suporte
-      href: ./partner-center-portal/support.md
     - name: Análise do Centro de Parceiros
       items:
         - name: Análise para o marketplace comercial
@@ -467,3 +258,35 @@
           href: ./partner-center-portal/payout-policy-details.md
         - name: Detalhes fiscais
           href: ./partner-center-portal/tax-details-paid-transactions.md
+    - name: Referência da API CPP
+      items:
+        - name: Descrição geral
+          href: ./cloud-partner-portal-api-overview.md
+        - name: Pré-requisitos
+          href: ./cloud-partner-portal-api-prerequisites.md
+        - name: Considerações
+          href: ./cloud-partner-portal-api-considerations.md
+        - name: Controlo de simultaneidade
+          href: ./cloud-partner-portal-api-concurrency-control.md
+        - name: Obter ofertas
+          href: ./cloud-partner-portal-api-retrieve-offers.md
+        - name: Obter oferta específica
+          href: ./cloud-partner-portal-api-retrieve-specific-offer.md
+        - name: Adicionar ou modificar uma oferta
+          href: ./cloud-partner-portal-api-creating-offer.md
+        - name: Obter estado da oferta
+          href: ./cloud-partner-portal-api-retrieve-offer-status.md
+        - name: Publicar uma oferta
+          href: ./cloud-partner-portal-api-publish-offer.md
+        - name: Obter operações
+          href: ./cloud-partner-portal-api-retrieve-operations.md
+        - name: Cancelar operações
+          href: ./cloud-partner-portal-api-cancel-operations.md
+        - name: Entrar em direto
+          href: ./cloud-partner-portal-api-go-live.md
+        - name: Preços das ofertas de máquina virtual
+          href: ./cloud-partner-portal-api-setting-price.md
+        - name: Resolver erros de autenticação
+          href: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
+    - name: Opções de suporte
+      href: ./partner-center-portal/support.md

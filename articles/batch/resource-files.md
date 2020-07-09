@@ -1,43 +1,43 @@
 ---
-title: Criação e utilização de ficheiros de recursos
-description: Saiba como criar ficheiros de recursos do Lote a partir de várias fontes de entrada. Este artigo abrange alguns métodos comuns sobre como criá-los e colocá-los num VM.
+title: Criar e utilizar ficheiros de recursos
+description: Saiba como criar ficheiros de recursos batch a partir de várias fontes de entrada. Este artigo abrange alguns métodos comuns sobre como criá-los e colocá-los num VM.
 ms.date: 03/18/2020
 ms.topic: how-to
-ms.openlocfilehash: ea349c3a190b78297d9ad4555258d0cfd8828ed4
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 481ac8843f871f9f1eaa61e782e273e27715a473
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723464"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964027"
 ---
-# <a name="creating-and-using-resource-files"></a>Criação e utilização de ficheiros de recursos
+# <a name="creating-and-using-resource-files"></a>Criar e utilizar ficheiros de recursos
 
-Uma tarefa do Lote Azure requer frequentemente alguma forma de dados para processar. Os ficheiros de recursos são a forma de fornecer estes dados à sua máquina virtual do Lote (VM) através de uma tarefa. Todos os tipos de tarefas suportam ficheiros de recursos: tarefas, tarefas de início, tarefas de preparação de emprego, tarefas de libertação de emprego, etc. Este artigo abrange alguns métodos comuns de como criar ficheiros de recursos e colocá-los num VM.  
+Uma tarefa do Azure Batch requer frequentemente alguma forma de dados para processar. Os ficheiros de recursos são a forma de fornecer estes dados à sua máquina virtual Batch (VM) através de uma tarefa. Todos os tipos de tarefas suportam ficheiros de recursos: tarefas, tarefas de início, tarefas de preparação de emprego, tarefas de libertação de emprego, etc. Este artigo abrange alguns métodos comuns de como criar ficheiros de recursos e colocá-los num VM.  
 
-Os ficheiros de recursos colocam dados num VM em Batch, mas o tipo de dados e como é usado é flexível. Existem, no entanto, alguns casos de uso comum:
+Os ficheiros de recursos colocam dados num VM em Batch, mas o tipo de dados e como são usados é flexível. Existem, no entanto, alguns casos de uso comum:
 
-1. Fornecer ficheiros comuns em cada VM utilizando ficheiros de recursos numa tarefa inicial
-1. Dados de entrada de provisão a serem tratados por tarefas
+1. Disponibilização de ficheiros comuns em cada VM utilizando ficheiros de recursos numa tarefa inicial
+1. Fornecimento de dados de entrada a serem tratados por tarefas
 
 Os ficheiros comuns podem ser, por exemplo, ficheiros sobre uma tarefa inicial utilizada para instalar aplicações que as suas tarefas executam. Os dados de entrada podem ser dados de imagem ou vídeo brutos, ou qualquer informação a ser processada pelo Batch.
 
 ## <a name="types-of-resource-files"></a>Tipos de ficheiros de recursos
 
-Existem algumas opções diferentes disponíveis para gerar ficheiros de recursos. O processo de criação de ficheiros de recursos varia consoante os dados originais sejam armazenados.
+Existem algumas opções diferentes disponíveis para gerar ficheiros de recursos. O processo de criação de ficheiros de recursos varia consoante o local onde os dados originais são armazenados.
 
 Opções para criar um ficheiro de recursos:
 
-- [URL](#storage-container-url)do recipiente de armazenamento : Gera um ficheiro de recursos de qualquer recipiente de armazenamento em Azure
-- [Nome](#storage-container-name)do recipiente de armazenamento : Gera um ficheiro de recurso a partir do nome de um contentor numa conta de armazenamento Azure ligada ao Lote
-- [Ponto final da Web](#web-endpoint): Gera um ficheiro de recursos de qualquer URL HTTP válido
+- [URL do recipiente de armazenamento:](#storage-container-url)Gera um ficheiro de recursos a partir de qualquer recipiente de armazenamento em Azure
+- [Nome do recipiente de armazenamento](#storage-container-name): Gera um ficheiro de recursos a partir do nome de um recipiente numa conta de armazenamento Azure ligada ao Lote
+- [Ponto final da Web](#web-endpoint): Gera um ficheiro de recursos a partir de qualquer URL HTTP válido
 
 ### <a name="storage-container-url"></a>URL do recipiente de armazenamento
 
-Utilizando um URL de recipiente de armazenamento, com as permissões corretas, pode aceder a ficheiros em qualquer recipiente de armazenamento em Azure. 
+A utilização de um URL de contentor de armazenamento significa que, com as permissões corretas, pode aceder a ficheiros em qualquer recipiente de armazenamento em Azure. 
 
-Neste exemplo C#, os ficheiros já foram enviados para um contentor de armazenamento Azure como armazenamento de bolhas. Para aceder aos dados necessários para criar um ficheiro de recursos, precisamos primeiro de ter acesso ao recipiente de armazenamento.
+Neste exemplo C#, os ficheiros já foram enviados para um recipiente de armazenamento Azure como armazenamento de bolhas. Para aceder aos dados necessários para criar um ficheiro de recursos, primeiro precisamos de ter acesso ao contentor de armazenamento.
 
-Crie uma assinatura de acesso partilhado (SAS) URI com as permissões corretas para aceder ao recipiente de armazenamento. Detete o tempo de validade e as permissões para o SAS. Neste caso, não é especificada a hora de início, pelo que o SAS torna-se válido imediatamente e expira duas horas após a sua geração.
+Crie uma assinatura de acesso partilhado (SAS) URI com as permissões corretas de acesso ao recipiente de armazenamento. Desa estada o tempo de validade e as permissões para o SAS. Neste caso, não é especificado nenhum tempo de início, pelo que o SAS torna-se válido imediatamente e expira duas horas após a sua geração.
 
 ```csharp
 SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
@@ -48,9 +48,9 @@ SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
 ```
 
 > [!NOTE]
-> Para acesso ao contentor, deve ter ambas `Read` as `List` permissões e permissões, enquanto que com acesso à bolha, só precisa de `Read` permissão.
+> Para acesso ao contentor, tem de ter ambos `Read` e `List` permissões, enquanto que com acesso a bolhas, só precisa de `Read` permissão.
 
-Uma vez configuradas as permissões, crie o token SAS e forme o URL SAS para acesso ao recipiente de armazenamento. Utilizando o URL SAS formatado para o recipiente de armazenamento, gere um ficheiro de recursos com [`FromStorageContainerUrl`](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet) .
+Uma vez configuradas as permissões, crie o token SAS e formate o URL SAS para acesso ao recipiente de armazenamento. Utilizando o URL SAS formatado para o recipiente de armazenamento, gere um ficheiro de recursos com [`FromStorageContainerUrl`](/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet) .
 
 ```csharp
 CloudBlobContainer container = blobClient.GetContainerReference(containerName);
@@ -61,13 +61,13 @@ string containerSasUrl = String.Format("{0}{1}", container.Uri, sasToken);
 ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl);
 ```
 
-Uma alternativa para gerar um URL SAS é permitir o acesso anónimo e público a um contentor e seus blobs no armazenamento Azure Blob. Ao fazê-lo, pode conceder acesso apenas a leitura a estes recursos sem partilhar a chave da sua conta, e sem exigir um SAS. O acesso à leitura do público é normalmente utilizado para cenários em que você quer que certas bolhas estejam sempre disponíveis para acesso de leitura anónimo. Se este cenário se adequa à sua solução, consulte o artigo de [acesso anónimo ao artigo da Blobs](../storage/blobs/storage-manage-access-to-resources.md) para saber mais sobre como gerir o acesso aos seus dados blob.
+Uma alternativa para gerar um URL SAS é permitir o acesso de leitura pública anónimo a um recipiente e suas bolhas no armazenamento de Azure Blob. Ao fazê-lo, pode conceder acesso apenas de leitura a estes recursos sem partilhar a sua chave de conta, e sem necessitar de um SAS. O acesso de leitura pública é normalmente usado para cenários em que você quer que certas bolhas estejam sempre disponíveis para acesso de leitura anónimo. Se este cenário se adequa à sua solução, consulte o artigo [de acesso anónimo a blobs](../storage/blobs/storage-manage-access-to-resources.md) para saber mais sobre como gerir o acesso aos seus dados blob.
 
 ### <a name="storage-container-name"></a>Nome do recipiente de armazenamento
 
-Em vez de configurar e criar um URL SAS, pode utilizar o nome do seu recipiente de armazenamento Azure para aceder aos seus dados blob. O recipiente de armazenamento que utiliza deve estar na conta de armazenamento Azure que está ligada à sua conta Batch. A conta de armazenamento é conhecida como a conta de armazenamento automático. A utilização do recipiente de armazenamento automático permite-lhe contornar a configuração e a criação de um URL SAS para aceder a um recipiente de armazenamento.
+Em vez de configurar e criar um URL SAS, pode usar o nome do seu recipiente de armazenamento Azure para aceder aos seus dados blob. O recipiente de armazenamento que utiliza deve estar na conta de armazenamento Azure que está ligada à sua conta Batch. A conta de armazenamento é conhecida como a conta de auto-armazenamento. A utilização do recipiente de auto-armazenamento permite-lhe contornar a configuração e a criação de um URL SAS para aceder a um recipiente de armazenamento.
 
-Neste exemplo, assumimos que os dados a utilizar para a criação de ficheiros de recursos já se encontra numa conta de Armazenamento Azure ligada à sua conta Batch. Se não tiver uma conta de armazenamento automático, consulte os passos em [Criar uma conta de Lote](batch-account-create-portal.md) para obter detalhes sobre como criar e ligar uma conta.
+Neste exemplo, assumimos que os dados a utilizar para a criação de ficheiros de recursos já se encontra numa conta de Armazenamento Azure ligada à sua conta Batch. Se não tiver uma conta de auto-armazenamento, consulte os passos na [conta Criar um Lote](batch-account-create-portal.md) para obter detalhes sobre como criar e ligar uma conta.
 
 Ao utilizar uma conta de armazenamento ligada, não precisa de criar e configurar um URL SAS para um recipiente de armazenamento. Em vez disso, forneça o nome do recipiente de armazenamento na sua conta de armazenamento ligada.
 
@@ -75,11 +75,11 @@ Ao utilizar uma conta de armazenamento ligada, não precisa de criar e configura
 ResourceFile inputFile = ResourceFile.FromAutoStorageContainer(containerName);
 ```
 
-### <a name="web-endpoint"></a>Ponto final da web
+### <a name="web-endpoint"></a>Ponto final da Web
 
-Os dados que não são enviados para o Armazenamento Azure ainda podem ser usados para criar ficheiros de recursos. Pode especificar qualquer URL HTTP válido que contenha os seus dados de entrada. O URL é fornecido à API do lote e, em seguida, os dados são usados para criar um ficheiro de recursos.
+Os dados que não são enviados para o Azure Storage ainda podem ser utilizados para criar ficheiros de recursos. Pode especificar qualquer URL HTTP válido que contenha os seus dados de entrada. O URL é fornecido à API do Lote e, em seguida, os dados são usados para criar um ficheiro de recursos.
 
-No exemplo c# seguinte, os dados de entrada são hospedados num ponto final fictício do GitHub. A API recupera o ficheiro a partir do ponto final da web válido e gera um ficheiro de recursos a ser consumido pela sua tarefa. Não são necessárias credenciais para este cenário.
+No exemplo C# a seguir, os dados de entrada são apresentados num ponto final fictício do GitHub. A API recupera o ficheiro do ponto final web válido e gera um ficheiro de recursos para ser consumido pela sua tarefa. Não são necessárias credenciais para este cenário.
 
 ```csharp
 ResourceFile inputFile = ResourceFile.FromUrl("https://github.com/foo/file.txt", filePath);
@@ -87,23 +87,23 @@ ResourceFile inputFile = ResourceFile.FromUrl("https://github.com/foo/file.txt",
 
 ## <a name="tips-and-suggestions"></a>Dicas e sugestões
 
-Cada tarefa do Lote Azure utiliza ficheiros de forma diferente, razão pela qual o Batch tem opções disponíveis para gerir ficheiros em tarefas. Os seguintes cenários não são para ser abrangentes, mas sim cobrir algumas situações comuns e fornecer recomendações.
+Cada tarefa do Azure Batch utiliza ficheiros de forma diferente, razão pela qual o Batch tem opções disponíveis para gerir ficheiros em tarefas. Os seguintes cenários não devem ser abrangentes, mas sim cobrir algumas situações comuns e fornecer recomendações.
 
 ### <a name="many-resource-files"></a>Muitos ficheiros de recursos
 
-O seu trabalho em Lote pode conter várias tarefas que todos utilizam os mesmos ficheiros comuns. Se os ficheiros de tarefas comuns forem partilhados entre muitas tarefas, usar um pacote de aplicação para conter os ficheiros em vez de utilizar ficheiros de recursos pode ser uma melhor opção. Os pacotes de aplicações fornecem otimização para a velocidade de descarregamento. Além disso, os dados nos pacotes de aplicações estão em cache entre tarefas, por isso, se os seus ficheiros de tarefas não mudarem com frequência, os pacotes de aplicação podem ser adequados para a sua solução. Com pacotes de aplicações, não precisa de gerir manualmente vários ficheiros de recursos ou gerar URLs SAS para aceder aos ficheiros no Armazenamento Azure. O lote trabalha em segundo plano com o Armazenamento Azure para armazenar e implementar pacotes de aplicações para calcular os nódosos.
+O seu trabalho em Lote pode conter várias tarefas que todos utilizam os mesmos ficheiros comuns. Se os ficheiros de tarefas comuns forem partilhados entre muitas tarefas, usar um pacote de aplicações para conter os ficheiros em vez de utilizar ficheiros de recursos pode ser uma opção melhor. Os pacotes de aplicações fornecem otimização para a velocidade de descarregamento. Além disso, os dados em pacotes de aplicações estão em cache entre tarefas, por isso, se os seus ficheiros de tarefas não mudarem frequentemente, os pacotes de aplicações podem ser um bom ajuste para a sua solução. Com pacotes de aplicações, não precisa de gerir manualmente vários ficheiros de recursos ou gerar URLs SAS para aceder aos ficheiros no Azure Storage. O lote funciona em segundo plano com o Azure Storage para armazenar e implementar pacotes de aplicações para calcular nós.
 
-Se cada tarefa tiver muitos ficheiros exclusivos dessa tarefa, os ficheiros de recursos são a melhor opção porque as tarefas que utilizam ficheiros únicos muitas vezes precisam de ser atualizadas ou substituídas, o que não é tão fácil de fazer com o conteúdo dos pacotes de aplicações. Os ficheiros de recursos proporcionam flexibilidade adicional para atualizar, adicionar ou editar ficheiros individuais.
+Se cada tarefa tem muitos ficheiros exclusivos dessa tarefa, os ficheiros de recursos são a melhor opção porque as tarefas que utilizam ficheiros únicos muitas vezes precisam de ser atualizadas ou substituídas, o que não é tão fácil de fazer com o conteúdo de pacotes de aplicações. Os ficheiros de recursos proporcionam flexibilidade adicional para atualizar, adicionar ou editar ficheiros individuais.
 
 ### <a name="number-of-resource-files-per-task"></a>Número de ficheiros de recursos por tarefa
 
-Se houver várias centenas de ficheiros de recursos especificados numa tarefa, o Batch pode rejeitar a tarefa como sendo demasiado grande. É melhor manter as suas tarefas pequenas minimizando o número de ficheiros de recursos na própria tarefa.
+Se existirem várias centenas de ficheiros de recursos especificados numa tarefa, o Batch pode rejeitar a tarefa como sendo demasiado grande. É melhor manter as suas tarefas pequenas minimizando o número de ficheiros de recursos na própria tarefa.
 
-Se não houver forma de minimizar o número de ficheiros que a sua tarefa necessita, pode otimizar a tarefa criando um único ficheiro de recursos que referencia um recipiente de armazenamento de ficheiros de recursos. Para tal, coloque os seus ficheiros de recursos num recipiente de armazenamento Azure e utilize os diferentes [métodos](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile?view=azure-dotnet#methods) de "contentor" para ficheiros de recursos. Utilize as opções de prefixo blob para especificar coleções de ficheiros a serem descarregados para as suas tarefas.
+Se não houver forma de minimizar o número de ficheiros de que a sua tarefa necessita, pode otimizar a tarefa criando um único ficheiro de recursos que faz referência a um recipiente de armazenamento de ficheiros de recursos. Para isso, coloque os seus ficheiros de recursos num recipiente de armazenamento Azure e utilize os [diferentes métodos](/dotnet/api/microsoft.azure.batch.resourcefile?view=azure-dotnet#methods) de "recipiente" para ficheiros de recursos. Utilize as opções de prefixo blob para especificar as recolhas de ficheiros a serem descarregados para as suas tarefas.
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Conheça os pacotes de [aplicações](batch-application-packages.md) como alternativa aos ficheiros de recursos.
-- Para obter mais informações sobre a utilização de contentores para ficheiros de recursos, consulte as [cargas de trabalho](batch-docker-container-workloads.md)do Contentor .
-- Para aprender a recolher e salvar os dados de saída das suas tarefas, consulte a [saída de trabalho e tarefa sinuosa](batch-task-output.md).
+- Saiba mais sobre [os pacotes de aplicações](batch-application-packages.md) como alternativa aos ficheiros de recursos.
+- Para obter mais informações sobre a utilização de recipientes para ficheiros de recursos, consulte [as cargas de trabalho do Contentor](batch-docker-container-workloads.md).
+- Para aprender a recolher e guardar os dados de saída das suas tarefas, consulte [a produção de trabalho e tarefas persiste](batch-task-output.md).
 - Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.

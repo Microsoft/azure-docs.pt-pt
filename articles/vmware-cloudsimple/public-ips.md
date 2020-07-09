@@ -1,6 +1,6 @@
 ---
-title: Solução Azure VMware by CloudSimple - Alocar endereços IP públicos
-description: Descreve como alocar endereços IP públicos para máquinas virtuais no ambiente private Cloud
+title: Solução Azure VMware by CloudSimple - Aloque endereços IP públicos
+description: Descreve como alocar endereços IP públicos para máquinas virtuais no ambiente Private Cloud
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -9,29 +9,28 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 565c9ad0fbd37b026a1ba555d83b9032d2efcba4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77024301"
 ---
-# <a name="allocate-public-ip-addresses-for-private-cloud-environment"></a>Alocar endereços IP públicos para ambiente cloud privado
+# <a name="allocate-public-ip-addresses-for-private-cloud-environment"></a>Alocar endereços IP públicos para ambiente Private Cloud
 
-Abra o separador IPs público na página da Rede para alocar endereços IP públicos para máquinas virtuais no seu ambiente Cloud Privado.
+Abra o separador IPs Público na página 'Rede' para alocar endereços IP públicos para máquinas virtuais no seu ambiente Private Cloud.
 
 1. [Aceda ao portal CloudSimple](access-cloudsimple-portal.md) e selecione **Rede** no menu lateral.
 2. Selecione **IPs públicos**.
-3. Clique em **Novo IP Público**.
+3. Clique **em Novo IP Público**.
 
-    ![Página de IPs público](media/public-ips-page.png)
+    ![Página de IPs públicos](media/public-ips-page.png)
 
 4. Insira um nome para identificar a entrada do endereço IP.
 5. Mantenha a localização padrão.
-6. Utilize o slider para alterar o tempo de paragem inativo, se necessário.
+6. Utilize o deslizador para alterar o tempo limite de marcha lenta, se necessário.
 7. Insira o endereço IP local para o qual pretende atribuir um endereço IP público.
 8. Introduza um nome DNS associado.
-9. Clique em **Submeter**.
+9. Clique **em Submeter.**
 
-![Atribuição de IPs públicos](media/network-public-ip-allocate.png)
+![Alocar iPs públicos](media/network-public-ip-allocate.png)
 
-Inicia-se a tarefa de atribuição do endereço IP público. Pode verificar o estado da tarefa na página **Tarefas > Atividade.** Quando a atribuição estiver concluída, a nova entrada é mostrada na página de IPs públicos.
+Começa a tarefa de atribuir o endereço IP público. Pode verificar o estado da tarefa na página **'Tarefas >** Atividades'. Quando a atribuição estiver concluída, a nova entrada é mostrada na página de IPs público.

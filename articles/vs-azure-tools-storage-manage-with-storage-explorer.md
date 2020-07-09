@@ -8,18 +8,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: 11166d5578b90fe6ec936389bcd173c4c26b4852
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: f588ed6d35f3f8882d546b78ff833d62f33ac0a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171247"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84975270"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Explorador de Armazenamento
 
 ## <a name="overview"></a>Descrição geral
 
-O Microsoft Azure Storage Explorer é uma aplicação autónoma que facilita o funcionamento dos dados de armazenamento do Azure em Windows, macOS e Linux. Neste artigo, você vai aprender várias formas de ligar e gerir as suas contas de armazenamento Azure.
+O Explorador de Armazenamento do Microsoft Azure é uma aplicação autónoma que lhe permite trabalhar facilmente com dados do Armazenamento do Microsoft Azure no Windows, macOS e Linux. Neste artigo, você vai aprender várias formas de ligar e gerir as suas contas de armazenamento Azure.
 
 ![Explorador de Armazenamento do Microsoft Azure][0]
 
@@ -55,9 +55,9 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 O Storage Explorer também está disponível como download *.tar.gz.* Tem que instalar dependências manualmente. As seguintes distribuições de suporte Linux *.tar.gz* instalação:
 
+* Ubuntu 20.04 x64
 * Ubuntu 18.04 x64
 * Ubuntu 16.04 x64
-* Ubuntu 14.04 x64
 
 A instalação *.tar.gz* pode funcionar em outras distribuições, mas apenas estas listadas são oficialmente suportadas.
 

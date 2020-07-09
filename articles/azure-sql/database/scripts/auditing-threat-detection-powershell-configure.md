@@ -1,6 +1,6 @@
 ---
-title: PowerShell exemplo de auditoria e proteção avançada de ameaças - Base de Dados Azure SQL
-description: Script de exemplo Azure PowerShell para configurar auditoria e Proteção Avançada de Ameaças numa Base de Dados Azure SQL
+title: Exemplo powerShell de auditoria e proteção avançada de ameaças - Base de Dados Azure SQL
+description: Azure PowerShell exemplo script para configurar auditoria e proteção avançada de ameaças em uma base de dados Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,23 +11,23 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: carlrab, vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: e57f13ee1f9e9044751bc6b286c2b90174b52119
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1b709d1968a066ab5e4da4fef1659150d645ac26
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054108"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196930"
 ---
-# <a name="use-powershell-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Use powerShell para configurar auditoria de base de dados SQL e Proteção avançada de ameaças
+# <a name="use-powershell-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Utilize o PowerShell para configurar a auditoria da base de dados SQL e a proteção de ameaças avançadas
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Este exemplo de script PowerShell configura a auditoria da Base de Dados Azure SQL e a Proteção Avançada de Ameaças.
+Este exemplo de script PowerShell configura a auditoria da Base de Dados Azure SQL e a Proteção avançada de ameaças.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer AZ PowerShell 1.4.0 ou mais tarde. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer az PowerShell 1.4.0 ou mais tarde. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -35,7 +35,7 @@ Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer A
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
-Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
+Utilize o seguinte comando para remover o grupo de recursos e todos os recursos que lhe estão associados.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -48,16 +48,16 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | Comando | Notas |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [Novo AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Cria um servidor. |
-| [Nova AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Cria uma base de dados ou piscina elástica. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Cria um servidor. |
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Cria uma base de dados ou piscina elástica. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Cria uma conta de armazenamento. |
 | [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing) | Define a política de auditoria para uma base de dados. |
-| [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | Estabelece uma política avançada de proteção contra ameaças numa base de dados. |
+| [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | Define uma política avançada de proteção de ameaças numa base de dados. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre a Azure PowerShell, consulte [a documentação da Azure PowerShell](/powershell/azure/overview).
 
 Pode ver exemplos do script do PowerShell da Base de Dados SQL adicionais nos [scripts do PowerShell da Base de Dados SQL do Azure](../powershell-script-content-guide.md).

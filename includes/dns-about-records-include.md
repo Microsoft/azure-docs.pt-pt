@@ -4,31 +4,33 @@ ms.service: dns
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
-ms.openlocfilehash: 261ae22348cd82b129727261c619727917e19c96
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 8ca054b3a3d5147b7d98a021ce1e26d02d5581b0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73832060"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050455"
 ---
 ### <a name="record-names"></a>Nomes de registo
 
-No DNS do Azure, os registos são especificados com nomes relativos. Um nome de domínio *totalmente qualificado* (FQDN) inclui o nome da zona, enquanto um nome *relativo* não. Por exemplo, o `www` nome relativo `contoso.com` do registo na `www.contoso.com`zona dá o nome de registo totalmente qualificado .
+No DNS do Azure, os registos são especificados com nomes relativos. Um nome de domínio *totalmente qualificado* (FQDN) inclui o nome da zona, enquanto que um nome *relativo* não. Por exemplo, o nome de registo relativo `www` na zona dá o nome de registo totalmente qualificado `contoso.com` `www.contoso.com` .
 
-Um registo *apex* é um registo DNS na raiz (ou *apex*) de uma zona DNS. Por exemplo, na zona `contoso.com`DNS , um registo ápice também tem o nome `contoso.com` totalmente qualificado (este é por vezes chamado de domínio *nu).*  Por convenção, o\@nome relativo ' é usado para representar registos ápice.
+Um registo *apex* é um registo DNS na raiz (ou *apex*) de uma zona DNS. Por exemplo, na zona do `contoso.com` DNS, um registo de ápice também tem o nome totalmente qualificado `contoso.com` (isto às vezes é chamado de domínio *nu).*  Por convenção, o nome relativo \@ ' ' é usado para representar registos ápices.
 
 ### <a name="record-types"></a>Tipos de registo
 
 Cada registo DNS tem um nome e um tipo. Os registos são organizados em vários tipos de acordo com os dados que contêm. O tipo mais comum é um registo “A”, que mapeia um nome para um endereço IPv4. Outro tipo comum é um registo “MX”, que mapeia um nome para um servidor de correio.
 
-O Azure DNS suporta todos os tipos comuns de discos DNS: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV e TXT. Tenha em atenção que [os registos SPF são representados utilizando registos TXT](../articles/dns/dns-zones-records.md#spf-records).
+O Azure DNS suporta todos os tipos comuns de registo de DNS: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV e TXT. Tenha em atenção que [os registos SPF são representados utilizando registos TXT](../articles/dns/dns-zones-records.md#spf-records).
 
 ### <a name="record-sets"></a>Conjuntos de registos
 
 Por vezes, precisa de criar mais do que um registo DNS com um determinado nome e tipo. Por exemplo, suponha que o site “www.contoso.com” está alojado em dois endereços IP diferentes. O site necessita de dois registos A diferentes, um para cada endereço IP. Aqui está um exemplo de um conjunto de registos:
 
-    www.contoso.com.        3600    IN    A    134.170.185.46
-    www.contoso.com.        3600    IN    A    134.170.188.221
+```dns
+www.contoso.com.        3600    IN    A    134.170.185.46
+www.contoso.com.        3600    IN    A    134.170.188.221
+```
 
 O DNS do Azure gere todos os registos DNS com *conjuntos de registos*. Um conjunto de registos (também conhecido como conjunto de registos de *recurso*) é uma coleção de registos DNS numa zona com o mesmo nome e do mesmo tipo. A maioria dos conjuntos de registos contêm um único registo. No entanto, os exemplos como o apresentado acima, no qual um conjunto um registos contém mais de um registo, não são invulgares.
 

@@ -1,6 +1,6 @@
 ---
-title: Incapaz de aceder a ficheiros de armazenamento data Lake em Azure HDInsight
-description: Incapaz de aceder a ficheiros de armazenamento data Lake em Azure HDInsight
+title: Não é possível aceder a ficheiros de armazenamento do Data Lake em Azure HDInsight
+description: Não é possível aceder a ficheiros de armazenamento do Data Lake em Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,17 +8,16 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/13/2019
 ms.openlocfilehash: 21269f7d5a9ec832a49a613351702dd24be156af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75894152"
 ---
-# <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>Incapaz de aceder a ficheiros de armazenamento data Lake em Azure HDInsight
+# <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>Não é possível aceder a ficheiros de armazenamento do Data Lake em Azure HDInsight
 
 Este artigo descreve etapas de resolução de problemas e possíveis resoluções para problemas ao interagir com clusters Azure HDInsight.
 
-## <a name="issue-acl-verification-failed"></a>Emissão: A verificação da ACL falhou
+## <a name="issue-acl-verification-failed"></a>Problema: A verificação da ACL falhou
 
 Recebe uma mensagem de erro semelhante a:
 
@@ -28,21 +27,21 @@ LISTSTATUS failed with error 0x83090aa2 (Forbidden. ACL verification failed. Eit
 
 ### <a name="cause"></a>Causa
 
-O utilizador pode ter revogado as permissões do diretor de serviço (SP) em ficheiros/pastas.
+O utilizador pode ter revogado permissões do principal serviço (SP) em ficheiros/pastas.
 
 ### <a name="resolution"></a>Resolução
 
-1. Verifique se o SP tem permissões 'x' para percorrer o caminho. Para mais informações, consulte [Permissões](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html). Sample dfs comando para verificar o acesso a ficheiros/pastas na conta de armazenamento data Lake:
+1. Verifique se o SP tem permissões 'x' para atravessar ao longo do caminho. Para mais informações, consulte [permissões.](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html) Comando de amostra dfs para verificar o acesso a ficheiros/pastas na conta de armazenamento do Data Lake:
 
     ```
     hdfs dfs -ls /<path to check access>
     ```
 
-1. Configurar permissões necessárias para aceder ao caminho com base na operação de leitura/escrita que está a ser executada. Consulte aqui as permissões necessárias para várias operações do sistema de ficheiros.
+1. Configurar as permissões necessárias para aceder ao caminho com base na operação de leitura/escrita que está a ser realizada. Consulte aqui as permissões necessárias para várias operações do sistema de ficheiros.
 
 ---
 
-## <a name="issue-service-principal-certificate-expiry"></a>Emissão: Certificado principal de serviço expira
+## <a name="issue-service-principal-certificate-expiry"></a>Emissão: Expiração do certificado principal de serviço
 
 Recebe uma mensagem de erro semelhante a:
 
@@ -52,9 +51,9 @@ Token Refresh failed - Received invalid http response: 500
 
 ### <a name="cause"></a>Causa
 
-O certificado fornecido para o acesso principal do Serviço pode ter expirado.
+O certificado previsto para o acesso principal do Serviço pode ter expirado.
 
-1. SSH em cabeçada. Verifique o acesso à conta de armazenamento utilizando o seguinte comando dfs:
+1. SSH em cabeçanode. Verifique o acesso à conta de armazenamento utilizando o seguinte comando dfs:
 
     ```
     hdfs dfs -ls /
@@ -66,21 +65,21 @@ O certificado fornecido para o acesso principal do Serviço pode ter expirado.
     {"stderr": "-ls: Token Refresh failed - Received invalid http response: 500, text = Response{protocol=http/1.1, code=500, message=Internal Server Error, url=http://gw0-abccluster.24ajrd4341lebfgq5unsrzq0ue.fx.internal.cloudapp.net:909/api/oauthtoken}}...
     ```
 
-1. Pegue uma das urls de `core-site.xml property`  -  `fs.azure.datalake.token.provider.service.urls`.
+1. Pegue um dos urls de `core-site.xml property`  -  `fs.azure.datalake.token.provider.service.urls` .
 
-1. Executar o seguinte comando de caracóis para recuperar o token OAuth.
+1. Executar o seguinte comando de caracóis para recuperar o símbolo de OAuth.
 
     ```
     curl gw0-abccluster.24ajrd4341lebfgq5unsrzq0ue.fx.internal.cloudapp.net:909/api/oauthtoken
     ```
 
-1. A saída para um diretor de serviço válido deve ser algo como:
+1. A saída para um principal de serviço válido deve ser algo como:
 
     ```
     {"AccessToken":"MIIGHQYJKoZIhvcNAQcDoIIGDjCCBgoCAQA…….","ExpiresOn":1500447750098}
     ```
 
-1. Se o certificado principal de serviço tiver expirado, a saída será parecida com esta:
+1. Se o certificado principal de serviço tiver expirado, a saída será semelhante a isto:
 
     ```
     Exception in OAuthTokenController.GetOAuthToken: 'System.InvalidOperationException: Error while getting the OAuth token from AAD for AppPrincipalId 23abe517-2ffd-4124-aa2d-7c224672cae2, ResourceUri https://management.core.windows.net/, AADTenantId https://login.windows.net/80abc8bf-86f1-41af-91ab-2d7cd011db47, ClientCertificateThumbprint C49C25705D60569884EDC91986CEF8A01A495783 ---> Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException: AADSTS70002: Error validating credentials. AADSTS50012: Client assertion contains an invalid signature. **[Reason - The key used is expired.**, Thumbprint of key used by client: 'C49C25705D60569884EDC91986CEF8A01A495783', Found key 'Start=08/03/2016, End=08/03/2017, Thumbprint=C39C25705D60569884EDC91986CEF8A01A4956D1', Configured keys: [Key0:Start=08/03/2016, End=08/03/2017, Thumbprint=C39C25705D60569884EDC91986CEF8A01A4956D1;]]
@@ -91,9 +90,9 @@ O certificado fornecido para o acesso principal do Serviço pode ter expirado.
     at Microsoft.IdentityModel.Clients.ActiveDirectory.HttpWebRequestWrapper.<GetResponseSyncOrAsync>d__2.MoveNext()
     ```
 
-1. Quaisquer outros erros/erros relacionados com o Diretório Ativo do Azure podem ser reconhecidos através da assinatura do url de gateway para obter o símbolo OAuth.
+1. Quaisquer outros erros relacionados com o Azure Ative Directory/erros relacionados com o certificado podem ser reconhecidos através do pinging do url gateway para obter o token OAuth.
 
-1. Se estiver a cometer erros ao tentar aceder ao ADLS a partir do Cluster HDI. Verifique se o Certificado expirou seguindo os passos acima mencionados.
+1. Se estiver a obter o seguinte erro ao tentar aceder ao ADLS a partir do Cluster HDI. Verifique se o Certificado expirou seguindo os passos acima mencionados.
 
     ```
     Error: java.lang.IllegalArgumentException: Token Refresh failed - Received invalid http response: 500, text = Response{protocol=http/1.1, code=500, message=Internal Server Error, url=http://clustername.hmssomerandomstringc.cx.internal.cloudapp.net:909/api/oauthtoken}
@@ -101,7 +100,7 @@ O certificado fornecido para o acesso principal do Serviço pode ter expirado.
 
 ### <a name="resolution"></a>Resolução
 
-Criar um novo Certificado ou atribuir certificado existente utilizando o seguinte script PowerShell:
+Crie um novo Certificado ou atribua o certificado existente utilizando o seguinte script PowerShell:
 
 ```powershell
 $clusterName = 'CLUSTERNAME'
@@ -161,16 +160,16 @@ Invoke-AzureRmResourceAction `
 
 ```
 
-Para atribuir o certificado existente, crie um certificado, tenha o ficheiro .pfx e a palavra-passe prontos. Associe o certificado ao diretor de serviço com o que o cluster foi criado e tenha o AppId pronto.
+Para a atribuição do certificado existente, crie um certificado, tenha o ficheiro .pfx e a palavra-passe pronta. Associe o certificado ao principal de serviço com o que o cluster foi criado e tenha o AppId pronto.
 
-Execute o comando PowerShell depois de substituir os parâmetros com os valores reais.
+Execute o comando PowerShell depois de substituir os parâmetros pelos valores reais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
+Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
-* Obtenha respostas de especialistas do Azure através do [Apoio Comunitário de Azure.](https://azure.microsoft.com/support/community/)
+* Obtenha respostas de especialistas da Azure através do [Apoio Comunitário Azure.](https://azure.microsoft.com/support/community/)
 
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligar a comunidade Azure aos recursos certos: respostas, apoio e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligação da comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
-* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** a partir da barra de menus ou abra o centro de **suporte Ajuda +.** Para obter informações mais detalhadas, reveja [como criar um pedido de apoio azure.](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte do Azure.](https://azure.microsoft.com/support/plans/)
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).

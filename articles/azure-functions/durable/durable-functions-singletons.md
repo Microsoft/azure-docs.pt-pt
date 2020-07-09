@@ -1,26 +1,25 @@
 ---
-title: Singletons para Funções Duráveis - Azure
-description: Como utilizar singletons na extensão Funções Duráveis para funções azure.
+title: Singletons para Funções Duradouras - Azure
+description: Como utilizar singletons na extensão de Funções Duradouras para Funções Azure.
 author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4eff7c4c91ed664fcf1f4fc7a8be2d43d24e5c6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76262814"
 ---
-# <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orquestradores Singleton em Funções Duráveis (Funções Azure)
+# <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orquestradores Singleton em Funções Duradouras (Funções Azure)
 
-Para trabalhos de fundo, é frequente garantir que apenas um exemplo de um determinado orquestrador funciona de cada vez. Você pode garantir este tipo de comportamento singleton em [Funções Duráveis](durable-functions-overview.md) atribuindo uma identificação de instância específica a um orquestrador ao criá-lo.
+Para trabalhos de fundo, é frequente garantir que apenas um exemplo de um determinado orquestrador é executado de cada vez. Você pode garantir este tipo de comportamento singleton em [Funções Duradouras,](durable-functions-overview.md) atribuindo um ID de instância específica a um orquestrador ao criá-lo.
 
 ## <a name="singleton-example"></a>Exemplo singleton
 
-O exemplo seguinte mostra uma função http-trigger que cria uma orquestração de trabalho de fundo singleton. O código garante que existe apenas uma instância para uma identificação de instância especificada.
+O exemplo a seguir mostra uma função de gatilho HTTP que cria uma orquestração de trabalho de fundo singleton. O código garante que existe apenas um exemplo para um ID de instância especificado.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```cs
 [FunctionName("HttpStartSingle")]
@@ -52,11 +51,11 @@ public static async Task<HttpResponseMessage> RunSingle(
 ```
 
 > [!NOTE]
-> O código C# anterior é para Funções Duráveis 2.x. Para funções duráveis 1.x, deve `OrchestrationClient` utilizar `DurableClient` o atributo em `DurableOrchestrationClient` vez do atributo, e deve utilizar o tipo de parâmetro em vez de `IDurableOrchestrationClient`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo de [versões De Funções Duráveis.](durable-functions-versions.md)
+> O código C# anterior é para Funções Duradouras 2.x. Para funções duradouras 1.x, deve utilizar `OrchestrationClient` o atributo em vez do `DurableClient` atributo, e deve utilizar o tipo de `DurableOrchestrationClient` parâmetro em vez de `IDurableOrchestrationClient` . Para obter mais informações sobre as diferenças entre versões, consulte o artigo [das versões Funções Duradouras.](durable-functions-versions.md)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-**função.json**
+**function.js**
 
 ```json
 {
@@ -114,14 +113,14 @@ module.exports = async function(context, req) {
 
 ---
 
-Por padrão, os IDs de instância são GUIDs gerados aleatoriamente. No exemplo anterior, no entanto, o ID de instância é passado em dados de rota a partir do URL. As chamadas `GetStatusAsync`de código `getStatus` (C#) ou (JavaScript) para verificar se uma instância com o ID especificado já está em execução. Se tal instância não estiver a decorrer, é criado um novo exemplo com esse ID.
+Por padrão, os IDs de instância são gerados aleatoriamente GUIDs. No exemplo anterior, no entanto, o ID de instância é passado em dados de rota a partir do URL. O código chama `GetStatusAsync` (C#) ou `getStatus` (JavaScript) para verificar se uma instância com o ID especificado já está em execução. Se tal instância não estiver em execução, um novo caso é criado com esse ID.
 
 > [!NOTE]
-> Há uma condição de raça potencial nesta amostra. Se duas instâncias de **HttpStartSingle** executarem simultaneamente, ambas as chamadas de função reportarão sucesso, mas apenas uma instância de orquestração começará. Dependendo dos seus requisitos, isto pode ter efeitos colaterais indesejáveis. Por esta razão, é importante garantir que nenhum pedido pode executar esta função de gatilho simultaneamente.
+> Há uma condição de raça potencial nesta amostra. Se duas instâncias de **HttpStartSingle** executarem simultaneamente, ambas as chamadas de função reportarão o sucesso, mas apenas uma instância de orquestração irá realmente começar. Dependendo dos seus requisitos, isto pode ter efeitos colaterais indesejáveis. Por esta razão, é importante garantir que nenhum dois pedidos podem executar esta função de gatilho simultaneamente.
 
 Os detalhes de implementação da função orquestradora não importam. Pode ser uma função orquestradora regular que começa e completa, ou pode ser uma que corre para sempre (isto é, uma [Orquestração Eterna).](durable-functions-eternal-orchestrations.md) O importante é que só há um caso a decorrer de cada vez.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Conheça as características nativas do HTTP das orquestrações](durable-functions-http-features.md)
+> [Conheça as características http nativas das orquestrações](durable-functions-http-features.md)

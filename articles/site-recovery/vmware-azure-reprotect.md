@@ -1,6 +1,6 @@
 ---
-title: Reproteja vMware VMs para um local no local com recuperação do site Azure
-description: Saiba como reproteger os VMware Depois de falhar com o Azure com a Recuperação do Site Azure.
+title: VMs reprotetor de VMware para um local no local com recuperação do local de Azure
+description: Aprenda a reprotetar VMware VMs depois de falhar em Azure com Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,72 +8,71 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
 ms.openlocfilehash: 976888f57269cc9fe6107a38e30d78c73eb5c124
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79257176"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Voltar a proteger do Azure para o local
 
-Após a [falha](site-recovery-failover.md) dos VM s ou servidores físicos no local para o Azure, o primeiro passo para não voltar ao seu site no local é reproteger os VMs Azure que foram criados durante a failover. Este artigo descreve como fazer isto. 
+Após [a falha](site-recovery-failover.md) de VMware VMware no local ou servidores físicos para a Azure, o primeiro passo para não voltar ao seu site no local é reprotegir os VMs Azure que foram criados durante o failover. Este artigo descreve como fazer isto. 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
-1. Siga os passos [deste artigo](vmware-azure-prepare-failback.md) para se preparar para a reproteção e falha, incluindo a criação de um servidor de processo sintetizador no Azure, e um servidor-alvo principal no local, e configurar uma VPN site-to-site, ou peering privado ExpressRoute, para failback.
-2. Certifique-se de que o servidor de configuração no local está a funcionar e ligado ao Azure. Durante a falha para o Azure, o site no local pode não estar acessível, e o servidor de configuração pode estar indisponível ou desligado. Durante o retempo de falha, o VM deve existir na base de dados do servidor de configuração. Caso contrário, o recuo não tem sucesso.
-3. Elimine quaisquer imagens no servidor-alvo principal no local. A proteção não funcionará se houver fotos.  As imagens do VM são automaticamente fundidas durante um trabalho de reproteção.
-4. Se estiver a reproteger os VMs reunidos num grupo de replicação para a consistência multi-VM, certifique-se de que todos têm o mesmo sistema operativo (Windows ou Linux) e certifique-se de que o servidor alvo principal que implementa tem o mesmo tipo de sistema operativo. Todos os VMs de um grupo de replicação devem usar o mesmo servidor alvo principal.
-5. Abra [as portas necessárias](vmware-azure-prepare-failback.md#ports-for-reprotectionfailback) para o recuo.
-6. Certifique-se de que o servidor vCenter está ligado antes da reprodução. Caso contrário, desligar os discos e ligá-los de volta à máquina virtual falha.
-7. Se um servidor vCenter gerir os VMs aos quais irá falhar, certifique-se de que tem as permissões necessárias. Se realizar uma descoberta vCenter de utilizador apenas de leitura e proteger máquinas virtuais, a proteção tem sucesso e falha os trabalhos. No entanto, durante a reproteção, falha porque as lojas de dados não podem ser descobertas e não estão listadas durante a reproteção. Para resolver este problema, pode atualizar as credenciais vCenter com uma [conta/permissões apropriadas](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery)e, em seguida, voltar a tentar o trabalho. 
+1. Siga os passos [deste artigo](vmware-azure-prepare-failback.md) para preparar a reproteção e o failback, incluindo a criação de um servidor de processo em Azure, e um servidor-alvo principal no local, e configurar uma VPN site-to-site, ou o peering privado ExpressRoute, para falha.
+2. Certifique-se de que o servidor de configuração no local está a funcionar e ligado ao Azure. Durante o failover para Azure, o site no local pode não estar acessível, e o servidor de configuração pode estar indisponível ou desligado. Durante o failback, o VM deve existir na base de dados do servidor de configuração. Caso contrário, o fracasso não é bem sucedido.
+3. Elimine quaisquer imagens no servidor principal do alvo no local. A reproteção não funcionará se houver fotos.  As imagens do VM são automaticamente fundidas durante um trabalho reprotegido.
+4. Se estiver a reprotecer os VMs recolhidos num grupo de replicação para consistência multi-VM, certifique-se de que todos têm o mesmo sistema operativo (Windows ou Linux) e certifique-se de que o servidor alvo principal que implementa tem o mesmo tipo de sistema operativo. Todos os VMs de um grupo de replicação devem usar o mesmo servidor-alvo principal.
+5. Abra [as portas necessárias](vmware-azure-prepare-failback.md#ports-for-reprotectionfailback) para o failback.
+6. Certifique-se de que o servidor vCenter está ligado antes do failback. Caso contrário, desligar os discos e fixá-los de volta à máquina virtual falha.
+7. Se um servidor vCenter gerir os VMs aos quais falhará, certifique-se de que tem as permissões necessárias. Se executar uma descoberta vCenter apenas de leitura e proteger máquinas virtuais, a proteção tem sucesso e funciona. No entanto, durante a reproteção, o failover falha porque as datastores não podem ser descobertos, e não estão listados durante a reproteção. Para resolver este problema, pode atualizar as credenciais do vCenter com uma [conta/permissões apropriadas](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery)e, em seguida, voltar a tentar o trabalho. 
 8. Se usou um modelo para criar as suas máquinas virtuais, certifique-se de que cada VM tem o seu próprio UUID para os discos. Se o VM UUID no local entrar em conflito com o UUID do servidor alvo principal porque ambos foram criados a partir do mesmo modelo, a reproteção falha. Desdobre-se a partir de um modelo diferente.
-9. Se estiver a falhar num vCenter Server alternativo, certifique-se de que o novo servidor vCenter e o servidor alvo principal são descobertos. Normalmente, se não forem as lojas de dados não são acessíveis, ou não são visíveis em **Reprotect**.
+9. Se estiver a falhar num servidor vCenter alternativo, certifique-se de que o novo servidor vCenter e o servidor alvo principal são descobertos. Normalmente, se não forem as datastores não são acessíveis, ou não são visíveis em **Reprotect.**
 10. Verifique os seguintes cenários em que não pode falhar:
-    - Se estiver a utilizar a edição gratuita ESXi 5.5 ou a edição gratuita do Hypervisor vSphere 6. Atualize para uma versão diferente.
+    - Se estiver a utilizar a edição gratuita ESXi 5.5 ou a edição gratuita vSphere 6 Hypervisor. Upgrade para uma versão diferente.
     - Se tiver um servidor físico R2 SP1 do Windows Server 2008.
-    - VMware VMs não pode falhar no Hyper-V.
+    - VMware VMs não pode voltar a Hiper-V.
     - VMs que [foram migrados.](migrate-overview.md#what-do-we-mean-by-migration)
     - Um VM que foi transferido para outro grupo de recursos.
     - Uma réplica Azure VM que foi apagada.
-    - Uma réplica Azure VM que não está protegida (replicando-se para o local no local).
-10. [Reveja os tipos de failback](concepts-types-of-failback.md) que pode utilizar - recuperação original da localização e recuperação alternativa de localização.
+    - Uma réplica Azure VM que não está protegida (replicando-se no local).
+10. [Reveja os tipos de falha](concepts-types-of-failback.md) que pode usar - recuperação original da localização e recuperação de localização alternativa.
 
 
-## <a name="enable-reprotection"></a>Ativar a reproteção
+## <a name="enable-reprotection"></a>Permitir a reproteção
 
-Ative a replicação. Pode reproteger VMs específicos, ou um plano de recuperação:
+Ative a replicação. Pode reprotegir VMs específicos ou um plano de recuperação:
 
-- Se reproteger um plano de recuperação, deve fornecer os valores para cada máquina protegida.
+- Se reprotetar um plano de recuperação, deve fornecer os valores para cada máquina protegida.
 - Se os VMs pertencerem a um grupo de replicação para a consistência multi-VM, só podem ser reprotegidos usando um plano de recuperação. VMs em um grupo de replicação deve usar o mesmo servidor alvo principal
 
 ### <a name="before-you-start"></a>Antes de começar
 
-- Depois de uma sesta VM em Azure após a falha, o agente leva algum tempo para o agente voltar a registar-se no servidor de configuração (até 15 minutos). Durante este tempo, não poderá reproteger e uma mensagem de erro indica que o agente não está instalado. Se isto acontecer, espere alguns minutos e, em seguida, reproteja.
-- Se quiser relançar o VM Azure para um VM existente no local, monte as lojas de dados VM no local com acesso de leitura/escrita no anfitrião ESXi do servidor alvo principal.
-- Se pretender falhar num local alternativo, por exemplo, se o VM no local não existir, selecione a unidade de retenção e a datastore que estão configuradas para o servidor alvo principal. Quando falha no local, as máquinas virtuais VMware no plano de proteção de failback utilizam a mesma loja de dados que o servidor alvo principal. Um novo VM é então criado no vCenter.
+- Depois de umas botas VM em Azure após o failover, o agente demora algum tempo a registar-se de volta ao servidor de configuração (até 15 minutos). Durante este tempo, não poderá reprotegir e uma mensagem de erro indica que o agente não está instalado. Se isto acontecer, espere uns minutos e reproteja.
+- Se pretender falhar o VM Azure para um VM existente no local, monte as lojas de dados VM no local com acesso de leitura/escrita no anfitrião ESXi do servidor principal alvo.
+- Se pretender falhar de volta a um local alternativo, por exemplo, se o VM no local não existir, selecione a unidade de retenção e a loja de dados configuradas para o servidor alvo principal. Quando falha no local, as máquinas virtuais VMware no plano de proteção contra falhas utilizam a mesma loja de dados que o servidor principal alvo. Um novo VM é então criado no vCenter.
 
 Permitir a reproteção da seguinte forma:
 
-1. Selecione**itens replicados** **do cofre** > . Clique na máquina virtual que falhou e, em seguida, selecione **Re-Protect**. Ou, a partir dos botões de comando, selecione a máquina e, em seguida, selecione **Re-Protect**.
-2. Verifique se a direção de proteção **Azure to On-Local** foi selecionada.
-3. No **Master Target Server** e no Servidor de **Processos,** selecione o servidor de alvo principal no local e o servidor de processos.  
+1. Selecione **Vault**  >  **itens replicados do**cofre . Clique com o botão direito na máquina virtual que falhou e, em seguida, **selecione Re-Protect**. Ou, a partir dos botões de comando, selecione a máquina e, em seguida, **selecione Re-Protect**.
+2. Verifique se o **Azure para a** direção de proteção no local está selecionado.
+3. No **Master Target Server** and Process **Server**, selecione o servidor-alvo principal no local e o servidor de processo.  
 4. Para **datastore,** selecione a loja de dados para a qual pretende recuperar os discos no local. Esta opção é utilizada quando a máquina virtual no local é eliminada e é necessário criar novos discos. Esta opção é ignorada se os discos já existirem. Ainda precisa especificar um valor.
 5. Selecione a unidade de retenção.
 6. A política de reativação pós-falha é selecionada automaticamente.
 7. Selecione **OK** para iniciar a reproteção.
 
-    ![Reproteger a caixa de diálogo](./media/vmware-azure-reprotect/reprotectinputs.png)
+    ![Caixa de diálogo reprotetor](./media/vmware-azure-reprotect/reprotectinputs.png)
     
-8. Um trabalho começa a replicar o VM Azure para o local no local. Pode acompanhar o progresso no separador **Trabalhos**.
-    - Quando a reprotecção for bem sucedida, o VM entra num estado protegido.
+8. Um trabalho começa a replicar o Azure VM para o local do local. Pode acompanhar o progresso no separador **Trabalhos**.
+    - Quando a reprotecção é bem sucedida, o VM entra num estado protegido.
     - A VM no local é desativada durante a nova proteção. Desta forma, garante-se a consistência dos dados durante a replicação.
-    - Não ligue o VM no local depois de a reproteção terminar.
+    - Não ligue o VM no local depois de terminar a reprotecção.
    
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Se encontrar algum problema, reveja o artigo de resolução de [problemas.](vmware-azure-troubleshoot-failback-reprotect.md)
-- Depois de proteger os VMs Azure, pode [executar um failback](vmware-azure-failback.md). O failback desliga o VM Azure e arranca o VM no local. Espere algum tempo de inatividade para a aplicação e escolha um tempo de recuo em conformidade.
+- Se encontrar algum problema, reveja o [artigo de resolução de problemas](vmware-azure-troubleshoot-failback-reprotect.md).
+- Depois de os VMs Azure estarem protegidos, pode [executar uma falha](vmware-azure-failback.md). Failback desliga o Azure VM e arranca o VM no local. Espere algum tempo de inatividade para a aplicação, e escolha um tempo de insí bem-estar em conformidade.
 
 

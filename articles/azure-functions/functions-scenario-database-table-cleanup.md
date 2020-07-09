@@ -1,85 +1,85 @@
 ---
 title: Utilize funções Azure para executar uma tarefa de limpeza de bases de dados
-description: Utilize funções Azure para agendar uma tarefa que se liga à Base de Dados Azure SQL para limpar periodicamente as linhas.
+description: Utilize funções Azure para agendar uma tarefa que se conecta à Base de Dados Azure SQL para limpar periodicamente as linhas.
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 18e310559cb0b88aac53b1020172847968616f97
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 974d9da9bb5782672603f1ae8c58742941899a14
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020341"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254281"
 ---
-# <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utilize funções Azure para ligar a uma base de dados Azure SQL
+# <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utilize funções Azure para ligar a uma Base de Dados Azure SQL
 
-Este artigo mostra-lhe como usar funções Azure para criar um trabalho programado que se conecta a uma Base de Dados Azure SQL ou a Instância Gerida Azure SQL. O código de função limpa as linhas numa tabela na base de dados. A nova função C# é criada com base num modelo de gatilho pré-definido no Estúdio Visual 2019. Para suportar este cenário, também deve definir uma cadeia de ligação de base de dados como uma definição de aplicação na aplicação de função. Para o Azure SQL Managed Instance, é necessário permitir que o [ponto final público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) possa ligar-se a partir das Funções Azure. Este cenário utiliza uma operação a granel contra a base de dados. 
+Este artigo mostra-lhe como usar funções Azure para criar um trabalho programado que se conecta a uma Base de Dados Azure SQL ou Azure SQL Managed Instance. O código de função limpa as linhas numa tabela na base de dados. A nova função C# é criada com base num modelo de gatilho de temporizador pré-definido no Visual Studio 2019. Para suportar este cenário, também deve definir uma cadeia de ligação de base de dados como uma definição de aplicação na aplicação de função. Para Azure SQL Managed Instance, é necessário [permitir que o ponto final público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) possa ligar-se a partir de Funções Azure. Este cenário usa uma operação a granel contra a base de dados. 
 
-Se esta é a sua primeira experiência a trabalhar com funções C#, deve ler a referência do desenvolvedor das [Funções Azure C#](functions-dotnet-class-library.md).
+Se esta for a sua primeira experiência a trabalhar com funções C# deve ler a referência do [programador Azure Functions C#](functions-dotnet-class-library.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Complete os passos do artigo Crie a [sua primeira função usando](functions-create-your-first-function-visual-studio.md) o Visual Studio para criar uma aplicação de função local que direcione a versão 2.x ou uma versão posterior do tempo de execução. Também deve ter publicado o seu projeto numa aplicação de função no Azure.
++ Preencha os passos no artigo Crie a [sua primeira função utilizando](functions-create-your-first-function-visual-studio.md) o Visual Studio para criar uma aplicação de função local que vise a versão 2.x ou uma versão posterior do tempo de execução. Também deve ter publicado o seu projeto numa aplicação de função em Azure.
 
-+ Este artigo demonstra um comando Transact-SQL que executa uma operação de limpeza a granel na tabela **SalesOrderHeader** na base de dados da amostra AdventureWorksLT. Para criar a base de dados da amostra AdventureWorksLT, complete os passos do artigo [Crie uma base de dados Azure SQL no portal Azure](../azure-sql/database/single-database-create-quickstart.md).
++ Este artigo demonstra um comando Transact-SQL que executa uma operação de limpeza a granel na tabela **SalesOrderHeader** na base de dados de amostras AdventureWorksLT. Para criar a base de dados de amostras AdventureWorksLT, preencha os passos no artigo [Crie uma base de dados na Base de Dados Azure SQL utilizando o portal Azure](../azure-sql/database/single-database-create-quickstart.md).
 
-+ Tem de adicionar uma [regra de firewall ao nível do servidor](../sql-database/sql-database-get-started-portal-firewall.md) para o endereço IP público do computador que utiliza para este arranque rápido. Esta regra é necessária para poder aceder à instância de base de dados SQL do seu computador local.  
++ Tem de adicionar uma [regra de firewall ao nível](../sql-database/sql-database-get-started-portal-firewall.md) do servidor para o endereço IP público do computador que utiliza para este arranque rápido. Esta regra é necessária para poder aceder à placa sql database a partir do seu computador local.  
 
 ## <a name="get-connection-information"></a>Obter informações da ligação
 
-Tem de obter a cadeia de ligação para a base de dados criada quando completou A [Create a Azure SQL base](../azure-sql/database/single-database-create-quickstart.md)de dados no portal Azure .
+É necessário obter o fio de ligação para a base de dados que criou quando concluiu [Criar uma base de dados na Base de Dados Azure SQL utilizando o portal Azure](../azure-sql/database/single-database-create-quickstart.md).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. Selecione Bases de **dados SQL** do menu à esquerda e selecione a sua base de dados na página de bases de **dados SQL.**
+1. Selecione **bases de dados SQL** a partir do menu à esquerda e selecione a sua base de dados na página **de bases de dados SQL.**
 
-1. Selecione as cordas de **ligação** em **Definições** e copie a cadeia de ligação completa **ADO.NET.** Para o fio de ligação de cópia de cópia azure SQL Managed Instance para ponto final público.
+1. Selecione **as cadeias de ligação** em **Definições** e copie o fio de ligação **completo ADO.NET.** Para a cadeia de ligação de cópia de instância gerida Azure SQL para ponto final público.
 
     ![Copie a cadeia de ligação de ADO.NET.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
 ## <a name="set-the-connection-string"></a>Definir a cadeia de ligação
 
-Uma aplicação de função aloja a execução das suas funções no Azure. Como uma melhor prática de segurança, guarde cordas de ligação e outros segredos nas definições da sua aplicação de função. A utilização das definições de aplicação impede a divulgação acidental da cadeia de ligação com o seu código. Pode aceder às definições de aplicativos para a sua aplicação de funções a partir do Estúdio Visual.
+Uma aplicação de função aloja a execução das suas funções no Azure. Como melhor prática de segurança, guarde as cordas de ligação e outros segredos nas definições da aplicação de funções. A utilização das definições de aplicação impede a divulgação acidental da cadeia de ligação com o seu código. Pode aceder às definições da aplicação para a sua aplicação de função a partir do Visual Studio.
 
-Deve ter publicado previamente a sua aplicação para o Azure. Se ainda não o fez, [publique a sua aplicação de funções no Azure](functions-develop-vs.md#publish-to-azure).
+Deve ter publicado previamente a sua aplicação para a Azure. Se ainda não o fez, [publique a sua aplicação de função no Azure.](functions-develop-vs.md#publish-to-azure)
 
-1. No Solution Explorer, clique no projeto da aplicação de funções e escolha **as**definições do Serviço de  >  **Aplicações Edit Edição Azure**. **Selecione adicionar definição**, em novo nome de **definição**de aplicações , escreva `sqldb_connection` , e selecione **OK**.
+1. No Solution Explorer, clique com o botão direito no projeto da aplicação de função e escolha **as**  >  **definições do Serviço de Aplicações Edit editar Azure**. Selecione **Adicionar a definição**, em **novo nome de definição de aplicação,** `sqldb_connection` escreva e selecione **OK**.
 
-    ![Definições de aplicação para a aplicação de funções.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
+    ![Definições de aplicação para a aplicação de função.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
-1. Na nova configuração **sqldb_connection,** colhe a cadeia de ligação que copiou na secção anterior no campo **Local** e substitua `{your_username}` e coloque os espaços por `{your_password}` valores reais. Selecione **Inserir valor a partir do local** para copiar o valor atualizado no campo **Remoto** e, em seguida, selecione **OK**.
+1. Na nova definição **de sqldb_connection,** cole a cadeia de ligação copiada na secção anterior para o campo **Local** e substitua e coloque os `{your_username}` espaços `{your_password}` reservados por valores reais. **Selecione Inserir valor do local** para copiar o valor atualizado no campo **Remote** e, em seguida, selecione **OK**.
 
-    ![Adicione a definição de corda de ligação SQL.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-string.png)
+    ![Adicione a definição da cadeia de ligação SQL.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-string.png)
 
-    As cordas de ligação são armazenadas encriptadas em Azure **(Remote).** Para evitar fugas de segredos, o ficheiro do projeto local.settings.json **(Local)** deve ser excluído do controlo de origem, como por exemplo através de um ficheiro .gitignore.
+    As cadeias de ligação são armazenadas encriptadas em Azure **(Remote**). Para evitar fugas de segredos, os local.settings.jsno ficheiro do projeto **(Local**) devem ser excluídos do controlo de origem, tais como através de um ficheiro .gitignore.
 
 ## <a name="add-the-sqlclient-package-to-the-project"></a>Adicione o pacote SqlClient ao projeto
 
-Você precisa adicionar o pacote NuGet que contém a biblioteca SqlClient. Esta biblioteca de acesso a dados é necessária para se ligar a uma base de dados SQL.
+Tem de adicionar o pacote NuGet que contém a biblioteca SqlClient. Esta biblioteca de acesso a dados é necessária para ligar à Base de Dados SQL.
 
-1. Abra o seu projeto de aplicação de funções locais no Visual Studio 2019.
+1. Abra o seu projeto de aplicação de funções local no Visual Studio 2019.
 
-1. No Solution Explorer, clique no projeto da aplicação de funções e escolha **Gerir pacotes NuGet**.
+1. No Solution Explorer, clique com o botão direito no projeto da aplicação de funções e escolha **Gerir pacotes NuGet**.
 
 1. No separador **Procurar**, procure ```System.Data.SqlClient``` e, quando o encontrar, selecione-o.
 
-1. Na página **System.Data.SqlClient,** selecione a versão `4.5.1` e, em seguida, clique em **Instalar**.
+1. Na página **System.Data.SqlClient,** selecione versão `4.5.1` e, em seguida, clique em **Instalar**.
 
 1. Quando a instalação estiver concluída, reveja as alterações e, em seguida, clique em **OK** para fechar a janela **Pré-visualização**.
 
 1. Se for apresentada uma janela **Aceitação de Licença**, clique em **Aceito**.
 
-Agora, pode adicionar o código de função C# que se liga à sua Base de Dados SQL.
+Agora, pode adicionar o código de função C# que se conecta à sua Base de Dados SQL.
 
 ## <a name="add-a-timer-triggered-function"></a>Adicionar uma função acionada por temporizador
 
-1. No Solution Explorer, clique no projeto da aplicação de funções e escolha **adicionar**  >  **a função Add New Azure**.
+1. No Solution Explorer, clique com o botão direito no projeto da aplicação de funções e escolha adicionar a função **Add**  >  **New Azure**.
 
-1. Com o modelo **funções Azure** selecionado, nomeie o novo item algo como `DatabaseCleanup.cs` e selecione **Adicionar**.
+1. Com o modelo **de Funções Azure** selecionado, nomeie o novo item algo como `DatabaseCleanup.cs` e selecione **Adicionar**.
 
-1. Na caixa de diálogo de **função New Azure,** escolha o **gatilho do Temporizador** **e,** em seguida, OK . Este diálogo cria um ficheiro de código para a função acionada pelo temporizador.
+1. Na caixa de diálogo da **função New Azure,** escolha o **gatilho do Temporizador** e, em seguida, **OK**. Este diálogo cria um ficheiro de código para a função de temporizador acionada.
 
-1. Abra o novo ficheiro de código e adicione o seguinte utilizando declarações na parte superior do ficheiro:
+1. Abra o novo ficheiro de código e adicione as seguintes declarações na parte superior do ficheiro:
 
     ```cs
     using System.Data.SqlClient;
@@ -110,26 +110,26 @@ Agora, pode adicionar o código de função C# que se liga à sua Base de Dados 
     }
     ```
 
-    Esta função funciona a cada 15 segundos para atualizar a `Status` coluna com base na data da nave. Para saber mais sobre o gatilho do Temporizador, consulte o gatilho do [Temporizador para funções Azure](functions-bindings-timer.md).
+    Esta função é de 15 em 15 segundos para atualizar a `Status` coluna com base na data da nave. Para saber mais sobre o gatilho do temporizador, consulte o [gatilho do Temporizador para as Funções Azure](functions-bindings-timer.md).
 
-1. Pressione **F5** para iniciar a aplicação de funções. A janela de execução de [Ferramentas Core Funções Azur do Azure](functions-develop-local.md) abre-se atrás do Estúdio Visual.
+1. Prima **F5** para iniciar a aplicação de função. A janela de execução [Azure Functions Core Tools](functions-develop-local.md) abre-se atrás do Estúdio Visual.
 
-1. A 15 segundos após o arranque, a função funciona. Observe a saída e note o número de linhas atualizadas na tabela **SalesOrderHeader.**
+1. A 15 segundos do arranque, a função funciona. Observe a saída e note o número de linhas atualizadas na tabela **SalesOrderHeader.**
 
-    ![Ver os registos de função.](./media/functions-scenario-database-table-cleanup/function-execution-results-log.png)
+    ![Ver os registos de funções.](./media/functions-scenario-database-table-cleanup/function-execution-results-log.png)
 
-    Na primeira execução, deve atualizar 32 linhas de dados. Após as execuções, a atualização de nenhuma linha de dados, a menos que efaça alterações nos dados da tabela SalesOrderHeader para que mais linhas sejam selecionadas pela `UPDATE` declaração.
+    Na primeira execução, deverá atualizar 32 linhas de dados. Após as execuções, não há linhas de dados, a não ser que escorra alterações aos dados da tabela SalesOrderHeader para que mais linhas sejam selecionadas pela `UPDATE` declaração.
 
 Se pretender [publicar esta função,](functions-develop-vs.md#publish-to-azure)lembre-se de alterar o `TimerTrigger` atributo para um cron [mais](functions-bindings-timer.md#ncrontab-expressions) razoável do que a cada 15 segundos.
 
 ## <a name="next-steps"></a>Próximos passos
 
-Em seguida, aprenda a usar. Funções com Apps Lógicas para integrar com outros serviços.
+Em seguida, aprenda a usar. Funções com Aplicações Lógicas para integrar com outros serviços.
 
 > [!div class="nextstepaction"]
-> [Criar uma função que se integre com apps lógicas](functions-twitter-email.md)
+> [Criar uma função que se integre com Apps Lógicas](functions-twitter-email.md)
 
-Para mais informações sobre funções, consulte os seguintes artigos:
+Para obter mais informações sobre Funções, consulte os seguintes artigos:
 
 + [Referência para programadores das Funções do Azure](functions-reference.md)  
   Referência para programadores para codificar funções e definir acionadores e enlaces.

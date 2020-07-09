@@ -1,7 +1,7 @@
 ---
-title: Suporte de idioma - Bing Custom Search API
+title: Suporte linguístico - Bing Custom Search API
 titleSuffix: Azure Cognitive Services
-description: Uma lista de idiomas e regiões suportadas para a API de Pesquisa Personalizada bing.
+description: Uma lista de línguas e regiões apoiadas para a API de Pesquisa Personalizada Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: 85326ae9166f7ea15ec2f45c01755b8f9ef03aff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 004bd973651d5903db4254a8883be2c8a83d9b38
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66388568"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310585"
 ---
-# <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Suporte de idioma e região para a API de Pesquisa Personalizada bing
+# <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Suporte linguístico e regional para a API de Pesquisa Personalizada Bing
 
 A API de Pesquisa Personalizada Bing suporta mais de três dezenas de países/regiões, muitos com mais de uma língua.
 
-Embora seja opcional, o pedido deve especificar o parâmetro de consulta [mkt,](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#mkt) que identifica o mercado de onde pretende que os resultados venham. Para obter uma lista de parâmetros de consulta opcionais, consulte [Parâmetros](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) de consulta
+Embora seja opcional, o pedido deve especificar o parâmetro de consulta [mkt,](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#mkt) que identifica o mercado de onde deseja que os resultados venham. Para obter uma lista de parâmetros de consulta opcionais, consulte [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)
 
-Pode especificar um país/região utilizando o parâmetro de `cc` consulta. Se especificar um país/região, também deve especificar um `Accept-Language` ou mais códigos linguísticos utilizando o cabeçalho. As línguas apoiadas variam por país/região; são dadas para cada país/região na tabela **Mercados.**
+Pode especificar um país/região utilizando o `cc` parâmetro de consulta. Se especificar um país/região, também deve especificar um ou mais códigos linguísticos utilizando o `Accept-Language` cabeçalho. As línguas apoiadas variam por país/região; são dados para cada país/região na tabela **Mercados.**
 
-O `Accept-Language` cabeçalho `setLang` e o parâmetro de consulta são mutuamente exclusivos — não especifique ambos. Para mais detalhes, consulte [Aceitar a Linguagem](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#acceptlanguage).
+O `Accept-Language` cabeçalho e o `setLang` parâmetro de consulta são mutuamente exclusivos — não especifique ambos. Para mais detalhes, consulte [a Língua de Aceitação.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#acceptlanguage)
 
 ## <a name="countriesregions"></a>Países/Regiões
 
@@ -42,7 +42,7 @@ O `Accept-Language` cabeçalho `setLang` e o parâmetro de consulta são mutuame
 |Finlândia|FI|
 |França|FR|
 |Alemanha|DE|
-|RAE de Hong Kong|HK|
+|R.A.E. de Hong Kong|HK|
 |Índia|IN|
 |Indonésia|ID|
 |Itália|TI|
@@ -66,15 +66,15 @@ O `Accept-Language` cabeçalho `setLang` e o parâmetro de consulta são mutuame
 |Taiwan|TW|
 |Turquia|TR|
 |Reino Unido|GB|
-|Estados Unidos|EUA|
+|Estados Unidos da América|EUA|
 
 
 ## <a name="markets"></a>Mercados
 
-|Pais/região|Idioma|Código de Mercado|
+|Pais/região|Linguagem|Código de Mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
-|Austrália|Inglês|en-UA|
+|Austrália|Inglês|en-AU|
 |Áustria|Alemão|de-AT|
 |Bélgica|Neerlandês|nl-BE|
 |Bélgica|Francês|fr-BE|
@@ -86,7 +86,7 @@ O `Accept-Language` cabeçalho `setLang` e o parâmetro de consulta são mutuame
 |Finlândia|Finlandês|fi-FI|
 |França|Francês|fr-FR|
 |Alemanha|Alemão|de-DE|
-|Hong Kong, SAR|Chinês Tradicional|zh-HK|
+|R.A.E. de Hong Kong|Chinês Tradicional|zh-HK|
 |Índia|Inglês|en-IN|
 |Indonésia|Inglês|en-ID|
 |Itália|Italiano|it-IT|
@@ -111,5 +111,5 @@ O `Accept-Language` cabeçalho `setLang` e o parâmetro de consulta são mutuame
 |Taiwan|Chinês Tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
 |Reino Unido|Inglês|en-GB|
-|Estados Unidos|Inglês|pt-PT|
-|Estados Unidos|Espanhol|es-EUA|
+|Estados Unidos da América|Inglês|pt-PT|
+|Estados Unidos da América|Espanhol|es-EUA|

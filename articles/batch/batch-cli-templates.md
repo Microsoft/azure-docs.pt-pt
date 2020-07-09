@@ -1,49 +1,48 @@
 ---
 title: Executar empregos de ponta a ponta usando modelos
-description: Com apenas comandos CLI, pode criar um pool, carregar dados de entrada, criar empregos e tarefas associadas, e descarregar os dados de saída resultantes.
+description: Com apenas comandos CLI, pode criar um pool, carregar dados de entrada, criar empregos e tarefas associadas e descarregar os dados de saída resultantes.
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 1029d2e156d219c88100a035f2ed4a51afa6ba36
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83816000"
 ---
-# <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Utilize modelos CLI de lote azure e transferência de ficheiros
+# <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Use modelos CLI de lote de Azure e transferência de ficheiros
 
-Utilizando uma extensão de lote para o ClI Azure, é possível executar trabalhos de lote sem código de escrita.
+Utilizando uma extensão de lote ao Azure CLI, é possível executar trabalhos de Lote sem código de escrita.
 
-Crie e use ficheiros de modelo JSON com o Azure CLI para criar piscinas, empregos e tarefas de Lote. Utilize comandos de extensão CLI para enviar facilmente ficheiros de entrada de trabalho para a conta de armazenamento associada à conta Batch e descarregar ficheiros de saída de trabalho.
+Crie e use ficheiros de modelo JSON com o CLI Azure para criar piscinas, empregos e tarefas do Batch. Utilize comandos de extensão CLI para carregar facilmente ficheiros de entradas de trabalho na conta de armazenamento associada à conta Batch e descarregar ficheiros de saída de trabalho.
 
 > [!NOTE]
-> Os ficheiros JSON não suportam a mesma funcionalidade que os [modelos do Gestor](../azure-resource-manager/templates/template-syntax.md)de Recursos Azure . Eles devem ser formatados como o corpo de pedido cru rest. A extensão CLI não altera quaisquer comandos existentes, mas tem uma opção de modelo semelhante que adiciona a funcionalidade parcial do modelo do Gestor de Recursos Azure. Consulte [extensões CLI do lote Azure para Windows, Mac e Linux](https://github.com/Azure/azure-batch-cli-extensions).
+> Os ficheiros JSON não suportam a mesma funcionalidade que os [modelos do Gestor de Recursos Azure.](../azure-resource-manager/templates/template-syntax.md) Destinam-se a ser formatados como o corpo de pedido de REST bruto. A extensão CLI não altera nenhum comando existente, mas tem uma opção de modelo semelhante que adiciona a funcionalidade parcial do modelo do Gestor de Recursos Azure. Consulte [extensões CLI do lote Azure para Windows, Mac e Linux](https://github.com/Azure/azure-batch-cli-extensions).
 
 ## <a name="overview"></a>Descrição geral
 
-Uma extensão do ClI Azure permite que o Lote seja utilizado de ponta a ponta por utilizadores que não sejam desenvolvedores. Com apenas comandos CLI, pode criar um pool, carregar dados de entrada, criar empregos e tarefas associadas, e descarregar os dados de saída resultantes. Não é necessário nenhum código adicional. Executar os comandos CLI diretamente ou integrá-los em scripts.
+Uma extensão do Azure CLI permite que o Batch seja utilizado de ponta a ponta por utilizadores que não sejam desenvolvedores. Com apenas comandos CLI, pode criar um pool, carregar dados de entrada, criar empregos e tarefas associadas e descarregar os dados de saída resultantes. Não é necessário um código adicional. Executar os comandos CLI diretamente ou integrá-los em scripts.
 
-Os modelos de lote baseiam-se no suporte do Lote existente no [Azure CLI](batch-cli-get-started.md#json-files-for-resource-creation) para ficheiros JSON para especificar valores de propriedade ao criar piscinas, empregos, tarefas e outros itens. Os modelos de lote adicionam as seguintes capacidades:
+Os modelos de lote baseiam-se no suporte do Lote existente no [CLI Azure](batch-cli-get-started.md#json-files-for-resource-creation) para ficheiros JSON para especificar os valores de propriedade ao criar piscinas, empregos, tarefas e outros itens. Os modelos de lote adicionam as seguintes capacidades:
 
--   Os parâmetros podem ser definidos. Quando o modelo é utilizado, apenas os valores do parâmetro são especificados para criar o item, com outros valores de propriedade do item especificados no corpo do modelo. Um utilizador que compreenda o Batch e as aplicações a serem executadas pelo Batch pode criar modelos, especificando valores de pool, job e task property. Um utilizador menos familiarizado com o Lote e/ou as aplicações apenas precisa especificar os valores para os parâmetros definidos.
+-   Os parâmetros podem ser definidos. Quando o modelo é utilizado, apenas os valores dos parâmetros são especificados para criar o item, com outros valores de propriedade de item especificados no corpo do modelo. Um utilizador que compreenda o Batch e as aplicações a executar pelo Batch pode criar modelos, especificando valores de pool, trabalho e propriedade de tarefa. Um utilizador menos familiarizado com o Batch e/ou as aplicações só precisa de especificar os valores para os parâmetros definidos.
 
--   As fábricas de tarefas de trabalho criam uma ou mais tarefas associadas a um trabalho, evitando a necessidade de criar muitas definições de tarefas e simplificar significativamente a submissão de emprego.
+-   As fábricas de tarefas de trabalho criam uma ou mais tarefas associadas a um trabalho, evitando a necessidade de criar muitas definições de tarefas e simplificando significativamente a submissão de emprego.
 
 
-Os trabalhos normalmente usam ficheiros de dados de entrada e produzem ficheiros de dados de saída. Uma conta de armazenamento está associada, por padrão, a cada conta de Lote. Transfira ficheiros de e para esta conta de armazenamento utilizando o CLI, sem codificação e sem credenciais de armazenamento.
+Normalmente, os trabalhos utilizam ficheiros de dados de entrada e produzem ficheiros de dados de saída. Uma conta de armazenamento está associada, por padrão, a cada conta Batch. Transfira ficheiros de e para esta conta de armazenamento utilizando o CLI, sem codificação e sem credenciais de armazenamento.
 
-Por exemplo, [a ffmpeg](https://ffmpeg.org/) é uma aplicação popular que processa ficheiros de áudio e vídeo. Aqui estão os passos com o Azure Batch CLI para invocar a ffmpeg para transcodificar ficheiros de vídeo de origem para diferentes resoluções.
+Por exemplo, [ffmpeg](https://ffmpeg.org/) é uma aplicação popular que processa ficheiros de áudio e vídeo. Aqui estão os passos com o Azure Batch CLI para invocar ffmpeg para transcodificar ficheiros de vídeo de origem para diferentes resoluções.
 
--   Crie um modelo de piscina. O utilizador que cria o modelo sabe como chamar a aplicação ffmpeg e os seus requisitos; especificam o tamanho de OS, VM adequado, como a ffmpeg é instalada (a partir de um pacote de aplicação ou utilizando um gestor de pacotes, por exemplo), e outros valores de propriedade da piscina. Os parâmetros são criados para que quando o modelo é usado, apenas o ID da piscina e o número de VMs precisam ser especificados.
+-   Crie um modelo de piscina. O utilizador que cria o modelo sabe como chamar a aplicação ffmpeg e seus requisitos; especificam o sistema operativo adequado, o tamanho VM, a instalação de ffmpeg (a partir de um pacote de aplicações ou usando um gestor de pacotes, por exemplo) e outros valores de propriedade da piscina. Os parâmetros são criados para que, quando o modelo é utilizado, apenas o ID da piscina e o número de VMs precisam de ser especificados.
 
--   Crie um modelo de trabalho. O utilizador que cria o modelo sabe como é que o ffmpeg precisa de ser invocado para transcodificar o vídeo de origem para uma resolução diferente e especifica a linha de comando de tarefas; também sabem que existe uma pasta que contém os ficheiros de vídeo de origem, com uma tarefa exigida por ficheiro de entrada.
+-   Crie um modelo de trabalho. O utilizador que cria o modelo sabe como o ffmpeg precisa de ser invocado para transcodificar o vídeo de origem para uma resolução diferente e especifica a linha de comando da tarefa; também sabem que existe uma pasta que contém os ficheiros de vídeo de origem, com uma tarefa necessária por ficheiro de entrada.
 
--   Um utilizador final com um conjunto de ficheiros de vídeo para transcodificar primeiro cria uma piscina usando o modelo de piscina, especificando apenas o ID da piscina e o número de VMs necessários. Podem então enviar os ficheiros de origem para transcodificar. Um trabalho pode então ser submetido usando o modelo de trabalho, especificando apenas o ID do pool e a localização dos ficheiros de origem enviados. O trabalho do Lote é criado, com uma tarefa por ficheiro de entrada a ser gerada. Finalmente, os ficheiros de saída transcodificados podem ser descarregados.
+-   Um utilizador final com um conjunto de ficheiros de vídeo para transcodificar primeiro cria uma piscina usando o modelo de piscina, especificando apenas o ID do pool e o número de VMs necessários. Podem então enviar os ficheiros de origem para transcodificar. Um trabalho pode então ser submetido usando o modelo de trabalho, especificando apenas o ID do pool e a localização dos ficheiros de origem enviados. O trabalho Batch é criado, com uma tarefa por ficheiro de entrada a ser gerada. Finalmente, os ficheiros de saída transcodificados podem ser descarregados.
 
 ## <a name="installation"></a>Instalação
 
-Para instalar a extensão CLI do lote Azure, primeiro [instale o Azure CLI 2.0](/cli/azure/install-azure-cli), ou executar o Azure CLI em [Azure Cloud Shell](../cloud-shell/overview.md).
+Para instalar a extensão CLI do Lote Azure, instale primeiro [o Azure CLI 2.0](/cli/azure/install-azure-cli), ou execute o Azure CLI em [Azure Cloud Shell](../cloud-shell/overview.md).
 
 Instale a versão mais recente da extensão do Lote utilizando o seguinte comando Azure CLI:
 
@@ -51,42 +50,42 @@ Instale a versão mais recente da extensão do Lote utilizando o seguinte comand
 az extension add --name azure-batch-cli-extensions
 ```
 
-Para obter mais informações sobre a extensão do Lote CLI e opções adicionais de instalação, consulte o [repo GitHub](https://github.com/Azure/azure-batch-cli-extensions).
+Para obter mais informações sobre a extensão do Lote CLI e opções de instalação adicionais, consulte o [repo GitHub](https://github.com/Azure/azure-batch-cli-extensions).
 
 
-Para utilizar as funcionalidades de extensão CLI, necessita de uma conta Azure Batch e, para os comandos que transferem ficheiros de e para o armazenamento, uma conta de armazenamento ligada.
+Para utilizar as funcionalidades de extensão CLI, precisa de uma conta Azure Batch e, para os comandos que transferem ficheiros de e para o armazenamento, uma conta de armazenamento ligada.
 
-Para iniciar sessão numa conta de Lote com o Azure CLI, consulte [gerir os recursos do Lote com o Azure CLI](batch-cli-get-started.md).
+Para iniciar sessão numa conta batch com o Azure CLI, consulte [gerir os recursos do Lote com o Azure CLI](batch-cli-get-started.md).
 
 ## <a name="templates"></a>Modelos
 
-Os modelos de Lote Azure são semelhantes aos modelos do Gestor de Recursos Azure, em funcionalidade e sintaxe. São ficheiros JSON que contêm nomes e valores de propriedade de item, mas adicionam os seguintes conceitos principais:
+Os modelos do Azure Batch são semelhantes aos modelos do Gestor de Recursos Azure, na funcionalidade e na sintaxe. São ficheiros JSON que contêm nomes e valores de propriedade de item, mas adicionam os seguintes conceitos principais:
 
 -   **Parâmetros**
 
-    -   Permitir que os valores de propriedade sejam especificados numa secção do corpo, com apenas valores de parâmetros a necessitar em fornecer quando o modelo for utilizado. Por exemplo, a definição completa para uma piscina poderia ser colocada no corpo e apenas um parâmetro definido para ; apenas uma cadeia de ID da `poolId` piscina precisa, portanto, de ser fornecida para criar uma piscina.
+    -   Permitir que os valores de propriedade sejam especificados numa secção do corpo, com apenas valores de parâmetros que precisam de ser fornecidos quando o modelo é utilizado. Por exemplo, a definição completa de uma piscina poderia ser colocada no corpo e apenas um parâmetro definido `poolId` para; apenas uma cadeia de ID de piscina precisa, portanto, ser fornecida para criar uma piscina.
         
-    -   O corpo do modelo pode ser da autoria de alguém com conhecimento de Batch e as aplicações a serem executadas por Batch; só devem ser fornecidos valores para os parâmetros definidos pelo autor quando o modelo é utilizado. Um utilizador sem o lote aprofundado e/ou conhecimento de aplicação pode, portanto, utilizar os modelos.
+    -   O corpo do modelo pode ser da autoria de alguém com conhecimento de Batch e das aplicações a executar por Batch; só devem ser fornecidos valores para os parâmetros definidos pelo autor quando o gabarito for utilizado. Um utilizador sem o conhecimento aprofundado do Lote e/ou da aplicação pode, portanto, utilizar os modelos.
 
 -   **Variáveis**
 
-    -   Permita especificar valores simples ou complexos de parâmetros num só local e utilizados num ou mais lugares no corpo do modelo. As variáveis podem simplificar e reduzir o tamanho do modelo, bem como torná-lo mais manejável por ter um local para mudar de propriedade.
+    -   Permita que valores de parâmetros simples ou complexos sejam especificados num só local e utilizados em um ou mais lugares no corpo do modelo. As variáveis podem simplificar e reduzir o tamanho do modelo, bem como torná-lo mais sustentável por ter uma localização para alterar propriedades.
 
 -   **Construções de nível superior**
 
-    -   Algumas construções de nível superior estão disponíveis no modelo que ainda não estão disponíveis nas APIs do Lote. Por exemplo, uma fábrica de tarefas pode ser definida num modelo de trabalho que cria múltiplas tarefas para o trabalho, utilizando uma definição de tarefa comum. Estas construções evitam a necessidade de codificar para criar dinamicamente vários ficheiros JSON, como um ficheiro por tarefa, bem como criar ficheiros script para instalar aplicações através de um gestor de pacotes.
+    -   Algumas construções de nível superior estão disponíveis no modelo que ainda não estão disponíveis nas APIs do lote. Por exemplo, uma fábrica de tarefas pode ser definida num modelo de trabalho que cria múltiplas tarefas para o trabalho, usando uma definição de tarefa comum. Estas construções evitam a necessidade de codificar para criar dinamicamente vários ficheiros JSON, como um ficheiro por tarefa, bem como criar ficheiros de script para instalar aplicações através de um gestor de pacotes.
 
-    -   Em algum momento, estas construções podem ser adicionadas ao serviço Batch e disponíveis nas APIs, UIs, etc.
+    -   Em algum momento, estas construções podem ser adicionadas ao serviço Batch e disponíveis nas APIs do lote, UIs, etc.
 
 ### <a name="pool-templates"></a>Modelos de piscina
 
-Os modelos de piscina suportam as capacidades padrão do modelo de parâmetros e variáveis. Também apoiam a seguinte construção de alto nível:
+Os modelos de piscina suportam as capacidades padrão do modelo de parâmetros e variáveis. Apoiam igualmente a seguinte construção de nível superior:
 
--   **Referências de pacotes**
+-   **Referências do pacote**
 
-    -   Opcionalmente permite que o software seja copiado para piscina de nódosos usando gestores de pacotes. O gestor do pacote e o ID do pacote são especificados. Ao declarar um ou mais pacotes, evite criar um script que obtenha os pacotes necessários, instalando o script e executando o script em cada nó da piscina.
+    -   Opcionalmente, permite que o software seja copiado para os nós de piscina utilizando gestores de pacotes. O gestor do pacote e o iD do pacote são especificados. Ao declarar um ou mais pacotes, evita criar um script que obtenha os pacotes necessários, instalando o script e executando o script em cada nó de piscina.
 
-Segue-se um exemplo de um modelo que cria uma piscina de VMs Linux com ffmpeg instalado. Para usá-lo, forneça apenas uma cadeia de identificação de piscina e o número de VMs na piscina:
+Segue-se um exemplo de um modelo que cria uma piscina de VMs Linux com ffmpeg instalado. Para usá-lo, forneça apenas uma cadeia de ID de piscina e o número de VMs na piscina:
 
 ```json
 {
@@ -133,13 +132,13 @@ Segue-se um exemplo de um modelo que cria uma piscina de VMs Linux com ffmpeg in
 }
 ```
 
-Se o ficheiro do modelo foi nomeado _pool-ffmpeg.json,_ então invoque o modelo da seguinte forma:
+Se o ficheiro do modelo foi nomeado _pool-ffmpeg.js,_ então invoque o modelo da seguinte forma:
 
 ```azurecli
 az batch pool create --template pool-ffmpeg.json
 ```
 
-O CLI pede-lhe que forneça valores para os `poolId` `nodeCount` e parâmetros. Também pode fornecer os parâmetros num ficheiro JSON. Por exemplo:
+O CLI pede-lhe que forneça valores para os `poolId` parâmetros e `nodeCount` parâmetros. Também pode fornecer os parâmetros num ficheiro JSON. Por exemplo:
 
 ```json
 {
@@ -152,21 +151,21 @@ O CLI pede-lhe que forneça valores para os `poolId` `nodeCount` e parâmetros. 
 }
 ```
 
-Se o ficheiro JSON dos parâmetros foi nomeado *paramímetros de piscina.json,* então invoque o modelo da seguinte forma:
+Se o ficheiro JSON dos parâmetros foi nomeado *pool-parameters.js,* então invoque o modelo da seguinte forma:
 
 ```azurecli
 az batch pool create --template pool-ffmpeg.json --parameters pool-parameters.json
 ```
 
-### <a name="job-templates"></a>Modelos de trabalho
+### <a name="job-templates"></a>Modelos de emprego
 
-Os modelos de trabalho suportam as capacidades padrão do modelo de parâmetros e variáveis. Também apoiam a seguinte construção de alto nível:
+Os modelos de trabalho suportam as capacidades padrão do modelo de parâmetros e variáveis. Apoiam igualmente a seguinte construção de nível superior:
 
 -   **Fábrica de tarefas**
 
-    -   Cria múltiplas tarefas para um trabalho a partir de uma definição de tarefa. São suportados três tipos de fábrica de tarefas – varredura paramétrica, tarefa por ficheiro e recolha de tarefas.
+    -   Cria múltiplas tarefas para um trabalho a partir de uma definição de tarefa. Três tipos de fábrica de tarefas são suportados - varredura paramétrica, tarefa por ficheiro e recolha de tarefas.
 
-Segue-se um exemplo de um modelo que cria um trabalho para transcodificar ficheiros de vídeo MP4 com ffmpeg para uma de duas resoluções inferiores. Cria uma tarefa por ficheiro de vídeo de origem. Consulte [os grupos de ficheiros e](#file-groups-and-file-transfer) a transferência de ficheiros para mais informações sobre grupos de ficheiros para entrada e saída de emprego.
+Segue-se um exemplo de um modelo que cria um trabalho para transcodificar ficheiros de vídeo MP4 com ffmpeg para uma das duas resoluções mais baixas. Cria uma tarefa por ficheiro de vídeo de origem. Consulte [os grupos de ficheiros e a transferência de ficheiros](#file-groups-and-file-transfer) para obter mais sobre grupos de ficheiros para entrada e saída de emprego.
 
 ```json
 {
@@ -242,7 +241,7 @@ Segue-se um exemplo de um modelo que cria um trabalho para transcodificar fichei
 }
 ```
 
-Se o ficheiro do modelo foi nomeado _job-ffmpeg.json,_ então invoque o modelo da seguinte forma:
+Se o ficheiro do modelo foi nomeado _job-ffmpeg.js,_ então invoque o modelo da seguinte forma:
 
 ```azurecli
 az batch job create --template job-ffmpeg.json
@@ -250,25 +249,25 @@ az batch job create --template job-ffmpeg.json
 
 Como antes, o CLI pede-lhe que forneça valores para os parâmetros. Também pode fornecer os parâmetros num ficheiro JSON.
 
-### <a name="use-templates-in-batch-explorer"></a>Usar modelos no Batch Explorer
+### <a name="use-templates-in-batch-explorer"></a>Use modelos no Explorador de Lote
 
-Pode enviar um modelo DE CLI de lote para a aplicação de ambiente de trabalho [do Batch Explorer](https://github.com/Azure/BatchExplorer) (anteriormente chamada BatchLabs) para criar uma piscina ou trabalho de Lote. Também pode selecionar a partir de modelos de piscina e de trabalho predefinidos na Galeria do Explorador de Lote.
+Pode enviar um modelo de CLI do Lote para a aplicação de ambiente de trabalho [Do Batch Explorer](https://github.com/Azure/BatchExplorer) (anteriormente chamado BatchLabs) para criar um pool ou trabalho de Lote. Também pode selecionar entre modelos de piscina e trabalho pré-finidos na Galeria do Explorador de Lotes.
 
-Para fazer upload de um modelo:
+Para carregar um modelo:
 
-1. No Batch Explorer, selecione **Gallery**  >  **Modelos Locais**da Galeria .
+1. No Batch Explorer, selecione **Gallery**  >  **Local modelos.**
 
 2. Selecione, ou arraste e deixe cair, uma piscina local ou modelo de trabalho.
 
-3. Selecione **Utilize este modelo**e siga as instruções no ecrã.
+3. Selecione **Utilize este modelo**e siga as indicações no ecrã.
 
 ## <a name="file-groups-and-file-transfer"></a>Grupos de ficheiros e transferência de ficheiros
 
-A maioria dos trabalhos e tarefas requer ficheiros de entrada e produz ficheiros de saída. Normalmente, os ficheiros de entrada e os ficheiros de saída são transferidos, quer do cliente para o nó, quer do nó para o cliente. A extensão cli do lote Azure abstrata a transferência de ficheiros e utiliza a conta de armazenamento que pode associar a cada conta de Lote.
+A maioria dos trabalhos e tarefas requer ficheiros de entrada e produz ficheiros de saída. Normalmente, os ficheiros de entrada e de saída são transferidos, quer do cliente para o nó, quer do nó para o cliente. A extensão Azure Batch CLI abstrata a transferência de ficheiros e utiliza a conta de armazenamento que pode associar a cada conta Batch.
 
-Um grupo de ficheiros equivale a um contentor que é criado na conta de armazenamento Azure. O grupo de ficheiros pode ter subpastas.
+Um grupo de ficheiros equivale a um recipiente que é criado na conta de armazenamento Azure. O grupo de ficheiros pode ter sub-dobradeiras.
 
-A extensão do Batch CLI fornece comandos para enviar ficheiros do cliente para um grupo de ficheiros especificado e transferir ficheiros do grupo de ficheiros especificado para um cliente.
+A extensão do Lote CLI fornece comandos para carregar ficheiros do cliente para um grupo de ficheiros especificado e transferir ficheiros do grupo de ficheiros especificado para um cliente.
 
 ```azurecli
 az batch file upload --local-path c:\source_videos\*.mp4 
@@ -278,16 +277,16 @@ az batch file download --file-group ffmpeg-output --local-path
     c:\output_lowres_videos
 ```
 
-Os modelos de pool e de trabalho permitem que os ficheiros armazenados em grupos de ficheiros sejam especificados para cópia em nódos de piscina ou nódosos de piscina de volta a um grupo de ficheiros. Por exemplo, no modelo de trabalho especificado anteriormente, a entrada de *ffmpeg-grupo* de ficheiros é especificada para a fábrica de tarefas como a localização dos ficheiros de vídeo de origem copiados para o nó para transcodificação. A *saída de ffmpeg do* grupo de ficheiros é o local onde os ficheiros de saída transcodificados são copiados do nó que executa cada tarefa.
+Os modelos de piscina e de trabalho permitem que os ficheiros armazenados em grupos de ficheiros sejam especificados para cópia nos nós da piscina ou nos nós de piscina de volta para um grupo de ficheiros. Por exemplo, no modelo de trabalho especificado anteriormente, o grupo *de ficheiros ffmpeg-input* é especificado para a fábrica de tarefas como a localização dos ficheiros de vídeo de origem copiados para o nó para transcoding. O grupo *de ficheiros ffmpeg-output* é o local onde os ficheiros de saída transcodificados são copiados do nó que executa cada tarefa.
 
 ## <a name="summary"></a>Resumo
 
-O suporte de transferência de modelos e ficheiros foi atualmente adicionado apenas ao ClI Azure. O objetivo é expandir o público que pode usar o Batch para utilizadores que não precisam de desenvolver código usando as APIs do Lote, como investigadores e utilizadores de TI. Sem codificação, os utilizadores com conhecimento de Azure, Batch, e as aplicações a serem geridas pelo Batch podem criar modelos para a criação de piscinas e empregos. Com parâmetros de modelo, os utilizadores sem conhecimento detalhado do Lote e as aplicações podem usar os modelos.
+Atualmente, o suporte de transferência de modelos e ficheiros foi adicionado apenas ao CLI do Azure. O objetivo é expandir o público que pode usar o Batch para utilizadores que não precisam de desenvolver código usando as APIs do Lote, como investigadores e utilizadores de TI. Sem codificação, os utilizadores com conhecimento de Azure, Batch, e as aplicações a serem executadas pela Batch podem criar modelos para criação de piscina e emprego. Com os parâmetros do modelo, os utilizadores sem conhecimento detalhado do Batch e as aplicações podem usar os modelos.
 
-Experimente a extensão do Lote para o Azure CLI e forneça-nos qualquer feedback ou sugestão, quer nos comentários relativos a este artigo quer através do [repo comunitário](https://github.com/Azure/Batch)de lote .
+Experimente a extensão do Lote para o CLI Azure e forneça-nos qualquer feedback ou sugestões, quer nos comentários para este artigo, quer através do [repo da Comunidade de Lote.](https://github.com/Azure/Batch)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Documentação detalhada de instalação e utilização, amostras e código fonte estão disponíveis no [repo Azure GitHub](https://github.com/Azure/azure-batch-cli-extensions).
 
-- Saiba mais sobre a utilização [do Batch Explorer](https://github.com/Azure/BatchExplorer) para criar e gerir os recursos do Lote.
+- Saiba mais sobre a utilização [do Batch Explorer](https://github.com/Azure/BatchExplorer) para criar e gerir os recursos do Batch.

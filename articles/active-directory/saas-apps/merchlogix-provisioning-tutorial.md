@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure MerchLogix para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
-description: Aprenda a configurar o Diretório Ativo Azure para fornecer e desfornecer automaticamente contas de utilizador à MerchLogix.
+title: 'Tutorial: Configure MerchLogix para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+description: Aprenda a configurar o Azure Ative Directory para provisão automática e desa provisionar contas de utilizadores à MerchLogix.
 services: active-directory
 documentationcenter: ''
 author: zhchia
@@ -17,118 +17,117 @@ ms.date: 03/27/2019
 ms.author: zhchia
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4aa60fb565552961a3c85346c39c318a90c8adc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77061338"
 ---
-# <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>Tutorial: Configure MerchLogix para fornecimento automático de utilizadores
+# <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>Tutorial: Configure MerchLogix para o fornecimento automático de utilizadores
 
-O objetivo deste tutorial é demonstrar os passos a serem realizados no MerchLogix e no Azure Ative Directory (Azure AD) para configurar a AD Azure para fornecer e desfornecer automaticamente utilizadores e/ou grupos à MerchLogix.
+O objetivo deste tutorial é demonstrar os passos a serem realizados na MerchLogix e no Azure Ative Directory (Azure AD) para configurar a Azure AD para fornecimento e desavisagem automática de utilizadores e/ou grupos à MerchLogix.
 
 > [!NOTE]
-> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Da AD Azure. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
+> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [automatizar o fornecimento e desprovisionamento de aplicações saaS com diretório Azure Ative.](../app-provisioning/user-provisioning.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
-* Um inquilino da AD Azure
-* Um inquilino merchLogix
-* Um contacto técnico na MerchLogix que pode fornecer o URL final do Ponto SCIM e ficha secreta necessária para o fornecimento do utilizador
+* Um inquilino da AD AZure
+* Um inquilino da MerchLogix
+* Um contacto técnico na MerchLogix que pode fornecer o URL de ponta SCIM e o símbolo secreto necessário para o fornecimento do utilizador
 
-## <a name="adding-merchlogix-from-the-gallery"></a>Adicionando MerchLogix da galeria
+## <a name="adding-merchlogix-from-the-gallery"></a>Adicionar MerchLogix da galeria
 
-Antes de configurar o MerchLogix para o fornecimento automático de utilizadores com o Azure AD, é necessário adicionar merchLogix da galeria de aplicações Azure AD à sua lista de aplicações SaaS geridas.
+Antes de configurar a MerchLogix para o fornecimento automático de utilizadores com Azure AD, precisa de adicionar a MerchLogix da galeria de aplicações AD AD do Azure à sua lista de aplicações geridas pelo SaaS.
 
-**Para adicionar MerchLogix à galeria de aplicações Azure AD, execute os seguintes passos:**
+**Para adicionar MerchLogix da galeria de aplicações AZure, execute os seguintes passos:**
 
-1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone do **Diretório Ativo Azure.** 
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.** 
 
     ![O botão Azure Ative Directory][1]
 
-2. Navegar para **aplicações** > da Enterprise**Todas as aplicações**.
+2. Navegar para **aplicações da Enterprise**  >  **Todas as aplicações.**
 
     ![Secção de aplicações da Enterprise][2]
 
-3. Para adicionar MerchLogix, clique no novo botão de **aplicação** na parte superior do diálogo.
+3. Para adicionar MerchLogix, clique no botão **de aplicação Novo** na parte superior do diálogo.
 
     ![O novo botão de aplicação][3]
 
-4. Na caixa de pesquisa, escreva **MerchLogix**.
+4. Na caixa de pesquisa, escreva **MerchLogix.**
 
-5. No painel de resultados, selecione **MerchLogix**, e, em seguida, clique no botão **Adicionar** para adicionar MerchLogix à sua lista de aplicações SaaS.
+5. No painel de resultados, selecione **MerchLogix**e, em seguida, clique no botão **Adicionar** para adicionar MerchLogix à sua lista de aplicações SaaS.
 
-    ![Provisionamento MerchLogix][4]
+    ![Provisão merchLogix][4]
 
-## <a name="assigning-users-to-merchlogix"></a>Atribuir utilizadores a MerchLogix
+## <a name="assigning-users-to-merchlogix"></a>Atribuir utilizadores à MerchLogix
 
-O Azure Ative Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de utilizadores, apenas os utilizadores e/ou grupos que tenham sido "atribuídos" a uma aplicação em Azure AD são sincronizados. 
+O Azure Ative Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de utilizadores, apenas os utilizadores e/ou grupos que foram "atribuídos" a uma aplicação em AD Azure são sincronizados. 
 
-Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao MerchLogix. Uma vez decidido, pode atribuir estes utilizadores e/ou grupos à MerchLogix seguindo as instruções aqui:
+Antes de configurar e permitir o fornecimento automático do utilizador, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso à MerchLogix. Uma vez decididos, pode atribuir estes utilizadores e/ou grupos à MerchLogix seguindo as instruções aqui:
 
 * [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-merchlogix"></a>Dicas importantes para atribuir utilizadores a MerchLogix
+### <a name="important-tips-for-assigning-users-to-merchlogix"></a>Dicas importantes para atribuir utilizadores à MerchLogix
 
-* Recomenda-se que um único utilizador da AD Azure seja atribuído à MerchLogix para testar a configuração inicial de fornecimento automático do utilizador. Os utilizadores e/ou grupos adicionais podem ser atribuídos mais tarde, uma vez que os testes sejam bem sucedidos.
+* Recomenda-se que um único utilizador AZure AD seja designado à MerchLogix para testar a sua configuração inicial de provisionamento automático do utilizador. Utilizadores e/ou grupos adicionais podem ser atribuídos mais tarde assim que os testes forem bem sucedidos.
 
-* Ao atribuir um utilizador ao MerchLogix, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
+* Ao atribuir um utilizador à MerchLogix, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **Acesso Predefinido** estão excluídos do provisionamento.
 
 ## <a name="configuring-automatic-user-provisioning-to-merchlogix"></a>Configurar o fornecimento automático de utilizadores à MerchLogix 
 
-Esta secção guia-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em MerchLogix com base em atribuições de utilizador e/ou grupo em Azure AD.
+Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos na MerchLogix com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Também pode optar por ativar um único sinal baseado em SAML para merchLogix, seguindo as instruções fornecidas no [tutorial de inscrição única MerchLogix](merchlogix-tutorial.md). O único sinal de inscrição pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente.
+> Pode também optar por ativar o sign-on único baseado em SAML para a MerchLogix, seguindo as instruções fornecidas no tutorial de assinatura único da [MerchLogix.](merchlogix-tutorial.md) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente.
 
-### <a name="to-configure-automatic-user-provisioning-for-merchlogix-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para MerchLogix em Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-merchlogix-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para a MerchLogix em Azure AD:
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue nas **aplicações do Azure Ative Directory > Enterprise > todas as aplicações.**
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue para **aplicações Azure Ative Directory > Enterprise > Todas as aplicações**.
 
-2. Selecione MerchLogix na sua lista de aplicações SaaS.
+2. Selecione MerchLogix da sua lista de aplicações SaaS.
 
-3. Selecione o separador **Provisioning.**
+3. Selecione o **separador Provisioning.**
 
-4. Detete o **modo de provisionamento** para **automático**.
+4. Desa ajuste o **modo de provisionamento** para **automático**.
 
-    ![Provisionamento MerchLogix](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
+    ![Provisão merchLogix](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
 
-5. No âmbito da secção **de Credenciais de Administrador:**
+5. Sob a secção **de Credenciais de Administração:**
 
-    * No campo URL do **Inquilino,** introduza o URL final do Ponto Final do SCIM fornecido pelo seu contacto técnico MerchLogix.
+    * No campo URL do **inquilino,** insira o URL de ponto final SCIM fornecido pelo seu contacto técnico MerchLogix.
 
-    * No campo **Secret Token,** insira o símbolo secreto fornecido pelo seu contacto técnico MerchLogix.
+    * No campo **Secret Token,** insira o símbolo secreto fornecido pelo seu contacto técnico merchLogix.
 
-6. Ao povoar os campos mostrados no Passo 5, clique em **Ligação** de Teste para garantir que o Azure AD pode ligar-se a MerchLogix. Se a ligação falhar, certifique-se de que a sua conta MerchLogix tem permissões de administrador e tente novamente.
+6. Ao povoar os campos mostrados no Passo 5, clique em **Test Connection** para garantir que a Azure AD pode ligar-se à MerchLogix. Se a ligação falhar, certifique-se de que a sua conta MerchLogix tem permissões de Administração e tente novamente.
 
-7. No campo de email de **notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e verificar a caixa de verificação - Envie uma notificação por **e-mail quando ocorrer uma falha**.
+7. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e verifique a caixa de verificação - **Envie uma notificação de e-mail quando ocorrer uma falha**.
 
 8. Clique em **Guardar**.
 
-9. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to MerchLogix**.
+9. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para MerchLogix**.
 
-10. Reveja os atributos do utilizador sincronizados de Azure AD a MerchLogix na secção de Mapeamento do **Atributo.** Os atributos selecionados como propriedades **correspondentes** são usados para combinar as contas de utilizador em MerchLogix para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
+10. Reveja os atributos do utilizador que são sincronizados de AD AD a MerchLogix na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador na MerchLogix para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-11. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Groups to MerchLogix**.
+11. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups para MerchLogix**.
 
-12. Reveja os atributos do grupo que são sincronizados de Azure AD a MerchLogix na secção de Mapeamento do **Atributo.** Os atributos selecionados como propriedades **correspondentes** são usados para combinar os grupos em MerchLogix para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
+12. Reveja os atributos do grupo que são sincronizados de AD AD a MerchLogix na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são usados para combinar os grupos na MerchLogix para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-13. Para ativar o serviço de provisionamento de AD Azure para merchLogix, altere o Estado de **Provisionamento** para **Ligar** na secção **Definições.**
+13. Para ativar o serviço de fornecimento de Ad Azure para a MerchLogix, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
-14. Quando estiver pronto para fornecer, clique em **Guardar**.
+14. Quando estiver pronto para a provisão, clique em **Guardar**.
 
-Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser desempenhada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento AD Azure esteja em funcionamento. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividadede provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento de AD Azure em MerchLogix.
+Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de fornecimento AZure AD esteja em execução. Pode utilizar a secção Detalhes da **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de fornecimento de AD Azure na MerchLogix.
 
-Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
+Para obter mais informações sobre como ler os registos de provisionamento da AZure AD, consulte [Reportar sobre o provisionamento automático da conta de utilizador](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 

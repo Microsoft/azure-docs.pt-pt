@@ -1,6 +1,6 @@
 ---
-title: Ativar a reescrita da palavra-passe do Diretório Ativo azure
-description: Neste tutorial, aprende-se a permitir que a palavra-passe de autosserviço da Azure AD reponha a reescrita utilizando o Azure AD Connect para sincronizar as alterações para um ambiente de Serviços de Domínio de Diretório Ativo no local.
+title: Ativar o writeback de password do Azure Ative Directory
+description: Neste tutorial, aprende-se a ativar a redefinição da palavra-passe de autosserviço Azure AD utilizando o Azure AD Connect para sincronizar as alterações para um ambiente de Serviços de Domínio de Diretório Ativo no local.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -10,147 +10,148 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0ea181b0e6ac18a559614c5bce0707775acdcec
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.custom: contperfq4
+ms.openlocfilehash: 353bc49ad6a64ff00a8a3ab8594fd76e02ca7913
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83640196"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85551747"
 ---
-# <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Enable Azure Ative Diretório auto-service password repor reescrita para um ambiente no local
+# <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Permitir que a palavra-passe de autosserviço do Azure Ative Directory reponha a gravação para um ambiente no local
 
-Com o reset de autosserviço do Azure Ative Directory (Azure AD), os utilizadores podem atualizar a sua palavra-passe ou desbloquear a sua conta através de um navegador web. Num ambiente híbrido onde o Azure AD está ligado a um ambiente de Serviços de Domínio ativo de diretório (AD DS) no local, este cenário pode fazer com que as palavras-passe sejam diferentes entre os dois diretórios.
+Com o Azure Ative Directory (Azure AD) a redefinir a palavra-passe de autosserviço (SSPR), os utilizadores podem atualizar a sua palavra-passe ou desbloquear a sua conta através de um navegador web. Num ambiente híbrido onde o Azure AD está ligado a um ambiente no local Ative Directory Domain Services (AD DS), este cenário pode fazer com que as palavras-passe sejam diferentes entre os dois diretórios.
 
-A reescrita de palavra-passe pode ser usada para sincronizar as alterações de palavra-passe no Azure AD de volta ao seu ambiente AD DS no local. O Azure AD Connect fornece um mecanismo seguro para enviar estas alterações de senha de volta para um diretório existente no local a partir de Azure AD.
+A writeback de palavra-passe pode ser usada para sincronizar alterações de palavra-passe no AZure AD de volta ao ambiente AD DS no local. O Azure AD Connect fornece um mecanismo seguro para enviar estas alterações de senha de volta para um diretório existente no local a partir de Azure AD.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Configure as permissões necessárias para a reescrita de palavra-passe
-> * Ativar a opção de redação de palavra-passe no Azure AD Connect
-> * Ativar a reescrita da palavra-passe no Azure AD SSPR
+> * Configure as permissões necessárias para a writeback de palavra-passe
+> * Ativar a opção de writeback de palavra-passe no Azure AD Connect
+> * Ativar a gravação de palavra-passe no Azure AD SSPR
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar este tutorial, necessita dos seguintes recursos e privilégios:
+Para completar este tutorial, precisa dos seguintes recursos e privilégios:
 
-* Um inquilino do Azure AD em funcionamento com, pelo menos, uma licença de avaliação ativada.
+* Um inquilino Azure AD em funcionamento com pelo menos uma licença de julgamento Azure AD Premium P1 ou P2 habilitado.
     * Se necessário, [crie um de graça.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-    * Para mais informações, consulte [os requisitos de licenciamento para a Azure AD SSPR](concept-sspr-licensing.md).
+    * Para obter mais informações, consulte [os requisitos de licenciamento para Azure AD SSPR](concept-sspr-licensing.md).
 * Uma conta com privilégios *de administrador global.*
 * Azure AD configurado para reset de senha de autosserviço.
-    * Se necessário, complete o tutorial anterior para ativar o [Azure AD SSPR](tutorial-enable-sspr.md).
+    * Se necessário, [complete o tutorial anterior para ativar a Azure AD SSPR](tutorial-enable-sspr.md).
 * Um ambiente AD DS existente no local configurado com uma versão atual do Azure AD Connect.
-    * Se necessário, configure o Azure AD Connect utilizando as definições [Express](../hybrid/how-to-connect-install-express.md) ou [Custom.](../hybrid/how-to-connect-install-custom.md)
-    * Para utilizar a Palavra-passe Writeback, os seus Controladores de Domínio devem ser do Windows Server 2008 R2 ou posteriormente.
+    * Se necessário, configufique o Azure AD Connect utilizando as definições [Express](../hybrid/how-to-connect-install-express.md) ou [Custom.](../hybrid/how-to-connect-install-custom.md)
+    * Para utilizar a Writeback de Palavra-Passe, os seus Controladores de Domínio devem ser o Windows Server 2008 R2 ou mais tarde.
 
 ## <a name="configure-account-permissions-for-azure-ad-connect"></a>Configure permissões de conta para Azure AD Connect
 
-O Azure AD Connect permite sincronizar utilizadores, grupos e credenciais entre um ambiente AD DS no local e a AD Azure. Normalmente instala o Azure AD Connect num Windows Server 2012 ou posterior computador que esteja ligado ao domínio AD DS no local.
+O Azure AD Connect permite sincronizar utilizadores, grupos e credenciais entre um ambiente AD DS no local e Azure AD. Normalmente instala o Azure AD Connect num Windows Server 2012 ou num computador posterior que se junta ao domínio AD DS no local.
 
-Para funcionar corretamente com a reescrita da SSPR, a conta especificada no Azure AD Connect deve ter as permissões e opções adequadas definidas. Se não tiver a certeza de qual a conta que está atualmente a ser utilizada, abra o Azure AD Connect e selecione a opção de **configuração atual do View.** A conta a que precisa adicionar permissões está listada em **Diretórios Sincronizados**. As seguintes permissões e opções devem ser definidas na conta:
+Para trabalhar corretamente com a gravação do SSPR, a conta especificada no Azure AD Connect deve ter as permissões e opções adequadas definidas. Se não tiver a certeza de que conta está atualmente a ser utilizada, abra o Azure AD Connect e selecione a opção **de configuração atual Do View.** A conta a que precisa de adicionar permissões está listada nos **Diretórios Sincronizados.** As seguintes permissões e opções devem ser definidas na conta:
 
 * **Repor palavra-passe**
 * **Escrever permissões** em`lockoutTime`
 * **Escrever permissões** em`pwdLastSet`
-* **Direitos alargados** para "Palavra-passe não expirada" em qualquer um deles:
+* **Direitos alargados** para "Unexpire Password" em:
    * O objeto raiz de *cada domínio* naquela floresta
-   * As unidades organizacionais do utilizador (OUs) que pretende estar ao seu alcance para o SSPR
+   * As unidades organizacionais do utilizador (OUs) que pretende estar no âmbito da SSPR
 
-Se não atribuir estas permissões, a reprodução parece estar configurada corretamente, mas os utilizadores encontram erros quando gerem as suas palavras-passe no local a partir da nuvem. Devem ser aplicadas permissões a **Este objeto e a todos os objetos descendentes** para que apareça "Palavra-passe não expirada".  
+Se não atribuir estas permissões, o writeback parece estar configurado corretamente, mas os utilizadores encontram erros quando gerem as suas palavras-passe no local a partir da nuvem. As permissões devem ser aplicadas a **este objeto e a todos os objetos descendentes** para que apareçam "Unexpire Password".  
 
 > [!TIP]
 >
-> Se as palavras-passe de algumas contas de utilizador não forem redigidas para o diretório no local, certifique-se de que a herança não é desativada para a conta no ambiente ad DS on-prem. As permissões de escrita para senhas devem ser aplicadas a objetos descendentes para que a funcionalidade funcione corretamente.
+> Se as palavras-passe de algumas contas de utilizador não forem escritas de volta para o diretório no local, certifique-se de que a herança não é desativada para a conta no ambiente DS DS em pré-m. As permissões de escrita para palavras-passe devem ser aplicadas a objetos descendentes para que a funcionalidade funcione corretamente.
 
-Para configurar as permissões adequadas para a reescrita de palavra-passe, complete os seguintes passos:
+Para configurar as permissões adequadas para a gravação da palavra-passe, complete os seguintes passos:
 
-1. No seu ambiente AD DS no local, abra **utilizadores e computadores de diretório ativo** com uma conta que tenha as permissões adequadas do administrador de *domínio.*
-1. A partir do menu **'Ver',** certifique-se de que as **funcionalidades Avançadas** estão ligadas.
+1. No ambiente AD DS no local, abra **Utilizadores e Computadores de Diretório Ativo** com uma conta que tenha as permissões adequadas *de administrador de domínio.*
+1. A partir do menu **Ver,** certifique-se de que **as funcionalidades Avançadas** estão ligadas.
 1. No painel esquerdo, selecione o objeto que representa a raiz do domínio e selecione **Properties**  >  **Security**  >  **Advanced**.
-1. A partir do separador **Permissões,** selecione **Adicionar**.
-1. Para **principal,** selecione a conta à a que as permissões devem ser aplicadas (a conta utilizada pelo Azure AD Connect).
-1. Na lista **Aplica-se à** lista de abandono, selecione **objetos de utilizador descendentes**.
+1. A partir do separador **Permissões,** **selecione Adicionar**.
+1. Para **o Principal**, selecione a conta a que devem ser aplicadas permissões (a conta utilizada pelo Azure AD Connect).
+1. Na lista **Aplica-se à** lista de drop-down, selecione **objetos de utilizador descendentes**.
 1. Em *Permissões,* selecione a caixa para a seguinte opção:
     * **Repor palavra-passe**
-1. Em *Propriedades*, selecione as caixas para as seguintes opções. Você precisa percorrer a lista para encontrar estas opções, que podem já estar definidas por padrão:
-    * **Escreva lockoutTime**
-    * **Escreva pwdLastSet**
+1. Em *Propriedades*, selecione as caixas para as seguintes opções. É necessário percorrer a lista para encontrar estas opções, que podem já estar definidas por padrão:
+    * **Escrever lockoutTime**
+    * **Escrever pwdLastSet**
 
     [![](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png "Set the appropriate permissions in Active Users and Computers for the account that is used by Azure AD Connect")](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
 
-1. Quando estiver pronto, selecione **Aplicar / OK** para aplicar as alterações e sair de quaisquer caixas de diálogo abertas.
+1. Quando estiver pronto, **selecione Aplicar / OK** para aplicar as alterações e sair de quaisquer caixas de diálogo abertas.
 
-Quando atualiza as permissões, pode demorar até uma hora ou mais para que estas permissões se reproduzam a todos os objetos do seu diretório.
+Quando atualiza permissões, pode demorar até uma hora ou mais para que estas permissões se reproduzam em todos os objetos do seu diretório.
 
-As políticas de password no ambiente AD DS no local podem impedir que os resets de palavra-passe sejam corretamente processados. Para que a reescrita de palavra-passe funcione de forma mais eficiente, a política de grupo para a idade mínima da *palavra-passe* deve ser definida para 0. Esta definição pode ser encontrada em políticas de **configuração de > de computador > Definições do Windows > Definições** de segurança > políticas de conta dentro `gpedit.msc` de .
+As políticas de palavra-passe no ambiente AD DS no local podem impedir que os resets de palavra-passe sejam corretamente processados. Para que a gravação da palavra-passe funcione de forma mais eficiente, a política de grupo para *a idade mínima* de senha deve ser definida para 0. Esta definição pode ser encontrada em **Políticas de > de Configuração do Computador > definições do Windows > definições de segurança > políticas de conta** dentro de `gpedit.msc` .
 
-Se atualizar a política do grupo, aguarde que a política atualizada se reproduza ou utilize o `gpupdate /force` comando.
+Se atualizar a política de grupo, aguarde que a política atualizada se reproduza ou utilize o `gpupdate /force` comando.
 
 > [!Note]
-> Para que as palavras-passe sejam alteradas imediatamente, a reescrita da palavra-passe deve ser definida para 0. No entanto, se os utilizadores aderirem às políticas no local, e a idade mínima da *palavra-passe* for fixada para um valor superior a zero, a redação da palavra-passe continuará a funcionar após a avaliação das políticas no local. 
+> Para que as palavras-passe sejam alteradas imediatamente, a descodução da palavra-passe deve ser definida para 0. No entanto, se os utilizadores aderirem às políticas no local, e a *idade mínima* de senha for definida para um valor superior a zero, a writeback de palavra-passe continuará a funcionar após a avaliação das políticas no local. 
 
-## <a name="enable-password-writeback-in-azure-ad-connect"></a>Ativar a reescrita da palavra-passe no Azure AD Connect
+## <a name="enable-password-writeback-in-azure-ad-connect"></a>Ativar a gravação de palavra-passe no Azure AD Connect
 
-Uma das opções de configuração no Azure AD Connect é para a reescrita de palavra-passe. Quando esta opção está ativada, os eventos de mudança de palavra-passe fazem com que o Azure AD Connect sincronize as credenciais atualizadas de volta ao ambiente AD DS no local.
+Uma das opções de configuração no Azure AD Connect é para a gravação de palavras-passe. Quando esta opção está ativada, os eventos de alteração de palavra-passe fazem com que o Azure AD Connect sincronize as credenciais atualizadas de volta ao ambiente AD DS no local.
 
-Para permitir o redefinição da palavra-passe de autosserviço, primeiro ative a opção de recompra de reprodução no Azure AD Connect. A partir do seu servidor Azure AD Connect, complete os seguintes passos:
+Para ativar a gravação de redefinição da palavra-passe de autosserviço, primeiro ative a opção de writeback no Azure AD Connect. A partir do seu servidor Azure AD Connect, complete os seguintes passos:
 
-1. Inicie sessão no seu servidor Azure AD Connect e inicie o assistente de configuração **Azure AD Connect.**
+1. Inicie sedumento no seu servidor AZure AD Connect e inicie o assistente de configuração **AZure AD Connect.**
 1. Na página de **Boas-vindas**, selecione **Configurar**.
 1. Na página **Tarefas adicionais**, selecione **Personalizar opções de sincronização** e, em seguida, selecione **Seguinte**.
-1. Na página **De AD Connect to Azure,** insira uma credencial de administrador global para o seu inquilino Azure e, em seguida, selecione **Next**.
+1. Na página **Connect to Azure AD,** insira uma credencial de administrador global para o seu inquilino Azure e, em seguida, selecione **Next**.
 1. Nas páginas de filtragem **Ligar diretórios** e **Domínio/UO**, selecione **Seguinte**.
 1. Na página **Funcionalidades opcionais**, selecione a caixa junto a **Repetição de escrita de palavras-passe** e selecione **Seguinte**.
 
-    ![Configure Azure AD Connect para reescrita de palavra-passe](media/tutorial-enable-sspr-writeback/enable-password-writeback.png)
+    ![Configurar Azure AD Connect para writeback de palavra-passe](media/tutorial-enable-sspr-writeback/enable-password-writeback.png)
 
 1. Na página **Pronto a configurar**, selecione **Configurar** e aguarde que o processo termine.
 1. Quando vir a configuração a concluir, selecione **Sair**.
 
-## <a name="enable-password-writeback-for-sspr"></a>Ativar a reescrita da palavra-passe para SSPR
+## <a name="enable-password-writeback-for-sspr"></a>Ativar a gravação de palavra-passe para SSPR
 
-Com a reescrita de palavra-passe ativada no Azure AD Connect, configurar agora o Azure AD SSPR para reescrever. Quando permite ao SSPR utilizar a reescrita de palavra-passe, os utilizadores que alteram ou reseta a sua palavra-passe têm essa palavra-passe atualizada sincronizada de volta para o ambiente AD DS no local.
+Com a gravação de palavra-passe ativada no Azure AD Connect, agora configurar Azure AD SSPR para writeback. Quando permite que o SSPR utilize a gravação de palavra-passe, os utilizadores que alterem ou reiniciem a sua palavra-passe têm essa palavra-passe atualizada sincronizada de volta ao ambiente AD DS no local.
 
-Para permitir a reescrita da palavra-passe no SSPR, complete os seguintes passos:
+Para ativar a gravação de palavra-passe em SSPR, complete os seguintes passos:
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de administrador global.
-1. Procure e selecione **Azure Ative Directory**, selecione **reset de palavra-passe**e, em seguida, escolha a **integração no local**.
-1. Detete a opção de **escrever palavras-passe para o seu diretório no local?** *Yes*
-1. Definir a opção para **permitir que os utilizadores desbloqueiem contas sem reajustar a sua palavra-passe para** *Sim*.
+1. Procure e selecione **Azure Ative Directory**, selecione **Password reset**, em seguida, escolha **a integração no local**.
+1. Descreva a opção de **escrever palavras-passe no seu diretório no local?** *Yes*
+1. Definir a opção para **permitir que os utilizadores desbloqueiem contas sem redefinir a sua palavra-passe?** *Yes*
 
-    ![Ativar o reset da palavra-passe autosserviço azure AD para reescrita de palavra-passe](media/tutorial-enable-sspr-writeback/enable-sspr-writeback.png)
+    ![Ativar a palavra-passe de autosserviço AZure para a gravação de password](media/tutorial-enable-sspr-writeback/enable-sspr-writeback.png)
 
-1. Quando estiver pronto, selecione **Guardar**.
+1. Quando estiver pronto, **selecione Guardar**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não pretender utilizar a funcionalidade de redação sspr que configuracomo parte deste tutorial, complete os seguintes passos:
+Se já não pretender utilizar a funcionalidade de writeback SSPR que configuraste como parte deste tutorial, complete os seguintes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Procure e selecione **Azure Ative Directory**, selecione **reset de palavra-passe**e, em seguida, escolha a **integração no local**.
-1. Detete a opção de **escrever palavras-passe para o seu diretório no local?** *No*
-1. Definir a opção para permitir que os utilizadores *No* **desbloqueiem contas sem reajustar a sua palavra-passe?**
+1. Procure e selecione **Azure Ative Directory**, selecione **Password reset**, em seguida, escolha **a integração no local**.
+1. Descreva a opção para **escrever palavras-passe no seu diretório no local?** *No*
+1. Definir a opção para **permitir que os utilizadores desbloqueiem contas sem redefinir a sua palavra-passe?** *No*
 
-Se já não pretender utilizar qualquer funcionalidade de senha, complete os seguintes passos do seu servidor Azure AD Connect:
+Se já não pretender utilizar qualquer funcionalidade de palavra-passe, complete os seguintes passos do seu servidor AZure AD Connect:
 
-1. Inicie sessão no seu servidor Azure AD Connect e inicie o assistente de configuração **Azure AD Connect.**
+1. Inicie sedumento no seu servidor AZure AD Connect e inicie o assistente de configuração **AZure AD Connect.**
 1. Na página de **Boas-vindas**, selecione **Configurar**.
 1. Na página **Tarefas adicionais**, selecione **Personalizar opções de sincronização** e, em seguida, selecione **Seguinte**.
-1. Na página **De AD Connect to Azure,** insira uma credencial de administrador global para o seu inquilino Azure e, em seguida, selecione **Next**.
+1. Na página **Connect to Azure AD,** insira uma credencial de administrador global para o seu inquilino Azure e, em seguida, selecione **Next**.
 1. Nas páginas de filtragem **Ligar diretórios** e **Domínio/UO**, selecione **Seguinte**.
-1. Na página **de funcionalidades Opcionais,** desmarque a caixa ao lado da reescrita da **Palavra-passe** e selecione **Next**.
+1. Na página **de funcionalidades opcionais,** desseleccione a caixa ao lado do **writeback de Password** e selecione **Next**.
 1. Na página **Pronto a configurar**, selecione **Configurar** e aguarde que o processo termine.
 1. Quando vir a configuração a concluir, selecione **Sair**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, permitiu que a Azure AD SSPR reescrevesse para um ambiente AD DS no local. Aprendeu a:
+Neste tutorial, permitiu que o Azure AD SSPR fosse retratado para um ambiente AD DS no local. Aprendeu a:
 
 > [!div class="checklist"]
-> * Configure as permissões necessárias para a reescrita de palavra-passe
-> * Ativar a opção de redação de palavra-passe no Azure AD Connect
-> * Ativar a reescrita da palavra-passe no Azure AD SSPR
+> * Configure as permissões necessárias para a writeback de palavra-passe
+> * Ativar a opção de writeback de palavra-passe no Azure AD Connect
+> * Ativar a gravação de palavra-passe no Azure AD SSPR
 
 > [!div class="nextstepaction"]
 > [Avaliar o risco de início de sessão](tutorial-risk-based-sspr-mfa.md)

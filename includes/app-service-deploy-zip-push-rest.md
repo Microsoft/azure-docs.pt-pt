@@ -5,27 +5,27 @@ ms.topic: include
 ms.date: 08/12/2019
 ms.author: cephalin
 ms.openlocfilehash: 92e39f128e90ba83a919388e217f0edc86f81770
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75769676"
 ---
 ## <a name="deploy-zip-file-with-rest-apis"></a><a name="rest"></a>Implementar ficheiro ZIP com APIs REST 
 
-Pode utilizar o serviço de [implementação REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API) para implementar o ficheiro .zip para a sua aplicação em Azure. Para implementar, envie um pedido post para https://<app_name>.scm.azurewebsites.net/api/zipdeploy. O pedido DO POST deve conter o ficheiro .zip no corpo da mensagem. As credenciais de implementação para a sua aplicação são fornecidas no pedido através da autenticação básica HTTP. Para mais informações, consulte a [referência de implantação de impulso .zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). 
+Pode utilizar o [serviço de implementação REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API) para implementar o ficheiro .zip para a sua aplicação em Azure. Para implementar, envie um pedido DEM para https://<app_name>.scm.azurewebsites.net/api/zipdeploy. O pedido DO POST deve conter o ficheiro .zip no corpo da mensagem. As credenciais de implementação para a sua aplicação são fornecidas no pedido através da autenticação básica HTTP. Para obter mais informações, consulte a [referência de implementação .zip push](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). 
 
-Para a autenticação HTTP BASIC, precisa das suas credenciais de implementação do Serviço de Aplicações. Para ver como definir as suas credenciais de implementação, consulte [Definir e redefinir as credenciais de nível de utilizador](../articles/app-service/deploy-configure-credentials.md#userscope).
+Para a autenticação HTTP BASIC, precisa das suas credenciais de implementação do Serviço de Aplicações. Para ver como definir as suas credenciais de implementação, consulte [definição e reinicie as credenciais de nível de utilizador](../articles/app-service/deploy-configure-credentials.md#userscope).
 
 ### <a name="with-curl"></a>Com cURL
 
-O exemplo seguinte utiliza a ferramenta cURL para implantar um ficheiro .zip. Substitua os `<deployment_user>`espaços `<zip_file_path>`reservados, e `<app_name>`. Quando solicitado por cURL, digite a palavra-passe.
+O exemplo a seguir utiliza a ferramenta cURL para implantar um ficheiro .zip. Substitua os espaços `<deployment_user>` `<zip_file_path>` reservados, e . `<app_name>` . Quando solicitado pela cURL, escreva a palavra-passe.
 
 ```bash
 curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
 ```
 
-Este pedido aciona a colocação de pressão a partir do ficheiro .zip carregado. Pode rever as implementações atuais `https://<app_name>.scm.azurewebsites.net/api/deployments` e passadas utilizando o ponto final, como mostra o exemplo cURL seguinte. Mais uma `<app_name>` vez, substitua-o pelo nome da sua aplicação e `<deployment_user>` pelo nome de utilizador das suas credenciais de implementação.
+Este pedido aciona a implantação de empurrar a partir do ficheiro .zip carregado. Pode rever as implementações atuais e passadas utilizando o `https://<app_name>.scm.azurewebsites.net/api/deployments` ponto final, como mostra o exemplo cURL a seguir. Mais uma vez, `<app_name>` substitua-o pelo nome da sua aplicação e `<deployment_user>` pelo nome de utilizador das suas credenciais de implementação.
 
 ```bash
 curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deployments
@@ -33,15 +33,15 @@ curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deploymen
 
 ### <a name="with-powershell"></a>Com o PowerShell
 
-O exemplo seguinte utiliza o upload do Ficheiro .zip [Publish-AzWebapp.](/powershell/module/az.websites/publish-azwebapp) Substitua os `<group-name>`espaços `<app-name>`reservados, e `<zip-file-path>`.
+O exemplo a seguir utiliza o upload do ficheiro .zip da [Publish-AzWebapp.](/powershell/module/az.websites/publish-azwebapp) Substitua os espaços `<group-name>` `<app-name>` reservados, e . `<zip-file-path>` .
 
 ```powershell
 Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <zip-file-path>
 ```
 
-Este pedido aciona a colocação de pressão a partir do ficheiro .zip carregado. 
+Este pedido aciona a implantação de empurrar a partir do ficheiro .zip carregado. 
 
-Para rever as atuais e passadas implantações, execute os seguintes comandos. Mais uma `<deployment-user>`vez, substitua os espaços `<deployment-password>`reservados. `<app-name>`
+Para rever as implementações atuais e anteriores, executar os seguintes comandos. Mais uma vez, substitua os `<deployment-user>` `<deployment-password>` espaços `<app-name>` reservados e reservados.
 
 ```bash
 $username = "<deployment-user>"

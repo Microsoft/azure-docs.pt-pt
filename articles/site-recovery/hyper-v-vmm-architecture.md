@@ -1,18 +1,18 @@
 ---
-title: Recuperação de desastres de arquitetura-hiper-V para um local secundário com recuperação do site Azure
-description: Este artigo fornece uma visão geral da arquitetura para recuperação de desastres de Hiper-V V No local para um site de VMM do Centro de Sistema secundário com Recuperação do Site Azure.
+title: Recuperação de desastres arquitetura-Hiper-V para um local secundário com recuperação do local de Azure
+description: Este artigo fornece uma visão geral da arquitetura para a recuperação de desastres de Hiper-V VMs no local para um site de VMM do Centro de Sistema secundário com recuperação do local de Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 3e81e353d2912f56a932ce118a0424e45e758df7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fbd11c279708cd828693baab3f9f6df91515bc48
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74133008"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133898"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>Arquitetura - Replicação hiper-V para um local secundário
 
@@ -21,7 +21,7 @@ a
 
 ## <a name="architectural-components"></a>Componentes da arquitetura
 
-A tabela e o gráfico que se aseguir proporcionam uma visão de alto nível dos componentes utilizados para a replicação hyper-V para um local secundário.
+A tabela e o gráfico seguintes proporcionam uma visão de alto nível dos componentes utilizados para a replicação do Hiper-V para um local secundário.
 
 **Componente** | **Requisito** | **Detalhes**
 --- | --- | ---
@@ -30,16 +30,16 @@ A tabela e o gráfico que se aseguir proporcionam uma visão de alto nível dos 
 **Servidor Hyper-V** |  Um ou mais servidores de anfitriões Hyper-V nas clouds do VMM primárias e secundárias. | Os dados são replicados entre os servidores anfitrião primário e secundário Hyper-V através de LAN ou VPN mediante a utilização de Kerberos ou da autenticação de certificados.  
 **VMs Hyper-V** | No servidor de anfitrião Hyper-V. | O servidor de anfitrião de origem deve ter, pelo menos, uma VM que queira replicar.
 
-**No local da arquitetura no local**
+**No local para a arquitetura no local**
 
 ![Local para local](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
 
 ## <a name="replication-process"></a>Processo de replicação
 
-1. Quando a replicação inicial é desencadeada, é tirada uma fotografia de [instantâneo de VM Hiper-V.](https://technet.microsoft.com/library/dd560637.aspx)
+1. Quando a replicação inicial é desencadeada, é tirada uma imagem [instantânea Hyper-VM.](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560637(v=ws.10))
 2. Os discos rígidos virtuais no VM são replicados um a um, para a localização secundária.
-3. Se ocorrerem alterações no disco durante a replicação inicial, o Rastreador de Replicação de Replicação de Réplica seleções Hyper-V rastreia as alterações à medida que os registos de replicação Hyper-V (.hrl). Estes ficheiros de registo estão localizados na mesma pasta que os discos. Cada disco tem um ficheiro .hrl associado que é enviado para o local secundário. Os ficheiros de instantâneo e de registo consomem recursos do disco quando a replicação inicial está em curso.
-4. Quando a replicação inicial termina, o instantâneo VM é eliminado e a replicação delta começa.
+3. Se as alterações do disco ocorrerem enquanto a replicação inicial está em andamento, o Localizador de Replicação de Réplica Hiper-V rastreia as alterações como registos de replicação de Hiper-V (.hrl). Estes ficheiros de registo estão localizados na mesma pasta que os discos. Cada disco tem um ficheiro .hrl associado que é enviado para o local secundário. Os ficheiros de instantâneo e de registo consomem recursos do disco quando a replicação inicial está em curso.
+4. Quando a replicação inicial termina, o instantâneo VM é eliminado e começa a replicação delta.
 5. As alterações de disco delta no registo são sincronizadas e unidas ao disco principal.
 
 
@@ -47,16 +47,16 @@ A tabela e o gráfico que se aseguir proporcionam uma visão de alto nível dos 
 
 - Pode fazer a ativação pós-falha de uma máquina individual ou criar planos de recuperação para orquestrar a ativação pós-falha de várias máquinas.
 - Executa uma ativação pós-falha planeada ou não planeada entre os sites no local. Se executar uma ativação pós-falha planeada, as VMs de origem são desligadas para garantir que não há perda de dados.
-    - Se executar uma falha não planeada num local secundário, depois de as máquinas de failover no local secundário não estiverem protegidas.
+    - Se efetuar uma falha não planeada para um local secundário, depois de as máquinas de failover na localização secundária não estiverem protegidas.
     - Se tiver executado uma ativação pós-falha planeada, as máquinas na localização secundária estão protegidas após a ativação pós-falha.
-- Após as falhas iniciais, compromete-se a começar a aceder à carga de trabalho a partir da réplica VM.
-- Quando a localização principal estiver novamente disponível, pode falhar.
-    - Inicia-se a replicação inversa, para começar a replicar do local secundário para o primário. A replicação inversa coloca as máquinas virtuais num estado protegido, mas a localização ativa continua a ser o datacenter secundário.
+- Após a execução inicial do failover, compromete-o a começar a aceder à carga de trabalho a partir da réplica VM.
+- Quando a localização primária estiver novamente disponível, pode falhar.
+    - Inicia-se a replicação inversa, para começar a replicar-se do local secundário para o primário. A replicação inversa coloca as máquinas virtuais num estado protegido, mas a localização ativa continua a ser o datacenter secundário.
     - Para que o site primário volte a ser a localização ativa, inicie uma ativação pós-falha planeada do site secundário para o primário, seguida de outra replicação inversa.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 
-Siga [este tutorial](hyper-v-vmm-disaster-recovery.md) para permitir a replicação hyper-V entre nuvens VMM.
+Siga [este tutorial](hyper-v-vmm-disaster-recovery.md) para permitir a replicação do Hiper-V entre as nuvens de VMM.

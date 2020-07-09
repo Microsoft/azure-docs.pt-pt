@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/24/2019
-  ms.openlocfilehash: a39b7373b8fad12fd1a5a30cc634276d7a6651fb
-  ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+  ms.openlocfilehash: e4d53baf1a083e9dafa6bd43186b507c5e724db3
+  ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/24/2020
-  ms.locfileid: "82143476"
+  ms.lasthandoff: 06/01/2020
+  ms.locfileid: "84268027"
 landingContent:
 - title: Acerca do serviço Face
   linkLists:
@@ -66,8 +66,6 @@ landingContent:
     links:
     - text: Apresentar dados de rostos numa aplicação do Windows Presentation Foundation
       url: Tutorials/FaceAPIinCSharpTutorial.md
-    - text: Apresentar dados de rostos numa aplicação Android
-      url: Tutorials/FaceAPIinJavaForAndroidTutorial.md
   - linkListType: how-to-guide
     links:
     - text: Utilizar o atributo HeadPose

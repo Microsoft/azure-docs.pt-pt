@@ -1,41 +1,41 @@
 ---
-title: Conecte-se e gere o dispositivo Microsoft Azure Stack Edge através da interface Windows PowerShell [ Microsoft Docs
-description: Descreve como se conectar e, em seguida, gerir o Azure Stack Edge através da interface Windows PowerShell.
+title: Conecte-se e gere o dispositivo Microsoft Azure Stack Edge através da interface Windows PowerShell Microsoft Docs
+description: Descreve como ligar e, em seguida, gerir o Azure Stack Edge através da interface Windows PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: ee69015b52024ba4edaaa414a0d9dda753510b3e
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 973c618b46d1b6be902d9629ca63ee120cae6855
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82570099"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85313224"
 ---
-# <a name="manage-an-azure-stack-edge-device-via-windows-powershell"></a>Gerencie um dispositivo Azure Stack Edge via Windows PowerShell
+# <a name="manage-an-azure-stack-edge-device-via-windows-powershell"></a>Gerir um dispositivo Azure Stack Edge via Windows PowerShell
 
-A solução Azure Stack Edge permite processar dados e enviá-lo pela rede para o Azure. Este artigo descreve algumas das tarefas de configuração e gestão do seu dispositivo Azure Stack Edge. Pode utilizar o portal Azure, a Web UI local ou a interface Windows PowerShell para gerir o seu dispositivo.
+A solução Azure Stack Edge permite-lhe processar dados e enviá-lo pela rede para a Azure. Este artigo descreve algumas das tarefas de configuração e gestão do seu dispositivo Azure Stack Edge. Pode utilizar o portal Azure, a web UI local ou a interface Windows PowerShell para gerir o seu dispositivo.
 
 Este artigo centra-se nas tarefas que faz utilizando a interface PowerShell. 
 
 Este artigo inclui os seguintes procedimentos:
 
 - Ligue-se à interface PowerShell
-- Criar um pacote de apoio
+- Criar um pacote de suporte
 - Carregar certificado
-- Redefinir o dispositivo
+- Reiniciar o dispositivo
 - Ver informações do dispositivo
-- Obter registos de cálculo
-- Módulos de computação monitor e resolução de problemas
+- Obtenha registos de cálculo
+- Monitor e resolução de problemas módulos de computação
 
 ## <a name="connect-to-the-powershell-interface"></a>Ligue-se à interface PowerShell
 
 [!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
 
-## <a name="create-a-support-package"></a>Criar um pacote de apoio
+## <a name="create-a-support-package"></a>Criar um pacote de suporte
 
 [!INCLUDE [Create a support package](../../includes/data-box-edge-gateway-create-support-package.md)]
 
@@ -43,20 +43,20 @@ Este artigo inclui os seguintes procedimentos:
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-Também pode carregar certificados IoT Edge para permitir uma ligação segura entre o seu dispositivo IoT Edge e os dispositivos a jusante que possam ligar-se ao mesmo. Existem três certificados IoT Edge (formato *.pem)* que precisa de instalar:
+Também pode carregar certificados IoT Edge para permitir uma ligação segura entre o seu dispositivo IoT Edge e os dispositivos a jusante que podem ligar-se ao mesmo. Existem três certificados IoT Edge (formato *.pem)* que precisa de instalar:
 
 - Certificado de CA raiz ou o proprietário CA
-- Certificado CA do dispositivo
-- Certificado de chave do dispositivo
+- Certificado ca dispositivo
+- Certificado chave do dispositivo
 
-O exemplo que se segue mostra a utilização deste cmdlet para instalar certificados IoT Edge:
+O exemplo a seguir mostra a utilização deste cmdlet para instalar certificados IoT Edge:
 
 ```
 Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
 ```
-Quando executar este cmdlet, será solicitado a fornecer a palavra-passe para a partilha da rede.
+Quando executar este cmdlet, será solicitado que forneça a palavra-passe para a partilha da rede.
 
-Para obter mais informações sobre certificados, vá aos [certificados Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) ou [instale certificados numa porta de entrada](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway).
+Para obter mais informações sobre certificados, aceda aos [certificados Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) ou [instale certificados num gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway).
 
 ## <a name="view-device-information"></a>Ver informações do dispositivo
  
@@ -66,32 +66,32 @@ Para obter mais informações sobre certificados, vá aos [certificados Azure Io
 
 [!INCLUDE [Reset your device](../../includes/data-box-edge-gateway-deactivate-device.md)]
 
-## <a name="get-compute-logs"></a>Obter registos de cálculo
+## <a name="get-compute-logs"></a>Obtenha registos de cálculo
 
-Se a função computacional estiver configurada no seu dispositivo, também pode obter os registos de cálculo através da interface PowerShell.
+Se a função de cálculo estiver configurada no seu dispositivo, também pode obter os registos computacional através da interface PowerShell.
 
 1. [Ligue-se à interface PowerShell](#connect-to-the-powershell-interface).
-2. Utilize `Get-AzureDataBoxEdgeComputeRoleLogs` os registos de cálculo para obter os registos de cálculo para o seu dispositivo.
+2. Utilize o `Get-AzureDataBoxEdgeComputeRoleLogs` para obter os registos computacional do seu dispositivo.
 
-    O exemplo que se segue mostra a utilização deste cmdlet:
+    O exemplo a seguir mostra a utilização deste cmdlet:
 
     ```powershell
     Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username" -FullLogCollection
     ```
 
     Aqui está uma descrição dos parâmetros utilizados para o cmdlet:
-    - `Path`: Forneça um caminho de rede para a parte onde pretende criar o pacote de registo de cálculo.
-    - `Credential`: Forneça o nome de utilizador para a parte da rede. Quando executar este cmdlet, terá de fornecer a senha de partilha.
-    - `FullLogCollection`: Este parâmetro garante que a embalagem de registo conterá todos os registos de cálculo. Por predefinição, o pacote de registo contém apenas um subconjunto de registos.
+    - `Path`: Providenciar um caminho de rede para a partilha onde pretende criar o pacote de registo de cálculo.
+    - `Credential`: Forneça o nome de utilizador para a partilha da rede. Quando executar este cmdlet, terá de fornecer a senha de partilha.
+    - `FullLogCollection`: Este parâmetro garante que o pacote de registos conterá todos os registos computatórios. Por predefinição, o pacote de registo contém apenas um subconjunto de registos.
 
-## <a name="monitor-and-troubleshoot-compute-modules"></a>Módulos de computação monitor e resolução de problemas
+## <a name="monitor-and-troubleshoot-compute-modules"></a>Monitor e resolução de problemas módulos de computação
 
-[!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
+[!INCLUDE [Monitor and troubleshoot compute modules](../../includes/azure-stack-edge-monitor-troubleshoot-compute.md)]
 
-## <a name="exit-the-remote-session"></a>Saia da sessão remota
+## <a name="exit-the-remote-session"></a>Sair da sessão remota
 
-Para sair da sessão remota PowerShell, feche a janela PowerShell.
+Para sair da sessão remota powerShell, feche a janela PowerShell.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Implemente o [Azure Stack Edge](azure-stack-edge-deploy-prep.md) no portal Azure.
+- Implementar [Azure Stack Edge](azure-stack-edge-deploy-prep.md) no portal Azure.

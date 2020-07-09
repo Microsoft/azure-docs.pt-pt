@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 93f1da7db3962994611f70fc145d0e9b62cd4f26
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 15d2a7a2ad00f7f9b5db59d3d4803f60508b7b2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167864"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85561580"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Como trabalhar com resultados de pesquisa na Azure Cognitive Search
 
@@ -28,7 +28,7 @@ Embora um documento de pesquisa possa consistir num grande número de campos, no
 Os campos que funcionam melhor incluem aqueles que contrastam e diferenciam entre documentos, fornecendo informações suficientes para convidar uma resposta click-through por parte do utilizador. Num site de e-commerce, pode ser um nome de produto, descrição, marca, cor, tamanho, preço e classificação. Para a amostra incorporada do índice de amostras de hotéis, pode ser um dos campos que se seguem:
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30 
     {  
       "search": "sandy beaches",
       "select": "HotelId, HotelName, Description, Rating, Address/City"
@@ -103,11 +103,11 @@ A formatação é aplicada a consultas de termo inteiro. O tipo de formatação 
 No exemplo seguinte, os termos "areia", "areia", "praias", "praia" encontrados no campo Descrição estão marcados para destaque. As consultas que desencadeiam a expansão da consulta no motor, como a pesquisa fuzzy e wildcard, têm suporte limitado para o destaque do sucesso.
 
 ```http
-GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 
+GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2020-06-30 
 ```
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30 
     {  
       "search": "sandy beaches",  
       "highlight": "Description"

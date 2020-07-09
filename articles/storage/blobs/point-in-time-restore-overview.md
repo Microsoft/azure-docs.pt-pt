@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 06/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 38f6cfef60cf3bfe66742cba204d74db1c22ca77
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.custom: references_regions
+ms.openlocfilehash: 60f83fae6e7e685a1065d1c01327a004d9bb2864
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169292"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84675657"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>Restauro pontual para bolhas de bloco (pré-visualização)
 
@@ -84,7 +84,7 @@ As seguintes regiões apoiam o ponto de compensação no momento em visualizaç�
 A pré-visualização inclui as seguintes limitações:
 
 - Restaurar bolhas de bloco premium não é suportado.
-- Restaurar bolhas no nível de arquivo não é suportado. Por exemplo, se uma bolha no nível quente foi movida para o nível de arquivo há dois dias, e uma operação de restauro restaura a um ponto há três dias, a bolha não é restaurada para o nível quente.
+- O restauro de blobs na camada de arquivo não é suportado. Por exemplo, se um blob na camada de acesso frequente tiver sido movido para a camada de arquivo há dois dias e uma operação de restauro restaurar para um ponto há três dias, o blob não é restaurado para a camada de acesso frequente.
 - Restaurar espaços de nome plano e hierárquico de armazenamento de dados Azure Data Lake Gen2 não é suportado.
 - Restaurar as contas de armazenamento utilizando chaves fornecidas pelo cliente não é suportado.
 
@@ -93,7 +93,9 @@ A pré-visualização inclui as seguintes limitações:
 
 ### <a name="register-for-the-preview"></a>Registre-se para a pré-visualização
 
-Para se registar para a pré-visualização, execute os seguintes comandos da Azure PowerShell:
+Para se registar para a pré-visualização, execute os seguintes comandos:
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 # Register for the point-in-time restore preview
@@ -103,16 +105,28 @@ Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Mic
 Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
 
 # Register for blob versioning (preview)
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
+Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
 
 # Refresh the Azure Storage provider namespace
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
 
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+```azurecli
+az feature register --namespace Microsoft.Storage --name RestoreBlobRanges
+az feature register --namespace Microsoft.Storage --name Changefeed
+az feature register --namespace Microsoft.Storage --name Versioning
+az provider register --namespace 'Microsoft.Storage'
+```
+
+---
+
 ### <a name="check-registration-status"></a>Verifique o estado do registo
 
-Para verificar o estado do seu registo, execute os seguintes comandos:
+O registo de point in time restore é automático e deve demorar menos de 10 minutos. Para verificar o estado do seu registo, execute os seguintes comandos:
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
@@ -120,7 +134,20 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
 
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Changefeed
+
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName Versioning
 ```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.Storage/RestoreBlobRanges')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Changefeed')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning')].{Name:name,State:properties.state}"
+```
+
+---
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
 

@@ -1,5 +1,5 @@
 ---
-title: Notas de lançamento da Azure Media Services v3 Microsoft Docs
+title: Azure Media Services v3 notas de lançamento / Microsoft Docs
 description: Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece-lhe as últimas atualizações sobre o Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -9,18 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/28/2020
+ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: e072bcb0edc741b7843f470f14c3c37153338efb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d09fba2130dc302378a59200349a569cc248234b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647632"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075438"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
->Seja notificado sobre quando revisitar esta página para atualizações copiando e colando este URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` no seu leitor de feed RSS.
+>Seja notificado sobre quando revisitar esta página para obter atualizações copiando e colando este URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` no seu leitor de feed RSS.
 
 Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece-lhe informações sobre:
 
@@ -32,45 +32,63 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 ## <a name="known-issues"></a>Problemas conhecidos
 
 > [!NOTE]
-> Pode utilizar o [portal Azure](https://portal.azure.com/) para gerir o V3 [Live Events,](live-events-outputs-concept.md)ver v3 [Assets,](assets-concept.md)obter informações sobre o acesso a APIs. Para todas as outras tarefas de gestão (por exemplo, Transforms and Jobs), utilize o [REST API,](https://aka.ms/ams-v3-rest-ref) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)suportados .
+> Você pode usar o [portal Azure](https://portal.azure.com/) para gerir [eventos v3 ao vivo,](live-events-outputs-concept.md)ver [ativos](assets-concept.md) e empregos v3, obter informações sobre o acesso a APIs, encriptar conteúdo. Para todas as outras tarefas de gestão (por exemplo, gerir transformações e empregos), utilize o [REST API,](https://aka.ms/ams-v3-rest-ref) [OI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs apoiados.](media-services-apis-overview.md#sdks)
+>
+> Para mais detalhes, consulte: [as limitações do portal Azure para os Serviços de Comunicação Social v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
-Para mais informações, consulte [a orientação da Migração para a mudança dos Serviços de Media v2 para v3](migrate-from-v2-to-v3.md#known-issues).
+## <a name="june-2020"></a>Junho de 2020
+
+### <a name="live-video-analytics-on-iot-edge-preview-release"></a>Vídeo ao vivo analítico no lançamento da pré-estreia do IoT Edge
+
+A pré-estreia de Live Video Analytics no IoT Edge tornou-se pública. Para obter mais informações, consulte [as notas de lançamento.](../live-video-analytics-edge/release-notes.md)
+
+Live Video Analytics on IoT Edge é uma expansão para a família Media Service. Permite-lhe analisar vídeo ao vivo com modelos de IA à sua escolha nos seus próprios dispositivos de borda, e capturar e gravar opcionalmente esse vídeo. Agora pode construir aplicativos com análise de vídeo em tempo real no limite sem se preocupar com a complexidade de construir e operar um pipeline de vídeo ao vivo.
+
+### <a name="search-by-topics"></a>Pesquisar por tópicos
+
+Agora pode utilizar a API de pesquisa para procurar vídeos com tópicos específicos (apenas API).
+
+Os tópicos são adicionados como parte do `textScope` (parâmetro opcional). Consulte [a API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) para mais detalhes.  
+
+### <a name="labels-enhancement"></a>Melhoria dos rótulos
+
+O tagger da etiqueta foi atualizado e agora inclui mais etiquetas visuais que podem ser identificadas.
 
 ## <a name="may-2020"></a>Maio de 2020
 
-A Azure Media Services está agora geralmente disponível nas seguintes regiões: "Alemanha Norte", "Alemanha West Central", "Suíça Norte" e "Suíça Oeste". Os clientes podem implementar serviços de media para estas regiões usando o portal Azure.
+A Azure Media Services está agora geralmente disponível nas seguintes regiões: "Alemanha Norte", "Alemanha Central Ocidental", "Suíça Norte" e "Suíça Oeste". Os clientes podem implantar Serviços de Mídia nestas regiões utilizando o portal Azure.
 
 ## <a name="april-2020"></a>Abril de 2020
 
 ### <a name="improvements-in-documentation"></a>Melhorias na documentação
 
-Os docs do Azure Media Player foram migrados para a [documentação azure.](../azure-media-player/azure-media-player-overview.md)
+Os docs do Azure Media Player foram migrados para a documentação do [Azure](../azure-media-player/azure-media-player-overview.md).
 
 ## <a name="january-2020"></a>Janeiro de 2020
 
 ### <a name="improvements-in-media-processors"></a>Melhorias nos processadores de mídia
 
-- Um suporte melhorado para fontes interligadas em Análise de Vídeo – esse conteúdo está agora desinterligado corretamente antes de ser enviado para motores de inferência.
+- Um melhor suporte para fontes entrelaçadas em Análise de Vídeo – este conteúdo é agora desligado corretamente antes de ser enviado para motores de inferência.
 - Ao gerar miniaturas com o modo "Best", o codificador procura agora mais de 30 segundos para selecionar uma moldura que não seja monocromática.
 
-### <a name="azure-government-cloud-updates"></a>Atualizações na nuvem do Governo azure
+### <a name="azure-government-cloud-updates"></a>Atualizações em nuvem do Governo de Azure
 
 Media Services GA'ed nas seguintes regiões do Governo Azure: *USGov Arizona* e *USGov Texas*.
 
 ## <a name="december-2019"></a>Dezembro de 2019
 
-Adicionou suporte cdn para cabeçalhos *Prefetch Origin-Assist* para streaming ao vivo e vídeo a pedido; disponível para clientes que tenham contrato direto com a Akamai CDN. A funcionalidade De Assistência à Origem CDN-Prefetch envolve as seguintes trocas de cabeçalhos HTTP entre a origem da Akamai CDN e da Azure Media Services:
+Apoio CDN adicionado aos cabeçalhos *Prefetch Origin-Assist* para streaming ao vivo e vídeo a pedido; disponível para clientes que tenham contrato direto com a Akamai CDN. A funcionalidade CdN-Prefetch de assistência à origem envolve as seguintes trocas de cabeçalho HTTP entre a origem da Akamai CDN e a Azure Media Services:
 
 |Cabeçalho HTTP|Valores|Remetente|Recetor|Objetivo|
 | ---- | ---- | ---- | ---- | ----- |
-|CDN-Origin-Assist-Prefetch-Habilitado | 1 (padrão) ou 0 |CDN|Origem|Para indicar que a CDN está ativada por prefetch|
-|CDN-Origin-Assist-Prefetch-Path| Exemplo: <br/>Fragmentos (vídeo=140000000000,formato=mpd-time-cmaf)|Origem|CDN|Para fornecer caminho de prefetch para CDN|
-|CDN-Origem-Pedido de Prefetch-Prefetch|1 (pedido de pré-rebusca) ou 0 (pedido regular)|CDN|Origem|Para indicar o pedido da CDN é uma prefetch|
+|CDN-Origin-Assist-Prefetch-Enabled | 1 (padrão) ou 0 |CDN|Origem|Para indicar que o CDN é pré-desprotch ativado|
+|CDN-Origin-Assist-Prefetch-Path| Exemplo: <br/>Fragmentos (vídeo=14000000000000000000000000000000000000000000000000000000000000000000000000000|Origem|CDN|Para fornecer caminho de prefetch para CDN|
+|CDN-Origin-Assist-Prefetch-Request|1 (pedido de precade) ou 0 (pedido regular)|CDN|Origem|Para indicar o pedido da CDN é uma prefâmia|
 
-Para ver parte da troca de cabeçalhoem em ação, pode experimentar os seguintes passos:
+Para ver parte da troca de cabeçalho em ação, pode experimentar os seguintes passos:
 
-1. Utilize o Carteiro ou o curl para emitir um pedido à origem dos Serviços de Media para um segmento de áudio ou vídeo ou fragmento. Certifique-se de adicionar o cabeçalho CDN-Origin-Assist-Prefetch-Enabled: 1 no pedido.
-2. Na resposta, deve ver o cabeçalho CDN-Origin-Assist-Prefetch-Path com um caminho relativo como valor.
+1. Utilize o Carteiro ou o curl para emitir um pedido à origem dos Media Services para um segmento de áudio ou vídeo ou fragmento. Certifique-se de que adiciona o cabeçalho CDN-Origin-Assist-Prefetch-Enabled: 1 no pedido.
+2. Na resposta, deverá ver o cabeçalho CDN-Origin-Assist-Prefetch-Path com um percurso relativo como seu valor.
 
 ## <a name="november-2019"></a>Novembro de 2019
 
@@ -78,34 +96,34 @@ Para ver parte da troca de cabeçalhoem em ação, pode experimentar os seguinte
 
 A transcrição ao vivo está agora em pré-visualização pública e disponível para uso na região oeste dos EUA 2.
 
-A transcrição ao vivo é projetada para trabalhar em conjunto com eventos ao vivo como uma capacidade de adição.  É suportado tanto em eventos ao vivo pass-through como Standard ou Premium.  Quando esta funcionalidade está ativada, o serviço utiliza a funcionalidade [Discurso-Texto](../../cognitive-services/speech-service/speech-to-text.md) dos Serviços Cognitivos para transcrever as palavras faladas no áudio que está a chegar em texto. Este texto é então disponibilizado para entrega juntamente com vídeo e áudio nos protocolos MPEG-DASH e HLS. A faturação baseia-se num novo medidor adicional que é custo adicional para o evento ao vivo quando está no estado de "Running".  Para mais detalhes sobre transcrição ao vivo e faturação, consulte [transcrição ao vivo](live-transcription.md)
+A transcrição ao vivo é projetada para trabalhar em conjunto com eventos ao vivo como uma capacidade de complemento.  É suportado em eventos de passagem e Standard ou Premium codificando ao vivo.  Quando esta funcionalidade está ativada, o serviço utiliza a funcionalidade [Discurso-Texto](../../cognitive-services/speech-service/speech-to-text.md) dos Serviços Cognitivos para transcrever as palavras faladas no áudio de entrada em texto. Este texto é então disponibilizado para entrega juntamente com vídeo e áudio nos protocolos MPEG-DASH e HLS. A faturação baseia-se num novo medidor adicional que é um custo adicional para o evento ao vivo quando está no estado "Running".  Para mais detalhes sobre transcrição e faturação ao vivo, consulte [a transcrição ao vivo](live-transcription.md)
 
 > [!NOTE]
-> Atualmente, a transcrição ao vivo só está disponível como uma funcionalidade de pré-visualização na região oeste dos EUA 2. Apoia a transcrição de palavras faladas em inglês (en-us) apenas neste momento.
+> Atualmente, a transcrição ao vivo só está disponível como uma funcionalidade de pré-visualização na região oeste dos EUA 2. Só neste momento apoia a transcrição de palavras faladas em inglês (en-us).
 
 ### <a name="content-protection"></a>Proteção de conteúdo
 
-O recurso *Token Replay Prevention* lançado em regiões limitadas em setembro já está disponível em todas as regiões.
-Os clientes da Media Services podem agora estabelecer um limite no número de vezes que o mesmo símbolo pode ser usado para solicitar uma chave ou uma licença. Para mais informações, consulte [Token Replay Prevention](content-protection-overview.md#token-replay-prevention).
+A funcionalidade *De Prevenção de Repetição token* lançada em regiões limitadas em setembro está agora disponível em todas as regiões.
+Os clientes dos Serviços de Comunicação Social podem agora estabelecer um limite no número de vezes que o mesmo token pode ser usado para solicitar uma chave ou uma licença. Para obter mais informações, consulte [a Prevenção de Repetição de Token.](content-protection-overview.md#token-replay-prevention)
 
-### <a name="new-recommended-live-encoder-partners"></a>Novos parceiros codificadores ao vivo recomendados
+### <a name="new-recommended-live-encoder-partners"></a>Novos parceiros de codificação ao vivo recomendados
 
-Suporte adicional para os seguintes codificadores de novos parceiros recomendados para o streaming ao vivo RTMP:
+Suporte adicional para os seguintes novos codificadores recomendados para streaming ao vivo RTMP:
 
 - [Cambria Ao Vivo 4.3](https://www.capellasystems.net/products/cambria-live/)
 - [Câmaras de ação GoPro Hero7/8 e Max](https://gopro.com/help/articles/block/getting-started-with-live-streaming)
 - [Restream.io](https://restream.io/)
 
-### <a name="file-encoding-enhancements"></a>Melhorias de codificação de ficheiros
+### <a name="file-encoding-enhancements"></a>Melhoramentos de codificação de ficheiros
 
-- Um novo preconjunto de codificação de conteúdo consciente está agora disponível. Produz um conjunto de MP4 alinhados com gop utilizando codificação consciente do conteúdo. Dado qualquer conteúdo de entrada, o serviço realiza uma análise leve inicial do conteúdo de entrada. Utiliza estes resultados para determinar o número ideal de camadas, a taxa de bits apropriada e as definições de resolução para entrega através de streaming adaptativo. Este preset é particularmente eficaz para vídeos de baixa complexidade e complexidade média, onde os ficheiros de saída estão a taxas mais baixas, mas a uma qualidade que ainda oferece uma boa experiência aos espectadores. A saída conterá ficheiros MP4 com vídeo e áudio interleaved. Para mais informações, consulte as [especificações abertas](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json)da API .
-- Melhor desempenho e multi-threading para o re-sizer em Standard Encoder. Em condições específicas, o cliente deve ver um aumento de desempenho entre 5-40% de codificação VOD. O conteúdo de baixa complexidade codificado em várias bit-rates verá os aumentos de desempenho mais elevados. 
-- A codificação padrão mantém agora uma cadência gop regular para conteúdos de taxa de fotogramas variáveis (VFR) durante a codificação do VOD ao utilizar a definição de GOP baseada no tempo.  Isto significa que o cliente que submete conteúdo misto de taxa de fotogramas que varia entre 15-30 fps, por exemplo, deve agora ver distâncias GOP regulares calculadas na saída para ficheiros MP4 de streaming de bitrate adaptativo. Isto melhorará a capacidade de alternar perfeitamente entre as faixas ao entregar o HLS ou o DASH. 
--  Sincronização de AV melhorada para o conteúdo de origem da taxa de fotogramas variável (VFR)
+- Uma nova predefinição de Codificação de Conteúdos Conscientes já se encontra disponível. Produz um conjunto de MP4s alinhados com GOP utilizando codificação consciente do conteúdo. Dado qualquer conteúdo de entrada, o serviço realiza uma primeira análise leve do conteúdo de entrada. Utiliza esses resultados para determinar o número ideal de camadas, a taxa de bits adequada e as definições de resolução para entrega através do streaming adaptativo. Esta predefinição é particularmente eficaz para vídeos de baixa complexidade e complexidade média, onde os ficheiros de saída estão a taxas de bits mais baixas, mas a uma qualidade que ainda oferece uma boa experiência aos espectadores. A saída conterá ficheiros MP4 com vídeo e áudio intercalados. Para mais informações, consulte as [especificações abertas da API.](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json)
+- Melhor desempenho e multi-rosca para o redimensionador em Standard Encoder. Em condições específicas, o cliente deve ver um aumento de desempenho entre 5-40% de codificação de VOD. O conteúdo de baixa complexidade codificado em várias taxas de bit verá os maiores aumentos de desempenho. 
+- A codificação padrão mantém agora uma cadência gop regular para o conteúdo da taxa de fotogramas variável (VFR) durante a codificação do VOD ao utilizar a definição de GOP baseada no tempo.  Isto significa que o cliente que submete conteúdo misto de taxa de fotogramas que varia entre 15-30 fps, por exemplo, deve agora ver distâncias gop regulares calculadas na saída para ficheiros de streaming de bitrate adaptativo MP4. Isto melhorará a capacidade de alternar perfeitamente entre faixas ao entregar sobre HLS ou DASH. 
+-  Sincronização AV melhorada para o teor de origem da taxa de fotogramas variável (VFR)
 
-### <a name="video-indexer-video-analytics"></a>Indexador de Vídeo, análise de vídeo
+### <a name="video-indexer-video-analytics"></a>Indexante de Vídeo, Análise de Vídeo
 
-- Os quadros-chave extraídos utilizando o predefinido VideoAnalyzer estão agora na resolução original do vídeo em vez de serem redimensionados. A extração de quadros de alta resolução dá-lhe imagens de qualidade originais e permite-lhe utilizar os modelos de inteligência artificial baseados em imagem fornecidos pelos serviços Microsoft Computer Vision e Custom Vision para obter ainda mais informações a partir do seu vídeo.
+- Os quadros-chave extraídos usando a predefinição videoAnalyzer estão agora na resolução original do vídeo em vez de serem redimensionados. A extração de chaves de alta resolução dá-lhe imagens de qualidade originais e permite-lhe utilizar os modelos de inteligência artificial baseados na imagem fornecidos pelos serviços Microsoft Computer Vision e Custom Vision para obter ainda mais informações a partir do seu vídeo.
 
 ## <a name="september-2019"></a>Setembro de 2019
 
@@ -113,136 +131,136 @@ Suporte adicional para os seguintes codificadores de novos parceiros recomendado
 
 #### <a name="live-linear-encoding-of-live-events"></a>Codificação linear ao vivo de eventos ao vivo
 
-A Media Services v3 está a anunciar a pré-visualização de 24 horas x 365 dias de codificação linear ao vivo de eventos ao vivo.
+A Media Services v3 está anunciando a pré-estreia de 24 hrs x 365 dias de codificação linear ao vivo de eventos ao vivo.
 
 ###  <a name="media-services-v2"></a>Serviços de Multimédia v2  
 
-#### <a name="deprecation-of-media-processors"></a>Depreciação de processadores de mídia
+#### <a name="deprecation-of-media-processors"></a>Depreciação dos processadores de meios de comunicação
 
-Estamos a nunciando a depreciação do *Azure Media Indexer* e *do Azure Media Indexer 2 Preview*. Para as datas de aposentadoria, consulte o tema dos [componentes do legado.](../previous/legacy-components.md) [O Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substitui estes processadores de mídia legados.
+Estamos a anunciar a depreciação do *Azure Media Indexer* e *do Azure Media Indexer 2 Preview*. Para as datas de aposentadoria, consulte o tema dos [componentes do legado.](../previous/legacy-components.md) [O Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substitui estes processadores de mídia legado.
 
-Para mais informações, consulte [Migrate from Azure Media Indexer e Azure Media Indexer 2 para Azure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
+Para obter mais informações, consulte [Migrar do Azure Media Indexer e do Azure Media Indexer 2 para OZure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
 
 ## <a name="august-2019"></a>Agosto de 2019
 
 ###  <a name="media-services-v3"></a>Serviços de Multimédia v3  
 
-#### <a name="south-africa-regional-pair-is-open-for-media-services"></a>Dupla regional da África do Sul está aberta para serviços de media 
+#### <a name="south-africa-regional-pair-is-open-for-media-services"></a>Par regional da África do Sul está aberto para serviços de media 
 
-Os Serviços de Media estão agora disponíveis nas regiões do Norte e da África do Sul.
+Os Serviços de Comunicação Social estão agora disponíveis nas regiões ocidentais do Norte e da África do Sul.
 
-Para mais informações, consulte [Clouds e regiões em que existem serviços de mídia v3.](azure-clouds-regions.md)
+Para mais informações, consulte [Nuvens e regiões em que existem serviços de comunicação v3.](azure-clouds-regions.md)
 
 ###  <a name="media-services-v2"></a>Serviços de Multimédia v2  
 
-#### <a name="deprecation-of-media-processors"></a>Depreciação de processadores de mídia
+#### <a name="deprecation-of-media-processors"></a>Depreciação dos processadores de meios de comunicação
 
-Estamos a anunciar a depreciação dos processadores de media *Windows Azure Media Encoder* (WAME) e *Azure Media Encoder* (AME), que estão a ser reformados. Para as datas de aposentadoria, consulte este tema de [componentes legados.](../previous/legacy-components.md)
+Estamos a anunciar a depreciação dos processadores de media *Windows Azure Media Encoder* (WAME) e *Azure Media Encoder* (AME), que estão a ser reformados. Para as datas de aposentadoria, consulte este tema [dos componentes do legado.](../previous/legacy-components.md)
 
-Para mais detalhes, consulte [migrate WAME para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) e [Migrar AME para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+Para mais detalhes, consulte [a Migração WAME para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) e [Migrar AME para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
  
 ## <a name="july-2019"></a>Julho de 2019
 
 ### <a name="content-protection"></a>Proteção de conteúdo
 
-Ao transmitir conteúdo protegido com restrição simbólica, os utilizadores finais precisam de obter um símbolo que seja enviado como parte do pedido de entrega chave. A funcionalidade *de Prevenção* de Repetição de Token permite que os clientes dos Media Services estabeleçam um limite para quantas vezes o mesmo símbolo pode ser usado para solicitar uma chave ou uma licença. Para mais informações, consulte [Token Replay Prevention](content-protection-overview.md#token-replay-prevention).
+Ao transmitir conteúdo protegido com restrição simbólica, os utilizadores finais precisam de obter um token que é enviado como parte do pedido de entrega chave. A funcionalidade *De Prevenção de Repetição token* permite que os clientes dos Media Services estabeleçam um limite para quantas vezes o mesmo token pode ser usado para solicitar uma chave ou uma licença. Para obter mais informações, consulte [a Prevenção de Repetição de Token.](content-protection-overview.md#token-replay-prevention)
 
-A partir de julho, a funcionalidade de pré-visualização só estava disponível na Us Central e us West Central.
+A partir de julho, a funcionalidade de pré-visualização só estava disponível na Central dos EUA e na Central Ocidental dos EUA.
 
 ## <a name="june-2019"></a>Junho de 2019
 
-### <a name="video-subclipping"></a>Subclipping de vídeo
+### <a name="video-subclipping"></a>Vídeo subclipping
 
-Agora pode cortar ou subclipe um vídeo ao codificar-o com um [Job](https://docs.microsoft.com/rest/api/media/jobs). 
+Agora pode aparar ou subclipar um vídeo ao codificar o vídeo usando um [Trabalho](https://docs.microsoft.com/rest/api/media/jobs). 
 
-Esta funcionalidade funciona com qualquer [Transform](https://docs.microsoft.com/rest/api/media/transforms) que seja construído utilizando os predefinições [BuiltInStandardEncoderPreset,](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ou os predefinições [StandardEncoderPreset.](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 
+Esta funcionalidade funciona com qualquer [Transform](https://docs.microsoft.com/rest/api/media/transforms) que seja construído utilizando as predefinições Predefinidas [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ou as predefinições [StandardEncoderPreset.](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 
 
 Ver exemplos:
 
-* [Subclipe um vídeo com .NET](subclip-video-dotnet-howto.md)
-* [Subclipe um vídeo com REST](subclip-video-rest-howto.md)
+* [Subclip um vídeo com .NET](subclip-video-dotnet-howto.md)
+* [Subclip um vídeo com REST](subclip-video-rest-howto.md)
 
 ## <a name="may-2019"></a>Maio de 2019
 
-### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Suporte do Monitor Azure para registos e métricas de diagnóstico dos Serviços de Media
+### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Suporte do Monitor Azure para registos e métricas de diagnóstico de Serviços de Mídia
 
-Agora pode utilizar o Monitor Azure para visualizar os dados de telemetria emitidos pelos Media Services.
+Agora pode utilizar o Azure Monitor para visualizar os dados de telemetria emitidos pelos Media Services.
 
-* Utilize os registos de diagnóstico do Monitor Azure para monitorizar os pedidos enviados pelo ponto final da entrega da chave dos serviços de mídia. 
-* Monitorize as métricas emitidas pelos [pontos finais de streaming](streaming-endpoint-concept.md)de serviços de mídia .   
+* Utilize os registos de diagnóstico do Azure Monitor para monitorizar os pedidos enviados pelo ponto final de entrega da chave dos serviços de mídia. 
+* Métricas de monitorização emitidas por Media Services [Streaming Endpoints](streaming-endpoint-concept.md).   
 
-Para mais detalhes, consulte [as métricas do Monitor Media Services e os registos de diagnóstico.](media-services-metrics-diagnostic-logs.md)
+Para mais informações, consulte [as métricas dos Serviços de Mídia do Monitor e os registos de diagnóstico](media-services-metrics-diagnostic-logs.md).
 
-### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Suporte de faixas de áudio multi-áudio em Embalagens Dinâmicas 
+### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Suporte de faixas de áudio multi-áudio em Embalagem Dinâmica 
 
-Ao transmitir Ativos que possuem múltiplas faixas de áudio com vários códigos e idiomas, a [Dynamic Packaging](dynamic-packaging-overview.md) suporta agora várias faixas de áudio para a saída hls (versão 4 ou superior).
+Ao transmitir Ativos que tenham múltiplas faixas de áudio com vários codecs e idiomas, [a Dynamic Packaging](dynamic-packaging-overview.md) suporta agora faixas de áudio multi-áudio para a saída HLS (versão 4 ou superior).
 
-### <a name="korea-regional-pair-is-open-for-media-services"></a>Dupla regional da Coreia está aberta para os Serviços de Media 
+### <a name="korea-regional-pair-is-open-for-media-services"></a>Par regional da Coreia está aberto para serviços de media 
 
-Os Serviços de Media estão agora disponíveis nas regiões sul da Coreia e da Coreia. 
+Os Serviços de Comunicação Social estão agora disponíveis nas regiões sul da Coreia do Sul e da Coreia. 
 
-Para mais informações, consulte [Clouds e regiões em que existem serviços de mídia v3.](azure-clouds-regions.md)
+Para mais informações, consulte [Nuvens e regiões em que existem serviços de comunicação v3.](azure-clouds-regions.md)
 
-### <a name="performance-improvements"></a>Melhorias no desempenho
+### <a name="performance-improvements"></a>Melhorias de desempenho
 
-Atualizações adicionadas que incluem melhorias no desempenho dos Serviços de Media.
+Atualizações adicionadas que incluem melhorias no desempenho dos Serviços de Mídia.
 
-* O tamanho máximo do ficheiro suportado para processamento foi atualizado. Vês, [Quotas e limites.](limits-quotas-constraints.md)
-* [Codificar melhorias de velocidades.](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types)
+* O tamanho máximo do ficheiro suportado para o processamento foi atualizado. As [quotas e os limites.](limits-quotas-constraints.md)
+* [Melhorias de velocidades de codificação](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
 
 ## <a name="april-2019"></a>Abril de 2019
 
 ### <a name="new-presets"></a>Novas predefinições
 
-* [O FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) foi adicionado às predefinições do analisador incorporado.
-* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) foi adicionado aos presets codificadores incorporados. Para mais informações, consulte a [codificação de conteúdos.](content-aware-encoding.md) 
+* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) foi adicionado às predefinições do analisador incorporado.
+* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) foi adicionado às predefinições codificadoras incorporadas. Para obter mais informações, consulte [codificação consciente do conteúdo.](content-aware-encoding.md) 
 
 ## <a name="march-2019"></a>Março de 2019
 
-A Dynamic Packaging suporta agora o Dolby Atmos. Para mais informações, consulte [Os códigos áudio suportados por embalagens dinâmicas](dynamic-packaging-overview.md#audio-codecs).
+A Dynamic Packaging suporta agora o Dolby Atmos. Para obter mais informações, consulte [os codecs audio suportados por embalagens dinâmicas.](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging)
 
-Pode agora especificar uma lista de filtros de ativos ou conta, que se aplicaria ao seu Localizador de Streaming. Para mais informações, consulte [Filtros Associados com Localizador de Streaming](filters-concept.md#associating-filters-with-streaming-locator).
+Agora pode especificar uma lista de filtros de ativos ou de conta, que se aplicaria ao seu Localizador de Streaming. Para obter mais informações, consulte [filtros Associados com Localizador de Streaming.](filters-concept.md#associating-filters-with-streaming-locator)
 
 ## <a name="february-2019"></a>Fevereiro de 2019
 
-A Media Services v3 é agora apoiada nas nuvens nacionais de Azure. Nem todas as funcionalidades estão disponíveis em todas as nuvens ainda. Para mais detalhes, consulte Clouds e regiões nas quais existe o [Azure Media Services v3.](azure-clouds-regions.md)
+Os Serviços de Comunicação Social v3 são agora apoiados nas nuvens nacionais do Azure. Nem todas as funcionalidades estão disponíveis em todas as nuvens ainda. Para mais detalhes, consulte [Nuvens e regiões em que existem V3 da Azure Media Services](azure-clouds-regions.md).
 
-O evento [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) foi adicionado aos schemas da Rede de Eventos Azure para serviços de media.
+O evento [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) foi adicionado aos esquemas da Grelha de Eventos Azure para serviços de media.
 
 ## <a name="january-2019"></a>Janeiro de 2019
 
-### <a name="media-encoder-standard-and-mpi-files"></a>Ficheiros Media Encoder Standard e MPI 
+### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard e MPI ficheiros 
 
-Ao codificar com a Media Encoder Standard para produzir ficheiros MP4( s), é gerado um novo ficheiro .mpi e adicionado ao Ativo de saída. Este ficheiro MPI destina-se a melhorar o desempenho das [embalagens dinâmicas](dynamic-packaging-overview.md) e cenários de streaming.
+Ao codificar com a Media Encoder Standard para produzir ficheiros MP4, é gerado um novo ficheiro .mpi e adicionado à saída Ativo. Este ficheiro MPI destina-se a melhorar o desempenho para cenários [dinâmicos de embalagem](dynamic-packaging-overview.md) e streaming.
 
-Não deve modificar ou remover o ficheiro MPI, nem tomar qualquer dependência do seu serviço sobre a existência (ou não) de tal ficheiro.
+Não deve modificar ou remover o ficheiro MPI, nem assumir qualquer dependência no seu serviço sobre a existência (ou não) de tal ficheiro.
 
 ## <a name="december-2018"></a>Dezembro de 2018
 
-As atualizações do lançamento da API da API v3 incluem:
+As atualizações da versão GA da API V3 incluem:
        
-* As propriedades **PresentationTimeRange** já não são 'necessárias' para **filtros** de ativos e **filtros**de conta . 
-* As opções de consulta $top e $skip para **Jobs** and **Transforms** foram removidas e $orderby foi adicionada. Como parte da adição da nova funcionalidade de encomenda, descobriu-se que as opções $top e $skip tinham sido acidentalmente expostas anteriormente, mesmo que não fossem implementadas.
-* A execção de enumeração foi reativada. Esta funcionalidade foi ativada nas versões de pré-visualização do SDK e foi acidentalmente desativada na versão GA.
-* Duas políticas de streaming predefinidas foram renomeadas. **O SecureStreaming** é agora **MultiDrmCencStreaming**. **O SecureStreamingWithFairPlay** já está **a Predefined_MultiDrmStreaming**.
+* As propriedades **PresentationTimeRange** já não são 'necessárias' para **filtros de ativos** e **filtros de conta.** 
+* As opções de consulta $top e $skip para **Jobs** and Transforms foram **removidas** e $orderby foi adicionada. Como parte da adição da nova funcionalidade de encomendas, descobriu-se que as opções $top e $skip tinham sido acidentalmente expostas anteriormente, mesmo que não fossem implementadas.
+* A extensibilidade da enumeração foi re-activada. Esta funcionalidade foi ativada nas versões de pré-visualização do SDK e foi acidentalmente desativada na versão GA.
+* Duas políticas de streaming predefinidas foram renomeadas. **O SecureStreaming** é agora **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** está agora **Predefined_MultiDrmStreaming**.
 
 ## <a name="november-2018"></a>Novembro de 2018
 
-O módulo CLI 2.0 já se encontra disponível para [o Azure Media Services v3 GA](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest) – v.0.50.
+O módulo CLI 2.0 já está disponível para [Azure Media Services v3 GA](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
 
 ### <a name="new-commands"></a>Novos comandos
 
-- [az ams conta](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
-- [az ams conta-filtro](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
+- [conta az ams](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
+- [az ams filtro de conta](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
 - [az ams ativo](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
-- [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
-- [az ams content-key-policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [az ams trabalho](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+- [az ams filtro de ativos](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
+- [az ams conteúdo chave-chave-política](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
+- [trabalho az ams](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
 - [az ams live-event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
 - [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
 - [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
-- [az ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) - permite-lhe gerir Unidades Reservadas de Media. Para mais informações, consulte [Unidades Reservadas](media-reserved-units-cli-how-to.md)scale Media .
+- [az ams streaming-localizador](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
+- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) - permite-lhe gerir Unidades Reservadas de Mídia. Para mais informações, consulte [as Unidades Reservadas para Os Meios de Escala.](media-reserved-units-cli-how-to.md)
 
 ### <a name="new-features-and-breaking-changes"></a>Novas funcionalidades e mudanças de rutura
 
@@ -251,101 +269,101 @@ O módulo CLI 2.0 já se encontra disponível para [o Azure Media Services v3 GA
 - ```--storage-account```e ```--container``` argumentos adicionados.
 - Valores predefinidos para o tempo de validade (Agora+23h) e permissões (Ler) no ```az ams asset get-sas-url``` comando adicionados.
 
-#### <a name="job-commands"></a>Comandos de trabalho
+#### <a name="job-commands"></a>Comandos de emprego
 
 - ```--correlation-data```e ```--label``` argumentos adicionados
-- ```--output-asset-names```renomeado para ```--output-assets``` . Agora aceita uma lista de ativos separados pelo espaço no formato 'assetName=label'. Um ativo sem rótulo pode ser enviado assim: 'assetName='.
+- ```--output-asset-names```renomeado para ```--output-assets``` . Agora aceita uma lista de ativos separados pelo espaço no formato 'assetName=label'. Um ativo sem etiqueta pode ser enviado assim: 'assetName='.
 
-#### <a name="streaming-locator-commands"></a>Comandos localizadores de streaming
+#### <a name="streaming-locator-commands"></a>Comandos de localização de streaming
 
-- ```az ams streaming locator```comando base substituído por ```az ams streaming-locator``` .
+- ```az ams streaming locator```comando de base substituído por ```az ams streaming-locator``` .
 - ```--streaming-locator-id```e ```--alternative-media-id support``` argumentos adicionados.
 - ```--content-keys argument```argumento atualizado.
 - ```--content-policy-name```renomeado para ```--content-key-policy-name``` .
 
 #### <a name="streaming-policy-commands"></a>Comandos de Política de Streaming
 
-- ```az ams streaming policy```comando base substituído por ```az ams streaming-policy``` .
-- Suporte de parâmetros de encriptação ```az ams streaming-policy create``` adicionado.
+- ```az ams streaming policy```comando de base substituído por ```az ams streaming-policy``` .
+- Suporte de parâmetros de encriptação ```az ams streaming-policy create``` adicionados.
 
 #### <a name="transform-commands"></a>Transformar comandos
 
-- ```--preset-names```argumento substituído por ```--preset``` . Agora só pode definir 1 saída/predefinição de cada vez (para adicionar mais tem ```az ams transform output add``` que correr). Além disso, pode definir standardEncoderPreset personalizado passando o caminho para o seu JSON personalizado.
+- ```--preset-names```argumento substituído por ```--preset``` . Agora só pode definir 1 saída/predefinição de cada vez (para adicionar mais tem de ```az ams transform output add``` correr). Além disso, pode definir StandardEncoderPreset personalizado passando o caminho para o seu JSON personalizado.
 - ```az ams transform output remove```pode ser realizado passando o índice de saída para remover.
-- ```--relative-priority, --on-error, --audio-language and --insights-to-extract```argumentos ```az ams transform create``` adicionados e ```az ams transform output add``` comandos.
+- ```--relative-priority, --on-error, --audio-language and --insights-to-extract```argumentos adicionados ```az ams transform create``` e ```az ams transform output add``` comandos.
 
 ## <a name="october-2018---ga"></a>Outubro 2018 - GA
 
-Esta secção descreve as atualizações de outubro do Azure Media Services (AMS).
+Esta secção descreve atualizações de outubro da Azure Media Services (AMS).
 
-### <a name="rest-v3-ga-release"></a>Libertação REST v3 GA
+### <a name="rest-v3-ga-release"></a>Rest v3 GA lançamento
 
-A [versão REST v3 GA](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01) inclui mais APIs para filtros manifestos ao vivo, de conta/ativo e suporte a DRM.
+A [versão REST v3 GA](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01) inclui mais APIs para filtros manifestos de nível de conta/ativo e suporte a DRM.
 
 #### <a name="azure-resource-management"></a>Gestão de Recursos Azure 
 
-O apoio à Gestão de Recursos Azure permite a gestão e operações unificadas API (agora tudo num só local).
+O suporte à Gestão de Recursos Azure permite a API de gestão e operações unificadas (agora tudo num só local).
 
-A partir desta versão, pode utilizar modelos do Gestor de Recursos para criar Eventos Ao Vivo.
+A partir desta versão, pode utilizar modelos de Gestor de Recursos para criar Eventos Ao Vivo.
 
 #### <a name="improvement-of-asset-operations"></a>Melhoria das operações de ativos 
 
 Foram introduzidas as seguintes melhorias:
 
-- Ingestão de URLs DE ARMAZENAMENTO HTTP ou Azure Blob SAS.
-- Especifique os nomes de contentores próprios para Ativos. 
-- Suporte de saída mais fácil para criar fluxos de trabalho personalizados com funções Azure.
+- Ingerir em URLs HTTP ou Azure Blob Storage SAS URLs.
+- Especifique os seus próprios nomes de contentores para Ativos. 
+- Suporte de saída mais fácil para criar fluxos de trabalho personalizados com Funções Azure.
 
 #### <a name="new-transform-object"></a>Novo objeto de transformação
 
-O novo objeto **Transform** simplifica o modelo de codificação. O novo objeto facilita a criação e partilha de modelos e predefinições do Gestor de Recursos de codificação. 
+O novo objeto **Transform** simplifica o modelo de codificação. O novo objeto facilita a criação e partilha de modelos e predefinições do Gestor de Recursos de Codificação. 
 
 #### <a name="azure-active-directory-authentication-and-rbac"></a>Autenticação do Diretório Ativo Azure e RBAC
 
-A autenticação aditiva azure e o Controlo de Acesso baseado em funções (RBAC) permitem transformações seguras, LiveEvents, Políticas chave de conteúdo ou ativos por papel ou utilizadores em AD Azure.
+Azure AD Authentication and Role-Based Access Control (RBAC) enable secure Transforms, LiveEvents, Content Key Policies, or Assets by Role or Users in Azure AD.
 
 #### <a name="client-sdks"></a>SDKs do Cliente  
 
-Idiomas suportados em Media Services v3: .NET Core, Java, Node.js, Ruby, Typescript, Python, Go.
+Línguas suportadas em Media Services v3: .NET Core, Java, Node.js, Ruby, Typescript, Python, Go.
 
 #### <a name="live-encoding-updates"></a>Atualizações de codificação ao vivo
 
 São introduzidas as seguintes atualizações de codificação ao vivo:
 
-- Novo modo de latência baixa para o vivo (10 segundos de ponta a ponta).
-- Melhor suporte de RTMP (maior estabilidade e mais suporte codificador de fonte).
-- RTMPS segura ingerir.
+- Novo modo de baixa latência para viver (10 segundos de ponta a ponta).
+- Melhor suporte de RTMP (maior estabilidade e mais suporte ao codificação de fontes).
+- RTMPS ingerindo seguro.
 
-    Quando crias um Evento Ao Vivo, recebes 4 URLs ingerir. Os 4 URLs ingerir são quase idênticos, têm o mesmo token de streaming (AppId), apenas a parte número da porta é diferente. Dois dos URLs são primários e reserva para RTMPS. 
-- Suporte de transcodificação 24 horas. 
+    Quando crias um Evento Ao Vivo, recebes agora 4 URLs ingeridos. Os 4 URLs ingering são quase idênticos, têm o mesmo token de streaming (AppId), apenas a parte do número da porta é diferente. Dois dos URLs são primários e de reserva para RTMPS. 
+- Suporte de transcoding 24 horas. 
 - Melhor suporte de sinalização de anúncios em RTMP via SCTE35.
 
-#### <a name="improved-event-grid-support"></a>Suporte melhorado da Grelha de Eventos
+#### <a name="improved-event-grid-support"></a>Suporte melhorado da grelha de eventos
 
-Pode ver as seguintes melhorias de suporte da Rede de Eventos:
+Pode ver as seguintes melhorias no suporte da Grelha de Eventos:
 
-- Integração da Grelha de Eventos Azure para facilitar o desenvolvimento com Aplicações Lógicas e Funções Azure. 
-- Inscreva-se para eventos em Encoding, Live Channels e muito mais.
+- Integração da Grelha de Eventos Azure para um desenvolvimento mais fácil com apps lógicas e funções Azure. 
+- Inscreva-se para eventos na Codificação, Canais Ao Vivo e muito mais.
 
 ### <a name="cmaf-support"></a>Suporte cmaf
 
-CmAF e suporte de encriptação 'cbcs' para os jogadores apple HLS (iOS 11+) e MPEG-DASH que suportam a CMAF.
+CMAF e suporte de encriptação 'cbcs' para os jogadores Apple HLS (iOS 11+) e MPEG-DASH que suportam a CMAF.
 
-### <a name="video-indexer"></a>Indexador de Vídeos
+### <a name="video-indexer"></a>Video Indexer
 
-O lançamento do Video Indexer GA foi anunciado em agosto. Para novas informações sobre funcionalidades atualmente suportadas, consulte [o Que é o Indexante](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)de Vídeo . 
+O lançamento do Video Indexer GA foi anunciado em agosto. Para obter novas informações sobre funcionalidades atualmente suportadas, consulte [O Que é Indexer de Vídeo](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
 
 ### <a name="plans-for-changes"></a>Planos para alterações
 
 #### <a name="azure-cli-20"></a>CLI 2.0 do Azure
  
-O módulo Azure CLI 2.0 que inclui operações em todas as funcionalidades (incluindo Políticas de Chave de Conteúdo, Filtros de Conta/Ativos, Políticas de Streaming) está para breve. 
+O módulo Azure CLI 2.0 que inclui operações em todas as funcionalidades (incluindo Live, Políticas chave de conteúdo, filtros de conta/ativos, políticas de streaming) está para breve. 
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
-Apenas os clientes que utilizaram a API de pré-visualização para Asset ou Filtros de Conta são impactados pelo seguinte problema.
+Apenas os clientes que utilizaram a API de pré-visualização para Ativos ou Filtros de Conta são impactados pelo seguinte problema.
 
-Se criou Filtros de Ativos ou Contas entre 09/28 e 10/12 com Media Services v3 CLI ou APIs, precisa remover todos os Filtros de Ativos e Contas e recriá-los devido a um conflito de versão. 
+Se criou Ativos ou Filtros de Conta entre 09/28 e 10/12 com Serviços de Mídia v3 CLI ou APIs, precisa remover todos os Filtros de Ativos e Contas e recobri-los devido a um conflito de versão. 
 
 ## <a name="may-2018---preview"></a>Maio 2018 - Pré-visualização
 
@@ -353,23 +371,27 @@ Se criou Filtros de Ativos ou Contas entre 09/28 e 10/12 com Media Services v3 C
 
 As seguintes funcionalidades estão presentes no .NET SDK:
 
-* Transforma e **Jobs** para codificar ou analisar conteúdos **mediáticos.** Por exemplo, consulte [ficheiros Stream](stream-files-tutorial-with-api.md) e [Analise](analyze-videos-tutorial-with-api.md).
-* **Localizadores** de streaming para publicação e streaming de conteúdos para dispositivos de utilizador final
-* **Políticas de streaming** e **políticas de chave** de conteúdo para configurar a entrega de chaves e a proteção de conteúdos (DRM) ao entregar conteúdo.
-* **Eventos ao vivo** e **saídas ao vivo** para configurar a ingestão e arquivamento de conteúdos de streaming ao vivo.
-* **Ativos** para armazenar e publicar conteúdos de mídia no Armazenamento Azure. 
-* **Streaming Endpoints** para configurar e escalar embalagens dinâmicas, encriptação e streaming para conteúdos de mídia ao vivo e a pedido.
+* **Transforma** e **Empregos** para codificar ou analisar conteúdos de mídia. Por exemplo, consulte [os ficheiros stream](stream-files-tutorial-with-api.md) e [analise](analyze-videos-tutorial-with-api.md).
+* **Localizadores de streaming** para publicação e streaming de conteúdos para dispositivos de utilizador final
+* **Políticas de streaming** e **políticas de chave de conteúdo** para configurar a entrega de chaves e proteção de conteúdos (DRM) ao fornecer conteúdo.
+* **Live Events** e **Live Outputs** para configurar a ingestão e arquivamento de conteúdos de streaming ao vivo.
+* **Ativos** para armazenar e publicar conteúdos de mídia no Azure Storage. 
+* **Streaming Endpoints** para configurar e escalar embalagem dinâmica, encriptação e streaming para conteúdos de mídia ao vivo e on-demand.
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
-* Ao submeter um trabalho, pode especificar para ingerir o seu vídeo de origem utilizando URLs HTTPS, URLs SAS ou caminhos para ficheiros localizados no armazenamento do Azure Blob. Atualmente, o AMS v3 não suporta a codificação de transferência segmentada através de URLs HTTPS.
+* Ao submeter um trabalho, pode especificar para ingerir o seu vídeo de origem utilizando URLs HTTPS, URLs SAS ou caminhos para ficheiros localizados no armazenamento Azure Blob. Atualmente, a Media Services v3 não suporta a codificação de transferências em fatias sobre URLs HTTPS.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, dê feedback, obtenha atualizações
 
-Confira o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Serviços de Media.
+Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="see-also"></a>Veja também
+
+[Orientação de migração para passar dos Serviços de Comunicação v2 para v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="next-steps"></a>Próximos passos
 
 - [Descrição geral](media-services-overview.md)
-- [Atualizações de documentação de Media Services v3](docs-release-notes.md)
-- [Notas de lançamento v2 dos Media Services](../previous/media-services-release-notes.md)
+- [Atualizações de documentação v3 dos Serviços de Comunicação Social](docs-release-notes.md)
+- [Media Services v2 notas de lançamento](../previous/media-services-release-notes.md)

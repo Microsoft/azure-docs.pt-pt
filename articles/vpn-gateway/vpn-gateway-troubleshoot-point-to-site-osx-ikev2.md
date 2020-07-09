@@ -1,6 +1,6 @@
 ---
-title: 'Azure VPN Gateway: Ligações ponto-a-site: clientes Mac OS X'
-description: Passos para resolver as ligações de clientes P2S Mac OS X VPN
+title: 'Azure VPN Gateway: Ligações ponto-a-local de resolução de problemas: clientes Mac OS X'
+description: Passos para resolver problemas nas ligações de clientes P2S Mac OS X VPN
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
@@ -8,15 +8,14 @@ ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
 ms.openlocfilehash: f88053c93884e10e46a0f7d70106bda67b057562
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77425731"
 ---
-# <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Ligações VPN ponto-a-site de clientes Mac OS X VPN
+# <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Resolução de problemas Ligações VPN ponto-a-local de clientes Mac OS X VPN
 
-Este artigo ajuda-o a resolver problemas de conectividade Point-to-Site do Mac OS X utilizando o cliente VPN nativo e o IKEv2. O cliente VPN em Mac para IKEv2 é muito básico e não permite muita personalização. Existem apenas quatro configurações que precisam de ser verificadas:
+Este artigo ajuda-o a resolver problemas de conectividade ponto-a-local do Mac OS X utilizando o cliente VPN nativo e o IKEv2. O cliente VPN em Mac para iKEv2 é muito básico e não permite muita personalização. Há apenas quatro configurações que precisam de ser verificadas:
 
 * Endereço do servidor
 * ID remoto
@@ -25,42 +24,42 @@ Este artigo ajuda-o a resolver problemas de conectividade Point-to-Site do Mac O
 * Versão OS (10.11 ou superior)
 
 
-## <a name="troubleshoot-certificate-based-authentication"></a><a name="VPNClient"></a>Autenticação baseada em certificado de resolução de problemas
-1. Verifique as definições do cliente VPN. Vá à **Definição** de Rede premindo comando + turno e, em seguida, digite "VPN" para verificar as definições do cliente VPN. Na lista, clique na entrada VPN que precisa de ser investigada.
+## <a name="troubleshoot-certificate-based-authentication"></a><a name="VPNClient"></a>Autenticação baseada em certificados de resolução de problemas
+1. Verifique as definições do cliente VPN. Aceda à **Definição** de Rede pressionando o Comando + Shift e, em seguida, escreva "VPN" para verificar as definições do cliente VPN. A partir da lista, clique na entrada VPN que precisa de ser investigada.
 
    ![Autenticação baseada em certificados IKEv2](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2cert1.jpg)
 2. Verifique se o **Endereço do Servidor** é o FQDN completo e inclui o cloudapp.net.
 3. O **ID remoto** deve ser o mesmo que o Endereço do Servidor (Gateway FQDN).
-4. O **ID local** deve ser o mesmo que o **sujeito** do certificado de cliente.
+4. A **Identificação Local** deve ser a mesma que o **Objeto** do certificado de cliente.
 5. Clique em **Definições de Autenticação** para abrir a página Definições de Autenticação.
 
    ![Definições de autenticação](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
-6. Verifique se o **Certificado** é selecionado a partir da entrega.
-7. Clique no botão **Selecionar** e verifique se o certificado correto está selecionado. Clique em **OK** para guardar quaisquer alterações.
+6. Verifique se o **Certificado** é selecionado a partir do dropdown.
+7. Clique no botão **Selecione** e verifique se o certificado correto está selecionado. Clique **em OK** para guardar quaisquer alterações.
 
-## <a name="troubleshoot-username-and-password-authentication"></a><a name="ikev2"></a>Nome de utilizador e autenticação de senha de resolução de problemas
+## <a name="troubleshoot-username-and-password-authentication"></a><a name="ikev2"></a>Nome de utilizador de resolução de problemas e autenticação de senha
 
-1. Verifique as definições do cliente VPN. Vá à **Definição** de Rede premindo comando + turno e, em seguida, digite "VPN" para verificar as definições do cliente VPN. Na lista, clique na entrada VPN que precisa de ser investigada.
+1. Verifique as definições do cliente VPN. Aceda à **Definição** de Rede pressionando o Comando + Shift e, em seguida, escreva "VPN" para verificar as definições do cliente VPN. A partir da lista, clique na entrada VPN que precisa de ser investigada.
 
    ![Senha de nome de utilizador IKEv2](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2user3.jpg)
 2. Verifique se o **Endereço do Servidor** é o FQDN completo e inclui o cloudapp.net.
 3. O **ID remoto** deve ser o mesmo que o Endereço do Servidor (Gateway FQDN).
 4. A **identificação local** pode estar em branco.
-5. Clique no botão Definição de **Autenticação** e verifique se o "Username" é selecionado a partir do dropdown.
+5. Clique no botão **Definição de Autenticação** e verifique se o "Nome de Utilizador" é selecionado a partir do dropdown.
 
    ![Definições de autenticação](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
 6. Verifique se as credenciais corretas estão inseridas.
 
 ## <a name="additional-steps"></a><a name="additional"></a>Passos adicionais
 
-Se experimentar os passos anteriores e tudo estiver configurado corretamente, baixe [o Wireshark](https://www.wireshark.org/#download) e execute uma captura de pacote.
+Se experimentar os passos anteriores e tudo estiver configurado corretamente, descarregue [o Wireshark](https://www.wireshark.org/#download) e realize uma captura de pacotes.
 
-1. Filtre em *isakmp* e veja os pacotes **IKE_SA.** Deverá poder analisar os detalhes da proposta da SA no âmbito da **Carga Útil: Associação**de Segurança . 
+1. Filtre no *isakmp* e olhe para os pacotes **de IKE_SA.** Você deve ser capaz de olhar para os detalhes da proposta SA no âmbito da **Payload: Security Association**. 
 2. Verifique se o cliente e o servidor têm um conjunto comum.
 
    ![pacote](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
   
-3. Se não houver resposta do servidor nos vestígios da rede, verifique se ativou o protocolo IKEv2 na página de Configuração Do Portal Azure no site do portal Azure.
+3. Se não houver resposta do servidor nos vestígios de rede, verifique se ativou o protocolo IKEv2 na página de Configuração do Gateway Azure no website do portal Azure.
 
-## <a name="next-steps"></a>Passos seguintes
-Para obter ajuda adicional, consulte [o Suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)do Microsoft .
+## <a name="next-steps"></a>Próximos passos
+Para obter ajuda adicional, consulte [o Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

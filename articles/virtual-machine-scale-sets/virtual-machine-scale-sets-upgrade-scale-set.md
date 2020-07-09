@@ -1,6 +1,6 @@
 ---
 title: Modificar um conjunto de escala de máquina virtual Azure
-description: Saiba como modificar e atualizar uma escala de máquina virtual Azure com as APIs REST, Azure PowerShell e Azure CLI
+description: Saiba como modificar e atualizar uma balança de máquina virtual Azure definida com as APIs REST, Azure PowerShell e Azure CLI
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
@@ -10,22 +10,21 @@ ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 9498babd9605c46d752c5fe1eb1b077f6d911351
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83121019"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 
-Ao longo do ciclo de vida das suas aplicações, poderá ter de modificar ou atualizar o conjunto de escala de máquina virtual. Estas atualizações podem incluir como atualizar a configuração do conjunto de escala, ou alterar a configuração da aplicação. Este artigo descreve como modificar uma escala existente com as APIs REST, Azure PowerShell ou Azure CLI.
+Ao longo do ciclo de vida das suas aplicações, poderá ter de modificar ou atualizar o seu conjunto de escalas de máquinas virtuais. Estas atualizações podem incluir como atualizar a configuração do conjunto de escala ou alterar a configuração da aplicação. Este artigo descreve como modificar um conjunto de escala existente com as APIs REST, Azure PowerShell ou Azure CLI.
 
 ## <a name="fundamental-concepts"></a>Conceitos fundamentais
 
 ### <a name="the-scale-set-model"></a>O modelo de conjunto de escala
-Um conjunto de escala tem um "modelo de conjunto de escala" que captura o estado *desejado* da escala definida como um todo. Para consultar o modelo para um conjunto de escala, você pode usar o 
+Um conjunto de escala tem um "modelo de conjunto de escala" que captura o estado *desejado* da escala definida como um todo. Para consultar o modelo para um conjunto de escala, pode usar o 
 
-- REST API com [conjuntos de escalas de computação/virtualmachinescale/obter](/rest/api/compute/virtualmachinescalesets/get) o seguinte:
+- REST API com [conjuntos de escalas compute/virtualmachines/obter o](/rest/api/compute/virtualmachinescalesets/get) seguinte:
 
     ```rest
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
@@ -37,7 +36,7 @@ Um conjunto de escala tem um "modelo de conjunto de escala" que captura o estado
     Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
     ```
 
-- Azure CLI com [show az vmss:](/cli/azure/vmss)
+- Azure CLI com [az vmss show:](/cli/azure/vmss)
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -45,7 +44,7 @@ Um conjunto de escala tem um "modelo de conjunto de escala" que captura o estado
 
 - Também pode utilizar [resources.azure.com](https://resources.azure.com) ou os [SDKs Azure específicos](https://azure.microsoft.com/downloads/)da língua.
 
-A apresentação exata da saída depende das opções que fornece ao comando. O exemplo seguinte mostra a saída da amostra condensada do Azure CLI:
+A apresentação exata da saída depende das opções que fornece ao comando. O exemplo a seguir mostra a saída da amostra condensada do Azure CLI:
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -66,10 +65,10 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 Estas propriedades aplicam-se à escala definida como um todo.
 
 
-### <a name="the-scale-set-instance-view"></a>A visão de instância de conjunto de escala
-Um conjunto de escala também tem uma "visão de instância de conjunto de escala" que captura o estado atual de tempo de *execução* da escala definida como um todo. Para consultar a vista da instância para um conjunto de escala, pode utilizar:
+### <a name="the-scale-set-instance-view"></a>A vista de instância definida em escala
+Um conjunto de escala também tem uma "visão de instância definida em escala" que captura o estado atual do tempo de *execução* da escala definida como um todo. Para consultar a vista de exemplo para um conjunto de escala, pode utilizar:
 
-- REST API com [conjuntos de escalas de computação/virtualmachinescales/getinstanceview](/rest/api/compute/virtualmachinescalesets/getinstanceview) da seguinte forma:
+- REST API com [conjuntos de escalas compute/virtualmachinescales/getinstanceview](/rest/api/compute/virtualmachinescalesets/getinstanceview) da seguinte forma:
 
     ```rest
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/instanceView?api-version={apiVersion}
@@ -81,7 +80,7 @@ Um conjunto de escala também tem uma "visão de instância de conjunto de escal
     Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
     ```
 
-- Azure CLI com [az vmss get-instance-view:](/cli/azure/vmss)
+- Azure CLI com [az vmss get-instance-view](/cli/azure/vmss):
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -89,7 +88,7 @@ Um conjunto de escala também tem uma "visão de instância de conjunto de escal
 
 - Também pode utilizar [resources.azure.com](https://resources.azure.com) ou os [SDKs Azure específicos](https://azure.microsoft.com/downloads/) da língua
 
-A apresentação exata da saída depende das opções que fornece ao comando. O exemplo seguinte mostra a saída da amostra condensada do Azure CLI:
+A apresentação exata da saída depende das opções que fornece ao comando. O exemplo a seguir mostra a saída da amostra condensada do Azure CLI:
 
 ```azurecli
 $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -120,8 +119,8 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
 Estas propriedades fornecem um resumo do estado atual de execução dos VMs no conjunto de escala, como o estado das extensões aplicadas ao conjunto de escala.
 
 
-### <a name="the-scale-set-vm-model-view"></a>A vista do modelo VM definido em escala
-À semelhança de como um conjunto de escala tem uma visão de modelo, cada instância VM no conjunto de escala tem a sua própria visão de modelo. Para consultar a vista do modelo para uma determinada instância VM num conjunto de escala, pode utilizar:
+### <a name="the-scale-set-vm-model-view"></a>A vista do modelo VM definida em escala
+Semelhante à forma como um conjunto de escala tem uma visão de modelo, cada instância VM no conjunto de escala tem a sua própria visão de modelo. Para consultar a vista do modelo para uma determinada instância VM num conjunto de escala, pode utilizar:
 
 - REST API com [compute/virtualmachinescalesetvms/get](/rest/api/compute/virtualmachinescalesetvms/get) as seguintes:
 
@@ -135,15 +134,15 @@ Estas propriedades fornecem um resumo do estado atual de execução dos VMs no c
     Get-AzVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Azure CLI com [show az vmss:](/cli/azure/vmss)
+- Azure CLI com [az vmss show:](/cli/azure/vmss)
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
     ```
 
-- Também pode utilizar [resources.azure.com](https://resources.azure.com) ou os [SDKs Azure](https://azure.microsoft.com/downloads/).
+- Também pode utilizar [resources.azure.com](https://resources.azure.com) ou os [Azure SDKs](https://azure.microsoft.com/downloads/).
 
-A apresentação exata da saída depende das opções que fornece ao comando. O exemplo seguinte mostra a saída da amostra condensada do Azure CLI:
+A apresentação exata da saída depende das opções que fornece ao comando. O exemplo a seguir mostra a saída da amostra condensada do Azure CLI:
 
 ```azurecli
 $ az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -157,11 +156,11 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Estas propriedades descrevem a configuração de uma instância VM dentro de um conjunto de escala, não a configuração da escala definida como um todo. Por exemplo, o modelo de conjunto de escala tem `overprovision` como propriedade, enquanto o modelo para uma instância VM dentro de um conjunto de escala não. Esta diferença deve-se ao facto de o excesso de oferta ser um imóvel para a escala definida como um todo, e não os casos individuais de VM no conjunto de escala (para mais informações sobre o excesso de oferta, consulte [considerações de design para conjuntos](virtual-machine-scale-sets-design-overview.md#overprovisioning)de escala).
+Estas propriedades descrevem a configuração de uma instância VM dentro de um conjunto de escala, e não a configuração do conjunto de escala como um todo. Por exemplo, o modelo de conjunto de escala tem `overprovision` como propriedade, enquanto o modelo para uma instância VM dentro de um conjunto de escala não. Esta diferença deve-se ao facto de a superprovisão ser uma propriedade para a escala definida como um todo, e não instâncias VM individuais no conjunto de escala (para mais informações sobre a sobreprovisionamento, ver [considerações de Design para conjuntos de escala).](virtual-machine-scale-sets-design-overview.md#overprovisioning)
 
 
-### <a name="the-scale-set-vm-instance-view"></a>A visão de instância vm definida em escala
-À semelhança de como um conjunto de escala tem uma visão de instância, cada instância VM no conjunto de escala tem a sua própria visão de instância. Para consultar a vista da instância para uma determinada instância VM dentro de um conjunto de escala, pode utilizar:
+### <a name="the-scale-set-vm-instance-view"></a>A escala definida VM ver instância
+Semelhante à forma como um conjunto de escala tem uma visão de exemplo, cada instância VM no conjunto de escala tem a sua própria visão de exemplo. Para consultar a visualização de um exemplo de exemplo em VM dentro de um conjunto de escala, pode utilizar:
 
 - REST API com [compute/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) da seguinte forma:
 
@@ -175,15 +174,15 @@ Estas propriedades descrevem a configuração de uma instância VM dentro de um 
     Get-AzVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
-- Azure CLI com [az vmss get-instance-view](/cli/azure/vmss)
+- CLI Azure com [az vmss get-instance-view](/cli/azure/vmss)
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
     ```
 
-- Também pode utilizar [resources.azure.com](https://resources.azure.com) ou os [SDKs Azure](https://azure.microsoft.com/downloads/)
+- Você também pode usar [resources.azure.com](https://resources.azure.com) ou os [Azure SDKs](https://azure.microsoft.com/downloads/)
 
-A apresentação exata da saída depende das opções que fornece ao comando. O exemplo seguinte mostra a saída da amostra condensada do Azure CLI:
+A apresentação exata da saída depende das opções que fornece ao comando. O exemplo a seguir mostra a saída da amostra condensada do Azure CLI:
 
 ```azurecli
 $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -234,19 +233,19 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-Estas propriedades descrevem o estado atual de tempo de execução de uma instância VM dentro de um conjunto de escala, que inclui quaisquer extensões aplicadas ao conjunto de escala.
+Estas propriedades descrevem o estado atual de execução de uma instância VM dentro de um conjunto de escala, que inclui quaisquer extensões aplicadas ao conjunto de escala.
 
 
-## <a name="how-to-update-global-scale-set-properties"></a>Como atualizar propriedades de conjunto de escala global
-Para atualizar uma propriedade global de conjunto de escala, você deve atualizar a propriedade no modelo de conjunto de escala. Pode fazer esta atualização através de:
+## <a name="how-to-update-global-scale-set-properties"></a>Como atualizar as propriedades definidas à escala global
+Para atualizar uma propriedade definida à escala global, você deve atualizar a propriedade no modelo de conjunto de escala. Pode fazer esta atualização através de:
 
-- REST API com conjuntos de [escalas de computação/virtualmachinescaleda/createorupdate](/rest/api/compute/virtualmachinescalesets/createorupdate) da seguinte forma:
+- REST API com [conjuntos compute/virtualmachinescalesets/createorupdate](/rest/api/compute/virtualmachinescalesets/createorupdate) da seguinte forma:
 
     ```rest
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
     ```
 
-- Você pode implementar um modelo de Gestor de Recursos com as propriedades da API REST para atualizar propriedades de conjunto de escala global.
+- Pode implementar um modelo de Gestor de Recursos com as propriedades da API REST para atualizar as propriedades definidas à escala global.
 
 - Azure PowerShell com [Update-AzVmss:](/powershell/module/az.compute/update-azvmss)
 
@@ -261,35 +260,35 @@ Para atualizar uma propriedade global de conjunto de escala, você deve atualiza
         az vmss update --set {propertyPath}={value}
         ```
 
-    - Para adicionar um objeto a uma propriedade da lista num conjunto de escala: 
+    - Para adicionar um objeto a uma propriedade de lista em um conjunto de escala: 
 
         ```azurecli
         az vmss update --add {propertyPath} {JSONObjectToAdd}
         ```
 
-    - Para remover um objeto de uma propriedade da lista num conjunto de escala: 
+    - Para remover um objeto de uma propriedade de lista em um conjunto de escala: 
 
         ```azurecli
         az vmss update --remove {propertyPath} {indexToRemove}
         ```
 
-    - Se tiver implantado previamente a balança definida com o `az vmss create` comando, pode executar novamente o `az vmss create` comando para atualizar o conjunto de escala. Certifique-se de que todas as propriedades do `az vmss create` comando são as mesmas de antes, exceto as propriedades que pretende modificar.
+    - Se tiver implantado previamente a escala definida com o `az vmss create` comando, pode voltar a executar o `az vmss create` comando para atualizar o conjunto de escala. Certifique-se de que todas as propriedades no `az vmss create` comando são as mesmas de antes, exceto as propriedades que deseja modificar.
 
-- Também pode utilizar [resources.azure.com](https://resources.azure.com) ou os [SDKs Azure](https://azure.microsoft.com/downloads/).
+- Também pode utilizar [resources.azure.com](https://resources.azure.com) ou os [Azure SDKs](https://azure.microsoft.com/downloads/).
 
-Uma vez atualizado o modelo de conjunto de escala, a nova configuração aplica-se a quaisquer novos VMs criados no conjunto de escala. No entanto, os modelos para os VMexistentes no conjunto de escala sem vencimento devem ainda ser atualizados com o mais recente modelo global de conjuntos de escala. No modelo para cada VM encontra-se uma propriedade booleana chamada `latestModelApplied` que indica se o VM está ou não atualizado com o mais recente modelo global de conjuntos de escala ( significa que o `true` VM está atualizado com o modelo mais recente).
+Uma vez atualizado o modelo de conjunto de escala, a nova configuração aplica-se a quaisquer novos VMs criados no conjunto de escala. No entanto, os modelos para os VM existentes no conjunto de escalas devem ainda ser atualizados com o mais recente modelo global de conjunto de escala. No modelo para cada VM encontra-se uma propriedade booleana `latestModelApplied` chamada que indica se o VM está ou não atualizado com o modelo de escala global mais recente `true` (significa que o VM está atualizado com o modelo mais recente).
 
 
-## <a name="how-to-bring-vms-up-to-date-with-the-latest-scale-set-model"></a>Como trazer os VMs atualizados com o mais recente modelo de conjunto de escala
-Os conjuntos de escala têm uma "política de upgrade" que determina como os VMs são atualizados com o modelo mais recente de conjunto de escala. Os três modos para a política de atualização são:
+## <a name="how-to-bring-vms-up-to-date-with-the-latest-scale-set-model"></a>Como aproximar os VMs com o modelo mais recente da escala
+Os conjuntos de escala têm uma "política de upgrade" que determina como os VMs são atualizados com o modelo de conjunto de escala mais recente. Os três modos para a política de atualização são:
 
-- **Automático** - Neste modo, o conjunto de escala não garante a descção da ordem dos VMs. O conjunto de escala pode derrubar todos os VMs ao mesmo tempo. 
-- **Rolling** - Neste modo, o conjunto de escala lança a atualização em lotes com um tempo de pausa opcional entre lotes.
-- **Manual** - Neste modo, ao atualizar o modelo de conjunto de escala, nada acontece aos VMs existentes.
+- **Automático** - Neste modo, o conjunto de escala não garante a descida da ordem dos VMs. O conjunto de escala pode derrubar todos os VMs ao mesmo tempo. 
+- **Rolar** - Neste modo, o conjunto de escala sai da atualização em lotes com um tempo de pausa opcional entre lotes.
+- **Manual** - Neste modo, quando atualiza o modelo de conjunto de escala, nada acontece aos VM existentes.
  
-Para atualizar os VMexistentes, deve fazer uma "atualização manual" de cada VM existente. Pode fazer esta atualização manual com:
+Para atualizar os VM existentes, tem de fazer uma "atualização manual" de cada VM existente. Pode fazer esta atualização manual com:
 
-- REST API com [compute/virtualmachinescalesets/atualização instâncias](/rest/api/compute/virtualmachinescalesets/updateinstances) da seguinte forma:
+- REST API com [conjuntos de escalas/atualizações compute/virtualmachines como](/rest/api/compute/virtualmachinescalesets/updateinstances) se segue:
 
     ```rest
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
@@ -301,20 +300,20 @@ Para atualizar os VMexistentes, deve fazer uma "atualização manual" de cada VM
     Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Azure CLI com [az vmss update-instances](/cli/azure/vmss)
+- Azure CLI com [az vmss atualização-instâncias](/cli/azure/vmss)
 
     ```azurecli
     az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
     ```
 
-- Também pode utilizar os [SDKs Azure específicos](https://azure.microsoft.com/downloads/)da língua.
+- Também pode utilizar os [SDKs Azure específicos](https://azure.microsoft.com/downloads/)da linguagem.
 
 >[!NOTE]
-> Serviço Os clusters de tecido só podem utilizar o modo *Automático,* mas a atualização é manuseada de forma diferente. Para mais informações, consulte as atualizações da [aplicação Service Fabric.](../service-fabric/service-fabric-application-upgrade.md)
+> Os clusters de tecido de serviço só podem utilizar o modo *Automático,* mas a atualização é tratada de forma diferente. Para mais informações, consulte [as atualizações da aplicação Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
 
-Há um tipo de modificação nas propriedades definidas à escala global que não segue a política de upgrade. As alterações ao conjunto de escala Os e Data disk Perfil (como nome de utilizador e palavra-passe) só podem ser alteradas na versão API *2017-12-01* ou posterior. Estas alterações aplicam-se apenas aos VMs criados após a alteração do modelo de conjunto de escala. Para que os VMexistentes estejam atualizados, é necessário fazer uma "reimagem" de cada VM existente. Pode fazer esta reimagem via:
+Há um tipo de modificação nas propriedades definidas à escala global que não seguem a política de upgrade. As alterações ao conjunto de sistemas de sistemas OPERATIVOs e perfil de disco de dados (como o nome de utilizador e a palavra-passe) só podem ser alteradas na versão API *2017-12-01* ou posterior. Estas alterações aplicam-se apenas aos VM criados após a alteração do modelo de conjunto de escala. Para que os VMs existentes estejam atualizados, é necessário fazer uma "reimagem" de cada VM existente. Pode fazer esta reimagem via:
 
-- REST API com [conjuntos de escalas/reimagem compute/virtualmachinescaleda](/rest/api/compute/virtualmachinescalesets/reimage) da seguinte forma:
+- REST API com [conjuntos de escalas compute/virtualmachinescales/reimagem](/rest/api/compute/virtualmachinescalesets/reimage) da seguinte forma:
 
     ```rest
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
@@ -326,16 +325,16 @@ Há um tipo de modificação nas propriedades definidas à escala global que nã
     Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- Azure CLI com [reimagem az vmss:](https://docs.microsoft.com/cli/azure/vmss)
+- Azure CLI com [az vmss reimagem:](https://docs.microsoft.com/cli/azure/vmss)
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
     ```
 
-- Também pode utilizar os [SDKs Azure específicos](https://azure.microsoft.com/downloads/)da língua.
+- Também pode utilizar os [SDKs Azure específicos](https://azure.microsoft.com/downloads/)da linguagem.
 
 
-## <a name="properties-with-restrictions-on-modification"></a>Imóveis com restrições à modificação
+## <a name="properties-with-restrictions-on-modification"></a>Propriedades com restrições à modificação
 
 ### <a name="create-time-properties"></a>Propriedades de tempo de criação
 Algumas propriedades só podem ser definidas quando se cria o conjunto de escala. Estas propriedades incluem:
@@ -343,43 +342,43 @@ Algumas propriedades só podem ser definidas quando se cria o conjunto de escala
 - Zonas de Disponibilidade
 - Editor de referência de imagem
 - Oferta de referência de imagem
-- Tipo de conta de armazenamento de disco os gerido
+- Tipo de conta de armazenamento de disco de SO gerido
 
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Propriedades que só podem ser alteradas com base no valor atual
 Algumas propriedades podem ser alteradas, com exceções dependendo do valor atual. Estas propriedades incluem:
 
-- **singlePlacementGroup** - Se o singlePlacementGroup for verdadeiro, pode ser modificado para falso. No entanto, se o singlePlacementGroup for falso, **pode não** ser modificado de forma verdadeira.
+- **singlePlacementGroup** - Se o SinglePlacementGroup for verdadeiro, pode ser modificado para falso. No entanto, se o Grupo de Substituição Único for falso, **pode não** ser modificado para ser verdadeiro.
 - **sub-rede** - A sub-rede de um conjunto de escala pode ser modificada enquanto a sub-rede original e a nova sub-rede estiverem na mesma rede virtual.
 
-### <a name="properties-that-require-deallocation-to-change"></a>Imóveis que exigem desalocação para alterar
-Algumas propriedades só podem ser alteradas para determinados valores se os VMs na escala definida forem deallocalizados. Estas propriedades incluem:
+### <a name="properties-that-require-deallocation-to-change"></a>Imóveis que exigem a mudança de negociação
+Algumas propriedades só podem ser alteradas para determinados valores se os VMs na escala definida forem transabilitados. Estas propriedades incluem:
 
-- **Nome SKU**- Se o novo VM SKU não for suportado no hardware, o conjunto de escala está atualmente ligado, precisa de desalojar os VMs na escala definida antes de modificar o nome SKU. Para mais informações, consulte [como redimensionar um VM Azure](../virtual-machines/windows/resize-vm.md).
+- **Nome SKU**- Se o novo VM SKU não for suportado no hardware em que o conjunto de escala está atualmente ligado, tem de transferir os VMs na escala definida antes de modificar o nome SKU. Para mais informações, [consulte como redimensionar um VM Azure](../virtual-machines/windows/resize-vm.md).
 
 
-## <a name="vm-specific-updates"></a>Atualizações específicas da VM
-Algumas modificações podem ser aplicadas a VMs específicos em vez das propriedades definidas à escala global. Atualmente, a única atualização específica de VM que é suportada é anexar/separar discos de dados de/para VMs no conjunto de escala. Esta funcionalidade está em pré-visualização. Para mais informações, consulte a documentação de [pré-visualização](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
+## <a name="vm-specific-updates"></a>Atualizações específicas do VM
+Determinadas modificações podem ser aplicadas a VMs específicos em vez das propriedades definidas à escala global. Atualmente, a única atualização específica em VM que é suportada é anexar/desprender discos de dados de/para VMs no conjunto de escala. Esta funcionalidade está em pré-visualização. Para mais informações, consulte a [documentação de pré-visualização.](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk)
 
 
 ## <a name="scenarios"></a>Cenários
 
 ### <a name="application-updates"></a>Atualizações de aplicações
-Se uma aplicação for implementada numa escala definida através de extensões, uma atualização da configuração da extensão faz com que a aplicação atualize de acordo com a política de atualização. Por exemplo, se tiver uma nova versão de um script para ser executado numa extensão de script personalizado, poderá atualizar a propriedade *fileUris* para apontar para o novo script. Em alguns casos, poderá querer forçar uma atualização mesmo que a configuração da extensão se mantenha inalterada (por exemplo, atualizou o script sem alterar o URI do script). Nestes casos, pode modificar o *forceUpdateTag* para forçar uma atualização. A plataforma Azure não interpreta esta propriedade. Se alterar o valor, não há efeito na forma como a extensão funciona. Uma mudança simplesmente força a extensão a recorrer. Para obter mais informações sobre o *forceUpdateTag,* consulte a documentação REST [API para extensões](/rest/api/compute/virtualmachineextensions/createorupdate). Note que o *forceUpdateTag* pode ser usado com todas as extensões, e não apenas com a extensão de script personalizada.
+Se uma aplicação for implementada numa escala definida através de extensões, uma atualização da configuração de extensão faz com que a aplicação seja atualizada de acordo com a política de atualização. Por exemplo, se tiver uma nova versão de um script para executar numa Extensão de Script Personalizada, poderá atualizar a propriedade *do ficheiroUris* para apontar para o novo script. Em alguns casos, poderá pretender forçar uma atualização mesmo que a configuração da extensão se mantenha inalterada (por exemplo, atualizou o script sem alterar o URI do script). Nestes casos, pode modificar o *ForceUpdateTag* para forçar uma atualização. A plataforma Azure não interpreta esta propriedade. Se alterar o valor, não há qualquer efeito sobre o funcionação da extensão. Uma mudança simplesmente força a extensão para a repetição. Para obter mais informações sobre o *forceUpdateTag,* consulte a [documentação da API REST para extensões](/rest/api/compute/virtualmachineextensions/createorupdate). Note que o *ForceUpdateTag* pode ser usado com todas as extensões, e não apenas com a extensão de script personalizada.
 
-Também é comum que as aplicações sejam implementadas através de uma imagem personalizada. Este cenário está coberto na secção seguinte.
+Também é comum que as aplicações sejam implementadas através de uma imagem personalizada. Este cenário é abordado na secção seguinte.
 
 ### <a name="os-updates"></a>Atualizações do OS
-Se utilizar imagens da plataforma Azure, pode atualizar a imagem modificando a *imagemReference* (mais informações, consulte a documentação REST [API).](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)
+Se utilizar imagens da plataforma Azure, pode atualizar a imagem modificando a *imagemReferência* (mais informações, consulte a [documentação da API REST).](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)
 
 >[!NOTE]
-> Com imagens da plataforma, é comum especificar "mais recente" para a versão de referência de imagem. Quando crias, escalas e reimagem, os VMs são criados com a versão mais recente disponível. No entanto, **não** significa que a imagem de OS seja automaticamente atualizada ao longo do tempo à medida que novas versões de imagem são lançadas. Uma funcionalidade separada encontra-se atualmente em pré-visualização que fornece atualizações automáticas de SO. Para mais informações, consulte a [documentação de atualizações automáticas do OS](virtual-machine-scale-sets-automatic-upgrade.md).
+> Com imagens de plataforma, é comum especificar "o mais recente" para a versão de referência de imagem. Quando cria, escala e reimagem, os VMs são criados com a versão mais recente disponível. No entanto, **não** significa que a imagem de SO seja atualizada automaticamente ao longo do tempo à medida que novas versões de imagem são lançadas. Uma funcionalidade separada encontra-se atualmente em pré-visualização que fornece atualizações automáticas de SO. Para mais informações, consulte a [documentação automática de atualizações do SISTEMA](virtual-machine-scale-sets-automatic-upgrade.md).
 
-Se utilizar imagens personalizadas, pode atualizar a imagem atualizando o ID de referência de *imagem* (mais informações, consulte a documentação REST [API).](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)
+Se utilizar imagens personalizadas, pode atualizar a imagem atualizando o *ID* de referência de imagem (mais informações, consulte a [documentação DA API REST).](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="update-the-os-image-for-your-scale-set"></a>Atualize a imagem de OS para o seu conjunto de escala
-Pode ter um conjunto de escala que executa uma versão antiga do Ubuntu LTS 16.04. Pretende atualizar para uma versão mais recente do Ubuntu LTS 16.04, como a versão *16.04.201801090*. A propriedade da versão de referência de imagem não faz parte de uma lista, pelo que pode modificar diretamente estas propriedades com um dos seguintes comandos:
+### <a name="update-the-os-image-for-your-scale-set"></a>Atualize a imagem de SO para o seu conjunto de escala
+Pode ter um conjunto de escala que executa uma versão antiga de Ubuntu LTS 16.04. Pretende atualizar para uma versão mais recente do Ubuntu LTS 16.04, como a versão *16.04.201801090*. A propriedade da versão de referência de imagem não faz parte de uma lista, pelo que pode modificar diretamente estas propriedades com um dos seguintes comandos:
 
 - Azure PowerShell com [Update-AzVmss](/powershell/module/az.compute/update-azvmss) da seguinte forma:
 
@@ -393,7 +392,7 @@ Pode ter um conjunto de escala que executa uma versão antiga do Ubuntu LTS 16.0
     az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
     ```
 
-Em alternativa, pode querer alterar a imagem que o seu conjunto de escala utiliza. Por exemplo, pode querer atualizar ou alterar uma imagem personalizada utilizada pelo seu conjunto de escala. Pode alterar a imagem que o seu conjunto de escala utiliza atualizando a propriedade id de referência de imagem. A propriedade id de referência de imagem não faz parte de uma lista, pelo que pode modificar diretamente esta propriedade com um dos seguintes comandos:
+Em alternativa, pode querer alterar a imagem que o conjunto de escala utiliza. Por exemplo, pode querer atualizar ou alterar uma imagem personalizada utilizada pelo seu conjunto de escala. Pode alterar a imagem que o seu conjunto de escala utiliza atualizando a propriedade de ID de referência de imagem. A propriedade de ID de referência de imagem não faz parte de uma lista, pelo que pode modificar diretamente esta propriedade com um dos seguintes comandos:
 
 - Azure PowerShell com [Update-AzVmss](/powershell/module/az.compute/update-azvmss) da seguinte forma:
 
@@ -414,8 +413,8 @@ Em alternativa, pode querer alterar a imagem que o seu conjunto de escala utiliz
     ```
 
 
-### <a name="update-the-load-balancer-for-your-scale-set"></a>Atualize o equilíbrio de carga para o seu conjunto de escala
-Digamos que tem um conjunto de escala com um Balancer de Carga Azure, e quer substituir o Balancer de Carga Azure por um Gateway de Aplicação Azure. As propriedades do balanceor de carga e do Gateway de aplicação para um conjunto de escala saem de uma lista, para que possa utilizar os comandos para remover ou adicionar elementos da lista em vez de modificar diretamente as propriedades:
+### <a name="update-the-load-balancer-for-your-scale-set"></a>Atualize o balançador de carga para o seu conjunto de escala
+Digamos que tem uma balança definida com um Balançador de Carga Azure, e pretende substituir o Balançador de Carga Azure por um Gateway de aplicação Azure. As propriedades do equilibrador de carga e do Gateway de aplicação para um conjunto de escala fazem parte de uma lista, para que possa utilizar os comandos para remover ou adicionar elementos de lista em vez de modificar as propriedades diretamente:
 
 - Azure Powershell:
 
@@ -447,8 +446,8 @@ Digamos que tem um conjunto de escala com um Balancer de Carga Azure, e quer sub
     ```
 
 >[!NOTE]
-> Estes comandos assumem que há apenas uma configuração IP e um equilíbrio de carga no conjunto de escala. Se houver vários, poderá ter de utilizar um índice de lista que não *seja 0*.
+> Estes comandos assumem que existe apenas uma configuração IP e um balançador de carga no conjunto de escala. Se houver vários, poderá ter de utilizar um índice de lista que não *seja 0*.
 
 
-## <a name="next-steps"></a>Passos seguintes
-Também pode executar tarefas comuns de gestão em conjuntos de escala com o [Azure CLI](virtual-machine-scale-sets-manage-cli.md) ou [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
+## <a name="next-steps"></a>Próximos passos
+Também pode executar tarefas de gestão comuns em conjuntos de escala com o [Azure CLI](virtual-machine-scale-sets-manage-cli.md) ou [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).

@@ -3,16 +3,16 @@ title: Administração do Azure EA Portal
 description: Este artigo explica as tarefas comuns que um administrador realiza no Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/07/2020
+ms.date: 06/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: a3551b4f09202b33cee768a69f31a6c5d5d36777
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: eefd4a9ddf2150728578a4e058686a3204e34930
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648208"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456560"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Azure EA Portal
 
@@ -76,7 +76,7 @@ Para obter mais informações sobre as funções de utilizador, veja [Funções 
 
 A conta do EA do Azure é uma unidade organizacional no EA Portal do Azure. É utilizada para administrar subscrições e para gerar relatórios. Para aceder e usar os serviços do Azure, precisa de criar uma conta ou ter uma criada para si.
 
-Para obter mais informações sobre contas do Azure, veja Adicionar uma conta.
+Para obter mais informações sobre as contas do Azure, veja [Adicionar uma conta](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#add-an-account).
 
 ## <a name="enterprise-devtest-offer"></a>Oferta do Enterprise Dev/Test
 

@@ -18,20 +18,19 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86a0e0b3c64554e00a5ba7734af28dc136df643f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80891514"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência da atividade de auditoria do Azure AD
 
-Com os relatórios azure Ative Directory (Azure AD), pode obter a informação necessária para determinar como está o seu ambiente.
+Com relatórios do Azure Ative Directory (Azure AD), pode obter a informação necessária para determinar como está o seu ambiente.
 
 A arquitetura de relatórios no Azure AD consiste nos seguintes componentes:
 
 - **Relatórios de atividade** 
-    - [Iniciars inscrições](concept-sign-ins.md) – Fornece informações sobre a utilização de aplicações geridas e atividades de inscrição no utilizador
+    - [Iniciar s-ins](concept-sign-ins.md) – Fornece informações sobre o uso de aplicações geridas e atividades de inscrição do utilizador
     - [Registos de auditoria](concept-audit-logs.md) - Capacidade de rastreio através de registos para todas as alterações efetuadas por várias funcionalidades no Azure AD. 
     
 - **Relatórios de segurança** 
@@ -64,12 +63,12 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Revisões de Acesso|Rever pedido de aprovação de pedidos|
 |Revisões de Acesso|Desassociar controlo de programa|
 |Revisões de Acesso|Atualizar Revisão de Acesso|
-|Revisões de Acesso|Atualizar o estado de acesso do Azure AD|
+|Revisões de Acesso|Atualizar Azure AD Access Reviews Onboarding status|
 |Revisões de Acesso|Atualizar definições de notificação de correio da revisão de acesso|
-|Revisões de Acesso|Atualizar a definição de contagem de recorrência de revisão de acesso|
-|Revisões de Acesso|Atualizar a duração da revisão do acesso na definição de dias|
-|Revisões de Acesso|Atualizar a definição do tipo final de revisão de acesso|
-|Revisões de Acesso|Atualizar a definição de tipo de recorrência de revisão de acesso|
+|Revisões de Acesso|Atualizar a definição da contagem de recorrência de revisão de acesso|
+|Revisões de Acesso|Atualizar duração de recorrência da revisão do acesso na definição de dias|
+|Revisões de Acesso|Atualizar a definição do tipo final de recorrência de recorrência de acesso|
+|Revisões de Acesso|Atualizar a definição do tipo de recorrência de revisão de acesso|
 |Revisões de Acesso|Atualizar definições de lembrete da revisão de acesso|
 |Revisões de Acesso|Atualizar programa|
 |Revisões de Acesso|Atualizar aprovação de pedidos|
@@ -348,10 +347,10 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 
 |Categoria de Auditoria|Atividade|
 |---|---|
-|Gestão de Unidade Administrativa|Descarregue um único tipo de deteção de risco|
+|Gestão de Unidade Administrativa|Faça o download de um único tipo de deteção de risco|
 |Gestão de Unidade Administrativa|Transferir administradores e estado de aceitação de resumo semanal|
-|Gestão de Unidade Administrativa|Descarregue todos os tipos de deteção de risco|
-|Gestão de Unidade Administrativa|Descarregue as deteções gratuitas de risco do utilizador|
+|Gestão de Unidade Administrativa|Descarregue todos os tipos de deteção de riscos|
+|Gestão de Unidade Administrativa|Descarregue deteções gratuitas de risco de utilizador|
 |Gestão de Unidade Administrativa|Transferir utilizadores sinalizados para risco|
 |Gestão de Aplicações|Convites em lote processados|
 |Gestão de Aplicações|Convites em lote carregados|
@@ -370,7 +369,7 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Gestão de Aplicações|Editar Termos de Utilização|
 |Gestão de Aplicações|Publicar Termos de Utilização|
 |Gestão de Aplicações|Anular publicação dos Termos de Utilização|
-|Gestão de Aplicações|Adicionar certificado tLS/SSL de aplicação|
+|Gestão de Aplicações|Adicionar certificado de aplicação TLS/SSL|
 |Gestão de Aplicações|Eliminar a ligação TLS|
 |Gestão de Aplicações|Registar conector|
 |Gestão de Aplicações|AdminPolicyDatas-RemoveResources|
@@ -408,14 +407,14 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Gestão de Diretórios|Obter idps para um fluxo de administração específico|
 |Gestão de Diretórios|Obter a lista de todos os fluxos de administração|
 |Gestão de Diretórios|Obter a lista de etiquetas de todos os fluxos de administração de todos os utilizadores|
-|Gestão de Grupos|Membros do grupo de descarregamento a granel - iniciado|
-|Gestão de Grupos|Membros do grupo de descarregamento a granel - terminado|
+|Gestão de Grupos|Membros do grupo de download a granel - iniciado|
+|Gestão de Grupos|Membros do grupo de download a granel - terminados|
 |Gestão de Grupos|Membros do grupo de importação a granel - iniciado|
-|Gestão de Grupos|Membros do grupo de importação a granel - terminados|
-|Gestão de Grupos|Remoção a granel membros do grupo - iniciado|
-|Gestão de Grupos|Remoção a granel membros do grupo - terminado|
-|Gestão de Grupos|Grupos de descarregamento a granel - iniciado|
-|Gestão de Grupos|Grupos de descarregamento a granel - terminado|
+|Gestão de Grupos|Membros do grupo de importação a granel - acabados|
+|Gestão de Grupos|A granel remove membros do grupo - iniciado|
+|Gestão de Grupos|A granel remove membros do grupo - terminados|
+|Gestão de Grupos|Grupos de descarregamento a granel - iniciados|
+|Gestão de Grupos|Grupos de descarregamento a granel - terminados|
 |Gestão de Grupos|Obter a lista de inquilinos de um utilizador|
 |Gestão de Grupos|Obter afirmações de declaração própria de contas locais|
 |Gestão de Grupos|Obter json de recurso localizado|
@@ -469,22 +468,22 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Gestão de Utilizadores|ActivationCanceled|
 |Gestão de Utilizadores|ActivationRequested|
 |Gestão de Utilizadores|Adicionar membro elegível à função|
-|Gestão de Utilizadores|Adicionar membro à função|
+|Gestão de Utilizadores|Adicionar um membro a uma função|
 |Gestão de Utilizadores|Adicionar atribuição de função à definição de função|
 |Gestão de Utilizadores|Adicionar função a partir de modelo|
 |Gestão de Utilizadores|Adicionar membro com âmbito à função|
 |Gestão de Utilizadores|Adicionou|
 |Gestão de Utilizadores|Atribuir|
-|Gestão de Utilizadores|A granel criar utilizadores - iniciado|
-|Gestão de Utilizadores|A granel criar utilizadores - terminado|
-|Gestão de Utilizadores|A granel apaga os utilizadores - iniciado|
-|Gestão de Utilizadores|A granel apagam os utilizadores - terminados|
+|Gestão de Utilizadores|Utilizadores de criação a granel - iniciado|
+|Gestão de Utilizadores|Utilizadores de criação a granel - acabados|
+|Gestão de Utilizadores|Excluir a granel utilizadores - iniciado|
+|Gestão de Utilizadores|Excluir a granel os utilizadores - acabados|
 |Gestão de Utilizadores|Utilizadores de descarregamento a granel - iniciado|
-|Gestão de Utilizadores|Utilizadores de descarregamento a granel - terminado|
-|Gestão de Utilizadores|Restaurar a granel utilizadores eliminados - iniciado|
-|Gestão de Utilizadores|Restaurar a granel utilizadores eliminados - terminado|
-|Gestão de Utilizadores|Utilizadores convidados a granel - iniciado|
-|Gestão de Utilizadores|A granel convidar utilizadores - terminado|
+|Gestão de Utilizadores|Utilizadores de download a granel - terminados|
+|Gestão de Utilizadores|Utilizadores eliminados em massa - iniciado|
+|Gestão de Utilizadores|Utilizadores eliminados em massa - terminados|
+|Gestão de Utilizadores|Utilizadores de convites a granel - iniciado|
+|Gestão de Utilizadores|Utilizadores de convite a granel - acabados|
 |Gestão de Utilizadores|Remover proprietário registado do dispositivo|
 |Gestão de Utilizadores|Remover utilizadores registados do dispositivo|
 |Gestão de Utilizadores|Remover membro elegível da função|
@@ -540,10 +539,10 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Gestão de Grupos|Rever pedido de aprovação de pedidos|
 |Gestão de Grupos|Atualizar Revisão de Acesso|
 |Gestão de Grupos|Atualizar definições de notificação de correio da revisão de acesso|
-|Gestão de Grupos|Atualizar a definição de contagem de recorrência de revisão de acesso|
-|Gestão de Grupos|Atualizar a duração da revisão do acesso na definição de dias|
-|Gestão de Utilizadores|Atualizar a definição do tipo final de revisão de acesso|
-|Gestão de Utilizadores|Atualizar a definição de tipo de recorrência de revisão de acesso|
+|Gestão de Grupos|Atualizar a definição da contagem de recorrência de revisão de acesso|
+|Gestão de Grupos|Atualizar duração de recorrência da revisão do acesso na definição de dias|
+|Gestão de Utilizadores|Atualizar a definição do tipo final de recorrência de recorrência de acesso|
+|Gestão de Utilizadores|Atualizar a definição do tipo de recorrência de revisão de acesso|
 
 
 
@@ -554,21 +553,21 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |PIM|ActivationAborted|
 |PIM|ActivationApproved|
 |PIM|ActivationCanceled|
-|PIM|AtivaçãoNegada|
+|PIM|ActivaçãoDenada|
 |PIM|ActivationRequested|
 |PIM|Adicionou|
-|PIM|AdicionadoOutsidePIM|
+|PIM|AddOutsidePIM|
 |PIM|Atribuir|
-|PIM|DismissAlert|
+|PIM|DespedimentoAlert|
 |PIM|Elevar|
-|PIM|ReativarAlert|
+|PIM|ReactivarAlert|
 |PIM|Removido|
-|PIM|Removidofora do PIQuem|
+|PIM|RemovedOutsidePIM|
 |PIM|Requerer Paragem da Revisão|
 |PIM|Alterações das definições da função|
 |PIM|ScanAlertsNow|
 |PIM|Inscrever-se|
-|PIM|Não atribuir|
+|PIM|Unassign|
 |PIM|Anular elevação|
 |PIM|UpdateAlertSettings|
 |PIM|UpdateCurrentState|
@@ -612,17 +611,17 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Termos de Utilização|Editar os Termos de Utilização|
 |Termos de Utilização|Criar os Termos de Utilização|
 |Termos de Utilização|Rejeitar Termos de Utilização|
-|Termos de Utilização|Excluir o Consentimento|
+|Termos de Utilização|Eliminar Consentimento|
 |Termos de Utilização|Eliminar Termos de Utilização|
 |Termos de Utilização|Editar Termos de Utilização|
-|Termos de Utilização|Termos de utilização expirados|
-|Termos de Utilização|Termos de utilização de eliminação difícil|
+|Termos de Utilização|Prazos de utilização expirado|
+|Termos de Utilização|Duramente eliminar termos de uso|
 |Termos de Utilização|Publicar Termos de Utilização|
 |Termos de Utilização|Anular publicação dos Termos de Utilização|
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [A AD Azure reporta uma visão geral.](overview-reports.md)
-- [Relatório de registos de auditoria](concept-audit-logs.md). 
-- [Acesso programático aos relatórios da AD Azure](concept-reporting-api.md)
+- [AZure AD reporta uma visão geral](overview-reports.md).
+- [Relatório de registos de auditoria.](concept-audit-logs.md) 
+- [Acesso programático aos relatórios AD do Azure](concept-reporting-api.md)

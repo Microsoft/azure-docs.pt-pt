@@ -5,25 +5,25 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: db2104020e9478b1fedf68e1c9467f75e16044e2
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184296"
 ---
 #### <a name="to-cable-for-power"></a>Para cabo para energia
-1. Certifique-se de que os interruptores de alimentação de cada um dos módulos de alimentação e arrefecimento (PCMs) estão na posição OFF.
-2. Ligue os cabos de alimentação a cada um dos PCMs no recinto primário.
-3. Fixe os cabos de alimentação às unidades de distribuição de energia do rack (PDUs) como mostrado na imagem seguinte. Certifique-se de que os dois PCMs utilizam fontes de alimentação separadas.
+1. Certifique-se de que os interruptores de alimentação em cada um dos Módulos de Alimentação e Arrefecimento (PCMs) estão na posição OFF.
+2. Ligue os cabos de alimentação a cada um dos PCMs no compartimento primário.
+3. Fixe os cabos de alimentação às unidades de distribuição de energia do rack (PDUs), como mostra a seguinte imagem. Certifique-se de que os dois PCMs utilizam fontes de alimentação separadas.
    
    > [!IMPORTANT]
-   > Para garantir uma elevada disponibilidade para o seu sistema, recomendamos que cumpra estritamente o esquema de cablagem de energia mostrado no seguinte diagrama. 
+   > Para garantir uma elevada disponibilidade para o seu sistema, recomendamos que cumpra rigorosamente o esquema de cablagem de alimentação indicado no diagrama seguinte. 
    > 
    > 
    
-    ![Cabo o seu dispositivo 2U para energia](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
+    ![Cabo o seu dispositivo 2U para alimentação](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
    
-    **Cabo de energia em um dispositivo 8100**
+    **Cabo de alimentação num dispositivo 8100**
    
    | Etiqueta | Descrição |
    |:--- |:--- |

@@ -4,13 +4,22 @@
   items:
     - name: O que é o Assistente do Azure?
       href: advisor-overview.md
+- name: Guias de Início Rápido
+  items:
+    - name: Configurar alertas para novas recomendações
+      items:
+        - name: Portal do Azure
+          href: advisor-alerts-portal.md
+        - name: Modelo ARM
+          displayName: Resource Manager
+          href: advisor-alerts-arm.md
 - name: Tutoriais
   items:
     - name: Introdução ao Assistente
       href: advisor-get-started.md
 - name: Guias de procedimentos
   items:
-    - name: Melhorar a disponibilidade das aplicações do Azure
+    - name: Melhorar a fiabilidade das aplicações do Azure
       href: advisor-high-availability-recommendations.md
     - name: Tornar os recursos mais seguros
       href: advisor-security-recommendations.md
@@ -25,7 +34,7 @@
     - name: Permissões e ações bloqueadas
       href: permissions.md
     - name: Configurar Alertas para recomendações
-      href: advisor-alerts.md
+      href: advisor-alerts-portal.md
     - name: Remediação em massa para recomendações
       href: advisor-quick-fix.md
     - name: Dados do Assistente no Azure Resource Graph
@@ -40,7 +49,7 @@
       href: 'https://docs.microsoft.com/azure/app-service/app-service-best-practices'
     - name: API REST
       href: 'https://docs.microsoft.com/rest/api/advisor/'
-    - name: CLI
+    - name: CLI do Azure
       href: 'https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest'
     - name: PowerShell
       href: 'https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0'

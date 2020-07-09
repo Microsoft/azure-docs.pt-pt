@@ -10,32 +10,31 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 436a5ab6fb286ce206f981487b6a29d774ecd1a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77024913"
 ---
 # <a name="cloudsimple-virtual-machines-overview"></a>Visão geral das máquinas virtuais CloudSimple
 
 O CloudSimple permite-lhe gerir máquinas virtuais VMware (VMs) a partir do portal Azure.  Um cluster ou um conjunto de recursos do seu cluster vSphere é gerido através do Azure mapeando-o para a sua subscrição.
 
-Para criar um VM CloudSimple a partir de Azure, um modelo VM deve existir no seu vCenter De Nuvem Privada.  O modelo é usado para personalizar o sistema operativo e aplicações.  O modelo VM pode ser endurecido para atender às políticas de segurança da empresa.  Pode usar o modelo para criar VMs e depois consumi-los a partir do portal Azure usando um modelo de self-service.
+Para criar um CloudSimple VM de Azure, um modelo VM deve existir no seu VCenter Private Cloud.  O modelo é utilizado para personalizar o sistema operativo e as aplicações.  O modelo VM pode ser endurecido para atender às políticas de segurança da empresa.  Pode utilizar o modelo para criar VMs e depois consumi-los a partir do portal Azure utilizando um modelo de self-service.
 
 ## <a name="benefits"></a>Benefícios
 
 As máquinas virtuais CloudSimple do portal Azure fornecem um mecanismo de self-service para os utilizadores criarem e gerirem máquinas virtuais VMware.
 
-* Crie um VM CloudSimple no seu vCenter de Nuvem Privada
+* Crie um CloudSimple VM no seu vCenter Cloud Privado
 * Gerir propriedades VM
   * Adicionar/remover discos
   * Adicionar/remover NICs
 * Operações de energia do seu CloudSimple VM
-  * Energia e desligar
+  * Ligar e desligar
   * Repor VM
 * Eliminar VM
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Saiba como [consumir VMs VMware no Azure](quickstart-create-vmware-virtual-machine.md)
+* Saiba como [consumir VMware VMs em Azure](quickstart-create-vmware-virtual-machine.md)
 * Saiba como mapear a [sua subscrição do Azure](azure-subscription-mapping.md)

@@ -1,54 +1,54 @@
 ---
-title: Mova o Balancer interno azure para outra região do Azure usando o portal Azure
-description: Use o modelo do Gestor de Recursos Azure para mover o Equilíbrio de Carga Interna Azure de uma região do Azure para outra usando o portal Azure
+title: Mover o Equilibrador interno de Carga Azure para outra região do Azure utilizando o portal Azure
+description: Utilize o modelo do Gestor de Recursos Azure para mover o Azure internal Load Balancer de uma região Azure para outra usando o portal Azure
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/18/2019
 ms.author: allensu
-ms.openlocfilehash: f23923b9d847ef393ebd609eb5fbba530b1a07d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eb3605249578b15d67bdd9764490d61812b21c18
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75638814"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808449"
 ---
-# <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Mova o Balancer interno azure para outra região usando o portal Azure
+# <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Mover o Equilibrador de Carga Interno Azure para outra região utilizando o portal Azure
 
-Há vários cenários em que você gostaria de mover o seu equilibrador interno de carga existente de uma região para outra. Por exemplo, pode querer criar um equilibrador de carga interno com a mesma configuração para o teste. Também pode querer mover um equilibrador interno de carga para outra região como parte do planeamento de recuperação de desastres.
+Há vários cenários em que gostaria de mover o seu equilibrador interno de carga de uma região para outra. Por exemplo, é melhor criar um equilibrador de carga interno com a mesma configuração para testes. Também pode querer mover um equilibrador interno de carga para outra região como parte do planeamento de recuperação de desastres.
 
-Os equilibradores de carga internos azure não podem ser movidos de uma região para outra. No entanto, pode utilizar um modelo do Gestor de Recursos Azure para exportar a configuração existente e a rede virtual de um equilibrador de carga interna.  Em seguida, pode encenar o recurso noutra região exportando o equilibrante de carga e a rede virtual para um modelo, modificando os parâmetros para combinar com a região de destino, e, em seguida, implantar os modelos para a nova região.  Para obter mais informações sobre o Gestor de Recursos e modelos, consulte [Quickstart: Crie e implemente modelos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)do Gestor de Recursos Azure utilizando o portal Azure .
+Os equilibradores internos de carga não podem ser movidos de uma região para outra. No entanto, pode utilizar um modelo de Gestor de Recursos Azure para exportar a configuração existente e a rede virtual de um equilibrador de carga interno.  Em seguida, pode encenar o recurso noutra região exportando o equilibrador de carga e a rede virtual para um modelo, modificando os parâmetros para combinar com a região de destino, e, em seguida, implantar os modelos para a nova região.  Para obter mais informações sobre o Gestor de Recursos e modelos, consulte [Quickstart: Criar e implementar modelos de Gestor de Recursos Azure utilizando o portal Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Certifique-se de que o equilibrador de carga interna Azure está na região de Azure, de onde pretende mover-se.
+- Certifique-se de que o equilibrador interno Azure se encontra na região de Azure, de onde pretende mover-se.
 
-- Os equilibradores de carga internos azure não podem ser movidos entre regiões.  Terá de associar o novo equilibrador de carga aos recursos na região alvo.
+- Os equilibradores internos de carga não podem ser movidos entre regiões.  Terá de associar o novo equilibrador de carga aos recursos na região alvo.
 
-- Para exportar uma configuração interna do equilíbrio de carga e implementar um modelo para criar um equilibrador de carga interno noutra região, você precisará do papel de Colaborador de Rede ou superior.
+- Para exportar uma configuração interna do balanceador de carga e implementar um modelo para criar um equilibrador de carga interno noutra região, você precisará do papel de Contribuinte de Rede ou superior.
 
-- Identifique o layout de rede de origem e todos os recursos que está a utilizar. Este layout inclui, mas não se limita a equilibradores de carga, grupos de segurança de rede, máquinas virtuais e redes virtuais.
+- Identifique o layout de rede de origem e todos os recursos que está a usar. Este layout inclui, mas não se limita a equilibrar cargas, grupos de segurança de rede, máquinas virtuais e redes virtuais.
 
-- Verifique se a sua subscrição Azure permite criar equilibradores de carga internos na região alvo que é utilizada. Contacte o suporte para ativar a quota necessária.
+- Verifique se a sua subscrição Azure permite criar equilibradores de carga internos na região-alvo que é utilizada. Contacte o suporte para ativar a quota necessária.
 
-- Certifique-se de que a sua subscrição dispõe de recursos suficientes para suportar a adição de equilibradores de carga para este processo.  Ver [limites de subscrição e serviço do Azure, quotas e constrangimentos](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
+- Certifique-se de que a sua subscrição dispõe de recursos suficientes para suportar a adição de equilibradores de carga para este processo.  Ver [limites de subscrição e serviços da Azure, quotas e constrangimentos](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
 
 
 ## <a name="prepare-and-move"></a>Preparar e mover
-Os seguintes passos mostram como preparar o equilibrador de carga interna para o movimento utilizando um modelo de Gestor de Recursos, e mover a configuração interna do equilíbrio de carga para a região alvo utilizando o portal Azure.  Como parte deste processo, a configuração da rede virtual do equilibrista interno de carga deve ser incluída e deve ser feita primeiro antes de mover o equilibrador interno de carga.
+Os passos seguintes mostram como preparar o equilibrador de carga interno para o movimento utilizando um modelo de Gestor de Recursos e mover a configuração interna do balançador de carga para a região alvo utilizando o portal Azure.  Como parte deste processo, a configuração de rede virtual do balançador de carga interna deve ser incluída e deve ser feita primeiro antes de mover o balançador interno de carga.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-### <a name="export-the-virtual-network-template-and-deploy-from-the-azure-portal"></a>Exportar o modelo de rede virtual e implantar a partir do portal Azure
+### <a name="export-the-virtual-network-template-and-deploy-from-the-azure-portal"></a>Exportar o modelo de rede virtual e implementar a partir do portal Azure
 
-1. Inicie sessão nos > **grupos**de recursos do [portal Azure.](https://portal.azure.com)
+1. Iniciar sessão no [portal Azure](https://portal.azure.com)  >  **Resource Groups**.
 2. Localize o Grupo de Recursos que contém a rede virtual de origem e clique nela.
-3. Selecione > Modelo**de exportação**de **definições** > .
-4. Escolha **implementar** na lâmina do **modelo de exportação.**
-5. Clique em **MODELO** > **Editar parâmetros** para abrir o ficheiro **parâmetros.json** no editor online.
-6. Para editar o parâmetro do nome da rede virtual, altere a propriedade de **valor** em **parâmetros:**
+3. Selecione > **Definições**  >  **Modelo de exportação**.
+4. Escolha **Implementar** na lâmina do **modelo de exportação.**
+5. Clique **em modelo**  >  **Editar parâmetros** para abrir oparameters.js**no** ficheiro no editor online.
+6. Para editar o parâmetro do nome de rede virtual, altere a propriedade de **valor** em **parâmetros:**
 
     ```json
     {
@@ -61,13 +61,13 @@ Os seguintes passos mostram como preparar o equilibrador de carga interna para o
         }
     }
     ```
-7. Altere o valor de nome de rede virtual de origem no editor para um nome à sua escolha para o VNET alvo. Certifique-se de que encerra o nome em aspas.
+7. Altere o valor do nome da rede virtual de origem no editor para um nome à sua escolha para o VNET alvo. Certifique-se de que encerra o nome em aspas.
 
 8. Clique em **Guardar** no editor.
 
-9. Clique no**modelo de edição** de **MODELO** > para abrir o ficheiro **template.json** no editor online.
+9. Clique no modelo de edição **do modelo**para abrir otemplate.js >  **Edit template** **no** ficheiro no editor online.
 
-10. Para editar a região alvo onde o VNET será movido, altere a propriedade de **localização** sob recursos:
+10. Para editar a região-alvo onde o VNET será movido, altere a propriedade de **localização** sob recursos:
 
     ```json
     "resources": [
@@ -87,11 +87,11 @@ Os seguintes passos mostram como preparar o equilibrador de carga interna para o
 
     ```
 
-11. Para obter códigos de localização da região, consulte [localizações azure](https://azure.microsoft.com/global-infrastructure/locations/).  O código para uma região é o nome da região sem espaços,**central** **dos EUA** = central.
+11. Para obter códigos de localização da região, consulte [as localizações do Azure.](https://azure.microsoft.com/global-infrastructure/locations/)  O código para uma região é o nome da região sem espaços, **central dos EUA central.**  =  **centralus**
 
-12. Também pode alterar outros parâmetros no ficheiro **template.json** se escolher, e é opcional dependendo dos seus requisitos:
+12. Também pode alterar outros parâmetros no **template.jsno** ficheiro, se quiser, e é opcional dependendo dos seus requisitos:
 
-    * **Endereço Espaço** - O espaço de endereço do VNET pode ser alterado antes de poupar modificando a secção de **endereços de recursosSpace** > **addressSpace** e alterando a propriedade **de endereçoPrefixos** no ficheiro **template.json:**
+    * **Address Space** - O espaço de endereço do VNET pode ser alterado antes de economizar modificando a secção de endereço **de**  >  **recursosSpace** e alterando a propriedade **de endereçoprefixos** no **template.jsno** ficheiro:
 
         ```json
                 "resources": [
@@ -111,7 +111,7 @@ Os seguintes passos mostram como preparar o equilibrador de carga interna para o
 
         ```
 
-    * **Subnet** - O nome da sub-rede e o espaço de endereço da sub-rede podem ser alterados ou adicionados modificando a secção de **sub-redes** do ficheiro **template.json.** O nome da subnet pode ser alterado alterando a propriedade do **nome.** O espaço de endereço de sub-rede pode ser alterado alterando a propriedade **de endereçoPrefix** no ficheiro **template.json:**
+    * **Sub-rede** - O nome da sub-rede e o espaço do endereço da sub-rede podem ser alterados ou adicionados modificando a secção de **sub-redes** do **template.jsno** ficheiro. O nome da sub-rede pode ser alterado alterando a propriedade **do nome.** O espaço de endereço da sub-rede pode ser alterado alterando a propriedade **addressPrefix** na **template.jsno** ficheiro:
 
         ```json
                 "subnets": [
@@ -142,7 +142,7 @@ Os seguintes passos mostram como preparar o equilibrador de carga interna para o
                 ]
         ```
 
-         No ficheiro **template.json,** para alterar o prefixo de endereço, deve ser editado em dois lugares, a secção listada acima e a secção de **tipo** listada abaixo.  Altere a propriedade **de endereçoPrefix** para corresponder à acima:
+         Na **template.jsem** ficheiro, para alterar o prefixo do endereço, deve ser editado em dois locais, a secção listada acima e a secção **de tipo** listada abaixo.  Alterar a **propriedade AddressPrefix** para corresponder à acima:
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
@@ -180,27 +180,27 @@ Os seguintes passos mostram como preparar o equilibrador de carga interna para o
 
 13. Clique em **Guardar** no editor online.
 
-14. Clique em**Subscrição** **BASICS** > para escolher a subscrição onde o Alvo VNET será implementado.
+14. Clique **em BASICS**  >  **Subscription** para escolher a subscrição onde o VNET alvo será implementado.
 
-15. Clique no grupo **BASICS** > **Resource** para escolher o grupo de recursos onde o VNET alvo será implantado.  Pode clicar **em Criar um novo** grupo de recursos para o VNET alvo.  Certifique-se de que o nome não é o mesmo que o grupo de recursos de origem do VNET existente.
+15. Clique **em BASICS**  >  **Resource group** para escolher o grupo de recursos onde o VNET alvo será implantado.  Pode clicar em **Criar novo** para criar um novo grupo de recursos para o VNET alvo.  Certifique-se de que o nome não é o mesmo que o grupo de recursos de origem do VNET existente.
 
-16. Verifique se a**localização** **BASICS** > está definida para o local alvo onde deseja que o VNET seja implantado.
+16. Verifique **se a localização BASICS**está definida para o local alvo onde deseja que o  >  **Location** VNET seja implantado.
 
-17. Verifique em **DEFINIÇÕES** que o nome corresponde ao nome que inseriu no editor de parâmetros acima.
+17. Verifique em **DEFINIÇÕES** que o nome corresponde ao nome que introduziu no editor de parâmetros acima.
 
 18. Verifique a caixa em **termos e condições.**
 
-19. Clique no botão **Comprar** para implementar a rede virtual alvo.
+19. Clique no botão **'Comprar'** para implementar a rede virtual alvo.
 
-### <a name="export-the-internal-load-balancer-template-and-deploy-from-azure-powershell"></a>Exportar o modelo de equilíbrio interno de carga e implantar a partir de Azure PowerShell
+### <a name="export-the-internal-load-balancer-template-and-deploy-from-azure-powershell"></a>Exportar o modelo interno do balançador de carga e implementar a partir da Azure PowerShell
 
-1. Inicie sessão nos > **grupos**de recursos do [portal Azure.](https://portal.azure.com)
-2. Localize o Grupo de Recursos que contém o equilibrador de carga interno fonte e clique nele.
-3. Selecione > Modelo**de exportação**de **definições** > .
-4. Escolha **implementar** na lâmina do **modelo de exportação.**
-5. Clique em **MODELO** > **Editar parâmetros** para abrir o ficheiro **parâmetros.json** no editor online.
+1. Iniciar sessão no [portal Azure](https://portal.azure.com)  >  **Resource Groups**.
+2. Localize o Grupo de Recursos que contém o equilibrador de carga interno de origem e clique nele.
+3. Selecione > **Definições**  >  **Modelo de exportação**.
+4. Escolha **Implementar** na lâmina do **modelo de exportação.**
+5. Clique **em modelo**  >  **Editar parâmetros** para abrir oparameters.js**no** ficheiro no editor online.
 
-6. Para editar o parâmetro do nome do equilibrista interno de carga, altere o padrão de **propriedadeValor** do nome do equilibrista de carga interna fonte para o nome do seu equilibrador de carga interna alvo, certifique-se de que o nome está em aspas:
+6. Para editar o parâmetro do nome do balançador de carga interno, altere o padrão de **propriedadeValue** do nome do equilibrador interno de carga de origem para o nome do equilibrador interno de carga do seu alvo, certifique-se de que o nome está nas ações:
 
     ```json
          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -216,13 +216,13 @@ Os seguintes passos mostram como preparar o equilibrador de carga interna para o
              }
     ```
 
-6. Para editar o valor da rede virtual alvo que foi movida acima, você deve primeiro obter o ID de recurso e, em seguida, copiá-lo e colar no ficheiro **parâmetros.json.** Para obter a identificação:
+6. Para editar o valor da rede virtual alvo que foi movida acima, você deve primeiro obter o ID de recurso e, em seguida, copiá-lo e colá-lo no **parameters.jsem** arquivo. Para obter o ID:
 
-    1. Inicie sessão no [portal](https://portal.azure.com) > Azure Resource**Groups** em outro separador ou janela do navegador.
-    2. Localize o grupo de recursos alvo que contém a rede virtual deslocada a partir dos degraus acima e clique nele.
-    3. Selecione >**Propriedades de** **Definições** > .
-    4. Na lâmina à direita, realce o ID do **recurso** e copie-o para a área de reparação.  Em alternativa, pode clicar na **cópia para botão de clipboard** à direita do caminho de ID de **recurso.**
-    5. Colar o ID de recurso na propriedade **defaultValue** no editor **de Edição Parâmetros** aberto na outra janela ou separador do navegador:
+    1. Inicie sessão no [portal Azure](https://portal.azure.com)  >  **Resource Groups** em outro separador ou janela do navegador.
+    2. Localize o grupo de recursos-alvo que contém a rede virtual movida a partir dos degraus acima e clique nela.
+    3. Selecione > **Configurações**  >  **Propriedades**.
+    4. Na lâmina à direita, realce o **ID do recurso** e copie-o para a área de transferência.  Em alternativa, pode clicar na cópia para o botão **de área de transferência** à direita do caminho do ID do **recurso.**
+    5. Cole o ID do recurso na propriedade **padrão DoValue** no editor **editar parâmetros** abertos na outra janela ou separador do navegador:
 
         ```json
          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -239,8 +239,8 @@ Os seguintes passos mostram como preparar o equilibrador de carga interna para o
         ```
     6. Clique em **Guardar** no editor online.
 
-7. Clique no**modelo de edição** de **MODELO** > para abrir o ficheiro **template.json** no editor online.
-8. Para editar a região alvo onde será movida a configuração interna do equilíbrio dormente, altere a propriedade de **localização** sob **recursos** no ficheiro **template.json:**
+7. Clique no modelo de edição **do modelo**para abrir otemplate.js >  **Edit template** **no** ficheiro no editor online.
+8. Para editar a região-alvo onde será movida a configuração interna do balançador de carga, altere a propriedade de **localização** sob **recursos** na **template.jsem** arquivo:
 
     ```json
         "resources": [
@@ -255,11 +255,11 @@ Os seguintes passos mostram como preparar o equilibrador de carga interna para o
                 },
     ```
 
-9.  Para obter códigos de localização da região, consulte [localizações azure](https://azure.microsoft.com/global-infrastructure/locations/).  O código para uma região é o nome da região sem espaços,**central** **dos EUA** = central.
+9.  Para obter códigos de localização da região, consulte [as localizações do Azure.](https://azure.microsoft.com/global-infrastructure/locations/)  O código para uma região é o nome da região sem espaços, **central dos EUA central.**  =  **centralus**
 
-10. Também pode alterar outros parâmetros do modelo se escolher, e é opcional dependendo dos seus requisitos:
+10. Também pode alterar outros parâmetros no modelo se escolher, e é opcional dependendo dos seus requisitos:
 
-    * **Sku** - Pode alterar o sku do equilibrador de carga interna na configuração de padrão para básico ou básico para padrão alterando a propriedade de**nome** **sku** > no ficheiro **template.json:**
+    * **Sku** - Pode alterar o sku do balançador de carga interno na configuração de padrão para básico ou básico para padrão, alterando a propriedade do nome **sku**  >  **name** no **template.jsno** ficheiro:
 
         ```json
         "resources": [
@@ -273,9 +273,9 @@ Os seguintes passos mostram como preparar o equilibrador de carga interna para o
                 "tier": "Regional"
             },
         ```
-      Para obter mais informações sobre as diferenças entre os equilibradores básicos e standard de carga sku, consulte a visão geral do [Equilíbrio de Carga Padrão Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
+      Para obter mais informações sobre as diferenças entre os balanceadores de carga sku básico e padrão, consulte [a visão geral do Balançor de Carga Padrão Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
 
-    * **Regras** de equilíbrio de carga - Pode adicionar ou remover regras de equilíbrio de carga na configuração adicionando ou removendo entradas na secção **loadBalancingRules** do ficheiro **template.json:**
+    * **Regras de equilíbrio de carga** - Pode adicionar ou remover as regras de equilíbrio de carga na configuração adicionando ou removendo entradas na secção **loadBalancingRules** do **template.jsno** ficheiro:
 
         ```json
         "loadBalancingRules": [
@@ -305,9 +305,9 @@ Os seguintes passos mostram como preparar o equilibrador de carga interna para o
                     }
                 ]
         ```
-       Para obter mais informações sobre as regras de equilíbrio de carga, consulte [o que é o Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+       Para obter mais informações sobre regras de equilíbrio de carga, consulte [o que é o Equilibr de Carga Azure?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
-    * **Sondas** - Pode adicionar ou remover uma sonda para o equilibrador de carga na configuração adicionando ou removendo entradas na secção de **sondas** do ficheiro **template.json:**
+    * **Sondas** - Pode adicionar ou remover uma sonda para o equilibrador de carga na configuração, adicionando ou removendo entradas na secção de **sondas** da **template.jsno** ficheiro:
 
         ```json
         "probes": [
@@ -325,9 +325,9 @@ Os seguintes passos mostram como preparar o equilibrador de carga interna para o
                     }
                 ],
         ```
-       Para obter mais informações sobre as sondas de saúde Azure Load Balancer, consulte sondas de [saúde Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
+       Para obter mais informações sobre as sondas de saúde do Azure Load Balancer, consulte [as sondas de saúde do Balancer de Carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
 
-    * **Regras nat de entrada** - Pode adicionar ou remover as regras nat de entrada para o equilibrador de carga adicionando ou removendo entradas na secção **inboundNatRules** do ficheiro **template.json:**
+    * **Regras NAT de entrada** - Pode adicionar ou remover as regras NAT de entrada para o equilibrador de carga adicionando ou removendo entradas para a secção **de inboundNatRules** do **template.jsem** ficheiro:
 
         ```json
         "inboundNatRules": [
@@ -349,7 +349,7 @@ Os seguintes passos mostram como preparar o equilibrador de carga interna para o
                     }
                 ]
         ```
-        Para completar a adição ou remoção de uma regra NAT de entrada, a regra deve ser presente ou removida como uma propriedade **tipo** no final do ficheiro **template.json:**
+        Para completar a adição ou remoção de uma regra NAT de entrada, a regra deve ser presente ou removida como uma propriedade **tipo** no final do **template.jsem** arquivo:
 
         ```json
         {
@@ -373,33 +373,33 @@ Os seguintes passos mostram como preparar o equilibrador de carga interna para o
             }
         }
         ```
-        Para obter mais informações sobre as regras de entrada na NAT, consulte [o que é o Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+        Para obter mais informações sobre as regras NAT de entrada, consulte [o que é o Equilibr de Carga Azure?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
 12. Clique em **Guardar** no editor online.
 
-13. Clique em**Subscrição** **BASICS** > para escolher a subscrição onde será implementado o equilibrador de carga interna alvo.
+13. Clique **em BASICS**  >  **Subscription** para escolher a subscrição onde o balanceador de carga interno alvo será implantado.
 
-15. Clique no grupo **BASICS** > **Resource** para escolher o grupo de recursos onde o equilibrador de carga-alvo será implantado.  Pode clicar **em Criar um novo** grupo de recursos para o equilibrador de carga interna alvo ou escolher o grupo de recursos existente que foi criado acima para a rede virtual.  Certifique-se de que o nome não é o mesmo que o grupo de recursos de origem do equilibrador de carga interna de origem existente.
+15. Clique no grupo **basics**  >  **para** escolher o grupo de recursos onde o balanceador de carga alvo será implantado.  Pode clicar em **Criar novo** para criar um novo grupo de recursos para o balanceador de carga interno alvo ou escolher o grupo de recursos existente que foi criado acima para a rede virtual.  Certifique-se de que o nome não é o mesmo que o grupo de recursos de origem do equilibrador interno de carga existente.
 
-16. Verifique se a**localização** **BASICS** > está definida para o local-alvo onde deseja que o equilibrista interno de carga seja implantado.
+16. Verifique **o BASICS**  >  **A localização** está definida para o local alvo onde deseja que o balançador interno de carga seja implantado.
 
-17. Verifique em **DEFINIÇÕES** que o nome corresponde ao nome que inseriu no editor de parâmetros acima.  Verifique se os IDs de recursos são povoados para quaisquer redes virtuais na configuração.
+17. Verifique em **DEFINIÇÕES** que o nome corresponde ao nome que introduziu no editor de parâmetros acima.  Verifique se os IDs de recursos são preenchidos para quaisquer redes virtuais na configuração.
 
 18. Verifique a caixa em **termos e condições.**
 
-19. Clique no botão **Comprar** para implementar a rede virtual alvo.
+19. Clique no botão **'Comprar'** para implementar a rede virtual alvo.
 
 ## <a name="discard"></a>Eliminar
 
-Se pretender descartar a rede virtual alvo e o equilibrador de carga interna, elimine o grupo de recursos que contém a rede virtual alvo e o equilibrador de carga interna.  Para isso, selecione o grupo de recursos do seu painel de instrumentos no portal e selecione **Eliminar** na parte superior da página de visão geral.
+Se desejar descartar a rede virtual alvo e o balançador de carga interno, elimine o grupo de recursos que contém a rede virtual alvo e o balançador interno de carga.  Para tal, selecione o grupo de recursos do seu painel de instrumentos no portal e selecione **Eliminar** no topo da página geral.
 
 ## <a name="clean-up"></a>Limpeza
 
-Para comprometer as alterações e completar o movimento da rede virtual e do equilibrador de carga interna, elimine a rede virtual de origem e o equilíbrio de carga interna ou o grupo de recursos. Para isso, selecione a rede virtual e o balanceador de carga interna ou o grupo de recursos do seu painel de instrumentos no portal e selecione **Eliminar** no topo de cada página.
+Para comprometer as alterações e completar o movimento da rede virtual e do balançador de carga interno, elimine a rede virtual de origem e o equilibrador de carga interno ou grupo de recursos. Para tal, selecione a rede virtual e o equilibrador de carga interno ou grupo de recursos do seu painel de instrumentos no portal e selecione **Eliminar** no topo de cada página.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste tutorial, mudou um equilibrador de carga interna Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre a movimentação de recursos entre regiões e a recuperação de desastres em Azure, consulte:
+Neste tutorial, você moveu um equilibrador interno Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte:
 
 
 - [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) (Mover recursos para um grupo de recursos ou uma subscrição nova)

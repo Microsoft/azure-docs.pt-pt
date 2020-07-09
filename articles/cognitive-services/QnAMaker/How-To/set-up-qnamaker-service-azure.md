@@ -3,12 +3,12 @@ title: Crie um serviço QnA Maker - QnA Maker
 description: Antes de criar quaisquer bases de conhecimento do QnA Maker, tem primeiro de configurar um serviço QnA Maker em Azure. Qualquer pessoa com autorização para criar novos recursos numa subscrição pode criar um serviço QnA Maker.
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 521d0388e4ee739b1ac840e482174ac466781f5f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 0a1b79c91e4e1bd9a57d6dcbb38432125573b9e6
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171179"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214133"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerir os recursos do Fabricante QnA
 
@@ -60,9 +60,9 @@ Este procedimento cria os recursos Azure necessários para gerir o conteúdo da 
     O recurso com o tipo _serviços cognitivos_ tem as suas chaves _de subscrição._
 
 
-## <a name="find-subscription-keys-in-the-azure-portal"></a>Encontre chaves de subscrição no portal Azure
+## <a name="find-authoring-keys-in-the-azure-portal"></a>Encontre chaves de autoria no portal Azure
 
-Pode visualizar e redefinir as suas teclas de subscrição a partir do portal Azure, onde criou o recurso QnA Maker.
+Pode visualizar e redefinir as suas teclas de autoria a partir do portal Azure, onde criou o recurso QnA Maker. Estas teclas podem ser referidas como chaves de subscrição. 
 
 1. Vá ao recurso QnA Maker no portal Azure e selecione o recurso que tem o tipo _de Serviços Cognitivos:_
 
@@ -72,7 +72,7 @@ Pode visualizar e redefinir as suas teclas de subscrição a partir do portal Az
 
     ![Chave de subscrição](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
-## <a name="find-endpoint-keys-in-the-qna-maker-portal"></a>Encontre chaves de ponto final no portal QnA Maker
+## <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>Encontre chaves de ponto final de consulta no portal QnA Maker
 
 O ponto final está na mesma região que o recurso porque as teclas de ponto final são usadas para fazer uma chamada para a base de conhecimento.
 
@@ -210,6 +210,11 @@ Para manter a aplicação de previsão de ponta final carregada mesmo quando nã
 1. É-lhe perguntado se pretende reiniciar a aplicação para utilizar a nova definição. Selecione **Continuar**.
 
 Saiba mais sobre como configurar as [definições gerais](../../../app-service/configure-common.md#configure-general-settings)do Serviço de Aplicações.
+## <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Configure o Ambiente de Serviço de Aplicações para acolher o Serviço de Aplicações Qna Maker
+O Ambiente de Serviço de Aplicações pode ser usado para hospedar o serviço de aplicações QnA Maker. Se o Ambiente de Serviço de Aplicações é interno, então tem de seguir estes passos:
+1. Crie um serviço de aplicações e um serviço de pesquisa azul.
+2. Exponha o serviço de aplicações numa etiqueta de serviço público de DNS e whitelist QnA Maker: CognitiveServicesManagement, ou mantenha-o virado para a Internet.
+3. Crie uma instância de serviço cognitivo QnA Maker (Microsoft.CognitiveServices/contas) utilizando o Azure Resource Manager, onde o ponto final do QnA Maker deve ser definido para o Ambiente de Serviço de Aplicações. 
 
 ## <a name="business-continuity-with-traffic-manager"></a>Continuidade de negócio com gestor de tráfego
 
@@ -238,7 +243,7 @@ A ideia de alto nível, tal como acima representada, é a seguinte:
 
 Se eliminar algum dos recursos Azure utilizados para as suas bases de conhecimento QnA Maker, as bases de conhecimento deixarão de funcionar. Antes de eliminar quaisquer recursos, certifique-se de que exporta as suas bases de conhecimento a partir da página **Definições.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o [serviço app](../../../app-service/index.yml) e serviço [de pesquisa.](../../../search/index.yml)
 

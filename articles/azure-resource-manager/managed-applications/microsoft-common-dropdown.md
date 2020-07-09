@@ -1,18 +1,17 @@
 ---
-title: Elemento UI dropdown
-description: Descreve o elemento Microsoft.Common.DropDown UI para o portal Azure. Utilize para selecionar as opções disponíveis ao implementar uma aplicação gerida.
+title: Elemento de UI dropdown
+description: Descreve o elemento UI Microsoft.Common.DropDown para o portal Azure. Utilize para selecionar as opções disponíveis ao implementar uma aplicação gerida.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: a09f9695c18f368a585dbcd0d1e654dee4adfa03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75652388"
 ---
-# <a name="microsoftcommondropdown-ui-element"></a>Microsoft.Common.DropDown UI
+# <a name="microsoftcommondropdown-ui-element"></a>Microsoft.Common.DropDown UI elemento
 
 Um controlo de seleção com uma lista de abandono.
 
@@ -54,12 +53,12 @@ Um controlo de seleção com uma lista de abandono.
 
 ## <a name="remarks"></a>Observações
 
-- A etiqueta `constraints.allowedValues` para é o texto de exibição para um item, e o seu valor é o valor de saída do elemento quando selecionado.
-- Se especificado, o valor predefinido `constraints.allowedValues`deve ser um rótulo presente em . Se não especificado, o `constraints.allowedValues` primeiro item é selecionado. O valor predefinido é **nulo.**
+- O rótulo para `constraints.allowedValues` é o texto do visor de um item, e o seu valor é o valor de saída do elemento quando selecionado.
+- Se especificado, o valor predefinido deve ser um rótulo presente em `constraints.allowedValues` . Se não for especificado, o primeiro item `constraints.allowedValues` é selecionado. O valor por defeito é **nulo.**
 - `constraints.allowedValues`deve ter pelo menos um item.
-- Para imitar um valor que não seja necessário, adicione `""` um item `constraints.allowedValues`com um rótulo e valor de (corda vazia) a .
+- Para imitar um valor que não está a ser necessário, adicione um item com uma etiqueta e valor de `""` (corda vazia) a `constraints.allowedValues` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição das propriedades comuns nos elementos UI, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).
+* Para obter uma descrição das propriedades comuns em elementos de UI, consulte [os elementos CreateUiDefinition](create-uidefinition-elements.md).

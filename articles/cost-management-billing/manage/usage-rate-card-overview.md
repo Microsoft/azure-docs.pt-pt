@@ -10,11 +10,11 @@ ms.date: 02/12/2020
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 7a9762d36d2c9ae6ede6718a31cae99afa230ef6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79237637"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84702328"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Utilizar APIs de Faturação do Azure para obter informações sobre a sua utilização do Azure de forma programática
 Utilize as APIs de Faturação do Azure para extrair dados de utilização e de recursos para as suas ferramentas preferidas de análise de dados. As APIs de Utilização de Recursos do Azure e de RateCard podem ajudá-lo a prever e gerir os seus custos com precisão. As APIs são implementadas como um Fornecedor de Recursos e fazem parte da família de APIs expostas pelo Azure Resource Manager.  

@@ -8,29 +8,30 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 43096e61fee740c6d1f1093cd441b8d2ee5901f8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 679f3113cddbfe13370483f2678154f4dd1f8ab2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171638"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392068"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change Feed Processor SDK: Baixar e lançar notas
 
 > [!div class="op_single_selector"]
 >
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [SDK .NET v3](sql-api-sdk-dotnet-standard.md)
+> * [SDK .NET v2](sql-api-sdk-dotnet.md)
+> * [SDK v2 de .NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [SDK v4 de Java](sql-api-sdk-java-v4.md)
 > * [SDK v2 Java assíncrono](sql-api-sdk-async-java.md)
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [DESCANSAR] (/repouso/api
+> * [Provedor de Recursos REST] (/repouso/api
 > * [SQL](sql-api-query-reference.md)
-> * [Executor a granel - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor a granel - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor a granel - Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
@@ -115,10 +116,10 @@ ms.locfileid: "84171638"
   * A API GetEstimatedRemainingWork devolveu 0 quando não havia contratos de arrendamento na coleção de arrendamento.
 
 * As seguintes exceções são tornadas públicas. Extensões que implementam o IPartitionProcessor podem lançar estas exceções.
-  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.LeaseLostException. 
-  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionException. 
-  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionNotFoundException.
-  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionSplitException. 
+  * Microsoft.Azure.Documents. ChangeFeedProcessor.Exceptions.LeaseLostException. 
+  * Microsoft.Azure.Documents. ChangeFeedProcessor.Exceptions.PartitionException. 
+  * Microsoft.Azure.Documents. ChangeFeedProcessor.Exceptions.PartitionNotFoundException.
+  * Microsoft.Azure.Documents. ChangeFeedProcessor.Exceptions.PartitionSplitException. 
 
 ### <a name="202-prerelease"></a><a name="2.0.2-prerelease"></a>2.0.2 pré-relançse
 * Alterações menores da API:
@@ -185,7 +186,7 @@ Qualquer pedido à Cosmos DB usando um SDK reformado será rejeitado pelo servi�
 
 <br/>
 
-| Versão | Data de Lançamento | Data de Aposentadoria |
+| Versão | Data de Lançamento | Data de Extinção |
 | --- | --- | --- |
 | [2.3.0](#2.3.0) |2 de abril de 2020 |--- |
 | [2.2.8](#2.2.8) |28 de outubro de 2019 |--- |

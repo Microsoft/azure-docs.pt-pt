@@ -1,5 +1,5 @@
 ---
-title: Remova a aplicação registada na plataforma de identidade da Microsoft Azure
+title: Remover app registada na plataforma de identidade da Microsoft Rio Azure
 description: Aprenda a remover uma aplicação registada com a plataforma de identidade da Microsoft.
 services: active-directory
 author: rwike77
@@ -13,11 +13,11 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: 3cc9e4458f14a63bad7f484bc16683248895ede9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240850"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84692228"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Quickstart: Remova uma aplicação registada na plataforma de identidade da Microsoft
 
@@ -30,7 +30,7 @@ Neste início rápido, vai aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você deve ter um inquilino que tem pedidos registrados nele. Para saber como adicionar e registar aplicações, veja [Registar uma aplicação com a plataforma de identidade da Microsoft](quickstart-register-app.md).
+Deve ter um inquilino que tenha pedidos registados. Para saber como adicionar e registar aplicações, veja [Registar uma aplicação com a plataforma de identidade da Microsoft](quickstart-register-app.md).
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Remover uma aplicação criada por si ou pela sua organização
 
@@ -40,7 +40,7 @@ As aplicações que o utilizador ou a sua organização registaram são represen
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 2. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-3. No painel de navegação à esquerda, selecione o serviço **De Diretório Ativo Azure** e, em seguida, selecione **os registos da App**. Encontre e selecione a aplicação que pretende configurar. Depois de selecionar a aplicação, verá a página **Descrição geral** da aplicação.
+3. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory** e, em seguida, selecione **registos de Aplicações**. Encontre e selecione a aplicação que pretende configurar. Depois de selecionar a aplicação, verá a página **Descrição geral** da aplicação.
 4. Na página **Descrição geral**, selecione **Eliminar**.
 5. Selecione **Sim** para confirmar que pretende eliminar a aplicação.
 

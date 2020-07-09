@@ -1,37 +1,37 @@
 ---
-title: Utilização com Balancer de Carga Interna - Gateway de aplicação Azure
+title: Utilização com Balanceador de Carga Interna - Gateway de aplicação Azure
 description: Esta página fornece instruções para criar, configurar, iniciar e eliminar um gateway de aplicação do Azure com o balanceador de carga interno (ILB) do Azure Resource Manager
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 406dcdb419dba2e8044a173f4c05028abbaba3da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 439523fe55f231548ebc80ebc5d3b53c2f0d6e2f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312410"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808128"
 ---
-# <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Criar um portal de aplicação com um equilibrador de carga interna (ILB)
+# <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Criar um gateway de aplicação com um equilibrador de carga interno (ILB)
 
-Pode configurar o Application Gateway do Azure com um VIP de acesso à Internet ou com um ponto final interno não exposto à Internet, também conhecido como ponto final do balanceador de carga interno (ILB). Configurar o gateway com um ILB é útil para as aplicações de linha de negócio internas não expostas à Internet. Também é útil para serviços e níveis dentro de uma aplicação de vários níveis que se sentam num limite de segurança que não é exposto à Internet, mas ainda requerem distribuição de carga de robin redondo, stickiness de sessão ou Segurança da Camada de Transporte (TLS), anteriormente conhecida como Secure Sockets Layer (SSL), rescisão.
+Pode configurar o Application Gateway do Azure com um VIP de acesso à Internet ou com um ponto final interno não exposto à Internet, também conhecido como ponto final do balanceador de carga interno (ILB). Configurar o gateway com um ILB é útil para as aplicações de linha de negócio internas não expostas à Internet. Também é útil para serviços e níveis dentro de uma aplicação multi-nível que se situa numa fronteira de segurança que não está exposta à Internet, mas ainda requer distribuição de carga de robin redondo, stickiness de sessão ou Segurança da Camada de Transporte (TLS), anteriormente conhecida como Secure Sockets Layer (SSL), rescisão.
 
 Este artigo descreve os passos para configurar um gateway de aplicação com um ILB.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Instale a versão mais recente do módulo PowerShell Azure seguindo as instruções de [instalação](/powershell/azure/install-az-ps).
+1. Instale a versão mais recente do módulo Azure PowerShell seguindo as [instruções de instalação](/powershell/azure/install-az-ps).
 2. Vai criar uma rede virtual e uma sub-rede para o Application Gateway. Verifique se a sub-rede não está a ser utilizada por nenhuma máquina virtual ou implementação na nuvem. O Application Gateway tem de constar, por si só, numa sub-rede de rede virtual.
 3. Os servidores que irá configurar para utilizar o gateway de aplicação devem existir. Caso contrário, os respetivos pontos finais terão de ser criados na rede virtual ou com um IP/VIP público atribuído.
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>O que é necessário para criar um gateway de aplicação?
 
 * **Conjunto de servidores de back-end:** a lista de endereços IP dos servidores de back-end. Os endereços IP listados devem pertencer à rede virtual, mas numa sub-rede diferente para o gateway de aplicação, ou ser um IP/VIP público.
-* **Definições de piscina de servidor de back-end:** Cada piscina tem configurações como porto, protocolo e afinidade baseada em cookies. Estas definições estão associadas a um conjunto e são aplicadas a todos os servidores do referido conjunto.
+* **Definições de piscina de servidor de back-end:** Cada piscina tem configurações como porta, protocolo e afinidade baseada em cookies. Estas definições estão associadas a um conjunto e são aplicadas a todos os servidores do referido conjunto.
 * **Porta de front-end:** esta porta é a porta pública aberta no gateway de aplicação. O tráfego chega a esta porta, sendo posteriormente redirecionado para um dos servidores de back-end.
 * **Serviço de escuta:** o serviço de escuta possui uma porta de front-end, um protocolo (Http ou Https, sensível às maiúsculas e minúsculas) e o nome do certificado SSL (se configurar a descarga de SSL).
 * **Regra:** a regra vincula o serviço de escuta e o conjunto de servidores de back-end e define para que conjunto de servidores de back-end o tráfego deve ser direcionado ao chegar a um determinado serviço de escuta. Atualmente, apenas é suportada a regra *básica*. A regra *básica* refere-se à distribuição de carga round robin.
@@ -52,7 +52,7 @@ Os passos necessários para criar um gateway de aplicação encontram-se descrit
 
 Não se esqueça de mudar o modo do PowerShell para utilizar o cmdlets do Azure Resource Manager. Para obter mais informações, veja [Using Windows PowerShell with Resource Manager (Usar o Windows PowerShell com o Resource Manager)](../powershell-azure-resource-manager.md).
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 ```powershell
 Connect-AzAccount
@@ -92,13 +92,13 @@ No exemplo anterior, criámos um grupo de recursos chamado "appgw-rg" e localiza
 
 O exemplo que se segue mostra como criar uma rede virtual utilizando o Resource Manager:
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 ```powershell
 $subnetconfig = New-AzVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 ```
 
-Este passo atribui o intervalo de endereços 10.0.0.0.0/24 a uma variável de sub-rede a utilizar para criar uma rede virtual.
+Este passo atribui o intervalo de endereços 10.0.0.0/24 a uma variável de sub-rede a ser usada para criar uma rede virtual.
 
 ### <a name="step-2"></a>Passo 2
 
@@ -106,7 +106,7 @@ Este passo atribui o intervalo de endereços 10.0.0.0.0/24 a uma variável de su
 $vnet = New-AzVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 ```
 
-Este passo cria uma rede virtual chamada "appgwvnet" no grupo de recursos "appgw-rg" para a região dos EUA Ocidentais usando o prefixo 10.0.0.0.0/16 com subnet 10.0.0.0.0/24.
+Este passo cria uma rede virtual chamada "appgwvnet" no grupo de recursos "appgw-rg" para a região oeste dos EUA usando o prefixo 10.0.0.0/16 com sub-rede 10.0.0.0/24.
 
 ### <a name="step-3"></a>Passo 3
 
@@ -118,7 +118,7 @@ Este passo atribui o objeto da sub-rede a $subnet variáveis para os próximos p
 
 ## <a name="create-an-application-gateway-configuration-object"></a>Criar um objeto de configuração do gateway de aplicação
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 ```powershell
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
@@ -132,7 +132,7 @@ Este passo cria uma configuração IP de gateway de aplicação chamada "gateway
 $pool = New-AzApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.1.1.8,10.1.1.9,10.1.1.10
 ```
 
-Este passo configura o conjunto de endereços IP de back-end denominado "pool01" com endereços IP "10.1.1.8, 10.1.1.9, 10.1.1.1.1.10". Estes endereços são os endereços IP que irão receber o tráfego de rede do ponto final do IP de front-end. Deve substituir os endereços IP acima para adicionar os seus próprios pontos finais do endereço IP da aplicação.
+Este passo configura o conjunto de endereços IP back-end denominado "pool01" com endereços IP "10.1.1.8, 10.1.1.9, 10.1.1.10". Estes endereços são os endereços IP que irão receber o tráfego de rede do ponto final do IP de front-end. Deve substituir os endereços IP acima para adicionar os seus próprios pontos finais do endereço IP da aplicação.
 
 ### <a name="step-3"></a>Passo 3
 
@@ -140,7 +140,7 @@ Este passo configura o conjunto de endereços IP de back-end denominado "pool01"
 $poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 ```
 
-Este passo configura o gateway da aplicação que define "poolsetting01" para o tráfego de rede equilibrado de carga na piscina traseira.
+Este passo configura a definição do gateway de aplicação "poolsetting01" para o tráfego de rede equilibrado de carga na piscina traseira.
 
 ### <a name="step-4"></a>Passo 4
 
@@ -156,7 +156,7 @@ Este passo configura a porta IP frontal chamada "frontendport01" para o ILB.
 $fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
 ```
 
-Este passo cria a configuração IP frontal chamada "fipconfig01" e associa-a a um IP privado da subnet de rede virtual atual.
+Este passo cria a configuração IP frontal chamada "fipconfig01" e associa-a a um IP privado a partir da sub-rede de rede virtual atual.
 
 ### <a name="step-6"></a>Passo 6
 
@@ -164,7 +164,7 @@ Este passo cria a configuração IP frontal chamada "fipconfig01" e associa-a a 
 $listener = New-AzApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 ```
 
-Este passo cria o ouvinte chamado "ouvinte001" e associa a porta frontal à configuração IP frontal.
+Este passo cria o ouvinte chamado "ouvinte01" e associa a porta frontal à configuração IP frontal.
 
 ### <a name="step-7"></a>Passo 7
 
@@ -172,7 +172,7 @@ Este passo cria o ouvinte chamado "ouvinte001" e associa a porta frontal à conf
 $rule = New-AzApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
-Este passo cria a regra de encaminhamento do equilibrante de carga chamada "regra01" que configura o comportamento do equilibrista de carga.
+Este passo cria a regra de encaminhamento do balançador de carga chamada "regra01" que configura o comportamento do equilibrador de carga.
 
 ### <a name="step-8"></a>Passo 8
 
@@ -180,30 +180,30 @@ Este passo cria a regra de encaminhamento do equilibrante de carga chamada "regr
 $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 ```
 
-Este passo confunde o tamanho da instância do gateway da aplicação.
+Este passo configura o tamanho da instância do gateway de aplicação.
 
 > [!NOTE]
-> O valor padrão para a Capacidade é 2. Para O Nome Sku, pode escolher entre Standard_Small, Standard_Medium e Standard_Large.
+> O valor predefinido para a Capacidade é 2. Para o Nome Sku, pode escolher entre Standard_Small, Standard_Medium e Standard_Large.
 
 ## <a name="create-an-application-gateway-by-using-new-azureapplicationgateway"></a>Criar um gateway de aplicação com o New-AzureApplicationGateway
 
-Cria um portal de aplicação com todos os itens de configuração dos passos anteriores. Neste exemplo, o gateway de aplicação é designado “appgwtest”.
+Cria um gateway de aplicação com todos os itens de configuração dos passos anteriores. Neste exemplo, o gateway de aplicação é designado “appgwtest”.
 
 ```powershell
 $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
-Este passo cria um portal de aplicação com todos os itens de configuração dos passos anteriores. No exemplo, o gateway de aplicação é designado “appgwtest”.
+Este passo cria um gateway de aplicação com todos os itens de configuração dos passos anteriores. No exemplo, o gateway de aplicação é designado “appgwtest”.
 
 ## <a name="delete-an-application-gateway"></a>Eliminar um gateway de aplicação
 
-Para eliminar um gateway de aplicação, é necessário fazer os seguintes passos por ordem:
+Para eliminar um gateway de aplicação, tem de fazer os seguintes passos para:
 
 1. Utilize o cmdlet `Stop-AzApplicationGateway` para parar o gateway.
 2. Utilize o cmdlet `Remove-AzApplicationGateway` para remover o gateway.
 3. Verifique se o gateway foi removido com o cmdlet `Get-AzureApplicationGateway`.
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Obtenha o objeto do gateway de aplicação e associe-o a uma variável “$getgw”.
 
@@ -213,7 +213,7 @@ $getgw =  Get-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 ### <a name="step-2"></a>Passo 2
 
-Utilize `Stop-AzApplicationGateway` para parar o gateway de aplicação. Esta amostra `Stop-AzApplicationGateway` mostra o cmdlet na primeira linha, seguido da saída.
+Utilize `Stop-AzApplicationGateway` para parar o gateway de aplicação. Esta amostra mostra o `Stop-AzApplicationGateway` cmdlet na primeira linha, seguido da saída.
 
 ```powershell
 Stop-AzApplicationGateway -ApplicationGateway $getgw  
@@ -256,12 +256,12 @@ VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
 Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se pretender configurar a descarga de SSL, veja [Configure an application gateway for SSL offload (Configurar um gateway de aplicação para a descarga de SSL)](application-gateway-ssl.md).
 
 Se pretender obter mais informações sobre as opções de balanceamento de carga em geral, veja:
 
-* [Equilibrador de carga Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Gestor de Tráfego Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
+* [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
+* [Traffic Manager do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 

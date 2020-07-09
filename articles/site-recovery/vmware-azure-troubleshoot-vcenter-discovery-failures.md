@@ -1,82 +1,84 @@
 ---
-title: Falhas na descoberta do VMware VCenter em Recuperação do Site Azure
-description: Este artigo descreve como resolver falhas de descoberta vCenter vCenter em Azure Site Recovery.
+title: Falhas na descoberta do VMware vCenter em Recuperação de Sítios Azure
+description: Este artigo descreve como resolver problemas falhas de descoberta vCenter VMware na Recuperação do Site Azure.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
-ms.openlocfilehash: f00c7b12accde9df9a5708a2b8b378d70428318d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d333972ea5f74d1676e5e4b4e1417c6bf5d87b79
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74091241"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135344"
 ---
-# <a name="troubleshoot-vcenter-server-discovery-failures"></a>Falhas na descoberta do Servidor de Problemas vCenter Server
+# <a name="troubleshoot-vcenter-server-discovery-failures"></a>Falhas de descoberta do servidor vCenter resolução de problemas
 
-Este artigo ajuda-o a resolver problemas que ocorrem devido a falhas na descoberta vCenter vMware VMware.
+Este artigo ajuda-o a resolver problemas que ocorrem devido a falhas na descoberta do VMware vCenter.
 
 ## <a name="non-numeric-values-in-the-maxsnapshots-property"></a>Valores não numéricos na propriedade maxSnapShots
 
-Em versões anteriores às 9.20, o vCenter desliga-se `snapshot.maxSnapShots` quando recupera um valor não numérico para a propriedade num VM.
+Nas versões anteriores às 9.20, o vCenter desliga-se quando recupera um valor não numérico para a `snapshot.maxSnapShots` propriedade num VM.
 
-Este problema é identificado pelo erro ID 95126.
+Este problema é identificado por erro ID 95126.
 
-    ERROR :: Hit an exception while fetching the required informationfrom vCenter/vSphere.Exception details:
-    System.FormatException: Input string was not in a correct format.
-       at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
-       at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
-       at VMware.VSphere.Management.InfraContracts.VirtualMachineInfo.get_MaxSnapshots()
-    
-Para resolver a questão:
+```output
+ERROR :: Hit an exception while fetching the required informationfrom vCenter/vSphere.Exception details:
+System.FormatException: Input string was not in a correct format.
+    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+    at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+    at VMware.VSphere.Management.InfraContracts.VirtualMachineInfo.get_MaxSnapshots()
+```
 
-- Identifique o VM e detete teo valor para um valor numérico (definições de Edição VM no vCenter).
+Para resolver o problema:
+
+- Identifique o VM e defina o valor para um valor numérico (definições de Edição VM em vCenter).
 
 Ou
 
-- Atualize o seu servidor de configuração para a versão 9.20 ou mais tarde.
+- Atualize o seu servidor de configuração para a versão 9.20 ou posterior.
 
-## <a name="proxy-configuration-issues-for-vcenter-connectivity"></a>Problemas de configuração proxy para conectividade vCenter
+## <a name="proxy-configuration-issues-for-vcenter-connectivity"></a>Problemas de configuração proxy para a conectividade vCenter
 
-vCenter Discovery honra as definições de proxy predefinidos do Sistema configuradas pelo utilizador do Sistema. O serviço DRA honra as definições de procuração fornecidas pelo utilizador durante a instalação do servidor de configuração utilizando o instalador de configuração unificado ou o modelo OVA. 
+vCenter Discovery honra as definições de procuração padrão do Sistema configuradas pelo utilizador do Sistema. O serviço DRA honra as definições de procuração fornecidas pelo utilizador durante a instalação do servidor de configuração utilizando o instalador de configuração unificado ou o modelo OVA. 
 
-Em geral, o representante é utilizado para comunicar às redes públicas; como comunicar com Azure. Se o proxy estiver configurado e o vCenter estiver num ambiente local, não será capaz de comunicar com a DRA.
+Em geral, o representante é utilizado para comunicar a redes públicas; como comunicar com Azure. Se o proxy estiver configurado e o vCenter estiver num ambiente local, não será capaz de comunicar com a DRA.
 
 As seguintes situações ocorrem quando esta questão é encontrada:
 
-- O servidor \<vCenter vCenter> não é acessível devido ao erro: O servidor remoto devolveu um erro: (503) Servidor Indisponível
-- O servidor \<vCenter vCenter> não é alcançável devido ao erro: O servidor remoto devolveu um erro: Incapaz de se ligar ao servidor remoto.
-- Incapaz de ligar ao servidor vCenter/ESXi.
+- O servidor vCenter \<vCenter> não é alcançável devido ao erro: O servidor remoto devolveu um erro: (503) Servidor Indisponível
+- O servidor vCenter \<vCenter> não é alcançável devido ao erro: O servidor remoto devolveu um erro: Não é possível ligar-se ao servidor remoto.
+- Não é possível ligar ao servidor vCenter/ESXi.
 
-Para resolver a questão:
+Para resolver o problema:
 
 Descarregue a [ferramenta PsExec](https://aka.ms/PsExec). 
 
 Utilize a ferramenta PsExec para aceder ao contexto do utilizador do Sistema e determinar se o endereço proxy está configurado. Em seguida, pode adicionar vCenter à lista de bypass utilizando os seguintes procedimentos.
 
-Para a configuração de procuração Discovery:
+Para a configuração de procuração discovery:
 
 1. Abra o IE no contexto do utilizador do sistema utilizando a ferramenta PsExec.
     
     psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 
-2. Modifique as definições de procuração no Internet Explorer para contornar o endereço IP vCenter.
-3. Reinicie o serviço de tmanssvc.
+2. Modifique as definições de procuração no Internet Explorer para contornar o endereço IP do vCenter.
+3. Reinicie o serviço tmanssvc.
 
 Para a configuração de procuração DRA:
 
-1. Abra um pedido de comando e abra a pasta Microsoft Azure Site Recovery Provider.
+1. Abra um pedido de comando e abra a pasta do Provedor de Recuperação do Site Microsoft Azure.
  
-    **cd C:\Program Files\Microsoft Azure Site Recovery Provider**
+    **cd C:\Ficheiros de programa\Microsoft Azure Site Recovery Provider**
 
-3. A partir do pedido de comando, executar o seguinte comando.
+3. A partir do comando, executar o seguinte comando.
    
-   **DRCONFIGURATOR. EXE /configure /AddBypassUrls [Endereço IP/FQDN do vCenter Server fornecido no momento do add vCenter]**
+   **DRCONFIGURATOR.EXE /configuração /AddBypassUrls [Endereço IP/FQDN do servidor vCenter fornecido no momento do add vCenter]**
 
-4. Reinicie o serviço de fornecedor de DRA.
+4. Reinicie o serviço de prestadores DE DRA.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Gerir o servidor de configuração para recuperação de desastres VMware VM](https://docs.microsoft.com/azure/site-recovery/vmware-azure-manage-configuration-server#refresh-configuration-server) 
+[Gerir o servidor de configuração para recuperação de desastres VMware VM](./vmware-azure-manage-configuration-server.md#refresh-configuration-server) 

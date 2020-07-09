@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Verifique a ortografia com a REST API e Python - Bing Spell Check'
+title: 'Quickstart: Verifique a ortografia com a API REST e python - Bing Spell Check'
 titleSuffix: Azure Cognitive Services
-description: Comece a usar a API bing spell check REST para verificar a ortografia e a gramática com este arranque rápido.
+description: Começa a utilizar a API Bing Spell Check REST para verificar a ortografia e a gramática com este arranque rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,18 +10,19 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: ce0e72545c8ecd82b78d437f2c4939aff6930c3d
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.custom: tracking-python
+ms.openlocfilehash: 65994313549c1744da58c5d63a70e803777f7f53
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993563"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84611091"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Quickstart: Verifique a ortografia com o Bing Spell Check REST API e Python
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Quickstart: Verifique a ortografia com a API de Verificação ortográfica Bing Check REST e Python
 
-Use este quickstart para fazer a sua primeira chamada para a API de Verificação de Feitiços de Bing. Este simples pedido python envia um pedido à API e devolve uma lista de correções sugeridas. 
+Utilize este arranque rápido para fazer a sua primeira chamada para a API Bing Spell Check REST. Esta simples aplicação Python envia um pedido à API e devolve uma lista de correções sugeridas. 
 
-Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação. O código fonte para esta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)
+Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código fonte desta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,7 +39,7 @@ Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTf
    import json
    ```
 
-2. Crie variáveis para o texto que pretende soletrar, a sua chave de subscrição e o seu ponto final de Verificação de Feitiços bing. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Crie variáveis para o texto que pretende soletrar, a sua chave de subscrição e o ponto final de Verificação ortográfica de Bing. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final [de subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
 
     ```python
     api_key = "<ENTER-KEY-HERE>"
@@ -48,7 +49,7 @@ Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTf
 
 ## <a name="create-the-parameters-for-the-request"></a>Criar os parâmetros para o pedido
 
-1. Crie um novo dicionário com `text` como chave, e o seu texto como valor.
+1. Crie um novo dicionário com `text` a chave e o seu texto como valor.
 
     ```python
     data = {'text': example_text}
@@ -56,9 +57,9 @@ Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTf
 
 2. Adicione os parâmetros para o seu pedido: 
 
-   1. Atribua o seu código de mercado ao `mkt` parâmetro com o `=` operador. O código de mercado é o código do país/região a quem faz o pedido. 
+   1. Atribua o seu código de mercado ao `mkt` parâmetro com o `=` operador. O código de mercado é o código do país/região a que faz o pedido. 
 
-   1. Adicione o `mode` parâmetro com o operador `&` e, em seguida, atribua o modo de verificação ortográfica. O modo pode ser `proof` (captura a maioria dos erros ortográficos/gramaticais) ou (apanha a maioria dos `spell` erros ortográficos, mas não tantos erros gramaticais). 
+   1. Adicione o `mode` parâmetro com o operador `&` e, em seguida, atribua o modo de verificação ortográfica. O modo pode ser `proof` (apanha a maioria dos erros ortográficos/gramaticais) ou `spell` (apanha a maioria dos erros ortográficos, mas não tantos erros gramaticais). 
  
     ```python
     params = {
@@ -67,7 +68,7 @@ Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTf
         }
     ```
 
-3. Adicione um `Content-Type` cabeçalho e a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
+3. Adicione um `Content-Type` cabeçalho e a chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
 
     ```python
     headers = {
@@ -78,13 +79,13 @@ Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTf
 
 ## <a name="send-the-request-and-read-the-response"></a>Envie o pedido e leia a resposta
 
-1. Envie o pedido do POST utilizando a biblioteca de pedidos.
+1. Envie o pedido do CORREIO através da biblioteca de pedidos.
 
     ```python
     response = requests.post(endpoint, headers=headers, params=params, data=data)
     ```
 
-2. Obtenha a resposta json e imprima-a.
+2. Obtenha a resposta JSON e imprima-a.
 
     ```python
     json_response = response.json()
@@ -100,7 +101,7 @@ Se estiver a utilizar a linha de comando, utilize o seguinte comando para execut
 python <FILE_NAME>.py
 ```
 
-## <a name="example-json-response"></a>Exemplo resposta JSON
+## <a name="example-json-response"></a>Exemplo JSON resposta
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
@@ -148,4 +149,4 @@ python <FILE_NAME>.py
 > [Criar uma aplicação web de página única](../tutorials/spellcheck.md)
 
 - [O que é a API de Verificação Ortográfica do Bing?](../overview.md)
-- [Referência de Bing Spell Check API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Bing Spell Check Referência V7 da API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

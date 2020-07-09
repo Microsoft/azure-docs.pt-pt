@@ -48,6 +48,8 @@
       href: reference-custom-providers-csharp-endpoint.md
     - name: REST
       href: /rest/api/customproviders/
+    - name: CLI do Azure
+      href: /cli/azure/ext/custom-providers/custom-providers/
 - name: Recursos
   items:
     - name: Mapa do Azure

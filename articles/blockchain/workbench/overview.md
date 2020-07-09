@@ -1,19 +1,19 @@
 ---
-title: Visão geral da bancada de trabalho Azure Blockchain
-description: Visão geral da Pré-visualização da bancada de trabalho Azure Blockchain e das suas capacidades.
+title: Visão geral da pré-visualização da bancada de trabalho de Azure Blockchain
+description: Visão geral da pré-visualização da bancada de trabalho Azure Blockchain e das suas capacidades.
 ms.date: 05/22/2020
 ms.topic: overview
 ms.reviewer: brendal
-ms.openlocfilehash: 9f2eafb892be4134d4fb178235249e5640544459
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 384fa553204a5a86ad479f2cc623ebb70a9a6f5f
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83850033"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434129"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>O que é o Azure Blockchain Workbench?
 
-A Azure Blockchain Workbench Preview é uma coleção de serviços e capacidades Azure projetados para ajudá-lo a criar e implementar aplicações blockchain para partilhar processos de negócio e dados com outras organizações. O Azure Blockchain Workbench fornece as bases de infraestrutura para a criação de aplicações blockchain, o que permite aos programadores concentrarem-se na criação da lógica de negócio e de contratos inteligentes. Também simplifica a criação de aplicações blockchain graças à integração de várias funcionalidades e serviços do Azure que ajudam a automatizar as tarefas de desenvolvimento comuns.
+A Azure Blockchain Workbench Preview é uma coleção de serviços e capacidades da Azure projetadas para ajudá-lo a criar e implementar aplicações blockchain para partilhar processos de negócio e dados com outras organizações. O Azure Blockchain Workbench fornece as bases de infraestrutura para a criação de aplicações blockchain, o que permite aos programadores concentrarem-se na criação da lógica de negócio e de contratos inteligentes. Também simplifica a criação de aplicações blockchain graças à integração de várias funcionalidades e serviços do Azure que ajudam a automatizar as tarefas de desenvolvimento comuns.
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
@@ -29,7 +29,7 @@ O Azure Blockchain Workbench disponibiliza uma aplicação Web e APIs REST para 
 
 Pode utilizar as APIs baseadas em mensagens e as APIs REST do Blockchain Workbench para promover a integração com os sistemas existentes. As APIs fornecem uma interface para permitir a substituição ou a utilização de várias tecnologias de registo distribuído, armazenamento e ofertas de bases de dados.
 
-A Blockchain Workbench pode transformar mensagens enviadas para a sua API baseada em mensagens para construir transações num formato esperado pela API nativa desse blockchain.  O Workbench pode assinar e encaminhar transações para o blockchain adequado. 
+Blockchain Workbench pode transformar mensagens enviadas para a sua API baseada em mensagens para construir transações num formato esperado pela API nativa da blockchain.  O Workbench pode assinar e encaminhar transações para o blockchain adequado. 
 
 O Workbench encaminha automaticamente os eventos para o Service Bus e o Event Grid para enviar mensagens aos consumidores a jusante. Os programadores podem integrar qualquer um destes sistemas de mensagens para promover as transações e analisar os resultados.
 
@@ -47,9 +47,9 @@ O Azure Blockchain Workbench facilita a análise dos dados e eventos blockchain 
 
 ## <a name="support-and-feedback"></a>Suporte e comentários
 
-Para notícias azure Blockchain, visite o [blog Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/) para se manter atualizado sobre as ofertas de serviços blockchain e informações da equipa de engenharia Azure Blockchain.
+Para notícias da Azure Blockchain, visite o [blog Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/) para se manter atualizado sobre ofertas de serviços blockchain e informações da equipa de engenharia Azure Blockchain.
 
-Para fornecer feedback do produto ou para solicitar novas funcionalidades, poste de voto para uma ideia através do fórum de [feedback Azure para blockchain](https://aka.ms/blockchainuservoice).
+Para fornecer feedback do produto ou para solicitar novas funcionalidades, publicar ou votar por uma ideia através do [fórum de feedback Azure para blockchain](https://aka.ms/blockchainuservoice).
 
 ### <a name="community-support"></a>Suporte da comunidade
 

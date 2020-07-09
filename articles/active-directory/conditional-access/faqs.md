@@ -4,20 +4,19 @@ description: Obtenha respostas para perguntas frequentes sobre acesso condiciona
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 05/28/2020
+ms.topic: troubleshooting
+ms.date: 06/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1704fb50586168be6f960e62b918019cb67ce4c8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.openlocfilehash: 5e75f7214e3a9aa5b44a763cc3448583b47185f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167813"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253244"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Perguntas de acesso condicionado a Azure Ative
 
@@ -31,7 +30,7 @@ As políticas são aplicadas aos utilizadores de colaboração entre empresas (B
 
 ## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business"></a>Uma política SharePoint Online também se aplica ao OneDrive for Business?
 
-Yes. Uma política SharePoint Online também se aplica ao OneDrive for Business. Para obter mais informações, consulte o artigo, [dependências do serviço de acesso condicional](service-dependencies.md) e considere como direcionar as políticas para a [aplicação office 365.](concept-conditional-access-cloud-apps.md#office-365-preview)
+Sim. Uma política SharePoint Online também se aplica ao OneDrive for Business. Para obter mais informações, consulte o artigo, [dependências do serviço de acesso condicional](service-dependencies.md) e considere como direcionar as políticas para a [aplicação office 365.](concept-conditional-access-cloud-apps.md#office-365-preview)
 
 ## <a name="why-cant-i-set-a-policy-directly-on-client-apps-like-word-or-outlook"></a>Por que não posso definir uma política diretamente em aplicativos de clientes, como o Word ou o Outlook?
 
@@ -54,6 +53,12 @@ O Microsoft Teams também é suportado separadamente como uma aplicação em nuv
 Os clientes de desktop da Microsoft Teams para Windows e Mac suportam a autenticação moderna. A autenticação moderna traz o login com base na Azure Ative Directory Authentication Library (ADAL) para aplicações de clientes do Microsoft Office através das plataformas.
 
 Para obter mais informações, consulte o artigo, [dependências do serviço de acesso condicional](service-dependencies.md) e considere como direcionar as políticas para a [aplicação office 365.](concept-conditional-access-cloud-apps.md#office-365-preview)
+
+## <a name="why-are-some-tabs-not-working-in-microsoft-teams-after-enabling-conditional-access-policies"></a>Porque é que alguns separadores não funcionam nas Equipas da Microsoft depois de permitirem políticas de acesso condicional?
+
+Depois de permitir algumas políticas de acesso condicional ao inquilino em Microsoft Teams, certos separadores podem deixar de funcionar no cliente do ambiente de trabalho como esperado. No entanto, os separadores afetados funcionam quando utilizam o cliente web do Microsoft Teams. Os separadores afetados podem incluir Power BI, Forms, VSTS, PowerApps e SharePoint List.
+
+Para ver os separadores afetados tem de utilizar o cliente web do Teams no Edge, No Internet Explorer ou no Chrome com a extensão das Contas Windows 10 instalada. Alguns separadores dependem da autenticação web, o que não funciona no cliente de desktop da Microsoft Teams quando o Acesso Condicional está ativado. A Microsoft está a trabalhar com parceiros para ativar estes cenários. Até à data, permitimos scenrarios envolvendo Planner, OneNote e Stream.
 
 ## <a name="next-steps"></a>Próximos passos
 

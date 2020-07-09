@@ -1,5 +1,5 @@
 ---
-title: Visão geral dos VMs linux em Azure
+title: Visão geral dos VMs Linux em Azure
 description: Visão geral das máquinas virtuais Linux em Azure.
 author: cynthn
 ms.service: virtual-machines-linux
@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9921db093cc111917d50acfccc10165c0eab6b0f
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 98a118ef662abd323854911e9fc1ffc6b7374db2
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930748"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84232984"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Máquinas virtuais do Linux no Azure
 
@@ -48,7 +48,7 @@ Esta tabela apresenta algumas das formas de obter uma lista de localizações di
 | Método | Descrição |
 | --- | --- |
 | Portal do Azure |Selecione uma localização da lista ao criar uma VM. |
-| Azure PowerShell |Utilize o comando [Get-AzLocation.](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) |
+| Azure PowerShell |Use o comando [Get-AzLocation.](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) |
 | API REST |Utilize a operação [Listar localizações](https://docs.microsoft.com/rest/api/resources/subscriptions). |
 | CLI do Azure |Utilize a operação [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest). |
 
@@ -58,7 +58,7 @@ O Azure anunciou um Contrato de Nível de Serviço líder da indústria de 99,9%
 ## <a name="vm-size"></a>Tamanho da VM
 O [tamanho](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) da VM que utiliza é determinado pela carga de trabalho que pretende executar. O tamanho que escolher determina fatores como o poder de processamento, a memória e capacidade de armazenamento. O Azure disponibiliza uma vasta variedade de tamanhos para suportar muitos tipos de utilizações.
 
-O Azure cobra um [preço por hora](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) com base no tamanho e no sistema operativo do VM. Para horas parciais, o Azure cobra apenas os minutos utilizados. O armazenamento tem um preço à parte e é cobrado separadamente.
+O Azure cobra um [preço por hora](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) com base no tamanho e sistema operativo do VM. Para horas parciais, o Azure cobra apenas os minutos utilizados. O armazenamento tem um preço à parte e é cobrado separadamente.
 
 ## <a name="vm-limits"></a>Limites da VM
 A subscrição tem [limites de quota](../../azure-resource-manager/management/azure-subscription-service-limits.md) predefinidos num local que pode afetar a implementação de muitas VMs para o seu projeto. O limite atual numa base por subscrição é de 20 VMs por região. Os limites podem ser aumentados ao [preencher um pedido de suporte a pedir um aumento](../../azure-portal/supportability/resource-manager-core-quotas-request.md)
@@ -69,7 +69,7 @@ O Managed Disks processa a criação e a gestão da conta de Armazenamento do Az
 
 Também pode gerir as imagens personalizadas numa conta de armazenamento por região do Azure e utilizá-las para criar centenas de VMs na mesma subscrição. Para mais informações sobre discos geridos, veja [Managed Disks Overview (Descrição geral dos Managed Disks)](../linux/managed-disks-overview.md).
 
-## <a name="distributions"></a>Distribuição 
+## <a name="distributions"></a>Distribuições 
 O Microsoft Azure suporta a execução de diversas distribuições Linux populares, que são disponibilizadas e mantidas por múltiplos parceiros.  Pode encontrar distribuições como Red Hat Enterprise, CentOS, SUSE Linux Enterprise, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD, entre outras, no Azure Marketplace. A Microsoft trabalha ativamente com várias comunidades do Linux para adicionar ainda mais tipos à lista [Azure endorsed Linux Distros](endorsed-distros.md)(Distribuições Linux aprovadas pelo Azure).
 
 Se a distribuição que preferir não estiver incluída atualmente na galeria, pode [criar e carregar um VHD do Linux para o Azure](create-upload-generic.md) para “Trazer a sua própria VM do Linux”.
@@ -78,26 +78,26 @@ A Microsoft trabalha de perto com os parceiros para garantir que as imagens disp
 
 * Linux no Azure - [Endorsed Distributions](endorsed-distros.md) (Distribuições Suportadas)
 * SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/marketplace/apps?search=suse%20sles&page=1)
-* Chapéu Vermelho - [Azure Marketplace - Red Hat Enterprise Linux 8.1](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux81-ARM)
-* Canónica - [Azure Marketplace - Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer)
+* Chapéu Vermelho - [Mercado Azure - Red Hat Enterprise Linux 8.1](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux81-ARM)
+* Canonical - [Azure Marketplace - Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer)
 * Debian - [Azure Marketplace - Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian)
-* FreeBSD - [Azure Marketplace - FreeBSD 10.4](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD104)
+* FreeBSD - [Mercado Azure - FreeBSD 10.4](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD104)
 * CoreOS - [Azure Marketplace - Container Linux by CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS)
 * RancherOS - [Azure Marketplace - RancherOS](https://azuremarketplace.microsoft.com/marketplace/apps/rancher.rancheros)
 * Bitnami - [Bitnami Library for Azure](https://azure.bitnami.com/)
 * Mesosphere - [Azure Marketplace - Mesosphere DC/OS on Azure](https://azure.microsoft.com/services/kubernetes-service/mesosphere/) (Mesosphere DC/OS no Azure)
-* Docker - [Azure Marketplace - Imagens Docker](https://azuremarketplace.microsoft.com/marketplace/apps?search=docker&page=1&filters=virtual-machine-images)
+* Docker - [Azure Marketplace - Imagens docker](https://azuremarketplace.microsoft.com/marketplace/apps?search=docker&page=1&filters=virtual-machine-images)
 * Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudbees.cloudbees-core-contact)
 
 
 ## <a name="cloud-init"></a>Inicialização da cloud 
 
-Para obter uma cultura de Dev/Ops adequada, toda a infraestrutura deve ser código.  Quando toda a infraestrutura vive em código, pode facilmente ser recriada.  O Azure funciona com as principais ferramentas de automatização, como Ansible, Chef, SaltStack e Puppet.  O Azure também tem as suas próprias ferramentas de automatização:
+Para obter uma cultura de Dev/Ops adequada, toda a infraestrutura deve ser código.  Quando toda a infraestrutura vive em código, pode ser facilmente recriada.  O Azure funciona com as principais ferramentas de automatização, como Ansible, Chef, SaltStack e Puppet.  O Azure também tem as suas próprias ferramentas de automatização:
 
-* [Modelos azure](create-ssh-secured-vm-from-template.md)
+* [Modelos Azure](create-ssh-secured-vm-from-template.md)
 * [VMAccess do Azure](using-vmaccess-extension.md)
 
-Azure suporta para [cloud-init](https://cloud-init.io/) em toda a maioria DeStros Linux que o suportam.  Estamos a trabalhar ativamente com os nossos parceiros de distro linux endossados para ter imagens ativadas em nuvem disponíveis no mercado Azure. Estas imagens farão com que as suas implementações e configurações de cloud-init funcionem perfeitamente com VMs e conjuntos de escala de máquinas virtuais.
+O Azure suporta [a inibição de nuvens na](https://cloud-init.io/) maioria dos Distros Linux que o suportam.  Estamos a trabalhar ativamente com os nossos parceiros de distro Linux endossados, de forma a ter imagens ativadas em nuvem disponíveis no mercado Azure. Estas imagens farão com que as suas implementações e configurações de ineção em nuvem funcionem perfeitamente com VMs e conjuntos de escala de máquinas virtuais.
 
 * [Utilizar o cloud-init em VMs do Linux no Azure](using-cloud-init.md)
 
@@ -108,7 +108,7 @@ Azure suporta para [cloud-init](https://cloud-init.io/) em toda a maioria DeStro
 
 ## <a name="networking"></a>Redes
 * [Descrição Geral da Rede Virtual](../../virtual-network/virtual-networks-overview.md)
-* [Endereços IP no Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* [Endereços IP no Azure](../../virtual-network/public-ip-addresses.md)
 * [Opening ports to a Linux VM in Azure](nsg-quickstart.md) (Abrir portas para uma VM do Linux no Azure)
 * [Create a Fully Qualified Domain Name in the Azure portal](portal-create-fqdn.md) (Criar um Nome de Domínio Completamente Qualificado no portal do Azure)
 

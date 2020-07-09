@@ -1,20 +1,19 @@
 ---
 title: Recursos infantis em modelos
-description: Descreve como definir o nome e o tipo para recursos infantis num modelo de Gestor de Recursos Azure.
+description: Descreve como definir o nome e o tipo de recursos para crianças num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.openlocfilehash: 3a69829e674925982c618807f49433a033d8c5f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80743831"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Definir nome e tipo para recursos infantis
 
-Os recursos infantis são recursos que existem apenas no contexto de outro recurso. Por exemplo, uma [extensão virtual](/azure/templates/microsoft.compute/2019-03-01/virtualmachines/extensions) da máquina não pode existir sem uma [máquina virtual](/azure/templates/microsoft.compute/2019-03-01/virtualmachines). O recurso de extensão é uma criança da máquina virtual.
+Os recursos infantis são recursos que existem apenas no contexto de outro recurso. Por exemplo, uma [extensão de máquina virtual](/azure/templates/microsoft.compute/2019-03-01/virtualmachines/extensions) não pode existir sem uma [máquina virtual](/azure/templates/microsoft.compute/2019-03-01/virtualmachines). O recurso de extensão é uma criança da máquina virtual.
 
-Num modelo de Gestor de Recursos, pode especificar o recurso infantil dentro do recurso-mãe ou fora do recurso-mãe. O exemplo seguinte mostra o recurso infantil incluído na propriedade de recursos do recurso-mãe.
+Num modelo de Gestor de Recursos, pode especificar o recurso da criança dentro do recurso principal ou fora do recurso principal. O exemplo a seguir mostra o recurso da criança incluído na propriedade dos recursos do recurso principal.
 
 ```json
 "resources": [
@@ -27,7 +26,7 @@ Num modelo de Gestor de Recursos, pode especificar o recurso infantil dentro do 
 ]
 ```
 
-O exemplo seguinte mostra o recurso infantil fora do recurso-mãe. Pode utilizar esta abordagem se o recurso-mãe não for implantado no mesmo modelo, ou se quiser usar [cópia](copy-resources.md) para criar mais do que um recurso infantil.
+O exemplo seguinte mostra o recurso da criança fora do recurso principal. Pode utilizar esta abordagem se o recurso dos pais não for implantado no mesmo modelo, ou se quiser usar a [cópia](copy-resources.md) para criar mais do que um recurso infantil.
 
 ```json
 "resources": [
@@ -40,18 +39,18 @@ O exemplo seguinte mostra o recurso infantil fora do recurso-mãe. Pode utilizar
 ]
 ```
 
-Os valores que fornece para o nome e o tipo de recursos variam em função de se o recurso da criança é definido dentro ou fora do recurso-mãe.
+Os valores que fornece para o nome e o tipo de recurso variam em função do facto de o recurso da criança ser definido dentro ou fora do recurso principal.
 
-## <a name="within-parent-resource"></a>Dentro do recurso-mãe
+## <a name="within-parent-resource"></a>Dentro do recurso principal
 
-Quando definido dentro do tipo de recurso-mãe, forme os valores do tipo e do nome como uma única palavra sem cortes.
+Quando definido dentro do tipo de recurso principal, você forma o tipo e os valores de nome como uma única palavra sem cortes.
 
 ```json
 "type": "{child-resource-type}",
 "name": "{child-resource-name}",
 ```
 
-O exemplo seguinte mostra uma rede virtual e com uma sub-rede. Note que a subnet a subnet está incluída na matriz de recursos para a rede virtual. O nome está definido para **Subnet1** e o tipo está definido para **sub-redes**. O recurso da criança é marcado como dependente do recurso-mãe porque o recurso-mãe deve existir antes de o recurso da criança poder ser implantado.
+O exemplo a seguir mostra uma rede virtual e com uma sub-rede. Note que a sub-rede está incluída no conjunto de recursos da rede virtual. O nome está definido para **Subnet1** e o tipo está definido para **sub-redes**. O recurso da criança é marcado como dependente do recurso principal porque o recurso principal deve existir antes de o recurso da criança poder ser implantado.
 
 ```json
 "resources": [
@@ -85,20 +84,20 @@ O exemplo seguinte mostra uma rede virtual e com uma sub-rede. Note que a subnet
 ]
 ```
 
-O tipo completo de recursos ainda é **Microsoft.Network/virtualNetworks/subnets**. Não fornece **Microsoft.Network/virtualNetworks/** porque é assumido a partir do tipo de recurso principal.
+O tipo completo de recursos ainda é **Microsoft.Network/virtualNetworks/subnets**. Não fornece **Microsoft.Network/virtualNetworks/** porque é assumido do tipo de recurso principal.
 
-O nome do recurso para crianças está definido para **Subnet1,** mas o nome completo inclui o nome principal. Não **forneces VNet1** porque é assumido a partir do recurso-mãe.
+O nome do recurso para crianças está definido para **Subnet1,** mas o nome completo inclui o nome principal. Não **forneces o VNet1** porque é assumido pelo recurso dos pais.
 
-## <a name="outside-parent-resource"></a>Recurso dos pais externos
+## <a name="outside-parent-resource"></a>Recurso de pai externo
 
-Quando definido fora do recurso-mãe, forme o tipo e com cortes para incluir o tipo e o nome dos pais.
+Quando definido fora do recurso principal, você forma o tipo e com cortes para incluir o tipo e nome do progenitor.
 
 ```json
 "type": "{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}",
 "name": "{parent-resource-name}/{child-resource-name}",
 ```
 
-O exemplo seguinte mostra uma rede virtual e uma sub-rede que são definidas ao nível da raiz. Note que a subnet não está incluída na matriz de recursos para a rede virtual. O nome está definido para **VNet1/Subnet1** e o tipo é definido para **Microsoft.Network/virtualNetworks/subnets**. O recurso da criança é marcado como dependente do recurso-mãe porque o recurso-mãe deve existir antes de o recurso da criança poder ser implantado.
+O exemplo a seguir mostra uma rede virtual e uma sub-rede que são ambas definidas ao nível da raiz. Note que a sub-rede não está incluída no conjunto de recursos da rede virtual. O nome está definido para **VNet1/Subnet1** e o tipo está definido para **Microsoft.Network/virtualNetworks/subnetworks**/ . O recurso da criança é marcado como dependente do recurso principal porque o recurso principal deve existir antes de o recurso da criança poder ser implantado.
 
 ```json
 "resources": [
@@ -130,8 +129,8 @@ O exemplo seguinte mostra uma rede virtual e uma sub-rede que são definidas ao 
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para aprender sobre a criação de modelos de Gestor de Recursos Azure, consulte [os modelos de autor.](template-syntax.md)
+* Para saber sobre a criação de modelos de Gestor de Recursos Azure, consulte [os modelos de autoria](template-syntax.md).
 
-* Para conhecer o formato do nome do recurso ao fazer referência ao recurso, consulte a [função de referência](template-functions-resource.md#reference).
+* Para saber mais sobre o formato do nome do recurso ao fazer referência ao recurso, consulte a [função de referência](template-functions-resource.md#reference).

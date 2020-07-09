@@ -1,62 +1,60 @@
 ---
-title: Serviço de Aplicações Azure como fonte da Grelha de Eventos
-description: Este artigo descreve como usar o Serviço de Aplicações Azure como uma fonte de evento sinuoso. Fornece o esquema e ligações ao tutorial e aos artigos de como fazer.
-services: event-grid
+title: Azure App Service como fonte de Grade de Eventos
+description: Este artigo descreve como usar o Azure App Service como fonte de eventos da Grade de Eventos. Fornece o esquema e links para artigos tutoriais e como-a-para-
 author: jasonfreeberg
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 07/07/2020
 ms.author: jafreebe
-ms.openlocfilehash: 0a24e8ba84739dbc1b5de5e0546a8fe0d2e826f1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2465b2f260ed6c174b762fcf64a71100a148254d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650703"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106716"
 ---
-# <a name="azure-app-service-as-an-event-grid-source"></a>Serviço de Aplicações Azure como fonte da Rede de Eventos
+# <a name="azure-app-service-as-an-event-grid-source"></a>Azure App Service como fonte de grade de eventos
 
-Este artigo fornece as propriedades e esquemas para eventos do Serviço de Aplicações Azure. Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](event-schema.md). Também lhe dá uma lista de arranques rápidos e tutoriais para usar o Azure App Service como fonte de evento.
+Este artigo fornece as propriedades e esquema para eventos do Azure App Service. Para uma introdução aos esquemas de eventos, consulte [o esquema do evento Azure Event Grid](event-schema.md). Também lhe dá uma lista de partidas rápidas e tutoriais para usar o Azure App Service como fonte de evento.
 
 ## <a name="event-grid-event-schema"></a>Esquema de eventos do Event Grid
 
 ### <a name="available-event-types"></a>Tipos de eventos disponíveis
 
-Azure App Service emite os seguintes tipos de eventos
+O Azure App Service emite os seguintes tipos de eventos
 
 |    Tipo de Evento                                             |    Descrição                                                     |
 |-----------------------------------------------------------|--------------------------------------------------------------------|
-|    Microsoft.Web/sites. BackupOperationIniciado             |    Desencadeado quando um backup começou                             |
-|    Microsoft.Web/sites. BackupOperationCompleted           |    Desencadeado quando uma cópia de segurança tiver sido concluída                           |
-|    Microsoft.Web/sites. BackupOperationFailed              |    Desencadeado quando um backup falhou                              |
-|    Microsoft.Web/sites. RestauroOperação Iniciada            |    Desencadeado quando uma restauração de uma cópia de segurança começou        |
-|    Microsoft.Web/sites. Restaurar Operação Concluída          |    Desencadeado quando uma restauração de uma cópia de segurança tiver concluído      |
-|    Microsoft.Web/sites. Restaurar Operação Falhada             |    Desencadeado quando uma restauração de uma cópia de segurança falhou         |
-|    Microsoft.Web/sites. SlotSwapStarted                    |    Desencadeado quando uma troca de slot começou                          |
-|    Microsoft.Web/sites. SlotSwapCompleted                  |    Desencadeado quando uma troca de slot tiver concluído                      |
+|    Microsoft.Web/sites. BackupOperationStarted             |    Desencadeado quando uma cópia de segurança começou                             |
+|    Microsoft.Web/sites. BackupOperationCompleted           |    Desencadeado quando uma cópia de segurança está concluída                           |
+|    Microsoft.Web/sites. BackupOperaçãoFailed              |    Desencadeado quando um backup falhou                              |
+|    Microsoft.Web/sites. RestaurarOperationStarted            |    Desencadeado quando uma restauração de uma cópia de segurança começou        |
+|    Microsoft.Web/sites. RestauraçãoOperaçãoCompletada          |    Desencadeado quando uma restauração de uma cópia de segurança está concluída      |
+|    Microsoft.Web/sites. RestauraçãoOperaçãoFailed             |    Desencadeado quando uma restauração de uma cópia de segurança falhou         |
+|    Microsoft.Web/sites. SlotSwapStarted                    |    Desencadeado quando uma troca de slots começou                          |
+|    Microsoft.Web/sites. SlotSwapCompleted                  |    Desencadeado quando uma troca de slot está concluída                      |
 |    Microsoft.Web/sites. SlotSwapFailed                     |    Desencadeado quando uma troca de slot falhou                           |
-|    Microsoft.Web/sites. SlotswapWithPreviewIniciado         |    Desencadeado quando uma troca de slot com pré-visualização começou           |
-|    Microsoft.Web/sites. SlotswapWithPreviewcancelado       |    Desencadeado quando uma troca de slot com pré-visualização foi cancelada    |
-|    Microsoft.Web/sites. AppUpdated.Restarted               |    Desencadeado quando um site foi reiniciado                      |
-|    Microsoft.Web/sites. AppUpdated.Parou                 |    Desencadeado quando um site foi parado                          |
-|    Microsoft.Web/sites. AppUpdated.ChangedAppSettings      |    Desencadeado quando as definições de aplicativos de um site mudaram             |
-|    Microsoft.Web/serverfarms. AppServicePlanAtualizado        |    Desencadeado quando um Plano de Serviço de Aplicações é atualizado                 |
+|    Microsoft.Web/sites. SlotSwapWithPreviewStarted         |    Desencadeado quando uma troca de slot com pré-visualização começou           |
+|    Microsoft.Web/sites. SlotSwapWithPreviewCancelled       |    Desencadeado quando uma troca de slot com pré-visualização foi cancelada    |
+|    Microsoft.Web/sites. AppUpdated.Restarted.Recomeçado               |    Desencadeado quando um site foi reiniciado                      |
+|    Microsoft.Web/sites. AppUpdated.Stop                 |    Desencadeado quando um site foi parado                          |
+|    Microsoft.Web/sites. AppUpdated.ChangedAppSettings      |    Desencadeado quando as definições de aplicações de um site mudaram             |
+|    Microsoft.Web/serverfarms. AppServicePlanUpdated        |    Desencadeado quando um Plano de Serviço de Aplicações é atualizado                 |
 
-### <a name="the-contents-of-an-event-response"></a>O conteúdo de uma resposta de evento
+### <a name="the-contents-of-an-event-response"></a>O conteúdo de uma resposta do evento
 
-Quando um evento é desencadeado, o serviço De Event Grid envia dados sobre esse evento para subscrever endpoint.
-Esta secção contém um exemplo do que esses dados seriam para cada evento. Cada evento tem os seguintes dados de alto nível:
+Quando um evento é desencadeado, o serviço De Grelha de Eventos envia dados sobre esse evento para subscrever o ponto final.
+Esta secção contém um exemplo de como seriam esses dados para cada evento. Cada evento tem os seguintes dados de alto nível:
 
 |     Propriedade          |     Tipo     |     Descrição                                                                                                                                |
 |-----------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-|    tópico              |    string    |    Caminho de recursos completos para a fonte do evento. Este campo não é repreensível. O Event Grid fornece este valor.                                      |
-|    Assunto            |    string    |    Caminho definido pela editora para o assunto do evento.                                                                                              |
-|    eventType          |    string    |    Um dos tipos de eventos registados para esta fonte do evento.                                                                                  |
+|    tópico              |    string    |    Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor.                                      |
+|    Assunto            |    string    |    Caminho definido pela editora para o tema do evento.                                                                                              |
+|    eventType          |    string    |    Um dos tipos de eventos registados para esta fonte de evento.                                                                                  |
 |    eventTime          |    string    |    O tempo que o evento é gerado com base no tempo UTC do fornecedor.                                                                         |
 |    ID                 |    string    |    Identificador único para o evento.                                                                                                            |
-|    data               |    objeto    |    Dados do evento de armazenamento blob.                                                                                                                    |
-|    dataVersion        |    string    |    A versão esquema do objeto de dados. O publicador define a versão do esquema.                                                          |
-|    metadataVersion    |    string    |    A versão de esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. A Grelha de Eventos fornece este valor.    |
+|    dados               |    objeto    |    Dados do evento de armazenamento de bolhas.                                                                                                                    |
+|    dataVersion        |    string    |    A versão do esquema do objeto de dados. O publicador define a versão do esquema.                                                          |
+|    metadataVersion    |    string    |    A versão de esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. A Grade de Eventos fornece este valor.    |
 
 #### <a name="backupoperationstarted-backupoperationcompleted-backupoperationfailed"></a>BackupOperationStarted, BackupOperationCompleted, BackupOperationFailed
 
@@ -88,13 +86,13 @@ O objeto de dados contém as seguintes propriedades:
 |    appEventTypeDetail      |    objeto    |    Detalhe de ação na app                                                                                       |
 |    action                  |    string    |    Tipo de ação da operação                                                                                   |
 |    name                    |    string    |    nome do site que tinha este evento                                                                          |
-|    clientRequestId         |    string    |    O id de pedido do cliente gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento         |
-|    correlaçãoRequestId    |    string    |    O id de pedido de correlação gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento    |
-|    requestId               |    string    |    O id de pedido gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento                |
+|    clienteRequestId         |    string    |    O id de pedido do cliente gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento         |
+|    re correlaçãoRequestId    |    string    |    O id de pedido de correlação gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento    |
+|    requestId               |    string    |    O id pedido gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento                |
 |    address                 |    string    |    HTTP solicitar URL desta operação                                                                                |
-|    verbo                    |    string    |    Verbo HTTP desta operação                                                                                       |
+|    verbo                    |    string    |    VERBO HTTP desta operação                                                                                       |
 
-#### <a name="restoreoperationstarted-restoreoperationcompleted-restoreoperationfailed"></a>RestoreOperationStarted, RestoreOperationCompleted, RestoreOperationFailed
+#### <a name="restoreoperationstarted-restoreoperationcompleted-restoreoperationfailed"></a>RestaurarOperaçãoOperatória, RestauraçãoCompleted, RestoreOperationFailed
 
 ```js
 {
@@ -126,11 +124,11 @@ O objeto de dados contém as seguintes propriedades:
 |    appEventTypeDetail      |    objeto    |    Detalhe de ação na app                                                                                       |
 |    action                  |    string    |    Tipo de ação da operação                                                                                   |
 |    name                    |    string    |    nome do site que tinha este evento                                                                          |
-|    clientRequestId         |    string    |    O id de pedido do cliente gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento         |
-|    correlaçãoRequestId    |    string    |    O id de pedido de correlação gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento    |
-|    requestId               |    string    |    O id de pedido gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento                |
+|    clienteRequestId         |    string    |    O id de pedido do cliente gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento         |
+|    re correlaçãoRequestId    |    string    |    O id de pedido de correlação gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento    |
+|    requestId               |    string    |    O id pedido gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento                |
 |    address                 |    string    |    HTTP solicitar URL desta operação                                                                                |
-|    verbo                    |    string    |    Verbo HTTP desta operação                                                                                       |
+|    verbo                    |    string    |    VERBO HTTP desta operação                                                                                       |
 
 #### <a name="slotswapstarted-slotswapcompleted-slotswapfailed"></a>SlotSwapStarted, SlotSwapCompleted, SlotSwapFailed
 
@@ -164,14 +162,14 @@ O objeto de dados contém as seguintes propriedades:
 |    appEventTypeDetail      |    objeto    |    Detalhe de ação na app                                                                                       |
 |    action                  |    string    |    Tipo de ação da operação                                                                                   |
 |    name                    |    string    |    nome do site que tinha este evento                                                                          |
-|    clientRequestId         |    string    |    O id de pedido do cliente gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento         |
-|    correlaçãoRequestId    |    string    |    O id de pedido de correlação gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento    |
-|    requestId               |    string    |    O id de pedido gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento                |
+|    clienteRequestId         |    string    |    O id de pedido do cliente gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento         |
+|    re correlaçãoRequestId    |    string    |    O id de pedido de correlação gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento    |
+|    requestId               |    string    |    O id pedido gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento                |
 |    address                 |    string    |    HTTP solicitar URL desta operação                                                                                |
-|    verbo                    |    string    |    Verbo HTTP desta operação                                                                                       |
-|    fonteSlot              |    string    |    A ranhura de origem da troca                                                                                       |
+|    verbo                    |    string    |    VERBO HTTP desta operação                                                                                       |
+|    fonteSlot              |    string    |    A ranhura de origem da permuta                                                                                       |
 
-#### <a name="slotswapwithpreviewstarted-slotswapwithpreviewcancelled"></a>SlotswapWithPreviewStarted, SlotswapWithPreviewCancelado
+#### <a name="slotswapwithpreviewstarted-slotswapwithpreviewcancelled"></a>SlotSwapWithPreviewStarted, SlotSwapWithPreviewCancelled
 
 ```js
 {
@@ -203,13 +201,13 @@ O objeto de dados contém as seguintes propriedades:
 |    appEventTypeDetail      |    objeto    |    Detalhe de ação na app                                                                                       |
 |    action                  |    string    |    Tipo de ação da operação                                                                                   |
 |    name                    |    string    |    nome do site que tinha este evento                                                                          |
-|    clientRequestId         |    string    |    O id de pedido do cliente gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento         |
-|    correlaçãoRequestId    |    string    |    O id de pedido de correlação gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento    |
-|    requestId               |    string    |    O id de pedido gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento                |
+|    clienteRequestId         |    string    |    O id de pedido do cliente gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento         |
+|    re correlaçãoRequestId    |    string    |    O id de pedido de correlação gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento    |
+|    requestId               |    string    |    O id pedido gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento                |
 |    address                 |    string    |    HTTP solicitar URL desta operação                                                                                |
-|    verbo                    |    string    |    Verbo HTTP desta operação                                                                                       |
+|    verbo                    |    string    |    VERBO HTTP desta operação                                                                                       |
 
-#### <a name="appupdatedrestarted-appupdatedstopped-appupdatedchangedappsettings"></a>AppUpdated.Restarted, AppUpdated.Stopped, AppUpdated.ChangedAppSettings
+#### <a name="appupdatedrestarted-appupdatedstopped-appupdatedchangedappsettings"></a>AppUpdated.Restarted, AppUpdated.Stop, AppUpdated.ChangedAppSettings
 
 ```js
 {
@@ -241,13 +239,13 @@ O objeto de dados tem as seguintes propriedades:
 |    appEventTypeDetail      |    objeto    |    Detalhe de ação na app                                                                                       |
 |    action                  |    string    |    Tipo de ação da operação                                                                                   |
 |    name                    |    string    |    nome do site que tinha este evento                                                                          |
-|    clientRequestId         |    string    |    O id de pedido do cliente gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento         |
-|    correlaçãoRequestId    |    string    |    O id de pedido de correlação gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento    |
-|    requestId               |    string    |    O id de pedido gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento                |
+|    clienteRequestId         |    string    |    O id de pedido do cliente gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento         |
+|    re correlaçãoRequestId    |    string    |    O id de pedido de correlação gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento    |
+|    requestId               |    string    |    O id pedido gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento                |
 |    address                 |    string    |    HTTP solicitar URL desta operação                                                                                |
-|    verbo                    |    string    |    Verbo HTTP desta operação                                                                                       |
+|    verbo                    |    string    |    VERBO HTTP desta operação                                                                                       |
 
-#### <a name="serverfarmsappserviceplanupdated"></a>Serverfarms.AppServicePlanAtualizado
+#### <a name="serverfarmsappserviceplanupdated"></a>Serverfarms.AppServicePlanUpdated
 
 ```js
 {
@@ -286,19 +284,19 @@ O objeto de dados tem as seguintes propriedades:
 |    Propriedade                         |    Tipo      |    Descrição                                                                                                       |
 |-------------------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    appServicePlanEventTypeDetail    |    objeto    |    Detalhe de ação no plano de serviço de aplicações                                                                          |
-|    carimboKind                        |    string    |    Tipo de ambiente onde o plano de serviço de aplicações é                                                                     |
+|    stampKind                        |    string    |    Tipo de ambiente onde o plano de serviço de aplicações é                                                                     |
 |    action                           |    string    |    Tipo de ação no plano de serviço de aplicações                                                                            |
 |    status                           |    string    |    Estado da operação no plano de serviço de aplicações                                                                   |
 |    sku                              |    objeto    |    sku do plano de serviço de aplicações                                                                                       |
 |    name                             |    string    |    nome do plano de serviço de aplicações                                                                                      |
 |    Escalão                             |    string    |    nível do plano de serviço de aplicações                                                                                      |
 |    Tamanho                             |    string    |    tamanho do plano de serviço de aplicações                                                                                      |
-|    Família                           |    string    |    família de app plano de serviço                                                                                        |
+|    Família                           |    string    |    família do plano de serviço de aplicativos                                                                                        |
 |    Capacidade                         |    string    |    capacidade do plano de serviço de aplicações                                                                                      |
 |    action                           |    string    |    Tipo de ação da operação                                                                                   |
 |    name                             |    string    |    nome do site que tinha este evento                                                                          |
-|    clientRequestId                  |    string    |    O id de pedido do cliente gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento         |
-|    correlaçãoRequestId             |    string    |    O id de pedido de correlação gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento    |
-|    requestId                        |    string    |    O id de pedido gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento                |
+|    clienteRequestId                  |    string    |    O id de pedido do cliente gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento         |
+|    re correlaçãoRequestId             |    string    |    O id de pedido de correlação gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento    |
+|    requestId                        |    string    |    O id pedido gerado pelo serviço de aplicações para a operação API do site que desencadeou este evento                |
 |    address                          |    string    |    HTTP solicitar URL desta operação                                                                                |
-|    verbo                             |    string    |    Verbo HTTP desta operação                                                                                       |
+|    verbo                             |    string    |    VERBO HTTP desta operação                                                                                       |

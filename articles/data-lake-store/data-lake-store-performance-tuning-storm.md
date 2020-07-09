@@ -1,135 +1,134 @@
 ---
 title: Afinação de desempenho - Tempestade com Azure Data Lake Storage Gen1
-description: Conheça as diretrizes de afinação de desempenho para um aglomerado de tempestades em Azure Data Lake Storage Gen1.
+description: Saiba mais sobre as diretrizes de afinação de desempenho para um cluster storm na Azure Data Lake Storage Gen1.
 author: stewu
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 85a38a4da65d1b4a669a41eba902b39508e9216c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: 47fb385e5e1fb60f860735530356fa87031c51e8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691648"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513787"
 ---
-# <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Orientação de afinação de desempenho para tempestade em HDInsight e Azure Data Lake Storage Gen1
+# <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Orientação de afinação de desempenho para storm on HDInsight e Azure Data Lake Storage Gen1
 
-Compreenda os fatores que devem ser considerados quando afinar o desempenho de uma topologia da tempestade azure. Por exemplo, é importante compreender as características do trabalho feito pelos bicos e parafusos (se o trabalho é I/O ou memória intensiva). Este artigo abrange uma série de diretrizes de afinação de desempenho, incluindo problemas comuns de resolução de problemas.
+Compreenda os fatores que devem ser considerados quando sintoniza o desempenho de uma topologia da Tempestade Azure. Por exemplo, é importante compreender as características do trabalho realizado pelos bicos e pelos parafusos (se o trabalho é I/O ou a memória intensiva). Este artigo abrange uma série de diretrizes de afinação de desempenho, incluindo a resolução de problemas em questões comuns.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma subscrição Azure.** Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Uma conta De Armazenamento de **Lago Azure Gen1.** Para obter instruções sobre como criar um, consulte Iniciar com [Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
-* **Um cluster Azure HDInsight** com acesso a uma conta Gen1 de Armazenamento de Data Lake. Consulte [Criar um cluster HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de que ativa o Ambiente de Trabalho Remoto para o cluster.
-* **Executando um aglomerado de tempestade em Data Lake Storage Gen1**. Para mais informações, consulte [Storm on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
-* **Diretrizes de afinação de desempenho sobre data lake storage Gen1**.  Para conceitos gerais de desempenho, consulte [Data Lake Storage Gen1 Performance Tuning Guidance](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
+* **Uma assinatura Azure**. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma conta Azure Data Lake Storage Gen1**. Para obter instruções sobre como criar um, consulte [Começar com a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
+* **Um cluster Azure HDInsight** com acesso a uma conta Gen1 de armazenamento de data lake. Consulte [Criar um cluster HDInsight com data lake storage gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de que ativa o Ambiente de Trabalho Remoto para o cluster.
+* **Executando um aglomerado de tempestade na Data Lake Storage Gen1.** Para obter mais informações, consulte [Storm on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
+* **Diretrizes de afinação de desempenho sobre data lake storage gen1**.  Para obter conceitos gerais de desempenho, consulte [data lake storage Gen1 Performance Afinação de afinação.](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)  
 
-## <a name="tune-the-parallelism-of-the-topology"></a>Afinar o paralelismo da topologia
+## <a name="tune-the-parallelism-of-the-topology"></a>Sintonize o paralelismo da topologia
 
-Você pode ser capaz de melhorar o desempenho aumentando a conmoeda do I/O de e para data Lake Storage Gen1. Uma topologia storm tem um conjunto de configurações que determinam o paralelismo:
-* Número de processos de trabalhador (os trabalhadores são distribuídos uniformemente pelos VMs).
-* Número de casos de executor de bico.
-* Número de casos de executor de parafusos.
+Você pode ser capaz de melhorar o desempenho aumentando a concordância da I/O de e para data lake storage gen1. Uma topologia da tempestade tem um conjunto de configurações que determinam o paralelismo:
+* Número de processos de trabalhadores (os trabalhadores são distribuídos uniformemente pelos VMs).
+* Número de casos de executor de bicos.
+* Número de instâncias executoras de parafusos.
 * Número de tarefas de bico.
-* Número de tarefas de parafusos.
+* Número de tarefas de parafuso.
 
-Por exemplo, num cluster com 4 VMs e 4 processos de trabalhador, 32 executores de bico e 32 tarefas de bico, e 256 executores de parafusos e 512 tarefas de parafusos, considere o seguinte:
+Por exemplo, num cluster com 4 VMs e 4 processos de trabalhadores, 32 executores de bicos e 32 tarefas de bico, e 256 executores de parafusos e 512 tarefas de parafuso, considere o seguinte:
 
-Cada supervisor, que é um nó de trabalhador, tem um único trabalhador da máquina virtual Java (JVM). Este processo JVM gere 4 fios de bico e 64 fios de parafuso. Dentro de cada fio, as tarefas são executadas sequencialmente. Com a configuração anterior, cada fio de bico tem uma tarefa, e cada fio de parafuso tem duas tarefas.
+Cada supervisor, que é um nó de trabalhadores, tem um único processo de máquina virtual Java (JVM). Este processo JVM gere 4 fios de bico e 64 fios de parafuso. Dentro de cada fio, as tarefas são executadas sequencialmente. Com a configuração anterior, cada fio de bico tem uma tarefa, e cada fio de parafuso tem duas tarefas.
 
-Na Tempestade, aqui estão os vários componentes envolvidos, e como eles afetam o nível de paralelismo que você tem:
-* O nó de cabeça (chamado Nimbus in Storm) é usado para submeter e gerir empregos. Estes nódosos não têm impacto no grau de paralelismo.
-* O supervisor não acena. No HDInsight, isto corresponde a um nó de trabalhador Azure VM.
-* As tarefas dos trabalhadores são processos de tempestade em execução nos VMs. Cada tarefa do trabalhador corresponde a uma instância JVM. A tempestade distribui o número de processos de trabalhador que especifica aos nós dos trabalhadores da forma mais uniforme possível.
-* Spout e bolt executor casos. Cada instância executora corresponde a um fio que funciona dentro dos trabalhadores (JVMs).
-* Tarefas de tempestade. Estas são tarefas lógicas que cada um destes fios executa. Isto não altera o nível de paralelismo, pelo que deve avaliar se precisa de múltiplas tarefas por executor ou não.
+Em Storm, aqui estão os vários componentes envolvidos, e como eles afetam o nível de paralelismo que você tem:
+* O nó de cabeça (chamado Nimbus in Storm) é usado para submeter e gerir empregos. Estes nós não têm impacto no grau de paralelismo.
+* Os nós do supervisor. Em HDInsight, isto corresponde a um nó de trabalhador Azure VM.
+* As tarefas dos trabalhadores são processos de tempestade em execução nos VMs. Cada tarefa de trabalhador corresponde a uma instância JVM. A tempestade distribui o número de processos de trabalhadores que especifica para os nós dos trabalhadores da forma mais uniforme possível.
+* Casos de execução de bicos e parafusos. Cada instância executora corresponde a um fio que corre dentro dos trabalhadores (JVMs).
+* Tarefas de tempestade. Estas são tarefas lógicas que cada um destes fios corre. Isto não altera o nível de paralelismo, por isso deve avaliar se precisa de várias tarefas por executor ou não.
 
-### <a name="get-the-best-performance-from-data-lake-storage-gen1"></a>Obtenha o melhor desempenho do Data Lake Storage Gen1
+### <a name="get-the-best-performance-from-data-lake-storage-gen1"></a>Obtenha o melhor desempenho da Data Lake Storage Gen1
 
-Ao trabalhar com data Lake Storage Gen1, obtém o melhor desempenho se fizer o seguinte:
-* Adere os seus pequenos apêndices em tamanhos maiores (idealmente 4 MB).
-* Faça o máximo de pedidos simultâneos que puder. Como cada fio de parafuso está a fazer leituras de bloqueio, você quer ter em algum lugar na gama de 8-12 fios por núcleo. Isto mantém o NIC e o CPU bem utilizados. Um VM maior permite pedidos mais simultâneos.  
+Ao trabalhar com a Data Lake Storage Gen1, obtém o melhor desempenho se fizer o seguinte:
+* Adense os seus pequenos apêndices em tamanhos maiores (idealmente 4 MB).
+* Faça o máximo de pedidos simultâneos que puder. Como cada fio de parafuso está a fazer leituras de bloqueio, você quer ter em algum lugar no intervalo de 8-12 fios por núcleo. Isto mantém o NIC e o CPU bem utilizados. Um VM maior permite pedidos mais simultâneos.  
 
-### <a name="example-topology"></a>Exemplo de topologia
+### <a name="example-topology"></a>Topologia exemplo
 
-Vamos supor que tem um cluster de oito trabalhadores com um D13v2 Azure VM. Este VM tem oito núcleos, por isso, entre os oito nós operários, tem 64 núcleos totais.
+Vamos supor que tem um aglomerado de nó de oito trabalhadores com um D13v2 Azure VM. Este VM tem oito núcleos, por isso, entre os oito nós operários, tens 64 núcleos totais.
 
-Digamos que fazemos oito fios por núcleo. Tendo em conta 64 núcleos, isso significa que queremos 512 instâncias executoras de parafusos totais (isto é, fios). Neste caso, digamos que começamos com um JVM por VM, e usamos principalmente a conmoeda de fio dentro do JVM para alcançar a conmoeda. Isto significa que precisamos de oito tarefas operárias (uma por VM Azure) e 512 executores de parafusos. Dada esta configuração, storm tenta distribuir os trabalhadores uniformemente através de nós de trabalhador (também conhecidos como nós de supervisor), dando a cada trabalhador nó um JVM. Agora dentro dos supervisores, Storm tenta distribuir os executores uniformemente entre supervisores, dando a cada supervisor (isto é, JVM) oito fios cada.
+Digamos que fazemos oito fios de parafusos por núcleo. Tendo em conta 64 núcleos, isso significa que queremos 512 instâncias totais do executor de parafusos (isto é, fios). Neste caso, digamos que começamos com um JVM por VM, e usamos principalmente a concurrency de fio dentro do JVM para alcançar a concuência. Isto significa que precisamos de oito tarefas de trabalhadores (uma por Azure VM) e 512 executores de parafusos. Dada esta configuração, a Storm tenta distribuir os trabalhadores uniformemente pelos nós dos trabalhadores (também conhecidos como nós de supervisor), dando a cada trabalhador um JVM. Agora, dentro dos supervisores, Storm tenta distribuir os executores uniformemente entre supervisores, dando a cada supervisor (isto é, JVM) oito fios cada.
 
-## <a name="tune-additional-parameters"></a>Afinar parâmetros adicionais
-Depois de ter a topologia básica, pode considerar se quer ajustar algum dos parâmetros:
-* **Número de JVMs por nó de trabalhador.** Se tiver uma grande estrutura de dados (por exemplo, uma mesa de lookup) que hospeda na memória, cada JVM requer uma cópia separada. Em alternativa, pode utilizar a estrutura de dados em muitos fios se tiver menos JVMs. Para o I/O do parafuso, o número de JVMs não faz tanta diferença como o número de fios adicionados através desses JVMs. Para a simplicidade, é uma boa ideia ter um JVM por trabalhador. Dependendo do que o seu parafuso está a fazer ou do processamento de aplicações que necessita, no entanto, poderá ter de alterar este número.
-* **Número de executores de bico.** Como o exemplo anterior utiliza parafusos para escrever para data Lake Storage Gen1, o número de bicos não é diretamente relevante para o desempenho do parafuso. No entanto, dependendo da quantidade de processamento ou I/O que acontece no bico, é uma boa ideia afinar os bicos para o melhor desempenho. Certifique-se de que tem bicos suficientes para manter os parafusos ocupados. As taxas de saída dos bicos devem corresponder à entrada dos parafusos. A configuração real depende do bico.
-* **Número de tarefas.** Cada parafuso corre como um único fio. Tarefas adicionais por parafuso não fornecem qualquer conmoeda adicional. A única altura em que são benéficos é se o seu processo de reconhecimento da tuple levar uma grande parte do seu tempo de execução do parafuso. É uma boa ideia agrupar muitos tuples num apêndice maior antes de enviar um reconhecimento do parafuso. Assim, na maioria dos casos, várias tarefas não oferecem nenhum benefício adicional.
-* **Agrupamento local ou baralhado.** Quando esta definição está ativada, os tuples são enviados para parafusos dentro do mesmo processo de trabalhador. Isto reduz as chamadas de comunicação inter-processo e de rede. Isto é recomendado para a maioria das topoologias.
+## <a name="tune-additional-parameters"></a>Sintonize parâmetros adicionais
+Depois de ter a topologia básica, pode considerar se pretende ajustar algum dos parâmetros:
+* **Número de JVMs por nó de trabalhador.** Se tiver uma grande estrutura de dados (por exemplo, uma tabela de procuração) que acolhe na memória, cada JVM requer uma cópia separada. Em alternativa, pode utilizar a estrutura de dados em muitos fios se tiver menos JVMs. Para o I/O do parafuso, o número de JVMs não faz tanta diferença como o número de fios adicionados através desses JVMs. Para simplificar, é uma boa ideia ter um JVM por trabalhador. Dependendo do que o seu parafuso está a fazer ou do processamento de aplicações que necessita, pode ter de alterar este número.
+* **Número de executores de bico.** Como o exemplo anterior utiliza parafusos para escrever à Data Lake Storage Gen1, o número de bicos não é diretamente relevante para o desempenho do parafuso. No entanto, dependendo da quantidade de processamento ou I/O que acontece no bico, é uma boa ideia afinar os bicos para o melhor desempenho. Certifique-se de que tem bicos suficientes para manter os parafusos ocupados. As taxas de saída dos bicos devem coincidir com a produção dos parafusos. A configuração real depende do bico.
+* **Número de tarefas.** Cada parafuso funciona como um único fio. Tarefas adicionais por parafuso não proporcionam qualquer concordância adicional. A única altura em que são benéficos é se o seu processo de reconhecimento da tuple requer uma grande parte do seu tempo de execução do raio. É uma boa ideia agrupar muitos tuples num apêndice maior antes de enviar um reconhecimento do parafuso. Assim, na maioria dos casos, múltiplas tarefas não oferecem nenhum benefício adicional.
+* **Agrupamento local ou baralhado.** Quando esta definição estiver ativada, os tuples são enviados para parafusos dentro do mesmo processo de trabalho. Isto reduz a comunicação inter-processa e as chamadas de rede. Isto é recomendado para a maioria das topologias.
 
-Este cenário básico é um bom ponto de partida. Teste com os seus próprios dados para ajustar os parâmetros anteriores para obter um desempenho ótimo.
+Este cenário básico é um bom ponto de partida. Teste com os seus próprios dados para ajustar os parâmetros anteriores para obter um desempenho ideal.
 
 ## <a name="tune-the-spout"></a>Sintonize o bico
 
-Pode modificar as seguintes definições para afinar o bico.
+Pode modificar as seguintes definições para sintonizar o bico.
 
-- Tempo de tempo de **tuple: topologia.message.timeout.secs**. Esta definição determina o tempo que uma mensagem leva para completar e receber reconhecimento, antes de ser considerada falhada.
+- **Tempo limite de tuple: topology.message.timeout.secs**. Esta definição determina o tempo que uma mensagem demora a completar e receber reconhecimento, antes de ser considerada falhada.
 
-- **Memória máxima por processo de trabalhador: trabalhador.childopts**. Esta definição permite especificar parâmetros adicionais de linha de comando para os trabalhadores java. A configuração mais usada aqui é xmX, que determina a memória máxima atribuída a um monte de JVM.
+- **Memória máxima por processo de trabalhador: trabalhador.childopts**. Esta definição permite especificar parâmetros adicionais de linha de comando para os trabalhadores java. A definição mais usada aqui é XmX, que determina a memória máxima atribuída à pilha de um JVM.
 
-- **Bico max pendente: topology.max.spout.pending**. Esta definição determina o número de tuples que podem ser voos (ainda não reconhecidos em todos os nós da topologia) por fio de bico a qualquer momento.
+- **Bico máximo pendente: topology.max.spout.pendente**. Esta definição determina o número de tuples que podem ser voo (ainda não reconhecidos em todos os nós na topologia) por linha de bico em qualquer momento.
 
-  Um bom cálculo a fazer é estimar o tamanho de cada um dos seus tuples. Então descubra a quantidade de memória que um fio de bico tem. A memória total atribuída a um fio, dividido por este valor, deve dar-lhe o limite superior para o parâmetro pendente do bico máximo.
+  Um bom cálculo a fazer é estimar o tamanho de cada uma das suas tuples. Então descubra a quantidade de memória que um fio de bico tem. A memória total atribuída a um fio, dividido por este valor, deve dar-lhe o limite superior para o parâmetro pendente do bico máximo.
 
-## <a name="tune-the-bolt"></a>Sintonize o parafuso
-Quando estiver a escrever para data Lake Storage Gen1, delineie uma política de sincronização de tamanho (tampão do lado do cliente) para 4 MB. Uma descarga ou hsync() só é realizada quando o tamanho do tampão estiver a este valor. O condutor do Data Lake Storage Gen1 no VM do trabalhador faz automaticamente este tampão, a menos que realize explicitamente um sincron().
+## <a name="tune-the-bolt"></a>Afinar o parafuso
+Quando estiver a escrever para a Data Lake Storage Gen1, desace numa política de sincronização de tamanho (tampão do lado do cliente) para 4 MB. Uma descarga ou hsync() é então realizada apenas quando o tamanho do tampão está neste valor. O condutor da Data Lake Storage Gen1 no VM do trabalhador faz automaticamente este tampão, a menos que execute explicitamente um hsync().
 
-O parafuso de armazenamento de tamanho sincronia de Dados Gen1 Storm tem um parâmetro de política de sincronização de tamanho (fileBufferSize) que pode ser usado para afinar este parâmetro.
+O parafuso de tempestade Gen1 de armazenamento de dados padrão tem um parâmetro de política de sincronização de tamanho (fileBufferSize) que pode ser usado para sintonizar este parâmetro.
 
-Em topoologias intensivas em I/O, é uma boa ideia ter cada fio de parafuso escrito para o seu próprio arquivo, e definir uma política de rotação de ficheiros (fileRotationSize). Quando o ficheiro atinge um determinado tamanho, o fluxo é automaticamente lavado e um novo ficheiro é escrito. O tamanho do ficheiro recomendado para rotação é de 1 GB.
+Nas topologias intensivas de I/O, é uma boa ideia ter cada fio de parafuso escrito no seu próprio ficheiro, e definir uma política de rotação de ficheiros (fileRotationSize). Quando o ficheiro atinge um determinado tamanho, o fluxo é automaticamente lavado e um novo ficheiro é escrito para. O tamanho recomendado do ficheiro para a rotação é de 1 GB.
 
-### <a name="handle-tuple-data"></a>Lidar com os dados de tuple
+### <a name="handle-tuple-data"></a>Lidar com dados de tuple
 
-Em Storm, um bico agarra-se a uma tuple até ser explicitamente reconhecido pelo parafuso. Se um tuple foi lido pelo parafuso mas ainda não foi reconhecido, o bico pode não ter permanecido no backback do Data Lake Storage Gen1. Depois de um tuple ser reconhecido, o bico pode ser garantido persistência pelo parafuso, e pode então apagar os dados de origem de qualquer fonte de que esteja lendo.  
+Em Storm, um bico mantém-se numa tuple até ser explicitamente reconhecido pelo parafuso. Se um tuple foi lido pelo parafuso mas ainda não foi reconhecido, o bico pode não ter persistido no fundo de data lake storage Gen1. Depois de um tuple ser reconhecido, o bico pode ser garantido persistência pelo parafuso, e pode então apagar os dados de origem de qualquer fonte que esteja lendo.  
 
-Para um melhor desempenho no Data Lake Storage Gen1, tenha o tampão de parafuso 4 MB de dados de tuple. Em seguida, escreva para o Data Lake Storage Gen1 back end como um 4 MB escrever. Depois de os dados terem sido escritos com sucesso na loja (chamando hflush(), o parafuso pode reconhecer os dados de volta ao bico. Isto é o que o exemplo fornecido aqui faz. Também é aceitável manter um maior número de tuples antes da chamada hflush() e os tuples reconhecidos. No entanto, isto aumenta o número de tuples em voo que o bico precisa de segurar, aumentando assim a quantidade de memória necessária por JVM.
+Para melhor desempenho na Data Lake Storage Gen1, tenha o tampão de parafuso 4 MB de dados de tuple. Em seguida, escreva para o data lake storage Gen1 back end como um 4 MB escrever. Depois de os dados terem sido escritos com sucesso à loja (chamando hflush()), o parafuso pode reconhecer os dados de volta ao bico. Isto é o que o parafuso de exemplo fornecido aqui faz. Também é aceitável manter um maior número de tuples antes da chamada hflush() é feita e os tuples reconhecidos. No entanto, isto aumenta o número de tuples em voo que o bico precisa de manter, e, portanto, aumenta a quantidade de memória necessária por JVM.
 
 > [!NOTE]
-> As aplicações podem ter a obrigação de reconhecer tuples com mais frequência (em tamanhos de dados inferiores a 4 MB) por outras razões de não desempenho. No entanto, isso pode afetar a entrada de I/S na parte de trás do armazenamento. Pesar cuidadosamente esta troca contra o desempenho do I/S do parafuso.
+> As aplicações podem ter a obrigação de reconhecer os tuples com mais frequência (em tamanhos de dados inferiores a 4 MB) por outras razões de não desempenho. No entanto, isso pode afetar a produção de I/O para a parte de trás do armazenamento. Pese cuidadosamente esta troca contra o desempenho de I/O do parafuso.
 
-Se a taxa de entrada de tuples não for elevada, então o tampão de 4 MB leva muito tempo a preencher, considere atenuar isto por:
-* Reduzindo o número de parafusos, há menos tampão para preencher.
-* Ter uma política baseada no tempo ou na contagem, em que um hflush() é desencadeado cada x flushes ou cada y milissegundos, e os tuples acumulados até agora são reconhecidos de volta.
+Se a taxa de entrada de tuples não for alta, por isso o tampão de 4-MB demora muito tempo a preencher, considere atenuar esta medida:
+* Reduzindo o número de parafusos, para que haja menos tampão para preencher.
+* Ter uma política baseada no tempo ou na contagem, onde um hflush é acionado cada x flushes ou cada milissegundos, e os tuples acumulados até agora são reconhecidos de volta.
 
-A entrada neste caso é mais baixa, mas com uma taxa lenta de eventos, a entrada máxima não é o maior objetivo de qualquer maneira. Estas mitigações ajudam-no a reduzir o tempo total que leva para que um tuple flua até à loja. Isto pode importar se você quiser um oleoduto em tempo real mesmo com uma baixa taxa de eventos. Note também que se a sua taxa de túnica de entrada for baixa, deve ajustar o parâmetro topology.message.timeout_secs, para que os tuples não se esgotem enquanto estão a ser tamponados ou processados.
+A produção neste caso é menor, mas com uma taxa lenta de eventos, a produção máxima não é o maior objetivo de qualquer maneira. Estas mitigações ajudam a reduzir o tempo total que um tuple leva para fluir até à loja. Isto pode importar se você quiser um oleoduto em tempo real mesmo com uma taxa de evento baixa. Note também que se a sua taxa de tuple de entrada for baixa, deve ajustar o parâmetro topology.message.timeout_secs, para que os tuples não se desemfetem enquanto estão a ser tamponados ou processados.
 
-## <a name="monitor-your-topology-in-storm"></a>Monitorize a sua topologia em Storm  
-Enquanto a sua topologia está em execução, pode monitorizá-la na interface de utilizador storm. Aqui estão os principais parâmetros para olhar:
+## <a name="monitor-your-topology-in-storm"></a>Monitorize a sua topologia em Tempestade  
+Enquanto a sua topologia está em funcionamento, pode monitorá-la na interface do utilizador Storm. Aqui estão os principais parâmetros a analisar:
 
-* **Latência total de execução do processo.** Este é o tempo médio que uma tuple leva para ser emitida pelo bico, processado pelo parafuso, e reconhecido.
+* **Latência total da execução do processo.** Este é o tempo médio que um tuple leva a ser emitido pelo bico, processado pelo parafuso, e reconhecido.
 
-* **Latência total do processo do parafuso.** Este é o tempo médio gasto pelo tuple no parafuso até receber um reconhecimento.
+* **Latência total do processo do parafuso.** Este é o tempo médio gasto pela tuple no parafuso até receber um reconhecimento.
 
 * **Bolt total executar latência.** Este é o tempo médio gasto pelo parafuso no método de execução.
 
-* **Número de falhanços.** Isto refere-se ao número de tuples que não foram totalmente processados antes de serem esgotados.
+* **Número de falhas.** Isto refere-se ao número de tuples que não foram totalmente processados antes de terem sido eliminados.
 
 * **Capacidade.** Esta é uma medida de como o seu sistema está ocupado. Se este número for 1, os seus parafusos estão a funcionar o mais rápido que podem. Se for menos de 1, aumente o paralelismo. Se for maior que 1, reduza o paralelismo.
 
-## <a name="troubleshoot-common-problems"></a>Problemas comuns de resolução de problemas
+## <a name="troubleshoot-common-problems"></a>Resolver problemas comuns
 Aqui estão alguns cenários comuns de resolução de problemas.
-* **Muitas tuples estão a cronometrar.** Olhe cada nó na topologia para determinar onde está o estrangulamento. A razão mais comum para isso é que os parafusos não são capazes de acompanhar os bicos. Isto leva a que os tuples entupam os amortecedores internos enquanto esperam para serem processados. Considere aumentar o valor do tempo limite ou diminuir o bico máximo pendente.
+* **Muitos tuples estão a cronometrar.** Olhe para cada nó na topologia para determinar onde está o estrangulamento. A razão mais comum para isso é que os parafusos não são capazes de acompanhar os bicos. Isto leva a que os tuples obstruam os amortecedores internos enquanto esperam para serem processados. Considere aumentar o valor de tempo limite ou diminuir o bico máximo pendente.
 
-* **Há uma elevada latência total de execução do processo, mas uma latência de processo de parafuso baixo.** Neste caso, é possível que os tuples não estejam a ser reconhecidos suficientemente depressa. Verifique se há um número suficiente de reconhecidores. Outra possibilidade é que eles estejam à espera na fila por muito tempo antes que os parafusos comecem a processá-los. Diminua o bico máximo pendente.
+* **Há uma alta latência total de execução do processo, mas uma latência de processo de baixo parafuso.** Neste caso, é possível que os tuples não estejam a ser reconhecidos suficientemente rápido. Verifique se há um número suficiente de reconhecedores. Outra possibilidade é que eles estejam à espera na fila por muito tempo antes que os parafusos comecem a processá-los. Diminua o bico máximo pendente.
 
-* **Há uma latência de execução de parafusos elevados.** Isto significa que o método de execução do seu parafuso está a demorar demasiado tempo. Otimize o código, ou olhe para os tamanhos de escrita e flush comportamento.
+* **Há uma alta execução da latência.** Isto significa que o método de execução do seu parafuso está a demorar demasiado tempo. Otimize o código, ou olhe para os tamanhos de escrita e o comportamento de descarga.
 
-### <a name="data-lake-storage-gen1-throttling"></a>Estrangulamento de Armazenamento de Lago de Dados Gen1
-Se atingir os limites de largura de banda fornecidos pela Data Lake Storage Gen1, poderá ver falhas de tarefa. Verifique os registos de tarefas para verificar se há erros de estrangulamento. Pode diminuir o paralelismo aumentando o tamanho do recipiente.    
+### <a name="data-lake-storage-gen1-throttling"></a>Estrangulamento da Gen1 de armazenamento de dados
+Se atingir os limites de largura de banda fornecidos pela Data Lake Storage Gen1, poderá ver falhas de tarefa. Verifique os registos de tarefas para obter erros de estrangulamento. Pode diminuir o paralelismo aumentando o tamanho do recipiente.    
 
-Para verificar se está a ser estrangulado, ative o depurador de registo do lado do cliente:
+Para verificar se está a ser estrangulado, ative o registo de depurar do lado do cliente:
 
-1. Em **Ambari** > **Storm** > **Config** > Advanced**storm-worker-log4j**, altere ** &lt;o nível de raiz="info"&gt; ** para ** &lt;o nível raiz="depurado".&gt;** Reinicie todos os nós/serviço para que a configuração faça efeito.
-2. Monitorize os registos de topologia da tempestade em nós de trabalhador (em&lt;/var/log/storm/worker-artifacts/ TopologyName&gt;/&lt;port&gt;/worker.log) para data Lake Storage Gen1 acelerando exceções.
+1. Em **Ambari**  >  **Storm**  >  **Config**Advanced  >  **storm-worker-log4j**, change root ** &lt; level="info" &gt; ** to root ** &lt; level="debug". &gt; ** Reinicie todos os nós/serviço para que a configuração entre em vigor.
+2. Monitorize os registos de topologia da tempestade nos nós dos trabalhadores (em /var/log/storm/worker-artifacts/ &lt; TopologyName &gt; / &lt; port &gt; /worker.log) para as exceções de estrangulamento da Gen1 de armazenamento de dados.
 
-## <a name="next-steps"></a>Passos seguintes
-A sintonização adicional de desempenho para storm pode ser referenciada [neste blog.](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/)
+## <a name="next-steps"></a>Próximos passos
+A afinação adicional de desempenho para Storm pode ser referenciada [neste blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).
 
-Para um exemplo adicional para correr, veja [este no GitHub](https://github.com/hdinsight/storm-performance-automation).
+Para um exemplo adicional a correr, veja [este no GitHub.](https://github.com/hdinsight/storm-performance-automation)

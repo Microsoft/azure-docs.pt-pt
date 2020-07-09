@@ -1,6 +1,6 @@
 ---
 title: Gerir o acesso a espaços de trabalho, dados e oleodutos
-description: Saiba como gerir o controlo de acesso a espaços de trabalho, dados e oleodutos num espaço de trabalho Azure Synapse Analytics (pré-visualização).
+description: Aprenda a gerir o controlo de acesso a espaços de trabalho, dados e oleodutos num espaço de trabalho Azure Synapse Analytics (pré-visualização).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,109 +9,143 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 89d2105ab080309639c4341072c3f5f36608dfce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e5db52d1e28a7db5594b3b2a16bc145d0a50e2e3
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424770"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84765085"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gerir o acesso a espaços de trabalho, dados e oleodutos
 
-Saiba como gerir o controlo de acesso a espaços de trabalho, dados e oleodutos num espaço de trabalho Azure Synapse Analytics (pré-visualização).
+Aprenda a gerir o controlo de acesso a espaços de trabalho, dados e oleodutos num espaço de trabalho Azure Synapse Analytics (pré-visualização).
 
 > [!NOTE]
-> Para a GA, o RBAC será mais desenvolvido através da introdução de funções Azure RBAC específicas do Synapse
+> Para a GA, o RBAC será mais desenvolvido através da introdução de funções Azure RBAC específicas da Sinapse
 
 ## <a name="access-control-for-workspace"></a>Controlo de Acesso para Espaço de Trabalho
 
-Para uma implantação de produção num espaço de trabalho Azure Synapse, sugerimos organizar o seu ambiente para facilitar a disponibilização de utilizadores e administradores.
+Para uma implantação de produção num espaço de trabalho Azure Synapse, sugerimos organizar o seu ambiente para facilitar a oferta de utilizadores e administradores.
 
 > [!NOTE]
 > A abordagem aqui adotada é criar vários grupos de segurança e, em seguida, configurar o espaço de trabalho para usá-los de forma consistente. Após a criação dos grupos, um administrador só precisa de gerir a adesão dentro dos grupos de segurança.
 
-### <a name="step-1-set-up-security-groups-with-names-following-this-pattern"></a>Passo 1: Configurar grupos de segurança com nomes que seguem este padrão
+### <a name="step-1-set-up-security-groups-with-names-following-this-pattern"></a>Passo 1: Criar grupos de segurança com nomes seguindo este padrão
 
 1. Criar grupo de segurança chamado`Synapse_WORKSPACENAME_Users`
 2. Criar grupo de segurança chamado`Synapse_WORKSPACENAME_Admins`
-3. Adicione `Synapse_WORKSPACENAME_Admins` a `ProjectSynapse_WORKSPACENAME_Users`
+3. Adicione `Synapse_WORKSPACENAME_Admins` a `Synapse_WORKSPACENAME_Users`
 
-### <a name="step-2-prepare-the-default-adls-gen2-account"></a>Passo 2: Preparar a conta Predefinida ADLS Gen2
+> [!NOTE]
+> Saiba como criar um grupo de segurança [neste artigo.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal)
+>
+> Saiba como adicionar um grupo de segurança a outro grupo de segurança [neste artigo](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal).
+>
+> WORKSPACENAME - deve substituir esta peça pelo nome real do espaço de trabalho.
 
-Quando disponibilizou o seu espaço de trabalho, teve de escolher uma conta ADLSGEN2 e um recipiente para o sistema de ficheiros para o espaço de trabalho utilizar.
+### <a name="step-2-prepare-the-default-adls-gen2-account"></a>Passo 2: Preparar a conta ADLS Gen2 padrão
+
+Quando a provisionou o seu espaço de trabalho, teve de escolher uma conta [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) e um contentor para o sistema de ficheiros para o espaço de trabalho utilizar.
 
 1. Abra o [portal do Azure](https://portal.azure.com)
-2. Navegue para a conta ADLSGEN2
-3. Navegue para contentor (sistema de ficheiros) escolhido para o espaço de trabalho Azure Synapse
+2. Navegue para a conta Azure Data Lake Storage Gen2
+3. Navegue para o contentor (sistema de ficheiros) que escolheu para o espaço de trabalho Azure Synapse
 4. Clique no **Controlo de Acesso (IAM)**
 5. Atribuir as seguintes funções:
-   1. **Papel do leitor:**`Synapse_WORKSPACENAME_Users`
-   2. Papel de proprietário de **dados blob de armazenamento:**`Synapse_WORKSPACENAME_Admins`
-   3. Papel de **Colaborador de Dados blob** de armazenamento:`Synapse_WORKSPACENAME_Users`
-   4. Papel de proprietário de **dados blob de armazenamento:**`WORKSPACENAME`
-  
-### <a name="step-3-configure-the-workspace-admin-list"></a>Passo 3: Configure a lista de administradores do espaço de trabalho
+   1. **Papel** do leitor para:`Synapse_WORKSPACENAME_Users`
+   2. **Papel do Proprietário de Dados blob de armazenamento** para:`Synapse_WORKSPACENAME_Admins`
+   3. **Papel de contribuinte de dados blob de armazenamento** para:`Synapse_WORKSPACENAME_Users`
+   4. **Papel do Proprietário de Dados blob de armazenamento** para:`WORKSPACENAME`
 
-1. Ir à [ **Azure Synapse Web UI**](https://web.azuresynapse.net)
-2. Ir para gerir**o controlo** **de**  > acesso à**segurança** > 
-3. Clique **em Adicionar Administrador,** e selecione`Synapse_WORKSPACENAME_Admins`
+> [!NOTE]
+> WORKSPACENAME - deve substituir esta peça pelo nome real do espaço de trabalho.
 
-### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Passo 4: Configure Acesso a Administrador sQL para o espaço de trabalho
+### <a name="step-3-configure-the-workspace-admin-list"></a>Passo 3: Configurar a lista de administradores do espaço de trabalho
 
-1. Aceda ao [Portal do Azure](https://portal.azure.com)
+1. Vá ao [ **Azure Synapse Web UI**](https://web.azuresynapse.net)
+2. Ir para **gerir o**controlo de acesso   >  **Security**  >  **à** segurança
+3. Clique **em Adicionar Administrador**e selecione`Synapse_WORKSPACENAME_Admins`
+
+### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Passo 4: Configurar o acesso a administradores sql para o espaço de trabalho
+
+1. Vá ao [portal Azure](https://portal.azure.com)
 2. Navegue para o seu espaço de trabalho
-3. Ir ao Administrador ativo de**Diretórios De** **Definições** > 
-4. Clique **em Administração de Conjunto**
+3. Ir para **Definições**  >  **Administrador Ativo Diretório**
+4. Clique **em Admin conjunto**
 5. Selecione `Synapse_WORKSPACENAME_Admins`
-6. clique em **Selecionar**
-7. clique em **Guardar**
+6. clique **Selecionar**
+7. clique **Em Guardar**
+
+> [!NOTE]
+> WORKSPACENAME - deve substituir esta peça pelo nome real do espaço de trabalho.
 
 ### <a name="step-5-add-and-remove-users-and-admins-to-security-groups"></a>Passo 5: Adicionar e remover utilizadores e administradores a grupos de segurança
 
 1. Adicione utilizadores que precisam de acesso administrativo a`Synapse_WORKSPACENAME_Admins`
 2. Adicione todos os outros utilizadores a`Synapse_WORKSPACENAME_Users`
 
-## <a name="access-control-to-data"></a>Controlo de Acesso a dados
+> [!NOTE]
+> Saiba como adicionar o utilizador como membro a um grupo de segurança [neste artigo](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal)
+> 
+> WORKSPACENAME - deve substituir esta peça pelo nome real do espaço de trabalho.
+
+## <a name="access-control-to-data"></a>Controlo de Acesso aos dados
 
 O controlo de acesso aos dados subjacentes é dividido em três partes:
 
-- Acesso data-plane à conta de armazenamento (já configurado acima no passo 2)
-- Acesso de data-plane às bases de dados SQL (tanto para piscinas SQL como sQL a pedido)
-- Criação de uma credencial para bases de dados on-demand SQL sobre a conta de armazenamento
+- Acesso de avião de dados à conta de armazenamento (já configurado acima no passo 2)
+- Acesso de avião de dados às bases de dados SQL (tanto para piscinas SQL como SQL a pedido)
+- Criação de uma credencial para bases de dados a pedido do SQL sobre a conta de armazenamento
 
 ## <a name="access-control-to-sql-databases"></a>Controlo de acesso às Bases de Dados SQL
 
 > [!TIP]
-> Os passos abaixo devem ser executados para **cada** base de dados SQL para dar acesso ao utilizador a todas as bases de dados SQL.
+> Os passos abaixo precisam de ser executados para **cada** base de dados SQL para conceder o acesso do utilizador a todas as bases de dados SQL, exceto na [secção Desincê-lo nível de servidor,](#server-level-permission) onde pode atribuir ao utilizador uma função sysadmin.
 
 ### <a name="sql-on-demand"></a>SQL a pedido
 
-Para conceder acesso a um utilizador a uma **única** base de dados on-demand SQL, siga os passos neste exemplo:
+Nesta secção, pode encontrar exemplos sobre como dar ao utilizador uma permissão para uma determinada base de dados ou permissões completas do servidor.
 
-1. Criar login
+#### <a name="database-level-permission"></a>Permissão de nível de base de dados
+
+Para conceder acesso a um utilizador a uma **única** base de dados SQL a pedido, siga os passos neste exemplo:
+
+1. Criar LOGIN
 
     ```sql
     use master
     go
-    CREATE LOGIN [John.Thomas@microsoft.com] FROM EXTERNAL PROVIDER;
+    CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
     go
     ```
 
-2. Criar USER
+2. Criar UTILIZADOR
 
     ```sql
     use yourdb -- Use your DB name
     go
-    CREATE USER john FROM LOGIN [John.Thomas@microsoft.com];
+    CREATE USER alias FROM LOGIN [alias@domain.com];
     ```
 
-3. Adicionar USER aos membros da função especificada
+3. Adicionar UTILIZADOR aos membros da função especificada
 
     ```sql
     use yourdb -- Use your DB name
     go
-    alter role db_owner Add member john -- Type USER name from step 2
+    alter role db_owner Add member alias -- Type USER name from step 2
     ```
+
+> [!NOTE]
+> Substitua o pseudónimo por pseudónimo do utilizador que pretende dar acesso e domínio ao domínio da empresa que está a utilizar.
+
+#### <a name="server-level-permission"></a>Permissão de nível do servidor
+
+Para conceder acesso total a um utilizador a **todas as** bases de dados a pedido do SQL, siga o passo neste exemplo:
+
+```sql
+CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
+ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
+```
 
 ### <a name="sql-pools"></a>Piscinas SQL
 
@@ -124,7 +158,7 @@ Para conceder acesso a um utilizador a uma **única** Base de Dados SQL, siga es
     CREATE USER [<alias@domain.com>] FROM EXTERNAL PROVIDER;
     ```
 
-2. Conceda ao utilizador um papel para aceder à base de dados:
+2. Conceda ao utilizador uma função para aceder à base de dados:
 
     ```sql
     --Create user in SQL DB
@@ -133,25 +167,18 @@ Para conceder acesso a um utilizador a uma **única** Base de Dados SQL, siga es
 
 > [!IMPORTANT]
 > *db_datareader* e *db_datawriter* podem trabalhar para permissões de leitura/escrita se a concessão *de db_owner* permissão não for desejada.
-> Para que um utilizador da Spark leia e escreva diretamente a partir de Spark para/a partir de uma piscina SQL, é necessária *db_owner* permissão.
+> Para que um utilizador da Spark leia e escreva diretamente a partir da Spark dentro/a partir de uma piscina SQL, é necessária *db_owner* permissão.
 
-Depois de criar os utilizadores, valide que a SQL a pedido pode consultar a conta de armazenamento:
+Depois de criar os utilizadores, valide que o SQL a pedido pode consultar a conta de armazenamento.
 
-- Executar o seguinte comando direcionado para a base de dados **principal** da SQL a pedido:
-
-    ```sql
-    CREATE CREDENTIAL [https://<storageaccountname>.dfs.core.windows.net]
-    WITH IDENTITY='User Identity';
-    ```
-
-## <a name="access-control-to-workspace-pipeline-runs"></a>Controlo de acesso a gasodutos de espaço de trabalho funciona
+## <a name="access-control-to-workspace-pipeline-runs"></a>O controlo de acesso ao gasoduto workspace funciona
 
 ### <a name="workspace-managed-identity"></a>Identidade gerida pelo espaço de trabalho
 
 > [!IMPORTANT]
-> Para executar com sucesso gasodutos que incluam conjuntos de dados ou atividades que referenciam um pool SQL, a identidade do espaço de trabalho precisa de ter acesso diretamente ao pool SQL.
+> Para executar com sucesso os oleodutos que incluem conjuntos de dados ou atividades que refiram um pool SQL, a identidade do espaço de trabalho precisa de ter acesso diretamente à piscina SQL.
 
-Executar os seguintes comandos em cada piscina SQL para permitir que a identidade gerida pelo espaço de trabalho execute os gasodutos na base de dados de piscinas SQL:
+Executar os seguintes comandos em cada piscina SQL para permitir que a identidade gerida pelo espaço de trabalho funcione para executar gasodutos na base de dados de piscinas SQL:
 
 ```sql
 --Create user in DB
@@ -173,4 +200,4 @@ DROP USER [<workspacename>];
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para uma visão geral do acesso e controlo em Synapse SQL, consulte o controlo de [acesso Synapse SQL](../sql/access-control.md). Para saber mais sobre os principais da base de dados, consulte [os diretores.](https://msdn.microsoft.com/library/ms181127.aspx) Informações adicionais sobre funções de base de dados podem ser encontradas no artigo de funções da [Base de Dados.](https://msdn.microsoft.com/library/ms189121.aspx)
+Para uma visão geral da identidade gerida pelo espaço de trabalho da Synapse, consulte a identidade gerida pelo espaço de [trabalho Azure Synapse.](../security/synapse-workspace-managed-identity.md) Para saber mais sobre os principais da base de dados, consulte [os principais.](https://msdn.microsoft.com/library/ms181127.aspx) Informações adicionais sobre funções de base de dados podem ser encontradas no artigo [de funções de Base de Dados.](https://msdn.microsoft.com/library/ms189121.aspx)

@@ -1,51 +1,50 @@
 ---
-title: Conjunto de pilotos da série N-GPU da Azure para o Linux
+title: Azure N-series GPU configuração de piloto para Linux
 description: Como configurar os pilotos da NVIDIA GPU para VMs da série N que executam o Linux em Azure
 services: virtual-machines-linux
-author: vikancha
+author: vikancha-MSFT
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: e4ee760acb441cdf70e588004d2f380ead07cd34
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: MT
+ms.openlocfilehash: 1d463242c923d766b500c1ede796e399e7af9c54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779365"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84735936"
 ---
-# <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instale os pilotos da NVIDIA GPU em VMs da série N que executam o Linux
+# <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instale os controladores da NVIDIA GPU em VMs da série N que executam o Linux
 
-Para tirar partido das capacidades de GPU das VMs da série Azure n apoiadas por GPUs da NVIDIA, tem de instalar os pilotos gpu da NVIDIA. A Extensão do [Condutor GPU da NVIDIA](../extensions/hpccompute-gpu-linux.md) instala os condutores adequados da NVIDIA CUDA ou grid num VM da série N. Instale ou gerea extensão utilizando o portal Azure ou ferramentas como os modelos Azure CLI ou Azure Resource Manager. Consulte a documentação de extensão do [condutor da NVIDIA GPU](../extensions/hpccompute-gpu-linux.md) para distribuição e etapas de implementação suportadas.
+Para tirar partido das capacidades da GPU de VMs da série Azure N apoiados pelos GPUs da NVIDIA, tem de instalar os controladores gpu da NVIDIA. A [extensão do condutor do GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) instala controladores NVIDIA CUDA ou GRID apropriados num VM da série N. Instale ou gere a extensão utilizando o portal Azure ou ferramentas como os modelos Azure CLI ou Azure Resource Manager. Consulte a documentação da [extensão do condutor do GPU da NVIDIA](../extensions/hpccompute-gpu-linux.md) para distribuição e etapas de implantação suportadas.
 
-Se optar por instalar manualmente os controladores GPU da NVIDIA, este artigo fornece distribuições suportadas, controladores e etapas de instalação e verificação. As informações de configuração manual do controlador também estão disponíveis para [VMs do Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Se optar por instalar manualmente os controladores da NVIDIA GPU, este artigo fornece distribuições suportadas, controladores e etapas de instalação e verificação. Informações de configuração manual do controlador também estão disponíveis para [VMs do Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Para especificações VM da série N, capacidades de armazenamento e detalhes do disco, consulte os [tamanhos de VM GPU Linux](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Para especificações VM da série N, capacidades de armazenamento e detalhes do disco, consulte [os tamanhos VM da GPU Linux](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
-## <a name="install-cuda-drivers-on-n-series-vms"></a>Instale os condutores cuda em VMs da série N
+## <a name="install-cuda-drivers-on-n-series-vms"></a>Instale os controladores CUDA em VMs da série N
 
-Aqui estão os passos para instalar os controladores CUDA do Kit de Ferramentas NVIDIA CUDA em VMs da série N. 
+Aqui estão os passos para instalar os controladores CUDA do Kit de Ferramentas CUDA NVIDIA em VMs da série N. 
 
 
-Os desenvolvedores c e C++ podem instalar opcionalmente o Toolkit completo para construir aplicações aceleradas por GPU. Para mais informações, consulte o Guia de Instalação da [CUDA.](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
+Os desenvolvedores C e C++ podem opcionalmente instalar o Kit de Ferramentas completo para construir aplicações aceleradas pela GPU. Para mais informações, consulte o [Guia de Instalação da CUDA.](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
 
-Para instalar controladores CUDA, faça uma ligação SSH a cada VM. Para verificar se o sistema tem uma GPU capaz de CUDA, execute o seguinte comando:
+Para instalar os controladores CUDA, faça uma ligação SSH a cada VM. Para verificar se o sistema tem uma GPU com capacidade para a CUDA, execute o seguinte comando:
 
 ```bash
 lspci | grep -i NVIDIA
 ```
-Verá a saída semelhante ao seguinte exemplo (mostrando um cartão NVIDIA Tesla K80):
+Verá uma saída semelhante ao seguinte exemplo (mostrando uma carta NVIDIA Tesla K80):
 
-![saída de comando lspci](./media/n-series-driver-setup/lspci.png)
+![Saída de comando lspci](./media/n-series-driver-setup/lspci.png)
 
 Em seguida, executar comandos de instalação específicos para a sua distribuição.
 
 ### <a name="ubuntu"></a>Ubuntu 
 
-1. Descarregue e instale os controladores CUDA a partir do site da NVIDIA. Por exemplo, para Ubuntu 16.04 LTS:
+1. Faça o download e instale os controladores CUDA a partir do site da NVIDIA. Por exemplo, para Ubuntu 16.04 LTS:
    ```bash
    CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
@@ -75,7 +74,7 @@ Em seguida, executar comandos de instalação específicos para a sua distribui�
 
 #### <a name="cuda-driver-updates"></a>Atualizações do condutor da CUDA
 
-Recomendamos que atualize periodicamente os condutores de CUDA após a implantação.
+Recomendamos que atualize periodicamente os controladores CUDA após a implantação.
 
 ```bash
 sudo apt-get update
@@ -91,7 +90,7 @@ sudo reboot
 
 ### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS ou Red Hat Enterprise Linux
 
-1. Atualize o núcleo (recomendado). Se optar por não atualizar o núcleo, certifique-se de que as versões `kernel-devel` e são adequadas para o seu `dkms` núcleo.
+1. Atualize o núcleo (recomendado). Se optar por não atualizar o núcleo, certifique-se de que as versões `kernel-devel` e `dkms` são apropriadas para o seu núcleo.
 
    ```
    sudo yum install kernel kernel-tools kernel-headers kernel-devel
@@ -112,7 +111,7 @@ sudo reboot
    sudo reboot
    ```
  
-3. Religue-se ao VM e continue a instalação com os seguintes comandos:
+3. Voltar a ligar-se ao VM e continuar a instalação com os seguintes comandos:
 
    ```bash
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
@@ -142,25 +141,25 @@ sudo reboot
 
 ### <a name="verify-driver-installation"></a>Verificar a instalação do condutor
 
-Para consultar o estado do dispositivo GPU, SSH para o VM e executar o utilitário de linha de comando [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) instalado com o controlador. 
+Para consultar o estado do dispositivo GPU, SSH para o VM e executar o utilitário da linha de comando [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) instalado com o controlador. 
 
-Se o controlador estiver instalado, verá uma saída semelhante à seguinte. Note que a **GPU-Util** mostra 0% a menos que esteja atualmente a executar uma carga de trabalho de GPU no VM. A versão do seu condutor e os detalhes da GPU podem ser diferentes dos mostrados.
+Se o controlador estiver instalado, verá uma saída semelhante à seguinte. Note que **a GPU-Util** mostra 0% a menos que esteja atualmente a executar uma carga de trabalho gpu no VM. A versão do seu condutor e os detalhes da GPU podem ser diferentes dos apresentados.
 
 ![Estado do dispositivo NVIDIA](./media/n-series-driver-setup/smi.png)
 
 ## <a name="rdma-network-connectivity"></a>Conectividade da rede RDMA
 
-A conectividade da rede RDMA pode ser ativada em VMs de série N capazes de RDMA, tais como NC24r implantados no mesmo conjunto de disponibilidade ou num único grupo de colocação num conjunto de escala virtual de maquina (VM). A rede RDMA suporta o tráfego de Interface de Passagem de Mensagens (MPI) para aplicações em execução com Intel MPI 5.x ou uma versão posterior. Seguem-se requisitos adicionais:
+A conectividade da rede RDMA pode ser ativada em VMs da série N com capacidade RDMA, tais como NC24r implantados no mesmo conjunto de disponibilidade ou num único grupo de colocação num conjunto de escala de machiine virtual (VM). A rede RDMA suporta o tráfego de Interface de Passagem de Mensagens (MPI) para aplicações em execução com Intel MPI 5.x ou uma versão posterior. Os requisitos adicionais seguem-se:
 
-### <a name="distributions"></a>Distribuição
+### <a name="distributions"></a>Distribuições
 
-Implemente VMs de série N com capacidade RDMA a partir de uma das imagens no Azure Marketplace que suporta a conectividade RDMA em VMs da série N:
+Implementar VMs da série N capaz de RDMA a partir de uma das imagens no Azure Marketplace que suporta a conectividade RDMA em VMs da série N:
   
-* **Ubuntu 16.04 LTS** - Configure os condutores rdma no VM e registe-se com a Intel para descarregar intel MPI:
+* **Ubuntu 16.04 LTS** - Configurar os controladores RDMA no VM e registar-se com a Intel para descarregar a Intel MPI:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-* Os controladores **CentOS 7.4 HPC** - RDMA e Intel MPI 5.1 estão instalados no VM.
+* **CentOS-based 7.4 HPC** - RdMA drivers e Intel MPI 5.1 estão instalados no VM.
 
 ## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>Instale controladores GRID em VMs da série NV ou NVv3
 
@@ -168,7 +167,7 @@ Para instalar os controladores NVIDIA GRID em VMs da série NV ou NVv3, faça um
 
 ### <a name="ubuntu"></a>Ubuntu 
 
-1. Execute o comando `lspci`. Verifique se o cartão Ou cartões NVIDIA M60 são visíveis como dispositivos PCI.
+1. Execute o comando `lspci`. Verifique se o cartão ou cartões NVIDIA M60 são visíveis como dispositivos PCI.
 
 2. Instale atualizações.
 
@@ -183,7 +182,7 @@ Para instalar os controladores NVIDIA GRID em VMs da série NV ou NVv3, faça um
    
    sudo apt-get install linux-azure -y
    ```
-3. Desative o condutor do kernel Nouveau, que é incompatível com o condutor da NVIDIA. (Utilize apenas o condutor da NVIDIA em NV ou NVv2 VMs.) Para tal, crie um ficheiro `/etc/modprobe.d` nomeado `nouveau.conf` com os seguintes conteúdos:
+3. Desative o condutor do núcleo Nouveau, que é incompatível com o condutor da NVIDIA. (Utilize apenas o controlador NVIDIA em NV ou NVv2 VMs.) Para tal, crie um ficheiro `/etc/modprobe.d` com o nome com os `nouveau.conf` seguintes conteúdos:
 
    ```
    blacklist nouveau
@@ -192,7 +191,7 @@ Para instalar os controladores NVIDIA GRID em VMs da série NV ou NVv3, faça um
    ```
 
 
-4. Reiniciar o VM e voltar a ligar. Servidor De saída X:
+4. Reinicie o VM e reconecte-se. Servidor de saída X:
 
    ```bash
    sudo systemctl stop lightdm.service
@@ -210,20 +209,20 @@ Para instalar os controladores NVIDIA GRID em VMs da série NV ou NVv3, faça um
 
 6. Quando lhe perguntarem se pretende executar o utilitário nvidia-xconfig para atualizar o seu ficheiro de configuração X, selecione **Sim**.
 
-7. Após a instalação concluída, copie /etc/nvidia/gridd.conf.template para um novo ficheiro gridd.conf no local /etc/nvidia/
+7. Após a instalação concluída, copiar /etc/nvidia/gridd.conf.template para um novo ficheiro gridd.conf no local /etc/nvidia/
 
    ```bash
    sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
    ```
 
-8. Adicione o `/etc/nvidia/gridd.conf` seguinte:
+8. Adicione o seguinte `/etc/nvidia/gridd.conf` a:
  
    ```
    IgnoreSP=FALSE
    EnableUI=FALSE
    ```
    
-9. Retire o seguinte do `/etc/nvidia/gridd.conf` presente:
+9. Retire o seguinte de `/etc/nvidia/gridd.conf` se estiver presente:
  
    ```
    FeatureType=0
@@ -233,7 +232,7 @@ Para instalar os controladores NVIDIA GRID em VMs da série NV ou NVv3, faça um
 
 ### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS ou Red Hat Enterprise Linux 
 
-1. Atualize o núcleo e o DKMS (recomendado). Se optar por não atualizar o núcleo, certifique-se de que as versões `kernel-devel` e são adequadas para o seu `dkms` núcleo.
+1. Atualize o núcleo e o DKMS (recomendado). Se optar por não atualizar o núcleo, certifique-se de que as versões `kernel-devel` e `dkms` são apropriadas para o seu núcleo.
  
    ```bash  
    sudo yum update
@@ -247,7 +246,7 @@ Para instalar os controladores NVIDIA GRID em VMs da série NV ou NVv3, faça um
    sudo yum install hyperv-daemons
    ```
 
-2. Desative o condutor do kernel Nouveau, que é incompatível com o condutor da NVIDIA. (Utilize apenas o condutor da NVIDIA em VMs NV ou NV2.) Para tal, crie um ficheiro `/etc/modprobe.d` nomeado `nouveau.conf` com os seguintes conteúdos:
+2. Desative o condutor do núcleo Nouveau, que é incompatível com o condutor da NVIDIA. (Utilize apenas o controlador NVIDIA em VMS NV ou NV2.) Para tal, crie um ficheiro `/etc/modprobe.d` com o nome com os `nouveau.conf` seguintes conteúdos:
 
    ```
    blacklist nouveau
@@ -255,7 +254,7 @@ Para instalar os controladores NVIDIA GRID em VMs da série NV ou NVv3, faça um
    blacklist lbm-nouveau
    ```
  
-3. Reinicie o VM, religue e instale os mais recentes Serviços de [Integração Linux para Hyper-V e Azure](https://www.microsoft.com/download/details.aspx?id=55106).
+3. Reinicie o VM, reconecte e instale os mais recentes [Serviços de Integração Linux para Hiper-V e Azure.](https://www.microsoft.com/download/details.aspx?id=55106)
  
    ```bash
    wget https://aka.ms/lis
@@ -270,7 +269,7 @@ Para instalar os controladores NVIDIA GRID em VMs da série NV ou NVv3, faça um
 
    ```
  
-4. Religue-se ao VM e comande o `lspci` comando. Verifique se o cartão Ou cartões NVIDIA M60 são visíveis como dispositivos PCI.
+4. Voltar a ligar-se ao VM e executar o `lspci` comando. Verifique se o cartão ou cartões NVIDIA M60 são visíveis como dispositivos PCI.
  
 5. Descarregue e instale o controlador GRID:
 
@@ -283,19 +282,19 @@ Para instalar os controladores NVIDIA GRID em VMs da série NV ou NVv3, faça um
    ``` 
 6. Quando lhe perguntarem se pretende executar o utilitário nvidia-xconfig para atualizar o seu ficheiro de configuração X, selecione **Sim**.
 
-7. Após a instalação concluída, copie /etc/nvidia/gridd.conf.template para um novo ficheiro gridd.conf no local /etc/nvidia/
+7. Após a instalação concluída, copiar /etc/nvidia/gridd.conf.template para um novo ficheiro gridd.conf no local /etc/nvidia/
   
    ```bash
    sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
    ```
   
-8. Adicione o `/etc/nvidia/gridd.conf` seguinte:
+8. Adicione o seguinte `/etc/nvidia/gridd.conf` a:
  
    ```
    IgnoreSP=FALSE
    EnableUI=FALSE 
    ```
-9. Retire o seguinte do `/etc/nvidia/gridd.conf` presente:
+9. Retire o seguinte de `/etc/nvidia/gridd.conf` se estiver presente:
  
    ```
    FeatureType=0
@@ -306,15 +305,15 @@ Para instalar os controladores NVIDIA GRID em VMs da série NV ou NVv3, faça um
 ### <a name="verify-driver-installation"></a>Verificar a instalação do condutor
 
 
-Para consultar o estado do dispositivo GPU, SSH para o VM e executar o utilitário de linha de comando [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) instalado com o controlador. 
+Para consultar o estado do dispositivo GPU, SSH para o VM e executar o utilitário da linha de comando [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) instalado com o controlador. 
 
-Se o controlador estiver instalado, verá uma saída semelhante à seguinte. Note que a **GPU-Util** mostra 0% a menos que esteja atualmente a executar uma carga de trabalho de GPU no VM. A versão do seu condutor e os detalhes da GPU podem ser diferentes dos mostrados.
+Se o controlador estiver instalado, verá uma saída semelhante à seguinte. Note que **a GPU-Util** mostra 0% a menos que esteja atualmente a executar uma carga de trabalho gpu no VM. A versão do seu condutor e os detalhes da GPU podem ser diferentes dos apresentados.
 
 ![Estado do dispositivo NVIDIA](./media/n-series-driver-setup/smi-nv.png)
  
 
 ### <a name="x11-server"></a>Servidor X11
-Se precisar de um servidor X11 para ligações remotas a um VM NV ou NVv2, [o x11vnc](http://www.karlrunge.com/x11vnc/) é recomendado porque permite a aceleração do hardware dos gráficos. O BusID do dispositivo M60 deve ser adicionado manualmente ao ficheiro de configuração X11 (normalmente, `etc/X11/xorg.conf` ). Adicione uma `"Device"` secção semelhante à seguinte:
+Se necessitar de um servidor X11 para ligações remotas a um NV ou VM NVv2, [o x11vnc](http://www.karlrunge.com/x11vnc/) é recomendado porque permite a aceleração de hardware de gráficos. O BusID do dispositivo M60 deve ser adicionado manualmente ao ficheiro de configuração X11 (normalmente, `etc/X11/xorg.conf` ). Adicione uma `"Device"` secção semelhante às seguintes:
  
 ```
 Section "Device"
@@ -334,7 +333,7 @@ O BusID decimal pode ser encontrado correndo
 nvidia-xconfig --query-gpu-info | awk '/PCI BusID/{print $4}'
 ```
  
-O BusID pode mudar quando um VM é realojado ou reiniciado. Por isso, poderá querer criar um script para atualizar o BusID na configuração X11 quando um VM é reiniciado. Por exemplo, crie um script nomeado `busidupdate.sh` (ou outro nome que escolha) com conteúdos semelhantes aos seguintes:
+O BusID pode mudar quando um VM é realojado ou reiniciado. Portanto, é melhor criar um script para atualizar o BusID na configuração X11 quando um VM é reiniciado. Por exemplo, crie um script nomeado `busidupdate.sh` (ou outro nome que escolher) com conteúdos semelhantes aos seguintes:
 
 ```bash 
 #!/bin/bash
@@ -350,13 +349,13 @@ else
 fi
 ```
 
-Em seguida, crie uma entrada para o seu script de atualização para `/etc/rc.d/rc3.d` que o script seja invocado como raiz no arranque.
+Em seguida, crie uma entrada para o seu script de atualização `/etc/rc.d/rc3.d` para que o script seja invocado como raiz no arranque.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-* Pode definir o modo de persistência utilizando para que `nvidia-smi` a saída do comando seja mais rápida quando precisa de consultar cartões. Para definir o modo de persistência, execute `nvidia-smi -pm 1` . Note que se o VM for reiniciado, a definição do modo desaparece. Pode sempre escrever a definição de modo a executar no arranque.
-* Se atualizou os controladores da NVIDIA CUDA para a versão mais recente e descobrir que a conectividade RDMA já não está a funcionar, [reinstale os controladores RDMA](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) para restabelecer essa conectividade. 
+* Pode definir o modo de persistência utilizando `nvidia-smi` para que a saída do comando seja mais rápida quando necessitar de consultar cartões. Para definir o modo de persistência, execute `nvidia-smi -pm 1` . Note que se o VM for reiniciado, a definição de modo desaparece. Pode sempre escrever a definição de modo para executar no arranque.
+* Se atualizou os controladores da NVIDIA CUDA para a versão mais recente e descobriu que a conectividade RDMA já não está a funcionar, [reinstale os controladores RDMA](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) para restabelecer essa conectividade. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para capturar uma imagem De VM Linux com os seus controladores NVIDIA instalados, veja [como generalizar e capturar uma máquina virtual Linux](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Para capturar uma imagem Linux VM com os seus controladores NVIDIA instalados, consulte [Como generalizar e capturar uma máquina virtual Linux](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

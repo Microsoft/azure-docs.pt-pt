@@ -5,33 +5,33 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 7face572f545153ea92efbdb345bbaabda5dd126
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 205f96a6ce9b730f98a0c676c3c0a289680e36f2
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248336"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057539"
 ---
-# <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Gerir os grupos de recursos do Gestor de Recursos Azure utilizando o Azure CLI
+# <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Gerir grupos de recursos do Azure Resource Manager utilizando o Azure CLI
 
-Aprenda a utilizar o Azure CLI com o [Azure Resource Manager](overview.md) para gerir os seus grupos de recursos Azure. Para gerir os recursos do Azure, consulte [gerir os recursos do Azure utilizando o Azure CLI](manage-resources-cli.md).
+Saiba como utilizar o Azure CLI com [o Azure Resource Manager](overview.md) para gerir os seus grupos de recursos Azure. Para gerir os recursos da Azure, consulte [gerir os recursos do Azure utilizando o Azure CLI](manage-resources-cli.md).
 
-Outros artigos sobre a gestão de grupos de recursos:
+Outros artigos sobre gestão de grupos de recursos:
 
-- [Gerir os grupos de recursos azure utilizando o portal Azure](manage-resources-portal.md)
-- [Gerir grupos de recursos Azure utilizando o Azure PowerShell](manage-resources-powershell.md)
+- [Gerir grupos de recursos Azure utilizando o portal Azure](manage-resources-portal.md)
+- [Gerir grupos de recursos Azure utilizando a Azure PowerShell](manage-resources-powershell.md)
 
 ## <a name="what-is-a-resource-group"></a>O que é um grupo de recursos
 
-Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que pretende gerir como um grupo. Decida como pretende atribuir recursos a grupos de recursos com base no que é mais adequado para a sua organização. Geralmente, adicione recursos que partilham o mesmo ciclo de vida ao mesmo grupo de recursos para que possa facilmente implantá-los, atualizar e eliminá-los como um grupo.
+Um grupo de recursos é um contentor que detém recursos relacionados para uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que pretende gerir como um grupo. Decida como pretende atribuir recursos a grupos de recursos com base no que é mais adequado para a sua organização. Geralmente, adicione recursos que partilham o mesmo ciclo de vida com o mesmo grupo de recursos para que possa facilmente implementar, atualizar e apagar como um grupo.
 
 O grupo de recursos armazena metadados sobre os recursos. Por conseguinte, quando especifica uma localização para o grupo de recursos, está a especificar onde esses metadados estão armazenados. Por motivos de conformidade, poderá ter de certificar que os dados estão armazenados numa determinada região.
 
-O grupo de recursos armazena metadados sobre os recursos. Quando especifica uma localização para o grupo de recursos, está a especificar onde os metadados são armazenados.
+O grupo de recursos armazena metadados sobre os recursos. Quando especificar uma localização para o grupo de recursos, está a especificar onde esses metadados são armazenados.
 
 ## <a name="create-resource-groups"></a>Criar grupos de recursos
 
-O seguinte script CLI cria um grupo de recursos, e em seguida, mostra o grupo de recursos.
+O seguinte script CLI cria um grupo de recursos e, em seguida, mostra o grupo de recursos.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -41,7 +41,7 @@ read location &&
 az group create --name $resourceGroupName --location $location
 ```
 
-## <a name="list-resource-groups"></a>Lista de grupos de recursos
+## <a name="list-resource-groups"></a>Grupos de recursos de lista
 
 O seguinte script CLI lista os grupos de recursos sob a sua subscrição.
 
@@ -67,27 +67,27 @@ read resourceGroupName &&
 az group delete --name $resourceGroupName
 ```
 
-Para obter mais informações sobre como o Gestor de Recursos azure ordena a eliminação de recursos, consulte a eliminação do grupo de recursos do Gestor de [Recursos do Azure.](delete-resource-group.md)
+Para obter mais informações sobre como o Azure Resource Manager ordena a supressão de recursos, consulte a eliminação do [grupo de recursos Azure Resource Manager](delete-resource-group.md).
 
 ## <a name="deploy-resources-to-an-existing-resource-group"></a>Mobilizar recursos para um grupo de recursos existente
 
-Consulte [os recursos de implantação para um grupo](manage-resources-cli.md#deploy-resources-to-an-existing-resource-group)de recursos existentes.
+Consulte [recursos de implantação para um grupo de recursos existente.](manage-resources-cli.md#deploy-resources-to-an-existing-resource-group)
 
 ## <a name="deploy-a-resource-group-and-resources"></a>Implementar um grupo de recursos e recursos
 
-Você pode criar um grupo de recursos e implementar recursos para o grupo usando um modelo de Gestor de Recursos. Para mais informações, consulte [Criar grupo de recursos e implementar recursos.](../templates/deploy-to-subscription.md#resource-group-and-resources)
+Pode criar um grupo de recursos e implementar recursos para o grupo utilizando um modelo de Gestor de Recursos. Para obter mais informações, consulte [criar grupo de recursos e implementar recursos.](../templates/deploy-to-subscription.md#resource-group-and-resources)
 
-## <a name="redeploy-when-deployment-fails"></a>Reimplantação quando a implantação falha
+## <a name="redeploy-when-deployment-fails"></a>Reimplantação quando a implementação falha
 
-Esta funcionalidade também é conhecida como *Rollback no erro*. Para mais informações, consulte [Reimplantação quando a implementação falhar](../templates/rollback-on-error.md).
+Esta funcionalidade também é conhecida como *Rollback on error*. Para obter mais informações, consulte [Reposicionar-se quando a implementação falhar](../templates/rollback-on-error.md).
 
-## <a name="move-to-another-resource-group-or-subscription"></a>Mude para outro grupo de recursos ou subscrição
+## <a name="move-to-another-resource-group-or-subscription"></a>Mude-se para outro grupo de recursos ou subscrição
 
-Pode mover os recursos do grupo para outro grupo de recursos. Para mais informações, consulte [Mover recursos.](manage-resources-cli.md#move-resources)
+Pode mover os recursos do grupo para outro grupo de recursos. Para mais informações, consulte [os recursos de Move.](manage-resources-cli.md#move-resources)
 
 ## <a name="lock-resource-groups"></a>Bloquear grupos de recursos
 
-O bloqueio impede que outros utilizadores da sua organização apagam ou modifiquem acidentalmente recursos críticos, tais como subscrição azure, grupo de recursos ou recursos. 
+O bloqueio impede que outros utilizadores da sua organização apaguem ou modifiquem acidentalmente recursos críticos, tais como subscrição do Azure, grupo de recursos ou recursos. 
 
 O seguinte script bloqueia um grupo de recursos para que o grupo de recursos não possa ser eliminado.
 
@@ -97,7 +97,7 @@ read resourceGroupName &&
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group $resourceGroupName  
 ```
 
-O seguinte script recebe todas as fechaduras para um grupo de recursos:
+O seguinte script obtém todas as fechaduras para um grupo de recursos:
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -119,14 +119,14 @@ Para obter mais informações, consulte [Bloquear recursos com o Azure Resource 
 
 ## <a name="tag-resource-groups"></a>Grupos de recursos de etiqueta
 
-Pode aplicar etiquetas a grupos de recursos e recursos para organizar logicamente os seus ativos. Para obter informações, consulte [Utilizar tags para organizar os seus recursos Azure.](tag-resources.md#azure-cli)
+Pode aplicar etiquetas a grupos de recursos e recursos para organizar logicamente os seus ativos. Para obter informações, consulte [a utilização de tags para organizar os seus recursos Azure.](tag-resources.md#azure-cli)
 
 ## <a name="export-resource-groups-to-templates"></a>Grupos de recursos de exportação para modelos
 
-Depois de configurar o seu grupo de recursos com sucesso, pode querer ver o modelo de Gestor de Recursos para o grupo de recursos. Exportar o modelo oferece dois benefícios:
+Depois de configurar o seu grupo de recursos com sucesso, pode querer visualizar o modelo de Gestor de Recursos para o grupo de recursos. Exportar o modelo oferece dois benefícios:
 
 - Automatizar futuras implementações da solução porque o modelo contém toda a infraestrutura completa.
-- Aprenda a sintaxe do modelo olhando para a Notação de Objetos JavaScript (JSON) que representa a sua solução.
+- Aprenda a sintaxe do modelo olhando para a Notação de Objeto JavaScript (JSON) que representa a sua solução.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -134,21 +134,21 @@ read resourceGroupName &&
 az group export --name $resourceGroupName  
 ```
 
-O script exibe o modelo na consola.  Copie o JSON e guarde como ficheiro.
+O script apresenta o modelo na consola.  Copie o JSON e guarde como um ficheiro.
 
-O modelo de exportação não suporta a exportação de recursos da Azure Data Factory. Para saber como pode exportar recursos da Fábrica de Dados, consulte [copiar ou clonar uma fábrica](https://aka.ms/exportTemplateViaAdf)de dados na Azure Data Factory .
+A funcionalidade do modelo de exportação não suporta a exportação de recursos da Azure Data Factory. Para saber como pode exportar recursos da Data Factory, consulte [Copy ou clone uma fábrica de dados na Azure Data Factory.](https://aka.ms/exportTemplateViaAdf)
 
-Para exportar recursos criados através de um modelo de implantação clássico, deve [emigrar para o modelo](https://aka.ms/migrateclassicresourcetoarm)de implantação do Gestor de Recursos.
+Para exportar recursos criados através de um modelo de implementação clássico, deve [migrar para o modelo de implementação do Gestor de Recursos.](https://aka.ms/migrateclassicresourcetoarm)
 
-Para mais informações, consulte [a exportação de monoe e multi-recursos para o modelo no portal Azure](../templates/export-template-portal.md).
+Para obter mais informações, consulte [exportação única e multi-recursos para o modelo no portal Azure](../templates/export-template-portal.md).
 
 ## <a name="manage-access-to-resource-groups"></a>Gerir o acesso a grupos de recursos
 
-[O controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md) é a forma como gere o acesso aos recursos em Azure. Para mais informações, consulte [Gerir o acesso utilizando rBAC e Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+[O controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md) é a forma como gere o acesso aos recursos em Azure. Para obter mais informações, consulte [Gerir o acesso utilizando o RBAC e o Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Para aprender O Gestor de Recursos Azure, consulte a [visão geral do Gestor de Recursos do Azure.](overview.md)
-- Para aprender a sintaxe do modelo do Gestor de Recursos, consulte [Compreender a estrutura e a sintaxe dos modelos do Gestor](../templates/template-syntax.md)de Recursos Azure .
-- Para aprender a desenvolver modelos, consulte os [tutoriais passo a passo.](/azure/azure-resource-manager/)
-- Para ver os esquemas de modelo do Gestor de Recursos Azure, consulte a referência do [modelo](/azure/templates/).
+- Para saber o Gestor de Recursos Azure, consulte [a visão geral do Azure Resource Manager](overview.md).
+- Para aprender a sintaxe do modelo do Gestor de Recursos, consulte [compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure](../templates/template-syntax.md).
+- Para aprender a desenvolver modelos, consulte os [tutoriais passo a passo.](../index.yml)
+- Para ver os esquemas de modelo do Gestor de Recursos Azure, consulte [a referência do modelo](/azure/templates/).

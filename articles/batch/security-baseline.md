@@ -1,52 +1,52 @@
 ---
-title: Linha de base de segurança azure para lote
-description: Linha de base de segurança azure para lote
+title: Linha de base de segurança Azure para lote
+description: Linha de base de segurança Azure para lote
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e850f719f64d1d845ca11ccefeefea2c8dc7fa26
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 76312a55262d316c679bde2a69e8b98844addcb0
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195660"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963874"
 ---
-# <a name="azure-security-baseline-for-batch"></a>Linha de base de segurança azure para lote
+# <a name="azure-security-baseline-for-batch"></a>Linha de base de segurança Azure para lote
 
-A Linha de Base de Segurança Azure para Lote contém recomendações que o ajudarão a melhorar a postura de segurança da sua implementação.
+A Linha de Base de Segurança Azure para o Lote contém recomendações que o ajudarão a melhorar a postura de segurança da sua implantação.
 
-A linha de base para este serviço é extraída da [versão 1.0 do Azure Security Benchmark,](https://docs.microsoft.com/azure/security/benchmarks/overview)que fornece recomendações sobre como pode garantir as suas soluções em nuvem no Azure com as nossas melhores práticas de orientação.
+A linha de base para este serviço é extraída da [versão 1.0 do Azure Security Benchmark,](../security/benchmarks/overview.md)que fornece recomendações sobre como pode garantir as suas soluções em nuvem no Azure com a nossa orientação de boas práticas.
 
-Para mais informações, consulte a [visão geral da Azure Security Baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Para obter mais informações, consulte [a visão geral da Azure Security Baselines](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Segurança de Rede
 
-*Para mais informações, consulte [Security Control: Network Security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Para obter mais informações, consulte [Controlo de Segurança: Segurança da Rede](../security/benchmarks/security-control-network-security.md).*
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Proteja os recursos utilizando grupos de segurança de rede ou firewall azure na sua Rede Virtual
+### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Proteger recursos utilizando grupos de segurança de rede ou firewall Azure na sua Rede Virtual
 
-**Orientação**: Implante o conjunto de lotes azure dentro da rede virtual. Para permitir que os nós de computação de piscina saem com segurança com outras máquinas virtuais, ou com uma rede no local, você pode fornecer a piscina em uma subnet de uma rede virtual Azure. Além disso, a implementação do seu Pool dentro de uma rede virtual dá-lhe controlo sobre o grupo de segurança da rede (NSG) usado para proteger as interfaces de rede dos nós individuais (NIC), bem como a subnet. Configure o NSG para permitir o tráfego a partir de IP(s)/locais confiáveis na Internet.
+**Orientação**: Implementar o pool(s) Azure Batch dentro da rede virtual. Para permitir que os nós de cálculo de piscinas se comuniquem de forma segura com outras máquinas virtuais, ou com uma rede no local, pode providenciar a piscina numa sub-rede de uma rede virtual Azure. Além disso, a implementação do Pool dentro de uma rede virtual dá-lhe controlo sobre o grupo de segurança de rede (NSG) utilizado para proteger as interfaces de rede individuais dos nós (NIC), bem como a sub-rede. Configure o NSG para permitir o tráfego a partir de apenas IP(s)/locais fidedignos na Internet.
 
-Como criar um Pool de Lote Azure dentro de uma Rede Virtual:
+Como criar um Azure Batch Pool dentro de uma rede virtual:
 
 https://docs.microsoft.com/azure/batch/batch-virtual-network
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1.2: Monitore e registe a configuração e tráfego de Vnets, Subnets e NICS
+### <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1.2: Monitorar e registar a configuração e o tráfego de Vnets, Subnetas e NICS
 
-**Orientação**: Utilize o Azure Security Center e remediar as recomendações de proteção da rede relacionadas com o grupo de segurança de rede virtual (NSG) associado ao seu pool de Lote. Ative os registos de fluxo no NSG que está a ser utilizado para proteger a sua piscina de Lote e envie registos para uma Conta de Armazenamento Azure para auditoria de tráfego. Também pode enviar registos de fluxo NSG para um espaço de trabalho Azure Log Analytics e utilizar o Azure Traffic Analytics para fornecer informações sobre o fluxo de tráfego na sua nuvem Azure. Algumas vantagens do Azure Traffic Analytics são a capacidade de visualizar a atividade da rede e identificar pontos quentes, identificar ameaças de segurança, compreender os padrões de fluxo de tráfego e identificar configurações erradas da rede.
+**Orientação**: Utilize o Azure Security Center e remedia as recomendações de proteção da rede relacionadas com o grupo de segurança de rede virtual /rede (NSG) associado ao seu pool de lote. Ativar os registos de fluxo no NSG que está a ser utilizado para proteger a sua piscina de Lote e enviar registos numa Conta de Armazenamento Azure para auditoria de tráfego. Também pode enviar registos de fluxo NSG para um espaço de trabalho Azure Log Analytics e utilizar o Azure Traffic Analytics para fornecer informações sobre o fluxo de tráfego na sua nuvem Azure. Algumas vantagens da Azure Traffic Analytics são a capacidade de visualizar a atividade da rede e identificar pontos quentes, identificar ameaças de segurança, compreender padrões de fluxo de tráfego e identificar configurações erradas da rede.
 
-Como ativar os registos de fluxo nsg:
+Como ativar os registos de fluxo NSG:
 
 https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-Como ativar e utilizar o Traffic Analytics:
+Como Ativar e utilizar a Análise de Tráfego:
 
 https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
@@ -54,59 +54,59 @@ Compreender a Segurança da Rede fornecida pelo Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: Proteger aplicações web críticas
 
-**Orientação**: Não aplicável; esta recomendação destina-se aos recursos informáticos.
+**Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: Negar comunicações com endereços IP maliciosos conhecidos
 
-**Orientação**: Habilitar a proteção padrão do Azure DDoS (denegação de serviço distribuído) na rede virtual que protege o seu conjunto de lotes Azure para proteção contra ataques DDoS. Utilize o Azure Security Center Integrated Threat Intelligence para negar comunicações com endereços IP da Internet maliciosos ou não utilizados conhecidos.
+**Orientação**: Ativar a proteção padrão do Azure DDoS (negação de serviço distribuído) na rede virtual que protege o seu pool Azure Batch para proteção contra ataques DDoS. Use a Azure Security Center Integrated Threat Intelligence para negar comunicações com endereços IP de Internet maliciosos ou não utilizados.
 
 Como configurar a proteção DDoS:
 
 https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
-Compreender o Azure Security Center Integrated Threat Intelligence:
+Compreenda a Inteligência Integrada de Ameaças do Centro de Segurança Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="15-record-network-packets-and-flow-logs"></a>1.5: Pacotes de rede de discos e registos de fluxo
+### <a name="15-record-network-packets-and-flow-logs"></a>1.5: Pacotes de rede de registos e registos de fluxo
 
-**Orientação**: Ativar registos de fluxo no grupo de segurança da rede (NSG) que está a ser utilizado para proteger a sua piscina de Lote Azure e enviar registos para uma Conta de Armazenamento Azure para auditoria de tráfego.
+**Orientação**: Ative os registos de fluxo no grupo de segurança da rede (NSG) que está a ser utilizado para proteger a sua piscina Azure Batch e envie registos para uma conta de armazenamento Azure para auditoria de tráfego.
 
-Como ativar os registos de fluxo nsg:
+Como ativar os registos de fluxo NSG:
 
 https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
-### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems"></a>1.6: Implementar sistemas de deteção/deteção de intrusões baseados em rede
+### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems"></a>1.6: Implementar sistemas de deteção/prevenção de intrusões baseados em rede
 
 **Orientação**: Se necessário para efeitos de conformidade, selecione um aparelho virtual de rede do Mercado Azure que suporte sistemas de deteção de intrusões (IDS) e sistemas de prevenção de intrusões (IPS) com capacidades de inspeção de carga útil.
 
-Se a deteção e/ou prevenção de intrusões com base na inspeção da carga útil não for um requisito, o Azure Firewall com inteligência de ameaça pode ser usado. A filtragem baseada em ameaças de firewall Azure Firewall pode alertar e negar o tráfego de e para endereços e domínios ip maliciosos conhecidos. Os endereços e domínios IP são obtidos a partir do feed da Microsoft Threat Intelligence.
+Se a deteção e/ou prevenção de intrusões baseada na inspeção da carga útil não for um requisito, a Azure Firewall com inteligência de ameaça pode ser usada. A filtragem baseada em ameaças de Azure Firewall pode alertar e negar tráfego de e para endereços ip maliciosos conhecidos e domínios. Os endereços e domínios IP são obtidos a partir do feed de Inteligência de Ameaça da Microsoft.
 
-Implemente o Azure Firewall com um endereço IP público na mesma rede virtual que os seus nódos de Pool De Lote Azure. Configure as regras de tradução de endereços de rede (NAT) entre localizações fidedignas na Internet e os endereços IP privados dos seus nós de piscina individuais. No Firewall Azure, sob a Inteligência de Ameaça, configure "Alert and deny" para bloquear para alertar e bloquear o tráfego de/para endereços e domínios IP maliciosos conhecidos. Os endereços e domínios IP são obtidos a partir do feed da Microsoft Threat Intelligence, e apenas os registos de confiança mais elevados estão incluídos. 
+Implemente o Azure Firewall com um endereço IP público na mesma rede virtual que os seus nós Azure Batch Pool. Configure as regras de tradução de endereços de rede (NAT) entre localizações fidedignas na Internet e os endereços IP privados dos seus nós de piscina individuais. No Azure Firewall, sob a Inteligência de Ameaça, configurar "Alert and deny" para bloquear para alertar e bloquear tráfego de/para/de endereços e domínios IP maliciosos conhecidos. Os endereços e domínios IP são obtidos a partir do feed da Microsoft Threat Intelligence, e apenas os registos de maior confiança estão incluídos. 
 
-Como criar um Pool de Lote Azure dentro de uma Rede Virtual:
+Como criar um Azure Batch Pool dentro de uma rede virtual:
 
 https://docs.microsoft.com/azure/batch/batch-virtual-network
 
-Como implantar o Firewall Azure:
+Como implantar a Firewall Azure:
 
 https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
@@ -114,51 +114,51 @@ Mercado Azure:
 
 https://azuremarketplace.microsoft.com/marketplace/?term=Firewall
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
 ### <a name="17-manage-traffic-to-your-web-applications"></a>1.7: Gerir o tráfego para as suas aplicações web
 
-**Orientação**: Não aplicável, o Benchmark destina-se a aplicações web em execução em casos de Azure App Service ou IaaS.
+**Orientação**: Não aplicável, o Benchmark destina-se a aplicações web em execução em instâncias do Azure App Service ou iaaS.
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: Minimizar a complexidade e a sobrecarga administrativa das regras de segurança da rede
 
-**Orientação**: Utilize etiquetas de serviço de rede virtuais para definir controlos de acesso à rede em grupos de segurança de rede ou firewalls Azure associados à sua piscina de Lotes Azure. Ao criar regras de segurança, pode utilizar etiquetas de serviço em vez de endereços IP específicos. Especificando o nome da etiqueta de serviço (por exemplo, ApiManagement) no campo de origem ou destino adequado de uma regra, pode permitir ou negar o tráfego para o serviço correspondente. A Microsoft gere os prefixos de endereço sacados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam.
+**Orientação**: Utilize etiquetas de serviço de rede virtuais para definir controlos de acesso à rede em grupos de segurança de rede ou firewalls Azure associados à sua piscina Azure Batch. Ao criar regras de segurança, pode utilizar etiquetas de serviço em vez de endereços IP específicos. Ao especificar o nome da etiqueta de serviço (por exemplo, ApiManagement) no campo de origem ou destino adequado de uma regra, pode permitir ou negar o tráfego para o serviço correspondente. A Microsoft gere os prefixos de endereços englobados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam.
 
-Compreender e usar etiquetas de serviço:
+Compreender e utilizar etiquetas de serviço:
 
 https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: Manter configurações de segurança padrão para dispositivos de rede
 
-**Orientação**: Defina e implemente configurações de segurança padrão para recursos de rede associados ao seu pool de lotes Azure com a Política Azure. Utilize pseudónimos da Política Azure nos espaços de nome "Microsoft.Batch" e "Microsoft.Network" para criar políticas personalizadas para auditar ou impor a configuração da rede dos seus pools de Lote Azure.
+**Orientação**: Defina e implemente configurações de segurança padrão para os recursos de rede associados ao seu(s) pool(s) Azure Batch com a Política Azure. Utilize pseudónimos da Azure Policy nos espaços de nome "Microsoft.Batch" e "Microsoft.Network" para criar políticas personalizadas para auditar ou impor a configuração de rede dos seus pools Azure Batch.
 
-Como configurar e gerir a Política Azure:
+Como configurar e gerir a Política de Azure:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
-### <a name="110-document-traffic-configuration-rules"></a>1.10: Regras de Configuração do Tráfego de Documentos
+### <a name="110-document-traffic-configuration-rules"></a>1.10: Regras de configuração do tráfego de documentos
 
-**Orientação**: Utilize etiquetas para grupos de serviços de rede (NSGs) e outros recursos relacionados com a segurança da rede e fluxo de tráfego que estejam associados aos seus conjuntos de lotes Azure. Para regras nsg individuais, utilize o campo "Descrição" para especificar a necessidade e/ou duração do negócio (etc.) para quaisquer regras que permitam o tráfego de/para uma rede.
+**Orientação**: Utilize etiquetas para grupos de serviço de rede (NSGs) e outros recursos relacionados com a segurança da rede e o fluxo de tráfego que estejam associados aos seus lotes Azure. Para regras individuais de NSG, utilize o campo "Descrição" para especificar a necessidade e/ou duração do negócio (etc.) para quaisquer regras que permitam o tráfego de/para uma rede.
 
-Utilize qualquer uma das definições de Política Azure incorporadas relacionadas com a marcação, tais como "Exigir etiqueta e seu valor" para garantir que todos os recursos são criados com etiquetas e notificá-lo de recursos não marcados existentes.
+Utilize qualquer uma das definições da Política Azure incorporadas relacionadas com a marcação, tais como "Exigir etiqueta e seu valor" para garantir que todos os recursos são criados com etiquetas e para notificá-lo dos recursos existentes não marcados.
 
-Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou realizar ações em recursos baseados nas suas etiquetas.
+Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar ações em recursos baseados nas suas etiquetas.
 
-Como criar e utilizar etiquetas:
+Como criar e utilizar tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
@@ -170,157 +170,157 @@ Como criar um NSG:
 
 https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
-### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: Utilize ferramentas automatizadas para monitorizar as configurações de recursos de rede e detetar alterações
+### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: Utilizar ferramentas automatizadas para monitorizar configurações de recursos de rede e detetar alterações
 
-**Orientação**: Utilize o Registo de Atividade seleções do Azure para monitorizar as configurações de recursos de rede e detetar alterações para os recursos de rede relacionados com as piscinas do Lote Azure. Crie alertas dentro do Monitor Azure que irão desencadear quando ocorrerem alterações aos recursos críticos da rede.
+**Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações de recursos de rede e detetar alterações nos recursos de rede relacionados com os seus pools Azure Batch. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nos recursos críticos da rede.
 
-Como visualizar e recuperar eventos de registo de atividade sinuosa:https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view 
+Como visualizar e recuperar eventos de Registo de Atividades Azure:https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view 
 
-Como criar alertas no Monitor Azure:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Como criar alertas no Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
 ## <a name="logging-and-monitoring"></a>Início de sessão e Monitorização
 
-*Para mais informações, consulte [Controlo de Segurança: Registo e Monitorização](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Para obter mais informações, consulte [Controlo de Segurança: Registo e monitorização](../security/benchmarks/security-control-logging-monitoring.md).*
 
-### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Utilizar fontes de sincronização do tempo aprovadas
+### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Utilizar fontes de sincronização de tempo aprovadas
 
-**Orientação**: Para o Lote Azure, por padrão, a Microsoft fornece sincronização de tempo. No entanto, se tiver requisitos específicos de sincronização de tempo, poderá implementar essas alterações.
+**Orientação**: Para o Azure Batch, por padrão, a Microsoft fornece sincronização de tempo. No entanto, se tiver requisitos específicos de sincronização de tempo, poderá implementar essas alterações.
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Microsoft
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: Configurar a Gestão central de registos de segurança
 
-**Orientação**: Conta de Onboard Azure Batch ao Azure Monitor para agregar dados de segurança gerados pelos dispositivos de cluster. Aproveite as consultas personalizadas para detetar e responder a ameaças no ambiente.  Para a monitorização ao nível de recursos do Lote Azure, utilize as APIs do lote para monitorizar ou consultar o estado dos seus recursos, incluindo empregos, tarefas, nós e piscinas.
+**Orientação**: Conta Azure Batch a bordo do Azure Monitor para agregar dados de segurança gerados pelos dispositivos de cluster. Aproveite as consultas personalizadas para detetar e responder a ameaças no ambiente.  Para a monitorização ao nível dos recursos do Azure Batch, utilize as APIs do lote para monitorizar ou consultar o estado dos seus recursos, incluindo empregos, tarefas, nós e piscinas.
 
-Como embarcar numa conta de Lote Azure para o Monitor Azure:
+Como embarcar uma conta Azure Batch para o Azure Monitor:
 
 https://docs.microsoft.com/azure/batch/batch-diagnostics
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: Permitir a exploração de auditoria aos Recursos Azure
+### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: Permitir a exploração de auditorias para recursos azure
 
-**Orientação**: Para monitorização do nível da conta do Lote Azure, monitorize cada conta do Lote utilizando as características do Monitor Azure. O Azure Monitor recolhe métricas e registos de diagnóstico opcional para recursos mapeados ao nível de uma conta de Lote, tais como piscinas, empregos e tarefas. Recolha e consuma estes dados manualmente ou programáticamente para monitorizar as atividades na sua conta Do Lote e diagnosticar problemas.
+**Orientação**: Para monitorização do nível de conta do Azure Batch, monitorize cada conta batch utilizando as características do Monitor Azure. O Azure Monitor recolhe métricas e registos de diagnóstico opcional para recursos abrangidos ao nível de uma conta Batch, tais como piscinas, empregos e tarefas. Recolher e consumir estes dados manualmente ou programáticamente para monitorizar as atividades na sua conta Batch e diagnosticar problemas.
 
-Para a monitorização do nível de recursos do Lote Azure, utilize as APIs do Lote Azure para monitorizar ou consultar o estado dos seus recursos, incluindo empregos, tarefas, nós e piscinas.
+Para monitorizar o nível de recursos do Azure Batch, utilize as APIs do Lote Azure para monitorizar ou consultar o estado dos seus recursos, incluindo empregos, tarefas, nós e piscinas.
 
-Como configurar a monitorização e o registo ao nível da conta do Lote Azure:
+Como configurar a monitorização e registo do nível da conta Azure Batch:
 
 https://docs.microsoft.com/azure/batch/monitoring-overview
 
-Compreender a monitorização ao nível dos recursos do lote:
+Compreender a monitorização ao nível dos recursos do Lote:
 
 https://docs.microsoft.com/azure/batch/monitoring-overview#batch-resource-monitoring
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="24-collect-security-logs-from-operating-system"></a>2.4: Recolher registos de segurança do sistema operativo
+### <a name="24-collect-security-logs-from-operating-system"></a>2.4: Recolher registos de segurança do Sistema Operativo
 
-**Orientação**: O Monitor Azure recolhe métricas e registos de diagnóstico de recursos na sua conta Azure Batch. Recolha e consuma estes dados de várias formas de monitorizar a sua conta do Lote Azure e diagnosticar problemas. Também pode configurar alertas métricos para que receba notificações quando uma métrica atinge um valor especificado.
+**Orientação**: O Azure Monitor recolhe métricas e registos de diagnóstico para recursos na sua conta Azure Batch. Recolher e consumir estes dados de várias formas de monitorizar a sua conta Azure Batch e diagnosticar problemas. Também pode configurar alertas métricos para que receba notificações quando uma métrica atinge um valor especificado.
 
-Se necessário, talvez se ligue aos seus nós de piscina individuais através da Secured Shell (SSH) ou do Remote Desktop Protocol (RDP) para aceder aos registos do sistema operativo local.
+Se necessário, talvez se conecte aos seus nós de piscina individuais através de Secured Shell (SSH) ou Remote Desktop Protocol (RDP) para aceder aos registos do sistema operativo local.
 
 Como recolher registos de diagnóstico da sua conta Azure Batch:
 
 https://docs.microsoft.com/azure/batch/batch-diagnostics#batch-diagnostics
 
-Como ligar remotamente aos seus nódosos de piscina do Lote Azure:
+Como ligar remotamente aos seus nóns de piscina Azure Batch:
 
 https://docs.microsoft.com/azure/batch/batch-api-basics#error-handling
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="25-configure-security-log-storage-retention"></a>2.5: Configurar a retenção de registode segurança
+### <a name="25-configure-security-log-storage-retention"></a>2.5: Configurar a retenção de armazenamento de registo de segurança
 
-**Orientação**: Conta de lote de bordo Azure para o Monitor Azure. Certifique-se de que o espaço de trabalho azure Log Analytics utilizado tem o período de retenção de registo definido de acordo com os regulamentos de conformidade da sua organização
+**Orientação**: Conta de lote Azure a bordo para o Monitor Azure. Certifique-se de que o espaço de trabalho Azure Log Analytics utilizado tem o período de retenção de registo definido de acordo com os regulamentos de conformidade da sua organização
 
-Como configurar a monitorização e a exploração madeireira do Lote Azure:
+Como configurar a monitorização e registo do Azure Batch:
 
 https://docs.microsoft.com/azure/batch/monitoring-overview
 
-Como configurar o período de retenção do espaço de trabalho Azure Log Analytics:
+Como configurar o período de retenção do espaço de trabalho do Azure Log Analytics:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
-### <a name="26-monitor-and-review-logs"></a>2.6: Monitor e Registos de Revisão
+### <a name="26-monitor-and-review-logs"></a>2.6: Registos de monitorização e revisão
 
-**Orientação**: Criar alertas métricos do Lote Azure que disparam quando o valor de uma métrica especificada cruza um determinado limiar.
+**Orientação**: Crie alertas métricos do Lote Azure que desencadeiem quando o valor de uma métrica especificada cruza um determinado limiar.
 
-Como configurar alertas métricos do Lote Azure:
+Como configurar alertas métricos do Azure Batch:
 
 https://docs.microsoft.com/azure/batch/batch-diagnostics
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
-### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: Ativar alertas para atividade anómala
+### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: Permitir alertas para atividades anómalas
 
-**Orientação**: Criar alertas métricos do Lote Azure que disparam quando o valor de uma métrica especificada cruza um determinado limiar.
+**Orientação**: Crie alertas métricos do Lote Azure que desencadeiem quando o valor de uma métrica especificada cruza um determinado limiar.
 
-Como configurar alertas métricos do Lote Azure:
+Como configurar alertas métricos do Azure Batch:
 
 https://docs.microsoft.com/azure/batch/batch-diagnostics
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8: Centralizar a exploração anti-malware
 
-**Orientação**: Utilize o Windows Defender nos seus nós de lote individuais no caso dos sistemas operativos Windows ou forneça a sua própria solução anti-malware se estiver a utilizar o Linux.
+**Orientação**: Utilize o Windows Defender nos seus nós individuais de lote no caso dos sistemas operativos Windows ou forneça a sua própria solução anti-malware se estiver a utilizar o Linux.
 
-**Monitorização do Centro de Segurança Azure:** Sim
-
-**Responsabilidade**: Cliente
-
-### <a name="29-enable-dns-query-logging"></a>2.9: Ativar a exploração de consultas dNS
-
-**Orientação**: Implementar solução de terceiros para a exploração madeireira dns
-
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="210-enable-command-line-audit-logging"></a>2.10: Ativar a exploração de registos de auditoria da linha de comando
+### <a name="29-enable-dns-query-logging"></a>2.9: Permitir a colocação de registo de consultas de DNS
 
-**Orientação**: Configure manualmente o registo de consolas e a transcrição powerShell numa base por nó.
+**Orientação**: Implementar solução de terceiros para a sessão de dns
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+
+**Responsabilidade**: Cliente
+
+### <a name="210-enable-command-line-audit-logging"></a>2.10: Ativar o registo de auditoria da linha de comando
+
+**Orientação**: Configurar manualmente a registo da consola e a transcrição powerShell numa base por nó.
+
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
 ## <a name="identity-and-access-control"></a>Identidade e Controlo de Acesso
 
-*Para mais informações, consulte [Controlo de Segurança: Controlo de Identidade e Acesso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Para mais informações, consulte [Controlo de Segurança: Identidade e Controlo de Acesso.](../security/benchmarks/security-control-identity-access-control.md)*
 
-### <a name="31-maintain-inventory-of-administrative-accounts"></a>3.1: Manter o inventário das Contas Administrativas
+### <a name="31-maintain-inventory-of-administrative-accounts"></a>3.1: Manter o Inventário das Contas Administrativas
 
-**Orientação**: Mantenha o registo da conta administrativa local criada durante o fornecimento do pool do Lote Azure, bem como quaisquer outras contas que crie. Além disso, se a integração do Azure Ative Directory (AAD) for utilizada, a AAD tem funções incorporadas que devem ser explicitamente atribuídas e, portanto, são consultadas. Utilize o módulo AAD PowerShell para realizar consultas adhoc para descobrir contas que são membros de grupos administrativos.
+**Orientação**: Mantenha o registo da conta administrativa local que é criada durante o provisionamento do pool do Lote Azure, bem como quaisquer outras contas que crie. Além disso, se a integração do Azure Ative Directory (AAD), a AAD tem funções incorporadas que devem ser explicitamente atribuídas e, portanto, são questionáveis. Utilize o módulo AAD PowerShell para realizar consultas de adhoc para descobrir contas que são membros de grupos administrativos.
 
-Além disso, pode utilizar recomendações de Identidade e Gestão de Acesso do Azure Security Center.
+Além disso, pode utilizar recomendações de Gestão de Identidade e Acesso do Centro de Segurança Azure.
 
-Como obter um papel de diretório em AAD com powerShell:
+Como obter um papel de diretório em AAD com PowerShell:
 
 https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
 
@@ -328,55 +328,55 @@ Como obter membros de um papel de diretório em AAD com PowerShell:
 
 https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
 
-Como monitorizar a identidade e o acesso ao Azure Security Center:
+Como monitorizar a identidade e o acesso com o Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="32-change-default-passwords-where-applicable"></a>3.2: Alterar as palavras-passe por defeito sempre que aplicável
+### <a name="32-change-default-passwords-where-applicable"></a>3.2: Alterar palavras-passe padrão quando aplicável
 
-**Orientação**: Ao fornecer um conjunto de lotes Azure, é-lhe dada a opção de criar contas de máquinas locais. Não existem senhas padrão para alterar, no entanto pode especificar diferentes palavras-passe para acesso de Shell (SSH) e Remote Desktop Protocol (RDP). Depois de configurado o Azure Batch Pool, pode gerar um utilizador aleatório para nós individuais dentro do portal Azure, ou através da API do Gestor de Recursos Azure.
+**Orientação**: Ao providenciar uma piscina Azure Batch, é-lhe dada a opção de criar contas de máquinas locais. Não existem senhas predefinidos para alterar, no entanto pode especificar diferentes palavras-passe para acesso secured Shell (SSH) e Remote Desktop Protocol (RDP). Depois de configurado o Azure Batch Pool, pode gerar um utilizador aleatório para nós individuais dentro do portal Azure ou através da AZure Resource Manager API.
 
-Como adicionar um utilizador ao nó de cálculo específico:
+Como adicionar um utilizador a um nó de computação específico:
 
 https://docs.microsoft.com/rest/api/batchservice/computenode/adduser
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
 ### <a name="33-ensure-the-use-of-dedicated-administrative-accounts"></a>3.3: Assegurar a utilização de Contas Administrativas Dedicadas
 
-**Orientação**: Integrar a autenticação para aplicações de lote azure com diretório ativo Azure. Criar políticas e procedimentos em torno da utilização de contas administrativas dedicadas.
+**Orientação**: Integrar a autenticação para aplicações de lote Azure com diretório ativo Azure. Criar políticas e procedimentos em torno da utilização de contas administrativas dedicadas.
 
-Além disso, pode utilizar recomendações de Identidade e Gestão de Acesso do Azure Security Center.
+Além disso, pode utilizar recomendações de Gestão de Identidade e Acesso do Centro de Segurança Azure.
 
 Como autenticar aplicações de Lote com Diretório Ativo Azure:
 
 https://docs.microsoft.com/azure/batch/batch-aad-auth
 
-Como monitorizar a identidade e o acesso ao Azure Security Center:
+Como monitorizar a identidade e o acesso com o Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="34-utilize-single-sign-on-sso-with-azure-active-directory"></a>3.4: Utilizar um único signo (SSO) com diretório ativo Azure
+### <a name="34-utilize-single-sign-on-sso-with-azure-active-directory"></a>3.4: Utilize o Sign-On Único (SSO) com o Azure Ative Directory
 
-**Orientação**: Não aplicável, enquanto o Lote Azure suporta a autenticação Azure AD, não é suportado um único sinal.
+**Orientação**: Não é aplicável, enquanto o Azure Batch suporta a autenticação Azure AD, a inscrição única não é suportada.
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
-### <a name="35-use-multifactor-authentication-for-all-azure-active-directory-based-access"></a>3.5: Utilizar a autenticação multifactor para todos os acessos baseados no Diretório Ativo Azure.
+### <a name="35-use-multifactor-authentication-for-all-azure-active-directory-based-access"></a>3.5: Utilize a autenticação multifactor para todos os acessos baseados no Diretório Ativo Azure.
 
-**Orientação**: Integrar a autenticação para aplicações de lote azure com diretório ativo Azure (AAD). Enable AAD multi-factor authentication (MFA) e siga as recomendações de Identidade e Gestão de Acesso do Azure Security Center.
+**Orientação**: Integrar a autenticação para aplicações de lote Azure com diretório ativo Azure (AAD). Ativar a autenticação multi-factor AAD (MFA) e seguir as recomendações do Azure Security Center Identity and Access Management.
 
  
 
@@ -384,19 +384,19 @@ Como permitir o MFA em Azure:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
-Como monitorizar a identidade e o acesso dentro do Azure Security Center:
+Como monitorizar a identidade e o acesso dentro do Centro de Segurança Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: Utilizar máquinas dedicadas (Postos de trabalho de acesso privilegiado) para todas as tarefas administrativas
+### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: Utilizar máquinas dedicadas (estações de acesso privilegiadas) para todas as tarefas administrativas
 
-**Orientação**: Utilize PAWs (estações de trabalho de acesso privilegiados) com autenticação multifactor (MFA) configurada para iniciar sessão e configurar os seus recursos do Lote Azure.
+**Orientação**: Utilize PAWs (estações de acesso privilegiada) com autenticação multi-factor (MFA) configurada para iniciar sessão e configurar os seus recursos do Azure Batch.
 
-Saiba mais sobre postos de trabalho de acesso privilegiados:
+Saiba mais sobre estações de acesso privilegiadas:
 
 https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
 
@@ -404,43 +404,43 @@ Como permitir o MFA em Azure:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7: Registo e Alerta sobre Atividade Suspeita a partir de Contas Administrativas
+### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7: Registo e alerta sobre atividades suspeitas a partir de contas administrativas
 
-**Orientação**: Se tiver autenticação integrada para aplicações de lote azure com Diretório Ativo Azure (AAD), utilize relatórios de segurança do Diretório Ativo Azure para a geração de registos e alertas quando ocorrer atividade suspeita ou insegura no ambiente. Utilize o Azure Security Center para monitorizar a atividade de identidade e acesso.
+**Orientação**: Se tiver autenticação integrada para aplicações de lote Azure com Diretório Ativo Azure (AAD), utilize relatórios de segurança do Azure Ative Directory para a geração de registos e alertas quando ocorrerem atividades suspeitas ou inseguras no ambiente. Utilize o Centro de Segurança Azure para monitorizar a atividade de identidade e acesso.
 
-Como identificar utilizadores de Anúncios Azure sinalizados para atividades de risco:
+Como identificar utilizadores de AD Azure sinalizados para atividade de risco:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
 
-Como monitorizar a identidade e a atividade de acesso dos utilizadores no Centro de Segurança Do Azure:
+Como monitorizar a identidade e a atividade de acesso dos utilizadores no Centro de Segurança Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="38-manage-azure-resource-from-only-approved-locations"></a>3.8: Gerir o recurso Azure a partir de apenas locais aprovados
+### <a name="38-manage-azure-resource-from-only-approved-locations"></a>3.8: Gerir o Recurso Azure a partir de apenas locais aprovados
 
-**Orientação**: Se tiver autenticação integrada para aplicações de lote azure com Diretório Ativo Azure, pode utilizar localizações nomeadas de acesso condicional para permitir o acesso a partir de apenas agrupamentos lógicos específicos de gamas de endereços IP ou países/regiões.
+**Orientação**: Se tiver autenticação integrada para aplicações de lote Azure com diretório ativo Azure, pode utilizar locais com indicação de acesso condicional para permitir o acesso a partir de apenas agrupamentos lógicos específicos de intervalos de endereços IP ou países/regiões.
 
 Como configurar localizações nomeadas em Azure:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Utilizar o Diretório Ativo Azure
 
-**Orientação**: Utilize o Diretório Ativo Azure (AAD) como sistema central de autenticação e autorização e integre a Autenticação para Aplicações de Lote Azure com AAD. A AAD protege os dados utilizando encriptação forte para dados em repouso e em trânsito. A AAD também sais, hashes e armazena seguramente credenciais de utilizador.
+**Orientação**: Utilize o Azure Ative Directory (AAD) como sistema central de autenticação e autorização e integre a autenticação para aplicações de lote Azure com AAD. AAD protege os dados utilizando uma encriptação forte para dados em repouso e em trânsito. AAD também sai, hashes e armazena seguramente credenciais de utilizador.
 
-Como criar e configurar uma instância AAD:
+Como criar e configurar um caso AAD:
 
 https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance
 
@@ -448,157 +448,157 @@ Como autenticar aplicações de lote com AAD:
 
 https://docs.microsoft.com/azure/batch/batch-aad-auth
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
-### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: Rever regularmente e conciliar o acesso ao utilizador
+### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: Rever e conciliar regularmente o acesso ao utilizador
 
-**Orientação**: O Diretório Ativo Azure (AAD) fornece registos para ajudar a descobrir contas velhas. Além disso, pode utilizar as Análises de Acesso à Identidade do Azure para gerir eficientemente os membros do grupo, o acesso a aplicações empresariais e atribuições de papéis. O acesso dos utilizadores pode ser revisto regularmente para garantir que apenas os utilizadores certos tenham acesso continuado.
+**Orientação**: O Azure Ative Directory (AAD) fornece registos para ajudar a descobrir contas velhas. Além disso, pode utilizar a Azure Identity Access Reviews para gerir eficientemente os membros do grupo, o acesso a aplicações empresariais e atribuições de funções. O acesso dos utilizadores pode ser revisto regularmente para garantir que apenas os utilizadores certos tenham acesso continuado.
 
-Como utilizar comentários de acesso à identidade do Azure:
+Como utilizar comentários sobre o acesso à identidade do Azure:
 
 https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11: Monitorizar tentativas de acesso a contas desativadas
+### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11: Monitorização tentativas de acesso a contas desativadas
 
-**Orientação**: Criar Definições de Diagnóstico para contas de utilizadores do Diretório Ativo Azure, enviando os registos de auditoria e os registos de log-in para um espaço de trabalho Azure Log Analytics. Configure os alertas desejados dentro do espaço de trabalho azure Log Analytics.
+**Orientação**: Criar Definições de diagnóstico para contas de utilizadores do Azure Ative Directory, enviar os registos de auditoria e registos de login para um espaço de trabalho Azure Log Analytics. Configure os alertas desejados dentro do espaço de trabalho Azure Log Analytics.
 
-Como integrar registos de atividade do Azure no Monitor Azure:
+Como integrar os Registos de Atividade do Azure no Monitor Azure:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12: Alerta sobre desvio de comportamento de login de conta
 
-**Orientação**: Utilize o diretório ativo azure (AAD) de deteção de riscos e a proteção de identidade para configurar respostas automatizadas a ações suspeitas detetadas relacionadas com identidades do utilizador. Além disso, pode ingerir dados no Azure Sentinel para mais investigação.
+**Orientação**: Utilize o Azure Ative Directory (AAD) Deteções de Riscos e Proteção de Identidade para configurar respostas automatizadas para detetar ações suspeitas relacionadas com identidades do utilizador. Além disso, você pode ingerir dados em Azure Sentinel para mais investigação.
 
-Como visualizar inscrições arriscadas da AAD:
+Como visualizar as entradas de risco da AAD:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
-Como configurar e ativar políticas de risco de proteção de identidade:
+Como configurar e permitir políticas de risco de proteção de identidade:
 
 https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-Como embarcar no Azure Sentinel:
+Como embarcar Azure Sentinel:
 
 https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
-### <a name="313-divprovide-microsoft-with-access-to-relevant-customer-data-during-support-scenariosbrdiv"></a>3.13: <div>Fornecer à Microsoft acesso aos dados relevantes dos clientes durante os cenários de suporte<br></div>
+### <a name="313-divprovide-microsoft-with-access-to-relevant-customer-data-during-support-scenariosbrdiv"></a>3.13: <div>Fornecer à Microsoft acesso aos dados relevantes dos clientes durante cenários de suporte<br></div>
 
-**Orientação**: Não disponível; O Lockbox do cliente ainda não foi suportado para o Lote Azure.
+**Orientação**: Não disponível; Lockbox do cliente ainda não suportado para Azure Batch.
  
 Lista de serviços suportados pelo Customer Lockbox:https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
 
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
 ## <a name="data-protection"></a>Proteção de Dados
 
-*Para mais informações, consulte [Controlo de Segurança: Proteção de Dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Para obter mais informações, consulte [Controlo de Segurança: Proteção de Dados](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Manter um inventário de informação sensível
 
-**Orientação**: Utilize etiquetas para ajudar a rastrear os recursos do Azure que armazenam ou processam informações sensíveis.
+**Orientação**: Utilize etiquetas para ajudar a rastrear os recursos da Azure que armazenam ou processam informações sensíveis.
 
-Como criar e utilizar etiquetas:
+Como criar e utilizar tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
-### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: Isolar sistemas de armazenamento ou processamento de informações sensíveis
+### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: Isolar sistemas de armazenamento ou tratamento de informações sensíveis
 
-**Orientação**: Implementar subscrições separadas e/ou grupos de gestão para desenvolvimento, teste e produção. Os Pools de Lote Azure devem ser separados por rede virtual/sub-rede, marcados adequadamente e protegidos com um grupo de segurança de rede (NSG). Os dados do Lote Azure devem ser contidos numa conta de armazenamento Azure segura.
+**Orientação**: Implementar subscrições separadas e/ou grupos de gestão para desenvolvimento, teste e produção. As piscinas de lote Azure devem ser separadas por rede/sub-rede virtuais, marcadas adequadamente e protegidas com um grupo de segurança de rede (NSG). Os dados do Azure Batch devem ser contidos numa conta de armazenamento Azure segura.
 
-Como criar um Pool de Lote Azure dentro de uma Rede Virtual:
+Como criar um Azure Batch Pool dentro de uma rede virtual:
 
 https://docs.microsoft.com/azure/batch/batch-virtual-network
 
-Como garantir as Contas de Armazenamento Azure:
+Como garantir contas de armazenamento Azure:
 
 https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3: Monitorizar e bloquear transferência não autorizada de informações sensíveis.
+### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3: Monitorize e bloqueie a transferência não autorizada de informações sensíveis.
 
-**Orientação**: Para contas de armazenamento Azure associadas ao seu Pool azure batch pool(s) que contenham informações sensíveis, marque-as como sensíveis usando tags e prenda-as com as melhores práticas do Azure.
+**Orientação**: Para contas de armazenamento Azure associadas ao seu(s) Azure Batch Pool(s) que contenham informações sensíveis, marque-as como sensíveis usando Tags e as fixe com as melhores práticas do Azure.
 
-As funcionalidades de identificação, classificação e prevenção de perdas ainda não estão disponíveis para os recursos de Armazenamento de Azure ou computacionais. Implementar solução de terceiros, se necessário para efeitos de conformidade.
+As funcionalidades de identificação, classificação e prevenção de perdas ainda não estão disponíveis para o Azure Storage ou para calcular recursos. Implementar solução de terceiros, se necessário para efeitos de conformidade.
 
-Para a plataforma subjacente que é gerida pela Microsoft, a Microsoft trata todos os conteúdos dos clientes como sensíveis e faz grandes esforços para se proteger contra a perda e exposição de dados dos clientes. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
+Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os conteúdos dos clientes como sensíveis e faz grandes esforços para se proteger contra a perda e exposição de dados dos clientes. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
 
-Compreender a proteção de dados dos clientes em Azure:
+Compreender a proteção de dados do cliente em Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-Como garantir as Contas de Armazenamento Azure:
+Como garantir contas de armazenamento Azure:
 
 https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
-**Responsabilidade**: Partilhado
+**Responsabilidade**: Compartilhado
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Criptografar todas as informações sensíveis em trânsito
 
-**Orientação**: Criptografe todas as informações sensíveis em trânsito. Os recursos do Microsoft Azure negociarão o TLS 1.2 por padrão. Certifique-se de que todos os clientes que se ligam às suas Piscinas de Lote Azure ou lojas de dados (Contas de Armazenamento Azure) são capazes de negociar TLS 1.2 ou superior.
+**Orientação**: Criptografe todas as informações sensíveis em trânsito. Os recursos da Microsoft Azure negociarão tLS 1.2 por padrão. Certifique-se de que quaisquer clientes que se conectem aos seus Pools de Lote Azure ou lojas de dados (Contas de Armazenamento Azure) sejam capazes de negociar TLS 1.2 ou superior.
 
-Certifique-se de que https é necessário para aceder à Conta de Armazenamento contendo os seus dados do Lote Azure.
+Certifique-se de que o HTTPS é necessário para aceder à Conta de Armazenamento que contém os seus dados do Azure Batch.
 
-Compreender a encriptação da conta de armazenamento Azure em trânsito:
+Compreenda a encriptação da conta de armazenamento Azure em Trânsito:
 
 https://docs.microsoft.com/azure/storage/common/storage-security-guide#encryption-in-transit
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
-**Responsabilidade**: Partilhado
+**Responsabilidade**: Compartilhado
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: Utilize uma ferramenta de descoberta ativa para identificar dados sensíveis
 
-**Orientação**: Para contas de armazenamento Azure associadas ao seu Pool azure batch pool(s) que contenham informações sensíveis, marque-as como sensíveis usando tags e prenda-as com as melhores práticas do Azure.
+**Orientação**: Para contas de armazenamento Azure associadas ao seu(s) Azure Batch Pool(s) que contenham informações sensíveis, marque-as como sensíveis usando tags e prenda-as com as melhores práticas do Azure.
 
-As funcionalidades de identificação, classificação e prevenção de perdas ainda não estão disponíveis para os recursos de Armazenamento de Azure ou computacionais. Implementar solução de terceiros, se necessário para efeitos de conformidade.
+As funcionalidades de identificação, classificação e prevenção de perdas ainda não estão disponíveis para o Azure Storage ou para calcular recursos. Implementar solução de terceiros, se necessário para efeitos de conformidade.
 
-Para a plataforma subjacente que é gerida pela Microsoft, a Microsoft trata todos os conteúdos dos clientes como sensíveis e faz grandes esforços para se proteger contra a perda e exposição de dados dos clientes. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
+Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os conteúdos dos clientes como sensíveis e faz grandes esforços para se proteger contra a perda e exposição de dados dos clientes. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
 
-Compreender a proteção de dados dos clientes em Azure:
+Compreender a proteção de dados do cliente em Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-Como garantir as Contas de Armazenamento Azure:
+Como garantir contas de armazenamento Azure:
 
 https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
-**Responsabilidade**: Partilhado
+**Responsabilidade**: Compartilhado
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
-**Orientação**: Utilize o controlo de acesso baseado em funções do Azure Ative Directory (AAD) para controlar o acesso ao plano de gestão de recursos Azure, incluindo a Conta de Lote, o Pool(s) e as Contas de Armazenamento.
+**Orientação**: Utilize o Azure Ative Directory (AAD) Controlo de acesso baseado em funções (RBAC) para controlar o acesso ao plano de gestão de recursos Azure, incluindo a Conta de Lote, Pool de Lotes e Contas de Armazenamento.
 
-Compreender o Azure RBAC:
+Compreenda Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -606,143 +606,143 @@ Como configurar o RBAC em Azure:
 
 https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
-### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: Utilizar a Prevenção da Perda de Dados baseada no hospedeiro para impor o controlo de acesso
+### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: Utilizar a prevenção da perda de dados baseada no hospedeiro para impor o controlo de acesso
 
-**Orientação**: As funcionalidades de identificação, classificação e prevenção de perdas ainda não estão disponíveis para os recursos de Armazenamento ou cálculo do Azure. Implementar solução de terceiros, se necessário para efeitos de conformidade.
+**Orientação**: As características de identificação, classificação e prevenção de perdas ainda não estão disponíveis para o Azure Storage ou para calcular recursos. Implementar solução de terceiros, se necessário para efeitos de conformidade.
 
-Para a plataforma subjacente que é gerida pela Microsoft, a Microsoft trata todos os conteúdos dos clientes como sensíveis e faz grandes esforços para se proteger contra a perda e exposição de dados dos clientes. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
+Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os conteúdos dos clientes como sensíveis e faz grandes esforços para se proteger contra a perda e exposição de dados dos clientes. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
 
-Compreender a proteção de dados dos clientes em Azure:
+Compreender a proteção de dados do cliente em Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
-**Responsabilidade**: Partilhado
+**Responsabilidade**: Compartilhado
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: Encriptar informações sensíveis em repouso
 
-**Orientação**: Para contas de armazenamento associadas à sua conta De lote Dete, recomenda-se que a Microsoft gere as chaves de encriptação, no entanto, tem a opção de gerir as suas próprias chaves, se necessário.
+**Orientação**: Para contas de armazenamento associadas à sua conta Azure Batch, é aconselhável permitir à Microsoft gerir as chaves de encriptação, no entanto, tem a opção de gerir as suas próprias chaves, se necessário.
 
-Como gerir as chaves de encriptação das Contas de Armazenamento Azure:
+Como gerir chaves de encriptação para contas de armazenamento Azure:
 
 https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: Registar e alertar sobre alterações aos recursos críticos do Azure
 
-**Orientação**: Utilize o Monitor Azure com o Registo de Atividades do Azure para criar alertas para quando ocorrerem alterações aos recursos críticos do Azure relacionados ou associados às suas contas/piscinas do Lote Azure.
+**Orientação**: Utilize o Monitor Azure com o Registo de Atividades Azure para criar alertas para quando ocorrerem alterações para recursos críticos do Azure relacionados ou associados às suas contas/piscinas do Azure Batch.
 
-Configure as Definições de Diagnóstico para Contas de Armazenamento associadas ao Azure Batch Pool para monitorizar e registar todas as operações crud contra dados da piscina.
+Configure as definições de diagnóstico para contas de armazenamento associadas ao Azure Batch Pool para monitorizar e registar todas as operações CRUD contra dados do pool.
 
-Como criar alertas para eventos de Registo de Atividade seleções do Azure:
+Como criar alertas para eventos de Registo de Atividades Azure:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
-Como permitir a exploração/auditoria adicional para uma conta de armazenamento Azure:
+Como permitir a registo/auditoria adicional de uma Conta de Armazenamento Azure:
 
 https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
 ## <a name="vulnerability-management"></a>Gestão de Vulnerabilidades
 
-*Para mais informações, consulte [Controlo de Segurança: Gestão de Vulnerabilidades](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Para obter mais informações, consulte [Controlo de Segurança: Gestão de Vulnerabilidades.](../security/benchmarks/security-control-vulnerability-management.md)*
 
-### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Executar ferramentas de digitalização automática de vulnerabilidades
+### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Executar ferramentas de digitalização de vulnerabilidade automatizada
 
-**Orientação**: Para os nós do Pool De Lote Azure, é responsável pela gestão da solução de gestão de vulnerabilidades.
+**Orientação**: Para os nós do Azure Batch Pool, é responsável pela gestão da solução de gestão de vulnerabilidades.
 
-Opcionalmente, se tiver uma assinatura rápida 7, Qualys ou qualquer outra subscrição da plataforma de gestão de vulnerabilidades, poderá instalar manualmente agentes de avaliação de vulnerabilidades nos nós do Pool Batch e gerir nós através do respetivo portal.
+Opcionalmente, se tiver uma subscrição de Rapid7, Qualys ou qualquer outra plataforma de gestão de vulnerabilidades, poderá instalar manualmente agentes de avaliação de vulnerabilidades nos nós da piscina Batch e gerir os nós através do respetivo portal.
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
-### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: Implementar solução automatizada de gestão de patch do sistema operativo
+### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: Implementar solução automatizada de gestão de patchs de sistema operativo
 
-**Orientação**: Microsoft para manter e atualizar imagens do nó do Azure Batch Pool. Certifique-se de que o sistema operativo dos nós do Pool Azure Batch permanece remendado durante a duração do tempo de vida do cluster, o que pode exigir atualizações automáticas, monitorizar os nós ou realizar reboots periódicos.
+**Orientação**: Microsoft para manter e atualizar as imagens do nó do conjunto Azure Batch Pool. Certifique-se de que o sistema operativo dos nós do Azure Batch Pool permanece corrigido durante o período de vida útil do cluster, o que pode exigir atualizações automáticas, monitorização dos nós ou reinicialização periódica.
 
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
-**Responsabilidade**: Partilhado
+**Responsabilidade**: Compartilhado
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: Implementar solução automatizada de gestão de patch de software de terceiros
 
-**Orientação**: Certifique-se de que as aplicações de terceiros do Azure Batch Pool permanecem corrigidas durante a duração do tempo de vida do cluster, o que pode exigir atualizações automáticas, monitorizar os nós ou realizar reboots periódicos.
+**Orientação**: Certifique-se de que as aplicações de terceiros dos nós de Azure Batch Pool permanecem corrigidas durante o período de vida útil do cluster, o que pode exigir atualizações automáticas, monitorização dos nós ou reinicialização periódica.
 
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
-
-**Responsabilidade**: Cliente
-
-### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4: Comparar as varreduras de vulnerabilidade consecutivas
-
-**Orientação**: Se tiver uma assinatura rápida 7, Qualys ou qualquer outra subscrição da plataforma de gestão de vulnerabilidades, poderá utilizar o portal do fornecedor para visualizar e comparar scans de vulnerabilidade seletiva.
-
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
-### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5: Utilize um processo de classificação de risco para priorizar a remediação de vulnerabilidades descobertas.
+### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4: Compare as análises de vulnerabilidade de trás para a outra
 
-**Orientação**: Utilize um programa comum de pontuação de risco (por exemplo, Sistema Comum de Pontuação de Vulnerabilidades) ou as classificações de risco predefinidas fornecidas pela sua ferramenta de digitalização de terceiros.
+**Orientação**: Se tiver uma subscrição de rapid7, Qualys ou qualquer outra subscrição da plataforma de gestão de vulnerabilidades, poderá utilizar o portal desse fornecedor para visualizar e comparar as verificações de vulnerabilidades de trás para a saturação.
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+
+**Responsabilidade**: Cliente
+
+### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5: Utilize um processo de classificação de risco para priorizar a reparação de vulnerabilidades descobertas.
+
+**Orientação**: Utilize um programa comum de pontuação de risco (por exemplo, sistema comum de pontuação de vulnerabilidade) ou as classificações de risco padrão fornecidas pela sua ferramenta de digitalização de terceiros.
+
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
 ## <a name="inventory-and-asset-management"></a>Gestão de Recursos e Inventário
 
-*Para mais informações, consulte [Controlo de Segurança: Inventário e Gestão de Ativos.](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management)*
+*Para mais informações, consulte [Controlo de Segurança: Inventário e Gestão de Ativos.](../security/benchmarks/security-control-inventory-asset-management.md)*
 
-### <a name="61-use-azure-asset-discovery"></a>6.1: Utilizar a Descoberta de Ativos Azure
+### <a name="61-use-azure-asset-discovery"></a>6.1: Use a Azure Asset Discovery
 
-**Orientação**: Utilize o Gráfico de Recursos Azure para consultar/descobrir todos os recursos (tais como computação, armazenamento, rede, etc.) dentro da sua subscrição. Certifique-se de que tem permissões adequadas (ler) no seu inquilino e que é capaz de enumerar todas as subscrições do Azure, bem como recursos dentro das suas subscrições.
+**Orientação**: Utilize o Azure Resource Graph para consultar/descobrir todos os recursos (tais como cálculo, armazenamento, rede, etc.) dentro da sua subscrição(s). Certifique-se de que tem permissões (de leitura) adequadas no seu inquilino e que é capaz de enumerar todas as subscrições da Azure, bem como recursos dentro das suas subscrições.
 
-Embora os recursos clássicos do Azure possam ser descobertos através do Resource Graph, é altamente recomendado criar e utilizar recursos do Azure Resource Manager (ARM) em curso.
+Embora os recursos clássicos do Azure possam ser descobertos através do Gráfico de Recursos, é altamente recomendado criar e utilizar recursos do Azure Resource Manager (ARM) em curso.
 
-Como criar consultas com o Gráfico de Recursos Azure:
+Como criar consultas com gráfico de recursos Azure:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Como visualizar as suas Assinaturas Azure:
+Como ver as suas Subscrições Azure:
 
 https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
-Compreender o Azure RBAC:
+Compreenda Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
 ### <a name="62-maintain-asset-metadata"></a>6.2: Manter metadados de ativos
 
-**Orientação**: Aplique etiquetas nos recursos do Azure, dando metadados para logicamente organizá-los numa taxonomia.
+**Orientação**: Aplicar etiquetas aos recursos Azure, dando metadados para organizar logicamente numa taxonomia.
 
-Como criar e utilizar etiquetas:
+Como criar e utilizar tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
-### <a name="63-delete-unauthorized-azure-resources"></a>6.3: Eliminar recursos azure não autorizados
+### <a name="63-delete-unauthorized-azure-resources"></a>6.3: Eliminar recursos de azure não autorizados
 
-**Orientação**: Utilize a marcação, os grupos de gestão e as assinaturas separadas, se for caso disso, para organizar e rastrear os ativos. Conciliar o inventário regularmente e garantir que os recursos não autorizados sejam eliminados da subscrição atempadamente.
+**Orientação**: Utilize marcação, grupos de gestão e assinaturas separadas, se for caso disso, para organizar e rastrear ativos. Conciliar o inventário regularmente e garantir que os recursos não autorizados sejam eliminados da subscrição em tempo útil.
 
 Como criar subscrições adicionais do Azure:
 
@@ -752,154 +752,154 @@ Como criar Grupos de Gestão:
 
 https://docs.microsoft.com/azure/governance/management-groups/create
 
-Como criar e user Tags:
+Como criar e utilizadores Tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="64-maintain-inventory-of-approved-azure-resources-and-software-titles"></a>6.4: Manter o inventário dos recursos e títulos de software aprovados do Azure.
+### <a name="64-maintain-inventory-of-approved-azure-resources-and-software-titles"></a>6.4: Manter o inventário dos recursos aprovados da Azure e dos títulos de software.
 
-**Orientação**: Definir lista de recursos azure aprovados e software aprovado para recursos de computação
+**Orientação**: Definir lista de recursos Azure aprovados e software aprovado para recursos computacional
 
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Monitor para recursos azure não aprovados
+### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Monitor de Recursos Azure Não Aprovados
 
-**Orientação**: Utilize a Política Azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
+**Orientação**: Utilize a Política Azure para impor restrições ao tipo de recursos que podem ser criados na subscrição(s) de subscrição de clientes, utilizando as seguintes definições de política incorporada:
 
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da sua subscrição. Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados.
+Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da sua subscrição.s. Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados.
 
-Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerir a Política de Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Como criar consultas com o Azure Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Como criar consultas com O Gráfico Azure:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
-### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6: Monitor para aplicações de software não aprovadas dentro dos Recursos Compute
+### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6: Monitor de aplicações de software não aprovadas dentro de Recursos Compute
 
-**Orientação**: Para os nós do Pool Azure, implemente uma solução de terceiros para monitorizar os nós de cluster para aplicações de software não aprovadas.
+**Orientação**: Para os nós do Azure Batch Pool, implemente uma solução de terceiros para monitorizar os nós do cluster para aplicações de software não aprovadas.
 
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: Remover recursos e aplicações de software não aprovados
 
-**Orientação**: Para os nós do Pool Azure, implemente uma solução de terceiros para monitorizar os nós de cluster para aplicações de software não aprovadas.
+**Orientação**: Para os nós do Azure Batch Pool, implemente uma solução de terceiros para monitorizar os nós do cluster para aplicações de software não aprovadas.
 
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
-
-**Responsabilidade**: Cliente
-
-### <a name="68-use-only-approved-applications"></a>6.8: Utilize apenas pedidos aprovados
-
-**Orientação**: Para os nós do Pool Azure, implemente uma solução de terceiros para impedir a execução de software não autorizado.
-
-
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
-### <a name="69-use-only-approved-azure-services"></a>6.9: Utilizar apenas os serviços Azure aprovados
+### <a name="68-use-only-approved-applications"></a>6.8: Utilizar apenas aplicações aprovadas
 
-**Orientação**: Utilize a Política Azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
+**Orientação**: Para os nós do Azure Batch Pool, implemente uma solução de terceiros para impedir a execução de software não autorizado.
+
+
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+
+**Responsabilidade**: Cliente
+
+### <a name="69-use-only-approved-azure-services"></a>6.9: Utilizar apenas serviços Azure aprovados
+
+**Orientação**: Utilize a Política Azure para impor restrições ao tipo de recursos que podem ser criados na subscrição(s) de subscrição de clientes, utilizando as seguintes definições de política incorporada:
 
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerir a Política de Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Como negar um tipo específico de recurso com a Política Azure:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
 ### <a name="610-implement-approved-application-list"></a>6.10: Implementar lista de candidaturas aprovada
 
-**Orientação**: Para os nós do Pool Azure, implemente uma solução de terceiros para impedir a execução de tipos de ficheiros não autorizados.
+**Orientação**: Para os nós do Pool de Lote Azure, implemente uma solução de terceiros para evitar a execução de tipos de ficheiros não autorizados.
 
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
-
-**Responsabilidade**: Cliente
-
-### <a name="611-divlimit-users-ability-to-interact-with-azure-resource-manager-via-scriptsdiv"></a>6.11: <div>Limite a capacidade dos utilizadores de interagir com o Gestor de Recursos Azure através de Scripts</div>
-
-**Orientação**: Utilize o Acesso Condicional azure para limitar a capacidade dos utilizadores de interagirem com o Gestor de Recursos Azure configurando o "Block access" para a app "Microsoft Azure Management".
-
-Como configurar o Acesso Condicional ao acesso ao portal Azure Resource Manager:https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
-
-
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
-### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: Limitar a capacidade dos utilizadores de executar scripts dentro dos recursos computacionais
+### <a name="611-divlimit-users-ability-to-interact-with-azure-resource-manager-via-scriptsdiv"></a>6.11: <div>Limitar a capacidade dos utilizadores de interagir com o Gestor de Recursos Azure através de Scripts</div>
+
+**Orientação**: Utilize o Acesso Condicional Azure para limitar a capacidade dos utilizadores de interagirem com o Azure Resource Manager, configurando o "Acesso ao Bloco" para a app "Microsoft Azure Management".
+
+Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recursos Azure:https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+
+
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+
+**Responsabilidade**: Cliente
+
+### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: Limitar a capacidade dos utilizadores de executar scripts dentro de recursos computacional
 
 **Orientação**: Não aplicável,
 
-Isto não é aplicável ao Lote Azure, uma vez que os utilizadores (não administradores) das piscinas do Lote Azure não precisam de ter acesso aos nós individuais para executar postos de trabalho. O administrador do cluster já tem acesso de raiz a todos os nós.
+Isto não é aplicável ao Azure Batch, uma vez que os utilizadores (não administradores) dos pools Azure Batch não precisam de acesso aos nós individuais para executarem empregos. O administrador do cluster já tem acesso de raiz a todos os nós.
 
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
-### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: Aplicações de alto risco fisicamente ou logicamente segregadas
+### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: Segregar física ou logicamente aplicações de alto risco
 
-**Orientação**: Não aplicável, o Benchmark destina-se a aplicações web em execução em casos de Azure App Service ou IaaS.
+**Orientação**: Não aplicável, o Benchmark destina-se a aplicações web em execução em instâncias do Azure App Service ou iaaS.
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
 ## <a name="secure-configuration"></a>Configuração Segura
 
-*Para mais informações, consulte [Controlo de Segurança: Configuração segura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Para obter mais informações, consulte [Controlo de Segurança: Configuração Segura](../security/benchmarks/security-control-secure-configuration.md).*
 
-### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Estabelecer configurações seguras para todos os recursos do Azure
+### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Estabelecer configurações seguras para todos os recursos azuis
 
-**Orientação**: Utilize pseudónimos da Política Azure no espaço de nome "Microsoft.Batch" para criar políticas personalizadas para auditar ou impor a configuração das suas contas e piscinas do Lote Azure.
+**Orientação**: Utilize pseudónimos da Política Azure no espaço de nomes "Microsoft.Batch" para criar políticas personalizadas para auditar ou impor a configuração das suas contas e piscinas do Azure Batch.
 
-Como visualizar os pseudónimos disponíveis da Política Azure:
+Como visualizar pseudónimos disponíveis da Política Azure:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-Como configurar e gerir a Política Azure:
+Como configurar e gerir a Política de Azure:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="72-establish-secure-configurations-for-your-operating-system"></a>7.2: Estabelecer configurações seguras para o seu sistema operativo
+### <a name="72-establish-secure-configurations-for-your-operating-system"></a>7.2: Estabelecer configurações seguras para o seu Sistema Operativo
 
-**Orientação**: Estabeleça configurações seguras para o sistema operativo dos nódos do Pool.
+**Orientação**: Estabeleça configurações seguras para o sistema operativo dos nós do Pool de Lote.
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="73-maintain-secure-configurations-for-all-azure-resources"></a>7.3: Manter configurações seguras para todos os recursos azure
+### <a name="73-maintain-secure-configurations-for-all-azure-resources"></a>7.3: Manter configurações seguras para todos os recursos azuis
 
-**Orientação**: Utilize a Política Azure [negar] e [implementar se não existir] para impor definições seguras para os recursos Azure relacionados com a sua conta de Lote e piscinas (tais como redes virtuais, subredes, Firewalls Azure, Contas de Armazenamento Azure, etc.). Pode utilizar pseudónimos da Política Azure a partir dos seguintes espaços de nome para criar políticas personalizadas:
+**Orientação**: Utilize a Política Azure [negar] e [implementar se não existir] para impor definições seguras para os recursos Azure relacionados com a sua conta Batch e piscinas (tais como redes virtuais, sub-redes, Firewalls Azure, Contas de Armazenamento Azure, etc.). Pode utilizar pseudónimos da Azure Policy a partir dos seguintes espaços de nome para criar políticas personalizadas:
 
 - Microsoft.Batch
 
@@ -907,26 +907,26 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 - Microsoft.Network
 
-Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerir a Política de Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Compreender efeitos políticos do Azure:https://docs.microsoft.com/azure/governance/policy/concepts/effects
+Compreenda os efeitos da política do Azure:https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
 ### <a name="74-maintain-secure-configurations-for-operating-systems"></a>7.4: Manter configurações seguras para sistemas operativos
 
-**Orientação**: Imagens do sistema operativo Azure Batch Pool geridas e mantidas pela Microsoft. É responsável pela implementação da configuração do estado de nível osso.
+**Orientação**: Imagens do sistema operativo Azure Batch Pool geridas e mantidas pela Microsoft. É responsável pela implementação da configuração do estado de nível oss.
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
-**Responsabilidade**: Partilhado
+**Responsabilidade**: Compartilhado
 
-### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Configuração segura dos recursos azure
+### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Configuração de loja segura de recursos Azure
 
-**Orientação**: Se utilizar definições de Política Azure personalizadas para as suas contas, piscinas ou recursos relacionados, utilize o Azure Repos para armazenar e gerir de forma segura o seu código.
+**Orientação**: Se utilizar definições personalizadas da Política Azure para as suas contas, piscinas ou recursos relacionados do Azure Batch, utilize o Azure Repos para armazenar e gerir o seu código de forma segura.
 
 Como armazenar código em Azure DevOps:
 
@@ -936,15 +936,15 @@ Documentação Azure Repos:
 
 https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Armazenar de forma segura imagens do sistema operativo personalizado
 
-**Orientação**: Se utilizar imagens personalizadas para as suas piscinas de Lote Azure, utilize o controlo de acesso baseado em funções (RBAC) para garantir que apenas os utilizadores autorizados possam aceder às imagens.
+**Orientação**: Se utilizar imagens personalizadas para as suas piscinas Azure Batch, utilize o controlo de acesso baseado em funções (RBAC) para garantir que apenas os utilizadores autorizados possam aceder às imagens.
 
-Compreender o RBAC em Azure:
+Compreenda o RBAC em Azure:
 
 https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
 
@@ -952,230 +952,230 @@ Como configurar o RBAC em Azure:
 
 https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
 ### <a name="77-deploy-system-configuration-management-tools"></a>7.7: Implementar ferramentas de gestão de configuração do sistema
 
-**Orientação**: Utilize definições de política azure incorporadas para alertar, auditar e impor configurações de recursos relacionados com o Lote Azure.  Utilize pseudónimos da Política Azure no espaço de nome "Microsoft.Batch" para criar políticas personalizadas para as suas contas e piscinas do Lote Azure. Além disso, desenvolver um processo e um oleoduto para gerir as exceções políticas.
+**Orientação**: Utilize definições de Política Azure incorporadas para alertar, auditar e impor configurações de recursos relacionadas com o Azure Batch.  Use pseudónimos da Azure Policy no espaço de nomes "Microsoft.Batch" para criar políticas personalizadas para as suas contas e piscinas do Azure Batch. Além disso, desenvolva um processo e um oleoduto para gerir exceções políticas.
 
-Como configurar e gerir a Política Azure:
+Como configurar e gerir a Política de Azure:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
 ### <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7.8: Implementar ferramentas de gestão de configuração do sistema para sistemas operativos
 
-**Orientação**: Implemente uma solução de terceiros para manter o estado desejado para os sistemas operativos dos seus nódos de lote Azure.
+**Orientação**: Implementar uma solução de terceiros para manter o estado desejado para os sistemas operativos dos nós do Azure Batch Pool.
 
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
-### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implementar monitorização automatizada de configuração para os serviços do Azure
+### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implementar monitorização de configuração automatizada para serviços de Azure
 
-**Orientação**: Utilize pseudónimos da Política Azure no espaço de nome "Microsoft.Batch" para criar políticas personalizadas para auditar ou impor a configuração da sua instância de Lote Azure. Também pode utilizar quaisquer políticas incorporadas criadas especificamente para o Lote Azure ou os recursos utilizados pelo Lote Azure, tais como:
+**Orientação**: Utilize pseudónimos da Política Azure no espaço de nomes "Microsoft.Batch" para criar políticas personalizadas para auditar ou impor a configuração da sua instância do Azure Batch. Também pode utilizar quaisquer políticas incorporadas criadas especificamente para o Azure Batch ou os recursos utilizados pela Azure Batch, tais como:
 
-- As subredes devem ser associadas a um Grupo de Segurança da Rede
+- As subnetas devem ser associadas a um Grupo de Segurança de Rede
 
--As Contas de Armazenamento devem utilizar um ponto final do serviço de rede virtual
+-As contas de armazenamento devem utilizar um ponto final de serviço de rede virtual
 
 - Os registos de diagnóstico nas contas do Lote devem ser ativados
 
-Como visualizar os pseudónimos disponíveis da Política Azure:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Como visualizar pseudónimos disponíveis da Política Azure:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerir a Política de Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
-### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Implementar monitorização automatizada de configuração para sistemas operativos
+### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Implementar monitorização de configuração automatizada para sistemas operativos
 
-**Orientação**: Implemente uma solução de terceiros para monitorizar o estado dos sistemas operativos dos nódos do seu Pool Azure Batch Pool.
+**Orientação**: Implementar uma solução de terceiros para monitorizar o estado dos sistemas operativos dos seus nós Azure Batch Pool.
 
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
 ### <a name="711-securely-manage-azure-secrets"></a>7.11: Gerir de forma segura os segredos do Azure
 
-**Orientação**: O Cofre de Chaves Azure pode ser utilizado com implementações do Lote Azure para gerir as chaves para armazenamento de piscinas dentro das Contas de Armazenamento Azure.
+**Orientação**: O Cofre da Chave Azul pode ser utilizado com implementações do Azure Batch para gerir as chaves para armazenamento de piscinas dentro das contas de armazenamento do Azure.
 
-Como integrar-se com identidades geridas pelo Azure:
+Como integrar-se com identidades geridas aZure:
 
 https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Como criar um Cofre chave Azure:
+Como criar um Cofre de Chaves Azure:
 
 https://docs.microsoft.com/azure/key-vault/quick-create-portal
 
-Como fornecer a autenticação do Cofre Chave com uma identidade gerida:
+Como fornecer a autenticação do Cofre-Chave com uma identidade gerida:
 
 https://docs.microsoft.com/azure/key-vault/managed-identity
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
 ### <a name="712-securely-and-automatically-manage-identities"></a>7.12: Gerir de forma segura e automática as identidades
 
-**Orientação**: Não disponível, Identidade de Serviço Gerida não suportada por Lote Azure
+**Orientação**: Não disponível, Identidade de Serviço Gerido não suportada pelo Azure Batch
 
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminar a exposição credencial não intencional
 
-**Orientação**: Implementar o Scanner Credencial para identificar credenciais dentro do código. O Credential Scanner também incentivará a mudança de credenciais descobertas para locais mais seguros, como o Cofre chave Azure. 
+**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault. 
 
 Como configurar o Scanner Credencial:https://secdevtools.azurewebsites.net/helpcredscan.html
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
 ## <a name="malware-defense"></a>Defesa contra Software maligno
 
-*Para mais informações, consulte [Security Control: Malware Defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Para mais informações, consulte [Controlo de Segurança: Defesa de Malware.](../security/benchmarks/security-control-malware-defense.md)*
 
-### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Utilize software anti-malware gerido centralmente
+### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Utilizar software anti-malware gerido centralmente
 
-**Orientação**: Utilize o Windows Defender nos seus nós individuais de piscina do Lote Azure no caso dos sistemas operativos Windows ou forneça a sua própria solução anti-malware se estiver a utilizar o Linux.
+**Orientação**: Utilize o Windows Defender nos seus nós individuais de piscina Azure Batch no caso dos sistemas operativos Windows ou forneça a sua própria solução anti-malware se estiver a utilizar o Linux.
 
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
-### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: Ficheiros de pré-digitalização a serem carregados para recursos não computacionais do Azure
+### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: Ficheiros de pré-digitalização a serem enviados para recursos Azure não computados
 
-**Orientação**: O Microsoft Antimalware está ativado no hospedeiro subjacente que suporta os serviços Azure (por exemplo, O Lote Azure), no entanto não funciona com o conteúdo do cliente.
+**Orientação**: O Microsoft Antimalware está ativado no anfitrião subjacente que suporta os serviços Azure (por exemplo, Azure Batch), no entanto não funciona com conteúdo do cliente.
 
-Pré-digitalização de quaisquer ficheiros que sejam enviados para recursos não computacionais do Azure, tais como Serviço de Aplicações, Armazenamento de Data Lake, Armazenamento blob, etc. Nestes casos, a Microsoft não pode aceder aos dados dos clientes.
+Pré-digitalizar quaisquer ficheiros que sejam enviados para recursos Azure não computados, tais como App Service, Data Lake Storage, Blob Storage, etc. A Microsoft não pode aceder aos dados dos clientes nestes casos.
 
-Compreenda o Microsoft Antimalware para Serviços Azure Cloud e Máquinas Virtuais:
+Compreenda o Antimalware da Microsoft para serviços em nuvem Azure e máquinas virtuais:
 
 https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
-**Responsabilidade**: Partilhado
+**Responsabilidade**: Compartilhado
 
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3: Garantir que software e assinaturas anti-malware são atualizados
 
-**Orientação**: Utilize o Windows Defender nos seus nódos os seus nódos os conjuntos de conjuntos do Lote Azure individuais no caso dos sistemas operativos Windows e certifique-se de que a atualização automática está ativada. Forneça a sua própria solução anti-malware se estiver a utilizar o Linux.
+**Orientação**: Utilize o Windows Defender nos seus nós individuais de piscina Azure Batch no caso dos sistemas operativos Windows e certifique-se de que a atualização automática está ativada. Forneça a sua própria solução anti-malware se estiver a utilizar o Linux.
 
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
 ## <a name="data-recovery"></a>Recuperação de Dados
 
-*Para mais informações, consulte [Controlo de Segurança: Recuperação de Dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Para obter mais informações, consulte [Controlo de Segurança: Recuperação de Dados](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantir back ups automáticos regulares
 
-**Orientação**: Ao utilizar uma conta de armazenamento Azure para a loja de dados Azure Batch Pool, escolha a opção de despedimento adequada (LRS,ZRS, GRS, RA-GRS). 
+**Orientação**: Quando utilizar uma conta de armazenamento Azure para a loja de dados Azure Batch Pool, escolha a opção de despedimento adequada (LRS, ZRS, GRS, RA-GRS). 
 
-Como configurar o despedimento de armazenamento para contas de armazenamento Azure:
+Como configurar a redundância de armazenamento para as contas de armazenamento da Azure:
 
 https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: Executar cópias de segurança completas do sistema e backup de quaisquer chaves geridas pelo cliente
+### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: Executar cópias de segurança completas do sistema e fazer backup de qualquer tecla gerida pelo cliente
 
-**Orientação**: Ao utilizar uma conta de armazenamento Azure para a loja de dados Azure Batch Pool, escolha a opção de despedimento adequada (LRS,ZRS, GRS, RA-GRS).  Se utilizar o Cofre de Chaves Azure para qualquer parte da sua implantação do Lote Azure, certifique-se de que as suas chaves estão apoiadas.
+**Orientação**: Quando utilizar uma conta de armazenamento Azure para a loja de dados Azure Batch Pool, escolha a opção de despedimento adequada (LRS, ZRS, GRS, RA-GRS).  Se utilizar o Cofre da Chave Azure para qualquer parte da sua implantação do Azure Batch, certifique-se de que as suas chaves estão apoiadas.
 
-Como configurar o despedimento de armazenamento para contas de armazenamento Azure:
+Como configurar a redundância de armazenamento para as contas de armazenamento da Azure:
 
 https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
-Como apoiar as chaves do cofre em Azure:
+Como fazer backup chaves do cofre em Azure:
 
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3: Validar todas as cópias de segurança, incluindo chaves geridas pelo cliente
 
-**Orientação**: Se estiver a gerir as suas próprias chaves para contas de armazenamento Azure ou qualquer outro recurso relacionado com a implementação do Lote Azure, teste periodicamente a restauração das chaves apoiadas.
+**Orientação**: Se estiver a gerir as suas próprias chaves para contas de armazenamento Azure ou qualquer outro recurso relacionado com a sua implementação do Azure Batch, teste periodicamente a restauração das teclas de apoio.
 
-Como apoiar as chaves do cofre em Azure:
+Como fazer backup chaves do cofre em Azure:
 
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
-Como restaurar uma chave gerida pelo cliente com powerShell:
+Como restaurar uma chave gerida pelo cliente com PowerShell:
 
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantir a proteção das cópias de segurança e das chaves geridas pelo cliente
+### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantir a proteção de backups e chaves geridas pelo cliente
 
-**Orientação**: Se o Cofre de Chaves Azure estiver a ser utilizado para conter quaisquer chaves relacionadas com as Contas de Armazenamento de Piscinas de Lote Azure, ative o Soft-Delete no Cofre de Chaves Azure para proteger as chaves contra a eliminação acidental ou maliciosa.
+**Orientação**: Se o Cofre da Chave Azure estiver a ser utilizado para conter quaisquer teclas relacionadas com as contas de armazenamento de piscinas do Azure Batch, ativar o Soft-Delete no Cofre da Chave Azure para proteger as chaves contra a eliminação acidental ou maliciosa.
 
-Como ativar o Soft Delete no Cofre de Chaves Azure:
+Como permitir a eliminação suave no cofre da chave Azure:
 
 https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
 ## <a name="incident-response"></a>Resposta a Incidentes
 
-*Para mais informações, consulte [Controlo de Segurança: Resposta](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response)a Incidentes .*
+*Para obter mais informações, consulte [Controlo de Segurança: Resposta a incidentes.](../security/benchmarks/security-control-incident-response.md)*
 
 ### <a name="101-create-incident-response-guide"></a>10.1: Criar guia de resposta a incidentes
 
 **Orientação**: Certifique-se de que existem planos escritos de resposta a incidentes que definam funções de pessoal, bem como fases de tratamento/gestão de incidentes.
 
-Como configurar as automatizações de fluxo de trabalho dentro do Centro de Segurança Azure:
+Como configurar automatizações de fluxo de trabalho dentro do Centro de Segurança Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
 ### <a name="102-create-incident-scoring-and-prioritization-procedure"></a>10.2: Criar procedimento de pontuação e priorização de incidentes
 
-**Orientação**: O Centro de Segurança atribui uma severidade aos alertas, para o ajudar a priorizar a ordem em que atende a cada alerta, para que, quando um recurso estiver comprometido, possa chegar ao mesmo imediatamente. A gravidade baseia-se na confiança do Centro de Segurança na descoberta ou na analítica usada para emitir o alerta, bem como no nível de confiança de que havia intenção maliciosa por trás da atividade que levou ao alerta.
+**Orientação**: O Centro de Segurança atribui uma gravidade aos alertas, para o ajudar a priorizar a ordem em que atende a cada alerta, para que quando um recurso estiver comprometido, possa chegar imediatamente ao mesmo. A gravidade baseia-se na confiança que o Centro de Segurança está na descoberta ou no analítico utilizado para emitir o alerta, bem como no nível de confiança de que havia intenção maliciosa por trás da atividade que levou ao alerta.
 
-**Monitorização do Centro de Segurança Azure:** Sim
-
-**Responsabilidade**: Cliente
-
-### <a name="103-test-security-response-procedures"></a>10.3: Procedimentos de resposta à segurança de teste
-
-**Orientação**: Realizar exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular. Identifique pontos fracos e lacunas e reveja o plano conforme necessário.
-
-Consulte a publicação do NIST: Guia para programas de teste, formação e exercício para planos e capacidades de TI:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
-
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-nbspfor-security-incidents"></a>10.4: Fornecer detalhes de contacto com &nbsp;incidentes de segurança e configurar notificações de alerta para incidentes de segurança
+### <a name="103-test-security-response-procedures"></a>10.3: Procedimentos de resposta à segurança do teste
+
+**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular. Identifique pontos fracos e lacunas e reveja o plano conforme necessário.
+
+Consulte a publicação do NIST: Guide to Test, Training e Exercise Programs for IT Plans and Capabilities:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+
+**Monitorização do Centro de Segurança Azure**: Não aplicável
+
+**Responsabilidade**: Cliente
+
+### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-nbspfor-security-incidents"></a>10.4: Fornecer detalhes de contato de incidente de segurança e configurar notificações de alerta &nbsp; para incidentes de segurança
 
 **Orientação**: As informações de contacto com incidentes de segurança serão utilizadas pela Microsoft para o contactar se o Microsoft Security Response Center (MSRC) descobrir que os seus dados foram acedidos por uma parte ilegal ou não autorizada.
 
@@ -1183,57 +1183,57 @@ Como definir o Contacto de Segurança do Centro de Segurança Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: Incorpore alertas de segurança no seu sistema de resposta a incidentes
+### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: Incorporar alertas de segurança no seu sistema de resposta a incidentes
 
-**Orientação**: Exporte os alertas e recomendações do Centro de Segurança Azure utilizando a funcionalidade De Exportação Contínua. A Exportação Contínua permite-lhe exportar alertas e recomendações manualmente ou de forma contínua e contínua. Pode utilizar o conector de dados do Centro de Segurança Azure para transmitir os alertas para o Azure Sentinel.
+**Orientação**: Exporte os alertas e recomendações do Centro de Segurança Azure utilizando a função exportação contínua. A Exportação Contínua permite-lhe exportar alertas e recomendações manualmente ou de forma contínua e contínua. Pode utilizar o conector de dados do Azure Security Center para transmitir os alertas ao Azure Sentinel.
 
 Como configurar a exportação contínua:
 
 https://docs.microsoft.com/azure/security-center/continuous-export
 
-Como transmitir alertas para O Sentinela Azul:
+Como transmitir alertas para Azure Sentinel:
 
 https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: Automatizar a resposta aos alertas de segurança
 
-**Orientação**: Utilize a funcionalidade de automatização de fluxos de trabalho no Centro de Segurança Azure para ativar automaticamente respostas através de "Aplicações Lógicas" em alertas e recomendações de segurança.
+**Orientação**: Utilize a função de automatização do fluxo de trabalho no Centro de Segurança Azure para desencadear automaticamente respostas através de "Aplicações Lógicas" em alertas e recomendações de segurança.
 
-Como configurar a Automatização do Fluxo de Trabalho e aplicações lógicas:
+Como configurar a automatização do fluxo de trabalho e as aplicações lógicas:
 
 https://docs.microsoft.com/azure/security-center/workflow-automation
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testes de Penetração e Exercícios de Red Team
 
-*Para mais informações, consulte [Controlo de Segurança: Testes de Penetração e Exercícios de Equipa Vermelha](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para obter mais informações, consulte [Controlo de Segurança: Testes de penetração e exercícios da equipa vermelha.](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)*
 
-### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-to-remediate-all-critical-security-findings-within-60-days"></a>11.1: Realizar testes regulares de penetração dos seus recursos Azure e garantir a reparação de todas as descobertas críticas de segurança no prazo de 60 dias.
+### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-to-remediate-all-critical-security-findings-within-60-days"></a>11.1: Realizar testes regulares de penetração dos seus recursos Azure e garantir que remedia todas as conclusões críticas de segurança no prazo de 60 dias.
 
-**Orientação**: Siga as Regras de Envolvimento da Microsoft para garantir que os seus Testes de Penetração não violam as políticas da Microsoft:
+**Orientação**: Siga as Regras de Engajamento da Microsoft para garantir que os seus Testes de Penetração não violam as políticas da Microsoft:
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
-Pode encontrar mais informações sobre a estratégia e execução da Microsoft de Red Teaming e testes de penetração no site ao vivo contra a Microsoft gerida por infraestruturas, serviços e aplicações em nuvem, aqui: 
+Pode encontrar mais informações sobre a estratégia e execução da Red Teaming e testes de penetração em sites ao vivo contra infraestruturas, serviços e aplicações geridos pela Microsoft na nuvem, aqui: 
 
 https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure**: Não aplicável
 
-**Responsabilidade**: Partilhado
+**Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Ver o [Benchmark de Segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Saiba mais sobre [as linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Consulte o [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Saiba mais sobre [as Linhas de Base de Segurança Azure](../security/benchmarks/security-baselines-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Apache Kafka usando O Gestor de Recursos Azure - HDInsight'
-description: Neste arranque rápido, aprende-se a criar um cluster Apache Kafka no Azure HDInsight utilizando o modelo do Gestor de Recursos Azure. Também irá saber mais sobre tópicos, subscritores e consumidores do Kafka.
+title: 'Quickstart: Apache Kafka usando Azure Resource Manager - HDInsight'
+description: Neste quickstart, você aprende a criar um cluster Apache Kafka em Azure HDInsight usando o modelo Azure Resource Manager. Também irá saber mais sobre tópicos, subscritores e consumidores do Kafka.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,76 +8,80 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: f5f92044a0274b809388eeb164be9f1587013e0b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 841012cc8629b8eeb6ef863fd2f596d550cb67d9
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80064589"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082935"
 ---
-# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Quickstart: Criar o cluster Apache Kafka no Azure HDInsight usando o modelo de Gestor de Recursos
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-arm-template"></a>Quickstart: Criar cluster Apache Kafka em Azure HDInsight usando o modelo ARM
 
-Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure para criar um cluster [Apache Kafka](./apache-kafka-introduction.md) em Azure HDInsight. O Kafka é uma plataforma open source de transmissão em fluxo distribuída. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição.
+Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure (modelo ARM) para criar um cluster [Apache Kafka](./apache-kafka-introduction.md) em Azure HDInsight. O Kafka é uma plataforma open source de transmissão em fluxo distribuída. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 Só os recursos dentro da mesma rede virtual podem aceder à API Kafka. Neste guia de início rápido, irá aceder ao cluster diretamente através de SSH. Para ligar outros serviços, redes ou máquinas virtuais ao Kafka, tem primeiro de criar uma rede virtual e, em seguida, criar os recursos dentro da rede. Para obter mais informações, veja o documento [Ligar ao Apache Kafka com uma rede virtual](apache-kafka-connect-vpn-gateway.md).
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
 
-## <a name="create-an-apache-kafka-cluster"></a>Criar um cluster do Apache Kafka
+[![Implementar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-kafka%2Fazuredeploy.json)
 
-### <a name="review-the-template"></a>Reveja o modelo
+## <a name="prerequisites"></a>Pré-requisitos
 
-O modelo utilizado neste quickstart é de [modelos Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-kafka).
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-:::code language="json" source="~/quickstart-templates/101-hdinsight-kafka/azuredeploy.json" range="1-150":::
+## <a name="review-the-template"></a>Rever o modelo
+
+O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-kafka/).
+
+:::code language="json" source="~/quickstart-templates/101-hdinsight-kafka/azuredeploy.json" range="1-203" highlight="103-135":::
 
 Dois recursos Azure são definidos no modelo:
 
-* [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): crie uma conta de armazenamento Azure.
-* [Microsoft.HDInsight/cluster](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/clusters): crie um cluster HDInsight.
+* [Microsoft.Storage/storageAstas:](/azure/templates/microsoft.storage/storageaccounts)criar uma conta de armazenamento Azure.
+* [Microsoft.HDInsight/cluster:](/azure/templates/microsoft.hdinsight/clusters)crie um cluster HDInsight.
 
-### <a name="deploy-the-template"></a>Implementar o modelo
+## <a name="deploy-the-template"></a>Implementar o modelo
 
-1. Selecione o botão **Deploy para Azure** abaixo para iniciar sessão no Azure e abra o modelo de Gestor de Recursos.
+1. Selecione o botão **'Implementar para azul'** abaixo para iniciar súb9 no Azure e abrir o modelo ARM.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-kafka-java-get-started%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/apache-kafka-quickstart-resource-manager-template/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
+   [![Implementar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-kafka%2Fazuredeploy.json)
 
 1. Introduza ou selecione os seguintes valores:
 
     |Propriedade |Descrição |
     |---|---|
-    |Subscrição|A partir da lista de lançamentos, selecione a subscrição Azure que é usada para o cluster.|
-    |Grupo de recursos|A partir da lista de drop-down, selecione o seu grupo de recursos existente, ou selecione **Criar novo**.|
-    |Localização|O valor irá autopovoar-se com a localização utilizada para o grupo de recursos.|
+    |Subscrição|A partir da lista de drop-down, selecione a subscrição Azure que é usada para o cluster.|
+    |Grupo de recursos|A partir da lista de drop-down, selecione o seu grupo de recursos existente ou selecione **Criar novo**.|
+    |Localização|O valor irá autopopular com a localização utilizada para o grupo de recursos.|
     |Nome do Cluster|Introduza um nome globalmente exclusivo. Para este modelo, utilize apenas letras minúsculas e números.|
-    |Nome de Utilizador de Início de Sessão do Cluster|Forneça o nome de utilizador, o predefinido é **o administrador**.|
-    |Palavra-passe de Início de Sessão do Cluster|Forneça uma senha. A palavra-passe deve ter pelo menos 10 caracteres de comprimento e deve conter pelo menos um dígito, uma maiúscula e uma letra minúscula, um caracteres não alfanuméricos (exceto os caracteres ' ' ). |
-    |Nome do utilizador SSH|Forneça o nome de utilizador, o padrão é **sshuser**|
-    |Palavra-passe ssh|Forneça a senha.|
+    |Nome de Utilizador de Início de Sessão do Cluster|Forneça o nome de utilizador, o padrão é **administrador**.|
+    |Palavra-passe de Início de Sessão do Cluster|Forneça uma senha. A palavra-passe deve ter pelo menos 10 caracteres de comprimento e deve conter pelo menos um dígito, uma maiúscula e uma letra minúscula, um carácter não alfanumérico (exceto os caracteres ' ). |
+    |Nome do utilizador Ssh|Forneça o nome de utilizador, o padrão é **sshuser**|
+    |Ssh Password|Forneça a senha.|
 
     ![Uma captura de ecrã das propriedades do modelo](./media/apache-kafka-quickstart-resource-manager-template/resource-manager-template-kafka.png)
 
-1. Reveja os **TERMOS E CONDIÇÕES.** Em seguida, selecione **Concordo com os termos e condições acima indicados,** em **seguida, comprar**. Receberá uma notificação de que a sua implantação está em andamento. A criação de um cluster demora cerca de 20 minutos.
+1. Para mais **uma análise dos termos e condições.** Em seguida, **selecione Eu concordo com os termos e condições acima indicados,** em seguida, **Comprar**. Receberá uma notificação de que a sua implantação está em andamento. A criação de um cluster demora cerca de 20 minutos.
 
-## <a name="review-deployed-resources"></a>Rever os recursos implantados
+## <a name="review-deployed-resources"></a>Revisão dos recursos implantados
 
-Assim que o cluster for criado, receberá uma notificação **de Implementação bem sucedida** com uma ligação de recurso **Go.** A página do grupo Recursos listará o seu novo cluster HDInsight e o armazenamento predefinido associado ao cluster. Cada cluster tem uma conta [de Armazenamento Azure](../hdinsight-hadoop-use-blob-storage.md) ou uma dependência da conta de armazenamento de [lagos de dados Azure.](../hdinsight-hadoop-use-data-lake-store.md) É referida como a conta de armazenamento padrão. O cluster HDInsight e a sua conta de armazenamento predefinido devem ser colocalizados na mesma região de Azure. Eliminar aglomerados não apaga a conta de armazenamento.
+Assim que o cluster for criado, receberá uma notificação **conseguida da Implementação** com uma ligação **de recursos Para Go.** A sua página de grupo de recursos irá listar o seu novo cluster HDInsight e o armazenamento predefinido associado ao cluster. Cada cluster tem uma conta [de Armazenamento Azure](../hdinsight-hadoop-use-blob-storage.md) ou uma dependência [de conta Azure Data Lake Storage.](../hdinsight-hadoop-use-data-lake-store.md) É referida como a conta de armazenamento predefinida. O cluster HDInsight e a sua conta de armazenamento predefinida devem ser indicados na mesma região de Azure. Excluir agrupamentos não apaga a conta de armazenamento.
 
-## <a name="get-the-apache-zookeeper-and-broker-host-information"></a>Obtenha a informação do anfitrião do Zoológico apache e corretor
+## <a name="get-the-apache-zookeeper-and-broker-host-information"></a>Obtenha informações sobre o hospedeiro Apache Zookeeper e Broker
 
-Ao trabalhar com Kafka, deve conhecer os anfitriões do *Zoológico* Apache e do *Corretor.* Estes anfitriões são utilizados com a API Kafka e com muitos dos utilitários que são enviados com o Kafka.
+Ao trabalhar com Kafka, deve conhecer os anfitriões *apache zookeeper* e *broker.* Estes anfitriões são utilizados com a API Kafka e com muitos dos utilitários que são enviados com o Kafka.
 
 Nesta secção, irá obter as informações do anfitrião da API REST do Ambari no cluster.
 
-1. Utilize [o comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para se ligar ao seu cluster. Editar o comando abaixo substituindo CLUSTERNAME pelo nome do seu cluster e, em seguida, introduzir o comando:
+1. Utilize [o comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para ligar ao seu cluster. Edite o comando abaixo substituindo o CLUSTERNAME pelo nome do seu cluster e, em seguida, insira o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. A partir da ligação SSH, `jq` utilize o seguinte comando para instalar o utilitário. Este utilitário é utilizado para analisar documentos JSON e é útil para obter as informações do anfitrião:
+1. A partir da ligação SSH, utilize o seguinte comando para instalar o `jq` utilitário. Este utilitário é utilizado para analisar documentos JSON e é útil para obter as informações do anfitrião:
 
     ```bash
     sudo apt -y install jq
@@ -91,7 +95,7 @@ Nesta secção, irá obter as informações do anfitrião da API REST do Ambari 
 
     Quando lhe for pedido, introduza o nome do cluster do Kafka.
 
-1. Para definir uma variável ambiental com informações do anfitrião zookeeper, use o comando abaixo. O comando recupera todos os anfitriões do Zookeeper, e depois devolve apenas as duas primeiras entradas. Isto acontece porque é desejável que exista alguma redundância para o caso de um anfitrião estar inacessível.
+1. Para definir uma variável ambiental com informações de anfitrião zookeeper, use o comando abaixo. O comando recupera todos os anfitriões do Zookeeper, e depois devolve apenas as duas primeiras entradas. Isto acontece porque é desejável que exista alguma redundância para o caso de um anfitrião estar inacessível.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
@@ -149,9 +153,9 @@ O Kafka armazena fluxos de dados em *tópicos*. Pode utilizar o utilitário `kaf
         
         Para obter informações sobre o número de domínios de falha numa região, consulte o documento [Disponibilidade das máquinas virtuais Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
-        Kafka não sabe dos domínios de falha do Azure. Durante a criação de réplicas de partição para tópicos, poderá não distribuir as réplicas corretamente para fins de elevada disponibilidade.
+        Kafka não sabe dos domínios de falhas do Azure. Durante a criação de réplicas de partição para tópicos, poderá não distribuir as réplicas corretamente para fins de elevada disponibilidade.
 
-        Para garantir uma elevada disponibilidade, utilize a ferramenta de reequilíbrio da [divisória Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Esta ferramenta deve ser executada a partir de uma ligação SSH para o nó principal do cluster do Kafka.
+        Para garantir uma elevada disponibilidade, utilize a [ferramenta de reequilíbrio de partição Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Esta ferramenta deve ser executada a partir de uma ligação SSH para o nó principal do cluster do Kafka.
 
         Para garantir a maior disponibilidade dos seus dados do Kafka, deve reequilibrar as réplicas de partições do tópico ao:
 
@@ -208,25 +212,25 @@ Utilize os seguintes passos para armazenar os registos no tópico de teste criad
 
     Este comando obtém os registos do tópico e apresenta-os. A utilização de `--from-beginning` indica ao consumidor para iniciar a partir do início da transmissão em fluxo, para que todos os registos sejam obtidos.
 
-    Se estiver a usar uma versão `--bootstrap-server $KAFKABROKERS` mais `--zookeeper $KAFKAZKHOSTS`antiga de Kafka, substitua-o por .
+    Se estiver a utilizar uma versão mais antiga de Kafka, `--bootstrap-server $KAFKABROKERS` substitua-a por `--zookeeper $KAFKAZKHOSTS` .
 
 1. Utilize __Ctrl + C__ para parar o consumidor.
 
-Também podem criar programaticamente produtores e consumidores. Para um exemplo de utilização desta API, consulte o Apache Kafka Producer e a Consumer API com o documento [HDInsight.](apache-kafka-producer-consumer-api.md)
+Também podem criar programaticamente produtores e consumidores. Para um exemplo de utilização desta API, consulte o Apache Kafka Producer and Consumer API com o documento [HDInsight.](apache-kafka-producer-consumer-api.md)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de completar o arranque rápido, poderá querer eliminar o cluster. Com o HDInsight, os seus dados são armazenados no Armazenamento Azure, para que possa eliminar com segurança um cluster quando não estiver a ser utilizado. Também é cobrado por um cluster HDInsight, mesmo quando não está a ser utilizado. Uma vez que as taxas para o cluster são muitas vezes mais do que as taxas de armazenamento, faz sentido económico apagar clusters quando não estão em uso.
+Depois de completar o arranque rápido, é possível que queira eliminar o cluster. Com o HDInsight, os seus dados são armazenados no Azure Storage, para que possa eliminar com segurança um cluster quando este não estiver a ser utilizado. Também é cobrado por um cluster HDInsight, mesmo quando não está a ser utilizado. Uma vez que as taxas para o cluster são muitas vezes mais do que os encargos de armazenamento, faz sentido económico apagar clusters quando não estão a ser utilizados.
 
-A partir do portal Azure, navegue até ao seu cluster e selecione **Eliminar**.
+A partir do portal Azure, navegue até ao seu cluster e selecione **Delete**.
 
 ![Modelo de gestor de recursos HBase](./media/apache-kafka-quickstart-resource-manager-template/azure-portal-delete-kafka.png)
 
-Também pode selecionar o nome do grupo de recursos para abrir a página do grupo de recursos e, em seguida, selecionar **Eliminar grupo de recursos**. Ao eliminar o grupo de recursos, elimina tanto o cluster HDInsight como a conta de armazenamento predefinida.
+Também pode selecionar o nome do grupo de recursos para abrir a página do grupo de recursos e, em seguida, selecionar **Eliminar grupo de recursos**. Ao eliminar o grupo de recursos, elimina tanto o cluster HDInsight como a conta de armazenamento predefinido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste arranque rápido, aprendeu a criar um cluster Apache Kafka no HDInsight usando um modelo de Gestor de Recursos. No próximo artigo, aprende-se a criar uma aplicação que utiliza a Apache Kafka Streams API e executa-a com kafka no HDInsight.
+Neste arranque rápido, aprendeu a criar um cluster Apache Kafka em HDInsight usando um modelo ARM. No artigo seguinte, aprende-se a criar uma aplicação que utiliza a API Apache Kafka Streams e executá-la com a Kafka na HDInsight.
 
 > [!div class="nextstepaction"]
 > [Use Apache Kafka streams API em Azure HDInsight](./apache-kafka-streams-api.md)

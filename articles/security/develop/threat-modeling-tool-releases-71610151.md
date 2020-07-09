@@ -1,5 +1,5 @@
 ---
-title: Microsoft Threat Modeling Tool lança 10/16/2019 - Azure
+title: Microsoft Threat Modeling Tool release 10/16/2019 - Azure
 description: Documentando as notas de lançamento para a ferramenta de modelação de ameaças
 author: jegeib
 ms.author: jegeib
@@ -7,37 +7,36 @@ ms.service: security
 ms.topic: article
 ms.date: 10/16/2019
 ms.openlocfilehash: 452b44653775a1bcb9456b62e1587b5ff2dff874
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75552054"
 ---
 # <a name="threat-modeling-tool-update-release-71610151---10162019"></a>Versão de atualização da Threat Modeling Tool 7.1.61015.1 - 16/10/2019
 
-A versão 7.1.61015.1 da Microsoft Threat Modeling Tool (TMT) foi lançada a 16 de outubro de 2019 e contém as seguintes alterações:
+A versão 7.1.61015.1 da Ferramenta de Modelação de Ameaças da Microsoft (TMT) foi lançada a 16 de outubro de 2019 e contém as seguintes alterações:
 
 - Melhorias de acessibilidade
 - Correções de erros
-- Novos stencils para Apps Azure Logic e Azure Data Explorer
+- Novos stencils para apps Azure Logic Apps e Azure Data Explorer
 
-## <a name="notable-bug-fixes"></a>Correções notáveis de bugs
+## <a name="notable-bug-fixes"></a>Notáveis correções de bugs
 
-### <a name="improved-backward-compatibility-with-files-created-in-threat-modeling-tool-2016"></a>Melhora da compatibilidade com ficheiros criados em "Threat Modeling Tool 2016"
+### <a name="improved-backward-compatibility-with-files-created-in-threat-modeling-tool-2016"></a>Melhor compatibilidade para trás com ficheiros criados em "Ferramenta de Modelação de Ameaças 2016"
 
-Foram corrigidos vários bugs relacionados com a abertura ou exibição de ficheiros de modelos de ameaça criados em "Threat Modeling Tool 2016".
+Vários bugs relacionados com a abertura ou exibição de ficheiros de modelos de ameaça criados em "Threat Modeling Tool 2016" foram corrigidos.
 
 ## <a name="feature-enhancements"></a>Melhorias de recursos
 
-### <a name="new-stencils-for-azure-logic-apps-and-azure-data-explorer"></a>Novos stencils para Apps Azure Logic e Azure Data Explorer
+### <a name="new-stencils-for-azure-logic-apps-and-azure-data-explorer"></a>Novos stencils para apps Azure Logic Apps e Azure Data Explorer
 
-Foram adicionados novos stencils para as Aplicações lógicas azure e o Azure Data Explorer ao Azure Stencil, juntamente com as suas ameaças e mitigações associadas.
+Novos stencils para Azure Logic Apps e Azure Data Explorer foram adicionados ao Azure Stencil juntamente com as suas ameaças e mitigações associadas.
 
-![Aplicativos Azure Logic e Stencils do Explorador de Dados Azure](./media/threat-modeling-tool-releases-71610151/tmt-logic-apps.png)
+![Azure Logic Apps e Azure Data Explorer Stencils](./media/threat-modeling-tool-releases-71610151/tmt-logic-apps.png)
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-### <a name="errors-related-to-priority-values-outside-of-the-expected-ranges"></a>Erros relacionados com valores prioritários fora das faixas previstas
+### <a name="errors-related-to-priority-values-outside-of-the-expected-ranges"></a>Erros relacionados com valores prioritários fora das gamas esperadas
 
 Alguns clientes relataram ter recebido a seguinte mensagem de erro ao abrir ficheiros criados na "Ferramenta de Modelação de Ameaças 2016" ou modelos personalizados:
 
@@ -50,16 +49,16 @@ Esta questão está sob investigação.
 ## <a name="system-requirements"></a>Requisitos de sistema
 
 - Sistemas Operativos Suportados
-  - [Microsoft Windows 10 Atualização](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) de Aniversário ou mais tarde
-- versão .NET necessária
-  - [.Rede 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou posterior
+  - [Atualização de Aniversário do Microsoft Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) ou mais tarde
+- .VERSÃO NET Necessária
+  - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou mais tarde
 - Requisitos Adicionais
   - É necessária uma ligação à Internet para receber atualizações da ferramenta, bem como modelos.
 
 ## <a name="documentation-and-feedback"></a>Documentação e feedback
 
-- A documentação para a Ferramenta de Modelação de Ameaças está localizada na [docs.microsoft.com,](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool)e inclui informações [sobre a utilização da ferramenta.](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started)
+- A documentação da Ferramenta de Modelação de Ameaças encontra-se no [docs.microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool), e inclui informações [sobre a utilização da ferramenta.](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Descarregue a versão mais recente da Ferramenta de [Modelação de Ameaças da Microsoft](https://aka.ms/threatmodelingtool).
+Descarregue a versão mais recente da [Ferramenta de Modelação de Ameaças da Microsoft](https://aka.ms/threatmodelingtool).

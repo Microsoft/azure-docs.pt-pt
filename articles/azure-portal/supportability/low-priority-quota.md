@@ -1,138 +1,137 @@
 ---
 title: Quota de máquina virtual spot - Azure
-description: Aumente os limites de quota para os VMs spot, que fornecem um modelo de utilização do Azure que permite assumir custos mais baixos em troca de deixar o Azure remover VMs conforme necessário.
+description: Aumente os limites de quota para os VMs spot, que fornecem um modelo de utilização Azure que permite assumir custos mais baixos em troca de deixar o Azure remover VMs conforme necessário.
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 3e6dddfc458f390f5648e23a8a2af8d714de4bf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 513bde930f9c7c8892164c50c3866ff6e948ed4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76842805"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763878"
 ---
-# <a name="spot-quota-increase-limits-for-all-vm-series"></a>Quota spot: Aumentar limites para todas as séries VM
+# <a name="spot-quota-increase-limits-for-all-vm-series"></a>Quota à vista: Aumentar os limites para todas as séries VM
 
-As máquinas virtuais spot (VMs) fornecem um modelo diferente de utilização do Azure. Permitem-lhe assumir custos mais baixos em troca de deixar o Azure remover as máquinas virtuais conforme necessário para implementações de instâncias VM pagas ou reservadas. Para obter mais informações sobre vMs spot, consulte [VMs spot Azure para conjuntos de escala](../../virtual-machine-scale-sets/use-spot.md)de máquinas virtuais .
+As máquinas virtuais spot (VMs) fornecem um modelo diferente de utilização do Azure. Eles permitem-lhe assumir custos mais baixos em troca de deixar a Azure remover máquinas virtuais, conforme necessário para implantações de instâncias VM pagas ou reservadas. Para obter mais informações sobre VMs spot, consulte [VMs spot Azure para conjuntos de escala de máquina virtual](../../virtual-machine-scale-sets/use-spot.md).
 
-O Gestor de Recursos Azure suporta dois tipos de quotas vCPU para máquinas virtuais:
+O Azure Resource Manager suporta dois tipos de quotas vCPU para máquinas virtuais:
 
-* *Os VMs pay-as-you-go* e os *casos de VM reservados* estão sujeitos a uma *quota vCPU padrão*.
-* *Os VMs spot* estão sujeitos a uma *quota spot vCPU*.
+* *Os VMs pay-as-you-go* e *as instâncias VM reservadas* estão sujeitos a uma *quota padrão vCPU*.
+* *Os VM spot* estão sujeitos a uma *quota vCPU à vista.*
 
-Para o tipo de quota spot vCPU, as quotas vCPU do Gestor de Recursos são aplicadas em todas as séries de máquinas virtuais disponíveis como um único limite regional.
+Para o tipo de quota spot vCPU, as quotas do Gestor de Recursos vCPU são aplicadas em todas as séries de máquinas virtuais disponíveis como um único limite regional.
 
-Sempre que implementar um novo VM spot, o uso total de VCPU novo e existente para todos os casos de VM spot não deve exceder o limite de quota vCPU spot aprovado. Se a quota de spot for excedida, a implantação de VM no local não é permitida.
+Sempre que implementar um novo spot VM, a utilização total de vCPU novo e existente para todos os casos de VM spot não deve exceder o limite de quota vCPU aprovado. Se a quota à vista for excedida, a colocação de VM no local não é permitida.
 
 Este artigo discute como solicitar um aumento do limite de quota spot vCPU através do portal Azure.
 
-Para saber mais sobre as quotas padrão vCPU, consulte [as quotas vCPU](../../virtual-machines/windows/quotas.md) da máquina virtual e os limites de [subscrição e serviço do Azure, quotas e constrangimentos.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
+Para saber mais sobre as quotas padrão vCPU, consulte [as quotas vCPU da máquina virtual](../../virtual-machines/windows/quotas.md) e os [limites de subscrição e serviço da Azure, quotas e restrições.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
 
-Para aprender sobre o aumento do limite de vCPU por região, consulte [a quota Standard: Aumentar os limites por região](regional-quota-requests.md).
+Para conhecer o aumento do limite vCPU por região, consulte [a quota standard: Aumentar os limites por região.](regional-quota-requests.md)
 
-## <a name="request-a-quota-limit-increase-from-help--support"></a>Solicitar um aumento do limite de quota da Ajuda + suporte
+## <a name="request-a-quota-limit-increase-from-help--support"></a>Solicite um aumento do limite de quota da Ajuda + suporte
 
-Para solicitar um aumento de limite de quota spot para todas as séries de máquinas virtuais utilizando **ajuda + suporte:**
+Para solicitar um aumento do limite de quota pontual para todas as séries de máquinas virtuais utilizando **o suporte Help +**:
 
 > [!NOTE]
-> Pode também solicitar um aumento do limite de quota para várias regiões através de um único caso de apoio. Para mais detalhes, consulte o passo 8.
+> Também pode solicitar um aumento do limite de quota para várias regiões através de um único caso de apoio. Para mais detalhes, consulte o passo 8.
 
-1. No menu do [portal Azure,](https://portal.azure.com) selecione **Ajuda + suporte**.
+1. A partir do menu [do portal Azure,](https://portal.azure.com) selecione **Help + support**.
 
-   ![O link de ajuda + suporte](./media/resource-manager-core-quotas-request/help-plus-support.png)
+   ![O link de suporte Help +](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-1. Em **Ajuda + suporte,** selecione **Novo pedido de suporte**.
+1. No **Suporte Help +**, selecione Novo pedido de **suporte**.
 
     ![Criar um novo pedido de apoio](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. Para **o tipo de emissão,** selecione limites de serviço e **subscrição (quotas)**.
+1. Para **o tipo de emissão**, selecione **limites de serviço e de subscrição (quotas)**.
 
    ![Selecione um tipo de problema](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
-1. Para **Subscrição,** selecione a subscrição cuja quota pretende aumentar.
+1. Para **Subscrição**, selecione a subscrição cuja quota pretende aumentar.
 
    ![Selecione uma subscrição para uma quota aumentada](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
 
-1. Para o tipo de **quota,** selecione O limite de **subscrição Compute-VM (cores-vCPUs) aumenta**.
+1. Para **o tipo de quota**, selecione **Compute-VM (cores-vCPUs) aumentos de limites**de subscrição .
 
    ![Selecione um tipo de quota](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-1. Selecione **Seguinte: Soluções** para abrir **DETALHES DE PROBLEMAS**. Selecione **Fornecer detalhes** para introduzir informações adicionais.
+1. Selecione **Seguinte: Soluções** para abrir **detalhes do problema**. **Selecione Fornecer detalhes** para introduzir informações adicionais.
 
    ![O link "Fornecer detalhes"](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-1. Em **detalhes da Quota,** faça os seguintes passos:
+1. Nos **pormenores da quota,** faça os seguintes passos:
 
-   1. Para **o modelo de implantação,** selecione o modelo apropriado e, para **localizações,** selecione uma localização.
+   1. Para **o modelo de implantação**, selecione o modelo apropriado e para **localizações**, selecione uma localização.
 
-      ![Fornecer detalhes adicionais sobre as quotas](./media/resource-manager-core-quotas-request/quota-details-deployment-locations.png)
+      ![Fornecer detalhes adicionais de quota](./media/resource-manager-core-quotas-request/quota-details-deployment-locations.png)
 
-   1. Para a localização selecionada, em **Tipos,** em **Selecionar um tipo,** escolha **Spot**.
+   1. Para a localização selecionada, em **Tipos**, em **Selecionar um tipo,** escolha **Spot**.
 
       ![Selecione o tipo de ponto](./media/resource-manager-core-quotas-request/select-spot-type.png)
 
-       Em **Tipos,** pode solicitar tipos de quotas padrão e spot a partir de um único caso de suporte através de suporte multi-selecção.
+       Em **Tipos**, pode solicitar os tipos de quota padrão e spot de um único caso de suporte através de suporte multi-selecção.
 
-       Para mais informações, consulte [a quota Standard: Aumentar os limites por sérieVM](per-vm-quota-requests.md).
+       Para obter mais informações, consulte [quota-série: Aumente os limites por séries VM](per-vm-quota-requests.md).
 
-   1. Introduza o novo limite de quotas que pretende para esta subscrição.
+   1. Introduza o novo limite de quota que pretende para esta subscrição.
 
       ![Selecione uma nova quota para spot VM](./media/resource-manager-core-quotas-request/spot-set-new-quota.png)
 
-1. Para solicitar um aumento de quota para mais de um local, selecione uma localização adicional em **Locais**, e, em seguida, selecione um tipo de VM apropriado. Pode então introduzir um limite que se aplica à localização adicional.
+1. Para solicitar um aumento de quota para mais de um local, selecione uma localização adicional em **Localizações**e, em seguida, selecione um tipo VM apropriado. Em seguida, pode introduzir um limite que se aplica à localização adicional.
 
-   ![Especificar localizações adicionais em detalhes de quotas](./media/resource-manager-core-quotas-request/quota-details-multiple-locations.png)
+   ![Especificar localizações adicionais em detalhes de quota](./media/resource-manager-core-quotas-request/quota-details-multiple-locations.png)
 
-1. Selecione **Guardar e continue** a criar o pedido de apoio.
+1. **Selecione Save e continue** a criar o pedido de suporte.
 
 ## <a name="request-a-quota-limit-increase-from-the-subscriptions-pane"></a>Solicitar um aumento do limite de quota do painel de assinaturas
 
-Para solicitar um aumento do limite de quota spot para todas as séries VM do painel **de Assinaturas:**
+Para solicitar um aumento do limite de quota pontual para todas as séries VM do painel **de subscrições:**
 
 > [!NOTE]
-> Pode também solicitar um aumento do limite de quota para várias regiões através de um único caso de apoio. Para mais detalhes, consulte o passo 7.
+> Também pode solicitar um aumento do limite de quota para várias regiões através de um único caso de apoio. Para mais detalhes, consulte o passo 7.
 
-1. No [portal Azure,](https://portal.azure.com)procure e selecione **Assinaturas.**
+1. No [portal Azure,](https://portal.azure.com)procure e selecione **Subscrições.**
 
-   ![Assinaturas na pesquisa do portal Azure](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
+   ![Subscrições na pesquisa do portal Azure](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
 
 1. Selecione a subscrição cuja quota pretende aumentar.
 
-   ![Assinaturas para selecionar para alterações](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
+   ![Subscrições para selecionar para alterações](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
 
-1. No painel esquerdo, **selecione Usage + quotas**.
+1. No painel esquerdo, selecione **Usage + quotas**.
 
    ![O link "Utilização + quotas"](./media/resource-manager-core-quotas-request/select-usage-plus-quotas.png)
 
-1. Na parte superior direita, selecione **Pedido aumentar**.
+1. No topo direito, selecione **Pedir aumento**.
 
    ![Selecione para aumentar a quota](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
 
-1. Para o tipo de **quota,** selecione O limite de **subscrição Compute-VM (cores-vCPUs) aumenta**.
+1. Para **o tipo de quota**, selecione **Compute-VM (cores-vCPUs) aumentos de limites**de subscrição .
 
    ![Selecione um tipo de quota](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-1. Selecione **Seguinte: Soluções** para abrir **DETALHES DE PROBLEMAS**. Selecione **Fornecer detalhes** para introduzir informações adicionais. Em **detalhes da Quota,** introduza as seguintes informações:
+1. Selecione **Seguinte: Soluções** para abrir **detalhes do problema**. **Selecione Fornecer detalhes** para introduzir informações adicionais. Nos **pormenores da Quota**, insira as seguintes informações:
 
-   1. Para **o modelo de implantação,** selecione o modelo apropriado e, para **localizações,** selecione uma localização.
+   1. Para **o modelo de implantação**, selecione o modelo apropriado e para **localizações**, selecione uma localização.
 
-      ![Fornecer detalhes das quotas](./media/resource-manager-core-quotas-request/quota-details-deployment-locations.png)
+      ![Fornecer detalhes de quota](./media/resource-manager-core-quotas-request/quota-details-deployment-locations.png)
 
-   1. Para a localização selecionada, em **Tipos,** em **Selecionar um tipo,** escolha **Spot**.
+   1. Para a localização selecionada, em **Tipos**, em **Selecionar um tipo,** escolha **Spot**.
 
-      ![Selecione tipo Spot](./media/resource-manager-core-quotas-request/select-spot-type.png)
+      ![Selecione o tipo de ponto](./media/resource-manager-core-quotas-request/select-spot-type.png)
 
-      Para mais informações, consulte [a quota Standard: Aumentar os limites por sérieVM](per-vm-quota-requests.md).
+      Para obter mais informações, consulte [quota-série: Aumente os limites por séries VM](per-vm-quota-requests.md).
 
-   1. Introduza o novo limite de quotas que pretende para esta subscrição.
+   1. Introduza o novo limite de quota que pretende para esta subscrição.
 
       ![Introduza um novo valor para o limite vCPU](./media/resource-manager-core-quotas-request/spot-set-new-quota.png)
 
-1. Para solicitar um aumento de quota para mais de um local, selecione uma localização adicional em **Locais**, e, em seguida, selecione um tipo de VM apropriado. Pode então introduzir um limite que se aplica à localização adicional.
+1. Para solicitar um aumento de quota para mais de um local, selecione uma localização adicional em **Localizações**e, em seguida, selecione um tipo VM apropriado. Em seguida, pode introduzir um limite que se aplica à localização adicional.
 
-   ![Selecione localizações adicionais em detalhes de quotas](./media/resource-manager-core-quotas-request/quota-details-multiple-locations.png)
+   ![Selecione localizações adicionais em detalhes de quota](./media/resource-manager-core-quotas-request/quota-details-multiple-locations.png)
 
-1. Selecione **Guardar e continue** a criar o pedido de apoio.
+1. **Selecione Save e continue** a criar o pedido de suporte.

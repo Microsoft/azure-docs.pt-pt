@@ -1,52 +1,51 @@
 ---
-title: Amostras de modelo de gestor de recursos azure
-description: Encontre amostras de modelo do Gestor de Recursos Azure para alguns dos cenários comuns do Serviço de Aplicações. Saiba automatizar as suas tarefas de implementação ou gestão do Serviço de Aplicações.
+title: Amostras de modelo do gestor de recursos Azure
+description: Encontre amostras de modelo do Azure Resource Manager para alguns dos cenários comuns do Serviço de Aplicações. Saiba como automatizar as suas tarefas de implementação ou gestão do Serviço de Aplicações.
 author: tfitzmac
 tags: azure-service-management
 ms.topic: sample
 ms.date: 01/04/2019
 ms.author: tomfitz
 ms.custom: mvc, fasttrack-edit
-ms.openlocfilehash: 2d77dcbd07a67e3ba50d70770515416b45fbc7a3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2caaadd0da9d62128d04962fa1f2ff7eade907b0
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80637912"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254434"
 ---
-# <a name="azure-resource-manager-templates-for-app-service"></a>Modelos de Gestor de Recursos Azure para serviço de aplicações
+# <a name="azure-resource-manager-templates-for-app-service"></a>Modelos de gestor de recursos Azure para o Serviço de Aplicações
 
-A tabela seguinte inclui links para modelos de Gestor de Recursos Azure para o Serviço de Aplicações Azure. Para recomendações sobre como evitar erros comuns ao criar modelos de aplicações, consulte [orientação sobre a implementação de aplicações com modelos](deploy-resource-manager-template.md)de Gestor de Recursos Azure .
+A tabela seguinte inclui links para modelos de Gestor de Recursos Azure para o Serviço de Aplicações Azure. Para recomendações sobre como evitar erros comuns quando estiver a criar modelos de aplicações, consulte [Orientação sobre a implementação de aplicações com modelos do Azure Resource Manager](deploy-resource-manager-template.md).
 
-Para conhecer a sintaxe jSON e propriedades para recursos de Serviços de Aplicações, consulte os tipos de [recursos Microsoft.Web](/azure/templates/microsoft.web/allversions).
+Para saber mais sobre a sintaxe JSON e propriedades para recursos de Serviços de Aplicação, consulte os [tipos de recursos microsoft.Web](/azure/templates/microsoft.web/allversions).
 
 | | |
 |-|-|
 |**Implementação de uma aplicação**||
-| [Plano de serviço de aplicativos e aplicativo básico linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-linux) | Implementa uma aplicação de Serviço de Aplicações que está configurada para o Linux. |
-| [Plano de serviço de aplicativos e aplicativo básico do Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-windows) | Implementa uma aplicação do Serviço de Aplicações que está configurada para windows. |
-| [App ligada a um repositório GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-github-deploy)| Implementa uma aplicação do App Service que retira código do GitHub. |
-| [App com ranhuras de implementação personalizadas](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-custom-deployment-slots)| Implementa uma aplicação de Serviço de Aplicações com ranhuras/ambientes de implementação personalizadas. |
+| [Plano de Serviço de Aplicações e app básica do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-linux) | Implementa uma aplicação de Serviço de Aplicações que está configurada para o Linux. |
+| [Plano de Serviço de Aplicações e aplicação básica do Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-windows) | Implementa uma aplicação de Serviço de Aplicações que está configurada para windows. |
+| [App ligada a um repositório GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-github-deploy)| Implementa uma aplicação de Serviço de Aplicações que retira código do GitHub. |
+| [App com slots de implementação personalizadas](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-custom-deployment-slots)| Implementa uma aplicação de Serviço de Aplicações com slots/ambientes de implementação personalizados. |
 |**Configurar uma aplicação**||
-| [Certificado de aplicativo de Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault)| Implementa um certificado de aplicação do App Service a partir de um segredo azure Key Vault e usa-o para ligação TLS/SSL. |
-| [App com um domínio personalizado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain)| Implementa uma aplicação de Serviço de Aplicações com um nome de anfitrião personalizado. |
-| [App com domínio personalizado e SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl)| Implementa uma aplicação de Serviço de Aplicações com um nome de anfitrião personalizado e obtém um certificado de aplicação da Key Vault para a ligação TLS/SSL. |
+| [Certificado de aplicativo do Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault)| Implementa um certificado de aplicação do Serviço de Aplicações a partir de um segredo do Azure Key Vault e usa-o para a ligação TLS/SSL. |
+| [App com um domínio personalizado e SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl)| Implementa uma aplicação de Serviço de Aplicações com um nome de anfitrião personalizado e obtém um certificado de aplicação do Key Vault para a ligação TLS/SSL. |
 | [App com extensão GoLang](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang)| Implementa uma aplicação de Serviço de Aplicações com a extensão do site Golang. Em seguida, pode executar as aplicações Web desenvolvidas no Golang no Azure. |
-| [App com Java 8 e Tomcat 8](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat)| Implementa uma aplicação de Serviço de Aplicações com Java 8 e Tomcat 8 ativado. Em seguida, pode executar aplicações Java no Azure. |
-| [App com integração regional vNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-service-regional-vnet-integration)| Implementa uma aplicação de Serviço de Aplicações com integração vnet regional ativada. |
+| [App com Java 8 e Tomcat 8](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat)| Implementa uma aplicação de Serviço de Aplicações com Java 8 e Tomcat 8 ativada. Em seguida, pode executar aplicações Java no Azure. |
+| [App com integração regional de VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-service-regional-vnet-integration)| Implementa uma aplicação de Serviço de Aplicações com integração regional de VNet ativada. |
 |**Proteger uma aplicação**||
-| [App integrada com Gateway de Aplicação Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-app-gateway-v2)| Implementa uma aplicação de Serviço de Aplicações e um Gateway de Aplicações, e isola o tráfego usando o ponto final do serviço e restrições de acesso. |
-|**Aplicativo Linux com recursos conectados**||
-| [App em Linux com MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-linux-managed-mysql) | Implementa uma aplicação de serviço de aplicações no Linux com base de dados Azure para MySQL. |
-| [App em Linux com PostgreSQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-linux-managed-postgresql) | Implementa uma aplicação de Serviço de Aplicações no Linux com base de dados Azure para PostgreSQL. |
+| [App integrada com Gateway de Aplicação Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-app-gateway-v2)| Implementa uma aplicação de Serviço de Aplicações e um Gateway de Aplicações, e isola o tráfego usando o ponto final do serviço e as restrições de acesso. |
+|**App Linux com recursos conectados**||
+| [App em Linux com MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-linux-managed-mysql) | Implementa uma aplicação de Serviço de Aplicações no Linux com Base de Dados Azure para o MySQL. |
+| [App em Linux com PostgreSQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-linux-managed-postgresql) | Implementa uma aplicação de Serviço de Aplicações no Linux com Base de Dados Azure para PostgreSQL. |
 |**App com recursos conectados**||
-| [App com MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-mysql)| Implementa uma aplicação de serviço de aplicações no Windows com base de dados Azure para MySQL. |
-| [App com PostgreSQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-postgresql)| Implementa uma aplicação de serviço de aplicações no Windows com base de dados Azure para PostgreSQL. |
-| [App com base de dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Implementa uma aplicação de Serviço de Aplicações e uma base de dados SQL ao nível básico de serviço. |
-| [App com uma conexão de armazenamento Blob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-blob-connection)| Implementa uma aplicação de Serviço de Aplicações com uma cadeia de conexão de armazenamento Azure Blob. Em seguida, pode utilizar o armazenamento Blob a partir da aplicação. |
-| [App com um Cache Azure para Redis](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Implementa uma aplicação de Serviço de Aplicações com um Azure Cache para Redis. |
+| [App com MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-mysql)| Implementa uma aplicação de Serviço de Aplicações no Windows com Base de Dados Azure para o MySQL. |
+| [App com PostgreSQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-postgresql)| Implementa uma aplicação de Serviço de Aplicações no Windows com Base de Dados Azure para PostgreSQL. |
+| [App com base de dados na Base de Dados Azure SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Implementa uma aplicação de Serviço de Aplicações e uma base de dados na Base de Dados Azure SQL ao nível do serviço Básico. |
+| [App com uma ligação de armazenamento Blob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-blob-connection)| Implementa uma aplicação de Serviço de Aplicações com uma cadeia de ligação de armazenamento Azure Blob. Em seguida, pode utilizar o armazenamento Blob a partir da aplicação. |
+| [App com cache Azure para Redis](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Implementa uma aplicação de Serviço de Aplicações com uma Cache Azure para Redis. |
 |**Ambiente do Serviço de Aplicações**||
 | [Criar um Ambiente de Serviço de Aplicações v2](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-create) | Cria um ambiente de Serviço de Aplicações v2 na sua rede virtual. |
 | [Criar um ambiente de Serviço de Aplicações v2 com um endereço ILB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-ilb-create/) | Cria um ambiente de Serviço de Aplicações v2 na sua rede virtual com um endereço de balanceador de carga interno privado. |
-| [Configura o certificado SSL predefinido para um ambiente de Serviço de Aplicações ILB ou um ambiente de Serviço de Aplicações v2 ILB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-ase-ilb-configure-default-ssl) | Configura o certificado padrão TLS/SSL para um ambiente de serviço de aplicações ILB ou um ambiente de serviço de aplicações ILB v2. |
+| [Configura o certificado SSL predefinido para um ambiente de Serviço de Aplicações ILB ou um ambiente de Serviço de Aplicações v2 ILB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-ase-ilb-configure-default-ssl) | Configura o certificado TLS/SSL padrão para um ambiente de Serviço de Aplicações ILB ou um ambiente de Serviço de Aplicações ILB v2. |
 | | |

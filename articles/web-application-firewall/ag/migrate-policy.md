@@ -1,6 +1,6 @@
 ---
-title: Políticas de WAF migrar para gateway de aplicação azure
-description: Saiba como migrar as políticas de Firewall de aplicação web azure usando o Azure PowerShell.
+title: Migrar políticas waf para gateway de aplicação Azure
+description: Saiba como migrar as políticas de Firewall de Aplicação Web Azure usando a Azure PowerShell.
 services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
@@ -8,33 +8,32 @@ ms.service: web-application-firewall
 ms.date: 04/16/2020
 ms.author: ant
 ms.openlocfilehash: fb3b922b753b9696aa26ea189597589ecc5772db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81536629"
 ---
-# <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Migrar políticas de firewall de aplicações web usando O PowerShell Azure
+# <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Migrar políticas de Firewall de aplicação web usando Azure PowerShell
 
-Este script facilita a transição de uma config WAF ou de uma política waf personalizada apenas para uma política waf completa. Você pode ver um aviso no portal que diz *migrar para a política waf*, ou você pode querer as novas funcionalidades de pré-visualização pública WAF tais como regras personalizadas de Geomatch, política por site e per-URI WAF, ou o conjunto de regras de mitigação de bots. Para utilizar qualquer uma destas funcionalidades, necessita de uma política waf completa associada ao seu gateway de aplicação. 
+Este script facilita a transição de um config WAF ou de uma política waf personalizada apenas para uma política waf completa. Pode ver um aviso no portal que diz *migrar para a política da WAF,* ou pode querer as novas funcionalidades de pré-visualização do WA, como regras personalizadas geomatch, política por local e waf per-URI, ou o bot mitigation ruleset. Para utilizar qualquer uma destas funcionalidades, precisa de uma política WAF completa associada ao seu gateway de aplicações. 
 
-Para obter mais informações sobre a criação de uma nova política waf, consulte [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md). Para obter informações sobre a migração, consulte [a política de Migrar para a WAF.](create-waf-policy-ag.md#migrate-to-waf-policy)
+Para obter mais informações sobre a criação de uma nova política DA WAF, consulte as políticas de Firewall de [Aplicação Web para Gateway de aplicações.](create-waf-policy-ag.md) Para obter informações sobre migração, consulte [a política de Migração para a WAF](create-waf-policy-ag.md#migrate-to-waf-policy).
 
 ## <a name="to-migrate-to-waf-policy-using-the-migration-script"></a>Migrar para a política da WAF usando o roteiro de migração
 
-Utilize os seguintes passos para executar o script de migração: 
+Utilize os seguintes passos para executar o roteiro de migração: 
 
-1. Abra a seguinte janela de nuvens ou abra uma de dentro do portal.
+1. Abra a janela da casca de nuvem seguinte ou abra uma de dentro do portal.
 2. Copie o guião para a janela da casca da nuvem e execute-o.
-3. O script pede ID de subscrição, nome do Grupo de Recursos, o nome do Gateway de Aplicação com o qual o config WAF está associado, e o nome da nova política waf que criar. Uma vez que você introduz estas inputs, o script executa e cria a sua nova política WAF
-4. Associe a nova política da WAF com o seu gateway de aplicação. Vá à política waf no portal e selecione o separador Gateways de **Aplicação Associado.** Selecione Associate um Gateway de **Aplicação** e, em seguida, selecione o Gateway de Aplicação para associar a política WAF.
+3. O script pede iD de subscrição, nome do Grupo de Recursos, o nome do Gateway de aplicação a que o config WAF está associado, e o nome da nova política da WAF que criar. Assim que introduzir estas entradas, o script executa e cria a sua nova política WAF
+4. Associe a nova política da WAF com o seu gateway de aplicação. Vá à política da WAF no portal e selecione o separador **Gateways de Aplicação Associado.** Selecione **Associar um Gateway de Aplicação** e, em seguida, selecione o Gateway de Aplicação para associar a política da WAF.
 
 > [!NOTE]
-> O script não completa uma migração se existirem as seguintes condições:
-> - Uma regra inteira é desativada. Para completar uma migração, certifique-se de que todo um grupo de regras não é desativado.
-> - Uma entrada de exclusão com o *igual a qualquer* operador. Para completar uma migração, certifique-se de que as entradas de exclusão com *iguais qualquer* operador não está presente.
+> O guião não completa uma migração se existirem as seguintes condições:
+> - Uma regra inteira é desativada. Para completar uma migração, certifique-se de que um grupo de regras inteiro não é desativado.
+> - Uma(s) entrada de exclusão com os *Iguais qualquer* operador. Para completar uma migração, certifique-se de que as entradas de exclusão com *Iguais Qualquer* operador não esteja presente.
 >
-> Para mais informações, consulte a função *ValidateInput* no script.
+> Para obter mais informações, consulte a função *ValidateInput* no script.
 
 ```azurepowershell-interactive
 <#PSScriptInfo
@@ -217,6 +216,6 @@ function Main() {
 
 Main
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre grupos e regras de [regras CRS firewall de aplicação web](application-gateway-crs-rulegroups-rules.md).
+Saiba mais sobre [grupos e regras de regras do CRS do Firewall de Aplicação Web.](application-gateway-crs-rulegroups-rules.md)

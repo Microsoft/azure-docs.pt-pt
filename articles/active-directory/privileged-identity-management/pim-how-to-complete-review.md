@@ -1,66 +1,66 @@
 ---
-title: Avaliação de acesso ao acabamento das funções da Azure AD na PIM - Azure AD [ Microsoft Docs
-description: Saiba como completar uma revisão de acesso das funções da Azure AD na Azure AD Privileged Identity Management (PIM) e veja os resultados
+title: Termine a revisão de acesso das funções da AD Azure na PIM - Azure AD ! Microsoft Docs
+description: Saiba como concluir uma revisão de acesso das funções da AD Azure em Azure AD Gestão de Identidade Privilegiada (PIM) e ver os resultados
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe2d85d605b9ee418a5709ddcdb448c56be1d918
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa7e8089fbbf2ee653100a05383fdbdc877ffda4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74022287"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84742221"
 ---
-# <a name="complete-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Complete uma revisão de acesso das funções da Azure AD na Gestão de Identidade Privilegiada
+# <a name="complete-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Complete uma revisão de acesso das funções de Azure AD em Gestão de Identidade Privilegiada
 
-Os administradores privilegiados podem rever o acesso privilegiado uma vez iniciada uma revisão de [acesso.](pim-how-to-start-security-review.md)  A Privileged Identity Management (PIM) enviará automaticamente um e-mail aos utilizadores da sua organização Azure Ative Directory (Azure AD), levando-os a rever o seu acesso. Se um utilizador não receber um e-mail, pode enviar-lhes as instruções de [como efetuar uma revisão](pim-how-to-perform-security-review.md)de acesso .
+Os administradores privilegiados podem rever o acesso privilegiado uma vez iniciada uma [revisão de acesso.](pim-how-to-start-security-review.md)  A Gestão de Identidade Privilegiada (PIM) enviará automaticamente um e-mail aos utilizadores da sua organização Azure Ative Directory (Azure AD), levando-os a rever o seu acesso. Se um utilizador não tiver um e-mail, pode enviar-lhe as instruções [sobre como realizar uma revisão de acesso](pim-how-to-perform-security-review.md).
 
 Após o fim do período de revisão de acesso, ou todos os utilizadores terminaram a sua auto-revisão, siga os passos deste artigo para gerir a revisão e ver os resultados.
 
-## <a name="manage-access-reviews"></a>Gerir avaliações de acesso
+## <a name="manage-access-reviews"></a>Gerir comentários de acesso
 
-1. Vá ao [portal Azure](https://portal.azure.com/) e selecione o serviço de Gestão de **Identidade Privilegiada Azure AD** no seu painel de instrumentos.
-1. Selecione a secção de comentários de **acesso** do painel de instrumentos.
+1. Vá ao [portal Azure](https://portal.azure.com/) e selecione o serviço **de Gestão de Identidade Privilegiada AZure AD** no seu painel de instrumentos.
+1. Selecione a secção **de avaliações** de Acesso do painel de instrumentos.
 1. Selecione a revisão de acesso que pretende gerir.
 
-Na lâmina de detalhes da revisão de acesso, existem várias opções para gerir essa revisão.
+Na lâmina de detalhe da revisão de acesso, existem várias opções para gerir essa revisão.
 
-![Botões de revisão de acesso privilegiados à Gestão de Identidade - screenshot](./media/pim-how-to-complete-review/review-buttons.png)
+![Botões privilegiados de revisão de acesso à Gestão de Identidade - screenshot](./media/pim-how-to-complete-review/review-buttons.png)
 
 ### <a name="remind"></a>Lembre-se
 
-Se for criada uma revisão de acesso para que os utilizadores se revejam, o botão **Remind** envia uma notificação.
+Se for configurada uma revisão de acesso para que os utilizadores se revejam a si próprios, o botão **Lembrete** envia uma notificação.
 
 ### <a name="stop"></a>Parar
 
-Todas as avaliações de acesso têm uma data limite, mas pode usar o botão **Stop** para terminá-lo mais cedo. Se algum utilizador não tiver sido revisto até agora, não poderão fazê-lo depois de parar a revisão. Não pode reiniciar uma revisão depois de ter sido interrompida.
+Todas as avaliações de acesso têm uma data de fim, mas pode usar o botão **Stop** para terminá-lo mais cedo. Se algum utilizadores não tiver sido revisto por esta altura, não poderá fazê-lo depois de parar a revisão. Não pode reiniciar uma revisão depois de ter sido interrompida.
 
 ### <a name="apply"></a>Aplicar
 
-Após a conclusão de uma revisão de acesso, quer porque tenha atingido a data final ou a tenha parado manualmente, o botão **Aplicar** implementa o resultado da revisão. Se o acesso de um utilizador foi negado na revisão, este é o passo que irá remover a sua atribuição de funções.  
+Depois de concluída uma revisão de acesso, quer porque atingiu a data de fim ou a parou manualmente, o botão **Aplicar** implementa o resultado da revisão. Se o acesso de um utilizador foi negado na revisão, este é o passo que removerá a sua atribuição de função.  
 
 ### <a name="export"></a>Exportar
 
-Se pretender aplicar os resultados da revisão de acesso manualmente, pode exportar o reexame. O botão **Export** começará a descarregar um ficheiro CSV. Pode gerir os resultados em Excel ou outros programas que abrem ficheiros CSV.
+Se quiser aplicar manualmente os resultados da revisão de acesso, pode exportar a revisão. O **botão Exportação** começará a descarregar um ficheiro CSV. Pode gerir os resultados no Excel ou noutros programas que abram ficheiros CSV.
 
 ### <a name="delete"></a>Eliminar
 
-Se não estiver interessado na revisão, apague-o. O botão **Eliminar** remove a revisão do serviço de Gestão de Identidade Privilegiada.
+Se não estiver mais interessado na revisão, apague-a. O botão **Eliminar** remove a revisão do serviço de Gestão de Identidade Privilegiada.
 
 > [!IMPORTANT]
 > Não será obrigado a confirmar esta alteração destrutiva, por isso verifique se pretende eliminar essa revisão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Inicie uma revisão de acesso para funções da Azure AD na Gestão de Identidade Privilegiada](pim-how-to-start-security-review.md)
-- [Realizar uma revisão de acesso das minhas funções de AD Azure na Gestão de Identidade Privilegiada](pim-how-to-perform-security-review.md)
+- [Inicie uma revisão de acesso para funções Azure AD em Gestão de Identidade Privilegiada](pim-how-to-start-security-review.md)
+- [Realizar uma revisão de acesso das minhas funções de Ad Azure em Gestão de Identidade Privilegiada](pim-how-to-perform-security-review.md)

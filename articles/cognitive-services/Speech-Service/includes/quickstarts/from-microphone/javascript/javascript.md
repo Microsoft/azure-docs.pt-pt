@@ -3,21 +3,20 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
-ms.openlocfilehash: 1a1207b056a0cd86d1855d990a8857ef8d9752e4
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.author: trbye
+ms.openlocfilehash: a110ff1db9b75287eb1b75d80003796354aba35b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82979605"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035819"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Criar um recurso azure speech<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md)
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Criar um recurso de discurso azul<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * [Configurar o seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md)
 > * Certifique-se de que tem acesso a um microfone para captura de áudio
 
 ## <a name="create-a-new-website-folder"></a>Criar uma nova pasta de sites
@@ -26,7 +25,7 @@ Crie uma nova pasta vazia. No caso de querer alojar o exemplo num servidor Web, 
 
 ## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>Descompactar o SDK de Voz para JavaScript nessa pasta
 
-Transfira o SDK de Voz como um [pacote .zip](https://aka.ms/csspeech/jsbrowserpackage) e descompacte-o para a pasta recentemente criada. Isto resulta em dois ficheiros serem desembalados, `microsoft.cognitiveservices.speech.sdk.bundle.js` e `microsoft.cognitiveservices.speech.sdk.bundle.js.map` .
+Transfira o SDK de Voz como um [pacote .zip](https://aka.ms/csspeech/jsbrowserpackage) e descompacte-o para a pasta recentemente criada. Isto resulta em dois ficheiros a serem desembalados, `microsoft.cognitiveservices.speech.sdk.bundle.js` e `microsoft.cognitiveservices.speech.sdk.bundle.js.map` .
 Este último ficheiro é opcional e é útil para depurar o código SDK.
 
 ## <a name="create-an-indexhtml-page"></a>Criar uma página index.html
@@ -42,7 +41,7 @@ Crie um novo ficheiro na pasta, com o nome `index.html`, e abra este ficheiro co
 No caso de querer alojar a página Web num servidor Web, pode fornecer opcionalmente uma origem de token para a aplicação de demonstração.
 Dessa forma, a chave de subscrição nunca vai sair do servidor, o que permite aos utilizadores usufruir das capacidades de voz sem introduzir qualquer código de autorização.
 
-Crie um novo ficheiro com o nome `token.php`. Neste exemplo, presumimos que o servidor Web suporta a linguagem de scripts PHP. Introduza o seguinte código:
+Crie um novo ficheiro com o nome `token.php`. Neste exemplo, assumimos que o seu servidor web suporta a linguagem de script PHP com caracóis ativados. Introduza o seguinte código:
 
 ```php
 <?php
@@ -72,7 +71,7 @@ Para iniciar a aplicação, faça duplo clique no ficheiro index.html ou abra-o 
 
 > [!NOTE]
 > Este método não funciona no navegador Safari.
-> No Safari, a página web da amostra precisa de ser hospedada num servidor web; O Safari não permite que websites carregados a partir de um ficheiro local utilizem o microfone.
+> No Safari, a página web da amostra precisa de ser hospedada num servidor web; O Safari não permite que sites carregados a partir de um ficheiro local utilizem o microfone.
 
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>Criar e executar o exemplo através de um servidor Web
 

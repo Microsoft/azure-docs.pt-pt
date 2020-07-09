@@ -1,27 +1,35 @@
 ---
 title: Lista de definições políticas incorporadas
-description: Enumera as definições políticas incorporadas para a Política Azure. As categorias incluem Tags, Compliance Regulação, Key Vault, Kubernetes, Configuração de Hóspedes, e muito mais.
-ms.date: 05/13/2020
+description: Listar definições políticas incorporadas para a Política Azure. As categorias incluem Tags, Conformidade Regulamentar, Cofre-Chave, Kubernetes, Configuração de Hóspedes, e muito mais.
+ms.date: 06/23/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: c6a7f128dd2479645cc379f36532563c0ade5d14
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 94f69754ab51728a18da10b45e05770f1271760b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651650"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313427"
 ---
-# <a name="azure-policy-built-in-policy-definitions"></a>Definições políticas integradas da Política Azure
+# <a name="azure-policy-built-in-policy-definitions"></a>Definições políticas incorporadas da Política Azure
 
-Esta página é um índice de definições políticas integradas da Política Azure.
+Esta página é um índice de definições políticas incorporadas da Azure Policy.
 
-O nome de cada um embutido liga-se à definição de política no portal Azure. Utilize o link na coluna **Fonte** para visualizar a fonte no [repo da política azure GitHub](https://github.com/Azure/azure-policy). Os incorporados são agrupados pela propriedade da **categoria** em **metadados.** Para saltar para uma **categoria**específica, use o menu do lado direito da página. Caso contrário, utilize <kbd>ctrl</kbd>F para utilizar a funcionalidade de - <kbd>F</kbd> pesquisa do seu navegador.
+O nome de cada ligação incorporada à definição de política no portal Azure. Utilize o link na coluna **Source** para visualizar a fonte no [repo GitHub da Política Azure](https://github.com/Azure/azure-policy). Os incorporados são agrupados pela **categoria** de propriedade em **metadados.** Para saltar para uma **categoria**específica, utilize o menu no lado direito da página. Caso contrário, utilize <kbd>o Ctrl</kbd> - <kbd>F</kbd> para utilizar o recurso de pesquisa do seu navegador.
+
+## <a name="api-for-fhir"></a>API para FHIR
+
+[!INCLUDE [azure-policy-samples-policies-api-for-fhir](../../../../includes/policy/samples/bycat/policies-api-for-fhir.md)]
+
+## <a name="api-management"></a>Gestão de API
+
+[!INCLUDE [azure-policy-samples-policies-api-management](../../../../includes/policy/samples/bycat/policies-api-management.md)]
 
 ## <a name="app-configuration"></a>App Configuration
 
 [!INCLUDE [azure-policy-samples-policies-app-configuration](../../../../includes/policy/samples/bycat/policies-app-configuration.md)]
 
-## <a name="app-platform"></a>Plataforma app
+## <a name="app-platform"></a>Plataforma de Aplicativos
 
 [!INCLUDE [azure-policy-samples-policies-app-platform](../../../../includes/policy/samples/bycat/policies-app-platform.md)]
 
@@ -45,6 +53,10 @@ O nome de cada um embutido liga-se à definição de política no portal Azure. 
 
 [!INCLUDE [azure-policy-samples-policies-cache](../../../../includes/policy/samples/bycat/policies-cache.md)]
 
+## <a name="cognitive-services"></a>Serviços Cognitivos
+
+[!INCLUDE [azure-policy-samples-policies-cognitive-services](../../../../includes/policy/samples/bycat/policies-cognitive-services.md)]
+
 ## <a name="compute"></a>Computação
 
 [!INCLUDE [azure-policy-samples-policies-compute](../../../../includes/policy/samples/bycat/policies-compute.md)]
@@ -57,13 +69,17 @@ O nome de cada um embutido liga-se à definição de política no portal Azure. 
 
 [!INCLUDE [azure-policy-samples-policies-cosmos-db](../../../../includes/policy/samples/bycat/policies-cosmos-db.md)]
 
-## <a name="custom-provider"></a>Fornecedor Personalizado
+## <a name="custom-provider"></a>Fornecedor personalizado
 
 [!INCLUDE [azure-policy-samples-policies-custom-provider](../../../../includes/policy/samples/bycat/policies-custom-provider.md)]
 
 ## <a name="data-lake"></a>Data Lake
 
 [!INCLUDE [azure-policy-samples-policies-data-lake](../../../../includes/policy/samples/bycat/policies-data-lake.md)]
+
+## <a name="event-grid"></a>Event Grid
+
+[!INCLUDE [azure-policy-samples-policies-event-grid](../../../../includes/policy/samples/bycat/policies-event-grid.md)]
 
 ## <a name="event-hub"></a>Hub de Eventos
 
@@ -89,10 +105,6 @@ O nome de cada um embutido liga-se à definição de política no portal Azure. 
 
 [!INCLUDE [azure-policy-samples-policies-kubernetes](../../../../includes/policy/samples/bycat/policies-kubernetes.md)]
 
-## <a name="kubernetes-service"></a>Serviço Kubernetes
-
-[!INCLUDE [azure-policy-samples-policies-kubernetes-service](../../../../includes/policy/samples/bycat/policies-kubernetes-service.md)]
-
 ## <a name="lighthouse"></a>Lighthouse
 
 [!INCLUDE [azure-policy-samples-policies-lighthouse](../../../../includes/policy/samples/bycat/policies-lighthouse.md)]
@@ -100,6 +112,10 @@ O nome de cada um embutido liga-se à definição de política no portal Azure. 
 ## <a name="logic-apps"></a>Aplicações Lógicas
 
 [!INCLUDE [azure-policy-samples-policies-logic-apps](../../../../includes/policy/samples/bycat/policies-logic-apps.md)]
+
+## <a name="machine-learning"></a>Machine Learning
+
+[!INCLUDE [azure-policy-samples-policies-machine-learning](../../../../includes/policy/samples/bycat/policies-machine-learning.md)]
 
 ## <a name="managed-application"></a>Aplicação gerida
 
@@ -128,6 +144,10 @@ O nome de cada um embutido liga-se à definição de política no portal Azure. 
 ## <a name="service-fabric"></a>Service Fabric
 
 [!INCLUDE [azure-policy-samples-policies-service-fabric](../../../../includes/policy/samples/bycat/policies-service-fabric.md)]
+
+## <a name="signalr"></a>SignalR
+
+[!INCLUDE [azure-policy-samples-policies-signalr](../../../../includes/policy/samples/bycat/policies-signalr.md)]
 
 ## <a name="sql"></a>SQL
 

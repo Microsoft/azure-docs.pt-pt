@@ -1,39 +1,39 @@
 ---
-title: Definições de regras de deteção inteligente - Insights de aplicação Azure
-description: Automatizar gestão e configuração de regras inteligentes de deteção inteligentes de Insights de Aplicação Azure com modelos de gestor de recursos Azure
+title: Definições de regras de deteção inteligente - Azure Application Insights
+description: Automatizar a gestão e configuração das regras inteligentes de deteção de aplicações Azure Com modelos de gestor de recursos Azure
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 7ca4df620739b2ab55b8ba986031cc48fe87f1fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80294907"
 ---
-# <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gerir as regras de deteção inteligente de Insights de Aplicação utilizando modelos de Gestor de Recursos Azure
+# <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gerir regras de deteção inteligentes de deteção de aplicações usando modelos de Gestor de Recursos Azure
 
-As regras de deteção inteligente em Insights de Aplicação podem ser geridas e configuradas usando modelos de [Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md).
-Este método pode ser utilizado na implementação de novos recursos de Insights de Aplicação com automatização do Gestor de Recursos Azure, ou para modificar as configurações dos recursos existentes.
+As regras de deteção inteligente em Application Insights podem ser geridas e configuradas usando [modelos do Gestor de Recursos Azure.](../../azure-resource-manager/templates/template-syntax.md)
+Este método pode ser utilizado ao implementar novos recursos de Insights de Aplicação com automação do Gestor de Recursos Azure ou para modificar as definições dos recursos existentes.
 
 ## <a name="smart-detection-rule-configuration"></a>Configuração de regra de deteção inteligente
 
 Pode configurar as seguintes definições para uma regra de deteção inteligente:
-- Se a regra estiver ativada (o predefinido é **verdadeiro**.)
-- Se os e-mails forem enviados aos utilizadores associados às funções de [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) da subscrição quando for detetada uma deteção (o predefinido é **verdadeiro**.)
-- Quaisquer destinatários adicionais de e-mail que devam receber uma notificação quando uma deteção for encontrada.
-    -  A configuração do e-mail não está disponível para regras de Deteção Inteligente marcadas como _pré-visualização_.
+- Se a regra estiver ativada (o padrão é **verdadeiro**.)
+- Se os e-mails forem enviados aos utilizadores associados às funções de [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e [Monitoring Da](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) subscrição quando uma deteção é encontrada (o padrão é **verdadeiro**.)
+- Quaisquer destinatários de e-mail adicionais que devam receber uma notificação quando uma deteção é encontrada.
+    -  A configuração de e-mail não está disponível para regras de Deteção Inteligente marcadas como _pré-visualização_.
 
-Para permitir configurar as definições de regra através do Gestor de Recursos Azure, a configuração da regra de deteção inteligente está agora disponível como um recurso interno dentro do recurso Application Insights, denominado **ProactiveDetectionConfigs**.
-Para uma flexibilidade máxima, cada regra de deteção inteligente pode ser configurada com configurações únicas de notificação.
+Para permitir configurar as definições de regras através do Azure Resource Manager, a configuração da regra de deteção inteligente está agora disponível como um recurso interno dentro do recurso Application Insights, denominado **ProactiveDetectionConfigs**.
+Para uma flexibilidade máxima, cada regra de deteção inteligente pode ser configurada com configurações de notificação únicas.
 
 ## <a name="examples"></a>Exemplos
 
-Abaixo estão alguns exemplos que mostram como configurar as definições de regras de deteção inteligentes usando modelos do Gestor de Recursos Azure.
-Todas as amostras referem-se a um recurso Application Insights denominado _"myApplication",_ e à "regra de deteção inteligente de longa duração da dependência", que é internamente denominada _"longa duração da dependência"._
-Certifique-se de substituir o nome de recurso Application Insights e especificar o nome interno da regra de deteção inteligente relevante. Consulte a tabela abaixo para obter uma lista dos nomes correspondentes do Gestor de Recursos Azure internos para cada regra de deteção inteligente.
+Abaixo estão alguns exemplos que mostram como configurar as definições de regras inteligentes de deteção usando modelos de Gestor de Recursos Azure.
+Todas as amostras referem-se a um recurso application Insights chamado _"myApplication"_ e à "regra de deteção inteligente de longa duração da dependência", que é internamente denominada _"longdependencyduration"._
+Certifique-se de substituir o nome do recurso Application Insights e de especificar o nome interno da regra de deteção inteligente relevante. Consulte a tabela abaixo para obter uma lista dos nomes correspondentes do Gestor de Recursos Azure para cada regra de deteção inteligente.
 
 ### <a name="disable-a-smart-detection-rule"></a>Desativar uma regra de deteção inteligente
 
@@ -97,7 +97,7 @@ Certifique-se de substituir o nome de recurso Application Insights e especificar
     }
 ```
 
-### <a name="add-additional-email-recipients-for-a-smart-detection-rule"></a>Adicione destinatários adicionais de e-mail para uma regra de deteção inteligente
+### <a name="add-additional-email-recipients-for-a-smart-detection-rule"></a>Adicione destinatários de e-mail adicionais para uma regra de deteção inteligente
 
 ```json
 {
@@ -132,30 +132,30 @@ Certifique-se de substituir o nome de recurso Application Insights e especificar
 
 ## <a name="smart-detection-rule-names"></a>Nomes de regras de deteção inteligente
 
-Abaixo está uma tabela de nomes de regras de deteção inteligente como aparecem no portal, juntamente com os seus nomes internos, que devem ser usados no modelo do Gestor de Recursos Azure.
+Abaixo está uma tabela de nomes de regras de deteção inteligentes como eles aparecem no portal, juntamente com os seus nomes internos, que devem ser usados no modelo Azure Resource Manager.
 
 > [!NOTE]
-> As regras de deteção inteligentes marcadas como _pré-visualização_ não suportam notificações de e-mail. Portanto, você só pode definir o imóvel _habilitado_ para estas regras. 
+> As regras de deteção inteligentes marcadas como _pré-visualização_ não suportam notificações de e-mail. Portanto, só pode definir a _propriedade ativada_ para estas regras. 
 
 | Nome da regra do portal Azure | Nome interno
 |:---|:---|
-| Tempo de carga de página lenta | tempo de carregamento de página lenta |
-| Tempo de resposta do servidor lento | tempo de resposta do servidor lento |
-| Longa duração da dependência | longa dependência duração |
-| Degradação no tempo de resposta do servidor | degradação tempo de resposta servidor |
-| Degradação da duração da dependência | degradação da dependência duração |
-| Degradação na relação de gravidade dos vestígios (pré-visualização) | extension_traceseveritydetector |
-| Aumento anormal do volume de exceção (pré-visualização) | extension_exceptionchangeextension |
-| Fuga de memória potencial detetada (pré-visualização) | extension_memoryleakextension |
-| Potencial problema de segurança detetado (pré-visualização) | extension_securityextensionspackage |
-| Aumento anormal no volume diário de dados (pré-visualização) | extension_billingdatavolumedailyspikeextension |
+| Tempo de carga de página lenta | tempo de carga de páginas lentas |
+| Tempo de resposta lenta do servidor | tempo de resposta lenta |
+| Duração da dependência longa | longdependencyduration |
+| Degradação no tempo de resposta do servidor | degradaçãoinserverresponsetime |
+| Degradação da duração da dependência | degradação da dependência |
+| Degradação na relação de severidade do traço (pré-visualização) | extension_traceseveritydetector |
+| Aumento anormal do volume de exceções (pré-visualização) | extension_exceptionchangeextension |
+| Possível fuga de memória detetada (pré-visualização) | extension_memoryleakextension |
+| Problema de segurança potencial detetado (pré-visualização) | extension_securityextensionspackage |
+| Aumento anormal do volume diário de dados (pré-visualização) | extension_billingdatavolumedailyspikeextension |
 
-### <a name="failure-anomalies-alert-rule"></a>Falha Anomalias regra de alerta
+### <a name="failure-anomalies-alert-rule"></a>Regra de alerta de anomalias de falha
 
-Este modelo de Gestor de Recursos Azure demonstra configurar uma regra de alerta de anomalias de falha com uma gravidade de 2. Esta nova versão da regra de alerta de Anomalias falhas faz parte da nova plataforma de alerta Azure, e substitui a versão clássica que está a ser retirada como parte do processo clássico de [alertas de reforma.](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)
+Este modelo de Gestor de Recursos Azure demonstra configurar uma regra de alerta de anomalias de falha com uma gravidade de 2. Esta nova versão da regra de alerta de Anomalias de Falhas faz parte da nova plataforma de alerta Azure, e substitui a versão clássica que está a ser retirada como parte do processo clássico de aposentação dos [alertas.](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)
 
 > [!NOTE]
-> A nota de falha é um serviço global, pelo que a localização da regra é criada na localização global.
+> Anomalias de falha são um serviço global, por isso a localização da regra é criada na localização global.
 
 ```json
 {
@@ -186,7 +186,7 @@ Este modelo de Gestor de Recursos Azure demonstra configurar uma regra de alerta
 ```
 
 > [!NOTE]
-> Este modelo de Gestor de Recursos Azure é exclusivo da regra de alerta de Anomalias de Falha e é diferente das outras regras clássicas de Deteção Inteligente descritas neste artigo. Se pretender gerir as Anomalias de Falha manualmente, isto é feito em Alertas de Monitor Azure, enquanto todas as outras regras de Deteção Inteligente são geridas no painel de deteção inteligente da UI.
+> Este modelo de Gestor de Recursos Azure é exclusivo da regra de alerta de Anomalias de Falha e é diferente das outras regras clássicas de Deteção Inteligente descritas neste artigo. Se pretender gerir as Anomalias de Falha manualmente, isto é feito em Alertas monitores Azure, enquanto todas as outras regras de Deteção Inteligente são geridas no painel de Deteção Inteligente da UI.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,6 +1,7 @@
 ---
 title: Use PHP para consultar
-description: Como utilizar o PHP para criar um programa que se conecta a uma base de dados em Azure SQL Database e consulta-lo usando declarações T-SQL.
+description: Como utilizar o PHP para criar um programa que se conecta a uma base de dados na Base de Dados Azure SQL ou na Azure SQL Managed Instance, e questioná-lo utilizando declarações T-SQL.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -9,70 +10,70 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-ms.date: 02/12/2019
+ms.date: 05/29/2020
 ms.custom: sqldbrb=2 
-ms.openlocfilehash: d3c064b590e5e3c49f8c42e913467596080a0887
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5443955bd24ed269ebf35f974be8c0497e2bfb60
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054468"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267346"
 ---
-# <a name="quickstart-use-php-to-query-a-microsoft-azure-sql-database"></a>Quickstart: Use PHP para consultar uma base de dados SQL microsoft Azure
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="quickstart-use-php-to-query-a-database-in-azure-sql-database"></a>Quickstart: Use PHP para consultar uma base de dados na Base de Dados Azure SQL
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Este artigo demonstra como usar [PHP](https://php.net/manual/en/intro-whatis.php) para ligar a uma base de dados Azure SQL. Em seguida, pode utilizar declarações T-SQL para consultar dados.
+Este artigo demonstra como utilizar [o PHP](https://php.net/manual/en/intro-whatis.php) para ligar a uma base de dados na Base de Dados Azure SQL ou na Azure SQL Managed Instance. Em seguida, pode utilizar declarações T-SQL para consultar dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia de início rápido, necessita de:
 
-- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- Uma base de dados SQL do Azure. Pode utilizar um destes quickstarts para criar e, em seguida, configurar uma base de dados no Azure SQL:
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada. Pode utilizar um destes quickstarts para criar e, em seguida, configurar uma base de dados:
 
-  || Base de Dados SQL | Instância Gerida do SQL | SQL Server numa VM do Azure |
+  || SQL Database | Instância Gerida do SQL | SQL Server numa VM do Azure |
   |:--- |:--- |:---|:---|
   | Criar| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
-  | Configurar | [Regra de firewall IP ao nível do servidor](firewall-create-server-level-portal-quickstart.md)| [Conectividade a partir de um VM](../managed-instance/connect-vm-instance-configure.md)|
-  |||[Conectividade a partir do local](../managed-instance/point-to-site-p2s-configure.md) | [Ligar ao SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
+  | Configurar | [Regra de firewall IP de nível de servidor](firewall-create-server-level-portal-quickstart.md)| [Conectividade de um VM](../managed-instance/connect-vm-instance-configure.md)|
+  |||[Conectividade a partir de instalações](../managed-instance/point-to-site-p2s-configure.md) | [Ligue-se a uma instância do Servidor SQL](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   |Carregar dados|Obras de Aventura carregadas por quickstart|[Restaurar importadores mundiais](../managed-instance/restore-sample-database-quickstart.md) | [Restaurar importadores mundiais](../managed-instance/restore-sample-database-quickstart.md) |
-  |||Restaurar ou importar Obras de Aventura a partir do ficheiro [BACPAC](database-import.md) do [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Restaurar ou importar Obras de Aventura a partir do ficheiro [BACPAC](database-import.md) do [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Restaurar ou importar Obras de Aventura a partir de um ficheiro [BACPAC](database-import.md) do [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Restaurar ou importar Obras de Aventura a partir de um ficheiro [BACPAC](database-import.md) do [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
 
 
 
   > [!IMPORTANT]
-  > Os scripts deste artigo são escritos para usar a base de dados Adventure Works. Com uma Instância Gerida SQL, deve importar a base de dados da Adventure Works numa base de dados de instâncias ou modificar os scripts deste artigo para utilizar a base de dados dos Importadores do Mundo Largo.
+  > Os scripts deste artigo são escritos para usar a base de dados Adventure Works. Com uma SQL Managed Instance, você deve importar a base de dados Adventure Works em uma base de dados de casos ou modificar os scripts deste artigo para usar a base de dados de importadores do mundo amplo.
 
 - Software relacionado com PHP instalado para o seu sistema operativo:
 
-  - **macOS,** instale PHP, o controlador ODBC e, em seguida, instale o controlador PHP para o Servidor SQL. Ver [passo 1, 2 e 3.](/sql/connect/php/installation-tutorial-linux-mac)
+  - **macOS**, instale PHP, o controlador ODBC e, em seguida, instale o controlador PHP para o SQL Server. Ver [passo 1, 2 e 3](/sql/connect/php/installation-tutorial-linux-mac).
 
-  - **Linux,** instale PHP, o controlador ODBC e, em seguida, instale o controlador PHP para o Servidor SQL. Ver [passo 1, 2 e 3.](/sql/connect/php/installation-tutorial-linux-mac)
+  - **Linux**, instale o PHP, o controlador ODBC e, em seguida, instale o controlador PHP para o SQL Server. Ver [passo 1, 2 e 3](/sql/connect/php/installation-tutorial-linux-mac).
 
-  - **Windows**, instale PHP para IIS Express e Chocolatey, em seguida, instale o controlador ODBC e o SQLCMD. Veja os [Passos 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
+  - **Windows**, instale PHP para IIS Express e Chocolatey, depois instale o controlador ODBC e o SQLCMD. Veja os [Passos 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
 
-## <a name="get-sql-server-connection-information"></a>Obtenha informações de ligação ao servidor SQL
+## <a name="get-server-connection-information"></a>Obtenha informações de ligação do servidor
 
-Obtenha as informações de ligação que precisa para ligar à base de dados Azure SQL. Necessitará do nome do servidor ou nome do anfitrião totalmente qualificado, nome da base de dados e informações de login para os próximos procedimentos.
+Obtenha a informação de ligação necessária para ligar à base de dados na Base de Dados Azure SQL. Você precisará do nome do servidor totalmente qualificado ou nome de anfitrião, nome da base de dados e informações de login para os próximos procedimentos.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-2. Navegue para as Bases de **Dados SQL** ou página **SQL Managed Instances.**
+2. Navegue para a **página SQL Databases** ou **SQL Managed Instances.**
 
-3. Na página **Overview,** reveja o nome do servidor totalmente qualificado ao lado do **nome do Servidor** para uma Base de Dados SQL Azure ou o nome de servidor totalmente qualificado (ou endereço IP) ao lado do **Host** para um Caso Gerido Azure SQL ou Servidor SQL num VM Azure. Para copiar o nome do servidor ou o nome do anfitrião, paire sobre ele e selecione o ícone **Copiar.**
+3. Na página **'Vista Geral',** reveja o nome do servidor totalmente qualificado ao lado **do nome do Servidor** para uma base de dados na Base de Dados Azure SQL ou o nome do servidor (ou endereço IP) totalmente qualificado ao lado do **Anfitrião** para uma Instância Gerida SQL Azure ou servidor SQL num VM Azure. Para copiar o nome do servidor ou o nome do anfitrião, paire sobre ele e selecione o ícone **Copy.**
 
 > [!NOTE]
-> Para obter informações de ligação para o Servidor SQL num VM Azure, consulte [Connect to SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server)
+> Para obter informações de ligação para O Servidor SQL em Azure VM, consulte [Conecte-se a uma instância do SqL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
 
-## <a name="add-code-to-query-database"></a>Adicione código à base de dados de consulta
+## <a name="add-code-to-query-the-database"></a>Adicionar código para consultar a base de dados
 
 1. No seu editor de texto favorito, crie um novo ficheiro, *sqltest.php*.  
 
-1. Substitua o seu conteúdo pelo seguinte código. Em seguida, adicione os valores apropriados para o seu servidor, base de dados, utilizador e senha.
+1. Substitua o seu conteúdo pelo seguinte código. Em seguida, adicione os valores adequados para o seu servidor, base de dados, utilizador e senha.
 
    ```PHP
    <?php
@@ -101,20 +102,17 @@ Obtenha as informações de ligação que precisa para ligar à base de dados Az
 
 ## <a name="run-the-code"></a>Executar o código
 
-1. No pedido de comando, executar a aplicação.
+1. Na solicitação de comando, execute a aplicação.
 
    ```bash
    php sqltest.php
    ```
 
-1. Verifique se as 20 linhas superiores são devolvidas e feche a janela da aplicação.
+1. Verifique se as 20 linhas mais próximas são devolvidas e feche a janela da aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Desenhe a sua primeira base de dados Azure SQL](design-first-database-tutorial.md)
-
+- [Desenhe a sua primeira base de dados na Base de Dados Azure SQL](design-first-database-tutorial.md)
 - [Controlador Microsoft PHP para SQL Server](https://github.com/Microsoft/msphpsql/)
-
 - [Report issues or ask questions](https://github.com/Microsoft/msphpsql/issues) (Comunicar problemas ou fazer perguntas)
-
-- [Exemplo de lógica de repetição: ligar de forma resiliente ao SQL com o PHP](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)
+- [Exemplo lógico relemplitado: Conecte-se resilientemente ao Azure SQL com PHP](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)

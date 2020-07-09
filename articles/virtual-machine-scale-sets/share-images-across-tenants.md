@@ -1,6 +1,6 @@
 ---
-title: Partilhe imagens de galerias entre inquilinos em Azure
-description: Saiba como partilhar imagens vm em inquilinos do Azure usando Galerias de Imagem Partilhada.
+title: Partilhe imagens de galeria entre inquilinos em Azure
+description: Saiba como partilhar imagens VM através de inquilinos da Azure usando Galerias de Imagem Partilhada.
 author: cynthn
 ms.author: cynthn
 ms.topic: how-to
@@ -10,20 +10,19 @@ ms.date: 04/05/2019
 ms.reviewer: akjosh
 ms.custom: akjosh
 ms.openlocfilehash: 5b86335ab8bcc3af75dbd8af39e3d913f2461e58
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83119846"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Partilhar imagens vM da galeria através dos inquilinos do Azure
+# <a name="share-gallery-vm-images-across-azure-tenants"></a>Partilhar imagens da galeria VM em inquilinos do Azure
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
 
 
 ## <a name="create-a-scale-set-using-azure-cli"></a>Criar um conjunto de dimensionamento com a CLI do Azure
 
-Inscreva-se no principal de serviço para o inquilino 1 usando o appID, a chave da aplicação e a identificação do inquilino 1. Pode usar `az account show --query "tenantId"` para obter as identificações dos inquilinos, se necessário.
+Inscreva-se no principal de serviço para inquilino 1 usando o appID, a chave da aplicação, e o ID do inquilino 1. Pode usar `az account show --query "tenantId"` para obter as identificações do inquilino, se necessário.
 
 ```azurecli-interactive
 az account clear
@@ -31,14 +30,14 @@ az login --service-principal -u '<app ID>' -p '<Secret>' --tenant '<tenant 1 ID>
 az account get-access-token 
 ```
  
-Inscreva-se no principal de serviço para inquilino 2 usando o appID, a chave da aplicação e a identificação do inquilino 2:
+Inscreva-se no principal de serviço para inquilino 2 usando o appID, a chave de aplicação, e o ID do inquilino 2:
 
 ```azurecli-interactive
 az login --service-principal -u '<app ID>' -p '<Secret>' --tenant '<tenant 2 ID>'
 az account get-access-token
 ```
 
-Crie o conjunto de escala. Substitua a informação no exemplo com a sua.
+Crie o conjunto de escala. Substitua a informação no exemplo por outra.
 
 ```azurecli-interactive
 az vmss create \
@@ -49,6 +48,6 @@ az vmss create \
   --generate-ssh-keys
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Se tiver algum problema, pode resolver as galerias de [imagens partilhadas.](troubleshooting-shared-images.md)
+Se encontrar algum problema, pode [resolver as galerias de imagens partilhadas.](troubleshooting-shared-images.md)

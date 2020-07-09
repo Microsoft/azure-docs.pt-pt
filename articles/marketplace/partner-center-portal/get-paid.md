@@ -1,63 +1,46 @@
 ---
 title: Ser pago no mercado comercial da Microsoft
-description: Saiba receber pagamentos pelos seus ganhos no mercado comercial da Microsoft.
-author: dsindona
-ms.author: dsindona
+description: Saiba mais sobre receber pagamentos pelos seus ganhos no mercado comercial da Microsoft.
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/10/2019
-ms.openlocfilehash: d34687703506db89b524ad7510d4946df8ac5360
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 06/09/2020
+ms.openlocfilehash: 604d5c93ca87831b1feb76095da694b4be402ad9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849030"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121695"
 ---
 # <a name="getting-paid-in-the-commercial-marketplace"></a>Ser pago no mercado comercial
 
-Aqui está uma informação importante sobre receber o pagamento pelas suas ofertas, addons e ganhos publicitários.
+Aqui está uma informação importante sobre receber o pagamento pelas suas ofertas, complementos e ganhos publicitários.
 
 > [!IMPORTANT]
-> Antes de poder receber dinheiro das vendas de ofertas no mercado comercial, precisa de configurar a sua conta de [pagamento e preencher os formulários fiscais necessários](set-up-your-payout-account-tax-forms.md).
+> Antes de receber dinheiro das vendas de ofertas no mercado comercial, tem de configurar a [sua conta de pagamento e preencher os formulários fiscais necessários.](set-up-your-payout-account-tax-forms.md)
 
 ## <a name="store-fee"></a>Taxa de loja
 
-Quando se inscreve numa conta de [programador,](https://go.microsoft.com/fwlink/p/?LinkID=615100)aceita o Acordo de [Editor estivador microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560). Este acordo explica a relação entre si e a Microsoft no que diz respeito à venda de ofertas no mercado comercial, incluindo a taxa da Loja que a Microsoft cobra por cada venda feita.
+Ao [inscrever-se numa conta de programador,](https://go.microsoft.com/fwlink/p/?LinkID=615100)aceita o [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560). Este acordo explica a relação entre si e a Microsoft, uma vez que se refere à venda de ofertas no mercado comercial, incluindo a taxa da Loja que a Microsoft cobra por cada venda feita.
 
-As taxas são oficialmente definidas no Acordo de [Editor estoque do Microsoft Azure Marketplace.](https://go.microsoft.com/fwlink/p/?LinkID=699560) Reveja sempre esse documento se tiver alguma dúvida.
+As taxas são oficialmente definidas no [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560). Reveja sempre esse documento se tiver alguma dúvida.
 
-A taxa Loja é aplicada a todas as vendas de ofertas recolhidas pelo mercado comercial, incluindo addons.
-
-## <a name="price-tiers"></a>Níveis de preços
-
-O nível de preço(s) que seleciona define o preço de venda em todos os países/regiões onde opta por distribuir a sua oferta. Também pode utilizar funcionalidades de preços adicionais, como escolher preços diferentes para diferentes mercados.
-
-Pode oferecer gratuitamente a sua aplicação, ou pode escolher um preço que os clientes devem pagar para adquirir a sua oferta. Os níveis de preços começam em 0,99 USD, com incrementos adicionais (1,09 USD, 1,19 USD, e assim por diante). Os incrementos entre os níveis de preço aumentam à medida que o preço aumenta.
-
-> [!NOTE] 
-> Estes níveis de preço também se aplicam a quaisquer complementos que você oferece dentro da sua oferta.
-
-Cada nível de preço tem um valor correspondente em cada uma das moedas oferecidas pela Loja. Utilizamos estes valores para ajudá-lo a vender a sua oferta a um preço comparável em todo o mundo. No entanto, devido a alterações nas taxas de câmbio, o valor exato das vendas pode variar ligeiramente de uma moeda para outra.
-
-Você também tem a opção de inserir um preço gratuito da sua escolha em moeda local de um determinado mercado. Quando o fizer, o preço não será ajustado (mesmo que as taxas de conversão mudem) a menos que envie uma atualização com um novo preço. 
-
-Tenha em mente que o preço que selecionar pode incluir vendas ou imposto sobre o valor acrescentado que os seus clientes devem pagar. Para mais detalhes, consulte [os detalhes do Imposto sobre a oferta paga.](tax-details-paid-transactions.md)
+A taxa Store é aplicada a todas as vendas de ofertas recolhidas pelo mercado comercial, incluindo addons.
 
 ## <a name="payout-reporting"></a>Relatórios de pagamento
 
-Pode aceder a detalhes sobre as suas informações de pagamento e relatórios de descarregamento no resumo do **Pagamento** do [Partner Center](https://partner.microsoft.com/dashboard). Para mais detalhes sobre as informações aqui mostradas e como categorizamos o dinheiro que ganha, consulte a [síntese do Pagamento.](payout-summary-overview.md)
+Pode aceder a detalhes sobre as suas informações de pagamento e descarregar relatórios no resumo do **Payout** do [Partner Center.](https://partner.microsoft.com/dashboard) Para mais detalhes sobre as informações mostradas aqui e como categorizamos o dinheiro que ganha, consulte [a visão geral do resumo do Payout](payout-summary-overview.md).
 
 ## <a name="payout-time-frame"></a>Prazo de pagamento
 
-Os pagamentos são feitos mensalmente (desde que o limiar de pagamento aplicável tenha sido cumprido e não tenha colocado o seu pagamento em espera como descrito abaixo). Normalmente enviaremos qualquer pagamento devido num dado mês até ao 15º dia desse mês. Note que os pagamentos geralmente demoram entre 3 a 10 dias úteis adicionais para chegar à sua conta de pagamento. Para mais detalhes, consulte [os limiares de pagamento, métodos e prazos.](payment-thresholds-methods-timeframes.md)
+Os pagamentos são feitos mensalmente (desde que o limiar de pagamento aplicável tenha sido cumprido e não tenha colocado o seu pagamento em espera, conforme descrito abaixo). Normalmente enviaremos qualquer pagamento num dado mês até ao 15º dia desse mês. Note que os pagamentos geralmente demoram entre 3 a 10 dias úteis adicionais para chegar à sua conta de pagamento. Para mais informações, consulte [limiares de pagamento, métodos e prazos.](payment-thresholds-methods-timeframes.md)
 
 ## <a name="payout-hold-status"></a>Estatuto de detenção de pagamento
 
-Por padrão, enviaremos pagamentos mensalmente, como descrito acima. No entanto, tem a opção de colocar os seus pagamentos para um programa em espera, o que nos impedirá de enviar pagamentos para a sua conta. Se optar por colocar os seus pagamentos em espera, continuaremos a registar qualquer receita que ganhe e forneceros os detalhes do seu resumo do **Pagamento.** No entanto, não enviaremos quaisquer pagamentos para a sua conta até que retire o porão.
+Por padrão, enviaremos pagamentos mensalmente, conforme descrito acima. No entanto, tem a opção de colocar os seus pagamentos para um programa em espera, o que nos impedirá de enviar pagamentos para a sua conta. Se optar por colocar os seus pagamentos em espera, continuaremos a registar qualquer receita que obtenha e forneceremos os detalhes no seu **resumo do Pagamento.** No entanto, não enviaremos quaisquer pagamentos para a sua conta até que remova o porão.
 
-Para colocar os seus pagamentos em espera, vá às **definições do Developer**. No âmbito do **Pagamento e do Imposto,** na secção de **Atribuição de Pagamentos e Perfis Fiscais,** localize o programa para o qual gostaria de pagamentos detidos. Clique na caixa de verificação **de pagamento para** guardar pagamentos para este programa. Pode alterar o seu estado de retenção de pagamento a qualquer momento, mas esteja ciente de que a sua decisão terá impacto no próximo pagamento mensal. Por exemplo, se quiser realizar o pagamento de abril, certifique-se de definir o seu estatuto de retenção de pagamento para **On** antes do final de março.
+Para colocar os seus pagamentos em espera, vá às **definições do Programador**. Em **Pagamento e Imposto,** na secção **de atribuição de prémios e perfis fiscais,** localize o programa para o qual gostaria de pagamentos realizados. Clique na caixa de verificação **Hold my Payment** para guardar pagamentos para este programa. Pode alterar o seu estado de detenção a qualquer momento, mas esteja ciente de que a sua decisão terá impacto no próximo pagamento mensal. Por exemplo, se quiser realizar o pagamento de abril, certifique-se de definir o seu estado de detenção de pagamento para **On** antes do final de março.
 
-Uma vez definido o seu estado de reserva de pagamento para **On**, todos os pagamentos para este programa estarão em espera até que você altere o slider de volta para **Off**. Quando o fizer, será incluído durante o próximo ciclo mensal de pagamento (desde que tenham sido cumpridos quaisquer limiares de pagamento aplicáveis). Por exemplo, se teve os seus pagamentos em espera, mas gostaria de ter um pagamento gerado em junho, então certifique-se de alternar o estado de retenção de pagamento para **Off** antes do final de maio.
+Uma vez definido o seu estado de detenção de pagamento para **On,** todos os pagamentos deste programa ficarão suspensos até que altere o slider de volta para **Off**. Quando o fizer, será incluído durante o próximo ciclo mensal de pagamento (desde que os limiares de pagamento aplicáveis tenham sido cumpridos). Por exemplo, se já teve os seus pagamentos em espera, mas gostaria de ter um pagamento gerado em junho, então certifique-se de alternar o estado de detenção do pagamento para **Off** antes do final de maio.
 
 > [!NOTE]
-> O seu estatuto de **retenção** de Pagamento aplica-se individualmente a cada programa (Microsoft Store, publicidade, Azure Marketplace, etc.). Se desejar realizar pagamentos em todos os seus programas, deve realizar pagamentos em cada programa individualmente.
+> O seu **estado de detenção de Payout** aplica-se individualmente a cada programa (Microsoft Store, publicidade, Azure Marketplace, etc.). Se desejar realizar pagamentos em todos os seus programas, deve realizar pagamentos em cada programa individualmente.

@@ -1,6 +1,6 @@
 ---
 title: Criar um conjunto de escala a partir de uma imagem generalizada
-description: Crie um conjunto de escala utilizando uma imagem generalizada numa Galeria de Imagem Partilhada.
+description: Crie um conjunto de escala usando uma imagem generalizada numa Galeria de Imagens Partilhadas.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
@@ -10,29 +10,28 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: f61977c1c1be07ffe744608c1bf8ec5a8013f8d0
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82797087"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image"></a>Criar um conjunto de escala a partir de uma imagem generalizada
 
-Crie um VM a partir de uma versão de imagem generalizada armazenada numa Galeria de [Imagem Partilhada.](shared-image-galleries.md) Se quiser criar um conjunto de escala utilizando uma imagem especializada, consulte [Criar instâncias de conjunto](instance-specialized-image-version-powershell.md)de escala a partir de uma imagem especializada .
+Crie um VM a partir de uma versão de imagem generalizada armazenada numa [Galeria de Imagens Partilhadas.](shared-image-galleries.md) Se pretender criar um conjunto de escala utilizando uma imagem especializada, consulte [Configurar instâncias de escala a partir de uma imagem especializada](instance-specialized-image-version-powershell.md).
 
 Uma vez que tenha uma imagem generalizada, pode criar um conjunto de escala de máquina virtual utilizando o cmdlet [New-AzVmss.](/powershell/module/az.compute/new-azvmss) 
 
-Neste exemplo, estamos a usar o ID de definição de imagem para garantir que o seu novo VM utilizará a versão mais recente de uma imagem. Também pode utilizar uma versão específica utilizando `-ImageReferenceId`o ID da versão de imagem para . Por exemplo, utilizar a versão de imagem `-ImageReferenceId "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"` *1.0.0* tipo: . 
+Neste exemplo, estamos a usar o ID de definição de imagem para garantir que o seu novo VM utilizará a versão mais recente de uma imagem. Também pode utilizar uma versão específica utilizando o ID da versão de imagem para `-ImageReferenceId` . Por exemplo, para utilizar a versão de imagem *1.0.0* tipo: `-ImageReferenceId "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"` . 
 
 Esteja ciente de que usar uma versão de imagem específica significa que a automatização pode falhar se essa versão de imagem específica não estiver disponível porque foi eliminada ou removida da região. Recomendamos a utilização do ID de definição de imagem para criar o seu novo VM, a menos que seja necessária uma versão de imagem específica.
 
 
-Os exemplos seguintes criam um conjunto de escala chamado *myScaleSet,* no grupo de recursos *myVMSSRG,* na localização *SouthCentralUS.* O conjunto de escala será criado a partir da imagem *myImageDefinition,* na galeria de imagens *myGallery* no grupo de recursos *myGalleryRG.* Quando solicitado, delineie as suas próprias credenciais administrativas para as instâncias VM no conjunto de escala.
+Os exemplos a seguir criam um conjunto de escala chamado *myScaleSet,* no grupo de recursos *myVMSSRG,* na localização *SouthCentralUS.* O conjunto de escalas será criado a partir da imagem *myImageDefinition,* na galeria de imagens *myGallery* no grupo de recursos *myGalleryRG.* Quando solicitado, desagreda as suas credenciais administrativas para as instâncias VM no conjunto de escala.
 
 
-## <a name="simplified-parameter-set"></a>Conjunto de parâmetrosimplificado
+## <a name="simplified-parameter-set"></a>Conjunto de parâmetros simplificados
 
-Para criar rapidamente um conjunto de escala, ao mesmo tempo que fornece informações mínimas, utilize o parâmetro simplificado definido para criar um conjunto de escala a partir de uma imagem da Share Image Gallery.
+Para criar rapidamente um conjunto de escala, ao mesmo tempo que fornece informações mínimas, utilize o parâmetro simplificado definido para criar um conjunto de escala a partir de uma imagem da Galeria de Imagem partilhada.
 
 ```azurepowershell-interactive
 $imageDefinition = Get-AzGalleryImageDefinition `
@@ -59,7 +58,7 @@ A criação e configuração de todas as VMs e recursos do conjunto de dimension
 
 ## <a name="extended-parameter-set"></a>Conjunto de parâmetros estendidos
 
-Para um controlo total sobre todos os recursos, incluindo o nome, utilize o conjunto completo de parâmetros para criar um conjunto de escala utilizando uma imagem da Galeria de Imagem Partilhada. 
+Para controlo total de todos os recursos, incluindo o nome, utilize o conjunto de parâmetros completos para criar um conjunto de escala usando uma imagem da Galeria de Imagens Partilhada. 
 
 ```azurepowershell-interactive
 # Get the image definition
@@ -172,13 +171,13 @@ New-AzVmss `
 
 A criação e configuração de todas as VMs e recursos do conjunto de dimensionamento demora alguns minutos.
 
-## <a name="next-steps"></a>Passos seguintes
-[O Azure Image Builder (pré-visualização)](../virtual-machines/linux/image-builder-overview.md) pode ajudar a automatizar a criação da versão de imagem, pode até usá-la para atualizar e criar uma nova versão de imagem a partir de uma versão de [imagem existente.](../virtual-machines/linux/image-builder-gallery-update-image-version.md) 
+## <a name="next-steps"></a>Próximos passos
+[O Azure Image Builder (pré-visualização)](../virtual-machines/linux/image-builder-overview.md) pode ajudar a automatizar a criação de versão de imagem, podendo até usá-la para atualizar e [criar uma nova versão de imagem a partir de uma versão de imagem existente.](../virtual-machines/linux/image-builder-gallery-update-image-version.md) 
 
-Também pode criar recurso da Galeria de Imagem Partilhada utilizando modelos. Existem vários modelos Azure Quickstart disponíveis: 
+Também pode criar recursos da Galeria de Imagens Partilhadas utilizando modelos. Existem vários modelos Azure Quickstart disponíveis: 
 
 - [Criar um Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Criar uma Definição de Imagem num Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Criar uma Versão de Imagem num Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-Para mais informações sobre galerias de imagem partilhadas, consulte a [visão geral.](shared-image-galleries.md) Se tiver problemas, veja as galerias de [imagens partilhadas de Troubleshooting.](troubleshooting-shared-images.md)
+Para mais informações sobre galerias de imagem partilhadas, consulte a [Visão Geral.](shared-image-galleries.md) Se tiver problemas, consulte [as galerias de imagem partilhadas .](troubleshooting-shared-images.md)

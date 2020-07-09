@@ -1,7 +1,7 @@
 ---
-title: Básicos de reconhecimento da fala - Serviço de fala
+title: Básicos de reconhecimento de voz - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Aprenda a usar o SDK do discurso para converter o discurso-a-texto. Neste artigo, você aprenderá sobre a construção de objetos, formatos de entrada de áudio suportados e opções de configuração para reconhecimento de voz.
+description: Saiba como usar o SDK do discurso para converter o discurso-a-texto. Neste artigo, você vai aprender sobre a construção de objetos, formatos de entrada de áudio suportados e opções de configuração para reconhecimento de voz.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -10,20 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: trbye
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: b2971f010610116d90171cfc6fadb7b9f91ab132
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 42d5e3082745d2f15cff455dd1ff31e634586860
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115409"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604818"
 ---
-# <a name="learn-the-basics-of-speech-recognition"></a>Conheça os fundamentos do reconhecimento da fala
+# <a name="learn-the-basics-of-speech-recognition"></a>Aprenda os fundamentos do reconhecimento da fala
 
-Uma das principais características do serviço da Fala é a capacidade de reconhecer e transcrever o discurso humano (muitas vezes referido como discurso ao texto). Neste artigo, você vai aprender a usar o Speech SDK nas suas apps e produtos para realizar reconhecimento de voz de alta qualidade.
+Uma das características centrais do serviço de fala é a capacidade de reconhecer e transcrever a fala humana (muitas vezes referida como discurso para texto). Neste artigo, você vai aprender a usar o Speech SDK nas suas apps e produtos para realizar reconhecimento de voz de alta qualidade.
 
 > [!TIP]
-> Se ainda não tiveste oportunidade de completar uma das nossas partidas rápidas, encorajamo-lo a chutar os pneus e a tentar reconhecer a fala por ti mesmo.
+> Se ainda não tiveste oportunidade de completar um dos nossos quickstarts, encorajamo-lo a dar um pontapé nos pneus e a tentar o reconhecimento da fala por ti mesmo.
 > * [Reconhecer voz a partir de um microfone](quickstarts/speech-to-text-from-microphone.md)
 
 ::: zone pivot="programming-language-csharp"
@@ -50,6 +51,6 @@ Uma das principais características do serviço da Fala é a capacidade de recon
 [!INCLUDE [More languages include](./includes/how-to/speech-to-text-basics/more.md)]
 ::: zone-end
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Utilize formatos de áudio comprimidos codec](how-to-use-codec-compressed-audio-input-streams.md)
+* [Utilize formatos de áudio comprimido codec](how-to-use-codec-compressed-audio-input-streams.md)

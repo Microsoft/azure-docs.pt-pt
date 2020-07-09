@@ -1,14 +1,13 @@
 ---
 title: Índice de exemplos de esquema
 description: Índice de exemplos de conformidade e normas para a implementação de ambientes, políticas e fundações do Framework de Adoção da Cloud com o Azure Blueprints.
-ms.date: 02/26/2020
+ms.date: 07/01/2020
 ms.topic: sample
-ms.openlocfilehash: 582a4bbc1ec21e231d2a9f1feb1cfef34b3cce37
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: HT
+ms.openlocfilehash: 7e45cbbbf7cf6c2e267156dbb0087a19d8288aa2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594275"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832326"
 ---
 # <a name="azure-blueprints-samples"></a>Exemplos do Azure Blueprints
 
@@ -19,9 +18,11 @@ A tabela seguinte inclui ligações para exemplos do Azure Blueprints. Cada exem
 |  |  |
 |---------|---------|
 | [ISM PROTECTED da Administração Australiana](./ism-protected/control-mapping.md) | Fornece proteções para garantir a conformidade com o ISM PROTECTED da Administração Australiana. |
+| [Referência de Segurança do Azure](./azure-security-benchmark.md) | Fornece proteções para garantir a conformidade com a [Referência de Segurança do Azure](../../../security/benchmarks/overview.md). |
 | [Canada Federal PBMM](./canada-federal-pbmm/index.md) | Fornece proteções para garantir a conformidade com o Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
-| [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1.1.0/index.md)| Fornece um conjunto de políticas para ajudar a cumprir as recomendações do CIS Microsoft Azure Foundations Benchmark. |
+| [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1-1-0.md)| Fornece um conjunto de políticas para ajudar a cumprir as recomendações do CIS Microsoft Azure Foundations Benchmark. |
 | [Impacto DoD Nível 4](./dod-impact-level-4/index.md) | Fornece um conjunto de políticas para ajudar a cumprir o Impacto DoD Nível 4. |
+| [Impacto DoD Nível 5](./dod-impact-level-5/index.md) | Fornece um conjunto de políticas para ajudar a cumprir o Impacto DoD Nível 5. |
 | [FedRAMP Moderado](./fedramp-m/index.md) | Fornece um conjunto de políticas para ajudar a cumprir o FedRAMP Moderado. |
 | [FedRAMP Alto](./fedramp-h/index.md) | Fornece um conjunto de políticas para ajudar a cumprir o FedRAMP Alto. |
 | [HIPAA HITRUST](./HIPAA-HITRUST/index.md) | Fornece um conjunto de políticas para ajudar a cumprir o HIPAA HITRUST. |
@@ -30,7 +31,8 @@ A tabela seguinte inclui ligações para exemplos do Azure Blueprints. Cada exem
 | [Serviços Partilhados ISO 27001](./iso27001-shared/index.md) | Fornece um conjunto de grades de proteção de políticas e padrões de infraestrutura conformes que contribuem para o atestado da norma ISO 27001. |
 | [Carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001](./iso27001-ase-sql-workload/index.md) | Fornece uma infraestrutura adicional para o exemplo de esquema [Serviços Partilhados ISO 27001](./iso27001-shared/index.md). |
 | [Media](./media/index.md) | Fornece um conjunto de políticas para ajudar a cumprir o Media MPAA. |
-| [NIST SP 800-53 R4](./nist-sp-800-53-rev4/index.md) | Fornece proteções para conformidade com NIST SP 800-53 R4. |
+| [NIST SP 800-53 R4](./nist-sp-800-53-r4.md) | Fornece proteções para conformidade com NIST SP 800-53 R4. |
+| [NIST SP 800-171 R2](./nist-sp-800-171-r2.md) | Fornece proteções para conformidade com NIST SP 800-171 R2. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | Fornece um conjunto de políticas para ajudar na conformidade do PCI-DSS v3.2.1. |
 | [SWIFT CSP-CSCF v2020](./swift-2020/index.md) | Auxilia na conformidade com SWIFT CSP-CSCF v2020. |
 | [OFICIAL DO REINO UNIDO e NHS do Reino Unido](./ukofficial/index.md) | Fornece um conjunto de princípios de proteção de políticas e padrões de infraestrutura conformes que contribuem para o atestado OFICIAL DO REINO UNIDO e NHS do Reino Unido. |

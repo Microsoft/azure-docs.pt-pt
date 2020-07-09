@@ -1,25 +1,15 @@
 ---
 title: Introdução aos tópicos e subscrições do Azure Service Bus | Microsoft Docs
 description: Grave uma aplicação da consola C# .NET Core que utilize tópicos e subscrições das mensagens do Service Bus.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 11/27/2019
-ms.author: aschhab
-ms.openlocfilehash: 3fba1d62b9347303d630c80733c4fbfa279b5296
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 7b2b8382c11f447237a8f49ee5be1f4989e3f906
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74560102"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337509"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introdução aos tópicos do Service Bus
 
@@ -32,12 +22,12 @@ Este tutorial contém os seguintes passos:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar os benefícios do [seu Estúdio Visual ou subscrição da MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se para uma conta [gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Siga os passos no [Quickstart: Utilize o portal Azure para criar um tópico de ônibus de serviço e subscrições do tópico](service-bus-quickstart-topics-subscriptions-portal.md) para fazer as seguintes tarefas:
-    1. Crie um espaço de **nome**de ônibus de serviço .
-    2. Pegue a corda de **ligação**.
-    3. Crie um **tópico** no espaço de nome.
-    4. Crie **uma subscrição** do tópico no espaço de nome.
+1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar os [benefícios do seu assinante Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)
+2. Siga os passos no [Quickstart: Use o portal Azure para criar um tópico de Service Bus e subscrições do tópico](service-bus-quickstart-topics-subscriptions-portal.md) para fazer as seguintes tarefas:
+    1. Crie um espaço de nomes de **autocarro de serviço.**
+    2. Obtenha a **cadeia de ligação.**
+    3. Crie um **tópico** no espaço de nomes.
+    4. Crie **uma subscrição** do tópico no espaço de nomes.
 3. [Visual Studio 2017 Atualização 3 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior.
 4. [SDK NET Core](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
  
@@ -75,7 +65,7 @@ Abra o Visual Studio e crie um novo projeto de **Console App (.NET Core) (Aplica
     static ITopicClient topicClient;
     ``` 
 
-3. Substitua `Main()` o método pelo seguinte método **de asincronização** `Main` que envia mensagens sincronicamente utilizando o método SendMessagesAsync que irá adicionar no próximo passo. 
+3. Substitua o `Main()` método pelo seguinte método **assíncão** `Main` que envia mensagens assíncroneas utilizando o método SendMessagesAsync que irá adicionar no passo seguinte. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -188,7 +178,7 @@ Abra o Visual Studio e crie um novo projeto de **Console App (.NET Core) (Aplica
 
 ## <a name="receive-messages-from-the-subscription"></a>Receber mensagens da subscrição
 
-Para receber as mensagens que enviou, crie outra aplicação de consola .NET Core e instale o pacote **Microsoft.Azure.ServiceBus** NuGet, semelhante à aplicação de remetente anterior.
+Para receber as mensagens enviadas, crie outra aplicação de consola .NET Core e instale o pacote **Microsoft.Azure.ServiceBus** NuGet, semelhante à aplicação remetente anterior.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>Escrever código para receber mensagens da subscrição
 
@@ -210,7 +200,7 @@ Para receber as mensagens que enviou, crie outra aplicação de consola .NET Cor
     static ISubscriptionClient subscriptionClient;
     ```
 
-3. Substitua `Main()` o método pelo seguinte método **de asincronização.** `Main` Chama-se `RegisterOnMessageHandlerAndReceiveMessages()` o método que irá adicionar no próximo passo. 
+3. Substitua o `Main()` método pelo seguinte método **assíco.** `Main` Chama o `RegisterOnMessageHandlerAndReceiveMessages()` método que vai adicionar no próximo passo. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -364,16 +354,16 @@ Para receber as mensagens que enviou, crie outra aplicação de consola .NET Cor
         }
     }
     ```
-9. Execute o programa e consulte novamente o portal. Note que a Contagem de **Mensagens** e os valores **atuais** são agora **0**.
+9. Execute o programa e consulte novamente o portal. Note que os valores **de Contagem de Mensagens** e **Correntes** são agora **0**.
    
     ![Comprimento do tópico][topic-message-receive]
 
 Parabéns! Através da biblioteca .NET Standard, criou um tópico e uma subscrição, enviou 10 mensagens e recebeu essas mensagens.
 
 > [!NOTE]
-> Você pode gerir recursos de ônibus de serviço com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nome do Bus de Serviço e administram entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
+> Você pode gerir os recursos de Service Bus com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nomes de Service Bus e administram as entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [repositório do GitHub com exemplos](https://github.com/Azure/azure-service-bus/tree/master/samples) do Service Bus que demonstram algumas das funcionalidades mais avançadas das mensagens do Service Bus.
 

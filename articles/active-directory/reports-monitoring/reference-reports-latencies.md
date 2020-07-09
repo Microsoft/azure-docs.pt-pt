@@ -1,6 +1,6 @@
 ---
-title: Diretório Azure Ative reportando tardios Microsoft Docs
-description: Saiba o tempo que leva para reportar eventos para aparecer no seu portal Azure
+title: Azure Ative Directy reportando latências Microsoft Docs
+description: Saiba mais sobre o tempo que leva para reportar eventos para aparecer no seu portal Azure
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,27 +18,26 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d031546bb4f1f05e9ea2abb5b74fe911b0b507f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74007709"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latências dos relatórios do Azure Active Directory
 
-A latência é o tempo que leva para o Azure Ative Directory (Azure AD) reportar dados para aparecer no [portal Azure](https://portal.azure.com). Este artigo enumera a latência esperada para os diferentes tipos de relatórios. 
+A latência é o tempo que o Azure Ative Directory (Azure AD) reporta dados para aparecer no [portal Azure](https://portal.azure.com). Este artigo enumera a latência esperada para os diferentes tipos de relatórios. 
 
 ## <a name="activity-reports"></a>Relatórios de atividade
 
 Existem dois tipos de relatórios de atividade:
 
-- [Iniciars inscrições](concept-sign-ins.md) – Fornece informações sobre a utilização de aplicações geridas e atividades de inscrição no utilizador
-- [Registos](concept-audit-logs.md) de auditoria - Fornece informações sobre utilizadores e grupos, aplicações geridas e atividades de diretório
+- [Iniciar s-ins](concept-sign-ins.md) – Fornece informações sobre o uso de aplicações geridas e atividades de inscrição do utilizador
+- [Registos de auditoria](concept-audit-logs.md) - Fornece informações sobre atividade do sistema sobre utilizadores e grupos, aplicações geridas e atividades de diretório
 
-A tabela seguinte enumera as informações de latência para relatórios de atividade. 
+A tabela que se segue lista as informações de latência dos relatórios de atividade. 
 
 > [!NOTE]
-> **A latência (percentil 95)** refere-se ao tempo em que 95% dos registos serão reportados, e **A Latência (percentil 99)** refere-se ao tempo em que 99% dos registos serão reportados. 
+> **A latência (percentil 95)** refere-se ao momento em que 95% dos registos serão reportados, e **a Latência (percentil 99)** refere-se ao momento em que 99% dos registos serão reportados. 
 >
 
 | Relatório | Latência (percentil 95) |Latência (percentil 99)|
@@ -48,7 +47,7 @@ A tabela seguinte enumera as informações de latência para relatórios de ativ
 
 ### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Quando posso ver os dados das atividades depois de obter uma licença premium?
 
-Se já tem dados de atividades com a sua licença gratuita, então pode vê-lo imediatamente em upgrade. Se não tiver dados, levará um ou dois dias para os dados aparecerem nos relatórios depois de atualizar para uma licença premium.
+Se já tem dados de atividades com a sua licença gratuita, então pode vê-lo imediatamente na atualização. Se não tiver quaisquer dados, levará um ou dois dias para que os dados apareçam nos relatórios depois de atualizar para uma licença premium.
 
 ## <a name="security-reports"></a>Relatórios de segurança
 
@@ -66,9 +65,9 @@ A tabela que se segue lista as informações de latência para relatórios de se
 
 ## <a name="risk-detections"></a>Deteções de riscos
 
-O Azure AD utiliza algoritmos adaptáveis de aprendizagem automática e heurística para detetar ações suspeitas relacionadas com as suas contas de utilizador. Cada ação suspeita detetada é armazenada num registo chamado **deteção de risco.**
+O Azure AD utiliza algoritmos de aprendizagem automática adaptativa e heurística para detetar ações suspeitas relacionadas com as suas contas de utilizador. Cada ação suspeita detetada é armazenada num registo chamado deteção de **risco.**
 
-A tabela que se segue enumera as informações de latência para deteções de risco.
+A tabela que se segue lista as informações de latência para deteções de riscos.
 
 | Relatório | Mínimo | Média | Máximo |
 | :-- | --- | --- | --- |
@@ -80,8 +79,8 @@ A tabela que se segue enumera as informações de latência para deteções de r
 | Inícios de sessão de endereços IP com atividade suspeita |Duas horas |4 horas |8 horas  |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Azure AD reporta visão geral](overview-reports.md)
-* [Acesso programático aos relatórios da AD Azure](concept-reporting-api.md)
-* [Deteção de risco de Diretório Ativo Azure](concept-risk-events.md)
+* [Acesso programático aos relatórios AD do Azure](concept-reporting-api.md)
+* [Deteções de risco do Azure Ative Directory](concept-risk-events.md)

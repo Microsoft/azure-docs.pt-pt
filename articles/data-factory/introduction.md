@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 327aadbc2996e91ef0f7639da86a647ddd42247c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 937b836582cfcbf11564aa28b11cd8647afa835c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81410947"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84191113"
 ---
 # <a name="what-is-azure-data-factory"></a>O que é o Azure Data Factory?
 
@@ -30,15 +30,15 @@ Para analisar estes registos, a empresa tem de utilizar dados de referência, co
 
 Para extrair informações, espera processar os dados combinados mediante a utilização de um cluster do Spark na cloud (Azure HDInsight) e, por fim, publicar os dados transformados num armazém de dados na cloud, como o Azure SQL Data Warehouse, para criar facilmente um relatório com base no mesmo. Pretende automatizar este fluxo de trabalho e monitorizá-lo e geri-lo com base numa agenda diária. Também quer executá-lo quando são adicionados ficheiros a um contentor de arquivo de blobs.
 
-O Azure Data Factory é a plataforma que resolve estes cenários de dados. É o *etL baseado na nuvem e o serviço de integração de dados que permite criar fluxos de trabalho baseados em dados para orquestrar o movimento de dados e transformar dados em escala*. Ao utilizar o Azure Data Factory, pode criar e agendar fluxos de trabalho orientados por dados (denominados pipelines) que podem ingerir dados a partir de arquivos de dados diferentes. Pode construir processos ETL complexos que transformam dados visualmente com fluxos de dados ou utilizando serviços computacionais como O Hadoop Azure HDInsight Hadoop, Azure Databricks e Azure SQL Database. 
+O Azure Data Factory é a plataforma que resolve estes cenários de dados. É o *ETL baseado na nuvem e o serviço de integração de dados que lhe permite criar fluxos de trabalho baseados em dados para orquestrar o movimento de dados e transformar dados à escala.* Ao utilizar o Azure Data Factory, pode criar e agendar fluxos de trabalho orientados por dados (denominados pipelines) que podem ingerir dados a partir de arquivos de dados diferentes. Pode construir processos ETL complexos que transformam dados visualmente com fluxos de dados ou utilizando serviços de computação como Azure HDInsight Hadoop, Azure Databricks e Azure SQL Database. 
 
-Além disso, pode publicar os seus dados transformados em lojas de dados como o Azure SQL Data Warehouse para aplicações de inteligência empresarial (BI) para consumir. Em última análise, através do Azure Data Factory, os dados não processados podem ser organizados em arquivos de dados com significado e em data lakes para uma melhor tomada de decisões empresariais.
+Além disso, pode publicar os seus dados transformados em lojas de dados, como o Azure SQL Data Warehouse para aplicações de inteligência empresarial (BI) para consumir. Em última análise, através do Azure Data Factory, os dados não processados podem ser organizados em arquivos de dados com significado e em data lakes para uma melhor tomada de decisões empresariais.
 
 ![Vista de nível superior do Data Factory](media/data-flow/overview.png)
 
 ## <a name="how-does-it-work"></a>Como funciona?
 
-Data Factory contém uma série de sistemas interligados que fornecem uma plataforma completa de ponta a ponta para engenheiros de dados.
+A Data Factory contém uma série de sistemas interligados que fornecem uma plataforma completa de ponta a ponta para engenheiros de dados.
 
 ### <a name="connect-and-collect"></a>Ligar e recolher
 
@@ -48,18 +48,18 @@ O primeiro passo na criação de um sistema de produção de informação é lig
 
 Sem o Data Factory, as empresas têm de criar componentes de movimento de dados personalizados ou escrever serviços personalizados para integrar essas origens de dados e esse processamento. Integrar e manter estes sistemas é dispendioso e difícil. Além disso, muitas vezes, não têm monitorização, alertas e controlos de nível empresarial que um serviço totalmente gerido pode oferecer.
 
-Com o Data Factory, pode utilizar a [Atividade de Cópia](copy-activity-overview.md) num pipeline de dados para mover dados de arquivos de dados no local e na cloud para um arquivo centralizado na cloud, para análises adicionais. Por exemplo, pode recolher dados no Armazenamento de Lagos De Dados Do Azure e transformar os dados mais tarde utilizando um serviço de computação Azure Data Lake Analytics. Também pode recolher dados no armazenamento de blobs do Azure e transformá-los mais tarde com um cluster do Azure HDInsight Hadoop.
+Com o Data Factory, pode utilizar a [Atividade de Cópia](copy-activity-overview.md) num pipeline de dados para mover dados de arquivos de dados no local e na cloud para um arquivo centralizado na cloud, para análises adicionais. Por exemplo, pode recolher dados no Azure Data Lake Storage e transformar os dados mais tarde usando um serviço de computação Azure Data Lake Analytics. Também pode recolher dados no armazenamento de blobs do Azure e transformá-los mais tarde com um cluster do Azure HDInsight Hadoop.
 
 ### <a name="transform-and-enrich"></a>Transformar e enriquecer
-Depois de os dados se apresentarem numa loja de dados centralizada na nuvem, processar ou transformar os dados recolhidos utilizando fluxos de dados de mapeamento ADF. Os fluxos de dados permitem que os engenheiros de dados construam e mantenham gráficos de transformação de dados que executam em Spark sem necessidade de compreender clusters de faíscas ou programação spark.
+Após os dados estiverem presentes numa loja de dados centralizada na nuvem, processe ou transforme os dados recolhidos utilizando fluxos de dados de mapeamento ADF. Os fluxos de dados permitem aos engenheiros de dados construir e manter gráficos de transformação de dados que executam em Spark sem precisar de compreender clusters Spark ou programação spark.
 
 Se preferir codificar transformações à mão, a ADF suporta atividades externas para executar as suas transformações em serviços de computação como HDInsight Hadoop, Spark, Data Lake Analytics e Machine Learning.
 
-### <a name="cicd-and-publish"></a>CI/CD e publicar
-Data Factory oferece suporte total para CI/CD dos seus pipelines de dados usando Azure DevOps e GitHub. Isto permite-lhe desenvolver e entregar incrementalmente os seus processos ETL antes de publicar o produto acabado. Quando os dados não processados estiverem refinados e prontos para consumo por parte das empresas, carregue os dados para o Azure Data Warehouse, para a Base de Dados SQL do Azure, para o Azure CosmosDB ou para qualquer que seja o motor de análise para o qual os seus utilizadores empresariais podem apontar a partir as ferramentas de business intelligence que utilizam.
+### <a name="cicd-and-publish"></a>CI/CD e publicação
+A Data Factory oferece suporte total para CI/CD dos seus oleodutos de dados utilizando Azure DevOps e GitHub. Isto permite-lhe desenvolver e entregar os seus processos ETL de forma incremental antes de publicar o produto acabado. Quando os dados não processados estiverem refinados e prontos para consumo por parte das empresas, carregue os dados para o Azure Data Warehouse, para a Base de Dados SQL do Azure, para o Azure CosmosDB ou para qualquer que seja o motor de análise para o qual os seus utilizadores empresariais podem apontar a partir as ferramentas de business intelligence que utilizam.
 
 ### <a name="monitor"></a>Monitorizar
-Depois de criar e implementar com êxito o seu pipeline de integração de dados, proporcionando valor comercial a partir dos dados refinados, monitorize as atividades e os pipelines agendados relativamente às taxas de êxito e falha. A Azure Data Factory tem suporte integrado para monitorização de gasodutos via Azure Monitor, API, PowerShell, registos do Monitor Azure e painéis de saúde no portal Azure.
+Depois de criar e implementar com êxito o seu pipeline de integração de dados, proporcionando valor comercial a partir dos dados refinados, monitorize as atividades e os pipelines agendados relativamente às taxas de êxito e falha. A Azure Data Factory tem suporte incorporado para monitorização de gasodutos através do Azure Monitor, API, PowerShell, Azure Monitor e painéis de saúde no portal Azure.
 
 ## <a name="top-level-concepts"></a>Principais conceitos
 As subscrições do Azure podem ter uma ou várias instâncias do Azure Data Factory (ou fábricas de dados). O Azure Data Factory é constituído por quatro componentes principais. Estes componentes funcionam em conjunto para fornecer a plataforma na qual pode compor fluxos de trabalho orientados por dados com passos para mover e transformar dados.
@@ -70,7 +70,7 @@ Uma fábrica de dados pode ter um ou mais pipelines. Os pipelines são agrupamen
 A vantagem neste caso é que o pipeline lhe permite gerir as atividades como um conjunto, em vez de individualmente. As atividades num pipeline podem ser encadeadas para funcionar sequencialmente ou podem funcionar de forma independente em paralelo
 
 ### <a name="mapping-data-flows"></a>Fluxos de dados de mapeamento
-Crie e gerencie gráficos da lógica de transformação de dados que pode usar para transformar dados de tamanho sinuoso. Pode construir uma biblioteca reutilizável de rotinas de transformação de dados e executar esses processos de forma reduzida a partir dos seus oleodutos ADF. A Data Factory executará a sua lógica num cluster spark que gira para cima e gira para baixo quando precisar. Nunca terás de gerir ou manter aglomerados.
+Crie e gere gráficos da lógica de transformação de dados que pode usar para transformar dados de tamanho alguma. Pode construir uma biblioteca reutilizável de rotinas de transformação de dados e executar esses processos de forma dimensionada a partir dos seus oleodutos ADF. A Data Factory executará a sua lógica num cluster Spark que gira para cima e gira quando precisar. Nunca terá que gerir ou manter aglomerados.
 
 ### <a name="activity"></a>Atividade
 As atividades representam uma fase de processamento num pipeline. Por exemplo, pode utilizar uma atividade de cópia para copiar dados de um arquivo de dados para outro. Da mesma forma, pode utilizar uma atividade do Hive, que executa uma consulta do Hive num cluster do Azure HDInsight, para transformar ou analisar os seus dados. O Data Factory suporta três tipos de atividades: atividades de movimento de dados, atividades de transformação de dados e atividades de controlo.
@@ -83,7 +83,7 @@ Os serviços ligados são muito semelhantes às cadeias de ligação, que define
 
 Os serviços ligados são utilizados para duas finalidades no Data Factory:
 
-- Para representar um **arquivo de dados**, que inclua, entre outros, uma base de dados do SQL Server no local, uma base de dados Oracle, uma partilha de ficheiros ou uma conta de armazenamento de blobs do Azure. Para obter uma lista dos arquivos de dados suportados, veja o artigo [copy activity](copy-activity-overview.md) (Atividade de Cópia).
+- Para representar uma **loja de dados** que inclui, mas não se limita a, uma base de dados sql Server, base de dados Oracle, partilha de ficheiros ou conta de armazenamento de blob Azure. Para obter uma lista dos arquivos de dados suportados, veja o artigo [copy activity](copy-activity-overview.md) (Atividade de Cópia).
 
 - Para representar um **recurso de computação** que pode alojar a execução de uma atividade. Por exemplo, a Atividade HDInsightHive é executada num cluster do HDInsight Hadoop. Para obter uma lista das atividades de transformação e os ambientes de computação suportados, veja o artigo [Transform data](transform-data.md) (Transformar dados).
 
@@ -104,10 +104,10 @@ Os serviços ligados também são um parâmetro inflexível que contém as infor
 O fluxo de controlo é uma orquestração das atividades dos pipelines que incluem o encadeamento de atividades numa sequência, a ramificação, a definição de parâmetros ao nível do pipeline e a transmissão de argumentos quando é invocado o pipeline a pedido ou a partir de um acionador. Também inclui a transmissão de estado personalizado e os contentores de ciclo, ou seja, iteradores For-each.
 
 ### <a name="variables"></a>Variáveis
-As variáveis podem ser utilizadas no interior dos oleodutos para armazenar valores temporários e também podem ser utilizadas em conjunto com parâmetros para permitir valores de passagem entre oleodutos, fluxos de dados e outras atividades.
+As variáveis podem ser usadas dentro de oleodutos para armazenar valores temporários e também podem ser usadas em conjunto com parâmetros para permitir valores de passagem entre gasodutos, fluxos de dados e outras atividades.
 
 ## <a name="next-steps"></a>Passos seguintes
-Aqui estão importantes documentos de próximo passo para explorar:
+Aqui estão documentos importantes para explorar:
 
 - [Dataset and linked services](concepts-datasets-linked-services.md) (Conjuntos de dados e serviços ligados)
 - [Pipelines e atividades](concepts-pipelines-activities.md)
@@ -119,5 +119,5 @@ Aqui estão importantes documentos de próximo passo para explorar:
 - [.NET](quickstart-create-data-factory-dot-net.md)
 - [Python](quickstart-create-data-factory-python.md)
 - [REST](quickstart-create-data-factory-rest-api.md)
-- [Modelo de Gestor de Recursos Azure](quickstart-create-data-factory-resource-manager-template.md)
+- [Modelo de gestor de recursos Azure](quickstart-create-data-factory-resource-manager-template.md)
  

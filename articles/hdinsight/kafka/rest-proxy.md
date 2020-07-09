@@ -1,103 +1,103 @@
 ---
 title: Apache Kafka REST proxy - Azure HDInsight
-description: Aprenda a fazer operações apache kafka usando um proxy Kafka REST no Azure HDInsight.
+description: Aprenda a fazer operações apache kafka usando um representante kafka REST em Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: has-adal-ref
+ms.topic: how-to
+ms.custom: has-adal-ref, tracking-python
 ms.date: 04/03/2020
-ms.openlocfilehash: 5e46e50da67559f69302357804f6f98fee70d4ad
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 3050062a80e253d0e63f6d20a8c8de31e9866ea1
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773309"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082561"
 ---
-# <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interaja com os clusters Apache Kafka em Azure HDInsight usando um proxy REST
+# <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interaja com os clusters Apache Kafka em Azure HDInsight usando um representante rest
 
-Kafka REST Proxy permite-lhe interagir com o seu cluster Kafka através de um REST API sobre HTTP. Esta ação significa que os seus clientes Kafka podem estar fora da sua rede virtual. Os clientes podem fazer chamadas http simples para o cluster Kafka, em vez de confiar em bibliotecas Kafka. Este artigo irá mostrar-lhe como criar um grupo de kafka ativado por proxy REST. Também fornece um código de amostra que mostra como fazer chamadas para o proxy REST.
+Kafka REST Proxy permite-lhe interagir com o seu cluster Kafka através de uma API REST sobre HTTP. Esta ação significa que os seus clientes Kafka podem estar fora da sua rede virtual. Os clientes podem fazer chamadas HTTP simples para o cluster Kafka, em vez de confiar em bibliotecas kafka. Este artigo irá mostrar-lhe como criar um cluster de proxy REST habilitado para Kafka. Também fornece um código de amostra que mostra como fazer chamadas para o proxy REST.
 
 ## <a name="rest-api-reference"></a>Referência da API REST
 
-Para operações apoiadas pela Kafka REST API, consulte [HDInsight Kafka REST Proxy API Reference](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy).
+Para operações apoiadas pela API Kafka REST, consulte [hdInsight Kafka REST Proxy API Reference](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy).
 
 ## <a name="background"></a>Fundo
 
-![Projeto de procuração kafka REST](./media/rest-proxy/rest-proxy-architecture.png)
+![Design de procuração kafka REST](./media/rest-proxy/rest-proxy-architecture.png)
 
 Para obter a especificação completa das operações suportadas pela API, consulte [Apache Kafka REST Proxy API](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy).
 
-### <a name="rest-proxy-endpoint"></a>Ponto final do Proxy REST
+### <a name="rest-proxy-endpoint"></a>PONTO final de Proxy REST Proxy
 
-Criar um cluster HDInsight Kafka com proxy REST cria um novo ponto final público para o seu cluster, que pode encontrar no seu cluster HDInsight **Propriedades** no portal Azure.
+A criação de um cluster HDInsight Kafka com proxy REST cria um novo ponto final público para o seu cluster, que pode encontrar no seu cluster HDInsight **Properties** no portal Azure.
 
 ### <a name="security"></a>Segurança
 
-O acesso ao proxy Kafka REST é gerido com grupos de segurança do Diretório Ativo Azure. Ao criar o cluster Kafka, forneça ao grupo de segurança Azure AD acesso final point. Os clientes kafka que necessitem de acesso ao proxy REST devem ser registados neste grupo pelo proprietário do grupo. O proprietário do grupo pode registar-se através do Portal ou via PowerShell.
+O acesso ao representante kafka REST é gerido com grupos de segurança do Azure Ative Directory. Ao criar o cluster Kafka, forneça ao grupo de segurança Azure AD acesso ao ponto final REST. Os clientes kafka que precisam de acesso ao representante rest deve ser registado neste grupo pelo proprietário do grupo. O proprietário do grupo pode registar-se através do Portal ou via PowerShell.
 
-Para pedidos de ponto final de procuração REST, os pedidos de cliente devem obter um token OAuth. O símbolo é usado para verificar a adesão ao grupo de segurança. Encontre uma amostra de [aplicação do Cliente](#client-application-sample) abaixo que mostre como obter um token OAuth. A aplicação do cliente passa o token OAuth no pedido http ao proxy REST.
+Para pedidos de ponto final de procuração REST, as aplicações do cliente devem obter um token OAuth. O símbolo é usado para verificar a adesão ao grupo de segurança. Encontre uma [amostra de aplicação do Cliente](#client-application-sample) abaixo que mostre como obter um token OAuth. O pedido de cliente passa o token OAuth no pedido HTTP ao representante DO REST.
 
 > [!NOTE]
-> Consulte gerir aplicativos e acesso a recursos utilizando grupos de [Diretórios Ativos Azure,](../../active-directory/fundamentals/active-directory-manage-groups.md)para saber mais sobre grupos de segurança AAD. Para obter mais informações sobre o funcionamento das fichas da OAuth, consulte [Autorizar o acesso às aplicações web do Azure Ative Directory utilizando o fluxo de subvenção de código OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md).
+> Consulte [a aplicação Manage e o acesso a recursos utilizando grupos Azure Ative Directory,](../../active-directory/fundamentals/active-directory-manage-groups.md)para saber mais sobre grupos de segurança AAD. Para obter mais informações sobre o funcionamento dos tokens da OAuth, consulte [o acesso autorizado às aplicações web do Azure Ative Directory utilizando o fluxo de concessão de código OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md).
 
-## <a name="kafka-rest-proxy-with-network-security-groups"></a>Kafka REST proxy com Grupos de Segurança da Rede
-Se trouxer o seu próprio VNet e controlar o tráfego da rede com grupos de segurança da rede, permita o tráfego **de entrada** no porto **9400** para além do porto 443. Isto garantirá que o servidor proxy Kafka REST seja acessível.
+## <a name="kafka-rest-proxy-with-network-security-groups"></a>Representante kafka REST com grupos de segurança de rede
+Se você trouxer o seu próprio VNet e controlar o tráfego da rede com grupos de segurança de rede, permita o tráfego **de entrada no** porto **9400,** além da porta 443. Isto garantirá que o servidor proxy Kafka REST está acessível.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Registar uma aplicação com o Azure AD. As aplicações de clientes que escrever para interagir com o representante do Kafka REST usarão o ID e o segredo desta aplicação para autenticar o Azure.
+1. Registar uma aplicação com o Azure AD. As aplicações do cliente que escreve para interagir com o representante kafka REST usarão o ID e o segredo desta aplicação para autenticar a Azure.
 
-1. Crie um grupo de segurança do AAD. Adicione a aplicação que registou com a Azure AD ao grupo de segurança como **membro** do grupo. Este grupo de segurança será utilizado para controlar quais as aplicações autorizadas a interagir com o representante do REST. Para obter mais informações sobre a criação de grupos DeA Azure, consulte [Criar um grupo básico e adicionar membros usando o Diretório Ativo Azure](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+1. Crie um grupo de segurança do AAD. Adicione a aplicação que registou com a Azure AD ao grupo de segurança como **membro** do grupo. Este grupo de segurança será utilizado para controlar quais aplicações podem interagir com o representante DO REST. Para obter mais informações sobre a criação de grupos AD Azure, consulte [criar um grupo básico e adicionar membros usando o Azure Ative Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-    Validar que o grupo é de tipo **Segurança**.
+    Validar o grupo é do tipo **Segurança.**
     ![Grupo de Segurança](./media/rest-proxy/rest-proxy-group.png)
 
-    Validar esta aplicação é membro do Grupo.
-    ![Verifique a adesão](./media/rest-proxy/rest-proxy-membergroup.png)
+    Validar esta candidatura é membro do Grupo.
+    ![Ver Adesão](./media/rest-proxy/rest-proxy-membergroup.png)
 
 ## <a name="create-a-kafka-cluster-with-rest-proxy-enabled"></a>Criar um cluster Kafka com proxy REST habilitado
 
-Os passos abaixo utilizam o portal Azure. Por exemplo, utilizando o Azure CLI, consulte [Create Apache Kafka REST proxy cluster utilizando o Azure CLI](tutorial-cli-rest-proxy.md).
+Os passos abaixo utilizam o portal Azure. Para um exemplo utilizando o Azure CLI, consulte [o cluster de procuração Apache Kafka REST utilizando o Azure CLI](tutorial-cli-rest-proxy.md).
 
-1. Durante o fluxo de trabalho de criação de cluster Kafka, no separador **de rede Security + networking,** verifique a opção proxy Enable Kafka **REST.**
+1. Durante o fluxo de trabalho de criação de cluster Kafka, no **separador Segurança + rede,** verifique a opção **de procuração Enable Kafka REST.**
 
-     ![Ativar o proxy Kafka REST e selecionar grupo de segurança](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
+     ![Ativar o proxy do Kafka REST e selecionar o grupo de segurança](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
 
-1. Clique em **Selecionar grupo de segurança**. A partir da lista de grupos de segurança, selecione o grupo de segurança que pretende ter acesso ao proxy REST. Pode usar a caixa de pesquisa para encontrar o grupo de segurança apropriado. Clique no botão **Select** na parte inferior.
+1. Clique **em Select Security Group**. Na lista de grupos de segurança, selecione o grupo de segurança que pretende ter acesso ao representante DO REST. Pode utilizar a caixa de pesquisa para encontrar o grupo de segurança apropriado. Clique no botão **Selecione** na parte inferior.
 
-     ![Ativar o proxy Kafka REST e selecionar grupo de segurança](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
+     ![Ativar o proxy do Kafka REST e selecionar o grupo de segurança](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
 
-1. Complete os passos restantes para criar o seu cluster como descrito no [cluster Create Apache Kafka no Azure HDInsight utilizando](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)o portal Azure .
+1. Complete os passos restantes para criar o seu cluster como descrito no [cluster Create Apache Kafka em Azure HDInsight utilizando o portal Azure](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started).
 
-1. Uma vez criado o cluster, vá às propriedades do cluster para registar o URL proxy Kafka REST.
+1. Uma vez criado o cluster, vá às propriedades do cluster para gravar o URL de procuração kafka REST.
 
-     ![ver URL de procuração REST](./media/rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png)
+     ![ver REST proxy URL](./media/rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png)
 
-## <a name="client-application-sample"></a>Amostra de pedido do cliente
+## <a name="client-application-sample"></a>Amostra de aplicação de cliente
 
-Pode usar o código python abaixo para interagir com o proxy REST no seu cluster Kafka. Para utilizar a amostra de código, siga estes passos:
+Pode utilizar o código python abaixo para interagir com o representante REST no seu cluster Kafka. Para utilizar a amostra de código, siga estes passos:
 
-1. Guarde o código da amostra numa máquina com python instalada.
-1. Instale dependências de pitão necessárias executando `pip3 install msal` .
-1. Modifique a secção de **códigoConfigure estas propriedades** e atualize as seguintes propriedades para o seu ambiente:
+1. Guarde o código de amostra numa máquina com python instalado.
+1. Instale as dependências de python necessárias executando `pip3 install msal` .
+1. Modifique a secção de código **Configurar estas propriedades** e atualizar as seguintes propriedades para o seu ambiente:
 
     |Propriedade |Descrição |
     |---|---|
     |ID do inquilino|O inquilino Azure onde está a sua assinatura.|
-    |ID de Cliente|A identificação do pedido que registou no grupo de segurança.|
+    |ID de Cliente|A identificação para o pedido que registou no grupo de segurança.|
     |Segredo do Cliente|O segredo para o pedido que registou no grupo de segurança.|
-    |Kafkarest_endpoint|Obtenha este valor do separador **Propriedades** na visão geral do cluster, conforme descrito na [secção de implementação](#create-a-kafka-cluster-with-rest-proxy-enabled). Deve estar no seguinte formato –`https://<clustername>-kafkarest.azurehdinsight.net`|
+    |Kafkarest_endpoint|Obtenha este valor a partir do separador **Propriedades** na visão geral do cluster, conforme descrito na [secção de implantação](#create-a-kafka-cluster-with-rest-proxy-enabled). Deve estar no seguinte formato –`https://<clustername>-kafkarest.azurehdinsight.net`|
 
 1. A partir da linha de comando, execute o ficheiro python executando`sudo python3 <filename.py>`
 
 Este código faz a seguinte ação:
 
-1. Vai buscar um símbolo da OAuth da Azure AD.
-1. Mostra como fazer um pedido ao representante do KAFKA REST.
+1. Vai buscar um token OAuth da Azure AD.
+1. Mostra como fazer um pedido ao representante kafka REST.
 
-Para obter fichas OAuth em python, consulte a [aula python AuthenticationContext](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python). Pode ver-se um atraso enquanto `topics` não forem criados ou apagados através do representante do KAFKA REST. Este atraso deve-se à atualização da cache.
+Para obter mais informações sobre a obtenção de fichas OAuth em python, consulte [a classe Python AuthenticationContext](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python). Você pode ver um atraso enquanto `topics` que não são criados ou apagados através do representante kafka REST são refletidos lá. Este atraso deve-se à atualização da cache.
 
 ```python
 #Required python packages
@@ -144,7 +144,7 @@ response = requests.get(request_url, headers={'Authorization': accessToken})
 print(response.content)
 ```
 
-Encontre abaixo outra amostra sobre como obter um símbolo de Azure para proxy REST usando um comando de caracóis. **Reparem que precisamos do `scope=https://hib.azurehdinsight.net/.default` especificado enquanto recebemos um símbolo.**
+Encontre abaixo outra amostra sobre como obter um token de Azure para o proxy REST usando um comando de caracóis. **Note que precisamos do `scope=https://hib.azurehdinsight.net/.default` especificado enquanto recebemos um símbolo.**
 
 ```cmd
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=<clientid>&client_secret=<clientsecret>&grant_type=client_credentials&scope=https://hib.azurehdinsight.net/.default' 'https://login.microsoftonline.com/<tenantid>/oauth2/v2.0/token'
@@ -152,4 +152,4 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 ## <a name="next-steps"></a>Próximos passos
 
-* [Documentos de referência da API proxy de Kafka REST](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/)
+* [Documentos de referência da API de procuração kafka REST](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/)

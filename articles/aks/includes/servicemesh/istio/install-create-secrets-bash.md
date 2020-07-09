@@ -4,15 +4,15 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: e8b94b4adc39de81dbdf17dfd24fcff39532b482
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77594030"
 ---
-### <a name="add-grafana-secret"></a>Adicionar Segredo de Grafana
+### <a name="add-grafana-secret"></a>Adicionar Grafana Secret
 
-Substitua `REPLACE_WITH_YOUR_SECURE_PASSWORD` o símbolo com a sua palavra-passe e execute os seguintes comandos:
+Substitua o `REPLACE_WITH_YOUR_SECURE_PASSWORD` token pela sua palavra-passe e execute os seguintes comandos:
 
 ```bash
 GRAFANA_USERNAME=$(echo -n "grafana" | base64)
@@ -33,9 +33,9 @@ data:
 EOF
 ```
 
-### <a name="add-kiali-secret"></a>Adicionar Segredo Kiali
+### <a name="add-kiali-secret"></a>Adicionar Segredo kiali
 
-Substitua `REPLACE_WITH_YOUR_SECURE_PASSWORD` o símbolo com a sua palavra-passe e execute os seguintes comandos:
+Substitua o `REPLACE_WITH_YOUR_SECURE_PASSWORD` token pela sua palavra-passe e execute os seguintes comandos:
 
 ```bash
 KIALI_USERNAME=$(echo -n "kiali" | base64)

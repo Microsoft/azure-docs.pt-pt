@@ -1,60 +1,59 @@
 ---
-title: Loja de Eventos de Tecido de Serviço Azure
-description: Conheça a Loja de Eventos da Azure Service Fabric, uma forma de compreender e monitorizar o estado de um cluster ou cargas de trabalho a qualquer momento.
+title: Loja de eventos de tecido de serviço Azure
+description: Conheça a Azure Service Fabric's EventStore, uma forma de entender e monitorizar o estado de um cluster ou cargas de trabalho a qualquer momento.
 author: srrengar
 ms.topic: conceptual
 ms.date: 6/6/2019
 ms.author: srrengar
 ms.openlocfilehash: d23c8114bf10ef3225775accef6910c0ba539e15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645740"
 ---
-# <a name="eventstore-overview"></a>Visão geral da EventStore
+# <a name="eventstore-overview"></a>Visão geral da loja de eventos
 
 >[!NOTE]
->A partir da versão 6.4 do Tecido de Serviço. as APIs da EventStore só estão disponíveis para clusters Windows que executam apenas em Azure. Estamos a trabalhar na colocação desta funcionalidade para o Linux, bem como para os nossos clusters autónomos.
+>A partir da versão 6.4 do Tecido de Serviço. as APIs da EventStore só estão disponíveis para clusters Windows em execução apenas no Azure. Estamos a trabalhar na deposição desta funcionalidade ao Linux, bem como aos nossos clusters autónomos.
 
 ## <a name="overview"></a>Descrição geral
 
-Introduzido na versão 6.2, o serviço EventStore é uma opção de monitorização no Service Fabric. A EventStore fornece uma forma de compreender o estado do seu cluster ou cargas de trabalho num dado momento.
-A EventStore é um serviço de tecido de serviço imponente que mantém eventos do cluster. O evento está exposto através do Service Fabric Explorer, REST e APIs. EventStore consulta o cluster diretamente para obter dados de diagnóstico em qualquer entidade do seu cluster e deve ser usado para ajudar:
+Introduzido na versão 6.2, o serviço EventStore é uma opção de monitorização em Tecido de Serviço. A EventStore fornece uma forma de entender o estado do seu cluster ou cargas de trabalho num dado momento.
+O EventStore é um serviço stateful Service Fabric que mantém eventos do cluster. O evento é exposto através do Service Fabric Explorer, REST e APIs. O EventStore consulta o cluster diretamente para obter dados de diagnóstico em qualquer entidade do seu cluster e deve ser usado para ajudar:
 
-* Diagnosticar problemas no desenvolvimento ou nos testes, ou onde pode estar a utilizar um pipeline de monitorização
-* Confirme que as ações de gestão que está a tomar sobre o seu cluster estão a ser processadas corretamente
-* Obtenha um "instantâneo" de como o Service Fabric está interagindo com uma determinada entidade
+* Diagnosticar problemas no desenvolvimento ou teste, ou onde possa estar a usar um gasoduto de monitorização
+* Confirme que as ações de gestão que está a tomar no seu cluster estão a ser processadas corretamente
+* Obtenha uma "foto" de como o Service Fabric está interagindo com uma determinada entidade
 
 ![Loja de Eventos](media/service-fabric-diagnostics-eventstore/eventstore.png)
 
-Para ver uma lista completa de eventos disponíveis na EventStore, consulte [eventos de Tecido de Serviço](service-fabric-diagnostics-event-generation-operational.md).
+Para ver uma lista completa de eventos disponíveis na Loja de Eventos, consulte os [eventos de Service Fabric.](service-fabric-diagnostics-event-generation-operational.md)
 
 >[!NOTE]
->A partir da versão 6.4 do Tecido de Serviço. as APIs e UX da EventStore estão geralmente disponíveis para clusters Do Windows Azure. Estamos a trabalhar na colocação desta funcionalidade para o Linux, bem como para os nossos clusters autónomos.
+>A partir da versão 6.4 do Tecido de Serviço. os APIs e UX da EventStore estão geralmente disponíveis para clusters Azure Windows. Estamos a trabalhar na deposição desta funcionalidade ao Linux, bem como aos nossos clusters autónomos.
 
-O serviço EventStore pode ser consultado para eventos disponíveis para cada entidade e tipo de entidade no seu cluster. Isto significa que pode consultar eventos nos seguintes níveis:
-* Cluster: eventos específicos do próprio cluster (por exemplo, upgrade de cluster)
+O serviço EventStore pode ser consultado para eventos que estejam disponíveis para cada entidade e tipo de entidade no seu cluster. Isto significa que pode consultar eventos nos seguintes níveis:
+* Cluster: eventos específicos do próprio cluster (por exemplo, atualização do cluster)
 * Nós: todos os eventos de nível de nó
-* Nó: eventos específicos de um nó, identificados por`nodeName`
+* Nó: eventos específicos de um nó, identificado por`nodeName`
 * Aplicações: todos os eventos de nível de aplicação
 * Aplicação: eventos específicos de uma aplicação identificada por`applicationId`
-* Serviços: eventos de todos os serviços dos seus clusters
+* Serviços: eventos de todos os serviços nos seus clusters
 * Serviço: eventos de um serviço específico identificado por`serviceId`
-* Divisórias: eventos de todas as divisórias
-* Partição: eventos de uma partição específica identificados por`partitionId`
+* Partições: eventos de todas as divisórias
+* Partição: eventos de uma partição específica identificada por`partitionId`
 * Réplicas de partição: eventos de todas as réplicas/instâncias dentro de uma partição específica identificada por`partitionId`
-* Réplica da partilha: eventos de uma `replicaId` réplica/instância específica identificado s e`partitionId`
+* Réplica de partição: eventos a partir de uma réplica/instância específica identificada por `replicaId` e`partitionId`
 
-Para saber mais sobre a API consulte a [referência da API eventStore](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore).
+Para saber mais sobre a API consulte a referência API da [EventStore](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore).
 
-O serviço EventStore também tem a capacidade de correlacionar eventos no seu cluster. Ao analisar eventos que foram escritos ao mesmo tempo de diferentes entidades que possam ter impactado mutuamente, o serviço EventStore é capaz de ligar estes eventos para ajudar na identificação de causas para atividades no seu cluster. Por exemplo, se uma das suas aplicações ficar insalubre sem alterações induzidas, a EventStore também `Error` `Warning` analisará outros eventos expostos pela plataforma e poderá correlacionar isso com um ou evento. Isto ajuda na deteção mais rápida de falhas e na análise de causas de raiz.
+O serviço EventStore também tem a capacidade de correlacionar eventos no seu cluster. Olhando para eventos que foram escritos ao mesmo tempo de diferentes entidades que podem ter impactado entre si, o serviço EventStore é capaz de associar estes eventos para ajudar a identificar causas para atividades no seu cluster. Por exemplo, se uma das suas aplicações se tornar insalubre sem alterações induzidas, o EventStore também analisará outros eventos expostos pela plataforma e poderá correlacionar isso com um `Error` ou `Warning` evento. Isto ajuda na deteção rápida de falhas e na análise de causas de raiz.
 
-## <a name="enable-eventstore-on-your-cluster"></a>Ativar a EventStore no seu cluster
+## <a name="enable-eventstore-on-your-cluster"></a>Ativar o EventStore no seu cluster
 
 ### <a name="local-cluster"></a>Aglomerado Local
 
-No [tecidoSettings.json no seu cluster,](service-fabric-cluster-fabric-settings.md)adicione eventStoreService como uma funcionalidade addOn e execute uma atualização de cluster.
+Em [fabricSettings.jsno seu cluster,](service-fabric-cluster-fabric-settings.md)adicione o EventStoreService como uma funcionalidade addOn e execute uma atualização de cluster.
 
 ```json
     "addOnFeatures": [
@@ -63,9 +62,9 @@ No [tecidoSettings.json no seu cluster,](service-fabric-cluster-fabric-settings.
 ```
 
 ### <a name="azure-cluster-version-65"></a>Versão do cluster Azure 6.5+
-Se o seu cluster Azure for atualizado para a versão 6.5 ou superior, o EventStore será automaticamente ativado no seu cluster. Para não optar, precisa de atualizar o seu modelo de cluster com o seguinte:
+Se o seu cluster Azure for atualizado para a versão 6.5 ou superior, o EventStore será automaticamente ativado no seu cluster. Para excluir, tem de atualizar o seu modelo de cluster com o seguinte:
 
-* Use uma versão `2019-03-01` API de ou mais recente 
+* Use uma versão API de `2019-03-01` ou mais recente 
 * Adicione o seguinte código à secção de propriedades no seu cluster
   ```json  
     "fabricSettings": [
@@ -76,7 +75,7 @@ Se o seu cluster Azure for atualizado para a versão 6.5 ou superior, o EventSto
 
 ### <a name="azure-cluster-version-64"></a>Versão do cluster Azure 6.4
 
-Se estiver a utilizar a versão 6.4, pode editar o seu modelo de Gestor de Recursos Azure para ativar o serviço EventStore. Isto é feito através da realização de uma atualização de [config](service-fabric-cluster-config-upgrade-azure.md) cluster e adicionando o seguinte código, pode utilizar As Restrições de Colocação para colocar as réplicas do serviço EventStore num NodeType específico, por exemplo, um NodeType dedicado aos serviços do sistema. A `upgradeDescription` secção configura a atualização do config para desencadear um reinício dos nódosos. Pode remover a secção noutra atualização.
+Se estiver a utilizar a versão 6.4, pode editar o seu modelo de Gestor de Recursos Azure para ligar o serviço EventStore. Isto é feito através da realização de uma [atualização de cluster config](service-fabric-cluster-config-upgrade-azure.md) e adicionando o seguinte código, pode utilizar PlacementConstraints para colocar as réplicas do serviço EventStore num NodeType específico, por exemplo, um NodeType dedicado aos serviços do sistema. A `upgradeDescription` secção configura a atualização de configuração para ativar um reinício dos nós. Pode remover a secção em outra atualização.
 
 ```json
     "fabricSettings": [
@@ -122,9 +121,9 @@ Se estiver a utilizar a versão 6.4, pode editar o seu modelo de Gestor de Recur
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
-* Inicie-se com a API EventStore - [Utilizando as APIs da EventStore em clusters de tecido de serviço Azure](service-fabric-diagnostics-eventstore-query.md)
+## <a name="next-steps"></a>Próximos passos
+* Começar com a API da Loja de Eventos - [Utilização das APIs da EventStore em clusters de tecido de serviço Azure](service-fabric-diagnostics-eventstore-query.md)
 * Saiba mais sobre a lista de eventos oferecidos pela EventStore - [Eventos de Tecido de Serviço](service-fabric-diagnostics-event-generation-operational.md)
-* Visão geral da monitorização e diagnóstico sintetizado em Tecido de Serviço - [Monitorização e Diagnóstico para Tecido de Serviço](service-fabric-diagnostics-overview.md)
-* Ver a lista completa de chamadas DaPI - [EventStore REST API Reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore)
-* Saiba mais sobre monitorização do seu cluster - [Monitorização do cluster e plataforma](service-fabric-diagnostics-event-generation-infra.md).
+* Visão geral da monitorização e diagnósticos em Tecido de Serviço - [Monitorização e Diagnóstico de Tecido de Serviço](service-fabric-diagnostics-overview.md)
+* Ver a lista completa de chamadas API - [Referência API da Loja de Eventos](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore)
+* Saiba mais sobre a monitorização do seu cluster - [Monitorização do cluster e da plataforma.](service-fabric-diagnostics-event-generation-infra.md)

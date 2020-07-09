@@ -1,5 +1,5 @@
 ---
-title: Tipos de colagem de armazéns de dados
+title: Tipos de colagem de armazém de dados
 description: Tipos de colagem suportados na piscina Azure Synapse Analytics SQL.
 services: synapse-analytics
 author: antvgski
@@ -11,23 +11,22 @@ ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 202bbaf4ea53dd6ba285e79dfa9e6ce782c0903e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80633095"
 ---
-# <a name="database-collation-support-for-azure-synapse-analytics-sql-pool"></a>Suporte de colagem de base de dados para piscina Azure Synapse Analytics SQL
+# <a name="database-collation-support-for-azure-synapse-analytics-sql-pool"></a>Suporte de colagem de base para piscina SQL Azure Synapse Analytics
 
-Pode alterar a base de dados predefinida do portal Azure quando criar uma nova base de dados de piscina Synapse SQL Azure. Esta capacidade torna ainda mais fácil a criação de uma nova base de dados utilizando uma das 3800 colagens de bases de dados suportadas.
+Pode alterar a colagem de base de dados predefinida a partir do portal Azure quando criar uma nova base de dados de piscinas Azure Synapse SQL. Esta capacidade torna ainda mais fácil criar uma nova base de dados utilizando uma das 3800 colagens de dados suportadas.
 
-As colagens fornecem as regras locais, de código, de ordem de classificação e de sensibilidade ao carácter para tipos de dados baseados em caracteres. Uma vez escolhidas, todas as colunas e expressões que requerem informações de colagem herdam a colagem escolhida a partir da definição da base de dados. A herança padrão pode ser ultrapassada, indicando explicitamente uma colagem diferente para um tipo de dados baseado em caracteres.
+As colagens fornecem as regras de local, página de código, ordem de classificação e sensibilidade ao carácter para tipos de dados baseados em caracteres. Uma vez escolhidos, todas as colunas e expressões que necessitem de informações de colagem herdam a colagem escolhida a partir da definição da base de dados. A herança predefinida pode ser ultrapassada declarando explicitamente uma colagem diferente para um tipo de dados baseado em caracteres.
 
-## <a name="changing-collation"></a>Alteração da colagem
+## <a name="changing-collation"></a>Mudança de colagem
 
-Para alterar a colagem predefinida, atualize para o campo Collation na experiência de provisionamento.
+Para alterar a colagem por defeito, atualize o campo Collation na experiência de provisionamento.
 
-Por exemplo, se quisesse alterar a colagem padrão para caso sensível, simplesmente renomearia a Colagem de SQL_Latin1_General_CP1_CI_AS para SQL_Latin1_General_CP1_CS_AS.
+Por exemplo, se quisesse alterar a colagem por defeito para sensível a casos, simplesmente mudaria o nome da Collation de SQL_Latin1_General_CP1_CI_AS para SQL_Latin1_General_CP1_CS_AS.
 
 ## <a name="list-of-unsupported-collation-types"></a>Lista de tipos de colagem não suportados
 
@@ -104,7 +103,7 @@ Por exemplo, se quisesse alterar a colagem padrão para caso sensível, simplesm
 
 ## <a name="checking-the-current-collation"></a>Verificação da atual colagem
 
-Para verificar a atual colagem da base de dados, pode executar o seguinte corte T-SQL:
+Para verificar a colagem atual da base de dados, pode executar o seguinte corte T-SQL:
 
 ```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;

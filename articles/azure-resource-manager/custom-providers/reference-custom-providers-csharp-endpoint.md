@@ -1,24 +1,23 @@
 ---
-title: Referência final do fornecedor personalizado C# RESTful
+title: Referência de ponto final restful do fornecedor personalizado C# RESTful
 description: Fornece referência básica para um ponto final Azure Custom Providers C# RESTful. O ponto final é fornecido através de uma aplicação de função Azure.
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: b6ecb22cb968e0d963242c8c2d5dd1a6cb24229c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651179"
 ---
-# <a name="custom-provider-c-restful-endpoint-reference"></a>Referência final do fornecedor personalizado C# RESTful
+# <a name="custom-provider-c-restful-endpoint-reference"></a>Referência de ponto final restful do fornecedor personalizado C# RESTful
 
-Este artigo é uma referência básica para um ponto final c# RESTful do fornecedor personalizado. Se não está familiarizado com os Fornecedores Personalizados Da Azure, consulte a visão geral sobre os fornecedores de [recursos personalizados.](overview.md)
+Este artigo é uma referência básica para um fornecedor personalizado C# RESTful endpoint. Se não estiver familiarizado com os Fornecedores Personalizados Azure, consulte [a visão geral dos fornecedores de recursos personalizados.](overview.md)
 
-## <a name="azure-function-app-restful-endpoint"></a>App de função Azure RESTful endpoint
+## <a name="azure-function-app-restful-endpoint"></a>App de função Azure RESTful ponto final
 
-O código seguinte funciona com uma aplicação de função Azure. Para aprender a configurar uma aplicação de função Azure para trabalhar com fornecedores personalizados Azure, consulte o tutorial sobre a criação de [funções Azure para fornecedores personalizados Azure](./tutorial-custom-providers-function-setup.md).
+O seguinte código funciona com uma aplicação de função Azure. Para aprender a configurar uma aplicação de função Azure para trabalhar com fornecedores personalizados Azure, consulte [o tutorial sobre a criação de Funções Azure para Fornecedores Personalizados Azure](./tutorial-custom-providers-function-setup.md).
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -253,9 +252,9 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Visão geral dos fornecedores de recursos personalizados azure](overview.md)
+- [Visão geral dos fornecedores de recursos personalizados Azure](overview.md)
 - [Tutorial: Criar um fornecedor de recursos personalizados Azure e implementar recursos personalizados](./create-custom-provider.md)
-- [Como: Adicionar ações personalizadas à API Do REST Azure](./custom-providers-action-endpoint-how-to.md)
-- [Referência: Referência de cache de recursos personalizado](proxy-cache-resource-endpoint-reference.md)
+- [Como: Adicionar ações personalizadas à Azure REST API](./custom-providers-action-endpoint-how-to.md)
+- [Referência: Referência de cache de recursos personalizados](proxy-cache-resource-endpoint-reference.md)

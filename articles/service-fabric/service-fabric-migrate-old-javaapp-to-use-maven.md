@@ -6,14 +6,14 @@ ms.topic: conceptual
 ms.date: 08/23/2017
 ms.author: rapatchi
 ms.openlocfilehash: 0e8154039dde3de571e7960b244ab1d43cc764c7
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82204292"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Atualizar a sua aplicação Java do Service Fabric anterior para obter as bibliotecas do Java a partir do Maven
-Os binários de tecido de serviço Java mudaram-se do Service Fabric Java SDK para o alojamento da Maven. Você pode usar **mavencentral** para obter as mais recentes dependências de Service Fabric Java. Este guia irá ajudá-lo a atualizar as aplicações java existentes criadas para o SDK de Tecido de Serviço Java usando o modelo Yeoman ou eclipse para ser compatível com a construção baseada em Maven.
+Os binários de tecido de serviço Java mudaram-se do serviço Java SDK para o alojamento maven. Você pode usar **o mavencentral** para buscar as mais recentes dependências de Java de Tecido de Serviço. Este guia irá ajudá-lo a atualizar as aplicações java existentes criadas para o Tecido de Serviço Java SDK usando o modelo Yeoman ou Eclipse para ser compatível com a construção baseada em Maven.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -25,7 +25,7 @@ Os binários de tecido de serviço Java mudaram-se do Service Fabric Java SDK pa
 
 2. Siga os passos mencionados [aqui](service-fabric-cli.md) para instalar a última CLI do Service Fabric.
 
-3. Para construir e trabalhar nas aplicações de Tecido de Serviço Java, certifique-se de que tem JDK 1.8 e Gradle instalados. Se ainda não estiverem instalados, execute o seguinte para instalar o JDK 1.8 (openjdk-8-jdk) e Gradle
+3. Para construir e trabalhar nas aplicações Service Fabric Java, certifique-se de que tem JDK 1.8 e Gradle instalados. Se ainda não estiverem instalados, execute o seguinte para instalar o JDK 1.8 (openjdk-8-jdk) e Gradle
 
    ```bash
    sudo apt-get install openjdk-8-jdk-headless
@@ -164,7 +164,7 @@ task copyDeps <<{
 }
 ```
 
-Agora, para obter as dependências de Maven, a **atualização** ``build.gradle`` teria as partes correspondentes como se segue -
+Agora, para ir buscar as dependências de Maven, o **atualizado** ``build.gradle`` teria as partes correspondentes da seguinte forma -
 
 ```gradle
 repositories {
@@ -243,7 +243,7 @@ dependencies {
 .
 ```
 
-Agora, para obter as dependências de Maven, a **atualização** ``build.gradle`` teria as partes correspondentes como se segue -
+Agora, para ir buscar as dependências de Maven, o **atualizado** ``build.gradle`` teria as partes correspondentes da seguinte forma -
 
 ```gradle
 repositories {
@@ -318,7 +318,7 @@ task copyDeps<< {
 }
 ```
 
-Agora, para obter as dependências de Maven, a **atualização** ``build.gradle`` teria as partes correspondentes como se segue -
+Agora, para ir buscar as dependências de Maven, o **atualizado** ``build.gradle`` teria as partes correspondentes da seguinte forma -
 
 ```gradle
 repositories {
@@ -421,7 +421,7 @@ task copyDeps<< {
 }
 ```
 
-Agora, para obter as dependências de Maven, a **atualização** ``build.gradle`` teria as partes correspondentes como se segue -
+Agora, para ir buscar as dependências de Maven, o **atualizado** ``build.gradle`` teria as partes correspondentes da seguinte forma -
 
 ```gradle
 repositories {

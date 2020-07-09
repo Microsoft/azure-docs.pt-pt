@@ -1,7 +1,7 @@
 ---
-title: Análise de fluxo ao vivo usando o Indexer de Vídeo
+title: Análise ao vivo usando índice de vídeo
 titleSuffix: Azure Media Services
-description: Este artigo mostra como realizar uma análise de transmissão ao vivo usando o Indexer de Vídeo.
+description: Este artigo mostra como realizar uma análise ao vivo usando o Video Indexer.
 services: media-services
 author: Juliako
 manager: femila
@@ -11,36 +11,35 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
 ms.openlocfilehash: 89d0254fc758834c437f347e6ecb7bcafc1fe467
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74186003"
 ---
-# <a name="live-stream-analysis-with-video-indexer"></a>Análise de transmissão ao vivo com Indexer de Vídeo
+# <a name="live-stream-analysis-with-video-indexer"></a>Análise ao vivo com Índice de Vídeo
 
-O Azure Media Services Video Indexer é um serviço Azure projetado para extrair insights profundos de ficheiros de vídeo e áudio offline. Isto é para analisar um determinado ficheiro mediático já criado antecipadamente. No entanto, para alguns casos de uso é importante obter os insights mediáticos de um feed ao vivo o mais rápido possível para desbloquear casos operacionais e outros casos de uso pressionados a tempo. Por exemplo, esses metadados ricos num live stream poderiam ser utilizados pelos produtores de conteúdo para automatizar a produção televisiva.
+Azure Media Services Video Indexer é um serviço Azure projetado para extrair informações profundas de ficheiros de vídeo e áudio offline. Isto é para analisar um dado ficheiro de media já criado com antecedência. No entanto, para alguns casos de uso é importante obter as informações dos meios de comunicação de um feed ao vivo o mais rápido possível para desbloquear casos operacionais e outros de uso pressionados a tempo. Por exemplo, esses metadados ricos num fluxo ao vivo poderiam ser utilizados pelos produtores de conteúdos para automatizar a produção televisiva.
 
-Uma solução descrita neste artigo, permite que os clientes utilizem o Video Indexer em resoluções quase em tempo real em feeds ao vivo. O atraso na indexação pode ser tão baixo como quatro minutos usando esta solução, dependendo dos pedaços de dados indexados, da resolução de entrada, do tipo de conteúdo e da computação alimentada para este processo.
+Uma solução descrita neste artigo, permite que os clientes utilizem o Video Indexer em resoluções quase em tempo real em feeds ao vivo. O atraso na indexação pode ser tão baixo como quatro minutos usando esta solução, dependendo dos pedaços de dados indexados, da resolução de entrada, do tipo de conteúdo e do computação alimentado para este processo.
 
-![Os metadados do Indexer de Vídeo na transmissão em direto](./media/live-stream-analysis/live-stream-analysis01.png)
+![Os metadados do Indexer de Vídeo no live stream](./media/live-stream-analysis/live-stream-analysis01.png)
 
-*Figura 1 - Leitor de amostras que exibe os metadados do Indexer de Vídeo na transmissão em direto*
+*Figura 1 - Jogador de amostra exibindo os metadados do Indexer de Vídeo no live stream*
 
-A [solução](https://aka.ms/livestreamanalysis) de análise de fluxo em mãos, utiliza funções Azure e duas Aplicações Lógicas para processar um programa ao vivo a partir de um canal ao vivo no Azure Media Services com o Video Indexer e exibe o resultado com o Azure Media Player a mostrar o fluxo quase em tempo real.
+A [solução de análise de fluxo](https://aka.ms/livestreamanalysis) em questão, utiliza funções Azure e duas Aplicações Lógicas para processar um programa ao vivo a partir de um canal ao vivo em Azure Media Services com Video Indexer e exibe o resultado com o Azure Media Player mostrando o fluxo quase em tempo real.
 
-Em alto nível, é composto por dois passos principais. O primeiro passo corre a cada 60 segundos, e leva um subclip dos últimos 60 segundos jogados, cria um ativo a partir dele e indexa-o através do Indexer de Vídeo. Em seguida, o segundo passo é chamado uma vez que a indexação está completa. Os insights capturados são processados, enviados para o Azure Cosmos DB, e o subclip indexado é eliminado.
+Em alto nível, é composto por dois passos principais. O primeiro passo corre a cada 60 segundos, e toma um subclip dos últimos 60 segundos jogados, cria um ativo a partir dele e indexa-o através do Índice de Vídeo. Em seguida, o segundo passo é chamado uma vez que a indexação está completa. Os insights capturados são processados, enviados para Azure Cosmos DB, e o subclip indexado é eliminado.
 
-O leitor de amostras joga o live stream e obtém as informações do Azure Cosmos DB, usando uma Função Azure dedicada. Exibe os metadados e miniaturas em sincronização com o vídeo ao vivo.
+O leitor de amostras reproduz o live stream e obtém as ideias da Azure Cosmos DB, usando uma Função Azure dedicada. Exibe os metadados e as miniaturas em sincronização com o vídeo ao vivo.
 
 ![As duas aplicações lógicas que processam o live stream a cada minuto na nuvem](./media/live-stream-analysis/live-stream-analysis02.png)
 
-*Figura 2 – As duas aplicações lógicas que processam o live stream a cada minuto na nuvem.*
+*Figura 2 - As duas aplicações lógicas que processam o live stream a cada minuto na nuvem.*
 
 ## <a name="step-by-step-guide"></a>Guia passo a passo 
 
-O código completo e um guia passo a passo para implementar os resultados podem ser encontrados no [projeto GitHub para análise](https://aka.ms/livestreamanalysis)de mídia ao vivo com O Indexante de Vídeo . 
+O código completo e um guia passo a passo para implementar os resultados podem ser encontrados no [projeto GitHub para análise de meios ao vivo com Índice de Vídeo](https://aka.ms/livestreamanalysis). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Descrição geral do Video Indexer](video-indexer-overview.md)

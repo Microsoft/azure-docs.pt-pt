@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,21 +9,21 @@ ms.date: 02/10/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 50ce8530aca40eed07741f35be1a57bbd7cc1868
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77133609"
 ---
 Abra a sua consola PowerShell com privilégios elevados.
 
-Se estiver a executar o Azure PowerShell localmente, ligue-se à sua conta Azure. O cmdlet *Connect-AzAccount* solicita-lhe credenciais. Depois de autenticar, descarrega as definições da sua conta para que estejam disponíveis para o Azure PowerShell. Se estiver a utilizar a Azure Cloud Shell, não precisa de executar *o Connect-AzAccount*. A Azure Cloud Shell liga-se automaticamente à sua conta Azure.
+Se estiver a executar a Azure PowerShell localmente, ligue-se à sua conta Azure. O *cmdlet Connect-AzAccount solicita-lhe* credenciais. Depois de autenticar, descarrega as definições da sua conta para que estejam disponíveis para a Azure PowerShell. Se estiver a utilizar a Azure Cloud Shell, não precisa de executar *o Connect-AzAccount*. A Azure Cloud Shell liga-se automaticamente à sua conta Azure.
 
 ```azurepowershell
 Connect-AzAccount
 ```
 
-Se tiver mais de uma subscrição, obtenha uma lista das suas subscrições Do Azure.
+Se tiver mais de uma subscrição, obtenha uma lista das suas subscrições Azure.
 
 ```azurepowershell-interactive
 Get-AzSubscription

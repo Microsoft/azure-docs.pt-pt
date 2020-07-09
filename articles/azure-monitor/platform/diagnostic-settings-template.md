@@ -1,6 +1,6 @@
 ---
-title: Criar definição de diagnóstico em Azure usando o modelo de Gestor de Recursos
-description: Crie configurações de diagnóstico utilizando um modelo de Gestor de Recursos para reencaminhar os registos da plataforma Azure para registos de monitores Azure, armazenamento Azure ou Hubs de Eventos Azure.
+title: Crie uma definição de diagnóstico em Azure utilizando o modelo do Gestor de Recursos
+description: Crie definições de diagnóstico utilizando um modelo de Gestor de Recursos para encaminhar os registos da plataforma Azure para registos do Monitor Azure, armazenamento de Azure ou Hubs de Eventos Azure.
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
@@ -8,31 +8,30 @@ ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: a2569ca3f998030680bd7dbd872d71ccd372a25d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77672434"
 ---
-# <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Criar definição de diagnóstico em Azure usando um modelo de Gestor de Recursos
-[As definições](diagnostic-settings.md) de diagnóstico no Monitor Azure especificam onde enviar registos da Plataforma que são [recolhidos](platform-logs-overview.md) pelos recursos do Azure e da plataforma Azure de que dependem. Este artigo fornece detalhes e exemplos para usar um modelo de Gestor de [Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar configurações de diagnóstico para recolher registos de plataformas para diferentes destinos.
+# <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Crie uma definição de diagnóstico em Azure usando um modelo de Gestor de Recursos
+[As definições de diagnóstico](diagnostic-settings.md) no Azure Monitor especificam para onde enviar [registos de plataforma](platform-logs-overview.md) que são recolhidos pelos recursos Azure e pela plataforma Azure de que dependem. Este artigo fornece detalhes e exemplos para usar um [modelo de Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar definições de diagnóstico para recolher registos de plataformas para diferentes destinos.
 
 > [!NOTE]
-> Uma vez que não pode [criar uma definição de diagnóstico](diagnostic-settings.md) para o registo da Atividade Azure utilizando o PowerShell ou o CLI como configurações de diagnóstico para outros recursos Do Azure, crie um modelo de Gestor de Recursos para o registo de Atividade utilizando a informação neste artigo e implemente o modelo utilizando powerShell ou CLI.
+> Uma vez que não é possível [criar uma definição de diagnóstico](diagnostic-settings.md) para o registo de atividade azure utilizando definições de diagnóstico powerShell ou CLI como configurações de diagnóstico para outros recursos Azure, crie um modelo de Gestor de Recursos para o registo de atividade usando as informações neste artigo e implemente o modelo utilizando PowerShell ou CLI.
 
 ## <a name="deployment-methods"></a>Métodos de implantação
-Pode implementar modelos de Gestor de Recursos utilizando qualquer método válido, incluindo PowerShell e CLI. As definições de diagnóstico do `az deployment create` registo de `New-AzDeployment` atividade devem ser implementadas para uma subscrição utilizando cli ou powerShell. As definições de diagnóstico dos registos `az group deployment create` de recursos `New-AzResourceGroupDeployment` devem ser implantadas para um grupo de recursos que utilize o CLI ou o PowerShell.
+Pode implementar modelos de Gestor de Recursos utilizando qualquer método válido, incluindo PowerShell e CLI. As definições de diagnóstico do registo de atividade devem ser implantada numa subscrição utilizando `az deployment create` o CLI ou `New-AzDeployment` para o PowerShell. As definições de diagnóstico dos registos de recursos devem ser implantada num grupo de recursos que utilize `az group deployment create` o CLI ou `New-AzResourceGroupDeployment` para o PowerShell.
 
-Consulte [os recursos de implantação com modelos de Gestor de Recursos e O PowerShell azure](../../azure-resource-manager/templates/deploy-powershell.md) e implemente recursos com modelos de Gestor de [Recursos e ClI Azure](../../azure-resource-manager/templates/deploy-cli.md) para mais detalhes. 
+Consulte [recursos de implementação com modelos de Gestor de Recursos e Recursos Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md) e [Implemente recursos com modelos de Gestor de Recursos e CLI Azure](../../azure-resource-manager/templates/deploy-cli.md) para mais detalhes. 
 
 
 
 
 
 ## <a name="resource-logs"></a>Registos do recurso
-Para registos de recursos, `<resource namespace>/providers/diagnosticSettings` adicione um recurso de tipo ao modelo. A secção de propriedades segue o formato descrito nas [Definições](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)de Diagnóstico - Criar ou Atualizar . Forneça `category` um `logs` na secção para cada uma das categorias válidas para o recurso que pretende recolher. Adicione `metrics` a propriedade para recolher métricas de recursos para os mesmos destinos se o [recurso suportar métricas](metrics-supported.md).
+Para registos de recursos, adicione um recurso de tipo `<resource namespace>/providers/diagnosticSettings` ao modelo. A secção de propriedades segue o formato descrito em [Definições de Diagnóstico - Criar ou Atualizar](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Forneça uma `category` na secção para cada uma das `logs` categorias válidas para o recurso que pretende recolher. Adicione a `metrics` propriedade para recolher métricas de recursos para os mesmos destinos se o [recurso suportar métricas.](metrics-supported.md)
 
-Segue-se um modelo que recolhe uma categoria de registo de recursos para um recurso específico para um espaço de trabalho, conta de armazenamento e centro de eventos de Log Analytics.
+Segue-se um modelo que recolhe uma categoria de registo de recursos para um determinado recurso para um espaço de trabalho log analytics, conta de armazenamento e centro de eventos.
 
 ```json
 "resources": [
@@ -69,7 +68,7 @@ Segue-se um modelo que recolhe uma categoria de registo de recursos para um recu
 
 
 ### <a name="example"></a>Exemplo
-Segue-se um exemplo que cria uma definição de diagnóstico para uma definição de escala automática que permite o streaming de registos de recursos para um centro de eventos, uma conta de armazenamento e um espaço de trabalho log Analytics.
+Segue-se um exemplo que cria uma definição de diagnóstico para uma definição de escala automática que permite o streaming de registos de recursos para um centro de eventos, uma conta de armazenamento e um espaço de trabalho Log Analytics.
 
 ```json
 {
@@ -144,7 +143,7 @@ Segue-se um exemplo que cria uma definição de diagnóstico para uma definiçã
 ```
 
 ## <a name="activity-log"></a>Registo de atividades
-Para o registo da Atividade Azure, adicione um recurso de tipo `Microsoft.Insights/diagnosticSettings`. As categorias disponíveis estão listadas nas [categorias no Registo de Atividades.](activity-log-view.md#categories-in-the-activity-log) Segue-se um modelo que recolhe todas as categorias de registo de Atividade para um espaço de trabalho log Analytics, conta de armazenamento e centro de eventos.
+Para o registo de atividades Azure, adicione um recurso do tipo `Microsoft.Insights/diagnosticSettings` . As categorias disponíveis estão listadas em [Categorias no Registo de Atividades.](activity-log-view.md#categories-in-the-activity-log) Segue-se um modelo que recolhe todas as categorias de registo de atividade para um espaço de trabalho log analytics, conta de armazenamento e centro de eventos.
 
 
 ```json
@@ -236,6 +235,6 @@ Para o registo da Atividade Azure, adicione um recurso de tipo `Microsoft.Insigh
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
-* Leia mais sobre [os registos da plataforma no Azure.](platform-logs-overview.md)
-* Saiba mais sobre [as definições de diagnóstico](diagnostic-settings.md).
+## <a name="next-steps"></a>Próximos passos
+* Leia mais sobre [os registos da plataforma em Azure](platform-logs-overview.md).
+* Saiba mais [sobre as definições de diagnóstico](diagnostic-settings.md).

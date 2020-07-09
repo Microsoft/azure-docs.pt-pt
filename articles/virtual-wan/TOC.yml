@@ -36,20 +36,40 @@
           href: virtual-wan-locations-partners.md
         - name: Diretrizes de automatização para parceiros
           href: virtual-wan-configure-automation-providers.md
-    - name: Políticas de IPsec
-      href: virtual-wan-ipsec.md
+    - name: Conceitos de preços
+      href: pricing-concepts.md
+    - name: Encaminhamento
+      items:
+        - name: Acerca do encaminhamento do hub virtual
+          href: about-virtual-hub-routing.md
+        - name: Cenários
+          items:
+            - name: Conectividade any-to-any
+              href: scenario-any-to-any.md
+            - name: Isolar VNets
+              href: scenario-isolate-vnets.md
+            - name: Isolar VNets - personalizado
+              href: scenario-isolate-vnets-custom.md
+            - name: VNets de Serviços Partilhados
+              href: scenario-shared-services-vnet.md
+            - name: Encaminhar através de NVA
+              href: scenario-route-through-nva.md
+            - name: Encaminhar através de NVA - personalizado (Pré-visualização)
+              href: scenario-route-through-nvas-custom.md
+            - name: Azure Firewall - Interhub (Pré-visualização)
+              href: scenario-route-between-hubs-firewall.md
+            - name: Azure Firewall - personalizado
+              href: scenario-route-between-vnets-firewall.md
+    - name: Site a Site
+      items:
+        - name: Acerca das políticas de IPsec
+          href: virtual-wan-ipsec.md
+        - name: Várias ligações de ISP - Seleção de caminhos do Azure
+          href: path-selection-multiple-links.md
 - name: Guias de procedimentos
   items:
-    - name: Ligar um gateway de rede virtual a uma WAN Virtual
-      href: connect-virtual-network-gateway-vwan.md
-    - name: Configurar o VNET Peering Global
-      href: global-peering-vnet.md
     - name: Atualizar um SKU de WAN virtual
       href: upgrade-virtual-wan.md
-    - name: Configurar política IPsec personalizada
-      href: virtual-wan-custom-ipsec-portal.md
-    - name: Instalar o Azure Firewall num hub
-      href: howto-firewall.md
     - name: ExpressRoute
       items:
         - name: Criar uma ligação do ExpressRoute
@@ -60,6 +80,10 @@
       items:
         - name: Criar uma ligação site a site
           href: virtual-wan-site-to-site-portal.md
+        - name: Ligar um gateway de rede virtual a uma WAN Virtual
+          href: connect-virtual-network-gateway-vwan.md
+        - name: Configurar política IPsec personalizada
+          href: virtual-wan-custom-ipsec-portal.md
     - name: VPN de Utilizador (ponto a site)
       items:
         - name: Criar uma ligação VPN de Utilizador
@@ -86,26 +110,30 @@
           href: openvpn-azure-ad-client.md
         - name: Configurar a autenticação multiaplicações do Azure AD
           href: openvpn-azure-ad-tenant-multi-app.md
-        - name: Instalar o Azure Firewall num hub
-          href: howto-firewall.md
     - name: Encaminhamento
       items:
-        - name: Encaminhar o tráfego de um hub virtual para NVA
+        - name: Como configurar o encaminhamento do hub virtual
+          href: how-to-virtual-hub-routing.md
+        - name: Como ver as rotas efetivas do hub virtual
+          href: effective-routes-virtual-hub.md
+        - name: Encaminhar tráfego de um hub virtual para um NVA (legado)
           items:
             - name: Portal do Azure
-              href: virtual-wan-route-table-portal.md
+              href: virtual-wan-route-table-nva-portal.md
             - name: Azure PowerShell
-              href: virtual-wan-route-table.md
-        - name: Ver rotas efetivas do hub virtual
-          href: effective-routes-virtual-hub.md
+              href: virtual-wan-route-table-nva.md
     - name: Segurança
       items:
         - name: Instalar o Azure Firewall num hub
           href: howto-firewall.md
+    - name: Monitorização
+      items:
+        - name: Registos e métricas
+          href: logs-metrics.md
 - name: Referência
   items:
     - name: Azure PowerShell
-      href: '/powershell/module/az.network#networking'
+      href: /powershell/module/az.network#networking
     - name: REST
       href: /rest/api/azure
     - name: CLI do Azure

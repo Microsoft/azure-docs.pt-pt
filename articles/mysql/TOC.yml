@@ -87,7 +87,7 @@
           href: concepts-pricing-tiers.md
         - name: Fazer pré-pagamento para a capacidade de reserva
           href: concept-reserved-pricing.md
-        - name: Limites
+        - name: Limitações
           href: concepts-limits.md
     - name: Acesso a dados e segurança
       items:
@@ -109,6 +109,8 @@
           href: concepts-data-encryption-mysql.md
         - name: Autenticação do Azure AD
           href: concepts-azure-ad-authentication.md
+        - name: Encriptação dupla de infraestrutura
+          href: concepts-infrastructure-double-encryption.md
         - name: Linha de base de segurança
           href: security-baseline.md
     - name: Continuidade do negócio
@@ -132,6 +134,8 @@
           href: concepts-query-performance-insight.md
         - name: Recomendações de Desempenho
           href: concepts-performance-recommendations.md
+        - name: Parâmetros do servidor
+          href: concepts-server-parameters.md
     - name: Desenvolvimento
       items:
         - name: Compatibilidade de controladores e ferramentas
@@ -190,6 +194,8 @@
           href: howto-connection-string.md
         - name: Configurar o SSL
           href: howto-configure-ssl.md
+        - name: Configurar TLS
+          href: howto-tls-configurations.md
         - name: Web Apps
           href: howto-connect-webapp.md
         - name: Ligar-se com o redirecionamento
@@ -272,6 +278,10 @@
           href: howto-data-encryption-cli.md
         - name: Validação de encriptação de dados
           href: howto-data-encryption-validation.md
+    - name: Encriptação dupla de infraestrutura
+      items:
+        - name: Configurar a encriptação dupla de infraestrutura
+          href: howto-double-encryption.md
     - name: Integração do Azure AD
       items:
         - name: Configurar a integração do Azure AD
@@ -290,6 +300,10 @@
           href: howto-restart-server-cli.md
         - name: Azure PowerShell
           href: howto-restart-server-powershell.md
+    - name: Mover entre regiões
+      items:
+        - name: Portal do Azure
+          href: howto-move-regions-portal.md
 - name: Referência
   items:
     - name: CLI do Azure

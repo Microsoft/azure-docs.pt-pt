@@ -13,20 +13,20 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbd1ad6178e0120bf8414fc424b79254e306d2c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9401532964e984147436f664b366fd613f3f919f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261570"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85359386"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorizar o AD FS utilizando o Azure AD Connect Health
-A seguinte documentação é específica para monitorizar a infraestrutura do AD FS com o Azure AD Connect Health. Para obter informações sobre a monitorização do Azure AD Connect (Sync) com a Azure AD Connect Health, consulte a utilização da Saúde de [Ligação AD Azure para Sincronização](how-to-connect-health-sync.md). Adicionalmente, para obter informações sobre a monitorização dos Serviços de Domínio do Diretório Ativo com a Azure AD Connect Health, consulte a utilização da [Azure AD Connect Health com a AD DS](how-to-connect-health-adds.md).
+A seguinte documentação é específica para monitorizar a infraestrutura do AD FS com o Azure AD Connect Health. Para obter informações sobre a monitorização do Azure AD Connect (Sync) com Azure AD Connect Health, consulte [utilizar a Azure AD Connect Health para sincronização](how-to-connect-health-sync.md). Além disso, para obter informações sobre a monitorização dos Serviços de Domínio do Diretório Ativo com a Azure AD Connect Health, consulte [utilizar a Azure AD Connect Health com AD DS](how-to-connect-health-adds.md).
 
 ## <a name="alerts-for-ad-fs"></a>Alertas do AD FS
 A secção Alertas do Azure AD Connect Health apresenta a lista de alertas ativos. Cada alerta inclui informações relevantes, os passos de resolução e ligações para a documentação relacionada.

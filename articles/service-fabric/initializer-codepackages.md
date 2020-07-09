@@ -1,34 +1,34 @@
 ---
-title: Código de inicializadorPacotes em Tecido de Serviço
-description: Descreve pacotes de código de inicializador em tecido de serviço.
+title: CodePackages de inicializador em tecido de serviço
+description: Descreve o CodePackages inicializador no tecido de serviço.
 author: shsha-msft
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: shsha
 ms.openlocfilehash: 8483e00f55d0dd49ba57db58b99b237ce0a169e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81430633"
 ---
 # <a name="initializer-codepackages"></a>CodePackages do Inicializador
 
-A partir da versão 7.1, o Tecido de Serviço suporta códigos de **inicializadorpara** [contentores][containers-introduction-link] e aplicações [executáveis por hóspedes.][guest-executables-introduction-link] Os Códigos de Inicializador proporcionam a oportunidade de realizar inicializações no âmbito servicePackage antes de outros Pacotes de Código iniciarem a execução. A sua relação com um ServicePackage é análoga ao que é um [SetupEntryPoint][setup-entry-point-link] para um CodePackage.
+A partir da versão 7.1, o Service Fabric suporta **codepackages inicializadores** para [contentores][containers-introduction-link] e aplicações [executáveis de hóspedes.][guest-executables-introduction-link] Os CodePackages inicializadores proporcionam a oportunidade de efetuar inicializações no âmbito ServicePackage antes que outros CodePackages comecem a ser executados. A sua relação com um ServicePackage é análoga ao que é um [SetupEntryPoint][setup-entry-point-link] para um CodePackage.
 
-Antes de prosseguir com este artigo, recomendamos que se familiarize com o modelo de [aplicação Service Fabric][application-model-link] e o modelo de [hospedagem do Tecido de Serviço.][hosting-model-link]
+Antes de prosseguir com este artigo, recomendamos conhecer o modelo de [aplicação de Tecido de Serviço][application-model-link] e o modelo de [hospedagem do Tecido de Serviço.][hosting-model-link]
 
 > [!NOTE]
-> Os Códigos de Inicializadornão são atualmente suportados para serviços escritos utilizando o modelo de programação [de Serviços Fiáveis.][reliable-services-link]
+> Os CodePackages inicializadores não são atualmente suportados para serviços escritos utilizando o modelo de programação [de Serviços Fidedigtos.][reliable-services-link]
  
 ## <a name="semantics"></a>Semântica
 
-Espera-se que um Código de Inicializador seja executado até à **conclusão com sucesso (código**de saída 0) . Um Código de Inicializador falhado é reiniciado até que esteja concluído com sucesso. São permitidos pacotes de códigode inicializadorm múltiplos e executados para **a conclusão bem sucedida,** **sequencialmente,** **numa ordem especificada** antes de outros Códigos Pacotes no Pacote de Serviço iniciarem a execução.
+Espera-se que um CodePackage inicializado seja executado **com sucesso (código de saída 0)**. Um CodePackage inicializador falhado é reiniciado até completar com sucesso. Vários CodePackages inicializadores são permitidos e executados para **conclusão com sucesso,** **sequencialmente,** **numa ordem especificada** antes de outros CodePackages no ServicePackage começarem a ser executados.
 
-## <a name="specifying-initializer-codepackages"></a>Especificar pacotes de código de inicializador
-Pode marcar um CodePackage como um Inicializador, definindo o atributo **inicializador** **verdadeiro** no ServiceManifest. Quando existem vários Códigos de Inicializador, a sua ordem de execução pode ser especificada através do atributo **ExecOrder.** **A ExecOrder** deve ser um inteiro não negativo e só é válida para pacotes de código de inicializador. Os Códigos de Inicializadorcom valores mais baixos de **ExecOrder** são executados primeiro. Se o **ExecOrder** não for especificado para um Código de Inicializador, é assumido um valor predefinido de 0. A ordem relativa de execução dos Códigos de Inicializadores Com o mesmo valor de **ExecOrder** não é especificada.
+## <a name="specifying-initializer-codepackages"></a>Especificar codepackages inicializadores
+Pode marcar um CodePackage como um Initializer definindo o atributo **Initializer** para **verdadeiro** no ServiceManifest. Quando existem vários CodePackages inicializadores, a sua ordem de execução pode ser especificada através do atributo **ExecOrder.** **O ExecOrder** deve ser um número inteiro não negativo e só é válido para CodePackages inicializador. Os CodePackages de inicializador com valores mais baixos de **ExecOrder** são executados primeiro. Se **o ExecOrder** não for especificado para um CodePackage inicializador, assume-se um valor padrão de 0. Não é especificada a ordem de execução relativa de Initializer CodePackages com o mesmo valor de **ExecOrder.**
 
-O seguinte snippet ServiceManifest descreve três CodePackages dois dos quais são marcados como Inicializadores. Quando este ServicePackage é ativado, o *InitCodePackage0* é executado primeiro, uma vez que tem o valor mais baixo de **ExecOrder**. Após a conclusão com sucesso (código de saída 0) do *InitCodePackage0*, *initCodePackage1* é executado. Finalmente, após a conclusão bem sucedida do *InitCodePackage1,* o Volume de *TrabalhoCódigoPackage* é executado.
+O seguinte snippet ServiceManifest descreve três CodePackages dois dos quais são marcados como Inicializadores. Quando este ServicePackage é ativado, *o InitCodePackage0* é executado primeiro, uma vez que tem o valor mais baixo de **ExecOrder**. Após a conclusão com sucesso (código de saída 0) do *InitCodePackage0,* o *InitCodePackage1* é executado. Finalmente, após a conclusão bem sucedida do *InitCodePackage1,* *o WorkloadCodePackage* é executado.
 
 ```xml
 <CodePackage Name="InitCodePackage0" Version="1.0" Initializer="true" ExecOrder="0">
@@ -43,16 +43,16 @@ O seguinte snippet ServiceManifest descreve três CodePackages dois dos quais s�
   ...
 </CodePackage>
 ```
-## <a name="complete-example-using-initializer-codepackages"></a>Exemplo completo usando pacotes de código de inicializador
+## <a name="complete-example-using-initializer-codepackages"></a>Exemplo completo usando CodePackages inicializador
 
-Vejamos um exemplo completo usando pacotes de código de inicializador.
+Vejamos um exemplo completo usando CodePackages inicializador.
 
 > [!IMPORTANT]
-> O exemplo que se segue assume familiaridade com a criação de [aplicações de contentores Windows utilizando o Service Fabric e o Docker][containers-getting-started-link].
+> O exemplo a seguir pressupõe a familiaridade com a criação [de aplicações de contentores Windows utilizando o Service Fabric e o Docker.][containers-getting-started-link]
 >
-> Este exemplo refere-se mcr.microsoft.com/windows/nanoserver:1809. Os recipientes do Windows Server não são compatíveis em todas as versões de um SISTEMA de acolhimento. Para saber mais, consulte a Compatibilidade da [Versão do Recipiente do Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+> Este exemplo refere-se mcr.microsoft.com/windows/nanoserver:1809. Os recipientes do Windows Server não são compatíveis em todas as versões de um sistema operativo anfitrião. Para saber mais, consulte a [compatibilidade da versão do recipiente do Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-O seguinte ServiceManifest.xml baseia-se no snippet ServiceManifest descrito anteriormente. *InitCodePackage0*, *InitCodePackage1* e *WorkloadCodePackagesão* CodePackages que representam contentores. Após a ativação, *o InitCodePackage0* é executado primeiro. Regista uma mensagem num ficheiro e sai. Em seguida, *o InitCodePackage1* é executado, que também regista uma mensagem para um ficheiro e saídas. Finalmente, o *Pacote Código de Carga de Trabalho* começa a execução. Também regista uma mensagem num ficheiro, envia o conteúdo do ficheiro para **stdout** e, em seguida, pings para sempre.
+O seguinte ServiceManifest.xml baseia-se no snippet ServiceManifest descrito anteriormente. *InitCodePackage0*, *InitCodePackage1* e *WorkloadCodePackage* são CodePackages que representam contentores. Após a ativação, *o InitCodePackage0* é executado primeiro. Regista uma mensagem num ficheiro e sai. Em seguida, *o InitCodePackage1* é executado, que também regista uma mensagem num ficheiro e sai. Finalmente, a *WorkloadCodePackage* começa a ser executada. Também regista uma mensagem num ficheiro, coloca o conteúdo do ficheiro em **stdout** e, em seguida, pings para sempre.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -93,7 +93,7 @@ O seguinte ServiceManifest.xml baseia-se no snippet ServiceManifest descrito ant
 </ServiceManifest>
 ```
 
-O seguinte ApplicationManifest.xml descreve uma aplicação baseada no ServiceManifest.xml discutido acima. Note que especifica o **mesmo** volume de montagem para todos os recipientes, ou seja, **C:\WorkspaceOnHost** é montado em **C:\WorkspaceOnContainer** em todos os três recipientes. O efeito líquido é que todos os recipientes escrevem para o mesmo ficheiro de registo na ordem em que são ativados.
+O ApplicationManifest.xml seguinte descreve uma aplicação com base no ServiceManifest.xml discutido acima. Note que especifica o mesmo suporte de **volume** para todos os recipientes, ou seja, **C:\WorkspaceOnHost** é montado em **C:\WorkspaceOnContainer** nos três recipientes. O efeito líquido é que todos os recipientes escrevem para o mesmo ficheiro de registo na ordem em que são ativados.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -141,7 +141,7 @@ Hi from WorkloadCodePackage.
 Consulte os seguintes artigos para obter informações relacionadas.
 
 * [Tecido de serviço e recipientes.][containers-introduction-link]
-* [Tecido de Serviço e executáveis convidados.][guest-executables-introduction-link]
+* [Tecido de serviço e executáveis de hóspedes.][guest-executables-introduction-link]
 
 <!-- Links -->
 [containers-introduction-link]: service-fabric-containers-overview.md

@@ -1,21 +1,20 @@
 ---
 title: Fontes de dados suportadas no Catálogo de Dados do Azure
-description: Este artigo lista especificações das fontes de dados atualmente suportadas para o Catálogo de Dados Azure.
+description: Este artigo lista especificações das fontes de dados atualmente suportadas para o Catálogo de Dados do Azure.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: ec716924d3cebf8e78b0505b95837b91c568813a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78898155"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Fontes de dados suportadas no Catálogo de Dados do Azure
 
-Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo de um clique, ou através da introdução manual de informações diretamente no portal web do Catálogo de Dados do Azure. A tabela seguinte resume todas as fontes de dados que são suportadas pelo catálogo hoje em dia, e as capacidades de publicação para cada um. Também estão listadas as ferramentas de dados externas que cada fonte de dados pode lançar a partir da nossa experiência "open-in" do portal. A segunda tabela contém uma especificação mais técnica de cada propriedade de ligação fonte de dados.
+Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo de cliques ou introduzindo manualmente informações diretamente no portal web do Catálogo de Dados do Azure. A tabela seguinte resume todas as fontes de dados que são suportadas pelo catálogo de hoje, e as capacidades de publicação para cada um. Também estão listadas as ferramentas de dados externas que cada fonte de dados pode lançar a partir da nossa experiência "open-in" do nosso portal. A segunda tabela contém uma especificação mais técnica de cada propriedade de ligação de fonte de dados.
 
 ## <a name="list-of-supported-data-sources"></a>Lista de origens de dados suportadas
 
@@ -29,7 +28,7 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
        <td><b>Notas</b></td>
     </tr>
     <tr>
-      <td>Diretório azure Data Lake Store (Apenas Gen 1)</td>
+      <td>Diretório da Loja Azure Data Lake (Apenas Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -37,7 +36,7 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
       <td></td>
     </tr>
     <tr>
-      <td>Ficheiro Azure Data Lake Store (Apenas Gen 1)</td>
+      <td>Arquivo Azure Data Lake Store (Apenas Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -95,7 +94,7 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
       <td></td>
     </tr>
     <tr>
-      <td>Vista para a colmeia</td>
+      <td>Vista de colmeia</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -119,23 +118,23 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
       <td></td>
     </tr>
     <tr>
-      <td>Tabela de bases de dados oracle</td>
+      <td>Tabela de bases de dados do Oráculo</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td>Oracle 10 e versões posteriores.</td>
+      <td>Oráculo 10 e versões posteriores.</td>
     </tr>
     <tr>
-      <td>Vista da Base de Dados Oracle</td>
+      <td>Vista da base de dados do Oráculo</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td>Oracle 10 e versões posteriores.</td>
+      <td>Oráculo 10 e versões posteriores.</td>
     </tr>
     <tr>
-      <td>Outros (ativos genéricos)</td>
+      <td>Outros (ativo genérico)</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
@@ -143,31 +142,23 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
       <td></td>
     </tr>
     <tr>
-      <td>Tabela azure SQL Data Warehouse</td>
+      <td>Tabela do Armazém de Dados Azure SQL</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Excel, Power BI Desktop, ferramentas de dados do Servidor SQL</td>
+      <td>Excel, Power BI Desktop, ferramentas de dados do SQL Server</td>
       <td></td>
     </tr>
     <tr>
-      <td>Vista azure SQL Data Warehouse</td>
+      <td>Vista do Armazém de Dados Azure SQL</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Excel, Power BI Desktop, ferramentas de dados do Servidor SQL</td>
+      <td>Excel, Power BI Desktop, ferramentas de dados do SQL Server</td>
       <td></td>
     </tr>
     <tr>
-      <td>Dimensão dos Serviços de Análise do Servidor SQL</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>Excel, Power BI Desktop</td>
-      <td>SQL Server 2008 e versões posteriores.</td>
-    </tr>
-    <tr>
-      <td>Serviços de Análise de ServidorEs SQL KPI</td>
+      <td>Dimensão dos serviços de análise de servidores SQL</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -175,7 +166,15 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
       <td>SQL Server 2008 e versões posteriores.</td>
     </tr>
     <tr>
-      <td>Medida de Serviços de Análise de Servidores SQL</td>
+      <td>SQL Server Analysis Services KPI</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop</td>
+      <td>SQL Server 2008 e versões posteriores.</td>
+    </tr>
+    <tr>
+      <td>Medida dos Serviços de Análise de Servidores SQL</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -191,31 +190,31 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
       <td>SQL Server 2008 e versões posteriores.</td>
     </tr>
     <tr>
-      <td>Relatório de Serviços de Reporte de Servidores SQL</td>
+      <td>Relatório dos Serviços de Relatório de Relatório de Relatório de Servidores do SQL</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td>Browser</td>
-      <td>Servidores de modo nativo apenas. O modo SharePoint não é suportado. SQL Server 2008 e versões posteriores apenas</td>
+      <td>Apenas servidores de modo nativo. O modo SharePoint não é suportado. SQL Server 2008 e versões posteriores apenas</td>
     </tr>
     <tr>
-      <td>Tabela do Servidor SQL</td>
+      <td>Tabela de servidor SQL</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Excel, Power BI Desktop, ferramentas de dados do Servidor SQL</td>
+      <td>Excel, Power BI Desktop, ferramentas de dados do SQL Server</td>
       <td>SQL Server 2008 e versões posteriores.</td>
     </tr>
     <tr>
-      <td>Vista do Servidor SQL</td>
+      <td>Vista do servidor SQL</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Excel, Power BI Desktop, ferramentas de dados do Servidor SQL</td>
+      <td>Excel, Power BI Desktop, ferramentas de dados do SQL Server</td>
       <td>SQL Server 2008 e versões posteriores.</td>
     </tr>
     <tr>
-      <td>Tabela Teradata</td>
+      <td>Mesa Teradata</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -295,7 +294,7 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
       <td></td>
     </tr>
     <tr>
-      <td>PONTO final http</td>
+      <td>PONTO FINAL HTTP</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -303,7 +302,7 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
       <td></td>
     </tr>
     <tr>
-      <td>Arquivo HTTP</td>
+      <td>Ficheiro HTTP</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -335,7 +334,7 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
       <td></td>
     </tr>
     <tr>
-      <td>Vista postgresQL</td>
+      <td>Vista pós-SQL</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -351,7 +350,7 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
       <td></td>
     </tr>
     <tr>
-      <td> Objeto de força de vendas</td>
+      <td> Objeto salesforce</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -367,15 +366,15 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
       <td></td>
     </tr>
     <tr>
-      <td>Coleção Azure Cosmos DB</td>
+      <td>Coleção DB da Azure Cosmos</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Apenas são compatíveis coleções antigas de coleções Azure DocumentDB e SQL API em Azure Cosmos DB. As APIs DB da Newer Cosmos ainda não são apoiadas. Escolha o Azure DocumentDB na lista de Fontes de Dados.</td>
+      <td>Apenas as coleções antigas de coleções Azure DocumentDB e SQL API em Azure Cosmos DB são compatíveis. As APIs de Novos Cosmos ainda não estão apoiadas. Escolha Azure DocumentDB na lista de Fonte de Dados.</td>
     </tr>
     <tr>
-      <td>Tabela Genérica ODBC</td>
+      <td>Tabela ODBC genérica</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -383,7 +382,7 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
       <td></td>
     </tr>
     <tr>
-      <td>Vista genérica da ODBC</td>
+      <td>Vista genérica de ODBC</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -399,7 +398,7 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
       <td>Publicar como um ativo genérico da ODBC</td>
     </tr>
     <tr>
-      <td>Vista de Cassandra</td>
+      <td>Vista cassandra</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -407,7 +406,7 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
       <td>Publicar como um ativo genérico da ODBC</td>
     </tr>
     <tr>
-      <td>Tabela sybase</td>
+      <td>Tabela Sybase</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -415,7 +414,7 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
       <td></td>
     </tr>
     <tr>
-      <td>Vista sybase</td>
+      <td>Vista Sybase</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -440,16 +439,16 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
     </tr>
 </table>
 
-Se quiser ver uma fonte específica de dados suportada, sugira que (ou voice o seu suporte se já foi sugerido) indo ao Catálogo de Dados nos Fóruns de [Feedback do Azure](https://feedback.azure.com/forums/906052-data-catalog).
+Se quiser ver uma fonte de dados específica apoiada, sugira-a (ou expresse o seu suporte se já tiver sido sugerida) indo ao Catálogo de [Dados nos Fóruns de Feedback Azure](https://feedback.azure.com/forums/906052-data-catalog).
 
 
 ## <a name="data-source-reference-specification"></a>Especificação de referência de fonte de dados
 > [!NOTE]
-> A coluna **de estrutura DSL** na tabela seguinte lista apenas as propriedades de ligação para o saco de propriedade "address" que são utilizados pelo Catálogo de Dados Azure. Ou seja, o saco de propriedade "address" pode conter outras propriedades de ligação da fonte de dados que o Catálogo de Dados do Azure persiste, mas não utiliza.
+> A coluna **de estrutura DSL** na tabela a seguir lista apenas as propriedades de ligação para o saco de propriedade "address" que são utilizados pelo Azure Data Catalog. Ou seja, o saco de propriedade "endereço" pode conter outras propriedades de conexão da fonte de dados que o Catálogo de Dados Azure persiste, mas não utiliza.
 
 <table>
     <tr>
-       <td><b>Tipo de fonte</b></td>
+       <td><b>Tipo de origem</b></td>
        <td><b>Tipo de recurso</b></td>
        <td><b>Tipos de objetos</b></td>
        <td><b>Estrutura DSL<b></td>

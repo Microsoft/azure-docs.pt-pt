@@ -3,12 +3,12 @@ title: 'Quickstart: A sua primeira consulta de portal'
 description: Neste arranque rápido, siga os passos para executar a sua primeira consulta a partir do portal Azure usando o Azure Resource Graph Explorer.
 ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: a4b8e0b792dfda1bbd1866444ddc6c4ec8d289b6
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 1e506ee1b1c610381f300323f80c38eb6bf67caa
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148043"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958812"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Quickstart: Executar a sua primeira consulta de gráfico de recurso usando O Explorador de Gráficos de Recursos Azure
 
@@ -90,11 +90,11 @@ Para fornecer exemplos de consultas de gráficos de recursos e como o Resource G
 
 - [Explorador de gráficos de recurso - painel de amostras #1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
 
-  [![Imagem de exemplo para amostra de dashboard #1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample1-small.png" alt-text="Imagem de exemplo para amostra de dashboard #1" lightbox="./media/arge-sample1-large.png":::
 
 - [Explorador de gráficos de recurso - painel de amostras #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  [![Imagem de exemplo para amostra de dashboard #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Imagem de exemplo para amostra de dashboard #2" lightbox="./media/arge-sample2-large.png":::
 
 > [!NOTE]
 > As contagens e gráficos nas imagens do painel de instrumentos acima variam consoante o seu ambiente Azure.
@@ -117,7 +117,7 @@ Se desejar remover os dashboards de gráficos de recursos da amostra do seu ambi
 
 1. Selecione **Eliminar** do menu do painel de instrumentos na parte superior do painel de instrumentos e selecione **Ok** para confirmar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, usou o Azure Resource Graph Explorer para executar a sua primeira consulta e analisou exemplos de dashboards alimentados por Resource Graph. Para saber mais sobre a linguagem Resource Graph, continue na página de detalhes da linguagem de consulta.
 

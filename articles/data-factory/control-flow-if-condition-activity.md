@@ -1,6 +1,6 @@
 ---
-title: Se condicionar a atividade na Fábrica de Dados Azure
-description: A atividade Se Condition permite controlar o fluxo de processamento com base numa condição.
+title: Se a atividade da condição na Fábrica de Dados Azure
+description: A atividade se a Condição permite controlar o fluxo de processamento com base numa condição.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -11,19 +11,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9b491c4f0cc99395c44d989bf19fa2a7b03da696
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9f65ffc9ef24b18ce0f18571c1f3fc91e7ca7fdf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417157"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85414611"
 ---
-# <a name="if-condition-activity-in-azure-data-factory"></a>Se condicionar a atividade na Fábrica de Dados Azure
+# <a name="if-condition-activity-in-azure-data-factory"></a>Se a atividade da condição na Fábrica de Dados Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A atividade Se Condição disponibiliza a mesma funcionalidade que as instruções “se” fornecem nas linguagens de programação. Avalia um conjunto de atividades quando a condição é avaliada como `true` e outro conjunto de atividades quando é avaliada como `false`. 
+A atividade Se Condição disponibiliza a mesma funcionalidade que as instruções “se” fornecem nas linguagens de programação. Executa um conjunto de atividades quando a condição avalia `true` e outro conjunto de atividades quando a condição `false` avalia. 
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 ```json
 
@@ -63,23 +62,23 @@ A atividade Se Condição disponibiliza a mesma funcionalidade que as instruçõ
 }
 ```
 
-## <a name="type-properties"></a>Propriedades de tipo
+## <a name="type-properties"></a>Tipo de propriedades
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade se-condição. | String | Sim
+name | Nome da atividade em condição. | String | Sim
 tipo | Deve ser definido para **SeCondição** | String | Sim
 expression | Expressão que deve avaliar a verdade ou falsa | Expressão com tipo de resultado boolean | Sim
-seTrueActivities | Conjunto de atividades que são executadas `true`quando a expressão avalia para . | Matriz | Sim
-seFakeActivities | Conjunto de atividades que são executadas `false`quando a expressão avalia para . | Matriz | Sim
+ifTrueActividades | Conjunto de atividades que são executadas quando a expressão avalia a `true` . | Matriz | Sim
+seFalseActividades | Conjunto de atividades que são executadas quando a expressão avalia a `false` . | Matriz | Sim
 
 ## <a name="example"></a>Exemplo
-O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de saída. A pasta de saída é determinada pelo valor do parâmetro do gasoduto: routeSelection. Se o valor da rotaSelecção for verdadeira, os dados são copiados para outputPath1. E, se o valor da rotaSelecção for falso, os dados são copiados para outputPath2. 
+O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de saída. A pasta de saída é determinada pelo valor do parâmetro do gasoduto: routeSelection. Se o valor das rotasSelecção for verdadeiro, os dados são copiados para outputPath1. E, se o valor das rotasSelecção for falso, os dados são copiados para outputPath2. 
 
 > [!NOTE]
-> Esta secção fornece definições JSON e amostra de comandos PowerShell para executar o gasoduto. Para um passeio com instruções passo a passo para criar um pipeline data Factory utilizando definições Azure PowerShell e JSON, consulte [tutorial: crie uma fábrica de dados utilizando a Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> Esta secção fornece definições JSON e comandos de amostra PowerShell para executar o gasoduto. Para uma passagem com instruções passo a passo para criar um oleoduto data factory utilizando definições Azure PowerShell e JSON, consulte tutorial: crie uma fábrica de [dados utilizando a Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Pipeline com atividade IF-Condition (Adfv2QuickStartPipeline.json)
+### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Gasoduto com atividade IF-Condition (Adfv2QuickStartPipeline.js)
 
 ```json
 {
@@ -180,7 +179,7 @@ O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de s
 }
 ```
 
-Outro exemplo para a expressão é: 
+Outro exemplo de expressão é: 
 
 ```json
 "expression":  {
@@ -190,7 +189,7 @@ Outro exemplo para a expressão é:
 ```
 
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Serviço ligado ao armazenamento azure (AzureStorageLinkedService.json)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Serviço ligado a Azure Storage (AzureStorageLinkedService.jsligado)
 
 ```json
 {
@@ -204,8 +203,8 @@ Outro exemplo para a expressão é:
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Conjunto de dados Azure Blob parametrizado (BlobDataset.json)
-O gasoduto define a **pastaCaminho** para o valor de **saídaPath1** ou **outputPath2** parâmetro do gasoduto. 
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Conjunto de dados parametrizado do Azure Blob (BlobDataset.jsligado)
+O pipeline define a **pastaPath** ao valor de **saídaPath1** ou **saída Parâmetro2** do pipeline. 
 
 ```json
 {
@@ -231,7 +230,7 @@ O gasoduto define a **pastaCaminho** para o valor de **saídaPath1** ou **output
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Parâmetro de gasoduto JSON (PipelineParameters.json)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Parâmetro de gasoduto JSON (PipelineParameters.jsligado)
 
 ```json
 {
@@ -287,7 +286,7 @@ Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
 $result.Error -join "`r`n"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte outras atividades de fluxo de controlo suportadas pela Data Factory: 
 
 - [Executar a Atividade do Pipeline](control-flow-execute-pipeline-activity.md)

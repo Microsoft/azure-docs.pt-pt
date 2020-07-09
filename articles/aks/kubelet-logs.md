@@ -5,35 +5,34 @@ services: container-service
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: b7a74803af916f9e9de72dd528273007ce37832f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77595387"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Obter registos kubelet dos nós de cluster do Azure Kubernetes Service (AKS)
 
-Como parte da operação de um cluster AKS, você pode precisar de rever os registos para resolver um problema. Incorporado no portal Azure é a capacidade de visualizar troncos para os [componentes principais da AKS][aks-master-logs] ou [contentores num cluster AKS][azure-container-logs]. Ocasionalmente, você pode precisar de obter registos de *kubelet* de um nó AKS para fins de resolução de problemas.
+Como parte da operação de um cluster AKS, poderá ser necessário rever os registos para resolver um problema. Incorporada no portal Azure é a capacidade de visualizar registos para os componentes ou contentores [principais da AKS][aks-master-logs] [num cluster AKS][azure-container-logs]. Ocasionalmente, poderá necessitar de obter registos de *kubelet* de um nó AKS para efeitos de resolução de problemas.
 
-Este artigo mostra como `journalctl` pode usar para ver os registos de *kubelet* num nó AKS.
+Este artigo mostra-lhe como pode usar `journalctl` para ver os registos de *kubelet* num nó AKS.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
-Este artigo assume que você tem um aglomerado AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
+Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
 ## <a name="create-an-ssh-connection"></a>Criar uma ligação SSH
 
-Em primeiro lugar, crie uma ligação SSH com o nó no qual precisa de ver os registos de *kubelet.* Esta operação é detalhada no documento de cluster [ssh em Azure Kubernetes Service (AKS).][aks-ssh]
+Em primeiro lugar, crie uma ligação SSH com o nó no qual precisa de visualizar os registos *de kubelet.* Esta operação é detalhada no documento de nós de [cluster do Serviço Azure Kubernetes (AKS).][aks-ssh]
 
 ## <a name="get-kubelet-logs"></a>Obter registos kubelet
 
-Depois de ter ligado ao nó, faça o seguinte comando para puxar os troncos de *kubelet:*
+Uma vez ligado ao nó, erte o seguinte comando para puxar os registos de *kubelet:*
 
 ```console
 sudo journalctl -u kubelet -o cat
 ```
 
-A saída da amostra seguinte mostra os dados de registo de *kubelet:*
+A seguinte saída da amostra mostra os dados do registo de *kubelet:*
 
 ```
 I0508 12:26:17.905042    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
@@ -59,9 +58,9 @@ I0508 12:28:48.321952    8672 kubelet_node_status.go:497] Using Node Hostname fr
 I0508 12:28:58.344656    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Se precisar de informações adicionais sobre problemas do mestre Kubernetes, consulte os [registos de nó mestre kubernetes em AKS][aks-master-logs].
+Se precisar de informações adicionais sobre a resolução de problemas do mestre Kubernetes, consulte [os registos de nódos de kubernetes em AKS][aks-master-logs].
 
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md

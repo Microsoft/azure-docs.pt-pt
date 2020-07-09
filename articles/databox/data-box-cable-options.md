@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
 ms.openlocfilehash: ffabd917eff1c545bba734ab1621b947ee8d9ae9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77920642"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Opções de cablagem do Azure Data Box
@@ -129,6 +128,6 @@ Execute os seguintes passos para instalar os cabos do dispositivo.
 2. Utilize um servidor DHCP ou DNS para identificar o endereço IP.
 3. A partir de um servidor na mesma rede, aceda à UI Web local do dispositivo com o endereço IP atribuído pelo servidor DHCP. Inicie sessão e desbloqueie o Data Box com a palavra-passe de desbloqueio no portal do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Depois de instalar os cabos do dispositivo, aceda a [Copiar dados para o Azure Data Box](data-box-deploy-copy-data.md).

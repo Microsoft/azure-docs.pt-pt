@@ -1,65 +1,65 @@
 ---
-title: Autorizar acesso a dados de blob ou fila com o Azure CLI
+title: Autorizar o acesso a dados de blob ou fila com o Azure CLI
 titleSuffix: Azure Storage
-description: Especifique como autorizar operações de dados contra dados blob ou fila com o Azure CLI. Pode autorizar operações de dados utilizando credenciais De AD Azure, com a chave de acesso à conta, ou com um símbolo de assinatura de acesso partilhado (SAS).
+description: Especificar como autorizar operações de dados contra dados de bolhas ou filas com o Azure CLI. Pode autorizar operações de dados utilizando credenciais Azure AD, com a chave de acesso à conta, ou com um token de assinatura de acesso partilhado (SAS).
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c7091592f8806b6f6655315ae1faace286c2c1f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4af9c23e2599ad666908763720a5f01303b8d50
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78207696"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805485"
 ---
-# <a name="authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Autorizar acesso a dados de blob ou fila com o Azure CLI
+# <a name="authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Autorizar o acesso a dados de blob ou fila com o Azure CLI
 
-O Azure Storage fornece extensões para o Azure CLI que lhe permitem especificar como pretende autorizar operações em dados de blob ou fila. Pode autorizar operações de dados das seguintes formas:
+O Azure Storage fornece extensões para o Azure CLI que lhe permitem especificar como pretende autorizar operações em dados de bolhas ou filas. Pode autorizar operações de dados das seguintes formas:
 
-- Com um diretor de segurança Azure Ative Directory (Azure AD). A Microsoft recomenda a utilização de credenciais De AD Azure para uma segurança superior e facilidade de utilização.
-- Com a chave de acesso à conta ou um símbolo de assinatura de acesso partilhado (SAS).
+- Com um diretor de segurança Azure Ative (Azure AD). A Microsoft recomenda a utilização de credenciais Azure AD para uma segurança superior e facilidade de utilização.
+- Com a chave de acesso à conta ou um sinal de assinatura de acesso partilhado (SAS).
 
 ## <a name="specify-how-data-operations-are-authorized"></a>Especificar como as operações de dados são autorizadas
 
-Os comandos Azure CLI para leitura e escrita `--auth-mode` de blob e dados de fila incluem o parâmetro opcional. Especifique este parâmetro para indicar como uma operação de dados deve ser autorizada:
+Os comandos Azure CLI para ler e escrever bolhas e dados de fila incluem o `--auth-mode` parâmetro opcional. Especifique este parâmetro para indicar como uma operação de dados deve ser autorizada:
 
-- Defina `--auth-mode` o `login` parâmetro para iniciar sessão utilizando um diretor de segurança Azure AD (recomendado).
-- Defina `--auth-mode` o parâmetro `key` para o valor legado para tentar recuperar a chave de acesso à conta a utilizar para autorização. Se omitir `--auth-mode` o parâmetro, o AZURE CLI também tenta recuperar a chave de acesso.
+- Descreva o `--auth-mode` parâmetro para iniciar a `login` sação utilizando um princípio de segurança Azure AD (recomendado).
+- Desa estade o `--auth-mode` parâmetro ao valor do legado para tentar recuperar a chave de acesso à conta para usar para `key` autorização. Se omitir o `--auth-mode` parâmetro, o CLI Azure também tenta recuperar a chave de acesso.
 
-Para utilizar `--auth-mode` o parâmetro, certifique-se de que instalou a versão Azure CLI 2.0.46 ou posterior. Corra `az --version` para verificar a sua versão instalada.
+Para utilizar o `--auth-mode` parâmetro, certifique-se de que instalou a versão 2.0.46 ou posterior do Azure CLI. Corra `az --version` para verificar a sua versão instalada.
 
 > [!IMPORTANT]
-> Se omitir `--auth-mode` o parâmetro ou `key`o definir, então o Azure CLI tenta utilizar a chave de acesso à conta para autorização. Neste caso, a Microsoft recomenda que forneça a chave de acesso no comando ou na variável **ambiente AZURE_STORAGE_KEY.** Para obter mais informações sobre variáveis ambientais, consulte a secção intitulada [Definir variáveis ambientais para parâmetros de autorização](#set-environment-variables-for-authorization-parameters).
+> Se omitir o `--auth-mode` parâmetro ou o `key` definir, então o CLI Azure tenta utilizar a chave de acesso à conta para autorização. Neste caso, a Microsoft recomenda que forneça a chave de acesso no comando ou na variável ambiente **AZURE_STORAGE_KEY.** Para obter mais informações sobre variáveis ambientais, consulte a secção intitulada [Conjunto de variáveis ambientais para parâmetros de autorização](#set-environment-variables-for-authorization-parameters).
 >
-> Se não fornecer a chave de acesso, o Azure CLI tenta chamar o fornecedor de recursos de armazenamento Azure para recuperá-la para cada operação. A realização de muitas operações de dados que exijam uma chamada para o fornecedor de recursos pode resultar em estrangulamento. Para obter mais informações sobre os limites do fornecedor de recursos, consulte os objetivos de [escalabilidade e desempenho para o fornecedor](scalability-targets-resource-provider.md)de recursos de armazenamento azure .
+> Se não fornecer a chave de acesso, o CLI Azure tenta ligar para o fornecedor de recursos de armazenamento Azure para recuperá-la para cada operação. A realização de muitas operações de dados que requerem uma chamada para o fornecedor de recursos pode resultar em estrangulamento. Para obter mais informações sobre os limites do fornecedor de recursos, consulte [os objetivos de Escalabilidade e desempenho para o fornecedor de recursos de armazenamento Azure](scalability-targets-resource-provider.md).
 
-## <a name="authorize-with-azure-ad-credentials"></a>Autorizar com credenciais da AD Azure
+## <a name="authorize-with-azure-ad-credentials"></a>Autorizar com credenciais AD AZure
 
-Quando você inscreveu no Azure CLI com credenciais Azure AD, um token de acesso OAuth 2.0 é devolvido. Esta ficha é automaticamente utilizada pelo Azure CLI para autorizar operações de dados subsequentes contra o armazenamento de Blob ou Fila. Para operações apoiadas, já não precisa de passar uma chave de conta ou um símbolo SAS com o comando.
+Quando você iniciar súm na Azure CLI com credenciais Azure AD, um token de acesso OAuth 2.0 é devolvido. Este token é automaticamente utilizado pela Azure CLI para autorizar operações de dados subsequentes contra o armazenamento de Blob ou Queue. Para operações apoiadas, já não precisa de passar uma chave de conta ou um sinal SAS com o comando.
 
-Pode atribuir permissões a dados de blob e fila a um diretor de segurança da AD Azure através do controlo de acesso baseado em funções (RBAC). Para obter mais informações sobre as funções RBAC no Armazenamento Azure, consulte Gerir os direitos de acesso aos dados de [Armazenamento Azure com RBAC](storage-auth-aad-rbac.md).
+Pode atribuir permissões a um principal de segurança AD AZure através de um controlo de acesso baseado em funções (RBAC). Para obter mais informações sobre as funções do RBAC no Azure Storage, consulte [Gerir os direitos de acesso aos dados de armazenamento do Azure com o RBAC.](storage-auth-aad-rbac.md)
 
 ### <a name="permissions-for-calling-data-operations"></a>Permissões para chamadas de operações de dados
 
-As extensões de Armazenamento Azure são suportadas para operações em dados de blob e fila. Quais as operações que pode ligar depende das permissões concedidas ao diretor de segurança da AD Azure com as quais se inscreveu no Azure CLI. As permissões para recipientes ou filas de armazenamento Azure são atribuídas via RBAC. Por exemplo, se lhe for atribuída a função **Blob Data Reader,** então pode executar comandos de script que lêem dados de um recipiente ou fila. Se lhe for atribuída a função **Blob Data Contributor,** então pode executar comandos de script que leiam, escrevem ou apaguem um recipiente ou fila ou os dados que contêm.
+As extensões de Armazenamento Azure são suportadas para operações em dados de blob e fila. Quais as operações que pode ligar dependem das permissões concedidas ao diretor de segurança da AZure AD com as quais se inscreve no Azure CLI. As permissões para os recipientes ou filas de armazenamento Azure são atribuídas através do RBAC. Por exemplo, se lhe for atribuída a função **De Leitore de Dados Blob,** então pode executar comandos de script que lêem dados a partir de um recipiente ou fila. Se lhe for atribuída a função **De Contribuinte de Dados Blob,** então pode executar comandos de script que leiam, escrevam ou apaguem um recipiente ou fila ou os dados que contêm.
 
-Para obter mais informações sobre as permissões necessárias para cada operação de armazenamento azure num recipiente ou fila, consulte as operações de armazenamento de [chamadas com fichas OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+Para obter mais informações sobre as permissões necessárias para cada operação de Armazenamento Azure num recipiente ou fila, consulte [as operações de armazenamento de chamadas com fichas OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
 
-### <a name="example-authorize-an-operation-to-create-a-container-with-azure-ad-credentials"></a>Exemplo: Autorizar uma operação para criar um contentor com credenciais DaD Azure
+### <a name="example-authorize-an-operation-to-create-a-container-with-azure-ad-credentials"></a>Exemplo: Autorizar uma operação para criar um recipiente com credenciais AZure AD
 
-O exemplo que se segue mostra como criar um recipiente a partir do Azure CLI utilizando as suas credenciais De AD Azure. Para criar o recipiente, terá de iniciar sessão no Azure CLI, e precisará de um grupo de recursos e de uma conta de armazenamento. Para aprender a criar estes recursos, consulte [Quickstart: Criar, descarregar e listar bolhas com o Azure CLI](../blobs/storage-quickstart-blobs-cli.md).
+O exemplo a seguir mostra como criar um recipiente a partir do Azure CLI utilizando as suas credenciais AZure AD. Para criar o contentor, terá de iniciar sessão no Azure CLI, e precisará de um grupo de recursos e de uma conta de armazenamento. Para aprender a criar estes recursos, consulte [Quickstart: Criar, descarregar e listar bolhas com Azure CLI](../blobs/storage-quickstart-blobs-cli.md).
 
-1. Antes de criar o recipiente, atribua a função de Contribuinte de [Dados blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) de armazenamento a si mesmo. Apesar de ser o proprietário da conta, necessita de permissões explícitas para efetuar operações de dados contra a conta de armazenamento. Para obter mais informações sobre a atribuição de funções RBAC, consulte o Acesso ao Grant à blob Azure e aos dados de [fila com rBAC no portal Azure.](storage-auth-aad-rbac.md)
+1. Antes de criar o recipiente, atribua a [função de Contribuinte de Dados de Armazenamento blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a si mesmo. Apesar de ser o proprietário da conta, necessita de permissões explícitas para realizar operações de dados contra a conta de armazenamento. Para obter mais informações sobre a atribuição de funções de RBAC, consulte [o acesso do Grant à bolha de Azure e dados de fila com o RBAC no portal Azure](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > As atribuições de funções RBAC podem demorar alguns minutos a propagar-se.
+    > As atribuições de funções da RBAC podem demorar alguns minutos a propagar-se.
 
-1. Ligue para o recipiente de `--auth-mode` [armazenamento az criar](/cli/azure/storage/container#az-storage-container-create) comando com o parâmetro definido para `login` criar o recipiente usando as suas credenciais AD Azure. Lembre-se de substituir os valores do espaço reservado em suportes angulares por valores próprios:
+1. Ligue para o [recipiente de armazenamento az criar](/cli/azure/storage/container#az-storage-container-create) comando com o parâmetro definido para criar o recipiente `--auth-mode` `login` usando as suas credenciais AZure AD. Lembre-se de substituir os valores do espaço reservado nos suportes angulares com os seus próprios valores:
 
     ```azurecli
     az storage container create \
@@ -70,9 +70,9 @@ O exemplo que se segue mostra como criar um recipiente a partir do Azure CLI uti
 
 ## <a name="authorize-with-the-account-access-key"></a>Autorizar com a chave de acesso à conta
 
-Se possuir a chave da conta, pode ligar para qualquer operação de dados do Armazenamento Azure. Em geral, a utilização da chave da conta é menos segura. Se a chave da conta estiver comprometida, todos os dados da sua conta podem estar comprometidos.
+Se possuir a chave da conta, pode ligar para qualquer operação de dados de armazenamento Azure. Em geral, a utilização da chave de conta é menos segura. Se a chave da conta estiver comprometida, todos os dados da sua conta poderão ficar comprometidos.
 
-O exemplo que se segue mostra como criar um recipiente utilizando a chave de acesso à conta. Especifique a chave `--auth-mode` da conta `key` e forneça o parâmetro com o valor:
+O exemplo a seguir mostra como criar um recipiente utilizando a chave de acesso à conta. Especifique a chave da conta e forneça o `--auth-mode` parâmetro com o `key` valor:
 
 ```azurecli
 az storage container create \
@@ -84,7 +84,7 @@ az storage container create \
 
 ## <a name="authorize-with-a-sas-token"></a>Autorizar com um token SAS
 
-Se possuir um token SAS, pode ligar para operações de dados que são permitidas pelo SAS. O exemplo que se segue mostra como criar um recipiente utilizando um símbolo SAS:
+Se possuir um token SAS, pode ligar para operações de dados que são permitidas pelo SAS. O exemplo a seguir mostra como criar um recipiente utilizando um token SAS:
 
 ```azurecli
 az storage container create \
@@ -95,17 +95,17 @@ az storage container create \
 
 ## <a name="set-environment-variables-for-authorization-parameters"></a>Definir variáveis ambientais para parâmetros de autorização
 
-Pode especificar parâmetros de autorização em variáveis ambientais para evitar incluí-los em todas as chamadas para uma operação de dados de Armazenamento Azure. A tabela que se segue descreve as variáveis ambientais disponíveis.
+Pode especificar parâmetros de autorização em variáveis ambientais para evitar incluí-los em cada chamada para uma operação de dados de armazenamento Azure. A tabela a seguir descreve as variáveis ambientais disponíveis.
 
 | Variável de ambiente                  | Descrição                                                                                                                                                                                                                                                                                                                                                                     |
 |---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    AZURE_STORAGE_ACCOUNT              |    O nome da conta de armazenamento. Esta variável deve ser utilizada em conjunto com a chave da conta de armazenamento ou com um token SAS. Se nenhum dos dois estiver presente, o Azure CLI tenta recuperar a chave de acesso à conta de armazenamento utilizando a conta AD Azure autenticada. Se um grande número de comandos forexecutado de uma só vez, o limite de estrangulamento do fornecedor de recursos de armazenamento Azure pode ser atingido. Para obter mais informações sobre os limites do fornecedor de recursos, consulte os objetivos de [escalabilidade e desempenho para o fornecedor](scalability-targets-resource-provider.md)de recursos de armazenamento azure .             |
+|    AZURE_STORAGE_ACCOUNT              |    O nome da conta de armazenamento. Esta variável deve ser utilizada em conjunto com a chave da conta de armazenamento ou com um token SAS. Se nenhum dos dois estiver presente, o Azure CLI tenta recuperar a chave de acesso à conta de armazenamento utilizando a conta Azure AD autenticada. Se um grande número de comandos for executado de uma só vez, o limite de estrangulamento do fornecedor de recursos de armazenamento Azure pode ser atingido. Para obter mais informações sobre os limites do fornecedor de recursos, consulte [os objetivos de Escalabilidade e desempenho para o fornecedor de recursos de armazenamento Azure](scalability-targets-resource-provider.md).             |
 |    AZURE_STORAGE_KEY                  |    A chave da conta de armazenamento. Esta variável deve ser utilizada em conjunto com o nome da conta de armazenamento.                                                                                                                                                                                                                                                                          |
 |    AZURE_STORAGE_CONNECTION_STRING    |    Uma cadeia de ligação que inclui a chave da conta de armazenamento ou um token SAS. Esta variável deve ser utilizada em conjunto com o nome da conta de armazenamento.                                                                                                                                                                                                                       |
-|    AZURE_STORAGE_SAS_TOKEN            |    Um símbolo de assinatura de acesso partilhado (SAS). Esta variável deve ser utilizada em conjunto com o nome da conta de armazenamento.                                                                                                                                                                                                                                                            |
-|    AZURE_STORAGE_AUTH_MODE            |    O modo de autorização com o qual executar o comando. Os valores `login` permitidos `key`são (recomendados) ou . Se especificar, `login`o Azure CLI utiliza as suas credenciais De AD Azure para autorizar a operação de dados. Se especificar o `key` modo legado, o Azure CLI tenta consultar a chave de acesso à conta e autorizar o comando com a chave.    |
+|    AZURE_STORAGE_SAS_TOKEN            |    Um token de assinatura de acesso partilhado (SAS). Esta variável deve ser utilizada em conjunto com o nome da conta de armazenamento.                                                                                                                                                                                                                                                            |
+|    AZURE_STORAGE_AUTH_MODE            |    O modo de autorização com o qual executar o comando. Os valores permitidos são `login` (recomendados) ou `key` . . Se `login` especificar, o Azure CLI utiliza as suas credenciais Azure AD para autorizar a operação de dados. Se especificar o `key` modo legado, o CLI Azure tenta consultar a chave de acesso à conta e autorizar o comando com a chave.    |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Utilize o Azure CLI para atribuir uma função RBAC para acesso a dados de blob e fila](storage-auth-aad-rbac-cli.md)
-- [Autorizar acesso a dados blob e fila com identidades geridas para recursos Azure](storage-auth-aad-msi.md)
+- [Utilize o CLI Azure para atribuir uma função RBAC para acesso a dados de bolhas e filas](storage-auth-aad-rbac-cli.md)
+- [Autorizar o acesso a dados de blob e fila com identidades geridas para recursos Azure](storage-auth-aad-msi.md)

@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: 78836ca4e51875be4237267b3bb9256cc4541fe2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81791706"
 ---
-Utilize a ligação de saída dos Centros de Eventos para escrever eventos num fluxo de eventos. Para escrever eventos em um hub de eventos, é preciso ter permissão de envio para ele.
+Utilize a ligação de saída do Event Hubs para escrever eventos num stream de eventos. Para escrever eventos em um hub de eventos, é preciso ter permissão de envio para ele.
 
-Certifique-se de que as referências de pacote saem em vigor antes de tentar implementar uma ligação de saída.
+Certifique-se de que as referências de embalagem necessárias estão em vigor antes de tentar implementar uma ligação de saída.
 
 <a id="example" name="example"></a>
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-O exemplo seguinte mostra uma [função C#](../articles/azure-functions/functions-dotnet-class-library.md) que escreve uma mensagem a um centro de eventos, utilizando o valor de retorno do método como saída:
+O exemplo a seguir mostra uma [função C#](../articles/azure-functions/functions-dotnet-class-library.md) que escreve uma mensagem para um centro de eventos, utilizando o valor de retorno do método como saída:
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -31,7 +31,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-O exemplo que se `IAsyncCollector` segue mostra como usar a interface para enviar um lote de mensagens. Este cenário é comum quando está a processar mensagens provenientes de um Hub de Eventos e a enviar o resultado para outro Hub de Eventos.
+O exemplo a seguir mostra como usar a `IAsyncCollector` interface para enviar um lote de mensagens. Este cenário é comum quando está a processar mensagens provenientes de um Centro de Eventos e a enviar o resultado para outro Centro de Eventos.
 
 ```csharp
 [FunctionName("EH2EH")]
@@ -53,9 +53,9 @@ public static async Task Run(
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-O exemplo seguinte mostra uma ligação do gatilho do centro de eventos num ficheiro *function.json* e uma [função de script C#](../articles/azure-functions/functions-reference-csharp.md) que utiliza a ligação. A função escreve uma mensagem para um centro de eventos.
+O exemplo a seguir mostra uma ligação do gatilho do centro de eventos numa *function.jsno* ficheiro e numa [função de script C#](../articles/azure-functions/functions-reference-csharp.md) que utiliza a ligação. A função escreve uma mensagem para um centro de eventos.
 
-Os exemplos seguintes mostram dados de ligação do Event Hubs no ficheiro *function.json.* O primeiro exemplo é para funções 2.x e superior, e o segundo é para funções 1.x. 
+Os exemplos a seguir mostram que os dados de ligação do Event Hubs no *function.jsarquivados.* O primeiro exemplo é para funções 2.x e superior, e o segundo é para funções 1.x. 
 
 ```json
 {
@@ -105,9 +105,9 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo seguinte mostra uma ligação do gatilho do centro de eventos num ficheiro *function.json* e uma [função JavaScript](../articles/azure-functions/functions-reference-node.md) que utiliza a ligação. A função escreve uma mensagem para um centro de eventos.
+O exemplo a seguir mostra uma ligação do gatilho do centro de eventos numa *function.jsno* ficheiro e numa [função JavaScript](../articles/azure-functions/functions-reference-node.md) que utiliza a ligação. A função escreve uma mensagem para um centro de eventos.
 
-Os exemplos seguintes mostram dados de ligação do Event Hubs no ficheiro *function.json.* O primeiro exemplo é para funções 2.x e superior, e o segundo é para funções 1.x. 
+Os exemplos a seguir mostram que os dados de ligação do Event Hubs no *function.jsarquivados.* O primeiro exemplo é para funções 2.x e superior, e o segundo é para funções 1.x. 
 
 ```json
 {
@@ -157,9 +157,9 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo seguinte mostra uma ligação do gatilho do centro de eventos num ficheiro *function.json* e uma [função Python](../articles/azure-functions/functions-reference-python.md) que utiliza a ligação. A função escreve uma mensagem para um centro de eventos.
+O exemplo a seguir mostra uma ligação do gatilho do centro de eventos numa *function.jsem* ficheiro e numa [função Python](../articles/azure-functions/functions-reference-python.md) que utiliza a ligação. A função escreve uma mensagem para um centro de eventos.
 
-Os exemplos seguintes mostram dados de ligação do Event Hubs no ficheiro *function.json.*
+Os exemplos a seguir mostram que os dados de ligação do Event Hubs no *function.jsarquivados.*
 
 ```json
 {
@@ -187,7 +187,7 @@ def main(timer: func.TimerRequest) -> str:
 
 # <a name="java"></a>[Java](#tab/java)
 
-O exemplo seguinte mostra uma função Java que escreve uma mensagem que contém o tempo atual para um Hub de Eventos.
+O exemplo a seguir mostra uma função Java que escreve uma mensagem contendo a hora atual para um Centro de Eventos.
 
 ```java
 @FunctionName("sendTime")
@@ -198,17 +198,17 @@ public String sendTime(
  }
 ```
 
-Na [biblioteca de tempo de funcionamento das funções java,](/java/api/overview/azure/functions/runtime)utilize a `@EventHubOutput` anotação em parâmetros cujo valor seria publicado no Event Hub.  O parâmetro deve ser `OutputBinding<T>` de tipo, onde T é um POJO ou qualquer tipo java nativo.
+Na biblioteca de [funções Java,](/java/api/overview/azure/functions/runtime)utilize a `@EventHubOutput` anotação em parâmetros cujo valor seria publicado no Event Hub.  O parâmetro deve ser do tipo `OutputBinding<T>` , onde T é um POJO ou qualquer tipo nativo de Java.
 
 ---
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Para [bibliotecas de classe C#,](../articles/azure-functions/functions-dotnet-class-library.md)utilize o atributo [EventHubAttribute.](https://github.com/Azure/azure-functions-eventhubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubAttribute.cs)
 
-O construtor do atributo tem o nome do centro do evento e o nome de uma definição de aplicação que contém a cadeia de ligação. Para obter mais informações sobre estas definições, consulte [Saída - configuração](#configuration). Aqui está `EventHub` um exemplo de atributo:
+O construtor do atributo tem o nome do centro de eventos e o nome de uma definição de aplicação que contém a cadeia de ligação. Para obter mais informações sobre estas definições, consulte [a configuração De saída -](#configuration). Aqui está um `EventHub` exemplo de atributo:
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -219,11 +219,11 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-Para um exemplo completo, consulte [a saída - C# exemplo](#example).
+Para um exemplo completo, consulte [o exemplo de Saída - C#](#example).
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Os atributos não são suportados por C# Script.
+Os atributos não são suportados pelo Script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -235,54 +235,54 @@ Os atributos não são suportados pela Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Na [biblioteca de tempo de funcionamento das funções java,](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)utilize a anotação [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) em parâmetros cujo valor seria publicado no Event Hub. O parâmetro deve ser `OutputBinding<T>` de `T` tipo, onde é um POJO ou qualquer tipo java nativo.
+Na biblioteca de [funções Java,](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)utilize a anotação [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) em parâmetros cujo valor seria publicado no Event Hub. O parâmetro deve ser do tipo `OutputBinding<T>` , onde é um `T` POJO ou qualquer tipo nativo de Java.
 
 ---
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no `EventHub` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `EventHub` atributo.
 
-|propriedade fun.json | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Deve ser definido para "eventHub". |
-|**direção** | n/d | Deve ser definido para "fora". Este parâmetro é definido automaticamente quando cria a ligação no portal Azure. |
-|**nome** | n/d | O nome variável usado no código de função que representa o evento. |
-|**caminho** |**Nome EventHub** | Funciona apenas 1.x. O nome do centro de eventos. Quando o nome do centro do evento também está presente na cadeia de ligação, esse valor sobrepõe-se a esta propriedade em tempo de execução. |
-|**eventHubName** |**Nome EventHub** | Funções 2.x e superiores. O nome do centro de eventos. Quando o nome do centro do evento também está presente na cadeia de ligação, esse valor sobrepõe-se a esta propriedade em tempo de execução. |
-|**conexão** |**Conexão** | O nome de uma definição de aplicação que contém a cadeia de ligação ao espaço de nome do centro de eventos. Copie esta cadeia de ligação clicando no botão Informação de **Ligação** para o espaço de *nome,* e não para o próprio centro de eventos. Esta cadeia de ligação deve ter enviado permissões para enviar a mensagem para o fluxo do evento.|
+|**tipo** | n/a | Deve ser definido para "eventHub". |
+|**direção** | n/a | Deve ser definido para "fora". Este parâmetro é definido automaticamente quando cria a ligação no portal Azure. |
+|**nome** | n/a | O nome variável usado no código de função que representa o evento. |
+|**caminho** |**Nome eventHub** | Funciona apenas 1.x. O nome do centro de eventos. Quando o nome do hub do evento também está presente na cadeia de ligação, esse valor sobrepõe-se a esta propriedade em tempo de execução. |
+|**eventHubName** |**Nome eventHub** | Funções 2.x e superior. O nome do centro de eventos. Quando o nome do hub do evento também está presente na cadeia de ligação, esse valor sobrepõe-se a esta propriedade em tempo de execução. |
+|**conexão** |**Ligação** | O nome de uma definição de aplicação que contém a cadeia de ligação ao espaço de nome do centro de eventos. Copie esta cadeia de ligação clicando no botão **Informação de Ligação** para o *espaço de nomes,* e não o próprio hub do evento. Esta cadeia de ligação deve ter permissões de envio da mensagem para o stream do evento.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Utilização
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Envie mensagens utilizando um parâmetro `out string paramName`de método como . No script C#, `paramName` é o `name` valor especificado na propriedade da *função.json*. Para escrever várias mensagens, pode utilizar `ICollector<string>` ou `IAsyncCollector<string>` no lugar de `out string`.
+Envie mensagens utilizando um parâmetro de método, como `out string paramName` . No script C# `paramName` é o valor especificado na propriedade defunction.js`name` *em*. Para escrever várias mensagens, pode utilizar `ICollector<string>` ou no lugar de `IAsyncCollector<string>` `out string` .
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Envie mensagens utilizando um parâmetro `out string paramName`de método como . No script C#, `paramName` é o `name` valor especificado na propriedade da *função.json*. Para escrever várias mensagens, pode utilizar `ICollector<string>` ou `IAsyncCollector<string>` no lugar de `out string`.
+Envie mensagens utilizando um parâmetro de método, como `out string paramName` . No script C# `paramName` é o valor especificado na propriedade defunction.js`name` *em*. Para escrever várias mensagens, pode utilizar `ICollector<string>` ou no lugar de `IAsyncCollector<string>` `out string` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aceda ao evento `context.bindings.<name>` `<name>` de saída utilizando onde `name` está o valor especificado na propriedade da *função.json*.
+Aceda ao evento de saída utilizando `context.bindings.<name>` onde está o valor especificado na propriedade defunction.js`<name>` `name` *em*.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Existem duas opções para distribuir uma mensagem do Event Hub a partir de uma função:
+Existem duas opções para a saída de uma mensagem do Event Hub a partir de uma função:
 
-- **Valor de devolução**: Coloque a `name` propriedade em *função.json* para `$return`. Com esta configuração, o valor de retorno da função é persistido como uma mensagem Do Hub do Evento.
+- **Valor de retorno**: Desa estafunction.js`name` o *imóvel.* `$return` Com esta configuração, o valor de retorno da função é persistido como uma mensagem Event Hub.
 
-- **Imperativo**: Passe um valor para o método [definido](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) do parâmetro declarado como um tipo [out.](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) O valor `set` passado é persistiu como uma mensagem do Event Hub.
+- **Imperativo**: Passe um valor ao método [definido](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) do parâmetro declarado como um tipo [out.](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) O valor passado `set` é persistido como uma mensagem do Event Hub.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Existem duas opções para eliminar uma mensagem do Event Hub a partir de uma função, utilizando a anotação [EventHubOutput:](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput)
+Existem duas opções para a saída de uma mensagem Do Event Hub a partir de uma função utilizando a anotação [EventHubOutput:](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput)
 
-- **Valor de devolução**: Aplicando a anotação à própria função, o valor de retorno da função é persinedo como mensagem Do Centro de Eventos.
+- **Valor de retorno**: Aplicando a anotação à função em si, o valor de retorno da função é persistido como uma mensagem Do Centro de Eventos.
 
-- **Imperativo**: Para definir explicitamente o valor da mensagem, aplique [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding)a `T` anotação a um parâmetro específico do tipo, onde se trata de um POJO ou de qualquer tipo de Java nativo. Com esta configuração, passar `setValue` um valor para o método persiste o valor como mensagem Do Hub do Evento.
+- **Imperativo**: Para definir explicitamente o valor da mensagem, aplique a anotação a um parâmetro específico do tipo [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding) , onde se encontra um `T` POJO ou qualquer tipo de Java nativo. Com esta configuração, passar um valor para o `setValue` método persiste o valor como uma mensagem Event Hub.
 
 ---
 

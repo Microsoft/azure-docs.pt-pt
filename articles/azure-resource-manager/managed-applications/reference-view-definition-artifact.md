@@ -1,24 +1,23 @@
 ---
 title: Ver referência de artefacto de definição
-description: Fornece um exemplo de artefacto de definição de visualização para aplicações geridas azure. O nome do ficheiro é viewDefinition.json.
+description: Fornece um exemplo de artefacto de definição de visão para aplicações geridas azure. O nome do ficheiro está viewDefinition.js.
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 5173db54abef132a4a4d5d117881352ca37d6b23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651205"
 ---
 # <a name="reference-view-definition-artifact"></a>Referência: Ver artefacto de definição
 
-Este artigo é uma referência para um artefacto *viewDefinition.json* em Aplicações Geridas azure. Para obter mais informações sobre a configuração de vistas de autor, consulte o artefacto de [definição de visualização](concepts-view-definition.md).
+Este artigo é uma referência para uma *viewDefinition.jssobre* artefactos em Aplicações Geridas Azure. Para obter mais informações sobre a configuração de visualizações de autoria, consulte [o artefacto de definição de ver.](concepts-view-definition.md)
 
 ## <a name="view-definition"></a>Ver definição
 
-O seguinte JSON mostra um exemplo de *ficheiro viewDefinition.json* para aplicações geridas pelo Azure:
+O seguinte JSON mostra um exemplo de *viewDefinition.jsem* arquivo para aplicações geridas azure:
 
 ```json
 {
@@ -85,8 +84,8 @@ O seguinte JSON mostra um exemplo de *ficheiro viewDefinition.json* para aplica�
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Tutorial: Criar aplicação gerida com ações e recursos personalizados](tutorial-create-managed-app-with-custom-provider.md)
-- [Referência: Artefacto de elementos de interface do utilizador](reference-createuidefinition-artifact.md)
+- [Referência: Artefacto de elementos de interface de utilizador](reference-createuidefinition-artifact.md)
 - [Referência: Artefacto do modelo de implantação](reference-main-template-artifact.md)

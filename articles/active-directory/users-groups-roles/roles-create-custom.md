@@ -1,61 +1,60 @@
 ---
-title: Criar papéis personalizados no controlo de acesso baseado em funções da Azure AD [ Microsoft Docs
-description: Crie e atribua funções personalizadas de AD Azure com âmbito de recursos sobre recursos do Diretório Ativo do Azure.
+title: Crie funções personalizadas no controlo de acesso baseado em funções Azure AD / Microsoft Docs
+description: Crie e atribua funções Azure AD personalizadas com âmbito de recursos nos recursos do Azure Ative Directory.
 services: active-directory
 author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2682a85f88a537630fbca86dd55541a152d8f37e
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: MT
+ms.openlocfilehash: e172a023cc9156f435b4f40b2262ee44128c138e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758644"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84732009"
 ---
-# <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Criar e atribuir um papel personalizado no Diretório Ativo Azure
+# <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Criar e atribuir um papel personalizado no Azure Ative Directory
 
-Este artigo descreve como criar novos papéis personalizados no Azure Ative Directory (Azure AD). Para obter o básico dos papéis personalizados, consulte a visão geral dos [papéis personalizados.](roles-custom-overview.md) A função pode ser atribuída quer no âmbito do diretório, quer apenas no âmbito do recurso de registo de aplicações.
+Este artigo descreve como criar novas funções personalizadas no Azure Ative Directory (Azure AD). Para o básico das funções personalizadas, consulte a visão geral das [funções personalizadas.](roles-custom-overview.md) A função pode ser atribuída no âmbito do diretório ou apenas no âmbito do recurso de registo de aplicações.
 
-As funções personalizadas podem ser criadas no separador [Funções e administradores](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) na página de visão geral do Azure AD.
+As funções personalizadas podem ser criadas no [separador Funções e administradores](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) na página geral do AD Azure.
 
 ## <a name="create-a-role-in-the-azure-portal"></a>Criar um papel no portal Azure
 
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Criar uma nova função personalizada para garantir o acesso à gestão de registos de aplicações
 
-1. Inscreva-se no centro de [administração da Azure AD](https://aad.portal.azure.com)   com o administrador privilegiado ou permissões de administrador global na organização Azure AD.
-1. Selecione Funções de **Diretório Ativo Azure**  >  **e administradores**Nova  >  **função personalizada**.
+1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com)   com o administrador privilegiado ou permissões de administrador global na organização Azure AD.
+1. Selecione **Azure Ative Directory**  >  **Roles and administrators**  >  **New custom role**.
 
    ![Criar ou editar funções a partir da página Funções e administradores](./media/roles-create-custom/new-custom-role.png)
 
-1. No separador **Basics,** forneça um nome e descrição para o papel e, em seguida, clique em **Seguinte**.
+1. No **separador Básicos,** forneça um nome e descrição para a função e, em seguida, clique em **Seguinte**.
 
-   ![fornecer um nome e descrição para um papel personalizado no separador Basics](./media/roles-create-custom/basics-tab.png)
+   ![fornecer um nome e descrição para um papel personalizado no separador Básicos](./media/roles-create-custom/basics-tab.png)
 
-1. No separador **Permissões,** selecione as permissões necessárias para gerir propriedades básicas e propriedades credenciais de registos de aplicações. Para obter uma descrição detalhada de cada permissão, consulte subtipos e permissões de registo de [aplicação no Diretório Ativo azure](./roles-custom-available-permissions.md).
+1. No separador **Permissões,** selecione as permissões necessárias para gerir propriedades básicas e propriedades credenciais de registos de aplicações. Para obter uma descrição detalhada de cada permissão, consulte [os subtipos e permissões de registo de aplicações no Diretório Ativo Azure](./roles-custom-available-permissions.md).
    1. Primeiro, introduza "credenciais" na barra de pesquisa e selecione a `microsoft.directory/applications/credentials/update` permissão.
 
-      ![Selecione as permissões para um papel personalizado no separador Permissões](./media/roles-create-custom/permissions-tab.png)
+      ![Selecione as permissões para uma função personalizada no separador Permissões](./media/roles-create-custom/permissions-tab.png)
 
-   1. Em seguida, introduza "basic" na barra de pesquisa, selecione a `microsoft.directory/applications/basic/update` permissão e, em seguida, clique **em Seguinte**.
-1. No **separador Review + criar,** reveja as permissões e selecione **Criar**.
+   1. Em seguida, introduza "básico" na barra de pesquisa, selecione a `microsoft.directory/applications/basic/update` permissão e, em seguida, clique em **Seguinte**.
+1. No **separador 'Rever +' criar,** rever as permissões e selecionar **Criar.**
 
 O seu papel personalizado aparecerá na lista de funções disponíveis para atribuir.
 
-## <a name="create-a-role-using-powershell"></a>Criar uma função usando powerShell
+## <a name="create-a-role-using-powershell"></a>Criar um papel usando PowerShell
 
-### <a name="prepare-powershell"></a>Preparar powerShell
+### <a name="prepare-powershell"></a>Preparar PowerShell
 
-Primeiro, tem de descarregar o módulo PowerShell de [pré-visualização AD Azure](https://www.powershellgallery.com/packages/AzureADPreview).
+Em primeiro lugar, tem de [descarregar o módulo PowerShell de pré-visualização AZure AD](https://www.powershellgallery.com/packages/AzureADPreview).
 
-Para instalar o módulo PowerShell Azure AD, utilize os seguintes comandos:
+Para instalar o módulo Azure AD PowerShell, utilize os seguintes comandos:
 
 ``` PowerShell
 install-module azureadpreview
@@ -73,7 +72,7 @@ get-module azureadpreview
 
 ### <a name="create-the-custom-role"></a>Criar o papel personalizado
 
-Criar uma nova função utilizando o seguinte script PowerShell:
+Crie um novo papel utilizando o seguinte script PowerShell:
 
 ``` PowerShell
 # Basic role information
@@ -93,9 +92,9 @@ $rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
 $customAdmin = New-AzureADMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 ```
 
-### <a name="assign-the-custom-role-using-azure-ad-powershell"></a>Atribuir a função personalizada usando a Azure AD PowerShell
+### <a name="assign-the-custom-role-using-azure-ad-powershell"></a>Atribua o papel personalizado usando Azure AD PowerShell
 
-Atribuir a função utilizando o script abaixo powerShell:
+Atribua a função utilizando o script abaixo do PowerShell:
 
 ``` PowerShell
 # Get the user and role definition you want to link
@@ -110,11 +109,11 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-## <a name="create-a-role-with-graph-api"></a>Criar um papel com a API do gráfico
+## <a name="create-a-role-with-graph-api"></a>Criar um papel com a API do Gráfico
 
-1. Criar a definição de papel.
+1. Crie a definição de papel.
 
-    HTTP solicita para criar uma definição de função personalizada.
+    HTTP solicitação para criar uma definição de função personalizada.
 
     POST
 
@@ -142,11 +141,11 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     ```
 
   > [!Note]
-  > O "templateId": "GUID" é um parâmetro opcional que está a ser enviado no corpo, dependendo da exigência. Se tiver um requisito para criar vários papéis personalizados diferentes com parâmetros comuns, o melhor é criar um modelo e definir um modelo Id . Pode gerar previamente um modelo Id utilizando o cmdlet powershell (New-Guid). Guia. 
+  > O "templateId": "GUID" é um parâmetro opcional enviado no corpo dependendo da exigência. Se você tem um requisito para criar vários papéis personalizados diferentes com parâmetros comuns, é melhor criar um modelo e definir um modeloId . Pode gerar um modeloId previamente utilizando o cmdlet powershell (New-Guid). Guia. 
 
-1. Criar a atribuição do papel.
+1. Crie a tarefa de função.
 
-    HTTP solicita para criar uma definição de função personalizada.
+    HTTP solicitação para criar uma definição de função personalizada.
 
     POST
 
@@ -165,23 +164,23 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     ```
 
 
-## <a name="assign-a-custom-role-scoped-to-a-resource"></a>Atribuir uma função personalizada ao seu recurso
+## <a name="assign-a-custom-role-scoped-to-a-resource"></a>Atribuir uma função personalizada a um recurso
 
-Tal como as funções incorporadas, as funções personalizadas são atribuídas por padrão no âmbito padrão da organização para conceder permissões de acesso em todas as inscrições de aplicações na sua organização. Mas, ao contrário de papéis incorporados, as funções personalizadas também podem ser atribuídas no âmbito de um único recurso Azure AD. Isto permite-lhe dar ao utilizador a permissão para atualizar credenciais e propriedades básicas de uma única aplicação sem ter de criar uma segunda função personalizada.
+Tal como as funções incorporadas, as funções personalizadas são atribuídas por padrão no âmbito padrão da organização para conceder permissões de acesso em todos os registos de aplicações da sua organização. Mas, ao contrário das funções incorporadas, as funções personalizadas também podem ser atribuídas no âmbito de um único recurso AD Azure. Isto permite-lhe dar ao utilizador a permissão para atualizar credenciais e propriedades básicas de uma única aplicação sem ter de criar uma segunda função personalizada.
 
-1. Inscreva-se no centro de [administração da Azure AD](https://aad.portal.azure.com) com permissões de programador de aplicações na organização Azure AD.
+1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com) com permissões de desenvolvedores de aplicações na organização Azure AD.
 1. Selecione **Registos das aplicações**.
-1. Selecione o registo da aplicação a que está a conceder acesso à gestão. Poderá ter de selecionar **Todas as aplicações** para ver a lista completa de registos de aplicações na sua organização Azure AD.
+1. Selecione o registo da aplicação a que está a conceder acesso à gestão. Poderá ter de selecionar **todas as aplicações** para ver a lista completa de registos de aplicações na sua organização AZure AD.
 
     ![Selecione o registo da aplicação como uma margem de recurso para uma atribuição de funções](./media/roles-create-custom/appreg-all-apps.png)
 
-1. No registo da aplicação, selecione **Funções e administradores.** Se ainda não criou uma, as instruções estão no [procedimento anterior](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
+1. No registo da aplicação, selecione **Roles e administradores.** Se ainda não criou uma, as instruções estão no [procedimento anterior.](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations)
 
-1. Selecione o papel para abrir a página **de Atribuiçãos.**
-1. Selecione **Adicionar a tarefa** para adicionar um utilizador. O utilizador receberá permissões apenas sobre o registo da aplicação selecionada.
+1. Selecione a função para abrir a página **Atribuições.**
+1. **Selecione Adicionar a atribuição** para adicionar um utilizador. O utilizador receberá quaisquer permissões apenas sobre o registo de aplicações selecionados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Sinta-se livre para partilhar connosco no fórum de [funções administrativas da Azure AD.](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
-- Para mais informações sobre funções e atribuição de funções de administrador, consulte [as funções de administrador de atribuição](directory-assign-admin-roles.md).
-- Para obter permissões de utilizador predefinidas, consulte uma [comparação das permissões padrão dos hóspedes e dos utilizadores dos membros](../fundamentals/users-default-permissions.md).
+- Sinta-se livre para compartilhar conosco no fórum de [funções administrativas Azure AD.](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
+- Para obter mais informações sobre funções e atribuição de funções de Administrador, consulte [as funções de administrador de atribuição](directory-assign-admin-roles.md).
+- Para obter permissões de utilizador predefinidos, consulte uma [comparação entre as permissões de utilizador e de hóspedes predefinidos](../fundamentals/users-default-permissions.md).

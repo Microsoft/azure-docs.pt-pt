@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use a biblioteca de clientes bing entity Search'
+title: 'Quickstart: Use a biblioteca de clientes de pesquisa de entidade bing'
 titleSuffix: Azure Cognitive Services
-description: A API de Pesquisa de Entidades oferece bibliotecas de clientes que facilitam a integração de capacidades de pesquisa nas suas aplicações. Use este quickstart para começar a enviar pedidos de pesquisa e obter resultados de volta.
+description: A API de Pesquisa de Entidades oferece bibliotecas de clientes que facilitam a integração das capacidades de pesquisa nas suas aplicações. Use este quickstart para começar a enviar pedidos de pesquisa e obter os resultados de volta.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,14 +11,15 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/06/2020
 ms.author: aahi
-ms.openlocfilehash: 206d3514e231fdedc6c13592da0c51d2f93bbe84
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: 507b0e8a777642b374eecf03110cc5fb0b65b10d
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79136754"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604172"
 ---
-# <a name="quickstart-use-the-bing-entity-search-client-library"></a>Quickstart: Use a biblioteca de clientes bing entity Search
+# <a name="quickstart-use-the-bing-entity-search-client-library"></a>Quickstart: Use a biblioteca de clientes de pesquisa de entidade bing
 
 ::: zone pivot="programming-language-csharp"
 

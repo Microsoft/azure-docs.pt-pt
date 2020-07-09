@@ -13,7 +13,10 @@
       items:
         - name: Portal do Azure
           href: stream-analytics-quick-create-portal.md
+        - name: CLI do Azure
+          href: quick-create-azure-cli.md
         - name: Modelo ARM
+          displayName: Resource Manager
           href: quick-create-azure-resource-manager.md
         - name: PowerShell
           href: stream-analytics-quick-create-powershell.md
@@ -29,7 +32,7 @@
       href: stream-analytics-with-azure-functions.md
     - name: 3 - Implementar com a CI/CD em Pipelines do Azure
       href: stream-analytics-tools-visual-studio-cicd-vsts.md
-    - name: '4 - Executar um UDF em C#'
+    - name: 4 - Executar um UDF em C#
       href: stream-analytics-edge-csharp-udf.md
     - name: 5 - Criar um desserializador .NET personalizado
       href: custom-deserializer.md
@@ -48,6 +51,10 @@
       href: feature-comparison.md
     - name: Programar localmente
       href: develop-locally.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: Tipos de entrada para uma tarefa
       items:
         - name: Descrição geral de entradas
@@ -77,10 +84,12 @@
           href: stream-analytics-javascript-user-defined-functions.md
         - name: UDA em JavaScript
           href: stream-analytics-javascript-user-defined-aggregates.md
-        - name: 'UDF em C#'
+        - name: UDF em C#
           href: stream-analytics-edge-csharp-udf-methods.md
         - name: UDF de Machine Learning
           href: machine-learning-udf.md
+        - name: Depurar UDFs
+          href: debug-user-defined-functions.md
     - name: Otimizar a tarefa do Stream Analytics
       items:
         - name: Compreender e ajustar as Unidades de Transmissão em Fluxo
@@ -114,6 +123,8 @@
   items:
     - name: Gerir
       items:
+        - name: Tarefas de dimensionamento automático
+          href: stream-analytics-autoscale.md
         - name: Atualizar credenciais
           href: stream-analytics-login-credentials-inputs-outputs.md
         - name: Configurar políticas de ordenação de eventos
@@ -221,6 +232,8 @@
           href: visual-studio-code-local-run.md
         - name: Testar localmente com dados reais
           href: visual-studio-code-local-run-live-input.md
+        - name: Depurar consultas com o diagrama de trabalhos
+          href: debug-locally-using-job-diagram-vs-code.md
         - name: Configurar os pipelines CI/CD
           href: setup-cicd-vs-code.md
         - name: Explorar tarefas
@@ -611,6 +624,8 @@
       href: /rest/api/streamanalytics
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.streamanalytics/allversions
+    - name: CLI do Azure
+      href: /cli/azure/ext/stream-analytics/stream-analytics
 - name: Recursos
   items:
     - name: Pré-visualização do Stream Analytics

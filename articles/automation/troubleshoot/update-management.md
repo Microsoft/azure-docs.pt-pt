@@ -2,27 +2,23 @@
 title: Problemas com a Azure Automation Update Management
 description: Este artigo diz como resolver problemas e resolver problemas com a Azure Automation Update Management.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 03/17/2020
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
-ms.openlocfilehash: 2989d85ddfca036a27ff6b886bd3b13a981c27a3
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.openlocfilehash: 95e3fc12a77124c32e220d700a112f52cbad08fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170261"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801891"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Resolver problemas da Gestão de Atualizações
 
 Este artigo discute questões que poderá encontrar ao implementar a funcionalidade de Gestão de Atualização nas suas máquinas. Há um agente que resolvia problemas para o agente híbrido runbook para determinar o problema subjacente. Para saber mais sobre o resolução de [problemas, consulte problemas de agente de atualização do Windows](update-agent-issues.md) de resolução de problemas e [problemas de agente de atualização do Linux](update-agent-issues-linux.md)de resolução de problemas . Para outros problemas de implementação de funcionalidades, consulte [problemas de implementação da funcionalidade De resolução de problemas](onboarding.md).
 
 >[!NOTE]
->Se tiver problemas ao implementar a Gestão de Atualização num VM, verifique o registo **do Gestor de Operações** nos **Registos de Aplicações e Serviços** na máquina local. Procure eventos com iD 4502 de eventos e detalhes do evento que `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` contenham.
+>Se tiver problemas ao implementar a Gestão de Atualização numa máquina Windows, abra o Visualizador de Eventos do Windows e verifique o registo de eventos **do Gestor de Operações** nos **Registos de Aplicações e Serviços** da máquina local. Procure eventos com iD 4502 de eventos e detalhes do evento que `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` contenham.
 
-## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a>Cenário: Recebe o erro "Falhou em ativar a solução 'Atualização'
+## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a><a name="failed-to-enable-error"></a>Cenário: Recebe o erro "Falhou em ativar a solução 'Atualização'
 
 ### <a name="issue"></a>Problema
 
@@ -48,9 +44,7 @@ Este erro pode ocorrer pelas seguintes razões:
 
 * Aceda à [configuração da Rede](../automation-hybrid-runbook-worker.md#network-planning) para saber quais endereços e portas devem ser autorizados para que a Gestão de Atualização funcione.  
 
-* Aceda à [configuração da Rede](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) para saber quais endereços e portas devem ser autorizados a funcionar o agente Log Analytics.
-
-* Verifique se há problemas de configuração de âmbito. [A configuração](../automation-scope-configurations-update-management.md) do âmbito determina quais as máquinas configuradas para a Gestão de Atualização. Se a sua máquina estiver a aparecer no seu espaço de trabalho, mas não no portal 'Gestão de Actualizações', tem de definir a configuração de âmbito para direcionar as máquinas. Para saber mais sobre a configuração do âmbito, consulte [Ativar as máquinas no espaço de trabalho.](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace)
+* Verifique se há problemas de configuração de âmbito. [A configuração](../automation-scope-configurations-update-management.md) do âmbito determina quais as máquinas configuradas para a Gestão de Atualização. Se a sua máquina estiver a aparecer no seu espaço de trabalho, mas não na Gestão de Atualização, tem de definir a configuração de âmbito para direcionar as máquinas. Para saber mais sobre a configuração do âmbito, consulte [Ativar as máquinas no espaço de trabalho.](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace)
 
 * Remova a configuração do trabalhador seguindo os passos no [Remove the Hybrid Runbook Worker de um computador Windows no local](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) ou [remova o Trabalhador de Runbook Híbrido de um computador Linux no local](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 

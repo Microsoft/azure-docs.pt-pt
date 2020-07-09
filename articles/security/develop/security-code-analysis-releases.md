@@ -1,6 +1,6 @@
 ---
 title: Lançamentos de Análise de Código de Segurança da Microsoft
-description: Este artigo descreve as próximas versões para a extensão da Análise de Código de Segurança da Microsoft
+description: Este artigo descreve as próximas versões para a extensão de Análise de Código de Segurança da Microsoft
 author: sukhans
 manager: sukhans
 ms.author: terrylan
@@ -12,63 +12,69 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: d4281d3b6132e551283a71cd1801ef462fbfc68c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33ce2a496caa52609d8bdf8c92e29064ca4ae349
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146126"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362045"
 ---
-# <a name="microsoft-security-code-analysis-releases-and-roadmap"></a>Microsoft Security Code Analysis lança e mapeia
+# <a name="microsoft-security-code-analysis-releases-and-roadmap"></a>Microsoft Security Code Analysis lança e roteiro
 
-A equipa de Análise de Códigos de Segurança da Microsoft, em parceria com o Developer Support, orgulha-se de anunciar melhorias recentes e futuras na nossa extensão MSCA. Por favor, consulte o Roadmap abaixo.
+A equipa de Análise de Códigos de Segurança da Microsoft em parceria com o Developer Support orgulha-se de anunciar melhorias recentes e futuras à nossa extensão MSCA.
 
-![Versões](./media/security-code-analysis-releases/releases.png)
 
-## <a name="credential-scanner-v20-released-in-april-2020"></a>Credential Scanner v2.0: Lançado em abril de 2020
+## <a name="credential-scanner-v20-released-in-april-2020"></a>Scanner credencial v2.0: Lançado em abril de 2020
 
 ### <a name="innovations--improvements"></a>Inovações & Melhorias
 
-- **Motor Core**
+- **Motor central**
 
-   - Upgrade médio de desempenho de 25% com tempos de execução quase lineares
+   - Atualização média de desempenho de 25% com tempos de execução quase lineares
    - Pesquisa e classificação baseadas em contexto/evidência para maior precisão
-   - Melhorias nas deteções gerais de passwords e lógica de correspondência para os espaços reservados óbvios (por exemplo, palavra-passe falsa)
+   - Melhorias nas deteções gerais de passwords e lógica de correspondência para espaços reservados óbvios (por exemplo, fakePassword)
 
-- **Cobertura** - Suporte para mais de 25 tipos secretos, incluindo o seguinte top solicitado:
+- **Cobertura** - Suporte para mais de 25 tipos secretos, incluindo os seguintes principais pedidos:
 
-   - Palavra-passe de certificado de conta de tecido
-   - Chave segredo/API do cliente
+   - Certificado de conta de tecido Passphrase
+   - Chave Segredo/API do Cliente
    - Cabeçalho de autorização HTTP
-   - Chave de acesso secreto ao cliente da Amazon S3
-   - Ficha de acesso ao cliente do Diretório Ativo Azure
-   - Chave Master/API de função Azure
-   - Chave de acesso bi de potência
-   - Padrão de senha de modelo do Gestor de Recursos Azure
+   - Chave de acesso secreto ao cliente Amazon S3
+   - Token de acesso ao cliente do Azure Ative Directory
+   - Chave Azure Function Master/API
+   - Chave de acesso ao BI de potência
+   - Padrão de senha de modelo do gestor de recursos Azure
 
 - **Saídas**
 
-   - Suporte para formatos de ficheiros de saída de ficheiros SARIF 2.1 e CSV
+   - Suporte para formatos de ficheiro sarif 2.1 e CSV
 
 ## <a name="binskim-v160-released-in-april-2020"></a>BinSkim v1.6.0: Lançado em abril de 2020
 
 ### <a name="improvements"></a>Melhorias
 
-- RECURSO: Atualização para o SARIF final v2 (versão 2.1.16). Isto permite que os resultados caching ao passar --hashes na linha de comando, uma melhoria significativa de desempenho ao analisar recursivamente diretórios com várias cópias de alvos de digitalização.
-- BUG FIX: Fixe a tipografia em BA2021. DoNotMarkWritableSectionsAsExecutável saída.
-- DESEMPENHO: Elimine o carregamento de PDB para todos os modos não mistos para conjuntos geridos, incluindo binários da Biblioteca IL (antes do tempo compilados).
-- CORREÇÃO FALSA NEGATIVA: Verifique se um PDB colocado ao lado de um binário realmente corresponde ao binário em análise
-- RECURSO: Forneça o argumento de --símbolo-directórios locais para especificar locais adicionais (locais, não-servidor de símbolos)
-- CORREÇÃO FALSA POSITIVA: Ignore a análise impulsionada por PDB para o exe de botas nativas do núcleo gerado .NET (que não é código controlável pelo utilizador).
+- CARACTERÍSTICA: Atualização para o sarif final v2 (versão 2.1.16). Esta atualização permite que os resultados se caching ao passar --hashes na linha de comando, uma melhoria significativa do desempenho ao analisar recursivamente diretórios com várias cópias de alvos de digitalização.
+- BUG FIX: Fix tipografia em BA2021. Saída DoNotMarkWritableSectionsAsExecutable output.
+- DESEMPENHO: Elimine o carregamento de PDB para todos os modos não mistos para conjuntos geridos, incluindo binários da Biblioteca IL (antes do tempo compilado).
+- FALSA CORREÇÃO NEGATIVA: Verifique se um PDB colocado ao lado de um binário corresponde ao binário em análise
+- CARACTERÍSTICA: Fornecer --argumento local-symbol-directies para especificar locais de procura PDB adicionais (locais locais locais locais, não-símbolo-servidor)
+- CORREÇÃO POSITIVA FALSA: Ignore a análise orientada por PDB para o exe de botas nativo .NET core (que não é um código controlável pelo utilizador).
 
-## <a name="whats-next-in-fy20"></a>O que vem a seguir em FY20?
+## <a name="whats-next-in-q3-cy20"></a>O que vem a seguir no Q3 CY20?
 
-- Ferramenta de análise de segurança java
-- Ferramenta de análise de segurança python
+- Ferramenta de Análise de Segurança java
+- Ferramenta python de análise de segurança
 - ES Lint para substituir TS Lint por TypeScript e JavaScript
+- Ferramenta de análise de modelos de gestor de recursos
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="tool-deprecation-notification"></a>Notificação de depreciação de ferramentas
 
-Para obter instruções sobre como embarcar e instalar a Análise do Código de Segurança da Microsoft, consulte o nosso guia de [embarque e instalação](security-code-analysis-onboard.md).
+### <a name="microsoft-security-risk-detection-msrd-is-deprecated-on-june-26-2020"></a>A Microsoft Security Risk Detection (MSRD) é depreciada a 26 de junho de 2020.
 
-Se tiver mais dúvidas sobre a extensão e as ferramentas oferecidas, confira a nossa [página de PERGUNTAS FREQUENTEs](security-code-analysis-faq.md).
+O serviço de fuzzing MSRD preterido será substituído por uma plataforma de pelúia auto-hospedada de código aberto para o Azure. Esta plataforma está atualmente a ser desenvolvida e testada em parceria com muitas das principais equipas de produtos da Microsoft. Esta plataforma de fuzzing irá integrar desinfetantes e permitir testes de fuzz adaptativos e de aprendizagem incorporados em oleodutos CI/CD que crescem ao longo do tempo com projetos de software. O lançamento da Open Source desta plataforma está agendado para a segunda metade de 2020.
+
+## <a name="next-steps"></a>Próximos passos
+
+Para obter instruções sobre como embarcar e instalar a Microsoft Security Code Analysis, consulte o nosso [guia de embarque e instalação](security-code-analysis-onboard.md).
+
+Se tiver mais perguntas sobre a extensão e as ferramentas oferecidas, consulte a nossa [página de PERGUNTAS Frequentes.](security-code-analysis-faq.md)

@@ -5,35 +5,35 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: 9d394b07ff17ab24305b2580efc8bedfc5e7d384
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3ebe1ec4c0292a530e5ef2c754e9b002e931300e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183394"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84680337"
 ---
-#### <a name="applications"></a>[Aplicações](#tab/applications/)
+#### <a name="app-registrations"></a>[Registos de aplicações](#tab/app-reg-ga/) 
 
-1. Selecione **Aplicações**.
-1. Selecione a aplicação *webapi1* para abrir a sua página **Propriedades.**
-1. Selecione **os âmbitos publicados**. Os âmbitos publicados podem ser utilizados para conceder a uma aplicação de cliente determinadas permissões à Web API.
-1. Para o `demo.read` **ÂMBITO,** introduza, `Read access to the web API`e para **DESCRIÇÃO,** introduza .
-1. Para o `demo.write` **ÂMBITO,** introduza, `Write access to the web API`e para **DESCRIÇÃO,** introduza .
-1. Selecione **Guardar**.
-
-#### <a name="app-registrations-preview"></a>[Registos de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
-
-1. Selecione **registos de aplicativos (Pré-visualização)**.
-1. Selecione a aplicação *webapi1* para abrir a sua página **de visão geral.**
-1. Em **'Gerir',** selecione **Expor uma API**.
-1. Ao lado do **ID de aplicação URI,** selecione o link **set.**
-1. Substitua o valor predefinido `api`(um GUID) e, em seguida, selecione **Guardar**. O URI completo é mostrado, e `https://your-tenant-name.onmicrosoft.com/api`deve estar no formato . Quando a sua aplicação web solicita um sinal de acesso para a API, deve adicionar este URI como prefixo para cada âmbito que define para a API.
-1. Em **Âmbitos definidos por este API,** selecione **Adicionar um âmbito**.
-1. Introduza os seguintes valores para criar um âmbito que define o acesso à API e, em seguida, **selecione Adicionar o âmbito:**
+1. Selecione **Registos das aplicações**.
+1. Selecione a aplicação *webapi1* para abrir a sua página **de Visão Geral.**
+1. Em **Gestão**, **selecione Expor uma API**.
+1. Ao lado **do ID URI da aplicação,** selecione o link **set.**
+1. Substitua o valor predefinido (a GUID) com `api` , e, em seguida, selecione **Guardar**. O URI completo é mostrado, e deve estar no formato `https://your-tenant-name.onmicrosoft.com/api` . Quando a sua aplicação web solicita um token de acesso para a API, deve adicionar este URI como o prefixo para cada âmbito que define para a API.
+1. Nos **Âmbitos definidos por esta API,** selecione **Adicionar um âmbito**.
+1. Introduza os seguintes valores para criar um âmbito que define o acesso de leitura à API e, em seguida, selecione **adicionar âmbito**:
     1. **Nome do âmbito:**`demo.read`
-    1. Nome de **exibição de consentimento administrativo:**`Read access to demo API`
-    1. **Descrição do consentimento do administrador:**`Allows read access to the demo API`
-1. **Selecione Adicionar um âmbito,** introduzir os seguintes valores para adicionar um âmbito que define o acesso à API e, em seguida, selecione **Adicionar o âmbito:**
+    1. **Nome do exposição de consentimento de administração:**`Read access to demo API`
+    1. **Descrição do consentimento da administração**:`Allows read access to the demo API`
+1. **Selecione Adicionar um âmbito,** introduzir os seguintes valores para adicionar um âmbito que define o acesso de escrita à API e, em seguida, selecione **adicionar âmbito**:
     1. **Nome do âmbito:**`demo.write`
-    1. Nome de **exibição de consentimento administrativo:**`Write access to demo API`
-    1. **Descrição do consentimento do administrador:**`Allows write access to the demo API`
+    1. **Nome do exposição de consentimento de administração:**`Write access to demo API`
+    1. **Descrição do consentimento da administração**:`Allows write access to the demo API`
+
+#### <a name="applications-legacy"></a>[Candidaturas (Legado)](#tab/applications-legacy/)
+
+1. Selecione **Aplicações (Legado)**.
+1. Selecione a aplicação *webapi1* para abrir a sua página **Propriedades.**
+1. Selecione **âmbitos publicados**. Os âmbitos publicados podem ser utilizados para conceder a um pedido de cliente determinadas permissões à API web.
+1. Para **ÂMBITO,** insira `demo.read` , e para **DESCRIÇÃO,** insira `Read access to the web API` .
+1. Para **ÂMBITO,** insira `demo.write` , e para **DESCRIÇÃO,** insira `Write access to the web API` .
+1. Selecione **Guardar**.

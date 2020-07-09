@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: storage
 author: roygara
 ms.service: storage
@@ -9,16 +9,16 @@ ms.date: 07/08/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: b2ff542d2782293e89b66e5d25cb67a9bcde6da8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75773021"
 ---
 Este erro pode ocorrer sempre que o serviço do Azure File Sync está inacessível no servidor. Pode resolver este erro ao realizar os passos seguintes:
 
-1. Verifique se `FileSyncSvc.exe` o serviço Windows não está bloqueado pela sua firewall.
-2. Verifique se a porta 443 está aberta a ligações de saída ao serviço Dessincronização de ficheiros Azure. Pode fazer isto `Test-NetConnection` com o cmdlet. O URL para o marcador de posição `<azure-file-sync-endpoint>` abaixo pode ser encontrada no documento [Definições da firewall e do proxy do Azure File Sync](../articles/storage/files/storage-sync-files-firewall-and-proxy.md#firewall). 
+1. Verifique se o serviço Windows `FileSyncSvc.exe` não está bloqueado pela sua firewall.
+2. Verifique se a porta 443 está aberta a ligações de saída ao serviço Azure File Sync. Pode fazer isso com o `Test-NetConnection` cmdlet. O URL para o marcador de posição `<azure-file-sync-endpoint>` abaixo pode ser encontrada no documento [Definições da firewall e do proxy do Azure File Sync](../articles/storage/files/storage-sync-files-firewall-and-proxy.md#firewall). 
 
     ```powershell
     Test-NetConnection -ComputerName <azure-file-sync-endpoint> -Port 443
@@ -31,6 +31,6 @@ Este erro pode ocorrer sempre que o serviço do Azure File Sync está inacessív
     Import-Module "$agentPath\StorageSync.Management.ServerCmdlets.dll"
     Get-StorageSyncProxyConfiguration
     ```
-4. Utilize o cmdlet de conectividade Deteste-StorageSyncNetwork para verificar a conectividade da rede aos pontos finais do serviço. Para saber mais, consulte a [conectividade da rede de teste para os pontos finais de serviço](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#test-network-connectivity-to-service-endpoints).    
+4. Utilize o cmdlet Test-StorageSyncNetworkConnectivity para verificar a conectividade da rede nos pontos finais de serviço. Para saber mais, consulte [a conectividade da rede de teste para os pontos finais de serviço](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#test-network-connectivity-to-service-endpoints).    
 
-5. Contacte o seu administrador de rede para obter uma assistência adicional para a conectividade da rede de resolução de problemas.
+5. Contacte o administrador da rede para obter uma conectividade adicional de resolução de problemas da rede de resolução de problemas.

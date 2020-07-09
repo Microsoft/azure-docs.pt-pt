@@ -1,6 +1,6 @@
 ---
-title: Porta da Frente Azure - arquitetura de encaminhamento Microsoft Docs
-description: Este artigo ajuda-o a compreender o aspeto da visão global da arquitetura da Porta da Frente.
+title: Azure Front Door - arquitetura de encaminhamento / Microsoft Docs
+description: Este artigo ajuda-o a entender o aspeto global da arquitetura da Porta da Frente.
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -12,37 +12,36 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: a088e52f742f96a13ba61969c2d7a6697c96b145
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80879297"
 ---
 # <a name="routing-architecture-overview"></a>Visão geral da arquitetura de encaminhamento
 
-A Porta Da Frente Azure quando recebe os pedidos do seu cliente, então ou os responde (se o cache estiver ativado) ou os encaminha para o backend de aplicação apropriado (como um proxy inverso).
+A Porta frontal Azure quando recebe os pedidos do seu cliente, então responde-lhes (se o caching estiver ativado) ou reencaminha-os para o backend de aplicação apropriado (como um representante inverso).
 
-</br>Existem oportunidades para otimizar o tráfego ao encaminhar-se para a Porta da Frente Azure, bem como quando se encaminha para backends.
+</br>Existem oportunidades para otimizar o tráfego ao encaminhar para a Porta frontal de Azure, bem como quando o encaminhamento para backends.
 
-## <a name="selecting-the-front-door-environment-for-traffic-routing-anycast"></a><a name = "anycast"></a>Selecionando o ambiente porta da frente para o encaminhamento de tráfego (Anycast)
+## <a name="selecting-the-front-door-environment-for-traffic-routing-anycast"></a><a name = "anycast"></a>Selecionando o ambiente da porta da frente para o encaminhamento de tráfego (Anycast)
 
-O encaminhamento para os ambientes da Porta Frontal Azure aproveita o [Anycast](https://en.wikipedia.org/wiki/Anycast) para o tráfego dNS (Domain Name System) e HTTP (Hypertext Transfer Protocol), pelo que o tráfego de utilizadores irá para o ambiente mais próximo em termos de topologia de rede (menos lúpulo). Esta arquitetura normalmente oferece melhores tempos de ida e volta para os utilizadores finais (maximizando os benefícios de Split TCP). A Porta da Frente organiza os seus ambientes em "anéis" primários e recuados.  O anel exterior tem ambientes mais próximos dos utilizadores, oferecendo llácências mais baixas.  O anel interno tem ambientes que podem lidar com a falha para o ambiente do anel exterior no caso de um problema acontecer. O anel exterior é o alvo preferido para todo o tráfego, mas o anel interno é necessário para lidar com o tráfego transbordante do anel exterior. Em termos de VIPs (endereços protocolos de Internet Virtual), cada anfitrião frontend, ou domínio servido pela Porta da Frente é atribuído um VIP primário, que é anunciado por ambientes tanto no anel interno como exterior, bem como um VIP de recuo, que só é anunciado por ambientes no anel interno. 
+O encaminhamento para os ambientes da Porta Frontal Azure alavanca o tráfego [de DNS](https://en.wikipedia.org/wiki/Anycast) (Sistema de Nome de Domínio) e HTTP (Hypertext Transfer Protocol), pelo que o tráfego do utilizador irá para o ambiente mais próximo em termos de topologia de rede (menos lúpulo). Esta arquitetura normalmente oferece melhores tempos de ida e volta para os utilizadores finais (maximizando os benefícios da Split TCP). A Porta da Frente organiza os seus ambientes em "anéis" primários e recuantes.  O anel exterior tem ambientes mais próximos dos utilizadores, oferecendo latências mais baixas.  O anel interno tem ambientes que podem lidar com a falha para o ambiente do anel exterior no caso de um problema acontecer. O anel exterior é o alvo preferido para todo o tráfego, mas o anel interno é necessário para lidar com o excesso de tráfego do anel exterior. Em termos de VIPs (endereços virtual de Protocolo de Internet), cada anfitrião frontal, ou domínio servido pela Porta frontal é atribuído um VIP primário, que é anunciado por ambientes tanto no anel interno como exterior, bem como um V de retorno, que só é anunciado por ambientes no anel interno. 
 
-</br>Esta estratégia global garante que os pedidos dos seus utilizadores finais chegam sempre ao ambiente mais próximo da Porta da Frente e que mesmo que o ambiente preferido da Porta da Frente não seja saudável, o tráfego passa automaticamente para o ambiente mais próximo.
+</br>Esta estratégia global garante que os pedidos dos seus utilizadores finais cheguem sempre ao ambiente mais próximo da Porta Frontal e que mesmo que o ambiente preferido da Porta Frontal não seja saudável, o tráfego move-se automaticamente para o ambiente mais próximo.
 
 ## <a name="connecting-to-front-door-environment-split-tcp"></a><a name = "splittcp"></a>Ligação ao ambiente da porta da frente (Split TCP)
 
-[Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) é uma técnica para reduzir as latenciências e problemas de TCP, quebrando uma ligação que incorreria num elevado tempo de ida e volta em pedaços menores.  Ao colocar os ambientes porta da frente mais perto dos utilizadores finais e terminar as ligações TCP dentro do ambiente porta da frente, uma ligação TCP com um grande tempo de ida e volta (RTT) para aplicação backend é dividida em duas ligações TCP. A ligação curta entre o utilizador final e o ambiente porta da frente significa que a ligação é estabelecida em três viagens de ida e volta curtas em vez de três longas viagens de ida e volta, poupando latência.  A longa ligação entre o ambiente porta da frente e o backend pode ser pré-estabelecida e reutilizada em várias chamadas de utilizador final, poupando novamente o tempo de ligação do TCP.  O efeito é multiplicado ao estabelecer uma ligação SSL/TLS (Transport Layer Security), uma vez que há mais viagens de ida e volta para assegurar a ligação.
+[Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) é uma técnica para reduzir as latências e problemas de TCP, quebrando uma ligação que incorreria num tempo de ida e volta elevado em pedaços menores.  Ao colocar os ambientes da Porta Frontal mais perto dos utilizadores finais e ao terminar as ligações TCP dentro do ambiente da porta da frente, uma ligação TCP com um grande tempo de ida e volta (RTT) para o backend da aplicação é dividida em duas ligações TCP. A ligação curta entre o utilizador final e o ambiente da porta frontal significa que a ligação é estabelecida ao longo de três curtas viagens de ida e volta em vez de três longas viagens de ida e volta, poupando latência.  A longa ligação entre o ambiente da porta frontal e o backend pode ser pré-estabelecida e reutilizada através de várias chamadas de utilizador final, poupando novamente o tempo de ligação TCP.  O efeito é multiplicado ao estabelecer uma ligação SSL/TLS (Transport Layer Security), uma vez que há mais viagens de ida e volta para garantir a ligação.
 
 ## <a name="processing-request-to-match-a-routing-rule"></a>Pedido de processamento para corresponder a uma regra de encaminhamento
-Depois de estabelecer uma ligação e fazer um aperto de mão TLS, quando um pedido aterra em um ambiente porta da frente, corresponder a uma regra de encaminhamento é o primeiro passo. Este jogo é basicamente determinante a partir de todas as configurações na Porta da Frente, que regra de encaminhamento particular para corresponder ao pedido. Leia sobre como a Porta da Frente combina com a [rota](front-door-route-matching.md) para saber mais.
+Depois de estabelecer uma ligação e fazer um aperto de mão TLS, quando um pedido aterra num ambiente da Porta da Frente, corresponder a uma regra de encaminhamento é o primeiro passo. Esta partida é basicamente determinante de todas as configurações na Porta da Frente, que regra de encaminhamento particular para corresponder ao pedido. Leia sobre como a Porta frontal combina [para](front-door-route-matching.md) saber mais.
 
 ## <a name="identifying-available-backends-in-the-backend-pool-for-the-routing-rule"></a>Identificação de backends disponíveis na piscina de backend para a regra de encaminhamento
-Uma vez que a Porta da Frente tem uma correspondência para uma regra de encaminhamento com base no pedido de entrada e se não houver cache, então o próximo passo é retirar o estado da sonda de saúde para a piscina de backend associada à rota igual. Leia sobre como a Porta frontal monitoriza a saúde usando sondas de [saúde](front-door-health-probes.md) para saber mais.
+Uma vez que a Porta Frontal tem uma correspondência para uma regra de encaminhamento com base no pedido de entrada e se não houver caching, então o passo seguinte é puxar o estado da sonda de saúde para a piscina de backend associada à rota combinada. Leia sobre como a Porta Frontal monitoriza a saúde de backend usando [sondas de saúde](front-door-health-probes.md) para saber mais.
 
-## <a name="forwarding-the-request-to-your-application-backend"></a>Reencaminhamento do pedido para o seu backend de pedido
-Finalmente, assumindo que não há configuração de cache configurada, o pedido do utilizador é encaminhado para o "melhor" backend com base na configuração do método de [encaminhamento da Porta Frontal.](front-door-routing-methods.md)
+## <a name="forwarding-the-request-to-your-application-backend"></a>Encaminhar o pedido para o backend do seu pedido
+Finalmente, assumindo que não existe uma configuração de caching, o pedido do utilizador é reencaminhado para o backend "melhor" com base na configuração [do método de encaminhamento da porta frontal.](front-door-routing-methods.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).

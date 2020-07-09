@@ -7,45 +7,45 @@ author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/17/2020
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: f282bb0a80226afeb314aac4e8669634327f81d2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: fe1c157d6847366a59739cd5128987127d01da94
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654039"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344429"
 ---
-# <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adicione intenção sintetmente para determinar a intenção do utilizador de declarações
+# <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adicione intenções para determinar a intenção do utilizador de declarações
 
-Adicione [intenção](luis-concept-intent.md) à sua app LUIS para identificar grupos de perguntas ou comandos que tenham a mesma intenção.
+Adicione [intenções](luis-concept-intent.md) à sua app LUIS para identificar grupos de perguntas ou comandos que tenham a mesma intenção.
 
-No portal LUIS, as intenções são geridas a partir da secção de **construção** da barra de navegação superior, em seguida, a partir das **Intenções**do painel esquerdo .
+No portal LUIS, as intenções são geridas a partir da **secção** build da barra de navegação superior, e depois a partir das **Intenções**do painel esquerdo .
 
 ## <a name="add-an-intent-to-your-app"></a>Adicione uma intenção à sua app
 
-1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **De Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
+1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **de Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
 1. Abra a sua aplicação selecionando o seu nome na página **My Apps.**
 1. Na página **Intenções,** selecione **+ Criar**.
-1. Na nova caixa de diálogo de **intenção Criar,** introduza o nome da intenção, por `ModifyOrder` exemplo, e selecione **Done**.
+1. Na nova caixa de diálogo **de intenção,** insira o nome de intenção, por `ModifyOrder` exemplo, e selecione **'Fazer**' ''
 
     > [!div class="mx-imgBorder"]
     > ![Adicionar Intenção](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-    A intenção precisa de [declarações exemplos](luis-concept-utterance.md) para prever as declarações no ponto final da previsão publicada.
+    A intenção precisa de [declarações de exemplo](luis-concept-utterance.md) para prever as declarações no ponto final da previsão publicada.
 
 ## <a name="add-an-example-utterance"></a>Adicione um exemplo de expressão
 
-As expressões exemplo são exemplos de texto de perguntas ou comandos do utilizador. Para ensinar a Compreensão da Linguagem (LUIS) quando prever esta intenção, é preciso adicionar frases de exemplo a uma intenção. Luis precisa de 15 a 30 exemplos para começar a entender a intenção. Não adicione pronunciações a granel. Cada expressão deve ser cuidadosamente escolhida para a forma como é diferente dos exemplos já na intenção.
+Palavras de exemplo são exemplos de texto de perguntas ou comandos de utilizadores. Para ensinar a Compreensão da Linguagem (LUIS) quando prever esta intenção, é necessário adicionar palavras de exemplo a uma intenção. LUIS precisa no intervalo de 15 a 30 palavras de exemplo para começar a entender a intenção. Não adicione palavras de exemplo a granel. Cada expressão deve ser cuidadosamente escolhida para saber como é diferente dos exemplos já na intenção.
 
-1. Na página de detalhes de intenção, introduza uma expressão relevante que espera dos seus utilizadores, como `Deliver a large cheese pizza` na caixa de texto abaixo do nome de intenção e, em seguida, prima Enter.
+1. Na página de detalhes de intenção, insira uma expressão relevante que espera dos seus utilizadores, como na caixa de `Deliver a large cheese pizza` texto abaixo do nome de intenção, e depois prima Enter.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot da página de detalhes de Intenções, com expressão em destaque](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png)
+    > ![Screenshot da página de detalhes do Intenção, com a expressão em destaque](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png)
 
-    Luis converte todas as expressões em minúsculas e adiciona espaços em torno de [tokens](luis-language-support.md#tokenization) como hífenes.
+    LUIS converte todas as expressões em minúsculas e adiciona espaços em torno [de fichas](luis-language-support.md#tokenization) como hífenes.
 
 <a name="#intent-prediction-discrepancy-errors"></a>
 
@@ -53,34 +53,34 @@ As expressões exemplo são exemplos de texto de perguntas ou comandos do utiliz
 
 Um erro de previsão de intenção é determinado quando a expressão não é prevista com a app treinada para a intenção.
 
-1. Para encontrar erros de previsão de expressão e corrigi-los, utilize as opções de **Filtro** de Incorreto e Unclear.
+1. Para encontrar erros de previsão de expressão e corrigi-los, utilize as opções **de Filtro** de Incorreto e Pouco Claro.
 
     > [!div class="mx-imgBorder"]
-    > ![Para encontrar erros de previsão de expressão e corrigi-los, utilize a opção Filter.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+    > ![Para encontrar erros de previsão de expressão e corrigi-los, utilize a opção Filtro.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
-1. Para mostrar o valor da pontuação na página de detalhes da Intenção, selecione Mostrar detalhes de **intenções** do menu de opções **Do View.**
+1. Para mostrar o valor da pontuação na página De detalhes de Intenção, selecione **Mostrar as pontuações de intenção** do menu de opções **Ver.**
 
-    Quando os filtros e a vista são aplicados, e há declarações exemplocom erros, a lista de pronunciamentos exemplo mostra as expressões e as questões.
+    Quando os filtros e a vista são aplicados, e há palavras de exemplo com erros, a lista de exemplos mostra as expressões e as questões.
 
-Cada linha mostra a pontuação de previsão do treino atual para a expressão do exemplo, a pontuação do rival mais próximo, que é a diferença nestas duas pontuações.
+Cada linha mostra a previsão do treino atual para o exemplo da expressão, a pontuação do rival mais próximo, que é a diferença nestas duas pontuações.
 
 ### <a name="fixing-intents"></a>Fixação de intenções
 
-Para aprender a corrigir erros de previsão de intenções, utilize o [Dashboard Resumo](luis-how-to-use-dashboard.md). O painel de instrumentos de resumo fornece análise para o último treino da versão ativa e oferece as principais sugestões para corrigir o seu modelo.
+Para aprender a corrigir erros de previsão de intenção, utilize o [Painel De Resumo](luis-how-to-use-dashboard.md). O painel de resumo fornece análise para o último treino da versão ativa e oferece as principais sugestões para corrigir o seu modelo.
 
-## <a name="using-the-contextual-toolbar"></a>Utilização da barra de ferramentas contextual
+## <a name="using-the-contextual-toolbar"></a>Usando a barra de ferramentas contextual
 
 A barra de ferramentas de contexto fornece outras ações:
 
-* Editar ou excluir a expressão do exemplo
-* Reatribuir a expressão do exemplo a uma intenção diferente
+* Editar ou apagar a expressão de exemplo
+* Reatribuir exemplo de expressão a uma intenção diferente
 * Filtros e vistas: apenas mostrar expressões que contenham entidades filtradas ou ver detalhes opcionais
-* Pesquisar através de declarações de exemplo
+* Pesse através de palavras de exemplo
 
 ## <a name="train-your-app-after-changing-model-with-intents"></a>Treine a sua app depois de mudar de modelo com intenções
 
-Depois de adicionar, editar ou remover intenções, [treinar](luis-how-to-train.md) e [publicar](luis-how-to-publish-app.md) a sua aplicação para que as suas alterações sejam aplicadas a consultas de ponto final. Não treine depois de cada mudança. Treinar depois de um grupo de mudanças.
+Depois de adicionar, editar ou remover intenções, [treine](luis-how-to-train.md) e [publique](luis-how-to-publish-app.md) a sua aplicação para que as suas alterações sejam aplicadas em consultas de ponto final. Não treine depois de cada mudança. Treinar depois de um grupo de mudanças.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre adicionar [declarações](luis-how-to-add-example-utterances.md) de exemplo com entidades.
+Saiba mais sobre a adição [de palavras de exemplo](luis-how-to-add-example-utterances.md) com entidades.

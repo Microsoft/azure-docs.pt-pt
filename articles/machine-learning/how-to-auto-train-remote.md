@@ -1,7 +1,7 @@
 ---
-title: Alvos de computação remota ML automatizados
+title: Metas de computação remota automatizada ml
 titleSuffix: Azure Machine Learning
-description: Aprenda a construir modelos usando machine learning automatizado num alvo de computação remota Azure Machine Learning com Azure Machine Learning
+description: Aprenda a construir modelos usando machine learning automatizado em um alvo de computação remota Azure Machine Learning com Azure Machine Learning
 services: machine-learning
 author: cartacioS
 ms.author: sacartac
@@ -9,32 +9,31 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: e55e6d4eb4f52b8a4b64db89691cf087a30ecb73
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: 1ab36683fcd95474428b0a005e1a39d4c8536d77
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612321"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959114"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Preparar modelos com machine learning automatizado na cloud
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-No Azure Machine Learning, treina o seu modelo em diferentes tipos de recursos computacionais que gere. O alvo da computação pode ser um computador local ou um recurso na nuvem.
+No Azure Machine Learning, treina o seu modelo em diferentes tipos de recursos computacional que gere. O alvo do cálculo pode ser um computador local ou um recurso na nuvem.
 
-Pode facilmente aumentar ou aumentar a sua experiência de aprendizagem automática adicionando alvos adicionais de computação, como o Azure Machine Learning Compute (AmlCompute). A AmlCompute é uma infraestrutura de computação gerida que lhe permite criar facilmente uma computação de nó único ou de vários nós.
+Pode escalar facilmente ou escalar a sua experiência de machine learning adicionando alvos computacional adicionais, como Azure Machine Learning Compute (AmlCompute). A AmlCompute é uma infraestrutura de computação gerida que lhe permite criar facilmente uma computação de nó único ou de vários nós.
 
-Neste artigo, aprende-se a construir um modelo utilizando ml automatizado com amlCompute.
+Neste artigo, aprende-se a construir um modelo utilizando ML automatizado com AmlCompute.
 
 ## <a name="how-does-remote-differ-from-local"></a>Como é que o controlo remoto difere do local?
 
-Mais funcionalidades estão disponíveis quando se utiliza um alvo de computação remota.  Para mais detalhes, consulte [alvos de computação local e remota](concept-automated-ml.md#local-remote).
+Mais funcionalidades estão disponíveis quando utiliza um alvo de computação remota.  Para mais detalhes, consulte [os alvos de computação local e remota.](concept-automated-ml.md#local-remote)
 
-O tutorial " Treinar um modelo de[classificação com machine learning automatizado](tutorial-auto-train-models.md)" ensina-o a usar um computador local para treinar um modelo com ML automatizado. O fluxo de trabalho quando se treina localmente também se aplica a alvos remotos. Para treinar remotamente, cria-se primeiro um alvo de computação remota, como o AmlCompute. Em seguida, configura rumo o recurso remoto e envia o seu código lá.
+O tutorial "[Treine um modelo de classificação com machine learning automatizado](tutorial-auto-train-models.md)" ensina-o a usar um computador local para treinar um modelo com ML automatizado. O fluxo de trabalho quando se treina localmente também se aplica a alvos remotos. Para treinar remotamente, primeiro cria um alvo de computação remota, como a AmlCompute. Em seguida, configura o recurso remoto e envia o seu código lá.
 
-Este artigo mostra os passos adicionais necessários para executar uma experiência ml automatizada num alvo remoto de AmlCompute. O objeto espaço `ws`de trabalho, do tutorial é usado em todo o código aqui.
+Este artigo mostra os passos adicionais necessários para executar uma experiência automatizada de ML num alvo remoto da AmlCompute. O objeto do espaço `ws` de trabalho, do tutorial é usado em todo o código aqui.
 
 ```python
 ws = Workspace.from_config()
@@ -42,7 +41,7 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>Criar um recurso
 
-Crie [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py) o alvo no`ws`seu espaço de trabalho se já não existir.
+Crie o [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py) alvo no seu espaço de trabalho ( ) se já não `ws` existir.
 
 **Estimativa de tempo**: A criação do alvo AmlCompute demora aproximadamente 5 minutos.
 
@@ -81,17 +80,17 @@ else:
     print(compute_target.get_status().serialize())
 ```
 
-Agora pode usar `compute_target` o objeto como alvo de computação remota.
+Agora pode usar o `compute_target` objeto como alvo de computação remota.
 
 As restrições de nome do cluster incluem:
-+ Deve ser mais curto que 64 caracteres.
-+ Não pode incluir nenhum `\` dos seguintes caracteres: ~ ! @ % % & * . = ] \\ \\ [ ] ] ] } [ ] ; : \' \\"  < > / ?. `
++ Deve ter menos de 64 caracteres.
++ Não é possível incluir nenhum dos seguintes caracteres: `\` ~ ! # $ % ^ & * ( ) = + [ [ ] { } \\ \\ " " " " \' \\ "  < > / ?. `
 
-## <a name="access-data-using-tabulardataset-function"></a>Dados de acesso utilizando a função TabularDataset
+## <a name="access-data-using-tabulardataset-function"></a>Aceder a dados utilizando a função TabularDataset
 
-Definidotraining_data [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) como e a etiqueta, que são [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)passadas para ML automatizado na . O `TabularDataset` `from_delimited_files`método, por padrão, `infer_column_types` define o verdadeiro, que inferirá automaticamente o tipo de colunas. 
+Definido training_data como [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) e o rótulo, que são passados para ML automatizado no [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) . O `TabularDataset` `from_delimited_files` método, por padrão, define o `infer_column_types` verdadeiro, que infere automaticamente o tipo de colunas. 
 
-Se desejar definir manualmente os tipos de colunas, pode definir o `set_column_types` argumento para definir manualmente o tipo de cada coluna. Na seguinte amostra de código, os dados provêm do pacote sklearn.
+Se desejar definir manualmente os tipos de colunas, pode definir o `set_column_types` argumento para definir manualmente o tipo de cada coluna. Na amostra de código a seguir, os dados provêm do pacote sklearn.
 
 ```python
 from sklearn import datasets
@@ -124,8 +123,8 @@ ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progr
 training_data = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/digits.csv'))
 ```
 
-## <a name="configure-experiment"></a>Configurar experiência
-Especifique `AutoMLConfig`as definições para .  (Ver uma [lista completa de parâmetros](how-to-configure-auto-train.md#configure-experiment) e os seus valores possíveis.)
+## <a name="configure-experiment"></a>Experiência de configuração
+Especificar as definições para `AutoMLConfig` .  (Ver uma [lista completa dos parâmetros](how-to-configure-auto-train.md#configure-experiment) e dos seus valores possíveis.)
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -154,7 +153,7 @@ automl_config = AutoMLConfig(task='classification',
 
 ## <a name="submit-training-experiment"></a>Submeter experiência de formação
 
-Agora submeta a configuração para selecionar automaticamente o algoritmo, hiper parâmetros e treinar o modelo.
+Agora envie a configuração para selecionar automaticamente o algoritmo, hiper-parâmetros e treinar o modelo.
 
 ```python
 from azureml.core.experiment import Experiment
@@ -162,41 +161,42 @@ experiment = Experiment(ws, 'automl_remote')
 remote_run = experiment.submit(automl_config, show_output=True)
 ```
 
-Verá a saída semelhante ao seguinte exemplo:
+Verá uma saída semelhante ao seguinte exemplo:
 
-    Running on remote compute: mydsvmParent Run ID: AutoML_015ffe76-c331-406d-9bfd-0fd42d8ab7f6
-    ***********************************************************************************************
-    ITERATION: The iteration being evaluated.
-    PIPELINE:  A summary description of the pipeline being evaluated.
-    DURATION: Time taken for the current iteration.
-    METRIC: The result of computing score on the fitted pipeline.
-    BEST: The best observed score thus far.
-    ***********************************************************************************************
+```output
+Running on remote compute: mydsvmParent Run ID: AutoML_015ffe76-c331-406d-9bfd-0fd42d8ab7f6
+***********************************************************************************************
+ITERATION: The iteration being evaluated.
+PIPELINE:  A summary description of the pipeline being evaluated.
+DURATION: Time taken for the current iteration.
+METRIC: The result of computing score on the fitted pipeline.
+BEST: The best observed score thus far.
+***********************************************************************************************
 
-     ITERATION     PIPELINE                               DURATION                METRIC      BEST
-             2      Standardize SGD classifier            0:02:36                  0.954     0.954
-             7      Normalizer DT                         0:02:22                  0.161     0.954
-             0      Scale MaxAbs 1 extra trees            0:02:45                  0.936     0.954
-             4      Robust Scaler SGD classifier          0:02:24                  0.867     0.954
-             1      Normalizer kNN                        0:02:44                  0.984     0.984
-             9      Normalizer extra trees                0:03:15                  0.834     0.984
-             5      Robust Scaler DT                      0:02:18                  0.736     0.984
-             8      Standardize kNN                       0:02:05                  0.981     0.984
-             6      Standardize SVM                       0:02:18                  0.984     0.984
-            10      Scale MaxAbs 1 DT                     0:02:18                  0.077     0.984
-            11      Standardize SGD classifier            0:02:24                  0.863     0.984
-             3      Standardize gradient boosting         0:03:03                  0.971     0.984
-            12      Robust Scaler logistic regression     0:02:32                  0.955     0.984
-            14      Scale MaxAbs 1 SVM                    0:02:15                  0.989     0.989
-            13      Scale MaxAbs 1 gradient boosting      0:02:15                  0.971     0.989
-            15      Robust Scaler kNN                     0:02:28                  0.904     0.989
-            17      Standardize kNN                       0:02:22                  0.974     0.989
-            16      Scale 0/1 gradient boosting           0:02:18                  0.968     0.989
-            18      Scale 0/1 extra trees                 0:02:18                  0.828     0.989
-            19      Robust Scaler kNN                     0:02:32                  0.983     0.989
+ ITERATION     PIPELINE                               DURATION                METRIC      BEST
+         2      Standardize SGD classifier            0:02:36                  0.954     0.954
+         7      Normalizer DT                         0:02:22                  0.161     0.954
+         0      Scale MaxAbs 1 extra trees            0:02:45                  0.936     0.954
+         4      Robust Scaler SGD classifier          0:02:24                  0.867     0.954
+         1      Normalizer kNN                        0:02:44                  0.984     0.984
+         9      Normalizer extra trees                0:03:15                  0.834     0.984
+         5      Robust Scaler DT                      0:02:18                  0.736     0.984
+         8      Standardize kNN                       0:02:05                  0.981     0.984
+         6      Standardize SVM                       0:02:18                  0.984     0.984
+        10      Scale MaxAbs 1 DT                     0:02:18                  0.077     0.984
+        11      Standardize SGD classifier            0:02:24                  0.863     0.984
+         3      Standardize gradient boosting         0:03:03                  0.971     0.984
+        12      Robust Scaler logistic regression     0:02:32                  0.955     0.984
+        14      Scale MaxAbs 1 SVM                    0:02:15                  0.989     0.989
+        13      Scale MaxAbs 1 gradient boosting      0:02:15                  0.971     0.989
+        15      Robust Scaler kNN                     0:02:28                  0.904     0.989
+        17      Standardize kNN                       0:02:22                  0.974     0.989
+        16      Scale 0/1 gradient boosting           0:02:18                  0.968     0.989
+        18      Scale 0/1 extra trees                 0:02:18                  0.828     0.989
+        19      Robust Scaler kNN                     0:02:32                  0.983     0.989
+```
 
-
-## <a name="explore-results"></a>Explore os resultados
+## <a name="explore-results"></a>Explorar resultados
 
 Você pode usar o mesmo [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) como mostrado no [tutorial de treino](tutorial-auto-train-models.md#explore-the-results) para ver um gráfico e tabela de resultados.
 
@@ -205,20 +205,20 @@ from azureml.widgets import RunDetails
 RunDetails(remote_run).show()
 ```
 
-Eis uma imagem estática do widget.  No caderno, pode clicar em qualquer linha da tabela para ver propriedades de execução e registos de saída para essa execução.   Também pode utilizar a queda acima do gráfico para visualizar um gráfico de cada métrica disponível para cada iteração.
+Eis uma imagem estática do widget.  No caderno, pode clicar em qualquer linha da tabela para ver propriedades de execução e registos de saída para essa execução.   Também pode utilizar o dropdown acima do gráfico para visualizar um gráfico de cada métrica disponível para cada iteração.
 
 ![tabela de widget](./media/how-to-auto-train-remote/table.png)
 ![desenho de widget](./media/how-to-auto-train-remote/plot.png)
 
-O widget exibe um URL que pode usar para ver e explorar os detalhes de execução individuais.  
+O widget apresenta um URL que pode usar para ver e explorar os detalhes individuais da execução.  
 
-Se não estiver num caderno jupyter, pode exibir o URL a partir da própria execução:
+Se não estiver num bloco de notas jupyter, pode exibir o URL da própria execução:
 
 ```
 remote_run.get_portal_url()
 ```
 
-A mesma informação está disponível no seu espaço de trabalho.  Para saber mais sobre estes resultados, consulte [Compreender os resultados automatizados](how-to-understand-automated-ml.md)de machine learning.
+A mesma informação está disponível no seu espaço de trabalho.  Para saber mais sobre estes resultados, consulte [os resultados automatizados de aprendizagem automática de máquinas.](how-to-understand-automated-ml.md)
 
 ## <a name="example"></a>Exemplo
 
@@ -226,7 +226,7 @@ O [caderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Aprenda [a configurar as definições para o treino automático](how-to-configure-auto-train.md).
-* Veja como permitir funcionalidades [de](how-to-machine-learning-interpretability-automl.md) interpretação do modelo em experiências automatizadas de ML.
+* Saiba [como configurar as definições para o treino automático](how-to-configure-auto-train.md).
+* Consulte o [modo de](how-to-machine-learning-interpretability-automl.md) ativar as funcionalidades de interpretação do modelo em experiências automatizadas de ML.

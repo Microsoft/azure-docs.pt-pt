@@ -2,13 +2,12 @@
 title: Funções do modelo - recursos
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: 89e8907e4e134b621cd1c55bfcefeebde772df10
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.date: 06/18/2020
+ms.openlocfilehash: f79fa3420420a2ff440c3228f227cc71436b4a1c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167728"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85099267"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recursos para modelos ARM
 
@@ -83,7 +82,7 @@ O exemplo a seguir devolve o ID do recurso para um bloqueio de grupo de recursos
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "lockName":{
@@ -101,14 +100,14 @@ O exemplo a seguir devolve o ID do recurso para um bloqueio de grupo de recursos
 }
 ```
 
-<a id="listkeys" />
-<a id="list" />
+<a id="listkeys"></a>
+<a id="list"></a>
 
 ## <a name="list"></a>lista*
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
 
-A sintaxe para esta função varia em função do nome das operações da lista. Cada implementação devolve valores para o tipo de recurso que suporta uma operação de lista. O nome da operação deve começar por `list` . Alguns usos comuns são `listKeys` , `listKeyValue` e `listSecrets` .
+A sintaxe para esta função varia em função do nome das operações da lista. Cada implementação devolve valores para o tipo de recurso que suporta uma operação de lista. O nome da operação deve começar por `list` . Alguns usos comuns são `listKeys` `listKeyValue` , e `listSecrets` .
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -120,7 +119,9 @@ A sintaxe para esta função varia em função do nome das operações da lista.
 
 ### <a name="valid-uses"></a>Usos válidos
 
-As funções da lista só podem ser utilizadas nas propriedades de uma definição de recurso e na secção de saídas de um modelo ou implantação. Quando utilizado com [iteração de propriedade,](copy-properties.md)pode utilizar as funções da lista `input` porque a expressão é atribuída à propriedade de recursos. Não pode usá-los `count` porque a contagem deve ser determinada antes da função da lista ser resolvida.
+As funções da lista podem ser utilizadas nas propriedades de uma definição de recurso. Não utilize uma função de lista que exponha informações sensíveis na secção de saídas de um modelo. Os valores de saída são armazenados no histórico de implementação e podem ser recuperados por um utilizador malicioso.
+
+Quando utilizado com [iteração de propriedade,](copy-properties.md)pode utilizar as funções da lista `input` porque a expressão é atribuída à propriedade de recursos. Não pode usá-los `count` porque a contagem deve ser determinada antes da função da lista ser resolvida.
 
 ### <a name="implementations"></a>Implementações
 
@@ -132,8 +133,8 @@ As possíveis utilizações da lista* são apresentadas na tabela seguinte.
 | Microsoft.AppConfiguration | [ListKeyValue](/rest/api/appconfiguration/configurationstores/listkeyvalue) |
 | Microsoft.AppConfiguration/configurationStores | ListKeys |
 | Microsoft.Automation/automation | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
-| Microsoft.Batch/batchAcounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
-| Microsoft.BatchAI/workspaces/experiments/jobs | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
+| Microsoft.Batcontas ch/batch | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
+| Microsoft.BatchAI/workspaces/experiências/empregos | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
 | Microsoft.Blockchain/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
 | Microsoft.Blockchain/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
 | Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/listkeys) |
@@ -163,12 +164,12 @@ As possíveis utilizações da lista* são apresentadas na tabela seguinte.
 | Microsoft.DevTestLab/labs/schedules | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
 | Microsoft.DevTestLab/labs/users/serviceFabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
 | Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
-| Microsoft.DocumentDB/databaseSacons | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/databaseaccounts/listconnectionstrings) |
-| Microsoft.DocumentDB/databaseSacons | [listKeys](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
+| Microsoft.DocumentDB/base de dadosAcontas | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/databaseaccounts/listconnectionstrings) |
+| Microsoft.DocumentDB/base de dadosAcontas | [listKeys](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
-| Microsoft.EventGrid/domínios | [listKeys](/rest/api/eventgrid/version2019-06-01/domains/listsharedaccesskeys) |
-| Microsoft.EventGrid/tópicos | [listKeys](/rest/api/eventgrid/version2019-06-01/topics/listsharedaccesskeys) |
+| Microsoft.EventGrid/domínios | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
+| Microsoft.EventGrid/tópicos | [listKeys](/rest/api/eventgrid/version2020-06-01/topics/listsharedaccesskeys) |
 | Microsoft.EventHub/namespaces/autorizaçõesRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.EventHub/namespaces/eventhubs/autorizaçõesRules | [listkeys](/rest/api/eventhub) |
@@ -284,71 +285,31 @@ Se utilizar uma função **de lista** num recurso que esteja implantado condicio
 
 ### <a name="list-example"></a>Exemplo da lista
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) de exemplo a seguir mostra como devolver as chaves primárias e secundárias de uma conta de armazenamento na secção de saídas. Também devolve um token SAS para a conta de armazenamento.
-
-Para obter o token SAS, passe um objeto para o prazo de validade. O prazo de validade deve ser no futuro. Este exemplo destina-se a mostrar como utiliza as funções da lista. Normalmente, você usaria o token SAS em um valor de recurso em vez de devolvê-lo como um valor de saída. Os valores de saída são armazenados no histórico de implantação e não são seguros.
+O exemplo a seguir utiliza listKeys ao definir um valor para [scripts de implementação](deployment-script-template.md).
 
 ```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storagename": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "southcentralus"
-        },
-        "accountSasProperties": {
-            "type": "object",
-            "defaultValue": {
-                "signedServices": "b",
-                "signedPermission": "r",
-                "signedExpiry": "2018-08-20T11:00:00Z",
-                "signedResourceTypes": "s"
-            }
-        }
-    },
-    "resources": [
-        {
-            "apiVersion": "2018-02-01",
-            "name": "[parameters('storagename')]",
-            "location": "[parameters('location')]",
-            "type": "Microsoft.Storage/storageAccounts",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "StorageV2",
-            "properties": {
-                "supportsHttpsTrafficOnly": false,
-                "accessTier": "Hot",
-                "encryption": {
-                    "services": {
-                        "blob": {
-                            "enabled": true
-                        },
-                        "file": {
-                            "enabled": true
-                        }
-                    },
-                    "keySource": "Microsoft.Storage"
-                }
-            },
-            "dependsOn": []
-        }
-    ],
-    "outputs": {
-        "keys": {
-            "type": "object",
-            "value": "[listKeys(parameters('storagename'), '2018-02-01')]"
-        },
-        "accountSAS": {
-            "type": "object",
-            "value": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('accountSasProperties'))]"
+"storageAccountSettings": {
+    "storageAccountName": "[variables('storageAccountName')]",
+    "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+}
+```
+
+O exemplo seguinte mostra uma função de lista que toma um parâmetro. Neste caso, a função é **listAccountSas**. Passe um objeto pelo tempo de validade. O prazo de validade deve ser no futuro.
+
+```json
+"parameters": {
+    "accountSasProperties": {
+        "type": "object",
+        "defaultValue": {
+            "signedServices": "b",
+            "signedPermission": "r",
+            "signedExpiry": "2020-08-20T11:00:00Z",
+            "signedResourceTypes": "s"
         }
     }
-}
+},
+...
+"sasToken": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('accountSasProperties')).accountSasToken]"
 ```
 
 Para obter um exemplo de ListaRValue, consulte [Quickstart: Implementação de VM automatizada com configuração de aplicações e modelo de Gestor de Recursos](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values).
@@ -386,7 +347,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "providerNamespace": {
@@ -537,10 +498,20 @@ Para simplificar a criação de qualquer ID de recurso, utilize as `resourceId()
 
 [Identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md) são [tipos de recursos de extensão](../management/extension-resource-types.md) que são criados implicitamente para alguns recursos. Como a identidade gerida não está explicitamente definida no modelo, deve referenciar o recurso a que a identidade é aplicada. Use `Full` para obter todas as propriedades, incluindo a identidade implicitamente criada.
 
-Por exemplo, para obter o ID do inquilino para uma identidade gerida que é aplicada a um conjunto de escala de máquina virtual, use:
+O padrão é:
+
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+
+Por exemplo, para obter o ID principal para uma identidade gerida que é aplicada a uma máquina virtual, use:
 
 ```json
-"tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), '2019-03-01', 'Full').Identity.tenantId]"
+"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')),'2019-12-01', 'Full').identity.principalId]",
+```
+
+Ou, para obter a identificação do inquilino para uma identidade gerida que é aplicada a um conjunto de escala de máquina virtual, use:
+
+```json
+"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
 ```
 
 ### <a name="reference-example"></a>Exemplo de referência
@@ -549,7 +520,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "storageAccountName": {
@@ -643,7 +614,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageResourceGroup": {
@@ -715,7 +686,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -817,7 +788,7 @@ Muitas vezes, é necessário utilizar esta função quando utilizar uma conta de
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "virtualNetworkName": {
@@ -863,7 +834,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -891,10 +862,10 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| sameRGOutput | Cadeia | /subscrições/{current-sub-id}/resourceGroups/exemplogroup/providers/Microsoft.Storage/storageAccounts/exemplostorage |
-| diferenteRSoutput | Cadeia | /subscrições/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/exemplostorage |
-| diferentesSubOutput | Cadeia | /subscrições/11111111-1111-1111-1111-111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAcontamentos/exemplostorage |
-| nestedResourceOutput | Cadeia | /subscrições/{current-sub-id}/resourceGroups/exemplogroup/providers/Microsoft.SQL/servers/serverName/databases |
+| sameRGOutput | String | /subscrições/{current-sub-id}/resourceGroups/exemplogroup/providers/Microsoft.Storage/storageAccounts/exemplostorage |
+| diferenteRSoutput | String | /subscrições/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/exemplostorage |
+| diferentesSubOutput | String | /subscrições/11111111-1111-1111-1111-111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAcontamentos/exemplostorage |
+| nestedResourceOutput | String | /subscrições/{current-sub-id}/resourceGroups/exemplogroup/providers/Microsoft.SQL/servers/serverName/databases |
 
 ## <a name="subscription"></a>subscrição
 
@@ -925,7 +896,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -972,7 +943,7 @@ O modelo a seguir atribui um papel incorporado. Pode implantá-lo para um grupo 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "principalId": {

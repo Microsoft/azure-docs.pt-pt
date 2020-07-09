@@ -1,62 +1,67 @@
 ---
 title: Serviço Azure Kubernetes (AKS) com Uptime SLA
-description: Conheça a oferta opcional uptime SLA para o Serviço Azure Kubernetes (AKS) API Server.
+description: Saiba mais sobre a oferta opcional uptime SLA para o Serviço Azure Kubernetes (AKS) API Server.
 services: container-service
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: e0e1399f69640dddfd618ac99637023390f28a92
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 06/24/2020
+ms.custom: references_regions
+ms.openlocfilehash: 9f8b0cc5a80853542b15d1993713d8a97f5371b9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683216"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361579"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Serviço Azure Kubernetes (AKS) Uptime SLA
 
-Uptime SLA é uma funcionalidade opcional para permitir um SLA financeiramente apoiado e mais alto para um cluster. Uptime SLA garante 99,95% de disponibilidade do ponto final do servidor Kubernetes API para clusters que usam Zonas de [Disponibilidade][availability-zones] e 99,9% da disponibilidade para clusters que não usam Zonas de Disponibilidade. O AKS utiliza réplicas de nó mestre em domínios de atualização e falhas para garantir que os requisitos de SLA são cumpridos.
+Uptime SLA é uma característica opcional para permitir um SLA mais alto e apoiado financeiramente para um cluster. Uptime SLA garante 99,95% de disponibilidade do ponto final do servidor API de Kubernetes para clusters que usam [Zonas de Disponibilidade][availability-zones] e 99,9% de disponibilidade para clusters que não usam Zonas de Disponibilidade. A AKS utiliza réplicas de nó master em domínios de atualização e avaria para garantir que os requisitos de SLA são cumpridos.
 
-Os clientes que necessitem de um SLA para satisfazer os requisitos de conformidade ou exigir o alargamento de um SLA aos seus utilizadores finais devem ativar esta funcionalidade. Os clientes com cargas de trabalho críticas que beneficiarão de um SLA de uptime mais elevado também podem beneficiar. A utilização da funcionalidade Uptime SLA com Zonas de Disponibilidade permite uma maior disponibilidade para o tempo de uptime do servidor Kubernetes API.  
+Os clientes que necessitem de um SLA para cumprir os requisitos de conformidade ou que exijam o alargamento de um SLA aos seus utilizadores finais devem ativar esta funcionalidade. Os clientes com cargas de trabalho críticas que beneficiarão de um SLA de maior uptime também podem beneficiar. A utilização da funcionalidade Uptime SLA com Zonas de Disponibilidade permite uma maior disponibilidade para o tempo de funcionação do servidor API de Kubernetes.  
 
-Os clientes podem ainda criar clusters gratuitos ilimitados com um objetivo de nível de serviço (SLO) de 99,5% e optar pelo Horário de SLO ou SLA preferido, conforme necessário.
+Os clientes podem ainda criar clusters gratuitos ilimitados com um objetivo de nível de serviço (SLO) de 99,5% e optar pelo SLO ou SLA Uptime preferidos, se necessário.
 
 > [!Important]
-> Para aglomerados com bloqueio de saída, consulte o [tráfego de egress limite](limit-egress-traffic.md) para abrir portos apropriados.
+> Para aglomerados com isolamento de saídas, consulte [o tráfego de saída limite](limit-egress-traffic.md) para abrir portas apropriadas.
 
-## <a name="sla-terms-and-conditions"></a>Termos e condições sLA
+## <a name="region-availability"></a>Disponibilidade de região
 
-Uptime SLA é uma característica paga e ativada por cluster. Os preços uptime SLA são determinados pelo número de clusters discretos, e não pelo tamanho dos clusters individuais. Pode ver os detalhes de preços do [Uptime SLA](https://azure.microsoft.com/pricing/details/kubernetes-service/) para mais informações.
+O Uptime SLA está disponível em regiões públicas onde [a AKS é apoiada.](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)
 
-## <a name="region-availability"></a>Disponibilidade da Região
+* O Governo de Azure não é apoiado neste momento.
+* Azure China 21Vianet não é atualmente apoiada.
 
-O Uptime SLA está disponível nas seguintes regiões:
+## <a name="limitations"></a>Limitações
 
-* Leste da Austrália
-* Canadá Central
-* E.U.A. Leste
-* E.U.A. Leste 2
-* E.U.A. Centro-Sul
-* Ásia Sudeste
-* E.U.A.Oeste 2
+* Os aglomerados privados não são suportados atualmente.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="sla-terms-and-conditions"></a>Termos e condições do SLA
 
-* A versão Azure CLI 2.7.0 ou posterior
+Uptime SLA é uma funcionalidade paga e ativada por cluster. Os preços de SLA de uptime são determinados pelo número de clusters discretos, e não pelo tamanho dos clusters individuais. Pode ver [os detalhes dos preços do Uptime SLA](https://azure.microsoft.com/pricing/details/kubernetes-service/) para mais informações.
 
-## <a name="creating-a-cluster-with-uptime-sla"></a>Criar um cluster com Uptime SLA
+## <a name="before-you-begin"></a>Before you begin
+
+* Instale a versão [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 2.8.0 ou posterior
+
+## <a name="creating-a-new-cluster-with-uptime-sla"></a>Criar um novo cluster com Uptime SLA
+
+> [!NOTE]
+> Atualmente, se ativar o Uptime SLA, não há como removê-lo de um cluster.
 
 Para criar um novo cluster com o Uptime SLA, utilize o Azure CLI.
 
-O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
+O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *este:*
 
 ```azurecli-interactive
+# Create a resource group
 az group create --name myResourceGroup --location eastus
 ```
-Utilize o comando [az aks create][az-aks-create] para criar um cluster AKS. O exemplo seguinte cria um cluster com o nome *myAKSCluster* com um nó. O Azure Monitor para contentores também é ativado com o parâmetro *--enable-addons monitoring*.  Esta operação leva vários minutos para ser concluída.
+Utilize o [`az aks create`][az-aks-create] comando para criar um cluster AKS. O exemplo seguinte cria um cluster com o nome *myAKSCluster* com um nó. Esta operação leva vários minutos para ser concluída:
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1 --enable-addons monitoring --generate-ssh-keys
+# Create an AKS cluster with uptime SLA
+az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1
 ```
-Após alguns minutos, o comando completa e devolve informações formatadas da JSON sobre o cluster. O seguinte snippet JSON mostra o nível pago para o SKU, indicando que o seu cluster está ativado com Uptime SLA.
+Após alguns minutos, o comando completa e devolve informações formatadas com JSON sobre o cluster. O seguinte snippet JSON mostra o nível pago para o SKU, indicando que o seu cluster está ativado com Uptime SLA:
 
 ```output
   },
@@ -66,16 +71,62 @@ Após alguns minutos, o comando completa e devolve informações formatadas da J
   },
 ```
 
-## <a name="limitations"></a>Limitações
+## <a name="modify-an-existing-cluster-to-use-uptime-sla"></a>Modificar um cluster existente para utilizar o Uptime SLA
 
-* Atualmente, não pode converter-se como cluster existente para permitir o Uptime SLA.
-* Atualmente, não há como remover uptime SLA de um cluster AKS após a criação com ele habilitado.  
-* Os agrupamentos privados não são atualmente apoiados.
+Pode atualizar opcionalmente os seus clusters existentes para utilizar o Uptime SLA.
 
-## <a name="next-steps"></a>Passos seguintes
+Se criou um cluster AKS com os passos anteriores, elimine o grupo de recursos:
 
-Utilize zonas de [disponibilidade][availability-zones] para aumentar a alta disponibilidade com as suas cargas de trabalho de cluster AKS.
-Configure o seu cluster para limitar o tráfego de [saída](limit-egress-traffic.md).
+```azurecli-interactive
+# Delete the existing cluster by deleting the resource group 
+az group delete --name myResourceGroup --yes --no-wait
+```
+
+Criar um novo grupo de recursos:
+
+```azurecli-interactive
+# Create a resource group
+az group create --name myResourceGroup --location eastus
+```
+
+Crie um novo cluster, e não use o Uptime SLA:
+
+```azurecli-interactive
+# Create a new cluster without uptime SLA
+az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
+```
+
+Utilize o [`az aks update`][az-aks-nodepool-update] comando para atualizar o cluster existente:
+
+```azurecli-interactive
+# Update an existing cluster to use Uptime SLA
+ az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
+ ```
+
+ O seguinte snippet JSON mostra o nível pago para o SKU, indicando que o seu cluster está ativado com Uptime SLA:
+
+ ```output
+  },
+  "sku": {
+    "name": "Basic",
+    "tier": "Paid"
+  },
+  ```
+
+## <a name="clean-up"></a>Limpeza
+
+Para evitar acusações, limpe todos os recursos que criou. Para eliminar o cluster, utilize o [`az group delete`][az-group-delete] comando para eliminar o grupo de recursos AKS:
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
+```
+
+
+## <a name="next-steps"></a>Próximos passos
+
+Utilize [Zonas de disponibilidade][availability-zones] para aumentar a disponibilidade com as cargas de trabalho do cluster AKS.
+
+Configure o seu cluster para [limitar o tráfego de saídas](limit-egress-traffic.md).
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
@@ -90,3 +141,5 @@ Configure o seu cluster para limitar o tráfego de [saída](limit-egress-traffic
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
+[az-group-delete]: /cli/azure/group#az-group-delete

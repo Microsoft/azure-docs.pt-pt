@@ -1,6 +1,6 @@
 ---
 title: Criar & localizar âncoras na Unidade
-description: Explicação aprofundada de como criar e localizar âncoras usando âncoras espaciais azure em unidade.
+description: Explicação aprofundada de como criar e localizar âncoras usando âncoras espaciais Azure em Unidade.
 author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
@@ -9,11 +9,11 @@ ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 72d25582d15e745b0bdefcde5f68af94eab49293
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79238847"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712212"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>Como criar e localizar âncoras usando âncoras espaciais Azure em Unidade
 
@@ -28,22 +28,22 @@ ms.locfileid: "79238847"
 As Âncoras Espaciais Azure permitem-lhe partilhar âncoras no mundo entre diferentes dispositivos. Apoia vários ambientes de desenvolvimento diferentes. Neste artigo, vamos mergulhar em como usar o Azure Spatial Anchors SDK, em Unidade, para:
 
 - Configurar e gerir corretamente uma sessão de Âncoras Espaciais Azure.
-- Crie e coloque propriedades em âncoras locais.
-- Mande-os para a nuvem.
-- Localize e elimine as âncoras espaciais da nuvem.
+- Crie e desacorda propriedades em âncoras locais.
+- Carreguem-nos para a nuvem.
+- Localize e elimine as âncoras espaciais em nuvem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para completar este guia, certifique-se de que tem:
 
-- Leia através da visão geral das [Âncoras Espaciais Azure](../overview.md).
+- Leia a visão geral das [âncoras espaciais de Azure](../overview.md).
 - Completou um dos [Quickstarts de 5 minutos.](../index.yml)
 - Conhecimento básico sobre C# e Unidade.
-- Conhecimentos básicos sobre <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> se quiser utilizar o Android, ou <a href="https://developer.apple.com/arkit/" target="_blank">ARKit,</a> caso pretenda utilizar o iOS.
+- Conhecimento básico no <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> se quiser utilizar o Android ou <a href="https://developer.apple.com/arkit/" target="_blank">o ARKit</a> se quiser utilizar o iOS.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
-Saiba mais sobre a aula [CloudSpatialAnchorSession.](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession)
+Saiba mais sobre a aula [de CloudSpatialAnchorSession.](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession)
 
 ```csharp
     CloudSpatialAnchorSession cloudSession;
@@ -53,7 +53,7 @@ Saiba mais sobre a aula [CloudSpatialAnchorSession.](https://docs.microsoft.com/
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
 
-Saiba mais sobre a aula de Configuração de [Sessões.](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionconfiguration)
+Saiba mais sobre a aula [de SessãoConfiguration.](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionconfiguration)
 
 ```csharp
     this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
@@ -67,7 +67,7 @@ Saiba mais sobre a aula de Configuração de [Sessões.](https://docs.microsoft.
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
 
-Saiba mais sobre o delegado [tokenRequiredDelegado.](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.tokenrequireddelegate)
+Saiba mais sobre o delegado [do TokenRequiredDeegate.](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.tokenrequireddelegate)
 
 ```csharp
     this.cloudSession.TokenRequired += (object sender, TokenRequiredEventArgs args) =>
@@ -155,7 +155,7 @@ Saiba mais sobre o método [ProcessFrame.](https://docs.microsoft.com/dotnet/api
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
 
-Saiba mais sobre o delegado [sessionUpdatedDelegate.](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionupdateddelegate)
+Saiba mais sobre o delegado [do SessionUpdatedDedegate.](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionupdateddelegate)
 
 ```csharp
     this.cloudSession.SessionUpdated += (object sender, SessionUpdatedEventArgs args)
@@ -169,7 +169,7 @@ Saiba mais sobre o delegado [sessionUpdatedDelegate.](https://docs.microsoft.com
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
 
-Saiba mais sobre a classe [CloudSpatialAnchor.](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor)
+Saiba mais sobre a aula [cloudSpatialAnchor.](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor)
 
 ```csharp
     // Create a local anchor, perhaps by hit-testing and spawning an object within the scene
@@ -249,7 +249,7 @@ Saiba mais sobre o método [GetAnchorPropertiesAsync.](https://docs.microsoft.co
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
-Saiba mais sobre a propriedade [Expiration.](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor.expiration)
+Saiba mais sobre a propriedade [Expiração.](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor.expiration)
 
 ```csharp
     cloudAnchor.Expiration = DateTimeOffset.Now.AddDays(7);
@@ -267,7 +267,7 @@ Saiba mais sobre o método [CreateWatcher.](https://docs.microsoft.com/dotnet/ap
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
 
-Saiba mais sobre o delegado [AnchorLocatedDelegate.](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocateddelegate)
+Saiba mais sobre o delegado [do AnchorLocatedDelegate.](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocateddelegate)
 
 ```csharp
     this.cloudSession.AnchorLocated += (object sender, AnchorLocatedEventArgs args) =>
@@ -313,7 +313,7 @@ Saiba mais sobre o método [Stop.](https://docs.microsoft.com/dotnet/api/microso
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
 
-Saiba mais sobre o método [de reset.](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.reset)
+Saiba mais sobre o método [Reset.](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.reset)
 
 ```csharp
     this.cloudSession.Reset();
@@ -321,7 +321,7 @@ Saiba mais sobre o método [de reset.](https://docs.microsoft.com/dotnet/api/mic
 
 [!INCLUDE [Cleanup](../../../includes/spatial-anchors-create-locate-anchors-cleanup-unity.md)]
 
-Saiba mais sobre o método [Eliminar.](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.dispose)
+Saiba mais sobre o método [Dispor.](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.dispose)
 
 ```csharp
     this.cloudSession.Dispose();

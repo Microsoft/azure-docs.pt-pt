@@ -1,6 +1,6 @@
 ---
-title: Atualizações de documentação da Azure Media Services v3
-description: Para se manter atualizado com as mais recentes atualizações de documentação v3 dos Media Services.
+title: Atualizações de documentação do Azure Media Services v3
+description: Para se manter atualizado com as mais recentes atualizações de documentação dos Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,29 +11,37 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: b0f01f5f044fd096704683fe67d2068e4ab4c3f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40a2510fcb6fd5fe51cebc702604e2d09df7b061
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81772148"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84982174"
 ---
-# <a name="azure-media-services-v3-documentation-updates"></a>Atualizações de documentação da Azure Media Services v3
+# <a name="azure-media-services-v3-documentation-updates"></a>Atualizações de documentação do Azure Media Services v3
 
->Seja notificado sobre quando revisitar esta página para atualizações copiando e colando este URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+documentation+updates%22&locale=en-us` no seu leitor de feed RSS.
+>Seja notificado sobre quando revisitar esta página para obter atualizações copiando e colando este URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+documentation+updates%22&locale=en-us` no seu leitor de feed RSS.
 
-Este artigo fala sobre as mais recentes atualizações de documentação v3 dos Media Services.
+Este artigo fala sobre as mais recentes atualizações de documentação dos Media Services v3.
+
+## <a name="june-2020"></a>Junho de 2020
+
+* A pré-estreia de Live Video Analytics no IoT Edge tornou-se pública. Veja os detalhes na documentação do [IoT Edge no Vídeo Ao Vivo.](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/)
+* Novos quickstarts:
+
+    * [Utilizar o portal para carregar, codificar e transmitir conteúdo em fluxo](manage-assets-quickstart.md)
+    * [Utilizar o portal para encriptar conteúdo](encrypt-content-quickstart.md)
 
 ## <a name="april-2020"></a>Abril de 2020
 
-* Os docs do Azure Media Player foram migrados para a [documentação azure.](../azure-media-player/azure-media-player-overview.md)
-* O [streaming ao vivo com o Open Broadcasting Studio (OBS)](live-events-obs-quickstart.md) quickstart foi adicionado. Mostra como criar um stream ao vivo dos Media Services utilizando o portal Azure e o OBS.
+* Os docs do Azure Media Player foram migrados para a documentação do [Azure](../azure-media-player/azure-media-player-overview.md).
+* O [streaming ao vivo com open broadcasting studio (OBS)](live-events-obs-quickstart.md) quickstart foi adicionado. Mostra como criar um live stream dos Media Services utilizando o portal Azure e o OBS.
 
 ## <a name="march-2020"></a>Março de 2020
 
-O [streaming ao vivo com telestream Wirecast](live-events-wirecast-quickstart.md) quickstart foi adicionado. Mostra-lhe como criar um stream ao vivo da Azure Media Services utilizando o portal Azure e a Telestream Wirecast.
+O [streaming ao vivo com telestream Wirecast](live-events-wirecast-quickstart.md) quickstart foi adicionado. Mostra-lhe como criar um live stream da Azure Media Services utilizando o portal Azure e o Telestream Wirecast.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Descrição Geral](media-services-overview.md)
-- [Notas de lançamento v3 dos Media Services](release-notes.md)
+- [Descrição geral](media-services-overview.md)
+- [Media Services v3 notas de lançamento](release-notes.md)

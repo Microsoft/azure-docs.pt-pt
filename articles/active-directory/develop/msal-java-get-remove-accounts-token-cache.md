@@ -1,5 +1,5 @@
 ---
-title: Obtenha & remover contas da cache simbólica (MSAL4j) [ Azure
+title: Obtenha & remover as contas da cache simbólica (MSAL4j) Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como visualizar e remover contas da cache simbólica utilizando a Biblioteca de Autenticação da Microsoft para Java.
 services: active-directory
@@ -7,26 +7,26 @@ author: sangonzal
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 11/07/2019
 ms.author: sagonzal
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev
-ms.openlocfilehash: 2b138678b186cc41b76254658ad604c2da2d76c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 150708e7d54e456e1a4e35cfe381e5de5d0f1e8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76696202"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479356"
 ---
-# <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java"></a>Obtenha e remova contas da cache simbólica usando MSAL para Java
+# <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java"></a>Obtenha e remova as contas da cache simbólica usando MSAL para Java
 
-A MSAL para Java fornece uma cache de ficha sinuosa por padrão. A cache de ficha sinuosa na memória dura a duração da instância de aplicação.
+MSAL para Java fornece uma cache simbólica na memória por padrão. A cache simbólica na memória dura a duração da aplicação.
 
-## <a name="see-which-accounts-are-in-the-cache"></a>Veja quais as contas que estão na cache
+## <a name="see-which-accounts-are-in-the-cache"></a>Ver quais as contas que estão na cache
 
-Pode verificar quais as contas que `PublicClientApplication.getAccounts()` estão na cache, ligando como mostrado no seguinte exemplo:
+Pode verificar quais as contas que estão na cache, ligando `PublicClientApplication.getAccounts()` como mostrado no seguinte exemplo:
 
 ```java
 PublicClientApplication pca = new PublicClientApplication.Builder(
@@ -39,7 +39,7 @@ Set<IAccount> accounts = pca.getAccounts().join();
 
 ## <a name="remove-accounts-from-the-cache"></a>Remover contas da cache
 
-Para remover uma conta da cache, encontre a conta `PublicClientApplicatoin.removeAccount()` que precisa de ser removida e, em seguida, ligue como mostrado no seguinte exemplo:
+Para remover uma conta da cache, encontre a conta que precisa de ser removida e, em seguida, ligue `PublicClientApplicatoin.removeAccount()` como mostrado no exemplo seguinte:
 
 ```java
 Set<IAccount> accounts = pca.getAccounts().join();
@@ -53,4 +53,4 @@ pca.removeAccount(accountToBeRemoved).join();
 
 ## <a name="learn-more"></a>Saiba mais
 
-Se estiver a usar o MSAL para Java, aprenda sobre a serialização de [cache personalizada em MSAL para Java](msal-java-token-cache-serialization.md).
+Se estiver a utilizar o MSAL para Java, saiba mais sobre [a serialização de cache de ficha personalizada em MSAL para Java.](msal-java-token-cache-serialization.md)

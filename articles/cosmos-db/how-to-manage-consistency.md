@@ -1,21 +1,21 @@
 ---
 title: Gerir a consistência em Azure Cosmos DB
-description: Saiba como configurar e gerir níveis de consistência em Azure Cosmos DB utilizando o portal Azure, .NET SDK, Java SDK e vários outros SDKs
-author: markjbrown
+description: Aprenda a configurar e gerir níveis de consistência em Azure Cosmos DB usando o portal Azure, .NET SDK, Java SDK e vários outros SDKs
+author: anfeldma-ms
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 04/24/2020
-ms.author: mjbrown
-ms.openlocfilehash: 28266471fb1e440a45e412ee889e0706cfc2ce49
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.topic: how-to
+ms.date: 06/10/2020
+ms.author: anfeldma
+ms.openlocfilehash: e6f63807eeea32a7cce7e028dab5e16114bf9643
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82870089"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261567"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gerir níveis de consistência no Azure Cosmos DB
 
-Este artigo explica como gerir os níveis de consistência no Azure Cosmos DB. Aprende-se a configurar o nível de consistência predefinido, a anular a consistência predefinida, a gerir manualmente os tokens da sessão e a compreender a métrica Probabilistly Bounded Staleness (PBS).
+Este artigo explica como gerir os níveis de consistência no Azure Cosmos DB. Aprende-se a configurar o nível de consistência padrão, a sobrepor-se à consistência padrão, a gerir manualmente fichas de sessão e a compreender a métrica probabilisticamente limitada (PBS).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -25,13 +25,13 @@ O [nível de consistência padrão](consistency-levels.md) é o nível de consis
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
-Para visualizar ou modificar o nível de consistência predefinido, inscreva-se no portal Azure. Encontre a sua conta Azure Cosmos e abra o painel de **consistência Padrão.** Selecione o nível de consistência que deseja como o novo padrão e, em seguida, selecione **Guardar**. O portal Azure também fornece uma visualização de diferentes níveis de consistência com notas musicais. 
+Para visualizar ou modificar o nível de consistência predefinido, inscreva-se no portal Azure. Encontre a sua conta Azure Cosmos e abra o **painel de consistência padrão.** Selecione o nível de consistência que deseja como novo padrão e, em seguida, **selecione Guardar**. O portal Azure também fornece uma visualização de diferentes níveis de consistência com notas musicais. 
 
-![Menu de consistência no portal Azure](./media/how-to-manage-consistency/consistency-settings.png)
+:::image type="content" source="./media/how-to-manage-consistency/consistency-settings.png" alt-text="Menu de consistência no portal Azure":::
 
 # <a name="cli"></a>[CLI](#tab/cli)
 
-Crie uma conta Cosmos com consistência de Session e, em seguida, atualize a consistência padrão.
+Crie uma conta Cosmos com consistência de Sessão e, em seguida, atualize a consistência padrão.
 
 ```azurecli
 # Create a new account with Session consistency
@@ -43,7 +43,7 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName --def
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Crie uma conta Cosmos com consistência de Session e, em seguida, atualize a consistência padrão.
+Crie uma conta Cosmos com consistência de Sessão e, em seguida, atualize a consistência padrão.
 
 ```azurepowershell-interactive
 # Create a new account with Session consistency
@@ -59,7 +59,7 @@ Update-AzCosmosDBAccount -ResourceGroupName $resourceGroupName `
 
 ## <a name="override-the-default-consistency-level"></a>Substituir o nível de consistência predefinido
 
-Os clientes podem substituir o nível de consistência predefinido que está definido pelo serviço. O nível de consistência pode ser definido a cada pedido, que sobrepõe o nível de consistência predefinido estabelecido ao nível da conta.
+Os clientes podem substituir o nível de consistência predefinido que está definido pelo serviço. O nível de consistência pode ser definido a cada pedido, o que substitui o nível de consistência predefinido definido ao nível da conta.
 
 > [!TIP]
 > A consistência só pode ser **descontraída** ao nível do pedido. Para passar de uma consistência mais fraca para uma consistência mais forte, atualize a consistência padrão para a conta Cosmos.
@@ -92,9 +92,27 @@ var response = await client.GetContainer(databaseName, containerName)
 ```
 ---
 
-### <a name="java-sdk"></a><a id="override-default-consistency-java"></a>SDK Java
+### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a>Java V4 SDK
 
-# <a name="java-async-sdk"></a>[Java Async SDK](#tab/javaasync)
+# <a name="async"></a>[Async](#tab/api-async)
+
+   Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConsistencyAsync)]
+
+# <a name="sync"></a>[Sincronização](#tab/api-sync)
+
+   Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConsistencySync)]
+
+--- 
+
+### <a name="java-v2-sdks"></a><a id="override-default-consistency-javav2"></a>Java V2 SDKs
+
+# <a name="async"></a>[Async](#tab/api-async)
+
+Async Java V2 SDK (Maven com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Override consistency at the client level
@@ -108,7 +126,9 @@ AsyncDocumentClient client =
                 .withConnectionPolicy(policy).build();
 ```
 
-# <a name="java-sync-sdk"></a>[Java sync SDK](#tab/javasync)
+# <a name="sync"></a>[Sincronização](#tab/api-sync)
+
+Sync Java V2 SDK (Maven com.microsoft.azure::azure-documentdb)
 
 ```java
 // Override consistency at the client level
@@ -141,9 +161,9 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {
 
 ## <a name="utilize-session-tokens"></a>Utilizar tokens de sessões
 
-Um dos níveis de consistência no Azure Cosmos DB é a consistência da *sessão.* Este é o nível padrão aplicado às contas da Cosmos por padrão. Ao trabalhar com a consistência da *Sessão,* o cliente utilizará um token de sessão internamente com cada pedido de leitura/consulta para garantir que o nível de consistência definido seja mantido.
+Um dos níveis de consistência no Azure Cosmos DB é a consistência *da sessão.* Este é o nível padrão aplicado às contas cosmos por padrão. Ao trabalhar com a consistência *da Sessão,* o cliente utilizará um token de sessão internamente com cada pedido de leitura/consulta para garantir que o nível de consistência definido seja mantido.
 
-Para gerir os tokens da sessão manualmente, obtenha o token da sessão da resposta e despeça-os por pedido. Se não precisa de gerir os tokens da sessão manualmente, não precisa de usar estas amostras. O SDK acompanha automaticamente as fichas de sessão. Se não definir a sessão de forma manual, por padrão, o SDK utiliza o token de sessão mais recente.
+Para gerir os tokens de sessão manualmente, obtenha o sinal da sessão da resposta e desacorda-os por pedido. Se não precisar de gerir os tokens de sessão manualmente, não precisa de usar estas amostras. O SDK acompanha automaticamente os tokens de sessão. Se não definir o token da sessão manualmente, por padrão, o SDK utiliza o token de sessão mais recente.
 
 ### <a name="net-sdk"></a><a id="utilize-session-tokens-dotnet"></a>SDK .NET
 
@@ -173,9 +193,27 @@ ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(sa
 ```
 ---
 
-### <a name="java-sdk"></a><a id="utilize-session-tokens-java"></a>SDK Java
+### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a>Java V4 SDK
 
-# <a name="java-async-sdk"></a>[Java Async SDK](#tab/javaasync)
+# <a name="async"></a>[Async](#tab/api-async)
+
+   Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConsistencySessionAsync)]
+
+# <a name="sync"></a>[Sincronização](#tab/api-sync)
+
+   Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConsistencySessionSync)]
+
+--- 
+
+### <a name="java-v2-sdks"></a><a id="utilize-session-tokens-javav2"></a>Java V2 SDKs
+
+# <a name="async"></a>[Async](#tab/api-async)
+
+Async Java V2 SDK (Maven com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Get session token from response
@@ -197,7 +235,9 @@ requestOptions.setSessionToken(sessionToken);
 Observable<ResourceResponse<Document>> readObservable = client.readDocument(document.getSelfLink(), options);
 ```
 
-# <a name="java-sync-sdk"></a>[Java sync SDK](#tab/javasync)
+# <a name="sync"></a>[Sincronização](#tab/api-sync)
+
+Sync Java V2 SDK (Maven com.microsoft.azure::azure-documentdb)
 
 ```java
 // Get session token from response
@@ -238,17 +278,17 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Monitorizar a métrica de Estagnação Limitada Probabilisticamente (PBS)
 
-Como eventual é a consistência? Para o caso médio, podemos oferecer limites de estagnação no que diz respeito à história e tempo da versão. A métrica [**Probabilistly Bounded Staleness (PBS)**](https://pbs.cs.berkeley.edu/) tenta quantificar a probabilidade de estagnação e mostra-a como uma métrica. Para ver a métrica da PBS, vá à sua conta Azure Cosmos no portal Azure. Abra o painel de **Métricas** e selecione o separador **Consistência.** Veja o gráfico denominado **Probabilidade de leituras fortemente consistentes com base na sua carga de trabalho (ver PBS)**.
+Quão eventual é a consistência eventual? Para o caso médio, podemos oferecer limites de estagnação no que diz respeito à história e tempo da versão. A métrica [**Probabilisticamente Limitada (PBS)**](https://pbs.cs.berkeley.edu/) tenta quantificar a probabilidade de estagnação e mostra-a como uma métrica. Para ver a métrica pbs, vá à sua conta Azure Cosmos no portal Azure. Abra o painel **métrica** e selecione o separador **Consistência.** Veja o gráfico denominado Probabilidade de **leituras fortemente consistentes com base na sua carga de trabalho (ver PBS)**.
 
-![Gráfico PBS no portal Azure](./media/how-to-manage-consistency/pbs-metric.png)
+:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Gráfico PBS no portal Azure":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como gerir conflitos de dados, ou passar para o próximo conceito chave em Azure Cosmos DB. Consulte os seguintes artigos:
 
 * [Níveis de consistência em Azure Cosmos DB](consistency-levels.md)
 * [Gerir conflitos entre regiões](how-to-manage-conflicts.md)
 * [Criação de partições e distribuição de dados](partition-data.md)
-* [Trocas de consistência no design moderno de sistemas de base de dados distribuídos](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
-* [Alta disponibilidade](high-availability.md)
+* [Tradeoffs de consistência no design moderno de sistemas de base de dados distribuídos](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+* [Elevada disponibilidade](high-availability.md)
 * [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

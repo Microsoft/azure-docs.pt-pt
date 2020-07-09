@@ -95,6 +95,10 @@
           href: batch-management-dotnet.md
         - name: Análise de custos e orçamentos
           href: budget.md
+        - name: Utilizar pontos finais privados com contas do Batch
+          href: private-connectivity.md
+        - name: Configurar chaves geridas pelo cliente
+          href: batch-customer-managed-key.md
     - name: Autenticar com o Azure AD
       items:
         - name: Azure AD com o serviço Batch
@@ -129,6 +133,10 @@
           href: batch-custom-images.md
         - name: Criar um conjunto numa rede virtual
           href: batch-virtual-network.md
+        - name: Criar um conjunto com endereços IP públicos
+          href: create-pool-public-ip.md
+        - name: Criar um conjunto sem endereços IP públicos
+          href: batch-pool-no-public-ip-address.md
         - name: Montar um sistema de ficheiros virtual
           href: virtual-file-mount.md
         - name: Montar uma partilha de ficheiros do Azure
@@ -264,13 +272,13 @@
     - name: Comentários do Batch
       href: 'https://feedback.azure.com/forums/269742-batch'
     - name: Página de perguntas das Perguntas e Respostas da Microsoft sobre o Batch
-      href: 'https://docs.microsoft.com/answers/topics/azure-batch.html'
+      href: /answers/topics/azure-batch.html
     - name: Batch Shipyard
       href: 'https://github.com/Azure/batch-shipyard'
     - name: Blogue
       href: 'https://blogs.technet.microsoft.com/windowshpc/'
     - name: HPC no Azure
-      href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
+      href: /azure/architecture/topics/high-performance-computing/
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/batch/'
     - name: Calculadora de preços

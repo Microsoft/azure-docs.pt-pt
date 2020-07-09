@@ -1,35 +1,35 @@
 ---
-title: Configurar o início de sessão direta utilizando o Diretório Ativo Azure B2C [ Microsoft Docs
-description: Aprenda a pré-povoar o nome de inscrição ou redirecione diretamente para um fornecedor de identidade social.
+title: Configurar o acesso direto usando o Azure Ative Directory B2C / Microsoft Docs
+description: Saiba como pré-epopular o nome de inscrição ou redirecione diretamente para um provedor de identidade social.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/18/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9a02ad3ea43ae9d91489417bc314e3c23d54a958
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9e7c537e85039675f27fa3e276b6b964ce1679b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188771"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388600"
 ---
-# <a name="set-up-direct-sign-in-using-azure-active-directory-b2c"></a>Configurar o acesso direto utilizando o Diretório Ativo Azure B2C
+# <a name="set-up-direct-sign-in-using-azure-active-directory-b2c"></a>Configurar o acesso direto usando o Azure Ative Directory B2C
 
-Ao configurar o início de sessão para a sua aplicação utilizando o Azure Ative Directory (AD) B2C, pode pré-povoar o nome de entrada ou iniciar sessão direta a um fornecedor específico de identidade social, como facebook, LinkedIn ou uma conta Microsoft.
+Ao iniciar a inscrição para a sua aplicação utilizando o Azure Ative Directory (AD) B2C, pode pré-fazer o pré-in ou iniciar sposição direta a um fornecedor específico de identidade social, como Facebook, LinkedIn ou uma conta Microsoft.
 
-## <a name="prepopulate-the-sign-in-name"></a>Pré-povoar o nome de inscrição
+## <a name="prepopulate-the-sign-in-name"></a>Pré-apouular o nome de inscrição
 
-Durante uma viagem de utilizador de entrada, uma aplicação de parte de fiação pode visar um utilizador ou nome de domínio específico. Ao direcionar um utilizador, uma aplicação pode especificar, no pedido de autorização, o `login_hint` parâmetro de consulta com o nome de inscrição do utilizador. O Azure AD B2C preenche automaticamente o nome de entrada, enquanto o utilizador apenas precisa fornecer a palavra-passe.
+Durante uma viagem de utilizador de entrada, uma aplicação de parte de gestão pode visar um utilizador ou nome de domínio específico. Ao direcionar um utilizador, uma aplicação pode especificar, no pedido de autorização, o `login_hint` parâmetro de consulta com o nome de entrada do utilizador. O Azure AD B2C povoa automaticamente o nome de entrada, enquanto o utilizador apenas necessita de fornecer a palavra-passe.
 
-![Inscreva-se na página com login_hint param de consulta em destaque no URL](./media/direct-signin/login-hint.png)
+![Inscreva-se na página com login_hint param de consulta realçado em URL](./media/direct-signin/login-hint.png)
 
-O utilizador é capaz de alterar o valor na caixa de texto de entrada.
+O utilizador é capaz de alterar o valor na caixa de texto de entrada de inscrição.
 
-Se estiver a usar uma política `SelfAsserted-LocalAccountSignin-Email` personalizada, anule o perfil técnico. Na `<InputClaims>` secção, detete teo Valor Predefinido da alegação signName para `{OIDC:LoginHint}`. A `{OIDC:LoginHint}` variável contém `login_hint` o valor do parâmetro. O Azure AD B2C lê o valor da reclamação do signName Name e pré-povoa a caixa de texto signNameName.
+Se estiver a utilizar uma política personalizada, substitua o `SelfAsserted-LocalAccountSignin-Email` perfil técnico. Na `<InputClaims>` secção, defina o Valor Padrão da reivindicação do signInName para `{OIDC:LoginHint}` . A `{OIDC:LoginHint}` variável contém o valor do `login_hint` parâmetro. Azure AD B2C lê o valor da reivindicação do signInName e pré-povoa a caixa de texto signInName.
 
 ```xml
 <ClaimsProvider>
@@ -45,13 +45,13 @@ Se estiver a usar uma política `SelfAsserted-LocalAccountSignin-Email` personal
 </ClaimsProvider>
 ```
 
-## <a name="redirect-sign-in-to-a-social-provider"></a>Redirecione o acesso a um prestador social
+## <a name="redirect-sign-in-to-a-social-provider"></a>Redirecione o s-in para um prestador social
 
-Se configurar a jornada de acesso à sua aplicação para incluir contas sociais, como `domain_hint` Facebook, LinkedIn ou Google, pode especificar o parâmetro. Este parâmetro de consulta fornece uma dica ao Azure AD B2C sobre o fornecedor de identidade social que deve ser utilizado para o início de sessão. Por exemplo, se a `domain_hint=facebook.com`aplicação especificar , o sessão vai diretamente para a página de acesso ao Facebook.
+Se configurar a jornada de entrada para a sua aplicação incluir contas sociais, como Facebook, LinkedIn ou Google, pode especificar o `domain_hint` parâmetro. Este parâmetro de consulta fornece uma dica ao Azure AD B2C sobre o fornecedor de identidade social que deve ser usado para iniciar sação. Por exemplo, se a aplicação especificar, o `domain_hint=facebook.com` sin-in vai diretamente para a página de entrada no Facebook.
 
-![Inscreva-se na página com domain_hint param de consulta em destaque no URL](./media/direct-signin/domain-hint.png)
+![Inscreva-se na página com domain_hint param de consulta realçado em URL](./media/direct-signin/domain-hint.png)
 
-Se estiver a utilizar uma política personalizada, pode `<Domain>domain name</Domain>` configurar o `<ClaimsProvider>`nome de domínio utilizando o elemento XML de qualquer .
+Se estiver a utilizar uma política personalizada, pode configurar o nome de domínio utilizando o `<Domain>domain name</Domain>` elemento XML de qualquer `<ClaimsProvider>` .
 
 ```xml
 <ClaimsProvider>

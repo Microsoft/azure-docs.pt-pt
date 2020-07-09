@@ -1,6 +1,6 @@
 ---
-title: 'Autenticação de Passe-Through Azure AD: Versão lança história de lançamento Microsoft Docs'
-description: Este artigo lista todas as versões do agente de autenticação Pass-through Azure AD
+title: 'Azure AD Authentication Pass-through: Versão release history / Microsoft Docs'
+description: Este artigo lista todos os lançamentos do agente de autenticação Azure AD
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,25 +12,25 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75b127f8429650d46af9f171ed7ff03692f1499e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3e5e6afef70ee3d4f4d84cb6b867a916ae57da5a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81379910"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356309"
 ---
-# <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Azure AD Pass-through Authentication agent: Version release history 
+# <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Azure AD Agente de autenticação pass-through: histórico de lançamento de versão 
  
-Os agentes instalados no local que permitem a Autenticação Pass-through são atualizados regularmente para fornecer novas capacidades. Este artigo lista as versões e funcionalidades que são adicionadas quando é introduzida uma nova funcionalidade. Os agentes de autenticação pass-through são atualizados automaticamente quando uma nova versão é lançada. 
+Os agentes instalados no local que permitem a autenticação pass-through são atualizados regularmente para fornecer novas capacidades. Este artigo lista as versões e funcionalidades que são adicionadas quando é introduzida nova funcionalidade. Os agentes de autenticação pass-through são atualizados automaticamente quando uma nova versão é lançada. 
 
 Aqui estão os tópicos relacionados: 
 
-- [Entrada de utilizador com autenticação de passe azure AD](how-to-connect-pta.md) 
-- [Instalação de agente de autenticação Pass-through Azure AD](how-to-connect-pta-quick-start.md) 
+- [Sedús de insuperação do utilizador com autenticação pass-through Azure AD](how-to-connect-pta.md) 
+- [Instalação de agente de autenticação pass-through Azure AD](how-to-connect-pta-quick-start.md) 
 
 ## <a name="1517420"></a>1.5.1742.0
-### <a name="release-status"></a>Estado de lançamento: 
-04/09/2020: Lançado para download
+### <a name="release-status"></a>Estado do lançamento: 
+04/09/2020: Lançamento para download
 
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias
 
@@ -40,50 +40,50 @@ Aqui estão os tópicos relacionados:
 
 ## <a name="1510070"></a>1.5.1007.0 
 ### <a name="release-status"></a>Estado de lançamento 
-1/22/2019: Lançado para download  
+1/22/2019: Lançamento para download  
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias 
-- Suporte adicional para canais fiáveis de ônibus de serviço para adicionar outra camada de resiliência de conexão para ligações de saída 
+- Suporte adicional para canais fiáveis do Service Bus para adicionar outra camada de resiliência de conexão para ligações de saída 
 - Impor TLS 1.2 durante o registo do agente 
 
 ## <a name="156430"></a>1.5.643.0 
 ### <a name="release-status"></a>Estado de lançamento 
-4/10/2018: Lançado para download  
+4/10/2018: Lançamento para download  
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias 
-- Suporte de ligação à tomada web 
+- Suporte à ligação da tomada web 
 - Definir TLS 1.2 como o protocolo padrão para o agente 
  
 ## <a name="154050"></a>1.5.405.0 
 ### <a name="release-status"></a>Estado de lançamento 
-1/31/2018: Lançado para download  
+1/31/2018: Lançamento para download  
 ### <a name="fixed-issues"></a>Problemas corrigidos 
 
-- Fixou um inseto que causou algumas fugas de memória no agente. 
-- Atualizou a versão Azure Service Bus, que inclui uma correção de bugs para problemas de tempo de conector. 
+- Consertei um erro que causou fugas de memória no agente. 
+- Atualizou a versão Azure Service Bus, que inclui uma correção de erro para problemas de tempo de conector. 
  
 ## <a name="154050"></a>1.5.405.0 
 ### <a name="release-status"></a>Estado de lançamento 
-11/26/2017: Lançado para download  
+11/26/2017: Lançamento para download  
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias 
-- Suporte adicional para ligações baseadas em websocket entre o agente e os serviços da AD Azure para melhorar a resiliência da ligação 
+- Suporte adicional para ligações baseadas em websocket entre o agente e os serviços AD da Azure para melhorar a resiliência da ligação 
 
 ## <a name="154020"></a>1.5.402.0 
 ### <a name="release-status"></a>Estado de lançamento 
-11/25/2017: Lançado para download  
+11/25/2017: Lançamento para download  
 ### <a name="fixed-issues"></a>Problemas corrigidos 
-- Bugs fixos relacionados com a cache DNS para cenários de procuração padrão 
+- Bugs fixos relacionados com a cache DNS para cenários de procuração predefinidos 
  
 ## <a name="153890"></a>1.5.389.0 
 ### <a name="release-status"></a>Estado de lançamento 
-10/17/2017: Lançado para download  
+10/17/2017: Lançamento para download  
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias 
-- Funcionalidade de cache DNS adicionada para ligações de saída para adicionar resiliência a partir de falhas dNS 
+- Adicional à funcionalidade de cache DNS para ligações de saída para adicionar resiliência de falhas de DNS 
  
 ## <a name="152610"></a>1.5.261.0 
 ### <a name="release-status"></a>Estado de lançamento 
-08/31/2017: Lançado para download  
+08/31/2017: Lançamento para download  
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias 
-- Versão GA do agente de autenticação Pass-through Azure AD 
+- Versão GA do agente de autenticação Azure AD Pass-through 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Início de sessão do utilizador com a Autenticação Pass-through do Azure Active Directory](how-to-connect-pta.md)

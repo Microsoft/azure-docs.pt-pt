@@ -10,39 +10,39 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: d890fcb6a43b43e0be0df8e6f6ff0817bdd03115
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 161dde34a4f459640d262197fd5ccbb16ac51d04
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83998081"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84237684"
 ---
-Este quickstart baseado em cURL leva-o através de obter uma resposta da sua base de conhecimento.
+Este quickstart baseado em cURL acompanha-o através de obter uma resposta da sua base de conhecimento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [**CURL**](https://curl.haxx.se/)mais recente.
+* Última [**cURL**](https://curl.haxx.se/).
 * Deve ter.
     * Um [serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
-    * Uma base de conhecimento treinada e publicada com perguntas e respostas, desde o [quickstart](../Quickstarts/add-question-metadata-portal.md)anterior, configurada com metadados e chat chit.
+    * Uma base de conhecimento treinada e publicada com perguntas e respostas, do [início rápido](../Quickstarts/add-question-metadata-portal.md)anterior, configurada com metadados e chit chat.
 
 > [!NOTE]
-> Quando estiver pronto para gerar uma resposta a uma pergunta da sua base de conhecimentos, deve [treinar](../Quickstarts/create-publish-knowledge-base.md#save-and-train) e [publicar](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) a sua base de conhecimentos. Quando a sua base de conhecimentos é publicada, a página **Publicar** apresenta as definições de pedido http para gerar uma resposta. O separador **cURL** mostra as definições necessárias para gerar uma resposta a partir da ferramenta da linha de comando.
+> Quando estiver pronto para gerar uma resposta a uma pergunta da sua base de conhecimento, deve [treinar](../Quickstarts/create-publish-knowledge-base.md#save-and-train) e [publicar](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) a sua base de conhecimentos. Quando a sua base de conhecimentos é publicada, a página **Publicar** apresenta as definições de pedido HTTP para gerar uma resposta. O **separador cURL** mostra as definições necessárias para gerar uma resposta a partir da ferramenta da linha de comando.
 
-## <a name="use-metadata-to-filter-answer"></a>Use metadados para filtrar resposta
+## <a name="use-metadata-to-filter-answer"></a>Use metadados para filtrar a resposta
 
-Utilize a base de conhecimento do anterior rápido para consultar uma resposta baseada em metadados.
+Utilize a base de conhecimento do rápido pedido de resposta com base em metadados.
 
-1. A partir da página **Definições** da base de conhecimento, selecione o separador **CURL** para ver um comando cURL de exemplo usado para gerar uma resposta a partir da base de conhecimento.
-1. Copie o comando para um ambiente editável (como um ficheiro de texto) para que possa editar o comando. Editar o valor da pergunta da seguinte forma, de modo a que os metadados `service:qna_maker` de são utilizados como filtro para os pares QnA.
+1. A partir da página **Definições** da base de conhecimento, selecione o **separador CURL** para ver um comando cURL de exemplo utilizado para gerar uma resposta a partir da base de conhecimento.
+1. Copie o comando para um ambiente editável (como um ficheiro de texto) para que possa editar o comando. Editar o valor da pergunta da seguinte forma para que os metadados `service:qna_maker` de são usados como filtro para os pares QnA.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
 
-    A questão é apenas uma palavra, `size` que pode devolver qualquer um dos dois pares QnA. A `strictFilters` matriz diz a resposta para reduzir apenas para as `qna_maker` respostas.
+    A questão é apenas uma palavra, `size` que pode devolver qualquer um dos dois pares QnA. A `strictFilters` matriz diz a resposta para reduzir apenas às `qna_maker` respostas.
 
-1. A resposta inclui apenas a resposta que satisfaz os critérios do filtro. A seguinte resposta cURL foi formatada para a legibilidade:
+1. A resposta inclui apenas a resposta que satisfaz os critérios do filtro. Foi formatada a seguinte resposta cURL para a legibilidade:
 
     ```JSON
     {
@@ -79,21 +79,23 @@ Utilize a base de conhecimento do anterior rápido para consultar uma resposta b
 
     Se houver um par de perguntas e respostas que não cumpriu o termo de pesquisa mas que cumpriu o filtro, não seria devolvido. Em vez disso, a resposta geral `No good match found in KB.` é devolvida.
 
-## <a name="use-debug-query-property"></a>Use propriedade de consulta de depuração
+## <a name="use-debug-query-property"></a>Use propriedade de consulta de depurg
+> [!NOTE]
+>Não recomendamos usar a propriedade Debug para qualquer dependência. Esta propriedade foi adicionada para ajudar a equipa de produtos na resolução de problemas.
 
-A informação de depuração ajuda-o a entender como a resposta devolvida foi determinada. Embora seja útil, não é necessário. Para gerar uma resposta com informações sobre depuração, adicione a `debug` propriedade:
+A informação de depurg ajuda-o a entender como a resposta devolvida foi determinada. Embora seja útil, não é necessário. Para gerar uma resposta com informações de depurg, adicione a `debug` propriedade:
 
 ```json
 Debug: {Enable:true}
 ```
 
-1. Editar o comando cURL para incluir a propriedade de depuração para ver mais informações.
+1. Edite o comando cURL para incluir a propriedade de depurar para ver mais informações.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'Debug':{'Enable':true}}"
     ```
 
-1. A resposta inclui as informações relevantes sobre a resposta. Na seguinte saída JSON, alguns detalhes de depuração foram substituídos por elipse para brevidade.
+1. A resposta inclui a informação relevante sobre a resposta. Na seguinte saída JSON, alguns detalhes de depurg foram substituídos por elipse para a brevidade.
 
     ```console
     {
@@ -183,9 +185,9 @@ Debug: {Enable:true}
     }
     ```
 
-## <a name="use-test-knowledge-base"></a>Utilizar base de conhecimentos de teste
+## <a name="use-test-knowledge-base"></a>Utilize a base de conhecimentos de teste
 
-Se quiser obter uma resposta da base de conhecimentos de teste, use a `isTest` propriedade do corpo.
+Se quiser obter uma resposta da base de conhecimentos de teste, use a propriedade do `isTest` corpo.
 
 A propriedade é um valor booleano.
 
@@ -199,20 +201,20 @@ O comando cURL parece:
 curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'IsTest':true}"
 ```
 
-A resposta jSON usa o mesmo esquema que a consulta de base de conhecimento publicada.
+A resposta JSON usa o mesmo esquema que a consulta de base de conhecimento publicada.
 
 > [!NOTE]
-> Se o teste e as bases de conhecimento publicadas forem exatamente iguais, pode ainda haver alguma ligeira variação porque o índice de teste é partilhado entre todas as bases de conhecimento do recurso.
+> Se o teste e as bases de conhecimento publicadas forem exatamente as mesmas, pode ainda haver uma ligeira variação porque o índice de teste é partilhado entre todas as bases de conhecimento no recurso.
 
-## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Use cURL para consultar uma resposta Chit-chat
+## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Use o cURL para consultar uma resposta chit-chat
 
-1. No terminal cURL ativado por cURL, utilize uma declaração de fim de conversação bot do utilizador, `Thank you` como a questão. Não há outras propriedades para definir.
+1. No terminal ativado pelo cURL, utilize uma declaração bot-ending do utilizador, como `Thank you` a pergunta. Não há outras propriedades para definir.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'thank you'}"
     ```
 
-1. Executar o comando cURL e receber a resposta JSON, incluindo a pontuação e a resposta.
+1. Executar o comando cURL e receber a resposta JSON, incluindo a pontuação e resposta.
 
     ```json
     {
@@ -294,13 +296,13 @@ A resposta jSON usa o mesmo esquema que a consulta de base de conhecimento publi
     }
     ```
 
-    Uma vez que a pergunta `Thank you` corresponde exatamente a uma pergunta Chit-chat, o Criador de FAQ está completamente confiante com a classificação 100. O QnA Maker também devolveu todas as questões relacionadas, bem como a propriedade de metadados contendo a informação de etiquetade metadados Chit-chat.
+    Uma vez que a pergunta `Thank you` corresponde exatamente a uma pergunta Chit-chat, o Criador de FAQ está completamente confiante com a classificação 100. O QnA Maker também devolveu todas as questões relacionadas, bem como a propriedade de metadados que contém a informação da etiqueta de metadados chit-chat.
 
-## <a name="use-threshold-and-default-answer"></a>Limite de utilização e resposta por defeito
+## <a name="use-threshold-and-default-answer"></a>Utilizar limiar e resposta predefinida
 
-Pode solicitar um limiar mínimo para a resposta. Se o limiar não for cumprido, a resposta por defeito é devolvida.
+Pode solicitar um limiar mínimo para a resposta. Se o limiar não for atingido, a resposta por defeito é devolvida.
 
-1. Adicione a `threshold` propriedade para pedir uma resposta com um limiar de `size` 80% ou melhor. A base de conhecimento não deve encontrar essa resposta porque a pontuação da pergunta é de 71%. O resultado devolve a resposta padrão que forneceu quando criou a base de conhecimentos.
+1. Adicione o `threshold` imóvel para pedir uma resposta `size` com um limiar de 80% ou melhor. A base de conhecimento não deve encontrar essa resposta porque a pontuação da pergunta é de 71%. O resultado devolve a resposta predefinida que forneceu quando criou a base de conhecimento.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
@@ -325,15 +327,15 @@ Pode solicitar um limiar mínimo para a resposta. Se o limiar não for cumprido,
     }
     ```
 
-    QnA Maker devolveu uma pontuação `0` de, o que significa não confiança. Também devolveu a resposta padrão.
+    QnA Maker devolveu uma pontuação de `0` , o que significa que não há confiança. Também devolveu a resposta por defeito.
 
-1. Mude o valor limiar para 60% e solicite novamente a consulta:
+1. Altere o valor limiar para 60% e solicite novamente a consulta:
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':60.00}"
     ```
 
-    A JSON devolvida encontrou a resposta.
+    O JSON devolvido encontrou a resposta.
 
     ```json
     {

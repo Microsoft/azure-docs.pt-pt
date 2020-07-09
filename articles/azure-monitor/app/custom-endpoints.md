@@ -1,21 +1,21 @@
 ---
-title: Insights de aplicação Azure sobrepõem pontos finais sdk padrão
-description: Modificar os pontos finais de aplicação do Monitor de Azure padrão SDK para regiões como o Governo Azure.
+title: Azure Application Insights substitui pontos finais padrão da SDK
+description: Modificar os pontos finais do Azure Monitor Insights SDK para regiões como o Governo de Azure.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: f5bf5b07f7c058b4778e7695f150fdc71e048182
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.custom: references_regions
+ms.openlocfilehash: d0c9467497a8bd108d37a340d2cdbb887061e3a6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629189"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194840"
 ---
-# <a name="application-insights-overriding-default-endpoints"></a>Insights de aplicação sobrepondo pontos finais de padrão
+# <a name="application-insights-overriding-default-endpoints"></a>Insights de aplicação sobreprimido pontos finais predefinidos
 
-Para enviar dados de Informações de Aplicação para determinadas regiões, terá de anular os endereços de ponto final predefinidos. Cada SDK requer modificações ligeiramente diferentes, todas descritas neste artigo. Estas alterações requerem ajustar o código da `QuickPulse_Endpoint_Address`amostra `TelemetryChannel_Endpoint_Address`e `Profile_Query_Endpoint_address` substituir os valores do espaço reservado para, e com os endereços finais reais para a sua região específica. O final deste artigo contém links para os endereços de ponto final para regiões onde esta configuração é necessária.
+Para enviar dados do Application Insights para determinadas regiões, terá de substituir os endereços de ponto final predefinidos. Cada SDK requer modificações ligeiramente diferentes, todas descritas neste artigo. Estas alterações requerem ajustar o código de amostra e substituir os valores de espaços reservados para `QuickPulse_Endpoint_Address` , e com os `TelemetryChannel_Endpoint_Address` `Profile_Query_Endpoint_address` endereços de ponto final reais para a sua região específica. O final deste artigo contém ligações aos endereços de ponto final para as regiões onde esta configuração é necessária.
 
 > [!NOTE]
-> As cordas de [ligação](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) são o novo método preferido de definir pontos finais personalizados dentro dos Insights de Aplicação.
+> [As cadeias de conexão](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) são o novo método preferido de definir pontos finais personalizados dentro de Insights de Aplicação.
 
 ---
 
@@ -24,7 +24,7 @@ Para enviar dados de Informações de Aplicação para determinadas regiões, te
 # <a name="net"></a>[.NET](#tab/net)
 
 > [!NOTE]
-> O ficheiro applicationinsights.config é automaticamente substituído sempre que for realizada uma atualização SDK. Depois de realizar uma atualização SDK, certifique-se de que reintroduza os valores finais específicos da região.
+> O ficheiro applicationinsights.config é automaticamente substituído sempre que uma atualização SDK é executada. Depois de realizar uma atualização SDK certifique-se de reentrar nos valores específicos do ponto final da região.
 
 ```xml
 <ApplicationInsights>
@@ -48,7 +48,7 @@ Para enviar dados de Informações de Aplicação para determinadas regiões, te
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-Modifique o ficheiro appsettings.json no seu projeto da seguinte forma de ajustar o ponto final principal:
+Modifique a appsettings.jsno ficheiro do seu projeto da seguinte forma para ajustar o ponto final principal:
 
 ```json
 "ApplicationInsights": {
@@ -59,7 +59,7 @@ Modifique o ficheiro appsettings.json no seu projeto da seguinte forma de ajusta
   }
 ```
 
-Os valores das Métricas Ao Vivo e do Ponto final da Consulta de Perfil só podem ser definidos por código. Para anular os valores predefinidos para todos os valores de ponto final através de código, epreenda as seguintes alterações no `ConfigureServices` método do `Startup.cs` ficheiro:
+Os valores para Métricas Vivas e o Ponto Final de Consulta de Perfil só podem ser definidos por código. Para anular os valores predefinidos para todos os valores do ponto final via código, escove as seguintes alterações no `ConfigureServices` método do `Startup.cs` ficheiro:
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
@@ -76,7 +76,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 # <a name="azure-functions"></a>[Funções do Azure](#tab/functions)
 
-Para funções Azure, recomenda-se agora utilizar as cordas de [ligação definidas](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) nas definições de Aplicação da Função. Para aceder às definições de aplicação para a sua função a partir das funções, selecione**definições**de**configuração** > de configurações de **configurações** > . 
+Para funções Azure é agora recomendado utilizar [cordas de ligação definidas](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) nas definições de Aplicação da Função. Para aceder às definições de aplicação para **Settings**a sua função a partir do painel de funções selecione  >  Definições**configurações configurações**  >  **configurações de configuração de configuração**. 
 
 Nome: `APPLICATIONINSIGHTS_CONNECTION_STRING` Valor:`Connection String Value`
 
@@ -109,7 +109,7 @@ Modificar o ficheiro applicationinsights.xml para alterar o endereço de ponto f
 
 ### <a name="spring-boot"></a>Spring Boot
 
-Modificar `application.properties` o ficheiro e adicionar:
+Modifique o `application.properties` ficheiro e adicione:
 
 ```yaml
 azure.application-insights.channel.in-process.endpoint-address= TelemetryChannel_Endpoint_Address
@@ -149,25 +149,25 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 
 # <a name="python"></a>[Python](#tab/python)
 
-Para obter orientações sobre a modificação do ponto final de ingestão para o SDK de sonton opencensus-python consulte o [repo opencensus-python.](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py)
+Para obter orientações sobre a modificação do ponto final de ingestão para o SDK opencensus-python consulte o [repo opencensus-python.](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py)
 
 ---
 
-## <a name="regions-that-require-endpoint-modification"></a>Regiões que exigem modificação do ponto final
+## <a name="regions-that-require-endpoint-modification"></a>Regiões que requerem modificação do ponto final
 
-Atualmente, as únicas regiões que exigem modificações de pontos finais são o [Governo Azure](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) e a [China Azure.](https://docs.microsoft.com/azure/china/resources-developer-guide)
+Atualmente, as únicas regiões que necessitam de modificações no ponto final são [o Governo de Azure](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) e [a Azure China.](https://docs.microsoft.com/azure/china/resources-developer-guide)
 
 |Região |  Nome do ponto final | Valor |
 |-----------------|:------------|:-------------|
-| Azure China | Canal de Telemetria | `https://dc.applicationinsights.azure.cn/v2/track` |
-| Azure China | QuickPulse (Métricas ao Vivo) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
-| Azure China | Consulta de perfil |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
-| Azure Government | Canal de Telemetria |`https://dc.applicationinsights.us/v2/track` |
-| Azure Government | QuickPulse (Métricas ao Vivo) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
-| Azure Government | Consulta de perfil |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
+| Azure China | Canal da Telemetria | `https://dc.applicationinsights.azure.cn/v2/track` |
+| Azure China | QuickPulse (Métricas Ao Vivo) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
+| Azure China | Consulta de perfis |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
+| Azure Government | Canal da Telemetria |`https://dc.applicationinsights.us/v2/track` |
+| Azure Government | QuickPulse (Métricas Ao Vivo) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
+| Azure Government | Consulta de perfis |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
 
-Se utilizar atualmente a [API de Repouso DE Informações de Aplicação,](https://dev.applicationinsights.io/
-) normalmente acessada através de 'api.applicationinsights.io', terá de utilizar um ponto final que seja local para a sua região:
+Se utilizar atualmente a [API de Insights de Aplicação,](https://dev.applicationinsights.io/
+) que é normalmente acedida através de 'api.applicationinsights.io' terá de utilizar um ponto final que seja local para a sua região:
 
 |Região |  Nome do ponto final | Valor |
 |-----------------|:------------|:-------------|
@@ -175,9 +175,9 @@ Se utilizar atualmente a [API de Repouso DE Informações de Aplicação,](https
 | Azure Government | API REST | `api.applicationinsights.us`|
 
 > [!NOTE]
-> Atualmente, não é **suportada** uma monitorização baseada em agentes/extensões sem código para os Serviços de Aplicações Azure. Assim que esta funcionalidade estiver disponível, este artigo será atualizado.
+> Atualmente, a monitorização baseada em agentes/extensões codeless para os Serviços de Aplicações Azure não é **suportada** nestas regiões. Assim que esta funcionalidade estiver disponível este artigo será atualizado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Para saber mais sobre as modificações personalizadas para o Governo azure, consulte as orientações detalhadas para [a monitorização e gestão do Azure.](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights)
-- Para saber mais sobre a Azure China, consulte o Livro de [Jogadas da China Azure.](https://docs.microsoft.com/azure/china/)
+- Para saber mais sobre as modificações personalizadas para o Governo Azure, consulte as orientações detalhadas para [a monitorização e gestão do Azure.](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights)
+- Para saber mais sobre a Azure China, consulte o [Azure China Playbook](https://docs.microsoft.com/azure/china/).

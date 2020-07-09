@@ -1,6 +1,6 @@
 ---
-title: Hierarquia país/região utilizada por encaminhamento geográfico - Gestor de Tráfego Azure
-description: Este artigo lista a hierarquia País/Região utilizada pelo tipo de encaminhamento do Gestor de Tráfego Azure Geographic
+title: Hierarquia país/região utilizada pelo encaminhamento geográfico - Gestor de Tráfego Azure
+description: Este artigo lista a hierarquia país/região usada pelo tipo de encaminhamento Azure Traffic Manager Geographic
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
@@ -13,21 +13,20 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: rohink
 ms.openlocfilehash: 19445c06ccf08d2d7916545ad495c56883616c7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76938635"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarquia país/região utilizada pelo Gestor de Tráfego Azure para o método de encaminhamento de tráfego geográfico
 
-Este artigo lista os países e regiões utilizados pelo método de encaminhamento de tráfego **geográfico** em Azure Traffic Manager. Também pode obter esta informação programáticamente, ligando para a API REST Do Gestor de [Tráfego do Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
+Este artigo lista os países e regiões utilizados pelo método de encaminhamento de tráfego **geográfico** em Azure Traffic Manager. Também pode obter esta informação programáticamente, ligando para a [API REST do Gestor de Tráfego do Azure.](https://docs.microsoft.com/rest/api/trafficmanager/) 
 
-- MUNDO (Mundo)
+- MUNDO(Mundo)
 
-    - GEO-UE (Europa)
+    - GEO-UE(Europa)
 
-        - AD (Andorra)
+        - AD(Andorra)
 
         - AL(Albânia)
 
@@ -39,9 +38,9 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - BE(Bélgica)
 
-        - BG(Bulgária)
+        - BG (Bulgária)
 
-        - BY (Bielorrússia)
+        - BY(Bielorrússia)
 
         - CH(Suíça)
 
@@ -51,7 +50,7 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - DE(Alemanha)
 
-        - DK (Dinamarca)
+        - DK(Dinamarca)
 
         - EE (Estónia)
 
@@ -61,53 +60,53 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - FO (Ilhas Faroé)
 
-        - FR (França)
+        - FR(França)
 
         - GB (Reino Unido)
 
         - GG(Guernsey)
 
-        - GI (Gibraltar)
+        - GI(Gibraltar)
 
-        - GR (Grécia)
+        - GR(Grécia)
 
         - HR(Croácia)
 
-        - HU (Hungria)
+        - HU(Hungria)
 
-        - IE (Irlanda)
+        - Ou., Irlanda)
 
         - IM (Ilha de Man)
 
-        - Is (Islândia)
+        - IS(Islândia)
 
-        - TI (Itália)
+        - TI(Itália)
 
-        - JE (Jersey)
+        - JE(Jersey)
 
-        - LI (Liechtenstein)
+        - LI(Liechtenstein)
 
-        - LT (Lituânia)
+        - LT(Lituânia)
 
-        - LU(Luxemburgo)
+        - LU (Luxemburgo)
 
-        - LV (Letónia)
+        - LV(Letónia)
 
-        - MC (Mónaco)
+        - MC(Mónaco)
 
-        - MD (Moldávia)
+        - MD(Moldávia)
 
         - ME (Montenegro)
 
         - MK (Macedónia do Norte)
 
-        - MT (Malta)
+        - MT(Malta)
 
-        - NL(Países Baixos)
+        - NL (Holanda)
 
-        - NO(Noruega)
+        - NO (Noruega)
 
-        - PL(Polónia)
+        - PL (Polónia)
 
         - PT(Portugal)
 
@@ -115,17 +114,17 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - RS (Sérvia)
 
-        - RU (Rússia)
+        - RU(Rússia)
 
-        - SE (Suécia)
+        - SE(Suécia)
 
-        - SI (Eslovénia)
+        - SI(Eslovénia)
 
         - SJ(Svalbard)
 
-        - SK (Eslováquia)
+        - SK(Eslováquia)
 
-        - SM (São Marino)
+        - SM(São Marino)
 
         - UA (Ucrânia)
             - Região da Crimeia
@@ -146,51 +145,51 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - QI (Iraque)
 
-        - IR (Irão)
+        - IR(Irão)
 
         - JO(Jordânia)
 
-        - KW (Kuwait)
+        - KW(Kuwait)
 
-        - LB (Líbano)
+        - LB(Líbano)
 
         - OM(Omã)
 
         - PS (Autoridade Palestiniana)
 
-        - QA (Qatar)
+        - QA(Qatar)
 
-        - SY (Síria)
+        - SY(Síria)
 
         - SA (Arábia Saudita)
 
         - TR(Turquia)
 
-        - Ye (Iémen)
+        - YE(Iémen)
 
     - GEO-NA (América do Norte / América Central / Caraíbas)
 
         - AG (Antígua e Barbuda)
 
-        - IA(Anguilla)
+        - AI(Anguilla)
 
         - AW(Aruba)
 
-        - BB (Barbados)
+        - BB(Barbados)
 
-        - BL (São Barthélemy)
+        - BL (Saint Barthélemy)
 
-        - BM (Bermudas)
+        - BM(Bermudas)
 
         - BQ(Bonaire)
 
         - BS (Bahamas)
 
-        - BZ (Belize)
+        - BZ(Belize)
 
         - CA(Canadá)
 
-            - CA-AB (Alberta)
+            - CA-AB(Alberta)
 
             - CA-BC (Colúmbia Britânica)
 
@@ -206,21 +205,21 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
             - CA-NU (Nunavut)
 
-            - CA-ON (Ontário)
+            - CA-ON(Ontário)
 
             - CA-PE (Ilha do Príncipe Eduardo)
 
             - CA-QC (Québec)
 
-            - CA-SK (Saskatchewan)
+            - CA-SK(Saskatchewan)
 
             - CA-YT (Território Yukon)
 
         - CR(Costa Rica)
 
-        - CU (Cuba)
+        - CU(Cuba)
 
-        - CW (Curaã§ao)
+        - CW (CuraÃ§ao)
 
         - DM(Dominica)
 
@@ -228,7 +227,7 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - GD(Granada)
 
-        - GL(Gronelândia)
+        - GL (Groenlândia)
 
         - GP (Guadalupe)
 
@@ -236,9 +235,9 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - HN (Honduras)
 
-        - HT (Haiti)
+        - HT(Haiti)
 
-        - JM (Jamaica)
+        - JM(Jamaica)
 
         - KN (São Cristóvão e Nevis)
 
@@ -246,135 +245,135 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - LC (Santa Lúcia)
 
-        - MF (São Martinho)
+        - MF(São Martinho)
 
-        - MQ (Martinica)
+        - MQ(Martinica)
 
         - MS (Montserrat)
 
         - MX (México)
 
-        - NI (Ninicarágua)
+        - NI (Nicarágua)
 
         - PA(Panamá)
 
         - PM (Saint Pierre e Miquelon)
 
-        - PR (Porto Rico)
+        - PR(Porto Rico)
 
         - SV(El Salvador)
 
-        - SX (Sint Maarten)
+        - SX(Sint Maarten)
 
         - TC (Ilhas Turcas e Caicos)
 
         - TT (Trinidad e Tobago)
 
-        - UM (Ilhas Periféricas dos EUA)
+        - UM (Ilhas Desaíduas dos EUA)
 
         - EUA (Estados Unidos)
 
-            - EUA-AK (Alasca)
+            - US-AK (Alasca)
 
-            - US-AL (Alabama)
+            - US-AL(Alabama)
 
-            - EUA-AR (Arkansas)
+            - US-AR (Arkansas)
 
-            - EUA-AZ (Arizona)
+            - US-AZ (Arizona)
 
             - EUA-CA (Califórnia)
 
-            - US-CO (Colorado)
+            - US-CO(Colorado)
 
-            - EUA-CT (Connecticut)
+            - US-CT (Connecticut)
 
-            - EUA-DC (Distrito de Columbia)
+            - US-DC (Distrito de Columbia)
 
-            - EUA-DE (Delaware)
+            - US-DE(Delaware)
 
             - EUA-FL (Florida)
 
-            - EUA-GA (Geórgia)
+            - US-GA (Geórgia)
 
             - US-HI (Havai)
 
-            - EUA-IA (Iowa)
+            - US-IA(Iowa)
 
-            - US-ID (Idaho)
+            - US-ID(Idaho)
 
             - US-IL (Illinois)
 
             - US-IN (Indiana)
 
-            - EUA-KS (Kansas)
+            - US-KS (Kansas)
 
-            - EUA-KY (Kentucky)
+            - US-KY (Kentucky)
 
             - EUA-LA (Louisiana)
 
-            - EUA-MA (Massachusetts)
+            - US-MA(Massachusetts)
 
             - US-MD (Maryland)
 
-            - EUA-ME (Maine)
+            - US-ME (Maine)
 
-            - US-MI (Michigan)
+            - US-MI(Michigan)
 
             - US-MN (Minnesota)
 
-            - EUA-MO (Missouri)
+            - US-MO(Missouri)
 
             - EUA-MS (Mississippi)
 
             - US-MT (Montana)
 
-            - EUA-NC (Carolina do Norte)
+            - US-NC (Carolina do Norte)
 
-            - EUA-ND (Dakota do Norte)
+            - US-ND (Dakota do Norte)
 
             - EUA-NE (Nebraska)
 
-            - EUA-NH (New Hampshire)
+            - US-NH (New Hampshire)
 
-            - EUA-NJ (Nova Jersey)
+            - US-NJ (Nova Jersey)
 
-            - EUA-NM (Novo México)
+            - US-NM (Novo México)
 
-            - EUA-NV (Nevada)
+            - US-NV(Nevada)
 
-            - EUA-NY (Nova Iorque)
+            - US-NY (Nova Iorque)
 
-            - US-OH (Ohio)
+            - US-OH(Ohio)
 
-            - EUA-OK (Oklahoma)
+            - US-OK(Oklahoma)
 
-            - EUA-OR (Oregon)
+            - EUA-OR(Oregon)
 
             - EUA-PA (Pensilvânia)
 
-            - EUA-RI (Rhode Island)
+            - US-RI (Rhode Island)
 
-            - EUA-SC (Carolina do Sul)
+            - US-SC (Carolina do Sul)
 
-            - EUA-SD (Dakota do Sul)
+            - US-SD (Dakota do Sul)
 
             - US-TN (Tennessee)
 
-            - EUA-TX (Texas)
+            - US-TX (Texas)
 
-            - EUA-UT (Utah)
+            - US-UT(Utah)
 
-            - EUA-VA (Virgínia)
+            - US-VA (Virgínia)
 
-            - EUA-VT (Vermont)
+            - US-VT(Vermont)
 
-            - EUA-WA (Washington)
+            - EUA-WA(Washington)
 
-            - EUA-WI (Wisconsin)
+            - US-WI (Wisconsin)
 
-            - EUA-WV (Virgínia Ocidental)
+            - US-WV (Virgínia Ocidental)
 
-            - EUA-WY (Wyoming)
+            - US-WY(Wyoming)
 
         - VC (São Vicente e Granadinas)
 
@@ -390,67 +389,67 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - AF(Afeganistão)
 
-        - AM (Arménia)
+        - AM(Arménia)
 
         - AZ (Azerbaijão)
 
         - BD (Bangladesh)
 
-        - BN (Brunei)
+        - BN(Brunei)
 
         - BT (Butão)
 
-        - CC (Ilhas De Cocos (Keeling)
+        - CC (Ilhas Cocos (Keeling)
 
-        - CN (China)
+        - CN(China)
 
         - CX (Ilha de Natal)
 
         - GE (Geórgia)
 
-        - HK (Hong Kong SAR)
+        - HK(Hong Kong SAR)
 
-        - ID (Indonésia)
+        - ID(Indonésia)
 
         - IN(Índia)
 
-        - IO (Território britânico do Oceano Índico)
+        - IO (Território Britânico do Oceano Índico)
 
-        - JP (Japão)
+        - JP(Japão)
 
         - KG (Quirguistão)
 
-        - KH (Camboja)
+        - KH(Camboja)
 
         - KP (Coreia do Norte)
 
-        - KR (Coreia)
+        - KR(Coreia)
 
         - KZ (Cazaquistão)
 
-        - LA (Laos)
+        - LA(Laos)
 
-        - LK (Sri Lanka)
+        - LK(Sri Lanka)
 
-        - MM (Myanmar)
+        - MM(Myanmar)
 
         - MN (Mongólia)
 
-        - MO (RAEm de Macau)
+        - MO(SAR de Macau)
 
-        - MV (Maldivas)
+        - MV(Maldivas)
 
-        - My(Malásia)
+        - MY(Malásia)
 
         - NP (Nepal)
 
-        - PH(Filipinas)
+        - PH (Filipinas)
 
         - PK (Paquistão)
 
-        - SG (Singapura)
+        - SG(Singapura)
 
-        - TH(Tailândia)
+        - TH (Tailândia)
 
         - TJ (Tajiquistão)
 
@@ -458,71 +457,71 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - TM (Turquemenistão)
 
-        - TW (Taiwan)
+        - TW(Taiwan)
 
-        - UZ(Uzbequistão)
+        - UZ (Usbequistão)
 
         - VN (Vietname)
 
     - GEO-AF (África)
 
-        - AO (Angola)
+        - AO(Angola)
 
         - BF(Burkina Faso)
 
-        - BI (Burundi)
+        - BI(Burundi)
 
-        - BJ (Benin)
+        - BJ(Benin)
 
         - BV (Ilha Bouvet)
 
         - BW (Botsuana)
 
-        - CD (Congo (RDC))
+        - CD(Congo (RDC))
 
         - CF (República Centro-Africana)
 
-        - CI (Costa do Marfim)
+        - CI(Costa do Marfim)
 
-        - CM (Camarões)
+        - CM(Camarões)
 
         - CV (Cabo Verde)
 
-        - DJ (Djibuti)
+        - DJ(Djibuti)
 
         - DZ (Argélia)
 
-        - EG (Egito)
+        - EG(Egito)
 
-        - ER(Eritreia)
+        - ER (Eritreia)
 
-        - ET (Etiópia)
+        - ET(Etiópia)
 
-        - GA (Gabão)
+        - GA(Gabão)
 
         - GH (Gana)
 
-        - GM (Gâmbia)
+        - GM(Gâmbia)
 
-        - GN (Guiné)
+        - GN(Guiné)
 
         - GQ (Guiné Equatorial)
 
-        - GW (Guinea_Bissau)
+        - GW(Guinea_Bissau)
 
         - KE(Quénia)
 
-        - KM (Comores)
+        - KM(Comores)
 
-        - LR (Libéria)
+        - LR(Libéria)
 
         - LS (Lesoto)
 
         - LY(Líbia)
 
-        - MA (Marrocos)
+        - MA(Marrocos)
 
-        - MG(Madagáscar)
+        - MG (Madagáscar)
 
         - ML(Mali)
 
@@ -530,71 +529,71 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - MU (Maurícia)
 
-        - MW (Malawi)
+        - MW(Malawi)
 
-        - MZ (Moçambique)
+        - MZ(Moçambique)
 
         - NA(Namíbia)
 
-        - NE (Níger)
+        - NE(Níger)
 
         - NG(Nigéria)
 
         - RE(Reunião)
 
-        - RW (Ruanda)
+        - RW(Ruanda)
 
-        - SC (Seychelles)
+        - SC(Seychelles)
 
-        - SD (Sudão)
+        - SD(Sudão)
 
-        - SH (Santa Helena, Ascensão, Tristão da Cunha)
+        - SH(Santa Helena, Ascensão, Tristão da Cunha)
 
-        - SL (Serra Leoa)
+        - SL(Serra Leoa)
 
-        - SN (Senegal)
+        - SN(Senegal)
 
-        - Assim(Somália)
+        - SO(Somália)
 
         - SS (Sudão do Sul)
 
-        - ST (São Tomé e Príncipe)
+        - ST(São Tomé e Príncipe)
 
-        - SZ (Suazilândia)
+        - Sz (Suazilândia)
 
-        - TD (Chade)
+        - TD(Chade)
 
-        - TF (Territórios franceses do Sul)
+        - TF (Territórios do Sul francês)
 
-        - TG (Togo)
+        - TG(Togo)
 
-        - TN (Tunísia)
+        - TN(Tunísia)
 
         - TZ (Tanzânia)
 
-        - UG (Uganda)
+        - UG(Uganda)
 
         - YT(Mayotte)
 
         - ZA (África do Sul)
 
-        - ZM (Zâmbia)
+        - ZM(Zâmbia)
 
-        - ZW (Zimbabué)
+        - ZW(Zimbabué)
 
-    - GEO-AN (Antártida)
+    - GEO-AN (Antártica)
 
-        - AQ(Antártica)
+        - AQ (Antártica)
 
     - GEO-SA (América do Sul)
 
-        - AR (Argentina)
+        - AR(Argentina)
 
         - BO (Bolívia)
 
         - BR(Brasil)
 
-        - CL (Chile)
+        - CL(Chile)
 
         - CO(Colômbia)
 
@@ -604,13 +603,13 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - GF (Guiana Francesa)
 
-        - GS (Ilhas Sandwich do Sul e Do sul)
+        - GS (Ilhas do Sul da Geórgia e Sanduíche do Sul)
 
         - GY (Guiana)
 
-        - PE (Peru)
+        - PE(Peru)
 
-        - PY(Paraguai)
+        - PY (Paraguai)
 
         - SR(Suriname)
 
@@ -622,7 +621,7 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - AS (Samoa Americana)
 
-        - AU (Austrália)
+        - AU(Austrália)
 
             - AU-ACT (Território da Capital Australiana)
 
@@ -632,11 +631,11 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
             - AU-QLD (Queensland)
 
-            - AU-Sa (Austrália do Sul)
+            - AU-SA (Austrália do Sul)
 
             - AU-TAS (Tasmânia)
 
-            - AU-VIC (Victoria)
+            - AU-VIC(Victoria)
 
             - AU-WA (Austrália Ocidental)
 
@@ -644,23 +643,23 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - FJ(Fiji)
 
-        - FM(Micronésia)
+        - FM (Micronésia)
 
         - GU(Guam)
 
-        - HM (Ilha Ouvida e Ilhas McDonald)
+        - HM (Ilha Heard e Ilhas McDonald)
 
-        - KI (Kiribati)
+        - KI(Kiribati)
 
         - MH (Ilhas Marshall)
 
         - MP (Ilhas Marianas do Norte)
 
-        - NC (Nova Caledonia)
+        - NC (Nova Caledónia)
 
         - NF (Ilha Norfolk)
 
-        - NR (Nauru)
+        - NR(Nauru)
 
         - NU(Niue)
 
@@ -676,18 +675,18 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - SB (Ilhas Salomão)
 
-        - TK (Tokelau)
+        - TK(Tokelau)
 
-        - TO (Tonga)
+        - TO(Tonga)
 
         - TV(Tuvalu)
 
-        - VU (Vanuatu)
+        - VU(Vanuatu)
 
-        - WF (Wallis e Futuna)
+        - WF(Wallis e Futuna)
 
-        - WS (Samoa)
+        - WS(Samoa)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais sobre o método de [encaminhamento de tráfego geográfico no Azure Traffic Manager](traffic-manager-routing-methods.md#geographic).
+- Saiba mais sobre [o método de encaminhamento de tráfego geográfico em Azure Traffic Manager](traffic-manager-routing-methods.md#geographic).

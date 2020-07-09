@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,18 +15,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 730ff3c274fd93e6344cec688ba2db212d285baf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76758954"
 ---
-Faça a sua aplicação grande:
+Faça a sua aplicação excelente:
 
 - Ativar [a exploração madeireira](../articles/active-directory/develop/msal-logging.md).
 - Ativar a telemetria.
-- Ative [proxies e personalize clientes HTTP.](../articles/active-directory/develop/msal-net-provide-httpclient.md)
+- Ativar [proxies e personalizar clientes HTTP.](../articles/active-directory/develop/msal-net-provide-httpclient.md)
 
 Teste a sua integração:
 
-- Utilize a lista de [verificação de integração para](../articles/active-directory/develop/identity-platform-integration-checklist.md)a plataforma de identidade da Microsoft .
+- Utilize a [lista de verificação de integração para a plataforma de identidade da Microsoft.](../articles/active-directory/develop/identity-platform-integration-checklist.md)

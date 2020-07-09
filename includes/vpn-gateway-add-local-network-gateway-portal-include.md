@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,16 +9,16 @@ ms.date: 10/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9648f4c16e8d266bbdd504d4a7599b67a5c846b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73523574"
 ---
-1. A partir do [menu do portal Azure,](https://portal.azure.com) selecione **Criar um recurso**. 
+1. A partir do menu [do portal Azure,](https://portal.azure.com) selecione **Criar um recurso**. 
 
    ![Criar um recurso no portal Azure](./media/vpn-gateway-add-local-network-gateway-portal-include/azure-portal-create-resource.png)
-2. No campo **de pesquisa,** digite o gateway da **rede local**e, em seguida, prima **Enter** to search. Isto irá devolver uma lista de resultados. Clique em **Gateway de rede Local** e, em seguida, clique no botão **Criar** para abrir a página **Criar gateway de rede local**.
+2. No campo **'Pesquisar no mercado',** **digite gateway de rede local**e, em seguida, prima **Enter** para pesquisar. Isto irá devolver uma lista de resultados. Clique em **Gateway de rede Local** e, em seguida, clique no botão **Criar** para abrir a página **Criar gateway de rede local**.
 
    ![Criar o portal de rede local](./media/vpn-gateway-add-local-network-gateway-portal-include/create-local-network-gateway.png "Criar o gateway de rede local")
 
@@ -30,6 +30,6 @@ ms.locfileid: "73523574"
    - **Configurar definições de BGP:** utilize apenas quando configurar o BGP. Caso contrário, não selecione esta opção.
    - **Subscrição:** Verifique se é apresentada a subscrição correta.
    - **Grupo de Recursos:** Selecione o grupo de recursos que pretende utilizar. Pode criar um novo grupo de recursos ou selecionar um que já tenha criado.
-   - **Localização:** A localização é a mesma **da Região** em outras configurações. Selecione a localização em que este objeto será criado. Poderá selecionar a mesma localização em que a VNet se encontra, mas não tem obrigatoriamente de o fazer.
+   - **Localização:** A localização é a mesma **da Região** em outros cenários. Selecione a localização em que este objeto será criado. Poderá selecionar a mesma localização em que a VNet se encontra, mas não tem obrigatoriamente de o fazer.
 
 4. Quando tiver terminado de especificar os valores, clique no botão **Criar** na parte inferior da página para criar o gateway de rede local.

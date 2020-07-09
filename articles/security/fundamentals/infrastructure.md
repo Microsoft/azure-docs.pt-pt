@@ -1,5 +1,5 @@
 ---
-title: Segurança das infraestruturas azure Microsoft Docs
+title: Segurança da infraestrutura Azure Microsoft Docs
 description: O artigo descreve como a Microsoft trabalha para proteger os nossos datacenters Azure.
 services: security
 documentationcenter: na
@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 10/18/2019
 ms.author: terrylan
 ms.openlocfilehash: 10aecff797effb5abebea16a18dd4e02f40de326
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72595395"
 ---
-# <a name="azure-infrastructure-security"></a>Segurança da infraestrutura azure
-O Microsoft Azure funciona em datacenters geridos e operados pela Microsoft. Estes centros de dados geograficamente dispersos cumprem as normas-chave do setor, tais como ISO/IEC 27001:2013 e NIST SP 800-53, para segurança e fiabilidade. Os datacenters são geridos, monitorizados e administrados pelo pessoal de operações da Microsoft. O pessoal de operações tem anos de experiência na prestação dos maiores serviços online do mundo com 24 x 7 de continuidade.
+# <a name="azure-infrastructure-security"></a>Segurança da infraestrutura Azure
+O Microsoft Azure funciona em datacenters geridos e operados pela Microsoft. Estes centros de dados geograficamente dispersos cumprem as principais normas da indústria, tais como a ISO/IEC 27001:2013 e o NIST SP 800-53, para segurança e fiabilidade. Os datacenters são geridos, monitorizados e administrados pelo pessoal de operações da Microsoft. O pessoal de operações tem anos de experiência na prestação dos maiores serviços online do mundo com 24 x 7 continuidade.
 
-## <a name="securing-the-azure-infrastructure"></a>Assegurar a infraestrutura Azure
-Esta série de artigos fornece informações sobre o que a Microsoft faz para garantir a infraestrutura Azure. O endereço dos artigos:
+## <a name="securing-the-azure-infrastructure"></a>Assegurar a infraestrutura de Azure
+Esta série de artigos fornece informações sobre o que a Microsoft faz para proteger a infraestrutura Azure. O endereço dos artigos:
 
 - [Segurança física](physical-security.md)
 - [Disponibilidade](infrastructure-availability.md)

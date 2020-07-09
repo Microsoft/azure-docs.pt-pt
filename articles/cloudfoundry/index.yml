@@ -11,19 +11,19 @@ metadata:
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: 5c2ad3d9e471c339223ad21092b89e6aee64995d
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 92fc1fb74316e2a80d0cf4fde912f05db2b3613b
+  ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78943165"
+  ms.lasthandoff: 06/12/2020
+  ms.locfileid: "84750346"
 landingContent:
 - title: Acerca do Cloud Foundry no Azure
   linkLists:
   - linkListType: overview
     links:
     - text: Descrição geral do Cloud Foundry no Azure
-      url: ../virtual-machines/linux/cloudfoundry-get-started.md
+      url: cloudfoundry-get-started.md
 - title: Introdução
   linkLists:
   - linkListType: quickstart
@@ -33,7 +33,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Implemente a primeira aplicação
-      url: ../virtual-machines/linux/cloudfoundry-deploy-your-first-app.md
+      url: cloudfoundry-deploy-your-first-app.md
 - title: Recursos
   linkLists:
   - linkListType: reference

@@ -5,41 +5,41 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: cephalin
 ms.openlocfilehash: b4234acb2ce32980a268e389cb31de9a57ed18e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82131908"
 ---
-Quando se clona a configuração de outra ranhura de implantação, a configuração clonada é editável. Alguns elementos de configuração seguem o conteúdo através de uma troca (não específica de ranhura), enquanto outros elementos de configuração permanecem na mesma ranhura após uma troca (específica de ranhura). As seguintes listas mostram as definições que mudam quando troca as ranhuras.
+Quando clona a configuração a partir de outra ranhura de implantação, a configuração clonada é editável. Alguns elementos de configuração seguem o conteúdo através de uma troca (não específica para a ranhura), enquanto outros elementos de configuração permanecem na mesma ranhura após uma troca (específica slot). As listas que se seguem mostram as definições que mudam quando troca slots.
 
-**Definições trocadas:**
+**Definições que são trocadas:**
 
 * Configurações gerais, tais como versão-quadro, tomadas web de 32/64 bits
-* Definições de aplicativos (pode ser configurada para ficar com uma ranhura)
-* Cordas de ligação (pode ser configurada para ficar colada a uma ranhura)
-* Mapeamentos de manipuladores
+* Definições de aplicativos (pode ser configurado para manter uma ranhura)
+* Cordas de ligação (podem ser configuradas para se colarem a uma ranhura)
+* Mapeamentos de manipulador
 * Certificados públicos
-* Conteúdo webJobs
-* Conexões híbridas *
+* Conteúdo da WebJobs
+* Ligações híbridas *
 * Integração de rede virtual *
 * Pontos finais de serviço *
 * Rede de Entrega de Conteúdos Azure *
 
-Estão previstas características marcadas com um asterisco (*) para serem destrocadas. 
+As características marcadas com um asterisco (*) estão planeadas para não seremgrafadas. 
 
-**Definições que não são trocadas:**
+**Configurações que não são trocadas:**
 
 * Pontos finais de publicação
 * Nomes de domínio personalizados
-* Certificados não públicos e definições TLS/SSL
-* Definições de escala
-* Programadores WebJobs
-* Restrições IP
+* Certificados não públicos e definições de TLS/SSL
+* Configurações de escala
+* Agendadores WebJobs
+* Restrições ip
 * Sempre ligado
 * Definições de diagnóstico
 * Partilha de recursos de origem cruzada (CORS)
 
 > [!NOTE]
-> Algumas definições de aplicações que se aplicam a definições não trocadas também não são trocadas. Por exemplo, uma vez que as definições `WEBSITE_HTTPLOGGING_RETENTION_DAYS` `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` de diagnóstico não são trocadas, as configurações de aplicações relacionadas como e também não são trocadas, mesmo que não apareçam como configurações de slot.
+> Algumas definições de aplicações que se aplicam a definições não mapeadas também não são trocadas. Por exemplo, uma vez que as definições de diagnóstico não são trocadas, as definições de aplicações relacionadas como `WEBSITE_HTTPLOGGING_RETENTION_DAYS` e também não são `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` trocadas, mesmo que não apareçam como configurações de slot.
 >

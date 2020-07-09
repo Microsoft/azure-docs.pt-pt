@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Escala automática de um conjunto de escala com modelos Azure
+title: Tutorial - Autoescala um conjunto de escala com modelos Azure
 description: Saiba como utilizar os modelos do Azure Resource Manager para dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais, à medida que a CPU exige aumentos e diminuições
 author: ju-shim
 ms.author: jushiman
@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 95baaaff0936d288b5a56efb8f6ce1ba87637d8a
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: fae86e13be624d7a5304aa04b82432e1163b1244
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700936"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629541"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com um modelo do Azure
 Quando criar um conjunto de dimensionamento, pode definir o número de instâncias de VM que quer executar. À medida que a sua aplicação exige alterações, pode aumentar ou reduzir automaticamente o número de instâncias de VM. A capacidade de dimensionamento automático permite-lhe manter-se a par da exigência do cliente ou responder às alterações de desempenho durante todo o ciclo de vida da aplicação. Neste tutorial, ficará a saber como:
@@ -25,7 +25,7 @@ Quando criar um conjunto de dimensionamento, pode definir o número de instânci
 > * Teste de esforço das instâncias e acionar as regras de dimensionamento automático
 > * Voltar ao dimensionamento automático à medida que a exigência diminui
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -137,7 +137,7 @@ O exemplo seguinte define uma regra para reduzir horizontalmente o número de in
 ## <a name="create-an-autoscaling-scale-set"></a>Criar um conjunto de dimensionamento automático
 Vamos utilizar um modelo de exemplo para criar um conjunto de dimensionamento e aplicar regras de dimensionamento automático. Pode [rever o modelo completo](https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json) ou [ver a secção *Microsoft.insights/autoscalesettings* do fornecedor de recursos](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/autoscale.json#L220) do modelo.
 
-Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* na localização *oriental:*
+Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *este:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -183,6 +183,7 @@ ssh azureuser@13.92.224.66 -p 50001
 Depois de iniciar sessão, instale o utilitário **stress**. Inicie *10 funções de trabalho de * **stress** que geram carga da CPU. Estas funções de trabalho são executadas durante *420* segundos, que é o suficiente para fazer com que as regras de dimensionamento automático implementem a ação pretendida.
 
 ```console
+sudo apt-get update
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
@@ -257,7 +258,7 @@ Saia de *watch* com `Ctrl-c`. O conjunto de dimensionamento continua a reduzir h
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Para remover o seu conjunto de escala e recursos adicionais, elimine o grupo de recursos e todos os seus recursos com o [grupo Az excluir:](/cli/azure/group)
+Para remover o seu conjunto de escalas e recursos adicionais, elimine o grupo de recursos e todos os seus recursos com [o grupo AZ eliminar:](/cli/azure/group)
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

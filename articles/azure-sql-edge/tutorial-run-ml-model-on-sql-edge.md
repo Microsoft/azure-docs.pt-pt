@@ -1,29 +1,29 @@
 ---
-title: Implementar modelo ML no Azure SQL Edge utilizando onNX
-description: Na terceira parte deste tutorial Azure SQL Edge em três partes para prever impurezas de minério de ferro, você executará os modelos de machine learning ONNX no SQL Edge.
+title: Implementar o modelo ML na Borda Azure SQL utilizando ONNX
+description: Na terceira parte deste tutorial de três partes do Azure SQL Edge para prever impurezas de minério de ferro, você executará os modelos de aprendizagem de máquinas ONNX em SQL Edge.
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: tutorial
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 64594267dc51fa42dabcc3083d18d631904a9cab
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f38a973611cb1ab18eead4ec51e6be91ada2cc40
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599710"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318646"
 ---
-# <a name="deploy-ml-model-on-azure-sql-edge-using-onnx"></a>Implementar modelo ML no Azure SQL Edge utilizando onNX 
+# <a name="deploy-ml-model-on-azure-sql-edge-using-onnx"></a>Implementar o modelo ML na Borda Azure SQL utilizando ONNX 
 
-Na terceira parte deste tutorial em três partes para prever impurezas de minério de ferro em Azure SQL Edge, você:
+Na parte três deste tutorial em três partes para prever impurezas de minério de ferro em Azure SQL Edge, você:
 
-1. Utilize o Azure Data Studio para se ligar à Base de Dados SQL na instância Azure SQL Edge.
-2. Preveja impurezas de minério de ferro com ONNX em Borda SQL Azure.
+1. Utilize o Azure Data Studio para ligar à Base de Dados SQL no caso Azure SQL Edge.
+2. Prever impurezas de minério de ferro com ONNX em Azure SQL Edge.
 
-## <a name="connect-to-the-sql-database-in-the-azure-sql-edge-instance"></a>Ligue-se à Base de Dados SQL na instância Azure SQl Edge
+## <a name="connect-to-the-sql-database-in-the-azure-sql-edge-instance"></a>Ligue-se à Base de Dados SQL no exemplo Azure SQl Edge
 
 1. Abra o Azure Data Studio.
 
@@ -32,24 +32,24 @@ Na terceira parte deste tutorial em três partes para prever impurezas de minér
    |_Campo_|_Valor_|
    |-------|-------|
    |Tipo de ligação| Microsoft SQL Server|
-   |Servir|Endereço IP público mencionado no VM que foi criado para esta demonstração|
+   |Server|Endereço IP público mencionado no VM que foi criado para esta demonstração|
    |Nome de utilizador|SG|
-   |Palavra-passe|A palavra-passe forte que foi usada durante a criação da instância Azure SQL Edge|
+   |Palavra-passe|A palavra-passe forte que foi usada ao criar a instância Azure SQL Edge|
    |Base de Dados|Predefinição|
-   |Grupo servidor|Predefinição|
+   |Grupo de servidores|Predefinição|
    |Nome (opcional)|Fornecer um nome opcional|
 
-3. Clique em **Ligar**
+3. Clique **em Ligar**
 
-4. Na secção **Ficheiro,** abra um novo bloco de notas ou utilize o atalho de teclado Alt + Windows + N. 
+4. Na secção **Ficheiro,** abra um novo portátil ou utilize o atalho de teclado Alt + Windows + N. 
 
-5. Coloque o núcleo para Python 3.
+5. Coloque o núcleo em Python 3.
 
 ## <a name="predict-iron-ore-impurities-with-onnx"></a>Prever impurezas de minério de ferro com ONNX
 
-Introduza o seguinte código Python no caderno do Estúdio de Dados Azure e execute-o.
+Introduza o seguinte código Python no caderno do Azure Data Studio e execute-o.
 
-1. Primeiro, instale e importe os pacotes necessários.
+1. Em primeiro lugar, instale e importe as embalagens necessárias.
 
    ```python
    !pip install azureml.core -q
@@ -74,7 +74,7 @@ Introduza o seguinte código Python no caderno do Estúdio de Dados Azure e exec
    from azureml.train.automl import constants
    ```
 
-1. Defina o espaço de trabalho Azure AutoML e a configuração da experiência AutoML para a experiência de regressão.
+1. Defina o espaço de trabalho Azure AutoML e a configuração de experiências AutoML para a experiência de regressão.
 
    ```python
    ws = Workspace(subscription_id="<Azure Subscription ID>",
@@ -85,7 +85,7 @@ Introduza o seguinte código Python no caderno do Estúdio de Dados Azure e exec
    experiment = Experiment(ws, experiment_name)
    ```
 
-1. Importe o conjunto de dados num quadro panda. Para efeitos do treino do modelo, utilize o conjunto de dados de formação [Quality Prediction num processo de mineração](https://www.kaggle.com/edumagalhaes/quality-prediction-in-a-mining-process) a partir de Kaggle. Faça o download do ficheiro de dados e guarde-o localmente na sua máquina de desenvolvimento. Vai usar estes dados para prever a quantidade de impureza no concentrado de minério.
+1. Importe o conjunto de dados numa moldura de panda. Para efeitos da formação de modelos, utilize o conjunto de dados de formação [Previsão de Qualidade num Processo mineiro](https://www.kaggle.com/edumagalhaes/quality-prediction-in-a-mining-process) de Kaggle. Descarregue o ficheiro de dados e guarde-o localmente na sua máquina de desenvolvimento. Usará estes dados para prever a impureza que existe no concentrado de minério.
 
    ```python
    df = pd.read_csv("<local path where you have saved the data file>",decimal=",",parse_dates=["date"],infer_datetime_format=True)
@@ -93,7 +93,7 @@ Introduza o seguinte código Python no caderno do Estúdio de Dados Azure e exec
    df.describe()
    ```
 
-1. Analise os dados para identificar qualquer distorção. Durante este processo, olhe para a distribuição e a informação distorcida para cada uma das colunas no quadro de dados.
+1. Analise os dados para identificar qualquer distorção. Durante este processo, olhe para a distribuição e a informação desvirtuação para cada uma das colunas no quadro de dados.
 
    ```python
    ## We can use a histogram chart to view the data distribution for the Dataset. In this example, we are looking at the histogram for the "% Silica Concentrate" 
@@ -108,7 +108,7 @@ Introduza o seguinte código Python no caderno do Estúdio de Dados Azure e exec
    #ax3.title = 'Silica Feed'
    ```
 
-1. Verifique e corrija o nível de distorção dos dados.
+1. Verifique e corrija o nível de distorção nos dados.
 
    ```python
    ##Check data skewness with the skew or the kurtosis function in spicy.stats
@@ -125,7 +125,7 @@ Introduza o seguinte código Python no caderno do Estúdio de Dados Azure e exec
            print('Skew value for column "{0}" is: {1}'.format(i,skew(df[i])))
    ```
 
-1. Verifique a correlação de outras funcionalidades com a funcionalidade de previsão. Se a correlação não for alta, retire as características.
+1. Verifique a correlação de outras funcionalidades com a característica de previsão. Se a correlação não for elevada, retire estas características.
 
    ```python
    silic_corr = df.corr()['% Silica Concentrate']
@@ -135,7 +135,7 @@ Introduza o seguinte código Python no caderno do Estúdio de Dados Azure e exec
    df.describe()
    ```
 
-1. Inicie a experiência AzureML para encontrar e treinar o melhor algoritmo. Neste caso, está a testar com todos os algoritmos de regressão, com uma métrica primária de Erro Quadrado Da Raiz Normalizada (NRMSE). Para mais informações, consulte a Métrica Primária de [Experiências Azure ML.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#primary-metric) O seguinte código iniciará uma execução local da experiência ML.
+1. Inicie a experiência AzureML para encontrar e treinar o melhor algoritmo. Neste caso, está a testar com todos os algoritmos de regressão, com uma métrica primária de Erro Quadrado Médio de Raiz Normalizado (NRMSE). Para obter mais informações, consulte [a Métrica Primária de Experiências Azure ML](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#primary-metric). O seguinte código iniciará uma execução local da experiência ML.
 
    ```python
    ## Define the X_train and the y_train data sets for the AutoML experiments. X_Train are the inputs or the features, while y_train is the outcome or the prediction result. 
@@ -155,7 +155,7 @@ Introduza o seguinte código Python no caderno do Estúdio de Dados Azure e exec
    best_run, onnx_mdl = local_run.get_output(return_onnx_model=True)
    ```
 
-1. Carregue o modelo na base de dados Azure SQL Edge para pontuação local.
+1. Carregue o modelo na base de dados Azure SQL Edge para obter pontuação local.
 
    ```python
    ## Load the Model into a SQL Database.
@@ -178,7 +178,7 @@ Introduza o seguinte código Python no caderno do Estúdio de Dados Azure e exec
    conn.close()
    ```
 
-1. Por fim, utilize o modelo Azure SQL Edge para realizar previsões utilizando o modelo treinado.
+1. Por fim, utilize o modelo Azure SQL Edge para executar previsões utilizando o modelo treinado.
 
    ```python
    ## Define the Connection string parameters. These connection strings will be used later also in the demo.
@@ -211,7 +211,7 @@ Introduza o seguinte código Python no caderno do Estúdio de Dados Azure e exec
    df_result.describe()
    ```
 
-1. Utilizando python, crie um gráfico da percentagem de sílica prevista contra a alimentação de ferro, data e alimentação de sílica.
+1. Utilizando python, crie um gráfico da percentagem de sílica prevista contra a alimentação de ferro, data e sílica.
 
    ```python
    import plotly.graph_objects as go
@@ -225,4 +225,4 @@ Introduza o seguinte código Python no caderno do Estúdio de Dados Azure e exec
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a utilização de modelos ONNX em Azure SQL Edge, consulte [machine learning e IA com ONNX em SQL Edge (Pré-visualização)](onnx-overview.md).
+Para obter mais informações sobre a utilização de modelos ONNX em Azure SQL Edge, consulte [machine learning e AI com ONNX em SQL Edge (Preview)](onnx-overview.md).

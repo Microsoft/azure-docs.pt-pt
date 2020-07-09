@@ -1,39 +1,38 @@
 ---
-title: Consulta de ficheiros CSV utilizando sQL on-demand (pré-visualização)
-description: Neste artigo, você aprenderá a consultar ficheiros CSV individuais com diferentes formatos de ficheiro usando sQL on-demand (pré-visualização).
+title: Ficheiros CSV de consulta utilizando SQL on demand (pré-visualização)
+description: Neste artigo, você aprenderá a consultar ficheiros CSV únicos com diferentes formatos de ficheiro usando SQL on-demand (pré-visualização).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 41c4a8940cc49a3859a2511f0de65d0019817078
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.openlocfilehash: 628631fb7fddbc07dcb865e3d3badbfb608ad097
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836554"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214456"
 ---
-# <a name="query-csv-files"></a>Consultas de ficheiros CSV
+# <a name="query-csv-files"></a>Ficheiros CSV de consulta
 
-Neste artigo, você aprenderá a consultar um único ficheiro CSV usando SQL on-demand (pré-visualização) em Azure Synapse Analytics. Os ficheiros CSV podem ter formatos diferentes: 
+Neste artigo, você aprenderá a consultar um único ficheiro CSV usando SQL on demand (pré-visualização) em Azure Synapse Analytics. Os ficheiros CSV podem ter formatos diferentes: 
 
 - Com e sem uma linha de cabeçalho
-- Comma e valores delimitados por separadores
-- Finais de linha de estilo Windows e Unix
+- Valores de vírgula e delimitados
+- Terminações de linha de estilo Windows e Unix
 - Valores não citados e citados, e personagens escapando
 
 Todas as variações acima serão cobertas abaixo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O seu primeiro passo é **criar uma base de dados** onde as tabelas serão criadas. Em seguida, inicialize os objetos executando o script de [configuração](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) nessa base de dados. Este script de configuração criará as fontes de dados, credenciais de base de dados e formatos de ficheiros externos que são utilizados nestas amostras.
+O seu primeiro passo é **criar uma base de dados** onde as tabelas serão criadas. Em seguida, inicialize os objetos executando o [script de configuração](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) nessa base de dados. Este script de configuração criará as fontes de dados, credenciais de base de dados e formatos de ficheiros externos que são utilizados nestas amostras.
 
-## <a name="windows-style-new-line"></a>Linha nova estilo Windows
+## <a name="windows-style-new-line"></a>Nova linha estilo Windows
 
-A seguinte consulta mostra como ler um ficheiro CSV sem uma linha de cabeçalho, com uma nova linha ao estilo do Windows e colunas delimitadas com vírem.
+A seguinte consulta mostra como ler um ficheiro CSV sem uma linha de cabeçalho, com uma nova linha estilo Windows e colunas delimitadas em vírgula.
 
 Pré-visualização do ficheiro:
 
@@ -44,7 +43,7 @@ SELECT *
 FROM OPENROWSET(
         BULK 'csv/population/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '\n'
     )
@@ -59,20 +58,20 @@ WHERE
     AND year = 2017;
 ```
 
-## <a name="unix-style-new-line"></a>Nova linha estilo Unix
+## <a name="unix-style-new-line"></a>Nova linha de estilo unix
 
-A seguinte consulta mostra como ler um ficheiro sem uma linha de cabeçalho, com uma nova linha ao estilo Unix, e colunas delimitadas de vírem. Note a localização diferente do ficheiro em comparação com os outros exemplos.
+A seguinte consulta mostra como ler um ficheiro sem uma linha de cabeçalho, com uma nova linha estilo Unix e colunas delimitadas em vírgula. Note a localização diferente do ficheiro em comparação com os outros exemplos.
 
 Pré-visualização do ficheiro:
 
-![Primeiras 10 linhas do ficheiro CSV sem linha de cabeçalho e com nova linha Unix-Style.](./media/query-single-csv-file/population-unix.png)
+![Primeiras 10 linhas do ficheiro CSV sem cabeçalho e com a nova linha Unix-Style.](./media/query-single-csv-file/population-unix.png)
 
 ```sql
 SELECT *
 FROM OPENROWSET(
         BULK 'csv/population-unix/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a'
     )
@@ -87,20 +86,20 @@ WHERE
     AND year = 2017;
 ```
 
-## <a name="header-row"></a>Linha do cabeçalho
+## <a name="header-row"></a>Linha de cabeçalho
 
-A seguinte consulta mostra como um ficheiro de leitura com uma linha de cabeçalho, com uma nova linha estilo Unix, e colunas delimitadas de vírem. Note a localização diferente do ficheiro em comparação com os outros exemplos.
+A seguinte consulta mostra como ler um ficheiro com uma linha de cabeçalho, com uma nova linha estilo Unix e colunas delimitadas em vírgula. Note a localização diferente do ficheiro em comparação com os outros exemplos.
 
 Pré-visualização do ficheiro:
 
-![Primeiras 10 linhas do ficheiro CSV com linha de cabeçalho e com nova linha Unix-Style.](./media/query-single-csv-file/population-unix-hdr.png)
+![Primeiras 10 linhas do ficheiro CSV com linha de cabeçalho e com a nova linha Unix-Style.](./media/query-single-csv-file/population-unix-hdr.png)
 
 ```sql
 SELECT *
 FROM OPENROWSET(
         BULK 'csv/population-unix-hdr/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         FIRSTROW = 2
     )
@@ -117,18 +116,18 @@ WHERE
 
 ## <a name="custom-quote-character"></a>Personagem de citação personalizada
 
-A seguinte consulta mostra como ler um ficheiro com uma linha de cabeçalho, com uma nova linha ao estilo Unix, colunas delimitadas de vírem e valores citados. Note a localização diferente do ficheiro em comparação com os outros exemplos.
+A seguinte consulta mostra como ler um ficheiro com uma linha de cabeçalho, com uma nova linha unix, colunas delimitadas em vírgula e valores citados. Note a localização diferente do ficheiro em comparação com os outros exemplos.
 
 Pré-visualização do ficheiro:
 
-![Primeiras 10 linhas do ficheiro CSV com linha de cabeçalho e com nova linha unix-style e valores citados.](./media/query-single-csv-file/population-unix-hdr-quoted.png)
+![Primeiras 10 linhas do ficheiro CSV com linha de cabeçalho e com nova linha Unix-Style e valores citados.](./media/query-single-csv-file/population-unix-hdr-quoted.png)
 
 ```sql
 SELECT *
 FROM OPENROWSET(
         BULK 'csv/population-unix-hdr-quoted/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a',
         FIRSTROW = 2,
@@ -150,18 +149,18 @@ WHERE
 
 ## <a name="escaping-characters"></a>Personagens escapando
 
-A seguinte consulta mostra como ler um ficheiro com uma linha de cabeçalho, com uma nova linha ao estilo Unix, colunas delimitadas de vírem, e um carvão de fuga usado para o delimitador de campo (vírina) dentro de valores. Note a localização diferente do ficheiro em comparação com os outros exemplos.
+A seguinte consulta mostra como ler um ficheiro com uma linha de cabeçalho, com uma nova linha de estilo Unix, colunas delimitadas em vírgula, e um char de fuga usado para o delimiter de campo (vírgula) dentro de valores. Note a localização diferente do ficheiro em comparação com os outros exemplos.
 
 Pré-visualização do ficheiro:
 
-![Primeiras 10 linhas do ficheiro CSV com linha de cabeçalho e com nova linha unix-style e char de fuga usado para delimitador de campo.](./media/query-single-csv-file/population-unix-hdr-escape.png)
+![Primeiras 10 linhas do ficheiro CSV com linha de cabeçalho e com nova linha e char de escape Unix-Style usado para delimiter de campo.](./media/query-single-csv-file/population-unix-hdr-escape.png)
 
 ```sql
 SELECT *
 FROM OPENROWSET(
         BULK 'csv/population-unix-hdr-escape/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a',
         FIRSTROW = 2,
@@ -174,26 +173,57 @@ FROM OPENROWSET(
         [population] bigint
     ) AS [r]
 WHERE
-    country_name = 'Slov,enia';
+    country_name = 'Slovenia';
 ```
 
 > [!NOTE]
-> Esta consulta falharia se o ESCAPECHAR não fosse especificado, uma vez que a vírposta em "Slov, enia" seria tratada como delimitador de campo em vez de parte do nome país/região. "Slov, enia" seria tratado como duas colunas. Portanto, a linha em particular teria uma coluna mais do que as outras linhas, e uma coluna mais do que definiu na cláusula COM.
+> Esta consulta falharia se o ESCAPECHAR não fosse especificado, uma vez que a vírgula em "Slov,enia" seria tratada como delimiter de campo em vez de parte do nome país/região. "Slov,enia" seria tratado como duas colunas. Portanto, a linha em particular teria uma coluna mais do que as outras linhas, e uma coluna mais do que você definiu na cláusula WITH.
 
-## <a name="tab-delimited-files"></a>Ficheiros deslimitados por separadores
+### <a name="escaping-quoting-characters"></a>Escapando personagens citando
 
-A seguinte consulta mostra como ler um ficheiro com uma linha de cabeçalho, com uma nova linha ao estilo Unix, e colunas limitadas por separadores. Note a localização diferente do ficheiro em comparação com os outros exemplos.
+A seguinte consulta mostra como ler um ficheiro com uma linha de cabeçalho, com uma nova linha unix, colunas delimitadas em vírgula, e um carvão de citação dupla escapado dentro de valores. Note a localização diferente do ficheiro em comparação com os outros exemplos.
 
 Pré-visualização do ficheiro:
 
-![Primeiras 10 linhas do ficheiro CSV com linha de cabeçalho e com nova linha e delimitador de separadores unix-Style.](./media/query-single-csv-file/population-unix-hdr-tsv.png)
+![A seguinte consulta mostra como ler um ficheiro com uma linha de cabeçalho, com uma nova linha unix, colunas delimitadas em vírgula, e um carvão de citação dupla escapado dentro de valores.](./media/query-single-csv-file/population-unix-hdr-escape-quoted.png)
+
+```sql
+SELECT *
+FROM OPENROWSET(
+        BULK 'csv/population-unix-hdr-escape-quoted/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FIELDTERMINATOR =',',
+        ROWTERMINATOR = '0x0a',
+        FIRSTROW = 2
+    )
+    WITH (
+        [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+        [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+        [year] smallint,
+        [population] bigint
+    ) AS [r]
+WHERE
+    country_name = 'Slovenia';
+```
+
+> [!NOTE]
+> O personagem citando deve ser escapado com outro personagem citando. Citar o carácter só pode aparecer dentro do valor da coluna se o valor for encapsulado com caracteres citantes.
+
+## <a name="tab-delimited-files"></a>Ficheiros delimitados por separadores
+
+A seguinte consulta mostra como ler um ficheiro com uma linha de cabeçalho, com uma nova linha estilo Unix e colunas delimitadas por separadores. Note a localização diferente do ficheiro em comparação com os outros exemplos.
+
+Pré-visualização do ficheiro:
+
+![Primeiras 10 linhas do ficheiro CSV com linha de cabeçalho e com nova linha e delimiter de separador Unix-Style.](./media/query-single-csv-file/population-unix-hdr-tsv.png)
 
 ```sql
 SELECT *
 FROM OPENROWSET(
         BULK 'csv/population-unix-hdr-tsv/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR ='\t',
         ROWTERMINATOR = '0x0a',
         FIRSTROW = 2
@@ -211,12 +241,12 @@ WHERE
 
 ## <a name="returning-subset-of-columns"></a>Subconjunto de colunas de retorno
 
-Até agora, especificou o esquema de ficheiros CSV usando WITH e enumerando todas as colunas. Só pode especificar as colunas de que realmente precisa na sua consulta utilizando um número de ordinal para cada coluna necessária. Também omitirá colunas sem interesse.
+Até agora, especificou o esquema de ficheiros CSV usando WITH e listando todas as colunas. Só pode especificar as colunas de que necessita na sua consulta utilizando um número ordinal para cada coluna necessária. Também omitirá colunas sem interesse.
 
 A seguinte consulta devolve o número de nomes distintos de país/região num ficheiro, especificando apenas as colunas necessárias:
 
 > [!NOTE]
-> Veja a cláusula COM na consulta abaixo e note que há "2" (sem citações) no final da fila onde define a coluna *[country_name].* Significa que a coluna *[country_name]* é a segunda coluna do ficheiro. A consulta ignorará todas as colunas do ficheiro, exceto a segunda.
+> Veja a cláusula COM na consulta abaixo e note que há "2" (sem cotações) no final da linha onde define a coluna *[country_name].* Significa que a coluna *[country_name]* é a segunda coluna do ficheiro. A consulta ignorará todas as colunas do ficheiro exceto a segunda.
 
 ```sql
 SELECT
@@ -224,7 +254,7 @@ SELECT
 FROM OPENROWSET(
         BULK 'csv/population/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '\n'
     )
@@ -236,9 +266,9 @@ WITH (
 ) AS [r]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Os próximos artigos mostrar-lhe-ão como:
+Os próximos artigos irão mostrar-lhe como:
 
 - [Consulta de ficheiros Parquet](query-parquet-files.md)
-- [Consultas de pastas e múltiplos ficheiros](query-folders-multiple-csv-files.md)
+- [Consulta de pastas e vários ficheiros](query-folders-multiple-csv-files.md)

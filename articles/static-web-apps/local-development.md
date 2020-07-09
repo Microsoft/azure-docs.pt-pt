@@ -1,82 +1,81 @@
 ---
-title: Configurar o desenvolvimento local para aplicações web estáticas azure
-description: Aprenda a definir o seu ambiente de desenvolvimento local para Aplicações Web Estáticas Azure
+title: Configurar o desenvolvimento local para aplicações web estáticas Azure
+description: Aprenda a definir-lhe o seu ambiente de desenvolvimento local para aplicações web estáticas Azure
 services: static-web-apps
 author: burkeholland
 ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 36d580b7659325d4bf5f13889f774ddaa2ab0702
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.openlocfilehash: a7215790a7f052227b08f51dcd7ad5dd337bb4e9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597129"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259274"
 ---
-# <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Configurar o desenvolvimento local para a pré-visualização de aplicações da Web Estática azure
+# <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Configurar o desenvolvimento local para pré-visualização de aplicações web estáticas Azure
 
-Uma instância de Web Apps Estática selada é composta por dois tipos diferentes de aplicações. A primeira é uma aplicação web para o seu conteúdo estático. As aplicações web são muitas vezes criadas com estruturas frontais e bibliotecas ou com geradores de site estático. O segundo aspeto é a API, que é uma app Azure Functions que proporciona um ambiente de desenvolvimento rico.
+Uma instância Azure Static Web Apps é composta por dois tipos diferentes de aplicações. A primeira é uma aplicação web para o seu conteúdo estático. As aplicações web são muitas vezes criadas com estruturas frontais e bibliotecas ou com geradores de sites estáticos. O segundo aspeto é a API, que é uma app Azure Functions que proporciona um rico ambiente de desenvolvimento back-end.
 
-Ao correr na nuvem, as Web Apps Estáticas do Azure mapeiam sem problemas os pedidos para a `api` rota da aplicação web para a aplicação Funções Azure sem necessitar da configuração CORS. Localmente, precisa configurar a sua aplicação para imitar este comportamento.
+Ao correr na nuvem, a Azure Static Web Apps mapeia perfeitamente os pedidos para a `api` rota da aplicação web para a aplicação Azure Functions sem necessitar de configuração CORS. Localmente, precisa configurar a sua aplicação para imitar este comportamento.
 
 Este artigo demonstra as melhores práticas recomendadas para o desenvolvimento local, incluindo os seguintes conceitos:
 
 - Configurar a aplicação web para conteúdo estático
-- Configurar a aplicação Funções Azure para a API da sua aplicação
-- Depuração e execução da aplicação
-- Boas práticas para o arquivo da sua aplicação e estrutura de pastas
+- Configurar a app Azure Functions para a API da sua aplicação
+- Depurar e executar a aplicação
+- Boas práticas para o arquivo e estrutura de pastas da sua aplicação
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Extensão de funções azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para Código de Estúdio Visual
-- [Extensão do Servidor Ao Vivo](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para Código de Estúdio Visual
-  - Necessário apenas se não estiver a usar uma estrutura de JavaScript frontal ou o CLI do gerador de site estático
+- [Extensão de funções Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para Código do Estúdio Visual
+- [Extensão do Servidor Ao Vivo](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para Código do Estúdio Visual
+  - Necessário apenas se não estiver a utilizar uma estrutura javaScript frontal ou o CLI do gerador estático do gerador de sítios
 
 ## <a name="run-projects-locally"></a>Executar projetos localmente
 
-Executar uma Web App Estática Azure localmente envolve três processos, dependendo se o seu projeto contém ou não uma API.
+Executar uma App Web Estática Azure envolve localmente três processos, dependendo se o seu projeto contém ou não uma API.
 
-- Executar um servidor web local
-- Execução da API
-- Ligar o projeto web à API
+- Executando um servidor web local
+- Funcionando a API
+- Ligação do projeto web à API
 
-Dependendo da forma como um website é construído, um servidor web local pode ou não ser obrigado a executar a aplicação no navegador. Ao utilizar as estruturas frontais do JavaScript e os geradores estáticos do local, esta funcionalidade é incorporada nos respetivos CLIs (Interfaces de Linha de Comando). As seguintes ligações apontam para a referência cli para uma seleção de quadros, bibliotecas e geradores.
+Dependendo da forma como um site é construído, um servidor web local pode ou não ser obrigado a executar a aplicação no navegador. Ao utilizar quadros javaScript frontais e geradores de locais estáticos, esta funcionalidade é incorporada nos respetivos CLIs (Interfaces de Linha de Comando). As seguintes ligações apontam para a referência do IPC para uma seleção de quadros, bibliotecas e geradores.
 
-### <a name="javascript-frameworks-and-libraries"></a>Quadros e bibliotecas JavaScript
+### <a name="javascript-frameworks-and-libraries"></a>Estruturas e bibliotecas JavaScript
 
 - [Angular CLI](https://angular.io/cli)
 - [Vue CLI](https://cli.vuejs.org/guide/creating-a-project.html)
 - [Reagir CLI](https://create-react-app.dev/)
 
-### <a name="static-site-generators"></a>Geradores de site estático
+### <a name="static-site-generators"></a>Geradores estáticos
 
 - [Gatsby CLI](https://www.gatsbyjs.org/docs/gatsby-cli/)
 - [Hugo](https://gohugo.io/getting-started/quick-start/)
-- [Rio Jekyll](https://jekyllrb.com/docs/usage/)
+- [Jekyll](https://jekyllrb.com/docs/usage/)
 
-Se estiver a utilizar uma ferramenta CLI para servir o seu site, pode saltar para a secção [Desativação da API.](#run-api-locally)
+Se estiver a utilizar uma ferramenta CLI para servir o seu site, pode saltar para a secção ['Executar a API'.](#run-api-locally)
 
-### <a name="running-a-local-web-server-with-live-server"></a>Executar um servidor web local com live server
+### <a name="running-a-local-web-server-with-live-server"></a>Executar um servidor web local com Live Server
 
 A extensão live server para Visual Studio Code fornece um servidor web de desenvolvimento local que serve conteúdo estático.
 
 #### <a name="create-a-repository"></a>Criar um repositório
 
-1. Navegue [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) e crie um novo projeto GitHub chamado **vanilla-api,** usando este modelo.
+1. Certifique-se de que está conectado ao GitHub e, navegue [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) para e crie um novo projeto GitHub chamado **vanilla-api,** usando este modelo.
 
-    :::image type="content" source="media/local-development/vanilla-api.png" alt-text="Nova janela de repo gitHub":::
+    :::image type="content" source="media/local-development/vanilla-api.png" alt-text="Nova janela de repo do GitHub":::
 
 1. Abra o Visual Studio Code.
 
-1. Pressione **f1** para abrir a Paleta de Comando.
+1. Prima **F1** para abrir a paleta de comando.
 
 1. Digite **o clone** na caixa de pesquisa e selecione **Git: Clone**.
 
-    :::image type="content" source="media/local-development/command-palette-git-clone.png" alt-text="git opção clone no Código do Estúdio Visual":::
+    :::image type="content" source="media/local-development/command-palette-git-clone.png" alt-text="opção de clone git no Código do Estúdio Visual":::
 
-1. Introduza o seguinte valor para **url de repositório**.
+1. Introduza o seguinte valor para **URL repositório**.
 
    ```http
    git@github.com:<YOUR_GITHUB_ACCOUNT>/vanilla-api.git
@@ -84,7 +83,7 @@ A extensão live server para Visual Studio Code fornece um servidor web de desen
 
 1. Selecione uma localização de pasta para o novo projeto.
 
-1. Quando for solicitado a abertura do repositório clonado, **selecione Open**.
+1. Quando for solicitado para abrir o repositório clonado, selecione **Open**.
 
     :::image type="content" source="media/local-development/open-new-window.png" alt-text="Abra em nova janela":::
 
@@ -92,35 +91,35 @@ Visual Studio Code abre o projeto clonado no editor.
 
 ### <a name="run-the-website-locally-with-live-server"></a>Executar o site localmente com Live Server
 
-1. Pressione **f1** para abrir a Paleta de Comando.
+1. Prima **F1** para abrir a paleta de comando.
 
-1. Digite **o Servidor Ao Vivo** na caixa de pesquisa e selecione Live **Server: Abra com o Live Server**
+1. Digite **servidor ao vivo** na caixa de pesquisa e selecione Live **Server: Abra com servidor ao vivo**
 
-    Abre-se um separador de navegador para exibir a aplicação.
+    Um separador de navegador abre para exibir a aplicação.
 
-    :::image type="content" source="media/local-development/vanilla-api-site.png" alt-text="Simples site estático correndo no navegador":::
+    :::image type="content" source="media/local-development/vanilla-api-site.png" alt-text="Site estático simples em execução no navegador":::
 
-    Este pedido faz um pedido http para o `api/message` ponto final. Neste momento, esse pedido está a falhar porque a parte da API deste pedido precisa de ser iniciada.
+    Esta aplicação faz um pedido HTTP para o `api/message` ponto final. Neste momento, esse pedido está a falhar porque a parte da API desta aplicação precisa de ser iniciada.
 
 ### <a name="run-api-locally"></a>Executar API localmente
 
-As APIs de Aplicações Web Estáticas Azure são alimentadas por Funções Azure. Consulte [adicionar uma API a Aplicações Web Estáticas Azure com funções Azure](add-api.md) para mais detalhes sobre a adição de um API a um projeto de Web Apps Estátáticas Azure.
+As APIs de Aplicações Web Estáticas Azure são alimentadas por Funções Azure. Consulte [adicionar uma API a Azure Static Web Apps com Funções Azure](add-api.md) para obter detalhes sobre a adição de uma API a um projeto de Aplicações Web Estáticas Azure.
 
-Como parte do processo de criação da API, é criada uma configuração de lançamento para o Código do Estúdio Visual. Esta configuração está localizada na pasta _.vscode._ Esta pasta contém todas as definições necessárias para a construção e execução da API localmente.
+Como parte do processo de criação da API, é criada uma configuração de lançamento para o Código do Estúdio Visual. Esta configuração está localizada na pasta _.vscode._ Esta pasta contém todas as configurações necessárias para construir e executar a API localmente.
 
-1. No Visual Studio Code, prima **F5** para iniciar a API.
+1. No Código do Estúdio Visual, prima **F5** para iniciar a API.
 
-1. Abre-se uma nova instância terminal que mostra a saída do processo de construção da API.
+1. Uma nova instância terminal abre mostrando a saída do processo de construção da API.
 
-    :::image type="content" source="media/local-development/terminal-api-debug.png" alt-text="API em execução no terminal de Código de Estúdio Visual":::
+    :::image type="content" source="media/local-development/terminal-api-debug.png" alt-text="API em execução no terminal visual Studio Code":::
 
-   A barra de estado no Código do Estúdio Visual é agora laranja. Esta cor indica que a API está agora a funcionar e o desordeiro está ligado.
+   A barra de estado no Código do Estúdio Visual é agora laranja. Esta cor indica que a API está agora em funcionamento e o depurante está ligado.
 
-1. Em seguida, prima **Ctrl/Cmd** e clique no URL do terminal para abrir uma janela de navegador que chama a API.
+1. Em seguida, pressione **Ctrl/Cmd** e clique no URL no terminal para abrir uma janela do navegador que chama a API.
 
-    :::image type="content" source="media/local-development/hello-from-api-endpoint.png" alt-text="Resultado do display do navegador da chamada API":::
+    :::image type="content" source="media/local-development/hello-from-api-endpoint.png" alt-text="Resultado do ecrã do navegador da chamada API":::
 
-### <a name="debugging-the-api"></a>Depurando a API
+### <a name="debugging-the-api"></a>Depurar a API
 
 1. Abra o ficheiro _api/GetMessage/index.js_ no Código do Estúdio Visual.
 
@@ -128,34 +127,34 @@ Como parte do processo de criação da API, é criada uma configuração de lan�
 
     :::image type="content" source="media/local-development/breakpoint-set.png" alt-text="Breakpoint no Código do Estúdio Visual":::
 
-1. No navegador, refresque a página em <http://127.0.0.1:7071/api/message> execução em .
+1. No navegador, atualize a página em execução em <http://127.0.0.1:7071/api/message> .
 
-1. O breakpoint é atingido no Código do Estúdio Visual e a execução do programa é interrompida.
+1. O ponto de rutura é atingido no Código do Estúdio Visual e a execução do programa é interrompida.
 
-   :::image type="content" source="media/local-development/breakpoint-hit.png" alt-text="Breakpoint hit no Código do Estúdio Visual":::
+   :::image type="content" source="media/local-development/breakpoint-hit.png" alt-text="Breakpoint hit em Visual Studio Code":::
 
-   Uma experiência completa [de depuração está disponível no Visual Studio Code](https://code.visualstudio.com/Docs/editor/debugging) para a sua API.
+   Uma [experiência completa de depuragem está disponível no Código do Estúdio Visual](https://code.visualstudio.com/Docs/editor/debugging) para a sua API.
 
 1. Pressione o botão **Continuar** na barra de depuração para continuar a execução.
 
     :::image type="content" source="media/local-development/continue-button.png" alt-text="Continue o botão no Código do Estúdio Visual":::
 
-### <a name="calling-the-api-from-the-application"></a>Chamar a API da aplicação
+### <a name="calling-the-api-from-the-application"></a>Chamando a API da aplicação
 
-Quando implementados, as Aplicações Web Estáticas do Azure mapeiam automaticamente estes pedidos para os pontos finais da pasta _API._ Este mapeamento garante que os pedidos da aplicação para a API se pareçam com o seguinte exemplo.
+Quando implementado, a Azure Static Web Apps mapeia automaticamente estes pedidos para os pontos finais na pasta _api._ Este mapeamento garante que os pedidos da aplicação à API parecem ser o exemplo seguinte.
 
 ```javascript
 let response = await fetch("/api/message");
 ```
 
-Dependendo se a sua aplicação é ou não construída com uma clI de estrutura JavaScript, existem duas maneiras de configurar o caminho para a rota ao executar a `api` sua aplicação localmente.
+Dependendo se a sua aplicação foi ou não construída com um CLI-quadro JavaScript, existem duas formas de configurar o caminho para a `api` rota ao executar a sua aplicação localmente.
 
-- Arquivos de configuração do ambiente (recomendados para quadros e bibliotecas JavaScript)
+- Ficheiros de configuração do ambiente (recomendados para estruturas e bibliotecas JavaScript)
 - Procuração local
 
-### <a name="environment-configuration-files"></a>Arquivos de configuração do ambiente
+### <a name="environment-configuration-files"></a>Ficheiros de configuração do ambiente
 
-Se estiver a construir a sua aplicação com estruturas frontais que possuam um CLI, deve utilizar ficheiros de configuração ambiental. Cada quadro ou biblioteca tem uma forma diferente de lidar com estes ficheiros de configuração ambiental. É comum ter um ficheiro de configuração para o desenvolvimento que é usado quando a sua aplicação está a funcionar localmente, e um para produção que é usado quando a sua aplicação está em execução. O CLI para a estrutura JavaScript ou gerador de site estático que está a utilizar saberá automaticamente utilizar o ficheiro de desenvolvimento localmente e o ficheiro de produção quando a sua aplicação for construída por Web Apps Estáticas Azure.
+Se estiver a construir a sua aplicação com estruturas frontais que tenham um CLI, deverá utilizar ficheiros de configuração ambiental. Cada estrutura ou biblioteca tem uma forma diferente de lidar com estes ficheiros de configuração ambiental. É comum ter um ficheiro de configuração para desenvolvimento que é usado quando a sua aplicação está a funcionar localmente, e um para produção que é usado quando a sua aplicação está em execução em produção. O CLI para a estrutura JavaScript ou o gerador de site estático que está a usar saberá automaticamente utilizar o ficheiro de desenvolvimento localmente e o ficheiro de produção quando a sua aplicação for construída por Azure Static Web Apps.
 
 No ficheiro de configuração de desenvolvimento, pode especificar o caminho para a API, que aponta para a localização local de `http:127.0.0.1:7071` onde a API para o seu site está a funcionar localmente.
 
@@ -163,13 +162,13 @@ No ficheiro de configuração de desenvolvimento, pode especificar o caminho par
 API=http:127.0.0.1:7071/api
 ```
 
-No ficheiro de configuração de produção, especifique o caminho para a API como `api` . Desta forma, a sua aplicação chamará a api via "yoursite.com/api" ao funcionar em produção.
+No ficheiro de configuração de produção, especifique o caminho para a API como `api` . Desta forma, a sua aplicação chamará a api através de "yoursite.com/api" quando estiver em execução em produção.
 
 ```
 API=api
 ```
 
-Estes valores de configuração podem ser referenciados como variáveis ambientais do nó no JavaScript da aplicação web.
+Estes valores de configuração podem ser referenciados como variáveis de ambiente de nó no JavaScript da aplicação web.
 
 ```js
 let response = await fetch(`${process.env.API}/message`);
@@ -177,31 +176,31 @@ let response = await fetch(`${process.env.API}/message`);
 
 Quando o CLI é utilizado para executar o seu site em modo de desenvolvimento ou para construir o site para produção, o `process.env.API` valor é substituído pelo valor do ficheiro de configuração apropriado.
 
-Para obter mais informações sobre a configuração de ficheiros ambientais para quadros e bibliotecas JavaScript front-end, consulte estes artigos:
+Para obter mais informações sobre a configuração de ficheiros ambientais para quadros e bibliotecas javaScript frontais, consulte estes artigos:
 
-- [Variáveis de ambiente angular](https://angular.io/guide/build#configuring-application-environments)
-- [Reagir - Adicionar variáveis ambientais personalizadas](https://create-react-app.dev/docs/adding-custom-environment-variables/)
-- [Vue - Variáveis de Modos e Ambiente](https://cli.vuejs.org/guide/mode-and-env.html)
+- [Variáveis ambientais angulares](https://angular.io/guide/build#configuring-application-environments)
+- [Reagir - Adicionar variáveis de ambiente personalizado](https://create-react-app.dev/docs/adding-custom-environment-variables/)
+- [Vue - Modos e Variáveis ambientais](https://cli.vuejs.org/guide/mode-and-env.html)
 
 [!INCLUDE [static-web-apps-local-proxy](../../includes/static-web-apps-local-proxy.md)]
 
-##### <a name="restart-live-server"></a>Reiniciar o Servidor Ao Vivo
+##### <a name="restart-live-server"></a>Reiniciar servidor ao vivo
 
-1. Pressione **f1** para abrir a Paleta de Comando em Código de Estúdio Visual.
+1. Prima **F1** para abrir a Paleta de Comando no Código do Estúdio Visual.
 
-1. Digite **o Servidor Ao Vivo** e selecione Live **Server: Pare**o Servidor Ao Vivo .
+1. Digite **servidor ao vivo** e selecione Live **Server: Stop Live Server**.
 
-    :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Pare o comando do Servidor Ao Vivo na paleta de comando do Estúdio Visual":::
+    :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Parar o comando do Servidor Ao Vivo na paleta de comando do Estúdio Visual":::
 
-1. Pressione **f1** para abrir a Paleta de Comando.
+1. Prima **F1** para abrir a paleta de comando.
 
-1. Digite **o Servidor Ao Vivo** e selecione Live **Server: Abra com o Live Server**.
+1. Digite **servidor ao vivo** e selecione Live **Server: Abra com servidor ao vivo**.
 
-1. Refresque a aplicação em `http://locahost:3000` execução em . O navegador apresenta agora a mensagem devolvida da API.
+1. Refresque a aplicação em execução em `http://locahost:3000` . O navegador apresenta agora a mensagem devolvida da API.
 
-    :::image type="content" source="media/local-development/hello-from-api.png" alt-text="Olá da API exibida no navegador":::
+    :::image type="content" source="media/local-development/hello-from-api.png" alt-text="Olá da API exibido no navegador":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Configurar as definições da aplicação](application-settings.md)

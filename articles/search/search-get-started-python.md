@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Criar um índice de pesquisa em Python usando APIs REST'
 titleSuffix: Azure Cognitive Search
-description: Explica como criar um índice, dados de carga e consultas de execução usando Python, Jupyter Notebooks e a API de Pesquisa Cognitiva Azure.
+description: Explica como criar um índice, carregar dados e executar consultas usando Python, Jupyter Notebooks e a API de Pesquisa Cognitiva Azure.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -9,54 +9,55 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 04/01/2020
-ms.openlocfilehash: fd87dbe125e84c171cc35a2b242879c44bc50fd9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: 2f90746448460d168d5fa4751af1f407d217f8ed
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80585933"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562137"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Quickstart: Criar um índice de pesquisa cognitiva azure em Python usando cadernos Jupyter
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure em Python usando cadernos Jupyter
 
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)
-> * [C #](search-create-index-dotnet.md)
+> * [C#](search-create-index-dotnet.md)
 > * [Carteiro (REST)](search-get-started-postman.md)
 > * [Portal](search-create-index-portal.md)
 > 
 
-Construa um caderno Jupyter que cria, carrega e consulta um índice de pesquisa cognitiva azure usando Python e o [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). Este artigo explica como construir um caderno passo a passo. Em alternativa, você pode [baixar e executar um caderno jupyter Python acabado](https://github.com/Azure-Samples/azure-search-python-samples).
+Construa um caderno Jupyter que cria, carrega e consulta um índice de Pesquisa Cognitiva Azure usando Python e as APIs de [Repouso de Pesquisa Cognitiva Azure](https://docs.microsoft.com/rest/api/searchservice/). Este artigo explica como construir um caderno passo a passo. Em alternativa, você pode [baixar e executar um caderno Jupyter Python acabado.](https://github.com/Azure-Samples/azure-search-python-samples)
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 São necessários os seguintes serviços e ferramentas para este arranque rápido. 
 
-+ [Anaconda 3.x,](https://www.anaconda.com/distribution/#download-section)fornecendo Cadernos Python 3.x e Jupyter.
++ [Anaconda 3.x,](https://www.anaconda.com/distribution/#download-section)fornecendo python 3.x e Jupyter Notebooks.
 
-+ [Crie um serviço de Pesquisa Cognitiva Azure](search-create-service-portal.md) ou [encontre um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) sob a sua subscrição atual. Pode utilizar o free tier para este arranque rápido. 
++ [Crie um serviço de Pesquisa Cognitiva Azure](search-create-service-portal.md) ou [encontre um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) sob a sua subscrição atual. Pode utilizar o nível Free para este arranque rápido. 
 
 ## <a name="get-a-key-and-url"></a>Obtenha uma chave e URL
 
-As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos os pedidos. Um serviço de pesquisa é criado com ambos, por isso, se você adicionar Pesquisa Cognitiva Azure à sua subscrição, siga estes passos para obter as informações necessárias:
+As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos os pedidos. Um serviço de pesquisa é criado com ambos, por isso, se adicionar Azure Cognitive Search à sua subscrição, siga estes passos para obter as informações necessárias:
 
-1. [Inscreva-se no portal Azure](https://portal.azure.com/), e na página de **visão geral** do seu serviço de pesquisa, obtenha o URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
+1. [Inscreva-se no portal Azure,](https://portal.azure.com/)e na página **geral do** seu serviço de pesquisa, obtenha o URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-1. Em **Definições** > **Keys,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio no caso de precisar de rolar uma. Pode utilizar a chave primária ou secundária nos pedidos de adição, modificação e aparas de objetos.
+1. Em **Definições**  >  **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio, caso precise de rolar uma. Pode utilizar a tecla primária ou secundária nos pedidos de adição, modificação e eliminação de objetos.
 
-![Obtenha um ponto final http e chave de acesso](media/search-get-started-postman/get-url-key.png "Obtenha um ponto final http e chave de acesso")
+![Obtenha uma chave de acesso http e acesso](media/search-get-started-postman/get-url-key.png "Obtenha uma chave de acesso http e acesso")
 
-Todos os pedidos requerem uma chave de api em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
+Todos os pedidos requerem uma chave API em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
 ## <a name="connect-to-azure-cognitive-search"></a>Ligue-se à Pesquisa Cognitiva Azure
 
-Nesta tarefa, inicie um caderno Jupyter e verifique se pode ligar-se à Pesquisa Cognitiva Azure. Vai fazer isso solicitando uma lista de índices do seu serviço. No Windows com Anaconda3, pode utilizar o Anaconda Navigator para lançar um portátil.
+Nesta tarefa, inicie um caderno Jupyter e verifique se pode ligar-se à Pesquisa Cognitiva do Azure. Fá-lo-á solicitando uma lista de índices do seu serviço. No Windows com Anaconda3, pode utilizar o Anaconda Navigator para lançar um portátil.
 
 1. Crie um novo caderno Python3.
 
-1. Na primeira célula, carregue as bibliotecas utilizadas para trabalhar com a JSON e formular pedidos HTTP.
+1. Na primeira célula, carregue as bibliotecas utilizadas para trabalhar com json e formular pedidos HTTP.
 
    ```python
    import json
@@ -64,18 +65,18 @@ Nesta tarefa, inicie um caderno Jupyter e verifique se pode ligar-se à Pesquisa
    from pprint import pprint
    ```
 
-1. Na segunda célula, insera os elementos de pedido que serão constantes em todos os pedidos. Substitua o nome do serviço de pesquisa (YOUR-SEARCH-SERVICE-NAME) e a chave API de administrador (YOUR-ADMIN-API-KEY) por valores válidos. 
+1. Na segunda célula, insira os elementos de pedido que serão constantes em cada pedido. Substitua o nome do serviço de pesquisa (O SEU NOME DE SERVIÇO DE BUSCA) e a tecla API de administração (YOUR-ADMIN-API-KEY) por valores válidos. 
 
    ```python
    endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
-   api_version = '?api-version=2019-05-06'
+   api_version = '?api-version=2020-06-30'
    headers = {'Content-Type': 'application/json',
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
 
-   Se obtém `"Failed to establish a new connection"`o ConnectionError, verifique se a chave api é uma chave de administração`?` primária `/`ou secundária, e que todos os caracteres principais e de rastos estão no lugar.
+   Se tiver o ConnectionError, `"Failed to establish a new connection"` verifique se a chave api é uma chave de administração primária ou secundária e que todos os caracteres principais e em fuga ( e ) `?` `/` estão no lugar.
 
-1. Na terceira célula, formula risa o pedido. Este pedido GET visa a recolha de índices do seu serviço de pesquisa e seleciona a propriedade de nome dos índices existentes.
+1. Na terceira cela, formula o pedido. Este pedido GET visa a recolha de índices do seu serviço de pesquisa e seleciona a propriedade de nome dos índices existentes.
 
    ```python
    url = endpoint + "indexes" + api_version + "&$select=name"
@@ -84,21 +85,21 @@ Nesta tarefa, inicie um caderno Jupyter e verifique se pode ligar-se à Pesquisa
    pprint(index_list)
    ```
 
-1. Corre em cada passo. Se existirem índices, a resposta contém uma lista de nomes de índices. Na imagem abaixo, o serviço já tem um índice de azureblob e um índice de amostra seletiva.eua.
+1. Corra cada passo. Se existirem índices, a resposta contém uma lista de nomes de índice. Na imagem abaixo, o serviço já tem um índice azureblob e um índice de amostra realestate-us.
 
-   ![Roteiro python em caderno Jupyter com pedidos http para Pesquisa Cognitiva Azure](media/search-get-started-python/connect-azure-search.png "Roteiro python em caderno Jupyter com pedidos http para Pesquisa Cognitiva Azure")
+   ![Script python no caderno Jupyter com pedidos HTTP para Azure Cognitive Search](media/search-get-started-python/connect-azure-search.png "Script python no caderno Jupyter com pedidos HTTP para Azure Cognitive Search")
 
    Em contraste, uma coleção de índice vazio devolve esta resposta:`{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
 ## <a name="1---create-an-index"></a>1 - Criar um índice
 
-A menos que esteja a utilizar o portal, deve existir um índice no serviço antes de poder carregar dados. Este passo utiliza a [API Create Index REST](https://docs.microsoft.com/rest/api/searchservice/create-index) para empurrar um esquema de índice para o serviço.
+A menos que esteja a usar o portal, deve existir um índice no serviço antes de poder carregar dados. Este passo utiliza a [API Do Índice de Criação](https://docs.microsoft.com/rest/api/searchservice/create-index) para empurrar um esquema de índice para o serviço.
 
-Os elementos necessários de um índice incluem um nome, uma coleção de campos e uma chave. A coleção de campos define a estrutura de um *documento.* Cada campo tem um nome, tipo e atributos que determinam como o campo é utilizado (por exemplo, se é pesquisável em texto completo, filtrado ou recuperável nos resultados da pesquisa). Dentro de um índice, um `Edm.String` dos campos do tipo deve ser designado como a *chave* para a identidade do documento.
+Os elementos necessários de um índice incluem um nome, uma coleção de campos e uma chave. A recolha de campos define a estrutura de um *documento.* Cada campo tem um nome, tipo e atributos que determinam como o campo é usado (por exemplo, se é de texto completo pescável, filtrado ou recuperável nos resultados da pesquisa). Dentro de um índice, um dos campos do tipo `Edm.String` deve ser designado como a *chave* para a identidade do documento.
 
-Este índice chama-se "hotéis-quickstart" e tem as definições de campo que você vê abaixo. É um subconjunto de um índice de [hotéis](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) maior usado em outros walkthroughs. Aparamo-lo neste início rápido para a brevidade.
+Este índice chama-se "hotels-quickstart" e tem as definições de campo que vê abaixo. É um subconjunto de um índice de [hotéis](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) maior usado em outras caminhadas. Nós o aparámos neste quickstart para a brevidade.
 
-1. Na célula seguinte, cola o seguinte exemplo numa célula para fornecer o esquema. 
+1. Na célula seguinte, cole o exemplo seguinte numa célula para fornecer o esquema. 
 
     ```python
     index_schema = {
@@ -126,7 +127,7 @@ Este índice chama-se "hotéis-quickstart" e tem as definições de campo que vo
     }
     ```
 
-2. Noutra cela, formula o pedido. Este pedido POST visa a recolha de índices do seu serviço de pesquisa e cria um índice baseado no esquema de índice que forneceu na célula anterior.
+2. Noutra cela, formula o pedido. Este pedido de POST visa a recolha de índices do seu serviço de pesquisa e cria um índice baseado no esquema de índice que forneceu na célula anterior.
 
    ```python
    url = endpoint + "indexes" + api_version
@@ -135,22 +136,22 @@ Este índice chama-se "hotéis-quickstart" e tem as definições de campo que vo
    pprint(index)
    ```
 
-3. Corre em cada passo.
+3. Corra cada passo.
 
-   A resposta inclui a representação da JSON do esquema. A imagem que se segue mostra apenas uma parte da resposta.
+   A resposta inclui a representação JSON do esquema. A imagem que se segue mostra apenas uma parte da resposta.
 
-    ![Pedido para criar um índice](media/search-get-started-python/create-index.png "Pedido para criar um índice")
+    ![Pedido de criação de um índice](media/search-get-started-python/create-index.png "Pedido de criação de um índice")
 
 > [!Tip]
 > Outra forma de verificar a criação de índices é verificar a lista de Índices no portal.
 
 <a name="load-documents"></a>
 
-## <a name="2---load-documents"></a>2 - Carregar documentos
+## <a name="2---load-documents"></a>2 - Documentos de carga
 
-Para empurrar documentos, utilize um pedido HTTP POST para o ponto final do URL do seu índice. O REST API é [Adicionar, Atualizar ou Eliminar Documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). Os documentos têm origem no [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) no GitHub.
+Para empurrar documentos, utilize um pedido HTTP POST para o ponto final url do seu índice. A API REST é [Adicionar, Atualizar ou Eliminar Documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). Os documentos são originários do [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) no GitHub.
 
-1. Numa nova célula, forneça quatro documentos que estejam em conformidade com o esquema do índice. Especifique uma ação de upload para cada documento.
+1. Numa nova célula, forneça quatro documentos que estejam em conformidade com o esquema de índice. Especifique uma ação de upload para cada documento.
 
     ```python
     documents = {
@@ -235,7 +236,7 @@ Para empurrar documentos, utilize um pedido HTTP POST para o ponto final do URL 
     }
     ```   
 
-2. Noutra cela, formula o pedido. Este pedido do POST visa a recolha de docs do índice hotéis-quickstart e empurra os documentos fornecidos na etapa anterior.
+2. Noutra cela, formula o pedido. Este pedido de POST visa a recolha de docs do índice hotéis-quickstart e empurra os documentos fornecidos no passo anterior.
 
    ```python
    url = endpoint + "indexes/hotels-quickstart/docs/index" + api_version
@@ -244,15 +245,15 @@ Para empurrar documentos, utilize um pedido HTTP POST para o ponto final do URL 
    pprint(index_content)
    ```
 
-3. Corra cada passo para empurrar os documentos para um índice no seu serviço de pesquisa. Os resultados devem ser semelhantes aos seguintes exemplos. 
+3. Executar cada passo para empurrar os documentos para um índice no seu serviço de pesquisa. Os resultados devem ser semelhantes ao exemplo seguinte. 
 
     ![Enviar documentos para um índice](media/search-get-started-python/load-index.png "Enviar documentos para um índice")
 
 ## <a name="3---search-an-index"></a>3 - Pesquisar um índice
 
-Este passo mostra-lhe como consultar um índice utilizando os documentos de [pesquisa REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Este passo mostra-lhe como consultar um índice utilizando a [API de Documentos de Pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents)REST .
 
-1. Numa célula, forneça uma expressão de consulta que execute uma pesquisa vazia (search=*), devolvendo uma lista não classificada (pontuação de pesquisa = 1,0) de documentos arbitrários. Por padrão, a Pesquisa Cognitiva Azure devolve 50 partidas de cada vez. Tal como estruturado, esta consulta devolve toda uma estrutura e valores documentais. Adicione $count=fiel para obter uma contagem de todos os documentos nos resultados.
+1. Numa célula, forneça uma expressão de consulta que execute uma pesquisa vazia (search=*), devolvendo uma lista não reclassiizada (pontuação de pesquisa = 1.0) de documentos arbitrários. Por padrão, a Azure Cognitive Search devolve 50 partidas de cada vez. Como estruturado, esta consulta devolve toda uma estrutura documental e valores. Adicione $count=verdadeiro para obter uma contagem de todos os documentos nos resultados.
 
    ```python
    searchstring = '&search=*&$count=true'
@@ -263,7 +264,7 @@ Este passo mostra-lhe como consultar um índice utilizando os documentos de [pes
    pprint(query)
    ```
 
-1. Numa nova célula, forneça o seguinte exemplo para pesquisar nos termos "hotéis" e "wifi". Adicione $select especificar quais os campos a incluir nos resultados da pesquisa.
+1. Numa nova célula, forneça o seguinte exemplo para pesquisar nos termos "hotéis" e "wifi". Adicione $select para especificar quais os campos a incluir nos resultados da pesquisa.
 
    ```python
    searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
@@ -274,11 +275,11 @@ Este passo mostra-lhe como consultar um índice utilizando os documentos de [pes
    pprint(query)   
    ```
 
-   Os resultados devem ser semelhantes aos seguintes resultados. 
+   Os resultados devem ser semelhantes à seguinte saída. 
 
     ![Pesquisar um índice](media/search-get-started-python/search-index.png "Pesquisar um índice")
 
-1. Em seguida, aplique uma expressão $filter que selecione apenas aqueles hotéis com uma classificação superior a 4. 
+1. Em seguida, aplique uma expressão $filter que selecione apenas os hotéis com uma classificação superior a 4. 
 
    ```python
    searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description,Rating'
@@ -289,7 +290,7 @@ Este passo mostra-lhe como consultar um índice utilizando os documentos de [pes
    pprint(query)     
    ```
 
-1. Por padrão, o motor de busca devolve os 50 melhores documentos, mas pode usar o topo e saltar para adicionar paginação e escolher quantos documentos em cada resultado. Esta consulta devolve dois documentos em cada conjunto de resultados.
+1. Por predefinição, o motor de busca devolve os 50 melhores documentos, mas pode usar a parte superior e saltar para adicionar paginação e escolher quantos documentos em cada resultado. Esta consulta devolve dois documentos em cada conjunto de resultados.
 
    ```python
    searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'
@@ -300,7 +301,7 @@ Este passo mostra-lhe como consultar um índice utilizando os documentos de [pes
    pprint(query)
    ```
 
-1. Neste último exemplo, use $orderby para classificar os resultados pela cidade. Este exemplo inclui campos da coleção Address.
+1. Neste último exemplo, use $orderby para classificar resultados por cidade. Este exemplo inclui campos da coleção Address.
 
    ```python
    searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'
@@ -315,13 +316,13 @@ Este passo mostra-lhe como consultar um índice utilizando os documentos de [pes
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
-Pode encontrar e gerir recursos no portal, utilizando a ligação **De Todos os recursos** ou **grupos de Recursos** no painel de navegação à esquerda.
+Pode encontrar e gerir recursos no portal, utilizando a ligação **de todos os recursos** ou **grupos** de recursos no painel de navegação à esquerda.
 
-Se estiver a utilizar um serviço gratuito, lembre-se de que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para se manter abaixo do limite. 
+Se estiver a utilizar um serviço gratuito, lembre-se que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para ficar abaixo do limite. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Como simplificação, este quickstart usa uma versão abreviada do índice Hotéis. Pode criar a versão completa para experimentar consultas mais interessantes. Para obter a versão completa e todos os 50 documentos, executar o assistente de **dados da Importação,** selecionando *a amostra de hotéis* a partir das fontes de dados de amostra incorporadas.
+Como simplificação, este quickstart usa uma versão abreviada do índice Hotels. Pode criar a versão completa para experimentar consultas mais interessantes. Para obter a versão completa e todos os 50 documentos, execute o assistente **de dados De importação,** selecionando *a amostra de hotéis* a partir das fontes de dados de amostra incorporadas.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Criar um índice no portal Azure](search-get-started-portal.md)

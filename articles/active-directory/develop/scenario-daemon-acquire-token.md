@@ -1,6 +1,6 @@
 ---
-title: Adquirir fichas para chamar uma Web API (app daemon) - Plataforma de identidade da Microsoft Azure
-description: Saiba como construir uma app daemon que chama APIs web (adquirindo tokens)
+title: Adquira fichas para chamar uma API web (app Daemon) - Plataforma de identidade da Microsoft Rio Azure
+description: Saiba como construir uma app daemon que chama APIs web (aquisição de fichas)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,19 +12,18 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: d755573b53eb63d85165fb73fe4b97298dbeff09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81868986"
 ---
-# <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>App Daemon que chama APIs web - adquira um token
+# <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon app que chama APIs web - adquira um token
 
-Depois de ter construído uma aplicação de cliente confidencial, pode `AcquireTokenForClient`adquirir um símbolo para a app, ligando, passando o âmbito e forçando opcionalmente uma atualização do símbolo.
+Depois de ter construído uma aplicação confidencial para o cliente, pode adquirir um token para a app, através da `AcquireTokenForClient` chamada, passando o âmbito e, opcionalmente, forçando uma atualização do token.
 
 ## <a name="scopes-to-request"></a>Âmbitos a solicitar
 
-O âmbito a solicitar um fluxo de credencial do `/.default`cliente é o nome do recurso seguido de . Esta notação indica ao Azure Ative Directory (Azure AD) que utilize as *permissões de nível de aplicação declaradas* estáticadurante o registo da aplicação. Além disso, estas permissões da API devem ser concedidas por um administrador inquilino.
+O âmbito de pedido de um fluxo de credencial do cliente é o nome do recurso seguido por `/.default` . Esta notação diz ao Azure Ative Directory (Azure AD) para utilizar as *permissões de nível de aplicação declaradas* estáticas durante o registo da aplicação. Além disso, estas permissões da API devem ser concedidas por um administrador de inquilinos.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -35,7 +34,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 # <a name="python"></a>[Python](#tab/python)
 
-Em MSAL Python, o ficheiro de configuração parece este código:
+No MSAL Python, o ficheiro de configuração parece este corte de código:
 
 ```Json
 {
@@ -53,15 +52,15 @@ final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default"
 
 ### <a name="azure-ad-v10-resources"></a>Recursos Azure AD (v1.0)
 
-O âmbito utilizado para as credenciais do `/.default`cliente deve ser sempre o ID de recurso seguido de .
+O âmbito utilizado para as credenciais dos clientes deve ser sempre o ID de recursos seguido por `/.default` .
 
 > [!IMPORTANT]
-> Quando a MSAL solicita um sinal de acesso para um recurso que aceite um token de acesso à versão 1.0, a Azure AD analisa o público desejado do âmbito solicitado, tomando tudo antes do último corte e usando-o como identificador de recursos.
-> Assim, se, tal como a Base de Dados Azure SQL **(https:\//database.windows.net),** o recurso `https://database.windows.net/`espera um público que termine `https://database.windows.net//.default`com um corte (para a Base de Dados Azure SQL, terá de solicitar um âmbito de ... (Note o duplo corte.) Consulte também MSAL.NET problema [#747: O corte de rasto do url de recursos é omitido, o que causou falha no sql auth](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+> Quando a MSAL solicita um token de acesso para um recurso que aceita um token de acesso versão 1.0, a Azure AD analisa o público desejado a partir do âmbito solicitado, tomando tudo antes do último corte e usando-o como identificador de recursos.
+> Assim, se, tal como a Base de Dados Azure SQL **(https: \/ /database.windows.net),** o recurso espera uma audiência que termine com um corte (para a Base de Dados Azure SQL, `https://database.windows.net/` terá de solicitar um âmbito de `https://database.windows.net//.default` . (Note o corte duplo.) Consulte também MSAL.NET edição [#747: O corte de rastos do url de recursos é omitido, o que causou uma falha de auth sql](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
 
-Para adquirir um símbolo para a aplicação, irá utilizar `AcquireTokenForClient` ou o seu equivalente, dependendo da plataforma.
+Para adquirir um token para a app, você vai usar `AcquireTokenForClient` ou seu equivalente, dependendo da plataforma.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -118,7 +117,7 @@ else:
 
 # <a name="java"></a>[Java](#tab/java)
 
-Este código é extraído das [amostras MSAL Java dev](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/confidential-client/).
+Este código é extraído das [amostras dev MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/confidential-client/).
 
 ```Java
 private static IAuthenticationResult acquireToken() throws Exception {
@@ -169,7 +168,7 @@ private static IAuthenticationResult acquireToken() throws Exception {
 
 ### <a name="protocol"></a>Protocolo
 
-Se ainda não tem uma biblioteca para a sua língua escolhida, talvez queira usar o protocolo diretamente:
+Se ainda não tem uma biblioteca para o seu idioma escolhido, talvez queira utilizar o protocolo diretamente:
 
 #### <a name="first-case-access-the-token-request-by-using-a-shared-secret"></a>Primeiro caso: Aceda ao pedido simbólico utilizando um segredo partilhado
 
@@ -198,21 +197,21 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-Para mais informações, consulte a documentação do protocolo: plataforma de identidade microsoft e fluxo de credenciais de [cliente OAuth 2.0](v2-oauth2-client-creds-grant-flow.md).
+Para obter mais informações, consulte a documentação do protocolo: [plataforma de identidade da Microsoft e o fluxo de credenciais de cliente OAuth 2.0](v2-oauth2-client-creds-grant-flow.md).
 
 ## <a name="application-token-cache"></a>Cache de ficha de aplicação
 
-Em MSAL.NET, `AcquireTokenForClient` utiliza a cache token da aplicação. (Todos os outros métodos AcquireToken*XX* utilizam a cache token do utilizador.) Não `AcquireTokenSilent` ligue antes de `AcquireTokenForClient`ligar, porque `AcquireTokenSilent` usa a cache token do *utilizador.* `AcquireTokenForClient`verifica a própria cache de ficha de *aplicação* e atualiza-a.
+Em MSAL.NET, `AcquireTokenForClient` utiliza a cache simbólica de aplicação. (Todos os outros métodos AcquireToken*XX* utilizam a cache de ficha do utilizador.) Não ligue `AcquireTokenSilent` antes de `AcquireTokenForClient` ligar, porque `AcquireTokenSilent` utiliza o cache de ficha de *utilizador.* `AcquireTokenForClient`verifica a própria cache simbólica da *aplicação* e atualiza-a.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-### <a name="did-you-use-the-resourcedefault-scope"></a>Usou o âmbito de recurso/.padrão?
+### <a name="did-you-use-the-resourcedefault-scope"></a>Usou o âmbito de recurso/.predefinido?
 
-Se receber uma mensagem de erro a dizer-lhe que usou um `resource/.default` âmbito inválido, provavelmente não usou o âmbito.
+Se receber uma mensagem de erro a dizer-lhe que usou um âmbito inválido, provavelmente não usou o `resource/.default` âmbito.
 
-### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>Esqueceu-se de dar consentimento à administração? As aplicações da Daemon precisam!
+### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>Esqueceu-se de dar consentimento administrativo? As aplicações da Daemon precisam!
 
-Se obtém um **privilégio insuficiente para completar o** erro de operação quando liga para a API, o administrador do inquilino precisa de conceder permissões ao pedido. Consulte o passo 6 do Registo da aplicação do cliente acima.
+Se tiver **um privilégio insuficiente para completar o** erro de funcionamento quando ligar para a API, o administrador do arrendatário precisa de conceder permissões ao pedido. Consulte o passo 6 do Registo da aplicação do cliente acima.
 Normalmente verá um erro que se parece com este erro:
 
 ```json
@@ -229,21 +228,21 @@ Content: {
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
 > [!div class="nextstepaction"]
-> [App Daemon - chamando uma API web](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=dotnet)
+> [Daemon app - chamando uma web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=dotnet)
 
 # <a name="python"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
-> [App Daemon - chamando uma API web](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=python)
+> [Daemon app - chamando uma web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=python)
 
 # <a name="java"></a>[Java](#tab/java)
 
 > [!div class="nextstepaction"]
-> [App Daemon - chamando uma API web](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=java)
+> [Daemon app - chamando uma web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=java)
 
 ---

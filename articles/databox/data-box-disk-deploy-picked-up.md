@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 6b165df42da35077c7ef252291d8e1514bb3b1b0
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 07c86ca016d3e38359cbe8ba61d67f109c42edb0
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995999"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944972"
 ---
 ::: zone target="docs"
 
@@ -49,7 +49,7 @@ Antes de começar, certifique-se de que concluiu o [Tutorial: Copiar dados para 
     - Recomendamos que embrulhe os discos em plástico-bolha e que o prenda bem.
     - Assegure que o plástico-bolha envolve bem os discos para reduzir os movimentos dentro da caixa.
 
-A localização a partir da qual pretende devolver o dispositivo determina os passos seguintes. As instruções são diferentes para os E.U.A./Canadá, a União Europeia (UE), a Austrália ou os países da Ásia.
+A localização a partir da qual pretende devolver o dispositivo determina os passos seguintes. As instruções são diferentes para os E.U.A./Canadá, a União Europeia (UE), a Austrália ou os países/regiões da Ásia.
 
 ### <a name="in-us-or-canada"></a>[Nos E.U.A. ou Canadá](#tab/in-us-or-canada)
 
@@ -142,10 +142,10 @@ Se necessário, pode contactar o Apoio ao Cliente da Quantium Solutions (em japo
     To: kadcustcare@singpost.com
     Subject: Microsoft Azure Pick-up - XZ00001234567 
     Body: 
-     a. Requestor name
-     b. Requestor contact number
-     c. Requestor collection address
-     d. Preferred collection date
+     a.    Requestor name
+     b.    Requestor contact number
+     c.    Requestor collection address
+     d.    Preferred collection date
     ```
 
    > [!NOTE]
@@ -159,7 +159,7 @@ Se necessário, pode contactar o Apoio ao Cliente da Quantium Solutions (em japo
 
 ### <a name="in-self-managed"></a>[Em Envio Autónomo](#tab/in-selfmanaged)
 
-Se estiver a utilizar o Data Box Disk no Japão, Singapura, Coreia e Europa Ocidental e tiver selecionado a opção de envio autónomo durante a criação da encomenda, siga estas instruções. 
+Se estiver a utilizar o Data Box Disk no Japão, em Singapura, na Coreia, Europa Ocidental ou na Índia e tiver selecionado a opção de envio autónomo durante a criação da encomenda, siga estas instruções. 
 
 1. Aceda ao painel **Descrição geral** da encomenda no portal do Azure. Siga as instruções apresentadas quando selecionar **Agendar recolha**. Deverá ver um código de Autorização, o qual é utilizado no momento da entrega da encomenda.
 
@@ -167,7 +167,7 @@ Se estiver a utilizar o Data Box Disk no Japão, Singapura, Coreia e Europa Ocid
 
     ```
     To: adbops@microsoft.com
-    Subject: Request for Azure Data Box Disk drop-off for order: ‘orderName’
+    Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
     Body: 
      a. Order name
      b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.

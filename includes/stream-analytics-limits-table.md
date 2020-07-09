@@ -1,19 +1,20 @@
 ---
-ms.openlocfilehash: 1bf7f3c15b40590c400e8a730de20c199bb1b4c2
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: e90a374917239ae1a20d25795757811a12cee80c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67184655"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84200550"
 ---
 ---
 | Identificador de limite | Limite | Comentários |
 | --- | --- | --- |
-| Número máximo de unidades de streaming por subscrição por região |500 |Para solicitar um aumento nas unidades de streaming para a sua subscrição para além de 500, contacte o [Microsoft Support](https://support.microsoft.com/en-us). |
-| Número máximo de entradas por tarefa |60 |Há um limite difícil de 60 inputs por trabalho de Azure Stream Analytics. |
-| Número máximo de saídas por tarefa |60 |Há um limite difícil de 60 saídas por trabalho de Stream Analytics. |
-| Número máximo de funções por tarefa |60 |Há um limite difícil de 60 funções por trabalho de Stream Analytics. |
-| Número máximo de unidades de streaming por trabalho |192 |Há um limite difícil de 192 unidades de streaming por trabalho de Stream Analytics. |
+| Número máximo de unidades de streaming por subscrição por região |500 |Para solicitar um aumento das unidades de streaming para a sua subscrição para além de 500, contacte o [Microsoft Support](https://support.microsoft.com/en-us). |
+| Número máximo de entradas por tarefa |60 |Há um limite de 60 entradas por trabalho da Azure Stream Analytics. |
+| Número máximo de saídas por tarefa |60 |Há um limite de 60 saídas por trabalho da Stream Analytics. |
+| Número máximo de funções por tarefa |60 |Há um limite de 60 funções por trabalho de Stream Analytics. |
+| Número máximo de unidades de streaming por trabalho |192 |Há um limite de 192 unidades de streaming por trabalho de Stream Analytics. |
 | Número máximo de tarefas por região |1500 |Cada subscrição pode ter até 1.500 postos de trabalho por região geográfica. |
-| MB do blob dos dados de referência | 300 | As bolhas de dados de referência não podem ser superiores a 300 MB cada. |
+| MB do blob dos dados de referência | 300 | As bolhas de dados de referência não podem ser maiores do que 300 MB cada. |
+| Número máximo de caracteres numa consulta | 512000 | Há um limite duro de caracteres de 512k numa consulta de trabalho do Azure Stream Analytics.|
 

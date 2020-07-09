@@ -1,6 +1,6 @@
 ---
-title: Ativar função personalizada da AD Azure - Gestão de Identidade Privilegiada (PIM)
-description: Como ativar uma função personalizada da AD Azure para a atribuição de Gestão de Identidade Privilegiada (PIM)
+title: Ativar o papel personalizado Azure AD - Gestão de Identidade Privilegiada (PIM)
+description: Como ativar um papel personalizado Azure AD para a atribuição gestão de identidade privilegiada (PIM)
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,62 +9,62 @@ ms.assetid: ''
 ms.service: active-directory
 ms.subservice: pim
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbd60d1311bd84adb303a0d329ab4e42f4d61525
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f389bfe19eb6dde5416d8cba0b67d964e69bc860
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77498740"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743172"
 ---
-# <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Ativar um papel personalizado da AD Azure na Gestão de Identidade Privilegiada
+# <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Ativar um papel personalizado da AD AD em Gestão de Identidade Privilegiada
 
-A Gestão privilegiada de Identidade no Diretório Ativo azure (Azure AD) apoia agora a atribuição a tempo e tempo limitados a funções personalizadas criadas para gestão de aplicações na experiência administrativa de Gestão de Identidade e Acesso. Para obter mais informações sobre a criação de papéis personalizados para delegar a gestão de aplicações em Azure AD, consulte as funções de [administrador personalizado no Azure Ative Directory (pré-visualização)](../users-groups-roles/roles-custom-overview.md).
+A Gestão privilegiada de Identidade em Diretório Ativo Azure (Azure AD) suporta agora a atribuição just-in-time e time-bound a funções personalizadas criadas para Gestão de Aplicações na experiência administrativa de Gestão de Identidade e Acesso. Para obter mais informações sobre a criação de funções personalizadas para delegar a gestão de aplicações em Azure AD, consulte [as funções de administrador personalizado no Azure Ative Directory (pré-visualização)](../users-groups-roles/roles-custom-overview.md).
 
 > [!NOTE]
-> As funções personalizadas da Azure AD não estão integradas com as funções de diretório incorporada durante a pré-visualização. Uma vez que a capacidade esteja geralmente disponível, a gestão de papéis terá lugar na experiência de papéis incorporados. Se vir o seguinte banner, estas funções devem ser geridas na experiência de [papéis incorporados](pim-how-to-activate-role.md) e este artigo não se aplica:
+> As funções personalizadas AZURE AD não são integradas com as funções de diretório incorporado durante a pré-visualização. Uma vez que a capacidade esteja geralmente disponível, a gestão de funções terá lugar na experiência de funções incorporadas. Se vir o seguinte banner, estas funções devem ser geridas [na experiência de funções incorporadas](pim-how-to-activate-role.md) e este artigo não se aplica:
 >
 > [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## <a name="activate-a-role"></a>Ativar um papel
 
-Quando necessitar de ativar uma função personalizada azure AD, solicite a ativação selecionando a opção de navegação das Minhas funções na Gestão de Identidade Privilegiada.
+Quando precisar de ativar uma função personalizada Azure AD, solicite a ativação selecionando a opção de navegação das minhas funções na Gestão de Identidade Privilegiada.
 
-1. Inscreva-se [no portal Azure.](https://portal.azure.com)
-1. Open Azure AD [Privileged Identity Management.](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart)
+1. Inscreva-se [no portal Azure](https://portal.azure.com).
+1. Open Azure AD [Gestão de Identidade Privilegiada.](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart)
 
-1. Selecione **funções personalizadas azure ad** para ver uma lista das suas atribuições personalizadas de Azure AD elegíveis.
+1. Selecione **as funções personalizadas Azure AD** para ver uma lista das suas atribuições de funções personalizadas Azure AD elegíveis.
 
-   ![Consulte a lista de atribuições personalizadas da Azure AD elegíveis](./media/azure-ad-custom-roles-activate/view-preview-roles.png)
+   ![Consulte a lista de atribuições de funções personalizadas elegíveis da Azure AD](./media/azure-ad-custom-roles-activate/view-preview-roles.png)
 
 > [!Note] 
->  Antes de atribuir um papel, deve criar/configurar um papel. Para mais informações sobre a configuração de Papéis Personalizados AAD consulte [aqui] ( aqui] (https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-custom-roles-configure)
+>  Antes de atribuir um papel, deve criar/configurar um papel. Para mais informações sobre a configuração de funções personalizadas da AAD consulte [aqui] (https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-custom-roles-configure)
 
-1. Na página de **funções personalizadas azure AD (Preview),** encontre a atribuição de que necessita.
-1. Selecione **Ativar a sua função** para abrir a página **Ativar.**
-1. Se o seu papel necessitar de autenticação multifactor, selecione **Verifique a sua identidade antes de prosseguir**. É obrigado a autenticar apenas uma vez por sessão.
-1. Selecione Verificar a **minha identidade** e siga as instruções para fornecer qualquer verificação de segurança adicional.
-1. Para especificar um âmbito de aplicação personalizado, selecione **Scope** para abrir o painel de filtro. Deve solicitar o acesso a um papel no âmbito mínimo necessário. Se a sua atribuição estiver num âmbito de aplicação, só pode ser ativada nesse âmbito.
+1. Na página **de funções personalizadas Azure AD (Pré-visualização),** encontre a atribuição de que necessita.
+1. **Selecione Ative a sua função** para abrir a página **Ativar.**
+1. Se a sua função necessitar de autenticação multi-factor, **selecione Verifique a sua identidade antes de prosseguir**. É-lhe exigido que autente apenas uma vez por sessão.
+1. **Selecione Verifique a minha identidade** e siga as instruções para fornecer qualquer verificação adicional de segurança.
+1. Para especificar um âmbito de aplicação personalizado, selecione **Scope** para abrir o painel de filtros. Deve solicitar o acesso a uma função no âmbito mínimo necessário. Se a sua atribuição estiver no âmbito da aplicação, só pode ser ativada nesse âmbito.
 
-   ![Atribuir um âmbito de recurso Azure AD à atribuição de funções](./media/azure-ad-custom-roles-activate/assign-scope.png)
+   ![Atribuir um âmbito de recurso AD AZure à atribuição de funções](./media/azure-ad-custom-roles-activate/assign-scope.png)
 
-1. Se necessário, especifique uma hora de início de ativação personalizada. Quando utilizado, o membro do papel é ativado no momento especificado.
-1. Na caixa **Reason,** introduza o motivo do pedido de ativação. Estes podem ser necessários ou não na definição de funções.
+1. Se necessário, especifique uma hora de início de ativação personalizada. Quando utilizado, o membro da função é ativado no momento especificado.
+1. Na caixa **Reason,** insira o motivo do pedido de ativação. Estes podem ser necessários ou não na definição de função.
 1. **Selecione Ativar**.
 
-Se a função não necessitar de aprovação, é ativada de acordo com as suas definições e é adicionada à lista de funções ativas. Se pretender utilizar a função ativada, comece com os passos em [Atribuir uma função personalizada de AD Azure na Gestão](azure-ad-custom-roles-assign.md)de Identidade Privilegiada .
+Se a função não necessitar de aprovação, é ativada de acordo com as suas definições e é adicionada à lista de funções ativas. Se pretender utilizar a função ativada, comece com os passos na [Atribuição de um papel personalizado AZURE AD na Gestão de Identidade Privilegiada.](azure-ad-custom-roles-assign.md)
 
-Se a função necessitar de aprovação para ser ativada, receberá uma notificação azure informando-o de que o pedido está pendente de aprovação.
+Se a função necessitar de aprovação para ser ativada, receberá uma notificação do Azure informando-o de que o pedido está pendente de aprovação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Atribuir uma função personalizada azure AD](azure-ad-custom-roles-assign.md)
-- [Remova ou atualize uma atribuição de funções personalizadas da AD Azure](azure-ad-custom-roles-update-remove.md)
-- [Configure uma atribuição de funções personalizadas da Azure AD](azure-ad-custom-roles-configure.md)
-- [Definições de papéis em Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Atribuir um papel personalizado AZure AD](azure-ad-custom-roles-assign.md)
+- [Remova ou atualize uma atribuição de função personalizada Azure AD](azure-ad-custom-roles-update-remove.md)
+- [Configure uma atribuição de função personalizada Azure AD](azure-ad-custom-roles-configure.md)
+- [Definições de função em Azure AD](../users-groups-roles/directory-assign-admin-roles.md)

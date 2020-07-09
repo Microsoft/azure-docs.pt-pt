@@ -4,35 +4,42 @@ description: Saiba como pode trocar ou reembolsar Reservas do Azure.
 author: yashesvi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 07/01/2020
 ms.author: banders
-ms.openlocfilehash: 174ed17056bf49b541d55719f4058141e88e7ea5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4a25bb13bfa5b2e4f13ddf437bcd9577f9602aed
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192115"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85807694"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas e reembolsos personalizados das Reservas do Azure
 
-As Reservas do Azure fornecem flexibilidade para ajudar a dar resposta às suas necessidades em evolução. Pode trocar uma reserva por outra reserva do mesmo tipo. Também pode reembolsar uma reserva, até 50 000 $ por ano, se já não precisar da mesma. O limite máximo do reembolso aplica-se a todas as reservas no âmbito do contrato com a Microsoft.
+As Reservas do Azure fornecem flexibilidade para ajudar a dar resposta às suas necessidades em evolução. Pode trocar uma reserva por outra reserva do mesmo tipo, ou seja, uma reserva de máquina virtual pode ser trocada para comprar uma reserva de qualquer tamanho ou região de máquina virtual. Do mesmo modo, uma reserva da Base Dados SQL PaaS pode ser trocada para comprar qualquer reserva de qualquer tipo ou região da Base de Dados SQL PaaS. Também pode reembolsar reservas, mas a soma total da alocação de reservas canceladas não pode exceder os 50 000 USD num período de 12 meses. A capacidade reservada do Azure Databricks, a reserva da solução VMware no Azure da CloudSimple, a reserva do Azure Red Hat Open Shift, os planos Red Hat e os planos SUSE Linux não são elegíveis para reembolso.
 
-A capacidade de troca self-service e de cancelamento não está disponível para os clientes com o Contrato Enterprise US Government. Os outros tipos de subscrições US Government, incluindo Pay As You Go e CSP, são suportados.
+A capacidade de troca self-service e de cancelamento não está disponível para os clientes com o Contrato Enterprise US Government. São suportados outros tipos de subscrições de administração pública dos EUA, incluindo Pay As You Go e Fornecedor de Soluções Cloud (CSP).
 
-Deve ter acesso de proprietário na Encomenda de Reserva para trocar ou reembolsar uma reserva existente.
+Deve ter acesso de proprietário na Encomenda de Reserva para trocar ou reembolsar uma reserva existente. Pode [Adicionar ou alterar os utilizadores que podem gerir reservas](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
 
-## <a name="exchange-an-existing-reserved-instance"></a>Trocar uma instância reservada já existente
+> [!NOTE]
+> Atualmente, a Microsoft não cobra taxas de rescisão antecipadas relativamente a reembolsos de reservas. Poderemos cobrar estas taxas em reembolsos feitos no futuro. Não temos data para a aplicação desta taxa neste momento.
 
-Pode trocar a sua reserva com três passos rápidos no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>Como trocar ou reembolsar reservas já existentes
+
+Pode trocar a sua reserva no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
 1. Selecione as reservas que quer reembolsar e selecione **Trocar**.  
-    ![Imagem de exemplo a mostrar reservas a serem devolvidas](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png)
-2. Selecione o produto de VM que pretende comprar e introduza uma quantidade Confirme que o novo total da compra é superior ao total da devolução. [Determine o tamanho certo antes da compra](../../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
-    ![Imagem de exemplo a mostrar o produto da VM a comprar com uma troca](./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png)
-3. Reveja e conclua a transação.  
-    ![Imagem de exemplo a mostrar o produto da VM a comprar com uma troca, concluindo a devolução](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png)
+    [![Imagem de exemplo a mostrar reservas a serem devolvidas](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png)](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png#lightbox)
+1. Selecione o produto de VM que pretende comprar e introduza uma quantidade Confirme que o novo total da compra é superior ao total da devolução. [Determine o tamanho certo antes da compra](../../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
+    [![Imagem de exemplo a mostrar o produto VM a comprar com uma troca](./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png)](./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png#lightbox)
+1. Reveja e conclua a transação.  
+    [![Imagem de exemplo a mostrar o produto VM a comprar com uma troca, concluindo a devolução](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png)](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png#lightbox)
 
 Para reembolsar uma reserva, aceda a **Detalhes da Reserva** e selecione **Reembolsar**.
+
+## <a name="exchange-non-premium-storage-for-premium-storage"></a>Troca de armazenamento não premium por armazenamento premium
+
+Pode trocar uma reserva comprada para um tamanho de VM que não suporta armazenamento premium por um tamanho de VM correspondente que o faça. Por exemplo, um _F1_ por um _F1s_. Para fazer a troca, aceda a Detalhes da Reserva e selecione **Trocar**. A troca não repõe o termo da instância reservada nem cria uma nova transação. 
 
 ## <a name="how-transactions-are-processed"></a>Como as transações são processadas
 
@@ -40,13 +47,13 @@ Primeiro, a Microsoft cancela a reserva existente e reembolsa o valor rateado de
 
 ### <a name="enterprise-agreement-customers"></a>Clientes do contrato Enterprise
 
-O dinheiro é adicionado à alocação monetária para trocas e reembolsos se a compra original tiver sido feita com uma. Quaisquer faturas de utilização excedida desde as compras originais são reabertas e reclassificadas para garantir que a alocação monetária é utilizada. Se o termo de alocação monetária que usa a reserva comprado já não estiver ativo, o crédito será adicionado ao seu termo de alocação monetária do contrato Enterprise atual. O crédito é válido durante 90 dias a partir da data de reembolso. O crédito não utilizado expira após 90 dias.
+O dinheiro é adicionado à alocação monetária para trocas e reembolsos se a compra original tiver sido feita com uma. Se o termo de alocação monetária que usa a reserva comprado já não estiver ativo, o crédito será adicionado ao seu termo de alocação monetária do contrato Enterprise atual. O crédito é válido durante 90 dias a partir da data de reembolso. O crédito não utilizado expira após 90 dias.
 
-Se a compra original foi feita como utilização excedida, a Microsoft emite uma nota de crédito.
+Se a compra original tiver sido feita como utilização excedida, a fatura original na qual a reserva foi comprada e todas as faturas posteriores são reabertas e reajustadas. A Microsoft emite um memorando de crédito para os reembolsos.
 
 ### <a name="pay-as-you-go-invoice-payments-and-csp-program"></a>Pagamentos de faturas pay as you go e programa CSP
 
-A fatura de compra da reserva original é cancelada e uma nova fatura é criada para o reembolso. Para trocas, a nova fatura mostra o reembolso e a nova compra. O valor do reembolso é ajustado em relação à compra. Se apenas reembolsou uma reserva, o valor rateado permanece com a Microsoft e é ajustado em relação a uma compra futura de uma reserva.
+A fatura de compra da reserva original é cancelada e uma nova fatura é criada para o reembolso. Para trocas, a nova fatura mostra o reembolso e a nova compra. O valor do reembolso é ajustado em relação à compra. Se apenas reembolsou uma reserva, o valor rateado permanece com a Microsoft e é ajustado em relação a uma compra futura de uma reserva. Se tiver comprado uma reserva à taxa pay as you go e, depois, passar para CSP, essa reserva pode ser devolvida e recomprada sem penalizações.
 
 ### <a name="pay-as-you-go-credit-card-customers"></a>Clientes de cartão de crédito pay as you go
 
@@ -58,24 +65,20 @@ O Azure tem as seguintes políticas para cancelamentos, trocas e reembolsos.
 
 **Políticas de troca**
 
-- Pode devolver várias reservas existentes para comprar uma nova reserva do mesmo tipo. Não é possível trocar reservas de um tipo por outro. Por exemplo, não pode devolver uma reserva de VM para comprar uma reserva de SQL.
+- Pode devolver várias reservas existentes para comprar uma nova reserva do mesmo tipo. Não é possível trocar reservas de um tipo por outro. Por exemplo, não pode devolver uma reserva de VM para comprar uma reserva de SQL. Pode alterar uma propriedade da reserva, como a família, a série, a versão, o SKU, a região, a quantidade e o termo, com uma troca.
 - Apenas os proprietários da reserva podem processar uma troca. [Saiba como Adicionar ou alterar os utilizadores que podem gerir uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
-- Uma troca é processada como um reembolso e uma recompra, isto é, são criadas transações diferentes para o cancelamento e a nova compra. O valor de reserva rateado é reembolsado em relação às reservas que envolver na troca. A nova compra é-lhe cobrada na íntegra. O valor da reserva proporcional é o valor residual diário rateado da reserva a ser devolvida.
+- Uma troca é processada como um reembolso e uma recompra, isto é, são criadas transações diferentes para o cancelamento e para a compra nova. O valor de reserva rateado é reembolsado em relação às reservas envolvidas na troca. A nova compra é-lhe cobrada na íntegra. O valor da reserva proporcional é o valor residual diário rateado da reserva a ser devolvida.
 - Pode trocar ou reembolsar reservas mesmo que o contrato Enterprise que serviu para comprar a reserva tenha expirado e sido renovado como um novo contrato.
-- Pode alterar uma propriedade da reserva, como a família, a série, a versão, o SKU, a região, a quantidade e o termo, com uma troca.
-- O novo total da compra deve ser igual ou maior do que o valor devolvido.
+- A alocação vitalícia da reserva nova deve ser igual ou superior à alocação remanescente da reserva devolvida. Exemplo: numa reserva de três anos que custe 100 $ por mês e é trocada após o 18.º pagamento, a alocação vitalícia da reserva nova deve ser 1800 $ ou mais (paga mensalmente ou à cabeça).
 - A nova reserva comprada como parte da troca tem um novo termo, com início desde o momento da troca.
 - Não existe qualquer penalização nem limites anuais para trocas.
 
 **Políticas de reembolso**
-- Poderá ser aplicada uma taxa de 12% de rescisão antecipada para cancelamentos no futuro. Neste momento, não estamos a cobrar esta penalização.
-- O valor total do reembolso não pode exceder os 50.000 USD num período sem interrupção de 12 meses.
+
+- Atualmente, não estamos a cobrar uma taxa de rescisão antecipada, mas poderá haver uma taxa de 12% para cancelamentos no futuro.
+- A alocação cancelada total não pode exceder os 50 000 $ num período de 12 meses. Exemplo: numa reserva de três anos que custe 100 $ por mês e reembolsada no 18.º mês, a alocação cancelada é de 1800 $. Após o reembolso, o limite disponível novo para reembolso será de 48 200 $. A partir de 365 dias a seguir ao reembolso, o limite de 48 200 será aumentado em 1800 $ e o seu conjunto novo será de 50 000 $. Qualquer outro cancelamento de reserva esgotará o mesmo conjunto e será aplicada a mesma lógica de renovação.
 - Os reembolsos são calculados com base no preço mais baixo do preço de compra ou do preço atual da reserva.
 - Apenas os proprietários de encomendas de reservas podem processar reembolsos. [Saiba como Adicionar ou alterar os utilizadores que podem gerir uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
-
-## <a name="exchange-non-premium-storage-for-premium-storage"></a>Troca de armazenamento não premium por armazenamento premium
-
-Pode trocar uma reserva comprada para um tamanho de VM que não suporta armazenamento premium por um tamanho de VM correspondente que o faça. Por exemplo, um _F1_ por um _F1s_. Para fazer a troca, aceda a Detalhes da Reserva e selecione **Trocar**. A troca não repõe o termo da instância reservada nem cria uma nova transação.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
@@ -91,4 +94,4 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://port
     - [Compreender a utilização de reservas na sua subscrição Pay As You Go](understand-reserved-instance-usage.md)
     - [Compreender a utilização de reservas na inscrição Enterprise](understand-reserved-instance-usage-ea.md)
     - [Custos de software Windows não incluídos nas reservas](reserved-instance-windows-software-costs.md)
-    - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations) (Reservas do Azure no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros)
+    - [Reservas do Azure no programa CSP](/partner-center/azure-reservations)

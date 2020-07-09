@@ -1,7 +1,7 @@
 ---
-title: Como implementar a ferramenta de rotulagem da amostra de reconhecimento de formulário
+title: Como implementar a ferramenta de rotulagem da amostra do Reconhecimento de Formulários
 titleSuffix: Azure Cognitive Services
-description: Aprenda as diferentes formas de implementar a ferramenta de rotulagem da amostra 'Reconhecimento de Formulários' para ajudar na aprendizagem supervisionada.
+description: Aprenda as diferentes formas de implementar a ferramenta de rotulagem da amostra do Form Recogniser para ajudar na aprendizagem supervisionada.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,30 +9,30 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 27afbafcadb4c482e97e1d003706e7d2712e63c9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3bb8f0e809ae1acbec1479c20e24c90fd81905d4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117272"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212450"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implementar a ferramenta de etiquetagem de exemplo
 
-A ferramenta de rotulagem da amostra 'Reconhecimento de Formulários' é uma aplicação que fornece uma interface simples de utilizador (UI), que pode utilizar para rotular manualmente formulários (documentos) para fins de aprendizagem supervisionada. Neste artigo, forneceremos links e instruções que o ensinam a:
+A ferramenta de rotulagem da amostra do Form Recogniser é uma aplicação que fornece uma interface de utilizador simples (UI), que pode utilizar para rotular manualmente formulários (documentos) para fins de aprendizagem supervisionada. Neste artigo, forneceremos links e instruções que o ensinam a:
 
-* [Executar a ferramenta de rotulagem de amostras localmente](#run-the-sample-labeling-tool-locally)
-* [Implante a ferramenta de rotulagem da amostra para uma instância de contentores Azure (ACI)](#deploy-with-azure-container-instances-aci)
-* [Utilizar e contribuir para a ferramenta de rotulagem de formulário seleções OCR de código aberto](#open-source-on-github)
+* [Executar a ferramenta de rotulagem de amostra localmente](#run-the-sample-labeling-tool-locally)
+* [Colocar a ferramenta de rotulagem da amostra numa instância de contentores Azure (ACI)](#deploy-with-azure-container-instances-aci)
+* [Utilizar e contribuir para a ferramenta de rotulagem do formulário OCR de código aberto](#open-source-on-github)
 
-## <a name="run-the-sample-labeling-tool-locally"></a>Executar a ferramenta de rotulagem de amostras localmente
+## <a name="run-the-sample-labeling-tool-locally"></a>Executar a ferramenta de rotulagem de amostra localmente
 
-A forma mais rápida de começar a rotular os dados é executar a ferramenta de rotulagem de amostras localmente. O quickstart seguinte utiliza a API REST API do Reconhecimento de Formulários e a ferramenta de rotulagem da amostra para treinar um modelo personalizado com dados manualmente rotulados. 
+A forma mais rápida de começar a rotular dados é executar a ferramenta de rotulagem da amostra localmente. O seguinte quickstart utiliza a API do Reconhecimento de Formulários e a ferramenta de rotulagem da amostra para treinar um modelo personalizado com dados etiquetados manualmente. 
 
-* [Arranque rápido: Rotular formas, treinar um modelo e analisar um formulário utilizando a ferramenta](./quickstarts/label-tool.md)de rotulagem da amostra .
+* [Quickstart: Label forms, train a model, and analyze a form using the sample labeling tool](./quickstarts/label-tool.md).
 
-## <a name="deploy-with-azure-container-instances-aci"></a>Implantação com instâncias de contentores Azure (ACI)
+## <a name="deploy-with-azure-container-instances-aci"></a>Implantar com instâncias de contentores Azure (ACI)
 
-Antes de começarmos, é importante notar que existem duas maneiras de implementar a ferramenta de rotulagem de amostras para um Caso de Contentores Azure (ACI). Ambas as opções são utilizadas para executar a ferramenta de rotulagem de amostras com ACI: 
+Antes de começarmos, é importante notar que há duas maneiras de implantar a ferramenta de rotulagem da amostra para uma Instância de Contentores Azure (ACI). Ambas as opções são utilizadas para executar a ferramenta de rotulagem da amostra com ACI: 
 
 * [Utilizar o portal do Azure](#azure-portal)
 * [Com a CLI do Azure](#azure-cli)
@@ -48,57 +48,57 @@ Siga estes passos para criar um novo recurso utilizando o portal Azure:
    > [!div class="mx-imgBorder"]
    > ![Selecione aplicativo web](./media/quickstarts/formre-create-web-app.png)
    
-4. Em primeiro lugar, certifique-se de que o separador **Basics** é selecionado. Agora, vai precisar de fornecer alguma sinuosa: 
+4. Em primeiro lugar, certifique-se de que o separador **Básicos** está selecionado. Agora, vai precisar de fornecer algumas informações: 
 
    > [!div class="mx-imgBorder"]
    > ![Selecione Básicos](./media/quickstarts/formre-select-basics.png)
    * Subscrição - Selecione uma subscrição Azure existente
    * Grupo de Recursos - Pode reutilizar um grupo de recursos existente ou criar um novo para este projeto. Recomenda-se a criação de um novo grupo de recursos.
    * Nome - Dê um nome à sua aplicação web. 
-   * Publicar - Selecione **Docker Container**
+   * Publicar - Selecione **Estivador Container**
    * Sistema Operativo - Selecione **Linux**
    * Região - Escolha uma região que faça sentido para si.
-   * Plano Linux - Selecione um nível/plano de preços para o seu serviço de aplicações. 
+   * Plano Linux - Selecione um nível de preços/plano para o seu serviço de aplicações. 
 
    > [!div class="mx-imgBorder"]
    > ![Configure a sua aplicação web](./media/quickstarts/formre-select-docker-linux.png)
 
-5. Em seguida, selecione o separador **Docker.** 
+5. Em seguida, selecione o **separador Docker.** 
 
    > [!div class="mx-imgBorder"]
    > ![Selecione Docker](./media/quickstarts/formre-select-docker.png)
 
 6. Agora vamos configurar o seu contentor Docker. Todos os campos são necessários, salvo indicação em contrário:
 
-   * Opções - Selecione **Recipiente Único**
-   * Fonte de Imagem - Selecione **Registo Privado** 
-   * URL do servidor - Delineie isto para`https://mcr.microsoft.com`
+   * Opções - Selecione **Um Único Recipiente**
+   * Fonte de imagem - Selecione **Registo Privado** 
+   * URL do servidor - Desemiste isto para`https://mcr.microsoft.com`
    * Nome de utilizador (Opcional) - Crie um nome de utilizador. 
-   * Palavra-passe (Opcional) - Crie uma palavra-passe segura de que se lembrará.
-   * Imagem e etiqueta - Definir isto para`mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
-   * Implementação Contínua - Desloque-o para **Ligar** se pretender receber atualizações automáticas quando a equipa de desenvolvimento fizer alterações na ferramenta de rotulagem da amostra.
-   * Comando de arranque - Definir isto para`./run.sh eula=accept`
+   * Palavra-passe (Opcional) - Crie uma senha segura de que se lembrará.
+   * Imagem e etiqueta - Desemiste isto para`mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+   * Implementação Contínua - Desave-o **se** pretender receber atualizações automáticas quando a equipa de desenvolvimento esprodução de alterações na ferramenta de rotulagem da amostra.
+   * Comando de arranque - Desemalte isto para`./run.sh eula=accept`
 
    > [!div class="mx-imgBorder"]
    > ![Configure Docker](./media/quickstarts/formre-configure-docker.png)
 
-7. Já está. Em seguida, selecione **Review + Create**e, em seguida, **Criar** para implementar a sua aplicação web. Quando estiver concluído, pode aceder à sua aplicação web no URL fornecido na **visão geral** do seu recurso.
+7. Já está! Em seguida, selecione **Review + Create**e, em seguida, **Criar** para implementar a sua aplicação web. Quando estiver concluído, pode aceder à sua aplicação web no URL fornecido na **Visão Geral** do seu recurso.
 
 > [!NOTE]
 > Ao criar a sua aplicação web, também pode configurar a autorização/autenticação. Isto não é necessário para começar. 
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Como alternativa à utilização do portal Azure, pode criar um recurso utilizando o Azure CLI. Antes de continuar, terá de instalar o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Pode saltar este passo se já estiver a trabalhar com o Azure CLI. 
+Como alternativa à utilização do portal Azure, pode criar um recurso utilizando o Azure CLI. Antes de continuar, terá de instalar o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Pode saltar este passo se já estiver a trabalhar com o Azure CLI. 
 
-Há algumas coisas que precisa de saber sobre este comando:
+Há algumas coisas que precisa saber sobre este comando:
 
 * `DNS_NAME_LABEL=aci-demo-$RANDOM`gera um nome DNS aleatório. 
-* Esta amostra pressupõe que você tem um grupo de recursos que você pode usar para criar um recurso. Substitua-o `<resource_group_name>` por um grupo de recursos válido associado à sua subscrição. 
-* Precisa especificar onde quer criar o recurso. Substitua-a `<region name>` pela região desejada para a aplicação web. 
-* Este comando aceita automaticamente o EULA.
+* Esta amostra pressupõe que tem um grupo de recursos que pode usar para criar um recurso. Substitua `<resource_group_name>` por um grupo de recursos válido associado à sua subscrição. 
+* Terá de especificar onde pretende criar o recurso. `<region name>`Substitua-a pela região desejada para a aplicação web. 
+* Este comando aceita automaticamente a EULA.
 
-A partir do Azure CLI, execute este comando para criar um recurso de aplicação web para a ferramenta de rotulagem de amostras: 
+A partir do Azure CLI, executar este comando para criar um recurso de aplicação web para a ferramenta de rotulagem da amostra: 
 
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
@@ -115,14 +115,14 @@ az container create \
   --command-line "./run.sh eula=accept"
 ```
 
-### <a name="connect-to-azure-ad-for-authorization"></a>Ligue-se à AD Azure para autorização
+### <a name="connect-to-azure-ad-for-authorization"></a>Ligue-se à Azure AD para autorização
 
-Recomenda-se que ligue a sua aplicação web ao Azure Ative Directory. Isto garante que apenas os utilizadores com credenciais válidas podem iniciar sessão e utilizar a sua aplicação web. Siga as instruções na [Configuração da sua app App Service](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) para ligar ao Diretório Ativo Azure.
+Recomenda-se que conecte a sua aplicação web ao Azure Ative Directory. Isto garante que apenas os utilizadores com credenciais válidas podem iniciar sôm e utilizar a sua aplicação web. Siga as instruções na [Configuração da sua aplicação De Serviço de Aplicações](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) para ligar ao Azure Ative Directory.
 
 ## <a name="open-source-on-github"></a>Fonte aberta no GitHub
 
-A Ferramenta de Rotulagem de Formulários OCR também está disponível como um projeto de código aberto no GitHub. A ferramenta é uma aplicação web construída com react + Redux, e está escrita no TypeScript. Para saber mais ou contribuir, consulte a Ferramenta de Rotulagem de [Formulários OCR](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
+A Ferramenta de Rotulagem do Formulário OCR também está disponível como um projeto de código aberto no GitHub. A ferramenta é uma aplicação web construída usando React + Redux, e está escrita no TypeScript. Para saber mais ou contribuir, consulte [a Ferramenta de Rotulagem do Formulário OCR](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Utilize o [Comboio com etiquetas](./quickstarts/label-tool.md) quickstart para aprender a usar a ferramenta para rotular manualmente os dados de treino e realizar uma aprendizagem supervisionada.
+Utilize o [Comboio com etiquetas](./quickstarts/label-tool.md) de arranque rápido para aprender a usar a ferramenta para rotular manualmente dados de treino e realizar aprendizagem supervisionada.
