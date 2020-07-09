@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 5862a446b1522926f8241959d5e1cff66e4da06b
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 7172fe1f7eb81bbd00e7efa611111e04cc96abd3
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079389"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083581"
 ---
 # <a name="quickstart-create-a-search-index-in-net"></a>Quickstart: Criar um índice de pesquisa em .NET
 > [!div class="op_single_selector"]
@@ -559,7 +559,7 @@ Pode encontrar e gerir recursos no portal, utilizando a ligação **de todos os 
 
 Se estiver a utilizar um serviço gratuito, lembre-se que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para ficar abaixo do limite. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido C#, trabalhou através de uma série de tarefas para criar um índice, carregá-lo com documentos e executar consultas. Em diferentes fases, tomamos atalhos para simplificar o código de legibilidade e compreensão. Se se sentir confortável com os conceitos básicos, recomendamos o próximo artigo para uma exploração de abordagens e conceitos alternativos que irão aprofundar o seu conhecimento. 
 
@@ -567,3 +567,8 @@ O código de amostra e o índice são versões expandidas desta. A próxima amos
 
 > [!div class="nextstepaction"]
 > [Como desenvolver em .NET](search-howto-dotnet-sdk.md)
+
+Quer otimizar e economizar nos gastos na nuvem?
+
+> [!div class="nextstepaction"]
+> [Comece a analisar custos com a Gestão de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

@@ -4,18 +4,22 @@ description: Aprenda mais rapidamente a executar uma tarefa do Batch com a CLI d
 ms.topic: quickstart
 ms.date: 05/19/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 5f26aeead41fa1ffcebefdeaabae84490dfdae2b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d92751d1463a20c8fb0cb83fe678789860957189
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959828"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086131"
 ---
-# <a name="quickstart-create-a-batch-account-by-using-azure-resource-manager-template"></a>Quickstart: Criar uma conta batch utilizando o modelo de Gestor de Recursos Azure
+# <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>Quickstart: Criar uma conta batch utilizando o modelo ARM
 
-Você precisa de uma conta Batch para criar recursos compute (conjuntos de nós de computação) e trabalhos de Batch. Pode ligar uma conta de Armazenamento Azure à sua conta Batch, que é útil para implementar aplicações e armazenar dados de entradas e saídas para a maioria das cargas de trabalho no mundo real. Este quickstart mostra como usar um modelo de Gestor de Recursos Azure para criar uma conta Batch, incluindo armazenamento. Depois de concluir este início rápido, irá compreender os conceitos principais do serviço do Batch e estará pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala.
+Você precisa de uma conta Batch para criar recursos compute (conjuntos de nós de computação) e trabalhos de Batch. Pode ligar uma conta de Armazenamento Azure à sua conta Batch, que é útil para implementar aplicações e armazenar dados de entradas e saídas para a maioria das cargas de trabalho no mundo real. Este quickstart mostra como usar um modelo de Gestor de Recursos Azure (modelo ARM) para criar uma conta Batch, incluindo armazenamento. Depois de concluir este início rápido, irá compreender os conceitos principais do serviço do Batch e estará pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+
+[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-batchaccount-with-storage%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,9 +27,7 @@ Deve ter uma subscrição ativa do Azure.
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-batch-account-with-storage"></a>Criar uma conta Batch com armazenamento
-
-### <a name="review-the-template"></a>Rever o modelo
+## <a name="review-the-template"></a>Rever o modelo
 
 O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-batchaccount-with-storage/).
 
@@ -36,7 +38,7 @@ Dois recursos Azure são definidos no modelo:
 - [Microsoft.Storage/storageAcounts:](/azure/templates/microsoft.storage/storageaccounts)Cria uma conta de armazenamento.
 - [Microsoft.Batch/batchAcounts](/azure/templates/microsoft.batch/batchaccounts): Cria uma conta Batch.
 
-### <a name="deploy-the-template"></a>Implementar o modelo
+## <a name="deploy-the-template"></a>Implementar o modelo
 
 1. Selecione a imagem seguinte para iniciar sessão no Azure e abrir um modelo. O modelo cria uma conta Azure Batch e uma conta de armazenamento.
 
@@ -68,7 +70,7 @@ Pode validar a implementação no portal Azure navegando para o grupo de recurso
 
 Se pretender continuar a trabalhar com [tutoriais subsequentes,](./tutorial-parallel-dotnet.md)poderá querer deixar estes recursos no lugar. Ou, se já não precisar deles, pode [eliminar o grupo de recursos](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group), que também eliminará a conta Batch e a conta de armazenamento que criou.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, criou uma conta Batch e uma conta de armazenamento. Para saber mais acerca do Azure Batch, avance para os tutoriais do Azure Batch.
 

@@ -8,28 +8,28 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 6ef929a2934d8480ce6d1eca8bb7ba3b70580110
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: d74994609799c155453f0c7cac887f2e033ea90b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84551986"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087287"
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-using-a-resource-manager-template"></a>Quickstart: Criar uma máquina virtual do Windows utilizando um modelo de Gestor de Recursos
+# <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>Quickstart: Criar uma máquina virtual do Windows utilizando um modelo ARM
 
-Este quickstart mostra-lhe como usar um modelo de Gestor de Recursos para implementar uma máquina virtual Do Windows (VM) em Azure. 
+Este quickstart mostra-lhe como usar um modelo de Gestor de Recursos Azure (modelo ARM) para implementar uma máquina virtual Do Windows (VM) em Azure.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+
+[![Implementar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-windows%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Nenhum.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-a-windows-virtual-machine"></a>Criar uma máquina virtual do Windows
-
-### <a name="review-the-template"></a>Rever o modelo
+## <a name="review-the-template"></a>Rever o modelo
 
 O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
@@ -48,7 +48,7 @@ Vários recursos são definidos no modelo:
 
 
 
-### <a name="deploy-the-template"></a>Implementar o modelo
+## <a name="deploy-the-template"></a>Implementar o modelo
 
 1. Selecione a imagem seguinte para iniciar sessão no Azure e abrir um modelo. O modelo cria um cofre chave e um segredo.
 
@@ -84,9 +84,9 @@ Quando já não for necessário, elimine o grupo de recursos, que elimina o VM e
 1. Quando solicitado, digite o nome do grupo de recursos e, em seguida, **selecione Delete**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste arranque rápido, implementou uma máquina virtual simples utilizando um modelo de Gestor de Recursos. Para saber mais sobre as máquinas virtuais do Azure, continue para o tutorial das VMs do Linux.
+Neste arranque rápido, lançou uma máquina virtual simples utilizando um modelo ARM. Para saber mais sobre as máquinas virtuais do Azure, continue para o tutorial das VMs do Linux.
 
 
 > [!div class="nextstepaction"]

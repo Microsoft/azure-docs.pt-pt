@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 28eb88a40139352b475851003a1092954a97ef64
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 632071c2a9597fc11ab4ffc0971493ef5b52d807
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954320"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083564"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Quickstart: Criar um índice de Pesquisa Cognitiva Azure no portal Azure
 > [!div class="op_single_selector"]
@@ -270,9 +270,14 @@ Pode encontrar e gerir recursos no portal, utilizando a ligação **de todos os 
 
 Se estiver a utilizar um serviço gratuito, lembre-se que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para ficar abaixo do limite. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Utilize um assistente de portal para gerar uma aplicação web pronta a usar que funciona num browser. Pode experimentar este assistente no pequeno índice que acabou de criar ou utilizar um dos conjuntos de dados de amostras incorporados para uma experiência de pesquisa mais rica.
 
 > [!div class="nextstepaction"]
 > [Criar uma app de demonstração no portal](search-create-app-portal.md)
+
+Quer otimizar e economizar nos gastos na nuvem?
+
+> [!div class="nextstepaction"]
+> [Comece a analisar custos com a Gestão de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/05/2020
 ms.author: kumud
-ms.openlocfilehash: 1a1593566b8bdb72f322d64c1ee99c7018f49329
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: dfeb9c6bc3dbe33881fc51ccb08a776b827dfe9c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707417"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082442"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Início Rápido: criar uma rede virtual com o Portal do Azure
 
@@ -218,8 +218,11 @@ Quando terminar de usar a rede virtual e os VMs, elimine o grupo de recursos e t
 
 1. Introduza *o myResourceGroup* para **type the RESOURCE GROUP NAME** e selecione **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as definições de rede virtual, consulte [Criar, alterar ou eliminar uma rede virtual.](manage-virtual-network.md)
 
 Por predefinição, o Azure permite uma comunicação segura entre VMs. O Azure só permite ligações remotas de ambiente de trabalho ao Windows VMs a partir da internet. Para saber mais sobre tipos de comunicações de rede VM, consulte [o tráfego da rede Filter](tutorial-filter-network-traffic.md).
+
+> [!NOTE] 
+> Os serviços da Azure custam dinheiro. A Azure Cost Management ajuda-o a definir orçamentos e a configurar alertas para manter os gastos sob controlo. Analise, gerencie e otimize os seus custos Azure com a Gestão de Custos. Para saber mais, consulte o [quickstart na análise dos seus custos.](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

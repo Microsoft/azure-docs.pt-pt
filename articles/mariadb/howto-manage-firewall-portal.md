@@ -4,14 +4,14 @@ description: Criar e gerir a Base de Dados Azure para regras de firewall MariaDB
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 8be8e948595cfb93049c0d6c93f421e4902e771d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 464b13fe4aa727a4d3ca3ff074b8bb94544576a7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79530670"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101227"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Criar e gerir a Base de Dados Azure para regras de firewall MariaDB utilizando o portal Azure
 As regras de firewall ao nível do servidor podem ser utilizadas para gerir o acesso a uma Base de Dados Azure para o Servidor MariaDB a partir de um endereço IP especificado ou de uma série de endereços IP.
@@ -54,6 +54,6 @@ Repita os passos para gerir as regras da firewall.
 * Para modificar uma regra existente, clique em qualquer um dos campos da regra e, em seguida, modifique. Clique em **Guardar** para guardar as alterações.
 * Para eliminar uma regra existente, clique na elipse [...], e clique em **apagar**. Clique em **Guardar** para guardar as alterações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
  - Da mesma forma, pode escrever para [criar e gerir a Base de Dados Azure para regras de firewall MariaDB usando Azure CLI](howto-manage-firewall-cli.md).
  - Acesso mais seguro ao seu [servidor, criando e gerindo pontos finais de serviço de Rede Virtual e regras utilizando o portal Azure](howto-manage-vnet-portal.md).

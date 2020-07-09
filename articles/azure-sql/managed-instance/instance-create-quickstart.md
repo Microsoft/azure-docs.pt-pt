@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: 906bcf97ad070eb8c2dfe3266bccf05db1598935
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: e4b4b6f21d158a758c2ff77db6660bbb44696d90
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84708897"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086692"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Quickstart: Criar uma instância gerida de SQL Gestão De Instância
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Selecione **Azure SQL** no menu esquerdo do portal Azure. Se **o Azure SQL** não estiver na lista, selecione **Todos os serviços**e introduza o **Azure SQL** na caixa de pesquisa.
-1. **Selecione +Adicione** para abrir a página **de opção de implementação Select SQL.** Pode ver informações adicionais sobre a Azure SQL Managed Instance selecionando detalhes do **Show** no azulejo de **instância gerido SQL.**
+1. **Selecione +Adicione** para abrir a página **de opção de implementação Select SQL.** Pode ver informações adicionais sobre a Azure SQL Managed Instance selecionando detalhes do **Show** no azulejo **gerido sql.**
 1. Selecione **Criar**.
 
    ![Criar uma instância gerida](./media/instance-create-quickstart/create-managed-instance.png)
@@ -173,7 +173,7 @@ Para ligar à SQL Managed Instance, siga estes passos para recuperar o nome de a
 
    O valor copiado representa um nome de domínio totalmente qualificado (FQDN) que pode ser usado para ligar a SQL Managed Instance. É semelhante ao seguinte exemplo de endereço: *your_host_name.a1b2c3d4e5f6.database.windows.net*.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber como ligar-se à SQL Managed Instance:
 - Para obter uma visão geral das opções de ligação para aplicações, consulte [Conecte as suas aplicações à SQL Managed Instance](connect-application-instance.md).

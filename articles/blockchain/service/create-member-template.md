@@ -8,28 +8,28 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: patricka
 ms.date: 06/04/2020
-ms.openlocfilehash: 5524a8920ef49603ab9aa143ae4094cdaad9d340
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 8eabb6806dee96871648ea419ba36d768d32a2ab
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456538"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078171"
 ---
-# <a name="quickstart-create-an-azure-blockchain-service-member-using-an-azure-resource-manager-template"></a>Quickstart: Criar um membro do Serviço Azure Blockchain usando um modelo de Gestor de Recursos Azure
+# <a name="quickstart-create-an-azure-blockchain-service-member-using-an-arm-template"></a>Quickstart: Criar um membro do Serviço Azure Blockchain usando um modelo ARM
 
-Neste quickstart, você implementa um novo membro blockchain e consórcio no Azure Blockchain Service usando um modelo de Gestor de Recursos Azure. Um membro do Azure Blockchain Service é um nó blockchain numa rede de blockchain de consórcio privado. Ao providenciar um membro, pode criar ou aderir a uma rede de consórcios. Precisa de pelo menos um membro para uma rede de consórcios. O número de membros blockchain necessários pelos participantes depende do seu cenário. Os participantes do consórcio podem ter um ou mais membros blockchain ou podem partilhar membros com outros participantes. Para obter mais informações sobre consórcios, consulte [o consórcio Azure Blockchain Service](consortium.md).
+Neste quickstart, você implementa um novo membro blockchain e consórcio no Azure Blockchain Service usando um modelo de Gestor de Recursos Azure (modelo ARM). Um membro do Azure Blockchain Service é um nó blockchain numa rede de blockchain de consórcio privado. Ao providenciar um membro, pode criar ou aderir a uma rede de consórcios. Precisa de pelo menos um membro para uma rede de consórcios. O número de membros blockchain necessários pelos participantes depende do seu cenário. Os participantes do consórcio podem ter um ou mais membros blockchain ou podem partilhar membros com outros participantes. Para obter mais informações sobre consórcios, consulte [o consórcio Azure Blockchain Service](consortium.md).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+
+[![Implementar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-blockchain-asaservice%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Nenhum.
+Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="create-a-blockchain-service-member"></a>Criar um membro do Serviço Blockchain
-
-### <a name="review-the-template"></a>Rever o modelo
+## <a name="review-the-template"></a>Rever o modelo
 
 O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/201-blockchain-asaservice/).
 
@@ -39,7 +39,7 @@ Recursos azuis definidos no modelo:
 
 * [**Microsoft.Blockchain/blockchainMembers**](/azure/templates/microsoft.blockchain/blockchainmembers)
 
-### <a name="deploy-the-template"></a>Implementar o modelo
+## <a name="deploy-the-template"></a>Implementar o modelo
 
 1. Selecione o seguinte link para iniciar seduca e abra um modelo.
 

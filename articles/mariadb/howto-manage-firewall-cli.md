@@ -5,14 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 898b65f07140bca04bd97ff7314b01920b783914
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae15b98f593dc71c8ed63e867f224aad93f13a43
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79530636"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101329"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Criar e gerir a Base de Dados de Azure para regras de firewall MariaDB utilizando o Azure CLI
 As regras de firewall ao nível do servidor podem ser utilizadas para gerir o acesso a uma Base de Dados Azure para o Servidor MariaDB a partir de um endereço IP específico ou de uma série de endereços IP. Utilizando comandos CLI convenientes, pode criar, atualizar, excluir, listar e mostrar regras de firewall para gerir o seu servidor. Para obter uma visão geral da Base de Dados Azure para firewalls MariaDB, consulte [a Base de Dados Azure para as regras de firewall do servidor MariaDB](./concepts-firewall-rules.md).
@@ -118,7 +118,7 @@ az mariadb server firewall-rule delete --resource-group myresourcegroup --server
 ```
 Após o sucesso, não há saída. Após falha, o texto da mensagem de erro aparece.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Mais informações sobre [a Base de Dados Azure para as regras de firewall do Servidor MariaDB](./concepts-firewall-rules.md).
 - [Crie e gere a Base de Dados Azure para regras de firewall MariaDB utilizando o portal Azure](./howto-manage-firewall-portal.md).
 - Acesso mais seguro ao seu servidor através da [criação e gestão de pontos finais de serviço de Rede Virtual e regras utilizando o Azure CLI](howto-manage-vnet-cli.md).

@@ -8,28 +8,28 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 7fc7e4d5d402bfb21a30798f64e31cbbef8ccdd0
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 479e580ee8821f0a6de054c631714c5386927e4f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677955"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083921"
 ---
-# <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-a-resource-manager-template"></a>Quickstart: Criar uma máquina virtual Ubuntu Linux usando um modelo de Gestor de Recursos
+# <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-an-arm-template"></a>Quickstart: Criar uma máquina virtual Ubuntu Linux usando um modelo ARM
 
-Este quickstart mostra-lhe como usar um modelo de Gestor de Recursos para implementar uma máquina virtual Ubuntu Linux (VM) em Azure. 
+Este quickstart mostra-lhe como usar um modelo de Gestor de Recursos Azure (modelo ARM) para implantar uma máquina virtual Ubuntu Linux (VM) em Azure.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+
+[![Implementar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Nenhum.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-an-ubuntu-linux-virtual-machine"></a>Criar uma máquina virtual Ubuntu Linux
-
-### <a name="review-the-template"></a>Rever o modelo
+## <a name="review-the-template"></a>Rever o modelo
 
 O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/).
 
@@ -46,7 +46,7 @@ Vários recursos são definidos no modelo:
 - [**Microsoft.Network/publicIPAddresses**](/azure/templates/Microsoft.Network/publicIPAddresses): criar um endereço IP público.
 - [**Microsoft.Compute/virtualMachines:**](/azure/templates/Microsoft.Compute/virtualMachines)criar uma máquina virtual.
 
-### <a name="deploy-the-template"></a>Implementar o modelo
+## <a name="deploy-the-template"></a>Implementar o modelo
 
 1. Selecione a imagem seguinte para iniciar sessão no Azure e abrir um modelo. O modelo cria um cofre chave e um segredo.
 
@@ -90,7 +90,7 @@ Quando já não for necessário, elimine o grupo de recursos, que elimina o VM e
 
 ## <a name="next-steps"></a>Próximos passos
 
-Neste arranque rápido, implementou uma máquina virtual simples utilizando um modelo de Gestor de Recursos. Para saber mais sobre as máquinas virtuais do Azure, continue para o tutorial das VMs do Linux.
+Neste arranque rápido, lançou uma máquina virtual simples utilizando um modelo ARM. Para saber mais sobre as máquinas virtuais do Azure, continue para o tutorial das VMs do Linux.
 
 
 > [!div class="nextstepaction"]

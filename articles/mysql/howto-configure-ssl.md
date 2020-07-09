@@ -4,14 +4,15 @@ description: Instruções para configurar corretamente a Base de Dados Azure par
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/7/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 7286887b10661d291f6c6d2b6c067dd7e1bf43aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f2cb5cbc447dd0483517bef96dbcc7c58cf1af7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559229"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101397"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configure a conectividade SSL na sua aplicação para ligar de forma segura à Base de Dados Azure para o MySQL
 A Azure Database for MySQL suporta ligar a sua Base de Dados Azure para o servidor MySQL a aplicações de clientes utilizando a Camada de Tomadas Seguras (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
