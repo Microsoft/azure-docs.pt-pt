@@ -4,12 +4,12 @@ description: Utilize a funcionalidade de pacotes de aplicação do Azure Batch p
 ms.topic: how-to
 ms.date: 04/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cebb7bf001d16e1024ed466268758f0b1bc92c6c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 328b08acbc6d13dd03956bb501b4d4a51310c9c0
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955035"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147214"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementar aplicações para calcular os nóns com pacotes de aplicações batch
 
@@ -57,7 +57,7 @@ Pode especificar pacotes de aplicações nos níveis de piscina e tarefa. Pode e
 ### <a name="benefits-of-application-packages"></a>Benefícios dos pacotes de aplicação
 Os pacotes de aplicação podem simplificar o código na sua solução Batch e baixar as despesas necessárias para gerir as aplicações que as suas tarefas executam.
 
-Com pacotes de aplicações, a tarefa inicial da sua piscina não tem de especificar uma longa lista de ficheiros de recursos individuais para instalar nos nós. Não tem de gerir manualmente várias versões dos ficheiros da sua aplicação no Azure Storage ou nos seus nós. E não precisa de se preocupar em gerar [URLs SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md) para fornecer acesso aos ficheiros da sua conta de Armazenamento. O lote trabalha em segundo plano com o Azure Storage para armazenar pacotes de aplicações e implantá-los para calcular nós.
+Com pacotes de aplicações, a tarefa inicial da sua piscina não tem de especificar uma longa lista de ficheiros de recursos individuais para instalar nos nós. Não tem de gerir manualmente várias versões dos ficheiros da sua aplicação no Azure Storage ou nos seus nós. E não precisa de se preocupar em gerar [URLs SAS](../storage/common/storage-sas-overview.md) para fornecer acesso aos ficheiros da sua conta de Armazenamento. O lote trabalha em segundo plano com o Azure Storage para armazenar pacotes de aplicações e implantá-los para calcular nós.
 
 > [!NOTE] 
 > O tamanho total de uma tarefa de início tem de ser inferior ou igual a 32 768 carateres, incluindo ficheiros de recursos e variáveis de ambiente. Se a sua tarefa inicial exceder este limite, então a utilização de pacotes de aplicações é outra opção. Também pode criar um arquivo com fecho de correr contendo os seus ficheiros de recursos, carregá-lo como uma bolha para o Azure Storage e, em seguida, desapertá-lo da linha de comando da sua tarefa inicial. 
@@ -170,7 +170,7 @@ Para atualizar ou eliminar um pacote de aplicações existente, abra os detalhes
 
 ![Atualizar ou eliminar pacote no portal Azure][7]
 
-**Atualizar**
+**Atualização**
 
 Quando clicar em **Atualização,** as janelas **de pacote de atualização** são apresentadas. Esta janela é semelhante à janela do **pacote de novas aplicações,** no entanto apenas o campo de seleção de pacotes está ativado, permitindo especificar um novo ficheiro ZIP para carregar.
 
@@ -330,7 +330,7 @@ foreach (ApplicationSummary app in applications)
 ## <a name="wrap-up"></a>Embrulhe
 Com pacotes de aplicações, pode ajudar os seus clientes a selecionar as aplicações para os seus trabalhos e especificar a versão exata a utilizar ao processar trabalhos com o seu serviço habilitado para o Lote. Pode também fornecer a capacidade para os seus clientes fazerem o upload e rastrearem as suas próprias aplicações no seu serviço.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * A [API de Lote REST][api_rest] também fornece suporte para trabalhar com pacotes de aplicações. Por exemplo, consulte o elemento [Decomprase][rest_add_pool_with_packages] de aplicação [Adicionar um pool a uma conta][rest_add_pool] para obter informações sobre como especificar as embalagens a instalar utilizando a API REST. Consulte [as Aplicações][rest_applications] para obter informações sobre como obter informações sobre a aplicação utilizando a API do Lote REST.
 * Saiba como gerir programáticamente [as contas e quotas do Azure Batch com a Batch Management .NET](batch-management-dotnet.md). A biblioteca [Batch Management .NET][api_net_mgmt] pode permitir funcionalidades de criação e eliminação de conta para a sua aplicação ou serviço batch.
 

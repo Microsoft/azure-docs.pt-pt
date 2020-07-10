@@ -1,5 +1,5 @@
 ---
-title: Novidades Notas de lançamento - Azure Ative Directory / Microsoft Docs
+title: Novidades? Notas de lançamento - Azure Ative Directory / Microsoft Docs
 description: Saiba quais as novidades com o Azure Ative Directory, como as últimas notas de lançamento, problemas conhecidos, correções de bugs, funcionalidades preprecadas e próximas alterações.
 services: active-directory
 author: msaburnley
@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f196c21869f4a2f12e28bc4d6c42b8c945ddde71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30c6be98eeca4433798ad8ed2bacb9338331b112
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603677"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170450"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Quais as novidades no Diretório Ativo do Azure?
 
@@ -259,10 +259,9 @@ Introduzimos uma nova propriedade riskEventsTypes_v2 (string) para o signIns v1.
 **Capacidade do produto:** Proteção & de Segurança de Identidade
  
 
-Estamos a fazer as seguintes alterações às notificações de email do MFA para o MFA em nuvem e para o servidor MFA:
+Estamos a fazer as seguintes alterações às notificações de email do MFA para MFA:
 
-As notificações por e-mail serão enviadas a partir do seguinte endereço: azure-noreply@microsoft.com .
-Estamos a atualizar o conteúdo dos e-mails de alerta de fraude para indicar melhor as medidas necessárias para desbloquear as utilizações.
+As notificações por e-mail serão enviadas a partir do seguinte endereço: azure-noreply@microsoft.com e msonlineservicesteam@microsoftonline.com . Estamos a atualizar o conteúdo de e-mails de alerta de fraude para indicar melhor as medidas necessárias para desbloquear as utilizações.
 
 ---
 
