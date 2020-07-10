@@ -19,17 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 64f15bf3d262249cdda2760c7ddf768be2590419
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfe438f6940d3ccd5632a47be1389a30748716b0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113096"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206898"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>OData $select sintaxe na pesquisa cognitiva do Azure
 
  Pode utilizar o [parâmetro OData **$select** ](query-odata-filter-orderby-syntax.md) para escolher quais os campos a incluir nos resultados de pesquisa da Azure Cognitive Search. Este artigo descreve a sintaxe de **$select** em detalhe. Para obter informações mais gerais sobre como utilizar **$select** ao apresentar resultados de pesquisa, consulte [Como trabalhar com os resultados da pesquisa na Azure Cognitive Search](search-pagination-page-layout.md).
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 O **parâmetro $select** determina quais os campos para cada documento que são devolvidos no conjunto de resultados de consulta. O seguinte EBNF[(Formulário Backus-Naur alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática para o parâmetro **$select:**
 
@@ -62,7 +63,9 @@ Se listar um campo complexo sem especificar explicitamente os seus sub-campos, t
 
 Incluir os `HotelId` campos , e de alto `HotelName` `Rating` nível nos resultados, bem como o `City` sub-campo `Address` de:
 
+```odata-filter-expr
     $select=HotelId, HotelName, Rating, Address/City
+```
 
 Um resultado exemplo pode ser assim:
 
@@ -79,7 +82,9 @@ Um resultado exemplo pode ser assim:
 
 Inclua o `HotelName` campo de alto nível nos resultados, bem como todos os sub-campos `Address` de, e os `Type` `BaseRate` sub-campos e sub-campos de cada objeto na `Rooms` coleção:
 
+```odata-filter-expr
     $select=HotelName, Address, Rooms/Type, Rooms/BaseRate
+```
 
 Um resultado exemplo pode ser assim:
 
@@ -107,7 +112,7 @@ Um resultado exemplo pode ser assim:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 - [Como trabalhar com resultados de pesquisa na Azure Cognitive Search](search-pagination-page-layout.md)
 - [Visão geral da linguagem de expressão OData para pesquisa cognitiva do Azure](query-odata-filter-orderby-syntax.md)

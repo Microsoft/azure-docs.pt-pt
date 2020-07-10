@@ -1,5 +1,5 @@
 ---
-title: Como preservar a privacidade dos dados utilizando os pacotes WhiteNoise
+title: Como preservar a privacidade dos dados utilizando os pacotes WhiteNoise (pré-visualização)
 titleSuffix: Azure Machine Learning
 description: Aprenda a aplicar as melhores práticas de privacidade diferenciais aos modelos Azure Machine Learning utilizando os pacotes WhiteNoise.
 services: machine-learning
@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
-ms.date: 05/17/2020
-ms.openlocfilehash: b43fd25e77e07b7b64416d8784d47c14fed48ea7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 0ef20eee7e73c3a73a2f2e895242d7c1fce307c9
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84981851"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206339"
 ---
-# <a name="use-differential-privacy-in-azure-machine-learning"></a>Use privacidade diferencial em Azure Machine Learning
+# <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>Use privacidade diferencial em Azure Machine Learning (pré-visualização)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -151,7 +151,7 @@ Pode utilizar a biblioteca para compor gráficos de análise mais complexos, com
 | Contagem         | Gaussiano   | Elenco       |
 | Histograma     | Geométrico  | Aperto   |
 | Média          | Rio Laplace    | Digitalizar   |
-| Rio Quantiles     |            | Filtrar     |
+| Rio Quantiles     |            | Filtro     |
 | Soma           |            | Imputation |
 | Variação/Covariância |      | Transformação  |
 

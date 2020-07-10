@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: e918740c884f377048febfe2177e2fe956b1d552
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: de2a8e6377ababadc7d42f873a816a01a8f3b77e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085060"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207475"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Começa com uma caixa de areia Apache Hadoop, um emulador numa máquina virtual
 
@@ -57,7 +57,9 @@ Para descarregar uma caixa de areia de versão HDP mais antiga, consulte os link
 
 2. Uma vez iniciado o login, insira o seguinte comando:
 
-        ambari-admin-password-reset
+    ```bash
+    ambari-admin-password-reset
+    ```
 
     Quando solicitado, forneça uma senha para a conta administrador ambari. Isto é usado quando acede à UI web Ambari.
 
@@ -65,15 +67,23 @@ Para descarregar uma caixa de areia de versão HDP mais antiga, consulte os link
 
 1. De uma ligação SSH à caixa de areia, utilize o seguinte comando para iniciar a casca da Colmeia:
 
-        hive
+    ```bash
+    hive
+    ```
+
 2. Uma vez iniciada a concha, utilize o seguinte para visualizar as tabelas que estão fornecidas com a caixa de areia:
 
-        show tables;
+    ```hiveql
+    show tables;
+    ```
+
 3. Utilize o seguinte para recuperar 10 linhas da `sample_07` tabela:
 
-        select * from sample_07 limit 10;
+    ```hiveql
+    select * from sample_07 limit 10;
+    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como usar o Visual Studio com a Caixa de Areia Hortonworks](../hdinsight-hadoop-emulator-visual-studio.md)
 

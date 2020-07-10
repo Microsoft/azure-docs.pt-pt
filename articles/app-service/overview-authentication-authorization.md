@@ -3,14 +3,15 @@ title: Autenticação e autorização
 description: Descubra sobre o suporte de autenticação e autorização incorporado no Azure App Service e Azure Functions, e como pode ajudar a proteger a sua aplicação contra o acesso não autorizado.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
-ms.date: 04/15/2020
+ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: f51a396e997a9e6392f3e86a6f77e581753d6ada
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9588777305ca42603623075b908eee5d76164c84
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196441"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206754"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticação e autorização no Azure App Service e Azure Functions
 
@@ -34,7 +35,7 @@ Para obter informações específicas para aplicações móveis nativas, consult
 
 O módulo de autenticação e autorização funciona na mesma caixa de areia que o seu código de aplicação. Quando está ativado, todos os pedidos HTTP de entrada passam por ele antes de serem tratados pelo código de aplicação.
 
-![](media/app-service-authentication-overview/architecture.png)
+![Um diagrama de arquitetura que mostra pedidos sendo intercetados por um processo na caixa de areia do site que interage com fornecedores de identidade antes de permitir o tráfego para o site implantado](media/app-service-authentication-overview/architecture.png)
 
 Este módulo lida com várias coisas para a sua aplicação:
 
@@ -62,7 +63,7 @@ O App Service fornece uma loja de tokens incorporada, que é um repositório de 
 
 Normalmente, deve escrever código para recolher, armazenar e refrescar estes tokens na sua aplicação. Com a loja de [fichas, basta recuperar os tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) quando precisar e [dizer ao Serviço de Aplicações para os refrescar](app-service-authentication-how-to.md#refresh-identity-provider-tokens) quando ficarem inválidos. 
 
-Os tokens de id, tokens de acesso e tokens de atualização estão em cache para a sessão autenticada, e são acessíveis apenas pelo utilizador associado.  
+Os tokens de ID, tokens de acesso e tokens de atualização estão em cache para a sessão autenticada, e são acessíveis apenas pelo utilizador associado.  
 
 Se não precisar de trabalhar com fichas na sua aplicação, pode desativar a loja simbólica.
 
@@ -81,8 +82,11 @@ O Serviço de Aplicações utiliza [identidade federada,](https://en.wikipedia.o
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
+| Qualquer fornecedor [de Ligação OpenID](https://openid.net/connect/) (pré-visualização) | `/.auth/login/<providerName>` |
 
-Quando permite a autenticação e autorização com um destes fornecedores, o seu ponto final de inscrição está disponível para autenticação do utilizador e para validação de fichas de autenticação do fornecedor. Pode fornecer aos seus utilizadores qualquer uma destas opções de inscrição com facilidade. Também pode integrar outro fornecedor de identidade ou [a sua própria solução de identidade personalizada.][custom-auth]
+Quando permite a autenticação e autorização com um destes fornecedores, o seu ponto final de inscrição está disponível para autenticação do utilizador e para validação de fichas de autenticação do fornecedor. Pode fornecer aos seus utilizadores qualquer uma destas opções de inscrição com facilidade.
+
+Existe um [caminho de extensibilidade para][custom-auth] a integração com outros fornecedores de identidade ou uma solução de auth personalizada, mas isso não é recomendado. Em vez disso, considere utilizar o suporte OpenID Connect.
 
 ## <a name="authentication-flow"></a>Fluxo de autenticação
 
@@ -112,7 +116,7 @@ Para os navegadores de clientes, o Serviço de Aplicações pode automaticamente
 
 No [portal Azure,](https://portal.azure.com)pode configurar a autorização do Serviço de Aplicações com vários comportamentos quando o pedido de entrada não for autenticado.
 
-![](media/app-service-authentication-overview/authorization-flow.png)
+![Uma imagem mostrando o dropdown "Action to take when request is not autenticado"](media/app-service-authentication-overview/authorization-flow.png)
 
 Os seguintes títulos descrevem as opções.
 
@@ -150,13 +154,14 @@ Guias específicos do fornecedor:
 * [Como configurar a sua aplicação para utilizar o início de sessão do Google][Google]
 * [Como configurar a sua aplicação para utilizar o início de sessão da conta Microsoft][MSA]
 * [Como configurar a sua aplicação para utilizar o início de sessão do Twitter][Twitter]
-* [Como: Utilize a autenticação personalizada para a sua aplicação][custom-auth]
+* [Como configurar a sua aplicação para utilizar um fornecedor OpenID Connect para login (pré-visualização)][OIDC]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md
 [Google]: configure-authentication-provider-google.md
 [MSA]: configure-authentication-provider-microsoft.md
 [Twitter]: configure-authentication-provider-twitter.md
+[OIDC]: configure-authentication-provider-openid-connect.md
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 

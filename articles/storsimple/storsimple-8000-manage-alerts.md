@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 36f416183bd44180bee59142714e924e0ac8fefe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf41232026fcb51e63cb68d6f42b7b66d14022e1
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830048"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207795"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Utilize o serviço StorSimple Device Manager para visualizar e gerir alertas StorSimple
 
@@ -199,8 +199,8 @@ Se a conectividade em nuvem falhar no seu dispositivo de produção StorSimple, 
 
 ### <a name="performance-alerts"></a>Alertas de desempenho
 
-| Texto de alerta | Evento | Mais informações / ações recomendadas | |
-|:--- |:--- |:--- | --- |
+| Texto de alerta | Evento | Mais informações / ações recomendadas |
+|:--- |:--- |:--- |
 | A carga do dispositivo excedeu <*limiar*>. |Tempos de resposta mais lentos do que o esperado. |O seu dispositivo relata a utilização sob uma carga de entrada/saída pesada. Isto pode fazer com que o seu dispositivo não funcione tão bem como deveria. Reveja as cargas de trabalho que tem anexado ao dispositivo e determine se existem alguma que possa ser movida para outro dispositivo ou que já não sejam necessárias.|
 | Não foi possível iniciar o serviço StorSimple. |Erro do Datapath |Se o problema persistir, contacte o Microsoft Support. |
 
@@ -226,6 +226,6 @@ Se a conectividade em nuvem falhar no seu dispositivo de produção StorSimple, 
 |:--- |:--- |:--- |
 | Componente de hardware O sensor de temperatura ambiente reporta o estado falhado.  | Tipo de recinto: Recinto principal | Este alerta é acionado quando a temperatura ambiente exterior em torno de StorSimple está acima de um alcance aceitável. Verifique a temperatura exterior ambiente ou o fluxo de ar da ventilação cacífa no centro de dados. Quando a temperatura volta ao normal, o alerta é automaticamente apagado após algum tempo decorrido. Se o problema persistir, contacte o suporte da Microsoft.   |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [erros StorSimple e problemas de implementação do dispositivo de resolução de problemas](storsimple-8000-troubleshoot-deployment.md).

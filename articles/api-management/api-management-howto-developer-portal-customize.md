@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 345b4950e25f48eb1a48c5e583908d0f771771ba
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79244098"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206238"
 ---
 # <a name="access-and-customize-developer-portal"></a>Aceder e personalizar portal de desenvolvedores
 
@@ -79,9 +80,9 @@ O styling guide é um painel criado com designers em mente. Permite supervisiona
 
 Para editar uma variante, clique nela e selecione o ícone de lápis que aparece em cima dela. Assim que fizer as alterações na janela pop-up, feche-a.
 
-### <a name="save-button"></a>Guardar botão
+### <a name="save-button"></a>Botão Guardar
 
-![Guardar botão](media/api-management-howto-developer-portal-customize/save-button.png)
+![Botão Guardar](media/api-management-howto-developer-portal-customize/save-button.png)
 
 Sempre que fizer uma alteração no portal, tem de guardá-lo manualmente premindo o botão **Guardar** no menu na parte inferior. Quando guarda as alterações, o conteúdo modificado é automaticamente enviado para o seu serviço de Gestão API.
 
@@ -129,7 +130,8 @@ Depois de publicar o portal, pode aceder-lhe no mesmo URL que o painel administr
 
 É necessário ativar o CORS (partilha de recursos de origem cruzada) nas suas APIs para permitir que os visitantes do seu portal testem as APIs através da consola interativa incorporada. Consulte [este artigo de documentação](api-management-howto-developer-portal.md#cors) para mais detalhes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
+- [Otimize e poupe nos gastos na nuvem](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 Saiba mais sobre o portal de desenvolvedores:
 

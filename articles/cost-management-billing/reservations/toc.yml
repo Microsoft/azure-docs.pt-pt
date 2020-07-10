@@ -1,0 +1,125 @@
+- name: Documentação do Azure Reservations
+  href: index.yml?toc=/azure/cost-management-billing/reservations/toc.json
+- name: Descrição geral
+  expanded: true
+  items:
+    - name: O que é o Azure Reservations?
+      href: save-compute-costs-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
+- name: Guias de procedimentos
+  items:
+    - name: Determinar o que comprar
+      items:
+        - name: Escolher a reserva para comprar
+          href: determine-reservation-purchase.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Comprar reservas
+      items:
+        - name: Comprar uma reserva do Azure
+          href: prepare-buy-reservation.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Serviço de Aplicações
+          href: prepay-app-service-isolated-stamp.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Reserva da Cache do Azure para Redis
+          href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: BD do Cosmos
+          href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Databricks
+          href: prepay-databricks-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Data Explorer
+          href: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Armazenamento em Disco
+          href: ../../virtual-machines/linux/disks-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Dedicated Host
+          href: ../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Planos de software
+          href: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Storage do Azure
+          href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: SQL Database
+          href: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Base de Dados do Azure para PostgreSQL
+          href: ../../postgresql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Base de Dados do Azure para MySQL
+          href: ../../mysql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Azure Database for MariaDB
+          href: ../../mariadb/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Azure Synapse Analytics
+          href: prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Máquinas virtuais
+          href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: 'Ver, Gerir e Otimizar após a compra'
+      items:
+        - name: Ver reservas e utilização
+          href: view-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Gerir reservas
+          href: manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Alterar a definição de otimização
+          href: manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances
+        - name: Reservas de troca e reembolso
+          href: exchange-and-refund-azure-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Comunicar custos
+      items:
+        - name: Ver transações de reserva
+          href: view-purchase-refunds.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Amortizar custos das reservas
+          href: charge-back-usage.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Renovar reservas
+      items:
+        - name: Renovar uma reserva
+          href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
+- name: Conceitos
+  items:
+    - name: Como são criadas as recomendações de reservas
+      href: reserved-instance-purchase-recommendations.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Como é aplicado o desconto
+      items:
+        - name: Como é aplicado um desconto de reserva do Azure
+          href: reservation-discount-application.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Serviço de Aplicações
+          href: reservation-discount-app-service-isolated-stamp.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Cache do Azure para Redis
+          href: understand-azure-cache-for-redis-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: BD do Cosmos
+          href: understand-cosmosdb-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Database for MariaDB
+          href: understand-reservation-charges-mariadb.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Base de Dados para MySQL
+          href: understand-reservation-charges-mysql.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Base de Dados para PostgreSQL
+          href: understand-reservation-charges-postgresql.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Databricks
+          href: reservation-discount-databricks.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Data Explorer
+          href: understand-azure-data-explorer-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Dedicated Hosts
+          href: billing-understand-dedicated-hosts-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Armazenamento em Disco
+          href: understand-disk-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Red Hat Linux Enterprise
+          href: understand-rhel-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Planos de software
+          href: understand-suse-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Armazenamento
+          href: understand-storage-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: SQL Database
+          href: understand-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Azure Synapse Analytics
+          href: reservation-discount-azure-sql-dw.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Máquinas virtuais
+          href: ../manage/understand-vm-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Custos do Windows e do SQL não incluídos
+      href: reserved-instance-windows-software-costs.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Dados de utilização de subscrições individuais
+      href: understand-reserved-instance-usage.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Dados de utilização de clientes Enterprise
+      href: understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/reservations/toc.json
+- name: Referência
+  items:
+    - name: API REST de Reservas
+      href: reservation-apis.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Reservas - Azure PowerShell
+      href: /powershell/module/azurerm.reservations
+    - name: Reservas - CLI
+      href: /cli/azure/reservations/reservation
+    - name: Cost Management - API REST de Detalhes de Utilização de Consumo
+      href: /rest/api/consumption/usagedetails
+    - name: Cost Management - API REST de Detalhes de Reservas de Consumo
+      href: /rest/api/consumption/reservationsdetails

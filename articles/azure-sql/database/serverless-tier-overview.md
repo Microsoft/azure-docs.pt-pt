@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 7/6/2020
-ms.openlocfilehash: 130b19f280c69bfbe4ca49abe1bcba5db7f23caa
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 7/9/2020
+ms.openlocfilehash: 38ca6528b77d9f36c84f5aacaa34a64d113b5978
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045965"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206944"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -132,7 +132,7 @@ A autoresuming é desencadeada se alguma das seguintes condições for verdadeir
 |Deteção e classificação de dados|Adicionar, modificar, eliminar ou visualizar rótulos de sensibilidade|
 |Auditoria|A ver registos de auditoria.<br>Atualizar ou visualizar a política de auditoria.|
 |Máscara de dados|Adicionar, modificar, eliminar ou ver regras de mascaramento de dados|
-|Encriptação de Dados Transparente|Ver estado ou estado de encriptação de dados transparentes|
+|Encriptação de dados transparente|Ver estado ou estado de encriptação de dados transparentes|
 |Avaliação de vulnerabilidades|Exames ad hoc e exames periódicos se ativados|
 |Loja de dados de consulta (desempenho)|Modificar ou visualizar definições de lojas de consultas|
 |Autofinar|Aplicação e verificação de recomendações de autotuning, tais como auto-indexação|
@@ -272,7 +272,7 @@ O conjunto de recursos do utilizador é o limite de gestão de recursos mais int
 
 As métricas para monitorizar a utilização de recursos do pacote de aplicações e o conjunto de utilizadores de uma base de dados sem servidor estão listadas na seguinte tabela:
 
-|Entidade|Metric|Descrição|Unidades|
+|Entidade|Métrica|Descrição|Unidades|
 |---|---|---|---|
 |Pacote de aplicações|app_cpu_percent|Percentagem de vCores utilizados pela app relativa ao max vCores permitido para a aplicação.|Percentagem|
 |Pacote de aplicações|app_cpu_billed|A quantidade de cálculo faturada para a app durante o período de reporte. O valor pago durante este período é o produto desta métrica e do preço unitário vCore. <br><br>Os valores desta métrica são determinados agregando ao longo do tempo o máximo de CPU utilizado e a memória utilizada a cada segundo. Se o montante utilizado for inferior ao montante mínimo previsto pela memória min vCores e min, então o montante mínimo previsto é faturado.Para comparar o CPU com a memória para efeitos de faturação, a memória é normalizada em unidades de vCores redimensionando a quantidade de memória em GB por 3 GB por vCore.|vCore segundos|
@@ -325,6 +325,19 @@ A quantidade de cálculo faturada é exposta pela seguinte métrica:
 
 Esta quantidade é calculada a cada segundo e agregada ao longo de 1 minuto.
 
+### <a name="minimum-compute-bill"></a>Conta de computação mínima
+
+Se uma base de dados sem servidor for pausada, a conta de cálculo é zero.  Se uma base de dados sem servidor não for pausada, então a conta de cálculo mínima não é inferior à quantidade de vCores com base no máximo (min vCores, memória min GB * 1/3).
+
+Exemplos:
+
+- Suponha que uma base de dados sem servidor não seja pausada e configurada com 8 vCores máximos e 1 min vCore correspondente a 3,0 GB de memória.  Em seguida, a conta mínima de cálculo baseia-se no máximo (1 vCore, 3.0 GB * 1 vCore / 3 GB) = 1 vCore.
+- Suponha que uma base de dados sem servidor não seja pausada e configurada com 4 vCores máximos e 0,5 min vCores correspondentes a 2,1 GB de memória min.  Em seguida, a conta mínima de cálculo baseia-se no máximo (0,5 vCores, 2.1 GB * 1 vCore / 3 GB) = 0,7 vCores.
+
+A [calculadora de preços da Base de Dados Azure SQL](https://azure.microsoft.com/pricing/calculator/?service=sql-database) para sem servidor pode ser utilizada para determinar a memória min configurável com base no número de max e min vCores configurados.  Em regra, se o min vCores configurado for superior a 0.5 vCores, então a conta de cálculo mínima é independente da memória min configurada e baseada apenas no número de min vCores configurados.
+
+### <a name="example-scenario"></a>Cenário de exemplo
+
 Considere uma base de dados sem servidor configurada com 1 min vCore e 4 max vCores.  Isto corresponde a cerca de 3 GB de memória e memória máxima de 12 GB.  Suponha que o atraso de pausa automática esteja definido para 6 horas e a carga de trabalho da base de dados esteja ativa durante as primeiras 2 horas de um período de 24 horas e de outra forma inativa.    
 
 Neste caso, a base de dados é faturada para computação e armazenamento durante as primeiras 8 horas.  Apesar de a base de dados estar inativa a partir da segunda hora, ainda é faturada para o cálculo nas 6 horas seguintes com base no cálculo mínimo previsto enquanto a base de dados está online.  Apenas o armazenamento é faturado durante o resto do período de 24 horas enquanto a base de dados é interrompida.
@@ -349,7 +362,7 @@ O Azure Hybrid Benefit (AHB) e os descontos de capacidade reservados não se apl
 
 O nível de computação sem servidores está disponível em todo o mundo, exceto as seguintes regiões: China East, China North, Germany Central, Germany Northeast, e US Gov Central (Iowa).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar, consulte [Quickstart: Crie uma única base de dados na Base de Dados Azure SQL utilizando o portal Azure](single-database-create-quickstart.md).
 - Para obter limites de recursos, consulte [os limites de recursos de nível de cálculo serverless](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5).

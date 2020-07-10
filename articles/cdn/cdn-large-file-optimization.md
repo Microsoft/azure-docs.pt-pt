@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 22ec4058d9485858489162af223bb6d6c381797e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fb136b6c37c8ef14f85455431fea80099088936
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887652"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206723"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Otimização de descarregamento de ficheiros grandes com Azure CDN
 
@@ -107,11 +107,10 @@ O CDN caches qualquer pedaço à medida que são recebidos. Todo o ficheiro não
 ### <a name="caching"></a>Colocação em cache
 A otimização de ficheiros grandes utiliza diferentes tempos de validade da validade da entrega geral da web. Diferencia entre caching positivo e caching negativo com base em códigos de resposta HTTP. Se o servidor de origem especificar um tempo de validade através de um cache-controle ou expirar o cabeçalho na resposta, o CDN honra esse valor. Quando a origem não especifica e o ficheiro corresponde às condições de tipo e tamanho para este tipo de otimização, o CDN utiliza os valores predefinidos para a otimização de ficheiros de grande dimensão. Caso contrário, o CDN utiliza predefinições para a entrega geral da web.
 
-
-|    | Teia geral | Otimização de ficheiros grandes 
+| Colocação em cache  | Teia geral | Otimização de ficheiros grandes 
 --- | --- | --- 
 Caching: Positivo <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 dias |1 dia  
-Caching: Negativo <br> HTTP 204, 305, 404, <br> e 405 | Nenhuma | 1 segundo 
+Caching: Negativo <br> HTTP 204, 305, 404, <br> e 405 | Nenhum | 1 segundo 
 
 ### <a name="deal-with-origin-failure"></a>Lidar com falha de origem
 

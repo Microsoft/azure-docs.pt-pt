@@ -19,21 +19,26 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b43c46599cbacaf40bc9583e364d088fa27a3ac9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1748a334c024401d845145947ecd55519f61e5e3
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113114"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206916"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>Função OData `search.in` em Pesquisa Cognitiva Azure
 
 Um cenário comum nas [expressões de filtro OData](query-odata-filter-orderby-syntax.md) é verificar se um único campo em cada documento é igual a um de muitos valores possíveis. Por exemplo, é assim que algumas aplicações [implementam o corte de segurança](search-security-trimming-for-azure-search.md) -- verificando um campo contendo um ou mais IDs principais contra uma lista de IDs principais que representam o utilizador que emite a consulta. Uma maneira de escrever uma consulta como esta é usar o [`eq`](search-query-odata-comparison-operators.md) e [`or`](search-query-odata-logical-operators.md) os operadores:
 
+```odata-filter-expr
     group_ids/any(g: g eq '123' or g eq '456' or g eq '789')
+```
 
 No entanto, há uma maneira mais curta de escrever isto, usando a `search.in` função:
 
+```odata-filter-expr
     group_ids/any(g: search.in(g, '123, 456, 789'))
+```
 
 > [!IMPORTANT]
 > Além de ser mais curto e fácil de ler, o uso `search.in` também proporciona [benefícios](#bkmk_performance) de desempenho e evita [certas limitações de tamanho dos filtros](search-query-odata-filter.md#bkmk_limits) quando há centenas ou mesmo milhares de valores para incluir no filtro. Por esta razão, recomendamos vivamente a `search.in` utilização, em vez de uma disjunção mais complexa das expressões de igualdade.
@@ -41,7 +46,7 @@ No entanto, há uma maneira mais curta de escrever isto, usando a `search.in` fu
 > [!NOTE]
 > A versão 4.01 da norma OData introduziu recentemente o [ `in` operador](https://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), que tem um comportamento semelhante ao da `search.in` função em Azure Cognitive Search. No entanto, a Azure Cognitive Search não suporta este operador, pelo que deve utilizar a `search.in` função.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 O seguinte EBNF[(Formulário Backus-Naur alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática da `search.in` função:
 
@@ -85,25 +90,35 @@ Se `search.in` utilizar, pode esperar tempo de resposta de segundo quando o segu
 
 Encontre todos os hotéis com nome igual a 'Sea View motel' ou 'Budget hotel'. As frases contêm espaços, que é um delimiter padrão. Pode especificar um limontinho alternativo em cotações simples como o terceiro parâmetro de cadeia:  
 
+```odata-filter-expr
     search.in(HotelName, 'Sea View motel,Budget hotel', ',')
+```
 
 Encontre todos os hotéis com nome igual a 'Sea View motel' ou 'Budget hotel' separados por '/'):
 
+```odata-filter-expr
     search.in(HotelName, 'Sea View motel|Budget hotel', '|')
+```
 
 Encontre todos os hotéis com quartos com a etiqueta 'wifi' ou 'tub':
 
+```odata-filter-expr
     Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub')))
+```
 
 Encontre uma correspondência em frases dentro de uma coleção, tais como "toalheiros aquecidos" ou "secador de cabelo incluído" em etiquetas.
 
+```odata-filter-expr
     Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
+```
 
 Encontre todos os hotéis sem a etiqueta 'motel' ou 'cabine':
 
+```odata-filter-expr
     Tags/all(tag: not search.in(tag, 'motel, cabin'))
+```
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 - [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
 - [Visão geral da linguagem de expressão OData para pesquisa cognitiva do Azure](query-odata-filter-orderby-syntax.md)

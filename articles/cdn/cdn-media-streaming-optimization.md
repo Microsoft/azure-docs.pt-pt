@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 1f8dc5ef89c70cebce1d59fc389300b30dc828f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edc2198cff360b6f0d2f6ace3b76d35bf77fab97
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887609"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206726"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Otimização de streaming de mídia com Azure CDN 
  
@@ -82,12 +82,11 @@ Depois de criar o ponto final, aplica a otimização para todos os ficheiros que
 Se **o Azure CDN Standard da Akamai** detetar que o ativo é um manifesto de streaming ou fragmento, utiliza diferentes tempos de validade do caching da entrega geral da web. (Ver a lista completa na tabela seguinte.) Como sempre, os cabeçalhos de cache ou expira enviados da origem são honrados. Se o ativo não for um ativo de mídia, ele caches usando os tempos de validade para a entrega geral da web.
 
 O curto tempo negativo de caching é útil para o descarregamento de origem quando muitos utilizadores pedem um fragmento que ainda não existe. Um exemplo é um live stream onde os pacotes não estão disponíveis a partir da origem que segundo. O intervalo de caching mais longo também ajuda a descarregar pedidos da origem porque o conteúdo de vídeo não é tipicamente modificado.
- 
 
-|   | Entrega geral da web | Streaming de meios de comunicação geral | Streaming de meios de vídeo a pedido  
---- | --- | --- | ---
-Caching: Positivo <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 dias |365 dias | 365 dias   
-Caching: Negativo <br> HTTP 204, 305, 404, <br> e 405 | Nenhuma | 1 segundo | 1 segundo
+| Colocação em cache  | Entrega geral da web | Streaming de meios de comunicação geral | Streaming de meios de vídeo a pedido  
+|--- | --- | --- | ---
+| Caching: Positivo <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 dias |365 dias | 365 dias   
+| Caching: Negativo <br> HTTP 204, 305, 404, <br> e 405 | Nenhum | 1 segundo | 1 segundo
  
 ### <a name="deal-with-origin-failure"></a>Lidar com falha de origem  
 

@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 205a4bd119a7324c4e6524a0e29d432aa57bf315
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 2b547dbc8671481275952f4c3eae5683e9e3a06c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848216"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207540"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Balanceador de Carga frequentemente fez perguntas
 
@@ -49,5 +49,9 @@ Ao utilizar o comando nslookup, pode enviar uma consulta DNS para o nome myip.op
 ## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>Como funcionam as ligações com o Azure Storage na mesma região?
 Ter conectividade de saída através dos cenários acima não é necessário ligar ao Armazenamento na mesma região que o VM. Se não quiser, utilize grupos de segurança de rede (NSGs) como explicado acima. Para a conectividade com o Armazenamento noutras regiões, é necessária conectividade de saída. Por favor, note que ao ligar ao Armazenamento a partir de um VM na mesma região, o endereço IP de origem nos registos de diagnóstico de Armazenamento será um endereço interno do fornecedor, e não o endereço IP público do seu VM. Se pretender restringir o acesso à sua conta de Armazenamento a VMs numa ou mais sub-redes de Rede Virtual na mesma região, utilize [os pontos finais do serviço de Rede Virtual](../virtual-network/virtual-network-service-endpoints-overview.md) e não o endereço IP público ao configurar a firewall da sua conta de armazenamento. Uma vez configurados os pontos finais do serviço, verá o seu endereço IP privado da Rede Virtual nos seus registos de diagnóstico de Armazenamento e não no endereço do fornecedor interno.
 
+## <a name="what-are-best-practises-with-respect-to-outbound-connectivity"></a>Quais são as melhores práticas no que diz respeito à conectividade de saída?
+O Balancer de Carga Padrão e o IP Público Standard introduzem habilidades e comportamentos diferentes para a conectividade de saída. Não são os mesmos que os SKUs básicos. Se quiser conectividade de saída ao trabalhar com SKUs padrão, deve defini-lo explicitamente com endereços IP públicos padrão ou Balancer de Carga pública Padrão. Isto inclui a criação de conectividade de saída quando se utiliza um Balancer de Carga Padrão interno. Recomendamos que utilize sempre regras de saída num Balanceador de Carga público Standard. Isto significa que quando um Balancer de Carga Padrão interno é utilizado, você precisa tomar medidas para criar conectividade de saída para os VMs na piscina de backend se a conectividade de saída for desejada. No contexto da conectividade de saída, um VM autónomo único, todos os VM's num Conjunto de Disponibilidade, todas as instâncias de um VMSS comportam-se em grupo. Isto significa que, se um único VM num Conjunto de Disponibilidade estiver associado a um SKU Standard, todos os casos de VM dentro deste Conjunto de Disponibilidades comportam-se agora pelas mesmas regras que se estão associados ao SKU padrão, mesmo que um caso individual não esteja diretamente associado a ele. Este comportamento também é observado no caso de um VM autónomo com vários cartões de interface de rede ligados a um equilibrador de carga. Se um NIC for adicionado como um autónomo, terá o mesmo comportamento. Reveja cuidadosamente todo este documento para compreender os conceitos globais, reveja o [Balanceador de Carga Padrão](load-balancer-standard-overview.md) para as diferenças entre SKUs e reveja [as regras de saída](load-balancer-outbound-connections.md#outboundrules).
+A utilização de regras de saída permite-lhe um controlo fino sobre todos os aspetos da conectividade de saída.
+ 
 ## <a name="next-steps"></a>Passos Seguintes
 Se a sua pergunta não estiver listada acima, por favor envie feedback sobre esta página com a sua pergunta. Isto criará um problema gitHub para a equipa de produtos para garantir que todas as nossas valiosas perguntas de clientes são respondidas.

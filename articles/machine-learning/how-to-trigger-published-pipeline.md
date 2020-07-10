@@ -3,19 +3,20 @@ title: Pipeline ML de gatilho para novos dados
 titleSuffix: Azure Machine Learning
 description: Aprenda a desencadear o funcionamento de um oleoduto ML utilizando aplicações lógicas Azure.
 services: machine-learning
-author: sanpil
-ms.author: sanpil
+author: NilsPohlmann
+ms.author: nilsp
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 02/07/2020
 ms.custom: contperfq4
-ms.openlocfilehash: b56b07bce558a65df79a23eaf1948aac8e4fabad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d6222b4ea0e30997b3b55adb887c839fef6e624
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433766"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207410"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Desencadear uma corrida de um pipeline de Machine Learning a partir de uma App Lógica
 
@@ -36,7 +37,7 @@ Desencadeie o funcionamento do seu Pipeline de Aprendizagem de Máquinas Azure q
 * [Armazenamento de bolhas Azure](../storage/blobs/storage-blobs-overview.md) para armazenar os seus dados.
 * [Uma loja de dados](how-to-access-data.md) no seu espaço de trabalho que contém os detalhes da sua conta de armazenamento de bolhas.
 
-## <a name="create-a-logic-app"></a>Criar uma Aplicação Lógica
+## <a name="create-a-logic-app"></a>Criar uma aplicação do Logic Apps
 
 Agora crie uma instância [da Azure Logic App.](../logic-apps/logic-apps-overview.md) Se desejar, [utilize um ambiente de serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) e crie uma chave gerida pelo [cliente](../logic-apps/customer-managed-keys-integration-service-environment.md) para utilização pela sua App Lógica.
 
@@ -90,6 +91,6 @@ Uma vez que a sua App Lógica tenha sido aprovisionada, utilize estes passos par
     Utilize o `DataStoreName` seu espaço de trabalho como [pré-requisito.](#prerequisites)
      
     > [!div class="mx-imgBorder"]
-    > ![Definições HTTP](media/how-to-trigger-published-pipeline/http-settings.png)
+    > ![Definições de HTTP](media/how-to-trigger-published-pipeline/http-settings.png)
 
 1. **Selecione Save** e a sua agenda está agora pronta.

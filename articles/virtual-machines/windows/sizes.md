@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 8f91727ddc131b1f44acb4303a2368aed1890223
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a60200bd35d142b8b55a40d6912f946f9421f52e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783304"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207654"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Tamanhos de máquinas virtuais do Windows no Azure
 
@@ -19,7 +20,7 @@ Este artigo descreve os tamanhos e opções disponíveis para as máquinas virtu
 
 | Tipo | Tamanhos | Descrição |
 |------|-------|-------------|
-| [Fins gerais](../sizes-general.md) | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC, DCv2, Dv4, Dsv4, Ddv4, Ddsv4 | Relação CPU-memória equilibrada. Ideais para testes e programação, bases de dados pequenas a médias e servidores Web de tráfego baixo a médio. |
+| [Fins gerais](../sizes-general.md) | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC, DCv2, Dv4, Dsv4, Ddv4, Ddsv4 | Relação CPU-memória equilibrada. Ideais para testes e desenvolvimento, bases de dados pequenas a médias e servidores Web de tráfego baixo a médio. |
 | [Com otimização de computação](../sizes-compute.md) | Fsv2 | Elevado rácio CPU-memória. Bom para servidores web de tráfego médio, aparelhos de rede, processos de lote e servidores de aplicações. |
 | [Com otimização de memória](../sizes-memory.md) | Esv3, Ev3, Easv4, Eav4, Ev4, Esv4, Edv4, Edsv4, Mv2, M, DSv2, Dv2 | Relação memória alta-CPU. Ideais para servidores de bases de dados relacionais, caches médias a grandes e análise dentro da memória. |
 | [Com otimização de armazenamento](../sizes-storage.md)  | Lsv2 | Alta produção de disco e IO ideal para Big Data, SQL, bases de dados NoSQL, armazenamento de dados e grandes bases de dados transacionais.  |
@@ -47,7 +48,11 @@ Saiba mais sobre como [as unidades de computação Azure (ACU)](../acu.md) podem
 
 Saiba mais sobre o desempenho do cálculo dos VMs do Windows utilizando as [pontuações de referência](compute-benchmark-scores.md)do CoreMark .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="manage-costs"></a>Gerir os custos
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
+
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os diferentes tamanhos VM que estão disponíveis:
 
@@ -55,6 +60,6 @@ Saiba mais sobre os diferentes tamanhos VM que estão disponíveis:
 - [Com otimização de computação](../sizes-compute.md)
 - [Com otimização de memória](../sizes-memory.md)
 - [Com otimização de armazenamento](../sizes-storage.md)
-- [Com otimização de GPU](../sizes-gpu.md)
+- [Otimizada para GPU](../sizes-gpu.md)
 - [Computação de elevado desempenho](../sizes-hpc.md)
 - Consulte a página de [geração anterior](../sizes-previous-gen.md) para obter uma série Standard, Dv1 (D1-4 e D11-14 v1) e A8-A11

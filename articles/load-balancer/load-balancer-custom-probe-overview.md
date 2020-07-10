@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: a96e22ee8d2f9565ae676574e263beae96b5c1f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e00d6b674453f12f94a2859f9b0533aea0e7332c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809413"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207547"
 ---
 # <a name="load-balancer-health-probes"></a>Sondas de estado de funcionamento do Balanceador de Carga
 
@@ -29,8 +29,8 @@ As sondas de saúde suportam vários protocolos. A disponibilidade de um protoco
 
 | | SKU Standard | SKU Básico |
 | --- | --- | --- |
-| [Tipos de sonda](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Sonda para baixo comportamento](#probedown) | Todas as sondas para baixo, todos os fluxos de TCP continuam. | Todas as sondas para baixo, todos os fluxos de TCP expiram. | 
+| **[Tipos de sonda](#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
+| **[Sonda para baixo comportamento](#probedown)** | Todas as sondas para baixo, todos os fluxos de TCP continuam. | Todas as sondas para baixo, todos os fluxos de TCP expiram. | 
 
 
 >[!IMPORTANT]
@@ -92,8 +92,8 @@ Os protocolos disponíveis dependem do Balanceador de Carga utilizado:
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
-| SKU Standard |    &#9989; |   &#9989; |   &#9989; |
-| SKU Básico |   &#9989; |   &#9989; | &#10060; |
+| **SKU Standard** |    &#9989; |   &#9989; |   &#9989; |
+| **SKU Básico** |   &#9989; |   &#9989; | &#10060; |
 
 ### <a name="tcp-probe"></a><a name="tcpprobe"></a>Sonda TCP
 
@@ -260,7 +260,7 @@ O Balancer de Carga Pública Básica expõe o estado da sonda de saúde resumido
 - As sondas HTTPS não suportam a autenticação mútua com um certificado de cliente.
 - Deve assumir que as sondas de saúde falharão quando os picos de tempo TCP estiverem ativados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [Balanceador de Carga Standard](load-balancer-standard-overview.md)
 - [Começar a criar um balanceador de carga pública em Resource Manager utilizando o PowerShell](quickstart-create-standard-load-balancer-powershell.md)

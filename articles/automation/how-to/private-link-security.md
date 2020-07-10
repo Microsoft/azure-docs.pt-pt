@@ -4,24 +4,27 @@ description: Utilize o Azure Private Link para ligar de forma segura as redes à
 author: mgoedtel
 ms.author: magoedte
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: fa473591355ef9e1ee582dd9c9b820dfa2f93f36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7ff659eb6fc204208c84146a2fc33c8278f7154
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85269040"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207274"
 ---
-# <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Utilize o Azure Private Link para ligar de forma segura as redes à Azure Automation
+# <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Utilize o Azure Private Link para ligar de forma segura as redes à Azure Automation (pré-visualização)
 
 O Ponto Final Privado do Azure é uma interface de rede que o liga a um serviço de forma privada e segura com a tecnologia Azure Private Link. O Private Endpoint utiliza um endereço IP privado a partir do seu VNet, efetivamente trazendo o serviço de Automação para o seu VNet. O tráfego de rede entre as máquinas do VNet e a conta Automation atravessa o VNet e uma ligação privada na rede de espinha dorsal da Microsoft, eliminando a exposição da internet pública.
 
-Por exemplo, tem um VNet onde desativou o acesso à Internet de saída. No entanto, pretende aceder à sua conta de Automação em privado e utilizar funcionalidades de Automação como Webhooks, Configuração do Estado e trabalhos de runbook em Trabalhadores De Runbook Híbridos. Além disso, pretende que os utilizadores tenham acesso à conta Automation apenas através do VNET. Isto pode ser conseguido através da implantação de pontos finais privados.
+Por exemplo, tem um VNet onde desativou o acesso à Internet de saída. No entanto, pretende aceder à sua conta de Automação em privado e utilizar funcionalidades de Automação como Webhooks, Configuração do Estado e trabalhos de runbook em Trabalhadores De Runbook Híbridos. Além disso, pretende que os utilizadores tenham acesso à conta Automation apenas através do VNET.  A implantação de ponto final privado alcança estes objetivos.
 
-Este artigo abrange quando usar e como configurar um ponto final privado com a sua conta Automation.
+Este artigo abrange quando usar e como configurar um ponto final privado com a sua conta Automation (pré-visualização).
 
 ![Visão geral conceptual do Link Privado para Azure Automation](./media/private-link-security/private-endpoints-automation.png)
+
+>[!NOTE]
+> O suporte private Link com a Azure Automation (pré-visualização) está disponível apenas nas nuvens do Governo Azure Commercial e Azure US.
 
 ## <a name="advantages"></a>Vantagens
 
@@ -46,25 +49,27 @@ A Azure Automation Private Link liga um ou mais pontos finais privados (e, porta
 
 Depois de criar pontos finais privados para automação, cada um dos URLs de Automação virados para o público, que você ou uma máquina pode contactar diretamente, está mapeado para um ponto final privado no seu VNet.
 
+Como parte do lançamento de pré-visualização, uma conta Automation não pode aceder aos recursos da Azure que são protegidos usando o ponto final privado. Por exemplo, Azure Key Vault, Azure SQL, Conta de Armazenamento Azure, etc.
+
 ### <a name="webhook-scenario"></a>Cenário Webhook
 
-Você pode começar os runbooks fazendo um POST no URL webhook. Por exemplo, o URL é assim:`https://<automationAccountId>.webhooks. <region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
+Você pode começar os runbooks fazendo um POST no URL webhook. Por exemplo, o URL parece:`https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
 
 ### <a name="state-configuration-agentsvc-scenario"></a>Cenário de configuração do estado (agentesvc)
 
 A Configuração do Estado fornece-lhe um serviço de gestão de configuração Azure que lhe permite escrever, gerir e compilar configurações de Configuração do Estado (DSC) de PowerShell Desired (DSC) para nós em qualquer datacenter de nuvem ou no local.
 
-O agente na máquina regista-se com o serviço DSC e, em seguida, utiliza o ponto final de serviço para puxar a configuração do DSC. O ponto final do serviço de agente é o seguinte: `https://<automationAccountId>.agentsvc.<region>.azure-automation.net` .
+O agente na máquina regista-se com o serviço DSC e, em seguida, utiliza o ponto final de serviço para puxar a configuração do DSC. O ponto final do serviço de agente parece: `https://<automationAccountId>.agentsvc.<region>.azure-automation.net` .
 
 O URL para o ponto final & privado público seria o mesmo, no entanto, seria mapeado para um endereço IP privado quando o link privado está ativado.
 
 ## <a name="planning-based-on-your-network"></a>Planeamento com base na sua rede
 
-Antes de configurar o seu recurso de conta Automation, considere os requisitos de isolamento da sua rede. Avalie o acesso das suas redes virtuais à internet pública e as restrições de acesso à sua conta de Automação (incluindo a criação de um Âmbito do Grupo de Ligação Privada para Registos de Monitores Azure se estiver integrado na sua conta Demôm automação).
+Antes de configurar o seu recurso de conta Automation, considere os requisitos de isolamento da sua rede. Avalie o acesso das suas redes virtuais à internet pública e as restrições de acesso à sua conta de Automação (incluindo a criação de um Âmbito do Grupo de Ligação Privada para Registos de Monitores Azure se estiver integrado na sua conta Demôm automação). Inclua também uma revisão dos [registos DNS](./automation-region-dns-records.md) do serviço de Automação como parte do seu plano para garantir que as funcionalidades suportadas funcionem sem problemas.
 
 ### <a name="connect-to-a-private-endpoint"></a>Ligar-se a um ponto final privado
 
-Crie um ponto final privado para ligar a nossa rede. Pode fazer esta tarefa no [portal Azure Private Link center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Uma vez aplicadas as alterações ao publicNetaccess e ao link privado, pode demorar até 35 minutos para que produzam efeitos.
+Crie um ponto final privado para ligar a nossa rede. Pode criá-lo no [portal Azure Private Link center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Uma vez aplicadas as alterações ao publicNetaccess e ao link privado, pode demorar até 35 minutos para que produzam efeitos.
 
 Nesta secção, irá criar um ponto final privado para a sua conta Demôm automação.
 
@@ -72,7 +77,7 @@ Nesta secção, irá criar um ponto final privado para a sua conta Demôm automa
 
 2. No **Private Link Center - Overview,** sobre a opção de construir uma **ligação privada a um serviço**, selecione **Start**.
 
-3. Na **Criar uma máquina virtual - Básicos, insira**ou selecione esta informação:
+3. Na **Criação de uma máquina virtual - Básicos, insira**ou selecione as seguintes informações:
 
     | Definição | Valor |
     | ------- | ----- |
@@ -80,13 +85,13 @@ Nesta secção, irá criar um ponto final privado para a sua conta Demôm automa
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.  |
     | **DETALHES DE INSTÂNCIA** |  |
-    | Name | Insira o seu *PrivateEndpoint*. |
+    | Nome | Insira o seu *PrivateEndpoint*. |
     | Região | Selecione **A Sua Região**. |
     |||
 
 4. Selecione **Seguinte: Recurso**.
 
-5. Em **Criar um ponto final privado - Recurso,** insira ou selecione estas informações:
+5. Na **Criação de um ponto final privado - Recurso,** insira ou selecione as seguintes informações:
 
     | Definição | Valor |
     | ------- | ----- |
@@ -94,20 +99,20 @@ Nesta secção, irá criar um ponto final privado para a sua conta Demôm automa
     | Subscrição| Selecione a sua subscrição. |
     | Tipo de recurso | Selecione **Microsoft.Automation/automationS**. |
     | Recurso |Selecione *myAutomationAAcount*|
-    |Sub-recurso-alvo |Selecione *Webhook* ou *DSCAndHybridWorker* dependendo do seu cenário.|
+    |Subresource-alvo |Selecione *Webhook* ou *DSCAndHybridWorker* dependendo do seu cenário.|
     |||
 
 6. Selecione **Seguinte: Configuração**.
 
-7. Em **Criar um ponto final privado - Configuração,** insira ou selecione esta informação:
+7. Em **Criar um ponto final privado - Configuração,** introduzir ou selecionar as seguintes informações:
 
     | Definição | Valor |
     | ------- | ----- |
     |**NETWORKING**| |
     | Rede virtual| Selecione *MyVirtualNetwork*. |
-    | Subrede | Selecione *mySubnet*. |
+    | Sub-rede | Selecione *mySubnet*. |
     |**INTEGRAÇÃO PRIVADA DE DNS**||
-    |Integrar-se com a zona privada de DNS |Selecione **Sim**. |
+    |Integrar-se com a zona privada de DNS |Selecione **Yes** (Sim). |
     |Zona privada de DNS |Selecione *(Novo)privatelink.azure-automation.net* |
     |||
 
@@ -141,7 +146,7 @@ $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 
 ## <a name="dns-configuration"></a>Configuração do DNS
 
-Ao ligar-se a um recurso de ligação privada utilizando um FQDN como parte da cadeia de ligação, é importante configurar corretamente as definições de DNS para resolver o endereço IP privado atribuído. Os serviços Azure existentes podem já ter uma configuração DNS para utilizar ao ligar em cima de um ponto final público. Isto precisa de ser ultrapassado para se ligar utilizando o seu ponto final privado.
+Ao ligar-se a um recurso de ligação privada utilizando um nome de domínio totalmente qualificado (FQDN) como parte da cadeia de ligação, é importante configurar corretamente as definições de DNS para resolver o endereço IP privado atribuído. Os serviços Azure existentes podem já ter uma configuração DNS para utilizar ao ligar em cima de um ponto final público. A sua configuração DNS deve ser revista e atualizada para se ligar utilizando o seu ponto final privado.
 
 A interface de rede associada ao ponto final privado contém o conjunto completo de informações necessárias para configurar o seu DNS, incluindo endereços IP FQDN e privados atribuídos para um determinado recurso de ligação privada.
 
@@ -155,6 +160,6 @@ Pode utilizar as seguintes opções para configurar as definições de DNS para 
 
 Para obter mais informações, consulte [a configuração do DNS do Ponto Final Privado Azure](../../private-link/private-endpoint-dns.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o Private Endpoint, veja [o que é Azure Private Endpoint?](../../private-link/private-endpoint-overview.md)

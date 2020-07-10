@@ -1,21 +1,21 @@
 ---
 title: Use aplicativo web - Personalizer
 description: Personalize uma aplicação web C# .NET com um loop Personalizer para fornecer o conteúdo correto a um utilizador com base em ações (com funcionalidades) e funcionalidades de contexto.
-ms.topic: troubleshooting
+ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: diberry
-ms.openlocfilehash: 9def69a1540e81b99723c16ad34ba522d1737c7f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 9514e92432c2be5441dec5ff998a9deede35d7f4
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84713919"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207611"
 ---
-# <a name="add-personalizer-to-a-net-web-app"></a>Adicione Personalizer a uma aplicação web .NET
+# <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutorial: Adicione Personalizer a uma aplicação web .NET
 
 Personalize uma aplicação web C# .NET com um loop Personalizer para fornecer o conteúdo correto a um utilizador com base em ações (com funcionalidades) e funcionalidades de contexto.
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -156,7 +156,7 @@ A aplicação web usa Personalizer para selecionar a melhor ação da lista de e
 * **ações** com as suas características, tais como `taste` e`spiceLevel`
 * funcionalidades de **contexto** como `time` o dia, a preferência do utilizador `taste` e as informações do agente de utilizador do navegador, e as funcionalidades de contexto
 * **ações para excluir,** como o sumo
-* **eventid**, que é diferente para cada chamada para Rank API.
+* **eventId**, que é diferente para cada chamada para Rank API.
 
 ## <a name="personalizer-model-features-in-a-web-app"></a>Funcionalidades de modelo personalizado em uma aplicação web
 
@@ -212,7 +212,7 @@ A aplicação web baseada no navegador da amostra (todo o código é fornecido) 
 
 Instale o seguinte software:
 
-* [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1) - o servidor final da amostra utiliza .NET core
+* [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1) - o servidor back-end da amostra utiliza .NET core
 * [Node.js](https://nodejs.org/) - o cliente/front end depende desta aplicação
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)- ou [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/) - use o ambiente de desenvolvimento do Visual Studio 2019 ou o .NET Core CLI para construir e executar a app
 
@@ -570,7 +570,7 @@ Nesta aplicação de amostra, pode selecionar um valor para ver como a recompens
 
 ## <a name="additional-ways-to-learn-from-this-sample"></a>Formas adicionais de aprender com esta amostra
 
-A amostra utiliza vários eventos baseados no tempo configurados no portal Azure para o seu recurso personalizador. Jogue com esses valores e volte a esta aplicação web de amostra para ver como as mudanças impactam as chamadas Rank e Reward:
+A amostra utiliza vários eventos baseados no tempo configurados no portal Azure para o seu recurso Personalizer. Jogue com esses valores e volte a esta aplicação web de amostra para ver como as mudanças impactam as chamadas Rank e Reward:
 
 * Recompensar o tempo de espera
 * Frequência de atualização de modelos
@@ -580,7 +580,7 @@ As definições adicionais para jogar incluem:
 * Percentagem de exploração
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar este tutorial, limpe os seguintes recursos:
 

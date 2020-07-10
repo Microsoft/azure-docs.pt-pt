@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f6e8ed5baef9b8594bb1fe03942e831fd8264a56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 861e011c4bd368a274998859170e78cf444400a8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113066"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206166"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Compreender filtros de recolha OData em Pesquisa Cognitiva Azure
 
@@ -49,13 +50,17 @@ A primeira razão é apenas uma consequência de como a linguagem OData e o sist
 
 Ao aplicar vários critérios de filtro sobre uma coleção de objetos complexos, os critérios são **correlacionados** uma vez que se aplicam a *cada objeto na coleção*. Por exemplo, o seguinte filtro irá devolver hotéis que tenham pelo menos um quarto de luxo com uma taxa inferior a 100:
 
+```odata-filter-expr
     Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 100)
+```
 
 Se a filtragem não foi *correlacionada,* o filtro acima pode devolver hotéis onde um quarto é de luxo e um quarto diferente tem uma taxa base inferior a 100. Isso não faria sentido, uma vez que ambas as cláusulas da expressão lambda se aplicam à mesma variável de gama, ou `room` seja. É por isso que estes filtros estão correlacionados.
 
 No entanto, para uma pesquisa de texto completo, não há como se referir a uma variável de alcance específica. Se utilizar uma pesquisa de campo para emitir uma [consulta lucene completa](query-lucene-syntax.md) como esta:
 
+```odata-filter-expr
     Rooms/Type:deluxe AND Rooms/Description:"city view"
+```
 
 você pode obter hotéis de volta onde um quarto é de luxo, e um quarto diferente menciona "vista da cidade" na descrição. Por exemplo, o documento abaixo `Id` com o de `1` corresponderia à consulta:
 
@@ -148,19 +153,27 @@ Esta estrutura de dados destina-se a responder a uma pergunta com grande rapidez
 
 Construindo a partir da igualdade, em seguida vamos ver como é possível combinar múltiplos controlos de igualdade na mesma variável de gama com `or` . Funciona graças à álgebra e [à propriedade distributiva dos quantificadores.](https://en.wikipedia.org/wiki/Existential_quantification#Negation) Esta expressão:
 
+```odata-filter-expr
     seasons/any(s: s eq 'winter' or s eq 'fall')
+```
 
 equivale a:
 
+```odata-filter-expr
     seasons/any(s: s eq 'winter') or seasons/any(s: s eq 'fall')
+```
 
 e cada uma das `any` duas subexpressões pode ser executada de forma eficiente usando o índice invertido. Além disso, graças [à lei de negação dos quantificadores,](https://en.wikipedia.org/wiki/Existential_quantification#Negation)esta expressão:
 
+```odata-filter-expr
     seasons/all(s: s ne 'winter' and s ne 'fall')
+```
 
 equivale a:
 
+```odata-filter-expr
     not seasons/any(s: s eq 'winter' or s eq 'fall')
+```
 
 e é por isso que é possível usar `all` com `ne` e `and` .
 
@@ -185,7 +198,7 @@ Na prática, estes são os tipos de filtros que é mais provável que use de qua
 
 Para exemplos específicos de quais tipos de filtros são permitidos e que não são, consulte [Como escrever filtros de recolha válidos](search-query-troubleshoot-collection-filters.md#bkmk_examples).
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 - [Resolução de problemas filtros de recolha OData em Pesquisa Cognitiva Azure](search-query-troubleshoot-collection-filters.md)
 - [Filtros em Pesquisa Cognitiva Azure](search-filters.md)

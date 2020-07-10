@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 258dfec20644ee29368de075673dfc7798bee28a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 183bc416dde941f11bd94cfcff3bf738b35f876f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083547"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207387"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Query Apache Hive through the JDBC driver in HDInsight (Consultar o Apache Hive através do controlador JDBC no HDInsight)
 
@@ -33,7 +33,9 @@ Para obter mais informações sobre a Interface Hive JDBC, consulte [HiveJDBCInt
 
 As ligações JDBC a um cluster HDInsight em Azure são feitas sobre a porta 443. O tráfego é assegurado utilizando TLS/SSL. A porta de entrada pública que os aglomerados estão atrás redireciona o tráfego para o porto que a HiveServer2 está realmente a ouvir. A seguinte cadeia de ligação mostra o formato a utilizar para HDInsight:
 
+```http
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
+```
 
 Substitua `CLUSTERNAME` pelo nome do seu cluster do HDInsight.
 
@@ -121,7 +123,7 @@ O SQuirreL SQL é um cliente JDBC que pode ser usado para executar remotamente c
 
 9. Uma vez ligado, introduza a seguinte consulta no diálogo de consulta SQL e, em seguida, selecione o ícone **'Executar'** (uma pessoa em execução). A área de resultados deve mostrar os resultados da consulta.
 
-    ```hql
+    ```hiveql
     select * from hivesampletable limit 10;
     ```
 
@@ -131,7 +133,7 @@ O SQuirreL SQL é um cliente JDBC que pode ser usado para executar remotamente c
 
 Um exemplo de utilização de um cliente Java para consultar a Hive em HDInsight está disponível em [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc) . Siga as instruções do repositório para construir e executar a amostra.
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 ### <a name="unexpected-error-occurred-attempting-to-open-an-sql-connection"></a>Erro inesperado ocorreu ao tentar abrir uma ligação SQL
 
@@ -159,7 +161,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 **Resolução**: Evite utilizar o controlador JDBC/ODBC para descarregar enormes quantidades de dados. Em vez disso, copie os dados diretamente do armazenamento do blob.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a usar o JDBC para trabalhar com a Hive, use os seguintes links para explorar outras formas de trabalhar com a Azure HDInsight.
 

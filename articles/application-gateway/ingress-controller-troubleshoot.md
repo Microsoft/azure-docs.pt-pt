@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: 29f8a7823207f5571acc345bc6234a318342b173
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207860"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207165"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Resolução de problemas comuns ou problemas com o Controlador Ingress
 
@@ -118,7 +118,7 @@ O Application Gateway terá a seguinte configuração aplicada:
 Finalmente podemos usar o `cURL` comando de dentro da Cloud [Shell](https://shell.azure.com/) para estabelecer uma ligação HTTP à aplicação recém-implantada:
 
 1. Utilize `kubectl get ingress` para obter o endereço IP público do Gateway de aplicações
-2. Utilizar `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
+2. Utilizar o comando `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
 
 ![vagens](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 

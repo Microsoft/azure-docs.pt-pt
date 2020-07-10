@@ -8,11 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: e55dfc692bdd625de8873f6e61c9969ed7fbf2df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27fb165c36c17cee83cd9f90eba3bdcb9e32d517
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466175"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206908"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Criar um ponto final privado para uma ligação segura à Pesquisa Cognitiva Azure
 
@@ -43,9 +44,9 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede para hospedar o VM qu
 
     | Definição | Valor |
     | ------- | ----- |
-    | Subscrição | Selecionar a sua subscrição|
+    | Subscrição | Selecione a sua subscrição|
     | Grupo de recursos | Selecione **Criar novo,** insira *myResourceGroup,* em seguida, selecione **OK** |
-    | Name | Insira *myVirtualNetwork* |
+    | Nome | Insira *myVirtualNetwork* |
     | Região | Selecione a região desejada |
     |||
 
@@ -85,11 +86,11 @@ Nesta secção, irá criar um novo serviço de Pesquisa Cognitiva Azure com um P
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.|
     | Localização | Selecione **West US**.|
-    | Name | Insira *o meuPrivateEndpoint*.  |
+    | Nome | Insira *o meuPrivateEndpoint*.  |
     | Sub-recurso-alvo | Deixe o **serviço de pesquisa**predefinido . |
     | **NETWORKING** |  |
-    | Rede virtual  | Selecione *MyVirtualNetwork* do grupo de recursos *myResourceGroup*. |
-    | Subrede | Selecione *mySubnet*. |
+    | Rede virtual  | Selecione *MyVirtualNetwork* do grupo de recursos *myResourceGroup*. |
+    | Sub-rede | Selecione *mySubnet*. |
     | **INTEGRAÇÃO PRIVADA DE DNS** |  |
     | Integrar-se com a zona privada de DNS  | Deixe o padrão **Sim**. |
     | Zona DNS Privado  | Deixe o padrão ** (Novo) privatelink.search.windows.net**. |
@@ -129,7 +130,7 @@ Nesta secção, irá criar um novo serviço de Pesquisa Cognitiva Azure com um P
     | Palavra-passe | Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirmar Palavra-passe | Reentre na senha. |
     | **REGRAS PORTUÁRIAS DE ENTRADA** |  |
-    | Portos de entrada pública | Deixe o predefinido **Deixar as portas selecionadas**. |
+    | Portas de entrada públicas | Deixe o predefinido **Deixar as portas selecionadas**. |
     | Selecione portas de entrada | Deixe o PDR predefinido **(3389)**. |
     | **POUPAR DINHEIRO** |  |
     | Já tem uma licença do Windows? | Deixe o **nº**padrão . |
@@ -145,9 +146,9 @@ Nesta secção, irá criar um novo serviço de Pesquisa Cognitiva Azure com um P
     | ------- | ----- |
     | Rede virtual | Deixe a **Rede MyVirtual padrão**.  |
     | Espaço de endereços | Deixe o **padrão 10.1.0.0/24**.|
-    | Subrede | Deixe o **mySubnet predefinido (10.1.0.0/24)**.|
+    | Sub-rede | Deixe o **mySubnet predefinido (10.1.0.0/24)**.|
     | IP público | Deixe o **padrão (novo) myVm-ip**. |
-    | Portos de entrada pública | Selecione **Deixe as portas selecionadas.** |
+    | Portas de entrada públicas | Selecione **Deixe as portas selecionadas.** |
     | Selecione portas de entrada | Selecione **HTTP** e **RDP**.|
     ||
 
@@ -164,7 +165,7 @@ Faça o download e, em seguida, ligue-se ao *myVm VM* da seguinte forma:
 
 1. Selecione o botão **Ligar**. Depois de selecionar o botão **Ligar,** **o Connect à máquina virtual** abre-se.
 
-1. Selecione **Download RDP File**. O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
+1. Selecione **Transferir Ficheiro RDP**. O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
 
 1. Abra o ficheiro .rdp* descarregado.
 
@@ -188,7 +189,7 @@ Nesta secção, verificará o acesso à rede privada ao serviço de pesquisa e l
 
 Quando o ponto final do serviço de pesquisa é privado, algumas funcionalidades do portal são desativadas. Poderá ver e gerir as definições de nível de serviço, mas o acesso do portal aos dados de índice e vários outros componentes do serviço, como as definições de índice, indexador e skillset, é restringido por razões de segurança.
 
-1. No Ambiente de Trabalho Remoto do *myVM,* abra o PowerShell.
+1. No Ambiente de Trabalho Remoto do *myVM,* abra o PowerShell.
 
 1. Insira 'nslookup [nome do serviço de pesquisa].search.windows.net
 
@@ -206,15 +207,15 @@ Quando o ponto final do serviço de pesquisa é privado, algumas funcionalidades
 
 1. A completar o arranque rápido do VM é a confirmação de que o serviço está totalmente operacional.
 
-1. Feche a ligação remota do ambiente de trabalho ao *myVM*. 
+1. Feche a ligação remota do ambiente de trabalho ao *myVM*. 
 
 1. Para verificar se o seu serviço não está acessível num ponto final público, abra o Carteiro na sua estação de trabalho local e tente as primeiras várias tarefas no arranque rápido. Se receber um erro que o servidor remoto não existe, configura com sucesso um ponto final privado para o seu serviço de pesquisa.
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos 
 Quando terminar de usar o Private Endpoint, o serviço de pesquisa e o VM, elimine o grupo de recursos e todos os recursos que contém:
 1. Introduza o *myResourceGroup*   na caixa de **Pesquisa** no topo do portal e selecione o *myResourceGroup*   a partir dos resultados da pesquisa. 
 1. Selecione **Eliminar grupo de recursos**. 
 1. Introduza *o myResourceGroup*   para type the RESOURCE GROUP **NAME** e selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, criou um VM numa rede virtual e um serviço de pesquisa com um Private Endpoint. Ligou-se ao VM a partir da internet e comunicou-se de forma segura ao serviço de pesquisa utilizando o Private Link. Para saber mais sobre o Private Endpoint, veja [o que é Azure Private Endpoint?](../private-link/private-endpoint-overview.md)

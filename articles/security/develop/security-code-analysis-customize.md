@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 744b186b32927f81be21ff067c9195bddb33c416
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4c7f82b729355e59ff05d5513e22fa143d53a5e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362096"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206850"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurar e personalizar as tarefas de construção
 
@@ -64,9 +64,11 @@ Os detalhes da configuração da tarefa são apresentados na imagem e lista a se
     - As especificações do diretório devem sempre terminar com \\ *.
     - Exemplos:
 
+```binskim-targets
            *.dll;*.exe
            $(BUILD_STAGINGDIRECTORY)\*
            $(BUILD_STAGINGDIRECTORY)\*.dll;$(BUILD_STAGINGDIRECTORY)\*.exe;
+```
 
 - Se selecionar **a Linha de Comando** na lista **tipo,** tem de executar binskim.exe:
      - Certifique-se de que os primeiros argumentos a binskim.exe são a **análise** do verbo seguida de uma ou mais especificações de caminho. Cada caminho pode ser um caminho completo ou um caminho em relação ao diretório de origem.
@@ -74,11 +76,13 @@ Os detalhes da configuração da tarefa são apresentados na imagem e lista a se
      - Pode omitir a opção **/o** **ou/output.** O valor de saída é adicionado para si ou substituído.
      - As configurações padrão da linha de comando são mostradas da seguinte forma.
 
+```binskim-line-args
            analyze $(Build.StagingDirectory)\* --recurse --verbose
            analyze *.dll *.exe --recurse --verbose
+```
 
-          > [!NOTE]
-          > O rasto \\ * é importante se especificar os diretórios para o alvo.
+> [!NOTE]
+> O rasto \\ * é importante se especificar os diretórios para o alvo.
 
 Para obter mais informações sobre os argumentos da linha de comando BinSkim, regras por ID ou códigos de saída, consulte o Manual do [Utilizador BinSkim](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 
@@ -191,7 +195,7 @@ Os detalhes da configuração da tarefa são apresentados na imagem e lista a se
 
 Para obter informações sobre a configuração YAML para esta tarefa, consulte as nossas [opções DE PÓS-Análise YAML](yaml-configuration.md#post-analysis-task)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre a configuração baseada em YAML, consulte o nosso [guia de configuração YAML](yaml-configuration.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Interprete & explicar os modelos ML em Python
+title: Interprete & explicar os modelos ML em Python (pré-visualização)
 titleSuffix: Azure Machine Learning
 description: Aprenda a obter explicações sobre como o seu modelo de aprendizagem automática determina a importância da funcionalidade e faz previsões ao utilizar o Azure Machine Learning SDK.
 services: machine-learning
@@ -9,15 +9,16 @@ ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
-ms.date: 04/12/2020
+ms.date: 07/09/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 32b33eed6b4dba303993f4c16fbd2ad42b3902f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3830f65a3435c1db0291811c6306ea579bf1d896
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560212"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207143"
 ---
-# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Use o pacote de interpretação para explicar os modelos ML & previsões em Python
+# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Utilize o pacote de interpretação para explicar os modelos ML & previsões em Python (pré-visualização)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -334,7 +335,7 @@ Pode carregar o enredo de importância de recurso individual para qualquer ponto
 > [!NOTE]
 > Antes do arranque do núcleo Jupyter, certifique-se de que ativa as extensões do widget para o painel de visualização.
 
-* Jupyter Notebooks
+* Blocos de notas do Jupyter
 
     ```shell
     jupyter nbextension install --py --sys-prefix azureml.contrib.interpret.visualize
@@ -566,7 +567,7 @@ Pode implantar o explicador juntamente com o modelo original e usá-lo no moment
 
    Para eliminar um serviço web implantado, utilize `service.delete()` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre a interpretação do modelo](how-to-machine-learning-interpretability.md)
 

@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 52391ffc8eb6b6879e5fd90df26d9ccacbfacebb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b6f98f3c7f540e00743ae27b532b24d2310453e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188931"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205707"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurar perfil de insights de aplicação
 
@@ -32,7 +32,7 @@ Que abre uma página que se parece com isto:
 
 A página **Configure Application Insights Profiler** tem estas funcionalidades:
 
-| | |
+| Funcionalidade | Descrição |
 |-|-|
 Perfil Agora | Inicia sessões de perfis para todas as aplicações que estão ligadas a este caso de Application Insights.
 Acionadores | Permite-lhe configurar gatilhos que fazem com que o perfil corra. 
@@ -48,7 +48,7 @@ Para que um utilizador desencadeie manualmente uma sessão de perfis, exigem no 
 
 Ao clicar no botão Gatilhos na barra de menu abre a caixa de definições do gatilho. Pode configurar o gatilho para começar a fazer perfis quando a percentagem de CPU ou utilização de Memória atingir o nível definido.
 
-| | |
+| Definição | Descrição |
 |-|-|
 Botão ligado / desligado | Ligado: o perfil pode ser iniciado por este gatilho; Desligado: o profiler não será iniciado por este gatilho.
 Limiar de memória | Quando esta percentagem de memória estiver a ser utilizada, o perfil será iniciado.
@@ -58,12 +58,12 @@ Arrefecimento | Define o tempo que o perfis aguarda antes de verificar a memóri
 ## <a name="recent-profiling-sessions"></a>Sessões de Perfis Recentes
 Esta secção da página mostra informações sobre sessões de perfis recentes. Uma sessão de perfis representa o período de tempo em que o agente de perfis estava a tirar um perfil numa das máquinas que hospedam a sua aplicação. Pode abrir os perfis a partir de uma sessão clicando numa das linhas. Para cada sessão, mostramos:
 
-| | |
+| Definição | Descrição |
 |-|-|
 Desencadeado por | Como a sessão foi iniciada, seja por um gatilho, perfil agora ou amostragem padrão. 
 Nome da Aplicação | Nome da aplicação que foi perfilada.
 Caso da Máquina | Nome da máquina onde o agente do perfil correu.
-Carimbo de data/hora | Hora em que o perfil foi capturado.
+CarimboDeDataEHora | Hora em que o perfil foi capturado.
 Tracee | Número de vestígios ligados a pedidos individuais.
 % de CPU | Percentagem de CPU que estava a ser usada enquanto o perfil estava em funcionamento.
 Memória % | Percentagem de memória que estava a ser usada enquanto o perfil estava a funcionar.

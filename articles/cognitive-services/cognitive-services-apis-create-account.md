@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
-ms.openlocfilehash: 4a73ff517347baa2cf589432be025bd922597ed3
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: f76b444f737c4deb0fc61953c839c8826f379d5e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611395"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207271"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Criar um recurso de Serviços Cognitivos utilizando o portal Azure
 
@@ -37,11 +37,17 @@ Utilize este quickstart para começar a utilizar os Serviços Cognitivos Azure. 
 
     Neste momento, o recurso multi-serviço permite o acesso aos seguintes Serviços Cognitivos:
 
-    |                  |                                                      |                    |                               |                  |
-    |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
-    | Imagem Digitalizada  | Content Moderator                                    | Rostos               | Compreensão de Idiomas (LUIS) | Análise de Texto   |
-    | Tradutor  | Bing Search v7 <br>(Web, Imagem, Notícias, Vídeo, Visual) | Pesquisa Personalizada do Bing | Pesquisa de Entidades do Bing            | Sugestão Automática do Bing |
-    | Verificação Ortográfica do Bing |                                                      |                    |                               |                  |
+    - Imagem Digitalizada
+    - Content Moderator
+    - Rostos
+    - Compreensão de Idiomas (LUIS)
+    - Análise de Texto
+    - Tradutor
+    - Bing Search v7 <br>(Web, Imagem, Notícias, Vídeo, Visual)
+    - Pesquisa Personalizada do Bing
+    - Pesquisa de Entidades do Bing
+    - Sugestão Automática do Bing
+    - Verificação Ortográfica do Bing
 
     #### <a name="single-service-resource"></a>[Recurso de serviço único](#tab/singleservice)
 
@@ -62,10 +68,10 @@ Utilize este quickstart para começar a utilizar os Serviços Cognitivos Azure. 
 
     |    |    |
     |--|--|
-    | **Nome** | Um nome descritivo para o seu recurso de serviços cognitivos. Por exemplo, *MyCognitiveServicesResource*. |
+    | **Name** | Um nome descritivo para o seu recurso de serviços cognitivos. Por exemplo, *MyCognitiveServicesResource*. |
     | **Subscrição** | Selecione uma das suas subscrições Azure disponíveis. |
     | **Localização** | A localização do seu serviço cognitivo. Diferentes localizações podem introduzir latência, mas não têm impacto na disponibilidade de tempo de execução do seu recurso. |
-    | **Nível de preços** | O custo da sua conta de Serviços Cognitivos depende das opções que escolher e da sua utilização. Para mais informações, consulte os [detalhes dos preços da](https://azure.microsoft.com/pricing/details/cognitive-services/)API.
+    | **Escalão de preço** | O custo da sua conta de Serviços Cognitivos depende das opções que escolher e da sua utilização. Para mais informações, consulte os [detalhes dos preços da](https://azure.microsoft.com/pricing/details/cognitive-services/)API.
     | **Grupo de recursos** | O grupo de recursos Azure que conterá o seu recurso de Serviços Cognitivos. Pode criar um novo grupo ou adicioná-lo a um grupo pré-existente. |
 
     ![Tela de criação de recursos](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
@@ -76,10 +82,10 @@ Utilize este quickstart para começar a utilizar os Serviços Cognitivos Azure. 
 
     |    |    |
     |--|--|
-    | **Nome** | Um nome descritivo para o seu recurso de serviços cognitivos. Por exemplo, *TextAnalyticsResource*. |
+    | **Name** | Um nome descritivo para o seu recurso de serviços cognitivos. Por exemplo, *TextAnalyticsResource*. |
     | **Subscrição** | Selecione uma das suas subscrições Azure disponíveis. |
     | **Localização** | A localização do seu serviço cognitivo. Diferentes localizações podem introduzir latência, mas não têm impacto na disponibilidade de tempo de execução do seu recurso. |
-    | **Nível de preços** | O custo da sua conta de Serviços Cognitivos depende das opções que escolher e da sua utilização. Para mais informações, consulte os [detalhes dos preços da](https://azure.microsoft.com/pricing/details/cognitive-services/)API.
+    | **Escalão de preço** | O custo da sua conta de Serviços Cognitivos depende das opções que escolher e da sua utilização. Para mais informações, consulte os [detalhes dos preços da](https://azure.microsoft.com/pricing/details/cognitive-services/)API.
     | **Grupo de recursos** | O grupo de recursos Azure que conterá o seu recurso de Serviços Cognitivos. Pode criar um novo grupo ou adicioná-lo a um grupo pré-existente. |
 
     ![Tela de criação de recursos](media/cognitive-services-apis-create-account/resource_create_screen.png)
@@ -101,7 +107,7 @@ Utilize este quickstart para começar a utilizar os Serviços Cognitivos Azure. 
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos contidos no grupo.
 
@@ -109,7 +115,7 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 2. Localizar o grupo de recursos que contém o recurso a eliminar
 3. Clique com o botão direito na listagem do grupo de recursos. Selecione **Eliminar grupo de recursos** e confirme.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Autenticar pedidos aos Serviços Cognitivos da Azure](authentication.md)
 * [O que é a Azure Cognitive Services?](Welcome.md)

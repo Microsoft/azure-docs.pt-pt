@@ -1,7 +1,7 @@
 ---
-title: Importar dados
+title: Dados de importação para o designer (pré-visualização)
 titleSuffix: Azure Machine Learning
-description: Saiba como importar dados para o designer de Aprendizagem automática Azure de várias fontes de dados.
+description: Saiba como importar dados para o designer de Aprendizagem automática Azure (pré-visualização) a partir de várias fontes de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
 ms.custom: designer
-ms.openlocfilehash: 12473aca589f8a04dd0e09fdc2dc7f0d4e450c5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a204310454cb636e26e6366d4ff7375f4faea8d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610953"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207513"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Dados de importação para o designer de aprendizagem automática Azure (pré-visualização)
 
@@ -94,6 +94,6 @@ Os módulos no designer são limitados pelo tamanho do alvo do cálculo. Para co
 
 Se o seu espaço de trabalho estiver numa rede virtual, deve executar etapas de configuração adicionais para visualizar dados no designer. Para obter mais informações sobre como utilizar datastores e conjuntos de dados numa rede virtual, consulte [o isolamento da Rede durante o treino & inferência com redes virtuais privadas](how-to-enable-virtual-network.md#machine-learning-studio).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda o básico do designer com [Tutorial: Predict automobile price with the designer.](tutorial-designer-automobile-price-train-score.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: acb7ff5c0862ceff8c73eaca92cc7000220eca41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 675038189fdc9c9626fee409a90e17341cf9b6cd
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738656"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207373"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução à resolução de problemas de recursos no Observador da Rede Azure
 
@@ -47,7 +47,7 @@ As tabelas a seguir mostram os diferentes tipos de avaria (id em resultados da l
 
 ### <a name="gateway"></a>Gateway
 
-| Tipo de Falha | Razão | Registar|
+| Tipo de Falha | Razão | Registo|
 |---|---|---|
 | NoFault | Quando nenhum erro é detetado |Sim|
 | GatewayNotFound | Não é possível encontrar porta de entrada ou gateway não é a provisionado |Não|
@@ -62,7 +62,7 @@ As tabelas a seguir mostram os diferentes tipos de avaria (id em resultados da l
 
 ### <a name="connection"></a>Ligação
 
-| Tipo de Falha | Razão | Registar|
+| Tipo de Falha | Razão | Registo|
 |---|---|---|
 | NoFault | Quando nenhum erro é detetado |Sim|
 | GatewayNotFound | Não é possível encontrar porta de entrada ou gateway não é a provisionado |Não|
@@ -82,7 +82,7 @@ As tabelas a seguir mostram os diferentes tipos de avaria (id em resultados da l
 
 As seguintes listas de tabelas que gateways e conexões são suportadas com a resolução de problemas do Observador de Rede:
 
-|  |  |
+| Gateway ou conexão | Suportado  |
 |---------|---------|
 |**Tipos de gateway**   |         |
 |VPN      | Suportado        |
@@ -208,7 +208,7 @@ Elapsed Time            330 sec
 |        12    ikeext               ike_sa_management_c3307  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a diagnosticar um problema com uma ligação de gateway ou gateway, consulte [os problemas de comunicação do Diagnóstico entre redes](diagnose-communication-problem-between-networks.md).
 <!--Image references-->

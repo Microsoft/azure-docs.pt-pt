@@ -12,11 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: 85d347c45e1ca2cd39c7504e44bd3ea063f788d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 013433d60b9f3e7f251f8d80d7b9b8f24b2395b3
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708423"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206198"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Visão geral dos limites de recursos geridos da Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,11 +33,11 @@ A SQL Managed Instance tem características e limites de recursos que dependem d
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
-| Hardware | Processadores Intel E5-2673 v3 (Haswell) 2.4-GHz, anexados SSD vCore = 1 PP (núcleo físico) | Processadores Intel E5-2673 v4 (Broadwell) 2.3-GHz e Intel SP-8160 (Skylake), rápido NVMe SSD, vCore=1 LP (hiper-thread) |
-| Número de vCores | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
-| Memória máxima (relação memória/núcleo) | 7 GB por vCore<br/>Adicione mais vCores para obter mais memória. | 5.1 GB por vCore<br/>Adicione mais vCores para obter mais memória. |
-| Memória Max In-Memory OLTP | Limite de instância: 1-1.5 GB por vCore| Limite de exemplo: 0.8 - 1.65 GB por vCore |
-| Armazenamento reservado de instância máxima |  Finalidade Geral: 8 TB<br/>Critical de negócios: 1 TB | Finalidade Geral: 8 TB<br/> Business Critical 1 TB, 2 TB ou 4 TB dependendo do número de núcleos |
+| **Hardware** | Processadores Intel E5-2673 v3 (Haswell) 2.4-GHz, anexados SSD vCore = 1 PP (núcleo físico) | Processadores Intel E5-2673 v4 (Broadwell) 2.3-GHz e Intel SP-8160 (Skylake), rápido NVMe SSD, vCore=1 LP (hiper-thread) |
+| **Número de vCores** | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
+| **Memória máxima (relação memória/núcleo)** | 7 GB por vCore<br/>Adicione mais vCores para obter mais memória. | 5.1 GB por vCore<br/>Adicione mais vCores para obter mais memória. |
+| **Memória Max In-Memory OLTP** | Limite de instância: 1-1.5 GB por vCore| Limite de exemplo: 0.8 - 1.65 GB por vCore |
+| **Armazenamento reservado de instância máxima** |  Finalidade Geral: 8 TB<br/>Critical de negócios: 1 TB | Finalidade Geral: 8 TB<br/> Business Critical 1 TB, 2 TB ou 4 TB dependendo do número de núcleos |
 
 > [!IMPORTANT]
 > - O hardware da Gen4 está a ser eliminado e já não está disponível para novas implementações. Todas as novas instâncias de SQL Managed Instance devem ser implementadas no hardware da Gen5.
@@ -160,7 +161,7 @@ O quadro que se segue mostra os **limites regionais predefinidos** para os tipos
 
 Se precisar de mais casos nas suas regiões atuais, envie um pedido de apoio para alargar a quota através do portal Azure. Para obter mais informações, consulte [os aumentos de quota de pedido para a Base de Dados Azure SQL](../database/quota-increase-request.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre o SQL Managed Instance, veja [o que é uma sql Managed Instance?](sql-managed-instance-paas-overview.md)
 - Para obter informações sobre preços, consulte [os preços da SQL Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).

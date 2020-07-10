@@ -7,16 +7,16 @@ ms.date: 05/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: c66766b39ae104cf4a031c3fd73c173e81d47fb8
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: b6dc5ba59aa563da6e7c19e6c821f4a9b697832f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563487"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206536"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Quickstart: Azure Blob storage client library v12 com Xamarin
 
-Começa com a biblioteca de clientes de armazenamento Azure Blob v12 com Xamarin. O Armazenamento de Blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. Siga as medidas para instalar a embalagem e experimente o código de exemplo para tarefas básicas. O Armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados.
+Começa com a biblioteca de clientes de armazenamento Azure Blob v12 com Xamarin. O Armazenamento de blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. Siga as medidas para instalar a embalagem e experimente o código de exemplo para tarefas básicas. O armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados.
 
 Utilize a biblioteca de clientes de armazenamento Azure Blob v12 com Xamarin para:
 
@@ -26,7 +26,12 @@ Utilize a biblioteca de clientes de armazenamento Azure Blob v12 com Xamarin par
 * Descarregue a bolha para o seu dispositivo
 * Eliminar um contentor
 
-[Documentação de](/dotnet/api/azure.storage.blobs)  |  referência da API [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)  |  [Amostra](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
+Links de referência:
+
+* [Documentação de referência da API](/dotnet/api/azure.storage.blobs)
+* [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
+* [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
+* [Amostra](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 

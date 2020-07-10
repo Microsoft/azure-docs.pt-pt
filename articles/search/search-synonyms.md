@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 23c7913fbe9b3943559d36f5cbf2a21d7ed63dbe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a53122b324c0a6dc43619eb2e9c704873f87b69
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563456"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207312"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Sinónimos em Pesquisa Cognitiva Azure
 
@@ -51,6 +51,7 @@ Os mapas de synonym devem estar no formato Apache Solr, que é explicado abaixo.
 
 Pode criar um novo mapa de sinónimos utilizando HTTP POST, como no seguinte exemplo:
 
+```synonym-map
     POST https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
     api-key: [admin key]
 
@@ -61,9 +62,11 @@ Pode criar um novo mapa de sinónimos utilizando HTTP POST, como no seguinte exe
           USA, United States, United States of America\n
           Washington, Wash., WA => WA\n"
     }
+```
 
 Em alternativa, pode utilizar o PUT e especificar o nome do mapa de sinónimo no URI. Se o mapa do sinónimo não existir, será criado.
 
+```synonym-map
     PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
     api-key: [admin key]
 
@@ -73,10 +76,12 @@ Em alternativa, pode utilizar o PUT e especificar o nome do mapa de sinónimo no
           USA, United States, United States of America\n
           Washington, Wash., WA => WA\n"
     }
+```
 
 ##### <a name="apache-solr-synonym-format"></a>Formato de sinónimo Apache Solr
 
 O formato Solr suporta mapeamentos de sinónimos equivalentes e explícitos. As regras de mapeamento aderem à especificação de filtro de sinónimo de código aberto da Apache Solr, descrita neste documento: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Abaixo está uma regra de amostra para sinónimos equivalentes.
+
 ```
 USA, United States, United States of America
 ```
@@ -84,29 +89,37 @@ USA, United States, United States of America
 Com a regra acima, uma consulta de pesquisa "EUA" expandir-se-á para "EUA" ou "Estados Unidos" ou "Estados Unidos da América".
 
 O mapeamento explícito é denotado por uma seta "=>". Quando especificado, uma sequência de termo de uma consulta de pesquisa que corresponda ao lado esquerdo de "=>" será substituída pelas alternativas do lado direito. Dada a regra abaixo, consultas de pesquisa "Washington", "Wash". ou "WA" será reescrito para "WA". O mapeamento explícito só se aplica na direção especificada e não reescreve a consulta "WA" a "Washington" neste caso.
+
 ```
 Washington, Wash., WA => WA
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>Liste mapas de sinónimos sob o seu serviço.
 
+```synonym-map
     GET https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
     api-key: [admin key]
+```
 
 #### <a name="get-a-synonym-map-under-your-service"></a>Obtenha um mapa de sinónimo sob o seu serviço.
 
+```synonym-map
     GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
     api-key: [admin key]
+```
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>Elimine um mapa de sinónimos sob o seu serviço.
 
+```synonym-map
     DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
     api-key: [admin key]
+```
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Configurar um campo pesmável para utilizar o mapa de sinónimo na definição de índice.
 
 Um novo **sinónimo de** propriedade de campo pode ser usado para especificar um mapa de sinónimo para usar para um campo pesmável. Os mapas de synonym são recursos de nível de serviço e podem ser referenciados por qualquer campo de um índice sob o serviço.
 
+```synonym-map
     POST https://[servicename].search.windows.net/indexes?api-version=2020-06-30
     api-key: [admin key]
 
@@ -138,6 +151,7 @@ Um novo **sinónimo de** propriedade de campo pode ser usado para especificar um
           }
        ]
     }
+```
 
 **os synonymMaps** podem ser especificados para campos pes pesjáveis do tipo 'Edm.String' ou 'Collection(Edm.String)'.
 
@@ -156,7 +170,7 @@ Se precisar de fazer uma única consulta que aplique expansão de sinónimo e pe
 
 Se tiver um índice existente num ambiente de desenvolvimento (não-produção), experimente com um pequeno dicionário para ver como a adição de sinónimos altera a experiência de pesquisa, incluindo o impacto nos perfis de pontuação, destaque de sucesso e sugestões.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar um mapa de sinónimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)

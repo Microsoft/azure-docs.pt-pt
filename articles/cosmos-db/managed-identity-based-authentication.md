@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: 2555719e13b0cba38150d3bce7a18f043158d5b5
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: dfce18674f382cb683fa74a1bed964e9f86d72c2
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970965"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206109"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Utilize identidades geridas atribuídas ao sistema para aceder aos dados do Azure Cosmos DB
 
@@ -53,6 +53,8 @@ Neste passo, atribuirá um papel à identidade gerida atribuída pelo sistema da
 
 Neste cenário, a aplicação de função irá ler a temperatura do aquário e, em seguida, escrever esses dados para um recipiente em Azure Cosmos DB. Como a aplicação de função deve escrever os dados, terá de atribuir a **função de Contribuinte de Conta DocumentDB.** 
 
+### <a name="assign-the-role-using-azure-portal"></a>Atribuir o papel usando o portal Azure
+
 1. Inscreva-se no portal Azure e vá à sua conta DB Azure Cosmos. Abra o painel **de controlo de acesso (IAM)** e, em seguida, o **separador atribuições de funções:**
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Screenshot mostrando o painel de controlo de acesso e o separador atribuições role.":::
@@ -70,6 +72,18 @@ Neste cenário, a aplicação de função irá ler a temperatura do aquário e, 
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Screenshot mostrando o painel de atribuição de funções Adicionar preenchido com exemplos.":::
 
 1. Depois de ter selecionado a aplicação de função, **selecione Save**.
+
+### <a name="assign-the-role-using-azure-cli"></a>Atribuir o papel usando O Azure CLI
+
+Para atribuir o papel utilizando o Azure CLI, utilize os seguintes comandos:
+
+```azurecli-interactive
+$scope = az cosmosdb show --name '<Your_Azure_Cosmos_account_name>' --resource-group '<CosmosDB_Resource_Group>' --query id
+
+$principalId = az webapp identity show -n '<Your_Azure_Function_name>' -g '<Azure_Function_Resource_Group>' --query principalId
+
+az role assignment create --assignee $principalId --role "DocumentDB Account Contributor" --scope $scope
+```
 
 ## <a name="programmatically-access-the-azure-cosmos-db-keys"></a>Aceda programáticamente às teclas DB do Azure Cosmos
 
@@ -198,7 +212,7 @@ namespace Monitor
 
 Está agora pronto para implementar a [sua aplicação de função.](../azure-functions/functions-create-first-function-vs-code.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Autenticação baseada em certificados com Azure Cosmos DB e Azure Ative Directory](certificate-based-authentication.md)
 * [Chaves DB Secure Azure Cosmos usando cofre de chave Azure](access-secrets-from-keyvault.md)

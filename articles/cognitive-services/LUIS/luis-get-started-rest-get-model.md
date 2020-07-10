@@ -3,20 +3,20 @@ title: 'Quickstart: Obter modelo com REST APIs - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Neste arranque rápido da API REST, use o cURL para adicionar expressões e treine um modelo.
 services: cognitive-services
-author: roy-har
+author: nitinme
 manager: diberry
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 06/19/2020
-ms.author: v-royha
-ms.openlocfilehash: 00bc71f76b15455dd8e4f8242c5379e9e97a53f2
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.author: nitinme
+ms.openlocfilehash: e5cf3160e6592a48e3a81480480ad8f01cc6af3a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119592"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206253"
 ---
 # <a name="quickstart-use-curl-and-rest-to-change-model"></a>Quickstart: Use cURL e REST para mudar de modelo
 
@@ -368,7 +368,7 @@ Se a matriz entityLabels não estiver vazia, `startCharIndex` e `endCharIndex` t
     ]
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar com este arranque rápido, elimine o `ExampleUtterances.JSON` ficheiro do sistema de ficheiros.
 

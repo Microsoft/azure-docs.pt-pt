@@ -5,11 +5,12 @@ description: Saiba como criar e utilizar um endereço IP público estático para
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 08a9682434605fffde73c835e7a9e9d6971d7ff0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f66a33f49d856abde97756a2b4b483cfa6050d0a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80803387"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205784"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Utilize um endereço IP público estático para tráfego de saídas no Serviço Azure Kubernetes (AKS)
 
@@ -22,6 +23,9 @@ Este artigo mostra-lhe como criar e usar um endereço IP público estático para
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
 Também precisa da versão Azure CLI 2.0.59 ou posteriormente instalada e configurada. Corre  `az --version` para encontrar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
+
+> [!IMPORTANT]
+> Este artigo utiliza o *balanceador de* carga Basic SKU com uma única piscina de nós. Esta configuração não está disponível para várias piscinas de nós, uma vez que o *balanceador de* carga Basic SKU não é suportado com várias piscinas de nós. Consulte [um balanceador de carga padrão público no Serviço Azure Kubernetes (AKS)][slb] para obter mais detalhes sobre a utilização do balançador de carga *Standard* SKU.
 
 ## <a name="egress-traffic-overview"></a>Visão geral do tráfego de Egress
 
@@ -92,7 +96,7 @@ Crie o serviço e a implantação com o `kubectl apply` comando.
 kubectl apply -f egress-service.yaml
 ```
 
-Este serviço configura um novo FRONTend IP no Balançador de Carga Azure. Se não tiver outros IPs configurados, **todo** o tráfego de saída deve agora utilizar este endereço. Quando vários endereços são configurados no Balançador de Carga Azure, a saída utiliza o primeiro IP nesse equilibrador de carga.
+Este serviço configura um novo FRONTend IP no Balançador de Carga Azure. Se não tiver outros IPs configurados, **todo** o tráfego de saída deve agora utilizar este endereço. Quando vários endereços são configurados no Balançador de Carga Azure, qualquer um destes endereços IP públicos é um candidato para fluxos de saída, e um é selecionado aleatoriamente.
 
 ## <a name="verify-egress-address"></a>Verifique o endereço de saída
 
@@ -118,7 +122,7 @@ $ curl -s checkip.dyndns.org
 <html><head><title>Current IP Check</title></head><body>Current IP Address: 40.121.183.52</body></html>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para evitar a manutenção de vários endereços IP públicos no Balançador de Carga Azure, pode utilizar um controlador de entrada. Os controladores ingress fornecem benefícios adicionais, tais como a rescisão SSL/TLS, suporte para reescritas URI e encriptação SSL/TLS a montante. Para obter mais informações, consulte Criar um controlador básico de entrada [em AKS][ingress-aks-cluster].
 
@@ -133,3 +137,4 @@ Para evitar a manutenção de vários endereços IP públicos no Balançador de 
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[slb]: load-balancer-standard.md

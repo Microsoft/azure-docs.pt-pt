@@ -10,12 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 06/10/2020
-ms.openlocfilehash: 9dfa45e463ecd53524e7516160324a80824e4d8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: add2e0cc2852f9ab0b63565841f670ed6c53d9a7
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669533"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206121"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de recursos para bases de dados individuais utilizando o modelo de compra vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -125,12 +126,12 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (TB)|100 |100 |100 |100 |100 |100|
-|Tamanho do tronco máximo (TB)|1 |1 |1 |1 |1 |1 |
+|Tamanho do tronco máximo (TB)|Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |
 |Tamanho máximo de dados tempDB (GB)|32|64|96|128|160|192|
 |Tipo de armazenamento| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
-|Dados max IOPS *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
+|Max local SSD IOPS *|4000 |8000 |12000 |16000 |20 000 |24000 |
 |Taxa de registo máximo (MBps)|100 |100 |100 |100 |100 |100 |
-|Latência IO (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
+|Latência IO (aproximada)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
 |Trabalhadores max simultâneos (pedidos)|200|400|600|800|1000|1200|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|
 |Réplicas secundárias|0-4|0-4|0-4|0-4|0-4|0-4|
@@ -138,6 +139,8 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|
 |Retenção de armazenamento de backup|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|
 |||
+
+\*Além do SSD IO local, as cargas de trabalho utilizarão [iO do servidor](service-tier-hyperscale.md#page-server) de página remota. O IOPS eficaz dependerá da carga de trabalho. Para mais informações, consulte [a Governação do IO de Dados](resource-limits-logical-server.md#resource-governance)e [a IO de Dados nas estatísticas de utilização de recursos](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ### <a name="gen4-compute-generation-part-2"></a>Geração de computação Gen4 (parte 2)
 
@@ -150,12 +153,12 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (TB)|100 |100 |100 |100 |100 |100 |
-|Tamanho do tronco máximo (TB)|1 |1 |1 |1 |1 |1 |
+|Tamanho do tronco máximo (TB)|Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |
 |Tamanho máximo de dados tempDB (GB)|224|256|288|320|512|768|
 |Tipo de armazenamento| [Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
-|Dados max IOPS *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
+|Max local SSD IOPS *|28000 |32000 |36000 |40000 |64000 |76800 |
 |Taxa de registo máximo (MBps)|100 |100 |100 |100 |100 |100 |
-|Latência IO (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
+|Latência IO (aproximada)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
 |Trabalhadores max simultâneos (pedidos)|1400|1600|1800|2000|3200|4800|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|
 |Réplicas secundárias|0-4|0-4|0-4|0-4|0-4|0-4|
@@ -164,7 +167,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Retenção de armazenamento de backup|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|
 |||
 
-\*O valor máximo para tamanhos IO varia entre 8 KB e 64 KB. Os IOPS reais dependem da carga de trabalho. Para mais informações, consulte [a Governação do IO de Dados.](resource-limits-logical-server.md#resource-governance)
+\*Além do SSD IO local, as cargas de trabalho utilizarão [iO do servidor](service-tier-hyperscale.md#page-server) de página remota. O IOPS eficaz dependerá da carga de trabalho. Para mais informações, consulte [a Governação do IO de Dados](resource-limits-logical-server.md#resource-governance)e [a IO de Dados nas estatísticas de utilização de recursos](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ## <a name="hyperscale---provisioned-compute---gen5"></a>Hiperescala - computação a provisionada - Gen5
 
@@ -179,12 +182,12 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (TB)|100 |100 |100 |100 |100 |100 |100|
-|Tamanho do tronco máximo (TB)|1 |1 |1 |1 |1 |1 |1 |
+|Tamanho do tronco máximo (TB)|Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |
 |Tamanho máximo de dados tempDB (GB)|64|128|192|256|320|384|448|
 |Tipo de armazenamento| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
-|Dados max IOPS *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
+|Max local SSD IOPS *|8000 |16000 |24000 |32000 |40000 |48000 |56000 |
 |Taxa de registo máximo (MBps)|100 |100 |100 |100 |100 |100 |100 |
-|Latência IO (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
+|Latência IO (aproximada)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
 |Trabalhadores max simultâneos (pedidos)|200|400|600|800|1000|1200|1400|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Réplicas secundárias|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
@@ -193,7 +196,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Retenção de armazenamento de backup|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|
 |||
 
-\*O valor máximo para tamanhos IO varia entre 8 KB e 64 KB. Os IOPS reais dependem da carga de trabalho. Para mais informações, consulte [a Governação do IO de Dados.](resource-limits-logical-server.md#resource-governance)
+\*Além do SSD IO local, as cargas de trabalho utilizarão [iO do servidor](service-tier-hyperscale.md#page-server) de página remota. O IOPS eficaz dependerá da carga de trabalho. Para mais informações, consulte [a Governação do IO de Dados](resource-limits-logical-server.md#resource-governance)e [a IO de Dados nas estatísticas de utilização de recursos](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ### <a name="gen5-compute-generation-part-2"></a>Geração de computação Gen5 (parte 2)
 
@@ -206,12 +209,12 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (TB)|100 |100 |100 |100 |100 |100 |100 |
-|Tamanho do tronco máximo (TB)|1 |1 |1 |1 |1 |1 |1 |
+|Tamanho do tronco máximo (TB)|Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |
 |Tamanho máximo de dados tempDB (GB)|512|576|640|768|1024|1280|2560|
 |Tipo de armazenamento| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
-|Dados max IOPS *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
+|Max local SSD IOPS *|64000 |72000 |80000 |96000 |160000 |192000 |204800 |
 |Taxa de registo máximo (MBps)|100 |100 |100 |100 |100 |100 |100 |
-|Latência IO (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
+|Latência IO (aproximada)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
 |Trabalhadores max simultâneos (pedidos)|1600|1800|2000|2400|3200|4000|8000|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Réplicas secundárias|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
@@ -220,15 +223,13 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Retenção de armazenamento de backup|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|
 |||
 
-\*O valor máximo para tamanhos IO varia entre 8 KB e 64 KB. Os IOPS reais dependem da carga de trabalho. Para mais informações, consulte [a Governação do IO de Dados.](resource-limits-logical-server.md#resource-governance)
+\*Além do SSD IO local, as cargas de trabalho utilizarão [iO do servidor](service-tier-hyperscale.md#page-server) de página remota. O IOPS eficaz dependerá da carga de trabalho. Para mais informações, consulte [a Governação do IO de Dados](resource-limits-logical-server.md#resource-governance)e [a IO de Dados nas estatísticas de utilização de recursos](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 #### <a name="notes"></a>Notas
 
 **Nota 1**: Hyperscale é uma arquitetura multi-camadas com componentes de computação e armazenamento separados: [Hyperscale Service Tier Architecture](service-tier-hyperscale.md#distributed-functions-architecture)
 
-**Nota 2**: A arquitetura multi-camadas de hiperescala tem caching a vários níveis. O IOPS eficaz dependerá da carga de trabalho.
-
-**Nota 3**: A latência é de 1-2 ms para dados na cache baseada em RBPEX SSD em réplicas computacional, que caches mais páginas de dados usadas. Maior latência para dados obtidos a partir de servidores de página.
+**Nota 2**: A latência é de 1-2 ms para dados sobre a réplica de computação local SSD, que caches mais páginas de dados usadas. Maior latência para dados obtidos a partir de servidores de página.
 
 ## <a name="general-purpose---provisioned-compute---gen4"></a>Finalidade geral - computação a provisionada - Gen4
 
@@ -507,7 +508,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 > [!IMPORTANT]
 > Em algumas circunstâncias, pode precisar de encolher uma base de dados para recuperar o espaço não usused. Para obter mais informações, consulte [Gerir o espaço de ficheiros na Base de Dados Azure SQL](file-space-manage.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para limites de recursos DTU para uma única base de [dados, consulte os limites de recursos para bases de dados únicas utilizando o modelo de compra do DTU](resource-limits-dtu-single-databases.md)
 - Para limites de recursos vCore para piscinas elásticas, consulte [os limites de recursos para piscinas elásticas utilizando o modelo de compra vCore](resource-limits-vcore-elastic-pools.md)

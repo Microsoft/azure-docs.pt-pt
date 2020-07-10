@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 5547c78007d38788d71e84f8fbf3ca8b60dc1576
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: cdefca11131a16630e600385bf350465fccc228f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101754"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206670"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Criar e gerir o Link Privado para Azure Database para o MySQL utilizando o Portal
 
@@ -69,7 +69,7 @@ Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que 
     | Palavra-passe | Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirmar Palavra-passe | Reentre na senha. |
     | **REGRAS PORTUÁRIAS DE ENTRADA** |  |
-    | Portos de entrada pública | Deixe o padrão **Nenhum**. |
+    | Portas de entrada públicas | Deixe o padrão **Nenhum**. |
     | **POUPAR DINHEIRO** |  |
     | Já tem uma licença do Windows? | Deixe o **nº**padrão . |
     |||
@@ -84,9 +84,9 @@ Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que 
     | ------- | ----- |
     | Rede virtual | Deixe a **Rede MyVirtual padrão**.  |
     | Espaço de endereços | Deixe o **padrão 10.1.0.0/24**.|
-    | Subrede | Deixe o **mySubnet predefinido (10.1.0.0/24)**.|
+    | Sub-rede | Deixe o **mySubnet predefinido (10.1.0.0/24)**.|
     | IP público | Deixe o **padrão (novo) myVm-ip**. |
-    | Portos de entrada pública | Selecione **Deixe as portas selecionadas.** |
+    | Portas de entrada públicas | Selecione **Deixe as portas selecionadas.** |
     | Selecione portas de entrada | Selecione **HTTP** e **RDP**.|
     |||
 
@@ -144,7 +144,7 @@ Nesta secção, irá criar um servidor MySQL e adicionar-lhe um ponto final priv
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.|
     | **Detalhes de instância** |  |
-    | Name | Insira *o meuPrivateEndpoint*. Se este nome for tomado, crie um nome único. |
+    | Nome | Insira *o meuPrivateEndpoint*. Se este nome for tomado, crie um nome único. |
     |Região|Selecione **Europa Ocidental**.|
     |||
 
@@ -166,9 +166,9 @@ Nesta secção, irá criar um servidor MySQL e adicionar-lhe um ponto final priv
     | ------- | ----- |
     |**NETWORKING**| |
     | Rede virtual| Selecione *MyVirtualNetwork*. |
-    | Subrede | Selecione *mySubnet*. |
+    | Sub-rede | Selecione *mySubnet*. |
     |**INTEGRAÇÃO PRIVADA DE DNS**||
-    |Integrar-se com a zona privada de DNS |Selecione **Sim**. |
+    |Integrar-se com a zona privada de DNS |Selecione **Yes** (Sim). |
     |Zona privada de DNS |Selecione *(Novo)privatelink.mysql.database.azure.com* |
     |||
 
@@ -192,7 +192,7 @@ Depois de criar **o myVm,** ligue-o a partir da internet da seguinte forma:
 
 1. Selecione o botão **Ligar**. Depois de selecionar o botão **Ligar,** **o Connect à máquina virtual** abre-se.
 
-1. Selecione **Download RDP File**. O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
+1. Selecione **Transferir Ficheiro RDP**. O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
 
 1. Abra o *ficheiro.rdp descarregado.*
 
@@ -211,7 +211,7 @@ Depois de criar **o myVm,** ligue-o a partir da internet da seguinte forma:
 
 ## <a name="access-the-mysql-server-privately-from-the-vm"></a>Aceda ao servidor MySQL em privado a partir do VM
 
-1. No Ambiente de Trabalho Remoto do *myVM,* abra o PowerShell.
+1. No Ambiente de Trabalho Remoto do *myVM,* abra o PowerShell.
 
 2. Insira  `nslookup  myServer.privatelink.mysql.database.azure.com` . 
 
@@ -245,14 +245,14 @@ Depois de criar **o myVm,** ligue-o a partir da internet da seguinte forma:
 
 8. Feche a ligação remota do ambiente de trabalho ao myVm.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando terminar de usar o ponto final privado, o servidor MySQL e o VM, elimine o grupo de recursos e todos os recursos que contém:
 
-1. Introduza o *myResourceGroup*   na caixa de **Pesquisa** no topo do portal e selecione o *myResourceGroup*   a partir dos resultados da pesquisa.
+1. Introduza o *myResourceGroup* na caixa **de Pesquisa** no topo do portal e selecione o *myResourceGroup* a partir dos resultados da pesquisa.
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza o myResourceGroup para **type the RESOURCE GROUP NAME** e selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste como fazer, criou um VM numa rede virtual, uma Base de Dados Azure para o MySQL e um ponto final privado para acesso privado. Ligou-se a um VM da internet e comunicou-se de forma segura ao servidor MySQL utilizando o Private Link. Para saber mais sobre os pontos finais privados, consulte [o que é o ponto final privado do Azure.](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
 
