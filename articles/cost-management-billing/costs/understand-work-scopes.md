@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 2f61345cd55fc9541f9e1b707389d0b9d06685b0
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: ae6205db4e120f0496fa47be6788887b155361b0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873438"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077163"
 ---
 # <a name="understand-and-work-with-scopes"></a>Compreender e trabalhar com âmbitos
 
@@ -67,7 +67,7 @@ O Cost Management suporta as seguintes funções incorporadas para cada um dos �
 
 O Contribuidor do Cost Management é a função de privilégios mínimos recomendada. Esta permite criar e gerir orçamentos e exportações, de modo a monitorizar e gerar relatórios de custos mais eficazmente. Os Contribuidores do Cost Management também poderão necessitar de funções adicionais para suporte de cenários de gestão de custos ponto a ponto. Pondere os seguintes cenários:
 
-- **Reportar a utilização de recursos** – O Azure Cost Management mostra o custo no portal do Azure e também inclui a utilização relativa ao custo na API de custos e utilização completa e transferência, mas também pode querer analisar as métricas de utilização detalhadas no Azure Monitor para compreender melhor. Pondere conceder o [Leitor de Monitorização](../../role-based-access-control/built-in-roles.md#monitoring-reader) em qualquer âmbito onde também necessite de reportar métricas de utilização detalhadas.
+- **Relatório da utilização de recursos** – O Azure Cost Management mostra os custos no portal do Azure, o que inclui a utilização na sua relação com os custos nos padrões completos de utilização. Este relatório também pode mostrar custos associados a API e transferências, mas também pode querer aprofundar métricas de utilização detalhadas no Azure Monitor para obter uma compreensão mais profunda. Pondere conceder o [Leitor de Monitorização](../../role-based-access-control/built-in-roles.md#monitoring-reader) em qualquer âmbito onde também necessite de reportar métricas de utilização detalhadas.
 - **Agir quando os orçamentos são excedidos** – os Contribuidores do Cost Management também necessitam de acesso para criar e/ou gerir grupos de ações para reagir automaticamente a utilizações excedidas. Pondere conceder o [Contribuidor de Monitorização](../../role-based-access-control/built-in-roles.md#monitoring-contributor) a um grupo de recursos que contenha um grupo de ações para utilizar quando os limiares do orçamento são excedidos. A automatização de ações específicas requer funções adicionais para os serviços específicos utilizados, como a Automatização e as Funções do Azure.
 - **Agendar exportação de dados de custos** – os Contribuidores do Cost Management também necessitam de acesso para gerir as contas de armazenamento para agendarem uma exportação para copiar dados para uma conta de armazenamento. Pondere conceder o [Contribuidor de Conta de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor) a um grupo de recursos que contenha a conta de armazenamento de onde são exportados os dados de custos.
 - **Ver recomendações de poupança de custos** – os Leitores do Cost Management e Contribuidores do Cost Management têm acesso para *ver* recomendações de custos por predefinição. Contudo, o acesso para agir sobre as recomendações de custos requer acesso a recursos individuais. Pondere conceder uma [função específica a um serviço](../../role-based-access-control/built-in-roles.md#all), caso queira agir sobre uma recomendação com base nos custos.

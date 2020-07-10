@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: e38271b3a56894380ca5456146a7ab36fb09e08c
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: b8693ea09ccbb6f0a3f8dfe0846a9b1b256872b6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678023"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045149"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Gerir as funções Enterprise do Azure
 
@@ -84,7 +84,7 @@ Para obter mais informações sobre como adicionar um administrador de departame
 
 |Tarefas| Administrador do Enterprise (EA)|Administrador do Enterprise (só de leitura)|Administrador de Departamento|Administrador de Departamento (só de leitura) |Proprietário da Conta| Parceiro|
 |---|---|---|---|---|---|---|
-|Ver saldo do crédito, incluindo alocação monetária|✔|✔|✘|✘|✘|✔|
+|Ver saldo do crédito, incluindo o Pré-pagamento do Azure|✔|✔|✘|✘|✘|✔|
 |Ver quotas de despesas do departamento|✔|✔|✘|✘|✘|✔|
 |Definir quotas de despesas do departamento|✔|✘|✘|✘|✘|✘|
 |Ver folha de preços do EA da organização|✔|✔|✘|✘|✘|✔|

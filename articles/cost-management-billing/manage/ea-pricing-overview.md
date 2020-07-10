@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: 5ad92fe9f243cf9884f29536cf6ebb66202338d5
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: d205f3ccc0adef7e2390274bb7f4511c6f994027
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299966"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038009"
 ---
 # <a name="azure-ea-pricing"></a>Preços do Azure EA
 
@@ -24,7 +24,7 @@ Esta secção apresenta os detalhes acerca da forma como é calculada a utiliza�
 
 ### <a name="price-protection"></a>Proteção de preço
 
-Como cliente ou parceiro de canal, tem a garantia de que recebe preços iguais ou inferiores aos indicados na respetiva Folha de Preços do Cliente (CPS) ou o preço em vigor na data efetiva da compra do Azure. Este preço é designado por preço de base. Para serviços introduzidos após a compra do Azure, é-lhe cobrado o preço que estiver em vigor no desconto de nível aplicável quando o serviço é introduzido pela primeira vez. Esta proteção de preço aplica-se durante o período de alocação – um ou três anos, consoante o Contrato Enterprise.
+Como cliente ou parceiro de canal, tem a garantia de que recebe preços iguais ou inferiores aos indicados na respetiva Folha de Preços do Cliente (CPS) ou o preço em vigor na data efetiva da compra do Azure. Este preço é designado por preço de base. Para serviços introduzidos após a compra do Azure, é-lhe cobrado o preço que estiver em vigor no desconto de nível aplicável quando o serviço é introduzido pela primeira vez. Esta proteção de preço aplica-se durante o período de Pré-pagamento: um ou três anos, consoante o Contrato Enterprise.
 
 ### <a name="price-changes"></a>Alterações de preço
 

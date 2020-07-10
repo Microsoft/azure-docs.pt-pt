@@ -3,16 +3,16 @@ title: Administração do Azure EA Portal
 description: Este artigo explica as tarefas comuns que um administrador realiza no Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: eefd4a9ddf2150728578a4e058686a3204e34930
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 6169a18148b251540d66bce6e34374a16f697015
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456560"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044894"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Azure EA Portal
 
@@ -33,7 +33,7 @@ Os Administradores do Enterprise podem associar contas existentes a Departamento
 
 ## <a name="department-spending-quotas"></a>Quotas de despesas do departamento
 
-Os clientes EA podem definir ou alterar as quotas de despesas de cada departamento numa inscrição. O valor das quotas de despesas é definido para o atual período de alocação. No final do período de alocação atual, o sistema prolongará a quota de despesas existente para o próximo período de alocação, a menos que os valores sejam atualizados.
+Os clientes EA podem definir ou alterar as quotas de despesas de cada departamento numa inscrição. O montante das quotas de despesas é definido para o atual período de Pré-pagamento. No final do período de Pré-pagamento atual, o sistema prolongará a quota de despesas existente para o próximo período de Pré-pagamento, a menos que os valores sejam atualizados.
 
 O administrador do departamento pode ver a quota de despesas, mas apenas o administrador do Enterprise pode atualizar o valor da quota. O administrador do Enterprise e o administrador do departamento receberão notificações assim que a cota atingir 50%, 75%, 90% e 100%.
 
@@ -48,9 +48,9 @@ O administrador do departamento pode ver a quota de despesas, mas apenas o admin
     - Pode também aproveitar para editar o Nome do Departamento e o Centro de Custos.
  1. Selecione **Guardar**.
 
-A quota de despesas do departamento estará agora visível na vista Lista do Departamento no separador Departamento. No final da alocação atual, o Azure EA Portal manterá as quotas de despesas para o próximo período de alocação.
+A quota de despesas do departamento estará agora visível na vista Lista do Departamento no separador Departamento. No final do período de Pré-pagamento atual, o Azure EA Portal manterá as quotas de despesas para o próximo período de Pré-pagamento.
 
-O valor da quota do departamento é independente da alocação monetária atual. O valor da quota e os alertas aplicam-se apenas à utilização do proprietário. A quota de despesas do departamento destina-se apenas a fins informativos e não impõe limites de gastos.
+O montante da quota do departamento é independente do Pré-pagamento do Azure atual. O montante da quota e os alertas aplicam-se apenas à utilização do proprietário. A quota de despesas do departamento destina-se apenas a fins informativos e não impõe limites de gastos.
 
 ### <a name="department-administrator-to-view-the-quota"></a>Como administrador do departamento para visualizar a quota, faça o seguinte:
 
@@ -174,7 +174,7 @@ Este documento responde às perguntas frequentes relacionadas com a propriedade 
 
 ### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>Quantos proprietários de conta do Azure pode ter por subscrição?
 
-Apenas é permitido um proprietário de conta por subscrição.  Podem ser adicionadas funções adicionais com o Acesso Baseado em Funções ou o Controlo de Acesso (IAM) no separador Subscrição no canto superior esquerdo da página em [portal.azure.com]] (https://portal.azure.com).
+Apenas é permitido um proprietário de conta por subscrição.  Podem ser adicionadas funções adicionais com o Acesso Baseado em Funções ou o Controlo de Acesso (IAM) no separador Subscrição no canto superior esquerdo da página do [portal do Azure](https://portal.azure.com).
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>Um proprietário de conta do Azure pode estar listado em mais do que um departamento?
 

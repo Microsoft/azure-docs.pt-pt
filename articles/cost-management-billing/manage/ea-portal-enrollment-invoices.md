@@ -3,16 +3,16 @@ title: Faturas de inscrição do Azure Enterprise
 description: Este artigo explica como gerir e interpretar a fatura Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 5c26af74a392e3e6d3bb5557960b81604de7cdf3
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 5276780d06671b8358f615b1fcb6447c8e1310f9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84807804"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044877"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faturas de inscrição do Azure Enterprise
 
@@ -46,14 +46,14 @@ O portal Azure Enterprise gera automaticamente um número de nota de encomenda p
 
 ## <a name="azure-enterprise-billing-frequency"></a>Frequência de faturação do Azure Enterprise
 
-A faturação por parte da Microsoft é realizada anualmente, na data efetiva da inscrição, altura em que são cobradas todas as compras de alocações relativas a serviços do Microsoft Azure. Em relação a qualquer utilização que exceda os montantes das alocações, a Microsoft fatura em atraso.
+A faturação por parte da Microsoft é realizada anualmente, na data efetiva da inscrição, altura em que são cobradas todas as compras de Pré-pagamento relativas a serviços do Microsoft Azure. Em relação a qualquer utilização que exceda os montantes do Pré-pagamento, a Microsoft fatura em atraso.
 
-- As tarifas de alocação são propostas com base numa taxa mensal e são faturadas anualmente com antecedência.
+- As tarifas de Pré-pagamento são propostas com base numa taxa mensal e são faturadas anualmente com antecedência.
 - As tarifas de utilização excedida são calculadas mensalmente e faturadas posteriormente no final do período de faturação.
 
 ### <a name="billing-intervals"></a>Intervalos de faturação
 
-O intervalo de faturação depende da forma como escolhe efetuar as compras de alocação. A alocação anual coincide com uma das seguintes:
+O intervalo de faturação depende da forma como escolhe fazer as compras de Pré-pagamento. O Pré-pagamento anual coincide com uma das seguintes:
 
 - A data de aniversário da inscrição
 - A data efetiva da Subscrição de Emenda de um ano.
@@ -62,12 +62,12 @@ A data em que recebe a fatura de utilização excedida depende da configuração
 
 - **Inscrições diretas com data de início anterior a 1 de maio de 2018**:
   - Se estiver num Contrato Enterprise (EA) direto, encontra-se num período de faturação anual para os serviços do Azure, exceto os serviços do Azure Marketplace. O período de faturação baseia-se na data de aniversário: a data em que o contrato entrou em vigor.
-  - Se ultrapassar 150% do limiar da alocação monetária (MC) do EA, a inscrição será automaticamente convertida num período de faturação trimestral com base na data de aniversário. Receberá, também, uma fatura de utilização excedida.
-  - Se não ultrapassar 150% do limiar da MC, a inscrição permanecerá num período de faturação anual. Receberá a fatura de utilização excedida no fim do ano de alocação.
+  - Se ultrapassar 150% do limiar do Pré-pagamento do Azure do EA, a inscrição será automaticamente convertida num período de faturação trimestral com base na data de aniversário. Receberá, também, uma fatura de utilização excedida.
+  - Se não ultrapassar 150% do limiar do Pré-pagamento do Azure, a inscrição permanecerá num período de faturação anual. Receberá a fatura de utilização excedida no fim do ano de Pré-pagamento.
 
 - **Inscrições diretas com data de início posterior a 1 de maio de 2018**:
   - As faturas dos custos faturados em separado e do consumo do Azure são emitidas num período de faturação mensal.
-  - Quaisquer custos não cobertos pela alocação monetária são devidos como um pagamento de utilização excedida.  
+  - Quaisquer custos que não estejam cobertos pelo Pré-pagamento do Azure são devidos como pagamento de utilização excedida.  
 
 - **Inscrições indiretas com data de início anterior a 1 de maio de 2018**:
 
@@ -77,21 +77,21 @@ A data em que recebe a fatura de utilização excedida depende da configuração
 
   Encontra-se num período de faturação mensal.  
 
-### <a name="increase-your-monetary-commitment"></a>Aumentar a alocação monetária
+### <a name="increase-your-azure-prepayment"></a>Aumentar o Pré-pagamento do Azure
 
-Pode aumentar a alocação a qualquer momento. É-lhe cobrado o número de meses restantes referentes ao período de alocação desse ano. Por exemplo, se se inscrever numa Subscrição de Emenda de um ano e, em seguida, aumentar a alocação durante o mês seis, ser-lhe-ão faturados os restantes seis meses desse período. As quantidades da alocação são posteriormente atualizadas durante os últimos seis meses do período de alocação. Estas novas quantidades são utilizadas para determinar quaisquer custos de utilização excedida.
+Pode aumentar o Pré-pagamento a qualquer momento. É-lhe cobrado o número de meses restantes referentes ao período de Pré-pagamento desse ano. Por exemplo, se se inscrever numa Subscrição de Emenda de um ano e, em seguida, aumentar o Pré-pagamento durante o mês seis, ser-lhe-ão faturados os restantes seis meses desse período. As quantidades do Pré-pagamento são posteriormente atualizadas durante os últimos seis meses do período de Pré-pagamento. Estas novas quantidades são utilizadas para determinar quaisquer custos de utilização excedida.
 
 ### <a name="overage"></a>Utilização Excedente
 
-No caso da utilização excedida, é-lhe cobrada a utilização ou as reservas que excederam a alocação durante o período de faturação. Para ver uma discriminação do cálculo das quantidades de utilização excedida para itens individuais, veja o relatório de resumo de utilização ou contacte o seu parceiro de canal.
+No caso da utilização excedida, é-lhe cobrada a utilização ou as reservas que excederam o Pré-pagamento durante o período de faturação. Para ver uma discriminação do cálculo das quantidades de utilização excedida para itens individuais, veja o relatório de resumo de utilização ou contacte o seu parceiro de canal.
 
 Para cada item na fatura, verá:
 
 - **Montante Alargado**: o total de custos
-- **Utilização da Alocação**: o montante da alocação utilizado para cobrir os custos
-- **Montante Líquido**: os custos que excedem a alocação
+- **Utilização do Pré-pagamento**: o montante do Pré-pagamento utilizado para cobrir os custos
+- **Montante Líquido**: os custos que excedem o Pré-pagamento
 
-Os impostos aplicáveis são calculados apenas sobre o valor líquido que excede a alocação.
+Os impostos aplicáveis são calculados apenas sobre o montante líquido que excede o Pré-pagamento.
 
 A faturação da utilização excedida é automatizada. O tempo das notificações e das faturas depende da data de fim do período de faturação.
 
@@ -130,18 +130,18 @@ Para ver os créditos:
 1. No [portal Azure Enterprise](https://ea.azure.com), selecione a secção **Relatórios**.
 1. Selecione **Resumo da Utilização**.
 1. No canto superior direito, altere a vista **M** para **C**.
-1. Expanda o campo de ajuste na tabela de alocação de serviços do Azure.
+1. Expanda o campo de ajuste na tabela de Pré-pagamento de serviços do Azure.
 1. Pode ver os créditos aplicados à inscrição e uma breve explicação. Por exemplo: Crédito do Contrato de Nível de Serviço.
 
-## <a name="pay-your-overage-with-your-monetary-commitment"></a>Pagar a utilização excedida com a alocação monetária
+## <a name="pay-your-overage-with-your-azure-prepayment"></a>Pagar a utilização excedida com o Pré-pagamento do Azure
 
-Para aplicar a alocação monetária a utilizações excedidas, tem de cumprir os seguintes critérios:
+Para aplicar o Pré-pagamento do Azure a utilizações excedidas, tem de cumprir os seguintes critérios:
 
 - Incorreu em custos de utilização excedida que não foram pagos e que estão incluídos no prazo de um ano a contar da data de fim do serviço faturado.
-- O montante da alocação monetária disponível cobre o montante total dos custos incorridos, incluindo todas as faturas do Azure vencidas e por pagar.
+- O montante do Pré-pagamento do Azure disponível cobre o montante total dos custos incorridos, incluindo todas as faturas do Azure vencidas e por pagar.
 - O período de faturação que quer completar tem de estar totalmente encerrado. A faturação ficará concluída por completo após o quinto dia de cada mês.
 - O período de faturação que quer compensar tem de estar totalmente encerrado.
-- O Desconto de Alocação do Azure (ACD) baseia-se na nova alocação real menos os fundos planeados para o consumo anterior. Esta condição é válida apenas para os custos de utilização excedida incorridos. Só é válida para serviços que consomem alocação monetária, pelo que não se aplica aos custos do Azure Marketplace. Os custos do Azure Marketplace são cobrados separadamente.
+- O Desconto de Pré-pagamento do Azure (ACD) baseia-se no novo Pré-pagamento menos os fundos planeados para o consumo anterior. Esta condição é válida apenas para os custos de utilização excedida incorridos. Só é válida para serviços que consomem o Pré-pagamento do Azure, pelo que não se aplica aos custos do Azure Marketplace. Os custos do Azure Marketplace são cobrados separadamente.
 
 Para encerrar uma compensação de utilização excedida, o utilizador ou a equipa de conta podem abrir um pedido de suporte. É necessária uma aprovação por e-mail do administrador do Enterprise ou do Contacto de Faturação.
 
@@ -178,13 +178,13 @@ Para referência, a tabela que se segue mostra as fórmulas do Excel que pode ut
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>Conversão entre o relatório de detalhes de utilização e a página de resumo de utilização
 
-No relatório de dados de utilização de transferências, pode ver a utilização de recursos não processada até seis casas decimais. No entanto, os dados de utilização apresentados no portal Azure Enterprise são arredondados quatro casas decimais para unidades de alocação e truncados para zero casas decimais para unidades de utilização excedida. Os dados de utilização não processada são primeiramente arredondados para quatro dígitos antes da conversão para as unidades utilizadas no portal Azure Enterprise. Em seguida, as unidades do Enterprise convertidas são arredondadas novamente para quatro dígitos. Só pode ver as horas reais consumidas antes da conversão no relatório de utilização de transferências e não no portal Azure Enterprise.
+No relatório de dados de utilização de transferências, pode ver a utilização de recursos não processada até seis casas decimais. No entanto, os dados de utilização apresentados no portal Azure Enterprise são arredondados em quatro casas decimais para unidades de Pré-pagamento e truncados para zero casas decimais para unidades de utilização excedida. Os dados de utilização não processada são primeiramente arredondados para quatro dígitos antes da conversão para as unidades utilizadas no portal Azure Enterprise. Em seguida, as unidades do Enterprise convertidas são arredondadas novamente para quatro dígitos. Só pode ver as horas reais consumidas antes da conversão no relatório de utilização de transferências e não no portal Azure Enterprise.
 
 Por exemplo: Se forem reportadas 694,533404 horas reais de SQL Server no relatório de detalhes de utilização. Estas unidades são convertidas para 6,94533404 unidades de 100 horas de computação que, em seguida, são arredondadas para 6,9453 e são apresentadas no portal Azure Enterprise.
 
-- Para determinar o valor total da faturação, as unidades apresentadas são multiplicadas pelo Preço de Unidade de Alocação e o resultado é truncado para duas casas decimais. No caso do Iene japonês (JPY) e do Won coreano (KRW), o valor total é arredondado para zero casas decimais.
+- Para determinar o montante total da faturação, as unidades apresentadas são multiplicadas pelo Preço de Unidade de Pré-pagamento e o resultado é truncado para duas casas decimais. No caso do Iene japonês (JPY) e do Won coreano (KRW), o valor total é arredondado para zero casas decimais.
 - No caso da utilização excedida, as unidades de faturação são truncadas para seis dígitos e, em seguida, multiplicadas pelo Preço de Unidade de Utilização Excedida para determinar o valor total de faturação.
-- Para a faturação do Fornecedor de Serviços Geridos (MSP), toda a utilização associada a um departamento marcado como MSP é truncada para zero casas decimais após a conversão para a unidade de medida do EA. Como resultado, a soma desta utilização pode ser inferior à soma total de toda a utilização reportada no portal Azure Enterprise. Depende se o MSP está dentro do saldo de alocação monetária ou se está em utilização excedida.
+- Para a faturação do Fornecedor de Serviços Geridos (MSP), toda a utilização associada a um departamento marcado como MSP é truncada para zero casas decimais após a conversão para a unidade de medida do EA. Como resultado, a soma desta utilização pode ser inferior à soma total de toda a utilização reportada no portal Azure Enterprise. Depende se o MSP está dentro do saldo do Pré-pagamento do Azure ou se está em utilização excedida.
 
 ### <a name="graduated-pricing"></a>Preços graduados
 
@@ -226,13 +226,13 @@ Para os serviços em que a zona e a região afetam os preços, veja a tabela seg
 
 Não há custos para a saída de dados entre serviços alojados no mesmo datacenter. Por exemplo, Microsoft 365 e Azure.
 
-### <a name="monetary-commitment-and-unbilled-usage"></a>Alocação monetária e utilização não faturada
+### <a name="azure-prepayment-and-unbilled-usage"></a>Pré-pagamento do Azure e utilização não faturada
 
-A alocação monetária do Azure é um montante pago antecipadamente pelos serviços do Azure. A alocação monetária é consumida à medida que os serviços são utilizados. Os serviços originais do Azure são faturados relativamente à alocação monetária. No entanto, alguns custos são faturados separadamente e os serviços do Azure Marketplace não consomem alocação monetária.
+O Pré-pagamento do Azure é um montante pago antecipadamente pelos serviços do Azure. O Pré-pagamento do Azure é consumido à medida que os serviços são utilizados. Os serviços originais do Azure são faturados relativamente ao Pré-pagamento do Azure. No entanto, alguns custos são faturados separadamente e os serviços do Azure Marketplace não consomem o Pré-pagamento do Azure.
 
 ### <a name="charges-billed-separately"></a>Custos faturados em separado
 
-Alguns produtos e serviços fornecidos por origens de terceiros não consomem a alocação monetária do Azure. Em vez disso, estes itens são faturados separadamente como parte da fatura de utilização excedida do período de faturação padrão.
+Alguns produtos e serviços fornecidos por terceiros não consomem o Pré-pagamento do Azure. Em vez disso, estes itens são faturados separadamente como parte da fatura de utilização excedida do período de faturação padrão.
 
 Combinámos todos os custos do Azure e do Azure Marketplace numa única fatura que está em linha com o período de faturação da inscrição. A fatura combinada não se aplica a clientes do Azure na Austrália, no Japão ou em Singapura.
 
@@ -265,7 +265,7 @@ As faturas serão disponibilizadas no mês a seguir ao final do período de fatu
 
    | Título | Descrição | Nome de ficheiro |
    | --- | --- | --- |
-   | [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) (Nomes de Serviços Amigáveis) | Lista todos os serviços ativos e inclui: <br>  <ul><li>categoria do serviço</li>   <li>nome de serviço amigável</li>   <li>nome da alocação e número do mosaico</li> <li>nome de consumo e número do mosaico</li>   <li>unidades de medida</li>   <li>fatores de conversão entre a utilização reportada e a utilização apresentada no portal Enterprise</li></ul> | Friendly\_Service\_Names.xlsx |
+   | [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) (Nomes de Serviços Amigáveis) | Lista todos os serviços ativos e inclui: <br>  <ul><li>categoria do serviço</li>   <li>nome de serviço amigável</li>   <li>nome do Pré-pagamento e número de peça</li> <li>nome de consumo e número do mosaico</li>   <li>unidades de medida</li>   <li>fatores de conversão entre a utilização reportada e a utilização apresentada no portal Enterprise</li></ul> | Friendly\_Service\_Names.xlsx |
    | [Service Download Fields](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) (Campos de Transferências de Serviços) | Esta folha de cálculo fornece uma lista de todas as combinações possíveis dos campos relacionados com o serviço no Relatório de Transferência de Utilização. | Service\_Download\_Fields.xlsx |
 
 - Para obter informações sobre como compreender a fatura e os custos, veja [Compreender a fatura do Contrato Enterprise do Azure](../understand/review-enterprise-agreement-bill.md).

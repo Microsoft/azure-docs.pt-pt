@@ -3,16 +3,16 @@ title: Instâncias reservadas de VM do Azure EA
 description: Este artigo resume como as reservas do Azure para instâncias reservadas de VM o podem ajudar a economizar dinheiro com a sua inscrição Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/11/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: a06f416ed1d4df33cc6777eba878eee2b4f6b047
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: b78abeaac3066839636918923636f4b7bdf9ee35
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735426"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044860"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instâncias reservadas de VM do Azure EA
 
@@ -83,9 +83,9 @@ Se não utilizou o benefício híbrido do Azure para comprar instâncias de VM r
 
 ### <a name="reserved-instance-billing"></a>Faturação de instâncias reservadas
 
-Para clientes Enterprise, a alocação monetária serve para comprar instâncias de VM reservadas do Azure. Se a sua inscrição tiver um saldo de alocação monetária suficiente para cobrir a compra de instâncias reservadas, o montante será deduzido do seu saldo de alocação monetária e não receberá uma fatura da compra.
+Para clientes empresariais, o Pré-pagamento do Azure serve para comprar instâncias de VM reservadas do Azure. Se a sua inscrição tiver um saldo do Pré-pagamento do Azure suficiente para cobrir a compra de instâncias reservadas, o montante será deduzido do seu saldo do Pré-pagamento do Azure e não receberá uma fatura da compra.
 
-Nos cenários em que os clientes Azure EA tiverem utilizado toda a sua alocação monetária, estes continuam a poder comprar instâncias reservadas e essas compras serão faturadas na fatura de utilização excedida seguinte. A utilização excedida de instâncias reservadas, se existir, fará parte da fatura de utilização excedida normal.
+Nos cenários em que os clientes Azure EA tiverem utilizado a totalidade do Pré-pagamento do Azure, estes continuam a poder comprar instâncias reservadas e essas compras serão faturadas na fatura de utilização excedida seguinte. A utilização excedida de instâncias reservadas, se existir, fará parte da fatura de utilização excedida normal.
 
 ### <a name="reserved-instance-expiration"></a>Expiração de instâncias reservadas
 

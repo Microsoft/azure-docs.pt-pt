@@ -1,22 +1,22 @@
 ---
-title: Compreender o desconto de reservas para as Bases de Dados SQL do Azure | Microsoft Docs
-description: Saiba como um desconto de reserva é aplicado às Bases de Dados SQL do Azure em execução.
+title: Compreender o desconto de reservas para a Base de Dados SQL do Azure | Microsoft Docs
+description: Saiba como um desconto de reserva é aplicado às bases de dados SQL do Azure em execução.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: e402eabce5fd7af6ca9f51a1d67175cd8e5e1ce4
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 736e046b5254de9aa18c898994d7df11efc98a9a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84726065"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037992"
 ---
-# <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Como um desconto de reserva é aplicado às Bases de Dados SQL do Azure
+# <a name="how-a-reservation-discount-is-applied-to-azure-sql-database"></a>Como um desconto de reserva é aplicado à Base de Dados SQL do Azure
 
-Depois de comprar uma capacidade reservada da Base de Dados SQL do Azure, o desconto de reserva é automaticamente aplicado às Bases de Dados SQL que correspondam aos atributos e à quantidade da reserva. Uma reserva abrange os custos de computação da sua Base de Dados SQL. É-lhe cobrada uma taxa normal de software, armazenamento e rede. Pode cobrir os custos de licenciamento das Bases de Dados SQL com o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
+Depois de comprar uma capacidade reservada da Base de Dados SQL do Azure, o desconto de reserva é automaticamente aplicado às bases de dados SQL que correspondam aos atributos e à quantidade da reserva. Uma reserva abrange os custos de computação da sua Base de Dados SQL. É-lhe cobrada uma taxa normal de software, armazenamento e rede. Pode cobrir os custos de licenciamento da Base de Dados SQL com o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Note que os descontos de reserva não se aplicam à Base de Dados SQL do Azure sem servidor.
 
@@ -28,17 +28,17 @@ Um desconto de reserva é “*use-it-or-lose-it*” (utilizar ou perder). Portan
 
 Quando encerra um recurso, o desconto de reserva aplica-se automaticamente a outro recurso correspondente no âmbito especificado. Se não for encontrado nenhum recurso correspondente no âmbito especificado, as horas reservadas serão *perdidas*.
 
-## <a name="discount-applied-to-sql-databases"></a>O desconto aplicado às Bases de Dados SQL
+## <a name="discount-applied-to-running-sql-databases"></a>Desconto aplicado às bases de dados SQL em execução
 
- O desconto da capacidade reservada da Base de Dados SQL são aplicados a Bases de Dados SQL em execução de hora em hora. A reserva que comprar é correspondida à utilização de computação emitida pelas Bases de Dados SQL em execução. No caso das Bases de Dados SQL que não são executadas durante horas completas, a reserva é automaticamente aplicada a outras Bases de Dados SQL que correspondam aos atributos da reserva. O desconto pode ser aplicado a Bases de Dados SQL que estejam a ser executadas ao mesmo tempo. Se não tiver Bases de Dados SQL que sejam executadas durante toda a hora que correspondam aos atributos da reserva, não irá tirar partido completo das vantagens do desconto de reserva para essa hora.
+ O desconto da capacidade reservada da Base de Dados SQL é aplicado a bases de dados SQL em execução de hora em hora. A reserva que comprar é correspondida à utilização de computação emitida pelas bases de dados SQL em execução. No caso das bases de dados SQL que não são executadas durante a hora completa, a reserva é automaticamente aplicada a outras bases de dados SQL que correspondam aos atributos da reserva. O desconto pode ser aplicado a bases de dados SQL que estejam a ser executadas ao mesmo tempo. Se não tiver bases de dados SQL que sejam executadas durante a hora completa que correspondam aos atributos da reserva, não irá tirar o máximo partido do desconto da reserva para essa hora.
 
 Os seguintes exemplos mostram como o desconto de capacidade reservada da Base de Dados SQL se aplica em função do número de núcleos que comprou e quando os mesmos estão em execução.
 
 - Cenário 1: compra uma capacidade reservada da Base de Dados SQL para uma Base de Dados SQL de 8 núcleos. Executa uma Base de Dados SQL de 16 núcleos que corresponde ao resto dos atributos da reserva. É-lhe cobrado o preço pay-as-you-go pela utilização de computação da Base de Dados SQL de 8 núcleos. Obtém o desconto de reserva por uma hora de utilização de computação da Base de Dados SQL de 8 núcleos.
 
-Para o resto destes exemplos, assuma que a capacidade reservada da Base de Dados SQL que comprou é para uma Base de Dados SQL de 16 núcleos e que o resto dos atributos de reserva correspondem às Bases de Dados SQL em execução.
+Para o resto destes exemplos, assuma que a capacidade reservada da Base de Dados SQL que comprou é para uma Base de Dados SQL de 16 núcleos e que o resto dos atributos de reserva correspondem às bases de dados SQL em execução.
 
-- Cenário 2: executa duas bases de dados SQL com 8 núcleos cada uma durante uma hora. O desconto de reserva de 16 núcleos é aplicado para a utilização de computação para ambas as Bases de Dados SQL de 8 núcleos.
+- Cenário 2: executa duas bases de dados SQL com 8 núcleos cada uma durante uma hora. O desconto da reserva de 16 núcleos é aplicado à utilização de computação para ambas as bases de dados SQL de 8 núcleos.
 - Cenário 3: executa uma Base de Dados SQL de 16 núcleos das 13:00 às 13:30. Executa outra Base de Dados SQL de 16 núcleos das 13:30 às 14:00. Ambas são abrangidas pelo desconto de reserva.
 - Cenário 4: executa uma Base de Dados SQL de 16 núcleos das 13:00 às 13:45. Executa outra Base de Dados SQL de 16 núcleos das 13:30 às 14:00. É-lhe cobrado o preço pay-as-you-go pela sobreposição de 15 minutos. O desconto de reserva aplica-se à utilização de computação durante o resto do tempo.
 

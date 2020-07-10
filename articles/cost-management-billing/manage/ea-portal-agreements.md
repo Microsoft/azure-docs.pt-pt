@@ -3,16 +3,16 @@ title: Contratos e emendas do Azure EA
 description: Este artigo explica como os contratos e as emendas do Azure EA afetam a utilização do Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 4904390ce0642d0331e82610e8aef4b735b56f1f
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 50f7a1bab17b9a98b7ca282387def52b24d448c4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298147"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044911"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratos e emendas do Azure EA
 
@@ -20,7 +20,7 @@ O artigo descreve como os contratos e as emendas do Azure EA podem afetar o ace
 
 ## <a name="enrollment-provisioning-status"></a>Estado do aprovisionamento da inscrição
 
-A data de início de uma nova alocação monetária é definida pela data em que o centro de operações regional a processou. Dado que as encomendas de alocação monetária através do Azure EA Portal são processadas no fuso horário UTC, poderá sofrer algum atraso se a sua nota de encomenda de alocação monetária tiver sido processada numa região diferente. A data de início da cobertura na nota de encomenda em https://www.explore.ms mostra o início da alocação monetária. A data de início da cobertura aplica-se quando a alocação monetária aparece no Azure EA Portal.
+A data de início de um novo Pré-pagamento do Azure é definida pela data em que o centro de operações regional o processou. Dado que as encomendas do Pré-pagamento do Azure através do Azure EA Portal são processadas no fuso horário UTC, poderá sofrer algum atraso se a sua nota de encomenda do Pré-pagamento do Azure tiver sido processada numa região diferente. A data de início da cobertura na nota de encomenda em https://www.explore.ms mostra o início do Pré-pagamento do Azure. A data de início da cobertura aplica-se quando o Pré-pagamento do Azure aparece no Azure EA Portal.
 
 ## <a name="support-for-enterprise-customers"></a>Suporte de clientes empresariais
 
@@ -36,7 +36,7 @@ Uma inscrição tem um dos seguintes valores de estado. Cada estado determina co
 
 **Período Alargado Indefinidamente** – o estado de período alargado indefinidamente ocorre depois de chegar à data limite do Contrato Enterprise. Antes de a inscrição EA atingir a data limite do Contrato Enterprise, o Administrador da Inscrição deve decidir se:
 
-- Renova a inscrição ao adicionar uma Alocação Monetária adicional
+- Renovar a inscrição ao adicionar um Pré-pagamento do Azure adicional
 - Transfere a inscrição existente para uma nova inscrição
 - Migra para o Programa de Subscrição Online da Microsoft (MOSP)
 - Confirma a desativação de todos os serviços associados à inscrição
@@ -51,7 +51,7 @@ Desde 1 de agosto de 2019 que não são aceites novos formulários de exclusão 
 
 No Azure EA Portal, a Margem de Lucro do Parceiro permite obter melhores relatórios de custos para os clientes. O Azure EA Portal mostra a utilização e os preços configurados pelos parceiros para os clientes.
 
-A margem de lucro permite que os administradores parceiros adicionem uma margem de lucro percentual aos Contratos Enterprise indiretos. A margem de lucro percentual aplica-se a todas as informações de serviços originais da Microsoft no Azure EA Portal, por exemplo: taxas dos medidores, alocações monetárias e encomendas. Depois de a margem de lucro ser publicada pelo parceiro, o cliente vê os custos do Azure no Azure EA Portal. Por exemplo, resumo da utilização, listas de preços e relatórios de utilização transferidos.
+A margem de lucro permite que os administradores parceiros adicionem uma margem de lucro percentual aos Contratos Enterprise indiretos. A percentagem da margem de lucro aplica-se a todas as informações de serviços originais da Microsoft no Azure EA Portal, como, por exemplo: taxas dos medidores, Pré-pagamento do Azure e encomendas. Depois de a margem de lucro ser publicada pelo parceiro, o cliente vê os custos do Azure no Azure EA Portal. Por exemplo, resumo da utilização, listas de preços e relatórios de utilização transferidos.
 
 A partir de setembro de 2019, os parceiros podem aplicar a margem de lucro a qualquer momento durante um período. Não precisam de esperar até ao próximo aniversário para aplicar a margem de lucro.
 
@@ -61,7 +61,7 @@ A Microsoft não acederá nem utilizará a margem de lucro fornecida e preços a
 
 O LSP fornece um único valor percentual no EA Portal.  Todas as informações comerciais no portal serão aumentadas pela percentagem fornecida no LSP. Exemplo:
 
-- O cliente assina um EA com uma alocação monetária de 100 000 USD.
+- O cliente assina um EA com um Pré-pagamento do Azure de 100 000 USD.
 - A taxa do medidor do Serviço A é de 10 USD/hora.
 - O LSP define uma percentagem de margem de lucro de 10% no EA Portal.
 - O exemplo abaixo mostra como o cliente verá as informações comerciais:
@@ -72,10 +72,10 @@ O LSP fornece um único valor percentual no EA Portal.  Todas as informações
 
 ### <a name="when-to-use-a-markup"></a>Quando utilizar a margem de lucro
 
-Utilize esta funcionalidade caso tenha definido a mesma percentagem de margem de lucro para TODAS as transações comerciais no EA, isto é, se aplicar a margem de lucro às informações de alocação monetária, às taxas dos medidores, às informações de encomenda e etc.
+Utilize esta funcionalidade caso tenha definido a mesma percentagem de margem de lucro para TODAS as transações comerciais no EA, isto é, se aplicar a margem de lucro às informações do Pré-pagamento do Azure, às taxas dos medidores, às informações de encomenda, etc.
 
 Não utilize a funcionalidade de margem de lucro se:
-- Utilizar taxas diferentes para a alocação monetária e as taxas dos medidores.
+- Utilizar taxas diferentes para o Pré-pagamento do Azure e as taxas dos medidores.
 - Utilizar taxas diferentes para medidores diferentes.
 
 Se estiver a utilizar taxas diferentes para medidores diferentes, recomendamos o desenvolvimento de uma solução personalizada com base na Chave de API, que pode ser fornecida pelo cliente para extrair os dados de consumo e fornecer relatórios.
@@ -97,11 +97,11 @@ Confirme que analisa as informações comerciais (informações de saldo monetá
 
 **Passo 2: Analisar e validar**
 
-Analise o preço da margem de lucro no _Resumo da Utilização_ para o período de alocação na vista de cliente. O preço da Microsoft ainda estará disponível na vista de parceiro. Pode alternar as vistas com o botão "pessoas" da margem de lucro do parceiro no canto superior direito.
+Analise o preço da margem de lucro no _Resumo da Utilização_ para o período de Pré-pagamento na vista de cliente. O preço da Microsoft ainda estará disponível na vista de parceiro. Pode alternar as vistas com o botão "pessoas" da margem de lucro do parceiro no canto superior direito.
 
 1. Analise os preços na folha de preços.
 1. Pode fazer alterações antes da publicação. Para tal, selecione **Editar** no separador _Ver Resumo da Utilização > Vista de Cliente_ .  
-  Tanto os preços de serviço como os saldos de alocação terão a margem de lucro com as mesmas percentagens. Se tiver percentagens diferentes para o saldo monetário e as taxas dos medidores ou percentagens diferentes para serviços diferentes, não utilize esta funcionalidade.
+  Tanto os preços de serviço como os saldos de Pré-pagamento terão a margem de lucro com as mesmas percentagens. Se tiver percentagens diferentes para o saldo monetário e as taxas dos medidores ou percentagens diferentes para serviços diferentes, não utilize esta funcionalidade.
 
 **Passo 3: Publicar**
 
@@ -121,7 +121,7 @@ Quando a margem de lucro do parceiro for publicada, o cliente indireto terá ace
 Os parceiros podem utilizar a funcionalidade de margem de lucro (no Azure EA) após ser processada uma Alteração do Parceiro de Canal; não precisam aguardar pelo próximo período de aniversário.
 
 
-## <a name="resource-commitment-and-requesting-quota-increases"></a>Alocação de recursos e pedir aumentos de quotas
+## <a name="resource-prepayment-and-requesting-quota-increases"></a>Pré-pagamento de recursos e pedir aumentos de quotas
 
 **O sistema impõe as seguintes quotas predefinidas por subscrição:**
 
@@ -135,11 +135,11 @@ Os parceiros podem utilizar a funcionalidade de margem de lucro (no Azure EA) a
 | Controlo de Acesso | 50 Espaços de nomes por conta. 100 milhões transações de Controlo de Acesso por mês |   |
 | Service Bus | 50 Espaços de nomes por conta. 40 ligações do Service Bus | Os clientes que comprarem ligações do Service Bus através de pacotes de ligação terão quotas iguais ao ponto médio entre o pacote de ligação que compraram e a quantidade do pacote de ligação mais elevado seguinte. Os clientes que escolherem um Pacote de 500 terão uma quota de 750. |
 
-## <a name="resource-commitment"></a>Alocação de recursos
+## <a name="resource-prepayment"></a>Pré-pagamento de recursos
 
-A Microsoft fornecerá serviços até, pelo menos, ao nível da utilização associada incluído na alocação mensal que comprou (a Alocação de Serviços), mas todos os outros aumentos nos níveis de utilização dos recursos do serviço (por exemplo, aumento do número de instâncias de comutação em execução ou o aumento da quantidade de armazenamento utilizado) estão sujeitos à disponibilidade destes recursos do serviço.
+A Microsoft fornecerá serviços até, pelo menos, ao nível da utilização associada incluído no Pré-pagamento mensal que comprou (o Pré-pagamento de Serviços), mas todos os outros aumentos nos níveis de utilização dos recursos de serviços (por exemplo, aumento do número de instâncias de computação em execução ou o aumento da quantidade de armazenamento utilizado) estão sujeitos à disponibilidade destes recursos de serviços.
 
-As quotas descritas acima não são Alocação de Serviços. Para determinar o número de pequenas instâncias de computação (ou equivalentes) simultâneas que a Microsoft fornecerá como parte da Alocação de Serviços, deverá dividir-se o número de horas das pequenas instâncias de computação compradas para um mês pelo número de horas no mês mais curto do ano (ou seja, fevereiro – 672 horas).
+As quotas descritas acima não são Pré-pagamento de Serviços. Para determinar o número de pequenas instâncias de computação (ou equivalentes) simultâneas que a Microsoft fornecerá como parte do Pré-pagamento de Serviços, deverá dividir-se o número de horas das pequenas instâncias de computação compradas para um mês pelo número de horas no mês mais curto do ano (ou seja, fevereiro – 672 horas).
 
 ## <a name="requesting-a-quota-increase"></a>Pedir um aumento de quota
 

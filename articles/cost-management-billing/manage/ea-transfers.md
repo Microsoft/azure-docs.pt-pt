@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: a0846a07fd8107a87483753c8dbff1301fda4a0c
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: ff10d9ec9b92b85d057e556a21c144b9e8f155cf
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299915"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043279"
 ---
 # <a name="azure-enterprise-transfers"></a>Transferências do Azure Enterprise
 
@@ -49,7 +49,7 @@ Outros pontos a ter em mente antes de uma transferência de conta:
 
 Considera-se uma transferência de inscrição quando:
 
-- O termo de alocação de uma inscrição atual tiver terminado.
+- O termo de Pré-pagamento de uma inscrição atual tiver terminado.
 - Uma inscrição se encontra no estado expirado/alargado e é negociado um novo contrato.
 - Tem várias inscrições e pretende combinar todas as contas e a faturação numa única inscrição.
 
@@ -60,7 +60,7 @@ Quando pede a transferência de uma inscrição corporativa inteira para uma ins
 - Todos os serviços, subscrições, contas, departamentos e toda a estrutura de inscrição, incluindo todos os administradores de departamentos do EA, são transferidos para uma inscrição de destino nova.
 - O estado da inscrição é definido para _Transferida_. A inscrição transferida está disponível apenas para fins de relatório de histórico de utilização.
 - Não pode adicionar funções ou subscrições a uma inscrição transferida. O estado Transferida impede a utilização adicional em relação à inscrição.
-- Qualquer saldo de alocação monetária restante no contrato é perdido, incluindo os termos futuros.
+- Perderá todo o saldo do Pré-pagamento do Azure restante no contrato, incluindo os termos futuros.
 -    Se a inscrição da qual está a transferir tiver compras de RIs, a taxa das compras de RIs permanecerá na inscrição de origem. No entanto, os benefícios das RIs serão transferidos para utilização na nova inscrição.
 -    A taxa de compra única do marketplace e todas as taxas fixas mensais já incorridas na antiga inscrição não serão transferidas para a nova inscrição. As taxas do marketplace baseadas no consumo serão transferidas.
 
@@ -68,7 +68,7 @@ Quando pede a transferência de uma inscrição corporativa inteira para uma ins
 
 O dia da transferência efetiva pode ser na data de início da inscrição de destino ou numa data posterior.
 
-A utilização da inscrição de origem é cobrada como alocação monetária ou utilização excedida. A utilização que ocorre após a data de transferência efetiva é transferida para a nova inscrição e cobrada em conformidade.
+A utilização da inscrição de origem é cobrada como Pré-pagamento do Azure ou utilização excedida. A utilização que ocorre após a data de transferência efetiva é transferida para a nova inscrição e cobrada em conformidade.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -84,9 +84,9 @@ Outros pontos a ter em mente antes de uma transferência de inscrição:
 - Se uma transferência de inscrição não atender aos seus requisitos, considere uma transferência de conta.
 - O estado da inscrição de origem será atualizado para transferido e só estará disponível para fins de relatório de histórico de utilização.
 
-### <a name="monetary-commitment"></a>Alocação monetária
+### <a name="azure-prepayment"></a>Pré-pagamento do Azure
 
-A alocação monetária não é transferível entre inscrições. Os saldos de alocação monetária são associados contratualmente à inscrição em que foi pedida. A alocação monetária não é transferida como parte do processo de transferência de inscrição ou conta.
+O Pré-pagamento do Azure não é transferível entre inscrições. Os saldos do Pré-pagamento do Azure são associados contratualmente à inscrição em que foi pedido. O Pré-pagamento do Azure não é transferido como parte do processo de transferência de inscrição ou conta.
 
 ### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Nenhum serviço é afetado pelas transferências de inscrições e de contas
 
