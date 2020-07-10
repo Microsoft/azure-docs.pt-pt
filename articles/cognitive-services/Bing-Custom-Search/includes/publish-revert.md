@@ -7,6 +7,6 @@ ms.lasthandoff: 04/29/2020
 ms.locfileid: "67184590"
 ---
 ## <a name="publish-or-revert"></a>Publicar ou reverter
-As alterações que efaz para uma instância de Pesquisa Personalizada são feitas no separador **Configuração** para que possa validar as suas alterações. Quando terminar de fazer alterações e estiver pronto para publicar, clique em **Publicar**. As alterações não se refletem nos seus pontos finais de produção até publicar.
+As alterações efetuadas a uma instância de Pesquisa Personalizada são es feitas no separador **Configuração** para que possa validar as suas alterações. Quando terminar de fazer alterações e estiver pronto para publicar, clique em **Publicar**. As alterações não se refletem em comparação com os seus pontos finais de produção até que publique.
 
-Antes de publicar, se decidir que não quer manter as alterações que fez, clique em **Reverter**. Quando reverte as suas alterações, a configuração do estado ao vivo é inalterada e o separador **Configuração** é revertido para corresponder ao estado ao vivo.
+Antes de publicar, se decidir que não quer manter as alterações que fez, clique em **Reverter**. Quando reverte as alterações, a configuração do estado ao vivo permanece inalterada e o **separador Configuração** é revertido para corresponder ao estado ao vivo.
