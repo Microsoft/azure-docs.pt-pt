@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f3a1be435e297ab4a9ba7f8bfbd5f3ce3451d8a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07f3e270e799753a582227abe53223bd05755eb5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77153881"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165214"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Visão geral da linguagem OData `$filter` `$orderby` para, e `$select` em Azure Cognitive Search
 
@@ -82,7 +83,9 @@ O significado de um caminho de campo difere dependendo do contexto. Nos filtros,
 
 Considere o caminho de `Address/City` campo. Num filtro, isto refere-se a uma única cidade para o documento atual, como "São Francisco". Em contraste, `Rooms/Type` `Type` refere-se ao sub-campo para muitos quartos (como "standard" para o primeiro quarto, "deluxe" para a segunda sala, e assim por diante). Uma `Rooms/Type` vez que não se refere a um único *caso* do sub-campo, não pode ser `Type` usado diretamente num filtro. Em vez disso, para filtrar no tipo de quarto, você usaria uma [expressão lambda](search-query-odata-collection-operators.md) com uma variável de gama, como esta:
 
-    Rooms/any(room: room/Type eq 'deluxe')
+```odata
+Rooms/any(room: room/Type eq 'deluxe')
+```
 
 Neste exemplo, a variável de alcance `room` aparece no caminho de `room/Type` campo. Desta forma, `room/Type` refere-se ao tipo de sala atual no documento atual. Este é um único exemplo do `Type` sub-campo, para que possa ser usado diretamente no filtro.
 
@@ -92,7 +95,7 @@ Os caminhos de campo são utilizados em muitos parâmetros das APIs de [Repouso 
 
 | API | Nome do parâmetro | Restrições |
 | --- | --- | --- |
-| [Criar](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [atualizar](https://docs.microsoft.com/rest/api/searchservice/update-index) índice | `suggesters/sourceFields` | Nenhuma |
+| [Criar](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [atualizar](https://docs.microsoft.com/rest/api/searchservice/update-index) índice | `suggesters/sourceFields` | Nenhum |
 | [Criar](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [atualizar](https://docs.microsoft.com/rest/api/searchservice/update-index) índice | `scoringProfiles/text/weights` | Só pode referir-se a campos **pesjáveis** |
 | [Criar](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [atualizar](https://docs.microsoft.com/rest/api/searchservice/update-index) índice | `scoringProfiles/functions/fieldName` | Só pode referir-se a campos **filtrados** |
 | [Pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search`quando `queryType` é`full` | Só pode referir-se a campos **pesjáveis** |

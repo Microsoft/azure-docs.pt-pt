@@ -8,11 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 15bdcbfc8e02ff06e09cb1e2a3d0621cb50e4da4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1118e584a235f90cc21c8d914f56ebcba7ea74f1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466107"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170212"
 ---
 # <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use a Java para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
@@ -104,11 +105,11 @@ static public DataLakeServiceClient GetDataLakeServiceClient
 > Para mais exemplos, consulte a biblioteca de [clientes de identidade Azure para](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) documentação java.
 
 
-## <a name="create-a-file-system"></a>Criar um sistema de ficheiros
+## <a name="create-a-container"></a>Criar um contentor
 
-Um sistema de ficheiros funciona como um recipiente para os seus ficheiros. Pode criar um chamando o método **DataLakeServiceClient.createFileSystem.**
+Um contentor funciona como um sistema de ficheiros para os seus ficheiros. Pode criar um chamando o método **DataLakeServiceClient.createFileSystem.**
 
-Este exemplo cria um sistema de ficheiros chamado `my-file-system` . 
+Este exemplo cria um recipiente chamado `my-file-system` . 
 
 ```java
 static public DataLakeFileSystemClient CreateFileSystem
@@ -122,7 +123,7 @@ static public DataLakeFileSystemClient CreateFileSystem
 
 Crie uma referência de diretório chamando o método **DataLakeFileSystemClient.createDirectory.**
 
-Este exemplo adiciona um diretório nomeado `my-directory` a um sistema de ficheiros e, em seguida, adiciona um sub-directório chamado `my-subdirectory` . 
+Este exemplo adiciona um diretório nomeado `my-directory` a um contentor e, em seguida, adiciona um sub-diretório chamado `my-subdirectory` . 
 
 ```java
 static public DataLakeDirectoryClient CreateDirectory
@@ -230,6 +231,8 @@ static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient
 }
 
 ```
+
+Você também pode obter e definir o ACL do diretório de raiz de um recipiente. Para obter o diretório de raiz, passe uma corda vazia `""` () para o método **DataLakeFileSystemClient.getDirectoryClient.**
 
 ## <a name="upload-a-file-to-a-directory"></a>Faça o upload de um ficheiro para um diretório
 

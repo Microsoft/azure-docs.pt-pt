@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/03/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 3363db4557dd19e8d72747ccd62bb535abb7b1e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0bba9559c2a0b4ff6c8a4e5f2287692e27f8a1a
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76841796"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171708"
 ---
 # <a name="configure-client-authentication-of-incoming-calls"></a>Configurar a autenticação do cliente de chamadas recebidas
 

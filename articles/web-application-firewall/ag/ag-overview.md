@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 0631bc0e3e83564b2d77d4f67b418780d933215e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d7eaff980b50cc463efc09e49febd4a947a7543c
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212909"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142843"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Firewall de aplicação web Azure no Gateway de aplicações Azure
 
@@ -24,7 +24,7 @@ O WAF on Application Gateway baseia-se no [Conjunto de Regras Fundamentais (CRS)
 Todas as funcionalidades da WAF listadas abaixo existem dentro de uma política da WAF. Pode criar várias políticas, e podem ser associadas a um Gateway de Aplicação, a ouvintes individuais ou a regras de encaminhamento baseadas em caminhos numa Gateway de aplicações. Desta forma, pode ter políticas separadas para cada site por trás do seu Gateway de Aplicação, se necessário. Para obter mais informações sobre as políticas da WAF, consulte [Criar uma Política WAF](create-waf-policy-ag.md).
 
    > [!NOTE]
-   > As políticas por site e per-URI WAF estão em Visualização Pública. Isto significa que esta funcionalidade está sujeita aos Termos Complementares de Utilização da Microsoft. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+   > As políticas per-URI WAF estão em Visualização Pública. Isto significa que esta funcionalidade está sujeita aos Termos Complementares de Utilização da Microsoft. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Diagrama WAF do Gateway de Aplicação](../media/ag-overview/waf1.png)
 

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: c14376cc80373371ec5fcb8f22a00584a6b2f714
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: fa518900b05ba552cb066fbf55e4dbeaa6c681e2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710172"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183210"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configure a sua experiência de Pesquisa Personalizada Bing
 
@@ -27,7 +27,7 @@ Utilize o seguinte ao definir as suas fatias da web:
 
 | Nome da fatia | Descrição                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain     | Uma fatia de domínio inclui todos os conteúdos encontrados dentro de um domínio de internet. Por exemplo, `www.microsoft.com`. Omitir `www.` faz com que Bing também procure os subdomínios do domínio. Por exemplo, se `microsoft.com` especificar, Bing também devolve resultados de `support.microsoft.com` ou `technet.microsoft.com` . |
+| Domínio     | Uma fatia de domínio inclui todos os conteúdos encontrados dentro de um domínio de internet. Por exemplo, `www.microsoft.com`. Omitir `www.` faz com que Bing também procure os subdomínios do domínio. Por exemplo, se `microsoft.com` especificar, Bing também devolve resultados de `support.microsoft.com` ou `technet.microsoft.com` . |
 | Sub-página    | Uma fatia de sub-página inclui todo o conteúdo encontrado na sub-página e caminhos abaixo dela. Pode especificar um máximo de duas sub-páginas no caminho. Por exemplo, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Página web    | Uma fatia de página web pode incluir apenas essa página web numa pesquisa personalizada. Pode especificar opcionalmente se deve incluir sub-páginas.                                                                                                                                                                                  |
 
@@ -92,8 +92,8 @@ Pode testar a sua instância de pesquisa utilizando o painel de pré-visualizaç
 
 O portal permite-lhe ajustar o ranking de pesquisa de conteúdos a partir de domínios específicos, sub-páginas e páginas web. Depois de enviar uma consulta de pesquisa no painel de pré-visualização, cada resultado de pesquisa contém uma lista de ajustes que pode fazer para ele:  
 
-|            |                                                                                                                                                                      |
-|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Ajustamento | Descrição |
+|------------|-------------|
 | Bloquear      | Move o domínio, sub-página ou página web para a lista bloqueada. Bing excluirá o conteúdo do site selecionado de aparecer nos resultados da pesquisa.                    |
 | Impulsionar      | Aumenta o conteúdo do domínio ou sub-página para ser mais elevado nos resultados da pesquisa.                                                                                        |
 | Despromover     | Despromote o conteúdo do domínio ou sub-página mais baixo nos resultados da pesquisa. Selecione se despromia o conteúdo do domínio ou sub-página a que a página web pertence. |

@@ -6,11 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 05/30/2017
 ms.author: yegu
-ms.openlocfilehash: 9596b8cb771f114cb09c5d6c6ae33b4fc4a8cada
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 909329a4326354a890c3c4645002f7248f30e8fa
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74122681"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184791"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Migrar do Serviço de Cache Gerida para a Cache do Azure para Redis
 A migração das suas aplicações que utilizam o Serviço de Cache Gerido Azure para Azure Cache para Redis pode ser realizada com alterações mínimas na sua aplicação, dependendo das funcionalidades do Serviço cache gerido utilizado pela sua aplicação de cache. Embora as APIs não sejam exatamente as mesmas, são semelhantes, e grande parte do seu código existente que utiliza o Serviço de Cache Gerido para aceder a uma cache pode ser reutilizado com alterações mínimas. Este artigo mostra como fazer as alterações de configuração e aplicação necessárias para migrar as suas aplicações do Serviço cache gerido para usar a Cache Azure para Redis, e mostra como algumas das funcionalidades do Azure Cache para Redis podem ser usadas para implementar a funcionalidade de uma cache do Serviço cache gerido.
@@ -39,7 +40,7 @@ O Serviço de Cache Gerido Azure e o Cache Azure para Redis são similares, mas 
 | Funcionalidade de Serviço cache gerido | Suporte de serviço cache gerido | Cache Azure para suporte redis |
 | --- | --- | --- |
 | Caches nomeados |Uma cache padrão é configurada, e nas ofertas de cache Standard e Premium, até nove caches nomeados adicionais podem ser configurados se desejar. |O Azure Cache para Redis tem um número configurável de bases de dados (padrão de 16) que podem ser usadas para implementar uma funcionalidade semelhante a caches nomeados. Para obter mais informações, veja [O que são as bases de dados Redis?](cache-faq.md#what-are-redis-databases) e [Configuração do servidor predefinido Redis](cache-configure.md#default-redis-server-configuration). |
-| Elevada Disponibilidade |Proporciona alta disponibilidade para itens na cache nas ofertas de cache Standard e Premium. Se os itens forem perdidos devido a uma falha, as cópias de cópias de segurança dos itens na cache ainda estão disponíveis. As gravações para a cache secundária são feitas sincronizadamente. |A alta disponibilidade está disponível nas ofertas de cache Standard e Premium, que têm uma configuração de dois nós Primário/Réplica (cada fragmento numa cache Premium tem um par primário/réplica). As gravações para a réplica são feitas assíncroneamente. Para mais informações, consulte [a Cache Azure para obter preços de Redis](https://azure.microsoft.com/pricing/details/cache/). |
+| Elevada Disponibilidade |Proporciona alta disponibilidade para itens na cache nas ofertas de cache Standard e Premium. Se os itens forem perdidos devido a uma falha, as cópias de cópias de segurança dos itens na cache ainda estão disponíveis. As gravações para a cache de réplica são feitas sincronizadamente. |A alta disponibilidade está disponível nas ofertas de cache Standard e Premium, que têm uma configuração de dois nós Primário/Réplica (cada fragmento numa cache Premium tem um par primário/réplica). As gravações para a réplica são feitas assíncroneamente. Para mais informações, consulte [a Cache Azure para obter preços de Redis](https://azure.microsoft.com/pricing/details/cache/). |
 | Notificações |Permite que os clientes recebam notificações assíncronos quando uma variedade de operações de cache ocorrem em um cache nomeado. |As aplicações do cliente podem usar notificações de pub/sub ou [Keyspace do Redis](cache-configure.md#keyspace-notifications-advanced-settings) para obter uma funcionalidade semelhante às notificações. |
 | Cache local |Armazena uma cópia de objetos em cache localmente no cliente para acesso extrarrápido. |As aplicações do cliente teriam de implementar esta funcionalidade utilizando um dicionário ou estrutura de dados semelhante. |
 | Política de Despejos |Nenhuma ou LRU. A política por defeito é LRU. |Azure Cache for Redis apoia as seguintes políticas de despejo: volátil-lru, allkeys-lru, volátil-random, allkeys-random, volatile-ttl, noeviction. A política padrão é volátil-lru. Para obter mais informações, consulte [a configuração do servidor Padrão Redis](cache-configure.md#default-redis-server-configuration). |
@@ -179,6 +180,6 @@ A azure Cache para Redis pode trabalhar com objetos .NET, bem como tipos de dado
 ## <a name="migrate-aspnet-session-state-and-output-caching-to-azure-cache-for-redis"></a>Migrar ASP.NET Estado da Sessão e Saída caching para Azure Cache para Redis
 A Azure Cache para Redis tem fornecedores para ASP.NET sessão state e page output caching. Para migrar a sua aplicação que utiliza as versões Managed Cache Service destes fornecedores, retire primeiro as secções existentes do seu web.config e, em seguida, configuure a Cache Azure para versões Redis dos fornecedores. Para obter instruções sobre a utilização da Cache Azure para os fornecedores de ASP.NET Redis, consulte [ASP.NET Fornecedor de Estado de Sessão para Cache Azure para Redis](cache-aspnet-session-state-provider.md) e ASP.NET Fornecedor de Cache de Saída para Cache de [Azure para Redis](cache-aspnet-output-cache-provider.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Explore a [cache Azure para a documentação redis](https://azure.microsoft.com/documentation/services/cache/) para tutoriais, amostras, vídeos e muito mais.
 

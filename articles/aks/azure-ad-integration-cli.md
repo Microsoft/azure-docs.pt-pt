@@ -2,14 +2,16 @@
 title: Integrar o Azure Active Directory com o Azure Kubernetes Service
 description: Saiba como utilizar o Azure CLI para criar e a Azure Ative Directory Service (AKS)
 services: container-service
+author: TomGeske
 ms.topic: article
-ms.date: 04/16/2019
-ms.openlocfilehash: 85441b53b22b4d33ee2ff967d777cc3267e171da
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/08/2020
+ms.author: thomasge
+ms.openlocfilehash: 0465c54df2095cff7647e974765e61fa9b9ff3e1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106106"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169464"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integre o Azure Ative Directy com o Serviço Azure Kubernetes utilizando o Azure CLI
 
@@ -19,9 +21,9 @@ Este artigo mostra-lhe como criar os componentes AD Azure necessários, em segui
 
 Para obter o roteiro completo da amostra utilizado neste artigo, consulte [as amostras do Azure CLI - integração AKS com Azure AD][complete-script].
 
-Aplicam-se as seguintes limitações:
+## <a name="the-following-limitations-apply"></a>Aplicam-se as seguintes limitações:
 
-- O AZure AD só pode ser ativado quando se cria um novo cluster ativado pelo RBAC. Não é possível ativar o AD AZure num cluster AKS existente.
+- O Azure AD só pode ser ativado no cluster ativado pelo RBAC.
 
 ## <a name="before-you-begin"></a>Before you begin
 
@@ -241,7 +243,7 @@ error: You must be logged in to the server (Unauthorized)
 * O utilizador não é membro de mais de 200 grupos.
 * Segredo definido no registo de candidatura para servidor corresponde ao valor configurado usando`--aad-server-app-secret`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter o roteiro completo que contém os comandos mostrados neste artigo, consulte o script de [integração AD AD AZure nas amostras AKS repo][complete-script].
 

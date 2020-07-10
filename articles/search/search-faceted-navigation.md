@@ -8,11 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4d2ee2bccf94dca933981c3070323b659eab6cfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7bf1c8f3f1ecbb21207776a99bba99d123ea891
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836095"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171946"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Como implementar a navegação facetada na Pesquisa Cognitiva do Azure
 
@@ -283,10 +284,12 @@ Em brotos facetados, normalmente só pretende incluir documentos que tenham o va
 
 Os resultados faceta são documentos encontrados nos resultados da pesquisa que correspondem a um termo faceta. No exemplo seguinte, nos resultados de pesquisa para *computação*em nuvem, 254 itens também têm *especificação interna* como tipo de conteúdo. Os itens não são necessariamente mutuamente exclusivos. Se um item satisfaça os critérios de ambos os filtros, é contado em cada um deles. Esta duplicação é possível quando se enfrenta em `Collection(Edm.String)` campos, que são frequentemente utilizados para implementar a marcação de documentos.
 
-        Search term: "cloud computing"
-        Content type
-           Internal specification (254)
-           Video (10) 
+```output
+Search term: "cloud computing"
+Content type
+   Internal specification (254)
+   Video (10)
+```
 
 Em geral, se descobrir que os resultados das facetas são consistentemente demasiado grandes, recomendamos que adicione mais filtros para dar aos utilizadores mais opções para reduzir a pesquisa.
 
@@ -344,7 +347,7 @@ Para dados numéricos, pode utilizar uma lista de valores.  Considere o alcance 
 
 Para especificar uma gama de facetas como a da imagem anterior, utilize uma lista de valores:
 
-    facet=listPrice,values:10|25|100|500|1000|2500
+> `facet=listPrice,values:10|25|100|500|1000|2500`
 
 Cada gama é construída usando 0 como ponto de partida, um valor da lista como ponto final, e depois aparado da gama anterior para criar intervalos discretos. A Azure Cognitive Search faz estas coisas como parte da navegação facetada. Não é necessário escrever código para estruturar cada intervalo.
 

@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/29/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: ba82b1bea4753cd51e275a78b248247032d79a01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a7cc864366bd9a35c96dd453c0dc68f77d8abd9
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710869"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171453"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Tutorial: Publicar, subscrever eventos localmente
 
@@ -38,7 +37,7 @@ Existem várias formas de implantar módulos para um dispositivo IoT Edge e todo
 
 ### <a name="select-your-iot-edge-device"></a>Selecione o seu dispositivo IoT Edge
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 1. Navegue até ao seu Hub IoT.
 1. Selecione **IoT Edge** do menu na secção De Gestão automática de **Dispositivos.** 
 1. Clique no ID do dispositivo alvo a partir da lista de dispositivos
@@ -76,7 +75,7 @@ Um manifesto de implantação é um documento JSON que descreve quais os módulo
           }
         }
     ```    
- 1. Clique **em Guardar**
+ 1. Clique em **Guardar**
  1. Continue na secção seguinte para adicionar o módulo Azure Event Grid Subscriber antes de os colocar em conjunto.
 
     >[!IMPORTANT]
@@ -98,7 +97,7 @@ Esta secção mostra-lhe como implantar outro módulo IoT que funcionaria como u
    * **Nome**: assinante
    * **Imagem URI:**`mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
    * **Opções de criação de contentores:** Nenhuma
-1. Clique **em Guardar**
+1. Clique em **Guardar**
 1. Clique **ao lado** para continuar na secção de rotas
 
  ### <a name="setup-routes"></a>Rotas de configuração
@@ -280,7 +279,7 @@ Os assinantes podem inscrever-se para eventos publicados num tema. Para receber 
 * Elimine o módulo de assinante do seu dispositivo IoT Edge.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, criou um tópico de grelha de eventos, subscrição e eventos publicados. Agora que conhece os passos básicos, veja os seguintes artigos: 
 
 - Para resolver problemas com a utilização da Grelha de Eventos Azure no IoT Edge, consulte o [guia de resolução de problemas](troubleshoot.md).

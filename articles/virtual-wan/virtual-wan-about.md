@@ -8,11 +8,12 @@ ms.topic: overview
 ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: bae8fa97d075784bba1d2f75cc06cfa3f801c052
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 909f120275c58b04d8674f0610c40e13b96804b6
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027210"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143908"
 ---
 # <a name="about-azure-virtual-wan"></a>Sobre Azure Virtual WAN
 
@@ -57,7 +58,7 @@ Para configurar uma WAN virtual ponto a ponto, crie os seguintes recursos:
 
 * **Ligação de rede virtual do hub:** o recurso de ligação da rede virtual do hub é utilizado para ligar o hub diretamente à sua rede virtual.
 
-* **(Preview) Ligação Hub-to-Hub** - Os hubs estão todos ligados uns aos outros numa WAN virtual. Isto implica que um ramo, utilizador ou VNet ligado a um hub local pode comunicar com outro ramo ou VNet usando a arquitetura de malha completa dos centros conectados. Também pode ligar VNets dentro de um hub que atravessa o hub virtual, bem como VNets através do hub, usando a estrutura ligada ao hub-a-hub.
+* **Ligação hub-to-hub:** Os centros estão todos ligados uns aos outros num WAN virtual. Isto implica que um ramo, utilizador ou VNet ligado a um hub local pode comunicar com outro ramo ou VNet usando a arquitetura de malha completa dos centros conectados. Também pode ligar VNets dentro de um hub que atravessa o hub virtual, bem como VNets através do hub, usando a estrutura ligada ao hub-a-hub.
 
 * **Tabela de rotas do hub:** pode criar uma rota do hub virtual e aplicar a rota à tabela de rotas do hub virtual. Pode aplicar várias rotas à tabela de rotas do hub virtual.
 
@@ -127,7 +128,7 @@ As tabelas de rotas têm agora características de associação e propagação. 
 
 * **Clientes Básicos de WAN Virtuais com rotas pré-existentes no hub virtual**: Para utilizar as novas capacidades de tabela de rotas, por favor, aguarde até a semana de 3 de agosto para que o lançamento em Azure esteja concluído. Se tiver rotas pré-existentes na secção de encaminhamento para o hub no portal Azure, terá de as eliminar primeiro e, em seguida, **atualize** o seu WAN Virtual Básico para O WAN Virtual Padrão. Consulte [a Atualização de um WAN virtual de Basic para Standard](upgrade-virtual-wan.md).
 
-## <a name="faq"></a><a name="faq"></a>FAQ
+## <a name="faq"></a><a name="faq"></a>Perguntas Frequentes
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 

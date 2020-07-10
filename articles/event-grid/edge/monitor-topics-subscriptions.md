@@ -1,18 +1,14 @@
 ---
 title: Monitor de tópicos e subscrições de eventos - Azure Event Grid IoT Edge ! Microsoft Docs
 description: Monitorizar tópicos e subscrições de eventos
-author: femila
-ms.author: femila
-ms.reviewer: spelluru
-ms.date: 01/09/2020
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: d4fbc5232722bfb08bde9be51d44e8e8d7514570
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d230be4f74abd61ad7b7f0fdb3facb32ee63da73
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84554361"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171538"
 ---
 # <a name="monitor-topics-and-event-subscriptions"></a>Monitorizar tópicos e subscrições de eventos
 
@@ -47,7 +43,7 @@ Tanto os tópicos como as subscrições de eventos emitem métricas para lhe dar
 
 ### <a name="topic-metrics"></a>Métricas de tópicos
 
-| Metric | Descrição |
+| Métrica | Descrição |
 | ------ | ----------- |
 | EventosVivido | Número de eventos publicados para o tema
 | Eventos Incomparáveis | Número de eventos publicados no tópico que não correspondem a uma Subscrição de Eventos e são abandonados
@@ -59,7 +55,7 @@ Tanto os tópicos como as subscrições de eventos emitem métricas para lhe dar
 
 ### <a name="event-subscription-metrics"></a>Métricas de subscrição de eventos
 
-| Metric | Descrição |
+| Métrica | Descrição |
 | ------ | ----------- |
 | EntregaSSuccessCounts | Número de eventos entregues com sucesso no ponto final configurado
 | DeliveryFailureCounts | Número de eventos que não foram entregues ao ponto final configurado

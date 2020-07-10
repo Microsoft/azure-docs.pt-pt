@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: f8f84542cd52d8ad4affd64627637d4e95b1fb10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4332f3e5a1ca6d434671d3a2cfe100a5d12795d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514043"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86182020"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Criar e gerir um pacote de suporte para a série StorSimple 8000
 
@@ -66,8 +66,8 @@ Pode utilizar os seguintes parâmetros com o cmdlet Export-HcsSupportPackage.
 
 | Parâmetro | Obrigatório/Opcional | Descrição |
 | --- | --- | --- |
-| `-Path` |Necessário |Utilize para fornecer a localização da pasta partilhada na rede na qual o pacote de suporte é colocado. |
-| `-EncryptionPassphrase` |Necessário |Utilize para fornecer uma palavra-passe para ajudar a encriptar o pacote de suporte. |
+| `-Path` |Obrigatório |Utilize para fornecer a localização da pasta partilhada na rede na qual o pacote de suporte é colocado. |
+| `-EncryptionPassphrase` |Obrigatório |Utilize para fornecer uma palavra-passe para ajudar a encriptar o pacote de suporte. |
 | `-Credential` |Opcional |Utilize para fornecer credenciais de acesso para a pasta partilhada na rede. |
 | `-Force` |Opcional |Utilize para saltar o passo de confirmação da palavra-passe de encriptação. |
 | `-PackageTag` |Opcional |Utilize para especificar um diretório em *caminho* no qual o pacote de suporte é colocado. O padrão é [nome do dispositivo]-[data e hora corrente:yyyy-MM-dd-HH-mm-ss]. |
@@ -98,9 +98,11 @@ Para editar um pacote de suporte antes de o enviar no site do Microsoft Support,
     ![Editar pacote de suporte](./media/storsimple-8000-create-manage-support-package/IC750706.png)
 5. Quando for solicitado para a palavra-passe de encriptação, introduza a frase de passe que usou quando o pacote de suporte foi criado.
    
-        cmdlet Open-HcsSupportPackage at command pipeline position 1
-   
-        Supply values for the following parameters:EncryptionPassphrase: ****
+    ```powershell
+    cmdlet Open-HcsSupportPackage at command pipeline position 1
+
+    Supply values for the following parameters:EncryptionPassphrase: ****
+    ```
 6. Navegue na pasta que contém os ficheiros de registo. Como os ficheiros de registo estão agora descomprimidos e desencriptados, estes terão extensões de ficheiros originais. Modifique estes ficheiros para remover qualquer informação específica do cliente, como nomes de volume e endereços IP do dispositivo, e guarde os ficheiros.
 7. Feche os ficheiros para comprimi-los com gzip e criptografá-los com AES-256. Isto é para a rapidez e segurança na transferência do pacote de apoio para uma rede. Para comprimir e encriptar ficheiros, introduza o seguinte:
    
@@ -109,35 +111,39 @@ Para editar um pacote de suporte antes de o enviar no site do Microsoft Support,
     ![Editar pacote de suporte](./media/storsimple-8000-create-manage-support-package/IC750707.png)
 8. Quando solicitado, forneça uma palavra-passe de encriptação para o pacote de suporte modificado.
    
-        cmdlet Close-HcsSupportPackage at command pipeline position 1
-        Supply values for the following parameters:EncryptionPassphrase: ****
+    ```powershell
+    cmdlet Close-HcsSupportPackage at command pipeline position 1
+    Supply values for the following parameters:EncryptionPassphrase: ****
+    ```
 9. Escreva a nova palavra-passe, para que possa partilhá-la com o Microsoft Support quando solicitado.
 
 ### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Exemplo: Editar ficheiros num pacote de suporte numa partilha protegida por palavra-passe
 
 O exemplo a seguir mostra como desencriptar, editar e reencrimar um pacote de suporte.
 
-        PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
+```powershell
+PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
 
-        PS C:\WINDOWS\system32> Open-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
+PS C:\WINDOWS\system32> Open-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
 
-        cmdlet Open-HcsSupportPackage at command pipeline position 1
+cmdlet Open-HcsSupportPackage at command pipeline position 1
 
-        Supply values for the following parameters:
+Supply values for the following parameters:
 
-        EncryptionPassphrase: ****
+EncryptionPassphrase: ****
 
-        PS C:\WINDOWS\system32> Close-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
+PS C:\WINDOWS\system32> Close-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
 
-        cmdlet Close-HcsSupportPackage at command pipeline position 1
+cmdlet Close-HcsSupportPackage at command pipeline position 1
 
-        Supply values for the following parameters:
+Supply values for the following parameters:
 
-        EncryptionPassphrase: ****
+EncryptionPassphrase: ****
 
-        PS C:\WINDOWS\system32>
+PS C:\WINDOWS\system32>
+```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Conheça as [informações recolhidas no pacote De Apoio](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
 * Saiba como [utilizar pacotes de suporte e registos de dispositivos para resolver problemas na implementação do seu dispositivo](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).

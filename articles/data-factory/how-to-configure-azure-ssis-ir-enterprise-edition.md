@@ -5,20 +5,21 @@ services: data-factory
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/13/2018
+ms.date: 07/09/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: a0e35a309fd30a36263b498b6a8e74a312004a99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55a49ac13cdfd3f6157ae7495403f76056e734ce
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606164"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184104"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Provision Enterprise Edition para o tempo de execução da integração Azure-SSIS
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 A Edição Empresarial do Tempo de Execução de Integração Azure-SSIS permite-lhe utilizar as seguintes funcionalidades avançadas e premium:
 -   Alterar componentes de Captura de Dados (CDC)
@@ -62,7 +63,7 @@ Algumas destas funcionalidades requerem que instale componentes adicionais para 
                                                  -ResourceGroupName $MyResourceGroupName
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 -   [Configuração personalizada para o tempo de integração Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md)
 

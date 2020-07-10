@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: f0fba815cdc8425f016b74be7df36e5b28dfee3d
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 9a6ee4f5b18c6747796f33bc433d1d40982205a3
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856971"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185012"
 ---
 # <a name="azure-cache-for-redis-faq"></a>FAQ da Cache do Azure para Redis
 Aprenda as respostas a perguntas, padrões e boas práticas comuns para Azure Cache para Redis.
@@ -41,6 +41,7 @@ As perguntas que se seguem abrangem conceitos e perguntas básicas sobre Azure C
 * [Que Azure Cache para a oferta e tamanho do Redis devo usar?](#what-azure-cache-for-redis-offering-and-size-should-i-use)
 * [Azure Cache para o desempenho de Redis](#azure-cache-for-redis-performance)
 * [Em que região devo localizar o meu cache?](#in-what-region-should-i-locate-my-cache)
+* [Onde residem os meus dados em cache?](#where-do-my-cached-data-reside)
 * [Como vou cobrar por Azure Cache para Redis?](#how-am-i-billed-for-azure-cache-for-redis)
 * [Posso usar a Azure Cache para Redis com Azure Government Cloud, Azure China Cloud ou Microsoft Azure Germany?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
 
@@ -149,6 +150,13 @@ Para obter instruções sobre a configuração ou o descarregamento das ferramen
 ### <a name="in-what-region-should-i-locate-my-cache"></a>Em que região devo localizar o meu cache?
 Para melhor desempenho e menor latência, localize o seu Azure Cache para Redis na mesma região que a sua aplicação de cliente cache.
 
+### <a name="where-do-my-cached-data-reside"></a>Onde residem os meus dados em cache?
+A Azure Cache para Redis armazena os dados da sua aplicação na RAM dos VM ou VMs, dependendo do nível, que hospedam a sua cache. Os seus dados residem estritamente na região Azure que selecionou por padrão. Existem dois casos em que os seus dados podem deixar uma região:
+  1. Quando ativar a persistência na cache, o Azure Cache para Redis irá fazer backup dos seus dados numa conta de Armazenamento Azure que possui. Se a conta de armazenamento que fornece estiver noutra região, uma cópia dos seus dados acabará por aí.
+  1. Se configurar a geo-replicação e a sua cache secundária estiver numa região diferente, o que seria o caso normalmente, os seus dados serão replicados para essa região.
+
+Terá de configurar explicitamente a Cache Azure para o Redis utilizar estas funcionalidades. Você também tem controlo total sobre a região que a conta de armazenamento ou cache secundária está localizado.
+
 <a name="cache-billing"></a>
 
 ### <a name="how-am-i-billed-for-azure-cache-for-redis"></a>Como vou cobrar por Azure Cache para Redis?
@@ -159,7 +167,7 @@ Sim, Azure Cache para Redis está disponível em Azure Government Cloud, Azure C
 
 | Cloud   | Sufixo dns para Redis            |
 |---------|---------------------------------|
-| Público  | *.redis.cache.windows.net       |
+| Públicos  | *.redis.cache.windows.net       |
 | US Gov  | *.redis.cache.usgovcloudapi.net |
 | Alemanha | *.redis.cache.cloudapi.de       |
 | China   | *.redis.cache.chinacloudapi.cn  |
@@ -215,20 +223,20 @@ Não existe nenhum emulador local para a Azure Cache para Redis, mas pode execut
 
 ```csharp
 private static Lazy<ConnectionMultiplexer>
-      lazyConnection = new Lazy<ConnectionMultiplexer>
-    (() =>
+    lazyConnection = new Lazy<ConnectionMultiplexer> (() =>
     {
-        // Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+        // Connect to a locally running instance of Redis to simulate
+        // a local cache emulator experience.
         return ConnectionMultiplexer.Connect("127.0.0.1:6379");
     });
 
-    public static ConnectionMultiplexer Connection
+public static ConnectionMultiplexer Connection
+{
+    get
     {
-        get
-        {
-            return lazyConnection.Value;
-        }
+        return lazyConnection.Value;
     }
+}
 ```
 
 Pode configurar opcionalmente um ficheiro [redis.conf](https://redis.io/topics/config) para combinar mais de perto as [definições de cache padrão](cache-configure.md#default-redis-server-configuration) para o seu Azure Cache on-line para Redis, se desejar.
@@ -367,11 +375,11 @@ Basicamente, significa que quando o número de threads Busy é maior do que os t
 
 Se olharmos para uma mensagem de erro de exemplo do StackExchange.Redis (construa 1.0.450 ou mais tarde), verá que agora imprime as estatísticas da ThreadPool (ver detalhes do IOCP e do WORKER abaixo).
 
-```output
-    System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
-    queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
-    IOCP: (Busy=6,Free=994,Min=4,Max=1000),
-    WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+```
+System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
+queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
+IOCP: (Busy=6,Free=994,Min=4,Max=1000),
+WORKER: (Busy=3,Free=997,Min=4,Max=1000)
 ```
 
 No exemplo anterior, pode ver-se que para o fio DO IOCP existem seis fios ocupados e o sistema está configurado para permitir quatro fios mínimos. Neste caso, o cliente provavelmente teria visto dois atrasos de 500 ms, porque 6 > 4.
@@ -386,20 +394,20 @@ Como configurar este cenário:
 
 * Recomendamos alterar esta definição programáticamente utilizando o método [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) em `global.asax.cs` . Por exemplo:
 
-```cs
-private readonly int minThreads = 200;
-void Application_Start(object sender, EventArgs e)
-{
-    // Code that runs on application startup
-    AreaRegistration.RegisterAllAreas();
-    RouteConfig.RegisterRoutes(RouteTable.Routes);
-    BundleConfig.RegisterBundles(BundleTable.Bundles);
-    ThreadPool.SetMinThreads(minThreads, minThreads);
-}
-```
+    ```csharp
+    private readonly int minThreads = 200;
+    void Application_Start(object sender, EventArgs e)
+    {
+        // Code that runs on application startup
+        AreaRegistration.RegisterAllAreas();
+        RouteConfig.RegisterRoutes(RouteTable.Routes);
+        BundleConfig.RegisterBundles(BundleTable.Bundles);
+        ThreadPool.SetMinThreads(minThreads, minThreads);
+    }
+    ```
 
-  > [!NOTE]
-  > O valor especificado por este método é uma configuração global, afetando toda a AppDomain. Por exemplo, se tiver uma máquina de 4 núcleos e quiser definir *minWorkerThreads* e *minIoThreads* a 50 por CPU durante o tempo de funcionação, utilizará **ThreadPool.SetMinThreads (200, 200)**.
+    > [!NOTE]
+    > O valor especificado por este método é uma configuração global, afetando toda a AppDomain. Por exemplo, se tiver uma máquina de 4 núcleos e quiser definir *minWorkerThreads* e *minIoThreads* a 50 por CPU durante o tempo de funcionação, utilizará **ThreadPool.SetMinThreads (200, 200)**.
 
 * Também é possível especificar a definição de fios mínimos utilizando a [definição de configuração *minIoThreads* ou *minWorkerThreads* ](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) sob o `<processModel>` elemento de configuração em `Machine.config` , normalmente localizado em `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\` . **A definição do número de fios mínimos desta forma não é geralmente recomendada, porque é uma definição de todo o sistema.**
 
@@ -455,7 +463,7 @@ Os seguintes são uma razão comum para uma desconexão de cache.
   * Os limites do limiar da largura de banda foram atingidos.
   * As operações ligadas à CPU demoraram muito tempo a ser concluídas.
 * Causas do lado do servidor
-  * Na oferta de cache padrão, o serviço Azure Cache for Redis iniciou uma falha do nó primário para o nó secundário.
+  * Na oferta de cache padrão, o serviço Azure Cache for Redis iniciou uma falha do nó primário para o nó de réplica.
   * Azure estava remendando o caso onde a cache foi implantada
     * Isto pode ser para atualizações do servidor Redis ou manutenção geral de VM.
 

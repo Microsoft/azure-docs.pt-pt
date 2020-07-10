@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 9c4a57111566248d3537cab0d9d85c0c3be874a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7be326e0f01ed6a00244c0f5b9ed6a960b2b6e0b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68335937"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171861"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interoperabilidade em funcionalidades de conectividade traseira do Azure: Detalhes da configuração do teste
 
@@ -53,100 +53,104 @@ A seguinte figura mostra a configuração de ligação entre o circuito ExpressR
 
 A lista a seguir mostra a configuração do router CE primário para a conectividade de espreitamento privado ExpressRoute. (Os routers Cisco ASR1000 são utilizados como routers CE na configuração do teste.) Quando os circuitos local-a-local VPN e ExpressRoute são configurados em paralelo para ligar uma rede no local ao Azure, o Azure prioriza o circuito ExpressRoute por defeito. Para evitar o encaminhamento assimétrico, a rede no local também deve priorizar a conectividade ExpressRoute sobre a conectividade VPN local-local. A seguinte configuração estabelece a priorização utilizando o atributo **de preferência local** BGP:
 
-    interface TenGigabitEthernet0/0/0.300
-     description Customer 30 private peering to Azure
-     encapsulation dot1Q 30 second-dot1q 300
-     ip vrf forwarding 30
-     ip address 192.168.30.17 255.255.255.252
-    !
-    interface TenGigabitEthernet1/0/0.30
-     description Customer 30 to south bound LAN switch
-     encapsulation dot1Q 30
-     ip vrf forwarding 30
-     ip address 192.168.30.0 255.255.255.254
-     ip ospf network point-to-point
-    !
-    router ospf 30 vrf 30
-     router-id 10.2.30.253
-     redistribute bgp 65021 subnets route-map BGP2OSPF
-     network 192.168.30.0 0.0.0.1 area 0.0.0.0
-    default-information originate always
-     default-metric 10
-    !
-    router bgp 65021
-     !
-     address-family ipv4 vrf 30
-      network 10.2.30.0 mask 255.255.255.128
-      neighbor 192.168.30.18 remote-as 12076
-      neighbor 192.168.30.18 activate
-      neighbor 192.168.30.18 next-hop-self
-      neighbor 192.168.30.18 soft-reconfiguration inbound
-      neighbor 192.168.30.18 route-map prefer-ER-over-VPN in
-      neighbor 192.168.30.18 prefix-list Cust30_to_Private out
-     exit-address-family
-    !
-    route-map prefer-ER-over-VPN permit 10
-     set local-preference 200
-    !
-    ip prefix-list Cust30_to_Private seq 10 permit 10.2.30.0/25
-    !
+```config
+interface TenGigabitEthernet0/0/0.300
+ description Customer 30 private peering to Azure
+ encapsulation dot1Q 30 second-dot1q 300
+ ip vrf forwarding 30
+ ip address 192.168.30.17 255.255.255.252
+!
+interface TenGigabitEthernet1/0/0.30
+ description Customer 30 to south bound LAN switch
+ encapsulation dot1Q 30
+ ip vrf forwarding 30
+ ip address 192.168.30.0 255.255.255.254
+ ip ospf network point-to-point
+!
+router ospf 30 vrf 30
+ router-id 10.2.30.253
+ redistribute bgp 65021 subnets route-map BGP2OSPF
+ network 192.168.30.0 0.0.0.1 area 0.0.0.0
+default-information originate always
+ default-metric 10
+!
+router bgp 65021
+ !
+ address-family ipv4 vrf 30
+  network 10.2.30.0 mask 255.255.255.128
+  neighbor 192.168.30.18 remote-as 12076
+  neighbor 192.168.30.18 activate
+  neighbor 192.168.30.18 next-hop-self
+  neighbor 192.168.30.18 soft-reconfiguration inbound
+  neighbor 192.168.30.18 route-map prefer-ER-over-VPN in
+  neighbor 192.168.30.18 prefix-list Cust30_to_Private out
+ exit-address-family
+!
+route-map prefer-ER-over-VPN permit 10
+ set local-preference 200
+!
+ip prefix-list Cust30_to_Private seq 10 permit 10.2.30.0/25
+!
+```
 
 ### <a name="site-to-site-vpn-configuration-details"></a>Detalhes de configuração VPN site-to-site
 
 A lista a seguir mostra a configuração do router CE primário para a conectividade VPN local-a-local:
 
-    crypto ikev2 proposal Cust30-azure-proposal
-     encryption aes-cbc-256 aes-cbc-128 3des
-     integrity sha1
-     group 2
-    !
-    crypto ikev2 policy Cust30-azure-policy
-     match address local 66.198.12.106
-     proposal Cust30-azure-proposal
-    !
-    crypto ikev2 keyring Cust30-azure-keyring
-     peer azure
-      address 52.168.162.84
-      pre-shared-key local IamSecure123
-      pre-shared-key remote IamSecure123
-    !
-    crypto ikev2 profile Cust30-azure-profile
-     match identity remote address 52.168.162.84 255.255.255.255
-     identity local address 66.198.12.106
-     authentication local pre-share
-     authentication remote pre-share
-     keyring local Cust30-azure-keyring
-    !
-    crypto ipsec transform-set Cust30-azure-ipsec-proposal-set esp-aes 256 esp-sha-hmac
-     mode tunnel
-    !
-    crypto ipsec profile Cust30-azure-ipsec-profile
-     set transform-set Cust30-azure-ipsec-proposal-set
-     set ikev2-profile Cust30-azure-profile
-    !
-    interface Loopback30
-     ip address 66.198.12.106 255.255.255.255
-    !
-    interface Tunnel30
-     ip vrf forwarding 30
-     ip address 10.2.30.125 255.255.255.255
-     tunnel source Loopback30
-     tunnel mode ipsec ipv4
-     tunnel destination 52.168.162.84
-     tunnel protection ipsec profile Cust30-azure-ipsec-profile
-    !
-    router bgp 65021
-     !
-     address-family ipv4 vrf 30
-      network 10.2.30.0 mask 255.255.255.128
-      neighbor 10.10.30.254 remote-as 65515
-      neighbor 10.10.30.254 ebgp-multihop 5
-      neighbor 10.10.30.254 update-source Tunnel30
-      neighbor 10.10.30.254 activate
-      neighbor 10.10.30.254 soft-reconfiguration inbound
-     exit-address-family
-    !
-    ip route vrf 30 10.10.30.254 255.255.255.255 Tunnel30
+```config
+crypto ikev2 proposal Cust30-azure-proposal
+ encryption aes-cbc-256 aes-cbc-128 3des
+ integrity sha1
+ group 2
+!
+crypto ikev2 policy Cust30-azure-policy
+ match address local 66.198.12.106
+ proposal Cust30-azure-proposal
+!
+crypto ikev2 keyring Cust30-azure-keyring
+ peer azure
+  address 52.168.162.84
+  pre-shared-key local IamSecure123
+  pre-shared-key remote IamSecure123
+!
+crypto ikev2 profile Cust30-azure-profile
+ match identity remote address 52.168.162.84 255.255.255.255
+ identity local address 66.198.12.106
+ authentication local pre-share
+ authentication remote pre-share
+ keyring local Cust30-azure-keyring
+!
+crypto ipsec transform-set Cust30-azure-ipsec-proposal-set esp-aes 256 esp-sha-hmac
+ mode tunnel
+!
+crypto ipsec profile Cust30-azure-ipsec-profile
+ set transform-set Cust30-azure-ipsec-proposal-set
+ set ikev2-profile Cust30-azure-profile
+!
+interface Loopback30
+ ip address 66.198.12.106 255.255.255.255
+!
+interface Tunnel30
+ ip vrf forwarding 30
+ ip address 10.2.30.125 255.255.255.255
+ tunnel source Loopback30
+ tunnel mode ipsec ipv4
+ tunnel destination 52.168.162.84
+ tunnel protection ipsec profile Cust30-azure-ipsec-profile
+!
+router bgp 65021
+ !
+ address-family ipv4 vrf 30
+  network 10.2.30.0 mask 255.255.255.128
+  neighbor 10.10.30.254 remote-as 65515
+  neighbor 10.10.30.254 ebgp-multihop 5
+  neighbor 10.10.30.254 update-source Tunnel30
+  neighbor 10.10.30.254 activate
+  neighbor 10.10.30.254 soft-reconfiguration inbound
+ exit-address-family
+!
+ip route vrf 30 10.10.30.254 255.255.255.255 Tunnel30
+```
 
 ## <a name="on-premises-location-2-connectivity-by-using-expressroute"></a>Conectividade no local localização 2 utilizando ExpressRoute
 

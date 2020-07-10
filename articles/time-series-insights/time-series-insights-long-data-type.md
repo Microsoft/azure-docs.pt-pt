@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: dpalled
-ms.openlocfilehash: ebb62b67b56134902f2752b43dd25fb0a7c6ccd4
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a0b53749a32e79d690cf4412fdac82b18dfe2f2e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045778"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183635"
 ---
 # <a name="adding-support-for-long-data-type"></a>Adicionar suporte para um tipo de dados longo
 
@@ -63,39 +63,43 @@ Também pode utilizar *"coalesce($event.propertyValue.Double, toDouble ($event.p
 
 *Definição variável anterior:*
 
-    "PropertyValueVariable": {
+```tsx
+"PropertyValueVariable": {
 
-        "kind": "numeric",
+    "kind": "numeric",
 
-        "value": {
+    "value": {
 
-            "tsx": "$event.propertyValue.Double"
+        "tsx": "$event.propertyValue.Double"
 
-        },
+    },
 
-        "filter": null,
+    "filter": null,
 
-        "aggregation": {
+    "aggregation": {
 
-            "tsx": "avg($value)"
+        "tsx": "avg($value)"
+```
 
 *Nova Definição Variável:*
 
-    "PropertyValueVariable ": {
+```tsx
+"PropertyValueVariable ": {
 
-        "kind": "numeric",
+    "kind": "numeric",
 
-        "value": {
+    "value": {
 
-            "tsx": "coalesce($event.propertyValue.Long, toLong($event.propertyValue.Double))"
+        "tsx": "coalesce($event.propertyValue.Long, toLong($event.propertyValue.Double))"
 
-        },
+    },
 
-        "filter": null,
+    "filter": null,
 
-        "aggregation": {
+    "aggregation": {
 
-            "tsx": "avg($value)"
+        "tsx": "avg($value)"
+```
 
 Também pode utilizar *"coalesce($event.propertyValue.Double, toDouble ($event.propertyValue.Long)) "* como expressão de [série sonora personalizada.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
 
@@ -124,77 +128,81 @@ As variáveis categóricas ainda requerem que o valor seja de um tipo inteiro. O
 
 *Definição variável anterior:*
 
-    "PropertyValueVariable_Long": {
+```tsx
+"PropertyValueVariable_Long": {
 
-        "kind": "categorical",
+    "kind": "categorical",
 
-        "value": {
+    "value": {
 
-            "tsx": "tolong($event.propertyValue.Double)"
+        "tsx": "tolong($event.propertyValue.Double)"
 
-        },
+    },
 
-        "categories": [
+    "categories": [
 
-        {
-            "label": "Good",
+    {
+        "label": "Good",
 
-            "values": [0, 1, 2 ]
+        "values": [0, 1, 2 ]
 
-        },
+    },
 
-        {
+    {
 
-            "label": "Bad",
+        "label": "Bad",
 
-            "values": [ 3, 4 ]
+        "values": [ 3, 4 ]
 
-        } ],
+    } ],
 
-        "defaultCategory": {
+    "defaultCategory": {
 
-            "label": "Unknown"
-
-        }
+        "label": "Unknown"
 
     }
+
+}
+```
 
 *Nova Definição Variável:*
 
-    "PropertyValueVariable_Long": {
+```tsx
+"PropertyValueVariable_Long": {
 
-        "kind": "categorical",
+    "kind": "categorical",
 
-        "value": {
+    "value": {
 
-            "tsx": "coalesce($event.propertyValue.Long, tolong($event.propertyValue.Double))"
+        "tsx": "coalesce($event.propertyValue.Long, tolong($event.propertyValue.Double))"
 
-        },
+    },
 
-        "categories": [
+    "categories": [
 
-        {
-            "label": "Good",
+    {
+        "label": "Good",
 
-            "values": [0, 1, 2 ]
+        "values": [0, 1, 2 ]
 
-        },
+    },
 
-        {
+    {
 
-            "label": "Bad",
+        "label": "Bad",
 
-            "values": [ 3, 4 ]
+        "values": [ 3, 4 ]
 
-        } ],
+    } ],
 
-        "defaultCategory": {
+    "defaultCategory": {
 
-            "label": "Unknown"
-
-        }
+        "label": "Unknown"
 
     }
+
+}
+```
 
 As variáveis categóricas ainda requerem que o valor seja de um tipo inteiro. O DataType de todos os argumentos no coalesce() deve ser do tipo Longo na expressão de [série de tempo personalizada.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
 
@@ -209,6 +217,6 @@ Caso 5: **Perto da Loja Quente 1.000 limite de propriedade**
 
 Se você é um utilizador da Warm Store com um grande número de propriedades e acredita que esta mudança iria empurrar o seu ambiente sobre o limite de 1.000 WS propriedade-name, enviar um bilhete de apoio através do portal Azure e mencionar esta comunicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte [este](concepts-supported-data-types.md) artigo para ver a lista completa de tipos de dados suportados.

@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/29/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: d0034810ff86de2a40e275ca54a2f0f9cbc856c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36dc7d098892fb2be7c2ba3d75de7c7adef1a4f1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76844705"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171555"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>Tutorial: Encaminhar eventos para ioTHub
 
@@ -134,7 +133,7 @@ Os assinantes podem inscrever-se para eventos publicados num tema. Para receber 
 
 Atualize a rota do edge hub para encaminhar os eventos de subscrição de eventos a serem encaminhados para o IoTHub da seguinte forma:
 
-1. Inscreva-se no [portal Azure](https://ms.portal.azure.com)
+1. Inicie sessão no [portal do Azure](https://ms.portal.azure.com)
 1. Navegue até ao **Hub IoT.**
 1. Selecione **IoT Edge** do menu
 1. Selecione o ID do dispositivo alvo na lista de dispositivos.
@@ -204,7 +203,7 @@ Consulte o tutorial [de encaminhamento](../../iot-hub/tutorial-routing.md) IoT H
     ```
 * Elimine todos os recursos criados durante a configuração do encaminhamento do IoTHub na nuvem também.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou um tópico de grelha de eventos, subscrição de edge hub e eventos publicados. Agora que conhece os passos básicos para avançar para um hub de borda, veja os seguintes artigos:
 

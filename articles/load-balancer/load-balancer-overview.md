@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 598df2f0a1e9badebbb1bf8e7ec0f93ff98d55ce
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 08f7554ed9648df8b225fe9f205ee13b0f693c44
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341791"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170569"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 
@@ -32,7 +32,7 @@ Um **[equilibrador de carga pública](./components.md#frontend-ip-configurations
 Um **[equilibrador de carga interno (ou privado)](./components.md#frontend-ip-configurations)** é utilizado onde os IPs privados são necessários apenas no frontend. Os balançadores de carga internos são utilizados para carregar o tráfego de equilíbrio dentro de uma rede virtual. Um frontend de balançador de carga pode ser acedido a partir de uma rede no local num cenário híbrido.
 
 <p align="center">
-  <img src="./media/load-balancer-overview/load-balancer.svg" width="512" title="Azure Load Balancer">
+  <img src="./media/load-balancer-overview/load-balancer.svg" width="512" title="Balanceador de Carga do Azure">
 </p>
 
 *Figura: Equilibrar aplicações multi-camadas utilizando o balanceador de carga público e interno*
@@ -67,7 +67,7 @@ Os cenários-chave que pode realizar usando o Balancer de Carga Padrão incluem:
 ### <a name="secure-by-default"></a><a name="securebydefault"></a>Proteger por defeito
 
 O Balancer de Carga Padrão é construído no modelo de segurança da rede de confiança zero no seu núcleo. O Balancer de Carga Padrão é seguro por predefinição e faz parte da sua rede virtual. A rede virtual é uma rede privada e isolada.  Isto significa que os balanceadores de carga padrão e os endereços IP públicos padrão estão fechados para fluxos de entrada, a menos que sejam abertos por Grupos de Segurança de Rede. Os NSGs são usados para permitir explicitamente o tráfego permitido.  Se não tiver um NSG numa sub-rede ou NIC do seu recurso de máquina virtual, o tráfego não pode chegar a este recurso. Para saber mais sobre os NSGs e como aplicá-los para o seu cenário, consulte [os Grupos de Segurança da Rede.](../virtual-network/security-overview.md)
-O Balancer de Carga Básica está aberto à internet por padrão.
+O Balancer de Carga Básica está aberto à internet por padrão. Além disso, o Balancer de Carga não armazena os dados do cliente.
 
 ## <a name="pricing-and-sla"></a>Preços e SLA
 

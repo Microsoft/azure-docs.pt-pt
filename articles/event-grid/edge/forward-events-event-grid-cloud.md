@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/29/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 7184fb5c45ce41de2bd63b55fb67cbd9ba6361e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfe150a45c70bc5bed18f8e929c9567905cd38f5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76844722"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171606"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Tutorial: Eventos avançados para a nuvem de grelha de evento
 
@@ -194,7 +193,7 @@ Para obter informações sobre os eventos de visualização entregues pelo tema 
 
 * Elimine tópicos e subscrições criadas na nuvem (Azure Event Grid) também.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, publicou um evento no limite e reencaminhado para a Grade de Eventos na nuvem Azure. Agora que conhece os passos básicos para avançar para a Grelha de Eventos em nuvem:
 

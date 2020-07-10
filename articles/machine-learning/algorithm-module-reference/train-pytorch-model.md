@@ -9,11 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: ca5c8fdd14f155163dd55d944cafd2e209e7a94b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af14d4770d032c23216b805045eb27fadded5954
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450662"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170263"
 ---
 # <a name="train-pytorch-model"></a>Preparar um Modelo do PyTorch
 
@@ -26,7 +27,7 @@ Este artigo descreve como usar o módulo **Train Pytorch Model** em Azure Machin
 2. Adicione o módulo **modelo Train Pytorch** ao oleoduto. Pode encontrar este módulo na categoria **Model Training.** Expanda **o Comboio**e, em seguida, arraste o módulo **Modelo Train Pytorch** para o seu oleoduto.
 
    > [!NOTE]
-   > O módulo **modelo train Pytorch** só pode ser executado no cálculo do tipo **GPU,** caso contrário o seu oleoduto falhará. Pode selecionar o cálculo para módulo específico no painel direito do módulo, definindo **Utilizar outro alvo de computação**.
+   > O módulo **modelo train Pytorch** é melhor executado no cálculo do tipo **GPU** para um conjunto de dados grande, caso contrário o seu pipeline falhará. Pode selecionar o cálculo para módulo específico no painel direito do módulo, definindo **Utilizar outro alvo de computação**.
 
 3.  Na entrada esquerda, fixe um modelo destreinado. Anexar o conjunto de dados de formação e o conjunto de dados de validação à entrada média e direita do **Modelo Train Pytorch**.
 
@@ -57,7 +58,7 @@ Após a execução do gasoduto, para utilizar o modelo para pontuação, ligue o
 ## <a name="technical-notes"></a>Notas técnicas
 ###  <a name="expected-inputs"></a>Entradas esperadas  
 
-| Name               | Tipo                    | Descrição                              |
+| Nome               | Tipo                    | Descrição                              |
 | ------------------ | ----------------------- | ---------------------------------------- |
 | Modelo destreinado    | Não treinadoModelDirect | Modelo destreinado, requer pytorch         |
 | Conjunto de dados de formação   | ImageDirectory          | Conjunto de dados de formação                         |
@@ -65,7 +66,7 @@ Após a execução do gasoduto, para utilizar o modelo para pontuação, ligue o
 
 ###  <a name="module-parameters"></a>Parâmetros do módulo  
 
-| Name          | Intervalo            | Tipo    | Predefinição | Descrição                              |
+| Nome          | Intervalo            | Tipo    | Predefinição | Descrição                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
 | Épocas        | >0               | Número inteiro | 5       | Selecione a coluna que contém a etiqueta ou coluna de resultados |
 | Tamanho do lote    | >0               | Número inteiro | 16      | Quantas instâncias para treinar num lote   |
@@ -75,11 +76,11 @@ Após a execução do gasoduto, para utilizar o modelo para pontuação, ligue o
 
 ###  <a name="outputs"></a>Saídas  
 
-| Name          | Tipo           | Descrição   |
+| Nome          | Tipo           | Descrição   |
 | ------------- | -------------- | ------------- |
 | Modelo treinado | ModelDirectory | Modelo treinado |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

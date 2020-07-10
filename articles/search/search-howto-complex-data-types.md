@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9fe61cf2a53b8e128a6cb58465cbb4785faa89d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6e66dc05ac2b6e54a1be94576b8686390949145
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562052"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171844"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Como modelar tipos de dados complexos na Pesquisa Cognitiva Azure
 
@@ -111,7 +111,7 @@ Expressões de pesquisa em forma livre funcionam como esperado com tipos complex
 
 As consultas ficam mais matizadas quando se tem vários termos e operadores, e alguns termos têm nomes de campo especificados, como é possível com a [sintaxe Lucene.](query-lucene-syntax.md) Por exemplo, esta consulta tenta corresponder a dois termos, "Portland" e "OR", contra dois sub-campos do campo Address:
 
-    search=Address/City:Portland AND Address/State:OR
+> `search=Address/City:Portland AND Address/State:OR`
 
 Consultas como esta não estão *relacionadas com* a pesquisa de texto completo, ao contrário dos filtros. Nos filtros, as consultas sobre sub-campos de uma coleção complexa são correlacionadas usando variáveis de gama em [ `any` ou `all` ](search-query-odata-collection-operators.md). A consulta de Lucene acima devolve documentos que contêm "Portland, Maine" e "Portland, Oregon", juntamente com outras cidades do Oregon. Isto acontece porque cada cláusula se aplica a todos os valores do seu campo em todo o documento, pelo que não existe noção de um "sub-documento atual". Para obter mais informações sobre este ponto, consulte [os filtros de recolha Understanding OData na Pesquisa Cognitiva Azure.](search-query-understand-collection-filters.md)
 
@@ -119,7 +119,7 @@ Consultas como esta não estão *relacionadas com* a pesquisa de texto completo,
 
 O `$select` parâmetro é usado para escolher quais os campos devolvidos nos resultados de pesquisa. Para utilizar este parâmetro para selecionar sub-campos específicos de um campo complexo, inclua o campo-mãe e o sub-campo separados por um corte `/` ().
 
-    $select=HotelName, Address/City, Rooms/BaseRate
+> `$select=HotelName, Address/City, Rooms/BaseRate`
 
 Os campos devem ser marcados como Retrieváveis no índice se os quiser nos resultados de pesquisa. Apenas os campos marcados como Retrievable podem ser utilizados em `$select` comunicado.
 
@@ -143,15 +143,15 @@ Ordenar operações funcionam quando os campos têm um único valor por document
 
 Pode consultar os sub-campos de um campo complexo numa expressão de filtro. Basta utilizar a mesma sintaxe do [caminho OData](query-odata-filter-orderby-syntax.md) que é usada para enfrentar, classificar e selecionar campos. Por exemplo, o seguinte filtro devolverá todos os hotéis no Canadá:
 
-    $filter=Address/Country eq 'Canada'
+> `$filter=Address/Country eq 'Canada'`
 
 Para filtrar num campo de recolha complexo, pode utilizar uma **expressão lambda** com os [ `any` operadores e `all` operadores.](search-query-odata-collection-operators.md) Nesse caso, a **variável** de alcance da expressão lambda é um objeto com sub-campos. Pode consultar esses sub-campos com a sintaxe padrão do caminho OData. Por exemplo, o seguinte filtro devolverá todos os hotéis com pelo menos um quarto de luxo e todos os quartos para não fumadores:
 
-    $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
+> `$filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)`
 
 Tal como acontece com os campos simples de alto nível, os subtis simples de campos complexos só podem ser incluídos em filtros se tiverem o atributo **filtrado** definido `true` na definição de índice. Para obter mais informações, consulte a [referência API do Índice de Criação](/rest/api/searchservice/create-index).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente o [conjunto de dados do Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md) no assistente de **dados de importação.** Você precisará da informação de ligação cosmos DB fornecida na leitura para aceder aos dados.
 

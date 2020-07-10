@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
-ms.openlocfilehash: c68c813c9c9ecdcb7c7b75102940aa1f1a57b4f0
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 07c5e73ecd53bad0e5d5ec7959b288e0b6237a87
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562164"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171929"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure no Carteiro usando APIs REST
 > [!div class="op_single_selector"]
@@ -57,14 +57,16 @@ Nesta secção, utilize a sua ferramenta web de eleição para configurar ligaç
 
 Para qualquer uma das ferramentas, é necessário escolher um comando (GET, POST, PUT, etc.), fornecer um ponto final URL, e para algumas tarefas, fornecer JSON no corpo do pedido. Substitua o nome do serviço de pesquisa (NOME DO SERVIÇO DE BUSCA) por um valor válido. Adicione `$select=name` para devolver apenas o nome de cada índice. 
 
-    https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&$select=name
+> `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&$select=name`
 
 Note o prefixo HTTPS, o nome do serviço, o nome de um objeto (neste caso, a coleção de índices) e a [versão api.](search-api-versions.md) A versão api é uma corda minúscula necessária especificada como `?api-version=2020-06-30` para a versão atual. As versões de API são atualizadas regularmente. Incluir a versão de api em cada pedido dá-lhe controlo total sobre qual das versões é utilizada.  
 
 A composição do cabeçalho de pedido inclui dois elementos, tipo de conteúdo, mais a chave api utilizada para autenticar a Azure Cognitive Search. Substitua a tecla API de administração (YOUR-AZURE-SEARCH-ADMIN-API-KEY) por um valor válido. 
 
-    api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
-    Content-Type: application/json
+```http
+api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
+Content-Type: application/json
+```
 
 No Carteiro, formula um pedido que se parece com a seguinte imagem. Escolha **GET** como o verbo, forneça o URL e clique em **Enviar.** Este comando liga-se à Azure Cognitive Search, lê a recolha de índices e devolve o código de estado HTTP 200 numa ligação bem sucedida. Se o seu serviço já tiver índices, a resposta também incluirá definições de índice.
 
@@ -288,7 +290,7 @@ Adicionar `/stats` ao seu URL retorna informações de índice. No Postman, o pe
 
 Repare que a sintaxe da versão de api é diferente. Para este pedido, utilize `?` para acrescentar a versão de api. O `?` caminho de URL separa o caminho do URL da cadeia de consulta, enquanto & separa cada par 'name=value' na cadeia de consulta. Nesta consulta, a versão de api é o primeiro e único item na cadeia de consulta.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

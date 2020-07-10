@@ -4,16 +4,15 @@ description: Configure os protocolos da API expostos pela Grade de Eventos na Io
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
-ms.reviewer: ''
-ms.date: 10/03/2019
+ms.reviewer: spelluru
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 908bc941ee7379de067621e10adf5fd6ee6df559
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 801a320fbd66b4b8a46757ba90881da54b2721de
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76841815"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171725"
 ---
 # <a name="configure-event-grid-api-protocols"></a>Configure protocolos API de grelha de eventos
 

@@ -8,22 +8,22 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 3793f57a6c3dff04f678e629b2903ab216611f75
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 5d325ac8da43f020f4ab39244d2e6a7dc6ed72b7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82975066"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86156562"
 ---
 Começa com a biblioteca de clientes Bing Autosuggest para .NET. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
 
-Utilize a biblioteca de clientes Bing Autosuggest para .NET para obter sugestões de pesquisa com base em cordas de consulta parcial.
+Utilize a biblioteca de clientes Bing Autosuggest para .NET para obter sugestões de pesquisa com base em cadeias de consulta parciais.
 
-[Documentação de](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet)  |  referência Código fonte [da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingAutoSuggest)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.AutoSuggest/)  |  [Código da amostra](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/BingAutoSuggest/Program.cs)
+[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingAutoSuggest)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.AutoSuggest/)  |  [Código de amostra](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/BingAutoSuggest/Program.cs)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se ainda não tem uma subscrição Azure, [pode criar uma gratuitamente.](https://azure.microsoft.com/free/)
+* Uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, [pode criar uma gratuitamente.](https://azure.microsoft.com/free/)
 * A versão atual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
 [!INCLUDE [cognitive-services-bing-autosuggest-signup-requirements](~/includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
@@ -31,12 +31,12 @@ Utilize a biblioteca de clientes Bing Autosuggest para .NET para obter sugestõe
 ## <a name="create-environment-variables"></a>Criar variáveis de ambiente
 
 >[!NOTE]
-> Os pontos finais dos recursos não experimentais criados após 1 de julho de 2019 utilizam o formato de subdomínio personalizado mostrado abaixo. Para mais informações e uma lista completa de pontos finais regionais, consulte [nomes de subdomínio personalizado para Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+> Os pontos finais para recursos criados após 1 de julho de 2019 utilizam o formato de subdomínio personalizado apresentado abaixo. Para obter mais informações e uma lista completa de pontos finais regionais, consulte [os nomes de subdomínio personalizados para serviços cognitivos.](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) 
 
-Utilizando a sua chave e ponto final a partir do recurso que criou, crie duas variáveis ambientais para autenticação:
+Utilizando a sua chave e ponto final a partir do recurso que criou, crie duas variáveis ambientais para a autenticação:
 <!-- replace the below variable names with the names expected in the code sample.-->
 * `AUTOSUGGEST_SUBSCRIPTION_KEY`: A chave de recursos para autenticar os seus pedidos.
-* `AUTOSUGGEST_ENDPOINT`: O ponto final do recurso para o envio de pedidos de API. Deve ser assim: `https://<your-custom-subdomain>.api.cognitive.microsoft.com` . 
+* `AUTOSUGGEST_ENDPOINT`: O ponto final do recurso para o envio de pedidos de API. Devia ser assim: `https://<your-custom-subdomain>.api.cognitive.microsoft.com` . 
 
 Utilize as instruções para o seu sistema operativo.
 <!-- replace the below endpoint and key examples -->
@@ -60,7 +60,7 @@ Depois de adicionar a variável de ambiente, execute `source ~/.bashrc` a partir
 
 ### <a name="macos"></a>[macOS](#tab/unix)
 
-Edite a sua `.bash_profile` , e adicione a variável ambiental:
+Edite a sua `.bash_profile` variável e adicione a variável ambiental:
 
 ```bash
 export AUTOSUGGEST_SUBSCRIPTION_KEY=<replace-with-your-autosuggest-api-key>
@@ -72,9 +72,9 @@ Depois de adicionar a variável de ambiente, execute `source .bash_profile` a pa
 
 ## <a name="create-a-new-c-application"></a>Criar uma nova aplicação C#
 
-Crie uma nova aplicação .NET Core no seu editor ou IDE preferido. 
+Crie uma nova aplicação .NET Core no seu editor preferido ou IDE. 
 
-Numa janela de consola (como cmd, PowerShell ou Bash), utilize o comando para criar uma nova aplicação de `dotnet new` consola com o nome `bing-autosuggest-quickstart` . Este comando cria um simples projeto C# "Hello World" com um único ficheiro fonte: *program.cs*. 
+Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `bing-autosuggest-quickstart` . Este comando cria um projeto simples "Hello World" C# com um único ficheiro de origem: *program.cs*. 
 
 ```console
 dotnet new console -n bing-autosuggest-quickstart
@@ -96,7 +96,7 @@ Build succeeded.
 ...
 ```
 
-A partir do diretório do projeto, abra o ficheiro *program.cs* no seu editor ou IDE preferido. Adicione as `using` seguintes diretivas:
+A partir do diretório do projeto, abra o ficheiro *program.cs* no seu editor preferido ou IDE. Adicione as `using` seguintes diretivas:
 
 ```csharp
 using System;
@@ -106,7 +106,7 @@ using System.Text;
 using System.Threading.Tasks;
 ```
 
-Na `Program` aula, crie variáveis para o ponto final e chave Azure do seu recurso. Se criou a variável ambiental depois de lançar a aplicação, terá de fechar e reabrir o editor, IDE, ou a shell executá-la para aceder à variável.
+Na `Program` classe, crie variáveis para o ponto final e chave Azure do seu recurso. Se criou a variável ambiental depois de ter lançado a aplicação, terá de fechar e reabrir o editor, o IDE, ou a shell que a executa para aceder à variável.
 
 ```csharp
 private const string key_var = "AUTOSUGGEST_SUBSCRIPTION_KEY";
@@ -128,30 +128,30 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="install-the-client-library"></a>Instale a biblioteca do cliente
+## <a name="install-the-client-library"></a>Instalar a biblioteca do cliente
 
-Dentro do diretório de aplicações, instale a biblioteca cliente Bing Autosuggest para .NET com o seguinte comando:
+Dentro do diretório de aplicações, instale a biblioteca de clientes Bing Autosuggest para .NET com o seguinte comando:
 
 ```console
 dotnet add package Microsoft.Azure.CognitiveServices.Search.AutoSuggest --version 2.0.0
 ```
 
-Se estiver a usar o Visual Studio IDE, a biblioteca de clientes está disponível como um pacote NuGet transferível.
+Se estiver a utilizar o Visual Studio IDE, a biblioteca do cliente está disponível como um pacote NuGet transferível.
 
 ## <a name="code-examples"></a>Exemplos de código
 
-Estes fragmentos de código mostram-lhe como fazer as seguintes tarefas com a biblioteca de clientes Bing Autosuggest para .NET:
+Estes snippets de código mostram-lhe como fazer as seguintes tarefas com a biblioteca de clientes Bing Autosuggest para .NET:
 
 * [Autenticar o cliente](#authenticate-the-client)
-* [Enviar um pedido de autossugestão](#send-an-autosuggest-request)
+* [Enviar um pedido de Autosuggest](#send-an-autosuggest-request)
 
 ### <a name="authenticate-the-client"></a>Autenticar o cliente
 
 > [!NOTE]
-> Este quickstart assume que [criou uma variável ambiental](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a sua chave Bing Autosuggest, chamada , e uma para o seu ponto `AUTOSUGGEST_SUBSCRIPTION_KEY` final, chamada `AUTOSUGGEST_ENDPOINT` .
+> Este quickstart pressupõe que [criou uma variável ambiental](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a sua chave Bing Autosuggest, nomeada , e uma para o seu ponto `AUTOSUGGEST_SUBSCRIPTION_KEY` final, chamada `AUTOSUGGEST_ENDPOINT` .
 
 
-Num novo método assíncrono, instantaneamente um cliente com o seu ponto final e chave. Crie um objeto [ApiKeyServiceClientCredenciais](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.apikeyserviceclientcredentials?view=azure-dotnet) com a sua chave e use-o com o seu ponto final para criar um objeto [AutosuggestClient.](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclient?view=azure-dotnet)
+Num novo método assíncronos, instantaneamente um cliente com o seu ponto final e chave. Crie um objeto [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.apikeyserviceclientcredentials?view=azure-dotnet) com a sua chave e use-o com o seu ponto final para criar um objeto [AutosuggestClient.](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclient?view=azure-dotnet)
 
 ```csharp
 async static Task RunQuickstart()
@@ -165,9 +165,9 @@ async static Task RunQuickstart()
 }
 ```
 
-### <a name="send-an-autosuggest-request"></a>Enviar um pedido de autossugestão
+### <a name="send-an-autosuggest-request"></a>Enviar um pedido de Autosuggest
 
-No mesmo método, utilize o método [AutoSuggestMethodAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclientextensions.autosuggestmethodasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Search_AutoSuggest_AutoSuggestClientExtensions_AutoSuggestMethodAsync_Microsoft_Azure_CognitiveServices_Search_AutoSuggest_IAutoSuggestClient_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_Threading_CancellationToken_) do cliente para enviar uma consulta ao Bing. Em seguida, iterar sobre a resposta [sugestões,](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.models.suggestions?view=azure-dotnet) e imprimir a primeira sugestão.
+No mesmo método, utilize o método [AutoSuggestMethodAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclientextensions.autosuggestmethodasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Search_AutoSuggest_AutoSuggestClientExtensions_AutoSuggestMethodAsync_Microsoft_Azure_CognitiveServices_Search_AutoSuggest_IAutoSuggestClient_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_Threading_CancellationToken_) do cliente para enviar uma consulta ao Bing. Em seguida, iterate sobre a resposta [sugestões,](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.models.suggestions?view=azure-dotnet) e imprima a primeira sugestão.
 
 ```csharp
 var result = await client.AutoSuggestMethodAsync("xb");
@@ -195,17 +195,17 @@ else
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute a aplicação a partir do seu diretório de candidatura com o `dotnet run` comando.
+Executar o pedido do seu diretório de candidaturas com o `dotnet run` comando.
 
 ```dotnet
 dotnet run
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos associados ao mesmo:
+Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados:
 
-* [Elimine um grupo de recursos no portal Azure.](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Eliminar um grupo de recursos no portal Azure](../../../cognitive-services-apis-create-account.md#clean-up-resources).
 * [Eliminar um grupo de recursos no Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -213,7 +213,7 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 > [!div class="nextstepaction"]
 > [Tutorial da Sugestão Automática do Bing](../../tutorials/autosuggest.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [O que é a Sugestão Automática do Bing?](../../get-suggested-search-terms.md)
-- [Referência do tnet bing Autosuggest](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet)
+- [Bing Autosuggest referência dotnet](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet)

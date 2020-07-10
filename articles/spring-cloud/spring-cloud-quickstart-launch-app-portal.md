@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: 0637716b5f9970ff8c6d550f138fb7d21a26b81a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 118e1e49393a797a065f1e9968a83a6d4464868e
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134464"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171045"
 ---
 # <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Quickstart: Lançar uma aplicação Azure Spring Cloud existente utilizando o portal Azure
 
@@ -132,11 +132,7 @@ Leva cerca de 5 minutos para o serviço ser implantado.  Uma vez implantado, apa
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-5. Crie a `gateway` aplicação e desloque o ficheiro JAR.  Os seguintes passos requerem a extensão da Nuvem de primavera. Se não o instalou com pré-requisitos, execute o seguinte comando:
-
-    ```azurecli
-    az extension add --name spring-cloud
-    ```
+5. Crie a `gateway` aplicação e desloque o ficheiro JAR.
 
     Utilizando a extensão Cloud spring, crie a aplicação:
 
@@ -176,7 +172,7 @@ Leva cerca de 5 minutos para o serviço ser implantado.  Uma vez implantado, apa
 > [!div class="nextstepaction"]
 > [Dei conta de um problema.](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=public-endpoint)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, aprendeu a:
 

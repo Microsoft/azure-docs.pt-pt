@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c7511279e66ab598e4ae3c26f053915b7393b39d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f583e7956cba0de06e5b3277bfea13c463019d9
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74978395"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171980"
 ---
 # <a name="widevine-license-template-overview"></a>Visão geral do modelo de licença de widevine 
 Pode utilizar a Azure Media Services para configurar e solicitar licenças do Google Widevine. Quando o jogador tenta reproduzir o seu conteúdo protegido por Widevine, é enviado um pedido ao serviço de entrega de licenças para obter uma licença. Se o serviço de licença aprovar o pedido, o serviço emite a licença. É enviado para o cliente e é usado para desencriptar e reproduzir o conteúdo especificado.
@@ -28,37 +29,39 @@ Um pedido de licença Widevine é formatado como uma mensagem JSON.
 >[!NOTE]
 > Pode criar uma mensagem vazia sem valores, apenas {} " " Em seguida, um modelo de licença é criado com predefinições. O padrão funciona para a maioria dos casos. Os cenários de entrega de licenças baseados na Microsoft devem sempre utilizar os padrão. Se precisar de definir os valores "fornecedor" e "content_id", um fornecedor deve corresponder às credenciais de Widevine.
 
-    {  
-       "payload": "<license challenge>",
-       "content_id": "<content id>" 
-       "provider": "<provider>"
-       "allowed_track_types": "<types>",
-       "content_key_specs": [  
-          {  
-             "track_type": "<track type 1>"
-          },
-          {  
-             "track_type": "<track type 2>"
-          },
-          …
-       ],
-       "policy_overrides": {  
-          "can_play": <can play>,
-          "can persist": <can persist>,
-          "can_renew": <can renew>,
-          "rental_duration_seconds": <rental duration>,
-          "playback_duration_seconds": <playback duration>,
-          "license_duration_seconds": <license duration>,
-          "renewal_recovery_duration_seconds": <renewal recovery duration>,
-          "renewal_server_url": "<renewal server url>",
-          "renewal_delay_seconds": <renewal delay>,
-          "renewal_retry_interval_seconds": <renewal retry interval>,
-          "renew_with_usage": <renew with usage>
-       }
-    }
+```json
+{  
+   "payload": "<license challenge>",
+   "content_id": "<content id>" 
+   "provider": "<provider>"
+   "allowed_track_types": "<types>",
+   "content_key_specs": [  
+      {  
+         "track_type": "<track type 1>"
+      },
+      {  
+         "track_type": "<track type 2>"
+      },
+      …
+   ],
+   "policy_overrides": {  
+      "can_play": <can play>,
+      "can persist": <can persist>,
+      "can_renew": <can renew>,
+      "rental_duration_seconds": <rental duration>,
+      "playback_duration_seconds": <playback duration>,
+      "license_duration_seconds": <license duration>,
+      "renewal_recovery_duration_seconds": <renewal recovery duration>,
+      "renewal_server_url": "<renewal server url>",
+      "renewal_delay_seconds": <renewal delay>,
+      "renewal_retry_interval_seconds": <renewal retry interval>,
+      "renew_with_usage": <renew with usage>
+   }
+}
+```
 
 ## <a name="json-message"></a>Mensagem JSON
-| Name | Valor | Descrição |
+| Nome | Valor | Descrição |
 | --- | --- | --- |
 | payload |Cadeia codificada base64 |O pedido de licença enviado por um cliente. |
 | content_id |Cadeia codificada base64 |O identificador usou para obter a chave de identificação e de conteúdo para cada content_key_specs.track_type. |
@@ -76,7 +79,7 @@ Se existir uma política pré-existente, não há necessidade de especificar nen
 
 Cada content_key_specs valor deve ser especificado para todas as faixas, independentemente da opção use_policy_overrides_exclusively. 
 
-| Name | Valor | Descrição |
+| Nome | Valor | Descrição |
 | --- | --- | --- |
 | content_key_specs. track_type |string |Um nome do tipo de faixa. Se content_key_specs for especificado no pedido de licença, certifique-se de especificar explicitamente todos os tipos de faixas. Se não o fizer, resulta em não voltar a jogar depois de 10 segundos. |
 | content_key_specs  <br/> security_level |uint32 |Define os requisitos de robustez do cliente para a reprodução. <br/> - É necessária uma criptografia de caixa branca baseada em software. <br/> - São necessárias criptografia de software e um descodificador obfuscado. <br/> - As operações de material-chave e criptografia devem ser efetuadas num ambiente de execução fidedigno apoiado por hardware. <br/> - A criptografia e a descodão dos conteúdos devem ser efetuadas num ambiente de execução fidedigno apoiado por hardware.  <br/> - A criptografia, a descodão e todo o manuseamento dos meios de comunicação (comprimidos e descomprimidos) devem ser manuseados num ambiente de execução fidedigno apoiado por hardware. |
@@ -85,7 +88,7 @@ Cada content_key_specs valor deve ser especificado para todas as faixas, indepen
 | content_key_specs.key_id |Binário de cordas codificado base64, 16 bytes |Identificador único para a chave. |
 
 ## <a name="policy-overrides"></a>A política sobrepõe-se
-| Name | Valor | Descrição |
+| Nome | Valor | Descrição |
 | --- | --- | --- |
 | policy_overrides. can_play |Booleano, verdadeiro ou falso |Indica que a reprodução do conteúdo é permitida. A predefinição é falso. |
 | policy_overrides. can_persist |Booleano, verdadeiro ou falso |Indica que a licença pode ser persistido para armazenamento nãovolásimo para uso offline. A predefinição é falso. |
@@ -100,7 +103,7 @@ Cada content_key_specs valor deve ser especificado para todas as faixas, indepen
 | policy_overrides. renew_with_usage |Booleano, verdadeiro ou falso |Indica que a licença é enviada para renovação quando a utilização começa. Este campo só é usado se can_renew for verdade. |
 
 ## <a name="session-initialization"></a>Inicialização da sessão
-| Name | Valor | Descrição |
+| Nome | Valor | Descrição |
 | --- | --- | --- |
 | provider_session_token |Cadeia codificada base64 |Esta sessão é repercutido na licença e existe em renovações subsequentes. O token da sessão não persiste além das sessões. |
 | provider_client_token |Cadeia codificada base64 |Ficha do cliente para enviar de volta a resposta da licença. Se o pedido de licença contiver um símbolo de cliente, este valor é ignorado. O símbolo do cliente persiste para além das sessões de licença. |
@@ -112,81 +115,85 @@ Os Serviços de Mídia fornecem .NET APIs que pode utilizar para configurar as s
 ### <a name="classes-as-defined-in-the-media-services-net-sdk"></a>Aulas definidas nos Serviços de Comunicação Social .NET SDK
 As seguintes classes são as definições deste tipo:
 
-    public class WidevineMessage
-    {
-        public WidevineMessage();
+```dotnetcli
+public class WidevineMessage
+{
+    public WidevineMessage();
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public AllowedTrackTypes? allowed_track_types { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public ContentKeySpecs[] content_key_specs { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public object policy_overrides { get; set; }
-    }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public AllowedTrackTypes? allowed_track_types { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public ContentKeySpecs[] content_key_specs { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public object policy_overrides { get; set; }
+}
 
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum AllowedTrackTypes
-    {
-        SD_ONLY = 0,
-        SD_HD = 1
-    }
-    public class ContentKeySpecs
-    {
-        public ContentKeySpecs();
+[JsonConverter(typeof(StringEnumConverter))]
+public enum AllowedTrackTypes
+{
+    SD_ONLY = 0,
+    SD_HD = 1
+}
+public class ContentKeySpecs
+{
+    public ContentKeySpecs();
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string key_id { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public RequiredOutputProtection required_output_protection { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public int? security_level { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string track_type { get; set; }
-    }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public string key_id { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public RequiredOutputProtection required_output_protection { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public int? security_level { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public string track_type { get; set; }
+}
 
-    public class RequiredOutputProtection
-    {
-        public RequiredOutputProtection();
+public class RequiredOutputProtection
+{
+    public RequiredOutputProtection();
 
-        public Hdcp hdcp { get; set; }
-    }
+    public Hdcp hdcp { get; set; }
+}
 
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum Hdcp
-    {
-        HDCP_NONE = 0,
-        HDCP_V1 = 1,
-        HDCP_V2 = 2
-    }
+[JsonConverter(typeof(StringEnumConverter))]
+public enum Hdcp
+{
+    HDCP_NONE = 0,
+    HDCP_V1 = 1,
+    HDCP_V2 = 2
+}
+```
 
 ### <a name="example"></a>Exemplo
 O exemplo a seguir mostra como usar .NET APIs para configurar uma licença simples de Widevine:
 
-    private static string ConfigureWidevineLicenseTemplate()
+```dotnetcli
+private static string ConfigureWidevineLicenseTemplate()
+{
+    var template = new WidevineMessage
     {
-        var template = new WidevineMessage
+        allowed_track_types = AllowedTrackTypes.SD_HD,
+        content_key_specs = new[]
         {
-            allowed_track_types = AllowedTrackTypes.SD_HD,
-            content_key_specs = new[]
+            new ContentKeySpecs
             {
-                new ContentKeySpecs
-                {
-                    required_output_protection = new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
-                    security_level = 1,
-                    track_type = "SD"
-                }
-            },
-            policy_overrides = new
-            {
-                can_play = true,
-                can_persist = true,
-                can_renew = false
+                required_output_protection = new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
+                security_level = 1,
+                track_type = "SD"
             }
-        };
+        },
+        policy_overrides = new
+        {
+            can_play = true,
+            can_persist = true,
+            can_renew = false
+        }
+    };
 
-        string configuration = JsonConvert.SerializeObject(template);
-        return configuration;
-    }
+    string configuration = JsonConvert.SerializeObject(template);
+    return configuration;
+}
+```
 
 ## <a name="additional-notes"></a>Notas adicionais
 

@@ -13,11 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 58f2b1828bcc63ce11c234847bc20f90944aba18
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 74757b2f5e272c7e7dbc0dc7f033c7899be1414b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960389"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184318"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registar várias máquinas virtuais SQL em Azure com o fornecedor de recursos SQL VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -133,7 +134,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="resister-all-vms-in-a-resource-group"></a>Resister todos os VMs em um grupo de recursos
+## <a name="register-all-vms-in-a-resource-group"></a>Registar todos os VMs num grupo de recursos
 
 Utilize o seguinte cmdlet para registar todas as máquinas virtuais sql Server num único grupo de recursos: 
 
@@ -214,7 +215,7 @@ O relatório é gerado como um `.txt` ficheiro chamado onde a hora da hora é a 
 | Número de VMs ignorados por não estarem a executar o SQL Server no Windows | Contagem de máquinas virtuais que foram ignoradas por não estarem a executar o SQL Server ou não serem uma máquina virtual do Windows. As máquinas virtuais estão listadas no `SubscriptionID, Resource Group, Virtual Machine` formato. | 
 | &nbsp; | &nbsp; |
 
-### <a name="log"></a>Registar 
+### <a name="log"></a>Registo 
 
 Os erros são registados no ficheiro de registo denominado `VMsNotRegisteredDueToError<Timestamp>.log` , onde a hora de tempo é a hora em que o script começou. Se o erro estiver no nível de subscrição, o registo contém o ID de subscrição separado em vírgula e a mensagem de erro. Se o erro estiver com o registo da máquina virtual, o registo contém o ID de subscrição, nome do grupo de recursos, nome da máquina virtual, código de erro e mensagem separada por vírgulas. 
 

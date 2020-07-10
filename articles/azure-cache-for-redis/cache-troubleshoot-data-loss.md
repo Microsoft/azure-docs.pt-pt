@@ -6,11 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: ef7824640dcd2b9dbae1d27f385e5334ba9875ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba0430461df5ce1a2d615b819dbe5e8a36ae52b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83699236"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184536"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Resolver problemas de perda de dados da Cache do Azure para Redis
 
@@ -22,7 +23,7 @@ Este artigo discute como diagnosticar perdas de dados reais ou percebidas que po
 
 ## <a name="partial-loss-of-keys"></a>Perda parcial de chaves
 
-O Azure Cache para Redis não apaga as chaves aleatoriamente depois de terem sido guardadas na memória. No entanto, remove as chaves em resposta às políticas de caducidade ou de despejo e aos comandos explícitos de eliminação de chaves. As teclas que tenham sido escritas para o nó principal num Cache Premium ou Standard Azure para redis também podem não estar disponíveis numa réplica imediatamente. Os dados são replicados do mestre para a réplica de uma forma assíncronea e não bloqueando.
+O Azure Cache para Redis não apaga as chaves aleatoriamente depois de terem sido guardadas na memória. No entanto, remove as chaves em resposta às políticas de caducidade ou de despejo e aos comandos explícitos de eliminação de chaves. As teclas que tenham sido escritas para o nó primário num Cache Premium ou Standard Azure para redis também podem não estar disponíveis numa réplica imediatamente. Os dados são replicados desde o primário até à réplica de forma assíncronea e não bloqueada.
 
 Se descobrir que as chaves desapareceram do seu cache, verifique as seguintes causas possíveis:
 
@@ -79,7 +80,7 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 ### <a name="async-replication"></a>Replicação assínc
 
-Qualquer Cache Azure para a instância Redis no nível Standard ou Premium é configurado com um nó mestre e pelo menos uma réplica. Os dados são copiados do mestre para uma réplica assíncronea usando um processo de fundo. O [site redis.io](https://redis.io/topics/replication) descreve como a replicação de dados do Redis funciona em geral. Para cenários em que os clientes escrevem ao Redis com frequência, a perda parcial de dados pode ocorrer porque esta replicação não é garantida como instantânea. Por exemplo, se o mestre cair *depois de* um cliente escrever uma chave para ele, mas *antes* que o processo de fundo tenha a oportunidade de enviar essa chave para a réplica, a chave perde-se quando a réplica assume o cargo de novo mestre.
+Qualquer cache Azure para a instância Redis no nível Standard ou Premium está configurado com um nó primário e pelo menos uma réplica. Os dados são copiados do primário para uma réplica assíncronea usando um processo de fundo. O [site redis.io](https://redis.io/topics/replication) descreve como a replicação de dados do Redis funciona em geral. Para cenários em que os clientes escrevem ao Redis com frequência, a perda parcial de dados pode ocorrer porque esta replicação não é garantida como instantânea. Por exemplo, se o primário cair *depois de* um cliente escrever uma chave para ele, mas *antes* que o processo de fundo tenha a oportunidade de enviar essa chave para a réplica, a chave perde-se quando a réplica assume o cargo de nova primária.
 
 ## <a name="major-or-complete-loss-of-keys"></a>Perda total ou completa de chaves
 
@@ -111,7 +112,7 @@ A azure Cache para Redis utiliza a base de **dados db0** por predefinição. Se 
 
 Redis é uma loja de dados na memória. Os dados são mantidos nas máquinas físicas ou virtuais que acolhem a cache Redis. Uma cache Azure para a instância Redis no nível básico funciona apenas numa única máquina virtual (VM). Se o VM estiver em baixo, todos os dados que armazenaste na cache estão perdidos. 
 
-Caches nos níveis Standard e Premium oferecem uma resiliência muito maior contra a perda de dados usando dois VMs numa configuração replicada. Quando o nó principal em tal cache falha, o nó réplica assume-se para servir automaticamente os dados. Estes VMs estão localizados em domínios separados para falhas e atualizações, para minimizar a possibilidade de ambos ficarem indisponíveis simultaneamente. No entanto, se uma grande interrupção do datacenter acontecer, os VMs ainda podem descer juntos. Os seus dados perder-se-ão nestes casos raros.
+Caches nos níveis Standard e Premium oferecem uma resiliência muito maior contra a perda de dados usando dois VMs numa configuração replicada. Quando o nó primário em tal cache falha, o nó réplica assume-se para servir automaticamente os dados. Estes VMs estão localizados em domínios separados para falhas e atualizações, para minimizar a possibilidade de ambos ficarem indisponíveis simultaneamente. No entanto, se uma grande interrupção do datacenter acontecer, os VMs ainda podem descer juntos. Os seus dados perder-se-ão nestes casos raros.
 
 Considere usar a persistência de [dados redis](https://redis.io/topics/persistence) e [a geo-replicação](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) para melhorar a proteção dos seus dados contra estas falhas de infraestrutura.
 

@@ -1,18 +1,14 @@
 ---
 title: Manipuladores e destinos de eventos - Azure Event Grid IoT Edge / Microsoft Docs
 description: Manipuladores de eventos e destinos em Grade de Eventos na Borda
-author: femila
-ms.author: femila
-ms.reviewer: spelluru
-ms.date: 01/09/2020
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 4e144461b80dca2cf02c0cc06d7feee882293848
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18e2b944f60ebdf8a1b0c60ba446a13df13134c5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557645"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171589"
 ---
 # <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Manipuladores de eventos e destinos em Grade de Eventos na Borda
 

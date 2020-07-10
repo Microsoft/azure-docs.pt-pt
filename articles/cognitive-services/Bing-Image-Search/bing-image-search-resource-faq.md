@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 3114c19ecff1a8ae70012592592078302d4a6222
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 2d919640431ce014d34372812d9c07bb84d750b2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800028"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184060"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Perguntas frequentes (FAQ) sobre a API de Pesquisa de Imagem de Bing
 
@@ -25,7 +25,7 @@ Encontre respostas para perguntas comumente feitas sobre conceitos, código e ce
 
 Podem ocorrer os seguintes cabeçalhos em respostas da API de Pesquisa de Imagem de Bing.
 
-| `Attribute`         | `Description` |
+| Atributo           | Descrição   |
 | ------------------- | ------------- |
 | `X-MSEdge-ClientID` |O ID único que Bing atribuiu ao utilizador |
 | `BingAPIs-Market`   |O mercado que foi usado para satisfazer o pedido |
@@ -66,6 +66,6 @@ Esta abordagem também protege a sua chave API da exposição ao público, uma v
 
 A sua pergunta é sobre uma funcionalidade ou funcionalidade em falta? Considere solicitar ou votar no nosso [site user Voice](https://cognitive.uservoice.com/forums/555907-bing-search).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
  [Stack Overflow: Serviços Cognitivos](https://stackoverflow.com/questions/tagged/bing-api)

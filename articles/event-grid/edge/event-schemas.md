@@ -5,16 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: ba261aeedf6574f69d3c05f8fd005c912dcc59d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea36c40f2038d016afb0c45944a98d4d90df6240
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73242462"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171572"
 ---
 # <a name="event-schemas"></a>Esquemas de eventos
 
@@ -54,15 +52,15 @@ O esquema eventGrid consiste num conjunto de propriedades necessárias às quais
 
 Todos os eventos têm os seguintes dados de alto nível:
 
-| Propriedade | Tipo | Necessário | Descrição |
+| Propriedade | Tipo | Obrigatório | Descrição |
 | -------- | ---- | ----------- |-----------
 | tópico | cadeia (de carateres) | No | Deve coincidir com o tópico em que é publicado. O Event Grid povoa-o com o nome do tópico sobre o qual é publicado se não for especificado. |
-| Assunto | string | Yes | Caminho definido pelo publicador para o assunto do evento. |
-| eventType | string | Yes | Tipo de evento para esta fonte de evento, por exemplo, BlobCreated. |
-| eventTime | string | Yes | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
+| subject | string | Sim | Caminho definido pelo publicador para o assunto do evento. |
+| eventType | string | Sim | Tipo de evento para esta fonte de evento, por exemplo, BlobCreated. |
+| eventTime | string | Sim | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | ID | cadeia (de carateres) | No | Identificador único para o evento. |
-| dados | objeto | No | Usado para capturar dados de eventos específicos da entidade editorial. |
-| dataVersion | string | Yes | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| dados | objeto | Não | Usado para capturar dados de eventos específicos da entidade editorial. |
+| dataVersion | string | Sim | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | cadeia (de carateres) | No | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 ### <a name="example--eventgrid-schema-event"></a>Exemplo — EventoGrid schema event

@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/29/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 7df283b12a0d04d2b785c13a2f12b03115581e79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa0b3a05fb26f6be951b697145d7b22e03b7792d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76841717"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171623"
 ---
 # <a name="delivery-and-retry"></a>Entrega e tentativa
 
@@ -26,7 +25,7 @@ A Grade de Eventos proporciona uma entrega duradoura. Tenta entregar cada mensag
 
 A Grade de Eventos aguarda até 60 segundos para uma resposta depois de entregar uma mensagem. Se o ponto final do assinante não conseguir a resposta, a mensagem será encosa numa das nossas filas de recuo para posteriores retréis.
 
-Há duas filas pré-configuradas que determinam o horário em que uma nova tentativa será tentada. São:
+Há duas filas pré-configuradas que determinam o horário em que uma nova tentativa será tentada. A saber:
 
 | Agenda | Descrição |
 | ---------| ------------ |
@@ -42,7 +41,7 @@ Há duas filas pré-configuradas que determinam o horário em que uma nova tenta
 
 ## <a name="retry-policy-limits"></a>Redaçar os limites da política
 
-Existem duas configurações que determinam a política de retíria. São:
+Existem duas configurações que determinam a política de retíria. A saber:
 
 * Número máximo de tentativas
 * Tempo de vida do evento (TTL)
